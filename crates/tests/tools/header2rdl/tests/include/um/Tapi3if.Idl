@@ -1,0 +1,4042 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("/* Copyright (c) Microsoft Corporation. All rights reserved. */")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef __TAPI3IF_IDL__
+#define __TAPI3IF_IDL__
+
+import "oaidl.idl";
+import "basetsd.h";
+import "strmif.idl";
+
+midl_pragma warning( disable: 2039 )
+
+cpp_quote("#if 0")
+#ifdef _X86_
+	typedef long TAPIHWND;
+#else
+	typedef LONGLONG TAPIHWND;
+#endif
+cpp_quote("#endif")
+
+
+cpp_quote("#ifdef _X86_")
+	cpp_quote("typedef long TAPIHWND;")
+cpp_quote("#else")
+	cpp_quote("typedef LONGLONG TAPIHWND;")
+cpp_quote("#endif")
+
+
+typedef long TAPI_DIGITMODE;
+
+typedef enum TAPI_TONEMODE
+{
+  TTM_RINGBACK  = 0x00000002,
+  TTM_BUSY      = 0x00000004,
+  TTM_BEEP      = 0x00000008,
+  TTM_BILLING   = 0x00000010
+
+} TAPI_TONEMODE;
+
+typedef enum TAPI_GATHERTERM
+{
+  TGT_BUFFERFULL   = 0x00000001,
+  TGT_TERMDIGIT    = 0x00000002,
+  TGT_FIRSTTIMEOUT = 0x00000004,
+  TGT_INTERTIMEOUT = 0x00000008,
+  TGT_CANCEL       = 0x00000010
+
+} TAPI_GATHERTERM;
+
+typedef struct TAPI_CUSTOMTONE
+{
+    DWORD       dwFrequency;
+    DWORD       dwCadenceOn;
+    DWORD       dwCadenceOff;
+    DWORD       dwVolume;
+
+} TAPI_CUSTOMTONE, *LPTAPI_CUSTOMTONE;
+
+typedef struct TAPI_DETECTTONE
+{
+    DWORD       dwAppSpecific;
+    DWORD       dwDuration;
+    DWORD       dwFrequency1;
+    DWORD       dwFrequency2;
+    DWORD       dwFrequency3;
+
+} TAPI_DETECTTONE, *LPTAPI_DETECTTONE;
+
+typedef enum ADDRESS_EVENT
+{
+    AE_STATE,
+    AE_CAPSCHANGE,
+    AE_RINGING,
+    AE_CONFIGCHANGE,
+    AE_FORWARD,
+    AE_NEWTERMINAL,
+    AE_REMOVETERMINAL,
+    AE_MSGWAITON,
+    AE_MSGWAITOFF,
+    AE_LASTITEM = AE_MSGWAITOFF
+
+} ADDRESS_EVENT;
+
+typedef enum ADDRESS_STATE
+{
+    AS_INSERVICE,
+    AS_OUTOFSERVICE
+
+} ADDRESS_STATE;
+
+typedef enum CALL_STATE
+{
+    CS_IDLE,
+    CS_INPROGRESS,
+    CS_CONNECTED,
+    CS_DISCONNECTED,
+    CS_OFFERING,
+    CS_HOLD,
+    CS_QUEUED,
+    CS_LASTITEM = CS_QUEUED
+
+} CALL_STATE;
+
+typedef enum CALL_STATE_EVENT_CAUSE
+{
+    CEC_NONE,
+    CEC_DISCONNECT_NORMAL,
+    CEC_DISCONNECT_BUSY,
+    CEC_DISCONNECT_BADADDRESS,
+    CEC_DISCONNECT_NOANSWER,
+    CEC_DISCONNECT_CANCELLED,
+    CEC_DISCONNECT_REJECTED,
+    CEC_DISCONNECT_FAILED,
+    CEC_DISCONNECT_BLOCKED
+
+} CALL_STATE_EVENT_CAUSE;
+
+typedef enum CALL_MEDIA_EVENT
+{
+    CME_NEW_STREAM,
+    CME_STREAM_FAIL,
+    CME_TERMINAL_FAIL,
+    CME_STREAM_NOT_USED,
+    CME_STREAM_ACTIVE,
+    CME_STREAM_INACTIVE,
+    CME_LASTITEM = CME_STREAM_INACTIVE
+            
+} CALL_MEDIA_EVENT;
+
+typedef enum CALL_MEDIA_EVENT_CAUSE
+{
+   CMC_UNKNOWN,
+   CMC_BAD_DEVICE,
+   CMC_CONNECT_FAIL,
+   CMC_LOCAL_REQUEST,
+   CMC_REMOTE_REQUEST,
+   CMC_MEDIA_TIMEOUT,
+   CMC_MEDIA_RECOVERED,
+   CMC_QUALITY_OF_SERVICE
+            
+} CALL_MEDIA_EVENT_CAUSE;
+
+typedef enum DISCONNECT_CODE
+{
+    DC_NORMAL,
+    DC_NOANSWER,
+    DC_REJECTED
+
+} DISCONNECT_CODE;
+
+typedef enum TERMINAL_STATE
+{
+    TS_INUSE,
+    TS_NOTINUSE
+
+} TERMINAL_STATE;
+
+typedef enum TERMINAL_DIRECTION
+{
+    TD_CAPTURE,
+    TD_RENDER,
+    TD_BIDIRECTIONAL,
+    TD_MULTITRACK_MIXED,
+    TD_NONE
+
+} TERMINAL_DIRECTION;
+
+typedef enum TERMINAL_TYPE
+{
+    TT_STATIC,
+    TT_DYNAMIC
+
+} TERMINAL_TYPE;
+
+typedef enum CALL_PRIVILEGE
+{
+    CP_OWNER,
+    CP_MONITOR
+
+} CALL_PRIVILEGE;
+
+typedef enum TAPI_EVENT
+{
+    TE_TAPIOBJECT         = 0x00000001,
+    TE_ADDRESS            = 0x00000002,
+    TE_CALLNOTIFICATION   = 0x00000004,
+    TE_CALLSTATE          = 0x00000008,
+    TE_CALLMEDIA          = 0x00000010,
+    TE_CALLHUB            = 0x00000020,
+    TE_CALLINFOCHANGE     = 0x00000040,
+    TE_PRIVATE            = 0x00000080,
+    TE_REQUEST            = 0x00000100,
+    TE_AGENT              = 0x00000200,
+    TE_AGENTSESSION       = 0x00000400,
+    TE_QOSEVENT           = 0x00000800,
+    TE_AGENTHANDLER       = 0x00001000,
+    TE_ACDGROUP           = 0x00002000,
+    TE_QUEUE              = 0x00004000,
+    TE_DIGITEVENT         = 0x00008000,
+    TE_GENERATEEVENT      = 0x00010000,
+    TE_ASRTERMINAL        = 0x00020000,
+    TE_TTSTERMINAL        = 0x00040000,
+    TE_FILETERMINAL       = 0x00080000,
+    TE_TONETERMINAL       = 0x00100000,
+    TE_PHONEEVENT         = 0x00200000,
+    TE_TONEEVENT          = 0x00400000,
+    TE_GATHERDIGITS       = 0x00800000,
+    TE_ADDRESSDEVSPECIFIC = 0x01000000,
+    TE_PHONEDEVSPECIFIC   = 0x02000000
+} TAPI_EVENT;
+
+typedef enum CALL_NOTIFICATION_EVENT
+{
+    CNE_OWNER,
+    CNE_MONITOR,
+    CNE_LASTITEM = CNE_MONITOR
+
+} CALL_NOTIFICATION_EVENT;
+
+typedef enum CALLHUB_EVENT
+{
+    CHE_CALLJOIN,
+    CHE_CALLLEAVE,
+    CHE_CALLHUBNEW,
+    CHE_CALLHUBIDLE,
+    CHE_LASTITEM = CHE_CALLHUBIDLE
+        
+} CALLHUB_EVENT;
+
+typedef enum CALLHUB_STATE
+{
+    CHS_ACTIVE,
+    CHS_IDLE
+            
+} CALLHUB_STATE;
+
+
+typedef enum TAPIOBJECT_EVENT
+{
+    TE_ADDRESSCREATE,
+    TE_ADDRESSREMOVE,
+    TE_REINIT,
+    TE_TRANSLATECHANGE,
+    TE_ADDRESSCLOSE,
+    TE_PHONECREATE,
+    TE_PHONEREMOVE
+
+} TAPIOBJECT_EVENT;
+
+typedef enum TAPI_OBJECT_TYPE
+{
+    TOT_NONE,
+    TOT_TAPI,
+    TOT_ADDRESS,
+    TOT_TERMINAL,
+    TOT_CALL,
+    TOT_CALLHUB,
+    TOT_PHONE
+
+} TAPI_OBJECT_TYPE;
+
+typedef enum QOS_SERVICE_LEVEL
+{
+    QSL_NEEDED = 1,
+    QSL_IF_AVAILABLE = 2,
+    QSL_BEST_EFFORT = 3
+
+} QOS_SERVICE_LEVEL;
+
+typedef enum QOS_EVENT
+{
+    QE_NOQOS = 1,
+    QE_ADMISSIONFAILURE = 2,
+    QE_POLICYFAILURE = 3,
+    QE_GENERICERROR = 4,
+    QE_LASTITEM = QE_GENERICERROR
+            
+} QOS_EVENT;
+
+typedef enum CALLINFOCHANGE_CAUSE
+{
+    CIC_OTHER,
+    CIC_DEVSPECIFIC,
+    CIC_BEARERMODE,
+    CIC_RATE,
+    CIC_APPSPECIFIC,
+    CIC_CALLID,
+    CIC_RELATEDCALLID,
+    CIC_ORIGIN,
+    CIC_REASON,
+    CIC_COMPLETIONID,
+    CIC_NUMOWNERINCR,
+    CIC_NUMOWNERDECR,
+    CIC_NUMMONITORS,
+    CIC_TRUNK,
+    CIC_CALLERID,
+    CIC_CALLEDID,
+    CIC_CONNECTEDID,
+    CIC_REDIRECTIONID,
+    CIC_REDIRECTINGID,
+    CIC_USERUSERINFO,
+    CIC_HIGHLEVELCOMP,
+    CIC_LOWLEVELCOMP,
+    CIC_CHARGINGINFO,
+    CIC_TREATMENT,
+    CIC_CALLDATA,
+    CIC_PRIVILEGE,
+    CIC_MEDIATYPE,
+    CIC_LASTITEM = CIC_MEDIATYPE
+
+} CALLINFOCHANGE_CAUSE;
+
+typedef enum CALLINFO_LONG
+{
+    CIL_MEDIATYPESAVAILABLE,
+    CIL_BEARERMODE,
+    CIL_CALLERIDADDRESSTYPE,
+    CIL_CALLEDIDADDRESSTYPE,
+    CIL_CONNECTEDIDADDRESSTYPE,
+    CIL_REDIRECTIONIDADDRESSTYPE,
+    CIL_REDIRECTINGIDADDRESSTYPE,
+    CIL_ORIGIN,
+    CIL_REASON,
+    CIL_APPSPECIFIC,
+    CIL_CALLPARAMSFLAGS,
+    CIL_CALLTREATMENT,
+    CIL_MINRATE,
+    CIL_MAXRATE,
+    CIL_COUNTRYCODE,
+    CIL_CALLID,
+    CIL_RELATEDCALLID,
+    CIL_COMPLETIONID,
+    CIL_NUMBEROFOWNERS,
+    CIL_NUMBEROFMONITORS,
+    CIL_TRUNK,
+    CIL_RATE,
+    CIL_GENERATEDIGITDURATION,
+    CIL_MONITORDIGITMODES,
+    CIL_MONITORMEDIAMODES
+
+} CALLINFO_LONG;
+
+typedef enum CALLINFO_STRING
+{
+    CIS_CALLERIDNAME,
+    CIS_CALLERIDNUMBER,
+    CIS_CALLEDIDNAME,
+    CIS_CALLEDIDNUMBER,
+    CIS_CONNECTEDIDNAME,
+    CIS_CONNECTEDIDNUMBER,
+    CIS_REDIRECTIONIDNAME,
+    CIS_REDIRECTIONIDNUMBER,
+    CIS_REDIRECTINGIDNAME,
+    CIS_REDIRECTINGIDNUMBER,
+    CIS_CALLEDPARTYFRIENDLYNAME,
+    CIS_COMMENT,
+    CIS_DISPLAYABLEADDRESS,
+    CIS_CALLINGPARTYID
+
+} CALLINFO_STRING;
+
+
+typedef enum CALLINFO_BUFFER
+{
+    CIB_USERUSERINFO,
+    CIB_DEVSPECIFICBUFFER,
+    CIB_CALLDATABUFFER,
+    CIB_CHARGINGINFOBUFFER,
+    CIB_HIGHLEVELCOMPATIBILITYBUFFER,
+    CIB_LOWLEVELCOMPATIBILITYBUFFER
+
+} CALLINFO_BUFFER;
+
+
+
+typedef enum ADDRESS_CAPABILITY
+{
+    AC_ADDRESSTYPES,
+    AC_BEARERMODES,
+    AC_MAXACTIVECALLS,
+    AC_MAXONHOLDCALLS,
+    AC_MAXONHOLDPENDINGCALLS,
+    AC_MAXNUMCONFERENCE,
+    AC_MAXNUMTRANSCONF,
+    AC_MONITORDIGITSUPPORT,
+    AC_GENERATEDIGITSUPPORT,
+    AC_GENERATETONEMODES,
+    AC_GENERATETONEMAXNUMFREQ,
+    AC_MONITORTONEMAXNUMFREQ,
+    AC_MONITORTONEMAXNUMENTRIES,
+    AC_DEVCAPFLAGS,
+    AC_ANSWERMODES,
+    AC_LINEFEATURES,
+    AC_SETTABLEDEVSTATUS,
+    AC_PARKSUPPORT,
+    AC_CALLERIDSUPPORT,
+    AC_CALLEDIDSUPPORT,
+    AC_CONNECTEDIDSUPPORT,
+    AC_REDIRECTIONIDSUPPORT,
+    AC_REDIRECTINGIDSUPPORT,
+    AC_ADDRESSCAPFLAGS,
+    AC_CALLFEATURES1,
+    AC_CALLFEATURES2,
+    AC_REMOVEFROMCONFCAPS,
+    AC_REMOVEFROMCONFSTATE,
+    AC_TRANSFERMODES,
+    AC_ADDRESSFEATURES,
+    AC_PREDICTIVEAUTOTRANSFERSTATES,
+    AC_MAXCALLDATASIZE,
+    AC_LINEID,
+    AC_ADDRESSID,
+    AC_FORWARDMODES,
+    AC_MAXFORWARDENTRIES,
+    AC_MAXSPECIFICENTRIES,
+    AC_MINFWDNUMRINGS,
+    AC_MAXFWDNUMRINGS,
+    AC_MAXCALLCOMPLETIONS,
+    AC_CALLCOMPLETIONCONDITIONS,
+    AC_CALLCOMPLETIONMODES,
+    AC_PERMANENTDEVICEID,
+    AC_GATHERDIGITSMINTIMEOUT,
+    AC_GATHERDIGITSMAXTIMEOUT,
+    AC_GENERATEDIGITMINDURATION,
+    AC_GENERATEDIGITMAXDURATION,
+    AC_GENERATEDIGITDEFAULTDURATION
+
+} ADDRESS_CAPABILITY;
+
+
+typedef enum ADDRESS_CAPABILITY_STRING
+{
+    ACS_PROTOCOL,
+    ACS_ADDRESSDEVICESPECIFIC,
+    ACS_LINEDEVICESPECIFIC,
+    ACS_PROVIDERSPECIFIC,
+    ACS_SWITCHSPECIFIC,
+    ACS_PERMANENTDEVICEGUID
+            
+} ADDRESS_CAPABILITY_STRING;
+
+
+typedef enum FULLDUPLEX_SUPPORT
+{
+    FDS_SUPPORTED,
+    FDS_NOTSUPPORTED,
+    FDS_UNKNOWN
+
+} FULLDUPLEX_SUPPORT;
+
+
+typedef enum FINISH_MODE
+{
+     FM_ASTRANSFER,
+     FM_ASCONFERENCE
+
+} FINISH_MODE;
+
+typedef enum PHONE_PRIVILEGE
+{
+    PP_OWNER,
+    PP_MONITOR
+
+} PHONE_PRIVILEGE;
+
+//
+// the hookswitch types
+//
+
+typedef enum PHONE_HOOK_SWITCH_DEVICE
+{
+    PHSD_HANDSET             = 0x00000001,
+    PHSD_SPEAKERPHONE        = 0x00000002,
+    PHSD_HEADSET             = 0x00000004
+            
+} PHONE_HOOK_SWITCH_DEVICE;
+
+//
+// hookswitch mode
+//
+
+typedef enum PHONE_HOOK_SWITCH_STATE
+{
+    PHSS_ONHOOK               = 0x00000001,
+    PHSS_OFFHOOK_MIC_ONLY     = 0x00000002,
+    PHSS_OFFHOOK_SPEAKER_ONLY = 0x00000004,
+    PHSS_OFFHOOK              = 0x00000008
+            
+} PHONE_HOOK_SWITCH_STATE;
+
+//
+// lamp mode
+// how the lamp is flashing.
+// as defined in TAPI 2.x
+//
+
+typedef enum PHONE_LAMP_MODE
+{
+    LM_DUMMY                = 0x00000001,
+    LM_OFF                  = 0x00000002,
+    LM_STEADY               = 0x00000004,
+    LM_WINK                 = 0x00000008,
+    LM_FLASH                = 0x00000010,
+    LM_FLUTTER              = 0x00000020,
+    LM_BROKENFLUTTER        = 0x00000040,
+    LM_UNKNOWN              = 0x00000080
+
+} PHONE_LAMP_MODE;
+
+//
+// capabilities of the phone
+//
+
+typedef enum PHONECAPS_LONG
+{
+    PCL_HOOKSWITCHES,
+    PCL_HANDSETHOOKSWITCHMODES,
+    PCL_HEADSETHOOKSWITCHMODES,
+    PCL_SPEAKERPHONEHOOKSWITCHMODES,
+    PCL_DISPLAYNUMROWS,
+    PCL_DISPLAYNUMCOLUMNS,
+    PCL_NUMRINGMODES,
+    PCL_NUMBUTTONLAMPS,
+    PCL_GENERICPHONE
+    
+} PHONECAPS_LONG;
+
+//
+// capabilities of the phone (strings)
+//
+
+typedef enum PHONECAPS_STRING
+{
+    PCS_PHONENAME,
+    PCS_PHONEINFO,
+    PCS_PROVIDERINFO
+
+} PHONECAPS_STRING;
+
+//
+// capabilities of the phone (buffers)
+//
+
+typedef enum PHONECAPS_BUFFER
+{
+    PCB_DEVSPECIFICBUFFER
+
+} PHONECAPS_BUFFER;
+
+//
+// state of the button
+// do we need to reflect the one shot vs. state?
+//
+
+typedef enum PHONE_BUTTON_STATE
+{
+    PBS_UP                  = 0x00000001,
+    PBS_DOWN                = 0x00000002,
+    PBS_UNKNOWN             = 0x00000004,
+    PBS_UNAVAIL             = 0x00000008
+            
+} PHONE_BUTTON_STATE;
+
+//
+// what the button is used for
+//
+
+typedef enum PHONE_BUTTON_MODE
+{
+    PBM_DUMMY,
+    PBM_CALL,
+    PBM_FEATURE,
+    PBM_KEYPAD,
+    PBM_LOCAL,
+    PBM_DISPLAY
+            
+} PHONE_BUTTON_MODE;
+
+//
+// the function of the button - when the button is pressed,
+// what is expected to happen.
+//
+
+typedef enum PHONE_BUTTON_FUNCTION
+{
+    PBF_UNKNOWN,
+    PBF_CONFERENCE,
+    PBF_TRANSFER,
+    PBF_DROP,
+    PBF_HOLD,
+    PBF_RECALL,
+    PBF_DISCONNECT,
+    PBF_CONNECT,
+    PBF_MSGWAITON,
+    PBF_MSGWAITOFF,
+    PBF_SELECTRING,
+    PBF_ABBREVDIAL,
+    PBF_FORWARD,
+    PBF_PICKUP,
+    PBF_RINGAGAIN,
+    PBF_PARK,
+    PBF_REJECT,
+    PBF_REDIRECT,
+    PBF_MUTE,
+    PBF_VOLUMEUP,
+    PBF_VOLUMEDOWN,
+    PBF_SPEAKERON,
+    PBF_SPEAKEROFF,
+    PBF_FLASH,
+    PBF_DATAON,
+    PBF_DATAOFF,
+    PBF_DONOTDISTURB,
+    PBF_INTERCOM,
+    PBF_BRIDGEDAPP,
+    PBF_BUSY,
+    PBF_CALLAPP,
+    PBF_DATETIME,
+    PBF_DIRECTORY,
+    PBF_COVER,
+    PBF_CALLID,
+    PBF_LASTNUM,
+    PBF_NIGHTSRV,
+    PBF_SENDCALLS,
+    PBF_MSGINDICATOR,
+    PBF_REPDIAL,
+    PBF_SETREPDIAL,
+    PBF_SYSTEMSPEED,
+    PBF_STATIONSPEED,
+    PBF_CAMPON,
+    PBF_SAVEREPEAT,
+    PBF_QUEUECALL,
+    PBF_NONE,
+    PBF_SEND
+
+} PHONE_BUTTON_FUNCTION;
+
+//
+// Used by ITAutomatedPhoneControl
+//
+
+typedef enum PHONE_TONE
+{
+    PT_KEYPADZERO,
+    PT_KEYPADONE,
+    PT_KEYPADTWO,
+    PT_KEYPADTHREE,
+    PT_KEYPADFOUR,
+    PT_KEYPADFIVE,
+    PT_KEYPADSIX,
+    PT_KEYPADSEVEN,
+    PT_KEYPADEIGHT,
+    PT_KEYPADNINE,
+    PT_KEYPADSTAR,
+    PT_KEYPADPOUND,
+    PT_KEYPADA,
+    PT_KEYPADB,
+    PT_KEYPADC,
+    PT_KEYPADD,
+    PT_NORMALDIALTONE,
+    PT_EXTERNALDIALTONE,
+    PT_BUSY,
+    PT_RINGBACK,
+    PT_ERRORTONE,
+    PT_SILENCE
+
+} PHONE_TONE;
+
+//
+// events related to phones
+//
+
+typedef enum PHONE_EVENT
+{
+    PE_DISPLAY,
+    PE_LAMPMODE,
+    PE_RINGMODE,
+    PE_RINGVOLUME,
+    PE_HOOKSWITCH,
+    PE_CAPSCHANGE,
+    PE_BUTTON,
+    PE_CLOSE,
+    PE_NUMBERGATHERED,
+    PE_DIALING,
+    PE_ANSWER,
+    PE_DISCONNECT,
+    PE_LASTITEM = PE_DISCONNECT
+            
+} PHONE_EVENT;
+
+// Dispach ID mapping constants
+const DISPID  INTERFACEMASK                     = 0x00FF0000;
+const DISPID  DISPIDMASK                        = 0x0000FFFF;
+                               
+// Tapi Object Interfaces
+const DISPID  IDISPTAPI                         = 0x00010000;
+const DISPID  IDISPTAPICALLCENTER               = 0x00020000;
+
+// Call Object Interfaces
+const DISPID  IDISPCALLINFO                     = 0x00010000;
+const DISPID  IDISPBASICCALLCONTROL             = 0x00020000;
+const DISPID  IDISPLEGACYCALLMEDIACONTROL       = 0x00030000;
+const DISPID  IDISPAGGREGATEDMSPCALLOBJ         = 0x00040000;
+
+// Address Object Interfaces
+const DISPID  IDISPADDRESS                      = 0x00010000;
+const DISPID  IDISPADDRESSCAPABILITIES          = 0x00020000;
+const DISPID  IDISPMEDIASUPPORT                 = 0x00030000;
+const DISPID  IDISPADDRESSTRANSLATION           = 0x00040000;
+const DISPID  IDISPLEGACYADDRESSMEDIACONTROL    = 0x00050000;
+const DISPID  IDISPAGGREGATEDMSPADDRESSOBJ      = 0x00060000;
+
+// Phone Object Interfaces
+const DISPID  IDISPPHONE                        = 0x00010000;
+const DISPID  IDISPAPC                          = 0x00020000;
+
+// file terminal object interfaces
+const DISPID  IDISPMULTITRACK                   = 0x00010000;
+const DISPID  IDISPMEDIACONTROL                 = 0x00020000;
+const DISPID  IDISPMEDIARECORD                  = 0x00030000;
+const DISPID  IDISPMEDIAPLAYBACK                = 0x00040000;
+
+// file terminal track interfaces
+const DISPID  IDISPFILETRACK                    = 0x00010000;
+
+
+// forward definitions
+interface IEnumAddress;
+interface IEnumPhone;
+interface IEnumCall;
+interface IEnumTerminalClass;
+interface IEnumTerminal;
+interface IEnumLocation;
+interface IEnumCallingCard;
+interface IEnumBstr;
+interface ITCollection;
+interface ITCollection2;
+interface ITTerminal;
+interface ITAMTerminal;
+interface ITTAPI;
+interface ITTAPI2;
+interface ITMediaSupport;
+interface ITTerminalSupport;
+interface ITTerminalSupport2;
+interface ITCallInfo;
+interface ITCallInfo2;
+interface ITCallHub;
+interface ITBasicCallControl;
+interface IEnumCallHub;
+interface ITForwardInformation;
+interface ITAddressTranslation;
+interface ITAddressTranslationInfo;
+interface ITLocationInfo;
+interface ITCallingCard;
+interface ITAddress;
+interface ITAddress2;
+interface ITPhone;
+interface ITStaticAudioTerminal;
+interface ITStream;
+interface ITStreamControl;
+interface ITStream;
+interface ITSubStreamControl;
+interface ITSubStream;
+interface IEnumStream;
+interface IEnumSubStream;
+interface ITTone;
+interface ITToneGeneration;
+interface ITToneDetection;
+interface ITScriptableAudioFormat;
+interface ITPluggableTerminalSuperclassInfo;
+interface ITPluggableTerminalClassInfo;
+interface IEnumPluggableTerminalClassInfo;
+interface IEnumPluggableSuperclassInfo;
+interface ITDetectTone;
+interface ITCustomTone;
+
+[
+   uuid( B1EFC382-9355-11d0-835C-00AA003CCABD ),
+   helpstring("TAPI 3.0 ITTAPI interface"),
+   pointer_default(unique),
+   dual
+]
+
+interface ITTAPI : IDispatch
+{
+    [id(IDISPTAPI | 13), helpstring("Initialize")]
+    HRESULT Initialize();
+
+    [id(IDISPTAPI | 14), helpstring("Shutdown")]
+    HRESULT Shutdown();
+
+    [propget, id(IDISPTAPI | 1), helpstring("property Addresses")]
+    HRESULT Addresses( 
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPTAPI | 2), hidden, helpstring("method EnumerateAddresses")]
+    HRESULT EnumerateAddresses(
+            [out, retval] IEnumAddress ** ppEnumAddress
+            );
+
+    [id(IDISPTAPI | 3), helpstring("method RegisterCallNotifications")]
+    HRESULT RegisterCallNotifications(
+            [in]ITAddress * pAddress,
+            [in]VARIANT_BOOL fMonitor,
+            [in]VARIANT_BOOL fOwner,
+            [in]long lMediaTypes,
+            [in]long lCallbackInstance,
+            [out,retval]long * plRegister
+            );
+
+    [id(IDISPTAPI | 4), helpstring("method UnregisterNotifications")]
+    HRESULT UnregisterNotifications(
+            [in] long lRegister
+            );
+    
+    [propget, id(IDISPTAPI | 5), helpstring("property CallHubs")]
+    HRESULT CallHubs(
+                     [out, retval] VARIANT * pVariant
+                    );
+
+    [id(IDISPTAPI | 6), hidden, helpstring("method EnumerateCallHubs")]
+    HRESULT EnumerateCallHubs(
+                              [out, retval] IEnumCallHub ** ppEnumCallHub
+                             );
+
+    [id(IDISPTAPI | 7), helpstring("method SetCallHubTracking")]
+    HRESULT SetCallHubTracking(
+                               [in] VARIANT pAddresses,
+                               [in] VARIANT_BOOL bTracking
+                               );
+
+    
+    [id(IDISPTAPI | 8), hidden]
+    HRESULT EnumeratePrivateTAPIObjects(
+            [out] IEnumUnknown ** ppEnumUnknown
+            );
+
+    [propget, id(IDISPTAPI | 9), helpstring("property PrivateTAPIObjects")]
+    HRESULT PrivateTAPIObjects(
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPTAPI | 10), helpstring("method RegisterRequestRecipient")]
+    HRESULT RegisterRequestRecipient(
+            [in] long lRegistrationInstance,
+            [in] long lRequestMode,
+            [in] VARIANT_BOOL fEnable
+            );
+
+    [id(IDISPTAPI | 11), helpstring("method SetAssistedTelephonyPriority")]
+    HRESULT SetAssistedTelephonyPriority(
+            [in] BSTR pAppFilename,
+            [in] VARIANT_BOOL fPriority
+            );
+
+    [id(IDISPTAPI | 12), helpstring("method SetApplicationPriority")]
+    HRESULT SetApplicationPriority(
+            [in] BSTR pAppFilename,
+            [in] long lMediaType,
+            [in] VARIANT_BOOL fPriority
+            );
+
+    [propput, id(IDISPTAPI | 15), helpstring("property EventFilter")]
+    HRESULT EventFilter( 
+            [in] long lFilterMask
+            );
+            
+    [propget, id(IDISPTAPI | 15), helpstring("property EventFilter")]
+    HRESULT EventFilter( 
+            [out, retval] long * plFilterMask
+            );
+
+}
+
+[
+    uuid( 54FBDC8C-D90F-4dad-9695-B373097F094B ),
+    helpstring("TAPI 3.1 ITTAPI2 interface"),
+    dual
+]
+interface ITTAPI2 : ITTAPI
+{
+    //
+    // get the phones that can be used on this address
+    // returns a collection/enumeration for scripting and c/c++
+    //
+    [propget, id(IDISPTAPI | 16), helpstring("property Phones")]
+    HRESULT Phones( 
+            [out, retval]  VARIANT * pPhones
+            );
+
+    [id(IDISPTAPI | 17), hidden, helpstring("method EnumeratePhones")]
+    HRESULT EnumeratePhones(
+            [out, retval] IEnumPhone ** ppEnumPhone
+            );
+
+    [id(IDISPTAPI | 18), helpstring("method CreateEmptyCollectionObject")]
+    HRESULT CreateEmptyCollectionObject(
+            [out, retval] ITCollection2 ** ppCollection
+            );
+}
+
+[
+   uuid( B1EFC384-9355-11d0-835C-00AA003CCABD ),
+   helpstring("TAPI 3.0 ITMediaSupport interface"),
+   dual
+]
+
+interface ITMediaSupport : IDispatch
+{
+    [propget, id(IDISPMEDIASUPPORT | 1), helpstring("property MediaTypes")]
+    HRESULT MediaTypes( 
+            [out, retval] long * plMediaTypes
+            );
+
+    [id(IDISPMEDIASUPPORT | 2), helpstring("method QueryMediaType")]
+    HRESULT QueryMediaType(
+            [in] long lMediaType,
+            [out, retval] VARIANT_BOOL * pfSupport
+            );
+}
+
+[
+    uuid( 41757F4A-CF09-4b34-BC96-0A79D2390076 ),
+    helpstring("TAPI 3.1 ITPluggableTerminalClassInfo interface"),
+    dual
+]
+
+interface ITPluggableTerminalClassInfo : IDispatch
+{
+    //
+    // Terminal Friendly Name
+    //
+    [id(1), propget, helpstring("method get_Name")]
+    HRESULT Name(
+            [out, retval] BSTR*           pName
+            );
+
+    //
+    // Company name
+    //
+    [id(2), propget, helpstring("method get_Company")]
+    HRESULT Company(
+            [out, retval] BSTR*          pCompany
+            );
+
+    //
+    // Terminal Version
+    //
+    [id(3), propget, helpstring("method get_Version")]
+    HRESULT Version(
+            [out, retval] BSTR*          pVersion
+            );
+
+    //
+    // TerminalClass
+    //
+    [id(4), propget, helpstring("method get_TerminalClass")]
+    HRESULT TerminalClass(
+            [out, retval] BSTR*          pTerminalClass
+            );
+
+    //
+    // This CLSID is used to CoCreate the terminal
+    //
+    [id(5), propget, helpstring("method get_CLSID")]
+    HRESULT CLSID(
+            [out, retval] BSTR*          pCLSID
+            );
+
+    //
+    // Direction supported by terminal
+    //
+    [id(6), propget, helpstring("method get_Direction")]
+    HRESULT Direction(
+            [out, retval] TERMINAL_DIRECTION*  pDirection
+            );
+
+    //
+    // Media Types supported by terminal
+    //
+    [id(7), propget, helpstring("method get_MediaTypes")]
+    HRESULT MediaTypes(
+            [out, retval] long*  pMediaTypes
+            );
+
+}
+
+[
+    uuid( 6D54E42C-4625-4359-A6F7-631999107E05 ),
+    helpstring("TAPI 3.1 ITPluggableTerminalSuperclassInfo interface"),
+    dual
+]
+
+interface ITPluggableTerminalSuperclassInfo : IDispatch
+{
+    [id(1), propget, helpstring("method get_Name")]
+    HRESULT Name(
+            [out, retval] BSTR*          pName
+            );
+
+
+    [id(2), propget, helpstring("method get_CLSID")]
+    HRESULT CLSID(
+            [out, retval] BSTR*           pCLSID
+            );
+}
+
+[
+    uuid( B1EFC385-9355-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITTerminalSupport interface"),
+    dual
+]
+
+interface ITTerminalSupport : IDispatch
+{
+    [propget, id(IDISPAGGREGATEDMSPADDRESSOBJ | 1), helpstring("property StaticTerminals")]
+    HRESULT StaticTerminals( 
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPAGGREGATEDMSPADDRESSOBJ | 2), hidden, helpstring("method EnumerateStaticTerminals")]
+    HRESULT EnumerateStaticTerminals( 
+            [out, retval] IEnumTerminal ** ppTerminalEnumerator 
+            );
+
+    [propget, id(IDISPAGGREGATEDMSPADDRESSOBJ | 3), helpstring("property DynamicTerminalClasses")]
+    HRESULT DynamicTerminalClasses( 
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPAGGREGATEDMSPADDRESSOBJ | 4), hidden, helpstring("method EnumerateDynamicTerminalClasses")]
+    HRESULT EnumerateDynamicTerminalClasses(
+            [out, retval] IEnumTerminalClass ** ppTerminalClassEnumerator
+            );
+
+    [id(IDISPAGGREGATEDMSPADDRESSOBJ | 5), helpstring("method CreateTerminal")]
+    HRESULT CreateTerminal(
+            [in] BSTR pTerminalClass,
+            [in] long lMediaType,
+            [in] TERMINAL_DIRECTION Direction,
+            [out, retval] ITTerminal ** ppTerminal
+            );
+
+    [id(IDISPAGGREGATEDMSPADDRESSOBJ | 6), helpstring("method GetDefaultStaticTerminal")]
+    HRESULT GetDefaultStaticTerminal(
+            [in] long lMediaType,
+            [in] TERMINAL_DIRECTION Direction,
+            [out, retval] ITTerminal ** ppTerminal
+            );
+}
+
+[
+    uuid( F3EB39BC-1B1F-4e99-A0C0-56305C4DD591 ),
+    helpstring("TAPI 3.1 ITTerminalSupport2 interface"),
+    dual
+]
+
+interface ITTerminalSupport2 : ITTerminalSupport
+{
+    [propget, id(IDISPAGGREGATEDMSPADDRESSOBJ | 7), helpstring("property PluggableSuperclasses")]
+    HRESULT PluggableSuperclasses( 
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPAGGREGATEDMSPADDRESSOBJ | 8), hidden, helpstring("method EnumeratePluggableSuperclasses")]
+    HRESULT EnumeratePluggableSuperclasses( 
+            [out, retval] IEnumPluggableSuperclassInfo ** ppSuperclassEnumerator 
+            );
+
+    [propget, id(IDISPAGGREGATEDMSPADDRESSOBJ | 9), helpstring("property PluggableTerminalClasses")]
+    HRESULT PluggableTerminalClasses( 
+            [in] BSTR bstrTerminalSuperclass,
+            [in] long lMediaType,
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPAGGREGATEDMSPADDRESSOBJ | 10), hidden, helpstring("method EnumeratePluggableTerminalClasses")]
+    HRESULT EnumeratePluggableTerminalClasses(
+            [in] CLSID iidTerminalSuperclass,
+            [in] long lMediaType,
+            [out, retval] IEnumPluggableTerminalClassInfo ** ppClassEnumerator 
+            );
+}
+
+[
+    uuid( B1EFC386-9355-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITAddress interface"),
+    dual
+]
+
+interface ITAddress : IDispatch
+{
+    [propget, id(IDISPADDRESS | 1), helpstring("property State")]
+    HRESULT State( 
+            [out, retval] ADDRESS_STATE * pAddressState 
+            );
+
+    [propget, id(IDISPADDRESS | 2), helpstring("property AddressName")]
+    HRESULT AddressName( 
+            [out, retval] BSTR *  ppName 
+            );
+        
+    [propget, id(IDISPADDRESS | 3), helpstring("property ServiceProviderName")]
+    HRESULT ServiceProviderName( 
+            [out, retval] BSTR *  ppName 
+            );
+
+    [propget, id(IDISPADDRESS | 4), helpstring("property TAPIObject")]
+    HRESULT TAPIObject(
+            [out, retval] ITTAPI ** ppTapiObject
+            );
+
+    [id(IDISPADDRESS | 5), helpstring("method CreateCall")]
+    HRESULT CreateCall(
+            [in] BSTR pDestAddress,
+            [in] long lAddressType,
+            [in] long lMediaTypes,
+            [out, retval] ITBasicCallControl ** ppCall 
+            );
+
+    [propget, id(IDISPADDRESS | 6), helpstring("property Calls")]
+    HRESULT Calls(
+            [out, retval] VARIANT * pVariant
+            );
+
+    [id(IDISPADDRESS | 7), hidden, helpstring("method EnumerateCalls")]
+    HRESULT EnumerateCalls(
+            [out, retval] IEnumCall ** ppCallEnum 
+            );
+
+    [propget, id(IDISPADDRESS | 8), helpstring("property DialableAddress")]
+    HRESULT DialableAddress(
+            [out,retval] BSTR * pDialableAddress
+            );
+
+    [id(IDISPADDRESS | 10), helpstring("method CreateForwardInfoObject")]
+    HRESULT CreateForwardInfoObject(
+            [out, retval] ITForwardInformation ** ppForwardInfo
+            );
+
+    [id(IDISPADDRESS | 11), helpstring("method Forward")]
+    HRESULT Forward(
+            [in] ITForwardInformation * pForwardInfo,
+            [in] ITBasicCallControl * pCall
+            );
+
+    [propget, id(IDISPADDRESS | 12), helpstring("method Forward")]
+    HRESULT CurrentForwardInfo(
+            [out, retval] ITForwardInformation ** ppForwardInfo
+            );
+
+    [propput, id(IDISPADDRESS | 14), helpstring("property MessageWaiting")]
+    HRESULT MessageWaiting(
+            [in] VARIANT_BOOL  fMessageWaiting
+            );
+
+    [propget, id(IDISPADDRESS | 14), helpstring("property MessageWaiting")]
+    HRESULT MessageWaiting(
+            [out, retval] VARIANT_BOOL * pfMessageWaiting
+            );
+
+    [propput, id(IDISPADDRESS | 15), helpstring("property DoNotDisturb")]
+    HRESULT DoNotDisturb(
+            [in] VARIANT_BOOL  fDoNotDisturb
+            );
+
+    [propget, id(IDISPADDRESS | 15), helpstring("property DoNotDisturb")]
+    HRESULT DoNotDisturb(
+            [out, retval] VARIANT_BOOL * pfDoNotDisturb
+            );
+
+}
+
+///////////////////////////////////////////////////////
+//   ITAddress2
+///////////////////////////////////////////////////////
+
+[
+    uuid( B0AE5D9B-BE51-46c9-B0F7-DFA8A22A8BC4 ),
+    helpstring("TAPI 3.1 ITAddress2 interface"),
+    dual
+]
+interface ITAddress2 : ITAddress
+{
+    //
+    // get the phones that can be used on this address
+    // returns a collection/enumeration for scripting and c/c++
+    //
+    [propget, id(IDISPADDRESS | 16), helpstring("property Phones")]
+    HRESULT Phones( 
+            [out, retval]  VARIANT * pPhones
+            );
+
+    [id(IDISPADDRESS | 17), hidden, helpstring("method EnumeratePhones")]
+    HRESULT EnumeratePhones(
+            [out, retval] IEnumPhone ** ppEnumPhone
+            );
+
+    [id(IDISPADDRESS | 18), helpstring("method GetPhoneFromTerminal")]
+    HRESULT GetPhoneFromTerminal(
+            [in] ITTerminal * pTerminal,
+            [out, retval] ITPhone ** ppPhone
+            );
+
+    [propget, id(IDISPADDRESS | 20), helpstring("property PreferredPhones")]
+    HRESULT PreferredPhones( 
+            [out, retval]  VARIANT * pPhones
+            );
+
+    [id(IDISPADDRESS | 21), hidden, helpstring("method EnumeratePreferredPhones")]
+    HRESULT EnumeratePreferredPhones(
+            [out, retval] IEnumPhone ** ppEnumPhone
+            );
+
+    //
+    // Filtering events
+    //
+
+    [propget, id(IDISPADDRESS | 19), helpstring("method EventFilter")]
+    HRESULT EventFilter(
+            [in] TAPI_EVENT     TapiEvent,
+            [in] long           lSubEvent,
+            [out,retval] VARIANT_BOOL*   pEnable
+            );
+
+    [propput, id(IDISPADDRESS | 19), helpstring("method EventFilter")]
+    HRESULT EventFilter(
+            [in] TAPI_EVENT     TapiEvent,
+            [in] long           lSubEvent,
+            [in] VARIANT_BOOL   bEnable
+            );
+
+
+    //
+    // device specific methods
+    //
+
+    [id(IDISPADDRESS | 22), hidden, helpstring("method DeviceSpecific")]
+    HRESULT DeviceSpecific(
+	         [in] ITCallInfo *pCall,
+	         [in] BYTE *pParams,
+	         [in] DWORD dwSize
+            );
+
+    [id(IDISPADDRESS | 23), helpstring("method DeviceSpecificVariant")]
+    HRESULT DeviceSpecificVariant(
+	         [in] ITCallInfo *pCall,
+	         [in] VARIANT varDevSpecificByteArray
+            );
+
+    [id(IDISPADDRESS | 24), helpstring("method NegotiateExtVersion")]
+    HRESULT NegotiateExtVersion (
+	         [in]  long lLowVersion,
+	         [in]  long lHighVersion,
+	         [out, retval] long *plExtVersion
+            );
+
+}
+
+[
+    uuid( 8DF232F5-821B-11d1-BB5C-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITAddressCapabilities interface"),
+    dual
+]
+interface ITAddressCapabilities : IDispatch
+{
+    [propget, id(IDISPADDRESSCAPABILITIES | 1), helpstring("property AddressCapability")]
+    HRESULT AddressCapability( 
+            [in] ADDRESS_CAPABILITY AddressCap, 
+            [out, retval] long * plCapability
+            );
+
+    [propget, id(IDISPADDRESSCAPABILITIES | 2), helpstring("property AddressCapabilityString")]
+    HRESULT AddressCapabilityString(
+            [in] ADDRESS_CAPABILITY_STRING AddressCapString,
+            [out, retval] BSTR * ppCapabilityString
+            );
+
+    [propget, id(IDISPADDRESSCAPABILITIES | 3), helpstring("property CallTreatments")]
+    HRESULT CallTreatments( [out, retval] VARIANT * pVariant );
+
+    [id(IDISPADDRESSCAPABILITIES | 4), hidden]
+    HRESULT EnumerateCallTreatments( [out, retval] IEnumBstr ** ppEnumCallTreatment );
+
+    [propget, id(IDISPADDRESSCAPABILITIES | 5), helpstring("property CompletionMessages")]
+    HRESULT CompletionMessages( [out, retval] VARIANT * pVariant );
+
+    [id(IDISPADDRESSCAPABILITIES | 6), hidden]
+    HRESULT EnumerateCompletionMessages( [out, retval] IEnumBstr ** ppEnumCompletionMessage );
+
+    [propget, id(IDISPADDRESSCAPABILITIES | 7), helpstring("property DeviceClasses")]
+    HRESULT DeviceClasses( [out, retval] VARIANT * pVariant );
+
+    [id(IDISPADDRESSCAPABILITIES | 8), hidden]
+    HRESULT EnumerateDeviceClasses( [out, retval] IEnumBstr ** ppEnumDeviceClass );
+}
+
+///////////////////////////////////////////////////////
+//   ITPhone
+///////////////////////////////////////////////////////
+
+[
+    uuid( 09D48DB4-10CC-4388-9DE7-A8465618975A ),
+    helpstring("TAPI 3.1 ITPhone interface"),
+    dual
+]
+interface ITPhone : IDispatch
+{
+    //
+    // opens the phone devices
+    //
+    [id(IDISPPHONE | 1), helpstring("method Open")]
+    HRESULT Open(
+            [in] PHONE_PRIVILEGE Privilege
+            );
+
+    //
+    // closes the phone
+    //
+    [id(IDISPPHONE | 2), helpstring("method Close")]
+    HRESULT Close();
+
+    //
+    // returns a collection/enumeration of addresses that the phone
+    // can be used on
+    //
+    [propget, id(IDISPPHONE | 3), helpstring("property Addresses")]
+    HRESULT Addresses(
+        [out, retval] VARIANT * pAddresses
+        );
+
+    [id(IDISPPHONE | 4), hidden, helpstring("method EnumerateAddresses")]
+    HRESULT EnumerateAddresses(
+            [out, retval] IEnumAddress ** ppEnumAddress
+            );
+
+    //
+    // gets a DWORD (long) capability of the phone, based on the PHONECAPS_LONG
+    // passed in.
+    //
+    [propget, id(IDISPPHONE | 5), helpstring("property PhoneCapsLong")]
+    HRESULT PhoneCapsLong(
+        [in] PHONECAPS_LONG pclCap,
+        [out, retval] long * plCapability
+        );
+
+    //
+    // gets a string capability/information about the phone, based on the PHONECAPS_STRING
+    // passed in.
+    //
+    [propget, id(IDISPPHONE | 6), helpstring("property PhoneCapsString")]
+    HRESULT PhoneCapsString(
+        [in] PHONECAPS_STRING pcsCap,
+        [out, retval] BSTR * ppCapability
+        );
+
+    //
+    // gets a collection/enumerations of terminals that are the terminals that
+    // are associated with the phone.
+    //
+    [propget, id(IDISPPHONE | 7), helpstring("property Terminals")]
+    HRESULT Terminals(
+        [in]          ITAddress * pAddress,
+        [out, retval] VARIANT * pTerminals
+        );
+
+    [id(IDISPPHONE | 8), hidden, helpstring("method EnumerateTerminals")]
+    HRESULT EnumerateTerminals(
+        [in]          ITAddress * pAddress,
+        [out, retval] IEnumTerminal ** ppEnumTerminal
+        );
+
+    //
+    // get the button mode
+    //
+    [propget, id(IDISPPHONE | 9), helpstring("property ButtonMode")]
+    HRESULT ButtonMode(
+        [in]          long                lButtonID,
+        [out, retval] PHONE_BUTTON_MODE * pButtonMode
+        );
+
+    //
+    // put the button mode
+    //
+    [propput, id(IDISPPHONE | 9), helpstring("property ButtonMode")]
+    HRESULT ButtonMode(
+        [in]          long                lButtonID,
+        [in]          PHONE_BUTTON_MODE   ButtonMode
+        );
+
+    //
+    // get the button function
+    //
+    [propget, id(IDISPPHONE | 10), helpstring("property ButtonFunction")]
+    HRESULT ButtonFunction(
+        [in]          long                    lButtonID,
+        [out, retval] PHONE_BUTTON_FUNCTION * pButtonFunction
+        );
+
+    //
+    // put the button function
+    //
+    [propput, id(IDISPPHONE | 10), helpstring("property ButtonFunction")]
+    HRESULT ButtonFunction(
+            [in] long                  lButtonID, 
+            [in] PHONE_BUTTON_FUNCTION ButtonFunction
+            );
+
+
+    //
+    // get the button text
+    //
+    [propget, id(IDISPPHONE | 11), helpstring("property ButtonText")]
+    HRESULT ButtonText(
+        [in]          long   lButtonID,
+        [out, retval] BSTR * ppButtonText
+        );
+
+    //
+    // set the button text
+    //
+    [propput, id(IDISPPHONE | 11), helpstring("property ButtonText")]
+    HRESULT ButtonText(
+        [in]          long   lButtonID,
+        [in]          BSTR   bstrButtonText
+        );
+
+    //
+    // get the button state
+    //
+    [propget, id(IDISPPHONE | 12), helpstring("property ButtonState")]
+    HRESULT ButtonState(
+        [in]          long                 lButtonID,
+        [out, retval] PHONE_BUTTON_STATE * pButtonState
+        );
+
+    //
+    // set the current hookswitch state
+    //
+    [propget, id(IDISPPHONE | 13), helpstring("property HookSwitchState")]
+    HRESULT HookSwitchState(
+        [in]          PHONE_HOOK_SWITCH_DEVICE  HookSwitchDevice,
+        [out, retval] PHONE_HOOK_SWITCH_STATE * pHookSwitchState
+        );
+
+    //
+    // set the current hookswitch state
+    //
+    [propput, id(IDISPPHONE | 13), helpstring("property HookSwitchState")]
+    HRESULT HookSwitchState(
+        [in] PHONE_HOOK_SWITCH_DEVICE HookSwitchDevice,
+        [in] PHONE_HOOK_SWITCH_STATE  HookSwitchState
+        );
+
+    //
+    // set the ring mode for the phone
+    //
+    [propput, id(IDISPPHONE | 14), helpstring("property RingMode")]
+    HRESULT RingMode(
+        [in] long lRingMode
+        );
+    
+    //
+    // get the ring mode for the phone
+    //
+    [propget, id(IDISPPHONE | 14), helpstring("property RingMode")]
+    HRESULT RingMode(
+        [out, retval] long * plRingMode
+        );
+
+    //
+    // set the ring volume for the phone
+    //
+    [propput, id(IDISPPHONE | 15), helpstring("property RingVolume")]
+    HRESULT RingVolume(
+        [in] long lRingVolume
+        );
+    
+    //
+    // get the ring volume for the phone
+    //
+    [propget, id(IDISPPHONE | 15), helpstring("property RingVolume")]
+    HRESULT RingVolume(
+        [out, retval] long * plRingVolume
+        );
+
+    //
+    // get the privilege for the phone
+    //
+    [propget, id(IDISPPHONE | 16), helpstring("property Privilege")]
+    HRESULT Privilege(
+        [out, retval] PHONE_PRIVILEGE * pPrivilege
+        );
+
+
+    [id(IDISPPHONE | 17), hidden, helpstring("method GetPhoneDevCapsBuffer")]
+    HRESULT GetPhoneCapsBuffer(
+            [in] PHONECAPS_BUFFER pcbCaps,
+            [out] DWORD *pdwSize,
+            [out] BYTE **ppPhoneCapsBuffer
+            );
+
+
+    [propget, id(IDISPPHONE | 18), helpstring("property PhoneCapsBuffer")]
+    HRESULT PhoneCapsBuffer(
+            [in]          PHONECAPS_BUFFER  pcbCaps,
+            [out, retval] VARIANT          *pVarBuffer
+            );
+
+
+    [propget, id(IDISPPHONE | 19), helpstring("property LampMode")]
+    HRESULT LampMode(
+            [in]          long                lLampID,
+            [out, retval] PHONE_LAMP_MODE   * pLampMode
+            );
+
+
+    [propput, id(IDISPPHONE | 19), helpstring("property LampMode")]
+    HRESULT LampMode(
+            [in]          long                lLampID,
+            [in]          PHONE_LAMP_MODE     LampMode
+            );
+
+
+    [propget, id(IDISPPHONE | 20), helpstring("property Display")]
+    HRESULT Display(
+            [out, retval] BSTR *pbstrDisplay
+            );
+
+
+    [id(IDISPPHONE | 21), helpstring("method SetDisplay")]
+    HRESULT SetDisplay(
+            [in] long lRow,
+            [in] long lColumn,
+            [in] BSTR bstrDisplay
+            );
+
+    //
+    // returns a collection/enumeration of addresses that the phone
+    // is preferred on
+    //
+    [propget, id(IDISPPHONE | 22), helpstring("property PreferredAddresses")]
+    HRESULT PreferredAddresses(
+        [out, retval] VARIANT * pAddresses
+        );
+
+    [id(IDISPPHONE | 23), hidden, helpstring("method EnumeratePreferredAddresses")]
+    HRESULT EnumeratePreferredAddresses(
+            [out, retval] IEnumAddress ** ppEnumAddress
+            );
+
+    //
+    // device specific methods
+    //
+
+    [id(IDISPADDRESS | 24), hidden, helpstring("method DeviceSpecific")]
+    HRESULT DeviceSpecific(
+	         [in] BYTE *pParams,
+	         [in] DWORD dwSize
+            );
+
+    [id(IDISPADDRESS | 25), helpstring("method DeviceSpecificVariant")]
+    HRESULT DeviceSpecificVariant(
+	         [in] VARIANT varDevSpecificByteArray
+            );
+
+    [id(IDISPADDRESS | 26), helpstring("method NegotiateExtVersion")]
+    HRESULT NegotiateExtVersion(
+	         [in]  long lLowVersion,
+	         [in]  long lHighVersion,
+	         [out, retval] long *plExtVersion
+            );
+
+}
+
+///////////////////////////////////////////////////////
+//   ITAutomatedPhoneControl
+///////////////////////////////////////////////////////
+
+[
+    uuid( 1EE1AF0E-6159-4a61-B79B-6A4BA3FC9DFC ),
+    helpstring("TAPI 3.1 ITAutomatedPhoneControl interface"),
+    dual
+]
+interface ITAutomatedPhoneControl : IDispatch
+{
+    [id(IDISPAPC | 1), helpstring("method StartTone")]
+    HRESULT StartTone(
+            [in] PHONE_TONE Tone,
+            [in] long       lDuration
+            );
+
+    [id(IDISPAPC | 2), helpstring("method StopTone")]
+    HRESULT StopTone();
+
+    [propget, id(IDISPAPC | 3), helpstring("property Tone")]
+    HRESULT Tone(
+            [out, retval] PHONE_TONE * pTone
+            );
+
+    [id(IDISPAPC | 4), helpstring("method StartRinger")]
+    HRESULT StartRinger(
+            [in] long lRingMode,
+            [in] long lDuration
+            );
+
+    [id(IDISPAPC | 5), helpstring("method StopRinger")]
+    HRESULT StopRinger();
+
+    [propget, id(IDISPAPC | 6), helpstring("property Ringer")]
+    HRESULT Ringer(
+            [out, retval] VARIANT_BOOL * pfRinging
+            );
+
+    [propput, id(IDISPAPC | 7), helpstring("property PhoneHandlingEnabled")]
+    HRESULT PhoneHandlingEnabled(
+            [in] VARIANT_BOOL fEnabled
+            );
+
+    [propget, id(IDISPAPC | 7), helpstring("property PhoneHandlingEnabled")]
+    HRESULT PhoneHandlingEnabled(
+            [out, retval] VARIANT_BOOL * pfEnabled
+            );
+
+    [propput, id(IDISPAPC | 8), helpstring("property AutoEndOfNumberTimeout")]
+    HRESULT AutoEndOfNumberTimeout(
+            [in] long lTimeout
+            );
+
+    [propget, id(IDISPAPC | 8), helpstring("property AutoEndOfNumberTimeout")]
+    HRESULT AutoEndOfNumberTimeout(
+            [out, retval] long * plTimeout
+            );
+
+    [propput, id(IDISPAPC | 9), helpstring("property AutoDialtone")]
+    HRESULT AutoDialtone(
+            [in] VARIANT_BOOL fEnabled
+            );
+
+    [propget, id(IDISPAPC | 9), helpstring("property AutoDialtone")]
+    HRESULT AutoDialtone(
+            [out, retval] VARIANT_BOOL * pfEnabled
+            );
+
+    [propput, id(IDISPAPC | 10), helpstring("property AutoStopTonesOnOnHook")]
+    HRESULT AutoStopTonesOnOnHook(
+            [in] VARIANT_BOOL fEnabled
+            );
+
+    [propget, id(IDISPAPC | 10), helpstring("property AutoStopTonesOnOnHook")]
+    HRESULT AutoStopTonesOnOnHook(
+            [out, retval] VARIANT_BOOL * pfEnabled
+            );
+
+    [propput, id(IDISPAPC | 11), helpstring("property AutoStopRingOnOffHook")]
+    HRESULT AutoStopRingOnOffHook(
+            [in] VARIANT_BOOL fEnabled
+            );
+
+    [propget, id(IDISPAPC | 11), helpstring("property AutoStopRingOnOffHook")]
+    HRESULT AutoStopRingOnOffHook(
+            [out, retval] VARIANT_BOOL * pfEnabled
+            );
+
+    [propput, id(IDISPAPC | 12), helpstring("property AutoKeypadTones")]
+    HRESULT AutoKeypadTones(
+            [in] VARIANT_BOOL fEnabled
+            );
+
+    [propget, id(IDISPAPC | 12), helpstring("property AutoKeypadTones")]
+    HRESULT AutoKeypadTones (
+            [out, retval] VARIANT_BOOL * pfEnabled
+            );
+
+    [propput, id(IDISPAPC | 13), helpstring("property AutoKeypadTonesMinimumDuration")]
+    HRESULT AutoKeypadTonesMinimumDuration(
+            [in] long lDuration
+            );
+
+    [propget, id(IDISPAPC | 13), helpstring("property AutoKeypadTonesMinimumDuration")]
+    HRESULT AutoKeypadTonesMinimumDuration(
+            [out, retval] long * plDuration
+            );
+
+    [propput, id(IDISPAPC | 14), helpstring("property AutoVolumeControl")]
+    HRESULT AutoVolumeControl(
+            [in] VARIANT_BOOL fEnabled
+            );
+
+    [propget, id(IDISPAPC | 14), helpstring("property AutoVolumeControl")]
+    HRESULT AutoVolumeControl(
+            [out, retval] VARIANT_BOOL * fEnabled
+            );
+
+    [propput, id(IDISPAPC | 15), helpstring("property AutoVolumeControlStep")]
+    HRESULT AutoVolumeControlStep(
+            [in] long lStepSize
+            );
+
+    [propget, id(IDISPAPC | 15), helpstring("property AutoVolumeControlStep")]
+    HRESULT AutoVolumeControlStep(
+            [out, retval] long * plStepSize
+            );
+
+    [propput, id(IDISPAPC | 16), helpstring("property AutoVolumeControlRepeatDelay")]
+    HRESULT AutoVolumeControlRepeatDelay(
+            [in] long lDelay
+            );
+
+    [propget, id(IDISPAPC | 16), helpstring("property AutoVolumeControlRepeatDelay")]
+    HRESULT AutoVolumeControlRepeatDelay(
+            [out, retval] long * plDelay
+            );
+
+    [propput, id(IDISPAPC | 17), helpstring("property AutoVolumeControlRepeatPeriod")]
+    HRESULT AutoVolumeControlRepeatPeriod(
+            [in] long lPeriod
+            );
+
+    [propget, id(IDISPAPC | 17), helpstring("property AutoVolumeControlRepeatPeriod")]
+    HRESULT AutoVolumeControlRepeatPeriod(
+            [out, retval] long * plPeriod
+            );
+
+    [id(IDISPAPC | 18), helpstring("method SelectCall")]
+    HRESULT SelectCall(
+            [in] ITCallInfo   * pCall,
+            [in] VARIANT_BOOL   fSelectDefaultTerminals
+            );
+
+    [id(IDISPAPC | 19), helpstring("method UnselectCall")]
+    HRESULT UnselectCall(
+            [in] ITCallInfo * pCall
+            );
+
+    [id(IDISPAPC | 20), hidden, helpstring("method EnumerateSelectedCalls")]
+    HRESULT EnumerateSelectedCalls(
+            [out, retval] IEnumCall ** ppCallEnum
+            );
+
+    [propget, id(IDISPAPC | 21), helpstring("property SelectedCalls")]
+    HRESULT SelectedCalls(
+            [out, retval] VARIANT * pVariant
+            );
+}
+
+[
+    uuid( B1EFC389-9355-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITBasicCallControl interface"),
+    dual
+]
+    
+interface ITBasicCallControl : IDispatch
+{
+
+    [id(IDISPBASICCALLCONTROL | 3), helpstring("method Connect")]
+    HRESULT Connect(
+            [in] VARIANT_BOOL fSync
+            );
+
+    [id(IDISPBASICCALLCONTROL | 4), helpstring("method Answer")]
+    HRESULT Answer();
+
+    [id(IDISPBASICCALLCONTROL | 5), helpstring("method Disconnect")]
+    HRESULT Disconnect( 
+            [in] DISCONNECT_CODE code 
+            );
+
+    [id(IDISPBASICCALLCONTROL | 6), helpstring("method Hold")]
+    HRESULT Hold( 
+            [in] VARIANT_BOOL fHold 
+            );
+
+    [id(IDISPBASICCALLCONTROL | 7), helpstring("method HandoffDirect")]
+    HRESULT HandoffDirect(
+            [in] BSTR pApplicationName
+            );
+
+    [id(IDISPBASICCALLCONTROL | 8), helpstring("method HandoffIndirect")]
+    HRESULT HandoffIndirect(
+            [in] long lMediaType
+            );
+
+    [id(IDISPBASICCALLCONTROL | 9), helpstring("method Conference")]
+    HRESULT Conference(
+            [in] ITBasicCallControl * pCall,
+            [in] VARIANT_BOOL fSync
+            );
+
+    [id(IDISPBASICCALLCONTROL | 10), helpstring("method Transfer")]
+    HRESULT Transfer( 
+            [in] ITBasicCallControl * pCall,
+            [in] VARIANT_BOOL fSync
+            );
+
+    [id(IDISPBASICCALLCONTROL | 11), helpstring("method BlindTransfer")]
+    HRESULT BlindTransfer( 
+            [in] BSTR pDestAddress
+            );
+    [id(IDISPBASICCALLCONTROL | 12), helpstring("method SwapHold")]
+    HRESULT SwapHold( 
+            [in] ITBasicCallControl * pCall
+            );
+    [id(IDISPBASICCALLCONTROL | 13), helpstring("method ParkDirect")]
+    HRESULT ParkDirect(
+            [in] BSTR pParkAddress
+            );
+    [id(IDISPBASICCALLCONTROL | 14), helpstring("method ParkIndirect")]
+    HRESULT ParkIndirect(
+            [out, retval] BSTR * ppNonDirAddress
+            );
+    [id(IDISPBASICCALLCONTROL | 15), helpstring("method Unpark")]
+    HRESULT Unpark();
+
+    [id(IDISPBASICCALLCONTROL | 16), helpstring("method SetQOS")]
+    HRESULT SetQOS(
+            [in] long lMediaType,
+            [in] QOS_SERVICE_LEVEL ServiceLevel
+            );
+
+    [id(IDISPBASICCALLCONTROL | 19), helpstring("method Pickup")]
+    HRESULT Pickup(
+            [in] BSTR pGroupID
+            );
+
+    [id(IDISPBASICCALLCONTROL | 20), helpstring("method Dial")]
+    HRESULT Dial(
+            [in] BSTR pDestAddress
+            );
+
+    [id(IDISPBASICCALLCONTROL | 21), helpstring("method Finish")]
+    HRESULT Finish(
+            [in]  FINISH_MODE   finishMode
+            );
+
+    [id(IDISPBASICCALLCONTROL | 22), helpstring("method RemoveFromConference")]
+    HRESULT RemoveFromConference();
+
+}
+
+[
+    uuid( 350F85D1-1227-11D3-83D4-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITCallInfo interface"),
+    dual
+]
+    
+interface ITCallInfo : IDispatch
+{
+    [propget, id(IDISPCALLINFO | 1), helpstring("property Address")]
+    HRESULT Address(
+            [out, retval] ITAddress ** ppAddress
+            );
+
+    [propget, id(IDISPCALLINFO | 2), helpstring("property CallState")]
+    HRESULT CallState( 
+            [out, retval] CALL_STATE * pCallState 
+            );
+
+    [propget, id(IDISPCALLINFO | 3), helpstring("property Privilege")]
+    HRESULT Privilege(
+            [out, retval] CALL_PRIVILEGE * pPrivilege
+            );
+
+    [propget, id(IDISPCALLINFO | 4), helpstring("property CallHub")]
+    HRESULT CallHub(
+                    [out,retval] ITCallHub ** ppCallHub
+                   );
+
+    [propget, id(IDISPCALLINFO | 5), helpstring("property CallInfoLong")]
+    HRESULT CallInfoLong(
+            [in] CALLINFO_LONG CallInfoLong,
+            [out, retval] long * plCallInfoLongVal
+            );
+
+    [propput, id(IDISPCALLINFO | 5), helpstring("property CallInfoLong")]
+    HRESULT CallInfoLong(
+            [in] CALLINFO_LONG CallInfoLong,
+            [in] long lCallInfoLongVal
+            );
+
+    [propget, id(IDISPCALLINFO | 6), helpstring("property CallInfoString")]
+    HRESULT CallInfoString(
+            [in] CALLINFO_STRING CallInfoString,
+            [out, retval] BSTR * ppCallInfoString
+            );
+
+    [propput, id(IDISPCALLINFO | 6), helpstring("property CallInfoString")]
+    HRESULT CallInfoString(
+            [in] CALLINFO_STRING CallInfoString,
+            [in] BSTR pCallInfoString
+            );
+
+    [propget, id(IDISPCALLINFO | 7), helpstring("property CallInfoBuffer")]
+    HRESULT CallInfoBuffer(
+            [in] CALLINFO_BUFFER CallInfoBuffer,
+            [out, retval] VARIANT * ppCallInfoBuffer
+            );
+
+    [propput, id(IDISPCALLINFO | 7), helpstring("property CallInfoBuffer")]
+    HRESULT CallInfoBuffer(
+            [in] CALLINFO_BUFFER CallInfoBuffer,
+            [in] VARIANT pCallInfoBuffer
+            );
+
+    [id(IDISPCALLINFO | 8), hidden]
+    HRESULT GetCallInfoBuffer(
+            [in] CALLINFO_BUFFER CallInfoBuffer,
+            [out] DWORD * pdwSize,
+            [out, size_is(,*pdwSize)] BYTE ** ppCallInfoBuffer
+            );
+
+    [id(IDISPCALLINFO | 9), hidden]
+    HRESULT SetCallInfoBuffer(
+            [in] CALLINFO_BUFFER CallInfoBuffer,
+            [in] DWORD dwSize,
+            [in, size_is(dwSize)] BYTE * pCallInfoBuffer
+            );
+
+    [id(IDISPCALLINFO | 10), helpstring("method ReleaseUserUserInfo")]
+    HRESULT ReleaseUserUserInfo();
+}
+
+[
+    uuid( 94D70CA6-7AB0-4daa-81CA-B8F8643FAEC1 ),
+    helpstring("TAPI 3.1 ITCallInfo2 interface"),
+    dual
+]
+interface ITCallInfo2 : ITCallInfo
+{
+    [propget, id(IDISPCALLINFO | 11), helpstring("method EventFilter")]
+    HRESULT EventFilter(
+        [in]    TAPI_EVENT      TapiEvent,
+        [in]    long            lSubEvent,
+        [out,retval]    VARIANT_BOOL*    pEnable
+        );
+
+    [propput, id(IDISPCALLINFO | 11), helpstring("method EventFilter")]
+    HRESULT EventFilter(
+        [in]    TAPI_EVENT      TapiEvent,
+        [in]    long            lSubEvent,
+        [in]    VARIANT_BOOL    bEnable
+        );
+}
+
+//
+// Implemented by the MSP's Terminal objects.
+//
+
+[
+    uuid( B1EFC38A-9355-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITTerminal interface"),
+    dual
+]
+
+interface ITTerminal : IDispatch
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR * ppName
+            );
+
+    [propget, id(2), helpstring("property State")]
+    HRESULT State( 
+            [out, retval] TERMINAL_STATE * pTerminalState 
+            );
+
+    [propget, id(3), helpstring("property TerminalType")]
+    HRESULT TerminalType(
+            [out, retval] TERMINAL_TYPE * pType
+            );
+
+    // terminal class is actually a guid
+    [propget, id(4), helpstring("property TerminalClass")] 
+    HRESULT TerminalClass(
+            [out, retval] BSTR * ppTerminalClass
+            );
+
+    [propget, id(5), helpstring("property MediaType")]
+    HRESULT MediaType(
+            [out, retval] long * plMediaType
+            );
+
+    [propget, id(6), helpstring("property Direction")]
+    HRESULT Direction(
+            [out, retval] TERMINAL_DIRECTION *pDirection
+            );
+}
+
+//
+// implemented by multitrack terminals
+//
+
+[
+    object,
+    uuid(FE040091-ADE8-4072-95C9-BF7DE8C54B44),
+    dual,
+    helpstring("ITMultiTrackTerminal Interface"),
+]
+
+interface ITMultiTrackTerminal : IDispatch
+{
+
+    [propget, id(IDISPMULTITRACK | 1), helpstring("property TrackTerminals")]
+    HRESULT TrackTerminals(
+            [out, retval] VARIANT *pVariant
+            );
+
+    [id(IDISPMULTITRACK | 2), hidden, helpstring("method EnumerateTrackTerminals")]
+    HRESULT EnumerateTrackTerminals(
+            [out, retval] IEnumTerminal **ppEnumTerminal
+            );
+
+    [id(IDISPMULTITRACK | 3), helpstring("method CreateTrackTerminal")]
+    HRESULT CreateTrackTerminal(
+            [in]long MediaType,
+            [in]TERMINAL_DIRECTION TerminalDirection,
+            [out,retval]ITTerminal **ppTerminal
+            );
+
+    [propget, id(IDISPMULTITRACK | 4), helpstring("property MediaTypesInUse")]
+    HRESULT MediaTypesInUse(
+            [out, retval] long *plMediaTypesInUse
+            );
+
+    [propget, id(IDISPMULTITRACK | 5), helpstring("property DirectionsInUse")]
+    HRESULT DirectionsInUse(
+            [out, retval] TERMINAL_DIRECTION *plDirectionsInUsed
+            );
+    
+    [id(IDISPMULTITRACK | 6), helpstring("method RemoveTrackTerminal")]
+    HRESULT RemoveTrackTerminal(
+            [in] ITTerminal *pTrackTerminalToRemove
+            );
+
+}
+
+//
+// this describes state of the terminal
+//
+
+typedef enum TERMINAL_MEDIA_STATE
+{
+    TMS_IDLE,      // Terminal is doing nothing.  No transfer of data
+    TMS_ACTIVE,    // Transferring media stream <-> storage
+    TMS_PAUSED,    // Transfer temporarily suspended
+    TMS_LASTITEM = TMS_PAUSED
+} TERMINAL_MEDIA_STATE;
+
+
+//
+// state transition causes
+//
+
+typedef enum FT_STATE_EVENT_CAUSE
+{
+    FTEC_NORMAL,
+    FTEC_END_OF_FILE,
+    FTEC_READ_ERROR,
+    FTEC_WRITE_ERROR
+} FT_STATE_EVENT_CAUSE;
+
+[
+    object,
+    uuid(31CA6EA9-C08A-4bea-8811-8E9C1BA3EA3A),
+    dual,
+    helpstring("ITFileTrack Interface"),
+    pointer_default(unique)
+]
+
+interface ITFileTrack  : IDispatch
+{
+    [propget, id(IDISPFILETRACK | 1), hidden, helpstring("property Format")]
+    HRESULT Format(
+        [out, retval] AM_MEDIA_TYPE **ppmt
+        );
+
+    [propput, id(IDISPFILETRACK | 1), hidden, helpstring("property Format")]
+    HRESULT Format(
+        [in] const AM_MEDIA_TYPE *pmt
+        );
+
+    [propget, id(IDISPFILETRACK | 2), helpstring("property ControllingTerminal")]
+    HRESULT ControllingTerminal(
+        [out, retval] ITTerminal **ppControllingTerminal
+        );
+
+    [propget, id(IDISPFILETRACK | 3), helpstring("property AudioFormatForScripting")]
+    HRESULT AudioFormatForScripting(
+        [out, retval] ITScriptableAudioFormat** ppAudioFormat
+        );
+
+    [propput, id(IDISPFILETRACK | 3), helpstring("property AudioFormatForScripting")]
+    HRESULT AudioFormatForScripting(
+        [in] ITScriptableAudioFormat* pAudioFormat
+        );
+
+    [propget, id(IDISPFILETRACK | 5), helpstring("property EmptyAudioFormatForScripting")]
+    HRESULT EmptyAudioFormatForScripting(
+        [out, retval] ITScriptableAudioFormat** ppAudioFormat
+        );
+
+};
+
+
+[
+    object,
+    uuid(627E8AE6-AE4C-4a69-BB63-2AD625404B77),
+    dual,
+    helpstring("ITMediaPlayback Interface"),
+    pointer_default(unique)
+]
+
+interface ITMediaPlayback : IDispatch
+{
+    [propput, id(IDISPMEDIAPLAYBACK | 1), helpstring("property PlayList")] 
+    HRESULT PlayList(
+        [in] VARIANTARG PlayListVariant
+        );
+
+    [propget, id(IDISPMEDIAPLAYBACK | 1), helpstring("property PlayList")] 
+    HRESULT PlayList(
+        [out, retval] VARIANTARG* pPlayListVariant
+        );
+};
+
+
+[
+    object,
+    uuid(F5DD4592-5476-4cc1-9D4D-FAD3EEFE7DB2),
+    dual,
+    helpstring("ITMediaRecord Interface"),
+    pointer_default(unique)
+]
+interface ITMediaRecord : IDispatch
+{
+    [propput, id(IDISPMEDIARECORD | 1), helpstring("propery FileName")]
+    HRESULT FileName
+    (
+        [in] BSTR bstrFileName
+    );
+
+    [propget, id(IDISPMEDIARECORD | 1), helpstring("property FileName")] 
+    HRESULT FileName(
+        [out, retval] BSTR *pbstrFileName
+        );
+};
+
+
+[
+    object,
+    uuid(C445DDE8-5199-4bc7-9807-5FFB92E42E09),
+    dual,
+    helpstring("ITMediaControl Interface"),
+    pointer_default(unique)
+]
+
+interface ITMediaControl : IDispatch
+{
+    [id(IDISPMEDIACONTROL | 1), helpstring("method Start")] 
+    HRESULT Start();
+
+    [id(IDISPMEDIACONTROL | 2), helpstring("method Stop")] 
+    HRESULT Stop();
+
+    [id(IDISPMEDIACONTROL | 3), helpstring("method Pause")] 
+    HRESULT Pause();
+
+    [propget, id(IDISPMEDIACONTROL | 4), helpstring("property MediaState")] 
+    HRESULT MediaState(
+        [out, retval] TERMINAL_MEDIA_STATE *pTerminalMediaState
+        );
+};
+
+
+[
+    uuid( B1EFC38D-9355-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITBasicAudioTerminal interface"),
+    dual
+]
+    
+interface ITBasicAudioTerminal : IDispatch
+{
+    [propput, id(1), helpstring("property Volume")]
+    HRESULT Volume(
+            [in] long lVolume
+            );
+
+    [propget, id(1), helpstring("property Volume")]
+    HRESULT Volume(
+            [out, retval] long * plVolume
+            );
+
+    [propput, id(2), helpstring("property Balance")]
+    HRESULT Balance(
+            [in] long lBalance
+            );
+
+    [propget, id(2), helpstring("property Balance")]
+    HRESULT Balance(
+            [out, retval] long * plBalance
+            );
+}
+
+///////////////////////////////////////////////////////
+//   ITStaticAudioTerminal
+///////////////////////////////////////////////////////
+
+[
+    uuid( A86B7871-D14C-48e6-922E-A8D15F984800 ),
+    helpstring("TAPI 3.1 ITStaticAudioTerminal Interface"),
+    dual
+]   
+interface ITStaticAudioTerminal : IDispatch
+{
+    [propget, id(1), helpstring("property WaveId")]
+    HRESULT WaveId(
+            [out, retval] long * plWaveId
+            );
+}
+
+[
+    uuid( A3C1544E-5B92-11d1-8F4E-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITCallHub interface"),
+    dual
+]
+interface ITCallHub : IDispatch
+{
+    [id(1), helpstring("method Clear")]
+    HRESULT Clear();
+
+    [id(2), hidden, helpstring("method EnumerateCalls")]
+    HRESULT EnumerateCalls( 
+        [out, retval] IEnumCall ** ppEnumCall 
+        );
+    [propget, id(3), helpstring("property Calls")]
+    HRESULT Calls(
+        [out, retval] VARIANT * pCalls
+        );
+    [propget, id(4), helpstring("property NumCalls")]
+    HRESULT NumCalls(
+       [out, retval] long * plCalls
+       );
+
+    [propget, id(5), helpstring("property State")]
+    HRESULT State(
+                  [out, retval] CALLHUB_STATE * pState
+                 );
+}
+
+[
+    uuid(AB493640-4C0B-11D2-A046-00C04FB6809F),
+    helpstring("TAPI 3.0 ITLegacyAddressMediaControl Interface"),
+    hidden,
+    pointer_default(unique)
+]
+interface ITLegacyAddressMediaControl : IUnknown
+{
+    [id(IDISPLEGACYADDRESSMEDIACONTROL | 1), hidden]
+    HRESULT GetID(
+        [in] BSTR pDeviceClass,
+        [out] DWORD * pdwSize,
+        [out, size_is(,*pdwSize)] BYTE ** ppDeviceID
+        );
+
+    [id(IDISPLEGACYADDRESSMEDIACONTROL | 2), hidden]
+    HRESULT GetDevConfig(
+        [in] BSTR pDeviceClass,
+        [out] DWORD * pdwSize,
+        [out, size_is(,*pdwSize)] BYTE ** ppDeviceConfig
+        );
+
+    [id(IDISPLEGACYADDRESSMEDIACONTROL | 3), hidden]
+    HRESULT SetDevConfig(
+        [in] BSTR pDeviceClass,
+        [in] DWORD dwSize,
+        [in, size_is(dwSize)] BYTE * pDeviceConfig
+        );
+
+}
+
+[
+    uuid( 0e269cd0-10d4-4121-9c22-9c85d625650d ),
+    helpstring("TAPI 3.0 ITPrivateEvent Interface"),
+    dual
+]
+interface ITPrivateEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Address")]
+    HRESULT Address(
+        [out, retval] ITAddress ** ppAddress
+        );        
+
+    [propget, id(2), helpstring("property Call")]
+    HRESULT Call(
+        [out, retval] ITCallInfo ** ppCallInfo
+        );
+        
+    [propget, id(3), helpstring("property CallHub")]
+    HRESULT CallHub(
+        [out, retval] ITCallHub ** ppCallHub
+        );
+        
+    [propget, id(4), helpstring("property EventCode")]
+    HRESULT EventCode(
+        [out, retval] long * plEventCode
+        );
+    
+    [propget, id(5), helpstring("property EventInterface")]
+    HRESULT EventInterface(
+        [out, retval] IDispatch ** pEventInterface
+        );
+
+}
+
+
+[
+    uuid(B0EE512B-A531-409e-9DD9-4099FE86C738),
+    helpstring("TAPI 3.1 ITLegacyAddressMediaControl2 Interface"),
+    hidden,
+    pointer_default(unique)
+]
+interface ITLegacyAddressMediaControl2 : ITLegacyAddressMediaControl
+{
+    [id(IDISPLEGACYADDRESSMEDIACONTROL | 4), hidden]
+    HRESULT ConfigDialog(
+        [in] HWND hwndOwner,
+        [in] BSTR pDeviceClass
+        );
+
+    [id(IDISPLEGACYADDRESSMEDIACONTROL | 5), hidden]
+    HRESULT ConfigDialogEdit(
+        [in] HWND hwndOwner,
+        [in] BSTR pDeviceClass,
+        [in] DWORD dwSizeIn,
+        [in, size_is(dwSizeIn)] BYTE * pDeviceConfigIn,
+        [out] DWORD * pdwSizeOut,
+        [out, size_is(,*pdwSizeOut)] BYTE ** ppDeviceConfigOut
+        );
+}
+
+[
+    uuid(d624582f-cc23-4436-b8a5-47c625c8045d),
+    helpstring("TAPI 3.0 ITLegacyCallMediaControl Interface"),
+    dual,
+    pointer_default(unique)
+]
+interface ITLegacyCallMediaControl : IDispatch
+{
+    [id(IDISPLEGACYCALLMEDIACONTROL | 1), helpstring("method DetectDigits")]
+    HRESULT DetectDigits(
+            [in] TAPI_DIGITMODE DigitMode
+            );
+    [id(IDISPLEGACYCALLMEDIACONTROL | 2), helpstring("method GenerateDigits")]
+    HRESULT GenerateDigits(
+            [in] BSTR pDigits,
+            [in] TAPI_DIGITMODE DigitMode
+            );
+    [id(IDISPLEGACYCALLMEDIACONTROL | 3), hidden]
+    HRESULT GetID(
+        [in] BSTR pDeviceClass,
+        [out] DWORD * pdwSize,
+        [out, size_is(,*pdwSize)] BYTE ** ppDeviceID
+        );
+    [id(IDISPLEGACYCALLMEDIACONTROL | 4), helpstring("method SetMediaType")]
+    HRESULT SetMediaType(
+        [in] long lMediaType
+        );
+    [id(IDISPLEGACYCALLMEDIACONTROL | 5), helpstring("method MonitorMedia")]
+    HRESULT MonitorMedia(
+        [in] long lMediaType
+        );
+}
+
+[
+    uuid(57CA332D-7BC2-44f1-A60C-936FE8D7CE73),
+    helpstring("TAPI 3.1 ITLegacyCallMediaControl2 Interface"),
+    dual
+]
+interface ITLegacyCallMediaControl2 : ITLegacyCallMediaControl
+{
+    [id(IDISPLEGACYCALLMEDIACONTROL | 6), helpstring("method GenerateDigits2")]
+    HRESULT GenerateDigits2(
+            [in] BSTR pDigits,
+            [in] TAPI_DIGITMODE DigitMode,
+            [in] long lDuration
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 7), helpstring("method GatherDigits")]
+    HRESULT GatherDigits(
+            [in] TAPI_DIGITMODE DigitMode,
+            [in] long lNumDigits,
+            [in] BSTR pTerminationDigits,
+            [in] long lFirstDigitTimeout,
+            [in] long lInterDigitTimeout
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 8), hidden, helpstring("method DetectTones")]
+    HRESULT DetectTones(
+            [in] TAPI_DETECTTONE * pToneList,
+            [in] long lNumTones
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 9), helpstring("method DetectTonesByCollection")]
+    HRESULT DetectTonesByCollection(
+            [in] ITCollection2 * pDetectToneCollection
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 10), helpstring("method GenerateTone")]
+    HRESULT GenerateTone(
+            [in] TAPI_TONEMODE ToneMode,
+            [in] long lDuration
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 11), hidden, helpstring("method GenerateCustomTones")]
+    HRESULT GenerateCustomTones(
+            [in] TAPI_CUSTOMTONE * pToneList,
+            [in] long lNumTones,
+            [in] long lDuration
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 12), helpstring("method GenerateCustomTonesByCollection")]
+    HRESULT GenerateCustomTonesByCollection(
+            [in] ITCollection2 * pCustomToneCollection,
+            [in] long lDuration
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 13), helpstring("method CreateDetectToneObject")]
+    HRESULT CreateDetectToneObject(
+            [out, retval] ITDetectTone ** ppDetectTone
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 14), helpstring("method CreateCustomToneObject")]
+    HRESULT CreateCustomToneObject(
+            [out, retval] ITCustomTone ** ppCustomTone
+            );
+
+    [id(IDISPLEGACYCALLMEDIACONTROL | 15), helpstring("method GetIDAsVariant")]
+    HRESULT GetIDAsVariant(
+        [in] BSTR bstrDeviceClass,
+        [out, retval] VARIANT *pVarDeviceID
+        );
+
+}
+
+[
+    uuid( 961F79BD-3097-49df-A1D6-909B77E89CA0 ),
+    helpstring("TAPI 3.1 ITDetectTone Interface"),
+    dual
+]
+interface ITDetectTone : IDispatch
+{
+    [propget, id(1), helpstring("property AppSpecific")] 
+    HRESULT AppSpecific(
+        [out, retval] long * plAppSpecific
+        );
+
+    [propput, id(1), helpstring("property AppSpecific")] 
+    HRESULT AppSpecific(
+        [in] long  lAppSpecific
+        );
+
+    [propget, id(2), helpstring("property Duration")] 
+    HRESULT Duration(
+        [out, retval] long * plDuration
+        );
+
+    [propput, id(2), helpstring("property Duration")] 
+    HRESULT Duration(
+        [in] long  lDuration
+        );
+
+    [propget, id(3), helpstring("property Frequency")] 
+    HRESULT Frequency(
+        [in] long Index,
+        [out, retval] long * plFrequency
+        );
+
+    [propput, id(3), helpstring("property Frequency")] 
+    HRESULT Frequency(
+        [in] long Index,
+        [in] long lFrequency
+        );
+}
+
+[
+    uuid( 357AD764-B3C6-4b2a-8FA5-0722827A9254 ),
+    helpstring("TAPI 3.1 ITCustomTone Interface"),
+    dual,
+    pointer_default(unique)
+]
+interface ITCustomTone : IDispatch
+{
+    [propget, id(1), helpstring("property Frequency")] 
+    HRESULT Frequency(
+        [out, retval] long * plFrequency
+        );
+
+    [propput, id(1), helpstring("property Frequency")] 
+    HRESULT Frequency(
+        [in] long  lFrequency
+        );
+
+    [propget, id(2), helpstring("property CadenceOn")] 
+    HRESULT CadenceOn(
+        [out, retval] long * plCadenceOn
+        );
+
+    [propput, id(2), helpstring("property CadenceOn")] 
+    HRESULT CadenceOn(
+        [in] long  CadenceOn
+        );
+
+    [propget, id(3), helpstring("property CadenceOff")] 
+    HRESULT CadenceOff(
+        [out, retval] long * plCadenceOff
+        );
+
+    [propput, id(3), helpstring("property CadenceOff")] 
+    HRESULT CadenceOff(
+        [in] long lCadenceOff
+        );
+
+    [propget, id(4), helpstring("property Volume")] 
+    HRESULT Volume(
+        [out, retval] long * plVolume
+        );
+
+    [propput, id(4), helpstring("property Volume")] 
+    HRESULT Volume(
+        [in] long lVolume
+        );
+}
+
+///////////////////////////////////////////////////////
+//   IEnumPhone
+///////////////////////////////////////////////////////
+
+[
+    uuid( F15B7669-4780-4595-8C89-FB369C8CF7AA ),
+    helpstring("TAPI 3.1 IEnumPhone Interface"),
+    hidden,
+    pointer_default(unique)
+]  
+interface IEnumPhone : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] ITPhone ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumPhone ** ppEnum
+            );
+}
+
+[
+    uuid( AE269CF4-935E-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 IEnumTerminal Interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumTerminal : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITTerminal ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumTerminal ** ppEnum
+            );
+}
+
+
+[
+    uuid( AE269CF5-935E-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 IEnumTerminalClass interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumTerminalClass : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] GUID * pElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumTerminalClass ** ppEnum
+            );
+}
+
+
+[
+    uuid( AE269CF6-935E-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 IEnumCall interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumCall : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITCallInfo ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumCall ** ppEnum
+            );
+}
+
+
+
+[
+    uuid( 1666FCA1-9363-11d0-835C-00AA003CCABD ),
+    helpstring("TAPI 3.0 IEnumAddress interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumAddress : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] ITAddress ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumAddress ** ppEnum
+            );
+}
+
+[
+    uuid( A3C15450-5B92-11d1-8F4E-00C04FB6809F ),
+    helpstring("TAPI 3.0 IEnumCallHub interface"),
+    hidden,
+    pointer_default(unique)
+]
+interface IEnumCallHub : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] ITCallHub ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumCallHub ** ppEnum
+            );
+}
+
+[
+    uuid( 35372049-0BC6-11d2-A033-00C04FB6809F ),
+    helpstring("TAPI 3.0 IEnumBstr interface"),
+    hidden,
+    pointer_default(unique)
+]
+interface IEnumBstr : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] BSTR * ppStrings,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumBstr ** ppEnum
+            );
+}
+
+[
+    uuid( 4567450C-DBEE-4e3f-AAF5-37BF9EBF5E29 ),
+    helpstring("TAPI 3.1 IEnumPluggableTerminalClassInfo interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumPluggableTerminalClassInfo : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] ITPluggableTerminalClassInfo** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumPluggableTerminalClassInfo ** ppEnum
+            );
+}
+
+[
+    uuid( E9586A80-89E6-4cff-931D-478D5751F4C0 ),
+    helpstring("TAPI 3.1 IEnumPluggableSuperclassInfo interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumPluggableSuperclassInfo : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] ITPluggableTerminalSuperclassInfo** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumPluggableSuperclassInfo ** ppEnum
+            );
+}
+
+
+
+///////////////////////////////////////////////////////
+//   ITPhoneEvent
+///////////////////////////////////////////////////////
+[
+    uuid( 8F942DD8-64ED-4aaf-A77D-B23DB0837EAD ),
+    helpstring("TAPI 3.1 ITPhoneEvent Interface"),
+    oleautomation
+]
+interface ITPhoneEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Phone")]
+    HRESULT Phone( [out, retval] ITPhone ** ppPhone );
+    
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event( [out, retval] PHONE_EVENT * pEvent );
+
+    [propget, id(3), helpstring("property ButtonState")]
+    HRESULT ButtonState( [out, retval] PHONE_BUTTON_STATE * pState );
+
+    [propget, id(4), helpstring("property HookSwitchState")]
+    HRESULT HookSwitchState( [out, retval] PHONE_HOOK_SWITCH_STATE * pState );
+
+    [propget, id(5), helpstring("property HookSwitchDevice")]
+    HRESULT HookSwitchDevice( [out, retval] PHONE_HOOK_SWITCH_DEVICE * pDevice );
+
+    [propget, id(6), helpstring("property RingMode")]
+    HRESULT RingMode( [out, retval] long * plRingMode );
+
+    [propget, id(7), helpstring("property ButtonLampId")]
+    HRESULT ButtonLampId( [out, retval] long * plButtonLampId );
+
+    [propget, id(8), helpstring("property NumberGathered")]
+    HRESULT NumberGathered( [out, retval] BSTR * ppNumber );
+
+    [propget, id(9), helpstring("property Call")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCallInfo );
+}
+
+[
+    uuid( 62F47097-95C9-11d0-835D-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITCallStateEvent Interface"),
+    dual
+]
+interface ITCallStateEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call(
+            [out, retval] ITCallInfo ** ppCallInfo
+    );
+
+    [propget, id(2), helpstring("property State")]
+    HRESULT State(
+            [out, retval] CALL_STATE * pCallState
+            );
+
+    [propget, id(3), helpstring("property Cause")]
+    HRESULT Cause(
+            [out, retval] CALL_STATE_EVENT_CAUSE * pCEC
+            );
+
+    [propget, id(4), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance(
+            [out, retval] long * plCallbackInstance
+            );
+}
+
+
+[
+    uuid( 63FFB2A6-872B-4cd3-A501-326E8FB40AF7 ),
+    helpstring("TAPI 3.1 ITPhoneDeviceSpecificEvent interface"),
+    oleautomation
+]
+interface ITPhoneDeviceSpecificEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Phone")]
+    HRESULT Phone( [out, retval] ITPhone ** ppPhone );
+    
+    [propget, id(2), helpstring("property lParam1")]
+    HRESULT lParam1( [out, retval] long *pParam1);
+
+    [propget, id(3), helpstring("property lParam2")]
+    HRESULT lParam2( [out, retval] long *pParam2);
+
+    [propget, id(4), helpstring("property lParam3")]
+    HRESULT lParam3( [out, retval] long *pParam3);
+}
+
+
+[
+    uuid( FF36B87F-EC3A-11d0-8EE4-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITCallMediaEvent Interface"),
+    dual
+]
+interface ITCallMediaEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call(
+            [out, retval] ITCallInfo ** ppCallInfo
+            );
+    
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out, retval] CALL_MEDIA_EVENT * pCallMediaEvent
+            );
+    
+    [propget, id(3), helpstring("property Error")]
+    HRESULT Error(
+            [out, retval] HRESULT * phrError
+            );
+
+    [propget, id(4), helpstring("property Terminal")]
+    HRESULT Terminal(
+            [out, retval] ITTerminal ** ppTerminal
+            );
+
+    [propget, id(5), helpstring("property Stream")]
+    HRESULT Stream(
+            [out, retval] ITStream ** ppStream
+            );
+
+    [propget, id(6), helpstring("property Cause")]
+    HRESULT Cause(
+            [out, retval] CALL_MEDIA_EVENT_CAUSE * pCause
+            );
+}
+
+[
+
+    uuid( 80D3BFAC-57D9-11d2-A04A-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITDigitDetectionEvent interface"),
+    oleautomation
+]
+interface ITDigitDetectionEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCallInfo );
+
+    [propget, id(2), helpstring("property Digit")]
+    HRESULT Digit( [out, retval] unsigned char * pucDigit );
+
+    [propget, id(3), helpstring("property DigitMode")]
+    HRESULT DigitMode( [out, retval] TAPI_DIGITMODE * pDigitMode );
+
+    [propget, id(4), helpstring("property TickCount")]
+    HRESULT TickCount( [out, retval] long * plTickCount );
+
+    [propget, id(5), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance( [out, retval] long * plCallbackInstance );
+}
+
+[
+    uuid(80D3BFAD-57D9-11d2-A04A-00C04FB6809F),
+    helpstring("TAPI 3.0 ITDigitGenerationEvent interface"),
+    dual
+]
+interface ITDigitGenerationEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCallInfo );
+
+    [propget, id(2), helpstring("property GenerationTermination")]
+    HRESULT GenerationTermination( [out, retval] long * plGenerationTermination );
+
+    [propget, id(3), helpstring("property TickCount")]
+    HRESULT TickCount( [out, retval] long * plTickCount );
+
+    [propget, id(4), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance( [out, retval] long * plCallbackInstance );
+}
+
+[
+    uuid( E52EC4C1-CBA3-441a-9E6A-93CB909E9724 ),
+    helpstring("TAPI 3.1 ITDigitsGatheredEvent Interface"),
+    dual
+]
+interface ITDigitsGatheredEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCallInfo );
+
+    [propget, id(2), helpstring("property Digits")]
+    HRESULT Digits( [out, retval] BSTR * ppDigits );
+
+    [propget, id(3), helpstring("property GatherTermination")]
+    HRESULT GatherTermination( [out, retval] TAPI_GATHERTERM * pGatherTermination );
+
+    [propget, id(4), helpstring("property TickCount")]
+    HRESULT TickCount( [out, retval] long * plTickCount );
+
+    [propget, id(5), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance( [out, retval] long * plCallbackInstance );
+}
+
+[
+    uuid( 407E0FAF-D047-4753-B0C6-8E060373FECD ),
+    helpstring("TAPI 3.1 ITToneDetectionEvent Interface"),
+    dual
+]
+interface ITToneDetectionEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCallInfo );
+
+    [propget, id(2), helpstring("property AppSpecific")]
+    HRESULT AppSpecific( [out, retval] long * plAppSpecific );
+
+    [propget, id(3), helpstring("property TickCount")]
+    HRESULT TickCount( [out, retval] long * plTickCount );
+
+    [propget, id(4), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance( [out, retval] long * plCallbackInstance );
+}
+
+[
+    uuid( F4854D48-937A-11d1-BB58-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITTAPIObjectEvent Interface"),
+    dual
+]
+interface ITTAPIObjectEvent : IDispatch
+{
+    [propget, id(1), helpstring("property TAPIObject")]
+    HRESULT TAPIObject(
+        [out, retval] ITTAPI ** ppTAPIObject
+        );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+        [out, retval] TAPIOBJECT_EVENT * pEvent
+        );
+
+    [propget, id(3), helpstring("property Address")]
+    HRESULT Address(
+        [out, retval] ITAddress ** ppAddress
+        );
+
+    [propget, id(4), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance(
+        [out, retval] long * plCallbackInstance
+        );
+}
+
+[
+    uuid( 359DDA6E-68CE-4383-BF0B-169133C41B46 ),
+    helpstring("TAPI 3.1 ITTAPIObjectEvent2 interface"),
+    oleautomation
+]
+interface ITTAPIObjectEvent2 : ITTAPIObjectEvent
+{
+    [propget, id(5), helpstring("property Phone")]
+    HRESULT Phone( [out, retval] ITPhone ** ppPhone );
+}
+
+[
+    uuid( EDDB9426-3B91-11d1-8F30-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITTAPIEventNotification Interface"),
+    oleautomation
+]
+interface ITTAPIEventNotification : IUnknown
+{
+    [id(1), helpstring("method Event")]
+    HRESULT Event(
+            [in] TAPI_EVENT TapiEvent,
+            [in] IDispatch * pEvent
+            );
+}
+
+
+[
+    uuid( A3C15451-5B92-11d1-8F4E-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITCallHubEvent Interface"),
+    oleautomation
+]
+interface ITCallHubEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Event")]
+    HRESULT Event(
+                  [out, retval] CALLHUB_EVENT * pEvent
+                 );
+
+    [propget, id(2), helpstring("property CallHub")]
+    HRESULT CallHub(
+                    [out, retval] ITCallHub ** ppCallHub
+                   );
+
+    [propget, id(3), helpstring("property Call")]
+    HRESULT Call(
+                 [out, retval] ITCallInfo ** ppCall
+                );
+}
+
+[
+    uuid( 831CE2D1-83B5-11d1-BB5C-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITAddressEvent interface"),
+    oleautomation
+]
+interface ITAddressEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Address")]
+    HRESULT Address( [out, retval] ITAddress ** ppAddress );
+    
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event( [out, retval] ADDRESS_EVENT * pEvent );
+
+    [propget, id(3), helpstring("property Terminal")]
+    HRESULT Terminal( [out, retval] ITTerminal ** ppTerminal );
+}
+
+
+[
+    uuid( 3ACB216B-40BD-487a-8672-5CE77BD7E3A3 ),
+    helpstring("TAPI 3.1 ITAddressDeviceSpecificEvent interface"),
+    oleautomation
+]
+interface ITAddressDeviceSpecificEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Address")]
+    HRESULT Address( [out, retval] ITAddress ** ppAddress );
+    
+    [propget, id(2), helpstring("property Call")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [propget, id(3), helpstring("property lParam1")]
+    HRESULT lParam1( [out, retval] long *pParam1);
+
+    [propget, id(4), helpstring("property lParam2")]
+    HRESULT lParam2( [out, retval] long *pParam2);
+
+    [propget, id(5), helpstring("property lParam3")]
+    HRESULT lParam3( [out, retval] long *pParam3);
+}
+
+
+
+[
+    uuid( E4A7FBAC-8C17-4427-9F55-9F589AC8AF00 ),
+    helpstring("TAPI 3.0 ITFileTerminalEvent interface"),
+    oleautomation
+]
+interface ITFileTerminalEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Terminal")]
+    HRESULT Terminal( [out, retval] ITTerminal ** ppTerminal );
+    
+    [propget, id(2), helpstring("property Track")]
+    HRESULT Track( [out, retval] ITFileTrack ** ppTrackTerminal );
+
+    [propget, id(3), helpstring("property Call") ]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [propget, id(4), helpstring("property State")]
+    HRESULT State( [out, retval] TERMINAL_MEDIA_STATE * pState);
+
+    [propget, id(5), helpstring("property Cause")]
+    HRESULT Cause( [out, retval] FT_STATE_EVENT_CAUSE * pCause );
+
+    [propget, id(6), helpstring("property Error")]
+    HRESULT Error( [out, retval] HRESULT * phrErrorCode );
+}
+
+[
+    uuid( D964788F-95A5-461d-AB0C-B9900A6C2713 ),
+    helpstring("TAPI 3.0 ITTTSTerminalEvent interface"),
+    oleautomation
+]
+interface ITTTSTerminalEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Terminal")]
+    HRESULT Terminal( [out, retval] ITTerminal ** ppTerminal );
+    
+    [propget, id(2), helpstring("property Call") ]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [propget, id(3), helpstring("property Error")]
+    HRESULT Error( [out, retval] HRESULT * phrErrorCode );
+}
+
+[
+    uuid( EE016A02-4FA9-467c-933F-5A15B12377D7 ),
+    helpstring("TAPI 3.0 ITASRTerminalEvent interface"),
+    oleautomation
+]
+interface ITASRTerminalEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Terminal")]
+    HRESULT Terminal( [out, retval] ITTerminal ** ppTerminal );
+    
+    [propget, id(2), helpstring("property Call") ]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [propget, id(3), helpstring("property Error")]
+    HRESULT Error( [out, retval] HRESULT * phrErrorCode );
+}
+
+[
+    uuid( E6F56009-611F-4945-BBD2-2D0CE5612056 ),
+    helpstring("TAPI 3.0 ITToneTerminalEvent interface"),
+    oleautomation
+]
+interface ITToneTerminalEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Terminal")]
+    HRESULT Terminal( [out, retval] ITTerminal ** ppTerminal );
+    
+    [propget, id(2), helpstring("property Call") ]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [propget, id(3), helpstring("property Error")]
+    HRESULT Error( [out, retval] HRESULT * phrErrorCode );
+}
+
+[
+    uuid( CFA3357C-AD77-11d1-BB68-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITQOSEvent Interface"),
+    oleautomation
+]
+interface ITQOSEvent : IDispatch
+{
+    [propget, id(1), helpstring("property CallHub")]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [propget, id(3), helpstring("property Event")]
+    HRESULT Event( [out, retval] QOS_EVENT * pQosEvent );
+
+    [propget, id(4), helpstring("property MediaType")]
+    HRESULT MediaType( [out, retval] long * plMediaType );
+}
+
+[
+    uuid( 5D4B65F9-E51C-11d1-A02F-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITCallInfoChangeEvent Interface"),
+    oleautomation
+]
+interface ITCallInfoChangeEvent : IDispatch
+{
+    [ propget, id(1), helpstring("property Call") ]
+    HRESULT Call( [out, retval] ITCallInfo ** ppCall );
+
+    [ propget, id(2), helpstring("property Cause") ]
+    HRESULT Cause( [out, retval] CALLINFOCHANGE_CAUSE * pCIC );
+
+    [ propget, id(3), helpstring("property Callback Instance") ]
+    HRESULT CallbackInstance( [out, retval] long * plCallbackInstance );
+}
+
+
+[
+    uuid( AC48FFDF-F8C4-11d1-A030-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITRequest Interface"),
+    oleautomation
+]
+interface ITRequest : IDispatch
+{
+    [ id(1), helpstring("method MakeCall") ]
+    HRESULT MakeCall(
+        [in] BSTR pDestAddress,
+        [in] BSTR pAppName,
+        [in] BSTR pCalledParty,
+        [in] BSTR pComment
+        );
+}
+
+[
+    uuid(AC48FFDE-F8C4-11d1-A030-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITRequestEvent Interface"),
+    oleautomation
+]
+interface ITRequestEvent : IDispatch
+{
+    [ propget, id(1), helpstring("property RegistrationInstance") ]
+    HRESULT RegistrationInstance( [out, retval] long * plRegistrationInstance );
+
+    [ propget, id(2), helpstring("property RequestMode") ]
+    HRESULT RequestMode( [out, retval] long * plRequestMode );
+
+    [ propget, id(3), helpstring("property DestAddress") ]
+    HRESULT DestAddress( [out, retval] BSTR * ppDestAddress );
+
+    [ propget, id(5), helpstring("property AppName") ]
+    HRESULT AppName( [out, retval] BSTR * ppAppName );
+
+    [ propget, id(6), helpstring("property CalledParty") ]
+    HRESULT CalledParty( [out, retval] BSTR * ppCalledParty );
+
+    [ propget, id(7), helpstring("property Comment") ]
+    HRESULT Comment( [out, retval] BSTR * ppComment );
+}
+
+
+[
+    object,
+    public,
+    uuid( 5EC5ACF2-9C02-11d0-8362-00AA003CCABD ),
+    helpstring("TAPI 3.0 ITCollection interface"),
+    dual
+]
+interface ITCollection : IDispatch
+{
+    [propget, helpstring("Returns number of items in collection.")]
+    HRESULT Count(
+            [out, retval] long * lCount
+            );
+
+    [propget, id(DISPID_VALUE), 
+        helpstring("Given an index, returns an item in the collection.")]
+    HRESULT Item(
+            [in] long Index, 
+            [out, retval] VARIANT * pVariant
+            );
+
+    [propget, restricted, id(DISPID_NEWENUM),
+        helpstring("returns an enumerator for the collection.")]
+        HRESULT _NewEnum(
+            [out, retval] IUnknown ** ppNewEnum
+            );
+}
+
+[
+    object,
+    public,
+    uuid( E6DDDDA5-A6D3-48ff-8737-D32FC4D95477 ),
+    helpstring("TAPI 3.1 ITCollection2 interface"),
+    dual
+]
+interface ITCollection2 : ITCollection
+{
+    [id(1), helpstring("Adds an item to the collection.")]
+    HRESULT Add(
+            [in] long Index,
+            [in] VARIANT * pVariant
+            );
+
+    [id(2), helpstring("Removes an item from the collection.")]
+    HRESULT Remove(
+            [in] long Index
+            );
+}
+
+[
+    uuid( 449F659E-88A3-11d1-BB5D-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITForwardInformation Interface"),
+    dual
+]
+interface ITForwardInformation : IDispatch
+{
+    [propput, id(1), helpstring("property NumRingsNoAnswer")]
+    HRESULT NumRingsNoAnswer( 
+        [in] long lNumRings 
+        );
+    [propget, id(1), helpstring("property NumRingsNoAnswer")]
+    HRESULT NumRingsNoAnswer( 
+        [out, retval] long * plNumRings 
+        );
+    [id(2), helpstring("method SetForwardType")]
+    HRESULT SetForwardType( 
+        [in] long ForwardType, 
+        [in] BSTR pDestAddress,
+        [in] BSTR pCallerAddress
+        );
+    [propget, id(3), helpstring("property ForwardTypeDestination")]
+    HRESULT ForwardTypeDestination( 
+        [in] long ForwardType, 
+        [out, retval] BSTR * ppDestAddress 
+        );
+    [propget, id(4), helpstring("property ForwardTypeCaller")]    
+    HRESULT ForwardTypeCaller( 
+        [in] long Forwardtype, 
+        [out, retval] BSTR * ppCallerAddress 
+        );
+    [id(5),hidden]
+    HRESULT GetForwardType(
+        [in] long ForwardType,
+        [out] BSTR * ppDestinationAddress,
+        [out] BSTR * ppCallerAddress
+        );
+    [id(6), helpstring("method Clear")]
+    HRESULT Clear();
+}
+
+[
+    uuid( 5229B4ED-B260-4382-8E1A-5DF3A8A4CCC0 ),
+    helpstring("TAPI 3.1 ITForwardInformation2 Interface"),
+    dual
+]
+interface ITForwardInformation2 : ITForwardInformation
+{
+    [id(7), helpstring("method SetForwardType2")]
+    HRESULT SetForwardType2( 
+        [in] long ForwardType, 
+        [in] BSTR pDestAddress,
+        [in] long DestAddressType,
+        [in] BSTR pCallerAddress,
+        [in] long CallerAddressType
+        );
+    [id(8),hidden]
+    HRESULT GetForwardType2(
+        [in] long ForwardType,
+        [out] BSTR * ppDestinationAddress,
+        [out] long * pDestAddressType,
+        [out] BSTR * ppCallerAddress,
+        [out] long * pCallerAddressType
+        );
+    [propget, id(9), helpstring("property ForwardTypeDestinationAddressType")]
+    HRESULT ForwardTypeDestinationAddressType( 
+        [in] long ForwardType, 
+        [out, retval] long * pDestAddressType
+        );
+    [propget, id(10), helpstring("property ForwardTypeCallerAddressType")]    
+    HRESULT ForwardTypeCallerAddressType( 
+        [in] long Forwardtype, 
+        [out, retval] long * pCallerAddressType
+        );
+}
+
+[
+    uuid( 0C4D8F03-8DDB-11d1-A09E-00805FC147D3 ),
+    helpstring("TAPI 3.0 ITAddressTranslation Interface"),
+    dual
+]
+interface ITAddressTranslation : IDispatch
+{
+
+    [id(IDISPADDRESSTRANSLATION | 1), helpstring("method TranslateAddress")]
+    HRESULT TranslateAddress(
+            [in] BSTR pAddressToTranslate,
+            [in] long lCard,
+            [in] long lTranslateOptions,
+            [out, retval] ITAddressTranslationInfo ** ppTranslated
+            );
+
+    [ id(IDISPADDRESSTRANSLATION | 2), helpstring("method TranslateDialog")]
+    HRESULT TranslateDialog(
+            [in] TAPIHWND hwndOwner,
+            [in] BSTR pAddressIn
+            );
+
+    [id(IDISPADDRESSTRANSLATION | 3), hidden, helpstring("method EnumerateLocations")]
+    HRESULT EnumerateLocations(
+            [out, retval] IEnumLocation ** ppEnumLocation
+            );
+    [propget, id(IDISPADDRESSTRANSLATION | 4), helpstring("property Locations")]
+    HRESULT Locations( 
+            [out, retval] VARIANT * pVariant
+            );
+    [id(IDISPADDRESSTRANSLATION | 5), hidden, helpstring("method EnumerateCallingCards")]
+    HRESULT EnumerateCallingCards(
+            [out, retval] IEnumCallingCard ** ppEnumCallingCard 
+            );
+    [propget, id(IDISPADDRESSTRANSLATION | 6), helpstring("property CallingCards")]
+    HRESULT CallingCards( 
+            [out, retval] VARIANT * pVariant
+            );
+}
+
+
+
+[
+    uuid( AFC15945-8D40-11d1-A09E-00805FC147D3 ),
+    helpstring("TAPI 3.0 ITAddressTranslationInfo Interface"),
+    dual
+]
+interface ITAddressTranslationInfo : IDispatch
+{
+    [propget, id(1), helpstring("property Dialable String")]
+    HRESULT DialableString( 
+        [out, retval] BSTR * ppDialableString 
+        );
+    [propget, id(2), helpstring("property Displayable String")]
+    HRESULT DisplayableString( 
+        [out, retval] BSTR * ppDisplayableString 
+        );
+    [propget, id(3), helpstring("property Current country/region Code")]    
+    HRESULT CurrentCountryCode( 
+        [out, retval] long * CountryCode
+        );
+    [propget, id(4), helpstring("property Destination country/region Code")]    
+    HRESULT DestinationCountryCode( 
+        [out, retval] long * CountryCode
+        );
+    [propget, id(5), helpstring("property Translation Results")]    
+    HRESULT TranslationResults( 
+        [out, retval] long * plResults
+        );
+}
+
+[
+    uuid( 0C4D8EFF-8DDB-11d1-A09E-00805FC147D3 ),
+    helpstring("TAPI 3.0 ITLocationInfo Interface"),
+    dual
+]
+interface ITLocationInfo : IDispatch
+{
+    [propget, id(1), helpstring("property Permanent Location ID")]    
+    HRESULT PermanentLocationID( 
+        [out, retval] long * plLocationID
+        );
+    [propget, id(2), helpstring("property Country Code")]    
+    HRESULT CountryCode( 
+        [out, retval] long * plCountryCode
+        );
+    [propget, id(3), helpstring("property Country ID")]    
+    HRESULT CountryID( 
+        [out, retval] long * plCountryID
+        );
+    [propget, id(4), helpstring("property Options")]    
+    HRESULT Options( 
+        [out, retval] long * plOptions
+        );
+    [propget, id(5), helpstring("property Preferred Credit Card ID")]    
+    HRESULT PreferredCardID( 
+        [out, retval] long * plCardID
+        );
+    [propget, id(6), helpstring("property Location Name")]
+    HRESULT LocationName( 
+        [out, retval] BSTR * ppLocationName 
+        );
+    [propget, id(7), helpstring("property City/Area Code")]
+    HRESULT CityCode( 
+        [out, retval] BSTR * ppCode 
+        );
+    [propget, id(8), helpstring("property Local Access Code")]
+    HRESULT LocalAccessCode( 
+        [out, retval] BSTR * ppCode 
+        );
+    [propget, id(9), helpstring("property Long Distance Access Code")]
+    HRESULT LongDistanceAccessCode( 
+        [out, retval] BSTR * ppCode 
+        );
+    [propget, id(10), helpstring("property Toll Prefix List")]
+    HRESULT TollPrefixList( 
+        [out, retval] BSTR * ppTollList
+        );
+    [propget, id(11), helpstring("property Cancel Call Waiting Code")]
+    HRESULT CancelCallWaitingCode( 
+        [out, retval] BSTR * ppCode 
+        );
+}
+
+[
+    uuid( 0C4D8F01-8DDB-11d1-A09E-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumLocation interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumLocation : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITLocationInfo ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumLocation ** ppEnum
+            );
+}
+
+[
+    uuid( 0C4D8F00-8DDB-11d1-A09E-00805FC147D3 ),
+    helpstring("TAPI 3.0 ITCallingCard Interface"),
+    dual
+]
+interface ITCallingCard : IDispatch
+{
+    [propget, id(1), helpstring("property Permanent Card ID")]    
+    HRESULT PermanentCardID( 
+        [out, retval] long * plCardID
+        );
+    [propget, id(2), helpstring("property Number Of Digits")]    
+    HRESULT NumberOfDigits( 
+        [out, retval] long * plDigits
+        );
+    [propget, id(3), helpstring("property Options")]    
+    HRESULT Options( 
+        [out, retval] long * plOptions
+        );
+    [propget, id(4), helpstring("property Card Name")]
+    HRESULT CardName( 
+        [out, retval] BSTR * ppCardName 
+        );
+    [propget, id(5), helpstring("property Same Area Dialing Rule")]
+    HRESULT SameAreaDialingRule( 
+        [out, retval] BSTR * ppRule 
+        );
+    [propget, id(6), helpstring("property Long Distance Dialing Rule")]
+    HRESULT LongDistanceDialingRule( 
+        [out, retval] BSTR * ppRule 
+        );
+    [propget, id(7), helpstring("property International Dialing Rule")]
+    HRESULT InternationalDialingRule( 
+        [out, retval] BSTR * ppRule 
+        );
+}
+
+[
+    uuid( 0C4D8F02-8DDB-11d1-A09E-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumCallingCard interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumCallingCard : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITCallingCard ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumCallingCard ** ppEnum
+            );
+}
+
+
+[
+    uuid( 895801DF-3DD6-11d1-8F30-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITCallNotificationEvent interface"),
+    dual
+]
+
+interface ITCallNotificationEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Call")]
+    HRESULT Call(
+            [out,retval] ITCallInfo ** ppCall
+            );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out,retval] CALL_NOTIFICATION_EVENT * pCallNotificationEvent
+            );
+
+    [propget, id(3), helpstring("property CallbackInstance")]
+    HRESULT CallbackInstance(
+            [out, retval] long * plCallbackInstance
+            );
+
+}
+
+
+
+[
+    uuid( E9225295-C759-11d1-A02B-00C04FB6809F ),
+    helpstring("TAPI 3.0 ITDispatchMapper interface")
+]
+interface ITDispatchMapper : IDispatch
+{
+    [id(1), helpstring("QueryDispatchInterface")]
+    HRESULT
+    QueryDispatchInterface(
+        [in] BSTR pIID,
+        [in] IDispatch * pInterfaceToMap,
+        [out, retval] IDispatch ** ppReturnedInterface
+        );
+}
+
+
+[
+    uuid( EE3BD604-3868-11D2-A045-00C04FB6809F ),
+    helpstring( "ITStreamControl interface" ),
+    pointer_default(unique),
+    dual
+]
+interface ITStreamControl : IDispatch
+{
+    [id(IDISPAGGREGATEDMSPCALLOBJ | 1), helpstring("method CreateStream")]
+    HRESULT CreateStream(
+        [in] long lMediaType,
+        [in] TERMINAL_DIRECTION td,
+        [out, retval] ITStream ** ppStream
+        );
+
+    [id(IDISPAGGREGATEDMSPCALLOBJ | 2), helpstring("method RemoveStream")]
+    HRESULT RemoveStream(
+        [in] ITStream * pStream
+        );
+
+    [id(IDISPAGGREGATEDMSPCALLOBJ | 3), hidden]
+    HRESULT EnumerateStreams(
+        [out] IEnumStream ** ppEnumStream
+        );
+
+    [propget, id(IDISPAGGREGATEDMSPCALLOBJ | 4), helpstring("property Streams")]
+    HRESULT Streams(
+        [out, retval] VARIANT * pVariant
+        );
+
+}
+
+
+[
+    uuid( EE3BD605-3868-11D2-A045-00C04FB6809F ),
+    helpstring( "ITStream interface" ),
+    pointer_default(unique),
+    dual
+]
+interface ITStream : IDispatch
+{
+    [propget, id(1), helpstring("property MediaType")]
+    HRESULT MediaType(
+        [out, retval] long * plMediaType
+        );
+
+    [propget, id(2), helpstring("property Direction")]
+    HRESULT Direction(
+        [out, retval] TERMINAL_DIRECTION * pTD
+        );
+
+    [propget, id(3), helpstring("property Name")]
+    HRESULT Name(
+        [out, retval] BSTR * ppName
+        );
+
+    [id(4), helpstring("method StartStream")]
+    HRESULT StartStream(void);
+
+    [id(5), helpstring("method PauseStream")]
+    HRESULT PauseStream(void);
+
+    [id(6), helpstring("method StopStream")]
+    HRESULT StopStream(void);
+
+    [id(7), helpstring("method SelectTerminal")]
+    HRESULT SelectTerminal(
+        [in] ITTerminal * pTerminal
+        );
+
+    [id(8), helpstring("method UnselectTerminal")]
+    HRESULT UnselectTerminal(
+        [in] ITTerminal * pTerminal
+        );
+
+    [id(9), hidden]
+    HRESULT EnumerateTerminals(
+        [out] IEnumTerminal ** ppEnumTerminal
+        );
+
+    [propget, id(10), helpstring("property Terminals")]
+    HRESULT Terminals(
+        [out, retval] VARIANT * pTerminals
+        );
+}
+
+
+[
+    uuid( EE3BD606-3868-11d2-A045-00C04FB6809F ),
+    helpstring( "IEnumStream interface" ),
+    hidden,
+    pointer_default(unique)
+]
+interface IEnumStream : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITStream ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumStream ** ppEnum
+            );
+
+}
+
+[
+    uuid( EE3BD607-3868-11D2-A045-00C04FB6809F ),
+    helpstring( "ITSubStreamControl interface" ),
+    pointer_default(unique),
+    dual
+]
+interface ITSubStreamControl : IDispatch
+{
+    [id(1), helpstring("method CreateSubStream")]
+    HRESULT CreateSubStream(
+        [out, retval] ITSubStream ** ppSubStream
+        );
+
+    [id(2), helpstring("method RemoveSubStream")]
+    HRESULT RemoveSubStream(
+        [in] ITSubStream * pSubStream
+        );
+
+    [id(3), hidden]
+    HRESULT EnumerateSubStreams(
+        [out] IEnumSubStream ** ppEnumSubStream
+        );
+
+    [propget, id(4), helpstring("property SubStreams")]
+    HRESULT SubStreams(
+        [out, retval] VARIANT * pVariant
+        );
+
+}
+
+[
+    uuid( EE3BD608-3868-11D2-A045-00C04FB6809F ),
+    helpstring( "ITSubStream interface" ),
+    pointer_default(unique),
+    dual
+]
+interface ITSubStream : IDispatch
+{
+    [id(1), helpstring("method StartStream")]
+    HRESULT StartSubStream(void);
+
+    [id(2), helpstring("method PauseStream")]
+    HRESULT PauseSubStream(void);
+
+    [id(3), helpstring("method StopStream")]
+    HRESULT StopSubStream(void);
+
+    [id(4), helpstring("method SelectTerminal")]
+    HRESULT SelectTerminal(
+        [in] ITTerminal * pTerminal
+        );
+
+    [id(5), helpstring("method UnselectTerminal")]
+    HRESULT UnselectTerminal(
+        [in] ITTerminal * pTerminal
+        );
+
+    [id(6), hidden]
+    HRESULT EnumerateTerminals(
+        [out] IEnumTerminal ** ppEnumTerminal
+        );
+
+    [propget, id(7), helpstring("property Terminals")]
+    HRESULT Terminals(
+        [out, retval] VARIANT * pTerminals
+        );
+
+    [propget, id(8), helpstring("property Stream")]
+    HRESULT Stream(
+        [out, retval] ITStream ** ppITStream
+        );
+}
+
+
+[
+    uuid( EE3BD609-3868-11d2-A045-00C04FB6809F ),
+    helpstring( "IEnumSubStream interface" ),
+    hidden,
+    pointer_default(unique)
+]
+interface IEnumSubStream : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITSubStream ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumSubStream ** ppEnum
+            );
+
+}
+
+[
+    uuid( 207823EA-E252-11d2-B77E-0080C7135381 ),
+    helpstring("ITLegacyWaveSupport"),
+    dual
+]
+interface ITLegacyWaveSupport : IDispatch
+{
+    HRESULT IsFullDuplex( [out] FULLDUPLEX_SUPPORT * pSupport );
+}
+
+
+
+[
+    uuid(161A4A56-1E99-4b3f-A46A-168F38A5EE4C ),
+    helpstring("TAPI 3.0 ITBasicCallControl2 interface"),
+    dual
+]
+    
+interface ITBasicCallControl2 : ITBasicCallControl
+{
+    [id(IDISPBASICCALLCONTROL | 23), helpstring("method RequestTerminal")]
+    HRESULT RequestTerminal(
+        [in]    BSTR                  bstrTerminalClassGUID,
+        [in]    long                  lMediaType,
+        [in]    TERMINAL_DIRECTION    Direction,
+        [out, retval]   ITTerminal         ** ppTerminal
+        );
+
+    [id(IDISPBASICCALLCONTROL | 24), helpstring("method SelectTerminalOnCall")]
+    HRESULT SelectTerminalOnCall(
+        [in]    ITTerminal *pTerminal
+        );
+
+    [id(IDISPBASICCALLCONTROL | 25), helpstring("method UnselectTerminalOnCall")]
+    HRESULT UnselectTerminalOnCall(
+        [in]    ITTerminal *pTerminal
+        );
+}
+
+[
+    uuid( B87658BD-3C59-4f64-BE74-AEDE3E86A81E ),
+    helpstring("TAPI 3.0 ITScriptableAudioFormat Interface"),
+    dual
+]
+interface ITScriptableAudioFormat : IDispatch
+{
+    [propget, id(1), helpstring("property Channels")]
+    HRESULT Channels(
+        [out, retval] long* pVal
+        );
+
+    [propput, id(1), helpstring("property Channels")]
+    HRESULT Channels(
+        [in] const long nNewVal
+        );
+
+    [propget, id(2), helpstring("property SamplesPerSec")]
+    HRESULT SamplesPerSec(
+        [out, retval] long* pVal
+        );
+
+    [propput, id(2), helpstring("property SamplesPerSec")]
+    HRESULT SamplesPerSec(
+        [in] const long nNewVal
+        );
+
+    [propget, id(3), helpstring("property AvgBytesPerSec")]
+    HRESULT AvgBytesPerSec(
+        [out, retval] long* pVal
+        );
+
+    [propput, id(3), helpstring("property AvgBytesPerSec")]
+    HRESULT AvgBytesPerSec(
+        [in] const long nNewVal
+        );
+
+    [propget, id(4), helpstring("property BlockAlign")]
+    HRESULT BlockAlign(
+        [out, retval] long* pVal
+        );
+
+    [propput, id(4), helpstring("property BlockAlign")]
+    HRESULT BlockAlign(
+        [in] const long nNewVal
+        );
+
+    [propget, id(5), helpstring("property BitsPerSample")]
+    HRESULT BitsPerSample(
+        [out, retval] long* pVal
+        );
+
+    [propput, id(5), helpstring("property BitsPerSample")]
+    HRESULT BitsPerSample(
+        [in] const long nNewVal
+        );
+
+    [propget, id(6), helpstring("property FormatTag")]
+    HRESULT FormatTag(
+        [out, retval] long* pVal
+        );
+
+    [propput, id(6), helpstring("property FormatTag")]
+    HRESULT FormatTag(
+        [in] const long nNewVal
+        );
+
+};
+
+
+
+cpp_quote("/****************************************")
+cpp_quote(" * Terminal Classes")
+cpp_quote(" ****************************************/")
+cpp_quote("")
+cpp_quote("// Video Windows - {F7438990-D6EB-11d0-82A6-00AA00B5CA1B}")
+cpp_quote("EXTERN_C const CLSID CLSID_VideoWindowTerm;")
+cpp_quote("")
+cpp_quote("// Video input (camera) {AAF578EC-DC70-11d0-8ED3-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID CLSID_VideoInputTerminal;")
+cpp_quote("")
+cpp_quote("// Handset device {AAF578EB-DC70-11d0-8ED3-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID CLSID_HandsetTerminal;")
+cpp_quote("")
+cpp_quote("// Headset device {AAF578ED-DC70-11d0-8ED3-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID CLSID_HeadsetTerminal;")
+cpp_quote("")
+cpp_quote("// Speakerphone device {AAF578EE-DC70-11d0-8ED3-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID CLSID_SpeakerphoneTerminal;")
+cpp_quote("")
+cpp_quote("// Microphone (sound card) {AAF578EF-DC70-11d0-8ED3-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID CLSID_MicrophoneTerminal;")
+cpp_quote("")
+cpp_quote("// Speakers (sound card) {AAF578F0-DC70-11d0-8ED3-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID CLSID_SpeakersTerminal;")
+cpp_quote("")
+cpp_quote("// Media stream terminal {E2F7AEF7-4971-11D1-A671-006097C9A2E8}")
+cpp_quote("EXTERN_C const CLSID CLSID_MediaStreamTerminal;")
+cpp_quote("")
+cpp_quote("// File Recording terminal {521F3D06-C3D0-4511-8617-86B9A783DA77}")
+cpp_quote("EXTERN_C const CLSID CLSID_FileRecordingTerminal;")
+cpp_quote("")
+cpp_quote("// File Recording Track {BF14A2E4-E88B-4ef5-9740-5AC5D022F8C9}")
+cpp_quote("EXTERN_C const CLSID CLSID_FileRecordingTrack;")
+cpp_quote("")
+cpp_quote("// File Playback Terminal {0CB9914C-79CD-47dc-ADB0-327F47CEFB20}")
+cpp_quote("EXTERN_C const CLSID CLSID_FilePlaybackTerminal;")
+cpp_quote("")
+cpp_quote("// define the media modes")
+cpp_quote("#define TAPIMEDIATYPE_AUDIO                     0x8")
+cpp_quote("#define TAPIMEDIATYPE_VIDEO                     0x8000")
+cpp_quote("#define TAPIMEDIATYPE_DATAMODEM                 0x10")
+cpp_quote("#define TAPIMEDIATYPE_G3FAX                     0x20")
+cpp_quote("#define TAPIMEDIATYPE_MULTITRACK                0x10000")
+cpp_quote("")
+cpp_quote("// {831CE2D6-83B5-11d1-BB5C-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID TAPIPROTOCOL_PSTN;")
+cpp_quote("")
+cpp_quote("// {831CE2D7-83B5-11d1-BB5C-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID TAPIPROTOCOL_H323;")
+cpp_quote("")
+cpp_quote("// {831CE2D8-83B5-11d1-BB5C-00C04FB6809F}")
+cpp_quote("EXTERN_C const CLSID TAPIPROTOCOL_Multicast;")
+cpp_quote("")
+cpp_quote("#define __TapiConstants_MODULE_DEFINED__")
+
+
+#endif // __TAPI3IF_IDL__
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

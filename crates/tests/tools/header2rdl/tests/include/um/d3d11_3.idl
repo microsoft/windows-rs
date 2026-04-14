@@ -1,0 +1,1173 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// D3D11.3 IDL
+//
+// Contains interface definitions for the D3D11.3 API.
+//
+// Copyright (C) Microsoft Corporation
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "dxgi1_3.idl";
+import "d3dcommon.idl";
+
+
+import "d3d11_2.idl"; //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "#endif" )
+cpp_quote( "#include \"d3d11_2.h\" //") //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+typedef enum D3D11_CONTEXT_TYPE
+{
+    D3D11_CONTEXT_TYPE_ALL = 0,
+    D3D11_CONTEXT_TYPE_3D = 1,
+    D3D11_CONTEXT_TYPE_COMPUTE = 2,
+    D3D11_CONTEXT_TYPE_COPY = 3,
+    D3D11_CONTEXT_TYPE_VIDEO = 4,
+} D3D11_CONTEXT_TYPE;
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("enum D3D11_TEXTURE_LAYOUT : int")
+cpp_quote("{")
+cpp_quote("D3D11_TEXTURE_LAYOUT_UNDEFINED = 0,")
+cpp_quote("D3D11_TEXTURE_LAYOUT_ROW_MAJOR = 1,")
+cpp_quote("D3D11_TEXTURE_LAYOUT_64K_STANDARD_SWIZZLE = 2,")
+cpp_quote("};")
+cpp_quote("#else")
+typedef enum D3D11_TEXTURE_LAYOUT
+{
+    D3D11_TEXTURE_LAYOUT_UNDEFINED = 0,
+    D3D11_TEXTURE_LAYOUT_ROW_MAJOR = 1,   
+    D3D11_TEXTURE_LAYOUT_64K_STANDARD_SWIZZLE = 2,
+} D3D11_TEXTURE_LAYOUT;
+cpp_quote("#endif")
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Texture2D
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_TEXTURE2D_DESC1
+{
+    UINT Width;
+    UINT Height;
+    UINT MipLevels;
+    UINT ArraySize;
+    DXGI_FORMAT Format;
+    DXGI_SAMPLE_DESC SampleDesc;
+    D3D11_USAGE Usage;
+    UINT BindFlags;
+    UINT CPUAccessFlags;    
+    UINT MiscFlags;
+    D3D11_TEXTURE_LAYOUT TextureLayout;
+} D3D11_TEXTURE2D_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_TEXTURE2D_DESC1 : public D3D11_TEXTURE2D_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_TEXTURE2D_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_TEXTURE2D_DESC1( const D3D11_TEXTURE2D_DESC1& o ) :" )
+cpp_quote( "        D3D11_TEXTURE2D_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_TEXTURE2D_DESC1(" )
+cpp_quote( "        DXGI_FORMAT format," )
+cpp_quote( "        UINT width," )
+cpp_quote( "        UINT height," )
+cpp_quote( "        UINT arraySize = 1," )
+cpp_quote( "        UINT mipLevels = 0," )
+cpp_quote( "        UINT bindFlags = D3D11_BIND_SHADER_RESOURCE," )
+cpp_quote( "        D3D11_USAGE usage = D3D11_USAGE_DEFAULT," )
+cpp_quote( "        UINT cpuaccessFlags = 0," )
+cpp_quote( "        UINT sampleCount = 1," )
+cpp_quote( "        UINT sampleQuality = 0," )
+cpp_quote( "        UINT miscFlags = 0," )
+cpp_quote( "        D3D11_TEXTURE_LAYOUT textureLayout = D3D11_TEXTURE_LAYOUT_UNDEFINED)" )
+cpp_quote( "    {" )
+cpp_quote( "        Width = width;" )
+cpp_quote( "        Height = height;" )
+cpp_quote( "        MipLevels = mipLevels;" )
+cpp_quote( "        ArraySize = arraySize;" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        SampleDesc.Count = sampleCount;" )
+cpp_quote( "        SampleDesc.Quality = sampleQuality;" )
+cpp_quote( "        Usage = usage;" )
+cpp_quote( "        BindFlags = bindFlags;" )
+cpp_quote( "        CPUAccessFlags = cpuaccessFlags;" )
+cpp_quote( "        MiscFlags = miscFlags;" )
+cpp_quote( "        TextureLayout = textureLayout;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_TEXTURE2D_DESC1(" )
+cpp_quote( "        const D3D11_TEXTURE2D_DESC &desc," )
+cpp_quote( "        D3D11_TEXTURE_LAYOUT textureLayout = D3D11_TEXTURE_LAYOUT_UNDEFINED)" )
+cpp_quote( "    {" )
+cpp_quote( "        Width = desc.Width;" )
+cpp_quote( "        Height = desc.Height;" )
+cpp_quote( "        MipLevels = desc.MipLevels;" )
+cpp_quote( "        ArraySize = desc.ArraySize;" )
+cpp_quote( "        Format = desc.Format;" )
+cpp_quote( "        SampleDesc.Count = desc.SampleDesc.Count;" )
+cpp_quote( "        SampleDesc.Quality = desc. SampleDesc.Quality;" )
+cpp_quote( "        Usage = desc.Usage;" )
+cpp_quote( "        BindFlags = desc.BindFlags;" )
+cpp_quote( "        CPUAccessFlags = desc.CPUAccessFlags;" )
+cpp_quote( "        MiscFlags = desc.MiscFlags;" )
+cpp_quote( "        TextureLayout = textureLayout;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_TEXTURE2D_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+
+[ uuid( 51218251-1E33-4617-9CCB-4D3A4367E7BB ), object, local, pointer_default( unique ) ]
+interface ID3D11Texture2D1
+    : ID3D11Texture2D
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_TEXTURE2D_DESC1* pDesc );
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Texture3D
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_TEXTURE3D_DESC1
+{
+    UINT Width;
+    UINT Height;
+    UINT Depth;
+    UINT MipLevels;
+    DXGI_FORMAT Format;
+    D3D11_USAGE Usage;    
+    UINT BindFlags;
+    UINT CPUAccessFlags;    
+    UINT MiscFlags;
+    D3D11_TEXTURE_LAYOUT TextureLayout;
+} D3D11_TEXTURE3D_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_TEXTURE3D_DESC1 : public D3D11_TEXTURE3D_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_TEXTURE3D_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_TEXTURE3D_DESC1( const D3D11_TEXTURE3D_DESC1& o ) :" )
+cpp_quote( "        D3D11_TEXTURE3D_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_TEXTURE3D_DESC1(" )
+cpp_quote( "        DXGI_FORMAT format," )
+cpp_quote( "        UINT width," )
+cpp_quote( "        UINT height," )
+cpp_quote( "        UINT depth," )
+cpp_quote( "        UINT mipLevels = 0," )
+cpp_quote( "        UINT bindFlags = D3D11_BIND_SHADER_RESOURCE," )
+cpp_quote( "        D3D11_USAGE usage = D3D11_USAGE_DEFAULT," )
+cpp_quote( "        UINT cpuaccessFlags = 0," )
+cpp_quote( "        UINT miscFlags = 0," )
+cpp_quote( "        D3D11_TEXTURE_LAYOUT textureLayout = D3D11_TEXTURE_LAYOUT_UNDEFINED)" )
+cpp_quote( "    {" )
+cpp_quote( "        Width = width;" )
+cpp_quote( "        Height = height;" )
+cpp_quote( "        Depth = depth;" )
+cpp_quote( "        MipLevels = mipLevels;" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        Usage = usage;" )
+cpp_quote( "        BindFlags = bindFlags;" )
+cpp_quote( "        CPUAccessFlags = cpuaccessFlags;" )
+cpp_quote( "        MiscFlags = miscFlags;" )
+cpp_quote( "        TextureLayout = textureLayout;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_TEXTURE3D_DESC1(" )
+cpp_quote( "        const D3D11_TEXTURE3D_DESC &desc," )
+cpp_quote( "        D3D11_TEXTURE_LAYOUT textureLayout = D3D11_TEXTURE_LAYOUT_UNDEFINED)" )
+cpp_quote( "    {" )
+cpp_quote( "        Width = desc.Width;" )
+cpp_quote( "        Height = desc.Height;" )
+cpp_quote( "        Depth = desc.Depth;" )
+cpp_quote( "        MipLevels = desc.MipLevels;" )
+cpp_quote( "        Format = desc.Format;" )
+cpp_quote( "        Usage = desc.Usage;" )
+cpp_quote( "        BindFlags = desc.BindFlags;" )
+cpp_quote( "        CPUAccessFlags = desc.CPUAccessFlags;" )
+cpp_quote( "        MiscFlags = desc.MiscFlags;" )
+cpp_quote( "        TextureLayout = textureLayout;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_TEXTURE3D_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid( 0C711683-2853-4846-9BB0-F3E60639E46A ), object, local, pointer_default( unique ) ]
+interface ID3D11Texture3D1
+    : ID3D11Texture3D
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_TEXTURE3D_DESC1* pDesc );
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Rasterizer State
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef enum D3D11_CONSERVATIVE_RASTERIZATION_MODE
+{
+    D3D11_CONSERVATIVE_RASTERIZATION_MODE_OFF       = 0, // Default
+    D3D11_CONSERVATIVE_RASTERIZATION_MODE_ON        = 1,
+} D3D11_CONSERVATIVE_RASTERIZATION_MODE;
+
+typedef struct D3D11_RASTERIZER_DESC2
+{
+    D3D11_FILL_MODE FillMode;
+    D3D11_CULL_MODE CullMode;
+    BOOL FrontCounterClockwise;
+    INT DepthBias;
+    FLOAT DepthBiasClamp;
+    FLOAT SlopeScaledDepthBias;
+    BOOL DepthClipEnable;
+    BOOL ScissorEnable;
+    BOOL MultisampleEnable;
+    BOOL AntialiasedLineEnable;
+    UINT ForcedSampleCount;  
+    D3D11_CONSERVATIVE_RASTERIZATION_MODE ConservativeRaster;
+} D3D11_RASTERIZER_DESC2;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_RASTERIZER_DESC2 : public D3D11_RASTERIZER_DESC2" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_RASTERIZER_DESC2() = default;" )
+cpp_quote( "    explicit CD3D11_RASTERIZER_DESC2( const D3D11_RASTERIZER_DESC2& o ) :" )
+cpp_quote( "        D3D11_RASTERIZER_DESC2( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_RASTERIZER_DESC2( CD3D11_DEFAULT )" )
+cpp_quote( "    {" )
+cpp_quote( "        FillMode = D3D11_FILL_SOLID;" )
+cpp_quote( "        CullMode = D3D11_CULL_BACK;" )
+cpp_quote( "        FrontCounterClockwise = FALSE;" )
+cpp_quote( "        DepthBias = D3D11_DEFAULT_DEPTH_BIAS;" )
+cpp_quote( "        DepthBiasClamp = D3D11_DEFAULT_DEPTH_BIAS_CLAMP;" )
+cpp_quote( "        SlopeScaledDepthBias = D3D11_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;" )
+cpp_quote( "        DepthClipEnable = TRUE;" )
+cpp_quote( "        ScissorEnable = FALSE;" )
+cpp_quote( "        MultisampleEnable = FALSE;" )
+cpp_quote( "        AntialiasedLineEnable = FALSE;" )
+cpp_quote( "        ForcedSampleCount = 0;" )
+cpp_quote( "        ConservativeRaster = D3D11_CONSERVATIVE_RASTERIZATION_MODE_OFF;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_RASTERIZER_DESC2(" )
+cpp_quote( "        D3D11_FILL_MODE fillMode," )
+cpp_quote( "        D3D11_CULL_MODE cullMode," )
+cpp_quote( "        BOOL frontCounterClockwise," )
+cpp_quote( "        INT depthBias," )
+cpp_quote( "        FLOAT depthBiasClamp," )
+cpp_quote( "        FLOAT slopeScaledDepthBias," )
+cpp_quote( "        BOOL depthClipEnable," )
+cpp_quote( "        BOOL scissorEnable," )
+cpp_quote( "        BOOL multisampleEnable," )
+cpp_quote( "        BOOL antialiasedLineEnable, " )
+cpp_quote( "        UINT forcedSampleCount, " )
+cpp_quote( "        D3D11_CONSERVATIVE_RASTERIZATION_MODE conservativeRaster )" )
+cpp_quote( "    {" )
+cpp_quote( "        FillMode = fillMode;" )
+cpp_quote( "        CullMode = cullMode;" )
+cpp_quote( "        FrontCounterClockwise = frontCounterClockwise;" )
+cpp_quote( "        DepthBias = depthBias;" )
+cpp_quote( "        DepthBiasClamp = depthBiasClamp;" )
+cpp_quote( "        SlopeScaledDepthBias = slopeScaledDepthBias;" )
+cpp_quote( "        DepthClipEnable = depthClipEnable;" )
+cpp_quote( "        ScissorEnable = scissorEnable;" )
+cpp_quote( "        MultisampleEnable = multisampleEnable;" )
+cpp_quote( "        AntialiasedLineEnable = antialiasedLineEnable;" )
+cpp_quote( "        ForcedSampleCount = forcedSampleCount;" )
+cpp_quote( "        ConservativeRaster = conservativeRaster;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_RASTERIZER_DESC2() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid(6fbd02fb-209f-46c4-b059-2ed15586a6ac), object, local, pointer_default( unique ) ]
+interface ID3D11RasterizerState2
+    : ID3D11RasterizerState1
+{
+    void GetDesc2( [annotation("_Out_")] D3D11_RASTERIZER_DESC2* pDesc );
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ShaderResourceView
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_TEX2D_SRV1
+{
+    UINT MostDetailedMip;
+    UINT MipLevels;
+    UINT PlaneSlice;
+} D3D11_TEX2D_SRV1;
+
+typedef struct D3D11_TEX2D_ARRAY_SRV1 
+{
+    UINT MostDetailedMip;
+    UINT MipLevels;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+    UINT PlaneSlice;
+} D3D11_TEX2D_ARRAY_SRV1;
+
+typedef struct D3D11_SHADER_RESOURCE_VIEW_DESC1 
+{
+    DXGI_FORMAT         Format;
+    D3D11_SRV_DIMENSION ViewDimension;
+
+    union 
+    {
+        D3D11_BUFFER_SRV        Buffer;
+        D3D11_TEX1D_SRV         Texture1D;
+        D3D11_TEX1D_ARRAY_SRV   Texture1DArray;
+        D3D11_TEX2D_SRV1        Texture2D;
+        D3D11_TEX2D_ARRAY_SRV1  Texture2DArray;
+        D3D11_TEX2DMS_SRV       Texture2DMS;
+        D3D11_TEX2DMS_ARRAY_SRV Texture2DMSArray;
+        D3D11_TEX3D_SRV         Texture3D;
+        D3D11_TEXCUBE_SRV       TextureCube;
+        D3D11_TEXCUBE_ARRAY_SRV TextureCubeArray;
+        D3D11_BUFFEREX_SRV      BufferEx;
+    };
+} D3D11_SHADER_RESOURCE_VIEW_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_SHADER_RESOURCE_VIEW_DESC1 : public D3D11_SHADER_RESOURCE_VIEW_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_SHADER_RESOURCE_VIEW_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC1( const D3D11_SHADER_RESOURCE_VIEW_DESC1& o ) :" )
+cpp_quote( "        D3D11_SHADER_RESOURCE_VIEW_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC1(" )
+cpp_quote( "        D3D11_SRV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mostDetailedMip = 0, // FirstElement for BUFFER" )
+cpp_quote( "        UINT mipLevels = -1, // NumElements for BUFFER" )
+cpp_quote( "        UINT firstArraySlice = 0, // First2DArrayFace for TEXTURECUBEARRAY" )
+cpp_quote( "        UINT arraySize = -1, // NumCubes for TEXTURECUBEARRAY" )
+cpp_quote( "        UINT flags = 0, // BUFFEREX only" )
+cpp_quote( "        UINT planeSlice = 0 ) // Texture2D and Texture2DArray only" )
+cpp_quote( "    {" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_BUFFER:" )
+cpp_quote( "            Buffer.FirstElement = mostDetailedMip;" )
+cpp_quote( "            Buffer.NumElements = mipLevels;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE1D:" )
+cpp_quote( "            Texture1D.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture1D.MipLevels = mipLevels;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE1DARRAY:" )
+cpp_quote( "            Texture1DArray.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture1DArray.MipLevels = mipLevels;" )
+cpp_quote( "            Texture1DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture1DArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2D:" )
+cpp_quote( "            Texture2D.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture2D.MipLevels = mipLevels;" )
+cpp_quote( "            Texture2D.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2DARRAY:" )
+cpp_quote( "            Texture2DArray.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture2DArray.MipLevels = mipLevels;" )
+cpp_quote( "            Texture2DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DArray.ArraySize = arraySize;" )
+cpp_quote( "            Texture2DArray.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2DMS:" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY:" )
+cpp_quote( "            Texture2DMSArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DMSArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE3D:" )
+cpp_quote( "            Texture3D.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture3D.MipLevels = mipLevels;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURECUBE:" )
+cpp_quote( "            TextureCube.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            TextureCube.MipLevels = mipLevels;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURECUBEARRAY:" )
+cpp_quote( "            TextureCubeArray.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            TextureCubeArray.MipLevels = mipLevels;" )
+cpp_quote( "            TextureCubeArray.First2DArrayFace = firstArraySlice;" )
+cpp_quote( "            TextureCubeArray.NumCubes = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_BUFFEREX:" )
+cpp_quote( "            BufferEx.FirstElement = mostDetailedMip;" )
+cpp_quote( "            BufferEx.NumElements = mipLevels;" )
+cpp_quote( "            BufferEx.Flags = flags;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Buffer*," )
+cpp_quote( "        DXGI_FORMAT format," )
+cpp_quote( "        UINT firstElement," )
+cpp_quote( "        UINT numElements," )
+cpp_quote( "        UINT flags = 0 )" )
+cpp_quote( "    {" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        ViewDimension = D3D11_SRV_DIMENSION_BUFFEREX;" )
+cpp_quote( "        BufferEx.FirstElement = firstElement;" )
+cpp_quote( "        BufferEx.NumElements = numElements;" )
+cpp_quote( "        BufferEx.Flags = flags;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture1D* pTex1D," )
+cpp_quote( "        D3D11_SRV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mostDetailedMip = 0," )
+cpp_quote( "        UINT mipLevels = -1," )
+cpp_quote( "        UINT firstArraySlice = 0," )
+cpp_quote( "        UINT arraySize = -1 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || (UINT)-1 == mipLevels ||" )
+cpp_quote( "            ((UINT)-1 == arraySize && D3D11_SRV_DIMENSION_TEXTURE1DARRAY == viewDimension))" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE1D_DESC TexDesc;" )
+cpp_quote( "            pTex1D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == mipLevels) mipLevels = TexDesc.MipLevels - mostDetailedMip;" )
+cpp_quote( "            if ((UINT)-1 == arraySize) arraySize = TexDesc.ArraySize - firstArraySlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE1D:" )
+cpp_quote( "            Texture1D.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture1D.MipLevels = mipLevels;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE1DARRAY:" )
+cpp_quote( "            Texture1DArray.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture1DArray.MipLevels = mipLevels;" )
+cpp_quote( "            Texture1DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture1DArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture2D* pTex2D," )
+cpp_quote( "        D3D11_SRV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mostDetailedMip = 0," )
+cpp_quote( "        UINT mipLevels = -1," )
+cpp_quote( "        UINT firstArraySlice = 0, // First2DArrayFace for TEXTURECUBEARRAY" )
+cpp_quote( "        UINT arraySize = -1,  // NumCubes for TEXTURECUBEARRAY" )
+cpp_quote( "        UINT planeSlice = 0 ) // PlaneSlice for TEXTURE2D or TEXTURE2DARRAY" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || " )
+cpp_quote( "            ((UINT)-1 == mipLevels &&" )
+cpp_quote( "                D3D11_SRV_DIMENSION_TEXTURE2DMS != viewDimension &&" )
+cpp_quote( "                D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY != viewDimension) ||" )
+cpp_quote( "            ((UINT)-1 == arraySize &&" )
+cpp_quote( "                (D3D11_SRV_DIMENSION_TEXTURE2DARRAY == viewDimension ||" )
+cpp_quote( "                D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY == viewDimension ||" )
+cpp_quote( "                D3D11_SRV_DIMENSION_TEXTURECUBEARRAY == viewDimension)))" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE2D_DESC TexDesc;" )
+cpp_quote( "            pTex2D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == mipLevels) mipLevels = TexDesc.MipLevels - mostDetailedMip;" )
+cpp_quote( "            if ((UINT)-1 == arraySize)" )
+cpp_quote( "            {" )
+cpp_quote( "                arraySize = TexDesc.ArraySize - firstArraySlice;" )
+cpp_quote( "                if (D3D11_SRV_DIMENSION_TEXTURECUBEARRAY == viewDimension) arraySize /= 6;" )
+cpp_quote( "            }" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2D:" )
+cpp_quote( "            Texture2D.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture2D.MipLevels = mipLevels;" )
+cpp_quote( "            Texture2D.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2DARRAY:" )
+cpp_quote( "            Texture2DArray.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            Texture2DArray.MipLevels = mipLevels;" )
+cpp_quote( "            Texture2DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DArray.ArraySize = arraySize;" )
+cpp_quote( "            Texture2DArray.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2DMS:" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURE2DMSARRAY:" )
+cpp_quote( "            Texture2DMSArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DMSArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURECUBE:" )
+cpp_quote( "            TextureCube.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            TextureCube.MipLevels = mipLevels;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_SRV_DIMENSION_TEXTURECUBEARRAY:" )
+cpp_quote( "            TextureCubeArray.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "            TextureCubeArray.MipLevels = mipLevels;" )
+cpp_quote( "            TextureCubeArray.First2DArrayFace = firstArraySlice;" )
+cpp_quote( "            TextureCubeArray.NumCubes = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_SHADER_RESOURCE_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture3D* pTex3D," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mostDetailedMip = 0," )
+cpp_quote( "        UINT mipLevels = -1 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = D3D11_SRV_DIMENSION_TEXTURE3D;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || (UINT)-1 == mipLevels)" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE3D_DESC TexDesc;" )
+cpp_quote( "            pTex3D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == mipLevels) mipLevels = TexDesc.MipLevels - mostDetailedMip;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        Texture3D.MostDetailedMip = mostDetailedMip;" )
+cpp_quote( "        Texture3D.MipLevels = mipLevels;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_SHADER_RESOURCE_VIEW_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid( 91308b87-9040-411d-8c67-c39253ce3802 ), object, local, pointer_default( unique ) ]
+interface ID3D11ShaderResourceView1
+    : ID3D11ShaderResourceView
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_SHADER_RESOURCE_VIEW_DESC1* pDesc1 );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// RenderTargetView
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_TEX2D_RTV1
+{
+    UINT MipSlice;
+    UINT PlaneSlice;
+} D3D11_TEX2D_RTV1;
+
+typedef struct D3D11_TEX2D_ARRAY_RTV1 
+{
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+    UINT PlaneSlice;
+} D3D11_TEX2D_ARRAY_RTV1;
+
+typedef struct D3D11_RENDER_TARGET_VIEW_DESC1 
+{
+    DXGI_FORMAT         Format;
+    D3D11_RTV_DIMENSION ViewDimension;
+    
+    union 
+    {
+        D3D11_BUFFER_RTV        Buffer;
+        D3D11_TEX1D_RTV         Texture1D;
+        D3D11_TEX1D_ARRAY_RTV   Texture1DArray;
+        D3D11_TEX2D_RTV1        Texture2D;
+        D3D11_TEX2D_ARRAY_RTV1  Texture2DArray;
+        D3D11_TEX2DMS_RTV       Texture2DMS;
+        D3D11_TEX2DMS_ARRAY_RTV Texture2DMSArray;
+        D3D11_TEX3D_RTV         Texture3D;
+    };
+} D3D11_RENDER_TARGET_VIEW_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_RENDER_TARGET_VIEW_DESC1 : public D3D11_RENDER_TARGET_VIEW_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_RENDER_TARGET_VIEW_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_RENDER_TARGET_VIEW_DESC1( const D3D11_RENDER_TARGET_VIEW_DESC1& o ) :" )
+cpp_quote( "        D3D11_RENDER_TARGET_VIEW_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_RENDER_TARGET_VIEW_DESC1(" )
+cpp_quote( "        D3D11_RTV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0, // FirstElement for BUFFER" )
+cpp_quote( "        UINT firstArraySlice = 0, // NumElements for BUFFER, FirstWSlice for TEXTURE3D" )
+cpp_quote( "        UINT arraySize = -1, // WSize for TEXTURE3D" )
+cpp_quote( "        UINT planeSlice = 0 ) // PlaneSlice for TEXTURE2D and TEXTURE2DARRAY" )
+cpp_quote( "    {" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_BUFFER:" )
+cpp_quote( "            Buffer.FirstElement = mipSlice;" )
+cpp_quote( "            Buffer.NumElements = firstArraySlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE1D:" )
+cpp_quote( "            Texture1D.MipSlice = mipSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE1DARRAY:" )
+cpp_quote( "            Texture1DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture1DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture1DArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2D:" )
+cpp_quote( "            Texture2D.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2D.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2DARRAY:" )
+cpp_quote( "            Texture2DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DArray.ArraySize = arraySize;" )
+cpp_quote( "            Texture2DArray.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2DMS:" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY:" )
+cpp_quote( "            Texture2DMSArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DMSArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE3D:" )
+cpp_quote( "            Texture3D.MipSlice = mipSlice;" )
+cpp_quote( "            Texture3D.FirstWSlice = firstArraySlice;" )
+cpp_quote( "            Texture3D.WSize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_RENDER_TARGET_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Buffer*," )
+cpp_quote( "        DXGI_FORMAT format," )
+cpp_quote( "        UINT firstElement," )
+cpp_quote( "        UINT numElements )" )
+cpp_quote( "    {" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        ViewDimension = D3D11_RTV_DIMENSION_BUFFER;" )
+cpp_quote( "        Buffer.FirstElement = firstElement;" )
+cpp_quote( "        Buffer.NumElements = numElements;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_RENDER_TARGET_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture1D* pTex1D," )
+cpp_quote( "        D3D11_RTV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0," )
+cpp_quote( "        UINT firstArraySlice = 0," )
+cpp_quote( "        UINT arraySize = -1 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format ||" )
+cpp_quote( "            ((UINT)-1 == arraySize && D3D11_RTV_DIMENSION_TEXTURE1DARRAY == viewDimension))" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE1D_DESC TexDesc;" )
+cpp_quote( "            pTex1D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == arraySize) arraySize = TexDesc.ArraySize - firstArraySlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE1D:" )
+cpp_quote( "            Texture1D.MipSlice = mipSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE1DARRAY:" )
+cpp_quote( "            Texture1DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture1DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture1DArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_RENDER_TARGET_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture2D* pTex2D," )
+cpp_quote( "        D3D11_RTV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0," )
+cpp_quote( "        UINT firstArraySlice = 0," )
+cpp_quote( "        UINT arraySize = -1," )
+cpp_quote( "        UINT planeSlice = 0 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || " )
+cpp_quote( "            ((UINT)-1 == arraySize &&" )
+cpp_quote( "                (D3D11_RTV_DIMENSION_TEXTURE2DARRAY == viewDimension ||" )
+cpp_quote( "                D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY == viewDimension)))" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE2D_DESC TexDesc;" )
+cpp_quote( "            pTex2D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == arraySize) arraySize = TexDesc.ArraySize - firstArraySlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2D:" )
+cpp_quote( "            Texture2D.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2D.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2DARRAY:" )
+cpp_quote( "            Texture2DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DArray.ArraySize = arraySize;" )
+cpp_quote( "            Texture2DArray.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2DMS:" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_RTV_DIMENSION_TEXTURE2DMSARRAY:" )
+cpp_quote( "            Texture2DMSArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DMSArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_RENDER_TARGET_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture3D* pTex3D," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0," )
+cpp_quote( "        UINT firstWSlice = 0," )
+cpp_quote( "        UINT wSize = -1 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = D3D11_RTV_DIMENSION_TEXTURE3D;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || (UINT)-1 == wSize)" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE3D_DESC TexDesc;" )
+cpp_quote( "            pTex3D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == wSize) wSize = TexDesc.Depth - firstWSlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        Texture3D.MipSlice = mipSlice;" )
+cpp_quote( "        Texture3D.FirstWSlice = firstWSlice;" )
+cpp_quote( "        Texture3D.WSize = wSize;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_RENDER_TARGET_VIEW_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid( ffbe2e23-f011-418a-ac56-5ceed7c5b94b ), object, local, pointer_default( unique ) ]
+interface ID3D11RenderTargetView1
+    : ID3D11RenderTargetView
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_RENDER_TARGET_VIEW_DESC1* pDesc1 );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// UnorderedAccessView
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_TEX2D_UAV1
+{
+    UINT MipSlice;
+    UINT PlaneSlice;
+} D3D11_TEX2D_UAV1;
+
+typedef struct D3D11_TEX2D_ARRAY_UAV1 
+{
+    UINT MipSlice;
+    UINT FirstArraySlice;
+    UINT ArraySize;
+    UINT PlaneSlice;
+} D3D11_TEX2D_ARRAY_UAV1;
+
+typedef struct D3D11_UNORDERED_ACCESS_VIEW_DESC1
+{
+    DXGI_FORMAT Format;
+    D3D11_UAV_DIMENSION ViewDimension;
+    
+    union 
+    {
+        D3D11_BUFFER_UAV Buffer;
+        D3D11_TEX1D_UAV Texture1D;
+        D3D11_TEX1D_ARRAY_UAV Texture1DArray;
+        D3D11_TEX2D_UAV1 Texture2D;
+        D3D11_TEX2D_ARRAY_UAV1 Texture2DArray;
+        D3D11_TEX3D_UAV Texture3D;
+    };
+} D3D11_UNORDERED_ACCESS_VIEW_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_UNORDERED_ACCESS_VIEW_DESC1 : public D3D11_UNORDERED_ACCESS_VIEW_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_UNORDERED_ACCESS_VIEW_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_UNORDERED_ACCESS_VIEW_DESC1( const D3D11_UNORDERED_ACCESS_VIEW_DESC1& o ) :" )
+cpp_quote( "        D3D11_UNORDERED_ACCESS_VIEW_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_UNORDERED_ACCESS_VIEW_DESC1(" )
+cpp_quote( "        D3D11_UAV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0, // FirstElement for BUFFER" )
+cpp_quote( "        UINT firstArraySlice = 0, // NumElements for BUFFER, FirstWSlice for TEXTURE3D" )
+cpp_quote( "        UINT arraySize = -1, // WSize for TEXTURE3D" )
+cpp_quote( "        UINT flags = 0, // BUFFER only" )
+cpp_quote( "        UINT planeSlice = 0 ) // PlaneSlice for TEXTURE2D and TEXTURE2DARRAY" )
+cpp_quote( "    {" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_BUFFER:" )
+cpp_quote( "            Buffer.FirstElement = mipSlice;" )
+cpp_quote( "            Buffer.NumElements = firstArraySlice;" )
+cpp_quote( "            Buffer.Flags = flags;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE1D:" )
+cpp_quote( "            Texture1D.MipSlice = mipSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE1DARRAY:" )
+cpp_quote( "            Texture1DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture1DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture1DArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE2D:" )
+cpp_quote( "            Texture2D.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2D.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE2DARRAY:" )
+cpp_quote( "            Texture2DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DArray.ArraySize = arraySize;" )
+cpp_quote( "            Texture2DArray.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE3D:" )
+cpp_quote( "            Texture3D.MipSlice = mipSlice;" )
+cpp_quote( "            Texture3D.FirstWSlice = firstArraySlice;" )
+cpp_quote( "            Texture3D.WSize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_UNORDERED_ACCESS_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Buffer*," )
+cpp_quote( "        DXGI_FORMAT format," )
+cpp_quote( "        UINT firstElement," )
+cpp_quote( "        UINT numElements," )
+cpp_quote( "        UINT flags = 0 )" )
+cpp_quote( "    {" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        ViewDimension = D3D11_UAV_DIMENSION_BUFFER;" )
+cpp_quote( "        Buffer.FirstElement = firstElement;" )
+cpp_quote( "        Buffer.NumElements = numElements;" )
+cpp_quote( "        Buffer.Flags = flags;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_UNORDERED_ACCESS_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture1D* pTex1D," )
+cpp_quote( "        D3D11_UAV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0," )
+cpp_quote( "        UINT firstArraySlice = 0," )
+cpp_quote( "        UINT arraySize = -1 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format ||" )
+cpp_quote( "            ((UINT)-1 == arraySize && D3D11_UAV_DIMENSION_TEXTURE1DARRAY == viewDimension))" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE1D_DESC TexDesc;" )
+cpp_quote( "            pTex1D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == arraySize) arraySize = TexDesc.ArraySize - firstArraySlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE1D:" )
+cpp_quote( "            Texture1D.MipSlice = mipSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE1DARRAY:" )
+cpp_quote( "            Texture1DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture1DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture1DArray.ArraySize = arraySize;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_UNORDERED_ACCESS_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture2D* pTex2D," )
+cpp_quote( "        D3D11_UAV_DIMENSION viewDimension," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0," )
+cpp_quote( "        UINT firstArraySlice = 0," )
+cpp_quote( "        UINT arraySize = -1, " )
+cpp_quote( "        UINT planeSlice = 0 ) " )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = viewDimension;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || " )
+cpp_quote( "            ((UINT)-1 == arraySize && D3D11_UAV_DIMENSION_TEXTURE2DARRAY == viewDimension))" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE2D_DESC TexDesc;" )
+cpp_quote( "            pTex2D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == arraySize) arraySize = TexDesc.ArraySize - firstArraySlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        switch (viewDimension)" )
+cpp_quote( "        {" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE2D:" )
+cpp_quote( "            Texture2D.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2D.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        case D3D11_UAV_DIMENSION_TEXTURE2DARRAY:" )
+cpp_quote( "            Texture2DArray.MipSlice = mipSlice;" )
+cpp_quote( "            Texture2DArray.FirstArraySlice = firstArraySlice;" )
+cpp_quote( "            Texture2DArray.ArraySize = arraySize;" )
+cpp_quote( "            Texture2DArray.PlaneSlice = planeSlice;" )
+cpp_quote( "            break;" )
+cpp_quote( "        default: break;" )
+cpp_quote( "        }" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_UNORDERED_ACCESS_VIEW_DESC1(" )
+cpp_quote( "        _In_ ID3D11Texture3D* pTex3D," )
+cpp_quote( "        DXGI_FORMAT format = DXGI_FORMAT_UNKNOWN," )
+cpp_quote( "        UINT mipSlice = 0," )
+cpp_quote( "        UINT firstWSlice = 0," )
+cpp_quote( "        UINT wSize = -1 )" )
+cpp_quote( "    {" )
+cpp_quote( "        ViewDimension = D3D11_UAV_DIMENSION_TEXTURE3D;" )
+cpp_quote( "        if (DXGI_FORMAT_UNKNOWN == format || (UINT)-1 == wSize)" )
+cpp_quote( "        {" )
+cpp_quote( "            D3D11_TEXTURE3D_DESC TexDesc;" )
+cpp_quote( "            pTex3D->GetDesc( &TexDesc );" )
+cpp_quote( "            if (DXGI_FORMAT_UNKNOWN == format) format = TexDesc.Format;" )
+cpp_quote( "            if ((UINT)-1 == wSize) wSize = TexDesc.Depth - firstWSlice;" )
+cpp_quote( "        }" )
+cpp_quote( "        Format = format;" )
+cpp_quote( "        Texture3D.MipSlice = mipSlice;" )
+cpp_quote( "        Texture3D.FirstWSlice = firstWSlice;" )
+cpp_quote( "        Texture3D.WSize = wSize;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_UNORDERED_ACCESS_VIEW_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid( 7b3b6153-a886-4544-ab37-6537c8500403 ), object, local, pointer_default( unique ) ]
+interface ID3D11UnorderedAccessView1
+    : ID3D11UnorderedAccessView
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_UNORDERED_ACCESS_VIEW_DESC1* pDesc1 );
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Query
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_QUERY_DESC1 {
+    D3D11_QUERY Query;
+    UINT MiscFlags;
+    D3D11_CONTEXT_TYPE ContextType;
+    } D3D11_QUERY_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_QUERY_DESC1 : public D3D11_QUERY_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_QUERY_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_QUERY_DESC1( const D3D11_QUERY_DESC1& o ) :" )
+cpp_quote( "        D3D11_QUERY_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_QUERY_DESC1(" )
+cpp_quote( "        D3D11_QUERY query," )
+cpp_quote( "        UINT miscFlags = 0," )
+cpp_quote( "        D3D11_CONTEXT_TYPE contextType = D3D11_CONTEXT_TYPE_ALL )" )
+cpp_quote( "    {" )
+cpp_quote( "        Query = query;" )
+cpp_quote( "        MiscFlags = miscFlags;" )
+cpp_quote( "        ContextType = contextType;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_QUERY_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid( 631b4766-36dc-461d-8db6-c47e13e60916 ), object, local, pointer_default( unique ) ]
+interface ID3D11Query1
+    : ID3D11Query
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_QUERY_DESC1* pDesc1 );
+};
+
+
+typedef enum D3D11_FENCE_FLAG
+{
+    D3D11_FENCE_FLAG_NONE = 0x0,
+    D3D11_FENCE_FLAG_SHARED = 0x2,
+    D3D11_FENCE_FLAG_SHARED_CROSS_ADAPTER = 0x4,
+    D3D11_FENCE_FLAG_NON_MONITORED = 0x8,
+} D3D11_FENCE_FLAG;
+cpp_quote( "DEFINE_ENUM_FLAG_OPERATORS(D3D11_FENCE_FLAG);" )
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// DeviceContext3
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[ uuid( b4e3c01d-e79e-4637-91b2-510e9f4c9b8f ), object, local, pointer_default( unique ) ]
+interface ID3D11DeviceContext3
+    : ID3D11DeviceContext2
+{
+    void Flush1(
+        D3D11_CONTEXT_TYPE ContextType,
+        [annotation("_In_opt_")] HANDLE hEvent);
+
+    void SetHardwareProtectionState(
+        [annotation("_In_")] BOOL HwProtectionEnable);
+
+    void GetHardwareProtectionState(
+        [annotation("_Out_")] BOOL* pHwProtectionEnable);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ID3D11Fence
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[uuid(affde9d1-1df7-4bb7-8a34-0f46251dab80), object, local, pointer_default(unique)]
+interface ID3D11Fence
+    : ID3D11DeviceChild
+{
+    HRESULT CreateSharedHandle(
+        [annotation("_In_opt_")] const SECURITY_ATTRIBUTES *pAttributes,
+        [annotation("_In_")] DWORD dwAccess,
+        [annotation("_In_opt_")] LPCWSTR lpName,
+        [annotation("_Out_")] HANDLE *pHandle
+        );
+    
+    UINT64 GetCompletedValue();
+    
+    HRESULT SetEventOnCompletion(
+        [annotation("_In_")] UINT64 Value,
+        [annotation("_In_")] HANDLE hEvent
+        );
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// DeviceContext4
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[ uuid( 917600da-f58c-4c33-98d8-3e15b390fa24 ), object, local, pointer_default( unique ) ]
+interface ID3D11DeviceContext4
+    : ID3D11DeviceContext3
+{
+    HRESULT Signal(
+        [annotation("_In_")] ID3D11Fence *pFence,
+        [annotation("_In_")] UINT64 Value
+        );
+
+    HRESULT Wait(
+        [annotation("_In_")] ID3D11Fence *pFence,
+        [annotation("_In_")] UINT64 Value
+        );
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Device3
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[ uuid( A05C8C37-D2C6-4732-B3A0-9CE0B0DC9AE6 ), object, local, pointer_default( unique ) ]
+interface ID3D11Device3
+    : ID3D11Device2
+{
+    HRESULT CreateTexture2D1(
+        [annotation("_In_")] const D3D11_TEXTURE2D_DESC1* pDesc1,
+        [annotation("_In_reads_opt_(_Inexpressible_(pDesc1->MipLevels * pDesc1->ArraySize))")] const D3D11_SUBRESOURCE_DATA* pInitialData,
+        [annotation("_COM_Outptr_opt_")] ID3D11Texture2D1** ppTexture2D );
+        
+    HRESULT CreateTexture3D1(
+        [annotation("_In_")] const D3D11_TEXTURE3D_DESC1* pDesc1,
+        [annotation("_In_reads_opt_(_Inexpressible_(pDesc1->MipLevels))")] const D3D11_SUBRESOURCE_DATA* pInitialData,
+        [annotation("_COM_Outptr_opt_")] ID3D11Texture3D1** ppTexture3D );
+
+    HRESULT CreateRasterizerState2(
+        [annotation("_In_")] const D3D11_RASTERIZER_DESC2* pRasterizerDesc,
+        [annotation("_COM_Outptr_opt_")] ID3D11RasterizerState2** ppRasterizerState );
+
+    HRESULT CreateShaderResourceView1(
+        [annotation("_In_")] ID3D11Resource* pResource,
+        [annotation("_In_opt_")] const D3D11_SHADER_RESOURCE_VIEW_DESC1* pDesc1,
+        [annotation("_COM_Outptr_opt_")] ID3D11ShaderResourceView1** ppSRView1 );
+
+    HRESULT CreateUnorderedAccessView1(
+        [annotation("_In_")] ID3D11Resource* pResource,
+        [annotation("_In_opt_")] const D3D11_UNORDERED_ACCESS_VIEW_DESC1* pDesc1,
+        [annotation("_COM_Outptr_opt_")] ID3D11UnorderedAccessView1** ppUAView1 );
+
+    HRESULT CreateRenderTargetView1(
+        [annotation("_In_")] ID3D11Resource* pResource,
+        [annotation("_In_opt_")] const D3D11_RENDER_TARGET_VIEW_DESC1* pDesc1,
+        [annotation("_COM_Outptr_opt_")] ID3D11RenderTargetView1** ppRTView1 );
+
+    HRESULT CreateQuery1(
+        [annotation("_In_")] const D3D11_QUERY_DESC1 *pQueryDesc1,
+        [annotation("_COM_Outptr_opt_")] ID3D11Query1 **ppQuery1
+        );
+
+    void GetImmediateContext3(
+        [annotation("_Outptr_")] ID3D11DeviceContext3** ppImmediateContext
+        );
+
+    HRESULT CreateDeferredContext3(
+        UINT ContextFlags, 
+        [annotation("_COM_Outptr_opt_")] ID3D11DeviceContext3** ppDeferredContext
+        );
+ 
+    void WriteToSubresource(
+        [annotation("_In_")] ID3D11Resource* pDstResource,
+        [annotation("_In_")] UINT DstSubresource,
+        [annotation("_In_opt_")] const D3D11_BOX* pDstBox,
+        [annotation("_In_")] const void* pSrcData,
+        [annotation("_In_")] UINT SrcRowPitch,
+        [annotation("_In_")] UINT SrcDepthPitch 
+        );
+        
+    void ReadFromSubresource(
+        [annotation("_Out_")] void* pDstData,
+        [annotation("_In_")] UINT DstRowPitch,
+        [annotation("_In_")] UINT DstDepthPitch,
+        [annotation("_In_")] ID3D11Resource* pSrcResource,
+        [annotation("_In_")] UINT SrcSubresource,
+        [annotation("_In_opt_")] const D3D11_BOX* pSrcBox
+        );
+};
+cpp_quote( "DEFINE_GUID(IID_ID3D11Texture2D1,0x51218251,0x1E33,0x4617,0x9C,0xCB,0x4D,0x3A,0x43,0x67,0xE7,0xBB);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Texture3D1,0x0C711683,0x2853,0x4846,0x9B,0xB0,0xF3,0xE6,0x06,0x39,0xE4,0x6A);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11RasterizerState2,0x6fbd02fb,0x209f,0x46c4,0xb0,0x59,0x2e,0xd1,0x55,0x86,0xa6,0xac);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11ShaderResourceView1,0x91308b87,0x9040,0x411d,0x8c,0x67,0xc3,0x92,0x53,0xce,0x38,0x02);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11RenderTargetView1,0xffbe2e23,0xf011,0x418a,0xac,0x56,0x5c,0xee,0xd7,0xc5,0xb9,0x4b);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11UnorderedAccessView1,0x7b3b6153,0xa886,0x4544,0xab,0x37,0x65,0x37,0xc8,0x50,0x04,0x03);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Query1,0x631b4766,0x36dc,0x461d,0x8d,0xb6,0xc4,0x7e,0x13,0xe6,0x09,0x16);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11DeviceContext3,0xb4e3c01d,0xe79e,0x4637,0x91,0xb2,0x51,0x0e,0x9f,0x4c,0x9b,0x8f);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Fence,0xaffde9d1,0x1df7,0x4bb7,0x8a,0x34,0x0f,0x46,0x25,0x1d,0xab,0x80);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11DeviceContext4,0x917600da,0xf58c,0x4c33,0x98,0xd8,0x3e,0x15,0xb3,0x90,0xfa,0x24);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Device3,0xA05C8C37,0xD2C6,0x4732,0xB3,0xA0,0x9C,0xE0,0xB0,0xDC,0x9A,0xE6);" )

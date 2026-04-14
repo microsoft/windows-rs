@@ -1,0 +1,43 @@
+//+--------------------------------------------------------------------------
+//
+// Microsoft Windows
+// Copyright (C) Microsoft Corporation
+//
+// File:        certbase.idl
+//
+// Contents:    IDL source for certsrv base types
+//
+//---------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+
+typedef struct _CERTTRANSBLOB
+{
+    unsigned long               cb;
+    [size_is(cb), unique] BYTE *pb;
+} CERTTRANSBLOB;
+
+
+typedef struct _CERTVIEWRESTRICTION
+{
+    DWORD                            ColumnIndex;	// affected column
+    LONG                             SeekOperator;
+    LONG                             SortOrder;
+    [size_is(cbValue), unique] BYTE *pbValue;
+    DWORD                            cbValue;
+} CERTVIEWRESTRICTION;
+
+// CERTVIEWRESTRICTION.SeekOperator values:
+// See certview.idl CVR_SEEK_*
+
+// CERTVIEWRESTRICTION.SortOrder values:
+// See certview.idl CVR_SORT_*
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

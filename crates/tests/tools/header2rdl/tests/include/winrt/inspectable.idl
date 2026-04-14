@@ -1,0 +1,67 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "wtypes.idl";
+import "unknwn.idl";
+import "hstring.idl";
+#endif
+
+
+typedef [unique] IInspectable *LPINSPECTABLE;
+
+typedef [v1_enum] enum TrustLevel
+{
+    BaseTrust,
+    PartialTrust,
+    FullTrust
+} TrustLevel;
+
+[
+  object,
+  uuid(AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90),
+  pointer_default(unique)
+]
+interface IInspectable : IUnknown
+{
+    HRESULT GetIids(
+        [out] ULONG * iidCount,
+        [out, size_is(,*iidCount)] IID ** iids);
+
+    HRESULT GetRuntimeClassName( [out] HSTRING * className);
+
+    HRESULT GetTrustLevel([out] TrustLevel * trustLevel);
+}
+
+cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("//  IInspectable equivalent of IID_PPV_ARGS")
+cpp_quote("//  IID_INS_ARGS(ppType)")
+cpp_quote("//      ppType is the variable of type IType that will be filled")
+cpp_quote("//")
+cpp_quote("//      RESULTS in:  IID_IType, ppvType")
+cpp_quote("//      will create a compiler error if wrong level of indirection is used.")
+cpp_quote("//")
+cpp_quote("extern \"C++\"")
+cpp_quote("{")
+cpp_quote("    template<typename T> _Post_equal_to_(pp) _Post_satisfies_(return == pp) void** IID_INS_ARGS_Helper(T** pp) ")
+cpp_quote("    {")
+cpp_quote("        (void)static_cast<IInspectable*>(*pp);    // make sure everyone derives from IInspectable")
+cpp_quote("        return reinterpret_cast<void**>(pp);")
+cpp_quote("    }")
+cpp_quote("}")
+cpp_quote("#define IID_INS_ARGS(ppType) __uuidof(**(ppType)), IID_INS_ARGS_Helper(ppType)")
+cpp_quote("#endif")

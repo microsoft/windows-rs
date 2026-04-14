@@ -1,0 +1,84 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation.  All Rights Reserved.
+//
+//  File:       webevnts.idl
+//
+//  Contents:   IWebBrowserEventsService and IWebBrowserUrlForEvents interfaces
+//
+//----------------------------------------------------------------------------
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// webevnts.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("//---------------------------------------------------------------------------=")
+cpp_quote("// IWebBrowserEventsService and IWebBrowserUrlForEvents Interfaces.")
+cpp_quote("")
+
+import "objidl.idl";
+import "oleidl.idl";
+
+interface IWebBrowserEventsService;
+interface IWebBrowserUrlForEvents;
+
+
+cpp_quote("#ifndef _LPWEBEVNTS_DEFINED")
+cpp_quote("#define _LPWEBEVNTS_DEFINED")
+
+
+    [
+        uuid(54A8F188-9EBD-4795-AD16-9B4945119636), // IID_IWebBrowserEventsService
+        helpstring("Web Browser Interface for firing web browser navigation events."),
+        helpcontext(0x0000),
+        hidden
+    ]
+    interface IWebBrowserEventsService : IUnknown
+    {
+        [helpstring("Fires the BeforeNavigate2 webbrowser event and returns a bool to indicate if the navigation was cancelled."), helpcontext(0x0000)]
+        HRESULT FireBeforeNavigate2Event([out, retval]VARIANT_BOOL  * pfCancel);
+
+        [helpstring("Fires the NavigateComplete2 webbrowser event. This causes the address bar to be updated to the current Url"), helpcontext(0x0000)]
+        HRESULT  FireNavigateComplete2Event();
+            
+        [helpstring("Fires the DownloadBegin webbrowser event."), helpcontext(0x0000)]
+        HRESULT FireDownloadBeginEvent();
+
+        [helpstring("Fires the NavigateComplete2 webbrowser event."), helpcontext(0x0000)]
+        HRESULT FireDownloadCompleteEvent();
+
+        [helpstring("Fires the NavigateComplete2 webbrowser event."), helpcontext(0x0000)]
+        HRESULT FireDocumentCompleteEvent();
+    }
+
+    [
+        uuid(87CC5D04-EAFA-4833-9820-8F986530CC00), // IID_IWebBrowserEventsUrlService
+        helpstring("Used to provide the current Url to fire web browser Navigation events"),
+        helpcontext(0x0000),
+        hidden
+    ]
+    interface IWebBrowserEventsUrlService : IUnknown
+    {
+        [helpstring("Called to retrieve the current Url to fire the web browser navigation events."), helpcontext(0x0000)]
+        HRESULT GetUrlForEvents([out, retval] BSTR* pUrl);
+    }
+
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

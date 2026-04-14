@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/heap/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/heap/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           >
+
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+    <xs:element name="HeapPolicy" type="ST_HeapPolicy"/>
+
+    <xs:simpleType name="ST_HeapPolicy">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="default" />
+            <xs:enumeration value="win32Compatible" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
+

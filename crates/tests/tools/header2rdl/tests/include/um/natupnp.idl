@@ -1,0 +1,301 @@
+// NATUPnP.idl : IDL source for NATUPnP.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NATUPnP.tlb) and marshalling code.
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1992-2001.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("//  MODULE: natupnp.h")
+cpp_quote("//")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface IUPnPNAT;
+interface IDynamicPortMappingCollection;
+interface IDynamicPortMapping;
+interface IStaticPortMappingCollection;
+interface IStaticPortMapping;
+interface INATEventManager;
+
+
+
+//+---------------------------------------------------------------------------
+// IUPnPNAT - top-level client-side object to manage NAT traversal via UPnP
+// 
+    [
+        object,
+        uuid(B171C812-CC76-485A-94D8-B6B3A2794E99),
+        dual,
+        helpstring("IUPnPNAT Interface"),
+        pointer_default(unique)
+    ]
+    interface IUPnPNAT : IDispatch
+    {
+        [propget, id(1), helpstring("property StaticPortMappingCollection")]
+        HRESULT StaticPortMappingCollection ([out, retval] IStaticPortMappingCollection ** ppSPMs);
+
+        [propget, id(2), helpstring("property DynamicPortMappingCollection")]
+        HRESULT DynamicPortMappingCollection ([out, retval] IDynamicPortMappingCollection ** ppDPMs);
+
+        [propget, id(3), helpstring("property NATEventManager")]
+        HRESULT NATEventManager ([out, retval] INATEventManager ** ppNEM);
+    };
+
+//+---------------------------------------------------------------------------
+// INATEventManager
+// 
+    [
+        object,
+        uuid(624BD588-9060-4109-B0B0-1ADBBCAC32DF),
+        dual,
+        helpstring("INATEventManager Interface"),
+        pointer_default(unique)
+    ]
+    interface INATEventManager : IDispatch
+    {
+        [id(1), propput, helpstring("property External IP Address Callback")]
+        HRESULT ExternalIPAddressCallback ([in] IUnknown * pUnk);
+
+        [id(2), propput, helpstring("property Number Of Entries Callback")]
+        HRESULT NumberOfEntriesCallback ([in] IUnknown * pUnk);
+    };
+    [
+        object,
+        uuid(9C416740-A34E-446F-BA06-ABD04C3149AE),
+        helpstring("INATExternalIPAddressCallback Interface"),
+        pointer_default(unique)
+    ]
+    interface INATExternalIPAddressCallback : IUnknown
+    {
+        [id(0), helpstring("NewExternalIPAddress")]
+        HRESULT NewExternalIPAddress ([in] BSTR bstrNewExternalIPAddress);
+    };
+    [
+        object,
+        uuid(C83A0A74-91EE-41B6-B67A-67E0F00BBD78),
+        helpstring("INATNumberOfEntriesCallback Interface"),
+        pointer_default(unique)
+    ]
+    interface INATNumberOfEntriesCallback : IUnknown
+    {
+        [id(0), helpstring("NewNumberOfEntries")]
+        HRESULT NewNumberOfEntries ([in] long lNewNumberOfEntries);
+    };
+
+
+//+---------------------------------------------------------------------------
+// IDynamicPortMappingCollection - 
+// 
+    [
+        object,
+        uuid(B60DE00F-156E-4E8D-9EC1-3A2342C10899),
+        dual,
+        helpstring("IDynamicPortMappingCollection Interface"),
+        pointer_default(unique)
+    ]
+    interface IDynamicPortMappingCollection : IDispatch
+    {
+        [propget, id(DISPID_NEWENUM), helpstring("property _NewEnum"), hidden, restricted]
+        HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+
+        [propget, id(DISPID_VALUE), helpstring("property Item")]
+        HRESULT Item(
+            [in] BSTR bstrRemoteHost,
+            [in] long lExternalPort,
+            [in] BSTR bstrProtocol,
+            [out, retval] IDynamicPortMapping ** ppDPM);
+
+        [propget, id(1), helpstring("property Count")]
+        HRESULT Count([out, retval] long *pVal);
+
+        [id(2), helpstring("method Remove")]
+        HRESULT Remove(
+            [in] BSTR bstrRemoteHost,
+            [in] long lExternalPort,
+            [in] BSTR bstrProtocol);
+
+        [id(3), helpstring("method Add")]
+        HRESULT Add(
+            [in] BSTR bstrRemoteHost,
+            [in] long lExternalPort,
+            [in] BSTR bstrProtocol,
+            [in] long lInternalPort,
+            [in] BSTR bstrInternalClient,
+            [in] VARIANT_BOOL bEnabled,
+            [in] BSTR bstrDescription,
+            [in] long lLeaseDuration,
+            [out, retval] IDynamicPortMapping ** ppDPM);
+    };
+    [
+        object,
+        uuid(4FC80282-23B6-4378-9A27-CD8F17C9400C),
+        dual,
+        helpstring("IDynamicPortMapping Interface"),
+        pointer_default(unique)
+    ]
+    interface IDynamicPortMapping : IDispatch
+    {
+        [propget, id(1), helpstring("property External IP Address")]
+        HRESULT ExternalIPAddress ([out, retval] BSTR *pVal);
+
+        [propget, id(2), helpstring("property Remote Host")]
+        HRESULT RemoteHost ([out, retval] BSTR *pVal);
+
+        [propget, id(3), helpstring("property External Port")]
+        HRESULT ExternalPort([out, retval] long *pVal);
+
+        [propget, id(4), helpstring("property Protocol")]
+        HRESULT Protocol([out, retval] BSTR *pVal);
+
+        [propget, id(5), helpstring("property Internal Port")]
+        HRESULT InternalPort([out, retval] long *pVal);
+
+        [propget, id(6), helpstring("property Internal Client")]
+        HRESULT InternalClient([out, retval] BSTR *pVal);
+
+        [propget, id(7), helpstring("property Enabled")]
+        HRESULT Enabled([out, retval] VARIANT_BOOL *pVal);
+
+        [propget, id(8), helpstring("property Description")]
+        HRESULT Description([out, retval] BSTR *pVal);
+
+        [propget, id(9), helpstring("property Lease Duration")]
+        HRESULT LeaseDuration([out, retval] long *pVal);
+
+        [id(10), helpstring("method Renew Lease (in seconds)")]
+        HRESULT RenewLease([in] long lLeaseDurationDesired,
+                 [out, retval] long * pLeaseDurationReturned);
+
+        [id(11), helpstring("method to Edit Internal Client")]
+        HRESULT EditInternalClient ([in] BSTR bstrInternalClient);
+
+        [id(12), helpstring("method to Enable/disable Port Mapping")]
+        HRESULT Enable ([in] VARIANT_BOOL vb);
+
+        [id(13), helpstring("method to Edit Description")]
+        HRESULT EditDescription ([in] BSTR bstrDescription);
+
+        [id(14), helpstring("method to Edit Internal Port")]
+        HRESULT EditInternalPort ([in] long lInternalPort);
+    };
+
+
+//+---------------------------------------------------------------------------
+// IStaticPortMappingCollection - collection of static port mappings
+// 
+    [
+        object,
+        uuid(CD1F3E77-66D6-4664-82C7-36DBB641D0F1),
+        dual,
+        helpstring("IStaticPortMappingCollection Interface"),
+        pointer_default(unique)
+    ]
+    interface IStaticPortMappingCollection : IDispatch
+    {
+        [propget, id(DISPID_NEWENUM), helpstring("property _NewEnum"), hidden, restricted]
+        HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+
+        [propget, id(DISPID_VALUE), helpstring("property Item")]
+        HRESULT Item(
+            [in] long lExternalPort,
+            [in] BSTR bstrProtocol,
+            [out, retval] IStaticPortMapping ** ppSPM);
+
+        [propget, id(1), helpstring("property Count")]
+        HRESULT Count([out, retval] long *pVal);
+
+        [id(2), helpstring("method Remove")]
+        HRESULT Remove(
+            [in] long lExternalPort,
+            [in] BSTR bstrProtocol);
+
+        [id(3), helpstring("method Add")]
+        HRESULT Add(
+            [in] long lExternalPort,
+            [in] BSTR bstrProtocol,
+            [in] long lInternalPort,
+            [in] BSTR bstrInternalClient,
+            [in] VARIANT_BOOL bEnabled,
+            [in] BSTR bstrDescription,
+            [out, retval] IStaticPortMapping ** ppSPM);
+    };
+
+    [
+        object,
+        uuid(6F10711F-729B-41E5-93B8-F21D0F818DF1),
+        dual,
+        helpstring("IStaticPortMapping Interface"),
+        pointer_default(unique)
+    ]
+    interface IStaticPortMapping : IDispatch
+    {
+        [propget, id(1), helpstring("property External IP Address")]
+        HRESULT ExternalIPAddress ([out, retval] BSTR *pVal);
+
+        [propget, id(2), helpstring("property External Port")]
+        HRESULT ExternalPort([out, retval] long *pVal);
+
+        [propget, id(3), helpstring("property Internal Port")]
+        HRESULT InternalPort([out, retval] long *pVal);
+
+        [propget, id(4), helpstring("property Protocol")]
+        HRESULT Protocol([out, retval] BSTR *pVal);
+
+        [propget, id(5), helpstring("property Internal Client")]
+        HRESULT InternalClient([out, retval] BSTR *pVal);
+
+        [propget, id(6), helpstring("property Enabled")]
+        HRESULT Enabled([out, retval] VARIANT_BOOL *pVal);
+
+        [propget, id(7), helpstring("property Description")]
+        HRESULT Description([out, retval] BSTR *pVal);
+
+        [id(8), helpstring("method to Edit Internal Client")]
+        HRESULT EditInternalClient ([in] BSTR bstrInternalClient);
+
+        [id(9), helpstring("method to Enable/disable Port Mapping")]
+        HRESULT Enable ([in] VARIANT_BOOL vb);
+
+        [id(10), helpstring("method to Edit Description")]
+        HRESULT EditDescription ([in] BSTR bstrDescription);
+
+        [id(11), helpstring("method to Edit Internal Port")]
+        HRESULT EditInternalPort ([in] long lInternalPort);
+    };
+
+
+[
+    uuid(1C565858-F302-471E-B409-F180AA4ABEC6),
+    version(1.0),
+    helpstring("NATUPnP 1.0 Type Library")
+]
+library NATUPNPLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [
+        uuid(AE1E00AA-3FD5-403C-8A27-2BBDC30CD0E1),
+        helpstring("UPnPNAT Class")
+    ]
+    coclass UPnPNAT
+    {
+        [default] interface IUPnPNAT;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

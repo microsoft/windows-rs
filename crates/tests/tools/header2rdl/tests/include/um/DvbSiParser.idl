@@ -1,0 +1,2882 @@
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+// Module Name:
+//
+//      DvbSiParser.idl
+//
+// Abstract:
+//
+//      Interface definitions for the DVB/ISDB SI parsing functionality
+//
+// Notes:
+//
+//      This IDL file is not meant to be built independently, but to be
+//        included in a master IDL file with a unique coclass defined for
+//        IDvbSiParser. No coclasses need to be defined for the other
+//        interfaces. See DTVParse.idl for an example.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef AM_LOCAL
+#define AM_LOCAL local,
+#define AM_ANNOTATION(_x_) ,annotation(_x_)
+#endif
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "wtypes.idl";
+import "mpeg2structs.idl";
+import "mpeg2data.idl";
+import "mpeg2psiparser.idl";
+
+
+    // String conversion mode parameter
+typedef enum
+{
+    STRCONV_MODE_DVB = 0,
+    STRCONV_MODE_DVB_EMPHASIS,
+    STRCONV_MODE_DVB_WITHOUT_EMPHASIS,
+    STRCONV_MODE_ISDB,
+} DVB_STRCONV_MODE;
+
+
+    // Forward interface declarations
+interface IPAT;
+interface ICAT;
+interface IPMT;
+interface ITSDT;
+interface IDVB_NIT;
+interface IDVB_SDT;
+interface IISDB_SDT;
+interface IDVB_EIT;
+interface IDVB_EIT2;
+interface IDVB_BAT;
+interface IDVB_RST;
+interface IDVB_ST;
+interface IDVB_TDT;
+interface IDVB_TOT;
+interface IDVB_DIT;
+interface IDVB_SIT;
+interface IISDB_BIT;
+interface IISDB_NBIT;
+interface IISDB_LDT;
+interface IISDB_SDTT;
+interface IISDB_CDT;
+interface IISDB_EMM;
+
+
+    ////////////////////////////////////
+    //
+    // IDvbSiParser Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(B758A7BD-14DC-449d-B828-35909ACB3B1E),
+        pointer_default(unique)
+    ]
+    interface IDvbSiParser : IUnknown
+    {
+        HRESULT Initialize([in] IUnknown * punkMpeg2Data);
+        
+        HRESULT GetPAT([out] IPAT ** ppPAT);
+
+        HRESULT GetCAT([in]  DWORD   dwTimeout,
+                       [out] ICAT ** ppCAT);
+
+        HRESULT GetPMT([in] PID pid,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwProgramNumber,
+                       [out] IPMT ** ppPMT);
+
+        HRESULT GetTSDT([out] ITSDT ** ppTSDT);
+
+        HRESULT GetNIT([in] TID tableId,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwNetworkId,
+                       [out] IDVB_NIT ** ppNIT);
+
+        HRESULT GetSDT([in] TID tableId,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwTransportStreamId,
+                       [out] IDVB_SDT ** ppSDT);
+
+        HRESULT GetEIT([in] TID tableId,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwServiceId,
+                       [out] IDVB_EIT ** ppEIT);
+
+        HRESULT GetBAT([in AM_ANNOTATION("_In_opt_")] WORD * pwBouquetId,
+                       [out] IDVB_BAT ** ppBAT);
+
+        HRESULT GetRST([in] DWORD        dwTimeout,
+                       [out] IDVB_RST ** ppRST);
+
+        HRESULT GetST([in]  PID        pid,
+                      [in]  DWORD      dwTimeout,
+                      [out] IDVB_ST ** ppST);
+
+        HRESULT GetTDT([out] IDVB_TDT ** ppTDT);
+
+        HRESULT GetTOT([out] IDVB_TOT ** ppTOT);
+
+        HRESULT GetDIT([in] DWORD        dwTimeout,
+                       [out] IDVB_DIT ** ppDIT);
+
+        HRESULT GetSIT([in] DWORD        dwTimeout,
+                       [out] IDVB_SIT ** ppSIT);
+
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbSiParser2 Interface
+    // 
+    // Note: 
+    // When this interface is updated,
+    // update also the corresponding
+    // inherited IIsdbSiParserX.
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(0AC5525F-F816-42F4-93BA-4C0F32F46E54),
+        pointer_default(unique)
+    ]
+    interface IDvbSiParser2 : IDvbSiParser
+    {        
+        HRESULT GetEIT2([in] TID tableId,
+                        [in AM_ANNOTATION("_In_opt_")] WORD * pwServiceId,
+                        [in AM_ANNOTATION("_In_opt_")] BYTE * pbSegment,
+                        [out] IDVB_EIT2 ** ppEIT);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IIsdbSiParser2 Interface
+    //
+    ////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(900E4BB7-18CD-453F-98BE-3BE6AA211772),
+        pointer_default(unique)
+    ]
+    interface IIsdbSiParser2 : IDvbSiParser2
+    {
+        HRESULT GetSDT([in] TID tableId,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwTransportStreamId,
+                       [out] IISDB_SDT ** ppSDT);
+
+        HRESULT GetBIT([in] TID tableId,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwOriginalNetworkId,
+                       [out] IISDB_BIT ** ppBIT);
+
+        HRESULT GetNBIT([in] TID tableId,
+                        [in AM_ANNOTATION("_In_opt_")] WORD * pwOriginalNetworkId,
+                        [out] IISDB_NBIT ** ppNBIT);
+
+        HRESULT GetLDT([in] TID tableId,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwOriginalServiceId,
+                       [out] IISDB_LDT ** ppLDT);
+
+        HRESULT GetSDTT([in] TID tableId,
+                        [in AM_ANNOTATION("_In_opt_")] WORD * pwTableIdExt,
+                        [out] IISDB_SDTT ** ppSDTT);
+
+        HRESULT GetCDT([in] TID tableId,
+                       [in] BYTE bSectionNumber,
+                       [in AM_ANNOTATION("_In_opt_")] WORD * pwDownloadDataId,
+                       [out] IISDB_CDT ** ppCDT);
+
+        HRESULT GetEMM([in] PID pid,
+                       [in] WORD wTableIdExt,
+                       [out] IISDB_EMM ** ppEMM);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_NIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C64935F4-29E4-4e22-911A-63F7F55CB097),
+        pointer_default(unique)
+    ]
+    interface IDVB_NIT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetNetworkId([out] WORD * pwVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]  BYTE                  bTag,
+                                        [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                        [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordTransportStreamId([in]  DWORD  dwRecordIndex,
+                                           [out] WORD * pwVal);
+
+        HRESULT GetRecordOriginalNetworkId([in]  DWORD  dwRecordIndex,
+                                           [out] WORD * pwVal);
+
+        HRESULT GetRecordCountOfDescriptors([in]  DWORD   dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in]  DWORD                 dwRecordIndex,
+                                           [in]  DWORD                 dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in]  DWORD                 dwRecordIndex,
+                                         [in]  BYTE                  bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in] HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] IDVB_NIT ** ppNIT);
+
+        HRESULT RegisterForWhenCurrent([in] HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_SDT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(02CAD8D3-FE43-48e2-90BD-450ED9A8A5FD),
+        pointer_default(unique)
+    ]
+    interface IDVB_SDT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetTransportStreamId([out] WORD * pwVal);
+
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordServiceId([in]  DWORD  dwRecordIndex,
+                                   [out] WORD * pwVal);
+
+        HRESULT GetRecordEITScheduleFlag([in]  DWORD  dwRecordIndex,
+                                         [out] BOOL * pfVal);
+
+        HRESULT GetRecordEITPresentFollowingFlag([in]  DWORD  dwRecordIndex,
+                                                 [out] BOOL * pfVal);
+
+        HRESULT GetRecordRunningStatus([in]  DWORD  dwRecordIndex,
+                                       [out] BYTE * pbVal);
+
+        HRESULT GetRecordFreeCAMode([in]  DWORD  dwRecordIndex,
+                                    [out] BOOL * pfVal);
+
+        HRESULT GetRecordCountOfDescriptors([in]  DWORD   dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in]  DWORD                 dwRecordIndex,
+                                           [in]  DWORD                 dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in]  DWORD                 dwRecordIndex,
+                                         [in]  BYTE                  bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in]  HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] IDVB_SDT ** ppSDT);
+
+        HRESULT RegisterForWhenCurrent([in] HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+    ////////////////////////////////////
+    //
+    // IISDB_SDT Interface
+    // Support user_defined_flags field
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(3F3DC9A2-BB32-4FB9-AE9E-D856848927A3),
+        pointer_default(unique)
+    ]
+    interface IISDB_SDT : IDVB_SDT
+    // Additional field for ISDB
+    {
+        HRESULT GetRecordEITUserDefinedFlags([in] DWORD  dwRecordIndex,
+                                             [out] BYTE * pbVal);
+    }
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_EIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(442DB029-02CB-4495-8B92-1C13375BCE99),
+        pointer_default(unique)
+    ]
+    interface IDVB_EIT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetServiceId([out] WORD * pwVal);
+
+        HRESULT GetTransportStreamId([out] WORD * pwVal);
+
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetSegmentLastSectionNumber([out] BYTE * pbVal);
+
+        HRESULT GetLastTableId([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordEventId([in]  DWORD  dwRecordIndex,
+                                 [out] WORD * pwVal);
+
+        HRESULT GetRecordStartTime([in]  DWORD                dwRecordIndex,
+                                   [out] MPEG_DATE_AND_TIME * pmdtVal);
+
+        HRESULT GetRecordDuration([in]  DWORD           dwRecordIndex,
+                                  [out] MPEG_DURATION * pmdVal);
+
+        HRESULT GetRecordRunningStatus([in]  DWORD  dwRecordIndex,
+                                       [out] BYTE * pbVal);
+
+        HRESULT GetRecordFreeCAMode([in]  DWORD  dwRecordIndex,
+                                    [out] BOOL * pfVal);
+
+        HRESULT GetRecordCountOfDescriptors([in]  DWORD   dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in]  DWORD                 dwRecordIndex,
+                                           [in]  DWORD                 dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in]  DWORD                 dwRecordIndex,
+                                         [in]  BYTE                  bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in] HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] IDVB_EIT ** ppEIT);
+
+        HRESULT RegisterForWhenCurrent([in] HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_EIT2 Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(61A389E0-9B9E-4ba0-AEEA-5DDD159820EA),
+        pointer_default(unique)
+    ]
+    interface IDVB_EIT2 : IDVB_EIT
+    {
+        HRESULT GetSegmentInfo([out] BYTE * pbTid,
+                               [out] BYTE * pbSegment);
+
+        HRESULT GetRecordSection([in]  DWORD   dwRecordIndex,
+                                 [out] BYTE  * pbVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_BAT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(ECE9BB0C-43B6-4558-A0EC-1812C34CD6CA),
+        pointer_default(unique)
+    ]
+    interface IDVB_BAT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetBouquetId([out] WORD * pwVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in] DWORD                 dwIndex,
+                                          [in] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]  BYTE                  bTag,
+                                        [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                        [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordTransportStreamId([in]  DWORD  dwRecordIndex,
+                                           [out] WORD * pwVal);
+
+        HRESULT GetRecordOriginalNetworkId([in]  DWORD  dwRecordIndex,
+                                           [out] WORD * pwVal);
+
+        HRESULT GetRecordCountOfDescriptors([in]  DWORD   dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in]  DWORD                 dwRecordIndex,
+                                           [in]  DWORD                 dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in]  DWORD                 dwRecordIndex,
+                                         [in]  BYTE                  bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in]  HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] IDVB_BAT ** ppBAT);
+
+        HRESULT RegisterForWhenCurrent([in]  HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_RST Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(F47DCD04-1E23-4fb7-9F96-B40EEAD10B2B),
+        pointer_default(unique)
+    ]
+    interface IDVB_RST : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordTransportStreamId([in]  DWORD  dwRecordIndex,
+                                           [out] WORD * pwVal);
+
+        HRESULT GetRecordOriginalNetworkId([in]  DWORD  dwRecordIndex,
+                                           [out] WORD * pwVal);
+
+        HRESULT GetRecordServiceId([in]  DWORD  dwRecordIndex,
+                                   [out] WORD * pwVal);
+
+        HRESULT GetRecordEventId([in]  DWORD  dwRecordIndex,
+                                 [out] WORD * pwVal);
+
+        HRESULT GetRecordRunningStatus([in]  DWORD  dwRecordIndex,
+                                       [out] BYTE * pbVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_ST Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(4D5B9F23-2A02-45de-BCDA-5D5DBFBFBE62),   
+        pointer_default(unique)
+    ]
+    interface IDVB_ST : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList);
+
+        HRESULT GetDataLength([out] WORD * pwVal);
+
+        HRESULT GetData([out] BYTE ** ppData);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_TDT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(0780DC7D-D55C-4aef-97E6-6B75906E2796),
+        pointer_default(unique)
+    ]
+    interface IDVB_TDT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList);
+     
+        HRESULT GetUTCTime([out] MPEG_DATE_AND_TIME * pmdtVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_TOT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(83295D6A-FABA-4ee1-9B15-8067696910AE),
+        pointer_default(unique)
+    ]
+    interface IDVB_TOT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList);
+
+        HRESULT GetUTCTime([out] MPEG_DATE_AND_TIME * pmdtVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]      BYTE                  bTag,
+                                        [in, out, AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                        [out]     IGenericDescriptor ** ppDescriptor);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_DIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(91BFFDF9-9432-410f-86EF-1C228ED0AD70),
+        pointer_default(unique)
+    ]
+    interface IDVB_DIT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList);
+
+        HRESULT GetTransitionFlag([out] BOOL * pfVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDVB_SIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(68CDCE53-8BEA-45c2-9D9D-ACF575A089B5),
+        pointer_default(unique)
+    ]
+    interface IDVB_SIT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]  BYTE                  bTag,
+                                        [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                        [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordServiceId([in]  DWORD  dwRecordIndex,
+                                   [out] WORD * pwVal);
+
+        HRESULT GetRecordRunningStatus([in]  DWORD  dwRecordIndex,
+                                       [out] BYTE * pbVal);
+
+        HRESULT GetRecordCountOfDescriptors([in]  DWORD   dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in]  DWORD                 dwRecordIndex,
+                                           [in]  DWORD                 dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in]  DWORD                 dwRecordIndex,
+                                         [in]  BYTE                  bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")]  DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in] HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([in]  DWORD       dwTimeout,
+                             [out] IDVB_SIT ** ppSIT);
+
+        HRESULT RegisterForWhenCurrent([in] HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IISDB_BIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(537CD71E-0E46-4173-9001-BA043F3E49E2),
+        pointer_default(unique)
+    ]
+    interface IISDB_BIT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetBroadcastViewPropriety([out] BYTE * pbVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in] DWORD dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in] BYTE bTag,
+                                        [in, out, AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                        [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordBroadcasterId([in] DWORD dwRecordIndex,
+                                       [out] BYTE * pbVal);
+
+        HRESULT GetRecordCountOfDescriptors([in] DWORD dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in] DWORD dwRecordIndex,
+                                           [in] DWORD dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in] DWORD dwRecordIndex,
+                                         [in] BYTE bTag,
+                                         [in,out, AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IISDB_NBIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(1B1863EF-08F1-40B7-A559-3B1EFF8CAFA6),
+        pointer_default(unique)
+    ]
+    interface IISDB_NBIT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data * pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordInformationId([in] DWORD dwRecordIndex,
+                                       [out] WORD * pwVal);
+
+        HRESULT GetRecordInformationType([in] DWORD dwRecordIndex,
+                                         [out] BYTE * pbVal);
+
+        HRESULT GetRecordDescriptionBodyLocation([in] DWORD dwRecordIndex,
+                                                 [out] BYTE * pbVal);
+
+        HRESULT GetRecordMessageSectionNumber([in] DWORD dwRecordIndex,
+                                              [out] BYTE * pbVal);
+
+        HRESULT GetRecordUserDefined([in] DWORD dwRecordIndex,
+                                     [out] BYTE * pbVal);
+
+        HRESULT GetRecordNumberOfKeys([in] DWORD dwRecordIndex,
+                                      [out] BYTE * pbVal);
+
+        HRESULT GetRecordKeys([in] DWORD dwRecordIndex,
+                              [out] BYTE ** pbKeys);
+
+        HRESULT GetRecordCountOfDescriptors([in] DWORD dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in] DWORD dwRecordIndex,
+                                           [in] DWORD dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in] DWORD dwRecordIndex,
+                                         [in] BYTE bTag,
+                                         [in, out,  AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IISDB_LDT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(141A546B-02FF-4FB9-A3A3-2F074B74A9A9),
+        pointer_default(unique)
+    ]
+    interface IISDB_LDT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data * pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetOriginalServiceId([out] WORD * pwVal);
+
+        HRESULT GetTransportStreamId([out] WORD * pwVal);
+
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptionId([in] DWORD dwRecordIndex,
+                                       [out] WORD * pwVal);
+
+        HRESULT GetRecordCountOfDescriptors([in] DWORD dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in] DWORD dwRecordIndex,
+                                           [in] DWORD dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in] DWORD dwRecordIndex,
+                                         [in] BYTE bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IISDB_SDTT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(EE60EF2D-813A-4DC7-BF92-EA13DAC85313),
+        pointer_default(unique)
+    ]
+    interface IISDB_SDTT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data * pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetTableIdExt([out] WORD * pwVal);
+
+        HRESULT GetTransportStreamId([out] WORD * pwVal);
+
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetServiceId([out] WORD * pwVal);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordGroup([in] DWORD  dwRecordIndex,
+                               [out] BYTE * pbVal);
+
+        HRESULT GetRecordTargetVersion([in] DWORD  dwRecordIndex,
+                                       [out] WORD * pwVal);
+
+        HRESULT GetRecordNewVersion([in] DWORD  dwRecordIndex,
+                                    [out] WORD * pwVal);
+
+        HRESULT GetRecordDownloadLevel([in] DWORD  dwRecordIndex,
+                                       [out] BYTE * pbVal);
+
+        HRESULT GetRecordVersionIndicator([in] DWORD  dwRecordIndex,
+                                          [out] BYTE * pbVal);
+
+        HRESULT GetRecordScheduleTimeShiftInformation([in] DWORD  dwRecordIndex,
+                                                      [out] BYTE * pbVal);
+
+        HRESULT GetRecordCountOfSchedules([in] DWORD dwRecordIndex,
+                                          [out] DWORD * pdwVal);
+
+        HRESULT GetRecordStartTimeByIndex([in] DWORD dwRecordIndex,
+                                          [in] DWORD dwIndex,
+                                          [out] MPEG_DATE_AND_TIME * pmdtVal);
+
+        HRESULT GetRecordDurationByIndex([in] DWORD dwRecordIndex,
+                                         [in] DWORD dwIndex,
+                                         [out] MPEG_DURATION * pmdVal);
+
+        HRESULT GetRecordCountOfDescriptors([in] DWORD dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in] DWORD dwRecordIndex,
+                                           [in] DWORD dwIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in] DWORD  dwRecordIndex,
+                                         [in] BYTE bTag,
+                                         [in, out, AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                         [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IISDB_CDT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(25FA92C2-8B80-4787-A841-3A0E8F17984B),
+        pointer_default(unique)
+    ]
+    interface IISDB_CDT : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData,
+                           [in] BYTE           bSectionNumber);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetDownloadDataId([out] WORD * pwVal);
+
+        HRESULT GetSectionNumber([out] BYTE * pbVal);
+        
+        HRESULT GetOriginalNetworkId([out] WORD * pwVal);
+
+        HRESULT GetDataType([out] BYTE * pbVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in] BYTE bTag,
+                                        [in, out, AM_ANNOTATION("_Inout_opt_")] DWORD * pdwCookie,
+                                        [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetSizeOfDataModule([out] DWORD * pdwVal);
+        
+        HRESULT GetDataModule([out] BYTE ** pbData);
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IISDB_EMM Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(0EDB556D-43AD-4938-9668-321B2FFECFD3),
+        pointer_default(unique)
+    ]
+    interface IISDB_EMM : IUnknown
+    {
+        HRESULT Initialize([in] ISectionList * pSectionList,
+                           [in] IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetTableIdExtension([out] WORD * pwVal);
+
+        HRESULT GetDataBytes(
+            [in, out] WORD * pwBufferLength,    // retuen reqired buffer length if pbBuffer is null.
+            [out]     BYTE * pbBuffer
+        );
+
+        HRESULT GetSharedEmmMessage(
+            /*[out]*/ WORD * pwLength,
+            /*[out]*/ BYTE ** ppbMessage);      // If this method succeeds, the client must release by CoTaskMemFree 
+
+        HRESULT GetIndividualEmmMessage(
+            /*[in]*/  IUnknown * pUnknown,
+            /*[out]*/ WORD * pwLength,
+            /*[out]*/ BYTE ** ppbMessage);      // If this method succeeds, the client must release by CoTaskMemFree
+
+        HRESULT GetVersionHash([out] DWORD * pdwVersionHash);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbServiceAttributeDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(0F37BD92-D6A1-4854-B950-3A969D27F30E),
+        pointer_default(unique)
+    ]
+    interface IDvbServiceAttributeDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordServiceId([in]  BYTE   bRecordIndex,
+                                   [out] WORD * pwVal);
+
+        HRESULT GetRecordNumericSelectionFlag([in]  BYTE   bRecordIndex,
+                                              [out] BOOL * pfVal);
+
+        HRESULT GetRecordVisibleServiceFlag([in]  BYTE   bRecordIndex,
+                                            [out] BOOL * pfVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbContentIdentifierDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    typedef enum
+    {
+        CRID_LOCATION_IN_DESCRIPTOR = 0x0,
+        CRID_LOCATION_IN_CIT        = 0x1,
+        CRID_LOCATION_DVB_RESERVED1 = 0x2,
+        CRID_LOCATION_DVB_RESERVED2 = 0x3,
+
+    } CRID_LOCATION;
+
+    [
+        AM_LOCAL
+        object,
+        uuid(05E0C1EA-F661-4053-9FBF-D93B28359838),
+        pointer_default(unique)
+    ]
+    interface IDvbContentIdentifierDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordCrid([in]  BYTE    bRecordIndex,
+                              [out] BYTE *  pbType,
+                              [out] BYTE *  pbLocation,
+                              [out] BYTE *  pbLength,
+                              [out, size_is( , *pbLength)] BYTE ** ppbBytes);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbDefaultAuthorityDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(05EC24D1-3A31-44e7-B408-67C60A352276),
+        pointer_default(unique)
+    ]
+    interface IDvbDefaultAuthorityDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetDefaultAuthority([out] BYTE *  pbLength,
+                                    [out, size_is( , *pbLength)] BYTE ** ppbBytes);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbSatelliteDeliverySystemDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(02F2225A-805B-4ec5-A9A6-F9B5913CD470),
+        pointer_default(unique)
+    ]
+    interface IDvbSatelliteDeliverySystemDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetFrequency([out] DWORD * pdwVal);
+
+        HRESULT GetOrbitalPosition([out] WORD * pwVal);
+
+        HRESULT GetWestEastFlag([out] BYTE * pbVal);
+
+        HRESULT GetPolarization([out] BYTE * pbVal);
+
+        HRESULT GetModulation([out] BYTE * pbVal);
+
+        HRESULT GetSymbolRate([out] DWORD * pdwVal);
+
+        HRESULT GetFECInner([out] BYTE * pbVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbCableDeliverySystemDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(DFB98E36-9E1A-4862-9946-993A4E59017B),
+        pointer_default(unique)
+    ]
+    interface IDvbCableDeliverySystemDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetFrequency([out] DWORD * pdwVal);
+
+        HRESULT GetFECOuter([out] BYTE * pbVal);
+
+        HRESULT GetModulation([out] BYTE * pbVal);
+
+        HRESULT GetSymbolRate([out] DWORD * pdwVal);
+
+        HRESULT GetFECInner([out] BYTE * pbVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbTerrestrialDeliverySystemDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(ED7E1B91-D12E-420c-B41D-A49D84FE1823),
+        pointer_default(unique)
+    ]
+    interface IDvbTerrestrialDeliverySystemDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCentreFrequency([out] DWORD * pdwVal);
+
+        HRESULT GetBandwidth([out] BYTE * pbVal);
+
+        HRESULT GetConstellation([out] BYTE * pbVal);
+
+        HRESULT GetHierarchyInformation([out] BYTE * pbVal);
+
+        HRESULT GetCodeRateHPStream([out] BYTE * pbVal);
+
+        HRESULT GetCodeRateLPStream([out] BYTE * pbVal);
+
+        HRESULT GetGuardInterval([out] BYTE * pbVal);
+
+        HRESULT GetTransmissionMode([out] BYTE * pbVal);
+
+        HRESULT GetOtherFrequencyFlag([out] BYTE * pbVal);
+    };
+
+    ////////////////////////////////////
+    //
+    // IDvbTerrestrial2DeliverySystemDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(20EE9BE9-CD57-49ab-8F6E-1D07AEB8E482),
+        pointer_default(unique)
+    ]
+    interface IDvbTerrestrial2DeliverySystemDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetTagExtension([out] BYTE * pbVal);
+
+        HRESULT GetCentreFrequency([out] DWORD * pdwVal);
+
+        HRESULT GetPLPId([out] BYTE * pbVal);
+
+        HRESULT GetT2SystemId([out] WORD * pwVal);
+
+        HRESULT GetMultipleInputMode([out] BYTE * pbVal);
+
+        HRESULT GetBandwidth([out] BYTE * pbVal);
+
+        HRESULT GetGuardInterval([out] BYTE * pbVal);
+
+        HRESULT GetTransmissionMode([out] BYTE * pbVal);
+
+        HRESULT GetCellId([out] WORD * pwVal);
+
+        HRESULT GetOtherFrequencyFlag([out] BYTE * pbVal);
+
+        HRESULT GetTFSFlag([out] BYTE * pbVal);
+
+    };
+
+
+    ////////////////////////////////////
+    //
+    // IDvbFrequencyListDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(1CADB613-E1DD-4512-AFA8-BB7A007EF8B1),
+        pointer_default(unique)
+    ]
+    interface IDvbFrequencyListDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCodingType([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordCentreFrequency([in]  BYTE    bRecordIndex,
+                                         [out] DWORD * pdwVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbPrivateDataSpecifierDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(5660A019-E75A-4b82-9B4C-ED2256D165A2),
+        pointer_default(unique)
+    ]
+    interface IDvbPrivateDataSpecifierDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetPrivateDataSpecifier([out] DWORD * pdwVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbLogicalChannelDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(CF1EDAFF-3FFD-4cf7-8201-35756ACBF85F),
+        pointer_default(unique)
+    ]
+    interface IDvbLogicalChannelDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordServiceId([in]  BYTE   bRecordIndex,
+                                   [out] WORD * pwVal);
+
+        HRESULT GetRecordLogicalChannelNumber([in]  BYTE   bRecordIndex,
+                                              [out] WORD * pwVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbLogicalChannelDescriptor2 Interface.
+    //
+    // Extension to the IDvbLogicalChannelDescriptor 
+    // interface to also return channel visibility
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(43ACA974-4BE8-4b98-BC17-9EAFD788B1D7),
+        pointer_default(unique)
+    ]
+    interface IDvbLogicalChannelDescriptor2 : IDvbLogicalChannelDescriptor
+    {
+        HRESULT GetRecordLogicalChannelAndVisibility([in]  BYTE   bRecordIndex,
+                                                     [out] WORD * pwVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbLogicalChannel2Descriptor Interface
+    //
+    // Extension to the IDvbLogicalChannelDescriptor2 to implement fields
+    // available in version 2 of the DVB Logical Channel descriptor. 
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(F69C3747-8A30-4980-998C-01FE7F0BA35A),
+        pointer_default(unique)
+    ]
+    interface IDvbLogicalChannel2Descriptor : IDvbLogicalChannelDescriptor2
+    {
+        HRESULT GetCountOfLists([out] BYTE * pbVal);
+
+        HRESULT GetListId([in]  BYTE   bListIndex,
+                          [out] BYTE * pbVal);
+
+        HRESULT GetListNameW([in]  BYTE             bListIndex,
+                             [in]  DVB_STRCONV_MODE convMode,
+                             [out] BSTR *           pbstrName);
+
+        HRESULT GetListCountryCode([in]  BYTE   bListIndex,
+                                   [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCode);
+
+        HRESULT GetListCountOfRecords([in]  BYTE   bChannelListIndex,
+                                      [out] BYTE * pbVal); 
+
+        HRESULT GetListRecordServiceId([in]  BYTE   bListIndex,
+                                       [in]  BYTE   bRecordIndex,
+                                       [out] WORD * pwVal);
+
+        HRESULT GetListRecordLogicalChannelNumber([in]  BYTE   bListIndex,
+                                                  [in]  BYTE   bRecordIndex,
+                                                  [out] WORD * pwVal);
+
+        HRESULT GetListRecordLogicalChannelAndVisibility([in]  BYTE   bListIndex,
+                                                         [in]  BYTE   bRecordIndex,
+                                                         [out] WORD * pwVal);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbHDSimulcastLogicalChannelDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(1EA8B738-A307-4680-9E26-D0A908C824F4),
+        pointer_default(unique)
+    ]
+    interface IDvbHDSimulcastLogicalChannelDescriptor : IDvbLogicalChannelDescriptor2
+    {
+        // Identical to IDvbLogicalChannelDescriptor2
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbDataBroadcastIDDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(5F26F518-65C8-4048-91F2-9290F59F7B90),
+        pointer_default(unique)
+    ]
+    interface IDvbDataBroadcastIDDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetDataBroadcastID([out] WORD * pwVal);
+
+        HRESULT GetIDSelectorBytes([in, out] BYTE * pbLen, [out] BYTE * pbVal);
+    };
+
+    ////////////////////////////////////
+    //
+    // IDvbDataBroadcastDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(D1EBC1D6-8B60-4c20-9CAF-E59382E7C400),
+        pointer_default(unique)
+    ]
+    interface IDvbDataBroadcastDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetDataBroadcastID([out] WORD * pwVal);
+
+        HRESULT GetComponentTag([out] BYTE * pbVal);
+
+        HRESULT GetSelectorLength([out] BYTE * pbVal);
+
+        HRESULT GetSelectorBytes([in, out] BYTE *pbLen, [out] BYTE * pbVal);
+
+        HRESULT GetLangID([out] ULONG * pulVal);
+
+        HRESULT GetTextLength([out] BYTE * pbVal);
+
+        HRESULT GetText([in, out] BYTE *pbLen, [out] BYTE * pbVal);
+    };
+
+typedef enum
+{
+    DESC_LINKAGE_RESERVED0 = 0x00,
+    DESC_LINKAGE_INFORMATION,
+    DESC_LINKAGE_EPG,
+    DESC_LINKAGE_CA_REPLACEMENT,
+    DESC_LINKAGE_COMPLETE_NET_BOUQUET_SI,
+    DESC_LINKAGE_REPLACEMENT,
+    DESC_LINKAGE_DATA,
+    DESC_LINKAGE_RESERVED1 = 0x07,
+    DESC_LINKAGE_USER = 0x08,
+    DESC_LINKAGE_RESERVED2 = 0xFF
+
+} DESC_LINKAGE_TYPE;
+
+    ////////////////////////////////////
+    //
+    // IDvbLinkageDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(1CDF8B31-994A-46fc-ACFD-6A6BE8934DD5),    
+        pointer_default(unique)
+    ]
+    interface IDvbLinkageDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetTSId([out] WORD * pwVal);
+
+        HRESULT GetONId([out] WORD * pwVal);
+
+        HRESULT GetServiceId([out] WORD * pwVal);
+
+        HRESULT GetLinkageType([out] BYTE * pbVal);
+
+        HRESULT GetPrivateDataLength([out] BYTE * pbVal);
+
+        HRESULT GetPrivateData([in, out] BYTE *pbLen, [out] BYTE * pbData);
+    };
+
+    ////////////////////////////////////
+    //
+    // IDvbTeletextDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(9CD29D47-69C6-4f92-98A9-210AF1B7303A),    
+        pointer_default(unique)
+    ]
+    interface IDvbTeletextDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordLangId([in]  BYTE   bRecordIndex,
+                                   [out] ULONG * pulVal);
+
+        HRESULT GetRecordTeletextType([in]  BYTE   bRecordIndex,
+                                              [out] BYTE * pbVal);
+        HRESULT GetRecordMagazineNumber([in]  BYTE   bRecordIndex,
+                                              [out] BYTE * pbVal);
+        HRESULT GetRecordPageNumber([in]  BYTE   bRecordIndex,
+                                              [out] BYTE * pbVal);
+    };
+
+    ////////////////////////////////////
+    //
+    // IDvbSubtitlingDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(9B25FE1D-FA23-4e50-9784-6DF8B26F8A49),    
+        pointer_default(unique)
+    ]
+    interface IDvbSubtitlingDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordLangId([in]  BYTE   bRecordIndex,
+                                   [out] ULONG * pulVal);
+
+        HRESULT GetRecordSubtitlingType([in]  BYTE   bRecordIndex,
+                                              [out] BYTE * pbVal);
+        HRESULT GetRecordCompositionPageID([in]  BYTE   bRecordIndex,
+                                              [out] WORD * pwVal);
+        HRESULT GetRecordAncillaryPageID([in]  BYTE   bRecordIndex,
+                                              [out] WORD * pwVal);
+    };
+
+    ////////////////////////////////////
+    //
+    // IDvbServiceDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(F9C7FBCF-E2D6-464d-B32D-2EF526E49290),    
+        pointer_default(unique)
+    ]
+    interface IDvbServiceDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetServiceType([out] BYTE * pbVal);
+
+        HRESULT GetServiceProviderName([out AM_ANNOTATION("_Outptr_")] char ** pszName);
+
+        HRESULT GetServiceProviderNameW([out AM_ANNOTATION("_Outptr_")] BSTR* pbstrName);
+
+        HRESULT GetServiceName([out AM_ANNOTATION("_Outptr_")] char ** pszName);
+      
+        HRESULT    GetProcessedServiceName([out] BSTR *pbstrName);
+      
+        HRESULT    GetServiceNameEmphasized([out] BSTR *pbstrName);
+    };
+
+    ////////////////////////////////////
+    //
+    // IDvbServiceDescriptor2 Interface
+    // Added generic string functions
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(D6C76506-85AB-487C-9B2B-36416511E4A2),
+        pointer_default(unique)
+    ]
+    interface IDvbServiceDescriptor2 : IDvbServiceDescriptor
+    {
+        HRESULT GetServiceProviderNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName);
+
+        HRESULT GetServiceNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IDvbServiceListDescriptor Interface
+    // for DVB/ISDB
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(05DB0D8F-6008-491a-ACD3-7090952707D0),
+        pointer_default(unique)
+    ]
+    interface IDvbServiceListDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordServiceId([in]  BYTE   bRecordIndex,
+                                   [out] WORD * pwVal);
+
+        HRESULT GetRecordServiceType([in]  BYTE   bRecordIndex,
+                                     [out] BYTE * pbVal);
+    };
+
+    /////////////////////////////////////////////////
+    //
+    // IDvbMultilingualServiceNameDescriptor Interface
+    //
+    /////////////////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(2D80433B-B32C-47ef-987F-E78EBB773E34),
+        pointer_default(unique)
+    ]
+    interface IDvbMultilingualServiceNameDescriptor : IUnknown
+    {
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] BYTE * pbVal);
+
+        HRESULT GetRecordLangId ([in]  BYTE   bRecordIndex,
+                                 [out] ULONG * ulVal);
+
+        HRESULT GetRecordServiceProviderNameW(
+            [in]  BYTE              bRecordIndex,
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName);
+
+        HRESULT GetRecordServiceNameW(
+            [in]  BYTE              bRecordIndex,
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName);
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IDvbNetworkNameDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(5B2A80CF-35B9-446C-B3E4-048B761DBC51),
+        pointer_default(unique)
+    ]
+    interface IDvbNetworkNameDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetNetworkName(
+            [out AM_ANNOTATION("_Outptr_")] char ** pszName
+        );
+        HRESULT GetNetworkNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName);
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IDvbShortEventDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(B170BE92-5B75-458E-9C6E-B0008231491A),
+        pointer_default(unique)
+    ]
+    interface IDvbShortEventDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLanguageCode(
+            [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCode
+        );
+        HRESULT GetEventNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName
+        );
+        HRESULT GetTextW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrText
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IDvbExntededEventDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(C9B22ECA-85F4-499F-B1DB-EFA93A91EE57),
+        pointer_default(unique)
+    ]
+    interface IDvbExtendedEventDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetDescriptorNumber(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLastDescriptorNumber(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLanguageCode(
+            [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCode
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordItemW(
+            [in]  BYTE              bRecordIndex,
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrDesc,
+            [out] BSTR            * pbstrItem
+        );
+        HRESULT GetConcatenatedItemW(
+            [in]  IDvbExtendedEventDescriptor * pFollowingDescriptor,
+            [in]  DVB_STRCONV_MODE              convMode,
+            [out] BSTR *                        pbstrDesc,
+            [out] BSTR *                        pbstrItem
+        );
+        HRESULT GetTextW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrText
+        );
+        HRESULT GetConcatenatedTextW(
+            [in]  IDvbExtendedEventDescriptor * FollowingDescriptor,
+            [in]  DVB_STRCONV_MODE              convMode,
+            [out] BSTR *                        pbstrText
+        );
+        HRESULT GetRecordItemRawBytes(
+            [in]  BYTE    bRecordIndex,
+            [out] BYTE ** ppbRawItem,
+            [out] BYTE *  pbItemLength
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IDvbComponentDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(91E405CF-80E7-457F-9096-1B9D1CE32141),
+        pointer_default(unique)
+    ]
+    interface IDvbComponentDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetStreamContent(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetComponentType(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetComponentTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLanguageCode(
+            [out AM_ANNOTATION("_Out_writes_(4)")]  char * pszCode
+        );
+        HRESULT GetTextW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrText
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IDvbContentDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(2E883881-A467-412A-9D63-6F2B6DA05BF0),
+        pointer_default(unique)
+    ]
+    interface IDvbContentDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordContentNibbles(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbValLevel1,
+            [out] BYTE * pbValLevel2
+        );
+        HRESULT GetRecordUserNibbles(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal1,
+            [out] BYTE * pbVal2            
+        );
+   };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IDvbParentalRatingDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(3AD9DDE1-FB1B-4186-937F-22E6B5A72A10),
+        pointer_default(unique)
+    ]
+    interface IDvbParentalRatingDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordRating(
+            [in]  BYTE   bRecordIndex,
+            [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCountryCode,
+            [out] BYTE * pbVal
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbTerrestrialDeliverySystemDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(39FAE0A6-D151-44DD-A28A-765DE5991670),
+        pointer_default(unique)
+    ]
+    interface IIsdbTerrestrialDeliverySystemDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetAreaCode(
+            [out] WORD * pwVal
+        );
+        HRESULT GetGuardInterval(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetTransmissionMode(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordFrequency(
+            [in] BYTE     bRecordIndex,
+            [out] DWORD * pdwVal
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbTSInformationDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(D7AD183E-38F5-4210-B55F-EC8D601BBD47),
+        pointer_default(unique)
+    ]
+    interface IIsdbTSInformationDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRemoteControlKeyId(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetTSNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordTransmissionTypeInfo(
+            [in] BYTE    bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordNumberOfServices(
+            [in] BYTE    bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordServiceIdByIndex(
+            [in] BYTE    bRecordIndex,
+            [in] BYTE    bServiceIndex,
+            [out] WORD * pdwVal
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbDigitalCopyControlDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(1A28417E-266A-4BB8-A4BD-D782BCFB8161),
+        pointer_default(unique)
+    ]
+    interface IIsdbDigitalCopyControlDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCopyControl(
+            [out] BYTE * pbDigitalRecordingControlData,
+            [out] BYTE * pbCopyControlType,
+            [out] BYTE * pbAPSControlData,
+            [out] BYTE * pbMaximumBitrate            
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordCopyControl(
+            [in] BYTE    bRecordIndex,
+            [out] BYTE * pbComponentTag,
+            [out] BYTE * pbDigitalRecordingControlData,
+            [out] BYTE * pbCopyControlType,
+            [out] BYTE * pbAPSControlData,
+            [out] BYTE * pbMaximumBitrate            
+       );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbAudioComponentDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(679D2002-2425-4BE4-A4C7-D6632A574F4D),
+        pointer_default(unique)
+    ]
+    interface IIsdbAudioComponentDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetStreamContent(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetComponentType(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetComponentTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetStreamType(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetSimulcastGroupTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetESMultiLingualFlag(
+            [out] BOOL * pfVal
+        );
+        HRESULT GetMainComponentFlag(
+            [out] BOOL * pfVal
+        );
+        HRESULT GetQualityIndicator(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetSamplingRate(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLanguageCode(
+            [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCode
+        );
+        HRESULT GetLanguageCode2(
+            [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCode
+        );
+        HRESULT GetTextW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrText
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbDataContentDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(A428100A-E646-4BD6-AA14-6087BDC08CD5),
+        pointer_default(unique)
+    ]
+    interface IIsdbDataContentDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetDataComponentId(
+            [out] WORD * pwVal
+        );
+        HRESULT GetEntryComponent(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetSelectorLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetSelectorBytes(
+            [in]  BYTE   bBufLength,
+            [out] BYTE * pbBuf
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordComponentRef(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLanguageCode(
+            [out AM_ANNOTATION("_Out_writes_(4)")] char * pszCode
+        );
+        HRESULT GetTextW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrText
+        );
+    };
+    
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbCAContractInformationDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(08E18B25-A28F-4E92-821E-4FCED5CC2291),
+        pointer_default(unique)
+    ]
+    interface IIsdbCAContractInformationDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCASystemId(
+            [out] WORD * pwVal
+        );
+        HRESULT GetCAUnitId(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordComponentTag(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetContractVerificationInfoLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetContractVerificationInfo(
+            [in]  BYTE   bBufLength,
+            [out] BYTE * pbBuf
+        );
+        HRESULT GetFeeNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbEventGroupDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(94B06780-2E2A-44DC-A966-CC56FDABC6C2),
+        pointer_default(unique)
+    ]
+    interface IIsdbEventGroupDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetGroupType(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordEvent(
+            [in]  BYTE   bRecordIndex,
+            [out] WORD * pwServiceId,
+            [out] WORD * pwEventId
+        );
+        HRESULT GetCountOfRefRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRefRecordEvent(
+            [in]  BYTE   bRecordIndex,
+            [out] WORD * pwOriginalNetworkId,
+            [out] WORD * pwTransportStreamId,
+            [out] WORD * pwServiceId,
+            [out] WORD * pwEventId
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbComponentGroupDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(A494F17F-C592-47D8-8943-64C9A34BE7B9),
+        pointer_default(unique)
+    ]
+    interface IIsdbComponentGroupDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetComponentGroupType(
+            [out] BYTE * pbVal
+         );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordGroupId(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordNumberOfCAUnit(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordCAUnitCAUnitId(
+            [in]  BYTE   bRecordIndex,
+            [in]  BYTE   bCAUnitIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordCAUnitNumberOfComponents(
+            [in]  BYTE   bRecordIndex,
+            [in]  BYTE   bCAUnitIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordCAUnitComponentTag(
+            [in]  BYTE   bRecordIndex,
+            [in]  BYTE   bCAUnitIndex,
+            [in]  BYTE   bComponentIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordTotalBitRate(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordTextW(
+            [in]  BYTE              bRecordIndex,
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrText
+        );
+    };
+
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbSeriesDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(07EF6370-1660-4F26-87FC-614ADAB24B11),
+        pointer_default(unique)
+    ]
+    interface IIsdbSeriesDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetSeriesId(
+            [out] WORD * pwVal
+        );
+        HRESULT GetRepeatLabel(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetProgramPattern(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetExpireDate(
+            [out] BOOL *               pfValid,
+            [out] MPEG_DATE_AND_TIME * pmdtVal
+        );
+        HRESULT GetEpisodeNumber(
+            [out] WORD * pwVal
+        );
+        HRESULT GetLastEpisodeNumber(
+            [out] WORD * pwVal
+        );
+        HRESULT GetSeriesNameW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName
+        );
+    };
+    
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbDownloadContentDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(5298661E-CB88-4F5F-A1DE-5F440C185B92),
+        pointer_default(unique)
+    ]
+    interface IIsdbDownloadContentDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetFlags(
+            [out] BOOL * pfReboot,
+            [out] BOOL * pfAddOn,
+            [out] BOOL * pfCompatibility,
+            [out] BOOL * pfModuleInfo,
+            [out] BOOL * pfTextInfo
+        );
+        HRESULT GetComponentSize(
+            [out] DWORD * pdwVal
+        );
+        HRESULT GetDownloadId(
+            [out] DWORD * pdwVal
+        );
+        HRESULT GetTimeOutValueDII(
+            [out] DWORD * pdwVal
+        );
+        HRESULT GetLeakRate(
+            [out] DWORD * pdwVal
+        );
+        HRESULT GetComponentTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCompatiblityDescriptorLength(
+            [out] WORD * pwLength
+        );
+        HRESULT GetCompatiblityDescriptor(
+            [out] BYTE ** ppbData
+        );
+        HRESULT GetCountOfRecords(
+            [out] WORD * pwVal
+        );
+        HRESULT GetRecordModuleId(
+            [in]  WORD   wRecordIndex,
+            [out] WORD * pwVal
+        );
+        HRESULT GetRecordModuleSize(
+            [in]  WORD    wRecordIndex,
+            [out] DWORD * pdwVal
+        );
+        HRESULT GetRecordModuleInfoLength(
+            [in]  WORD   wRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetRecordModuleInfo(
+            [in]  WORD    wRecordIndex,
+            [out] BYTE ** ppbData
+        );
+        HRESULT GetTextLanguageCode(
+     	    [out AM_ANNOTATION("_Out_writes_(4)")]  char * szCode
+        );
+        HRESULT GetTextW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrName
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbLogoTransmissionDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(E0103F49-4AE1-4F07-9098-756DB1FA88CD),
+        pointer_default(unique)
+    ]
+    interface IIsdbLogoTransmissionDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLogoTransmissionType(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLogoId(
+            [out] WORD * pwVal
+        );
+        HRESULT GetLogoVersion(
+            [out] WORD * pwVal
+        );
+        HRESULT GetDownloadDataId(
+            [out] WORD * pwVal
+        );
+        HRESULT GetLogoCharW(
+            [in]  DVB_STRCONV_MODE  convMode,
+            [out] BSTR            * pbstrChar
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbSIParameterDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(F837DC36-867C-426a-9111-F62093951A45),
+        pointer_default(unique)
+    ]
+    interface IIsdbSIParameterDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetParameterVersion(
+            [out] BYTE * pbVal
+         );
+        HRESULT GetUpdateTime(
+            [out] MPEG_DATE * pVal
+        );
+        HRESULT GetRecordNumberOfTable(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetTableId(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetTableDescriptionLength(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetTableDescriptionBytes(
+            [in]      BYTE   bRecordIndex,
+            [in, out] BYTE * pbBufferLength,
+            [out]     BYTE * pbBuffer
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbEmergencyInformationDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(BA6FA681-B973-4da1-9207-AC3E7F0341EB),
+        pointer_default(unique)
+    ]
+    interface IIsdbEmergencyInformationDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCountOfRecords(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetServiceId(
+            [in]  BYTE   bRecordIndex,
+            [out] WORD * pwVal
+        );
+        HRESULT GetStartEndFlag(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pVal
+        );
+        HRESULT GetSignalLevel(
+            [in]  BYTE   bRecordIndex,
+            [out] BYTE * pbVal
+        );
+        HRESULT GetAreaCode(
+            [in]  BYTE    bRecordIndex,
+            [out] WORD ** ppwVal,           // Upper 12-bits: area_code
+            [out] BYTE *  pbNumAreaCodes
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbCADescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(0570AA47-52BC-42ae-8CA5-969F41E81AEA),
+        pointer_default(unique)
+    ]
+    interface IIsdbCADescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCASystemId(
+            [out] WORD * pwVal
+         );
+        HRESULT GetReservedBits(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCAPID(
+            [out] WORD * pwVal
+        );
+        HRESULT GetPrivateDataBytes(
+            [in, out] BYTE * pbBufferLength,    // retuen reqired buffer length if pbBuffer is null.
+            [out]     BYTE * pbBuffer
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbCAServiceDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(39CBEB97-FF0B-42a7-9AB9-7B9CFE70A77A),
+        pointer_default(unique)
+    ]
+    interface IIsdbCAServiceDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetCASystemId(
+            [out] WORD * pwVal
+         );
+        HRESULT GetCABroadcasterGroupId(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetMessageControl(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetServiceIds(
+            [in, out] BYTE * pbNumServiceIds,   // retuen reqired number of IDs if pwServiceIds is null.
+            [out]     WORD * pwServiceIds
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IIsdbHierarchicalTransmissionDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(B7B3AE90-EE0B-446d-8769-F7E2AA266AA6),
+        pointer_default(unique)
+    ]
+    interface IIsdbHierarchicalTransmissionDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetFutureUse1(
+            [out] BYTE * pbVal          // 7-bits
+         );
+        HRESULT GetQualityLevel(
+            [out] BYTE * pbVal          // 1-bits
+        );
+        HRESULT GetFutureUse2(
+            [out] BYTE * pbVal          // 3-bits
+        );
+        HRESULT GetReferencePid(
+            [out] WORD * pwVal          // 13-bits
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // stream_identifier_descriptor
+    //  It has only one byte body (component_tag).
+    //  We will not define particular interface. 
+    //
+    ///////////////////////////////////////////////////////////
+cpp_quote("#define COMPONENT_TAG_CAPTION_MIN            0x30")
+cpp_quote("#define COMPONENT_TAG_CAPTION_MAX            0x37")
+cpp_quote("#define COMPONENT_TAG_SUPERIMPOSE_MIN        0x38")
+cpp_quote("#define COMPONENT_TAG_SUPERIMPOSE_MAX        0x3F")
+
+interface IPBDA_EIT;
+interface IPBDA_Services;
+    ////////////////////////////////////
+    //
+    // IPBDASiParser Interface
+    //
+    ////////////////////////////////////
+
+    [
+        AM_LOCAL
+        object,
+        uuid(9DE49A74-ABA2-4a18-93E1-21F17F95C3C3),
+        pointer_default(unique)
+    ]
+    interface IPBDASiParser : IUnknown
+    {
+        HRESULT Initialize([in] IUnknown * punk
+        );
+        
+
+        HRESULT GetEIT([in] DWORD dwSize ,
+                      [in]  BYTE *pBuffer,       
+                      [out] IPBDA_EIT ** ppEIT
+        );
+
+        HRESULT GetServices ([in] DWORD dwSize ,
+                      [in]  const BYTE *pBuffer,       
+                      [out] IPBDA_Services ** ppServices
+        );
+    };
+
+    ////////////////////////////////////
+    //
+    // IPBDA_EIT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(A35F2DEA-098F-4ebd-984C-2BD4C3C8CE0A),
+        helpstring("IPBDA_EIT Interface"),
+        pointer_default(unique)
+    ]
+    interface IPBDA_EIT : IUnknown
+    {
+        HRESULT Initialize(
+            [in] DWORD size, 
+            [in] [size_is(size)] const BYTE *pBuffer 
+        );
+
+    /* Table level data */
+        HRESULT GetTableId(
+            [out] BYTE * pbVal
+        );
+
+        HRESULT GetVersionNumber(
+            [out] WORD * pwVal
+        );
+
+        HRESULT GetServiceIdx (
+            [out] ULONG64 * plwVal
+        );
+
+
+    /* Descriptors follow here */
+        
+        HRESULT GetCountOfRecords(
+            [out] DWORD * pdwVal
+        );
+
+        HRESULT GetRecordEventId(
+            [in]  DWORD dwRecordIndex,
+            [out] ULONG64 * plwVal
+        );
+
+        HRESULT GetRecordStartTime(
+            [in]  DWORD dwRecordIndex,
+            [out] MPEG_DATE_AND_TIME * pmdtVal
+        );
+
+        HRESULT GetRecordDuration(
+            [in]  DWORD dwRecordIndex,
+            [out] MPEG_DURATION * pmdVal
+        );
+
+    /* Descriptors follow here */
+        
+        HRESULT GetRecordCountOfDescriptors(
+            [in]  DWORD   dwRecordIndex,
+            [out] DWORD * pdwVal
+        );
+
+        HRESULT GetRecordDescriptorByIndex(
+            [in]  DWORD                 dwRecordIndex,
+            [in]  DWORD                 dwIndex,
+            [out] IGenericDescriptor ** ppDescriptor
+        );
+
+        HRESULT GetRecordDescriptorByTag(
+            [in]  DWORD                 dwRecordIndex,
+            [in]  BYTE                  bTag,
+            [in, out]  DWORD *          pdwCookie, // OPTIONAL
+            [out] IGenericDescriptor ** ppDescriptor
+        );
+
+    };
+
+    ////////////////////////////////////
+    //
+    // IPBDA_Services Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(944EAB37-EED4-4850-AFD2-77E7EFEB4427),
+        helpstring("IPBDA_Services Interface"),
+        pointer_default(unique)
+    ]
+    interface IPBDA_Services : IUnknown
+    {
+        HRESULT Initialize(
+            [in] DWORD size, 
+            [in] [size_is(size)] BYTE *pBuffer 
+        );
+        
+        HRESULT GetCountOfRecords(
+            [out] DWORD * pdwVal
+        );
+
+        HRESULT GetRecordByIndex ( 
+            [in]  DWORD dwRecordIndex,
+            [out] ULONG64 *pul64ServiceIdx 
+        );
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IPBDAEntitlementDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(22632497-0DE3-4587-AADC-D8D99017E760),
+        pointer_default(unique)
+    ]
+    interface IPBDAEntitlementDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal 
+        );
+
+        HRESULT GetLength(
+            [out] WORD * pwVal 
+        );
+
+        HRESULT GetToken (
+            [out] BYTE ** ppbTokenBuffer,
+            [out] DWORD *  pdwTokenLength 
+        );
+
+    };
+
+    ///////////////////////////////////////////////////////////
+    //
+    // IPBDAAttributesDescriptor Interface
+    //
+    ///////////////////////////////////////////////////////////
+    [
+        AM_LOCAL
+        object,
+        uuid(313B3620-3263-45a6-9533-968BEFBEAC03),
+        pointer_default(unique)
+    ]
+    interface IPBDAAttributesDescriptor : IUnknown
+    {
+        HRESULT GetTag(
+            [out] BYTE * pbVal
+        );
+        HRESULT GetLength(
+            [out] WORD * pwVal
+        );
+        HRESULT GetAttributePayload (
+            [out] BYTE ** ppbAttributeBuffer,
+            [out] DWORD *  pdwAttributeLength
+        );
+
+    };
+    
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

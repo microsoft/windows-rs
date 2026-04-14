@@ -1,0 +1,284 @@
+// scoped_allocator standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _SCOPED_ALLOCATOR_
+#define _SCOPED_ALLOCATOR_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xpolymorphic_allocator.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+template <class _Alloc, class = void>
+struct _Scoped_outermost_helper { // gets the outermost allocator
+    static decltype(auto) _Fn(_Alloc& _Al) { // gets the outermost allocator
+        return _Al;
+    }
+};
+
+template <class _Alloc>
+struct _Scoped_outermost_helper<_Alloc,
+    void_t<decltype(_STD declval<_Alloc&>().outer_allocator())>> { // gets the outermost allocator
+    using _Outer_alloc = decltype(_STD declval<_Alloc&>().outer_allocator());
+
+    static decltype(auto) _Fn(_Alloc& _Al) { // gets the outermost allocator
+        return _Scoped_outermost_helper<_Outer_alloc>::_Fn(_Al.outer_allocator());
+    }
+};
+
+template <class _Alloc>
+decltype(auto) _Scoped_outermost(_Alloc& _Al) { // gets the outermost allocator
+    return _Scoped_outermost_helper<_Alloc>::_Fn(_Al);
+}
+
+template <class _Alloc>
+using _Scoped_outermost_t = remove_reference_t<decltype(_STD _Scoped_outermost(_STD declval<_Alloc&>()))>;
+
+template <class _Alloc>
+using _Scoped_outermost_traits = allocator_traits<_Scoped_outermost_t<_Alloc>>;
+
+_EXPORT_STD template <class _Outer, class... _Inner>
+class scoped_allocator_adaptor;
+
+template <class _Outer, class... _Inner>
+struct _Scoped_base;
+
+struct _Secret_scoped_allocator_construct_tag {
+    explicit _Secret_scoped_allocator_construct_tag() = default;
+};
+
+template <class _Outer, class _Inner0, class... _Inner>
+struct _Scoped_base<_Outer, _Inner0, _Inner...> : _Outer { // nest of allocators, arbitrary depth
+    using _Myadaptor           = scoped_allocator_adaptor<_Outer, _Inner0, _Inner...>;
+    using inner_allocator_type = scoped_allocator_adaptor<_Inner0, _Inner...>;
+
+    inner_allocator_type _Inner_obj;
+
+    inner_allocator_type& _Get_inner_object(_Myadaptor&) {
+        return _Inner_obj;
+    }
+
+    const inner_allocator_type& _Get_inner_object(const _Myadaptor&) const {
+        return _Inner_obj;
+    }
+
+    _Scoped_base() : _Outer(), _Inner_obj() {} // value-initialize Outer and Inner
+
+    template <class _Other1, class... _Other2,
+        enable_if_t<sizeof...(_Other2) != 0 || !is_base_of_v<_Scoped_base, decay_t<_Other1>>, int> = 0>
+    _Scoped_base(_Other1&& _Outer_arg, _Other2&&... _Inner_args)
+        : _Outer(_STD forward<_Other1>(_Outer_arg)), _Inner_obj(_STD forward<_Other2>(_Inner_args)...) {
+        // also handles rebinding
+    }
+
+    _Scoped_base(const _Scoped_base&)            = default;
+    _Scoped_base(_Scoped_base&&)                 = default;
+    _Scoped_base& operator=(const _Scoped_base&) = default;
+    _Scoped_base& operator=(_Scoped_base&&)      = default;
+
+    _NODISCARD _Myadaptor select_on_container_copy_construction() const { // make new adaptor
+        return _Myadaptor(_Secret_scoped_allocator_construct_tag{},
+            allocator_traits<_Outer>::select_on_container_copy_construction(static_cast<const _Outer&>(*this)),
+            _Inner_obj.select_on_container_copy_construction());
+    }
+};
+
+template <class _Outer>
+struct _Scoped_base<_Outer> : _Outer { // nest of allocators, one deep
+    using _Myadaptor           = scoped_allocator_adaptor<_Outer>;
+    using inner_allocator_type = scoped_allocator_adaptor<_Outer>;
+
+    inner_allocator_type& _Get_inner_object(_Myadaptor& _Self) {
+        return _Self;
+    }
+
+    const inner_allocator_type& _Get_inner_object(const _Myadaptor& _Self) const {
+        return _Self;
+    }
+
+    _Scoped_base() : _Outer() {} // value-initialize
+
+    template <class _Other1, enable_if_t<!is_base_of_v<_Scoped_base, decay_t<_Other1>>, int> = 0>
+    _Scoped_base(_Other1&& _Outer_arg) : _Outer(_STD forward<_Other1>(_Outer_arg)) {} // also handles rebinding
+
+    _Scoped_base(const _Scoped_base&)            = default;
+    _Scoped_base(_Scoped_base&&)                 = default;
+    _Scoped_base& operator=(const _Scoped_base&) = default;
+    _Scoped_base& operator=(_Scoped_base&&)      = default;
+
+    _NODISCARD _Myadaptor select_on_container_copy_construction() const { // make new adaptor
+        return _Myadaptor(
+            allocator_traits<_Outer>::select_on_container_copy_construction(static_cast<const _Outer&>(*this)));
+    }
+};
+
+_EXPORT_STD template <class _Outer, class... _Inner>
+class scoped_allocator_adaptor : public _Scoped_base<_Outer, _Inner...> { // nest of allocators
+private:
+    using _Mybase       = _Scoped_base<_Outer, _Inner...>;
+    using _Outer_traits = allocator_traits<_Outer>;
+
+public:
+    using outer_allocator_type = _Outer;
+    using inner_allocator_type = typename _Mybase::inner_allocator_type;
+
+    using value_type         = typename _Outer_traits::value_type;
+    using pointer            = typename _Outer_traits::pointer;
+    using const_pointer      = typename _Outer_traits::const_pointer;
+    using void_pointer       = typename _Outer_traits::void_pointer;
+    using const_void_pointer = typename _Outer_traits::const_void_pointer;
+
+    using size_type       = typename _Outer_traits::size_type;
+    using difference_type = typename _Outer_traits::difference_type;
+
+    template <class _Other>
+    struct rebind { // converts X<value_type> to X<_Other>
+        using _Other_alloc = typename _Get_rebind_type<_Outer, _Other>::type;
+        using other        = scoped_allocator_adaptor<_Other_alloc, _Inner...>;
+    };
+
+    using propagate_on_container_copy_assignment =
+        bool_constant<disjunction_v<typename allocator_traits<_Outer>::propagate_on_container_copy_assignment,
+            typename allocator_traits<_Inner>::propagate_on_container_copy_assignment...>>;
+
+    using propagate_on_container_move_assignment =
+        bool_constant<disjunction_v<typename allocator_traits<_Outer>::propagate_on_container_move_assignment,
+            typename allocator_traits<_Inner>::propagate_on_container_move_assignment...>>;
+
+    using propagate_on_container_swap =
+        bool_constant<disjunction_v<typename allocator_traits<_Outer>::propagate_on_container_swap,
+            typename allocator_traits<_Inner>::propagate_on_container_swap...>>;
+
+    using is_always_equal = bool_constant<conjunction_v<typename allocator_traits<_Outer>::is_always_equal,
+        typename allocator_traits<_Inner>::is_always_equal...>>;
+
+    scoped_allocator_adaptor() = default; // value-init handled in _Scoped_base
+
+    template <class _Other, enable_if_t<is_constructible_v<_Outer, _Other>, int> = 0>
+    scoped_allocator_adaptor(_Other&& _Other_arg, const _Inner&... _Inner_args) noexcept
+        : _Mybase(_STD forward<_Other>(_Other_arg), _Inner_args...) {
+        // also handles rebinding construction when sizeof...(_Inner) == 0
+    }
+
+    scoped_allocator_adaptor(const scoped_allocator_adaptor& _Right) noexcept : _Mybase(_Right) {}
+
+    scoped_allocator_adaptor(scoped_allocator_adaptor&& _Right) noexcept : _Mybase(_STD move(_Right)) {}
+
+    template <class _Other, bool _Enabled = sizeof...(_Inner) != 0 && is_constructible_v<_Outer, const _Other&>,
+        enable_if_t<_Enabled, int> = 0>
+    scoped_allocator_adaptor(const scoped_allocator_adaptor<_Other, _Inner...>& _Right) noexcept
+        : _Mybase(_Right.outer_allocator(), _Right.inner_allocator()) {}
+
+    template <class _Other, bool _Enabled = sizeof...(_Inner) != 0 && is_constructible_v<_Outer, _Other>,
+        enable_if_t<_Enabled, int> = 0>
+    scoped_allocator_adaptor(scoped_allocator_adaptor<_Other, _Inner...>&& _Right) noexcept
+        : _Mybase(_STD move(_Right.outer_allocator()), _STD move(_Right.inner_allocator())) {}
+
+    scoped_allocator_adaptor(_Secret_scoped_allocator_construct_tag, const outer_allocator_type& _Outer_arg,
+        const inner_allocator_type& _Inner_arg) noexcept
+        : _Mybase(_Outer_arg, _Inner_arg) {}
+
+    scoped_allocator_adaptor& operator=(const scoped_allocator_adaptor&) = default;
+    scoped_allocator_adaptor& operator=(scoped_allocator_adaptor&&)      = default;
+
+    _NODISCARD inner_allocator_type& inner_allocator() noexcept { // get reference to inner allocator
+        return this->_Get_inner_object(*this);
+    }
+
+    _NODISCARD const inner_allocator_type& inner_allocator() const noexcept { // get reference to inner allocator
+        return this->_Get_inner_object(*this);
+    }
+
+    _NODISCARD outer_allocator_type& outer_allocator() noexcept { // get reference to outer allocator
+        return static_cast<_Outer&>(*this);
+    }
+
+    _NODISCARD const outer_allocator_type& outer_allocator() const noexcept { // get reference to outer allocator
+        return static_cast<const _Outer&>(*this);
+    }
+
+    _NODISCARD_RAW_PTR_ALLOC __declspec(allocator) pointer allocate(_CRT_GUARDOVERFLOW size_type _Count) {
+        // allocate array of _Count elements, ignore hint
+        return _Outer_traits::allocate(outer_allocator(), _Count);
+    }
+
+    _NODISCARD_RAW_PTR_ALLOC __declspec(allocator) pointer allocate(
+        _CRT_GUARDOVERFLOW size_type _Count, const_void_pointer _Hint) { // allocate array of _Count elements, with hint
+        return _Outer_traits::allocate(outer_allocator(), _Count, _Hint);
+    }
+
+    void deallocate(pointer _Ptr, size_type _Count) { // deallocate object at _Ptr, with size
+        return _Outer_traits::deallocate(outer_allocator(), _Ptr, _Count);
+    }
+
+    _NODISCARD size_type max_size() const { // estimate maximum array size
+        return _Outer_traits::max_size(outer_allocator());
+    }
+
+    template <class _Ty, class... _Types>
+    void construct(_Ty* _Ptr, _Types&&... _Args) { // construct with varying allocator styles
+#if _HAS_CXX20
+        _STD apply(
+            [_Ptr, this](auto&&... _New_args) {
+                _Scoped_outermost_traits<scoped_allocator_adaptor>::construct(
+                    _STD _Scoped_outermost(*this), _Ptr, _STD forward<decltype(_New_args)>(_New_args)...);
+            },
+            _STD uses_allocator_construction_args<_Ty>(inner_allocator(), _STD forward<_Types>(_Args)...));
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+        if constexpr (_Is_cv_pair<_Ty>) {
+            _STD _Uses_alloc_construct_pair(
+                _Ptr, _STD _Scoped_outermost(*this), inner_allocator(), _STD forward<_Types>(_Args)...);
+        } else {
+            _STD _Uses_alloc_construct_non_pair(
+                _Ptr, _STD _Scoped_outermost(*this), inner_allocator(), _STD forward<_Types>(_Args)...);
+        }
+#endif // ^^^ !_HAS_CXX20 ^^^
+    }
+
+    template <class _Ty>
+    void destroy(_Ty* _Ptr) { // destroy object at _Ptr
+        _Scoped_outermost_traits<scoped_allocator_adaptor>::destroy(_STD _Scoped_outermost(*this), _Ptr);
+    }
+
+    // select_on_container_copy_construction comes from _Scoped_base
+};
+
+#if _HAS_CXX17
+template <class _Outer, class... _Inner>
+scoped_allocator_adaptor(_Outer, _Inner...) -> scoped_allocator_adaptor<_Outer, _Inner...>;
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _Outer1, class _Outer2, class... _Inner>
+_NODISCARD bool operator==(const scoped_allocator_adaptor<_Outer1, _Inner...>& _Left,
+    const scoped_allocator_adaptor<_Outer2, _Inner...>& _Right) noexcept {
+    if constexpr (sizeof...(_Inner) == 0) {
+        return _Left.outer_allocator() == _Right.outer_allocator();
+    } else {
+        return _Left.outer_allocator() == _Right.outer_allocator()
+            && _Left.inner_allocator() == _Right.inner_allocator();
+    }
+}
+
+#if !_HAS_CXX20
+template <class _Outer1, class _Outer2, class... _Inner>
+_NODISCARD bool operator!=(const scoped_allocator_adaptor<_Outer1, _Inner...>& _Left,
+    const scoped_allocator_adaptor<_Outer2, _Inner...>& _Right) noexcept {
+    return !(_Left == _Right);
+}
+#endif // !_HAS_CXX20
+
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _SCOPED_ALLOCATOR_

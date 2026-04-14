@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+  <xs:element name="Device" type="CT_Device" substitutionGroup="f:AdditionalDeviceChoice"/>
+
+  <xs:complexType name="CT_Device">
+    <xs:sequence>
+      <xs:element name="Function" maxOccurs="10000">
+        <xs:complexType>
+          <xs:attribute name="Type" type="t:ST_DeviceFunction_Foundation" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Id" type="t:ST_DeviceId" use="required"/>
+  </xs:complexType>
+
+</xs:schema>
+

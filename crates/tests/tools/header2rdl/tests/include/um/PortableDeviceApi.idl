@@ -1,0 +1,891 @@
+cpp_quote("#include <winapifamily.h>")
+
+//-----------------------------------------------------------------------------
+//
+// @abstract    This file contains interface desc for
+//              Windows Portable Devices, which offers base-level access to
+//              these devices for applications.
+//
+// @copyright   (C) COPYRIGHT MICROSOFT CORPORATION
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#if (_WIN32_WINNT >= 0x0501) // XP and later")
+
+import "propidl.idl";
+import "wtypes.idl";
+import "PortableDeviceTypes.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface IPortableDeviceManager;
+interface IPortableDevice;
+interface IPortableDeviceContent;
+interface IPortableDeviceContent2;
+interface IEnumPortableDeviceObjectIDs;
+interface IPortableDeviceProperties;
+interface IPortableDeviceResources;
+interface IPortableDeviceCapabilities;
+interface IPortableDeviceEventCallback;
+interface IPortableDeviceDataStream;
+interface IPortableDevicePropertiesBulk;
+interface IPortableDevicePropertiesBulkCallback;
+interface IPortableDeviceServiceManager;
+interface IPortableDeviceService;
+interface IPortableDeviceServiceCapabilities;
+interface IPortableDeviceServiceMethods;
+interface IPortableDeviceServiceMethodCallback;
+interface IPortableDeviceDispatchFactory;
+interface IPortableDeviceServiceActivation;
+interface IPortableDeviceServiceOpenCallback;
+
+//---------------------------------------------------------
+// This interface is used to enumerate available portable
+// devices.
+//---------------------------------------------------------
+[
+    object,
+    uuid(a1567595-4c2f-4574-a6fa-ecef917b9a40),
+    helpstring("IPortableDeviceManager Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceManager : IUnknown
+{
+    HRESULT GetDevices(
+        [in, out, unique]   LPWSTR* pPnPDeviceIDs,
+        [in, out]           DWORD*  pcPnPDeviceIDs);
+
+    HRESULT RefreshDeviceList();
+
+    HRESULT GetDeviceFriendlyName(
+        [in]                LPCWSTR pszPnPDeviceID,
+        [in, out, unique]   WCHAR*  pDeviceFriendlyName,
+        [in, out]           DWORD*  pcchDeviceFriendlyName);
+
+    HRESULT GetDeviceDescription(
+        [in]                LPCWSTR pszPnPDeviceID,
+        [in, out, unique]   WCHAR*  pDeviceDescription,
+        [in, out]           DWORD*  pcchDeviceDescription);
+
+    HRESULT GetDeviceManufacturer(
+        [in]                LPCWSTR pszPnPDeviceID,
+        [in, out, unique]   WCHAR*  pDeviceManufacturer,
+        [in, out]           DWORD*  pcchDeviceManufacturer);
+
+    HRESULT GetDeviceProperty(
+        [in]                LPCWSTR pszPnPDeviceID,
+        [in]                LPCWSTR pszDevicePropertyName,
+        [in, out, unique]   BYTE*   pData,
+        [in, out, unique]   DWORD*  pcbData,
+        [in, out, unique]   DWORD*  pdwType);
+
+    HRESULT GetPrivateDevices(
+        [in, out, unique]   LPWSTR* pPnPDeviceIDs,
+        [in, out]           DWORD*  pcPnPDeviceIDs);
+};
+
+//---------------------------------------------------------
+// This interface forms the basis of communication from
+// applications to Windows Portable Devices devices.
+// Since this offers fairly low-level access, higher
+// level functionality is provided via API objects which
+// build on this class.
+//---------------------------------------------------------
+[
+    object,
+    uuid(625e2df8-6392-4cf0-9ad1-3cfa5f17775c),
+    helpstring("IPortableDevice Interface"),
+    pointer_default(unique)
+]
+interface IPortableDevice : IUnknown
+{
+    HRESULT Open(
+        [in]    LPCWSTR                 pszPnPDeviceID,
+        [in]    IPortableDeviceValues*  pClientInfo);
+
+    HRESULT SendCommand(
+        [in]   const DWORD              dwFlags,
+        [in]   IPortableDeviceValues*   pParameters,
+        [out]  IPortableDeviceValues**  ppResults);
+
+    HRESULT Content(
+       [out]  IPortableDeviceContent** ppContent);
+
+    HRESULT Capabilities(
+       [out]  IPortableDeviceCapabilities** ppCapabilities);
+
+    HRESULT Cancel();
+
+    HRESULT Close();
+
+    HRESULT Advise(
+        [in]   const DWORD                      dwFlags,
+        [in]   IPortableDeviceEventCallback*    pCallback,
+        [in, unique]   IPortableDeviceValues*   pParameters,
+        [out]  LPWSTR*                          ppszCookie);
+
+    HRESULT Unadvise(
+        [in]   LPCWSTR pszCookie);
+
+    HRESULT GetPnPDeviceID(
+        [out]  LPWSTR*  ppszPnPDeviceID);
+};
+
+//---------------------------------------------------------
+// This interface is used to work with content on a
+// portable device.  From this interface you can enumerate,
+// create and delete objects, as well as get interfaces to
+// transfer content data and properties.
+//---------------------------------------------------------
+[
+    object,
+    uuid(6a96ed84-7c73-4480-9938-bf5af477d426),
+    helpstring("IPortableDeviceContent Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceContent : IUnknown
+{
+    HRESULT EnumObjects(
+        [in]         const DWORD                     dwFlags,
+        [in]         LPCWSTR                         pszParentObjectID,
+        [in, unique] IPortableDeviceValues*          pFilter,
+        [out]        IEnumPortableDeviceObjectIDs**  ppEnum);
+
+    HRESULT Properties(
+        [out]  IPortableDeviceProperties** ppProperties);
+
+    HRESULT Transfer(
+        [out]  IPortableDeviceResources** ppResources);
+
+    HRESULT CreateObjectWithPropertiesOnly(
+       [in]              IPortableDeviceValues* pValues,
+       [in, out, unique] LPWSTR*                ppszObjectID);
+
+    HRESULT CreateObjectWithPropertiesAndData(
+       [in]              IPortableDeviceValues* pValues,
+       [out]             IStream**              ppData,
+       [in, out, unique] DWORD*                 pdwOptimalWriteBufferSize,
+       [in, out, unique] LPWSTR*                ppszCookie);
+
+    HRESULT Delete(
+       [in] const DWORD                                         dwOptions,
+       [in] IPortableDevicePropVariantCollection*               pObjectIDs,
+       [in, out, unique] IPortableDevicePropVariantCollection** ppResults);
+
+    HRESULT GetObjectIDsFromPersistentUniqueIDs(
+        [in]    IPortableDevicePropVariantCollection*  pPersistentUniqueIDs,
+        [out]   IPortableDevicePropVariantCollection** ppObjectIDs);
+
+    HRESULT Cancel();
+
+    HRESULT Move(
+        [in] IPortableDevicePropVariantCollection*               pObjectIDs,
+        [in] LPCWSTR                                             pszDestinationFolderObjectID,
+        [in, out, unique] IPortableDevicePropVariantCollection** ppResults);
+
+    HRESULT Copy(
+        [in] IPortableDevicePropVariantCollection*               pObjectIDs,
+        [in] LPCWSTR                                             pszDestinationFolderObjectID,
+        [in, out, unique] IPortableDevicePropVariantCollection** ppResults);
+};
+
+//---------------------------------------------------------
+// This interface extends IPortableDeviceContent 
+// portable device.  From this interface you query required
+// object creation and update properties, and update objects with
+// properties and data
+//---------------------------------------------------------
+[
+    object,
+    uuid(9b4add96-f6bf-4034-8708-eca72bf10554),
+    helpstring("IPortableDeviceContent2 Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceContent2 : IPortableDeviceContent
+{
+    HRESULT UpdateObjectWithPropertiesAndData(
+        [in]     LPCWSTR                        pszObjectID,
+        [in]     IPortableDeviceValues*         pProperties,
+        [out]    IStream**                      ppData,
+        [in, out, unique] DWORD*                pdwOptimalWriteBufferSize);
+};
+
+//---------------------------------------------------------
+// This interface is used to enumerate Objects on a Portable
+// device.
+//---------------------------------------------------------
+[
+    object,
+    uuid(10ece955-cf41-4728-bfa0-41eedf1bbf19),
+    helpstring("IEnumPortableDeviceObjectIDs Interface"),
+    pointer_default(unique)
+]
+interface IEnumPortableDeviceObjectIDs : IUnknown
+{
+    HRESULT Next(
+        [in]              ULONG   cObjects,
+        [out, size_is(cObjects), length_is(*pcFetched)]
+                          LPWSTR* pObjIDs,
+        [in, out, unique] ULONG*  pcFetched);
+
+    HRESULT Skip(
+        [in]  ULONG   cObjects);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumPortableDeviceObjectIDs **ppEnum);
+
+    HRESULT Cancel();
+};
+
+//---------------------------------------------------------
+// Clients use this interface to work with properties.
+// Supports property enumeration, attributes, reading
+// and writing.
+//---------------------------------------------------------
+[
+    object,
+    uuid(7f6d695c-03df-4439-a809-59266beee3a6),
+    helpstring("IPortableDeviceProperties Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceProperties : IUnknown
+{
+    HRESULT GetSupportedProperties(
+        [in]  LPCWSTR                        pszObjectID,
+        [out] IPortableDeviceKeyCollection** ppKeys);
+
+    HRESULT GetPropertyAttributes(
+        [in]  LPCWSTR                  pszObjectID,
+        [in]  REFPROPERTYKEY           Key,
+        [out] IPortableDeviceValues**  ppAttributes);
+
+    HRESULT GetValues(
+        [in]         LPCWSTR                       pszObjectID,
+        [in, unique] IPortableDeviceKeyCollection* pKeys,
+        [out]        IPortableDeviceValues**       ppValues);
+
+    HRESULT SetValues(
+        [in]  LPCWSTR                   pszObjectID,
+        [in]  IPortableDeviceValues*    pValues,
+        [out] IPortableDeviceValues**   ppResults);
+
+    HRESULT Delete(
+        [in]    LPCWSTR                       pszObjectID,
+        [in]    IPortableDeviceKeyCollection* pKeys);
+
+    HRESULT Cancel();
+};
+
+//---------------------------------------------------------
+// Clients use this interface to work with resources.
+// Supports resource enumeration, attributes, reading
+// and writing.
+//---------------------------------------------------------
+[
+    object,
+    uuid(fd8878ac-d841-4d17-891c-e6829cdb6934),
+    helpstring("IPortableDeviceResources Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceResources : IUnknown
+{
+    HRESULT GetSupportedResources(
+        [in]  LPCWSTR                        pszObjectID,
+        [out] IPortableDeviceKeyCollection** ppKeys);
+
+    HRESULT GetResourceAttributes(
+        [in]  LPCWSTR                  pszObjectID,
+        [in]  REFPROPERTYKEY           Key,
+        [out] IPortableDeviceValues**  ppResourceAttributes);
+
+    HRESULT GetStream(
+        [in]  LPCWSTR               pszObjectID,
+        [in]  REFPROPERTYKEY        Key,
+        [in]  const DWORD           dwMode,
+        [in, out, unique] DWORD*    pdwOptimalBufferSize,
+        [out] IStream**             ppStream);
+
+    HRESULT Delete(
+        [in]    LPCWSTR                       pszObjectID,
+        [in]    IPortableDeviceKeyCollection* pKeys);
+
+    HRESULT Cancel();
+
+    HRESULT CreateResource(
+       [in]              IPortableDeviceValues* pResourceAttributes,
+       [out]             IStream**              ppData,
+       [in, out, unique] DWORD*                 pdwOptimalWriteBufferSize,
+       [in, out, unique] LPWSTR*                ppszCookie);
+};
+
+//---------------------------------------------------------
+// Clients use this interface to discover the capabilities
+// of the device.
+//---------------------------------------------------------
+[
+    object,
+    uuid(2c8c6dbf-e3dc-4061-becc-8542e810d126),
+    helpstring("IPortableDeviceCapabilities Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceCapabilities : IUnknown
+{
+    HRESULT GetSupportedCommands(
+        [out] IPortableDeviceKeyCollection** ppCommands);
+
+    HRESULT GetCommandOptions(
+        [in]  REFPROPERTYKEY           Command,
+        [out] IPortableDeviceValues**  ppOptions);
+
+    HRESULT GetFunctionalCategories(
+        [out] IPortableDevicePropVariantCollection** ppCategories);
+
+    HRESULT GetFunctionalObjects(
+        [in]  REFGUID                                Category,
+        [out] IPortableDevicePropVariantCollection** ppObjectIDs);
+
+    HRESULT GetSupportedContentTypes(
+        [in]  REFGUID                                Category,
+        [out] IPortableDevicePropVariantCollection** ppContentTypes);
+
+    HRESULT GetSupportedFormats(
+        [in]  REFGUID                                ContentType,
+        [out] IPortableDevicePropVariantCollection** ppFormats);
+
+    HRESULT GetSupportedFormatProperties(
+        [in]  REFGUID                        Format,
+        [out] IPortableDeviceKeyCollection** ppKeys);
+
+    HRESULT GetFixedPropertyAttributes(
+        [in]  REFGUID                 Format,
+        [in]  REFPROPERTYKEY          Key,
+        [out] IPortableDeviceValues** ppAttributes);
+
+    HRESULT Cancel();
+
+    HRESULT GetSupportedEvents(
+        [out] IPortableDevicePropVariantCollection** ppEvents);
+
+    HRESULT GetEventOptions(
+        [in]  REFGUID                  Event,
+        [out] IPortableDeviceValues**  ppOptions);
+};
+
+
+//---------------------------------------------------------
+// Clients derive from this interface and are notified of
+// events via callback.
+//---------------------------------------------------------
+[
+    object,
+    uuid(a8792a31-f385-493c-a893-40f64eb45f6e),
+    helpstring("IPortableDeviceEventCallback Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceEventCallback : IUnknown
+{
+    HRESULT OnEvent(
+        [in] IPortableDeviceValues* pEventParameters);
+};
+
+//---------------------------------------------------------
+// This interface can be used to read/write data during transfers.
+// It is retrieved by doing a QI on the IStream for a resource
+// data or object creation request.
+// It has several PortableDeviceApi specific methods in
+// addition to the ones provided by IStream.
+//---------------------------------------------------------
+[
+    object,
+    uuid(88e04db3-1012-4d64-9996-f703a950d3f4),
+    helpstring("IPortableDeviceDataStream Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceDataStream : IStream
+{
+    HRESULT GetObjectID(
+        [out] LPWSTR* ppszObjectID);
+
+    HRESULT Cancel();
+};
+
+//---------------------------------------------------------
+// This interface can be used to seek data during transfers
+// by specifying alternate (non-byte) units.
+// It is retrieved by doing a QI on the IStream for a resource
+// data.
+// It has several PortableDeviceApi specific methods but not
+// IStream ones.
+//---------------------------------------------------------
+[
+    object,
+    uuid(5e98025f-bfc4-47a2-9a5f-bc900a507c67),
+    helpstring("IPortableDeviceUnitsStream Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceUnitsStream : IUnknown
+{
+    [local]
+    HRESULT SeekInUnits(
+        [in] LARGE_INTEGER dlibMove,
+        [in] WPD_STREAM_UNITS units,
+        [in] DWORD dwOrigin,
+        [annotation("_Out_opt_")] ULARGE_INTEGER *plibNewPosition);
+
+    [call_as(SeekInUnits)]
+    HRESULT RemoteSeekInUnits(
+        [in] LARGE_INTEGER dlibMove,
+        [in] WPD_STREAM_UNITS units,
+        [in] DWORD dwOrigin,
+        [out] ULARGE_INTEGER *plibNewPosition);
+
+    HRESULT Cancel();
+};
+
+//---------------------------------------------------------
+// Bulk property interface, used to execute property reads/writes
+// across multiple objects.
+//---------------------------------------------------------
+[
+    object,
+    uuid(482b05c0-4056-44ed-9e0f-5e23b009da93),
+    helpstring("IPortableDevicePropertiesBulk Interface"),
+    pointer_default(unique)
+]
+interface IPortableDevicePropertiesBulk : IUnknown
+{
+    HRESULT QueueGetValuesByObjectList(
+        [in]    IPortableDevicePropVariantCollection*  pObjectIDs,
+        [in]    IPortableDeviceKeyCollection*          pKeys,
+        [in]    IPortableDevicePropertiesBulkCallback* pCallback,
+        [out]   GUID*                                  pContext);
+
+    HRESULT QueueGetValuesByObjectFormat(
+        [in]    REFGUID                                pguidObjectFormat,
+        [in]    LPCWSTR                                pszParentObjectID,
+        [in]    const DWORD                            dwDepth,
+        [in]    IPortableDeviceKeyCollection*          pKeys,
+        [in]    IPortableDevicePropertiesBulkCallback* pCallback,
+        [out]   GUID*                                  pContext);
+
+    HRESULT QueueSetValuesByObjectList(
+        [in]    IPortableDeviceValuesCollection*       pObjectValues,
+        [in]    IPortableDevicePropertiesBulkCallback* pCallback,
+        [out]   GUID*                                  pContext);
+
+    HRESULT Start([in]  REFGUID pContext);
+
+    HRESULT Cancel([in] REFGUID pContext);
+};
+
+//---------------------------------------------------------
+// Bulk property interface callback for reading/writing property values,
+// implemented by clients when performing property reads/writes
+// across multiple objects.
+//---------------------------------------------------------
+[
+    object,
+    uuid(9deacb80-11e8-40e3-a9f3-f557986a7845),
+    helpstring("IPortableDevicePropertiesBulkCallback Interface"),
+    pointer_default(unique)
+]
+interface IPortableDevicePropertiesBulkCallback : IUnknown
+{
+    HRESULT OnStart(
+        [in]    REFGUID pContext);
+
+    HRESULT OnProgress(
+        [in]    REFGUID                             pContext,
+        [in]    IPortableDeviceValuesCollection*    pResults);
+
+    HRESULT OnEnd(
+        [in]    REFGUID pContext,
+        [in]    HRESULT hrStatus);
+};
+
+//---------------------------------------------------------
+// This interface is used to enumerate installed portable
+// devices services. This interface can
+// be retrieved by making a QueryInterface call on an
+// existing IPortableDeviceManager interface.
+//---------------------------------------------------------
+[
+    object,
+    uuid(a8abc4e9-a84a-47a9-80b3-c5d9b172a961),
+    helpstring("IPortableDeviceServiceManager Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceServiceManager : IUnknown
+{
+    HRESULT GetDeviceServices(
+        [in]                LPCWSTR pszPnPDeviceID,
+        [in]                REFGUID guidServiceCategory,
+        [in, out, unique]   LPWSTR* pServices,
+        [in, out]           DWORD*  pcServices);
+ 
+    HRESULT GetDeviceForService(
+        [in]                LPCWSTR pszPnPServiceID,
+        [out]               LPWSTR* ppszPnPDeviceID);
+};
+
+//---------------------------------------------------------
+// This interface forms the basis of communication from
+// applications to Windows Portable Devices services.
+// A service is a functional object that supports
+// rich discovery of capabilities, content, and methods (behavior)
+// with its own namespace and scope.
+// Microsoft defines and publishes a set of well-known services 
+// that clients can query and access.
+//---------------------------------------------------------
+[
+    object,
+    uuid(d3bd3a44-d7b5-40a9-98b7-2fa4d01dec08),
+    helpstring("IPortableDeviceService Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceService : IUnknown
+{
+    HRESULT Open(
+        [in]    LPCWSTR                         pszPnPServiceID,
+        [in]    IPortableDeviceValues*          pClientInfo);
+
+    HRESULT Capabilities(
+        [out]   IPortableDeviceServiceCapabilities** ppCapabilities);
+
+    HRESULT Content(
+        [out]   IPortableDeviceContent2**        ppContent);
+
+    HRESULT Methods(
+        [out]   IPortableDeviceServiceMethods**  ppMethods);
+
+    HRESULT Cancel();
+
+    HRESULT Close();
+    
+    HRESULT GetServiceObjectID(
+        [out]   LPWSTR*                          ppszServiceObjectID);
+
+    HRESULT GetPnPServiceID(
+        [out]   LPWSTR*                          ppszPnPServiceID);
+
+    HRESULT Advise(
+        [in]    const DWORD                      dwFlags,
+        [in]    IPortableDeviceEventCallback*    pCallback,
+        [in, unique]    IPortableDeviceValues*   pParameters,
+        [out]   LPWSTR*                          ppszCookie);
+
+    HRESULT Unadvise(
+        [in]    LPCWSTR                          pszCookie);
+
+    HRESULT SendCommand(
+        [in]    const DWORD                      dwFlags,
+        [in]    IPortableDeviceValues*           pParameters,
+        [out]   IPortableDeviceValues**          ppResults);
+};
+
+
+//---------------------------------------------------------
+// Clients use this interface to discover the static 
+// capabilities of a service. 
+//---------------------------------------------------------
+[
+    object,
+    uuid(24dbd89d-413e-43e0-bd5b-197f3c56c886),
+    helpstring("IPortableDeviceServiceCapabilities Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceServiceCapabilities : IUnknown
+{
+    HRESULT GetSupportedMethods(
+        [out] IPortableDevicePropVariantCollection** ppMethods);
+
+    HRESULT GetSupportedMethodsByFormat(
+        [in]  REFGUID                                Format,
+        [out] IPortableDevicePropVariantCollection** ppMethods);
+
+    HRESULT GetMethodAttributes (
+        [in]  REFGUID                                Method,
+        [out] IPortableDeviceValues**                ppAttributes);
+
+    HRESULT GetMethodParameterAttributes(
+        [in]  REFGUID                                Method,
+        [in]  REFPROPERTYKEY                         Parameter,
+        [out] IPortableDeviceValues**                ppAttributes);
+
+    HRESULT GetSupportedFormats(
+        [out] IPortableDevicePropVariantCollection** ppFormats);
+
+    HRESULT GetFormatAttributes(
+        [in]  REFGUID                                Format,
+        [out] IPortableDeviceValues**                ppAttributes);
+
+    HRESULT GetSupportedFormatProperties(
+        [in]  REFGUID                                Format,
+        [out] IPortableDeviceKeyCollection**         ppKeys);
+
+    HRESULT GetFormatPropertyAttributes(
+        [in]  REFGUID                                Format,
+        [in]  REFPROPERTYKEY                         Property,
+        [out] IPortableDeviceValues**                ppAttributes);
+
+    HRESULT GetSupportedEvents(
+        [out] IPortableDevicePropVariantCollection** ppEvents);
+
+    HRESULT GetEventAttributes(
+        [in]  REFGUID                                Event,
+        [out] IPortableDeviceValues**                ppAttributes);
+
+    HRESULT GetEventParameterAttributes(
+        [in]  REFGUID                                Event,
+        [in]  REFPROPERTYKEY                         Parameter,
+        [out] IPortableDeviceValues**                ppAttributes);
+
+    HRESULT GetInheritedServices(
+        [in]  const DWORD                            dwInheritanceType,
+        [out] IPortableDevicePropVariantCollection** ppServices);
+
+    HRESULT GetFormatRenderingProfiles(
+        [in]  REFGUID                                Format,
+        [out] IPortableDeviceValuesCollection**      ppRenderingProfiles);
+
+    HRESULT GetSupportedCommands(
+        [out] IPortableDeviceKeyCollection**         ppCommands);
+
+    HRESULT GetCommandOptions(
+        [in]  REFPROPERTYKEY                         Command,
+        [out] IPortableDeviceValues**                ppOptions);
+
+    HRESULT Cancel();
+
+};
+
+//---------------------------------------------------------
+// Clients use this interface to invoke methods on  
+// a service synchronously or asynchronously. 
+//---------------------------------------------------------
+[
+    object,
+    uuid(e20333c9-fd34-412d-a381-cc6f2d820df7),
+    helpstring("IPortableDeviceServiceMethods Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceServiceMethods : IUnknown
+{
+    HRESULT Invoke(
+       [in]                 REFGUID                         Method,
+       [in, unique]         IPortableDeviceValues*          pParameters,
+       [in, out, unique]    IPortableDeviceValues**         ppResults);
+
+    HRESULT InvokeAsync(
+       [in]         REFGUID                                 Method,
+       [in, unique] IPortableDeviceValues*                  pParameters,
+       [in, unique] IPortableDeviceServiceMethodCallback*   pCallback);
+
+    HRESULT Cancel(
+       [in, unique] IPortableDeviceServiceMethodCallback*   pCallback);
+};
+
+//---------------------------------------------------------
+// Callback interface for implemented by clients for
+// retrieving results of an asynchronous service method 
+// invocation
+//---------------------------------------------------------
+[
+    object,
+    uuid(c424233c-afce-4828-a756-7ed7a2350083),
+    helpstring("IPortableDeviceServiceMethodCallback Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceServiceMethodCallback : IUnknown
+{
+    HRESULT OnComplete(
+       [in] HRESULT                 hrStatus,
+       [in] IPortableDeviceValues*  pResults);
+};
+
+//---------------------------------------------------------
+// Clients use this interface to asynchronously open an
+// IPortableDeviceService instance. This is used when opening a
+// service can involve a user consent prompt.
+//---------------------------------------------------------
+[
+    object,
+    uuid(e56b0534-d9b9-425c-9b99-75f97cb3d7c8),
+    helpstring("IPortableDeviceServiceActivation Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceServiceActivation : IUnknown
+{
+    HRESULT OpenAsync(
+        [in] LPCWSTR                             pszPnPServiceID,
+        [in] IPortableDeviceValues*              pClientInfo,
+        [in] IPortableDeviceServiceOpenCallback* pCallback);
+
+    HRESULT CancelOpenAsync();
+};
+
+//---------------------------------------------------------
+// Callback interface for implemented by clients for
+// retrieving results of an asynchronous service open.
+//---------------------------------------------------------
+[
+    object,
+    uuid(bced49c8-8efe-41ed-960b-61313abd47a9),
+    helpstring("IPortableDeviceServiceOpenCallback Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceServiceOpenCallback : IUnknown
+{
+    HRESULT OnComplete(
+       [in] HRESULT hrStatus);
+};
+
+//---------------------------------------------------------
+// Clients use this interface for instantiating an 
+// IDispatch interface representing the device object.
+// This is used to access the Portable Device Automation
+// component from DXP.
+// This interface is locked down as local-only.  
+// Marshaling is not supported.
+//---------------------------------------------------------
+[
+    object,
+    local,
+    uuid(5e1eafc3-e3d7-4132-96fa-759c0f9d1e0f),
+]
+interface IPortableDeviceDispatchFactory : IUnknown
+{
+    HRESULT GetDeviceDispatch(
+       [in]  LPCWSTR        pszPnPDeviceID,
+       [out] IDispatch**    ppDeviceDispatch);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//---------------------------------------------------------
+// Web clients use this interface for instantiating an
+// IDispatch object representing the device.
+// This interface is locked down as local-only.  
+// Marshaling is not supported.
+// Not extensible with additional members at runtime.
+//---------------------------------------------------------
+[
+    object,
+    dual,
+    local,
+    nonextensible,
+    uuid(94fc7953-5ca1-483a-8aee-df52e7747d00),
+]
+interface IPortableDeviceWebControl: IDispatch
+{
+    [id(1), helpstring("method GetDeviceFromId")] 
+    HRESULT GetDeviceFromId(
+       [in, annotation("_In_")]                  BSTR           deviceId,
+       [out, retval, annotation("_COM_Outptr_")] IDispatch**    ppDevice);
+
+    [id(2), helpstring("method GetDeviceFromIdAsync")] 
+    HRESULT GetDeviceFromIdAsync(
+       [in, annotation("_In_")]              BSTR           deviceId,
+       [in, annotation("_In_")]              IDispatch*     pCompletionHandler,
+       [in, unique, annotation("_In_opt_")]  IDispatch*     pErrorHandler);
+};
+
+//---------------------------------------------------------
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+[
+    uuid(1f001332-1a57-4934-be31-affc99f4ee0a),
+    version(1.0),
+    helpstring("PortableDeviceApi 1.0 Type Library")
+]
+library PortableDeviceApiLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+    [
+        uuid(728a21c5-3d9e-48d7-9810-864848f0f404),
+        helpstring("PortableDevice Class")
+    ]
+    coclass PortableDevice
+    {
+        [default] interface IPortableDevice;
+    };
+
+    [
+        uuid(0af10cec-2ecd-4b92-9581-34f6ae0637f3),
+        helpstring("PortableDeviceManager Class")
+    ]
+    coclass PortableDeviceManager
+    {
+        [default] interface IPortableDeviceManager;
+    };
+
+    [
+        uuid(ef5db4c2-9312-422c-9152-411cd9c4dd84),
+        helpstring("PortableDeviceService Class")
+    ]
+    coclass PortableDeviceService
+    {
+        [default] interface IPortableDeviceService;
+    };
+
+    [
+        uuid(43232233-8338-4658-ae01-0b4ae830b6b0),
+        helpstring("PortableDeviceDispatchFactory Class")
+    ]
+    coclass PortableDeviceDispatchFactory
+    {
+        [default] interface IPortableDeviceDispatchFactory;
+    };
+
+    [
+        uuid(f7c0039a-4762-488a-b4b3-760ef9a1ba9b),
+        helpstring("PortableDeviceFTM Class")
+    ]
+    coclass PortableDeviceFTM
+    {
+        [default] interface IPortableDevice;
+    };
+
+    [
+        uuid(1649b154-c794-497a-9b03-f3f0121302f3),
+        helpstring("PortableDeviceServiceFTM Class")
+    ]
+    coclass PortableDeviceServiceFTM
+    {
+        [default] interface IPortableDeviceService;
+    };
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+    [
+        uuid(186dd02c-2dec-41b5-a7d4-b59056fade51),
+        helpstring("Dispatch Class for Web Host Applications")
+    ]
+    coclass PortableDeviceWebControl
+    {
+        [default] interface IPortableDeviceWebControl;
+    };
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+};
+
+cpp_quote("#endif  // (_WIN32_WINNT >= 0x0501)")

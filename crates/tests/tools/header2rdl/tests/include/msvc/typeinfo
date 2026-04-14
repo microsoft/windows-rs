@@ -1,0 +1,73 @@
+// typeinfo standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _TYPEINFO_
+#define _TYPEINFO_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <exception>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+#pragma warning(disable : 4275) // non dll-interface class 'X' used as base for dll-interface class 'Y'
+
+#pragma push_macro("raw_name") // TRANSITION, GH-2195
+#undef raw_name
+#include <vcruntime_typeinfo.h>
+#pragma pop_macro("raw_name")
+
+_STD_BEGIN
+
+// size in pointers of std::function and std::any (roughly 3 pointers larger than std::string when building debug)
+_INLINE_VAR constexpr int _Small_object_num_ptrs = 6 + 16 / sizeof(void*);
+
+#if !_HAS_EXCEPTIONS
+_EXPORT_STD class _NODISCARD bad_cast : public exception { // base of all bad cast exceptions
+public:
+    bad_cast(const char* _Message = "bad cast") noexcept : exception(_Message) {}
+
+    ~bad_cast() noexcept override {}
+
+protected:
+    void _Doraise() const override { // perform class-specific exception handling
+        _RAISE(*this);
+    }
+};
+
+_EXPORT_STD class _NODISCARD bad_typeid : public exception { // base of all bad typeid exceptions
+public:
+    bad_typeid(const char* _Message = "bad typeid") noexcept : exception(_Message) {}
+
+    ~bad_typeid() noexcept override {}
+
+protected:
+    void _Doraise() const override { // perform class-specific exception handling
+        _RAISE(*this);
+    }
+};
+
+class _NODISCARD __non_rtti_object : public bad_typeid { // report a non-RTTI object
+public:
+    __non_rtti_object(const char* _Message) : bad_typeid(_Message) {}
+};
+#endif // ^^^ !_HAS_EXCEPTIONS ^^^
+
+[[noreturn]] inline void _Throw_bad_cast() {
+    _THROW(bad_cast{});
+}
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma pack(pop)
+#pragma warning(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _TYPEINFO_

@@ -1,0 +1,174 @@
+//
+//    Copyright (C) Microsoft.  All rights reserved.
+//
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "Inspectable.idl";
+
+//
+// Information for calling InternetSetCookieEx to set a proof of possession cookie. 
+// 
+typedef struct ProofOfPossessionCookieInfo
+{
+    LPWSTR name;
+    LPWSTR data;
+    DWORD  flags; // e.g., INTERNET_COOKIE_EVALUATE_P3P, INTERNET_COOKIE_HTTPONLY, INTERNET_COOKIE_THIRD_PARTY. See InternetSetCookieEx on MSDN.
+    LPWSTR p3pHeader;
+} ProofOfPossessionCookieInfo;
+
+cpp_quote("__inline void FreeProofOfPossessionCookieInfoArray(_In_reads_(cookieInfoCount) ProofOfPossessionCookieInfo* cookieInfo, DWORD cookieInfoCount)")
+cpp_quote("{                                                ")
+cpp_quote("     DWORD i;                                    ")
+cpp_quote("     for (i = 0; i < cookieInfoCount; i++)       ")
+cpp_quote("     {                                           ")
+cpp_quote("         CoTaskMemFree(cookieInfo[i].name);      ")
+cpp_quote("         CoTaskMemFree(cookieInfo[i].data);      ")
+cpp_quote("         CoTaskMemFree(cookieInfo[i].p3pHeader); ")
+cpp_quote("     }                                           ")
+cpp_quote("     CoTaskMemFree(cookieInfo);                  ")
+cpp_quote("}                                                ")
+
+cpp_quote("// Flags that can be passed into GetCookieInfoForUriWithOptions")
+cpp_quote("// to control the behavior")
+cpp_quote("typedef enum _PROOF_OF_POSSESSION_FLAGS : DWORD")
+cpp_quote("{")
+cpp_quote("    PROOF_OF_POSSESSION_DEFAULT                      = 0x0000000000000000,")
+cpp_quote("    PROOF_OF_POSSESSION_ALLOW_SILENT_REQUESTS        = 0x0000000000000001,")
+cpp_quote("} PROOF_OF_POSSESSION_FLAGS;")
+
+//
+// Interface to get information for creating proof of possession cookies.
+// CoCreateInstance(__uuidof(ProofOfPossessionCookieInfoManager), nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&manager))
+// to create an instance of the CookieInfo manager (IProofOfPossessionCookieInfoManager).
+// 
+[
+    object,
+    uuid(CDAECE56-4EDF-43DF-B113-88E4556FA1BB),
+    pointer_default(unique)
+]
+interface IProofOfPossessionCookieInfoManager : IUnknown 
+{
+    // 
+    // Gets cookie information corresponding to the supplied URI.
+    // A case sensitive string search is performed on the supplied URI.
+    // Free the returned array using FreeProofOfPossessionCookieInfoArray().
+    // 
+    HRESULT GetCookieInfoForUri(
+        [in]                              LPCWSTR                       uri,
+        [out]                             DWORD*                        cookieInfoCount,
+        [out, size_is(, *cookieInfoCount)] ProofOfPossessionCookieInfo** cookieInfo);
+}
+
+//
+// Interface to get information for creating proof of possession cookies, for a WebAccount. 
+// CoCreateInstance(__uuidof(ProofOfPossessionCookieInfoManager), nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&manager2))
+// to create an instance of the CookieInfo manager2 (IProofOfPossessionCookieInfoManager2).
+// 
+[
+    object,
+    uuid(15E41407-B42F-4AE7-9966-34A087B2D713),
+    pointer_default(unique)
+]
+interface IProofOfPossessionCookieInfoManager2 : IUnknown
+{
+    // 
+    // Gets cookie information corresponding to the supplied WebAccount and URI.
+    // WebAccount is from calling methods on WebAuthenticationCoreManager, for example:
+    // WebAuthenticationCoreManager.FindAccountAsync, or
+    // WebAuthenticationCoreManager.FindAllAccountsAsync
+    // A case sensitive string search is performed on the supplied URI.
+    // Free the returned array using FreeProofOfPossessionCookieInfoArray().
+    // 
+    HRESULT GetCookieInfoWithUriForAccount(
+        [in]                               IInspectable*                 webAccount, // Windows.Security.Credentials.WebAccount as IInspectable.
+        [in]                               LPCWSTR                       uri,
+        [out]                              DWORD*                        cookieInfoCount,
+        [out, size_is(, *cookieInfoCount)] ProofOfPossessionCookieInfo** cookieInfo);
+}
+
+//
+// Interface to get information for creating proof of possession cookies, with options.
+// CoCreateInstance(__uuidof(ProofOfPossessionCookieInfoManager), nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&manager))
+// to create an instance of the CookieInfo manager (IProofOfPossessionCookieInfoManager).
+// 
+[
+    object,
+    uuid(c8891744-32bd-4a77-b92c-0e79a2823b96),
+    pointer_default(unique)
+]
+interface IProofOfPossessionCookieInfoManager3 : IUnknown
+{
+    // 
+    // Gets cookie information corresponding to the supplied URI with the supplied options.
+    // A case sensitive string search is performed on the supplied URI.
+    // Free the returned array using FreeProofOfPossessionCookieInfoArray().
+    // 
+    HRESULT GetCookieInfoForUriWithOptions(
+        [in]                              LPCWSTR                        uri,
+        [in]                              DWORD                          options,
+        [out]                             DWORD*                         cookieInfoCount,
+        [out, size_is(, *cookieInfoCount)] ProofOfPossessionCookieInfo** cookieInfo);
+}
+
+[
+    object,
+    uuid(3B74C75B-6E3F-494E-95EC-13174E12A89F),
+    pointer_default(unique)
+]
+interface IProofOfPossessionCookieInfoManager4 : IUnknown
+{
+
+    // 
+    // Gets cookie information corresponding to the supplied URI.
+    // Caller can pass the clientid which will be added to the returned cookie.
+    // A case sensitive string search is performed on the supplied URI.
+    // Free the returned array using FreeProofOfPossessionCookieInfoArray().
+    // 
+    HRESULT GetCookieInfoForUriWithUserAgentId(
+        [in]                               LPCWSTR                       uri,
+        [in]                               LPCWSTR                       uaClientId,
+        [out]                              DWORD*                        cookieInfoCount,
+        [out, size_is(, *cookieInfoCount)] ProofOfPossessionCookieInfo** cookieInfo);
+
+    //
+    // Gets cookie information corresponding to the supplied WebAccount and URI.
+    // Caller can pass the clientid which will be added to the returned cookie.
+    // A case sensitive string search is performed on the supplied URI.
+    // Free the returned array using FreeProofOfPossessionCookieInfoArray().
+    //
+    HRESULT GetCookieInfoWithUriAndUserAgentIdForAccount(
+        [in]                               IInspectable*                 webAccount, // Windows.Security.Credentials.WebAccount as IInspectable.
+        [in]                               LPCWSTR                       uri,
+        [in]                               LPCWSTR                       uaClientId,
+        [out]                              DWORD*                        cookieInfoCount,
+        [out, size_is(, *cookieInfoCount)] ProofOfPossessionCookieInfo** cookieInfo);
+}
+
+//
+// Cookie Information Manager type library. 
+// 
+[
+    uuid(7681A019-8F51-4594-9507-F27040F71F01),
+    version(1.0)
+]
+library ProofOfPossessionCookieInfoManagerLib
+{
+    [
+        uuid(A9927F85-A304-4390-8B23-A75F1C668600)
+    ]
+    coclass ProofOfPossessionCookieInfoManager
+    {
+        [default] interface IProofOfPossessionCookieInfoManager;
+        interface IProofOfPossessionCookieInfoManager2;
+        interface IProofOfPossessionCookieInfoManager3;
+        interface IProofOfPossessionCookieInfoManager4;
+};
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

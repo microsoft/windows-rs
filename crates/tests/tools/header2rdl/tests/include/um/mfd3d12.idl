@@ -1,0 +1,256 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+import "mfidl.idl";
+import "d3d12.idl";
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    local,
+    uuid(09D0F835-92FF-4E53-8EFA-40FAA551F233),
+]
+/// <summary>
+///     Synchronization object commands allow a producer or a consumer of D3D12 resource to signal down-stream
+///     components when the resource is ready for use or can be released.
+/// </summary>
+interface IMFD3D12SynchronizationObjectCommands : IUnknown
+{
+    /// <summary>
+    ///     Queues a fence on the specified producer command queue that will signal to a downstream consumer 
+    ///     when the associated D3D12 resource is ready to be used. This method also signals that the resource is 
+    ///     no longer in use and has been released by the producer.
+    /// </summary>
+    /// <param name="pProducerCommandQueue">
+    ///     Pointer to the producer command queue into which the fence should be inserted.
+    /// </param>
+    HRESULT EnqueueResourceReady( [in, annotation( "_In_" )] ID3D12CommandQueue* pProducerCommandQueue );
+
+    /// <summary>
+    ///     Queues a wait command on the specified consumer command queue, starting a wait for the
+    ///     Resource Ready signal from the producer command queue.  This function allows the consumer 
+    ///     to immediately start scheduling commands its GPU engine.  The wait will ensure 
+    ///     that the commands scheduled after the wait are not executed until the corresponding 
+    ///     Ready Signal is fired by the producer GPU engine.
+    /// </summary>
+    /// <param name="pCommandQueue">
+    ///     Pointer to the consumer command queue onto which the wait command should be queued.
+    /// </param>
+    HRESULT EnqueueResourceReadyWait( [in, annotation( "_In_" )] ID3D12CommandQueue* pConsumerCommandQueue );
+
+    /// <summary>
+    ///     Stores an event handle that will be set when the D3D12 resource is 
+    ///     ready.  This event can be used by a CPU thread to wait until the resource
+    ///     producer GPU tasks have finished executing, and the producer fires the Resource Ready 
+    ///     signal. If the event handle has restricted access rights, the handle must have at least
+    ///     the EVENT_MODIFY_STATE right.
+    /// </summary>
+    /// <param name="hEvent">
+    ///     Handle to the event that will be set when the resource is ready.
+    /// </param>
+    HRESULT SignalEventOnResourceReady(HANDLE hEvent);
+
+    /// <summary>
+    ///     Queues a fence into the specified command queue that will signal to the synchronization
+    ///     object when GPU is finished processing the consumer commands.  This method signals when
+    ///     the resource is no longer in use and has been released by the consumer.
+    /// </summary>
+    /// <param name="pCommandQueue">
+    ///     Pointer to the consumer command queue onto which the fence should be queued.
+    /// </param>
+    HRESULT EnqueueResourceRelease( [in, annotation( "_In_" )] ID3D12CommandQueue* pConsumerCommandQueue );
+}
+
+
+[
+    object,
+    local,
+    uuid(802302B0-82DE-45E1-B421-F19EE5BDAF23),
+]
+/// <summary>
+///     The synchronization object interface allows a D3D12 resource allocator to
+///     manage the lifetime of a D3D12 resource.
+/// </summary>
+interface IMFD3D12SynchronizationObject : IUnknown
+{
+    /// <summary>
+    ///     Stores an event handle that will be set when the resource is free and can be recycled,
+    ///     reused, or destroyed.  The handle is signaled when there are no longer any pending
+    ///     Resource Release or Resource Ready signals for the current resource.  If the event handle
+    ///     has restricted access rights, the handle must have at least the EVENT_MODIFY_STATE right.
+    /// </summary>
+    /// <param name="hEvent">
+    ///     Handle to the event that will be set when the resource is freed.
+    /// </param>
+    HRESULT SignalEventOnFinalResourceRelease( HANDLE hEvent );
+
+    /// <summary>
+    ///     Resets the synchronization object state, allowing the allocator to reuse the resource and
+    ///     this corresponding synchronization object.
+    /// </summary>
+    HRESULT Reset();
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+
+/// <summary>
+///      This function is used to instantiate an MF D3D12 synchronization primitive used to synchronize
+//       access to a D3D12 resource stored in an MF object.
+/// </summary>
+/// <param name="pDevice">
+///      The D3D12 device that corresponds to the resource and primitive being created.
+/// </param>
+/// <param name="riid">
+///      The GUID identifying the interface of the synchronization object that will be created.
+/// </param>
+/// <param name="ppvSyncObject">
+///     Specifies a pointer to the pointer to the synchronization object that will be created.
+/// </param>
+HRESULT MFCreateD3D12SynchronizationObject( [in, annotation( "_In_" )] ID3D12Device* pDevice, [in, annotation( "_In_" )] REFIID riid, [out, annotation( "_Outptr_" )] void** ppvSyncObject );
+
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_CO) */")
+
+//
+// This enumeration indicates the D3D version of the resource used in the stream associated with a media type.
+//
+typedef enum MF_MT_D3D_RESOURCE_VERSION_ENUM
+{
+    MF_D3D11_RESOURCE,
+    MF_D3D12_RESOURCE
+}MF_MT_D3D_RESOURCE_VERSION_ENUM;
+
+//
+//
+//
+// MF D3D12 synchronization attributes
+//
+//
+//
+
+// MF_D3D12_SYNCHRONIZATION_OBJECT
+// Data type: IUnknown
+// This identifier is used with IMFDXGIBuffer::SetUnknown and IMFDXGIBuffer::GetUnknown
+// to access a D3D12 MF synchronization object. 
+// {2a7c8d6a-85a6-494d-a046-06-ea-1a-13-8f-4b}
+cpp_quote("EXTERN_GUID( MF_D3D12_SYNCHRONIZATION_OBJECT, 0x2a7c8d6a, 0x85a6, 0x494d, 0xa0, 0x46, 0x6, 0xea, 0x1a, 0x13, 0x8f, 0x4b );")
+
+
+//
+//
+// 
+// MF D3D12 media type attributes.
+//
+//
+
+// MF_MT_D3D_RESOURCE_VERSION
+// Data type: UINT32 (treat as member of the MF_MT_D3D_RESOURCE_VERSION_ENUM enumeration)
+// This attribute specifies the D3D version of the resources stored in the data stream associated with the media type.  The
+// value of this attribute corresponds a value from the MF_MT_D3D_RESOURCE_VERSION_ENUM enumeration.
+// {174f1e85-fe26-453d-b52e-5b-dd-4e-55-b9-44}
+cpp_quote("EXTERN_GUID( MF_MT_D3D_RESOURCE_VERSION, 0x174f1e85, 0xfe26, 0x453d, 0xb5, 0x2e, 0x5b, 0xdd, 0x4e, 0x55, 0xb9, 0x44 );")
+
+
+// MF_MT_D3D12_CPU_READBACK
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether CPU access is required for the D3D12 resources.  Default value is 0 (FALSE).
+// {28ee9fe3-d481-46a6-b98a-7f-69-d5-28-0e-82}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_CPU_READBACK, 0x28ee9fe3, 0xd481, 0x46a6, 0xb9, 0x8a, 0x7f, 0x69, 0xd5, 0x28, 0xe, 0x82 );")
+
+// MF_MT_D3D12_TEXTURE_LAYOUT
+// Data type: UINT32
+// This attribute indicates the texture layout options that were used to create the resources.  The value of this attribute 
+// corresponds to values in the D3D12_TEXTURE_LAYOUT enumeration.
+// {97c85caa-beb-4ee1-9715-f2-2f-ad-8c-10-f5}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_TEXTURE_LAYOUT, 0x97c85caa, 0xbeb, 0x4ee1, 0x97, 0x15, 0xf2, 0x2f, 0xad, 0x8c, 0x10, 0xf5 );")
+
+// MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether render target view can be created for the resources in the stream associated
+// with the media type.  The value of this attribute corresponds to the D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET value from 
+// the D3D12_RESOURCE_FLAGS enumeration.
+// {eeac2585-3430-498c-84a2-77-b1-bb-a5-70-f6}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET, 0xeeac2585, 0x3430, 0x498c, 0x84, 0xa2, 0x77, 0xb1, 0xbb, 0xa5, 0x70, 0xf6 );")
+
+// MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether depth stencil view can be created for the resources in the stream associated
+// with the media type.  The value of this attribute corresponds to the D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL value 
+// from the D3D12_RESOURCE_FLAGS enumeration.
+// {b1138dc3-01d5-4c14-9bdc-cd-c9-33-6f-55-b9}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL, 0xb1138dc3, 0x1d5, 0x4c14, 0x9b, 0xdc, 0xcd, 0xc9, 0x33, 0x6f, 0x55, 0xb9 );")
+
+// MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether unordered access view can be created for the resources in the stream associated
+// with the media type.  The value of this attribute corresponds to the D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS value from
+// the D3D12_RESOURCE_FLAGS enumeration.
+// {82c85647-5057-4960-9559-f4-5b-8e-27-14-27}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS, 0x82c85647, 0x5057, 0x4960, 0x95, 0x59, 0xf4, 0x5b, 0x8e, 0x27, 0x14, 0x27 );")
+
+// MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether shader resource view creation is disallowed for the resources in the stream associated
+// with the media type.  The value of this attribute corresponds to the D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE value from 
+// the D3D12_RESOURCE_FLAGS enumeration.
+// {ba06bfac-ffe3-474a-ab55-16-1e-e4-41-7a-2e}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE, 0xba06bfac, 0xffe3, 0x474a, 0xab, 0x55, 0x16, 0x1e, 0xe4, 0x41, 0x7a, 0x2e );")
+
+// MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether the resources in the stream can be used for cross-adapter data.  The value of this
+// attribute corresponds to the D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER value from the D3D12_RESOURCE_FLAGS enumeration.
+// {a6a1e439-2f96-4ab5-98dc-ad-f7-49-73-50-5d}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER, 0xa6a1e439, 0x2f96, 0x4ab5, 0x98, 0xdc, 0xad, 0xf7, 0x49, 0x73, 0x50, 0x5d );")
+
+// MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether the resources in the stream can be simultaneously accessed by multiple different
+// command queues.  The value of this attribute corresponds to the D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS value from the
+// D3D12_RESOURCE_FLAGS enumeration.
+// {a4940b2-cfd6-4738-9d02-98-11-37-34-01-5a}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS, 0xa4940b2, 0xcfd6, 0x4738, 0x9d, 0x2, 0x98, 0x11, 0x37, 0x34, 0x1, 0x5a );")
+
+// MF_MT_D3D12_RESOURCE_DIMENSION
+// Data type: UINT32 (treat as enum of D3D12_RESOURCE_DIMENSION)
+// This attribute is set on mediatype to advertise D3D12_RESOURCE_DIMENSION
+// {5F772624-16CA-4B89-9651-5DDF769F8AB8}
+cpp_quote("EXTERN_GUID( MF_MT_D3D12_RESOURCE_DIMENSION,     0x5f772624, 0x16ca, 0x4b89, 0x96, 0x51, 0x5d, 0xdf, 0x76, 0x9f, 0x8a, 0xb8);")
+
+// MF_SA_D3D12_HEAP_FLAGS
+// Data type: UINT32
+// This attribute contains the value with the heap options used for the D3D12 resources in the stream.  The attribute
+// contains a bitwise-OR’d combination of D3D12_HEAP_FLAGS enumeration values.
+// {496b3266-d28f-4f8c-93a7-4a-59-6b-1a-31-a1}
+cpp_quote("EXTERN_GUID( MF_SA_D3D12_HEAP_FLAGS, 0x496b3266, 0xd28f, 0x4f8c, 0x93, 0xa7, 0x4a, 0x59, 0x6b, 0x1a, 0x31, 0xa1 );")
+
+// MF_SA_D3D12_HEAP_TYPE
+// Data type: UINT32
+// This attribute contains the value specifying the type of heap used for the D3D12 resources in the stream.  The value of
+// this attribute corresponds to a value from the D3D12_HEAP_TYPE enumeration.
+// {56f26a76-bbc1-4ce0-bb11-e2-23-68-d8-74-ed}
+cpp_quote("EXTERN_GUID( MF_SA_D3D12_HEAP_TYPE, 0x56f26a76, 0xbbc1, 0x4ce0, 0xbb, 0x11, 0xe2, 0x23, 0x68, 0xd8, 0x74, 0xed );")
+
+// MF_SA_D3D12_CLEAR_VALUE
+// Data type: BLOB
+// This attribute contains a blob with the information used to optimize clear operations for the D3D12 resources
+// in the stream.  The blob contains an instance of the D3D12_CLEAR_VALUE structure.
+// {86ba9a39-0526-495d-9ab5-54-ec-9f-ad-6f-c3}
+cpp_quote("EXTERN_GUID( MF_SA_D3D12_CLEAR_VALUE, 0x86ba9a39, 0x526, 0x495d, 0x9a, 0xb5, 0x54, 0xec, 0x9f, 0xad, 0x6f, 0xc3 );") 
+
+// MF_SA_D3D12_AWARE
+// Data type: UINT32 (treat as Boolean)
+// This attribute indicates whether the media source, media foundation transform supports Dx12 resource.
+// {77f0bacb-17a8-4a50-9a7d-a5-cc-09-d3-9d-44}
+cpp_quote("EXTERN_GUID ( MF_SA_D3D12_AWARE,     0x77f0bacb, 0x17a8, 0x4a50, 0x9a, 0x7d, 0xa5, 0xcc, 0x9, 0xd3, 0x9d, 0x44);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion

@@ -1,0 +1,32 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "TargetPortal is an endpoint used by IP based storage networks (such as iSCSI). It provides "
+    "initiators the IP address for which they should discover target ports on."
+    )]
+class MSFT_TargetPortal : MSFT_StorageObject
+{
+    [Read, Description(
+        "The IPv4 address that this portal / endpoint uses."
+        )]
+    String IPv4Address;
+
+    [Read, Description(
+        "The IPv6 address that this portal / endpoint uses."
+        )]
+    String IPv6Address;
+
+    [Read, Description(
+        "The mask for the IPv4 address of this portal / endpoint, if one is defined."
+        )]
+    String SubnetMask;
+
+    [Read, Description(
+        "The port number used by this portal / endpoint"
+        )]
+    UInt32 PortNumber;
+};

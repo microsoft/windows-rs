@@ -1,0 +1,184 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: unknwnbase.idl
+//
+//  Contents: IUnknown interface definition
+//
+//
+//--------------------------------------------------------------------------
+#ifndef BUILDING_UNKNWN_IDL
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "wtypesbase.idl";
+#endif
+#endif
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+  local,
+  object,
+  uuid(00000000-0000-0000-C000-000000000046),
+
+  pointer_default(unique)
+]
+
+interface IUnknown
+{
+    typedef [unique] IUnknown *LPUNKNOWN;
+
+cpp_quote("//////////////////////////////////////////////////////////////////")
+cpp_quote("// IID_IUnknown and all other system IIDs are provided in UUID.LIB")
+cpp_quote("// Link that library in with your proxies, clients and servers")
+cpp_quote("//////////////////////////////////////////////////////////////////")
+cpp_quote("")
+cpp_quote("#if (_MSC_VER >= 1100) && defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("    EXTERN_C const IID IID_IUnknown;")
+cpp_quote("    extern \"C++\"")
+cpp_quote("    {")
+cpp_quote("        MIDL_INTERFACE(\"00000000-0000-0000-C000-000000000046\")")
+cpp_quote("        IUnknown")
+cpp_quote("        {")
+cpp_quote("        public:")
+cpp_quote("            BEGIN_INTERFACE")
+cpp_quote("            virtual HRESULT STDMETHODCALLTYPE QueryInterface( ")
+cpp_quote("                /* [in] */ REFIID riid,")
+cpp_quote("                /* [iid_is][out] */ _COM_Outptr_ void __RPC_FAR *__RPC_FAR *ppvObject) = 0;")
+cpp_quote("")
+cpp_quote("            virtual ULONG STDMETHODCALLTYPE AddRef( void) = 0;")
+cpp_quote("")
+cpp_quote("            virtual ULONG STDMETHODCALLTYPE Release( void) = 0;")
+cpp_quote("")
+cpp_quote("            template<class Q>")
+cpp_quote("            HRESULT")
+cpp_quote("#ifdef _M_CEE_PURE")
+cpp_quote("            __clrcall")
+cpp_quote("#else")
+cpp_quote("            STDMETHODCALLTYPE")
+cpp_quote("#endif")
+cpp_quote("            QueryInterface(_COM_Outptr_ Q** pp)")
+cpp_quote("            {")
+cpp_quote("                return QueryInterface(__uuidof(Q), (void **)pp);")
+cpp_quote("            }")
+cpp_quote("")
+cpp_quote("            END_INTERFACE")
+cpp_quote("        };")
+cpp_quote("    } // extern C++")
+cpp_quote("    HRESULT STDMETHODCALLTYPE IUnknown_QueryInterface_Proxy(")
+cpp_quote("        IUnknown __RPC_FAR * This,")
+cpp_quote("        /* [in] */ REFIID riid,")
+cpp_quote("        /* [iid_is][out] */ __RPC__deref_out void __RPC_FAR *__RPC_FAR *ppvObject);")
+cpp_quote("    ")
+cpp_quote("    void __RPC_STUB IUnknown_QueryInterface_Stub(")
+cpp_quote("        IRpcStubBuffer *This,")
+cpp_quote("        IRpcChannelBuffer *_pRpcChannelBuffer,")
+cpp_quote("        PRPC_MESSAGE _pRpcMessage,")
+cpp_quote("        DWORD *_pdwStubPhase);")
+cpp_quote("    ")
+cpp_quote("    ULONG STDMETHODCALLTYPE IUnknown_AddRef_Proxy(")
+cpp_quote("        IUnknown __RPC_FAR * This);")
+cpp_quote("    ")
+cpp_quote("    void __RPC_STUB IUnknown_AddRef_Stub(")
+cpp_quote("        IRpcStubBuffer *This,")
+cpp_quote("        IRpcChannelBuffer *_pRpcChannelBuffer,")
+cpp_quote("        PRPC_MESSAGE _pRpcMessage,")
+cpp_quote("        DWORD *_pdwStubPhase);")
+cpp_quote("    ")
+cpp_quote("    ULONG STDMETHODCALLTYPE IUnknown_Release_Proxy(")
+cpp_quote("        IUnknown __RPC_FAR * This);")
+cpp_quote("    ")
+cpp_quote("    void __RPC_STUB IUnknown_Release_Stub(")
+cpp_quote("        IRpcStubBuffer *This,")
+cpp_quote("        IRpcChannelBuffer *_pRpcChannelBuffer,")
+cpp_quote("        PRPC_MESSAGE _pRpcMessage,")
+cpp_quote("        DWORD *_pdwStubPhase);")
+cpp_quote("#else")
+
+    HRESULT QueryInterface(
+        [in] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void **ppvObject);
+    ULONG AddRef();
+    ULONG Release();
+}
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+  local,
+  object,
+  uuid(000e0000-0000-0000-C000-000000000046),
+  pointer_default(unique)
+]
+
+interface AsyncIUnknown : IUnknown
+{
+
+    HRESULT Begin_QueryInterface([in] REFIID riid);
+    HRESULT Finish_QueryInterface([out, annotation("__RPC__deref_out")] void **ppvObject);
+
+    HRESULT Begin_AddRef();
+    ULONG   Finish_AddRef();
+
+    HRESULT Begin_Release();
+    ULONG   Finish_Release();
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(00000001-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IClassFactory : IUnknown
+{
+    typedef [unique] IClassFactory * LPCLASSFACTORY;
+
+    [local]
+    HRESULT CreateInstance(
+        [in, unique, annotation("_In_opt_")] IUnknown * pUnkOuter,
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void **ppvObject);
+
+    [call_as(CreateInstance)]
+    HRESULT RemoteCreateInstance(
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown ** ppvObject);
+
+    [local]
+    HRESULT LockServer(
+        [in] BOOL fLock);
+
+    [call_as(LockServer)]
+    HRESULT __stdcall RemoteLockServer(
+        [in] BOOL fLock);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion

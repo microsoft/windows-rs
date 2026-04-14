@@ -1,0 +1,602 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2001.
+//
+//  File: ctfutb.idl
+//
+//  Contents: Text Framework declarations.
+//
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ctfutb.h")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// Text Framework declarations.")
+cpp_quote("")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1995-2001 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR TFPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE TFPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#ifndef CTFUTB_DEFINED")
+cpp_quote("#define CTFUTB_DEFINED")
+cpp_quote("")
+cpp_quote("#include <windows.h>")
+cpp_quote("")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("extern \"C\" {")
+cpp_quote("#endif /* __cplusplus */")
+cpp_quote("")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#define TF_FLOATINGLANGBAR_WNDTITLEW L\"TF_FloatingLangBar_WndTitle\"")
+cpp_quote("#define TF_FLOATINGLANGBAR_WNDTITLEA \"TF_FloatingLangBar_WndTitle\"")
+cpp_quote("#ifdef UNICODE")
+cpp_quote("#define TF_FLOATINGLANGBAR_WNDTITLE TF_FLOATINGLANGBAR_WNDTITLEW")
+cpp_quote("#else")
+cpp_quote("#define TF_FLOATINGLANGBAR_WNDTITLE TF_FLOATINGLANGBAR_WNDTITLEA")
+cpp_quote("#endif")
+
+// for ITfLangBarItemSink::OnUpdate()
+cpp_quote("#define TF_LBI_ICON                0x00000001")
+cpp_quote("#define TF_LBI_TEXT                0x00000002")
+cpp_quote("#define TF_LBI_TOOLTIP             0x00000004")
+cpp_quote("#define TF_LBI_BITMAP              0x00000008")
+cpp_quote("#define TF_LBI_BALLOON             0x00000010")
+cpp_quote("#define TF_LBI_CUSTOMUI            0x00000020")
+cpp_quote("#define TF_LBI_BTNALL              (TF_LBI_ICON | TF_LBI_TEXT | TF_LBI_TOOLTIP)")
+cpp_quote("#define TF_LBI_BMPBTNALL           (TF_LBI_BITMAP | TF_LBI_TEXT | TF_LBI_TOOLTIP)")
+cpp_quote("#define TF_LBI_BMPALL              (TF_LBI_BITMAP | TF_LBI_TOOLTIP)")
+
+cpp_quote("#define TF_LBI_STATUS              0x00010000")
+
+//
+// for ITfLangBarItem::GetInfo()
+// Button Style
+//
+
+//
+// TF_LBI_STYLE_HIDDENSTATUSCONTROL
+//
+// If this bit is on, the items are not hidden by intellisense or
+// there won't be UI to hide.
+//
+cpp_quote("#define TF_LBI_STYLE_HIDDENSTATUSCONTROL  0x00000001")
+
+//
+// TF_LBI_STYLE_SHOWNINTRAY
+//
+// If this bit is on, the item is shown in tray when Langbat is minimized.
+//
+cpp_quote("#define TF_LBI_STYLE_SHOWNINTRAY        0x00000002")
+
+//
+// TF_LBI_STYLE_HIDEONNOOTHERITEMS
+//
+// Langbar will be hidden if only items with this bits are in Langbar.
+//
+cpp_quote("#define TF_LBI_STYLE_HIDEONNOOTHERITEMS 0x00000004")
+
+//
+// TF_LBI_STYLE_SHOWNINTRAYONLY
+//
+// Langbar will be hidden on the floating toolbar but it is shown on tray.
+//
+cpp_quote("#define TF_LBI_STYLE_SHOWNINTRAYONLY    0x00000008")
+
+//
+// TF_LBI_STYLE_HIDDENBYDEFAULT
+//
+// The item won't be shown in the toolbar face unless the item is 
+// added from UI.
+//
+cpp_quote("#define TF_LBI_STYLE_HIDDENBYDEFAULT    0x00000010")
+
+// 
+// TF_LBI_STYLE_TEXTCOLORICON
+//
+// The icon of the item with this flag will be drawn with text color.
+// This icon must be mono and black part will be changed.
+//
+cpp_quote("#define TF_LBI_STYLE_TEXTCOLORICON      0x00000020")
+
+
+cpp_quote("#define TF_LBI_STYLE_BTN_BUTTON         0x00010000")
+cpp_quote("#define TF_LBI_STYLE_BTN_MENU           0x00020000")
+cpp_quote("#define TF_LBI_STYLE_BTN_TOGGLE         0x00040000")
+
+// for ITfLangBarItem::GetStatus()
+cpp_quote("#define TF_LBI_STATUS_HIDDEN           0x00000001")
+cpp_quote("#define TF_LBI_STATUS_DISABLED         0x00000002")
+
+// Button Status
+cpp_quote("#define TF_LBI_STATUS_BTN_TOGGLED      0x00010000")
+
+// Bitmap Flag
+cpp_quote("#define TF_LBI_BMPF_VERTICAL           0x00000001")
+
+
+// ShowFloating flags
+cpp_quote("#define TF_SFT_SHOWNORMAL               0x00000001")
+cpp_quote("#define TF_SFT_DOCK                     0x00000002")
+cpp_quote("#define TF_SFT_MINIMIZED                0x00000004")
+cpp_quote("#define TF_SFT_HIDDEN                   0x00000008")
+cpp_quote("#define TF_SFT_NOTRANSPARENCY           0x00000010")
+cpp_quote("#define TF_SFT_LOWTRANSPARENCY          0x00000020")
+cpp_quote("#define TF_SFT_HIGHTRANSPARENCY         0x00000040")
+cpp_quote("#define TF_SFT_LABELS                   0x00000080")
+cpp_quote("#define TF_SFT_NOLABELS                 0x00000100")
+cpp_quote("#define TF_SFT_EXTRAICONSONMINIMIZED    0x00000200")
+cpp_quote("#define TF_SFT_NOEXTRAICONSONMINIMIZED  0x00000400")
+cpp_quote("#define TF_SFT_DESKBAND                 0x00000800")
+
+// OnMenuSelect flags
+cpp_quote("#define TF_INVALIDMENUITEM            (UINT)(-1)")
+
+// SystemDeviceTypeLangbarItem Flag
+cpp_quote("#define TF_DTLBI_USEPROFILEICON         0x00000001")
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("}")
+cpp_quote("#endif  /* __cplusplus */")
+
+import "oaidl.idl";
+import "msctf.idl";
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface ITfLangBarItem;
+interface ITfLangBarEventSink;
+interface ITfLangBarItemMgr;
+interface ITfInputProcessorProfiles;
+interface ITfMenu;
+
+//
+// ITfLangBarMgr
+//
+[
+  object,
+  uuid(87955690-e627-11d2-8ddb-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfLangBarMgr: IUnknown
+{
+    HRESULT AdviseEventSink([in] ITfLangBarEventSink *pSink, 
+                            [in] HWND hwnd, 
+                            [in] DWORD dwFlags, 
+                            [in] DWORD *pdwCookie);
+
+    HRESULT UnadviseEventSink([in] DWORD dwCookie);
+
+    HRESULT GetThreadMarshalInterface([in] DWORD dwThreadId, 
+                                      [in] DWORD dwType, 
+                                      [in] REFIID riid, 
+                                      [out, iid_is(riid)] IUnknown **ppunk);
+
+    HRESULT GetThreadLangBarItemMgr([in] DWORD dwThreadId, 
+                                    [out] ITfLangBarItemMgr **pplbi, 
+                                    [out] DWORD *pdwThreadid);
+
+    HRESULT GetInputProcessorProfiles([in] DWORD dwThreadId, 
+                                      [out] ITfInputProcessorProfiles **ppaip, 
+                                      [out] DWORD *pdwThreadid);
+
+    HRESULT RestoreLastFocus([out] DWORD *pdwThreadId,
+                             [in] BOOL fPrev);
+
+    HRESULT SetModalInput([in] ITfLangBarEventSink *pSink,
+                          [in] DWORD dwThreadId,
+                          [in] DWORD dwFlags);
+
+    HRESULT ShowFloating([in] DWORD dwFlags);
+
+    HRESULT GetShowFloatingStatus([out] DWORD *pdwFlags);
+}
+
+//
+// ITfLangBarEventSink
+//
+[
+  object,
+  uuid(18a4e900-e0ae-11d2-afdd-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfLangBarEventSink: IUnknown
+{
+    HRESULT OnSetFocus([in] DWORD dwThreadId);
+
+    HRESULT OnThreadTerminate([in] DWORD dwThreadId);
+
+    HRESULT OnThreadItemChange([in] DWORD dwThreadId);
+
+    HRESULT OnModalInput([in] DWORD dwThreadId,
+                         [in] UINT uMsg, 
+                         [in] WPARAM wParam, 
+                         [in] LPARAM lParam);
+
+    HRESULT ShowFloating([in] DWORD dwFlags);
+
+    HRESULT GetItemFloatingRect([in] DWORD dwThreadId, [in] REFGUID rguid, [out] RECT *prc);
+}
+
+//
+// ITfLangBarItemSink
+//
+[
+  object,
+  uuid(57dbe1a0-de25-11d2-afdd-00105a2799b5),
+  pointer_default(unique),
+]
+interface ITfLangBarItemSink : IUnknown
+{
+    HRESULT OnUpdate([in] DWORD dwFlags);
+}
+
+//
+// IEnumTfLangBarItems
+//
+[
+  object,
+  uuid(583f34d0-de25-11d2-afdd-00105a2799b5),
+  pointer_default(unique),
+]
+interface IEnumTfLangBarItems : IUnknown
+{
+    HRESULT Clone([out] IEnumTfLangBarItems **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount, 
+                 [out, size_is(ulCount)] ITfLangBarItem **ppItem, 
+                 [in, out, unique] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+const ULONG TF_LBI_DESC_MAXLEN = 32;
+
+typedef [uuid(12a1d29f-a065-440c-9746-eb2002c8bd19)] struct TF_LANGBARITEMINFO
+{
+    CLSID    clsidService;
+    GUID     guidItem;
+    DWORD    dwStyle;
+    ULONG    ulSort;
+    WCHAR    szDescription[TF_LBI_DESC_MAXLEN];
+} TF_LANGBARITEMINFO;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfLangBarItemMgr
+//
+[
+  object,
+  uuid(ba468c55-9956-4fb1-a59d-52a7dd7cc6aa),
+  pointer_default(unique),
+]
+interface ITfLangBarItemMgr : IUnknown
+{
+    HRESULT EnumItems([out] IEnumTfLangBarItems **ppEnum);
+
+    HRESULT GetItem([in] REFGUID rguid, 
+                    [out] ITfLangBarItem **ppItem);
+
+    HRESULT AddItem([in] ITfLangBarItem *punk);
+
+    HRESULT RemoveItem([in] ITfLangBarItem *punk);
+
+    HRESULT AdviseItemSink([in] ITfLangBarItemSink *punk, 
+                           [out] DWORD *pdwCookie, 
+                           [in] REFGUID rguidItem);
+
+    HRESULT UnadviseItemSink([in] DWORD dwCookie);
+
+    HRESULT GetItemFloatingRect([in] DWORD dwThreadId, [in] REFGUID rguid, [out] RECT *prc);
+
+    HRESULT GetItemsStatus([in] ULONG ulCount,
+                           [in, size_is(ulCount)] const GUID *prgguid,
+                           [out, size_is(ulCount)] DWORD *pdwStatus);
+
+    HRESULT GetItemNum([out] ULONG *pulCount);
+
+    HRESULT GetItems([in] ULONG ulCount, 
+                     [out, size_is(ulCount), length_is(*pcFetched)] ITfLangBarItem **ppItem, 
+                     [out, size_is(ulCount), length_is(*pcFetched)] TF_LANGBARITEMINFO *pInfo,
+                     [out, size_is(ulCount), length_is(*pcFetched)] DWORD *pdwStatus,
+                     [in, out, unique] ULONG *pcFetched);
+
+    HRESULT AdviseItemsSink([in] ULONG ulCount,
+                            [in, size_is(ulCount)] ITfLangBarItemSink **ppunk, 
+                            [in, size_is(ulCount)] const GUID *pguidItem,
+                            [out, size_is(ulCount)] DWORD *pdwCookie);
+
+    HRESULT UnadviseItemsSink([in] ULONG ulCount,
+                              [in, size_is(ulCount)] DWORD *pdwCookie);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfLangBarItem
+//
+[
+  object,
+  uuid(73540d69-edeb-4ee9-96c9-23aa30b25916),
+  pointer_default(unique),
+]
+interface ITfLangBarItem : IUnknown
+{
+    HRESULT GetInfo([out] TF_LANGBARITEMINFO *pInfo);
+
+    HRESULT GetStatus([out] DWORD *pdwStatus);
+
+    HRESULT Show([in] BOOL fShow);
+
+    HRESULT GetTooltipString([out] BSTR *pbstrToolTip);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfSystemLangBarItemSink
+//
+[
+  object,
+  uuid(1449d9ab-13cf-4687-aa3e-8d8b18574396),
+  pointer_default(unique),
+]
+interface ITfSystemLangBarItemSink : IUnknown
+{
+    HRESULT InitMenu([in] ITfMenu *pMenu);
+
+    HRESULT OnMenuSelect([in] UINT wID);
+}
+
+//
+// ITfSystemLangBarItem
+//
+[
+  object,
+  uuid(1e13e9ec-6b33-4d4a-b5eb-8a92f029f356),
+  pointer_default(unique),
+]
+interface ITfSystemLangBarItem : IUnknown
+{
+    HRESULT SetIcon([in] HICON hIcon);
+
+    HRESULT SetTooltipString([in, size_is(cch)] WCHAR *pchToolTip, 
+                             [in] ULONG cch);
+}
+
+//
+// ITfSystemLangBarItemText
+//
+[
+  object,
+  uuid(5c4ce0e5-ba49-4b52-ac6b-3b397b4f701f),
+  pointer_default(unique),
+]
+interface ITfSystemLangBarItemText : IUnknown
+{
+    HRESULT SetItemText([in, size_is(cch)] const WCHAR *pch,
+                        [in] ULONG cch);
+    HRESULT GetItemText([out] BSTR *pbstrText);
+}
+
+//
+// ITfSystemDeviceTypeLangBarItem
+//
+[
+  object,
+  uuid(45672eb9-9059-46a2-838d-4530355f6a77),
+  pointer_default(unique),
+]
+interface ITfSystemDeviceTypeLangBarItem : IUnknown
+{
+    HRESULT SetIconMode([in] DWORD dwFlags);
+
+    HRESULT GetIconMode([out] DWORD *pdwFlags);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+typedef [uuid(8fb5f0ce-dfdd-4f0a-85b9-8988d8dd8ff2)] enum
+{ 
+   TF_LBI_CLK_RIGHT       = 1, 
+   TF_LBI_CLK_LEFT        = 2, 
+} TfLBIClick;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfLangBarItemButton
+//
+[
+  object,
+  uuid(28c7f1d0-de25-11d2-afdd-00105a2799b5),
+  pointer_default(unique),
+]
+interface ITfLangBarItemButton : ITfLangBarItem
+{
+    HRESULT OnClick([in] TfLBIClick click, 
+                    [in] POINT pt, 
+                    [in] const RECT *prcArea);
+
+    HRESULT InitMenu([in] ITfMenu *pMenu);
+
+    HRESULT OnMenuSelect([in] UINT wID);
+
+    HRESULT GetIcon([out] HICON *phIcon);
+
+    HRESULT GetText([out] BSTR *pbstrText);
+}
+
+//
+// ITfLangBarItemBitmapButton
+//
+[
+  object,
+  uuid(a26a0525-3fae-4fa0-89ee-88a964f9f1b5),
+  pointer_default(unique),
+]
+interface ITfLangBarItemBitmapButton : ITfLangBarItem
+{
+    HRESULT OnClick([in] TfLBIClick click, 
+                    [in] POINT pt, 
+                    [in] const RECT *prcArea);
+
+    HRESULT InitMenu([in] ITfMenu *pMenu);
+
+    HRESULT OnMenuSelect([in] UINT wID);
+
+    HRESULT GetPreferredSize([in] const SIZE *pszDefault, 
+                            [out] SIZE *psz);
+
+    HRESULT DrawBitmap([in] LONG bmWidth,
+                       [in] LONG bmHeight, 
+                       [in] DWORD dwFlags,
+                       [out] HBITMAP *phbmp,
+                       [out] HBITMAP *phbmpMask);
+
+    HRESULT GetText([out] BSTR *pbstrText);
+}
+
+//
+// ITfLangBarItemBitmap
+//
+[
+  object,
+  uuid(73830352-d722-4179-ada5-f045c98df355),
+  pointer_default(unique),
+]
+interface ITfLangBarItemBitmap : ITfLangBarItem
+{
+    HRESULT OnClick([in] TfLBIClick click, 
+                    [in] POINT pt, 
+                    [in] const RECT *prcArea);
+
+    HRESULT GetPreferredSize([in] const SIZE *pszDefault, 
+                            [out] SIZE *psz);
+
+    HRESULT DrawBitmap([in] LONG bmWidth,
+                       [in] LONG bmHeight, 
+                       [in] DWORD dwFlags,
+                       [out] HBITMAP *phbmp,
+                       [out] HBITMAP *phbmpMask);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfLangBarItemBalloon
+//
+[
+  object,
+  uuid(01C2D285-D3C7-4B7B-B5B5-D97411D0C283),
+  pointer_default(unique),
+]
+interface ITfLangBarItemBalloon : ITfLangBarItem
+{
+    HRESULT OnClick([in] TfLBIClick click, 
+                    [in] POINT pt, 
+                    [in] const RECT *prcArea);
+
+    HRESULT GetPreferredSize([in] const SIZE *pszDefault, 
+                            [out] SIZE *psz);
+
+    typedef [uuid(f399a969-9e97-4ddd-b974-2bfb934cfbc9)] enum {
+        TF_LB_BALLOON_RECO        = 0,
+        TF_LB_BALLOON_SHOW        = 1,
+        TF_LB_BALLOON_MISS        = 2
+    } TfLBBalloonStyle;
+
+    typedef [uuid(37574483-5c50-4092-a55c-922e3a67e5b8)] struct TF_LBBALLOONINFO
+    {
+        TfLBBalloonStyle style;
+        BSTR bstrText;
+    } TF_LBBALLOONINFO;
+
+    HRESULT GetBalloonInfo([out] TF_LBBALLOONINFO *pInfo);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfMenu
+//
+[
+  object,
+  uuid(6F8A98E4-AAA0-4F15-8C5B-07E0DF0A3DD8),
+  pointer_default(unique),
+]
+interface ITfMenu : IUnknown
+{
+    const DWORD TF_LBMENUF_CHECKED      = 0x0001;
+    const DWORD TF_LBMENUF_SUBMENU      = 0x0002;
+    const DWORD TF_LBMENUF_SEPARATOR    = 0x0004;
+    const DWORD TF_LBMENUF_RADIOCHECKED = 0x0008;
+    const DWORD TF_LBMENUF_GRAYED       = 0x0010;
+
+    HRESULT AddMenuItem([in] UINT uId,
+                        [in] DWORD dwFlags,
+                        [in] HBITMAP hbmp,
+                        [in] HBITMAP hbmpMask,
+                        [in, unique, size_is(cch)] const WCHAR *pch,
+                        [in] ULONG cch,
+                        [in, out, unique] ITfMenu **ppMenu);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // CTFUTB_DEFINED")

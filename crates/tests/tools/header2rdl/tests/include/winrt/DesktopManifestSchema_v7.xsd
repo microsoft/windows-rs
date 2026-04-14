@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="ApprovedShellExtension" type="CT_ApprovedShellExtension"/>
+        <xs:element name="ControlPanelItem" type="CT_ControlPanelItem"/>
+        <xs:element name="ShadowCopyExcludeFiles" type="CT_ShadowCopyExcludeFiles"/>
+        <xs:element name="Service" type="CT_Service"/>
+        <xs:element name="Shortcut" type="CT_Shortcut"/>
+        <xs:element name="ApplicationRegistration" type="CT_ApplicationRegistration"/>
+        <xs:element name="MailProvider" type="CT_MailProvider"/>
+        <xs:element name="DesktopAppMigration" type="CT_DesktopAppMigration"/>
+        <xs:element name="ErrorReporting" type="CT_ErrorReporting"/>
+        <xs:element name="SystemFileAssociation" type="CT_SystemFileAssociation"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Desktop7" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_ApprovedShellExtension">
+    <xs:attribute name="Name" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ControlPanelItem">
+    <xs:all>
+      <xs:element name="DefaultIcon" type ="CT_ControlPanelItemDefinition"/>
+      <xs:element name="LocalizedString" type ="CT_ControlPanelItemDefinition"/>
+      <xs:element name="InfoTip" type ="CT_ControlPanelItemDefinition"/>
+    </xs:all>
+    <xs:attribute name="Name" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="SystemApplicationName" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="SystemControlPanelCategory" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="SystemSoftwareTasksFileUrl" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ControlPanelItemDefinition">
+    <xs:simpleContent>
+      <xs:extension base="t:ST_FileName">
+        <xs:attribute name="ResourceId" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ShadowCopyExcludeFiles">
+    <xs:sequence minOccurs="0" maxOccurs="1000">
+      <xs:element name="ShadowCopyExcludeFile" type ="CT_ShadowCopyExcludeFile"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ShadowCopyExcludeFile">
+    <xs:attribute name="Name" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="File" type="ST_ShadowCopyExcludeFile" use="required"/>
+    <xs:attribute name="Recursive" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_FileNameCharSetAndColonAndStar">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="[^&lt;&gt;&quot;%\|\?\x01-\x1f]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <xs:simpleType name="ST_ShadowCopyExcludeFile">
+    <xs:restriction base="ST_FileNameCharSetAndColonAndStar">
+      <xs:pattern value="([^/\\]*[^./\\]+)(\\[^/\\]*[^./\\]+)*(\\?)"/>
+      <xs:pattern value="([^/\\]*[^./\\]+)(/[^/\\]*[^./\\]+)*(/?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="CompatMode" type="t:ST_CompatMode" />
+  <xs:attribute name="Scope" type="t:ST_Scope" />
+
+  <xs:complexType name="CT_Service">
+    <xs:all minOccurs="0">
+      <xs:element name="Dependencies" type="desktop6:CT_Dependencies" minOccurs="0"/>
+      <xs:element name="TriggerEvents" type="desktop6:CT_TriggerEvents" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="Name" type="desktop6:ST_ServiceName" use="required"/>
+    <xs:attribute name="StartupType" type="ST_StartupType" use="required"/>
+    <xs:attribute name="StartAccount" type="desktop6:ST_StartAccount" use="required"/>
+    <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_StartupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="manual"/>
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="delayedStart"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_Shortcut">
+    <xs:all>
+      <xs:element name="AppMigrations" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="1000">
+              <xs:element name="AppMigration" minOccurs="0">
+                <xs:complexType>
+                  <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase_FullPath"/>
+                  <xs:attribute name="AumId" type="t:ST_NonEmptyString"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="File" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="Icon" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="PinToStartMenu" type="xs:boolean"/>
+    <xs:attribute name="ExcludeFromShowInNewInstall" type="xs:boolean"/>
+    <xs:attribute name="Description" type="t:ST_Description"/>
+    <xs:attribute ref="desktop10:DisplayName" use="optional"/>
+    <xs:attribute ref="desktop10:Description" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_MailProvider">
+    <xs:attribute name="Name" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Description" type="t:ST_Description" use="required"/>
+    <xs:attribute name="SimpleMapiLibrary" type="t:ST_DllFile" use="required"/>
+    <xs:attribute name="ExtendedMapiLibrary" type="t:ST_DllFile" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ApplicationRegistration">
+    <xs:attribute name="Name" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="ApplicationName" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="ApplicationDescription" type="t:ST_NonEmptyString" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DesktopAppMigration">
+    <xs:sequence minOccurs="0" maxOccurs="10000">
+      <xs:element name="DesktopApp" minOccurs="0" >
+        <xs:complexType>
+          <xs:attribute name="AumId" type="t:ST_NonEmptyString"/>
+          <xs:attribute name="ShortcutPath" type="t:ST_NonEmptyString"/>
+          <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase_FullPath"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AcquisitionUri" type="t:ST_URI" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ErrorReporting">
+    <xs:sequence minOccurs="0" maxOccurs="10000">
+      <xs:element name="RuntimeExceptionHelperModule">
+        <xs:complexType>
+          <xs:attribute name="Path" type="t:ST_FileName" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SystemFileAssociation">
+    <xs:attribute name="FileType" type="t:ST_FileType" use="required"/>
+    <xs:attribute name="FullDetails" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="PreviewDetails" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="PreviewTitle" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="TileInfo" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="ExtendedTileInfo" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="InfoTip" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="QuickTip" type="t:ST_NonEmptyString" use="optional" />
+  </xs:complexType>
+
+  <xs:element name="Logo">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="t:ST_ImageLogo">
+          <xs:attribute name="ResourceId" type="t:ST_NonEmptyString" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ProgId" type="t:ST_ProgId"/>
+
+</xs:schema>
+
+

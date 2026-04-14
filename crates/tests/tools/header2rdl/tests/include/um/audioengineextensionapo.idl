@@ -1,0 +1,412 @@
+//
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "audioenginebaseapo.idl";
+import "endpointvolume.idl";
+
+import "propsys.idl";
+
+// public property keys
+
+cpp_quote("#ifdef DEFINE_PROPERTYKEY")
+cpp_quote("#undef DEFINE_PROPERTYKEY")
+cpp_quote("#endif")
+
+cpp_quote("#ifdef INITGUID")
+cpp_quote("#define DEFINE_PROPERTYKEY(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8, pid) EXTERN_C const PROPERTYKEY DECLSPEC_SELECTANY name = { { l, w1, w2, { b1, b2,  b3,  b4,  b5,  b6,  b7,  b8 } }, pid }")
+cpp_quote("#else")
+cpp_quote("#define DEFINE_PROPERTYKEY(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8, pid) EXTERN_C const PROPERTYKEY name")
+cpp_quote("#endif // INITGUID")
+
+
+typedef [v1_enum] enum AUDIO_SYSTEMEFFECT_STATE
+{
+    AUDIO_SYSTEMEFFECT_STATE_OFF = 0,
+    AUDIO_SYSTEMEFFECT_STATE_ON
+} AUDIO_SYSTEMEFFECT_STATE;
+
+typedef struct AUDIO_SYSTEMEFFECT
+{
+    GUID id;
+    BOOL canSetState;
+    AUDIO_SYSTEMEFFECT_STATE state;
+} AUDIO_SYSTEMEFFECT;
+
+//
+// This is the interface by which system effects the implement and use the new settings, notification, logging and threading frameworks get identified.
+//
+[
+    local,
+    object,
+    uuid(C58B31CD-FC6A-4255-BC1F-AD29BB0A4A17)
+]
+interface IAudioSystemEffects3 : IAudioSystemEffects2
+{
+    HRESULT GetControllableSystemEffectsList(
+        [out, size_is(, *numEffects), annotation("_Outptr_result_buffer_maybenull_(*numEffects)")] AUDIO_SYSTEMEFFECT** effects,
+        [out, annotation("_Out_")] UINT* numEffects,
+        [in, annotation("_In_opt_")] HANDLE event);
+
+    HRESULT SetAudioSystemEffectState(
+        [in] GUID effectId,
+        [in] AUDIO_SYSTEMEFFECT_STATE state);
+}
+
+typedef struct APOInitSystemEffects3
+{
+    APOInitBaseStruct   APOInit;
+    IPropertyStore      *pAPOEndpointProperties;
+    IServiceProvider    *pServiceProvider;
+    IMMDeviceCollection *pDeviceCollection;
+    UINT                nSoftwareIoDeviceInCollection;
+    UINT                nSoftwareIoConnectorIndex;
+    GUID                AudioProcessingMode;
+    BOOL                InitializeForDiscoveryOnly;
+} APOInitSystemEffects3;
+
+//-----------------------------------------------------------------------------
+// Description: This structure contains expanded information pertaining to the
+// configuration of the loopback provided to the AEC.
+//
+typedef struct AcousticEchoCanceller_Reference_Input
+{
+    APOInitSystemEffects3 apoInitSystemEffects;
+    APO_REFERENCE_STREAM_PROPERTIES streamProperties;
+} AcousticEchoCanceller_Reference_Input;
+
+//
+// Interface used by the threading framework to get the work queue id.
+//
+[
+    object,
+    uuid(ACD65E2F-955B-4B57-B9BF-AC297BB752C9),
+    local
+] 
+interface IAudioProcessingObjectRTQueueService : IUnknown
+{
+    HRESULT GetRealTimeWorkQueue([out, annotation("_Out_")] DWORD* workQueueId);
+}
+
+// {458C1A1F-6899-4C12-99AC-E2E6AC253104}
+cpp_quote("DEFINE_GUID(SID_AudioProcessingObjectRTQueue, 0x458c1a1f, 0x6899, 0x4c12, 0x99, 0xac, 0xe2, 0xe6, 0xac, 0x25, 0x31, 0x4);")
+
+//
+// Interface used by the logging framework to associate all trace logging from the same APO with the same etw activity id.
+//
+typedef enum APO_LOG_LEVEL
+{
+    APO_LOG_LEVEL_ALWAYS = 0,
+    APO_LOG_LEVEL_CRITICAL = 1,  // Abnormal exit or termination events.
+    APO_LOG_LEVEL_ERROR = 2,     // Severe error events.
+    APO_LOG_LEVEL_WARNING = 3,   // Warning events such as allocation failures.
+    APO_LOG_LEVEL_INFO = 4,      // Non-error events such as entry or exit events.
+    APO_LOG_LEVEL_VERBOSE = 5    // Detailed trace events.
+} APO_LOG_LEVEL;
+
+[
+    object,
+    uuid(698f0107-1745-4708-95a5-d84478a62a65),
+    local
+]
+interface IAudioProcessingObjectLoggingService : IUnknown
+{
+    // This will generate events with the format specified in the API call.
+    void ApoLog([in]  APO_LOG_LEVEL level, [in, annotation("_In_")] LPCWSTR format, ...);
+}
+
+// {8B8008AF-09F9-456E-A173-BDB58499BCE7}
+cpp_quote("DEFINE_GUID(SID_AudioProcessingObjectLoggingService, 0x8b8008af, 0x9f9, 0x456e, 0xa1, 0x73, 0xbd, 0xb5, 0x84, 0x99, 0xbc, 0xe7);")
+
+// An enumeration of the type of notifications that may be requested by an APO that is populated by the OS and sent to APOs that have registered for these notifications using IAudioProcessingObjectNotifications::GetApoNotificationRegistrationInfo
+typedef enum APO_NOTIFICATION_TYPE
+{
+    APO_NOTIFICATION_TYPE_NONE = 0,
+
+    // Endpoint volume notifications for an endpoint.
+    APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME = 1,
+
+    // Property change notifications for an endpoint.
+    APO_NOTIFICATION_TYPE_ENDPOINT_PROPERTY_CHANGE = 2,
+
+    // Audio system effects property change notifications for an endpoint.
+    APO_NOTIFICATION_TYPE_SYSTEM_EFFECTS_PROPERTY_CHANGE = 3,
+
+    // Endpoint volume notifications for an endpoint that includes master and channel volume in dB.
+    APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME2 = 4,
+    
+    // Orientation notifications for the device.
+    APO_NOTIFICATION_TYPE_DEVICE_ORIENTATION = 5,
+
+    // Microphone boost notifications
+    APO_NOTIFICATION_TYPE_MICROPHONE_BOOST = 6,
+
+    // Audio environement state changed
+    APO_NOTIFICATION_TYPE_AUDIO_ENVIRONMENT_STATE_CHANGE = 7
+
+} APO_NOTIFICATION_TYPE;
+
+// When an endpoint volume changes, the OS will send an object with the following structure to the APOs that are interested in volume change notifications.
+typedef struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION
+{
+    // Device that the volume has changed on.
+    IMMDevice* endpoint;
+    // New volume as a pointer to AUDIO_VOLUME_NOTIFICATION_DATA structure. 
+    PAUDIO_VOLUME_NOTIFICATION_DATA volume;
+} AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION;
+
+// When an endpoint property is changed, the OS will send an object with the following structure to the APOs that are interested in endpoint property change notifications.
+typedef struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION
+{
+    // Device that the property has changed on.
+    IMMDevice* endpoint;
+    // The property store that the change occurred on. Use this to query the new value of propertyKey below.
+    IPropertyStore* propertyStore;
+    // The PROPERTYKEY that has a new value.
+    PROPERTYKEY propertyKey;
+} AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION;
+
+// When an audio system effects property is changed, the OS will send an object with the following structure to the APOs that are interested in audio system effects property change notifications.
+typedef struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION
+{
+    // Device that the volume has changed on.
+    IMMDevice* endpoint;
+    // The property store context on this endpoint.
+    GUID propertyStoreContext;
+    // The property store type used to indicate if the default/user or volatile property store changed.
+    AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE propertyStoreType;
+    // The property store that the change occurred on. Use this to query the new value of propertyKey below.
+    IPropertyStore* propertyStore;
+    // The PROPERTYKEY that has a new value.
+    PROPERTYKEY propertyKey;
+} AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION;
+
+typedef struct AUDIO_VOLUME_NOTIFICATION_DATA2
+{
+    PAUDIO_VOLUME_NOTIFICATION_DATA notificationData;
+
+    // Specifies the current master volume level of the audio stream in dB.
+    float masterVolumeInDb;
+
+    // The minimum volume level of the endpoint in decibels. This value remains constant for the lifetime of
+    // audio device specified in AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR.
+    float volumeMinInDb;
+
+    // The maximum volume level of the endpoint in decibels. This value remains constant for the lifetime of
+    // the audio device specified in AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR.
+    float volumeMaxInDb;
+
+    // The volume increment in decibels. This increment remains constant for the lifetime 
+    // the audio device specified in AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR.
+    float volumeIncrementInDb;
+
+    // Current step in the volume range. Is a value in the range from 0 to stepCount-1, where 0 represents
+    // the minimum volume level and stepCount–1 represents the maximum level. Audio applications can call the
+    // IAudioEndpointVolume::VolumeStepUp and IAudioEndpointVolume::VolumeStepDown methods to increase or
+    // decrease the volume level by one interval.
+    UINT  step;
+
+    // The number of steps in the volume range. This number remains constant for the lifetime of
+    // the audio device specified in AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR.
+    UINT  stepCount;
+
+    // The first element in an array of channel volumes in dB. This element contains the current volume level
+    // of channel 0 in the audio stream. If the audio stream contains more than one channel, the volume 
+    // levels for the additional channels immediately follow the AUDIO_VOLUME_NOTIFICATION_DATA2 structure.
+    float channelVolumesInDb[ 1 ];
+} AUDIO_VOLUME_NOTIFICATION_DATA2, *PAUDIO_VOLUME_NOTIFICATION_DATA2;
+
+typedef struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2
+{
+    IMMDevice* endpoint;
+    PAUDIO_VOLUME_NOTIFICATION_DATA2 volume;
+} AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2;
+
+typedef enum DEVICE_ORIENTATION_TYPE
+{
+    DEVICE_NOT_ROTATED,
+    DEVICE_ROTATED_90_DEGREES_CLOCKWISE,
+    DEVICE_ROTATED_180_DEGREES_CLOCKWISE,
+    DEVICE_ROTATED_270_DEGREES_CLOCKWISE
+}DEVICE_ORIENTATION_TYPE;
+
+typedef struct AUDIO_MICROPHONE_BOOST_NOTIFICATION
+{
+    // Device associated with mic boost notification.
+    IMMDevice* endpoint;
+
+    // Context associated with the originator of the event. A client can use this method to keep track of
+    // control changes made by other processes and by the hardware. The functions IAudioVolumeLevel::SetLevel
+    // and IAudioMute::SetMute use the context. When this notification is recieved, a client can inspect the
+    // context GUID to discover whether it or another client is the source of the notification.
+    GUID eventContext; 
+    
+    // Indicates the presence of a "Microphone Boost" part (connector or subunit) of an audio capture device
+    // topology.
+    BOOL microphoneBoostEnabled;
+
+    // The volume level in decibels.
+    float levelInDb;
+
+    // The minimum volume level in decibels.
+    float levelMinInDb;
+
+    // The maximum volume level in decibels.
+    float levelMaxInDb;
+
+    // The stepping value between consecutive volume levels in the range levelMinInDb to levelMaxInDb
+    float levelStepInDb;
+
+    // Indicates if the IAudioMute interface is supported by the "Microphone Boost" part of the audio
+    // capture device topology.
+    BOOL muteSupported;
+
+    // The current state (enabled or disabled) of the mute control
+    BOOL mute;
+} AUDIO_MICROPHONE_BOOST_NOTIFICATION;
+
+// PKEY_AudioEnvironment_xxx
+// GUID for PKEY_AudioEnvironment_XXX (public): 4AFB7B88-A653-44A5-99DB-687FD74AF0BB
+
+// PKEY_AudioEnvironment_SpatialStreams_Active: Boolean that when TRUE indicates that spatial audio is in use, FALSE otherwise.
+// vartype = VT_BOOL
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEnvironment_SpatialAudioActive, 0x4AFB7B88, 0xA653, 0x44A5, 0x99, 0xDB, 0x68, 0x7F, 0xD7, 0x4A, 0xF0, 0xBB, 2);")
+
+
+typedef struct AUDIO_ENVIRONMENT_STATE_CHANGE_NOTIFICATION 
+{
+    // The property store that the change occurred on. Use this to query the new value of propertyKey below. 
+    IPropertyStore* propertyStore; 
+
+    // The PROPERTYKEY that has a new value. 
+    PROPERTYKEY propertyKey; 
+} AUDIO_ENVIRONMENT_STATE_CHANGE_NOTIFICATION; 
+
+// This structure is used to describe the type of notification that is sent from the OS to the APO using IAudioProcessingObjectNotifications::HandleNotification.
+typedef struct APO_NOTIFICATION
+{
+    APO_NOTIFICATION_TYPE type;
+    union
+    {
+        // Used when type is APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME.
+        AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION audioEndpointVolumeChange;
+
+        // Used when type is APO_NOTIFICATION_TYPE_ENDPOINT_PROPERTY_CHANGE.
+        AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION audioEndpointPropertyChange;
+
+        // Used when type is AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION.
+        AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION audioSystemEffectsPropertyChange;
+
+        // Used when type is APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME2.
+        AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 audioEndpointVolumeChange2;
+
+        // Used when type is APO_NOTIFICATION_TYPE_DEVICE_ORIENTATION.
+        DEVICE_ORIENTATION_TYPE deviceOrientation;
+
+        // Used when type is APO_NOTIFICATION_TYPE_MICROPHONE_BOOST.
+        AUDIO_MICROPHONE_BOOST_NOTIFICATION audioMicrophoneBoostChange;
+
+        // Used when type is APO_NOTIFICATION_TYPE_AUDIO_ENVIRONMENT_STATE_CHANGE. 
+        AUDIO_ENVIRONMENT_STATE_CHANGE_NOTIFICATION audioEnvironmentChange;
+    } DUMMYUNIONNAME;
+} APO_NOTIFICATION;
+
+// Used to request endpoint volume change notifications on a specific endpoint.
+typedef struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR
+{
+    IMMDevice* device;
+} AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR;
+
+// Used to request endpoint property change notifications on a specific endpoint.
+typedef struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
+{
+    IMMDevice* device;
+} AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR;
+
+// Used to request audio system effects property change notifications on a specific endpoint and property context.
+typedef struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR 
+{
+    IMMDevice* device;
+    GUID       propertyStoreContext;
+} AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR;
+
+// Used to request microphone boost notifications.
+typedef struct AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR
+{
+    IMMDevice* device;
+} AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR;
+
+//
+// This is the structure provided by the APO to indicate the type of notification it is interested in.
+//
+typedef struct APO_NOTIFICATION_DESCRIPTOR
+{
+    APO_NOTIFICATION_TYPE type;
+    union
+    {
+        // Used for volume notifications on a specific endpoint.
+        AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR audioEndpointVolume;
+        // Used for property change notifications on a specific endpoint.
+        AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR audioEndpointPropertyChange;
+        // Used for audio system effects property store notifications on a specific endpoint, property context pair.
+        AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR audioSystemEffectsPropertyChange;
+        // Used for microphone boost notifications.
+        AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR audioMicrophoneBoost;
+    } DUMMYUNIONNAME;
+} APO_NOTIFICATION_DESCRIPTOR;
+
+//
+// Interface to be implemented by an APO that wishes to report its preferred audio input format
+//
+[
+    object,
+    uuid(51CBD3C4-F1F3-4D2F-A0E1-7E9C4DD0FEB3),
+    pointer_default(unique),
+    local
+]
+interface IAudioProcessingObjectPreferredFormatSupport : IUnknown
+{
+    HRESULT GetPreferredInputFormat([in] IAudioMediaType* outputFormat, [out] IAudioMediaType** preferredFormat);
+    HRESULT GetPreferredOutputFormat([in] IAudioMediaType* inputFormat, [out] IAudioMediaType** preferredFormat);
+};
+
+//
+// Interface to be implemented by an APO that wishes to use the notification service provided by the OS.
+//
+[
+    object,
+    uuid(56B0C76F-02FD-4B21-A52E-9F8219FC86E4),
+    local
+]
+interface IAudioProcessingObjectNotifications : IUnknown
+{
+    // The APO provides an array of APO_NOTIFICATION_DESCRIPTORs indicating the type of notifications it is interested in.
+    HRESULT GetApoNotificationRegistrationInfo(
+        [out, annotation("_Out_writes_(*count)")] APO_NOTIFICATION_DESCRIPTOR** apoNotifications,
+        [out, annotation("_Out_")] DWORD* count);
+
+    // This method is invoked by the OS to send notifications to the APO.
+    void HandleNotification([in, annotation("_In_")] APO_NOTIFICATION* apoNotification);
+};
+
+[
+    object,
+    uuid(ca2cfbde-a9d6-4eb0-bc95-c4d026b380f0),
+    local
+]
+interface IAudioProcessingObjectNotifications2 : IAudioProcessingObjectNotifications
+{
+    HRESULT GetApoNotificationRegistrationInfo2(
+        APO_NOTIFICATION_TYPE maxApoNotificationTypeSupported,
+        [out, annotation("_Out_writes_(count)")] APO_NOTIFICATION_DESCRIPTOR** apoNotifications,
+        [out, annotation("_Out_")] DWORD* count);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

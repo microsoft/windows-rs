@@ -1,0 +1,605 @@
+cpp_quote("#include <winapifamily.h>")
+
+//**@@@*@@@****************************************************
+//
+// Microsoft Windows 
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//**@@@*@@@****************************************************
+
+//
+// FileName:    EndpointVolume.idl
+//
+// Abstract:    Audio Endpoint Volume API
+//	            Provides Volume and muting control for an audio endpoint, either per-channel or total volume.
+//
+// Author:      StephSm
+//
+// Created:     2005/5/10
+// --------------------------------------------------------------------------------
+
+import "unknwn.idl";
+import "devicetopology.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+typedef struct AUDIO_VOLUME_NOTIFICATION_DATA
+{
+    GUID guidEventContext;            // Context associated with the originator of the event.
+    BOOL bMuted;
+    float fMasterVolume;
+    UINT nChannels;
+    float afChannelVolumes[1];
+} AUDIO_VOLUME_NOTIFICATION_DATA, *PAUDIO_VOLUME_NOTIFICATION_DATA;
+
+//
+//  Hardware support mask - if the endpoint provides hardware support
+//  for volume/mute/meter, this bit will be on in the
+//  DWORD returned by the IAudioEndpointVolume QueryHardwareSupport and
+//  the IAudioEndpointMeter QueryHardwareSupport API
+//
+cpp_quote("#define   ENDPOINT_HARDWARE_SUPPORT_VOLUME    0x00000001")
+cpp_quote("#define   ENDPOINT_HARDWARE_SUPPORT_MUTE      0x00000002")
+cpp_quote("#define   ENDPOINT_HARDWARE_SUPPORT_METER     0x00000004")
+
+
+// ----------------------------------------------------------------------
+// Interfaces
+// ----------------------------------------------------------------------
+
+// ----------------------------------------------------------------------
+// IAudioEndpointVolumeCallback
+//
+// Description
+//
+//  Callback interface to be implemented by clients to respond to changes in the volume/mute
+// state of an endpoint.
+//
+[
+    object,
+    local,
+    uuid(657804FA-D6AD-4496-8A60-352752AF4F89),
+    nonextensible,
+    helpstring("AudioEndpointVolumeCallback interface"),
+    pointer_default(unique)
+]
+interface IAudioEndpointVolumeCallback : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when the endpoint volume changes.
+    //
+    // Parameters:
+    //
+    //  pNotify - [in] Structure containing information about the new
+    //                  endpoint volume.
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If registration for notification failed.
+    //
+    // Remarks:
+    //      Please note: The caller of this function ignores all return
+    //      codes from the OnNotify method.
+    //
+    HRESULT OnNotify(PAUDIO_VOLUME_NOTIFICATION_DATA pNotify);
+};
+
+// ----------------------------------------------------------------------
+// IAudioEndpointVolume
+//
+// Description:
+//
+//  Volume control interface for a device endpoint.
+//
+[
+    object,
+    local,
+    uuid(5CDF2C82-841E-4546-9722-0CF74078229A),
+    nonextensible,
+    helpstring("IAudioEndpointVolume interface"),
+    pointer_default(unique)
+]
+interface IAudioEndpointVolume : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Registers the client for change notifications on this volume control.
+    //
+    // Parameters:
+    //
+    //  pNotify - [in] Notification interface that gets called when volume changes.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If registration for notification failed.
+    //
+    [helpstring("method RegisterControlChangeNotify")] 
+    HRESULT RegisterControlChangeNotify([in, annotation("_In_")] IAudioEndpointVolumeCallback *pNotify);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Unregisters the client for change notifications on this volume control.
+    //
+    // Parameters:
+    //
+    //  pNotify - [in] Notification interface instance to unregister.
+    //
+    // Remarks:
+    //      Please note: There are no valid failure modes for this
+    //      function IF the pNotify parameter has previously been
+    //      registered for notifications.
+    //
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method UnregisterControlChangeNotify")] 
+    HRESULT UnregisterControlChangeNotify([in, annotation("_In_")] IAudioEndpointVolumeCallback *pNotify);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of channels on the endpoint for which volume can be changed.
+    //
+    // Parameters:
+    //
+    //  pnChannelCount - [out] Number of channels.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetChannelCount")] 
+    HRESULT GetChannelCount([out, annotation("_Out_")] UINT *pnChannelCount);
+    
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the master volume level, using decibels.
+    //
+    // Parameters:
+    //
+    //  fLevelDB - [in] The new volume level, in DB (decibels)
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    //  All channel volumes are adjusted proportionately based on this new level.
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method SetMasterVolumeLevel")] 
+    HRESULT SetMasterVolumeLevel([in, annotation("_In_")] float fLevelDB, [in, unique] LPCGUID pguidEventContext);
+    
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the master volume level, using a uniform scaling factor.
+    //
+    // Parameters:
+    //
+    //  fLevel - [in] The new volume level, a uniform scaling factor
+    //                  valued (0 to 1.0)
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    //  All channel volumes are adjusted proportionately based on this new level.
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method SetMasterVolumeLevelScalar")]
+    HRESULT SetMasterVolumeLevelScalar([in, annotation("_In_")] float fLevel, [in, unique] LPCGUID pguidEventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get's the master volume level as a decibel (DB) value.
+    //
+    // Parameters:
+    //
+    //  pfLevelDB - [out] Current master volume level, in DB.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetMasterVolumeLevel")] 
+    HRESULT GetMasterVolumeLevel([out, annotation("_Out_")] float *pfLevelDB);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get's the master volume level as a uniform scaling factor.
+    //
+    // Parameters:
+    //
+    //  pfLevel - [out] Current master volume level as a uniform
+    //                      scaling factor (0 to 1.0 valid range).
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetMasterVolumeLevelScalar")]
+    HRESULT GetMasterVolumeLevelScalar([out, annotation("_Out_")] float *pfLevel);
+    
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the volume level for the specified channel, using a decibel (DB) value.
+    //
+    // Parameters:
+    //
+    //  nChannel - [in] Channel to adjust.
+    //  fLevelDB - [in] Volume to set for channel.
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method SetChannelVolumeLevel")] 
+    HRESULT SetChannelVolumeLevel([in, annotation("_In_")] UINT nChannel, float fLevelDB, [in, unique] LPCGUID pguidEventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the volume level for the specified channel, using a uniform scaling value.
+    //
+    // Parameters:
+    //
+    //  nChannel - [in] Channel to adjust.
+    //  fLevel - [in] Volume to set for channel (uniform scaling factor).
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method SetChannelVolumeLevelScalar")]
+    HRESULT SetChannelVolumeLevelScalar([in, annotation("_In_")] UINT nChannel, float fLevel, [in, unique] LPCGUID pguidEventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the volume level for the specified channel using the DB scale.
+    //
+    // Parameters:
+    //
+    //  nChannel - [in] Channel to adjust.
+    //  pfLevelDB - [out] Current level (in DB) for the channel.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetChannelVolumeLevel")] 
+    HRESULT GetChannelVolumeLevel([in, annotation("_In_")] UINT nChannel, [out, annotation("_Out_")] float *pfLevelDB);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the volume level for the specified channel as a uniform
+    //                      scaling factor (0 to 1 linear range).
+    //
+    // Parameters:
+    //
+    //  nChannel - [in] Channel.
+    //  pfLevel - [out] Current level (as a uniform scaling factor) for the channel.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetChannelVolumeLevelScalar")]
+    HRESULT GetChannelVolumeLevelScalar([in, annotation("_In_")] UINT nChannel, [out, annotation("_Out_")] float *pfLevel);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the mute state.
+    //
+    // Parameters:
+    //
+    //  bMute - [in] TRUE to mute this endpoint, FALSE to un-mute it.
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method SetMute")] 
+    HRESULT SetMute([in, annotation("_In_")] BOOL bMute, [in, unique] LPCGUID pguidEventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the mute state for this endpoint.
+    //
+    // Parameters:
+    //
+    //  pbMute - [out] The current mute state (TRUE = muted, FALSE = not muted).
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetMute")] 
+    HRESULT GetMute([out, annotation("_Out_")] BOOL *pbMute);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the current discrete step the volume is set to.
+    //
+    // Parameters:
+    //
+    //  pnStep - [out] The current step
+    //  pnStepCount - [out] Total number of steps.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetVolumeStepInfo")] 
+    HRESULT GetVolumeStepInfo([out, annotation("_Out_")] UINT *pnStep, [out, annotation("_Out_")] UINT *pnStepCount);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Increase master volume by one step.
+    //
+    // Parameters:
+    //
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      S_FALSE if volume already maxed out.
+    //      <other error> If failed.
+    //
+    [helpstring("method VolumeStepUp")] 
+    HRESULT VolumeStepUp([in, unique] LPCGUID pguidEventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Decrease master volume by one step.
+    //
+    // Parameters:
+    //
+    //  EventContext - [in] Context passed to IAudioEndpointVolumeCallback::OnNotify routine.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      S_FALSE if already at minimum volume.
+    //      <other error> If failed.
+    //
+    [helpstring("method VolumeStepDown")] 
+    HRESULT VolumeStepDown([in, unique] LPCGUID pguidEventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns if the endpoint volume is controled by a hardware
+    //  control or software control.
+    //
+    // Parameters:
+    //
+    //  pdwHardwareSupportMask - [out] bitmask describing the level of hardware
+    //  support
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method QueryHardwareSupport")] 
+    HRESULT QueryHardwareSupport([out, annotation("_Out_")] DWORD *pdwHardwareSupportMask);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the volume range for the reference channel (the channel
+    //  with the highest volume).
+    //  
+    //
+    // Parameters:
+    //      pflVolumeMinDB - [out] Minimum dB for the channel.
+    //      pflVolumeMaxDB - [out] Maximum dB for the channel.
+    //      pflVolumeIncrementDB - [out] dB step for the channel.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetVolumeRange")] 
+    HRESULT GetVolumeRange([out, annotation("_Out_")] float *pflVolumeMindB, [out, annotation("_Out_")] float *pflVolumeMaxdB, [out, annotation("_Out_")] float *pflVolumeIncrementdB);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// ----------------------------------------------------------------------
+// IAudioEndpointVolume
+//
+// Description:
+//
+//  Volume control interface for a device endpoint.
+//
+[
+object,
+local,
+uuid(66E11784-F695-4F28-A505-A7080081A78F),
+nonextensible,
+helpstring("IAudioEndpointVolumeEx interface"),
+pointer_default(unique)
+]
+interface IAudioEndpointVolumeEx : IAudioEndpointVolume
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the volume range for a particular channel
+    //
+    // Parameters:
+    //      iChannel - [in] Channel number
+    //      pflVolumeMinDB - [out] Minimum dB for the channel.
+    //      pflVolumeMaxDB - [out] Maximum dB for the channel.
+    //      pflVolumeIncrementDB - [out] dB step for the channel.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetVolumeRangeChannel")] 
+    HRESULT GetVolumeRangeChannel([in] UINT iChannel, [out, annotation("_Out_")] float *pflVolumeMindB, [out, annotation("_Out_")] float *pflVolumeMaxdB, [out, annotation("_Out_")] float *pflVolumeIncrementdB);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// ----------------------------------------------------------------------
+// IAudioMeterInformation 
+//
+// Description:
+//
+//  Volume control interface for a device endpoint.
+//
+[
+    object,
+    local,
+    uuid(C02216F6-8C67-4B5B-9D00-D008E73E0064),
+    nonextensible,
+    helpstring("IAudioMeterInformation interface"),
+    pointer_default(unique)
+]
+interface IAudioMeterInformation : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get peak value across all channels.
+    //
+    // Parameters:
+    //
+    //  pfPeak - [out] highest peak across all channels in range [0.0f, 1.0f]
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetPeakValue")]
+    HRESULT GetPeakValue([out] float *pfPeak);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of channels for which metering information is available.
+    //
+    // Parameters:
+    //
+    //  pnChannelCount - [out] Number of channels.
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetChannelCount")] 
+    HRESULT GetMeteringChannelCount([out, annotation("_Out_")] UINT *pnChannelCount);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get peak values for all channels.
+    //
+    // Parameters:
+    //
+    //  u32ChannelCount - [in] Number of channels to get levels for
+    //  afPeakValues - [out] array of peak values in range [0.0f, 1.0f]
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method GetChannelsPeakValue")]
+    HRESULT GetChannelsPeakValues([in] UINT32 u32ChannelCount, [out, size_is(u32ChannelCount)] float *afPeakValues);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns if the endpoint volume is controled by a hardware
+    //  control or software control.
+    //
+    // Parameters:
+    //
+    //  pdwHardwareSupportMask - [out] bitmask describing the level of hardware
+    //  support
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error> If failed.
+    //
+    [helpstring("method QueryHardwareSupport")]
+    HRESULT QueryHardwareSupport([out, annotation("_Out_")] DWORD *pdwHardwareSupportMask);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+

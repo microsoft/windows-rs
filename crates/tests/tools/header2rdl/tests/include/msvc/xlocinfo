@@ -1,0 +1,446 @@
+// xlocinfo internal header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _XLOCINFO_
+#define _XLOCINFO_
+#include <yvals.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <__msvc_xlocinfo_types.hpp>
+#include <cctype>
+#include <clocale>
+#include <cstdio> // TRANSITION, VSO-661721
+#include <cstdlib>
+#include <cwchar>
+#include <xstring>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_EXTERN_C_UNLESS_PURE
+
+#define _X_ALL      LC_ALL
+#define _X_COLLATE  LC_COLLATE
+#define _X_CTYPE    LC_CTYPE
+#define _X_MONETARY LC_MONETARY
+#define _X_NUMERIC  LC_NUMERIC
+#define _X_TIME     LC_TIME
+#define _X_MAX      LC_MAX
+#define _X_MESSAGES 6
+#define _NCAT       (_X_MESSAGES + 1) // maximum + 1
+
+#define _CATMASK(n) ((1 << (n)) >> 1)
+#define _M_COLLATE  _CATMASK(_X_COLLATE)
+#define _M_CTYPE    _CATMASK(_X_CTYPE)
+#define _M_MONETARY _CATMASK(_X_MONETARY)
+#define _M_NUMERIC  _CATMASK(_X_NUMERIC)
+#define _M_TIME     _CATMASK(_X_TIME)
+#define _M_MESSAGES _CATMASK(_X_MESSAGES)
+#define _M_ALL      (_CATMASK(_NCAT) - 1)
+
+_CRTIMP2_PURE _Collvec __CLRCALL_PURE_OR_CDECL _Getcoll() noexcept;
+_CRTIMP2_PURE _Ctypevec __CLRCALL_PURE_OR_CDECL _Getctype() noexcept;
+_CRTIMP2_PURE _Cvtvec __CLRCALL_PURE_OR_CDECL _Getcvt() noexcept;
+_CRTIMP2_PURE int __CLRCALL_PURE_OR_CDECL _Getdateorder() noexcept;
+
+#ifdef _M_CEE_PURE
+[System::Runtime::InteropServices::DllImport(_CRT_MSVCP_CURRENT, EntryPoint = "_Mbrtowc",
+    CallingConvention = System::Runtime::InteropServices::CallingConvention::Cdecl)] extern "C" int
+    _Mbrtowc(_Out_opt_ wchar_t*, const char*, size_t, mbstate_t*, const _Cvtvec*) noexcept;
+#else // ^^^ defined(_M_CEE_PURE) / !defined(_M_CEE_PURE) vvv
+_MRTIMP2 _Success_(return >= 0) int __cdecl _Mbrtowc(_When_(_Max_multibyte != 0, _Out_) wchar_t*, const char*,
+    size_t _Max_multibyte, mbstate_t*, const _Cvtvec*) noexcept;
+#endif // ^^^ !defined(_M_CEE_PURE) ^^^
+
+_CRTIMP2_PURE int __CLRCALL_PURE_OR_CDECL _Strcoll(
+    const char*, const char*, const char*, const char*, const _Collvec*) noexcept;
+_CRTIMP2_PURE size_t __CLRCALL_PURE_OR_CDECL _Strxfrm(_Out_writes_(_End1 - _String1)
+                                                          _Post_readable_size_(return) char* _String1,
+    _In_z_ char* _End1, const char*, const char*, const _Collvec*) noexcept;
+_CRTIMP2_PURE int __CLRCALL_PURE_OR_CDECL _Tolower(int, const _Ctypevec*) noexcept;
+_CRTIMP2_PURE int __CLRCALL_PURE_OR_CDECL _Toupper(int, const _Ctypevec*) noexcept;
+_CRTIMP2_PURE _Success_(return != -1) int __CLRCALL_PURE_OR_CDECL
+    _Wcrtomb(_Out_ char*, wchar_t, mbstate_t*, const _Cvtvec*) noexcept;
+_CRTIMP2_PURE int __CLRCALL_PURE_OR_CDECL _Wcscoll(
+    const wchar_t*, const wchar_t*, const wchar_t*, const wchar_t*, const _Collvec*) noexcept;
+_CRTIMP2_PURE size_t __CLRCALL_PURE_OR_CDECL _Wcsxfrm(_Out_writes_(_End1 - _String1) _Post_readable_size_(return)
+                                                          wchar_t* _String1,
+    _In_z_ wchar_t* _End1, const wchar_t*, const wchar_t*, const _Collvec*) noexcept;
+
+_CRTIMP2_PURE short __CLRCALL_PURE_OR_CDECL _Getwctype(wchar_t, const _Ctypevec*) noexcept;
+_CRTIMP2_PURE const wchar_t* __CLRCALL_PURE_OR_CDECL _Getwctypes(
+    const wchar_t*, const wchar_t*, short*, const _Ctypevec*) noexcept;
+_CRTIMP2_PURE wchar_t __CLRCALL_PURE_OR_CDECL _Towlower(wchar_t, const _Ctypevec*) noexcept;
+_CRTIMP2_PURE wchar_t __CLRCALL_PURE_OR_CDECL _Towupper(wchar_t, const _Ctypevec*) noexcept;
+
+_END_EXTERN_C_UNLESS_PURE
+
+extern "C" {
+// These _should_ be explicitly `noexcept` but cannot be made so here because
+// the primary declarations in the C runtime headers are not.
+
+_Success_(return != 0) _Ret_z_ _ACRTIMP char* __cdecl _Getdays();
+
+_Success_(return != 0) _Ret_z_ _ACRTIMP char* __cdecl _Getmonths();
+
+_ACRTIMP void* __cdecl _Gettnames();
+
+_Success_(return > 0) _ACRTIMP size_t __cdecl _Strftime(
+    _Out_writes_z_(_Maxsize) char*, _In_ size_t _Maxsize, _In_z_ const char*, _In_ const tm*, _In_opt_ void*);
+
+_Success_(return != 0) _Ret_z_ _ACRTIMP wchar_t* __cdecl _W_Getdays();
+
+_Success_(return != 0) _Ret_z_ _ACRTIMP wchar_t* __cdecl _W_Getmonths();
+
+_ACRTIMP void* __cdecl _W_Gettnames();
+
+_Success_(return > 0) _ACRTIMP size_t __cdecl _Wcsftime(
+    _Out_writes_z_(_Maxsize) wchar_t*, _In_ size_t _Maxsize, _In_z_ const wchar_t*, _In_ const tm*, _In_opt_ void*);
+} // extern "C"
+
+_STD_BEGIN
+extern "C++" class _CRTIMP2_PURE_IMPORT _Timevec { // smart pointer to information used by _Strftime
+public:
+    explicit __CLR_OR_THIS_CALL _Timevec(void* _Ptr = nullptr) : _Timeptr(_Ptr) {}
+
+    __CLR_OR_THIS_CALL _Timevec(const _Timevec& _Right) : _Timeptr(nullptr) {
+        *this = _Right;
+    }
+
+    __CLR_OR_THIS_CALL ~_Timevec() noexcept {
+        _CSTD free(_Timeptr);
+    }
+
+    _Timevec& __CLR_OR_THIS_CALL operator=(const _Timevec& _Right) { // transfer ownership of _Timeptr from _Right
+        if (this != &_Right) {
+            _CSTD free(_Timeptr);
+            _Timeptr                               = _Right._Timeptr;
+            const_cast<_Timevec&>(_Right)._Timeptr = nullptr; // TRANSITION, should be movable-only
+        }
+
+        return *this;
+    }
+
+    void* __CLR_OR_THIS_CALL _Getptr() const {
+        return _Timeptr;
+    }
+
+private:
+    void* _Timeptr; // pointer to time information
+};
+
+extern "C++" template <class _Elem>
+class _CRTIMP2_PURE_IMPORT _Yarn { // wrap a NTCTS
+public:
+    __CLR_OR_THIS_CALL _Yarn() noexcept : _Myptr(nullptr), _Nul(0) {}
+
+    __CLR_OR_THIS_CALL _Yarn(const _Yarn& _Right) noexcept : _Myptr(nullptr), _Nul(0) {
+        *this = _Right;
+    }
+
+    __CLR_OR_THIS_CALL _Yarn(const _Elem* _Right) noexcept : _Myptr(nullptr), _Nul(0) {
+        *this = _Right;
+    }
+
+    _Yarn& __CLR_OR_THIS_CALL operator=(const _Yarn& _Right) noexcept {
+        return *this = _Right._Myptr;
+    }
+
+    _Yarn& __CLR_OR_THIS_CALL operator=(const _Elem* _Right) noexcept {
+        if (_Myptr != _Right) { // new value, discard old and copy new
+            _Tidy();
+
+            if (_Right) { // new is not empty, copy it
+                const _Elem* _Ptr = _Right;
+                while (*_Ptr != _Elem{}) {
+                    ++_Ptr;
+                }
+
+                const auto _Count = (++_Ptr - _Right) * sizeof(_Elem);
+
+#ifdef _DEBUG
+                _Myptr = static_cast<_Elem*>(_malloc_dbg(_Count, _CRT_BLOCK, __FILE__, __LINE__));
+#else
+                _Myptr = static_cast<_Elem*>(_CSTD malloc(_Count));
+#endif
+
+                if (_Myptr) {
+                    _CSTD memcpy(_Myptr, _Right, _Count);
+                }
+            }
+        }
+
+        return *this;
+    }
+
+    __CLR_OR_THIS_CALL ~_Yarn() noexcept {
+        _Tidy();
+    }
+
+    _NODISCARD bool __CLR_OR_THIS_CALL empty() const noexcept {
+        return _Myptr == nullptr;
+    }
+
+    _Ret_z_ const _Elem* __CLR_OR_THIS_CALL c_str() const noexcept {
+        return _Myptr ? _Myptr : &_Nul;
+    }
+
+    _NODISCARD bool __CLR_OR_THIS_CALL _Empty() const noexcept {
+        return _Myptr == nullptr;
+    }
+
+    _Ret_z_ const _Elem* __CLR_OR_THIS_CALL _C_str() const noexcept {
+        return _Myptr ? _Myptr : &_Nul;
+    }
+
+private:
+    void __CLR_OR_THIS_CALL _Tidy() noexcept {
+        if (_Myptr) {
+#ifdef _DEBUG
+            _free_dbg(_Myptr, _CRT_BLOCK);
+#else
+            _CSTD free(_Myptr);
+#endif
+        }
+
+        _Myptr = nullptr;
+    }
+
+    _Elem* _Myptr; // pointer to allocated string
+    _Elem _Nul; // nul terminator for unallocated string
+};
+
+extern "C++" class _CRTIMP2_PURE_IMPORT _Locinfo { // summary of all stuff specific to a locale used by standard facets
+public:
+    using _Collvec  = ::_Collvec;
+    using _Ctypevec = ::_Ctypevec;
+    using _Cvtvec   = ::_Cvtvec;
+    using _Timevec  = _STD _Timevec;
+
+    static void __CLRCALL_PURE_OR_CDECL _Locinfo_ctor(_Locinfo*, const char*);
+    static void __CLRCALL_PURE_OR_CDECL _Locinfo_ctor(_Locinfo*, int, const char*);
+    static void __CLRCALL_PURE_OR_CDECL _Locinfo_dtor(_Locinfo*);
+    static _Locinfo& __CLRCALL_PURE_OR_CDECL _Locinfo_Addcats(_Locinfo*, int, const char*);
+
+    __CLR_OR_THIS_CALL _Locinfo(const char* _Pch = "C")
+#ifndef _M_CEE_PURE
+        : _Lock(_LOCK_LOCALE)
+#endif // !defined(_M_CEE_PURE)
+    {
+        if (_Pch) {
+            _Locinfo_ctor(this, _Pch);
+            return;
+        }
+
+        _Xruntime_error("bad locale name");
+    }
+
+    __CLR_OR_THIS_CALL _Locinfo(int _Cat, const char* _Pch)
+#ifndef _M_CEE_PURE
+        : _Lock(_LOCK_LOCALE)
+#endif // !defined(_M_CEE_PURE)
+    {
+        if (_Pch) {
+            _Locinfo_ctor(this, _Cat, _Pch);
+            return;
+        }
+
+        _Xruntime_error("bad locale name");
+    }
+
+    __CLR_OR_THIS_CALL ~_Locinfo() noexcept {
+        _Locinfo_dtor(this);
+    }
+
+    _Locinfo& __CLR_OR_THIS_CALL _Addcats(int _Cat, const char* _Pch) { // add facets matching category mask and NTBS
+        if (_Pch) {
+            return _Locinfo_Addcats(this, _Cat, _Pch);
+        }
+
+        _Xruntime_error("bad locale name");
+    }
+
+    const char* __CLR_OR_THIS_CALL _Getname() const {
+        return _Newlocname._C_str();
+    }
+
+    _Collvec __CLR_OR_THIS_CALL _Getcoll() const {
+        return ::_Getcoll();
+    }
+
+    _Ctypevec __CLR_OR_THIS_CALL _Getctype() const {
+        return ::_Getctype();
+    }
+
+    _Cvtvec __CLR_OR_THIS_CALL _Getcvt() const {
+        return ::_Getcvt();
+    }
+
+    const lconv* __CLR_OR_THIS_CALL _Getlconv() const {
+        return localeconv();
+    }
+
+    _Timevec __CLR_OR_THIS_CALL _Gettnames() const {
+        return _Timevec(::_Gettnames());
+    }
+
+    const char* __CLR_OR_THIS_CALL _Getdays() const {
+        const char* _Ptr = ::_Getdays();
+        if (_Ptr) { // capture names and free allocated C string
+            const_cast<_Locinfo*>(this)->_Days = _Ptr;
+            _CSTD free(const_cast<char*>(_Ptr));
+        }
+
+        return !_Days._Empty() ? _Days._C_str()
+                               : ":Sun:Sunday:Mon:Monday:Tue:Tuesday:Wed:Wednesday"
+                                 ":Thu:Thursday:Fri:Friday:Sat:Saturday";
+    }
+
+    const char* __CLR_OR_THIS_CALL _Getmonths() const {
+        const char* _Ptr = ::_Getmonths();
+        if (_Ptr) { // capture names and free allocated C string
+            const_cast<_Locinfo*>(this)->_Months = _Ptr;
+            _CSTD free(const_cast<char*>(_Ptr));
+        }
+
+        return !_Months._Empty() ? _Months._C_str()
+                                 : ":Jan:January:Feb:February:Mar:March"
+                                   ":Apr:April:May:May:Jun:June"
+                                   ":Jul:July:Aug:August:Sep:September"
+                                   ":Oct:October:Nov:November:Dec:December";
+    }
+
+    const char* __CLR_OR_THIS_CALL _Getfalse() const {
+        return "false";
+    }
+
+    const char* __CLR_OR_THIS_CALL _Gettrue() const {
+        return "true";
+    }
+
+    int __CLR_OR_THIS_CALL _Getdateorder() const {
+        return ::_Getdateorder();
+    }
+
+    _Timevec __CLR_OR_THIS_CALL _W_Gettnames() const {
+        return _Timevec(::_W_Gettnames());
+    }
+
+    const unsigned short* __CLR_OR_THIS_CALL _W_Getdays() const {
+        const wchar_t* _Ptr = ::_W_Getdays();
+        if (_Ptr) { // capture names and free allocated C string
+            const_cast<_Locinfo*>(this)->_W_Days = _Ptr;
+            _CSTD free(const_cast<wchar_t*>(_Ptr));
+        }
+
+        const wchar_t* _Ret;
+
+        if (_W_Days._Empty()) {
+            _Ret = L":Sun:Sunday:Mon:Monday:Tue:Tuesday:Wed:Wednesday:Thu:Thursday:Fri:Friday:Sat:Saturday";
+        } else {
+            _Ret = _W_Days._C_str();
+        }
+
+        return reinterpret_cast<const unsigned short*>(_Ret);
+    }
+
+    const unsigned short* __CLR_OR_THIS_CALL _W_Getmonths() const {
+        const wchar_t* _Ptr = ::_W_Getmonths();
+        if (_Ptr) { // capture names and free allocated C string
+            const_cast<_Locinfo*>(this)->_W_Months = _Ptr;
+            _CSTD free(const_cast<wchar_t*>(_Ptr));
+        }
+
+        const wchar_t* _Ret;
+
+        if (_W_Months._Empty()) {
+            _Ret = L":Jan:January:Feb:February:Mar:March:Apr:April:May:May:Jun:June"
+                   L":Jul:July:Aug:August:Sep:September:Oct:October:Nov:November:Dec:December";
+        } else {
+            _Ret = _W_Months._C_str();
+        }
+
+        return reinterpret_cast<const unsigned short*>(_Ret);
+    }
+
+    _Locinfo(const _Locinfo&)            = delete;
+    _Locinfo& operator=(const _Locinfo&) = delete;
+
+private:
+#ifdef _M_CEE_PURE
+    _EmptyLockit _Empty_lock; // to maintain same size
+#else // ^^^ defined(_M_CEE_PURE) / !defined(_M_CEE_PURE) vvv
+    _Lockit _Lock; // thread lock, because global locale is altered
+#endif // ^^^ !defined(_M_CEE_PURE) ^^^
+
+    _Yarn<char> _Days; // weekday names
+    _Yarn<char> _Months; // month names
+    _Yarn<wchar_t> _W_Days; // wide weekday names
+    _Yarn<wchar_t> _W_Months; // wide month names
+    _Yarn<char> _Oldlocname; // old locale name to revert to on destruction
+    _Yarn<char> _Newlocname; // new locale name for this object
+};
+
+template <class _Elem>
+int __CRTDECL _LStrcoll(const _Elem* _First1, const _Elem* _Last1, const _Elem* _First2, const _Elem* _Last2,
+    const _Locinfo::_Collvec*) { // perform locale-specific comparison of _Elem sequences
+    for (; _First1 != _Last1 && _First2 != _Last2; ++_First1, ++_First2) {
+        if (*_First1 < *_First2) {
+            return -1; // [_First1, _Last1) < [_First2, _Last2)
+        } else if (*_First2 < *_First1) {
+            return +1; // [_First1, _Last1) > [_First2, _Last2)
+        }
+    }
+
+    return _First2 != _Last2 ? -1 : _First1 != _Last1 ? +1 : 0;
+}
+
+template <>
+inline int __CRTDECL _LStrcoll(const char* _First1, const char* _Last1, const char* _First2, const char* _Last2,
+    const _Locinfo::_Collvec* _Vector) { // perform locale-specific comparison of char sequences
+    return _Strcoll(_First1, _Last1, _First2, _Last2, _Vector);
+}
+
+template <>
+inline int __CRTDECL _LStrcoll(const wchar_t* _First1, const wchar_t* _Last1, const wchar_t* _First2,
+    const wchar_t* _Last2,
+    const _Locinfo::_Collvec* _Vector) { // perform locale-specific comparison of wchar_t sequences
+    return _Wcscoll(_First1, _Last1, _First2, _Last2, _Vector);
+}
+
+template <class _Elem>
+size_t __CRTDECL _LStrxfrm(_Elem* _First1, _Elem* _Last1, const _Elem* _First2, const _Elem* _Last2,
+    const _Locinfo::_Collvec*) { // perform locale-specific transform of _Elems [_First1, _Last1)
+    const ptrdiff_t _Count = _Last2 - _First2;
+    if (_Count <= _Last1 - _First1) {
+        _CSTD memcpy(_First1, _First2, _Count * sizeof(_Elem));
+    }
+
+    return _Count;
+}
+
+template <>
+inline size_t __CRTDECL _LStrxfrm(_Out_writes_(_Last1 - _First1) _Post_readable_size_(return) char* _First1,
+    _In_z_ char* _Last1, const char* _First2, const char* _Last2,
+    const _Locinfo::_Collvec* _Vector) { // perform locale-specific transform of chars [_First1, _Last1)
+    return _Strxfrm(_First1, _Last1, _First2, _Last2, _Vector);
+}
+
+template <>
+inline size_t __CRTDECL _LStrxfrm(_Out_writes_(_Last1 - _First1) _Post_readable_size_(return) wchar_t* _First1,
+    _In_z_ wchar_t* _Last1, const wchar_t* _First2, const wchar_t* _Last2,
+    const _Locinfo::_Collvec* _Vector) { // perform locale-specific transform of wchar_ts [_First1, _Last1)
+    return _Wcsxfrm(_First1, _Last1, _First2, _Last2, _Vector);
+}
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _XLOCINFO_

@@ -1,0 +1,250 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			scpops.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+
+
+	REMOTED_INTERFACE(0c733ab0-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IScopedOperations : IBindResource
+{
+
+	typedef DWORD DBCOPYFLAGS;
+
+	enum DBCOPYFLAGSENUM {
+		DBCOPY_ASYNC				= 0x00000100,
+		DBCOPY_REPLACE_EXISTING 	= 0x00000200,
+		DBCOPY_ALLOW_EMULATION		= 0x00000400,
+		DBCOPY_NON_RECURSIVE		= 0x00000800,
+		DBCOPY_ATOMIC				= 0x00001000
+		};
+
+	typedef DWORD DBMOVEFLAGS;
+
+	enum DBMOVEFLAGSENUM {
+		DBMOVE_REPLACE_EXISTING 	= 0x00000001,
+		DBMOVE_ASYNC				= 0x00000100,
+		DBMOVE_DONT_UPDATE_LINKS	= 0x00000200,
+		DBMOVE_ALLOW_EMULATION		= 0x00000400,
+		DBMOVE_ATOMIC				= 0x00001000
+		};
+
+	typedef DWORD DBDELETEFLAGS;
+
+	enum DBDELETEFLAGSENUM {
+		DBDELETE_ASYNC				= 0x00000100,
+		DBDELETE_ATOMIC 			= 0x00001000
+		};
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT Copy(
+	[in]								DBCOUNTITEM		cRows,
+	[in, size_is((ULONG)cRows), annotation("_In_reads_opt_(cRows)")] LPCOLESTR	rgpwszSourceURLs[],
+	[in, size_is((ULONG)cRows), annotation("_In_reads_(cRows)")] LPCOLESTR	rgpwszDestURLs[],
+	[in] DWORD dwCopyFlags,
+	[in, unique, annotation("_In_")] IAuthenticate*	pAuthenticate,
+	[in, out, size_is((ULONG)cRows), annotation("_Out_writes_(cRows)")] DBSTATUS 	rgdwStatus[],
+	[out, size_is((ULONG)cRows), annotation("_Out_writes_opt_(cRows)")] LPOLESTR	rgpwszNewURLs[],
+	[out, annotation("_Outptr_result_maybenull_z_")] OLECHAR **ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(Copy)]
+	HRESULT RemoteCopy(
+		[in] 							DBCOUNTITEM 	cRows,
+		[in, size_is((ULONG)cRows)]		LPCOLESTR * 	rgpwszSourceURLs,
+		[in, size_is((ULONG)cRows)]		LPCOLESTR * 	rgpwszDestURLs,
+		[in]							DWORD			dwCopyFlags,
+		[in]							IAuthenticate * pAuthenticate,
+		[out, size_is((ULONG)cRows)]	DBSTATUS * 		rgdwStatus,
+		[out, size_is(,(ULONG)cRows)]	DBBYTEOFFSET ** prgulNewURLOffsets,
+		[in, out]						ULONG * 		pcbStringsBuffer,
+		[in, out, unique, size_is(,*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer
+	);
+
+#endif
+
+	[local]
+	HRESULT Move(
+	[in]									DBCOUNTITEM 	cRows,
+	[in, size_is((ULONG)cRows), annotation("_In_reads_opt_(cRows)")] LPCOLESTR		rgpwszSourceURLs[],
+	[in, size_is((ULONG)cRows), annotation("_In_reads_(cRows)")] LPCOLESTR		rgpwszDestURLs[],
+	[in]DWORD	dwMoveFlags,
+	[in, unique, annotation("_In_")]	IAuthenticate*	pAuthenticate,
+	[in, out, size_is((ULONG)cRows), annotation("_Out_writes_(cRows)")]	DBSTATUS 		rgdwStatus[],
+	[out, size_is((ULONG)cRows), annotation("_Out_writes_opt_(cRows)")] LPOLESTR		rgpwszNewURLs[],
+	[out, annotation("_Outptr_result_maybenull_z_")]	OLECHAR		**ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(Move)]
+	HRESULT RemoteMove(
+		[in] DBCOUNTITEM cRows,
+		[in, size_is((ULONG)cRows)]		LPCOLESTR *			rgpwszSourceURLs,
+		[in, size_is((ULONG)cRows)]		LPCOLESTR *			rgpwszDestURLs,
+		[in] 							DWORD 				dwMoveFlags,
+		[in] 							IAuthenticate *		pAuthenticate,
+		[out, size_is((ULONG)cRows)]	DBSTATUS * 			rgdwStatus,
+		[out, size_is(,(ULONG)cRows)]	DBBYTEOFFSET **		prgulNewURLOffsets,
+		[in, out]						ULONG * 			pcbStringsBuffer,
+		[in, out, unique, size_is(,*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer
+	);
+
+#endif
+
+	[local]
+	HRESULT Delete (
+	[in] DBCOUNTITEM 	cRows,
+	[in, size_is((ULONG)cRows), annotation("_In_reads_(cRows)")] LPCOLESTR		rgpwszURLs[],
+	[in] DWORD			dwDeleteFlags,
+	[in, out, size_is((ULONG)cRows), annotation("_Out_writes_(cRows)")] DBSTATUS		rgdwStatus[]
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(Delete)]
+	HRESULT RemoteDelete(
+		[in] DBCOUNTITEM cRows,
+		[in, size_is((ULONG)cRows)] LPCOLESTR * rgpwszURLs,
+		[in] DWORD dwDeleteFlags,
+		[out, size_is((ULONG)cRows)] DBSTATUS * rgdwStatus
+		);
+
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT Copy(
+	[in] DBCOUNTITEM		cRows,
+	[in, size_is(cRows), annotation("_In_reads_opt_(cRows)")] LPCOLESTR		rgpwszSourceURLs[],
+	[in, size_is(cRows), annotation("_In_reads_(cRows)")] LPCOLESTR		rgpwszDestURLs[],
+	[in]								DWORD			dwCopyFlags,
+	[in, unique, annotation("_In_opt_")]						IAuthenticate*	pAuthenticate,
+	[in, out, size_is(cRows), annotation("_Out_writes_(cRows)")]	DBSTATUS 		rgdwStatus[],
+	[out, size_is(cRows), annotation("_Out_writes_opt_(cRows)")] LPOLESTR		rgpwszNewURLs[],
+	[out, annotation("_Outptr_result_maybenull_z_")] OLECHAR			**ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(Copy)]
+	HRESULT RemoteCopy(
+		[in] 							DBCOUNTITEM 	cRows,
+		[in, size_is(cRows)]		LPCOLESTR * 	rgpwszSourceURLs,
+		[in, size_is(cRows)]		LPCOLESTR * 	rgpwszDestURLs,
+		[in]							DWORD			dwCopyFlags,
+		[in]							IAuthenticate * pAuthenticate,
+		[out, size_is(cRows)]	DBSTATUS * 		rgdwStatus,
+		[out, size_is(,cRows)]	DBBYTEOFFSET ** prgulNewURLOffsets,
+		[in, out]						ULONG * 		pcbStringsBuffer,
+		[in, out, unique, size_is(,*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer
+	);
+
+#endif
+
+	[local]
+	HRESULT Move(
+	[in]									DBCOUNTITEM 	cRows,
+	[in, size_is(cRows), annotation("_In_reads_opt_(cRows)")]		LPCOLESTR		rgpwszSourceURLs[],
+	[in, size_is(cRows), annotation("_In_reads_(cRows)")]		LPCOLESTR		rgpwszDestURLs[],
+	[in] DWORD	dwMoveFlags,
+	[in, unique, annotation("_In_opt_")]	IAuthenticate*	pAuthenticate,
+	[in, out, size_is(cRows), annotation("_Out_writes_(cRows)")]		DBSTATUS 		rgdwStatus[],
+	[out, size_is(cRows), annotation("_Out_writes_opt_(cRows)")]	LPOLESTR		rgpwszNewURLs[],
+	[out, annotation("_Outptr_result_maybenull_z_")]	OLECHAR			**ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(Move)]
+	HRESULT RemoteMove(
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows)]		LPCOLESTR *			rgpwszSourceURLs,
+		[in, size_is(cRows)]		LPCOLESTR *			rgpwszDestURLs,
+		[in] 							DWORD 				dwMoveFlags,
+		[in] 							IAuthenticate *		pAuthenticate,
+		[out, size_is(cRows)]	DBSTATUS * 			rgdwStatus,
+		[out, size_is(,cRows)]	DBBYTEOFFSET **		prgulNewURLOffsets,
+		[in, out]						ULONG * 			pcbStringsBuffer,
+		[in, out, unique, size_is(,*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer
+	);
+
+#endif
+
+	[local]
+	HRESULT Delete (
+	[in] DBCOUNTITEM 	cRows,
+	[in, size_is(cRows), annotation("_In_reads_(cRows)")]	LPCOLESTR	rgpwszURLs[],
+	[in] DWORD			dwDeleteFlags,
+	[in, out, size_is(cRows), annotation("_Out_writes_(cRows)")] DBSTATUS	rgdwStatus[]
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(Delete)]
+	HRESULT RemoteDelete(
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows)] LPCOLESTR * rgpwszURLs,
+		[in] DWORD dwDeleteFlags,
+		[out, size_is(cRows)] DBSTATUS * rgdwStatus
+		);
+
+#endif
+
+#endif
+
+	[local]
+	HRESULT OpenRowset(
+	[in, annotation("_In_opt_")]	IUnknown		*pUnkOuter,
+	[in, unique, annotation("_In_opt_")]	DBID			*pTableID,
+	[in, unique, annotation("_In_opt_")]	DBID			*pIndexID,
+	[in] REFIID	riid,
+	[in] ULONG	cPropertySets,
+	[in, out, size_is(cPropertySets), annotation("_Inout_updates_(cPropertySets)")] DBPROPSET		rgPropertySets[],
+	[out, iid_is(riid), annotation("_Out_opt_")]				IUnknown		**ppRowset
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(OpenRowset)]
+	HRESULT RemoteOpenRowset(
+		[in] IUnknown * pUnkOuter,
+		[in, unique] DBID * pTableID,
+		[in, unique] DBID * pIndexID,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[in, out, unique, iid_is(riid)] IUnknown ** ppRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus
+	);
+#endif
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

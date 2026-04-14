@@ -1,0 +1,46 @@
+//-----------------------------------------------------------------------------
+//
+// @copyright   (C) COPYRIGHT MICROSOFT CORPORATION
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(d130490f-40b0-4652-880c-5aed138d73bd),
+#ifdef __midl
+        ms_union,
+#endif // __midl
+    version(0.0)
+]
+
+
+//
+// Interface Keyword
+//
+
+interface PortableDeviceConnect_Imports
+
+{
+
+#define MIDL_PASS
+#define UNICODE
+
+#include "PortableDeviceConnectImports.h"
+
+//
+// All .idl files need to contain at least one function prototype
+//
+
+DWORD
+Unused(
+    [in]    DWORD   UnusedParm
+    );
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

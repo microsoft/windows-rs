@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/deployment/windows10/3"
+           xmlns="http://schemas.microsoft.com/appx/manifest/deployment/windows10/3"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:deployment3="http://schemas.microsoft.com/appx/manifest/deployment/windows10/3"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="1">
+        <xs:element name="DeploymentStateHandler" type="CT_DeploymentStateHandler" />
+        <xs:element name="PackagingExtension" type="CT_PackagingExtension" />
+        <xs:element name="SipExtension" type="CT_SipExtension" />
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Deployment3" use="required"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_DeploymentStateHandler">
+    <xs:all>
+      <xs:element name="Files">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="File" type="t:ST_DllFile" minOccurs="1" maxOccurs="1000"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="CT_PackagingExtension">
+    <xs:sequence>
+      <xs:element name="SupportedInterface" minOccurs="1" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Iid" type="t:ST_GUID" use="required" />
+          <xs:attribute name="Version" type="t:ST_VersionQuad" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="DllPath" type="t:ST_DllFile" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="CT_SipExtension">
+    <xs:sequence>
+      <xs:element name="SupportedFileType" minOccurs="1" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="FileType" type="t:ST_FileType" use="required" />
+          <xs:attribute name="Version" type="t:ST_VersionQuad" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="DllPath" type="t:ST_DllFile" use="required" />
+  </xs:complexType>
+
+</xs:schema>
+

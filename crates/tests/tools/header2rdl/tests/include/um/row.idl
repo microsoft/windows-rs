@@ -1,0 +1,54 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			row.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+
+LOCAL_INTERFACE(0c733ab4-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IRow : IUnknown
+{
+[local] HRESULT GetColumns(
+    [in]                            DBORDINAL           cColumns,
+    [in, out, size_is(cColumns), annotation("_Inout_updates_(cColumns)")]    DBCOLUMNACCESS  rgColumns[]
+    );
+
+HRESULT	GetSourceRowset(
+	[in, annotation("_In_")]                            REFIID		    riid,
+	[out, iid_is(riid), annotation("_Outptr_opt_result_maybenull_")]             IUnknown**      ppRowset,
+	[out, annotation("_Out_opt_")]							HROW*			phRow	
+    );
+
+
+HRESULT Open(
+	[in, unique, annotation("_In_opt_")]                    IUnknown*       pUnkOuter,
+	[in, annotation("_In_")]                            DBID*		    pColumnID,
+	[in, annotation("_In_")]                            REFGUID		    rguidColumnType,
+	[in]                            DWORD		    dwBindFlags,
+	[in, annotation("_In_")]                            REFIID		    riid,
+	[out, iid_is(riid), annotation("_Outptr_opt_")]             IUnknown**      ppUnk
+    );
+};
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

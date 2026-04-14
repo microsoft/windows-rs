@@ -1,0 +1,357 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  Component: WSDAPI - Microsoft Web Services for Devices API
+// 
+//  File: wsddisco.idl
+//
+//  Abstract: Discovery interface definitions and typedefs for WSDAPI
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "objidl.idl";
+import "wsdxmldom.h";
+import "wsdtypes.h";
+
+//
+// Dependencies
+//
+interface IWSDXMLContext;
+
+//
+// Forward definitions
+//
+interface IWSDiscoveryProvider;
+interface IWSDiscoveryProviderNotify;
+interface IWSDiscoveredService;
+interface IWSDiscoveryPublisher;
+interface IWSDiscoveryPublisherNotify;
+interface IWSDScopeMatchingRule;
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDiscoveryProvider(")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _Outptr_ IWSDiscoveryProvider** ppProvider);")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDiscoveryProvider2(")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _In_reads_opt_(dwConfigParamCount) WSD_CONFIG_PARAM* pConfigParams,")
+cpp_quote("    DWORD dwConfigParamCount,")
+cpp_quote("    _Outptr_ IWSDiscoveryProvider** ppProvider);")
+cpp_quote("#endif")
+
+
+//+-------------------------------------------------------------------------
+//  IWSDiscoveryProvider Interface
+//  Description: Defines the behavior of the discovery provider
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(8FFC8E55-F0EB-480F-88B7-B435DD281D45),
+    helpstring("IWSDiscoveryProvider Interface"),
+    pointer_default(unique),
+    restricted,
+	local
+]
+interface IWSDiscoveryProvider : IUnknown
+{
+    HRESULT SetAddressFamily(
+        [in] DWORD dwAddressFamily);
+    
+    HRESULT Attach(
+        [in] IWSDiscoveryProviderNotify* pSink);
+
+    HRESULT Detach();
+
+    HRESULT SearchById(
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszTag);
+
+    HRESULT SearchByAddress(
+        [in, annotation("_In_")] LPCWSTR pszAddress,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszTag);
+
+    HRESULT SearchByType(
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszMatchBy,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszTag);
+
+    HRESULT GetXMLContext(
+        [out, annotation("_Outptr_")] IWSDXMLContext** ppContext);
+} 
+
+//+-------------------------------------------------------------------------
+//  IWSDiscoveryProviderNotify Interface
+//  Description: Defines the behavior of the sink attached to 
+//               the discovery provider
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(73ee3ced-b6e6-4329-a546-3e8ad46563d2),
+    helpstring("IWSDiscoveryProviderNotify Interface"),
+    pointer_default(unique),
+    restricted,    
+    local
+]
+interface IWSDiscoveryProviderNotify : IUnknown
+{
+    HRESULT Add(
+       [in] IWSDiscoveredService* pService);
+
+    HRESULT Remove(
+        [in] IWSDiscoveredService* pService);
+
+    HRESULT SearchFailed(
+        [in] HRESULT hr,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszTag);
+
+    HRESULT SearchComplete(
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszTag);
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDiscoveredService Interface
+//  Description: Encapsulates information about a discovered service
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(4BAD8A3B-B374-4420-9632-AAC945B374AA),
+    helpstring("IWSDiscoveredService Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDiscoveredService : IUnknown
+{
+    HRESULT GetEndpointReference(
+        [out, annotation("_Outptr_")] WSD_ENDPOINT_REFERENCE** ppEndpointReference); // Note: Do not deallocate ppEndpointReference
+
+    HRESULT GetTypes(
+        [out, annotation("_Outptr_")] WSD_NAME_LIST** ppTypesList); // Note: Do not deallocate ppTypesList
+
+    HRESULT GetScopes(
+        [out, annotation("_Outptr_")] WSD_URI_LIST** ppScopesList); // Note: Do not deallocate ppScopesList
+
+    HRESULT GetXAddrs(
+        [out, annotation("_Outptr_")] WSD_URI_LIST** ppXAddrsList); // Note: Do not deallocate ppXAddrsList
+
+    HRESULT GetMetadataVersion(
+        [out, annotation("_Out_")] ULONGLONG* pullMetadataVersion);
+
+    HRESULT GetExtendedDiscoXML(
+        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppHeaderAny, // Note: Do not deallocate ppHeaderAny 
+        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppBodyAny); // Note: Do not deallocate ppBodyAny
+        
+    HRESULT GetProbeResolveTag(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszTag); // Note: Do not deallocate ppszTag
+
+    HRESULT GetRemoteTransportAddress(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszRemoteTransportAddress); // Note: Do not deallocate ppszRemoteTransportAddress
+
+    HRESULT GetLocalTransportAddress(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszLocalTransportAddress); // Note: Do not deallocate ppszLocalTransportAddress
+
+    HRESULT GetLocalInterfaceGUID(
+        [out, annotation("_Out_")] GUID* pGuid);
+
+    HRESULT GetInstanceId(
+        [out, annotation("_Out_")] ULONGLONG* pullInstanceId);
+}
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDiscoveryPublisher(")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _Outptr_ IWSDiscoveryPublisher** ppPublisher);")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDiscoveryPublisher2(")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _In_reads_opt_(dwConfigParamCount) WSD_CONFIG_PARAM* pConfigParams,")
+cpp_quote("    DWORD dwConfigParamCount,")
+cpp_quote("    _Outptr_ IWSDiscoveryPublisher** ppPublisher);")
+cpp_quote("#endif")
+
+//+-------------------------------------------------------------------------
+//  IWSDiscoveryPublisher Interface
+//  Description: Defines the behavior of the discovery publisher
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(AE01E1A8-3FF9-4148-8116-057CC616FE13),
+    helpstring("IWSDiscoveryPublisher Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDiscoveryPublisher : IUnknown
+{
+    HRESULT SetAddressFamily(
+        [in] DWORD dwAddressFamily);
+        
+    HRESULT RegisterNotificationSink(
+        [in] IWSDiscoveryPublisherNotify* pSink);
+        
+    HRESULT UnRegisterNotificationSink(
+        [in] IWSDiscoveryPublisherNotify* pSink);
+        
+    HRESULT Publish(
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullMetadataVersion,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pXAddrsList);
+        
+    HRESULT UnPublish(
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pAny);
+        
+    HRESULT MatchProbe(
+        [in] const WSD_SOAP_MESSAGE* pProbeMessage,
+        [in] IWSDMessageParameters* pMessageParameters,
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullMetadataVersion,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pXAddrsList);
+        
+    HRESULT MatchResolve(
+        [in] const WSD_SOAP_MESSAGE* pResolveMessage,
+        [in] IWSDMessageParameters* pMessageParameters,
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullMetadataVersion,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pXAddrsList);        
+
+    HRESULT PublishEx(
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullMetadataVersion,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pXAddrsList,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pHeaderAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pReferenceParameterAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pPolicyAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pEndpointReferenceAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pAny);
+
+    HRESULT MatchProbeEx(
+        [in] const WSD_SOAP_MESSAGE* pProbeMessage,
+        [in] IWSDMessageParameters* pMessageParameters,
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullMetadataVersion,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pXAddrsList,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pHeaderAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pReferenceParameterAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pPolicyAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pEndpointReferenceAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pAny);
+
+    HRESULT MatchResolveEx(
+        [in] const WSD_SOAP_MESSAGE* pResolveMessage,
+        [in] IWSDMessageParameters* pMessageParameters,
+        [in, annotation("_In_")] LPCWSTR pszId,
+        [in] ULONGLONG ullMetadataVersion,
+        [in] ULONGLONG ullInstanceId,
+        [in] ULONGLONG ullMessageNumber,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszSessionId,
+        [in, optional, annotation("_In_opt_")] const WSD_NAME_LIST* pTypesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pScopesList,
+        [in, optional, annotation("_In_opt_")] const WSD_URI_LIST* pXAddrsList,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pHeaderAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pReferenceParameterAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pPolicyAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pEndpointReferenceAny,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pAny);
+        
+    HRESULT RegisterScopeMatchingRule(
+        [in] IWSDScopeMatchingRule* pScopeMatchingRule);
+        
+    HRESULT UnRegisterScopeMatchingRule(
+        [in] IWSDScopeMatchingRule* pScopeMatchingRule);
+
+    HRESULT GetXMLContext(
+        [out, annotation("_Outptr_")] IWSDXMLContext** ppContext);
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDiscoveryPublisherNotify Interface
+//  Description: Defines the behavior of the sink attached to the 
+//               discovery publisher
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(e67651b0-337a-4b3c-9758-733388568251),
+    helpstring("IWSDiscoveryPublisherNotify Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDiscoveryPublisherNotify : IUnknown
+{
+    HRESULT ProbeHandler(
+        [in] const WSD_SOAP_MESSAGE* pSoap,
+        [in] IWSDMessageParameters* pMessageParameters);
+
+    HRESULT ResolveHandler(
+        [in] const WSD_SOAP_MESSAGE* pSoap,
+        [in] IWSDMessageParameters* pMessageParameters);
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDScopeMatchingRule Interface
+//  Description: Defines an interface for new scope matching rules
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(fcafe424-fef5-481a-bd9f-33ce0574256f),
+    helpstring("IWSDScopeMatchingRule Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDScopeMatchingRule : IUnknown
+{
+    HRESULT GetScopeRule(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszScopeMatchingRule); // Note: Implementor must allocate with WSDAllocateLinkedMemory & caller must release with WSDFreeLinkedMemory
+    
+    HRESULT MatchScopes(
+        [in, annotation("_In_")] LPCWSTR pszScope1,
+        [in, annotation("_In_")] LPCWSTR pszScope2,
+        [out, annotation("_Out_")] BOOL* pfMatch);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

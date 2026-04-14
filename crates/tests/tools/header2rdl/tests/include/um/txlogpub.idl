@@ -1,0 +1,191 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: txlogpub.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+#endif
+
+/****************************************************************************
+ *  Logging Interfaces
+ ****************************************************************************/
+
+interface ILog;
+interface IFileBasedLogInit;
+
+
+
+cpp_quote("// LSN")
+cpp_quote("// LSN is the fundamental cookie returned from the log as the name of a")
+cpp_quote("// newly-written  log record. LSNs from successively written records to a")
+cpp_quote("// given log are always monotonically increasing. LSNs are directly")
+cpp_quote("// comparable: lsn2 is later in the log than lsn1 if and only if as integers")
+cpp_quote("// lsn2 > lsn1.")
+cpp_quote("//")
+cpp_quote("// Neither the value zero nor the value MAXLSN are ever used as the value of")
+cpp_quote("// an actual LSN.")
+cpp_quote("")
+
+typedef LARGE_INTEGER LSN;
+
+cpp_quote("#define MAXLSN (0x7FFFFFFFFFFFFFFF)")
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// RECORD_READING_POLICY")
+cpp_quote("// The RECORD_READING_POLICY enumeration values specify a hint about the")
+cpp_quote("// order in which records will be read from a log.  It is used by")
+cpp_quote("// ILog::SetAccessPolicyHint.")
+cpp_quote("")
+
+typedef enum RECORD_READING_POLICY
+{
+    RECORD_READING_POLICY_FORWARD = 1,
+    RECORD_READING_POLICY_BACKWARD = 2,
+    RECORD_READING_POLICY_RANDOM = 3,
+} RECORD_READING_POLICY;
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// ILog")
+cpp_quote("// An interface to the lowest level of a log implementation. This level")
+cpp_quote("// takes care of writing the records to disk in a stable manner. Recovery")
+cpp_quote("// protocols, transaction awareness, and the like are provided by a higher")
+cpp_quote("// semantic level.")
+
+[
+    object,
+    uuid(FF222117-0C6C-11d2-B89A-00C04FB9618A),
+    pointer_default(unique)
+]
+
+interface ILog : IUnknown
+{
+    // Force to disk the contents of the log at least up through the
+    // indicated LSN. Passing zero as the LSN indicates the entire log is to
+    // be forced to disk.
+    HRESULT Force(
+        [in]             LSN lsnMinToForce
+        );
+
+
+    // Write a new record to the end of the log. Returns the LSN of the new
+    // record.  The data to be written can be provided in one or more pieces
+    // as an array of BLOBs.  The actual record data written is the
+    // concatenation of all these pieces.
+    HRESULT AppendRecord(
+        [in,size_is(cBlob)]
+                         BLOB* rgBlob,
+        [in]             ULONG cBlob,
+        [in]             BOOL fForceNow,
+        [out,in,unique]  LSN* plsn
+        );
+
+
+    // Read a record from the log. A pointer to the read data is returned;
+    // if data is successfully returned, it is the responsibility of the
+    // caller to free the memory using CoTaskMemFree.
+    HRESULT ReadRecord(
+        [in]             LSN lsnToRead,
+        [out,in,unique]  LSN* plsnPrev,
+        [out,in,unique]  LSN* plsnNext,
+        [out,size_is(,*pcbData)]
+                         BYTE** ppbData,
+        [out]            ULONG* pcbData
+        );
+
+
+    // Read in an initial part of a record from the log. The caller provides a
+    // buffer in which to place the data, and that buffer is filled with as
+    // much of the contents of the requested record as will fit in the buffer.
+    HRESULT ReadRecordPrefix(
+        [in]             LSN lsnToRead,
+        [out,in,unique]  LSN* plsnPrev,
+        [out,in,unique]  LSN* plsnNext,
+        [out,size_is(*pcbData)]
+                         BYTE* pbData,
+        [in,out]         ULONG* pcbData,
+        [out]            ULONG* pcbRecord
+        );
+
+
+    // Return information about the presently valid bounds of the log.  Note
+    // that this potentially returns results that include un-forced data.
+    HRESULT GetLogLimits(
+        [out,in,unique]  LSN* plsnFirst,
+        [out, in,unique] LSN* plsnLast
+        );
+
+
+    // Throw away a prefix of the log, making it no longer retrievable.  Note
+    // that this is request is only a hint to the log implementation. The log
+    // is free to ignore the request, or to retain more than was strictly
+    // requested. Many log implementations will in fact choose this latter option.
+    HRESULT TruncatePrefix(
+        [in]             LSN lsnFirstToKeep
+        );
+
+
+    // Provide a hint to the implementation as to the pattern in which records
+    // will be read. The implementation can hopefully use this to optimize the
+    // manner in which it reads records from the disk.
+    HRESULT SetAccessPolicyHint(
+        [in]             RECORD_READING_POLICY policy
+        );
+
+};
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// IFileBasedLogInit")
+cpp_quote("// An interface used to initialize an instance of a file based implementation of")
+cpp_quote("// ILog.  This interface defines the single method InitNew, which is used to")
+cpp_quote("// create a log on a new log file.  Objects that implement IFileBasedLogInit")
+cpp_quote("// should also implement IPersistFile, to allow existing log files to be opened.")
+
+[
+    object,
+    uuid(00951E8C-1294-11d1-97E4-00C04FB9618A),
+    pointer_default(unique)
+]
+
+interface IFileBasedLogInit : IUnknown
+{
+
+    // Create a new log instance on the specified file.  If a file with that name already
+    // exists, it is overwritten.
+    HRESULT InitNew(
+        [in]             LPCWSTR filename,
+        [in]             ULONG cbCapacityHint
+        );
+
+};
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("EXTERN_C const CLSID CLSID_SimpleFileBasedLog;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

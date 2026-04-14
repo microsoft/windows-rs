@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://schemas.microsoft.com/appx/makeappx/2017"
+  xmlns="http://schemas.microsoft.com/appx/makeappx/2017"
+  xmlns:m="http://schemas.microsoft.com/appx/makeappx/2017"
+  xmlns:t="http://schemas.microsoft.com/appx/manifest/types">
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+
+  <xs:element name="PackagingLayout">
+    <xs:complexType>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="PackageFamily" type="CT_PackageFamily"/>
+        <xs:element name="PrebuiltPackage" type="CT_PrebuiltPackage"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_PackageFamily">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="Package" type="CT_Package"/>
+      <xs:element name="AssetPackage" type="CT_AssetPackage"/>
+      <xs:element name="ResourcePackage" type="CT_ResourcePackage"/>
+    </xs:choice>
+    <xs:attribute name="ID" type="t:ST_ResourceId" use="required"/>
+    <xs:attribute name="ManifestPath" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="FileName" type="t:ST_FileNameSegment" use="optional"/>
+    <xs:attribute name="RelatedSet" type="xs:boolean" use="optional" default="true"/>
+    <xs:attribute name="Optional" type="xs:boolean" use="optional" default="false"/>
+    <xs:attribute name="FlatBundle" type="xs:boolean" use="optional" default="true"/>
+    <xs:attribute name="Encrypt" type="xs:boolean" use="optional" default="false"/>
+    <xs:attribute name="ResourceManager" type="xs:boolean" use="optional" default="true"/>
+  </xs:complexType>
+
+  <xs:attributeGroup name="GeneralPackageAttributes">
+    <xs:attribute name="ID" type="t:ST_ResourceId" use="required"/>
+    <xs:attribute name="ManifestPath" type="t:ST_NonEmptyString" use="optional"/>
+    <xs:attribute name="FileName" type="t:ST_FileNameSegment" use="optional"/>
+    <xs:attribute name="Compress" type="xs:boolean" use="optional" default="true"/>
+    <xs:attribute name="Encrypt" type="xs:boolean" use="optional" default="false"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="CT_Package">
+    <xs:all>
+      <xs:element name="Files" type="CT_Files" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Resources" type="CT_Resources" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+    <xs:attributeGroup ref="GeneralPackageAttributes"/>
+    <xs:attribute name="ProcessorArchitecture" type="t:ST_ArchitectureUnrestricted" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AssetPackage">
+    <xs:all>
+      <xs:element name="Files" type="CT_Files" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+    <xs:attributeGroup ref="GeneralPackageAttributes"/>
+    <xs:attribute name="AllowExecution" type="xs:boolean" use="optional" default="false"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ResourcePackage">
+    <xs:all>
+      <xs:element name="Files" type="CT_Files" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Resources" type="CT_Resources" minOccurs="1" maxOccurs="1"/>
+    </xs:all>
+    <xs:attributeGroup ref="GeneralPackageAttributes"/>
+    <xs:attribute name="AllowExecution" type="xs:boolean" use="optional" default="false"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Files">
+    <xs:sequence>
+      <xs:element name="File" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="SourcePath" type="t:ST_NonEmptyString" use="optional"/>
+          <xs:attribute name="DestinationPath" type="t:ST_NonEmptyString" use="optional"/>
+          <xs:attribute name="ExcludePath" type="t:ST_NonEmptyString" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Resources">
+    <xs:sequence>
+      <xs:element name="Resource" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="Language" type="xs:language" use="optional"/>
+          <xs:attribute name="Scale" type="t:ST_Scale_All" use="optional"/>
+          <xs:attribute name="DXFeatureLevel" type="t:ST_DXFeatureLevel" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="xs:boolean" use="optional" default="false"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_PrebuiltPackage">
+    <xs:attribute name="Path" type="t:ST_NonEmptyString" use="required"/>
+  </xs:complexType>
+
+</xs:schema>

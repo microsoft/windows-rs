@@ -1,0 +1,53 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstbmrk.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733ac2-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IRowsetBookmark : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT PositionOnBookmark(
+		[in] HCHAPTER hChapter,
+		[in] DBBKMARK cbBookmark,
+		[in, size_is((ULONG)cbBookmark), annotation("_In_reads_bytes_(cbBookmark)")]  const BYTE * pBookmark
+	);
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT PositionOnBookmark(
+		[in] HCHAPTER hChapter,
+		[in] DBBKMARK cbBookmark,
+		[in, size_is(cbBookmark), annotation("_In_reads_bytes_(cbBookmark)")]  const BYTE * pBookmark
+	);
+	
+#endif
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

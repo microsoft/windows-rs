@@ -1,0 +1,128 @@
+/*++
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Module Name:
+
+    font.dlg
+
+Abstract:
+
+    This module contains the resource descriptions for the Win32
+    font common dialogs.
+
+Revision History:
+
+--*/
+
+
+
+//
+//  Font Dialogs.
+//
+
+FORMATDLGORD31 DIALOG 13, 54, 287, 196
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU |
+      DS_3DLOOK
+CAPTION "Font"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "&Font:", stc1, 7, 7, 40, 9
+    COMBOBOX        cmb1, 7, 16, 98, 76,
+                    CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL |
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP | CBS_HASSTRINGS |
+                    CBS_OWNERDRAWFIXED
+
+    LTEXT           "Font st&yle:", stc2, 110, 7, 44, 9
+    COMBOBOX        cmb2, 110, 16, 74, 76,
+                    CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP | CBS_HASSTRINGS | 
+                    CBS_OWNERDRAWFIXED
+
+    LTEXT           "&Size:", stc3, 189, 7, 30, 9
+    COMBOBOX        cmb3, 190, 16, 36, 76,
+                    CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL |
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP | CBS_HASSTRINGS |
+                    CBS_OWNERDRAWFIXED
+
+    GROUPBOX        "Effects", grp1, 7, 97, 98, 72, WS_GROUP
+    AUTOCHECKBOX    "Stri&keout", chx1, 13, 110, 49, 10, WS_TABSTOP
+    AUTOCHECKBOX    "&Underline", chx2, 13, 123, 51, 10
+
+    LTEXT           "&Color:", stc4, 13, 136, 30, 9
+    COMBOBOX        cmb4, 13, 146, 82, 100,
+                    CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL |
+                    CBS_HASSTRINGS | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+
+    GROUPBOX        "Sample", grp2, 110, 97, 116, 43, WS_GROUP
+    CTEXT           "AaBbYyZz", stc5, 118, 111, 100, 23,
+                    SS_NOPREFIX | NOT WS_VISIBLE
+    LTEXT           "", stc6, 7, 172, 219, 20, SS_NOPREFIX | NOT WS_GROUP
+
+    LTEXT           "Sc&ript:", stc7, 110, 147, 30, 9
+    COMBOBOX        cmb5, 110, 157, 116, 30, CBS_DROPDOWNLIST |
+                    CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS |
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+
+    DEFPUSHBUTTON   "OK", IDOK, 231, 16, 45, 14, WS_GROUP
+    PUSHBUTTON      "Cancel", IDCANCEL, 231, 32, 45, 14, WS_GROUP
+    PUSHBUTTON      "&Apply", psh3, 231, 48, 45, 14, WS_GROUP
+    PUSHBUTTON      "&Help", pshHelp, 231, 64, 45, 14, WS_GROUP
+
+END
+
+//
+// New Font Dialog with Syslink
+//
+NEWFORMATDLGWITHLINK DIALOG 13, 54, 243, 234
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU |
+      DS_3DLOOK
+CAPTION "Font"
+FONT 9, "Segoe UI"
+BEGIN
+    LTEXT           "&Font:", stc1, 7, 7, 98, 9
+    COMBOBOX        cmb1, 7, 16, 98, 76,
+                    CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL |
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP | CBS_HASSTRINGS |
+                    CBS_OWNERDRAWFIXED
+
+    LTEXT           "Font st&yle:", stc2, 114, 7, 74, 9
+    COMBOBOX        cmb2, 114, 16, 74, 76,
+                    CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL |
+                    WS_VSCROLL | WS_TABSTOP | CBS_HASSTRINGS |
+                    CBS_OWNERDRAWFIXED
+
+    LTEXT           "&Size:", stc3, 198, 7, 36, 9
+    COMBOBOX        cmb3, 198, 16, 36, 76,
+                    CBS_SIMPLE | CBS_AUTOHSCROLL | CBS_DISABLENOSCROLL |
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP | CBS_HASSTRINGS |
+                    CBS_OWNERDRAWFIXED
+
+    GROUPBOX        "Effects", grp1, 7, 97, 98, 76, WS_GROUP
+    AUTOCHECKBOX    "Stri&keout", chx1, 13, 111, 90, 10, WS_TABSTOP
+    AUTOCHECKBOX    "&Underline", chx2, 13, 127, 90, 10
+
+    LTEXT           "&Color:", stc4, 13, 144, 89, 9
+    COMBOBOX        cmb4, 13, 155, 85, 100,
+                    CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL |
+                    CBS_HASSTRINGS | WS_BORDER | WS_VSCROLL | WS_TABSTOP
+
+    GROUPBOX        "Sample", grp2, 114, 97, 120, 43, WS_GROUP
+    CTEXT           "AaBbYyZz", stc5, 116, 106, 117, 33,
+                    SS_NOPREFIX | NOT WS_VISIBLE
+    LTEXT           "", stc6, 7, 178, 227, 20, SS_NOPREFIX | NOT WS_GROUP
+
+    LTEXT           "Sc&ript:", stc7, 114, 145, 118, 9
+    COMBOBOX        cmb5, 114, 155, 120, 30, CBS_DROPDOWNLIST |
+                    CBS_OWNERDRAWFIXED | CBS_AUTOHSCROLL | CBS_HASSTRINGS |
+                    WS_BORDER | WS_VSCROLL | WS_TABSTOP
+    
+    CONTROL         "<A>Show more fonts</A>", IDC_MANAGE_LINK, "SysLink", 
+                    WS_TABSTOP, 7, 199, 227, 9 
+
+    DEFPUSHBUTTON   "OK", IDOK, 141, 215, 45, 14, WS_GROUP
+    PUSHBUTTON      "Cancel", IDCANCEL, 190, 215, 45, 14, WS_GROUP
+    PUSHBUTTON      "&Apply", psh3, 92, 215, 45, 14, WS_GROUP
+    PUSHBUTTON      "&Help", pshHelp, 43, 215, 45, 14, WS_GROUP
+
+END

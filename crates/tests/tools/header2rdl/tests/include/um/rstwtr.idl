@@ -1,0 +1,103 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstwtr.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+    LOCAL_INTERFACE(0c733a45-2a1c-11ce-ade5-00aa0044773d)
+
+    
+interface IRowsetWatchRegion : IRowsetWatchAll {
+
+	//
+	//	DBWATCHMODE and related definitions
+	//
+
+typedef DWORD DBWATCHMODE;
+
+enum DBWATCHMODEENUM {
+	DBWATCHMODE_ALL    = 0x01,
+	DBWATCHMODE_EXTEND = 0x02,
+	DBWATCHMODE_MOVE   = 0x04,
+	DBWATCHMODE_COUNT  = 0x08
+};
+
+	//
+	//	DBROWWATCHCHANGE and related definitions
+	//
+
+typedef DWORD DBROWCHANGEKIND;
+
+enum DBROWCHANGEKINDENUM {
+	DBROWCHANGEKIND_INSERT,
+	DBROWCHANGEKIND_DELETE,
+	DBROWCHANGEKIND_UPDATE,
+	DBROWCHANGEKIND_COUNT
+};
+
+typedef struct tagDBROWWATCHRANGE {
+	HWATCHREGION hRegion;
+	DBROWCHANGEKIND eChangeKind;
+	HROW hRow;
+	DBCOUNTITEM iRow;
+} DBROWWATCHCHANGE;
+
+
+	HRESULT CreateWatchRegion(
+		[in] DBWATCHMODE dwWatchMode,
+		[out] HWATCHREGION * phRegion
+	);
+
+	HRESULT ChangeWatchMode(
+		[in] HWATCHREGION hRegion,
+		[in] DBWATCHMODE dwWatchMode
+	);
+
+	HRESULT DeleteWatchRegion(
+		[in] HWATCHREGION hRegion
+	);
+
+	HRESULT GetWatchRegionInfo(
+		[in] HWATCHREGION hRegion,
+		[out] DBWATCHMODE * pdwWatchMode,
+		[out] HCHAPTER * phChapter,
+		[in, out] DBBKMARK * pcbBookmark,
+		[out, size_is(,*pcbBookmark)] BYTE ** ppBookmark,
+		[out] DBROWCOUNT * pcRows
+	);
+
+	HRESULT Refresh(
+		[in, out] DBCOUNTITEM * pcChangesObtained,
+		[out, size_is(,*pcChangesObtained)] DBROWWATCHCHANGE ** prgChanges
+	);
+
+	HRESULT ShrinkWatchRegion(
+		[in] HWATCHREGION hRegion,
+		[in] HCHAPTER hChapter,
+		[in] DBBKMARK cbBookmark,
+		[in, size_is(cbBookmark)] BYTE * pBookmark,
+		[in] DBROWCOUNT cRows
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,67 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2007.
+//
+// CorrEngine.idl : IDL source for CorrEngine
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (CorrEngine.tlb) and marshalling code.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+--------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1992-2007.")
+cpp_quote("//")
+cpp_quote("//---------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+    object,
+    uuid(A188440E-DB11-45B8-B42C-B2149FA71453),
+    dual,
+    nonextensible,
+    helpstring("ICorrelationEngine Interface"),
+    pointer_default(unique)
+]
+interface ICorrelationEngine : IDispatch
+{
+    [propget, id(1), helpstring("property RetainGlobalEvents")] HRESULT RetainGlobalEvents([out, retval] VARIANT_BOOL* pVal);
+    [propput, id(1), helpstring("property RetainGlobalEvents")] HRESULT RetainGlobalEvents([in] VARIANT_BOOL newVal);
+    [id(2), helpstring("method Filter")] HRESULT Filter([in] BSTR InputTraceFile, [in] BSTR OutputTraceFile, [in] BSTR FilterActivityId);
+    [id(3), helpstring("method Normalize")] HRESULT Normalize([in] BSTR InputTraceFile, [in] BSTR OutputTraceFile);
+    [propget, id(4), helpstring("property RetainPII")] HRESULT RetainPII([out, retval] VARIANT_BOOL* pVal);
+    [propput, id(4), helpstring("property RetainPII")] HRESULT RetainPII([in] VARIANT_BOOL newVal);
+    [propget, id(5), helpstring("property RetainCorrelationEvents")] HRESULT RetainCorrelationEvents([out, retval] VARIANT_BOOL* pVal);
+    [propput, id(5), helpstring("property RetainCorrelationEvents")] HRESULT RetainCorrelationEvents([in] VARIANT_BOOL newVal);
+};
+[
+    uuid(6CAAAA3B-6502-40FE-97FC-72A290DC63CF),
+    version(1.0),
+    helpstring("CorrEngine 1.0 Type Library")
+]
+library CorrEngineLib
+{
+    importlib("stdole2.tlb");
+    [
+        uuid(FCDC2CF5-ABCD-4BA5-94DA-1823AE06FE2B),
+        helpstring("CorrelationEngine Class")
+    ]
+    coclass CorrelationEngine
+    {
+        [default] interface ICorrelationEngine;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

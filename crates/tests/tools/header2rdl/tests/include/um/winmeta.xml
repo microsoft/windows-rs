@@ -1,0 +1,401 @@
+﻿<instrumentationManifest
+    xmlns="http://schemas.microsoft.com/win/2004/08/events"
+    xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.microsoft.com/win/2004/08/events eventman.xsd"
+    >
+    <metadata name="evt:meta/winTypes">
+        <channels>
+            <channel name="TraceClassic" type="Debug" symbol="WINEVENT_CHANNEL_CLASSIC_TRACE"
+                value="0" message="$(string.channel.TraceClassic)">
+              Events for Classic ETW tracing.
+            </channel>
+            <channel name="System" type="Admin" symbol="WINEVENT_CHANNEL_GLOBAL_SYSTEM"
+                isolation="System" value="8" message="$(string.channel.System)">
+              Events for all installed system services.  This channel is secured to applications running under
+              system service accounts or user applications running under local adminstrator privileges.
+            </channel>
+            <channel name="Application" type="Admin" symbol="WINEVENT_CHANNEL_GLOBAL_APPLICATION"
+                isolation="Application" value="9" message="$(string.channel.Application)">
+              Events for all user-level applications.  This channel is not secured and open to any applications.
+              Applications which log extensive information should define an application-specific channel.
+            </channel>
+            <channel name="Security" type="Admin" symbol="WINEVENT_CHANNEL_GLOBAL_SECURITY"
+                isolation="System"  value="10" message="$(string.channel.Security)">
+              The Windows Audit Log.  For exclusive use of the Windows Local Security Authority.  User events
+              may appear as audits if supported by the underlying application.
+            </channel>
+            <channel name="TraceLogging" type="Debug" symbol="WINEVENT_CHANNEL_TRACELOGGING"
+                value="11" message="$(string.channel.TraceLogging)">
+              Event contains provider traits and TraceLogging event metadata.
+            </channel>
+            <channel name="ProviderMetadata" type="Debug" symbol="WINEVENT_CHANNEL_PROVIDERMETADATA"
+                value="12" message="$(string.channel.ProviderMetadata)">
+              Event contains provider traits.
+            </channel>
+        </channels>
+
+        <!-- Standard Windows system reporting levels -->
+        <levels>
+            <level name="win:LogAlways" symbol="WINEVENT_LEVEL_LOG_ALWAYS" value="0" message="$(string.level.LogAlways)"> Log Always </level>
+            <level name="win:Critical" symbol="WINEVENT_LEVEL_CRITICAL" value="1" message="$(string.level.Critical)"> Only critical errors </level>
+            <level name="win:Error" symbol="WINEVENT_LEVEL_ERROR" value="2" message="$(string.level.Error)"> All errors, includes win:Critical </level>
+            <level name="win:Warning" symbol="WINEVENT_LEVEL_WARNING" value="3" message="$(string.level.Warning)"> All warnings, includes win:Error </level>
+            <level name="win:Informational" symbol="WINEVENT_LEVEL_INFO" value="4" message="$(string.level.Informational)"> All informational content, including win:Warning </level>
+            <level name="win:Verbose" symbol="WINEVENT_LEVEL_VERBOSE" value="5" message="$(string.level.Verbose)"> All tracing, including previous levels </level>
+
+            <!-- The following are unused.  They are place holders so that users dont accidentally use those values in their own definitions -->
+            <level name="win:ReservedLevel6" symbol="WINEVENT_LEVEL_RESERVED_6" value="6"/>
+            <level name="win:ReservedLevel7" symbol="WINEVENT_LEVEL_RESERVED_7" value="7"/>
+            <level name="win:ReservedLevel8" symbol="WINEVENT_LEVEL_RESERVED_8" value="8"/>
+            <level name="win:ReservedLevel9" symbol="WINEVENT_LEVEL_RESERVED_9" value="9"/>
+            <level name="win:ReservedLevel10" symbol="WINEVENT_LEVEL_RESERVED_10" value="10"/>
+            <level name="win:ReservedLevel11" symbol="WINEVENT_LEVEL_RESERVED_11" value="11"/>
+            <level name="win:ReservedLevel12" symbol="WINEVENT_LEVEL_RESERVED_12" value="12"/>
+            <level name="win:ReservedLevel13" symbol="WINEVENT_LEVEL_RESERVED_13" value="13"/>
+            <level name="win:ReservedLevel14" symbol="WINEVENT_LEVEL_RESERVED_14" value="14"/>
+            <level name="win:ReservedLevel15" symbol="WINEVENT_LEVEL_RESERVED_15" value="15"/>
+            <!-- End of reserved values -->
+        </levels>
+
+        <!-- Standard Windows system tasks -->
+        <tasks>
+            <task name="win:None" value="0" symbol="WINEVENT_TASK_NONE" message="$(string.task.None)"> undefined task </task>
+        </tasks>
+
+        <!-- Standard Windows system opcodes -->
+        <opcodes>
+            <opcode name="win:Info" value="0" symbol="WINEVENT_OPCODE_INFO" message="$(string.opcode.Info)"> An informational event </opcode>
+            <opcode name="win:Start" value="1" symbol="WINEVENT_OPCODE_START" message="$(string.opcode.Start)"> An activity start event </opcode>
+            <opcode name="win:Stop" value="2" symbol="WINEVENT_OPCODE_STOP" message="$(string.opcode.Stop)"> An activity end event </opcode>
+            <opcode name="win:DC_Start" value="3" symbol="WINEVENT_OPCODE_DC_START" message="$(string.opcode.DCStart)"> A trace collection start event </opcode>
+            <opcode name="win:DC_Stop" value="4" symbol="WINEVENT_OPCODE_DC_STOP" message="$(string.opcode.DCStop)"> A trace collection end event </opcode>
+            <opcode name="win:Extension" value="5" symbol="WINEVENT_OPCODE_EXTENSION" message="$(string.opcode.Extension)"> An extensional event </opcode>
+            <opcode name="win:Reply" value="6" symbol="WINEVENT_OPCODE_REPLY" message="$(string.opcode.Reply)"> A reply event </opcode>
+            <opcode name="win:Resume" value="7" symbol="WINEVENT_OPCODE_RESUME" message="$(string.opcode.Resume)"> An event representing the activity resuming from the suspension </opcode>
+            <opcode name="win:Suspend" value="8" symbol="WINEVENT_OPCODE_SUSPEND" message="$(string.opcode.Suspend)"> An event representing the activity is suspended, pending another activity's completion </opcode>
+            <opcode name="win:Send" value="9" symbol="WINEVENT_OPCODE_SEND" message="$(string.opcode.Send)"> An event representing the activity is transferred to another component, and can continue to work </opcode>
+
+            <!-- The following are unused.  They are place holders so that users dont accidentally use those values in their own definitions -->
+            <opcode name="win:Receive" value="240" symbol="WINEVENT_OPCODE_RECEIVE" message="$(string.opcode.Receive)"> An event representing receiving an activity transfer from another component </opcode>
+            <opcode name="win:ReservedOpcode241" symbol="WINEVENT_OPCODE_RESERVED_241" value="241"/>
+            <opcode name="win:ReservedOpcode242" symbol="WINEVENT_OPCODE_RESERVED_242" value="242"/>
+            <opcode name="win:ReservedOpcode243" symbol="WINEVENT_OPCODE_RESERVED_243" value="243"/>
+            <opcode name="win:ReservedOpcode244" symbol="WINEVENT_OPCODE_RESERVED_244" value="244"/>
+            <opcode name="win:ReservedOpcode245" symbol="WINEVENT_OPCODE_RESERVED_245" value="245"/>
+            <opcode name="win:ReservedOpcode246" symbol="WINEVENT_OPCODE_RESERVED_246" value="246"/>
+            <opcode name="win:ReservedOpcode247" symbol="WINEVENT_OPCODE_RESERVED_247" value="247"/>
+            <opcode name="win:ReservedOpcode248" symbol="WINEVENT_OPCODE_RESERVED_248" value="248"/>
+            <opcode name="win:ReservedOpcode249" symbol="WINEVENT_OPCODE_RESERVED_249" value="249"/>
+            <opcode name="win:ReservedOpcode250" symbol="WINEVENT_OPCODE_RESERVED_250" value="250"/>
+            <opcode name="win:ReservedOpcode251" symbol="WINEVENT_OPCODE_RESERVED_251" value="251"/>
+            <opcode name="win:ReservedOpcode252" symbol="WINEVENT_OPCODE_RESERVED_252" value="252"/>
+            <opcode name="win:ReservedOpcode253" symbol="WINEVENT_OPCODE_RESERVED_253" value="253"/>
+            <opcode name="win:ReservedOpcode254" symbol="WINEVENT_OPCODE_RESERVED_254" value="254"/>
+            <opcode name="win:ReservedOpcode255" symbol="WINEVENT_OPCODE_RESERVED_255" value="255"/>
+            <!-- End of reserved values -->
+        </opcodes>
+
+        <!-- Standard Windows system keywords -->
+        <keywords>
+            <keyword name="win:AnyKeyword" mask="0x0" symbol="WINEVT_KEYWORD_ANY" message="$(string.keyword.AnyKeyword)">
+                 Wild card value
+            </keyword>
+
+            <keyword name="win:ResponseTime" mask="0x1000000000000" symbol="WINEVENT_KEYWORD_RESPONSE_TIME" message="$(string.keyword.ResponseTime)">
+                 Attached to all events providing response time information
+            </keyword>
+            <keyword name="win:ReservedKeyword49" mask="0x2000000000000" symbol="WINEVENT_KEYWORD_RESERVED_49"/>
+            <keyword name="win:WDIDiag" mask="0x4000000000000" symbol="WINEVENT_KEYWORD_WDI_DIAG" message="$(string.keyword.WDIDiag)">
+                 Attached to all WDI diag events
+            </keyword>
+            <keyword name="win:SQM" mask="0x8000000000000" symbol="WINEVENT_KEYWORD_SQM" message="$(string.keyword.SQM)">
+                 Attached to all SQM events
+            </keyword>
+            <keyword name="win:AuditFailure" mask="0x10000000000000" symbol="WINEVENT_KEYWORD_AUDIT_FAILURE" message="$(string.keyword.AuditFailure)">
+                 Attached to all failed security audits
+            </keyword>
+            <keyword name="win:AuditSuccess" mask="0x20000000000000" symbol="WINEVENT_KEYWORD_AUDIT_SUCCESS" message="$(string.keyword.AuditSuccess)">
+                 Attached to all successful security audits
+            </keyword>
+            <keyword name="win:CorrelationHint" mask="0x40000000000000" symbol="WINEVENT_KEYWORD_CORRELATION_HINT" message="$(string.keyword.CorrelationHint)">
+                 Attached to transfer events where the related Activity ID is a computed value and not a GUID
+            </keyword>
+            <keyword name="win:EventlogClassic" mask="0x80000000000000" symbol="WINEVENT_KEYWORD_EVENTLOG_CLASSIC" message="$(string.keyword.Classic)">
+                 Attached to events raised using classic eventlog API
+            </keyword>
+
+            <!-- The following are used to pass channel information.  They are place holders so that users dont accidentally use those values in their own definitions -->
+            <keyword name="win:ReservedKeyword56" mask="0x100000000000000" symbol="WINEVENT_KEYWORD_RESERVED_56"/>
+            <keyword name="win:ReservedKeyword57" mask="0x200000000000000" symbol="WINEVENT_KEYWORD_RESERVED_57"/>
+            <keyword name="win:ReservedKeyword58" mask="0x400000000000000" symbol="WINEVENT_KEYWORD_RESERVED_58"/>
+            <keyword name="win:ReservedKeyword59" mask="0x800000000000000" symbol="WINEVENT_KEYWORD_RESERVED_59"/>
+            <keyword name="win:ReservedKeyword60" mask="0x1000000000000000" symbol="WINEVENT_KEYWORD_RESERVED_60"/>
+            <keyword name="win:ReservedKeyword61" mask="0x2000000000000000" symbol="WINEVENT_KEYWORD_RESERVED_61"/>
+            <keyword name="win:ReservedKeyword62" mask="0x4000000000000000" symbol="WINEVENT_KEYWORD_RESERVED_62"/>
+            <keyword name="win:ReservedKeyword63" mask="0x8000000000000000" symbol="WINEVENT_KEYWORD_RESERVED_63"/>
+            <!-- End of reserved values -->
+        </keywords>
+
+        <!-- Standard Windows & CLR system types -->
+        <types xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xmlTypes>
+                 <xmlType name="xs:string" value="1" symbol="WINEVENT_OUT_TYPE_STRING"/>
+                 <xmlType name="xs:dateTime" value="2" symbol="WINEVENT_OUT_TYPE_DATE_TIME"/>
+                 <xmlType name="xs:byte" value="3" symbol="WINEVENT_OUT_TYPE_BYTE"/>
+                 <xmlType name="xs:unsignedByte" value="4" symbol="WINEVENT_OUT_TYPE_UNSIGNED_BYTE"/>
+                 <xmlType name="xs:short" value="5" symbol="WINEVENT_OUT_TYPE_SHORT"/>
+                 <xmlType name="xs:unsignedShort" value="6" symbol="WINEVENT_OUT_TYPE_UNSIGNED_SHORT"/>
+                 <xmlType name="xs:int" value="7" symbol="WINEVENT_OUT_TYPE_INT"/>
+                 <xmlType name="xs:unsignedInt" value="8" symbol="WINEVENT_OUT_TYPE_UNSIGNED_INT"/>
+                 <xmlType name="xs:long" value="9" symbol="WINEVENT_OUT_TYPE_LONG"/>
+                 <xmlType name="xs:unsignedLong" value="10" symbol="WINEVENT_OUT_TYPE_UNSIGNED_LONG"/>
+                 <xmlType name="xs:float" value="11" symbol="WINEVENT_OUT_TYPE_FLOAT"/>
+                 <xmlType name="xs:double" value="12" symbol="WINEVENT_OUT_TYPE_DOUBLE"/>
+                 <xmlType name="xs:boolean" value="13" symbol="WINEVENT_OUT_TYPE_BOOLEAN"/>
+                 <xmlType name="xs:GUID" value="14" symbol="WINEVENT_OUT_TYPE_GUID"/>
+                 <xmlType name="xs:hexBinary" value="15" symbol="WINEVENT_OUT_TYPE_HEXBINARY"/>
+                 <xmlType name="win:HexInt8" value="16" symbol="WINEVENT_OUT_TYPE_HEX_INT8"/>
+                 <xmlType name="win:HexInt16" value="17" symbol="WINEVENT_OUT_TYPE_HEX_INT16"/>
+                 <xmlType name="win:HexInt32" value="18" symbol="WINEVENT_OUT_TYPE_HEX_INT32"/>
+                 <xmlType name="win:HexInt64" value="19" symbol="WINEVENT_OUT_TYPE_HEX_INT64"/>
+                 <xmlType name="win:PID" value="20" symbol="WINEVENT_OUT_TYPE_PID"/>
+                 <xmlType name="win:TID" value="21" symbol="WINEVENT_OUT_TYPE_TID"/>
+                 <xmlType name="win:Port" value="22" symbol="WINEVENT_OUT_TYPE_PORT"/>
+                 <xmlType name="win:IPv4" value="23" symbol="WINEVENT_OUT_TYPE_IPV4"/>
+                 <xmlType name="win:IPv6" value="24" symbol="WINEVENT_OUT_TYPE_IPV6"/>
+                 <xmlType name="win:SocketAddress" value="25" symbol="WINEVENT_OUT_TYPE_SOCKET_ADDRESS"/>
+                 <xmlType name="win:CIMDateTime" value="26" symbol="WINEVENT_OUT_TYPE_CIMDATETIME"/>
+                 <xmlType name="win:ETWTIME" value="27" symbol="WINEVENT_OUT_TYPE_ETWTIME"/>
+                 <xmlType name="win:Xml" value="28" symbol="WINEVENT_OUT_TYPE_XML"/>
+                 <xmlType name="win:ErrorCode" value="29" symbol="WINEVENT_OUT_TYPE_ERROR_CODE"/>
+                 <xmlType name="win:Win32Error" value="30" symbol="WINEVENT_OUT_TYPE_WIN32_ERROR"/>
+                 <xmlType name="win:NTSTATUS" value="31" symbol="WINEVENT_OUT_TYPE_NTSTATUS_ERROR"/>
+                 <xmlType name="win:HResult" value="32" symbol="WINEVENT_OUT_TYPE_HRESULT_ERROR"/>
+                 <xmlType name="win:DateTimeCultureInsensitive" value="33" symbol="WINEVENT_OUT_TYPE_DATE_TIME_CULTURE_INSENSITIVE"/>
+                 <xmlType name="win:Json" value="34" symbol="WINEVENT_OUT_TYPE_JSON"/>
+                 <xmlType name="win:Utf8" value="35" symbol="WINEVENT_OUT_TYPE_UTF8"/>
+                 <xmlType name="win:Pkcs7WithTypeInfo" value="36" symbol="WINEVENT_OUT_TYPE_PKCS7_WITH_TYPE_INFO"/>
+                 <xmlType name="win:CodePointer" value="37" symbol="WINEVENT_OUT_TYPE_CODE_POINTER"/>
+                 <xmlType name="win:DateTimeUtc" value="38" symbol="WINEVENT_OUT_TYPE_DATE_TIME_UTC"/>
+            </xmlTypes>
+            <inTypes>
+                <inType name="win:UnicodeString" value="1" symbol="WINEVENT_TYPE_NULL_TERMINATED_STRING">
+                    <description> A string of 16-bit characters. </description>
+                    <outType default="true" xmlType="xs:string">UTF-16LE string</outType>
+                    <outType xmlType="win:Xml">UTF-16LE XML string</outType>
+                    <outType xmlType="win:Json">UTF-16LE JSON string</outType>
+                </inType>
+                <inType name="win:AnsiString" value="2" symbol="WINEVENT_TYPE_NULL_TERMINATED_ANSI_STRING">
+                    <description> A string of 8-bit characters. </description>
+                    <outType default="true" xmlType="xs:string">ANSI string</outType>
+                    <outType xmlType="win:Xml">XML string; encoding defaults to UTF-8 but may be overridden by an XML encoding attribute</outType>
+                    <outType xmlType="win:Json">UTF-8 JSON string</outType>
+                    <outType xmlType="win:Utf8">UTF-8 string</outType>
+                </inType>
+                <inType name="win:Int8" value="3" symbol="WINEVENT_TYPE_INT8">
+                    <description> A signed 8-bit integer. </description>
+                    <outType default="true" xmlType="xs:byte" />
+                    <outType xmlType="xs:string">ANSI character</outType>
+                </inType>
+                <inType name="win:UInt8" value="4" symbol="WINEVENT_TYPE_UINT8">
+                    <description> An unsigned 8-bit integer. </description>
+                    <outType default="true" xmlType="xs:unsignedByte" />
+                    <outType xmlType="win:HexInt8">An integer in hex format</outType>
+                    <outType xmlType="xs:string">ANSI character</outType>
+                    <outType xmlType="xs:boolean">8-bit Boolean</outType>
+                </inType>
+                <inType name="win:Int16" value="5" symbol="WINEVENT_TYPE_INT16">
+                    <description> A signed 16-bit integer.</description>
+                    <outType default="true" xmlType="xs:short" />
+                </inType>
+                <inType name="win:UInt16" value="6" symbol="WINEVENT_TYPE_UINT16">
+                    <description> An unsigned 16-bit integer </description>
+                    <outType default="true" xmlType="xs:unsignedShort" />
+                    <outType xmlType="win:Port">A big-endian Internet Protocol port number</outType>
+                    <outType xmlType="win:HexInt16">An integer in hex format</outType>
+                    <outType xmlType="xs:string">UTF-16LE character</outType>
+                </inType>
+                <inType name="win:Int32" value="7" symbol="WINEVENT_TYPE_INT32">
+                    <description> A signed 32-bit integer. </description>
+                    <outType default="true" xmlType="xs:int" />
+                    <outType xmlType="win:HResult"> A message string corresponding to system HResult error code. </outType>
+                </inType>
+                <inType name="win:UInt32" value="8" symbol="WINEVENT_TYPE_UINT32">
+                    <description> An unsigned 32-bit integer. </description>
+                    <outType default="true" xmlType="xs:unsignedInt" />
+                    <outType xmlType="win:PID" />
+                    <outType xmlType="win:TID" />
+                    <outType xmlType="win:IPv4" />
+                    <outType xmlType="win:ETWTIME"> Deprecated; ETWTIME values should use win:UInt64. </outType>
+                    <outType xmlType="win:ErrorCode"> Deprecated, same as win:HexInt32. </outType>
+                    <outType xmlType="win:Win32Error"> A message string corresponding to system win32 error code. </outType>
+                    <outType xmlType="win:NTSTATUS"> A message string corresponding to system NTSTATUS error code. </outType>
+                    <outType xmlType="win:HexInt32">An integer in hex format</outType>
+                    <outType xmlType="win:CodePointer">An address that can be decoded into a symbol name.</outType>
+                </inType>
+                <inType name="win:Int64" value="9" symbol="WINEVENT_TYPE_INT64">
+                    <description> A signed 64-bit integer. </description>
+                    <outType default="true" xmlType="xs:long" />
+                </inType>
+                <inType name="win:UInt64" value="10" symbol="WINEVENT_TYPE_UINT64">
+                    <description> An unsigned 64-bit integer. </description>
+                    <outType default="true" xmlType="xs:unsignedLong" />
+                    <outType xmlType="win:ETWTIME">An ETW timestamp value from an EVENT_RECORD</outType>
+                    <outType xmlType="win:HexInt64">An integer in hex format</outType>
+                    <outType xmlType="win:CodePointer">An address that can be decoded into a symbol name.</outType>
+                </inType>
+                <inType name="win:Float" value="11" symbol="WINEVENT_TYPE_FLOAT">
+                    <description> An IEEE 4-byte floating-point value </description>
+                    <outType default="true" xmlType="xs:float" />
+                </inType>
+                <inType name="win:Double" value="12" symbol="WINEVENT_TYPE_DOUBLE">
+                    <description> An IEEE 8-byte floating-point value </description>
+                    <outType default="true" xmlType="xs:double" />
+                </inType>
+                <inType name="win:Boolean" value="13" symbol="WINEVENT_TYPE_BOOL">
+                    <description> A 32-bit value where zero is false, nonzero is true. </description>
+                    <outType default="true" xmlType="xs:boolean" />
+                </inType>
+                <inType name="win:Binary" value="14" symbol="WINEVENT_TYPE_BINARY">
+                    <description>Variable size binary data.</description>
+                    <outType default="true" xmlType="xs:hexBinary"/>
+                    <outType xmlType="win:IPv6">Always 16 bytes.</outType>
+                    <outType xmlType="win:SocketAddress"/>
+                    <outType xmlType="win:Pkcs7WithTypeInfo">A PKCS#7 message with TraceLogging type information optionally appended immediately after the PKCS#7 data.</outType>
+                </inType>
+                <inType name="win:GUID" value="15" symbol="WINEVENT_TYPE_GUID">
+                    <description> A DCE-compliant 128-bit UUID. XML spec: {12345678-1234-4667-1234-123456789abc}</description>
+                    <outType default="true" xmlType="xs:GUID"/>
+                </inType>
+                <inType name="win:Pointer" value="16" symbol="WINEVENT_TYPE_POINTER">
+                    <description> A pointer; sized to the current platform (32-bit or 64-bit). XML spec: hex representation of a pointer</description>
+                    <outType default="true" xmlType="win:HexInt64"/>
+                    <outType xmlType="win:CodePointer">An address that can be decoded into a symbol name.</outType>
+                    <outType xmlType="xs:long">Pointer-sized signed integer, e.g. intptr_t.</outType>
+                    <outType xmlType="xs:unsignedLong">Pointer-sized unsigned integer, e.g. uintptr_t.</outType>
+                </inType>
+                <inType name="win:FILETIME" value="17" symbol="WINEVENT_TYPE_FILETIME">
+                    <description> A Windows FILETIME struct. </description>
+                    <outType default="true" xmlType="xs:dateTime" />
+                    <outType xmlType="win:DateTimeCultureInsensitive"> DateTime string without any marker related with culture (no Left-To-Right markers)</outType>
+                    <outType xmlType="win:DateTimeUtc"> DateTime string formatted assuming the FILETIME is UTC. </outType>
+                </inType>
+                <inType name="win:SYSTEMTIME" value="18" symbol="WINEVENT_TYPE_SYSTEMTIME">
+                    <description> A Windows SYSTEMTIME struct.</description>
+                    <outType default="true" xmlType="xs:dateTime" />
+                    <outType xmlType="win:DateTimeCultureInsensitive"> DateTime string without any marker related with culture (no Left-To-Right markers)</outType>
+                    <outType xmlType="win:DateTimeUtc"> DateTime string formatted assuming the SYSTEMTIME is UTC. </outType>
+                </inType>
+                <inType name="win:SID" value="19" symbol="WINEVENT_TYPE_SID">
+                    <description> A self-relative Windows SID structure. XML spec: S-1-0-0.</description>
+                    <outType default="true" xmlType="xs:string"/>
+                </inType>
+                <inType name="win:HexInt32" value="20" symbol="WINEVENT_TYPE_HEXINT32">
+                    <description> A hexidecimal representation of an unsigned 32-bit integer. </description>
+                    <outType default="true" xmlType="win:HexInt32"/>
+                    <outType xmlType="win:ErrorCode"> Deprecated, same as win:HexInt32. </outType>
+                    <outType xmlType="win:Win32Error"> A message string corresponding to system win32 error code. </outType>
+                    <outType xmlType="win:NTSTATUS"> A message string corresponding to system NTSTATUS error code. </outType>
+                    <outType xmlType="win:CodePointer">An address that can be decoded into a symbol name.</outType>
+                </inType>
+                <inType name="win:HexInt64" value="21" symbol="WINEVENT_TYPE_HEXINT64">
+                    <description> A hexidecimal representation of an unsigned 64-bit integer. </description>
+                    <outType default="true" xmlType="win:HexInt64"/>
+                    <outType xmlType="win:CodePointer">An address that can be decoded into a symbol name.</outType>
+                </inType>
+                <inType name="win:CountedUnicodeString" value="22" symbol="WINEVENT_TYPE_COUNTED_STRING">
+                    <description> A 16-bit bytecount followed by a string of 16-bit characters.  Supported in Windows 2018 Fall Update or later. </description>
+                    <outType default="true" xmlType="xs:string">UTF-16LE string</outType>
+                    <outType xmlType="win:Xml">UTF-16LE XML string</outType>
+                    <outType xmlType="win:Json">UTF-16LE JSON string</outType>
+                </inType>
+                <inType name="win:CountedAnsiString" value="23" symbol="WINEVENT_TYPE_COUNTED_ANSI_STRING">
+                    <description> A 16-bit bytecount followed by a string of 8-bit characters.  Supported in Windows 2018 Fall Update or later. </description>
+                    <outType default="true" xmlType="xs:string">ANSI string</outType>
+                    <outType xmlType="win:Xml">XML string; encoding defaults to UTF-8 but may be overridden by an XML encoding attribute</outType>
+                    <outType xmlType="win:Json">UTF-8 JSON string</outType>
+                    <outType xmlType="win:Utf8">UTF-8 string</outType>
+                </inType>
+                <!-- 24 is reserved (TlgInSTRUCT) -->
+                <inType name="win:CountedBinary" value="25" symbol="WINEVENT_TYPE_COUNTED_BINARY">
+                    <description> A 16-bit bytecount followed by binary data. Supported in Windows 2018 Fall Update or later. </description>
+                    <outType default="true" xmlType="xs:hexBinary"/>
+                    <outType xmlType="win:IPv6">Always 16 bytes.</outType>
+                    <outType xmlType="win:SocketAddress"/>
+                    <outType xmlType="win:Pkcs7WithTypeInfo">A PKCS#7 message with TraceLogging type information optionally appended immediately after the PKCS#7 data.</outType>
+                </inType>
+            </inTypes>
+        </types>
+
+        <messageTable>
+            <!-- Categories for classic publishers -->
+            <message value="1" message="$(string.category.Devices)"/>
+            <message value="2" message="$(string.category.Disk)"/>
+            <message value="3" message="$(string.category.Printers)"/>
+            <message value="4" message="$(string.category.Services)"/>
+            <message value="5" message="$(string.category.Shell)"/>
+            <message value="6" message="$(string.category.SystemEvent)"/>
+            <message value="7" message="$(string.category.Network)"/>
+
+            <!-- Channel names for classic global logs -->
+            <message value="256" message="$(string.channel.Application)"/>
+            <message value="257" message="$(string.channel.Security)"/>
+            <message value="258" message="$(string.channel.System)"/>
+        </messageTable>
+
+    </metadata>
+
+    <localization>
+        <resources culture="en-US">
+            <stringTable>
+                <!-- Categories for classic publishers.  THESE MUST START AT ENTRY 0! -->
+                <string id="category.Reserved" value="Reserved"/>
+                <string id="category.Devices" value="Devices"/>
+                <string id="category.Disk" value="Disk"/>
+                <string id="category.Printers" value="Printers"/>
+                <string id="category.Services" value="Services"/>
+                <string id="category.Shell" value="Shell"/>
+                <string id="category.SystemEvent" value="System Event"/>
+                <string id="category.Network" value="Network"/>
+
+                <string id="level.LogAlways" value="Log Always"/>
+                <string id="level.Critical" value="Critical"/>
+                <string id="level.Error" value="Error"/>
+                <string id="level.Warning" value="Warning"/>
+                <string id="level.Informational" value="Information"/>
+                <string id="level.Verbose" value="Verbose"/>
+
+                <string id="opcode.Info" value="Info"/>
+                <string id="opcode.Start" value="Start"/>
+                <string id="opcode.Stop" value="Stop"/>
+                <string id="opcode.DCStart" value="DCStart"/>
+                <string id="opcode.DCStop" value="DCStop"/>
+                <string id="opcode.Extension" value="Extension"/>
+                <string id="opcode.Reply" value="Reply"/>
+                <string id="opcode.Resume" value="Resume"/>
+                <string id="opcode.Suspend" value="Suspend"/>
+                <string id="opcode.Send" value="Send"/>
+                <string id="opcode.Receive" value="Receive"/>
+
+                <string id="task.None" value="None"/>
+
+                <string id="keyword.AnyKeyword" value="AnyKeyword"/>
+                <string id="keyword.ResponseTime" value="Response Time"/>
+                <string id="keyword.WDIDiag" value="WDI Diag"/>
+                <string id="keyword.SQM" value="SQM"/>
+                <string id="keyword.AuditFailure" value="Audit Failure"/>
+                <string id="keyword.AuditSuccess" value="Audit Success"/>
+                <string id="keyword.CorrelationHint" value="Correlation Hint"/>
+                <string id="keyword.Classic" value="Classic"/>
+
+                <string id="channel.TraceClassic" value="TraceClassic"/>
+                <string id="channel.System" value="System"/>
+                <string id="channel.Application" value="Application"/>
+                <string id="channel.Security" value="Security"/>
+                <string id="channel.TraceLogging" value="TraceLogging"/>
+                <string id="channel.ProviderMetadata" value="ProviderMetadata"/>
+            </stringTable>
+        </resources>
+    </localization>
+
+</instrumentationManifest>

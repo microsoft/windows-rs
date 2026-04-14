@@ -1,0 +1,81 @@
+// Copyright (c) 1998  Microsoft Corporation.  All Rights Reserved.
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+
+// data id flags, used to notify the client whenever pertinent data changes
+#define MIXER_DATA_ASPECT_RATIO             0x00000001 // picture aspect ratio changed
+#define MIXER_DATA_NATIVE_SIZE              0x00000002 // native size of video changed
+#define MIXER_DATA_PALETTE                  0x00000004 // palette of video changed
+
+// status flags defined here
+#define MIXER_STATE_MASK                    0x00000003 // use this mask with state status bits
+#define MIXER_STATE_UNCONNECTED             0x00000000 // mixer is unconnected and stopped
+#define MIXER_STATE_CONNECTED_STOPPED       0x00000001 // mixer is connected and stopped
+#define MIXER_STATE_CONNECTED_PAUSED        0x00000002 // mixer is connected and paused
+#define MIXER_STATE_CONNECTED_PLAYING       0x00000003 // mixer is connected and playing
+
+interface IMixerOCXNotify;
+interface IMixerOCX;
+
+[
+    object,
+    uuid(81A3BD31-DEE1-11d1-8508-00A0C91F9CA0),
+    helpstring("IMixerOCXNotify Interface"),
+    pointer_default(unique)
+]
+interface IMixerOCXNotify : IUnknown
+{
+    // invalidates the rect
+    HRESULT OnInvalidateRect([in] LPCRECT lpcRect);
+
+    // informs that a status change has occured, new status bits provided in ulStatusFlags
+    HRESULT OnStatusChange([in] ULONG ulStatusFlags);
+
+    // informs that data parameters, whose id is present in ilDataFlags has changed
+    HRESULT OnDataChange([in] ULONG ulDataFlags);
+};
+
+[
+    object,
+    uuid(81A3BD32-DEE1-11d1-8508-00A0C91F9CA0),
+    helpstring("IMixerOCX Interface"),
+    pointer_default(unique)
+]
+interface IMixerOCX : IUnknown
+{
+    // used to notify the mixer that the display mode has changed, the mixer handles this
+    // asynchronously and the calls OnStatusChange(MIXER_DISPLAYCHANGE_HANDLED) when processing
+    // is done
+    HRESULT OnDisplayChange([in] ULONG ulBitsPerPixel, [in] ULONG ulScreenWidth, [in] ULONG ulScreenHeight);
+
+    HRESULT GetAspectRatio([out] LPDWORD pdwPictAspectRatioX, [out] LPDWORD pdwPictAspectRatioY);
+
+	HRESULT GetVideoSize([out] LPDWORD pdwVideoWidth, [out] LPDWORD pdwVideoHeight);
+
+    HRESULT GetStatus([out] LPDWORD *pdwStatus);
+
+    // the dc provided here is not supposed to be cached. If apps have set a dc using
+    // SetDrawInfo, then it is illegal to provide a non NULL argument here
+    HRESULT OnDraw([in] HDC hdcDraw, [in] LPCRECT prcDraw);
+
+    // lpptTopLeftSC should be NULL unless MIXER_DRAW_DC_ONSCREEN is set to TRUE
+    // specifying a NULL value for lprcClip means no clipping
+    // lpptTopLeftSC - top left corner of surface/dc in screen coordinates
+    // prcDrawCC - draw rectangle in surface/dc coordinates
+    // lprcClip - clipping rect in surface/dc coordinates (optional)
+    HRESULT SetDrawRegion([in] LPPOINT lpptTopLeftSC, [in] LPCRECT prcDrawCC, [in] LPCRECT lprcClip);
+
+    // function to set the sink interface for client notification
+    HRESULT Advise([in] IMixerOCXNotify *pmdns);
+
+    // function to remove the sink interface
+    HRESULT UnAdvise();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

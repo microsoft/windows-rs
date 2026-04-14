@@ -1,0 +1,90 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			clinf2.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+
+	REMOTED_INTERFACE(0c733ab8-2a1c-11ce-ade5-00aa0044773d)
+
+interface IColumnsInfo2 : IColumnsInfo
+{
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+[local]
+HRESULT GetRestrictedColumnInfo(
+	[in] DBORDINAL cColumnIDMasks,
+	[in, size_is((ULONG)cColumnIDMasks), annotation("_In_reads_(cColumnIDMasks)")] const DBID rgColumnIDMasks[],
+	[in] DWORD dwFlags,
+	[in, out, annotation("_Out_")] DBORDINAL * pcColumns,
+	[out, size_is(,(ULONG)*pcColumns), annotation("_Outptr_result_buffer_(*pcColumns)")] 	DBID ** prgColumnIDs,
+	[out, size_is(,(ULONG)*pcColumns), annotation("_Outptr_result_buffer_(*pcColumns)")] 	DBCOLUMNINFO ** prgColumnInfo,
+	[out, annotation("_Outptr_opt_result_z_")] OLECHAR ** ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+[call_as(GetRestrictedColumnInfo)]
+HRESULT RemoteGetRestrictedColumnInfo(
+	[in] DBORDINAL cColumnIDMasks,
+	[in, unique, size_is((ULONG)cColumnIDMasks)] const DBID * rgColumnIDMasks,
+	[in] DWORD dwFlags,
+	[in, out] DBORDINAL * pcColumns,
+	[in, out, unique, size_is(,(ULONG)*pcColumns)] DBID ** prgColumnIDs,
+	[in, out, unique, size_is(,(ULONG)*pcColumns)] DBCOLUMNINFO ** prgColumnInfo,
+	[out, size_is(,(ULONG)*pcColumns)] DBBYTEOFFSET ** prgNameOffsets,
+	[out, size_is(,(ULONG)*pcColumns)] DBBYTEOFFSET ** prgcolumnidOffsets,
+	[in, out] DBLENGTH * pcbStringsBuffer,
+	[in, out, unique, size_is(,(ULONG)*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer
+	);
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+[local]
+HRESULT GetRestrictedColumnInfo(
+	[in] DBORDINAL cColumnIDMasks,
+	[in, size_is(cColumnIDMasks), annotation("_In_reads_(cColumnIDMasks)")] const DBID rgColumnIDMasks[],
+	[in] DWORD dwFlags,
+	[in, out, annotation("_Out_")] DBORDINAL * pcColumns,
+	[out, size_is(,*pcColumns), annotation("_Outptr_result_buffer_(*pcColumns)")] 	DBID ** prgColumnIDs,
+	[out, size_is(,*pcColumns) , annotation("_Outptr_result_buffer_(*pcColumns)")]	DBCOLUMNINFO ** prgColumnInfo,
+	[out, annotation("_Outptr_opt_result_z_")] OLECHAR ** ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+[call_as(GetRestrictedColumnInfo)]
+HRESULT RemoteGetRestrictedColumnInfo(
+	[in] DBORDINAL cColumnIDMasks,
+	[in, unique, size_is(cColumnIDMasks)] const DBID * rgColumnIDMasks,
+	[in] DWORD dwFlags,
+	[in, out] DBORDINAL * pcColumns,
+	[in, out, unique, size_is(,*pcColumns)] DBID ** prgColumnIDs,
+	[in, out, unique, size_is(,*pcColumns)] DBCOLUMNINFO ** prgColumnInfo,
+	[out, size_is(,*pcColumns)] DBBYTEOFFSET ** prgNameOffsets,
+	[out, size_is(,*pcColumns)] DBBYTEOFFSET ** prgcolumnidOffsets,
+	[in, out] DBLENGTH * pcbStringsBuffer,
+	[in, out, unique, size_is(,*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer
+	);
+#endif
+
+#endif
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

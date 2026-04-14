@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/deployment/windows10/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/deployment/windows10/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           >
+
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+    <xs:element name="StageWhileInUse" type="ST_StageWhileInUse"/>
+
+    <xs:simpleType name="ST_StageWhileInUse">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="allow" />
+            <xs:enumeration value="deny" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
+

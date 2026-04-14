@@ -1,0 +1,73 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdscmprv.idl
+//
+//    Abstract:
+//        declarations of interfaces that are exposed by the common layer to
+//        providers.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IVdsAdmin;
+
+#define MAX_COMPUTERNAME_LENGTH         15
+#define MAX_PROVIDERNAME_LENGTH         200
+#define MAX_VERSIONSTRING_LENGTH        16
+
+
+//
+// IVdsAdmin:
+//   This interface is used by providers to register themselves. Provider
+//   information is stored in registry under
+//   \HKEY_LOCAL_MACHINE\SYSTEM\CurrentContrlSet\Services\VDS\SoftwareProviders
+//   or
+//   \HKEY_LOCAL_MACHINE\SYSTEM\CurrentContrlSet\Services\VDS\HardwareProviders
+//   When VDS service starts up, it looks through the registry and launch
+//   registered providers.
+// Implemented by: service object
+// Implemented where: common layer
+// Accessed by: provider setup
+//
+[
+    object,
+    uuid(d188e97d-85aa-4d33-abc6-26299a10ffc1),
+    pointer_default(unique)
+]
+
+interface IVdsAdmin : IUnknown
+{
+    // RegisterProvider:
+    [helpstring("method RegisterProvider")]
+    HRESULT RegisterProvider(
+                [in] VDS_OBJECT_ID      providerId,
+                [in] CLSID              providerClsid,
+                [in,max_is(MAX_PROVIDERNAME_LENGTH),string]
+                     LPWSTR             pwszName,
+                [in] VDS_PROVIDER_TYPE  type,
+                [in,unique,max_is(MAX_COMPUTERNAME_LENGTH-1),string,disable_consistency_check]
+                     LPWSTR             pwszMachineName,
+                [in,max_is(MAX_VERSIONSTRING_LENGTH),string]
+                     LPWSTR             pwszVersion,
+                [in] GUID               guidVersionId
+            );
+
+
+    // UnregisterProvider:
+    //   Removes provider information from registry.
+    [helpstring("method UnregisterProvider")]
+    HRESULT UnregisterProvider(
+                [in] VDS_OBJECT_ID      providerId
+            );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

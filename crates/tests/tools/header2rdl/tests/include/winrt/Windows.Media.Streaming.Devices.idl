@@ -1,0 +1,10 @@
+// Copyright (c) Microsoft Corp.
+// All Rights Reserved
+
+// Empty file because the types reflected in this file are actually located in another file.
+import "Windows.Media.Streaming.Idl";
+
+namespace Windows.Media.Streaming
+{
+
+}

@@ -1,0 +1,98 @@
+// ctime standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CTIME_
+#define _CTIME_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <time.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD using _CSTD clock_t;
+_EXPORT_STD using _CSTD size_t;
+_EXPORT_STD using _CSTD time_t;
+_EXPORT_STD using _CSTD tm;
+_EXPORT_STD using _CSTD asctime;
+_EXPORT_STD using _CSTD clock;
+_EXPORT_STD using _CSTD strftime;
+#if _HAS_CXX17
+_EXPORT_STD using _CSTD timespec;
+#endif // _HAS_CXX17
+
+#ifdef _BUILD_STD_MODULE // TRANSITION, OS-33790456; `template <int = 0>` avoids ambiguity
+_STL_DISABLE_DEPRECATED_WARNING
+
+_EXPORT_STD template <int = 0>
+_Check_return_ _CRT_INSECURE_DEPRECATE(ctime_s) inline char* __CRTDECL ctime(_In_ const time_t* const _Time) noexcept
+/* strengthened */ {
+    return _CSTD _ctime64(_Time);
+}
+
+_EXPORT_STD template <int = 0>
+_Check_return_ inline double __CRTDECL difftime(_In_ const time_t _Time1, _In_ const time_t _Time2) noexcept
+/* strengthened */ {
+    return _CSTD _difftime64(_Time1, _Time2);
+}
+
+_EXPORT_STD template <int = 0>
+_Check_return_ _CRT_INSECURE_DEPRECATE(gmtime_s) inline tm* __CRTDECL gmtime(_In_ const time_t* const _Time) noexcept
+/* strengthened */ {
+    return _CSTD _gmtime64(_Time);
+}
+
+_EXPORT_STD template <int = 0>
+_CRT_INSECURE_DEPRECATE(localtime_s)
+inline tm* __CRTDECL localtime(_In_ const time_t* const _Time) noexcept /* strengthened */ {
+    return _CSTD _localtime64(_Time);
+}
+
+_EXPORT_STD template <int = 0>
+_Check_return_opt_ inline time_t __CRTDECL mktime(_Inout_ tm* const _Tm) noexcept /* strengthened */ {
+    return _CSTD _mktime64(_Tm);
+}
+
+_EXPORT_STD template <int = 0>
+inline time_t __CRTDECL time(_Out_opt_ time_t* const _Time) noexcept /* strengthened */ {
+    return _CSTD _time64(_Time);
+}
+
+_EXPORT_STD template <int = 0>
+_Check_return_ inline int __CRTDECL timespec_get(_Out_ timespec* const _Ts, _In_ const int _Base) noexcept
+/* strengthened */ {
+    return _CSTD _timespec64_get(reinterpret_cast<_timespec64*>(_Ts), _Base);
+}
+
+_STL_RESTORE_DEPRECATED_WARNING
+#else // ^^^ workaround / no workaround vvv
+
+// _EXPORT_STD has no effect while the workaround is present.
+_EXPORT_STD using _CSTD ctime;
+_EXPORT_STD using _CSTD difftime;
+_EXPORT_STD using _CSTD gmtime;
+_EXPORT_STD using _CSTD localtime;
+_EXPORT_STD using _CSTD mktime;
+_EXPORT_STD using _CSTD time;
+#if _HAS_CXX17
+_EXPORT_STD using _CSTD timespec_get;
+#endif // _HAS_CXX17
+
+#endif // ^^^ no workaround ^^^
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CTIME_

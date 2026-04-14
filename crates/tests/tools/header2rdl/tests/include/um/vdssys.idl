@@ -1,0 +1,72 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2008
+//
+//    Abstract:
+//        IDL file to import windows system files. It imports only
+//        data-types and defines constants that allow windows headers
+//        to be imported without errors.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+
+cpp_quote("#if defined(VDS_MIDL_PASS)")
+//
+// We need VDS_MIDL_PASS options only to support virtdisk.h when compiling
+// in MIDL--otherwise we should use normal windows headers.
+//
+
+import "wtypes.idl";
+import "oaidl.idl";
+
+//
+// wtypes.idl doesn't define some newer windows types.
+//
+typedef LPWSTR PWSTR;
+typedef LPCWSTR PCWSTR;
+typedef DWORD ACCESS_MASK;
+
+//
+// virtdisk.h depends on WINVER being set.
+// 
+#include "sdkddkver.h"
+#ifndef WINVER
+#define WINVER _WIN32_WINNT_WIN7
+#endif
+
+//
+// Some generic types needed by VirtDisk API prototypes. Including
+// the exact headers where these are defined will break MIDL because
+// of several incompatibilities, so it's simpler to define them here.
+// This won't affect code semantics because vdssys.idl is only imported
+// not included; so function prototypes will be thrown out.
+//
+#define WINAPI __stdcall
+typedef PVOID PSECURITY_DESCRIPTOR;
+typedef PVOID LPOVERLAPPED;
+typedef ULONG* PULONG;
+typedef HANDLE* PHANDLE; 
+
+#include "specstrings.h"
+
+//
+// Finally include the system headers we did all the work above for.
+//
+
+#include "virtdisk.h"
+cpp_quote("#else //defined(VDS_MIDL_PASS)")
+cpp_quote("#include \"virtdisk.h\"")
+cpp_quote("#endif //defined(VDS_MIDL_PASS)")
+
+cpp_quote("#endif // _WIN32_WINNT_WIN7")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,420 @@
+/*
+   Copyright (c) Microsoft Corporation
+
+   SYNOPSIS
+
+     Defines data types used by the system portion of the FWP API.
+*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or AppRuntime Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME)")
+
+
+import "fwptypes.idl";
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building filters. A filter expresses a rule of the form "if
+// the condition is true, then perform the action."
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Expresses a filter condition that must be true for the action to be invoked.
+typedef struct FWPS_FILTER_CONDITION0_
+{
+   // LUID of the field to be tested.
+   UINT16 fieldId;
+   // Reserved for system type.
+   UINT16 reserved;
+   // Type of match to be performed.
+   FWP_MATCH_TYPE matchType;
+   // Value to match the field against.
+   FWP_CONDITION_VALUE0 conditionValue;
+} FWPS_FILTER_CONDITION0;
+
+// Action invoked if all the filter conditions are true.
+typedef struct FWPS_ACTION0_
+{
+   // Type of action.
+   FWP_ACTION_TYPE type;
+   // LUID of the callout if FWP_ACTION_FLAG_CALLOUT is set in the action type.
+   // Otherwise, it's ignored.
+   UINT32 calloutId;
+} FWPS_ACTION0;
+
+// Clear filter action right
+cpp_quote("#define FWPS_FILTER_FLAG_CLEAR_ACTION_RIGHT    (0x0001)")
+// Treat callout filters as permit filters if callout is not registered
+cpp_quote("#define FWPS_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED   (0x0002)")
+// There are multiple conditions for the same field.  OR semantics applied
+cpp_quote("#define FWPS_FILTER_FLAG_OR_CONDITIONS   (0x0004)")
+// The filter references a provider context for IPsec security realm Id
+cpp_quote("#define FWPS_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT (0x0008)")
+// The filter is in silent mode
+cpp_quote("#define FWPS_FILTER_FLAG_SILENT_MODE     (0x0010)")
+// (used for s2s IPsec tunnel policies)
+// Do not initiate IPsec acquire, if packet matches a IPsec policy from a filter with this flag
+cpp_quote("#define FWPS_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE (0x0020)")
+// The flag is reserved
+cpp_quote("#define FWPS_FILTER_FLAG_RESERVED0 (0x0040)")
+// The flag is reserved
+cpp_quote("#define FWPS_FILTER_FLAG_RESERVED1 (0x0080)")
+// The flag is reserved
+cpp_quote("#define FWPS_FILTER_FLAG_RESERVED2 (0x0100)")
+
+typedef struct FWPM_PROVIDER_CONTEXT0_ FWPM_PROVIDER_CONTEXT0;
+
+// System filter used for run-time classification.
+typedef struct FWPS_FILTER0_
+{
+   // LUID uniquely identifying the filter in the filter engine.
+   UINT64 filterId;
+
+   // Weight of the filter -- higher filters are invoked first.
+   FWP_VALUE0 weight;
+   // Weight of the filter's sub-layer -- higher weights are invoked first.
+   UINT16 subLayerWeight;
+   UINT16 flags;
+   // Array of filter conditions. All must be true for the action to be
+   // performed. In other words, the conditions are AND'ed together. If no
+   // conditions are specified, the action is always performed.
+   UINT32 numFilterConditions;
+   [size_is(numFilterConditions), unique]
+      FWPS_FILTER_CONDITION0* filterCondition;
+   // Action performed if the conditions are true.
+   FWPS_ACTION0 action;
+   // Opaque context that may be interpreted by callouts. The context of the
+   // terminating filter is also returned from classify. In many cases, this
+   // context will be the LUID of a provider context, but it need not be.
+   UINT64 context;
+   // If this is a callout filter and the callout has the
+   // FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT flag set, this contains the
+   // provider context from the corresponding FWPM_FILTER0 struct. Otherwise,
+   // it is null.
+   [unique] FWPM_PROVIDER_CONTEXT0* providerContext;
+} FWPS_FILTER0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+typedef struct FWPM_PROVIDER_CONTEXT1_ FWPM_PROVIDER_CONTEXT1;
+// Version-1 of system filter used for run-time classification.
+typedef struct FWPS_FILTER1_
+{
+   // LUID uniquely identifying the filter in the filter engine.
+   UINT64 filterId;
+
+   // Weight of the filter -- higher filters are invoked first.
+   FWP_VALUE0 weight;
+   // Weight of the filter's sub-layer -- higher weights are invoked first.
+   UINT16 subLayerWeight;
+   UINT16 flags;
+   // Array of filter conditions. All must be true for the action to be
+   // performed. In other words, the conditions are AND'ed together. If no
+   // conditions are specified, the action is always performed.
+   UINT32 numFilterConditions;
+   [size_is(numFilterConditions), unique]
+      FWPS_FILTER_CONDITION0* filterCondition;
+   // Action performed if the conditions are true.
+   FWPS_ACTION0 action;
+   // Opaque context that may be interpreted by callouts. The context of the
+   // terminating filter is also returned from classify. In many cases, this
+   // context will be the LUID of a provider context, but it need not be.
+   UINT64 context;
+   // If this is a callout filter and the callout has the
+   // FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT flag set, this contains the
+   // provider context from the corresponding FWPM_FILTER1 struct. Otherwise,
+   // it is null.
+   [unique] FWPM_PROVIDER_CONTEXT1* providerContext;
+} FWPS_FILTER1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+typedef struct FWPM_PROVIDER_CONTEXT2_ FWPM_PROVIDER_CONTEXT2;
+// Version-2 of system filter used for run-time classification.
+typedef struct FWPS_FILTER2_
+{
+   // LUID uniquely identifying the filter in the filter engine.
+   UINT64 filterId;
+
+   // Weight of the filter -- higher filters are invoked first.
+   FWP_VALUE0 weight;
+   // Weight of the filter's sub-layer -- higher weights are invoked first.
+   UINT16 subLayerWeight;
+   UINT16 flags;
+   // Array of filter conditions. All must be true for the action to be
+   // performed. In other words, the conditions are AND'ed together. If no
+   // conditions are specified, the action is always performed.
+   UINT32 numFilterConditions;
+   [size_is(numFilterConditions), unique]
+      FWPS_FILTER_CONDITION0* filterCondition;
+   // Action performed if the conditions are true.
+   FWPS_ACTION0 action;
+   // Opaque context that may be interpreted by callouts. The context of the
+   // terminating filter is also returned from classify. In many cases, this
+   // context will be the LUID of a provider context, but it need not be.
+   UINT64 context;
+   // If this is a callout filter and the callout has the
+   // FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT flag set, this contains the
+   // provider context from the corresponding FWPM_FILTER1 struct. Otherwise,
+   // it is null.
+   [unique] FWPM_PROVIDER_CONTEXT2* providerContext;
+} FWPS_FILTER2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+typedef struct FWPM_PROVIDER_CONTEXT3_ FWPM_PROVIDER_CONTEXT3;
+// Version-3 of system filter used for run-time classification.
+typedef struct FWPS_FILTER3_
+{
+   // LUID uniquely identifying the filter in the filter engine.
+   UINT64 filterId;
+
+   // Weight of the filter -- higher filters are invoked first.
+   FWP_VALUE0 weight;
+   // Weight of the filter's sub-layer -- higher weights are invoked first.
+   UINT16 subLayerWeight;
+   UINT16 flags;
+   // Array of filter conditions. All must be true for the action to be
+   // performed. In other words, the conditions are AND'ed together. If no
+   // conditions are specified, the action is always performed.
+   UINT32 numFilterConditions;
+   [size_is(numFilterConditions), unique]
+      FWPS_FILTER_CONDITION0* filterCondition;
+   // Action performed if the conditions are true.
+   FWPS_ACTION0 action;
+   // Opaque context that may be interpreted by callouts. The context of the
+   // terminating filter is also returned from classify. In many cases, this
+   // context will be the LUID of a provider context, but it need not be.
+   UINT64 context;
+   // If this is a callout filter and the callout has the
+   // FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT flag set, this contains the
+   // provider context from the corresponding FWPM_FILTER1 struct. Otherwise,
+   // it is null.
+   [unique] FWPM_PROVIDER_CONTEXT3* providerContext;
+} FWPS_FILTER3;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for classifying.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// An incoming value passed to the filter engine. These are what
+// FWPS_FILTER_CONDITION0's are tested against.
+typedef struct FWPS_INCOMING_VALUE0_
+{
+   // Data value.
+   FWP_VALUE0 value;
+} FWPS_INCOMING_VALUE0;
+
+// An array of FWPS_INCOMING_VALUE0's.
+typedef struct FWPS_INCOMING_VALUES0_
+{
+   // The LUID of the layer where these values originated.
+   UINT16 layerId;
+   // Number of values in the array. The number of values, their order, and
+   // their data type is fixed for a given layer and determined by the layer
+   // schema.
+   UINT32 valueCount;
+   // Array of FWPS_INCOMING_VALUE0's.
+   [size_is(valueCount), ref] FWPS_INCOMING_VALUE0* incomingValue;
+} FWPS_INCOMING_VALUES0;
+
+//////////
+// The FWPS_INCOMING_VALUES0 are the only values which can be tested by
+// conditions. However, many layers provide additional "meta" information, that
+// can be processed by callouts.
+//////////
+
+typedef enum FWPS_DISCARD_MODULE0_
+{
+   FWPS_DISCARD_MODULE_NETWORK,
+   FWPS_DISCARD_MODULE_TRANSPORT,
+   FWPS_DISCARD_MODULE_GENERAL,
+   FWPS_DISCARD_MODULE_MAX
+} FWPS_DISCARD_MODULE0;
+
+// General (i.e., not layer-specific) reasons why a packet might be discarded.
+typedef enum FWPS_GENERAL_DISCARD_REASON_
+{
+  FWPS_DISCARD_FIREWALL_POLICY,
+  FWPS_DISCARD_IPSEC,
+  FWPS_GENERAL_DISCARD_REASON_MAX
+} FWPS_GENERAL_DISCARD_REASON;
+
+typedef struct FWPS_DISCARD_METADATA0_
+{
+   FWPS_DISCARD_MODULE0 discardModule;
+   UINT32 discardReason;
+   // LUID of filter that caused discard
+   UINT64 filterId;
+} FWPS_DISCARD_METADATA0;
+
+typedef struct FWPS_INBOUND_FRAGMENT_METADATA0_
+{
+   UINT32 fragmentIdentification;
+   UINT16 fragmentOffset;
+   ULONG fragmentLength;
+} FWPS_INBOUND_FRAGMENT_METADATA0;
+
+//////////
+// Flags that can be specified in FWPS_INCOMING_METADATA_VALUES0.flags.
+//////////
+
+cpp_quote("#define FWPS_INCOMING_FLAG_CACHE_SAFE                         (0x00000001)")
+cpp_quote("#define FWPS_INCOMING_FLAG_ENFORCE_QUERY                      (0x00000002)")
+cpp_quote("#define FWPS_INCOMING_FLAG_ABSORB                             (0x00000004)")
+cpp_quote("#define FWPS_INCOMING_FLAG_CONNECTION_FAILING_INDICATION      (0x00000008)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+cpp_quote("#define FWPS_INCOMING_FLAG_MID_STREAM_INSPECTION              (0x00000010)")
+cpp_quote("#define FWPS_INCOMING_FLAG_RECLASSIFY                         (0x00000020)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#define FWPS_INCOMING_FLAG_IS_LOOSE_SOURCE_FLOW               (0x00000040)")
+cpp_quote("#define FWPS_INCOMING_FLAG_IS_LOCAL_ONLY_FLOW                 (0x00000080)")
+cpp_quote("#define FWPS_L2_INCOMING_FLAG_IS_RAW_IPV4_FRAMING             (0x00000001)")
+cpp_quote("#define FWPS_L2_INCOMING_FLAG_IS_RAW_IPV6_FRAMING             (0x00000002)")
+cpp_quote("#define FWPS_L2_INCOMING_FLAG_RECLASSIFY_MULTI_DESTINATION    (0x00000008)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("#define FWPS_INCOMING_FLAG_RESERVED0                          (0x00000100)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#define FWPS_RIGHT_ACTION_WRITE          (0x00000001)")
+
+cpp_quote("#define FWPS_CLASSIFY_OUT_FLAG_ABSORB                         (0x00000001)")
+cpp_quote("#define FWPS_CLASSIFY_OUT_FLAG_BUFFER_LIMIT_REACHED           (0x00000002)")
+cpp_quote("#define FWPS_CLASSIFY_OUT_FLAG_NO_MORE_DATA                   (0x00000004)")
+cpp_quote("#define FWPS_CLASSIFY_OUT_FLAG_ALE_FAST_CACHE_CHECK           (0x00000008)")
+cpp_quote("#define FWPS_CLASSIFY_OUT_FLAG_ALE_FAST_CACHE_POSSIBLE        (0x00000010)")
+
+// Used to return the outcome of classification to the shim.
+typedef struct FWPS_CLASSIFY_OUT0_
+{
+
+   // Suggested action for the classification. Write access to this field is
+   // controlled by "rights" below. Note that returning block
+   // when FWPS_RIGHT_ACTION_WRITE isn't held is a veto.
+   FWP_ACTION_TYPE actionType;
+   // Opaque context data set by callout or terminating filter
+   UINT64 outContext;
+   // FilterId of filter that set final actionType
+   UINT64 filterId;
+   // Controls write access to fields in within this structure.
+   // FWPS_RIGHT_ACTION_WRITE must be held to update the actionType
+   // unless executing a veto.
+   UINT32 rights;
+   UINT32 flags;
+   // Reserved for system use
+   UINT32 reserved;
+} FWPS_CLASSIFY_OUT0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for dispatching callout notifications.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+// Types of notifications dispatched to callouts.
+typedef enum FWPS_CALLOUT_NOTIFY_TYPE_
+{
+   // A filter invoking the callout has been added.
+   FWPS_CALLOUT_NOTIFY_ADD_FILTER,
+   // A filter invoking the callout has been deleted.
+   FWPS_CALLOUT_NOTIFY_DELETE_FILTER,
+   // A filter invoking the callout has commit, and is active in the system
+   FWPS_CALLOUT_NOTIFY_ADD_FILTER_POST_COMMIT,
+   // Not a valid type -- used for parameter validation only.
+   FWPS_CALLOUT_NOTIFY_TYPE_MAX
+} FWPS_CALLOUT_NOTIFY_TYPE;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for ALE endpoints.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+//////////
+// Flags specific to an ALE endpoint.
+//////////
+
+// The connection is secured using IPsec
+cpp_quote("#define FWPS_ALE_ENDPOINT_FLAG_IPSEC_SECURED   (0x00000001)")
+
+// ALE endpoint properties
+typedef struct FWPS_ALE_ENDPOINT_PROPERTIES0_
+{
+   UINT64 endpointId;
+   FWP_IP_VERSION ipVersion;
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+   UINT8 ipProtocol;
+   UINT16 localPort;
+   UINT16 remotePort;
+   UINT64 localTokenModifiedId;
+   UINT64 mmSaId;
+   UINT64 qmSaId;
+   UINT32 ipsecStatus;
+   UINT32 flags;
+   FWP_BYTE_BLOB appId;
+} FWPS_ALE_ENDPOINT_PROPERTIES0;
+
+// Template used for enumerating ALE endpoints
+typedef struct FWPS_ALE_ENDPOINT_ENUM_TEMPLATE0_
+{
+   // If not empty, only endpoints whose local address is on
+   // the specified subnet will be returned. May be of type FWP_EMPTY,
+   // FWP_UINT32, FWP_BYTE_ARRAY16_TYPE, FWP_V4_ADDR_MASK, or FWP_V6_ADDR_MASK.
+   FWP_CONDITION_VALUE0 localSubNet;
+   // If not empty, only endpoints whose remote address is
+   // on the specified subnet will be returned.  May be of type FWP_EMPTY,
+   // FWP_UINT32, FWP_BYTE_ARRAY16_TYPE, FWP_V4_ADDR_MASK, or FWP_V6_ADDR_MASK.
+   FWP_CONDITION_VALUE0 remoteSubNet;
+   // If not empty, only endpoints whose protocol matches the specified value
+   // will be returned. May be of type FWP_EMPTY, FWP_UINT8 or FWP_RANGE_TYPE.
+   FWP_CONDITION_VALUE0 ipProtocol;
+   // If not empty, only endpoints whose local port matches the specified value
+   // will be returned. May be of type FWP_EMPTY, FWP_UINT16 or FWP_RANGE_TYPE.
+   FWP_CONDITION_VALUE0 localPort;
+   // If not empty, only endpoints whose remote port matches the specified value
+   // will be returned. May be of type FWP_EMPTY, FWP_UINT16 or FWP_RANGE_TYPE.
+   FWP_CONDITION_VALUE0 remotePort;
+} FWPS_ALE_ENDPOINT_ENUM_TEMPLATE0;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME) */")
+#pragma endregion
+

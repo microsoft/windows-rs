@@ -1,0 +1,408 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+cpp_quote("/* Copyright (c) Microsoft Corporation. All rights reserved. */")
+
+// This file will be processed by the MIDL tool to
+// produce the type library (termmgr.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef __TERMINAL_MANAGER_IDL__
+#define __TERMINAL_MANAGER_IDL__
+
+// Doesn't seem to work: midl_pragma warning( disable: 2039 );
+
+import "Objsafe.idl";
+import "tapi3if.idl"; // for TERMINAL_STATE, etc.
+import "tapi3ds.idl"; // for MST interfaces
+import "strmif.idl";  // for IGraphBuilder, IBaseFilter, etc.
+import "msp.idl";     // for MSP_HANDLE
+
+typedef enum
+{
+
+    TMGR_TD_CAPTURE = 1,
+    TMGR_TD_RENDER  = 2,
+    TMGR_TD_BOTH    = 3
+} TMGR_DIRECTION;
+
+const BSTR CLSID_String_VideoSuperclass  = L"{714C6F8C-6244-4685-87B3-B91F3F9EADA7}";
+const BSTR CLSID_String_StreamingSuperclass = L"{214F4ACC-AE0B-4464-8405-07029003F8E2}";
+const BSTR CLSID_String_FileSuperclass = L"{B4790031-56DB-4d3e-88C8-6FFAAFA08A91}";
+
+
+
+
+//
+// This interface is implemented on all DirectShow terminals. It provides
+// methods for connection, disconnection, and dynamic filter graph control.
+//
+
+[
+    uuid( AED6483B-3304-11d2-86F1-006008B0E5D2 ),
+    helpstring("ITTerminalControl interface"),
+    dual
+]
+
+interface ITTerminalControl : IUnknown
+{
+    [id(1), propget, helpstring("method get_AddressHandle")]
+    HRESULT AddressHandle(
+            [out]      MSP_HANDLE    * phtAddress
+            );
+
+    // enters each of the internal filters into the filter graph
+    // connects the internal filters together (if applicable)
+    // and returns a set of pins for connection
+    [id(2), helpstring("method ConnectTerminal")]
+    HRESULT ConnectTerminal(
+            [in]      IGraphBuilder  * pGraph,
+            [in]      DWORD            dwTerminalDirection,
+            [in, out] DWORD          * pdwNumPins,
+            [out]     IPin          ** ppPins
+            );
+
+    [id(3), helpstring("method CompleteConnectTerminal")]
+    HRESULT CompleteConnectTerminal(
+            );
+
+    // disconnects the internal filters and removes them from the filter graph
+    // filter graph parameter is used for validation, to make sure the terminal
+    // is disconnected from the same graph that it was originally connected to
+    [id(4), helpstring("method DisconnectTerminal")] 
+    HRESULT DisconnectTerminal(
+            [in]      IGraphBuilder  * pGraph,
+            [in]      DWORD            dwReserved
+            );
+
+    // stops the rightmost render filter in the terminal
+    // (needed for dynamic filter graphs)
+    [id(5), helpstring("method RunRenderFilter")] 
+    HRESULT RunRenderFilter(
+            );
+
+    // stops the rightmost render filter in the terminal
+    // (needed for dynamic filter graphs)
+    [id(6), helpstring("method StopRenderFilter")] 
+    HRESULT StopRenderFilter(
+            );
+}
+
+
+//
+// this interface is implemented by pluggable terminals
+//
+
+[
+    uuid(AED6483C-3304-11d2-86F1-006008B0E5D2),
+    helpstring("TAPI 3.0 ITPluggableTerminalInitialization interface"),
+    dual
+]
+interface ITPluggableTerminalInitialization : IUnknown
+{
+    [id(1), helpstring("method InitializeDynamic")]
+    HRESULT InitializeDynamic (
+            [in] IID                   iidTerminalClass,
+            [in] DWORD                 dwMediaType,
+            [in] TERMINAL_DIRECTION    Direction,
+            [in] MSP_HANDLE            htAddress
+            );
+}
+
+
+
+
+[
+    object,
+    uuid(7170F2DE-9BE3-11D0-A009-00AA00B605A4),
+    helpstring("ITTerminalManager Interface"),
+    pointer_default(unique),
+    hidden
+]
+interface ITTerminalManager : IUnknown
+{
+    [id(1), helpstring("method GetDynamicTerminalClasses")]
+    HRESULT GetDynamicTerminalClasses(
+            [in]      DWORD                    dwMediaTypes,
+            [in, out] DWORD                  * pdwNumClasses,
+            [out]     IID                    * pTerminalClasses
+            );
+
+    [id(2), helpstring("method CreateDynamicTerminal")]
+    HRESULT CreateDynamicTerminal(
+            [in]      IUnknown               * pOuterUnknown,
+            [in]      IID                      iidTerminalClass,
+            [in]      DWORD                    dwMediaType,
+            [in]      TERMINAL_DIRECTION       Direction,
+            [in]      MSP_HANDLE               htAddress,
+            [out]     ITTerminal            ** ppTerminal
+            );
+};
+
+[
+    uuid(BB33DEC6-B2C7-46E6-9ED1-498B91FA85AC),
+    helpstring("ITTerminalManager2 Interface"),
+    pointer_default(unique),
+    hidden
+    
+]
+interface ITTerminalManager2 : ITTerminalManager
+{
+    [id(3), helpstring("method GetPluggableSuperclasses")]
+    HRESULT GetPluggableSuperclasses(
+            [in, out] DWORD                  * pdwNumSuperclasses,
+            [out]     IID                    * pSuperclasses
+            );
+
+    [id(4), helpstring("method GetPluggableTerminalClasses")]
+    HRESULT GetPluggableTerminalClasses(
+            [in]      IID                    iidSuperclass,
+            [in]      DWORD                  dwMediaTypes,
+            [in, out] DWORD                  * pdwNumClasses,
+            [out]     IID                    * pTerminalClasses
+            );
+};
+
+
+//
+// --- ITPluggableTerminal ---
+// This interface describes the registry entry for a terminal
+//
+
+[
+    object,
+    uuid(924A3723-A00B-4f5f-9FEE-8E9AEB9E82AA),
+    dual,
+    helpstring("ITPluggableTerminalClassRegistration Interface"),
+    pointer_default(unique)
+]
+interface ITPluggableTerminalClassRegistration : IDispatch
+{
+    //
+    // Terminal Friendly Name
+    //
+    [id(1), propget, helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR*           pName
+            );
+
+    [id(1), propput, helpstring("property Name")]
+    HRESULT Name(
+            [in]          BSTR            bstrName
+            );
+
+    //
+    // Company name
+    //
+    [id(2), propget, helpstring("property Company")]
+    HRESULT Company(
+            [out, retval] BSTR*          pCompany
+            );
+
+    [id(2), propput, helpstring("property Company")]
+    HRESULT Company(
+            [in]          BSTR            bstrCompany
+            );
+
+    //
+    // Terminal Version
+    //
+    [id(3), propget, helpstring("property Version")]
+    HRESULT Version(
+            [out, retval] BSTR*          pVersion
+            );
+
+    [id(3), propput, helpstring("property Version")]
+    HRESULT Version(
+            [in]          BSTR            bstrVersion
+            );
+
+    //
+    // TerminalClass
+    //
+    [id(4), propget, helpstring("property TerminalClass")]
+    HRESULT TerminalClass(
+            [out, retval] BSTR*          pTerminalClass
+            );
+
+    [id(4), propput, helpstring("property TerminalClass")]
+    HRESULT TerminalClass(
+            [in]          BSTR            bstrTerminalClass
+            );
+
+    //
+    // This CLSID is used to CoCreate the terminal
+    //
+    [id(5), propget, helpstring("property CLSID")]
+    HRESULT CLSID(
+            [out, retval] BSTR*          pCLSID
+            );
+
+    [id(5), propput, helpstring("property CLSID")]
+    HRESULT CLSID(
+            [in]          BSTR            bstrCLSID
+            );
+
+    //
+    // Direction supported by terminal
+    //
+    [id(6), propget, helpstring("property Direction")]
+    HRESULT Direction(
+            [out, retval] TMGR_DIRECTION*  pDirection
+            );
+
+    [id(6), propput, helpstring("property Direction")]
+    HRESULT Direction(
+            [in]          TMGR_DIRECTION   nDirection
+            );
+
+    //
+    // Media Types supported by terminal
+    //
+    [id(7), propget, helpstring("property MediaTypes")]
+    HRESULT MediaTypes(
+            [out, retval] long*  pMediaTypes
+            );
+
+    [id(7), propput, helpstring("property MediaTypes")]
+    HRESULT MediaTypes(
+            [in]          long   nMediaTypes
+            );
+
+    //
+    // Add terminal into the registry
+    // If already exist an entry for terminal
+    // edit this entry
+    //
+    [id(8), helpstring("method Add")]
+    HRESULT Add(
+            [in]    BSTR    bstrSuperclass
+            );
+
+    //
+    // Delete the temrinal entry from registry
+    //
+    [id(9), helpstring("method Delete")]
+    HRESULT Delete(
+            [in]    BSTR    bstrSuperclass
+            );
+
+    //
+    // Get all information from registry for
+    // specific terminal
+    //
+    [id(10), helpstring("method GetTerminalClassInfo")]
+    HRESULT GetTerminalClassInfo(
+            [in]    BSTR    bstrSuperclass
+            );
+};
+
+//
+// --- ITPluggableTerminalSuperlassRegistration ---
+// This interface describes the registry entry for a terminal superclass
+//
+
+[
+    object,
+    uuid(60D3C08A-C13E-4195-9AB0-8DE768090F25),
+    dual,
+    helpstring("ITPluggableTerminalSuperclassRegistration Interface"),
+    pointer_default(unique)
+]
+interface ITPluggableTerminalSuperclassRegistration : IDispatch
+{
+    [id(1), propget, helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR*          pName
+            );
+
+    [id(1), propput, helpstring("property Name")]
+    HRESULT Name(
+            [in]          BSTR            bstrName
+            );
+
+    [id(2), propget, helpstring("property CLSID")]
+    HRESULT CLSID(
+            [out, retval] BSTR*           pCLSID
+            );
+
+    [id(2), propput, helpstring("property CLSID")]
+    HRESULT CLSID(
+            [in]          BSTR            bstrCLSID
+            );
+
+    [id(3), helpstring("method Add")]
+    HRESULT Add(
+            );
+
+    [id(4), helpstring("method Delete")]
+    HRESULT Delete(
+            );
+
+    [id(5), helpstring("method GetTerminalSuperclassInfo")]
+    HRESULT GetTerminalSuperclassInfo(
+            );
+
+    [id(6), propget, helpstring("method TerminalClasses")]
+    HRESULT TerminalClasses(
+            [out, retval] VARIANT*         pTerminals
+            );
+
+    [id(7), helpstring("method EnumerateTerminalClasses"), hidden]
+    HRESULT EnumerateTerminalClasses(
+            [out, retval] IEnumTerminalClass** ppTerminals
+            );
+
+};
+
+
+[
+    uuid(28DCD85B-ACA4-11D0-A028-00AA00B605A4),
+    version(1.0),
+    helpstring("TAPI3 Terminal Manager 1.0 Type Library")
+]
+library TERMMGRLib
+{
+    importlib("stdole2.tlb");
+
+
+    [
+        uuid(7170F2E0-9BE3-11D0-A009-00AA00B605A4),
+        helpstring("TAPI 3.0 TerminalManager Class"),
+        hidden
+    ]
+    coclass TerminalManager
+    {
+	    [default] interface ITTerminalManager;
+    };
+
+    [
+        uuid(BB918E32-2A5C-4986-AB40-1686A034390A),
+        helpstring("PluggableTerminalSuperclass Class")
+    ]
+    coclass PluggableSuperclassRegistration
+    {
+        [default] interface ITPluggableTerminalSuperclassRegistration;
+    };
+
+    [
+        uuid(45234E3E-61CC-4311-A3AB-248082554482),
+        helpstring("PluggableTerminalClass Class")
+    ]
+    coclass PluggableTerminalRegistration
+    {
+        [default] interface ITPluggableTerminalClassRegistration;
+    };
+
+};
+
+
+#endif // __TERMINAL_MANAGER_IDL__
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

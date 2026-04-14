@@ -1,0 +1,356 @@
+// print standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _PRINT_
+#define _PRINT_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#if !_HAS_CXX23
+_EMIT_STL_WARNING(STL4038, "The contents of <print> are available only with C++23 or later.");
+#else // ^^^ !_HAS_CXX23 / _HAS_CXX23 vvv
+
+#include <__msvc_print.hpp>
+#include <cstdio>
+#include <format>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+
+struct _NODISCARD _Stream_lock_guard {
+    explicit _Stream_lock_guard(FILE* const _Stream_) : _Stream(_Stream_) {
+        _CSTD _lock_file(_Stream);
+    }
+    ~_Stream_lock_guard() {
+        _CSTD _unlock_file(_Stream);
+    }
+
+    _Stream_lock_guard(const _Stream_lock_guard&)            = delete;
+    _Stream_lock_guard& operator=(const _Stream_lock_guard&) = delete;
+
+    FILE* const _Stream;
+};
+
+class _Print_to_stream_it {
+public:
+    using difference_type = ptrdiff_t;
+
+    explicit _Print_to_stream_it(FILE* const _Stream_) noexcept : _Stream(_Stream_) {}
+
+    // These member functions are never defined:
+    _Print_to_stream_it& operator=(char);
+    _Print_to_stream_it& operator*();
+    _Print_to_stream_it& operator++();
+    _Print_to_stream_it operator++(int);
+
+    FILE* _Get_stream() const noexcept {
+        return _Stream;
+    }
+
+private:
+    FILE* _Stream;
+};
+
+inline void _Print_noformat_nonunicode_nonlocking(FILE* const _Stream, const string_view _Str) {
+    const bool _Was_write_successful = _CSTD _fwrite_nolock(_Str.data(), 1, _Str.size(), _Stream) == _Str.size();
+
+    if (!_Was_write_successful) {
+        _Throw_system_error(static_cast<errc>(errno));
+    }
+}
+
+template <>
+struct _Fmt_iterator_flush<_Print_to_stream_it> {
+    static _Print_to_stream_it _Flush(const char* const _First, const char* const _Last, _Print_to_stream_it _Output) {
+        _STD _Print_noformat_nonunicode_nonlocking(_Output._Get_stream(), {_First, _Last});
+        return _Output;
+    }
+};
+
+class _Print_to_unicode_console_it {
+public:
+    using difference_type = ptrdiff_t;
+
+    explicit _Print_to_unicode_console_it(const __std_unicode_console_handle _Console_handle_) noexcept
+        : _Console_handle(_Console_handle_) {}
+
+    // These member functions are never defined:
+    _Print_to_unicode_console_it& operator=(char);
+    _Print_to_unicode_console_it& operator*();
+    _Print_to_unicode_console_it& operator++();
+    _Print_to_unicode_console_it operator++(int);
+
+    __std_unicode_console_handle _Get_console_handle() const noexcept {
+        return _Console_handle;
+    }
+
+private:
+    __std_unicode_console_handle _Console_handle;
+};
+
+inline void _Print_noformat_unicode_to_console_nonlocking(
+    const __std_unicode_console_handle _Console_handle, const string_view _Str) {
+    const __std_win_error _Console_print_result =
+        __std_print_to_unicode_console(_Console_handle, _Str.data(), _Str.size());
+    if (_Console_print_result != __std_win_error::_Success) {
+        _STD _Throw_system_error_from_std_win_error(_Console_print_result);
+    }
+}
+
+template <>
+struct _Fmt_iterator_flush<_Print_to_unicode_console_it> {
+    static _Print_to_unicode_console_it _Flush(
+        const char* const _First, const char* const _Last, _Print_to_unicode_console_it _Output) {
+        _STD _Print_noformat_unicode_to_console_nonlocking(_Output._Get_console_handle(), {_First, _Last});
+        return _Output;
+    }
+};
+
+inline void _Print_noformat_nonunicode(FILE* const _Stream, const string_view _Str) {
+    const _Stream_lock_guard _Guard{_Stream};
+    _STD _Print_noformat_nonunicode_nonlocking(_Stream, _Str);
+}
+
+// Format non unicode into a temporary string, then print to stream
+inline void _Vprint_nonunicode_buffered_impl(
+    const _Add_newline _Add_nl, FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    string _Output_str = _STD vformat(_Fmt_str, _Fmt_args);
+    if (_Add_nl == _Add_newline::_Yes) {
+        _Output_str.push_back('\n');
+    }
+
+    _STD _Print_noformat_nonunicode(_Stream, _Output_str);
+}
+
+// Format non unicode directly into _Stream
+inline void _Vprint_nonunicode_impl(
+    const _Add_newline _Add_nl, FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    const _Stream_lock_guard _Guard{_Stream};
+    _STD vformat_to(_Print_to_stream_it{_Stream}, _Fmt_str, _Fmt_args);
+    if (_Add_nl == _Add_newline::_Yes) {
+        _Print_noformat_nonunicode_nonlocking(_Stream, "\n");
+    }
+}
+
+template <class _UnicodeConsoleFn, class _FallbackFn>
+void _Do_on_maybe_unicode_console(
+    FILE* const _Stream, _UnicodeConsoleFn _Unicode_console_func, _FallbackFn _Fallback_func) {
+    const __std_unicode_console_retrieval_result _Unicode_console_retrieval_result{
+        __std_get_unicode_console_handle_from_file_stream(_Stream)};
+
+    // See the documentation for __std_unicode_console_retrieval_result to understand why we do this.
+    bool _Is_unicode_console;
+
+#pragma warning(push)
+#pragma warning(disable : 4061) // enumerator not explicitly handled by switch label
+    switch (_Unicode_console_retrieval_result._Error) {
+    case __std_win_error::_Success:
+        _Is_unicode_console = true;
+        break;
+
+    case __std_win_error::_File_not_found:
+        _Is_unicode_console = false;
+        break;
+
+    case __std_win_error::_Not_supported:
+        return;
+
+    default:
+        _STD _Throw_system_error_from_std_win_error(_Unicode_console_retrieval_result._Error);
+    }
+#pragma warning(pop)
+
+    if (_Is_unicode_console) {
+        _Unicode_console_func(_Unicode_console_retrieval_result._Console_handle);
+    } else {
+        _Fallback_func();
+    }
+}
+
+// If a unicode console, write using native API, else write to stream
+inline void _Vprint_unicode_noformat_impl(FILE* const _Stream, const string_view _Output_str) {
+    const auto _Unicode_console = [&](const __std_unicode_console_handle _Console_handle) {
+        const _Stream_lock_guard _Guard{_Stream};
+
+        const bool _Was_flush_successful = _CSTD _fflush_nolock(_Stream) == 0;
+        if (!_Was_flush_successful) {
+            _Throw_system_error(static_cast<errc>(errno));
+        }
+
+        _STD _Print_noformat_unicode_to_console_nonlocking(_Console_handle, _Output_str);
+    };
+
+    const auto _Fallback = [&] { _STD _Print_noformat_nonunicode(_Stream, _Output_str); };
+
+    _STD _Do_on_maybe_unicode_console(_Stream, _Unicode_console, _Fallback);
+}
+
+inline void _Fputc_newline(FILE* const _Stream) {
+    const bool _Was_write_successful = _CSTD fputc('\n', _Stream) == '\n';
+
+    if (!_Was_write_successful) {
+        _Throw_system_error(static_cast<errc>(errno));
+    }
+}
+
+inline void _Print_newline_only_unicode(FILE* const _Stream) {
+    const auto _Unicode_console = [&](const __std_unicode_console_handle _Console_handle) {
+        const bool _Was_flush_successful = _CSTD fflush(_Stream) == 0;
+        if (!_Was_flush_successful) {
+            _Throw_system_error(static_cast<errc>(errno));
+        }
+
+        const __std_win_error _Console_print_result = __std_print_newline_only_to_unicode_console(_Console_handle);
+        if (_Console_print_result != __std_win_error::_Success) {
+            _STD _Throw_system_error_from_std_win_error(_Console_print_result);
+        }
+    };
+
+    const auto _Fallback = [&] { _STD _Fputc_newline(_Stream); };
+
+    _STD _Do_on_maybe_unicode_console(_Stream, _Unicode_console, _Fallback);
+}
+
+// Format to intermediate string buffer, then print to unicode console/file
+inline void _Vprint_unicode_buffered_impl(
+    const _Add_newline _Add_nl, FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    string _Output_str = _STD vformat(_Fmt_str, _Fmt_args);
+    if (_Add_nl == _Add_newline::_Yes) {
+        _Output_str.push_back('\n');
+    }
+    _STD _Vprint_unicode_noformat_impl(_Stream, _Output_str);
+}
+
+inline void _Vprint_unicode_impl(
+    const _Add_newline _Add_nl, FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    const auto _Unicode_console = [&](const __std_unicode_console_handle _Console_handle) {
+        const _Stream_lock_guard _Guard{_Stream};
+
+        const bool _Was_flush_successful = _CSTD _fflush_nolock(_Stream) == 0;
+        if (!_Was_flush_successful) {
+            _Throw_system_error(static_cast<errc>(errno));
+        }
+
+        _STD vformat_to(_Print_to_unicode_console_it{_Console_handle}, _Fmt_str, _Fmt_args);
+        if (_Add_nl == _Add_newline::_Yes) {
+            _Print_noformat_unicode_to_console_nonlocking(_Console_handle, "\n");
+        }
+    };
+
+    const auto _Fallback = [&] { _STD _Vprint_nonunicode_impl(_Add_nl, _Stream, _Fmt_str, _Fmt_args); };
+
+    _STD _Do_on_maybe_unicode_console(_Stream, _Unicode_console, _Fallback);
+}
+
+template <class... _Types>
+void _Print_impl(
+    const _Add_newline _Add_nl, FILE* const _Stream, const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    constexpr bool _Has_format_args  = sizeof...(_Types) > 0;
+    constexpr bool _Print_nonlocking = (enable_nonlocking_formatter_optimization<remove_cvref_t<_Types>> && ...);
+
+    if constexpr (_Has_format_args) {
+        if constexpr (_STD _Is_ordinary_literal_encoding_utf8()) {
+            if constexpr (_Print_nonlocking) {
+                _STD _Vprint_unicode_impl(_Add_nl, _Stream, _Fmt.get(), _STD make_format_args(_Args...));
+            } else {
+                _STD _Vprint_unicode_buffered_impl(_Add_nl, _Stream, _Fmt.get(), _STD make_format_args(_Args...));
+            }
+        } else {
+            if constexpr (_Print_nonlocking) {
+                _STD _Vprint_nonunicode_impl(_Add_nl, _Stream, _Fmt.get(), _STD make_format_args(_Args...));
+            } else {
+                _STD _Vprint_nonunicode_buffered_impl(_Add_nl, _Stream, _Fmt.get(), _STD make_format_args(_Args...));
+            }
+        }
+    } else {
+        const string _Unescaped_str{_Unescape_braces(_Add_nl, _Fmt.get())};
+
+        if constexpr (_STD _Is_ordinary_literal_encoding_utf8()) {
+            _STD _Vprint_unicode_noformat_impl(_Stream, _Unescaped_str);
+        } else {
+            _STD _Print_noformat_nonunicode(_Stream, _Unescaped_str);
+        }
+    }
+}
+
+_EXPORT_STD template <class... _Types>
+void print(FILE* const _Stream, const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    _STD _Print_impl(_Add_newline::_Nope, _Stream, _Fmt, _STD forward<_Types>(_Args)...);
+}
+
+_EXPORT_STD template <class... _Types>
+void print(const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    _STD print(stdout, _Fmt, _STD forward<_Types>(_Args)...);
+}
+
+_EXPORT_STD template <class... _Types>
+void println(FILE* const _Stream, const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    _STD _Print_impl(_Add_newline::_Yes, _Stream, _Fmt, _STD forward<_Types>(_Args)...);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void println(FILE* _Stream) {
+    if constexpr (_STD _Is_ordinary_literal_encoding_utf8()) {
+        _STD _Print_newline_only_unicode(_Stream);
+    } else {
+        _STD _Fputc_newline(_Stream);
+    }
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void println() {
+    _STD println(stdout);
+}
+
+_EXPORT_STD template <class... _Types>
+void println(const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    _STD println(stdout, _Fmt, _STD forward<_Types>(_Args)...);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_unicode_buffered(FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD _Vprint_unicode_buffered_impl(_Add_newline::_Nope, _Stream, _Fmt_str, _Fmt_args);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_unicode_buffered(const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD vprint_unicode_buffered(stdout, _Fmt_str, _Fmt_args);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_nonunicode_buffered(FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD _Vprint_nonunicode_buffered_impl(_Add_newline::_Nope, _Stream, _Fmt_str, _Fmt_args);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_nonunicode_buffered(const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD vprint_nonunicode_buffered(stdout, _Fmt_str, _Fmt_args);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_unicode(FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD _Vprint_unicode_impl(_Add_newline::_Nope, _Stream, _Fmt_str, _Fmt_args);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_nonunicode(FILE* const _Stream, const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD _Vprint_nonunicode_impl(_Add_newline::_Nope, _Stream, _Fmt_str, _Fmt_args);
+}
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // ^^^ _HAS_CXX23 ^^^
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _PRINT_

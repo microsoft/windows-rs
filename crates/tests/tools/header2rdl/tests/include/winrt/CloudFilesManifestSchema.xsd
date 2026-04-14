@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/cloudfiles/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/cloudfiles/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:cloudfiles2="http://schemas.microsoft.com/appx/manifest/cloudfiles/windows10/2"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/cloudfiles/windows10/2"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="CloudFiles" type="CT_CloudFiles"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_CloudFiles" use="required"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_CloudFiles">
+    <xs:all minOccurs="0">
+      <xs:element name="CustomStateHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="ThumbnailProviderHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="ExtendedPropertyHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="BannersHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="ContentUriSource" type="CT_ContentUriSource" minOccurs="0"/>
+      <xs:element name="CloudFilesContextMenus" type="CT_CloudFilesContextMenus" />
+      <xs:element name="DesktopIconOverlayHandlers" type="CT_DesktopIconOverlayHandlers" minOccurs="0"/>
+      <xs:element ref="cloudfiles2:StorageProviderStatusUISourceFactory" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="IconResource" type="t:ST_ImageFile"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CloudFilesHandler">
+    <xs:attribute name="Clsid" type="t:ST_GUID"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CloudFilesContextMenus">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Verb" maxOccurs="10000">
+        <xs:complexType>
+          <xs:attribute name="Id" type="t:ST_FileTypeAssociationSupportedVerbId" use="required" />
+          <xs:attribute name="Clsid" type="t:ST_GUID"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DesktopIconOverlayHandlers">
+    <xs:sequence minOccurs="0">
+      <xs:element name="DesktopIconOverlayHandler" maxOccurs="10000">
+        <xs:complexType>
+          <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ContentUriSource">
+    <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+</xs:schema>
+

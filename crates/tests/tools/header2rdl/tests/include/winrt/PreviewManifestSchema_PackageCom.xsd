@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/packagecom"
+           xmlns="http://schemas.microsoft.com/appx/manifest/preview/windows10/packagecom"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:previewcom="http://schemas.microsoft.com/appx/manifest/preview/windows10/packagecom"
+           xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           >
+
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/com/windows10"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+
+    <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+        <xs:complexType>
+            <xs:choice minOccurs="0">
+                <xs:element name="ComServer" type="CT_ComServer" maxOccurs="1" />
+            </xs:choice>
+            <xs:attribute name="Category" type="t:ST_ExtensionCategory_Preview_Com" use="required"/>
+            <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+            <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="Class" type="CT_NewClass" />
+    <xs:element name="ExeServer" type="CT_ExeServer" />
+    <xs:element name="ServiceServer" type="CT_ServiceServer" />
+    <xs:element name="SurrogateServer" type="CT_SurrogateServer" />
+    <xs:element name="TreatAsClass" type="CT_TreatAsClass" />
+    <xs:element name="ProgId" type="com:CT_ProgId" />
+
+    <xs:complexType name="CT_NewClass">
+        <xs:complexContent>
+            <xs:extension base="com:CT_Class">
+                <xs:all>
+                    <xs:element name="ImplementedCategories" type="com:CT_ImplementedCategories" minOccurs="0">
+                        <xs:unique name="ImplementedCategory_Id">
+                            <xs:selector xpath="com:ImplementedCategory"/>
+                            <xs:field xpath="@Id"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="Conversion" type="com:CT_Conversion" minOccurs="0"/>
+                    <xs:element name="DataFormats" type="com:CT_DataFormats" minOccurs="0">
+                        <xs:unique name="DataFormats_All">
+                            <xs:selector xpath="com:DataFormat"/>
+                            <xs:field xpath="@FormatName"/>
+                            <xs:field xpath="@StandardFormat"/>
+                            <xs:field xpath="@AspectFlag"/>
+                            <xs:field xpath="@MediumFlag"/>
+                            <xs:field xpath="@Direction"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="MiscStatus" type="com:CT_MiscStatus" minOccurs="0">
+                        <xs:unique name="Aspect_Type">
+                            <xs:selector xpath="com:Aspect"/>
+                            <xs:field xpath="@Type"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="Verbs" type="com:CT_Verbs" minOccurs="0">
+                        <xs:unique name="Verb_Index">
+                            <xs:selector xpath="com:Verb"/>
+                            <xs:field xpath="@Id"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="DefaultIcon" type="com:CT_DefaultIcon" minOccurs="0"/>
+                    <xs:element name="ToolboxBitmap32" type="com:CT_ToolboxBitmap" minOccurs="0"/>
+                </xs:all>
+                <xs:attribute name="ProgId" type="t:ST_ProgId"/>
+                <xs:attribute name="VersionIndependentProgId" type="t:ST_ProgId"/>
+                <xs:attribute name="AutoConvertTo" type="t:ST_GUID"/>
+                <xs:attribute name="InsertableObject" type="xs:boolean"/>
+                <xs:attribute name="ShortDisplayName" type="t:ST_ShortDisplayName"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ExeServer">
+        <xs:choice minOccurs="0" maxOccurs="10000">
+            <xs:element name="Class" type="CT_OutOfProcessClass" minOccurs="0"/>
+            <xs:element name="ClassReference" type="CT_OutProcessClassReference" minOccurs="0"/>
+        </xs:choice>
+        <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase" use="required"/>
+        <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+        <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+        <xs:attribute name="LaunchAndActivationPermission" type="t:ST_PermissionsCom" />
+    </xs:complexType>
+
+    <xs:complexType name="CT_ClassReference">
+        <xs:attribute name="Id" type="t:ST_GUID" />
+    </xs:complexType>
+
+    <xs:complexType name="CT_OutProcessClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_ClassReference">
+                <xs:attribute name="EnableOleDefaultHandler" type="xs:boolean" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_SurrogateServerClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_OutProcessClassReference">
+                <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_ClassReference">
+                <xs:attribute name="Virtualization" type="ST_Virtualization"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessServerClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_InProcessClassReference">
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_SurrogateServerInProcessServerClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_ClassReference">
+                <xs:attribute name="EnableOleDefaultHandler" type="xs:boolean"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ManagedInProcessServerClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_InProcessClassReference">
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom"/>
+                <xs:attribute name="ImplementationClass" type="t:ST_ProgId" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ServiceServer">
+        <xs:choice minOccurs="0" maxOccurs="10000">
+            <xs:element name="Class" type="CT_OutOfProcessClass"/>
+            <xs:element name="ClassReference" type="CT_OutProcessClassReference"/>
+        </xs:choice>
+        <xs:attribute name="ServiceName" type="t:ST_NonEmptyString" use="required"/>
+        <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+        <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+        <xs:attribute name="LaunchAndActivationPermission" type="t:ST_PermissionsCom" />
+    </xs:complexType>
+
+    <xs:complexType name="CT_TreatAsClass">
+        <xs:complexContent>
+            <xs:extension base="com:CT_Class">
+                <xs:attribute name="TreatAs" type="t:ST_GUID" use="required"/>
+                <xs:attribute name="AutoConvertTo" type="t:ST_GUID"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_SurrogateServer">
+        <xs:choice minOccurs="0" maxOccurs="10000">
+            <xs:element name="Class" type="CT_SurrogateClass"/>
+            <xs:element name="InProcessServerClassReference" type="CT_SurrogateServerInProcessServerClassReference"/>
+            <xs:element name="ClassReference" type="CT_SurrogateServerClassReference"/>
+        </xs:choice>
+        <xs:attribute name="CustomSurrogateExecutable" type="t:ST_ExecutableAnyCase"/>
+        <xs:attribute name="DisplayName" type="t:ST_DisplayName" />
+        <xs:attribute name="LaunchAndActivationPermission" type="t:ST_PermissionsCom" />
+        <xs:attribute name="AppId" type="t:ST_GUID" />
+        <xs:attribute name="SystemSurrogate" type="t:ST_SystemSurrogateCom" />
+    </xs:complexType>
+
+    <xs:complexType name="CT_ClassReferenceSurrogateServer">
+        <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+        <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+        <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_OutOfProcessClass">
+        <xs:complexContent>
+            <xs:extension base="CT_NewClass">
+                <xs:attribute name="EnableOleDefaultHandler" type="xs:boolean"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_SurrogateClass">
+        <xs:complexContent>
+            <xs:extension base="CT_OutOfProcessClass">
+                <xs:attribute name="Path" type="t:ST_FileName"/>
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required" />
+                <xs:attribute name="Virtualization" type="ST_Virtualization"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ComServer">
+        <xs:choice minOccurs="0" maxOccurs="4000">
+            <xs:element ref="Class"/>
+            <xs:element ref="ExeServer"/>
+            <xs:element ref="ServiceServer"/>
+            <xs:element ref="SurrogateServer"/>
+            <xs:element ref="TreatAsClass"/>
+            <xs:element ref="ProgId"/>
+            <xs:element ref="InProcessServer"/>
+            <xs:element ref="InProcessHandler"/>
+            <xs:element ref="ManagedInProcessServer"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:element name="InProcessServer" type="CT_InProcessServer" >
+        <xs:unique name="InProcessServerDll_ProcessorArchitecture">
+            <xs:selector xpath="previewcom:InProcessServerDll"/>
+            <xs:field xpath="@ProcessorArchitecture"/>
+        </xs:unique>
+        <xs:unique name="InProcessServerDll_Path">
+            <xs:selector xpath="previewcom:InProcessServerDll"/>
+            <xs:field xpath="@Path"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="CT_InProcessServer">
+        <xs:choice minOccurs="0" maxOccurs="4000">
+            <xs:element name="Class" type="CT_InProcessServerClass"/>
+            <xs:element name="InProcessServerDll" type="CT_InProcessServerDll"/>
+            <xs:element name="ClassReference" type="CT_InProcessServerClassReference"/>
+        </xs:choice>
+        <xs:attribute name="Path" type="t:ST_DllFile" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessClass">
+        <xs:complexContent>
+            <xs:extension base="CT_NewClass">
+                <xs:attribute name="Virtualization" type="ST_Virtualization"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessServerClass">
+        <xs:complexContent>
+            <xs:extension base="CT_InProcessClass">
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+                <xs:attribute name="ProgId" type="t:ST_ProgId"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ManagedInProcessServerClass">
+        <xs:complexContent>
+            <xs:extension base="CT_InProcessClass">
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom"/>
+                <xs:attribute name="ImplementationClass" type="t:ST_ProgId" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessServerDll">
+        <xs:attribute name="Path" type="t:ST_DllFile" use="required"/>
+        <xs:attribute name="ProcessorArchitecture" type="t:ST_ArchitectureNonNeutral" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="ST_Virtualization">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="enabled"/>
+            <xs:enumeration value="disabled"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="InProcessHandler" type="CT_InProcessHandler" >
+        <xs:unique name="InProcessHandlerDll_ProcessorArchitecture">
+            <xs:selector xpath="previewcom:InProcessHandlerDll"/>
+            <xs:field xpath="@ProcessorArchitecture"/>
+        </xs:unique>
+        <xs:unique name="InProcessHandlerDll_Path">
+            <xs:selector xpath="previewcom:InProcessHandlerDll"/>
+            <xs:field xpath="@Path"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="CT_InProcessHandler">
+        <xs:choice minOccurs="0" maxOccurs="4000">
+            <xs:element name="Class" type="CT_InProcessClass"/>
+            <xs:element name="InProcessHandlerDll" type="CT_InProcessServerDll" />
+            <xs:element name="ClassReference" type="CT_InProcessClassReference"/>
+        </xs:choice>
+        <xs:attribute name="Path" type="t:ST_DllFile" use="optional"/>
+    </xs:complexType>
+
+    <xs:element name="ManagedInProcessServer" type="CT_ManagedInProcessServer" />
+
+    <xs:complexType name="CT_ManagedInProcessServer">
+        <xs:choice minOccurs="0" maxOccurs="4000">
+            <xs:element name="Class" type="CT_ManagedInProcessServerClass"/>
+            <xs:element name="ClassReference" type="CT_ManagedInProcessServerClassReference"/>
+        </xs:choice>
+        <xs:attribute name="Assembly" type="t:ST_NonEmptyString" use="required"/>
+        <xs:attribute name="RuntimeVersion" type="t:ST_NonEmptyString" use="required"/>
+    </xs:complexType>
+</xs:schema>
+

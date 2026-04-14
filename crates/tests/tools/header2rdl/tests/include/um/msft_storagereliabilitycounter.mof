@@ -1,0 +1,105 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "StorageReliabilityCounter provides reliability statistics or counters reported by a storage device. "
+    "This information is dynamic and should be obtained from the storage device whenever needed."    
+    )]
+class MSFT_StorageReliabilityCounter : MSFT_StorageObject {
+
+    [Read, Description(
+        "DeviceId identifies the associated storage device. When associated with an MSFT_PhysicalDisk, it "
+        "will be the same as its DeviceId field. When associated with an MSFT_Disk, it will be the same as "
+        "its Number field."
+        )]
+    String DeviceId;
+
+    [Read, Description(
+        "The current temperature of the storage device in Celsius."
+        )]
+    UInt8 Temperature;
+
+    [Read, Description(
+        "The maximum temperature in Celsius at which the storage device is capable of normal operation."
+        )]
+    UInt8 TemperatureMax;
+
+    [Read, Description(
+        "Total read errors encountered by the storage device."
+        )]
+    UInt64 ReadErrorsTotal;
+
+    [Read, Description(
+        "Read errors corrected by the storage device."
+        )]
+    UInt64 ReadErrorsCorrected;
+
+    [Read, Description(
+        "Read errors not corrected by the storage device."
+    )]  
+    UInt64 ReadErrorsUncorrected;
+
+    [Read, Description(
+        "Total write errors encountered by the storage device."
+        )]
+    UInt64 WriteErrorsTotal;
+
+    [Read, Description(
+        "Write errors corrected by the storage device."
+        )]
+    UInt64 WriteErrorsCorrected;
+
+    [Read, Description(
+        "Write errors not corrected by the storage device."
+        )] 
+    UInt64 WriteErrorsUncorrected;
+
+    [Read, Description(
+        "Year and week of storage device manufacture."
+        )]
+    String ManufactureDate;
+
+    [Read, Description(
+        "Number of start-stop cycles performed by the storage device."
+        )]
+    UInt32 StartStopCycleCount;
+
+    [Read, Description(
+        "Maximum number of start-stop cycles within which the storage device is "
+        "capable of normal operation."
+        )]
+    UInt32 StartStopCycleCountMax;
+
+    [Read, Description(
+        "Number of load-unload cycles performed by the storage device."
+        )]
+    UInt32 LoadUnloadCycleCount;
+
+    [Read, Description(
+        "Maximum number of load-unload cycles within which the storage device is "
+        "capable of normal operation."
+        )]
+    UInt32 LoadUnloadCycleCountMax;
+
+    [Read, Description(
+        "Storage device wear indicator, in percentage. At 100 percent, the estimated wear limit will have been reached."
+        )]
+    UInt8 Wear;
+
+    [Read, Description(
+        "Length of time, in hours, the storage device has been powered on since manufacture."
+        )]
+    UInt32 PowerOnHours;
+
+    [Read]
+    UInt64 ReadLatencyMax;
+
+    [Read]
+    UInt64 WriteLatencyMax;
+    
+    [Read]
+    UInt64 FlushLatencyMax;
+};

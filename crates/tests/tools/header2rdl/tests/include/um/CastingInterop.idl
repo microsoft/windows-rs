@@ -1,0 +1,79 @@
+//  CastingInterop.idl
+//
+//  IDL defines for COM APIs to support interop with Windows.Media.Casting
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved
+
+import "objidl.idl";
+import "propsys.idl";
+import "EventToken.idl";
+
+// TODO_NTDDI_WIN10_TH2
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+// Properties to be used with the ICastingSourceInfo::GetProperties propertyset
+// The value of the CastingSourceInfo_Property_PreferredSourceUriScheme property must be of type VT_LPWSTR
+cpp_quote("extern const __declspec(selectany) WCHAR CastingSourceInfo_Property_PreferredSourceUriScheme[] = L\"PreferredSourceUriScheme\";")
+// The value of the CastingSourceInfo_Property_CastingTypes property must be of type VT_UI4 and correspond to one
+// or more of the values in the CastingPlaybackTypes enumeration bitwise OR'd together
+cpp_quote("extern const __declspec(selectany) WCHAR CastingSourceInfo_Property_CastingTypes[] = L\"CastingTypes\";")
+// The value of the CastingSourceInfo_Property_ProtectedMedia property must be of type VT_BOOL
+cpp_quote("extern const __declspec(selectany) WCHAR CastingSourceInfo_Property_ProtectedMedia[] = L\"ProtectedMedia\";")
+
+typedef enum CASTING_CONNECTION_ERROR_STATUS
+{
+    CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED =                 0,
+    CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND =    1,
+    CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR =              2,
+    CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED =             3,
+    CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED = 4,
+    CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE =    5,
+    CASTING_CONNECTION_ERROR_STATUS_UNKNOWN =                   6,
+} CASTING_CONNECTION_ERROR_STATUS;
+
+typedef enum CASTING_CONNECTION_STATE
+{
+    CASTING_CONNECTION_STATE_DISCONNECTED =     0,
+    CASTING_CONNECTION_STATE_CONNECTED =        1,
+    CASTING_CONNECTION_STATE_RENDERING =        2,
+    CASTING_CONNECTION_STATE_DISCONNECTING =    3,
+    CASTING_CONNECTION_STATE_CONNECTING =       4,
+} CASTING_CONNECTION_STATE;
+
+// This interface is implemented by the Casting API.  The object implementing the ICastingController interface
+// (below) must notify the Casting API of casting state change and error events though this interface.
+[uuid(C79A6CB7-BEBD-47a6-A2AD-4D45AD79C7BC)]
+interface ICastingEventHandler : IUnknown
+{
+    HRESULT OnStateChanged([in] CASTING_CONNECTION_STATE newState);
+    HRESULT OnError([in] CASTING_CONNECTION_ERROR_STATUS errorStatus, [in] LPCWSTR errorMessage);
+}
+
+// This interface is used by the Casting API to connect and disconnect a CastingSource with a CastingDevice. The
+// Casting API retrieves a copy of the object implementing this interface though the ICastingSource::GetController
+// method. The object implementing this interface is responsible for connecting/disconnecting to the CastingDevice 
+// using the provided casting engine object, which implements a protocol specific interface (ex: IMediaRenderer).
+// It is also responsible for sending state change and error events to the ICastingEventHandler callback.
+[uuid(F0A56423-A664-4fbd-8B43-409A45E8D9A1)]
+interface ICastingController : IUnknown
+{
+    HRESULT Initialize([in] IUnknown *castingEngine, [in] IUnknown *castingSource);
+    HRESULT Connect();
+    HRESULT Disconnect();
+
+    // Callers should follow the same Advise/UnAdvise model that exists for COM's IConnectionPoint interface
+    HRESULT Advise([in] ICastingEventHandler *eventHandler, [out] DWORD *cookie);
+    HRESULT UnAdvise([in] DWORD cookie);
+}
+
+// This interface must be implemented by all CastingSource objects.  It is responsible for providing the Casting API
+// with an ICastingController implementation, as well as properties about the CastingSource. The exact properties it 
+// should provide are listed above (CastingSourceInfo_Property_*).
+[uuid(45101AB7-7C3A-4bce-9500-12C09024B298)]
+interface ICastingSourceInfo : IUnknown
+{
+    HRESULT GetController([out] ICastingController **controller);
+    HRESULT GetProperties([out] INamedPropertyStore **props);
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")

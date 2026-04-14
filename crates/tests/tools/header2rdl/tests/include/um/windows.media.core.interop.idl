@@ -1,0 +1,99 @@
+﻿//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+
+cpp_quote("#include <winapifamily.h>")
+
+import "Inspectable.idl";
+import "mfobjects.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("// {16A0A3B9-9F65-4102-9367-2CDA3A4F372A}")
+cpp_quote("extern const __declspec(selectany) CLSID CLSID_AudioFrameNativeFactory = { 0x16a0a3b9, 0x9f65, 0x4102, { 0x93, 0x67, 0x2c, 0xda, 0x3a, 0x4f, 0x37, 0x2a } };")
+
+cpp_quote("// {D194386A-04E3-4814-8100-B2B0AE6D78C7}")
+cpp_quote("extern const __declspec(selectany) CLSID CLSID_VideoFrameNativeFactory = { 0xd194386a, 0x4e3, 0x4814, { 0x81, 0x0, 0xb2, 0xb0, 0xae, 0x6d, 0x78, 0xc7 } };")
+        
+[
+    object,
+    uuid(20BE1E2E-930F-4746-9335-3C332F255093),
+    local,
+    pointer_default(unique)
+]
+interface IAudioFrameNative : IInspectable
+{
+    // Provides IMFSample, etc. if present
+    // Returns E_NOINTERFACE if not available
+    HRESULT GetData(
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+}
+
+[
+    object,
+    uuid(26BA702B-314A-4620-AAF6-7A51AA58FA18),
+    local,
+    pointer_default(unique)
+]
+interface IVideoFrameNative : IInspectable
+{
+    // Provides IMFSample, etc. if present
+    // Returns E_NOINTERFACE if not available
+    HRESULT GetData(
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+
+    // Provides IMFDXGIDeviceManager, etc. if present
+    // Returns E_NOINTERFACE if not available
+    HRESULT GetDevice(
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+}
+
+[
+    object,
+    uuid(7BD67CF8-BF7D-43E6-AF8D-B170EE0C0110),
+    local,
+    pointer_default(unique)
+]
+interface IAudioFrameNativeFactory : IInspectable
+{
+    HRESULT CreateFromMFSample(
+        [in, annotation("_In_")] IMFSample* data,
+        [in, annotation("_In_")] BOOL forceReadOnly, // only applies to the WinRT wrapper, not the wrapped MF buffer
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+}
+
+[
+    object,
+    uuid(69E3693E-8E1E-4E63-AC4C-7FDC21D9731D),
+    local,
+    pointer_default(unique)
+]
+interface IVideoFrameNativeFactory : IInspectable
+{
+    HRESULT CreateFromMFSample(
+        [in, annotation("_In_")] IMFSample* data, // buffer must implement IMF2DBuffer2, potentially also IMFDXGIBuffer
+        [in, annotation("_In_")] REFGUID subtype,
+        [in, annotation("_In_")] UINT32 width,
+        [in, annotation("_In_")] UINT32 height,
+        [in, annotation("_In_")] BOOL forceReadOnly, // only applies to the WinRT wrapper, not the wrapped MF buffer
+        [in, annotation("_In_opt_")] const MFVideoArea* minDisplayAperture, // MF_MT_MINIMUM_DISPLAY_APERTURE, null if full-frame
+        [in, annotation("_In_opt_")] IMFDXGIDeviceManager* device, // if null, the buffer must not implement IMFDXGIBuffer
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

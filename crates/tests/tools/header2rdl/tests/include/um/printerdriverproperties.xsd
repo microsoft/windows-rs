@@ -1,0 +1,22 @@
+﻿<schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.microsoft.com/windows/2011/08/printing/driverpropertybag"
+           xmlns="http://www.w3.org/2001/XMLSchema">
+    <element name="Properties">
+        <complexType>
+            <sequence>
+                <element minOccurs="0" maxOccurs="unbounded" name="Property">
+                    <complexType>
+                        <choice>
+                            <element name="ByteArray" type="hexBinary" />
+                            <element name="Bool" default="false" type="boolean" />
+                            <element name="String" type = "string" />
+                            <element name="Int32" type="int" default="0" />
+                        </choice>
+                        <attribute name="Name" type="string" use="required" />
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

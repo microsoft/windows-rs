@@ -1,0 +1,218 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows HTTP Services (WinHTTP)
+//  Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//  File: httprequest.idl
+//
+//--------------------------------------------------------------------------
+
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows HTTP Services (WinHTTP) version 5.1")
+cpp_quote("//  Copyright (C) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+#include "httprequestid.h"
+
+
+
+
+[
+    uuid(662901fc-6951-4854-9eb2-d9a2570f2b2e),
+    helpstring("Microsoft WinHTTP Services, version 5.1"),
+    lcid(0x0000),
+    version(5.1)
+
+]
+library WinHttp
+{
+    importlib ("stdole2.tlb");
+
+    typedef [public] long   HTTPREQUEST_PROXY_SETTING;
+    const HTTPREQUEST_PROXY_SETTING HTTPREQUEST_PROXYSETTING_DEFAULT    = 0x00000000;
+    const HTTPREQUEST_PROXY_SETTING HTTPREQUEST_PROXYSETTING_PRECONFIG  = 0x00000000;
+    const HTTPREQUEST_PROXY_SETTING HTTPREQUEST_PROXYSETTING_DIRECT     = 0x00000001;
+    const HTTPREQUEST_PROXY_SETTING HTTPREQUEST_PROXYSETTING_PROXY      = 0x00000002;
+
+    typedef [public] long   HTTPREQUEST_SETCREDENTIALS_FLAGS;
+    const HTTPREQUEST_SETCREDENTIALS_FLAGS  HTTPREQUEST_SETCREDENTIALS_FOR_SERVER   = 0x00000000;
+    const HTTPREQUEST_SETCREDENTIALS_FLAGS  HTTPREQUEST_SETCREDENTIALS_FOR_PROXY    = 0x00000001;
+
+    typedef
+    [uuid(12782009-FE90-4877-9730-E5E183669B19), helpstring("WinHttpRequest Options")] 
+    enum WinHttpRequestOption
+    {
+        WinHttpRequestOption_UserAgentString,
+        WinHttpRequestOption_URL,
+        WinHttpRequestOption_URLCodePage,
+        WinHttpRequestOption_EscapePercentInURL,
+        WinHttpRequestOption_SslErrorIgnoreFlags,
+        WinHttpRequestOption_SelectCertificate,
+        WinHttpRequestOption_EnableRedirects,
+        WinHttpRequestOption_UrlEscapeDisable,
+        WinHttpRequestOption_UrlEscapeDisableQuery,
+        WinHttpRequestOption_SecureProtocols,
+        WinHttpRequestOption_EnableTracing,
+        WinHttpRequestOption_RevertImpersonationOverSsl,
+        WinHttpRequestOption_EnableHttpsToHttpRedirects,
+        WinHttpRequestOption_EnablePassportAuthentication,
+        WinHttpRequestOption_MaxAutomaticRedirects,
+        WinHttpRequestOption_MaxResponseHeaderSize,
+        WinHttpRequestOption_MaxResponseDrainSize,
+        WinHttpRequestOption_EnableHttp1_1,
+        WinHttpRequestOption_EnableCertificateRevocationCheck,
+        WinHttpRequestOption_RejectUserpwd
+    } WinHttpRequestOption;
+
+    typedef
+    [uuid(9d8a6df8-13de-4b1f-a330-67c719d62514)]
+    enum WinHttpRequestAutoLogonPolicy
+    {
+        AutoLogonPolicy_Always,
+        AutoLogonPolicy_OnlyIfBypassProxy,
+        AutoLogonPolicy_Never
+    } WinHttpRequestAutoLogonPolicy;
+
+    typedef
+    [uuid(152a1ca2-55a9-43a3-b187-0605bb886349)]
+    enum WinHttpRequestSslErrorFlags
+    {
+        SslErrorFlag_UnknownCA       = 0x00000100,
+        SslErrorFlag_CertWrongUsage  = 0x00000200,
+        SslErrorFlag_CertCNInvalid   = 0x00001000,
+        SslErrorFlag_CertDateInvalid = 0x00002000,
+        SslErrorFlag_Ignore_All      = 0x00003300
+    } WinHttpRequestSslErrorFlags;
+
+
+    typedef
+    [uuid(6b2c51c1-a8ea-46bd-b928-c9b76f9f14dd)]
+    enum WinHttpRequestSecureProtocols
+    {
+        SecureProtocol_SSL2     = 0x00000008,
+        SecureProtocol_SSL3     = 0x00000020,
+        SecureProtocol_TLS1     = 0x00000080,
+        SecureProtocol_TLS1_1   = 0x00000200,
+        SecureProtocol_TLS1_2   = 0x00000800,
+        SecureProtocol_ALL      = 0x000000A8
+    } WinHttpRequestSecureProtocols;
+
+
+    [
+        object,
+        uuid(016fe2ec-b2c8-45f8-b23b-39e53a75396b),
+        odl,
+        dual,
+        oleautomation,
+        nonextensible,
+        helpstring("IWinHttpRequest Interface"),
+        pointer_default(unique)
+    ]
+    interface IWinHttpRequest : IDispatch
+    {
+        [id(DISPID_HTTPREQUEST_SETPROXY), helpstring("Specify proxy configuration")]
+        HRESULT SetProxy([in] HTTPREQUEST_PROXY_SETTING ProxySetting,
+                         [in, optional] VARIANT ProxyServer,
+                         [in, optional] VARIANT BypassList);
+
+        [id(DISPID_HTTPREQUEST_SETCREDENTIALS), helpstring("Specify authentication credentials")]
+        HRESULT SetCredentials([in] BSTR UserName,
+                         [in] BSTR Password,
+			 [in] HTTPREQUEST_SETCREDENTIALS_FLAGS Flags);
+
+        [id(DISPID_HTTPREQUEST_OPEN), helpstring("Open HTTP connection")]
+        HRESULT Open([in] BSTR Method, [in] BSTR Url, [in, optional] VARIANT Async);
+	
+        [id(DISPID_HTTPREQUEST_SETREQUESTHEADER), helpstring("Add HTTP request header")]
+        HRESULT SetRequestHeader([in] BSTR Header, [in] BSTR Value);
+	
+        [id(DISPID_HTTPREQUEST_GETRESPONSEHEADER), helpstring("Get HTTP response header")]
+        HRESULT GetResponseHeader([in] BSTR Header, [out, retval] BSTR * Value);
+	
+        [id(DISPID_HTTPREQUEST_GETALLRESPONSEHEADERS), helpstring("Get all HTTP response headers")]
+        HRESULT GetAllResponseHeaders([out, retval] BSTR * Headers);
+	
+        [id(DISPID_HTTPREQUEST_SEND), helpstring("Send HTTP request")]
+        HRESULT Send([in, optional] VARIANT Body);
+
+        [propget, id(DISPID_HTTPREQUEST_STATUS),  helpstring("Get HTTP status code")]
+        HRESULT Status([out, retval] long * Status);
+
+        [propget, id(DISPID_HTTPREQUEST_STATUSTEXT),  helpstring("Get HTTP status text")]
+        HRESULT StatusText([out, retval] BSTR * Status);
+
+        [propget, id(DISPID_HTTPREQUEST_RESPONSETEXT),  helpstring("Get response body as a string")]
+        HRESULT ResponseText([out, retval] BSTR * Body);
+
+        [propget, id(DISPID_HTTPREQUEST_RESPONSEBODY), helpstring("Get response body as a safearray of UI1")]
+        HRESULT ResponseBody([out, retval] VARIANT * Body);
+
+        [propget, id(DISPID_HTTPREQUEST_RESPONSESTREAM), helpstring("Get response body as a stream")]
+        HRESULT ResponseStream([out, retval] VARIANT * Body);
+
+        [propget, id(DISPID_HTTPREQUEST_OPTION)]
+        HRESULT Option([in] WinHttpRequestOption Option, [out, retval] VARIANT * Value);
+
+        [propput, id(DISPID_HTTPREQUEST_OPTION)]
+        HRESULT Option([in] WinHttpRequestOption Option, [in] VARIANT Value);
+
+        [id(DISPID_HTTPREQUEST_WAITFORRESPONSE), helpstring("Wait for asynchronous send to complete, with optional timeout (in seconds)")]
+        HRESULT WaitForResponse([in, optional] VARIANT Timeout, [out, retval] VARIANT_BOOL * Succeeded);
+
+        [id(DISPID_HTTPREQUEST_ABORT), helpstring("Abort an asynchronous operation in progress")]
+        HRESULT Abort();
+
+        [id(DISPID_HTTPREQUEST_SETTIMEOUTS), helpstring("Specify timeout settings (in milliseconds)")]
+        HRESULT SetTimeouts([in] long ResolveTimeout, [in] long ConnectTimeout, [in] long SendTimeout, [in] long ReceiveTimeout);
+
+        [id(DISPID_HTTPREQUEST_SETCLIENTCERTIFICATE), helpstring("Specify a client certificate")]
+        HRESULT SetClientCertificate([in] BSTR ClientCertificate);
+
+        [id(DISPID_HTTPREQUEST_SETAUTOLOGONPOLICY), helpstring("Specify if credentials should be sent automatically")]
+        HRESULT SetAutoLogonPolicy([in] WinHttpRequestAutoLogonPolicy AutoLogonPolicy);
+    };
+
+    [
+        object,
+        uuid(f97f4e15-b787-4212-80d1-d380cbbf982e),
+        odl,
+        oleautomation,
+        nonextensible,
+        helpstring("IWinHttpRequestEvents Interface"),
+        pointer_default(unique)
+    ]
+    interface IWinHttpRequestEvents : IUnknown
+    {
+        void OnResponseStart([in] long Status, [in] BSTR ContentType);
+
+        void OnResponseDataAvailable([in] SAFEARRAY(unsigned char) * Data);
+
+        void OnResponseFinished();
+
+        void OnError([in] long ErrorNumber, [in] BSTR ErrorDescription);
+    };
+
+
+    // WinHttpRequest Class
+    [
+        uuid(2087c2f4-2cef-4953-a8ab-66779b670495),
+        helpstring("WinHttpRequest component")
+    ]
+    coclass WinHttpRequest
+    {   
+        [default] interface IWinHttpRequest;
+        [default, source] interface IWinHttpRequestEvents;
+    };
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+

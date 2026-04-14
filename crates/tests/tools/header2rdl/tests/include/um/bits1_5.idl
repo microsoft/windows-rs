@@ -1,0 +1,140 @@
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+
+[
+    uuid(54b50739-686f-45eb-9dff-d6a9a0faa9af),
+    helpstring("IBackgroundCopyJob2 Interface"),
+    odl
+]
+interface IBackgroundCopyJob2 : IBackgroundCopyJob
+{
+    // a progam and optional arguments to launch when the job enters
+    // ERROR or TRANSFERRED state.
+    //
+    HRESULT SetNotifyCmdLine( [in, unique]  LPCWSTR Program, [in, unique] LPCWSTR Parameters );
+    HRESULT GetNotifyCmdLine( [out] LPWSTR *pProgram, [out] LPWSTR *pParameters );
+
+    //
+    // Measure the progress of the reply of an upload-reply job.
+    // ReplyBytesTotal is BG_SIZE_UNKNOWN if the reply has not begun yet,
+    // and zero if the job type is not BG_JOB_TYPE_UPLOAD_REPLY.
+    //
+    typedef struct _BG_JOB_REPLY_PROGRESS
+    {
+        UINT64  BytesTotal;
+        UINT64  BytesTransferred;
+    }
+    BG_JOB_REPLY_PROGRESS;
+
+    HRESULT
+    GetReplyProgress(
+        [in, out] BG_JOB_REPLY_PROGRESS * pProgress
+        );
+
+    //
+    // Retrieve the reply data as an in-memory buffer.
+    //
+    HRESULT
+    GetReplyData(
+        [out, size_is( , (unsigned long) (*pLength))] byte ** ppBuffer,
+        [in, out, unique]           UINT64 * pLength
+        );
+
+    //
+    // Set a location to place the reply as a file.
+    //
+    HRESULT SetReplyFileName( [in, unique] LPCWSTR   ReplyFileName );
+    HRESULT GetReplyFileName( [out]        LPWSTR * pReplyFileName );
+
+    //
+    // Security controls.
+    //
+    typedef enum BG_AUTH_TARGET
+    {
+            BG_AUTH_TARGET_SERVER = 1,
+            BG_AUTH_TARGET_PROXY
+
+    } BG_AUTH_TARGET;
+
+    typedef enum BG_AUTH_SCHEME
+    {
+            BG_AUTH_SCHEME_BASIC = 1,
+            BG_AUTH_SCHEME_DIGEST,
+            BG_AUTH_SCHEME_NTLM,
+            BG_AUTH_SCHEME_NEGOTIATE,
+            BG_AUTH_SCHEME_PASSPORT
+
+    } BG_AUTH_SCHEME;
+
+    typedef struct
+    {
+            LPWSTR UserName;
+            LPWSTR Password;
+
+    } BG_BASIC_CREDENTIALS;
+
+    typedef BG_BASIC_CREDENTIALS * PBG_BASIC_CREDENTIALS;
+
+    typedef [switch_type(BG_AUTH_SCHEME)] union
+    {
+
+            [case( BG_AUTH_SCHEME_BASIC, BG_AUTH_SCHEME_DIGEST, BG_AUTH_SCHEME_NTLM,
+            BG_AUTH_SCHEME_NEGOTIATE, BG_AUTH_SCHEME_PASSPORT )] BG_BASIC_CREDENTIALS Basic;
+            [default] ;
+
+    } BG_AUTH_CREDENTIALS_UNION;
+
+    typedef struct
+    {
+        BG_AUTH_TARGET Target;
+        BG_AUTH_SCHEME Scheme;
+        [switch_is(Scheme)] BG_AUTH_CREDENTIALS_UNION Credentials;
+    }
+    BG_AUTH_CREDENTIALS;
+
+    typedef BG_AUTH_CREDENTIALS * PBG_AUTH_CREDENTIALS;
+
+    //
+    // Sets the explicit credentials for a particular auth scheme.
+    // The app calls this through the IBackgroundCopyJob2 interface.
+    // If the { target, scheme } pair match an existing credential,
+    // the existing credential is replaced with the new one.
+    //
+    HRESULT SetCredentials( BG_AUTH_CREDENTIALS * credentials );
+
+    HRESULT RemoveCredentials( BG_AUTH_TARGET Target, BG_AUTH_SCHEME Scheme );
+
+}
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(ea9319ea-c628-480f-8331-768fac397e4e),
+    helpstring("Microsoft Background Copy Manager 1.5"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager1_5
+{
+    [
+        uuid(f087771f-d74f-4c1a-bb8a-e16aca9124ea),
+        helpstring("Background copy job 2")
+    ]
+    coclass BackgroundCopyManager1_5
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback;
+    interface IBackgroundCopyJob2;
+}
+
+cpp_quote("#include \"bits2_0.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

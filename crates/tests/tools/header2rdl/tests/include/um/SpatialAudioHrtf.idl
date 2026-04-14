@@ -1,0 +1,176 @@
+cpp_quote("#include <winapifamily.h>")
+
+//
+// Copyright Microsoft Corporation, All Rights Reserved
+//
+
+import "wtypes.idl";
+import "unknwn.idl";
+import "hstring.idl";
+import "hstring.idl";
+
+import "SpatialAudioClient.idl";
+
+#pragma region Application and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+
+typedef enum SpatialAudioHrtfDirectivityType
+{
+    SpatialAudioHrtfDirectivity_OmniDirectional = 0, // The sound emission is in all directions.
+    SpatialAudioHrtfDirectivity_Cardioid,            // The sound emission is a cardiod shape.
+    SpatialAudioHrtfDirectivity_Cone                 // The sound emission is a cone.
+} SpatialAudioHrtfDirectivityType;
+
+
+typedef enum SpatialAudioHrtfEnvironmentType
+{
+    SpatialAudioHrtfEnvironment_Small = 0,           // A small room.
+    SpatialAudioHrtfEnvironment_Medium,              // A medium-sized room.
+    SpatialAudioHrtfEnvironment_Large,               // A large enclosed space.
+    SpatialAudioHrtfEnvironment_Outdoors,            // An outdoor space.
+    SpatialAudioHrtfEnvironment_Average              // Reserved. Do not use.
+} SpatialAudioHrtfEnvironmentType;
+
+
+typedef enum SpatialAudioHrtfDistanceDecayType
+{
+    SpatialAudioHrtfDistanceDecay_NaturalDecay = 0,  // Simulates natural decay with distance, as constrained by minimum and maximum gain distance limits. Drops to silence at rolloff distance.
+    SpatialAudioHrtfDistanceDecay_CustomDecay        // Used to set up a custom gain curve, within the maximum and minimum gain limit.
+} SpatialAudioHrtfDistanceDecayType;
+
+
+#pragma pack(push, 1)
+
+typedef struct SpatialAudioHrtfDirectivity
+{
+    SpatialAudioHrtfDirectivityType     Type;       // Indicates the type of directivity.
+    float                               Scaling;    // A normalized value between zero and one. Specifies the amount of linear interpolation between omnidirectional sound and the full directivity pattern, where 0 is fully omnidirectional and 1 is fully directional.
+} SpatialAudioHrtfDirectivity;
+
+typedef struct SpatialAudioHrtfDirectivityCardioid
+{
+    SpatialAudioHrtfDirectivity directivity;
+    float                               Order;
+} SpatialAudioHrtfDirectivityCardioid;
+
+typedef struct SpatialAudioHrtfDirectivityCone
+{
+    SpatialAudioHrtfDirectivity directivity;
+    float                               InnerAngle;
+    float                               OuterAngle;
+} SpatialAudioHrtfDirectivityCone;
+
+typedef union SpatialAudioHrtfDirectivityUnion
+{
+    SpatialAudioHrtfDirectivityCone     Cone;
+    SpatialAudioHrtfDirectivityCardioid Cardiod;
+    SpatialAudioHrtfDirectivity         Omni;
+} SpatialAudioHrtfDirectivityUnion;
+
+typedef struct SpatialAudioHrtfDistanceDecay
+{
+    SpatialAudioHrtfDistanceDecayType   Type;               // The Type of decay behavior, natural or custom.
+    float                               MaxGain;            // The maximum gain limit applied at any distance. Applies to both natural and custom decay. This value is specified in dB, with a range from -96 to 12 inclusive. The default value is 12 dB.
+    float                               MinGain;            // The minimum gain limit applied at any distance. Applies to both natural and custom decay. This value is specified in dB, with a range from -96 to 12 inclusive. The default value is -96 dB.
+    float                               UnityGainDistance;  // The distance at which the gain is 0dB. Applies to natural decay only. This value is specified in meters, with a range from 0.05 to infinity (FLT_MAX). The default value is 1 meter.
+    float                               CutoffDistance;     // The distance at which output is silent. Applies to natural decay only. This value is specified in meters, with a range from zero (non-inclusive) to infinity (FLT_MAX). The default value is INFINITY.
+} SpatialAudioHrtfDistanceDecay;
+
+
+typedef float SpatialAudioHrtfOrientation[9];              // Indicates the orientation of an HRTF directivity object. This is a row-major 3x3 rotation matrix.
+
+typedef struct SpatialAudioHrtfActivationParams
+{
+    WAVEFORMATEX const* ObjectFormat;                       // Format descriptor for a single spatial audio objects. All objects must have the same format and must be of type WAVEFORMATEX or WAVEFORMATEXTENSIBLE.
+    AudioObjectType StaticObjectTypeMask;                   // (static channel bed mask) mask of static audio object type that are allowed
+    UINT32 MinDynamicObjectCount;                           // Minimum number of dynamic audio objects. If at least this count cannot be granted, no dynamic objects will be granted.
+    UINT32 MaxDynamicObjectCount;                           // Maximum number of dynamic audio objects that can be activated via ISpatialAudioObjectRenderStreamForMetadata.
+    AUDIO_STREAM_CATEGORY Category;                         // Specifies the category of an audio stream and its spatial audio objects.
+    HANDLE EventHandle;                                     // event that will signal the need for more audio data. This handle will be duplicated internally before getting used
+    ISpatialAudioObjectRenderStreamNotify* NotifyObject;    // Notification sink (can be nullptr)
+    SpatialAudioHrtfDistanceDecay *DistanceDecay;           // Optional Distance Decay Settings - All dynamic objects from this stream will default to this setting  (nullptr if unused)
+    SpatialAudioHrtfDirectivityUnion *Directivity;          // Optional Directivity - All dynamic objects from this stream will default to this value   (nullptr if unused)
+    SpatialAudioHrtfEnvironmentType *Environment;           // Optional Environment - All dynamic objects from this stream will default to this value  (nullptr if unused)
+    SpatialAudioHrtfOrientation *Orientation;               // Optional Orientation - All dynamic objects from this stream will default to this value  (nullptr if unused)
+} SpatialAudioHrtfActivationParams;
+
+typedef struct SpatialAudioHrtfActivationParams2
+{
+    WAVEFORMATEX const* ObjectFormat;                       // Format descriptor for a single spatial audio objects. All objects must have the same format and must be of type WAVEFORMATEX or WAVEFORMATEXTENSIBLE.
+    AudioObjectType StaticObjectTypeMask;                   // (static channel bed mask) mask of static audio object type that are allowed
+    UINT32 MinDynamicObjectCount;                           // Minimum number of dynamic audio objects. If at least this count cannot be granted, no dynamic objects will be granted.
+    UINT32 MaxDynamicObjectCount;                           // Maximum number of dynamic audio objects that can be activated via ISpatialAudioObjectRenderStreamForMetadata.
+    AUDIO_STREAM_CATEGORY Category;                         // Specifies the category of an audio stream and its spatial audio objects.
+    HANDLE EventHandle;                                     // event that will signal the need for more audio data. This handle will be duplicated internally before getting used
+    ISpatialAudioObjectRenderStreamNotify* NotifyObject;    // Notification sink (can be nullptr)
+    SpatialAudioHrtfDistanceDecay *DistanceDecay;           // Optional Distance Decay Settings - All dynamic objects from this stream will default to this setting  (nullptr if unused)
+    SpatialAudioHrtfDirectivityUnion *Directivity;          // Optional Directivity - All dynamic objects from this stream will default to this value   (nullptr if unused)
+    SpatialAudioHrtfEnvironmentType *Environment;           // Optional Environment - All dynamic objects from this stream will default to this value  (nullptr if unused)
+    SpatialAudioHrtfOrientation *Orientation;               // Optional Orientation - All dynamic objects from this stream will default to this value  (nullptr if unused)
+    SPATIAL_AUDIO_STREAM_OPTIONS Options;
+} SpatialAudioHrtfActivationParams2;
+
+#pragma pack(pop)
+
+
+
+[
+    object,
+    uuid(D7436ADE-1978-4E14-ABA0-555BD8EB83B4),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectForHrtf : ISpatialAudioObjectBase
+{
+    // The position of the sound relative to the listener. 
+    HRESULT SetPosition(
+        [in, annotation("_In_")]  float x,
+        [in, annotation("_In_")]  float y,
+        [in, annotation("_In_")]  float z
+        );
+
+     // The custom direct path gain value for the current source position. Valid only for sounds played with the SpatialAudioHrtfDistanceDecay_CustomDecay type. 
+     HRESULT SetGain(
+        [in, annotation("_In_")]  float gain
+        ); 
+
+    // The rotation matrix for the source orientation, with respect to the listener's frame of reference (the listener's coordinate system). 
+     HRESULT SetOrientation(
+        [in, annotation("_In_")]  const SpatialAudioHrtfOrientation* orientation
+        );   
+    
+     // Selects the acoustic environment to simulate. 
+    HRESULT SetEnvironment(
+        [in, annotation("_In_")]  SpatialAudioHrtfEnvironmentType environment
+        );
+    
+    // Specifies the decay rate with respect to distance
+    HRESULT SetDistanceDecay(
+        [in, annotation("_In_")]  SpatialAudioHrtfDistanceDecay *distanceDecay
+        ); 
+
+    // Specifies the directional shape of the sound emitter, omni-directional, Cardioid, or cone  
+    HRESULT SetDirectivity(
+        [in, annotation("_In_")]  SpatialAudioHrtfDirectivityUnion *directivity
+        ); 
+};
+
+
+[
+    object,
+    uuid(E08DEEF9-5363-406E-9FDC-080EE247BBE0),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectRenderStreamForHrtf : ISpatialAudioObjectRenderStreamBase
+{
+    // Activation method for Microsoft Hrtf Spatial Audio Objects
+    HRESULT ActivateSpatialAudioObjectForHrtf(
+        [in, annotation("_In_")] AudioObjectType type,
+        [out, annotation("_COM_Outptr_")] ISpatialAudioObjectForHrtf** audioObject
+        );
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")

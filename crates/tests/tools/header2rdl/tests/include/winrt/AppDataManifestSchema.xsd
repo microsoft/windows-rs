@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/appdata/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/appdata/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+  <xs:element name="ApplicationData" type="CT_ApplicationData" substitutionGroup="f:ApplicationDataChoice"/>
+
+  <xs:complexType name="CT_ApplicationData">
+    <xs:all>
+      <xs:element name="MachineFolder" type="CT_MachineFolder" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="CT_MachineFolder">
+    <xs:attribute name="Sddl" type="xs:string" use="optional"/>
+  </xs:complexType>
+</xs:schema>
+

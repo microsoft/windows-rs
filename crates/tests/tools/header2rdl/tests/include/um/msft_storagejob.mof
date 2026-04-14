@@ -1,0 +1,276 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+[ClassVersion( "1.0"), Abstract]
+class MSFT_StorageJobOutParams
+{
+
+};
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "Storage jobs represent long running operations on a storage subsystem. These operations "
+    "can either be user-initiated through the various management interfaces defined by this "
+    "MOF, or automatically by intelligent storage subsystems."
+    )]
+class MSFT_StorageJob : MSFT_StorageObject
+{
+    [Read, Required, Description(
+        "A system defined name for this storage job."
+        )]
+    String Name;
+
+    [Read, Description(
+        "The Description property provides a textual description of the storage job operation."
+        )]
+    String Description;
+
+    [Read, Description(
+        "The time interval that the job has been executing or the total execution time if the "
+        "storage job is complete.")]
+    Datetime ElapsedTime;
+
+    [Read, Description(
+        "If the operation that this storage job was tracking has failed, the provider will set "
+        "this with an error code defined by the method that invoked the operation. If this job "
+        "tracked a background task, the error code can be set to any valid Storage Management "
+        "error code as defined in the value map below. If there was no error, this property must "
+        "be set to 0 - 'Success'. This property should be NULL until the operation has completed."
+        )]
+    UInt16 ErrorCode;
+
+    [Read, Description(
+        "A free-form string that contains the vendor error description."
+        )]
+    String ErrorDescription;
+
+    [Read, Required, Description(
+        "The current execution state of the storage job."
+        ),
+        ValueMap {
+            "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+            "12", "13..32767", "32768..65535"
+            },
+        Values {
+            // 2 - 6
+            "New", "Starting", "Running", "Suspended", "Shutting Down",
+            // 7 - 12
+            "Completed", "Terminated", "Killed", "Exception", "Service", "Query Pending",
+            // ..
+            "Microsoft Reserved", "Vendor Reserved"
+            }]
+    UInt16 JobState;
+
+    [Read, Description(
+        "A free-form string that represents the status of the job. The primary status is "
+        "reflected in the inherited OperationalStatus property. JobStatus provides additional, "
+        "implementation-specific details."
+        )]
+    String JobStatus;
+
+    [Read, Description(
+        "This property indicates whether the times represented in the StartTime, "
+        "TimeOfLastStateChange, and TimeSubmitted properties represent local times or UTC times. "
+        "Time values are synchronized worldwide by using the enumeration value 2 - 'UTC Time'."
+        ),
+        ValueMap { "1", "2" },
+        Values { "Local Time", "UTC Time" }]
+    UInt16 LocalOrUtcTime;
+
+    [Read, Required, Description(
+        "Indicates the current statuses of the element."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            ".."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 OperationalStatus[];
+
+    [Read, Description (
+        "Strings describing the various OperationalStatus array values. For example, if "
+        "\"Stopping\" is the value assigned to OperationalStatus, this property may contain an "
+        "explanation as to why an object is being stopped. Note that entries in this array are "
+        "correlated with those at the same array index in OperationalStatus."
+        )]
+    String StatusDescriptions[];
+
+    [Read, Required, Description(
+        "The percentage of the job that has completed at the time that this value is requested."
+        ), Units( "Percent" ), MinValue( 0 ), MaxValue( 100 )]
+    UInt16 PercentComplete;
+
+    [Read, Description(
+        "Indicates the number of bytes processed by this job so far."
+        ), Units("Bytes")]
+    UInt64 BytesProcessed;
+
+    [Read, Description(
+        "Indicates the total number of bytes being processed by this job."
+        ), Units("Bytes")]
+    UInt64 BytesTotal;
+
+    [Read, Description(
+        "The time that the job was actually started."
+        )]
+    Datetime StartTime;
+
+    [Read, Description(
+        "The amount of time that the Job is retained after it has finished executing, "
+        "regardless of whether it failed during execution. The job must remain in existence for "
+        "some period of time regardless of the value of the DeleteOnCompletion property. \n"
+        )]
+    Datetime TimeBeforeRemoval;
+
+    [Read, Description(
+        "The date or time when the state of the job last changed. If the state of the job has "
+        "not changed and this property is populated, it must be set to a 0 interval value. If a "
+        "state change was requested, but was rejected or not yet processed, the property must "
+        "not be updated."
+        )]
+    Datetime TimeOfLastStateChange;
+
+    [Read, Description(
+        "The time that the job was submitted to execute. A value of all zeroes indicates that "
+        "the owning element is not capable of reporting a date and time."
+        )]
+    Datetime TimeSubmitted;
+
+    [Read, Description(
+        "If TRUE, the storage job will be automatically deleted after a short time interval."
+        )]
+    Boolean DeleteOnCompletion;
+
+    [Read, Required, Description(
+        "If TRUE, this storage job represents an automated background task initiated by "
+        "the storage subsystem. For all user / management initiated operations, this value "
+        "should be set to FALSE."
+        )]
+    Boolean IsBackgroundTask;
+
+    [Read, Description(
+        "Describes the recovery action to be taken for an unsuccessfully run job. The possible "
+        "values are: \n"
+        "0 - 'Unknown' meaning it is unknown as to what recovery action to take \n"
+        "1 - 'Other' indicating that the recovery action will be specified in the "
+        "OtherRecoveryAction property \n"
+        "2 - 'Do Not Continue' meaning stop the execution of the job and appropriately update "
+        "its status \n"
+        "3 - 'Continue With Next Job' meaning continue with the next job in the queue \n"
+        "4 - 'Re-run Job' indicating that the job should be re-run \n"
+        ),
+        ValueMap { "0", "1", "2", "3", "4" },
+        Values {
+            "Unknown", "Other", "Do Not Continue",
+            "Continue With Next Job", "Re-run Job"
+            }]
+    UInt16 RecoveryAction;
+
+    [Read, Description(
+        "Denotes a vendor-specific recovery action to be taken for an unsuccessfully run job. "
+        "This value should only be set if RecoveryAction is set to 1 - 'Other'."
+        )]
+    String OtherRecoveryAction;
+
+    //
+    // Method: RequestStateChange
+    //
+
+    [Description(
+        "Requests that the state of the job be changed to the value specified in the "
+        "RequestedState parameter. Invoking the RequestStateChange method multiple times "
+        "could result in earlier requests being overwritten or lost."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096", "4097",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "State transition started",
+            "Invalid state transition",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 RequestStateChange(
+
+        [In, Description (
+            "RequestStateChange changes the state of a job. The possible values are as follows: \n"
+            "2 - 'Start' changes the state to 'Running'. \n"
+            "3 - 'Suspend' stops the job temporarily. The intention is to subsequently restart "
+            "the job with a second call to RequestStateChange requesting 1 - 'Start'. It might "
+            "be possible to enter the 'Service' state while suspended. (This is job-specific.) \n"
+            "4 - 'Terminate' stops the job cleanly, saving data, preserving the state, and "
+            "shutting down all underlying processes in an orderly manner. \n"
+            "5 - 'Kill' terminates the job immediately with no requirement to save data or "
+            "preserve the state. \n"
+            "6 - 'Service' puts the job into a vendor-specific service state. It might be "
+            "possible to restart the job."
+            ),
+            ValueMap {
+                "2", "3", "4", "5", "6", "7..32767", "32768..65535"
+                },
+            Values {
+                "Start", "Suspend", "Terminate", "Kill",
+                "Service", "DMTF Reserved", "Vendor Reserved" }]
+        UInt16 RequestedState,
+
+        [Out, EmbeddedInstance( "MSFT_StorageExtendedStatus" )]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetExtendedStatus
+    //
+
+    UInt32 GetExtendedStatus(
+
+        [Out, EmbeddedInstance( "MSFT_StorageExtendedStatus" )]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetMessages
+    //
+
+    UInt32 GetMessages(
+
+        [Out]
+        UInt16 Channels[],
+
+        [Out]
+        String Messages[]
+        );
+
+
+    //
+    // Method: GetOutParameters
+    //
+
+    UInt32 GetOutParameters(
+
+        [Out, EmbeddedInstance("MSFT_StorageJobOutParams")]
+        String OutParameters
+        );
+};

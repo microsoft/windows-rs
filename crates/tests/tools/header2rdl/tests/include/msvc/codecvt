@@ -1,0 +1,692 @@
+// codecvt standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CODECVT_
+#define _CODECVT_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <cwchar>
+#include <locale>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_INLINE_VAR constexpr int _Little_first = 1;
+_INLINE_VAR constexpr int _Big_first    = 2;
+
+_EXPORT_STD enum _CXX17_DEPRECATE_CODECVT_HEADER codecvt_mode {
+    consume_header  = 4,
+    generate_header = 2,
+    little_endian   = 1
+};
+
+using _Statype = _CSTD mbstate_t;
+
+_STL_DISABLE_DEPRECATED_WARNING
+_EXPORT_STD template <class _Elem, unsigned long _Mymax = 0x10ffff, codecvt_mode _Mymode = codecvt_mode{}>
+class _CXX17_DEPRECATE_CODECVT_HEADER codecvt_utf8 : public codecvt<_Elem, char, _Statype> {
+    // facet for converting between _Elem and UTF-8 byte sequences
+public:
+    using _Mybase     = codecvt<_Elem, char, _Statype>;
+    using result      = typename _Mybase::result;
+    using _Byte       = char;
+    using intern_type = _Elem;
+    using extern_type = _Byte;
+    using state_type  = _Statype;
+
+    explicit codecvt_utf8(size_t _Refs = 0) : _Mybase(_Refs) {}
+
+    __CLR_OR_THIS_CALL ~codecvt_utf8() noexcept override {}
+
+protected:
+    result __CLR_OR_THIS_CALL do_in(_Statype& _State, const _Byte* _First1, const _Byte* _Last1, const _Byte*& _Mid1,
+        _Elem* _First2, _Elem* _Last2, _Elem*& _Mid2) const override {
+        // convert bytes [_First1, _Last1) to [_First2, _Last2)
+        char* _Pstate = reinterpret_cast<char*>(&_State);
+        _Mid1         = _First1;
+        _Mid2         = _First2;
+
+        while (_Mid1 != _Last1 && _Mid2 != _Last2) { // convert a multibyte sequence
+            unsigned long _By = static_cast<unsigned char>(*_Mid1);
+            unsigned long _Ch;
+            int _Nextra;
+
+            if (_By < 0x80u) {
+                _Ch     = _By;
+                _Nextra = 0;
+            } else if (_By < 0xc0u) { // 0x80-0xbf not first byte
+                ++_Mid1;
+                return _Mybase::error;
+            } else if (_By < 0xe0u) {
+                _Ch     = _By & 0x1f;
+                _Nextra = 1;
+            } else if (_By < 0xf0u) {
+                _Ch     = _By & 0x0f;
+                _Nextra = 2;
+            } else if (_By < 0xf8u) {
+                _Ch     = _By & 0x07;
+                _Nextra = 3;
+            } else {
+                _Ch     = _By & 0x03;
+                _Nextra = _By < 0xfc ? 4 : 5;
+            }
+
+            if (_Nextra == 0) {
+                ++_Mid1;
+            } else if (_Last1 - _Mid1 < _Nextra + 1) {
+                break; // not enough input
+            } else {
+                for (++_Mid1; 0 < _Nextra; --_Nextra, ++_Mid1) {
+                    if ((_By = static_cast<unsigned char>(*_Mid1)) < 0x80u || 0xc0u <= _By) {
+                        return _Mybase::error; // not continuation byte
+                    } else {
+                        _Ch = _Ch << 6 | (_By & 0x3f);
+                    }
+                }
+            }
+
+            if (*_Pstate == 0) { // first time, maybe look for and consume header
+                *_Pstate = 1;
+
+                constexpr bool _Consuming = (_Mymode & consume_header) != 0;
+                if constexpr (_Consuming) {
+                    if (_Ch == 0xfeff) { // drop header and retry
+                        const result _Ans = do_in(_State, _Mid1, _Last1, _Mid1, _First2, _Last2, _Mid2);
+
+                        if (_Ans == _Mybase::partial) { // roll back header determination
+                            *_Pstate = 0;
+                            _Mid1    = _First1;
+                        }
+
+                        return _Ans;
+                    }
+                }
+            }
+
+            if (_Mymax < _Ch) {
+                return _Mybase::error; // code too large
+            }
+
+            *_Mid2++ = static_cast<_Elem>(_Ch);
+        }
+
+        return _First1 == _Mid1 ? _Mybase::partial : _Mybase::ok;
+    }
+
+    result __CLR_OR_THIS_CALL do_out(_Statype& _State, const _Elem* _First1, const _Elem* _Last1, const _Elem*& _Mid1,
+        _Byte* _First2, _Byte* _Last2, _Byte*& _Mid2) const override {
+        // convert [_First1, _Last1) to bytes [_First2, _Last2)
+        char* _Pstate = reinterpret_cast<char*>(&_State);
+        _Mid1         = _First1;
+        _Mid2         = _First2;
+
+        while (_Mid1 != _Last1 && _Mid2 != _Last2) { // convert and put a wide char
+            _Byte _By;
+            int _Nextra;
+            unsigned long _Ch = static_cast<unsigned long>(*_Mid1);
+
+            if (_Mymax < _Ch) {
+                return _Mybase::error;
+            }
+
+            if (_Ch < 0x0080u) {
+                _By     = static_cast<_Byte>(_Ch);
+                _Nextra = 0;
+            } else if (_Ch < 0x0800u) {
+                _By     = static_cast<_Byte>(0xc0 | _Ch >> 6);
+                _Nextra = 1;
+            } else if (_Ch < 0x00010000u) {
+                _By     = static_cast<_Byte>(0xe0 | _Ch >> 12);
+                _Nextra = 2;
+            } else if (_Ch < 0x00200000u) {
+                _By     = static_cast<_Byte>(0xf0 | _Ch >> 18);
+                _Nextra = 3;
+            } else if (_Ch < 0x04000000u) {
+                _By     = static_cast<_Byte>(0xf8 | _Ch >> 24);
+                _Nextra = 4;
+            } else {
+                _By     = static_cast<_Byte>(0xfc | (_Ch >> 30 & 0x03));
+                _Nextra = 5;
+            }
+
+            if (*_Pstate == 0) { // first time, maybe generate header
+                *_Pstate                   = 1;
+                constexpr bool _Generating = (_Mymode & generate_header) != 0;
+                if constexpr (_Generating) {
+                    if (_Last2 - _Mid2 < 3 + 1 + _Nextra) {
+                        return _Mybase::partial; // not enough room for both
+                    }
+
+                    // prepend header
+                    *_Mid2++ = '\xef';
+                    *_Mid2++ = '\xbb';
+                    *_Mid2++ = '\xbf';
+                }
+            }
+
+            if (_Last2 - _Mid2 < 1 + _Nextra) {
+                break; // not enough room for output
+            }
+
+            ++_Mid1;
+            for (*_Mid2++ = _By; 0 < _Nextra;) {
+                *_Mid2++ = static_cast<_Byte>((_Ch >> 6 * --_Nextra & 0x3f) | 0x80);
+            }
+        }
+
+        return _First1 == _Mid1 ? _Mybase::partial : _Mybase::ok;
+    }
+
+    result __CLR_OR_THIS_CALL do_unshift(_Statype&, _Byte* _First2, _Byte*, _Byte*& _Mid2) const override {
+        // generate bytes to return to default shift state
+        _Mid2 = _First2;
+        return _Mybase::noconv;
+    }
+
+    friend int _Codecvt_do_length<>(const codecvt_utf8&, _Statype&, const _Byte*, const _Byte*, size_t);
+
+    int __CLR_OR_THIS_CALL do_length(
+        _Statype& _State, const _Byte* _First1, const _Byte* _Last1, size_t _Count) const noexcept override {
+        return _Codecvt_do_length(*this, _State, _First1, _Last1, _Count);
+    }
+
+    bool __CLR_OR_THIS_CALL do_always_noconv() const noexcept override {
+        // return true if conversions never change input
+        return false;
+    }
+
+    int __CLR_OR_THIS_CALL do_max_length() const noexcept override {
+        // return maximum length required for a conversion
+        if constexpr ((_Mymode & (consume_header | generate_header)) != 0) {
+            return 9;
+        } else {
+            return 6;
+        }
+    }
+
+    int __CLR_OR_THIS_CALL do_encoding() const noexcept override {
+        // return length of code sequence (from codecvt)
+        if constexpr ((_Mymode & (consume_header | generate_header)) != 0) {
+            return -1; // -1 => state dependent
+        } else {
+            return 0; // 0 => varying length
+        }
+    }
+};
+
+_EXPORT_STD template <class _Elem, unsigned long _Mymax = 0x10ffff, codecvt_mode _Mymode = codecvt_mode{}>
+class _CXX17_DEPRECATE_CODECVT_HEADER codecvt_utf16 : public codecvt<_Elem, char, _Statype> {
+    // facet for converting between _Elem and UTF-16 multibyte sequences
+private:
+    enum { _Bytes_per_word = 2 };
+
+public:
+    using _Mybase     = codecvt<_Elem, char, _Statype>;
+    using result      = typename _Mybase::result;
+    using _Byte       = char;
+    using intern_type = _Elem;
+    using extern_type = _Byte;
+    using state_type  = _Statype;
+
+    explicit codecvt_utf16(size_t _Refs = 0) : _Mybase(_Refs) {}
+
+    __CLR_OR_THIS_CALL ~codecvt_utf16() noexcept override {}
+
+protected:
+    result __CLR_OR_THIS_CALL do_in(_Statype& _State, const _Byte* _First1, const _Byte* _Last1, const _Byte*& _Mid1,
+        _Elem* _First2, _Elem* _Last2, _Elem*& _Mid2) const override {
+        // convert bytes [_First1, _Last1) to [_First2, _Last2)
+        char* _Pstate = reinterpret_cast<char*>(&_State);
+        _Mid1         = _First1;
+        _Mid2         = _First2;
+
+        while (_Bytes_per_word <= _Last1 - _Mid1 && _Mid2 != _Last2) { // convert a multibyte sequence
+            const auto _Ptr = reinterpret_cast<const unsigned char*>(_Mid1);
+            unsigned long _Ch;
+            unsigned short _Ch0;
+            unsigned short _Ch1;
+
+            if (*_Pstate == _Little_first) {
+                _Ch0 = static_cast<unsigned short>(_Ptr[1] << 8 | _Ptr[0]);
+            } else if (*_Pstate == _Big_first) {
+                _Ch0 = static_cast<unsigned short>(_Ptr[0] << 8 | _Ptr[1]);
+            } else { // no header seen yet, try preferred mode
+                constexpr bool _Prefer_LE      = (_Mymode & little_endian) != 0;
+                constexpr char _Default_endian = _Prefer_LE ? _Little_first : _Big_first;
+
+                if constexpr (_Prefer_LE) {
+                    _Ch0 = static_cast<unsigned short>(_Ptr[1] << 8 | _Ptr[0]);
+                } else {
+                    _Ch0 = static_cast<unsigned short>(_Ptr[0] << 8 | _Ptr[1]);
+                }
+
+                *_Pstate                  = _Default_endian;
+                constexpr bool _Consuming = (_Mymode & consume_header) != 0;
+                if constexpr (_Consuming) {
+                    if (_Ch0 == 0xfffeu) {
+                        *_Pstate = 3 - _Default_endian;
+                    }
+
+                    if (_Ch0 == 0xfffeu || _Ch0 == 0xfeffu) { // consume header, fixate on endianness, and retry
+                        _Mid1 += _Bytes_per_word;
+                        result _Ans = do_in(_State, _Mid1, _Last1, _Mid1, _First2, _Last2, _Mid2);
+
+                        if (_Ans == _Mybase::partial) { // not enough bytes, roll back header
+                            *_Pstate = 0;
+                            _Mid1    = _First1;
+                        }
+
+                        return _Ans;
+                    }
+                }
+            }
+
+            if (_Ch0 < 0xd800u || 0xdc00u <= _Ch0) { // one word, consume bytes
+                _Mid1 += _Bytes_per_word;
+                _Ch = _Ch0;
+            } else if (_Last1 - _Mid1 < 2 * _Bytes_per_word) {
+                break;
+            } else { // get second word
+                if (*_Pstate == _Little_first) {
+                    _Ch1 = static_cast<unsigned short>(_Ptr[3] << 8 | _Ptr[2]);
+                } else {
+                    _Ch1 = static_cast<unsigned short>(_Ptr[2] << 8 | _Ptr[3]);
+                }
+
+                if (_Ch1 < 0xdc00u || 0xe000u <= _Ch1) {
+                    return _Mybase::error;
+                }
+
+                _Mid1 += 2 * _Bytes_per_word;
+                _Ch = static_cast<unsigned long>(_Ch0 - 0xd800 + 0x0040) << 10 | (_Ch1 - 0xdc00);
+            }
+
+            if (_Mymax < _Ch) {
+                return _Mybase::error; // code too large
+            }
+
+            *_Mid2++ = static_cast<_Elem>(_Ch);
+        }
+
+        return _First1 == _Mid1 ? _Mybase::partial : _Mybase::ok;
+    }
+
+    result __CLR_OR_THIS_CALL do_out(_Statype& _State, const _Elem* _First1, const _Elem* _Last1, const _Elem*& _Mid1,
+        _Byte* _First2, _Byte* _Last2, _Byte*& _Mid2) const override {
+        // convert [_First1, _Last1) to bytes [_First2, _Last2)
+        char* _Pstate = reinterpret_cast<char*>(&_State);
+        _Mid1         = _First1;
+        _Mid2         = _First2;
+
+        if (*_Pstate == 0) { // determine endianness once, maybe generate header
+            if constexpr ((_Mymode & little_endian) != 0) {
+                *_Pstate = _Little_first;
+            } else {
+                *_Pstate = _Big_first;
+            }
+
+            constexpr bool _Generating = (_Mymode & generate_header) != 0;
+            if constexpr (_Generating) {
+                if (_Last2 - _Mid2 < 3 * _Bytes_per_word) {
+                    return _Mybase::partial; // not enough room for all
+                }
+
+                if (*_Pstate == _Little_first) { // put header LS byte first
+                    *_Mid2++ = '\xff';
+                    *_Mid2++ = '\xfe';
+                } else { // put header MS byte first
+                    *_Mid2++ = '\xfe';
+                    *_Mid2++ = '\xff';
+                }
+            }
+        }
+
+        while (_Mid1 != _Last1 && _Bytes_per_word <= _Last2 - _Mid2) { // convert and put a wide char
+            bool _Extra       = false;
+            unsigned long _Ch = static_cast<unsigned long>(*_Mid1++);
+
+            if ((_Mymax < 0x10ffffu ? _Mymax : 0x10ffffu) < _Ch) {
+                return _Mybase::error; // value too large
+            }
+
+            if (_Ch <= 0xffffu) { // one word, can't be code for first of two
+                if (0xd800u <= _Ch && _Ch < 0xdc00u) {
+                    return _Mybase::error;
+                }
+            } else if (_Last2 - _Mid2 < 2 * _Bytes_per_word) { // not enough room for two-word output, back up
+                --_Mid1;
+                return _Mybase::partial;
+            } else {
+                _Extra = true;
+            }
+
+            if (*_Pstate == _Little_first) {
+                if (_Extra) { // put a pair of words LS byte first
+                    unsigned short _Ch0 =
+                        static_cast<unsigned short>(0xd800 | static_cast<unsigned short>(_Ch >> 10) - 0x0040);
+                    *_Mid2++ = static_cast<_Byte>(_Ch0);
+                    *_Mid2++ = static_cast<_Byte>(_Ch0 >> 8);
+
+                    _Ch0     = static_cast<unsigned short>(0xdc00 | (static_cast<unsigned short>(_Ch) & 0x03ff));
+                    *_Mid2++ = static_cast<_Byte>(_Ch0);
+                    *_Mid2++ = static_cast<_Byte>(_Ch0 >> 8);
+                } else { // put a single word LS byte first
+                    *_Mid2++ = static_cast<_Byte>(_Ch);
+                    *_Mid2++ = static_cast<_Byte>(_Ch >> 8);
+                }
+            } else {
+                if (_Extra) { // put a pair of words MS byte first
+                    unsigned short _Ch0 =
+                        static_cast<unsigned short>(0xd800 | static_cast<unsigned short>(_Ch >> 10) - 0x0040);
+                    *_Mid2++ = static_cast<_Byte>(_Ch0 >> 8);
+                    *_Mid2++ = static_cast<_Byte>(_Ch0);
+
+                    _Ch0     = static_cast<unsigned short>(0xdc00 | (static_cast<unsigned short>(_Ch) & 0x03ff));
+                    *_Mid2++ = static_cast<_Byte>(_Ch0 >> 8);
+                    *_Mid2++ = static_cast<_Byte>(_Ch0);
+                } else { // put a single word MS byte first
+                    *_Mid2++ = static_cast<_Byte>(_Ch >> 8);
+                    *_Mid2++ = static_cast<_Byte>(_Ch);
+                }
+            }
+        }
+
+        return _First1 == _Mid1 ? _Mybase::partial : _Mybase::ok;
+    }
+
+    result __CLR_OR_THIS_CALL do_unshift(_Statype&, _Byte* _First2, _Byte*, _Byte*& _Mid2) const override {
+        // generate bytes to return to default shift state
+        _Mid2 = _First2;
+        return _Mybase::noconv;
+    }
+
+    friend int _Codecvt_do_length<>(const codecvt_utf16&, _Statype&, const _Byte*, const _Byte*, size_t);
+
+    int __CLR_OR_THIS_CALL do_length(
+        _Statype& _State, const _Byte* _First1, const _Byte* _Last1, size_t _Count) const noexcept override {
+        return _Codecvt_do_length(*this, _State, _First1, _Last1, _Count);
+    }
+
+    bool __CLR_OR_THIS_CALL do_always_noconv() const noexcept override {
+        // return true if conversions never change input
+        return false;
+    }
+
+    int __CLR_OR_THIS_CALL do_max_length() const noexcept override {
+        // return maximum length required for a conversion
+        if constexpr ((_Mymode & (consume_header | generate_header)) != 0) {
+            return 3 * _Bytes_per_word;
+        } else {
+            return 6 * _Bytes_per_word;
+        }
+    }
+
+    int __CLR_OR_THIS_CALL do_encoding() const noexcept override {
+        // return length of code sequence (from codecvt)
+        if constexpr ((_Mymode & (consume_header | generate_header)) != 0) {
+            return -1; // -1 => state dependent
+        } else {
+            return 0; // 0 => varying length
+        }
+    }
+};
+
+_EXPORT_STD template <class _Elem, unsigned long _Mymax = 0x10ffff, codecvt_mode _Mymode = codecvt_mode{}>
+class _CXX17_DEPRECATE_CODECVT_HEADER codecvt_utf8_utf16
+    : public codecvt<_Elem, char, _Statype> { // facet for converting between UTF-16 _Elem and UTF-8 byte sequences
+public:
+    using _Mybase     = codecvt<_Elem, char, _Statype>;
+    using result      = typename _Mybase::result;
+    using _Byte       = char;
+    using intern_type = _Elem;
+    using extern_type = _Byte;
+    using state_type  = _Statype;
+
+    static_assert(sizeof(unsigned short) <= sizeof(state_type), "state_type too small");
+
+    explicit codecvt_utf8_utf16(size_t _Refs = 0) : _Mybase(_Refs) {}
+
+    __CLR_OR_THIS_CALL ~codecvt_utf8_utf16() noexcept override {}
+
+protected:
+    result __CLR_OR_THIS_CALL do_in(_Statype& _State, const _Byte* _First1, const _Byte* _Last1, const _Byte*& _Mid1,
+        _Elem* _First2, _Elem* _Last2, _Elem*& _Mid2) const override {
+        // convert bytes [_First1, _Last1) to [_First2, _Last2)
+        unsigned short* _Pstate = reinterpret_cast<unsigned short*>(&_State);
+        _Mid1                   = _First1;
+        _Mid2                   = _First2;
+
+        while (_Mid1 != _Last1 && _Mid2 != _Last2) { // convert a multibyte sequence
+            unsigned long _By = static_cast<unsigned char>(*_Mid1);
+            unsigned long _Ch;
+            int _Nextra;
+            int _Nskip;
+
+            if (*_Pstate > 1u) {
+                if (_By < 0x80u || 0xc0u <= _By) {
+                    return _Mybase::error; // not continuation byte
+                }
+
+                // deliver second half of two-word value
+                ++_Mid1;
+                *_Mid2++ = static_cast<_Elem>(*_Pstate | (_By & 0x3f));
+                *_Pstate = 1;
+                continue;
+            }
+
+            if (_By < 0x80u) {
+                _Ch     = _By;
+                _Nextra = 0;
+            } else if (_By < 0xc0u) { // 0x80-0xbf not first byte
+                ++_Mid1;
+                return _Mybase::error;
+            } else if (_By < 0xe0u) {
+                _Ch     = _By & 0x1f;
+                _Nextra = 1;
+            } else if (_By < 0xf0u) {
+                _Ch     = _By & 0x0f;
+                _Nextra = 2;
+            } else if (_By < 0xf8u) {
+                _Ch     = _By & 0x07;
+                _Nextra = 3;
+            } else {
+                _Ch     = _By & 0x03;
+                _Nextra = _By < 0xfc ? 4 : 5;
+            }
+
+            _Nskip  = _Nextra < 3 ? 0 : 1; // leave a byte for 2nd word
+            _First1 = _Mid1; // roll back point
+
+            if (_Nextra == 0) {
+                ++_Mid1;
+            } else if (_Last1 - _Mid1 < _Nextra + 1 - _Nskip) {
+                break; // not enough input
+            } else {
+                for (++_Mid1; _Nskip < _Nextra; --_Nextra, ++_Mid1) {
+                    if ((_By = static_cast<unsigned char>(*_Mid1)) < 0x80u || 0xc0u <= _By) {
+                        return _Mybase::error; // not continuation byte
+                    }
+
+                    _Ch = _Ch << 6 | (_By & 0x3f);
+                }
+            }
+
+            if (0 < _Nskip) {
+                _Ch <<= 6; // get last byte on next call
+            }
+
+            if ((_Mymax < 0x10ffffu ? _Mymax : 0x10ffffu) < _Ch) {
+                return _Mybase::error; // value too large
+            }
+
+            if (0xffffu < _Ch) { // deliver first half of two-word value, save second word
+                unsigned short _Ch0 = static_cast<unsigned short>(0xd800 | (_Ch >> 10) - 0x0040);
+
+                *_Mid2++ = static_cast<_Elem>(_Ch0);
+                *_Pstate = static_cast<unsigned short>(0xdc00 | (_Ch & 0x03ff));
+                continue;
+            }
+
+            if (_Nskip != 0) {
+                if (_Mid1 == _Last1) { // not enough bytes, noncanonical value
+                    _Mid1 = _First1;
+                    break;
+                }
+
+                if ((_By = static_cast<unsigned char>(*_Mid1++)) < 0x80u || 0xc0u <= _By) {
+                    return _Mybase::error; // not continuation byte
+                }
+
+                _Ch |= _By & 0x3f; // complete noncanonical value
+            }
+
+            if (*_Pstate == 0u) { // first time, maybe look for and consume header
+                *_Pstate = 1;
+
+                constexpr bool _Consuming = (_Mymode & consume_header) != 0;
+                if constexpr (_Consuming) {
+                    if (_Ch == 0xfeffu) { // drop header and retry
+                        result _Ans = do_in(_State, _Mid1, _Last1, _Mid1, _First2, _Last2, _Mid2);
+
+                        if (_Ans == _Mybase::partial) { // roll back header determination
+                            *_Pstate = 0;
+                            _Mid1    = _First1;
+                        }
+
+                        return _Ans;
+                    }
+                }
+            }
+
+            *_Mid2++ = static_cast<_Elem>(_Ch);
+        }
+
+        return _First1 == _Mid1 ? _Mybase::partial : _Mybase::ok;
+    }
+
+    result __CLR_OR_THIS_CALL do_out(_Statype& _State, const _Elem* _First1, const _Elem* _Last1, const _Elem*& _Mid1,
+        _Byte* _First2, _Byte* _Last2, _Byte*& _Mid2) const override {
+        // convert [_First1, _Last1) to bytes [_First2, _Last2)
+        unsigned short* _Pstate = reinterpret_cast<unsigned short*>(&_State);
+        _Mid1                   = _First1;
+        _Mid2                   = _First2;
+
+        while (_Mid1 != _Last1 && _Mid2 != _Last2) { // convert and put a wide char
+            unsigned long _Ch;
+            unsigned short _Ch1 = static_cast<unsigned short>(*_Mid1);
+            bool _Save          = false;
+
+            if (1u < *_Pstate) { // get saved MS 11 bits from *_Pstate
+                if (_Ch1 < 0xdc00u || 0xe000u <= _Ch1) {
+                    return _Mybase::error; // bad second word
+                }
+
+                _Ch = static_cast<unsigned long>((*_Pstate << 10) | (_Ch1 - 0xdc00));
+            } else if (0xd800u <= _Ch1 && _Ch1 < 0xdc00u) { // get new first word
+                _Ch   = static_cast<unsigned long>((_Ch1 - 0xd800 + 0x0040) << 10);
+                _Save = true; // put only first byte, rest with second word
+            } else {
+                _Ch = _Ch1; // not first word, just put it
+            }
+
+            _Byte _By;
+            int _Nextra;
+
+            if (_Ch < 0x0080u) {
+                _By     = static_cast<_Byte>(_Ch);
+                _Nextra = 0;
+            } else if (_Ch < 0x0800u) {
+                _By     = static_cast<_Byte>(0xc0 | _Ch >> 6);
+                _Nextra = 1;
+            } else if (_Ch < 0x10000u) {
+                _By     = static_cast<_Byte>(0xe0 | _Ch >> 12);
+                _Nextra = 2;
+            } else {
+                _By     = static_cast<_Byte>(0xf0 | _Ch >> 18);
+                _Nextra = 3;
+            }
+
+            int _Nput = _Nextra < 3 ? _Nextra + 1 : _Save ? 1 : 3;
+
+            if (_Last2 - _Mid2 < _Nput) {
+                break; // not enough room, even without header
+            }
+
+            if constexpr ((_Mymode & generate_header) != 0) { // header to put
+                if (*_Pstate == 0u) {
+                    if (_Last2 - _Mid2 < 3 + _Nput) {
+                        break; // not enough room for header + output
+                    }
+
+                    // prepend header
+                    *_Mid2++ = '\xef';
+                    *_Mid2++ = '\xbb';
+                    *_Mid2++ = '\xbf';
+                }
+            }
+
+            ++_Mid1;
+            if (_Save || _Nextra < 3) { // put first byte of sequence, if not already put
+                *_Mid2++ = _By;
+                --_Nput;
+            }
+
+            for (; 0 < _Nput; --_Nput) {
+                *_Mid2++ = static_cast<_Byte>((_Ch >> 6 * --_Nextra & 0x3f) | 0x80);
+            }
+
+            *_Pstate = static_cast<unsigned short>(_Save ? _Ch >> 10 : 1);
+        }
+
+        return _First1 == _Mid1 ? _Mybase::partial : _Mybase::ok;
+    }
+
+    result __CLR_OR_THIS_CALL do_unshift(_Statype&, _Byte* _First2, _Byte*, _Byte*& _Mid2) const override {
+        // generate bytes to return to default shift state
+        _Mid2 = _First2;
+        return _Mybase::noconv;
+    }
+
+    friend int _Codecvt_do_length<>(const codecvt_utf8_utf16&, _Statype&, const _Byte*, const _Byte*, size_t);
+
+    int __CLR_OR_THIS_CALL do_length(
+        _Statype& _State, const _Byte* _First1, const _Byte* _Last1, size_t _Count) const noexcept override {
+        return _Codecvt_do_length(*this, _State, _First1, _Last1, _Count);
+    }
+
+    bool __CLR_OR_THIS_CALL do_always_noconv() const noexcept override {
+        // return true if conversions never change input
+        return false;
+    }
+
+    int __CLR_OR_THIS_CALL do_max_length() const noexcept override {
+        // return maximum length required for a conversion
+        if constexpr ((_Mymode & consume_header) != 0) {
+            return 9; // header + max input
+        } else if constexpr ((_Mymode & generate_header) != 0) {
+            return 7; // header + max output
+        } else {
+            return 6; // 6-byte max input sequence, no 3-byte header
+        }
+    }
+
+    int __CLR_OR_THIS_CALL do_encoding() const noexcept override {
+        // return length of code sequence (from codecvt)
+        return 0; // 0 => varying length
+    }
+};
+_STL_RESTORE_DEPRECATED_WARNING
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CODECVT_

@@ -1,0 +1,193 @@
+//------------------------------------------------------------------------------
+// File: VideoAcc.idl
+//
+// Desc: An interface exposed by the overlay mixer to help decode samples
+//       using hardware video acceleration.
+//
+// Copyright (c) 1992-2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+
+cpp_quote("//")
+cpp_quote("//   The following declarations within the 'if 0' block are dummy typedefs used to make")
+cpp_quote("//   the motncomp.idl file build.  The actual definitions are contained in ddraw.h and amva.h")
+cpp_quote("//")
+cpp_quote("#if 0")
+
+typedef void*       LPVOID;
+typedef void*       LPGUID;
+typedef void*       LPDIRECTDRAWSURFACE;
+typedef void*       LPDDPIXELFORMAT;
+typedef void*       LPAMVAInternalMemInfo;
+typedef void        AMVAUncompDataInfo;
+typedef void*       LPAMVACompBufferInfo;
+typedef void        AMVABUFFERINFO;
+typedef void        AMVAEndFrameInfo;
+typedef void*       LPAMVAUncompBufferInfo;
+typedef void        AMVABeginFrameInfo;
+typedef IUnknown*   IMediaSample;
+
+cpp_quote("#endif")
+cpp_quote("#include <ddraw.h>")
+cpp_quote("#include <amva.h>")
+
+
+[
+    local,
+    object,
+    uuid(256A6A21-FBAD-11d1-82BF-00A0C9696C8F),
+    helpstring("IAMVideoAcceleratorNotify Interface"),
+    pointer_default(unique)
+]
+
+// IAMVideoAcceleratorNotify
+interface IAMVideoAcceleratorNotify : IUnknown
+{
+    // get information necessary to allocate uncompressed data buffers
+    // which is not part of the mediatype format (like how many buffers to allocate etc)
+    HRESULT GetUncompSurfacesInfo([in] const GUID *pGuid, 
+                                  [in] [out] [annotation("_Inout_")] LPAMVAUncompBufferInfo pUncompBufferInfo);
+
+    // set information regarding allocated uncompressed data buffers
+    HRESULT SetUncompSurfacesInfo([in] DWORD dwActualUncompSurfacesAllocated);
+
+    // get information necessary to create video accelerator object. It is the caller's responsibility
+    // to call CoTaskMemFree() on *ppMiscData
+    HRESULT GetCreateVideoAcceleratorData([in] const GUID *pGuid, 
+                                          [out] [annotation("_Out_")] LPDWORD pdwSizeMiscData, 
+                                          [out] [annotation("_Outptr_result_bytebuffer_(*pdwSizeMiscData)")] LPVOID *ppMiscData);
+};
+
+[
+    local,
+    object,
+    uuid(256A6A22-FBAD-11d1-82BF-00A0C9696C8F),
+    helpstring("IAMVideoAccelerator Interface"),
+    pointer_default(unique)
+]
+
+// IAMVideoAccelerator
+interface IAMVideoAccelerator : IUnknown
+{
+    // pdwNumGuidsSupported is an IN OUT paramter
+    // pGuidsSupported is an IN OUT paramter
+    // if pGuidsSupported is NULL,  pdwNumGuidsSupported should return back with the
+    // number of uncompressed pixel formats supported
+    // Otherwise pGuidsSupported is an array of *pdwNumGuidsSupported structures
+    HRESULT GetVideoAcceleratorGUIDs(
+       [in] [out] [annotation("_Inout_")] LPDWORD pdwNumGuidsSupported, 
+       [in] [out] [annotation("_Out_writes_to_opt_(*pdwNumGuidsSupported, *pdwNumGuidsSupported)")] LPGUID pGuidsSupported);
+
+    // pGuid is an IN parameter
+    // pdwNumFormatsSupported is an IN OUT paramter
+    // pFormatsSupported is an IN OUT paramter (caller should make sure to set the size of EACH struct)
+    // if pFormatsSupported is NULL,  pdwNumFormatsSupported should return back with
+    // the number of uncompressed pixel formats supported
+    // Otherwise pFormatsSupported is an array of *pdwNumFormatsSupported structures
+    HRESULT GetUncompFormatsSupported( 
+        [in] const GUID *pGuid, 
+        [in] [out] [annotation("_Inout_")] LPDWORD pdwNumFormatsSupported,
+        [in] [out] [annotation("_Out_writes_to_opt_(*pdwNumFormatsSupported, *pdwNumFormatsSupported)")] LPDDPIXELFORMAT pFormatsSupported);
+
+    // pGuid is an IN parameter
+    // pamvaUncompDataInfo is an IN parameter
+    // pamvaInternalMemInfo is an IN OUT parameter (caller should make sure to set the size of struct)
+    // currently only gets info about how much scratch memory will the hal allocate for its private use
+    HRESULT GetInternalMemInfo(
+        [in] const GUID *pGuid, 
+        [in] const AMVAUncompDataInfo *pamvaUncompDataInfo,
+        [in] [out] [annotation("_Inout_")] LPAMVAInternalMemInfo pamvaInternalMemInfo);
+
+    // pGuid is an IN parameter
+    // pamvaUncompDataInfo is an IN parameter
+    // pdwNumTypesCompBuffers is an IN OUT paramter
+    // pamvaCompBufferInfo is an IN OUT paramter (caller should make sure to set the size of EACH struct)
+    // if pamvaCompBufferInfo is NULL,  pdwNumTypesCompBuffers should return back with the number of types of
+    // compressed buffers
+    // Otherwise pamvaCompBufferInfo is an array of *pdwNumTypesCompBuffers structures
+    HRESULT GetCompBufferInfo([in] const GUID *pGuid, [in] const AMVAUncompDataInfo *pamvaUncompDataInfo,
+        [in] [out] [annotation("_Inout_")] LPDWORD pdwNumTypesCompBuffers, 
+        [out] [annotation("_Out_writes_to_opt_(*pdwNumTypesCompBuffers, *pdwNumTypesCompBuffers)")] LPAMVACompBufferInfo pamvaCompBufferInfo);
+
+
+    // pdwNumTypesCompBuffers is an IN OUT paramter
+    // pamvaCompBufferInfo is an IN OUT paramter (caller should make sure to set the size of EACH struct)
+    // if pamvaCompBufferInfo is NULL,  pdwNumTypesCompBuffers should return back with the number of types of
+    // compressed buffers
+    // Otherwise pamvaCompBufferInfo is an array of *pdwNumTypesCompBuffers structures
+    // only valid to call this after the pins are connected
+    HRESULT GetInternalCompBufferInfo(
+        [in] [out] [annotation("_Inout_")] LPDWORD pdwNumTypesCompBuffers, 
+        [out] [annotation("_Out_writes_to_opt_(*pdwNumTypesCompBuffers, *pdwNumTypesCompBuffers)")] LPAMVACompBufferInfo pamvaCompBufferInfo);
+
+    // begin a frame, the pMiscData is passed directly to the hal
+    // only valid to call this after the pins are connected
+    // Tells the ovmixer which frame is the destination
+    // frame. Use indices (valid vales are [0 .. pdwNumSurfacesAllocated-1]) to specify frames
+    HRESULT BeginFrame([in] const AMVABeginFrameInfo *amvaBeginFrameInfo);
+
+    // end a frame, the pMiscData is passed directly to the hal
+    // only valid to call this after the pins are connected
+    HRESULT EndFrame([in] const AMVAEndFrameInfo *pEndFrameInfo);
+
+    // lock and obtain access to a single buffer
+    // only valid to call this after the pins are connected
+    // Buffers are identified by type and index within that type
+    // Specifiying read-only will allow access to busy reference
+    // frames
+    // Output (uncompressed) frames use a type index of 0xFFFFFFFF
+    HRESULT GetBuffer(
+        [in] DWORD dwTypeIndex,
+        [in] DWORD dwBufferIndex,
+        [in] BOOL bReadOnly,
+        [out] [annotation("_Out_")] LPVOID *ppBuffer,
+        [out] [annotation("_Out_")] LONG *lpStride);
+
+    // unlock a single buffer
+    // Buffers are identified by type and index within that type
+    // only valid to call this after the pins are connected
+    HRESULT ReleaseBuffer([in] DWORD dwTypeIndex, [in] DWORD dwBufferIndex);
+
+    // Perform a decompression operation
+    // Private data can be passed to and from a driver
+    // identifiers for the corresponding members of pamvaMacroBlockInfo
+    // pamvaMacroBlockInfo is an IN parameter which is array (of length dwNumBlocks) of structures
+    // only valid to call this after the pins are connected
+    HRESULT Execute(
+        [in] DWORD dwFunction,
+        [in] LPVOID lpPrivateInputData,
+        [in] DWORD cbPrivateInputData,
+        [in] LPVOID lpPrivateOutputDat,
+        [in] DWORD cbPrivateOutputData,
+        [in] DWORD dwNumBuffers,
+        [in] [annotation("_In_reads_(dwNumBuffers)")] const AMVABUFFERINFO *pamvaBufferInfo);
+
+    // query the decode status of a particular decompression operation
+    // dwTypeIndex and dwBufferIndex define the buffer whose status is
+    // being queried
+    HRESULT QueryRenderStatus([in] DWORD dwTypeIndex,
+                              [in] DWORD dwBufferIndex,
+                              [in] DWORD dwFlags);
+
+    // display a frame. The mediasample contains the timestamps etc for the frame to be displayed
+    // this call is a non-blocking call
+    // only valid to call this after the pins are connected
+    HRESULT DisplayFrame([in] DWORD dwFlipToIndex, [in] IMediaSample *pMediaSample);
+};
+
+
+
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

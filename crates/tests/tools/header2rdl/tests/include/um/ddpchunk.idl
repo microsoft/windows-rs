@@ -1,0 +1,124 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+//      Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+///////////////////////////////////////////////////////////////////////////////
+// Forward declarations
+//
+
+interface IDedupIterateChunksHash32;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Constants, error codes
+//
+
+
+// Parameter type for IDdpChunkingLibrary::SetParameter
+enum _DEDUP_SET_PARAM_TYPE
+{
+    DEDUP_PT_MinChunkSizeBytes = 1,                 // the corresponding value is a VT_I4 specifying the min chunk size 
+    DEDUP_PT_MaxChunkSizeBytes = 2,                 // the corresponding value is a VT_I4 specifying the max chunk size 
+    DEDUP_PT_AvgChunkSizeBytes = 3,                 // the corresponding value is a VT_I4 specifying the avg chunk size 
+    DEDUP_PT_InvariantChunking = 4,                 // the corresponding value is a VT_BOOL specifying whether the chunking algorithm needs to be invariant for the same data (default VARIANT_FALSE)
+    DEDUP_PT_DisableStrongHashComputation = 5,      // the corresponding value is a VT_BOOL specifying whether the chunk library needs to skip computation of the strong hash
+};
+
+// Max # of chunks in a IDedupIterateChunksHash32::Next() call
+const int DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM = 1024;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Structures
+//
+
+
+// Chunk information with 32-byte embedded hash value
+typedef struct _DEDUP_CHUNK_INFO_HASH32 {
+    DWORD      ChunkFlags;          // Zero by default. Might be used to transmit extra information (see the DedupChunkInfoFlags enum)
+    ULONGLONG  ChunkOffsetInStream; // Offset of the chunk in the stream
+    ULONGLONG  ChunkSize;           // size of the chunk
+    BYTE       HashVal[32];         // 32-byte hash value for the chunk
+} DEDUP_CHUNK_INFO_HASH32;
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Interfaces
+//
+
+
+// Main entry point
+[uuid(BB5144D7-2720-4DCC-8777-78597416EC23), version(1.0)]
+interface IDedupChunkLibrary: IUnknown
+{
+    // Initializes the COM object for chunking a series of buffers pushed through PushBuffer()
+    HRESULT InitializeForPushBuffers();
+
+    // Uninitializes the object (releases any internal buffers)
+    HRESULT Uninitialize();
+
+    // Sets a configuration parameter for the chunking alg.
+    // Needs to be called before enumeration.
+    // Parameters:
+    // - dwParamType - enumeration with the _DEDUP_SET_PARAM_TYPE values
+    // - dwParamValue - Param Value to be set to this object instance
+    HRESULT SetParameter([in] DWORD dwParamType, [in] VARIANT vParamValue);
+
+    // Starts chunking and returns an iterator interface.
+    // Chunking will progress synchronously as soon as chunk info structures are enumerated.
+    // Notes:
+    // - The library will perform no throttling, prioritization, etc
+    // - chunk are guaranteed to be enumerated in increasing non-overlapping consecutive "segments"
+    // - The state is in-memory and lost after a crash
+    // Parameters:
+    // - iidIteratorInterfaceID - in W8, we only support IID_IDedupIterateChunksHash32
+    // - ppChunksEnum - contains the returned IDedupIterateChunksHash32 instance
+    HRESULT StartChunking([in] IID iidIteratorInterfaceID,  [out] IUnknown ** ppChunksEnum);
+};
+
+
+// Chunk iterator interface (specialized for 32-byte hash)
+ [uuid(90B584D3-72AA-400F-9767-CAD866A5A2D8), version(1.0)]
+interface IDedupIterateChunksHash32: IUnknown
+{
+    // Pushes the next in-memory buffer for chunking. Only works with InitializeForPushBuffers()
+    // After calling you need to enumerate all the chunks with Next() until you get DDP_E_MORE_BUFFERS. Only then you can call PushBuffer() again.
+    HRESULT PushBuffer(
+        [in, size_is(ulBufferLength)] BYTE * pBuffer,   // Pointer to the buffer
+        [in] ULONG ulBufferLength                       // Buffer length
+        );
+
+    // Returns the next (*pulFetched) chunk structures in the supplied array
+    // Return values:
+    // - S_OK - Enumeration succeeded. More chunks are present (which require more calls to Next())
+    // - S_FALSE: Enumeration succeeded and is done.
+    // - DDP_E_MORE_BUFFERS: You should call again PushBuffers() with a new buffer to continue the enumeration, or Drain() after the last buffer has been pushed
+    //     Note: some chunks might remain unprocessed in memory, and will be processed only after the next PushBuffer() call, unless Drain() is called
+    HRESULT Next(
+            [in, range(0, DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM)] ULONG ulMaxChunks,      // Size of the input array
+            [out, size_is(ulMaxChunks), length_is(*pulFetched)]
+                DEDUP_CHUNK_INFO_HASH32 *pArrChunks,                // Array of structures to be filled by Next()
+            [out]   ULONG * pulFetched                              // Amount of filled chunk structures
+            );
+
+    // Makes the remaining unprocessed chunks available in Next(). To be called when there are no more buffers available
+    HRESULT Drain();
+
+    // Reset the internal state and release already-pushed buffers
+    HRESULT Reset();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

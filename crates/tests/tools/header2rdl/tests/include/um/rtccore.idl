@@ -1,0 +1,2966 @@
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+
+cpp_quote("//  Copyright (c) Microsoft Corporation.  All rights reserved.")
+
+//
+// RTCCore.idl : IDL source for RTCCore.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (RTCCore.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "control.odl";
+
+// Types
+
+typedef enum RTC_AUDIO_DEVICE
+{
+    RTCAD_SPEAKER,
+    RTCAD_MICROPHONE
+
+} RTC_AUDIO_DEVICE;
+
+typedef enum RTC_VIDEO_DEVICE
+{
+    RTCVD_RECEIVE,
+    RTCVD_PREVIEW
+
+} RTC_VIDEO_DEVICE;
+
+typedef enum RTC_EVENT
+{   
+    RTCE_CLIENT,
+    RTCE_REGISTRATION_STATE_CHANGE, 
+    RTCE_SESSION_STATE_CHANGE,
+    RTCE_SESSION_OPERATION_COMPLETE,
+    RTCE_PARTICIPANT_STATE_CHANGE,
+    RTCE_MEDIA,
+    RTCE_INTENSITY,
+    RTCE_MESSAGING,
+    RTCE_BUDDY,
+    RTCE_WATCHER,
+    RTCE_PROFILE,
+    RTCE_USERSEARCH,
+    RTCE_INFO,
+    RTCE_GROUP,
+    RTCE_MEDIA_REQUEST,
+    RTCE_ROAMING,
+    RTCE_PRESENCE_PROPERTY,
+    RTCE_PRESENCE_DATA,
+    RTCE_PRESENCE_STATUS,
+    RTCE_SESSION_REFER_STATUS,
+    RTCE_SESSION_REFERRED,
+    RTCE_REINVITE
+} RTC_EVENT;
+
+typedef enum RTC_LISTEN_MODE
+{
+    RTCLM_NONE,
+    RTCLM_DYNAMIC,
+    RTCLM_BOTH
+
+} RTC_LISTEN_MODE;
+
+typedef enum RTC_CLIENT_EVENT_TYPE
+{
+    RTCCET_VOLUME_CHANGE,
+    RTCCET_DEVICE_CHANGE,
+    RTCCET_NETWORK_QUALITY_CHANGE,
+    RTCCET_ASYNC_CLEANUP_DONE
+
+} RTC_CLIENT_EVENT_TYPE;
+
+typedef enum RTC_BUDDY_EVENT_TYPE
+{
+    RTCBET_BUDDY_ADD,
+    RTCBET_BUDDY_REMOVE,
+    RTCBET_BUDDY_UPDATE,
+    RTCBET_BUDDY_STATE_CHANGE,
+    RTCBET_BUDDY_ROAMED,
+    RTCBET_BUDDY_SUBSCRIBED
+
+} RTC_BUDDY_EVENT_TYPE;
+
+typedef enum RTC_WATCHER_EVENT_TYPE
+{
+    RTCWET_WATCHER_ADD,
+    RTCWET_WATCHER_REMOVE,
+    RTCWET_WATCHER_UPDATE,
+    RTCWET_WATCHER_OFFERING,
+    RTCWET_WATCHER_ROAMED
+
+} RTC_WATCHER_EVENT_TYPE;
+
+typedef enum RTC_GROUP_EVENT_TYPE
+{
+    RTCGET_GROUP_ADD,
+    RTCGET_GROUP_REMOVE,
+    RTCGET_GROUP_UPDATE,
+    RTCGET_GROUP_BUDDY_ADD,
+    RTCGET_GROUP_BUDDY_REMOVE,
+    RTCGET_GROUP_ROAMED
+
+} RTC_GROUP_EVENT_TYPE;
+
+typedef enum RTC_TERMINATE_REASON
+{
+    RTCTR_NORMAL,
+    RTCTR_DND,
+    RTCTR_BUSY,
+    RTCTR_REJECT,
+    RTCTR_TIMEOUT,
+    RTCTR_SHUTDOWN,
+    RTCTR_INSUFFICIENT_SECURITY_LEVEL, 
+    RTCTR_NOT_SUPPORTED
+
+} RTC_TERMINATE_REASON;
+
+typedef enum RTC_REGISTRATION_STATE
+{
+    RTCRS_NOT_REGISTERED,
+    RTCRS_REGISTERING,
+    RTCRS_REGISTERED,
+    RTCRS_REJECTED,
+    RTCRS_UNREGISTERING,
+    RTCRS_ERROR,
+    RTCRS_LOGGED_OFF,
+    RTCRS_LOCAL_PA_LOGGED_OFF,
+    RTCRS_REMOTE_PA_LOGGED_OFF
+
+} RTC_REGISTRATION_STATE;
+
+typedef enum RTC_SESSION_STATE
+{
+    RTCSS_IDLE,
+    RTCSS_INCOMING,
+    RTCSS_ANSWERING,
+    RTCSS_INPROGRESS,
+    RTCSS_CONNECTED,
+    RTCSS_DISCONNECTED,
+    RTCSS_HOLD,
+    RTCSS_REFER
+
+} RTC_SESSION_STATE;
+
+typedef enum RTC_PARTICIPANT_STATE
+{
+    RTCPS_IDLE,
+    RTCPS_PENDING,
+    RTCPS_INCOMING,
+    RTCPS_ANSWERING,
+    RTCPS_INPROGRESS,
+    RTCPS_ALERTING,
+    RTCPS_CONNECTED,
+    RTCPS_DISCONNECTING,
+    RTCPS_DISCONNECTED
+
+} RTC_PARTICIPANT_STATE;
+
+typedef enum RTC_WATCHER_STATE
+{
+    RTCWS_UNKNOWN,
+    RTCWS_OFFERING,
+    RTCWS_ALLOWED,
+    RTCWS_BLOCKED,
+    RTCWS_DENIED,
+    RTCWS_PROMPT
+
+} RTC_WATCHER_STATE;
+
+typedef enum RTC_ACE_SCOPE
+{
+    RTCAS_SCOPE_USER,
+    RTCAS_SCOPE_DOMAIN,
+    RTCAS_SCOPE_ALL
+
+} RTC_ACE_SCOPE;
+
+typedef enum RTC_OFFER_WATCHER_MODE
+{
+    RTCOWM_OFFER_WATCHER_EVENT,
+    RTCOWM_AUTOMATICALLY_ADD_WATCHER
+
+} RTC_OFFER_WATCHER_MODE;
+
+typedef enum RTC_WATCHER_MATCH_MODE
+{
+    RTCWMM_EXACT_MATCH,
+    RTCWMM_BEST_ACE_MATCH
+
+} RTC_WATCHER_MATCH_MODE;
+
+typedef enum RTC_PRIVACY_MODE
+{
+    RTCPM_BLOCK_LIST_EXCLUDED,
+    RTCPM_ALLOW_LIST_ONLY
+
+} RTC_PRIVACY_MODE;
+
+typedef enum RTC_SESSION_TYPE
+{
+    RTCST_PC_TO_PC,
+    RTCST_PC_TO_PHONE,
+    RTCST_PHONE_TO_PHONE,
+    RTCST_IM,
+    RTCST_MULTIPARTY_IM,
+    RTCST_APPLICATION
+
+} RTC_SESSION_TYPE;
+
+typedef enum RTC_PRESENCE_STATUS
+{
+    RTCXS_PRESENCE_OFFLINE,
+    RTCXS_PRESENCE_ONLINE,
+    RTCXS_PRESENCE_AWAY,
+    RTCXS_PRESENCE_IDLE,
+    RTCXS_PRESENCE_BUSY,
+    RTCXS_PRESENCE_BE_RIGHT_BACK,
+    RTCXS_PRESENCE_ON_THE_PHONE,
+    RTCXS_PRESENCE_OUT_TO_LUNCH
+
+} RTC_PRESENCE_STATUS;
+
+typedef enum RTC_BUDDY_SUBSCRIPTION_TYPE
+{
+    RTCBT_SUBSCRIBED,
+    RTCBT_ALWAYS_OFFLINE,
+    RTCBT_ALWAYS_ONLINE,
+    RTCBT_POLL
+
+} RTC_BUDDY_SUBSCRIPTION_TYPE;
+
+typedef enum RTC_MEDIA_EVENT_TYPE
+{
+    RTCMET_STOPPED,
+    RTCMET_STARTED,
+    RTCMET_FAILED
+
+} RTC_MEDIA_EVENT_TYPE;
+
+typedef enum RTC_MEDIA_EVENT_REASON
+{
+    RTCMER_NORMAL,
+    RTCMER_HOLD,
+    RTCMER_TIMEOUT,
+    RTCMER_BAD_DEVICE,
+    RTCMER_NO_PORT,
+    RTCMER_PORT_MAPPING_FAILED,
+    RTCMER_REMOTE_REQUEST
+
+} RTC_MEDIA_EVENT_REASON;
+
+typedef enum RTC_MESSAGING_EVENT_TYPE
+{
+    RTCMSET_MESSAGE,
+    RTCMSET_STATUS,
+
+} RTC_MESSAGING_EVENT_TYPE;
+
+typedef enum RTC_MESSAGING_USER_STATUS
+{
+    RTCMUS_IDLE,
+    RTCMUS_TYPING
+
+} RTC_MESSAGING_USER_STATUS;
+
+
+typedef enum RTC_DTMF
+{
+    RTC_DTMF_0,
+    RTC_DTMF_1,
+    RTC_DTMF_2,
+    RTC_DTMF_3,
+    RTC_DTMF_4,
+    RTC_DTMF_5,
+    RTC_DTMF_6,
+    RTC_DTMF_7,
+    RTC_DTMF_8,
+    RTC_DTMF_9,
+    RTC_DTMF_STAR,
+    RTC_DTMF_POUND,
+    RTC_DTMF_A,
+    RTC_DTMF_B,
+    RTC_DTMF_C,
+    RTC_DTMF_D,
+    RTC_DTMF_FLASH
+
+} RTC_DTMF;
+
+typedef enum RTC_PROVIDER_URI
+{
+    RTCPU_URIHOMEPAGE,
+    RTCPU_URIHELPDESK,
+    RTCPU_URIPERSONALACCOUNT,
+    RTCPU_URIDISPLAYDURINGCALL,
+    RTCPU_URIDISPLAYDURINGIDLE
+
+} RTC_PROVIDER_URI;
+
+typedef enum RTC_RING_TYPE
+{
+    RTCRT_PHONE,
+    RTCRT_MESSAGE,
+    RTCRT_RINGBACK
+
+} RTC_RING_TYPE;
+
+typedef enum RTC_T120_APPLET
+{
+    RTCTA_WHITEBOARD,
+    RTCTA_APPSHARING
+
+} RTC_T120_APPLET; 
+
+typedef enum RTC_PORT_TYPE
+{
+    RTCPT_AUDIO_RTP,
+    RTCPT_AUDIO_RTCP,
+    RTCPT_VIDEO_RTP,
+    RTCPT_VIDEO_RTCP,
+    RTCPT_SIP
+
+} RTC_PORT_TYPE; 
+
+typedef enum RTC_USER_SEARCH_COLUMN
+{
+    RTCUSC_URI,
+    RTCUSC_DISPLAYNAME,
+    RTCUSC_TITLE,
+    RTCUSC_OFFICE,
+    RTCUSC_PHONE,
+    RTCUSC_COMPANY,
+    RTCUSC_CITY, 
+    RTCUSC_STATE, 
+    RTCUSC_COUNTRY,
+    RTCUSC_EMAIL
+
+}RTC_USER_SEARCH_COLUMN;
+
+typedef enum RTC_USER_SEARCH_PREFERENCE
+{
+    RTCUSP_MAX_MATCHES,
+    RTCUSP_TIME_LIMIT
+    
+} RTC_USER_SEARCH_PREFERENCE;
+
+typedef enum RTC_ROAMING_EVENT_TYPE
+{
+    RTCRET_BUDDY_ROAMING,
+    RTCRET_WATCHER_ROAMING,
+    RTCRET_PRESENCE_ROAMING,
+    RTCRET_PROFILE_ROAMING,
+    RTCRET_WPENDING_ROAMING
+
+} RTC_ROAMING_EVENT_TYPE;
+
+typedef enum RTC_PROFILE_EVENT_TYPE
+{
+    RTCPFET_PROFILE_GET,
+    RTCPFET_PROFILE_UPDATE
+
+} RTC_PROFILE_EVENT_TYPE;
+
+typedef enum RTC_ANSWER_MODE
+{
+    RTCAM_OFFER_SESSION_EVENT,
+    RTCAM_AUTOMATICALLY_ACCEPT,
+    RTCAM_AUTOMATICALLY_REJECT,
+    RTCAM_NOT_SUPPORTED
+
+} RTC_ANSWER_MODE;
+
+typedef enum RTC_SESSION_REFER_STATUS
+{
+    RTCSRS_REFERRING,
+    RTCSRS_ACCEPTED,
+    RTCSRS_ERROR,
+    RTCSRS_REJECTED,
+    RTCSRS_DROPPED,
+    RTCSRS_DONE
+
+} RTC_SESSION_REFER_STATUS;
+
+typedef enum RTC_PRESENCE_PROPERTY
+{
+    RTCPP_PHONENUMBER,
+    RTCPP_DISPLAYNAME,
+    RTCPP_EMAIL,
+    RTCPP_DEVICE_NAME,
+    RTCPP_MULTIPLE
+} RTC_PRESENCE_PROPERTY;
+
+typedef enum RTC_SECURITY_TYPE
+{
+    RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION,
+    RTCSECT_T120_MEDIA_ENCRYPTION,
+
+} RTC_SECURITY_TYPE;
+
+typedef enum RTC_SECURITY_LEVEL
+{
+    RTCSECL_UNSUPPORTED = 1,
+    RTCSECL_SUPPORTED,
+    RTCSECL_REQUIRED
+
+} RTC_SECURITY_LEVEL;
+
+typedef enum RTC_REINVITE_STATE
+{
+    RTCRIN_INCOMING,
+    RTCRIN_SUCCEEDED,
+    RTCRIN_FAIL
+
+} RTC_REINVITE_STATE;
+
+// CreateSession flags
+cpp_quote("#define RTCCS_FORCE_PROFILE          0x00000001")
+cpp_quote("#define RTCCS_FAIL_ON_REDIRECT       0x00000002")
+
+// Media Types
+cpp_quote("#define RTCMT_AUDIO_SEND     0x00000001")
+cpp_quote("#define RTCMT_AUDIO_RECEIVE  0x00000002")
+cpp_quote("#define RTCMT_VIDEO_SEND     0x00000004")
+cpp_quote("#define RTCMT_VIDEO_RECEIVE  0x00000008")
+cpp_quote("#define RTCMT_T120_SENDRECV  0x00000010")
+
+cpp_quote("#define RTCMT_ALL_RTP   (       \\")
+cpp_quote("         RTCMT_AUDIO_SEND    |  \\")
+cpp_quote("         RTCMT_AUDIO_RECEIVE  | \\")
+cpp_quote("         RTCMT_VIDEO_SEND  |    \\")
+cpp_quote("         RTCMT_VIDEO_RECEIVE )    ")
+
+cpp_quote("#define RTCMT_ALL       (       \\")
+cpp_quote("         RTCMT_ALL_RTP    |     \\")
+cpp_quote("         RTCMT_T120_SENDRECV  )   ")
+
+// Session Info
+cpp_quote("#define RTCSI_PC_TO_PC       0x00000001")
+cpp_quote("#define RTCSI_PC_TO_PHONE    0x00000002")
+cpp_quote("#define RTCSI_PHONE_TO_PHONE 0x00000004")
+cpp_quote("#define RTCSI_IM             0x00000008")
+cpp_quote("#define RTCSI_MULTIPARTY_IM  0x00000010")
+cpp_quote("#define RTCSI_APPLICATION	0x00000020")
+
+// Transports
+cpp_quote("#define RTCTR_UDP            0x00000001")
+cpp_quote("#define RTCTR_TCP            0x00000002")
+cpp_quote("#define RTCTR_TLS            0x00000004")
+
+// Authentication
+cpp_quote("#define RTCAU_BASIC                  0x00000001")
+cpp_quote("#define RTCAU_DIGEST                 0x00000002")
+cpp_quote("#define RTCAU_NTLM                   0x00000004")
+cpp_quote("#define RTCAU_KERBEROS               0x00000008")
+cpp_quote("#define RTCAU_USE_LOGON_CRED         0x00010000")
+
+// Registration Flags
+cpp_quote("#define RTCRF_REGISTER_INVITE_SESSIONS   0x00000001")
+cpp_quote("#define RTCRF_REGISTER_MESSAGE_SESSIONS  0x00000002")
+cpp_quote("#define RTCRF_REGISTER_PRESENCE          0x00000004")
+cpp_quote("#define RTCRF_REGISTER_NOTIFY            0x00000008")
+cpp_quote("#define RTCRF_REGISTER_ALL               0x0000000F")
+
+// Roaming Flags
+cpp_quote("#define RTCRMF_BUDDY_ROAMING              0x00000001")
+cpp_quote("#define RTCRMF_WATCHER_ROAMING            0x00000002")
+cpp_quote("#define RTCRMF_PRESENCE_ROAMING           0x00000004")
+cpp_quote("#define RTCRMF_PROFILE_ROAMING            0x00000008")
+cpp_quote("#define RTCRMF_ALL_ROAMING                0x0000000F")
+
+// Event Filters
+cpp_quote("#define RTCEF_CLIENT                     0x00000001")
+cpp_quote("#define RTCEF_REGISTRATION_STATE_CHANGE  0x00000002")
+cpp_quote("#define RTCEF_SESSION_STATE_CHANGE       0x00000004")
+cpp_quote("#define RTCEF_SESSION_OPERATION_COMPLETE 0x00000008")
+cpp_quote("#define RTCEF_PARTICIPANT_STATE_CHANGE   0x00000010")
+cpp_quote("#define RTCEF_MEDIA                      0x00000020")
+cpp_quote("#define RTCEF_INTENSITY                  0x00000040")
+cpp_quote("#define RTCEF_MESSAGING                  0x00000080")
+cpp_quote("#define RTCEF_BUDDY                      0x00000100")
+cpp_quote("#define RTCEF_WATCHER                    0x00000200")
+cpp_quote("#define RTCEF_PROFILE                    0x00000400")
+cpp_quote("#define RTCEF_USERSEARCH                 0x00000800")
+cpp_quote("#define RTCEF_INFO                       0x00001000")
+cpp_quote("#define RTCEF_GROUP                      0x00002000")
+cpp_quote("#define RTCEF_MEDIA_REQUEST              0x00004000")
+//skipping 0x00008000 because VB automatically equates &H8000 to -32768 instead of +32768
+cpp_quote("#define RTCEF_ROAMING                    0x00010000")
+cpp_quote("#define RTCEF_PRESENCE_PROPERTY          0x00020000")
+cpp_quote("#define RTCEF_BUDDY2                     0x00040000")
+cpp_quote("#define RTCEF_WATCHER2                   0x00080000")
+cpp_quote("#define RTCEF_SESSION_REFER_STATUS       0x00100000")
+cpp_quote("#define RTCEF_SESSION_REFERRED           0x00200000")
+cpp_quote("#define RTCEF_REINVITE                   0x00400000")
+cpp_quote("#define RTCEF_PRESENCE_DATA              0x00800000")
+cpp_quote("#define RTCEF_PRESENCE_STATUS            0x01000000")
+cpp_quote("#define RTCEF_ALL                        0x01FFFFFF")
+
+// Initialize Flags
+cpp_quote("#define RTCIF_DISABLE_MEDIA                          0x00000001")
+cpp_quote("#define RTCIF_DISABLE_UPNP                           0x00000002")
+cpp_quote("#define RTCIF_ENABLE_SERVER_CLASS                    0x00000004")
+cpp_quote("#define RTCIF_DISABLE_STRICT_DNS                     0x00000008")
+
+// Forward Definitions
+interface IRTCClient;
+interface IRTCClientPresence;
+interface IRTCClientPresence2;
+interface IRTCClientProvisioning;
+interface IRTCClientProvisioning2;
+interface IRTCEnumProfiles;
+interface IRTCProfile;
+interface IRTCProfile2;
+interface IRTCSession;
+interface IRTCSession2;
+interface IRTCSessionCallControl;
+interface IRTCParticipant;
+interface IRTCEventNotification;
+interface IRTCEnumParticipants;
+interface IRTCCollection;
+interface IRTCEnumBuddies;
+interface IRTCBuddy;
+interface IRTCBuddy2;
+interface IRTCEnumWatchers;
+interface IRTCWatcher;
+interface IRTCWatcher2;
+interface IRTCEnumGroups;
+interface IRTCBuddyGroup;
+interface IRTCUserSearch;
+interface IRTCUserSearchResultsEvent;
+interface IRTCEnumUserSearchResults;
+interface IRTCUserSearchQuery;
+interface IRTCUserSearchResult;
+interface IRTCPresenceStatusEvent;
+interface IRTCPresencePropertyEvent;
+interface IRTCPresenceDataEvent;
+interface IRTCSessionDescriptionManager;
+interface IRTCEnumPresenceDevices;
+interface IRTCPresenceDevice;
+
+[
+    object,
+    uuid(07829e45-9a34-408e-a011-bddf13487cd1),
+    helpstring("IRTCClient Interface"),
+    pointer_default(unique)
+]
+interface IRTCClient : IUnknown
+{
+// initialize, shutdown
+    
+    [helpstring("method Initialize")]
+    HRESULT Initialize();
+
+    [helpstring("method Shutdown")]
+    HRESULT Shutdown();
+
+    [helpstring("method PrepareForShutdown")]
+    HRESULT PrepareForShutdown();
+
+// events
+
+    [propput, helpstring("property EventFilter")]
+    HRESULT EventFilter(
+            [in] long lFilter
+            );
+
+    [propget, helpstring("property EventFilter")]
+    HRESULT EventFilter(
+            [out, retval] long * plFilter
+            );
+
+// media preferences/capabilities
+
+    [helpstring("method SetPreferredMediaTypes")]
+    HRESULT SetPreferredMediaTypes(
+            [in] long lMediaTypes,
+            [in] VARIANT_BOOL fPersistent
+            );
+
+    [propget, helpstring("property PreferredMediaTypes")]
+    HRESULT PreferredMediaTypes(
+            [out, retval] long * plMediaTypes
+            );              
+    
+    [propget, helpstring("property MediaCapabilities")]
+    HRESULT MediaCapabilities(
+            [out, retval] long * plMediaTypes
+            );                                              
+
+// sessions 
+        
+    [helpstring("method CreateSession")]
+    HRESULT CreateSession(
+            [in] RTC_SESSION_TYPE enType,
+            [in] BSTR bstrLocalPhoneURI,
+            [in] IRTCProfile * pProfile,
+            [in] long     lFlags,
+            [out, retval] IRTCSession ** ppSession
+            );
+
+// listen mode
+
+    [propput, helpstring("property ListenForIncomingSessions")]
+    HRESULT ListenForIncomingSessions(
+            [in] RTC_LISTEN_MODE enListen
+            );
+
+    [propget, helpstring("property ListenForIncomingSessions")]
+    HRESULT ListenForIncomingSessions(
+            [out, retval] RTC_LISTEN_MODE * penListen
+            );  
+
+// addresses & ports
+    [propget, helpstring("property NetworkAddresses")]
+    HRESULT NetworkAddresses(
+            [in]  VARIANT_BOOL    fTCP,
+            [in]  VARIANT_BOOL    fExternal,
+            [out, retval] VARIANT * pvAddresses
+            );
+           
+// audio control
+
+    [propput, helpstring("property Volume")]
+    HRESULT Volume(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [in] long lVolume
+            );  
+
+    [propget, helpstring("property Volume")]
+    HRESULT Volume(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [out, retval] long * plVolume
+            );   
+
+    [propput, helpstring("property AudioMuted")]
+    HRESULT AudioMuted(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [in] VARIANT_BOOL fMuted
+            );
+
+    [propget, helpstring("property AudioMuted")]
+    HRESULT AudioMuted(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [out, retval] VARIANT_BOOL * pfMuted
+            ); 
+
+// video window
+    
+    [propget, helpstring("property IVideoWindow")]
+    HRESULT IVideoWindow(
+            [in] RTC_VIDEO_DEVICE enDevice,
+            [out, retval] IVideoWindow ** ppIVideoWindow
+            );  
+
+// audio/video settings
+
+    [propput, helpstring("property PreferredAudioDevice")]
+    HRESULT PreferredAudioDevice(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [in] BSTR bstrDeviceName
+            );  
+
+    [propget, helpstring("property PreferredAudioDevice")]
+    HRESULT PreferredAudioDevice(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [out, retval] BSTR * pbstrDeviceName
+            );
+             
+    [propput, helpstring("property PreferredVolume")]
+    HRESULT PreferredVolume(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [in] long lVolume
+            );  
+
+    [propget, helpstring("property PreferredVolume")]
+    HRESULT PreferredVolume(
+            [in] RTC_AUDIO_DEVICE enDevice,
+            [out, retval] long * plVolume
+            );   
+
+    [propput, helpstring("property PreferredAEC")]
+    HRESULT PreferredAEC(
+            [in] VARIANT_BOOL bEnable
+            );  
+
+    [propget, helpstring("property PreferredAEC")]
+    HRESULT PreferredAEC(
+            [out, retval] VARIANT_BOOL * pbEnabled
+            );
+            
+    [propput, helpstring("property PreferredVideoDevice")]
+    HRESULT PreferredVideoDevice(
+            [in] BSTR bstrDeviceName
+            );  
+
+    [propget, helpstring("property PreferredVideoDevice")]
+    HRESULT PreferredVideoDevice(
+            [out, retval] BSTR * pbstrDeviceName
+            );
+
+
+// active media
+    
+    [propget, helpstring("property ActiveMedia")]
+    HRESULT ActiveMedia(
+            [out, retval] long * plMediaType
+            );
+
+
+// Network quality
+    
+    [propput, helpstring("property MaxBitrate")]
+    HRESULT MaxBitrate(
+            [in] long lMaxBitrate
+            );  
+
+    [propget, helpstring("property MaxBitrate")]
+    HRESULT MaxBitrate(
+            [out, retval] long * plMaxBitrate
+            );   
+
+    [propput, helpstring("property TemporalSpatialTradeOff")]
+    HRESULT TemporalSpatialTradeOff(
+            [in] long lValue
+            );  
+
+    [propget, helpstring("property TemporalSpatialTradeOff")]
+    HRESULT TemporalSpatialTradeOff(
+            [out, retval] long * plValue
+            );   
+
+    [propget, helpstring("property NetworkQuality")]
+    HRESULT NetworkQuality(
+            [out, retval] long * plNetworkQuality
+            );
+
+
+// T120 applet control
+
+    [helpstring("method StartT120Applet")]
+    HRESULT StartT120Applet(
+            [in] RTC_T120_APPLET   enApplet
+            );
+
+    [helpstring("method StopT120Applets")]
+    HRESULT StopT120Applets();
+
+    [propget, helpstring("property IsT120AppletRunning")]
+    HRESULT IsT120AppletRunning(
+            [in] RTC_T120_APPLET   enApplet,
+            [out, retval] VARIANT_BOOL * pfRunning
+            );
+
+
+// local user info
+
+    [propget, helpstring("property LocalUserURI")]
+    HRESULT LocalUserURI(
+            [out, retval] BSTR * pbstrUserURI
+            );   
+
+    [propput, helpstring("property LocalUserURI")]
+    HRESULT LocalUserURI(
+            [in] BSTR  bstrUserURI
+            );   
+
+    [propget, helpstring("property LocalUserName")]
+    HRESULT LocalUserName(
+            [out, retval] BSTR * pbstrUserName
+            ); 
+
+    [propput, helpstring("property LocalUserName")]
+    HRESULT LocalUserName(
+            [in] BSTR  bstrUserName
+            ); 
+
+// other    
+    
+    [helpstring("method PlayRing")]
+    HRESULT PlayRing(
+            [in] RTC_RING_TYPE enType,
+            [in] VARIANT_BOOL bPlay
+            );     
+    
+    [helpstring("method SendDTMF")]
+    HRESULT SendDTMF(
+            [in] RTC_DTMF enDTMF
+            );  
+
+    [helpstring("method InvokeTuningWizard")]
+    HRESULT InvokeTuningWizard(
+            [in] OAHWND hwndParent
+            );
+
+    [propget, helpstring("property IsTuned")]
+    HRESULT IsTuned(
+            [out, retval] VARIANT_BOOL * pfTuned
+            );
+}                           
+
+[
+    object,
+    uuid(0C91D71D-1064-42da-BFA5-572BEB8EEA84),
+    helpstring("IRTCClient2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCClient2 : IRTCClient
+{
+    [propput, helpstring("property AnswerMode")]
+    HRESULT AnswerMode(
+            [in] RTC_SESSION_TYPE enType,
+            [in] RTC_ANSWER_MODE enMode
+            );
+
+    [propget, helpstring("property AnswerMode")]
+    HRESULT AnswerMode(
+            [in] RTC_SESSION_TYPE enType,
+            [out, retval] RTC_ANSWER_MODE * penMode
+            );
+
+    [helpstring("method InvokeTuningWizardEx")]
+    HRESULT InvokeTuningWizardEx(
+            [in] OAHWND hwndParent,
+            [in] VARIANT_BOOL fAllowAudio ,
+            [in] VARIANT_BOOL fAllowVideo 
+            );
+
+    [propget, helpstring("property Version")]
+    HRESULT Version(
+            [out, retval] long * plVersion
+            );
+
+    [propput, helpstring("property ClientName")]
+    HRESULT ClientName(
+            [in] BSTR bstrClientName
+            );
+
+    [propput, helpstring("property ClientCurVer")]
+    HRESULT ClientCurVer(
+            [in] BSTR bstrClientCurVer
+            );
+
+    [helpstring("method InitializeEx")]
+    HRESULT InitializeEx(
+            [in] long lFlags
+            );
+
+    [helpstring("method CreateSessionWithDescription")]
+    HRESULT CreateSessionWithDescription(  
+            [in]  BSTR           bstrContentType, 
+            [in]  BSTR           bstrSessionDescription,
+            [in]  IRTCProfile  * pProfile,
+            [in]  long           lFlags,
+            [out, retval] IRTCSession2 ** ppSession2
+    );
+
+    [helpstring("method SetSessionDescriptionManager")]
+    HRESULT SetSessionDescriptionManager(
+            [in] IRTCSessionDescriptionManager  *pSessionDescriptionManager
+            );
+
+    [propput, helpstring("property PreferredSecurityLevel")]
+    HRESULT PreferredSecurityLevel(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [in] RTC_SECURITY_LEVEL enSecurityLevel
+            );
+
+    [propget, helpstring("property PreferredSecurityLevel")]
+    HRESULT PreferredSecurityLevel(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [out, retval] RTC_SECURITY_LEVEL * penSecurityLevel
+            );
+
+    [propput, helpstring("property AllowedPorts")]
+    HRESULT AllowedPorts(
+            [in] long lTransport,
+            [in] RTC_LISTEN_MODE enListenMode
+            );
+
+    [propget, helpstring("property AllowedPorts")]
+    HRESULT AllowedPorts(
+            [in] long lTransport,
+            [out, retval] RTC_LISTEN_MODE * penListenMode
+            );
+}
+
+[
+    object,
+    uuid(11c3cbcc-0744-42d1-968a-51aa1bb274c6),
+    helpstring("IRTCClientPresence Interface"),
+    pointer_default(unique)
+]
+interface IRTCClientPresence : IUnknown
+{
+
+// enable
+
+    [helpstring("method EnablePresence")]
+    HRESULT EnablePresence(
+            [in] VARIANT_BOOL  fUseStorage,
+            [in] VARIANT       varStorage
+            );
+
+// snapshots & import/export    
+    
+    [helpstring("method Export")]
+    HRESULT Export(
+            [in] VARIANT       varStorage
+            );
+    
+    [helpstring("method Import")]
+    HRESULT Import(
+            [in] VARIANT       varStorage,
+            [in] VARIANT_BOOL  fReplaceAll
+            );
+
+// buddies
+
+    [hidden, helpstring("method EnumerateBuddies")]
+    HRESULT EnumerateBuddies(   
+            [out, retval] IRTCEnumBuddies ** ppEnum
+            );
+
+    [propget, helpstring("property Buddies")]
+    HRESULT Buddies(   
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+    [propget, helpstring("property Buddy")]
+    HRESULT Buddy(
+            [in] BSTR   bstrPresentityURI,
+            [out, retval] IRTCBuddy   **ppBuddy
+            );
+
+    [helpstring("method AddBuddy")]
+    HRESULT AddBuddy(   
+            [in] BSTR   bstrPresentityURI,
+            [in] BSTR   bstrUserName,
+            [in] BSTR   bstrData,
+            [in] VARIANT_BOOL   fPersistent,
+            [in] IRTCProfile * pProfile,
+            [in] long lFlags,
+            [out, retval] IRTCBuddy **ppBuddy
+            );
+    
+    [helpstring("method RemoveBuddy")]
+    HRESULT RemoveBuddy(   
+            [in] IRTCBuddy    *pBuddy
+            );
+
+// watchers
+    [hidden, helpstring("method EnumerateWatchers")]
+    HRESULT EnumerateWatchers(   
+            [out, retval] IRTCEnumWatchers ** ppEnum
+            );
+
+    [propget, helpstring("property Watchers")]
+    HRESULT Watchers(   
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+    [propget, helpstring("property Watcher")]
+    HRESULT Watcher(
+            [in] BSTR   bstrPresentityURI,
+            [out, retval] IRTCWatcher   **ppWatcher
+            );
+
+    [helpstring("method AddWatcher")]
+    HRESULT AddWatcher(   
+            [in] BSTR   bstrPresentityURI,
+            [in] BSTR   bstrUserName,
+            [in] BSTR   bstrData,
+            [in] VARIANT_BOOL  fBlocked,
+            [in] VARIANT_BOOL  fPersistent,
+            [out, retval] IRTCWatcher **ppWatcher
+            );
+    
+    [helpstring("method RemoveWatcher")]
+    HRESULT RemoveWatcher(   
+            [in] IRTCWatcher    *pWatcher
+            );
+    
+    [helpstring("method SetLocalPresenceInfo")]
+    HRESULT SetLocalPresenceInfo(   
+            [in] RTC_PRESENCE_STATUS enStatus,
+            [in] BSTR bstrNotes
+            );
+
+// policies
+    [propget, helpstring("property OfferWatcherMode")]
+    HRESULT OfferWatcherMode(   
+            [out, retval] RTC_OFFER_WATCHER_MODE * penMode
+            );
+
+    [propput, helpstring("property OfferWatcherMode")]
+    HRESULT OfferWatcherMode(
+            [in] RTC_OFFER_WATCHER_MODE   enMode
+            );
+
+    [propget, helpstring("property PrivacyMode")]
+    HRESULT PrivacyMode(   
+            [out, retval] RTC_PRIVACY_MODE * penMode
+            );
+
+    [propput, helpstring("property PrivacyMode")]
+    HRESULT PrivacyMode(
+            [in] RTC_PRIVACY_MODE   enMode
+            );
+}
+
+[
+    object,
+    uuid(AD1809E8-62F7-4783-909A-29C9D2CB1D34),
+    helpstring("IRTCClientPresence2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCClientPresence2 : IRTCClientPresence
+{
+    [helpstring("method EnablePresenceEx")]
+    HRESULT EnablePresenceEx(
+            [in] IRTCProfile * pProfile,
+            [in] VARIANT       varStorage,
+            [in] long          lFlags
+            );
+
+    [helpstring("method DisablePresence")]
+    HRESULT DisablePresence();  
+    
+    [helpstring("method AddGroup")]
+    HRESULT AddGroup(
+            [in] BSTR bstrGroupName,
+            [in] BSTR bstrData,
+            [in] IRTCProfile * pProfile,
+            [in] long lFlags,
+            [out, retval] IRTCBuddyGroup ** ppGroup
+            );
+
+    [helpstring("method RemoveGroup")]
+    HRESULT RemoveGroup(
+            [in] IRTCBuddyGroup * pGroup
+            );
+
+    [hidden, helpstring("method EnumerateGroups")]
+    HRESULT EnumerateGroups(
+            [out, retval] IRTCEnumGroups ** ppEnum
+            );
+          
+    [propget, helpstring("property Groups")]
+    HRESULT Groups(
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+    [propget, helpstring("property Group")]
+    HRESULT Group(
+            [in] BSTR bstrGroupName,
+            [out, retval] IRTCBuddyGroup ** ppGroup
+            );
+
+    [helpstring("method AddWatcherEx")]
+    HRESULT AddWatcherEx(   
+            [in] BSTR   bstrPresentityURI,
+            [in] BSTR   bstrUserName,
+            [in] BSTR   bstrData,
+            [in] RTC_WATCHER_STATE enState,
+            [in] VARIANT_BOOL  fPersistent,
+            [in] RTC_ACE_SCOPE enScope,
+            [in] IRTCProfile * pProfile,
+            [in] long lFlags,            
+            [out, retval] IRTCWatcher2 **ppWatcher
+            );
+
+    [propget, helpstring("property WatcherEx")]
+    HRESULT WatcherEx(
+            [in] RTC_WATCHER_MATCH_MODE enMode,
+            [in] BSTR   bstrPresentityURI,
+            [out, retval] IRTCWatcher2  **ppWatcher
+            );
+
+    [propput, helpstring("property PresenceProperty")]
+    HRESULT PresenceProperty([in] RTC_PRESENCE_PROPERTY enProperty, [in] BSTR bstrProperty);
+
+    [propget, helpstring("property PresenceProperty")]
+    HRESULT PresenceProperty([in] RTC_PRESENCE_PROPERTY enProperty, [out,retval] BSTR *pbstrProperty);
+    
+    [helpstring("method SetPresenceData")]
+    HRESULT SetPresenceData([in] BSTR bstrNamespace, [in] BSTR bstrData);
+
+    [helpstring("method GetPresenceData")]
+    HRESULT GetPresenceData([out] BSTR *pbstrNamespace, [out] BSTR *pbstrData);
+
+    [helpstring("method GetLocalPresenceInfo")]
+    HRESULT GetLocalPresenceInfo(   
+            [out] RTC_PRESENCE_STATUS *penStatus,
+            [out] BSTR *pbstrNotes
+            );
+
+    [helpstring("method AddBuddyEx")]
+    HRESULT AddBuddyEx(   
+            [in] BSTR   bstrPresentityURI,
+            [in] BSTR   bstrUserName,
+            [in] BSTR   bstrData,
+            [in] VARIANT_BOOL   fPersistent,
+            [in] RTC_BUDDY_SUBSCRIPTION_TYPE enSubscriptionType,
+            [in] IRTCProfile * pProfile,
+            [in] long lFlags,
+            [out, retval] IRTCBuddy2 **ppBuddy
+            );
+};
+
+
+[
+    object,
+    uuid(B9F5CF06-65B9-4a80-A0E6-73CAE3EF3822),
+    helpstring("IRTCClientProvisioning Interface"),
+    pointer_default(unique)
+]
+interface IRTCClientProvisioning : IUnknown
+{
+    [helpstring("method CreateProfile")]
+    HRESULT CreateProfile(
+            [in] BSTR bstrProfileXML,           
+            [out, retval] IRTCProfile ** ppProfile
+            );
+
+    [helpstring("method EnableProfile")]
+    HRESULT EnableProfile(         
+            [in] IRTCProfile * pProfile,
+            [in] long lRegisterFlags
+            );
+
+    [helpstring("method DisableProfile")]
+    HRESULT DisableProfile(         
+            [in] IRTCProfile * pProfile
+            );
+
+    [hidden, helpstring("method EnumerateProfiles")]
+    HRESULT EnumerateProfiles(   
+            [out, retval] IRTCEnumProfiles ** ppEnum
+            );            
+
+    [propget, helpstring("property Profiles")]
+    HRESULT Profiles(   
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+    [helpstring("method GetProfile")]
+    HRESULT GetProfile(            
+            [in] BSTR bstrUserAccount,
+            [in] BSTR bstrUserPassword,
+            [in] BSTR bstrUserURI,
+            [in] BSTR bstrServer,
+            [in] long lTransport,
+            [in] LONG_PTR lCookie
+            );
+
+    [propget, helpstring("property SessionCapabilities")]
+    HRESULT SessionCapabilities(
+            [out, retval] long * plSupportedSessions);
+};                                
+
+[
+    object,
+    uuid(A70909B5-F40E-4587-BB75-E6BC0845023E),
+    helpstring("IRTCClientProvisioning2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCClientProvisioning2 : IRTCClientProvisioning
+{
+    [helpstring("method EnableProfileEx")]
+    HRESULT EnableProfileEx(         
+            [in] IRTCProfile * pProfile,
+            [in] long lRegisterFlags,
+            [in] long lRoamingFlags
+            );
+};                                
+
+[
+    object,
+    uuid(d07eca9e-4062-4dd4-9e7d-722a49ba7303),
+    helpstring("IRTCProfile Interface"),
+    pointer_default(unique)
+]
+interface IRTCProfile : IUnknown
+{
+    [propget, helpstring("property Key")]
+    HRESULT Key(
+            [out, retval] BSTR * pbstrKey);
+
+    [propget, helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR * pbstrName);
+
+    [propget, helpstring("property XML")]
+    HRESULT XML(
+            [out, retval] BSTR * pbstrXML);
+
+    // Provider
+
+    [propget, helpstring("property ProviderName")]
+    HRESULT ProviderName(
+            [out, retval] BSTR * pbstrName); 
+
+    [propget, helpstring("property ProviderURI")]
+    HRESULT ProviderURI(
+            [in] RTC_PROVIDER_URI enURI,
+            [out, retval] BSTR * pbstrURI); 
+
+    [propget, helpstring("property ProviderData")]
+    HRESULT ProviderData(
+            [out, retval] BSTR * pbstrData);
+
+    // Client
+
+    [propget, helpstring("property ClientName")]
+    HRESULT ClientName(
+            [out, retval] BSTR * pbstrName); 
+
+    [propget, helpstring("property ClientBanner")]
+    HRESULT ClientBanner(
+            [out, retval] VARIANT_BOOL * pfBanner); 
+
+    [propget, helpstring("property ClientMinVer")]
+    HRESULT ClientMinVer(
+            [out, retval] BSTR * pbstrMinVer); 
+
+    [propget, helpstring("property ClientCurVer")]
+    HRESULT ClientCurVer(
+            [out, retval] BSTR * pbstrCurVer); 
+
+    [propget, helpstring("property ClientUpdateURI")]
+    HRESULT ClientUpdateURI(
+            [out, retval] BSTR * pbstrUpdateURI); 
+
+    [propget, helpstring("property ClientData")]
+    HRESULT ClientData(
+            [out, retval] BSTR * pbstrData); 
+
+    // User
+
+    [propget, helpstring("property UserURI")]
+    HRESULT UserURI(
+            [out, retval] BSTR * pbstrUserURI);
+
+    [propget, helpstring("property UserName")]
+    HRESULT UserName(
+            [out, retval] BSTR * pbstrUserName);
+    
+    [propget, helpstring("property UserAccount")]
+    HRESULT UserAccount(
+            [out, retval] BSTR * pbstrUserAccount);
+
+    [helpstring("method SetCredentials")]
+    HRESULT SetCredentials(
+            [in]    BSTR    bstrUserURI,
+            [in]    BSTR    bstrUserAccount,
+            [in]    BSTR    bstrPassword);
+
+    // Server
+        
+    [propget, helpstring("property SessionCapabilities")]
+    HRESULT SessionCapabilities(
+            [out, retval] long * plSupportedSessions);
+
+    // Registration
+
+    [propget, helpstring("property State")]
+    HRESULT State(
+            [out, retval] RTC_REGISTRATION_STATE * penState);
+
+}
+
+[
+    object,
+    uuid(4B81F84E-BDC7-4184-9154-3CB2DD7917FB),
+    helpstring("IRTCProfile2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCProfile2 : IRTCProfile
+{
+    [propget, helpstring("property Realm")]
+    HRESULT Realm(
+        [out, retval]  BSTR * pbstrRealm
+        );
+
+    [propput, helpstring("property Realm")]
+    HRESULT Realm(
+        [in]  BSTR  bstrRealm
+        );
+
+    [propget, helpstring("property AllowedAuth")]
+    HRESULT AllowedAuth(
+        [out, retval]  long * plAllowedAuth
+        );
+
+    [propput, helpstring("property AllowedAuth")]
+    HRESULT AllowedAuth(
+        [in]  long  lAllowedAuth
+        );
+};
+
+[
+    object,
+    uuid(387c8086-99be-42fb-9973-7c0fc0ca9fa8),
+    helpstring("IRTCSession Interface"),
+    pointer_default(unique)
+]
+interface IRTCSession : IUnknown
+{
+    // properties
+
+    [propget, helpstring("property Client")]
+    HRESULT Client(
+            [out, retval] IRTCClient **ppClient
+            );
+
+    [propget, helpstring("property State")]
+    HRESULT State(
+            [out, retval] RTC_SESSION_STATE * penState
+            );                
+    
+    [propget, helpstring("property Type")]
+    HRESULT Type(
+            [out, retval] RTC_SESSION_TYPE * penType
+            );
+    
+    [propget, helpstring("property Profile")]
+    HRESULT Profile(
+            [out, retval] IRTCProfile ** ppProfile
+            );
+    
+    [propget, helpstring("property Participants")]
+    HRESULT Participants(
+            [out, retval] IRTCCollection ** ppCollection
+            );
+    
+    // call control
+
+    [helpstring("method Answer")]
+    HRESULT Answer(); 
+
+    [helpstring("method Terminate")]
+    HRESULT Terminate(
+            [in] RTC_TERMINATE_REASON enReason
+            );  
+
+    [helpstring("method Redirect")]
+    HRESULT Redirect(
+            [in] RTC_SESSION_TYPE enType,
+            [in] BSTR bstrLocalPhoneURI,
+            [in] IRTCProfile * pProfile,
+            [in] long     lFlags
+            );  
+
+    [helpstring("method AddParticipant")]
+    HRESULT AddParticipant(
+            [in] BSTR bstrAddress,
+            [in] BSTR bstrName,
+            [out, retval] IRTCParticipant ** ppParticipant
+            );
+
+    [helpstring("method RemoveParticipant")]
+    HRESULT RemoveParticipant(
+            [in] IRTCParticipant * pParticipant
+            );              
+
+    [hidden, helpstring("method EnumerateParticipants")]
+    HRESULT EnumerateParticipants(
+            [out, retval] IRTCEnumParticipants ** ppEnum
+            );
+             
+    [propget, helpstring("property CanAddParticipants")]
+    HRESULT CanAddParticipants(
+            [out, retval] VARIANT_BOOL * pfCanAdd
+            );   
+
+    // redirection context control
+    [propget, helpstring("property RedirectedUserURI")]
+    HRESULT RedirectedUserURI(
+            [out, retval] BSTR * pbstrUserURI
+            );
+
+    [propget, helpstring("property RedirectedUserName")]
+    HRESULT RedirectedUserName(
+            [out, retval] BSTR * pbstrUserName
+            );
+               
+    [helpstring("method NextRedirectedUser")]
+    HRESULT NextRedirectedUser();
+
+    // instant messaging
+
+    [helpstring("method SendMessage")]
+    HRESULT SendMessage(
+            [in] BSTR bstrMessageHeader,
+            [in] BSTR bstrMessage,
+            [in] LONG_PTR lCookie
+            );
+          
+    [helpstring("method SendMessageStatus")]
+    HRESULT SendMessageStatus(
+            [in] RTC_MESSAGING_USER_STATUS enUserStatus,
+            [in] LONG_PTR lCookie
+            );
+
+// stream & custom media control            
+    [helpstring("method AddStream")]
+    HRESULT AddStream(
+            [in] long lMediaType,
+            [in] LONG_PTR lCookie
+            );     
+    
+    [helpstring("method RemoveStream")]
+    HRESULT RemoveStream(
+            [in] long lMediaType,
+            [in] LONG_PTR lCookie
+            ); 
+
+// keys
+    [propput, helpstring("property EncryptionKey")]
+    HRESULT EncryptionKey(
+            [in] long lMediaType,
+            [in] BSTR EncryptionKey
+            );
+
+};
+
+[
+    object,
+    uuid(17D7CDFC-B007-484c-99D2-86A8A820991D),
+    helpstring("IRTCSession2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCSession2 : IRTCSession
+{
+    [helpstring("Method SendInfo")]
+    HRESULT SendInfo(
+            [in] BSTR bstrInfoHeader,
+            [in] BSTR bstrInfo,
+            [in] LONG_PTR lCookie
+            );
+
+    [propput, helpstring("property PreferredSecurityLevel")]
+    HRESULT PreferredSecurityLevel(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [in] RTC_SECURITY_LEVEL enSecurityLevel
+            );
+
+    [propget, helpstring("property PreferredSecurityLevel")]
+    HRESULT PreferredSecurityLevel(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [out, retval] RTC_SECURITY_LEVEL * penSecurityLevel
+            );
+
+    [helpstring("method IsSecurityEnabled")]
+    HRESULT IsSecurityEnabled(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [out, retval] VARIANT_BOOL * pfSecurityEnabled
+            );
+
+    //
+    // SessionDescription control
+    //
+
+    [helpstring("method AnswerWithSessionDescription")]
+    HRESULT AnswerWithSessionDescription(
+            [in] BSTR bstrContentType,
+            [in] BSTR bstrSessionDescription
+        );
+
+    [helpstring("method ReInviteWithSessionDescription")]
+    HRESULT ReInviteWithSessionDescription(
+            [in]  BSTR      bstrContentType, 
+            [in]  BSTR      bstrSessionDescription,
+            [in]  LONG_PTR  lCookie
+            );
+};
+
+[
+    object,
+    uuid(E9A50D94-190B-4F82-9530-3B8EBF60758A),
+    helpstring("IRTCSessionCallControl Interface"),
+    pointer_default(unique)
+]
+interface IRTCSessionCallControl : IUnknown
+{
+    // hold, unhold methods
+    [helpstring("method Hold")]
+    HRESULT Hold(
+            [in] LONG_PTR lCookie
+            );
+
+    [helpstring("method UnHold")]
+    HRESULT UnHold(
+            [in] LONG_PTR lCookie
+            );
+
+    // forward method
+    [helpstring("method Forward")]
+    HRESULT Forward(
+            [in] BSTR bstrForwardToURI
+            );
+
+    // refer methods
+    [helpstring("method Refer")]
+    HRESULT Refer(
+            [in] BSTR bstrReferToURI,
+            [in] BSTR bstrReferCookie
+            );
+
+    [propput, helpstring("property ReferredByURI")]
+    HRESULT ReferredByURI(
+            [in] BSTR bstrReferredByURI
+            );
+
+    [propget, helpstring("property ReferredByURI")]
+    HRESULT ReferredByURI(
+            [out, retval] BSTR *pbstrReferredByURI
+            );
+
+    [propput, helpstring("property ReferCookie")]
+    HRESULT ReferCookie(
+            [in] BSTR bstrReferCookie
+            );
+
+    [propget, helpstring("property ReferCookie")]
+    HRESULT ReferCookie(
+            [out, retval] BSTR *pbstrReferCookie
+            );
+
+    [propget, helpstring("property IsReferred")]
+    HRESULT IsReferred(
+            [out, retval] VARIANT_BOOL *pfIsReferred
+            );
+};
+
+[
+    object,
+    uuid(ae86add5-26b1-4414-af1d-b94cd938d739),
+    helpstring("IRTCParticipant Interface"),
+    pointer_default(unique)
+]
+interface IRTCParticipant : IUnknown
+{
+    [propget, helpstring("property UserURI")]
+    HRESULT UserURI(
+            [out, retval] BSTR * pbstrUserURI
+            );   
+
+    [propget, helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR * pbstrName
+            );  
+
+    [propget, helpstring("property Removable")]
+    HRESULT Removable(
+            [out, retval] VARIANT_BOOL * pfRemovable
+            );
+
+    [propget, helpstring("property State")]
+    HRESULT State(
+            [out, retval] RTC_PARTICIPANT_STATE * penState
+            );   
+            
+    [propget, helpstring("property Session")]
+    HRESULT Session(
+            [out, retval] IRTCSession ** ppSession
+            );             
+};
+
+[
+    object,
+    uuid(79960a6b-0cb1-4dc8-a805-7318e99902e8),
+    dual,
+    helpstring("IRTCRoamingEvent"),
+    pointer_default(unique)
+]
+interface IRTCRoamingEvent : IDispatch
+{
+    [propget, id(1), helpstring("property EventType")]
+    HRESULT EventType( [out, retval] RTC_ROAMING_EVENT_TYPE *pEventType );
+
+    [propget, id(2), helpstring("property Profile")]
+    HRESULT Profile( [out, retval] IRTCProfile2 ** ppProfile );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(4), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+};
+
+[
+    object,
+    uuid(D6D5AB3B-770E-43e8-800A-79B062395FCA),
+    dual,
+    helpstring("IRTCProfileEvent"),
+    pointer_default(unique)
+]
+interface IRTCProfileEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Profile")]
+    HRESULT Profile( [out, retval] IRTCProfile ** ppProfile );
+
+    [propget, id(2), helpstring("property Cookie")]
+    HRESULT Cookie( [out, retval] LONG_PTR * plCookie );
+    
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+}
+
+[
+    object,
+    uuid(62E56EDC-03FA-4121-94FB-23493FD0AE64),
+    dual,
+    helpstring("IRTCProfileEvent2"),
+    pointer_default(unique)
+]
+interface IRTCProfileEvent2 : IRTCProfileEvent
+{
+    [propget, id(4), helpstring("property EventType")]
+    HRESULT EventType( [out, retval] RTC_PROFILE_EVENT_TYPE *pEventType );
+}
+
+[
+    object,
+    uuid(2b493b7a-3cba-4170-9c8b-76a9dacdd644),
+    dual,
+    helpstring("IRTCClientEvent"),
+    pointer_default(unique)
+]
+interface IRTCClientEvent : IDispatch
+{
+    [propget, id(1), helpstring("property EventType")]
+    HRESULT EventType( [out, retval] RTC_CLIENT_EVENT_TYPE * penEventType );
+    
+    [propget, id(2), helpstring("property Client")]
+    HRESULT Client( [out, retval] IRTCClient **ppClient );
+}
+
+[
+    object,
+    uuid(62d0991b-50ab-4f02-b948-ca94f26f8f95),
+    dual,
+    helpstring("IRTCRegistrationStateChangeEvent"),
+    pointer_default(unique)
+]
+interface IRTCRegistrationStateChangeEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Profile")]
+    HRESULT Profile( [out, retval] IRTCProfile ** ppProfile );
+    
+    [propget, id(2), helpstring("property State")]
+    HRESULT State( [out, retval] RTC_REGISTRATION_STATE * penState );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(4), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+}
+
+
+[
+    object,
+    uuid(b5bad703-5952-48b3-9321-7f4500521506),
+    dual,
+    helpstring("IRTCSessionStateChangeEvent"),
+    pointer_default(unique)
+]
+interface IRTCSessionStateChangeEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session( [out, retval] IRTCSession ** ppSession );
+    
+    [propget, id(2), helpstring("property State")]
+    HRESULT State( [out, retval] RTC_SESSION_STATE * penState );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(4), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+}
+
+[
+    object,
+    uuid(4F933171-6F95-4880-80D9-2EC8D495D261),
+    dual,
+    helpstring("IRTCSessionStateChangeEvent2"),
+    pointer_default(unique)
+]
+interface IRTCSessionStateChangeEvent2 : IRTCSessionStateChangeEvent
+{
+    [propget, id(5), helpstring("property MediaTypes")]
+    HRESULT MediaTypes( [out, retval] long * pMediaTypes );
+
+    [propget, id(6), helpstring("property RemotePreferredSecurityLevel")]
+    HRESULT RemotePreferredSecurityLevel(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [out, retval] RTC_SECURITY_LEVEL * penSecurityLevel
+            );
+
+    [propget, id(7), helpstring("property IsForked")]
+    HRESULT IsForked(
+            [out, retval] VARIANT_BOOL *pfIsForked
+            );
+
+    [id(8), helpstring("method GetRemoteSessionDescription")]
+    HRESULT GetRemoteSessionDescription(
+            [out] BSTR * pbstrContentType,
+            [out] BSTR * pbstrSessionDescription
+            );
+};
+
+[
+    object,
+    uuid(a6bff4c0-f7c8-4d3c-9a41-3550f78a95b0),
+    dual,
+    helpstring("IRTCSessionOperationCompleteEvent"),
+    pointer_default(unique)
+]
+
+interface IRTCSessionOperationCompleteEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session( [out, retval] IRTCSession ** ppSession );
+    
+    [propget, id(2), helpstring("property Cookie")]
+    HRESULT Cookie( [out, retval] LONG_PTR * plCookie );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(4), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+}
+
+[
+    object,
+    uuid(f6fc2a9b-d5bc-4241-b436-1b8460c13832),
+    dual,
+    helpstring("IRTCSessionOperationCompleteEvent2"),
+    pointer_default(unique)
+]
+interface IRTCSessionOperationCompleteEvent2 : IRTCSessionOperationCompleteEvent
+{
+    [propget, id(5), helpstring("property Participant")]
+    HRESULT Participant( [out, retval] IRTCParticipant ** ppParticipant );   
+
+    [id(6), helpstring("method GetRemoteSessionDescription")]
+    HRESULT GetRemoteSessionDescription(
+            [out] BSTR * pbstrContentType,
+            [out] BSTR * pbstrSessionDescription
+            );
+}
+
+[
+    object,
+    uuid(09bcb597-f0fa-48f9-b420-468cea7fde04),
+    dual,
+    helpstring("IRTCParticipantStateChangeEvent"),
+    pointer_default(unique)
+]
+interface IRTCParticipantStateChangeEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Participant")]
+    HRESULT Participant( [out, retval] IRTCParticipant ** ppParticipant );
+    
+    [propget, id(2), helpstring("property State")]
+    HRESULT State( [out, retval] RTC_PARTICIPANT_STATE * penState );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+}
+
+[
+    object,
+    uuid(099944fb-bcda-453e-8c41-e13da2adf7f3),
+    dual,
+    helpstring("IRTCMediaEvent"),
+    pointer_default(unique)
+]
+interface IRTCMediaEvent : IDispatch
+{
+    [propget, id(1), helpstring("property MediaType")]
+    HRESULT MediaType( [out, retval] long * pMediaType );
+    
+    [propget, id(2), helpstring("property EventType")]
+    HRESULT EventType( [out, retval] RTC_MEDIA_EVENT_TYPE * penEventType );
+
+    [propget, id(3), helpstring("property EventReason")]
+    HRESULT EventReason( [out, retval] RTC_MEDIA_EVENT_REASON * penEventReason );
+}
+
+
+[
+    object,
+    uuid(4c23bf51-390c-4992-a41d-41eec05b2a4b),
+    dual,
+    helpstring("IRTCIntensityEvent"),
+    pointer_default(unique)
+]
+interface IRTCIntensityEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Level")]
+    HRESULT Level( [out, retval] long * plLevel );
+    
+    [propget, id(2), helpstring("property Min")]
+    HRESULT Min( [out, retval] long * plMin );
+
+    [propget, id(3), helpstring("property Max")]
+    HRESULT Max( [out, retval] long * plMax );
+
+    [propget, id(4), helpstring("property Direction")]
+    HRESULT Direction( [out, retval] RTC_AUDIO_DEVICE * penDirection );
+}
+
+[
+    object,
+    uuid(d3609541-1b29-4de5-a4ad-5aebaf319512),
+    dual,
+    helpstring("IRTCMessagingEvent"),
+    pointer_default(unique)
+]
+interface IRTCMessagingEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session( [out, retval] IRTCSession ** ppSession );
+
+    [propget, id(2), helpstring("property Participant")]
+    HRESULT Participant( [out, retval] IRTCParticipant ** ppParticipant );
+    
+    [propget, id(3), helpstring("property Type")]
+    HRESULT EventType( [out, retval] RTC_MESSAGING_EVENT_TYPE * penEventType );
+    
+    [propget, id(4), helpstring("property Message")]
+    HRESULT Message( [out, retval] BSTR * pbstrMessage );
+
+    [propget, id(5), helpstring("property MessageHeader")]
+    HRESULT MessageHeader( [out, retval] BSTR * pbstrMessageHeader );
+    
+    [propget, id(6), helpstring("property UserStatus")]
+    HRESULT UserStatus( [out, retval] RTC_MESSAGING_USER_STATUS * penUserStatus );
+}
+
+[
+    object,
+    uuid(f36d755d-17e6-404e-954f-0fc07574c78d),
+    dual,
+    helpstring("IRTCBuddyEvent"),
+    pointer_default(unique)
+]
+interface IRTCBuddyEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Buddy")]
+    HRESULT Buddy( [out, retval] IRTCBuddy ** ppBuddy );
+}
+
+[
+    object,
+    uuid(484A7F1E-73F0-4990-BFC2-60BC3978A720),
+    dual,
+    helpstring("IRTCBuddyEvent2"),
+    pointer_default(unique)
+]
+interface IRTCBuddyEvent2 : IRTCBuddyEvent
+{
+    [propget, id(2), helpstring("property EventType")]
+    HRESULT EventType(
+        [out, retval] RTC_BUDDY_EVENT_TYPE * pEventType
+        );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( 
+        [out, retval]  long * plStatusCode
+        );
+
+    [propget, id(4), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+}
+
+[
+    object,
+    uuid(f30d7261-587a-424f-822c-312788f43548),
+    dual,
+    helpstring("IRTCWatcherEvent"),
+    pointer_default(unique)
+]
+interface IRTCWatcherEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Watcher")]
+    HRESULT Watcher( [out, retval] IRTCWatcher ** ppWatcher );
+}
+
+[
+    object,
+    uuid(E52891E8-188C-49AF-B005-98ED13F83F9C),
+    dual,
+    helpstring("IRTCBuddyEvent2"),
+    pointer_default(unique)
+]
+interface IRTCWatcherEvent2 : IRTCWatcherEvent
+{
+    [propget, id(2), helpstring("property EventType")]
+    HRESULT EventType(
+        [out, retval] RTC_WATCHER_EVENT_TYPE * pEventType
+        );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( 
+        [out, retval]  long * plStatusCode
+        );
+}
+
+[
+    object,
+    uuid(3A79E1D1-B736-4414-96F8-BBC7F08863E4),
+    dual,
+    helpstring("IRTCBuddyGroupEvent"),
+    pointer_default(unique)
+]
+interface IRTCBuddyGroupEvent : IDispatch
+{
+    [propget, id(1), helpstring("property EventType")]
+    HRESULT EventType(
+        [out, retval] RTC_GROUP_EVENT_TYPE * pEventType
+        );
+
+    [propget, id(2), helpstring("property Group")]
+    HRESULT Group( 
+        [out, retval] IRTCBuddyGroup ** ppGroup 
+        );
+
+    [propget, id(3), helpstring("property Buddy")]
+    HRESULT Buddy( 
+        [out, retval] IRTCBuddy2 ** ppBuddy
+        );
+
+    [propget, id(4), helpstring("property StatusCode")]
+    HRESULT StatusCode( 
+        [out, retval]  long * plStatusCode
+        );
+}
+
+[
+    object,
+    uuid(4E1D68AE-1912-4f49-B2C3-594FADFD425F),
+    dual,
+    helpstring("IRTCInfoEvent"),
+    pointer_default(unique)
+]
+interface IRTCInfoEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session(
+        [out, retval] IRTCSession2 ** ppSession
+        );
+
+    [propget, id(2), helpstring("property Participant")]
+    HRESULT Participant(
+        [out, retval] IRTCParticipant ** ppParticipant
+        );
+
+    [propget, id(3), helpstring("property Info")]
+    HRESULT Info(
+        [out, retval] BSTR * pbstrInfo
+        );
+
+    [propget, id(4), helpstring("property InfoHeader")]
+    HRESULT InfoHeader(
+        [out, retval] BSTR * pbstrInfoHeader
+        );
+}
+
+[
+    object,
+    uuid(52572D15-148C-4d97-A36C-2DA55C289D63),
+    dual,
+    helpstring("IRTCMediaRequestEvent"),
+    pointer_default(unique)
+]
+interface IRTCMediaRequestEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session(
+        [out, retval] IRTCSession2 ** ppSession
+        );
+
+    [propget, id(2), helpstring("property ProposedMedia")]
+    HRESULT ProposedMedia(
+        [out, retval] long * plMediaTypes
+        );
+
+    [propget, id(3), helpstring("property CurrentMedia")]
+    HRESULT CurrentMedia(
+        [out, retval] long * plMediaTypes
+        );
+
+    [id(4), helpstring("method Accept")]
+    HRESULT Accept(
+        [in] long lMediaTypes
+        );
+
+    [propget, id(5), helpstring("property RemotePreferredSecurityLevel")]
+    HRESULT RemotePreferredSecurityLevel(
+            [in] RTC_SECURITY_TYPE enSecurityType,
+            [out, retval] RTC_SECURITY_LEVEL * penSecurityLevel
+            );
+
+    [id(6), helpstring("method Reject")]
+    HRESULT Reject();
+
+    [propget, id(7), helpstring("property State")]
+    HRESULT State(
+        [out, retval] RTC_REINVITE_STATE *pState
+        );
+}
+
+[
+    object,
+    uuid(11558D84-204C-43e7-99B0-2034E9417F7D),
+    dual,
+    helpstring("IRTCReInviteEvent"),
+    pointer_default(unique)
+]
+interface IRTCReInviteEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session(
+        [out, retval] IRTCSession2 ** ppSession2
+        );
+
+    [id(2), helpstring("method Accept")]
+    HRESULT Accept(
+            [in]  BSTR  bstrContentType, 
+            [in]  BSTR  bstrSessionDescription
+    );
+
+    [id(3), helpstring("method Reject")]
+    HRESULT Reject();
+
+    [propget, id(4), helpstring("property State")]
+    HRESULT State(
+        [out, retval] RTC_REINVITE_STATE *pState
+        );
+
+    [id(5), helpstring("method GetRemoteSessionDescription")]
+    HRESULT GetRemoteSessionDescription(
+            [out] BSTR * pbstrContentType,
+            [out] BSTR * pbstrSessionDescription
+            );
+}
+
+
+[
+    object,
+    uuid(F777F570-A820-49d5-86BD-E099493F1518),
+    dual,
+    helpstring("IRTCPresencePropertyEvent"),
+    pointer_default(unique)
+]
+interface IRTCPresencePropertyEvent : IDispatch
+{   
+    [propget, id(1), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(2), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+    
+    [propget, id(3), helpstring("property PresenceProperty")]
+    HRESULT PresenceProperty( [out, retval] RTC_PRESENCE_PROPERTY *penPresProp);
+
+    [propget, id(4), helpstring("property Value")]
+    HRESULT Value( [out, retval] BSTR * pbstrValue );
+}
+
+
+
+[
+    object,
+    uuid(38F0E78C-8B87-4c04-A82D-AEDD83C909BB),
+    dual,
+    helpstring("IRTCPresenceDataEvent"),
+    pointer_default(unique)
+]
+interface IRTCPresenceDataEvent : IDispatch
+{   
+    [propget, id(1), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(2), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+    
+    [id(3), helpstring("method GetPresenceData")]
+    HRESULT GetPresenceData([out] BSTR *pbstrNamespace, [out] BSTR *pbstrData);
+}
+
+
+[
+    object,
+    uuid(78673F32-4A0F-462c-89AA-EE7706707678),
+    dual,
+    helpstring("IRTCPresenceStatusEvent"),
+    pointer_default(unique)
+]
+interface IRTCPresenceStatusEvent : IDispatch
+{   
+    [propget, id(1), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(2), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+    
+    [id(3), helpstring("method GetLocalPresenceInfo")]
+    HRESULT GetLocalPresenceInfo([out] RTC_PRESENCE_STATUS *penStatus, [out] BSTR *pbstrNotes);
+}
+
+
+
+
+[
+    object,
+    uuid(EC7C8096-B918-4044-94F1-E4FBA0361D5C),
+    helpstring("IRTCCollection interface"),
+    dual
+]
+interface IRTCCollection : IDispatch
+{
+    [propget, helpstring("Returns number of items in collection.")]
+    HRESULT Count(
+            [out, retval] long * lCount
+            );
+
+    [propget, id(DISPID_VALUE),
+        helpstring("Given an index, returns an item in the collection.")]
+    HRESULT Item(
+            [in] long Index,
+            [out, retval] VARIANT * pVariant
+            );
+
+    [propget, restricted, id(DISPID_NEWENUM),
+        helpstring("returns an enumerator for the collection.")]
+        HRESULT _NewEnum(
+            [out, retval] IUnknown ** ppNewEnum
+            );
+}
+
+[
+    object,
+    uuid(fcd56f29-4a4f-41b2-ba5c-f5bccc060bf6),
+    hidden,
+    helpstring("IRTCEnumParticipants interface"),
+    pointer_default(unique)
+]   
+interface IRTCEnumParticipants : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCParticipant ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumParticipants ** ppEnum
+            );
+}
+
+[
+    object,
+    uuid(29b7c41c-ed82-4bca-84ad-39d5101b58e3),
+    hidden,
+    helpstring("IRTCEnumProfiles interface"),
+    pointer_default(unique)
+]  
+interface IRTCEnumProfiles : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCProfile ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumProfiles ** ppEnum
+            );
+}
+
+[
+    object,
+    uuid(f7296917-5569-4b3b-b3af-98d1144b2b87),
+    hidden,
+    helpstring("IRTCEnumBuddies interface"),
+    pointer_default(unique)
+]
+interface IRTCEnumBuddies : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCBuddy ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumBuddies ** ppEnum
+            );
+}
+
+[
+    object,
+    uuid(a87d55d7-db74-4ed1-9ca4-77a0e41b413e),
+    hidden,
+    helpstring("IRTCEnumWatchers interface"),
+    pointer_default(unique)
+]   
+interface IRTCEnumWatchers : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCWatcher ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumWatchers ** ppEnum
+            );
+}
+
+[
+    object,
+    uuid(742378D6-A141-4415-8F27-35D99076CF5D),
+    hidden,
+    helpstring("IRTCEnumGroups interface"),
+    pointer_default(unique)
+]
+interface IRTCEnumGroups : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCBuddyGroup ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumGroups ** ppEnum
+            );            
+}
+
+[
+    object,
+    uuid(8b22f92c-cd90-42db-a733-212205c3e3df),
+    helpstring("IRTCPresenceContact Interface"),
+    pointer_default(unique)
+]
+interface IRTCPresenceContact : IUnknown
+{
+    [propget, helpstring("property PresentityURI")]
+    HRESULT PresentityURI(
+            [out, retval] BSTR * pbstrPresentityURI
+            );   
+
+    [propput, helpstring("property PresentityURI")]
+    HRESULT PresentityURI(
+            [in] BSTR bstrPresentityURI
+            ); 
+
+    [propget, helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR * pbstrName
+            );                 
+    
+    [propput, helpstring("property Name")]
+    HRESULT Name(
+            [in] BSTR bstrName
+            );                 
+    
+    [propget, helpstring("property Data")]
+    HRESULT Data(
+            [out, retval] BSTR * pbstrData
+            );                 
+    
+    [propput, helpstring("property Data")]
+    HRESULT Data(
+            [in] BSTR bstrData
+            );
+                             
+    [propget, helpstring("property Persistent")]
+    HRESULT Persistent(
+            [out, retval] VARIANT_BOOL *pfPersistent
+            );                 
+    
+    [propput, helpstring("property Persistent")]
+    HRESULT Persistent(
+            [in] VARIANT_BOOL fPersistent
+            );                 
+  
+};
+
+[
+    object,
+    uuid(fcb136c8-7b90-4e0c-befe-56edf0ba6f1c),
+    helpstring("IRTCBuddy Interface"),
+    pointer_default(unique)
+]
+interface IRTCBuddy : IRTCPresenceContact
+{  
+    [propget, helpstring("property Status")]
+    HRESULT Status(
+            [out, retval] RTC_PRESENCE_STATUS * penStatus
+            );
+    
+    [propget, helpstring("property Notes")]
+    HRESULT Notes(
+            [out, retval] BSTR * pbstrNotes
+            );
+};
+
+[
+    object,
+    uuid(102F9588-23E7-40e3-954D-CD7A1D5C0361),
+    helpstring("IRTCBuddy2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCBuddy2 : IRTCBuddy
+{  
+    [propget, helpstring("property Profile")]
+    HRESULT Profile(
+            [out, retval] IRTCProfile2 ** ppProfile
+            ); 
+
+    [helpstring("method Refresh")]
+    HRESULT Refresh();
+
+    [hidden, helpstring("method EnumerateGroups")]
+    HRESULT EnumerateGroups(
+            [out, retval] IRTCEnumGroups ** ppEnum
+            );
+          
+    [propget, helpstring("property Groups")]
+    HRESULT Groups(
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+    [propget, helpstring("property PresenceProperty")]
+    HRESULT PresenceProperty([in] RTC_PRESENCE_PROPERTY enProperty, [out,retval] BSTR *pbstrProperty);
+
+    [helpstring("method EnumeratePresenceDevices ")]
+    HRESULT EnumeratePresenceDevices([out, retval] IRTCEnumPresenceDevices ** ppEnumDevices);
+
+    [propget, helpstring("property PresenceDevices")]
+    HRESULT PresenceDevices(   
+            [out, retval] IRTCCollection ** ppDevicesCollection
+            );
+
+    [propget, helpstring("property SubscriptionType")]
+    HRESULT SubscriptionType(
+            [out, retval] RTC_BUDDY_SUBSCRIPTION_TYPE * penSubscriptionType
+            );
+};
+
+
+[
+    object,
+    uuid(c7cedad8-346b-4d1b-ac02-a2088df9be4f),
+    helpstring("IRTCWatcher Interface"),
+    pointer_default(unique)
+]
+interface IRTCWatcher : IRTCPresenceContact
+{
+    [propget, helpstring("property State")]
+    HRESULT State(
+            [out, retval] RTC_WATCHER_STATE * penState
+            );                
+    
+    [propput, helpstring("property State")]
+    HRESULT State(
+            [in] RTC_WATCHER_STATE  enState
+            );                
+                     
+};
+
+[
+    object,
+    uuid(D4D9967F-D011-4b1d-91E3-ABA78F96393D),
+    helpstring("IRTCWatcher2 Interface"),
+    pointer_default(unique)
+]
+interface IRTCWatcher2 : IRTCWatcher
+{
+    [propget, helpstring("property Profile")]
+    HRESULT Profile(
+            [out, retval] IRTCProfile2 ** ppProfile
+            ); 
+
+    [propget, helpstring("property Scope")]
+    HRESULT Scope(
+            [out, retval] RTC_ACE_SCOPE * penScope
+            );
+};
+
+[
+    object, 
+    uuid(60361E68-9164-4389-A4C6-D0B3925BDA5E),
+    helpstring("IRTCBuddyGroup Interface"),
+    pointer_default(unique)
+]
+interface IRTCBuddyGroup : IUnknown
+{
+    [propget, helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR * pbstrGroupName
+            );
+
+    [propput, helpstring("property Name")]
+    HRESULT Name(
+            [in] BSTR bstrGroupName
+            );
+            
+    [helpstring("method AddBuddy")]
+    HRESULT AddBuddy(
+            [in] IRTCBuddy * pBuddy
+            );
+    
+    [helpstring("method RemoveBuddy")]                     
+    HRESULT RemoveBuddy(
+            [in] IRTCBuddy * pBuddy
+            );
+
+    [hidden, helpstring("method EnumerateBuddies")]
+    HRESULT EnumerateBuddies(
+            [out, retval] IRTCEnumBuddies ** ppEnum
+            );
+
+    [propget, helpstring("property Buddies")]
+    HRESULT Buddies(
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+        [propget, helpstring("property Data")]
+    HRESULT Data(
+            [out, retval] BSTR * pbstrData
+            );                 
+    
+    [propput, helpstring("property Data")]
+    HRESULT Data(
+            [in] BSTR bstrData
+            );
+
+    [propget, helpstring("property Profile")]
+    HRESULT Profile(
+            [out, retval] IRTCProfile2 ** ppProfile
+            ); 
+}
+
+[
+    object,
+    uuid(13fa24c7-5748-4b21-91f5-7397609ce747),
+    helpstring("IRTCEventNotification Interface"),
+    oleautomation,
+    pointer_default(unique)
+]
+interface IRTCEventNotification : IUnknown
+{
+    [id(1), helpstring("method Event")]
+    HRESULT Event(
+            [in] RTC_EVENT RTCEvent,
+            [in] IDispatch * pEvent
+            );
+}
+
+[
+    uuid(176ddfbe-fec0-4d55-bc87-84cff1ef7f91),
+    helpstring("IRTCDispatchEventNotification Interface")
+]
+dispinterface IRTCDispatchEventNotification
+{
+    properties:
+    methods:
+
+    [id(1), helpstring("method Event")]
+    HRESULT Event(
+            [in] RTC_EVENT RTCEvent,
+            [in] IDispatch * pEvent
+            );
+};
+
+
+[
+    object,
+    uuid(DA77C14B-6208-43ca-8DDF-5B60A0A69FAC),
+    helpstring("IRTCPortManager Interface"),
+    oleautomation,
+    pointer_default(unique)
+]
+interface IRTCPortManager : IUnknown
+{
+    [id(1), helpstring("method GetMapping")] 
+    HRESULT GetMapping(
+            [in] BSTR bstrRemoteAddress,
+            [in] RTC_PORT_TYPE enPortType,
+            [in, out] BSTR * pbstrInternalLocalAddress,
+            [in, out] long * plInternalLocalPort,
+            [in, out] BSTR * pbstrExternalLocalAddress,
+            [in, out] long * plExternalLocalPort
+            ); 
+
+    [id(2), helpstring("method UpdateRemoteAddress")]
+    HRESULT UpdateRemoteAddress(
+            [in] BSTR bstrRemoteAddress,
+            [in] BSTR bstrInternalLocalAddress,
+            [in] long lInternalLocalPort,
+            [in] BSTR bstrExternalLocalAddress,
+            [in] long lExternalLocalPort
+            );
+
+    [id(3), helpstring("method ReleaseMapping")]
+    HRESULT ReleaseMapping(
+            [in] BSTR bstrInternalLocalAddress,
+            [in] long lInternalLocalPort,
+            [in] BSTR bstrExternalLocalAddress,
+            [in] long lExternalLocalAddress
+            );
+}
+
+[
+    object,
+    uuid(a072f1d6-0286-4e1f-85f2-17a2948456ec),
+    helpstring("IRTCSessionPortManagement Interface"),
+    pointer_default(unique)
+]
+interface IRTCSessionPortManagement : IUnknown
+{
+    HRESULT SetPortManager(
+            [in] IRTCPortManager * pPortManager
+            );
+};
+
+[
+    object,
+    uuid(d5df3f03-4bde-4417-aefe-71177bdaea66),
+    helpstring("IRTCClientPortManagement Interface"),
+    pointer_default(unique)
+]
+interface IRTCClientPortManagement : IUnknown
+{
+
+    HRESULT StartListenAddressAndPort(
+            [in] BSTR bstrInternalLocalAddress,
+            [in] long lInternalLocalPort
+        );
+
+    HRESULT StopListenAddressAndPort(
+            [in] BSTR bstrInternalLocalAddress,
+            [in] long lInternalLocalPort
+        );
+
+    [helpstring("method GetPortRange")]
+    HRESULT GetPortRange(
+            [in] RTC_PORT_TYPE enPortType,
+            [out] long * plMinValue,
+            [out] long * plMaxValue
+            );
+};
+
+///////User search interfaces
+
+[
+    object,
+    uuid(B619882B-860C-4db4-BE1B-693B6505BBE5),
+    helpstring("IRTCUserSearch Interface"),
+    pointer_default(unique)                
+]
+interface IRTCUserSearch : IUnknown
+{
+    [helpstring("method CreateQuery")]
+    HRESULT CreateQuery(
+            [out, retval] IRTCUserSearchQuery ** ppQuery
+            );
+
+    [helpstring("method ExecuteSearch")]
+    HRESULT ExecuteSearch(
+            [in] IRTCUserSearchQuery * pQuery,
+            [in] IRTCProfile * pProfile,
+            [in] LONG_PTR lCookie
+            );
+};
+
+[
+    object,
+    uuid(288300F5-D23A-4365-9A73-9985C98C2881),
+    helpstring("IRTCUserSearchQuery Interface"),
+    pointer_default(unique)                
+]
+interface IRTCUserSearchQuery : IUnknown
+{
+    [propput, helpstring("property SearchTerm")]
+    HRESULT SearchTerm( 
+        [in]  BSTR bstrName,
+        [in]  BSTR bstrValue
+        );
+
+    [propget, helpstring("property SearchTerm")]
+    HRESULT SearchTerm( 
+        [in]  BSTR bstrName,
+        [out, retval]  BSTR * pbstrValue
+        ); 
+
+    [propget, helpstring("property SearchTerms")]
+    HRESULT SearchTerms( 
+        [out, retval]  BSTR * pbstrNames
+        );
+
+    [propput, helpstring("property SearchPreference")]
+    HRESULT SearchPreference( 
+        [in]  RTC_USER_SEARCH_PREFERENCE enPreference,
+        [in]  long lValue
+        );
+
+    [propget, helpstring("property SearchPreference")]
+    HRESULT SearchPreference( 
+        [in]  RTC_USER_SEARCH_PREFERENCE enPreference,
+        [out, retval]  long * plValue
+        );
+
+    [propput, helpstring("property SearchDomain")]
+    HRESULT SearchDomain(
+        [in] BSTR bstrDomain
+        );
+
+    [propget, helpstring("property SearchDomain")]
+    HRESULT SearchDomain(
+        [out, retval] BSTR * pbstrDomain
+        );
+}
+
+[
+    object,
+    uuid(851278B2-9592-480f-8DB5-2DE86B26B54D),
+    helpstring("IRTCUserSearchResult interface"),
+    pointer_default(unique)
+]
+interface IRTCUserSearchResult : IUnknown
+{
+    [propget, id(1), helpstring("property Value")]
+    HRESULT Value(
+            [in]            RTC_USER_SEARCH_COLUMN enColumn,
+            [out, retval]   BSTR * pbstrValue
+            );
+};
+
+[
+    object,
+    uuid(83D4D877-AA5D-4a5b-8D0E-002A8067E0E8),
+    helpstring("IRTCEnumUserSearchResults interface"),
+    pointer_default(unique)
+]
+interface IRTCEnumUserSearchResults : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCUserSearchResult ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumUserSearchResults ** ppEnum
+            );            
+}
+
+
+[
+    object,
+    uuid(D8C8C3CD-7FAC-4088-81C5-C24CBC0938E3),
+    dual,
+    helpstring("IRTCUserSearchResultsEvent Interface"),
+    pointer_default(unique)
+]
+interface IRTCUserSearchResultsEvent : IDispatch
+{
+    [hidden, id(1), helpstring("method EnumerateResults")]
+    HRESULT EnumerateResults(
+        [out, retval] IRTCEnumUserSearchResults** ppEnum
+        );
+
+    [propget, id(2), helpstring("property Results")]
+    HRESULT Results(   
+            [out, retval] IRTCCollection ** ppCollection
+            );
+
+    [propget, id(3), helpstring("property Profile")]
+    HRESULT Profile(
+        [out, retval] IRTCProfile2 ** ppProfile
+        );
+
+    [propget, id(4), helpstring("property Query")]
+    HRESULT Query(
+        [out, retval] IRTCUserSearchQuery ** ppQuery
+        );
+
+    [propget, id(5), helpstring("property Cookie")]
+    HRESULT Cookie( 
+        [out, retval]  LONG_PTR *plCookie
+        );
+
+    [propget, id(6), helpstring("property StatusCode")]
+    HRESULT StatusCode( 
+        [out, retval]  long * plStatusCode
+        );
+
+    [propget, id(7), helpstring("property MoreAvailable")]
+    HRESULT MoreAvailable( 
+        [out, retval]  VARIANT_BOOL * pfMoreAvailable
+        );
+};
+
+[
+    object,
+    uuid(3D8FC2CD-5D76-44AB-BB68-2A80353B34A2),
+    dual,
+    helpstring("IRTCSessionReferStatusEvent"),
+    pointer_default(unique)
+]
+interface IRTCSessionReferStatusEvent : IDispatch
+{   
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session( [out, retval] IRTCSession2 ** ppSession );
+    
+    [propget, id(2), helpstring("property ReferStatus")]
+    HRESULT ReferStatus( [out, retval] RTC_SESSION_REFER_STATUS * penReferStatus );
+
+    [propget, id(3), helpstring("property StatusCode")]
+    HRESULT StatusCode( [out, retval] long * plStatusCode );
+
+    [propget, id(4), helpstring("property StatusText")]
+    HRESULT StatusText( [out, retval] BSTR * pbstrStatusText );
+};
+
+[
+    object,
+    uuid(176A6828-4FCC-4F28-A862-04597A6CF1C4),
+    dual,
+    helpstring("IRTCSessionReferredEvent"),
+    pointer_default(unique)
+]
+interface IRTCSessionReferredEvent : IDispatch
+{   
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session( [out, retval] IRTCSession2 ** ppSession );
+    
+    [propget, id(2), helpstring("property ReferredByURI")]
+    HRESULT ReferredByURI( [out, retval] BSTR * pbstrReferredByURI );
+
+    [propget, id(3), helpstring("property ReferToURI")]
+    HRESULT ReferToURI( [out, retval] BSTR * pbstrReferoURI );
+
+    [propget, id(4), helpstring("property ReferCookie")]
+    HRESULT ReferCookie( [out, retval] BSTR * pbstrReferCookie );
+
+    [id(5), helpstring("method Accept")]
+    HRESULT Accept();
+
+    [id(6), helpstring("method Reject")]
+    HRESULT Reject();
+
+    [id(7), helpstring("method SetReferredSessionState")]
+    HRESULT SetReferredSessionState( [in] RTC_SESSION_STATE enState );
+};
+
+[
+    object,
+    uuid(BA7F518E-D336-4070-93A6-865395C843F9),
+    helpstring("IRTCSessionDescriptionManager Interface"),
+    oleautomation,
+    pointer_default(unique)
+]
+interface IRTCSessionDescriptionManager : IUnknown
+{
+    [id(1), helpstring("method EvaluateSessionDescription")] 
+    HRESULT EvaluateSessionDescription(
+            [in] BSTR bstrContentType,
+            [in] BSTR bstrSessionDescription,
+            [in, out] VARIANT_BOOL *pfApplicationSession
+            ); 
+};
+
+
+
+[
+    object,
+    uuid(708C2AB7-8BF8-42f8-8C7D-635197AD5539),
+    hidden,
+    helpstring("IRTCEnumPresenceDevices interface"),
+    pointer_default(unique)
+]  
+interface IRTCEnumPresenceDevices : IUnknown
+{
+    HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt)] IRTCPresenceDevice ** ppElements,
+            [in,out,ptr] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IRTCEnumPresenceDevices ** ppEnum
+            );
+}
+
+
+[
+    object,
+    uuid(BC6A90DD-AD9A-48da-9B0C-2515E38521AD),
+    helpstring("IRTCPresenceDevice Interface"),
+    pointer_default(unique)
+]
+interface IRTCPresenceDevice : IUnknown
+{
+    [propget, helpstring("property Status")]
+    HRESULT Status([out, retval] RTC_PRESENCE_STATUS * penStatus);
+
+    [propget, helpstring("property Notes")]
+    HRESULT Notes([out, retval] BSTR * pbstrNotes);
+            
+    [propget, helpstring("property PresenceProperty")]
+    HRESULT PresenceProperty([in] RTC_PRESENCE_PROPERTY enProperty, [out,retval] BSTR *pbstrProperty);
+
+    [helpstring("method GetPresenceData")]
+    HRESULT GetPresenceData([out] BSTR *pbstrNamespace, [out] BSTR *pbstrData);
+};
+
+[
+    uuid(cd260094-de10-4aee-ac73-ef87f6e12683),
+    version(1.2),
+    helpstring("RTCCore 1.2 Type Library")
+]
+library RTCCORELib
+{
+    importlib("stdole32.tlb");
+
+    interface IRTCProfile;
+    interface IRTCProfile2;
+    interface IRTCEnumProfiles;
+    interface IRTCSession;
+    interface IRTCSession2;
+    interface IRTCSessionCallControl;
+    interface IRTCParticipant;    
+    interface IRTCEnumParticipants;
+    interface IRTCCollection;
+    interface IRTCBuddy;
+    interface IRTCBuddy2;
+    interface IRTCEnumBuddies;
+    interface IRTCWatcher;
+    interface IRTCWatcher2;
+    interface IRTCEnumWatchers;
+    interface IRTCBuddyGroup;
+    interface IRTCEnumGroups;
+    interface IRTCUserSearchQuery;
+    interface IRTCUserSearchResult;
+    interface IRTCEnumUserSearchResults;
+    interface IRTCEventNotification;
+    interface IRTCClientEvent;
+    interface IRTCRegistrationStateChangeEvent;
+    interface IRTCSessionStateChangeEvent;
+    interface IRTCSessionStateChangeEvent2;
+    interface IRTCSessionOperationCompleteEvent;
+    interface IRTCSessionOperationCompleteEvent2;
+    interface IRTCParticipantStateChangeEvent;
+    interface IRTCMediaEvent;
+    interface IRTCIntensityEvent;
+    interface IRTCMessagingEvent;
+    interface IRTCBuddyEvent;
+    interface IRTCBuddyEvent2;
+    interface IRTCWatcherEvent;
+    interface IRTCPortManager;
+    interface IRTCSessionPortManagement;
+    interface IRTCClientPortManagement;
+    interface IRTCWatcherEvent2;
+    interface IRTCBuddyGroupEvent;
+    interface IRTCProfileEvent;
+    interface IRTCProfileEvent2;
+    interface IRTCUserSearchResultsEvent;
+    interface IRTCInfoEvent;
+    interface IRTCRoamingEvent;
+    interface IRTCMediaRequestEvent;
+    interface IRTCReInviteEvent;
+    interface IRTCPresencePropertyEvent;
+    interface IRTCPresenceDataEvent;
+    interface IRTCPresenceStatusEvent;
+    interface IRTCSessionReferStatusEvent;
+    interface IRTCSessionReferredEvent;
+    interface IRTCSessionDescriptionManager;
+    interface IRTCEnumPresenceDevices;
+    interface IRTCPresenceDevice;
+
+    dispinterface IRTCDispatchEventNotification;
+
+    [
+        uuid(7a42ea29-a2b7-40c4-b091-f6f024aa89be),
+        helpstring("RTCClient Class")
+    ]
+    coclass RTCClient
+    {        
+        [default] interface IRTCClient;        
+        interface IRTCClient2;
+        interface IRTCClientPresence;
+        interface IRTCClientPresence2;
+        interface IRTCClientProvisioning;
+        interface IRTCClientProvisioning2;
+        interface IRTCUserSearch;
+        [default, source] dispinterface IRTCDispatchEventNotification;
+        [defaultvtable, source] interface IRTCEventNotification;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

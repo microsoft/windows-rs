@@ -1,0 +1,204 @@
+[ClassVersion( "1.0" ),
+Description(
+    "A replication group represents a consistency grouping of storage "
+    "replicas."
+    )]
+class MSFT_ReplicationGroup : MSFT_StorageObject{
+
+    [Read, Required, Description(
+        "A user-friendly string representing the name of the replication " 
+        "group."
+        )]
+    String FriendlyName;
+
+    [Read, Description(
+        "A user-friendly string representing the description of the replication " 
+        "group."
+        )]
+    String Description;
+
+    [Read, Required, Description(
+        "Denotes the current health status of the replication group. "
+        "Health of a group is derived from the health of the backing "
+        "storage replicas.\n "
+        "0 - 'Healthy': All replicas are in a healthy state. \n"
+        "1 - 'Warning': The majority of replicas are healthy, but one or "
+        "more may be not fully synchronized. \n"
+        "2 - 'Unhealthy': The majority of replicas are unhealthy or in a "
+        "failed state."
+        ),
+        ValueMap { "0", "1", "2", "5" }, 
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+    [Read, Description(
+        "Indicates the current operating conditions of the group. Unlike HealthStatus, "
+        "this field indicates the status of hardware, software, and infrastructure issues related "
+        "to this group, and can contain multiple values."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            ".."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved" }]
+    UInt16 OperationalStatus[];
+
+
+    //
+    // Method: CreateReplica
+    //
+
+    UInt32 CreateReplica(
+
+        [In]
+        string FriendlyName, 
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicaPeer")]
+        String TargetStorageSubsystem,
+
+        [In, Required]
+        String TargetGroupObjectId,
+        
+        [In]
+        String TargetStoragePoolObjectId,
+
+        [In]
+        UInt32 RecoveryPointObjective,
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicationSettings")]
+        String ReplicationSettings,
+
+        [In, Required] 
+        UInt16 SyncType,
+
+        [Out, EmbeddedInstance("MSFT_ReplicaPeer")]
+        String CreatedReplicaPeer,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetReplicationRelationship
+    //
+
+    UInt32 SetReplicationRelationship(
+
+        [In, Required]
+        UInt16 Operation,
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicaPeer")]
+        String TargetGroup,
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String SourceStorageObjects[],
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String TargetStorageObjects[],
+
+        [In, Required, EmbeddedInstance("MSFT_Synchronized")]
+        String SyncPairs[],
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetReplicationSettings
+    //
+
+    UInt32 SetReplicationSettings(
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicationSettings")]
+        String ReplicationSettings,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetReplicationSettings
+    //
+
+    UInt32 GetReplicationSettings(
+
+        [Out, Required, EmbeddedInstance("MSFT_ReplicationSettings")]
+        String ReplicationSettings,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: AddMember
+    //
+
+    UInt32 AddMember(
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String StorageObjects[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]   
+        String ExtendedStatus
+       );
+
+
+    //
+    // Method: RemoveMember
+    //
+
+    UInt32 RemoveMember(
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String StorageObjects[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: SetFriendlyName
+    //
+
+    UInt32 SetFriendlyName(
+
+        [In, Required]
+        String FriendlyName,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: DeleteObject
+    //
+
+    UInt32 DeleteObject(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};

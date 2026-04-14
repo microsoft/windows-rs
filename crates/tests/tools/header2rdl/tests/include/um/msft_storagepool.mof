@@ -1,0 +1,1842 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "Represents a logical grouping of physical disks that may be used to create virtual disks. "
+    "These virtual disks can be created with different characteristics and levels of resiliency "
+    "based on the number of available physical disks and the capabilities of the storage pool."
+    )]
+class MSFT_StoragePool : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "A user-friendly string representing the name of the storage pool. Friendly name can "
+        "be set using the SetFriendlyName method."
+        )]
+    String FriendlyName;
+
+    [Read, Required, Description(
+        "Name is a semi-unique (scoped to the owning storage subsystem), human-readable string "
+        "used to identify a storage pool."
+        )]
+    String Name;
+
+    [Read, Required, Description(
+        "Denotes the intended usage of the storage pool."
+        ),
+        ValueMap { "0", "1", "2", "3", "4", "5",
+                   "6", "7", "8" },
+        Values { "Unknown", "Other", "Unrestricted",
+                 "Reserved for ComputerSystem (the block server)",
+                 "Reserved as a Delta Replica Container",
+                 "Reserved for Migration Services",
+                 "Reserved for Local Replication Services",
+                 "Reserved for Remote Replication Services",
+                 "Reserved for Sparing" }]
+    UInt16 Usage;
+
+    [Read, Description(
+        "If Usage is set to 1 - 'Other', this field contains the string representation of the "
+        "vendor defined usage for the storage pool. This property must be NULL if Usage is not "
+        "set to 1 - 'Other'."
+        )]
+    String OtherUsageDescription;
+
+    [Read, Required, Description(
+        "If this field is set to TRUE, the storage pool is primordial. A primordial pool, also "
+        "known as the 'available storage' pool is where storage capacity is drawn and returned "
+        "in the creation and deletion of concrete storage pools. Primordial pools cannot be "
+        "created or deleted. \n"
+        "If this field is set to FALSE, the storage pool is a concrete pool. These pools are "
+        "subject to all of the management operations defined on the storage pool class. This "
+        "includes creation, deletion, creation of virtual disks, etc."
+        )]
+    Boolean IsPrimordial;
+
+    [Read, Required, Description(
+        "Denotes the current health status of the storage pool. Health of a storage pool is "
+        "derived from the health of the backing physical disks, and whether or not the storage "
+        "pool can maintain the required levels of resiliency.\n "
+        "0 - 'Healthy': All physical disks are present and in a healthy state. \n"
+        "1 - 'Warning': The majority of physical disks are healthy, but one or more may be "
+        "failing I/O requests. \n"
+        "2 - 'Unhealthy': The majority of physical disks are unhealthy or in a failed state, "
+        "and the pool no longer has data integrity."
+        ),
+        ValueMap { "0", "1", "2", "5" },
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+    [Read, Required, Description(
+        "Indicates the current operating conditions of the storage pool. Unlike HealthStatus, "
+        "this field indicates the status of hardware, software, and infrastructure issues related "
+        "to this storage pool, and can contain multiple values. Various operational statuses are "
+        "defined. Many of the enumeration's values are self-explanatory. However, a few are not "
+        "and are described here in more detail. \n"
+        "4 - 'Stressed': indicates that the storage pool is functioning, but needs attention. "
+        "Examples of 'Stressed' states are overload, overheated, and so on. \n"
+        "5 - 'Predictive Failure': indicates that the storage pool is functioning nominally but "
+        "predicting a failure in the near future. \n"
+        "11 - 'In Service': describes a storage pool being configured, maintained, or otherwise "
+        "administered. \n"
+        "12 - 'No Contact': indicates that the storage provider has knowledge of this storage "
+        "pool, but has never been able to establish communications with it. \n"
+        "13 - 'Lost Communication': indicates that the storage pool is known to exist and has "
+        "been contacted successfully in the past, but is currently unreachable. \n"
+        "10 - 'Stopped' and 14 - 'Aborted' are similar, although the former implies a clean and "
+        "orderly stop, while the latter implies an abrupt stop where the state and configuration "
+        "of the storage pool might need to be updated. \n"
+        "15 - 'Dormant': indicates that the storage pool is inactive. \n"
+        "16 - 'Supporting Entity in Error': indicates that this storage pool might be OK, but "
+        "that another element, on which it is dependent, is in error. \n"
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "..",
+            "0xD000", "0xD001",
+            "0xD002.."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved",
+            // 0xD000 - 0xD001
+            "Read-only", "Incomplete",
+            // ..
+            "Microsoft Reserved" }]
+    UInt16 OperationalStatus[];
+
+    [Read, Description(
+        "A string representation of the vendor defined operational status. This field should "
+        "only be set if the OperationalStatus array contains 1 - 'Other'."
+        )]
+    String OtherOperationalStatusDescription;
+
+    [Read, Description(
+        "Indicates the capacity of the storage pool. If the pool is primordial, this is the "
+        "sum of all the healthy physical disk sizes. If the pool is concrete, this is the sum "
+        "of all associated physical disks (except hot-spares, and including failed drives)."
+        ),
+        Units("Bytes")]
+    UInt64 Size;
+
+    [Read, Description(
+        "Indicates the total sum of all the capacity used by this storage pool. If the pool is "
+        "primordial, this will be the sum of all capacity currently allocated to concrete storage "
+        "pools. If the pool is concrete, this value should be the sum of all capacity currently "
+        "allocated to virtual disks and other pool metadata."
+        ),
+        Units("Bytes")]
+    UInt64 AllocatedSize;
+
+    [Read, Description(
+        "This field indicates the logical sector size of the storage pool, in bytes. This value "
+        "is derived from the backing physical disks, as well as the preference specified at the "
+        "time this storage pool was created."
+        ),
+        Units("Bytes")]
+    UInt64 LogicalSectorSize;
+
+    [Read, Description(
+        "This field indicates the physical sector size of the storage pool, in bytes. This value "
+        "is derived from the backing physical disks for this storage pool."
+        ),
+        Units("Bytes")]
+    UInt64 PhysicalSectorSize;
+
+    [Read, Required, Description(
+        "Indicates the provisioning scheme to use when creating new virtual disks on this "
+        "storage pool. \n"
+        "0 - 'Unknown': May mean that this information is unavailable, or the storage pool "
+        "uses a proprietary method of allocation.\n"
+        "1 - 'Thin': Storage for the virtual disk is allocated on-demand. \n"
+        "2 - 'Fixed': Storage for the virtual disk is allocated at the time of virtual disk "
+        "creation."
+        ),
+        ValueMap { "0", "1", "2" },
+        Values { "Unknown", "Thin", "Fixed" }]
+    UInt16 ProvisioningTypeDefault;
+
+    [Read]
+    UInt16 MediaTypeDefault;
+
+    [Read, Required, Description(
+        "Denotes the provisioning schemes that this storage pool supports."
+        ),
+        ValueMap { "0", "1", "2" },
+        Values { "Unknown", "Thin", "Fixed" }]
+    UInt16 SupportedProvisioningTypes[];
+
+    [Read, Required, Description(
+        "Indicates the default resiliency setting used for virtual disk creation. This default "
+        "can be overridden at the time of virtual disk creation. This property's value should "
+        "correspond to the resiliency setting's Name field."
+        ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.Name"
+            }]
+    String ResiliencySettingNameDefault;
+
+    [Read, Description(
+        "Indicates whether or not the storage pool's configuration is read-only. If TRUE, the "
+        "storage pool will not allow configuration changes to itself or any of its virtual and "
+        "physical disks. Note that the data on the virtual disk may still be writable."
+        )]
+    Boolean IsReadOnly;
+
+    [Read, Description(
+        "Denotes the reason why the storage pool is read-only. \n"
+        "1 - 'None': The pool is not read-only. \n"
+        "2 - 'By Policy': The administrator has either requested the pool to be read-only or "
+        "has enacted a policy on the system that requires the pool to be read-only. \n"
+        "3 - 'Majority Disks Unhealthy': The majority of the supporting physical disks are in "
+        "an unhealthy state that has forced the storage pool into a read-only state."
+        ),
+        ValueMap { "0", "1", "2", "3", "4" },
+        Values { "Unknown", "None", "By Policy", "Majority Disks Unhealthy", "Starting" }]
+    UInt16 ReadOnlyReason;
+
+    [Read, Description(
+        "Indicates whether or not the storage pool is used in a clustered environment."
+        )]
+    Boolean IsClustered;
+
+    [Read, Description(
+        "If TRUE, this storage pool supports data deduplication."
+        )]
+    Boolean SupportsDeduplication;
+
+    [Read, Description(
+        "Percentages at which an alert should be generated"
+        ), Units("Percentage"), MinValue( 0 ), MaxValue( 100 )]
+    UInt16 ThinProvisioningAlertThresholds[];
+
+    [Read, Description(
+        "If TRUE, the storage pool should clear (zero out) physical disks that are removed from "
+        "the pool."
+        )]
+    Boolean ClearOnDeallocate;
+
+    [Read, Description(
+        "This property indicates whether the disks comprising this pool are able to "
+        "tolerate power loss without data loss, e.g. automatically flush volatile buffers "
+        "to non-volatile media after external power is disconnected."
+        )]
+    Boolean IsPowerProtected;
+
+    [Read, Description(
+        "This property indicates how the operating system will proceed with repairing of "
+        "virtual disks for this storage pool.\n"
+        "2 - 'Sequential': repair will process one allocation slab at a time. "
+        "This will result in longer repair times, but small impact on the I/O load.\n"
+        "3 - 'Parallel': repair will process as many allocation slabs as it can in parallel. "
+        "This will result in the shortest repair time, but will have significant impact on I/O load.\n"
+        ),
+        Valuemap { "2", "3" },
+        Values { "Sequential", "Parallel" }]
+    UInt16 RepairPolicy;
+
+    [Read, Description(
+        "Determines the default allocation behavior for virtual disks created in this pool. "
+        "Enclosure aware virtual disks will intelligently pick the physical disks to use for their "
+        "redundancy. If TRUE, the storage subsystem will use physical disks from different "
+        "enclosures to balance the fault tolerance between two (or more) physical enclosures."
+        )]
+    Boolean EnclosureAwareDefault;
+
+    [Read, Description(
+        "Determines the default allocation behavior for virtual disks created in this pool. "
+        "Fault domain aware virtual disks will intelligently pick the physical disks to use "
+        "for their redundancy to balance the fault tolerance between two (or more) fault domain "
+        "units of the specified type."
+        ),
+        ValueMap { "1", "2", "3", "4", "5" },
+        Values { "PhysicalDisk", "StorageEnclosure", "StorageScaleUnit", "StorageChassis", "StorageRack" }]
+    UInt16 FaultDomainAwarenessDefault;
+
+    [Read, Description(
+        "If TRUE, the storage subsystem will automatically retire missing physical disks in this "
+        "storage pool and replace them with hot-spares or other available physical disks (in "
+        "the storage pool)."
+        ),
+        Valuemap { "1", "2", "3" },
+        Values { "Auto", "Always", "Never" }]
+    UInt16 RetireMissingPhysicalDisks;
+
+    [Read, Description(
+        "Denotes the version of this storage pool."
+        ),
+        ValueMap { "1", "2", "3", ".." },
+        Values { "Windows Server 2012", "Windows Server 2012 R2 Preview", "Windows Server 2012 R2", "Pool Metadata Version" }]
+    UInt16 Version;
+
+    [Read, Description(
+        "The size of the storage pool metadata in bytes."
+        ),
+        Units("Bytes")]
+    UInt64 MetadataLength;
+
+    [Read, Description(
+        "Indicates the smallest unit of allocation for this storage pool."
+        ),
+        Units("Bytes")]
+    UInt64 MinimumAllocationSize;
+
+    [Description( "Default size of write cache for virtual disk creation" )]
+    UInt64 WriteCacheSizeDefault;
+
+    [Description( "Minimum size of write cache for virtual disk creation" )]
+    UInt64 WriteCacheSizeMin;
+
+    [Description( "Maximum size of write cache for virtual disk creation" )]
+    UInt64 WriteCacheSizeMax;
+
+
+    //
+    // Method: CreateVirtualDisk
+    //
+
+    [Description(
+        "This method creates a virtual disk using the resources of the storage pool. This method "
+        "is available only when the SupportsVirtualDiskCreation property on the storage "
+        "subsystem is set to TRUE. If it is set to FALSE, this method will fail with "
+        "MI_RESULT_NOT_SUPPORTED. This method is also not supported for primordial pools. \n"
+        "Creating tiered virtual disks is available only when the SupportsStorageTieredVirtualDiskCreation "
+        "property on the storage subsystem is set to TRUE. If it is set to FALSE, this method will "
+        "fail with MI_RESULT_NOT_SUPPORTED. \n"
+        "CreateVirtualDisk requires only FriendlyName and Size to be specified. Sizes can "
+        "be specified explicitly through the Size parameter, or you can use the maximum "
+        "available space from the storage pool by specifying the UseMaximumSize parameter. "
+        "Both FriendlyName and Size are treated as goals rather than hard requirements. For "
+        "example, not all SMI-S based arrays support custom friendly names; however, the "
+        "virtual disk creation will still succeed. If the size specified is not achieved, "
+        "the actual size used for the virtual disk will be returned in the out parameter "
+        "structure. \n"
+        "The usage of this virtual disk can be set using the Usage and OtherUsageDescription "
+        "parameters. If a value for OtherUsageDescription is given, Usage must be set to "
+        "1 - 'Other', otherwise an error will be returned. \n"
+        "By default, the resiliency setting applied to this virtual disk will be whatever is "
+        "specified in the storage pool's ResiliencySettingNameDefault property. This can be "
+        "overridden using the ResiliencySettingName parameter. Note that the name given here "
+        "must correspond to a resiliency setting associated with this storage pool. Any other "
+        "value will result in an error. \n"
+        "Individual settings of the resiliency setting can be overridden using the "
+        "NumberOfDataCopies, PhysicalDiskRedundancy, NumberOfColumns, and Interleave parameters. "
+        "If these parameters are not used, the defaults from the resiliency setting will "
+        "be used. These overrides will not persist back to the particular resiliency setting "
+        "instance; however some storage providers may choose to create a new resiliency setting "
+        "instance to capture this new configuration. If any of the goals specified in the "
+        "override parameters are out of range, or are not supported by the storage pool, an "
+        "error will be returned. \n"
+        "The provisioning policy for the virtual disk is determined in a similar way to the "
+        "resiliency setting. If no preference is specified in the ProvisioningType parameter, "
+        "the policy is determined by the storage pool's ProvisioningTypeDefault property. If the "
+        "ProvisioningType parameter is specified, the default is ignored and the value specified "
+        "will be used instead. \n"
+        "Allocation can be further controlled by the PhysicalDisksToUse parameter. There may "
+        "be certain scenarios where a storage administrator wants to manually choose which "
+        "physical disks should back the virtual disk. When this parameter is specified, data "
+        "for the virtual disk will only be stored on the physical disks in this array and not "
+        "on any others."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096", "4097",
+            "40000", "40001", "40002",
+            "46000", "46001", "46008",
+            "47001",
+            "48000", "48001", "48002", "48004", "48006", "48007", "48010",
+            "49000", "49001", "49002", "49003", "49004", "49005", "49006",
+            "50005",
+            "51000", "51001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started", "Size Not Supported",
+            // 40000 - 40999
+            "Not enough available capacity",
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            "Failover clustering could not be enabled for this storage object.",
+            // 47000 - 47999
+            "This subsystem does not support creation of virtual disks with the specified provisioning type.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool is reserved for special usage only.",
+            "The specified resiliency setting is not supported by this storage pool.",
+            "There are not enough eligible physical disks in the storage pool to create the specified virtual disk configuration.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            "You must specify the size info (either the Size or UseMaximumSize parameter) or the tier info (the StorageTiers and StorageTierSizes parameters), but not both size info and tier info.",
+            // 49000 - 49999
+            "No resiliency setting with that name exists.",
+            "The value for NoSinglePointOfFailure is not supported.",
+            "The value for PhysicalDiskRedundancy is outside of the supported range of values.",
+            "The value for NumberOfDataCopies is outside of the supported range of values.",
+            "The value for ParityLayout is outside of the supported range of values.",
+            "The value for Interleave is outside of the supported range of values.",
+            "The value for NumberOfColumns is outside of the supported range of values.",
+            // 50000 - 50999
+            "The value for WriteCacheSize is outside of the supported range of values.",
+            // 51000 - 51999
+            "One of the physical disks specified is not supported by this operation.",
+            "Not enough physical disks were specified to successfully complete the operation." }]
+    UInt32 CreateVirtualDisk(
+
+        [In, Required, Description(
+            "This parameter allows the user to specify the FriendlyName at the time of the "
+            "virtual disk creation. FriendlyNames are expected to be descriptive, however they "
+            "are not required to be unique. Note that some storage subsystems do not allow "
+            "setting a friendly name during virtual disk creation. If a subsystem doesn't "
+            "support this, virtual disk creation should still succeed, however the disk may "
+            "have a different name assigned to it."
+            )]
+        String FriendlyName,
+
+        [In, Description(
+            "Indicates the size for the virtual disk. Note that some storage subsystems will "
+            "round the size up or down to a multiple of its allocation unit size. This "
+            "parameter cannot be used if UseMaximumSize is set to TRUE."
+            ), Units("Bytes")]
+        UInt64 Size,
+
+        [In, Description(
+            "UseMaximumSize instructs the storage array to create the largest possible virtual "
+            "disk given the available resources of this storage pool. This parameter cannot be "
+            "used if the Size parameter is set."
+            )]
+        Boolean UseMaximumSize,
+
+        [In, Description(
+            "Denotes the provisioning type of the virtual disk. \n"
+            "1 - 'Thin': The storage for the virtual disk is allocated on-demand. \n"
+            "2 - 'Fixed': The storage for the virtual disk is allocated up front."
+            ),
+            ValueMap { "1", "2" },
+            Values { "Thin", "Fixed" }]
+        UInt16 ProvisioningType,
+
+        [In, Description(
+            "This parameter specifies the resiliency setting to use as a template for this "
+            "virtual disk. This property's value should correspond with the particular "
+            "resiliency setting instance's Name property. Only resiliency settings associated "
+            "with this storage pool may be used."
+            )]
+        String ResiliencySettingName,
+
+        [In, Description(
+            "Denotes the intended usage of the virtual disk"
+            ),
+            ValueMap {
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17"
+             },
+             Values {
+                "Other", "Unrestricted",
+                "Reserved for ComputerSystem (the block server)",
+                "Reserved by Replication Services",
+                "Reserved by Migration Services",
+                "Local Replica Source", "Remote Replica Source",
+                "Local Replica Target", "Remote Replica Target",
+                "Local Replica Source or Target", "Remote Replica Source or Target",
+                "Delta Replica Target", "Element Component",
+                "Reserved as Pool Contributor", "Composite Volume Member",
+                "Composite VirtualDisk Member", "Reserved for Sparing"
+                } ]
+        UInt16 Usage,
+
+        [In, Description(
+            "Allows a user to set a vendor specific usage for the new virtual disk object. "
+            "This parameter can only be specified if the Usage parameter is set to 1 - 'Other'."
+            )]
+        String OtherUsageDescription,
+
+        [In, Description(
+            "Specifies the number of complete data copies to maintain for this virtual disk. "
+            "If specified, this value will override the NumberOfDataCopiesDefault value that would "
+            "have been inherited from the resiliency setting specified by ResiliencySettingName."
+            )]
+        UInt16 NumberOfDataCopies,
+
+        [In, Description(
+            "Specifies how many physical disk failures the virtual disk should be able to "
+            "withstand before data loss occurs. If specified, this value will override the "
+            "PhysicalDiskRedundancyDefault value that would have been inherited from the resiliency "
+            "setting specified by ResiliencySettingName."
+            )]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In, Description(
+            "Specifies the number of underlying physical disks across which data should be "
+            "striped. If specified, this value will override the NumberOfColumnsDefault value "
+            "that would have been inherited from the resiliency setting specified by "
+            "ResiliencySettingName."
+            )]
+        UInt16 NumberOfColumns,
+
+        [In, Description(
+            "If TRUE, this field instructs the storage provider (or subsystem) to automatically "
+            "pick what it determines to be the best number of columns for the virtual disk. If this "
+            "field is TRUE, then the NumberOfColumns parameter must be NULL."
+            )]
+        Boolean AutoNumberOfColumns,
+
+        [In, Description(
+            "Specifies the number of bytes that should be used for a strip in the common striping-"
+            "based resiliency settings. The strip is defined as the size of the portion of a "
+            "stripe that lies on one physical disk. Thus Interleave * NumberOfColumns will "
+            "yield the size of one stripe of user data. If this parameter is specified, this "
+            "value will override the InterleaveDefault which would have been inherited from "
+            "the resiliency setting specified by ResiliencySettingName."
+            )]
+        UInt64 Interleave,
+
+        [In, Description(
+            "Determines the allocation behavior for this virtual disk. Enclosure aware virtual disks "
+            "will intelligently pick the physical disks to use for their redundancy. If TRUE, the "
+            "virtual disk will attempt to use physical disks from different enclosures to balance "
+            "the fault tolerance between two (or more) physical enclosures."
+            )]
+        Boolean IsEnclosureAware,
+
+        [In, Description(
+            "If specified, allocation of this virtual disk's storage is limited to the physical "
+            "disks in the list. These physical disks must already be added to this storage "
+            "pool."
+            ),
+            EmbeddedInstance("MSFT_PhysicalDisk")]
+        String PhysicalDisksToUse[],
+
+        [In, Description( "Storage tiers on this virtual disk" ),
+            EmbeddedInstance("MSFT_StorageTier")]
+        String StorageTiers[],
+
+        [In, Description( "Sizes of each tier" )]
+        UInt64 StorageTierSizes[],
+
+        [In, Description( "Size of write cache on the virtual disk" )]
+        UInt64 WriteCacheSize,
+
+        [In, Description( "Indicates whether the provider should pick up the auto write cache size" )]
+        Boolean AutoWriteCacheSize,
+
+        [Out, EmbeddedInstance("MSFT_VirtualDisk")]
+        String CreatedVirtualDisk,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation. When the operation has completed, an association should exist "
+            "between the storage job and the created objects."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateVirtualDisk2
+    //
+
+    UInt32 CreateVirtualDisk2(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        UInt64 Size,
+
+        [In]
+        Boolean UseMaximumSize,
+
+        [In]
+        UInt16 ProvisioningType,
+
+        [In]
+        UInt64 AllocationUnitSize,
+
+        [In]
+        UInt16 MediaType,
+
+        [In]
+        String ResiliencySettingName,
+
+        [In]
+        UInt16 Usage,
+
+        [In]
+        String OtherUsageDescription,
+
+        [In]
+        UInt16 NumberOfDataCopies,
+
+        [In]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In]
+        UInt16 NumberOfColumns,
+
+        [In]
+        Boolean AutoNumberOfColumns,
+
+        [In]
+        UInt64 Interleave,
+
+        [In]
+        UInt16 NumberOfGroups,
+
+        [In]
+        UInt16 FaultDomainAwareness,
+
+        [In]
+        UInt16 ColumnIsolation,
+
+        [In, EmbeddedInstance("MSFT_PhysicalDisk")]
+        String PhysicalDisksToUse[],
+
+        [In, EmbeddedInstance("MSFT_StorageTier")]
+        String StorageTiers[],
+
+        [In]
+        UInt64 StorageTierSizes[],
+
+        [In]
+        UInt64 WriteCacheSize,
+
+        [In]
+        Boolean AutoWriteCacheSize,
+
+        [In]
+        UInt64 ReadCacheSize,
+
+        [Out, EmbeddedInstance("MSFT_VirtualDisk")]
+        String CreatedVirtualDisk,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: CreateVirtualDisk3
+    //
+
+    UInt32 CreateVirtualDisk3(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        UInt64 Size,
+
+        [In]
+        Boolean UseMaximumSize,
+
+        [In]
+        UInt16 ProvisioningType,
+
+        [In]
+        UInt64 AllocationUnitSize,
+
+        [In]
+        UInt16 MediaType,
+
+        [In]
+        String ResiliencySettingName,
+
+        [In]
+        UInt16 Usage,
+
+        [In]
+        String OtherUsageDescription,
+
+        [In]
+        UInt16 NumberOfDataCopies,
+
+        [In]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In]
+        UInt16 NumberOfColumns,
+
+        [In]
+        Boolean AutoNumberOfColumns,
+
+        [In]
+        UInt64 Interleave,
+
+        [In]
+        UInt16 NumberOfGroups,
+
+        [In]
+        UInt16 FaultDomainAwareness,
+
+        [In]
+        UInt16 ColumnIsolation,
+
+        [In]
+        UInt16 MinimumLogicalDataCopies,
+
+        [In]
+        MSFT_StorageFaultDomain REF StorageFaultDomainsToUse[],
+
+        [In, EmbeddedInstance("MSFT_StorageTier")]
+        String StorageTiers[],
+
+        [In]
+        UInt64 StorageTierSizes[],
+
+        [In]
+        UInt64 WriteCacheSize,
+
+        [In]
+        Boolean AutoWriteCacheSize,
+
+        [In]
+        UInt64 WriteCacheReserveSize,
+
+        [In]
+        UInt64 ReadCacheSize,
+
+        [In]
+        Boolean TrackValidData,
+
+        [In]
+        Boolean IsManualAttach,
+
+        [In]
+        Boolean AddToCluster,
+
+        [Out, EmbeddedInstance("MSFT_VirtualDisk")]
+        String CreatedVirtualDisk,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateVolume
+    //
+
+    [Description(
+        "This method creates a virtual disk and single volume using the resources of the storage pool."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096", "4097",
+            "40000", "40001", "40002", "40004", "40005",
+            "42002", "42007",
+            "43001", "43002", "43006", "43017", "43018", "43019",
+            "46000", "46001", "46008",
+            "48000", "48001", "48002", "48004", "48006", "48007", "48010",
+            "49000", "49001", "49002", "49003", "49004", "49005", "49006"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started", "Size Not Supported",
+            // 40000 - 40999
+            "Not enough available capacity",
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "An unexpected I/O error has occurred",
+            "You must specify a size by using either the Size or the UseMaximumSize parameter. You can specify only one of these parameters at a time.",
+            // 42000 - 42999
+            "The requested access path is already in use.",
+            "The access path is not valid.",
+            // 43000 - 43999
+            "The specified file system is not supported",
+            "The volume cannot be quick formatted",
+            "Cannot perform the requested operation when the drive is read only",
+            "You must specify a name for this volume",
+            "You must specify a file server to expose this volume to",
+            "The volume is not exposed to the specified file server",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            "Failover clustering could not be enabled for this storage object.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool is reserved for special usage only.",
+            "The specified resiliency setting is not supported by this storage pool.",
+            "There are not enough eligible physical disks in the storage pool to create the specified virtual disk configuration.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            "You must specify the size info (either the Size or UseMaximumSize parameter) or the tier info (the StorageTiers and StorageTierSizes parameters), but not both size info and tier info.",
+            // 49000 - 49999
+            "No resiliency setting with that name exists.",
+            "The value for NoSinglePointOfFailure is not supported.",
+            "The value for PhysicalDiskRedundancy is outside of the supported range of values.",
+            "The value for NumberOfDataCopies is outside of the supported range of values.",
+            "The value for ParityLayout is outside of the supported range of values.",
+            "The value for Interleave is outside of the supported range of values.",
+            "The value for NumberOfColumns is outside of the supported range of values."}]
+    UInt32 CreateVolume(
+
+        [In, Required, Description(
+            "This parameter allows the user to specify the FriendlyName at the time of the "
+            "volume creation. FriendlyNames are expected to be descriptive, however they "
+            "are not required to be unique. The filesystem's label will also be set to "
+            "this friendly name."
+            )]
+        String FriendlyName,
+
+        [In, Description(
+            "Indicates the size for the virtual disk. Note that some storage subsystems will "
+            "round the size up or down to a multiple of its allocation unit size. The size of "
+            "the resulting volume will be the maximum size possible for the resulting virtual "
+            "disk."
+            ), Units("Bytes")]
+        UInt64 Size,
+
+        [In, Description( "Storage tiers on this virtual disk" ),
+            EmbeddedInstance("MSFT_StorageTier")]
+        String StorageTiers[],
+
+        [In, Description( "Sizes of each tier" )]
+        UInt64 StorageTierSizes[],
+
+        [In, Description(
+            "Denotes the provisioning type of the volume. \n"
+            "1 - 'Thin': The storage for the volume is allocated on-demand. \n"
+            "2 - 'Fixed': The storage for the volume is allocated up front."
+            ),
+            ValueMap { "1", "2" },
+            Values { "Thin", "Fixed" }]
+        UInt16 ProvisioningType,
+
+        [In, Description(
+            "This parameter specifies the resiliency setting to use as a template for this "
+            "volume. This property's value should correspond with the particular "
+            "resiliency setting instance's Name property. Only resiliency settings associated "
+            "with this storage pool may be used."
+            )]
+        String ResiliencySettingName,
+
+        [In, Description(
+            "Specifies how many physical disk failures the virtual disk should be able to "
+            "withstand before data loss occurs. If specified, this value will override the "
+            "PhysicalDiskRedundancyDefault which would have been inherited from the resiliency "
+            "setting specified by ResiliencySettingName."
+            )]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In, Description(
+            "Specifies the number of underlying physical disks across which data should be "
+            "striped. If specified, this value will override the NumberOfColumnsDefault value "
+            "that would have been inherited from the resiliency setting specified by "
+            "ResiliencySettingName."
+            )]
+        UInt16 NumberOfColumns,
+
+        [In, Required, Description(
+            "Specifies the file system to format the created volume. Specifying a CSV file system "
+            "is only supported on a storage spaces subsystem. For CSV the pool must be clusterable "
+            "and the volume created will be a cluster shared volume."
+            ),
+            ValueMap { "14", "15", "0x8000", "0x8001" },
+            Values { "NTFS", "ReFS", "CSVFS_NTFS", "CSVFS_ReFS" }]
+        UInt16 FileSystem,
+
+        [In, Description(
+            "If set to a valid access path, the system will attempt to use this path as a "
+            "way to access the local volume. If the access path could not be set, or this "
+            "parameter was left NULL, a new access path will be automatically assigned."
+            )]
+        String AccessPath,
+
+        [In, Description( "The file server that will own this volume." ),
+            EmbeddedInstance("MSFT_FileServer")]
+        String FileServer,
+
+        [Out, EmbeddedInstance("MSFT_Volume")]
+        String CreatedVolume,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation. When the operation has completed, an association should exist "
+            "between the storage job and the created objects."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+             "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateVolume2
+    //
+
+    UInt32 CreateVolume2(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        UInt64 Size,
+
+        [In, EmbeddedInstance("MSFT_StorageTier")]
+        String StorageTiers[],
+
+        [In]
+        UInt64 StorageTierSizes[],
+
+        [In]
+        UInt16 ProvisioningType,
+
+        [In]
+        String ResiliencySettingName,
+
+        [In]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In]
+        UInt16 NumberOfColumns,
+
+        [In]
+        UInt16 FileSystem,
+
+        [In]
+        String AccessPath,
+
+        [In]
+        UInt32 AllocationUnitSize,
+
+        [In]
+        UInt64 ReadCacheSize,
+
+        [In, EmbeddedInstance("MSFT_FileServer")]
+        String FileServer,
+
+        [Out, EmbeddedInstance("MSFT_Volume")]
+        String CreatedVolume,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateStorageTier
+    //
+
+    [Description(
+        "Creates a storage tier template on the storage pool. This method is available only "
+        "when the SupportsStorageTierCreation property on the storage subsystem is set to "
+        "TRUE. If it is set to FALSE, this method will fail with MI_RESULT_NOT_SUPPORTED. "
+        "This method is also not supported for primordial pools."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its configuration is read-only." }]
+    UInt32 CreateStorageTier(
+
+        [In, Description( "Friendly name of the storage tier" )]
+        String FriendlyName,
+
+        [In, Description( "Media type of the storage tier" ),
+            ValueMap { "3", "4" },
+            Values { "HDD", "SSD" }]
+        UInt16 MediaType,
+
+        [In, Description( "Description of the storage tier" )]
+        String Description,
+
+        [Out, EmbeddedInstance("MSFT_StorageTier")]
+        String CreatedStorageTier,
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateStorageTier2
+    //
+
+    UInt32 CreateStorageTier2(
+
+        [In]
+        String FriendlyName,
+
+        [In]
+        UInt16 ProvisioningType,
+
+        [In]
+        UInt16 MediaType,
+
+        [In]
+        UInt16 FaultDomainAwareness,
+
+        [In]
+        UInt16 ColumnIsolation,
+
+        [In]
+        String ResiliencySettingName,
+
+        [In]
+        UInt64 Interleave,
+
+        [In]
+        UInt16 NumberOfDataCopies,
+
+        [In]
+        UInt16 NumberOfGroups,
+
+        [In]
+        UInt16 NumberOfColumns,
+
+        [In]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In]
+        String Description,
+
+        [Out, EmbeddedInstance("MSFT_StorageTier")]
+        String CreatedStorageTier,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: CreateStorageTier3
+    //
+
+    UInt32 CreateStorageTier3(
+
+        [In]
+        String FriendlyName,
+
+        [In]
+        UInt16 ProvisioningType,
+
+        [In]
+        UInt64 AllocationUnitSize,
+
+        [In]
+        UInt16 MediaType,
+
+        [In]
+        UInt16 FaultDomainAwareness,
+
+        [In]
+        UInt16 ColumnIsolation,
+
+        [In]
+        MSFT_StorageFaultDomain REF StorageFaultDomainsToUse[],
+
+        [In]
+        String ResiliencySettingName,
+
+        [In]
+        UInt16 Usage,
+
+        [In]
+        UInt64 Interleave,
+
+        [In]
+        UInt16 NumberOfDataCopies,
+
+        [In]
+        UInt16 NumberOfGroups,
+
+        [In]
+        UInt16 NumberOfColumns,
+
+        [In]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In]
+        String Description,
+
+        [Out, EmbeddedInstance("MSFT_StorageTier")]
+        String CreatedStorageTier,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: DeleteObject
+    //
+
+    [Description(
+        "This method deletes an empty storage pool. If the storage pool contains any virtual "
+        "disks, these virtual disks should be removed first."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096",
+            "40001", "40002", "40003",
+            "46000", "46001",
+            "48000", "48006", "48007", "48008"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            "The storage pool contains virtual disks." }]
+    UInt32 DeleteObject(
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Upgrade
+    //
+
+    [Description(
+        "This method will upgrade the version of the storage pool."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its configuration is read-only." }]
+    UInt32 Upgrade (
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Optimize
+    //
+
+    UInt32 Optimize (
+
+        [In]
+        Boolean RunAsJob,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: AddPhysicalDisk
+    //
+
+    [Description(
+        "This method will add one or more physical disks from the primordial storage pool to an "
+        "existing concrete storage pool."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096",
+            "40001", "40002", "40003",
+            "46000", "46001",
+            "48000", "48006", "48007",
+            "51000", "51002", "51003"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            // 51000 - 51999
+            "One of the physical disks specified is not supported by this operation.",
+            "One of the physical disks specified is already in use.",
+            "One of the physical disks specified uses a sector size that is not supported by this storage pool."
+            }]
+    UInt32 AddPhysicalDisk(
+
+        [In, Required, EmbeddedInstance("MSFT_PhysicalDisk")]
+        String PhysicalDisks[],
+
+        [In,
+            ValueMap { "1", "2", "3", "5" },
+            Values { "Auto-Select", "Manual-Select", "Hot Spare", "Journal" }]
+        UInt16 Usage,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: AddPhysicalDisk2
+    //
+
+    UInt32 AddPhysicalDisk2(
+
+        [In, Required]
+        MSFT_PhysicalDisk REF PhysicalDisks[],
+
+        [In]
+        UInt16 Usage,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: RemovePhysicalDisk
+    //
+
+    [Description(
+        "This method removes one or more physical disks from the pool and returns all previously "
+        "allocated space on the disk to the available capacity in the primordial pool."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096",
+            "40000", "40001", "40002", "40003",
+            "46000", "46001",
+            "48000", "48006", "48007",
+            "50001", "50003",
+            "51004", "51006" },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started",
+            // 40000 - 40999
+            "Not enough available capacity",
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            // 50000 = 50999
+            "Could not repair the virtual disk because too many physical disks failed. Not enough information exists on the remaining physical disks to reconstruct the lost data.",
+            "The virtual disk could not complete the operation because its health or operational status does not permit it.",
+            // 51000 - 51999
+            "One of the physical disks specified could not be removed because it is still in use.",
+            "One or more physical disks are not in the pool."
+            }]
+    UInt32 RemovePhysicalDisk(
+
+        [In, Required, EmbeddedInstance("MSFT_PhysicalDisk")]
+        String PhysicalDisks[],
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: RemovePhysicalDisk2
+    //
+
+    UInt32 RemovePhysicalDisk2(
+
+        [In, Required]
+        MSFT_PhysicalDisk REF PhysicalDisks[],
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: GetSupportedSize
+    //
+
+    [Description(
+        "This method returns the supported sizes for a virtual disk created on this storage "
+        "pool. These sizes can either be returned in an array of all supported sizes, through "
+        "a min, max, and divisor, or both."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002", "40003",
+            "46000", "46001",
+            "48000"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools."
+            }]
+    UInt32 GetSupportedSize(
+
+        [In, Required, Description(
+            "Specifies the name of the resiliency setting that should be used when determining "
+            "the supported sizes. Note that the sizes returned may be different depending on "
+            "the resiliency setting."
+            )]
+        String ResiliencySettingName,
+
+        [Out, Description(
+            "This output parameter will contain an array of all of the supported sizes by the "
+            "storage pool. This parameter may be NULL if the number of supported sizes is large, "
+            "but is useful for storage pools that support only a select number of virtual disk "
+            "sizes."
+            ), Units("Bytes")]
+        UInt64 SupportedSizes[],
+
+        [Out, Description(
+            "This parameter denotes the minimum supported size that a virtual disk created in "
+            "this pool can be."
+            ), Units("Bytes")]
+        UInt64 VirtualDiskSizeMin,
+
+        [Out, Description(
+            "This parameter denotes the maximum supported size that a virtual disk created in "
+            "this pool can be."
+            ), Units("Bytes")]
+        UInt64 VirtualDiskSizeMax,
+
+        [Out, Description(
+            "This parameter indicates the interval in which the supported sizes increment. For "
+            "example: If the minimum supported size is 10 GB, and this parameter is 2 GB, then "
+            "the supported sizes for this pool would be 10 GB, 12 GB, 14 GB, etc. until the "
+            "maximum supported size is reached."
+            ), Units("Bytes")]
+        UInt64 VirtualDiskSizeDivisor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: GetSupportedSize2
+    //
+
+    UInt32 GetSupportedSize2(
+
+        [In, Required]
+        String ResiliencySettingName,
+
+        [In]
+        UInt16 FaultDomainAwareness,
+
+        [Out]
+        UInt64 SupportedSizes[],
+
+        [Out]
+        UInt64 VirtualDiskSizeMin,
+
+        [Out]
+        UInt64 VirtualDiskSizeMax,
+
+        [Out]
+        UInt64 VirtualDiskSizeDivisor,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetSecurityDescriptor
+    //
+
+    [Description(
+        "This method returns the security descriptor that controls access to this specific "
+        "object instance."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 GetSecurityDescriptor(
+
+        [Out, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the access "
+            "control list of the object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetSecurityDescriptor
+    //
+
+    [Description(
+        "This method allows a user with sufficient privileges to set the security descriptor "
+        "that control access to this specific object instance. If the call is not made in the "
+        "context of a user specified in the security descriptor's access control list, this "
+        "method will fail with 40001 - 'Access Denied'. If an empty security descriptor is "
+        "passed to this function, the behavior is left to the specific implementation so long "
+        "as there is some user context (typically domain administrators) that can access and "
+        "administer the object."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 SetSecurityDescriptor(
+
+        [In, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the "
+            "desired access control list for this object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetFriendlyName
+    //
+
+    [Description(
+        "This method allows the storage pool to be renamed."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 SetFriendlyName(
+
+        [In, Required]
+        String FriendlyName,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetUsage
+    //
+
+    [Description(
+        "This method allows the storage pool's intended usage to be updated. Not all storage "
+        "pools may allow this and will return 1 - 'Not Supported' if this operation cannot be "
+        "performed."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48000", "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only."
+            }]
+    UInt32 SetUsage(
+
+        [In, Required, Description(
+            "Denotes the new intended usage of the storage pool."
+            ),
+            ValueMap {
+                "1", "2", "3", "4", "5",
+                "6", "7", "8"
+                },
+            Values {
+                "Other", "Unrestricted",
+                "Reserved for ComputerSystem (the block server)",
+                "Reserved as a Delta Replica Container",
+                "Reserved for Migration Services",
+                "Reserved for Local Replication Services",
+                "Reserved for Remote Replication Services",
+                "Reserved for Sparing"
+                }]
+        UInt16 Usage,
+
+        [In, Description(
+            "If Usage is set to 1 - 'Other', this parameter takes in the string representation "
+            "of a vendor defined usage for this storage pool. This parameter must not be set if "
+            "Usage is a value other than 1 - 'Other'."
+            )]
+        String OtherUsageDescription,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetDefaults
+    //
+
+    [Description(
+        "This method allows the user to update or set various defaults on the storage pool. Note "
+        "that not all parameters must be specified, and only those given will be updated."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48000", "48002", "48006", "48007",
+            "49000",
+            "50005" },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The specified resiliency setting is not supported by this storage pool.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            // 49000 - 49999
+            "No resiliency setting with that name exists.",
+            // 50000 - 50999
+            "The value for WriteCacheSize is outside of the supported range of values."
+            }]
+    UInt32 SetDefaults(
+
+        [In, Description(
+            "Specifies the new default provisioning type of the storage pool."
+            ),
+            ValueMap { "1", "2" },
+            Values { "Thin", "Fixed" }]
+        UInt16 ProvisioningTypeDefault,
+
+        [In, Description(
+            "Specifies the new default resiliency setting that should be used by this storage "
+            "pool. The resiliency setting specified must already be associated with this "
+            "storage pool."
+            )]
+        String ResiliencySettingNameDefault,
+
+        [In, Description(
+            "This parameter indicates the default allocation policy for virtual disks created "
+            "in an enclosure aware storage pool. For example, an enclosure aware subsystem "
+            "could balance each data copy of the virtual disk across multiple physical "
+            "enclosures such that each enclosure contains a full data copy of the virtual disk."
+            )]
+        Boolean EnclosureAwareDefault,
+
+        [In, Description( "New default size of write cache for virtual disk creation" )]
+        UInt64 WriteCacheSizeDefault,
+
+        [In, Description( "Indicates whether the provider should pick up the auto write cache size" )]
+        Boolean AutoWriteCacheSize,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetDefaults2
+    //
+
+    UInt32 SetDefaults2(
+
+        [In]
+        UInt16 ProvisioningTypeDefault,
+
+        [In]
+        UInt16 MediaTypeDefault,
+
+        [In]
+        String ResiliencySettingNameDefault,
+
+        [In]
+        UInt16 FaultDomainAwarenessDefault,
+
+        [In]
+        UInt64 WriteCacheSizeDefault,
+
+        [In]
+        Boolean AutoWriteCacheSize,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetAttributes
+    //
+
+    [Description(
+        "This method allows the user to update or set various attributes on the storage pool. "
+        "Note that not all parameters must be specified, and only those given will be updated."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48000", "48006", "48007", "48009"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            "The number of thin provisioning alert thresholds specified exceeds the limit for this storage pool."
+            }]
+    UInt32 SetAttributes(
+
+        [In]
+        Boolean IsReadOnly,
+
+        [In]
+        Boolean ClearOnDeallocate,
+
+        [In]
+        Boolean IsPowerProtected,
+
+        [In,
+            Valuemap { "2", "3" },
+            Values { "Sequential", "Parallel" }]
+        UInt16 RepairPolicy,
+
+        [In,
+            ValueMap { "1", "2", "3" },
+            Values { "Auto", "Always", "Never" }]
+        UInt16 RetireMissingPhysicalDisks,
+
+        [In, Description(
+            "Percentages at which an alert should be generated"
+            ), Units("Percentage"), MinValue( 1 ), MaxValue( 100 )]
+        UInt16 ThinProvisioningAlertThresholds[],
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};

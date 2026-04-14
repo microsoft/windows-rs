@@ -1,0 +1,494 @@
+//.-------------------------------------------------------------------------
+//.
+//.  Microsoft Windows
+//  Copyright (C) 1995-1999 Microsoft Corporation.  All rights reserved.
+//.
+//.  File: txcoord.idl
+//.
+//.  Contents: Transaction types and interfaces related to
+//.            transaction coordination.
+//.
+//.--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "transact.idl";
+import "objidl.idl";    // needed for IMoniker
+
+//
+//--------------------------------------------------------------------------
+//
+
+interface ITransactionResourceAsync;
+interface ITransactionLastResourceAsync;
+interface ITransactionResource;
+interface ITransactionEnlistmentAsync;
+
+interface ITransactionExportFactory;
+interface ITransactionImportWhereabouts;
+interface ITransactionExport;
+interface ITransactionImport;
+
+interface ITipTransaction;
+interface ITipHelper;
+interface ITipPullSink;
+
+interface IDtcNetworkAccessConfig;
+interface IDtcNetworkAccessConfig2;
+
+
+//
+//--------------------------------------------------------------------------
+//
+
+#ifndef NO_ITransactionResourceAsync
+
+// Implemented by the resource manager.
+
+[object,uuid(69E971F0-23CE-11cf-AD60-00AA00A74CCD),pointer_default(unique)]
+interface ITransactionResourceAsync : IUnknown
+    {
+    HRESULT PrepareRequest
+        (
+        [in] BOOL fRetaining, 
+        [in] DWORD grfRM, 
+        [in] BOOL fWantMoniker,
+        [in] BOOL fSinglePhase
+        );
+    HRESULT CommitRequest
+        (
+        [in]            DWORD grfRM, 
+        [in, unique]    XACTUOW* pNewUOW
+        );
+    HRESULT AbortRequest
+        (
+        [in, unique]    BOID* pboidReason,
+        [in]            BOOL  fRetaining,
+        [in, unique]    XACTUOW* pNewUOW
+        );
+    HRESULT TMDown 
+        ( 
+            void 
+        );
+    }
+
+
+[object,uuid(C82BD532-5B30-11d3-8A91-00C04F79EB6D),pointer_default(unique)]
+interface ITransactionLastResourceAsync : IUnknown
+    {
+    HRESULT DelegateCommit
+        (
+        [in] DWORD grfRM
+        );
+
+    HRESULT ForgetRequest
+        (
+        [in] XACTUOW *pNewUOW
+        );
+    }
+
+#endif
+
+//
+//--------------------------------------------------------------------------
+//
+
+#ifndef NO_ITransactionResource
+
+// Implemented by the resource manager.
+
+[object,uuid(EE5FF7B3-4572-11d0-9452-00A0C905416E),pointer_default(unique)]
+interface ITransactionResource : IUnknown
+    {
+    HRESULT PrepareRequest
+        (
+        [in]            BOOL     fRetaining, 
+        [in]            DWORD    grfRM, 
+        [in]            BOOL     fWantMoniker,
+        [in]            BOOL     fSinglePhase
+        );
+    HRESULT CommitRequest
+        (
+        [in]            DWORD    grfRM, 
+        [in, unique]    XACTUOW* pNewUOW
+        );
+    HRESULT AbortRequest
+        (
+        [in, unique]    BOID*    pboidReason,
+        [in]            BOOL     fRetaining,
+        [in, unique]    XACTUOW* pNewUOW
+        );
+    HRESULT TMDown 
+        ( 
+            void 
+        );
+    }
+
+#endif
+
+//
+//--------------------------------------------------------------------------
+//
+
+#ifndef NO_ITransactionEnlistmentAsync
+
+[object,uuid(0fb15081-af41-11ce-bd2b-204c4f4f5020),pointer_default(unique)]
+interface ITransactionEnlistmentAsync : IUnknown {
+    HRESULT PrepareRequestDone
+        (
+        [in]            HRESULT hr, 
+        [in, unique]    IMoniker* pmk,
+        [in, unique]    BOID* pboidReason
+        );
+    HRESULT CommitRequestDone
+        (
+        [in] HRESULT hr
+        );
+    HRESULT AbortRequestDone
+        (
+        [in] HRESULT hr
+        );
+    } 
+
+[object,uuid(C82BD533-5B30-11d3-8A91-00C04F79EB6D),pointer_default(unique)]
+interface ITransactionLastEnlistmentAsync : IUnknown 
+{
+    HRESULT TransactionOutcome
+        (
+        [in]            XACTSTAT XactStat, 
+        [in, unique]    BOID* pboidReason
+        );
+}
+
+#endif
+
+//
+//=========================================================================================
+// Interfaces used for passing a transaction by hand from one process / machine to another.
+//=========================================================================================
+//
+
+#ifndef NO_ITransactionExportFactory
+
+// Used on the client side to associate an export / import object pair with an external connection.
+
+[object,uuid(E1CF9B53-8745-11ce-A9BA-00AA006C3706),pointer_default(unique)]
+interface ITransactionExportFactory : IUnknown {
+    HRESULT GetRemoteClassId
+        (
+        [out] CLSID*    pclsid
+        );
+    HRESULT Create
+        (
+        [in]  ULONG                     cbWhereabouts,
+        [in, size_is(cbWhereabouts)]            
+              byte*                     rgbWhereabouts,
+        [out] ITransactionExport**      ppExport
+        );
+    }
+
+#endif
+
+//
+//--------------------------------------------------------------------------
+//
+
+#ifndef NO_ITransactionImportWhereabouts
+
+// Used on the server side to associate an export / import object pair with an external connection.
+
+[object,uuid(0141fda4-8fc0-11ce-bd18-204c4f4f5020),pointer_default(unique)]
+interface ITransactionImportWhereabouts : IUnknown {
+    HRESULT GetWhereaboutsSize
+        (
+        [out] ULONG*    pcbWhereabouts
+        );
+    [local]
+    HRESULT GetWhereabouts
+        (
+        [in]  ULONG     cbWhereabouts,
+        [out, size_is(cbWhereabouts)]
+              byte*     rgbWhereabouts,
+        [out] ULONG*    pcbUsed
+        );
+    [call_as(GetWhereabouts)]   // pcbWhereaboutsUsed is optional; error semantics on it
+    HRESULT RemoteGetWhereabouts
+        (
+        [out] ULONG*    pcbUsed,
+        [in]  ULONG     cbWhereabouts,
+        [out, size_is(cbWhereabouts), length_is(*pcbUsed)]
+              byte*     rgbWhereabouts
+        );
+    }
+
+#endif
+
+//
+//--------------------------------------------------------------------------
+//
+
+// Used to plumb up a particular transaction with an export / import pair.
+
+#ifndef NO_ITransactionExport
+
+[object,uuid(0141fda5-8fc0-11ce-bd18-204c4f4f5020),pointer_default(unique)]
+interface ITransactionExport : IUnknown {
+    HRESULT Export
+        (
+        [in]  IUnknown* punkTransaction,
+        [out] ULONG*    pcbTransactionCookie
+        );
+    [local]
+    HRESULT GetTransactionCookie
+        (
+        [in]  IUnknown* punkTransaction,
+        [in]  ULONG     cbTransactionCookie,
+        [out, size_is(cbTransactionCookie)]
+              byte*     rgbTransactionCookie,
+        [out] ULONG*    pcbUsed
+        );
+    [call_as(GetTransactionCookie)]
+    HRESULT RemoteGetTransactionCookie
+        (
+        [in]  IUnknown* punkTransaction,
+        [out] ULONG*    pcbUsed,
+        [in]  ULONG     cbTransactionCookie,
+        [out, size_is(cbTransactionCookie), length_is(*pcbUsed)]
+              byte*     rgbTransactionCookie
+        );
+    }
+
+#endif
+
+//
+//--------------------------------------------------------------------------
+//
+
+// Used to plumb up a particular transaction with an export / import pair.
+
+#ifndef NO_ITransactionImport
+
+[object,uuid(E1CF9B5A-8745-11ce-A9BA-00AA006C3706),pointer_default(unique)]
+interface ITransactionImport : IUnknown {
+    HRESULT Import
+        (
+        [in]  ULONG         cbTransactionCookie,
+        [in, size_is(cbTransactionCookie)]
+              byte*         rgbTransactionCookie,
+        [in]  IID*          piid,
+        [out, iid_is(piid)]
+              void**        ppvTransaction
+        );
+    }
+
+#endif
+
+
+
+#ifndef NO_ITip
+
+//
+//--------------------------------------------------------------------------
+//
+
+// Used to "push" propagate OLE Tx transactions using tip and to get the TIP
+// URL of the transaction
+[object,uuid(17CF72D0-BAC5-11d1-B1BF-00C04FC2F3EF),pointer_default(unique)]
+interface ITipTransaction : IUnknown
+{
+    HRESULT Push
+                (
+                [in] char * i_pszRemoteTmUrl, 
+                [out] LPSTR* o_ppszRemoteTxUrl
+                );
+    HRESULT GetTransactionUrl
+                (
+                [out] LPSTR* o_ppszLocalTxUrl
+                );
+}
+
+// Used to "pull" propagate OLE Tx transactions using tip and to get the TIP
+// URL of the local TM
+[object,uuid(17CF72D1-BAC5-11d1-B1BF-00C04FC2F3EF),pointer_default(unique)]
+interface ITipHelper : IUnknown
+{
+    HRESULT Pull
+                (
+                [in] char * i_pszTxUrl, 
+                [out] ITransaction ** o_ppITransaction
+                );
+    HRESULT PullAsync
+                (
+                [in] char * i_pszTxUrl, 
+                [in] ITipPullSink * i_pTipPullSink,
+                [out] ITransaction ** o_ppITransaction
+                );
+    HRESULT GetLocalTmUrl
+                (
+                [out] char ** o_ppszLocalTmUrl
+                );
+} 
+
+// Pull completion sink
+[object,uuid(17CF72D2-BAC5-11d1-B1BF-00C04FC2F3EF),pointer_default(unique)]
+interface ITipPullSink : IUnknown
+{
+    HRESULT PullComplete
+                (
+                [in] HRESULT i_hrPull
+                );
+}
+
+#endif
+
+
+
+#ifndef NO_IDtcNetworkAccessConfig
+
+//
+//--------------------------------------------------------------------------
+//
+
+// Used to retrieve and modify the NetworkAccess configuration properties of MSDTC.
+
+[object,uuid(9797C15D-A428-4291-87B6-0995031A678D),pointer_default(unique)]
+interface IDtcNetworkAccessConfig : IUnknown
+{
+    HRESULT GetAnyNetworkAccess
+    (
+        [out] BOOL* pbAnyNetworkAccess
+    );
+    HRESULT SetAnyNetworkAccess
+    (
+        [in] BOOL  bAnyNetworkAccess
+    );
+
+    HRESULT GetNetworkAdministrationAccess
+    (
+        [out] BOOL* pbNetworkAdministrationAccess
+    );
+    HRESULT SetNetworkAdministrationAccess
+    (
+        [in] BOOL  bNetworkAdministrationAccess
+    );
+
+    HRESULT GetNetworkTransactionAccess
+    (
+        [out] BOOL* pbNetworkTransactionAccess
+    );
+    HRESULT SetNetworkTransactionAccess
+    (
+        [in] BOOL  bNetworkTransactionAccess
+    );
+
+    HRESULT GetNetworkClientAccess
+    (
+        [out] BOOL* pbNetworkClientAccess
+    );
+    HRESULT SetNetworkClientAccess
+    (
+        [in] BOOL  bNetworkClientAccess
+    );
+
+    HRESULT GetNetworkTIPAccess
+    (
+        [out] BOOL* pbNetworkTIPAccess
+    );
+    HRESULT SetNetworkTIPAccess
+    (
+        [in] BOOL  bNetworkTIPAccess
+    );
+
+    HRESULT GetXAAccess
+    (
+        [out] BOOL* pbXAAccess
+    );
+    HRESULT SetXAAccess
+    (
+        [in] BOOL  bXAAccess
+    );
+
+    HRESULT RestartDtcService();
+
+}
+
+typedef enum AUTHENTICATION_LEVEL
+{
+    NO_AUTHENTICATION_REQUIRED = 0,
+    INCOMING_AUTHENTICATION_REQUIRED = 1,
+    MUTUAL_AUTHENTICATION_REQUIRED = 2
+} AUTHENTICATION_LEVEL;
+
+[object,uuid(A7AA013B-EB7D-4f42-B41C-B2DEC09AE034),pointer_default(unique)]
+interface IDtcNetworkAccessConfig2 : IDtcNetworkAccessConfig
+{
+    HRESULT GetNetworkInboundAccess ([out] BOOL* pbInbound);
+    HRESULT GetNetworkOutboundAccess ([out] BOOL* pbOutbound);
+
+    HRESULT SetNetworkInboundAccess ([in] BOOL bInbound);
+    HRESULT SetNetworkOutboundAccess ([in] BOOL bOutbound);
+
+    HRESULT GetAuthenticationLevel ([out] AUTHENTICATION_LEVEL* pAuthLevel);
+    HRESULT SetAuthenticationLevel ([in] AUTHENTICATION_LEVEL AuthLevel);
+}
+
+[object,uuid(76E4B4F3-2CA5-466b-89D5-FD218EE75B49),pointer_default(unique)]
+interface IDtcNetworkAccessConfig3 : IDtcNetworkAccessConfig2
+{
+    HRESULT GetLUAccess ([out] BOOL* pbLUAccess);
+    HRESULT SetLUAccess ([in] BOOL bLUAccess);
+}
+
+#endif
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("#if _MSC_VER < 1100 || !defined(__cplusplus)")
+cpp_quote("")
+cpp_quote("DEFINE_GUID(IID_ITransactionResourceAsync,       0x69E971F0, 0x23CE, 0x11cf, 0xAD, 0x60, 0x00, 0xAA, 0x00, 0xA7, 0x4C, 0xCD);")
+cpp_quote("DEFINE_GUID(IID_ITransactionLastResourceAsync,   0xC82BD532, 0x5B30, 0x11D3, 0x8A, 0x91, 0x00, 0xC0, 0x4F, 0x79, 0xEB, 0x6D);")
+cpp_quote("DEFINE_GUID(IID_ITransactionResource,            0xEE5FF7B3, 0x4572, 0x11d0, 0x94, 0x52, 0x00, 0xA0, 0xC9, 0x05, 0x41, 0x6E);")
+cpp_quote("DEFINE_GUID(IID_ITransactionEnlistmentAsync,     0x0fb15081, 0xaf41, 0x11ce, 0xbd, 0x2b, 0x20, 0x4c, 0x4f, 0x4f, 0x50, 0x20);")
+cpp_quote("DEFINE_GUID(IID_ITransactionLastEnlistmentAsync, 0xC82BD533, 0x5B30, 0x11D3, 0x8A, 0x91, 0x00, 0xC0, 0x4F, 0x79, 0xEB, 0x6D);")
+cpp_quote("DEFINE_GUID(IID_ITransactionExportFactory,       0xE1CF9B53, 0x8745, 0x11ce, 0xA9, 0xBA, 0x00, 0xAA, 0x00, 0x6C, 0x37, 0x06);")
+cpp_quote("DEFINE_GUID(IID_ITransactionImportWhereabouts,   0x0141fda4, 0x8fc0, 0x11ce, 0xbd, 0x18, 0x20, 0x4c, 0x4f, 0x4f, 0x50, 0x20);")
+cpp_quote("DEFINE_GUID(IID_ITransactionExport,              0x0141fda5, 0x8fc0, 0x11ce, 0xbd, 0x18, 0x20, 0x4c, 0x4f, 0x4f, 0x50, 0x20);")
+cpp_quote("DEFINE_GUID(IID_ITransactionImport,              0xE1CF9B5A, 0x8745, 0x11ce, 0xA9, 0xBA, 0x00, 0xAA, 0x00, 0x6C, 0x37, 0x06);")
+cpp_quote("DEFINE_GUID(IID_ITipTransaction,                 0x17cf72d0, 0xbac5, 0x11d1, 0xb1, 0xbf, 0x0, 0xc0, 0x4f, 0xc2, 0xf3, 0xef);")
+cpp_quote("DEFINE_GUID(IID_ITipHelper,                      0x17cf72d1, 0xbac5, 0x11d1, 0xb1, 0xbf, 0x0, 0xc0, 0x4f, 0xc2, 0xf3, 0xef);")
+cpp_quote("DEFINE_GUID(IID_ITipPullSink,                    0x17cf72d2, 0xbac5, 0x11d1, 0xb1, 0xbf, 0x0, 0xc0, 0x4f, 0xc2, 0xf3, 0xef);")
+cpp_quote("DEFINE_GUID(IID_IDtcNetworkAccessConfig,         0x9797c15d, 0xa428, 0x4291, 0x87, 0xb6, 0x9, 0x95, 0x3, 0x1a, 0x67, 0x8d);")
+cpp_quote("DEFINE_GUID(IID_IDtcNetworkAccessConfig2,        0xa7aa013b, 0xeb7d, 0x4f42, 0xb4, 0x1c, 0xb2, 0xde, 0xc0, 0x9a, 0xe0, 0x34);")
+cpp_quote("")
+cpp_quote("#else")
+cpp_quote("")
+cpp_quote("#define  IID_ITransactionResourceAsync               __uuidof(ITransactionResourceAsync)")
+cpp_quote("#define  IID_ITransactionLastResourceAsync           __uuidof(ITransactionLastResourceAsync)")
+cpp_quote("#define  IID_ITransactionResource                    __uuidof(ITransactionResource)")
+cpp_quote("#define  IID_ITransactionEnlistmentAsync             __uuidof(ITransactionEnlistmentAsync)")
+cpp_quote("#define  IID_ITransactionLastEnlistmentAsync         __uuidof(ITransactionLastEnlistmentAsync)")
+cpp_quote("#define  IID_ITransactionExportFactory               __uuidof(ITransactionExportFactory)")
+cpp_quote("#define  IID_ITransactionImportWhereabouts           __uuidof(ITransactionImportWhereabouts)")
+cpp_quote("#define  IID_ITransactionExport                      __uuidof(ITransactionExport)")
+cpp_quote("#define  IID_ITransactionImport                      __uuidof(ITransactionImport)")
+cpp_quote("#define  IID_ITipTransaction                         __uuidof(ITipTransaction)")
+cpp_quote("#define  IID_ITipHelper                              __uuidof(ITipHelper)")
+cpp_quote("#define  IID_ITipPullSink                            __uuidof(ITipPullSink)")
+cpp_quote("#define  IID_IDtcNetworkAccessConfig                 __uuidof(IDtcNetworkAccessConfig)")
+cpp_quote("#define  IID_IDtcNetworkAccessConfig2                __uuidof(IDtcNetworkAccessConfig2)")
+cpp_quote("#define  IID_IDtcNetworkAccessConfig3                __uuidof(IDtcNetworkAccessConfig3)")
+cpp_quote("")
+cpp_quote("#endif")
+#pragma deprecated (ITipTransaction)
+#pragma deprecated (ITipHelper)
+#pragma deprecated (ITipPullSink)
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

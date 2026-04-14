@@ -1,0 +1,79 @@
+cpp_quote("#include <winapifamily.h>")
+
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+import "mfobjects.idl";
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAdvancedMediaCaptureInitializationSettings Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(3DE21209-8BA6-4f2a-A577-2819B56FF14D),
+    local
+]
+/// <summary>
+/// This interface is used to set advanced MediaCapture Initialization settings on
+/// MediaCapture object
+/// </summary>
+interface IAdvancedMediaCaptureInitializationSettings : IUnknown
+{
+    /// <summary>
+    /// Sets DX manager to be used for the video capture session
+    /// </summary>
+    /// <param name="IMFDXGIDeviceManager">
+    /// DX device manager interface pointer
+    /// </param>
+    HRESULT SetDirectxDeviceManager([in] IMFDXGIDeviceManager* value);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAdvancedMediaCaptureSettings Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(24E0485F-A33E-4aa1-B564-6019B1D14F65),
+    local
+]
+/// <summary>
+/// This interface is used to set/get advanced MediaCapture object settings 
+/// </summary>
+interface IAdvancedMediaCaptureSettings : IUnknown
+{
+    /// <summary>
+    /// Gets DirectX manager that is being used in MediaCapture object 
+    /// </summary>
+    /// <param name="IMFDXGIDeviceManager">
+    /// Pointer to receive DX manager interface pointer 
+    /// </param>
+    HRESULT GetDirectxDeviceManager([out] IMFDXGIDeviceManager** value);
+   
+};
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAdvancedMediaCapture Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(D0751585-D216-4344-B5BF-463B68F977BB)
+]
+interface IAdvancedMediaCapture: IUnknown
+{
+    HRESULT GetAdvancedMediaCaptureSettings ([out] IAdvancedMediaCaptureSettings** value);
+};
+cpp_quote("#endif // (WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) ")
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN8)")

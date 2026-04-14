@@ -1,0 +1,1756 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Public Interfaces for the Enhanced Video Renderer.
+//
+// Copyright (c) 1999 - 2004, Microsoft Corporation.  All rights reserved.
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "propidl.idl";
+import "mfidl.idl";
+import "mftransform.idl";
+
+// DMO IDL import for IMediaBuffer and IMediaObject
+import "mediaobj.idl";
+
+// Get AM_MEDIA_TYPES
+import "strmif.idl";
+
+// __midl definitions : only defined for MIDL processing
+
+cpp_quote( "#if defined(__midl)" )
+
+// MAKEFOURCC definition
+
+#ifndef MAKEFOURCC
+    
+#define MAKEFOURCC(ch0, ch1, ch2, ch3)                              \
+            ((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) |       \
+            ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24 ))
+
+#endif // MAKEFOURCC
+
+// D3DFORMAT definition
+
+#ifndef D3DFORMAT
+
+typedef enum _D3DFORMAT
+{
+
+    D3DFMT_UNKNOWN              =  0,
+
+    D3DFMT_R8G8B8               = 20,
+    D3DFMT_A8R8G8B8             = 21,
+    D3DFMT_X8R8G8B8             = 22,
+    D3DFMT_R5G6B5               = 23,
+    D3DFMT_X1R5G5B5             = 24,
+    D3DFMT_A1R5G5B5             = 25,
+    D3DFMT_A4R4G4B4             = 26,
+    D3DFMT_R3G3B2               = 27,
+    D3DFMT_A8                   = 28,
+    D3DFMT_A8R3G3B2             = 29,
+    D3DFMT_X4R4G4B4             = 30,
+    D3DFMT_A2B10G10R10          = 31,
+    D3DFMT_G16R16               = 34,
+
+    D3DFMT_A8P8                 = 40,
+    D3DFMT_P8                   = 41,
+
+    D3DFMT_L8                   = 50,
+    D3DFMT_A8L8                 = 51,
+    D3DFMT_A4L4                 = 52,
+
+    D3DFMT_V8U8                 = 60,
+    D3DFMT_L6V5U5               = 61,
+    D3DFMT_X8L8V8U8             = 62,
+    D3DFMT_Q8W8V8U8             = 63,
+    D3DFMT_V16U16               = 64,
+    D3DFMT_W11V11U10            = 65,
+    D3DFMT_A2W10V10U10          = 67,
+/*
+    D3DFMT_UYVY                 = MAKEFOURCC('U', 'Y', 'V', 'Y'),
+    D3DFMT_YUY2                 = MAKEFOURCC('Y', 'U', 'Y', '2'),
+    D3DFMT_DXT1                 = MAKEFOURCC('D', 'X', 'T', '1'),
+    D3DFMT_DXT2                 = MAKEFOURCC('D', 'X', 'T', '2'),
+    D3DFMT_DXT3                 = MAKEFOURCC('D', 'X', 'T', '3'),
+    D3DFMT_DXT4                 = MAKEFOURCC('D', 'X', 'T', '4'),
+    D3DFMT_DXT5                 = MAKEFOURCC('D', 'X', 'T', '5'),
+*/
+    D3DFMT_D16_LOCKABLE         = 70,
+    D3DFMT_D32                  = 71,
+    D3DFMT_D15S1                = 73,
+    D3DFMT_D24S8                = 75,
+    D3DFMT_D16                  = 80,
+    D3DFMT_D24X8                = 77,
+    D3DFMT_D24X4S4              = 79,
+
+
+    D3DFMT_VERTEXDATA           =100,
+    D3DFMT_INDEX16              =101,
+    D3DFMT_INDEX32              =102,
+
+    D3DFMT_FORCE_DWORD          =0x7fffffff
+
+} D3DFORMAT;
+
+#endif // D3DFORMAT
+
+cpp_quote( "#endif // __midl" ) // __midl
+
+//=============================================================================
+// Description:
+//
+//  Service GUID used by IMFGetService::GetService to retrieve interfaces from
+//  the renderer or the presenter. 
+//
+cpp_quote( "DEFINE_GUID(MR_VIDEO_RENDER_SERVICE, " )
+cpp_quote( "    0x1092a86c, " )
+cpp_quote( "    0xab1a, " )
+cpp_quote( "    0x459a, " )
+cpp_quote( "    0xa3, 0x36, 0x83, 0x1f, 0xbc, 0x4d, 0x11, 0xff " )
+cpp_quote( ");" )
+
+//=============================================================================
+// Description:
+//
+//  Service GUID used by IMFGetService::GetService to retrieve interfaces from
+//  the mixer. 
+//
+cpp_quote( "DEFINE_GUID(MR_VIDEO_MIXER_SERVICE, " )
+cpp_quote( "    0x73cd2fc, " )
+cpp_quote( "    0x6cf4, " )
+cpp_quote( "    0x40b7, " )
+cpp_quote( "    0x88, 0x59, 0xe8, 0x95, 0x52, 0xc8, 0x41, 0xf8 " )
+cpp_quote( ");" )
+
+//=============================================================================
+// Description:
+//
+//  Service GUID used by IMFGetService::GetService to retrieve HW acceleration 
+//  interfaces in the pipeline. 
+//
+cpp_quote( "DEFINE_GUID(MR_VIDEO_ACCELERATION_SERVICE, " )
+cpp_quote( "    0xefef5175, " )
+cpp_quote( "    0x5c7d, " )
+cpp_quote( "    0x4ce2, " )
+cpp_quote( "    0xbb, 0xbd, 0x34, 0xff, 0x8b, 0xca, 0x65, 0x54 " )
+cpp_quote( "); " )
+
+//=============================================================================
+// Description:
+//
+//  Service GUID used by IMFGetService::GetService to retrieve an object
+//  from a buffer. 
+//
+cpp_quote( "DEFINE_GUID(MR_BUFFER_SERVICE, " )
+cpp_quote( "    0xa562248c, " )
+cpp_quote( "    0x9ac6, " )
+cpp_quote( "    0x4ffc, " )
+cpp_quote( "    0x9f, 0xba, 0x3a, 0xf8, 0xf8, 0xad, 0x1a, 0x4d " )
+cpp_quote( ");" )
+
+//=============================================================================
+// Description:
+//
+//  IMFAttributes Blob GUID set on the mixer by the presenter to indicate
+//  the zoom rectangle to be used in processing the video. The zoom rectangle 
+//  is expressed as an MFVideoNormalizedRect. 
+//
+cpp_quote( "DEFINE_GUID(VIDEO_ZOOM_RECT, " )
+cpp_quote( "    0x7aaa1638, " )
+cpp_quote( "    0x1b7f, " )
+cpp_quote( "    0x4c93, " )
+cpp_quote( "    0xbd, 0x89, 0x5b, 0x9c, 0x9f, 0xb6, 0xfc, 0xf0" )
+cpp_quote( ");" )
+
+
+
+//=============================================================================
+// Description:
+//
+// public interfaces supported by the EVR
+//
+interface IMFTrackedSample;
+interface IMFVideoDisplayControl;
+interface IMFVideoPresenter;
+interface IMFVideoPositionMapper;
+interface IMFDesiredSample;
+interface IMFVideoMixerControl;
+interface IMFVideoRenderer;
+interface IMFVideoDeviceID;
+interface IEVRFilterConfig;
+
+//=============================================================================
+// Description:
+//
+//  This interface is used to map coordinates on the output video frame to 
+//  coordinates on the input video frame. If a component in the MF pipeline
+//  (MF transform, demux, sink) transforms the video in such a way that 
+//  co-ordinates in the input image map to different co-ordinate values in the
+//  output image, then that component must implement this interface to provide 
+//  the reverse transformation.
+//
+//  It is accessible to the application via the IMFGetService interface from
+//  the renderer object using service GUID MR_VIDEO_RENDER_SERVICE.
+//
+[
+    object,
+    uuid(1F6A9F17-E70B-4e24-8AE4-0B2C3BA7A4AE),
+    helpstring("IMFVideoPositionMapper Interface"),
+    local
+]
+interface IMFVideoPositionMapper : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Provides the reverse transformation of coordinates for components that
+    //  transform the video in such a way that co-ordinates in the input image
+    //  map to different co-ordinate values in the output image.
+    //
+    // Parameters:
+    //
+    //  xOut - x coordinate of the output image normalized to the range [0,1]
+    //  yOut - y coordinate of the output image normalized to the range [0,1]
+    //  dwOutputStreamIndex - Output stream index relative to which co-ordinate
+    //      mapping is required.
+    //  dwInputStreamIndex - Input stream index relative to which co-ordinate 
+    //      mapping is required.
+    //  pxIn - Mapped x coordinate of the input image normalized to the range [0,1]
+    //  pyIn - Mapped y coordinate of the input image normalized to the range [0,1]
+    //         
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT MapOutputCoordinateToInputStream(
+        [in] float xOut,         
+        [in] float yOut,        
+        [in] DWORD dwOutputStreamIndex,
+        [in] DWORD dwInputStreamIndex,
+        [out, annotation("_Out_")] float* pxIn,
+        [out, annotation("_Out_")] float* pyIn
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  The IMFVideoDeviceID interface supports a single method, which returns the device
+//  IID supported by that object. This IID must be compatible with other components.
+//  This interface is mandatory for the Mixer and Presenter objects, since these 
+//  components must use the same type of video device.
+//
+[
+    object,
+    uuid(A38D9567-5A9C-4f3c-B293-8EB415B279BA),
+    helpstring("IMFVideoDeviceID Interface"),
+    local
+]
+interface IMFVideoDeviceID : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  The GetDeviceID method retrieves the video device ID of the video device 
+    //  supported by this video component. Although not restricted to these, it 
+    //  will generally be one of the following:
+    //      - IID_IDirect3DDevice9
+    //
+    // Parameters:
+    //
+    //  pDeviceID - Pointer that receives the IID of the device supported by this component.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetDeviceID(
+        [out, annotation("_Out_")] IID* pDeviceID
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  Enumeration used to specify the aspect ratio mode desired to be used when
+//  rendering video. Set by calling IMFVideoDisplayControl::SetRenderingPrefs.
+//
+typedef enum MFVideoAspectRatioMode {
+    // No aspect ratio correction - fill window
+    MFVideoARMode_None                  = 0x00000000,
+    // Indicates that the picture aspect ratio should be preserved. That is, if the
+    // video is 640 by 480 pixels (4:3), and the video destination region is a rectangle
+    // 800 by 700, then the video should be letterboxed and displayed as 800 by 600
+    // (retain 4:3).
+    MFVideoARMode_PreservePicture       = 0x00000001,
+    // Indicates that the pixel aspect ratio should be preserved. This setting comes into
+    // play when the video display is physically of a certain aspect ratio, but is set
+    // to a resolution that is not the same aspect ratio, thus making the pixels non-square.
+    // I.e. a monitor whose native resolution is 1600 by 1200 (4:3) is set to 1280 by 1024
+    // (5:4). This flag is only valid when passed with MFVideoARMode_PreservePicture. 
+    MFVideoARMode_PreservePixel         = 0x00000002,
+    // Indicates that a horizontal non-linear stretch should be applied when the aspect 
+    // ratio of the destination rectangle does not match the aspect ratio of the source
+    // rectangle. The non-linear stretch algorithm acts by preserving the aspect ratio in 
+    // the middle of the picture (relative to the left and right) and stretching (or 
+    // shrinking) progressively more towards the left and right. This mode is useful when
+    // viewing 4:3 content full screen on a 16:9 aspect ratio display and would be used
+    // instead of pillar-boxing. It can also be used to view 16:9 content on a 4:3 display
+    // to replace the letterboxing. Note that this mode may cause performance degradation.
+    MFVideoARMode_NonLinearStretch      = 0x00000004,
+    MFVideoARMode_Mask                  = 0x00000007
+} MFVideoAspectRatioMode;
+
+//=============================================================================
+// Description:
+//
+//  The rendering preferences used by the video presenter object.
+//
+typedef enum MFVideoRenderPrefs {
+     // Do not paint color keys (default off)
+    MFVideoRenderPrefs_DoNotRenderBorder           = 0x00000001,
+     // Do not clip to monitor that has largest amount of video (default off)
+    MFVideoRenderPrefs_DoNotClipToDevice           = 0x00000002,
+    MFVideoRenderPrefs_AllowOutputThrottling       = 0x00000004,
+    MFVideoRenderPrefs_ForceOutputThrottling       = 0x00000008,
+    MFVideoRenderPrefs_ForceBatching               = 0x00000010,
+    MFVideoRenderPrefs_AllowBatching               = 0x00000020,
+    MFVideoRenderPrefs_ForceScaling                = 0x00000040,
+    MFVideoRenderPrefs_AllowScaling                = 0x00000080,
+    MFVideoRenderPrefs_DoNotRepaintOnStop          = 0x00000100,
+    MFVideoRenderPrefs_Mask                        = 0x000001ff,
+} MFVideoRenderPrefs;
+
+//=============================================================================
+// Description:
+//
+//  A Normalized relative rectangle where the coordinates exist in the rate [0,1].
+//
+// Remarks: 
+//
+//  When the rectangle refers to a video stream, the following restrictions apply
+//  o  left <= right. 
+//  o  top <= bottom.
+//
+cpp_quote("#ifndef _MFVideoNormalizedRect_")
+cpp_quote("#define _MFVideoNormalizedRect_")
+typedef struct MFVideoNormalizedRect
+{
+    float left;
+    float top;
+    float right;
+    float bottom;
+} MFVideoNormalizedRect;
+cpp_quote("#endif")
+
+//=============================================================================
+// Description:
+//
+//  The IMFVideoDisplayControl interface supports window-based rendering.  
+//
+//  If a video renderer supports this functionality it is accessible to the 
+//  application via the IMFGetService interface from the renderer object
+//  using service GUID MR_VIDEO_RENDER_SERVICE.
+//
+//  Custom Video Presenter objects may optionally support this interface.
+//
+[
+    object,
+    uuid(a490b1e4-ab84-4d31-a1b2-181e03b1077a),
+    helpstring("IMFVideoDisplayControl Interface")
+]
+interface IMFVideoDisplayControl : IUnknown
+{
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Retrieves the un-stretched video size and aspect ratio of the video.
+    //
+    // Parameters:
+    //
+    //  pszVideo - Receives the size of the native video rectangle. Optional, unless pszARVideo is NULL.
+    //  pszARVideo - Receives the aspect ratio size of the native video rectangle. Optional, unless pszVideo is NULL.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - Both pointers passed were NULL.
+    //
+    // Remarks:
+    //
+    //  If the video renderer has not had one of its streams opened and
+    //  media type set, this method will succeed but all parameters will be 
+    //  set to zero.
+    //
+    HRESULT GetNativeVideoSize(
+        [in, out, unique] SIZE* pszVideo,
+        [in, out, unique] SIZE* pszARVideo
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the minimum and maximum video sizes that the VIDEO RENDERER can 
+    //  display without incurring significant performance or image quality degradation.
+    //
+    // Parameters:
+    //
+    //  pszMin - Receives the minimum ideal size. Optional, unless pszMax is NULL.
+    //  pszMax - Receives the maximum ideal size. Optional, unless pszMax is NULL.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - Both pointers passed were NULL.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetIdealVideoSize(
+        [in, out, unique] SIZE* pszMin,
+        [in, out, unique] SIZE* pszMax
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the source rectangle and destination region for the video.
+    //
+    // Parameters:
+    //
+    //  pnrcSource - Specifies the source zoom rectangle as a normalized rectangle. 
+    //      This means that the coordinates exist as float values in the range {0, 1}.
+    //      To zoom to 100 on the middle content, a rectangle of {.25, .25, .75, .75} 
+    //      would be specified. A src rectangle with zero height or width is invalid; 
+    //      it would be akin to a divide by zero, since nothing cannot be stretched. 
+    //      Optional, unless prcDest is NULL.
+    //  prgnDest - Specifies the destination rectangle. 
+    //      Optional, unless pnrcSource is NULL.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetVideoPosition(
+        [in, unique] const MFVideoNormalizedRect* pnrcSource,
+        [in, unique] const LPRECT prcDest
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Retrieves the current source rectangle and destination region used to display 
+    //  the video.
+    //
+    // Parameters:
+    //
+    //  pnrcSource - Receives the current source rectangle. This is expressed as a
+    //      normalized rectangle using float values in the range {0, 1}. If a rectangle
+    //      of {.25, .25, .75, .75} is retrieved, then the middle content has been 
+    //      zoomed to 200.
+    //  prcDest - Receives the current destination rectangle.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  Need to add size_is(*pdwSizeofRgnData) attribute to prgnDest, 
+    //  but since that represents array size, need to change prgnDest
+    //  to be BYTE* first.
+    //
+    HRESULT GetVideoPosition(
+        [out] MFVideoNormalizedRect* pnrcSource,
+        [out] LPRECT prcDest
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Specifies how the video renderer will preserve the aspect ratio of the source video.
+    //
+    // Parameters:
+    //
+    //  AspectRatioMode - The aspect ratio mode in which the video should presented. 
+    //      This is an OR combination of MFVideoAspectRatioMode.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetAspectRatioMode(
+        [in] DWORD dwAspectRatioMode
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current mode in which video is being displayed in a window.
+    //
+    // Parameters:
+    //
+    //  lpAspectRatioMode - Receives the aspect ratio mode. This is an OR 
+    //      combination of MFVideoAspectRatioMode.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetAspectRatioMode(
+        [out] DWORD* pdwAspectRatioMode
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Specifies the container window that video should be clipped to.
+    //
+    // Parameters:
+    //
+    //  hwndVideo - The window to which the video should be clipped.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetVideoWindow(
+        [in] HWND hwndVideo
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Retrieves the container window that video is being clipped to.
+    //
+    // Parameters:
+    //
+    //  phwndVideo - Receives the HWND value to which the video is being clipped.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetVideoWindow(
+        [out] HWND* phwndVideo
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Repaints the current video frame. Should be called when the application 
+    //  receives a WM_PAINT message.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT RepaintVideo();
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Retrieves a copy of the current image being displayed by the video renderer.
+    //
+    // Parameters:
+    //
+    //  pBih - Receives the description of the bitmap. biSize must be set
+    //   to sizeof(BITMAPINFOHEADER).
+    //  pDib - Receives the current image. Allocated by the callee.
+    //  pcbDib - Receives the size of the the image in pDib.
+    //  pTimeStamp - Receives the timestamp of the current frame.
+    //  
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  The image is returned in the form of packed Windows DIB. The caller is
+    //  responsible for free the returned memory by calling CoTaskMemFree.
+    //
+    //  GetCurrentImage can be called at any time, but excessive use of this 
+    //  function will degrade video playback performed.
+    //
+    HRESULT GetCurrentImage(
+        [in, out] BITMAPINFOHEADER* pBih,
+        [out, size_is(, *pcbDib)] BYTE** pDib,
+        [out] DWORD* pcbDib,
+        [in, out, unique] LONGLONG* pTimeStamp
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Sets the border color to be used by the video renderer.
+    //
+    // Parameters:
+    //
+    //  Clr - The color to be set.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //
+    // Remarks:
+    //
+    // The border color is color used to fill any area of the
+    // the destination rectangle that does not contain video.
+    // It is typically used in two instances:
+    //      1) When the video straddles two monitors and 
+    //      2) When the EVR is trying to maintain the aspect
+    //          ratio of the movies by letter boxing the video
+    //          to fit within the specified destination rectangle.
+    //          See also SetAspectRatioMode.
+    //
+    HRESULT SetBorderColor(
+        [in] COLORREF Clr
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current border color used by the video renderer.
+    //
+    // Parameters:
+    //
+    //  pClr - Receives the current border color.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetBorderColor(
+        [out] COLORREF* pClr
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets various application preferences related to video rendering.
+    //
+    // Parameters:
+    //
+    //  dwRenderFlags - A bitwise OR of MFVideoRenderPrefs values specifying the
+    //      rendering preferences.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_INVALIDARG - An invalid set of preferences were supplied.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetRenderingPrefs(
+        [in] DWORD dwRenderFlags  // a combination of MFVideoRenderPrefs
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current set of rendering preferences being used by 
+    //  the video renderer.
+    //
+    // Parameters:
+    //
+    //  pdwRenderFlags - receives a DWORD representing a bitwise OR of 
+    //      MFVideoRenderprefs values indicating the current rendering preferences.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetRenderingPrefs(
+        [out] DWORD* pdwRenderFlags
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Sets or unsets the renderer from its fullscreen rendering mode. For the
+    //  D3D9 renderer, this is D3D exclusive mode.
+    //
+    // Parameters:
+    //
+    //  fFullscreen - TRUE if the renderer should display to the entire screen. 
+    //      FALSE otherwise.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetFullscreen(
+        [in] BOOL fFullscreen
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Indicates whether or not the renderer is currently in full screen mode.
+    //
+    // Parameters:
+    //
+    //  pfFullscreen - TRUE if the renderer is displaying to the entire screen. 
+    //      FALSE otherwise.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetFullscreen(
+        [out] BOOL* pfFullscreen
+        );
+}
+
+//=============================================================================
+// Description:
+//
+//  The different message types that can be passed to the video presenter via
+//  IMFVideoPresenter::ProcessMessage.
+//
+typedef enum MFVP_MESSAGE_TYPE {
+    // Called by the video renderer when a flush request is received on the
+    // reference video stream. In response, the presenter should clear its 
+    // queue of samples waiting to be presented.
+    // ulParam is unused and should be set to zero.
+    MFVP_MESSAGE_FLUSH = 0x00000000,
+    // Indicates to the presenter that the current output media type on the
+    // mixer has changed. In response, the presenter may now wish to renegotiate 
+    // the media type of the video mixer.
+    // Return Values:
+    //  S_OK - successful completion
+    //  MF_E_INVALIDMEDIATYPE - The presenter and mixer could not agree on 
+    //      a media type.
+    // ulParam is unused and should be set to zero.
+    MFVP_MESSAGE_INVALIDATEMEDIATYPE  = 0x00000001,
+    // Indicates that a sample has been delivered to the video mixer object,
+    // and there may now be a sample now available on the mixer's output. In
+    // response, the presenter may want to draw frames out of the mixer's 
+    // output.
+    // ulParam is unused and should be set to zero.
+    MFVP_MESSAGE_PROCESSINPUTNOTIFY  = 0x00000002,
+    // Called when streaming is about to begin. In 
+    // response, the presenter should allocate any resources necessary to begin
+    // streaming.
+    // ulParam is unused and should be set to zero.
+	MFVP_MESSAGE_BEGINSTREAMING = 0x00000003,
+    // Called when streaming has completed. In 
+    // response, the presenter should release any resources that were 
+    // previously allocated for streaming.
+    // ulParam is unused and should be set to zero.
+	MFVP_MESSAGE_ENDSTREAMING = 0x00000004,
+    // Indicates that the end of this segment has been reached.
+    // When the last frame has been rendered, EC_COMPLETE should be sent
+    // on the IMediaEvent interface retrieved from the renderer
+    // during IMFTopologyServiceLookupClient::InitServicePointers method.
+    // ulParam is unused and should be set to zero.
+	MFVP_MESSAGE_ENDOFSTREAM  = 0x00000005,
+    // The presenter should step the number frames indicated by the lower DWORD
+    // of ulParam.
+    // The first n-1 frames should be skipped and only the nth frame should be 
+    // shown. Note that this message should only be received while in the pause
+    // state or while in the started state when the rate is 0. 
+    // Otherwise, MF_E_INVALIDREQUEST should be returned.
+    // When the nth frame has been shown EC_STEP_COMPLETE
+    // should be sent on the IMediaEvent interface.
+    // Additionally, if stepping is being done while the rate is set to 0
+    // (a.k.a. "scrubbing"), the frame should be displayed immediately when
+    // it is received, and EC_SCRUB_TIME should be sent right away after
+    // sending EC_STEP_COMPLETE.
+    MFVP_MESSAGE_STEP = 0x00000006,
+    // The currently queued step operation should be cancelled. The presenter
+    // should remain in the pause state following the cancellation.
+    // ulParam is unused and should be set to zero.
+    MFVP_MESSAGE_CANCELSTEP = 0x00000007,
+
+} MFVP_MESSAGE_TYPE;
+
+//=============================================================================
+// Description:
+//
+//  The IMFVideoPresenter interface allows for direct control over the video 
+//  frames, in that it receives video samples as soon as they are available 
+//  from upstream. The video presenter must therefore take care of the timing
+//  of the samples and synchronize with the render clock. 
+//
+//  Custom Video Presenter objects must support this interface.
+//
+[
+    object,
+    uuid(29AFF080-182A-4a5d-AF3B-448F3A6346CB),
+    helpstring("IMFVideoPresenter Interface"),
+    local
+]
+interface IMFVideoPresenter : IMFClockStateSink
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Indicates to the presenter that a certain action needs to be performed,
+    //  or signals that something has occured. 
+    //
+    // Parameters:
+    //
+    //  eMessage - Indicates the action to be performed or the condition that
+    //      has occured.
+    //  ulParam - Allows for additional information to be passed to the caller.
+    //      See the definition of eMessage for more information.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT ProcessMessage( 
+        MFVP_MESSAGE_TYPE eMessage,
+        ULONG_PTR ulParam
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Retrieves the current media type that has been last negotiated by a
+    //  successful call to InvalidateMediaType.
+    //
+    // Parameters:
+    //
+    //  ppMediaType - Receives the currently set media type.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetCurrentMediaType(
+        [out, annotation("_Outptr_")] IMFVideoMediaType** ppMediaType
+        );
+}
+
+//=============================================================================
+// Description:
+//
+//  This interface may be optionally supported by buffers passed back to a 
+//  D3D mixer. It allows the presenter more control over which frames the video
+//  mixer gives back the presenter.
+//
+//  It is retrieved by calling QueryInterface on the IMFSample object.
+//
+[
+    object,
+    uuid(56C294D0-753E-4260-8D61-A3D8820B1D54),
+    helpstring("IMFDesiredSample Interface"),
+    local
+]
+interface IMFDesiredSample : IUnknown
+{
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Called by the Mixer to get the time and duration of sample that the 
+    //  presenter wishes.
+    //
+    // Parameters:
+    //
+    //  phnsSampleTime - Receives the desired sample time which should be mixed. 
+    //      For example, if the sample time is the same as the last sample time, 
+    //      the same sample will be retrieved. To retrieve the next sample, use
+    //      the actual sample time plus the actual sample duration.
+    //  phnsSampleDuration - Receives the sample duration that should be mixed.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  E_POINTER - An invalid pointer was passed.
+    //  MF_E_NOT_AVAILABLE - There is no timestamp set.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetDesiredSampleTimeAndDuration( 
+        [out, annotation("_Out_")] LONGLONG *phnsSampleTime,
+        [out, annotation("_Out_")] LONGLONG *phnsSampleDuration
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Called by the Presenter to set the time and duration of sample which it 
+    //  desires from the mixer.
+    //
+    // Parameters:
+    //
+    //  hnsSampleTime - The time of the sample that is wished from the mixer.
+    //  hnsSampleDuration - The duration of the sample that is wished from the 
+    //      mixer.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //
+    // Remarks:
+    //
+    //  This value should be set prior to passing the buffer to the mixer for 
+    //  a Mix operation. The mixer sets the actual start and duration times on 
+    //  the IMFSample before handing it back.
+    //
+    void SetDesiredSampleTimeAndDuration( 
+        [in] LONGLONG hnsSampleTime,
+        [in] LONGLONG hnsSampleDuration
+        );
+
+    //-------------------------------------------------------------------------    
+    // Description:
+    //
+    //  Clears the timestamps previously set by a call to 
+    //  SetDesiredSampleTimeAndDuration, thus resulting in any subsequent calls
+    //  to GetDesiredSampleTimeAndDuration failing with error code
+    //  MF_E_NOT_AVAILABLE.
+    //
+    void Clear();
+};
+
+//=============================================================================
+// Description:
+//
+//  The IMFVideoMixerControl interface supports mixing of separate video streams.
+//  If a video renderer supports this functionality it is accessed via the 
+//  IMFGetService interface from the renderer object, using service GUID
+//  MR_VIDEO_MIXER_SERVICE.
+//
+[
+    object,
+    uuid(A5C6C53F-C202-4aa5-9695-175BA8C508A5),
+    helpstring("IMFVideoMixerControl Interface")
+]
+interface IMFVideoMixerControl : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets this video stream's position in the Z-order.
+    //
+    // Parameters:
+    //
+    //  dwStreamID - The stream ID of the stream to set.
+    //  dwZ - The z-order value. 0 indicates the bottom of the z-order and must 
+    //      be the reference stream.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_INVALIDSTREAMNUMBER - an invalid stream ID was supplied.
+    //  MF_E_INVALIDREQUEST - 0 was supplied as the Z-order for a stream other 
+    //      then the reference stream, or a value other than 0 was supplied 
+    //      for the reference stream.
+    //  E_INVALIDARG - a z-order value greater than <the number of streams minus 
+    //      one> was supplied.
+    //
+    // Remarks:
+    //
+    //  Z-order of the reference stream is always 0 and cannot be set otherwise.
+    //
+    HRESULT SetStreamZOrder(
+        [in] DWORD dwStreamID,
+        [in] DWORD dwZ
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves this video stream's position in the Z-order.
+    //
+    // Parameters:
+    //
+    //  dwStreamID - The stream ID of the stream to get.
+    //  pdwZ - Receives the z-order value. 0 indicates the bottom of the z-order 
+    //      will always be the value of the reference stream.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_INVALIDSTREAMNUMBER - an invalid stream ID was supplied.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetStreamZOrder(
+        [in] DWORD dwStreamID,
+        [out] DWORD* pdwZ
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the position of this stream within the composition rectangle.
+    //
+    // Parameters:
+    //
+    //  dwStreamID - The stream ID of the stream to set.
+    //  pnrcOutput - The bounding rectangle, in normalized coordinates.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_INVALIDSTREAMNUMBER - an invalid stream ID was supplied.
+    //  E_INVALIDARG - the Normalized rectangle supplied had coordinates that
+    //      were invalid. See MFVideoNormalizedRect for more information.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetStreamOutputRect(
+        [in] DWORD dwStreamID,
+        [in] const MFVideoNormalizedRect *pnrcOutput
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the position of this stream's video rectangle within the composition rectangle.
+    //
+    // Parameters:
+    //
+    //  dwStreamID - The stream ID of the stream to get.
+    //  pnrcOutput - Receives the bounding rectangle, in normalized coordinates.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_INVALIDSTREAMNUMBER - an invalid stream ID was supplied.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetStreamOutputRect(
+        [in] DWORD dwStreamID,
+        [out] MFVideoNormalizedRect *pnrcOutput
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  The mixing preferences used by the video mixer object.
+//
+typedef enum _MFVideoMixPrefs {
+    MFVideoMixPrefs_ForceHalfInterlace        = 0x00000001,
+    MFVideoMixPrefs_AllowDropToHalfInterlace  = 0x00000002,
+    MFVideoMixPrefs_AllowDropToBob            = 0x00000004,
+    MFVideoMixPrefs_ForceBob                  = 0x00000008,
+    MFVideoMixPrefs_EnableRotation            = 0x00000010,
+    MFVideoMixPrefs_Mask                      = 0x0000001f,
+} MFVideoMixPrefs;
+
+//=============================================================================
+// Description:
+//
+//  The IMFVideoMixerControl2 interface supports mixing of separate video streams.
+//  If a video renderer supports this functionality it is accessed via the 
+//  IMFGetService interface from the renderer object, using service GUID
+//  MR_VIDEO_MIXER_SERVICE.
+//
+[
+    object,
+    uuid(8459616d-966e-4930-b658-54fa7e5a16d3),
+    helpstring("IMFVideoMixerControl2 Interface")
+]
+interface IMFVideoMixerControl2 : IMFVideoMixerControl
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets various application preferences related to video mixing.
+    //
+    // Parameters:
+    //
+    //  dwMixFlags - A bitwise OR of MFVideoMixPrefs values specifying the
+    //      rendering preferences.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video mixer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_INVALIDARG - An invalid set of preferences were supplied.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetMixingPrefs(
+        [in] DWORD dwMixFlags  // a combination of MFVideoMixPrefs
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current set of mixing preferences being used by 
+    //  the video mixer.
+    //
+    // Parameters:
+    //
+    //  pdwMixFlags - receives a DWORD representing a bitwise OR of 
+    //      MFVideoMixingprefs values indicating the current mixing preferences.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video mixer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetMixingPrefs(
+        [out] DWORD* pdwMixFlags
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  The IMFVideoRenderer interface supports a single method, which allows an 
+//  application to replace the video presenter and mixer objects with ones of 
+//  its own creation.
+//
+[
+    object,
+    uuid(DFDFD197-A9CA-43d8-B341-6AF3503792CD),
+    helpstring("IMFVideoRenderer Interface"),
+    local
+]
+interface IMFVideoRenderer : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Replaces the video presenter and mixer objects with ones specified by the 
+    //  application.
+    //
+    // Parameters:
+    //
+    //  pVideoMixer - The new video mixer object. Can be NULL.
+    //
+    //  pVideoPresenter - The new video presenter object. Can be NULL.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_SHUTDOWN - The video renderer has been Shutdown and will no longer
+    //      respond to methods calls. It must be released.
+    //
+    // Remarks:
+    //
+    //  If the video renderer is in the protected media path(PMP), then the mixer
+    //  and presenter objects must be certified safe components and pass any trust
+    //  authority verification that is being enforced. Otherwise, this method will fail.
+    //
+    //  It is legal to supply NULL as the parameter for both arguments.
+    //
+    HRESULT InitializeRenderer(
+        [in, unique, annotation("_In_opt_")] IMFTransform* pVideoMixer,
+        [in, unique, annotation("_In_opt_")] IMFVideoPresenter* pVideoPresenter
+        );
+}
+
+//=============================================================================
+// Description:
+//
+//  The IEVRFilterConfig interface exists for configuration of the DShow EVR 
+//  filter. It allows for setting the stream count.
+//
+[
+    object,
+    uuid(83E91E85-82C1-4ea7-801D-85DC50B75086),
+    helpstring("IEVRFilterConfig Interface"),
+    local
+]
+interface IEVRFilterConfig : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Configures the video renderer filter with the desired number of streams.
+    //
+    // Parameters:
+    //
+    //  dwMaxStreams - The number of pins.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  VFW_E_WRONG_STATE - The Pin count has already been set or the EVR is 
+    //      still connected.
+    //  E_INVALIDARG - There must always be a minimum of one pin. Specifying 0 
+    //      will result in this error code.
+    //
+    // Remarks:
+    //
+    //  Pins are created in the disabled state.
+    //
+    HRESULT SetNumberOfStreams(
+        [in] DWORD dwMaxStreams
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current number of pins that exist on the video renderer.
+    //  There is always at least one pin.
+    //
+    // Parameters:
+    //
+    //  pdwMaxStreams - Receives the number of pins on the filter.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  E_POINTER - pdwMaxStreams is NULL.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetNumberOfStreams(
+        [out, annotation("_Out_")] DWORD* pdwMaxStreams
+        );
+}
+
+//=============================================================================
+// Description:
+//
+//  The configuration preferences used by the filter.
+//
+typedef enum _EVRFilterConfig_Prefs {
+    EVRFilterConfigPrefs_EnableQoS                 = 0x00000001,
+    EVRFilterConfigPrefs_Mask                      = 0x00000001,
+} EVRFilterConfigPrefs;
+
+//=============================================================================
+// Description:
+//
+//  The IEVRFilterConfigEx interface controls the filter behavior
+//
+[
+    object,
+    uuid(aea36028-796d-454f-beee-b48071e24304),
+    helpstring("IEVRFilterConfigEx Interface")
+]
+interface IEVRFilterConfigEx : IEVRFilterConfig
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets various application filter preferences.
+    //
+    // Parameters:
+    //
+    //  dwConfigFlags - A bitwise OR of EVRFilterConfigPrefs values specifying the
+    //      filter preferences.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  E_INVALIDARG - An invalid set of preferences were supplied.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT SetConfigPrefs(
+        [in] DWORD dwConfigFlags  // a combination of EVRFilterConfigPrefs
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current set of Config preferences being used by 
+    //  the EVR filter.
+    //
+    // Parameters:
+    //
+    //  pdwConfigFlags - receives a DWORD representing a bitwise OR of 
+    //      EVRFilterConfigPrefs values indicating the current Config preferences.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  E_POINTER - An invalid pointer was passed.
+    //
+    // Remarks:
+    //
+    //  None.
+    //
+    HRESULT GetConfigPrefs(
+        [out] DWORD* pdwConfigFlags
+        );
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+typedef enum _MF_SERVICE_LOOKUP_TYPE 
+{
+    MF_SERVICE_LOOKUP_UPSTREAM,
+    MF_SERVICE_LOOKUP_UPSTREAM_DIRECT,
+    MF_SERVICE_LOOKUP_DOWNSTREAM,  
+    MF_SERVICE_LOOKUP_DOWNSTREAM_DIRECT,  
+    MF_SERVICE_LOOKUP_ALL, // lookup service on any components of the graph
+    MF_SERVICE_LOOKUP_GLOBAL, // lookup global objects
+} MF_SERVICE_LOOKUP_TYPE;
+
+//=============================================================================
+// Description:
+//
+//    Component can use IMFTopologyServiceLookup interface to lookup object in topology. 
+//    Pipeline will call IMFTopologyServiceLookupClient::InitServicePointers some time after component is created 
+//    Component should only use IMFTopologyServiceLookup in the context of IMFTopologyServiceLookupClient::InitServicePointers call
+//    After call is complete IMFTopologyServiceLookup interface will return an error for any call
+//
+[
+    object,
+    uuid(fa993889-4383-415a-a930-dd472a8cf6f7),
+    helpstring("IMFTopologyServiceLookup Interface"),
+    local
+]
+interface IMFTopologyServiceLookup : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called by a client to retrieve external interfaces.
+    //
+    // Parameters:
+    //
+    //  Type - Identifies the scope of the search.
+    // 
+    //  dwIndex - Optional index to identify component input or output. Ignored for _ALL or _GLOBAL type .
+    // 
+    //  guidService - Identifies the service to lookup.
+    // 
+    //  riid - IID of the interface on the service.
+    // 
+    //  ppvObjects - Contains array of size == *pnObject to fill in  .
+    // 
+    //  pnObjects - At input time, contains the maximum number of elements in ppvObjects array.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //  MF_E_UNSUPPORTED_SERVICE - The service specified by guidService is not supported.
+    //  MF_E_NOTACCEPTING - The method was called outside the context of an IMFTopologyServiceLookupClient::InitServicePointers method call.
+    //  E_POINTER - pnObjects or ppvObjects was NULL.
+    //  E_INVALIDARG - *pnObjects was zero.
+    //
+    // Remarks:
+    //
+    //  Method may only be called within the context of an 
+    //  IMFTopologyServiceLookupClient::InitServicePointers method call.
+    //
+    HRESULT LookupService(
+        [in] MF_SERVICE_LOOKUP_TYPE Type,
+        [in] DWORD dwIndex,
+        [in] REFGUID guidService,
+        [in] REFIID riid,
+        [out, iid_is(riid), annotation("_Out_writes_to_(1,*pnObjects)")] LPVOID* ppvObjects,
+        [in, out, annotation("_Inout_")] DWORD * pnObjects
+        );
+}
+
+
+//=============================================================================
+// Description:
+//
+//    Component can implement IMFTopologyServiceLookupClient if it wants to lookup services on other components in the pipeline
+//
+[
+    local,
+    object,
+    uuid(fa99388a-4383-415a-a930-dd472a8cf6f7)
+]
+interface IMFTopologyServiceLookupClient : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //   Called by the EVR during initialization of the component. 
+    //   Component can lookup services using pLookup object
+    //
+    // Parameters:
+    //
+    //  pLookup - The interface to be used to discover objects.
+    //
+    // Return values:
+    //
+    //  S_OK - Successful completion.
+    //
+    // Remarks:
+    //
+    //  The IMFTopologyServiceLookup pointer should not be addref'ed or cached 
+    //  by the callee. It can not be used outside the context of this method 
+    //  call and will fail if an attempt is made.
+    //
+    HRESULT InitServicePointers(
+        [in, annotation("_In_")] IMFTopologyServiceLookup * pLookup
+        );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called by the pipeline during deinitialization of the component. 
+    //  Component should release all services acquired during InitServicePointers call
+    //
+    HRESULT ReleaseServicePointers(
+        );
+}
+
+
+//=============================================================================
+// Description:
+//
+//    EVR plug-ins (mixer, presenter) are expected to implement IEVRTrustedVideoPlugin - QI-able interface
+//    to enable working in the Protected Video Path. Video OTA uses them to communicate with
+//	policy objects from ITA.
+//
+//	Abscence of this interface on the plug-in is interpreted as a negative answer to both predicates
+//   for the purposes of EVR-OTA communication
+//
+
+[
+    object,
+    uuid(83A4CE40-7710-494b-A893-A472049AF630),
+    helpstring("IEVRTrustedVideoPlugin Interface"),
+    local
+]
+interface IEVRTrustedVideoPlugin: IUnknown
+{
+	//-------------------------------------------------------------------------
+	// Description:
+	//
+	// This predicate is a simple mechanism for a plug-in to report presence of transient/conditional "video vulnerabilities"
+	// known to a plug-in on EVR's device change.  Returning FALSE here will result in indication to a Policy Object from ITA 
+	// of an additional presence of "unknown software "connector" as an output. Policy Object may take this into consideration
+	// when defining the protection settings.
+	//
+	// The method is called every time on every EVR plug-in after EVR's OTA is informed by EVR about new rendering "device"
+	//
+	// The example of such "transient" vulnerability is a windowed  (non-fullscreen DX)  mode for the EVR presenter in Vista
+	// ("GDI hole") that is vulnerable to a screen scraping. Whenever the presenter finds itself in a windowed mode it should
+	// return FALSE. Once "GDI hole" is fixed this may be reflected in this plug-in's implementation of this method.
+
+	// The vulnerabilities are expected to be "transient" as a plug-in that is *always* cannot be trusted with premium video probably
+	// shouldn't be certified to be loaded in PMP at all. It is responsibility of the plug-in to verify during this call all applicable transient
+	// conditions for known video vulnerabilities.
+
+	//
+	//  Parameters:
+	//
+	//  pYes - To return TRUE if plug-in is in trusted video mode, FALSE otherwise
+	//
+	// Return values:
+	//
+	//  S_OK - Successful completion. Any failure is treated as if the method returned FALSE.
+	//
+	// Remarks:
+	//
+	HRESULT IsInTrustedVideoMode (
+		[out] BOOL *pYes
+		);
+
+            
+
+	//-------------------------------------------------------------------------
+	// Description:
+	//
+	// Constriction (limiting the effective resolution of the image to a specified number of pixels)
+	// is a protection mechanism offered by EVR via OTA to a content policy owner. It can be
+	// implemented either by a mixer or a presenter plug-in (or both) with preference given to a
+	// mixer. If no mixer is available or a mixer indicates that it cannot support constriction then
+	// the presenter will be asked if it implements constriction.
+	// This predicate currently is called immediately after every SetDevice  in EVR.
+	//
+	//  Parameters:
+	//
+	//  pYes - To return TRUE if plug-in can constrict, FALSE otherwise
+	//
+	// Return values:
+	//
+	//  S_OK - Successful completion. Any failure is treated as if the method returned FALSE.
+	//
+	// Remarks:
+	//
+	// Care should be taken that no public interface exposed by plug-ins can lessen bandwidth
+	// restriction imposed by private IEVRTrustedVideo::SetConstriction. If constriction cannot be performed
+	// in a trusted manner (regardless of the answer on IsInTrustedVideoMode) this capability should
+	// not be reported.
+	//
+	//
+	HRESULT CanConstrict (
+			[out] BOOL *pYes
+			);
+
+
+
+	//-------------------------------------------------------------------------
+	// Description:
+	//
+	// Once an EVR plug-in reports that it CanConstrict video it may be called at any time
+	// to SetContsriction with the argument establishing  limit on the total number of "source" pixels
+	// in the full output image in "kilopixels" (1000 pixels). (The actual number of pixels at destination can be
+	// different  due to stretch scaling, etc) 
+	// Two argument values are reserved: DWORD(0) and DWORD(0xFFFFFFFF). The former is meant
+	// to "disable" video (0 "source" pixels, preferably "black video"
+	// Refer to compliance rules for the definition of "disable". It may be possible to treat "ultra-constriction" 
+	// (<1Kpix) as "disable".) The latter is used to indicate the end of any policy-imposed constriction
+	// requirements that might be in effect before.
+	//
+	//  Parameters:
+	//
+	//  dwKPix - Amount of allowed source pixels in the image in KPixels, or one the two reserved value (see description)
+	//
+	// Return values:
+	//
+	//  S_OK - Successful completion. Any failure here is teated as Policy Enforcemet Failure and is reported to
+	//			to MIG's policy engine as such.
+	//
+	// Remarks:
+	//
+	// Care should be taken that no public interface exposed by plug-ins can lessen bandwidth
+	// restriction imposed by private IEVRTrustedVideo::SetConstriction. If constriction cannot be performed
+	// in a trusted manner (regardless of the answer on IsInTrustedVideoMode) this capability should
+	// not be reported.
+	//
+	//
+	HRESULT SetConstriction(
+		DWORD dwKPix
+		);
+
+
+	//-------------------------------------------------------------------------
+	// Description:
+	//
+	// Some plug-ins  (presenters) may implement some form of image exports 
+	// like vidctrl GetCurrentImage(). This OTA callback sets permission to do that.
+	//
+	// By default the plug-in is assumed to start with  ImageExport functionality enabled
+	// (if implemented)
+	//
+	// Parameters:
+	//
+	// BOOL bDisable  - TRUE/FALSE.  TRUE disables all subsequent image export requests, until set to FALSE.
+	//
+	// Return values:
+	//
+	// Should always S_OK. Failure will be reported as a policy enforcement error.
+	//
+	// Remarks:
+	//
+	// A plug-in is expected to return  MF_E_LICENSE_INCORRECT_RIGHTS
+	// from an export methods when disabled.
+	//
+	HRESULT DisableImageExport(
+		BOOL bDisable
+		);
+
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+cpp_quote( "#ifndef MFEVRDLL" )
+cpp_quote( "#define MFEVRDLL 0" )
+cpp_quote( "#endif" )
+
+cpp_quote( "#if MFEVRDLL" )
+cpp_quote( "#define EVRPUBLIC(func) STDAPI _##func" ) 
+cpp_quote( "#else" ) 
+cpp_quote( "#define EVRPUBLIC(func) STDAPI func" )
+cpp_quote( "#endif" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "EVRPUBLIC(MFCreateVideoPresenter)(" )
+cpp_quote( "    _In_opt_ IUnknown * pOwner," )
+cpp_quote( "    REFIID riidDevice," )
+cpp_quote( "    REFIID riid," )
+cpp_quote( "    _Outptr_result_maybenull_ void ** ppVideoPresenter" )
+cpp_quote( "    );" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "EVRPUBLIC(MFCreateVideoMixer)(" )
+cpp_quote( "    _In_opt_ IUnknown * pOwner," )
+cpp_quote( "    REFIID riidDevice," )
+cpp_quote( "    REFIID riid," )
+cpp_quote( "    _Outptr_ void ** ppv" )
+cpp_quote( "    );" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "EVRPUBLIC(MFCreateVideoMixerAndPresenter)(" )
+cpp_quote( "    _In_opt_ IUnknown * pMixerOwner,")
+cpp_quote( "    _In_opt_ IUnknown * pPresenterOwner,")
+cpp_quote( "    REFIID riidMixer,")
+cpp_quote( "    _Outptr_ void ** ppvVideoMixer, ")
+cpp_quote( "    REFIID riidPresenter,")
+cpp_quote( "    _Outptr_ void ** ppvVideoPresenter")
+cpp_quote( "    );" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "EVRPUBLIC(MFCreateVideoRenderer)(" )
+cpp_quote( "    REFIID riidRenderer,")
+cpp_quote( "    _Outptr_result_maybenull_ void ** ppVideoRenderer" )
+cpp_quote( "    );" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "EVRPUBLIC(MFCreateVideoSampleFromSurface)(" )
+cpp_quote( "    _In_ IUnknown* pUnkSurface," )
+cpp_quote( "    _Out_ IMFSample** ppSample" )
+cpp_quote( "    );" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "EVRPUBLIC(MFCreateVideoSampleAllocator)(" )
+cpp_quote( "    _In_ REFIID riid," )
+cpp_quote( "    _Outptr_ void** ppSampleAllocator" )
+cpp_quote( "    );" )
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

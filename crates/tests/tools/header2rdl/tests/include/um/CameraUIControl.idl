@@ -1,0 +1,127 @@
+/*
+ *  CameraUiControl.idl
+ *
+ *  IDL definition for publc CameraUiContro API
+ *
+ *  Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+#include <sdkddkver.h>
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+typedef [v1_enum] enum CameraUIControlMode
+{
+    Browse = 0,
+    Linear,
+} CameraUIControlMode;
+
+typedef [v1_enum] enum CameraUIControlLinearSelectionMode
+{
+    Single = 0,
+    Multiple,
+} CameraUIControlLinearSelectionMode;
+
+typedef [v1_enum] enum CameraUIControlCaptureMode
+{
+    PhotoOrVideo = 0,
+    Photo,
+    Video,
+} CameraUIControlCaptureMode;
+
+typedef [v1_enum] enum CameraUIControlPhotoFormat
+{
+    Jpeg = 0,
+    Png,
+    JpegXR,
+} CameraUIControlPhotoFormat;
+
+typedef [v1_enum] enum CameraUIControlVideoFormat
+{
+    Mp4 = 0,
+    Wmv,
+} CameraUIControlVideoFormat;
+
+typedef [v1_enum] enum CameraUIControlViewType
+{
+    SingleItem = 0,
+    ItemList,
+} CameraUIControlViewType;
+
+[
+    object,
+    uuid(1BFA0C2C-FBCD-4776-BDA4-88BF974E74F4),
+    local
+]
+interface ICameraUIControlEventCallback : IUnknown
+{
+    void OnStartupComplete();
+
+    void OnSuspendComplete();
+
+    void OnItemCaptured([in, annotation("_In_")] LPCWSTR pszPath);
+    void OnItemDeleted([in, annotation("_In_")] LPCWSTR pszPath);
+
+    void OnClosed();
+}
+
+[
+    object,
+    uuid(B8733ADF-3D68-4b8f-BB08-E28A0BED0376),
+    local
+]
+interface ICameraUIControl : IUnknown
+{
+    HRESULT Show(
+        [in, annotation("_In_")]     IUnknown *pWindow,
+        [in, annotation("_In_")]     CameraUIControlMode mode,
+        [in, annotation("_In_")]     CameraUIControlLinearSelectionMode selectionMode,
+        [in, annotation("_In_")]     CameraUIControlCaptureMode captureMode,
+        [in, annotation("_In_")]     CameraUIControlPhotoFormat photoFormat,
+        [in, annotation("_In_")]     CameraUIControlVideoFormat videoFormat,
+        [in, annotation("_In_")]     BOOL bHasCloseButton,
+        [in, annotation("_In_opt_")] ICameraUIControlEventCallback *pEventCallback);
+    HRESULT Close();
+    
+    HRESULT Suspend([out, annotation("_Out_")] BOOL *pbDeferralRequired);
+    HRESULT Resume();
+
+    HRESULT GetCurrentViewType([out, annotation("_Out_")] CameraUIControlViewType *pViewType);
+
+    HRESULT GetActiveItem([out, annotation("_Outptr_opt_")] BSTR *pbstrActiveItemPath);
+    HRESULT GetSelectedItems([out, annotation("_Outptr_")] SAFEARRAY **ppSelectedItemPaths);
+
+    HRESULT RemoveCapturedItem([in, annotation("_In_")] LPCWSTR pszPath);
+}
+
+[
+   uuid(02C5981B-12BB-427d-8BB4-162C9DECC2AD),
+   version(1.0),
+   helpstring("CameraUIControl 1.0 Type Library")
+]
+library CameraUIControlTypesLib
+{
+   importlib("stdole32.tlb");
+   importlib("stdole2.tlb");
+
+   [
+      uuid(16D5A2BE-B1C5-47b3-8EAE-CCBCF452C7E8),
+      helpstring("CameraUIControl Class")
+   ]
+   coclass CameraUIControl
+   {
+      [default] interface ICameraUIControl;
+   };
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")

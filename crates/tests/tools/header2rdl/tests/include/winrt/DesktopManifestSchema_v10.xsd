@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11">
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+
+  <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+  <xs:attribute name="Description" type="t:ST_Description" />
+  <xs:attribute name="UseUrl" type="xs:boolean" />
+  <xs:attribute name="EnvironmentPath" type="t:ST_NonEmptyString" />
+  <xs:attribute name="UseDesktopChangeRouter" type="xs:boolean" />
+  <xs:attribute name="DropTarget" type="t:ST_GUID" />
+    
+  <xs:element name="SupportedProtocols">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="10000">
+        <xs:element name="SupportedProtocol" type="t:ST_Protocol_2019" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="IconHandler">
+    <xs:complexType>
+      <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PredefinedTriggerEvents" type="CT_PredefinedTriggerEvents" />
+
+  <xs:complexType name="CT_PredefinedTriggerEvents">
+    <xs:choice minOccurs="0" maxOccurs="10000">
+      <xs:element name="StringData" type="desktop6:CT_StringData"/>
+      <xs:element name="BinaryData" type="desktop6:CT_BinaryData"/>
+      <xs:element name="LevelData" type="desktop6:CT_ValueByte"/>
+      <xs:element name="KeywordAnyData" type="desktop6:CT_ValueDword64"/>
+      <xs:element name="KeywordAllData" type="desktop6:CT_ValueDword64"/>
+    </xs:choice>
+    <xs:attribute name="Action" type="desktop6:ST_ActionTrigger" use="required"/>
+    <xs:attribute name="Subtype" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="TriggerType" type="ST_TriggerType" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_TriggerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="deviceInterfaceArrival"/>
+      <xs:enumeration value="domainJoin"/>
+      <xs:enumeration value="firewallPortEvent"/>
+      <xs:enumeration value="groupPolicy"/>
+      <xs:enumeration value="ipAddressAvailability"/>
+      <xs:enumeration value="networkEndpoint"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="ItemType">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element name="Verb" maxOccurs="10000">
+          <xs:complexType>
+            <xs:attribute name="Id" type="t:ST_FileTypeAssociationSupportedVerbId" use="required" />
+            <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="Type" type="ST_ContextMenuItemType" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="ST_ContextMenuItemType">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="(\*|(\.[^.\\]+))"/>
+      <xs:pattern value="Directory"/>
+      <xs:pattern value="Directory\\Background"/>
+      <xs:pattern value="Drive"/>
+      <xs:pattern value="DesktopBackground"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="Folder" type="CT_Folder"/>
+        <xs:element name="DataShortcuts" type="CT_DataShortcuts"/>
+        <xs:element name="CustomDesktopEventLog" type="CT_CustomDesktopEventLog"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Desktop10" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_CustomDesktopEventLog">
+     <xs:all>
+      <xs:element name="CustomEventSources">
+        <xs:complexType>
+          <xs:sequence maxOccurs="16384">
+             <xs:element name="CustomEventSource" type="CT_CustomEventSource"></xs:element>
+           </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="CustomEventLogName" type="t:ST_AlphaNumericString_WhitespaceAllowedWithin" use="required"/>
+    <!--DisplayNameFile & DisplayNameID  are optional attributes but restriction is both must be present or neither present-->
+    <xs:attribute name="DisplayNameFile" type="t:ST_Dll_EXE_File" use="optional"/>
+    <xs:attribute name="DisplayNameID" type="t:ST_UInt32" use="optional"/>
+    <xs:attribute name="MaxSize" type="t:ST_UInt32" use="optional"/>
+    <xs:attribute name="PrimaryModule" type="t:ST_AlphaNumericString_WhitespaceAllowedWithin" use="optional"/>
+    <xs:attribute name="Retention" type="t:ST_UInt32" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CustomEventSource">
+    <xs:all>
+      <xs:element name="EventMessageFiles">
+        <xs:complexType>
+          <xs:sequence maxOccurs="10000">
+            <xs:element name="File">
+              <xs:complexType>
+                <xs:attribute name="Path" type="t:ST_Dll_EXE_File" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="Unique_File">
+            <xs:selector xpath="desktop10:File"/>
+            <xs:field xpath="@Path"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="TypesSupported">
+        <xs:complexType>
+          <xs:sequence maxOccurs="5">
+            <xs:element name="TypeSupported">
+              <xs:complexType>
+                <xs:attribute name="Value" type="ST_TypeSupportedEnum" use="required"></xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="TypeSupported_Value">
+          <xs:selector xpath="desktop10:TypeSupported"/>
+          <xs:field xpath="@Value"/>
+        </xs:unique>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="EventSourceName" type="t:ST_AlphaNumericString_WhitespaceAllowedWithin" use="required"/>
+    <!--CategoryCount & CategoryMessageFile are optional attributes but restriction is both must be present or neither present-->
+    <xs:attribute name="CategoryCount" type="t:ST_UInt32" use="optional"/>
+    <xs:attribute name="CategoryMessageFile" type="t:ST_Dll_EXE_File" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_TypeSupportedEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auditFailure"/>
+      <xs:enumeration value="auditSuccess"/>
+      <xs:enumeration value="errorType"/>
+      <xs:enumeration value="informationType"/>
+      <xs:enumeration value="warningType"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_Folder">
+    <xs:attribute name="KnownFolder" type="ST_KnownFolder" use="required"/>
+    <xs:attribute name="RelativePath" type="t:ST_FileNameFullPath" />
+    <xs:attribute name="Name" type="t:ST_FileName"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" />
+    <xs:attribute name="Icon" type="t:ST_FileName" />
+    <xs:attribute name="IconIndex" type="xs:unsignedByte" />
+    <xs:attribute name="Description" type="t:ST_Description" />
+  </xs:complexType>
+
+  <xs:simpleType name="ST_KnownFolder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Common Programs"/>
+      <xs:enumeration value="Programs"/>
+      <xs:enumeration value="Desktop"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_DataShortcuts">
+    <xs:choice minOccurs="1" maxOccurs="10000">
+      <xs:element name="DataShortcut" type="CT_DataShortcut"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DataShortcut">
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="WorkingDirectory" type="t:ST_FileName" />
+    <xs:attribute name="WindowOption" type="ST_WindowOption" />
+    <xs:attribute name="Comment " type="t:ST_Description" />
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Icon" type="t:ST_FileName" />
+    <xs:attribute name="IconIndex" type="xs:unsignedByte" />
+    <xs:attribute name="AUMID" type="t:ST_NonEmptyString" />
+  </xs:complexType>
+
+  <xs:simpleType name="ST_WindowOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="minimized"/>
+      <xs:enumeration value="maximized"/>
+      <xs:enumeration value="normal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="ClassicAppCompatKey">
+    <xs:complexType>
+       <xs:attribute name="Name" type="t:ST_RegistryPath" use="required"/>
+       <xs:attribute name="ValueName" type="xs:string"/>
+       <xs:attribute name="ValueType" type="t:ST_ValueType"/>
+       <xs:attribute name="Value" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

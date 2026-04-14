@@ -1,0 +1,314 @@
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl" ;
+import "wtypes.idl" ;
+import "objidl.idl";
+import "strmif.idl" ;
+
+//  ============================================================================
+//  interfaces
+
+interface IAttributeSet ;
+interface IAttributeGet ;
+
+/*++
+    ============================================================================
+    ============================================================================
+        sample attribute interfaces
+--*/
+
+[
+    object,
+    uuid(583ec3cc-4960-4857-982b-41a33ea0a006),
+    pointer_default(unique)
+]
+interface IAttributeSet : IUnknown
+{
+    HRESULT
+    SetAttrib (
+        [in]    GUID    guidAttribute,
+        [in]    BYTE *  pbAttribute,
+        [in]    DWORD   dwAttributeLength
+        ) ;
+} ;
+
+[
+    object,
+    uuid(52dbd1ec-e48f-4528-9232-f442a68f0ae1),
+    pointer_default(unique)
+]
+interface IAttributeGet : IUnknown
+{
+    HRESULT
+    GetCount (
+        [out]   LONG *  plCount
+        ) ;
+
+    HRESULT
+    GetAttribIndexed (
+        [in]        LONG    lIndex,             //  0-based
+        [out]       GUID *  pguidAttribute,
+        [in, out]   BYTE *  pbAttribute,
+        [in, out]   DWORD * pdwAttributeLength
+        ) ;
+
+    HRESULT
+    GetAttrib (
+        [in]        GUID    guidAttribute,
+        [in, out]   BYTE *  pbAttribute,
+        [in, out]   DWORD * pdwAttributeLength
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+        well-known attributes
+--*/
+
+//  ----------------------------------------------------------------------------
+//  UDCR attribute
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_UDCRTag")
+cpp_quote ("// ------------------------------------------------------")
+
+cpp_quote ("typedef struct _UDCR_TAG {")
+cpp_quote ("    BYTE        bVersion ;")
+cpp_quote ("    BYTE        KID [24 + 1] ;")
+cpp_quote ("    ULONGLONG   ullBaseCounter ;")
+cpp_quote ("    ULONGLONG   ullBaseCounterRange ;")
+cpp_quote ("    BOOL        fScrambled ;")
+cpp_quote ("    BYTE        bStreamMark ;")
+cpp_quote ("    DWORD       dwReserved1 ;")
+cpp_quote ("    DWORD       dwReserved2 ;")
+cpp_quote ("} UDCR_TAG ;")
+
+//  ----------------------------------------------------------------------------
+//  mpeg2 video analysis attribute
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_PicSampleSeq")
+cpp_quote ("// ------------------------------------------------------")
+
+cpp_quote ("// Older defines with mnemonics specific to MPEG-2 video:")
+cpp_quote ("#define SAMPLE_SEQ_SEQUENCE_HEADER      1")
+cpp_quote ("#define SAMPLE_SEQ_GOP_HEADER           2")
+cpp_quote ("#define SAMPLE_SEQ_PICTURE_HEADER       3")
+
+cpp_quote ("// Latest defines with mnemonics generic to MPEG-2 and H.264 video:")
+cpp_quote ("#define SAMPLE_SEQ_SEQUENCE_START       SAMPLE_SEQ_SEQUENCE_HEADER")
+cpp_quote ("#define SAMPLE_SEQ_SEEK_POINT           SAMPLE_SEQ_GOP_HEADER")
+cpp_quote ("#define SAMPLE_SEQ_FRAME_START          SAMPLE_SEQ_PICTURE_HEADER")
+
+cpp_quote ("// Older defines with mnemonics specific to MPEG-2 video:")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_UNKNOWN      0")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_I_FRAME      1")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_P_FRAME      2")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_B_FRAME      3")
+
+cpp_quote ("// Latest defines with mnemonics generic to MPEG-2 and H.264 video:")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_STANDALONE_FRAME      SAMPLE_SEQ_CONTENT_I_FRAME")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_REF_FRAME             SAMPLE_SEQ_CONTENT_P_FRAME")
+cpp_quote ("#define SAMPLE_SEQ_CONTENT_NONREF_FRAME          SAMPLE_SEQ_CONTENT_B_FRAME")
+
+cpp_quote ("typedef struct _PIC_SEQ_SAMPLE {")
+cpp_quote ("    DWORD")
+cpp_quote ("      Content   : 3,    //  SAMPLE_CONTENT_*")
+cpp_quote ("      Start     : 1,    //  '1' if the sample is a PictureSampleSequence start")
+cpp_quote ("      FrameRate : 4,    //  see below (h.262, table 6-4)")
+cpp_quote ("      InvalidVA  : 1,   //  0 normally. 1 if VA attempted but failed")
+cpp_quote ("      Reserved   : 19,  //  reserved; shall have value 0")
+cpp_quote ("      Version   : 4 ;   //  1 [0 means InvalidVA defaults to 0]")
+cpp_quote ("} PIC_SEQ_SAMPLE, *PPIC_SEQ_SAMPLE ;")
+
+cpp_quote ("//      Frame Rate")
+cpp_quote ("//          (see h.262, table 6-4)")
+cpp_quote ("//")
+cpp_quote ("//          0000    reserved (ignore field value)")
+cpp_quote ("//          0001    23.976")
+cpp_quote ("//          0010    24")
+cpp_quote ("//          0011    25")
+cpp_quote ("//          0100    29.97")
+cpp_quote ("//          0101    30")
+cpp_quote ("//          0110    50")
+cpp_quote ("//          0111    59.94")
+cpp_quote ("//          1000    60")
+
+cpp_quote ("typedef struct _SAMPLE_SEQ_OFFSET {")
+cpp_quote ("    DWORD")
+cpp_quote ("      Type      : 4,       //  SAMPLE_SEQ_*; 0 means not used")
+cpp_quote ("      Offset    : 20,      //  downstream byte offset; 0xfffff means > 2^20-1")
+cpp_quote ("      Reserved  : 8 ;      //  reserved; o")
+cpp_quote ("} SAMPLE_SEQ_OFFSET ;")
+
+cpp_quote ("#define OFFSET_MARKER_COUNT(attr_len)   \\")
+cpp_quote ("    ((attr_len - sizeof (PIC_SEQ_SAMPLE)) / sizeof (SAMPLE_SEQ_OFFSET))")
+
+cpp_quote ("#define PIC_SEQ_SAMPLE_ATTR_LEN(cOffsets)   (sizeof (PIC_SEQ_SAMPLE) + (cOffsets) * sizeof (SAMPLE_SEQ_OFFSET))")
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_OptionalVideoAttributes")
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("")
+cpp_quote ("typedef enum VA_VIDEO_FORMAT")
+cpp_quote ("{")
+cpp_quote ("    // Original video format known:")
+cpp_quote ("")
+cpp_quote ("    VA_VIDEO_COMPONENT = 0,")
+cpp_quote ("    VA_VIDEO_PAL = 1,")
+cpp_quote ("    VA_VIDEO_NTSC = 2,")
+cpp_quote ("    VA_VIDEO_SECAM = 3,")
+cpp_quote ("    VA_VIDEO_MAC = 4,")
+cpp_quote ("")
+cpp_quote ("    // Original video format not known:")
+cpp_quote ("")
+cpp_quote ("    VA_VIDEO_UNSPECIFIED = 5")
+cpp_quote ("")
+cpp_quote ("    // The MPEG-2 video and H.264 specs reserve values")
+cpp_quote ("    // 6 and 7 for future use. ")
+cpp_quote ("} VA_VIDEO_FORMAT;")
+cpp_quote ("")
+cpp_quote ("typedef enum VA_COLOR_PRIMARIES")
+cpp_quote ("{")
+cpp_quote ("    // 0 is reserved by both H.264 and MPEG-2 video")
+cpp_quote ("")
+cpp_quote ("    VA_PRIMARIES_ITU_R_BT_709 = 1,")
+cpp_quote ("")
+cpp_quote ("    // Use this value if the color primaries system is not")
+cpp_quote ("    // known or non-standard:")
+cpp_quote ("")
+cpp_quote ("    VA_PRIMARIES_UNSPECIFIED = 2, ")
+cpp_quote ("")
+cpp_quote ("    // 3 is reserved by both H.264 and MPEG-2 video")
+cpp_quote ("")
+cpp_quote ("    VA_PRIMARIES_ITU_R_BT_470_SYSTEM_M = 4,")
+cpp_quote ("    VA_PRIMARIES_ITU_R_BT_470_SYSTEM_B_G = 5,")
+cpp_quote ("    VA_PRIMARIES_SMPTE_170M = 6,")
+cpp_quote ("    VA_PRIMARIES_SMPTE_240M = 7,")
+cpp_quote ("    VA_PRIMARIES_H264_GENERIC_FILM = 8")
+cpp_quote ("")
+cpp_quote ("    //  Values in the range 9 to 255 are reserved by H.264. Values in ")
+cpp_quote ("    // the range 8 to 255 are reserved by MPEG-2 video")
+cpp_quote ("} VA_COLOR_PRIMARIES;")
+cpp_quote ("")
+cpp_quote ("typedef enum VA_TRANSFER_CHARACTERISTICS")
+cpp_quote ("{")
+cpp_quote ("    // The value 0 is reserved by both MPEG-2 video and H.264")
+cpp_quote ("")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_709 = 1,")
+cpp_quote ("")
+cpp_quote ("    // Use the value below of the transfer characteristics")
+cpp_quote ("    // are unknown or non-standard:")
+cpp_quote ("")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_UNSPECIFIED = 2, ")
+cpp_quote ("")
+cpp_quote ("    // The value 3 is reserved by both MPEG-2 video and H.264")
+cpp_quote ("")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_M = 4,")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_B_G = 5,")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_SMPTE_170M = 6,")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_SMPTE_240M = 7,")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_LINEAR = 8,")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_H264_LOG_100_TO_1 = 9,")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS_H264_LOG_316_TO_1 = 10")
+cpp_quote ("")
+cpp_quote ("    // The values 11 to 255 are reserved by H.264. The values")
+cpp_quote ("    // 9 to 255 are reserved by MPEG-2 video.")
+cpp_quote ("} VA_TRANSFER_CHARACTERISTICS;")
+cpp_quote ("")
+cpp_quote ("typedef enum VA_MATRIX_COEFFICIENTS")
+cpp_quote ("{")
+cpp_quote ("    VA_MATRIX_COEFF_H264_RGB = 0,")
+cpp_quote ("    VA_MATRIX_COEFF_ITU_R_BT_709 = 1,")
+cpp_quote ("")
+cpp_quote ("    // Use the value below if the matrix coefficients are")
+cpp_quote ("    // unknown or non-standard:")
+cpp_quote ("")
+cpp_quote ("    VA_MATRIX_COEFF_UNSPECIFIED = 2,")
+cpp_quote ("")
+cpp_quote ("    // The value 3 is reserved by both MPEG-2 video and H.264")
+cpp_quote ("")
+cpp_quote ("    VA_MATRIX_COEFF_FCC = 4,")
+cpp_quote ("    VA_MATRIX_COEFF_ITU_R_BT_470_SYSTEM_B_G = 5,")
+cpp_quote ("    VA_MATRIX_COEFF_SMPTE_170M = 6,")
+cpp_quote ("    VA_MATRIX_COEFF_SMPTE_240M = 7,")
+cpp_quote ("    VA_MATRIX_COEFF_H264_YCgCo = 8")
+cpp_quote ("")
+cpp_quote ("    // The values 9 to 255 are reserved by H.264. The values 8 to 255")
+cpp_quote ("    // are reserved by MPEG-2 video.")
+cpp_quote ("} VA_MATRIX_COEFFICIENTS;")
+cpp_quote ("")
+cpp_quote ("typedef struct VA_OPTIONAL_VIDEO_PROPERTIES")
+cpp_quote ("{")
+cpp_quote ("    WORD					dwPictureHeight ;")
+cpp_quote ("    WORD		 			dwPictureWidth ;")
+cpp_quote ("    WORD					dwAspectRatioX ;")
+cpp_quote ("    WORD					dwAspectRatioY ;")
+cpp_quote ("    VA_VIDEO_FORMAT			VAVideoFormat;")
+cpp_quote ("    VA_COLOR_PRIMARIES 		VAColorPrimaries;")
+cpp_quote ("    VA_TRANSFER_CHARACTERISTICS VATransferCharacteristics;")
+cpp_quote ("    VA_MATRIX_COEFFICIENTS 	VAMatrixCoefficients;")
+cpp_quote ("}  VA_OPTIONAL_VIDEO_PROPERTIES;")
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_TRANSPORT_PROPERTIES")
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("typedef struct _TRANSPORT_PROPERTIES {")
+cpp_quote ("    ULONG               PID ;")
+cpp_quote ("    REFERENCE_TIME      PCR ;")
+cpp_quote ("    union {")
+cpp_quote ("        struct _Others {")
+cpp_quote ("            LONGLONG ")
+cpp_quote ("                TransportScramblingControl : 8 ,")
+cpp_quote ("                Reserved : 56 ;")
+cpp_quote ("        } Others ;")
+cpp_quote ("        LONGLONG Value ;")
+cpp_quote ("    } Fields ;")
+cpp_quote ("} TRANSPORT_PROPERTIES ;")
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_PBDATAG_ATTRIBUTE")
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("typedef struct _PBDA_TAG_ATTRIBUTE {")
+cpp_quote ("    GUID                TableUUId ;")
+cpp_quote ("    BYTE                TableId ;")
+cpp_quote ("    WORD                VersionNo ;")
+cpp_quote ("    DWORD               TableDataSize ;")
+cpp_quote ("    BYTE                TableData [1] ;")
+cpp_quote ("} PBDA_TAG_ATTRIBUTE ;")
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_CAPTURE_STREAMTIME")
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("typedef struct _CAPTURE_STREAMTIME {")
+cpp_quote ("    REFERENCE_TIME      StreamTime ;")
+cpp_quote ("} CAPTURE_STREAMTIME ;")
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_DSHOW_STREAM_DESC")
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("typedef struct _DSHOW_STREAM_DESC {")
+cpp_quote ("    DWORD   VersionNo ;")
+cpp_quote ("    DWORD   StreamId ;")
+cpp_quote ("    BOOL    Default ;")
+cpp_quote ("    BOOL    Creation ;")
+cpp_quote ("    DWORD   Reserved ;")
+cpp_quote ("} DSHOW_STREAM_DESC ;")
+
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("// GUID: DSATTRIB_SAMPLE_LIVE_STREAM_TIME")
+cpp_quote ("// ------------------------------------------------------")
+cpp_quote ("typedef struct _SAMPLE_LIVE_STREAM_TIME{")
+cpp_quote ("    ULONGLONG qwStreamTime;")
+cpp_quote ("    ULONGLONG qwLiveTime;")
+cpp_quote ("}SAMPLE_LIVE_STREAM_TIME ;")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

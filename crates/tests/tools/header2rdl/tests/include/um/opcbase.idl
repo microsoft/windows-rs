@@ -1,0 +1,279 @@
+//+--------------------------------------------------------------------------
+//
+//	Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//	Abstract:
+//		Basic types and enumerations used in conjunction with the 
+//      Open Packaging Convention APIs. 
+//
+//      Include from msopc.h.
+//      Import from msopc.idl.
+//
+//
+//----------------------------------------------------------------------------
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+import "oaidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+typedef [v1_enum] enum
+{
+    OPC_URI_TARGET_MODE_INTERNAL = 0,
+    OPC_URI_TARGET_MODE_EXTERNAL = 1
+} OPC_URI_TARGET_MODE;
+
+typedef [v1_enum] enum 
+{
+    OPC_COMPRESSION_NONE = -1,
+    OPC_COMPRESSION_NORMAL = 0,
+    OPC_COMPRESSION_MAXIMUM = 1,
+    OPC_COMPRESSION_FAST = 2,
+    OPC_COMPRESSION_SUPERFAST = 3
+} OPC_COMPRESSION_OPTIONS;
+
+typedef [v1_enum] enum
+{
+    OPC_STREAM_IO_READ = 1,
+    OPC_STREAM_IO_WRITE = 2,
+} OPC_STREAM_IO_MODE;
+
+cpp_quote ("#define IS_OPC_CONFORMANCE_ERROR(x) (((x) & 0x1FFFF000) == (0x0000+(FACILITY_OPC << 16)))")
+cpp_quote ("#define IS_ZIP_CONFORMANCE_ERROR(x) (((x) & 0x1FFFF000) == (0x1000+(FACILITY_OPC << 16)))")
+
+///////////////////////////////////////////////////////////////////
+//             OPC Error Codes :                                 //
+//                 - General                                     //
+//                 - Digital Signatures (DS)                     //
+//                 - Markup Compatibility (MC)                   //
+//                 - Enumerator (ENUM)                           //
+//                                                               //
+//             Range : 0x00 - 0x56                               //
+///////////////////////////////////////////////////////////////////
+
+cpp_quote("#define OPC_E_NONCONFORMING_URI MAKE_HRESULT(1, FACILITY_OPC, 0x1)")
+
+cpp_quote("#define OPC_E_RELATIVE_URI_REQUIRED MAKE_HRESULT(1, FACILITY_OPC, 0x2)")
+
+cpp_quote("#define OPC_E_RELATIONSHIP_URI_REQUIRED MAKE_HRESULT(1, FACILITY_OPC, 0x3)")
+
+cpp_quote("#define OPC_E_PART_CANNOT_BE_DIRECTORY MAKE_HRESULT(1, FACILITY_OPC, 0x4)")
+
+cpp_quote("#define OPC_E_UNEXPECTED_CONTENT_TYPE MAKE_HRESULT(1, FACILITY_OPC, 0x5)")
+
+cpp_quote("#define OPC_E_INVALID_CONTENT_TYPE_XML MAKE_HRESULT(1, FACILITY_OPC, 0x6)")
+
+cpp_quote("#define OPC_E_MISSING_CONTENT_TYPES MAKE_HRESULT(1, FACILITY_OPC, 0x7)")
+
+cpp_quote("#define OPC_E_NONCONFORMING_CONTENT_TYPES_XML MAKE_HRESULT(1, FACILITY_OPC, 0x8)")
+
+cpp_quote("#define OPC_E_NONCONFORMING_RELS_XML MAKE_HRESULT(1, FACILITY_OPC, 0x9)")
+
+cpp_quote("#define OPC_E_INVALID_RELS_XML MAKE_HRESULT(1, FACILITY_OPC, 0xA)")
+
+cpp_quote("#define OPC_E_DUPLICATE_PART MAKE_HRESULT(1, FACILITY_OPC, 0xB)")
+
+cpp_quote("#define OPC_E_INVALID_OVERRIDE_PART_NAME MAKE_HRESULT(1, FACILITY_OPC, 0xC)")
+
+cpp_quote("#define OPC_E_DUPLICATE_OVERRIDE_PART MAKE_HRESULT(1, FACILITY_OPC, 0xD)")
+
+cpp_quote("#define OPC_E_INVALID_DEFAULT_EXTENSION MAKE_HRESULT(1, FACILITY_OPC, 0xE)")
+
+cpp_quote("#define OPC_E_DUPLICATE_DEFAULT_EXTENSION MAKE_HRESULT(1, FACILITY_OPC, 0xF)")
+
+cpp_quote("#define OPC_E_INVALID_RELATIONSHIP_ID MAKE_HRESULT(1, FACILITY_OPC, 0x10)")
+
+cpp_quote("#define OPC_E_INVALID_RELATIONSHIP_TYPE MAKE_HRESULT(1, FACILITY_OPC, 0x11)")
+
+cpp_quote("#define OPC_E_INVALID_RELATIONSHIP_TARGET MAKE_HRESULT(1, FACILITY_OPC, 0x12)")
+
+cpp_quote("#define OPC_E_DUPLICATE_RELATIONSHIP MAKE_HRESULT(1, FACILITY_OPC, 0x13)")
+
+cpp_quote("#define OPC_E_CONFLICTING_SETTINGS MAKE_HRESULT(1, FACILITY_OPC, 0x14)")
+
+cpp_quote("#define OPC_E_DUPLICATE_PIECE MAKE_HRESULT(1, FACILITY_OPC, 0x15)")
+
+cpp_quote("#define OPC_E_INVALID_PIECE MAKE_HRESULT(1, FACILITY_OPC, 0x16)")
+
+cpp_quote("#define OPC_E_MISSING_PIECE MAKE_HRESULT(1, FACILITY_OPC, 0x17)")
+
+cpp_quote("#define OPC_E_NO_SUCH_PART MAKE_HRESULT(1, FACILITY_OPC, 0x18)")
+
+cpp_quote("#define OPC_E_DS_SIGNATURE_CORRUPT MAKE_HRESULT(1, FACILITY_OPC, 0x19)")
+
+cpp_quote("#define OPC_E_DS_DIGEST_VALUE_ERROR MAKE_HRESULT(1, FACILITY_OPC, 0x1A)")
+
+cpp_quote("#define OPC_E_DS_DUPLICATE_SIGNATURE_ORIGIN_RELATIONSHIP MAKE_HRESULT(1, FACILITY_OPC, 0x1B)")
+
+cpp_quote("#define OPC_E_DS_INVALID_SIGNATURE_ORIGIN_RELATIONSHIP MAKE_HRESULT(1, FACILITY_OPC, 0x1C)")
+
+cpp_quote("#define OPC_E_DS_INVALID_CERTIFICATE_RELATIONSHIP MAKE_HRESULT(1, FACILITY_OPC, 0x1D)")
+
+cpp_quote("#define OPC_E_DS_EXTERNAL_SIGNATURE MAKE_HRESULT(1, FACILITY_OPC, 0x1E)")
+
+cpp_quote("#define OPC_E_DS_MISSING_SIGNATURE_ORIGIN_PART MAKE_HRESULT(1, FACILITY_OPC, 0x1F)")
+
+cpp_quote("#define OPC_E_DS_MISSING_SIGNATURE_PART MAKE_HRESULT(1, FACILITY_OPC, 0x20)")
+
+cpp_quote("#define OPC_E_DS_INVALID_RELATIONSHIP_TRANSFORM_XML MAKE_HRESULT(1, FACILITY_OPC, 0x21)")
+
+cpp_quote("#define OPC_E_DS_INVALID_CANONICALIZATION_METHOD MAKE_HRESULT(1, FACILITY_OPC, 0x22)")
+
+cpp_quote("#define OPC_E_DS_INVALID_RELATIONSHIPS_SIGNING_OPTION MAKE_HRESULT(1, FACILITY_OPC, 0x23)")
+
+cpp_quote("#define OPC_E_DS_INVALID_OPC_SIGNATURE_TIME_FORMAT MAKE_HRESULT(1, FACILITY_OPC, 0x24)")
+
+cpp_quote("#define OPC_E_DS_PACKAGE_REFERENCE_URI_RESERVED MAKE_HRESULT(1, FACILITY_OPC, 0x25)")
+
+cpp_quote("#define OPC_E_DS_MISSING_SIGNATURE_PROPERTIES_ELEMENT MAKE_HRESULT(1, FACILITY_OPC, 0x26)")
+
+cpp_quote("#define OPC_E_DS_MISSING_SIGNATURE_PROPERTY_ELEMENT MAKE_HRESULT(1, FACILITY_OPC, 0x27)")
+
+cpp_quote("#define OPC_E_DS_DUPLICATE_SIGNATURE_PROPERTY_ELEMENT MAKE_HRESULT(1, FACILITY_OPC, 0x28)")
+
+cpp_quote("#define OPC_E_DS_MISSING_SIGNATURE_TIME_PROPERTY MAKE_HRESULT(1, FACILITY_OPC, 0x29)")
+
+cpp_quote("#define OPC_E_DS_INVALID_SIGNATURE_XML MAKE_HRESULT(1, FACILITY_OPC, 0x2A)")
+
+cpp_quote("#define OPC_E_DS_INVALID_SIGNATURE_COUNT MAKE_HRESULT(1, FACILITY_OPC, 0x2B)")
+
+cpp_quote("#define OPC_E_DS_MISSING_SIGNATURE_ALGORITHM MAKE_HRESULT(1, FACILITY_OPC, 0x2C)")
+
+cpp_quote("#define OPC_E_DS_DUPLICATE_PACKAGE_OBJECT_REFERENCES MAKE_HRESULT(1, FACILITY_OPC, 0x2D)")
+
+cpp_quote("#define OPC_E_DS_MISSING_PACKAGE_OBJECT_REFERENCE MAKE_HRESULT(1, FACILITY_OPC, 0x2E)")
+
+cpp_quote("#define OPC_E_DS_EXTERNAL_SIGNATURE_REFERENCE MAKE_HRESULT(1, FACILITY_OPC, 0x2F)")
+
+cpp_quote("#define OPC_E_DS_REFERENCE_MISSING_CONTENT_TYPE MAKE_HRESULT(1, FACILITY_OPC, 0x30)")
+
+cpp_quote("#define OPC_E_DS_MULTIPLE_RELATIONSHIP_TRANSFORMS MAKE_HRESULT(1, FACILITY_OPC, 0x31)")
+
+cpp_quote("#define OPC_E_DS_MISSING_CANONICALIZATION_TRANSFORM MAKE_HRESULT(1, FACILITY_OPC, 0x32)")
+
+cpp_quote("#define OPC_E_MC_UNEXPECTED_ELEMENT MAKE_HRESULT(1, FACILITY_OPC, 0x33)")
+
+cpp_quote("#define OPC_E_MC_UNEXPECTED_REQUIRES_ATTR MAKE_HRESULT(1, FACILITY_OPC, 0x34)")
+
+cpp_quote("#define OPC_E_MC_MISSING_REQUIRES_ATTR MAKE_HRESULT(1, FACILITY_OPC, 0x35)")
+
+cpp_quote("#define OPC_E_MC_UNEXPECTED_ATTR MAKE_HRESULT(1, FACILITY_OPC, 0x36)")
+
+cpp_quote("#define OPC_E_MC_INVALID_PREFIX_LIST MAKE_HRESULT(1, FACILITY_OPC, 0x37)")
+
+cpp_quote("#define OPC_E_MC_INVALID_QNAME_LIST MAKE_HRESULT(1, FACILITY_OPC, 0x38)")
+
+cpp_quote("#define OPC_E_MC_NESTED_ALTERNATE_CONTENT MAKE_HRESULT(1, FACILITY_OPC, 0x39)")
+
+cpp_quote("#define OPC_E_MC_UNEXPECTED_CHOICE MAKE_HRESULT(1, FACILITY_OPC, 0x3A)")
+
+cpp_quote("#define OPC_E_MC_MISSING_CHOICE MAKE_HRESULT(1, FACILITY_OPC, 0x3B)")
+
+cpp_quote("#define OPC_E_MC_INVALID_ENUM_TYPE MAKE_HRESULT(1, FACILITY_OPC, 0x3C)")
+
+cpp_quote("#define OPC_E_MC_UNKNOWN_NAMESPACE MAKE_HRESULT(1, FACILITY_OPC, 0x3E)")
+
+cpp_quote("#define OPC_E_MC_UNKNOWN_PREFIX MAKE_HRESULT(1, FACILITY_OPC, 0x3F)")
+
+cpp_quote("#define OPC_E_MC_INVALID_ATTRIBUTES_ON_IGNORABLE_ELEMENT MAKE_HRESULT(1, FACILITY_OPC, 0x40)")
+
+cpp_quote("#define OPC_E_MC_INVALID_XMLNS_ATTRIBUTE MAKE_HRESULT(1, FACILITY_OPC, 0x41)")
+
+cpp_quote("#define OPC_E_INVALID_XML_ENCODING MAKE_HRESULT(1, FACILITY_OPC, 0x42)")
+
+cpp_quote("#define OPC_E_DS_SIGNATURE_REFERENCE_MISSING_URI MAKE_HRESULT(1, FACILITY_OPC, 0x43)")
+
+cpp_quote("#define OPC_E_INVALID_CONTENT_TYPE MAKE_HRESULT(1, FACILITY_OPC, 0x44)")
+
+cpp_quote("#define OPC_E_DS_SIGNATURE_PROPERTY_MISSING_TARGET MAKE_HRESULT(1, FACILITY_OPC, 0x45)")
+
+cpp_quote("#define OPC_E_DS_SIGNATURE_METHOD_NOT_SET MAKE_HRESULT(1, FACILITY_OPC, 0x46)")
+
+cpp_quote("#define OPC_E_DS_DEFAULT_DIGEST_METHOD_NOT_SET MAKE_HRESULT(1, FACILITY_OPC, 0x47)")
+
+cpp_quote("#define OPC_E_NO_SUCH_RELATIONSHIP MAKE_HRESULT(1, FACILITY_OPC, 0x48)")
+
+cpp_quote("#define OPC_E_MC_MULTIPLE_FALLBACK_ELEMENTS MAKE_HRESULT(1, FACILITY_OPC, 0x49)")
+
+cpp_quote("#define OPC_E_MC_INCONSISTENT_PROCESS_CONTENT MAKE_HRESULT(1, FACILITY_OPC, 0x4A)")
+
+cpp_quote("#define OPC_E_MC_INCONSISTENT_PRESERVE_ATTRIBUTES MAKE_HRESULT(1, FACILITY_OPC, 0x4B)")
+
+cpp_quote("#define OPC_E_MC_INCONSISTENT_PRESERVE_ELEMENTS MAKE_HRESULT(1, FACILITY_OPC, 0x4C)")
+
+cpp_quote("#define OPC_E_INVALID_RELATIONSHIP_TARGET_MODE MAKE_HRESULT(1, FACILITY_OPC, 0x4D)")
+
+cpp_quote("#define OPC_E_COULD_NOT_RECOVER MAKE_HRESULT(1, FACILITY_OPC, 0x4E)")
+
+cpp_quote("#define OPC_E_UNSUPPORTED_PACKAGE MAKE_HRESULT(1, FACILITY_OPC, 0x4F)")
+
+cpp_quote("#define OPC_E_ENUM_COLLECTION_CHANGED MAKE_HRESULT(1, FACILITY_OPC, 0x50)")
+
+cpp_quote("#define OPC_E_ENUM_CANNOT_MOVE_NEXT MAKE_HRESULT(1, FACILITY_OPC, 0x51)")
+
+cpp_quote("#define OPC_E_ENUM_CANNOT_MOVE_PREVIOUS MAKE_HRESULT(1, FACILITY_OPC, 0x52)")
+
+cpp_quote("#define OPC_E_ENUM_INVALID_POSITION MAKE_HRESULT(1, FACILITY_OPC, 0x53)")
+
+cpp_quote("#define OPC_E_DS_SIGNATURE_ORIGIN_EXISTS MAKE_HRESULT(1, FACILITY_OPC, 0x54)")
+
+cpp_quote("#define OPC_E_DS_UNSIGNED_PACKAGE MAKE_HRESULT(1, FACILITY_OPC, 0x55)")
+
+cpp_quote("#define OPC_E_DS_MISSING_CERTIFICATE_PART MAKE_HRESULT(1, FACILITY_OPC, 0x56)")
+
+cpp_quote("#define OPC_E_NO_SUCH_SETTINGS MAKE_HRESULT(1, FACILITY_OPC, 0x57)")
+
+//////////////////////////////////////////////////////////////////
+//                   OPC Zip Layer Error Codes                  //
+//                                                              //
+//                   Range : 0x1000 - 0x1010                    //
+//////////////////////////////////////////////////////////////////
+
+cpp_quote("#define OPC_E_ZIP_INCORRECT_DATA_SIZE MAKE_HRESULT(1, FACILITY_OPC, 0x1001)")
+
+cpp_quote("#define OPC_E_ZIP_CORRUPTED_ARCHIVE MAKE_HRESULT(1, FACILITY_OPC, 0x1002)")
+
+cpp_quote("#define OPC_E_ZIP_COMPRESSION_FAILED MAKE_HRESULT(1, FACILITY_OPC, 0x1003)")
+
+cpp_quote("#define OPC_E_ZIP_DECOMPRESSION_FAILED MAKE_HRESULT(1, FACILITY_OPC, 0x1004)")
+
+cpp_quote("#define OPC_E_ZIP_INCONSISTENT_FILEITEM MAKE_HRESULT(1, FACILITY_OPC, 0x1005)")
+
+cpp_quote("#define OPC_E_ZIP_INCONSISTENT_DIRECTORY MAKE_HRESULT(1, FACILITY_OPC, 0x1006)")
+
+cpp_quote("#define OPC_E_ZIP_MISSING_DATA_DESCRIPTOR MAKE_HRESULT(1, FACILITY_OPC, 0x1007)")
+
+cpp_quote("#define OPC_E_ZIP_UNSUPPORTEDARCHIVE MAKE_HRESULT(1, FACILITY_OPC, 0x1008)")
+
+cpp_quote("#define OPC_E_ZIP_CENTRAL_DIRECTORY_TOO_LARGE MAKE_HRESULT(1, FACILITY_OPC, 0x1009)")
+
+cpp_quote("#define OPC_E_ZIP_NAME_TOO_LARGE MAKE_HRESULT(1, FACILITY_OPC, 0x100A)")
+
+cpp_quote("#define OPC_E_ZIP_DUPLICATE_NAME MAKE_HRESULT(1, FACILITY_OPC, 0x100B)")
+
+cpp_quote("#define OPC_E_ZIP_COMMENT_TOO_LARGE MAKE_HRESULT(1, FACILITY_OPC, 0x100C)")
+
+cpp_quote("#define OPC_E_ZIP_EXTRA_FIELDS_TOO_LARGE MAKE_HRESULT(1, FACILITY_OPC, 0x100D)")
+
+cpp_quote("#define OPC_E_ZIP_FILE_HEADER_TOO_LARGE MAKE_HRESULT(1, FACILITY_OPC, 0x100E)")
+
+cpp_quote("#define OPC_E_ZIP_MISSING_END_OF_CENTRAL_DIRECTORY MAKE_HRESULT(1, FACILITY_OPC, 0x100F)")
+
+cpp_quote("#define OPC_E_ZIP_REQUIRES_64_BIT MAKE_HRESULT(1, FACILITY_OPC, 0x1010)")
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+

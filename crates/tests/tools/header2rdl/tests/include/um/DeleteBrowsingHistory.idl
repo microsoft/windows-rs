@@ -1,0 +1,33 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include <olectl.h>
+import "ocidl.idl";
+
+cpp_quote("// {31caf6e4-d6aa-4090-a050-a5ac8972e9ef} ")
+cpp_quote("DEFINE_GUID( CATID_DeleteBrowsingHistory, 0x31caf6e4,0xd6aa,0x4090,0xa0,0x50,0xa5,0xac,0x89,0x72,0xe9,0xef);")
+cpp_quote("EXTERN_C const GUID CATID_DeleteBrowsingHistory;")
+
+
+cpp_quote("#define DELETE_BROWSING_HISTORY_HISTORY              0x0001   // Indicates that the History checkbox was selected.")
+cpp_quote("#define DELETE_BROWSING_HISTORY_COOKIES              0x0002   // Indicates that the Cookies checkbox was selected.")
+cpp_quote("#define DELETE_BROWSING_HISTORY_TIF                  0x0004   // Indicates that the Temporary Internet Files checkbox was selected.")
+cpp_quote("#define DELETE_BROWSING_HISTORY_FORMDATA             0x0008   // Indicates that the Form data checkbox was selected.")
+cpp_quote("#define DELETE_BROWSING_HISTORY_PASSWORDS            0x0010   // Indicates that the Passwords checkbox was selected.")
+cpp_quote("#define DELETE_BROWSING_HISTORY_PRESERVEFAVORITES    0x0020   // Indicates that the Preseve Favorite website data checkbox is selected.")
+cpp_quote("#define DELETE_BROWSING_HISTORY_DOWNLOADHISTORY      0x0040   // Indicates that the Download History checkbox was selected.")
+
+[
+    uuid(cf38ed4b-2be7-4461-8b5e-9a466dc82ae3),
+    helpstring("IDeleteBrowsingHistory Interface"),
+]
+interface IDeleteBrowsingHistory : IUnknown
+{
+    HRESULT DeleteBrowsingHistory(DWORD dwFlags);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

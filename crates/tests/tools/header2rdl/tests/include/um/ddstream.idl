@@ -1,0 +1,95 @@
+//------------------------------------------------------------------------------
+// File: DDStream.idl
+//
+// Desc: Used by MIDL tool to generate ddstream.h
+//
+// Copyright (c) 1998-2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "mmstream.idl";
+
+cpp_quote("//")
+cpp_quote("//   The following declarations within the 'if 0' block are dummy typedefs used to make")
+cpp_quote("//   the ddstream.idl file build.  The actual definitions are contained in DDRAW.H")
+cpp_quote("//")
+cpp_quote("#if 0")
+typedef void * LPDDSURFACEDESC;
+typedef struct tDDSURFACEDESC DDSURFACEDESC;
+cpp_quote("#endif")
+cpp_quote("#include <ddraw.h>")
+
+enum {
+    DDSFF_PROGRESSIVERENDER = 0x00000001
+};
+
+interface IDirectDraw;
+interface IDirectDrawSurface;
+interface IDirectDrawPalette;
+
+interface IDirectDrawMediaStream;
+interface IDirectDrawStreamSample;
+
+// IDirectDrawMediaStream
+[
+object,
+local,
+uuid(F4104FCE-9A70-11d0-8FDE-00C04FD9189D),
+pointer_default(unique)
+]
+interface IDirectDrawMediaStream : IMediaStream
+{
+    HRESULT GetFormat(
+        [out]  DDSURFACEDESC *pDDSDCurrent,
+        [out]  IDirectDrawPalette **ppDirectDrawPalette,
+        [out]  DDSURFACEDESC *pDDSDDesired,
+        [out]  DWORD *pdwFlags);
+
+    HRESULT SetFormat(
+        [in] const DDSURFACEDESC *pDDSurfaceDesc,
+        [in]  IDirectDrawPalette *pDirectDrawPalette);
+
+    HRESULT GetDirectDraw(
+        [out] IDirectDraw **ppDirectDraw);
+
+    HRESULT SetDirectDraw(
+        [in] IDirectDraw *pDirectDraw);
+
+    HRESULT CreateSample(
+        [in]  IDirectDrawSurface *pSurface,
+        [in]  const RECT *pRect,
+        [in] DWORD dwFlags,
+        [out]IDirectDrawStreamSample **ppSample);
+
+    HRESULT GetTimePerFrame(
+        [out] STREAM_TIME *pFrameTime);
+};
+
+
+// IDirectDrawStreamSample
+[
+object,
+local,
+uuid(F4104FCF-9A70-11d0-8FDE-00C04FD9189D),
+pointer_default(unique)
+]
+interface IDirectDrawStreamSample : IStreamSample
+{
+    HRESULT GetSurface(
+        [out]  IDirectDrawSurface ** ppDirectDrawSurface,
+        [out]  RECT * pRect);
+
+    HRESULT SetRect(
+        [in] const RECT * pRect);
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

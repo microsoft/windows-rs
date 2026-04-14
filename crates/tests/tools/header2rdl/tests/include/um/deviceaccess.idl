@@ -1,0 +1,92 @@
+import "wtypes.idl", "unknwn.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("STDAPI")
+cpp_quote("CreateDeviceAccessInstance(")
+cpp_quote("    _In_ PCWSTR deviceInterfacePath,")
+cpp_quote("    _In_ DWORD desiredAccess,")
+cpp_quote("    _COM_Outptr_ ICreateDeviceAccessAsync **createAsync")
+cpp_quote("    );")
+cpp_quote("#endif")
+
+declare_guid(CLSID_DeviceIoControl, 12D3E372-874B-457D-9FDF-73977778686C);
+
+[object,
+ uuid (999BAD24-9ACD-45BB-8669-2A2FC0288B04),
+ pointer_default(unique)
+ ]
+interface IDeviceRequestCompletionCallback : IUnknown
+{
+cpp_quote("#define RequestCompletion Invoke")
+
+    HRESULT
+    RequestCompletion(
+        [in] HRESULT requestResult,
+        [in] DWORD bytesReturned
+        );
+}
+
+[object,
+uuid (9EEFE161-23AB-4F18-9B49-991B586AE970),
+pointer_default(unique),
+local
+]
+interface IDeviceIoControl : IUnknown
+{
+
+    HRESULT
+    DeviceIoControlSync(
+        [in, annotation("_In_")] DWORD ioControlCode,
+        [in, size_is(inputBufferSize), annotation("_In_reads_opt_(inputBufferSize)")] UCHAR *inputBuffer,
+        [in, annotation("_In_")] DWORD inputBufferSize,
+        [out, size_is(outputBufferSize), annotation("_Out_writes_opt_(outputBufferSize)")] UCHAR *outputBuffer,
+        [in, annotation("_In_")] DWORD outputBufferSize,
+        [out, annotation("_Out_")] DWORD *bytesReturned
+        );
+
+    HRESULT
+    DeviceIoControlAsync(
+        [in, annotation("_In_")] DWORD ioControlCode,
+        [in, size_is(inputBufferSize), annotation("_In_reads_opt_(inputBufferSize)")] UCHAR *inputBuffer,
+        [in, annotation("_In_")] DWORD inputBufferSize,
+        [out, size_is(outputBufferSize), annotation("_Out_writes_opt_(outputBufferSize)")] UCHAR *outputBuffer,
+        [in, annotation("_In_")] DWORD outputBufferSize,
+        [in, annotation("_In_")] IDeviceRequestCompletionCallback * requestCompletionCallback,
+        [out, annotation("_Out_opt_")] ULONG_PTR * cancelContext
+        );
+
+    HRESULT
+    CancelOperation(
+        [in, annotation("_In_")] ULONG_PTR cancelContext
+        );
+}
+
+[object,
+ uuid (3474628F-683D-42D2-ABCB-DB018C6503BC),
+ pointer_default(unique),
+ local
+ ]
+interface ICreateDeviceAccessAsync : IUnknown
+{
+    HRESULT
+    Cancel();
+
+    HRESULT
+    Wait(
+        [in, annotation("_In_")] DWORD timeout
+        );
+
+    HRESULT
+    Close();
+
+    //
+    // Current IIDs that are valid for this function are:
+    //
+    // IID_IDeviceIoControl
+    //
+    HRESULT
+    GetResult(
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_COM_Outptr_")] void** deviceAccess
+        );
+}

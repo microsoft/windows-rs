@@ -1,0 +1,64 @@
+﻿//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+
+cpp_quote("#include <winapifamily.h>")
+
+import "Inspectable.idl";
+import "mfobjects.idl";
+import "Wincodec.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("// {84E65691-8602-4A84-BE46-708BE9CD4B74}")
+cpp_quote("extern const __declspec(selectany) CLSID CLSID_SoftwareBitmapNativeFactory = { 0x84e65691, 0x8602, 0x4a84, { 0xbe, 0x46, 0x70, 0x8b, 0xe9, 0xcd, 0x4b, 0x74 } };")
+        
+[
+    object,
+    uuid(94BC8415-04EA-4B2E-AF13-4DE95AA898EB),
+    local,
+    pointer_default(unique)
+]
+interface ISoftwareBitmapNative : IInspectable
+{
+    // Provides IMFMediaBuffer, IMF2DBuffer2, IWICBitmap, etc. if present
+    // Returns E_NOINTERFACE if not available
+    HRESULT GetData(
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+}
+
+[
+    object,
+    uuid(C3C181EC-2914-4791-AF02-02D224A10B43),
+    local,
+    pointer_default(unique)
+]
+interface ISoftwareBitmapNativeFactory : IInspectable
+{
+    HRESULT CreateFromWICBitmap(
+        [in, annotation("_In_")] IWICBitmap* data,
+        [in, annotation("_In_")] BOOL forceReadOnly, // only applies to the WinRT wrapper, not the wrapped WIC bitmap
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+
+    HRESULT CreateFromMF2DBuffer2(
+        [in, annotation("_In_")] IMF2DBuffer2* data, // must not implement IMFDXGIBuffer
+        [in, annotation("_In_")] REFGUID subtype,
+        [in, annotation("_In_")] UINT32 width,
+        [in, annotation("_In_")] UINT32 height,
+        [in, annotation("_In_")] BOOL forceReadOnly, // only applies to the WinRT wrapper, not the wrapped MF buffer
+        [in, annotation("_In_opt_")] const MFVideoArea* minDisplayAperture, // MF_MT_MINIMUM_DISPLAY_APERTURE, null if full-frame
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] LPVOID* ppv
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

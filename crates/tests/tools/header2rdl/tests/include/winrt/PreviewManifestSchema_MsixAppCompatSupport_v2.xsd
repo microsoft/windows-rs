@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="Shortcut" type="CT_Shortcut"/>
+        <xs:element name="ApplicationRegistration" type="CT_ApplicationRegistration"/>
+        <xs:element name="MailProvider" type="CT_MailProvider"/>
+        <xs:element name="DesktopAppMigration" type="CT_DesktopAppMigration"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_PreviewAppCompat2" use="required"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_Shortcut">
+    <xs:all>
+      <xs:element name="AppMigrations" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="1000">
+              <xs:element name="AppMigration" minOccurs="0">
+                <xs:complexType>
+                  <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase_FullPath"/>
+                  <xs:attribute name="AumId" type="t:ST_NonEmptyString"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="File" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="Icon" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="PinToStartMenu" type="xs:boolean"/>
+    <xs:attribute name="ExcludeFromShowInNewInstall" type="xs:boolean"/>
+    <xs:attribute name="Description" type="t:ST_Description"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_MailProvider">
+    <xs:attribute name="Name" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Description" type="t:ST_Description" use="required"/>
+    <xs:attribute name="SimpleMapiLibrary" type="t:ST_DllFile" use="required"/>
+    <xs:attribute name="ExtendedMapiLibrary" type="t:ST_DllFile" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ApplicationRegistration">
+    <xs:attribute name="Name" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="ApplicationName" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="ApplicationDescription" type="t:ST_NonEmptyString" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DesktopAppMigration">
+    <xs:sequence minOccurs="0" maxOccurs="10000">
+      <xs:element name="DesktopApp" minOccurs="0" >
+        <xs:complexType>
+          <xs:attribute name="AumId" type="t:ST_NonEmptyString"/>
+          <xs:attribute name="ShortcutPath" type="t:ST_NonEmptyString"/>
+          <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase_FullPath"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AcquisitionUri" type="t:ST_URI" use="optional"/>
+  </xs:complexType>
+
+</xs:schema>

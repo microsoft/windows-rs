@@ -1,0 +1,783 @@
+// MSRDC.idl : IDL source for MSRDC
+// Updated 2/14/2005 10:25am
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MSRDC.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#ifdef MSRDCLIB     // PRIVATE
+#include "guids.h"  // PRIVATE
+#endif              // PRIVATE
+
+#ifndef GUID_IID_IRdcGeneratorParameters
+#define GUID_IID_IRdcGeneratorParameters           96236A71-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcGeneratorFilterMaxParameters  96236A72-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcGenerator                     96236A73-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcFileReader                    96236A74-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcFileWriter                    96236A75-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcSignatureReader               96236A76-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcComparator                    96236A77-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcLibrary                       96236A78-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarityReportProgress         96236A7A-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarityTableDumpState         96236A7B-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarityTraitsMappedView       96236A7C-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarityTraitsMapping          96236A7D-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarityTraitsTable            96236A7E-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarityFileIdTable            96236A7F-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IRdcSimilarityGenerator           96236A80-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_IFindSimilarResults               96236A81-9DBC-11DA-9E3F-0011114AE311
+#define GUID_IID_ISimilarity                       96236A83-9DBC-11DA-9E3F-0011114AE311
+#define GUID_LIBID_MSRDCLib                        96236A84-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcLibrary                      96236A85-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcGeneratorParameters          96236A86-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcGeneratorFilterMaxParameters 96236A87-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcGenerator                    96236A88-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcFileReader                   96236A89-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcSignatureReader              96236A8A-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcComparator                   96236A8B-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_SimilarityReportProgress        96236A8D-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_SimilarityTableDumpState        96236A8E-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_SimilarityTraitsTable           96236A8F-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_SimilarityFileIdTable           96236A90-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_Similarity                      96236A91-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_RdcSimilarityGenerator          96236A92-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_FindSimilarResults              96236A93-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_SimilarityTraitsMapping         96236A94-9DBC-11DA-9E3F-0011114AE311
+#define GUID_CLSID_SimilarityTraitsMappedView      96236A95-9DBC-11DA-9E3F-0011114AE311
+#endif
+
+const unsigned RDCE_TABLE_FULL    = 0x80040001; // FileID table only allows at most 2^32 entries
+const unsigned RDCE_TABLE_CORRUPT = 0x80040002; // similarity tables need to be deleted and rebuilt
+
+cpp_quote("#pragma warning( disable: 4100 )")     /* unreferenced formal parameter */
+cpp_quote("#pragma warning( disable: 4152 )")     /* nonstandard extension, function/data pointer conversion in expression */
+/*
+    Define the version of this library
+ */
+cpp_quote("const ULONG MSRDC_VERSION = 0x010000;")
+/*
+    Define the minimum version of an application
+    compiled for RDC_SDK that will work with this
+    version of the SDK.
+ */
+cpp_quote("const ULONG MSRDC_MINIMUM_COMPATIBLE_APP_VERSION = 0x010000;")
+
+cpp_quote("const ULONG MSRDC_MINIMUM_DEPTH = 1;")
+cpp_quote("const ULONG MSRDC_MAXIMUM_DEPTH = 8;") // Win32SignatureGeneration::MaxGenerationDepth
+
+cpp_quote("const ULONG MSRDC_MINIMUM_COMPAREBUFFER = 100000;")
+cpp_quote("const ULONG MSRDC_MAXIMUM_COMPAREBUFFER = (1<<30);")
+cpp_quote("const ULONG MSRDC_DEFAULT_COMPAREBUFFER = 3200000;")
+
+cpp_quote("const ULONG MSRDC_MINIMUM_INPUTBUFFERSIZE = 1024;")
+
+const ULONG MSRDC_SIGNATURE_HASHSIZE = 16;
+
+cpp_quote("const ULONG MSRDC_MINIMUM_HORIZONSIZE = 128;")
+cpp_quote("const ULONG MSRDC_MAXIMUM_HORIZONSIZE = 1024 * 16;")
+cpp_quote("const ULONG MSRDC_MINIMUM_HASHWINDOWSIZE = 2;")
+cpp_quote("const ULONG MSRDC_MAXIMUM_HASHWINDOWSIZE = 96;")
+cpp_quote("const ULONG MSRDC_DEFAULT_HASHWINDOWSIZE_1 = 48;")
+cpp_quote("const ULONG MSRDC_DEFAULT_HORIZONSIZE_1    = 1024;")
+cpp_quote("const ULONG MSRDC_DEFAULT_HASHWINDOWSIZE_N = 2;")
+cpp_quote("const ULONG MSRDC_DEFAULT_HORIZONSIZE_N    = 128;")
+
+cpp_quote("const ULONG MSRDC_MAXIMUM_TRAITVALUE = 63;")
+cpp_quote("const ULONG MSRDC_MINIMUM_MATCHESREQUIRED = 1;")
+cpp_quote("const ULONG MSRDC_MAXIMUM_MATCHESREQUIRED = 16;")
+
+typedef enum
+{
+    RDC_NoError,
+    RDC_HeaderVersionNewer,     // The filer header is incompatible with this library.
+    RDC_HeaderVersionOlder,     // The filer header is incompatible with this library.
+    RDC_HeaderMissingOrCorrupt,
+    RDC_HeaderWrongType,        // The header format is incorrect (wrong type of input file?).
+    RDC_DataMissingOrCorrupt,   // EOF reached before all data expected was read.
+    RDC_DataTooManyRecords,     // Additional data found in stream past where EOF was expected.
+    RDC_FileChecksumMismatch,   // Final file checksum doesn't match.
+    RDC_ApplicationError,        // An application callback function returned failure.
+    RDC_Aborted,
+    RDC_Win32Error             // A win32 error code
+} RDC_ErrorCode;
+
+typedef enum
+{
+    RDCGENTYPE_Unused,
+    RDCGENTYPE_FilterMax
+} GeneratorParametersType;
+
+typedef enum
+{
+    RDCNEED_SOURCE = 0,
+    RDCNEED_TARGET = 1,
+    RDCNEED_SEED   = 2,
+    RDCNEED_SEED_MAX = 255 // Allows up to 253 seed files.
+} RdcNeedType;
+
+typedef struct
+{
+    RdcNeedType m_BlockType;
+    unsigned __int64 m_FileOffset;
+    unsigned __int64 m_BlockLength;
+} RdcNeed;
+
+typedef struct
+{
+    ULONG m_Size;
+    ULONG m_Used;
+    BYTE *m_Data;
+} RdcBufferPointer;
+
+typedef struct
+{
+    ULONG m_Size;
+    ULONG m_Used;
+    RdcNeed *m_Data;
+} RdcNeedPointer;
+
+typedef struct
+{
+    BYTE m_Signature[MSRDC_SIGNATURE_HASHSIZE];
+    USHORT m_BlockLength;
+} RdcSignature;
+
+typedef struct
+{
+    ULONG m_Size;
+    ULONG m_Used;
+    RdcSignature *m_Data;
+} RdcSignaturePointer;
+
+typedef unsigned int SimilarityFileIndexT;
+
+typedef enum
+{
+    RDCTABLE_InvalidOrUnknown,
+    RDCTABLE_Existing,
+    RDCTABLE_New
+} RdcCreatedTables;
+
+typedef enum
+{
+    RDCMAPPING_Undefined,
+    RDCMAPPING_ReadOnly,
+    RDCMAPPING_ReadWrite
+} RdcMappingAccessMode;
+
+typedef struct
+{
+    unsigned char       *m_Data;
+    DWORD                m_Length;
+} SimilarityMappedViewInfo;
+
+typedef struct 
+{
+    unsigned char m_Data[16];
+} SimilarityData;
+
+typedef struct 
+{
+    SimilarityFileIndexT m_FileIndex;
+    unsigned             m_MatchCount;
+} FindSimilarFileIndexResults;
+
+typedef struct 
+{
+    SimilarityFileIndexT m_FileIndex;
+    SimilarityData       m_Data;
+} SimilarityDumpData;
+
+const unsigned SimilarityFileIdMinSize = 4;
+const unsigned SimilarityFileIdMaxSize = 32;
+typedef struct 
+{
+    byte m_FileId[SimilarityFileIdMaxSize];
+} SimilarityFileId;
+
+[
+	object, 
+	uuid(GUID_IID_IRdcGeneratorParameters),
+	helpstring("IRdcGeneratorParameters Interface - abstract parameter interface for all types of RDC generator parameters"),
+	pointer_default(unique)
+]
+interface IRdcGeneratorParameters : IUnknown
+{
+    [helpstring("method GetGeneratorParametersType - return the specific type of the parameters")]
+    HRESULT GetGeneratorParametersType(
+        [out] GeneratorParametersType * parametersType);
+
+    [helpstring("method GetParametersVersion - return the RDC version that created these parameters")]
+    HRESULT GetParametersVersion(
+        [out] ULONG * currentVersion,
+        [out] ULONG * minimumCompatibleAppVersion);
+
+    [helpstring("method GetSerializeSize - return the number of bytes required to serialize the parameters")]
+    HRESULT GetSerializeSize(
+        [out] ULONG * size);
+
+    [helpstring("method Serialize - serialize the parameters into the application supplied buffer")]
+    HRESULT Serialize(
+        [in] ULONG size,
+        [out] BYTE * parametersBlob,
+        [out] ULONG * bytesWritten);
+
+};
+
+
+[
+	object, local,
+	uuid(GUID_IID_IRdcGeneratorFilterMaxParameters),
+	helpstring("IRdcGeneratorFilterMaxParameters Interface - specific parameter interface for FilterMax parameters"),
+	pointer_default(unique)
+]
+interface IRdcGeneratorFilterMaxParameters : IUnknown
+{
+    [helpstring("method GetHorizonSize")]
+    HRESULT GetHorizonSize(
+        [out] ULONG * horizonSize);
+
+    [helpstring("method SetHorizonSize")]
+    HRESULT SetHorizonSize(
+        [in] ULONG horizonSize);
+
+    [helpstring("method GetHashWindowSize")]
+    HRESULT GetHashWindowSize(
+        [out] ULONG * hashWindowSize);
+
+    [helpstring("method SetHashWindowSize")]
+    HRESULT SetHashWindowSize(
+        [in] ULONG hashWindowSize);
+};
+
+
+
+[
+	object, local,
+	uuid(GUID_IID_IRdcGenerator),
+	helpstring("IRdcGenerator Interface - abstract interface for all types of RDC signature generators"),
+	pointer_default(unique)
+]
+interface IRdcGenerator : IUnknown
+{
+    [helpstring("method GetGeneratorParameters - returns a copy of the parameters used to create this generator")]
+    HRESULT GetGeneratorParameters(
+        [in] ULONG level,
+        [out] IRdcGeneratorParameters ** iGeneratorParameters);
+
+    [helpstring("method Process - consumes all input and produces 0 or more signatures. Call this function until eofOfOutput gets set")]
+    HRESULT Process(
+        [in] BOOL endOfInput,
+        [out] BOOL * endOfOutput,
+        [in, out] RdcBufferPointer * inputBuffer,
+        [in] ULONG depth,
+        [out, size_is(depth)] RdcBufferPointer * outputBuffers[],
+        [out] RDC_ErrorCode *rdc_ErrorCode);
+
+};
+[
+	object, local,
+	uuid(GUID_IID_IRdcFileReader),
+	helpstring("IRdcFileReader Interface - abstract interface to read a file"),
+	pointer_default(unique)
+]
+interface IRdcFileReader : IUnknown
+{
+    [helpstring("method GetFileSize - returns the size of the file")]
+    HRESULT GetFileSize(
+        [out] ULONGLONG * fileSize);
+
+    [helpstring("method Read - read bytes from the file starting at the given offset - will read all requested bytes unless error or EOF")]
+    HRESULT Read(
+        [in] ULONGLONG offsetFileStart,
+        [in] ULONG bytesToRead,
+        [out] ULONG * bytesActuallyRead,
+        [out] BYTE * buffer,
+        [out] BOOL * eof);
+
+    [helpstring("method GetFilePosition - returns the current file position")]
+    HRESULT GetFilePosition(
+        [out] ULONGLONG * offsetFromStart);
+
+};
+[
+	object, local,
+	uuid(GUID_IID_IRdcFileWriter),
+	helpstring("IRdcFileWriter Interface - abstract interface to read/write a file"),
+	pointer_default(unique)
+]
+interface IRdcFileWriter : IRdcFileReader
+{
+    [helpstring("method Write - Write bytes to the file starting at the given offset")]
+    HRESULT Write(
+        [in] ULONGLONG offsetFileStart,
+        [in] ULONG bytesToWrite,
+        [out] BYTE * buffer);
+
+    [helpstring("method Truncate - truncate a file to zero length")]
+    HRESULT Truncate();
+    
+    [helpstring("method DeleteOnClose - sets the file to be deleted (or truncated) on close")]
+    HRESULT DeleteOnClose();
+};
+
+[
+	object, local,
+	uuid(GUID_IID_IRdcSignatureReader),
+	helpstring("IRdcSignatureReader Interface - abstract interface to decode a signature file"),
+	pointer_default(unique)
+]
+interface IRdcSignatureReader : IUnknown
+{
+    [helpstring("method ReadHeader - reads the signature file header and returns a copy of the parameters used to generate the signatures")]
+    HRESULT ReadHeader(
+        [out] RDC_ErrorCode *rdc_ErrorCode);
+
+    [helpstring("method ReadSignature - read a signature from the current position")]
+    HRESULT ReadSignatures(
+        [in, out] RdcSignaturePointer *rdcSignaturePointer,
+        [out] BOOL * endOfOutput
+        );
+
+};
+[
+	object, local,
+	uuid(GUID_IID_IRdcComparator),
+	helpstring("IRdcComparator Interface - abstract interface for signature compators"),
+	pointer_default(unique)
+]
+interface IRdcComparator : IUnknown
+{
+    [helpstring("method Process")]
+    HRESULT Process(
+        [in] BOOL endOfInput,
+        [out] BOOL * endOfOutput,
+        [in, out] RdcBufferPointer * inputBuffer,
+        [in,out] RdcNeedPointer * outputBuffer,
+        [out] RDC_ErrorCode *rdc_ErrorCode);
+
+};
+
+
+[
+	object, local,
+	uuid(GUID_IID_IRdcLibrary),
+	helpstring("IRdcLibrary Interface"),
+	pointer_default(unique)
+]
+interface IRdcLibrary : IUnknown
+{
+    [helpstring("method ComputeDefaultRecursionDepth - chooses a good default recursion depth for the given file size")]
+    HRESULT ComputeDefaultRecursionDepth(
+        [in] ULONGLONG fileSize,
+        [out] ULONG* depth);
+
+    [helpstring("method CreateGeneratorParameters - create default parameter values for the given recursion depth and generator type")]
+    HRESULT CreateGeneratorParameters(
+        [in] GeneratorParametersType parametersType,
+        [in] ULONG level,
+        [out] IRdcGeneratorParameters ** iGeneratorParameters);
+
+    [helpstring("method OpenGeneratorParameters - deserialize a stored parameters blob")]
+    HRESULT OpenGeneratorParameters(
+        [in] ULONG size,
+        [in] BYTE const * parametersBlob,
+        [out] IRdcGeneratorParameters ** iGeneratorParameters);
+
+    [helpstring("method CreateGenerator - given an array of parameters, create a (recursive) signature generator")]
+    HRESULT CreateGenerator(
+        [in] ULONG depth,
+        [in, size_is(depth)] IRdcGeneratorParameters *  iGeneratorParametersArray[],
+        [out] IRdcGenerator ** iGenerator);
+
+    [helpstring("method CreateComparator - create a signature comparator")]
+    HRESULT CreateComparator(
+        [in] IRdcFileReader * iSeedSignaturesFile,
+        [in] ULONG          comparatorBufferSize,
+        [out] IRdcComparator ** iComparator);
+
+    [helpstring("method CreateSignatureReader - create a signature file reader to decode a signature file")]
+    HRESULT CreateSignatureReader(
+        [in] IRdcFileReader * iFileReader,
+        [out] IRdcSignatureReader ** iSignatureReader);
+
+    [helpstring("method GetRDCVersion - get the current version of the library, and the oldest version to which it is backwards compatible with")]
+    HRESULT GetRDCVersion(
+        [out] ULONG * currentVersion,
+        [out] ULONG * minimumCompatibleAppVersion);
+};
+[
+	object, local,
+	uuid(GUID_IID_ISimilarityReportProgress),
+	helpstring("ISimilarityReportProgress Interface"),
+	pointer_default(unique)
+]
+interface ISimilarityReportProgress : IUnknown
+{
+	[, helpstring("method ReportProgress")] HRESULT ReportProgress(
+        [in] DWORD percentCompleted);
+};
+[
+	object, local,
+	uuid(GUID_IID_ISimilarityTableDumpState),
+	helpstring("ISimilarityTableDumpState Interface"),
+	pointer_default(unique)
+]
+interface ISimilarityTableDumpState : IUnknown
+{
+	[, helpstring("method GetNextData")] HRESULT GetNextData(
+        [in] DWORD resultsSize, 
+        [out] DWORD * resultsUsed, 
+        [out] BOOL * eof,
+        [in,out] SimilarityDumpData * results);
+};
+
+[
+	object, local,
+	uuid(GUID_IID_ISimilarityTraitsMappedView),
+	helpstring("ISimilarityTraitsMappedView Interface"),
+	pointer_default(unique)
+]
+interface ISimilarityTraitsMappedView : IUnknown{
+    [, helpstring("method Flush"), local] HRESULT Flush();
+    [, helpstring("method Unmap"), local] HRESULT Unmap();
+    [, helpstring("method Get"), local] HRESULT Get(
+        [in] unsigned __int64 index, 
+        [in] BOOL dirty, 
+        [in] DWORD numElements, 
+        [out] SimilarityMappedViewInfo * viewInfo);
+
+    [, helpstring("method GetView"), local] void GetView(
+        [out] unsigned char const **mappedPageBegin,
+        [out] unsigned char const **mappedPageEnd);
+};
+
+[
+	object, local,
+	uuid(GUID_IID_ISimilarityTraitsMapping),
+	helpstring("ISimilarityTraitsMapping Interface"),
+	pointer_default(unique)
+]
+interface ISimilarityTraitsMapping : IUnknown{
+    [, helpstring("method CloseMapping"), local] void CloseMapping();
+    
+    [, helpstring("method SetFileSize")] HRESULT SetFileSize(
+        [in] unsigned __int64 fileSize);
+
+    [, helpstring("method GetFileSize"), local] HRESULT GetFileSize(
+        [out] unsigned __int64 * fileSize);
+
+    [, helpstring("method OpenMapping"), local] HRESULT OpenMapping(
+        [in] RdcMappingAccessMode accessMode, 
+        [in] unsigned __int64 begin, 
+        [in] unsigned __int64 end , 
+        [out] unsigned __int64 * actualEnd);
+
+    [, helpstring("method ResizeMapping"), local] HRESULT ResizeMapping(
+        [in] RdcMappingAccessMode accessMode, 
+        [in] unsigned __int64 begin, 
+        [in] unsigned __int64 end, 
+        [out] unsigned __int64 * actualEnd);
+
+    [, helpstring("method GetPageSize"), local] void GetPageSize(
+        [out] DWORD * pageSize);
+
+    [, helpstring("method CreateView")] HRESULT CreateView(
+        [in] DWORD minimumMappedPages , 
+        [in] RdcMappingAccessMode accessMode, 
+        [out] ISimilarityTraitsMappedView ** mappedView);
+};
+
+[
+	object, local,
+	uuid(GUID_IID_ISimilarityTraitsTable),
+	helpstring("ISimilarityTraitsTable Interface"),
+	pointer_default(unique)
+]
+interface ISimilarityTraitsTable : IUnknown
+{
+	[, helpstring("method CreateTable")] HRESULT CreateTable(
+                [in, annotation("_In_")] wchar_t * path, 
+       	        [in] BOOL truncate,
+                [in, annotation("_In_")] BYTE * securityDescriptor, 
+                [out, annotation("_Out_")] RdcCreatedTables *isNew);
+
+
+	[, helpstring("method CreateTable")] HRESULT CreateTableIndirect(
+		[in] ISimilarityTraitsMapping *mapping, 
+        [in] BOOL truncate,
+		[out] RdcCreatedTables *isNew);
+
+	[, helpstring("method CloseTable")] HRESULT CloseTable(BOOL isValid);
+
+	[, helpstring("method Append")] HRESULT Append(
+		[in] SimilarityData * data, 
+		[in] SimilarityFileIndexT fileIndex);
+
+	[, helpstring("method FindSimilarFileIndex")] HRESULT FindSimilarFileIndex(
+		[in] SimilarityData * similarityData, 
+        [in] USHORT numberOfMatchesRequired,
+		[out] FindSimilarFileIndexResults * findSimilarFileIndexResults, 
+		[in] DWORD resultsSize, 
+		[out] DWORD * resultsUsed);
+
+	[, helpstring("method BeginDump")] HRESULT BeginDump(
+		[out] ISimilarityTableDumpState ** similarityTableDumpState);
+
+	[, helpstring("method GetLastIndex")] HRESULT GetLastIndex(
+		[out] SimilarityFileIndexT *fileIndex);
+};
+[
+	object, local,
+	uuid(GUID_IID_ISimilarityFileIdTable),
+	helpstring("ISimilarityFileIdTable Interface"),
+	pointer_default(unique)
+]
+interface ISimilarityFileIdTable : IUnknown
+{
+
+	[, helpstring("method CreateTable")] HRESULT CreateTable(
+                [in, annotation("_In_")] wchar_t * path, 
+       	        [in] BOOL truncate,
+                [in, annotation("_In_")] BYTE * securityDescriptor, 
+		[in] DWORD recordSize, 
+                [out, annotation("_Out_")] RdcCreatedTables *isNew);
+
+	[, helpstring("method CreateTable")] HRESULT CreateTableIndirect(
+        [in] IRdcFileWriter *fileIdFile,
+        [in] BOOL truncate,
+		[in] DWORD recordSize, 
+		[out] RdcCreatedTables *isNew);
+	[, helpstring("method CloseTable")] HRESULT CloseTable(BOOL isValid);
+	[, helpstring("method Append")] HRESULT Append(
+		[in] SimilarityFileId * similarityFileId, 
+		[out] SimilarityFileIndexT * similarityFileIndex);
+	[, helpstring("method Lookup")] HRESULT Lookup(
+		[in] SimilarityFileIndexT similarityFileIndex, 
+		[out] SimilarityFileId * similarityFileId);
+	[, helpstring("method Invalidate")] HRESULT Invalidate(
+		[in] SimilarityFileIndexT similarityFileIndex);
+	[, helpstring("method GetRecordCount")] HRESULT GetRecordCount(
+		[out] DWORD *recordCount);
+};
+[
+	object, local,
+	uuid(GUID_IID_IRdcSimilarityGenerator),
+	helpstring("IRdcSimilarityGenerator Interface"),
+	pointer_default(unique)
+]
+interface IRdcSimilarityGenerator : IUnknown
+{
+	[, helpstring("method EnableSimilarity")] HRESULT EnableSimilarity(void);
+	[, helpstring("method Results")] HRESULT Results(
+		[out] SimilarityData * similarityData);
+};
+[
+	object, local,
+	uuid(GUID_IID_IFindSimilarResults),
+	helpstring("IFindSimilarResults Interface"),
+	pointer_default(unique)
+]
+interface IFindSimilarResults : IUnknown{
+	[, helpstring("method GetSize")] HRESULT GetSize(
+		[out] DWORD * size);
+
+	[, helpstring("method GetNextFileId")] HRESULT GetNextFileId(
+		[out] DWORD * numTraitsMatched, 
+		[out] SimilarityFileId * similarityFileId);
+};
+[
+	object, local,
+	uuid(GUID_IID_ISimilarity),
+	helpstring("ISimilarity Interface"),
+	pointer_default(unique)
+]
+interface ISimilarity : IUnknown
+{
+	
+	[, helpstring("method CreateTable")] HRESULT CreateTable(
+                [in, annotation("_In_")] wchar_t * path, 
+       	        [in] BOOL truncate,
+                [in, annotation("_In_")] BYTE * securityDescriptor, 
+		[in] DWORD recordSize, 
+                [out, annotation("_Out_")] RdcCreatedTables *isNew);
+
+	[, helpstring("method CreateTable")] HRESULT CreateTableIndirect(
+		[in] ISimilarityTraitsMapping *mapping, 
+        [in] IRdcFileWriter *fileIdFile,
+        [in] BOOL truncate,
+		[in] DWORD recordSize, 
+		[out] RdcCreatedTables *isNew);
+
+	[, helpstring("method CloseTable")] HRESULT CloseTable(
+		[in] BOOL isValid);
+
+	[, helpstring("method Append")] HRESULT Append(
+		[in] SimilarityFileId * similarityFileId, 
+		[in] SimilarityData * similarityData);
+
+	[, helpstring("method FindSimilarFileId")] HRESULT FindSimilarFileId(
+        [in] SimilarityData * similarityData, 
+        [in] USHORT numberOfMatchesRequired,
+        [in] DWORD resultsSize,     
+		[out] IFindSimilarResults **findSimilarResults);	
+
+    [, helpstring("method Append")] HRESULT CopyAndSwap(
+		[in] ISimilarity * newSimilarityTables, 
+		[in] ISimilarityReportProgress *reportProgress);
+
+	[, helpstring("method GetRecordCount")] HRESULT GetRecordCount(
+		[out] DWORD *recordCount);
+};
+
+[
+	uuid(GUID_LIBID_MSRDCLib),
+	version(1.0),
+	helpstring("MSRDC 1.0 Type Library")
+]
+library MSRDCLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(GUID_CLSID_RdcLibrary),
+		helpstring("RdcLibrary Class")
+	]
+	coclass RdcLibrary
+	{
+		[default] interface IRdcLibrary;
+	};
+	[
+		uuid(GUID_CLSID_RdcGeneratorParameters),
+		helpstring("RdcGeneratorParameters Class")
+	]
+	coclass RdcGeneratorParameters
+	{
+		[default] interface IRdcGeneratorParameters;
+	};
+	[
+		uuid(GUID_CLSID_RdcGeneratorFilterMaxParameters),
+		helpstring("RdcGeneratorFilterMaxParameters Class")
+	]
+	coclass RdcGeneratorFilterMaxParameters
+	{
+		[default] interface IRdcGeneratorFilterMaxParameters;
+	};
+	[
+		uuid(GUID_CLSID_RdcGenerator),
+		helpstring("RdcGenerator Class")
+	]
+	coclass RdcGenerator
+	{
+		[default] interface IRdcGenerator;
+	};
+	[
+		uuid(GUID_CLSID_RdcFileReader),
+		helpstring("RdcFileReader Class")
+	]
+	coclass RdcFileReader
+	{
+		[default] interface IRdcFileReader;
+		interface IRdcFileWriter;
+	};
+	[
+		uuid(GUID_CLSID_RdcSignatureReader),
+		helpstring("RdcSignatureReader Class")
+	]
+	coclass RdcSignatureReader
+	{
+		[default] interface IRdcSignatureReader;
+	};
+	[
+		uuid(GUID_CLSID_RdcComparator),
+		helpstring("RdcComparator Class")
+	]
+	coclass RdcComparator
+	{
+		[default] interface IRdcComparator;
+	};
+	[
+		uuid(GUID_CLSID_SimilarityReportProgress),
+		helpstring("SimilarityReportProgress Class")
+	]
+	coclass SimilarityReportProgress
+	{
+		[default] interface ISimilarityReportProgress;
+	};
+	[
+		uuid(GUID_CLSID_SimilarityTableDumpState),
+		helpstring("SimilarityTableDumpState Class")
+	]
+	coclass SimilarityTableDumpState
+	{
+		[default] interface ISimilarityTableDumpState;
+	};
+	[
+		uuid(GUID_CLSID_SimilarityTraitsTable),
+		helpstring("SimilarityTraitsTable Class")
+	]
+	coclass SimilarityTraitsTable
+	{
+		[default] interface ISimilarityTraitsTable;
+	};
+	[
+		uuid(GUID_CLSID_SimilarityFileIdTable),
+		helpstring("SimilarityFileIdTable Class")
+	]
+	coclass SimilarityFileIdTable
+	{
+		[default] interface ISimilarityFileIdTable;
+	};
+	[
+		uuid(GUID_CLSID_Similarity),
+		helpstring("Similarity Class")
+	]
+	coclass Similarity
+	{
+		[default] interface ISimilarity;
+	};
+	[
+		uuid(GUID_CLSID_RdcSimilarityGenerator),
+		helpstring("RdcSimilarityGenerator Class")
+	]
+	coclass RdcSimilarityGenerator
+	{
+		[default] interface IRdcSimilarityGenerator;
+	};
+	[
+		uuid(GUID_CLSID_FindSimilarResults),
+		helpstring("FindSimilarResults Class")
+	]
+	coclass FindSimilarResults
+	{
+		[default] interface IFindSimilarResults;
+	};
+	[
+		uuid(GUID_CLSID_SimilarityTraitsMapping),
+		helpstring("SimilarityTraitsMapping Class")
+	]
+	coclass SimilarityTraitsMapping
+	{
+		[default] interface ISimilarityTraitsMapping;
+	};
+	[
+		uuid(GUID_CLSID_SimilarityTraitsMappedView),
+		helpstring("SimilarityTraitsMappedView Class")
+	]
+	coclass SimilarityTraitsMappedView
+	{
+		[default] interface ISimilarityTraitsMappedView;
+	};
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

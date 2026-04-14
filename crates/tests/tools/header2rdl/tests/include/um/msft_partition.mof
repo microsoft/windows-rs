@@ -1,0 +1,304 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ),
+Description ( "Represents a partition on a disk." )]
+class MSFT_Partition : MSFT_StorageObject {
+
+    [Read, Description(
+        "This property is identical to the ObjectId field of the disk object that contains "
+        "this partition."
+        ),
+        ModelCorrespondence {
+            "MSFT_Disk.ObjectId"
+            }]
+    String DiskId;
+
+    [Read, Required, Description(
+        "The operating system's number for the disk that contains this partition. Disk numbers "
+        "may not necessarily remain the same across reboots."
+        ),
+        ModelCorrespondence {
+            "MSFT_Disk.Number"
+            }]
+    UInt32 DiskNumber;
+
+    [Read, Required, Description(
+        "The operating system's number for the partition. Ordering is based on the partition's "
+        "offset, relative to other partitions. This means that the value for this property may "
+        "change based off of the partition configuration in the offset range preceding this "
+        "partition."
+        )]
+    UInt32 PartitionNumber;
+
+    [Read, Description(
+        "The currently assigned drive letter to the partition. This property is NULL if no "
+        "drive letter has been assigned."
+        )]
+    Char16 DriveLetter;
+
+    [Read, Description(
+        "This property is an array of all the various mount points for the partition. This "
+        "list includes drive letters, as well as mounted folders."
+        )]
+    String AccessPaths[];
+
+    [Read,
+        ValueMap { "0", "1", "3", "5", "4" },
+        Values { "Unknown", "Online", "No Media", "Failed", "Offline" }
+        ]
+    UInt16 OperationalStatus;
+
+    [Read]
+    UInt16 TransitionState;
+
+    [Read, Description(
+        "This property indicates the partition's offset from the beginning of the disk, "
+        "measured in bytes."
+        ),
+        Units( "Bytes" )]
+    UInt64 Offset;
+
+    [Read, Required, Description(
+        "Total size of the partition, measured in bytes."
+        ),
+        Units( "Bytes" )]
+    UInt64 Size;
+
+    [Read, Description(
+        "This property indicates the partition's MBR type. This property is only valid when "
+        "the disk's PartitionStyle property is set to 1 - 'MBR' and will be NULL for all "
+        "other partition styles."
+        ),
+        ValueMap { "1", "4", "5", "6", "7", "12" },
+        Values { "FAT12", "FAT16", "Extended", "Huge", "IFS", "FAT32" }]
+    UInt16 MbrType;
+
+    [Read, Description(
+        "This property indicates the partition's GPT type. This property is only valid when "
+        "the disk's PartitionStyle property is set to 2 - 'GPT' and will be NULL for all "
+        "other partition styles."
+        ),
+        ValueMap {
+            "{c12a7328-f81f-11d2-ba4b-00a0c93ec93b}",
+            "{e3c9e316-0b5c-4db8-817d-f92df00215ae}",
+            "{ebd0a0a2-b9e5-4433-87c0-68b6b72699c7}",
+            "{5808c8aa-7e8f-42e0-85d2-e1e90434cfb3}",
+            "{af9b60a0-1431-4f62-bc68-3311714a69ad}",
+            "{de94bba4-06d1-4d40-a16a-bfd50179d6ac}"
+            },
+        Values {
+            "System Partition",
+            "Microsoft Reserved",
+            "Basic data",
+            "LDM Metadata",
+            "LDM Data",
+            "Microsoft Recovery" }]
+    String GptType;
+
+    [Read, Description(
+        "This property is a string representation of the partition's GPT GUID. This property "
+        "is only valid if the disk's PartitionStyle property is set to 2 - 'GPT' and will be "
+        "NULL for all other partition stlyes."
+        )]
+    String Guid;
+
+    [Read]
+    Boolean IsReadOnly;
+
+    [Read]
+    Boolean IsOffline;
+
+    [Read]
+    Boolean IsSystem;
+
+    [Read]
+    Boolean IsBoot;
+
+    [Read, Description(
+        "Signifies whether or not the partition is active and can be booted. This property "
+        "is only relevant for MBR disks."
+        )]
+    Boolean IsActive;
+
+    [Read, Description(
+        "If this property is set to TRUE, the partition is not detected by the mount manager. "
+        "As a result, the partition does not receive a drive letter, does not receive a volume "
+        "GUID path, does not host volume mount points, and is not enumerated by calls to "
+        "FindFirstVolume and FindNextVolume. This ensures that applications such as disk "
+        "defragmenter do not access the partition. The Volume Shadow Copy Service (VSS) uses "
+        "this attribute on its shadow copies."
+        )]
+    Boolean IsHidden;
+
+    [Read, Description(
+        "If this property is set to TRUE, the partition is a shadow copy of another partition. "
+        "This attribute is used by the Volume Shadow Copy service (VSS). This attribute is an "
+        "indication for file system filter driver-based software (such as antivirus programs) "
+        "to avoid attaching to the volume. An application can use this attribute to differentiate "
+        "a shadow copy partition from a production partition. For example, an application that "
+        "performs a fast recovery will break a shadow copy virtual disk by clearing the read-only "
+        "and hidden attributes and this attribute. This attribute is set when the shadow copy "
+        "is created and cleared when the shadow copy is broken."
+        )]
+    Boolean IsShadowCopy;
+
+    [Read]
+    Boolean IsDAX;
+
+    [Read, Description(
+        "If this property is set to TRUE, the operating system does not assign a drive letter "
+        "automatically when the partition is discovered. This is only honored for GPT disks "
+        "and is assumed to be FALSE for MBR disks. This attribute is useful in storage area "
+        "network (SAN) environments."
+        )]
+    Boolean NoDefaultDriveLetter;
+
+
+    //
+    // Method: DeleteObject
+    //
+
+    [Required]
+    UInt32 DeleteObject(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetAccessPaths
+    //
+
+    UInt32 GetAccessPaths(
+
+        [Out]
+        String AccessPaths[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: AddAccessPath
+    //
+
+    UInt32 AddAccessPath(
+
+        [In]
+        String AccessPath,
+
+        [In]
+        Boolean AssignDriveLetter,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: RemoveAccessPath
+    //
+
+    UInt32 RemoveAccessPath(
+
+        [In, Required]
+        String AccessPath,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Resize
+    //
+
+    UInt32 Resize(
+
+        [In, Required]
+        UInt64 Size,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetSupportedSize
+    //
+
+    UInt32 GetSupportedSize(
+
+        [Out]
+        UInt64 SizeMin,
+
+        [Out]
+        UInt64 SizeMax,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Online
+    //
+
+    UInt32 Online(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Offline
+    //
+
+    UInt32 Offline(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetAttributes
+    //
+
+    UInt32 SetAttributes(
+
+        [In]
+        Boolean IsReadOnly,
+
+        [In]
+        Boolean NoDefaultDriveLetter,
+
+        [In]
+        Boolean IsActive,
+
+        [In]
+        Boolean IsHidden,
+
+        [In]
+        Boolean IsShadowCopy,
+
+        [In]
+        Boolean IsDAX,
+
+        [In]
+        UInt16 MbrType,
+
+        [In]
+        String GptType,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};

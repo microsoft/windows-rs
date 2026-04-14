@@ -1,0 +1,76 @@
+/*********************************************************
+*                                                        *
+*   Copyright (c) Microsoft. All rights reserved.        *
+*                                                        *
+*********************************************************/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+import "bits2_5.idl";
+import "bits3_0.idl";
+import "bits4_0.idl";
+import "bits5_0.idl";
+import "bits10_1.idl";
+import "bits10_2.idl";
+
+[
+    uuid(4CEC0D02-DEF7-4158-813A-C32A46945FF7)
+]
+interface IBackgroundCopyServerCertificateValidationCallback : IUnknown
+{
+    HRESULT ValidateServerCertificate(
+        [in] IBackgroundCopyJob* job,
+        [in] IBackgroundCopyFile* file,
+        [in] DWORD certLength,
+        [in, size_is(certLength)] const BYTE certData[],
+        [in] DWORD certEncodingType,
+        [in] DWORD certStoreLength,
+        [in, size_is(certStoreLength)] const BYTE certStoreData[]);
+}
+
+[
+    uuid(8A9263D3-FD4C-4EDA-9B28-30132A4D4E3C)
+]
+interface IBackgroundCopyJobHttpOptions3 : IBackgroundCopyJobHttpOptions2
+{
+    HRESULT SetServerCertificateValidationInterface(
+        [in] IUnknown* certValidationCallback);
+
+    HRESULT MakeCustomHeadersWriteOnly();
+}
+
+[
+    uuid(9FD340E7-BB7E-46E6-B912-C6D0894F9AC9),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager10_3
+{
+    [
+        uuid(5FD42AD5-C04E-4D36-ADC7-E08FF15737AD)
+    ]
+    coclass BackgroundCopyManager10_3
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback3;
+    interface IBackgroundCopyFile6;
+    interface IBackgroundCopyJob5;
+    interface IBackgroundCopyJobHttpOptions3;
+    interface IBackgroundCopyServerCertificateValidationCallback;
+    interface IBitsPeer;
+    interface IBitsPeerCacheAdministration;
+    interface IBitsPeerCacheRecord;
+    interface IBitsTokenOptions;
+    interface IEnumBitsPeerCacheRecords;
+    interface IEnumBitsPeers;
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

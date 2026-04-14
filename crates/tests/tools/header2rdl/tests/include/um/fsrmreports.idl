@@ -1,0 +1,642 @@
+//////////////////////////////////////
+//        Imports
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+import "fsrmenums.idl";
+import "fsrm.idl";
+
+
+//////////////////////////////////////
+//        Forward declarations
+//
+
+interface IFsrmReportManager;
+interface IFsrmReportJob;
+interface IFsrmReport;
+interface IFsrmFileManagementJobManager;
+interface IFsrmFileManagementJob;
+interface IFsrmPropertyCondition;
+
+
+//////////////////////////////////////
+//        Dispatch IDs
+//
+
+#define FSRM_PROPERTY(x) x | FSRM_DISPID_IS_PROPERTY
+
+// Dispatch ID base of storage report interfaces
+const DISPID FSRM_DISPID_REPORT_MANAGER     = FSRM_DISPID_FEATURE_REPORTS   | 0x100000;
+const DISPID FSRM_DISPID_REPORT_JOB         = FSRM_DISPID_FEATURE_REPORTS   | 0x200000;
+const DISPID FSRM_DISPID_REPORT             = FSRM_DISPID_FEATURE_REPORTS   | 0x300000;
+const DISPID FSRM_DISPID_REPORT_SCHEDULER   = FSRM_DISPID_FEATURE_REPORTS   | 0x400000;
+
+const DISPID FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER 
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0x500000;
+const DISPID FSRM_DISPID_FILE_MANAGEMENT_JOB
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0x600000;
+const DISPID FSRM_DISPID_FILE_MANAGEMENT_NOTIFICATION
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0x700000;
+const DISPID FSRM_DISPID_PROPERTY_CONDITION
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0x800000;
+const DISPID FSRM_DISPID_FILE_CONDITION
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0x900000;
+const DISPID FSRM_DISPID_FILE_CONDITION_PROPERTY
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0xA00000;
+const DISPID FSRM_DISPID_FILE_MANAGEMENT_JOB_2
+                                            = FSRM_DISPID_FEATURE_REPORTS   | 0xB00000;
+
+
+//////////////////////////////////////
+//        Interfaces
+//
+
+[
+  odl,
+  uuid(27b899fe-6ffa-4481-a184-d3daade8a02b),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReportManager : IDispatch {
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x01), helpstring("This method is used to enumerate report jobs")]
+    HRESULT EnumReportJobs(
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCollection **reportJobs);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x02), helpstring("This method is used to create a new report job")]
+    HRESULT CreateReportJob(
+                        [out, retval] IFsrmReportJob **reportJob);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x03), helpstring("This method is used to get a report job having a specific scheduled task name")]
+    HRESULT GetReportJob(
+                        [in] BSTR taskName,
+                        [out, retval] IFsrmReportJob **reportJob);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x04), helpstring("This method is used to get the output directory of generated reports in the specified context")]
+    HRESULT GetOutputDirectory(
+                        [in] FsrmReportGenerationContext context, 
+                        [out, retval] BSTR *path);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x05), helpstring("This method is used to set the output directory of generated reports in the specified context")]
+    HRESULT SetOutputDirectory(
+                        [in] FsrmReportGenerationContext context, 
+                        [in] BSTR path);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x06), helpstring("This method is used to indicate whether a specified filter name is valid for the specified report type")]
+    HRESULT IsFilterValidForReportType(
+                        [in] FsrmReportType reportType,
+                        [in] FsrmReportFilter filter, 
+                        [out, retval] VARIANT_BOOL *valid);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x07), helpstring("This method is used to get the default value of the specified filter for the specified report type")]
+    HRESULT GetDefaultFilter(
+                        [in] FsrmReportType reportType,
+                        [in] FsrmReportFilter filter, 
+                        [out, retval] VARIANT *filterValue);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x08), helpstring("This method is used to set the default value of the specified filter for the specified report type")]
+    HRESULT SetDefaultFilter(
+                        [in] FsrmReportType reportType,
+                        [in] FsrmReportFilter filter, 
+                        [in] VARIANT filterValue);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x09), helpstring("This method is used to get the default value of the specified limit for the specified report")]
+    HRESULT GetReportSizeLimit(
+                        [in] FsrmReportLimit limit, 
+                        [out, retval] VARIANT *limitValue);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x0A), helpstring("This method is used to set the default value of the specified limit for the specified report")]
+    HRESULT SetReportSizeLimit(
+                        [in] FsrmReportLimit limit, 
+                        [in] VARIANT limitValue);
+
+};
+
+
+[
+  odl,
+  uuid(38e87280-715c-4c7d-a280-ea1651a19fef),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReportJob : IFsrmObject {
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x01)), helpstring("This property is the name of the scheduled task associated with the report job")]
+    HRESULT Task([out, retval] BSTR *taskName);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x01)), helpstring("This property is the name of the scheduled task associated with the report job")]
+    HRESULT Task([in] BSTR taskName);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x02)), helpstring("This property contains the paths on which the reports will run")]
+    HRESULT NamespaceRoots([out, retval] SAFEARRAY(VARIANT) *namespaceRoots);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x02)), helpstring("This property contains the paths on which the reports will run")]
+    HRESULT NamespaceRoots([in] SAFEARRAY(VARIANT) namespaceRoots);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x03)), helpstring("This property contains the formats in which the generate the reports")]
+    HRESULT Formats([out, retval] SAFEARRAY(VARIANT) *formats);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x03)), helpstring("This property contains the formats in which the generate the reports")]
+    HRESULT Formats([in] SAFEARRAY(VARIANT) formats);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x04)), helpstring("This property is the e-mail address to which to send the reports, if any")]
+    HRESULT MailTo([out, retval] BSTR *mailTo);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x04)), helpstring("This property is the e-mail address to which to send the reports, if any")]
+    HRESULT MailTo([in] BSTR mailTo);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x05)), helpstring("This property indicates the run status of the report job")]
+    HRESULT RunningStatus([out, retval] FsrmReportRunningStatus *runningStatus);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x06)), helpstring("This property indicates the last time the report job was run")]
+    HRESULT LastRun([out, retval] DATE *lastRun);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x07)), helpstring("This property indicates the last error that occurred when the report job was last run, if any")]
+    HRESULT LastError([out, retval] BSTR *lastError);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x08)), helpstring("This property indicates the directory in which the files were generated when the report job was last run")]
+    HRESULT LastGeneratedInDirectory([out, retval] BSTR *path);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x01), helpstring("This method is used to enumerate reports belonging to the report job")]
+    HRESULT EnumReports([out, retval] IFsrmCollection **reports);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x02), helpstring("This method is used to create a report of the specificied type")]
+    HRESULT CreateReport(
+                        [in] FsrmReportType reportType,
+                        [out, retval] IFsrmReport **report);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x03), helpstring("This method is used to run all the reports in the report job in the specified context")]
+    HRESULT Run([in] FsrmReportGenerationContext context);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x04), helpstring("This method is used to wait for the specified period of time or until all reports in the job are finished running and return whether or not the job is still running")]
+    HRESULT WaitForCompletion(
+                        [in] long waitSeconds,
+                        [out, retval] VARIANT_BOOL *completed);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x05), helpstring("This method cancels a currently running report job")]
+    HRESULT Cancel();
+
+};
+
+
+[
+  odl,
+  uuid(d8cc81d9-46b8-4fa4-bfa5-4aa9dec9b638),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReport : IDispatch {
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x01)), helpstring("This property is the type of the report")]
+    HRESULT Type([out, retval] FsrmReportType *reportType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x02)), helpstring("This property is the name of the report")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x02)), helpstring("This property is the name of the report")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x03)), helpstring("This property is the description of the report")]
+    HRESULT Description([out, retval] BSTR *description);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x03)), helpstring("This property is the description of the report")]
+    HRESULT Description([in] BSTR description);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x04)), helpstring("This property indicates the filename prefixes of the files that were generated by this report when the report was last run")]
+    HRESULT LastGeneratedFileNamePrefix([out, retval] BSTR *prefix);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT | 0x01), helpstring("This method is used to get the value of the specified filter")]
+    HRESULT GetFilter(
+                        [in] FsrmReportFilter filter, 
+                        [out, retval] VARIANT *filterValue);
+
+    [id(FSRM_DISPID_REPORT | 0x02), helpstring("This method is used to set the value of the specified filter")]
+    HRESULT SetFilter(
+                        [in] FsrmReportFilter filter, 
+                        [in] VARIANT filterValue);
+
+    [id(FSRM_DISPID_REPORT | 0x03), helpstring("This method removes the report from the report job")]
+    HRESULT Delete();
+
+};
+
+
+[
+  odl,
+  uuid(6879caf9-6617-4484-8719-71c3d8645f94),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReportScheduler : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x01), helpstring("This method is used to verify that the array of namespaces exist and are valid, supported namespaces")]
+    HRESULT VerifyNamespaces([in] VARIANT* namespacesSafeArray);
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x02), helpstring("This method is used to create a scheduled task for a report on the local machine or in a cluster")]
+    HRESULT CreateScheduleTask(
+                        [in] BSTR taskName,
+                        [in] VARIANT* namespacesSafeArray,
+                        [in] BSTR serializedTask);
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x03), helpstring("This method is used to modify a scheduled task for a report on the local machine or in a cluster")]
+    HRESULT ModifyScheduleTask(
+                        [in] BSTR taskName,
+                        [in] VARIANT* namespacesSafeArray,
+                        [in] BSTR serializedTask);
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x04), helpstring("This method is used to delete a scheduled task for a report on the local machine or in a cluster")]
+    HRESULT DeleteScheduleTask([in] BSTR taskName);
+
+};
+
+
+[
+  odl,
+  uuid(ee321ecb-d95e-48e9-907c-c7685a013235),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmFileManagementJobManager : IDispatch
+{
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x01)), helpstring("This method is used enumerate the runtime expanded variables available for file management jobs")]
+    HRESULT ActionVariables([out, retval] SAFEARRAY(VARIANT) *variables);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x02)), helpstring("This method is used enumerate the descriptions of the runtime expanded variables available for file management jobs")]
+    HRESULT ActionVariableDescriptions([out, retval] SAFEARRAY(VARIANT) *descriptions);    
+    
+    // Methods
+    
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x1), helpstring("Enumerate the list of existing file management jobs")]
+    HRESULT EnumFileManagementJobs(
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCollection **fileManagementJobs);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x2), helpstring("Create a new file management job")]
+    HRESULT CreateFileManagementJob(
+                        [out, retval] IFsrmFileManagementJob** fileManagementJob);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x3), helpstring("Get an existing file management job using name")]
+    HRESULT GetFileManagementJob(
+                        [in] BSTR name,
+                        [out, retval] IFsrmFileManagementJob** fileManagementJob);
+
+};
+
+
+[
+  odl,
+  uuid(0770687e-9f36-4d6f-8778-599d188461c9),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmFileManagementJob : IFsrmObject {
+
+    const LONG FsrmDaysNotSpecified = -1;
+
+    const DATE FsrmDateNotSpecified = ((DATE) -1);
+
+    //
+    // Properties
+    //
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x01)), helpstring("This property specifies the name of the file management job")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x01)), helpstring("This property specifies the name of the file management job")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x02)), helpstring("This property contains the paths on which the job will run")]
+    HRESULT NamespaceRoots([out, retval] SAFEARRAY(VARIANT) *namespaceRoots);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x02)), helpstring("This property contains the paths on which the job will run")]
+    HRESULT NamespaceRoots([in] SAFEARRAY(VARIANT) namespaceRoots);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x03)), helpstring("This property specifies whether this job is enabled or not")]
+    HRESULT Enabled([out, retval] VARIANT_BOOL *enabled);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x03)), helpstring("This property specifies whether this job is enabled or not")]
+    HRESULT Enabled([in] VARIANT_BOOL enabled);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x04)), helpstring("This property specifies the operation to perform on a file when all conditions are met")]
+    HRESULT OperationType([out, retval] FsrmFileManagementType *operationType);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x04)), helpstring("This property specifies the operation to perform on a file when all conditions are met")]
+    HRESULT OperationType([in] FsrmFileManagementType operationType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x05)), helpstring("This property specifies the root directory for moving expired files to, when all the conditions are met and expiration is enabled")]
+    HRESULT ExpirationDirectory([out, retval] BSTR *expirationDirectory);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x05)), helpstring("This property specifies the root directory for moving expired files to, when all the conditions are met and expiration is enabled")]
+    HRESULT ExpirationDirectory([in] BSTR expirationDirectory);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x06)), helpstring("The property specifies the action to execute, when all the conditions are met and custom action is enabled")]
+    HRESULT CustomAction([out, retval] IFsrmActionCommand **action);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x07)), helpstring("This property specifies the list of notifications to perform before the operation is performed")]
+    HRESULT Notifications([out, retval] SAFEARRAY(VARIANT) *notifications);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x08)), helpstring("This property specifies the type(s) of logging, using FsrmFileManagementLoggingFlags")]
+    HRESULT Logging([out, retval] long *loggingFlags);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x08)), helpstring("This property specifies the type(s) of logging, using FsrmFileManagementLoggingFlags")] 
+    HRESULT Logging([in] long loggingFlags);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x09)), helpstring("This property specifies whether reporting is enabled")]
+    HRESULT ReportEnabled([out, retval] VARIANT_BOOL *reportEnabled);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x09)), helpstring("This property specifies whether reporting is enabled")]
+    HRESULT ReportEnabled([in] VARIANT_BOOL reportEnabled);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0a)), helpstring("This property contains the formats of the report to generate")]
+    HRESULT Formats([out, retval] SAFEARRAY(VARIANT) *formats);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0a)), helpstring("This property contains the formats of the report to generate")]
+    HRESULT Formats([in] SAFEARRAY(VARIANT) formats);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0b)), helpstring("This property is the e-mail address(es), delimited by semi-colon, to which to send the reports, if any")]
+    HRESULT MailTo([out, retval] BSTR *mailTo);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0b)), helpstring("This property is the e-mail address(es), delimited by semi-colon, to which to send the reports, if any")]
+    HRESULT MailTo([in] BSTR mailTo);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0c)), helpstring("This property specifies a condition: minimum number of days elapsed since a file is created. FsrmDaysNotSpecified indicates this condition is disabled.")]
+    HRESULT DaysSinceFileCreated([out, retval] long *daysSinceCreation);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0c)), helpstring("This property specifies a condition: minimum number of days elapsed since a file is created. FsrmDaysNotSpecified indicates this condition is disabled.")]
+    HRESULT DaysSinceFileCreated([in] long daysSinceCreation);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0d)), helpstring("This property specifies a condition: minimum number of days elapsed since a file is last accessed. FsrmDaysNotSpecified indicates this condition is disabled.")]
+    HRESULT DaysSinceFileLastAccessed([out, retval] long *daysSinceAccess);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0d)), helpstring("This property specifies a condition: minimum number of days elapsed since a file is last accessed. FsrmDaysNotSpecified indicates this condition is disabled.")]
+    HRESULT DaysSinceFileLastAccessed([in] long daysSinceAccess);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0e)), helpstring("This property specifies a condition: minimum number of days elapsed since a file is last modified. FsrmDaysNotSpecified indicates this condition is disabled.")]
+    HRESULT DaysSinceFileLastModified([out, retval] long *daysSinceModify);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0e)), helpstring("This property specifies a condition: minimum number of days elapsed since a file is last modified. FsrmDaysNotSpecified indicates this condition is disabled.")]
+    HRESULT DaysSinceFileLastModified([in] long daysSinceModify);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x0f)), helpstring("This property specifies a list of FSRM property conditions")]
+    HRESULT PropertyConditions([out, retval] IFsrmCollection **propertyConditions);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x10)), helpstring("This property specifies a condition: The date from which the file management operation should be executed. FsrmDateNotSpecified indicates this condition is disabled.")]
+    HRESULT FromDate([out, retval] DATE *fromDate);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x10)), helpstring("This property specifies a condition: The date from which the file management operation should be executed. FsrmDateNotSpecified indicates this condition is disabled.")]
+    HRESULT FromDate([in] DATE fromDate);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x11)), helpstring("This property is the name of the scheduled task associated with the job")]
+    HRESULT Task([out, retval] BSTR *taskName);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x11)), helpstring("This property is the name of the scheduled task associated with the job")]
+    HRESULT Task([in] BSTR taskName);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x12)), helpstring("This property contains the parameters for the file management job")]
+    HRESULT Parameters([out, retval] SAFEARRAY(VARIANT) *parameters);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x12)), helpstring("This property contains the parameters for the file management job")]
+    HRESULT Parameters([in] SAFEARRAY(VARIANT) parameters);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x13)), helpstring("This property is the running status of the job")]
+    HRESULT RunningStatus([out, retval] FsrmReportRunningStatus *runningStatus);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x14)), helpstring("This property is the last error of the job")]
+    HRESULT LastError([out, retval] BSTR *lastError);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x15)), helpstring("This property is the last report path without extension")]
+    HRESULT LastReportPathWithoutExtension([out, retval] BSTR* path);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x16)), helpstring("This property indicates the last time the file management job was run")]
+    HRESULT LastRun([out, retval] DATE *lastRun);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x17)), helpstring("This property specifies a condition: wildcard filter for names. Empty string indicates this condition is disabled.")]
+    HRESULT FileNamePattern([out, retval] BSTR *fileNamePattern);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x17)), helpstring("This property specifies a condition: wildcard filter for names. Empty string indicates this condition is disabled.")]
+    HRESULT FileNamePattern([in] BSTR fileNamePattern);
+
+    //
+    // Methods
+    //
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x01), helpstring("This method is used to run the job in the specified context")]
+    HRESULT Run([in] FsrmReportGenerationContext context);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x02), helpstring("This method is used to wait for the specified period of time or until the job has finished running and return whether or not the job is still running")]
+    HRESULT WaitForCompletion(
+                        [in] long waitSeconds,
+                        [out, retval] VARIANT_BOOL *completed);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x03), helpstring("This method cancels a currently running job")]
+    HRESULT Cancel();
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x04), helpstring("This method is used to add a new notification value")]
+    HRESULT AddNotification([in] long days);
+                            
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x05), helpstring("This method is used to delete a notification")]
+    HRESULT DeleteNotification([in] long days);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x06), helpstring("This method is used to modify a notification")]
+    HRESULT ModifyNotification(
+                        [in] long days,
+                        [in] long newDays);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x07), helpstring("This method is used to create a notification action of a specific type")]
+    HRESULT CreateNotificationAction(
+                        [in] long days,
+                        [in] FsrmActionType actionType,
+                        [out, retval] IFsrmAction **action);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB | 0x08), helpstring("This method is used to enumerate notification actions")]
+    HRESULT EnumNotificationActions(
+                        [in] long days,
+                        [out, retval] IFsrmCollection **actions);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x09), helpstring("This method create a new IFsrmPropertyCondition object and add it to the PropertyConditions collection.")]
+    HRESULT CreatePropertyCondition(
+                        [in] BSTR name,
+                        [out, retval] IFsrmPropertyCondition** propertyCondition);
+
+    [id(FSRM_DISPID_FILE_MANAGEMENT_JOB_MANAGER | 0x0a), helpstring("This method create a new IFsrmActionCommand object and set it to the CustomAction property.")]
+    HRESULT CreateCustomAction(
+                        [out, retval] IFsrmActionCommand** customAction);
+
+};
+
+
+[
+  odl,
+  uuid(326af66f-2ac0-4f68-bf8c-4759f054fa29),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmPropertyCondition : IDispatch {
+
+    //
+    // Properties
+    //
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_CONDITION | 0x01)), helpstring("This property specifies the name of the property")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_CONDITION | 0x01)), helpstring("This property specifies the name of the property")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_CONDITION | 0x02)), helpstring("This property specifies the type of the condition")]
+    HRESULT Type([out, retval] FsrmPropertyConditionType *type);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_CONDITION | 0x02)), helpstring("This property specifies the type of the condition")]
+    HRESULT Type([in] FsrmPropertyConditionType type);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_CONDITION | 0x03)), helpstring("This property specifies the condition value")]
+    HRESULT Value([out, retval] BSTR *value);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_CONDITION | 0x03)), helpstring("This property specifies the condition value")]
+    HRESULT Value([in] BSTR value);
+
+
+    //
+    // Methods
+    //
+
+    [id(FSRM_DISPID_PROPERTY_CONDITION | 0x01), helpstring("This method is used to delete a property condition")]
+    HRESULT Delete();
+
+};
+
+
+[
+  odl,
+  uuid(70684FFC-691A-4A1A-B922-97752E138CC1),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmFileCondition : IDispatch {
+
+    //
+    // Properties
+    //
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION | 0x01)), helpstring("This property specifies the type of the condition")]
+    HRESULT Type([out, retval] FsrmFileConditionType* pVal);
+
+    //
+    // Methods
+    //
+
+    [id(FSRM_DISPID_FILE_CONDITION | 0x01), helpstring("This method deletes a file condition")]
+    HRESULT Delete();
+};
+
+
+[
+  odl,
+  uuid(81926775-B981-4479-988F-DA171D627360),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmFileConditionProperty : IFsrmFileCondition {
+
+    //
+    // Properties
+    //
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x01)), helpstring("This property specifies the name of the classification property")]
+    HRESULT PropertyName([out, retval] BSTR* pVal);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x01)), helpstring("This property specifies the name of the classification property")]
+    HRESULT PropertyName([in] BSTR newVal);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x02)), helpstring("This property specifies the predefined file property")]
+    HRESULT PropertyId([out, retval] FsrmFileSystemPropertyId* pVal);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x02)), helpstring("This property specifies the predefined file property")]
+    HRESULT PropertyId([in] FsrmFileSystemPropertyId newVal);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x03)), helpstring("This property specifies the comparison operator")]
+    HRESULT Operator([out, retval] FsrmPropertyConditionType* pVal);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x03)), helpstring("This property specifies the comparison operator")]
+    HRESULT Operator([in] FsrmPropertyConditionType newVal);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x04)), helpstring("This property specifies the type of the value")]
+    HRESULT ValueType([out, retval] FsrmPropertyValueType* pVal);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x04)), helpstring("This property specifies the type of the value")]
+    HRESULT ValueType([in] FsrmPropertyValueType newVal);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x05)), helpstring("This property specifies the value")]
+    HRESULT Value([out, retval] VARIANT* pVal);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILE_CONDITION_PROPERTY | 0x05)), helpstring("This property specifies the value")]
+    HRESULT Value([in] VARIANT newVal);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

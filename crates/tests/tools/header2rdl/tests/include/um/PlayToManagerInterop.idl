@@ -1,0 +1,34 @@
+/*  PlayToManagerInterop.idl
+ *
+ *	IDL defines for COM APIs to support interop with Windows.Media.PlayTo.PlayToManager
+ *
+ *	Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "inspectable.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+[
+    uuid(24394699-1F2C-4EB3-8CD7-0EC1DA42A540),
+]
+interface IPlayToManagerInterop : IInspectable
+{
+    HRESULT GetForWindow(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** playToManager);
+
+    HRESULT ShowPlayToUIForWindow(
+            [in] HWND appWindow);
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

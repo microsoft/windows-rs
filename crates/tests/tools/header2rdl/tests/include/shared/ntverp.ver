@@ -1,0 +1,4 @@
+#define VER_COMPANYNAME_STR         "Windows (R) Win 7 DDK provider"
+#define VER_PRODUCTNAME_STR         "Windows (R) Win 7 DDK driver"
+#define VER_LEGALTRADEMARKS_STR     \
+"Windows (R) is a registered trademark of Microsoft Corporation."

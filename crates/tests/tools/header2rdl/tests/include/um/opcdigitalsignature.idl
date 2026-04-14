@@ -1,0 +1,888 @@
+//+--------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      Contains the definition of public interfaces related to OPC digital signature.
+//
+//      Include from msopc.h.
+//      Import from msopc.idl.
+// 
+//
+//----------------------------------------------------------------------------
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "wincrypt.idl";  // for CERT_CONTEXT
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// Forward declarations
+//
+interface IOpcSignaturePartReference;
+interface IOpcSignatureRelationshipReference;
+interface IOpcRelationshipSelector;
+interface IOpcSignatureReference;
+interface IOpcSignatureCustomObject;
+interface IOpcDigitalSignature;
+interface IOpcSigningOptions;
+interface IOpcDigitalSignatureManager;
+
+//
+// Enumerator Interfaces
+//
+interface IOpcSignaturePartReferenceEnumerator;
+interface IOpcSignatureRelationshipReferenceEnumerator;
+interface IOpcRelationshipSelectorEnumerator;
+interface IOpcSignatureReferenceEnumerator;
+interface IOpcSignatureCustomObjectEnumerator;
+interface IOpcCertificateEnumerator;
+interface IOpcDigitalSignatureEnumerator;
+
+//
+// Set Interfaces
+//
+interface IOpcSignaturePartReferenceSet;
+interface IOpcSignatureRelationshipReferenceSet;
+interface IOpcRelationshipSelectorSet;
+interface IOpcSignatureReferenceSet;
+interface IOpcSignatureCustomObjectSet;
+interface IOpcCertificateSet;
+
+//==========================ENUMs============================================//
+typedef enum OPC_SIGNATURE_VALIDATION_RESULT 
+{
+    OPC_SIGNATURE_VALID  = 0,
+    OPC_SIGNATURE_INVALID = -1, 
+} OPC_SIGNATURE_VALIDATION_RESULT;
+
+typedef enum
+{
+    OPC_CANONICALIZATION_NONE = 0,
+    OPC_CANONICALIZATION_C14N = 1,
+    OPC_CANONICALIZATION_C14N_WITH_COMMENTS = 2
+} OPC_CANONICALIZATION_METHOD;
+
+typedef enum 
+{
+    OPC_RELATIONSHIP_SELECT_BY_ID = 0,     // Sign the relationships selected by the relationship Id.
+    OPC_RELATIONSHIP_SELECT_BY_TYPE = 1,   // Sign the relationships selected by the relationship Type.
+} OPC_RELATIONSHIP_SELECTOR;
+
+typedef enum 
+{
+    OPC_RELATIONSHIP_SIGN_USING_SELECTORS = 0,
+    OPC_RELATIONSHIP_SIGN_PART = 1
+} OPC_RELATIONSHIPS_SIGNING_OPTION;
+
+typedef enum 
+{
+    OPC_CERTIFICATE_IN_CERTIFICATE_PART = 0,
+    OPC_CERTIFICATE_IN_SIGNATURE_PART = 1,
+    OPC_CERTIFICATE_NOT_EMBEDDED = 2
+} OPC_CERTIFICATE_EMBEDDING_OPTION;
+
+typedef enum 
+{ 
+    OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS = 0,
+    OPC_SIGNATURE_TIME_FORMAT_SECONDS = 1,
+    OPC_SIGNATURE_TIME_FORMAT_MINUTES = 2,
+    OPC_SIGNATURE_TIME_FORMAT_DAYS = 3,
+    OPC_SIGNATURE_TIME_FORMAT_MONTHS = 4,
+    OPC_SIGNATURE_TIME_FORMAT_YEARS = 5
+} OPC_SIGNATURE_TIME_FORMAT;
+
+//==========================INTERFACEs============================================//
+
+[
+    object,
+    uuid(e24231ca-59f4-484e-b64b-36eeda36072c),
+    nonextensible,
+    pointer_default(unique)
+]
+interface IOpcSignaturePartReference : IUnknown
+{
+    HRESULT 
+    GetPartName(
+        [out, retval] IOpcPartUri **partName
+        );
+
+    HRESULT 
+    GetContentType(
+        [out, string, retval] LPWSTR *contentType
+        );
+
+    HRESULT
+    GetDigestMethod(
+        [out, string, retval] LPWSTR *digestMethod
+        );
+
+    HRESULT
+    GetDigestValue(
+        [out, size_is(, *count)] UINT8** digestValue, 
+        [out] UINT32* count        
+        );
+
+    HRESULT
+    GetTransformMethod(
+        [out, retval] OPC_CANONICALIZATION_METHOD* transformMethod
+        );
+}
+
+[
+    object,
+    uuid(f8f26c7f-b28f-4899-84c8-5d5639ede75f),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcRelationshipSelector : IUnknown
+{
+    HRESULT
+    GetSelectorType(
+        [out, retval] OPC_RELATIONSHIP_SELECTOR *selector
+        );
+
+    HRESULT
+    GetSelectionCriterion(
+        [out, string, retval] LPWSTR *selectionCriterion
+        );
+}
+
+[
+    object,
+    uuid(57babac6-9d4a-4e50-8b86-e5d4051eae7c),
+    nonextensible,
+    pointer_default(unique)
+]
+interface IOpcSignatureRelationshipReference : IUnknown
+{
+    HRESULT 
+    GetSourceUri(
+        [out, retval] IOpcUri **sourceUri
+        );
+
+    HRESULT
+    GetDigestMethod(
+        [out, string, retval] LPWSTR *digestMethod
+        );
+
+    HRESULT
+    GetDigestValue(
+        [out, size_is(, *count)] UINT8** digestValue, 
+        [out] UINT32* count        
+        );
+
+    HRESULT
+    GetTransformMethod(
+        [out, retval] OPC_CANONICALIZATION_METHOD* transformMethod
+        );
+
+    HRESULT
+    GetRelationshipSigningOption(
+        [out, retval] OPC_RELATIONSHIPS_SIGNING_OPTION* relationshipSigningOption
+        );
+
+    HRESULT
+    GetRelationshipSelectorEnumerator(
+        [out, retval] IOpcRelationshipSelectorEnumerator** selectorEnumerator
+        );
+}
+
+[
+    object,
+    uuid(1b47005e-3011-4edc-be6f-0f65e5ab0342),
+    nonextensible,
+    pointer_default(unique)
+]
+interface IOpcSignatureReference : IUnknown
+{
+    HRESULT
+    GetId(
+        [out, string, retval] LPWSTR *referenceId
+        );
+
+    HRESULT
+    GetUri(
+        [out, retval] IUri **referenceUri
+        );
+
+    HRESULT
+    GetType(
+        [out, string, retval] LPWSTR *type
+        );
+
+    HRESULT
+    GetTransformMethod(
+        [out, retval] OPC_CANONICALIZATION_METHOD* transformMethod
+        );
+
+    HRESULT
+    GetDigestMethod(
+        [out, string, retval] LPWSTR *digestMethod
+        );
+
+    HRESULT
+    GetDigestValue(
+        [out, size_is(, *count)] UINT8** digestValue, 
+        [out] UINT32* count        
+        );
+}
+
+[
+    object,
+    uuid(5d77a19e-62c1-44e7-becd-45da5ae51a56),
+    nonextensible,
+    pointer_default(unique)
+]
+interface IOpcSignatureCustomObject : IUnknown
+{
+    // Custom Object Contents as valid xml markup [optional]
+    // This includes the <Object> and </Object> tags which gives applications
+    // complete control over xml namespaces.
+    HRESULT
+    GetXml(
+        [out, size_is(, *count)] UINT8** xmlMarkup,
+        [out] UINT32* count
+        );
+}
+
+[
+    object,
+    uuid(80eb1561-8c77-49cf-8266-459b356ee99a),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignaturePartReferenceEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] IOpcSignaturePartReference** partReference
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcSignaturePartReferenceEnumerator **copy
+        );
+};
+
+[
+    object,
+    uuid(5e50a181-a91b-48ac-88d2-bca3d8f8c0b1),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcRelationshipSelectorEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] IOpcRelationshipSelector** relationshipSelector
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcRelationshipSelectorEnumerator **copy
+        );
+};
+
+[
+    object,
+    uuid(773ba3e4-f021-48e4-aa04-9816db5d3495),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignatureRelationshipReferenceEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] IOpcSignatureRelationshipReference** relationshipReference
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcSignatureRelationshipReferenceEnumerator **copy
+        );
+};
+
+[
+    object,
+    uuid(cfa59a45-28b1-4868-969e-fa8097fdc12a),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignatureReferenceEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] IOpcSignatureReference** reference
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcSignatureReferenceEnumerator **copy
+        );
+};
+
+[
+    object,
+    uuid(5ee4fe1d-e1b0-4683-8079-7ea0fcf80b4c),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignatureCustomObjectEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] IOpcSignatureCustomObject** customObject
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcSignatureCustomObjectEnumerator **copy
+        );
+};
+
+[
+    object,
+    uuid(85131937-8f24-421f-b439-59ab24d140b8),
+    local,
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcCertificateEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] const CERT_CONTEXT** certificate
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcCertificateEnumerator **copy
+        );
+};
+
+[
+    object,
+    uuid(967b6882-0ba3-4358-b9e7-b64c75063c5e),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcDigitalSignatureEnumerator : IUnknown
+{
+    HRESULT 
+    MoveNext(
+        [out, retval] BOOL* hasNext
+        );
+
+    HRESULT
+    MovePrevious(
+        [out, retval] BOOL* hasPrevious
+        );
+
+    HRESULT
+    GetCurrent(
+        [out, retval] IOpcDigitalSignature** digitalSignature
+        );
+
+    HRESULT
+    Clone(
+        [out, retval] IOpcDigitalSignatureEnumerator **copy
+        );
+};
+
+//
+// Set Interfaces
+//
+[
+    object,
+    uuid(6c9fe28c-ecd9-4b22-9d36-7fdde670fec0),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignaturePartReferenceSet : IUnknown
+{
+    HRESULT
+    Create( 
+        [in]          IOpcPartUri*            partUri,
+        [in, unique]  LPCWSTR                 digestMethod,
+        [in]          OPC_CANONICALIZATION_METHOD    transformMethod,
+        [out, retval] IOpcSignaturePartReference** partReference
+        );
+
+    HRESULT
+    Delete(
+        [in] IOpcSignaturePartReference* partReference
+        );
+
+    HRESULT
+    GetEnumerator(
+        [out, retval] IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator
+        );
+}
+
+[
+    object,
+    uuid(6e34c269-a4d3-47c0-b5c4-87ff2b3b6136),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcRelationshipSelectorSet : IUnknown
+{
+    HRESULT
+    Create( 
+        [in]    OPC_RELATIONSHIP_SELECTOR selector,
+        [in]    LPCWSTR         selectionCriterion,
+        [out, retval] IOpcRelationshipSelector** relationshipSelector
+        );
+
+    HRESULT
+    Delete(
+        [in] IOpcRelationshipSelector* relationshipSelector
+        );
+
+    HRESULT
+    GetEnumerator(
+        [out, retval] IOpcRelationshipSelectorEnumerator** relationshipSelectorEnumerator
+        );
+}
+
+[
+    object,
+    uuid(9f863ca5-3631-404c-828d-807e0715069b),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignatureRelationshipReferenceSet : IUnknown
+{
+    HRESULT
+    Create( 
+        [in]          IOpcUri*    sourceUri, 
+        [in, unique]  LPCWSTR     digestMethod,
+        [in]          OPC_RELATIONSHIPS_SIGNING_OPTION relationshipSigningOption,
+        [in, unique]  IOpcRelationshipSelectorSet*   selectorSet,
+        [in]          OPC_CANONICALIZATION_METHOD    transformMethod, 
+        [out, retval] IOpcSignatureRelationshipReference** relationshipReference
+        );
+
+    HRESULT
+    CreateRelationshipSelectorSet(
+        [out] IOpcRelationshipSelectorSet** selectorSet
+        );
+
+    HRESULT
+    Delete(
+        [in] IOpcSignatureRelationshipReference* relationshipReference
+        );
+
+    HRESULT
+    GetEnumerator(
+        [out, retval] IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator
+        );
+}
+
+[
+    object,
+    uuid(f3b02d31-ab12-42dd-9e2f-2b16761c3c1e),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignatureReferenceSet : IUnknown
+{
+    HRESULT
+    Create(
+        [in]          IUri                   *referenceUri,
+        [in, unique]  LPCWSTR                referenceId,
+        [in, unique]  LPCWSTR                type,
+        [in, unique]  LPCWSTR                digestMethod,   // can be NULL and we will use default digest method
+        [in]          OPC_CANONICALIZATION_METHOD   transformMethod,
+        [out, retval] IOpcSignatureReference **reference
+        );
+
+    HRESULT
+    Delete(
+        [in] IOpcSignatureReference *reference
+        );
+
+    HRESULT
+    GetEnumerator(
+        [out, retval] IOpcSignatureReferenceEnumerator** referenceEnumerator
+        );
+}
+
+[
+    object,
+    uuid(8f792ac5-7947-4e11-bc3d-2659ff046ae1),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSignatureCustomObjectSet : IUnknown
+{
+    HRESULT 
+    Create(
+        [in, size_is(count)] const UINT8*    xmlMarkup,
+        [in] UINT32           count,
+        [out, retval] IOpcSignatureCustomObject **customObject
+        );
+
+    HRESULT
+    Delete(
+        [in] IOpcSignatureCustomObject *customObject
+        );
+
+    HRESULT
+    GetEnumerator(
+        [out,retval] IOpcSignatureCustomObjectEnumerator**  customObjectEnumerator
+        );
+}
+
+[
+    object,
+    uuid(56ea4325-8e2d-4167-b1a4-e486d24c8fa7),
+    local,  // It has to be loacl to make MIDL accept void*, which is a field in CERT_CONTEXT
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcCertificateSet : IUnknown
+{
+    HRESULT 
+    Add(
+        [in] const CERT_CONTEXT* certificate
+        );
+
+    HRESULT
+    Remove(
+        [in] const CERT_CONTEXT* certificate
+        );
+
+    HRESULT
+    GetEnumerator(
+        [out, retval] IOpcCertificateEnumerator**  certificateEnumerator
+        );
+}
+
+[
+    object,
+    uuid(52ab21dd-1cd0-4949-bc80-0c1232d00cb4),
+    local,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IOpcDigitalSignature : IUnknown
+{
+    HRESULT
+    GetNamespaces(
+        [out, size_is(, *count), annotation("__RPC__deref_out_ecount_full_opt(*count)")] LPWSTR** prefixes,
+        [out, size_is(, *count), annotation("__RPC__deref_out_ecount_full_opt(*count)")] LPWSTR** namespaces,
+        [out] UINT32* count
+        );
+
+    HRESULT
+    GetSignatureId(
+        [out, string, retval, annotation("__RPC__deref_out_opt_string")] LPWSTR* signatureId
+        );
+
+    HRESULT
+    GetSignaturePartName(
+        [out, retval] IOpcPartUri** signaturePartName
+        );
+
+    HRESULT
+    GetSignatureMethod(
+        [out, string, retval, annotation("__RPC__deref_out_opt_string")] LPWSTR* signatureMethod
+        );
+
+    HRESULT
+    GetCanonicalizationMethod(
+        [out, retval] OPC_CANONICALIZATION_METHOD* canonicalizationMethod
+        );
+
+    HRESULT
+    GetSignatureValue(
+        [out, size_is(, *count), annotation("__RPC__deref_out_ecount_full_opt(*count)")] UINT8** signatureValue,
+        [out] UINT32* count
+        );
+
+    HRESULT
+    GetSignaturePartReferenceEnumerator(
+        [out, retval] IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator
+        );
+
+    HRESULT
+    GetSignatureRelationshipReferenceEnumerator(
+        [out, retval] IOpcSignatureRelationshipReferenceEnumerator ** relationshipReferenceEnumerator
+        );
+
+    HRESULT
+    GetSigningTime(
+        [out, string, retval, annotation("__RPC__deref_out_opt_string")] LPWSTR *signingTime
+        );
+
+    HRESULT
+    GetTimeFormat(
+        [out, retval] OPC_SIGNATURE_TIME_FORMAT* timeFormat
+        );
+
+    HRESULT
+    GetPackageObjectReference(
+        [out, retval] IOpcSignatureReference** packageObjectReference
+        );
+
+    HRESULT
+    GetCertificateEnumerator(
+        [out, retval] IOpcCertificateEnumerator** certificateEnumerator
+        );
+
+    HRESULT
+    GetCustomReferenceEnumerator(
+        [out, retval] IOpcSignatureReferenceEnumerator** customReferenceEnumerator
+        );
+
+    HRESULT
+    GetCustomObjectEnumerator(
+        [out, retval] IOpcSignatureCustomObjectEnumerator** customObjectEnumerator
+        );
+
+    HRESULT
+    GetSignatureXml(
+        [out, size_is(, *count)] UINT8** signatureXml,
+        [out] UINT32* count
+        );
+};
+
+[
+    object,
+    uuid(50d2d6a5-7aeb-46c0-b241-43ab0e9b407e),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcSigningOptions : IUnknown
+{
+    HRESULT
+    GetSignatureId(
+        [out, string, retval] LPWSTR* signatureId
+        );
+
+    HRESULT
+    SetSignatureId(
+        [in] LPCWSTR signatureId
+        );
+
+    HRESULT
+    GetSignatureMethod(
+        [out, string, retval] LPWSTR* signatureMethod
+        );
+
+    HRESULT
+    SetSignatureMethod(
+        [in] LPCWSTR signatureMethod
+        );
+
+    HRESULT
+    GetDefaultDigestMethod(
+        [out, string, retval] LPWSTR* digestMethod
+        );
+
+    HRESULT
+    SetDefaultDigestMethod(
+        [in] LPCWSTR digestMethod
+        );
+
+    HRESULT
+    GetCertificateEmbeddingOption(
+        [out, retval] OPC_CERTIFICATE_EMBEDDING_OPTION* embeddingOption
+        );
+
+    HRESULT
+    SetCertificateEmbeddingOption(
+        [in] OPC_CERTIFICATE_EMBEDDING_OPTION embeddingOption
+        );
+
+    // Time Format
+    HRESULT
+    GetTimeFormat(
+        [out, retval] OPC_SIGNATURE_TIME_FORMAT* timeFormat
+        );
+
+    HRESULT
+    SetTimeFormat(
+        [in] OPC_SIGNATURE_TIME_FORMAT timeFormat
+        );
+
+    HRESULT
+    GetSignaturePartReferenceSet(
+        [out, retval] IOpcSignaturePartReferenceSet** partReferenceSet
+        );
+
+    HRESULT
+    GetSignatureRelationshipReferenceSet(
+        [out, retval] IOpcSignatureRelationshipReferenceSet** relationshipReferenceSet
+        );
+
+    HRESULT
+    GetCustomObjectSet(
+        [out, retval] IOpcSignatureCustomObjectSet** customObjectSet
+        );
+
+    HRESULT
+    GetCustomReferenceSet(
+        [out, retval] IOpcSignatureReferenceSet** customReferenceSet
+        );
+
+    HRESULT
+    GetCertificateSet(
+        [out, retval] IOpcCertificateSet** certificateSet
+        );
+
+    HRESULT
+    GetSignaturePartName(
+        [out, retval] IOpcPartUri** signaturePartName
+        );
+
+    HRESULT
+    SetSignaturePartName(
+        [in, unique] IOpcPartUri* signaturePartName
+        );
+};
+
+[
+    object,
+    uuid(d5e62a0b-696d-462f-94df-72e33cef2659),
+    local,
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcDigitalSignatureManager : IUnknown
+{
+    HRESULT
+    GetSignatureOriginPartName(
+        [out, retval] IOpcPartUri** signatureOriginPartName
+        );
+
+    HRESULT
+    SetSignatureOriginPartName(
+        [in, unique] IOpcPartUri* signatureOriginPartName
+        );
+
+    HRESULT
+    GetSignatureEnumerator(
+       [out, retval] IOpcDigitalSignatureEnumerator** signatureEnumerator
+       );
+
+    HRESULT
+    RemoveSignature(
+        [in] IOpcPartUri* signaturePartName
+        );
+
+    HRESULT
+    CreateSigningOptions(
+        [out, retval] IOpcSigningOptions** signingOptions
+        );
+
+    HRESULT
+    Validate(
+        [in] IOpcDigitalSignature*              signature,
+        [in] const CERT_CONTEXT*                certificate,
+        [out, retval] OPC_SIGNATURE_VALIDATION_RESULT* validationResult
+        );
+
+    HRESULT
+    Sign(
+        [in]  const CERT_CONTEXT*                certificate,
+        [in]  IOpcSigningOptions*                signingOptions,
+        [out, retval] IOpcDigitalSignature**       digitalSignature
+        );
+
+    HRESULT
+    ReplaceSignatureXml(
+        [in] IOpcPartUri*   signaturePartName,
+        [in, size_is(count)] const UINT8*    newSignatureXml,
+        [in] UINT32          count,
+        [out, retval] IOpcDigitalSignature**    digitalSignature
+        );
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+

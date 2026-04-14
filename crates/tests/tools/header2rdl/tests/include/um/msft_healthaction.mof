@@ -1,0 +1,77 @@
+[ClassVersion( "1.0" ), 
+Abstract,
+Description(
+    "This class represents health-related system activities that are rolled up and scoped "
+    "by the three designated health-monitored classes, i.e. MSFT_StorageSubsystem, "
+    "MSFT_FileShare, and MSFT_Volume."
+    )]
+class MSFT_HealthAction : MSFT_StorageObject
+{
+    [Read, Description(
+        "The type of Health Action."
+        )]
+    String Type;
+
+    [Read, Description(
+        "The short summary description of the action."
+        )]
+    String Reason;
+
+    [Read, Description(
+        "A identifier of the object that triggered the action."
+        )]
+    String ReportingObjectId;
+
+    [Read, Description(
+        "A unique identifier of the object that triggered the action."
+        )]
+    String ReportingObjectUniqueId;
+
+    [Read, Description(
+        "A string that uniquely identifies the type of the object that triggered the action."
+        )]
+    String ReportingObjectType;
+
+    [Read, Description(
+        "The message parameters that are plugged into the default message template for the "
+        "Health Action type. These can be plugged into a custom message."
+        )]
+    String MessageParameters[];
+
+    [Read, Description(
+        "The full description of the action."
+        )]
+    String Description;
+
+    [Read, Description(
+        "This is the error code if the action failed. This should be set to 0 if the action "
+        "was successful. This should be NULL until the action has completed."
+        )]
+    UInt32 ErrorCode;
+
+    [Read, Description(
+        "A free-form string that can contain a vendor-specific error description if the action "
+        "failed."
+        )]
+    String ErrorDescription;
+
+    [Read, Description(
+        "Current high level state of the action."
+        )]
+    UInt16 State;
+
+    [Read, Description(
+        "A free-form string that provides implementation-specific status of the action."
+        )]
+    String Status;
+
+    [Read, Description(
+        "The percentage of the action that has completed at the time that this value is requested."
+        ), Units( "Percent" ), MinValue( 0 ), MaxValue( 100 )]
+    UInt16 PercentComplete;
+
+    [Read, Description(
+        "The time that the action was started."
+        )]
+    Datetime StartTime;
+};

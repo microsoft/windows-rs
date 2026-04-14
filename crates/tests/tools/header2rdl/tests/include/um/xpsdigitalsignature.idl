@@ -1,0 +1,437 @@
+//+----------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      Defines the public interfaces for XPS Digital Signature.
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "wincrypt.idl";  // for CERT_CONTEXT
+import "msopc.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+[
+    uuid(8223a7eb-c4d5-474d-9bcc-ff67185e64a0)
+]
+library MSXPSSIG
+{
+
+// Forward declarations
+interface IXpsSigningOptions;
+interface IXpsSignatureCollection;
+interface IXpsSignature;
+interface IXpsSignatureBlockCollection;
+interface IXpsSignatureBlock;
+interface IXpsSignatureRequestCollection;
+interface IXpsSignatureRequest;
+
+typedef enum {
+    XPS_SIGNATURE_STATUS_INCOMPLIANT    = 1,
+    XPS_SIGNATURE_STATUS_INCOMPLETE     = 2,
+    XPS_SIGNATURE_STATUS_BROKEN         = 3,
+    XPS_SIGNATURE_STATUS_QUESTIONABLE   = 4,
+    XPS_SIGNATURE_STATUS_VALID          = 5
+}
+XPS_SIGNATURE_STATUS;
+
+typedef [v1_enum] enum {
+    XPS_SIGN_POLICY_NONE                        = 0x00,
+    XPS_SIGN_POLICY_CORE_PROPERTIES             = 0x01,
+    XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS     = 0x02,
+    XPS_SIGN_POLICY_PRINT_TICKET                = 0x04,
+    XPS_SIGN_POLICY_DISCARD_CONTROL             = 0x08,
+    XPS_SIGN_POLICY_ALL                         = 0x0F
+} 
+XPS_SIGN_POLICY;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(XPS_SIGN_POLICY)")
+
+typedef [v1_enum] enum {
+    XPS_SIGN_FLAGS_NONE                         = 0x00,
+    XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY  = 0x01
+}
+XPS_SIGN_FLAGS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(XPS_SIGN_FLAGS)")
+
+[
+object,
+uuid(d3e8d338-fdc4-4afc-80b5-d532a1782ee1),
+local  // make MIDL accept void*, which is a field in CERT_CONTEXT
+]
+interface IXpsSignatureManager : IUnknown
+{
+    HRESULT LoadPackageFile(
+        [in, string] LPCWSTR fileName
+        );
+
+    HRESULT LoadPackageStream(
+        [in] IStream* stream
+        );
+
+    HRESULT Sign(
+        [in] IXpsSigningOptions* signOptions,
+        [in] const CERT_CONTEXT* x509Certificate,
+        [out, retval] IXpsSignature** signature
+        );
+
+    HRESULT GetSignatureOriginPartName(
+        [out, retval] IOpcPartUri** signatureOriginPartName
+        );
+
+    HRESULT SetSignatureOriginPartName(
+        [in] IOpcPartUri* signatureOriginPartName
+        );
+
+    HRESULT GetSignatures(
+        [out, retval] IXpsSignatureCollection** signatures
+        );
+
+    HRESULT AddSignatureBlock(
+        [in] IOpcPartUri* partName,
+        [in] UINT32 fixedDocumentIndex,
+        [out, retval] IXpsSignatureBlock** signatureBlock
+        );
+
+    HRESULT GetSignatureBlocks(
+        [out, retval] IXpsSignatureBlockCollection **signatureBlocks
+        );
+
+    HRESULT CreateSigningOptions(
+        [out, retval] IXpsSigningOptions **signingOptions
+        );
+
+    HRESULT SavePackageToFile(
+        [in, string] LPCWSTR fileName,
+        [in, unique] LPSECURITY_ATTRIBUTES securityAttributes,
+        [in] DWORD flagsAndAttributes
+        );
+
+    HRESULT SavePackageToStream(
+        [in] IStream* stream
+        );
+}
+
+[
+object,
+uuid(7718eae4-3215-49be-af5b-594fef7fcfa6)
+]
+interface IXpsSigningOptions : IUnknown
+{
+     HRESULT GetSignatureId(
+        [out, string, retval] LPWSTR* signatureId
+        );
+
+    HRESULT SetSignatureId(
+        [in, string] LPCWSTR signatureId
+        );
+
+    HRESULT GetSignatureMethod(
+        [out, string, retval] LPWSTR* signatureMethod
+        );
+
+    HRESULT SetSignatureMethod(
+        [in, string] LPCWSTR signatureMethod
+        );
+
+    HRESULT GetDigestMethod(
+        [out, string, retval] LPWSTR* digestMethod
+        );
+
+    HRESULT SetDigestMethod(
+        [in, string] LPCWSTR digestMethod
+        );
+
+    HRESULT GetSignaturePartName(
+        [out, retval] IOpcPartUri** signaturePartName
+        );
+
+    HRESULT SetSignaturePartName(
+        [in] IOpcPartUri* signaturePartName
+        );
+
+    HRESULT GetPolicy(
+        [out, retval] XPS_SIGN_POLICY* policy
+        );
+
+    HRESULT SetPolicy(
+        [in] XPS_SIGN_POLICY policy
+        );
+
+    HRESULT GetSigningTimeFormat(
+        [out, retval] OPC_SIGNATURE_TIME_FORMAT* timeFormat
+        );
+
+    HRESULT SetSigningTimeFormat(
+        [in] OPC_SIGNATURE_TIME_FORMAT timeFormat
+        );
+
+    HRESULT GetCustomObjects(
+        [out, retval] IOpcSignatureCustomObjectSet** customObjectSet
+        );
+
+    HRESULT GetCustomReferences(
+        [out, retval] IOpcSignatureReferenceSet** customReferenceSet
+        );
+
+    HRESULT GetCertificateSet(
+        [out, retval] IOpcCertificateSet** certificateSet
+        );
+
+    HRESULT GetFlags(
+        [out, retval] XPS_SIGN_FLAGS* flags
+        );
+
+    HRESULT SetFlags(
+        [in] XPS_SIGN_FLAGS flags
+        );
+
+}
+
+[
+object,
+uuid(A2D1D95D-ADD2-4DFF-AB27-6B9C645FF322)
+]
+interface IXpsSignatureCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out, retval] UINT32* count
+        );
+
+    HRESULT GetAt(
+        [in] UINT32 index,
+        [out, retval] IXpsSignature **signature
+        );
+
+    HRESULT RemoveAt(
+        UINT32 index
+        );
+}
+
+[
+object,
+uuid(6AE4C93E-1ADE-42FB-898B-3A5658284857),
+local  // make MIDL accept void*, which is a field in CERT_CONTEXT
+]
+interface IXpsSignature : IUnknown
+{
+    HRESULT GetSignatureId(
+        [out, string, retval] LPWSTR *sigId
+        );
+
+    HRESULT GetSignatureValue(
+        [out, size_is(, *count)] UINT8** signatureHashValue,
+        [out] UINT32* count
+        );
+
+    HRESULT GetCertificateEnumerator(
+        [out, retval] IOpcCertificateEnumerator** certificateEnumerator
+        );
+
+    HRESULT GetSigningTime(
+        [out, string, retval] LPWSTR *sigDateTimeString
+        );
+
+    HRESULT GetSigningTimeFormat(
+        [out, retval] OPC_SIGNATURE_TIME_FORMAT* timeFormat
+        );
+
+    HRESULT GetSignaturePartName(
+        [out, retval] IOpcPartUri** signaturePartName
+        );
+
+    HRESULT Verify( 
+        [in] const CERT_CONTEXT* x509Certificate,
+        [out, retval] XPS_SIGNATURE_STATUS* sigStatus
+        );
+
+    HRESULT GetPolicy(
+        [out, retval] XPS_SIGN_POLICY* policy
+        );
+
+    HRESULT GetCustomObjectEnumerator(
+        [out, retval] IOpcSignatureCustomObjectEnumerator** customObjectEnumerator
+        );
+
+    HRESULT GetCustomReferenceEnumerator(
+        [out, retval] IOpcSignatureReferenceEnumerator** customReferenceEnumerator
+        );
+
+    HRESULT GetSignatureXml(
+        [out, size_is(, *count)] UINT8** signatureXml,
+        [out] UINT32* count
+        );
+
+    HRESULT SetSignatureXml(
+        [in, size_is(count)] const UINT8* signatureXml,
+        [in] UINT32 count
+        );
+}
+
+[
+object,
+uuid(23397050-FE99-467A-8DCE-9237F074FFE4)
+]
+interface IXpsSignatureBlockCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out, retval] UINT32* count
+        );
+
+    HRESULT GetAt(
+        [in] UINT32 index,
+        [out, retval] IXpsSignatureBlock** signatureBlock
+        );
+
+    HRESULT RemoveAt(
+        UINT32 index
+        );
+}
+
+[
+object,
+uuid(151FAC09-0B97-4AC6-A323-5E4297D4322B)
+]
+interface IXpsSignatureBlock : IUnknown
+{
+    HRESULT GetRequests(
+        [out, retval] IXpsSignatureRequestCollection** requests
+        );
+
+    HRESULT GetPartName(
+        [out, retval] IOpcPartUri** partName
+        );
+
+    HRESULT GetDocumentIndex(
+        [out, retval] UINT32* fixedDocumentIndex
+        );
+
+    HRESULT GetDocumentName(
+        [out, retval] IOpcPartUri** fixedDocumentName
+        );
+
+    HRESULT CreateRequest(
+        [in, string] LPCWSTR requestId,
+        [out, retval] IXpsSignatureRequest **signatureRequest
+        );
+}
+
+[
+object,
+uuid(F0253E68-9F19-412E-9B4F-54D3B0AC6CD9)
+]
+interface IXpsSignatureRequestCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out, retval] UINT32* count
+        );
+
+    HRESULT GetAt(
+        [in] UINT32 index,
+        [out, retval] IXpsSignatureRequest** signatureRequest
+        );
+
+    HRESULT RemoveAt(
+        [in] UINT32 index
+        );
+}
+
+[
+object,
+uuid(ac58950b-7208-4b2d-b2c4-951083d3b8eb)
+]
+interface IXpsSignatureRequest : IUnknown
+{
+    HRESULT GetIntent(
+        [out, string, retval] LPWSTR *intent
+        );
+
+    HRESULT SetIntent(
+        [in, string] LPCWSTR intent
+        );
+
+    HRESULT GetRequestedSigner(
+        [out, string, retval] LPWSTR *signerName
+        );
+
+    HRESULT SetRequestedSigner(
+        [in, string] LPCWSTR signerName
+        );
+
+    HRESULT GetRequestSignByDate(
+        [out, string, retval] LPWSTR *dateString
+        );
+
+    HRESULT SetRequestSignByDate(
+        [in, string] LPCWSTR dateString
+        );
+
+    HRESULT GetSigningLocale(
+        [out, string, retval] LPWSTR *place
+        );
+
+    HRESULT SetSigningLocale(
+        [in, string] LPCWSTR place
+        );
+
+    HRESULT GetSpotLocation(
+        [out] INT32* pageIndex,
+        [out] IOpcPartUri** pagePartName,
+        [out] float* x,
+        [out] float* y
+        );
+
+    HRESULT SetSpotLocation(
+        [in] INT32 pageIndex,
+        [in] float x,
+        [in] float y
+        );
+
+    HRESULT GetRequestId(
+        [out, string, retval] LPWSTR *requestId
+        );
+
+    HRESULT GetSignature(
+        [out, retval] IXpsSignature** signature
+        );
+}
+[
+    uuid(b0c43320-2315-44a2-b70a-0943a140a8ee)
+]
+coclass XpsSignatureManager
+{
+    interface IXpsSignatureManager;
+};
+
+}; // library MSXPSSIG
+
+cpp_quote("#define XPS_E_SIGREQUESTID_DUP               MAKE_HRESULT(1, FACILITY_XPS, 901) ")
+cpp_quote("#define XPS_E_PACKAGE_NOT_OPENED             MAKE_HRESULT(1, FACILITY_XPS, 902) ")
+cpp_quote("#define XPS_E_PACKAGE_ALREADY_OPENED         MAKE_HRESULT(1, FACILITY_XPS, 903) ")
+cpp_quote("#define XPS_E_SIGNATUREID_DUP                MAKE_HRESULT(1, FACILITY_XPS, 904) ")
+cpp_quote("#define XPS_E_MARKUP_COMPATIBILITY_ELEMENTS  MAKE_HRESULT(1, FACILITY_XPS, 905) ")
+cpp_quote("#define XPS_E_OBJECT_DETACHED                MAKE_HRESULT(1, FACILITY_XPS, 906) ")
+cpp_quote("#define XPS_E_INVALID_SIGNATUREBLOCK_MARKUP  MAKE_HRESULT(1, FACILITY_XPS, 907) ")
+
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+

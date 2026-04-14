@@ -1,0 +1,2852 @@
+// The GUIDs present in this file are just placeholders. The proper values will be generated later
+
+//
+// Mbnext.idl :
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (Mbnext.tlb) and marshalling code.
+//
+
+midl_pragma warning (disable: 2456)
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// ------------------------
+
+// GUID Ranges for this IDL
+//
+// Type library:    DCBBBAB6-0001-4BBB-AAEE-338E368AF6FA
+// Interfaces from: DCBBBAB6-2001-4BBB-AAEE-338E368AF6FA
+//              to: DCBBBAB6-2FFF-4BBB-AAEE-338E368AF6FA
+// CoClasses  from: DCBBBAB6-4001-4BBB-AAEE-338E368AF6FA
+//              to: DCBBBAB6-4FFF-4BBB-AAEE-338E368AF6FA
+// Enums      from: DCBBBAB6-6001-4BBB-AAEE-338E368AF6FA
+//              to: DCBBBAB6-6FFF-4BBB-AAEE-338E368AF6FA
+// Extension  from: DCBBBAB6-7001-4BBB-AAEE-338E368AF6FA
+// definitions  to: DCBBBAB6-7FFF-4BBB-AAEE-338E368AF6FA
+// Data       from: DCBBBAB6-8001-4BBB-AAEE-338E368AF6FA
+// Productions  to: DCBBBAB6-8FFF-4BBB-AAEE-338E368AF6FA
+// UDT's      from: DCBBBAB6-9001-4BBB-AAEE-338E368AF6FA
+//              to: DCBBBAB6-9FFF-4BBB-AAEE-338E368AF6FA
+// AppId          : DCBBBAB6-AAAA-4BBB-AAEE-338E368AF6FA
+
+// Forward declarations 
+interface IMbnInterface;                            // DCBBBAB6-2001-4BBB-AAEE-338E368AF6FA
+interface IMbnSubscriberInformation;
+interface IMbnInterfaceEvents;                      // DCBBBAB6-2002-4BBB-AAEE-338E368AF6FA
+interface IMbnSignal;                               // DCBBBAB6-2003-4BBB-AAEE-338E368AF6FA
+interface IMbnSignalEvents;                         // DCBBBAB6-2004-4BBB-AAEE-338E368AF6FA
+interface IMbnPinManager;                           // DCBBBAB6-2005-4BBB-AAEE-338E368AF6FA
+interface IMbnPinManagerEvents;                     // DCBBBAB6-2006-4BBB-AAEE-338E368AF6FA
+interface IMbnPin;                                  // DCBBBAB6-2007-4BBB-AAEE-338E368AF6FA
+interface IMbnPinEvents;                            // DCBBBAB6-2008-4BBB-AAEE-338E368AF6FA
+interface IMbnRegistration;                         // DCBBBAB6-2009-4BBB-AAEE-338E368AF6FA
+interface IMbnRegistrationEvents;                   // DCBBBAB6-200A-4BBB-AAEE-338E368AF6FA
+interface IMbnConnectionContext;                    // DCBBBAB6-200B-4BBB-AAEE-338E368AF6FA
+interface IMbnConnectionContextEvents;              // DCBBBAB6-200C-4BBB-AAEE-338E368AF6FA
+interface IMbnConnection;                           // DCBBBAB6-200D-4BBB-AAEE-338E368AF6FA
+interface IMbnConnectionEvents;                     // DCBBBAB6-200E-4BBB-AAEE-338E368AF6FA
+interface IMbnConnectionProfileManager;
+interface IMbnConnectionProfile;
+interface IMbnConnectionProfileEvents;
+interface IMbnSmsConfiguration;
+interface IMbnSmsReadMsgPdu;
+interface IMbnSmsReadMsgTextCdma;
+interface IMbnSms;
+interface IMbnSmsEvents;
+interface IMbnServiceActivation;
+interface IMbnServiceActivationEvents;
+interface IMbnVendorSpecificOperation;
+interface IMbnVendorSpecificEvents;
+interface IMbnInterfaceManager;
+interface IMbnInterfaceManagerEvents;
+interface IMbnConnectionManager;
+interface IMbnConnectionManagerEvents;
+interface IMbnConnectionProfileManagerEvents;
+interface IMbnDeviceServicesManager;
+interface IMbnDeviceServicesEvents;
+interface IMbnDeviceServicesContext;
+interface IMbnDeviceService;
+
+//
+// DISP ID's.
+//
+// Keep the following sorted alphabetically (e.g. use a spreadsheet).
+//
+// The first BYTE in the WORD is the letter of the alphabet.
+// The next is the entry number for that letter.
+//
+//
+#define DISPID_AVAILABLEDCID                                      0x0101
+#define DISPID_CONNECTID                                          0x0102
+#define DISPID_CONNECTSTATEID                                     0x0103 
+#define DISPID_CURRENTDCID                                        0x0104 
+#define DISPID_DISCONNECTID                                       0x0105 
+#define DISPID_EMERGENCYID                                        0x0106 
+#define DISPID_HOMEPROVID                                         0x0107 
+#define DISPID_IFCAPSID                                           0x0108 
+#define DISPID_IFREADYSTATEID                                     0x0109 
+#define DISPID_IFSTATEID                                          0x010A 
+#define DISPID_NOTIFYCONNECTID                                    0x010C 
+#define DISPID_NOTIFYCONNECTSTATEID                               0x010D 
+#define DISPID_NOTIFYDISCONNECTID                                 0x010E 
+#define DISPID_NOTIFYEMERGENCYID                                  0x010F 
+#define DISPID_NOTIFYHOMEPROVID                                   0x0201 
+#define DISPID_NOTIFYIFCAPID                                      0x0202 
+#define DISPID_NOTIFYIFREADYSTATEID                               0x0203 
+#define DISPID_NOTIFYIFSTATEID                                    0x0204
+#define DISPID_NOTIFYPINCHANGEID                                  0x0205 
+#define DISPID_NOTIFYPINDISABLEID                                 0x0206 
+#define DISPID_NOTIFYPINENABLEID                                  0x0207 
+#define DISPID_NOTIFYPINENTERID                                   0x0208 
+#define DISPID_NOTIFYPINLISTID                                    0x0209 
+#define DISPID_NOTIFYPINSTATEID                                   0x020A 
+#define DISPID_NOTIFYPINUNBLOCKID                                 0x020B
+#define DISPID_NOTIFYPREFPROVID                                   0x020C
+#define DISPID_NOTIFYPROVCONTEXTID                                0x020D
+#define DISPID_NOTIFYPSSTATEID                                    0x020E
+#define DISPID_NOTIFYREGMODEID                                    0x020F
+#define DISPID_NOTIFYREGSTATEID                                   0x0301
+#define DISPID_NOTIFYSCANNWCOMPLETEID                             0x0302
+#define DISPID_NOTIFYSETPROVCOMPLETEID                            0x0303
+#define DISPID_NOTIFYSETPROVCONTEXTID                             0x0304
+#define DISPID_NOTIFYSETREGMODEID                                 0x0306
+#define DISPID_NOTIFYSIGNALSTATEID                                0x0308
+#define DISPID_NOTIFYSUBID                                        0x0309
+#define DISPID_PINDISABLEID                                       0x030A
+#define DISPID_PINENABLEID                                        0x030B
+#define DISPID_PINENTERID                                         0x030C
+#define DISPID_PINCHANGEID                                        0x030D
+#define DISPID_PINFORMATID                                        0x030E
+#define DISPID_PINUNBLOCKID                                       0x030F
+#define DISPID_PINID                                              0x0401
+#define DISPID_PINLENMAXID                                        0x0402
+#define DISPID_PINLENMINID                                        0x0403
+#define DISPID_PINLISTID                                          0x0404
+#define DISPID_PINMANAGERID                                       0x0405
+#define DISPID_PINMODEID                                          0x0406
+#define DISPID_PINSTATEID                                         0x0407
+#define DISPID_PINTYPEID                                          0x0408
+#define DISPID_PREFPROVID                                         0x0409
+#define DISPID_PROVCONTEXTSID                                     0x040A
+#define DISPID_PROVIDID                                           0x040B
+#define DISPID_PROVNAMEID                                         0x040C
+#define DISPID_REGMODEID                                          0x040E
+#define DISPID_REGSTATEID                                         0x040F
+#define DISPID_ROAMINGTEXTID                                      0x0501
+#define DISPID_SCANNWID                                           0x0502
+#define DISPID_SETPREFPROVID                                      0x0503
+#define DISPID_SETPROVCONTEXTID                                   0x0504
+#define DISPID_SETREGMODEID                                       0x0506
+#define DISPID_SIGNALERRORID                                      0x0508
+#define DISPID_SIGNALSTRENGTHID                                   0x050A
+#define DISPID_SUBID                                              0x050C
+#define DISPID_VISIBLEPROVID                                      0x050D
+#define DISPID_SUBSCRIBERID                                       0x050E
+#define DISPID_SIMICCID                                           0x050F
+#define DISPID_TELEPHONENUMBERSID                                 0x0601
+#define DISPID_REGNWERRID                                         0x0602
+#define DISPID_PKTATTACHNWERRID                                   0x0603
+#define DISPID_VOICECALLSTATEID                                   0x0604
+#define DISPID_ACTIVATIONNWERRID                                  0X0605
+#define DISPID_NOTIFYVOICECALLSTATEID                             0x0606
+#define DISPID_MBNCONNPROFILESID                                  0x0607  
+#define DISPID_MBNCONNPROFILEID                                   0x0608
+#define DISPID_PROFILEXMLDATAID                                   0x0801
+#define DISPID_UPDATEPROFILEID                                    0x0802
+#define DISPID_NOTIFYPROFILEUPDATEID                              0x0803
+#define DISPID_SVCCENTERADDRESSID                                 0x0804
+#define DISPID_SMSFORMATID                                        0x0805
+#define DISPID_MAXMSGINDEXID                                      0x0806
+#define DISPID_CDMASMSSIZEID                                      0x0807
+#define DISPID_INDEXID                                            0x0808
+#define DISPID_STATUSID                                           0x0809
+#define DISPID_MSGREADFORMATID                                    0x0901
+#define DISPID_MSGDATAFORMATID                                    0x0902
+#define DISPID_PDUDATAID                                          0x0903
+#define DISPID_PDUDATASIZEID                                      0x0904
+#define DISPID_ADDRESSID                                          0x0905
+#define DISPID_TIMESTAMPID                                        0x0906
+#define DISPID_MESSAGEID                                          0x0907
+#define DISPID_ENCODINGID                                         0x0908
+#define DISPID_LANGID                                             0x0909
+#define DISPID_SIZEINCHARSID                                      0x1001
+#define DISPID_MSGFORMATID                                        0x1002
+#define DISPID_GETMESSAGECONFIGID                                 0x1003
+#define DISPID_SETMESSAGECONFIGID                                 0x1004
+#define DISPID_GETSMSSENDMSGID                                    0x1005
+#define DISPID_SETSMSSENDMSGID                                    0x1006
+#define DISPID_SMSSENDID                                          0x1007
+#define DISPID_SMSREADID                                          0x1008
+#define DISPID_SMSDELETEID                                        0x1009
+#define DISPID_GETSMSSTATUSID                                     0x1201
+#define DISPID_NOTIFYSMSCONFIGCHANGEID                            0x1202  
+#define DISPID_NOTIFYSMSCONFIGCOMPLETEID                          0x1203
+#define DISPID_NOTIFYSMSSENDCOMPLETEID                            0x1204
+#define DISPID_NOTIFYSMSREADCOMPLETEID                            0x1205
+#define DISPID_NOTIFYSMSNEWCLASS0MSGID                            0x1206
+#define DISPID_NOTIFYSMSDELETECOMPLETEID                          0x1207
+#define DISPID_NOTIFYSMSSTATUSCHANGEID                            0x1208
+#define DISPID_ACTIVATEID                                         0x1209
+#define DISPID_NOTIFYACTIVATEID                                   0x1301
+#define DISPID_QUERYVENDORSPECIFICID                              0x1302  
+#define DISPID_SETVENDORSPECIFICID                                0x1303
+#define DISPID_NOTIFYEVENTID                                      0x1304
+#define DISPID_CREATECONNECTIONPROFILEID                          0x1305
+#define DISPID_VENDOROPERATIONCOMLPLETIONID                       0x1308
+#define DISPID_SMSSENDPDUID                                       0x1309
+#define DISPID_SMSSENDCDMAID                                      0x1401
+#define DISPID_DELETEPROFILEID                                    0x1403
+#define DISPID_GETINTERFACEID                                     0x1404
+#define DISPID_GETINTERFACESID                                    0x1405
+#define DISPID_GETCONNECTIONID                                    0x1406
+#define DISPID_GETCONNECTIONSID                                   0x1407
+#define DISPID_INTERFACEARRIVALID                                 0x1408
+#define DISPID_INTERFACEREMOVALID                                 0x1409
+#define DISPID_CONNECTIONARRIVALID                                0x140A
+#define DISPID_CONNECTIONREMOVALID                                0x140B
+#define DISPID_CONNECTIONPROFILEARRIVALID                         0x140C
+#define DISPID_CONNECTIONPROFILEREMOVALID                         0x140D
+#define DISPID_IFGUIDID                                           0x140E
+#define DISPID_CONNECTIONID                                       0x140F
+#define DISPID_CONNECTIONIFGUIDID                                 0x1501
+#define DISPID_GETCONNECTIONINTERFACEID                           0x1502
+#define DISPID_SOFTWARERADIOSTATEID                               0x1503
+#define DISPID_HARDWARERADIOSTATEID                               0x1504
+#define DISPID_SETSOFTWARERADIOSTATEID                            0x1505
+#define DISPID_RADIOSTATECHANGEID                                 0x1506
+#define DISPID_SETSOFTWARERADIOSTATECOMPLETEID                    0x1507
+#define DISPID_SMSSENDCDMAPDUID                                   0x1508
+#define DISPID_SETHOMEPROVID                                      0x1509
+#define DISPID_SETHOMEPROVIDERCOMPLETEID                          0x150A
+#define DISPID_NOTIFYCELLCLASSID                                  0x150B
+#define DISPID_CURRENTCELLCLASSID                                 0x150C
+#define DISPID_CELLSUPPID                                         0x150D
+#define DISPID_NOTIFYMCPROVID                                     0x150E
+#define DISPID_NOTIFYSCANCOMPLETEMC				                  0x150F
+#define DISPID_SCANMC						                      0x1601
+#define DISPID_NOTIFYIFCAPCHANGEID                                0X1602
+
+#define DISPID_GETDSERVICESCONTEXTID                              0x2000
+#define DISPID_ENUMDEVICESERVICESID                               0x2001
+#define DISPID_GETDEVICESERVICEID                                 0x2003
+#define DISPID_DSMAXCOMMANDSIZEID                                 0x2004
+#define DISPID_DSMAXDATASIZEID                                    0x2005
+#define DISPID_DSQUERYSUPPORTEDCOMMANDSCOMPLETEID                 0x2006       
+#define DISPID_DSCOMMANDOPENCOMPLETEID                            0x2008
+#define DISPID_DSCOMMANDCLOSECOMPLETEID                           0x2009
+#define DISPID_DSSETCOMMANDCOMPLETEID                             0x200A
+#define DISPID_DSQUERYCOMMANDCOMPLETEID                           0x200B
+#define DISPID_DSNOTIFYEVENTID                                    0x200C
+#define DISPID_DSDATAOPENCOMPLETEID                               0x200D
+#define DISPID_DSDATACLOSECOMPLETEID                              0x200E
+#define DISPID_DSWRITEDATACOMPLETEID                              0x200F
+#define DISPID_DSREADDATAID                                       0x2010
+#define DISPID_DSINTFSTATECHANGEID                                0x2011
+#define DISPID_DSQUERYSUPPORTEDCOMMANDSID                         0x2012
+#define DISPID_DSCOMMANDSESSIONOPENID                             0x2013
+#define DISPID_DSCOMMANDSESSIONCLOSEID                            0x2014
+#define DISPID_DSSETCOMMANDID                                     0x2015
+#define DISPID_DSQUERYCOMMANDID                                   0x2016
+#define DISPID_DSDATASESSIONOPENID                                0x2017
+#define DISPID_DSDATASESSIONCLOSEID                               0x2018
+#define DISPID_DSWRITEDATAID                                      0x2019
+#define DISPID_DSGETINTERFACEID                                   0x2020
+#define DISPID_DSGETDEVICESERVICEID                               0x2021
+#define DISPID_DSCOMMANDSESSIONGETISOPENID                        0x2022
+#define DISPID_DSDATASESSIONGETISOPENID                           0x2023
+#define DISPID_DSSESSIONSSTATECHANGEID                            0x2024
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[uuid(DCBBBAB6-FFFF-4BBB-AAEE-338E368AF6FA)]
+interface IDummyMBNUCMExt : IDispatch
+{
+};
+
+    
+    typedef 
+    [
+        uuid(42FAAC0B-BDCC-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Signal Constants Type")
+    ]
+    enum MBN_SIGNAL_CONSTANTS
+    {
+        [helpstring("RSSI Default Signal Constant")]
+        MBN_RSSI_DEFAULT = 0xffffffff,
+            [helpstring("RSSI Disable Signal Constant")]
+        MBN_RSSI_DISABLE = 0,
+            [helpstring("RSSI Unknown Signal Constant")]
+        MBN_RSSI_UNKNOWN = 99,
+            [helpstring("Error Rate Unknown Signal Constant")]
+        MBN_ERROR_RATE_UNKNOWN = 99
+    } MBN_SIGNAL_CONSTANTS;
+    
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+    typedef 
+    [
+        uuid(DCBBBAB6-6002-4BBB-AAEE-338E368AF6FA),
+        version(1.0),
+        v1_enum,
+        helpstring("Supported cellular technology classes")
+    ]
+    enum MBN_CELLULAR_CLASS
+    {
+        [helpstring("Unknown device type")]
+        MBN_CELLULAR_CLASS_NONE         = 0x00,
+            [helpstring("Unknown device type")]
+        MBN_CELLULAR_CLASS_GSM             = 0x01,
+            [helpstring("Unknown device type")]
+        MBN_CELLULAR_CLASS_CDMA            = 0x02
+    } MBN_CELLULAR_CLASS;
+
+    typedef 
+    [
+        uuid(DCBBBAB6-6012-4BBB-AAEE-338E368AF6FA),
+        version(1.0),
+        v1_enum,
+        helpstring("Voice classes")
+    ]
+    enum MBN_VOICE_CLASS 
+    {
+        [helpstring("Unknown device type")]
+        MBN_VOICE_CLASS_NONE                 = 0x00,
+            [helpstring("Unknown device type")]
+        MBN_VOICE_CLASS_NO_VOICE                = 0x01,
+            [helpstring("Unknown device type")]
+        MBN_VOICE_CLASS_SEPARATE_VOICE_DATA      = 0x02,
+            [helpstring("Unknown device type")]
+        MBN_VOICE_CLASS_SIMULTANEOUS_VOICE_DATA  = 0x03
+    } MBN_VOICE_CLASS;
+    
+    typedef 
+    [
+        uuid(6E1348BB-BDCB-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Provider States")
+    ]
+    enum MBN_PROVIDER_STATE
+    {
+        [helpstring("Unknown Provider State type")]
+        MBN_PROVIDER_STATE_NONE = 0x00000000,
+            [helpstring("Home Provider State type")]
+        MBN_PROVIDER_STATE_HOME      = 0x00000001,
+            [helpstring("Forbidden Provider State type")]
+        MBN_PROVIDER_STATE_FORBIDDEN = 0x00000002,
+            [helpstring("Preferred Provider State type")]
+        MBN_PROVIDER_STATE_PREFERRED    = 0x00000004,
+            [helpstring("Visible Provider State type")]
+        MBN_PROVIDER_STATE_VISIBLE  = 0x00000008,        
+            [helpstring("Registered Provider State type")]
+        MBN_PROVIDER_STATE_REGISTERED = 0x00000010,
+            [helpstring("Preferred Multicarrier Provider State type")]
+        MBN_PROVIDER_STATE_PREFERRED_MULTICARRIER = 0x00000020,
+    } MBN_PROVIDER_STATE;
+    
+    typedef 
+    [
+        uuid(934092FD-BDCB-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Provider Constants Type")
+    ]
+    enum MBN_PROVIDER_CONSTANTS 
+    {
+        [helpstring("Provider Name Length Constant")]
+        MBN_PROVIDERNAME_LEN    =   20,
+            [helpstring("Provider ID Length Constant")]
+        MBN_PROVIDERID_LEN      =   6
+    } MBN_PROVIDER_CONSTANTS;
+    typedef 
+    [
+        uuid(59C235E7-BDC9-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Interface Caps Constants Type")
+    ]
+    enum MBN_INTERFACE_CAPS_CONSTANTS 
+    {
+        [helpstring("Device ID length Constant")]
+        MBN_DEVICEID_LEN         = 18,
+            [helpstring("Manufacturer Len Inf Caps Constant")]
+        MBN_MANUFACTURER_LEN     = 32,
+            [helpstring("Model Len Inf Caps Constant")]
+        MBN_MODEL_LEN            = 32,
+            [helpstring("Firmware Len Inf Caps Constant")]
+        MBN_FIRMWARE_LEN         = 32,
+    } MBN_INTERFACE_CAPS_CONSTANTS;
+
+    typedef 
+    [
+        uuid(83A34F4C-BDC4-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("")
+    ]
+    enum MBN_DATA_CLASS
+    {
+        [helpstring("Unknown data class type")]
+        MBN_DATA_CLASS_NONE   = 0x00000000,
+            [helpstring("GPRS data class type")]
+        MBN_DATA_CLASS_GPRS   =     0x00000001,
+            [helpstring("EDGE data class type")]
+        MBN_DATA_CLASS_EDGE   =     0x00000002, /* EGPRS */
+            [helpstring("UMTS data class type")]
+        MBN_DATA_CLASS_UMTS   =     0x00000004,
+            [helpstring("HSDPA data class type")]
+        MBN_DATA_CLASS_HSDPA  =     0x00000008,
+            [helpstring("HSUPA data class type")]
+        MBN_DATA_CLASS_HSUPA  =     0x00000010,
+            [helpstring("LTE data class type")]
+        MBN_DATA_CLASS_LTE    =     0x00000020,
+            [helpstring("5G_NSA data class type")]
+        MBN_DATA_CLASS_5G_NSA = 0x00000040,
+            [helpstring("5G_SA data class type")]
+        MBN_DATA_CLASS_5G_SA = 0x00000080,
+            [helpstring("1XRTT data class type")]
+        MBN_DATA_CLASS_1XRTT  =     0x00010000,
+            [helpstring("1XEVDO data class type")]
+        MBN_DATA_CLASS_1XEVDO =     0x00020000,
+            [helpstring("1XEVDO REVA data class type")]
+        MBN_DATA_CLASS_1XEVDO_REVA =    0x00040000,
+            [helpstring("1XEDV data class type")]
+        MBN_DATA_CLASS_1XEVDV    =  0x00080000,
+            [helpstring("3XRTT data class type")]
+        MBN_DATA_CLASS_3XRTT     =      0x00100000,
+            [helpstring("1XEDO REVB data class type")]
+        MBN_DATA_CLASS_1XEVDO_REVB =    0x00200000, /* for future use */
+            [helpstring("UMB data class type")]
+        MBN_DATA_CLASS_UMB = 0x00400000,
+            [helpstring("CUSTOM data class type")]
+        MBN_DATA_CLASS_CUSTOM = 0x80000000      
+    } MBN_DATA_CLASS;
+        
+    typedef 
+    [
+        uuid(2308C1F7-BDC8-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("CTRL Caps")
+    ]
+    enum MBN_CTRL_CAPS 
+    {
+        [helpstring("None Control Caps type")]
+        MBN_CTRL_CAPS_NONE          =   0x00000000,
+            [helpstring("Manual Registration Control Caps type")]
+        MBN_CTRL_CAPS_REG_MANUAL    =   0x00000001,
+            [helpstring("HW Radio Switch Control Caps type")]
+        MBN_CTRL_CAPS_HW_RADIO_SWITCH   =   0x00000002,
+            [helpstring("CDMA Mobile IP Control Caps type")]
+        MBN_CTRL_CAPS_CDMA_MOBILE_IP    =   0x00000004,
+            [helpstring("CDMA Simple IP Control Caps type")]
+        MBN_CTRL_CAPS_CDMA_SIMPLE_IP    =   0x00000008,
+            [helpstring("Hide display of IMSI")]
+        MBN_CTRL_CAPS_PROTECT_UNIQUEID  =   0x00000010,
+            [helpstring("Device is not restricted by NSP")]
+        MBN_CTRL_CAPS_MODEL_MULTI_CARRIER=  0x00000020,
+            [helpstring("Device supports USSD")]
+        MBN_CTRL_CAPS_USSD          =   0x00000040,
+            [helpstring("Device supports multiple cellular classes")]
+        MBN_CTRL_CAPS_MULTI_MODE        =   0x00000080,
+    } MBN_CTRL_CAPS;
+    
+    typedef 
+    [
+        uuid(E4096459-BDC8-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS Caps")
+    ]
+    enum MBN_SMS_CAPS 
+    {
+        [helpstring("None SMS Caps type")]
+        MBN_SMS_CAPS_NONE       =   0x00000000,
+            [helpstring("Pdu Receive SMS Caps type")]
+        MBN_SMS_CAPS_PDU_RECEIVE    =   0x00000001,
+            [helpstring("Pdu Send SMS Caps type")]
+        MBN_SMS_CAPS_PDU_SEND   =   0x00000002,
+            [helpstring("Text Receive SMS Caps type")]
+        MBN_SMS_CAPS_TEXT_RECEIVE   =   0x00000004,
+            [helpstring("Text Send SMS Caps type")]
+        MBN_SMS_CAPS_TEXT_SEND  =   0x00000008,        
+    } MBN_SMS_CAPS;
+
+    typedef 
+    [
+        uuid(5DB6A98B-BDC5-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("")
+    ]
+    enum MBN_BAND_CLASS 
+    {
+        [helpstring("Unknown Band Class type")]
+        MBN_BAND_CLASS_NONE   = 0x00000000,
+            [helpstring("Band Class 0 type")]
+        MBN_BAND_CLASS_0          =     0x00000001,
+            [helpstring("Band Class I type")]
+        MBN_BAND_CLASS_I              = 0x00000002,
+            [helpstring("Band Class II type")]
+        MBN_BAND_CLASS_II     =   0x00000004,
+            [helpstring("Band Class III type")]
+        MBN_BAND_CLASS_III       =  0x00000008,
+            [helpstring("Band Class IV type")]
+        MBN_BAND_CLASS_IV        =  0x00000010,
+            [helpstring("Band Class V type")]
+        MBN_BAND_CLASS_V          =   0x00000020,
+            [helpstring("Band Class VI type")]
+        MBN_BAND_CLASS_VI         = 0x00000040,
+            [helpstring("Band Class VII type")]
+        MBN_BAND_CLASS_VII    = 0x00000080,
+            [helpstring("Band Class VIII type")]
+        MBN_BAND_CLASS_VIII   = 0x00000100,
+            [helpstring("Band Class IX type")]
+        MBN_BAND_CLASS_IX     = 0x00000200,
+            [helpstring("Band Class X type")]
+        MBN_BAND_CLASS_X          = 0x00000400,
+            [helpstring("Band Class XI type")]
+        MBN_BAND_CLASS_XI     = 0x00000800,
+            [helpstring("Band Class XII type")]
+        MBN_BAND_CLASS_XII    = 0x00001000,
+            [helpstring("Band Class XIII type")]
+        MBN_BAND_CLASS_XIII   = 0x00002000,
+            [helpstring("Band Class XIV type")]
+        MBN_BAND_CLASS_XIV   =  0x00004000,
+            [helpstring("Band Class XV type")]
+        MBN_BAND_CLASS_XV    =  0x00008000,
+            [helpstring("Band Class XVI type")]
+        MBN_BAND_CLASS_XVI   =  0x00010000,
+            [helpstring("Band Class XVII type")]
+        MBN_BAND_CLASS_XVII  =  0x00020000,
+            [helpstring("Band Class CUSTOM")]
+        MBN_BAND_CLASS_CUSTOM    =  0x80000000
+    } MBN_BAND_CLASS;    
+
+    typedef
+    [
+        uuid(CD1A4B17-BDC9-11DC-A8A8-001321F1405F)
+    ]
+    struct MBN_INTERFACE_CAPS
+    {
+        MBN_CELLULAR_CLASS  cellularClass;   
+        MBN_VOICE_CLASS     voiceClass;      
+        ULONG               dataClass;    
+        BSTR                customDataClass;   
+        ULONG               gsmBandClass;
+        ULONG               cdmaBandClass;
+        BSTR                customBandClass;
+        ULONG               smsCaps;        //MBN_SMS_CAPS_XXX
+        ULONG               controlCaps;      //MBN_CTRL_CAPS_XXX
+        BSTR                deviceID; 
+        BSTR                manufacturer;
+        BSTR                model; 
+        BSTR                firmwareInfo;
+    } MBN_INTERFACE_CAPS;
+
+    typedef
+    [
+        uuid(DCBBBAB6-9005-4BBB-AAEE-338E368AF6FA)
+    ]
+    struct MBN_PROVIDER 
+    {
+        BSTR  providerID;
+        ULONG   providerState;    
+        BSTR  providerName;
+        ULONG   dataClass;
+    } MBN_PROVIDER;
+        
+    typedef
+    [
+        uuid(9AA005AE-540B-46F1-9244-8826D188F821)
+    ]
+    struct MBN_PROVIDER2
+    {
+        MBN_PROVIDER        provider;
+        MBN_CELLULAR_CLASS  cellularClass;
+        ULONG               signalStrength;
+        ULONG               signalError;
+    } MBN_PROVIDER2;
+
+    typedef 
+    [
+        uuid(DCBBBAB6-6003-4BBB-AAEE-338E368AF6FA),
+        version(1.0),
+        v1_enum,
+        helpstring("Device Ready states")
+    ]
+    enum MBN_READY_STATE 
+    {
+        [helpstring("Ready State Off type")]
+        MBN_READY_STATE_OFF                 = 0x00, 
+            [helpstring("Ready State Initialize type")]
+        MBN_READY_STATE_INITIALIZED,
+            [helpstring("Ready State SIM Not inserted type")]
+        MBN_READY_STATE_SIM_NOT_INSERTED,
+            [helpstring("Ready State bad SIM type")]
+        MBN_READY_STATE_BAD_SIM, 
+            [helpstring("Ready State Failure type")]
+        MBN_READY_STATE_FAILURE,
+            [helpstring("Ready State Not Activated type")]
+        MBN_READY_STATE_NOT_ACTIVATED,
+            [helpstring("Ready State Device Locked type")]
+        MBN_READY_STATE_DEVICE_LOCKED,
+            [helpstring("Ready State Device Blocked type")]
+        MBN_READY_STATE_DEVICE_BLOCKED,
+            [helpstring("Ready State ESIM With No Profiles")]
+        MBN_READY_STATE_NO_ESIM_PROFILE
+    } MBN_READY_STATE;
+
+    typedef 
+    [
+        uuid(EFB7C00D-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Activation States")
+    ]
+    enum MBN_ACTIVATION_STATE 
+    {
+        [helpstring("Unknown Activation State Type")]
+        MBN_ACTIVATION_STATE_NONE = 0,
+            [helpstring("Activated Activation State Type")]
+        MBN_ACTIVATION_STATE_ACTIVATED,
+            [helpstring("Activating Activation State Type")]
+        MBN_ACTIVATION_STATE_ACTIVATING,
+            [helpstring("Deactivated Activation State Type")]
+        MBN_ACTIVATION_STATE_DEACTIVATED,
+            [helpstring("Deactivating Activation State Type")]
+        MBN_ACTIVATION_STATE_DEACTIVATING
+    } MBN_ACTIVATION_STATE;
+    
+    typedef 
+    [
+        uuid(F601E1EB-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Connection Modes")
+    ]
+    enum MBN_CONNECTION_MODE 
+    {
+        [helpstring("Profile Connection Mode Type")]
+        MBN_CONNECTION_MODE_PROFILE = 0,
+            [helpstring("Temporary Profile Connection Mode Type")]
+        MBN_CONNECTION_MODE_TMP_PROFILE
+    } MBN_CONNECTION_MODE;
+    
+    typedef 
+    [
+        uuid(6D8846E5-BDD1-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Voice Call States")
+    ]
+    enum MBN_VOICE_CALL_STATE 
+    {
+        [helpstring("None Voice Call State Type")]
+        MBN_VOICE_CALL_STATE_NONE = 0x00,
+            [helpstring("In Progress Voice Call State Type")]
+        MBN_VOICE_CALL_STATE_IN_PROGRESS,
+            [helpstring("Hang Up Voice Call State Type")]
+        MBN_VOICE_CALL_STATE_HANGUP
+    } MBN_VOICE_CALL_STATE;
+
+    typedef 
+    [
+        uuid(D5F1726B-BDCE-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Registration Constants")
+    ]
+    enum MBN_REGISTRATION_CONSTANTS 
+    {
+        [helpstring("Roaming Text Length Constant")]
+        MBN_ROAMTEXT_LEN                = 64,
+            [helpstring("CDMA Default Provider ID Legnth Constant")]
+        MBN_CDMA_DEFAULT_PROVIDER_ID    = 0
+    } MBN_REGISTRATION_CONSTANTS;    
+
+    typedef 
+    [
+        uuid(DCBBBAB6-6009-4BBB-AAEE-338E368AF6FA),
+        version(1.0),
+        v1_enum,
+        helpstring("Network Registration States")
+    ]
+    enum MBN_REGISTER_STATE 
+    {
+        [helpstring("Unknown Register State type")]
+        MBN_REGISTER_STATE_NONE         = 0x00,
+            [helpstring("Deregistered Register State type")]
+        MBN_REGISTER_STATE_DEREGISTERED,
+            [helpstring("Searching Register State type")]
+        MBN_REGISTER_STATE_SEARCHING,
+            [helpstring("Home Register State type")]
+        MBN_REGISTER_STATE_HOME,
+            [helpstring("Roaming Register State type")]
+        MBN_REGISTER_STATE_ROAMING,
+            [helpstring("Partner Register State type")]
+        MBN_REGISTER_STATE_PARTNER,
+            [helpstring("Denined Register State type")]
+        MBN_REGISTER_STATE_DENIED
+    } MBN_REGISTER_STATE;
+    
+    typedef 
+    [
+        uuid(D7F73F35-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Registration modes")
+    ]
+    enum MBN_REGISTER_MODE 
+    {
+        [helpstring("Unknown Register Mode Type")]
+        MBN_REGISTER_MODE_NONE     = 0x00,
+            [helpstring("Autoamtic Register Mode Type")]
+        MBN_REGISTER_MODE_AUTOMATIC,
+            [helpstring("Manual Register Mode Type")]
+        MBN_REGISTER_MODE_MANUAL
+    } MBN_REGISTER_MODE;
+
+    typedef 
+    [
+        uuid(C75E76F5-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Pin Constants Type")
+    ]
+    enum MBN_PIN_CONSTANTS 
+    {
+        [helpstring("Attempts Remaining Unknown Pin Constant")]
+        MBN_ATTEMPTS_REMAINING_UNKNOWN  = 0xffffffff,
+            [helpstring("Pin Length Unknown Pin Constant")]
+        MBN_PIN_LENGTH_UNKNOWN      = 0xffffffff    
+    } MBN_PIN_CONSTANTS;
+    
+    typedef 
+    [
+        uuid(D11BD29D-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Pin States")
+    ]
+    enum MBN_PIN_STATE
+    {
+        [helpstring("None Pin State type")]
+        MBN_PIN_STATE_NONE     = 0x00,
+            [helpstring("Enter Pin State type")]
+        MBN_PIN_STATE_ENTER,
+            [helpstring("Unblock Pin State type")]
+        MBN_PIN_STATE_UNBLOCK,
+    } MBN_PIN_STATE;
+    
+    typedef 
+    [
+        uuid(DCBBBAB6-6005-4BBB-AAEE-338E368AF6FA),
+        version(1.0),
+        v1_enum,
+        helpstring("Device Pin (Password) types")
+    ]
+    enum MBN_PIN_TYPE
+    {
+        [helpstring("None Pin Type")]
+        MBN_PIN_TYPE_NONE                 = 0x00,
+            [helpstring("Custom Pin Type")]
+        MBN_PIN_TYPE_CUSTOM,
+            [helpstring("Pin1 Pin Type")]
+        MBN_PIN_TYPE_PIN1,              
+            [helpstring("Pin2 Pin Type")]
+        MBN_PIN_TYPE_PIN2,
+            [helpstring("SIM Pin Type")]
+        MBN_PIN_TYPE_DEVICE_SIM_PIN,
+            [helpstring("First SIM Pin Type")]
+        MBN_PIN_TYPE_DEVICE_FIRST_SIM_PIN,
+            [helpstring("Network Pin Type")]
+        MBN_PIN_TYPE_NETWORK_PIN,
+            [helpstring("Network Subset Pin Type")]
+        MBN_PIN_TYPE_NETWORK_SUBSET_PIN,
+            [helpstring("Service Provider Pin Type")]
+        MBN_PIN_TYPE_SVC_PROVIDER_PIN,
+            [helpstring("Corporate Pin Type")]
+        MBN_PIN_TYPE_CORPORATE_PIN,
+            [helpstring("Subsidy Lock Pin Type")]
+        MBN_PIN_TYPE_SUBSIDY_LOCK
+    } MBN_PIN_TYPE;
+
+    typedef
+    [
+        uuid(DCBBBAB6-9006-4BBB-AAEE-338E368AF6FA)
+    ]
+    struct MBN_PIN_INFO
+    {
+        MBN_PIN_STATE pinState;
+        MBN_PIN_TYPE  pinType;
+        ULONG attemptsRemaining;
+    } MBN_PIN_INFO;
+   
+    typedef 
+    [
+        uuid(BD8A2871-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Pin modes")
+    ]
+    enum MBN_PIN_MODE 
+    {
+        [helpstring("Enabled Pin Mode Type")]
+        MBN_PIN_MODE_ENABLED = 1,
+            [helpstring("Disabled Pin Mode Type")]
+        MBN_PIN_MODE_DISABLED
+    } MBN_PIN_MODE;
+    
+    typedef 
+    [
+        uuid(C2A93665-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Pin Formats")
+    ]
+    enum MBN_PIN_FORMAT 
+    {
+        [helpstring("Unknown Pin Format Type")]
+        MBN_PIN_FORMAT_NONE         = 0x00,
+            [helpstring("Numeric Pin Format Type")]
+        MBN_PIN_FORMAT_NUMERIC,
+            [helpstring("AlphaNumeric Pin Format Type")]
+        MBN_PIN_FORMAT_ALPHANUMERIC
+    } MBN_PIN_FORMAT;
+    
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+    
+    typedef 
+    [
+        uuid(0E62803F-BDD0-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Context Constants Type")
+    ]
+    enum MBN_CONTEXT_CONSTANTS
+    {
+        [helpstring("Access String Length Constant")]
+        MBN_ACCESSSTRING_LEN = 100,
+            [helpstring("User Name Length Constant")]
+        MBN_USERNAME_LEN     = 255,
+            [helpstring("Password Length Constant")]
+        MBN_PASSWORD_LEN     = 255,
+            [helpstring("Context Id Append")]
+        MBN_CONTEXT_ID_APPEND = 0xffffffff          
+    } MBN_CONTEXT_CONSTANTS;
+    
+    typedef 
+    [
+        uuid(E24B42EF-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Authentication Protocol Types")
+    ]
+    enum MBN_AUTH_PROTOCOL
+    {
+        [helpstring("None Auhentication Protocol Type")]
+        MBN_AUTH_PROTOCOL_NONE = 0,
+            [helpstring("PAP Auhentication Protocol Type")]
+        MBN_AUTH_PROTOCOL_PAP,
+            [helpstring("CHAP Auhentication Protocol Type")]
+        MBN_AUTH_PROTOCOL_CHAP,
+            [helpstring("MS CHAPV2 Auhentication Protocol Type")]
+        MBN_AUTH_PROTOCOL_MSCHAPV2
+    }MBN_AUTH_PROTOCOL;
+    
+    typedef 
+    [
+        uuid(E6A360B9-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Compression Mode")
+    ]
+    enum MBN_COMPRESSION
+    {
+        [helpstring("None Compression Type")]
+        MBN_COMPRESSION_NONE = 0,
+            [helpstring("Enable Compression Type")]
+        MBN_COMPRESSION_ENABLE,
+    }MBN_COMPRESSION;
+    
+    typedef 
+    [
+        uuid(EB4731EB-BDCD-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Connection Context Types")
+    ]
+    enum MBN_CONTEXT_TYPE
+    {
+        [helpstring("None Context Type")]
+        MBN_CONTEXT_TYPE_NONE = 0,
+            [helpstring("Internet Context Type")]
+        MBN_CONTEXT_TYPE_INTERNET,
+            [helpstring("VPN Context Type")]
+        MBN_CONTEXT_TYPE_VPN,
+            [helpstring("Voice Context Type")]
+        MBN_CONTEXT_TYPE_VOICE,
+            [helpstring("Video Share Context Type")]
+        MBN_CONTEXT_TYPE_VIDEO_SHARE,
+            [helpstring("Custom Context Type")]
+        MBN_CONTEXT_TYPE_CUSTOM,
+            [helpstring("Purchase Context Type")]
+        MBN_CONTEXT_TYPE_PURCHASE,
+        
+    }MBN_CONTEXT_TYPE;
+    
+    typedef
+    [
+        uuid(FE1F7B6F-BDCD-11DC-A8A8-001321F1405F)
+    ]
+    struct MBN_CONTEXT
+    {
+        ULONG                   contextID;
+        MBN_CONTEXT_TYPE        contextType;
+        BSTR                    accessString;
+        BSTR                    userName;            
+        BSTR                    password;
+        MBN_COMPRESSION         compression;
+        MBN_AUTH_PROTOCOL       authType;
+    } MBN_CONTEXT;
+    
+    typedef 
+    [
+        uuid(130C65D3-BDD3-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS Constants Type")
+    ]
+    enum MBN_SMS_CONSTANTS 
+    {
+        [helpstring("Message Index None SMS Constant")]
+        MBN_MESSAGE_INDEX_NONE              = 0,
+            [helpstring("CDMA Short Message Size Unknown SMS Constant")]
+        MBN_CDMA_SHORT_MSG_SIZE_UNKNOWN     = 0,
+            [helpstring("CDMA Short Message Size Max SMS Constant")]
+        MBN_CDMA_SHORT_MSG_SIZE_MAX         = 160
+    } WWAEXT_SMS_CONSTANTS;
+    
+    typedef 
+    [
+        uuid(FC208FC1-BDE5-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("Message Status Types")
+    ]
+    enum MBN_MSG_STATUS 
+    {
+        [helpstring("New Message Status Type")]
+        MBN_MSG_STATUS_NEW = 0,
+            [helpstring("Old Message Status Type")]
+        MBN_MSG_STATUS_OLD,
+            [helpstring("Draft Message Status Type")]
+        MBN_MSG_STATUS_DRAFT,
+            [helpstring("Sent Message Status Type")]
+        MBN_MSG_STATUS_SENT
+    } MBN_MSG_STATUS;
+    
+    
+    typedef 
+    [
+        uuid(29912B29-BDD4-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS CDMA Language Types")
+    ]
+    enum MBN_SMS_CDMA_LANG 
+    {
+        [helpstring("Unknown SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_NONE = 0,
+            [helpstring("English SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_ENGLISH,
+            [helpstring("French SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_FRENCH,
+            [helpstring("Spanish SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_SPANISH,
+            [helpstring("Japanese SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_JAPANESE,
+            [helpstring("Korean SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_KOREAN,
+            [helpstring("Chinese SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_CHINESE,
+            [helpstring("Hebrew SMS CDMA Language")]
+        MBN_SMS_CDMA_LANG_HEBREW
+    }MBN_SMS_CDMA_LANG;
+    
+    typedef 
+    [
+        uuid(7F8E74CB-BDD4-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS CDMA Encoding Types")
+    ]
+    enum MBN_SMS_CDMA_ENCODING 
+    {
+        [helpstring("Octect SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_OCTET = 0,
+            [helpstring("EPM SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_EPM,
+            [helpstring("7 Bit ASCII SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_7BIT_ASCII,
+            [helpstring("IA 5 SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_IA5,
+            [helpstring("Unicode SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_UNICODE,
+            [helpstring("JIS SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_SHIFT_JIS,
+            [helpstring("Korean SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_KOREAN,
+            [helpstring("Latin Hebrew SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_LATIN_HEBREW,
+            [helpstring("Latin SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_LATIN,
+            [helpstring("GSM 7 Bit SMS CDMA Encoding Type")]
+        MBN_SMS_CDMA_ENCODING_GSM_7BIT
+    }MBN_SMS_CDMA_ENCODING;
+    
+    
+    typedef 
+    [
+        uuid(0D42B514-BDDC-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS Flags Types")
+    ]
+    enum MBN_SMS_FLAG 
+    {
+        [helpstring("SMS Flag All")]
+        MBN_SMS_FLAG_ALL = 0,
+            [helpstring("SMS Flag Index")]
+        MBN_SMS_FLAG_INDEX,
+            [helpstring("SMS Flag New")]
+        MBN_SMS_FLAG_NEW,
+            [helpstring("SMS Flag Old")]
+        MBN_SMS_FLAG_OLD,
+            [helpstring("SMS Flag Sent")]
+        MBN_SMS_FLAG_SENT,
+            [helpstring("SMS Flag Draft")]
+        MBN_SMS_FLAG_DRAFT
+    } MBN_SMS_FLAG;
+    
+    typedef 
+    [
+        uuid(406BFD60-BDDC-11DC-A8A8-001321F1405F),
+    ]
+    struct MBN_SMS_FILTER 
+    {
+        MBN_SMS_FLAG    flag;
+        ULONG           messageIndex;
+    } MBN_SMS_FILTER;
+    
+    typedef 
+    [
+        uuid(8098009D-BDDC-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS Status Flags Types")
+    ]
+    enum MBN_SMS_STATUS_FLAG 
+    {
+        [helpstring("SMS Status Flag None")]
+        MBN_SMS_FLAG_NONE           = 0x00,
+            [helpstring("SMS Status Flag Message Store Full")]
+        MBN_SMS_FLAG_MESSAGE_STORE_FULL = 0x01,
+            [helpstring("SMS Status Flag New Message")]
+        MBN_SMS_FLAG_NEW_MESSAGE        = 0x02
+    } MBN_SMS_STATUS_FLAG;
+    
+    typedef 
+    [
+        uuid(1F6E9CA3-BDE6-11DC-A8A8-001321F1405F),
+    ]
+    struct MBN_SMS_STATUS_INFO 
+    {
+        ULONG           flag; 
+        ULONG           messageIndex;
+    } MBN_SMS_STATUS_INFO;
+
+
+    typedef 
+    [
+        uuid(4B0FE227-3709-41e2-8A78-E98C0CD0CB09),
+        version(1.0),
+        v1_enum,
+        helpstring("SMS Format")
+    ]
+    enum MBN_SMS_FORMAT 
+    {
+        [helpstring("None SMS Format")]
+        MBN_SMS_FORMAT_NONE = 0x00000000,
+            [helpstring("Pdu SMS Format")]
+        MBN_SMS_FORMAT_PDU = 0x00000001,
+            [helpstring("Text SMS Format")]
+        MBN_SMS_FORMAT_TEXT = 0x00000002,
+    } MBN_SMS_FORMAT;
+    
+    
+    typedef 
+    [
+        uuid(532A3FE4-BDE6-11DC-A8A8-001321F1405F),
+        version(1.0),
+        v1_enum,
+        helpstring("MBN Radio")
+    ]
+    enum MBN_RADIO 
+    {
+            [helpstring("MBN Radio Off")]
+        MBN_RADIO_OFF,
+            [helpstring("MBN Radio On")]
+        MBN_RADIO_ON
+    } MBN_RADIO;
+    
+    typedef 
+    [
+        uuid(0D17D0A2-B2AA-4B34-8655-C2F7F9217473),
+        version(1.0),
+        v1_enum,
+        helpstring("MBN Device Service sessions state change notification")
+    ]
+    enum MBN_DEVICE_SERVICE_SESSIONS_STATE
+    {
+            [helpstring("MBN Device Service sessions restored")]
+        MBN_DEVICE_SERVICE_SESSIONS_RESTORED
+    } MBN_DEVICE_SERVICE_SESSIONS_STATE;
+    
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+    typedef
+    [
+        uuid(60436154-3466-48A4-82E2-9A461527A8C5)
+    ]
+    struct MBN_DEVICE_SERVICE
+    {
+        BSTR  deviceServiceID;
+        VARIANT_BOOL dataWriteSupported;
+        VARIANT_BOOL dataReadSupported;
+    } MBN_DEVICE_SERVICE;
+    
+    typedef 
+    [
+        uuid(386077A0-275B-45B6-9B32-C343A6749E86),
+        version(1.0),
+        v1_enum,
+        helpstring("MBN Device Service Interface State change notification")
+    ]
+    enum MBN_DEVICE_SERVICES_INTERFACE_STATE
+    {
+            [helpstring("MBN Device Services capable interface arrived")]
+        MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_ARRIVAL,
+            [helpstring("MBN Device Services capable interface removal")]
+        MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_REMOVAL
+    } MBN_DEVICE_SERVICES_INTERFACE_STATE;
+
+    //
+    // Interface: IMbnConnection
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-200D-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Get/Set Wireless WAN connection information")
+    ]
+    interface IMbnConnection : IUnknown
+    {
+        [propget, id(DISPID_CONNECTIONID),
+            helpstring("Connection ID")]
+        HRESULT ConnectionID(
+             [out, ref, retval] BSTR *ConnectionID);
+             
+        [propget, id(DISPID_CONNECTIONIFGUIDID),
+            helpstring("Interface GUID")]
+        HRESULT InterfaceID(
+             [out, ref, retval] BSTR *InterfaceID);
+     
+        [id(DISPID_CONNECTID), 
+            helpstring("Establish data connection")]
+        HRESULT Connect(
+            [in] MBN_CONNECTION_MODE connectionMode, 
+            [in, string] LPCWSTR strProfile,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_DISCONNECTID), 
+            helpstring("Disconnect the existing connection")]
+        HRESULT Disconnect(
+            [out] ULONG *requestID);
+    
+        [id(DISPID_CONNECTSTATEID), 
+            helpstring("Connection state")]
+        HRESULT GetConnectionState(
+            [out, ref] MBN_ACTIVATION_STATE *ConnectionState,
+            [out, ref] BSTR *ProfileName);
+    
+        [id(DISPID_VOICECALLSTATEID), 
+            helpstring("Voice Call state")]
+        HRESULT GetVoiceCallState(
+            [out, ref, retval] MBN_VOICE_CALL_STATE *voiceCallState);
+    
+        [id(DISPID_ACTIVATIONNWERRID), 
+            helpstring("Context activation network error")]
+        HRESULT GetActivationNetworkError(
+            [out, ref, retval] ULONG *networkError);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnection) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnConnectionEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-200E-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnConnection")
+    ]
+    interface IMbnConnectionEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYCONNECTID), 
+            helpstring("Connection completed")]
+        HRESULT OnConnectComplete(
+            [in] IMbnConnection *newConnection,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYDISCONNECTID), 
+            helpstring("Disconnection completed")]
+        HRESULT OnDisconnectComplete(
+            [in] IMbnConnection *newConnection,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYCONNECTSTATEID), 
+            helpstring("Connection state change")]
+        HRESULT OnConnectStateChange(
+            [in] IMbnConnection *newConnection);
+    
+    
+        [id(DISPID_NOTIFYVOICECALLSTATEID), 
+            helpstring("Voice Call state change")]
+        HRESULT OnVoiceCallStateChange(
+            [in] IMbnConnection *newConnection);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+ 
+    //
+    // Interface: IMbnInterface
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2001-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Get/set the runtime configuration of a Wireless WAN interface")
+    ]
+    interface IMbnInterface : IUnknown
+    {
+        [propget, id(DISPID_IFGUIDID), 
+            helpstring("Interface GUID")]
+        HRESULT InterfaceID(
+            [out, ref, retval]  BSTR *InterfaceID);
+    
+        [id(DISPID_IFCAPSID), 
+            helpstring("Interface capabilities")]
+        HRESULT GetInterfaceCapability(
+            [out, ref, retval]  MBN_INTERFACE_CAPS *interfaceCaps);
+    
+    
+        [id(DISPID_SUBID), 
+            helpstring("Subscriber Information")]
+        HRESULT GetSubscriberInformation(
+            [out, retval]    IMbnSubscriberInformation **subscriberInformation);
+    
+        [id(DISPID_IFREADYSTATEID), 
+            helpstring("Ready State")]
+        HRESULT GetReadyState(
+            [out, ref, retval] MBN_READY_STATE *readyState);
+    
+        [id(DISPID_EMERGENCYID), 
+            helpstring("Emergency Mode")]
+        HRESULT InEmergencyMode(
+            [out, ref, retval] VARIANT_BOOL *emergencyMode);
+    
+        [id(DISPID_HOMEPROVID), 
+            helpstring("Home Provider")]
+        HRESULT GetHomeProvider(
+            [out, ref, retval] MBN_PROVIDER *homeProvider);
+    
+        [id(DISPID_PREFPROVID), 
+            helpstring("Preferred Providers")]
+        HRESULT GetPreferredProviders(
+            [out, ref, retval] SAFEARRAY(MBN_PROVIDER) *preferredProviders);
+    
+        [id(DISPID_SETPREFPROVID), 
+            helpstring("Set Preferred Providers")]
+        HRESULT SetPreferredProviders(
+            [in] SAFEARRAY(MBN_PROVIDER) preferredProviders,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_VISIBLEPROVID), 
+            helpstring("Visible Providers")]
+        HRESULT GetVisibleProviders(
+            [out] ULONG *age,
+            [out, retval] SAFEARRAY(MBN_PROVIDER) *visibleProviders);
+    
+        [id(DISPID_SCANNWID), 
+            helpstring("Scan network for providers")]
+        HRESULT ScanNetwork([out] ULONG *requestID);
+    
+        [id(DISPID_GETCONNECTIONINTERFACEID), 
+            helpstring("Connection")]
+        HRESULT GetConnection(
+            [out, retval] IMbnConnection **mbnConnection);
+    
+    };
+    cpp_quote("#pragma deprecated(IMbnInterface) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnInterfaceEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2002-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnInterface")
+    ]
+    interface IMbnInterfaceEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYIFCAPID), 
+            helpstring("Interface Capability availability")]
+        HRESULT OnInterfaceCapabilityAvailable(
+            [in] IMbnInterface *newInterface);
+    
+    
+        [id(DISPID_NOTIFYSUBID), 
+            helpstring("Subscriber Information change")]
+        HRESULT OnSubscriberInformationChange(
+            [in] IMbnInterface *newInterface);
+    
+        [id(DISPID_NOTIFYIFREADYSTATEID), 
+            helpstring("Ready State change")]
+        HRESULT OnReadyStateChange(
+            [in] IMbnInterface *newInterface);
+    
+        [id(DISPID_NOTIFYEMERGENCYID), 
+            helpstring("Emergency Mode change")]
+        HRESULT OnEmergencyModeChange(
+            [in] IMbnInterface *newInterface);
+    
+        [id(DISPID_NOTIFYHOMEPROVID), 
+            helpstring("Home Provider availability")]
+        HRESULT OnHomeProviderAvailable(
+            [in] IMbnInterface *newInterface);
+    
+        [id(DISPID_NOTIFYPREFPROVID), 
+            helpstring("Preferred Providers change")]
+        HRESULT OnPreferredProvidersChange(
+            [in] IMbnInterface *newInterface);
+    
+        [id(DISPID_NOTIFYSETPROVCOMPLETEID), 
+            helpstring("Set Providers Completed")]
+        HRESULT OnSetPreferredProvidersComplete(
+            [in] IMbnInterface *newInterface, 
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYSCANNWCOMPLETEID), 
+            helpstring("Scan network completed")]
+        HRESULT OnScanNetworkComplete(
+            [in] IMbnInterface *newInterface,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    };
+    cpp_quote("#pragma deprecated(IMbnInterfaceEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+ 
+    //
+    // Interface: IMbnInterfaceManager
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-201B-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnInterfaceManager interface")
+    ]
+    interface IMbnInterfaceManager: IUnknown
+    {
+        [id(DISPID_GETINTERFACEID),
+            helpstring("GetMbnInterface operation")]
+        HRESULT GetInterface(
+            [in] LPCWSTR interfaceID,
+            [out, ref, retval] IMbnInterface **mbnInterface);
+    
+        [id(DISPID_GETINTERFACESID),
+            helpstring("GetMbnInterfaces operation")]
+        HRESULT GetInterfaces(
+            [out, ref, retval] SAFEARRAY(IMbnInterface*) *mbnInterfaces);
+    };
+    cpp_quote("#pragma deprecated(IMbnInterfaceManager) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnInterfaceManagerEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-201C-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnInterfaceManagerEvents interface")
+    ]
+    interface IMbnInterfaceManagerEvents: IUnknown
+    {
+        [id(DISPID_INTERFACEARRIVALID), 
+            helpstring("Event notification")]
+        HRESULT OnInterfaceArrival(
+            [in] IMbnInterface *newInterface);
+    
+        [id(DISPID_INTERFACEREMOVALID), 
+            helpstring("Event notification")]
+        HRESULT OnInterfaceRemoval(
+            [in] IMbnInterface *oldInterface);
+    
+    };
+    cpp_quote("#pragma deprecated(IMbnInterfaceManagerEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnRegistration
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2009-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Get/Set Wireless WAN network registration mode")
+    ]
+    interface IMbnRegistration : IUnknown
+    {
+        [id(DISPID_REGSTATEID), 
+            helpstring("Registration state")]
+        HRESULT GetRegisterState(
+            [out, ref, retval] MBN_REGISTER_STATE *registerState);
+    
+        [id(DISPID_REGMODEID), 
+            helpstring("Registration Mode")]
+        HRESULT GetRegisterMode(
+            [out, ref, retval] MBN_REGISTER_MODE *registerMode);
+    
+        [id(DISPID_PROVIDID), 
+            helpstring("Provider ID")]
+        HRESULT GetProviderID(
+            [out, ref, retval] BSTR *providerID);
+    
+        [id(DISPID_PROVNAMEID), 
+            helpstring("Provider Name")]
+        HRESULT GetProviderName(
+            [out, ref, retval] BSTR *providerName);
+    
+        [id(DISPID_ROAMINGTEXTID), 
+            helpstring("Roaming Text")]
+        HRESULT GetRoamingText(
+            [out, ref, retval] BSTR *roamingText);
+    
+        [id(DISPID_AVAILABLEDCID), 
+            helpstring("Available Data Classes")]
+        HRESULT GetAvailableDataClasses(
+            [out, ref, retval] ULONG *availableDataClasses);
+    
+        [id(DISPID_CURRENTDCID), 
+            helpstring("Current Data Class")]
+        HRESULT GetCurrentDataClass(
+            [out, ref, retval] ULONG *currentDataClass);
+    
+        [id(DISPID_REGNWERRID), 
+            helpstring("Registration Network error")]
+        HRESULT GetRegistrationNetworkError(
+            [out, ref, retval] ULONG *registrationNetworkError);
+    
+        [id(DISPID_PKTATTACHNWERRID), 
+            helpstring("Packet attach Network error")]
+        HRESULT GetPacketAttachNetworkError(
+            [out, ref, retval] ULONG *packetAttachNetworkError);
+    
+        [id(DISPID_SETREGMODEID), 
+            helpstring("Set Registration mode")]
+        HRESULT SetRegisterMode(
+            [in] MBN_REGISTER_MODE registerMode,
+            [in, string] LPCWSTR providerID,
+            [in] ULONG dataClass,
+            [out] ULONG *requestID);
+    };
+    cpp_quote("#pragma deprecated(IMbnRegistration) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnRegistrationEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-200A-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnRegistration")
+    ]
+    interface IMbnRegistrationEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYREGMODEID), 
+            helpstring("Registration Mode data Available")]
+        HRESULT OnRegisterModeAvailable(
+            [in] IMbnRegistration *newInterface);
+    
+        [id(DISPID_NOTIFYREGSTATEID), 
+            helpstring("Registration State change")]
+        HRESULT OnRegisterStateChange(
+            [in] IMbnRegistration *newInterface);
+    
+        [id(DISPID_NOTIFYPSSTATEID), 
+            helpstring("Packet Service State change")]
+        HRESULT OnPacketServiceStateChange(
+            [in] IMbnRegistration *newInterface);
+    
+        [id(DISPID_NOTIFYSETREGMODEID), 
+            helpstring("Set Registration Mode completed")]
+        HRESULT OnSetRegisterModeComplete(
+            [in] IMbnRegistration *newInterface,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    };
+    cpp_quote("#pragma deprecated(IMbnRegistrationEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+   
+    //
+    // Interface: IMbnConnectionManager
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-201D-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnInterfaceManager interface")
+    ]
+    interface IMbnConnectionManager: IUnknown
+    {
+        [id(DISPID_GETCONNECTIONID),
+            helpstring("GetMbnConnection operation")]
+        HRESULT GetConnection(
+            [in] LPCWSTR connectionID,
+            [out, ref, retval] IMbnConnection **mbnConnection);
+    
+        [id(DISPID_GETCONNECTIONSID),
+            helpstring("GetMbnConnections operation")]
+        HRESULT GetConnections(
+            [out, ref, retval] SAFEARRAY(IMbnConnection*) *mbnConnections);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionManager) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnConnectionManagerEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-201E-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnConnectionManagerEvents interface")
+    ]
+    interface IMbnConnectionManagerEvents: IUnknown
+    {
+        [id(DISPID_CONNECTIONARRIVALID), 
+            helpstring("Event notification")]
+        HRESULT OnConnectionArrival(
+            [in] IMbnConnection *newConnection);
+    
+        [id(DISPID_CONNECTIONREMOVALID), 
+            helpstring("Event notification")]
+        HRESULT OnConnectionRemoval(
+            [in] IMbnConnection *oldConnection);
+    
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionManagerEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnPinManager
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2005-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Manages different device passwords")
+    ]
+    interface IMbnPinManager : IUnknown
+    {
+        [id(DISPID_PINLISTID), 
+            helpstring("Pin (Password) list")]
+        HRESULT GetPinList(
+            [out, ref, retval] SAFEARRAY(IMbnPin*) *pinList);
+    
+        [id(DISPID_PINID), 
+            helpstring("Get Pin")]
+        HRESULT GetPin(
+            [in] MBN_PIN_TYPE pinType, 
+            [out, ref, retval] IMbnPin **pin);
+    
+        [id(DISPID_PINSTATEID), 
+            helpstring("Pin State")]
+        HRESULT GetPinState([out] ULONG *requestID);
+    
+    };
+    cpp_quote("#pragma deprecated(IMbnPinManager) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnPinManagerEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2006-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnPinManager")
+    ]
+    interface IMbnPinManagerEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYPINLISTID), 
+            helpstring("Pin (Password) list availability")]
+        HRESULT OnPinListAvailable(
+            [in] IMbnPinManager* pinManager);
+    
+        [id(DISPID_NOTIFYPINSTATEID), 
+            helpstring("Pin State complete")]
+        HRESULT OnGetPinStateComplete(
+            [in] IMbnPinManager* pinManager, 
+            [in] MBN_PIN_INFO pinInfo,
+            [in] ULONG requestID,  
+            [in] HRESULT status);
+    };
+    cpp_quote("#pragma deprecated(IMbnPinManagerEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+	//
+	// Interface: IMbnPin - Present in the library
+	// 
+    
+    //
+    // Interface: IMbnPinEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2008-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnPin")
+    ]
+    interface IMbnPinEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYPINENABLEID), 
+            helpstring("Enable complete")]
+        HRESULT OnEnableComplete(
+            [in] IMbnPin* pin,
+            [in, ref] MBN_PIN_INFO *pinInfo,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYPINDISABLEID), 
+            helpstring("Disable complete")]
+        HRESULT OnDisableComplete(
+            [in] IMbnPin* pin,
+            [in, ref] MBN_PIN_INFO *pinInfo,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYPINENTERID), 
+            helpstring("Enter complete")]
+        HRESULT OnEnterComplete(
+            [in] IMbnPin* Pin,
+            [in, ref] MBN_PIN_INFO *pinInfo,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYPINCHANGEID), 
+            helpstring("Change complete")]
+        HRESULT OnChangeComplete(
+            [in] IMbnPin* Pin,
+            [in, ref] MBN_PIN_INFO *pinInfo,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYPINUNBLOCKID), 
+            helpstring("Unblock complete")]
+        HRESULT OnUnblockComplete(
+            [in] IMbnPin* Pin,
+            [in, ref] MBN_PIN_INFO *pinInfo,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    };
+    cpp_quote("#pragma deprecated(IMbnPinEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+    
+    //
+    // Interface: IMbnSubscriberInformation
+    //
+    [
+        object, nonextensible, oleautomation,  
+        uuid(459ECC43-BCF5-11DC-A8A8-001321F1405F), 
+        helpstring("Subcriber information")
+    ]
+    interface IMbnSubscriberInformation : IUnknown
+    {
+        [propget, id(DISPID_SUBSCRIBERID),
+            helpstring("Subscriber identifier")]
+        HRESULT SubscriberID(
+            [out, ref, retval] BSTR *SubscriberID);
+    
+        [propget, id(DISPID_SIMICCID),
+            helpstring("SIM ICC identifier")]
+        HRESULT SimIccID(
+            [out, ref, retval] BSTR *SimIccID);
+    
+        [propget, id(DISPID_TELEPHONENUMBERSID),
+            helpstring("List of telephone numbers associated with the device")]
+        HRESULT TelephoneNumbers(
+            [out, ref, retval] SAFEARRAY(BSTR) *TelephoneNumbers);
+    };   
+    cpp_quote("#pragma deprecated(IMbnSubscriberInformation) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnSignal
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2003-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Get/set the Wireless WAN device signal quality information")
+    ]
+    interface IMbnSignal : IUnknown
+    {
+        [id(DISPID_SIGNALSTRENGTHID), 
+            helpstring("Signal Strength")]
+        HRESULT GetSignalStrength(
+            [out, ref, retval] ULONG *signalStrength);
+    
+        [id(DISPID_SIGNALERRORID), 
+            helpstring("Signal error")]
+        HRESULT GetSignalError(
+            [out, ref, retval] ULONG *signalError);
+    };
+    cpp_quote("#pragma deprecated(IMbnSignal) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnSignalEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2004-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnSignal")
+    ]
+    interface IMbnSignalEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYSIGNALSTATEID), 
+            helpstring("Signal State changed")]
+        HRESULT OnSignalStateChange(
+            [in] IMbnSignal* newInterface);
+    };
+    cpp_quote("#pragma deprecated(IMbnSignalEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+        
+    //
+    // Interface: IMbnConnectionContext
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-200B-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Get/Set Wireless WAN network information")
+    ]
+    interface IMbnConnectionContext : IUnknown
+    {
+        [id(DISPID_PROVCONTEXTSID), 
+            helpstring("Provisioned Contexts")]
+        HRESULT GetProvisionedContexts(
+            [out, ref, retval] SAFEARRAY(MBN_CONTEXT) *provisionedContexts);
+    
+        [id(DISPID_SETPROVCONTEXTID), 
+            helpstring("Set Provisioned Contexts")]
+        HRESULT SetProvisionedContext(
+            [in] MBN_CONTEXT provisionedContexts,
+            [in] LPCWSTR providerID,
+            [out] ULONG *requestID);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionContext) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnConnectionContextEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-200C-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notifications on IMbnNetwork")
+    ]
+    interface IMbnConnectionContextEvents : IUnknown
+    {
+        [id(DISPID_NOTIFYPROVCONTEXTID), 
+            helpstring("Provisioned Context list change")]
+        HRESULT OnProvisionedContextListChange(
+            [in] IMbnConnectionContext *newInterface);
+    
+        [id(DISPID_NOTIFYSETPROVCONTEXTID), 
+            helpstring("Set Provisioned Context completed")]
+        HRESULT OnSetProvisionedContextComplete(
+            [in] IMbnConnectionContext *newInterface, 
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionContextEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnConnectionProfileManager
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-200F-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Create a new connection profile or enumerate existing profiles")
+    ]
+    interface IMbnConnectionProfileManager : IUnknown
+    {
+        [id(DISPID_MBNCONNPROFILESID), 
+            helpstring("Mobile Broadband Connection profiles")]
+        HRESULT GetConnectionProfiles(
+            [in] IMbnInterface* mbnInterface,
+            [out, ref, retval] SAFEARRAY(IMbnConnectionProfile*) *connectionProfiles);
+    
+        [id(DISPID_MBNCONNPROFILEID), 
+            helpstring("Mobile Broadband Connection profile")]
+        HRESULT GetConnectionProfile(
+            [in] IMbnInterface *mbnInterface,
+            [in, string] LPCWSTR profileName,
+            [out, ref, retval] IMbnConnectionProfile **connectionProfile);
+    
+        [id(DISPID_CREATECONNECTIONPROFILEID), 
+            helpstring("Create Connection profile")]
+        HRESULT CreateConnectionProfile(
+            [in, string] LPCWSTR xmlProfile);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionProfileManager) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnConnectionProfile
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2010-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Retrieves Connection parameters")
+    ]
+    interface IMbnConnectionProfile: IUnknown
+    {
+        [id(DISPID_PROFILEXMLDATAID), 
+            helpstring("Profile XML data")]
+        HRESULT GetProfileXmlData(
+            [out, ref, retval] BSTR *profileData);
+    
+        [id(DISPID_UPDATEPROFILEID), 
+            helpstring("Update Profile data")]
+        HRESULT UpdateProfile(
+            [in, string] LPCWSTR strProfile);
+    
+        [id(DISPID_DELETEPROFILEID), 
+            helpstring("Delete Profile")]
+        HRESULT Delete();
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionProfile) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnConnectionProfileEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2011-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnConnectionProfile")
+    ]
+    interface IMbnConnectionProfileEvents: IUnknown
+    {
+        [id(DISPID_NOTIFYPROFILEUPDATEID), 
+            helpstring("Profile Update")]
+        HRESULT OnProfileUpdate(
+            [in] IMbnConnectionProfile *newProfile);
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionProfileEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnSmsConfiguration
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2012-4BBB-AAEE-338E368AF6FA), 
+        helpstring("SMS Configuration interface")
+    ]
+    interface IMbnSmsConfiguration: IUnknown
+    {
+        [propget, id(DISPID_SVCCENTERADDRESSID), 
+            helpstring("Get Service Center Address")]
+        HRESULT ServiceCenterAddress(
+            [out, ref, retval] BSTR *scAddress);
+    
+        [propput, id(DISPID_SVCCENTERADDRESSID), 
+            helpstring("Set Service Center Address")]
+        HRESULT ServiceCenterAddress(
+            [in] LPCWSTR scAddress);
+    
+    
+        [propget, id(DISPID_MAXMSGINDEXID), 
+            helpstring("Get Max Message Index")]
+        HRESULT MaxMessageIndex(
+            [out, ref, retval] ULONG *index);
+    
+        [propget, id(DISPID_CDMASMSSIZEID), 
+            helpstring("Get CDMA SMS Size")]
+        HRESULT CdmaShortMsgSize(
+            [out, ref, retval] ULONG *shortMsgSize);
+
+        [propget, id(DISPID_SMSFORMATID), 
+            helpstring("Get Sms Format")]
+        HRESULT SmsFormat(
+            [out, ref, retval] MBN_SMS_FORMAT *smsFormat);
+    
+        [propput, id(DISPID_SMSFORMATID), 
+            helpstring("Set Sms Format")]
+        HRESULT SmsFormat(
+            [in] MBN_SMS_FORMAT smsFormat);            
+    };
+    cpp_quote("#pragma deprecated(IMbnSmsConfiguration) // Replaced by WinRT API in Windows.Devices.Sms namespace")
+    
+    //
+    // Interface: IMbnSmsReadMsgPdu
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2013-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Represents SMS read in the PDU format")
+    ]
+    interface IMbnSmsReadMsgPdu: IUnknown
+    {
+        [propget, id(DISPID_INDEXID), 
+            helpstring("Get Index")]
+        HRESULT Index(
+            [out, ref, retval] ULONG *Index);
+                
+        [propget, id(DISPID_STATUSID), 
+            helpstring("Get Status")]
+        HRESULT Status(
+            [out, ref, retval] MBN_MSG_STATUS *Status);
+    
+        [propget, id(DISPID_PDUDATAID), 
+            helpstring("Get PDU data")]
+        HRESULT PduData(
+            [out, ref, retval] BSTR *PduData);
+
+        [propget, id(DISPID_MESSAGEID), 
+            helpstring("Get Message")]
+        HRESULT Message(
+            [out, ref, retval] SAFEARRAY(BYTE) *Message);            
+    };
+    cpp_quote("#pragma deprecated(IMbnSmsReadMsgPdu) // Replaced by WinRT API in Windows.Devices.Sms namespace")
+    
+    //
+    // Interface: IMbnSmsReadMsgTextCdma
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2014-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Represents SMS read from CDMA device")
+    ]
+    interface IMbnSmsReadMsgTextCdma: IUnknown
+    {
+        [propget, id(DISPID_INDEXID), 
+            helpstring("Get Index")]
+        HRESULT Index(
+            [out, ref, retval] ULONG *Index);
+                
+        [propget, id(DISPID_STATUSID), 
+            helpstring("Get Status")]
+        HRESULT Status(
+            [out, ref, retval] MBN_MSG_STATUS *Status);
+        
+        [propget, id(DISPID_ADDRESSID), 
+            helpstring("Get Address ID")]
+        HRESULT Address(
+            [out, ref, retval] BSTR *Address);
+    
+        [propget, id(DISPID_TIMESTAMPID), 
+            helpstring("Get Time Stamp ID")]
+        HRESULT Timestamp(
+            [out, ref, retval] BSTR *Timestamp);
+    
+        [propget, id(DISPID_ENCODINGID), 
+            helpstring("Get Encoding ID")]
+        HRESULT EncodingID(
+            [out, ref, retval] MBN_SMS_CDMA_ENCODING *EncodingID);
+    
+        [propget, id(DISPID_LANGID), 
+            helpstring("Get Language ID")]
+        HRESULT LanguageID(
+            [out, ref, retval] MBN_SMS_CDMA_LANG *LanguageID);
+    
+        [propget, id(DISPID_SIZEINCHARSID), 
+            helpstring("Get Size in Characters")]
+        HRESULT SizeInCharacters(
+            [out, ref, retval] ULONG *SizeInCharacters);
+    
+        [propget, id(DISPID_MESSAGEID), 
+            helpstring("Get Message")]
+        HRESULT Message(
+            [out, ref, retval] SAFEARRAY(BYTE) *Message);
+    };
+    cpp_quote("#pragma deprecated(IMbnSmsReadMsgTextCdma) // Replaced by WinRT API in Windows.Devices.Sms namespace")
+    
+    //
+    // Interface: IMbnSms
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2015-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Use to send/recieve SMS")
+    ]
+    interface IMbnSms: IUnknown
+    {
+        [id(DISPID_GETMESSAGECONFIGID), 
+            helpstring("Get Message Configuration")]
+        HRESULT GetSmsConfiguration(
+            [out, ref, retval] IMbnSmsConfiguration **smsConfiguration);
+    
+        [id(DISPID_SETMESSAGECONFIGID), 
+            helpstring("Set Message Configuration")]
+        HRESULT SetSmsConfiguration(
+            [in] IMbnSmsConfiguration *smsConfiguration,
+            [out] ULONG *requestID);
+    
+    
+        [id(DISPID_SMSSENDPDUID), 
+            helpstring("Send SMS Pdu")]
+        HRESULT SmsSendPdu(
+            [in] LPCWSTR pduData,
+            [in] BYTE size,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_SMSSENDCDMAID), 
+            helpstring("Send SMS Cdma")]
+        HRESULT SmsSendCdma(
+            [in] LPCWSTR address,
+            [in] MBN_SMS_CDMA_ENCODING encoding,
+            [in] MBN_SMS_CDMA_LANG language,
+            [in] ULONG sizeInCharacters,
+            [in] SAFEARRAY(BYTE) message,
+            [out] ULONG *requestID);
+
+        [id(DISPID_SMSSENDCDMAPDUID), 
+            helpstring("Send SMS Cdma Pdu")]
+        HRESULT SmsSendCdmaPdu(
+            [in] SAFEARRAY(BYTE) message,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_SMSREADID), 
+            helpstring("Read SMS")]
+        HRESULT SmsRead(
+            [in, ref] MBN_SMS_FILTER *smsFilter,
+            [in] MBN_SMS_FORMAT smsFormat,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_SMSDELETEID), 
+            helpstring("Delete SMS")]
+        HRESULT SmsDelete(
+            [in, ref] MBN_SMS_FILTER *smsFilter,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_GETSMSSTATUSID), 
+            helpstring("Get SMS Status")]
+        HRESULT GetSmsStatus(
+            [out, ref] MBN_SMS_STATUS_INFO *smsStatusInfo);
+    };    
+    cpp_quote("#pragma deprecated(IMbnSms) // Replaced by WinRT API in Windows.Devices.Sms namespace")
+
+    //
+    // Interface: IMbnSmsEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2016-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Notification on IMbnSms")
+    ]
+    interface IMbnSmsEvents: IUnknown
+    {
+        [id(DISPID_NOTIFYSMSCONFIGCHANGEID), 
+            helpstring("SMS Configuration Change")]
+        HRESULT OnSmsConfigurationChange(
+            [in] IMbnSms *sms);
+    
+        [id(DISPID_NOTIFYSMSCONFIGCOMPLETEID), 
+            helpstring("SMS Configuration Complete")]
+        HRESULT OnSetSmsConfigurationComplete(
+            [in] IMbnSms *sms,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYSMSSENDCOMPLETEID), 
+            helpstring("SMS Send Complete")]
+        HRESULT OnSmsSendComplete(
+            [in] IMbnSms *sms,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYSMSREADCOMPLETEID), 
+            helpstring("SMS Read Complete")]
+        HRESULT OnSmsReadComplete(
+            [in] IMbnSms *sms,
+            [in] MBN_SMS_FORMAT smsFormat,
+            [in] SAFEARRAY(IUnknown*) readMsgs,
+            [in] VARIANT_BOOL moreMsgs,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYSMSNEWCLASS0MSGID), 
+            helpstring("SMS Read New Class0 message")]
+        HRESULT OnSmsNewClass0Message(
+            [in] IMbnSms *sms,
+            [in] MBN_SMS_FORMAT smsFormat,
+            [in] SAFEARRAY(IUnknown*) readMsgs);
+    
+        [id(DISPID_NOTIFYSMSDELETECOMPLETEID), 
+            helpstring("SMS Delete Complete")]
+        HRESULT OnSmsDeleteComplete(
+            [in] IMbnSms *sms,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+    
+        [id(DISPID_NOTIFYSMSSTATUSCHANGEID), 
+            helpstring("SMS SMS Status Change")]
+        HRESULT OnSmsStatusChange(
+            [in] IMbnSms *sms);
+    };
+    cpp_quote("#pragma deprecated(IMbnSmsEvents) // Replaced by WinRT API in Windows.Devices.Sms namespace")
+    
+    //
+    // Interface: IMbnServiceActivation
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2017-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Provides a pass through interface for cellular service activation operation")
+    ]
+    interface IMbnServiceActivation: IUnknown
+    {
+        [id(DISPID_ACTIVATEID), 
+            helpstring("Activate operation")]
+        HRESULT Activate(
+            [in] SAFEARRAY(BYTE) vendorSpecificData,
+            [out] ULONG *requestID);
+    };
+    cpp_quote("#pragma deprecated(IMbnServiceActivation) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+    
+    //
+    // Interface: IMbnServiceActivationEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2018-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnServiceActivation interface")
+    ]
+    interface IMbnServiceActivationEvents: IUnknown
+    {
+        [id(DISPID_NOTIFYACTIVATEID), 
+            helpstring("Service Activation Complete")]
+        HRESULT OnActivationComplete(
+            [in] IMbnServiceActivation *serviceActivation,
+            [in] SAFEARRAY(BYTE) vendorSpecificData,
+            [in] ULONG requestID,
+            [in] HRESULT status,
+            [in] ULONG networkError);
+    };
+    cpp_quote("#pragma deprecated(IMbnServiceActivationEvents) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+    
+    //
+    // Interface: IMbnVendorSpecificOperation
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2019-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Provides support for passing Vendor specific request to the MBN device drivers")
+    ]
+    interface IMbnVendorSpecificOperation: IUnknown
+    {
+        [id(DISPID_SETVENDORSPECIFICID), 
+            helpstring("Set Vendor specific information")]
+        HRESULT SetVendorSpecific(
+            [in, ref] SAFEARRAY(BYTE) vendorSpecificData,
+            [out] ULONG *requestID);
+    };
+    cpp_quote("#pragma deprecated(IMbnVendorSpecificOperation) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+    
+    //
+    // Interface: IMbnVendorSpecificEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-201A-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnVendorSpecificOperation interface")
+    ]
+    interface IMbnVendorSpecificEvents: IUnknown
+    {
+        [id(DISPID_NOTIFYEVENTID), 
+            helpstring("Event notification")]
+        HRESULT OnEventNotification(
+            [in] IMbnVendorSpecificOperation *vendorOperation,
+            [in] SAFEARRAY(BYTE) vendorSpecificData);
+    
+        [id(DISPID_VENDOROPERATIONCOMLPLETIONID), 
+            helpstring("Event notification")]
+        HRESULT OnSetVendorSpecificComplete(
+            [in] IMbnVendorSpecificOperation *vendorOperation,
+            [in] SAFEARRAY(BYTE) vendorSpecificData,
+            [in] ULONG requestID);
+    };
+    cpp_quote("#pragma deprecated(IMbnVendorSpecificEvents) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+        
+    //
+    // Interface: IMbnConnectionProfileManagerEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-201F-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnProfileManagerEvents interface")
+    ]
+    interface IMbnConnectionProfileManagerEvents: IUnknown
+    {
+        [id(DISPID_CONNECTIONPROFILEARRIVALID), 
+            helpstring("Event notification")]
+        HRESULT OnConnectionProfileArrival(
+            [in] IMbnConnectionProfile *newConnectionProfile);
+    
+        [id(DISPID_CONNECTIONPROFILEREMOVALID), 
+            helpstring("Event notification")]
+        HRESULT OnConnectionProfileRemoval(
+            [in] IMbnConnectionProfile *oldConnectionProfile);
+    
+    };
+    cpp_quote("#pragma deprecated(IMbnConnectionProfileManagerEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnRadio
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCCCCAB6-201F-4BBB-AAEE-338E368AF6FA), 
+        helpstring("IMbnRadio interface")
+    ]
+    interface IMbnRadio: IUnknown
+    {
+        [propget, id(DISPID_SOFTWARERADIOSTATEID), 
+            helpstring("Software Radio State")]
+        HRESULT SoftwareRadioState(
+            [out, ref, retval] MBN_RADIO *SoftwareRadioState);
+    
+        [propget, id(DISPID_HARDWARERADIOSTATEID), 
+            helpstring("Hardware Radio State")]
+        HRESULT HardwareRadioState(
+            [out, ref, retval] MBN_RADIO *HardwareRadioState);
+    
+        [id(DISPID_SETSOFTWARERADIOSTATEID), 
+            helpstring("Set Software Radio State")]
+        HRESULT SetSoftwareRadioState(
+            [in] MBN_RADIO radioState,
+            [out] ULONG *requestID);
+            
+    };
+    cpp_quote("#pragma deprecated(IMbnRadio) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+    
+    //
+    // Interface: IMbnRadioEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCDDDAB6-201F-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnRadioEvents interface")
+    ]
+    interface IMbnRadioEvents: IUnknown
+    {
+        [id(DISPID_RADIOSTATECHANGEID), 
+            helpstring("Event notification")]
+        HRESULT OnRadioStateChange(
+            [in] IMbnRadio *newInterface);
+    
+        [id(DISPID_SETSOFTWARERADIOSTATECOMPLETEID), 
+            helpstring("Event notification")]
+        HRESULT OnSetSoftwareRadioStateComplete(
+            [in] IMbnRadio *newInterface,
+            [in] ULONG requestID,
+            [in] HRESULT status);    
+    };
+    cpp_quote("#pragma deprecated(IMbnRadioEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnMultiCarrier
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2020-4BBB-AAEE-338E368AF6FA), 
+        helpstring("IMbnMultiCarrier interface")
+    ]
+    interface IMbnMultiCarrier : IUnknown
+    {
+        [id(DISPID_SETHOMEPROVID), 
+            helpstring("Set Home Provider")]
+        HRESULT SetHomeProvider(
+            [in] MBN_PROVIDER2 *homeProvider,
+            [out] ULONG *requestID);
+
+        [id(DISPID_PREFPROVID), 
+            helpstring("Preferred Multicarrier Providers")]
+        HRESULT GetPreferredProviders(
+            [out, ref, retval] SAFEARRAY(MBN_PROVIDER2) *preferredMulticarrierProviders);
+
+        [id(DISPID_VISIBLEPROVID), 
+            helpstring("Visible Providers")]
+        HRESULT GetVisibleProviders(
+            [out] ULONG *age,
+            [out, retval] SAFEARRAY(MBN_PROVIDER2) *visibleProviders);
+
+        [id(DISPID_CELLSUPPID), 
+            helpstring("Supported Cellular Classes")]
+        HRESULT GetSupportedCellularClasses(
+            [out, ref, retval] SAFEARRAY(MBN_CELLULAR_CLASS) *cellularClasses);
+
+        [id(DISPID_CURRENTCELLCLASSID), 
+            helpstring("Current Cellular Class")]
+        HRESULT GetCurrentCellularClass(
+            [out, ref, retval] MBN_CELLULAR_CLASS *currentCellularClass);    
+
+        [id(DISPID_SCANMC), 
+            helpstring("Scan network for multicarrier providers")]
+        HRESULT ScanNetwork([out] ULONG *requestID);
+
+    };
+    cpp_quote("#pragma deprecated(IMbnMultiCarrier) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnMultiCarrierEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCDDDAB6-2021-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Events on IMbnMultiCarrier interface")
+    ]
+    interface IMbnMultiCarrierEvents: IUnknown
+    {
+        [id(DISPID_SETHOMEPROVIDERCOMPLETEID), 
+            helpstring("Event notification")]
+        HRESULT OnSetHomeProviderComplete(
+            [in] IMbnMultiCarrier *mbnInterface,
+            [in] ULONG requestID,
+            [in] HRESULT status);
+
+        [id(DISPID_NOTIFYCELLCLASSID), 
+            helpstring("Cellular class change")]
+        HRESULT OnCurrentCellularClassChange(
+            [in] IMbnMultiCarrier *mbnInterface);
+
+        [id(DISPID_NOTIFYMCPROVID), 
+            helpstring("Preferred providers change")]
+        HRESULT OnPreferredProvidersChange(
+            [in] IMbnMultiCarrier *mbnInterface);
+
+        [id(DISPID_NOTIFYSCANCOMPLETEMC), 
+            helpstring("Scan network completed")]
+        HRESULT OnScanNetworkComplete(
+            [in] IMbnMultiCarrier *mbnInterface,
+            [in] ULONG requestID,
+            [in] HRESULT status);   
+
+        [id(DISPID_NOTIFYIFCAPCHANGEID), 
+            helpstring("Interface capability change")]
+        HRESULT OnInterfaceCapabilityChange(
+            [in] IMbnMultiCarrier *mbnInterface);
+    };
+    cpp_quote("#pragma deprecated(IMbnMultiCarrierEvents) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+    //
+    // Interface: IMbnDeviceServiceStateEvents (desktop only)
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(5D3FF196-89EE-49D8-8B60-33FFDDFFC58D), 
+        helpstring("Device service state events on IMbnDeviceServicesManager")
+    ]
+    interface IMbnDeviceServiceStateEvents: IUnknown
+    {
+    
+        [id(DISPID_DSSESSIONSSTATECHANGEID), 
+            helpstring("Session State change for device services")]
+        HRESULT OnSessionsStateChange(
+            [in] BSTR interfaceID,
+            [in] MBN_DEVICE_SERVICE_SESSIONS_STATE stateChange
+            );
+    };
+    cpp_quote("#pragma deprecated(IMbnDeviceServiceStateEvents) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+    
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+    //
+    // Interface: IMbnDeviceServicesManager
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(20A26258-6811-4478-AC1D-13324E45E41C), 
+        helpstring("IMbnDeviceServicesManager interface")
+    ]
+    interface IMbnDeviceServicesManager: IUnknown
+    {    
+        [id(DISPID_GETDSERVICESCONTEXTID),
+            helpstring("Get IMbnDeviceServicesContext for specific device")]
+        HRESULT GetDeviceServicesContext(
+            [in] BSTR networkInterfaceID,
+            [out, ref, retval] IMbnDeviceServicesContext **mbnDevicesContext);
+    };
+    cpp_quote("#pragma deprecated(IMbnDeviceServicesManager) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+    
+    //
+    // Interface: IMbnDeviceServicesContext
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(FC5AC347-1592-4068-80BB-6A57580150D8), 
+        helpstring("Interface to communicate with device services on a specific Mobile Broadband device")
+    ]
+    interface IMbnDeviceServicesContext : IUnknown
+    {    
+        [id(DISPID_ENUMDEVICESERVICESID), 
+            helpstring("Enumerate device services supported by device")]
+        HRESULT EnumerateDeviceServices(
+            [out, retval] SAFEARRAY(MBN_DEVICE_SERVICE) *deviceServices);
+
+         [id(DISPID_GETDEVICESERVICEID),
+            helpstring("Get IMbnDeviceService object for a specified device service")]
+        HRESULT GetDeviceService(
+            [in] BSTR deviceServiceID,
+            [out, ref, retval] IMbnDeviceService **mbnDeviceService);
+
+        [propget, id(DISPID_DSMAXCOMMANDSIZEID), 
+            helpstring("Maximum size of buffer for a command request")]
+        HRESULT MaxCommandSize(
+            [out, ref, retval]  ULONG *maxCommandSize);
+
+        [propget, id(DISPID_DSMAXDATASIZEID), 
+            helpstring("Maximum size of buffer for a data request")]
+        HRESULT MaxDataSize(
+            [out, ref, retval]  ULONG *maxDataSize);
+
+    };    
+    cpp_quote("#pragma deprecated(IMbnDeviceServicesContext) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+
+    //
+    // Interface: IMbnDeviceServicesManagerEvents
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(0A900C19-6824-4E97-B76E-CF239D0CA642), 
+        helpstring("Global events on IMbnDeviceServicesManager")
+    ]
+    interface IMbnDeviceServicesEvents: IUnknown
+    {
+        [id(DISPID_DSQUERYSUPPORTEDCOMMANDSCOMPLETEID), 
+            helpstring("Completion of a QUERY supported device service commandID request")]
+        HRESULT OnQuerySupportedCommandsComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] SAFEARRAY(ULONG) commandIDList,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSCOMMANDOPENCOMPLETEID),
+            helpstring("Completion of an open request for a device services command session")]
+        HRESULT OnOpenCommandSessionComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSCOMMANDCLOSECOMPLETEID),
+            helpstring("Completion of an close request for a device services command session")]
+        HRESULT OnCloseCommandSessionComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+            
+        [id(DISPID_DSSETCOMMANDCOMPLETEID), 
+            helpstring("Completion of a SET device service request")]
+        HRESULT OnSetCommandComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] ULONG responseID,
+            [in] SAFEARRAY(BYTE) deviceServiceData,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSQUERYCOMMANDCOMPLETEID), 
+            helpstring("Completion of a QUERY device service request")]
+        HRESULT OnQueryCommandComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] ULONG responseID,
+            [in] SAFEARRAY(BYTE) deviceServiceData,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSNOTIFYEVENTID), 
+            helpstring("Unsolicited device service event notification")]
+        HRESULT OnEventNotification(
+            [in] IMbnDeviceService* deviceService,
+            [in] ULONG eventID,
+            [in] SAFEARRAY(BYTE) deviceServiceData);
+    
+        [id(DISPID_DSDATAOPENCOMPLETEID),
+            helpstring("Completion of an open request for a device services data session")]
+        HRESULT OnOpenDataSessionComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSDATACLOSECOMPLETEID),
+            helpstring("Completion of an close request for a device services data session")]
+        HRESULT OnCloseDataSessionComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSWRITEDATACOMPLETEID),
+            helpstring("Completion of an write request for a device services data session")]
+        HRESULT OnWriteDataComplete(
+            [in] IMbnDeviceService* deviceService,
+            [in] HRESULT status,
+            [in] ULONG requestID);
+
+        [id(DISPID_DSREADDATAID),
+            helpstring("Notification for data being read from a device service data session")]
+        HRESULT OnReadData(
+            [in] IMbnDeviceService* deviceService,
+            [in] SAFEARRAY(BYTE) deviceServiceData);
+    
+        [id(DISPID_DSINTFSTATECHANGEID), 
+            helpstring("State change for interfaces")]
+        HRESULT OnInterfaceStateChange(
+            [in] BSTR interfaceID,
+            [in] MBN_DEVICE_SERVICES_INTERFACE_STATE stateChange
+            );
+            
+    };    
+    cpp_quote("#pragma deprecated(IMbnDeviceServicesEvents) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+    
+    //
+    // Interface: IMbnDeviceService
+    //
+    [
+        object, nonextensible, oleautomation,
+        uuid(B3BB9A71-DC70-4BE9-A4DA-7886AE8B191B),
+        helpstring("Interface to communicate with device services for command and data operations")
+    ]
+    interface IMbnDeviceService  : IUnknown
+    {
+        [id(DISPID_DSQUERYSUPPORTEDCOMMANDSID), 
+            helpstring("Query the list of commandIDs supported by a device service on the device")]
+        HRESULT QuerySupportedCommands(
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSCOMMANDSESSIONOPENID),
+            helpstring("Open a command session to the device service")]
+        HRESULT OpenCommandSession(
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSCOMMANDSESSIONCLOSEID),
+            helpstring("Close the command session to the device service")]
+        HRESULT CloseCommandSession(
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSSETCOMMANDID), 
+            helpstring("Set a SET command to device service on the device")]
+        HRESULT SetCommand(
+            [in] ULONG commandID,
+            [in, ref] SAFEARRAY(BYTE) deviceServiceData,
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSQUERYCOMMANDID), 
+            helpstring("Set a QUERY command to device service on the device")]
+        HRESULT QueryCommand(
+            [in] ULONG commandID,
+            [in, ref] SAFEARRAY(BYTE) deviceServiceData,
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSDATASESSIONOPENID),
+            helpstring("Open a data session to the device service")]
+        HRESULT OpenDataSession(
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSDATASESSIONCLOSEID),
+            helpstring("Close the data session to the device service")]
+        HRESULT CloseDataSession(
+            [out] ULONG *requestID);
+
+        [id(DISPID_DSWRITEDATAID),
+            helpstring("Sends bulk data to the device service")]
+        HRESULT WriteData(
+            [in] SAFEARRAY(BYTE) deviceServiceData,
+            [out] ULONG *requestID);
+
+        [propget, id(DISPID_DSGETINTERFACEID),
+            helpstring("The interface ID of the Mobile Broadband device this object is associated to")]
+        HRESULT InterfaceID(
+            [out, ref, retval] BSTR *InterfaceID);
+
+        [propget, id(DISPID_DSGETDEVICESERVICEID),
+            helpstring("The device service ID of the device service this object is associated to")]
+        HRESULT DeviceServiceID(
+            [out, ref, retval] BSTR *DeviceServiceID);
+
+        [propget, id(DISPID_DSCOMMANDSESSIONGETISOPENID),
+            helpstring("Reports if the device service command session is open or not")]
+        HRESULT IsCommandSessionOpen(
+            [out, ref, retval] BOOL *value);
+
+        [propget, id(DISPID_DSDATASESSIONGETISOPENID),
+            helpstring("Reports if the device service data session is open or not")]
+        HRESULT IsDataSessionOpen(
+            [out, ref, retval] BOOL *value);
+
+    };
+    cpp_quote("#pragma deprecated(IMbnDeviceService) // Replaced by WinRT Windows.Networking.NetworkOperators.MobileBroadbandDeviceService")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+
+// *****************************************************************
+//                   TYPE LIBRARY DEFINITION
+// *****************************************************************
+[   
+    uuid(DCBBBAB6-0001-4BBB-AAEE-338E368AF6FA), 
+    version(1.0), 
+    helpstring("Definition: UCM Extension API for MBN Type Library") 
+]
+library MbnApi
+{
+    importlib("stdole2.tlb");
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+    // Any types not mentioned explicitly in an interface method must be
+    // listed here in order to appear in the type library.
+    [hidden]
+    typedef struct __mbnapi_ReferenceRemainingTypes__
+    {
+        MBN_BAND_CLASS                  bandClass;
+        MBN_CONTEXT_CONSTANTS           contextConstants;
+        MBN_CTRL_CAPS                   ctrlCaps;
+        MBN_DATA_CLASS                  dataClass;
+        MBN_INTERFACE_CAPS_CONSTANTS    interfaceCapsConstants; 
+        MBN_PIN_CONSTANTS               pinConstants;
+        MBN_PROVIDER_CONSTANTS          providerConstants;
+        MBN_PROVIDER_STATE              providerState;
+        MBN_REGISTRATION_CONSTANTS      registrationConstants;
+        MBN_SIGNAL_CONSTANTS            signalConstants;
+        MBN_SMS_CAPS                    smsCaps;
+        enum MBN_SMS_CONSTANTS         smsConstants;    // have to mention both the enum and typedef when names differ
+        WWAEXT_SMS_CONSTANTS            wwaextSmsConstants; // have to mention both the enum and typedef when names differ
+        MBN_SMS_STATUS_FLAG             smsStatusFlag;
+    } __mbnapi_ReferenceRemainingTypes__;
+
+	//
+	// This is present mainly for compatibility. All the interfaces & enums were moved
+	// outside the type library. This changes the IMbnPin::PinType type in the TLB from 
+	// pinType (Windows 7) to PinType (upper case P) (See http://support.microsoft.com/kb/220137
+	// on why this was happening). So we define a dummy lower case pinType such that
+	// the TLB would be created correctly
+	// 
+	[hidden]
+	typedef struct __DummyPinType__
+	{
+		ULONG							pinType;
+	} __DummyPinType__;
+
+
+    interface IMbnInterface;
+    interface IMbnSubscriberInformation;
+    interface IMbnConnection;
+    interface IMbnInterfaceEvents;
+    interface IMbnSignal;
+    interface IMbnSignalEvents;
+    interface IMbnPinManager;
+    interface IMbnPinManagerEvents;
+    interface IMbnPinEvents;
+    interface IMbnRegistration;
+    interface IMbnRegistrationEvents;
+    interface IMbnConnectionContext;
+    interface IMbnConnectionContextEvents;
+    interface IMbnConnectionEvents;
+    interface IMbnConnectionProfileManager;
+    interface IMbnConnectionProfile;
+    interface IMbnConnectionProfileEvents;
+    interface IMbnSmsConfiguration;
+    interface IMbnSmsReadMsgPdu;
+    interface IMbnSmsReadMsgTextCdma;
+    interface IMbnSms;
+    interface IMbnSmsEvents;
+    interface IMbnServiceActivation;
+    interface IMbnServiceActivationEvents;
+    interface IMbnVendorSpecificOperation;
+    interface IMbnVendorSpecificEvents;
+    interface IMbnInterfaceManager;
+    interface IMbnInterfaceManagerEvents;
+    interface IMbnConnectionManager;
+    interface IMbnConnectionManagerEvents;
+    interface IMbnConnectionProfileManagerEvents;
+    interface IMbnRadio;
+    interface IMbnRadioEvents;
+    interface IMbnMultiCarrier;
+    interface IMbnMultiCarrierEvents;
+    interface IMbnDeviceServiceStateEvents;
+
+    //
+    // Interface: IMbnPin
+    //
+    [
+        object, nonextensible, oleautomation, 
+        uuid(DCBBBAB6-2007-4BBB-AAEE-338E368AF6FA), 
+        helpstring("Pin-related functionality")
+    ]
+    interface IMbnPin : IUnknown
+    {
+        [propget, id(DISPID_PINTYPEID), 
+            helpstring("Pin type")]
+        HRESULT PinType(
+            [out, ref, retval] MBN_PIN_TYPE *PinType);
+    
+        [propget, id(DISPID_PINFORMATID), 
+            helpstring("Pin format")]
+        HRESULT PinFormat(
+            [out, ref, retval] MBN_PIN_FORMAT *PinFormat);
+    
+        [propget, id(DISPID_PINLENMINID), 
+            helpstring("Pin Length (min)")]
+        HRESULT PinLengthMin(
+            [out, ref, retval] ULONG *PinLengthMin);
+    
+        [propget, id(DISPID_PINLENMAXID), 
+            helpstring("Pin Length (max)")]
+        HRESULT PinLengthMax(
+            [out, ref, retval] ULONG *PinLengthMax);
+    
+        [propget, id(DISPID_PINMODEID), 
+            helpstring("Pin Mode")]
+        HRESULT PinMode(
+            [out, ref, retval] MBN_PIN_MODE *PinMode);
+    
+        [id(DISPID_PINENABLEID), 
+            helpstring("Enable Pin")]
+        HRESULT Enable(
+            [in, ref, string] LPCWSTR pin,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_PINDISABLEID), 
+            helpstring("Disable Pin")]
+        HRESULT Disable(
+            [in, ref, string] LPCWSTR pin,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_PINENTERID), 
+            helpstring("Enter Pin")]
+        HRESULT Enter(
+            [in, ref, string] LPCWSTR pin,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_PINCHANGEID), 
+            helpstring("Change Pin")]
+        HRESULT Change(
+            [in, ref, string] LPCWSTR pin, 
+            [in, ref, string] LPCWSTR newPin,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_PINUNBLOCKID), 
+            helpstring("Unblock Pin")]
+        HRESULT Unblock(
+            [in, ref, string] LPCWSTR puk,
+            [in, ref, string] LPCWSTR newPin,
+            [out] ULONG *requestID);
+    
+        [id(DISPID_PINMANAGERID), 
+            helpstring("Pin Manager")]
+        HRESULT GetPinManager(
+            [out, ref, retval] IMbnPinManager **pinManager);
+    };
+    cpp_quote("#pragma deprecated(IMbnPin) // Replaced by WinRT API in Windows.Networking.Connectivity and Windows.Networking.NetworkOperators namespaces")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+    interface IMbnDeviceService;
+    interface IMbnDeviceServicesContext;
+    interface IMbnDeviceServicesManager;
+    interface IMbnDeviceServicesEvents;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+    // ************************************************************
+    //                          CoClasses
+    // ************************************************************
+
+    // CoClass: MbnConnectionProfileManager
+    [   
+        uuid(BDFEE05A-4418-11DD-90ED-001C257CCFF1), 
+    ]
+    coclass MbnConnectionProfileManager
+    {   
+        interface IConnectionPointContainer;
+        interface IMbnConnectionProfileManager;
+    };
+
+    // CoClass: MbnInterfaceManager
+    [   
+        uuid(BDFEE05B-4418-11DD-90ED-001C257CCFF1), 
+    ]
+    coclass MbnInterfaceManager
+    {   
+        interface IConnectionPointContainer;
+        interface IMbnInterfaceManager;
+    };
+
+    // CoClass: MbnConnectionManager
+    [   
+        uuid(BDFEE05C-4418-11DD-90ED-001C257CCFF1), 
+    ]
+    coclass MbnConnectionManager
+    {   
+        interface IConnectionPointContainer;
+        interface IMbnConnectionManager;
+    };
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+    // CoClass: MbnDeviceServicesManager
+    [   
+        uuid(2269DAA3-2A9F-4165-A501-CE00A6F7A75B), 
+    ]
+    coclass MbnDeviceServicesManager
+    {   
+        interface IConnectionPointContainer;
+        interface IMbnDeviceServicesManager;
+    };
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+}

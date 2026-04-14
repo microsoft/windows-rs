@@ -1,0 +1,529 @@
+//////////////////////////////////////
+//        Imports
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+
+//////////////////////////////////////
+//        Typedefs and enums
+//
+
+//
+// FSRM object ID
+//
+typedef GUID FSRM_OBJECT_ID;
+
+
+//
+// Quota flags
+//
+
+typedef enum _FsrmQuotaFlags {
+
+    // Persistent flags
+    FsrmQuotaFlags_Enforce          = 0x00000100,
+    FsrmQuotaFlags_Disable          = 0x00000200,
+
+    // Quota status flags
+    FsrmQuotaFlags_StatusIncomplete = 0x00010000,
+    FsrmQuotaFlags_StatusRebuilding = 0x00020000
+
+} FsrmQuotaFlags;
+
+
+//
+// File screen flags
+//
+
+typedef enum _FsrmFileScreenFlags {
+
+    // Persistent flags
+    FsrmFileScreenFlags_Enforce = 0x00000001
+
+} FsrmFileScreenFlags;
+
+
+//
+// General Collection
+//
+
+typedef enum _FsrmCollectionState {
+
+    FsrmCollectionState_Fetching    = 1,
+    FsrmCollectionState_Committing  = 2,
+    FsrmCollectionState_Complete    = 3,
+    FsrmCollectionState_Cancelled   = 4
+
+} FsrmCollectionState;
+
+typedef enum _FsrmEnumOptions {
+
+    FsrmEnumOptions_None                        = 0x00000000,
+    FsrmEnumOptions_Asynchronous                = 0x00000001,
+    FsrmEnumOptions_CheckRecycleBin             = 0x00000002,
+    FsrmEnumOptions_IncludeClusterNodes         = 0x00000004,
+    FsrmEnumOptions_IncludeDeprecatedObjects    = 0x00000008
+
+} FsrmEnumOptions;
+
+typedef enum _FsrmCommitOptions {
+
+    FsrmCommitOptions_None              = 0x00000000,
+    FsrmCommitOptions_Asynchronous      = 0x00000001
+
+} FsrmCommitOptions;
+
+typedef enum _FsrmTemplateApplyOptions {
+
+    FsrmTemplateApplyOptions_ApplyToDerivedMatching = 1,
+    FsrmTemplateApplyOptions_ApplyToDerivedAll      = 2
+
+} FsrmTemplateApplyOptions;
+
+
+//
+// General Action
+//
+
+typedef enum _FsrmActionType {
+
+    FsrmActionType_Unknown  = 0,
+    FsrmActionType_EventLog = 1,
+    FsrmActionType_Email    = 2,
+    FsrmActionType_Command  = 3,
+    FsrmActionType_Report   = 4
+
+} FsrmActionType;
+
+
+//
+// EventLog Action
+//
+
+typedef enum _FsrmEventType {
+
+    FsrmEventType_Unknown       = 0,
+    FsrmEventType_Information   = 1,
+    FsrmEventType_Warning       = 2,
+    FsrmEventType_Error         = 3
+
+} FsrmEventType;
+
+
+//
+// Command Action
+//
+
+typedef enum _FsrmAccountType {
+
+    FsrmAccountType_Unknown         = 0,
+    FsrmAccountType_NetworkService  = 1,
+    FsrmAccountType_LocalService    = 2,
+    FsrmAccountType_LocalSystem     = 3,
+    FsrmAccountType_InProc          = 4,
+    FsrmAccountType_External        = 5,
+    FsrmAccountType_Automatic       = 500
+} FsrmAccountType;
+
+
+//
+// Storage Reports
+//
+
+typedef enum _FsrmReportType {
+
+    FsrmReportType_Unknown                  = 0,
+    FsrmReportType_LargeFiles               = 1,
+    FsrmReportType_FilesByType              = 2,
+    FsrmReportType_LeastRecentlyAccessed    = 3,
+    FsrmReportType_MostRecentlyAccessed     = 4,
+    FsrmReportType_QuotaUsage               = 5,
+    FsrmReportType_FilesByOwner             = 6,
+    FsrmReportType_ExportReport             = 7,
+    FsrmReportType_DuplicateFiles           = 8,
+    FsrmReportType_FileScreenAudit          = 9,
+    FsrmReportType_FilesByProperty          = 10,
+    FsrmReportType_AutomaticClassification  = 11,
+    FsrmReportType_Expiration               = 12,
+    FsrmReportType_FoldersByProperty        = 13
+
+} FsrmReportType;
+
+typedef enum _FsrmReportFormat {
+
+    FsrmReportFormat_Unknown    = 0,
+    FsrmReportFormat_DHtml      = 1,
+    FsrmReportFormat_Html       = 2,
+    FsrmReportFormat_Txt        = 3,
+    FsrmReportFormat_Csv        = 4,
+    FsrmReportFormat_Xml        = 5
+
+} FsrmReportFormat;
+
+typedef enum _FsrmReportRunningStatus {
+
+    FsrmReportRunningStatus_Unknown     = 0,
+    FsrmReportRunningStatus_NotRunning  = 1,
+    FsrmReportRunningStatus_Queued      = 2,
+    FsrmReportRunningStatus_Running     = 3
+
+} FsrmReportRunningStatus;
+
+typedef enum _FsrmReportGenerationContext {
+
+    FsrmReportGenerationContext_Undefined           = 1,
+    FsrmReportGenerationContext_ScheduledReport     = 2,
+    FsrmReportGenerationContext_InteractiveReport   = 3,
+    FsrmReportGenerationContext_IncidentReport      = 4
+
+} FsrmReportGenerationContext;
+
+//
+// Report filtering definitions
+// ============================
+//
+//  Filter Name     Description             Valid Reports               Valid Value Types
+//  --------------  ----------------------  --------------------------  ------------------------------------------
+//  MinSize         Minimum size            Large Files                 uint64 or string representation
+//
+//  MinAgeDays      Minimum age in days     Least Recently Accessed     uint32 or string representation
+//                                          File Screen Audit
+//
+//  MaxAgeDays      Maximum age in days     Most Recently Accessed      uint32 or string representation
+//
+//  MinQuotaUsage   Minimum % quota usage   Quota Usage                 uint32 or string representation
+//
+//  FileGroups      File group names        Files by Type               SAFEARRAY of strings (file group names)
+//
+//  Owners          Owners                  Files by Owner              SAFEARRAY of strings (names or SIDs)
+//                                          File Screen Audit
+//
+//  NamePattern     File name pattern       Large Files                 string (DOS file name pattern)
+//                                          Files by Type
+//                                          Least Recently Accessed
+//                                          Most Recently Accessed
+//                                          Files by Owner
+//                                          Export Report
+//                                          Duplicate Files
+//
+
+typedef enum _FsrmReportFilter {
+
+    FsrmReportFilter_MinSize        = 1,
+    FsrmReportFilter_MinAgeDays     = 2,
+    FsrmReportFilter_MaxAgeDays     = 3,
+    FsrmReportFilter_MinQuotaUsage  = 4,
+    FsrmReportFilter_FileGroups     = 5,
+    FsrmReportFilter_Owners         = 6,
+    FsrmReportFilter_NamePattern    = 7,
+    FsrmReportFilter_Property       = 8
+
+} FsrmReportFilter;
+
+typedef enum _FsrmReportLimit {
+
+    FsrmReportLimit_MaxFiles                    = 1,
+    FsrmReportLimit_MaxFileGroups               = 2,
+    FsrmReportLimit_MaxOwners                   = 3,
+    FsrmReportLimit_MaxFilesPerFileGroup        = 4,
+    FsrmReportLimit_MaxFilesPerOwner            = 5,
+    FsrmReportLimit_MaxFilesPerDuplGroup        = 6,
+    FsrmReportLimit_MaxDuplicateGroups          = 7,
+    FsrmReportLimit_MaxQuotas                   = 8,
+    FsrmReportLimit_MaxFileScreenEvents         = 9,
+    FsrmReportLimit_MaxPropertyValues           = 10,
+    FsrmReportLimit_MaxFilesPerPropertyValue    = 11,
+    FsrmReportLimit_MaxFolders                  = 12
+
+} FsrmReportLimit;
+
+
+//
+// Pipeline
+//
+
+typedef enum _FsrmPropertyDefinitionType {
+
+    FsrmPropertyDefinitionType_Unknown          = 0,
+    FsrmPropertyDefinitionType_OrderedList      = 1,
+    FsrmPropertyDefinitionType_MultiChoiceList  = 2,
+    FsrmPropertyDefinitionType_SingleChoiceList = 3,
+    FsrmPropertyDefinitionType_String           = 4,
+    FsrmPropertyDefinitionType_MultiString      = 5,
+    FsrmPropertyDefinitionType_Int              = 6,
+    FsrmPropertyDefinitionType_Bool             = 7,
+    FsrmPropertyDefinitionType_Date             = 8
+
+} FsrmPropertyDefinitionType;
+
+typedef enum _FsrmPropertyDefinitionFlags {
+
+    FsrmPropertyDefinitionFlags_Global     = 0x00000001,
+    FsrmPropertyDefinitionFlags_Deprecated = 0x00000002,
+    FsrmPropertyDefinitionFlags_Secure     = 0x00000004,
+
+} FsrmPropertyDefinitionFlags;
+
+typedef enum _FsrmPropertyDefinitionAppliesTo {
+
+    FsrmPropertyDefinitionAppliesTo_Files   = 0x00000001,
+    FsrmPropertyDefinitionAppliesTo_Folders = 0x00000002,
+
+} FsrmPropertyDefinitionAppliesTo;
+
+typedef enum _FsrmRuleType {
+
+    FsrmRuleType_Unknown         = 0,
+    FsrmRuleType_Classification  = 1,
+    FsrmRuleType_Generic         = 2
+
+} FsrmRuleType;
+
+typedef enum _FsrmRuleFlags {
+
+    FsrmRuleFlags_Disabled                              = 0x00000100,
+	FsrmRuleFlags_ClearAutomaticallyClassifiedProperty  = 0x00000400,
+	FsrmRuleFlags_ClearManuallyClassifiedProperty       = 0x00000800,
+    FsrmRuleFlags_Invalid                               = 0x00001000
+
+} FsrmRuleFlags;
+
+typedef enum _FsrmClassificationLoggingFlags {
+
+    FsrmClassificationLoggingFlags_None                         = 0x00000000,
+    FsrmClassificationLoggingFlags_ClassificationsInLogFile     = 0x00000001,
+    FsrmClassificationLoggingFlags_ErrorsInLogFile              = 0x00000002,
+    FsrmClassificationLoggingFlags_ClassificationsInSystemLog   = 0x00000004,
+    FsrmClassificationLoggingFlags_ErrorsInSystemLog            = 0x00000008
+
+} FsrmClassificationLoggingFlags;
+
+typedef enum _FsrmExecutionOption {
+
+    FsrmExecutionOption_Unknown                           = 0,
+    FsrmExecutionOption_EvaluateUnset                     = 1,      // Apply as a default value.
+    FsrmExecutionOption_ReEvaluate_ConsiderExistingValue  = 2,      // Apply value but consider default and existing values.
+    FsrmExecutionOption_ReEvaluate_IgnoreExistingValue    = 3       // Apply value but ignore default and existing values.
+
+} FsrmExecutionOption;
+
+typedef enum _FsrmStorageModuleCaps {
+
+    FsrmStorageModuleCaps_Unknown               = 0x00000000,
+    FsrmStorageModuleCaps_CanGet                = 0x00000001,
+    FsrmStorageModuleCaps_CanSet                = 0x00000002,
+    FsrmStorageModuleCaps_CanHandleDirectories  = 0x00000004,
+    FsrmStorageModuleCaps_CanHandleFiles        = 0x00000008
+
+} FsrmStorageModuleCaps;
+
+typedef enum _FsrmStorageModuleType {
+
+    FsrmStorageModuleType_Unknown   = 0,
+    FsrmStorageModuleType_Cache     = 1,
+    FsrmStorageModuleType_InFile    = 2,
+    FsrmStorageModuleType_Database  = 3,
+    FsrmStorageModuleType_System    = 100
+} FsrmStorageModuleType;
+
+typedef enum _FsrmPropertyBagFlags
+{
+
+    FsrmPropertyBagFlags_UpdatedByClassifier            = 0x00000001,   // The properties in the property bag were updated by a classifier.
+    FsrmPropertyBagFlags_FailedLoadingProperties        = 0x00000002,   // The properties in the property bag may only be partially classified because a failure occurred while loading properties from storage.
+    FsrmPropertyBagFlags_FailedSavingProperties         = 0x00000004,   // The properties in the property bag failed to be saved by the storage module with the highest precedence.
+    FsrmPropertyBagFlags_FailedClassifyingProperties    = 0x00000008,   // The properties in the property bag may only be partially classified because a failure occurred while classifying properties.
+
+} FsrmPropertyBagFlags;
+
+typedef enum _FsrmPropertyBagField
+{
+    FsrmPropertyBagField_AccessVolume          = 0,
+    FsrmPropertyBagField_VolumeGuidName        = 1
+} FsrmPropertyBagField;
+
+typedef enum _FsrmPropertyFlags {
+
+    FsrmPropertyFlags_None                          = 0x00000000,
+    FsrmPropertyFlags_Orphaned                      = 0x00000001,   // The property does not have a corresponding definition in FSRM.
+    FsrmPropertyFlags_RetrievedFromCache            = 0x00000002,   // The property value came from the cache during this classification session.
+    FsrmPropertyFlags_RetrievedFromStorage          = 0x00000004,   // The property value came from a storage module (other than the cache) during this classification session.
+    FsrmPropertyFlags_SetByClassifier               = 0x00000008,   // The property value came from a classifier during this classification session.
+    FsrmPropertyFlags_Deleted                       = 0x00000010,   // The property was deleted by a ClearFileProperty call.
+    FsrmPropertyFlags_Reclassified                  = 0x00000020,   // The property value from storage was changed to a different value by a classifier.
+    FsrmPropertyFlags_AggregationFailed             = 0x00000040,   // There were values from multiple sources but they could not be aggregated together.
+    FsrmPropertyFlags_Existing                      = 0x00000080,   // The property already exists in storage.
+    FsrmPropertyFlags_FailedLoadingProperties       = 0x00000100,   // The property may only be partially classified because a failure occurred while loading properties from storage.
+    FsrmPropertyFlags_FailedClassifyingProperties   = 0x00000200,   // The property may only be partially classified because a failure occurred while classifying properties.
+    FsrmPropertyFlags_FailedSavingProperties        = 0x00000400,   // The property failed to be saved by the storage module with the highest precendence.
+    FsrmPropertyFlags_Secure                        = 0x00000800,   // The property is defined to be a secure property or came from secure storage.
+    FsrmPropertyFlags_PolicyDerived                 = 0x00001000,   // The property value originally came from a classification policy.
+    FsrmPropertyFlags_Inherited                     = 0x00002000,   // The property value was inherited from the property value of the file's parent folder.
+    FsrmPropertyFlags_Manual                        = 0x00004000,   // The property value was set manually.
+    FsrmPropertyFlags_ExplicitValueDeleted          = 0x00008000,   // An explicit property value was deleted and replaced with an inherited value.
+	FsrmPropertyFlags_PropertyDeletedFromClear      = 0x00010000,   // The property has been deleted due to a rule marked with clear property.
+
+    FsrmPropertyFlags_PropertySourceMask            = FsrmPropertyFlags_RetrievedFromCache |
+                                                      FsrmPropertyFlags_RetrievedFromStorage |
+                                                      FsrmPropertyFlags_SetByClassifier,
+
+    // These flags are persisted by the cache and secure storage modules
+    FsrmPropertyFlags_PersistentMask                = FsrmPropertyFlags_PolicyDerived | 
+                                                      FsrmPropertyFlags_Manual,
+
+} FsrmPropertyFlags;
+
+typedef enum _FsrmPipelineModuleType {
+
+    FsrmPipelineModuleType_Unknown      = 0,
+    FsrmPipelineModuleType_Storage      = 1,
+    FsrmPipelineModuleType_Classifier   = 2,
+
+} FsrmPipelineModuleType;
+
+typedef enum _FsrmGetFilePropertyOptions {
+
+    FsrmGetFilePropertyOptions_None                 = 0x00000000,
+    FsrmGetFilePropertyOptions_NoRuleEvaluation     = 0x00000001,
+    FsrmGetFilePropertyOptions_Persistent           = 0x00000002,
+    FsrmGetFilePropertyOptions_FailOnPersistErrors  = 0x00000004,
+    FsrmGetFilePropertyOptions_SkipOrphaned         = 0x00000008
+
+} FsrmGetFilePropertyOptions;
+
+typedef enum _FsrmFileManagementType {
+
+    FsrmFileManagementType_Unknown      = 0,
+    FsrmFileManagementType_Expiration   = 1,
+    FsrmFileManagementType_Custom       = 2,
+    FsrmFileManagementType_Rms          = 3
+
+} FsrmFileManagementType;
+
+typedef enum _FsrmFileManagementLoggingFlags {
+
+    FsrmFileManagementLoggingFlags_None         = 0x00000000,
+    FsrmFileManagementLoggingFlags_Error        = 0x00000001,
+    FsrmFileManagementLoggingFlags_Information  = 0x00000002,
+    FsrmFileManagementLoggingFlags_Audit        = 0x00000004
+
+} FsrmFileManagementLoggingFlags;
+
+typedef enum _FsrmPropertyConditionType {
+
+    FsrmPropertyConditionType_Unknown        = 0,
+    FsrmPropertyConditionType_Equal          = 1,
+    FsrmPropertyConditionType_NotEqual       = 2,
+    FsrmPropertyConditionType_GreaterThan    = 3,
+    FsrmPropertyConditionType_LessThan       = 4,
+    FsrmPropertyConditionType_Contain        = 5,
+    FsrmPropertyConditionType_Exist          = 6,
+    FsrmPropertyConditionType_NotExist       = 7,
+    FsrmPropertyConditionType_StartWith      = 8,
+    FsrmPropertyConditionType_EndWith        = 9,
+    FsrmPropertyConditionType_ContainedIn    = 10,
+    FsrmPropertyConditionType_PrefixOf       = 11,
+    FsrmPropertyConditionType_SuffixOf       = 12,
+    FsrmPropertyConditionType_MatchesPattern = 13,
+
+} FsrmPropertyConditionType;
+
+
+//
+//  Streaming interface constants
+//
+
+typedef enum _FsrmFileStreamingMode
+{
+    FsrmFileStreamingMode_Unknown   = 0x00000000, 
+    FsrmFileStreamingMode_Read      = 0x00000001, // Gets a streaming interface for reading file content
+    FsrmFileStreamingMode_Write     = 0x00000002, // Gets a streaming interface for writing file content
+} FsrmFileStreamingMode;
+
+
+typedef enum _FsrmFileStreamingInterfaceType
+{
+    FsrmFileStreamingInterfaceType_Unknown      = 0x00000000,   // Gets an ILockBytes interface
+    FsrmFileStreamingInterfaceType_ILockBytes   = 0x00000001,   // Gets an ILockBytes interface
+    FsrmFileStreamingInterfaceType_IStream      = 0x00000002,   // Gets an IStream interface
+} FsrmFileStreamingInterfaceType;
+
+
+//
+// File condition types (IFsrmFileCondition specializations)
+//
+typedef enum _FsrmFileConditionType
+{
+    FsrmFileConditionType_Unknown       = 0,
+    FsrmFileConditionType_Property      = 1,    // File property condition (IFsrmFileConditionProperty)
+
+} FsrmFileConditionType;
+
+//
+// File system property identifiers
+//
+typedef enum _FsrmFileSystemPropertyId
+{
+    FsrmFileSystemPropertyId_Undefined              = 0,    // property ID is not used (default)
+    FsrmFileSystemPropertyId_FileName               = 1,    // name of the file (including extension)
+    FsrmFileSystemPropertyId_DateCreated            = 2,    // file's creation time
+    FsrmFileSystemPropertyId_DateLastAccessed       = 3,    // file's last accessed time
+    FsrmFileSystemPropertyId_DateLastModified       = 4,    // file's last write time
+    FsrmFileSystemPropertyId_DateNow                = 5,    // current date and time
+
+} FsrmFileSystemPropertyId;
+
+//
+// Property value formats
+//
+typedef enum _FsrmPropertyValueType
+{
+    FsrmPropertyValueType_Undefined                 = 0,
+    FsrmPropertyValueType_Literal                   = 1,    // one or more literal values
+    FsrmPropertyValueType_DateOffset                = 2,    // date expression (date variable and offset)
+
+} FsrmPropertyValueType;
+
+//
+// ADR Flags
+//
+
+typedef enum _AdrClientDisplayFlags {
+
+    AdrClientDisplayFlags_AllowEmailRequests           = 0x00000001,
+    AdrClientDisplayFlags_ShowDeviceTroubleshooting    = 0x00000002
+
+} AdrClientDisplayFlags;
+
+typedef enum _AdrEmailFlags {
+
+    AdrEmailFlags_PutDataOwnerOnToLine          = 0x00000001,
+    AdrEmailFlags_PutAdminOnToLine              = 0x00000002,
+    AdrEmailFlags_IncludeDeviceClaims           = 0x00000004,
+    AdrEmailFlags_IncludeUserInfo               = 0x00000008,
+    AdrEmailFlags_GenerateEventLog              = 0x00000010
+} AdrEmailFlags;
+
+typedef enum _AdrClientErrorType {
+  AdrClientErrorType_Unknown                    = 0,
+  AdrClientErrorType_AccessDenied               = 1,
+  AdrClientErrorType_FileNotFound               = 2,
+} AdrClientErrorType;
+
+typedef enum _AdrClientFlags {
+  AdrClientFlags_None                           = 0x00000000,
+  AdrClientFlags_FailForLocalPaths              = 0x00000001,
+  AdrClientFlags_FailIfNotSupportedByServer     = 0x00000002,
+  AdrClientFlags_FailIfNotDomainJoined          = 0x00000004,
+} AdrClientFlags;
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

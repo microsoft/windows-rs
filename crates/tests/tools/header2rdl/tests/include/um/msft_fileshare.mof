@@ -1,0 +1,243 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+[ClassVersion( "1.0" ), Abstract,
+Description(
+    "A file share object models the subsystem's concept of a file share."
+    )]
+class MSFT_FileShare : MSFT_StorageObject
+{
+    [Read, Required, Description(
+        "Name is a semi-unique (scoped to the owning file server), human-"
+        "readable string used to access and identify a file share."
+        )]
+    String Name;
+
+    [Read, Description(
+        "A user settable description of the file share. This field can be "
+        "used to store extra free-form information, such as notes or details "
+        "about the intended usage."
+        )]
+    String Description;
+
+    [Read, Description(
+        "The volume relative path to the directory that is being shared."
+        )]
+    String VolumeRelativePath;
+
+    [Read, Description(
+        "If TRUE the share is continuously available."
+        )]
+    Boolean ContinuouslyAvailable;
+
+    [Read, Description(
+        "If TRUE the share data transmission is encrypted."
+        )]
+    Boolean EncryptData;
+
+    [Read, Description(
+        "The file sharing protocol used by the share."),
+        ValueMap { "2", "3" },
+        Values { "NFS", "CIFS(SMB)"}]
+    UInt16 FileSharingProtocol;
+
+    [Read, Description(
+       "TODO"),
+        ValueMap {"0", "1", "2" },
+        Values {"Pending", "Online", "Offline"}]
+    UInt16 ShareState;
+
+    [Read, Description(
+        "Denotes the current health status of the file share.\n "
+        "0 - 'Healthy': TBD.\n"
+        "1 - 'Warning': TBD.\n"
+        "2 - 'Unhealthy': TBD."
+        ),
+        ValueMap { "0", "1", "2", "5" },
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+[Read, Required, Description(
+        "An array of values that denote the current operational status of the fileshare.\n"
+        "0 - 'Unknown': The operational status is unknown.\n"
+        "1 - 'Other': A vendor-specific OperationalStatus has been specified by setting the OtherOperationalStatusDescription property.\n"
+        "2 - 'OK': The disk is responding to commands and is in a normal operating state.\n"
+        "3 - 'Degraded': The disk is responding to commands, but is not running in an optimal operating state.\n"
+        "4 - 'Stressed': The disk is functioning, but needs attention. For example, the disk might be overloaded or overheated.\n"
+        "5 - 'Predictive Failure': The disk is functioning, but a failure is likely to occur in the near future.\n"
+        "6 - 'Error': An error has occurred.\n"
+        "7 - 'Non-Recoverable Error': A non-recoverable error has occurred.\n"
+        "8 - 'Starting': The disk is in the process of starting.\n"
+        "9 - 'Stopping': The disk is in the process of stopping.\n"
+        "10 - 'Stopped': The disk was stopped or shut down in a clean and orderly fashion.\n"
+        "11 - 'In Service': The disk is being configured, maintained, cleaned, or otherwise administered.\n"
+        "12 - 'No Contact': The storage provider has knowledge of the disk, but has never been able to establish communication with it.\n"
+        "13 - 'Lost Communication': The storage provider has knowledge of the disk and has contacted it successfully in the past, but the disk is currently unreachable.\n"
+        "14 - 'Aborted': Similar to Stopped, except that the disk stopped abruptly and may require configuration or maintenance.\n"
+        "15 - 'Dormant': The disk is reachable, but it is inactive.\n"
+        "16 - 'Supporting Entity in Error': This status value does not necessarily indicate trouble with the disk, but it does indicate that another device or connection that the disk depends on may need attention.\n"
+        "17 - 'Completed': The disk has completed an operation. This status value should be combined with OK, Error, or Degraded, depending on the outcome of the operation.\n"
+        "0xD010 - 'Online': In Windows-based storage subsystems, this indicates that the object is online.\n"
+        "0xD011 - 'Not Ready': In Windows-based storage subsystems, this indicates that the object is not ready.\n"
+        "0xD012 - 'No Media': In Windows-based storage subsystems, this indicates that the object has no media present.\n"
+        "0xD013 - 'Offline': In Windows-based storage subsystems, this indicates that the object is offline.\n"
+        "0xD014 - 'Failed': In Windows-based storage subsystems, this indicates that the object is in a failed state."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17",
+            "..",
+            "0xD010", "0xD011", "0xD012", "0xD013", "0xD014"
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed",
+            // ..
+            "Vendor Specific",
+            // 0xD010- 0xD014
+            "Online", "Not Ready", "No Media", "Offline", "Failed"
+        }]
+    UInt16 OperationalStatus[];
+
+    //
+    // Method: DeleteObject
+    //
+
+    UInt32 DeleteObject(
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: SetDescription
+    //
+
+    UInt32 SetDescription(
+
+        [In, Required]
+        String Description,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetAttributes
+    //
+
+    UInt32 SetAttributes(
+
+        [In]
+        Boolean EncryptData,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetAccessControlEntries
+    //
+
+    UInt32 GetAccessControlEntries(
+
+        [Out, EmbeddedInstance("MSFT_FileShareAccessControlEntry")]
+        String AccessControlEntries[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: GrantAccess
+    //
+
+    UInt32 GrantAccess(
+
+        [In, Required]
+        String AccountNames[],
+
+        [In, Required]
+        UInt32 AccessRight,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: RevokeAccess
+    //
+
+    UInt32 RevokeAccess(
+
+        [In, Required]
+        String AccountNames[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: BlockAccess
+    //
+
+    UInt32 BlockAccess(
+
+        [In, Required]
+        String AccountNames[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: UnblockAccess
+    //
+
+    UInt32 UnblockAccess(
+
+        [In, Required]
+        String AccountNames[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+
+    );
+
+    //
+    // Method: Diagnose
+    //
+
+    UInt32 Diagnose(
+
+        [Out, EmbeddedInstance("MSFT_StorageDiagnoseResult")]
+        String DiagnoseResults[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: GetActions
+    //
+
+    UInt32 GetActions(
+
+        [Out, EmbeddedInstance("MSFT_HealthAction")]
+        String ActionResults[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};

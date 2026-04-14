@@ -1,0 +1,1512 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract,
+Description ( "Represents a storage array subsystem that exposes virtual disks." )]
+class MSFT_StorageSubSystem : MSFT_StorageObject {
+
+    [Read, Description(
+        "A user settable string representing the name of the storage subsystem. The storage "
+        "provider or subsystem is expected to supply an initial value for this field."
+        )]
+    String FriendlyName;
+
+    [Read, Description(
+        "A user settable description of the storage subsystem. This field can be used "
+        "to store extra free-form information, such as notes or details about the subsystem's "
+        "intended usage."
+        )]
+    String Description;
+
+    [Read, Required, Description(
+        "Name is a globally unique, human-readable string used to identify a storage subsystem."
+        )]
+    String Name;
+
+    [Read, Required, Description(
+        "NameFormat describes the format of the Name identifier."
+        ),
+        ValueMap {
+            "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+            "11", "12", "13", "14", "15", "16"
+            },
+        Values {
+            // 1 - 5
+            "Other", "IP", "Dial", "HID", "NWA",
+            // 6 - 10
+            "HWA", "X25", "ISDN", "IPX", "DCC",
+            // 11 - 15
+            "ICD", "E.164", "SNA", "OID/OSI", "WWN",
+            // 16
+            "NAA"
+            }]
+    UInt16 NameFormat;
+
+    [Read, Description(
+        "This field is an array of custom identifier for the subsystem. If this field is set, "
+        "the OtherIdentifyingInfoDescription field must also be set."
+        )]
+    String OtherIdentifyingInfo[];
+
+    [Read, Description(
+        "An array of string description of the format used in the custom identifiers defined in "
+        "the OtherIdentifyingInfo field. There must be a 1:1 mapping between this array and "
+        "OtherIdentifyingInfo."
+        )]
+    String OtherIdentifyingInfoDescription[];
+
+    [Read, Required, Description(
+        "Denotes the health of the subsystem. \n"
+        "0 - 'Healthy': Indicates that the subsystem is functioning normally. \n"
+        "1 - 'Warning': Indicates that the subsystem is still functioning, but has detected "
+        "errors or issues that may require administrator intervention. \n"
+        "2 - 'Unhealthy': Indicates that the subsystem is not functioning due to errors or "
+        "failures. The subsystem needs immediate attention from an administrator."
+        ),
+        ValueMap { "0", "1", "2" },
+        Values { "Healthy", "Warning", "Unhealthy" }]
+    UInt16 HealthStatus;
+
+    [Read, Required, Description(
+        "Indicates the current statuses of the subsystem. Various operational statuses are "
+        "defined. Many of the enumeration's values are self-explanatory. However, a few are not "
+        "and are described here in more detail. \n"
+        "4 - 'Stressed': indicates that the subsystem is functioning, but needs attention. "
+        "Examples of 'Stressed' states are overload, overheated, and so on. \n"
+        "5 - 'Predictive Failure': indicates that the subsystem is functioning nominally but "
+        "predicting a failure in the near future. \n"
+        "11 - 'In Service': describes a subsystem being configured, maintained, cleaned, or "
+        "otherwise administered. \n"
+        "12 - 'No Contact': indicates that the storage provider has knowledge of this subsystem, "
+        "but has never been able to establish communications with it. \n"
+        "13 - 'Lost Communication': indicates that the subsystem is known to exist and has been "
+        "contacted successfully in the past, but is currently unreachable. \n"
+        "10 - 'Stopped' and 14 - 'Aborted' are similar, although the former implies a clean and "
+        "orderly stop, while the latter implies an abrupt stop where the state and configuration "
+        "of the subsystem might need to be updated. \n"
+        "15 - 'Dormant': indicates that the subsystem is inactive. \n"
+        "16 - 'Supporting Entity in Error': indicates that this subsystem might be OK, but that "
+        "another element, on which it is dependent, is in error. \n"
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            ".."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 OperationalStatus[];
+
+    [Read, Description(
+        "A string representation of the vendor defined operational status. This field should "
+        "only be set if the OperationalStatus array contains 1 - 'Other'."
+        )]
+    String OtherOperationalStatusDescription;
+
+    [Read, Description(
+        "This field denotes the cache level that has been discovered. This corresponds to the "
+        "storage provider's DiscoveryLevel parameter in the Discover method. \n"
+        "0 - 'Level 0': The storage provider and storage subsystem objects have been discovered. \n"
+        "1 - 'Level 1': Storage pools, resiliency settings, target ports, target portals, and "
+        "initiator ids belonging to this subsystem have been discovered. \n"
+        "2 - 'Level 2': Virtual disks and masking sets belonging to this subsystem have been "
+        "discovered. \n"
+        "3 - 'Level 3': Physical disks belonging to this subsystem have been discovered."
+        ),
+        ValueMap { "0", "1", "2", "3" },
+        Values { "Level 0", "Level 1", "Level 2", "Level 3" }]
+    UInt16 CurrentCacheLevel;
+
+    [Read, Required, Description(
+        "This field is a string representation of the company responsible for creating the "
+        "storage subsystem hardware."
+        )]
+    String Manufacturer;
+
+    [Read, Required, Description(
+        "This field is a string representation of the model number of the subsystem array."
+        )]
+    String Model;
+
+    [Read, Required, Description(
+        "This field is a string representation of the serial number of the subsystem array."
+        )]
+    String SerialNumber;
+
+    [Read, Required, Description(
+        "This field is a string representation of the subsystem's firmware version."
+        )]
+    String FirmwareVersion;
+
+    [Read, Description(
+        "Tag is an identifier for the subsystem that is independent from any location-based "
+        "information. Examples of a tag could be the subsystem's serial number or asset tag."
+        )]
+    String Tag;
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports automatic object clustering."
+        )]
+    Boolean AutomaticClusteringEnabled;
+
+    [Read, Description(
+        "Denotes whether virtual disk repair is enabled on this subsystem."
+        )]
+    Boolean VirtualDiskRepairEnabled;
+
+    [Read, Description(
+        "Denotes the virtual disk repair queue depth policy in this subsystem."
+        )]
+    UInt32 VirtualDiskRepairQueueDepth;
+
+    [Read, Required, Description(
+        "Denotes the minimum number of physical disks required for "
+        "creating a storage pool on this subsystem."
+        )]
+    UInt16 PhysicalDisksPerStoragePoolMin;
+
+    [Read, Description(
+        "Determines the default allocation behavior for storage pools created in this subsystem. "
+        "If the subsystem does not support storage pool creation, then it determines the default "
+        "allocation behavior for virtual disks created in this subsystem."
+        ),
+        ValueMap { "1", "2", "3", "4", "5" },
+        Values { "PhysicalDisk", "StorageEnclosure", "StorageScaleUnit", "StorageChassis", "StorageRack" }]
+    UInt16 FaultDomainAwarenessDefault;
+
+
+    // Snapshot and cloning capabilities
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports local mirror replication."
+        )]
+    Boolean SupportsMirrorLocal;
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports remote mirror replication."
+        )]
+    Boolean SupportsMirrorRemote;
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports local snapshotting. This field must be true if "
+        "the VirtualDisk::CreateSnapshot method is implemented."
+        )]
+    Boolean SupportsSnapshotLocal;
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports remote snapshotting."
+        )]
+    Boolean SupportsSnapshotRemote;
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports local cloning. This field must be true if the "
+        "VirtualDisk::CreateClone method is implemented."
+        )]
+    Boolean SupportsCloneLocal;
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports remote cloning."
+        )]
+    Boolean SupportsCloneRemote;
+
+
+    // Virtual disk capabilities
+
+    [Read, Required, Description(
+        "Denotes whether a user can create a virtual disk by using the CreateVirtualDisk method "
+        "on either the storage subsystem or storage pool objects."
+        )]
+    Boolean SupportsVirtualDiskCreation;
+
+    [Read, Required, Description(
+        "Denotes whether a user can modify attributes or other properties on a virtual disk by "
+        "using the various Set* extrinsic methods. (For example: SetFriendlyname )."
+        )]
+    Boolean SupportsVirtualDiskModification;
+
+    [Read, Required, Description(
+        "Denotes whether a user can delete a virtual disk through the use of the DeleteObject "
+        "extrinsic method on the virtual disk instance."
+        )]
+    Boolean SupportsVirtualDiskDeletion;
+
+    [Read, Required, Description(
+        "Indicates if the subsystem allows a virtual disk to be grown in size (using the Resize "
+        "method of the virtual disk instance)."
+        )]
+    Boolean SupportsVirtualDiskCapacityExpansion;
+
+    [Read, Required, Description(
+        "Indicates if the subsystem allows a virtual disk to be reduced in size (using the "
+        "Resize method of the virtual disk instance)."
+        )]
+    Boolean SupportsVirtualDiskCapacityReduction;
+
+    [Read, Required, Description(
+        "Indicates if the subsystem supports explicit repairing of a virtual disk through the "
+        "Repair method of the virtual disk instance."
+        )]
+    Boolean SupportsVirtualDiskRepair;
+
+
+    // Volume capabilities
+
+    [Read, Required, Description(
+        "Denotes whether this subsystem supports direct creation of volumes on a storage pool."
+        )]
+    Boolean SupportsVolumeCreation;
+
+    [Read, Description(
+        "File systems supported on this subsystem."
+        ),
+        ValueMap { "0", "1", "2", "3", "4", "5", "6", "7",
+                   "8", "9", "10", "11", "12", "13", "14", "15",
+                   "0x8000", "0x8001" },
+        Values { "Unknown", "Threshold", "UFS", "HFS", "FAT", "FAT16", "FAT32", "NTFS4",
+                 "NTFS5", "XFS", "AFS", "EXT2", "EXT3", "ReiserFS", "NTFS", "ReFS",
+                 "CSVFS_NTFS", "CSVFS_ReFS" }]
+    UInt16 SupportedFileSystems[];
+
+
+    // Storage pool capabilities
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the ability to create new concrete storage pools "
+        "from one or more physical disks. If FALSE, either the subsystem uses pre-created "
+        "storage pools, or it does not support storage pools."
+        )]
+    Boolean SupportsStoragePoolCreation;
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the deletion of its storage pools."
+        )]
+    Boolean SupportsStoragePoolDeletion;
+
+    [Read, Required]
+    Boolean SupportsStoragePoolFriendlyNameModification;
+
+    [Read, Required, Description(
+        "If TRUE, storage pools on this subsystem support capacity expansion through adding "
+        "more physical disks."
+        )]
+    Boolean SupportsStoragePoolAddPhysicalDisk;
+
+    [Read, Required, Description(
+        "If TRUE, storage pools on this subsystem support the replacement or removal of "
+        "physical disks by use of the RemovePhysicalDisk method on the storage pool instance."
+        )]
+    Boolean SupportsStoragePoolRemovePhysicalDisk;
+
+    [Read, Required, Description(
+        "If TRUE, the CreateVirtualDisk method on the storage subsystem is supported."
+        )]
+    Boolean SupportsAutomaticStoragePoolSelection;
+
+    [Read, Required, Description(
+        "If TRUE, all resiliency settings will be copied from the primordial pool and added "
+        "to a concrete pool upon its creation. If FALSE, the storage pool should copy the "
+        "setting specified in the ResiliencySettingNameDefault parameter of CreateStoragePool. "
+        "If no name was given, the resiliency setting specified by the primordial pool's "
+        "ResiliencySettingNameDefault property should be used."
+        )]
+    Boolean SupportsMultipleResiliencySettingsPerStoragePool;
+
+    // Tiering capabilities
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the ability to create new storage tiers. "
+        "If FALSE, either the subsystem uses pre-created storage tiers, or it does "
+        "not support storage tiers."
+        )]
+    Boolean SupportsStorageTierCreation;
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the deletion of storage tiers."
+        )]
+    Boolean SupportsStorageTierDeletion;
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the resizing of storage tiers."
+        )]
+    Boolean SupportsStorageTierResize;
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the modification of the storage tier friendly name."
+        )]
+    Boolean SupportsStorageTierFriendlyNameModification;
+
+    [Read, Required, Description(
+        "If TRUE, this subsystem supports the creation of tiered virtual disks."
+        )]
+    Boolean SupportsStorageTieredVirtualDiskCreation;
+
+    // Replication capabilities
+
+    [Read, Required, Description(
+        "This field is reserved for future releases."
+        )]
+    UInt16 ReplicasPerSourceSnapshotMax;
+
+    [Read, Required, Description(
+        "This field is reserved for future releases."
+        )]
+    UInt16 ReplicasPerSourceCloneMax;
+
+    [Read, Required, Description(
+        "This field is reserved for future releases."
+        )]
+    UInt16 ReplicasPerSourceMirrorMax;
+
+
+    // Masking capabilities
+
+    [Read, Description(
+        "If TRUE, the storage subsystem supports showing and hiding (masking) a virtual disk "
+        "to a host initiator through the Show/Hide methods of the virtual disk and by the use "
+        "of masking sets."
+        )]
+    Boolean SupportsMaskingVirtualDiskToHosts;
+
+    [Read, Description(
+        "Indicates which address formats can be inferred by the storage provider and subsystem "
+        "when working with initiator ids."
+        ),
+        ValueMap { "1", "2", "3", "4", "5", "6", "7" },
+        Values { "Other", "Port WWN", "Node WWN", "Host Name", "iSCSI Name", "Switch WWN", "SAS Address" }]
+    UInt16 MaskingValidInitiatorIdTypes[];
+
+    [Read, Description(
+        "If MaskingValidInitiatorIdTypes contains the value 1 - 'Other', this field is used "
+        "to enumerate the other valid initiator id types for this storage subsystem."
+        )]
+    String MaskingOtherValidInitiatorIdTypes[];
+
+    [Read, Description(
+        "Indicates the number of target ports that can be used for masking a virtual disk. This "
+        "applies to both masking sets and the virtual disk Show method."
+        ),
+        ValueMap { "2", "3", "4" },
+        Values {
+            "One TargetPort per view",
+            "Multiple target ports per view",
+            "All target ports share the same view"
+            }]
+    UInt16 MaskingPortsPerView;
+
+    [Read, Description(
+        "If TRUE, the storage provider supports the use of the DeviceNumbers parameter of "
+        "the CreateMaskingSet and AddVirtualDisk methods."
+        )]
+    Boolean MaskingClientSelectableDeviceNumbers;
+
+    [Read, Description(
+        "If TRUE, the subsystem will only allow one initiator to be added to a masking set."
+        )]
+    Boolean MaskingOneInitiatorIdPerView;
+
+    [Read, Description(
+        "Indicates the maximum number of masking sets that a particular virtual disk can be "
+        "added to."
+        )]
+    UInt16 MaskingMapCountMax;
+
+
+    // Subsystem settings and capabilities
+
+    [Read, Description(
+        "Denotes whether storage tiers are supported by the subsystem."
+        ),
+        ValueMap { "0", "1", "2" ,"3" },
+        Values { "Unknown", "Not Supported", "Manual", "Auto" }]
+    UInt16 DataTieringType;
+
+    [Read, Description(
+        "Denotes the iSCSI Target Creation Scheme supported by the subsystem. \n"
+        "0 - 'Not Applicable' implies a non-iSCSI subsystem. \n"
+        "1 - 'Not Supported' implies the subsystem does not allow creation of a Target. \n"
+        "2 - 'Manual' implies the subsystem allows manual creation of the Target. \n"
+        "3 - 'Auto' implies the subsystem automatically creates a Target. \n"
+        ),
+        ValueMap { "0", "1", "2" ,"3" },
+        Values { "Not Applicable", "Not Supported", "Manual", "Auto" }]
+    UInt16 iSCSITargetCreationScheme;
+
+    [Read, Description(
+        "Denotes the total number of physical disk slots in the subsystem or enclosure."
+        )]
+    UInt32 NumberOfSlots;
+
+    [Read, Description(
+        "An array representing the supported host types."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "20", "21", "22..32767", "32768..65535"
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "Standard", "Solaris", "HPUX",
+            // 5 - 9
+            "OpenVMS", "Tru64", "Netware", "Sequent", "AIX",
+            // 10 - 14
+            "DGUX", "Dynix", "Irix", "Cisco iSCSI Storage Router", "Linux",
+            // 15 - 19
+            "Microsoft Windows", "OS400", "TRESPASS", "HI-UX", "VMware ESXi",
+            // 20 - 21
+            "Microsoft Windows Server 2008", "Microsoft Windows Server 2003",
+            // 22 - 65535
+            "DMTF Reserved", "Vendor Specific"
+            }]
+    UInt16 SupportedHostType[];
+
+    [Read, Description (
+        "When the corresponding array entry in SupportedHostType[] "
+        "is \"Other\", this entry provides a string describing "
+        "the manufacturer and OS/Environment. When the "
+        "corresponding SupportedHostType[] entry is not \"Other\", this "
+        "entry allows variations or qualifications of ClientTypes "
+        "- for example, different versions of Solaris." ),
+       ArrayType ( "Indexed" ),
+       ModelCorrespondence {
+          "CIM_StorageClientSettingData.ClientTypes" }]
+    String OtherHostTypeDescription[];
+
+    [Read, Description(
+        "The storage transport on this subsystem."
+        )]
+    UInt16 StorageConnectionType;
+
+
+    // File Server Capabilities
+
+    [Read, Description(
+        "Denotes whether this subsystem supports a file server."
+        )]
+    Boolean SupportsFileServer;
+
+    [Read, Description(
+        "Denotes whether this subsystem supports creation of a file server."
+        )]
+    Boolean SupportsFileServerCreation;
+
+    [Read, Description(
+        "Denotes whether this subsystem supports continuously available (CA) file "
+        "servers."
+        )]
+    Boolean SupportsContinuouslyAvailableFileServer;
+
+    [Read, Required, Description(
+       "This field describes the protocols supported by file servers on "
+       "this subsystem."
+       ),
+       ValueMap { "2", "3" },
+       Values { "NFS", "CIFS(SMB)"}]
+    UInt16 SupportedFileServerProtocols[];
+
+
+    // Deduplication Capabilities
+
+    [Read, Description(
+        "Denotes the object types supported for Deduplication in this subsystem."
+        ),
+       ValueMap { "2", "4", "8", "16" },
+       Values { "Volume", "VirtualDisk", "Partition", "StoragePool" }]
+    UInt16 SupportedDeduplicationObjectTypes[];
+
+    [Read, Description(
+        "Denotes the file system types supported for Deduplication in this subsystem."
+        ),
+        ValueMap { "0", "1", "2", "3", "4", "5", "6", "7",
+                   "8", "9", "10", "11", "12", "13", "14", "15",
+                   "0x8000", "0x8001" },
+        Values { "Unknown", "Threshold", "UFS", "HFS", "FAT", "FAT16", "FAT32", "NTFS4",
+                 "NTFS5", "XFS", "AFS", "EXT2", "EXT3", "ReiserFS", "NTFS", "ReFS",
+                 "CSVFS_NTFS", "CSVFS_ReFS" }]
+    UInt16 SupportedDeduplicationFileSystemTypes[];
+
+    //
+    // Method: CreateStoragePool
+    //
+
+    [Description(
+        "This method creates a storage pool from available physical disks contained within a "
+        "common primordial pool. A physical disk is available for storage pool creation if its "
+        "CanPool property is set to TRUE. Storage pool creation is only available when the "
+        "SupportsStoragePoolCreation field of the storage subsystem is TRUE."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "8", "4096",
+            "40001", "40002", "40003",
+            "46000", "46001", "46008",
+            "49000",
+            "50005",
+            "51000", "51001", "51002", "51003", "51005"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter", "Object Not Found",
+            "Method Parameters Checked - Job Started",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            "Failover clustering could not be enabled for this storage object.",
+            // 49000 - 49999
+            "No resiliency setting with that name exists.",
+            // 50000 - 50999
+            "The value for WriteCacheSize is outside of the supported range of values.",
+            // 51000 - 51999
+            "One of the physical disks specified is not supported by this operation.",
+            "Not enough physical disks were specified to successfully complete the operation.",
+            "One of the physical disks specified is already in use.",
+            "One of the physical disks specified uses a sector size that is not supported by this storage pool.",
+            "One or more physical disks are not connected to the nodes on which the pool is being created." }]
+    UInt32 CreateStoragePool(
+
+        [In, Required, Description(
+            "This parameter allows the user to specify the FriendlyName at the time of the "
+            "storage pool creation. FriendlyNames are expected to be descriptive, however they "
+            "are not required to be unique. Note that some storage subsystems do not allow "
+            "setting a friendly name during pool creation. If a subsystem doesn't support this, "
+            "storage pool creation should still succeed, however the pool may have a different "
+            "name assigned to it."
+            )]
+        String FriendlyName,
+
+        [In, Description(
+            "Denotes the intended usage of the storage pool."
+            ),
+            ValueMap { "1", "2", "3", "4", "5",
+                       "6", "7", "8" },
+            Values { "Other", "Unrestricted",
+                     "Reserved for ComputerSystem (the block server)",
+                     "Reserved as a Delta Replica Container",
+                     "Reserved for Migration Services",
+                     "Reserved for Local Replication Services",
+                     "Reserved for Remote Replication Services",
+                     "Reserved for Sparing" }]
+        UInt16 Usage,
+
+        [In, Description(
+            "Allows a user to set a custom usage type for the new storage pool object. This "
+            "parameter can only be specified if the Usage parameter is set to 1 - 'Other'. "
+            )]
+        String OtherUsageDescription,
+
+        [In, Required, Description(
+            "This parameter is used to specify an array of physical disk objects that will "
+            "be used as the backing data storage for the created storage pool. The physical "
+            "disks must come from a primordial pool on the subsystem on which you are creating "
+            "this pool. Only the disks from a single primordial pool may be used."
+            ), EmbeddedInstance("MSFT_PhysicalDisk")]
+        String PhysicalDisks[],
+
+        [In, Description(
+            "This parameter indicates the resiliency setting to be used by default when "
+            "creating a new virtual disk on this storage pool. If the subsystem's "
+            "SupportsMultipleResiliencySettingsPerStoragePool property is set to FALSE, this "
+            "parameter also acts as a hint to the Storage Management Provider on which resiliency "
+            "setting should be inherited by this storage pool. If no value is given, it is up "
+            "to the Storage Management Provider to pick the most appropriate resiliency "
+            "setting."
+            )]
+        String ResiliencySettingNameDefault,
+
+        [In, Description(
+            "This parameter indicates the provisioning type to be used by default when creating "
+            "a new virtual disk on this storage pool. If no default is specified, the default "
+            "is inherited from the primordial pool."
+            ),
+            ValueMap { "1", "2" },
+            Values { "Thin", "Fixed" }]
+        UInt16 ProvisioningTypeDefault,
+
+        [In, Description(
+            "This parameter indicates the default logical sector size for the storage pool. "
+            "This is useful when a storage pool may contain a mix of 512 emulated and either "
+            "4K native or 512 native physical disks."
+            ),
+            Units("Bytes")]
+        UInt64 LogicalSectorSizeDefault,
+
+        [In, Description(
+            "This parameter indicates the default allocation policy for virtual disks created "
+            "in an enclosure aware storage pool. For example, an enclosure aware subsystem "
+            "could balance each data copy of the virtual disk across multiple physical "
+            "enclosures such that each enclosure contains a full data copy of the virtual disk."
+            )]
+        Boolean EnclosureAwareDefault,
+
+        [In, Description( "Default size of write cache for virtual disk creation" )]
+        UInt64 WriteCacheSizeDefault,
+
+        [In, Description( "Indicates if provider should pick up the auto write cache size or not" )]
+        Boolean AutoWriteCacheSize,
+
+        [Out, EmbeddedInstance("MSFT_StoragePool")]
+        String CreatedStoragePool,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation. When the operation has completed, an association should exist "
+            "between the storage job and the created objects."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateStoragePool2
+    //
+
+    UInt32 CreateStoragePool2(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        UInt16 Usage,
+
+        [In]
+        String OtherUsageDescription,
+
+        [In, Required]
+        MSFT_PhysicalDisk REF PhysicalDisks[],
+
+        [In]
+        String ResiliencySettingNameDefault,
+
+        [In]
+        UInt16 ProvisioningTypeDefault,
+
+        [In]
+        UInt16 MediaTypeDefault,
+
+        [In, Units("Bytes")]
+        UInt64 LogicalSectorSizeDefault,
+
+        [In, Units("Bytes")]
+        UInt64 MetadataLength,
+
+        [In, Units("Bytes")]
+        UInt64 MinimumAllocationSize,
+
+        [In]
+        UInt16 FaultDomainAwarenessDefault,
+
+        [In]
+        UInt64 WriteCacheSizeDefault,
+
+        [In]
+        Boolean AutoWriteCacheSize,
+
+        [In]
+        UInt16 Version,
+
+        [Out, EmbeddedInstance("MSFT_StoragePool")]
+        String CreatedStoragePool,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: CreateVirtualDisk
+    //
+
+    [Description(
+        "This method allows for the creation of virtual disks on a storage subsystem. This "
+        "method is typically used when either a) the subsystem's storage pools do not allow "
+        "virtual disk creation directly, or b) the subsystem does not support storage pools. "
+        "Storage Management Providers may also choose to implement this method to 'intelligently' "
+        "pick a storage pool for the user. If this method is supported, the subsystem's "
+        "SupportsAutomaticStoragePoolSelection property should be set to TRUE."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096", "4097",
+            "40000", "40001", "40002", "40003", "40005",
+            "46000", "46001",
+            "47000",
+            "49001", "49002", "49003", "49004", "49005", "49006"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started", "Size Not Supported",
+            // 40000 - 40999
+            "Not enough available capacity",
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+              "You must specify a size by using either the Size or the UseMaximumSize parameter. You can specify only one of these parameters at a time.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 47000 - 47999
+            "No storage pools were found that can support this virtual disk configuration.",
+            // 49000 - 49999
+            "The value for NoSinglePointOfFailure is not supported.",
+            "The value for PhysicalDiskRedundancy is outside of the supported range of values.",
+            "The value for NumberOfDataCopies is outside of the supported range of values.",
+            "The value for ParityLayout is outside of the supported range of values.",
+            "The value for Interleave is outside of the supported range of values.",
+            "The value for NumberOfColumns is outside of the supported range of values." }]
+    UInt32 CreateVirtualDisk(
+
+        [In, Required, Description(
+            "This parameter allows the user to specify the desired FriendlyName at the time of "
+            "the virtual disk creation. FriendlyNames are expected to be descriptive, however "
+            "they are not required to be unique. Note that some storage subsystems do not allow "
+            "setting a friendly name during virtual disk creation. If a subsystem doesn't "
+            "support this, virtual disk creation should still succeed, however the disk may "
+            "have a different name assigned to it."
+            )]
+        String FriendlyName,
+
+        [In, Description(
+            "Denotes the intended usage of the virtual disk"
+            ),
+            ValueMap {
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+                "11", "12", "13", "14", "15", "16", "17"
+                },
+            Values {
+                "Other", "Unrestricted",
+                "Reserved for ComputerSystem (the block server)",
+                "Reserved by Replication Services",
+                "Reserved by Migration Services",
+                "Local Replica Source", "Remote Replica Source",
+                "Local Replica Target", "Remote Replica Target",
+                "Local Replica Source or Target", "Remote Replica Source or Target",
+                "Delta Replica Target", "Element Component",
+                "Reserved as Pool Contributor", "Composite Volume Member",
+                "Composite VirtualDisk Member", "Reserved for Sparing" }]
+        UInt16 Usage,
+
+        [In, Description(
+            "Allows a user to set a custom usage type for the new virtual disk object. This "
+            "parameter can only be specified if the Usage parameter is set to 1 - 'Other'. "
+            )]
+        String OtherUsageDescription,
+
+        [In, Out, Required, Description(
+            "Indicates the desired size for the virtual disk. Note that some storage subsystems "
+            "will round the size up or down to a multiple of its allocation unit size. If this "
+            "parameter is specified, UseMaximumSize must be NULL or FALSE."
+            ),
+            MinValue( 1 ), Units("Bytes")]
+        UInt64 Size,
+
+        [In, Description(
+            "Create a virtual disk using the largest supported size. This parameter cannot be "
+            "used with the Size parameter."
+            )]
+        Boolean UseMaximumSize,
+
+        [In, Description(
+            "Specifies the number of complete data copies to maintain for this virtual disk."
+            ),
+            MinValue( 1 )]
+        UInt16 NumberOfDataCopies,
+
+        [In, Description(
+            "Specifies how many physical disk failures the virtual disk should be able to "
+            "withstand before data loss occurs."
+            )]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In, Description(
+            "Specifies the number of underlying physical disks across which data should be "
+            "striped."
+            ),
+            MinValue( 1 )]
+        UInt16 NumberOfColumns,
+
+        [In, Description(
+            "Specifies the number of bytes used to form a strip in common striping-based "
+            "resiliency settings. The strip is defined as the size of the portion of a stripe "
+            "that lies on one physical disk. Thus Interleave * NumberOfColumns will yield the "
+            "total size of one stripe."
+            ),
+            MinValue( 1 )]
+        UInt64 Interleave,
+
+        [In, Description(
+            "This field specifies whether a parity-based resiliency setting is using a rotated or "
+            "non-rotated parity layout. If the resiliency setting is not parity based, this field "
+            "must be set to NULL"
+            ),
+            ValueMap { "1", "2" },
+            Values { "Non-rotated Parity", "Rotated Parity" }]
+        UInt16 ParityLayout,
+
+        [In]
+        Boolean RequestNoSinglePointOfFailure,
+
+        [In, Description(
+            "Determines the allocation behavior for this virtual disk. Enclosure aware virtual disks "
+            "will intelligently pick the physical disks to use for their redundancy. If TRUE, the "
+            "virtual disk will attempt to use physical disks from different enclosures to balance "
+            "the fault tolerance between two (or more) physical enclosures."
+            )]
+        Boolean IsEnclosureAware,
+
+        [In, Description(
+            "Denotes the provisioning type of the virtual disk. A value of 1 - 'Thin' means that "
+            "the storage for the disk is allocated on-demand. A value of 2 - 'Fixed' means that "
+            "the storage is allocated up front."
+            ),
+         ValueMap { "1", "2" },
+         Values { "Thin", "Fixed" }]
+        UInt16 ProvisioningType,
+
+        [Out, EmbeddedInstance("MSFT_VirtualDisk")]
+        String CreatedVirtualDisk,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation. When the operation has completed, an association should exist "
+            "between the storage job and the created objects."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateVirtualDisk2
+    //
+
+    UInt32 CreateVirtualDisk2(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        UInt16 Usage,
+
+        [In]
+        String OtherUsageDescription,
+
+        [In, Required]
+        UInt64 Size,
+
+        [In]
+        Boolean UseMaximumSize,
+
+        [In]
+        UInt16 NumberOfDataCopies,
+
+        [In]
+        UInt16 PhysicalDiskRedundancy,
+
+        [In]
+        UInt16 NumberOfColumns,
+
+        [In]
+        UInt64 Interleave,
+
+        [In]
+        UInt16 ParityLayout,
+
+        [In]
+        Boolean RequestNoSinglePointOfFailure,
+
+        [In]
+        UInt16 FaultDomainAwareness,
+
+        [In]
+        UInt16 ProvisioningType,
+
+        [Out, EmbeddedInstance("MSFT_VirtualDisk")]
+        String CreatedVirtualDisk,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateMaskingSet
+    //
+
+    [Description (
+        "Creates logical grouping of virtual disks, target ports, and initiators for the purpose "
+        "of showing virtual disks to host systems."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096",
+            "40001", "40002",
+            "46000", "46001",
+            "50000",
+            "52000", "52001", "52002",
+            "53000", "53001",
+            "54000"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 50000 - 50999
+            "The specified virtual disk could not be found.",
+            // 52000 - 52999
+            "The device number specified is not valid.",
+            "The HostType requested is not supported.",
+            "DeviceAccess must be specified for each virtual disk.",
+            // 53000 - 53999
+            "The initiator address specified is not valid",
+            "Only one initiator address is acceptable for this operation.",
+            // 54000 - 54999
+            "The target port address specified is not valid." }]
+    UInt32 CreateMaskingSet(
+
+        [In, Required, Description(
+            "This parameter allows the user to specify the desired FriendlyName for the masking "
+            "set at the time of its creation. FriendlyNames are expected to be descriptive, "
+            "however they are not requried to be unique."
+            )]
+        String FriendlyName,
+
+        [In, Description(
+            "This parameter specifies the list of virtual disks to show to the initiators in "
+            "the masking set. The identifier used by this parameter is the virtual disk Name "
+            "property. This parameter has a 1:1 mapping with the DeviceAccesses parameter (the "
+            "arrays must be the same length and have the same order)."
+            )]
+        String VirtualDiskNames[],
+
+        [In, Description(
+            "This parameter specifies the level of access the initiator should have to each "
+            "virtual disk specified by VirtualDiskNames. This parameter has a 1:1 mapping with "
+            "the VirtualDiskNames parameter (the arrays must be the same length and have the "
+            "same order)."
+            ),
+            ValueMap { "0", "2", "3", "4" },
+            Values { "Unknown", "Read Write", "Read-Only", "No Access" }]
+        UInt16 DeviceAccesses[],
+
+        [In, Description(
+            "Specifies the order in which the virtual disks should be exposed to the initiator. "
+            "This capability is only available if the storage subsystem's "
+            "MaskingClientSelectableDeviceNumbers property is set to TRUE. If specified, this "
+            "parameter must have a 1:1 mapping with the VirtualDiskNames parameter."
+            )]
+        String DeviceNumbers[],
+
+        [In, Description(
+            "This parameter specifies the target ports which should be used when showing the "
+            "virtual disks to the initiators. The number of target ports that can be specified "
+            "depends on the subsystem's MaskingPortsPerView property. If MaskingPortsPerView is "
+            "set to 4 - 'All target ports share the same view', this parameter is essentially "
+            "ignored as all target ports on the system will be associated with this masking set."
+            )]
+        String TargetPortAddresses[],
+
+        [In, Description(
+            "This parameter specifies the initiators for which the virtual disks should be shown. "
+            "If the subsystem's MaskingOneInitiatorIdPerView property is TRUE, only one initiator "
+            "can be specified for this masking set. The list of valid initiator address formats "
+            "can be determined through the subsystem's MaskingValidInitiatorIdTypes property."
+            )]
+        String InitiatorAddresses[],
+
+        [In, Description(
+            "Designates the host operating system or other host environment factors that may "
+            "influence the behavior the storage subsystem should take when showing a virtual "
+            "disk to an initiator."
+            ),
+            ValueMap {
+                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+                "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                "20", "21", "22..32767", "32768..65535"
+                },
+            Values {
+                // 0 - 4
+                "Unknown", "Other", "Standard", "Solaris", "HPUX",
+                // 5 - 9
+                "OpenVMS", "Tru64", "Netware", "Sequent", "AIX",
+                // 10 - 14
+                "DGUX", "Dynix", "Irix", "Cisco iSCSI Storage Router", "Linux",
+                // 15 - 19
+                "Microsoft Windows", "OS400", "TRESPASS", "HI-UX", "VMware ESXi",
+                // 20 - 21
+                "Microsoft Windows Server 2008", "Microsoft Windows Server 2003",
+                // 22 - 65535
+                "DMTF Reserved", "Vendor Specific"
+                }]
+        UInt16 HostType,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation. When the operation has completed, an association should exist "
+            "between the storage job and the created objects."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_MaskingSet")]
+        String CreatedMaskingSet,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: GetSecurityDescriptor
+    //
+
+    [Description(
+        "This method returns the security descriptor that controls access to this specific "
+        "object instance."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."}]
+    UInt32 GetSecurityDescriptor(
+
+        [Out, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the access "
+            "control list of the object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetSecurityDescriptor
+    //
+
+    [Description(
+        "This method allows a user with sufficient privileges to set the security descriptor "
+        "that control access to this specific object instance. If the call is not made in the "
+        "context of a user specified in the security descriptor's access control list, this "
+        "method will fail with 40001 - 'Access Denied'. If an empty security descriptor is "
+        "passed to this function, the behavior is left to the specific implementation so long "
+        "as there is some user context (typically domain administrators) that can access and "
+        "administer the object."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 SetSecurityDescriptor(
+
+        [In, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the "
+            "desired access control list for this object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetDescription
+    //
+
+    [Description(
+        "This method allows a user to set the description field of the storage subsystem."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 SetDescription(
+
+        [In, Required]
+        String Description,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetAttributes
+    //
+
+    [Description(
+        "This method allows a user to set the SupportsAutomaticObjectClustering field of the storage subsystem."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 SetAttributes(
+
+        [In, Required]
+        Boolean AutomaticClusteringEnabled,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetAttributes2
+    //
+
+    UInt32 SetAttributes2(
+
+        [In]
+        Boolean AutomaticClusteringEnabled,
+
+        [In]
+        Boolean VirtualDiskRepairEnabled,
+
+        [In]
+        UInt32 VirtualDiskRepairQueueDepth,
+
+        [In]
+        UInt16 FaultDomainAwarenessDefault,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateReplicationRelationship
+    //
+
+    UInt32 CreateReplicationRelationship(
+
+        [IN]
+        String FriendlyName,
+
+            [Required, IN, ModelCorrespondence { "MSFT_Synchronized.SyncType" }]
+        Uint16 SyncType,
+
+        [In, EmbeddedInstance("MSFT_ReplicaPeer")]
+        String TargetStorageSubsystem,
+
+        [In, Required]
+        String SourceReplicationGroupFriendlyName,
+
+        [In]
+        String SourceReplicationGroupDescription,
+
+        [In, EmbeddedInstance("MSFT_StorageObject")]
+        String SourceStorageElements[],
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicationSettings")]
+        String SourceGroupSettings,
+
+        [In, Required]
+        String TargetReplicationGroupFriendlyName,
+
+        [In]
+        String TargetReplicationGroupDescription,
+
+        [In, EmbeddedInstance("MSFT_StorageObject")]
+        String TargetStorageElements[],
+
+        [In, EmbeddedInstance("MSFT_StoragePool")]
+        String TargetStoragePool,
+
+        [In, EmbeddedInstance("MSFT_StoragePool")]
+        String TargetStoragePools[],
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicationSettings")]
+        String TargetGroupSettings,
+
+        [In]
+        UInt32 RecoveryPointObjective,
+
+        [In, Out, EmbeddedInstance("MSFT_ReplicationGroup")]
+        String SourceGroup,
+
+        [In, EmbeddedInstance("MSFT_ReplicationGroup")]
+        String TargetGroup,
+
+        [Out, EmbeddedInstance("MSFT_ReplicaPeer")]
+        String CreatedReplicaPeer,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: DeleteReplicationRelationship
+    //
+
+    UInt32 DeleteReplicationRelationship(
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicationGroup")]
+        String SourceReplicationGroup,
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicaPeer")]
+        String TargetGroupReplicaPeer,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateReplicationGroup
+    //
+
+    UInt32 CreateReplicationGroup(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        String Description,
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String StorageElements[],
+
+        [In, Required, EmbeddedInstance("MSFT_ReplicationSettings")]
+        String ReplicationSettings,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_ReplicationGroup")]
+        String CreatedReplicationGroup,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: CreateFileServer
+    //
+
+    UInt32 CreateFileServer(
+        [In]
+        String FriendlyName,
+
+        [In, Required]
+        UInt16 FileSharingProtocols[],
+
+        [In, Required]
+        String HostNames[],
+
+        [Out, EmbeddedInstance("MSFT_FileServer")]
+        String CreatedFileServer,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+        //
+        // Method: GetDiagnosticInfo
+        //
+
+        UInt32 GetDiagnosticInfo(
+
+            [In, Required]
+            String DestinationPath,
+
+            [In]
+            UInt32 TimeSpan,
+
+            [In]
+            String ActivityId,
+
+            [In]
+            Boolean ExcludeOperationalLog,
+
+            [In]
+            Boolean ExcludeDiagnosticLog,
+
+            [In]
+            Boolean IncludeLiveDump,
+
+            [In]
+            Boolean CopyExistingInfoOnly,
+
+            [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+            String ExtendedStatus
+        );
+
+        //
+        // Method: ClearDiagnosticInfo
+        //
+
+        UInt32 ClearDiagnosticInfo(
+
+            [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+            String ExtendedStatus
+            );
+
+        //
+        // Method: StartDiagnosticLog
+        //
+
+        UInt32 StartDiagnosticLog(
+
+            [In]
+            UInt16 Level,
+
+            [In, Units("MegaBytes")]
+            UInt64 MaxLogSize,
+
+            [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+            String ExtendedStatus
+            );
+
+        //
+        // Method: StopDiagnosticLog
+        //
+
+        UInt32 StopDiagnosticLog(
+
+            [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+            String ExtendedStatus
+            );
+
+    //
+    // Method: Diagnose
+    //
+
+    UInt32 Diagnose(
+
+        [Out, EmbeddedInstance("MSFT_StorageDiagnoseResult")]
+        String DiagnoseResults[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: GetActions
+    //
+
+    UInt32 GetActions(
+
+        [Out, EmbeddedInstance("MSFT_HealthAction")]
+        String ActionResults[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};

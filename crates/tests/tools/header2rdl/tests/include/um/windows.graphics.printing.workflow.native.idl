@@ -1,0 +1,90 @@
+/*  Windows.Graphics.Printing.Workflow.Native.idl
+*
+*  Declaration of the Print Workflow APIs that provide access to legacy print objects.
+*
+*  Copyright (c) Microsoft Corporations.  All Rights Reserved.
+*/
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "msxml.idl";
+import "PrinterExtension.idl";
+import "xpsobjectmodel_1.idl";
+
+#include <sdkddkver.h>
+
+[
+    object,
+    uuid(04097374-77B8-47F6-8167-AAE29D4CF84B),
+    pointer_default(unique)
+]
+interface IPrintWorkflowXpsReceiver : IUnknown
+{
+    // For setting the document sequence print ticket
+    HRESULT SetDocumentSequencePrintTicket([in] IStream* documentSequencePrintTicket);
+
+    // For setting the document sequence URI
+    HRESULT SetDocumentSequenceUri([in] PCWSTR documentSequenceUri);
+
+    // For adding the document print ticket and document URI
+    HRESULT AddDocumentData([in] UINT32 documentId, [in] IStream* documentPrintTicket,
+        [in] PCWSTR documentUri);
+
+    // For adding the page reference
+    HRESULT AddPage([in] UINT32 documentId, [in] UINT32 pageId,
+        [in] IXpsOMPageReference* pageReference, [in] PCWSTR pageUri);
+
+    // Signal that all data has been provided
+    HRESULT Close();
+}
+
+[
+    object,
+    uuid(023BCC0C-DFAB-4A61-B074-490C6995580D),
+    pointer_default(unique)
+]
+interface IPrintWorkflowXpsReceiver2 : IPrintWorkflowXpsReceiver
+{
+     // Signals that there is an error in XPS processing with the error code for XPS processing.
+    HRESULT Failed([in] HRESULT XpsError);
+}
+
+[
+    object,
+    uuid(68C9E477-993E-4052-8AC6-454EFF58DB9D),
+    pointer_default(unique)
+]
+interface IPrintWorkflowObjectModelSourceFileContentNative : IUnknown
+{
+    HRESULT StartXpsOMGeneration([in] IPrintWorkflowXpsReceiver* receiver);
+    [propget] HRESULT ObjectFactory([out, retval] IXpsOMObjectFactory1** value);
+}
+
+[
+    object,
+    uuid(7D96BC74-9B54-4CA1-AD3A-979C3D44DDAC),
+    pointer_default(unique)
+]
+interface IPrintWorkflowXpsObjectModelTargetPackageNative : IUnknown
+{
+    [propget] HRESULT DocumentPackageTarget([out, retval] IXpsDocumentPackageTarget** value);
+}
+
+[
+    object,
+    uuid(C056BE0A-9EE2-450A-9823-964F0006F2BB),
+    pointer_default(unique)
+]
+interface IPrintWorkflowConfigurationNative : IUnknown
+{
+    [propget] HRESULT PrinterQueue([out, retval] IPrinterQueue** value);
+    [propget] HRESULT DriverProperties([out, retval] IPrinterPropertyBag** value);
+    [propget] HRESULT UserProperties([out, retval] IPrinterPropertyBag** value);
+}

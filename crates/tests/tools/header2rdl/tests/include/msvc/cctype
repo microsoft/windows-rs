@@ -1,0 +1,44 @@
+// cctype standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CCTYPE_
+#define _CCTYPE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <ctype.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD using _CSTD isalnum;
+_EXPORT_STD using _CSTD isalpha;
+_EXPORT_STD using _CSTD iscntrl;
+_EXPORT_STD using _CSTD isdigit;
+_EXPORT_STD using _CSTD isgraph;
+_EXPORT_STD using _CSTD islower;
+_EXPORT_STD using _CSTD isprint;
+_EXPORT_STD using _CSTD ispunct;
+_EXPORT_STD using _CSTD isspace;
+_EXPORT_STD using _CSTD isupper;
+_EXPORT_STD using _CSTD isxdigit;
+_EXPORT_STD using _CSTD tolower;
+_EXPORT_STD using _CSTD toupper;
+
+_EXPORT_STD using _CSTD isblank;
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CCTYPE_

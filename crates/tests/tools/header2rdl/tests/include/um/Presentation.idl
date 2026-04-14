@@ -1,0 +1,422 @@
+// ----------------------------------------------------------------------------
+//
+//  Presentation API
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+// ----------------------------------------------------------------------------
+
+import "PresentationTypes.idl";
+
+// Describes a presentation buffer that has been registered with a presentation manager.
+[
+    object,
+    local,
+    uuid(2E217D3A-5ABB-4138-9A13-A775593C89CA),
+    pointer_default(unique)
+]
+interface IPresentationBuffer : IUnknown
+{
+    // Return back the available event for the presentation buffer. Callers are responsible
+    // for closing the event returned here. An application can wait on and query this event, but
+    // it cannot modify its state. The presentation manager controls this event.
+    HRESULT GetAvailableEvent(
+        [out, retval] HANDLE* availableEventHandle);
+
+    // Return back whether or not this buffer is available for use by the producer.
+    HRESULT IsAvailable(
+        [out, retval] boolean* isAvailable);
+}
+
+
+// Content marker. All types of presentation content will derive from this interface.
+[
+    object,
+    local,
+    uuid(5668BB79-3D8E-415C-B215-F38020F2D252),
+    pointer_default(unique)
+]
+interface IPresentationContent : IUnknown
+{
+    // A user-defined tag to associate with this content. This tag is how the content will be
+    // referenced in statistics.
+    void SetTag(
+        [in] UINT_PTR tag);
+}
+
+
+// Describes an IPresentationContent with a single bound buffer, that can shared with the system
+// compositor and displayed as content in the global visual tree
+[
+    object,
+    local,
+    uuid(956710FB-EA40-4EBA-A3EB-4375A0EB4EDC),
+    pointer_default(unique)
+]
+interface IPresentationSurface : IPresentationContent
+{
+    HRESULT SetBuffer(
+        [in] IPresentationBuffer* presentationBuffer);
+
+    HRESULT SetColorSpace(
+        [in] DXGI_COLOR_SPACE_TYPE colorSpace);
+
+    HRESULT SetAlphaMode(
+        [in] DXGI_ALPHA_MODE alphaMode);
+
+    // Area of source presentation buffer to sample from.
+    HRESULT SetSourceRect(
+        [in] const RECT* sourceRect);
+
+    // Applied to source buffer area to define the area on screen the buffer will appear.
+    HRESULT SetTransform(
+        [in] PresentationTransform* transform);
+
+    // Display restriction. Currently, an IDXGIOutput is the only accepted form of currency.
+    HRESULT RestrictToOutput(
+        [in] IUnknown* output);
+
+    // Readback disable flag. Prevents the compositor from ever rendering the buffer into a form
+    // of capture (screen capture, window capture, etc.)
+    HRESULT SetDisableReadback(
+        [in] boolean value);
+
+    // Letterboxing margins. The size, in visual space, that each letterboxing area takes. Margins
+    // are not affected by the scale component of the transform, but are affected by every other
+    // component. Put another, the margins are applied with the transform applied, but compensate
+    // their own size by any scale present in that transform.
+    HRESULT SetLetterboxingMargins(
+        [in] float leftLetterboxSize,
+        [in] float topLetterboxSize,
+        [in] float rightLetterboxSize,
+        [in] float bottomLetterboxSize);
+}
+
+
+// Describes additional methods to extend IPresentationSurface
+[
+    object,
+    local,
+    uuid(95609569-C5F0-47F9-8804-5345F2E2767E),
+    pointer_default(unique)
+]
+interface IPresentationSurface2 : IPresentationSurface
+{
+    // Hint to the system that the application intends this content to be shown at a brightness
+    // that exceeds standard 100 nit SDR brightness levels. This will instruct the system to
+    // try and avoid any backlight optimizations that may impair the intended HDR visible
+    // brightness range.
+    void SetIsHdrContent([in] boolean isHdrContent);
+}
+
+
+// Describes a single entry in the present statistics queue. All statistics interfaces will inherit
+// from this interface. IPresentStatistics can be QI'd to its more specific kind corresponding to
+// GetKind().
+[
+    object,
+    local,
+    uuid(B44B8BDA-7282-495D-9DD7-CEADD8B4BB86),
+    pointer_default(unique)
+]
+interface IPresentStatistics : IUnknown
+{
+    // Return back the present Id this statistic corresponds to.
+    UINT64 GetPresentId();
+
+    // Report the kind of statistic this data corresponds to.
+    PresentStatisticsKind GetKind();
+}
+
+
+// Presentation manager - the main presentation management interface.
+[
+    object,
+    local,
+    uuid(FB562F82-6292-470A-88B1-843661E7F20C),
+    pointer_default(unique)
+]
+interface IPresentationManager : IUnknown
+{
+    // Add an IUnknown-based buffer resource object to the presentation manager to be tracked as a
+    // presentation buffer. Currently, this resource must be a NT-handle shareable DXGI resource.
+    // Specifically, we must be able to QueryInterface IDXGIResource from it, and the resource
+    // itself must have been created with the D3D11_RESOURCE_MISC_SHARED_NTHANDLE MiscFlag.
+    HRESULT AddBufferFromResource(
+        [in] IUnknown* resource, // Pointer to an IUnknown-based buffer resource
+        [out, retval] IPresentationBuffer** presentationBuffer); // The returned presentation
+                                                                  // buffer referencing the DXGI
+                                                                  // resource.
+
+    // Create a presentation surface a piece of content that can be hosted in a visual tree,
+    // and assigned a single front buffer.
+    HRESULT CreatePresentationSurface(
+        [in] HANDLE compositionSurfaceHandle, // Composition surface handle to bind to the
+                                              // presentation surface to.
+        [out, retval] IPresentationSurface** presentationSurface);
+
+    // Return back the Present Id for the next present. All synchronization fences will be signaled
+    // to this value when referring to that present.
+    UINT64 GetNextPresentId();
+
+    // Set a target time for the next present. The system will attempt to display the present as
+    // close to that time as possible. This parameter setting persists across presents.
+    HRESULT SetTargetTime(
+        [in] SystemInterruptTime targetTime);
+
+    // The preferred frame duration - meant to be used as a hint to the system that it would be
+    // preferred to refresh the output at the specified framerate. Displays which support this
+    // rate, or a multiple, will be set into that mode if appropriate. This parameter setting
+    // persists across presents.
+    HRESULT SetPreferredPresentDuration(
+        [in] SystemInterruptTime preferredDuration,   // Requested duration, in interrupt time
+        [in] SystemInterruptTime deviationTolerance); // The allowed tolerance. If the magnitude
+                                                      // of the difference between a supported
+                                                      // system duration and the preferredDuration
+                                                      // parameter is within the deviationTolerance
+                                                      // parameter, that system duration will be used.
+
+    // In order to take advantage of systems with hardware flip queue support, presents can be
+    // handled completely by the GPU without CPU involvement. This has power-saving benefits, but
+    // also means that buffer available events, the present retiring fence, and present statistics
+    // may not update immediately when the present is shown, but instead may update quite a bit later
+    // when the GPU periodically updates the CPU regarding what it has done independently.
+    //
+    // An application can allow certain presents it doesn't need immediate feedback about to
+    // participate in this behavior by explicitly controlling whether the GPU should issue a vsync
+    // interrupt when each is shown. If not, such presents will result in improved power efficiency,
+    // at the cost of delayed feedback.
+    //
+    // By default, presents will always force a vsync interrupt. Applications can opt into allowing
+    // some presents to not force a vsync interrupt by calling this method. If a system does not
+    // offer hardware flip queue support, all presents will issue a vsync interrupt and update the
+    // CPU, regardless of this setting.
+    //
+    // This parameter setting persists across presents. 
+    HRESULT ForceVSyncInterrupt(
+        [in] boolean forceVsyncInterrupt);
+
+    // Present this presentation manager. Note that if the presentation manager has become lost,
+    // this call will return PRESENTATION_ERROR_LOST, and upon receiving that error, an application
+    // must destroy this presentation manager and create a new one.
+    HRESULT Present();
+
+    // This fence will be signaled to the Present Id of each present when that present has begun
+    // retiring - that is, a subsequent present has been queued to take its place.
+    HRESULT GetPresentRetiringFence(
+        [in] REFIID riid,
+        [out, retval] void** fence);
+
+    // Cancel any previously issued and still in-flight presents which have not yet displayed,
+    // and whose Present Ids are at least the passed presentIdToCancelFrom. If any presents in
+    // the past have already been displayed, this call will not fail - those presents will simply
+    // not be canceled. The present retiring fence will not be signaled for any canceled presents,
+    // because when presents are canceled, they don't affect the currently displayed present, or
+    // cause it to begin the retiring process. For this reason, it is suggested that after
+    // performing a present, an application queries buffer available events to find an available
+    // buffer to issue on the first present after a cancel. Once that present is queued, it allows
+    // the previously displayed present to begin the retiring process, and signal the present
+    // retiring fence.
+    HRESULT CancelPresentsFrom(
+        [in] UINT64 presentIdToCancelFrom);
+
+    // The returned event will be signaled when the presentation manager hits an error it cannot
+    // recover from. In this case, the application should release this presentation manager and
+    // create a new one. An application can wait on and query this event, but not modify. It is
+    // controlled by the presentation manager.
+    HRESULT GetLostEvent(
+        [out, retval] HANDLE* lostEventHandle);
+
+    // The returned event will be signaled when present statistics are available to report. The
+    // caller is responsible for closing the event returned here. An application can wait on and
+    // query this event, but cannot modify its state. The presentation API controls this event.
+    // The caller is responsible for closing the returned event.
+    HRESULT GetPresentStatisticsAvailableEvent(
+        [out, retval] HANDLE* presentStatisticsAvailableEventHandle);
+
+    // Enable/disable the specified present statistics kind. Change takes place "as soon as
+    // possible", however effects can be delayed. It is suggested that application register all
+    // desired present statistics before issuing presents, and not change during usage. This is
+    // also how statistics can be extended and changed in the future without breaking backwards
+    // compatibility.
+    HRESULT EnablePresentStatisticsKind(
+        [in] PresentStatisticsKind presentStatisticsKind,
+        [in] boolean enabled);
+
+    // Return back the next statistics item in the queue. If the present statistics queue is
+    // empty, no error will be returned. Instead, nullptr will be returned in the out parameter.
+    HRESULT GetNextPresentStatistics(
+        [out, retval] IPresentStatistics** nextPresentStatistics);
+}
+
+
+// Presentation factory - interface used to query system support for presentation, and create a
+// presentation manager.
+[
+    object,
+    local,
+    uuid(8FB37B58-1D74-4F64-A49C-1F97A80A2EC0),
+    pointer_default(unique)
+]
+interface IPresentationFactory : IUnknown
+{
+    // Indicate whether presentation of any sort (with or without independent flip) is supported
+    // on the backing d3d device.
+    boolean IsPresentationSupported();
+
+    // Indicate whether independent-flip-enabled presentation is supported on the backing d3d
+    // device.
+    boolean IsPresentationSupportedWithIndependentFlip();
+
+    // Create a presentation manager.
+    HRESULT CreatePresentationManager(
+        [out, retval] IPresentationManager** ppPresentationManager);
+}
+
+// An empty interface exposed by IPresentationFactory that indicates support
+// for awareness of HDR content, provided by IPresentationSurface2::SetIsHdrContent
+[
+    object,
+    local,
+    uuid(2BD0B885-A16F-4BD9-A59A-D073E069D416),
+    pointer_default(unique)
+] interface IPresentationFactory_SupportHdrAware : IUnknown
+{
+}
+
+
+// IPresentStatusStatistics statistic.
+// The status of a present - how it was handled based on timing, and whether it was canceled.
+typedef enum PresentStatus
+{
+    // The frame was queued by the system to eventually be shown.
+    PresentStatus_Queued = 0,
+
+    // The frame was skipped because a later frame was a better candidate to show.
+    PresentStatus_Skipped = 1,
+
+    // The frame arrived, but was canceled by the application, so it was not displayed.
+    PresentStatus_Canceled = 2
+} PresentStatus;
+
+// Describes how a present was processed during a DWM-composed frame.
+[
+    object,
+    local,
+    uuid(C9ED2A41-79CB-435E-964E-C8553055420C),
+    pointer_default(unique)
+]
+interface IPresentStatusPresentStatistics : IPresentStatistics
+{
+    // The Composition frame Id on which the present was processed, skipped, or canceled.
+    CompositionFrameId GetCompositionFrameId();
+
+    // The status of the frame.
+    PresentStatus GetPresentStatus();
+}
+
+
+// ICompositionFramePresentStatistics statistic.
+// Instance kind - how the content was used in a composition frame
+typedef enum CompositionFrameInstanceKind
+{
+    // Composed directly to DWM's backbuffer.
+    CompositionFrameInstanceKind_ComposedOnScreen = 0,
+
+    // Directly scanned out in an MPO plane.
+    CompositionFrameInstanceKind_ScanoutOnScreen = 1,
+
+    // Composed to an intermediate.
+    CompositionFrameInstanceKind_ComposedToIntermediate = 2,
+} CompositionFrameInstanceKind;
+
+// A single instance of the content shown on a single output.
+typedef struct CompositionFrameDisplayInstance
+{
+    // The output that this instance was displayed on.
+    LUID displayAdapterLUID;
+    UINT displayVidPnSourceId;
+    UINT displayUniqueId;
+
+    // The LUID of the render adapter used to render this instance in the composition frame
+    LUID renderAdapterLUID;
+
+    // The kind of instance.
+    CompositionFrameInstanceKind instanceKind;
+
+    // Accumulated transform on screen of displayed content, including all transforms of ancestor
+    // visuals, if applicable.
+    PresentationTransform finalTransform;
+
+    // Whether or not a copy took place to display this instance due to the destination being
+    // a different adapter than the allocation's adapter.
+    boolean requiredCrossAdapterCopy;
+
+    // Color space of the output this instance was shown on.
+    DXGI_COLOR_SPACE_TYPE colorSpace;
+} CompositionFrameDisplayInstance;
+
+// Composition frame statistics - describes how the system displayed an instance of a particular
+// piece of content within a particular present. Note that there may be many frames for which a
+// present is on screen. Statistics are only reported for the first composition frame on which
+// a present appears.
+[
+    object,
+    local,
+    uuid(AB41D127-C101-4C0A-911D-F9F2E9D08E64),
+    pointer_default(unique)
+]
+interface ICompositionFramePresentStatistics : IPresentStatistics
+{
+    // The tag of the content on which we are reporting.
+    UINT_PTR GetContentTag();
+
+    // The Id of the composition frame, to be used in other APIs to get more detailed information.
+    CompositionFrameId GetCompositionFrameId();
+
+    // The array of display instances and its count. This data is valid for the lifetime of the
+    // ICompositionFramePresentStatistics, and should not be read after the
+    // ICompositionFramePresentStatistics is released.
+    void GetDisplayInstanceArray(
+        [out] UINT* displayInstanceArrayCount,
+        [out] const CompositionFrameDisplayInstance** displayInstanceArray);
+}
+
+
+// IIndependentFlipFramePresentStatistics statistic.
+// A statistic to describe information about an iflip present
+[
+    object,
+    local,
+    uuid(8C93BE27-AD94-4DA0-8FD4-2413132D124E),
+    pointer_default(unique)
+]
+interface IIndependentFlipFramePresentStatistics : IPresentStatistics
+{
+    // The output that this iflip occurred on.
+    LUID GetOutputAdapterLUID();
+    UINT GetOutputVidPnSourceId();
+
+    // The tag of the content that is being reported.
+    UINT_PTR GetContentTag();
+
+    // The time the present was displayed.
+    SystemInterruptTime GetDisplayedTime();
+
+    // Get the actual present duration. Note this may be different than the preferred present
+    // duration requested by the application if the system decided not to honor the preferred
+    // duration, usually because it was either not supported by the driver, or other content
+    // on screen meant the system decided it was best to go with another duration.
+    SystemInterruptTime GetPresentDuration();
+}
+
+
+// Main entrypoint for creating a presentation factory
+cpp_quote("//")
+cpp_quote("// Main entrypoint for creating a presentation factory")
+cpp_quote("//")
+cpp_quote("STDAPI CreatePresentationFactory(")
+cpp_quote("    _In_ IUnknown * d3dDevice,")
+cpp_quote("    _In_ REFIID riid,")
+cpp_quote("    _Outptr_ void ** presentationFactory);")
+cpp_quote("")

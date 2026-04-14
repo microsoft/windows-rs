@@ -1,0 +1,185 @@
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "wtypes.idl";
+
+cpp_quote ("#if 0")
+#include <WlanIhvTypes.h>
+cpp_quote ("#endif")
+cpp_quote ("#include <WlanIhvTypes.h>")
+
+
+// ENUM identifies a Property type (Tab) that IHV wants to extend/customize
+// we have Connection  & Security now, may have more in the future
+typedef enum _DOT11_EXT_UI_PROPERTY_TYPE	
+{
+    DOT11_EXT_UI_CONNECTION,
+    DOT11_EXT_UI_SECURITY,
+    DOT11_EXT_UI_KEYEXTENSION
+} DOT11_EXT_UI_PROPERTY_TYPE;
+
+
+// additional display property types
+typedef enum _DOT11_EXT_UI_DISPLAY_INFO_TYPE
+{
+	DOT11_EXT_UI_DISPLAY_INFO_CIPHER
+} DOT11_EXT_UI_DISPLAY_INFO_TYPE;
+
+
+// additional display property information
+typedef struct _DOT11_EXT_UI_PROPERTY_DISPLAY_INFO
+{
+	DWORD dwDataKey;
+	DOT11_EXT_UI_DISPLAY_INFO_TYPE dot11ExtUIDisplayInfoType;
+	BSTR bstrDisplayText;
+} DOT11_EXT_UI_PROPERTY_DISPLAY_INFO;
+
+
+// standard auth types exposed
+typedef enum _DOT11_EXT_UI_SECURITY_TYPE
+{
+    DOT11_EXT_UI_SECURITY_8021X,
+    DOT11_EXT_UI_SECURITY_WPA_ENTERPRISE,
+    DOT11_EXT_UI_SECURITY_WPA2_ENTERPRISE,
+    DOT11_EXT_UI_SECURITY_WPA3_ENTERPRISE,
+    DOT11_EXT_UI_SECURITY_WPA3_ENTERPRISE_192
+} DOT11_EXT_UI_SECURITY_TYPE;
+
+
+//Forward Definitions
+interface IDot11ExtUI;
+interface IDot11ExtUIProperty;
+
+// Interface IDot11UIExtensions
+// implemented by DOT11 UI Extensions DLL
+[
+    uuid(F2B676C7-DA6A-4167-A696-F55F5DFCBC8F),  
+    helpstring(" Dot11 Extensibility UI Interface"),
+    dual
+]
+
+interface IDot11ExtUI: IUnknown
+{  
+
+    //Used to get the IHV friendly name
+    [id(1), hidden, helpstring("method GetDot11ExtUIFriendlyName")]
+    HRESULT 
+    GetDot11ExtUIFriendlyName(
+        [out] BSTR* bstrFriendlyName  // IHV friendly name
+        );
+
+    //Used to display an IHV specific connection page
+    [id(2), hidden, helpstring("method GetDot11ExtUIProperties")]
+    HRESULT 
+    GetDot11ExtUIProperties(
+        [in] DOT11_EXT_UI_PROPERTY_TYPE ExtType, // type of property extesion
+        [out] ULONG *pcExtensions,  // number of extensions
+        [out, size_is(, *pcExtensions)] 
+      	IDot11ExtUIProperty **ppDot11ExtUIProperty
+        );
+
+    [id(3), hidden, helpstring("method GetDot11ExtUIBalloonText")]
+    HRESULT 
+    GetDot11ExtUIBalloonText(
+        [in] BSTR pIHVUIRequest, // the UI request structure from IHV
+        [out] BSTR* pwszBalloonText // the balloon text to be displayed
+        );
+}
+
+// Interface IDot11ExtUIProperty
+// implemented by IHV UI Extensions DLL
+[
+    uuid(5938b49c-684a-48fa-8569-6bed64ca970d),  
+    helpstring(" Dot11 Extensibility UI Property Pages"),
+    dual
+]
+
+interface IDot11ExtUIProperty: IUnknown
+{  
+    //Used to get the friendly name for the property extension
+    [id(1), hidden, helpstring("method GetDot11ExtUIPropertyFriendlyName")]
+    HRESULT 
+    GetDot11ExtUIPropertyFriendlyName(
+        [out] BSTR* bstrPropertyName  // IHV friendly name
+        );
+
+    //Used to extend property
+    [id(2), hidden, helpstring("method DisplayDot11ExtUIProperty")]
+    HRESULT 
+    DisplayDot11ExtUIProperty(
+        [in] HWND hParent, // Parent Window Handle 
+        [in] BSTR bstrIHVProfile, // IHV data from the profile 
+        [in] PDOT11EXT_IHV_PARAMS pIHVProfileParams, // Select profile MS security settings
+        [out] BSTR* bstrModifiedIHVProfile, // modified IHV data to be stored in the profile
+        [out] BOOL* pbIsModified // flag to denote if profile was modified
+        );
+	
+	//Used to get the currently chosen entry to display as selected in the dropdown list
+	[id(3), hidden, helpstring("method Dot11ExtUIPropertyGetSelected")]
+    HRESULT 
+    Dot11ExtUIPropertyGetSelected(
+        [in] BSTR bstrIHVProfile, // IHV data from the profile 
+        [in, unique] PDOT11EXT_IHV_PARAMS pIHVProfileParams, // Select profile MS security settings
+        [out] BOOL* pfIsSelected // flag denoting if this is the selected profile
+        );
+
+	//Used to set the current entry as chosen from the dropdown list
+	[id(4), hidden, helpstring("method Dot11ExtUIPropertySetSelected")]
+    HRESULT 
+    Dot11ExtUIPropertySetSelected(
+        [in] BSTR bstrIHVProfile, // IHV data from the profile 
+        [in] PDOT11EXT_IHV_PARAMS pIHVProfileParams, // Select profile MS security settings
+        [out] BSTR* bstrModifiedIHVProfile, // modified IHV data to be stored in the profile
+        [out] BOOL* pbIsModified // flag to denote if profile was modified
+        );
+
+     //Used to figure out if this extension point wants to show its own UI
+	[id(5), hidden, helpstring("method Dot11ExtUIPropertyHasConfigurationUI")]
+    HRESULT 
+    Dot11ExtUIPropertyHasConfigurationUI(
+        [out] BOOL *fHasConfigurationUI // if this type needs to show a UI
+        );
+
+    //Used to get additional display data (ciphers for auth types)
+	[id(6), hidden, helpstring("method Dot11ExtUIPropertyGetDisplayInfo")]
+    HRESULT 
+    Dot11ExtUIPropertyGetDisplayInfo(
+    	[in] DOT11_EXT_UI_DISPLAY_INFO_TYPE dot11ExtUIDisplayInfoType, // the diapaly type to be described
+        [in] BSTR bstrIHVProfile, // IHV data from the profile 
+        [in] PDOT11EXT_IHV_PARAMS pIHVProfileParams, // Select profile MS security settings
+        [out] ULONG *pcEntries, // number of dependent strings
+        [out] ULONG *puDefaultSelection, // the entry in the array to be selected by default
+        [out, size_is(, *pcEntries)] 
+      	DOT11_EXT_UI_PROPERTY_DISPLAY_INFO **ppDot11ExtUIProperty // array of returned info structure
+        );
+
+    //Used to set additional display data (ciphers for auth types)
+	[id(7), hidden, helpstring("method Dot11ExtUIPropertySetDisplayInfo")]
+    HRESULT 
+    Dot11ExtUIPropertySetDisplayInfo(
+    	[in] DOT11_EXT_UI_DISPLAY_INFO_TYPE dot11ExtUIDisplayInfoType, // the diapaly type to be modified
+        [in] BSTR bstrIHVProfile, // IHV data from the profile 
+        [in] PDOT11EXT_IHV_PARAMS pIHVProfileParams, // Select profile MS security settings
+        [in] DOT11_EXT_UI_PROPERTY_DISPLAY_INFO *pDot11ExtUIProperty, // selected info structure
+        [out] BSTR* bstrModifiedIHVProfile, // modified IHV data to be stored in the profile
+        [out] BOOL* pbIsModified // flag to denote if profile was modified
+        );
+
+    //Used to figure out if the current auth type is a standard auth
+	[id(8), hidden, helpstring("method Dot11ExtUIPropertyGetDisplayInfo")]
+    HRESULT 
+    Dot11ExtUIPropertyIsStandardSecurity(
+        [out] BOOL *fIsStandardSecurity, // if this interface is a standard auth method
+        [out] DOT11_EXT_UI_SECURITY_TYPE *dot11ExtUISecurityType  // which of the standard auth methods it is
+        );
+}
+             
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

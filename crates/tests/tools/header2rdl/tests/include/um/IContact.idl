@@ -1,0 +1,1097 @@
+/**************************************************************************\
+    Copyright Microsoft Corporation. All Rights Reserved.
+
+    DESCRIPTION:
+        APIs for interaction with Contacts.
+
+        See icontactproperties.h for information regarding naming uses
+
+\**************************************************************************/
+
+//--------------------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------------------
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "objidl.idl";
+
+//--------------------------------------------------------------------------
+// Interfaces
+//--------------------------------------------------------------------------
+
+interface IContactManager;
+interface IContact;
+interface IContactPropertyCollection;
+interface IContactCollection;
+
+// ===================================================================
+// INTERFACE:  IContactManager
+//
+// DESCRIPTION:
+//      This interface is used to interact with a contact with a ContactID string.
+//===================================================================
+[
+    object,
+    uuid(ad553d98-deb1-474a-8e17-fc0c2075b738),
+    helpstring("IContactManager"),
+    pointer_default(unique)
+]
+interface IContactManager : IUnknown
+{
+
+    // ===================================================================
+    // METHOD: Initialize()
+    //
+    // DESCRIPTION:
+    //    Initialize the contact manager with the unique application name
+    //    and application version being used to manipulate contacts.
+    //
+    // NOTE: Initialize *MUST* be called before other IContactManager methods
+    //
+    // PARAMETERS:
+    //      pszAppName: The application name
+    //      pszAppVersion: The application version
+    //
+    // Return values:
+    //    S_OK - IContactManager is initialized
+    //
+    //    Other FAILED HRESULTs
+    //===================================================================
+
+    HRESULT Initialize( [in, string, unique] LPCWSTR pszAppName,
+                        [in, string, unique] LPCWSTR pszAppVersion);
+
+    // ===================================================================
+    // METHOD: Load()
+    //
+    // DESCRIPTION:
+    //    Load an IContact object with the data from the contact referenced by
+    //      the machine local ContactID pszContactID.
+    //
+    // Parameters:
+    //      pszContactID: The ContactID to load.
+    //
+    // Return values:
+    //    S_OK - contact was found and loaded into *ppContact
+    //
+    //    HRESULT_FROM_WIN32(ERROR_NO_MATCH) - could not find this contactID
+    //
+    //    Other FAILED HRESULTs
+    //===================================================================
+
+    HRESULT Load( [in, string, unique] LPCWSTR pszContactID,
+                  [out] IContact ** ppContact);
+
+    // ===================================================================
+    // METHOD: MergeContactIDs()
+    //
+    // DESCRIPTION:
+    //      This function will make future resolutions against pszOldContactID
+    // resolve to contact pszNewContactID.  This function is called when
+    // the caller merged the properties of pszOldContactID into contact
+    // pszNewContactID and before deleting contact pszOldContactID.
+    //
+    // Parameters:
+    //      pszNewContactID: The ContactID of the new contact resenting both
+    //                       the old and new contact.
+    //      pszOldContactID: The ContactID to that was deleted when it's
+    //                       data was merged into pszNewContactID.
+    //
+    // Return values:
+    //    S_OK - calling Load with oldContactID now will point to the newContactID contact
+    //
+    //    Other FAILED HRESULTs
+    //===================================================================
+
+    HRESULT MergeContactIDs( [in, string, unique] LPCWSTR pszNewContactID,
+                             [in, string, unique] LPCWSTR pszOldContactID);
+
+    // ===================================================================
+    // METHOD: GetMeContact()
+    //
+    // DESCRIPTION:
+    //      retrieves the local user account concept of 'me'
+    //
+    // Parameters:
+    //      ppMeContact: where to store a pointer to the 'me' contact
+    //
+    // Return values:
+    //    S_OK -
+    //
+    //    Other FAILED HRESULTs
+    //===================================================================
+
+    HRESULT GetMeContact([out] IContact ** ppMeContact);
+
+    // ===================================================================
+    // METHOD: SetMeContact()
+    //
+    // DESCRIPTION:
+    //      sets the local user account concept of 'me' to this user
+    //
+    // Parameters:
+    //      pMeContact: the contact to treat as 'me' for the current user
+    //
+    // Return values:
+    //    S_OK -
+    //
+    //    Other FAILED HRESULTs
+    //===================================================================
+
+    HRESULT SetMeContact([in] IContact * pMeContact);
+
+    // ===================================================================
+    // METHOD: GetContactCollection()
+    //
+    // DESCRIPTION:
+    //    Returns a IContactCollection for all known Contacts
+    //
+    //    on SUCCESS, collection has been reset to before the first Contact.
+    //                  you must call Next before querying GetCurrent.
+    //
+    // Parameters:
+    //    ppContactCollection - on success, points to the new IContactCollection
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetContactCollection([out] IContactCollection ** ppContactCollection);
+}
+
+
+// ===================================================================
+// INTERFACE:  IContactCollection
+//
+// DESCRIPTION:
+//      Enumerates the contacts known by the IContactManager.
+//
+// NOTE:
+//      Adding or removing contacts through other means while this is performing
+//          an enumeration results in undefined behavior.
+//      Currently this interface does not support deletion of contacts during an
+//          enumeration.  Otherwise modifying Contact's properties should not
+//          affect this.
+//
+//===================================================================
+[
+    object,
+    uuid(b6afa338-d779-11d9-8bde-f66bad1e3f3a),
+    helpstring("IContactCollection"),
+    pointer_default(unique)
+]
+interface IContactCollection : IUnknown
+{
+
+    // ===================================================================
+    // METHOD: Reset()
+    //
+    // DESCRIPTION:
+    //    Reset enumeration of properties.  The enumerator resides before the
+    //        logical first element.
+    //
+    // NOTE: A call to GetCurrent immediately after Reset is undefined.  To get
+    //     the first Contact, first call Next() to ensure that there is one.
+    //
+    // Parameters:
+    //    void
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT Reset(void);
+
+    // ===================================================================
+    // METHOD: Next()
+    //
+    // DESCRIPTION:
+    //    Move to the next property
+    //
+    //    Note: after S_FALSE is returned, further calls to GetCurrent will
+    //       fail.
+    //    Repeated calls to Next after S_FALSE is returned without calling
+    //       Reset have undefined return values.
+    //    Calling GetCurrent after a Reset without a call to Next between will
+    //       fail.
+    //
+    // Parameters:
+    //    void
+    //
+    // Return values:
+    //    S_OK - moved to next property
+    //    S_FALSE - at the end of the property enumeration
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT Next(void);
+
+    // ===================================================================
+    // METHOD: GetCurrent()
+    //
+    // DESCRIPTION:
+    //    Retrieve the current contact in the enumeration.
+    //
+    // Parameters:
+    //    ppContact - on success, contains the current contact.
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetCurrent([out] IContact ** ppContact);
+}
+
+
+// ===================================================================
+// INTERFACE:  IContactProperties
+//
+// DESCRIPTION:
+//      This interface is used to get, set, create and remove properties on an IContact
+//
+//  Property names and extension mechanisms are described in icontactproperties.h
+//
+//===================================================================
+[
+    object,
+    uuid(70dd27dd-5cbd-46e8-bef0-23b6b346288f),
+    helpstring("IContactProperties"),
+    pointer_default(unique)
+]
+interface IContactProperties : IUnknown
+{
+
+// ===================================================================
+// valid dwFlags values for use with IContactProperties methods.
+//
+cpp_quote("#define CGD_DEFAULT                      0x00000000")
+
+//===================================================================
+
+    // ===================================================================
+    // METHOD: GetString
+    //
+    // DESCRIPTION:
+    //    Retrieve the string value at pszPropertyName into a caller allocated buffer
+    //
+    //    To retrieve a single level property, set pszPropertyName to the property name.
+    //
+    //    To retrieve a property from a multi value property, set pszPropertyName to the form:
+    //          toplevel/secondlevel[4]/thirdlevel
+    //
+    //    Note: the first element of a set is index 1.  GetString with [0] is invalid
+    //
+    // Parameters:
+    //      pszPropertyName: property to retrieve
+    //      dwFlags: Must be CGD_DEFAULT
+    //      pszValue: User allocated buffer to store the property in
+    //      cchValue: allocated buffer size in characters
+    //      pdwcchPropertyNameRequired - on failure, contains the required size for pszValue
+    //
+    // Return values:
+    //    S_OK - pszValue contains the NULL terminated value
+    //
+    //    S_FALSE - No data for this value.
+    //                  Either the property has been present in the past, but it's value has been removed.
+    //                    or the property is a container of other properties (toplevel/secondlevel[3])
+    //                The buffer at pszValue has been zero'ed.
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - no data found for this property name
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszValue was not large enough to
+    //                                                    store the value.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchPropertyValueRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetString( [in, string, unique] LPCWSTR pszPropertyName,
+                       DWORD dwFlags,
+                       [in, out, string, unique, size_is(cchValue)] LPWSTR pszValue,
+                       [in] DWORD cchValue,
+                       [in, out, unique] DWORD * pdwcchPropertyValueRequired);
+
+    // ===================================================================
+    // METHOD: GetDate
+    //
+    // DESCRIPTION:
+    //    Retrieve the date and time value at pszPropertyName into a caller's FILETIME structure
+    //
+    // NOTE: All times are stored and returned as UTC time
+    //
+    // Parameters:
+    //      pszPropertyName: property to retrieve
+    //      dwFlags: Must be CGD_DEFAULT
+    //      pftDateTime: caller allocated FILETIME structure
+    //
+    // Return values:
+    //    S_OK - pftDateTime contains a valid FILETIME
+    //
+    //    S_FALSE - the property has been present in the past, but it's value has been removed.
+    //                The FILETIME has been zero'ed.
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - no data found for this property
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetDate( [in, string, unique] LPCWSTR pszPropertyName,
+                     DWORD dwFlags,
+                     [in, out, unique] FILETIME * pftDateTime);
+
+    // ===================================================================
+    // METHOD: GetBinary
+    //
+    // DESCRIPTION:
+    //    Retrieve the binary data at pszPropertyName via an IStream
+    //
+    //    To retrieve a single level property, set pszPropertyName to the property name.
+    //
+    //    To retrieve a property from a multi value property, set pszPropertyName to the form:
+    //          toplevel/secondlevel[4]/thirdlevel
+    //
+    //    GetBinary for properties that have been deleted return S_FALSE and a NULL IStream reference.
+    //
+    //    NOTE: GetBinary for properties that are not of binary type may return incorrect data in the IStream
+    //
+    // Parameters:
+    //      pszPropertyName: property to retrieve
+    //      dwFlags: Must be CGD_DEFAULT
+    //      pszContentType: User allocated buffer to store the mime content type in
+    //      cchContentType: allocated buffer size in characters
+    //      pdwcchContentTypeRequired - on failure, contains the required size for pszContentType
+    //      ppStream - on SUCCESS, contains a new IStream*.  Use this to retrieve the binary data.
+    //
+    // Return values:
+    //    S_OK - ppStream contains an IStream*.  Caller must release the refrence.
+    //    S_FALSE - The binary data has been deleted.
+    //           ppStream does not contain a reference.  pszContentType has been zeroed.
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - no data found for this property name
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INVALID_DATATYPE) - unable to get this value for this
+    //                                                 property due to schema
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszValue was not large enough to
+    //                                                    store the value.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchContentTypeRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetBinary( [in, string, unique] LPCWSTR pszPropertyName,
+                       DWORD dwFlags,
+                       [in, out, unique, size_is(cchContentType)] LPWSTR pszContentType,
+                       [in] DWORD cchContentType,
+                       [in, out, unique] DWORD * pdwcchContentTypeRequired,
+                       [out] IStream ** ppStream);
+
+    // ===================================================================
+    // METHOD: GetLabels
+    //
+    // DESCRIPTION:
+    //    Retrieve the labels for pszArrayElementName
+    //
+    //      pszLabels is a list of strings concatenated together, followed by an empty string
+    //          (read: last 4 bytes will be zero) {ex: L"str1\0str2\0\0"}
+    //
+    //    NOTE: GetLabels succeeds only for multi value properties
+    //
+    //    NOTE: GetLabels may return labels in a different order than they were set in
+    //
+    // Parameters:
+    //      pszPropertyName: property to get labels for
+    //      dwFlags: Must be CGD_DEFAULT
+    //      pszLabels: User allocated buffer to store the labels in
+    //      cchLabels: allocated buffer size in characters
+    //      pdwcchLabelsRequired - on failure, contains the required size for pszLabels
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - no data found for this property name
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INVALID_DATATYPE) - unable to get this value for this
+    //                                                 property due to schema
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszLabels was not large enough to
+    //                                                    store the value.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchLabelsRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetLabels( [in, string, unique] LPCWSTR pszArrayElementName,
+                       DWORD dwFlags,
+                       [in, out, unique, size_is(cchLabels)] LPWSTR pszLabels,
+                       [in] DWORD cchLabels,
+                       [in, out, unique] DWORD * pdwcchLabelsRequired);
+
+
+    // ===================================================================
+    // METHOD: SetString
+    //
+    // DESCRIPTION:
+    //    Sets the string value at pszPropertyName to psvValue
+    //
+    //    To set a single level property, set pszPropertyName to the property name.
+    //
+    //    To set a property from a multi value property, set pszPropertyName to the form:
+    //          toplevel/secondlevel[4]/thirdlevel
+    //
+    // Parameters:
+    //      pszPropertyName: property to set
+    //
+    //      dwFlags:
+    //               CGD_DEFAULT can be used to create or overwrite value at pszPropertyName.
+    //
+    //      pszValue: NULL terminated string to store.
+    //
+    // Return values:
+    //    S_OK - value is set at this property
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - property name was invalid for set
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INVALID_DATATYPE) - unable to set this value for this
+    //                                                 property due to schema
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT SetString( [in, string, unique] LPCWSTR pszPropertyName,
+                       DWORD dwFlags,
+                       [in, string, unique] LPCWSTR pszValue);
+
+    // ===================================================================
+    // METHOD: SetDate
+    //
+    // DESCRIPTION:
+    //    Set the date and time value at pszPropertyName to a given FILETIME
+    //
+    // NOTE: All incoming FILETIMEs are treated as UTC time
+    //
+    // Parameters:
+    //      pszPropertyName: property to set
+    //
+    //      dwFlags:
+    //               CGD_DEFAULT can be used to create or overwrite value at pszPropertyName.
+    //
+    //      ftDateTime: FILETIME structure to use for date
+    //
+    // Return values:
+    //    S_OK - date and time are set at this property
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - property name was invalid
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INVALID_DATATYPE) - unable to set this value on this
+    //                                                 property due to schema
+    //
+    //    Other FAILED HRESULTs
+    //
+    // ===================================================================
+    HRESULT SetDate( [in, string, unique] LPCWSTR pszPropertyName,
+                     DWORD dwFlags,
+                     [in] FILETIME ftDateTime);
+
+    // ===================================================================
+    // METHOD: SetBinary
+    //
+    // DESCRIPTION:
+    //    Sets the binary value at pszPropertyName to the contents of pStream which contains 
+    //          pszContentType (as mime type) data.
+    //
+    //    To set a single level property, set pszPropertyName to the property name.
+    //
+    //    To set a property from a multi value property, set pszPropertyName to the form:
+    //          toplevel/secondlevel[4]/thirdlevel
+    //
+    // Parameters:
+    //      pszPropertyName: property to set
+    //
+    //      dwFlags:
+    //               CGD_DEFAULT can be used to create or overwrite value at pszPropertyName.
+    //
+    //      pszContentType: NULL terminated string representing MIME type to store when CGD_DEFAULT.
+    //
+    //      pStream: IStream containing data to place at this node.
+    //                  NOTE: IStream::Read is called for the data until it SUCCEEDEDs with a zero length read.
+    //                        Any other return value will result in a failure from SetBinary and no change
+    //
+    // Return values:
+    //    S_OK - value is set at this property
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - property name was invalid for set
+    //                                                  -or property name doesn't exist for delete
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INVALID_DATATYPE) - unable to set this value for this
+    //                                                 property due to schema
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT SetBinary( [in, string, unique] LPCWSTR pszPropertyName,
+                       DWORD dwFlags,
+                       [in, string, unique] LPCWSTR pszContentType,
+                       [in, unique] IStream * pStream);
+
+
+    // ===================================================================
+    // METHOD: SetLabels
+    //
+    // DESCRIPTION:
+    //      Appends the set of labels passed in to the label set of pszArrayElementName
+    //
+    // Note: This method does not check for duplicate labels
+    //
+    // Parameters:
+    //      pszPropertyName: property to label
+    //      dwFlags: Must be CGD_DEFAULT
+    //      dwLabelCount: count of labels in ppszLabels
+    //      ppszLabels: array of LPCWSTR labels
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - no data found for this property name
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INVALID_DATATYPE) - unable to set labels for this
+    //                                                 property due to schema
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT SetLabels( [in, string, unique] LPCWSTR pszArrayElementName,
+                       DWORD dwFlags,
+                       [in] DWORD dwLabelCount,
+                       [in, size_is(dwLabelCount), unique] LPCWSTR ppszLabels [] );
+
+
+    // ===================================================================
+    // METHOD: CreateArrayNode
+    //
+    // DESCRIPTION:
+    //    Create a new array node in a multi value property.
+    //
+    //    Note: The first element of an existing set is at index 1.
+    //
+    //    To create a pszPropertyName at:
+    //          toplevel/secondlevel[1]
+    //       call this function with pszPropertyName == toplevel, fAppend=FALSE
+    //
+    //    To create an array node that is an extension at [namespace]toplevel/secondlevel[1]
+    //          call this function with pszPropertyName == [namespace:secondlevel]toplevel
+    //
+    //    To append to the set, pass fAppend=TRUE instead.
+    //          pszNewArrayElementName then contains the resulting array node name, including the index.
+    //
+    // Parameters:
+    //      pszArrayName: top level property to create a new node for
+    //      dwFlags: Must be CGD_DEFAULT
+    //      fAppend: TRUE for insert after, FALSE for insert before
+    //      pszNewPropertyName: User allocated buffer to store the new property name in
+    //      cchNewPropertyName: allocated buffer size in characters
+    //      pdwcchNewPropertyNameRequired - on failure, contains the required size for pszNewPropertyName
+    //
+    // Return values:
+    //    S_OK - new node is created, name is in pszNewArrayElementName
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - array name was invalid
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszNewPropertyName was not large enough to
+    //                                                    store the new property name.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchNewPropertyNameRequired.
+    //                                                    No node was added.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================    
+    HRESULT CreateArrayNode([in, string, unique] LPCWSTR pszArrayName,
+                            DWORD dwFlags,
+                            BOOL fAppend,
+                            [in, out, unique, string, size_is(cchNewArrayElementName)] LPWSTR pszNewArrayElementName,
+                            DWORD cchNewArrayElementName,
+                            [in, out, unique] DWORD * pdwcchNewArrayElementNameRequired);
+
+    // ===================================================================
+    // METHOD: DeleteProperty
+    //
+    // DESCRIPTION:
+    //    Deletes the value at pszPropertyName 
+    //
+    // NOTE: property modification and version data can still be
+    //              enumerated with IContactPropertyCollection.
+    //
+    // Parameters:
+    //      pszPropertyName: property to delete value for
+    //
+    //      dwFlags:
+    //               CGD_DEFAULT
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - property name doesn't exist for delete
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT DeleteProperty([in, string, unique] LPCWSTR pszPropertyName,
+                           DWORD dwFlags);
+
+    // ===================================================================
+    // METHOD: DeleteArrayNode
+    //
+    // DESCRIPTION:
+    //    Deletes the value at pszPropertyName 
+    //
+    // NOTE: element indexes are unchanged for the entire set.
+    //
+    // NOTE: array node elementid, modification and version data can still be
+    //              enumerated with IContactPropertyCollection
+    //
+    // Parameters:
+    //      pszArrayElementName: array entry to remove all data from
+    //
+    //      dwFlags:
+    //               CGD_DEFAULT
+    //
+    // Return values:
+    //    S_OK 
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - property name doesn't exist for delete
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT DeleteArrayNode([in, string, unique] LPCWSTR pszArrayElementName,
+                            DWORD dwFlags);
+
+    // ===================================================================
+    // METHOD: DeleteLabels
+    //
+    // DESCRIPTION:
+    //    Deletes the labels at pszPropertyName 
+    //
+    // Parameters:
+    //      pszArrayElementName: property to delete labels on
+    //
+    //      dwFlags:
+    //               CGD_DEFAULT
+    //
+    // Return values:
+    //    S_OK 
+    //
+    //    HRESULT_FROM_WIN32(ERROR_PATH_NOT_FOUND) - property name doesn't exist for delete
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT DeleteLabels([in, string, unique] LPCWSTR pszArrayElementName,
+                         DWORD dwFlags);
+
+    // ===================================================================
+    // METHOD: GetPropertyCollection()
+    //
+    // DESCRIPTION:
+    //    Returns a IContactPropertyCollection for the current contact
+    //
+    //    Optionally filters the IContactPropertyCollection to only enumerate some values.
+    //
+    //   caller can enumerate all children properties of a top level property
+    //      with an optional label filter applied.  EX: all emailAddresses where label="work"
+    //
+    //    on SUCCESS, collection has been reset to before the first element (if any are present)
+    //                  you must call Next to begin querying data (GetPropertyName)
+    //
+    // Parameters:
+    //    ppPropertyCollection - on success, points to the new IContactPropertyCollection
+    //
+    //    pszMultiValueName - name of the collection (ex: emailAddresses or [namespace]arrayNode)
+    //                          if NULL, all collections are searched for ppszLabels
+    //
+    //    dwLabelCount - number of labels in ppszLabels
+    //                          if zero, all subproperties with labels are returned
+    //
+    //    ppszLabels - array of string labels to test for
+    //                          all labels in the array must be set to a valid string (not NULL)
+    //
+    //    fAnyLabelMatches - TRUE if the presence of any label on a given property matches the property
+    //                       FALSE if all labels must be present to match the property
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetPropertyCollection( [out] IContactPropertyCollection ** ppPropertyCollection,
+                                   DWORD dwFlags,
+                                   [in, string, unique] LPCWSTR pszMultiValueName,
+                                   [in] DWORD dwLabelCount,
+                                   [in, size_is(dwLabelCount), unique] LPCWSTR ppszLabels [],
+                                   BOOL fAnyLabelMatches);
+
+};
+
+
+// ===================================================================
+// INTERFACE:  IContact
+//
+// DESCRIPTION:
+//      This interface handles reading and writing properties for a single contact
+//
+//  NOTE:
+//      Classes that implement this interface often also implement these interfaces
+//
+//  IPersistFile:
+//                Allows the contact to be loaded from a file.
+//
+//                  Use this interface to load a contact to get
+//                  full support in IContact::CommitChanges change conflict detection.
+//
+//  IPersistStream:
+//  IPersistStreamInit:
+//                This interface allows the contact to be saved or loaded
+//                   from a stream.
+//
+//                Use IPersistStreamInit::InitNew to create a new IContact
+//
+//                NOTE: loading a contact via IPersistStream will not have the locking
+//                        and conflict detection that comes with the usage of
+//                        IPersistFile::Load / IContact::CommitChanges
+//
+//  IPropertyBag:
+//                Allows the contact properties to be accessed with late binding and VARIANT access
+//
+//  IContactProperties:
+//                Allows the contact properties to be
+//                      Get, Set, Labeled, Created, Removed and enumerated
+//
+//===================================================================
+[
+    object,
+    uuid(F941B671-BDA7-4f77-884A-F46462F226A7),
+    helpstring("IContact"),
+    pointer_default(unique)
+]
+interface IContact : IUnknown
+{
+    // ===================================================================
+    // METHOD: GetContactID()
+    //
+    // DESCRIPTION:
+    //    Retrieve the local machine unique ContactID
+    //
+    // Parameters:
+    //      pszContactID: User allocated buffer to store the ContactID in
+    //      cchContactID: allocated buffer size
+    //      pdwcchContactIDRequired: on failure due to insufficient buffer,
+    //                               contains the required size for pszContactID.
+    //
+    // Return values:
+    //    S_OK - pszContact contains the NULL terminated ContactID
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszContactID was not large enough to
+    //                                                    store the value.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchContactIDRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+
+    HRESULT GetContactID( [in, out, string, size_is(cchContactID)] LPWSTR pszContactID,
+                          [in] DWORD cchContactID,
+                          [in, out, unique] DWORD * pdwcchContactIDRequired);
+
+    // ===================================================================
+    // METHOD: GetPath()
+    //
+    // DESCRIPTION:
+    //    Retrieve the file system path used to load this contact
+    //
+    // Parameters:
+    //      pszPath: User allocated buffer to store the path in
+    //      cchContactID: allocated buffer size in characters
+    //      pdwcchPathRequired: on failure due to insufficient buffer,
+    //                               contains the required size for pszPath
+    //
+    // Return values:
+    //    S_OK - pszPath contains the path
+    //    E_UNEXPECTED - this contact was not loaded from a file path
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszPath was not large enough to
+    //                                                    store the value.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchPathRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+
+    HRESULT GetPath( [in, out, string, size_is(cchPath)] LPWSTR pszPath,
+                     [in] DWORD cchPath,
+                     [in, out, unique] DWORD * pdwcchPathRequired);
+
+    // ===================================================================
+    // METHOD: CommitChanges()
+    //
+    // DESCRIPTION:
+    //    Save changes made to this contact to the contact file
+    //
+    //    If the contact has been changed between creation and CommitChanges
+    //  this function may return HRESULT_FROM_WIN32(ERROR_SHARING_VIOLATION) if
+    //  there was an incompatible change made on disk.
+    //
+    // Parameters:
+    //    dwCommitFlags - commit flags, must be zero
+    //
+    //        Does not include a FORCE flag by design
+    //        see CommitChanges sample code for an example of implementing FORCE flag.
+    //
+    // Return values:
+    //    S_OK - changes were written to disk successfully
+    //
+    //    E_UNEXPECTED - this contact was not loaded from a file path
+    //
+    //    HRESULT_FROM_WIN32(ERROR_NESTING_NOT_ALLOWED) - another process modified the file in an
+    //                                                     incompatible way with changes to this contact
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+
+    HRESULT CommitChanges([in] DWORD dwCommitFlags);
+}
+
+
+
+// ===================================================================
+// INTERFACE:  IContactPropertyCollection
+//
+// DESCRIPTION:
+//      Enumerates the contact properties exposed via an IContactProperties object
+//
+//      For each property, the name, type, version, and modificationdate can be retrieved
+//
+// NOTE:
+//      Changing the IContactProperties properties object while enumerating properties
+//        with this interface results in undefined behavior.
+//
+//===================================================================
+[
+    object,
+    uuid(ffd3adf8-fa64-4328-b1b6-2e0db509cb3c),
+    helpstring("IContactPropertyCollection"),
+    pointer_default(unique)
+]
+interface IContactPropertyCollection : IUnknown
+{
+// ===================================================================
+// valid dwType values returned from IContactPropertyCollection.
+cpp_quote("#define CGD_UNKNOWN_PROPERTY     0x00000000")
+cpp_quote("#define CGD_STRING_PROPERTY      0x00000001")
+cpp_quote("#define CGD_DATE_PROPERTY        0x00000002")
+cpp_quote("#define CGD_BINARY_PROPERTY      0x00000004")
+cpp_quote("#define CGD_ARRAY_NODE           0x00000008")
+//===================================================================
+
+    // ===================================================================
+    // METHOD: Reset()
+    //
+    // DESCRIPTION:
+    //    Reset enumeration of properties.
+    //
+    // NOTE: Collection has been reset to before the first element (if any are present)
+    //                  you must call Next to begin querying data (GetPropertyName)
+    //
+    // Parameters:
+    //    void
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT Reset(void);
+
+    // ===================================================================
+    // METHOD: Next()
+    //
+    // DESCRIPTION:
+    //    Move to the next property
+    //
+    //    Note: after S_FALSE is returned, further calls to GetProperty* will fail
+    //
+    // Parameters:
+    //    void
+    //
+    // Return values:
+    //    S_OK - moved to next property
+    //    S_FALSE - at the end of the property enumeration
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT Next(void);
+
+    // ===================================================================
+    // METHOD: GetPropertyName()
+    //
+    // DESCRIPTION:
+    //    Retrieve the propertyName for the current property in the enumeration
+    //
+    // Parameters:
+    //    pszPropertyName - on success, contains the name to use for calling Get* on IContactProperties
+    //                          EX: toplevel  -or- toplevel/secondlevel[4]/thirdlevel
+    //
+    //    cchPropertyName - length of caller allocated pszPropertyName buffer, in characters
+    //
+    //    pdwcchPropertyNameRequired - on failure, contains the required size for propertyName
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszProperty was not large enough to
+    //                                                    store the property name.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchPropertyNameRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetPropertyName( [in, out, unique, string, size_is(cchPropertyName), unique] LPWSTR pszPropertyName,
+                             [in] DWORD cchPropertyName,
+                             [in, out, unique] DWORD * pdwcchPropertyNameRequired);
+
+    // ===================================================================
+    // METHOD: GetPropertyType()
+    //
+    // DESCRIPTION:
+    //    Retrieve the propertyType for the current property in the enumeration
+    //
+    // Parameters:
+    //    pdwType - type of property stored at pszPropertyName. EX: CGD_STRING_PROPERTY
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetPropertyType( [in, out, unique] DWORD * pdwType);
+
+    // ===================================================================
+    // METHOD: GetPropertyVersion()
+    //
+    // DESCRIPTION:
+    //    Retrieve the Version number for the current property in the enumeration
+    //
+    // Parameters:
+    //    pdwVersion - the version of the property
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetPropertyVersion( [in, out, unique] DWORD * pdwVersion);
+
+    // ===================================================================
+    // METHOD: GetPropertyModificationDate()
+    //
+    // DESCRIPTION:
+    //    Retrieve the last modifictation date for the current property in the enumeration
+    //      If not modified, contact creation date is returned
+    //
+    // Parameters:
+    //    pftModificationDate - the last modified date as a UTC FILETIME
+    //
+    // Return values:
+    //    S_OK
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetPropertyModificationDate( [in, out, unique] FILETIME * pftModificationDate);
+
+    // ===================================================================
+    // METHOD: GetPropertyArrayElementID()
+    //
+    // DESCRIPTION:
+    //    Retrieve the unique ID for a given element in a property array.
+    //
+    //    Note - valid only when GetPropertyType returns CGD_ARRAY_NODE for the current property
+    //
+    // Parameters:
+    //    pszArrayElementID - on success, contains the unique ID for the element
+    //
+    //    cchArrayElementID - length of the caller allocated pszArrayElementID buffer, in characters.
+    //
+    //    pdwcchArrayElementIDRequired - on failure, contains the required size for ArrayElementID
+    //
+    // Return values:
+    //    S_OK - success
+    //    S_FALSE - the array node does not have a unique array element ID.
+    //
+    //    HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) - pszArrayElementID was not large enough to
+    //                                                    store the Array Element ID.
+    //                                                    required buffer size is stored
+    //                                                    in *pdwcchArrayElementIDRequired.
+    //
+    //    Other FAILED HRESULTs
+    //
+    //===================================================================
+    HRESULT GetPropertyArrayElementID( [in, out, unique, string, size_is(cchArrayElementID), unique] LPWSTR pszArrayElementID,
+                                       [in] DWORD cchArrayElementID,
+                                       [in, out, unique] DWORD * pdwcchArrayElementIDRequired);
+}
+
+[
+    uuid(ffb3df4d-f600-473e-92c1-cf9a1f4cccc5),
+    helpstring("Microsoft Contact Objects"),
+    lcid(0x0000),
+    version(1.0)
+]
+library CONTACT
+{
+
+    [
+        uuid(61b68808-8eee-4fd1-acb8-3d804c8db056),  // CLSID_Contact
+        helpstring("Contact")
+    ]
+    coclass Contact
+    {
+        [default] interface IContact;
+    };
+
+    [
+        uuid(7165c8ab-af88-42bd-86fd-5310b4285a02),  // CLSID_ContactManager
+        helpstring("ContactManager")
+    ]
+    coclass ContactManager
+    {
+        [default] interface IContactManager;
+    };
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

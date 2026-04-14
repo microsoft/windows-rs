@@ -1,0 +1,306 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+// Module Name:
+//
+//      Mpeg2PsiParser.idl
+//
+// Abstract:
+//
+//      Interface definitions for the MPEG-2 PSI parsing functionality
+//
+// Notes:
+//
+//      This IDL file is not built independently, but is included and built
+//      in the master IDL file DTVParse.idl
+//
+/////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "wtypes.idl";
+import "mpeg2structs.idl";
+import "mpeg2data.idl";
+
+    // Forward interface declarations
+interface ISectionList;
+interface IMpeg2Data;
+
+
+
+    ////////////////////////////////////
+    //
+    // IGenericDescriptor Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(6A5918F8-A77A-4f61-AED0-5702BDCDA3E6),    
+        pointer_default(unique)
+    ]
+    interface IGenericDescriptor : IUnknown
+    {
+        HRESULT Initialize([in]  BYTE * pbDesc,
+                           [in]  INT   bCount);
+
+        HRESULT GetTag([out] BYTE * pbVal);
+
+        HRESULT GetLength([out] BYTE * pbVal);
+
+        HRESULT GetBody([out] BYTE ** ppbVal);
+    };
+
+
+    ////////////////////////////////////
+    //
+    // IGenericDescriptor2 Interface mainly for PBDA with 16-bit descriptor length
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(BF02FB7E-9792-4e10-A68D-033A2CC246A5),    
+        pointer_default(unique)
+    ]
+    interface IGenericDescriptor2 : IGenericDescriptor
+    {
+        HRESULT Initialize([in]  BYTE * pbDesc,
+                           [in]  WORD wCount);
+
+        HRESULT GetLength([out] WORD * pwVal);
+
+    };
+
+    ////////////////////////////////////
+    //
+    // IPAT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(6623B511-4B5F-43c3-9A01-E8FF84188060),    
+        pointer_default(unique)
+    ]
+    interface IPAT : IUnknown
+    {
+        typedef struct
+        {
+            WORD    wProgramNumber;
+            WORD    wProgramMapPID;
+        } ProgramElement;
+
+        HRESULT Initialize([in]  ISectionList * pSectionList,
+                           [in]  IMpeg2Data *   pMPEGData);
+
+        HRESULT GetTransportStreamId([out] WORD * pwVal);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetCountOfRecords([out] DWORD * pdwVal);
+
+        HRESULT GetRecordProgramNumber([in]  DWORD  dwIndex,
+                                       [out] WORD * pwVal);
+
+        HRESULT GetRecordProgramMapPid([in]  DWORD  dwIndex,
+                                       [out] WORD * pwVal);
+
+        HRESULT FindRecordProgramMapPid([in]  WORD   wProgramNumber,
+                                        [out] WORD * pwVal);
+
+        HRESULT RegisterForNextTable([in]  HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] IPAT ** ppPAT);
+
+        HRESULT RegisterForWhenCurrent([in]  HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // ICAT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(7C6995FB-2A31-4bd7-953E-B1AD7FB7D31C),
+        pointer_default(unique)
+    ]
+    interface ICAT : IUnknown
+    {
+        HRESULT Initialize([in]  ISectionList * pSectionList,
+                           [in]  IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]      BYTE                  bTag,
+                                        [in, out] DWORD *               pdwCookie, // OPTIONAL
+                                        [out]     IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in]  HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([in]  DWORD   dwTimeout,
+                             [out] ICAT ** ppCAT);
+
+        HRESULT RegisterForWhenCurrent([in]  HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IPMT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(01F3B398-9527-4736-94DB-5195878E97A8),    
+        pointer_default(unique)
+    ]
+    interface IPMT : IUnknown
+    {
+        HRESULT Initialize([in]  ISectionList * pSectionList,
+                           [in]  IMpeg2Data *   pMPEGData);
+
+        HRESULT GetProgramNumber([out] WORD * pwVal);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetPcrPid([out] PID * pPidVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]      BYTE                  bTag,
+                                        [in, out] DWORD *               pdwCookie, // OPTIONAL
+                                        [out]     IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetCountOfRecords([out] WORD * pwVal);
+
+        HRESULT GetRecordStreamType([in]  DWORD  dwRecordIndex,
+                                    [out] BYTE * pbVal);
+
+        HRESULT GetRecordElementaryPid([in]  DWORD dwRecordIndex,
+                                       [out] PID * pPidVal);
+
+        HRESULT GetRecordCountOfDescriptors([in]  DWORD   dwRecordIndex,
+                                            [out] DWORD * pdwVal);
+
+        HRESULT GetRecordDescriptorByIndex([in]  DWORD                 dwRecordIndex,
+                                           [in]  DWORD                 dwDescIndex,
+                                           [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetRecordDescriptorByTag([in]      DWORD                 dwRecordIndex,
+                                         [in]      BYTE                  bTag,
+                                         [in, out] DWORD *               pdwCookie, // OPTIONAL
+                                         [out]     IGenericDescriptor ** ppDescriptor);
+
+        HRESULT QueryServiceGatewayInfo([out] DSMCC_ELEMENT ** ppDSMCCList,
+                                        [out] UINT *           puiCount);
+
+        HRESULT QueryMPEInfo([out] MPE_ELEMENT ** ppMPEList,
+                             [out] UINT *         puiCount);
+
+        HRESULT RegisterForNextTable([in]  HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] IPMT ** ppPMT);
+
+        HRESULT RegisterForWhenCurrent([in]  HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // ITSDT Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        local,
+        uuid(D19BDB43-405B-4a7c-A791-C89110C33165),    
+        pointer_default(unique)
+    ]
+    interface ITSDT : IUnknown
+    {
+        HRESULT Initialize([in]  ISectionList * pSectionList,
+                           [in]  IMpeg2Data *   pMPEGData);
+
+        HRESULT GetVersionNumber([out] BYTE * pbVal);
+
+        HRESULT GetCountOfTableDescriptors([out] DWORD * pdwVal);
+
+        HRESULT GetTableDescriptorByIndex([in]  DWORD                 dwIndex,
+                                          [out] IGenericDescriptor ** ppDescriptor);
+
+        HRESULT GetTableDescriptorByTag([in]      BYTE                  bTag,
+                                        [in, out] DWORD *               pdwCookie, // OPTIONAL
+                                        [out]     IGenericDescriptor ** ppDescriptor);
+
+        HRESULT RegisterForNextTable([in]  HANDLE hNextTableAvailable);
+
+        HRESULT GetNextTable([out] ITSDT ** ppTSDT);
+
+        HRESULT RegisterForWhenCurrent([in]  HANDLE hNextTableIsCurrent);
+
+        HRESULT ConvertNextToCurrent(void);
+    };
+
+    ////////////////////////////////////
+    //
+    // IPSITables Interface
+    //
+    ////////////////////////////////////
+    [
+        object,
+        uuid(919F24C5-7B14-42ac-A4B0-2AE08DAF00AC),    
+        pointer_default(unique)
+    ]
+    interface IPSITables : IUnknown
+    {
+        // The parameters are basically the ones from the event EVENTID_PSITable
+        // defined in bdamedia.h
+        // dwPara1 - TSID, ONID|TSID for DVB EIT
+        // dwPara2 - TID|PID
+        // dwPara3 - dwHashedVersion
+        // dwPara4 - program number for PMT, Segment#|SID for DVB EIT, but not used for others
+        HRESULT GetTable([in] DWORD dwTSID,
+                         [in] DWORD dwTID_PID,
+                         [in] DWORD dwHashedVer,
+                         [in] DWORD dwPara4,
+                         [out] IUnknown **ppIUnknown);
+
+    };
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

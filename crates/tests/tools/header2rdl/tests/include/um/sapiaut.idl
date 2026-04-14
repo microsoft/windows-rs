@@ -1,0 +1,5012 @@
+/****************************************************************************
+*   sapiaut.idl
+*
+*   This is the interface definition file for the Microsoft Speech API
+*   Version 5.4.
+*
+*   It contains definitions for the Automation layer.
+*
+*   Copyright (c) Microsoft Corporation. All rights reserved.
+*****************************************************************************/
+
+//  Includes                
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// Token object declarations
+interface ISpeechDataKey;
+interface ISpeechObjectToken;                 // Token object
+interface ISpeechObjectTokens;                // Collection of Token Objects
+interface ISpeechObjectTokenCategory;
+
+// Audio object declarations
+interface ISpeechAudioBufferInfo;
+interface ISpeechAudioStatus;
+interface ISpeechAudioFormat;
+interface ISpeechWaveFormatEx;
+interface ISpeechBaseStream;
+interface ISpeechFileStream;
+interface ISpeechMemoryStream;
+interface ISpeechCustomStream;
+interface ISpeechAudio;
+interface ISpeechMMSysAudio;
+
+// Voice object declarations
+interface ISpeechVoice;
+interface ISpeechVoiceStatus;
+dispinterface _ISpeechVoiceEvents;
+
+// Recognizer object declarations
+interface ISpeechRecognizer;
+interface ISpeechRecognizerStatus;
+interface ISpeechRecoContext;
+interface ISpeechRecoGrammar;
+dispinterface _ISpeechRecoContextEvents;
+
+// Grammar object declarations
+interface ISpeechGrammarRule;
+interface ISpeechGrammarRules;
+interface ISpeechGrammarRuleState;
+interface ISpeechGrammarRuleStateTransition;
+interface ISpeechGrammarRuleStateTransitions;
+interface ISpeechTextSelectionInformation;
+
+// RecoResult and phrase object declarations
+interface ISpeechRecoResult;
+#if _SAPI_BUILD_VER >= 0x053
+interface ISpeechRecoResult2;
+#endif // _SAPI_BUILD_VER >= 0x053
+interface ISpeechRecoResultTimes;
+interface ISpeechPhraseAlternate;
+interface ISpeechPhraseAlternates;
+interface ISpeechPhraseInfo;
+interface ISpeechPhraseElement;
+interface ISpeechPhraseElements;
+interface ISpeechPhraseReplacement;
+interface ISpeechPhraseReplacements;
+interface ISpeechPhraseProperty;
+interface ISpeechPhraseProperties;
+interface ISpeechPhraseRule;
+interface ISpeechPhraseRules;
+
+// Lexicon declarations
+interface ISpeechLexicon;
+interface ISpeechLexiconWords;
+interface ISpeechLexiconWord;
+interface ISpeechLexiconPronunciations;
+interface ISpeechLexiconPronunciation;
+
+typedef long SpeechLanguageId;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  String constants 
+//
+//
+//
+//
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Line below (#define) is to work around getting these strings just defined in the typelib (Ignore our definition in the .H file)
+// Strings will fail to be defined properly in .H unless they have four backslashes ("\\\\") but for being in the typelib
+// can't do this and have the strings defined propertly.  So for VC just use the existing SAPI defines in SAPI.IDL.
+cpp_quote("#define __SpeechStringConstants_MODULE_DEFINED__")
+
+[
+uuid(E58442E4-0C80-402c-9559-867337A39765)
+]
+module SpeechStringConstants
+{
+    //--- Root of registry entries for speech use
+    const BSTR  SpeechRegistryUserRoot          = L"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech";
+    const BSTR  SpeechRegistryLocalMachineRoot  = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech";
+
+    //--- Object Token Categories for speech resource management
+    const BSTR  SpeechCategoryAudioOut          = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput";
+    const BSTR  SpeechCategoryAudioIn           = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
+    const BSTR  SpeechCategoryVoices            = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
+    const BSTR  SpeechCategoryRecognizers       = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
+    const BSTR  SpeechCategoryAppLexicons       = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AppLexicons";
+    const BSTR  SpeechCategoryPhoneConverters   = L"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\PhoneConverters";
+    const BSTR  SpeechCategoryRecoProfiles      = L"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\RecoProfiles";
+
+    //--- User Lexicon Token Id
+    const BSTR  SpeechTokenIdUserLexicon        = L"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserLexicon";
+
+    //--- Standard token values
+    const BSTR  SpeechTokenValueCLSID           = L"CLSID";
+    const BSTR  SpeechTokenKeyFiles             = L"Files";
+    const BSTR  SpeechTokenKeyUI                = L"UI";
+    const BSTR  SpeechTokenKeyAttributes        = L"Attributes";
+
+    //--- Standard voice category values
+    const BSTR  SpeechVoiceCategoryTTSRate      = L"DefaultTTSRate";
+
+    //--- Standard SR Engine properties
+    const BSTR  SpeechPropertyResourceUsage             = L"ResourceUsage";
+    const BSTR  SpeechPropertyHighConfidenceThreshold   = L"HighConfidenceThreshold";
+    const BSTR  SpeechPropertyNormalConfidenceThreshold = L"NormalConfidenceThreshold";
+    const BSTR  SpeechPropertyLowConfidenceThreshold    = L"LowConfidenceThreshold";
+    const BSTR  SpeechPropertyResponseSpeed             = L"ResponseSpeed";
+    const BSTR  SpeechPropertyComplexResponseSpeed      = L"ComplexResponseSpeed";
+    const BSTR  SpeechPropertyAdaptationOn              = L"AdaptationOn";
+
+    //--- Standard SAPI Recognition Topics
+    const BSTR  SpeechDictationTopicSpelling    = L"Spelling";
+
+    //--- Special Tags used in SR grammars
+    const BSTR  SpeechGrammarTagWildcard                = L"...";
+    const BSTR  SpeechGrammarTagDictation               = L"*";
+    const BSTR  SpeechGrammarTagUnlimitedDictation      = L"*+";
+
+    //--- TokenUI constants
+    const BSTR  SpeechEngineProperties          = L"EngineProperties";
+    const BSTR  SpeechAddRemoveWord             = L"AddRemoveWord";
+    const BSTR  SpeechUserTraining              = L"UserTraining";
+    const BSTR  SpeechMicTraining               = L"MicTraining";
+    const BSTR  SpeechRecoProfileProperties     = L"RecoProfileProperties";
+    const BSTR  SpeechAudioProperties           = L"AudioProperties";
+    const BSTR  SpeechAudioVolume               = L"AudioVolume";
+
+    //--- ISpeechVoice::Skip constant
+    const BSTR  SpeechVoiceSkipTypeSentence     = L"Sentence";
+
+    // The SpeechAudioFormat object includes a guid that can be used to set the format to 
+    //  a custom value.
+    const BSTR  SpeechAudioFormatGUIDWave       = L"{C31ADBAE-527F-4ff5-A230-F62BB61FF70C}";
+    const BSTR  SpeechAudioFormatGUIDText       = L"{7CEEF9F9-3D13-11d2-9EE7-00C04F797396}";    
+
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Number Constants
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[
+uuid(F3E092B2-6BDC-410f-BCB2-4C5ED4424180)
+]
+module SpeechConstants
+{
+	const float Speech_Default_Weight = DEFAULT_WEIGHT;
+	const LONG Speech_Max_Word_Length = SP_MAX_WORD_LENGTH;
+	const LONG Speech_Max_Pron_Length = SP_MAX_PRON_LENGTH;
+	const LONG Speech_StreamPos_Asap = SP_STREAMPOS_ASAP;
+	const LONG Speech_StreamPos_RealTime = SP_STREAMPOS_REALTIME;
+	const LONG SpeechAllElements = SPPR_ALL_ELEMENTS;
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechDataKey               
+//  SAPI C++ Only Interface Equivalent: ISpDataKey Interface
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechDataKey
+{
+    DISPID_SDKSetBinaryValue = 1,
+    DISPID_SDKGetBinaryValue,
+    DISPID_SDKSetStringValue,
+    DISPID_SDKGetStringValue,
+    DISPID_SDKSetLongValue,
+    DISPID_SDKGetlongValue,
+    DISPID_SDKOpenKey,
+    DISPID_SDKCreateKey,
+    DISPID_SDKDeleteKey,
+    DISPID_SDKDeleteValue,
+    DISPID_SDKEnumKeys,
+    DISPID_SDKEnumValues
+} DISPID_SpeechDataKey;
+
+[
+    object,
+    uuid(CE17C09B-4EFA-44d5-A4C9-59D9585AB0CD),
+    dual,
+    helpstring("ISpeechDataKey Interface"),
+    pointer_default(unique)
+]
+interface ISpeechDataKey : IDispatch
+{
+    // Methods
+
+    // SetBinaryValue
+    //  SAPI C++ Only Interface Equivalent: SetData
+    //
+    [helpstring("SetBinaryValue"), id(DISPID_SDKSetBinaryValue)] 
+        HRESULT SetBinaryValue( [in]const BSTR ValueName, 
+                                [in]VARIANT Value );
+    
+    // GetBinaryValue
+    //  SAPI C++ Only Interface Equivalent: GetData
+    //
+    [helpstring("GetBinaryValue"), id(DISPID_SDKGetBinaryValue)] 
+        HRESULT GetBinaryValue( [in]const BSTR ValueName, 
+                                [out,retval]VARIANT* Value );
+    
+    // SetStringValue
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("SetStringValue"), id(DISPID_SDKSetStringValue)] 
+        HRESULT SetStringValue( [in]const BSTR ValueName, 
+                                [in]const BSTR Value );
+    
+    // GetStringValue
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("GetStringValue"), id(DISPID_SDKGetStringValue)] 
+        HRESULT GetStringValue( [in]const BSTR ValueName, 
+                                [out,retval]BSTR* Value );
+    
+    // SetLongValue
+    //  SAPI C++ Only Interface Equivalent: SetDWORD
+    //
+    [helpstring("SetLongValue"), id(DISPID_SDKSetLongValue)] 
+        HRESULT SetLongValue( [in]const BSTR ValueName, 
+                              [in]long Value );
+    
+    // GetLongValue
+    //  SAPI C++ Only Interface Equivalent: GetDWORD
+    //
+    [helpstring("GetlongValue"), id(DISPID_SDKGetlongValue)] 
+        HRESULT GetLongValue( [in]const BSTR ValueName, 
+                              [out,retval]long* Value );
+    
+    // OpenKey
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("OpenKey"), id(DISPID_SDKOpenKey)] 
+        HRESULT OpenKey( [in]const BSTR SubKeyName, [out,retval]ISpeechDataKey** SubKey );
+    
+    // CreateKey
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("CreateKey"), id(DISPID_SDKCreateKey)] 
+        HRESULT CreateKey( [in]const BSTR SubKeyName, [out,retval]ISpeechDataKey** SubKey );
+    
+    // DeleteKey
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("DeleteKey"), id(DISPID_SDKDeleteKey)] 
+        HRESULT DeleteKey( [in]const BSTR SubKeyName );
+    
+    // DeleteValue
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("DeleteValue"), id(DISPID_SDKDeleteValue)] 
+        HRESULT DeleteValue( [in]const BSTR ValueName );
+    
+    // EnumKeys
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("EnumKeys"), id(DISPID_SDKEnumKeys)] 
+        HRESULT EnumKeys( [in]long Index, [out,retval]BSTR* SubKeyName );
+    
+    // EnumValues
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("EnumValues"), id(DISPID_SDKEnumValues)] 
+        HRESULT EnumValues( [in]long Index, [out,retval]BSTR* ValueName );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechObjectToken               
+//  SAPI C++ Only Interface Equivalent: ISpObjectToken
+//  Default Property: Id
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechObjectToken
+{
+    DISPID_SOTId        = 1,
+    DISPID_SOTDataKey,
+    DISPID_SOTCategory,
+    DISPID_SOTGetDescription,
+    DISPID_SOTSetId,
+    DISPID_SOTGetAttribute,
+    DISPID_SOTCreateInstance,
+    DISPID_SOTRemove,
+    DISPID_SOTGetStorageFileName,
+    DISPID_SOTRemoveStorageFileName,
+    DISPID_SOTIsUISupported,
+    DISPID_SOTDisplayUI,
+    DISPID_SOTMatchesAttributes
+} DISPID_SpeechObjectToken;
+
+//////////////////////////////////
+//
+// SpeechDataKeyLocation Enum
+//  SAPI C++ Only Interface Equivalent: SPDATAKEYLOCATION
+//
+//////////////////////////////////
+
+typedef enum SpeechDataKeyLocation
+{
+    SDKLDefaultLocation = SPDKL_DefaultLocation,
+    SDKLCurrentUser = SPDKL_CurrentUser,
+    SDKLLocalMachine = SPDKL_LocalMachine,
+    SDKLCurrentConfig = SPDKL_CurrentConfig
+} SpeechDataKeyLocation;
+
+#define CLSCTXALL (CLSCTX_INPROC_SERVER | CLSCTX_INPROC_HANDLER | CLSCTX_LOCAL_SERVER | CLSCTX_REMOTE_SERVER)
+
+//////////////////////////////////
+//
+// SpeechTokenContext Enum
+//  SAPI C++ Only Interface Equivalent: N/A
+//
+//////////////////////////////////
+
+typedef enum SpeechTokenContext
+{
+    STCInprocServer     = CLSCTX_INPROC_SERVER, 
+    STCInprocHandler    = CLSCTX_INPROC_HANDLER, 
+    STCLocalServer      = CLSCTX_LOCAL_SERVER, 
+    STCRemoteServer     = CLSCTX_REMOTE_SERVER,
+    STCAll              = CLSCTXALL 
+} SpeechTokenContext;
+
+//////////////////////////////////
+//
+// SpeechTokenShellFolder Enum
+//  SAPI C++ Only Interface Equivalent: N/A
+//
+//////////////////////////////////
+
+// CSIDL_* symbols are from SHLOBJ.H
+typedef enum SpeechTokenShellFolder
+{
+    STSF_AppData            = 0x001a, // CSIDL_APPDATA,
+    STSF_LocalAppData       = 0x001c, // CSIDL_LOCAL_APPDATA
+    STSF_CommonAppData      = 0x0023, // CSIDL_COMMON_APPDATA
+    STSF_FlagCreate         = 0x8000  // CSIDL_FLAG_CREATE 
+} SpeechTokenShellFolder;
+
+[
+    object,
+    uuid(C74A3ADC-B727-4500-A84A-B526721C8B8C),
+    dual,
+    helpstring("ISpeechObjectToken Interface"),
+    pointer_default(unique)
+]
+interface ISpeechObjectToken : IDispatch
+{
+    //  Properties
+
+    // Id
+    //  SAPI C++ Only Interface Equivalent: GetId
+    //  Default: N/A
+    //
+    [propget, helpstring("Id"), id(DISPID_SOTId)] 
+        HRESULT Id( [out,retval]BSTR* ObjectId );
+
+    // DataKey
+    //  SAPI C++ Only Interface Equivalent: Inherited from ISpDataKey
+    //  Default: N/A
+    //
+    [propget, helpstring("DataKey"), id(DISPID_SOTDataKey), hidden] 
+        HRESULT DataKey( [out,retval]ISpeechDataKey** DataKey );
+    
+    // Category
+    //  SAPI C++ Only Interface Equivalent: GetCategory
+    //  Default: N/A
+    //
+    [propget, helpstring("Category"), id(DISPID_SOTCategory)] 
+        HRESULT Category( [out,retval]ISpeechObjectTokenCategory** Category);
+
+    //  Methods
+    
+    // GetDescription
+    //  SAPI C++ Only Interface Equivalent: New
+    //
+    [helpstring("GetDescription"), id(DISPID_SOTGetDescription)] 
+        HRESULT GetDescription( [in,defaultvalue(0)]long Locale, 
+                                [out,retval]BSTR* Description );
+    
+    // SetId
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("SetId"), hidden, id(DISPID_SOTSetId)] 
+        HRESULT SetId( [in] BSTR Id,
+                       [in, defaultvalue("")] BSTR CategoryID,
+                       [in, defaultvalue(0)]VARIANT_BOOL CreateIfNotExist);
+    
+    // GetAttribute
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("GetAttribute"), id(DISPID_SOTGetAttribute)] 
+        HRESULT GetAttribute( [in] BSTR AttributeName,
+                              [out, retval]BSTR* AttributeValue);
+    
+    // CreateInstance
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("CreateInstance"), id(DISPID_SOTCreateInstance)] 
+        HRESULT CreateInstance( [in, defaultvalue(NULL)] IUnknown *pUnkOuter, 
+                                [in,defaultvalue(STCAll)] SpeechTokenContext ClsContext,
+                                [out, retval]IUnknown **Object);
+    
+    // Remove
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("Remove"), hidden, id(DISPID_SOTRemove)] 
+        HRESULT Remove( [in]BSTR ObjectStorageCLSID );
+    
+    // GetStorageFileName
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("GetStorageFileName"), hidden, id(DISPID_SOTGetStorageFileName)] 
+        HRESULT GetStorageFileName( [in]BSTR ObjectStorageCLSID,
+                                    [in]BSTR KeyName,
+                                    [in]BSTR FileName,
+                                    [in]SpeechTokenShellFolder Folder,
+                                    [out,retval]BSTR* FilePath );
+    
+    // Remove
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("RemoveStorageFileName"), hidden, id(DISPID_SOTRemoveStorageFileName)] 
+        HRESULT RemoveStorageFileName( [in]BSTR ObjectStorageCLSID,
+                                       [in]BSTR KeyName,
+                                       [in]VARIANT_BOOL DeleteFile);
+    
+    // IsUISupported
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("IsUISupported"), hidden, id(DISPID_SOTIsUISupported)] 
+        HRESULT IsUISupported( [in]const BSTR TypeOfUI,
+                               [in, defaultvalue(NULL)]const VARIANT* ExtraData,
+                               [in, defaultvalue(NULL)]IUnknown* Object,
+                               [out,retval] VARIANT_BOOL *Supported );
+    
+    // DisplayUI
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("DisplayUI"), hidden, id(DISPID_SOTDisplayUI)] 
+        HRESULT DisplayUI( [in]long hWnd,
+                           [in]BSTR Title,
+                           [in]const BSTR TypeOfUI,
+                           [in, defaultvalue(NULL)]const VARIANT* ExtraData,
+                           [in, defaultvalue(NULL)]IUnknown* Object);
+    
+    // MatchesAttributes
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("MatchesAttributes"), id(DISPID_SOTMatchesAttributes)] 
+        HRESULT MatchesAttributes([in]BSTR Attributes, 
+                                  [out,retval] VARIANT_BOOL* Matches);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechObjectTokens               
+//  SAPI C++ Only Interface Equivalent: IEnumObjectTokens
+//  Default Property: Item
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechObjectTokens
+{
+    DISPID_SOTsCount    = 1,
+    DISPID_SOTsItem     = DISPID_VALUE,
+    DISPID_SOTs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechObjectTokens;
+
+[
+    object,
+    uuid(9285B776-2E7B-4bc0-B53E-580EB6FA967F),
+    dual,
+    helpstring("ISpeechObjectTokens Interface"),
+    pointer_default(unique)
+]
+interface ISpeechObjectTokens : IDispatch
+{
+    // Property
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent: GetCount
+    //
+    [propget, helpstring("Count"), id(DISPID_SOTsCount)] 
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("Item"), id(DISPID_VALUE)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechObjectToken** Token );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //
+    [propget, helpstring("Enumerates the tokens"), restricted, id(DISPID_NEWENUM)] 
+        HRESULT _NewEnum([out, retval] IUnknown** ppEnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechObjectTokenCategory               
+//
+//  SAPI C++ Only Interface Equivalent: ISpObjectTokenCategory
+//  Default Property: Id
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechObjectTokenCategory
+{
+    DISPID_SOTCId = 1,
+    DISPID_SOTCDefault,
+    DISPID_SOTCSetId,
+    DISPID_SOTCGetDataKey,
+    DISPID_SOTCEnumerateTokens,
+} DISPID_SpeechObjectTokenCategory;
+
+[
+    object,
+    uuid(CA7EAC50-2D01-4145-86D4-5AE7D70F4469),
+    dual,
+    helpstring("ISpeechObjectTokenCategory Interface"),
+    pointer_default(unique)
+]
+interface ISpeechObjectTokenCategory : IDispatch
+{
+    // Properties
+
+    // Id
+    //  SAPI C++ Only Interface Equivalent: GetId
+    //
+    [propget, helpstring("Id"), id(DISPID_SOTCId)]
+        HRESULT Id([out, retval] BSTR * Id);
+    
+    // Default
+    //  SAPI C++ Only Interface Equivalent: Set/GetDefaultTokenId
+    //
+    [propput, helpstring("Default"), id(DISPID_SOTCDefault)] 
+        HRESULT Default([in] const BSTR TokenId);
+    [propget, helpstring("Default"), id(DISPID_SOTCDefault)] 
+        HRESULT Default([out, retval] BSTR * TokenId);
+
+    // Methods
+
+    // SetId
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("SetId"), id(DISPID_SOTCSetId)]
+        HRESULT SetId([in] const BSTR Id, [in, defaultvalue(0)]VARIANT_BOOL CreateIfNotExist);
+    
+    // GetDataKey
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("GetDataKey"), hidden, id(DISPID_SOTCGetDataKey)]
+        HRESULT GetDataKey([in, defaultvalue(SDKLDefaultLocation)]SpeechDataKeyLocation Location, 
+                           [out, retval]ISpeechDataKey ** DataKey);
+    
+    // EnumerateTokens
+    //  SAPI C++ Only Interface Equivalent: EnumTokens
+    //
+    [helpstring("EnumerateTokens"), id(DISPID_SOTCEnumerateTokens)]
+        HRESULT EnumerateTokens( [in, defaultvalue("")]BSTR RequiredAttributes, 
+                                 [in, defaultvalue("")]BSTR OptionalAttributes, 
+                                 [out, retval]ISpeechObjectTokens** Tokens );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechAudioFormat               
+//  SAPI C++ Only Interface Equivalent: ISpStreamFormat
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////
+//
+// SpeechAudioFormatType
+//  SAPI C++ Only Interface Equivalent: SPSTREAMFORMAT
+//
+//////////////////////////////////
+
+typedef enum SpeechAudioFormatType {
+    [hidden] SAFTDefault = -1,
+    [hidden] SAFTNoAssignedFormat = 0,
+    [hidden] SAFTText,
+    [hidden] SAFTNonStandardFormat,     // Non-SAPI standard format with no WAVEFORMATEX description
+    [hidden] SAFTExtendedAudioFormat,   // Non-SAPI standard format but has WAVEFORMATEX description
+    // Standard PCM wave formats
+    SAFT8kHz8BitMono,
+    SAFT8kHz8BitStereo,
+    SAFT8kHz16BitMono,
+    SAFT8kHz16BitStereo,
+    SAFT11kHz8BitMono,
+    SAFT11kHz8BitStereo,
+    SAFT11kHz16BitMono,
+    SAFT11kHz16BitStereo,
+    SAFT12kHz8BitMono,
+    SAFT12kHz8BitStereo,
+    SAFT12kHz16BitMono,
+    SAFT12kHz16BitStereo,
+    SAFT16kHz8BitMono,
+    SAFT16kHz8BitStereo,
+    SAFT16kHz16BitMono,
+    SAFT16kHz16BitStereo,
+    SAFT22kHz8BitMono,
+    SAFT22kHz8BitStereo,
+    SAFT22kHz16BitMono,
+    SAFT22kHz16BitStereo,
+    SAFT24kHz8BitMono,
+    SAFT24kHz8BitStereo,
+    SAFT24kHz16BitMono,
+    SAFT24kHz16BitStereo,
+    SAFT32kHz8BitMono,
+    SAFT32kHz8BitStereo,
+    SAFT32kHz16BitMono,
+    SAFT32kHz16BitStereo,
+    SAFT44kHz8BitMono,
+    SAFT44kHz8BitStereo,
+    SAFT44kHz16BitMono,
+    SAFT44kHz16BitStereo,
+    SAFT48kHz8BitMono,
+    SAFT48kHz8BitStereo,
+    SAFT48kHz16BitMono,
+    SAFT48kHz16BitStereo,
+    // TrueSpeech format
+    SAFTTrueSpeech_8kHz1BitMono,
+    // A-Law formats
+    SAFTCCITT_ALaw_8kHzMono,
+    SAFTCCITT_ALaw_8kHzStereo,
+    SAFTCCITT_ALaw_11kHzMono,
+    SAFTCCITT_ALaw_11kHzStereo,
+    SAFTCCITT_ALaw_22kHzMono,
+    SAFTCCITT_ALaw_22kHzStereo,
+    SAFTCCITT_ALaw_44kHzMono,
+    SAFTCCITT_ALaw_44kHzStereo,
+    // u-Law formats
+    SAFTCCITT_uLaw_8kHzMono,
+    SAFTCCITT_uLaw_8kHzStereo,
+    SAFTCCITT_uLaw_11kHzMono,
+    SAFTCCITT_uLaw_11kHzStereo,
+    SAFTCCITT_uLaw_22kHzMono,
+    SAFTCCITT_uLaw_22kHzStereo,
+    SAFTCCITT_uLaw_44kHzMono,
+    SAFTCCITT_uLaw_44kHzStereo,
+    // ADPCM formats
+    SAFTADPCM_8kHzMono,
+    SAFTADPCM_8kHzStereo,
+    SAFTADPCM_11kHzMono,
+    SAFTADPCM_11kHzStereo,
+    SAFTADPCM_22kHzMono,
+    SAFTADPCM_22kHzStereo,
+    SAFTADPCM_44kHzMono,
+    SAFTADPCM_44kHzStereo,
+    // GSM 6.10 formats
+    SAFTGSM610_8kHzMono,
+    SAFTGSM610_11kHzMono,
+    SAFTGSM610_22kHzMono,
+    SAFTGSM610_44kHzMono,
+} SpeechAudioFormatType;
+
+typedef [hidden] enum DISPID_SpeechAudioFormat
+{
+    DISPID_SAFType = 1,
+    DISPID_SAFGuid,
+    DISPID_SAFGetWaveFormatEx,
+    DISPID_SAFSetWaveFormatEx
+} DISPID_SpeechAudioFormat;
+
+[
+    object,
+    uuid(E6E9C590-3E18-40e3-8299-061F98BDE7C7),
+    dual,
+    helpstring("ISpeechAudioFormat Interface"),
+    pointer_default(unique)
+]
+interface ISpeechAudioFormat : IDispatch {
+    // Properties
+
+    // Type  
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: GetFormat
+    //
+    [propget, helpstring("Type"), id(DISPID_SAFType)]
+        HRESULT Type([out,retval]SpeechAudioFormatType* AudioFormat);
+    [propput, helpstring("Type"), id(DISPID_SAFType)] 
+        HRESULT Type([in]SpeechAudioFormatType AudioFormat);
+
+    // Guid  
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: N/A (used to be parameter of GetFormat)
+    //
+    [propget, hidden, helpstring("Guid"), id(DISPID_SAFGuid)] 
+        HRESULT Guid([out,retval]BSTR* Guid);
+    [propput, hidden, helpstring("Guid"), id(DISPID_SAFGuid)] 
+        HRESULT Guid([in]BSTR Guid);
+
+    // Methods
+
+    // GetWaveFormatEx  
+    //  SAPI C++ Only Interface Equivalent: (used to be parameter of GetFormat)
+    //
+    [hidden, helpstring("GetWaveFormatEx"), id(DISPID_SAFGetWaveFormatEx)]
+        HRESULT GetWaveFormatEx([out,retval]ISpeechWaveFormatEx** SpeechWaveFormatEx);
+
+    // GetWaveFormatEx  
+    //  SAPI C++ Only Interface Equivalent: (used to be parameter of GetFormat)
+    //
+    [hidden, helpstring("SetWaveFormatEx"), id(DISPID_SAFSetWaveFormatEx)]
+        HRESULT SetWaveFormatEx([in]ISpeechWaveFormatEx* SpeechWaveFormatEx);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechBaseStream                
+//  SAPI C++ Only Interface Equivalent: ISpStreamFormat and IStream
+//  Default Property: Format
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechBaseStream
+{
+    DISPID_SBSFormat = 1,
+    DISPID_SBSRead,
+    DISPID_SBSWrite,
+    DISPID_SBSSeek
+} DISPID_SpeechBaseStream;
+
+//////////////////////////////////
+//
+// SpeechStreamSeekPositionType
+//  SAPI C++ Only Interface Equivalent: N/A
+//
+//////////////////////////////////
+
+typedef enum SpeechStreamSeekPositionType
+{
+    SSSPTRelativeToStart            = STREAM_SEEK_SET,
+    SSSPTRelativeToCurrentPosition  = STREAM_SEEK_CUR,
+    SSSPTRelativeToEnd              = STREAM_SEEK_END
+} SpeechStreamSeekPositionType;
+
+[
+    object,
+    uuid(6450336F-7D49-4ced-8097-49D6DEE37294),
+    dual,
+    helpstring("ISpeechBaseStream Interface"),
+    pointer_default(unique)
+]
+interface ISpeechBaseStream : IDispatch 
+{
+    // Properties
+
+    // Format
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //  Default: N/A
+    //
+    [propget, helpstring("Format"), id(DISPID_SBSFormat)] 
+        HRESULT Format([out,retval]ISpeechAudioFormat** AudioFormat);
+    [propputref, helpstring("Format"), id(DISPID_SBSFormat)] 
+        HRESULT Format([in]ISpeechAudioFormat* AudioFormat);
+    
+    // Methods
+
+    
+    // Read
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //
+    [helpstring("Read"), id(DISPID_SBSRead)] 
+        HRESULT Read([out]VARIANT* Buffer, [in]long NumberOfBytes, [out,retval]long* BytesRead);
+    
+    // Write
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //
+    [helpstring("Write"), id(DISPID_SBSWrite)]
+        HRESULT Write([in]VARIANT Buffer, [out,retval]long* BytesWritten);
+    
+    // Seek
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //
+    [helpstring("Seek"), id(DISPID_SBSSeek)]
+        HRESULT Seek([in]VARIANT Position, [in, defaultvalue(SSSPTRelativeToStart)]SpeechStreamSeekPositionType Origin, [out,retval]VARIANT* NewPosition);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechAudio               
+//  SAPI C++ Only Interface Equivalent: ISpAudio
+//  Default Property: Volume
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechAudio
+{
+    DISPID_SAStatus = 200,
+    DISPID_SABufferInfo,
+    DISPID_SADefaultFormat,
+    DISPID_SAVolume,
+    DISPID_SABufferNotifySize,
+    DISPID_SAEventHandle,
+    DISPID_SASetState
+} DISPID_SpeechAudio;
+
+//////////////////////////////////
+//
+// SpeechAudioState
+//  SAPI C++ Only Interface Equivalent: _SPAUDIOSTATE
+//
+//////////////////////////////////
+
+typedef enum SpeechAudioState
+{
+    SASClosed   = SPAS_CLOSED,
+    SASStop     = SPAS_STOP,
+    SASPause    = SPAS_PAUSE,
+    SASRun      = SPAS_RUN
+} SpeechAudioState;
+
+[
+    object,
+    uuid(CFF8E175-019E-11d3-A08E-00C04F8EF9B5),
+    dual,
+    helpstring("ISpeechAudio Interface"),
+    pointer_default(unique)
+]
+interface ISpeechAudio : ISpeechBaseStream
+{
+    // Properties
+
+    // Status
+    //  SAPI C++ Only Interface Equivalent: GetStatus
+    //  Default: N/A
+    //
+    [propget, helpstring("Status"), id(DISPID_SAStatus)] 
+        HRESULT Status([out,retval]ISpeechAudioStatus** Status);
+    
+    // BufferInfo
+    //  SAPI C++ Only Interface Equivalent: GetBufferInfo
+    //  Default: N/A
+    //
+    [propget, helpstring("BufferInfo"), id(DISPID_SABufferInfo)] 
+        HRESULT BufferInfo([out,retval]ISpeechAudioBufferInfo** BufferInfo);
+    
+    // DefaultFormat
+    //  SAPI C++ Only Interface Equivalent: GetDefaultFormat
+    //  Default: N/A
+    //
+    [propget, helpstring("DefaultFormat"), id(DISPID_SADefaultFormat)] 
+        HRESULT DefaultFormat([out,retval]ISpeechAudioFormat** StreamFormat);
+    
+    // Volume
+    //  SAPI C++ Only Interface Equivalent: GetVolumeLevel 
+    //  Default: N/A
+    //
+    [propget, helpstring("Volume"), id(DISPID_SAVolume)] 
+        HRESULT Volume([out,retval]long* Volume);
+    [propput, helpstring("Volume"), id(DISPID_SAVolume)] 
+        HRESULT Volume([in]long Volume);
+    
+    // BufferNotifySize
+    //  SAPI C++ Only Interface Equivalent: GetBufferNotifySize 
+    //  Default: N/A
+    //
+    [propget, helpstring("BufferNotifySize"), id(DISPID_SABufferNotifySize)] 
+        HRESULT BufferNotifySize([out,retval]long* BufferNotifySize);
+    [propput, helpstring("BufferNotifySize"), id(DISPID_SABufferNotifySize)] 
+        HRESULT BufferNotifySize([in]long BufferNotifySize);
+    
+    // EventHandle
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, hidden, helpstring("EventHandle"), id(DISPID_SAEventHandle)] 
+        HRESULT EventHandle([out,retval]long* EventHandle);
+
+    // Methods 
+
+    // SetState
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("SetState"), id(DISPID_SASetState), hidden]
+        HRESULT SetState([in] SpeechAudioState State);
+
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechMMSysAudio               
+//  SAPI C++ Only Interface Equivalent: ISpMMSysAudio
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechMMSysAudio
+{
+    DISPID_SMSADeviceId = 300,
+    DISPID_SMSALineId,
+    DISPID_SMSAMMHandle
+} DISPID_SpeechMMSysAudio;
+
+[
+    object,
+    uuid(3C76AF6D-1FD7-4831-81D1-3B71D5A13C44),
+    dual,
+    helpstring("ISpeechMMSysAudio Interface"),
+    pointer_default(unique)
+]
+interface ISpeechMMSysAudio : ISpeechAudio 
+{
+    // Properties
+
+    // DeviceId
+    //  SAPI C++ Only Interface Equivalent: Get/SetDeviceId 
+    //  Default: N/A
+    //
+    [propget, helpstring("DeviceId"), id(DISPID_SMSADeviceId)]
+        HRESULT DeviceId([out, retval] long* DeviceId);
+    [propput, helpstring("DeviceId"), id(DISPID_SMSADeviceId)]
+        HRESULT DeviceId([in] long DeviceId);
+    
+    // LineId
+    //  SAPI C++ Only Interface Equivalent: Get/SetLineId 
+    //  Default: N/A
+    //
+    [propget, helpstring("LineId"), id(DISPID_SMSALineId)]
+        HRESULT LineId([out, retval] long* LineId);
+    [propput, helpstring("LineId"), id(DISPID_SMSALineId)]
+        HRESULT LineId([in] long LineId);
+    
+    // MMHandle
+    //  SAPI C++ Only Interface Equivalent: GetMMHandle 
+    //  Default: N/A
+    //
+    [propget, hidden, helpstring("MMHandle"), id(DISPID_SMSAMMHandle)] 
+        HRESULT MMHandle([out, retval] long* Handle);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechFileStream
+//  SAPI C++ Only Interface Equivalent: ISpStream
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechFileStream
+{
+    DISPID_SFSOpen = 100,
+    DISPID_SFSClose
+} DISPID_SpeechFileStream;
+
+//////////////////////////////////
+//
+// SpeechStreamFileMode Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+//////////////////////////////////
+
+typedef enum SpeechStreamFileMode
+{
+    SSFMOpenForRead = SPFM_OPEN_READONLY,      // Open existing file, read-only. 
+    [hidden] SSFMOpenReadWrite = SPFM_OPEN_READWRITE,    // (Not supported for wav files) Open existing file, read-write. 
+    [hidden] SSFMCreate = SPFM_CREATE,                   // (Not supported for wav files) Open file if exists, else create if does not exist (opens read-write) 
+    SSFMCreateForWrite = SPFM_CREATE_ALWAYS,      // Create file even if file exists.  Destroys old file.
+} SpeechStreamFileMode;
+
+[
+    object,
+    uuid(AF67F125-AB39-4e93-B4A2-CC2E66E182A7),
+    dual,
+    helpstring("ISpeechFileStream Interface"),
+    pointer_default(unique)
+]
+interface ISpeechFileStream : ISpeechBaseStream
+{
+    // Properties
+
+    // Methods
+
+    // Open
+    //  SAPI C++ Only Interface Equivalent: BindToFile 
+    //  Default: N/A
+    //
+    [helpstring("Open"), id(DISPID_SFSOpen)] 
+        HRESULT Open([in] BSTR FileName,
+                     [in, defaultvalue(SSFMOpenForRead)] SpeechStreamFileMode FileMode,
+                     [in, defaultvalue(0)]VARIANT_BOOL DoEvents);
+    
+    // Close
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [helpstring("Close"), id(DISPID_SFSClose)] 
+        HRESULT Close(void);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechCustomStream
+//  SAPI C++ Only Interface Equivalent: ISpStream
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechCustomStream
+{
+    DISPID_SCSBaseStream = 100
+} DISPID_SpeechCustomStream;
+
+
+[
+    object,
+    uuid(1A9E9F4F-104F-4db8-A115-EFD7FD0C97AE),
+    dual,
+    helpstring("ISpeechCustomStream Interface"),
+    pointer_default(unique)
+]
+interface ISpeechCustomStream : ISpeechBaseStream
+{
+    // Properties
+
+    // BaseStream
+    //  SAPI C++ Only Interface Equivalent: ISpStream::Get/SetBaseStream
+    //  Default: N/A
+    //
+    [propget, helpstring("BaseStream"), id(DISPID_SCSBaseStream)] 
+        HRESULT BaseStream([out, retval] IUnknown **ppUnkStream);
+    [propputref, helpstring("BaseStream"), id(DISPID_SCSBaseStream)] 
+        HRESULT BaseStream([in] IUnknown *pUnkStream);
+    
+    // Methods
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechMemoryStream
+//  SAPI C++ Only Interface Equivalent: ISpStream
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechMemoryStream
+{
+    DISPID_SMSSetData = 100,
+    DISPID_SMSGetData
+} DISPID_SpeechMemoryStream;
+
+[
+    object,
+    uuid(EEB14B68-808B-4abe-A5EA-B51DA7588008),
+    dual,
+    helpstring("ISpeechMemoryStream Interface"),
+    pointer_default(unique)
+]
+interface ISpeechMemoryStream : ISpeechBaseStream
+{
+    // Properties
+
+    // Methods
+
+    // SetData
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //
+    [helpstring("SetData"), id(DISPID_SMSSetData)] 
+        HRESULT SetData([in] VARIANT Data);
+    
+    // GetData
+    //  SAPI C++ Only Interface Equivalent: N/A
+    //
+    [helpstring("GetData"), id(DISPID_SMSGetData)] 
+        HRESULT GetData([out, retval] VARIANT* pData);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechAudioStatus                 
+//  SAPI C++ Only Interface Equivalent: SPAUDIOSTATUS Struct
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechAudioStatus
+{
+    DISPID_SASFreeBufferSpace = 1,
+    DISPID_SASNonBlockingIO,
+    DISPID_SASState,
+    DISPID_SASCurrentSeekPosition,
+    DISPID_SASCurrentDevicePosition
+} DISPID_SpeechAudioStatus;
+
+[
+    object,
+    uuid(C62D9C91-7458-47f6-862D-1EF86FB0B278),
+    dual,
+    helpstring("ISpeechAudioStatus Interface"),
+    pointer_default(unique)
+]
+interface ISpeechAudioStatus : IDispatch 
+{
+    // Properties
+
+    // FreeBufferSpace
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("FreeBufferSpace"), id(DISPID_SASFreeBufferSpace)] 
+        HRESULT FreeBufferSpace([out,retval]long* FreeBufferSpace);
+    
+    // NonBlockingIO
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("NonBlockingIO"), id(DISPID_SASNonBlockingIO)]
+        HRESULT NonBlockingIO([out,retval]long* NonBlockingIO);
+    
+    // State
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("State"), id(DISPID_SASState)] 
+        HRESULT State([out, retval] SpeechAudioState * State);
+    
+    // CurrentSeekPosition
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("CurrentSeekPosition"), id(DISPID_SASCurrentSeekPosition)]
+        HRESULT CurrentSeekPosition([out,retval]VARIANT* CurrentSeekPosition);
+    
+    // CurrentDevicePosition
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("CurrentDevicePosition"), id(DISPID_SASCurrentDevicePosition)]
+        HRESULT CurrentDevicePosition([out,retval]VARIANT* CurrentDevicePosition);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  ISpeechAudioBufferInfo               
+//  P3. We're not sure what this is for. Should be hidden?
+//  SAPI C++ Only Interface Equivalent: SPAUDIOBUFFERINFO Struct
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechAudioBufferInfo
+{
+    DISPID_SABIMinNotification = 1,
+    DISPID_SABIBufferSize,
+    DISPID_SABIEventBias
+} DISPID_SpeechAudioBufferInfo;
+
+[
+    object,
+    uuid(11B103D8-1142-4edf-A093-82FB3915F8CC),
+    dual,
+    helpstring("ISpeechAudioBufferInfo Interface"),
+    pointer_default(unique)
+]
+interface ISpeechAudioBufferInfo : IDispatch 
+{
+    // Properties
+
+    // MinNotification
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("MinNotification"), id(DISPID_SABIMinNotification)]
+        HRESULT  MinNotification([out,retval]long* MinNotification);
+    [propput, helpstring("MinNotification"), id(DISPID_SABIMinNotification)]
+        HRESULT  MinNotification([in]long MinNotification);
+    
+    // BufferSize
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("BufferSize"), id(DISPID_SABIBufferSize)]
+        HRESULT  BufferSize([out,retval]long* BufferSize);
+    [propput, helpstring("BufferSize"), id(DISPID_SABIBufferSize)]
+        HRESULT  BufferSize([in]long BufferSize);
+    
+    // EventBias
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("EventBias"), id(DISPID_SABIEventBias)]
+        HRESULT  EventBias([out,retval]long* EventBias);
+    [propput, helpstring("EventBias"), id(DISPID_SABIEventBias)]
+        HRESULT  EventBias([in]long EventBias);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechWaveFormatEx
+//  SAPI C++ Only Interface Equivalent:  WAVEFORMATEX Struct
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechWaveFormatEx
+{
+    DISPID_SWFEFormatTag = 1,
+    DISPID_SWFEChannels,
+    DISPID_SWFESamplesPerSec,
+    DISPID_SWFEAvgBytesPerSec,
+    DISPID_SWFEBlockAlign,
+    DISPID_SWFEBitsPerSample,
+    DISPID_SWFEExtraData
+} DISPID_SpeechWaveFormatEx;
+
+[
+    object,
+    uuid(7A1EF0D5-1581-4741-88E4-209A49F11A10),
+    dual,
+    helpstring("ISpeechWaveFormatEx Interface"),
+    pointer_default(unique)
+]
+interface ISpeechWaveFormatEx : IDispatch
+{
+    // Properties
+    
+    // FormatTag
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("FormatTag"), id(DISPID_SWFEFormatTag)] 
+        HRESULT FormatTag([out,retval]short* FormatTag);
+    [propput, helpstring("FormatTag"), id(DISPID_SWFEFormatTag)] 
+        HRESULT FormatTag([in]short FormatTag);
+    
+    // Channels
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("Channels"), id(DISPID_SWFEChannels)] 
+        HRESULT Channels([out,retval]short* Channels);
+    [propput, helpstring("Channels"), id(DISPID_SWFEChannels)] 
+        HRESULT Channels([in]short Channels);
+    
+    // SamplesPerSec
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("SamplesPerSec"), id(DISPID_SWFESamplesPerSec)] 
+        HRESULT SamplesPerSec([out,retval]long* SamplesPerSec);
+    [propput, helpstring("SamplesPerSec"), id(DISPID_SWFESamplesPerSec)] 
+        HRESULT SamplesPerSec([in]long SamplesPerSec);
+    
+    // AvgBytesPerSec
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("AvgBytesPerSec"), id(DISPID_SWFEAvgBytesPerSec)] 
+        HRESULT AvgBytesPerSec([out,retval]long* AvgBytesPerSec);
+    [propput, helpstring("AvgBytesPerSec"), id(DISPID_SWFEAvgBytesPerSec)] 
+        HRESULT AvgBytesPerSec([in]long AvgBytesPerSec);
+    
+    // BlockAlign
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("BlockAlign"), id(DISPID_SWFEBlockAlign)] 
+        HRESULT BlockAlign([out,retval]short* BlockAlign);
+    [propput, helpstring("BlockAlign"), id(DISPID_SWFEBlockAlign)] 
+        HRESULT BlockAlign([in]short BlockAlign);
+    
+    // BitsPerSample
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("BitsPerSample"), id(DISPID_SWFEBitsPerSample)] 
+        HRESULT BitsPerSample([out,retval]short* BitsPerSample);
+    [propput, helpstring("BitsPerSample"), id(DISPID_SWFEBitsPerSample)] 
+        HRESULT BitsPerSample([in]short BitsPerSample);
+    
+    // ExtraData
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: N/A
+    //
+    [propget, helpstring("ExtraData"), id(DISPID_SWFEExtraData)] 
+        HRESULT ExtraData([out,retval]VARIANT* ExtraData);
+    [propput, helpstring("ExtraData"), id(DISPID_SWFEExtraData)] 
+        HRESULT ExtraData([in]VARIANT ExtraData);
+} 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechVoice               
+//  SAPI C++ Only Interface Equivalent: ISpVoice
+//  Default Property: Speak
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechVoice
+{
+    DISPID_SVStatus = 1,
+    DISPID_SVVoice,
+    DISPID_SVAudioOutput,
+    DISPID_SVAudioOutputStream,
+    DISPID_SVRate,
+    DISPID_SVVolume,
+    DISPID_SVAllowAudioOuputFormatChangesOnNextSet,
+    DISPID_SVEventInterests,
+    DISPID_SVPriority,
+    DISPID_SVAlertBoundary, 
+    DISPID_SVSyncronousSpeakTimeout,
+    DISPID_SVSpeak,
+    DISPID_SVSpeakStream,
+    DISPID_SVPause,
+    DISPID_SVResume,
+    DISPID_SVSkip,
+    DISPID_SVGetVoices,
+    DISPID_SVGetAudioOutputs,
+    DISPID_SVWaitUntilDone,
+    DISPID_SVSpeakCompleteEvent,
+    DISPID_SVIsUISupported,
+    DISPID_SVDisplayUI
+} DISPID_SpeechVoice;
+
+//////////////////////////////////
+//
+//  SpeechVoicePriority Enum
+//  SAPI C++ Only Interface Equivalent: SPVPRIORITY
+//
+//////////////////////////////////
+
+typedef enum SpeechVoicePriority
+{
+    SVPNormal = SPVPRI_NORMAL,
+    SVPAlert  = SPVPRI_ALERT,
+    SVPOver   = SPVPRI_OVER
+} SpeechVoicePriority;
+
+//////////////////////////////////
+//
+//  SpeechVoiceSpeakFlags Enum
+//  SAPI C++ Only Interface Equivalent: SPEAKFLAGS
+//
+//////////////////////////////////
+
+typedef enum SpeechVoiceSpeakFlags
+{
+    //--- SpeechVoice flags
+    SVSFDefault          = SPF_DEFAULT,
+    SVSFlagsAsync        = SPF_ASYNC,
+    SVSFPurgeBeforeSpeak = SPF_PURGEBEFORESPEAK,
+    SVSFIsFilename       = SPF_IS_FILENAME,
+    SVSFIsXML            = SPF_IS_XML,
+    SVSFIsNotXML         = SPF_IS_NOT_XML,
+    SVSFPersistXML       = SPF_PERSIST_XML,
+
+    //--- Normalizer flags
+    SVSFNLPSpeakPunc     = SPF_NLP_SPEAK_PUNC,
+
+#if _SAPI_BUILD_VER >= 0x053
+	//--- TTS Format 
+	SVSFParseSapi		 = SPF_PARSE_SAPI,
+	SVSFParseSsml		 = SPF_PARSE_SSML,
+	SVSFParseAutodetect	 = SPF_PARSE_AUTODETECT,
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    //--- Masks
+    SVSFNLPMask          = SPF_NLP_MASK,
+#if _SAPI_BUILD_VER >= 0x053
+	SVSFParseMask		 = SPF_PARSE_MASK,
+#endif // _SAPI_BUILD_VER >= 0x053
+    SVSFVoiceMask        = SPF_VOICE_MASK,
+    SVSFUnusedFlags      = SPF_UNUSED_FLAGS,
+
+} SpeechVoiceSpeakFlags;
+
+//////////////////////////////////
+//
+//  SpeechVoiceEvents Enum
+//  SAPI C++ Only Interface Equivalent: N/A 
+//
+//////////////////////////////////
+
+typedef enum SpeechVoiceEvents
+{
+    SVEStartInputStream    = (1L << 1),
+    SVEEndInputStream      = (1L << 2),
+    SVEVoiceChange         = (1L << 3),
+    SVEBookmark            = (1L << 4),
+    SVEWordBoundary        = (1L << 5),
+    SVEPhoneme             = (1L << 6),
+    SVESentenceBoundary    = (1L << 7),
+    SVEViseme              = (1L << 8),
+    SVEAudioLevel          = (1L << 9),
+	SVEPrivate             = (1L << 15),
+    SVEAllEvents           = 0x083FE      // All TTS events on.
+} SpeechVoiceEvents;
+
+[
+    object,
+    uuid(269316D8-57BD-11D2-9EEE-00C04F797396),
+    dual,
+    helpstring("ISpeechVoice Interface"),
+    pointer_default(unique)
+]
+interface ISpeechVoice : IDispatch
+{
+    // Status
+    //  SAPI C++ Only Interface Equivalent: GetStatus
+    //  Default: 
+    //
+    [propget, helpstring("Status"), id(DISPID_SVStatus)] 
+        HRESULT Status([out, retval] ISpeechVoiceStatus** Status);
+    
+    // Voice
+    //  SAPI C++ Only Interface Equivalent: Get/SetVoice
+    //  Default: 
+    //
+    [propget, helpstring("Voice"), id(DISPID_SVVoice)] 
+        HRESULT Voice([out, retval] ISpeechObjectToken** Voice );
+    [propputref, helpstring("Voice"), id(DISPID_SVVoice)] 
+        HRESULT Voice([in]ISpeechObjectToken * Voice );
+    
+    // AudioOutput
+    //  SAPI C++ Only Interface Equivalent: GetOutputObjectTokens/SetOutput
+    //  Default: 
+    //
+    [propget, helpstring("Gets the audio output object"), id(DISPID_SVAudioOutput)]  
+        HRESULT AudioOutput([out, retval]ISpeechObjectToken** AudioOutput);
+    [propputref, helpstring("Sets the audio output object"), id(DISPID_SVAudioOutput)] 
+        HRESULT AudioOutput([in]ISpeechObjectToken* AudioOutput);
+    
+    // AudioOutputStream
+    //  SAPI C++ Only Interface Equivalent: GetOutputStream/SetOutput
+    //  Default: 
+    //
+    [propget, helpstring("Gets the audio output stream"), id(DISPID_SVAudioOutputStream)]  
+        HRESULT AudioOutputStream([out, retval]ISpeechBaseStream** AudioOutputStream);
+    [propputref, helpstring("Sets the audio output stream"), id(DISPID_SVAudioOutputStream)] 
+        HRESULT AudioOutputStream([in]ISpeechBaseStream* AudioOutputStream);
+    
+    // Rate
+    //  SAPI C++ Only Interface Equivalent: Get/SetRate
+    //  Default: 
+    //
+    [propget, helpstring("Rate"), id(DISPID_SVRate)] 
+        HRESULT Rate([out, retval] long* Rate);
+    [propput, helpstring("Rate"), id(DISPID_SVRate)] 
+        HRESULT Rate([in] long Rate);
+    
+    // Volume
+    //  SAPI C++ Only Interface Equivalent: Get/SetVolume
+    //  Default: 
+    //
+    [propget, helpstring("Volume"), id(DISPID_SVVolume)] 
+        HRESULT Volume([out, retval] long* Volume);
+    [propput, helpstring("Volume"), id(DISPID_SVVolume)] 
+        HRESULT Volume([in] long Volume);
+    
+    // AllowAudioOutputFormatChangesOnNextSet
+    //  SAPI C++ Only Interface Equivalent: N/A (used to be parameter of SetOutput)
+    //  Default: 
+    //
+    [propput, hidden, helpstring("AllowAudioOutputFormatChangesOnNextSet"), id(DISPID_SVAllowAudioOuputFormatChangesOnNextSet)] 
+        HRESULT AllowAudioOutputFormatChangesOnNextSet([in] VARIANT_BOOL Allow );
+    [propget, hidden, helpstring("AllowAudioOutputFormatChangesOnNextSet"), id(DISPID_SVAllowAudioOuputFormatChangesOnNextSet)] 
+        HRESULT AllowAudioOutputFormatChangesOnNextSet([out,retval] VARIANT_BOOL* Allow );
+    
+    // EventInterests
+    //  SAPI C++ Only Interface Equivalent: ISpEventSink::GetEventInterests
+    //  Default: 
+    //
+    [propget, helpstring("EventInterests"), id(DISPID_SVEventInterests)] 
+        HRESULT EventInterests([out,retval] SpeechVoiceEvents* EventInterestFlags);
+    [propput, helpstring("EventInterests"), id(DISPID_SVEventInterests)] 
+        HRESULT EventInterests([in] SpeechVoiceEvents EventInterestFlags);
+    
+    // Priority
+    //  SAPI C++ Only Interface Equivalent: Get/SetPriority
+    //  Default: 
+    //
+    [propput, helpstring("Priority"), id(DISPID_SVPriority)] 
+        HRESULT Priority([in] SpeechVoicePriority Priority );
+    [propget, helpstring("Priority"), id(DISPID_SVPriority)] 
+        HRESULT Priority([out,retval] SpeechVoicePriority* Priority );
+    
+    // AlertBoundary
+    //  SAPI C++ Only Interface Equivalent: Get/SetAlertBoundary
+    //  Default: 
+    //
+    [propput, helpstring("AlertBoundary"), id(DISPID_SVAlertBoundary)] 
+        HRESULT AlertBoundary( [in] SpeechVoiceEvents Boundary );
+    [propget, helpstring("AlertBoundary"), id(DISPID_SVAlertBoundary)] 
+        HRESULT AlertBoundary( [out,retval] SpeechVoiceEvents* Boundary );
+    
+    // SyncSpeakTimeout
+    //  SAPI C++ Only Interface Equivalent: Get/SetSyncSpeakTimeout
+    //  Default: 
+    //
+    [propput, helpstring("SyncSpeakTimeout"), id(DISPID_SVSyncronousSpeakTimeout)] 
+        HRESULT SynchronousSpeakTimeout([in] long msTimeout );
+    [propget, helpstring("SyncSpeakTimeout"), id(DISPID_SVSyncronousSpeakTimeout)] 
+        HRESULT SynchronousSpeakTimeout([out,retval] long* msTimeout );
+
+    //  Methods
+    
+    // Speak
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("Speak"), id(DISPID_SVSpeak)] 
+        HRESULT Speak( [in] BSTR Text,
+                       [in, defaultvalue(SPF_DEFAULT)] SpeechVoiceSpeakFlags Flags,
+                       [out, retval]long* StreamNumber );
+    
+    // SpeakStream
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("SpeakStream"), id(DISPID_SVSpeakStream)] 
+        HRESULT SpeakStream( [in] ISpeechBaseStream* Stream,
+                             [in, defaultvalue(SPF_DEFAULT)] SpeechVoiceSpeakFlags Flags,
+                             [out, retval]long* StreamNumber );
+    
+    // Pause
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("Pauses the voices rendering."), id(DISPID_SVPause)] 
+        HRESULT Pause( void );
+    
+    // Resume
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("Resumes the voices rendering."), id(DISPID_SVResume)] 
+        HRESULT Resume( void );
+    
+    // Skip
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("Skips rendering the specified number of items."), id(DISPID_SVSkip)] 
+        HRESULT Skip( [in]const BSTR Type, [in]long NumItems, [out,retval]long* NumSkipped );
+    
+    // GetVoices
+    //  SAPI C++ Only Interface Equivalent: IEnumSpObjectTokens
+    //
+    [helpstring("GetVoices"), id(DISPID_SVGetVoices)] 
+        HRESULT GetVoices([in, defaultvalue("")]BSTR RequiredAttributes, 
+                          [in, defaultvalue("")]BSTR OptionalAttributes, 
+                          [out,retval]ISpeechObjectTokens** ObjectTokens );
+    
+    // GetAudioOutputs
+    //  SAPI C++ Only Interface Equivalent: IEnumSpObjectTokens
+    //
+    [helpstring("GetAudioOutputs"), id(DISPID_SVGetAudioOutputs)] 
+        HRESULT GetAudioOutputs([in, defaultvalue("")]BSTR RequiredAttributes, 
+                                [in, defaultvalue("")]BSTR OptionalAttributes, 
+                                [out,retval]ISpeechObjectTokens** ObjectTokens );
+    
+    // WaitUntilDone
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("WaitUntilDone"), id(DISPID_SVWaitUntilDone)] 
+        HRESULT WaitUntilDone([in]long msTimeout, [out,retval]VARIANT_BOOL * Done);
+    
+    // SpeakCompleteEvent
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("SpeakCompleteEvent"), hidden, id(DISPID_SVSpeakCompleteEvent)] 
+        HRESULT SpeakCompleteEvent([out,retval]long* Handle);
+    
+    // IsUISupported
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("IsUISupported"), id(DISPID_SVIsUISupported)] 
+        HRESULT IsUISupported( [in]const BSTR TypeOfUI,
+                               [in, defaultvalue(NULL)]const VARIANT* ExtraData,
+                               [out,retval] VARIANT_BOOL* Supported );
+    
+    // DisplayUI
+    //  SAPI C++ Only Interface Equivalent: Same
+    //
+    [helpstring("DisplayUI"), id(DISPID_SVDisplayUI)] 
+        HRESULT DisplayUI( [in]long hWndParent, 
+                           [in]BSTR Title,
+                           [in]const BSTR TypeOfUI,
+                           [in, defaultvalue(NULL)]const VARIANT* ExtraData);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  ISpeechVoiceStatus              
+//  SAPI C++ Only Interface Equivalent: SPVOICESTATUS Struct
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechVoiceStatus
+{
+    DISPID_SVSCurrentStreamNumber   = 1,
+    DISPID_SVSLastStreamNumberQueued,
+    DISPID_SVSLastResult,
+    DISPID_SVSRunningState,
+    DISPID_SVSInputWordPosition,
+    DISPID_SVSInputWordLength,
+    DISPID_SVSInputSentencePosition,
+    DISPID_SVSInputSentenceLength,
+    DISPID_SVSLastBookmark,
+    DISPID_SVSLastBookmarkId, 
+    DISPID_SVSPhonemeId,
+    DISPID_SVSVisemeId
+} DISPID_SpeechVoiceStatus;
+
+//////////////////////////////////
+//
+//  SpeechRunState Enum
+//  SAPI C++ Only Interface Equivalent: SPRUNSTATE 
+//
+//////////////////////////////////
+
+typedef enum SpeechRunState
+{
+    SRSEDone        = SPRS_DONE,        // The voice is done rendering all queued phrases
+    SRSEIsSpeaking  = SPRS_IS_SPEAKING  // The SpVoice currently has the audio queue claimed
+} SpeechRunState;
+
+[
+    object,
+    uuid(8BE47B07-57F6-11d2-9EEE-00C04F797396),
+    dual,
+    helpstring("ISpeechVoiceStatus Interface"),
+    pointer_default(unique)
+]
+interface ISpeechVoiceStatus : IDispatch
+{
+    // CurrentStream
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("CurrentStreamNumber"), id(DISPID_SVSCurrentStreamNumber)] 
+        HRESULT CurrentStreamNumber([out, retval] long* StreamNumber);
+    
+    // LastStreamNumberQueued
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("LastStreamNumberQueued"), id(DISPID_SVSLastStreamNumberQueued)] 
+        HRESULT LastStreamNumberQueued([out, retval] long* StreamNumber);
+    
+    // LastHResult
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("LastHResult"), id(DISPID_SVSLastResult)] 
+        HRESULT LastHResult([out, retval]long* HResult);
+    
+    // RunningState
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("RunningState"), id(DISPID_SVSRunningState)] 
+        HRESULT RunningState([out, retval] SpeechRunState* State);
+    
+    // InputWordPosition
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("InputWordPosition"), id(DISPID_SVSInputWordPosition)] 
+        HRESULT InputWordPosition([out, retval] long* Position);
+    
+    // InputWordLength
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("InputWordLength"), id(DISPID_SVSInputWordLength)] 
+        HRESULT InputWordLength([out, retval] long* Length);
+    
+    // InputSentencePosition
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("InputSentencePosition"), id(DISPID_SVSInputSentencePosition)] 
+        HRESULT InputSentencePosition([out, retval] long* Position);
+    
+    // InputSentenceLength
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("InputSentenceLength"), id(DISPID_SVSInputSentenceLength)] 
+        HRESULT InputSentenceLength([out, retval] long* Length);
+    
+    // LastBookmark
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("LastBookmark"), id(DISPID_SVSLastBookmark)]
+        HRESULT LastBookmark([out, retval] BSTR* Bookmark);
+    
+    // LastBookmarkId
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("LastBookmarkId"), id(DISPID_SVSLastBookmarkId), hidden] 
+        HRESULT LastBookmarkId([out, retval] long* BookmarkId);
+    
+    // PhonemeId
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("PhonemeId"), id(DISPID_SVSPhonemeId)] 
+        HRESULT PhonemeId([out, retval] short* PhoneId);
+    
+    // VisemeId
+    //  SAPI C++ Only Interface Equivalent: Same
+    //  Default: 
+    //
+    [propget, helpstring("VisemeId"), id(DISPID_SVSVisemeId)] 
+        HRESULT VisemeId([out, retval] short* VisemeId);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// _ISpeechVoiceEvents               
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////
+//
+// SpeechVisemeType Enum
+//  SAPI C++ Only Interface Equivalent: SPVISEMES
+//
+//////////////////////////////////
+
+typedef enum SpeechVisemeType
+{
+                        // English example
+    SVP_0 = 0,    // silence
+    SVP_1,        // ae, ax, ah
+    SVP_2,        // aa
+    SVP_3,        // ao
+    SVP_4,        // ey, eh, uh
+    SVP_5,        // er
+    SVP_6,        // y, iy, ih, ix
+    SVP_7,        // w, uw
+    SVP_8,        // ow
+    SVP_9,        // aw
+    SVP_10,       // oy
+    SVP_11,       // ay
+    SVP_12,       // h
+    SVP_13,       // r
+    SVP_14,       // l
+    SVP_15,       // s, z
+    SVP_16,       // sh, ch, jh, zh
+    SVP_17,       // th, dh
+    SVP_18,       // f, v
+    SVP_19,       // d, t, n
+    SVP_20,       // k, g, ng
+    SVP_21,       // p, b, m 
+} SpeechVisemeType ;
+
+//////////////////////////////////
+//
+// SpeechVisemeFeature Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+//////////////////////////////////
+
+typedef enum SpeechVisemeFeature
+{
+    SVF_None     = 0,
+    SVF_Stressed = SPVFEATURE_STRESSED,
+    SVF_Emphasis = SPVFEATURE_EMPHASIS
+} SpeechVisemeFeature;
+
+typedef [hidden] enum DISPID_SpeechVoiceEvent
+{
+    DISPID_SVEStreamStart = 1,
+    DISPID_SVEStreamEnd,
+    DISPID_SVEVoiceChange,
+    DISPID_SVEBookmark,
+    DISPID_SVEWord,
+    DISPID_SVEPhoneme,
+    DISPID_SVESentenceBoundary,
+    DISPID_SVEViseme,
+    DISPID_SVEAudioLevel,
+    DISPID_SVEEnginePrivate
+} DISPID_SpeechVoiceEvent;
+
+[
+    uuid(A372ACD1-3BEF-4bbd-8FFB-CB3E2B416AF8)
+]
+dispinterface _ISpeechVoiceEvents
+{
+    properties:
+    methods:
+
+    // StartStream
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("StartStream"), id(DISPID_SVEStreamStart)]
+        void StartStream([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // EndStream
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("EndStream"), id(DISPID_SVEStreamEnd)]
+        void EndStream([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // VoiceChange
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("VoiceChange"), id(DISPID_SVEVoiceChange)]
+        void VoiceChange([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition, 
+                          [in]ISpeechObjectToken* VoiceObjectToken);
+    
+    // Bookmark
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Bookmark"), id(DISPID_SVEBookmark)]
+        void Bookmark([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition, 
+                          [in]BSTR Bookmark,
+                          [in]long BookmarkId);
+    
+    // Word
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Word"), id(DISPID_SVEWord)]
+        void Word([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition, 
+                          [in]long CharacterPosition, 
+                          [in]long Length);
+    
+    // Sentence
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Sentence"), id(DISPID_SVESentenceBoundary)]
+        void Sentence([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition, 
+                          [in]long CharacterPosition, 
+                          [in]long Length);
+    
+    // Phoneme
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Phoneme"), id(DISPID_SVEPhoneme)]
+        void Phoneme([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition,
+                          [in]long Duration, // In milliseconds 
+                          [in]short NextPhoneId,
+                          [in]SpeechVisemeFeature Feature,
+                          [in]short CurrentPhoneId);
+    
+    // Viseme
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Viseme"), id(DISPID_SVEViseme)]
+        void Viseme([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition, 
+                          [in]long Duration, // In milliseconds 
+                          [in]SpeechVisemeType NextVisemeId,
+                          [in]SpeechVisemeFeature Feature,
+                          [in]SpeechVisemeType CurrentVisemeId);
+    
+    // AudioLevel
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("AudioLevel"), id(DISPID_SVEAudioLevel)]
+        void AudioLevel([in]long StreamNumber, 
+                          [in]VARIANT StreamPosition, 
+                          [in]long AudioLevel);
+    
+    // EnginePrivate
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("EnginePrivate"), id(DISPID_SVEEnginePrivate)]
+        void EnginePrivate( [in]long StreamNumber, 
+                          [in]long StreamPosition,
+                          [in]VARIANT EngineData); 
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechRecognizer             
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A  
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechRecognizer
+{
+    DISPID_SRRecognizer = 1,
+    DISPID_SRAllowAudioInputFormatChangesOnNextSet,
+    DISPID_SRAudioInput,
+    DISPID_SRAudioInputStream,
+    DISPID_SRIsShared,
+    DISPID_SRState,
+    DISPID_SRStatus,
+    DISPID_SRProfile,
+    DISPID_SREmulateRecognition,
+    DISPID_SRCreateRecoContext,
+    DISPID_SRGetFormat,
+    DISPID_SRSetPropertyNumber,
+    DISPID_SRGetPropertyNumber,
+    DISPID_SRSetPropertyString,
+    DISPID_SRGetPropertyString,
+    DISPID_SRIsUISupported,
+    DISPID_SRDisplayUI,
+    DISPID_SRGetRecognizers,
+	DISPID_SVGetAudioInputs,
+	DISPID_SVGetProfiles
+} DISPID_SpeechRecognizer;
+
+/////////////////////////////////////////////////
+//
+// SpeechLexiconType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRecognizerState
+{
+    SRSInactive            = SPRST_INACTIVE,
+    SRSActive              = SPRST_ACTIVE,
+    SRSActiveAlways        = SPRST_ACTIVE_ALWAYS,
+    SRSInactiveWithPurge   = SPRST_INACTIVE_WITH_PURGE,
+} SpeechRecognizerState;
+
+/////////////////////////////////////////////////
+//
+// SpeechDisplayAttributes Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechDisplayAttributes
+{
+    SDA_No_Trailing_Space      = 0,
+    SDA_One_Trailing_Space     = SPAF_ONE_TRAILING_SPACE,
+    SDA_Two_Trailing_Spaces    = SPAF_TWO_TRAILING_SPACES,
+    SDA_Consume_Leading_Spaces = SPAF_CONSUME_LEADING_SPACES
+} SpeechDisplayAttributes;
+
+/////////////////////////////////////////////////
+//
+// SpeechFormatType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+typedef enum SpeechFormatType
+{
+    SFTInput = SPWF_INPUT,
+    SFTSREngine = SPWF_SRENGINE
+} SpeechFormatType;
+
+#if _SAPI_BUILD_VER >= 0x053
+/////////////////////////////////////////////////
+//
+// SpeechEmulationCompareFlags Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+typedef enum SpeechEmulationCompareFlags
+{
+    SECFIgnoreCase      = 0x00000001,       // NORM_IGNORECASE
+    SECFIgnoreKanaType  = 0x00010000,       // NORM_IGNOREKANATYPE
+    SECFIgnoreWidth     = 0x00020000,       // NORM_IGNOREWIDTH
+    SECFNoSpecialChars  = 0x20000000,       // Indicates not to handle /D/L/P; form of words
+    SECFEmulateResult   = 0x40000000,       // SP_EMULATE_RESULT
+    SECFDefault         = SECFIgnoreCase | SECFIgnoreKanaType | SECFIgnoreWidth
+} SpeechEmulationCompareFlags;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+[
+    object,
+    uuid(2D5F1C0C-BD75-4b08-9478-3B11FEA2586C),
+    dual,
+    helpstring("ISpeechRecognizer Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecognizer : IDispatch
+{
+    //  Properties
+    
+    // Recognizer 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propputref, helpstring("Recognizer"), id(DISPID_SRRecognizer)] 
+        HRESULT Recognizer( [in]ISpeechObjectToken* Recognizer );
+    [propget, helpstring("Recognizer"), id(DISPID_SRRecognizer)] 
+        HRESULT Recognizer( [out,retval]ISpeechObjectToken** Recognizer );
+    
+    // AllowAudioInputFormatChangesOnNextSet
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, hidden, helpstring("AllowAudioInputFormatChangesOnNextSet"), id(DISPID_SRAllowAudioInputFormatChangesOnNextSet)] 
+        HRESULT AllowAudioInputFormatChangesOnNextSet([in] VARIANT_BOOL Allow );
+    [propget, hidden, helpstring("AllowAudioInputFormatChangesOnNextSet"), id(DISPID_SRAllowAudioInputFormatChangesOnNextSet)]
+        HRESULT AllowAudioInputFormatChangesOnNextSet([out,retval] VARIANT_BOOL* Allow );
+    
+    // AudioInput 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propputref, helpstring("AudioInput"), id(DISPID_SRAudioInput)]
+        HRESULT AudioInput( [in,defaultvalue(0)]ISpeechObjectToken* AudioInput );
+    [propget, helpstring("AudioInput"), id(DISPID_SRAudioInput)]
+        HRESULT AudioInput( [out,retval]ISpeechObjectToken** AudioInput );
+    
+    // AudioInputStream 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propputref, helpstring("AudioInputStream"), id(DISPID_SRAudioInputStream)]
+        HRESULT AudioInputStream( [in,defaultvalue(0)]ISpeechBaseStream* AudioInputStream );
+    [propget, helpstring("AudioInputStream"), id(DISPID_SRAudioInputStream)]
+        HRESULT AudioInputStream( [out,retval]ISpeechBaseStream** AudioInputStream );
+    
+    // IsShared 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("IsShared"), id(DISPID_SRIsShared)] 
+        HRESULT IsShared( [out,retval]VARIANT_BOOL* Shared );
+    
+    // State 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("State"), id(DISPID_SRState)] 
+        HRESULT State([in] SpeechRecognizerState State );
+    [propget, helpstring("State"), id(DISPID_SRState)] 
+        HRESULT State([out,retval] SpeechRecognizerState* State );
+    
+    // Status 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("Status"), id(DISPID_SRStatus)] 
+        HRESULT Status([out,retval]ISpeechRecognizerStatus** Status );
+    
+    // Profile 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propputref, helpstring("Profile"), id(DISPID_SRProfile)] 
+        HRESULT Profile( [in,defaultvalue(0)]ISpeechObjectToken* Profile );
+    [propget, helpstring("Profile"), id(DISPID_SRProfile)] 
+        HRESULT Profile( [out,retval]ISpeechObjectToken** Profile );
+
+    //  Methods
+    
+    // EmulateRecognition 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    // Notes:
+    //  TextElements param:
+    //      * This parameter specifies the elements of the phrase to EmulateRecognition with.
+    //      * If it is a BSTR string then its assumed that the elements in TextElements are assumed to be 
+    //      space delimited and you cannot use the DisplayAttributes parameter (it is ignored).
+    //      * If it is an array of BSTR words then you are specifying each element in the phrase and
+    //      you can optionally specify the ElementDisplayAttributes as appropriate.
+    //      * You can specify additional information for each element by using the following syntax on
+    //      each TextElement: "/display_text/lexical_form/pronounciation;".  This syntax can be used in both the
+    //      BSTR and the array of BSTRs case.
+    //  ElementDisplayAttributes param:
+    //      * This parameter specifies the SpeechDisplayAttribute to use for each Word element.
+    //      * If it is a NULL pointer, VT_NULL, or VT_EMPTY then SDA_No_Trailing_Space is assumed (default).
+    //      * If it is a BSTR then it can be "" (empty string), " " (space), or "  " (double space) 
+    //      and we'll pick the appropriate SpeechDispalyAttribute that matches and use this for all text elements.
+    //      * If it is a integer value (VT_I1 to VT_I4) then this value is a SpeechDisplayAttribute value and
+    //      it is used for each element in the Words array for the DisplayAttribute setting.
+    //      and we'll pick the appropriate SpeechDispalyAttribute that matches and use this for all text elements.
+    //      * If it is an array of integer values (VT_I1 to VT_I4) we'll use those values for the SpeechDisplayAttribute
+    //      of each corresponding element in the TextElements array.
+    //      * This parameter is only valid if you are using an array of BSTRs for the TextElements parameter (ignored
+    //      if you pass in BSTR for Words).
+    //      
+    [helpstring("EmulateRecognition"), id(DISPID_SREmulateRecognition)]
+        HRESULT EmulateRecognition( [in]VARIANT TextElements, [in, defaultvalue(NULL)]VARIANT* ElementDisplayAttributes, [in, defaultvalue(0)]long LanguageId);
+    
+    // CreateRecoContext 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CreateRecoContext"), id(DISPID_SRCreateRecoContext)]
+        HRESULT CreateRecoContext([out,retval]ISpeechRecoContext** NewContext );
+    
+    // GetFormat 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("GetFormat"), id(DISPID_SRGetFormat)]
+        HRESULT GetFormat([in] SpeechFormatType Type, [out,retval]ISpeechAudioFormat** Format );
+
+    // SetPropertyNumber 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SetPropertyNumber"), hidden, id(DISPID_SRSetPropertyNumber)]
+        HRESULT SetPropertyNumber( [in]const BSTR Name, [in]long Value, [out,retval]VARIANT_BOOL * Supported );
+    
+    // GetPropertyNumber 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("GetPropertyNumber"), hidden, id(DISPID_SRGetPropertyNumber)]
+        HRESULT GetPropertyNumber( [in]const BSTR Name, [in,out]long* Value, [out,retval]VARIANT_BOOL * Supported );
+    
+    // SetPropertyString 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SetPropertyString"), hidden, id(DISPID_SRSetPropertyString)]
+        HRESULT SetPropertyString( [in]const BSTR Name, [in]const BSTR Value, [out,retval]VARIANT_BOOL * Supported );
+    
+    // GetPropertyString 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("GetPropertyString"), hidden, id(DISPID_SRGetPropertyString)]
+        HRESULT GetPropertyString( [in]const BSTR Name, [in,out]BSTR* Value, [out,retval]VARIANT_BOOL * Supported );
+    
+    // IsUISupported 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("IsUISupported"), id(DISPID_SRIsUISupported)]
+        HRESULT IsUISupported( [in]const BSTR TypeOfUI,
+                               [in, defaultvalue(NULL)]const VARIANT* ExtraData,
+                               [out,retval] VARIANT_BOOL* Supported );
+    
+    // DisplayUI 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("DisplayUI"), id(DISPID_SRDisplayUI)]
+        HRESULT DisplayUI( [in]long hWndParent,
+                           [in]BSTR Title,
+                           [in]const BSTR TypeOfUI,
+                           [in, defaultvalue(NULL)]const VARIANT* ExtraData);
+
+    // GetRecognizers 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("GetRecognizers"), id(DISPID_SRGetRecognizers)]
+        HRESULT GetRecognizers([in, defaultvalue("")]BSTR RequiredAttributes, 
+                               [in, defaultvalue("")]BSTR OptionalAttributes, 
+                               [out,retval]ISpeechObjectTokens** ObjectTokens );
+
+	// GetAudioOutputs
+    //  SAPI C++ Only Interface Equivalent: IEnumSpObjectTokens
+    //
+    [helpstring("GetAudioInputs"), id(DISPID_SVGetAudioInputs)] 
+        HRESULT GetAudioInputs([in, defaultvalue("")]BSTR RequiredAttributes, 
+                               [in, defaultvalue("")]BSTR OptionalAttributes, 
+                               [out,retval]ISpeechObjectTokens** ObjectTokens );
+
+	// GetProfiles
+    //  SAPI C++ Only Interface Equivalent: IEnumSpObjectTokens
+    //
+    [helpstring("GetProfiles"), id(DISPID_SVGetProfiles)] 
+        HRESULT GetProfiles([in, defaultvalue("")]BSTR RequiredAttributes, 
+                            [in, defaultvalue("")]BSTR OptionalAttributes, 
+                            [out,retval]ISpeechObjectTokens** ObjectTokens );
+
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechRecognizerStatus             
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechRecognizerStatus
+{
+    DISPID_SRSAudioStatus = 1,
+    DISPID_SRSCurrentStreamPosition,
+    DISPID_SRSCurrentStreamNumber,
+    DISPID_SRSNumberOfActiveRules,
+    DISPID_SRSClsidEngine,
+    DISPID_SRSSupportedLanguages
+} DISPID_SpeechRecognizerStatus;
+
+[
+    object,
+    uuid(BFF9E781-53EC-484e-BB8A-0E1B5551E35C),
+    dual,
+    helpstring("ISpeechRecognizerStatus Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecognizerStatus : IDispatch
+{
+    //  Properties
+    
+    // AudioStatus 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("AudioStatus"),id(DISPID_SRSAudioStatus)]
+        HRESULT AudioStatus([out,retval]ISpeechAudioStatus** AudioStatus );
+
+    // CurrentStreamPosition 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("CurrentStreamPosition"), id(DISPID_SRSCurrentStreamPosition)] 
+        HRESULT CurrentStreamPosition([out,retval]VARIANT* pCurrentStreamPos );
+    
+    // CurrentStreamNumber 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("CurrentStreamNumber"), id(DISPID_SRSCurrentStreamNumber)] 
+        HRESULT CurrentStreamNumber([out,retval]long* StreamNumber );
+    
+    // NumberOfActiveRules 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("NumberOfActiveRules"), id(DISPID_SRSNumberOfActiveRules)] 
+        HRESULT NumberOfActiveRules([out,retval]long* NumberOfActiveRules );
+    
+    // ClsidEngine 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("ClsidEngine"), id(DISPID_SRSClsidEngine)] 
+        HRESULT ClsidEngine([out,retval]BSTR* ClsidEngine );
+    
+    // SupportedLanguages 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("SupportedLanguages"), id(DISPID_SRSSupportedLanguages)] 
+        HRESULT SupportedLanguages([out,retval]VARIANT* SupportedLanguages );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechRecoContext             
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechRecoContext
+{
+    DISPID_SRCRecognizer = 1,
+    DISPID_SRCAudioInInterferenceStatus,
+    DISPID_SRCRequestedUIType,
+    DISPID_SRCVoice,
+    DISPID_SRAllowVoiceFormatMatchingOnNextSet,
+    DISPID_SRCVoicePurgeEvent,
+    DISPID_SRCEventInterests,
+    DISPID_SRCCmdMaxAlternates,
+    DISPID_SRCState,
+    DISPID_SRCRetainedAudio,
+    DISPID_SRCRetainedAudioFormat,
+    DISPID_SRCPause,
+    DISPID_SRCResume,
+    DISPID_SRCCreateGrammar,
+    DISPID_SRCCreateResultFromMemory,
+    DISPID_SRCBookmark,
+    DISPID_SRCSetAdaptationData
+} DISPID_SpeechRecoContext;
+
+
+/////////////////////////////////////////////////
+//
+// SpeechRetainedAudioOptions Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRetainedAudioOptions
+{
+    SRAONone        = SPAO_NONE,
+    SRAORetainAudio = SPAO_RETAIN_AUDIO
+} SpeechRetainedAudioOptions;
+
+/////////////////////////////////////////////////
+//
+// SpeechBookmarkOptions Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechBookmarkOptions
+{
+    SBONone  = SPBO_NONE,
+    SBOPause = SPBO_PAUSE
+} SpeechBookmarkOptions;
+
+/////////////////////////////////////////////////
+//
+// SpeechInterference Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechInterference
+{
+    SINone      = SPINTERFERENCE_NONE,
+    SINoise     = SPINTERFERENCE_NOISE,
+    SINoSignal  = SPINTERFERENCE_NOSIGNAL,
+    SITooLoud   = SPINTERFERENCE_TOOLOUD,
+    SITooQuiet  = SPINTERFERENCE_TOOQUIET,
+    SITooFast   = SPINTERFERENCE_TOOFAST,
+    SITooSlow   = SPINTERFERENCE_TOOSLOW
+} SpeechInterference;
+
+/////////////////////////////////////////////////
+//
+// SpeechRecoEvents Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRecoEvents
+{
+    SREStreamEnd             = (1L << 0),  // SR engine has reached the end of an input stream 
+    SRESoundStart            = (1L << 1),  // SR engine has detected the start of non-trivial audio data
+    SRESoundEnd              = (1L << 2),  // SR engine has detected the end of non-trivial audio data
+    SREPhraseStart           = (1L << 3),  // SR engine has detected the start of a recognizable phrase
+    SRERecognition           = (1L << 4),  // SR engine's best hypothesis for the audio data
+    SREHypothesis            = (1L << 5),  // SR engine's interim hypothesis for the result of the audio data
+    SREBookmark              = (1L << 6),  // SR engine has reached the specified point in the audio stream 
+    SREPropertyNumChange     = (1L << 7),  // LPARAM points to a string, WPARAM is the attrib value
+    SREPropertyStringChange = (1L << 8),  // LPARAM pointer to buffer.  Two concatinated null terminated strings.
+    SREFalseRecognition      = (1L << 9),  // apparent speech with no valid recognition
+    SREInterference          = (1L << 10),  // LPARAM is any combination of SPINTERFERENCE flags
+    SRERequestUI             = (1L << 11),  // LPARAM is string.  
+    SREStateChange           = (1L << 12),  // wParam contains new reco state
+    SREAdaptation            = (1L << 13),  // the adaptation buffer is now ready to be accepted
+    SREStreamStart           = (1L << 14),  // SR engine has reached the start of an input stream
+    SRERecoOtherContext      = (1L << 15),  // Phrase finished and recognized, but for other context
+    SREAudioLevel            = (1L << 16),  // input audio volume level  
+    SREPrivate               = (1L << 18),  // private engine specific event 
+    SREAllEvents             = 0x5FFFF      // All Reco events on.
+} SpeechRecoEvents;
+
+/////////////////////////////////////////////////
+//
+// SpeechRecoContextState Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRecoContextState
+{
+    SRCS_Disabled   = SPCS_DISABLED,
+    SRCS_Enabled    = SPCS_ENABLED
+} SpeechRecoContextState;
+
+
+[
+    object,
+    uuid(580AA49D-7E1E-4809-B8E2-57DA806104B8),
+    dual,
+    helpstring("ISpeechRecoContext Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecoContext : IDispatch
+{
+    //  Properties
+    
+    // Recognizer 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("Recognizer"), id(DISPID_SRCRecognizer)] 
+        HRESULT Recognizer( [out,retval]ISpeechRecognizer** Recognizer );
+    
+    // AudioInInterferenceStatus 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("AudioInInterferenceStatus"), id(DISPID_SRCAudioInInterferenceStatus)] 
+        HRESULT AudioInputInterferenceStatus( [out,retval]SpeechInterference* Interference );
+    
+    // RequestedUIType 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("RequestedUIType"), id(DISPID_SRCRequestedUIType)] 
+        HRESULT RequestedUIType( [out,retval]BSTR* UIType );
+    
+    // Voice 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propputref, helpstring("Voice"), id(DISPID_SRCVoice)] 
+        HRESULT Voice([in]ISpeechVoice *Voice );
+    [propget, helpstring("Voice"), id(DISPID_SRCVoice)] 
+        HRESULT Voice([out,retval]ISpeechVoice **Voice );
+    
+    // AllowVoiceFormatMatchingOnNextSet
+    //
+    [propput, hidden, helpstring("AllowVoiceFormatMatchingOnNextSet"), id(DISPID_SRAllowVoiceFormatMatchingOnNextSet)] 
+        HRESULT AllowVoiceFormatMatchingOnNextSet([in] VARIANT_BOOL Allow );
+    [propget, hidden, helpstring("AllowAudioInputFormatChangesOnNextSet"), id(DISPID_SRAllowVoiceFormatMatchingOnNextSet)]
+        HRESULT AllowVoiceFormatMatchingOnNextSet([out,retval] VARIANT_BOOL* pAllow );
+    
+    // VoicePurgeEvent 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("VoicePurgeEvent"), id(DISPID_SRCVoicePurgeEvent)] 
+        HRESULT VoicePurgeEvent( [in]SpeechRecoEvents EventInterest );
+    [propget, helpstring("VoicePurgeEvent"), id(DISPID_SRCVoicePurgeEvent)] 
+        HRESULT VoicePurgeEvent( [out,retval]SpeechRecoEvents* EventInterest );
+    
+    // EventInterests 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("EventInterests"), id(DISPID_SRCEventInterests)] 
+        HRESULT EventInterests( [in]SpeechRecoEvents EventInterest );
+    [propget, helpstring("EventInterests"), id(DISPID_SRCEventInterests)] 
+        HRESULT EventInterests( [out,retval]SpeechRecoEvents* EventInterest );
+    
+    // CmdMaxAlternates 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("CmdMaxAlternates"), id(DISPID_SRCCmdMaxAlternates)] 
+        HRESULT CmdMaxAlternates([in] long MaxAlternates );
+    [propget, helpstring("CmdMaxAlternates"), id(DISPID_SRCCmdMaxAlternates)] 
+        HRESULT CmdMaxAlternates([out,retval] long* MaxAlternates );
+    
+    // State 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("State"), id(DISPID_SRCState)]
+        HRESULT State([in] SpeechRecoContextState State );
+    [propget, helpstring("State"), id(DISPID_SRCState)] 
+        HRESULT State([out,retval] SpeechRecoContextState* State );
+    
+    // RetainedAudio 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("RetainedAudio"), id(DISPID_SRCRetainedAudio)]
+        HRESULT RetainedAudio([in]SpeechRetainedAudioOptions Option);
+    [propget, helpstring("RetainedAudio"), id(DISPID_SRCRetainedAudio)]
+        HRESULT RetainedAudio([out,retval]SpeechRetainedAudioOptions* Option);
+    
+    // RetainedAudioFormat 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propputref, helpstring("RetainedAudioFormat"), id(DISPID_SRCRetainedAudioFormat)]
+        HRESULT RetainedAudioFormat([in] ISpeechAudioFormat* Format );
+    [propget, helpstring("RetainedAudioFormat"), id(DISPID_SRCRetainedAudioFormat)]
+        HRESULT RetainedAudioFormat([out,retval] ISpeechAudioFormat** Format );
+
+    //  Methods
+    
+    // Pause 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Pause"), id(DISPID_SRCPause)]
+        HRESULT Pause(void);
+    
+    // Resume 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Resume"), id(DISPID_SRCResume)]
+        HRESULT Resume(void);
+    
+    // CreateGrammar 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CreateGrammar"), id(DISPID_SRCCreateGrammar)]
+        HRESULT CreateGrammar( [in, defaultvalue(0)]VARIANT GrammarId, [out,retval]ISpeechRecoGrammar** Grammar );
+    
+    // CreateResultFromMemory 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CreateResultFromMemory"), id(DISPID_SRCCreateResultFromMemory)]
+        HRESULT CreateResultFromMemory( [in]VARIANT* ResultBlock, [out,retval]ISpeechRecoResult **Result );
+    
+    // Bookmark 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Bookmark"), id(DISPID_SRCBookmark)]
+        HRESULT Bookmark( [in]SpeechBookmarkOptions Options, [in]VARIANT StreamPos, [in]VARIANT BookmarkId );
+    
+    // SetAdaptationData 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SetAdaptationData"), id(DISPID_SRCSetAdaptationData)]
+        HRESULT SetAdaptationData( [in]BSTR AdaptationString );
+
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechRecoGrammar              
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPIDSPRG
+{
+    DISPID_SRGId = 1,
+    DISPID_SRGRecoContext,
+    DISPID_SRGState,
+    DISPID_SRGRules,
+    DISPID_SRGReset,
+    DISPID_SRGCommit,
+    DISPID_SRGCmdLoadFromFile,
+    DISPID_SRGCmdLoadFromObject,
+    DISPID_SRGCmdLoadFromResource,
+    DISPID_SRGCmdLoadFromMemory,
+    DISPID_SRGCmdLoadFromProprietaryGrammar,
+    DISPID_SRGCmdSetRuleState,
+    DISPID_SRGCmdSetRuleIdState,
+    DISPID_SRGDictationLoad,
+    DISPID_SRGDictationUnload,
+    DISPID_SRGDictationSetState,
+    DISPID_SRGSetWordSequenceData,
+    DISPID_SRGSetTextSelection,
+    DISPID_SRGIsPronounceable
+} DISPIDSPRG;
+
+/////////////////////////////////////////////////
+//
+// SpeechLoadOption Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechLoadOption
+{
+    SLOStatic     = SPLO_STATIC,
+    SLODynamic    = SPLO_DYNAMIC    
+} SpeechLoadOption;
+
+/////////////////////////////////////////////////
+//
+// SpeechWordPronounceable Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechWordPronounceable
+{
+    SWPUnknownWordUnpronounceable   = SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE,
+    SWPUnknownWordPronounceable     = SPWP_UNKNOWN_WORD_PRONOUNCEABLE,
+    SWPKnownWordPronounceable       = SPWP_KNOWN_WORD_PRONOUNCEABLE
+} SpeechWordPronounceable;
+
+/////////////////////////////////////////////////
+//
+// SpeechGrammarState Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechGrammarState
+{
+    SGSEnabled     = SPGS_ENABLED,
+    SGSDisabled    = SPGS_DISABLED,
+    SGSExclusive   = SPGS_EXCLUSIVE,
+} SpeechGrammarState;
+
+/////////////////////////////////////////////////
+//
+// SpeechRuleState Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRuleState
+{
+    SGDSInactive                 = SPRS_INACTIVE,
+    SGDSActive                   = SPRS_ACTIVE,
+    SGDSActiveWithAutoPause      = SPRS_ACTIVE_WITH_AUTO_PAUSE,
+#if _SAPI_BUILD_VER >= 0x053
+    SGDSActiveUserDelimited      = SPRS_ACTIVE_USER_DELIMITED
+#endif // _SAPI_BUILD_VER >= 0x053
+} SpeechRuleState;
+
+/////////////////////////////////////////////////
+//
+// SpeechRuleAttributes Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRuleAttributes
+{
+    SRATopLevel         = SPRAF_TopLevel,
+    SRADefaultToActive  = SPRAF_Active,
+    SRAExport           = SPRAF_Export,
+    SRAImport           = SPRAF_Import,
+    SRAInterpreter      = SPRAF_Interpreter,
+    SRADynamic          = SPRAF_Dynamic,
+#if _SAPI_BUILD_VER >= 0x053
+	SRARoot				= SPRAF_Root
+#endif // _SAPI_BUILD_VER >= 0x053
+} SpeechRuleAttributes;
+
+/////////////////////////////////////////////////
+//
+// SpeechGrammarWordType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechGrammarWordType
+{
+    SGDisplay           = SPWT_DISPLAY,       // Not implemented
+    SGLexical           = SPWT_LEXICAL,
+    SGPronounciation    = SPWT_PRONUNCIATION, // Not implemented
+#if _SAPI_BUILD_VER >= 0x053
+    SGLexicalNoSpecialChars = SPWT_LEXICAL_NO_SPECIAL_CHARS
+#endif // _SAPI_BUILD_VER >= 0x053
+} SpeechGrammarWordType;
+
+[
+    object,
+    uuid(B6D6F79F-2158-4e50-B5BC-9A9CCD852A09),
+    dual,
+    helpstring("ISpeechRecoGrammar Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecoGrammar : IDispatch
+{
+    //  Properties
+    
+    // Id 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("Id"), id(DISPID_SRGId)] 
+        HRESULT Id( [out,retval]VARIANT* Id );
+    
+    // RecoContext 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("RecoContext"), id(DISPID_SRGRecoContext)] 
+        HRESULT RecoContext( [out,retval] ISpeechRecoContext** RecoContext );
+    
+    // State 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propput, helpstring("State"), id(DISPID_SRGState)] 
+        HRESULT State( [in]SpeechGrammarState State );
+    [propget, helpstring("State"), id(DISPID_SRGState)] 
+        HRESULT State( [out,retval]SpeechGrammarState* State);
+    
+    // Rules 
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Default: 
+    //
+    [propget, helpstring("Rules"), id(DISPID_SRGRules)] 
+        HRESULT Rules( [out,retval]ISpeechGrammarRules** Rules);
+
+    //  Methods
+    
+    // Reset
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Reset"), id(DISPID_SRGReset)] 
+        HRESULT Reset([in, defaultvalue(0)]SpeechLanguageId NewLanguage);
+    
+    // CmdLoadFromFile 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdLoadFromFile"), id(DISPID_SRGCmdLoadFromFile)]
+        HRESULT CmdLoadFromFile( [in]const BSTR FileName, [in, defaultvalue(SLOStatic)]SpeechLoadOption LoadOption );
+    
+    // CmdLoadFromObject 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdLoadFromObject"), id(DISPID_SRGCmdLoadFromObject)]
+        HRESULT CmdLoadFromObject( [in]const BSTR ClassId,
+                                   [in]const BSTR GrammarName,
+                                   [in, defaultvalue(SLOStatic)]SpeechLoadOption LoadOption );
+    
+    // CmdLoadFromResource 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdLoadFromResource"), id(DISPID_SRGCmdLoadFromResource)]
+        HRESULT CmdLoadFromResource( [in]long hModule,
+                                     [in]VARIANT ResourceName,
+                                     [in]VARIANT ResourceType,
+                                     [in]SpeechLanguageId LanguageId,
+                                     [in, defaultvalue(SLOStatic)]SpeechLoadOption LoadOption );
+    
+    // CmdLoadFromMemory 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdLoadFromMemory"), id(DISPID_SRGCmdLoadFromMemory)]
+        HRESULT CmdLoadFromMemory( [in] VARIANT GrammarData, [in, defaultvalue(SLOStatic)]SpeechLoadOption LoadOption );
+    
+    // CmdLoadFromProprietaryGrammar 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdLoadFromProprietaryGrammar"), id(DISPID_SRGCmdLoadFromProprietaryGrammar)]
+        HRESULT CmdLoadFromProprietaryGrammar( [in]const BSTR ProprietaryGuid,
+                                               [in]const BSTR ProprietaryString,
+                                               [in]VARIANT ProprietaryData,
+                                               [in, defaultvalue(SLOStatic)]SpeechLoadOption LoadOption );
+    
+    // CmdSetRuleState 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdSetRuleState"), id(DISPID_SRGCmdSetRuleState)]
+        HRESULT CmdSetRuleState( [in/*, defaultvalue("")*/]const BSTR Name, [in]SpeechRuleState State);
+    
+    // CmdSetRuleIdState 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("CmdSetRuleIdState"), id(DISPID_SRGCmdSetRuleIdState)]
+        HRESULT CmdSetRuleIdState( [in/*, defaultvalue(0)*/]long RuleId, [in]SpeechRuleState State );
+    
+    // DictationLoad 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("DictationLoad"), id(DISPID_SRGDictationLoad)]
+        HRESULT DictationLoad( [in, defaultvalue("")] const BSTR TopicName, [in, defaultvalue(SLOStatic)]SpeechLoadOption LoadOption );
+    
+    // DictationUnload 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("DictationUnload"), id(DISPID_SRGDictationUnload)]
+        HRESULT DictationUnload( void );
+    
+    // DictationSetState 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("DictationSetState"), id(DISPID_SRGDictationSetState)]
+        HRESULT DictationSetState( [in]SpeechRuleState State );
+    
+    // SetWordSequenceData 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SetWordSequenceData"), id(DISPID_SRGSetWordSequenceData)]
+        HRESULT SetWordSequenceData( [in]const BSTR Text, [in]long TextLength, [in]ISpeechTextSelectionInformation* Info );
+    
+    // SetTextSelection 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SetTextSelection"), id(DISPID_SRGSetTextSelection)]
+        HRESULT SetTextSelection( [in]ISpeechTextSelectionInformation* Info );
+    
+    // IsPronounceable 
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("IsPronounceable"), id(DISPID_SRGIsPronounceable)]
+        HRESULT IsPronounceable( [in]const BSTR Word, [out,retval]SpeechWordPronounceable* WordPronounceable );
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// _ISpeechRecoContextEvents               
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechRecoContextEvents
+{
+    DISPID_SRCEStartStream    = 1,
+    DISPID_SRCEEndStream,
+    DISPID_SRCEBookmark,
+    DISPID_SRCESoundStart,
+    DISPID_SRCESoundEnd,
+    DISPID_SRCEPhraseStart,
+    DISPID_SRCERecognition,
+    DISPID_SRCEHypothesis,
+    DISPID_SRCEPropertyNumberChange,
+    DISPID_SRCEPropertyStringChange,
+    DISPID_SRCEFalseRecognition,
+    DISPID_SRCEInterference,
+    DISPID_SRCERequestUI,
+    DISPID_SRCERecognizerStateChange,
+    DISPID_SRCEAdaptation,
+    DISPID_SRCERecognitionForOtherContext,
+    DISPID_SRCEAudioLevel,
+    DISPID_SRCEEnginePrivate
+} DISPID_SpeechRecoContextEvents;
+
+/////////////////////////////////////////////////
+//
+// SpeechRecognitionType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechRecognitionType
+{
+    SRTStandard  = 0,
+    SRTAutopause = SPREF_AutoPause,
+    SRTEmulated  = SPREF_Emulated
+#if _SAPI_BUILD_VER >= 0x053
+    ,
+    SRTSMLTimeout = SPREF_SMLTimeout,
+    SRTExtendableParse = SPREF_ExtendableParse,
+    SRTReSent = SPREF_ReSent
+#endif // _SAPI_BUILD_VER >= 0x053
+} SpeechRecognitionType;
+
+[
+    uuid(7B8FCB42-0E9D-4f00-A048-7B04D6179D3D)
+]
+dispinterface _ISpeechRecoContextEvents
+{
+    properties:
+    methods:
+
+    // Methods
+
+    // StartStream
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("StartStream"), id(DISPID_SRCEStartStream)]
+        void StartStream([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // EndStream
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("EndStream"), id(DISPID_SRCEEndStream)]
+        void EndStream([in]long StreamNumber, [in]VARIANT StreamPosition, [in]VARIANT_BOOL StreamReleased);
+    
+    // Bookmark
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Bookmark"), id(DISPID_SRCEBookmark)]
+        void Bookmark([in]long StreamNumber, [in]VARIANT StreamPosition, [in]VARIANT BookmarkId, [in]SpeechBookmarkOptions Options);
+    
+    // SoundStart
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SoundStart"), id(DISPID_SRCESoundStart)]
+        void SoundStart([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // SoundEnd
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("SoundEnd"), id(DISPID_SRCESoundEnd)]
+        void SoundEnd([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // PhraseStart
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("PhraseStart"), id(DISPID_SRCEPhraseStart)]
+        void PhraseStart([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // Recognition
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Recognition"), id(DISPID_SRCERecognition)]
+        void Recognition([in]long StreamNumber, [in]VARIANT StreamPosition, [in]SpeechRecognitionType RecognitionType, [in]ISpeechRecoResult * Result);
+    
+    // Hypothesis
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Hypothesis"), id(DISPID_SRCEHypothesis)]
+        void Hypothesis([in]long StreamNumber, [in]VARIANT StreamPosition, [in]ISpeechRecoResult* Result);
+    
+    // PropertyNumberChange
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("PropertyNumberChange"), id(DISPID_SRCEPropertyNumberChange)]
+        void PropertyNumberChange([in]long StreamNumber, [in]VARIANT StreamPosition, [in]BSTR PropertyName, [in]long NewNumberValue);
+    
+    // PropertyStringChange
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("PropertyStringChange"), id(DISPID_SRCEPropertyStringChange)]
+        void PropertyStringChange([in]long StreamNumber, [in]VARIANT StreamPosition, [in]BSTR PropertyName, [in]BSTR NewStringValue);
+    
+    // FalseRecognition
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("FalseRecognition"), id(DISPID_SRCEFalseRecognition)]
+        void FalseRecognition([in]long StreamNumber, [in]VARIANT StreamPosition, [in]ISpeechRecoResult* Result);
+    
+    // Interference
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Interference"), id(DISPID_SRCEInterference)]
+        void Interference([in]long StreamNumber, [in]VARIANT StreamPosition, [in]SpeechInterference Interference);
+    
+    // RequestUI
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("RequestUI"), id(DISPID_SRCERequestUI)]
+        void RequestUI([in]long StreamNumber, [in]VARIANT StreamPosition, [in]BSTR UIType);
+    
+    // RecognizerStateChange
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("RecognizerStateChange"), id(DISPID_SRCERecognizerStateChange)]
+        void RecognizerStateChange([in]long StreamNumber, [in]VARIANT StreamPosition, [in]SpeechRecognizerState NewState);
+    
+    // Adaption
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("Adaptation"), id(DISPID_SRCEAdaptation)]
+        void Adaptation([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // RecognitionForOtherContext
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("RecognitionForOtherContext"), id(DISPID_SRCERecognitionForOtherContext)]
+        void RecognitionForOtherContext([in]long StreamNumber, [in]VARIANT StreamPosition);
+    
+    // AudioLevel
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("AudioLevel"), id(DISPID_SRCEAudioLevel)]
+        void AudioLevel([in]long StreamNumber, [in]VARIANT StreamPosition, [in]long AudioLevel);
+    
+    // EnginePrivate
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [helpstring("EnginePrivate"), id(DISPID_SRCEEnginePrivate)]
+        void EnginePrivate([in]long StreamNumber, [in]VARIANT StreamPosition, [in]VARIANT EngineData);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechGrammarRule             
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechGrammarRule
+{
+    DISPID_SGRAttributes = 1,
+    DISPID_SGRInitialState,
+    DISPID_SGRName,
+    DISPID_SGRId,
+    DISPID_SGRClear,
+    DISPID_SGRAddResource,
+    DISPID_SGRAddState
+} DISPID_SpeechGrammarRule;
+
+[
+    object,
+    uuid(AFE719CF-5DD1-44f2-999C-7A399F1CFCCC),
+    dual,
+    helpstring("ISpeechGrammarRule Interface"),
+    pointer_default(unique)
+]
+interface ISpeechGrammarRule : IDispatch
+{
+    // Properties
+    
+    // RuleAttributes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("RuleAttributes"), id(DISPID_SGRAttributes)]
+        HRESULT Attributes([out, retval] SpeechRuleAttributes* Attributes );
+    
+    // InitialState
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("InitialState"), id(DISPID_SGRInitialState)]
+        HRESULT InitialState([out, retval] ISpeechGrammarRuleState** State);
+    
+    // Name
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Name"), id(DISPID_SGRName)]
+        HRESULT Name([out, retval] BSTR* Name);
+    
+    // Id
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Id"), id(DISPID_SGRId)]
+        HRESULT Id([out, retval] long* Id);
+
+    // Methods
+    
+    // Clear
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Clear"),id(DISPID_SGRClear)]
+        HRESULT Clear();
+    
+    // AddResource
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("AddResource"), id(DISPID_SGRAddResource)]
+        HRESULT AddResource([in]const BSTR ResourceName, [in]const BSTR ResourceValue);
+    
+    // AddState
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("AddState"), id(DISPID_SGRAddState)]
+        HRESULT AddState([out, retval] ISpeechGrammarRuleState** State);
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechGrammarRules             
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechGrammarRules
+{
+    DISPID_SGRsCount    = 1,
+    DISPID_SGRsDynamic,
+    DISPID_SGRsAdd,
+    DISPID_SGRsCommit,
+    DISPID_SGRsCommitAndSave,
+    DISPID_SGRsFindRule,
+    DISPID_SGRsItem     = DISPID_VALUE,
+    DISPID_SGRs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechGrammarRules;
+
+[
+    object,
+    uuid(6FFA3B44-FC2D-40d1-8AFC-32911C7F1AD1),
+    dual,
+    helpstring("ISpeechGrammarRules Interface"),
+    pointer_default(unique)
+]
+interface ISpeechGrammarRules : IDispatch
+{
+    // Properties
+    
+    // RuleAttributes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Count"), id(DISPID_SGRsCount)] 
+        HRESULT Count([out, retval] long* Count);
+    
+    // FindRule
+    //  SAPI C++ Only Interface Equivalent:
+    // NOTE: This returns S_OK with NULL Rule if rule is not found.
+    [helpstring("FindRule"), id(DISPID_SGRsFindRule)]
+        HRESULT FindRule([in]VARIANT RuleNameOrId, [out, retval]ISpeechGrammarRule** Rule);
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [id(DISPID_SGRsItem), helpstring("Item")] 
+        HRESULT Item([in] long Index, [out, retval]ISpeechGrammarRule** Rule );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [id(DISPID_SGRs_NewEnum), propget, helpstring("Enumerates the alternates"), restricted] 
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+    
+    // Dynamic
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Dynamic"), id(DISPID_SGRsDynamic)] 
+        HRESULT Dynamic([out, retval] VARIANT_BOOL *Dynamic);
+
+    // Methods
+    
+    // Add
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Add"), id(DISPID_SGRsAdd)]
+        HRESULT Add([in] BSTR RuleName,
+                    [in] SpeechRuleAttributes Attributes,
+                    [in, defaultvalue(0)] long RuleId,
+                    [out, retval] ISpeechGrammarRule** Rule);
+    
+    // Commit
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Commit"), id(DISPID_SGRsCommit)]
+        HRESULT Commit(void);
+
+    // CommitAndSave
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("CommitAndSave"), id(DISPID_SGRsCommitAndSave)]
+        HRESULT CommitAndSave([out] BSTR* ErrorText, [out, retval] VARIANT* SaveStream);
+};
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechGrammarRuleState             
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechGrammarRuleState
+{
+    DISPID_SGRSRule = 1,
+    DISPID_SGRSTransitions,
+    DISPID_SGRSAddWordTransition,
+    DISPID_SGRSAddRuleTransition,
+    DISPID_SGRSAddSpecialTransition
+} DISPID_SpeechGrammarRuleState;
+
+typedef enum SpeechSpecialTransitionType
+{
+    SSTTWildcard    = 1,
+    SSTTDictation,
+    SSTTTextBuffer
+} SpeechSpecialTransitionType;
+
+[
+    object,
+    uuid(D4286F2C-EE67-45ae-B928-28D695362EDA),
+    dual,
+    helpstring("ISpeechGrammarRuleState Interface"),
+    pointer_default(unique)
+]
+interface ISpeechGrammarRuleState : IDispatch
+{
+    // Properties
+    
+    // Rule
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Rule"), id(DISPID_SGRSRule)] 
+        HRESULT Rule([out, retval] ISpeechGrammarRule** Rule);
+
+    // Transitions
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Transitions"), id(DISPID_SGRSTransitions)] 
+        HRESULT Transitions([out, retval] ISpeechGrammarRuleStateTransitions** Transitions);
+
+    // Methods
+    
+    // AddWordTransition
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("AddWordTransition"), id(DISPID_SGRSAddWordTransition)]
+        HRESULT AddWordTransition([in]ISpeechGrammarRuleState* DestState, 
+                                  [in]const BSTR Words, 
+                                  [in, defaultvalue(" ")]const BSTR Separators, 
+                                  [in, defaultvalue(SGLexical)]SpeechGrammarWordType Type,
+                                  [in, defaultvalue("")]const BSTR PropertyName, 
+                                  [in, defaultvalue(0)]long PropertyId, 
+                                  [in, defaultvalue(0)]VARIANT* PropertyValue,
+                                  [in, defaultvalue(1.0)]float Weight);
+    
+    // AddRuleTransition
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("AddRuleTransition"), id(DISPID_SGRSAddRuleTransition)]
+        HRESULT AddRuleTransition([in]ISpeechGrammarRuleState* DestinationState, 
+                                  [in]ISpeechGrammarRule* Rule,
+                                  [in, defaultvalue("")]const BSTR PropertyName, 
+                                  [in, defaultvalue(0)]long PropertyId, 
+                                  [in, defaultvalue(0)]VARIANT* PropertyValue,
+                                  [in, defaultvalue(1.0)]float Weight);
+
+    // AddSpecialTransition
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("AddSpecialTransition"), id(DISPID_SGRSAddSpecialTransition)]
+        HRESULT AddSpecialTransition([in]ISpeechGrammarRuleState* DestinationState, 
+                                  [in]SpeechSpecialTransitionType Type,
+                                  [in, defaultvalue("")]const BSTR PropertyName, 
+                                  [in, defaultvalue(0)]long PropertyId, 
+                                  [in, defaultvalue(0)]VARIANT* PropertyValue,
+                                  [in, defaultvalue(1.0)]float Weight);
+
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechGrammarStateTransitions             
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechGrammarRuleStateTransitions
+{
+    DISPID_SGRSTsCount      = 1,
+    DISPID_SGRSTsItem       = DISPID_VALUE,
+    DISPID_SGRSTs_NewEnum   = DISPID_NEWENUM
+} DISPID_SpeechGrammarRuleStateTransitions;
+
+[
+    object,
+    uuid(EABCE657-75BC-44a2-AA7F-C56476742963),
+    dual,
+    helpstring("ISpeechGrammarRuleStateTransitions Interface"),
+    pointer_default(unique)
+]
+interface ISpeechGrammarRuleStateTransitions : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Count"), id(DISPID_SGRSTsCount)] 
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Item"), id(DISPID_SGRSTsItem)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechGrammarRuleStateTransition** Transition );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [propget, helpstring("Enumerates the transitions"), restricted, id(DISPID_SGRSTs_NewEnum)]
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechGrammarStateTransition             
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechGrammarRuleStateTransition
+{
+    DISPID_SGRSTType = 1,
+    DISPID_SGRSTText,
+    DISPID_SGRSTRule,
+    DISPID_SGRSTWeight,
+    DISPID_SGRSTPropertyName,
+    DISPID_SGRSTPropertyId,
+    DISPID_SGRSTPropertyValue,
+    DISPID_SGRSTNextState
+} DISPID_SpeechGrammarRuleStateTransition;
+
+//////////////////////////////////
+//
+// SpeechGrammarRuleStateTransitionType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+//////////////////////////////////
+
+typedef enum SpeechGrammarRuleStateTransitionType
+{
+    SGRSTTEpsilon       = 0,
+    SGRSTTWord,
+    SGRSTTRule,
+    SGRSTTDictation,
+    SGRSTTWildcard,
+    SGRSTTTextBuffer
+} SpeechGrammarRuleStateTransitionType;
+
+[
+    object,
+    uuid(CAFD1DB1-41D1-4a06-9863-E2E81DA17A9A),
+    dual,
+    helpstring("ISpeechGrammarRuleStateTransition Interface"),
+    pointer_default(unique)
+]
+interface ISpeechGrammarRuleStateTransition : IDispatch
+{
+    // Properties
+    
+    // Type
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Type"), id(DISPID_SGRSTType)] 
+        HRESULT Type([out, retval] SpeechGrammarRuleStateTransitionType* Type);
+    
+    // Text
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Text"), id(DISPID_SGRSTText)]
+        HRESULT Text([out, retval] BSTR* Text);
+    
+    // Rule
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Rule"), id(DISPID_SGRSTRule)]
+        HRESULT Rule([out, retval] ISpeechGrammarRule ** Rule);
+    
+    // Weight
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("Weight"), id(DISPID_SGRSTWeight)]
+        HRESULT Weight([out, retval] VARIANT * Weight);
+    
+    // PropertyName
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("PropertyName"), id(DISPID_SGRSTPropertyName)]
+        HRESULT PropertyName([out, retval] BSTR * PropertyName);
+    
+    // PropertyId
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("PropertyId"), id(DISPID_SGRSTPropertyId)]
+        HRESULT PropertyId([out, retval] long * PropertyId);
+    
+    // PropertyValue
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("PropertyValue"), id(DISPID_SGRSTPropertyValue)]
+        HRESULT PropertyValue([out, retval] VARIANT * PropertyValue);
+    
+    // NextState
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propget, helpstring("NextState"), id(DISPID_SGRSTNextState)]
+        HRESULT NextState([out, retval] ISpeechGrammarRuleState ** NextState);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechTextSelectionInformation             
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPIDSPTSI
+{
+    DISPIDSPTSI_ActiveOffset = 1,
+    DISPIDSPTSI_ActiveLength,
+    DISPIDSPTSI_SelectionOffset,
+    DISPIDSPTSI_SelectionLength
+} DISPIDSPTSI;
+
+[
+    object,
+    uuid(3B9C7E7A-6EEE-4DED-9092-11657279ADBE),
+    dual,
+    helpstring("ISpeechTextSelectionInformation Interface"),
+    pointer_default(unique)
+]
+interface ISpeechTextSelectionInformation : IDispatch
+{
+    // Properties
+
+    // ActiveOffset
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propput, helpstring("ActiveOffset"), id(DISPIDSPTSI_ActiveOffset)]
+        HRESULT ActiveOffset( [in]long ActiveOffset );
+    [propget, helpstring("ActiveOffset"), id(DISPIDSPTSI_ActiveOffset)]
+        HRESULT ActiveOffset( [out, retval]long* ActiveOffset );
+    
+    // ActiveLength
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propput, helpstring("ActiveLength"), id(DISPIDSPTSI_ActiveLength)]
+        HRESULT ActiveLength( [in]long ActiveLength );
+    [propget, helpstring("ActiveLength"), id(DISPIDSPTSI_ActiveLength)]
+        HRESULT ActiveLength( [out, retval]long* ActiveLength );
+    
+    // SelectionOffset
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propput, helpstring("SelectionOffset"), id(DISPIDSPTSI_SelectionOffset)]
+        HRESULT SelectionOffset( [in]long SelectionOffset );
+    [propget, helpstring("SelectionOffset"), id(DISPIDSPTSI_SelectionOffset)]
+        HRESULT SelectionOffset( [out, retval]long* SelectionOffset );
+    
+    // SelectionLength
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: 
+    //
+    [propput, helpstring("SelectionLength"), id(DISPIDSPTSI_SelectionLength)]
+        HRESULT SelectionLength( [in]long SelectionLength );
+    [propget, helpstring("SelectionLength"), id(DISPIDSPTSI_SelectionLength)]
+        HRESULT SelectionLength( [out, retval]long* SelectionLength );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechRecoResult               
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechRecoResult
+{
+    DISPID_SRRRecoContext = 1,
+    DISPID_SRRTimes,
+    DISPID_SRRAudioFormat,
+    DISPID_SRRPhraseInfo,
+    DISPID_SRRAlternates,
+    DISPID_SRRAudio,
+    DISPID_SRRSpeakAudio,
+    DISPID_SRRSaveToMemory,
+    DISPID_SRRDiscardResultInfo
+} DISPID_SpeechRecoResult;
+
+/////////////////////////////////////////////////
+//
+// SpeechDiscardType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechDiscardType
+{
+    SDTProperty        = SPDF_PROPERTY,
+    SDTReplacement     = SPDF_REPLACEMENT,
+    SDTRule            = SPDF_RULE,
+    SDTDisplayText     = SPDF_DISPLAYTEXT,
+    SDTLexicalForm     = SPDF_LEXICALFORM,
+    SDTPronunciation   = SPDF_PRONUNCIATION,
+    SDTAudio           = SPDF_AUDIO,
+    SDTAlternates      = SPDF_ALTERNATES,
+    SDTAll             = SPDF_ALL
+} SpeechDiscardType;
+
+[
+    object,
+    uuid(ED2879CF-CED9-4ee6-A534-DE0191D5468D),
+    dual,
+    helpstring("ISpeechRecoResult Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecoResult : IDispatch
+{
+    //  Properties
+    
+    // RecoContext
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("RecoContext"), id(DISPID_SRRRecoContext)] 
+        HRESULT RecoContext( [out,retval]ISpeechRecoContext** RecoContext );
+    
+    // Times
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Times"), id(DISPID_SRRTimes)] 
+        HRESULT Times( [out,retval]ISpeechRecoResultTimes** Times );
+    
+    // AudioFormat
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propputref, helpstring("AudioFormat"), id(DISPID_SRRAudioFormat)] 
+        HRESULT AudioFormat( [in]ISpeechAudioFormat* Format );
+    [propget, helpstring("AudioFormat"), id(DISPID_SRRAudioFormat)] 
+        HRESULT AudioFormat( [out,retval]ISpeechAudioFormat** Format );
+    
+    // PhraseInfo
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("PhraseInfo"), id(DISPID_SRRPhraseInfo)] 
+        HRESULT PhraseInfo( [out,retval]ISpeechPhraseInfo** PhraseInfo );
+
+    
+    //  Methods
+    
+    // Alternates
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Alternates"), id(DISPID_SRRAlternates)] 
+        HRESULT Alternates( [in] long RequestCount,
+                            [in, defaultvalue(0)] long StartElement,
+                            [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                            [out,retval] ISpeechPhraseAlternates** Alternates );
+    
+    // Audio
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Audio"), id(DISPID_SRRAudio)]
+        HRESULT Audio( [in, defaultvalue(0)] long StartElement,
+                       [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                       [out,retval] ISpeechMemoryStream **Stream );
+    
+    // SpeakAudio
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("SpeakAudio"), id(DISPID_SRRSpeakAudio)]
+        HRESULT SpeakAudio( [in, defaultvalue(0)] long StartElement,
+                            [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                            [in, defaultvalue(SPF_DEFAULT)] SpeechVoiceSpeakFlags Flags,
+                            [out,retval]long* StreamNumber );
+    
+    // SaveToMemory
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("SaveToMemory"), id(DISPID_SRRSaveToMemory)]
+        HRESULT SaveToMemory( [out,retval] VARIANT* ResultBlock );
+    
+    // DiscardResultInfo
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("DiscardResultInfo"), id(DISPID_SRRDiscardResultInfo)]
+        HRESULT DiscardResultInfo( [in]SpeechDiscardType ValueTypes );
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+// Add a new interface that inherits from ISpeechRecoResult to allow V-Table access to XML results
+
+typedef [hidden] enum DISPID_SpeechXMLRecoResult
+{
+    DISPID_SRRGetXMLResult      = DISPID_SRRDiscardResultInfo + 1,
+    DISPID_SRRGetXMLErrorInfo   = DISPID_SRRGetXMLResult + 1
+} DISPID_SpeechXMLRecoResult;
+
+[
+    object,
+    uuid(AAEC54AF-8F85-4924-944D-B79D39D72E19),
+    dual,
+    helpstring("ISpeechXMLRecoResult Interface"),
+    pointer_default(unique)
+]
+interface ISpeechXMLRecoResult : ISpeechRecoResult
+{
+    [helpstring("GetXMLResult"), id(DISPID_SRRGetXMLResult)]
+        HRESULT GetXMLResult([in] SPXMLRESULTOPTIONS Options, [out, retval] BSTR *pResult);
+    [helpstring("GetXMLErrorInfo"), id(DISPID_SRRGetXMLErrorInfo)]
+    	HRESULT GetXMLErrorInfo([out] long *LineNumber, [out]BSTR *ScriptLine, [out]BSTR *Source, [out]BSTR *Description, [out]long *ResultCode, [out, retval]VARIANT_BOOL *IsError);
+};
+
+// An interface that extends ISpeechRecoResult
+
+typedef [hidden] enum DISPID_SpeechRecoResult2
+{
+    DISPID_SRRSetTextFeedback = DISPID_SRRGetXMLErrorInfo + 1
+} DISPID_SpeechRecoResult2;
+
+[
+    object,
+    uuid(8E0A246D-D3C8-45de-8657-04290C458C3C),
+    dual,
+    helpstring("ISpeechRecoResult2 Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecoResult2: ISpeechRecoResult
+{
+    [helpstring("DiscardResultInfo"), id(DISPID_SRRSetTextFeedback)]
+        HRESULT SetTextFeedback([in]BSTR Feedback, [in]VARIANT_BOOL WasSuccessful);
+}
+
+
+// Add a new interface that cannot be QI'd for but allows IDispatch access to both ISpeechRecoResult and ISpeechXMLRecoResult
+[
+    object,
+    uuid(6D60EB64-ACED-40a6-BBF3-4E557F71DEE2),
+    dual,
+    hidden,
+    helpstring("ISpeechRecoResultDispatch Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecoResultDispatch : IDispatch
+{
+    [propget, helpstring("RecoContext"), id(DISPID_SRRRecoContext)] 
+        HRESULT RecoContext( [out,retval]ISpeechRecoContext** RecoContext );
+    [propget, helpstring("Times"), id(DISPID_SRRTimes)] 
+        HRESULT Times( [out,retval]ISpeechRecoResultTimes** Times );    
+    [propputref, helpstring("AudioFormat"), id(DISPID_SRRAudioFormat)] 
+        HRESULT AudioFormat( [in]ISpeechAudioFormat* Format );
+    [propget, helpstring("AudioFormat"), id(DISPID_SRRAudioFormat)] 
+        HRESULT AudioFormat( [out,retval]ISpeechAudioFormat** Format );
+    [propget, helpstring("PhraseInfo"), id(DISPID_SRRPhraseInfo)] 
+        HRESULT PhraseInfo( [out,retval]ISpeechPhraseInfo** PhraseInfo );
+    [helpstring("Alternates"), id(DISPID_SRRAlternates)] 
+        HRESULT Alternates( [in] long RequestCount,
+                            [in, defaultvalue(0)] long StartElement,
+                            [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                            [out,retval] ISpeechPhraseAlternates** Alternates );
+    [helpstring("Audio"), id(DISPID_SRRAudio)]
+        HRESULT Audio( [in, defaultvalue(0)] long StartElement,
+                       [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                       [out,retval] ISpeechMemoryStream **Stream );
+    [helpstring("SpeakAudio"), id(DISPID_SRRSpeakAudio)]
+        HRESULT SpeakAudio( [in, defaultvalue(0)] long StartElement,
+                            [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                            [in, defaultvalue(SPF_DEFAULT)] SpeechVoiceSpeakFlags Flags,
+                            [out,retval]long* StreamNumber );
+    [helpstring("SaveToMemory"), id(DISPID_SRRSaveToMemory)]
+        HRESULT SaveToMemory( [out,retval] VARIANT* ResultBlock );
+    [helpstring("DiscardResultInfo"), id(DISPID_SRRDiscardResultInfo)]
+        HRESULT DiscardResultInfo( [in]SpeechDiscardType ValueTypes );
+    [helpstring("GetXMLResult"), id(DISPID_SRRGetXMLResult)]
+        HRESULT GetXMLResult([in] SPXMLRESULTOPTIONS Options, [out, retval] BSTR *pResult);
+    [helpstring("GetXMLErrorInfo"), id(DISPID_SRRGetXMLErrorInfo)]
+    	HRESULT GetXMLErrorInfo([out] long *LineNumber, [out]BSTR *ScriptLine, [out]BSTR *Source, [out]BSTR *Description, [out]HRESULT *ResultCode, [out, retval]VARIANT_BOOL *IsError);
+    [helpstring("SetTextFeedback"), id(DISPID_SRRSetTextFeedback)]
+        HRESULT SetTextFeedback([in] BSTR Feedback, [in] VARIANT_BOOL WasSuccessful);
+};
+
+#endif // _SAPI_BUILD_VER >= 0x053
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseInfoBuilder             
+//  SAPI C++ Only Interface Equivalent:
+//  This interface corresponds to the ISpPhraseBuilder
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseBuilder
+{
+    DISPID_SPPBRestorePhraseFromMemory = 1
+} DISPID_SpeechPhraseBuilder ;
+
+[
+    object,
+    uuid(3B151836-DF3A-4E0A-846C-D2ADC9334333),
+    dual,
+    helpstring("ISpeechPhraseInfoBuilder Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseInfoBuilder : IDispatch
+{
+    // Methods
+    
+    // RestorePhraseFromMemory
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("RestorePhraseFromMemory"), id(DISPID_SPPBRestorePhraseFromMemory)]
+        HRESULT RestorePhraseFromMemory([in] VARIANT* PhraseInMemory,
+                                        [out,retval] ISpeechPhraseInfo **PhraseInfo);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechRecoResultTimes             
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechRecoResultTimes
+{
+    DISPID_SRRTStreamTime = 1,
+    DISPID_SRRTLength,
+    DISPID_SRRTTickCount,
+    DISPID_SRRTOffsetFromStart
+} DISPID_SpeechRecoResultTimes;
+
+[
+    object,
+    uuid(62B3B8FB-F6E7-41be-BDCB-056B1C29EFC0),
+    dual,
+    helpstring("ISpeechRecoResultTimes Interface"),
+    pointer_default(unique)
+]
+interface ISpeechRecoResultTimes : IDispatch
+{
+    // Properties
+
+    // StreamTime
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("StreamTime"), id(DISPID_SRRTStreamTime)] 
+        HRESULT StreamTime([out,retval]VARIANT* Time );
+    
+    // Length
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Length"), id(DISPID_SRRTLength)] 
+        HRESULT Length([out,retval]VARIANT* Length );
+    
+    // TickCount
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("TickCount"), id(DISPID_SRRTTickCount)] 
+        HRESULT TickCount([out,retval]long* TickCount );
+    
+    // Start
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Start"), id(DISPID_SRRTOffsetFromStart)]
+        HRESULT OffsetFromStart([out,retval]VARIANT* OffsetFromStart );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseAlternate               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseAlternate
+{
+    DISPID_SPARecoResult = 1,
+    DISPID_SPAStartElementInResult,
+    DISPID_SPANumberOfElementsInResult,
+    DISPID_SPAPhraseInfo,
+    DISPID_SPACommit
+} DISPID_SpeechPhraseAlternate;
+
+[
+    object,
+    uuid(27864A2A-2B9F-4cb8-92D3-0D2722FD1E73),
+    dual,
+    helpstring("ISpeechPhraseAlternate Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseAlternate : IDispatch
+{
+    // Properties
+    
+    // RecoResult
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("RecoResult"), id(DISPID_SPARecoResult)] 
+        HRESULT RecoResult( [out,retval]ISpeechRecoResult** RecoResult );  // Was ISpPhrase, is this right?
+    
+    // StartElementInResult
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("StartElementInResult"), id(DISPID_SPAStartElementInResult)] 
+        HRESULT StartElementInResult( [out,retval]long* StartElement );
+    
+    // NumberOfElementsInResult
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("NumberOfElementsInResult"), id(DISPID_SPANumberOfElementsInResult)] 
+        HRESULT NumberOfElementsInResult( [out,retval]long* NumberOfElements );
+    
+    // PhraseInfo
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Phrase"), id(DISPID_SPAPhraseInfo)] 
+        HRESULT PhraseInfo( [out,retval]ISpeechPhraseInfo** PhraseInfo );
+
+    // Methods
+    
+    // Commit
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Commit"), id(DISPID_SPACommit)] 
+        HRESULT Commit( void );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseAlternates               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseAlternates
+{
+    DISPID_SPAsCount = 1,
+    DISPID_SPAsItem = DISPID_VALUE,
+    DISPID_SPAs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechPhraseAlternates;
+
+[
+    object,
+    uuid(B238B6D5-F276-4c3d-A6C1-2974801C3CC2),
+    dual,
+    helpstring("ISpeechPhraseAlternates Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseAlternates : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Count"), id(DISPID_SPAsCount)]
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Item"), id(DISPID_SPAsItem)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechPhraseAlternate** PhraseAlternate );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [propget, helpstring("Enumerates the alternates"), restricted, id(DISPID_SPAs_NewEnum)] 
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseInfo               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseInfo
+{
+    DISPID_SPILanguageId = 1,
+    DISPID_SPIGrammarId,
+    DISPID_SPIStartTime,
+    DISPID_SPIAudioStreamPosition,
+    DISPID_SPIAudioSizeBytes,
+    DISPID_SPIRetainedSizeBytes,
+    DISPID_SPIAudioSizeTime,
+    DISPID_SPIRule,
+    DISPID_SPIProperties,
+    DISPID_SPIElements,
+    DISPID_SPIReplacements,
+    DISPID_SPIEngineId,
+    DISPID_SPIEnginePrivateData,
+    DISPID_SPISaveToMemory,
+    DISPID_SPIGetText,
+    DISPID_SPIGetDisplayAttributes
+} DISPID_SpeechPhraseInfo;
+
+[
+    object,
+    uuid(961559CF-4E67-4662-8BF0-D93F1FCD61B3),
+    dual,
+    helpstring("ISpeechPhraseInfo Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseInfo : IDispatch
+{
+    // Properties
+
+    // LanguageId
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("LanguageId"), id(DISPID_SPILanguageId)]
+        HRESULT LanguageId( [out, retval]long* LanguageId );
+    
+    // GrammarId
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("GrammarId"), id(DISPID_SPIGrammarId)]
+        HRESULT GrammarId( [out, retval]VARIANT* GrammarId );
+    
+    // StartTime
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("StartTime"), id(DISPID_SPIStartTime)]
+        HRESULT StartTime( [out, retval]VARIANT* StartTime );
+    
+    // AudioStreamPosition
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioStreamPosition"), id(DISPID_SPIAudioStreamPosition)]
+        HRESULT AudioStreamPosition( [out, retval]VARIANT* AudioStreamPosition );
+    
+    // AudioSizeBytes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioSizeBytes"), id(DISPID_SPIAudioSizeBytes)]
+        HRESULT AudioSizeBytes( [out, retval]long* pAudioSizeBytes );
+    
+    // RetainedSizeBytes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("RetainedSizeBytes"), id(DISPID_SPIRetainedSizeBytes)]
+        HRESULT RetainedSizeBytes( [out, retval]long* RetainedSizeBytes );
+    
+    // AudioSizeTime
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioSizeTime"), id(DISPID_SPIAudioSizeTime)]
+        HRESULT AudioSizeTime( [out, retval]long* AudioSizeTime );
+    
+    // Rule
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Rule"), id(DISPID_SPIRule)]
+        HRESULT Rule( [out, retval]ISpeechPhraseRule** Rule );
+    
+    // Properties
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Properties"), id(DISPID_SPIProperties)]
+        HRESULT Properties( [out, retval]ISpeechPhraseProperties** Properties );
+    
+    // Elements
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Elements"), id(DISPID_SPIElements)]
+        HRESULT Elements( [out, retval]ISpeechPhraseElements** Elements );
+    
+    // Replacements
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Replacements"), id(DISPID_SPIReplacements)]
+        HRESULT Replacements( [out, retval]ISpeechPhraseReplacements** Replacements );
+    
+    // EngineId
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("EngineId"), id(DISPID_SPIEngineId)]
+        HRESULT EngineId( [out, retval]BSTR* EngineIdGuid );
+    
+    // EnginePrivateData
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("EnginePrivateData"), id(DISPID_SPIEnginePrivateData)]
+        HRESULT EnginePrivateData( [out, retval]VARIANT *PrivateData );
+
+    // Methods
+
+    // SaveToMemory
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("SaveToMemory"), id(DISPID_SPISaveToMemory)]
+        HRESULT SaveToMemory( [out,retval]VARIANT* PhraseBlock );
+    
+    // GetText
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("GetText"), id(DISPID_SPIGetText)]
+        HRESULT GetText( [in, defaultvalue(0)] long StartElement,
+                         [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                         [in, defaultvalue(-1)] VARIANT_BOOL UseReplacements,
+                         [out,retval]BSTR* Text );
+    
+    // DisplayAttributes
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("DisplayAttributes"), id(DISPID_SPIGetDisplayAttributes)]
+        HRESULT GetDisplayAttributes( [in, defaultvalue(0)] long StartElement,
+                                      [in, defaultvalue(SPPR_ALL_ELEMENTS)] long Elements,
+                                      [in, defaultvalue(-1)] VARIANT_BOOL UseReplacements,
+                                      [out,retval]SpeechDisplayAttributes* DisplayAttributes );
+    
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseElement              
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseElement
+{
+    DISPID_SPEAudioTimeOffset = 1,
+    DISPID_SPEAudioSizeTime,
+    DISPID_SPEAudioStreamOffset,
+    DISPID_SPEAudioSizeBytes,
+    DISPID_SPERetainedStreamOffset,
+    DISPID_SPERetainedSizeBytes,
+    DISPID_SPEDisplayText,
+    DISPID_SPELexicalForm,
+    DISPID_SPEPronunciation,
+    DISPID_SPEDisplayAttributes,
+    DISPID_SPERequiredConfidence,
+    DISPID_SPEActualConfidence,
+    DISPID_SPEEngineConfidence
+} DISPID_SpeechPhraseElement;
+
+/////////////////////////////////////////////////
+//
+// SpeechEngineConfidence Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechEngineConfidence
+{
+    SECLowConfidence       = -1,
+    SECNormalConfidence    =  0,
+    SECHighConfidence      =  1
+} SpeechEngineConfidence;
+
+[
+    object,
+    uuid(E6176F96-E373-4801-B223-3B62C068C0B4),
+    dual,
+    helpstring("ISpeechPhraseElement Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseElement : IDispatch
+{
+    // Properties
+
+    // AudioTimeOffset
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioTimeOffset"), id(DISPID_SPEAudioTimeOffset)]
+        HRESULT AudioTimeOffset( [out, retval]long* AudioTimeOffset );
+    
+    // AudioSizeTime
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioSizeTime"), id(DISPID_SPEAudioSizeTime)]
+        HRESULT AudioSizeTime( [out, retval]long* AudioSizeTime );
+    
+    // AudioStreamOffset
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioStreamOffset"), id(DISPID_SPEAudioStreamOffset)]
+        HRESULT AudioStreamOffset( [out, retval]long* AudioStreamOffset );
+    
+    // AudioSizeBytes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("AudioSizeBytes"), id(DISPID_SPEAudioSizeBytes)]
+        HRESULT AudioSizeBytes( [out, retval]long* AudioSizeBytes );
+    
+    // RetainedStreamOffset
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("RetainedStreamOffset"), id(DISPID_SPERetainedStreamOffset)]
+        HRESULT RetainedStreamOffset( [out, retval]long* RetainedStreamOffset );
+    
+    // RetainedSizeBytes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("RetainedSizeBytes"), id(DISPID_SPERetainedSizeBytes)]
+        HRESULT RetainedSizeBytes( [out, retval]long* RetainedSizeBytes );
+    
+    // DisplayText
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("DisplayText"), id(DISPID_SPEDisplayText)]
+        HRESULT DisplayText( [out, retval]BSTR* DisplayText );
+    
+    // LexicalForm
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("LexicalForm"), id(DISPID_SPELexicalForm)]
+        HRESULT LexicalForm( [out, retval]BSTR* LexicalForm );
+    
+    // Pronunciation
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Pronunciation"), id(DISPID_SPEPronunciation)]
+        HRESULT Pronunciation( [out, retval]VARIANT* Pronunciation );
+    
+    // DisplayAttributes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("DisplayAttributes"), id(DISPID_SPEDisplayAttributes)]
+        HRESULT DisplayAttributes( [out, retval]SpeechDisplayAttributes* DisplayAttributes );
+    
+    // RequiredConfidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("RequiredConfidence"), id(DISPID_SPERequiredConfidence)]
+        HRESULT RequiredConfidence( [out, retval]SpeechEngineConfidence* RequiredConfidence );
+    
+    // ActualConfidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("ActualConfidence"), id(DISPID_SPEActualConfidence)]
+        HRESULT ActualConfidence( [out, retval]SpeechEngineConfidence* ActualConfidence );
+    
+    // EngineConfidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("EngineConfidence"), id(DISPID_SPEEngineConfidence)]
+        HRESULT EngineConfidence( [out, retval]float* EngineConfidence );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseElements            
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseElements
+{
+    DISPID_SPEsCount = 1,
+    DISPID_SPEsItem = DISPID_VALUE,
+    DISPID_SPEs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechPhraseElements;
+
+[
+    object,
+    uuid(0626B328-3478-467d-A0B3-D0853B93DDA3),
+    dual,
+    helpstring("ISpeechPhraseElements Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseElements : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Count"), id(DISPID_SPEsCount)] 
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Item"), id(DISPID_SPEsItem)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechPhraseElement** Element );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [propget, helpstring("Enumerates the tokens"), restricted, id(DISPID_SPEs_NewEnum)] 
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseReplacement             
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseReplacement
+{
+    DISPID_SPRDisplayAttributes = 1,
+    DISPID_SPRText,
+    DISPID_SPRFirstElement,
+    DISPID_SPRNumberOfElements
+} DISPID_SpeechPhraseReplacement;
+
+[
+    object,
+    uuid(2890A410-53A7-4fb5-94EC-06D4998E3D02),
+    dual,
+    helpstring("ISpeechPhraseReplacement Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseReplacement : IDispatch
+{
+    // Proerties
+    
+    // DisplayAttributes
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("DisplayAttributes"), id(DISPID_SPRDisplayAttributes)] 
+        HRESULT DisplayAttributes( [out,retval]SpeechDisplayAttributes* DisplayAttributes );
+    
+    // Text
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Text"), id(DISPID_SPRText)]
+        HRESULT Text( [out, retval]BSTR* Text );
+    
+    // FirstElement
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("FirstElement"), id(DISPID_SPRFirstElement)]
+        HRESULT FirstElement( [out, retval]long* FirstElement );
+    
+    // NumberOfElements
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("NumElements"), id(DISPID_SPRNumberOfElements)]
+        HRESULT NumberOfElements( [out, retval]long* NumberOfElements );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseReplacements           
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseReplacements
+{
+    DISPID_SPRsCount = 1,
+    DISPID_SPRsItem = DISPID_VALUE,
+    DISPID_SPRs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechPhraseReplacements;
+
+[
+    object,
+    uuid(38BC662F-2257-4525-959E-2069D2596C05),
+    dual,
+    helpstring("ISpeechPhraseReplacements Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseReplacements : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Count"), id(DISPID_SPRsCount)]
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Item"), id(DISPID_SPRsItem)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechPhraseReplacement** Reps );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [propget, helpstring("Enumerates the tokens"), restricted, id(DISPID_SPRs_NewEnum)]
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseProperty              
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseProperty
+{
+    DISPID_SPPName = 1,
+    DISPID_SPPId,
+    DISPID_SPPValue,
+    DISPID_SPPFirstElement,
+    DISPID_SPPNumberOfElements,
+    DISPID_SPPEngineConfidence,
+    DISPID_SPPConfidence,
+    DISPID_SPPParent,
+    DISPID_SPPChildren
+} DISPID_SpeechPhraseProperty;
+
+[
+    object,
+    uuid(CE563D48-961E-4732-A2E1-378A42B430BE),
+    dual,
+    helpstring("ISpeechPhraseProperty Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseProperty : IDispatch
+{
+    // Properties
+
+    // Name
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Name"), id(DISPID_SPPName)]
+        HRESULT Name( [out, retval]BSTR* Name );
+    
+    // Id
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Id"), id(DISPID_SPPId)]
+        HRESULT Id( [out, retval]long* Id );
+    
+    // Value
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Value"), id(DISPID_SPPValue)]
+        HRESULT Value( [out, retval]VARIANT* Value );
+    
+    // FirstElement
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("FirstElement"), id(DISPID_SPPFirstElement)]
+        HRESULT FirstElement( [out, retval]long* FirstElement );
+    
+    // NumberOfElements
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("NumberOfElements"), id(DISPID_SPPNumberOfElements)]
+        HRESULT NumberOfElements( [out, retval]long* NumberOfElements );
+    
+    // EngineConfidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("EngineConfidence"), id(DISPID_SPPEngineConfidence)]
+        HRESULT EngineConfidence( [out, retval]float* Confidence );
+    
+    // Confidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Confidence"), id(DISPID_SPPConfidence)]
+        HRESULT Confidence( [out, retval]SpeechEngineConfidence* Confidence );
+    
+    // Parent
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Parent"), id(DISPID_SPPParent)]
+        HRESULT Parent( [out, retval]ISpeechPhraseProperty** ParentProperty );
+    
+    // Children
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Children"), id(DISPID_SPPChildren)]
+        HRESULT Children( [out, retval]ISpeechPhraseProperties** Children );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseProperties               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseProperties
+{
+    DISPID_SPPsCount = 1,
+    DISPID_SPPsItem = DISPID_VALUE,
+    DISPID_SPPs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechPhraseProperties;
+
+[
+    object,
+    uuid(08166B47-102E-4b23-A599-BDB98DBFD1F4),
+    dual,
+    helpstring("ISpeechPhraseProperties Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseProperties : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Count"), id(DISPID_SPPsCount)]
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Item"), id(DISPID_SPPsItem)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechPhraseProperty** Property );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [propget, helpstring("Enumerates the alternates"), restricted, id(DISPID_SPPs_NewEnum)]
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseRule               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseRule
+{
+    DISPID_SPRuleName = 1,
+    DISPID_SPRuleId,
+    DISPID_SPRuleFirstElement,
+    DISPID_SPRuleNumberOfElements,
+    DISPID_SPRuleParent,
+    DISPID_SPRuleChildren,
+    DISPID_SPRuleConfidence,
+    DISPID_SPRuleEngineConfidence
+} DISPID_SpeechPhraseRule;
+
+[
+    object,
+    uuid(A7BFE112-A4A0-48d9-B602-C313843F6964),
+    dual,
+    helpstring("ISpeechPhraseRule Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseRule : IDispatch
+{
+    // Properties
+
+    // Name
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Name"), id(DISPID_SPRuleName)]
+        HRESULT Name( [out, retval]BSTR* Name );
+    
+    // Id
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Id"), id(DISPID_SPRuleId)]
+        HRESULT Id( [out, retval]long* Id );
+    
+    // FirstElement
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("FirstElement"), id(DISPID_SPRuleFirstElement)]
+        HRESULT FirstElement( [out, retval]long* FirstElement );
+    
+    // NumElements
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("NumElements"), id(DISPID_SPRuleNumberOfElements)]
+        HRESULT NumberOfElements( [out, retval]long* NumberOfElements );
+    
+    // Parent
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Parent"), id(DISPID_SPRuleParent)]
+        HRESULT Parent( [out, retval]ISpeechPhraseRule** Parent );
+    
+    // Children
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Children"), id(DISPID_SPRuleChildren)]
+        HRESULT Children( [out, retval]ISpeechPhraseRules** Children );
+    
+    // Confidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Confidence"), id(DISPID_SPRuleConfidence)]
+        HRESULT Confidence( [out, retval]SpeechEngineConfidence* ActualConfidence );
+    
+    // EngineConfidence
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("EngineConfidence"), id(DISPID_SPRuleEngineConfidence)]
+        HRESULT EngineConfidence( [out, retval]float* EngineConfidence );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhraseRules               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhraseRules
+{
+    DISPID_SPRulesCount = 1,
+    DISPID_SPRulesItem = DISPID_VALUE,
+    DISPID_SPRules_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechPhraseRules;
+
+[
+    object,
+    uuid(9047D593-01DD-4b72-81A3-E4A0CA69F407),
+    dual,
+    helpstring("ISpeechPhraseRules Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhraseRules : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default:
+    //
+    [propget, helpstring("Count"), id(DISPID_SPRulesCount)]
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("Item"), id(DISPID_SPRulesItem)]
+        HRESULT Item([in] long Index, [out, retval]ISpeechPhraseRule** Rule );
+    
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [propget, helpstring("Enumerates the Rules"), restricted, id(DISPID_SPRules_NewEnum)]
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechLexicon               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechLexicon
+{
+    DISPID_SLGenerationId = 1,
+    DISPID_SLGetWords,
+    DISPID_SLAddPronunciation,
+    DISPID_SLAddPronunciationByPhoneIds,
+    DISPID_SLRemovePronunciation,
+    DISPID_SLRemovePronunciationByPhoneIds,
+    DISPID_SLGetPronunciations,
+    DISPID_SLGetGenerationChange
+} DISPID_SpeechLexicon;
+
+/////////////////////////////////////////////////
+//
+// SpeechLexiconType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechLexiconType {
+   SLTUser        = eLEXTYPE_USER,
+   SLTApp         = eLEXTYPE_APP
+} SpeechLexiconType;
+
+/////////////////////////////////////////////////
+//
+// SpeechPartOfSpeech Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechPartOfSpeech {
+    SPSNotOverriden  = SPPS_NotOverriden,
+    SPSUnknown       = SPPS_Unknown,
+    SPSNoun          = SPPS_Noun,
+    SPSVerb          = SPPS_Verb,
+    SPSModifier      = SPPS_Modifier,
+    SPSFunction      = SPPS_Function,
+    SPSInterjection  = SPPS_Interjection,
+#if _SAPI_BUILD_VER >= 0x053
+    SPSLMA           = SPPS_LMA,
+    SPSSuppressWord  = SPPS_SuppressWord
+#endif // _SAPI_BUILD_VER >= 0x053
+} SpeechPartOfSpeech;
+
+[
+    object,
+    uuid(3DA7627A-C7AE-4b23-8708-638C50362C25),
+    dual,
+    helpstring("ISpeechLexicon Interface"),
+    pointer_default(unique)
+]
+interface ISpeechLexicon : IDispatch
+{
+    // Properties
+
+    // GenerationId
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    //
+    [propget, helpstring("GenerationId"), id(DISPID_SLGenerationId), hidden] 
+        HRESULT GenerationId([out,retval]long* GenerationId );
+    
+    //  Methods
+    
+    // GetWords
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("GetWords"), id(DISPID_SLGetWords)] 
+        HRESULT GetWords([in, defaultvalue(eLEXTYPE_USER | eLEXTYPE_APP)]SpeechLexiconType Flags,
+                         [out, defaultvalue(NULL)]long* GenerationID,
+                         [out,retval]ISpeechLexiconWords** Words );
+    
+
+    // AddPronunciation
+    //  SAPI C++ Only Interface Equivalent:
+    // 
+    [helpstring("AddPronunciation"), id(DISPID_SLAddPronunciation)] 
+        HRESULT AddPronunciation([in]BSTR bstrWord,
+                                 [in]SpeechLanguageId LangId,
+                                 [in, defaultvalue(SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,
+                                 [in, defaultvalue("")]BSTR bstrPronunciation);
+
+
+    // AddPronunciationByPhoneIds
+    //  SAPI C++ Only Interface Equivalent:
+    // 
+    [helpstring("AddPronunciationByPhoneIds"), hidden, id(DISPID_SLAddPronunciationByPhoneIds)] 
+        HRESULT AddPronunciationByPhoneIds([in]BSTR bstrWord,
+                                 [in]SpeechLanguageId LangId,
+                                 [in, defaultvalue(SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,
+                                 [in, defaultvalue(NULL)]VARIANT* PhoneIds);
+
+
+    // RemovePronunciation
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("RemovePronunciation"), id(DISPID_SLRemovePronunciation)] 
+        HRESULT RemovePronunciation([in]BSTR bstrWord,
+                                    [in]SpeechLanguageId LangId,
+                                    [in, defaultvalue(SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,
+                                    [in, defaultvalue("")]BSTR bstrPronunciation);
+
+    // RemovePronunciationByPhoneIds
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("RemovePronunciationByPhoneIds"), hidden, id(DISPID_SLRemovePronunciationByPhoneIds)] 
+        HRESULT RemovePronunciationByPhoneIds([in]BSTR bstrWord,
+                                    [in]SpeechLanguageId LangId,
+                                    [in, defaultvalue(SPSUnknown)]SpeechPartOfSpeech PartOfSpeech,
+                                    [in, defaultvalue(NULL)]VARIANT* PhoneIds);
+    
+    // GetPronunciations
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("GetPronunciations"), id(DISPID_SLGetPronunciations)] 
+        HRESULT GetPronunciations([in]BSTR bstrWord,
+                                  [in, defaultvalue(0)]SpeechLanguageId LangId,
+                                  [in, defaultvalue(eLEXTYPE_USER | eLEXTYPE_APP)]SpeechLexiconType TypeFlags,
+                                  [out,retval]ISpeechLexiconPronunciations** ppPronunciations );
+
+    // GetGenerationChange
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [helpstring("GetGenerationChange"), id(DISPID_SLGetGenerationChange), hidden] 
+        HRESULT GetGenerationChange([in,out]long* GenerationID,
+                                    [out,retval]ISpeechLexiconWords** ppWords);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechLexiconWords               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechLexiconWords
+{
+    DISPID_SLWsCount = 1,
+    DISPID_SLWsItem = DISPID_VALUE,
+    DISPID_SLWs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechLexiconWords;
+
+[
+    object,
+    uuid(8D199862-415E-47d5-AC4F-FAA608B424E6),
+    dual,
+    helpstring("ISpeechLexiconWords Interface"),
+    pointer_default(unique)
+]
+interface ISpeechLexiconWords : IDispatch
+{
+    // Properties
+
+    // Count
+    //  SAPI C++ Only Interface Equivalent:
+    //  Default: N/A
+    //
+    [id(DISPID_SLWsCount), propget, helpstring("Count")] 
+        HRESULT Count([out, retval] long* Count);
+    
+    // Methods
+
+    // Item
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [id(DISPID_VALUE), helpstring("Item")] 
+        HRESULT Item([in] long Index, [out, retval]ISpeechLexiconWord** Word );
+      
+    // _NewEnum
+    //  SAPI C++ Only Interface Equivalent:
+    //
+    [id(DISPID_NEWENUM), propget, helpstring("Enumerates the tokens"), restricted] 
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechLexiconWord               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+//
+// SpeechWordType Enum
+//  SAPI C++ Only Interface Equivalent: 
+//
+/////////////////////////////////////////////////
+
+typedef enum SpeechWordType
+{
+   SWTAdded   = eWORDTYPE_ADDED,
+   SWTDeleted = eWORDTYPE_DELETED
+} SpeechWordType;
+
+
+typedef [hidden] enum DISPID_SpeechLexiconWord
+{
+    DISPID_SLWLangId = 1,
+    DISPID_SLWType,
+    DISPID_SLWWord,
+    DISPID_SLWPronunciations
+} DISPID_SpeechLexiconWord;
+
+[
+    object,
+    uuid(4E5B933C-C9BE-48ed-8842-1EE51BB1D4FF),
+    dual,
+    helpstring("ISpeechLexiconWord Interface"),
+    pointer_default(unique)
+]
+interface ISpeechLexiconWord : IDispatch
+{
+    // Properties
+
+    // LangID
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLWLangId), propget]
+        HRESULT LangId([out,retval]SpeechLanguageId* LangId);
+
+    // Type
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLWType), propget]
+        HRESULT Type([out,retval]SpeechWordType* WordType);
+
+    // Word
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLWWord), propget]
+        HRESULT Word([out,retval]BSTR* Word);
+
+    // Pronounciations
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLWPronunciations), propget]
+        HRESULT Pronunciations([out,retval]ISpeechLexiconPronunciations** Pronunciations);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechLexiconPronunciations               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechLexiconProns
+{
+    DISPID_SLPsCount = 1,
+    DISPID_SLPsItem = DISPID_VALUE,
+    DISPID_SLPs_NewEnum = DISPID_NEWENUM
+} DISPID_SpeechLexiconProns;
+
+[
+    object,
+    uuid(72829128-5682-4704-A0D4-3E2BB6F2EAD3),
+    dual,
+    helpstring("ISpeechLexiconPronunciations Interface"),
+    pointer_default(unique)
+]
+interface ISpeechLexiconPronunciations : IDispatch
+{
+    // Count
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLPsCount), propget, helpstring("Count")] 
+        HRESULT Count([out, retval] long* Count);
+    
+    // Item
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [id(DISPID_VALUE), helpstring("Item")] 
+        HRESULT Item([in] long Index, [out, retval]ISpeechLexiconPronunciation** Pronunciation );
+    
+    // _NewEnum
+    //
+    //
+    [id(DISPID_NEWENUM), propget, helpstring("Enumerates the tokens"), restricted] 
+        HRESULT _NewEnum([out, retval] IUnknown** EnumVARIANT);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechLexiconPronunciation               
+//  SAPI C++ Only Interface Equivalent:
+//  Default Property: N/A
+//  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechLexiconPronunciation
+{
+    DISPID_SLPType = 1,
+    DISPID_SLPLangId,
+    DISPID_SLPPartOfSpeech,
+    DISPID_SLPPhoneIds,
+    DISPID_SLPSymbolic,
+} DISPID_SpeechLexiconPronunciation;
+
+[
+    object,
+    uuid(95252C5D-9E43-4f4a-9899-48EE73352F9F),
+    dual,
+    helpstring("ISpeechLexiconPronunciation Interface"),
+    pointer_default(unique)
+]
+interface ISpeechLexiconPronunciation : IDispatch
+{
+    // Type
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLPType), propget, helpstring("Type")] 
+        HRESULT Type([out, retval]SpeechLexiconType* LexiconType);
+
+    // LangID
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLPLangId), propget, helpstring("LangId")] 
+        HRESULT LangId([out, retval]SpeechLanguageId* LangId);
+
+    // PartOfSpeech
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    //
+    [id(DISPID_SLPPartOfSpeech), propget, helpstring("PartOfSpeech")] 
+        HRESULT PartOfSpeech([out, retval]SpeechPartOfSpeech* PartOfSpeech);
+
+    // PhoneIds
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Zero terminated string of phoneids
+    //
+    [id(DISPID_SLPPhoneIds), propget, helpstring("PhoneIds")] 
+        HRESULT PhoneIds([out, retval]VARIANT* PhoneIds); 
+        
+    // Symbolic   
+    //  SAPI C++ Only Interface Equivalent: 
+    //  Zero terminated string of phones
+    //
+    [id(DISPID_SLPSymbolic), propget, helpstring("Symbolic")] 
+        HRESULT Symbolic([out, retval]BSTR* Symbolic); 
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ISpeechPhoneConverter              
+//  SAPI C++ Only Interface Equivalent: 
+//  Default Property: N/A
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef [hidden] enum DISPID_SpeechPhoneConverter
+{
+    DISPID_SPCLangId   = 1,
+    DISPID_SPCPhoneToId,
+    DISPID_SPCIdToPhone
+} DISPID_SpeechPhoneConverter;
+
+[
+    object,
+    uuid(C3E4F353-433F-43d6-89A1-6A62A7054C3D),
+    dual,
+    helpstring("ISpeechPhoneConverter Interface"),
+    pointer_default(unique)
+]
+interface ISpeechPhoneConverter : IDispatch
+{
+    // Methods
+
+    // LanguageId
+    //  SAPI C++ Only Interface Equivalent: 
+    // This can only be set once, if tried it fails
+    //   
+    [propget, helpstring("LanguageId"), id(DISPID_SPCLangId)]
+        HRESULT LanguageId([out,retval]SpeechLanguageId* LanguageId);
+    [propput, helpstring("LanguageId"), id(DISPID_SPCLangId)]
+        HRESULT LanguageId([in]SpeechLanguageId LanguageId);
+    
+    // PhoneToId
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [id(DISPID_SPCPhoneToId), helpstring("PhoneToId")]
+        HRESULT PhoneToId([in]const BSTR Phonemes,
+                          [out,retval]VARIANT* IdArray);
+
+    // IdToPhone
+    //  SAPI C++ Only Interface Equivalent: 
+    //
+    [id(DISPID_SPCIdToPhone), helpstring("IdToPhone")]
+        HRESULT IdToPhone([in]const VARIANT IdArray,
+                          [out,retval]BSTR* Phonemes);                    
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

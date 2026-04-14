@@ -1,0 +1,780 @@
+//**@@@*@@@****************************************************
+//
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//**@@@*@@@****************************************************
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+import "unknwn.idl";
+import "propsys.idl";
+
+cpp_quote("#define E_NOTFOUND HRESULT_FROM_WIN32(ERROR_NOT_FOUND)")
+cpp_quote("#define E_UNSUPPORTED_TYPE HRESULT_FROM_WIN32(ERROR_UNSUPPORTED_TYPE)")
+
+cpp_quote("#define DEVICE_STATE_ACTIVE      0x00000001")
+cpp_quote("#define DEVICE_STATE_DISABLED    0x00000002")
+cpp_quote("#define DEVICE_STATE_NOTPRESENT  0x00000004")
+cpp_quote("#define DEVICE_STATE_UNPLUGGED   0x00000008")
+
+cpp_quote("#define DEVICE_STATEMASK_ALL     0x0000000f")
+
+// public property keys
+
+cpp_quote("#ifdef DEFINE_PROPERTYKEY")
+cpp_quote("#undef DEFINE_PROPERTYKEY")
+cpp_quote("#endif")
+
+cpp_quote("#ifdef INITGUID")
+cpp_quote("#define DEFINE_PROPERTYKEY(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8, pid) EXTERN_C const PROPERTYKEY DECLSPEC_SELECTANY name = { { l, w1, w2, { b1, b2,  b3,  b4,  b5,  b6,  b7,  b8 } }, pid }")
+cpp_quote("#else")
+cpp_quote("#define DEFINE_PROPERTYKEY(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8, pid) EXTERN_C const PROPERTYKEY name")
+cpp_quote("#endif // INITGUID")
+
+// PKEY_AudioEndpoint_xxx
+// GUID for PKEY_AudioEndpoint_XXX (public): 1da5d803-d492-4edd-8c23-e0c0ffee7f0e
+
+// PKEY_AudioEndpoint_FormFactor:  AudioEndpointFormFactor (cast to UINT) of an Audio Endpoint IMMDevice
+// vartype = VT_UI4
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_FormFactor, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 0); ")
+
+// PKEY_AudioEndpoint_ControlPanelPageProvider: mmsys.cpl device properties page extensions.  Used in device interface, devnode and endpoint propertystores
+// vartype = VT_LPWSTR -- A UUID
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_ControlPanelPageProvider, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 1); ")
+
+// PKEY_AudioEndpoint_Association: ks pin category to associate with an "endpoint target" property store in an inf file
+// vartype = VT_LPWSTR (stringized GUID)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_Association, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 2);")
+
+// PKEY_AudioEndpoint_PhysicalSpeakers: the channel configuration of speakers that are physically present in a users system
+// vartype = VT_UI4
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_PhysicalSpeakers, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 3);")
+
+// PKEY_AudioEndpoint_GUID: A GUID associated with this audio endpoint, unique across all audio endpoints. This GUID can be used as the device identifier in the DirectSound APIs.
+// vartype = VT_LPWSTR (stringized GUID)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_GUID, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 4);")
+
+// PKEY_Endpoint_Disable_SysFx: Boolean that when TRUE enables SysFx for the endpoint
+// vartype = VT_UI4
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_Disable_SysFx, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 5);")
+
+// System Effects enable/disable flags:
+cpp_quote("#define ENDPOINT_SYSFX_ENABLED          0x00000000  // System Effects are enabled.")
+cpp_quote("#define ENDPOINT_SYSFX_DISABLED         0x00000001  // System Effects are disabled.")
+
+// PKEY_AudioEndpoint_FullRangeSpeakers: the channel configuration of speakers that are FullRangely present in a users system
+// vartype = VT_UI4
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_FullRangeSpeakers, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 6);")
+
+// PKEY_AudioEndpoint_Supports_EventDriven_Mode: INF supplied property that indicates endpoint supports event-driven mode
+// vartype = VT_UI4
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_Supports_EventDriven_Mode, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 7);")
+
+// PKEY_AudioEndpoint_JackSubType:  KS Category ID (GUID) of an Audio Endpoint
+// vartype = VT_LPWSTR (stringized GUID)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_JackSubType, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 8);")
+
+// PKEY_AudioEndpoint_Default_VolumeInDb: INF supplied property that indicates default volume in DB for an endpoint.
+// vartype = VT_UI4 (Float value expressed in fixed point 16.16 format)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_Default_VolumeInDb, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 9);")
+
+// PKEY_AudioEndpoint_Max_VolumeInDb: INF supplied property that indicates max volume in DB for an endpoint to be used by the OS volume implementation.
+// vartype = VT_UI4 (Float value expressed in fixed point 16.16 format)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_Max_VolumeInDb, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 10);")
+
+// PKEY_AudioEndpoint_Min_VolumeInDb: INF supplied property that indicates min volume in DB for an endpoint to be used by the OS volume implementation.
+// vartype = VT_I4 (Float value expressed in fixed point 16.16 format)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpoint_Min_VolumeInDb, 0x1da5d803, 0xd492, 0x4edd, 0x8c, 0x23, 0xe0, 0xc0, 0xff, 0xee, 0x7f, 0x0e, 11);")
+
+// PKEY_AudioEngine_xxx
+// GUID for PKEY_AudioEngine_xxx (public): {F19F064D-082C-4e27-BC73-6882A1BB8E4C}
+
+// PKEY_AudioEngine_DeviceFormat: The format device format (can be PCM integer)
+// vartype = VT_BLOB
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEngine_DeviceFormat, 0xf19f064d, 0x82c, 0x4e27, 0xbc, 0x73, 0x68, 0x82, 0xa1, 0xbb, 0x8e, 0x4c, 0); ")
+
+// PKEY_AudioEngine_OEMFormat:  Specifies the default format that
+// is used for rendering/capturing.  Populated by OEM INF file.
+// vartype = VT_BLOB
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEngine_OEMFormat, 0xe4870e26, 0x3cc5, 0x4cd2, 0xba, 0x46, 0xca, 0xa, 0x9a, 0x70, 0xed, 0x4, 3); ")
+
+// List of effects GUIDS for which the supplied icon below is appropriate.
+// vartype = VT_VECTOR | VT_LPWSTR (stringized GUID)
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpointLogo_IconEffects, 0xf1ab780d, 0x2010, 0x4ed3, 0xa3, 0xa6, 0x8b, 0x87, 0xf0, 0xf0, 0xc4, 0x76, 0);")
+
+// A localizable URI to the image of an icon which must be white on transparent.
+// Typically of the form "@driverresource.dll,-200" for example.
+// vartype = VT_LPWSTR
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpointLogo_IconPath, 0xf1ab780d, 0x2010, 0x4ed3, 0xa3, 0xa6, 0x8b, 0x87, 0xf0, 0xf0, 0xc4, 0x76, 1);")
+
+// PKEY_AudioEndpointSettings_xxx
+// GUID for PKEY_AudioEndpointSettings_XXX (WPDDK): 14242002-0320-4de4-9555-a7d82b73c286
+// Location in Registry: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render\{EndpointGUID}\Properties
+
+// Localizable text redirect to represent a menu item to launch the effects settings app in the form "@mydrivepath.sys,-201;Premium Effects Options"
+// vartype = VT_LPWSTR
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpointSettings_MenuText, 0x14242002, 0x0320, 0x4de4, 0x95, 0x55, 0xa7, 0xd8, 0x2b, 0x73, 0xc2, 0x86, 0);")
+
+// The Windows Action Contract that the OEM settings app is registered to handle.
+// vartype = VT_VECTOR | VT_LPWSTR
+cpp_quote("DEFINE_PROPERTYKEY(PKEY_AudioEndpointSettings_LaunchContract, 0x14242002, 0x0320, 0x4de4, 0x95, 0x55, 0xa7, 0xd8, 0x2b, 0x73, 0xc2, 0x86, 1);")
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+// ----------------------------------------------------------------------
+// Public Structures
+// ----------------------------------------------------------------------
+typedef struct tagDIRECTX_AUDIO_ACTIVATION_PARAMS
+{
+    DWORD   cbDirectXAudioActivationParams;
+    GUID    guidAudioSession;
+    DWORD   dwAudioStreamFlags;
+} DIRECTX_AUDIO_ACTIVATION_PARAMS, *PDIRECTX_AUDIO_ACTIVATION_PARAMS;
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+
+// ----------------------------------------------------------------------
+// Types
+// ----------------------------------------------------------------------
+
+typedef enum
+{
+    eRender,
+    eCapture,
+    eAll,
+    EDataFlow_enum_count
+} EDataFlow;
+
+typedef enum
+{
+    eConsole,
+    eMultimedia,
+    eCommunications,
+    ERole_enum_count
+} ERole;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef enum
+{
+    RemoteNetworkDevice,    // = 0
+    Speakers,
+    LineLevel,
+    Headphones,
+    Microphone,
+    Headset,
+    Handset,
+    UnknownDigitalPassthrough,
+    SPDIF,
+    DigitalAudioDisplayDevice,
+    UnknownFormFactor,
+    EndpointFormFactor_enum_count
+} EndpointFormFactor;
+
+cpp_quote("#define HDMI     DigitalAudioDisplayDevice")
+cpp_quote("")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+cpp_quote("// ----------------------------------------------------------------------")
+cpp_quote("// Device Interface Classes")
+cpp_quote("// ----------------------------------------------------------------------")
+cpp_quote("// {E6327CAD-DCEC-4949-AE8A-991E976A79D2}")
+cpp_quote("DEFINE_GUID(DEVINTERFACE_AUDIO_RENDER , 0xe6327cad, 0xdcec, 0x4949, 0xae, 0x8a, 0x99, 0x1e, 0x97, 0x6a, 0x79, 0xd2);")
+cpp_quote("// {2EEF81BE-33FA-4800-9670-1CD474972C3F}")
+cpp_quote("DEFINE_GUID(DEVINTERFACE_AUDIO_CAPTURE, 0x2eef81be, 0x33fa, 0x4800, 0x96, 0x70, 0x1c, 0xd4, 0x74, 0x97, 0x2c, 0x3f);")
+cpp_quote("#if (NTDDI_VERSION > NTDDI_WINBLUE || \\")
+cpp_quote("    (NTDDI_VERSION == NTDDI_WINBLUE && defined(WINBLUE_KBSPRING14)))")
+cpp_quote("// {6DC23320-AB33-4CE4-80D4-BBB3EBBF2814}")
+cpp_quote("DEFINE_GUID(DEVINTERFACE_MIDI_OUTPUT, 0x6dc23320, 0xab33, 0x4ce4, 0x80, 0xd4, 0xbb, 0xb3, 0xeb, 0xbf, 0x28, 0x14);")
+cpp_quote("// {504BE32C-CCF6-4D2C-B73F-6F8B3747E22B}")
+cpp_quote("DEFINE_GUID(DEVINTERFACE_MIDI_INPUT, 0x504be32c, 0xccf6, 0x4d2c, 0xb7, 0x3f, 0x6f, 0x8b, 0x37, 0x47, 0xe2, 0x2b);")
+cpp_quote("#endif")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+// ----------------------------------------------------------------------
+// Interfaces
+// ----------------------------------------------------------------------
+
+
+// ----------------------------------------------------------------------
+// IMMNotificationClient
+//
+// Description:
+//      This interface is implemented by a client who wishes to be notified of changes
+//      to Endpoint devices on the system.
+[
+    object,
+    local,
+    uuid(7991EEC9-7E89-4D85-8390-6C703CEC60C0),
+    nonextensible,
+    helpstring("Interface implemented by objects that want to be notified of MMDevice events"),
+    pointer_default(unique)
+]
+interface IMMNotificationClient : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called by the MMDeviceEnumerator object when the state of an Endpoint device changes
+    //
+    // Parameters:
+    //      pwstrDeviceId   - [in] The ID of the Endpoint device whose state has changed
+    //      dwNewState      - [in] The new state of the device
+    //
+    // Return values:
+    //      ignored
+    //
+    [id(1), helpstring("method OnDeviceStateChanged")] 
+    HRESULT OnDeviceStateChanged([in, annotation("_In_")] LPCWSTR pwstrDeviceId, [in, annotation("_In_")]DWORD dwNewState);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called by the MMDeviceEnumerator object when a new Endpoint device is added to the system
+    //
+    // Parameters:
+    //      pwstrDeviceId - [in] The ID of the new Endpoint device
+    //
+    // Remarks:
+    //      Clients should check the state of the Endpoint before using it.  It is generally more useful
+    //      to monitor state changes than Endpoint additions and removals
+    //
+    // Return values:
+    //      ignored
+    //
+    [id(2), helpstring("method OnDeviceAdded")] 
+    HRESULT OnDeviceAdded([in, annotation("_In_")] LPCWSTR pwstrDeviceId);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called by the MMDeviceEnumerator object when an Endpoint device is removed from the system
+    //
+    // Parameters:
+    //      pwstrDeviceId - [in] The ID of the Endpoint device that was removed
+    //
+    // Remarks:
+    //      It is generally more useful to monitor state changes than Endpoint additions and removals
+    //
+    // Return values:
+    //      ignored
+    //
+    [id(3), helpstring("method OnDeviceRemoved")] 
+    HRESULT OnDeviceRemoved([in, annotation("_In_")] LPCWSTR pwstrDeviceId);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called by the MMDeviceEnumerator object when the default Endpoint device for a given role changes
+    //
+    // Parameters:
+    //      flow                 - [in] The dataflow direction
+    //      role                 - [in] The role
+    //      pwstrDefaultDeviceId - [in] The ID of the Endpoint device that is now the default for the specified role
+    //
+    // Return values:
+    //      ignored
+    //
+    [id(4), helpstring("method OnDefaultDeviceChanged")] 
+    HRESULT OnDefaultDeviceChanged([in, annotation("_In_")] EDataFlow flow, [in, annotation("_In_")] ERole role, [in, annotation("_In_opt_")] LPCWSTR pwstrDefaultDeviceId);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called by the MMDeviceEnumerator object when a value in an Endpoint device property store changes
+    //
+    // Parameters:
+    //      pwstrDeviceId - [in] The ID of the Endpoint whose Property has changed
+    //      key           - [in] The Property that was modified
+    //
+    // Return values:
+    //      ignored
+    //
+    [id(5), helpstring("method OnPropertyValueChanged")] 
+    HRESULT OnPropertyValueChanged([in, annotation("_In_")] LPCWSTR pwstrDeviceId, [in, annotation("_In_")]const PROPERTYKEY key);
+
+};
+
+
+// ----------------------------------------------------------------------
+// IMMDevice 
+//
+// Description:
+//      Base interface for Device objects supported by MMDeviceAPI.
+//
+[
+    object,
+    local,
+    uuid(D666063F-1587-4E43-81F1-B948E807363F),
+    nonextensible,
+    helpstring("MMDevice Interface"),
+    pointer_default(unique)
+]
+interface IMMDevice : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Creates an object with the specified interface appropriate for this device.
+    //
+    // Parameters:
+    //      iid               - [in] The requested interface
+    //      dwClsCtx          - [in] The requested CLSCTX if the object is a COM object
+    //      pActivationParams - [in] Object specific context (usually NULL)
+    //      ppInterface       - [out] Address of a pointer to receive the new object interface
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppInterface using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //      E_NOINTERFACE if the specified interface is not supported for this device type
+    //      <other> If activation is supported for the requested interface, any initialization 
+    //              errors returned by the component being activated will be propagated.
+    //              See documentation for the activated interface for more information.
+    //
+    [id(1), helpstring("method Activate")] 
+    HRESULT Activate([in, annotation("_In_")] REFIID iid, [in, annotation("_In_")] DWORD dwClsCtx, [in,unique, annotation("_In_opt_")] PROPVARIANT* pActivationParams, [out,iid_is(iid), annotation("_Out_")] void** ppInterface);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Opens a PropertyStore for this object
+    //
+    // Parameters:
+    //      stgmAccess   - [in] Access flags (e.g. STGM_READ, STGM_WRITE, or STGM_READWRITE)
+    //      ppProperties - [out] Address of a pointer to receive the PropertyStore interface
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppProperties using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method OpenPropertyStore")] 
+    HRESULT OpenPropertyStore([in, annotation("_In_")] DWORD stgmAccess, [out, annotation("_Out_")] IPropertyStore** ppProperties);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Returns the ID of the device as an allocated string
+    //
+    // Parameters:
+    //      pstrId - [out] The ID of this Device
+    //
+    // Remarks:
+    //      The caller is responsible for freeing *pstrId using CoTaskMemFree
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(3), helpstring("method GetId")] 
+    HRESULT GetId([out,annotation("_Outptr_")] LPWSTR* ppstrId);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Retrieves the current state of the device
+    //
+    // Parameters:
+    //      pdwState - [out] Address of a DWORD that is set to the current state of the device
+    //
+    // Remarks:
+    //      On return *pdwState will be one of the DEVICE_STATE_xxx flags
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(4), helpstring("method GetState")] 
+    HRESULT GetState([out, annotation("_Out_")] DWORD* pdwState);
+};
+
+// ----------------------------------------------------------------------
+// IMMDeviceCollection 
+//
+// Description:
+//      Provides methods for accessing and enumerating a collection of IMMDevice objects
+//
+[
+    object,
+    local,
+    uuid(0BD7A1BE-7A1A-44DB-8397-CC5392387B5E),
+    nonextensible,
+    helpstring("Interface for accessing a collection of IMMDevice objects"),
+    pointer_default(unique)
+]
+interface IMMDeviceCollection : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Returns the number of devices in the collection
+    //
+    // Parameters:
+    //      pcDevices - [out] Address of a UINT that will receive the count
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetCount")] 
+    HRESULT GetCount([out, annotation("_Out_")] UINT* pcDevices);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Gets the device at the specified index in the collection
+    //
+    // Parameters:
+    //      nDevice  - [in] The index
+    //      ppDevice - [out] Address of an IMMDevice pointer that will receive the device
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppDevice using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method Item")] 
+    HRESULT Item([in, annotation("_In_")]UINT nDevice, [out, annotation("_Out_")] IMMDevice** ppDevice);
+};
+
+// ----------------------------------------------------------------------
+// IMMEndpoint 
+//
+// Description:
+//      Provides additional methods beyond IMMDevice for Endpoint device objects
+//
+[
+    object,
+    local,
+    uuid(1BE09788-6894-4089-8586-9A2A6C265AC5),
+    nonextensible,
+    helpstring("Extension to IMMDevice for Audio Endpoint devices"),
+    pointer_default(unique)
+]
+interface IMMEndpoint : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Gets the dataflow of the Endpoint device
+    //
+    // Parameters:
+    //      pDataFlow - [out] Address of an EDataFlow that will receive the current dataflow direction
+    //
+    // Remarks:
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetDataFlow")] 
+    HRESULT GetDataFlow([out, annotation("_Out_")] EDataFlow* pDataFlow);
+};
+
+// ----------------------------------------------------------------------
+// IMMDeviceEnumerator 
+//
+// Description:
+//      Provides methods for enumerating IMMDevice objects and for registering notifications
+//      about Endpoint devices
+//
+[
+    object,
+    local,
+    uuid(A95664D2-9614-4F35-A746-DE8DB63617E6),
+    nonextensible,
+    helpstring("MMDevice Enumerator Interface"),
+    pointer_default(unique)
+]
+interface IMMDeviceEnumerator : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Enumerates Endpoint devices
+    //
+    // Parameters:
+    //      dataFlow    - [in] The dataflow direction of Endpoint devices to enumerate
+    //      dwStateMask - [in] The allowed states to filter by.  Typically, this is DEVICE_STATE_ACTIVE
+    //      ppDevices   - [out] Address of a pointer that will receive the device collection
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppDevices using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method EnumAudioEndpoints")] 
+    HRESULT EnumAudioEndpoints([in, annotation("_In_")] EDataFlow dataFlow, [in, annotation("_In_")] DWORD dwStateMask, [out, annotation("_Out_")] IMMDeviceCollection** ppDevices);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Returns the default Endpoint device for the specified role
+    //
+    // Parameters:
+    //      dataFlow    - [in] The dataflow direction of Endpoint devices to enumerate
+    //      role        - [in] The role
+    //      ppEndpoints - [out] Address of a pointer that will receive the default Endpoint device
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppEndpoint using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetDefaultAudioEndpoint")] 
+    HRESULT GetDefaultAudioEndpoint([in, annotation("_In_")] EDataFlow dataFlow, [in, annotation("_In_")] ERole role, [out, annotation("_Out_")] IMMDevice** ppEndpoint);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Gets the device with the specified ID.  Use QueryInterface to determine 
+    //      if it is an Endpoint, Pnp Devnode or Pnp Interface.
+    //
+    // Parameters:
+    //      pwstrId  - [in] The ID of the device to retrieve
+    //      ppDevice - [out] Address of a pointer that will receive the device
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppDevice using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(3), helpstring("method GetDevice")] 
+    HRESULT GetDevice([in, annotation("_In_")]LPCWSTR pwstrId, [out, annotation("_Out_")] IMMDevice** ppDevice);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Registers the specified client to receive Endpoint device notifications
+    //
+    // Parameters:
+    //      pClient - [in] Pointer to an IMMNotificationClient interface on an object implemented by the client
+    //
+    // Remarks:
+    //      The client is responsible for ensuring that the specified object is valid until calling UnregisterEndpointNotificationCallback
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(4), helpstring("method RegisterEndpointNotificationCallback")]
+    HRESULT RegisterEndpointNotificationCallback([in, annotation("_In_")] IMMNotificationClient* pClient);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Unregisters a client that was registered in a previous call to RegisterEndpointNotificationCallback
+    //
+    // Parameters:
+    //      pClient - [in] The client to unregister
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(5), helpstring("method UnregisterEndpointNotificationCallback")]
+    HRESULT UnregisterEndpointNotificationCallback([in, annotation("_In_")] IMMNotificationClient* pClient);
+};
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+// ----------------------------------------------------------------------
+// IMMDeviceActivator 
+//
+// Description:
+//      Interface provided by an object that can be activated on a device.  i.e Components that
+//      provide interfaces produced by IMMDevice::Activate must support this interface.
+//
+cpp_quote("/* IMMDeviceActivator is reserved for system use */")
+[
+    object,
+    local,
+    uuid(3B0D0EA4-D0A9-4B0E-935B-09516746FAC0),
+    nonextensible,
+    helpstring("Interface implemented by objects that can be activated on an IMMDevice object"),
+    pointer_default(unique)
+]
+interface IMMDeviceActivator : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Creates an object that implements the specified interface on behalf of the specified device
+    //
+    // Parameters:
+    //      iid               - [in] The specified interface
+    //      pDevice           - [in] The specified device
+    //      pActivationParams - [in] Component specific data.  This is supplied by clients in a call to IMMDevice::Activate
+    //      ppInterface       - [out] Address of a pointer that will receive the specified interface
+    //
+    // Remarks:
+    //      The caller is responsible for releasing *ppInterface using IUnknown::Release()
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method Activate")] 
+    HRESULT Activate([in, annotation("_In_")] REFIID iid, [in, annotation("_In_")] IMMDevice* pDevice, [in, annotation("_In_opt_")] PROPVARIANT* pActivationParams, [out,iid_is(iid), annotation("_Out_")] void** ppInterface);
+};
+cpp_quote("/* IMMDeviceActivator is reserved for system use */")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+interface IActivateAudioInterfaceAsyncOperation;
+
+[
+    object,
+    local,
+    uuid(41D949AB-9862-444A-80F6-C261334DA5EB),
+    nonextensible,
+    helpstring("IActivateAudioInterfaceCompletionHandler"),
+    pointer_default(unique)
+]
+interface IActivateAudioInterfaceCompletionHandler : IUnknown
+{
+    HRESULT ActivateCompleted([in, annotation("_In_")] IActivateAudioInterfaceAsyncOperation* activateOperation);
+};
+
+[
+    object,
+    local,
+    uuid(72A22D78-CDE4-431D-B8CC-843A71199B6D),
+    nonextensible,
+    helpstring("IActivateAudioInterfaceAsyncOperation"),
+    pointer_default(unique)
+]
+interface IActivateAudioInterfaceAsyncOperation : IUnknown
+{
+    HRESULT GetActivateResult([out, annotation("_Out_")]HRESULT* activateResult, [out, annotation("_Outptr_result_maybenull_")]IUnknown** activatedInterface);
+};
+
+cpp_quote("// ----------------------------------------------------------------------")
+cpp_quote("// Function: ActivateAudioInterfaceAsync")
+cpp_quote("// This function takes ")
+cpp_quote("// * a device interface instance identifier representing either")
+cpp_quote("//     - an audio device interface instance (e.g., built-in speakers), or")
+cpp_quote("//     - an device interface class (e.g., audio render devices)")
+cpp_quote("// * a COM interface identifier")
+cpp_quote("// * activation parameters specific to the interface being activated")
+cpp_quote("// and asynchronously returns a pointer to the specified interface")
+cpp_quote("// ----------------------------------------------------------------------")
+cpp_quote("STDAPI ActivateAudioInterfaceAsync(")
+cpp_quote("    _In_ LPCWSTR deviceInterfacePath,")
+cpp_quote("    _In_ REFIID riid,")
+cpp_quote("    _In_opt_ PROPVARIANT *activationParams,")
+cpp_quote("    _In_ IActivateAudioInterfaceCompletionHandler *completionHandler,")
+cpp_quote("    _COM_Outptr_ IActivateAudioInterfaceAsyncOperation **activationOperation")
+cpp_quote("    );")
+
+cpp_quote("// The AUDIOCLIENT_ACTIVATION_PARAMS structure can be used when creating an IAudioClient.")
+cpp_quote("// It is defined in AudioClientActivationParams.h")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// ----------------------------------------------------------------------
+// Structures
+// ----------------------------------------------------------------------
+
+// This structure is passed to the Control Panel Endpoint Extension property
+// page via IShellPropSheetExt::AddPages
+typedef struct
+{
+    LPARAM      AddPageParam;
+    IMMDevice*  pEndpoint;
+    IMMDevice*  pPnpInterface;
+    IMMDevice*  pPnpDevnode;
+} AudioExtensionParams;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Desktop and Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_APP)")
+
+typedef enum
+{
+    AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT = 0,
+	AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER = 1, 
+	AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE = 2,
+    AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT
+} AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE;
+
+// ----------------------------------------------------------------------
+// Interfaces
+// ----------------------------------------------------------------------
+
+// ----------------------------------------------------------------------
+// IAudioSystemEffectsPropertyChangeNotificationClient
+//
+// Description:
+//  
+[
+    object,
+    local,
+    uuid(20049D40-56D5-400E-A2EF-385599FEED49),
+    nonextensible,
+    helpstring("IAudioSystemEffectsPropertyChangeNotificationClient"),
+    pointer_default(unique)
+]
+interface IAudioSystemEffectsPropertyChangeNotificationClient : IUnknown
+{
+    HRESULT OnPropertyChanged([in, annotation("_In_")] AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE type, [in, annotation("_In_")] const PROPERTYKEY key);
+};
+
+// ----------------------------------------------------------------------
+// IAudioSystemEffectsPropertyStore
+//
+// Description:
+//  
+[
+    object,
+    local,
+    uuid(302AE7F9-D7E0-43E4-971B-1F8293613D2A),
+    nonextensible,
+    helpstring("IAudioSystemEffectsPropertyStore"),
+    pointer_default(unique)
+]
+interface IAudioSystemEffectsPropertyStore : IUnknown
+{
+    HRESULT OpenDefaultPropertyStore([in, annotation("_In_")] DWORD stgmAccess, [out, annotation("_COM_Outptr_")] IPropertyStore** propStore);
+    HRESULT OpenUserPropertyStore([in, annotation("_In_")] DWORD stgmAccess, [out, annotation("_COM_Outptr_")] IPropertyStore** propStore);
+    HRESULT OpenVolatilePropertyStore([in, annotation("_In_")] DWORD stgmAccess, [out, annotation("_COM_Outptr_")] IPropertyStore** propStore);
+
+    HRESULT ResetUserPropertyStore();
+    HRESULT ResetVolatilePropertyStore();
+
+    HRESULT RegisterPropertyChangeNotification([in, annotation("_In_")] IAudioSystemEffectsPropertyChangeNotificationClient* callback);
+    HRESULT UnregisterPropertyChangeNotification([in, annotation("_In_")] IAudioSystemEffectsPropertyChangeNotificationClient* callback);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+// ----------------------------------------------------------------------
+// 
+[
+    uuid(2FDAAFA3-7523-4F66-9957-9D5E7FE698F6),
+    version(1.0),
+    helpstring("MM Device API 1.0 Type Library")
+]
+library MMDeviceAPILib
+{
+    //-------------------------------------------------------------------------
+    // MMDeviceEnumerator coclass
+    [
+        uuid(BCDE0395-E52F-467C-8E3D-C4579291692E),
+    ]
+    coclass MMDeviceEnumerator
+    {
+        [default] interface IMMDeviceEnumerator;
+    };
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion

@@ -1,0 +1,1822 @@
+
+/*++
+
+    Copyright (c) 2002 Microsoft Corporation
+
+    Module Name:
+
+        sbe.idl
+
+    Abstract:
+
+        This module the StreamBuffer interface definitions & CLSIDs, public
+
+--*/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl" ;
+import "wtypes.idl" ;
+import "objidl.idl";
+import "strmif.idl" ;
+
+//  ============================================================================
+
+//  interfaces
+interface   IStreamBufferSink ;                     //  locking & recording
+interface   IStreamBufferSink2 ;                    //  ext locking
+interface   IStreamBufferSink3 ;                    //  specify the minimum
+interface   IStreamBufferSource ;                   //  associates with IStreamBufferSink
+interface   IStreamBufferRecordControl ;            //  recording control
+interface   IStreamBufferRecordingAttribute ;       //  StreamBuffer attribute creation
+interface   IEnumStreamBufferRecordingAttrib ;      //  StreamBuffer attribute enumeration
+interface   IStreamBufferConfigure ;                //  configuration interface
+interface   IStreamBufferConfigure2 ;               //  configuration interface; more
+interface   IStreamBufferConfigure3 ;               //  configuration interface
+interface   IStreamBufferMediaSeeking ;             //  IMediaSeeking but with different GUID
+interface   IStreamBufferMediaSeeking2 ;            //  + available filter & frame rate on FF/RW
+interface   IStreamBufferInitialize ;               //  allows 3rd party app to set HKEY
+interface   IStreamBufferDataCounters ;             //  collect data rate from the pins
+interface   INotifyStreamBufferRecordControl;       //  notifes implementations about StreamBufferRecordControl interface
+
+
+[
+    object,
+    uuid(9ce50f2d-6ba7-40fb-a034-50b1a674ec78),
+    pointer_default(unique)
+]
+[local] interface IStreamBufferInitialize : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        SetHKEY ()
+
+        Implemented on StreamBufferStreamSink and StreamBufferSource filters.
+        Gives a hosting application the ability to specify HKEY root in
+          registry.  This method must called **early**: after the filter is
+          instantiated, but before StreamBufferSource is locked (explicitly or
+          implicitely) if calling the method on StreamBufferSource, or before
+          a source is set (via IStreamBufferSource or IFileSourceFilter) if
+          calling the method on StreamBufferStreamSource.  If a call is made
+          after either filter has been initialized internally, the call will
+          fail with E_UNEXPECTED.  The hosting application is responsible for
+          ensuring that the HKEY passed in is writable & readable per the
+          logged-on user privileges.  The HKEY is duplicated internally,
+          so the caller can close it after making this call.
+    --*/
+    HRESULT
+    SetHKEY (
+        [in]    HKEY    hkeyRoot
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        SetSIDs ()
+
+        Implemented on StreamBufferStreamSink and StreamBufferSource filters.
+        Provides a way for the hosting application to specify security-level
+          sharing between capture and render processes and contexts.  By
+          default security attributes are inherited from the hosting process,
+          unless the application overrides the defaults and provides them via
+          this method.
+    --*/
+    HRESULT
+    SetSIDs (
+        [in]                    DWORD   cSIDs,
+        [in, size_is (cSIDs)]   PSID *  ppSID
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferSink
+
+    Stream Source interface;
+    implemented on the StreamBufferSink filter;
+    Only way to get a recorder object's IUnknown (object will subsequently
+        be associated with this Sink)
+--*/
+
+enum {
+    RECORDING_TYPE_CONTENT = 0,         //  no post-recording or overlapped
+    RECORDING_TYPE_REFERENCE,           //  allows post-recording & overlapped
+} ;
+
+[
+    object,
+    uuid(afd1f242-7efd-45ee-ba4e-407a25c9a77a),
+    pointer_default(unique)
+]
+interface IStreamBufferSink : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        LockProfile ()
+
+        1.  Locks the profile;
+        2.  No *new* input pin connections will be accepted;
+        3.  Existing pins that are, or have ever been, connected can be
+            reconnected if the media type is exactly the same as the first
+            successful connection;
+        4.  can be called multiple times with the same parameter as the initial
+            LockProfile() call was made with i.e. more than once with NULL if
+            initially locked with NULL, or more than once with a string if
+            initially locked with a string; if the profile is already locked,
+            and the parameters are the same, returns S_FALSE, else the call
+            fails (if trying to lock a locked profile with a different
+            parameter)
+        5.  Must be called before the filter that implements this interface is
+            ever run; when it is run, it locks implicitely and this method has
+            no effect if called with NULL parameters, or fails if called with
+            non-NULL parameter for the reasons listed above;
+        6.  Errors with VFW_E_UNSUPPORTED_STREAM if there are no streams in the
+            profile;
+
+        Parameter Detail
+        ----------------
+
+        pszStreamBufferFilename
+
+            Is a NULL-terminated filename string.  If the content written by
+            this sink is to be shared cross-process, this parameter specifies a
+            filename that will be opened by any reader(s) to read & render the
+            content sent into the sink.
+
+            Can be NULL (not specified)
+
+            Must be a full-path filename; if no path is specified, the file is
+            created in a "current" directory
+
+            If the file already exists, the call fails
+
+            Is opened with DELETE_ON_CLOSE flag, so is automatically deleted
+            when the sink is unlocked, or when the hosting process terminates
+    --*/
+    HRESULT
+    LockProfile (
+        [in]    LPCWSTR pszStreamBufferFilename
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        CreateRecorder ()
+
+        1.  Returns a *new* recorder object's IUnknown;
+        2.  Caller can call QueryInterface() on the returned pointer to get
+            interface pointers to configure & control the recording;
+        3.  Returned IUnknown pointer is ref'd & must be Release()'d by the
+            caller
+        4.  IStreamBufferSink interface must have been locked (explicitely or
+            implicitely) prior to call
+
+        To create an ordinary recording, specify RECORDING_TYPE_CONTENT for the
+        dwRecordType parammeter.  This will record the content directly into
+        the specified file.  These recording types only accept start and stop
+        times that occur in the future.
+
+        A recording of type RECORDING_TYPE_REFERENCE generates a small file
+        that references content saved in temporary storage.  Recordings of this
+        type can have start and stop times that occurs in the past, and can
+        overlap other same-type recordings.
+
+        Reference recording *content* will be saved in the same subdirectory as
+        the specified reference file, but with hidden and system attributes.
+        The naming convention of the files will append a _1.sbe, _2.sbe, etc...
+        to the filename (minus extension) specified in the call e.g. a
+        "seinfeld01.sbe" reference file will have saved content in hidden
+        and system files "seinfeld01_1.sbe", "seinfeld01_2.sbe", etc...
+
+    --*/
+    HRESULT
+    CreateRecorder (
+        [in]    LPCWSTR     pszFilename,
+        [in]    DWORD       dwRecordType,       //  RECORDING_TYPE_CONTENT or RECORDING_TYPE_REFERENCE
+        [out]   IUnknown ** pRecordingIUnknown
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        IsProfileLocked ()
+
+        1.  Returns S_OK if the profile is locked and S_FALSE if it is not.
+        2.  Returns E_FAIL on error.
+    --*/
+    HRESULT
+    IsProfileLocked (
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferSink2 ()
+
+    Stream Source interface;
+    implemented on the StreamBufferSink filter;
+--*/
+[
+    object,
+    uuid(DB94A660-F4FB-4bfa-BCC6-FE159A4EEA93),
+    pointer_default(unique)
+]
+interface IStreamBufferSink2 : IStreamBufferSink
+{
+    /*++
+        ------------------------------------------------------------------------
+        UnlockProfile ()
+
+        1.  Unlocks a profile explicitely.
+        2.  Is a noop if the sink is not locked & returns S_FALSE.
+        3.  Can only be called when the graph & filter are stopped.
+        4.  Since recordings are bound to the "lock session", incomplete
+            recordings i.e. those that have never been started, are
+            invalidated & must be re-created under the next "lock session".
+        5.  Profile still unlocks implicitly when the filter is stopped.
+    --*/
+    HRESULT
+    UnlockProfile (
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferSink3 ()
+
+    Stream Source interface;
+    implemented on the StreamBufferSink filter;
+--*/
+[
+    object,
+    uuid(974723f2-887a-4452-9366-2cff3057bc8f),
+    pointer_default(unique)
+]
+interface IStreamBufferSink3 : IStreamBufferSink2
+{
+    /*++
+        -----------------------------------------------------------------------
+        SetAvailableFilter ()
+
+        Bounds the minimum.  This affects readers so they cannot seek past
+          the specified minimum.
+
+        Parameter Detail
+        ----------------
+
+        prtMin
+
+            min time relative to "now"
+
+            cannot be NULL
+
+            [in]: time, specified relative to the last sample written, to set
+            as the minimum time available to readers; valid values are <= 0;
+            use -MAXLONGLONG if all the backing store should be made available.
+
+            [out]: actual min time; if the [in] value further back than what is
+            available, the [out] value will be set to the actual time made
+            available.
+
+        Return Values
+        -------------
+
+            success     S_OK
+
+            failure     error code
+    --*/
+    HRESULT
+    SetAvailableFilter (
+        [in, out]   REFERENCE_TIME *    prtMin
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferSource ()
+
+    Stream Source reader interface;
+    Implemented on the StreamBufferSource filter;
+--*/
+[
+    object,
+    uuid(1c5bd776-6ced-4f44-8164-5eab0e98db12),
+    pointer_default(unique)
+]
+interface IStreamBufferSource : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        SetStreamSink ()
+
+        1.  Sets the StreamBuffer Sink that streams from this Source;
+        2.  IStreamBufferSink object must be in the same process as this object;
+        3.  Interface is AddRef()'d if the call succeeds;
+
+        Parameter Detail
+        ----------------
+
+        pIStreamBufferSink
+
+            Sink that will stream to this Source
+    --*/
+    HRESULT
+    SetStreamSink (
+        [in]    IStreamBufferSink *    pIStreamBufferSink
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferRecordControl
+
+    obtained by QIing IStreamBufferSink::CreateRecorder()-returned IUnknown *
+--*/
+[
+    object,
+    uuid(ba9b6c99-f3c7-4ff2-92db-cfdd4851bf31),
+    pointer_default(unique)
+]
+interface IStreamBufferRecordControl : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        Start ()
+
+        1.  Starts a recording;
+        2.  Will save to the filename that is specified when this interface's
+            IUnknown is requested (IStreamBufferSink::CreateRecorder());
+
+        Parameter Detail
+        ----------------
+
+        rtStart
+
+            Start time relative to "now;
+
+            If the recording type is a content recording, can only refer to
+            seconds in the future; allowed seconds are [0,5]
+
+            If the recording type is a reference recording, can refer to any
+            time that still has valid content i.e. content that has not yet
+            become stale
+
+            If the recording is a reference recording and (* prtStart) is
+            earlier than the earliest still-valid content, the call will reset
+            it to the earliest content; the value when the recording was
+            actually started will be [out]
+    --*/
+    HRESULT
+    Start (
+        [in,out]    REFERENCE_TIME *    prtStart
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        Stop ()
+
+        1.  Stops a recording;
+        2.  Closes out the file;
+
+        Parameter Detail
+        ----------------
+
+        rtStart
+
+            Stop time relative to "now;
+
+            If the recording type is a content recording, can only refer to
+            seconds in the future; allowed seconds are [0,5]
+
+            If the recording type is a reference recording, can refer to any
+            time that still has valid content i.e. content that has not yet
+            become stale; stop time cannot be <= start time
+    --*/
+    HRESULT
+    Stop (
+        [in]    REFERENCE_TIME  rtStop
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetRecordingStatus ()
+
+        1.  Retrieves the status of the recording
+
+        Parameter Detail
+        ----------------
+
+        phResult
+
+            The (current) status of writing or closing the recording file;
+
+            Can be NULL;
+
+        pbStarted
+
+            If supplied, set to a non-zero value if the recording has been
+            started
+
+            Can be NULL;
+
+        pbStopped
+
+            If supplied, set to a non-zero value if the recording has been
+            stopped;
+
+            Can be NULL;
+
+        NOTE: If the recording has never been started, it will not be flagged
+                as stopped.
+
+    --*/
+    HRESULT
+    GetRecordingStatus (
+        [out] HRESULT * phResult,
+        [out] BOOL *    pbStarted,
+        [out] BOOL *    pbStopped
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferRecComp
+
+    CoCreateInstance CLSID_StreamBufferComposeRecording and QueryInterface for
+    this interface; this interface allows the creation of a single target
+    content recording which consists of a number of concatenated recordings
+    (reference or content; can mix & match if desired)
+--*/
+
+[
+    object,
+    uuid(9E259A9B-8815-42ae-B09F-221970B154FD),
+    pointer_default(unique)
+]
+interface IStreamBufferRecComp : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        Initialize ()
+
+        1. Initializes for a target recording
+
+        Parameter Detail
+        ----------------
+
+        pszTargetFilename
+
+            Sets the target filename
+
+            Fails if the file already exists
+
+        pszSBRecProfileRef
+
+            Must be a completed, SBE-generated recording
+
+            This recording's profile will be used to define the target profile
+
+            Appended files must have exactly the same profile
+    --*/
+    HRESULT
+    Initialize (
+        [in]    LPCWSTR pszTargetFilename,
+        [in]    LPCWSTR pszSBRecProfileRef
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        Append ()
+
+        1.  appends an entire recording
+        2.  fails if the recording is live
+    --*/
+    HRESULT
+    Append (
+        [in]    LPCWSTR pszSBRecording
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        AppendEx ()
+
+        1.  appends the specified portion of the recording; the parameters must
+            be accurate; the call will not readjust them within the boundaries
+        2.  the time spread must be at least 2 seconds
+        3.  fails if the recording is live
+    --*/
+    HRESULT
+    AppendEx (
+        [in]    LPCWSTR         pszSBRecording,
+        [in]    REFERENCE_TIME  rtStart,
+        [in]    REFERENCE_TIME  rtStop
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetCurrentLength ()
+
+        1.  returns the current length of the recording; updates as recordings
+            are appended;
+        2.  can be called repeatedly during a Append() call on another
+            thread;
+    --*/
+    HRESULT
+    GetCurrentLength (
+        [out]   DWORD * pcSeconds
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        Close ()
+
+        1.  explicitely closes the recording
+
+        2.  final release of interface closes the recording as well
+    --*/
+    HRESULT
+    Close (
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        Cancel ()
+
+        1.  cancels an in-progress appending operation; has no effect otherwise
+    --*/
+    HRESULT
+    Cancel (
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferRecordingAttribute
+
+    obtained by calling QueryInterface on a recorder
+
+    well-known attributes:
+
+        NAME                DESCRIPTION
+        ------------------- ----------------------------------------------------
+
+        Title               String containing the content title.
+
+        Author              String containing the name of the content author.
+
+        Description         String containing a description of the content.
+
+        Rating              String containing a content rating.
+
+        Copyright           String containing a content copyright message.
+
+        Duration            Quadruple word value containing the playing duration
+                                of the file, in 100-nanosecond units.
+
+        Bitrate             Double word value containing the bit rate.
+
+        Seekable            Boolean value; true denoting that the content is
+                                seekable.
+
+        Stridable           Boolean value, true denoting that the content is
+                                stridable (fast forward and rewind are enabled).
+
+        Broadcast           Boolean value; true denoting that the content is not
+                                copyright-protected, and can be broadcast.
+
+        Use_DRM             reserved
+
+        DRM_Flags           reserved
+
+        DRM_Level           reserved
+
+        Is_Protected        reserved
+
+        Is_Trusted          reserved
+
+        Signature_Name      reserved
+
+        HasAudio            Boolean, true denoting the content includes an
+                                audio stream.
+
+        HasImage            Boolean, true denoting the content includes a still
+                                image stream (such as JPEG images).
+
+        HasScript           Boolean, true denoting the content includes a script
+                                stream.
+
+        HasVideo            Boolean, true denoting the content includes a video
+                                stream.
+
+        CurrentBitrate      Double word containing the current total bitrate,
+                                usually used for MEB (multi-bit rate) streams.
+
+        OptimalBitrate      Double word containing the minimum total bitrate
+                                recommended to stream the content and get
+                                maximum quality.
+
+        WM/AlbumTitle       String containing the album title.
+
+        WM/Track            Double word containing the track number.
+
+        WM/PromotionURL     String with a URL to an HTML page that contains
+                                information about products and events (such as
+                                concerts) that are related to this music.
+
+        WM/AlbumCoverURL    String with a URL to an HTML page that contains an
+                                image of the album cover and information about
+                                the album.
+
+        WM/Genre            String with the genre of the music.
+
+        WM/Year             String with the year of publication of the music.
+
+        WM/GenreID
+
+        WM/MCDI
+
+        BannerImageType     One member of the WMT_ATTR_IMAGETYPE enumeration
+                                type.
+
+        BannerImageData     The actual image data: a bitmap, JPEG, or GIF image.
+
+
+        BannerImageURL      If the banner image is clicked on then this URL is
+                                activated.
+
+        CopyrightURL        An URL to a copyright page.
+
+        NSC_Name            String containing the multicast station contact
+                                name (read-only).
+
+        NSC_Address         String containing the multicast station contact
+                                address (read-only).
+
+        NSC_Phone           String containing the multicast station contact
+                                phone number (read-only).
+
+        NSC_Email           String containing the multicast station contact
+                                email address (read-only).
+
+        NSC_Description     String containing the multicast station contact
+                                description (read-only).
+
+--*/
+
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// List of pre-defined attributes " )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingDuration[] =L\"Duration\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingBitrate[] =L\"Bitrate\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingSeekable[] =L\"Seekable\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingStridable[] =L\"Stridable\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingBroadcast[] =L\"Broadcast\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingProtected[] =L\"Is_Protected\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingTrusted[] =L\"Is_Trusted\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingSignature_Name[] =L\"Signature_Name\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasAudio[] =L\"HasAudio\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasImage[] =L\"HasImage\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasScript[] =L\"HasScript\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasVideo[] =L\"HasVideo\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingCurrentBitrate[] =L\"CurrentBitrate\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingOptimalBitrate[] =L\"OptimalBitrate\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasAttachedImages[] =L\"HasAttachedImages\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingSkipBackward[] =L\"Can_Skip_Backward\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingSkipForward[] =L\"Can_Skip_Forward\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingNumberOfFrames[] =L\"NumberOfFrames\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingFileSize[] =L\"FileSize\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasArbitraryDataStream[] =L\"HasArbitraryDataStream\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingHasFileTransferStream[] =L\"HasFileTransferStream\";" )
+cpp_quote( "" )
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// The content description object supports 5 basic attributes." )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingTitle[] =L\"Title\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingAuthor[] =L\"Author\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingDescription[] =L\"Description\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingRating[] =L\"Rating\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingCopyright[] =L\"Copyright\";" )
+cpp_quote( "" )
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// These attributes are used to configure DRM using IWMDRMWriter::SetDRMAttribute." )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR *g_wszStreamBufferRecordingUse_DRM = L\"Use_DRM\";" )
+cpp_quote( "static const WCHAR *g_wszStreamBufferRecordingDRM_Flags = L\"DRM_Flags\";" )
+cpp_quote( "static const WCHAR *g_wszStreamBufferRecordingDRM_Level = L\"DRM_Level\";" )
+cpp_quote( "" )
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// These are the additional attributes defined in the WM attribute" )
+cpp_quote( "// namespace that give information about the content." )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingAlbumTitle[] =L\"WM/AlbumTitle\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingTrack[] =L\"WM/Track\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingPromotionURL[] =L\"WM/PromotionURL\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingAlbumCoverURL[] =L\"WM/AlbumCoverURL\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingGenre[] =L\"WM/Genre\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingYear[] =L\"WM/Year\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingGenreID[] =L\"WM/GenreID\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingMCDI[] =L\"WM/MCDI\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingComposer[] =L\"WM/Composer\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingLyrics[] =L\"WM/Lyrics\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingTrackNumber[] =L\"WM/TrackNumber\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingToolName[] =L\"WM/ToolName\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingToolVersion[] =L\"WM/ToolVersion\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingIsVBR[] =L\"IsVBR\";" )
+
+//
+// WM/AlbumArtist is a potentially different value than Author
+//
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingAlbumArtist[] =L\"WM/AlbumArtist\";" )
+cpp_quote( "" )
+
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// These optional attributes may be used to give information " )
+cpp_quote( "// about the branding of the content." )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingBannerImageType[] =L\"BannerImageType\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingBannerImageData[] =L\"BannerImageData\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingBannerImageURL[] =L\"BannerImageURL\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingCopyrightURL[] =L\"CopyrightURL\";" )
+
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// Optional attributes, used to give information " )
+cpp_quote( "// about video stream properties." )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingAspectRatioX[] =L\"AspectRatioX\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingAspectRatioY[] =L\"AspectRatioY\";" )
+
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// The NSC file supports the following attributes." )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingNSCName[] =L\"NSC_Name\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingNSCAddress[] =L\"NSC_Address\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingNSCPhone[] =L\"NSC_Phone\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingNSCEmail[] =L\"NSC_Email\";" )
+cpp_quote( "static const WCHAR g_wszStreamBufferRecordingNSCDescription[] =L\"NSC_Description\";" )
+cpp_quote( "" )
+
+//
+// StreamBuffer Attribute datatypes;
+//
+typedef [uuid(99038221-f409-4d44-8313-bff73269a85e), v1_enum] enum STREAMBUFFER_ATTR_DATATYPE {
+    STREAMBUFFER_TYPE_DWORD  = 0,
+    STREAMBUFFER_TYPE_STRING = 1,
+    STREAMBUFFER_TYPE_BINARY = 2,
+    STREAMBUFFER_TYPE_BOOL   = 3,
+    STREAMBUFFER_TYPE_QWORD  = 4,
+    STREAMBUFFER_TYPE_WORD   = 5,
+    STREAMBUFFER_TYPE_GUID   = 6,
+} STREAMBUFFER_ATTR_DATATYPE ;
+
+[
+    object,
+    uuid(16CA4E03-FE69-4705-BD41-5B7DFC0C95F3),
+    pointer_default(unique)
+]
+interface IStreamBufferRecordingAttribute : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        SetAttribute ()
+
+        1.  Sets an attribute on a recording object;
+        2.  Fails if the IStreamBufferRecordControl::Start has already been successfully
+            called;
+        3.  If an attribute of the same name already exists, overwrites the old;
+    --*/
+    HRESULT
+    SetAttribute (
+        [in]                                ULONG                       ulReserved,
+        [in]                                LPCWSTR                     pszAttributeName,
+        [in]                                STREAMBUFFER_ATTR_DATATYPE  StreamBufferAttributeType,
+        [in, size_is (cbAttributeLength)]   BYTE *                      pbAttribute,
+        [in]                                WORD                        cbAttributeLength
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetAttributeCount ()
+
+        1.  Returns the count of attributes currently set;
+    --*/
+    HRESULT
+    GetAttributeCount (
+        [in]    ULONG   ulReserved,
+        [out]   WORD *  pcAttributes
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetAttributeByName ()
+
+        1.  Given a name, returns the attribute data;
+        2.  If the provided buffer is too small, returns VFW_E_BUFFER_OVERFLOW,
+            and (* pcbLength) contains the minimum required length of the buffer
+        3.  To learn the length of the attribute, pass in non-NULL pcbLength,
+            and NULL pbAttribute parameter; [out] value will be the length of
+            the attribute
+    --*/
+    HRESULT
+    GetAttributeByName (
+        [in]                            LPCWSTR                         pszAttributeName,
+        [in]                            ULONG *                         pulReserved,
+        [out]                           STREAMBUFFER_ATTR_DATATYPE *    pStreamBufferAttributeType,
+        [out, size_is (* pcbLength)]    BYTE *                          pbAttribute,
+        [in, out]                       WORD *                          pcbLength
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetAttributeByIndex ()
+
+        1.  Given an 0-based index, returns the attribute name and data
+        2.  If either buffer is too small, returns VFW_E_BUFFER_OVERFLOW, and
+            (* pcbLength) and (* pcchNameLength) contain the minimum required
+            length of each buffer
+        3.  The length includes the null-terminator and is the number of
+            WCHARs (not bytes)
+        4.  To learn the length of the name & attribute, pass in non-NULL
+            pcchNameLength & pcbLength, and NULL pszAttributeName & pbAttribute
+            parameters; [out] value of the non-NULL parameters will be the
+            lengths of the name and attribute
+    --*/
+    HRESULT
+    GetAttributeByIndex (
+        [in]                            WORD                            wIndex,
+        [in]                            ULONG *                         pulReserved,
+        [out]                           WCHAR *                         pszAttributeName,
+        [in, out]                       WORD *                          pcchNameLength,
+        [out]                           STREAMBUFFER_ATTR_DATATYPE *    pStreamBufferAttributeType,
+        [out, size_is (* pcbLength)]    BYTE *                          pbAttribute,
+        [in, out]                       WORD *                          pcbLength
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        EnumAttributes ()
+
+        1.  Returns a StreamBuffer attribute enumeration object that snapshots
+            the attributes at time-of-call
+    --*/
+    HRESULT
+    EnumAttributes (
+        [out]   IEnumStreamBufferRecordingAttrib **     ppIEnumStreamBufferAttrib
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IEnumStreamBufferRecordingAttrib
+
+    obtained by calling IStreamBufferRecordingAttribute::EnumAttributes, or
+    calling clone on this interface
+--*/
+
+typedef struct STREAMBUFFER_ATTRIBUTE {
+    LPWSTR                      pszName ;                   //  allocated by callee; freed by caller
+    STREAMBUFFER_ATTR_DATATYPE  StreamBufferAttributeType ;
+    [size_is(cbLength)] BYTE *  pbAttribute ;               //  allocated by callee; freed by caller
+    WORD                        cbLength ;
+} STREAMBUFFER_ATTRIBUTE ;
+
+[
+    object,
+    uuid (C18A9162-1E82-4142-8C73-5690FA62FE33),
+    pointer_default(unique)
+]
+interface IEnumStreamBufferRecordingAttrib : IUnknown
+{
+    HRESULT
+    Next (
+        [in]                            ULONG                       cRequest,
+        [in, out, size_is (cRequest)]   STREAMBUFFER_ATTRIBUTE *    pStreamBufferAttribute,
+        [out]                           ULONG *                     pcReceived
+        ) ;
+
+    HRESULT
+    Skip (
+        [in]    ULONG   cRecords
+        ) ;
+
+    HRESULT
+    Reset (
+        ) ;
+
+    HRESULT
+    Clone (
+        [out]   IEnumStreamBufferRecordingAttrib **  ppIEnumStreamBufferAttrib
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferConfigure
+
+--*/
+[
+    object,
+    uuid(ce14dfae-4098-4af7-bbf7-d6511f835414),
+    pointer_default(unique)
+]
+interface IStreamBufferConfigure : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        SetStreamBufferDirectory ()
+
+        1.  Sets the directory where all content is saved, ringbuffer &
+            StreamBuffer;
+        2.  Creates directory if necessary;
+        3.  All TEMP files have hidden+system attributes
+    --*/
+    HRESULT
+    SetDirectory (
+        [in]    LPCWSTR pszDirectoryName
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetStreamBufferDirectory ()
+
+        1.  Retrieves previously set backing store directory, or default
+            location if none was specified
+    --*/
+    HRESULT
+    GetDirectory (
+        [out]   LPWSTR *    ppszDirectoryName
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        SetBackingFileCount ()
+
+        1.  Sets the number of backing files
+        2.  valid values
+
+                4 <= min <= 100
+                6 <= max <= 102
+                min max delta >= 2
+    --*/
+    HRESULT
+    SetBackingFileCount (
+        [in]    DWORD   dwMin,
+        [in]    DWORD   dwMax
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetBackingFileCount ()
+
+        1.  Retrieves previously set backing file counts, or defaults if none
+            have have been set
+    --*/
+    HRESULT
+    GetBackingFileCount (
+        [out]   DWORD * pdwMin,
+        [out]   DWORD * pdwMax
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        SetEachBackingFileDuration ()
+
+        1.  Sets the seconds of content each backing file will hold
+        2.  valid values:
+
+                dwSeconds >= 15
+    --*/
+    HRESULT
+    SetBackingFileDuration (
+        [in]    DWORD   dwSeconds
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetEachBackingFileDuration ()
+
+        1.  Retrieves previously set backing file duration, or default of none
+            is set
+    --*/
+    HRESULT
+    GetBackingFileDuration (
+        [out]   DWORD * pdwSeconds
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferConfigure2
+
+--*/
+[
+    object,
+    uuid(53E037BF-3992-4282-AE34-2487B4DAE06B),
+    pointer_default(unique)
+]
+interface IStreamBufferConfigure2 : IStreamBufferConfigure
+{
+    /*++
+        ------------------------------------------------------------------------
+        SetMultiplexedPacketSize ()
+
+        1.  sets the size of the target multiplexed packet size
+        2.  valid values:
+
+                8192 <= cbBytesPerPacket <= 65535
+
+        This is useful if low-bitrate streams are used, and the time to fill a
+        multiplexed packet is excessive when the default value of 65535 bytes
+        is used.
+    --*/
+    HRESULT
+    SetMultiplexedPacketSize (
+        [in]    DWORD   cbBytesPerPacket
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetMultiplexedPacketSize ()
+
+        1.  gets the size of the target multiplexed packet size
+    --*/
+    HRESULT
+    GetMultiplexedPacketSize (
+        [out]   DWORD * pcbBytesPerPacket
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        SetFFTransitionRates ()
+
+        1.  sets the fast forward (FF) rates for which the Stream Buffer Engine
+              transitions from FullFrame to KeyFrame to KeyFrame + Seeks.
+        2.  valid values:
+
+                1 < dwMaxFullFrameRate < dwMaxNonSkippingRate
+
+        FF playback transitions from full-frame play, then to all keyframes,
+        then to keyframes + seekaheads.  This method allows the transition
+        rates to be set.  By default they are 4 and 6.  If the rate is in (0,4]
+        all the frames are sent to the codec.  If the rate is in (4,6] just
+        keyframes are sent.  If the rate is > 6, then only keyframes are sent,
+        and a seekahead between keyframes is used that is proportionally
+        aggressive to the specified rate.
+    --*/
+    HRESULT
+    SetFFTransitionRates (
+        [in]    DWORD   dwMaxFullFrameRate,
+        [in]    DWORD   dwMaxNonSkippingRate
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetFFTransitionRates ()
+
+        1.  gets the fast forward (FF) rates for which the Stream Buffer Engine
+              transitions from FullFrame to KeyFrame to KeyFrameWithSeeks.
+    --*/
+    HRESULT
+    GetFFTransitionRates (
+        [out]   DWORD * pdwMaxFullFrameRate,
+        [out]   DWORD * pdwMaxNonSkippingRate
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferConfigure3
+
+--*/
+[
+    object,
+    uuid(7E2D2A1E-7192-4bd7-80C1-061FD1D10402),
+    pointer_default(unique)
+]
+interface IStreamBufferConfigure3 : IStreamBufferConfigure2
+{
+    /*++
+        ------------------------------------------------------------------------
+        SetStartRecConfig ()
+
+        1.  configures recording start behavior: allows start to automatically
+                stop an ongoing recording
+        2.  default value is FALSE
+
+    --*/
+    HRESULT
+    SetStartRecConfig (
+        [in]    BOOL    fStartStopsCur
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetStartRecConfig ()
+
+        1.  retrieves the current recording control configuration
+
+    --*/
+    HRESULT
+    GetStartRecConfig (
+        [out]   BOOL *  pfStartStopsCur
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        SetNamespace ()
+
+        1.  Sets the namespace used in reader-writer synchronization;
+        2.  Currently, only "Global" (case-sensitive !) and NULL are supported
+
+    --*/
+    HRESULT
+    SetNamespace (
+        [in]    LPWSTR  pszNamespace
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        GetNamespace ()
+
+        1.  retrieves the namespace used in reader-writer synchronization
+        2.  use CoTaskMemFree to free the memory
+        3.  the returned pointer can be NULL if no namespace is defined
+
+    --*/
+    HRESULT
+    GetNamespace (
+        [out]   LPWSTR *    ppszNamespace
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferMediaSeeking
+
+    Implemented on the StreamBufferSource filter.  Used to seek and set the
+    playback rate.
+
+--*/
+
+[
+    object,
+    uuid(f61f5c26-863d-4afa-b0ba-2f81dc978596),
+    pointer_default(unique)
+]
+interface IStreamBufferMediaSeeking : IMediaSeeking
+{
+    //  no additional methods have been added
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferMediaSeeking2
+
+    Implemented on the StreamBufferSource filter.  Used to seek and set the
+    playback rate.
+
+--*/
+
+[
+    object,
+    uuid(3a439ab0-155f-470a-86a6-9ea54afd6eaf),
+    pointer_default(unique)
+]
+interface IStreamBufferMediaSeeking2 : IStreamBufferMediaSeeking
+{
+    /*++
+        -----------------------------------------------------------------------
+        SetRateEx ()
+
+        Allows the application to override SBE's trick mode seekahead
+        computation.
+
+        The specified frame rate will, on average, be correct, but may
+        have some variance if averaged over short periods of time.  This is
+        due to the content's compression schema.
+
+        The frame rate is applied to the video stream, if one exists.  If no
+        video stream exists, the rate call fails.  The framerate parameter
+        (dwFramesPerSec) is ignored when the specified abs(rate) is less than or
+        equal to the maximum non-skipping rate (see IStreamBufferConfigure2::
+        SetFFTransitionRates ()).
+
+        Parameter Detail
+        ----------------
+
+            dRate           rate at which the content is to be played.
+                            valid values are all rates, excluding the following
+                              range: (-0.1, 0.1)
+
+            dwFramesPerSec  frames per second
+                            cannot be 0
+                            SBE does not enforce this parameter with respect to
+                              the screen refresh rate
+                            ignored if the abs(dRate) value is <= max non-
+                              skipping rate (see IStreamBufferConfigure2::
+                              SetFFTransitionRates ()).
+
+        Return Values
+        -------------
+
+            success     S_OK
+
+            failure     error code
+    --*/
+    HRESULT
+    SetRateEx (
+        [in]    double  dRate,
+        [in]    DWORD   dwFramesPerSec
+        ) ;
+} ;
+
+
+/*++
+    ============================================================================
+    ============================================================================
+    IStreamBufferDataCounters
+
+    Implemented on the StreamBufferSource & StreamBufferSink filter pins.  Used
+      to get instantaneous traffic counters for the pin.
+
+--*/
+
+typedef struct SBE_PIN_DATA {
+    ULONGLONG   cDataBytes ;            //  total sample payload bytes
+    ULONGLONG   cSamplesProcessed ;     //  samples processed
+    ULONGLONG   cDiscontinuities ;      //  number of discontinuities
+    ULONGLONG   cSyncPoints ;           //  number of syncpoints
+    ULONGLONG   cTimestamps ;           //  number of timestamps
+} SBE_PIN_DATA ;
+
+[
+    object,
+    uuid(9D2A2563-31AB-402e-9A6B-ADB903489440),
+    pointer_default(unique)
+]
+interface IStreamBufferDataCounters : IUnknown
+{
+    //  retrieves the instantaneous values in the data structure
+    HRESULT
+    GetData (
+        [out]   SBE_PIN_DATA *  pPinData
+        ) ;
+
+    //  sets all the data structure values to 0
+    HRESULT
+    ResetData (
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    events
+--*/
+
+//  see evcode.h comment for range
+//  stream buffer engine (PVR)   0x0326 - 0x0350 (sbe.idl)
+
+cpp_quote ("#define STREAMBUFFER_EC_BASE                     0x0326")
+
+cpp_quote ("enum {")
+cpp_quote ("    //  timehole event")
+cpp_quote ("    //      param1 = timehole stream offset ms")
+cpp_quote ("    //      param1 = timehole size ms")
+cpp_quote ("    STREAMBUFFER_EC_TIMEHOLE = STREAMBUFFER_EC_BASE,")
+cpp_quote ("    ")
+cpp_quote ("    STREAMBUFFER_EC_STALE_DATA_READ,")
+cpp_quote ("    ")
+cpp_quote ("    STREAMBUFFER_EC_STALE_FILE_DELETED,")
+cpp_quote ("    STREAMBUFFER_EC_CONTENT_BECOMING_STALE,")
+cpp_quote ("    STREAMBUFFER_EC_WRITE_FAILURE,")
+cpp_quote ("    STREAMBUFFER_EC_WRITE_FAILURE_CLEAR,")
+cpp_quote ("    //")
+cpp_quote ("    //  unexpected read failure")
+cpp_quote ("    //      param1 = HRESULT failure")
+cpp_quote ("    //      param2 = undefined")
+cpp_quote ("    STREAMBUFFER_EC_READ_FAILURE,")
+cpp_quote ("    //")
+cpp_quote ("    //  playback rate change")
+cpp_quote ("    //      param1 = old_playback_rate * 10000 e.g. 2x is 20000")
+cpp_quote ("    //      param2 = new_playback_rate * 10000")
+cpp_quote ("    STREAMBUFFER_EC_RATE_CHANGED,")
+cpp_quote ("    //")
+cpp_quote ("    //  index frame insertion notification")
+cpp_quote ("    // ")
+cpp_quote ("    STREAMBUFFER_EC_PRIMARY_AUDIO,")
+cpp_quote ("    //")
+cpp_quote ("    //  about to send playback rate change that is due to IMediaSeeking::SetPositions() call")
+cpp_quote ("    //      param1 = old_playback_rate * 10000 e.g. 2x is 20000")
+cpp_quote ("    //      param2 = new_playback_rate * 10000")
+cpp_quote ("    STREAMBUFFER_EC_RATE_CHANGING_FOR_SETPOSITIONS,")
+cpp_quote ("    //")
+cpp_quote ("    //  the work of a SetPositions() call has finished")
+cpp_quote ("    //      param1 = unused (set to 0 -- if uses are defined, they will be non-0)")
+cpp_quote ("    //      param2 = unused (set to 0 -- if uses are defined later, they will be non-0)")
+cpp_quote ("    STREAMBUFFER_EC_SETPOSITIONS_EVENTS_DONE,")
+
+cpp_quote ("} ;")
+
+/*++
+    ============================================================================
+    ============================================================================
+    trick mode
+
+    We've extended the 1.0 interfaces as follows:
+
+    1. source filter presents timestamps that monotonically increase overtime
+
+    2. flushes should have no effect over queued rate segments
+
+    3. discontinuities have no effect over queued rate segments
+
+    To use the interface, continue to use AM_KSPROPSETID_TSRateChange, but use
+    dwPropId that is higher
+
+--*/
+
+#ifdef USE_AM_PROPERTY_TS_RATE_CHANGE_11
+cpp_quote ("typedef enum {")
+cpp_quote ("    AM_RATE_UseRateVersion = AM_RATE_Step + 1,")
+cpp_quote ("    AM_RATE_QueryFullFrameRate,")
+cpp_quote ("    AM_RATE_QueryLastRateSegPTS")
+cpp_quote ("} AM_PROPERTY_TS_RATE_CHANGE_11 ;")
+
+//  AM_RATE_QueryRate; this is the max full-frame rate; source filter can use
+//    up to this; it can use less
+cpp_quote ("typedef struct {")
+cpp_quote ("    LONG    lMaxForwardFullFrame ;          //  rate * 10000")
+cpp_quote ("    LONG    lMaxReverseFullFrame ;          //  rate * 10000")
+cpp_quote ("} AM_QueryRate ;")
+#endif // USE_AM_PROPERTY_TS_RATE_CHANGE_11
+
+/*
+================================================================================
+AM_RATE_UseRateVersion
+--------------------------------------------------------------------------------
+Specifies the rate change version to be used.
+
+The default behavior should be per 1.0.
+
+Use a WORD value.  The high-order byte specifies the minor version (revision)
+number; the low-order byte specifies the major version number.  On a
+little-endian system (e.g. x86), the WORD value version for the contents of
+this specification is 0x0101.
+
+If the specified rate version is not supported, the call should fail with
+an E_NOINTERFACE error code.
+
+================================================================================
+AM_RATE_QueryFullFrameRate
+--------------------------------------------------------------------------------
+Allows a source filter to query for maximum full-frame rates the timestamp
+scaling filter is capable of.  Maximum full-frame forward and reverse rates
+are queried for.
+
+Use AM_QueryRate structure.  Timestamp scaling filter must set
+lMaxReverseFullFrame struct member to negative rate.
+
+The sourcing filter can still choose to set the full-frame rate to a value
+smaller than the value returned by the timestamp scaling filter.  For example,
+there may be IO issues that prevent a full-frame playback, even if the timestamp
+scaling filter is capable.
+
+Non-full frame playback will consist of groups of continuous samples sent to
+the timestamp scaling filter, separated by discontinuities.  The timestamps for
+each group of samples will jump across the discontinuities, but still increase
+per the RunTimePlus timeline, when compared to RenderTime, once a steady state
+runstate has been achieved.
+
+Note that Rate is used this call, vs. speed.
+
+================================================================================
+AM_RATE_QueryLastRateSegPTS
+--------------------------------------------------------------------------------
+Allows a source filter to query the timestamp scaling filter for the last-set
+rate-segment's effective PTS, regardless of rate-segment position.
+
+Note that Rate is used this call, vs. speed.
+
+================================================================================
+AM_RATE_SimpleRateChange (with 1.1 semantics)
+--------------------------------------------------------------------------------
+If the rate is to be set to the most forward sample, the
+AM_SimpleRateChange.StartTime member is set to value -1 by the sourcing filter.
+This has meaning to the timestamp scaling filter to set the rate to the most
+forward sample, and return that sample's presentation time via the method call's
+[out] parameter.
+
+If the specified rate segment is incompatible, all queued samples with PTS in
+rate-incompatible segment can be discarded.
+
+If the current rate is incompatible i.e. samples are being dropped by the
+timestamp scaling filter and it is not keeping an internal queued, it should
+fail the querying call (AM_SimpleRateChagne.StartTime = -1) with return error
+VFW_E_DVD_WRONG_SPEED.  The sourcing filter will then set a rate with an
+effective PTS.
+
+*/
+
+//  ============================================================================
+//  SBE2-only follows
+
+interface ISBE2GlobalEvent ;
+interface ISBE2SpanningEvent ;
+interface ISBE2Crossbar ;
+interface ISBE2StreamMap ;
+interface ISBE2EnumStream ;
+interface ISBE2MediaTypeProfile ;
+
+cpp_quote ("// {8966A89E-F83E-4c0e-BC3B-BFA7649E04CB}")
+cpp_quote ("DEFINE_GUID(EVENTID_SBE2RecControlStarted, ")
+cpp_quote ("0x8966a89e, 0xf83e, 0x4c0e, 0xbc, 0x3b, 0xbf, 0xa7, 0x64, 0x9e, 0x4, 0xcb);")
+
+cpp_quote ("// {454B1EC8-0C9B-4caa-B1A1-1E7A2666F6C3}")
+cpp_quote ("DEFINE_GUID(EVENTID_SBE2RecControlStopped, ")
+cpp_quote ("0x454b1ec8, 0xc9b, 0x4caa, 0xb1, 0xa1, 0x1e, 0x7a, 0x26, 0x66, 0xf6, 0xc3);")
+
+cpp_quote ("DEFINE_GUID (SBE2_STREAM_DESC_EVENT,")
+cpp_quote ("0x2313a4ed, 0xbf2d, 0x454f, 0xad, 0x8a, 0xd9, 0x5b, 0xa7, 0xf9, 0x1f, 0xee);")
+
+// This event is sent BEFORE any streams are created by SBE V2 reading a V1 file (DVR-MS) .
+// DVR-MS file format did not support multiple streams of the same kind, thus recepient of the 
+// event may start mapping streams as soon as he receives stream creation events.
+// This event has no payload.
+cpp_quote ("// {000FCF09-97F5-46ac-9769-7A83B35384FB}")
+cpp_quote ("DEFINE_GUID (SBE2_V1_STREAMS_CREATION_EVENT,")
+cpp_quote ("0xfcf09, 0x97f5, 0x46ac, 0x97, 0x69, 0x7a, 0x83, 0xb3, 0x53, 0x84, 0xfb);")
+
+
+// This event is sent AFTER ALL (initally signalled batch) streams are created by SBE V2 reading a V2 file (WTV).
+// Subsequent stream creation / deletion events may follow, but usually this will not happend immediately.
+// If recepient of the event has collected stream creation information sent before this event,
+// it the right time to map needed streams upon reception of this event.
+// This event has no payload.
+cpp_quote ("// {A72530A3-0344-4cab-A2D0-FE937DBDCAB3}")
+cpp_quote ("DEFINE_GUID (SBE2_V2_STREAMS_CREATION_EVENT,")
+cpp_quote ("0xa72530a3, 0x344, 0x4cab, 0xa2, 0xd0, 0xfe, 0x93, 0x7d, 0xbd, 0xca, 0xb3);")
+
+
+cpp_quote ("typedef enum {")
+cpp_quote ("DEF_MODE_PROFILE = 0x0000001,")
+cpp_quote ("DEF_MODE_STREAMS = 0x0000002,")
+cpp_quote ("} CROSSBAR_DEFAULT_FLAGS ;")
+
+typedef DWORD       SBE2_STREAM_ID ;
+
+const DWORD SBE2_STREAM_DESC_VERSION = 1 ;
+
+typedef struct {
+    DWORD           Version;
+
+    //  uniquely identifies the stream
+    SBE2_STREAM_ID  StreamId ;
+
+    //  identifies the stream as a default for the current
+    //    .majortype/.subtype media type
+    DWORD           Default;
+
+    DWORD           Reserved;
+} SBE2_STREAM_DESC ;
+
+
+typedef struct {
+    DWORD           Version ;
+    DWORD           StreamId ;
+    BOOL            Default ;
+    BOOL            Creation ;
+    DWORD           Reserved ;
+    GUID            guidSubMediaType;
+    GUID            guidFormatType;
+    AM_MEDIA_TYPE   MediaType ;
+} DVR_STREAM_DESC ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2GlobalEvent
+
+    returns a global event that has been announced via IBroadcastEventEx::
+      IFireEx()
+
+    QIed from the SBE2 sink filter (for capture-side global events) and the
+      SBE2 source filter (for playback-side global events)
+
+--*/
+[
+    object,
+    uuid (caede759-b6b1-11db-a578-0018f3fa24c6),
+    pointer_default(unique)
+]
+interface ISBE2GlobalEvent : IUnknown
+{
+    //  param1 - param4 are those that were received in the IBroadcastEventEx::
+    //    IFireEx() method
+    //  returns HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) if (* pcb) is too
+    //    small; to get the required buffer size, pb can be NULL on the first
+    //    call
+    //  if the event has been expired out e.g. a long time elapses between the
+    //    broadcast event and the call to retrieve the event, this method
+    //    returns HRESULT_FROM_WIN32(ERROR_CONTEXT_EXPIRED)
+    HRESULT
+    GetEvent (
+        [in]                    REFGUID idEvt,
+        [in]                    ULONG   param1,
+        [in]                    ULONG   param2,
+        [in]                    ULONG   param3,
+        [in]                    ULONG   param4,
+        [out]                   BOOL *  pSpanning,
+        [in,out]                DWORD * pcb,
+        [out,size_is(* pcb)]    BYTE *  pb
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2GlobalEvent2
+
+    returns a global event that has been announced via IBroadcastEventEx::
+      IFireEx()
+    
+    QIed from the SBE2 sink filter (for capture-side global events) and the
+      SBE2 source filter (for playback-side global events)
+
+--*/
+[
+    object,
+    uuid (6D8309BF-00FE-4506-8B03-F8C65B5C9B39),
+    pointer_default(unique)
+]
+interface ISBE2GlobalEvent2 : ISBE2GlobalEvent
+{
+    //  param1 - param4 are those that were received in the IBroadcastEventEx::
+    //    IFireEx() method
+    //
+    //  pStreamTime is an stream time of last data sample that was read from the 
+    //  file before the event.
+    //
+    //  returns HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) if (* pcb) is too
+    //    small; to get the required buffer size, pb can be NULL on the first
+    //    call
+    //  if the event has been expired out e.g. a long time elapses between the
+    //    broadcast event and the call to retrieve the event, this method
+    //    returns HRESULT_FROM_WIN32(ERROR_CONTEXT_EXPIRED)
+    HRESULT
+    GetEventEx (
+        [in]                    REFGUID idEvt,
+        [in]                    ULONG   param1,
+        [in]                    ULONG   param2,
+        [in]                    ULONG   param3,
+        [in]                    ULONG   param4,
+        [out]                   BOOL *  pSpanning,
+        [in,out]                DWORD * pcb,
+        [out,size_is(* pcb)]    BYTE *  pb,
+        [out]                   REFERENCE_TIME* pStreamTime
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2SpanningEvent
+
+    returns a spanning event 
+
+    QIed from the SBE2 sink filter (for capture-side global events) and the
+      SBE2 source filter (for playback-side global events)
+
+--*/
+[
+    object,
+    uuid (caede760-b6b1-11db-a578-0018f3fa24c6),
+    pointer_default(unique)
+]
+interface ISBE2SpanningEvent : IUnknown
+{
+    //  returns HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER) if (* pcb) is too
+    //    small; to get the required buffer size, pb can be NULL on the first
+    //    call
+    //  if the event has been expired out broadcast event and the call to retrieve the event, this method
+    //    returns HRESULT_FROM_WIN32(ERROR_CONTEXT_EXPIRED)
+    HRESULT
+    GetEvent (
+        [in]                    REFGUID         idEvt,
+        [in]                    SBE2_STREAM_ID  streamId,
+        [in,out]                DWORD *         pcb,
+        [out,size_is(* pcb)]    BYTE *          pb
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2Crossbar
+
+    This interface implements the crossbar functionality
+
+    This interface is obtained by QIing ISBE2Source
+
+--*/
+[
+    object,
+    uuid (547b6d26-3226-487e-8253-8aa168749434),
+    pointer_default(unique)
+]
+interface ISBE2Crossbar : IUnknown
+{
+    //  explicitly sets the crossbar in default mode
+    HRESULT
+    EnableDefaultMode (
+        [in]    DWORD  DefaultFlags
+        ) ;
+
+    //  get the input profile (these are all the pins that existed at the SINK
+    //    over which the streams were captured)
+    //  the initial profile is fixed and does not change
+    HRESULT
+    GetInitialProfile (
+        [out]   ISBE2MediaTypeProfile ** ppProfile
+        ) ;
+
+    //  replace the default profile
+    //  returns an array of output pins that were created; the count of output
+    //    pins should match the specified media types in the profile
+    //  the returned pins can be QIed for ISBE2StreamMap
+    HRESULT
+    SetOutputProfile (
+        [in]    ISBE2MediaTypeProfile * pProfile,
+        [out]   DWORD *                 pcOutputPins,
+        [out]   IPin **                 ppOutputPins
+        ) ;
+
+    //  return an enumeration object for all the streams that currently exist
+    //    in the root stream (global)
+    HRESULT
+    EnumStreams (
+        [out]   ISBE2EnumStream **  ppStreams
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2StreamMap
+
+    This interface is implemented on an output pin of the crossbar
+
+--*/
+[
+    object,
+    uuid (667c7745-85b1-4c55-ae55-4e25056159fc),
+    pointer_default(unique)
+]
+interface ISBE2StreamMap : IUnknown
+{
+    //  map a stream to the pin
+    HRESULT
+    MapStream (
+        [in]    SBE2_STREAM_ID  Stream
+        ) ;
+
+    //  unmap a stream from the pin
+    HRESULT
+    UnmapStream (
+        [in]    SBE2_STREAM_ID  Stream
+        ) ;
+
+    //  enumerate the streams that are currently mapped
+    HRESULT
+    EnumMappedStreams (
+        [out]   ISBE2EnumStream **  ppStreams
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2EnumStream
+
+    This interface implements enumeration for streams in source filter
+
+    The returned streams are filtered depending on where this object was
+      obtained from
+
+--*/
+[
+    object,
+    uuid (f7611092-9fbc-46ec-a7c7-548ea78b71a4),
+    pointer_default(unique)
+]
+interface ISBE2EnumStream : IUnknown
+{
+    //  returns the next N nodes
+    //  the returned nodes are ordered the same as they are in the pause-buffer,
+    //    from min => max
+    HRESULT
+    Next (
+        [in]                            ULONG               cRequest,
+        [in, out, size_is (cRequest)]   SBE2_STREAM_DESC *  pStreamDesc,
+        [out]                           ULONG *             pcReceived
+        ) ;
+
+    //  skips the specified number of nodes
+    HRESULT
+    Skip (
+        [in]    ULONG   cRecords
+        ) ;
+
+    HRESULT
+    Reset (
+        ) ;
+
+    HRESULT
+    Clone (
+        [out]   ISBE2EnumStream ** ppIEnumStream
+        ) ;
+} ;
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2MediaTypeProfile
+
+    This interface is a profile of media types
+
+--*/
+[
+    object,
+    uuid (f238267d-4671-40d7-997e-25dc32cfed2a),
+    pointer_default(unique)
+]
+interface ISBE2MediaTypeProfile : IUnknown
+{
+    HRESULT
+    GetStreamCount (
+        [out]   DWORD * pCount
+        ) ;
+
+    HRESULT
+    GetStream (
+        [in]    DWORD               Index,
+        [out]   AM_MEDIA_TYPE **    ppMediaType
+        ) ;
+
+    HRESULT
+    AddStream (
+        [in]    AM_MEDIA_TYPE * pMediaType
+        ) ;
+
+    HRESULT
+    DeleteStream (
+        [in]    DWORD   Index
+        ) ;
+} ;
+
+
+/*++
+    ============================================================================
+    ============================================================================
+    ISBE2FileScan
+
+    This interface implements SBE2 file scan by log in file
+    can be obtained by QueryInterface in CLSID_SBE2FileScan
+
+--*/
+[
+    object,
+    uuid (3E2BF5A5-4F96-4899-A1A3-75E8BE9A5AC0),
+    pointer_default(unique)
+]
+interface ISBE2FileScan : IUnknown
+{
+       HRESULT
+       RepairFile (
+              [in] LPCWSTR filename
+              ) ;
+} ;
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

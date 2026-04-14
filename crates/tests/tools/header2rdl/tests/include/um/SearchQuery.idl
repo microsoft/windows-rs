@@ -1,0 +1,303 @@
+//+----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchQuery.idl
+//
+//    Purpose:  Search Query Helper Description
+//
+//    History:  08/13/2005     louisg      Modified
+//
+//-----------------------------------------------------------------------------
+
+//
+// Anyone can query catalogs using OLE-DB/ADO and this will remain
+// true even with this API.
+//
+// Using ADO we do this:
+//   con = CLSID_CADOConnection
+//   con->Open(Connection string)
+//   cmd = CLSID_CADOCommand
+//   cmd->put_ActiveConnection(con);
+//   cmd->put_Timeout(5)
+//   cmd->put_CommandText
+//   rows = CLSID_CADORowset / IID_IADORecordset
+//   rows->put_CursorType(adOpenStatic)
+//   rows->put_LockType(adLockReadOnly)
+//   rows->put_CacheSize(250)
+//   rows->Open(cmd) *** This is what executes the query and takes time ***
+//   props = rows->get_Properties
+//   props->get_Value("RowCount")
+//   props->get_Value("Maximum Rank")
+//   rows->GetRows
+//
+// The interfaces here are designed to do two things.
+// 1) Make it simpler to query.
+// 2) Expose AQS/NQS.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//**********************************************************************
+// Query Helper
+//**********************************************************************
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF63),
+    pointer_default(unique)
+]
+interface ISearchQueryHelper: IUnknown
+{
+    //
+    // Return the OLE-DB connection string
+    //
+    [propget]
+    HRESULT ConnectionString([out, retval, string] LPWSTR *pszConnectionString);
+
+    typedef enum _SEARCH_TERM_EXPANSION {
+        // No Expansion
+        SEARCH_TERM_NO_EXPANSION,
+
+        // All search terms become <term>*
+        SEARCH_TERM_PREFIX_ALL,
+
+        // Stem expansion is applied to all terms
+        SEARCH_TERM_STEM_ALL,
+    } SEARCH_TERM_EXPANSION;
+
+    typedef enum _SEARCH_QUERY_SYNTAX {
+        // No query syntax in user input
+        SEARCH_NO_QUERY_SYNTAX,
+
+        // Understand AQS (from:chris)
+        SEARCH_ADVANCED_QUERY_SYNTAX,
+
+        // Understand NQS (mail from chris) in addition to AQS.
+        // NOTE: This is not enough to allow a semantic canvas.  For
+        // that I think people either have to host our query control
+        // or go to SemThing directly.
+        SEARCH_NATURAL_QUERY_SYNTAX,
+    } SEARCH_QUERY_SYNTAX;
+
+
+    //
+    // Language of query for user words
+    //
+    [propput]
+    HRESULT QueryContentLocale([in] LCID lcid);
+
+    [propget]
+    HRESULT QueryContentLocale([out, retval] LCID *plcid);
+
+    //
+    // Language of sem thing for AQS
+    //
+    [propput]
+    HRESULT QueryKeywordLocale([in] LCID lcid);
+
+    [propget]
+    HRESULT QueryKeywordLocale([out, retval] LCID *plcid);
+
+    //
+    // How to expand search terms
+    //
+    [propput]
+    HRESULT QueryTermExpansion([in] SEARCH_TERM_EXPANSION expandTerms);
+
+    [propget]
+    HRESULT QueryTermExpansion([out, retval] SEARCH_TERM_EXPANSION *pExpandTerms);
+
+    //
+    // Query syntax to allow
+    //
+    [propput]
+    HRESULT QuerySyntax([in] SEARCH_QUERY_SYNTAX querySyntax);
+
+    [propget]
+    HRESULT QuerySyntax([out, retval] SEARCH_QUERY_SYNTAX *pQuerySyntax);
+
+    //
+    // NULL for using all properties
+    // Otherwise comma delimited list of properties to search
+    // when looking for content that is not explicit.
+    // So if this was "Content, DocAuthor", then
+    // "foo" --> Look for "foo" in Content, DocAuthor
+    // "from:foo" --> Look for "foo" in From field.
+    //
+    [propput]
+    HRESULT QueryContentProperties([in, string, unique] LPCWSTR pszContentProperties);
+
+    [propget]
+    HRESULT QueryContentProperties([out, string, retval] LPWSTR *ppszContentProperties);
+
+    //
+    // Comma delimted column names
+    // Example: "System.ItemAuthors, System.Document.Title"
+    //
+    [propput]
+    HRESULT QuerySelectColumns([in, string, unique] LPCWSTR pszSelectColumns);
+
+    [propget]
+    HRESULT QuerySelectColumns([out, string, retval] LPWSTR *ppszSelectColumns);
+
+    //
+    // Additional where clauses added to the
+    // end, must start with and/or
+    // Example: "and contains(*, 'foo')"
+    //
+    //
+    [propput]
+    HRESULT QueryWhereRestrictions([in, string, unique] LPCWSTR pszRestrictions);
+
+    [propget]
+    HRESULT QueryWhereRestrictions([out, string, retval] LPWSTR *ppszRestrictions);
+
+    //
+    // Sorting clause
+    // Example: "System.ItemAuthors asc, System.ItemDate desc"
+    //
+    [propput]
+    HRESULT QuerySorting([in, string, unique] LPCWSTR pszSorting);
+
+    [propget]
+    HRESULT QuerySorting([out, string, retval] LPWSTR *ppszSorting);
+
+    //
+    // Start a user query and immediately return the result
+    //
+    HRESULT GenerateSQLFromUserQuery([in, string] LPCWSTR pszQuery,
+                                     [out, retval, string] LPWSTR *ppszSQL);
+
+    typedef struct _SEARCH_COLUMN_PROPERTIES {
+        PROPVARIANT     Value;
+        LCID            lcid;
+    } SEARCH_COLUMN_PROPERTIES;
+
+    //
+    // Write properites for a specific itemID
+    //
+
+    HRESULT WriteProperties([in] ITEMID itemID,
+                            [in] DWORD dwNumberOfColumns,
+                            [in, size_is(dwNumberOfColumns)] PROPERTYKEY *pColumns,
+                            [in, size_is(dwNumberOfColumns)] SEARCH_COLUMN_PROPERTIES *pValues,
+                            [in, unique] FILETIME *pftGatherModifiedTime);
+
+    //
+    // Any negative number for returning all results, otherwise the maximum number of results to return.
+    //
+
+    [propput]
+    HRESULT QueryMaxResults([in] LONG cMaxResults);
+    
+    [propget]
+    HRESULT QueryMaxResults([out, retval] LONG* pcMaxResults);
+};
+
+
+
+typedef [v1_enum] enum
+{
+    PRIORITY_LEVEL_FOREGROUND           = 0,    // process items in the scope first as quickly as possible
+    PRIORITY_LEVEL_HIGH                 = 1,    // process items in the scope first at the normal rate
+    PRIORITY_LEVEL_LOW                  = 2,    // process items in this scope before those at the normal rate, but after any other prioritization requests
+    PRIORITY_LEVEL_DEFAULT              = 3     // process items at the normal indexer rate
+} PRIORITY_LEVEL;
+
+
+[
+    object,
+    uuid(42811652-079D-481B-87A2-09A69ECC5F44),
+    pointer_default(unique)
+]
+interface IRowsetPrioritization : IUnknown
+{
+    // Sets or retrieves the current indexer prioritization level for the scope specified by
+    // this query.
+
+    HRESULT SetScopePriority( [in] PRIORITY_LEVEL priority, [in] DWORD scopeStatisticsEventFrequency );
+    HRESULT GetScopePriority( [out] PRIORITY_LEVEL * priority, [out] DWORD * scopeStatisticsEventFrequency );
+
+    // Gets information describing the scope specified by this query:
+    // indexedDocumentCount     -   The total number of documents currently indexed in the scope
+    // oustandingAddCount       -   The total number of documents yet to be indexed in the scope (those not yet included in indexedDocumentCount)
+    // oustandingModifyCount    -   The total number of documents indexed in the scope that need to be re-indexed (included in indexedDocumentCount)
+    
+    HRESULT GetScopeStatistics( [out] DWORD * indexedDocumentCount, [out] DWORD * oustandingAddCount, [out] DWORD * oustandingModifyCount );
+};
+
+
+
+
+typedef [v1_enum] enum
+{
+    ROWSETEVENT_ITEMSTATE_NOTINROWSET   = 0,    // The item is definitely not in the rowset
+    ROWSETEVENT_ITEMSTATE_INROWSET      = 1,    // The item is definitely contained within the rowset
+    ROWSETEVENT_ITEMSTATE_UNKNOWN       = 2     // The item MAY be in the rowset
+} ROWSETEVENT_ITEMSTATE;
+
+
+typedef [v1_enum] enum
+{
+    ROWSETEVENT_TYPE_DATAEXPIRED        = 0,    // Sent when the data backing the rowset has expired.  A new rowset should be requested
+    ROWSETEVENT_TYPE_FOREGROUNDLOST     = 1,    // Sent when a request for foreground prioritization has been automatically downgraded to high
+    ROWSETEVENT_TYPE_SCOPESTATISTICS    = 2,    // Sent on an interval of roughly scopeStatisticsEventFrequency when there is a statistics change. Also sent once when all stats go to zero.
+} ROWSETEVENT_TYPE;
+
+
+[
+    object,
+    uuid(1551AEA5-5D66-4B11-86F5-D5634CB211B9),
+    pointer_default(unique)
+]
+interface IRowsetEvents : IUnknown
+{
+    // A new item was added meeting some (or all) of the criteria for your rowset.
+    // newItemState:
+    //      ROWSETEVENT_ITEMSTATE_NOTINROWSET  - NOT APPLICABLE
+    //      ROWSETEVENT_ITEMSTATE_INROWSET     - The new item definitely matches all criteria for your rowset.
+    //      ROWSETEVENT_ITEMSTATE_UNKNOWN      - The new item partially matches some criteria for your rowset.  It MAY fully match.
+    
+    HRESULT OnNewItem( [in] REFPROPVARIANT itemID, [in] ROWSETEVENT_ITEMSTATE newItemState );
+
+    // An item that MAY have matched some (or all) of the criteria for your rowset has been modified.
+    // rowsetItemState:
+    //      ROWSETEVENT_ITEMSTATE_NOTINROWSET   - The item changed was definitely not originally in your rowset.
+    //      ROWSETEVENT_ITEMSTATE_INROWSET      - The item changed was definitely in your rowset.
+    //      ROWSETEVENT_ITEMSTATE_UNKNOWN       - The item changed MAY have originally been in your rowset.
+    // changedItemState:
+    //      ROWSETEVENT_ITEMSTATE_NOTINROWSET   - As a result of the change, the item is removed from your rowset.
+    //      ROWSETEVENT_ITEMSTATE_INROWSET      - As a result of the change, the item definitely remains in your rowset.
+    //      ROWSETEVENT_ITEMSTATE_UNKNOWN       - As a result of the change, the item MAY now belong in your rowset.
+    
+    HRESULT OnChangedItem( [in] REFPROPVARIANT itemID, [in] ROWSETEVENT_ITEMSTATE rowsetItemState, [in] ROWSETEVENT_ITEMSTATE changedItemState );
+
+    // An item was deleted meeting some (or all) of the criteria for your query.
+    // deletedItemState:
+    //      ROWSETEVENT_ITEMSTATE_NOTINROWSET   - The deleted item is definitely not in your rowset (but may have already been added via an OnNewItme or OnChangedItem)
+    //      ROWSETEVENT_ITEMSTATE_INROWSET      - The deleted item is definitely in your rowset
+    //      ROWSETEVENT_ITEMSTATE_UNKNOWN       - The deleted item MAY be in your rowset
+    
+    HRESULT OnDeletedItem( [in] REFPROPVARIANT itemID, [in] ROWSETEVENT_ITEMSTATE deletedItemState );
+
+    // This method allows for future notifications of various actions about your rowset or items within
+    // eventType:                               - An identifier of the particular event being sent
+    // pVarEventData:                           - The expected value of the EventData for each event type
+    //      ROWSETEVENT_TYPE_DATAEXPIRED        - VT_EMPTY
+    //      ROWSETEVENT_TYPE_FOREGROUNDLOST     - VT_EMPTY
+    //      ROWSETEVENT_TYPE_SCOPESTATISTICS    - VT_VECTOR | VT_UI4 - 3 elements (0 = indexed items, 1 = outstanding adds, 2 = oustanding modifies)
+
+    HRESULT OnRowsetEvent( [in] ROWSETEVENT_TYPE eventType, [in] REFPROPVARIANT eventData );
+};
+
+
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

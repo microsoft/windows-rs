@@ -1,0 +1,1005 @@
+//+------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation.  All Rights Reserved.
+//
+//  File:       msfeeds.idl
+//
+//  Contents:   RSS Platform Interfaces
+//
+//-------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// msfeeds.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// RSS Platform Interfaces.")
+cpp_quote("")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+
+//
+// Types
+//
+
+
+cpp_quote("// {FE6B11C3-C72E-4061-86C6-9D163121F229}")
+cpp_quote("DEFINE_GUID(CLSID_XFeedsManager, 0xfe6b11c3, 0xc72e, 0x4061, 0x86, 0xc6, 0x9d, 0x16, 0x31, 0x21, 0xf2, 0x29);")
+
+typedef [v1_enum] enum FEEDS_BACKGROUNDSYNC_ACTION
+{
+    FBSA_DISABLE                = 0,
+    FBSA_ENABLE                 = 1,
+    FBSA_RUNNOW                 = 2,
+} FEEDS_BACKGROUNDSYNC_ACTION;
+    
+typedef [v1_enum] enum FEEDS_BACKGROUNDSYNC_STATUS
+{
+    FBSS_DISABLED               = 0,
+    FBSS_ENABLED                = 1,
+} FEEDS_BACKGROUNDSYNC_STATUS;
+
+typedef [v1_enum] enum FEEDS_EVENTS_SCOPE
+{
+    FES_ALL                     = 0,
+    FES_SELF_ONLY               = 1,
+    FES_SELF_AND_CHILDREN_ONLY  = 2,
+} FEEDS_EVENTS_SCOPE;
+
+typedef [v1_enum] enum FEEDS_EVENTS_MASK
+{
+    FEM_FOLDEREVENTS            = 0x00000001,
+    FEM_FEEDEVENTS              = 0x00000002,
+} FEEDS_EVENTS_MASK;
+
+cpp_quote("")
+cpp_quote("#define FEEDS_XML_COUNT_MAX ((UINT)-1)")
+cpp_quote("")
+
+typedef [v1_enum] enum FEEDS_XML_SORT_PROPERTY
+{
+    FXSP_NONE                   = 0,
+    FXSP_PUBDATE                = 1,
+    FXSP_DOWNLOADTIME           = 2,
+} FEEDS_XML_SORT_PROPERTY;
+
+typedef [v1_enum] enum FEEDS_XML_SORT_ORDER
+{
+    FXSO_NONE                   = 0,
+    FXSO_ASCENDING              = 1,
+    FXSO_DESCENDING             = 2,
+} FEEDS_XML_SORT_ORDER;
+
+typedef [v1_enum] enum FEEDS_XML_FILTER_FLAGS
+{
+    FXFF_ALL                    = 0x00000000,
+    FXFF_UNREAD                 = 0x00000001,
+    FXFF_READ                   = 0x00000002,
+} FEEDS_XML_FILTER_FLAGS;
+
+typedef [v1_enum] enum FEEDS_XML_INCLUDE_FLAGS
+{
+    FXIF_NONE                   = 0x00000000,
+    FXIF_CF_EXTENSIONS          = 0x00000001,
+} FEEDS_XML_INCLUDE_FLAGS;
+
+typedef [v1_enum] enum FEEDS_DOWNLOAD_STATUS
+{
+    FDS_NONE                    = 0,
+    FDS_PENDING                 = 1,
+    FDS_DOWNLOADING             = 2,
+    FDS_DOWNLOADED              = 3,
+    FDS_DOWNLOAD_FAILED         = 4,
+} FEEDS_DOWNLOAD_STATUS;
+
+typedef [v1_enum] enum FEEDS_SYNC_SETTING
+{
+    FSS_DEFAULT                 = 0,
+    FSS_INTERVAL                = 1,
+    FSS_MANUAL                  = 2,
+    FSS_SUGGESTED               = 3,
+} FEEDS_SYNC_SETTING;
+
+typedef [v1_enum] enum FEEDS_DOWNLOAD_ERROR
+{
+    FDE_NONE                         = 0,
+    FDE_DOWNLOAD_FAILED              = 1,
+    FDE_INVALID_FEED_FORMAT          = 2,
+    FDE_NORMALIZATION_FAILED         = 3,
+    FDE_PERSISTENCE_FAILED           = 4,
+    FDE_DOWNLOAD_BLOCKED             = 5,
+    FDE_CANCELED                     = 6,
+    FDE_UNSUPPORTED_AUTH             = 7,
+    FDE_BACKGROUND_DOWNLOAD_DISABLED = 8,
+    FDE_NOT_EXIST                    = 9,
+    FDE_UNSUPPORTED_MSXML            = 10,
+    FDE_UNSUPPORTED_DTD              = 11,
+    FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED = 12,
+    FDE_ACCESS_DENIED                = 13,
+    FDE_AUTH_FAILED                  = 14,
+    FDE_INVALID_AUTH                 = 15,
+} FEEDS_DOWNLOAD_ERROR;
+
+typedef [v1_enum] enum FEEDS_EVENTS_ITEM_COUNT_FLAGS
+{
+    FEICF_READ_ITEM_COUNT_CHANGED   = 0x00000001,
+    FEICF_UNREAD_ITEM_COUNT_CHANGED = 0x00000002,
+} FEEDS_EVENTS_ITEM_COUNT_FLAGS;
+
+typedef int FEICF;
+
+
+//
+// Platform custom HRESULT error codes (FACILITY_ITF)
+//
+typedef enum FEEDS_ERROR_CODE
+{
+    FEC_E_ERRORBASE                 = 0xC0040200L,
+    FEC_E_INVALIDMSXMLPROPERTY      = FEC_E_ERRORBASE,  // 0
+    FEC_E_DOWNLOADSIZELIMITEXCEEDED,                    // 1
+} FEEDS_ERROR_CODE;
+
+
+
+//
+// C++ Interfaces
+//
+
+
+[
+    uuid(5357e238-fb12-4aca-a930-cab7832b84bf) // IID_IXFeedsManager
+]
+interface IXFeedsManager : IUnknown
+{
+    // Core methods
+
+    HRESULT RootFolder([in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT IsSubscribed([in] LPCWSTR pszUrl, [out] BOOL* pbSubscribed);
+
+    // Helper methods
+
+    HRESULT ExistsFeed([in] LPCWSTR pszPath, [out] BOOL* pbFeedExists);
+    HRESULT GetFeed([in] LPCWSTR pszPath, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT GetFeedByUrl([in] LPCWSTR pszUrl, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT ExistsFolder([in] LPCWSTR pszPath, [out] BOOL* pbFolderExists);
+    HRESULT GetFolder([in] LPCWSTR pszPath, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT DeleteFeed([in] LPCWSTR pszPath);
+    HRESULT DeleteFolder([in] LPCWSTR pszPath);
+
+    // Background sync engine methods
+
+    HRESULT BackgroundSync([in] FEEDS_BACKGROUNDSYNC_ACTION fbsa);
+    HRESULT BackgroundSyncStatus([out] FEEDS_BACKGROUNDSYNC_STATUS* pfbss);
+    HRESULT DefaultInterval([out] UINT* puiInterval);
+    HRESULT SetDefaultInterval([in] UINT uiInterval);
+    HRESULT AsyncSyncAll();
+
+    // Feed Operations
+
+    HRESULT Normalize([in] IStream* pStreamIn, [out] IStream** ppStreamOut);
+    HRESULT ItemCountLimit([out] UINT* puiItemCountLimit);
+};
+
+[
+    uuid(dc43a9d5-5015-4301-8c96-a47434b4d658) // IID_IXFeedsEnum
+]
+interface IXFeedsEnum : IUnknown
+{
+    HRESULT Count([out] UINT* puiCount);
+    HRESULT Item([in] UINT uiIndex, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+};
+
+[
+    uuid(4c963678-3a51-4b88-8531-98b90b6508f2) // IID_IXFeedFolder
+]
+interface IXFeedFolder : IUnknown
+{
+    // Folder methods
+
+    HRESULT Feeds([out] IXFeedsEnum** ppfe);
+    HRESULT Subfolders([out] IXFeedsEnum** ppfe);
+    HRESULT CreateFeed([in] LPCWSTR pszName, [in] LPCWSTR pszUrl, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT CreateSubfolder([in] LPCWSTR pszName, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT ExistsFeed(LPCWSTR pszName, BOOL* pbFeedExists);
+    HRESULT ExistsSubfolder(LPCWSTR pszName, BOOL* pbSubfolderExists);
+    HRESULT GetFeed([in] LPCWSTR pszName, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT GetSubfolder([in] LPCWSTR pszName, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT Delete();
+    HRESULT Name([out] LPWSTR* ppszName);
+    HRESULT Rename([in] LPCWSTR pszName);
+    HRESULT Path([out] LPWSTR* ppszPath);
+    HRESULT Move([in] LPCWSTR pszPath);
+    HRESULT Parent([in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT IsRoot([out] BOOL* pbIsRootFeedFolder);
+
+    // Folder Eventing methods
+
+    HRESULT GetWatcher([in] FEEDS_EVENTS_SCOPE scope, [in] FEEDS_EVENTS_MASK mask, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+
+    // Folder Aggregate Property methods
+
+    HRESULT TotalUnreadItemCount([out] UINT* puiTotalUnreadItemCount);
+    HRESULT TotalItemCount([out] UINT* puiTotalItemCount);
+};
+
+[
+    uuid(7964b769-234a-4bb1-a5f4-90454c8ad07e) // IID_IXFeedFolderEvents
+]
+interface IXFeedFolderEvents : IUnknown
+{
+    // Generic error
+
+    HRESULT Error();
+
+    // Folder
+
+    HRESULT FolderAdded([in] LPCWSTR pszPath);
+    HRESULT FolderDeleted([in] LPCWSTR pszPath);
+    HRESULT FolderRenamed([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FolderMovedFrom([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FolderMovedTo([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FolderItemCountChanged([in] LPCWSTR pszPath, [in] FEICF feicfFlags);
+
+    // Feed
+
+    HRESULT FeedAdded([in] LPCWSTR pszPath);
+    HRESULT FeedDeleted([in] LPCWSTR pszPath);
+    HRESULT FeedRenamed([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FeedUrlChanged([in] LPCWSTR pszPath);
+    HRESULT FeedMovedFrom([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FeedMovedTo([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FeedDownloading([in] LPCWSTR pszPath);
+    HRESULT FeedDownloadCompleted([in] LPCWSTR pszPath, [in] FEEDS_DOWNLOAD_ERROR fde);
+    HRESULT FeedItemCountChanged([in] LPCWSTR pszPath, [in] FEICF feicfFlags);
+};
+
+[
+    uuid(a44179a4-e0f6-403b-af8d-d080f425a451) // IID_IXFeed
+]
+interface IXFeed : IUnknown
+{
+    // Feed methods
+
+    HRESULT Xml([in] UINT uiItemCount, [in] FEEDS_XML_SORT_PROPERTY sortProperty, [in] FEEDS_XML_SORT_ORDER sortOrder, [in] FEEDS_XML_FILTER_FLAGS filterFlags, [in] FEEDS_XML_INCLUDE_FLAGS includeFlags, [out] IStream** pps);
+    HRESULT Name([out] LPWSTR* ppszName);
+    HRESULT Rename([in] LPCWSTR pszName);
+    HRESULT Url([out] LPWSTR* ppszUrl);
+    HRESULT SetUrl([in] LPCWSTR pszUrl);
+    HRESULT LocalId([out] GUID* pguid);
+    HRESULT Path([out] LPWSTR* ppszPath);
+    HRESULT Move([in] LPCWSTR pszPath);
+    HRESULT Parent([in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT LastWriteTime([out] SYSTEMTIME* pstLastWriteTime);
+    HRESULT Delete();
+    HRESULT Download();
+    HRESULT AsyncDownload();
+    HRESULT CancelAsyncDownload();
+    HRESULT SyncSetting([out] FEEDS_SYNC_SETTING* pfss);
+    HRESULT SetSyncSetting([in] FEEDS_SYNC_SETTING fss);
+    HRESULT Interval([out] UINT* puiInterval);
+    HRESULT SetInterval([in] UINT uiInterval);
+    HRESULT LastDownloadTime([out] SYSTEMTIME* pstLastDownloadTime);
+    HRESULT LocalEnclosurePath([out] LPWSTR* ppszPath);
+    HRESULT Items([out] IXFeedsEnum** ppfe);
+    HRESULT GetItem([in] UINT uiId, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT MarkAllItemsRead();
+    HRESULT MaxItemCount([out] UINT* puiMaxItemCount);
+    HRESULT SetMaxItemCount([in] UINT uiMaxItemCount);
+    HRESULT DownloadEnclosuresAutomatically([out] BOOL* pbDownloadEnclosuresAutomatically);
+    HRESULT SetDownloadEnclosuresAutomatically([in] BOOL bDownloadEnclosuresAutomatically);
+    HRESULT DownloadStatus([out] FEEDS_DOWNLOAD_STATUS* pfds);
+    HRESULT LastDownloadError([out] FEEDS_DOWNLOAD_ERROR* pfde);
+    HRESULT Merge([in] IStream* pStream, [in] LPCWSTR pszUrl);
+    HRESULT DownloadUrl([out] LPWSTR* ppszUrl);
+
+    // Feed Property methods
+
+    HRESULT Title([out] LPWSTR* ppszTitle);
+    HRESULT Description([out] LPWSTR* ppszDescription);
+    HRESULT Link([out] LPWSTR* ppszHomePage);
+    HRESULT Image([out] LPWSTR* ppszImageUrl);
+    HRESULT LastBuildDate([out] SYSTEMTIME* pstLastBuildDate);
+    HRESULT PubDate([out] SYSTEMTIME* pstPubDate);
+    HRESULT Ttl([out] UINT* puiTtl);
+    HRESULT Language([out] LPWSTR* ppszLanguage);
+    HRESULT Copyright([out] LPWSTR* ppszCopyright);
+    HRESULT IsList([out] BOOL* pbIsList);
+
+    // Feed Eventing methods
+
+    HRESULT GetWatcher([in] FEEDS_EVENTS_SCOPE scope, [in] FEEDS_EVENTS_MASK mask, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+
+    // Feed Aggregate Property methods
+
+    HRESULT UnreadItemCount([out] UINT* puiUnreadItemCount);
+    HRESULT ItemCount([out] UINT* puiItemCount);
+};
+
+[
+    uuid(ce528e77-3716-4eb7-956d-f5e37502e12a) // IID_IXFeed2
+]
+interface IXFeed2 : IXFeed
+{
+    HRESULT GetItemByEffectiveId([in] UINT uiEffectiveId, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT LastItemDownloadTime([out] SYSTEMTIME* pstLastItemDownloadTime);
+    HRESULT Username([out] LPWSTR* ppszUsername);
+    HRESULT Password([out] LPWSTR* ppszPassword);
+    HRESULT SetCredentials([in] LPCWSTR pszUsername, [in] LPCWSTR pszPassword);
+    HRESULT ClearCredentials();
+};
+
+[
+    uuid(1630852e-1263-465b-98e5-fe60ffec4ac2) // IID_IXFeedEvents
+]
+interface IXFeedEvents : IUnknown
+{
+    // Generic error
+
+    HRESULT Error();
+
+    // Feed
+
+    HRESULT FeedDeleted([in] LPCWSTR pszPath);
+    HRESULT FeedRenamed([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FeedUrlChanged([in] LPCWSTR pszPath);
+    HRESULT FeedMoved([in] LPCWSTR pszPath, [in] LPCWSTR pszOldPath);
+    HRESULT FeedDownloading([in] LPCWSTR pszPath);
+    HRESULT FeedDownloadCompleted([in] LPCWSTR pszPath, [in] FEEDS_DOWNLOAD_ERROR fde);
+    HRESULT FeedItemCountChanged([in] LPCWSTR pszPath, [in] FEICF feicfFlags);
+};
+
+[
+    uuid(e757b2f5-e73e-434e-a1bf-2bd7c3e60fcb) // IID_IXFeedItem
+]
+interface IXFeedItem : IUnknown
+{
+    HRESULT Xml([in] FEEDS_XML_INCLUDE_FLAGS fxif, [out] IStream** pps);
+    HRESULT Title([out] LPWSTR* ppszTitle);
+    HRESULT Link([out] LPWSTR* ppszUrl);
+    HRESULT Guid([out] LPWSTR* ppszGuid);
+    HRESULT Description([out] LPWSTR* ppszDescription);
+    HRESULT PubDate([out] SYSTEMTIME* pstPubDate);
+    HRESULT Comments([out] LPWSTR* ppszUrl);
+    HRESULT Author([out] LPWSTR* ppszAuthor);
+    HRESULT Enclosure([in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT IsRead([out] BOOL* pbIsRead);
+    HRESULT SetIsRead([in] BOOL bIsRead);
+    HRESULT LocalId([out] UINT* puiId);
+    HRESULT Parent([in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT Delete();
+    HRESULT DownloadUrl([out] LPWSTR* ppszUrl);
+    HRESULT LastDownloadTime([out] SYSTEMTIME* pstLastDownloadTime);
+    HRESULT Modified([out] SYSTEMTIME* pstModifiedTime);
+};
+
+[
+    uuid(6cda2dc7-9013-4522-9970-2a9dd9ead5a3) // IID_IXFeedItem2
+]
+interface IXFeedItem2 : IXFeedItem
+{
+    HRESULT EffectiveId([out] UINT* puiEffectiveId);
+};
+
+[
+    uuid(BFBFB953-644F-4792-B69C-DFACA4CBF89A) // IID_IXFeedEnclosure
+]
+interface IXFeedEnclosure : IUnknown
+{
+    HRESULT Url([out] LPWSTR* ppszUrl);
+    HRESULT Type([out] LPWSTR* ppszMimeType);
+    HRESULT Length([out] UINT* puiLength);
+    HRESULT AsyncDownload();
+    HRESULT CancelAsyncDownload();
+    HRESULT DownloadStatus([out] FEEDS_DOWNLOAD_STATUS* pfds);
+    HRESULT LastDownloadError([out] FEEDS_DOWNLOAD_ERROR* pfde);
+    HRESULT LocalPath([out] LPWSTR* ppszPath);
+    HRESULT Parent([in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    HRESULT DownloadUrl([out] LPWSTR* ppszUrl);
+    HRESULT DownloadMimeType([out] LPWSTR* ppszMimeType);
+    HRESULT RemoveFile();
+    HRESULT SetFile([in] LPCWSTR pszDownloadUrl, [in] LPCWSTR pszDownloadFilePath, [in] LPCWSTR pszDownloadMimeType, [in] LPCWSTR pszEnclosureFilename);
+};
+
+
+
+#ifndef FEEDS_NOAUTOMATIONLIB
+
+//
+// Automation Library
+//
+
+
+[
+    uuid(9cdcd9c9-bc40-41c6-89c5-230466db0bd0), // LIB_Feeds
+
+    helpstring("Microsoft Feeds"),
+    lcid(0x0000),
+    version(2.0),
+    custom(0F21F359-AB84-41E8-9A78-36D110E6D2F9, "Microsoft.Feeds.Interop")
+]
+library Feeds
+{
+    importlib ("stdole2.tlb");
+    #include "msfeedsid.h"
+
+
+    //
+    // Dual interfaces
+    //
+
+
+    [
+        uuid(a74029cc-1f1a-4906-88f0-810638d86591), // IID_IFeedsManager
+        dual,
+        oleautomation
+    ]
+    interface IFeedsManager : IDispatch
+    {
+        [id(DISPID_FEEDS_RootFolder), propget, helpstring("Retrieves the root subscription folder.")]
+        HRESULT RootFolder([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDS_IsSubscribed), helpstring("Determines if the URL is in the system subscription store.")]
+        HRESULT IsSubscribed([in] BSTR feedUrl, [out, retval] VARIANT_BOOL* subscribed);
+
+        [id(DISPID_FEEDS_ExistsFeed), helpstring("Checks if a feed exists.")]
+        HRESULT ExistsFeed([in] BSTR feedPath, [out, retval] VARIANT_BOOL* exists);
+
+        [id(DISPID_FEEDS_GetFeed), helpstring("Retrieves a feed from its path.")]
+        HRESULT GetFeed([in] BSTR feedPath, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDS_GetFeedByUrl), helpstring("Retrieves a feed by its URL.")]
+        HRESULT GetFeedByUrl([in] BSTR feedUrl, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDS_ExistsFolder), helpstring("Checks if a feed folder exists.")]
+        HRESULT ExistsFolder([in] BSTR folderPath, [out, retval] VARIANT_BOOL* exists);
+
+        [id(DISPID_FEEDS_GetFolder), helpstring("Retrieves a folder from its path.")]
+        HRESULT GetFolder([in] BSTR folderPath, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDS_DeleteFeed), helpstring("Deletes a feed.")]
+        HRESULT DeleteFeed([in] BSTR feedPath);
+
+        [id(DISPID_FEEDS_DeleteFolder), helpstring("Deletes a feed folder.")]
+        HRESULT DeleteFolder([in] BSTR folderPath);
+
+        [id(DISPID_FEEDS_BackgroundSync), helpstring("Controls the behavior of background synchronization engine.")]
+        HRESULT BackgroundSync([in] FEEDS_BACKGROUNDSYNC_ACTION action);
+
+        [id(DISPID_FEEDS_BackgroundSyncStatus), propget, helpstring("Retrieves the background sync status.")]
+        HRESULT BackgroundSyncStatus([out, retval] FEEDS_BACKGROUNDSYNC_STATUS *status);
+
+        [id(DISPID_FEEDS_DefaultInterval), propget, helpstring("Retrieves the default update interval for feeds.")]
+        HRESULT DefaultInterval([out, retval] LONG* minutes);
+
+        [id(DISPID_FEEDS_DefaultInterval), propput, helpstring("Sets the default update interval for feeds.")]
+        HRESULT DefaultInterval([in] LONG minutes);
+        
+        [id(DISPID_FEEDS_AsyncSyncAll), helpstring("Starts the background synchronization engine.")]
+        HRESULT AsyncSyncAll();
+
+        [id(DISPID_FEEDS_Normalize), helpstring("Converts a feed to the normalized form.")]
+        HRESULT Normalize([in] BSTR feedXmlIn, [out, retval] BSTR* feedXmlOut);
+
+        [id(DISPID_FEEDS_ItemCountLimit), propget, helpstring("Retrieves the maximum number of items retained for feeds.")]
+        HRESULT ItemCountLimit([out, retval] LONG* itemCountLimit);
+    };
+
+    [
+        uuid(e3cd0028-2eed-4c60-8fae-a3225309a836), // IID_IFeedsEnum
+        dual,
+        oleautomation
+    ]
+    interface IFeedsEnum : IDispatch
+    {
+        [id(DISPID_FEEDSENUM_Count), propget, helpstring("Retrieves the number of objects in this collection.")]
+        HRESULT Count([out, retval] LONG* count);
+
+        [id(DISPID_FEEDSENUM_Item), helpstring("Returns an object by index.")]
+        HRESULT Item([in] LONG index, [out, retval] IDispatch** disp);
+
+        [id(DISPID_NEWENUM), propget, hidden, restricted]
+        HRESULT _NewEnum([out, retval] IEnumVARIANT** enumVar);
+    };
+
+    [
+        uuid(81f04ad1-4194-4d7d-86d6-11813cec163c), // IID_IFeedFolder
+        dual,
+        oleautomation
+    ]
+    interface IFeedFolder : IDispatch
+    {
+        [id(DISPID_FEEDFOLDER_Feeds), propget, helpstring("Retrieves the collection of feeds in this folder.")]
+        HRESULT Feeds([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_Subfolders), propget, helpstring("Retrieves the collection of subfolders in this folder.")]
+        HRESULT Subfolders([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_CreateFeed), helpstring("Creates a new feed, and subscribes to it.")]
+        HRESULT CreateFeed([in] BSTR feedName, [in] BSTR feedUrl, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_CreateSubfolder), helpstring("Creates a new subfolder in the folder.")]
+        HRESULT CreateSubfolder([in] BSTR folderName, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_ExistsFeed), helpstring("Checks if a feed exists.")]
+        HRESULT ExistsFeed([in] BSTR feedName, [out, retval] VARIANT_BOOL* exists);
+
+        [id(DISPID_FEEDFOLDER_GetFeed), helpstring("Retrieves a feed by its name.")]
+        HRESULT GetFeed([in] BSTR feedName, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_ExistsSubfolder), helpstring("Checks if a subfolder exists.")]
+        HRESULT ExistsSubfolder([in] BSTR folderName, [out, retval] VARIANT_BOOL* exists);
+
+        [id(DISPID_FEEDFOLDER_GetSubfolder), helpstring("Retrieves a subfolder by its name.")]
+        HRESULT GetSubfolder([in] BSTR folderName, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_Delete), helpstring("Deletes this folder and all of its contents.")]
+        HRESULT Delete();
+
+        [id(DISPID_FEEDFOLDER_Name), propget, helpstring("Retrieves the name of the current folder.")]
+        HRESULT Name([out, retval] BSTR* folderName);
+
+        [id(DISPID_FEEDFOLDER_Rename), helpstring("Renames the folder.")]
+        HRESULT Rename([in] BSTR folderName);
+
+        [id(DISPID_FEEDFOLDER_Path), propget, helpstring("Retrieves the path of the current folder.")]
+        HRESULT Path([out, retval] BSTR* folderPath);
+
+        [id(DISPID_FEEDFOLDER_Move), helpstring("Moves the feed folder to a new location.")]
+        HRESULT Move([in] BSTR newParentPath);
+
+        [id(DISPID_FEEDFOLDER_Parent), propget, helpstring("Retrieves the parent of the current feed folder.")]
+        HRESULT Parent([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDFOLDER_IsRoot), propget, helpstring("Checks to see whether the current folder is the root folder.")]
+        HRESULT IsRoot([out, retval] VARIANT_BOOL* isRoot);
+
+        [id(DISPID_FEEDFOLDER_TotalUnreadItemCount), propget, helpstring("Retrieves the total (aggregated) number of unread items.")]
+        HRESULT TotalUnreadItemCount([out, retval] LONG* count);
+
+        [id(DISPID_FEEDFOLDER_TotalItemCount), propget, helpstring("Retrieves the total (aggregated) number of items.")]
+        HRESULT TotalItemCount([out, retval] LONG* count);
+
+        [id(DISPID_FEEDFOLDER_GetWatcher), helpstring("Retrieves the appropriate interface for events.")]
+        HRESULT GetWatcher([in] FEEDS_EVENTS_SCOPE scope, [in] FEEDS_EVENTS_MASK mask, [out, retval] IDispatch** disp);
+    };
+
+    [
+        uuid(20a59fa6-a844-4630-9e98-175f70b4d55b), // IID_IFeedFolderEvents
+        dual,
+        oleautomation
+    ]
+    interface IFeedFolderEvents : IDispatch 
+    {
+        // Generic error
+
+        [id(DISPID_FEEDFOLDEREVENTS_Error), helpstring("Occurs when a feed folder event error occurs.")]
+        HRESULT Error();
+
+        // Folder
+
+        [id(DISPID_FEEDFOLDEREVENTS_FolderAdded), helpstring("Occurs when a folder or subfolder is added.")]
+        HRESULT FolderAdded([in] const BSTR path);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FolderDeleted), helpstring("Occurs when a folder or subfolder is removed.")]
+        HRESULT FolderDeleted([in] const BSTR path);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FolderRenamed), helpstring("Occurs when a folder or subfolder is renamed.")]
+        HRESULT FolderRenamed([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FolderMovedFrom), helpstring("Occurs when a folder or subfolder is moved from this folder.")]
+        HRESULT FolderMovedFrom([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FolderMovedTo), helpstring("Occurs when a folder or subfolder is moved to this folder.")]
+        HRESULT FolderMovedTo([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FolderItemCountChanged), helpstring("Occurs when the aggregated item count of a feed folder changes.")]
+        HRESULT FolderItemCountChanged([in] const BSTR path, [in] LONG itemCountType);
+
+        // Feed
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedAdded), helpstring("Occurs when a feed is added to the folder.")]
+        HRESULT FeedAdded([in] const BSTR path);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedDeleted), helpstring("Occurs when a feed is deleted from the folder.")]
+        HRESULT FeedDeleted([in] const BSTR path);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedRenamed), helpstring("Occurs when a feed is renamed.")]
+        HRESULT FeedRenamed([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedUrlChanged), helpstring("Occurs when the URL of a feed is changed.")]
+        HRESULT FeedUrlChanged([in] const BSTR path);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedMovedFrom), helpstring("Occurs when a feed is moved from this folder.")]
+        HRESULT FeedMovedFrom([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedMovedTo), helpstring("Occurs when a feed is moved to this folder.")]
+        HRESULT FeedMovedTo([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedDownloading), helpstring("Occurs when a feed starts to download.")]
+        HRESULT FeedDownloading([in] const BSTR path);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedDownloadCompleted), helpstring("Occurs when a feed has finished or failed downloading.")]
+        HRESULT FeedDownloadCompleted([in] const BSTR path, [in] FEEDS_DOWNLOAD_ERROR error);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedItemCountChanged), helpstring("Occurs when the item count of a feed changed.")]
+        HRESULT FeedItemCountChanged([in] const BSTR path, [in] LONG itemCountType);
+    };
+
+    [
+        uuid(f7f915d8-2ede-42bc-98e7-a5d05063a757), // IID_IFeed
+        dual,
+        oleautomation
+    ]
+    interface IFeed : IDispatch
+    {
+        [id(DISPID_FEED_Xml), helpstring("Returns the Extensible Markup Language (XML) for the feed.")]
+        HRESULT Xml([in] LONG count, [in] FEEDS_XML_SORT_PROPERTY sortProperty, [in] FEEDS_XML_SORT_ORDER sortOrder, [in] FEEDS_XML_FILTER_FLAGS filterFlags, [in] FEEDS_XML_INCLUDE_FLAGS includeFlags, [out, retval] BSTR* xml);
+
+        [id(DISPID_FEED_Name), propget, helpstring("Retrieves the display name of the feed.")]
+        HRESULT Name([out, retval] BSTR* name);
+
+        [id(DISPID_FEED_Rename), helpstring("Renames the feed.")]
+        HRESULT Rename([in] BSTR name);
+
+        [id(DISPID_FEED_Url), propget, helpstring("Retrieves the URL of the feed.")]
+        HRESULT Url([out, retval] BSTR* feedUrl);
+
+        [id(DISPID_FEED_Url), propput, helpstring("Sets the URL of the feed.")]
+        HRESULT Url([in] BSTR feedUrl);
+
+        [id(DISPID_FEED_LocalId), propget, helpstring("Retrieves the guid associated with this feed.")]
+        HRESULT LocalId([out, retval] BSTR* feedGuid);
+
+        [id(DISPID_FEED_Path), propget, helpstring("Retrieves the path for the current feed.")]
+        HRESULT Path([out, retval] BSTR* path);
+
+        [id(DISPID_FEED_Move), helpstring("Moves the feed to a new location.")]
+        HRESULT Move([in] BSTR newParentPath);
+
+        [id(DISPID_FEED_Parent), propget, helpstring("Retrieves the parent folder of the feed.")]
+        HRESULT Parent([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEED_LastWriteTime), propget, helpstring("Retrieves the last time the feed changed.")]
+        HRESULT LastWriteTime([out, retval] DATE* lastWrite);
+
+        [id(DISPID_FEED_Delete), helpstring("Deletes the feed.")]
+        HRESULT Delete();
+
+        [id(DISPID_FEED_Download), helpstring("Downloads content for the feed.")]
+        HRESULT Download();
+
+        [id(DISPID_FEED_AsyncDownload), helpstring("Downloads content for the feed asynchronously.")]
+        HRESULT AsyncDownload();
+
+        [id(DISPID_FEED_CancelAsyncDownload), helpstring("Cancels asynchronous download of the feed.")]
+        HRESULT CancelAsyncDownload();
+
+        [id(DISPID_FEED_SyncSetting), propget, helpstring("Retrieves the update setting for the feed.")]
+        HRESULT SyncSetting([out, retval] FEEDS_SYNC_SETTING* syncSetting);
+
+        [id(DISPID_FEED_SyncSetting), propput, helpstring("Sets the update setting for the feed.")]
+        HRESULT SyncSetting([in] FEEDS_SYNC_SETTING syncSetting);
+
+        [id(DISPID_FEED_Interval), propget, helpstring("Retrieves the update interval for the feed.")]
+        HRESULT Interval([out, retval] LONG* minutes);
+
+        [id(DISPID_FEED_Interval), propput, helpstring("Sets the update interval for the feed.")]
+        HRESULT Interval([in] LONG minutes);
+
+        [id(DISPID_FEED_LastDownloadTime), propget, helpstring("Retrieves the date and time of the last successful download for the feed.")]
+        HRESULT LastDownloadTime([out, retval] DATE* lastDownload);
+
+        [id(DISPID_FEED_LocalEnclosurePath), propget, helpstring("Retrieves the file system path where enclosures for the feed are downloaded.")]
+        HRESULT LocalEnclosurePath([out, retval] BSTR* path);
+
+        [id(DISPID_FEED_Items), propget, helpstring("Retrieves an enumerator for items from the feed.")]
+        HRESULT Items([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEED_GetItem), helpstring("Returns a IFeedItem object by identifier (ID).")]
+        HRESULT GetItem([in] LONG itemId, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEED_Title), propget, helpstring("Retrieves the title from the feed.")]
+        HRESULT Title([out, retval] BSTR* title);
+
+        [id(DISPID_FEED_Description), propget, helpstring("Retrieves a phrase or sentence that describes the feed.")]
+        HRESULT Description([out, retval] BSTR* description);
+
+        [id(DISPID_FEED_Link), propget, helpstring("Retrieves the home page URL from the feed.")]
+        HRESULT Link([out, retval] BSTR* homePage);
+
+        [id(DISPID_FEED_Image), propget, helpstring("Retrieves the image URL from the feed.")]
+        HRESULT Image([out, retval] BSTR* imageUrl);
+
+        [id(DISPID_FEED_LastBuildDate), propget, helpstring("Retrieves the last build date from the feed.")]
+        HRESULT LastBuildDate([out, retval] DATE* lastBuildDate);
+
+        [id(DISPID_FEED_PubDate), propget, helpstring("Retrieves the publication date and time of the feed.")]
+        HRESULT PubDate([out, retval] DATE* lastPopulateDate);
+
+        [id(DISPID_FEED_Ttl), propget, helpstring("Retrieves the time to live (TTL) from the feed.")]
+        HRESULT Ttl([out, retval] LONG* ttl);
+
+        [id(DISPID_FEED_Language), propget, helpstring("Retrieves the language code from the feed.")]
+        HRESULT Language([out, retval] BSTR* language);
+
+        [id(DISPID_FEED_Copyright), propget, helpstring("Retrieves the copyright from the feed.")]
+        HRESULT Copyright([out, retval] BSTR* copyright);
+
+        [id(DISPID_FEED_MaxItemCount), propget, helpstring("Maximum number of items to keep, excess items will be deleted")]
+        HRESULT MaxItemCount([out, retval] LONG* count);
+
+        [id(DISPID_FEED_MaxItemCount), propput, helpstring("Maximum number of items to keep, excess items will be deleted")]
+        HRESULT MaxItemCount([in] LONG count);
+
+        [id(DISPID_FEED_DownloadEnclosuresAutomatically), propget, helpstring("Retrieves a VARIANT_BOOL value that determines whether enclosures are downloaded automatically.")]
+        HRESULT DownloadEnclosuresAutomatically([out, retval] VARIANT_BOOL* downloadEnclosuresAutomatically);
+
+        [id(DISPID_FEED_DownloadEnclosuresAutomatically), propput, helpstring("Sets a VARIANT_BOOL value that determines whether enclosures are downloaded automatically.")]
+        HRESULT DownloadEnclosuresAutomatically([in] VARIANT_BOOL downloadEnclosuresAutomatically);
+
+        [id(DISPID_FEED_DownloadStatus), propget, helpstring("Retrieves the current download status of the feed.")]
+        HRESULT DownloadStatus([out, retval] FEEDS_DOWNLOAD_STATUS* status);
+
+        [id(DISPID_FEED_LastDownloadError), propget, helpstring("Retrieves the last download error of the feed.")]
+        HRESULT LastDownloadError([out, retval] FEEDS_DOWNLOAD_ERROR* error);
+
+        [id(DISPID_FEED_Merge), helpstring("Merges feed XML into an existing feed.")]
+        HRESULT Merge([in] BSTR feedXml, [in] BSTR feedUrl);
+
+        [id(DISPID_FEED_DownloadUrl), propget, helpstring("Retrieves the URL that was used to download the feed.")]
+        HRESULT DownloadUrl([out, retval] BSTR* feedUrl);
+
+        [id(DISPID_FEED_IsList), propget, helpstring("Determines if the feed is a list.")]
+        HRESULT IsList([out, retval] VARIANT_BOOL* isList);
+
+        [id(DISPID_FEED_MarkAllItemsRead), helpstring("Sets the IFeedItem::IsRead property to VARIANT_TRUE for all feed items.")]
+        HRESULT MarkAllItemsRead();
+
+        [id(DISPID_FEED_GetWatcher), helpstring("Retrieves the appropriate interface for events.")]
+        HRESULT GetWatcher([in] FEEDS_EVENTS_SCOPE scope, [in] FEEDS_EVENTS_MASK mask, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEED_UnreadItemCount), propget, helpstring("Retrieves the count of unread feed items.")]
+        HRESULT UnreadItemCount([out, retval] LONG* count);
+
+        [id(DISPID_FEED_ItemCount), propget, helpstring("Retrieves the count of items in this feed.")]
+        HRESULT ItemCount([out, retval] LONG* count);
+    };
+
+    [
+        uuid(33f2ea09-1398-4ab9-b6a4-f94b49d0a42e), // IID_IFeed2
+        dual,
+        oleautomation
+    ]
+    interface IFeed2 : IFeed
+    {
+        [id(DISPID_FEED_GetItemByEffectiveId), helpstring("Retrieves the item that contains the effective ID.")]
+        HRESULT GetItemByEffectiveId([in] LONG itemEffectiveId, [out, retval] IDispatch** disp);
+
+        [id(DISPID_FEED_LastItemDownloadTime), propget, helpstring("Retrieves the most recent download time for all feed items.")]
+        HRESULT LastItemDownloadTime([out, retval] DATE* lastItemDownloadTime);
+
+        [id(DISPID_FEED_Username), propget, helpstring("Retrieves the username used to authenticate the feed, if present.")]
+        HRESULT Username([out, retval] BSTR* username);
+
+        [id(DISPID_FEED_Password), propget, helpstring("Retrieves the password used to authenticate the feed, if present.")]
+        HRESULT Password([out, retval] BSTR* password);
+
+        [id(DISPID_FEED_SetCredentials), helpstring("Sets the username and password used to authenticate the feed.")]
+        HRESULT SetCredentials([in] BSTR username, [in] BSTR password);
+
+        [id(DISPID_FEED_ClearCredentials), helpstring("Clears the username and password used to authenticate the feed.")]
+        HRESULT ClearCredentials();
+    };
+
+    [
+        uuid(abf35c99-0681-47ea-9a8c-1436a375a99e), // IID_IFeedEvents
+        dual,
+        oleautomation
+    ]
+    interface IFeedEvents : IDispatch
+    {
+        // Generic error
+
+        [id(DISPID_FEEDEVENTS_Error), helpstring("Occurs when a feed event error occurs.")]
+        HRESULT Error();
+
+        // Feed
+
+        [id(DISPID_FEEDEVENTS_FeedDeleted), helpstring("Occurs when a feed is deleted.")]
+        HRESULT FeedDeleted([in] const BSTR path);
+
+        [id(DISPID_FEEDEVENTS_FeedRenamed), helpstring("Occurs when a feed is renamed.")]
+        HRESULT FeedRenamed([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDEVENTS_FeedUrlChanged), helpstring("Occurs when the URL of a feed is changed.")]
+        HRESULT FeedUrlChanged([in] const BSTR path);
+
+        [id(DISPID_FEEDEVENTS_FeedMoved), helpstring("Occurs when a feed is moved.")]
+        HRESULT FeedMoved([in] const BSTR path, [in] const BSTR oldPath);
+
+        [id(DISPID_FEEDEVENTS_FeedDownloading), helpstring("Occurs when a feed starts to download.")]
+        HRESULT FeedDownloading([in] const BSTR path);
+
+        [id(DISPID_FEEDEVENTS_FeedDownloadCompleted), helpstring("Occurs when a feed has finished or failed downloading.")]
+        HRESULT FeedDownloadCompleted([in] const BSTR path, [in] FEEDS_DOWNLOAD_ERROR error);
+
+        [id(DISPID_FEEDFOLDEREVENTS_FeedItemCountChanged), helpstring("Occurs when the item count of a feed changed.")]
+        HRESULT FeedItemCountChanged([in] const BSTR path, [in] LONG itemCountType);
+    };
+
+    [
+        uuid(0a1e6cad-0a47-4da2-a13d-5baaa5c8bd4f), // IID_IFeedItem
+        dual,
+        oleautomation
+    ]
+    interface IFeedItem : IDispatch
+    {
+        [id(DISPID_FEEDITEM_Xml), helpstring("Returns the Extensible Markup Language (XML) fragment for the feed item.")]
+        HRESULT Xml([in] FEEDS_XML_INCLUDE_FLAGS includeFlags, [out, retval] BSTR* xml);
+
+        [id(DISPID_FEEDITEM_Title), propget, helpstring("Retrieves the title from the feed item.")]
+        HRESULT Title([out, retval] BSTR* title);
+
+        [id(DISPID_FEEDITEM_Link), propget, helpstring("Retrieves the URL from the feed item.")]
+        HRESULT Link([out, retval] BSTR* linkUrl);
+
+        [id(DISPID_FEEDITEM_Guid), propget, helpstring("Retrieves the guid from the feed item.")]
+        HRESULT Guid([out, retval] BSTR* itemGuid);
+
+        [id(DISPID_FEEDITEM_Description), propget, helpstring("Retrieves the description from the feed item.")]
+        HRESULT Description([out, retval] BSTR* description);
+
+        [id(DISPID_FEEDITEM_PubDate), propget, helpstring("Retrieves the publication date of the feed item.")]
+        HRESULT PubDate([out, retval] DATE* pubDate);
+
+        [id(DISPID_FEEDITEM_Comments), propget, helpstring("Retrieves the URL of the comments page from the feed item.")]
+        HRESULT Comments([out, retval] BSTR* comments);
+
+        [id(DISPID_FEEDITEM_Author), propget, helpstring("Retrieves the author from the feed item.")]
+        HRESULT Author([out, retval] BSTR* author);
+
+        [id(DISPID_FEEDITEM_Enclosure), propget, helpstring("Retrieves the IFeedEnclosure object associated with the the feed item.")]
+        HRESULT Enclosure([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDITEM_IsRead), propget, helpstring("Retrieves the read status of the feed item.")]
+        HRESULT IsRead([out, retval] VARIANT_BOOL* isRead);
+
+        [id(DISPID_FEEDITEM_IsRead), propput, helpstring("Sets the read status of the feed item.")]
+        HRESULT IsRead([in] VARIANT_BOOL isRead);
+
+        [id(DISPID_FEEDITEM_LocalId), propget, helpstring("Retrieves the assigned identifier (ID) of the feed item.")]
+        HRESULT LocalId([out, retval] LONG* itemId);
+        
+        [id(DISPID_FEEDITEM_Parent), propget, helpstring("Retrieves the parent feed of the feed item.")]
+        HRESULT Parent([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDITEM_Delete), helpstring("Deletes the feed item.")]
+        HRESULT Delete();
+
+        [id(DISPID_FEEDITEM_DownloadUrl), propget, helpstring("Retrieves the URL that was used to download this item.")]
+        HRESULT DownloadUrl([out, retval] BSTR* itemUrl);
+
+        [id(DISPID_FEEDITEM_LastDownloadTime), propget, helpstring("Retrieves the date and time of the last download for this item.")]
+        HRESULT LastDownloadTime([out, retval] DATE* lastDownload);
+
+        [id(DISPID_FEEDITEM_Modified), propget, helpstring("Retrieves the date and time of the last modification for this item.")]
+        HRESULT Modified([out, retval] DATE* modified);
+    };
+
+    [
+        uuid(79ac9ef4-f9c1-4d2b-a50b-a7ffba4dcf37), // IID_IFeedItem2
+        dual,
+        oleautomation
+    ]
+    interface IFeedItem2 : IFeedItem
+    {
+        [id(DISPID_FEEDITEM_EffectiveId), propget, helpstring("Retrieves the effective ID for this item.")]
+        HRESULT EffectiveId([out, retval] LONG* effectiveId);
+    };
+
+    [
+        uuid(361C26F7-90A4-4e67-AE09-3A36A546436A), // IID_IFeedEnclosure
+        dual,
+        oleautomation
+    ]
+    interface IFeedEnclosure : IDispatch
+    {
+        [id(DISPID_FEEDENCLOSURE_Url), propget, helpstring("Retrieves the URL from the enclosure.")]
+        HRESULT Url([out, retval] BSTR* enclosureUrl);
+
+        [id(DISPID_FEEDENCLOSURE_Type), propget, helpstring("Retrieves the Multipurpose Internet Mail Extensions (MIME) type from the enclosure.")]
+        HRESULT Type([out, retval] BSTR* mimeType);
+
+        [id(DISPID_FEEDENCLOSURE_Length), propget, helpstring("Retrieves the length value from the enclosure.")]
+        HRESULT Length([out, retval] LONG* length);
+
+        [id(DISPID_FEEDENCLOSURE_AsyncDownload), helpstring("Downloads the enclosure asynchronously.")]
+        HRESULT AsyncDownload();
+
+        [id(DISPID_FEEDENCLOSURE_CancelAsyncDownload), helpstring("Cancels asynchronous download of the enclosure.")]
+        HRESULT CancelAsyncDownload();
+
+        [id(DISPID_FEEDENCLOSURE_DownloadStatus), propget, helpstring("Retrieves the current download status of the enclosure.")]
+        HRESULT DownloadStatus([out, retval] FEEDS_DOWNLOAD_STATUS* status);
+
+        [id(DISPID_FEEDENCLOSURE_LastDownloadError), propget, helpstring("Retrieves the last download error of the enclosure.")]
+        HRESULT LastDownloadError([out, retval] FEEDS_DOWNLOAD_ERROR* error);
+
+        [id(DISPID_FEEDENCLOSURE_LocalPath), propget, helpstring("Retrieves the local system path where the enclosure is stored.")]
+        HRESULT LocalPath([out, retval] BSTR* localPath);
+
+        [id(DISPID_FEEDENCLOSURE_Parent), propget, helpstring("Retrieves the parent feed item of the enclosure.")]
+        HRESULT Parent([out, retval] IDispatch** disp);
+
+        [id(DISPID_FEEDENCLOSURE_DownloadUrl), propget, helpstring("Retrieves the URL that was used to download the enclosure.")]
+        HRESULT DownloadUrl([out, retval] BSTR* enclosureUrl);
+
+        [id(DISPID_FEEDENCLOSURE_DownloadMimeType), propget, helpstring("Retrieves the final Multipurpose Internet Mail Extensions (MIME) type for the downloaded enclosure.")]
+        HRESULT DownloadMimeType([out, retval] BSTR* mimeType);
+
+        [id(DISPID_FEEDENCLOSURE_RemoveFile), helpstring("Deletes the enclosure file or cancels any pending or in-progress downloads.")]
+        HRESULT RemoveFile();
+
+        [id(DISPID_FEEDENCLOSURE_SetFile), helpstring("Adds the downloaded enclosure file to the RSS platform.")]
+        HRESULT SetFile([in] BSTR downloadUrl, [in] BSTR downloadFilePath, [in] BSTR downloadMimeType, [in] BSTR enclosureFilename);
+    };
+
+
+
+
+    //
+    // Coclasses
+    //
+
+
+    [
+        uuid(faeb54c4-f66f-4806-83a0-805299f5e3ad), // CLSID_FeedsManager
+        helpstring("Exposes methods to access the System Feed List.")
+    ]
+    coclass FeedsManager
+    {   
+        interface IFeedsManager;
+    };
+
+    [
+        uuid(281001ed-7765-4cb0-84af-e9b387af01ff), // CLSID_FeedFolderWatcher
+        helpstring("Exposes event handlers for System Feed List folder events."),
+        hidden,
+        noncreatable
+    ]
+    coclass FeedFolderWatcher
+    {
+        [default, source] dispinterface IFeedFolderEvents;
+    };
+
+    [
+        uuid(18a6737b-f433-4687-89bc-a1b4dfb9f123), // CLSID_FeedWatcher
+        helpstring("Exposes event handlers for feed events."),
+        hidden,
+        noncreatable
+    ]
+    coclass FeedWatcher
+    {
+        [default, source] dispinterface IFeedEvents;
+    };
+
+};
+
+#endif // FEEDS_NOAUTOMATIONLIB
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

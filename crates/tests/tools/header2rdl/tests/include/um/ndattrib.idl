@@ -1,0 +1,280 @@
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+// IDL source for Network Diagnostics Helper Attribute and Repair Info structures.
+
+cpp_quote("//+--------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("// Copyright (C) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//---------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+import "ocidl.idl";
+import "unknwn.idl";
+import "wtypes.idl";
+#endif
+
+cpp_quote("#define NDF_ERROR_START (0xF900)")
+
+cpp_quote("//error code deprecated")    
+cpp_quote("#define NDF_E_LENGTH_EXCEEDED               MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START)")
+
+cpp_quote("//")
+cpp_quote("// MessageId: NDF_E_NOHELPERCLASS")
+cpp_quote("//")
+cpp_quote("// MessageText:")
+cpp_quote("//")
+cpp_quote("// Helper Class parameter not specified to NdfCreateIncident API.")
+cpp_quote("//")
+cpp_quote("#define NDF_E_NOHELPERCLASS                 MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 1)")
+
+cpp_quote("//error code deprecated")
+cpp_quote("#define NDF_E_CANCELLED                     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 2)")
+
+cpp_quote("//error code deprecated")
+cpp_quote("#define NDF_E_DISABLED                      MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 4)")
+
+cpp_quote("//")
+cpp_quote("// MessageId: NDF_E_BAD_PARAM")
+cpp_quote("//")
+cpp_quote("// MessageText:")
+cpp_quote("//")
+cpp_quote("// Inavlid parameter.")
+cpp_quote("//")
+cpp_quote("#define NDF_E_BAD_PARAM                     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 5)")
+
+cpp_quote("//")
+cpp_quote("// MessageId: NDF_E_VALIDATION")
+cpp_quote("//")
+cpp_quote("// MessageText:")
+cpp_quote("//")
+cpp_quote("// Diagnosis failed to resolve the problems.")
+cpp_quote("//")
+cpp_quote("#define NDF_E_VALIDATION                    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 6)")
+
+cpp_quote("//")
+cpp_quote("// MessageId: NDF_E_UNKNOWN")
+cpp_quote("//")
+cpp_quote("// MessageText:")
+cpp_quote("//")
+cpp_quote("// Diagnostics session result is unkown, the diagnostics phase did not complete.")
+cpp_quote("//")
+cpp_quote("#define NDF_E_UNKNOWN                MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 7)")
+
+cpp_quote("//")
+cpp_quote("// MessageId: NDF_E_PROBLEM_PRESENT")
+cpp_quote("//")
+cpp_quote("// MessageText:")
+cpp_quote("//")
+cpp_quote("// Diagnostics session finished with problems still present.")
+cpp_quote("//")
+cpp_quote("#define NDF_E_PROBLEM_PRESENT                MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WINDOWS, NDF_ERROR_START + 8)")
+
+// Allowed helper attribute types
+typedef [v1_enum] enum tagATTRIBUTE_TYPE 
+{
+    AT_INVALID = 0,
+    AT_BOOLEAN,
+    AT_INT8,
+    AT_UINT8,
+    AT_INT16,
+    AT_UINT16,
+    AT_INT32,
+    AT_UINT32,
+    AT_INT64,
+    AT_UINT64,
+    AT_STRING,
+    AT_GUID,
+    AT_LIFE_TIME,
+    AT_SOCKADDR,
+    AT_OCTET_STRING
+} ATTRIBUTE_TYPE;
+
+typedef struct tagOCTET_STRING 
+{
+    DWORD  dwLength;
+    [size_is(dwLength)]BYTE   *lpValue;
+} OCTET_STRING, *POCTET_STRING;
+
+typedef struct tagLIFE_TIME
+{
+    FILETIME    startTime;
+    FILETIME    endTime;
+} LIFE_TIME, *PLIFE_TIME;
+
+typedef struct tagSOCK_ADDR
+{
+    USHORT family;
+    CHAR data[126];     // _SS_MAXSIZE - sizeof(USHORT)
+} DIAG_SOCKADDR, *PDIAG_SOCK_ADDR;
+
+#define MAX_HELPER_ATTRIBUTE_NAME_SIZE 512
+#define MAX_HELPER_ATTRIBUTE_PWSTR_SIZE 4096
+
+// Attribute value structure.
+typedef struct tagHELPER_ATTRIBUTE
+{
+
+
+    // name
+    [max_is(MAX_HELPER_ATTRIBUTE_NAME_SIZE), string] LPWSTR pwszName;
+    // value
+    ATTRIBUTE_TYPE  type;
+    [switch_type(ATTRIBUTE_TYPE), switch_is(type) ] union
+    {
+        [ case(AT_BOOLEAN) ]
+            BOOL    Boolean;
+
+        [ case(AT_INT8) ]
+            char    Char;
+        [ case(AT_UINT8) ]
+            byte    Byte;
+
+        [ case(AT_INT16) ]
+            short   Short;
+        [ case(AT_UINT16) ]
+            WORD    Word;
+
+        [ case(AT_INT32) ]
+            int     Int;
+        [ case(AT_UINT32) ]
+            DWORD   DWord;
+
+        [ case(AT_INT64) ]
+            LONGLONG    Int64;
+        [ case(AT_UINT64) ]
+            ULONGLONG   UInt64;
+
+        [ case(AT_STRING) ]
+            [max_is(MAX_HELPER_ATTRIBUTE_PWSTR_SIZE), string] LPWSTR PWStr;
+
+        [ case(AT_GUID) ]
+            GUID Guid;
+
+        [ case(AT_LIFE_TIME) ]
+            LIFE_TIME       LifeTime;
+        
+        [ case(AT_SOCKADDR) ]
+            DIAG_SOCKADDR Address;
+
+        [ case(AT_OCTET_STRING) ]
+            OCTET_STRING    OctetString;                
+    };
+} HELPER_ATTRIBUTE, *PHELPER_ATTRIBUTE;
+
+//
+// The layout of flags in RepairInfo structure
+//
+typedef [v1_enum] enum tagREPAIR_SCOPE
+{
+    RS_SYSTEM   = 0,
+    RS_USER,
+    RS_APPLICATION,
+    RS_PROCESS
+}REPAIR_SCOPE, *PREPAIR_SCOPE;
+
+typedef [v1_enum] enum {
+    RR_NOROLLBACK = 0,
+    RR_ROLLBACK,
+    RR_NORISK
+} REPAIR_RISK;
+
+typedef [v1_enum] enum {
+    UIT_INVALID = 0,
+    UIT_NONE = 1,
+    UIT_SHELL_COMMAND,
+    UIT_HELP_PANE,
+    UIT_DUI
+} UI_INFO_TYPE;
+
+typedef struct tagShellCommandInfo
+{
+    [string] LPWSTR pwszOperation;
+    [string] LPWSTR pwszFile;
+    [string] LPWSTR pwszParameters;
+    [string] LPWSTR pwszDirectory;
+    ULONG nShowCmd;
+} ShellCommandInfo, *PShellCommandInfo;
+
+typedef struct tagUiInfo
+{
+    UI_INFO_TYPE type;
+    [switch_type(UI_INFO_TYPE), switch_is(type) ] union
+    {
+        [ case(UIT_NONE) ]
+            LPWSTR pwzNull;
+
+        [ case(UIT_SHELL_COMMAND) ]
+            ShellCommandInfo ShellInfo;
+
+        [ case(UIT_HELP_PANE) ]
+            LPWSTR pwzHelpUrl;
+            
+        [ case(UIT_DUI) ] 
+            LPWSTR pwzDui;
+    } ;
+} UiInfo, *PUiInfo;
+
+cpp_quote("#define RF_WORKAROUND          0x20000000")
+cpp_quote("#define RF_USER_ACTION         0x10000000")
+cpp_quote("#define RF_USER_CONFIRMATION   0x8000000")
+cpp_quote("#define RF_INFORMATION_ONLY    0x2000000")
+cpp_quote("//RF_UI_ONLY is deprecated")
+cpp_quote("#define RF_UI_ONLY             0x1000000")
+cpp_quote("#define RF_SHOW_EVENTS         0x800000")
+cpp_quote("#define RF_VALIDATE_HELPTOPIC  0x400000")
+cpp_quote("#define RF_REPRO               0x200000")
+cpp_quote("#define RF_CONTACT_ADMIN       0x20000")
+cpp_quote("#define RF_RESERVED            0x40000000")
+cpp_quote("#define RF_RESERVED_CA         0x80000000")
+cpp_quote("#define RF_RESERVED_LNI        0x10000")
+
+typedef struct tagRepairInfo
+{
+    GUID guid;
+    [string] LPWSTR pwszClassName;
+    [string] LPWSTR pwszDescription;
+    DWORD sidType;
+    long cost;
+    ULONG flags;
+    REPAIR_SCOPE scope;
+    REPAIR_RISK risk;
+    UiInfo UiInfo;
+    int rootCauseIndex;
+} RepairInfo, *PRepairInfo;
+
+typedef struct tagRepairInfoEx
+{
+    RepairInfo repair;
+    USHORT repairRank;
+} RepairInfoEx, *PRepairInfoEx;
+
+cpp_quote("#define RCF_ISLEAF         0x1")
+cpp_quote("#define RCF_ISCONFIRMED    0x2")
+cpp_quote("#define RCF_ISTHIRDPARTY   0x4")
+
+typedef struct tagRootCauseInfo
+{
+    [string] LPWSTR pwszDescription;
+    GUID rootCauseID;
+    DWORD rootCauseFlags; 
+    GUID networkInterfaceID;
+    [size_is(repairCount)] RepairInfoEx *pRepairs;
+    USHORT repairCount;
+} RootCauseInfo, *PRootCauseInfo;
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,497 @@
+// fstream standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _FSTREAM_
+#define _FSTREAM_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <__msvc_filebuf.hpp>
+#include <istream>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_ifstream : public basic_istream<_Elem, _Traits> { // input stream associated with a C stream
+public:
+    using _Mybase = basic_istream<_Elem, _Traits>;
+    using _Myfb   = basic_filebuf<_Elem, _Traits>;
+    using _Myios  = basic_ios<_Elem, _Traits>;
+
+    basic_ifstream() : _Mybase(_STD addressof(_Filebuffer)) {}
+
+    explicit basic_ifstream(
+        const char* _Filename, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot)
+        : _Mybase(_STD addressof(_Filebuffer)) {
+        // _Prot is an extension
+        if (!_Filebuffer.open(_Filename, _Mode | ios_base::in, _Prot)) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    explicit basic_ifstream(
+        const string& _Str, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot)
+        : basic_ifstream(_Str.c_str(), _Mode, _Prot) {} // _Prot is an extension
+
+    explicit basic_ifstream(
+        const wchar_t* _Filename, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot)
+        : _Mybase(_STD addressof(_Filebuffer)) {
+        // in standard as const std::filesystem::path::value_type *; _Prot is an extension
+        if (!_Filebuffer.open(_Filename, _Mode | ios_base::in, _Prot)) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    explicit basic_ifstream(
+        const wstring& _Str, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot)
+        : basic_ifstream(_Str.c_str(), _Mode, _Prot) {} // extension
+
+    template <class _Ty, enable_if_t<_Is_any_path<_Ty>, int> = 0>
+    explicit basic_ifstream(
+        const _Ty& _Path, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot)
+        : basic_ifstream(_Path.c_str(), _Mode, _Prot) {} // _Prot is an extension
+
+    explicit basic_ifstream(FILE* _File) : _Mybase(_STD addressof(_Filebuffer)), _Filebuffer(_File) {} // extension
+
+    basic_ifstream(basic_ifstream&& _Right) : _Mybase(_STD addressof(_Filebuffer)) {
+        _Assign_rv(_STD move(_Right));
+    }
+
+    basic_ifstream& operator=(basic_ifstream&& _Right) {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void _Assign_rv(basic_ifstream&& _Right) {
+        if (this != _STD addressof(_Right)) {
+            _Filebuffer.close();
+            this->swap(_Right);
+        }
+    }
+
+    void swap(basic_ifstream& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Mybase::swap(_Right);
+            _Filebuffer.swap(_Right._Filebuffer);
+        }
+    }
+
+    basic_ifstream(const basic_ifstream&)            = delete;
+    basic_ifstream& operator=(const basic_ifstream&) = delete;
+
+    void open(
+        const wchar_t* _Filename, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot) {
+        // in standard as const std::filesystem::path::value_type *; _Prot is an extension
+        if (_Filebuffer.open(_Filename, _Mode | ios_base::in, _Prot)) {
+            _Myios::clear();
+        } else {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    void open(const wstring& _Str, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot) {
+        // extension
+        open(_Str.c_str(), _Mode, _Prot);
+    }
+
+#if _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+    template <class _Path_ish = experimental::filesystem::path>
+    void open(const _Identity_t<_Path_ish>& _Path, ios_base::openmode _Mode = ios_base::in,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Path.c_str(), _Mode, _Prot);
+    }
+#endif // _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+
+#if _HAS_CXX17
+    template <int = 0, class _Path_ish = filesystem::path>
+    void open(const _Identity_t<_Path_ish>& _Path, ios_base::openmode _Mode = ios_base::in,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Path.c_str(), _Mode, _Prot);
+    }
+#endif // _HAS_CXX17
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void open(const wchar_t* _Filename, ios_base::open_mode _Mode) {
+        // in standard as const std::filesystem::path::value_type *
+        open(_Filename, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    __CLR_OR_THIS_CALL ~basic_ifstream() noexcept override {}
+
+    _NODISCARD _Myfb* rdbuf() const noexcept /* strengthened */ {
+        return const_cast<_Myfb*>(_STD addressof(_Filebuffer));
+    }
+
+    _NODISCARD bool is_open() const noexcept /* strengthened */ {
+        return _Filebuffer.is_open();
+    }
+
+    void open(
+        const char* _Filename, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        if (_Filebuffer.open(_Filename, _Mode | ios_base::in, _Prot)) {
+            _Myios::clear();
+        } else {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    void open(const string& _Str, ios_base::openmode _Mode = ios_base::in, int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Str.c_str(), _Mode, _Prot);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void open(const char* _Filename, ios_base::open_mode _Mode) {
+        open(_Filename, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    void close() {
+        if (!_Filebuffer.close()) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+private:
+    _Myfb _Filebuffer;
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_ifstream<_Elem, _Traits>& _Left, basic_ifstream<_Elem, _Traits>& _Right) noexcept /* strengthened */ {
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_ofstream : public basic_ostream<_Elem, _Traits> { // output stream associated with a C stream
+public:
+    using _Mybase = basic_ostream<_Elem, _Traits>;
+    using _Myfb   = basic_filebuf<_Elem, _Traits>;
+    using _Myios  = basic_ios<_Elem, _Traits>;
+
+    basic_ofstream() : _Mybase(_STD addressof(_Filebuffer)) {}
+
+    explicit basic_ofstream(const char* _Filename, ios_base::openmode _Mode = ios_base::out,
+        int _Prot = ios_base::_Default_open_prot)
+        : _Mybase(_STD addressof(_Filebuffer)) { // _Prot is an extension
+        if (!_Filebuffer.open(_Filename, _Mode | ios_base::out, _Prot)) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    explicit basic_ofstream(
+        const string& _Str, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot)
+        : basic_ofstream(_Str.c_str(), _Mode, _Prot) {} // _Prot is an extension
+
+    explicit basic_ofstream(
+        const wchar_t* _Filename, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot)
+        : _Mybase(_STD addressof(_Filebuffer)) {
+        // in standard as const std::filesystem::path::value_type *; _Prot is an extension
+        if (!_Filebuffer.open(_Filename, _Mode | ios_base::out, _Prot)) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    explicit basic_ofstream(
+        const wstring& _Str, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot)
+        : basic_ofstream(_Str.c_str(), _Mode, _Prot) {} // extension
+
+    template <class _Ty, enable_if_t<_Is_any_path<_Ty>, int> = 0>
+    explicit basic_ofstream(
+        const _Ty& _Path, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot)
+        : basic_ofstream(_Path.c_str(), _Mode, _Prot) {} // _Prot is an extension
+
+    explicit basic_ofstream(FILE* _File) : _Mybase(_STD addressof(_Filebuffer)), _Filebuffer(_File) {} // extension
+
+    basic_ofstream(basic_ofstream&& _Right) : _Mybase(_STD addressof(_Filebuffer)) {
+        _Assign_rv(_STD move(_Right));
+    }
+
+    basic_ofstream& operator=(basic_ofstream&& _Right) {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void _Assign_rv(basic_ofstream&& _Right) {
+        if (this != _STD addressof(_Right)) {
+            _Filebuffer.close();
+            this->swap(_Right);
+        }
+    }
+
+    void swap(basic_ofstream& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Mybase::swap(_Right);
+            _Filebuffer.swap(_Right._Filebuffer);
+        }
+    }
+
+    basic_ofstream(const basic_ofstream&)            = delete;
+    basic_ofstream& operator=(const basic_ofstream&) = delete;
+
+    void open(
+        const wchar_t* _Filename, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot) {
+        // in standard as const std::filesystem::path::value_type *; _Prot is an extension
+        if (_Filebuffer.open(_Filename, _Mode | ios_base::out, _Prot)) {
+            _Myios::clear();
+        } else {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    void open(const wstring& _Str, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot) {
+        // extension
+        open(_Str.c_str(), _Mode, _Prot);
+    }
+
+#if _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+    template <class _Path_ish = experimental::filesystem::path>
+    void open(const _Identity_t<_Path_ish>& _Path, ios_base::openmode _Mode = ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Path.c_str(), _Mode, _Prot);
+    }
+#endif // _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+
+#if _HAS_CXX17
+    template <int = 0, class _Path_ish = filesystem::path>
+    void open(const _Identity_t<_Path_ish>& _Path, ios_base::openmode _Mode = ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Path.c_str(), _Mode, _Prot);
+    }
+#endif // _HAS_CXX17
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void open(const wchar_t* _Filename, ios_base::open_mode _Mode) {
+        // in standard as const std::filesystem::path::value_type *
+        open(_Filename, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    __CLR_OR_THIS_CALL ~basic_ofstream() noexcept override {}
+
+    _NODISCARD _Myfb* rdbuf() const noexcept /* strengthened */ {
+        return const_cast<_Myfb*>(_STD addressof(_Filebuffer));
+    }
+
+    _NODISCARD bool is_open() const noexcept /* strengthened */ {
+        return _Filebuffer.is_open();
+    }
+
+    void open(
+        const char* _Filename, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        if (_Filebuffer.open(_Filename, _Mode | ios_base::out, _Prot)) {
+            _Myios::clear();
+        } else {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    void open(const string& _Str, ios_base::openmode _Mode = ios_base::out, int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Str.c_str(), _Mode, _Prot);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void open(const char* _Filename, ios_base::open_mode _Mode) {
+        open(_Filename, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    void close() {
+        if (!_Filebuffer.close()) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+private:
+    _Myfb _Filebuffer;
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_ofstream<_Elem, _Traits>& _Left, basic_ofstream<_Elem, _Traits>& _Right) noexcept /* strengthened */ {
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_fstream : public basic_iostream<_Elem, _Traits> { // input/output stream associated with a C stream
+public:
+    using _Mybase     = basic_iostream<_Elem, _Traits>;
+    using _Myfb       = basic_filebuf<_Elem, _Traits>;
+    using _Myios      = basic_ios<_Elem, _Traits>;
+    using char_type   = _Elem;
+    using traits_type = _Traits;
+    using int_type    = typename _Traits::int_type;
+    using pos_type    = typename _Traits::pos_type;
+    using off_type    = typename _Traits::off_type;
+
+    basic_fstream() : _Mybase(_STD addressof(_Filebuffer)) {}
+
+    explicit basic_fstream(const char* _Filename, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot)
+        : _Mybase(_STD addressof(_Filebuffer)) { // _Prot is an extension
+        if (!_Filebuffer.open(_Filename, _Mode, _Prot)) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    explicit basic_fstream(const string& _Str, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot)
+        : basic_fstream(_Str.c_str(), _Mode, _Prot) {} // _Prot is an extension
+
+    explicit basic_fstream(const wchar_t* _Filename, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot)
+        : _Mybase(_STD addressof(_Filebuffer)) {
+        // in standard as const std::filesystem::path::value_type *; _Prot is an extension
+        if (!_Filebuffer.open(_Filename, _Mode, _Prot)) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    explicit basic_fstream(const wstring& _Str, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot)
+        : basic_fstream(_Str.c_str(), _Mode, _Prot) {} // extension
+
+    template <class _Ty, enable_if_t<_Is_any_path<_Ty>, int> = 0>
+    explicit basic_fstream(const _Ty& _Path, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot)
+        : basic_fstream(_Path.c_str(), _Mode, _Prot) {} // _Prot is an extension
+
+    explicit basic_fstream(FILE* _File) : _Mybase(_STD addressof(_Filebuffer)), _Filebuffer(_File) {} // extension
+
+    basic_fstream(basic_fstream&& _Right) : _Mybase(_STD addressof(_Filebuffer)) {
+        _Assign_rv(_STD move(_Right));
+    }
+
+    basic_fstream& operator=(basic_fstream&& _Right) {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void _Assign_rv(basic_fstream&& _Right) {
+        if (this != _STD addressof(_Right)) {
+            _Filebuffer.close();
+            this->swap(_Right);
+        }
+    }
+
+    void swap(basic_fstream& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Mybase::swap(_Right);
+            _Filebuffer.swap(_Right._Filebuffer);
+        }
+    }
+
+    basic_fstream(const basic_fstream&)            = delete;
+    basic_fstream& operator=(const basic_fstream&) = delete;
+
+    void open(const wchar_t* _Filename, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // in standard as const std::filesystem::path::value_type *; _Prot is an extension
+        if (_Filebuffer.open(_Filename, _Mode, _Prot)) {
+            _Myios::clear();
+        } else {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    void open(const wstring& _Str, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // extension
+        open(_Str.c_str(), _Mode, _Prot);
+    }
+
+#if _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+    template <class _Path_ish = experimental::filesystem::path>
+    void open(const _Identity_t<_Path_ish>& _Path, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // extension
+        open(_Path.c_str(), _Mode, _Prot);
+    }
+#endif // _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+
+#if _HAS_CXX17
+    template <int = 0, class _Path_ish = filesystem::path>
+    void open(const _Identity_t<_Path_ish>& _Path, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Path.c_str(), _Mode, _Prot);
+    }
+#endif // _HAS_CXX17
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void open(const wchar_t* _Filename, ios_base::open_mode _Mode) {
+        // in standard as const std::filesystem::path::value_type *
+        open(_Filename, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    __CLR_OR_THIS_CALL ~basic_fstream() noexcept override {}
+
+    _NODISCARD _Myfb* rdbuf() const noexcept /* strengthened */ {
+        return const_cast<_Myfb*>(_STD addressof(_Filebuffer));
+    }
+
+    _NODISCARD bool is_open() const noexcept /* strengthened */ {
+        return _Filebuffer.is_open();
+    }
+
+    void open(const char* _Filename, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        if (_Filebuffer.open(_Filename, _Mode, _Prot)) {
+            _Myios::clear();
+        } else {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+    void open(const string& _Str, ios_base::openmode _Mode = ios_base::in | ios_base::out,
+        int _Prot = ios_base::_Default_open_prot) {
+        // _Prot is an extension
+        open(_Str.c_str(), _Mode, _Prot);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void open(const char* _Filename, ios_base::open_mode _Mode) {
+        open(_Filename, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    void close() {
+        if (!_Filebuffer.close()) {
+            _Myios::setstate(ios_base::failbit);
+        }
+    }
+
+private:
+    _Myfb _Filebuffer;
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_fstream<_Elem, _Traits>& _Left, basic_fstream<_Elem, _Traits>& _Right) noexcept /* strengthened */ {
+    _Left.swap(_Right);
+}
+_STD_END
+
+#undef _FSTREAM_SUPPORTS_EXPERIMENTAL_FILESYSTEM
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _FSTREAM_

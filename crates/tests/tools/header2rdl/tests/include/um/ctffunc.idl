@@ -1,0 +1,731 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2001.
+//
+//  File: ctffunc.idl
+//
+//  Contents: Text Framework function interfaces.
+//
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ctffunc.h")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// Text Framework function interfaces.")
+cpp_quote("")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1995-2001 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#ifndef CTFFUNC_DEFINED")
+cpp_quote("#define CTFFUNC_DEFINED")
+cpp_quote("")
+cpp_quote("#include <windows.h>")
+cpp_quote("")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("extern \"C\" {")
+cpp_quote("#endif /* __cplusplus */")
+cpp_quote("")
+
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("}")
+cpp_quote("#endif  /* __cplusplus */")
+
+import "oaidl.idl";
+import "msctf.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#define TF_E_NOCONVERSION     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0600)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// exported CLSID
+//
+cpp_quote("EXTERN_C const CLSID CLSID_SapiLayr;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfCandidateString
+//
+[
+  object,
+  uuid(581f317e-fd9d-443f-b972-ed00467c5d40),
+  pointer_default(unique)
+]
+interface ITfCandidateString : IUnknown
+{
+    HRESULT GetString([out] BSTR *pbstr);
+
+    HRESULT GetIndex([out] ULONG *pnIndex);
+}
+
+//
+// IEnumTfCandidates
+//
+[
+  object,
+  uuid(defb1926-6c80-4ce8-87d4-d6b72b812bde),
+  pointer_default(unique)
+]
+interface IEnumTfCandidates : IUnknown
+{
+    HRESULT Clone([out] IEnumTfCandidates **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount, 
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfCandidateString **ppCand, 
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+//
+// ITfCandidateList
+//
+[
+  object,
+  uuid(a3ad50fb-9bdb-49e3-a843-6c76520fbf5d),
+  pointer_default(unique)
+]
+interface ITfCandidateList : IUnknown
+{
+    HRESULT EnumCandidates([out] IEnumTfCandidates **ppEnum);
+
+    HRESULT GetCandidate([in] ULONG nIndex, 
+                         [out] ITfCandidateString **ppCand);
+
+    HRESULT GetCandidateNum([out] ULONG *pnCnt);
+
+    typedef [uuid(baa898f2-0207-4643-92ca-f3f7b0cf6f80)] enum
+    { 
+        CAND_FINALIZED = 0x0, 
+        CAND_SELECTED  = 0x1, 
+        CAND_CANCELED  = 0x2,   
+    } TfCandidateResult;
+
+    HRESULT SetResult([in] ULONG nIndex, 
+                      [in] TfCandidateResult imcr);
+}
+
+
+
+//
+// ITfFnReconversion
+//
+[
+  object,
+  uuid(4cea93c0-0a58-11d3-8df0-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfFnReconversion : ITfFunction
+{
+    HRESULT QueryRange([in] ITfRange *pRange, 
+                       [in, out, unique] ITfRange **ppNewRange, 
+                       [out] BOOL *pfConvertable);
+
+    HRESULT GetReconversion([in] ITfRange *pRange, 
+                            [out] ITfCandidateList **ppCandList);
+
+    HRESULT Reconvert([in] ITfRange *pRange);
+}
+
+// --- Data formats
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SAPI_AUDIO;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SPEECH_DICTATIONSTAT;")
+
+cpp_quote("#define TF_DICTATION_ON          0x00000001")
+cpp_quote("#define TF_DICTATION_ENABLED     0x00000002")
+cpp_quote("#define TF_COMMANDING_ENABLED    0x00000004")
+cpp_quote("#define TF_COMMANDING_ON         0x00000008")
+cpp_quote("#define TF_SPEECHUI_SHOWN        0x00000010")
+cpp_quote("")
+
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SPEECH_UI_STATUS;")
+
+cpp_quote("#define TF_SHOW_BALLOON          0x00000001")
+cpp_quote("#define TF_DISABLE_BALLOON       0x00000002")
+
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SPEECH_CFGMENU;")
+cpp_quote("#define TF_MENUREADY          0x00000001")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("EXTERN_C const GUID GUID_LBI_SAPILAYR_CFGMENUBUTTON;")
+cpp_quote("EXTERN_C const GUID GUID_LBI_INPUTMODE;")
+
+cpp_quote("")
+
+//
+// ITfFnPlayBack
+//
+[
+  object,
+  uuid(a3a416a4-0f64-11d3-b5b7-00c04fc324a1),
+  pointer_default(unique)
+]
+interface ITfFnPlayBack : ITfFunction
+{
+    HRESULT QueryRange([in] ITfRange *pRange, 
+                       [out] ITfRange **ppNewRange, 
+                       [out] BOOL *pfPlayable);
+
+    HRESULT Play([in] ITfRange *pRange);
+}
+
+//
+// ITfLangProfileUtil
+//
+[
+  object,
+  uuid(A87A8574-A6C1-4E15-99F0-3D3965F548EB),
+  pointer_default(unique)
+]
+interface ITfFnLangProfileUtil : ITfFunction
+{
+    HRESULT RegisterActiveProfiles();
+
+    HRESULT IsProfileAvailableForLang([in]  LANGID langid, 
+                                      [out] BOOL *pfAvailable);
+}
+
+//
+// ITfFnConfigure
+//
+[
+  object,
+  uuid(88f567c6-1757-49f8-a1b2-89234c1eeff9),
+  pointer_default(unique)
+]
+interface ITfFnConfigure : ITfFunction
+{
+    //
+    // Show() 
+    //
+    HRESULT Show([in] HWND hwndParent, 
+                 [in] LANGID langid,
+                 [in] REFGUID rguidProfile);
+}
+
+//
+// ITfFnConfigureRegisterWord
+//
+[
+  object,
+  uuid(bb95808a-6d8f-4bca-8400-5390b586aedf),
+  pointer_default(unique)
+]
+interface ITfFnConfigureRegisterWord : ITfFunction
+{
+    //
+    // Show() 
+    //
+    HRESULT Show([in] HWND hwndParent,
+                 [in] LANGID langid,
+                 [in] REFGUID rguidProfile,
+                 [in, unique] BSTR bstrRegistered);
+
+}
+
+//
+// ITfFnConfigureRegisterEudc
+//
+[
+  object,
+  uuid(b5e26ff5-d7ad-4304-913f-21a2ed95a1b0),
+  pointer_default(unique)
+]
+interface ITfFnConfigureRegisterEudc : ITfFunction
+{
+    //
+    // Show() 
+    //
+    HRESULT Show([in] HWND hwndParent,
+                 [in] LANGID langid,
+                 [in] REFGUID rguidProfile,
+                 [in, unique] BSTR bstrRegistered);
+
+}
+
+//
+// ITfFnShowHelp
+//
+[
+  object,
+  uuid(5AB1D30C-094D-4C29-8EA5-0BF59BE87BF3),
+  pointer_default(unique)
+]
+interface ITfFnShowHelp : ITfFunction
+{
+    HRESULT Show([in] HWND hwndParent);
+
+}
+
+//
+// ITfFnBalloon
+//
+[
+  object,
+  uuid(3BAB89E4-5FBE-45F4-A5BC-DCA36AD225A8),
+  pointer_default(unique)
+]
+interface ITfFnBalloon : IUnknown
+{
+    HRESULT UpdateBalloon([in] TfLBBalloonStyle style,
+                          [in, size_is(cch)] const WCHAR *pch,
+                          [in] ULONG cch);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfFnGetSAPIObject
+//
+typedef [uuid(36adb6d9-da1f-45d8-a499-86167e0f936b)] enum
+{ 
+    GETIF_RESMGR                  = 0x0, 
+    GETIF_RECOCONTEXT             = 0x1, 
+    GETIF_RECOGNIZER              = 0x2, 
+    GETIF_VOICE                   = 0x3, 
+    GETIF_DICTGRAM                = 0x4 ,
+    GETIF_RECOGNIZERNOINIT        = 0x5 , // for candidate UI
+} TfSapiObject;
+
+[
+  object,
+  uuid(5c0ab7ea-167d-4f59-bfb5-4693755e90ca),
+  pointer_default(unique)
+]
+interface  ITfFnGetSAPIObject : ITfFunction
+{
+    HRESULT Get([in] TfSapiObject sObj,
+                [out] IUnknown **ppunk);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfFnPropertyUIStatus
+//
+[
+  object,
+  uuid(2338AC6E-2B9D-44C0-A75E-EE64F256B3BD),
+  pointer_default(unique)
+]
+interface  ITfFnPropertyUIStatus : ITfFunction
+{
+    HRESULT GetStatus([in] REFGUID refguidProp, [out] DWORD *pdw);
+    HRESULT SetStatus([in] REFGUID refguidProp, [in] DWORD dw);
+}
+
+// --- bit flag for ITfFnPropertyUIStatus 
+cpp_quote("")
+cpp_quote("#define TF_PROPUI_STATUS_SAVETOFILE  0x00000001")
+cpp_quote("")
+
+
+//
+// Customize Commands processor and speech command provider
+//
+
+//
+// IEnumSpeechCommands
+//
+[
+  object,
+  uuid(8c5dac4f-083c-4b85-a4c9-71746048adca),
+  pointer_default(unique)
+]
+interface IEnumSpeechCommands : IUnknown
+{
+    HRESULT Clone([out] IEnumSpeechCommands **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] WCHAR **pSpCmds,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+//
+// ISpeechCommandProvider
+//
+[
+  object,
+  uuid(38e09d4c-586d-435a-b592-c8a86691dec6),
+  pointer_default(unique)
+]
+
+interface ISpeechCommandProvider : IUnknown 
+{
+    HRESULT  EnumSpeechCommands([in]  LANGID  langid, [out] IEnumSpeechCommands **ppEnum); 
+
+    HRESULT  ProcessCommand([in, size_is(cch)] const WCHAR *pszCommand, [in] ULONG cch, [in] LANGID langid);
+}
+
+//
+// ITfFnCustomSpeechCommand
+//
+[
+  object,
+  uuid(fca6c349-a12f-43a3-8dd6-5a5a4282577b),
+  pointer_default(unique)
+]
+
+interface ITfFnCustomSpeechCommand : ITfFunction
+{
+    HRESULT SetSpeechCommandProvider([in] IUnknown *pspcmdProvider);
+}
+
+//
+// LM sharing interface definitions
+//
+
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIP_MASTERLM;")
+cpp_quote("EXTERN_C const GUID GUID_MASTERLM_FUNCTIONPROVIDER;")
+cpp_quote("EXTERN_C const GUID GUID_LMLATTICE_VER1_0;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_LMLATTICE;")
+
+//
+// ITfFnLMProcessor
+//
+[
+  object,
+  uuid(7AFBF8E7-AC4B-4082-B058-890899D3A010),
+  pointer_default(unique)
+]
+
+interface ITfFnLMProcessor : ITfFunction
+{
+    HRESULT QueryRange([in]    ITfRange *pRange,
+                       [out]   ITfRange **ppNewRange,
+                       [out]   BOOL     *pfAccepted);
+
+    HRESULT QueryLangID([in]   LANGID langid,
+                        [out]  BOOL   *pfAccepted);
+
+    HRESULT GetReconversion([in]    ITfRange *pRange,   
+                            [out]   ITfCandidateList **ppCandList);
+
+    HRESULT Reconvert([in]    ITfRange *pRange);
+
+    HRESULT QueryKey ([in]    BOOL   fUp,
+                      [in]    WPARAM vKey,
+                      [in]    LPARAM lparamKeydata,
+                      [out]   BOOL *pfInterested);
+
+    HRESULT InvokeKey([in]    BOOL fUp,
+                      [in]    WPARAM vKey,
+                      [in]    LPARAM lparamKeyData);
+                     
+    HRESULT InvokeFunc([in]   ITfContext *pic,
+                       [in]   REFGUID refguidFunc);
+}
+
+//
+// ITfFnLMInternal
+//
+[
+  object,
+  uuid(04B825B1-AC9A-4F7B-B5AD-C7168F1EE445),
+  pointer_default(unique)
+]//
+interface ITfFnLMInternal : ITfFnLMProcessor
+{
+    HRESULT ProcessLattice([in]    ITfRange *pRange);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// TFLMLATTELEMENT
+//
+//
+typedef [uuid(1b646efe-3ce3-4ce2-b41f-35b93fe5552f)] struct TF_LMLATTELEMENT
+{
+    DWORD dwFrameStart;
+    DWORD dwFrameLen;
+
+    DWORD dwFlags;
+    [switch_type(DWORD), switch_is(dwFlags)] union
+    {
+        [case(0)]   INT     iCost;
+    };
+
+    BSTR bstrText;
+} TF_LMLATTELEMENT;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// IEnumTfLatticeElements
+//
+//
+[
+  object,
+  uuid(56988052-47DA-4A05-911A-E3D941F17145),
+  pointer_default(unique)
+]
+interface IEnumTfLatticeElements : IUnknown
+{
+    HRESULT Clone([out] IEnumTfLatticeElements **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] TF_LMLATTELEMENT *rgsElements,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+//
+// ITfLMLattice
+//
+//
+[
+  object,
+  uuid(D4236675-A5BF-4570-9D42-5D6D7B02D59B),
+  pointer_default(unique)
+]
+interface ITfLMLattice : IUnknown
+{
+    HRESULT QueryType([in] REFGUID rguidType, [out] BOOL *pfSupported);
+
+    HRESULT EnumLatticeElements([in] DWORD dwFrameStart,
+                                [in] REFGUID rguidType,
+                                [out] IEnumTfLatticeElements **ppEnum);
+}
+
+//
+// ITfFnAdviseText
+//
+[
+  object,
+  uuid(3527268B-7D53-4DD9-92B7-7296AE461249),
+  pointer_default(unique)
+]
+interface ITfFnAdviseText : ITfFunction
+{
+    HRESULT OnTextUpdate([in] ITfRange *pRange, 
+                         [in, size_is(cch)] const WCHAR *pchText,
+                         [in] LONG cch);
+
+    HRESULT OnLatticeUpdate([in] ITfRange *pRange,
+                            [in] ITfLMLattice *pLattice);
+
+}
+
+//
+// ITfFnSearchCandidateProvider
+//
+[
+    object,
+    uuid(87a2ad8f-f27b-4920-8501-67602280175d),
+    pointer_default(unique)
+]
+interface ITfFnSearchCandidateProvider : ITfFunction
+{
+    HRESULT GetSearchCandidates(
+        [in] BSTR bstrQuery, 
+        [in] BSTR bstrApplicationId, 
+        [out] ITfCandidateList **pplist); 
+
+    HRESULT SetResult(
+        [in] BSTR bstrQuery, 
+        [in] BSTR bstrApplicationID, 
+        [in] BSTR bstrResult);
+}
+
+// GUID_IntegrationStyle_SearchBox: {E6D1BD11-82F7-4903-AE21-1A6397CDE2EB}
+cpp_quote("// The applications has a search box with a horizontal candidate list below that and may have search suggestions below the candidate list")
+cpp_quote("DEFINE_GUID(GUID_INTEGRATIONSTYLE_SEARCHBOX, 0xe6d1bd11, 0x82f7, 0x4903, 0xae, 0x21, 0x1a, 0x63, 0x97, 0xcd, 0xe2, 0xeb);")
+
+// Integratable candidate list selection styles
+typedef [uuid(AF8F5D86-0615-4af3-90FA-5DCBB407A5D4)]  enum 
+{ 
+    STYLE_ACTIVE_SELECTION = 0x0, 
+    STYLE_IMPLIED_SELECTION = 0x1 
+} TfIntegratableCandidateListSelectionStyle;
+
+// ITfIntegratableCandidateListUIElement 
+//  - Allows IMEs to adjust search keyboarding behavior
+//  - Implemented by IME
+//
+[
+    object,
+    uuid(C7A6F54F-B180-416F-B2BF-7BF2E4683D7B),
+    pointer_default(unique)
+]
+interface ITfIntegratableCandidateListUIElement : IUnknown
+{
+    //
+    //  SetIntegrationStyle
+    //      If the Application wants a keyboard integrated experience, then can set a GUID for the type of 
+    //      Integration experience they want.  If the Text Service supports the integration style, they should return S_OK.
+    //      If it is not supported, they should return E_NOTIMPL.  The when called, Text Service may adjust its respond to
+    //      keyboard interaction for the lifetime of the ITfCandidateListUIElement object (e.g. until ITfUIElementSink::EndUIElement()).
+    //
+    HRESULT SetIntegrationStyle([in] GUID guidIntegrationStyle);
+
+    //
+    // GetSelectionStyle
+    //     Active selection style usually indicates that selection can be changed with the arrow keys, 
+    //     while implied selection style indicates the default selection key will choose it.
+    //     If the Application supports changing selection styles, this should be called when UpdateUIElement() has the selection update flag specified.
+    //
+    HRESULT GetSelectionStyle( 
+        [out] TfIntegratableCandidateListSelectionStyle *ptfSelectionStyle); 
+ 
+    //
+    // OnKeyDown
+    //     Gives the Application a chance to ask the Text Service if it wants to process a given key in an integration style.  Exact behavior
+    //     and when this is called can depend on the integration style. If the Text Service returns *pfEaten=TRUE, then the Application should do
+    //     no processing of the key; if FALSE is returned, the Application can perform its own action in response to the key.  
+    //
+    //  GUID_INTEGRATIONSTYLE_SEARCHBOX: Allows implementation of a keyboarding experience in which the user can move perceived keyboard focus 
+    //     from search box to candidate list to search suggestions; the Text Service gets a chance to process certain keys 
+    //     like VK_UP/VK_DOWN before search handles them to change its internal state. 
+    //
+    HRESULT OnKeyDown(
+        [in] WPARAM wParam, 
+        [in] LPARAM lParam, 
+        [out] BOOL *pfEaten);
+ 
+    //
+    // ShowCandidateNumbers
+    //     Indicate if showing candidate numbers
+    //
+    HRESULT ShowCandidateNumbers(
+        [out] BOOL *pfShow); 
+
+    //
+    // FinalizeExactCompositionString
+    //     Allows the Application to tell the Text Service that it should finalize the current composition with the exact
+    //     value currently shown to the user and no automatic conversion of the first candidate.  This allows the application to move focus
+    //     to suggestions below the candidate list without the string changing.
+    //
+    HRESULT FinalizeExactCompositionString();
+
+}
+
+//
+// ITfFnGetPreferredTouchKeyboardLayout
+//
+// Note that the TKB preferred layouts are always in the context of a TSF profile
+// and so are implicitly associted with a langid that is defined in the active profile.
+// Therefore, the same value for a layout may refer to a different layout 
+// depending on the langid with which it is associated.
+// Additionally, a layout may only be valid for certain languages.
+//
+[
+  object,
+  uuid(5F309A41-590A-4ACC-A97F-D8EFFF13FDFC),
+  pointer_default(unique)
+]
+interface ITfFnGetPreferredTouchKeyboardLayout : ITfFunction
+{
+    typedef [uuid(E9967127-FB3C-4978-9008-FB3060D92730)] enum
+    { 
+        TKBLT_UNDEFINED  = 0,
+        TKBLT_CLASSIC    = 1, 
+        TKBLT_OPTIMIZED  = 2, 
+    } TKBLayoutType;
+
+    HRESULT GetLayout([out] TKBLayoutType *pTKBLayoutType, WORD *pwPreferredLayoutId);
+}
+
+// ITfFnGetLinguisticAlternates
+[
+  object, 
+  local,
+  uuid(ea163ce2-7a65-4506-82a3-c528215da64e),
+  pointer_default(unique)
+]
+interface ITfFnGetLinguisticAlternates : ITfFunction
+{
+    HRESULT GetAlternates([in, annotation("_In_")] ITfRange *pRange, [out, annotation("_COM_Outptr_")] ITfCandidateList **ppCandidateList);
+}
+
+// IUIManagerEventSink
+[
+  object, 
+  local,
+  uuid(cd91d690-a7e8-4265-9b38-8bb3bbaba7de),
+  pointer_default(unique)
+]
+interface IUIManagerEventSink : IUnknown
+{
+    HRESULT OnWindowOpening([in, annotation("_In_")] RECT *prcBounds);
+    HRESULT OnWindowOpened([in, annotation("_In_")] RECT *prcBounds);
+    HRESULT OnWindowUpdating([in, annotation("_In_")] RECT *prcUpdatedBounds);
+    HRESULT OnWindowUpdated([in, annotation("_In_")] RECT *prcUpdatedBounds);
+    HRESULT OnWindowClosing();
+    HRESULT OnWindowClosed();
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#define TKBL_UNDEFINED                 0")
+cpp_quote("#define TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC   0x0404")
+cpp_quote("#define TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE   0xF042")
+cpp_quote("#define TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI       0xF043")
+cpp_quote("#define TKBL_OPT_JAPANESE_ABC                       0x0411")
+cpp_quote("#define TKBL_OPT_KOREAN_HANGUL_2_BULSIK             0x0412")
+cpp_quote("#define TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN          0x0804")
+cpp_quote("#define TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC       0x0404")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // CTFFUNC_DEFINED")

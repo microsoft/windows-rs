@@ -1,0 +1,211 @@
+//+--------------------------------------------------------------------------
+//
+// Microsoft Windows
+// Copyright (C) Microsoft Corporation, 1996 - 1999
+//
+// File:        certpol.idl
+//
+// Contents:    IDL source for certpol.dll
+//
+//---------------------------------------------------------------------------
+
+// This file will be processed by the MIDL tool to produce the type library
+// (certpol.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+import "certmod.idl";
+import "certbase.idl";
+import "certbcli.idl";
+
+//+--------------------------------------------------------------------------
+// ICertPolicy class -- local COM interface
+//+--------------------------------------------------------------------------
+
+[
+    object,
+    uuid(38bb5a00-7636-11d0-b413-00a0c91bbf8c),
+    dual,
+    helpstring("ICertPolicy Interface"),
+    pointer_default(unique)
+]
+
+interface ICertPolicy: IDispatch
+{
+    import "oaidl.idl";
+
+    HRESULT Initialize(
+		[in] BSTR const strConfig);
+
+    HRESULT VerifyRequest(
+		[in] BSTR const strConfig,
+		[in] LONG Context,
+		[in] LONG bNewRequest,
+		[in] LONG Flags,
+		[out, retval] LONG *pDisposition);
+
+    HRESULT GetDescription(
+		[out, retval] BSTR *pstrDescription);
+
+    HRESULT ShutDown();
+};
+
+
+//+--------------------------------------------------------------------------
+// ICertPolicy2 -- local COM interface
+//+--------------------------------------------------------------------------
+
+[
+    object,
+    uuid(3db4910e-8001-4bf1-aa1b-f43a808317a0),
+    dual,
+    helpstring("ICertPolicy2 Interface"),
+    pointer_default(unique)
+]
+
+interface ICertPolicy2: ICertPolicy
+{
+    HRESULT GetManageModule(
+		[out, retval] ICertManageModule **ppManageModule);
+};
+
+
+
+//+--------------------------------------------------------------------------
+// INDESPolicy interface & enums
+//+--------------------------------------------------------------------------
+
+// SCEP defined message numbers, for reference only:
+
+typedef enum X509SCEPMessageType    // szOIDVerisign_MessageType
+{
+    SCEPMessageUnknown	      = -1,
+    SCEPMessageCertResponse   =  3, // Response to certificate/CRL request
+    SCEPMessagePKCSRequest    = 19, // PKCS#10 certificate request
+
+    SCEPMessageGetCertInitial = 20, // Certificate polling (manual enroll)
+				    // Issuer/Subject + XactId + SenderNonce
+
+    SCEPMessageGetCert        = 21, // Retrieve a certificate
+				    // Issuer/Serial + XactId + SenderNonce
+
+    SCEPMessageGetCRL         = 22, // Retrieve a CRL (not supported)
+    SCEPMessageClaimChallengeAnswer = 41, // Challenge answer
+} X509SCEPMessageType;
+
+typedef enum X509SCEPDisposition    // szOIDVerisign_PkiStatus
+{
+    SCEPDispositionUnknown =		-1,    // Invalid value
+    SCEPDispositionSuccess =		0,
+    SCEPDispositionFailure =		2,
+    SCEPDispositionPending =		3,
+    SCEPDispositionPendingChallenge =	11,
+} X509SCEPDisposition;
+
+typedef enum X509SCEPFailInfo	 // szOIDVerisign_FailInfo
+{
+    SCEPFailUnknown         = -1,// Invalid value
+    SCEPFailBadAlgorithm    = 0, // Unrecognized/unsupported algorithm ident.
+    SCEPFailBadMessageCheck = 1, // Integrity check failed
+    SCEPFailBadRequest      = 2, // Transaction not permitted or supported
+    SCEPFailBadTime         = 3, // The signingTime attribute from the PKCS#7
+			         // authenticatedAttributes was not
+			         // sufficiently close to the system time
+    SCEPFailBadCertId       = 4, // No certificate could be identified matching
+				 // the provided criteria 
+} X509SCEPFailInfo;
+
+
+// INDESPolicy interface
+[
+    object,
+    uuid(13CA515D-431D-46CC-8C2E-1DA269BBD625),
+    helpstring("NDES Policy Module Interface"),
+    local
+]
+interface INDESPolicy : IUnknown
+{
+    import "oaidl.idl";
+
+    // Initialize NDES policy module
+
+    HRESULT Initialize();
+
+
+    // Uninitialize NDES policy module
+
+    HRESULT Uninitialize();
+
+
+    // Performs policy decision on whether to issue a challengePassword to the
+    // SCEP client.
+    //
+    // Parameters:
+    //
+    //  pwszTemplate:   The template being requested for, as determined by NDES.
+    //
+    //  pwszParams:     Parameters specific to the policy module implementation.
+    //
+    //  ppwszResponse   After the user has been authenticated and authorized, will 
+    //                  contain the user's SCEP challengePassword. NDES will free
+    //                  this using LocalFree.
+
+    HRESULT GenerateChallenge(
+                [in, ref] PCWSTR pwszTemplate,
+                [in, ref] PCWSTR pwszParams,
+                [out, retval] PWSTR *ppwszResponse);
+
+
+    // Verifies the NDES certificate request for submission to the certification authority.
+    //
+    // Parameters:
+    //
+    //  pctbRequest:            The encoded PKCS#10 request.
+    //
+    //  pctbSigningCertEncoded: The valid signing certificate for a renewal request.
+    //
+    //  pwszTemplate:           The template being requested for, as determined by NDES.
+    //
+    //  pwszTransactionId:      The SCEP request transaction ID.
+    //
+    //  pfVerified:             Should be set to TRUE if the pwszChallenge is successfully verified,
+    //                          and FALSE otherwise.
+
+    HRESULT VerifyRequest(
+                [in, ref] CERTTRANSBLOB* pctbRequest,
+                [in, ref] CERTTRANSBLOB* pctbSigningCertEncoded,
+                [in, ref] PCWSTR pwszTemplate,
+                [in, ref] PCWSTR pwszTransactionId,
+                [out, retval] BOOL* pfVerified);
+
+
+    // Notifies the plugin of the transaction status of the SCEP certificate request.
+    //
+    // Parameters:
+    //
+    //  pwszChallenge           The user's authentication and authorization SCEP 
+    //                          challengePassword.
+    //
+    //  pwszTransactionId:      The SCEP request transaction ID.
+    //
+    //  disposition:            The disposition of the transaction.
+    //
+    //  lastHResult:            The HRESULT of the last operation.
+    //
+    //  pctbIssuedCertEncoded:  The requested certificate, if issued.
+
+    HRESULT Notify(
+                [in, ref] PCWSTR pwszChallenge,
+                [in, ref] PCWSTR pwszTransactionId,
+                [in] X509SCEPDisposition disposition,
+                [in] LONG lastHResult,
+                [in, ref] CERTTRANSBLOB* pctbIssuedCertEncoded);
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

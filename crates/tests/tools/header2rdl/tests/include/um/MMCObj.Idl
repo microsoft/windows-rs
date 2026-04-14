@@ -1,0 +1,1247 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//
+//  Copyright (C) Microsoft Corporation, 1999 - 1999
+//
+//  File:       mmcobj.idl
+//
+//--------------------------------------------------------------------------
+
+// mmcobj.idl : IDL source for the MMC object model.
+//
+// This file will be processed by the MIDL compiler to produce the
+// type library (MMCObj.tlb).
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#ifndef MMC_VER")
+cpp_quote("#define MMC_VER 0x0200")
+cpp_quote("#endif")
+
+cpp_quote("#if (MMC_VER >= 0x0200)")
+
+import "oaidl.idl";
+
+// interfaces - in alphabetical order.
+interface     _Application;
+interface     Column;
+interface     Columns;
+interface     ContextMenu;
+interface     Document;
+interface     Frame;
+interface     MenuItem;
+interface     Node;
+interface     Nodes;
+interface     Properties;
+interface     Property;
+interface     ScopeNamespace;
+interface     SnapIn;
+interface     SnapIns;
+interface     Extension;
+interface     Extensions;
+interface     View;
+interface     Views;
+
+///////////////////////////////////////////////////////////////////////////////
+/// Interfaces implemented by the Common Console's Node Manager
+interface   ISnapinPropertiesCallback;
+
+///////////////////////////////////////////////////////////////////////////////
+/// Interfaces implemented by the Snap-in server
+interface   ISnapinProperties;
+
+// typedefs - same order as interfaces, for the pointer and the pointer to pointer.
+typedef     _Application*     PAPPLICATION;
+typedef     _Application**    PPAPPLICATION;
+typedef     Column*           PCOLUMN;
+typedef     Column**          PPCOLUMN;
+typedef     Columns*          PCOLUMNS;
+typedef     Columns**         PPCOLUMNS;
+typedef     ContextMenu*      PCONTEXTMENU;
+typedef     ContextMenu**     PPCONTEXTMENU;
+typedef     Document*         PDOCUMENT;
+typedef     Document**        PPDOCUMENT;
+typedef     Frame*            PFRAME;
+typedef     Frame**           PPFRAME;
+typedef     MenuItem*         PMENUITEM;
+typedef     MenuItem**        PPMENUITEM;
+typedef     Node*             PNODE;
+typedef     Node**            PPNODE;
+typedef     Nodes*            PNODES;
+typedef     Nodes**           PPNODES;
+typedef     Properties*       PPROPERTIES;
+typedef     Properties**      PPPROPERTIES;
+typedef     Property*         PPROPERTY;
+typedef     Property**        PPPROPERTY;
+typedef     ScopeNamespace*   PSCOPENAMESPACE;
+typedef     ScopeNamespace**  PPSCOPENAMESPACE;
+typedef     SnapIn*           PSNAPIN;
+typedef     SnapIn**          PPSNAPIN;
+typedef     SnapIns*          PSNAPINS;
+typedef     SnapIns**         PPSNAPINS;
+typedef     Extension*        PEXTENSION;
+typedef     Extension**       PPEXTENSION;
+typedef     Extensions*       PEXTENSIONS;
+typedef     Extensions**      PPEXTENSIONS;
+typedef     View*             PVIEW;
+typedef     View**            PPVIEW;
+typedef     Views*            PVIEWS;
+typedef     Views**           PPVIEWS;
+typedef     ISnapinProperties*          LPSNAPINPROPERTIES;
+typedef     ISnapinPropertiesCallback*  LPSNAPINPROPERTIESCALLBACK;
+
+// typedefs for external types
+typedef     BOOL*             PBOOL;
+typedef     int*              PINT;
+typedef     BSTR*             PBSTR;
+typedef     VARIANT*          PVARIANT;
+typedef     long*             PLONG;
+typedef     IDispatch*        PDISPATCH;
+typedef     IDispatch**       PPDISPATCH;
+
+
+
+/*+-------------------------------------------------------------------------*
+ * ISnapinProperties
+ * ISnapinPropertiesCallback
+ *
+ * These define the interfaces used by the snap-in to support Properties.
+ * They are not object model interfaces per se, but they ISnapinProperties
+ * requires the definition of Properties, and ISnapinPropertiesCallback
+ * requires the definition of ISnapinProperties.
+ *
+ * These interfaces should be defined in mmc.idl, since they're not
+ * object model interfaces per se.  ISnapinProperties, however, requires
+ * the definition of Properties, so we can either import mmcobj.idl into
+ * mmc.idl or define ISnapinProperties here (a foward declaration of
+ * Properties isn't sufficient).
+ *
+ * We don't want to import mmcobj.idl into mmc.idl because that causes too
+ * many dependency difficulties, so we define these non-object model
+ * interfaces here instead.
+ *
+ * ISnapinPropertiesCallback requires the definition of ISnapinProperties,
+ * so it is defined here for the same reason.
+ *--------------------------------------------------------------------------*/
+
+[
+    object,
+    uuid(F7889DA9-4A02-4837-BF89-1A6F2A021010),
+    helpstring("ISnapinProperties Interface"),
+    pointer_default(unique)
+]
+interface ISnapinProperties : IUnknown
+{
+    typedef enum _MMC_PROPERTY_ACTION
+    {
+        MMC_PROPACT_DELETING = 1,
+        MMC_PROPACT_CHANGING,
+        MMC_PROPACT_INITIALIZED
+    } MMC_PROPERTY_ACTION;
+
+    typedef struct _MMC_SNAPIN_PROPERTY
+    {
+        LPCOLESTR           pszPropName;    // name of property
+        VARIANT             varValue;       // value of the property
+        MMC_PROPERTY_ACTION eAction;        // what happened to this property
+    } MMC_SNAPIN_PROPERTY;
+
+    [helpstring("Provides the snap-in with the Properties interface from which it can initialize itself.")]
+    HRESULT Initialize ([in] Properties* pProperties);
+
+    [helpstring("Returns the names of the properties this snap-in uses for configuration.")]
+    HRESULT QueryPropertyNames ([in] ISnapinPropertiesCallback* pCallback);
+
+    [helpstring("Informs the snap-in that one or more of the properties is uses for its configuration has been added, deleted, or changed.")]
+    HRESULT PropertiesChanged (
+        [in] long cProperties,
+        [in, size_is(cProperties)] MMC_SNAPIN_PROPERTY* pProperties);
+};
+
+[
+    object,
+    uuid(A50FA2E5-7E61-45EB-A8D4-9A07B3E851A8),
+    helpstring("ISnapinPropertiesCallback Interface"),
+    pointer_default(unique)
+]
+interface ISnapinPropertiesCallback : IUnknown
+{
+    // flags for the dwFlags parameter of AddPropertyName
+    const DWORD MMC_PROP_CHANGEAFFECTSUI = 0x00000001;
+    const DWORD MMC_PROP_MODIFIABLE      = 0x00000002;
+    const DWORD MMC_PROP_REMOVABLE       = 0x00000004;
+    const DWORD MMC_PROP_PERSIST         = 0x00000008;
+
+    [helpstring("Defines a property which the snap-in can use.")]
+    HRESULT AddPropertyName (
+        [in] LPCOLESTR  pszPropName,
+        [in] DWORD      dwFlags);
+};
+
+
+[
+    uuid(8E80422B-CAC4-472b-B272-9635F1DFEF3B),
+    helpstring("Microsoft Management Console 2.0"),
+    version(1.0),
+]
+library MMC20
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  Enumerations
+    //
+    //  The syntax used below has the reasons why it is used
+    //  1.  defining all pointer types separatelly [instead of right after
+    //      the enum] is chosen, because VB 6.0 will display all of them in the
+    //      Object Browser else.
+    //  2.  DOCUMENTMODE [and similar for other enums] is defined since MIDL
+    //      will crash if "enum DocumentMode" is specified as a method parameter.
+    //  3.  _DocumentMode cannot be used as parameter since VB 6.0 will crash
+    //      whenever the type of parameter is hidden.
+    //  4.  typedef and _DocumentMode could be removed, but MIDL will crash else.
+    //  5.  Enum tag (DocumentMode) must be present, since MIDL will generate one if missing
+    //  6.  Enum tag (DocumentMode) will be displayed in VB Obect browser. It cannot
+    //      be hidden.
+    //#######################################################################
+    //#######################################################################
+    typedef
+    [ v1_enum, helpstring("Document Mode enumeration")]
+    enum DocumentMode
+    {
+        [helpstring("Document opens in Author Mode")]
+        DocumentMode_Author,
+        [helpstring("Document opens in Full-Access User Mode")]
+        DocumentMode_User,
+        [helpstring("Document opens in Limited-Access User Mode with multiple windows")]
+        DocumentMode_User_MDI,
+        [helpstring("Document opens in Limited-Access User Mode with single window")]
+        DocumentMode_User_SDI
+    } _DocumentMode;
+    typedef enum DocumentMode DOCUMENTMODE;
+    typedef enum DocumentMode *PDOCUMENTMODE;
+    typedef enum DocumentMode **PPDOCUMENTMODE;
+
+    typedef
+    [ v1_enum, helpstring("List View Mode enumeration") ]
+    enum ListViewMode
+    {
+       [helpstring("List View with small icons")]
+       ListMode_Small_Icons,
+       [helpstring("List View with large icons")]
+       ListMode_Large_Icons,
+       [helpstring("List View displaying simple list view")]
+       ListMode_List,
+       [helpstring("List View displaying detailed view")]
+       ListMode_Detail,
+       [helpstring("List View displaying filtered view")]
+       ListMode_Filtered
+    } _ListViewMode;
+    typedef enum ListViewMode LISTVIEWMODE;
+    typedef enum ListViewMode *PLISTVIEWMODE;
+    typedef enum ListViewMode **PPLISTVIEWMODE;
+
+    typedef
+    [ v1_enum, helpstring("View Options enumeration") ]
+    enum ViewOptions
+    {
+       [helpstring("Default view options")]
+       ViewOption_Default             = 0x0000,
+       [helpstring("View with a Scope Tree pane hidden")]
+       ViewOption_ScopeTreeHidden     = 0x0001,
+       [helpstring("View with Tool Bars hidden")]
+       ViewOption_NoToolBars          = 0x0002,
+       [helpstring("Temporary View without persistence capability")]
+       ViewOption_NotPersistable      = 0x0004,
+       [helpstring("View with Action Pane hidden")]
+       ViewOption_ActionPaneHidden    = 0x0008
+    } _ViewOptions;
+    typedef enum ViewOptions VIEWOPTIONS;
+    typedef enum ViewOptions *PVIEWOPTIONS;
+    typedef enum ViewOptions **PPVIEWOPTIONS;
+
+    typedef
+    [ v1_enum, helpstring("List Export Option enumeration") ]
+    enum ExportListOptions
+    {
+        [helpstring("Default List Export options")]
+        ExportListOptions_Default             = 0x0000,
+        [helpstring("Exports List to unicode")]
+        ExportListOptions_Unicode             = 0x0001,
+        [helpstring("Exports List to tab-delimited format")]
+        ExportListOptions_TabDelimited        = 0x0002,
+        [helpstring("Exports only selected files")]
+        ExportListOptions_SelectedItemsOnly   = 0x0004
+    } _ExportListOptions;
+    typedef enum ExportListOptions EXPORTLISTOPTIONS;
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Application class  and the _Application interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(A3AFB9CC-B653-4741-86AB-F0470EC1384C) ,
+        dual,
+        helpstring("_Application Interface")
+    ]
+    interface _Application : IDispatch
+    {
+        [id(2), helpstring("Displays Help for the console")]
+        void Help();
+
+        [id(3), helpstring("Ends the MMC application")]
+        void Quit();
+
+        [id(4), propget, helpstring("Returns the document object")]
+        HRESULT Document([out,retval] PPDOCUMENT Document);
+
+        [id(5), helpstring("Loads the document from the specified file.")]
+        HRESULT Load([in] BSTR Filename);
+
+        [id(6), propget, helpstring("Returns the frame subobject")]
+        HRESULT Frame([out, retval] PPFRAME Frame);
+
+        [id(7), propget, helpstring("Returns the visible property")]
+        HRESULT Visible([out, retval] PBOOL Visible);
+
+        [id(8), helpstring("Shows the application - sets Visible to true")]
+        HRESULT Show();
+
+        [id(9), helpstring("Hides the application - sets Visible to false")]
+        HRESULT Hide();
+
+        [id(10), propget, helpstring("Returns the UserControl property")]
+        HRESULT UserControl([out, retval] PBOOL UserControl);
+
+        [id(10), propput, helpstring("Sets the UserControl property")]
+        HRESULT UserControl([in] BOOL UserControl);
+
+        [id(11), propget, helpstring("Gets the installed MMC's major version number")]
+        HRESULT VersionMajor([out, retval] PLONG VersionMajor);
+
+        [id(12), propget, helpstring("Gets the installed MMC's minor version number")]
+        HRESULT VersionMinor([out, retval] PLONG VersionMinor);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The AppEvents event source interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(DE46CBDD-53F5-4635-AF54-4FE71E923D3F),
+        dual,
+        helpstring("_AppEvents Interface")
+    ]
+    interface _AppEvents : IDispatch
+    {
+        [id(1), helpstring("Occurs when application is closed")]
+        HRESULT OnQuit( [in] PAPPLICATION Application);
+
+        [id(2), helpstring("Occurs when document is opened")]
+        HRESULT OnDocumentOpen([in] PDOCUMENT Document, [in] BOOL New);
+
+        [id(3), helpstring("Occurs before the document is destroyed")]
+        HRESULT OnDocumentClose( [in] PDOCUMENT Document);
+
+        [id(4), helpstring("Occurs when a snapin is added")]
+        HRESULT OnSnapInAdded( [in] PDOCUMENT Document, [in] PSNAPIN SnapIn);
+
+        [id(5), helpstring("Occurs when the snapin is removed")]
+        HRESULT OnSnapInRemoved( [in] PDOCUMENT Document, [in] PSNAPIN SnapIn);
+
+        [id(6), helpstring("Occurs when a view is added")]
+        HRESULT OnNewView( [in] PVIEW View);
+
+        [id(7), helpstring("Occurs when the view is destroyed")]
+        HRESULT OnViewClose( [in] PVIEW View );
+
+        [id(8), helpstring("Occurs when the view is changed, for instance by a scope node selection change")]
+        HRESULT OnViewChange( [in] PVIEW View, [in] PNODE NewOwnerNode );
+
+        [id(9), helpstring("Occurs when the result item selection for a view is changed")]
+        HRESULT OnSelectionChange([in] PVIEW View, [in] PNODES NewNodes);
+
+        [id(11), helpstring("Occurs when a context menu item is executed")]
+        HRESULT OnContextMenuExecuted( [in] PMENUITEM MenuItem );
+
+        [id(12), helpstring("Occurs when a toolbar button is clicked")]
+        HRESULT OnToolbarButtonClicked( );
+
+        [id(13), helpstring("Occurs when one or more list items are updated")]
+        HRESULT OnListUpdated([in] PVIEW View );
+    };
+
+    [
+        uuid(FC7A4252-78AC-4532-8C5A-563CFE138863) ,
+        helpstring("AppEvents Interface")
+    ]
+    dispinterface AppEvents
+    {
+        interface _AppEvents;
+    };
+
+    [
+       uuid(49B2791A-B1AE-4C90-9B8E-E860BA07F889)
+    ]
+    coclass Application
+    {
+        [default] interface _Application;
+        [default, source] dispinterface AppEvents;
+    };
+
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The AppEventsDHTMLConnector class  and the _EventConnector interface
+    //
+    //  Connector class to enable access for the script on DHTML page
+    //  to application events of current MMC instance
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(C0BCCD30-DE44-4528-8403-A05A6A1CC8EA) ,
+        dual,
+        helpstring("_EventConnector Interface")
+    ]
+    interface _EventConnector : IDispatch
+    {
+        [id(1), helpstring("Connects to application events and starts forwarding them")]
+        HRESULT ConnectTo( [in] PAPPLICATION Application );
+
+        [id(2), helpstring("Disconnects from application")]
+        HRESULT Disconnect();
+    };
+
+    [
+        uuid(ADE6444B-C91F-4e37-92A4-5BB430A33340),
+        helpstring("Connector class to enable access from DHTML page to the events of current MMC instance")
+    ]
+    coclass AppEventsDHTMLConnector
+    {
+        [default] interface _EventConnector;
+        [default, source] dispinterface AppEvents;
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Frame interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(E5E2D970-5BB3-4306-8804-B0968A31C8E6),
+        dual,
+        helpstring("Frame Interface")
+    ]
+
+    interface Frame : IDispatch
+    {
+        [id(1), helpstring("Maximizes the frame")]
+        HRESULT Maximize();
+
+        [id(2), helpstring("Minimizes the frame")]
+        HRESULT Minimize();
+
+        [id(3), helpstring("Restores the frame to its normal size")]
+        HRESULT Restore();
+
+        [id(4), propget, helpstring("Returns the coordinate of the top of the frame")]
+        HRESULT Top([out, retval] PINT Top);
+
+        [id(4), propput, helpstring("Sets the coordinate of the top of the frame")]
+        HRESULT Top([in] int top);
+
+        [id(5), propget, helpstring("Returns the coordinate of the bottom of the frame")]
+        HRESULT Bottom([out, retval] PINT Bottom);
+
+        [id(5), propput, helpstring("Sets the coordinate of the bottom of the frame")]
+        HRESULT Bottom([in] int bottom);
+
+        [id(6), propget, helpstring("Returns the coordinate of the left of the frame")]
+        HRESULT Left([out, retval] PINT Left);
+
+        [id(6), propput, helpstring("Sets the coordinate of the left of the frame")]
+        HRESULT Left([in] int left);
+
+        [id(7), propget, helpstring("Returns the coordinate of the right of the frame")]
+        HRESULT Right([out, retval] PINT Right);
+
+        [id(7), propput, helpstring("Sets the coordinate of the right of the frame")]
+        HRESULT Right([in] int right);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Node interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(F81ED800-7839-4447-945D-8E15DA59CA55),
+        dual,
+        helpstring("Node Interface")
+    ]
+    interface Node : IDispatch
+    {
+        [id(1), propget, helpstring("Returns the display name of the node")]
+        HRESULT Name([out, retval] PBSTR  Name);
+
+        [id(2), propget, helpstring("Returns the data corresponding to a specified clipboard format")]
+        HRESULT Property([in] BSTR PropertyName, [out, retval] PBSTR  PropertyValue);
+
+        [id(3), propget, helpstring("Returns a persistable bookmark for the node")]
+        HRESULT Bookmark([out, retval] PBSTR Bookmark);
+
+        [id(4), helpstring("Returns whether the node is a scope (tree) or result (list or leaf) item.")]
+        HRESULT IsScopeNode([out, retval]PBOOL IsScopeNode);
+
+        [id(5), propget, helpstring("Returns the nodetype GUID identifier for the node")]
+        HRESULT Nodetype([out, retval] PBSTR Nodetype);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The ScopeNamespace interface
+    //
+    //  This interface provides access to the scope tree.
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(EBBB48DC-1A3B-4D86-B786-C21B28389012),
+        dual,
+        helpstring("ScopeNamespace Interface")
+    ]
+
+    interface ScopeNamespace : IDispatch
+    {
+        [id(1), helpstring("Returns the parent of a scope node")]
+        HRESULT GetParent(    [in] PNODE Node, [out, retval] PPNODE Parent);
+
+        [id(2), helpstring("Returns the child of a scope node")]
+        HRESULT GetChild(     [in] PNODE Node, [out, retval] PPNODE Child);
+
+        [id(3), helpstring("Returns the next node in the namespace")]
+        HRESULT GetNext(      [in] PNODE Node, [out, retval] PPNODE Next);
+
+        [id(4), helpstring("Gets the root of the namespace")]
+        HRESULT GetRoot(      [out, retval] PPNODE Root);
+
+        [id(5), helpstring("Causes a node to be expanded")]
+        HRESULT Expand(       [in] PNODE Node);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Document interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(225120D6-1E0F-40A3-93FE-1079E6A8017B),
+        dual,
+        helpstring("Document Interface")
+    ]
+
+    interface Document : IDispatch
+    {
+        // methods
+        [id(1), helpstring("Saves the document.")]
+        HRESULT Save();
+
+        [id(2), helpstring("Saves the document using the specified name")]
+        HRESULT SaveAs([in] BSTR Filename);
+
+        [id(3), helpstring("Closes the document.")]
+        HRESULT Close( [in] BOOL SaveChanges);
+
+        // properties
+        [id(4), propget, helpstring("Returns the collection of all views (MDI children)")]
+        HRESULT Views  ([out, retval] PPVIEWS Views);
+
+        [id(5), propget, helpstring("Returns the set of all snap-ins that have been loaded")]
+        HRESULT SnapIns([out, retval] PPSNAPINS SnapIns);
+
+        [id(6), propget, helpstring("Returns the currently active view")]
+        HRESULT ActiveView([out, retval] PPVIEW View);
+
+        [id(7), propget, helpstring("Returns the name of the current document")]
+        HRESULT Name([out, retval] PBSTR Name);
+
+        [id(7), propput, helpstring("Sets the name of the current document")]
+        HRESULT Name([in] BSTR Name);
+
+        // location is a read-only property.
+        [id(8), propget, helpstring("Gets the location of the current document")]
+        HRESULT Location([out, retval] PBSTR Location);
+
+        [id(9), propget, helpstring("Returns whether the file was saved. If not, it is dirty and needs to be saved")]
+        HRESULT IsSaved([out, retval] PBOOL IsSaved);
+
+        [id(10), propget, helpstring("Returns the mode of the document")]
+        HRESULT Mode([out, retval] PDOCUMENTMODE Mode);
+
+        [id(10), propput, helpstring("Sets the mode of the document")]
+        HRESULT Mode([in] DOCUMENTMODE Mode);
+
+        [id(11), propget, helpstring("Returns the console root node")]
+        HRESULT RootNode([out, retval] PPNODE Node);
+
+        [id(12), propget, helpstring("Returns the scope namespace")]
+        HRESULT ScopeNamespace([out, retval] PPSCOPENAMESPACE ScopeNamespace);
+
+        [id(13), helpstring("Returns a new, empty properties collection")]
+        HRESULT CreateProperties([out, retval] PPPROPERTIES Properties);
+
+        [id(20), propget, helpstring("Returns the parent application for the document")]
+        HRESULT Application([out, retval] PPAPPLICATION Application);
+    };
+
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The SnapIns and SnapIn interfaces
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(3BE910F6-3459-49C6-A1BB-41E6BE9DF3EA),
+        dual,
+        helpstring("SnapIn Interface")
+    ]
+    interface SnapIn : IDispatch
+    {
+        [id(1), propget, helpstring("Returns the name of the snapin")]
+        HRESULT Name([out, retval] PBSTR Name);
+
+        [id(2), propget, helpstring("Returns the snapin vendor name")]
+        HRESULT Vendor([out, retval] PBSTR Vendor);
+
+        [id(3), propget, helpstring("Returns the snapin version")]
+        HRESULT Version([out, retval] PBSTR Version);
+
+        [id(4), propget, helpstring("Returns the list of extension snapins")]
+        HRESULT Extensions([out, retval] PPEXTENSIONS Extensions);
+
+        [id(5), propget, helpstring("Returns the snapin CLSID in string form")]
+        HRESULT SnapinCLSID([out, retval] PBSTR SnapinCLSID);
+
+        [id(6), propget, helpstring("Returns the properties collection for the snapin")]
+        HRESULT Properties([out, retval] PPPROPERTIES Properties);
+
+        [id(7), helpstring("Enable or not enable all the extensions for this snapin.")]
+        HRESULT EnableAllExtensions([in] BOOL Enable);
+    }
+
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(2EF3DE1D-B12A-49D1-92C5-0B00798768F1),
+        dual,
+        helpstring("SnapIns Interface")
+    ]
+    interface SnapIns : IDispatch
+    {
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+
+        [id(DISPID_VALUE /*=0*/)]
+        HRESULT Item([in] long Index, [out, retval] PPSNAPIN SnapIn);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+
+        [id(2), helpstring("Adds a snapin given its CLSID or ProgID")]
+        HRESULT Add(
+            [in] BSTR SnapinNameOrCLSID,
+            [in, optional] VARIANT ParentSnapin,
+            [in, optional] VARIANT Properties,
+            [out, retval] PPSNAPIN SnapIn);
+
+        [id(3), helpstring("Removes a snapin from the list of snapins and hence from the console.")]
+        HRESULT Remove([in] PSNAPIN  SnapIn);
+    };
+
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(AD4D6CA6-912F-409b-A26E-7FD234AEF542),
+        dual,
+        helpstring("Extension Interface")
+    ]
+    interface Extension : IDispatch
+    {
+        [id(1), propget, helpstring("Returns the name of the snapin")]
+        HRESULT Name([out, retval] PBSTR Name);
+
+        [id(2), propget, helpstring("Returns the snapin vendor name")]
+        HRESULT Vendor([out, retval] PBSTR Vendor);
+
+        [id(3), propget, helpstring("Returns the snapin version")]
+        HRESULT Version([out, retval] PBSTR Version);
+
+        [id(4), propget, helpstring("Returns the list of extension snapins")]
+        HRESULT Extensions([out, retval] PPEXTENSIONS Extensions);
+
+        [id(5), propget, helpstring("Returns the snapin CLSID in string form")]
+        HRESULT SnapinCLSID([out, retval] PBSTR SnapinCLSID);
+
+        [id(6), helpstring("Enable or not enable all the extensions for this snapin.")]
+        HRESULT EnableAllExtensions([in] BOOL Enable);
+
+        [id(7), helpstring("Enable/Disable this extension")]
+        HRESULT Enable([in] BOOL Enable /*= TRUE*/);
+    }
+
+
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(82DBEA43-8CA4-44bc-A2CA-D18741059EC8),
+        dual,
+        helpstring("Extensions Interface")
+    ]
+    interface Extensions : IDispatch
+    {
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+
+        [id(DISPID_VALUE /*=0*/)]
+        HRESULT Item([in] long Index, [out, retval] PPEXTENSION Extension);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+    };
+
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Columns interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(383D4D97-FC44-478B-B139-6323DC48611C),
+        dual,
+        helpstring("Columns Interface")
+    ]
+    interface Columns : IDispatch
+    {
+        [id(DISPID_VALUE /*=0*/)]
+        HRESULT Item([in] long Index, [out, retval] PPCOLUMN Column);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Column interface
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(FD1C5F63-2B16-4D06-9AB3-F45350B940AB),
+        dual,
+        helpstring("Column Interface")
+    ]
+    interface Column : IDispatch
+    {
+        typedef enum ColumnSortOrder
+        {
+            SortOrder_Ascending,
+            SortOrder_Descending
+        } _ColumnSortOrder;
+        typedef enum ColumnSortOrder COLUMNSORTORDER;
+
+
+        [id(DISPID_VALUE /*=0*/)]
+        HRESULT Name([out, retval] BSTR *Name);
+
+        [id(1), propget, helpstring("Returns the width of a column")]
+        HRESULT Width([out, retval] PLONG Width);
+
+        [id(1), propput, helpstring("Sets the width of a column")]
+        HRESULT Width([in] long Width);
+
+        [id(2), propget, helpstring("returns the display position of the column in the set of columns")]
+        HRESULT DisplayPosition([out, retval] PLONG DisplayPosition);
+
+        [id(2), propput, helpstring("Sets the display position of the column in the set of columns")]
+        HRESULT DisplayPosition([in] long Index);
+
+        [id(3), propget, helpstring("Returns true if column is hidden")]
+        HRESULT Hidden([out, retval] PBOOL Hidden);
+
+        [id(3), propput, helpstring("Sets the Hidden status for column")]
+        HRESULT Hidden([in] BOOL Hidden);
+
+        [id(4), helpstring("Sorts on this column")]
+        HRESULT SetAsSortColumn([in] COLUMNSORTORDER SortOrder);
+
+        [id(5), helpstring("Returns whether this column is the sort column")]
+        HRESULT IsSortColumn([out, retval] PBOOL IsSortColumn);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Views and View interfaces
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(D6B8C29D-A1FF-4D72-AAB0-E381E9B9338D),
+        dual,
+        helpstring("Views Interface")
+    ]
+    interface Views : IDispatch
+    {
+        [id(DISPID_VALUE /*=0*/)]
+        HRESULT Item([in] long Index, [out, retval] PPVIEW View);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+
+        [id(2), helpstring("Creates a new view rooted at a particular node")]
+        HRESULT Add([in] PNODE Node, [in, defaultvalue(ViewOption_Default)] VIEWOPTIONS viewOptions);
+
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+    };
+
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(6EFC2DA2-B38C-457E-9ABB-ED2D189B8C38),
+        dual,
+        helpstring("View Interface")
+    ]
+    interface View : IDispatch
+    {
+        //#######################################################################
+        //#######################################################################
+        //
+        //  Item and item collection related methods
+        //
+        //#######################################################################
+        //#######################################################################
+
+        [id(1), propget, helpstring("Gets the active scope node, ie the one that owns the view")]
+        HRESULT ActiveScopeNode([out, retval] PPNODE Node);
+
+        [id(1), propput, helpstring("Sets the active scope node, ie changes the view")]
+        HRESULT ActiveScopeNode([in] PNODE Node);
+
+        [id(2), propget, helpstring("Gets the set of selected result items")]
+        HRESULT Selection([out, retval] PPNODES Nodes);
+
+        [id(3), propget, helpstring("Gets the set of all items in the list")]
+        HRESULT ListItems([out, retval] PPNODES Nodes);
+
+        [id(4), helpstring("Returns the automation interface supplied by the snapin for the specified scope node")]
+        HRESULT SnapinScopeObject([in, optional] VARIANT ScopeNode /* = ActiveScopeNode */, [out, retval] PPDISPATCH ScopeNodeObject);
+
+        [id(5), helpstring("Returns the automation interface supplied by the snapin")]
+        HRESULT SnapinSelectionObject([out, retval] PPDISPATCH SelectionObject);
+
+        //#######################################################################
+        //#######################################################################
+
+        [id(9), helpstring("Returns whether it's the same view")]
+        HRESULT Is([in] PVIEW View, [out, retval] VARIANT_BOOL *TheSame);
+
+        [id(10), propget, helpstring("Returns the parent document of the view")]
+        HRESULT Document([out, retval] PPDOCUMENT Document);
+
+        //#######################################################################
+        //#######################################################################
+        //
+        //  Selection changing methods
+        //
+        //#######################################################################
+        //#######################################################################
+        [id(20), helpstring("Selects all items in the result pane")]
+        HRESULT SelectAll();
+
+        [id(21), helpstring("Selects a node in the result pane")]
+        HRESULT Select([in] PNODE Node);
+
+        [id(22), helpstring("Deselects a node in the view")]
+        HRESULT Deselect([in] PNODE Node);
+
+        [id(23), helpstring("Returns whether a node is selected in this view")]
+        HRESULT IsSelected([in] PNODE Node, [out, retval] PBOOL IsSelected);
+
+        //#######################################################################
+        //#######################################################################
+        //
+        //  Verb and selection related methods
+        //
+        //#######################################################################
+        //#######################################################################
+
+        [id(40), helpstring("Displays the property for a given scope node")]
+        HRESULT DisplayScopeNodePropertySheet([in, optional] VARIANT ScopeNode /* = ActiveScopeNode */);
+
+        [id(41), helpstring("Displays the property for the current selection")]
+        HRESULT DisplaySelectionPropertySheet();
+
+        [id(42), helpstring("Copies the data object of the active scope node to the clipboard")]
+        HRESULT CopyScopeNode([in, optional] VARIANT ScopeNode);
+
+        [id(43), helpstring("Copies the data object of the selection to the clipboard")]
+        HRESULT CopySelection();
+
+        [id(44), helpstring("Deletes the specified scope node")]
+        HRESULT DeleteScopeNode([in, optional] VARIANT ScopeNode  /* = ActiveScopeNode */);
+
+        [id(45), helpstring("Deletes the selected items")]
+        HRESULT DeleteSelection();
+
+        [id(46), helpstring("Renames a scope node to the specified name")]
+        HRESULT RenameScopeNode([in] BSTR NewName, [in, optional] VARIANT ScopeNode /* = ActiveScopeNode */);
+
+        [id(47), helpstring("Renames a node in this view to the specified name")]
+        HRESULT RenameSelectedItem([in] BSTR NewName);
+
+        [id(48), propget, helpstring("Returns the context menu for a node in this view")]
+        HRESULT ScopeNodeContextMenu([in, optional] VARIANT ScopeNode, [out, retval] PPCONTEXTMENU ContextMenu);
+
+        [id(49), propget, helpstring("Returns the context menu for a node in this view")]
+        HRESULT SelectionContextMenu([out, retval] PPCONTEXTMENU ContextMenu);
+
+        [id(50), helpstring("Refreshes the specified scope node")]
+        HRESULT RefreshScopeNode([in, optional] VARIANT ScopeNode  /* = ActiveScopeNode */);
+
+        [id(51), helpstring("Refreshes the selected items")]
+        HRESULT RefreshSelection();
+
+        [id(52), helpstring("Executes a context menu item on the selection. The parameter is the language-independent or language-dependent path of the menu item")]
+        HRESULT ExecuteSelectionMenuItem([in] BSTR MenuItemPath);
+
+        [id(53), helpstring("Executes a context menu item on the specified scope node. The parameter is the language-independent or language-dependent path  of the menu item")]
+        HRESULT ExecuteScopeNodeMenuItem([in] BSTR MenuItemPath, [in, optional] VARIANT ScopeNode  /* = ActiveScopeNode */);
+
+        [id(54), helpstring("Executes a shell command with the specified parameters in the specified directory with the correct window size")]
+        HRESULT ExecuteShellCommand([in] BSTR Command, [in] BSTR Directory, [in] BSTR Parameters, [in] BSTR WindowState);
+
+        //#######################################################################
+        //#######################################################################
+        //
+        //  Frame and view related methods
+        //
+        //#######################################################################
+        //#######################################################################
+
+        [id(60), propget, helpstring("Returns the frame")]
+        HRESULT Frame([out, retval] PPFRAME Frame);
+
+        [id(61), helpstring("Closes the view window")]
+        HRESULT Close();
+
+        [id(62), propget, helpstring("Returns ScopeTreeVisible property")]
+        HRESULT ScopeTreeVisible([out, retval] PBOOL Visible);
+
+        [id(62), propput, helpstring("Sets ScopeTreeVisible property")]
+        HRESULT ScopeTreeVisible([in] BOOL Visible);
+
+        [id(66), helpstring("Navigates to the previous view")]
+        HRESULT Back();
+
+        [id(67), helpstring("Navigates to the next view")]
+        HRESULT Forward();
+
+        [id(68), propput, helpstring("Sets the status bar text")]
+        HRESULT StatusBarText([in] BSTR StatusBarText);
+
+        [id(69), propget, helpstring("Returns a memento for the current view. A memento is the programmatic equivalent of a favorite setting")]
+        HRESULT Memento([out, retval] PBSTR Memento);
+
+        [id(70), helpstring("Sets the view to the specified memento, which contains information about the view to be re-created.")]
+        HRESULT ViewMemento([in] BSTR Memento);
+
+        //#######################################################################
+        //#######################################################################
+        //
+        //  List related methods
+        //
+        //#######################################################################
+        //#######################################################################
+        [id(80), propget, helpstring("Returns the set of columns in the list")]
+        HRESULT Columns([out, retval] PPCOLUMNS Columns);
+
+        [id(81), propget, helpstring("Returns the contents of a given cell")]
+        HRESULT CellContents([in] PNODE Node, [in] long Column, [out, retval] PBSTR CellContents);
+
+        [id(82), helpstring("Exports the list (if one exists) to the specified file")]
+        HRESULT ExportList([in] BSTR File, [in, defaultvalue(ExportListOptions_Default)] EXPORTLISTOPTIONS exportoptions);
+
+        [id(83), propget, helpstring("Returns the list view mode, if a list view is being displayed")]
+        HRESULT ListViewMode([out, retval] PLISTVIEWMODE Mode);
+
+        [id(83), propput, helpstring("Sets the list view mode, if a list view is being displayed")]
+        HRESULT ListViewMode([in] LISTVIEWMODE mode);
+
+        //#######################################################################
+        //#######################################################################
+        //
+        //  ActiveX control related methods
+        //
+        //#######################################################################
+        //#######################################################################
+
+        [id(100), propget, helpstring("Returns the automation interface supplied by the OCX in the result pane.")]
+        HRESULT ControlObject([out, retval] PPDISPATCH Control);
+
+#if MMC_PERF_BUILD
+        //#######################################################################
+        //#######################################################################
+        //
+        //  Performance build methods for object model-based perf tests
+        //
+        //#######################################################################
+        //#######################################################################
+
+        [id(90), helpstring("Selects the first count result items in a loop for timing perf")]
+        HRESULT SelectResultNodes([in] long count);
+
+        [id(91), helpstring("Selects the first count scope items in a loop for timing perf")]
+        HRESULT SelectChildNodes ([in] PNODE Node, [in] long count);
+#endif
+
+    };
+
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Nodes interface
+    //  Purpose: The collection of selected result items in a view.
+    //           This interface is created solely by the view interface.
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(313B01DF-B22F-4D42-B1B8-483CDCF51D35),
+        dual,
+        helpstring("Nodes Interface")
+    ]
+    interface Nodes : IDispatch
+    {
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+
+        [id(DISPID_VALUE /*=0*/)]
+        HRESULT Item([in] long Index, [out, retval] PPNODE Node);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+    };
+
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The ContextMenu interface
+    //  Purpose: Allows iteration of a context menu
+    //           Note: the list of items is flat. Submenu items just
+    //           have qualified names like "View.Large"
+    //           Submenus themselves and separators are not included in the
+    //           enumeration.
+    //
+    //  NOTE:    There is no method to enable a disabled menu item. This
+    //           is by design; a snapin may not be prepared to handle
+    //           a menu item it has disabled.
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(DAB39CE0-25E6-4E07-8362-BA9C95706545),
+        dual,
+        helpstring("ContextMenu Interface")
+    ]
+    interface ContextMenu : IDispatch
+    {
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+
+        [id(DISPID_VALUE /*=0*/), propget, helpstring("Accesses a context menu item by index or by name")]
+        HRESULT Item([in] VARIANT IndexOrPath, [out, retval] PPMENUITEM MenuItem);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+    };
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The MenuItem interface
+    //  Purpose: Encapsulates a single context menu item.
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(0178FAD1-B361-4B27-96AD-67C57EBF2E1D),
+        dual,
+        helpstring("MenuItem Interface")
+    ]
+    interface MenuItem : IDispatch
+    {
+        [id(1), propget, helpstring("Returns the display name of the menu item, which includes accelerators. Eg '&Properties  ALT+ENTER' ")]
+        HRESULT DisplayName([out, retval] PBSTR  DisplayName);
+
+        [id(2), propget, helpstring("Returns the language-independent name of the menu item. If there is no language independent name, returns the display name without accelerators.")]
+        HRESULT LanguageIndependentName([out, retval] PBSTR  LanguageIndependentName);
+
+        [id(3), propget, helpstring("Returns the path of the menu item starting from the root. Does not include accelerators. Eg View->Large")]
+        HRESULT Path([out, retval] PBSTR  Path);
+
+        [id(4), propget, helpstring("Returns the language independent path of the menu item starting from the root. Eg _VIEW->_LARGE")]
+        HRESULT LanguageIndependentPath([out, retval] PBSTR  LanguageIndependentPath);
+
+        [id(5), helpstring("Executes the context menu item")]
+        HRESULT Execute();
+
+        [id(6), propget, helpstring("Returns whether the menu item is enabled or disabled")]
+        HRESULT Enabled([out, retval] PBOOL Enabled);
+    }
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Properties interface
+
+    //  Purpose: The collection of properties of a SnapIn object.
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(2886ABC2-A425-42b2-91C6-E25C0E04581C),
+        dual,
+        helpstring("Properties Interface")
+    ]
+    interface Properties : IDispatch
+    {
+        [id(DISPID_NEWENUM), propget]
+        HRESULT _NewEnum([out, retval] IUnknown** retval);
+
+        [id(DISPID_VALUE), helpstring("Returns the property identified by Name.")]
+        HRESULT Item([in] BSTR Name, [out, retval] PPPROPERTY Property);
+
+        [id(1), propget]
+        HRESULT Count([out, retval] PLONG Count);
+
+        [id(2), helpstring("Removes a property identified by Name from the properties collection.")]
+        HRESULT Remove([in] BSTR Name);
+    }
+
+    //#######################################################################
+    //#######################################################################
+    //
+    //  The Property interface
+    //  Purpose: Encapsulates a single property
+    //
+    //#######################################################################
+    //#######################################################################
+    [
+        oleautomation,
+        dual,
+        nonextensible,
+        uuid(4600C3A5-E301-41d8-B6D0-EF2E4212E0CA),
+        dual,
+        helpstring("Property Interface")
+    ]
+    interface Property : IDispatch
+    {
+        [id(DISPID_VALUE /*=0*/), propget]
+        HRESULT Value([out, retval] PVARIANT Value);
+
+        [id(DISPID_VALUE /*=0*/), propput]
+        HRESULT Value([in] VARIANT Value);
+
+        [id(1), propget]
+        HRESULT Name([out, retval] PBSTR Name);
+    }
+};
+
+
+cpp_quote("#endif // MMC_VER >= 0x0200")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

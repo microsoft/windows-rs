@@ -1,0 +1,131 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			errrec.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a67-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IErrorRecords : IUnknown {
+
+cpp_quote("#define IDENTIFIER_SDK_MASK	0xF0000000")
+cpp_quote("#define IDENTIFIER_SDK_ERROR	0x10000000")
+
+typedef struct tagERRORINFO {
+	HRESULT hrError;
+	DWORD dwMinor;
+	CLSID clsid;
+	IID iid;
+	DISPID dispid;
+} ERRORINFO;
+
+	[local]
+	HRESULT AddErrorRecord(
+		[in, annotation("_In_")] ERRORINFO * pErrorInfo,
+		[in] DWORD dwLookupID,
+		[in, annotation("_In_opt_")] DISPPARAMS * pdispparams,
+		[in, annotation("_In_opt_")] IUnknown * punkCustomError,
+		[in] DWORD dwDynamicErrorID
+	);
+
+	[call_as(AddErrorRecord)]
+	HRESULT RemoteAddErrorRecord(
+		[in] ERRORINFO * pErrorInfo,
+		[in] DWORD dwLookupID,
+		[in] DISPPARAMS * pdispparams,
+		[in] IUnknown * punkCustomError,
+		[in] DWORD dwDynamicErrorID,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetBasicErrorInfo(
+		[in] ULONG ulRecordNum,
+		[out, annotation("_Out_")] ERRORINFO * pErrorInfo
+	);
+
+	[call_as(GetBasicErrorInfo)]
+	HRESULT RemoteGetBasicErrorInfo(
+		[in] ULONG ulRecordNum,
+		[out] ERRORINFO * pErrorInfo,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetCustomErrorObject(
+		[in] ULONG ulRecordNum,
+		[in, annotation("_In_")] REFIID riid,
+		[out, iid_is(riid), annotation("_Outptr_result_maybenull_")] IUnknown ** ppObject
+	);
+
+	[call_as(GetCustomErrorObject)]
+	HRESULT RemoteGetCustomErrorObject(
+		[in] ULONG ulRecordNum,
+		[in] REFIID riid,
+		[out, iid_is(riid)] IUnknown ** ppObject,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetErrorInfo(
+		[in] ULONG ulRecordNum,
+		[in] LCID lcid,
+		[out, annotation("_Outptr_")] IErrorInfo ** ppErrorInfo
+	);
+
+	[call_as(GetErrorInfo)]
+	HRESULT RemoteGetErrorInfo(
+		[in] ULONG ulRecordNum,
+		[in] LCID lcid,
+		[out] IErrorInfo ** ppErrorInfo,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetErrorParameters(
+		[in] ULONG ulRecordNum,
+		[out, annotation("_Out_")] DISPPARAMS * pdispparams
+	);
+
+	[call_as(GetErrorParameters)]
+	HRESULT RemoteGetErrorParameters(
+		[in] ULONG ulRecordNum,
+		[out] DISPPARAMS * pdispparams,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetRecordCount(
+		[out, annotation("_Out_")] ULONG * pcRecords
+	);
+
+	[call_as(GetRecordCount)]
+	HRESULT RemoteGetRecordCount(
+		[out] ULONG * pcRecords,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

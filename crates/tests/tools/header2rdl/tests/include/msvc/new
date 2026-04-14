@@ -1,0 +1,61 @@
+// new standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _NEW_
+#define _NEW_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <exception>
+#include <vcruntime_new.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+#if _HAS_CXX20
+_EXPORT_STD struct destroying_delete_t {
+    explicit destroying_delete_t() = default;
+};
+_EXPORT_STD inline constexpr destroying_delete_t destroying_delete{};
+#endif // _HAS_CXX20
+
+#if _HAS_CXX17
+_EXPORT_STD template <class _Ty>
+_NODISCARD_LAUNDER constexpr _Ty* launder(_Ty* _Ptr) noexcept {
+    static_assert(!is_function_v<_Ty> && !is_void_v<_Ty>,
+        "N4950 [ptr.launder]/1: Mandates: !is_function_v<T> && !is_void_v<T> is true.");
+#if defined(__clang__) || defined(__EDG__) // TRANSITION, DevCom-10456452
+    return __builtin_launder(_Ptr);
+#else // ^^^ no workaround / workaround vvv
+    return ::__builtin_launder(_Ptr);
+#endif // ^^^ workaround ^^^
+}
+
+#if defined(_M_IX86) || defined(_M_X64) || defined(_M_ARM) || defined(_M_ARM64)
+_EXPORT_STD inline constexpr size_t hardware_constructive_interference_size = 64;
+_EXPORT_STD inline constexpr size_t hardware_destructive_interference_size  = 64;
+#else // ^^^ supported hardware / unsupported hardware vvv
+#error Unsupported architecture
+#endif // ^^^ unsupported hardware ^^^
+
+#endif // _HAS_CXX17
+
+_EXPORT_STD using new_handler = void(__CLRCALL_PURE_OR_CDECL*)();
+
+_EXPORT_STD extern "C++" _CRTIMP2 new_handler __cdecl set_new_handler(_In_opt_ new_handler) noexcept;
+_EXPORT_STD extern "C++" _NODISCARD _CRTIMP2 new_handler __cdecl get_new_handler() noexcept;
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _NEW_

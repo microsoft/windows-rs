@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/virtualization/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/virtualization/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="FileSystemWriteVirtualization" type="CT_FileSystemWriteVirtualization" />
+  <xs:element name="RegistryWriteVirtualization" type="CT_RegistryWriteVirtualization" />
+
+  <xs:complexType name="CT_FileSystemWriteVirtualization">
+    <xs:all>
+      <xs:element name="ExcludedDirectories">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1000">
+            <xs:element name="ExcludedDirectory" type="ST_ExcludedDirectory"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all >
+  </xs:complexType>
+
+  <xs:complexType name="CT_RegistryWriteVirtualization">
+    <xs:all>
+      <xs:element name="ExcludedKeys">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1000">
+            <xs:element name="ExcludedKey" type="ST_ExcludedKey"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ExcludedDirectory">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="$\([kK][nN][oO][wW][nN][fF][oO][lL][dD][eE][rR]:[A-Za-z0-9]{1,32}\)(\\.+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExcludedKey">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="[hH][kK][eE][yY]_[cC][uU][rR][rR][eE][nN][tT]_[uU][sS][eE][rR]\\.+"/>
+      <xs:pattern value="[hH][kK][cC][uU]\\.+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+

@@ -1,0 +1,91 @@
+//--------------------------------------------------------------------------
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//---------------------------------------------------------------------------")
+cpp_quote("// Copyright (c) Microsoft Corporation.  All rights reserved.")
+cpp_quote("//")
+cpp_quote("//---------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+import "unknwn.idl";
+
+//+-----------------------------------------------------------------------------
+//
+//  Interface:
+//      IDCompositionAnimation
+//
+//  Synopsis:
+//      An IDCompositionAnimation interface represents a one-dimensional function that 
+//      can be used to animate the value of a property of another DirectComposition object.
+//
+//------------------------------------------------------------------------------
+[
+    local,
+    object,
+    uuid(CBFD91D9-51B2-45e4-B3DE-D19CCFB863C5),
+    helpstring("IDCompositionAnimation Interface"),
+    pointer_default(unique)
+]
+interface IDCompositionAnimation : IUnknown
+{
+    // Resets the animation function so that it contains no segments as when it was first created.
+    HRESULT
+    Reset
+    (
+    );
+
+    // Sets the absolute time at which the animation curve starts.
+    HRESULT
+    SetAbsoluteBeginTime
+    (
+        LARGE_INTEGER beginTime
+    );
+
+    // Adds a cubic polynomial segment to the animation function.
+    HRESULT
+    AddCubic
+    (
+        double beginOffset,
+        float constantCoefficient,
+        float linearCoefficient,
+        float quadraticCoefficient,
+        float cubicCoefficient
+    );
+
+    // Adds a sinusoidal segment to the animation function.
+    HRESULT
+    AddSinusoidal
+    (
+        double beginOffset,
+        float bias,
+        float amplitude,
+        float frequency,
+        float phase
+    );
+
+    // Repeats the animation.
+    HRESULT
+    AddRepeat
+    (
+        double beginOffset,
+        double durationToRepeat
+    );
+
+    // Terminates an animation curve.
+    HRESULT
+    End
+    (
+        double endOffset,
+        float endValue
+    );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

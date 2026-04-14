@@ -1,0 +1,70 @@
+//+----------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      Defines additional public interfaces for XPS Object model. Added in Windows Blue.
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "XpsObjectModel_1.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    object,
+    uuid(e8a45033-640e-43fa-9bdf-fddeaa31c6a0),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMPackageWriter3D : IXpsOMPackageWriter
+{
+    HRESULT AddModelTexture(
+        [in] IOpcPartUri*       texturePartName,
+        [in] IStream*           textureData
+        );
+
+    HRESULT SetModelPrintTicket(
+        [in] IOpcPartUri*       printTicketPartName,
+        [in] IStream*           printTicketData
+        );
+}
+
+[
+    object,
+    uuid(60ba71b8-3101-4984-9199-f4ea775ff01d),
+    pointer_default(ref),
+    local
+]
+interface IXpsDocumentPackageTarget3D : IUnknown
+{
+    HRESULT GetXpsOMPackageWriter3D(
+        [in]            IOpcPartUri*                documentSequencePartName,
+        [in]            IOpcPartUri*                discardControlPartName,
+        [in]            IOpcPartUri*                modelPartName,
+        [in]            IStream*                    modelData,
+        [out, retval]   IXpsOMPackageWriter3D**     packageWriter
+        );
+
+    HRESULT GetXpsOMFactory(
+        [out, retval]   IXpsOMObjectFactory**       xpsFactory
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif")

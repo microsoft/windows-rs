@@ -1,0 +1,85 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			errlup.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a66-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IErrorLookup : IUnknown {
+
+	[local]
+	HRESULT GetErrorDescription(
+		[in] HRESULT hrError,
+		[in] DWORD dwLookupID,
+		[in, annotation("_In_")] DISPPARAMS * pdispparams,
+		[in] LCID lcid,
+		[out, annotation("_Outptr_result_maybenull_z_")] BSTR * pbstrSource,
+		[out, annotation("_Outptr_result_maybenull_z_")] BSTR * pbstrDescription
+	);
+
+	[call_as(GetErrorDescription)]
+	HRESULT RemoteGetErrorDescription(
+		[in] HRESULT hrError,
+		[in] DWORD dwLookupID,
+		[in] DISPPARAMS * pdispparams,
+		[in] LCID lcid,
+		[out] BSTR * pbstrSource,
+		[out] BSTR * pbstrDescription,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetHelpInfo(
+		[in] HRESULT hrError,
+		[in] DWORD dwLookupID,
+		[in] LCID lcid,
+		[out, annotation("_Outptr_result_maybenull_")] BSTR * pbstrHelpFile,
+		[out, annotation("_Out_")] DWORD * pdwHelpContext
+	);
+
+	[call_as(GetHelpInfo)]
+	HRESULT RemoteGetHelpInfo(
+		[in] HRESULT hrError,
+		[in] DWORD dwLookupID,
+		[in] LCID lcid,
+		[out] BSTR * pbstrHelpFile,
+		[out] DWORD * pdwHelpContext,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT ReleaseErrors(
+		[in] const DWORD dwDynamicErrorID
+	);
+
+	[call_as(ReleaseErrors)]
+	HRESULT RemoteReleaseErrors(
+		[in] const DWORD dwDynamicErrorID,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

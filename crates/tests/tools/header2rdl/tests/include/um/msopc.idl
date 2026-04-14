@@ -1,0 +1,114 @@
+//+--------------------------------------------------------------------------
+//
+//	Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//	Abstract:
+//		Interfaces & Objects for manipulating OPC packages.
+//
+//----------------------------------------------------------------------------
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "urlmon.idl";
+import "wincrypt.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+#include "opcparturi.idl"
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    uuid(3D8D6062-2749-442b-9E32-E40EF801A766),
+    version(1.0),
+    lcid(0x0000)
+]
+library MSOPC {
+
+#include "opcbase.idl"
+
+interface IOpcUri;
+interface IOpcPartUri;
+
+#include "opcobjectmodel.idl"
+#include "opcdigitalsignature.idl"
+
+[
+    object,
+    uuid(6d0b4446-cd73-4ab3-94f4-8ccdf6116154),
+    pointer_default(ref)
+]
+interface IOpcFactory : IUnknown
+{
+    HRESULT
+    CreatePackageRootUri(
+        [out, retval]   IOpcUri **      rootUri
+        );
+
+    HRESULT
+    CreatePartUri(
+        [in, string]    LPCWSTR         pwzUri,
+        [out, retval]   IOpcPartUri **  partUri
+        );
+
+    [local]
+    HRESULT 
+    CreateStreamOnFile(
+        [in, string]    LPCWSTR                 filename, 
+        [in]            OPC_STREAM_IO_MODE      ioMode, 
+        [in, unique]    LPSECURITY_ATTRIBUTES   securityAttributes,
+        [in]            DWORD                   dwFlagsAndAttributes, 
+        [out, retval]   IStream **              stream
+      );
+
+    HRESULT
+    CreatePackage(
+        [out, retval]   IOpcPackage **  package
+        );
+
+    HRESULT
+    ReadPackageFromStream(
+        [in]            IStream *               stream,
+        [in]            OPC_READ_FLAGS          flags,
+        [out, retval]   IOpcPackage **          package
+        );
+
+    HRESULT 
+    WritePackageToStream (
+        [in]            IOpcPackage *           package,
+        [in]            OPC_WRITE_FLAGS         flags,
+        [in]            IStream *               stream
+        );
+
+    HRESULT 
+    CreateDigitalSignatureManager (
+        [in]            IOpcPackage *                   package,
+        [out, retval]   IOpcDigitalSignatureManager **  signatureManager
+        );
+}
+
+[
+    uuid(6B2D6BA0-9F3E-4f27-920B-313CC426A39E)
+]
+coclass OpcFactory
+{
+    interface IOpcFactory;
+};
+
+}; // library MSOPC
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+
+

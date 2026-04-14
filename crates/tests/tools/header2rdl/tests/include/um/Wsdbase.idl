@@ -1,0 +1,549 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  Component: WSDAPI - Microsoft Web Services for Devices API
+// 
+//  File: wsdbase.idl
+//
+//  Abstract: Base interface definitions and typedefs for WSDAPI
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "objidl.idl";
+import "wincrypt.idl";
+
+
+//
+// Forward definitions
+//
+interface IWSDAddress;
+interface IWSDMessageParameters;
+interface IWSDUdpAddress;
+interface IWSDUdpMessageParameters;
+interface IWSDHttpAddress;
+interface IWSDHttpMessageParameters;
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+
+//
+// WSD_CONFIG_PARAM - used to pass config options into WSDAPI
+// The type of pConfigData for each config param type is noted
+// in the comment after each param.
+//
+typedef enum
+{
+    WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE = 1,                        // DWORD
+    WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE = 2,                       // DWORD
+    WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH = 3,                      // PCCERT_CONTEXT
+    WSD_SECURITY_SSL_SERVER_CERT_VALIDATION = 4,                    // PWSD_SECURITY_CERT_VALIDATION
+    WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION = 5,                    // PWSD_SECURITY_CERT_VALIDATION
+    WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT = 6,                     // [no type]
+    WSD_SECURITY_COMPACTSIG_SIGNING_CERT = 7,                       // PCCERT_CONTEXT
+    WSD_SECURITY_COMPACTSIG_VALIDATION = 8,                         // PWSD_SECURITY_SIGNATURE_VALIDATION
+    WSD_CONFIG_HOSTING_ADDRESSES = 9,                               // PWSD_CONFIG_ADDRESSES
+    WSD_CONFIG_DEVICE_ADDRESSES = 10,                               // PWSD_CONFIG_ADDRESSES
+    WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH = 11,                     // PWSD_SECURITY_HTTP_AUTH_SCHEMES
+    WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH = 12,      // PWSD_SECURITY_HTTP_AUTH_SCHEMES
+    WSD_SECURITY_USE_HTTP_CLIENT_AUTH = 13                          // PWSD_SECURITY_HTTP_AUTH_SCHEMES
+} WSD_CONFIG_PARAM_TYPE;
+
+typedef struct _WSD_CONFIG_PARAM
+{
+    WSD_CONFIG_PARAM_TYPE   configParamType;
+    PVOID                   pConfigData;
+    DWORD                   dwConfigDataSize;
+} WSD_CONFIG_PARAM, *PWSD_CONFIG_PARAM;
+
+//
+// WSD_SECURITY_CERT_VALIDATION - used to pass certificate
+// validation rules into WSDAPI. WSD_CONFIG_PARAM.pConfigData
+// should point to this structure when configParamType is 
+// WSD_SECURITY_SSL_SERVER_CERT_VALIDATION or
+// WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION
+//
+// Applications should not use the WSD_SECURITY_CERT_VALIDATION_V1
+// structure directly. Instead they should use WSD_SECURITY_CERT_VALIDATION
+// which will resolve to the correct structure based on the build target. 
+//
+typedef struct _WSD_SECURITY_CERT_VALIDATION_V1
+{
+    PCCERT_CONTEXT* certMatchArray;
+    DWORD dwCertMatchArrayCount;
+    HCERTSTORE hCertMatchStore;
+    HCERTSTORE hCertIssuerStore;
+    DWORD dwCertCheckOptions;
+} WSD_SECURITY_CERT_VALIDATION_V1;
+
+cpp_quote("#if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)")
+
+//
+// Extend the V1 strucutre with the fields that allow the application to do validation 
+// of the SSL certificate from the remote entity using a SHA1 hash of the certificate.
+// These parameters are available only on Windows 8 and later OS.
+//
+typedef struct _WSD_SECURITY_CERT_VALIDATION
+{
+    // V1 fields
+    PCCERT_CONTEXT* certMatchArray;
+    DWORD dwCertMatchArrayCount;
+    HCERTSTORE hCertMatchStore;
+    HCERTSTORE hCertIssuerStore;
+    DWORD dwCertCheckOptions;
+
+    // Newer fields
+    LPCWSTR pszCNGHashAlgId;
+    BYTE* pbCertHash;
+    DWORD dwCertHashSize;
+} WSD_SECURITY_CERT_VALIDATION;
+
+cpp_quote("#else")
+
+//
+// When building for Windows 7, this structure resolves to the V1 structure
+//
+cpp_quote("typedef WSD_SECURITY_CERT_VALIDATION_V1 WSD_SECURITY_CERT_VALIDATION;")
+
+cpp_quote("#endif")
+
+typedef WSD_SECURITY_CERT_VALIDATION *PWSD_SECURITY_CERT_VALIDATION;
+
+
+//
+// WSD_SECURITY_SIGNATURE_VALIDATION - used to pass compact signature
+// validation rules into WSDAPI. WSD_CONFIG_PARAM.pConfigData
+// should point to this structure when configParamType is 
+// WSD_SECURITY_COMPACTSIG_VALIDATION
+//
+typedef struct _WSD_SECURITY_SIGNATURE_VALIDATION
+{
+    PCCERT_CONTEXT* signingCertArray;
+    DWORD dwSigningCertArrayCount;
+    HCERTSTORE hSigningCertStore;
+    DWORD dwFlags;
+} WSD_SECURITY_SIGNATURE_VALIDATION, *PWSD_SECURITY_SIGNATURE_VALIDATION;
+
+
+//
+// Flags to control SSL certificate security check 
+//
+cpp_quote("#define WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS     0x0")
+cpp_quote("#define WSDAPI_SSL_CERT_IGNORE_REVOCATION        0x1")
+cpp_quote("#define WSDAPI_SSL_CERT_IGNORE_EXPIRY            0x2")
+cpp_quote("#define WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE       0x4")
+cpp_quote("#define WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA        0x8")
+cpp_quote("#define WSDAPI_SSL_CERT_IGNORE_INVALID_CN        0x10")
+
+
+//
+// Flags to control compact signature verification
+//
+cpp_quote("#define WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES    0x1")
+
+
+//
+// WSD_SECURITY_HTTP_AUTH_SCHEMES - used to pass in the supported http auth  
+// schemes into WSDAPI. WSD_CONFIG_PARAM.pConfigData should point to this datatype  
+// when configParamType is one of:
+//		WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH,
+//		WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH,
+//		WSD_SECURITY_USE_HTTP_CLIENT_AUTH
+//
+typedef DWORD WSD_SECURITY_HTTP_AUTH_SCHEMES, *PWSD_SECURITY_HTTP_AUTH_SCHEMES;
+
+//
+// WSD_SECURITY_HTTP_AUTH_SCHEMES is a bitwise OR of the following flags
+//
+cpp_quote("#define WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE  0x1")
+cpp_quote("#define WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM       0x2")
+
+
+//
+// WSD_CONFIG_ADDRESSES - used to pass hosting addresses for devicehost
+// creation as well as the device address for device proxy creation.
+// WSD_CONFIG_PARAM.pConfigData should point to this  structure 
+// when configParamType is WSD_CONFIG_HOSTING_ADDRESSES
+// or WSD_CONFIG_DEVICE_ADDRESSES.
+//
+typedef struct _WSD_CONFIG_ADDRESSES
+{
+    IWSDAddress** addresses;
+    DWORD dwAddressCount;
+} WSD_CONFIG_ADDRESSES, *PWSD_CONFIG_ADDRESSES;
+
+
+cpp_quote("#endif")
+
+//
+//
+// Address family definitions
+//
+cpp_quote("#define WSDAPI_ADDRESSFAMILY_IPV4 1")
+cpp_quote("#define WSDAPI_ADDRESSFAMILY_IPV6 2")
+
+//+-------------------------------------------------------------------------
+//  IWSDAddress Interface
+//  Description: Generic Transport Address
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(b9574c6c-12a6-4f74-93a1-3318ff605759),
+    local
+]
+interface IWSDAddress : IUnknown
+{
+midl_pragma warning( disable:2495 )
+    HRESULT Serialize(
+        [out, size_is(cchLength), annotation("_Out_writes_(cchLength)")] LPWSTR pszBuffer,
+        [in] DWORD cchLength,
+        [in] BOOL fSafe);
+midl_pragma warning( default:2495 )
+
+    HRESULT Deserialize(
+        [in, annotation("_In_")] LPCWSTR pszBuffer);
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDTransportAddress Interface
+//  Description: IP-based Transport Address
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(70d23498-4ee6-4340-a3df-d845d2235467),
+    local
+]
+interface IWSDTransportAddress : IWSDAddress
+{
+    HRESULT GetPort(
+        [out, annotation("_Out_")] WORD* pwPort);
+
+    HRESULT SetPort(
+        [in] WORD wPort);
+
+    HRESULT GetTransportAddress(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszAddress); // Note: Do not deallocate ppszAddress
+    
+    HRESULT GetTransportAddressEx(
+        [in] BOOL fSafe,
+        [out, annotation("_Outptr_")] LPCWSTR* ppszAddress); // Note: Do not deallocate ppszAddress
+    
+    HRESULT SetTransportAddress(
+        [in, annotation("_In_opt_")] LPCWSTR pszAddress);
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDMessageParameters Interface
+//  Description: Specific transmission with a remote device
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(1fafe8a2-e6fc-4b80-b6cf-b7d45c416d7c)
+]
+interface IWSDMessageParameters : IUnknown
+{
+    HRESULT GetLocalAddress(
+        [out] IWSDAddress** ppAddress);
+
+    HRESULT SetLocalAddress(
+        [in] IWSDAddress* pAddress);
+
+    HRESULT GetRemoteAddress(
+        [out] IWSDAddress** ppAddress);
+    
+    HRESULT SetRemoteAddress(
+        [in] IWSDAddress* pAddress);
+
+    HRESULT GetLowerParameters(
+        [out] IWSDMessageParameters** ppTxParams);
+} 
+
+////////////////////////////////////////////////////////////////////////////
+//
+// Soap-over-Udp specific definitions
+//
+////////////////////////////////////////////////////////////////////////////
+
+//
+// Helper for creating UDP message parameters
+//
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateUdpMessageParameters(")
+cpp_quote("    IWSDUdpMessageParameters** ppTxParams);")
+
+//
+// Retransmit parameters
+//
+typedef struct _WSDUdpRetransmitParams
+{
+    ULONG ulSendDelay;
+    ULONG ulRepeat;
+    ULONG ulRepeatMinDelay;
+    ULONG ulRepeatMaxDelay;
+    ULONG ulRepeatUpperDelay;
+} WSDUdpRetransmitParams;
+
+//+-------------------------------------------------------------------------
+//  IWSDUdpMessageParameters Interface
+//  Description: UDP specific retransmission information for this message
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(9934149f-8f0c-447b-aa0b-73124b0ca7f0)
+]
+interface IWSDUdpMessageParameters : IWSDMessageParameters
+{
+    HRESULT SetRetransmitParams(
+        [in] const WSDUdpRetransmitParams* pParams);
+
+    HRESULT GetRetransmitParams(
+        [out] WSDUdpRetransmitParams* pParams);
+
+}
+
+//
+// Helper for creating UDP address
+//
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateUdpAddress(")
+cpp_quote("    _Outptr_ IWSDUdpAddress** ppAddress);")
+
+//
+// Forward declare SOCKADDR_STORAGE
+//
+#ifndef SOCKADDR_STORAGE
+cpp_quote("#if 1")
+cpp_quote("// Forward declaration to avoid winsock2.h inclusion")
+cpp_quote("#ifndef __CSADDR_DEFINED__")
+cpp_quote("struct SOCKADDR_STORAGE;")
+cpp_quote("#endif // __CSADDR_DEFINED__")
+cpp_quote("#else  // 1")
+typedef void SOCKADDR_STORAGE;
+cpp_quote("#endif // 1")
+#endif
+
+typedef enum _WSDUdpMessageType
+{
+    ONE_WAY,
+    TWO_WAY,
+} WSDUdpMessageType;
+    
+//+-------------------------------------------------------------------------
+//  IWSDUdpAddress Interface
+//  Description: UDP Address Interface
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(74d6124a-a441-4f78-a1eb-97a8d1996893),
+    local
+]
+interface IWSDUdpAddress : IWSDTransportAddress
+{
+    HRESULT SetSockaddr(
+        [in] const SOCKADDR_STORAGE* pSockAddr);
+
+    HRESULT GetSockaddr(
+        [out, annotation("_Out_")] SOCKADDR_STORAGE* pSockAddr);
+    
+    HRESULT SetExclusive(
+        [in] BOOL fExclusive);
+
+    HRESULT GetExclusive(); 
+
+    HRESULT SetMessageType(
+        [in] WSDUdpMessageType messageType);
+
+    HRESULT GetMessageType(
+        [out, annotation("_Out_")] WSDUdpMessageType* pMessageType);
+ 
+    HRESULT SetTTL(
+        [in] DWORD dwTTL);
+
+    HRESULT GetTTL(
+        [out, annotation("_Out_")] DWORD* pdwTTL);
+    
+    HRESULT SetAlias(
+        [in] const GUID* pAlias);
+
+    HRESULT GetAlias(
+        [out, annotation("_Out_")] GUID* pAlias);
+}
+
+////////////////////////////////////////////////////////////////////////////
+//
+// Soap-over-HTTP specific definitions
+//
+////////////////////////////////////////////////////////////////////////////
+
+//
+// Helper for creating http message parameters
+//
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateHttpMessageParameters(")
+cpp_quote("    _Outptr_ IWSDHttpMessageParameters** ppTxParams);")
+
+//+-------------------------------------------------------------------------
+//  IWSDHttpMessageParameters Interface
+//  Description: HTTP message parameters
+//--------------------------------------------------------------------------  
+[
+    object,
+    uuid(540bd122-5c83-4dec-b396-ea62a2697fdf),
+    local
+]
+interface IWSDHttpMessageParameters : IWSDMessageParameters
+{
+    HRESULT SetInboundHttpHeaders(
+        [in, annotation("_In_opt_")] LPCWSTR pszHeaders);
+
+    HRESULT GetInboundHttpHeaders(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszHeaders); // Note: Do not deallocate ppszHeaders
+
+    HRESULT SetOutboundHttpHeaders(
+        [in, annotation("_In_opt_")] LPCWSTR pszHeaders);
+
+    HRESULT GetOutboundHttpHeaders(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszHeaders); // Note: Do not deallocate ppszHeaders
+
+    HRESULT SetID(
+        [in, annotation("_In_opt_")] LPCWSTR pszId);
+
+    HRESULT GetID(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszId); // Note: Do not deallocate ppszId
+
+    HRESULT SetContext(
+        [in] IUnknown* pContext);
+
+    HRESULT GetContext(
+        [out, annotation("_Outptr_")] IUnknown** ppContext);
+    
+    HRESULT Clear();
+}
+
+
+//
+// Helper for creating HTTP address objects
+//
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateHttpAddress(")
+cpp_quote("    _Outptr_ IWSDHttpAddress** ppAddress);")
+
+//+-------------------------------------------------------------------------
+//  IWSDHttpAddress Interface
+//  Description: HTTP address interface
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(d09ac7bd-2a3e-4b85-8605-2737ff3e4ea0),
+    local
+]
+interface IWSDHttpAddress : IWSDTransportAddress
+{
+    HRESULT GetSecure(); 
+
+    HRESULT SetSecure(
+        [in] BOOL fSecure);
+
+    HRESULT GetPath(
+        [out, annotation("_Outptr_")] LPCWSTR* ppszPath); // Note: Do not deallocate ppszAddress
+
+    HRESULT SetPath(
+        [in, annotation("_In_")] LPCWSTR pszPath);
+}
+
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+
+//+-------------------------------------------------------------------------
+//  IWSDSSLClientCertificate Interface
+//  Description: Interface to retrive SSL client certificate
+//--------------------------------------------------------------------------  
+[
+    object,
+    uuid(de105e87-a0da-418e-98ad-27b9eed87bdc),
+    local
+]
+interface IWSDSSLClientCertificate : IUnknown
+{
+        
+    HRESULT GetClientCertificate(
+        [in, out, annotation("_Outptr_")] PCCERT_CONTEXT* ppCertContext); // Should be freed using CertFreeCertificateContext 
+
+
+    HRESULT GetMappedAccessToken(
+        [in, out, annotation("_Out_")] HANDLE* phToken); // should be freed using CloseHandle
+}
+
+
+//+-------------------------------------------------------------------------------
+//  IWSDHttpAuthParameters Interface
+//  Description:    Interface through which applications can retrieve http authentication
+//                        parameters related to the current request.
+//---------------------------------------------------------------------------------
+[
+    object,
+    uuid(0b476df0-8dac-480d-b05c-99781a5884aa),
+    local
+]
+interface IWSDHttpAuthParameters: IUnknown
+{        
+	//
+	// returns the client access token that can be used to authenticate/impersonate the client
+	// returns S_FALSE if the request was not authenticated	
+	//
+	HRESULT GetClientAccessToken(
+	        [out, annotation("_Out_")] HANDLE* phToken); // should be freed using CloseHandle
+
+	// 
+	// returns the Http Auth scheme that was used for authenticating this request
+	// returns S_FALSE if the request was not authenticated
+	//
+	HRESULT GetAuthType(
+		[out, annotation("_Out_")] PWSD_SECURITY_HTTP_AUTH_SCHEMES pAuthType);
+}	
+
+
+//+-----------------------------------------------------------------------------------
+//  IWSDSignatureProperty Interface
+//  Description: Interface to retrieve the compact signature properties present in the
+//  message and the signature trust status based on user specified validation params
+//------------------------------------------------------------------------------------
+[
+    object,
+    uuid(03ce20aa-71c4-45e2-b32e-3766c61c790f),
+    helpstring("IWSDSignatureProperty Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDSignatureProperty : IUnknown
+{
+    HRESULT IsMessageSigned(
+        [out, annotation("_Out_")] BOOL* pbSigned);
+        
+    HRESULT IsMessageSignatureTrusted(
+        [out, annotation("_Out_")] BOOL* pbSignatureTrusted);
+        
+    HRESULT GetKeyInfo(
+        [out, size_is(*pdwKeyInfoSize), annotation("_Out_writes_bytes_to_opt_(*pdwKeyInfoSize, *pdwKeyInfoSize)")] BYTE* pbKeyInfo, 
+        [in, out, annotation("_Inout_")] DWORD* pdwKeyInfoSize);
+        
+    HRESULT GetSignature(
+        [out, size_is(*pdwSignatureSize), annotation("_Out_writes_bytes_to_opt_(*pdwSignatureSize, *pdwSignatureSize)")] BYTE* pbSignature, 
+        [in, out, annotation("_Inout_")] DWORD* pdwSignatureSize);
+        
+    HRESULT GetSignedInfoHash(
+        [out, size_is(*pdwHashSize), annotation("_Out_writes_bytes_to_opt_(*pdwHashSize, *pdwHashSize)")] BYTE* pbSignedInfoHash, 
+        [in, out, annotation("_Inout_")] DWORD* pdwHashSize);
+}
+
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

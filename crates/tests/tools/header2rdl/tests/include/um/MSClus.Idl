@@ -1,0 +1,2156 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+//  Copyright (c) 1997 Microsoft Corporation
+//
+//  Module Name:
+//      MSClus.idl
+//
+//  Description:
+//      Interface definitions for Microsoft Cluster Server automation classes
+//      provided in MSCLUS.DLL.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// UUIDS for MSCLUS
+//
+// f2e606e0-2631-11d1-89f1-00a0c90d061e -- library MSClusterLib
+// f2e606e1-2631-11d1-89f1-00a0c90d061e -- coclass DomainNames
+// f2e606e2-2631-11d1-89f1-00a0c90d061e -- interface ISDomainNames                      Read only collection
+// f2e606e3-2631-11d1-89f1-00a0c90d061e -- coclass Cluster
+// f2e606e4-2631-11d1-89f1-00a0c90d061e -- interface ISCluster
+// f2e606e5-2631-11d1-89f1-00a0c90d061e -- coclass ClusApplication
+// f2e606e6-2631-11d1-89f1-00a0c90d061e -- interface ISClusApplication
+// f2e606e7-2631-11d1-89f1-00a0c90d061e -- coclass ClusResGroupPreferredOwnerNodes
+// f2e606e8-2631-11d1-89f1-00a0c90d061e -- interface ISClusResGroupPreferredOwnerNodes  collection
+// f2e606e9-2631-11d1-89f1-00a0c90d061e -- coclass ClusResGroupResources
+// f2e606ea-2631-11d1-89f1-00a0c90d061e -- interface ISClusResGroupResources            collection
+// f2e606eb-2631-11d1-89f1-00a0c90d061e -- coclass ClusterNames
+// f2e606ec-2631-11d1-89f1-00a0c90d061e -- interface ISClusterNames                     Read only collection
+// f2e606ed-2631-11d1-89f1-00a0c90d061e -- coclass ClusNetInterface
+// f2e606ee-2631-11d1-89f1-00a0c90d061e -- interface ISClusNetInterface
+// f2e606ef-2631-11d1-89f1-00a0c90d061e -- coclass ClusNetInterfaces
+// f2e606f0-2631-11d1-89f1-00a0c90d061e -- interface ISClusNetInterfaces                Read only collection
+// f2e606f1-2631-11d1-89f1-00a0c90d061e -- coclass ClusNetwork
+// f2e606f2-2631-11d1-89f1-00a0c90d061e -- interface ISClusNetwork
+// f2e606f3-2631-11d1-89f1-00a0c90d061e -- coclass ClusNetworks
+// f2e606f4-2631-11d1-89f1-00a0c90d061e -- interface ISClusNetworks                     Read only collection
+// f2e606f5-2631-11d1-89f1-00a0c90d061e -- coclass ClusNetworkNetInterfaces
+// f2e606f6-2631-11d1-89f1-00a0c90d061e -- interface ISClusNetworkNetInterfaces         Read only collection
+// f2e606f7-2631-11d1-89f1-00a0c90d061e -- coclass ClusNode
+// f2e606f8-2631-11d1-89f1-00a0c90d061e -- interface ISClusNode
+// f2e606f9-2631-11d1-89f1-00a0c90d061e -- coclass ClusNodes
+// f2e606fa-2631-11d1-89f1-00a0c90d061e -- interface ISClusNodes                        Read only collection
+// f2e606fb-2631-11d1-89f1-00a0c90d061e -- coclass ClusNodeNetInterfaces
+// f2e606fc-2631-11d1-89f1-00a0c90d061e -- interface ISClusNodeNetInterfaces            Read only collection
+// f2e606fd-2631-11d1-89f1-00a0c90d061e -- coclass ClusProperty
+// f2e606fe-2631-11d1-89f1-00a0c90d061e -- interface ISClusProperty
+// f2e606ff-2631-11d1-89f1-00a0c90d061e -- coclass ClusProperties
+// f2e60700-2631-11d1-89f1-00a0c90d061e -- interface ISClusProperties                   collection
+// f2e60701-2631-11d1-89f1-00a0c90d061e -- coclass ClusRefObject
+// f2e60702-2631-11d1-89f1-00a0c90d061e -- interface ISClusRefObject
+// f2e60703-2631-11d1-89f1-00a0c90d061e -- coclass ClusResDependencies
+// f2e60704-2631-11d1-89f1-00a0c90d061e -- interface ISClusResDependencies              collection
+// f2e60705-2631-11d1-89f1-00a0c90d061e -- coclass ClusResGroup
+// f2e60706-2631-11d1-89f1-00a0c90d061e -- interface ISClusResGroup
+// f2e60707-2631-11d1-89f1-00a0c90d061e -- coclass ClusResGroups
+// f2e60708-2631-11d1-89f1-00a0c90d061e -- interface ISClusResGroups                    collection
+// f2e60709-2631-11d1-89f1-00a0c90d061e -- coclass ClusResource
+// f2e6070a-2631-11d1-89f1-00a0c90d061e -- interface ISClusResource
+// f2e6070b-2631-11d1-89f1-00a0c90d061e -- coclass ClusResources
+// f2e6070c-2631-11d1-89f1-00a0c90d061e -- interface ISClusResources                    collection
+// f2e6070d-2631-11d1-89f1-00a0c90d061e -- coclass ClusResPossibleOwnerNodes
+// f2e6070e-2631-11d1-89f1-00a0c90d061e -- interface ISClusResPossibleOwnerNodes        collection
+// f2e6070f-2631-11d1-89f1-00a0c90d061e -- coclass ClusResType
+// f2e60710-2631-11d1-89f1-00a0c90d061e -- interface ISClusResType
+// f2e60711-2631-11d1-89f1-00a0c90d061e -- coclass ClusResTypes
+// f2e60712-2631-11d1-89f1-00a0c90d061e -- interface ISClusResTypes
+// f2e60713-2631-11d1-89f1-00a0c90d061e -- coclass ClusResTypeResources
+// f2e60714-2631-11d1-89f1-00a0c90d061e -- interface ISClusResTypeResources             collection
+// f2e60715-2631-11d1-89f1-00a0c90d061e -- coclass ClusVersion
+// f2e60716-2631-11d1-89f1-00a0c90d061e -- interface ISClusVersion
+// f2e60717-2631-11d1-89f1-00a0c90d061e -- coclass ClusResTypePossibleOwnerNodes
+// f2e60718-2631-11d1-89f1-00a0c90d061e -- interface ISClusResTypePossibleOwnerNodes    Read only collection
+// f2e60719-2631-11d1-89f1-00a0c90d061e -- coClass ClusPropertyValue
+// f2e6071a-2631-11d1-89f1-00a0c90d061e -- interface ISClusPropertyValue
+// f2e6071b-2631-11d1-89f1-00a0c90d061e -- coClass ClusPropertyValues
+// f2e6071c-2631-11d1-89f1-00a0c90d061e -- interface ISClusPropertyValues               collection
+// f2e6071d-2631-11d1-89f1-00a0c90d061e -- coClass ClusPropertyValueData
+// f2e6071e-2631-11d1-89f1-00a0c90d061e -- interface ISClusPropertyValueData            collection
+// f2e6071f-2631-11d1-89f1-00a0c90d061e -- CoClass ClusPartition
+// f2e60720-2631-11d1-89f1-00a0c90d061e -- interface ISClusPartition
+// f2e60721-2631-11d1-89f1-00a0c90d061e -- CoClass ClusPartitions
+// f2e60722-2631-11d1-89f1-00a0c90d061e -- interface ISClusPartitions                   read only collection
+// f2e60723-2631-11d1-89f1-00a0c90d061e -- CoClass ClusDisk
+// f2e60724-2631-11d1-89f1-00a0c90d061e -- interface ISClusDisk
+// f2e60725-2631-11d1-89f1-00a0c90d061e -- CoClass ClusDisks
+// f2e60726-2631-11d1-89f1-00a0c90d061e -- interface ISClusDisks                        read only collection
+// f2e60727-2631-11d1-89f1-00a0c90d061e -- CoClass ClusScsiAddress
+// f2e60728-2631-11d1-89f1-00a0c90d061e -- interface ISClusScsiAddress
+// f2e60729-2631-11d1-89f1-00a0c90d061e -- CoClass ClusRegistryKeys
+// f2e6072a-2631-11d1-89f1-00a0c90d061e -- interface ISClusRegistryKeys
+// f2e6072b-2631-11d1-89f1-00a0c90d061e -- CoClass ClusCryptoKeys
+// f2e6072c-2631-11d1-89f1-00a0c90d061e -- interface ISClusCryptoKeys
+// f2e6072d-2631-11d1-89f1-00a0c90d061e -- coclass ClusResDependents
+// f2e6072e-2631-11d1-89f1-00a0c90d061e -- interface ISClusResDependents                collection
+// 53d51d26-b51b-4a79-b2c3-5048d93a98fc -- interface ISClusPartitionEx
+
+#if WINVER >= 0x0500
+    import "basetsd.h";
+#else
+    #ifndef _BASETSD_H_
+        typedef [public] unsigned long ULONG_PTR;       // this is for the NT4 build
+    #endif
+#endif // WINVER >= 0x0500
+
+import "oaidl.idl";
+cpp_quote("#ifndef _CLUSTER_API_TYPES_")
+cpp_quote("#define _CLUSTER_API_TYPES_")
+#include "clusapi.h"
+cpp_quote("#endif // _CLUSTER_API_TYPES_")
+
+//
+// Forward interface definitions
+//
+
+interface ISDomainNames;
+interface ISCluster;
+interface ISClusApplication;
+interface ISClusResGroupPreferredOwnerNodes;
+interface ISClusResGroupResources;
+interface ISClusterNames;
+interface ISClusNetInterface;
+interface ISClusNetInterfaces;
+interface ISClusNetwork;
+interface ISClusNetworks;
+interface ISClusNetworkNetInterfaces;
+interface ISClusNode;
+interface ISClusNodes;
+interface ISClusNodeNetInterfaces;
+interface ISClusProperty;
+interface ISClusProperties;
+interface ISClusRefObject;
+interface ISClusResDependencies;
+interface ISClusResGroup;
+interface ISClusResGroups;
+interface ISClusResource;
+interface ISClusResources;
+interface ISClusResPossibleOwnerNodes;
+interface ISClusResType;
+interface ISClusResTypes;
+interface ISClusResTypeResources;
+interface ISClusVersion;
+interface ISClusResTypePossibleOwnerNodes;
+interface ISClusPropertyValue;
+interface ISClusPropertyValues;
+interface ISClusPropertyValueData;
+interface ISClusPropertyBase;
+interface ISClusPartition;
+interface ISClusPartitionEx;
+interface ISClusPartitions;
+interface ISClusDisk;
+interface ISClusDisks;
+interface ISClusScsiAddress;
+interface ISClusRegistryKeys;
+interface ISClusCryptoKeys;
+interface ISClusResDependents;
+
+/////////////////////////////////////////////////////////
+// MSClusterLib
+[
+    uuid(f2e606e0-2631-11d1-89f1-00a0c90d061e),
+    version(1.0),
+    helpstring("Microsoft Cluster Service Automation Classes.")
+]
+library MSClusterLib
+{
+    importlib("stdole2.tlb");
+
+    typedef CLUSTER_QUORUM_TYPE _CLUSTER_QUORUM_TYPE;
+    typedef NODE_CLUSTER_STATE _NODE_CLUSTER_STATE;
+    typedef CLUSTER_RESOURCE_STATE_CHANGE_REASON _CLUSTER_RESOURCE_STATE_CHANGE_REASON;
+    typedef CLUSTER_CHANGE _CLUSTER_CHANGE;
+    typedef CLUSTER_ENUM _CLUSTER_ENUM;
+    typedef CLUSTER_NODE_ENUM _CLUSTER_NODE_ENUM;
+    typedef CLUSTER_NODE_STATE _CLUSTER_NODE_STATE;
+    typedef CLUSTER_GROUP_ENUM _CLUSTER_GROUP_ENUM;
+    typedef CLUSTER_GROUP_STATE _CLUSTER_GROUP_STATE;
+    typedef CLUSTER_GROUP_AUTOFAILBACK_TYPE _CLUSTER_GROUP_AUTOFAILBACK_TYPE;
+    typedef CLUSTER_RESOURCE_STATE _CLUSTER_RESOURCE_STATE;
+    typedef CLUSTER_RESOURCE_RESTART_ACTION _CLUSTER_RESOURCE_RESTART_ACTION;
+    typedef CLUSTER_RESOURCE_CREATE_FLAGS _CLUSTER_RESOURCE_CREATE_FLAGS;
+    typedef CLUSTER_PROPERTY_TYPE _CLUSTER_PROPERTY_TYPE;
+    typedef CLUSTER_PROPERTY_FORMAT _CLUSTER_PROPERTY_FORMAT;
+    typedef CLUSTER_PROPERTY_SYNTAX _CLUSTER_PROPERTY_SYNTAX;
+    typedef CLUSTER_CONTROL_OBJECT _CLUSTER_CONTROL_OBJECT;
+    typedef CLCTL_CODES _CLCTL_CODES;
+    typedef CLUSCTL_RESOURCE_CODES _CLUSCTL_RESOURCE_CODES;
+    typedef CLUSCTL_RESOURCE_TYPE_CODES _CLUSCTL_RESOURCE_TYPE_CODES;
+    typedef CLUSCTL_GROUP_CODES _CLUSCTL_GROUP_CODES;
+    typedef CLUSCTL_NODE_CODES _CLUSCTL_NODE_CODES;
+    typedef CLUSCTL_NETWORK_CODES _CLUSCTL_NETWORK_CODES;
+    typedef CLUSCTL_NETINTERFACE_CODES _CLUSCTL_NETINTERFACE_CODES;
+    typedef CLUSCTL_CLUSTER_CODES _CLUSCTL_CLUSTER_CODES;
+    typedef CLUSTER_RESOURCE_CLASS _CLUSTER_RESOURCE_CLASS;
+    typedef CLUS_RESSUBCLASS _CLUS_RESSUBCLASS;
+    typedef CLUS_CHARACTERISTICS _CLUS_CHARACTERISTICS;
+    typedef CLUS_FLAGS _CLUS_FLAGS;
+    typedef CLUSPROP_PIFLAGS _CLUSPROP_PIFLAGS;
+    typedef CLUSTER_RESOURCE_ENUM _CLUSTER_RESOURCE_ENUM;
+    typedef CLUSTER_RESOURCE_TYPE_ENUM _CLUSTER_RESOURCE_TYPE_ENUM;
+    typedef CLUSTER_NETWORK_ENUM _CLUSTER_NETWORK_ENUM;
+    typedef CLUSTER_NETWORK_STATE _CLUSTER_NETWORK_STATE;
+    typedef CLUSTER_NETWORK_ROLE _CLUSTER_NETWORK_ROLE;
+    typedef CLUSTER_NETINTERFACE_STATE _CLUSTER_NETINTERFACE_STATE;
+
+
+    [
+        uuid(f2e606e5-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Top-level object providing access to the clusters on all available domains.")
+    ]
+    coclass ClusApplication
+    {
+        [default] interface ISClusApplication;
+    };
+
+    [
+        uuid(f2e606e3-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Top-level object providing access to a cluster and the groups, networks, network interfaces, nodes, resources, resource types in the cluster.")
+    ]
+    coclass Cluster
+    {
+        [default] interface ISCluster;
+    };
+
+    [
+        uuid(f2e60715-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides detailed cluster version information. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusVersion
+    {
+        [default] interface ISClusVersion;
+    };
+
+    [
+        uuid(f2e6070f-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a resource type and all resource instances of that type in the cluster. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusResType
+    {
+        [default] interface ISClusResType;
+    };
+
+    [
+        uuid(f2e606fd-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the name and value of a common or private property."),
+        noncreatable
+    ]
+    coclass ClusProperty
+    {
+        [default] interface ISClusProperty;
+    };
+
+    [
+        uuid(f2e606ff-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the common or private properties of a group, network, network interface, node, resource, or resource type."),
+        noncreatable
+    ]
+    coclass ClusProperties
+    {
+        [default] interface ISClusProperties;
+    };
+
+    [
+        uuid(f2e606e1-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the domain names available to an application. Obtained from a ClusApplication object."),
+        noncreatable
+    ]
+    coclass DomainNames
+    {
+        [default] interface ISDomainNames;
+    };
+
+    [
+        uuid(f2e606f1-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a cluster network, its common and private properties, and the network interfaces on the network."),
+        noncreatable
+    ]
+    coclass ClusNetwork
+    {
+        [default] interface ISClusNetwork;
+    };
+
+    [
+        uuid(f2e606ed-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a network interface, its common and private properties. Obtained from a ClusNetInterfaces, ClusNodeNetInterfaces, or ClusNetworkNetInterfaces collection."),
+        noncreatable
+    ]
+    coclass ClusNetInterface
+    {
+        [default] interface ISClusNetInterface;
+    };
+
+    [
+        uuid(f2e606ef-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the network interfaces available to the cluster. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusNetInterfaces
+    {
+        [default] interface ISClusNetInterfaces;
+    };
+
+    [
+        uuid(f2e60703-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the dependencies of a resource. Obtained from a ClusResource object."),
+        noncreatable
+    ]
+    coclass ClusResDependencies
+    {
+        [default] interface ISClusResDependencies;
+    };
+
+    [
+        uuid(f2e606e9-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to all the resources in a group. Obtained from a ClusResGroup object."),
+        noncreatable
+    ]
+    coclass ClusResGroupResources
+    {
+        [default] interface ISClusResGroupResources;
+    };
+
+    [
+        uuid(f2e60713-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to all resources of a particular type in the cluster. Obtained from a ClusResType object."),
+        noncreatable
+    ]
+    coclass ClusResTypeResources
+    {
+        [default] interface ISClusResTypeResources;
+    };
+
+    [
+        uuid(f2e606e7-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the preferred host nodes of a group. Obtained from a ClusResGroup object."),
+        noncreatable
+    ]
+    coclass ClusResGroupPreferredOwnerNodes
+    {
+        [default] interface ISClusResGroupPreferredOwnerNodes;
+    };
+
+    [
+        uuid(f2e6070d-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the possible owner nodes of a resource. Obtained from a ClusResource object."),
+        noncreatable
+    ]
+    coclass ClusResPossibleOwnerNodes
+    {
+        [default] interface ISClusResPossibleOwnerNodes;
+    };
+
+    [
+        uuid(f2e606f3-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the networks available to the cluster. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusNetworks
+    {
+        [default] interface ISClusNetworks;
+    };
+
+    [
+        uuid(f2e606f5-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the network interfaces on the network. Obtained from a ClusNetwork object."),
+        noncreatable
+    ]
+    coclass ClusNetworkNetInterfaces
+    {
+        [default] interface ISClusNetworkNetInterfaces;
+    };
+
+    [
+        uuid(f2e606fb-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the network interfaces installed in the node. Obtained from a ClusNode object."),
+        noncreatable
+    ]
+    coclass ClusNodeNetInterfaces
+    {
+        [default] interface ISClusNodeNetInterfaces;
+    };
+
+    [
+        uuid(f2e60701-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Cluster Reference Object Class"),
+        hidden,
+        noncreatable
+    ]
+    coclass ClusRefObject
+    {
+        [default] interface ISClusRefObject;
+    };
+
+    [
+        uuid(f2e606eb-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to all the clusters in a domain. Obtained from a DomainName object."),
+        noncreatable
+    ]
+    coclass ClusterNames
+    {
+        [default] interface ISClusterNames;
+    };
+
+    [
+        uuid(f2e606f7-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a cluster node, its common and private properties, and the network interfaces installed in the node. Obtained from a ClusNodes collection."),
+        noncreatable
+    ]
+    coclass ClusNode
+    {
+        [default] interface ISClusNode;
+    };
+
+    [
+        uuid(f2e606f9-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the nodes in a cluster. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusNodes
+    {
+        [default] interface ISClusNodes;
+    };
+
+    [
+        uuid(f2e60705-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a cluster group, its common and private properties, its preferred host nodes, and the resources contained by the group. Obtained from a ClusResGroups collection."),
+        noncreatable
+    ]
+    coclass ClusResGroup
+    {
+        [default] interface ISClusResGroup;
+    };
+
+    [
+        uuid(f2e60707-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the groups in a cluster. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusResGroups
+    {
+        [default] interface ISClusResGroups;
+    };
+
+    [
+        uuid(f2e60709-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a cluster resource, its common and private properties, and its dependencies and possible host nodes. Obtained from a ClusResources, ClusResDependencies, or ClusResGroups collection."),
+        noncreatable
+    ]
+    coclass ClusResource
+    {
+        [default] interface ISClusResource;
+    };
+
+    [
+        uuid(f2e6070b-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the resources in the cluster. Obtained from Cluster.Resources."),
+        noncreatable
+    ]
+    coclass ClusResources
+    {
+        [default] interface ISClusResources;
+    };
+
+    [
+        uuid(f2e60711-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the resource types defined in the cluster. Obtained from a Cluster object."),
+        noncreatable
+    ]
+    coclass ClusResTypes
+    {
+        [default] interface ISClusResTypes;
+    };
+
+    [
+        uuid(f2e60717-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the possible owner nodes of a resource type. Obtained from a ClusResType object."),
+        noncreatable
+    ]
+    coclass ClusResTypePossibleOwnerNodes
+    {
+        [default] interface ISClusResTypePossibleOwnerNodes;
+    };
+
+    [
+        uuid(f2e60719-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to a common or private property value of a cluster object."),
+        noncreatable
+    ]
+    coclass ClusPropertyValue
+    {
+        [default] interface ISClusPropertyValue;
+    };
+
+    [
+        uuid(f2e6071b-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the common or private property values of a cluster object."),
+        noncreatable
+    ]
+    coclass ClusPropertyValues
+    {
+        [default] interface ISClusPropertyValues;
+    };
+
+    [
+        uuid(f2e6071d-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the data of a cluster object property."),
+        noncreatable
+    ]
+    coclass ClusPropertyValueData
+    {
+        [default] interface ISClusPropertyValueData;
+    };
+
+    [
+        uuid(f2e6071f-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the partition information of a physical disk resource."),
+        noncreatable
+    ]
+    coclass ClusPartition
+    {
+        [default] interface ISClusPartition;
+    };
+
+    [
+        uuid(53d51d26-b51b-4a79-b2c3-5048d93a98fc),
+        helpstring("Provides access to the extended partition information of a physical disk resource."),
+        noncreatable
+    ]
+    coclass ClusPartitionEx
+    {
+        [default] interface ISClusPartitionEx;
+    };
+
+    [
+        uuid(f2e60721-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the all of the partitions of a physical disk resource."),
+        noncreatable
+    ]
+    coclass ClusPartitions
+    {
+        [default] interface ISClusPartitions;
+    };
+
+    [
+        uuid(f2e60723-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the the information of a physical disk resource."),
+        noncreatable
+    ]
+    coclass ClusDisk
+    {
+        [default] interface ISClusDisk;
+    };
+
+    [
+        uuid(f2e60725-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the all of the disks of cluster."),
+        noncreatable
+    ]
+    coclass ClusDisks
+    {
+        [default] interface ISClusDisks;
+    };
+
+    [
+        uuid(f2e60727-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the SCSI address of a disk."),
+        noncreatable
+    ]
+    coclass ClusScsiAddress
+    {
+        [default] interface ISClusScsiAddress;
+    };
+
+    [
+        uuid(f2e60729-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the registry keys of a resource or resource type."),
+        noncreatable
+    ]
+    coclass ClusRegistryKeys
+    {
+        [default] interface ISClusRegistryKeys;
+    };
+
+    [
+        uuid(f2e6072b-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the crypto keys of a resource or resource type."),
+        noncreatable
+    ]
+    coclass ClusCryptoKeys
+    {
+        [default] interface ISClusCryptoKeys;
+    };
+
+    [
+        uuid(f2e6072d-2631-11d1-89f1-00a0c90d061e),
+        helpstring("Provides access to the dependents of a resource. Obtained from a ClusResource object."),
+        noncreatable
+    ]
+    coclass ClusResDependents
+    {
+        [default] interface ISClusResDependents;
+    };
+
+};
+
+/////////////////////////////////////////////////
+// ISClusApplication
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606e6-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Application Interface"),
+    pointer_default(unique)
+]
+interface ISClusApplication : IDispatch
+{
+    [propget, id(1), helpstring("Returns the names of all domains available to the application.")]
+    HRESULT DomainNames( [out, retval] ISDomainNames ** ppDomains );
+
+    [propget, id(2), helpstring("Returns the names of all clusters in a domain.")]
+    HRESULT ClusterNames( [in] BSTR bstrDomainName, [out, retval] ISClusterNames ** ppClusters );
+
+    [id(3), helpstring("Opens a connection to a cluster.")]
+    HRESULT OpenCluster( [in] BSTR bstrClusterName, [out, retval] ISCluster ** pCluster );
+};
+
+/////////////////////////////////////////////////
+// ISDomainNames
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606e2-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Domain Names collection"),
+    pointer_default(unique)
+]
+interface ISDomainNames : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of domain names available to an application).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the item identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex, [out, retval] BSTR * pbstrDomainName );
+};
+
+/////////////////////////////////////////////////
+// ISClusterNames
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606ec-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ClusterNames collection"),
+    pointer_default(unique)
+]
+interface ISClusterNames : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of cluster names available to a domain).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the item identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] BSTR * pbstrClusterName );
+
+    [propget, id(3), helpstring("Returns the name of the domain that contains the clusters in the collection.")]
+    HRESULT DomainName( [out, retval] BSTR * pbstrDomainName );
+};
+
+/////////////////////////////////////////////////
+// ISClusRefObject
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60702-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Reference Object Interface"),
+    pointer_default(unique)
+]
+interface ISClusRefObject : IDispatch
+{
+    [propget, id(1), helpstring("Raw handle to the cluster.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+};
+
+/////////////////////////////////////////////////
+// ISClusVersion
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60716-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusVersion Interface"),
+    pointer_default(unique)
+]
+interface ISClusVersion : IDispatch
+{
+    [propget, id(1), helpstring("Returns the name of the cluster to which this version information applies.")]
+    HRESULT Name( [out, retval] BSTR * pbstrClusterName );
+
+    [propget, id(2), helpstring("Returns the major version number of Windows NT/2000 installed on the local node. A Windows NT/2000 version is specified by the following properties: Version:(MajorVersion).(MinorVersion) Service Pack:(CSDVersion) Build:(BuildNumber).")]
+    HRESULT MajorVersion( [out, retval] long * pnMajorVersion );
+
+    [propget, id(3), helpstring("Returns the minor version number of Windows NT/2000 installed on the local node. A Windows NT/2000 version is specified by the following properties: Version:(MajorVersion).(MinorVersion) Service Pack:(CSDVersion) Build:(BuildNumber).")]
+    HRESULT MinorVersion( [out, retval] long * pnMinorVersion );
+
+    [propget, id(4), helpstring("Returns the build number of Windows NT/2000 installed on the local node. A Windows NT/2000 version is specified by the following properties: Version:(MajorVersion).(MinorVersion) Service Pack:(CSDVersion) Build:(BuildNumber).")]
+    HRESULT BuildNumber( [out, retval] SHORT * pnBuildNumber );
+
+    [propget, id(5), helpstring("Returns the vendor ID of the cluster.")]
+    HRESULT VendorId( [out, retval] BSTR * pbstrVendorId );
+
+    [propget, id(6), helpstring("Returns the highest Windows NT/2000 service pack number installed on the local node. A Windows NT/2000 version is specified by the following properties: Version:(MajorVersion).(MinorVersion) Service Pack:(CSDVersion) Build:(BuildNumber).")]
+    HRESULT CSDVersion( [out, retval] BSTR * pbstrCSDVersion );
+
+    [propget, id(7), helpstring("Returns the highest version of the Cluster Service that is compatible with the currently active nodes. The upper 16 bits specify the version number and the lower 16 bits specify the build number.")]
+    HRESULT ClusterHighestVersion( [out, retval] long * pnClusterHighestVersion );
+
+    [propget, id(8), helpstring("Returns the lowest version of the Cluster Service that is compatible with the currently active nodes. The upper 16 bits specify the version number and the lower 16 bits specify the build number.")]
+    HRESULT ClusterLowestVersion( [out, retval] long * pnClusterLowestVersion );
+
+    [propget, id(9), helpstring("Returns version flags set for the cluster.")]
+    HRESULT Flags( [out, retval] long * pnFlags );
+
+    [propget, id(10), helpstring("Returns True if there is more than one version of the Cluster Service active in the cluster.")]
+    HRESULT MixedVersion( [out, retval] VARIANT * pvarMixedVersion );
+};
+
+/////////////////////////////////////////////////
+// ISCluster
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606e4-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISCluster Interface"),
+    pointer_default(unique)
+]
+interface ISCluster : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the node.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the node.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read only properties of the node.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read only properties of the node.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, hidden, id(5), helpstring("Raw handle to the cluster.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+
+    [id(6), helpstring("Opens a connection to the specified cluster name, or to the local node's cluster if no name is specified.")]
+    HRESULT Open( [in] BSTR bstrClusterName );
+
+    [propget, id(7), helpstring("Returns or sets the name of the cluster.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propput, id(7), helpstring("Returns or sets the name of the cluster.")]
+    HRESULT Name( [in] BSTR bstrClusterName );
+
+    [propget, id(8), helpstring("Returns version information about the cluster.")]
+    HRESULT Version( [out, retval] ISClusVersion ** ppClusVersion );
+
+    [propput, id(9), helpstring("Returns or sets the resource currently serving as the quorum resource.")]
+    HRESULT QuorumResource( [in] ISClusResource * pClusterResource );
+
+    [propget, id(9), helpstring("Returns or sets the resource currently serving as the quorum resource.")]
+    HRESULT QuorumResource( [out, retval] ISClusResource ** pClusterResource );
+
+    [propget, id(10), helpstring("Returns or sets the maximum size of the log file maintained by the quorum resource.")]
+    HRESULT QuorumLogSize( [out, retval] long * pnLogSize);
+
+    [propput, id(10), helpstring("Returns or sets the maximum size of the log file maintained by the quorum resource.")]
+    HRESULT QuorumLogSize( [in] long nLogSize);
+
+    [propget, id(11), helpstring("Returns or sets the path to the log file maintained by the quorum resource.")]
+    HRESULT QuorumPath( [out, retval] BSTR * ppPath );
+
+    [propput, id(11), helpstring("Returns or sets the path to the log file maintained by the quorum resource.")]
+    HRESULT QuorumPath( [] BSTR pPath );
+
+    [propget, id(12), helpstring("Returns all the member nodes of the cluster.")]
+    HRESULT Nodes( [out, retval] ISClusNodes ** ppNodes );
+
+    [propget, id(13), helpstring("Returns all of the groups currently in the cluster.")]
+    HRESULT ResourceGroups( [out, retval] ISClusResGroups ** ppClusterResourceGroups );
+
+    [propget, id(14), helpstring("Returns all of the resources currently in the cluster.")]
+    HRESULT Resources( [out, retval] ISClusResources ** ppClusterResources );
+
+    [propget, id(15), helpstring("Returns all of the resource types in the cluster.")]
+    HRESULT ResourceTypes( [out, retval] ISClusResTypes ** ppResourceTypes );
+
+    [propget, id(16), helpstring("Returns all of the networks in the cluster.")]
+    HRESULT Networks( [out, retval] ISClusNetworks ** ppNetworks );
+
+    [propget, id(17), helpstring("Returns all of the network interfaces in the cluster.")]
+    HRESULT NetInterfaces( [out, retval] ISClusNetInterfaces ** ppNetInterfaces );
+};
+
+/////////////////////////////////////////////////
+// ISClusNode
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606f8-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Node Interface"),
+    pointer_default(unique)
+]
+interface ISClusNode : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the node.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the node.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read only properties of the node.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read only properties of the node.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(5), helpstring("Returns the name of the node.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propget, hidden, id(6), helpstring("Returns a handle to the node.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+
+    [propget, id(7), helpstring("Returns the GUID (HKEY_LOCAL_MACHINE\Cluster\Nodes) identifying the node.")]
+    HRESULT NodeID( [out, retval] BSTR * pbstrNodeID );
+
+    [propget, id(8), helpstring("Returns the current state of the node.")]
+    HRESULT State( [out,retval] CLUSTER_NODE_STATE * dwState );
+
+    [id(9), helpstring("Suspends cluster activity on the node until the Resume method is called. The paused state is persistent; rebooting will not resume cluster activity. Groups owned by a paused node cannot be brought online, but can be taken offline.")]
+    HRESULT Pause( void );
+
+    [id(10), helpstring("Resumes cluster activity on the node.")]
+    HRESULT Resume( void );
+
+    [id(11), helpstring("Evicts the node from the cluster. An evicted node cannot form or join a cluster until Clustering Service is removed and reinstalled.")]
+    HRESULT Evict( void );
+
+    [propget, id(12), helpstring("Returns all of the groups currently being hosted by the node.")]
+    HRESULT ResourceGroups( [out, retval] ISClusResGroups ** ppResourceGroups );
+
+    [propget, id(13), helpstring("Returns the cluster of which the node is a member.")]
+    HRESULT Cluster( [out,retval] ISCluster ** ppCluster );
+
+    [propget, id(14), helpstring("Returns the network interfaces available to the node.")]
+    HRESULT NetInterfaces( [out,retval] ISClusNodeNetInterfaces ** ppClusNetInterfaces );
+};
+
+/////////////////////////////////////////////////
+// ISClusNodes
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606fa-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Nodes Interface"),
+    pointer_default(unique)
+]
+interface ISClusNodes : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of nodes in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a node identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNode ** ppNode );
+};
+
+/////////////////////////////////////////////////
+// ISClusNetwork
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606f2-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Network Interface"),
+    pointer_default(unique)
+]
+interface ISClusNetwork : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the network.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the network.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read-only properties of the network.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read-only properties of the network.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, hidden, id(5), helpstring("Returns a network handle.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+
+    [propget, id(6), helpstring("Returns or sets the name of the network.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propput, id(6), helpstring("Returns or sets the name of the network.")]
+    HRESULT Name( [in] BSTR bstrNetworkName );
+
+    [propget, id(7), helpstring("Returns the GUID (HKEY_LOCAL_MACHINE\Cluster\Networks) identifying the network.")]
+    HRESULT NetworkID( [out, retval] BSTR * pbstrNetworkID );
+
+    [propget, id(8), helpstring("Returns the state of the network.")]
+    HRESULT State( [out,retval] CLUSTER_NETWORK_STATE* dwState );
+
+    [propget, id(9), helpstring("Returns the network interfaces available to the network.")]
+    HRESULT NetInterfaces([out, retval] ISClusNetworkNetInterfaces ** ppClusNetInterfaces);
+
+    [propget, id(10), helpstring("Returns the cluster with which the network is associated.")]
+    HRESULT Cluster( [out,retval] ISCluster ** ppCluster );
+};
+
+/////////////////////////////////////////////////
+// ISClusNetworks
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606f4-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Network Collection Interface"),
+    pointer_default(unique)
+]
+interface ISClusNetworks : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of networks in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a network identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNetwork ** ppClusNetwork );
+};
+
+/////////////////////////////////////////////////
+// ISClusNetInterface
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606ee-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster NetInterface Interface"),
+    pointer_default(unique)
+]
+interface ISClusNetInterface : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the network interface.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the network interface.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read-only properties of the network interface.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read-only properties of the network interface.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(5), helpstring("Returns the name of the network interface.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propget, hidden, id(6), helpstring("Returns a handle to the network interface.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+
+    [propget, id(7), helpstring("Returns the state of the network interface.")]
+    HRESULT State( [out,retval] CLUSTER_NETINTERFACE_STATE * dwState );
+
+    [propget, id(8), helpstring("Returns the cluster with which the network interface is associated.")]
+    HRESULT Cluster( [out,retval] ISCluster ** ppCluster );
+};
+
+/////////////////////////////////////////////////
+// ISClusNetInterfaces
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606f0-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster NetInterface Collection Interface in ISCluster"),
+    pointer_default(unique)
+]
+interface ISClusNetInterfaces : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of network interfaces in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a network interface identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNetInterface ** ppClusNetInterface );
+};
+
+/////////////////////////////////////////////////
+// ISClusNodeNetInterfaces
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606fc-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster NetInterface Collection Interface in Node"),
+    pointer_default(unique)
+]
+interface ISClusNodeNetInterfaces : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of network interfaces available to a node).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a network interface identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNetInterface ** ppClusNetInterface );
+};
+
+/////////////////////////////////////////////////
+// ISClusNetworkNetInterfaces
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606f6-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster NetInterface Collection Interface in ISClusNetwork"),
+    pointer_default(unique)
+]
+interface ISClusNetworkNetInterfaces : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of network interfaces available to a network).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a network interface identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNetInterface ** ppClusNetInterface );
+};
+
+/////////////////////////////////////////////////
+// ISClusResGroup
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60706-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Group Interface"),
+    pointer_default(unique)
+]
+interface ISClusResGroup : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the group.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the group.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read-only properties of the group.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read-only properties of the group.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, hidden, id(5), helpstring("Returns a handle to the group.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+
+    [propget, id(6), helpstring("Returns or sets the name of the group.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propput, id(6), helpstring("Returns or sets the name of the group.")]
+    HRESULT Name( [in] BSTR bstrGroupName );
+
+    [propget, id(7), helpstring("Returns the state of the group.")]
+    HRESULT State( [out,retval] CLUSTER_GROUP_STATE * dwState );
+
+    [propget, id(8), helpstring("Returns the node currently hosting the group.")]
+    HRESULT OwnerNode( [out,retval] ISClusNode ** ppOwnerNode );
+
+    [propget, id(9), helpstring("Returns all of the resources in the group.")]
+    HRESULT Resources( [out, retval] ISClusResGroupResources ** ppClusterGroupResources );
+
+    [propget, id(10), helpstring("Returns the group's list of preferred owner nodes.")]
+    HRESULT PreferredOwnerNodes( [out, retval] ISClusResGroupPreferredOwnerNodes ** ppOwnerNodes );
+
+    [id(11), helpstring("Deletes the group from the cluster.")]
+    HRESULT Delete( void );
+
+    [id(12), helpstring("Brings the group online.")]
+    HRESULT Online( [in] VARIANT varTimeout, [in, optional] VARIANT varNode, [out,retval] VARIANT * pvarPending );
+
+    [id(13), helpstring("Moves the group to the best available node.")]
+    HRESULT Move( [in] VARIANT varTimeout, [in, optional] VARIANT varNode, [out,retval] VARIANT * pvarPending );
+
+    [id(14), helpstring("Takes the group offline.")]
+    HRESULT Offline([in] VARIANT varTimeout, [out,retval] VARIANT * pvarPending);
+
+    [propget, id(15), helpstring("Returns the cluster with which the group is associated.")]
+    HRESULT Cluster( [out,retval] ISCluster ** ppCluster );
+};
+
+/////////////////////////////////////////////////
+// ISClusResGroups
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60708-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Groups Interface"),
+    pointer_default(unique)
+]
+interface ISClusResGroups : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of groups in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the group identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResGroup ** ppClusResGroup );
+
+    [id(3), helpstring("Creates a new group in the cluster and adds it to the collection.")]
+    HRESULT CreateItem( [in] BSTR bstrResourceGroupName, [out, retval] ISClusResGroup ** ppResourceGroup );
+
+    [id(4), helpstring("Deletes a group from the cluster and from the collection.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+
+};
+
+/////////////////////////////////////////////////
+// ISClusResource
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6070a-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Interface"),
+    pointer_default(unique)
+]
+interface ISClusResource : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the resource.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the resource.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read-only properties of the resource.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read-only properties of the resource.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, hidden, id(5), helpstring("Returns a handle to the resource.")]
+    HRESULT Handle( [out, retval] ULONG_PTR * phandle );
+
+    [propget, id(6), helpstring("Returns or sets the name of the resource.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propput, id(6), helpstring("Returns or sets the name of the resource.")]
+    HRESULT Name( [in] BSTR bstrResourceName );
+
+    [propget, id(7), helpstring("Returns the current state of the resource.")]
+    HRESULT State( [out,retval] CLUSTER_RESOURCE_STATE * dwState );
+
+    [propget, id(8), helpstring("Returns any flags associated with the resource.")]
+    HRESULT CoreFlag([out,retval] CLUS_FLAGS * dwCoreFlag);
+
+    [id(9), helpstring("Establishes the resource the quoroum resource.")]
+    HRESULT BecomeQuorumResource( [in] BSTR bstrDevicePath, [in] long lMaxLogSize );
+
+    [id(10), helpstring("Deletes the resource from the cluster and from the collection.")]
+    HRESULT Delete( void );
+
+    [id(11), helpstring("Cause the resource to fail. This may cause the group containing the resource to fail over, depending on the group's common property settings.")]
+    HRESULT Fail( void );
+
+    [id(12), helpstring("Brings the resource online.")]
+    HRESULT Online( [in] long nTimeout, [out,retval] VARIANT * pvarPending);
+
+    [id(13), helpstring("Takes the resource offline.")]
+    HRESULT Offline([in] long nTimeout, [out,retval] VARIANT * pvarPending);
+
+    [id(14), helpstring("Moves the resource to a different group.")]
+    HRESULT ChangeResourceGroup( [in] ISClusResGroup * pResourceGroup );
+
+    [id(15), helpstring("Adds a node to the resource's list of possible owner nodes.")]
+    HRESULT AddResourceNode( [in] ISClusNode * pNode );
+
+    [id(16), helpstring("Removes a node from the resource's list of possible owner nodes.")]
+    HRESULT RemoveResourceNode( [in] ISClusNode * pNode );
+
+    [id(17), helpstring("Returns True if the resource be dependent on another resource.")]
+    HRESULT CanResourceBeDependent( [in] ISClusResource * pResource, [out, retval] VARIANT * pvarDependent );
+
+    [propget, id(18), helpstring("Returns the resource's list of possible owner nodes.")]
+    HRESULT PossibleOwnerNodes( [out, retval] ISClusResPossibleOwnerNodes ** ppOwnerNodes );
+
+    [propget, id(19), helpstring("Returns all of the resource's dependencies.")]
+    HRESULT Dependencies( [out, retval] ISClusResDependencies ** ppResDependencies );
+
+    [propget, id(20), helpstring("Returns all of the resource's dependents.")]
+    HRESULT Dependents( [out, retval] ISClusResDependents ** ppResDependents );
+
+    [propget, id(21), helpstring("Returns the group that currently contains the resource.")]
+    HRESULT Group( [out, retval] ISClusResGroup ** ppResGroup );
+
+    [propget, id(22), helpstring("Returns the node on which the resource is online.")]
+    HRESULT OwnerNode( [out, retval] ISClusNode ** ppOwnerNode );
+
+    [propget, id(23), helpstring("Returns the cluster with which the resource is associated.")]
+    HRESULT Cluster( [out, retval] ISCluster ** ppCluster );
+
+    [propget, id(24), helpstring("Returns the class of the resource.")]
+    HRESULT ClassInfo( [out,retval] CLUSTER_RESOURCE_CLASS * prcClassInfo );
+
+    [propget, id(25), helpstring("Returns the disk information for a physical disk resource.")]
+    HRESULT Disk( [out, retval] ISClusDisk ** ppDisk );
+
+    [propget, id(26), helpstring("Returns the registry keys collection for the resource.")]
+    HRESULT RegistryKeys( [out, retval] ISClusRegistryKeys ** ppRegistryKeys );
+
+    [propget, id(27), helpstring("Returns the crypto keys collection for the resource.")]
+    HRESULT CryptoKeys( [out, retval] ISClusCryptoKeys ** ppCryptoKeys );
+
+    [propget, id(28), helpstring("Returns the resource type name for the resource.")]
+    HRESULT TypeName( [out, retval] BSTR * pbstrTypeName );
+
+    [propget, id(29), helpstring("Returns the resource type for the resource.")]
+    HRESULT Type( [out, retval] ISClusResType ** ppResourceType );
+
+    [propget, id(30), helpstring("Returns the maintenance mode setting for the resource.")]
+    HRESULT MaintenanceMode([out,retval] BOOL * pbMaintenanceMode );
+
+    [propput, id(30), helpstring("Sets or clears maintenance mode for the resource.")]
+    HRESULT MaintenanceMode([in] BOOL  bMaintenanceMode );
+
+};
+
+/////////////////////////////////////////////////
+// ISClusResDependencies
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60704-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Resource Dependencies for a resource"),
+    pointer_default(unique)
+]
+interface ISClusResDependencies : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of dependencies listed for a resource).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the dependency (resource) identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResource ** ppClusResource );
+
+    [id(3), helpstring("Creates a new resource and add it to the collection, making the resource a dependency of the resource from which the collection was obtained.")]
+    HRESULT CreateItem(
+        [in] BSTR bstrResourceName,
+        [in] BSTR bstrResourceType,
+        [in] CLUSTER_RESOURCE_CREATE_FLAGS dwFlags,
+        [out, retval] ISClusResource ** ppClusterResource );
+
+    [id(4), helpstring("Deletes a resource identified by name or numeric index from the collection and from the cluster.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+
+    [id(5), helpstring("Adds an existing cluster resource to the collection, making the resource a dependency of the resource from which the collection was obtained.")]
+    HRESULT AddItem( [in] ISClusResource* pResource );
+
+    [id(6), helpstring("Removes a resource identified by name or numeric index from the collection, but does not delete it from the cluster.")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusResGroupResources
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606ea-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Resources Collection in a group"),
+    pointer_default(unique)
+]
+interface ISClusResGroupResources : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of resources in the group).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the resource identified by name or numeric index.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResource ** ppClusResource );
+
+    [id(3), helpstring("Creates a new cluster resource and adds it to the group.")]
+    HRESULT CreateItem(
+        [in] BSTR bstrResourceName,
+        [in] BSTR bstrResourceType,
+        [in] CLUSTER_RESOURCE_CREATE_FLAGS dwFlags,
+        [out, retval] ISClusResource ** ppClusterResource );
+
+    [id(4), helpstring("Delete a resource identified by name or index from the collection and from the cluster.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusResTypeResources
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60714-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusResTypeResources Collection"),
+    pointer_default(unique)
+]
+interface ISClusResTypeResources : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of resources of a particular type in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the resource identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResource ** ppClusResource );
+
+    [id(3), helpstring("Creates a new resource in the cluster and adds it to the collection. The type of the new resource is the resource type from which the collection was obtained.")]
+    HRESULT CreateItem(
+        [in] BSTR bstrResourceName,
+        [in] BSTR bstrGroupName,
+        [in] CLUSTER_RESOURCE_CREATE_FLAGS dwFlags,
+        [out, retval] ISClusResource ** ppClusterResource );
+
+    [id(4), helpstring("Deletes a resource identified by name or index from the collection and from the cluster.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusResources
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6070c-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resources Collection"),
+    pointer_default(unique)
+]
+interface ISClusResources : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of resources in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a resource identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResource ** ppClusResource );
+
+    [id(3), helpstring("Creates a new resource in the cluster and adds it to the collection.")]
+    HRESULT CreateItem(
+        [in] BSTR bstrResourceName,
+        [in] BSTR bstrResourceType,
+        [in] BSTR bstrGroupName,
+        [in] CLUSTER_RESOURCE_CREATE_FLAGS dwFlags,
+        [out, retval] ISClusResource ** ppClusterResource );
+
+    [id(4), helpstring("Deletes a resource identified by name or index from the collection and from the cluster.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusResGroupPreferredOwnerNodes
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606e8-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Group Preferred Owner Nodes Collection"),
+    pointer_default(unique)
+]
+interface ISClusResGroupPreferredOwnerNodes : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of preferred owner nodes listed for a group.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a node identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNode ** ppNode );
+
+    [id(3), helpstring("Insert a node into the collection, making it a preferred owner node of the group from which the collection was obtained.")]
+    HRESULT InsertItem( [in] ISClusNode * pNode, [in] long nPosition );
+
+    [id(4), helpstring("Deletes a node identified by by name or numeric index from the collection.")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+
+    [propget, id(5), helpstring("Returns True if the collection has been modified.")]
+    HRESULT Modified([out,retval] VARIANT * pvarModified );
+
+    [id(6), helpstring("Saves the group's list of preferred owner nodes to the cluster database.")]
+    HRESULT SaveChanges( void );
+
+    [id(7), helpstring("Adds a node to the collection, making it a preferred owner node of the group from which the collection was obtained.")]
+    HRESULT AddItem( [in] ISClusNode * pNode );
+};
+
+/////////////////////////////////////////////////
+// ISClusResPossibleOwnerNodes
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6070e-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Possible Owner Nodes Collection"),
+    pointer_default(unique)
+]
+interface ISClusResPossibleOwnerNodes : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of possible owner nodes listed for a resoure.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns a node identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNode ** ppNode );
+
+    [id(3), helpstring("Adds a node to the collection, making it one of the possible owner nodes of the resource from which the collection was obtained.")]
+    HRESULT AddItem( [in] ISClusNode * pNode );
+
+    [id(4), helpstring("Removes the node identified by name or numeric index from the collection.")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+
+    [propget, id(5), helpstring("Returns True if the list of possible owner nodes has been modified.")]
+    HRESULT Modified([out,retval] VARIANT * pvarModified );
+};
+
+/////////////////////////////////////////////////
+// ISClusResTypePossibleOwnerNodes
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60718-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Type Possible Owner Nodes Collection"),
+    pointer_default(unique)
+]
+interface ISClusResTypePossibleOwnerNodes : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of possible owner nodes listed for a resource type.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the node identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusNode ** ppNode );
+};
+
+/////////////////////////////////////////////////
+// ISClusResType
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60710-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Type"),
+    pointer_default(unique)
+]
+interface ISClusResType : IDispatch
+{
+    [propget, id(1), helpstring("Returns the common read-write properties of the resource type.")]
+    HRESULT CommonProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(2), helpstring("Returns the private read-write properties of the resource type.")]
+    HRESULT PrivateProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(3), helpstring("Returns the common read-only properties of the resource type.")]
+    HRESULT CommonROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(4), helpstring("Returns the private read-only properties of the resource type.")]
+    HRESULT PrivateROProperties( [out, retval] ISClusProperties ** ppProperties );
+
+    [propget, id(5), helpstring("Returns the name of the resource type.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [id(6), helpstring("Deletes the resource type from the cluster and unregisters the type with the Cluster Service. No resources of that type can ever be created again in the cluster until the resource type is re-registered.")]
+    HRESULT Delete( void );
+
+    [propget, id(7), helpstring("Returns the cluster with which the resource type is associated.")]
+    HRESULT Cluster( [out,retval] ISCluster ** ppCluster );
+
+    [propget, id(8), helpstring("Returns the all of the resources of this resource type currently created in the cluster.")]
+    HRESULT Resources( [out, retval] ISClusResTypeResources ** ppClusterResTypeResources );
+
+    [propget, id(9), helpstring("Returns the resource type's list of possible owner nodes.")]
+    HRESULT PossibleOwnerNodes( [out, retval] ISClusResTypePossibleOwnerNodes ** ppOwnerNodes );
+
+    [propget, id(10), helpstring("Returns the collection of available disks.")]
+    HRESULT AvailableDisks( [out, retval] ISClusDisks ** ppAvailableDisks );
+};
+
+/////////////////////////////////////////////////
+// ISClusResTypes
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60712-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Cluster Resource Types Collection"),
+    pointer_default(unique)
+]
+interface ISClusResTypes : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of resource types in the cluster).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the resource type identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResType ** ppClusResType );
+
+    [id(3), helpstring("Registers a new resource type in the cluster. There must be a resource DLL to implement the new type. For more information, see 'Creating a Custom Resource Type' in the Platform SDK documentation.")]
+    HRESULT CreateItem(
+        [in] BSTR bstrResourceTypeName,
+        [in] BSTR bstrDisplayName,
+        [in] BSTR bstrResourceTypeDll,
+        [in] long dwLooksAlivePollInterval,
+        [in] long dwIsAlivePollInterval,
+        [out, retval] ISClusResType ** ppResourceType );
+
+    [id(4), helpstring("Deletes the resource type identified by name or index from the cluster if no resources of that type are present in the cluster.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusProperty
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e606fe-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Property of an object in the cluster"),
+    pointer_default(unique)
+]
+interface ISClusProperty : IDispatch
+{
+    [propget, id(1), helpstring("Returns the name of the property.")]
+    HRESULT Name( [out, retval] BSTR * pbstrName );
+
+    [propget, id(2), helpstring("Returns the length of the property.")]
+    HRESULT Length( [out, retval] long * pLength );
+
+    [propget, id(3), helpstring("Returns the count of values in the property.")]
+    HRESULT ValueCount( [out, retval] long * pCount );
+
+    [propget, id(4), helpstring("Returns all of the values for this property.")]
+    HRESULT Values( [out, retval] ISClusPropertyValues ** ppClusterPropertyValues );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns or sets the value of the property.")]
+    HRESULT Value( [out, retval] VARIANT * pvarValue );
+
+    [propput, id(DISPID_VALUE), helpstring("Returns or sets the value of the property.")]
+    HRESULT Value( [in] VARIANT varValue );
+
+    [propget, id(5), helpstring("Returns or sets the type of the property.")]
+    HRESULT Type( [out, retval] CLUSTER_PROPERTY_TYPE * pType );
+
+    [propput, id(5), helpstring("Returns or sets the type of the property.")]
+    HRESULT Type( [in] CLUSTER_PROPERTY_TYPE Type );
+
+    [propget, id(6), helpstring("Returns or sets the format of the property.")]
+    HRESULT Format( [out, retval] CLUSTER_PROPERTY_FORMAT * pFormat );
+
+    [propput, id(6), helpstring("Returns or sets the format of the property.")]
+    HRESULT Format( [in] CLUSTER_PROPERTY_FORMAT Format );
+
+    [propget, id(7), helpstring("Returns TRUE if this property is read only.")]
+    HRESULT ReadOnly( [out, retval] VARIANT * pvarReadOnly );
+
+    [propget, id(8), helpstring("Returns TRUE if this property is a private property.")]
+    HRESULT Private( [out, retval] VARIANT * pvarPrivate );
+
+    [propget, id(9), helpstring("Returns TRUE if this property is a common property.")]
+    HRESULT Common( [out, retval] VARIANT * pvarCommon );
+
+    [propget, id(10), helpstring("Returns True if this property has been modified.")]
+    HRESULT Modified([out,retval] VARIANT * pvarModified );
+
+    [id(11), helpstring("Returns a property to its default value state.  This effectivley removes the property from the collection.")]
+    HRESULT UseDefaultValue( void );
+};
+
+/////////////////////////////////////////////////
+// ISClusPropertyValue
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6071a-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Property value of an object in the cluster"),
+    pointer_default(unique)
+]
+interface ISClusPropertyValue : IDispatch
+{
+    [propget, id(DISPID_VALUE), helpstring("Returns or sets the value of the property value.")]
+    HRESULT Value( [out, retval] VARIANT * pvarValue );
+
+    [propput, id(DISPID_VALUE), helpstring("Returns or sets the value of the property value.")]
+    HRESULT Value( [in] VARIANT varValue );
+
+    [propget, id(2), helpstring("Returns or sets the type of the property value.")]
+    HRESULT Type( [out, retval] CLUSTER_PROPERTY_TYPE * pType );
+
+    [propput, id(2), helpstring("Returns or sets the type of the property value.")]
+    HRESULT Type( [in] CLUSTER_PROPERTY_TYPE Type );
+
+    [propget, id(3), helpstring("Returns or sets the format of the property value.")]
+    HRESULT Format( [out, retval] CLUSTER_PROPERTY_FORMAT * pFormat );
+
+    [propput, id(3), helpstring("Returns or sets the format of the property value.")]
+    HRESULT Format( [in] CLUSTER_PROPERTY_FORMAT Format );
+
+    [propget, id(4), helpstring("Returns the length of the property.")]
+    HRESULT Length( [out, retval] long * pLength );
+
+    [propget, id(5), helpstring("Returns the count of data in the property.")]
+    HRESULT DataCount( [out, retval] long * pCount );
+
+    [propget, id(6), helpstring("Returns all of the data for this property value.")]
+    HRESULT Data( [out, retval] ISClusPropertyValueData ** ppClusterPropertyValueData );
+};
+
+/////////////////////////////////////////////////
+// ISClusPropertyValues
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6071c-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusPropertyValue collection"),
+    pointer_default(unique)
+]
+interface ISClusPropertyValues : IDispatch
+{
+    [propget, id(2), helpstring("Returns the count of elements (property values) in the collection.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the property value identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusPropertyValue ** ppPropertyValue );
+
+    [id(3), helpstring("Adds a property value to the collection")]
+    HRESULT CreateItem( [in] BSTR bstrName, [in] VARIANT varValue, [out, retval] ISClusPropertyValue ** ppPropertyValue );
+
+    [id(4), helpstring("Removes property value identified by numeric index from the collection")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusProperties
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60700-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusProperty collection"),
+    pointer_default(unique)
+]
+interface ISClusProperties : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of properties associated with a cluster object.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the property identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusProperty ** ppClusProperty );
+
+    [id(3), helpstring("Creates and adds a property to the collection.")]
+    HRESULT CreateItem( [in] BSTR bstrName, [in] VARIANT varValue, [out, retval] ISClusProperty ** pProperty );
+
+    [id(4), helpstring("Returns a property to its default value state.  This effectivley removes the property from the collection.")]
+    HRESULT UseDefaultValue( [in] VARIANT varIndex );
+
+    [id(5), helpstring("Saves all property changes to the cluster database.")]
+    HRESULT SaveChanges( [out, defaultvalue( NULL )] VARIANT * pvarStatusCode );
+
+    [propget, id(6), helpstring("Returns TRUE if this a collection of read only properties.")]
+    HRESULT ReadOnly( [out, retval] VARIANT * pvarReadOnly );
+
+    [propget, id(7), helpstring("Returns TRUE if this is a collection of private properties.")]
+    HRESULT Private( [out, retval] VARIANT * pvarPrivate );
+
+    [propget, id(8), helpstring("Returns TRUE if this is a collection of common properties.")]
+    HRESULT Common( [out, retval] VARIANT * pvarCommon );
+
+    [propget, id(9), helpstring("Returns True if the collection of properties has been modified.")]
+    HRESULT Modified([out,retval] VARIANT * pvarModified );
+};
+
+/////////////////////////////////////////////////
+// ISClusPropertyValueData
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6071e-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusPropertyValueData collection"),
+    pointer_default(unique)
+]
+interface ISClusPropertyValueData : IDispatch
+{
+    [propget, id(2), helpstring("Returns the count of elements (property value data) in the collection.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the property value identified by numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] VARIANT * pvarValue );
+
+    [id(3), helpstring("Adds a property value data to the collection")]
+    HRESULT CreateItem( [in] VARIANT varValue, [out, retval] VARIANT * pvarData );
+
+    [id(4), helpstring("Removes property value data identified by the numeric index from the collection")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusPartition
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60720-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Partition information for physical disk resources."),
+    pointer_default(unique)
+]
+interface ISClusPartition : IDispatch
+{
+    [propget, id(1), helpstring("Returns any descriptive flags set for the partition.")]
+    HRESULT Flags( [out, retval] long * plFlags );
+
+    [propget, id(2), helpstring("Returns the device name of the partition.")]
+    HRESULT DeviceName( [out, retval] BSTR * pbstrDeviceName );
+
+    [propget, id(3), helpstring("Returns the volume label of the partition.")]
+    HRESULT VolumeLabel( [out, retval] BSTR * pbstrVolumeLabel );
+
+    [propget, id(4), helpstring("Returns the partition serial number.")]
+    HRESULT SerialNumber( [out, retval] long * plSerialNumber );
+
+    [propget, id(5), helpstring("Returns the maximum file name component length, in characters, allowed by the partition's file system.")]
+    HRESULT MaximumComponentLength( [out, retval] long * plMaximumComponentLength );
+
+    [propget, id(6), helpstring("Returns any descriptive flags set for the partition's file system.")]
+    HRESULT FileSystemFlags( [out, retval] long * plFileSystemFlags );
+
+    [propget, id(7), helpstring("Returns the file system defined for the partition.")]
+    HRESULT FileSystem( [out, retval] BSTR * pbstrFileSystem );
+};
+
+/////////////////////////////////////////////////
+// ISClusPartitionEx
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(8802d4fe-b32e-4ad1-9dbd-64f18e1166ce),
+    dual,
+    helpstring("Extended Partition information for physical disk resources."),
+    pointer_default(unique)
+]
+interface ISClusPartitionEx : ISClusPartition
+{
+    [propget, id(8), helpstring("Returns the total size for the partition in megabytes.")]
+    HRESULT TotalSize( [out, retval] long * plTotalSize );
+
+    [propget, id(9), helpstring("Returns the total space available for the partition in megabytes.")]
+    HRESULT FreeSpace( [out, retval] long * plFreeSpace );
+
+    [propget, id(10), helpstring("Returns the device number of the partition.")]
+    HRESULT DeviceNumber( [out, retval] long * plDeviceNumber );
+
+    [propget, id(11), helpstring("Returns the partition number of the partition.")]
+    HRESULT PartitionNumber( [out, retval] long * plPartitionNumber );
+
+    [propget, id(12), helpstring("Returns the volume guid of the partition.")]
+    HRESULT VolumeGuid( [out, retval] BSTR * pbstrVolumeGuid );
+
+};
+
+/////////////////////////////////////////////////
+// ISClusPartitions
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60722-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusPartition collection"),
+    pointer_default(unique)
+]
+interface ISClusPartitions : IDispatch
+{
+    [propget, id(2), helpstring("Returns the count of elements (partitions) in the collection.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the partition identified by numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusPartition ** ppPartition );
+};
+
+/////////////////////////////////////////////////
+// ISClusDisk
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60724-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Disk information for physical disk resources."),
+    pointer_default(unique)
+]
+interface ISClusDisk : IDispatch
+{
+    [propget, id(1), helpstring("Returns the signature of the Disk.")]
+    HRESULT Signature( [out, retval] long * plSignature );
+
+    [propget, id(2), helpstring("Returns the SCSI address of the Disk.")]
+    HRESULT ScsiAddress( [out, retval] ISClusScsiAddress ** ppScsiAddress );
+
+    [propget, id(3), helpstring("Returns the disk number of the Disk.")]
+    HRESULT DiskNumber( [out, retval] long * plDiskNumber );
+
+    [propget, id(4), helpstring("Returns the partition information of the Disk.")]
+    HRESULT Partitions( [out, retval] ISClusPartitions ** ppPartitions );
+};
+
+/////////////////////////////////////////////////
+// ISClusDisks
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60726-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("ISClusDisk collection"),
+    pointer_default(unique)
+]
+interface ISClusDisks : IDispatch
+{
+    [propget, id(2), helpstring("Returns the count of elements (disks) in the collection.")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the Disk identified by numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusDisk ** ppDisk );
+};
+
+/////////////////////////////////////////////////
+// ISClusScsiAddress
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e60728-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("SCSI address of a disk."),
+    pointer_default(unique)
+]
+interface ISClusScsiAddress : IDispatch
+{
+    [propget, id(1), helpstring("Returns the SCSI port ID of the Disk.")]
+    HRESULT PortNumber( [out, retval] VARIANT * pvarPortNumber );
+
+    [propget, id(2), helpstring("Returns the SCSI path ID of the Disk.")]
+    HRESULT PathId( [out, retval] VARIANT * pvarPathId );
+
+    [propget, id(3), helpstring("Returns the SCSI target ID of the Disk.")]
+    HRESULT TargetId( [out, retval] VARIANT * pvarTargetId );
+
+    [propget, id(4), helpstring("Returns the SCSI Lun of the Disk.")]
+    HRESULT Lun( [out, retval] VARIANT * pvarLun );
+};
+
+/////////////////////////////////////////////////
+// ISClusRegistryKeys
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6072a-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Registry keys collection"),
+    pointer_default(unique)
+]
+interface ISClusRegistryKeys : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of registry keys).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the item identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex, [out, retval] BSTR * pbstrRegistryKey );
+
+    [id(3), helpstring("Adds a registry key to the collection")]
+    HRESULT AddItem( [in] BSTR bstrRegistryKey );
+
+    [id(4), helpstring("Removes the registry key identified by the numeric index from the collection")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusCryptoKeys
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6072c-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Registry keys collection"),
+    pointer_default(unique)
+]
+interface ISClusCryptoKeys : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of crypto keys).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the item identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex, [out, retval] BSTR * pbstrCyrptoKey );
+
+    [id(3), helpstring("Adds a crypto key to the collection")]
+    HRESULT AddItem( [in] BSTR bstrCryptoKey );
+
+    [id(4), helpstring("Removes the crypto key identified by the numeric index from the collection")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+};
+
+/////////////////////////////////////////////////
+// ISClusResDependents
+[
+    oleautomation,
+    hidden,
+    nonextensible,
+    object,
+    uuid(f2e6072e-2631-11d1-89f1-00a0c90d061e),
+    dual,
+    helpstring("Resource Dependents for a resource"),
+    pointer_default(unique)
+]
+interface ISClusResDependents : IDispatch
+{
+    [propget, id(1), helpstring("Returns the count of elements in the collection (the number of dependencts listed for a resource).")]
+    HRESULT Count( [out, retval] long * plCount );
+
+    [propget, restricted, id(DISPID_NEWENUM), helpstring("Returns an enumerator for the collection.")]
+    HRESULT _NewEnum( [out, retval] IUnknown ** retval);
+
+    [id(2), helpstring("Refreshes the data in the collection")]
+    HRESULT Refresh( void );
+
+    [propget, id(DISPID_VALUE), helpstring("Returns the dependenct (resource) identified by name or numeric index from the collection.")]
+    HRESULT Item( [in] VARIANT varIndex , [out, retval] ISClusResource ** ppClusResource );
+
+    [id(3), helpstring("Creates a new resource and add it to the collection, making the resource a dependenct of the resource from which the collection was obtained.")]
+    HRESULT CreateItem(
+        [in] BSTR bstrResourceName,
+        [in] BSTR bstrResourceType,
+        [in] CLUSTER_RESOURCE_CREATE_FLAGS dwFlags,
+        [out, retval] ISClusResource ** ppClusterResource );
+
+    [id(4), helpstring("Deletes a resource identified by name or numeric index from the collection and from the cluster.")]
+    HRESULT DeleteItem( [in] VARIANT varIndex );
+
+    [id(5), helpstring("Adds an existing cluster resource to the collection, making the resource a dependenct of the resource from which the collection was obtained.")]
+    HRESULT AddItem( [in] ISClusResource* pResource );
+
+    [id(6), helpstring("Removes a resource identified by name or numeric index from the collection, but does not delete it from the cluster.")]
+    HRESULT RemoveItem( [in] VARIANT varIndex );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

@@ -1,0 +1,68 @@
+//--------------------------------------------------------------------------
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//---------------------------------------------------------------------------")
+cpp_quote("// Copyright (c) Microsoft Corporation.  All rights reserved.")
+cpp_quote("//")
+cpp_quote("//---------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+import "unknwn.idl";
+import "dcompanimation.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+// Interface to coordinate a set of animations with the input pane.
+// This interface is retrieved by CoCreating either:
+//   CLSID_ShowInputPaneAnimationCoordinator
+//   CLSID_HideInputPaneAnimationCoordinator
+// The client can use these objects to notify the animation system
+// about their individual animations they would like to coordinate with
+// the input pane animation.
+[
+    local,
+    object,
+    uuid(2AF16BA9-2DE5-4B75-82D9-01372AFBFFB4),
+    pointer_default(unique)
+]
+interface IInputPaneAnimationCoordinator : IUnknown
+{
+    // Adds a direct composition animation to coordinate with on the specified IDCompositionDevice device.
+    // We use IUnknown here since IDCompositionDevice is not available in an IDL definition.
+    HRESULT AddAnimation([in, annotation("_In_")] IUnknown *device,
+                         [in, annotation("_In_")] IDCompositionAnimation *animation);
+}
+
+[
+    uuid(CC15AF28-96D8-466F-893D-161DA58CE51E),
+    version(1.0)
+]
+library AnimationCoordinatorLib
+{
+    [
+        uuid(1F046ABF-3202-4DC1-8CB5-3C67617CE1FA)
+    ]
+    coclass ShowInputPaneAnimationCoordinator
+    {
+        [default] interface IInputPaneAnimationCoordinator;
+    }
+    [	
+        uuid(384742B1-2A77-4CB3-8CF8-1136F5E17E59)
+    ]
+    coclass HideInputPaneAnimationCoordinator
+    {
+        [default] interface IInputPaneAnimationCoordinator;
+    }
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

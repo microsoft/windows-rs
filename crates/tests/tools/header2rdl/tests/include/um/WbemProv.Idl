@@ -1,0 +1,348 @@
+cpp_quote("/*******************************************************************************/" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    Copyright (c) Microsoft Corporation.  All rights reserved.               */" )
+cpp_quote("/*                                                                             */" )
+           /*    WBEMPROV.IDL                                                             */
+           /*                                                                             */
+cpp_quote("/*    This IDL file defines the interfaces that WBEM providers need in         */" )
+cpp_quote("/*    addition to the client interfaces defined in WBEMCLI.IDL                 */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*******************************************************************************/" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or WinMgmt Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT)")
+
+import "objidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+import "wbemcli.idl";
+
+
+typedef VARIANT WBEM_VARIANT;
+typedef [string] LPWSTR WBEM_WSTR;
+typedef [string] LPCWSTR WBEM_CWSTR;
+
+typedef [v1_enum] enum tag_WBEM_PROVIDER_REQUIREMENTS_TYPE
+{
+    WBEM_REQUIREMENTS_START_POSTFILTER = 0,
+    WBEM_REQUIREMENTS_STOP_POSTFILTER = 1,
+    WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS = 2
+} WBEM_PROVIDER_REQUIREMENTS_TYPE;
+
+[uuid(092df710-7010-11d1-ad90-00c04fd8fdff)]
+library WbemProviders_v1
+{
+    interface IWbemPropertyProvider;
+    interface IWbemUnboundObjectSink;
+    interface IWbemEventProvider;
+    interface IWbemEventProviderQuerySink;
+    interface IWbemEventProviderSecurity;
+    interface IWbemEventConsumerProvider;
+
+    interface IWbemProviderInitSink;
+    interface IWbemProviderInit;
+    interface IWbemHiPerfProvider;
+
+	interface IWbemDecoupledRegistrar ;
+
+    /////////////////////////////////////////////////////////////////
+    //
+
+    [uuid(cb8555cc-9128-11d1-ad9b-00c04fd8fdff)]
+    coclass WbemAdministrativeLocator
+    {
+        interface IWbemLocator;
+    };
+
+	// this assumes that the transport has verified that
+	// the user has access.  Unlike the Administrative locator,
+	// it increases the count of external connections
+
+    [uuid(cd184336-9128-11d1-ad9b-00c04fd8fdff)]
+    coclass WbemAuthenticatedLocator
+    {
+        interface IWbemLocator;
+    };
+
+	// this is used by providers who dont know if a user
+	// has access or not.
+
+    [uuid(443E7B79-DE31-11d2-B340-00104BCC4B4A)]
+    coclass WbemUnauthenticatedLocator
+    {
+        interface IWbemLocator;
+    };
+
+	// this is used by providers that do not wish to be instantiated
+	// by winmgmt, rather the provider registers it's participation 
+	// in servicing client requests as and when desired. This is 
+	// primarily used by providers that act on the part of application
+	// hosts and that export management information only when they are activated
+	// via some application scenario. 
+
+    [uuid(4cfc7932-0f9d-4bef-9c32-8ea2a6b56fcb)]
+    coclass WbemDecoupledRegistrar
+    {
+        interface IWbemDecoupledRegistrar ;
+    };
+
+    [uuid(f5f75737-2843-4f22-933d-c76a97cda62f)]
+    coclass WbemDecoupledBasicEventProvider
+    {
+        interface IWbemDecoupledBasicEventProvider ;
+    };
+
+
+};
+
+#define OPTIONAL in, unique
+
+[restricted, object, uuid(e246107b-b06e-11d0-ad61-00c04fd8fdff)]
+interface IWbemUnboundObjectSink : IUnknown
+{
+    HRESULT IndicateToConsumer(
+        [in] IWbemClassObject* pLogicalConsumer,
+        [in] long lNumObjects,
+        [in, size_is(lNumObjects)] IWbemClassObject** apObjects);
+};
+
+
+/////////////////////////////////////////////////////////////////
+//
+//
+
+[restricted, object, uuid(CE61E841-65BC-11d0-B6BD-00AA003240C7)]
+
+interface IWbemPropertyProvider : IUnknown
+{
+    HRESULT GetProperty(
+        [in] long lFlags,
+        [in] const BSTR strLocale,
+        [in] const BSTR strClassMapping,
+        [in] const BSTR strInstMapping,
+        [in] const BSTR strPropMapping,
+        [out] VARIANT* pvValue
+        );
+        
+    HRESULT PutProperty(
+        [in] long lFlags,
+        [in] const BSTR strLocale,
+        [in] const BSTR strClassMapping,
+        [in] const BSTR strInstMapping,
+        [in] const BSTR strPropMapping,
+        [in] const VARIANT* pvValue
+        );        
+};
+
+[restricted, object, uuid(e245105b-b06e-11d0-ad61-00c04fd8fdff)]
+interface IWbemEventProvider : IUnknown
+{
+    HRESULT ProvideEvents(
+                [in] IWbemObjectSink* pSink,
+                [in] long lFlags
+            );
+};
+
+[restricted, object, uuid(580acaf8-fa1c-11d0-ad72-00c04fd8fdff)]
+interface IWbemEventProviderQuerySink : IUnknown
+{
+    HRESULT NewQuery(
+                [in] unsigned long dwId,
+                [in] WBEM_WSTR wszQueryLanguage,
+                [in] WBEM_WSTR wszQuery
+            );
+    HRESULT CancelQuery(
+                [in] unsigned long dwId);
+};
+
+[restricted, object, uuid(631f7d96-d993-11d2-b339-00105a1f4aaf)]
+interface IWbemEventProviderSecurity : IUnknown
+{
+    HRESULT AccessCheck(
+                [in] WBEM_CWSTR wszQueryLanguage,
+                [in] WBEM_CWSTR wszQuery,
+                [in] long lSidLength,
+                [in, size_is(lSidLength), unique] const BYTE* pSid);
+};
+
+[restricted, object, uuid(631f7d97-d993-11d2-b339-00105a1f4aaf)]
+interface IWbemProviderIdentity : IUnknown
+{
+    HRESULT SetRegistrationObject(
+                [in] long lFlags,
+                [in] IWbemClassObject* pProvReg);
+};
+
+
+[restricted, object, uuid(e246107a-b06e-11d0-ad61-00c04fd8fdff)]
+interface IWbemEventConsumerProvider : IUnknown
+{
+     HRESULT FindConsumer(
+                [in] IWbemClassObject* pLogicalConsumer,
+                [out] IWbemUnboundObjectSink** ppConsumer);
+};
+
+typedef enum tag_WBEM_EXTRA_RETURN_CODES
+{
+    WBEM_S_INITIALIZED = 0,
+    WBEM_S_LIMITED_SERVICE = 0x43001,
+    WBEM_S_INDIRECTLY_UPDATED,
+    WBEM_S_SUBJECT_TO_SDS,
+    
+
+    WBEM_E_RETRY_LATER = 0x80043001,
+    WBEM_E_RESOURCE_CONTENTION,
+} WBEM_EXTRA_RETURN_CODES;
+
+typedef enum tag_WBEM_PROVIDER_FLAGS
+{
+    WBEM_FLAG_OWNER_UPDATE = 0x10000,
+} WBEM_PROVIDER_FLAGS;
+
+
+
+[object, uuid(1be41571-91dd-11d1-aeb2-00c04fb68820)]
+
+interface IWbemProviderInitSink : IUnknown
+{
+    HRESULT SetStatus(
+        [in] LONG lStatus,
+        [in] LONG lFlags 
+        );
+};
+
+
+
+[object, uuid(1be41572-91dd-11d1-aeb2-00c04fb68820)]
+
+interface IWbemProviderInit : IUnknown
+{
+    HRESULT Initialize(
+        [in, unique, string] LPWSTR wszUser,
+        [in] LONG lFlags,
+        [in, string] LPWSTR wszNamespace,
+        [in, unique, string] LPWSTR wszLocale,
+        [in] IWbemServices* pNamespace,
+        [in] IWbemContext* pCtx,
+        [in] IWbemProviderInitSink* pInitSink    
+        );
+};
+
+[local, restricted, object, uuid(49353c93-516b-11d1-aea6-00c04fb68820)]
+interface IWbemHiPerfProvider : IUnknown
+{
+    HRESULT QueryInstances(
+            [in, annotation("_In_")] IWbemServices* pNamespace,
+            [in, string, annotation("_In_")] WCHAR* wszClass,
+            [in, annotation("_In_")] long lFlags,
+            [in, annotation("_In_")] IWbemContext* pCtx,
+            [in, annotation("_Out_")] IWbemObjectSink* pSink     // Return IWbemClassObject ptrs 
+        );
+
+    HRESULT CreateRefresher(
+            [in, annotation("_In_")] IWbemServices* pNamespace,
+            [in, annotation("_In_")] long lFlags,
+            [out, annotation("_Out_")] IWbemRefresher** ppRefresher);
+
+    HRESULT CreateRefreshableObject(
+            [in, annotation("_In_")] IWbemServices* pNamespace,
+            [in, annotation("_In_")] IWbemObjectAccess* pTemplate,
+            [in, annotation("_In_")] IWbemRefresher* pRefresher,
+            [in, annotation("_In_")] long lFlags,
+            [in, annotation("_In_")] IWbemContext* pContext,
+            [out, annotation("_Out_")] IWbemObjectAccess** ppRefreshable,
+            [out, annotation("_Out_")] long* plId);
+
+    HRESULT StopRefreshing(
+            [in, annotation("_In_")] IWbemRefresher* pRefresher,
+            [in, annotation("_In_")] long lId,
+            [in, annotation("_In_")] long lFlags);
+
+	HRESULT CreateRefreshableEnum(
+            [in, annotation("_In_")] IWbemServices* pNamespace,
+            [in, string, annotation("_In_")] LPCWSTR wszClass,
+            [in, annotation("_In_")] IWbemRefresher* pRefresher,
+            [in, annotation("_In_")] long lFlags,
+            [in, annotation("_In_")] IWbemContext* pContext,
+            [in, annotation("_In_")] IWbemHiPerfEnum* pHiPerfEnum,
+            [out, annotation("_Out_")] long* plId);
+
+	HRESULT GetObjects(
+            [in, annotation("_In_")] IWbemServices* pNamespace,
+			[in, annotation("_In_")] long lNumObjects,
+			[in,out,size_is(lNumObjects), annotation("_Out_writes_(lNumObjects)")] IWbemObjectAccess** apObj,
+            [in, annotation("_In_")] long lFlags,
+            [in, annotation("_In_")] IWbemContext* pContext);
+
+};
+
+[object, local, uuid(1005cbcf-e64f-4646-bcd3-3a089d8a84b4)]
+interface IWbemDecoupledRegistrar : IUnknown
+{
+	HRESULT Register (
+
+		[in] long a_Flags ,
+		[in] IWbemContext *a_Context ,
+		[in] LPCWSTR a_User ,
+		[in] LPCWSTR a_Locale ,
+		[in] LPCWSTR a_Scope ,
+		[in] LPCWSTR a_Registration ,
+		[in] IUnknown *pIUnknown
+	) ;
+
+	HRESULT UnRegister () ;
+} ;
+
+[object, local, uuid(86336d20-ca11-4786-9ef1-bc8a946b42fc)]
+interface IWbemDecoupledBasicEventProvider : IWbemDecoupledRegistrar
+{
+	HRESULT GetSink (
+
+		[in] long a_Flags ,
+		[in] IWbemContext *a_Context ,
+		[out] IWbemObjectSink **a_Sink
+	) ;
+
+	HRESULT GetService (
+
+		[in] long a_Flags ,
+		[in] IWbemContext *a_Context ,
+		[out] IWbemServices **a_Service
+	) ;
+
+} ;
+
+typedef [v1_enum] enum tag_WBEM_BATCH_TYPE
+{
+    WBEM_FLAG_BATCH_IF_NEEDED = 0,
+    WBEM_FLAG_MUST_BATCH = 0x1,
+    WBEM_FLAG_MUST_NOT_BATCH = 0x2
+} WBEM_BATCH_TYPE;
+
+
+[object, restricted, uuid(3ae0080a-7e3a-4366-bf89-0feedc931659)]
+interface IWbemEventSink : IWbemObjectSink
+{
+    HRESULT SetSinkSecurity(
+                [in] long lSDLength,
+                [in, size_is(lSDLength)] BYTE* pSD);
+
+    HRESULT IsActive();
+
+    HRESULT GetRestrictedSink(
+                [in] long lNumQueries,
+                [in, size_is(lNumQueries), string] const LPCWSTR* awszQueries,
+                [in] IUnknown* pCallback,
+                [out] IWbemEventSink** ppSink);
+
+    HRESULT SetBatchingParameters(
+                [in] LONG lFlags,
+                [in] DWORD dwMaxBufferSize,
+                [in] DWORD dwMaxSendLatency);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT) */")
+#pragma endregion

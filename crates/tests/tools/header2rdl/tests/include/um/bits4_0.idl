@@ -1,0 +1,122 @@
+
+/*++
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Module name:
+
+    bits4_0.idl
+
+Abstract:
+
+    Contains interfaces, types, and macros for Background Intelligent Transfer Service.
+
+--*/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+import "bits2_5.idl";
+import "bits3_0.idl";
+
+/*
+sequential uuids that can be used for new interfaces, etc:
+
+
+
+bb6df56d-cace-11dc-9992-0019b93a3a84
+bb6df56e-cace-11dc-9992-0019b93a3a84
+bb6df56f-cace-11dc-9992-0019b93a3a84
+bb6df570-cace-11dc-9992-0019b93a3a84
+bb6df571-cace-11dc-9992-0019b93a3a84
+bb6df572-cace-11dc-9992-0019b93a3a84
+bb6df573-cace-11dc-9992-0019b93a3a84
+*/
+
+[
+    uuid(9a2584c3-f7d2-457a-9a5e-22b67bffc7d2),
+    helpstring("IBitsTokenOptions"),
+    odl
+]
+interface IBitsTokenOptions : IUnknown
+{
+	cpp_quote("#define BG_TOKEN_LOCAL_FILE      0x0001")
+	cpp_quote("#define BG_TOKEN_NETWORK         0x0002")
+	
+	// set the usage flags (only)
+	//
+	HRESULT SetHelperTokenFlags( DWORD UsageFlags );
+	
+	// return the usage flags 
+	//
+	HRESULT GetHelperTokenFlags( [out] DWORD * pFlags );
+	
+	
+	// Set the helper token to be the COM client's token.
+	// Requires that the proxy blanket use 
+	// RPC_C_IMP_LEVEL_IMPERSONATE or RPC_C_IMP_LEVEL_DELEGATE      
+	//
+	HRESULT SetHelperToken();
+	
+	// discard the token without changing the usage flags
+	//
+	HRESULT ClearHelperToken();
+	
+	// return the SID of the helper token in pVal, if one is set. 
+	// If no token available, set pVal to NULL.
+	//
+	HRESULT GetHelperTokenSid( [out] LPWSTR * pSid );
+};
+
+
+[
+    uuid(ef7e0655-7888-4960-b0e5-730846e03492),
+    helpstring("IBackgroundCopyFile4 interface"),
+    odl
+]
+interface IBackgroundCopyFile4 : IBackgroundCopyFile3
+{
+	HRESULT GetPeerDownloadStats( [out] PUINT64 pFromOrigin, [out] PUINT64 pFromPeers );
+}
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(bb6df56a-cace-11dc-9992-0019b93a3a84),
+    helpstring("Microsoft Background Copy Manager 4.0"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager4_0
+{
+    [
+        uuid(bb6df56b-cace-11dc-9992-0019b93a3a84),
+        helpstring("Background copy manager 3.0")
+    ]
+    coclass BackgroundCopyManager4_0
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback2;
+    interface IBackgroundCopyFile4;
+    interface IBackgroundCopyJob4;
+    interface IBackgroundCopyJobHttpOptions;
+    interface IBitsPeer;
+    interface IBitsPeerCacheAdministration;
+    interface IBitsPeerCacheRecord;
+    interface IBitsTokenOptions;
+    interface IEnumBitsPeerCacheRecords;
+    interface IEnumBitsPeers;
+}
+
+cpp_quote("#include \"bits5_0.h\"")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

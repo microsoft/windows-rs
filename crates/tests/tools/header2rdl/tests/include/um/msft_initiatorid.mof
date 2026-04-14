@@ -1,0 +1,100 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "This object represents the storage subsystem's view of an initiator port. This is used in "
+    "conjunction with target port to establish which initiator port is allowed to access to "
+    "the subsystem's virtual disks."
+    )]
+class MSFT_InitiatorId : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "This field contains the address or unique identifier for the corresponding initiator "
+        "port."
+        )]
+    String InitiatorAddress;
+
+    [Read, Required, Description(
+        "This field specifies the type of the identifier used for initiator address."
+        ),
+        ValueMap { "1", "2", "3", "4", "5", "6", "7" }, 
+        Values { "Other", "PortWWN", "NodeWWN", "Hostname", 
+                 "iSCSI Name", "SwitchWWN", "SASAddress" }]
+    UInt16 Type;
+
+    [Read, Required, Description(
+        "This field specifies the operating system, version, driver, and other host environment "
+        "factors that influence the behavior exposed by storage systems."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "20", "21",
+            "22..32767", "32768..65535"
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "Standard", "Solaris", "HPUX",
+            // 5 - 9
+            "OpenVMS", "Tru64", "Netware", "Sequent", "AIX",
+            // 10 - 14
+            "DGUX", "Dynix", "Irix", "Cisco iSCSI Storage Router", "Linux",
+            // 15 - 19
+            "Microsoft Windows", "OS400", "TRESPASS", "HI-UX", "VMware ESXi",
+            // 20 - 21
+            "Microsoft Windows Server 2008", "Microsoft Windows Server 2003",
+            // 22..
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 HostType[];
+
+    [Read, Description ( 
+        "When the corresponding array entry in HostType[] "
+        "is \"Other\", this entry provides a string describing "
+        "the manufacturer and OS/Environment. When the "
+        "corresponding HostType[] entry is not \"Other\", this "
+        "entry allows variations or qualifications of ClientTypes "
+        "- for example, different versions of Solaris." ), 
+       ArrayType ( "Indexed" ), 
+       ModelCorrespondence { 
+          "CIM_StorageClientSettingData.ClientTypes" }]
+    String OtherHostTypeDescription[];
+
+
+    //
+    // Method: DeleteObject
+    //
+
+    [Description(
+        "Allows the user to delete an instance of an initiator id"
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002", "40003",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 DeleteObject(
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};

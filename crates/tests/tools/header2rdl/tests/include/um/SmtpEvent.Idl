@@ -1,0 +1,2225 @@
+//+------------------------------------------------------------
+//
+// Copyright (C) 1999, Microsoft Corporation
+//
+// File: smtpevent.idl
+//
+// Contents: SMTP Server Event interfaces
+//
+// Description: This file contains the interface definitions for the
+//              SMTP Server Events.
+//
+//-------------------------------------------------------------
+
+cpp_quote("#ifndef __SMTPEVENT_H__")
+cpp_quote("#define __SMTPEVENT_H__")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "wtypes.idl";
+import "ocidl.idl";
+import "mailmsg.idl";
+
+//+------------------------------------------------------------
+//
+// The SMTP Protocol events interfaces:
+//
+//-------------------------------------------------------------
+cpp_quote("//")
+cpp_quote("// Define sink return codes")
+cpp_quote("//")
+
+cpp_quote("#define EXPE_S_CONSUMED              0x00000002")
+
+cpp_quote("//")
+cpp_quote("// Define well-known status codes")
+cpp_quote("//")
+
+cpp_quote("#define EXPE_SUCCESS                 0x00000000")
+cpp_quote("#define EXPE_NOT_PIPELINED           0x00000000")
+cpp_quote("#define EXPE_PIPELINED               0x00000001")
+cpp_quote("#define EXPE_REPEAT_COMMAND          0x00000002")
+cpp_quote("#define EXPE_BLOB_READY              0x00000004")
+cpp_quote("#define EXPE_BLOB_DONE               0x00000008")
+
+cpp_quote("#define EXPE_DROP_SESSION            0x00010000")
+cpp_quote("#define EXPE_CHANGE_STATE            0x00020000")
+cpp_quote("#define EXPE_TRANSIENT_FAILURE       0x00040000")
+cpp_quote("#define EXPE_COMPLETE_FAILURE        0x00080000")
+
+cpp_quote("#define EXPE_UNHANDLED                       0xffffffff")
+
+cpp_quote("//")
+cpp_quote("// Define constants for next states")
+cpp_quote("//")
+
+cpp_quote("typedef enum _PE_STATES")
+cpp_quote("{")
+cpp_quote("     PE_STATE_DEFAULT = 0,")
+cpp_quote("     PE_STATE_SESSION_START,")
+cpp_quote("     PE_STATE_MESSAGE_START,")
+cpp_quote("     PE_STATE_PER_RECIPIENT,")
+cpp_quote("     PE_STATE_DATA_OR_BDAT,")
+cpp_quote("     PE_STATE_SESSION_END,")
+cpp_quote("     PE_STATE_MAX_STATES = PE_STATE_SESSION_END")
+cpp_quote("")
+cpp_quote("} PE_STATES;")
+
+
+cpp_quote("//")
+cpp_quote("// Define macros for checking SMTP return code classes")
+cpp_quote("//")
+
+cpp_quote("#define IsSmtpPreliminarySuccess(x)          ((((x) / 100) == 1)?TRUE:FALSE)")
+cpp_quote("#define IsSmtpCompleteSuccess(x)                     ((((x) / 100) == 2)?TRUE:FALSE)")
+cpp_quote("#define IsSmtpIntermediateSuccess(x)         ((((x) / 100) == 3)?TRUE:FALSE)")
+cpp_quote("#define IsSmtpTransientFailure(x)            ((((x) / 100) == 4)?TRUE:FALSE)")
+cpp_quote("#define IsSmtpCompleteFailure(x)                     ((((x) / 100) == 5)?TRUE:FALSE)")
+
+cpp_quote("//")
+cpp_quote("// Define well known IServer property IDs")
+cpp_quote("//")
+cpp_quote("#define PE_ISERVID_DW_INSTANCE               0")
+cpp_quote("#define PE_ISERVID_SZ_DEFAULTDOMAIN          1")
+cpp_quote("#define PE_ISERVID_DW_CATENABLE              2")
+cpp_quote("#define PE_ISERVID_DW_CATFLAGS               3")
+cpp_quote("#define PE_ISERVID_DW_CATPORT                4")
+cpp_quote("#define PE_ISERVID_SZ_CATUSER                5")
+cpp_quote("#define PE_ISERVID_SZ_CATSCHEMA              6")
+cpp_quote("#define PE_ISERVID_SZ_CATBINDTYPE            7")
+cpp_quote("#define PE_ISERVID_SZ_CATPASSWORD            8")
+cpp_quote("#define PE_ISERVID_SZ_CATDOMAIN              9")
+cpp_quote("#define PE_ISERVID_SZ_CATNAMINGCONTEXT      10")
+cpp_quote("#define PE_ISERVID_SZ_CATDSTYPE             11")
+cpp_quote("#define PE_ISERVID_SZ_CATDSHOST             12")
+
+cpp_quote("//")
+cpp_quote("// Define well known ISession property IDs")
+cpp_quote("//")
+cpp_quote("#define ISESSION_PID_IS_SESSION_AUTHENTICATED 0")
+cpp_quote("#define ISESSION_PID_AUTHENTICATED_USERNAME   1")
+cpp_quote("#define ISESSION_PID_REMOTE_SERVER_NAME       2")
+cpp_quote("#define ISESSION_PID_ANONYMOUS_AUTH           3")
+cpp_quote("#define ISESSION_PID_MAY_RELAY                4")
+cpp_quote("#define ISESSION_PID_LOCAL_IP_ADDRESS         5")
+cpp_quote("#define ISESSION_PID_REMOTE_IP_ADDRESS        6")
+cpp_quote("//")
+cpp_quote("// Define well known ISession for outbound property IDs")
+cpp_quote("//")
+cpp_quote("// Route Address as returned by GetNextHop")
+cpp_quote("#define ISESSION_PID_OUT_ROUTE_ADDRESS       100")
+cpp_quote("// Connector Name as returned by GetNextHop")
+cpp_quote("#define ISESSION_PID_OUT_CONNECTOR_NAME      101")
+
+cpp_quote("//")
+cpp_quote("// Categorizer Properties")
+cpp_quote("//")
+cpp_quote("#define PHAT_DSPARAMETER_ATTRIBUTE_DISPLAYNAME    (DSPARAMETER_OBJECTCLASS_DL_DYNAMIC + 1)")
+cpp_quote("#define PHAT_DSPARAMETER_ENDENUMMESS              (PHAT_DSPARAMETER_ATTRIBUTE_DISPLAYNAME + 1)")
+
+
+interface ISmtpInCallbackSink;
+
+[
+                object,
+                local,
+                uuid(5F15C533-E90E-11D1-8852-00C04FA35B86),
+                helpstring("ISmtpInCommandContext Interface"),
+                pointer_default(unique)
+]
+interface ISmtpInCommandContext : IUnknown
+{
+        // Query methods
+        HRESULT QueryCommand(
+                                [out,size_is(*pdwSize)] LPSTR   pszCommand,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryCommandKeyword(
+                                [out,size_is(*pdwSize)] LPSTR   pszKeyword,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryNativeResponse(
+                                [out,size_is(*pdwSize)] LPSTR   pszNativeResponse,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryResponse(
+                                [out,size_is(*pdwSize)] LPSTR   pszResponse,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryCommandSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryCommandKeywordSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryNativeResponseSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryResponseSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryCommandStatus(
+                                [out] DWORD     *pdwCommandStatus
+                                );
+
+        HRESULT QuerySmtpStatusCode(
+                                [out] DWORD     *pdwSmtpStatus
+                                );
+
+        HRESULT QueryProtocolErrorFlag(
+                                [out] BOOL      *pfProtocolError
+                                );
+
+        // Set methods
+        HRESULT SetResponse(
+                                [in,string] LPSTR       pszResponse,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT AppendResponse(
+                                [in,string] LPSTR       pszResponse,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT SetNativeResponse(
+                                [in,string] LPSTR       pszNativeResponse,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT AppendNativeResponse(
+                                [in,string] LPSTR       pszNativeResponse,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT SetCommandStatus(
+                                [in] DWORD      dwCommandStatus
+                                );
+
+        HRESULT SetSmtpStatusCode(
+                                [in] DWORD      dwSmtpStatus
+                                );
+
+        HRESULT SetProtocolErrorFlag(
+                                [in] BOOL       fProtocolError
+                                );
+
+        // Async completion callback
+        HRESULT NotifyAsyncCompletion(
+                                [in] HRESULT    hrResult
+                                );
+
+        HRESULT SetCallback(
+                                [in] ISmtpInCallbackSink * pICallback
+                                );
+};
+
+[
+                object,
+                local,
+                uuid(5e4fc9da-3e3b-11d3-88f1-00c04fa35b86),
+                helpstring("ISmtpInCallbackContext Interface"),
+                pointer_default(unique)
+]
+interface ISmtpInCallbackContext : IUnknown
+{
+        // Query methods
+        HRESULT QueryBlob(
+                                [out]           BYTE    **ppbBlob,
+                                [in,out]        DWORD   *pdwSize
+                                );
+
+        HRESULT QueryBlobSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        // Set methods
+        HRESULT SetResponse(
+                                [in,string] LPSTR       pszResponse,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT AppendResponse(
+                                [in,string] LPSTR       pszResponse,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT SetCommandStatus(
+                                [in] DWORD      dwCommandStatus
+                                );
+
+        HRESULT SetSmtpStatusCode(
+                                [in] DWORD      dwSmtpStatus
+                                );
+};
+
+[
+                object,
+                local,
+                uuid(c849b5f2-0a80-11d2-aa67-00c04fa35b82),
+                helpstring("ISmtpOutCommandContext Interface"),
+                pointer_default(unique)
+]
+interface ISmtpOutCommandContext : IUnknown
+{
+        // Query methods
+        HRESULT QueryCommand(
+                                [out,size_is(*pdwSize)] LPSTR   pszCommand,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryCommandKeyword(
+                                [out,size_is(*pdwSize)] LPSTR   pszKeyword,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryNativeCommand(
+                                [out,size_is(*pdwSize)] LPSTR   pszNativeCommand,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryCommandSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryCommandKeywordSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryNativeCommandSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryCurrentRecipientIndex(
+                                [out] DWORD     *pdwRecipientIndex
+                                );
+
+        HRESULT QueryCommandStatus(
+                                [out] DWORD     *pdwCommandStatus
+                                );
+
+        // Set methods
+        HRESULT SetCommand(
+                                [in,string] LPSTR       szCommand,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT AppendCommand(
+                                [in,string] LPSTR       szCommand,
+                                [in]            DWORD   dwSize
+                                );
+
+        HRESULT SetCommandStatus(
+                                [in] DWORD      dwCommandStatus
+                                );
+
+        // Async completion callback
+        HRESULT NotifyAsyncCompletion(
+                                [in] HRESULT    hrResult
+                                );
+
+        HRESULT SetBlob(
+                                [in]            BYTE    *pbBlob,
+                                [in]            DWORD   dwSize
+                                );
+
+};
+
+[
+                object,
+                local,
+                uuid(e38f9ad2-0a82-11d2-aa67-00c04fa35b82),
+                helpstring("ISmtpServerResponseContext Interface"),
+                pointer_default(unique)
+]
+interface ISmtpServerResponseContext : IUnknown
+{
+        // Query methods
+        HRESULT QueryCommand(
+                                [out,size_is(*pdwSize)] LPSTR   pszCommand,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryCommandKeyword(
+                                [out,size_is(*pdwSize)] LPSTR   pszKeyword,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryResponse(
+                                [out,size_is(*pdwSize)] LPSTR   pszResponse,
+                                [in,out]                                DWORD   *pdwSize
+                                );
+
+        HRESULT QueryCommandSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryCommandKeywordSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QueryResponseSize(
+                                [out] DWORD     *pdwSize
+                                );
+
+        HRESULT QuerySmtpStatusCode(
+                                [out] DWORD     *pdwSmtpStatus
+                                );
+
+        HRESULT QueryResponseStatus(
+                                [out] DWORD     *pdwResponseStatus
+                                );
+
+        HRESULT QueryPipelinedFlag(
+                                [out] BOOL      *pfResponseIsPipelined
+                                );
+
+        HRESULT QueryNextEventState(
+                                [out] DWORD     *pdwNextState
+                                );
+
+        // Set methods
+        HRESULT SetResponseStatus(
+                                [in] DWORD      dwResponseStatus
+                                );
+
+        HRESULT SetNextEventState(
+                                [in] DWORD      dwNextState
+                                );
+
+        // Async completion callback
+        HRESULT NotifyAsyncCompletion(
+                                [in] HRESULT    hrResult
+                                );
+
+};
+
+
+// =============================================================
+//
+// Inbound Protocol Event Sink Shape
+//
+[
+        object,
+        uuid(b2d42a0e-0d5f-11d2-aa68-00c04fa35b82),
+        helpstring("ISmtpInCommandSink Interface"),
+        pointer_default(unique)
+]
+interface ISmtpInCommandSink : IUnknown
+{
+        [helpstring("OnSmtpInCommand method")]
+        HRESULT OnSmtpInCommand(
+                                [in] IUnknown                           *pServer,
+                                [in] IUnknown                           *pSession,
+                                [in] IMailMsgProperties         *pMsg,
+                                [in] ISmtpInCommandContext      *pContext
+                                );
+};
+
+
+// =============================================================
+//
+// Outbound Command Generation Protocol Event Sink Shape
+//
+[
+        object,
+        uuid(cfdbb9b0-0ca0-11d2-aa68-00c04fa35b82),
+        helpstring("ISmtpOutCommandSink Interface"),
+        pointer_default(unique)
+]
+interface ISmtpOutCommandSink : IUnknown
+{
+        [helpstring("OnSmtpOutCommand method")]
+        HRESULT OnSmtpOutCommand(
+                                [in] IUnknown                           *pServer,
+                                [in] IUnknown                           *pSession,
+                                [in] IMailMsgProperties         *pMsg,
+                                [in] ISmtpOutCommandContext *pContext
+                                );
+};
+
+
+// =============================================================
+//
+// Server Response Protocol Event Sink Shape
+//
+[
+        object,
+        uuid(d7e10222-0ca1-11d2-aa68-00c04fa35b82),
+        helpstring("ISmtpServerResponseSink Interface"),
+        pointer_default(unique)
+]
+interface ISmtpServerResponseSink : IUnknown
+{
+        [helpstring("OnSmtpServerResponse method")]
+        HRESULT OnSmtpServerResponse(
+                                [in] IUnknown                                   *pServer,
+                                [in] IUnknown                                   *pSession,
+                                [in] IMailMsgProperties                 *pMsg,
+                                [in] ISmtpServerResponseContext *pContext
+                                );
+};
+
+
+// =============================================================
+//
+// Inbound Protocol Event Callback Sink Shape
+//
+[
+        object,
+        uuid(0012b624-3e3c-11d3-88f1-00c04fa35b86),
+        helpstring("ISmtpInCallbackSink Interface"),
+        pointer_default(unique)
+]
+interface ISmtpInCallbackSink : IUnknown
+{
+        [helpstring("OnSmtpInCallback method")]
+        HRESULT OnSmtpInCallback(
+                                [in] IUnknown                           *pServer,
+                                [in] IUnknown                           *pSession,
+                                [in] IMailMsgProperties         *pMsg,
+                                [in] ISmtpInCallbackContext     *pContext
+                                );
+};
+
+
+//+------------------------------------------------------------
+//
+// The SMTP Mail Transport interfaces:
+//
+//-------------------------------------------------------------
+
+//
+// The default processing priority of the transport events:
+//
+cpp_quote("#define SMTP_TRANSPORT_DEFAULT_PRIORITY 16384")
+
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportNotify
+//
+// Synopsis: Used for async events
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(6E1CAA77-FCD4-11d1-9DF9-00C04FA322BA),
+    helpstring("IMailTransportNotify Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportNotify : IUnknown
+{
+    [local]
+    HRESULT Notify(
+        [in] HRESULT hrCompletion,
+        [in] PVOID pvContext);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportSubmission
+//
+// Synopsis: Used for the SMTP_MAILTRANSPORT_ONMESSAGESUBMISSION event
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(CE681916-FF14-11d1-9DFB-00C04FA322BA),
+    helpstring("IMailTransportSubmission Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportSubmission : IUnknown
+{
+    [local]
+    HRESULT OnMessageSubmission(
+        [in] IMailMsgProperties     *pIMailMsg,
+        [in] IMailTransportNotify   *pINotify,
+        [in] PVOID                   pvNotifyContext);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportOnPreCategorize
+//
+// Synopsis: Used for the SMTP_MAILTRANSPORT_PRECATEGORIZE event
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(A3ACFB0E-83FF-11d2-9E14-00C04FA322BA),
+    helpstring("IMailTransportOnPreCategorize Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportOnPreCategorize : IUnknown
+{
+    [local]
+    HRESULT OnSyncMessagePreCategorize(
+        [in] IMailMsgProperties     *pIMailMsg,
+        [in] IMailTransportNotify   *pINotify,
+        [in] PVOID                   pvNotifyContext);
+};
+
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportOnPostCategorize
+//
+// Synopsis: Used for the SMTP_MAILTRANSPORT_POSTCATEGORIZE event
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(76719653-05A6-11d2-9DFD-00C04FA322BA),
+    helpstring("IMailTransportOnPostCategorize Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportOnPostCategorize : IUnknown
+{
+    [local]
+    HRESULT OnMessagePostCategorize(
+        [in] IMailMsgProperties     *pIMailMsg,
+        [in] IMailTransportNotify   *pINotify,
+        [in] PVOID                   pvNotifyContext);
+};
+
+cpp_quote("#define RESET_NEXT_HOPS         0")
+cpp_quote("#define RESET_MESSAGE_TYPES     1")
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportRouterReset
+//
+// Synopsis: System implemented interface for resetting routes
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(A928AD12-1610-11d2-9E02-00C04FA322BA),
+    helpstring("IMailTransportRouterReset Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportRouterReset : IUnknown
+{
+    HRESULT ResetRoutes(
+        [in] DWORD                   dwResetType);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportSetRouterReset
+//
+// Synopsis: Used for the SMTP_MAILTRANSPORT_ON_SET_ROUTER_RESET event
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(A928AD11-1610-11d2-9E02-00C04FA322BA),
+    helpstring("IMailTransportSetRouterReset Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportSetRouterReset : IUnknown
+{
+    HRESULT RegisterResetInterface(
+        [in] DWORD                      dwVirtualServerID,
+        [in] IMailTransportRouterReset *pIRouterReset);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IMessageRouter
+//
+// Synopsis: Sink supplied interface
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(A928AD14-1610-11d2-9E02-00C04FA322BA),
+    helpstring("IMessageRouter Interface"),
+    pointer_default(unique)
+]
+interface IMessageRouter : IUnknown
+{
+    [local]
+    GUID GetTransportSinkID();
+
+    HRESULT GetMessageType(
+        [in]  IMailMsgProperties        *pIMailMsg,
+        [out] DWORD                     *pdwMessageType);
+
+    HRESULT ReleaseMessageType(
+        [in]  DWORD                     dwMessageType,
+        [in]  DWORD                     dwReleaseCount);
+
+    [local]
+    HRESULT GetNextHop(
+        [in]  LPSTR                     pszDestinationAddressType,
+        [in]  LPSTR                     pszDestinationAddress,
+        [in]  DWORD                     dwMessageType,
+        [out] LPSTR                     *ppszRouteAddressType,
+        [out] LPSTR                     *ppszRouteAddress,
+        [out] DWORD                     *pdwScheduleID,
+        [out] LPSTR                     *ppszRouteAddressClass,
+        [out] LPSTR                     *ppszConnectorName,
+        [out] DWORD                     *pdwNextHopType);
+
+    [local]
+    HRESULT GetNextHopFree(
+        [in]  LPSTR                     pszDestinationAddressType,
+        [in]  LPSTR                     pszDestinationAddress,
+        [in]  LPSTR                     pszConnectorName,
+        [in]  LPSTR                     pszRouteAddressType,
+        [in]  LPSTR                     pszRouteAddress,
+        [in]  LPSTR                     pszRouteAddressClass);
+
+    HRESULT ConnectionFailed(
+        [in, string]  LPSTR             pszConnectorName);
+};
+
+//Some standard RouteAddressTypes that might be returned by GetNextHop
+const LPCSTR MTI_ROUTING_ADDRESS_TYPE_NULL      = NULL;
+const LPCSTR MTI_ROUTING_ADDRESS_TYPE_SMTP      = "SMTP";
+const LPCSTR MTI_ROUTING_ADDRESS_TYPE_X400      = "X400";
+const LPCSTR MTI_ROUTING_ADDRESS_TYPE_X500      = "X500";
+
+//---[ NEXT_HOP_TYPE ]---------------------------------------------------------
+//
+//
+//  Description:
+//      Enum for the possible next hop types
+//
+//-----------------------------------------------------------------------------
+typedef [v1_enum] enum {
+    MTI_NEXT_HOP_TYPE_SAME_VIRTUAL_SERVER,
+    MTI_NEXT_HOP_TYPE_PEER_SMTP1_BYPASS_CONFIG_LOOKUP,
+    MTI_NEXT_HOP_TYPE_EXTERNAL_SMTP,
+    MTI_NEXT_HOP_TYPE_UNREACHABLE,
+    MTI_NEXT_HOP_TYPE_CURRENTLY_UNREACHABLE,
+    MTI_NEXT_HOP_TYPE_PEER_SMTP2_BYPASS_CONFIG_LOOKUP
+} MTI_NEXT_HOP_TYPE, *PMTI_NEXT_HOP_TYPE;
+
+
+// #defines for old names for these values
+#define MTI_NEXT_HOP_TYPE_REMOTE \
+    (MTI_NEXT_HOP_TYPE_PEER_SMTP1_BYPASS_CONFIG_LOOKUP)
+
+#define MTI_NEXT_HOP_TYPE_RESERVED  \
+    (MTI_NEXT_HOP_TYPE_EXTERNAL_SMTP)
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportRouterSetLinkState
+//
+// Synopsis: System implemented interface for allowing a
+//  routing sink to update the link state for features such
+//  as:
+//    - Scheduled Connections
+//    - Scheduled Commands
+//
+//  If LINK_STATE_SCHED_ENABLED is being unset... a next
+//  scheduled connection time should be returned.
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(B870CE28-A755-11d2-A6A9-00C04FA3490A),
+    helpstring("IMailTransportRouterSetLinkState Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportRouterSetLinkState : IUnknown
+{
+    HRESULT SetLinkState(
+        [in] LPSTR                   szLinkDomainName,
+        [in] GUID                    guidRouterGUID,
+        [in] DWORD                   dwScheduleID,
+        [in] LPSTR                   szConnectorName,
+        [in] DWORD                   dwSetLinkState,
+        [in] DWORD                   dwUnsetLinkState,
+        [in] FILETIME               *pftNextScheduled,
+                [in] IMessageRouter                     *pMessageRouter);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IMessageRouterLinkStateNotification
+//
+// Synopsis: Sink supplied interface that is used for notifying
+//  the routing sink of link state on connection acks.
+//
+//  If LINK_STATE_SCHED_ENABLED is being unset... a next
+//  scheduled connection time should be returned.
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(B870CE29-A755-11d2-A6A9-00C04FA3490A),
+    helpstring("IMessageRouterLinkStateNotification Interface"),
+    pointer_default(unique)
+]
+interface IMessageRouterLinkStateNotification : IUnknown
+{
+    HRESULT LinkStateNotify(
+        [in] LPSTR                   szLinkDomainName,
+        [in] GUID                    guidRouterGUID,
+        [in] DWORD                   dwScheduleID,
+        [in] LPSTR                   szConnectorName,
+        [in] DWORD                   dwLinkState,
+        [in] DWORD                   cConsecutiveFailures,
+        [in, out] FILETIME           *pftNextScheduled,
+        [out] DWORD                 *pdwSetLinkState,
+        [out] DWORD                 *pdwUnsetLinkState);
+};
+
+//---[ eLinkInfoFlags ]--------------------------------------------------------
+//
+//
+//      Description: Flags used to describe boolean per *link* state.  Used to
+//  decide if it is an appropriate time to make a connection.  Event sinks
+//  can set and unset these flags to influence the connection manager.
+//
+//-----------------------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    LINK_STATE_NO_ACTION            = 0x00000000, //NULL op... setting/unsetting this has no effect on link state
+    LINK_STATE_RETRY_ENABLED        = 0x00000001, //If NOT set, link is pending retry
+    LINK_STATE_SCHED_ENABLED        = 0x00000002, //If NOT set, link is pending scheduled connection
+    LINK_STATE_CMD_ENABLED          = 0x00000004, //If set, link should be activated to send a command
+    LINK_STATE_ADMIN_HALT           = 0x00000008, //If set, admin has request no connections be made
+    LINK_STATE_ADMIN_FORCE_CONN     = 0x00000010, //Admin has requested that a connection be made now
+    LINK_STATE_CONNECT_IF_NO_MSGS   = 0x00000020, //Connect even if there are no messages. Link will not be deleted while this is set.
+    LINK_STATE_DO_NOT_DELETE        = 0x00000040, //Routing is interested in this link... it should not be deleted by the transport.
+    LINK_STATE_CREATE_IF_NECESSARY  = 0x00000080, //Create a new link if one doesn't exist
+    LINK_STATE_LINK_NO_LONGER_USED  = 0x00000100, //Set when SMTP is done with link
+    LINK_STATE_TYPE_INTERNAL_SMTP   = 0x00000200,
+    LINK_STATE_TYPE_EXTERNAL_SMTP   = 0x00000400,
+    LINK_STATE_DO_NOT_DELETE_UNTIL_NEXT_NOTIFY = 0x00000800,
+    LINK_STATE_RETRY_ALL_DNS_FAILURES = 0x00001000,
+    LINK_STATE_RESERVED             = 0xFFFF0000, //Reserved for internal use
+} eLinkStateFlags;
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportRoutingEngine
+//
+// Synopsis: Used for the SMTP_MAILTRANSPORT_ON_GET_ROUTER_FOR_MESSAGE event
+//
+//
+//-------------------------------------------------------------
+
+//
+// Specific error code(s) that can be returned from GetMessageRouter
+//
+cpp_quote("#define ROUTER_E_NOTINTERESTED   MAKE_HRESULT(SEVERITY_ERROR,FACILITY_ITF,0x1000)")
+
+
+[
+    object,
+    uuid(A928AD13-1610-11d2-9E02-00C04FA322BA),
+    helpstring("IMailTransportRoutingEngine Interface"),
+    pointer_default(unique)
+]
+interface IMailTransportRoutingEngine : IUnknown
+{
+    [local]
+    HRESULT GetMessageRouter(
+        [in]  IMailMsgProperties        *pIMailMsg,
+        [in]  IMessageRouter            *pICurrentMessageRouter,
+        [out] IMessageRouter          **ppIMessageRouter);
+};
+
+
+cpp_quote("#define MTE_QUEUED_OUTBOUND         1010")
+cpp_quote("#define MTE_TRANSFERRED_OUTBOUND    1011")
+cpp_quote("#define MTE_RECEIVED_INBOUND        1012")
+cpp_quote("#define MTE_TRANSFERRED_INBOUND     1013")
+cpp_quote("#define MTE_MESSAGE_REROUTED        1014")
+cpp_quote("#define MTE_REPORT_TRANSFERRED_IN   1015")
+cpp_quote("#define MTE_REPORT_TRANSFERRED_OUT  1016")
+cpp_quote("#define MTE_REPORT_GENERATED        1017")
+cpp_quote("#define MTE_REPORT_ABSORBED         1018")
+
+cpp_quote("#define MTE_SUBMIT_MESSAGE_TO_AQ    1019")
+cpp_quote("#define MTE_BEGIN_OUTBOUND_TRANSFER 1020")
+cpp_quote("#define MTE_BADMAIL                 1021")
+cpp_quote("#define MTE_AQ_FAILURE              1022")
+cpp_quote("#define MTE_LOCAL_DELIVERY          1023")
+cpp_quote("#define MTE_SUBMIT_MESSAGE_TO_CAT   1024")
+cpp_quote("#define MTE_BEGIN_SUBMIT_MESSAGE    1025")
+cpp_quote("#define MTE_AQ_FAILED_MESSAGE       1026")
+cpp_quote("#define MTE_NDR_ALL                 1030")
+cpp_quote("#define MTE_END_OUTBOUND_TRANSFER   1031")
+
+[
+    helpstring("Interface For Message Tracking."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(1bc3580e-7e4f-11d2-94f4-00C04f79f1d6)
+]
+interface IMsgTrackLog : IUnknown
+{
+    HRESULT OnSyncLogMsgTrackInfo(
+                [in] IUnknown *pIServer,
+                [in] IMailMsgProperties *pIMailMsgProp,
+                [in] LPMSG_TRACK_INFO pMsgTrackInfo);
+};
+
+
+[
+    helpstring("Interface For Enumerating Resolver Records."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(e5b89c52-8e0b-11d2-94f6-00C04f79f1d6)
+]
+interface IDnsResolverRecord : IUnknown
+{
+    HRESULT GetItem( [in] ULONG cIndex, [out] LPSTR *ppszHostName, [out] DWORD *pAddr );
+    HRESULT Count( [out] DWORD *pcRecords );
+};
+
+typedef struct tagDNS_SERVER_INFO
+{
+    GUID        guidNetwork;
+    PVOID       pipServers;
+}
+DNS_SERVER_INFO, *PDNS_SERVER_INFO;
+
+[
+    helpstring("Interface For returning status from DNS resolver sink."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(6A417A4C-27BA-4867-A286-83E332074558)
+]
+interface IDnsInfoSink : IUnknown
+{
+    HRESULT OnSyncGetDnsInfo([in] LPSTR pszHostName,
+                             [in] LPSTR pszInstanceFQDN,
+                             [in] DWORD dwVirtualServerId,
+                             [out] DNS_SERVER_INFO **ppDnsServerInfo,
+                             [out] IDnsResolverRecord **ppDnsResolverRecord);
+};
+
+[
+    helpstring("Interface For Getting Resolver Records and DnsServerInfo."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(4e60bfad-a179-47AC-8961-c7c1f0785ac1)
+]
+interface IDnsStatus : IUnknown
+{
+    HRESULT GetDnsStatus();
+};
+
+[
+    helpstring("Interface For Getting Resolver Records."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(d95a4d0c-8e06-11d2-94f6-00C04f79f1d6)
+]
+interface IDnsResolverRecordSink : IUnknown
+{
+    HRESULT OnSyncGetResolverRecord( [in] LPSTR pszHostName,
+                                     [in] LPSTR pszInstanceFQDN,
+                                     [in] DWORD dwVirtualServerId,
+                                     [out] IDnsResolverRecord **ppDnsResolverRecord);
+};
+
+[
+    helpstring("MaxMsgSize Exceeded event interface."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(b997f192-a67d-11d2-94f7-00C04f79f1d6)
+]
+interface ISmtpMaxMsgSize : IUnknown
+{
+    HRESULT OnSyncMaxMsgSize( [in]  IUnknown            *pIUnknown,
+                              [in]  IMailMsgProperties  *pIMailMsgProp,
+                              [out] BOOL                *pfShouldImposeLimit );
+};
+
+[
+    helpstring("Log event interface."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(35bc9ad7-7aa5-43ee-a0ab-94e1d6be99e5)
+]
+interface ISmtpLog : IUnknown
+{
+    HRESULT OnSyncLog(
+                [in] LPSMTP_LOG_EVENT_INFO pLogEventInfo);
+};
+
+[
+    helpstring("Get Aux Domain Info Flags event interface."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(d038c9da-4977-491d-8b0e-97f2e546c35a)
+]
+interface ISmtpGetAuxDomainInfoFlags : IUnknown
+{
+    HRESULT OnGetAuxDomainInfoFlags(
+                [in]    IUnknown               *pIServer,
+                [in]    LPCSTR                  pszDomainName,
+                [out]   DWORD                  *pdwDomainInfoFlags );
+};
+
+//+------------------------------------------------------------
+//
+// The Categorizer event interfaces:
+//
+//-------------------------------------------------------------
+
+interface ICategorizerListResolve;
+interface ICategorizerItemAttributes;
+interface ICategorizerMailMsgs;
+interface ICategorizerItem;
+interface ICategorizerDomainInfo;
+interface ISMTPCategorizer;
+interface ISMTPCategorizerCompletion;
+interface ISMTPCategorizerDLCompletion;
+
+//
+// A structure and definitions to handle the configuration of
+// a virtual server (for categorizer)
+//
+typedef [v1_enum] enum
+{
+    CCAT_CONFIG_INFO_FLAGS                      = 0x0001,
+    CCAT_CONFIG_INFO_ROUTINGTYPE                = 0x0002,
+    CCAT_CONFIG_INFO_BINDDOMAIN                 = 0x0004,
+    CCAT_CONFIG_INFO_USER                       = 0x0008,
+    CCAT_CONFIG_INFO_PASSWORD                   = 0x0010,
+    CCAT_CONFIG_INFO_BINDTYPE                   = 0x0020,
+    CCAT_CONFIG_INFO_SCHEMATYPE                 = 0x0040,
+    CCAT_CONFIG_INFO_HOST                       = 0x0080,
+    CCAT_CONFIG_INFO_NAMINGCONTEXT              = 0x0100,
+    CCAT_CONFIG_INFO_DEFAULTDOMAIN              = 0x0200,
+    CCAT_CONFIG_INFO_PORT                       = 0x0400,
+    CCAT_CONFIG_INFO_ISMTPSERVER                = 0x0800,
+    CCAT_CONFIG_INFO_IDOMAININFO                = 0x1000,
+    CCAT_CONFIG_INFO_ENABLE                     = 0x2000,
+    CCAT_CONFIG_INFO_DEFAULT                    = 0x4000,
+    CCAT_CONFIG_INFO_VSID                       = 0x8000,
+    CCAT_CONFIG_INFO_ALL                        = 0xFFFF
+} eCatConfigInfoFlags;
+
+typedef struct _tagCCatConfigInfo {
+
+    DWORD dwCCatConfigInfoFlags;    //Flags describing which fields
+                                    //are valid
+    DWORD dwEnable;
+    DWORD dwCatFlags;
+    LPSTR pszRoutingType;
+    LPSTR pszBindDomain;
+    LPSTR pszUser;
+    LPSTR pszPassword;
+    LPSTR pszBindType;
+    LPSTR pszSchemaType;
+    LPSTR pszHost;
+    LPSTR pszNamingContext;
+    LPSTR pszDefaultDomain;
+    DWORD dwPort;
+    ISMTPServer *pISMTPServer;
+    ICategorizerDomainInfo *pIDomainInfo;
+    DWORD dwVirtualServerID;
+
+} CCATCONFIGINFO, *PCCATCONFIGINFO;
+
+typedef [v1_enum] enum _CAT_ADDRESS_TYPE {
+    CAT_SMTP            = 0, // SMTP address type
+    CAT_X500            = 1, // X500 address type (ex: "/DC=blah/dc=...")
+    CAT_X400            = 2, // X400 address type
+    CAT_DN              = 3, // Distinguished Name
+    CAT_LEGACYEXDN      = 4, // LegacyExchangeDN attribute
+    CAT_CUSTOMTYPE      = 5, // Foreign address type
+    CAT_UNKNOWNTYPE     = 6, // Not a valid input value
+} CAT_ADDRESS_TYPE;
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerProperties
+//
+// Synopsis: Property setting/retrieval interface
+//
+//
+//-------------------------------------------------------------
+[
+    local,
+    object,
+    uuid(96BF3199-79D8-11d2-9E11-00C04FA322BA),
+    helpstring("ICategorizerProperties Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerProperties : IUnknown
+{
+    HRESULT GetStringA(
+        [in]  DWORD dwPropId,
+        [in]  DWORD dwcchValue,
+        [out, size_is(dwcchValue)] LPSTR pszValue);
+    HRESULT PutStringA(
+        [in]  DWORD dwPropId,
+        [in, unique] LPSTR pszValue);
+    HRESULT GetDWORD(
+        [in]  DWORD dwPropId,
+        [out] DWORD *pdwValue);
+    HRESULT PutDWORD(
+        [in]  DWORD dwPropId,
+        [in]  DWORD dwValue);
+    HRESULT GetHRESULT(
+        [in]  DWORD dwPropId,
+        [out] HRESULT *phrValue);
+    HRESULT PutHRESULT(
+        [in]  DWORD dwPropId,
+        [in]  HRESULT hrValue);
+    HRESULT GetBool(
+        [in]  DWORD dwPropId,
+        [out] BOOL  *pfValue);
+    HRESULT PutBool(
+        [in]  DWORD dwPropId,
+        [in]  BOOL  fValue);
+    HRESULT GetPVoid(
+        [in]  DWORD dwPropId,
+        [out] PVOID *pvValue);
+    HRESULT PutPVoid(
+        [in]  DWORD dwPropId,
+        [in]  PVOID pvValue);
+    HRESULT GetIUnknown(
+        [in]  DWORD dwPropId,
+        [out] IUnknown **pUnknown);
+    HRESULT PutIUnknown(
+        [in]  DWORD dwPropId,
+        [in]  IUnknown *pUnknown);
+    HRESULT GetIMailMsgProperties(
+        [in]  DWORD dwPropId,
+        [out] IMailMsgProperties **ppIMsg);
+    HRESULT PutIMailMsgProperties(
+        [in]  DWORD dwPropId,
+        [in]  IMailMsgProperties *pIMsg);
+    HRESULT GetIMailMsgRecipientsAdd(
+        [in]  DWORD dwPropId,
+        [out] IMailMsgRecipientsAdd **ppIMsgRecipientsAdd);
+    HRESULT PutIMailMsgRecipientsAdd(
+        [in]  DWORD dwPropId,
+        [in]  IMailMsgRecipientsAdd *pIMsgRecipientsAdd);
+    HRESULT GetICategorizerItemAttributes(
+        [in]  DWORD dwPropId,
+        [out] ICategorizerItemAttributes **ppICategorizerItemAttributes);
+    HRESULT PutICategorizerItemAttributes(
+        [in]  DWORD dwPropId,
+        [in]  ICategorizerItemAttributes *pICategorizerItemAttributes);
+    HRESULT GetICategorizerListResolve(
+        [in]  DWORD dwPropId,
+        [out] ICategorizerListResolve **ppICategorizerListResolve);
+    HRESULT PutICategorizerListResolve(
+        [in]  DWORD dwPropId,
+        [in]  ICategorizerListResolve *pICategorizerListResolve);
+    HRESULT GetICategorizerMailMsgs(
+        [in]  DWORD dwPropId,
+        [out] ICategorizerMailMsgs **ppICategorizerMailMsgs);
+    HRESULT PutICategorizerMailMsgs(
+        [in]  DWORD dwPropId,
+        [in]  ICategorizerMailMsgs *pICategorizerMailMsgs);
+    HRESULT GetICategorizerItem(
+        [in]  DWORD dwPropId,
+        [out] ICategorizerItem **ppICategorizerItem);
+    HRESULT PutICategorizerItem(
+        [in]  DWORD dwPropId,
+        [in]  ICategorizerItem *pICategorizerItem);
+    HRESULT UnSetPropId(
+        [in]  DWORD dwPropId);
+};
+
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerParameters
+//
+// Synopsis: Holds data concerning attribute names for the schema in use
+//
+//
+//-------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    DSPARAMETER_LDAPHOST = 0,
+    DSPARAMETER_LDAPBINDTYPE,
+    DSPARAMETER_LDAPDOMAIN,
+    DSPARAMETER_LDAPACCOUNT,
+    DSPARAMETER_LDAPPASSWORD,
+    DSPARAMETER_LDAPNAMINGCONTEXT,
+    DSPARAMETER_LDAPPORT,
+    DSPARAMETER_BATCHINGLIMIT,
+
+    DSPARAMETER_SEARCHATTRIBUTE_SMTP,
+    DSPARAMETER_SEARCHFILTER_SMTP,
+    DSPARAMETER_SEARCHATTRIBUTE_X500,
+    DSPARAMETER_SEARCHFILTER_X500,
+    DSPARAMETER_SEARCHATTRIBUTE_X400,
+    DSPARAMETER_SEARCHFILTER_X400,
+    DSPARAMETER_SEARCHATTRIBUTE_LEGACYEXDN,
+    DSPARAMETER_SEARCHFILTER_LEGACYEXDN,
+    DSPARAMETER_SEARCHATTRIBUTE_RDN,
+    DSPARAMETER_SEARCHFILTER_RDN,
+    DSPARAMETER_SEARCHATTRIBUTE_DN,
+    DSPARAMETER_SEARCHFILTER_DN,
+    DSPARAMETER_SEARCHATTRIBUTE_FOREIGNADDRESS,
+    DSPARAMETER_SEARCHFILTER_FOREIGNADDRESS,
+
+    DSPARAMETER_ATTRIBUTE_OBJECTCLASS,
+    DSPARAMETER_ATTRIBUTE_DEFAULT_SMTP,
+    DSPARAMETER_ATTRIBUTE_DEFAULT_X500,
+    DSPARAMETER_ATTRIBUTE_DEFAULT_X400,
+    DSPARAMETER_ATTRIBUTE_DEFAULT_DN,
+    DSPARAMETER_ATTRIBUTE_DEFAULT_LEGACYEXDN,
+
+    DSPARAMETER_ATTRIBUTE_FORWARD_SMTP,
+    DSPARAMETER_ATTRIBUTE_DL_MEMBERS,
+    DSPARAMETER_ATTRIBUTE_DL_DYNAMICFILTER,
+    DSPARAMETER_ATTRIBUTE_DL_DYNAMICBASEDN,
+
+    DSPARAMETER_OBJECTCLASS_USER,
+    DSPARAMETER_OBJECTCLASS_DL_X500,
+    DSPARAMETER_OBJECTCLASS_DL_SMTP,
+    DSPARAMETER_OBJECTCLASS_DL_DYNAMIC,
+    DSPARAMETER_ENDENUMMESS,
+    DSPARAMETER_INVALID
+} eDSPARAMETER;
+
+
+[
+    object,
+    local,
+    uuid(86F9DA7B-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("ICategorizerParameters Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerParameters : IUnknown
+{
+    HRESULT GetDSParameterA(
+        [in]  DWORD dwDSParameter,
+        [out] LPSTR *ppszValue);
+
+    HRESULT SetDSParameterA(
+        [in] DWORD dwDSParameter,
+        [in, unique] LPCSTR pszValue);
+
+    HRESULT RequestAttributeA(
+        [in, unique] LPCSTR pszName);
+
+    HRESULT GetAllAttributes(
+        [out] LPSTR **prgszAllAttributes);
+
+    HRESULT ReserveICatItemPropIds(
+        [in]  DWORD   dwNumPropIdsRequested,
+        [out] DWORD   *pdwBeginningPropId);
+
+    HRESULT ReserveICatListResolvePropIds(
+        [in]  DWORD   dwNumPropIdsRequested,
+        [out] DWORD   *pdwBeginningPropId);
+
+    HRESULT GetCCatConfigInfo(
+        [out] PCCATCONFIGINFO *ppCCatConfigInfo);
+};
+
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerQueries
+//
+// Synopsis: Interface to an object that holds query strings
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(86F9DA7D-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("ICategorizerQueries Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerQueries : IUnknown
+{
+    HRESULT SetQueryString(
+        [in, unique] LPSTR pszQueryString);
+    HRESULT GetQueryString(
+        [out] LPSTR *ppszQueryString);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerMailMsgs
+//
+// Synopsis: Interface to hold all MailMsgs associated with a message
+//           categorization
+//
+//-------------------------------------------------------------
+//
+// The structure used for mailmsg enumeration
+//
+typedef PVOID CATMAILMSG_ENUMERATOR, *PCATMAILMSG_ENUMERATOR;
+
+[
+    object,
+    local,
+    uuid(86F9DA80-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("ICategorizerMailMsgs Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerMailMsgs : IUnknown
+{
+    HRESULT GetMailMsg(
+        [in]  DWORD dwFlags,
+        [out] IMailMsgProperties **ppIMailMsgProperties,
+        [out] IMailMsgRecipientsAdd **ppIMailMsgRecipientsAdd,
+        [out] BOOL *pfCreated);
+
+    HRESULT ReBindMailMsg(
+        [in]  DWORD dwFlags,
+        [in]  IUnknown *pStoreDriver);
+
+    //
+    // Functions to enumerate all created mailmsg
+    //
+    HRESULT BeginMailMsgEnumeration(
+        [in]  PCATMAILMSG_ENUMERATOR penumerator);
+
+    HRESULT GetNextMailMsg(
+        [in]  PCATMAILMSG_ENUMERATOR penumerator,
+        [out] DWORD *pdwFlags,
+        [out] IMailMsgProperties **ppIMailMsgProperties,
+        [out] IMailMsgRecipientsAdd **ppIMailMsgRecipientsAdd);
+
+    HRESULT EndMailMsgEnumeration(
+        [in]  PCATMAILMSG_ENUMERATOR penumerator);
+}
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerItemAttributes
+//
+// Synopsis: Sink supplied interface with methods to get at object attributes
+//
+//
+//-------------------------------------------------------------
+//
+// The structure used for attribute enumeration
+//
+typedef struct _tagAttributeEnumerator {
+    PVOID pvBase;
+    PVOID pvCurrent;
+    PVOID pvContext;
+} ATTRIBUTE_ENUMERATOR, *PATTRIBUTE_ENUMERATOR;
+
+[
+    object,
+    uuid(86F9DA7F-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("ICategorizerItemAttributes Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerItemAttributes : IUnknown
+{
+    //
+    // Functions to enumerate through a specified attribute value
+    //
+    [local] HRESULT BeginAttributeEnumeration(
+        [in, unique] LPCSTR pszAttributeName,
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT GetNextAttributeValue(
+        [in] PATTRIBUTE_ENUMERATOR penumerator,
+        [out] LPSTR *ppszAttributeValue);
+
+    [local] HRESULT RewindAttributeEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT EndAttributeEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    //
+    // Functions to enumerate through the available attribute names
+    //
+    [local] HRESULT BeginAttributeNameEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT GetNextAttributeName(
+        [in] PATTRIBUTE_ENUMERATOR penumerator,
+        [out] LPSTR *ppszAttributeName);
+
+    [local] HRESULT EndAttributeNameEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] GUID GetTransportSinkID();
+
+    [local] HRESULT AggregateAttributes(
+        [in] ICategorizerItemAttributes *pICatItemAttr);
+
+    //
+    // Support to retrieve all attributes at the same time.
+    //
+    [local] HRESULT GetAllAttributeValues(
+        [in, unique] LPCSTR pszAttributeName,
+        [in] PATTRIBUTE_ENUMERATOR penumerator,
+        [out] LPSTR **prgpszAttributeValues);
+
+    [local] HRESULT ReleaseAllAttributeValues(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    //
+    // Count the attribute values before enumeating
+    //
+    [local] HRESULT CountAttributeValues(
+        [in]  PATTRIBUTE_ENUMERATOR penumerator,
+        [out] DWORD *pdwCount);
+}
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerItemRawAttributes
+//
+// Synopsis: Sink supplied interface with methods to get at raw object attributes
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(34C3D389-8FA7-11d2-9E16-00C04FA322BA),
+    helpstring("ICategorizerItemRawAttributes Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerItemRawAttributes : IUnknown
+{
+    //
+    // Functions to enumerate through a specified attribute value
+    //
+    [local] HRESULT BeginRawAttributeEnumeration(
+        [in, unique] LPCSTR pszAttributeName,
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT GetNextRawAttributeValue(
+        [in] PATTRIBUTE_ENUMERATOR penumerator,
+        [out] DWORD *pdwcb,
+        [out] LPVOID *pvAttributeValue);
+
+    [local] HRESULT RewindRawAttributeEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT EndRawAttributeEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    //
+    // Count the attribute values before enumeating
+    //
+    [local] HRESULT CountRawAttributeValues(
+        [in]  PATTRIBUTE_ENUMERATOR penumerator,
+        [out] DWORD *pdwCount);
+}
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerItem
+//
+// Synopsis: A property interface with a number of well known propIDs
+//           (below)
+//
+//
+//-------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    ICATEGORIZERITEM_SOURCETYPE = 0,
+    ICATEGORIZERITEM_LDAPQUERYSTRING,
+    ICATEGORIZERITEM_DISTINGUISHINGATTRIBUTE,
+    ICATEGORIZERITEM_DISTINGUISHINGATTRIBUTEVALUE,
+    ICATEGORIZERITEM_IMAILMSGPROPERTIES,
+    ICATEGORIZERITEM_IMAILMSGRECIPIENTSADD,
+    ICATEGORIZERITEM_IMAILMSGRECIPIENTSADDINDEX,
+    ICATEGORIZERITEM_FPRIMARY,
+    ICATEGORIZERITEM_PARENT,
+    ICATEGORIZERITEM_ICATEGORIZERITEMATTRIBUTES,
+    ICATEGORIZERITEM_HRSTATUS,
+    ICATEGORIZERITEM_ICATEGORIZERLISTRESOLVE,
+    ICATEGORIZERITEM_ICATEGORIZERMAILMSGS,
+    ICATEGORIZERITEM_HRNDRREASON,
+    ICATEGORIZERITEM_DWLEVEL,
+    ICATEGORIZERITEM_FISRDNSEARCH,
+    ICATEGORIZERITEM_ENDENUMMESS
+} eICATEGORIZERITEMPROPID;
+
+typedef [v1_enum] enum
+{
+    SOURCE_SENDER,
+    SOURCE_RECIPIENT,
+    SOURCE_VERIFY
+} eSourceType;
+
+[
+    local,
+    object,
+    uuid(86F9DA7C-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("ICategorizerItem Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerItem : ICategorizerProperties {};
+
+
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerAsyncContext
+//
+// Synopsis: Interface handed out to sinks containing async context methods
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(86F9DA7E-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("ICategorizerAsyncCompletion Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerAsyncContext : IUnknown
+{
+    [local] HRESULT CompleteQuery(
+        [in] PVOID pvQueryContext,
+        [in] HRESULT hrResolutionStatus,
+        [in] DWORD dwcResults,
+        [in, size_is(dwcResults)] ICategorizerItemAttributes **rgpItemAttributes,
+        [in] BOOL fFinalCompletion);
+}
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerListResolve
+//
+// Synopsis: Interface handed out to sinks that can spin off further resolves
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(960252A4-0A3A-11d2-9E00-00C04FA322BA),
+    helpstring("ICategorizerListResolve Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerListResolve : IUnknown
+{
+    [local] HRESULT AllocICategorizerItem(
+        [in]  eSourceType SourceType,
+        [out] ICategorizerItem **ppICatItem);
+
+    [local] HRESULT ResolveICategorizerItem(
+        [in] ICategorizerItem *pICatItem);
+
+    [local] HRESULT SetListResolveStatus(
+        [in] HRESULT hrStatus);
+
+    [local] HRESULT GetListResolveStatus(
+        [out] HRESULT *phrStatus);
+}
+
+//+------------------------------------------------------------
+//
+// Interface: IMailTransportCategorize
+//
+// Synopsis: Interface a sink must implement in order to handle
+//           categorizer events
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(86F9DA7A-EB6E-11d1-9DF3-00C04FA322BA),
+    helpstring("IMailTransportCategorize Interface"),
+    pointer_default(unique)
+
+]
+interface IMailTransportCategorize : IUnknown
+{
+    HRESULT Register(
+        [in]  ICategorizerParameters *);
+
+    [local] HRESULT BeginMessageCategorization(
+        [in]  ICategorizerMailMsgs *);
+
+    [local] HRESULT EndMessageCategorization(
+        [in]  ICategorizerMailMsgs *,
+        [in]  HRESULT hrCatStatus);
+
+    [local] HRESULT BuildQuery(
+        [in]  ICategorizerParameters *,
+        [in]  ICategorizerItem *);
+
+    [local] HRESULT BuildQueries(
+        [in]  ICategorizerParameters *,
+        [in]  DWORD dwcAddresses,
+        [in, size_is(dwcAddresses)] ICategorizerItem **rgpICategorizerItems,
+        [in]  ICategorizerQueries *);
+
+    [local] HRESULT SendQuery(
+        [in]  ICategorizerParameters *,
+        [in]  ICategorizerQueries *,
+        [in]  ICategorizerAsyncContext *,
+        [in]  PVOID pvQueryContext);
+
+    [local] HRESULT SortQueryResult(
+        [in]  ICategorizerParameters *,
+        [in]  HRESULT hrResolutionStatus,
+        [in]  DWORD dwcAddresses,
+        [in, size_is(dwcAddresses)] ICategorizerItem **rgpICategorizerItems,
+        [in]  DWORD dwcResults,
+        [in, size_is(dwcResults)] ICategorizerItemAttributes **rgpICategorizerItemAttributes);
+
+    [local] HRESULT ProcessItem(
+        [in]  ICategorizerParameters *,
+        [in]  ICategorizerItem *);
+
+    [local] HRESULT ExpandItem(
+        [in]  ICategorizerParameters *,
+        [in]  ICategorizerItem *,
+        [in]  IMailTransportNotify *,
+        [in]  PVOID);
+
+    [local] HRESULT CompleteItem(
+        [in]  ICategorizerParameters *,
+        [in]  ICategorizerItem *);
+};
+
+//
+// See smtpguid.h for the CLSID and Program ID of the CoCreateable
+// Categorizer
+//
+
+//+------------------------------------------------------------
+//
+// Interface: ISMTPCategorizer
+//
+// Synopsis: Interface to the SMTP categorizer
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(B23C35B8-9219-11d2-9E17-00C04FA322BA),
+    helpstring("ISMTPCategorizer Interface"),
+    pointer_default(unique)
+]
+interface ISMTPCategorizer : IUnknown
+{
+    HRESULT ChangeConfig(
+        [in]  PCCATCONFIGINFO pConfigInfo);
+
+    HRESULT CatMsg(
+        [in]  IUnknown *pMsg,
+        [in]  ISMTPCategorizerCompletion *pICompletion,
+        [in]  LPVOID pContext);
+
+    HRESULT CatDLMsg(
+        [in]  IUnknown *pMsg,
+        [in]  ISMTPCategorizerDLCompletion *pICompletion,
+        [in]  LPVOID pContext,
+        [in]  BOOL fMatchOnly,
+        [in]  CAT_ADDRESS_TYPE CAType,
+        [in]  LPSTR pszAddress);
+
+    HRESULT CatCancel();
+};
+
+
+//+------------------------------------------------------------
+//
+// Interface: ISMTPCategorizerCompletion
+//
+// Synopsis: Async completion interface
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(B23C35B9-9219-11d2-9E17-00C04FA322BA),
+    helpstring("ISMTPCategorizerCompletion Interface"),
+    pointer_default(unique)
+]
+interface ISMTPCategorizerCompletion : IUnknown
+{
+    HRESULT CatCompletion(
+        HRESULT hr,
+        PVOID pContext,
+        IUnknown *pImsg,
+        IUnknown **rgpImsg);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: ISMTPCategorizerDLCompletion
+//
+// Synopsis: Async completion interface
+//
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(B23C35BA-9219-11d2-9E17-00C04FA322BA),
+    helpstring("ISMTPCategorizerDLCompletion Interface"),
+    pointer_default(unique)
+]
+interface ISMTPCategorizerDLCompletion : IUnknown
+{
+    HRESULT CatDLCompletion(
+        HRESULT hr,
+        PVOID pContext,
+        IUnknown *pImsg,
+        BOOL fMatch);
+};
+
+//---[ eDomainInfoFlags ]------------------------------------------------------
+//
+//
+//      Description: Flags used to describe boolean per domain properties
+//
+//-----------------------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    //Outbound protocol property flags
+    DOMAIN_INFO_REMOTE              = 0x00000000, //Default setting
+    DOMAIN_INFO_USE_SSL             = 0x00000001, //Use SSL on outbound connections
+    DOMAIN_INFO_SEND_TURN           = 0x00000002, //Send TURN on outbound connections
+    DOMAIN_INFO_SEND_ETRN           = 0x00000004, //Send ETRN on outbound connections
+    DOMAIN_INFO_USE_NTLM            = 0x00000008, //Use NTLM auth on outbound
+    DOMAIN_INFO_USE_PLAINTEXT       = 0x00000010, //Use plaintext auth on outbound
+    DOMAIN_INFO_USE_DPA             = 0x00000020, //Use DPA auth on outbound
+    DOMAIN_INFO_USE_KERBEROS        = 0x00000040, //Use Kerberos auth on outbound
+    DOMAIN_INFO_USE_CHUNKING        = 0x00000080, //Require binary chunking on outbound
+    DOMAIN_INFO_DISABLE_CHUNKING    = 0x00000100, //For this specific domain disaalow CHUNKING
+    DOMAIN_INFO_DISABLE_BMIME       = 0x00000200, //For this specific domain disallow BMIME
+    DOMAIN_INFO_DISABLE_DSN         = 0x00000400, //For this specific domain disallow DSN
+    DOMAIN_INFO_DISABLE_PIPELINE    = 0x00000800, //For this specific domain disallow PIPElineing
+    DOMAIN_INFO_USE_HELO            = 0x00001000, //Send HELO instead of EHLO
+
+    //Queueing/Routing flags
+    DOMAIN_INFO_TURN_ONLY           = 0x00010000, //Create connection only when asked (uses GetNamedConnection)
+    DOMAIN_INFO_ETRN_ONLY           = 0x00020000, //Do no create connections until told to (uses GetNextConnection)
+    DOMAIN_INFO_LOCAL_DROP          = 0x00040000, //Local drop domain
+    DOMAIN_INFO_LOCAL_MAILBOX       = 0x00080000, //Local domain (no drop directory)
+    DOMAIN_INFO_REMOTE_SMARTHOST    = 0x00100000, //Remote domain with smart host
+    DOMAIN_INFO_IP_RELAY            = 0x00200000, //Allow Relay based on IP address
+    DOMAIN_INFO_AUTH_RELAY          = 0x00400000, //Allow Relay based on authentication
+    DOMAIN_INFO_DOMAIN_RELAY        = 0x00800000, //Allow Relay based on domain name
+    DOMAIN_INFO_ALIAS               = 0x01000000, //Local alias domain
+    DOMAIN_INFO_TURN_ON_EMPTY       = 0x02000000, //TURN works on empty conns
+
+    DOMAIN_INFO_INVALID             = 0x80000000, //Used for returning "invalid" or "not found" info
+} eDomainInfoFlags ;
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerDomainInfo
+//
+// Synopsis: An interface to retrieve above domain info flags
+//           describing a given SMTP domain
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(E210EDC6-F27D-481f-9DFC-1CA840905FD9),
+    helpstring("ICategorizerDomainInfo Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerDomainInfo : IUnknown
+{
+    HRESULT GetDomainInfoFlags(
+        [in, string] LPSTR szDomainName,
+        [out]        DWORD *pdwDomainInfoFlags);
+}
+
+
+//+------------------------------------------------------------
+//
+// Interfaces pulled in from catintrnl.idl
+//
+
+interface ICategorizerRequestedAttributes;
+interface ICategorizerLdapConfig;
+interface IServersListInfo;
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerParametersEx
+//
+// Synopsis: ICategorizerParameters plus new methods to retrieve
+//  requested attributes, register an interface which may be called
+//  to get the list of GCs from dsaccess. Also a "Get" function for
+//  the aforementioned interface.
+//
+// History:
+// jstamerj 1999/07/08 14:24:56: Created
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(E962BA1F-3FB9-11d3-80D7-00C04FA322BA),
+    helpstring("ICategorizerParametersEx Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerParametersEx : ICategorizerParameters
+{
+    HRESULT GetDSParameterW(
+        [in]  DWORD  dwDSParameter,
+        [out] LPWSTR *ppszValue);
+
+    HRESULT GetRequestedAttributes(
+        [out] ICategorizerRequestedAttributes **ppIRequestedAttributes);
+
+    HRESULT RegisterCatLdapConfigInterface(
+        [out] ICategorizerLdapConfig *pICategorizerLdapConfig);
+
+    HRESULT GetLdapConfigInterface(
+        [out] ICategorizerLdapConfig **ppICatLdapConfigInfo);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerRequestedAttributes
+//
+// Synopsis: Contains a read-only method to retrieve all the requested
+//           attributes
+//
+// History:
+// jstamerj 1999/07/08 14:24:56: Created
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(CB0924E0-357B-11d3-8328-00C04FA322BA),
+    helpstring("ICategorizerRequestedAttributes Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerRequestedAttributes : IUnknown
+{
+    HRESULT GetAllAttributes(
+        [out] LPSTR **prgszAllAttributes);
+
+    HRESULT GetAllAttributesW(
+        [out] LPWSTR **prgszAllAttributes);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerUTF8Attributes
+//
+// Synopsis: Methods to retrieve attributes as UTF8 strings
+//
+// History:
+// jstamerj 1999/07/08 14:24:56: Created
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(BEBF931D-17E0-4ec8-BC1C-CC3286D72CB7),
+    helpstring("ICategorizerUTF8Attributes Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerUTF8Attributes : IUnknown
+{
+    [local] HRESULT BeginUTF8AttributeEnumeration(
+        [in, unique] LPCSTR pszAttributeName,
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT GetNextUTF8AttributeValue(
+        [in] PATTRIBUTE_ENUMERATOR penumerator,
+        [out] LPSTR *ppszAttributeValue);
+
+    [local] HRESULT RewindUTF8AttributeEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT EndUTF8AttributeEnumeration(
+        [in] PATTRIBUTE_ENUMERATOR penumerator);
+
+    [local] HRESULT CountUTF8AttributeValues(
+        [in] PATTRIBUTE_ENUMERATOR penumerator,
+        [out] DWORD *pdwCount);
+
+};
+
+//+------------------------------------------------------------
+//
+// Interface: ICategorizerLdapConfig
+//
+// Synopsis: Contains a function that may be queried for the GCs
+//  on the machine as discovered by dsaccess (or as read from the
+//  registry by dsaccess).
+//
+// History:
+// gpulla created
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(27C1B2D3-1A28-4b90-BC0A-E52057D30712),
+    helpstring("ICategorizerLdapConfig Interface"),
+    pointer_default(unique)
+]
+interface ICategorizerLdapConfig : IUnknown
+{
+	HRESULT GetGCServers(
+		[out] IServersListInfo **pIServersListInfo);
+
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IServersListInfo
+//
+// Synopsis: Interface to an object encapsulating the list of
+//  GCs described above. Functions allow querying the number of
+//  GCs and enumerating through the GCs.
+//
+// History:
+// gpulla created
+//
+//-------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(C54CEA94-E501-4f34-8704-F5881EA5CBF4),
+    helpstring("IServersListInfo Interface"),
+    pointer_default(unique)
+]
+interface IServersListInfo : IUnknown
+{
+	HRESULT GetNumGC(
+		[out] DWORD *dwGC);
+
+	HRESULT GetItem(
+		[in]  DWORD dwIdx,
+		[out] DWORD *dwPort,
+		[out] LPSTR *pszServerName);
+};
+
+
+//-----------------------------------------------------------------------------
+// DSN Event Interfaces
+//-----------------------------------------------------------------------------
+
+//---[ eDSNActions ]-----------------------------------------------------------
+//
+//
+//  Description: Possible actions for DSN Generation events
+//
+//
+//-----------------------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    DSN_ACTION_FAILURE      = 0x00000001,   //Generate a FAILURE DSN for FAILED recips
+    DSN_ACTION_FAILURE_ALL  = 0x00000002,   //Generate a FAILURE DSN for UNDELIVERED and FAILED recips
+    DSN_ACTION_DELAYED      = 0x00000004,   //Generate a DELAY DSN for undelivered recips
+    DSN_ACTION_RELAYED      = 0x00000008,   //Generate a RELAY DSN for delivered recips
+    DSN_ACTION_EXPANDED     = 0x00000010,   //Generate a EXPANDED DSN for expanded
+    DSN_ACTION_DELIVERED    = 0x00000020,   //Generate a DELIVERED DSN for delivered recips
+    DSN_ACTION_TYPE_MASK    = 0x0000003F,   //Mask for the bits describing the type of DSN
+    DSN_ACTION_IGNORE_RET   = 0x00000400,   //Ignore RET and use Default specified
+    DSN_ACTION_CONTEXT_STORE= 0x00100000,   //DSN is being generated because of store
+    DSN_ACTION_CONTEXT_CAT  = 0x00200000,   //DSN is being generated because of cat
+    DSN_ACTION_CONTEXT_MTA  = 0x00400000,   //DSN is being generated becuase of mta
+} eDSNActions ;
+
+//---[ eDSNRETType ]-----------------------------------------------------------
+//
+//
+//  Description: Possible DSN return types
+//
+//
+//-----------------------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    // Return the full message
+    DSN_RET_FULL                = 1,
+    // Return the original headers
+    DSN_RET_HDRS,
+    // Return some of the original headers (much cheaper, but not RFC compliant)
+    DSN_RET_PARTIAL_HDRS,
+
+} eDSNRETType;
+
+
+//---[ eDSNProperties ]--------------------------------------------------------
+//
+//
+//  Description: Property IDs for DSN property bag
+//
+//
+//-----------------------------------------------------------------------------
+typedef [v1_enum] enum
+{
+    //
+    // Status codes for DSN generation
+    //
+    DSNPROP_DW_DSNACTIONS              = 1,
+    DSNPROP_DW_DSNOPTIONS,
+    DSNPROP_DW_RFC821STATUS,
+    DSNPROP_DW_HRSTATUS,
+    //
+    // Text to use in DSN generation text
+    //
+    DSNPROP_SZ_DEFAULTDOMAIN,
+    DSNPROP_SZ_REPORTINGMTA,
+    DSNPROP_SZ_REPORTINGMTATYPE,
+    DSNPROP_SZ_DSNCONTEXT,          // For X-DSNContext header
+    //
+    // Preferred language
+    //
+    DSNPROP_DW_LANGID,
+    //
+    // SMTP address to receive a copy of NDRs
+    //
+    DSNPROP_SZ_COPYNDRTO,
+    //
+    // Expire time
+    //
+    DSNPROP_FT_EXPIRETIME,
+    //
+    // Custom text to insert before human readable part of DSN
+    //
+    DSNPROP_SZ_HR_TOP_CUSTOM_TEXT_A,        // Ascii text
+    DSNPROP_SZ_HR_TOP_CUSTOM_TEXT_W,        // Unicode text
+    //
+    // Custom text to insert after human readable part of DSN
+    //
+    DSNPROP_SZ_HR_BOTTOM_CUSTOM_TEXT_A,     // Ascii text
+    DSNPROP_SZ_HR_BOTTOM_CUSTOM_TEXT_W,     // Unicode text
+    //
+    // If set to TRUE, message will be copied to badmail
+    // (ie. an NDR an NDR was to be generated)
+    //
+    DSNPROP_F_BADMAIL_MSG,
+    //
+    // On errors, return status to aqueue here
+    //
+    DSNPROP_DW_HR_RETURN_STATUS,
+    //
+    // The return type of the original message
+    //
+    DSNPROP_DW_RET_TYPE,
+    //
+    // Value for the X-Content-Failrue header (HRESULT)
+    //
+    DSNPROP_DW_CONTENT_FAILURE,
+
+} eDSNProperties;
+
+
+//---[ eDSNOptions ]-----------------------------------------------------------
+//
+//
+//  Description:
+//      Options flags for DSN options passed into AQueue.
+//  See aqueue.idl for definiton of DSN options
+//  These options should be moved to smtpevent.idl
+//
+//-----------------------------------------------------------------------------
+// typedef [v1_enum] enum
+// {
+//     DSN_OPTIONS_DEFAULT                     = 0x00000000,
+//     DSN_OPTIONS_IGNORE_MSG_RET              = 0x00000004,
+//     DSN_OPTIONS_SEND_DELAY_DEFAULT          = 0x00000008,
+//     DSN_OPTIONS_SEND_DELAY_UPON_REQUEST     = 0x00000010,
+//     DSN_OPTIONS_SEND_DELAY_NEVER            = 0x00000020,
+// } eDSNOptions;
+
+interface IDSNRecipientIterator;
+interface IDSNSubmission;
+
+//+------------------------------------------------------------
+//
+// Interface: IDSNGenerationSink
+//
+// Synopsis: Sink implemented methods to control DSN generation
+//
+// History:
+// jstamerj 2000/11/05 23:34:01: Created
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(3A513AB9-339D-4589-A137-D54C5F520E6F),
+    helpstring("IDSNGenerationSink Interface"),
+    pointer_default(unique)
+]
+interface IDSNGenerationSink : IUnknown
+{
+    //
+    // Called just once after the sink is created.
+    // If an error is returned, sink creation fails.
+    //
+    HRESULT OnSyncSinkInit(
+        [in]  DWORD                        dwVSID);
+
+    //
+    // DSN Event.
+    // Called to get the DSN recipient iterator interface.
+    // The recipient iterator interface returns the recipient indicies
+    // and DSN actions for recipents that should be in the DSN.
+    //
+    // pRecipIterIN is the system's current recipient iterator
+    // interface (the interface returned by the last sink called)
+    // Sinks can capture and aggregate pRecipIterIN if desired.
+    // ppRecipIterOUT is the return parameter for the sink's recip
+    // iterator interface.  If a sink does not wish to return a
+    // recip iterator interface, this paramter can be left NULL.  If a
+    // sink does return a recip iter interface in *ppIREcipIterOut,
+    // then the sink must add a reference count for the caller (call
+    // AddRef() before returning the interface).
+    //
+    HRESULT OnSyncGetDSNRecipientIterator(
+        [in]  ISMTPServer                 *pISMTPServer,
+        [in]  IMailMsgProperties          *pIMsg,
+        [in]  IMailMsgPropertyBag         *pIDSNProperties,
+        [in]  DWORD                        dwStartDomain,
+        [in]  DWORD                        dwDSNActions,
+        [in]  IDSNRecipientIterator       *pIRecipIterIN,
+        [out] IDSNRecipientIterator     **ppIRecipIterOUT);
+    //
+    // DSN Event.
+    // Called to generate DSN mailmsg(s).  The new messages should be
+    // submitted back to SMTPSVC using IDSNSubmission.
+    // Sinks should complete synchronously.  Sink should not use these
+    // interface pointers after OnSyncGenerateDSN has returned.
+    //
+    HRESULT OnSyncGenerateDSN(
+        [in]  ISMTPServer                 *pISMTPServer,
+        [in]  IDSNSubmission              *pIDSNSubmission,
+        [in]  IMailMsgProperties          *pIMsg,
+        [in]  IMailMsgPropertyBag         *pIDSNProperties,
+        [in]  IDSNRecipientIterator       *pIRecipIter);
+    //
+    // Post DSN event.
+    // Called for created DSNs that are submitted back to the
+    // transport.
+    // Sinks should complete synchronously.  Sink should not use these
+    // interface pointers after OnSyncPostGenerateDSN has returned.
+    //
+    HRESULT OnSyncPostGenerateDSN(
+        [in]  ISMTPServer                 *pISMTPServer,
+        [in]  IMailMsgProperties          *pIMsgOrig,
+        [in]  DWORD                        dwDSNAction,
+        [in]  DWORD                        cRecipsDSNd,
+        [in]  IMailMsgProperties          *pIMsgDSN,
+        [in]  IMailMsgPropertyBag         *pIDSNProperties);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IDSNRecipientIterator
+//
+// Synopsis: Iterates through recipients for which a DSN should be
+//           generated.
+//
+// History:
+// jstamerj 2000/11/05 23:49:01: Created
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(1D45C98A-56A0-4fe8-BF33-8986EEB85B63),
+    helpstring("IDSNRecipientIterator Interface"),
+    pointer_default(unique)
+]
+interface IDSNRecipientIterator : IUnknown
+{
+    //
+    // Restart recipient iteration from the beginning
+    //
+    HRESULT HrReset();
+    //
+    // Get the next recipient for which a DSN should be generated
+    // This will return HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS) to
+    // indicate there are no more recipients.
+    //
+    HRESULT HrGetNextRecipient(
+        [out] DWORD *piRecipient,
+        [out] DWORD *pdwDSNAction);
+    //
+    // Mark the recipient so that it will be skipped in further
+    // iterations (no further DSNs will be generated.
+    //
+    HRESULT HrNotifyActionHandled(
+        [in]  DWORD iRecipient,
+        [in]  DWORD dwDSNAction);
+};
+
+//+------------------------------------------------------------
+//
+// Interface: IDSNSubmission
+//
+// Synopsis: Callback interface for a sink to submit a DSN to the
+//           system DURING OnSyncGenerateDSN.  This interface may not
+//           be used after the event has completed.
+//
+// History:
+// jstamerj 2000/12/08 13:28:09: Created
+//
+//-------------------------------------------------------------
+[
+    object,
+    uuid(C016B75D-CE65-496f-A2C9-B487C83C0F6B),
+    helpstring("IDSNSubmission Interface"),
+    pointer_default(unique),
+    local
+]
+interface IDSNSubmission : IUnknown
+{
+    //
+    // Allocate a Bound Message
+    // phContent is managed by mailmsg, so the caller should not
+    // release this handle.
+    //
+    HRESULT HrAllocBoundMessage(
+        [out] IMailMsgProperties **ppMsg,
+        [out] PFIO_CONTEXT *phContent);
+    //
+    // Submit a DSN to the system
+    //
+    HRESULT HrSubmitDSN(
+        [in]  DWORD dwDSNAction,
+        [in]  DWORD cRecipsDSNd,
+        [in]  IMailMsgProperties *pDSNMsg);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //__SMTPEVENT_H__")
+

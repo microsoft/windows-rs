@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/com/windows10/5"
+           xmlns="http://schemas.microsoft.com/appx/manifest/com/windows10/5"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:com5="http://schemas.microsoft.com/appx/manifest/com/windows10/5"
+           >
+
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+    <xs:complexType name="CT_Class">
+        <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+        <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_NewClass">
+        <xs:complexContent>
+            <xs:extension base="CT_Class">
+                <xs:all>
+                    <xs:element name="ImplementedCategories" type="CT_ImplementedCategories" minOccurs="0">
+                        <xs:unique name="ImplementedCategory_Id">
+                            <xs:selector xpath="com5:ImplementedCategory"/>
+                            <xs:field xpath="@Id"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="Conversion" type="com5:CT_Conversion" minOccurs="0"/>
+                    <xs:element name="DataFormats" type="com5:CT_DataFormats" minOccurs="0">
+                        <xs:unique name="DataFormats_All">
+                            <xs:selector xpath="com5:DataFormat"/>
+                            <xs:field xpath="@FormatName"/>
+                            <xs:field xpath="@StandardFormat"/>
+                            <xs:field xpath="@AspectFlag"/>
+                            <xs:field xpath="@MediumFlag"/>
+                            <xs:field xpath="@Direction"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="MiscStatus" type="com5:CT_MiscStatus" minOccurs="0">
+                        <xs:unique name="Aspect_Type">
+                            <xs:selector xpath="com5:Aspect"/>
+                            <xs:field xpath="@Type"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="Verbs" type="com5:CT_Verbs" minOccurs="0">
+                        <xs:unique name="Verb_Index">
+                            <xs:selector xpath="com5:Verb"/>
+                            <xs:field xpath="@Id"/>
+                        </xs:unique>
+                    </xs:element>
+                    <xs:element name="DefaultIcon" type="com5:CT_DefaultIcon" minOccurs="0"/>
+                    <xs:element name="ToolboxBitmap32" type="com5:CT_ToolboxBitmap" minOccurs="0"/>
+                    <xs:element name="TypeLib" type="com5:CT_TypeLibRef" minOccurs="0" />
+                </xs:all>
+                <xs:attribute name="ProgId" type="t:ST_ProgId"/>
+                <xs:attribute name="VersionIndependentProgId" type="t:ST_ProgId"/>
+                <xs:attribute name="AutoConvertTo" type="t:ST_GUID"/>
+                <xs:attribute name="InsertableObject" type="xs:boolean"/>
+                <xs:attribute name="ShortDisplayName" type="t:ST_ShortDisplayName"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_TypeLibRef">
+        <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+        <xs:attribute name="VersionNumber" type="t:ST_VersionCom"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ImplementedCategories">
+        <xs:sequence>
+            <xs:element name="ImplementedCategory" type="CT_ImplementedCategory" minOccurs="1" maxOccurs="1000"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ImplementedCategory">
+        <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_Conversion">
+        <xs:all minOccurs="0">
+            <xs:element name="Readable" type="CT_ConversionFormats" minOccurs="0">
+                <xs:unique name="Readable_Format_FormatName">
+                    <xs:selector xpath="com5:Format"/>
+                    <xs:field xpath="@FormatName"/>
+                </xs:unique>
+                <xs:unique name="Readable_Format_StandardFormat">
+                    <xs:selector xpath="com5:Format"/>
+                    <xs:field xpath="@StandardFormat"/>
+                </xs:unique>
+            </xs:element>
+            <xs:element name="ReadWritable" type="CT_ConversionFormats" minOccurs="0">
+                <xs:unique name="ReadWritable_Format_FormatName">
+                    <xs:selector xpath="com5:Format"/>
+                    <xs:field xpath="@FormatName"/>
+                </xs:unique>
+                <xs:unique name="ReadWritable_Format_StandardFormat">
+                    <xs:selector xpath="com5:Format"/>
+                    <xs:field xpath="@StandardFormat"/>
+                </xs:unique>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ConversionFormats">
+        <xs:sequence>
+            <xs:element name="Format" type="CT_ConversionFormat" minOccurs="1" maxOccurs="1000"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ConversionFormat">
+        <xs:attribute name="FormatName" type="t:ST_NonEmptyString"/>
+        <xs:attribute name="StandardFormat" type="t:ST_HexadecimalCom"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_DataFormats">
+        <xs:sequence>
+            <xs:element name="DataFormat" type="CT_DataFormat" minOccurs="0" maxOccurs="1000"/>
+        </xs:sequence>
+        <xs:attribute name="DefaultFormatName" type="t:ST_NonEmptyString"/>
+        <xs:attribute name="DefaultStandardFormat" type="t:ST_HexadecimalCom"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_DataFormat">
+        <xs:attribute name="FormatName" type="t:ST_NonEmptyString"/>
+        <xs:attribute name="StandardFormat" type="t:ST_HexadecimalCom"/>
+        <xs:attribute name="AspectFlag" type="t:ST_AspectCom" use="required"/>
+        <xs:attribute name="MediumFlag" type="t:ST_MediumCom" use="required"/>
+        <xs:attribute name="Direction" type="t:ST_DataFormatDirectionCom" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_MiscStatus">
+        <xs:sequence>
+            <xs:element name="Aspect" type="CT_Aspect" minOccurs="0" maxOccurs="1000"/>
+        </xs:sequence>
+        <xs:attribute name="OleMiscFlag" type="t:ST_OleMiscCom" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_Aspect">
+        <xs:attribute name="Type" type="t:ST_AspectTypeCom" use="required"/>
+        <xs:attribute name="OleMiscFlag" type="t:ST_OleMiscCom" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_Verbs">
+        <xs:sequence>
+            <xs:element name="Verb" type="CT_ComVerb" minOccurs="1" maxOccurs="1000"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ComVerb">
+        <xs:attribute name="Id" type="t:ST_VerbIndexCom" use="required"/>
+        <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+        <xs:attribute name="AppendMenuFlag" type="t:ST_AppendMenuCom" use="required"/>
+        <xs:attribute name="OleVerbFlag" type="t:ST_OleVerbCom" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_DefaultIcon">
+        <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+        <xs:attribute name="ResourceIndex" type="xs:int"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ToolboxBitmap">
+        <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+        <xs:attribute name="ResourceId" type="xs:positiveInteger"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ClassReference">
+        <xs:attribute name="Id" type="t:ST_GUID" />
+    </xs:complexType>
+
+
+    <xs:complexType name="CT_InProcessClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_ClassReference">
+                <xs:attribute name="Virtualization" type="ST_Virtualization"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessServerClassReference">
+        <xs:complexContent>
+            <xs:extension base="CT_InProcessClassReference">
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="InProcessServer" type="CT_InProcessServer" >
+        <xs:unique name="InProcessServerDll_ProcessorArchitecture">
+            <xs:selector xpath="com5:InProcessServerDll"/>
+            <xs:field xpath="@ProcessorArchitecture"/>
+        </xs:unique>
+        <xs:unique name="InProcessServerDll_Path">
+            <xs:selector xpath="com5:InProcessServerDll"/>
+            <xs:field xpath="@Path"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="CT_InProcessServer">
+        <xs:choice minOccurs="0" maxOccurs="4000">
+            <xs:element name="Class" type="CT_InProcessServerClass"/>
+            <xs:element name="InProcessServerDll" type="CT_InProcessServerDll"/>
+            <xs:element name="ClassReference" type="CT_InProcessServerClassReference"/>
+        </xs:choice>
+        <xs:attribute name="Path" type="t:ST_FileName" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessClass">
+        <xs:complexContent>
+            <xs:extension base="CT_NewClass">
+                <xs:attribute name="Virtualization" type="ST_Virtualization"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessServerClass">
+        <xs:complexContent>
+            <xs:extension base="CT_InProcessClass">
+                <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_InProcessServerDll">
+        <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+        <xs:attribute name="ProcessorArchitecture" type="t:ST_ArchitectureNonNeutral" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="ST_Virtualization">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="enabled"/>
+            <xs:enumeration value="disabled"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="InProcessHandler" type="CT_InProcessHandler" >
+        <xs:unique name="InProcessHandlerDll_ProcessorArchitecture">
+            <xs:selector xpath="com5:InProcessHandlerDll"/>
+            <xs:field xpath="@ProcessorArchitecture"/>
+        </xs:unique>
+        <xs:unique name="InProcessHandlerDll_Path">
+            <xs:selector xpath="com5:InProcessHandlerDll"/>
+            <xs:field xpath="@Path"/>
+        </xs:unique>
+    </xs:element>
+
+    <xs:complexType name="CT_InProcessHandler">
+        <xs:choice minOccurs="0" maxOccurs="4000">
+            <xs:element name="Class" type="CT_InProcessClass"/>
+            <xs:element name="InProcessHandlerDll" type="CT_InProcessServerDll" />
+            <xs:element name="ClassReference" type="CT_InProcessClassReference"/>
+        </xs:choice>
+        <xs:attribute name="Path" type="t:ST_FileName" use="optional"/>
+    </xs:complexType>
+
+</xs:schema>
+

@@ -1,0 +1,628 @@
+cpp_quote("#include <winapifamily.h>")
+
+//
+// Copyright Microsoft Corporation, All Rights Reserved
+//
+
+import "wtypes.idl";
+import "unknwn.idl";
+import "hstring.idl";
+import "propidl.idl";
+import "SpatialAudioClient.idl";
+
+#pragma region Application and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+// Microsoft reserved metadata commands.   Custom metadata commands are restricted to
+// command ID zero thru 199.  200 to 255 are reserved for Microsoft use.
+cpp_quote("#define SPATIAL_AUDIO_STANDARD_COMMANDS_START   200     // 200 and above is reserved")
+
+// Spatial Audio position is a standard Microsoft define metadata command which represents
+// volumetric coordinates about the listener in the standard model used by SpatialAudioClient.
+// where center of listeners head is 0,0,0 and distance fo 1.0 = 1 meter.
+cpp_quote("#define SPATIAL_AUDIO_POSITION                   (SPATIAL_AUDIO_STANDARD_COMMANDS_START)")
+cpp_quote("#define SPATIAL_AUDIO_POSITION_BYTE_COUNT        (sizeof(float) * 3)     // 3 (XYZ) 32-Bit Floats")
+
+
+// Writer Overflow is defined as attempting to write more items into metadataBuffer than 
+// maxItems specified when metadataBuffer was created
+typedef enum SpatialAudioMetadataWriterOverflowMode
+{
+    SpatialAudioMetadataWriterOverflow_Fail = 0,        // Overflow will fail
+    SpatialAudioMetadataWriterOverflow_MergeWithNew,    // Overflow will succeed, will merge overflow item with previous item and adopt frame offset of newest item
+    SpatialAudioMetadataWriterOverflow_MergeWithLast    // Overflow will succeed, will merge overflow item with previous item and keep existing frame offset
+} SpatialAudioMetadataWriterOverflowMode;
+
+// Copier modes of operation.  Supports full overwrite copy, appending and appending with item overflow merge behaviors
+// When there are more items than the destination can hold (overflow), the merge options allow the overflow items to
+// be merged together, and will take the most recent of duplicate commands.  Can adopt the offset of last or first items merged
+typedef enum SpatialAudioMetadataCopyMode
+{
+    SpatialAudioMetadataCopy_Overwrite = 0,             // Creates a direct copy of the specfied frameCount in destination buffer, overwrites any previous data
+    SpatialAudioMetadataCopy_Append,                    // Normal append - will fail is resulting metadataBuffer has too many items
+    SpatialAudioMetadataCopy_AppendMergeWithLast,       // Appends, if overflow occurs, extra items are merged into last item adopting last merged items offset
+    SpatialAudioMetadataCopy_AppendMergeWithFirst       // Appends, if overflow occurs, extra items are merged assigning the offset of the first non-overflow item offset
+} SpatialAudioMetadataCopyMode;
+
+
+#pragma pack(push, 1)
+
+// provides full set of data available on a SpatialAudioMetadataItems object
+typedef struct SpatialAudioMetadataItemsInfo
+{
+    UINT16  FrameCount;                 // total frame count that defines valid item offsets
+    UINT16  ItemCount;                  // Current number of items stored
+    UINT16  MaxItemCount;               // Max number of items allowed (defined at creation time)
+    UINT32  MaxValueBufferLength;       // Size of largest command value defined by metadataFormat
+}SpatialAudioMetadataItemsInfo;
+
+typedef struct SpatialAudioObjectRenderStreamForMetadataActivationParams
+{
+    WAVEFORMATEX const* ObjectFormat;           // Format descriptor for a single spatial audio objects. All objects must have the same format and must be of type WAVEFORMATEX or WAVEFORMATEXTENSIBLE.
+    AudioObjectType StaticObjectTypeMask;       // (static channel bed mask) mask of static audio object type that are allowed
+    UINT32 MinDynamicObjectCount;               // Minimum number of dynamic audio objects. If at least this count cannot be granted, no dynamic objects will be granted.
+    UINT32 MaxDynamicObjectCount;               // Maximum number of dynamic audio objects that can be activated via ISpatialAudioObjectRenderStreamForMetadata.
+    AUDIO_STREAM_CATEGORY Category;             // Specifies the category of the audio stream and its spatial audio objects.
+    HANDLE EventHandle;                         // event that will signal the need for more audio data. This handle will be duplicated internally before getting used
+    GUID MetadataFormatId;                      // Specifies the metadataFormat that for the currently active spatial rendering engine
+    UINT16 MaxMetadataItemCount;                // Maximum number of metadata Items Per FrameCount
+    PROPVARIANT const* MetadataActivationParams;
+    ISpatialAudioObjectRenderStreamNotify* NotifyObject;
+} SpatialAudioObjectRenderStreamForMetadataActivationParams;
+
+typedef struct SpatialAudioObjectRenderStreamForMetadataActivationParams2
+{
+    WAVEFORMATEX const* ObjectFormat;           // Format descriptor for a single spatial audio objects. All objects must have the same format and must be of type WAVEFORMATEX or WAVEFORMATEXTENSIBLE.
+    AudioObjectType StaticObjectTypeMask;       // (static channel bed mask) mask of static audio object type that are allowed
+    UINT32 MinDynamicObjectCount;               // Minimum number of dynamic audio objects. If at least this count cannot be granted, no dynamic objects will be granted.
+    UINT32 MaxDynamicObjectCount;               // Maximum number of dynamic audio objects that can be activated via ISpatialAudioObjectRenderStreamForMetadata.
+    AUDIO_STREAM_CATEGORY Category;             // Specifies the category of the audio stream and its spatial audio objects.
+    HANDLE EventHandle;                         // event that will signal the need for more audio data. This handle will be duplicated internally before getting used
+    GUID MetadataFormatId;                      // Specifies the metadataFormat that for the currently active spatial rendering engine
+    UINT32 MaxMetadataItemCount;                // Maximum number of metadata Items Per FrameCount
+    PROPVARIANT const* MetadataActivationParams;
+    ISpatialAudioObjectRenderStreamNotify* NotifyObject;
+    SPATIAL_AUDIO_STREAM_OPTIONS Options;
+} SpatialAudioObjectRenderStreamForMetadataActivationParams2;
+
+#pragma pack(pop)
+
+[
+    object,
+    uuid(BCD7C78F-3098-4F22-B547-A2F25A381269),
+    pointer_default(unique),
+    local
+]
+
+/// <summary>
+///     The ISpatialAudioMetadataItems interface implements objects used to 
+///     store metadata items at frame offsets within a specified range of
+///     of valid frame offset postions defined by frameCount.
+///     To write items into this object use SpatialAudioMetadataWriter
+///     To Read items out of this object use SpatialAudioMetadataReader
+///     To Copy items out of this object use SpatialAudioMetadataCopier
+/// </summary>
+
+interface ISpatialAudioMetadataItems : IUnknown
+{
+    // total frame count that defines valid item offsets
+    HRESULT GetFrameCount(
+        [out, annotation("_Out_")] UINT16 *frameCount
+        );
+
+    // Current number of items stored
+    HRESULT GetItemCount(
+        [out, annotation("_Out_")] UINT16 *itemCount
+        );
+
+    // Max number of items allowed (defined at creation time)
+    HRESULT GetMaxItemCount(
+        [out, annotation("_Out_")] UINT16 *maxItemCount
+        );
+
+    // Size of largest command value defined by metadataFormat
+    HRESULT GetMaxValueBufferLength(
+        [out, annotation("_Out_")] UINT32 *maxValueBufferLength
+        );
+
+    // provides full set of data available on a SpatialAudioMetadataItems object
+    HRESULT GetInfo(
+        [out, annotation("_Out_")] SpatialAudioMetadataItemsInfo *info
+        );
+};
+
+
+
+[
+    object,
+    uuid(1B17CA01-2955-444D-A430-537DC589A844),
+    pointer_default(unique),
+    local
+]
+
+/// <summary>
+///     The ISpatialAudioMetadataWriter interface provides methods for storing metadata items
+///     positioned within a range of corresponding audio frames.  Each item has a zero based 
+///     offset position within the specified frame.  Each item can contain one or more commands
+///     specific to the metadataFormatId provided when SpatialAudioMetadataClient was created.  
+///     This object does not allocate storage for the metadata it is provided, the caller is expected
+///     to manage allocation of memory used to store the packed data.
+/// 
+///     Multiple metadata items can be placed in the SpatialAudioMetadataItems object.  For each item, 
+///     call WriteNextItem followed by calls to WriteNextItemCommand.
+/// </summary>
+interface ISpatialAudioMetadataWriter : IUnknown
+{
+
+/// <summary>
+///     The Open() method opens a SpatialAudioMetadataItems object for writing
+/// </summary>
+/// <param name="metadataItems">
+///     Points to SpatialAudioMetadataItems Object to be written into
+/// </param>
+    HRESULT Open(
+        [in, annotation("_In_")] ISpatialAudioMetadataItems *metadataItems
+        );
+
+/// <summary>
+///     The WriteNextItem() method starts a new metadata item as the specified offset.
+/// </summary>
+/// <param name="frameOffset">
+///     Specifies the frame offset of the item within the objects frameCount range.
+/// </param>
+///
+/// <remarks>
+/// Can only be called on an open metadata buffer.  Must be called before calling WriteNextItemCommand.  Frame
+/// offsets must be greater in value than previous WriteItem offset positions for this 
+/// metadataBuffer. 
+/// </remarks>
+    HRESULT WriteNextItem( 
+        [in,  annotation("_In_")] UINT16 frameOffset
+        );
+
+/// <summary>
+///     The WriteNextItemCommand() method adds metadata commands and value data to the current item.
+/// </summary>
+/// <param name="commandID">
+///     Specifies a command supported by the metadataFormat of this object.  Each command can
+///     can only be written once per item.  Call will fail if command not defined by metadataFormat.
+/// </param>
+/// <param name="valueBuffer">
+///     Pointer to a buffer which stores data specific to the command as specified by the
+///     metadataFormat definition.
+/// </param>
+/// <param name="valueBufferLength">
+///     Specifies the size in bytes of the command valueBuffer.  Size must match definition 
+///     as specified by the metadataFormat or call will fail.
+/// </param>
+///
+/// <remarks>
+///  Valid commands and command value sizes are tied to the metadataFormatId and documented
+///  by the vendor of the spatial audio encoder/decoder.
+/// </remarks>
+    HRESULT WriteNextItemCommand(
+        [in, annotation("_In_")] BYTE commandID, 
+        [in,  size_is(valueBufferLength), annotation("_In_reads_bytes_opt_(valueBufferLength)")] const void *valueBuffer, 
+        [in, annotation("_In_")] UINT32 valueBufferLength
+        );
+
+/// <summary>
+///     The Close() method completes any needed operations on the metadataBuffer and will
+///     release the specified SpatialAudioMetadataItems object.
+/// </summary>
+    HRESULT Close(void);
+}
+
+
+
+
+[
+    object,
+    uuid(B78E86A2-31D9-4C32-94D2-7DF40FC7EBEC),
+    pointer_default(unique),
+    local
+]
+/// <summary>
+///     The ISpatialAudioMetadataReader interface provides methods for extracting
+///     metadata items and item command value pairs from the specified SpatialAudioMetadataItems object.
+///     The SpatialAudioMetadataItems object, as populated by ISpatialAudioMetadataWriter, has a frameCount
+///     representing the valid range of item offsets.  The object maintains an internal read position.
+/// </summary>
+interface ISpatialAudioMetadataReader : IUnknown
+{
+/// <summary>
+///     The Open() method reads metadata commands and value data from specified SpatialAudioMetadataItems object
+/// </summary>
+/// <param name="metadataItems">
+///     Specifies the SpatialAudioMetadataItems object which contains metadata populated by ISpatialAudioMetadataWriter,
+///     or ISpatialAudioMetadataCopier.
+/// </param>
+    HRESULT Open(
+        [in, annotation("_In_")] ISpatialAudioMetadataItems *metadataItems
+        );
+
+/// <summary>
+///     The ReadNextItem() method is used to get the number of commands and the sample offset for the current item
+
+/// </summary>
+/// <param name="commandCount">
+///     Returns the total number of commands value pairs associated with the current item being read.
+/// </param>
+/// <param name="frameOffset">
+///     Returns the frame offset position of the current item being read.
+/// </param>
+///
+/// <remarks>
+///  Must be called before ReadNextItemCommand.
+/// </remarks>    
+    HRESULT ReadNextItem(
+        [out, annotation("_Out_")] UINT8 *commandCount, 
+        [out, annotation("_Out_")] UINT16 *frameOffset
+        );
+    
+/// <summary>
+///     The ReadNextItemCommand() method is used to get the commands for thee current item
+/// </summary>
+/// <param name="commandID">
+///     Returns the command ID for the current command
+/// </param>
+/// <param name="valueBuffer">
+///     Pointer to a buffer to receive the value data for this command.  Must be at least maxValueLength in size to 
+///     ensure all commands can be successfully retrieved.
+/// </param>
+/// <param name="maxValueBufferLength">
+///     Specifies the maximum size of valueBuffer
+/// </param>
+/// <param name="valueBufferLength">
+///     returns total bytes copied into valueBuffer.
+/// </param>
+///
+/// <remarks>
+///  Can only be called after ReadNextItem.
+/// </remarks>    
+    HRESULT ReadNextItemCommand(
+        [out, annotation("_Out_")] BYTE *commandID,   
+        [in, size_is(maxValueBufferLength), annotation("_Out_writes_bytes_(maxValueBufferLength)")] void *valueBuffer,   
+        [in, annotation("_In_")] UINT32 maxValueBufferLength,
+        [out, annotation("_Out_")] UINT32 *valueBufferLength  
+        );
+ 
+/// <summary>
+///     The Close() method completes any needed operations on the SpatialAudioMetadataItems and will
+///     release to the SpatialAudioMetadataItems object.
+/// </summary>
+    HRESULT Close();
+};
+
+
+
+
+
+[
+    object,
+    uuid(D224B233-E251-4FD0-9CA2-D5ECF9A68404),
+    pointer_default(unique),
+    local
+]
+/// <summary>
+///     The ISpatialAudioMetadataCopier interface provides methods for copying SpatialAudioMetadataItems.
+///     Callers will be able to copy all or subsets of metadata items from source SpatialAudioMetadataItems
+///     into a destination SpatialAudioMetadataItems.
+///     The SpatialAudioMetadataItems object, as populated by ISpatialAudioMetadata Writer or Copier, has a frameCount
+///     representing the valid range of item offsets.  This objects allows copying of
+///     groups of items within a copyFrameCount of the original specified frameCount.  The object
+///     maintains an internal read position, which is advanced by copyFrameCount on each copy.
+///     This copy object also supports appending the contents of a copy into an existing
+///     metadata buffer, and will adjust metadata item offsets accordingly.
+/// </summary>
+
+interface ISpatialAudioMetadataCopier : IUnknown
+{
+
+/// <summary>
+///     The Open() method reads metadata commands and value data from specified SpatialAudioMetadataItems object
+/// </summary>
+/// <param name="metadataItems">
+///     Specifies the SpatialAudioMetadataItems object which contains metadata populated by ISpatialAudioMetadata Writer or Copier.
+/// </param>
+    HRESULT Open(
+        [in, annotation("_In_")] ISpatialAudioMetadataItems *metadataItems
+        );
+  
+
+/// <summary>
+///     The CopyMetadataForFrames() copies the metadata items which occur in the specified copyFrameCount from the currently
+///     open SpatialAudioMetadataItems into a destination SpatialAudioMetadataItems.  Each call will advance the internal copy position
+///     by the specified copyFrameCount.
+/// </summary>
+/// <param name="copyFrameCount">
+///     This specifies the number of frames from the current copy position for which copyFrame information is requested.
+///     A copyFrameCount of zero specifies the entire frame which the source SpatialAudioMetadataItems contains.
+///     After the copy the internal copy position within the source metadataBuffer frame will be advanced 
+///     by this copyFrameCount.
+/// </param>
+/// <param name="copyMode">
+///     Specifies the copy mode as defined by SpatialAudioMetadataCopyMode enum.
+/// </param>
+/// <param name="dstMetadataItems">
+///    Specifies a destination SpatialAudioMetadataItems to contain the output of the copy
+/// </param>
+/// <param name="itemsCopied">
+///     Specifies the total number of new items copied.  
+/// </param>
+///
+/// <remarks>
+///  This function merely performs a copy and advances the internal copy position.
+/// </remarks>
+    HRESULT CopyMetadataForFrames(
+        [in,  annotation("_In_")]  UINT16 copyFrameCount,                                    
+        [in,  annotation("_In_")]  SpatialAudioMetadataCopyMode copyMode,                                    
+        [in,  annotation("_In_")] ISpatialAudioMetadataItems *dstMetadataItems,
+        [out, annotation("_Out_")] UINT16 *itemsCopied                                   
+        );
+
+    
+/// <summary>
+///     The Close() method completes any needed operations on the source SpatialAudioMetadataItems and will
+///     release the specified SpatialAudioMetadataItems.
+/// </summary>
+    HRESULT Close();
+};
+
+
+
+
+
+[
+    object,
+    uuid(42640A16-E1BD-42D9-9FF6-031AB71A2DBA),
+    pointer_default(unique),
+    local
+]
+/// <summary>
+///     This interface provides methods for attaching buffers to SpatialAudioMetadataItems for inplace storage of data
+///     Buffers can be attached, and it will reset the contents to the empty set of metadata items.  If a previously populated
+///     buffer can be attached again and retain the internal data stored in the buffer.
+/// </summary>
+interface ISpatialAudioMetadataItemsBuffer : IUnknown
+{
+    
+/// <summary>
+///     Used to attach caller provided memory for storage of metadata Items.
+/// </summary>
+/// <param name="buffer">
+///     pointer to memory to use for storage
+/// </param>
+/// <param name="bufferLength">
+///     Length of buffer, must match the length required for format and maxitems
+/// </param>
+    HRESULT AttachToBuffer(
+        [in, size_is(bufferLength), annotation("_Out_writes_bytes_(bufferLength)")] BYTE *buffer,
+        [in, annotation("_In_")] UINT32 bufferLength
+    );
+
+
+/// <summary>
+///     Used to attach to caller provided memory which was previously populated
+/// </summary>
+/// <param name="buffer">
+///     pointer to memory to use for storage
+/// </param>
+/// <param name="bufferLength">
+///     Length of buffer, must match the length required for format and maxitems
+/// </param>
+    HRESULT AttachToPopulatedBuffer(
+        [in, size_is(bufferLength), annotation("_Out_writes_bytes_(bufferLength)")] BYTE *buffer,
+        [in, annotation("_In_")] UINT32 bufferLength
+    );
+
+/// <summary>
+///     Detaches the buffer from this Item.  Memory can only be attached to a single metadata item at a time.
+/// </summary>
+    HRESULT DetachBuffer(void);
+}
+
+
+
+
+
+[
+    object,
+    uuid(777D4A3B-F6FF-4A26-85DC-68D7CDEDA1D4),
+    pointer_default(unique),
+    local
+]
+/// <summary>
+///     The SpatialAudioMetadataClient provides a class factory for creating
+///     SpatialAudioMetadataItems, and related writer, reader and copier objects.
+///     When SpatialAudioMetadataItems is activated, a metadataFormatId is specified
+///     which defines the metadata format enforced by all objects created from this factory.
+///     If the metadataFormatId is not available on the current audio render endpoint
+///     the class factory will not activate and returns an error.
+/// </summary>
+
+interface ISpatialAudioMetadataClient : IUnknown
+{
+
+/// <summary>
+///     Creates a SpatialAudioMetadataItems object to contain metadata Items.
+/// </summary>
+/// <param name="maxItemCount">
+///     Specifies the maximum number of metadata items which can be stored in SpatialAudioMetadataItems object
+/// </param>
+/// <param name="frameCount">
+///     Specifies the valid range of frame offset positions for metadata items stored in SpatialAudioMetadataItems object.
+/// </param>
+/// <param name="metadataItemsBuffer">
+///     Optionally returns an pointer to SpatialAudioMetadataItemsBuffer interface which provides methods for attaching
+///     caller provided memory for storage of metadata.  If this parameter is NULL, the object will allocate internal storage
+///     for the items.   This interface cannot be obtained via QueryInterface, this allows controlled access of this capablity.
+/// </param>
+/// <param name="metadataItems">
+///     Returns an instance SpatialAudioMetadataItems object which contains metadata populated by ISpatialAudioMetadata Writer or Copier.
+/// </param>
+   HRESULT ActivateSpatialAudioMetadataItems(
+        [in,  annotation("_In_")]  UINT16 maxItemCount,    
+        [in,  annotation("_In_")]  UINT16 frameCount,                                 
+        [out, annotation("_Outptr_opt_result_nullonfailure_")] ISpatialAudioMetadataItemsBuffer **metadataItemsBuffer,
+        [out, annotation("_Outptr_result_nullonfailure_")] ISpatialAudioMetadataItems **metadataItems
+        );
+
+/// <summary>
+/// provides length of buffer for the number of metadata items specified to support caller provided memory
+/// </summary>
+/// <param name="maxItemCount">
+///     Specifies the maximum number of metadata items which can be stored in SpatialAudioMetadataItems object
+/// </param>
+/// <param name="bufferLength">
+///     returns the length of required buffer to store SpatialAudioMetadataItems data with maxItemCount items
+/// </param> 
+    HRESULT GetSpatialAudioMetadataItemsBufferLength(
+        [in,  annotation("_In_")]  UINT16 maxItemCount,
+        [out, annotation("_Out_")] UINT32 *bufferLength
+        );
+
+/// <summary>
+///     The ActivateSpatialAudioMetadataWriter() method creates an instance of an ISpatialAudioMetadataWriter.
+/// </summary>
+/// <param name="mergeOnOverflow">
+///     Accepts SpatialAudioMetadataWriterOverflowMode enum value to define behavior when max item count is exceeded
+///     _Fail - Overflow will fail
+///     _MergeWithNew - Overflow will succeed, will merge overflow item with previous item and adopt frame offset of newest item
+///     _MergeWithLast - Overflow will succeed, will merge overflow item with previous item and keep existing frame offset
+/// </param>
+/// <param name="metadataWriter">
+///     Returns a pointer to an instance of ISpatialAudioMetadataWriter.
+/// </param>
+    HRESULT ActivateSpatialAudioMetadataWriter(
+        [in,  annotation("_In_")]  SpatialAudioMetadataWriterOverflowMode overflowMode,
+        [out, annotation("_Outptr_result_nullonfailure_")] ISpatialAudioMetadataWriter **metadataWriter
+        );
+    
+/// <summary>
+///     The ActivateSpatialAudioMetadataCopier() method creates an instance of an ISpatialAudioMetadataCopier.
+///     This object is used to copy all or copyFrames of metadataBuffer items from one metadataBuffer to 
+///     another.
+/// </summary>
+/// <param name="metadataCopy">
+///     Returns a pointer to an instance of ISpatialAudioMetadataCopier.
+/// </param>
+    HRESULT ActivateSpatialAudioMetadataCopier(
+        [out, annotation("_Outptr_result_nullonfailure_")] ISpatialAudioMetadataCopier **metadataCopier
+        );
+
+/// <summary>
+///     The ActivateSpatialAudioMetadataReader() method creates an instance of an ISpatialAudioMetadataReader.
+///     This object is used to extract metadataItems and commands from a SpatialAudioMetadataItems one readFrameCount at a time
+///     or all at once. 
+/// </summary>
+/// <param name="metadataReader">
+///     Returns a pointer to an instance of ISpatialAudioMetadataReader.
+/// </param>
+    HRESULT ActivateSpatialAudioMetadataReader(
+        [out, annotation("_Outptr_result_nullonfailure_")] ISpatialAudioMetadataReader **metadataReader
+        );
+};
+
+
+
+
+// This interface is used to write engine specific metadata commands
+// The data written via this interface must adhere to the format defined by the spatial rendering engine
+[
+    object,
+    uuid(0DF2C94B-F5F9-472D-AF6B-C46E0AC9CD05),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectForMetadataCommands : ISpatialAudioObjectBase
+{
+    // Writes a metadata command to the spatial audio object, individual commands may only be added once
+    // per object per processing cycle. Valid commands and value lengths are defined by the metadataFormatId
+    HRESULT WriteNextMetadataCommand(
+        [in, annotation("_In_")] BYTE commandID,
+        [in, size_is(valueBufferLength), annotation("_In_reads_bytes_opt_(valueBufferLength)")] void *valueBuffer,
+        [in, annotation("_In_")] UINT32 valueBufferLength
+    );
+
+}
+
+
+// This interface is used to write engine specific metadata when multiple metadata items with frame
+// accurate placement per buffer is required.  This is typically used for streaming content via Media Foundation.
+// The data written via this interface must adhere to the format defined by the spatial rendering engine
+[
+    object,
+    uuid(DDEA49FF-3BC0-4377-8AAD-9FBCFD808566),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectForMetadataItems : ISpatialAudioObjectBase
+{
+    // Get a pointer to the ISpatialAudioMetadataItems object to add metadata items, release when done
+    HRESULT GetSpatialAudioMetadataItems(
+        [out, annotation("_Outptr_result_nullonfailure_")] ISpatialAudioMetadataItems **metadataItems
+        );
+}
+
+
+[
+    object,
+    uuid(BBC9C907-48D5-4A2E-A0C7-F7F0D67C1FB1),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectRenderStreamForMetadata : ISpatialAudioObjectRenderStreamBase
+{
+    // Activate an ISpatialAudioObjectForMetadataCommands for rendering, counts against total resources
+    // This method will return SPTLAUDCLNT_E_NO_MORE_OBJECTS if all audio objects are 
+    // being used
+    // To avoid this error, call Release() when object life ends
+    // and there is no more data to feed or after SetEndOfStream()
+    HRESULT ActivateSpatialAudioObjectForMetadataCommands(
+        [in, annotation("_In_")] AudioObjectType type,
+        [out, annotation("_COM_Outptr_")] ISpatialAudioObjectForMetadataCommands** audioObject
+        );
+
+
+    // Activate an ISpatialAudioObjectForMetadataItems for rendering, counts against total resources
+    // This method will return SPTLAUDCLNT_E_NO_MORE_OBJECTS if all audio objects are 
+    // being used
+    // To avoid this error, call Release() when object life ends
+    // and there is no more data to feed or after SetEndOfStream()
+    HRESULT ActivateSpatialAudioObjectForMetadataItems(
+        [in, annotation("_In_")] AudioObjectType type,
+        [out, annotation("_COM_Outptr_")] ISpatialAudioObjectForMetadataItems** audioObject
+        );
+};
+
+// error codes
+cpp_quote("#define SPTLAUD_MD_CLNT_E_COMMAND_NOT_FOUND                   AUDCLNT_ERR(0x0200)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED              AUDCLNT_ERR(0x0201)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_INVALID_ARGS                        AUDCLNT_ERR(0x0202)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_METADATA_FORMAT_NOT_FOUND           AUDCLNT_ERR(0x0203)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE         AUDCLNT_ERR(0x0204)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_MEMORY_BOUNDS                       AUDCLNT_ERR(0x0205)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_MORE_COMMANDS                    AUDCLNT_ERR(0x0206)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_BUFFER_ALREADY_ATTACHED             AUDCLNT_ERR(0x0207)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_BUFFER_NOT_ATTACHED                 AUDCLNT_ERR(0x0208)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_FRAMECOUNT_OUT_OF_RANGE             AUDCLNT_ERR(0x0209)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_ITEMS_FOUND                      AUDCLNT_ERR(0x0210)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_ITEM_COPY_OVERFLOW                  AUDCLNT_ERR(0x0211)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_ITEMS_OPEN                       AUDCLNT_ERR(0x0212)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_ITEMS_ALREADY_OPEN                  AUDCLNT_ERR(0x0213)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_ATTACH_FAILED_INTERNAL_BUFFER       AUDCLNT_ERR(0x0214)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_DETACH_FAILED_INTERNAL_BUFFER       AUDCLNT_ERR(0x0215)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_BUFFER_ATTACHED                  AUDCLNT_ERR(0x0216)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS                       AUDCLNT_ERR(0x0217)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_FRAMEOFFSET_OUT_OF_RANGE            AUDCLNT_ERR(0x0218)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_ITEM_MUST_HAVE_COMMANDS             AUDCLNT_ERR(0x0219)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_ITEMOFFSET_WRITTEN               AUDCLNT_ERR(0x0220)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_NO_ITEMS_WRITTEN                    AUDCLNT_ERR(0x0221)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_COMMAND_ALREADY_WRITTEN             AUDCLNT_ERR(0x0222)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH                     AUDCLNT_ERR(0x0223)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED               AUDCLNT_ERR(0x0224)")
+cpp_quote("#define SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING            AUDCLNT_ERR(0x0225)")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")

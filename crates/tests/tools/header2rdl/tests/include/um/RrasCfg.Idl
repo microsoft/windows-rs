@@ -1,0 +1,355 @@
+//+---------------------------------------------------------------------------
+//
+//  (C) Copyright 1998 Microsoft Corporation. All Rights Reserved.
+//
+//  Contents:   Declarations for EAP UI interfaces.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// RRasCfg.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1998 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote(" ")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "basetsd.h";
+import "wtypes.idl";
+
+typedef BYTE *  PBYTE;
+
+/*---------------------------------------------------------------------------
+	IRouterProtocolConfig
+ ---------------------------------------------------------------------------*/
+
+[
+   object,
+   uuid(66A2DB16-D706-11D0-A37B-00C04FC9DA04),
+   local,
+   pointer_default(unique),
+]
+   
+   
+interface IRouterProtocolConfig :IUnknown
+{
+	import "unknwn.idl";
+
+	HRESULT	AddProtocol([in,string] LPCOLESTR pszMachineName,
+					[in] DWORD dwTransportId,
+					[in] DWORD dwProtocolId,
+					[in] HWND hWnd,
+					[in] DWORD dwFlags,
+					[in] IUnknown *pRouter,
+					[in] ULONG_PTR uReserved1);
+	
+	HRESULT	RemoveProtocol([in,string] LPCOLESTR pszMachineName,
+					  [in] DWORD dwTransportId,
+					  [in] DWORD dwProtocolId,
+					  [in] HWND hWnd,
+					  [in] DWORD dwFlags,
+					  [in] IUnknown *pRouter,
+					  [in] ULONG_PTR uReserved1);	
+};
+
+// a macro to help declare all of the methods
+cpp_quote("#define DeclareIRouterProtocolConfigMembers(IPURE) \\")
+cpp_quote("	STDMETHOD(AddProtocol)(THIS_ LPCOLESTR pszMachineName,\\")
+cpp_quote("					   DWORD dwTransportId,\\")
+cpp_quote("					   DWORD dwProtocolId,\\")
+cpp_quote("					   HWND hWnd,\\")
+cpp_quote("					   DWORD dwFlags,\\")
+cpp_quote("					   IUnknown *pRouter,\\")
+cpp_quote("					   ULONG_PTR uReserved1) IPURE;\\")
+cpp_quote("	STDMETHOD(RemoveProtocol)(THIS_ LPCOLESTR pszMachineName,\\")
+cpp_quote("						 DWORD dwTransportId,\\")
+cpp_quote("						 DWORD dwProtocolId,\\")
+cpp_quote("						 HWND hWnd,\\")
+cpp_quote("						 DWORD dwFlags,\\")
+cpp_quote("						 IUnknown *pRouter,\\")
+cpp_quote("						 ULONG_PTR uReserved2) IPURE;\\")
+cpp_quote(" ")
+
+
+/*---------------------------------------------------------------------------
+	IAuthenticationProviderConfig
+ ---------------------------------------------------------------------------*/
+
+[
+   object,
+   uuid(66A2DB17-D706-11D0-A37B-00C04FC9DA04),
+   local,
+   pointer_default(unique),
+]
+   
+   
+interface IAuthenticationProviderConfig :IUnknown
+{
+	import "unknwn.idl";
+
+	HRESULT		Initialize([in, string] LPCOLESTR pszMachineName,
+						   [out] ULONG_PTR *puConnectionParam);
+	HRESULT		Uninitialize([in] ULONG_PTR uConnectionParam);
+
+	HRESULT		Configure([in] ULONG_PTR uConnectionParam,
+						  [in] HWND hWnd,
+						  [in] DWORD dwFlags,
+						  [in] ULONG_PTR uReserved1,
+						  [in] ULONG_PTR uReserved2);
+
+	HRESULT		Activate([in] ULONG_PTR uConnectionParam,
+						 [in] ULONG_PTR uReserved1,
+						 [in] ULONG_PTR uReserved2);
+
+	HRESULT		Deactivate([in] ULONG_PTR uConnectionParam,
+						   [in] ULONG_PTR uReserved1,
+						   [in] ULONG_PTR uReserved2);
+	
+};
+
+// a macro to help declare all of the methods
+cpp_quote("#define DeclareIAuthenticationProviderConfigMembers(IPURE) \\")
+cpp_quote("	STDMETHOD(Initialize)(THIS_ \\")
+cpp_quote("							LPCOLESTR pszMachineName, \\")
+cpp_quote("							ULONG_PTR *puConnectionParam) IPURE; \\")
+cpp_quote("	STDMETHOD(Uninitialize)(THIS_ \\")
+cpp_quote("							ULONG_PTR uConnectionParam) IPURE; \\")
+cpp_quote("	 \\")
+cpp_quote("	STDMETHOD(Configure)(THIS_ \\")
+cpp_quote("							ULONG_PTR uConnectionParam, \\")
+cpp_quote("							HWND hWnd, \\")
+cpp_quote("						  DWORD dwFlags, \\")
+cpp_quote("						  ULONG_PTR uReserved1, \\")
+cpp_quote("						  ULONG_PTR uReserved2) IPURE; \\")
+cpp_quote(" \\")
+cpp_quote("	STDMETHOD(Activate)(THIS_ \\")
+cpp_quote("						ULONG_PTR uConnectionParam, \\")
+cpp_quote("						 ULONG_PTR uReserved1, \\")
+cpp_quote("						 ULONG_PTR uReserved2) IPURE; \\")
+cpp_quote(" \\")
+cpp_quote("	STDMETHOD(Deactivate)(THIS_ \\")
+cpp_quote("						ULONG_PTR uConnectionParam, \\")
+cpp_quote("						   ULONG_PTR uReserved1, \\")
+cpp_quote("						   ULONG_PTR uReserved2) IPURE; \\")
+cpp_quote(" ")
+
+
+/*---------------------------------------------------------------------------
+	IAccountingProviderConfig
+ ---------------------------------------------------------------------------*/
+
+[
+   object,
+   uuid(66A2DB18-D706-11D0-A37B-00C04FC9DA04),
+   local,
+   pointer_default(unique),
+]
+   
+   
+interface IAccountingProviderConfig :IUnknown
+{
+	import "unknwn.idl";
+
+	HRESULT		Initialize([in, string] LPCOLESTR pszMachineName,
+						   [out] ULONG_PTR *puConnectionParam);
+	HRESULT		Uninitialize([in] ULONG_PTR uConnectionParam);
+	
+	HRESULT		Configure([in] ULONG_PTR uConnectionParam,
+						  [in] HWND hWnd,
+						  [in] DWORD dwFlags,
+						  [in] ULONG_PTR uReserved1,
+						  [in] ULONG_PTR uReserved2);
+
+	HRESULT		Activate([in] ULONG_PTR uConnectionParam,
+						 [in] ULONG_PTR uReserved1,
+						 [in] ULONG_PTR uReserved2);
+
+	HRESULT		Deactivate([in] ULONG_PTR uConnectionParam,
+						   [in] ULONG_PTR uReserved1,
+						   [in] ULONG_PTR uReserved2);
+};
+
+// a macro to help declare all of the methods
+cpp_quote("#define DeclareIAccountingProviderConfigMembers(IPURE) \\")
+cpp_quote("	STDMETHOD(Initialize)(THIS_ \\")
+cpp_quote("							LPCOLESTR pszMachineName, \\")
+cpp_quote("							ULONG_PTR *puConnectionParam) IPURE; \\")
+cpp_quote("	STDMETHOD(Uninitialize)(THIS_ \\")
+cpp_quote("							ULONG_PTR uConnectionParam) IPURE; \\")
+cpp_quote("	STDMETHOD(Configure)(THIS_ \\")
+cpp_quote("						ULONG_PTR uConnectionParam, \\")
+cpp_quote("						HWND hWnd, \\")
+cpp_quote("						  DWORD dwFlags, \\")
+cpp_quote("						  ULONG_PTR uReserved1, \\")
+cpp_quote("						  ULONG_PTR uReserved2) IPURE; \\")
+cpp_quote(" \\")
+cpp_quote("	STDMETHOD(Activate)(THIS_ \\")
+cpp_quote("						ULONG_PTR uConnectionParam, \\")
+cpp_quote("						 ULONG_PTR uReserved1, \\")
+cpp_quote("						 ULONG_PTR uReserved2) IPURE; \\")
+cpp_quote(" \\")
+cpp_quote("	STDMETHOD(Deactivate)(THIS_ \\")
+cpp_quote("						ULONG_PTR uConnectionParam, \\")
+cpp_quote("						   ULONG_PTR uReserved1, \\")
+cpp_quote("						   ULONG_PTR uReserved2) IPURE; \\")
+cpp_quote(" ")
+
+
+/*---------------------------------------------------------------------------
+	IEAPProviderConfig
+ ---------------------------------------------------------------------------*/
+
+[
+   object,
+   uuid(66A2DB19-D706-11D0-A37B-00C04FC9DA04),
+   local,
+   pointer_default(unique),
+]
+   
+   
+interface IEAPProviderConfig :IUnknown
+{
+	import "unknwn.idl";
+
+	HRESULT		Initialize(
+					[in, string] 	LPCOLESTR 	pszMachineName,
+    				[in]			DWORD       dwEapTypeId,
+				  	[out] 			ULONG_PTR*	puConnectionParam);
+	HRESULT		Uninitialize(
+    				[in]			DWORD       dwEapTypeId,
+					[in] 			ULONG_PTR 	uConnectionParam);
+	HRESULT		ServerInvokeConfigUI(
+    				[in]			DWORD       dwEapTypeId,
+					[in] 			ULONG_PTR 	uConnectionParam,
+				  	[in] 			HWND 		hWnd,
+				  	[in] 			ULONG_PTR 	uReserved1,
+				  	[in] 			ULONG_PTR 	uReserved2);
+    HRESULT     RouterInvokeConfigUI(
+    				[in]			DWORD       dwEapTypeId,
+    				[in] 			ULONG_PTR 	uConnectionParam,
+    				[in]  			HWND        hwndParent,
+    				[in]			DWORD       dwFlags,
+					[in, size_is(dwSizeOfConnectionDataIn)]
+									BYTE* 		pConnectionDataIn,
+					[in]			DWORD		dwSizeOfConnectionDataIn,
+					[out, size_is(,*pdwSizeOfConnectionDataOut)]
+									BYTE**		ppConnectionDataOut,
+					[out]			DWORD*		pdwSizeOfConnectionDataOut);
+	HRESULT		RouterInvokeCredentialsUI(
+				    [in]  			DWORD   	dwEapTypeId,
+    				[in] 			ULONG_PTR 	uConnectionParam,
+				    [in]  			HWND    	hwndParent,
+				    [in]  			DWORD   	dwFlags,
+    				[in, size_is(dwSizeOfConnectionDataIn)]
+    								BYTE*   	pConnectionDataIn,
+				    [in]  			DWORD   	dwSizeOfConnectionDataIn,
+    				[in, size_is(dwSizeOfUserDataIn)]
+    								BYTE*   	pUserDataIn,
+    				[in]  			DWORD   	dwSizeOfUserDataIn,
+    				[out, size_is(,*pdwSizeOfUserDataOut)]
+    								BYTE**  	ppUserDataOut,
+    				[out]			DWORD*  	pdwSizeOfUserDataOut);
+};
+
+
+[
+   object,
+   uuid(D565917A-85C4-4466-856E-671C3742EA9A),
+   local
+]
+interface IEAPProviderConfig2 : IEAPProviderConfig
+{
+   HRESULT ServerInvokeConfigUI2(
+              DWORD dwEapTypeId,
+              ULONG_PTR uConnectionParam,
+              HWND hWnd,
+              const BYTE* pConfigDataIn,
+              DWORD dwSizeOfConfigDataIn,
+              BYTE** ppConfigDataOut,
+              DWORD* pdwSizeOfConfigDataOut
+              );
+
+   // Called during upgrade to retrieve the EAP type's global config, so that
+   // it can be migrated to per-policy config. If the EAP type has no global
+   // config, it should set *pdwSizeOfConfigDataOut to zero and return S_OK.
+   // If the function returns a failure HRESULT, the EAP type will be disabled
+   // in all remote access policies. Unlike ServerInvokeConfigUI2, this
+   // function is only used to get the local configuration, so the upgrade code
+   // will not first call Initialize or later call Uninitialize.
+   HRESULT GetGlobalConfig(
+              DWORD dwEapTypeId,
+              BYTE** ppConfigDataOut,
+              DWORD* pdwSizeOfConfigDataOut
+              );
+};
+
+
+[
+   object,
+   uuid(B78ECD12-68BB-4f86-9BF0-8438DD3BE982),
+   local
+]
+interface IEAPProviderConfig3 : IEAPProviderConfig2
+{
+   HRESULT ServerInvokeCertificateConfigUI (
+              DWORD dwEapTypeId,
+              ULONG_PTR uConnectionParam,
+              HWND hWnd,
+              const BYTE* pConfigDataIn,
+              DWORD dwSizeOfConfigDataIn,
+              BYTE** ppConfigDataOut,
+              DWORD* pdwSizeOfConfigDataOut,
+              ULONG_PTR uReserved
+              );
+};
+
+// a macro to help declare all of the methods
+cpp_quote("#define DeclareIEAPProviderConfigMembers(IPURE) \\")
+cpp_quote("	STDMETHOD(Initialize)(THIS_ \\")
+cpp_quote("		LPCOLESTR 	pszMachineName, \\")
+cpp_quote(" 	DWORD       dwEapTypeId, \\")
+cpp_quote("		ULONG_PTR*	puConnectionParam) IPURE; \\")
+cpp_quote("	STDMETHOD(Uninitialize)(THIS_ \\")
+cpp_quote(" 	DWORD       dwEapTypeId, \\")
+cpp_quote("		ULONG_PTR 	uConnectionParam) IPURE; \\")
+cpp_quote("	STDMETHOD(ServerInvokeConfigUI)(THIS_ \\")
+cpp_quote(" 	DWORD       dwEapTypeId, \\")
+cpp_quote("		ULONG_PTR 	uConnectionParam, \\")
+cpp_quote("		HWND 		hWnd, \\")
+cpp_quote("		ULONG_PTR 	dwRes1, \\")
+cpp_quote("		ULONG_PTR 	dwRes2) IPURE; \\")
+cpp_quote(" STDMETHOD(RouterInvokeConfigUI)(THIS_ \\")
+cpp_quote(" 	DWORD       dwEapTypeId, \\")
+cpp_quote("		ULONG_PTR 	uConnectionParam, \\")
+cpp_quote(" 	HWND        hwndParent, \\")
+cpp_quote(" 	DWORD       dwFlags, \\")
+cpp_quote(" 	BYTE* 		pConnectionDataIn, \\")
+cpp_quote(" 	DWORD		dwSizeOfConnectionDataIn, \\")
+cpp_quote(" 	BYTE**		ppConnectionDataOut, \\")
+cpp_quote(" 	DWORD*		pdwSizeOfConnectionDataOut) IPURE; \\")
+cpp_quote(" STDMETHOD(RouterInvokeCredentialsUI)(THIS_  \\")
+cpp_quote(" 	DWORD   	dwEapTypeId, \\")
+cpp_quote("		ULONG_PTR 	uConnectionParam, \\")
+cpp_quote(" 	HWND    	hwndParent, \\")
+cpp_quote(" 	DWORD   	dwFlags, \\")
+cpp_quote(" 	BYTE*   	pConnectionDataIn, \\")
+cpp_quote(" 	DWORD   	dwSizeOfConnectionDataIn, \\")
+cpp_quote(" 	BYTE*   	pUserDataIn, \\")
+cpp_quote(" 	DWORD   	dwSizeOfUserDataIn, \\")
+cpp_quote(" 	BYTE**  	ppUserDataOut, \\")
+cpp_quote(" 	DWORD*  	pdwSizeOfUserDataOut) IPURE; \\")
+cpp_quote(" ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+

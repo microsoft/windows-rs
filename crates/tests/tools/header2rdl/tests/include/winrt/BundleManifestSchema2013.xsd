@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:m="http://schemas.microsoft.com/appx/2010/manifest"
+    xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest"
+    targetNamespace="http://schemas.microsoft.com/appx/2013/bundle"
+    xmlns="http://schemas.microsoft.com/appx/2013/bundle"
+    xmlns:b="http://schemas.microsoft.com/appx/2013/bundle"
+	>
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/2010/manifest" />
+  <xs:import namespace="http://schemas.microsoft.com/appx/2013/manifest" />
+
+
+  <!-- Root bundle element -->
+  <xs:element name="Bundle">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Identity">
+          <xs:complexType>
+            <xs:attribute name="Name" type="m:ST_PackageName" use="required" />
+            <xs:attribute name="Publisher" type="m:ST_Publisher" use="required" />
+            <xs:attribute name="Version" type="m:ST_VersionQuad" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Packages">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Package" maxOccurs="10000">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element name="Resources" type="CT_Resources" />
+                  </xs:all>
+                  <xs:attribute name="Type" type="ST_PackageType" use="optional" default="resource" />
+                  <xs:attribute name="Version" type="m:ST_VersionQuad" use="required" />
+                  <xs:attribute name="Architecture" type="m:ST_Architecture" use="optional" default="neutral" />
+                  <xs:attribute name="ResourceId" type="m:ST_Resources" use="optional" />
+                  <xs:attribute name="FileName" type="m:ST_FileName" use="required" />
+                  <xs:attribute name="Offset" type="xs:unsignedLong" use="required" />
+                  <xs:attribute name="Size" type="xs:unsignedLong" use="required" />
+                </xs:complexType>
+                <xs:unique name="Unique_Language">
+                  <xs:selector xpath="b:Resources/b:Resource"/>
+                  <xs:field xpath="@Language"/>
+                </xs:unique>
+                <xs:unique name="Unique_Scale">
+                  <xs:selector xpath="b:Resources/b:Resource"/>
+                  <xs:field xpath="@Scale"/>
+                </xs:unique>
+                <xs:unique name="Unique_DXFeatureLevel">
+                  <xs:selector xpath="b:Resources/b:Resource"/>
+                  <xs:field xpath="@DXFeatureLevel"/>
+                </xs:unique>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+      <xs:attribute name="IgnorableNamespaces" type="m:ST_NonEmptyString" use="optional"/>
+      <xs:attribute name="SchemaVersion" type="m:ST_VersionDuoOrTrio" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="ST_PackageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="application" />
+      <xs:enumeration value="resource" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_Resources">
+    <xs:sequence>
+      <xs:element name="Resource" maxOccurs="200">
+        <xs:complexType>
+          <xs:attribute name="Language" type="xs:language" use="optional"/>
+          <xs:attribute name="Scale" type="m2:ST_Scale" use="optional"/>
+          <xs:attribute name="DXFeatureLevel" type="m2:ST_DXFeatureLevel" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+

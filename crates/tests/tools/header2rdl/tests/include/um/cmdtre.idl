@@ -1,0 +1,298 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			cmdtre.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+
+    LOCAL_INTERFACE(0c733a87-2a1c-11ce-ade5-00aa0044773d)
+
+    
+interface ICommandTree : IUnknown {
+
+typedef DWORD DBCOMMANDREUSE;
+
+enum DBCOMMANDREUSEENUM {
+    DBCOMMANDREUSE_NONE         = 0x00,
+    DBCOMMANDREUSE_PROPERTIES   = 0x01,
+    DBCOMMANDREUSE_PARAMETERS   = 0x02,
+};
+
+typedef DWORD DBVALUEKIND;
+
+enum DBVALUEKINDENUM {
+    DBVALUEKIND_BYGUID          = 256,
+    DBVALUEKIND_COLDESC         = DBVALUEKIND_BYGUID + 1,
+    DBVALUEKIND_ID              = DBVALUEKIND_COLDESC + 1,
+    DBVALUEKIND_CONTENT         = DBVALUEKIND_ID + 1,
+    DBVALUEKIND_CONTENTVECTOR   = DBVALUEKIND_CONTENT + 1,
+    DBVALUEKIND_GROUPINFO       = DBVALUEKIND_CONTENTVECTOR + 1,
+    DBVALUEKIND_PARAMETER       = DBVALUEKIND_GROUPINFO + 1,
+    DBVALUEKIND_PROPERTY        = DBVALUEKIND_PARAMETER + 1,
+    DBVALUEKIND_SETFUNC         = DBVALUEKIND_PROPERTY + 1,
+    DBVALUEKIND_SORTINFO        = DBVALUEKIND_SETFUNC + 1,
+    DBVALUEKIND_TEXT            = DBVALUEKIND_SORTINFO + 1,
+
+    DBVALUEKIND_COMMAND         = DBVALUEKIND_TEXT + 1,
+    DBVALUEKIND_MONIKER         = DBVALUEKIND_COMMAND + 1,
+    DBVALUEKIND_ROWSET          = DBVALUEKIND_MONIKER + 1,
+    DBVALUEKIND_LIKE            = DBVALUEKIND_ROWSET + 1,
+    DBVALUEKIND_CONTENTPROXIMITY= DBVALUEKIND_LIKE + 1,
+    DBVALUEKIND_CONTENTSCOPE    = DBVALUEKIND_CONTENTPROXIMITY + 1,
+    DBVALUEKIND_CONTENTTABLE    = DBVALUEKIND_CONTENTSCOPE + 1,
+    DBVALUEKIND_IDISPATCH       = 9,
+    DBVALUEKIND_IUNKNOWN        = 13,
+
+    DBVALUEKIND_EMPTY           = 0,
+    DBVALUEKIND_NULL            = 1,
+    DBVALUEKIND_I2              = 2,
+    DBVALUEKIND_I4              = 3,
+    DBVALUEKIND_R4              = 4,
+    DBVALUEKIND_R8              = 5,
+    DBVALUEKIND_CY              = 6,
+    DBVALUEKIND_DATE            = 7,
+    DBVALUEKIND_BSTR            = 8,
+
+    DBVALUEKIND_ERROR           = 10,
+    DBVALUEKIND_BOOL            = 11,
+    DBVALUEKIND_VARIANT         = 12,
+
+    DBVALUEKIND_VECTOR          = 0x1000,
+    DBVALUEKIND_ARRAY           = 0x2000,
+    DBVALUEKIND_BYREF           = 0x4000,
+
+    DBVALUEKIND_I1              = 16,
+    DBVALUEKIND_UI1             = 17,
+    DBVALUEKIND_UI2             = 18,
+    DBVALUEKIND_UI4             = DBVALUEKIND_UI2 + 1,
+    DBVALUEKIND_I8              = DBVALUEKIND_UI4 + 1,
+    DBVALUEKIND_UI8             = DBVALUEKIND_I8 + 1,
+    DBVALUEKIND_GUID            = 72,
+
+    DBVALUEKIND_BYTES           = 128,
+    DBVALUEKIND_STR             = 129,
+    DBVALUEKIND_WSTR            = 130,
+    DBVALUEKIND_NUMERIC         = 131,
+    DBVALUEKIND_DBDATE          = 133,
+    DBVALUEKIND_DBTIME          = 134,
+    DBVALUEKIND_DBTIMESTAMP     = 135,
+    DBVALUEKIND_PROBABILISTIC   = 136,
+    DBVALUEKIND_RELEVANTDOCUMENT = 137, 
+};
+
+typedef struct tagDBBYGUID {
+    [size_is((ULONG)cbInfo)] BYTE * pbInfo;
+    DBLENGTH cbInfo;
+    GUID guid;
+} DBBYGUID;
+
+cpp_quote("#define GENERATE_METHOD_EXACT    ( 0 )")
+cpp_quote("#define GENERATE_METHOD_PREFIX   ( 1 )")
+cpp_quote("#define GENERATE_METHOD_INFLECT  ( 2 )")
+
+typedef struct tagDBCONTENT {
+    LPOLESTR pwszPhrase;
+    DWORD dwGenerateMethod;
+    LONG lWeight;
+    LCID lcid;
+} DBCONTENT;
+
+cpp_quote("#define SCOPE_FLAG_MASK      ( 0x000000ff )")
+cpp_quote("#define SCOPE_FLAG_INCLUDE   ( 0x00000001 )")
+cpp_quote("#define SCOPE_FLAG_DEEP      ( 0x00000002 )")
+
+cpp_quote("#define SCOPE_TYPE_MASK      ( 0xffffff00 )")
+cpp_quote("#define SCOPE_TYPE_WINPATH   ( 0x00000100 )")
+cpp_quote("#define SCOPE_TYPE_VPATH     ( 0x00000200 )")
+
+typedef struct tagDBCONTENTSCOPE {
+    DWORD dwFlags;
+    LPOLESTR * rgpwszTagName;
+    LPOLESTR pwszElementValue;
+} DBCONTENTSCOPE;
+
+typedef struct tagDBCONTENTTABLE {
+    LPOLESTR pwszMachine;
+    LPOLESTR pwszCatalog;
+} DBCONTENTTABLE;
+
+cpp_quote("#define PROPID_QUERY_RANKVECTOR  ( 0x2 )")
+cpp_quote("#define PROPID_QUERY_RANK        ( 0x3 )")
+cpp_quote("#define PROPID_QUERY_HITCOUNT    ( 0x4 )")
+cpp_quote("#define PROPID_QUERY_ALL         ( 0x6 )")
+cpp_quote("#define PROPID_STG_CONTENTS      ( 0x13 )")
+
+cpp_quote("#define VECTOR_RANK_MIN          ( 0 )")
+cpp_quote("#define VECTOR_RANK_MAX          ( 1 )")
+cpp_quote("#define VECTOR_RANK_INNER        ( 2 )")
+cpp_quote("#define VECTOR_RANK_DICE         ( 3 )")
+cpp_quote("#define VECTOR_RANK_JACCARD      ( 4 )")
+
+typedef struct tagDBCONTENTVECTOR {
+    LONG lWeight;
+    DWORD dwRankingMethod;
+} DBCONTENTVECTOR;
+
+typedef struct tagDBGROUPINFO {
+    LCID lcid;
+} DBGROUPINFO;
+
+typedef struct tagDBPARAMETER {
+    LPOLESTR pwszName;
+    ITypeInfo * pTypeInfo;
+    DB_NUMERIC * pNum;
+    DBLENGTH cbMaxLength;
+    DBPARAMFLAGS dwFlags;
+    DBTYPE wType;
+} DBPARAMETER;
+
+cpp_quote("#define DBSETFUNC_NONE       0x0")
+cpp_quote("#define DBSETFUNC_ALL        0x1")
+cpp_quote("#define DBSETFUNC_DISTINCT   0x2")
+
+typedef struct tagDBSETFUNC {
+    DWORD dwSetQuantifier;
+} DBSETFUNC;
+
+typedef struct tagDBSORTINFO {
+    BOOL fDesc;
+    LCID lcid;
+} DBSORTINFO;
+
+typedef struct tagDBTEXT {
+    LPOLESTR pwszText;
+    ULONG ulErrorLocator;
+    ULONG ulTokenLength;
+    GUID guidDialect;
+} DBTEXT;
+
+typedef struct tagDBLIKE {
+    LONG lWeight;
+    GUID guidDialect;
+} DBLIKE;
+
+cpp_quote("#define PROXIMITY_UNIT_WORD           ( 0 )")
+cpp_quote("#define PROXIMITY_UNIT_SENTENCE       ( 1 )")
+cpp_quote("#define PROXIMITY_UNIT_PARAGRAPH      ( 2 )")
+cpp_quote("#define PROXIMITY_UNIT_CHAPTER        ( 3 )")
+
+typedef struct tagDBCONTENTPROXIMITY {
+    DWORD  dwProximityUnit;
+    ULONG  ulProximityDistance;
+    LONG   lWeight;
+} DBCONTENTPROXIMITY;
+
+typedef struct tagDBPROBABILISTIC {
+    LONG  lWeight;    // Weight of this node in tree
+    float flK1;             // K1 parameter in BM25
+    float flK2;             // K2 parameter in BM25 (must be 0)
+    float flK3;             // K3 parameter in BM25
+    float flB;               // b parameter in BM25
+} DBPROBABILISTIC;
+
+typedef struct tagDBRELEVANTDOCUMENT {
+    LONG    lWeight;         // Weight of this node in the tree
+    VARIANT vDocument;  // Relevant document
+} DBRELEVANTDOCUMENT;
+
+typedef struct tagDBCOMMANDTREE {
+    DBCOMMANDOP op;
+    WORD wKind;
+    struct tagDBCOMMANDTREE * pctFirstChild;
+    struct tagDBCOMMANDTREE * pctNextSibling;
+    [switch_type(WORD),switch_is(wKind)] union {
+        [case(DBVALUEKIND_I8)] __int64 llValue;
+        [case(DBVALUEKIND_UI8)] unsigned __int64 ullValue;
+        [case(DBVALUEKIND_BOOL)] BOOL fValue;
+        [case(DBVALUEKIND_UI1)] unsigned char uchValue;
+        [case(DBVALUEKIND_I1)] signed char schValue;
+        [case(DBVALUEKIND_UI2)] unsigned short usValue;
+        [case(DBVALUEKIND_I2)] short sValue;
+        [case(DBVALUEKIND_WSTR)] LPOLESTR pwszValue;
+        [case(DBVALUEKIND_I4)] LONG lValue;
+        [case(DBVALUEKIND_UI4)] ULONG ulValue;
+        [case(DBVALUEKIND_R4)] float flValue;
+        [case(DBVALUEKIND_R8)] double dblValue;
+        [case(DBVALUEKIND_CY)] CY cyValue;
+        [case(DBVALUEKIND_DATE)] DATE dateValue;
+        [case(DBVALUEKIND_DBDATE)] DBDATE dbdateValue;
+        [case(DBVALUEKIND_DBTIME)] DBTIME dbtimeValue;
+        [case(DBVALUEKIND_ERROR)] SCODE scodeValue;
+        [case(DBVALUEKIND_BSTR)] BSTR * pbstrValue;
+        [case(DBVALUEKIND_COMMAND)] ICommand * pCommand;
+        [case(DBVALUEKIND_IDISPATCH)] IDispatch * pDispatch;
+        [case(DBVALUEKIND_MONIKER)] IMoniker * pMoniker;
+        [case(DBVALUEKIND_ROWSET)] IRowset * pRowset;
+        [case(DBVALUEKIND_IUNKNOWN)] IUnknown * pUnknown;
+        [case(DBVALUEKIND_BYGUID)] DBBYGUID * pdbbygdValue;
+        [case(DBVALUEKIND_COLDESC)] DBCOLUMNDESC * pcoldescValue;
+        [case(DBVALUEKIND_ID)] DBID * pdbidValue;
+        [case(DBVALUEKIND_LIKE)] DBLIKE * pdblikeValue;
+        [case(DBVALUEKIND_CONTENT)] DBCONTENT * pdbcntntValue;
+        [case(DBVALUEKIND_CONTENTSCOPE)] DBCONTENTSCOPE * pdbcntntscpValue;
+        [case(DBVALUEKIND_CONTENTTABLE)] DBCONTENTTABLE * pdbcntnttblValue;
+        [case(DBVALUEKIND_CONTENTVECTOR)] DBCONTENTVECTOR * pdbcntntvcValue;
+        [case(DBVALUEKIND_CONTENTPROXIMITY)] DBCONTENTPROXIMITY * pdbcntntproxValue;
+        [case(DBVALUEKIND_GROUPINFO)] DBGROUPINFO * pdbgrpinfValue;
+        [case(DBVALUEKIND_PARAMETER)] DBPARAMETER * pdbparamValue;
+        [case(DBVALUEKIND_PROPERTY)] DBPROPSET * pdbpropValue;
+        [case(DBVALUEKIND_SETFUNC)] DBSETFUNC * pdbstfncValue;
+        [case(DBVALUEKIND_SORTINFO)] DBSORTINFO * pdbsrtinfValue;
+        [case(DBVALUEKIND_TEXT)] DBTEXT * pdbtxtValue;
+        [case(DBVALUEKIND_VECTOR)] DBVECTOR * pdbvectorValue;
+        [case(DBVALUEKIND_ARRAY)] SAFEARRAY * parrayValue;
+        [case(DBVALUEKIND_VARIANT)] VARIANT * pvarValue;
+        [case(DBVALUEKIND_GUID)] GUID * pGuid;
+        [case(DBVALUEKIND_BYTES)] BYTE * pbValue;
+        [case(DBVALUEKIND_STR)] char * pzValue;
+        [case(DBVALUEKIND_NUMERIC)] DB_NUMERIC * pdbnValue;
+        [case(DBVALUEKIND_DBTIMESTAMP)] DBTIMESTAMP * pdbtsValue;
+        [case(DBVALUEKIND_BYREF)] void * pvValue;
+		[case(DBVALUEKIND_PROBABILISTIC)] DBPROBABILISTIC * pdbprobValue;
+		[case(DBVALUEKIND_RELEVANTDOCUMENT)] DBRELEVANTDOCUMENT * pdbreldocValue;
+    } value;
+    HRESULT hrError;
+} DBCOMMANDTREE;
+
+    HRESULT FindErrorNodes(
+        [in] const DBCOMMANDTREE * pRoot,
+        [out] ULONG * pcErrorNodes,
+        [out] DBCOMMANDTREE *** prgErrorNodes
+    );
+
+    HRESULT FreeCommandTree(
+        [in] DBCOMMANDTREE ** ppRoot
+    );
+
+    HRESULT GetCommandTree(
+        [out] DBCOMMANDTREE ** ppRoot
+    );
+
+    HRESULT SetCommandTree(
+        [in] DBCOMMANDTREE ** ppRoot,
+        [in] DBCOMMANDREUSE dwCommandReuse,
+        [in] BOOL fCopy
+    );
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

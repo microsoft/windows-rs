@@ -1,0 +1,44 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ),
+Description ( "This class manages file pinning." )]
+class MSFT_FileStorageTier {
+    
+    [Key, Read]
+    String  FilePath;
+
+    [Read]
+    Uint64  FileSize;
+
+    [Read,
+     ValueMap {"0", "1", "2", "3", "4" },
+     Values {"Unknown", "OK", "Insufficient Capacity", "In Process", "Pending" }]
+    UInt16  State;
+
+    [Read,
+     ValueMap { "0", "1", "2", "3" },
+     Values {"Unknown", "Completely on tier", "Partially on tier", "Not on tier"}]
+    UInt16  PlacementStatus;
+
+    [Read]
+    String  DesiredStorageTierName;
+
+    [Read]
+    Uint64  FileSizeOnDesiredStorageTier;
+
+    [Read]
+    UInt16  DesiredStorageTierClass;
+
+    [Read]
+    Uint64  FileSizeOnDesiredStorageTierClass;
+
+    [Read]
+    Uint64  FileSizeOnPerformanceTierClass;
+
+    [Read]
+    Uint64  FileSizeOnCapacityTierClass;
+};

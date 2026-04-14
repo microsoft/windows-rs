@@ -1,0 +1,539 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "A masking set is a collection of virtual disks, target ports, and initiator ids that are "
+    "used for bulk Show and Hide operations. When a resource is added to a masking set it is "
+    "made available for access to all other resources in the masking set. For example, adding "
+    "a virtual disk object to a masking set will allow all initiator IDs in the masking set to "
+    "access the virtual disk object."
+    )]
+class MSFT_MaskingSet : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "FriendlyName is a user-friendly name of the masking set. It is specified during the "
+        "creation of the masking set, and can be changed using the SetFriendlyName method."
+        )]
+    String FriendlyName;
+
+    [Read, Required, Description(
+        "Name is a user-friendly system defined name for the masking set. Name is unique within "
+        "the scope of the owning storage subsystem."
+        )]
+    String Name;
+
+    [Read, Description(
+        "This field specifies the operating system, version, driver, and other host environment "
+        "factors that influence the behavior exposed by the storage subsystem."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "20", "21",
+            "22..32767", "32768..65535"
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "Standard", "Solaris", "HPUX",
+            // 5 - 9
+            "OpenVMS", "Tru64", "Netware", "Sequent", "AIX",
+            // 10 - 14
+            "DGUX", "Dynix", "Irix", "Cisco iSCSI Storage Router", "Linux",
+            // 15 - 19
+            "Microsoft Windows", "OS400", "TRESPASS", "HI-UX", "VMware ESXi",
+            // 20 - 21
+            "Microsoft Windows Server 2008", "Microsoft Windows Server 2003",
+            // 22..
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 HostType;
+
+
+    //
+    // Method: AddInitiatorId
+    //
+
+    [Description(
+        "This method adds an initiator to the masking set. All virtual disks in the masking set "
+        "will be accessible (shown) to these initiators."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "53000", "53001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 53000 - 53999
+            "The initiator address specified is not valid",
+            "Only one initiator address is acceptable for this operation."
+            }]
+    UInt32 AddInitiatorId(
+
+        [In, Required, Description(
+            "This parameter is an array of initiator addresses. For each address contained in "
+            "this array, a corresponding initiator ID instance should be created and then "
+            "associated with this masking set."
+            )]
+        String InitiatorIds[],
+
+        [In,
+            ValueMap {
+                "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+                "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                "20", "21",
+                "22..32767", "32768..65535"
+                },
+            Values {
+                // 0 - 4
+                "Unknown", "Other", "Standard", "Solaris", "HPUX",
+                // 5 - 9
+                "OpenVMS", "Tru64", "Netware", "Sequent", "AIX",
+                // 10 - 14
+                "DGUX", "Dynix", "Irix", "Cisco iSCSI Storage Router", "Linux",
+                // 15 - 19
+                "Microsoft Windows", "OS400", "TRESPASS", "HI-UX", "VMware ESXi",
+                // 20 - 21
+                "Microsoft Windows Server 2008", "Microsoft Windows Server 2003",
+                // 22..
+                "Microsoft Reserved", "Vendor Specific"
+                }]
+        UInt16 HostType,
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: RemoveInitiatorId
+    //
+
+    [Description(
+        "This method removes one or more initiator ids from the masking set. Note that the "
+        "initiator id instances themselves should not be deleted from the system."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "53000"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 53000 - 53999
+            "The initiator address specified is not valid"
+            }]
+    UInt32 RemoveInitiatorId(
+
+        [In, Required]
+        String InitiatorIds[],
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: AddTargetPort
+    //
+
+    [Description(
+        "This method adds one or more target ports to the masking set."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "54000"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 54000 - 54999
+            "The target port address specified is not valid."
+            }]
+    UInt32 AddTargetPort(
+
+        [In, Required]
+        String TargetPortAddresses[],
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: RemoveTargetPort
+    //
+
+    [Description(
+        "This method removes one or more target ports from the masking set."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "54000"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 54000 - 54999
+            "The target port address specified is not valid."
+            }]
+    UInt32 RemoveTargetPort(
+
+        [In, Required]
+        String TargetPortAddresses[],
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: AddVirtualDisk
+    //
+
+    [Description(
+        "This method adds a virtual disk to the masking set, allowing it to be shown to the "
+        "initiators contained in the set."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "50000",
+            "52000", "52002"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 50000 - 50999
+            "The specified virtual disk could not be found.",
+            // 52000 - 52999
+            "The device number specified is not valid.",
+            "DeviceAccess must be specified for each virtual disk."
+            }]
+    UInt32 AddVirtualDisk(
+
+        [In, Required]
+        String VirtualDiskNames[],
+
+        [In, Required]
+        String DeviceNumbers[],
+
+        [In, Required,
+         ValueMap { "2", "3", "4" }, 
+         Values { "Read Write", "Read-Only", "No Access" }]
+        UInt16 DeviceAccesses[],
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: RemoveVirtualDisk
+    //
+
+    [Description(
+        "This method removes a virtual disk from the masking set. Once removed, this virtual "
+        "disk will no longer be shown to the initiators contained in this masking set."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "50000"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 50000 - 50999
+            "The specified virtual disk could not be found."
+            }]
+    UInt32 RemoveVirtualDisk(
+
+        [In, Required]
+        String VirtualDiskNames[],
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: DeleteObject
+    //
+
+    [Description(
+        "This method deletes the masking set instance."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002", "40003",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 DeleteObject(
+
+        [Out, Description(
+            "If RunAsJob is set to TRUE and this method takes a while to execute, this parameter "
+            "returns a reference to the storage job used to track the long running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: SetFriendlyName
+    //
+
+    [Description(
+        "This method allows the FriendlyName to be set."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002", "40003",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            "Cache out of date",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 SetFriendlyName(
+
+        [In, Required]
+        String FriendlyName,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: GetSecurityDescriptor
+    //
+
+    [Description(
+        "This method returns the security descriptor that controls access to this specific "
+        "object instance."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 GetSecurityDescriptor(
+
+        [Out, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the access "
+            "control list of the object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetSecurityDescriptor
+    //
+
+    [Description(
+        "This method allows a user with sufficient privileges to set the security descriptor "
+        "that control access to this specific object instance. If the call is not made in the "
+        "context of a user specified in the security descriptor's access control list, this "
+        "method will fail with 40001 - 'Access Denied'. If an empty security descriptor is "
+        "passed to this function, the behavior is left to the specific implementation so long "
+        "as there is some user context (typically domain administrators) that can access and "
+        "administer the object."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem."
+            }]
+    UInt32 SetSecurityDescriptor(
+
+        [In, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the "
+            "desired access control list for this object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};

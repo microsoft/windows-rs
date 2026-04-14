@@ -1,0 +1,146 @@
+/*-------------------------------------------------------------------------------------
+ *
+ * Copyright (c) Microsoft Corporation
+ *
+ *-------------------------------------------------------------------------------------*/
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "d3d11.idl";
+import "d3d12.idl";
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+cpp_quote( "" )
+cpp_quote( "///////////////////////////////////////////////////////////////////////////" )
+cpp_quote( "// D3D11On12CreateDevice" )
+cpp_quote( "// ------------------" )
+cpp_quote( "//" )
+cpp_quote( "// pDevice" )
+cpp_quote( "//      Specifies a pre-existing D3D12 device to use for D3D11 interop." )
+cpp_quote( "//      May not be NULL." )
+cpp_quote( "// Flags" )
+cpp_quote( "//      Any of those documented for D3D11CreateDeviceAndSwapChain." )
+cpp_quote( "// pFeatureLevels" )
+cpp_quote( "//      Array of any of the following:" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_12_1" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_12_0" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_11_1" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_11_0" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_10_1" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_10_0" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_9_3" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_9_2" )
+cpp_quote( "//          D3D_FEATURE_LEVEL_9_1" )
+cpp_quote( "//       The first feature level which is less than or equal to the" )
+cpp_quote( "//       D3D12 device's feature level will be used to perform D3D11 validation." )
+cpp_quote( "//       Creation will fail if no acceptable feature levels are provided." )
+cpp_quote( "//       Providing NULL will default to the D3D12 device's feature level." )
+cpp_quote( "// FeatureLevels" )
+cpp_quote( "//      Size of feature levels array." )
+cpp_quote( "// ppCommandQueues" )
+cpp_quote( "//      Array of unique queues for D3D11On12 to use. Valid queue types:" )
+cpp_quote( "//          3D command queue." )
+cpp_quote( "//      Flags must be compatible with device flags, and its NodeMask must" )
+cpp_quote( "//      be a subset of the NodeMask provided to this API." )
+cpp_quote( "// NumQueues" )
+cpp_quote( "//      Size of command queue array." )
+cpp_quote( "// NodeMask" )
+cpp_quote( "//      Which node of the D3D12 device to use.  Only 1 bit may be set." )
+cpp_quote( "// ppDevice" )
+cpp_quote( "//      Pointer to returned interface. May be NULL." )
+cpp_quote( "// ppImmediateContext" )
+cpp_quote( "//      Pointer to returned interface. May be NULL." )
+cpp_quote( "// pChosenFeatureLevel" )
+cpp_quote( "//      Pointer to returned feature level. May be NULL." )
+cpp_quote( "//" )
+cpp_quote( "// Return Values" )
+cpp_quote( "//  Any of those documented for " )
+cpp_quote( "//          D3D11CreateDevice" )
+cpp_quote( "//" )
+cpp_quote( "///////////////////////////////////////////////////////////////////////////" )
+cpp_quote( "typedef HRESULT (WINAPI* PFN_D3D11ON12_CREATE_DEVICE)( _In_ IUnknown*, UINT, " )
+cpp_quote( "    _In_reads_opt_( FeatureLevels ) CONST D3D_FEATURE_LEVEL*, UINT FeatureLevels, " )
+cpp_quote( "    _In_reads_opt_( NumQueues ) IUnknown* CONST*, UINT NumQueues, " )
+cpp_quote( "    UINT, _COM_Outptr_opt_ ID3D11Device**, _COM_Outptr_opt_ ID3D11DeviceContext**, " )
+cpp_quote( "    _Out_opt_ D3D_FEATURE_LEVEL* );" )
+cpp_quote( "" )
+cpp_quote( "HRESULT WINAPI D3D11On12CreateDevice(" )
+cpp_quote( "    _In_ IUnknown* pDevice," )
+cpp_quote( "    UINT Flags," )
+cpp_quote( "    _In_reads_opt_( FeatureLevels ) CONST D3D_FEATURE_LEVEL* pFeatureLevels," )
+cpp_quote( "    UINT FeatureLevels," )
+cpp_quote( "    _In_reads_opt_( NumQueues ) IUnknown* CONST* ppCommandQueues," )
+cpp_quote( "    UINT NumQueues," )
+cpp_quote( "    UINT NodeMask," )
+cpp_quote( "    _COM_Outptr_opt_ ID3D11Device** ppDevice," )
+cpp_quote( "    _COM_Outptr_opt_ ID3D11DeviceContext** ppImmediateContext," )
+cpp_quote( "    _Out_opt_ D3D_FEATURE_LEVEL* pChosenFeatureLevel );" )
+cpp_quote( "" )
+
+typedef struct D3D11_RESOURCE_FLAGS
+{
+    UINT BindFlags;
+    UINT MiscFlags;
+    UINT CPUAccessFlags;
+    UINT StructureByteStride;
+} D3D11_RESOURCE_FLAGS;
+
+[ uuid( 85611e73-70a9-490e-9614-a9e302777904 ), object, local, pointer_default( unique ) ]
+interface ID3D11On12Device
+    : IUnknown
+{
+    HRESULT CreateWrappedResource(
+        [annotation("_In_")] IUnknown* pResource12,
+        [annotation("_In_")] const D3D11_RESOURCE_FLAGS* pFlags11,
+        D3D12_RESOURCE_STATES InState,
+        D3D12_RESOURCE_STATES OutState,
+        [in] REFIID riid, // Expected: D3D11 resource interface
+        [out, iid_is(riid), annotation("_COM_Outptr_opt_")] void** ppResource11
+        );
+
+    void ReleaseWrappedResources(
+        [annotation("_In_reads_( NumResources )")] ID3D11Resource* const* ppResources,
+        UINT NumResources
+        );
+    void AcquireWrappedResources(
+        [annotation("_In_reads_( NumResources )")] ID3D11Resource* const* ppResources,
+        UINT NumResources
+        );
+}
+
+[ uuid( bdb64df4-ea2f-4c70-b861-aaab1258bb5d ), object, local, pointer_default( unique ) ]
+interface ID3D11On12Device1
+    : ID3D11On12Device
+{
+    HRESULT GetD3D12Device(REFIID riid, [annotation("_COM_Outptr_")] void** ppvDevice);
+}
+
+[ uuid( dc90f331-4740-43fa-866e-67f12cb58223 ), object, local, pointer_default( unique ) ]
+interface ID3D11On12Device2
+    : ID3D11On12Device1
+{
+    HRESULT UnwrapUnderlyingResource(
+        [annotation("_In_")] ID3D11Resource* pResource11, 
+        [annotation("_In_")] ID3D12CommandQueue* pCommandQueue,
+        REFIID riid,
+        [annotation("_COM_Outptr_")] void** ppvResource12 );
+
+    HRESULT ReturnUnderlyingResource(
+        [annotation("_In_")] ID3D11Resource* pResource11, 
+        UINT NumSync,
+        [annotation("_In_reads_(NumSync) ")] UINT64* pSignalValues,
+        [annotation("_In_reads_(NumSync) ")] ID3D12Fence** ppFences );
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote( "DEFINE_GUID(IID_ID3D11On12Device,0x85611e73,0x70a9,0x490e,0x96,0x14,0xa9,0xe3,0x02,0x77,0x79,0x04);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11On12Device1,0xbdb64df4,0xea2f,0x4c70,0xb8,0x61,0xaa,0xab,0x12,0x58,0xbb,0x5d);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11On12Device2,0xdc90f331,0x4740,0x43fa,0x86,0x6e,0x67,0xf1,0x2c,0xb5,0x82,0x23);" )

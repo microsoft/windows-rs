@@ -1,0 +1,1547 @@
+/*
+   Copyright (c) Microsoft Corporation
+
+   SYNOPSIS
+
+     Defines data types used by the IKE keying module.
+*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or AppRuntime Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME)")
+
+
+#include "winerror.h"
+
+import "fwptypes.idl";
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+typedef struct IPSEC_V4_UDP_ENCAPSULATION0_ IPSEC_V4_UDP_ENCAPSULATION0;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building IKE, Authip policies.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum IKEEXT_KEY_MODULE_TYPE_
+{
+   IKEEXT_KEY_MODULE_IKE,
+   IKEEXT_KEY_MODULE_AUTHIP,
+   IKEEXT_KEY_MODULE_IKEV2,
+   IKEEXT_KEY_MODULE_MAX
+} IKEEXT_KEY_MODULE_TYPE;
+
+// Type of authentication method
+typedef [v1_enum] enum IKEEXT_AUTHENTICATION_METHOD_TYPE_
+{
+   IKEEXT_PRESHARED_KEY,
+   IKEEXT_CERTIFICATE,
+   IKEEXT_KERBEROS,
+   IKEEXT_ANONYMOUS,
+   IKEEXT_SSL,
+   IKEEXT_NTLM_V2,
+   IKEEXT_IPV6_CGA,
+   IKEEXT_CERTIFICATE_ECDSA_P256,
+   IKEEXT_CERTIFICATE_ECDSA_P384,
+   IKEEXT_SSL_ECDSA_P256,
+   IKEEXT_SSL_ECDSA_P384,
+   IKEEXT_EAP,
+   IKEEXT_RESERVED,
+   IKEEXT_AUTHENTICATION_METHOD_TYPE_MAX
+} IKEEXT_AUTHENTICATION_METHOD_TYPE;
+
+// Type of impersonation to perform while authentication. Ike can only perform
+// machine authentication, so this should be set to IKEEXT_IMPERSONATION_NONE
+// when specifying IKE policy. For Authip policy, specify
+// IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL to enable impersonation.
+typedef [v1_enum] enum IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE_
+{
+   IKEEXT_IMPERSONATION_NONE,
+   IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL,
+   IKEEXT_IMPERSONATION_MAX
+} IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE;
+
+// Stores information needed for preshared key authentication
+typedef struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0__
+{
+   // The preshared key
+   FWP_BYTE_BLOB presharedKey;
+} IKEEXT_PRESHARED_KEY_AUTHENTICATION0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Use PSK for authenticating local entity to remote entity only
+cpp_quote("#define IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY  (0x00000001)")
+// Use PSK for authenticating remote entity to local entity only
+cpp_quote("#define IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY  (0x00000002)")
+
+
+typedef struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1__
+{
+   // The preshared key
+   FWP_BYTE_BLOB presharedKey;
+   // Flags
+   UINT32 flags;
+} IKEEXT_PRESHARED_KEY_AUTHENTICATION1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+//////////
+// Flags specifying certificate root characteristics.
+//////////
+
+// Enable certificate to account mapping for this root.
+cpp_quote("#define IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING  (0x00000001)")
+// Do not send a Cert request payload for this root.
+cpp_quote("#define IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD (0x00000002)")
+// Enable NAP certificate handling
+cpp_quote("#define IKEEXT_CERT_FLAG_USE_NAP_CERTIFICATE     (0x00000004)")
+// The corresponding CA could be an intermediate CA and need not be a ROOT CA.
+// If this flag is not specified, the name will have to refer to a ROOT CA.
+cpp_quote("#define IKEEXT_CERT_FLAG_INTERMEDIATE_CA         (0x00000008)")
+// If certificate to account mapping is enabled, this flag allows IKE to ignore
+// mapping failures on initiator. Not applicable for Authip. Can be set only
+// if IKEEXT_CERT_FLAG_ENABLE_ACCOUNT_MAPPING is also specified. By default IKE
+// will not ignore cert-mapping failures even on initiator.
+cpp_quote("#define IKEEXT_CERT_FLAG_IGNORE_INIT_CERT_MAP_FAILURE (0x00000010)")
+//If this flag is specified, then NAP certs are preferred for 
+//local cert selection
+cpp_quote("#define IKEEXT_CERT_FLAG_PREFER_NAP_CERTIFICATE_OUTBOUND (0x00000020)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Select a NAP certificate for outbound
+cpp_quote("#define IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE (0x00000040)")
+// Verify that inbound certificate is NAP
+cpp_quote("#define IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE (0x00000080)")
+// Follow renewal property on the certificate when selecting local certificate for outbound.
+// Only applicable when hash of the certificate is specified.
+cpp_quote("#define IKEEXT_CERT_FLAG_FOLLOW_RENEWAL_CERTIFICATE (0x00000100)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+typedef struct IKEEXT_CERT_ROOT_CONFIG0_
+{
+   // X509/ASN.1 encoded name of the certificate root. Should be empty when
+   // specifying Enterprise or trusted root store config.
+   FWP_BYTE_BLOB certData;
+   // Flags
+   UINT32 flags;
+} IKEEXT_CERT_ROOT_CONFIG0;
+
+//////////
+// Flags specifying certificate authentication characteristics.
+//////////
+
+// Enable SSL one way authentication
+cpp_quote("#define IKEEXT_CERT_AUTH_FLAG_SSL_ONE_WAY              (0x00000001)")
+
+// Disable CRL checking. By default weak CRL checking is enabled. Weak checking
+// means that a certificate will be rejected if and only if CRL is successfully
+// looked up and the certificate is found to be revoked.
+cpp_quote("#define IKEEXT_CERT_AUTH_FLAG_DISABLE_CRL_CHECK        (0x00000002)")
+
+// Enable strong CRL checking. Strong checking means that a certificate will be
+// rejected if certificate is found to be revoked, or if any other error
+// (for ex: CRL could not be retrieved) takes place while performing the
+// revokation checking. By default weak CRL checking is enabled.
+cpp_quote("#define IKEEXT_CERT_AUTH_ENABLE_CRL_CHECK_STRONG       (0x00000004)")
+
+// SSL validation requires certain EKUs, like server auth EKU from a server.
+// This disables the server auth EKU check, but still performs the other
+// IKE-style certificate verification
+cpp_quote("#define IKEEXT_CERT_AUTH_DISABLE_SSL_CERT_VALIDATION (0x00000008)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Allow lookup of peer certificate information from an HTTP URL. Only supported 
+// by IKEv2.
+cpp_quote("#define IKEEXT_CERT_AUTH_ALLOW_HTTP_CERT_LOOKUP  (0x00000010)")
+
+// The URL specified in the certificate authentication policy points to an
+// encoded certificate-bundle. If this flag is not specifed, IKEv2 will assume
+// that the URL points to an encoded certificate. Only supported by IKEv2.
+cpp_quote("#define IKEEXT_CERT_AUTH_URL_CONTAINS_BUNDLE  (0x00000020)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Disable sending CERT_REQ payload from the Client
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS2)")
+cpp_quote("#define IKEEXT_CERT_AUTH_FLAG_DISABLE_REQUEST_PAYLOAD (0x00000040)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+
+// Type of certificate configuration
+typedef [v1_enum] enum IKEEXT_CERT_CONFIG_TYPE_
+{
+   // Use an explicit trust list for authentication
+   IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST,
+   // Use the enterprise store as the trust list for authentication
+   IKEEXT_CERT_CONFIG_ENTERPRISE_STORE,
+   // Use the trusted root CA store as the trust list for authentication
+   IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE,
+   // No Cert auth in direction (inbound/outbound) in which config applies
+   IKEEXT_CERT_CONFIG_UNSPECIFIED,
+   // Not a valid type -- used for parameter validation only.
+   IKEEXT_CERT_CONFIG_TYPE_MAX
+} IKEEXT_CERT_CONFIG_TYPE;
+
+// Type used to specify various parameters for authentication with certificates.
+typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION0_
+{
+   // Certificate configuration type for inbound peer cert verification.
+   IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
+   // Configuration for inbound peer cert verification. It is a union of
+   // explicit trust list, enterprise store, or trusted root store config
+   // depending on the configType.
+   [switch_type(IKEEXT_CERT_CONFIG_TYPE), switch_is(inboundConfigType)]
+   union
+   {
+      [case(IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST)]
+         // Explicit trust list for verifying the peer certificate chain.
+         struct
+         {
+            UINT32 inboundRootArraySize;
+            [size_is(inboundRootArraySize), unique]
+               IKEEXT_CERT_ROOT_CONFIG0* inboundRootArray;
+         };
+      [case(IKEEXT_CERT_CONFIG_ENTERPRISE_STORE)]
+         // Enterprise store config for verifying the peer certificate chain.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* inboundEnterpriseStoreConfig;
+      [case(IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE)]
+         // Trusted root store config for verifying the peer certificate chain.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* inboundTrustedRootStoreConfig;
+   };
+
+   // Certificate configuration type for outbound local cert selection.
+   IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
+   // Configuration for outbound local cert selection. It is a union of
+   // explicit trust list, enterprise store, or trusted root store config
+   // depending on the configType.
+   [switch_type(IKEEXT_CERT_CONFIG_TYPE), switch_is(outboundConfigType)]
+   union
+   {
+      [case(IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST)]
+         // Explicit trust list for selecting a certificate chain to send to the
+         // peer.
+         struct
+         {
+            UINT32 outboundRootArraySize;
+            [size_is(outboundRootArraySize), unique]
+               IKEEXT_CERT_ROOT_CONFIG0* outboundRootArray;
+         };
+      [case(IKEEXT_CERT_CONFIG_ENTERPRISE_STORE)]
+         // Enterprise store config for selecting a certificate chain to send to
+         // the peer.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* outboundEnterpriseStoreConfig;
+      [case(IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE)]
+         // Trusted root store config for selecting a certificate chain to send
+         // to the peer.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* outboundTrustedRootStoreConfig;
+   };
+   // Flags
+   UINT32 flags;
+} IKEEXT_CERTIFICATE_AUTHENTICATION0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type used to specify various parameters for authentication with 
+// certificates.
+typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION1_
+{
+   // Certificate configuration type for inbound peer cert verification.
+   IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
+   // Configuration for inbound peer cert verification. It is a union of
+   // explicit trust list, enterprise store, or trusted root store config
+   // depending on the configType.
+   [switch_type(IKEEXT_CERT_CONFIG_TYPE), switch_is(inboundConfigType)]
+   union
+   {
+      [case(IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST)]
+         // Explicit trust list for verifying the peer certificate chain.
+         struct
+         {
+            UINT32 inboundRootArraySize;
+            [size_is(inboundRootArraySize), unique]
+               IKEEXT_CERT_ROOT_CONFIG0* inboundRootArray;
+         };
+      [case(IKEEXT_CERT_CONFIG_ENTERPRISE_STORE)]
+         // Enterprise store config for verifying the peer certificate chain.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* inboundEnterpriseStoreConfig;
+      [case(IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE)]
+         // Trusted root store config for verifying the peer certificate chain.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* inboundTrustedRootStoreConfig;
+      [case(IKEEXT_CERT_CONFIG_UNSPECIFIED)];
+   };
+
+   // Certificate configuration type for outbound local cert selection.
+   IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
+   // Configuration for outbound local cert selection. It is a union of
+   // explicit trust list, enterprise store, or trusted root store config
+   // depending on the configType.
+   [switch_type(IKEEXT_CERT_CONFIG_TYPE), switch_is(outboundConfigType)]
+   union
+   {
+      [case(IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST)]
+         // Explicit trust list for selecting a certificate chain to send to the
+         // peer.
+         struct
+         {
+            UINT32 outboundRootArraySize;
+            [size_is(outboundRootArraySize), unique]
+               IKEEXT_CERT_ROOT_CONFIG0* outboundRootArray;
+         };
+      [case(IKEEXT_CERT_CONFIG_ENTERPRISE_STORE)]
+         // Enterprise store config for selecting a certificate chain to send to
+         // the peer.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* outboundEnterpriseStoreConfig;
+      [case(IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE)]
+         // Trusted root store config for selecting a certificate chain to send
+         // to the peer.
+         [unique] IKEEXT_CERT_ROOT_CONFIG0* outboundTrustedRootStoreConfig;
+      [case(IKEEXT_CERT_CONFIG_UNSPECIFIED)];
+   };
+   // Flags
+   UINT32 flags;
+
+   // HTTP URL pointing to an encoded certificate or certificate-bundle, that 
+   // will be used by IKEv2 for authenticating local machine to a peer. 
+   // Only supported by IKEv2.
+   FWP_BYTE_BLOB localCertLocationUrl;
+} IKEEXT_CERTIFICATE_AUTHENTICATION1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+typedef enum IKEEXT_CERT_CRITERIA_NAME_TYPE_
+{
+   // DNS name in the Subject Alternative Name of the certificate
+   IKEEXT_CERT_CRITERIA_DNS,
+   // UPN name in the Subject Alternative Name of the certificate
+   IKEEXT_CERT_CRITERIA_UPN,
+   // RFC 822 name in the Subject Alternative Name of the certificate
+   IKEEXT_CERT_CRITERIA_RFC822,
+   // CN in the Subject of the certificate
+   IKEEXT_CERT_CRITERIA_CN,
+   // OU in the Subject of the certificate
+   IKEEXT_CERT_CRITERIA_OU,
+   // O in the Subject of the certificate
+   IKEEXT_CERT_CRITERIA_O,
+   // DC in the Subject of the certificate
+   IKEEXT_CERT_CRITERIA_DC,
+   IKEEXT_CERT_CRITERIA_NAME_TYPE_MAX
+} IKEEXT_CERT_CRITERIA_NAME_TYPE;
+
+typedef struct IKEEXT_CERT_EKUS0_
+{
+   ULONG numEku;
+   [string, size_is(numEku), ref] LPSTR* eku;
+} IKEEXT_CERT_EKUS0;
+
+typedef struct IKEEXT_CERT_NAME0_
+{
+   IKEEXT_CERT_CRITERIA_NAME_TYPE nameType;
+   [string, ref] LPWSTR certName;
+} IKEEXT_CERT_NAME0;
+
+typedef struct IKEEXT_CERTIFICATE_CRITERIA0_
+{
+   // X509/ASN.1 encoded name of the certificate root. Should be empty when
+   // specifying Enterprise or trusted root store config.
+   FWP_BYTE_BLOB certData;
+   FWP_BYTE_BLOB certHash;
+   [unique] IKEEXT_CERT_EKUS0* eku;
+   [unique] IKEEXT_CERT_NAME0* name;
+   // Flags
+   UINT32 flags;
+} IKEEXT_CERTIFICATE_CRITERIA0;
+
+// Version-2 of type used to specify various parameters for authentication with 
+// certificates.
+typedef struct IKEEXT_CERTIFICATE_AUTHENTICATION2_
+{
+   // Certificate configuration type for inbound peer cert verification.
+   IKEEXT_CERT_CONFIG_TYPE inboundConfigType;
+   // Configuration for inbound peer cert verification. It is a union of
+   // explicit trust list, enterprise store, or trusted root store config
+   // depending on the configType.
+   [switch_type(IKEEXT_CERT_CONFIG_TYPE), switch_is(inboundConfigType)]
+   union
+   {
+      [case(IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST)]
+         // Explicit trust list for verifying the peer certificate chain.
+         struct
+         {
+            UINT32 inboundRootArraySize;
+            [size_is(inboundRootArraySize), unique]
+               IKEEXT_CERTIFICATE_CRITERIA0* inboundRootCriteria;
+         };
+      [case(IKEEXT_CERT_CONFIG_ENTERPRISE_STORE)]        
+         // Enterprise store config for verifying the peer certificate chain.
+         struct
+         {
+            UINT32 inboundEnterpriseStoreArraySize;
+            [size_is(inboundEnterpriseStoreArraySize), unique]
+               IKEEXT_CERTIFICATE_CRITERIA0* inboundEnterpriseStoreCriteria;
+         };
+      [case(IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE)]
+         // Trusted root store config for verifying the peer certificate chain.
+         struct
+         {
+            UINT32 inboundRootStoreArraySize;
+            [size_is(inboundRootStoreArraySize), unique]
+               IKEEXT_CERTIFICATE_CRITERIA0* inboundTrustedRootStoreCriteria;
+         };
+      [case(IKEEXT_CERT_CONFIG_UNSPECIFIED)];
+   };
+
+   // Certificate configuration type for outbound local cert selection.
+   IKEEXT_CERT_CONFIG_TYPE outboundConfigType;
+   // Configuration for outbound local cert selection. It is a union of
+   // explicit trust list, enterprise store, or trusted root store config
+   // depending on the configType.
+   [switch_type(IKEEXT_CERT_CONFIG_TYPE), switch_is(outboundConfigType)]
+   union
+   {
+      [case(IKEEXT_CERT_CONFIG_EXPLICIT_TRUST_LIST)]
+         // Explicit trust list for selecting a certificate chain to send to the
+         // peer.
+         struct
+         {
+            UINT32 outboundRootArraySize;
+            [size_is(outboundRootArraySize), unique]
+               IKEEXT_CERTIFICATE_CRITERIA0* outboundRootCriteria;
+         };
+      [case(IKEEXT_CERT_CONFIG_ENTERPRISE_STORE)]
+         // Enterprise store config for selecting a certificate chain to send to
+         // the peer.
+         struct
+         {
+            UINT32 outboundEnterpriseStoreArraySize;
+            [size_is(outboundEnterpriseStoreArraySize), unique]
+               IKEEXT_CERTIFICATE_CRITERIA0* outboundEnterpriseStoreCriteria;
+         };
+      [case(IKEEXT_CERT_CONFIG_TRUSTED_ROOT_STORE)]
+         // Trusted root store config for selecting a certificate chain to send
+         // to the peer.
+         struct
+         {
+            UINT32 outboundRootStoreArraySize;
+            [size_is(outboundRootStoreArraySize), unique]
+               IKEEXT_CERTIFICATE_CRITERIA0* outboundTrustedRootStoreCriteria;
+         };
+      [case(IKEEXT_CERT_CONFIG_UNSPECIFIED)];
+   };
+   // Flags
+   UINT32 flags;
+
+   // HTTP URL pointing to an encoded certificate or certificate-bundle, that 
+   // will be used by IKEv2 for authenticating local machine to a peer. 
+   // Only supported by IKEv2.
+   FWP_BYTE_BLOB localCertLocationUrl;
+} IKEEXT_CERTIFICATE_AUTHENTICATION2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+// Type used to specify various parameters for IPV6 CGA authentication.
+typedef struct IKEEXT_IPV6_CGA_AUTHENTICATION0_
+{
+   // Key container name of the public key/private key pair that was used to
+   // generate the CGA. Same semantics as CRYPT_KEY_PROV_INFO->pwszContainerName
+   [string, ref] wchar_t* keyContainerName;
+   // Name of the CSP that stores the key container. If NULL, default provider
+   // will be used. Same semantics as CRYPT_KEY_PROV_INFO->pwszProvName.
+   [string, unique] wchar_t* cspName;
+   // Type of the CSP that stores the key container. Same semantics as
+   // CRYPT_KEY_PROV_INFO->dwProvType
+   UINT32 cspType;
+   // Modifier used during CGA generation. See CGA RFC for more information.
+   FWP_BYTE_ARRAY16 cgaModifier;
+   // Collision count used during CGA generation. See CGA RFC for more information.
+   BYTE cgaCollisionCount;
+} IKEEXT_IPV6_CGA_AUTHENTICATION0;
+
+// Disable initiator generation of peer token from the peer's name string
+cpp_quote("#define IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION (0x00000001)")
+// Refuse connections if the peer is using explicit credentials
+cpp_quote("#define IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS (0x00000002)")
+
+// Stores information needed for kerberos authentication
+typedef struct IKEEXT_KERBEROS_AUTHENTICATION0__
+{
+  UINT32 flags;
+} IKEEXT_KERBEROS_AUTHENTICATION0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Force the use of a Kerberos proxy server when acting as initiator.
+cpp_quote("#define IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR (0x00000004)")
+
+// Stores information needed for Kerberos authentication
+typedef struct IKEEXT_KERBEROS_AUTHENTICATION1__
+{
+   UINT32 flags;
+   [string, unique] wchar_t* proxyServer;
+} IKEEXT_KERBEROS_AUTHENTICATION1;
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Disable initiator generation of peer token from the peer's name string
+cpp_quote("#define IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION (0x00000001)")
+
+// Stores information needed for RESERVED authentication
+typedef struct IKEEXT_RESERVED_AUTHENTICATION0__
+{
+  UINT32 flags;
+} IKEEXT_RESERVED_AUTHENTICATION0;
+
+
+// Refuse connections if the peer is using explicit credentials
+cpp_quote("#define IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS (0x00000001)")
+// Stores information needed for ntlmV2 authentication
+typedef struct IKEEXT_NTLM_V2_AUTHENTICATION0__
+{
+  UINT32 flags;
+} IKEEXT_NTLM_V2_AUTHENTICATION0;
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Use EAP for authenticating local entity to remote entity only
+cpp_quote("#define IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY  (0x00000001)")
+// Use EAP for authenticating remote entity to local entity only
+cpp_quote("#define IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY  (0x00000002)")
+
+// Stores information needed for EAP authentication
+typedef struct IKEEXT_EAP_AUTHENTICATION0__
+{
+  UINT32 flags;
+} IKEEXT_EAP_AUTHENTICATION0;
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Type specifying various parameters for IKE/Authip authentication
+typedef struct IKEEXT_AUTHENTICATION_METHOD0_
+{
+   // Type of authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+   // Tagged union containing parameters specific to the authentication method
+   // type.
+   [switch_type(IKEEXT_AUTHENTICATION_METHOD_TYPE),
+    switch_is(authenticationMethodType)]
+   union
+   {
+      [case(IKEEXT_PRESHARED_KEY)]
+         IKEEXT_PRESHARED_KEY_AUTHENTICATION0 presharedKeyAuthentication;
+      [case(IKEEXT_CERTIFICATE,
+            IKEEXT_CERTIFICATE_ECDSA_P256,
+            IKEEXT_CERTIFICATE_ECDSA_P384)]
+         IKEEXT_CERTIFICATE_AUTHENTICATION0 certificateAuthentication;
+      [case(IKEEXT_KERBEROS)]
+         IKEEXT_KERBEROS_AUTHENTICATION0 kerberosAuthentication;
+      [case(IKEEXT_NTLM_V2)]
+         IKEEXT_NTLM_V2_AUTHENTICATION0 ntlmV2Authentication;
+      [case(IKEEXT_ANONYMOUS)];
+      [case(IKEEXT_SSL,
+            IKEEXT_SSL_ECDSA_P256,
+            IKEEXT_SSL_ECDSA_P384)]
+         IKEEXT_CERTIFICATE_AUTHENTICATION0 sslAuthentication;
+      [case(IKEEXT_IPV6_CGA)]
+         IKEEXT_IPV6_CGA_AUTHENTICATION0 cgaAuthentication;
+   };
+} IKEEXT_AUTHENTICATION_METHOD0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type specifying various parameters for IKE/Authip authentication
+typedef struct IKEEXT_AUTHENTICATION_METHOD1_
+{
+   // Type of authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+   // Tagged union containing parameters specific to the authentication method
+   // type.
+   [switch_type(IKEEXT_AUTHENTICATION_METHOD_TYPE),
+    switch_is(authenticationMethodType)]
+   union
+   {
+      [case(IKEEXT_PRESHARED_KEY)]
+         IKEEXT_PRESHARED_KEY_AUTHENTICATION1 presharedKeyAuthentication;
+      [case(IKEEXT_CERTIFICATE,
+            IKEEXT_CERTIFICATE_ECDSA_P256,
+            IKEEXT_CERTIFICATE_ECDSA_P384)]
+         IKEEXT_CERTIFICATE_AUTHENTICATION1 certificateAuthentication;
+      [case(IKEEXT_KERBEROS)]
+         IKEEXT_KERBEROS_AUTHENTICATION0 kerberosAuthentication;
+      [case(IKEEXT_NTLM_V2)]
+         IKEEXT_NTLM_V2_AUTHENTICATION0 ntlmV2Authentication;
+      [case(IKEEXT_ANONYMOUS)];
+      [case(IKEEXT_SSL,
+            IKEEXT_SSL_ECDSA_P256,
+            IKEEXT_SSL_ECDSA_P384)]
+         IKEEXT_CERTIFICATE_AUTHENTICATION1 sslAuthentication;
+      [case(IKEEXT_IPV6_CGA)]
+         IKEEXT_IPV6_CGA_AUTHENTICATION0 cgaAuthentication;
+      [case(IKEEXT_EAP)]
+         IKEEXT_EAP_AUTHENTICATION0 eapAuthentication;
+   };
+} IKEEXT_AUTHENTICATION_METHOD1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-2 of type specifying various parameters for IKE/Authip authentication
+typedef struct IKEEXT_AUTHENTICATION_METHOD2_
+{
+   // Type of authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+   // Tagged union containing parameters specific to the authentication method
+   // type.
+   [switch_type(IKEEXT_AUTHENTICATION_METHOD_TYPE),
+    switch_is(authenticationMethodType)]
+   union
+   {
+      [case(IKEEXT_PRESHARED_KEY)]
+         IKEEXT_PRESHARED_KEY_AUTHENTICATION1 presharedKeyAuthentication;
+      [case(IKEEXT_CERTIFICATE,
+            IKEEXT_CERTIFICATE_ECDSA_P256,
+            IKEEXT_CERTIFICATE_ECDSA_P384)]
+         IKEEXT_CERTIFICATE_AUTHENTICATION2 certificateAuthentication;
+      [case(IKEEXT_KERBEROS)]
+         IKEEXT_KERBEROS_AUTHENTICATION1 kerberosAuthentication;
+      [case(IKEEXT_RESERVED)]
+         IKEEXT_RESERVED_AUTHENTICATION0 reservedAuthentication;
+      [case(IKEEXT_NTLM_V2)]
+         IKEEXT_NTLM_V2_AUTHENTICATION0 ntlmV2Authentication;
+      [case(IKEEXT_ANONYMOUS)];
+      [case(IKEEXT_SSL,
+            IKEEXT_SSL_ECDSA_P256,
+            IKEEXT_SSL_ECDSA_P384)]
+         IKEEXT_CERTIFICATE_AUTHENTICATION2 sslAuthentication;
+      [case(IKEEXT_IPV6_CGA)]
+         IKEEXT_IPV6_CGA_AUTHENTICATION0 cgaAuthentication;
+      [case(IKEEXT_EAP)]
+         IKEEXT_EAP_AUTHENTICATION0 eapAuthentication;
+   };
+} IKEEXT_AUTHENTICATION_METHOD2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Type of encryption algorithm used for encrypting the IKE/Authip messages
+typedef [v1_enum] enum IKEEXT_CIPHER_TYPE_
+{
+   IKEEXT_CIPHER_DES,
+   IKEEXT_CIPHER_3DES,
+   IKEEXT_CIPHER_AES_128,
+   IKEEXT_CIPHER_AES_192,
+   IKEEXT_CIPHER_AES_256,
+   IKEEXT_CIPHER_AES_GCM_128_16ICV,
+   IKEEXT_CIPHER_AES_GCM_256_16ICV,
+   IKEEXT_CIPHER_TYPE_MAX
+} IKEEXT_CIPHER_TYPE;
+
+// Stores information about the IKE/Authip encryption algorithm
+typedef struct IKEEXT_CIPHER_ALGORITHM0_
+{
+   // The type of encryption algorithm
+   IKEEXT_CIPHER_TYPE algoIdentifier;
+   // length of the encryption key
+   UINT32 keyLen;
+   // Number of rounds in the encryption algorithm
+   UINT32 rounds;
+} IKEEXT_CIPHER_ALGORITHM0;
+
+// Type of hash algorithm used for integrity protection of IKE/Authip messages
+typedef [v1_enum] enum IKEEXT_INTEGRITY_TYPE_
+{
+   IKEEXT_INTEGRITY_MD5,
+   IKEEXT_INTEGRITY_SHA1,
+   IKEEXT_INTEGRITY_SHA_256,
+   IKEEXT_INTEGRITY_SHA_384,
+   IKEEXT_INTEGRITY_TYPE_MAX
+} IKEEXT_INTEGRITY_TYPE;
+
+// Stores the IKE/Authip hash algorithm
+typedef struct IKEEXT_INTEGRITY_ALGORITHM0_
+{
+   // The type of hash algorithm
+   IKEEXT_INTEGRITY_TYPE algoIdentifier;
+} IKEEXT_INTEGRITY_ALGORITHM0;
+
+// Type of Diffie Hellman group used for IKE/Authip key generation
+typedef [v1_enum] enum IKEEXT_DH_GROUP_
+{
+   IKEEXT_DH_GROUP_NONE,
+   IKEEXT_DH_GROUP_1,
+   IKEEXT_DH_GROUP_2,
+   IKEEXT_DH_GROUP_14,
+   IKEEXT_DH_GROUP_2048 = IKEEXT_DH_GROUP_14,
+   IKEEXT_DH_ECP_256,
+   IKEEXT_DH_ECP_384,
+   IKEEXT_DH_GROUP_24,
+   IKEEXT_DH_GROUP_MAX
+} IKEEXT_DH_GROUP;
+
+// Type used to store an IKE/Authip main mode proposal. The proposal describes
+// the various parameters of the IKE/Authip main mode SA that is potentially
+// generated from this proposal.
+typedef struct IKEEXT_PROPOSAL0_
+{
+   // Parameters for the encryption algorithm
+   IKEEXT_CIPHER_ALGORITHM0 cipherAlgorithm;
+   // Parameters for the hash algorithm
+   IKEEXT_INTEGRITY_ALGORITHM0 integrityAlgorithm;
+   // Main mode SA Lifetime in seconds
+   UINT32 maxLifetimeSeconds;
+   // The Diffie Hellman group
+   IKEEXT_DH_GROUP dhGroup;
+   // Maximum number of IPsec quick mode SAs that can be generated from this
+   // main mode SA. O means infinite.
+   UINT32 quickModeLimit;
+} IKEEXT_PROPOSAL0;
+
+//////////
+// Flags specifying IKE/Authip main mode policy characteristics.
+//////////
+
+// Disable special diagnostics mode for IKE/Authip. This will prevent IKE, AuthIp
+// from accepting unauthenticated notifies from peer, or sending MS_STATUS
+// notifies to peer.
+cpp_quote("#define IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS (0x00000001)")
+// Disable SA verification of machine LUID
+cpp_quote("#define IKEEXT_POLICY_FLAG_NO_MACHINE_LUID_VERIFY (0x00000002)")
+// Disable SA verification of machine impersonation LUID
+cpp_quote("#define IKEEXT_POLICY_FLAG_NO_IMPERSONATION_LUID_VERIFY (0x00000004)")
+// AuthIP only:  allow responder to accept any DH proposal (including NO dh)
+// regardless of what is configured in policy
+cpp_quote("#define IKEEXT_POLICY_FLAG_ENABLE_OPTIONAL_DH (0x00000008)")
+// IKEv2 only: Disable MOBIKE
+cpp_quote("#define IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED (0x00000010)")
+// IKEv2 Site to Site
+cpp_quote("#define IKEEXT_POLICY_FLAG_SITE_TO_SITE (0x00000020)")
+//IKEv2 ePDG VPN Connection
+cpp_quote("#define IKEEXT_POLICY_FLAG_IMS_VPN (0x00000040)")
+//IKEv2 Do not allow IKEv2 Fragmentation
+cpp_quote("#define IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION (0x00000080)")
+//IKEv2 Tunnel Support for Low Power Mode
+cpp_quote("#define IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE (0x00000100)")
+cpp_quote("#define IKEEXT_POLICY_FLAG_POINT_TO_SITE (0x00000200)")
+
+// Type used to store the IKE/Authip main mode negotiation policy
+typedef struct IKEEXT_POLICY0_
+{
+   // Lifetime in seconds of the IPsec soft SA
+   UINT32 softExpirationTime;
+   // number of authentication methods
+   UINT32 numAuthenticationMethods;
+   // Array of acceptable authentication methods
+   [size_is(numAuthenticationMethods), ref]
+      IKEEXT_AUTHENTICATION_METHOD0* authenticationMethods;
+   // Type of impersonation. Applies only to Authip.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+   // Number of main mode proposals
+   UINT32 numIkeProposals;
+   // Array of main mode proposals
+   [size_is(numIkeProposals), ref] IKEEXT_PROPOSAL0* ikeProposals;
+   // Flags
+   UINT32 flags;
+   // Maximum number of dynamic IPsec filters (per remote IP address and per
+   // transport layer) that is allowed to be added for any SA negotiated using
+   // this policy. This throttle prevents an attacker from making IKE, Authip
+   // add too many dynamic filters. If this is set to 0, then dynamic filter
+   // addition will be disabled.
+   UINT32 maxDynamicFilters;
+} IKEEXT_POLICY0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type used to store the IKE/Authip main mode negotiation policy
+typedef struct IKEEXT_POLICY1_
+{
+   // Lifetime in seconds of the IPsec soft SA
+   UINT32 softExpirationTime;
+   // number of authentication methods
+   UINT32 numAuthenticationMethods;
+   // Array of acceptable authentication methods
+   [size_is(numAuthenticationMethods), ref]
+      IKEEXT_AUTHENTICATION_METHOD1* authenticationMethods;
+   // Type of impersonation. Applies only to Authip.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+   // Number of main mode proposals
+   UINT32 numIkeProposals;
+   // Array of main mode proposals
+   [size_is(numIkeProposals), ref] IKEEXT_PROPOSAL0* ikeProposals;
+   // Flags
+   UINT32 flags;
+   // Maximum number of dynamic IPsec filters (per remote IP address and per
+   // transport layer) that is allowed to be added for any SA negotiated using
+   // this policy. This throttle prevents an attacker from making IKE, Authip
+   // add too many dynamic filters. If this is set to 0, then dynamic filter
+   // addition will be disabled.
+   UINT32 maxDynamicFilters;
+   // Duration of time (in seconds) IKEv2 request will be retransmitted before giving up
+   // Must be set to atleast 120 seconds (or 2mins)
+   // Applies to IkeV2 only. 
+   UINT32 retransmitDurationSecs;
+} IKEEXT_POLICY1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-2 of type used to store the IKE/Authip main mode negotiation policy
+typedef struct IKEEXT_POLICY2_
+{
+   // Lifetime in seconds of the IPsec soft SA
+   UINT32 softExpirationTime;
+   // number of authentication methods
+   UINT32 numAuthenticationMethods;
+   // Array of acceptable authentication methods
+   [size_is(numAuthenticationMethods), ref]
+      IKEEXT_AUTHENTICATION_METHOD2* authenticationMethods;
+   // Type of impersonation. Applies only to Authip.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+   // Number of main mode proposals
+   UINT32 numIkeProposals;
+   // Array of main mode proposals
+   [size_is(numIkeProposals), ref] IKEEXT_PROPOSAL0* ikeProposals;
+   // Flags
+   UINT32 flags;
+   // Maximum number of dynamic IPsec filters (per remote IP address and per
+   // transport layer) that is allowed to be added for any SA negotiated using
+   // this policy. This throttle prevents an attacker from making IKE, Authip
+   // add too many dynamic filters. If this is set to 0, then dynamic filter
+   // addition will be disabled.
+   UINT32 maxDynamicFilters;
+   // Duration of time (in seconds) IKEv2 request will be retransmitted before giving up
+   // Must be set to atleast 120 seconds (or 2mins)
+   // Applies to IkeV2 only. 
+   UINT32 retransmitDurationSecs;
+} IKEEXT_POLICY2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Type used to store Authip's extended mode negotiation policy.
+typedef struct IKEEXT_EM_POLICY0_
+{
+   // Number of authentication methods in the array
+   UINT32 numAuthenticationMethods;
+   // Array of acceptable authentication methods
+   [size_is(numAuthenticationMethods), ref]
+      IKEEXT_AUTHENTICATION_METHOD0* authenticationMethods;
+   // Type of impersonation. Applies only to Authip.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+
+} IKEEXT_EM_POLICY0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type used to store Authip's extended mode negotiation policy.
+typedef struct IKEEXT_EM_POLICY1_
+{
+   // Number of authentication methods in the array
+   UINT32 numAuthenticationMethods;
+   // Array of acceptable authentication methods
+   [size_is(numAuthenticationMethods), ref]
+      IKEEXT_AUTHENTICATION_METHOD1* authenticationMethods;
+   // Type of impersonation. Applies only to Authip.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+} IKEEXT_EM_POLICY1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-2 of type used to store Authip's extended mode negotiation policy.
+typedef struct IKEEXT_EM_POLICY2_
+{
+   // Number of authentication methods in the array
+   UINT32 numAuthenticationMethods;
+   // Array of acceptable authentication methods
+   [size_is(numAuthenticationMethods), ref]
+      IKEEXT_AUTHENTICATION_METHOD2* authenticationMethods;
+   // Type of impersonation. Applies only to Authip.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE initiatorImpersonationType;
+} IKEEXT_EM_POLICY2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for retrieving IKE statistics.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+//Number of WinError failure codes specific to IKE
+cpp_quote("#define IKEEXT_ERROR_CODE_COUNT (ERROR_IPSEC_IKE_NEG_STATUS_END - ERROR_IPSEC_IKE_NEG_STATUS_BEGIN)")
+#define IKEEXT_ERROR_CODE_COUNT  \
+(ERROR_IPSEC_IKE_NEG_STATUS_END - ERROR_IPSEC_IKE_NEG_STATUS_BEGIN)
+
+// Various statistics specific to the keying module (IKE or Authip) and
+// specific to the IP version
+typedef struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0_
+{
+   // Following statistics are Main Mode specific
+
+   // Current number of active Main Mode SAs
+   UINT32 currentActiveMainModes;
+   // Total number of Main Mode negotiations.
+   UINT32 totalMainModesStarted;
+   // Total number of successful Main Mode negotiations
+   UINT32 totalSuccessfulMainModes;
+   // Total number of failed Main Mode negotiations
+   UINT32 totalFailedMainModes;
+   // Total number of Main Mode negotiations that were externally intiated by
+   // a peer (responder)
+   UINT32 totalResponderMainModes;
+   // Current number of newly created responder Main Modes that are still in
+   // the initial state.
+   UINT32 currentNewResponderMainModes;
+
+   // Following statistics are Quick Mode specific
+
+   // Current number of active Quick Mode SAs
+   UINT32 currentActiveQuickModes;
+   // Total number of Quick Mode negotiations.
+   UINT32 totalQuickModesStarted;
+   // Total number of successful Quick Mode negotiations
+   UINT32 totalSuccessfulQuickModes;
+   // Total number of failed Quick Mode negotiations
+   UINT32 totalFailedQuickModes;
+
+   // Total number of acquires received from BFE.
+   UINT32 totalAcquires;
+   // Total number of acquires that were internally reinitiated.
+   UINT32 totalReinitAcquires;
+
+   // Following statistics are applicable only to Authip
+
+   // Current number of active extended mode SAs
+   UINT32 currentActiveExtendedModes;
+   // Total number of extended mode negotiations.
+   UINT32 totalExtendedModesStarted;
+   // Total number of successful extended mode negotiations.
+   UINT32 totalSuccessfulExtendedModes;
+   // Total number of failed extended mode negotiations.
+   UINT32 totalFailedExtendedModes;
+   // Total number of successful extended mode negotiations that used
+   // impersonation
+   UINT32 totalImpersonationExtendedModes;
+   // Total number of successful Main Mode negotiations that used impersonation
+   UINT32 totalImpersonationMainModes;
+} IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Various statistics specific to the keying module (IKE,Authip and IkeV2) and
+// specific to the IP version
+typedef struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1_
+{
+   // Following statistics are Main Mode specific
+
+   // Current number of active Main Mode SAs
+   UINT32 currentActiveMainModes;
+   // Total number of Main Mode negotiations.
+   UINT32 totalMainModesStarted;
+   // Total number of successful Main Mode negotiations
+   UINT32 totalSuccessfulMainModes;
+   // Total number of failed Main Mode negotiations
+   UINT32 totalFailedMainModes;
+   // Total number of Main Mode negotiations that were externally intiated by
+   // a peer (responder)
+   UINT32 totalResponderMainModes;
+   // Current number of newly created responder Main Modes that are still in
+   // the initial state.
+   UINT32 currentNewResponderMainModes;
+
+   // Following statistics are Quick Mode specific
+
+   // Current number of active Quick Mode SAs
+   UINT32 currentActiveQuickModes;
+   // Total number of Quick Mode negotiations.
+   UINT32 totalQuickModesStarted;
+   // Total number of successful Quick Mode negotiations
+   UINT32 totalSuccessfulQuickModes;
+   // Total number of failed Quick Mode negotiations
+   UINT32 totalFailedQuickModes;
+
+   // Total number of acquires received from BFE.
+   UINT32 totalAcquires;
+   // Total number of acquires that were internally reinitiated.
+   UINT32 totalReinitAcquires;
+
+   // Following statistics are applicable only to Authip
+
+   // Current number of active extended mode SAs
+   UINT32 currentActiveExtendedModes;
+   // Total number of extended mode negotiations.
+   UINT32 totalExtendedModesStarted;
+   // Total number of successful extended mode negotiations.
+   UINT32 totalSuccessfulExtendedModes;
+   // Total number of failed extended mode negotiations.
+   UINT32 totalFailedExtendedModes;
+   // Total number of successful extended mode negotiations that used
+   // impersonation
+   UINT32 totalImpersonationExtendedModes;
+   // Total number of successful Main Mode negotiations that used impersonation
+   UINT32 totalImpersonationMainModes;
+} IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+// Various statistics specific to the keying module (IKE or Authip)
+typedef struct IKEEXT_KEYMODULE_STATISTICS0_
+{
+   // IPv4 specific statistics
+   IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 v4Statistics;
+   // IPv6 specific statistics
+   IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 v6Statistics;
+   // Table containing the frequencies of various IKE Win32 error codes
+   // (ranging from ERROR_IPSEC_IKE_NEG_STATUS_BEGIN to
+   // ERROR_IPSEC_IKE_NEG_STATUS_END) encountered during negotiations.
+   UINT32 errorFrequencyTable[IKEEXT_ERROR_CODE_COUNT];
+   // Current Main Mode negotiation time (in msecs)
+   UINT32 mainModeNegotiationTime;
+   // Current Quick Mode negotiation time (in msecs)
+   UINT32 quickModeNegotiationTime;
+   // Current extended mode negotiation time (in msecs) (applicable to Authip
+   // only)
+   UINT32 extendedModeNegotiationTime;
+} IKEEXT_KEYMODULE_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Various statistics specific to the keying module (IKE, Authip or IkeV2)
+typedef struct IKEEXT_KEYMODULE_STATISTICS1_
+{
+   // IPv4 specific statistics
+   IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 v4Statistics;
+   // IPv6 specific statistics
+   IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 v6Statistics;
+   // Table containing the frequencies of various IKE Win32 error codes
+   // (ranging from ERROR_IPSEC_IKE_NEG_STATUS_BEGIN to
+   // ERROR_IPSEC_IKE_NEG_STATUS_END) encountered during negotiations.
+   UINT32 errorFrequencyTable[IKEEXT_ERROR_CODE_COUNT];
+   // Current Main Mode negotiation time (in msecs)
+   UINT32 mainModeNegotiationTime;
+   // Current Quick Mode negotiation time (in msecs)
+   UINT32 quickModeNegotiationTime;
+   // Current extended mode negotiation time (in msecs) (applicable to Authip
+   // only)
+   UINT32 extendedModeNegotiationTime;
+} IKEEXT_KEYMODULE_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Various statistics common to IKE and Authip and specific to the protocol
+// (IPv4 or IPv6)
+typedef struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0_
+{
+   // Total number of UDP 500/4500 socket receive failures.
+   UINT32 totalSocketReceiveFailures;
+   // Total number of UDP 500/4500 socket send failures.
+   UINT32 totalSocketSendFailures;
+} IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Various statistics common to IKE ,Authip and IkeV1 specific to the protocol
+// (IPv4 or IPv6)
+typedef struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1_
+{
+   // Total number of UDP 500/4500 socket receive failures.
+   UINT32 totalSocketReceiveFailures;
+   // Total number of UDP 500/4500 socket send failures.
+   UINT32 totalSocketSendFailures;
+} IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Various statistics common to IKE and Authip.
+typedef struct IKEEXT_COMMON_STATISTICS0_
+{
+   // IPv4 specific common statistics
+   IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 v4Statistics;
+   // IPv6 specific common statistics
+   IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 v6Statistics;
+   // Total number of packets received.
+   UINT32 totalPacketsReceived;
+   // Total number of invalid packets received.
+   UINT32 totalInvalidPacketsReceived;
+   // Current number of workitems that are queued and waiting to be processed.
+   UINT32 currentQueuedWorkitems;
+} IKEEXT_COMMON_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Various statistics common to IKE ,Authip and IkeV2.
+typedef struct IKEEXT_COMMON_STATISTICS1_
+{
+   // IPv4 specific common statistics
+   IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 v4Statistics;
+   // IPv6 specific common statistics
+   IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 v6Statistics;
+   // Total number of packets received.
+   UINT32 totalPacketsReceived;
+   // Total number of invalid packets received.
+   UINT32 totalInvalidPacketsReceived;
+   // Current number of workitems that are queued and waiting to be processed.
+   UINT32 currentQueuedWorkitems;
+} IKEEXT_COMMON_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Various statistics for IKE and Authip together
+typedef struct IKEEXT_STATISTICS0_
+{
+   // Statistics specific to IKE
+   IKEEXT_KEYMODULE_STATISTICS0 ikeStatistics;
+   // Statistics specific to Authip
+   IKEEXT_KEYMODULE_STATISTICS0 authipStatistics;
+   // Statistics common to IKE and Authip
+   IKEEXT_COMMON_STATISTICS0 commonStatistics;
+} IKEEXT_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Various statistics for IKE ,Authip and IkeV2 together
+typedef struct IKEEXT_STATISTICS1_
+{
+   // Statistics specific to IKE
+   IKEEXT_KEYMODULE_STATISTICS1 ikeStatistics;
+   // Statistics specific to Authip
+   IKEEXT_KEYMODULE_STATISTICS1 authipStatistics;
+   // Statistics specific to IkeV2
+   IKEEXT_KEYMODULE_STATISTICS1 ikeV2Statistics;
+   // Statistics common to IKE and Authip
+   IKEEXT_COMMON_STATISTICS1 commonStatistics;
+} IKEEXT_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for retrieving IKE SA details.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Type describing the IKE/Authip traffic
+typedef struct IKEEXT_TRAFFIC0_
+{
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local address of the traffic
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   // Tagged union containing the remote address of the traffic
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+
+   // Filter ID from QM policy of matching EM filter
+   // FWPM_LAYER_IPSEC_XX
+   UINT64 authIpFilterId;
+
+} IKEEXT_TRAFFIC0;
+
+// Type used to store an IKE/Authip cookie
+typedef UINT64 IKEEXT_COOKIE;
+
+// Type used to store a pair of IKE/Authip cookies
+typedef struct IKEEXT_COOKIE_PAIR0_
+{
+   // Initiator cookie
+   IKEEXT_COOKIE initiator;
+   // Responder cookie
+   IKEEXT_COOKIE responder;
+} IKEEXT_COOKIE_PAIR0;
+
+// Certificate is a NAP (health) certificate
+cpp_quote("#define IKEEXT_CERT_CREDENTIAL_FLAG_NAP_CERT     (0x00000001)")
+
+
+// Type used to store credential information specific to certificate
+// authentication
+typedef struct IKEEXT_CERTIFICATE_CREDENTIAL0_
+{
+   // Encoded subject name of the certificate used for authentication
+   FWP_BYTE_BLOB subjectName;
+   // SHA thumbprint of the certificate
+   FWP_BYTE_BLOB certHash;
+   // Flags
+   UINT32 flags;
+} IKEEXT_CERTIFICATE_CREDENTIAL0;
+
+// Type used to store credential name information
+typedef struct IKEEXT_NAME_CREDENTIAL0_
+{
+   // Name of the principal
+   [string, ref] wchar_t* principalName;
+} IKEEXT_NAME_CREDENTIAL0;
+
+// Type used to store credential information used for the authentication
+typedef struct IKEEXT_CREDENTIAL0_
+{
+   // Type of authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+   // Tagged union containing credential information specific to the
+   // authentication method type.
+   // Type of impersonation.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE impersonationType;
+
+   [switch_type(IKEEXT_AUTHENTICATION_METHOD_TYPE),
+    switch_is(authenticationMethodType)] union
+   {
+      [case(IKEEXT_PRESHARED_KEY)]
+         [unique] IKEEXT_PRESHARED_KEY_AUTHENTICATION0* presharedKey;
+      [case(IKEEXT_CERTIFICATE,
+            IKEEXT_CERTIFICATE_ECDSA_P256,
+            IKEEXT_CERTIFICATE_ECDSA_P384,
+            IKEEXT_SSL,
+            IKEEXT_SSL_ECDSA_P256,
+            IKEEXT_SSL_ECDSA_P384,
+            IKEEXT_IPV6_CGA
+            )]
+         [unique] IKEEXT_CERTIFICATE_CREDENTIAL0* certificate;
+      [case(IKEEXT_KERBEROS,
+            IKEEXT_EAP,
+            IKEEXT_NTLM_V2)]
+         [unique] IKEEXT_NAME_CREDENTIAL0* name;
+      [case(IKEEXT_ANONYMOUS)];
+   };
+} IKEEXT_CREDENTIAL0;
+
+// Type used to store credential information used for the authentication
+typedef struct IKEEXT_CREDENTIAL_PAIR0_
+{
+   // Local credentials used for authentication
+   IKEEXT_CREDENTIAL0 localCredentials;
+   // Peer credentials used for authentication
+   IKEEXT_CREDENTIAL0 peerCredentials;
+} IKEEXT_CREDENTIAL_PAIR0;
+
+
+// Used to store multiple credential pairs.  IKE has only 1 pair.  AuthIp
+// will have 1 or 2. IKEv2 can also have 1 or 2 (depending on if EAP was
+// enabled).  The MM auth is always index 0. EM auth, if it occurs is index 1.
+typedef struct IKEEXT_CREDENTIALS0_
+{
+   UINT32 numCredentials;
+   [size_is(numCredentials), ref] IKEEXT_CREDENTIAL_PAIR0* credentials;
+
+} IKEEXT_CREDENTIALS0;
+ 
+
+// Type used to store information returned when enumerating IKE, Authip SAs.
+typedef struct IKEEXT_SA_DETAILS0_
+{
+   // LUID identifying the SA.
+   UINT64 saId;
+   // Key module type
+   IKEEXT_KEY_MODULE_TYPE keyModuleType;
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // If a NAT was detected, this stores the UDP ports corresponding to the
+   // main mode.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* v4UdpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // The traffic corresponding to this SA
+   IKEEXT_TRAFFIC0 ikeTraffic;
+   // The main mode proposal corresponding to this SA
+   IKEEXT_PROPOSAL0 ikeProposal;
+   // SA cookies
+   IKEEXT_COOKIE_PAIR0 cookiePair;
+   // Credential information for the SA
+   IKEEXT_CREDENTIALS0 ikeCredentials;
+   // GUID of the main mode policy provider context corresponding to this SA.
+   GUID ikePolicyKey;
+   // ID/Handle to virtual interface tunneling state. Currently this is specific
+   // to IKEv2.
+   UINT64 virtualIfTunnelId;
+} IKEEXT_SA_DETAILS0;
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Type used to store credential information specific to certificate
+// authentication
+typedef struct IKEEXT_CERTIFICATE_CREDENTIAL1_
+{
+   // Encoded subject name of the certificate used for authentication
+   FWP_BYTE_BLOB subjectName;
+   // SHA thumbprint of the certificate
+   FWP_BYTE_BLOB certHash;
+   // Flags
+   UINT32 flags;
+   // Encoded certificate
+   FWP_BYTE_BLOB certificate;
+} IKEEXT_CERTIFICATE_CREDENTIAL1;
+
+
+// Type used to store credential information used for the authentication
+typedef struct IKEEXT_CREDENTIAL1_
+{
+   // Type of authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+   // Tagged union containing credential information specific to the
+   // authentication method type.
+   // Type of impersonation.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE impersonationType;
+
+   [switch_type(IKEEXT_AUTHENTICATION_METHOD_TYPE),
+    switch_is(authenticationMethodType)] union
+   {
+      [case(IKEEXT_PRESHARED_KEY)]
+         [unique] IKEEXT_PRESHARED_KEY_AUTHENTICATION1* presharedKey;
+      [case(IKEEXT_CERTIFICATE,
+            IKEEXT_CERTIFICATE_ECDSA_P256,
+            IKEEXT_CERTIFICATE_ECDSA_P384,
+            IKEEXT_SSL,
+            IKEEXT_SSL_ECDSA_P256,
+            IKEEXT_SSL_ECDSA_P384,
+            IKEEXT_IPV6_CGA
+            )]
+         [unique] IKEEXT_CERTIFICATE_CREDENTIAL1* certificate;
+      [case(IKEEXT_KERBEROS,
+            IKEEXT_EAP,
+            IKEEXT_NTLM_V2)]
+         [unique] IKEEXT_NAME_CREDENTIAL0* name;
+      [case(IKEEXT_ANONYMOUS)];
+   };
+} IKEEXT_CREDENTIAL1;
+
+// Type used to store credential information used for the authentication
+typedef struct IKEEXT_CREDENTIAL_PAIR1_
+{
+   // Local credentials used for authentication
+   IKEEXT_CREDENTIAL1 localCredentials;
+   // Peer credentials used for authentication
+   IKEEXT_CREDENTIAL1 peerCredentials;
+} IKEEXT_CREDENTIAL_PAIR1;
+
+
+// Used to store multiple credential pairs.  IKE has only 1 pair.  AuthIp
+// will have 1 or 2. IKEv2 can also have 1 or 2 (depending on if EAP was
+// enabled).  The MM auth is always index 0. EM auth, if it occurs is index 1.
+typedef struct IKEEXT_CREDENTIALS1_
+{
+   UINT32 numCredentials;
+   [size_is(numCredentials), ref] IKEEXT_CREDENTIAL_PAIR1* credentials;
+
+} IKEEXT_CREDENTIALS1;
+
+
+// Type used to store information returned when enumerating IKE, Authip SAs.
+typedef struct IKEEXT_SA_DETAILS1_
+{
+   // LUID identifying the SA.
+   UINT64 saId;
+   // Key module type
+   IKEEXT_KEY_MODULE_TYPE keyModuleType;
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // If a NAT was detected, this stores the UDP ports corresponding to the
+   // main mode.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* v4UdpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // The traffic corresponding to this SA
+   IKEEXT_TRAFFIC0 ikeTraffic;
+   // The main mode proposal corresponding to this SA
+   IKEEXT_PROPOSAL0 ikeProposal;
+   // SA cookies
+   IKEEXT_COOKIE_PAIR0 cookiePair;
+   // Credential information for the SA
+   IKEEXT_CREDENTIALS1 ikeCredentials;
+   // GUID of the main mode policy provider context corresponding to this SA.
+   GUID ikePolicyKey;
+   // ID/Handle to virtual interface tunneling state. Currently this is specific
+   // to IKEv2.
+   UINT64 virtualIfTunnelId;
+   // Key derived from authentications so external apps can cryptographically bind
+   // their exchanges with the this SA
+   FWP_BYTE_BLOB correlationKey;
+} IKEEXT_SA_DETAILS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Type used to store credential information used for the authentication
+typedef struct IKEEXT_CREDENTIAL2_
+{
+   // Type of authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE authenticationMethodType;
+   // Tagged union containing credential information specific to the
+   // authentication method type.
+   // Type of impersonation.
+   IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE impersonationType;
+
+   [switch_type(IKEEXT_AUTHENTICATION_METHOD_TYPE),
+    switch_is(authenticationMethodType)] union
+   {
+      [case(IKEEXT_PRESHARED_KEY)]
+         [unique] IKEEXT_PRESHARED_KEY_AUTHENTICATION1* presharedKey;
+      [case(IKEEXT_CERTIFICATE,
+            IKEEXT_CERTIFICATE_ECDSA_P256,
+            IKEEXT_CERTIFICATE_ECDSA_P384,
+            IKEEXT_SSL,
+            IKEEXT_SSL_ECDSA_P256,
+            IKEEXT_SSL_ECDSA_P384,
+            IKEEXT_IPV6_CGA
+            )]
+         [unique] IKEEXT_CERTIFICATE_CREDENTIAL1* certificate;
+      [case(IKEEXT_KERBEROS,
+            IKEEXT_EAP,
+            IKEEXT_NTLM_V2,
+            IKEEXT_RESERVED)]
+         [unique] IKEEXT_NAME_CREDENTIAL0* name;
+      [case(IKEEXT_ANONYMOUS)];
+   };
+} IKEEXT_CREDENTIAL2;
+
+// Type used to store credential information used for the authentication
+typedef struct IKEEXT_CREDENTIAL_PAIR2_
+{
+   // Local credentials used for authentication
+   IKEEXT_CREDENTIAL2 localCredentials;
+   // Peer credentials used for authentication
+   IKEEXT_CREDENTIAL2 peerCredentials;
+} IKEEXT_CREDENTIAL_PAIR2;
+
+
+// Used to store multiple credential pairs.  IKE has only 1 pair.  AuthIp
+// will have 1 or 2. IKEv2 can also have 1 or 2 (depending on if EAP was
+// enabled).  The MM auth is always index 0. EM auth, if it occurs is index 1.
+typedef struct IKEEXT_CREDENTIALS2_
+{
+   UINT32 numCredentials;
+   [size_is(numCredentials), ref] IKEEXT_CREDENTIAL_PAIR2* credentials;
+
+} IKEEXT_CREDENTIALS2;
+
+
+// Type used to store information returned when enumerating IKE, Authip SAs.
+typedef struct IKEEXT_SA_DETAILS2_
+{
+   // LUID identifying the SA.
+   UINT64 saId;
+   // Key module type
+   IKEEXT_KEY_MODULE_TYPE keyModuleType;
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // If a NAT was detected, this stores the UDP ports corresponding to the
+   // main mode.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* v4UdpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // The traffic corresponding to this SA
+   IKEEXT_TRAFFIC0 ikeTraffic;
+   // The main mode proposal corresponding to this SA
+   IKEEXT_PROPOSAL0 ikeProposal;
+   // SA cookies
+   IKEEXT_COOKIE_PAIR0 cookiePair;
+   // Credential information for the SA
+   IKEEXT_CREDENTIALS2 ikeCredentials;
+   // GUID of the main mode policy provider context corresponding to this SA.
+   GUID ikePolicyKey;
+   // ID/Handle to virtual interface tunneling state. Currently this is specific
+   // to IKEv2.
+   UINT64 virtualIfTunnelId;
+   // Key derived from authentications so external apps can cryptographically bind
+   // their exchanges with the this SA
+   FWP_BYTE_BLOB correlationKey;
+} IKEEXT_SA_DETAILS2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+// Enumeration template used for enumerating IKE SAs
+typedef struct IKEEXT_SA_ENUM_TEMPLATE0_
+{
+   // If not empty, only SAs whose local address is on the specified subnet
+   // will be returned. May be of type FWP_UINT32, FWP_BYTE_ARRAY16_TYPE,
+   // FWP_V4_ADDR_MASK, or FWP_V6_ADDR_MASK.
+   FWP_CONDITION_VALUE0 localSubNet;
+   // If not empty, only SAs whose remote address is on the specified subnet
+   // will be returned. May be of type FWP_UINT32, FWP_BYTE_ARRAY16_TYPE,
+   // FWP_V4_ADDR_MASK, or FWP_V6_ADDR_MASK.
+   FWP_CONDITION_VALUE0 remoteSubNet;
+   // If not zero-length, only SAs with a matching local main mode SHA
+   // thumbprint will be returned.
+   FWP_BYTE_BLOB localMainModeCertHash;
+} IKEEXT_SA_ENUM_TEMPLATE0;
+
+// IKE main mode states
+typedef [v1_enum] enum IKEEXT_MM_SA_STATE_
+{
+   // Initial state. No MM packets have been sent to the peer yet.
+   IKEEXT_MM_SA_STATE_NONE,
+   // First roundtrip packet has been sent to the peer.
+   IKEEXT_MM_SA_STATE_SA_SENT,
+   // Second roundtrip packet has been sent to the peer, for SSPI auth.
+   IKEEXT_MM_SA_STATE_SSPI_SENT,
+   // Second roundtrip packet has been sent to the peer.
+   IKEEXT_MM_SA_STATE_FINAL,
+   // Final roundtrip packet has been sent to the peer.
+   IKEEXT_MM_SA_STATE_FINAL_SENT,
+   // MM has been completed.
+   IKEEXT_MM_SA_STATE_COMPLETE,
+   // Invalid value.
+   IKEEXT_MM_SA_STATE_MAX
+} IKEEXT_MM_SA_STATE;
+
+// IKE quick mode states
+typedef [v1_enum] enum IKEEXT_QM_SA_STATE_
+{
+   // Initial state. No QM packets have been sent to the peer yet.
+   IKEEXT_QM_SA_STATE_NONE,
+   // State corresponding to the first QM roundtrip
+   IKEEXT_QM_SA_STATE_INITIAL,
+   // State corresponding to the final QM roundtrip
+   IKEEXT_QM_SA_STATE_FINAL,
+   // QM has been completed.
+   IKEEXT_QM_SA_STATE_COMPLETE,
+   // Invalid value.
+   IKEEXT_QM_SA_STATE_MAX
+} IKEEXT_QM_SA_STATE;
+
+// IKE extended mode states
+typedef [v1_enum] enum IKEEXT_EM_SA_STATE_
+{
+   // Initial state. No EM packets have been sent to the peer yet.
+   IKEEXT_EM_SA_STATE_NONE,
+   // State corresponding to the first EM roundtrip
+   IKEEXT_EM_SA_STATE_SENT_ATTS,
+   // State corresponding to the second EM roundtrip
+   IKEEXT_EM_SA_STATE_SSPI_SENT,
+   // State corresponding to the final EM roundtrip
+   IKEEXT_EM_SA_STATE_AUTH_COMPLETE,
+   // State corresponding to the final EM roundtrip
+   IKEEXT_EM_SA_STATE_FINAL,
+   // EM has been completed
+   IKEEXT_EM_SA_STATE_COMPLETE,
+   // Invalid value.
+   IKEEXT_EM_SA_STATE_MAX
+} IKEEXT_EM_SA_STATE;
+
+// IKE main mode or quick mode SA role
+typedef [v1_enum] enum IKEEXT_SA_ROLE_
+{
+   // SA is initiator
+   IKEEXT_SA_ROLE_INITIATOR,
+   // SA is responder
+   IKEEXT_SA_ROLE_RESPONDER,
+   // Invalid value.
+   IKEEXT_SA_ROLE_MAX
+} IKEEXT_SA_ROLE;
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME) */")
+#pragma endregion
+

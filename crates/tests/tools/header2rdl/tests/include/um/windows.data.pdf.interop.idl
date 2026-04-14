@@ -1,0 +1,69 @@
+import "oaidl.idl";
+import "dxgi.idl";
+
+cpp_quote("#include <d2dbasetypes.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+cpp_quote("#if 0")
+// ID2D1DeviceContext don't have proxies and aren't described in an idl. 
+// For the idl compiler, typedefing as DWORD * suppresses 
+// midl compiler errors.  The generated header file will use the forward
+// declarations below.
+typedef DWORD *ID2D1DeviceContext;
+typedef DWORD *D2D_RECT_F;
+typedef DWORD *D2D_COLOR_F;
+cpp_quote ("#endif")
+
+cpp_quote ("typedef interface ID2D1DeviceContext ID2D1DeviceContext;")
+
+cpp_quote( "typedef HRESULT (WINAPI* PFN_PDF_CREATE_RENDERER)(" )
+cpp_quote( "    _In_ IDXGIDevice*," )
+cpp_quote( "    _Out_ IPdfRendererNative**);" )
+cpp_quote( "" )
+cpp_quote( "HRESULT WINAPI PdfCreateRenderer(" )
+cpp_quote( "    _In_ IDXGIDevice* pDevice," )
+cpp_quote( "    _Out_ IPdfRendererNative** ppRenderer);" )
+cpp_quote( "" )
+
+typedef struct PDF_RENDER_PARAMS
+{
+    D2D_RECT_F SourceRect;
+    UINT32 DestinationWidth;
+    UINT32 DestinationHeight;
+    D2D_COLOR_F BackgroundColor;
+    BOOLEAN IgnoreHighContrast;
+} PDF_RENDER_PARAMS;
+
+cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("static const D2D_RECT_F sc_PdfRenderParamsDefaultSrcRect = {0.f, 0.f, 0.f, 0.f};")
+cpp_quote("static const D2D_COLOR_F sc_PdfRenderParamsDefaultBkColor = {1.f, 1.f, 1.f, 1.f};")
+cpp_quote( "__inline PDF_RENDER_PARAMS PdfRenderParams(" )
+cpp_quote( "                                  _In_ CONST D2D_RECT_F& srcRect = sc_PdfRenderParamsDefaultSrcRect," )
+cpp_quote( "                                  _In_ UINT32 destinationWidth = 0.f," )
+cpp_quote( "                                  _In_ UINT32 destinationHeight = 0.f," )
+cpp_quote( "                                  _In_ CONST D2D_COLOR_F& bkColor = sc_PdfRenderParamsDefaultBkColor," )
+cpp_quote( "                                  _In_ BOOLEAN ignoreHighContrast = TRUE)" )
+cpp_quote( "{ PDF_RENDER_PARAMS p = {srcRect, destinationWidth, destinationHeight, bkColor, ignoreHighContrast}; return p; }" )
+cpp_quote( "#endif" )
+
+[
+    object,
+    uuid( 7d9dcd91-d277-4947-8527-07a0daeda94a ),
+    local,
+    pointer_default(unique)
+]
+interface IPdfRendererNative: IUnknown
+{
+    HRESULT RenderPageToSurface([in, annotation("_In_")] IUnknown* pdfPage,
+                       [in, annotation("_In_")] IDXGISurface* pSurface,
+                       [in, annotation("_In_")] POINT offset,
+                       [in, annotation("_In_opt_")] PDF_RENDER_PARAMS* pRenderParams);
+
+    HRESULT RenderPageToDeviceContext([in, annotation("_In_")] IUnknown* pdfPage,
+                       [in, annotation("_In_")] ID2D1DeviceContext* pD2DDeviceContext,
+                       [in, annotation("_In_opt_")] PDF_RENDER_PARAMS* pRenderParams);
+
+};
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WINBUE")

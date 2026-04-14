@@ -1,0 +1,44 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdshwprv.idl
+//
+//    Abstract:
+//        declarations of interfaces and types implemented by hardware provider.
+//        It includes three parts:
+//            1) include common interfaces and types defined in other files.
+//            2) define interfaces specific to hardware providers and that
+//               will be exposed by the common layer
+//            3) define types that the common layer will aggregate with
+//               those defined for hardware providers.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+--------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) 2000 Microsoft Corporation.")
+cpp_quote("//")
+cpp_quote("//---------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+//
+// Includes
+//
+#include "vdscmmn.idl"
+#include "vdsprvcm.idl"
+#include "vdshp.idl"
+#include "vdshpcm.idl"
+#include "vdscmprv.idl"
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

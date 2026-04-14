@@ -1,0 +1,142 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       iaccess.idl
+//
+//  Contents:   definitions of access and audit control interfaces
+//
+//  History:    2-9-95   DaveMont   Created
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "unknwn.idl";
+import "accctrl.h";
+
+/****************************************************************************
+ *  Storage access control interface
+ ****************************************************************************/
+
+// All nested structures are allocated in the same block of memory.
+// Thus these types are freed with a single call to CoTaskMemFree.
+typedef PACTRL_ACCESSW PACTRL_ACCESSW_ALLOCATE_ALL_NODES;
+typedef PACTRL_AUDITW  PACTRL_AUDITW_ALLOCATE_ALL_NODES;
+
+interface IAccessControl;
+[
+    object,
+    uuid(EEDD23E0-8410-11CE-A1C3-08002B2B8D8F),
+    pointer_default(unique)
+]
+interface IAccessControl : IUnknown
+{
+
+    HRESULT GrantAccessRights
+    (
+        [in] PACTRL_ACCESSW     pAccessList
+    );
+
+    HRESULT SetAccessRights
+    (
+        [in] PACTRL_ACCESSW     pAccessList
+    );
+
+    HRESULT SetOwner
+    (
+        [in] PTRUSTEEW          pOwner,
+        [in] PTRUSTEEW          pGroup
+    );
+
+    HRESULT RevokeAccessRights
+    (
+        [in] LPWSTR             lpProperty,
+        [in] ULONG              cTrustees,
+        [in, size_is(cTrustees)] TRUSTEEW       prgTrustees[]
+    );
+
+    HRESULT GetAllAccessRights
+    (
+        [in] LPWSTR                              lpProperty,
+        [out] PACTRL_ACCESSW_ALLOCATE_ALL_NODES *ppAccessList,
+        [out] PTRUSTEEW                         *ppOwner,
+        [out] PTRUSTEEW                         *ppGroup
+    );
+
+
+    HRESULT IsAccessAllowed
+    (
+        [in] PTRUSTEEW          pTrustee,
+        [in] LPWSTR             lpProperty,
+        [in] ACCESS_RIGHTS      AccessRights,
+        [out] BOOL             *pfAccessAllowed
+    );
+
+}
+
+/****************************************************************************
+ *  Storage audit control interface
+ ****************************************************************************/
+
+interface IAuditControl;
+[
+    object,
+    uuid(1da6292f-bc66-11ce-aae3-00aa004c2737),
+    pointer_default(unique)
+]
+
+interface IAuditControl : IUnknown
+{
+    HRESULT GrantAuditRights
+    (
+        [in] PACTRL_AUDITW      pAuditList
+    );
+
+    HRESULT SetAuditRights
+    (
+        [in] PACTRL_AUDITW      pAuditList
+    );
+
+    HRESULT RevokeAuditRights
+    (
+        [in] LPWSTR             lpProperty,
+        [in] ULONG              cTrustees,
+        [in, size_is(cTrustees)] TRUSTEEW    prgTrustees []
+    );
+
+    HRESULT GetAllAuditRights
+    (
+        [in]  LPWSTR            lpProperty,
+        [out] PACTRL_AUDITW    *ppAuditList
+    );
+
+    //
+    // Determines if the given trustee with the state audit rights will generate an audit event if the object is accessed.
+    //
+    HRESULT IsAccessAudited
+    (
+        [in]  PTRUSTEEW         pTrustee,
+        [in]  ACCESS_RIGHTS     AuditRights,
+        [out] BOOL             *pfAccessAudited
+    );
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

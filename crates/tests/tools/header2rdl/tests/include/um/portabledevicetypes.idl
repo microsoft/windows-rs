@@ -1,0 +1,456 @@
+cpp_quote("#include <winapifamily.h>")
+
+//-----------------------------------------------------------------------------
+//
+// @module      PortableDeviceTypes.idl
+//
+// @abstract    This file contains interface desc for interfaces used in passing
+//              parameters between applications and drivers.
+//
+// @copyright   (C) COPYRIGHT MICROSOFT CORPORATION
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#if (_WIN32_WINNT >= 0x0501) // XP and later")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "propsys.idl";
+import "wtypes.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// We are defining VARIANT_FALSE/TRUE here because they are not defined in any
+// public .idl that we can import.
+//
+
+#define VARIANT_FALSE ( (VARIANT_BOOL)  0 )
+#define VARIANT_TRUE  ( (VARIANT_BOOL) -1 )
+
+typedef enum tagWPD_STREAM_UNITS {
+    WPD_STREAM_UNITS_BYTES          = 0x0L,
+    WPD_STREAM_UNITS_FRAMES         = 0x1L,
+    WPD_STREAM_UNITS_ROWS           = 0x2L,
+    WPD_STREAM_UNITS_MILLISECONDS   = 0x4L,
+    WPD_STREAM_UNITS_MICROSECONDS   = 0x8L,
+} WPD_STREAM_UNITS;
+
+interface IWpdSerializer;
+interface IPortableDeviceValues;
+interface IPortableDeviceKeyCollection;
+interface IPortableDevicePropVariantCollection;
+interface IPortableDeviceValuesCollection;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+///////////////////////////////////////////////////////////
+// IWpdSerializer
+//---------------------------------------------------------
+//---------------------------------------------------------
+//
+[
+   object,
+   uuid(b32f4002-bb27-45ff-af4f-06631c1e8dad),
+   helpstring("IWpdSerializer Interface"),
+   pointer_default(unique)
+]
+interface IWpdSerializer : IUnknown
+{
+   HRESULT GetIPortableDeviceValuesFromBuffer(
+      [in, size_is(dwInputBufferLength)]
+               BYTE*                      pBuffer,
+      [in]     DWORD                      dwInputBufferLength,
+      [out]    IPortableDeviceValues**    ppParams);
+
+   HRESULT WriteIPortableDeviceValuesToBuffer(
+      [in]     DWORD                    dwOutputBufferLength,
+      [in]     IPortableDeviceValues*   pResults,
+      [out, size_is(dwOutputBufferLength), length_is(*pdwBytesWritten)]
+               BYTE*                    pBuffer,
+      [out]    DWORD*                   pdwBytesWritten);
+
+   HRESULT GetBufferFromIPortableDeviceValues(
+      [in]  IPortableDeviceValues*      pSource,
+      [out, size_is(, *pdwBufferSize)]
+            BYTE**                      ppBuffer,
+      [out] DWORD*                      pdwBufferSize);
+
+   HRESULT GetSerializedSize(
+      [in]  IPortableDeviceValues*  pSource,
+      [out] DWORD*                  pdwSize);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+// IPropertyStore is not available in the WINAPI_PARTITION_APP but is mentioned in two methods of IPortableDeviceValues.
+// Those methods should not be used when WINAPI_FAMILY == WINAPI_FAMILY_APP, so to support the rest of the interface,
+// IPropertyStore is remapped to IUnknown for this interface.
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("#define IPropertyStore IUnknown")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+///////////////////////////////////////////////////////////
+// IPortableDeviceValues
+//---------------------------------------------------------
+// A collection of property/value pairs.  Used to get/set
+// properties.
+//---------------------------------------------------------
+//
+[
+   object,
+   uuid(6848f6f2-3155-4f86-b6f5-263eeeab3143),
+   helpstring("IPortableDeviceValues Interface"),
+   pointer_default(unique)
+]
+interface IPortableDeviceValues : IUnknown
+{
+    HRESULT GetCount(
+        [in]    DWORD*      pcelt);
+
+    HRESULT GetAt(
+        [in]                const DWORD     index,
+        [in, out, unique]   PROPERTYKEY*    pKey,
+        [in, out, unique]   PROPVARIANT*    pValue);
+
+    HRESULT SetValue(
+        [in]    REFPROPERTYKEY      key,
+        [in]    const PROPVARIANT*  pValue);
+
+    HRESULT GetValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   PROPVARIANT*   pValue);
+
+    HRESULT SetStringValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    LPCWSTR        Value);
+
+    HRESULT GetStringValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   LPWSTR*        pValue);
+
+    HRESULT SetUnsignedIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    const ULONG    Value);
+
+    HRESULT GetUnsignedIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   ULONG*         pValue);
+
+    HRESULT SetSignedIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    const LONG     Value);
+
+    HRESULT GetSignedIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   LONG*          pValue);
+
+    HRESULT SetUnsignedLargeIntegerValue(
+        [in]    REFPROPERTYKEY  key,
+        [in]    const ULONGLONG Value);
+
+    HRESULT GetUnsignedLargeIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   ULONGLONG*     pValue);
+
+    HRESULT SetSignedLargeIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    const LONGLONG Value);
+
+    HRESULT GetSignedLargeIntegerValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   LONGLONG*      pValue);
+
+    HRESULT SetFloatValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    const FLOAT    Value);
+
+    HRESULT GetFloatValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   FLOAT*         pValue);
+
+    HRESULT SetErrorValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    const HRESULT  Value);
+
+    HRESULT GetErrorValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   HRESULT*       pValue);
+
+    HRESULT SetKeyValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    REFPROPERTYKEY Value);
+
+    HRESULT GetKeyValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   PROPERTYKEY*   pValue);
+
+    HRESULT SetBoolValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    const BOOL     Value);
+
+    HRESULT GetBoolValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   BOOL*          pValue);
+
+    HRESULT SetIUnknownValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    IUnknown*      pValue);
+
+    HRESULT GetIUnknownValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   IUnknown**     ppValue);
+
+    HRESULT SetGuidValue(
+        [in]    REFPROPERTYKEY key,
+        [in]    REFGUID        Value);
+
+    HRESULT GetGuidValue(
+        [in]    REFPROPERTYKEY key,
+        [out]   GUID*          pValue);
+
+    HRESULT SetBufferValue(
+        [in]    REFPROPERTYKEY key,
+        [in, size_is(cbValue)]
+                BYTE*          pValue,
+        [in]    DWORD          cbValue);
+
+    HRESULT GetBufferValue(
+        [in]    REFPROPERTYKEY key,
+        [out, size_is(, *pcbValue)]
+                BYTE**         ppValue,
+        [out]   DWORD*         pcbValue);
+
+    HRESULT SetIPortableDeviceValuesValue(
+        [in]    REFPROPERTYKEY         key,
+        [in]    IPortableDeviceValues* pValue);
+
+    HRESULT GetIPortableDeviceValuesValue(
+        [in]    REFPROPERTYKEY            key,
+        [out]   IPortableDeviceValues**   ppValue);
+
+    HRESULT SetIPortableDevicePropVariantCollectionValue(
+    [in]    REFPROPERTYKEY                        key,
+    [in]    IPortableDevicePropVariantCollection* pValue);
+
+    HRESULT GetIPortableDevicePropVariantCollectionValue(
+        [in]    REFPROPERTYKEY                          key,
+        [out]   IPortableDevicePropVariantCollection**  ppValue);
+
+    HRESULT SetIPortableDeviceKeyCollectionValue(
+        [in]    REFPROPERTYKEY                key,
+        [in]    IPortableDeviceKeyCollection* pValue);
+
+    HRESULT GetIPortableDeviceKeyCollectionValue(
+        [in]    REFPROPERTYKEY                  key,
+        [out]   IPortableDeviceKeyCollection**  ppValue);
+
+    HRESULT SetIPortableDeviceValuesCollectionValue(
+        [in]    REFPROPERTYKEY                   key,
+        [in]    IPortableDeviceValuesCollection* pValue);
+
+    HRESULT GetIPortableDeviceValuesCollectionValue(
+        [in]    REFPROPERTYKEY                    key,
+        [out]   IPortableDeviceValuesCollection** ppValue);
+
+    HRESULT RemoveValue(
+        [in] REFPROPERTYKEY key);
+
+    HRESULT CopyValuesFromPropertyStore(
+        [in] IPropertyStore* pStore);
+
+    HRESULT CopyValuesToPropertyStore(
+        [in] IPropertyStore* pStore);
+
+    HRESULT Clear();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("#undef IPropertyStore")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+///////////////////////////////////////////////////////////
+// IPortableDeviceKeyCollection
+//---------------------------------------------------------
+//---------------------------------------------------------
+//
+[
+   object,
+   uuid(dada2357-e0ad-492e-98db-dd61c53ba353),
+   helpstring("IPortableDeviceKeyCollection Interface"),
+   pointer_default(unique)
+]
+interface IPortableDeviceKeyCollection : IUnknown
+{
+   HRESULT GetCount(
+      [in] DWORD* pcElems);
+
+   HRESULT GetAt(
+      [in] const DWORD dwIndex,
+      [in] PROPERTYKEY* pKey);
+
+   HRESULT Add(
+      [in] REFPROPERTYKEY Key);
+
+   HRESULT Clear();
+
+   HRESULT RemoveAt(
+      [in] const DWORD dwIndex);
+};
+
+///////////////////////////////////////////////////////////
+// IPortableDevicePropVariantCollection
+//---------------------------------------------------------
+//---------------------------------------------------------
+//
+[
+   object,
+   uuid(89b2e422-4f1b-4316-bcef-a44afea83eb3),
+   helpstring("IPortableDevicePropVariantCollection Interface"),
+   pointer_default(unique)
+]
+interface IPortableDevicePropVariantCollection : IUnknown
+{
+   HRESULT GetCount(
+      [in] DWORD* pcElems);
+
+   HRESULT GetAt(
+      [in] const DWORD  dwIndex,
+      [in] PROPVARIANT* pValue);
+
+   HRESULT Add(
+      [in] const PROPVARIANT* pValue);
+
+   HRESULT GetType(
+      [out] VARTYPE* pvt);
+
+   HRESULT ChangeType(
+      [in] const VARTYPE vt);
+
+   HRESULT Clear();
+
+   HRESULT RemoveAt(
+      [in] const DWORD dwIndex);
+};
+
+///////////////////////////////////////////////////////////
+// IPortableDeviceValuesCollection
+//---------------------------------------------------------
+//---------------------------------------------------------
+//
+[
+   object,
+   uuid(6e3f2d79-4e07-48c4-8208-d8c2e5af4a99),
+   helpstring("IPortableDeviceValuesCollection Interface"),
+   pointer_default(unique)
+]
+interface IPortableDeviceValuesCollection : IUnknown
+{
+   HRESULT GetCount(
+      [in] DWORD* pcElems);
+
+   HRESULT GetAt(
+      [in]  const DWORD                 dwIndex,
+      [out] IPortableDeviceValues**     ppValues);
+
+   HRESULT Add(
+      [in] IPortableDeviceValues*       pValues);
+
+   HRESULT Clear();
+
+   HRESULT RemoveAt(
+      [in] const DWORD dwIndex);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+///////////////////////////////////////////////////////////
+// PortableDeviceTypesLib
+//---------------------------------------------------------
+//---------------------------------------------------------
+//
+[
+   uuid(2B00BA2F-E750-4beb-9235-97142EDE1D3E),
+   version(1.0),
+   helpstring("PortableDeviceTypes 1.0 Type Library")
+]
+library PortableDeviceTypesLib
+{
+   importlib("stdole32.tlb");
+   importlib("stdole2.tlb");
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+   [
+      uuid(0b91a74b-ad7c-4a9d-b563-29eef9167172),
+      helpstring("WpdSerializer Class")
+   ]
+   coclass WpdSerializer
+   {
+      [default] interface IWpdSerializer;
+   };
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+   [
+      uuid(0c15d503-d017-47ce-9016-7b3f978721cc),
+      helpstring("Portable Device Values Class")
+   ]
+   coclass PortableDeviceValues
+   {
+      [default] interface IPortableDeviceValues;
+   };
+
+   [
+      uuid(de2d022d-2480-43be-97f0-d1fa2cf98f4f),
+      helpstring("Portable Device PROPERTYKEY collection")
+   ]
+   coclass PortableDeviceKeyCollection
+   {
+      [default] interface IPortableDeviceKeyCollection;
+   };
+
+   [
+      uuid(08a99e2f-6d6d-4b80-af5a-baf2bcbe4cb9),
+      helpstring("Portable Device PROPVARIANT collection")
+   ]
+   coclass PortableDevicePropVariantCollection
+   {
+      [default] interface IPortableDevicePropVariantCollection;
+   };
+
+   [
+      uuid(3882134d-14cf-4220-9cb4-435f86d83f60),
+      helpstring("Portable Device Values collection")
+   ]
+   coclass PortableDeviceValuesCollection
+   {
+      [default] interface IPortableDeviceValuesCollection;
+   };
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+};
+
+cpp_quote("#endif // (_WIN32_WINNT >= 0x0501)")

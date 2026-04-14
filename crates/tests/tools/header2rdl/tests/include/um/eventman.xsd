@@ -1,0 +1,1332 @@
+﻿<xs:schema
+  targetNamespace="http://schemas.microsoft.com/win/2004/08/events"
+  elementFormDefault="qualified"
+  xmlns:man="http://schemas.microsoft.com/win/2004/08/events"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- SECTION: instrumentationManifest element (root) -->
+
+  <xs:element name="instrumentationManifest" type="man:InstrumentationManifestType">
+    <xs:annotation>
+      <xs:documentation>
+        Root element of an instrumentation manifest.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="events" type="man:EventsType">
+    <xs:annotation>
+      <xs:documentation>
+        Not a valid root element for an instrumentation manifest. Used when
+        storing instrumentation data within other XML documents.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="InstrumentationManifestType">
+    <xs:annotation>
+      <xs:documentation>
+        An instrumentation manifest may contain MESSAGETABLE strings, ETW
+        providers, and/or a Windows Performance Counter V2 provider.
+
+        Manifests containing MESSAGETABLE strings can be compiled with mc.exe.
+
+        Manifests containing ETW providers can be compiled with mc.exe,
+        installed or uninstalled with wevtutil.exe, and used with TDH APIs or
+        ETW tools to decode ETL traces.
+
+        Manifests containing a Performance Counter V2 provider can be compiled
+        with ctrpp.exe, installed using lodctr.exe, and uninstalled using
+        unlodctr.exe.
+
+        Note that instrumentation manifests must be uninstalled before they can
+        be reinstalled.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice maxOccurs="3">
+      <xs:element name="metadata" type="man:MetadataType"/>
+      <xs:element name="instrumentation" type="man:InstrumentationType"/>
+      <xs:element name="localization" type="man:LocalizationType"/>
+      <xs:any namespace="##other" processContents="lax" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="InstrumentationType">
+    <xs:annotation>
+      <xs:documentation>
+        May contain MESSAGETABLE strings, ETW providers, and/or a Windows
+        Performance Counter V2 provider.
+
+        The events element is used for MESSAGETABLE strings and ETW providers.
+
+        The counters element (defined in the counterman.xsd schema) is used for
+        a Windows Performance Counter V2 provider.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="events" type="man:EventsType"/>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:choice>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="EventsType">
+    <xs:annotation>
+      <xs:documentation>
+        Contains MESSAGETABLE strings and ETW providers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="provider" type="man:ProviderType"/>
+      <xs:element name="messageTable" type="man:EventsMessageTableType"/>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:choice>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <!-- SECTION: provider (ETW provider declarations) -->
+
+  <xs:complexType name="ProviderType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines an ETW provider. A provider is a unit of organization for ETW
+        event definitions. At runtime, the provider GUID is used when opening
+        the ETW handle. When collecting a trace, the provider's control GUID is
+        used to enable or disable the collection of the provider's events.
+        Within the trace data, the provider GUID identifies the provider as the
+        source of the event. When the trace data is processed, the provider
+        GUID is used to match an event to the manifest that contains the event
+        definitions needed to decode it.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="channels" type="man:ChannelListType"/>
+      <xs:element name="levels" type="man:LevelListType"/>
+      <xs:element name="tasks" type="man:TaskListType"/>
+      <xs:element name="opcodes" type="man:OpcodeListType"/>
+      <xs:element name="keywords" type="man:KeywordListType"/>
+      <xs:element name="maps" type="man:MapType"/>
+      <xs:element name="namedQueries" type="man:NamedQueryType"/>
+      <xs:element name="templates" type="man:TemplateListType"/>
+      <xs:element name="events" type="man:DefinitionType"/>
+      <xs:element name="filters" type="man:FilterListType"/>
+      <xs:element name="traits" type="man:TraitsType"/>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:choice>
+    <xs:attribute name="name" type="xs:anyURI" use="required"/>
+    <xs:attribute name="namespace" type="man:NamespaceType" use="optional"/>
+    <xs:attribute name="guid" type="man:GUIDType" use="required"/>
+    <xs:attribute name="controlGuid" type="man:GUIDType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          A manifest-based ETW provider has a decode GUID (used to locate the manifest)
+          and a control GUID (used to enable the provider or filter events). Normally,
+          the same GUID (the provider guid) is used for both decode and control.
+          If distinct values are needed for the decode and control GUIDs, set the
+          "guid" attribute to the decode GUID and set the "controlGuid" attribute to the
+          control GUID. Note that to avoid provider name conflicts, if the controlGuid
+          attribute is used, the provider name must end with the decode guid, e.g.
+
+          guid="{54bab802-bb0b-4b4a-9ce9-7360a0120b3e}"
+          name="MyProvider.54bab802bb0b4b4a9ce97360a0120b3e"
+          controlGuid="{74d557d9-4a8e-4a3f-9a32-3f1a0eab71ba}"
+
+          If a provider uses distinct decode and control GUIDs, the resulting traces may
+          not decode properly when decoded on Windows versions prior to Windows 10
+          Fall Creators Update (2017).
+
+          Note that distinct decode and control GUIDs are typically used to support
+          tool-generated manifests and are generally unnecessary for hand-maintained
+          manifests.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="resourceFileName" type="man:filePath" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Name of the executable file into which the provider's non-localized template
+          resource is linked, usually the same as the provider's binary.
+
+          Since the full install path of the provider binary is usually determined at
+          install time, the value of this attribute is usually overridden by using
+          wevtutil.exe's /rf:FullResourceFilePath parameter.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="messageFileName" type="man:filePath" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Name of the executable file into which the provider's localizable message
+          resource is linked, usually the same as the provider's binary.
+
+          Since the full install path of the provider binary is usually determined at
+          install time, the value of this attribute is usually overridden by using
+          wevtutil.exe's /mf:FullMessageFilePath parameter.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="parameterFileName" type="man:filePath" use="optional">
+      <xs:annotation>
+        <xs:documentation>Deprecated.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="helpLink" type="xs:anyURI" use="optional"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="required"/>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:attribute name="source" use="optional" default="Xml">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Xml"/>
+          <xs:enumeration value="Wbem"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="warnOnApplicationCompatibilityError" type="xs:boolean" use="optional" default="false"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="ChannelListType">
+    <xs:annotation>
+      <xs:documentation>
+        Use channels to describe the destinations for your events. Each channel you
+        define here will show up in the Windows Event Viewer.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="importChannel" type="man:ImportChannelType"/>
+      <xs:element name="channel" type="man:ChannelType"/>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:choice>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="ImportChannelType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Declares a channel that is used by events in this manifest but is not
+        owned by this manifest. This may be used to reference well-known
+        channels from winmeta.xml or to reference channels owned by other
+        components that this manifest will depend upon.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="chid" type="xs:token" use="optional"/>
+    <xs:attribute name="name" type="xs:anyURI" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="ChannelType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a channel that is used by events in this manifest and is owned
+        by this manifest.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="logging" type="man:ChannelLoggingType" minOccurs="0"/>
+      <xs:element name="publishing" type="man:ChannelPublishingType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:anyURI" use="required"/>
+    <xs:attribute name="chid" type="xs:token" use="optional"/>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Admin"/>
+          <xs:enumeration value="Operational"/>
+          <xs:enumeration value="Analytic"/>
+          <xs:enumeration value="Debug"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="access" type="xs:string" use="optional"/>
+    <xs:attribute name="isolation" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Default publishing session/security if not specified explicitly by
+          the channel access attribute.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Application"/>
+          <xs:enumeration value="System"/>
+          <xs:enumeration value="Custom"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="enabled" type="xs:boolean" use="optional" default="false"/>
+    <xs:attribute name="value" type="man:UInt8Type" use="optional"/>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="ChannelLoggingType">
+    <xs:annotation>
+      <xs:documentation>Channel logging config</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autoBackup" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="retention" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="maxSize" type="man:UInt64Type" default="1048576" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="ChannelPublishingType">
+    <xs:annotation>
+      <xs:documentation>Channel publishing config</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" type="man:UInt8Type" default="0" minOccurs="0"/>
+      <xs:element name="keywords" type="man:UInt64Type" default="0" minOccurs="0"/>
+      <xs:element name="controlGuid" type="man:GUIDType" minOccurs="0"/>
+      <xs:element name="bufferSize" type="man:UInt32Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Amount of memory allocated for the session buffers (KB)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fileMax" type="man:UInt32Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Number of etl files to create across enablement</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="minBuffers" type="man:UInt32Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Minimum number of session buffers</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="maxBuffers" type="man:UInt32Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Maximum number of session buffers</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="latency" type="man:UInt32Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Buffer flush interval (sec)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="clockType" default="SystemTime" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Clock resolution</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="SystemTime"/>
+            <xs:enumeration value="QPC"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="sidType" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="None"/>
+            <xs:enumeration value="Publishing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="LevelListType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines custom levels for use by this provider. Levels are used to
+        filter events.
+
+        Note that winmeta.xml provides predefined levels win:LogAlways,
+        win:Critical, win:Error, win:Warning, win:Informational, win:Verbose.
+        Custom levels must use values 16-255.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" type="man:LevelType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LevelType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a custom level for use by this provider.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:QName" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="value" type="man:UInt8Type" use="required"/>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="TaskListType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines custom tasks for use by this provider. A task is a localizable
+        string label that can be applied to an event.
+
+        Note that winmeta.xml provides predefined task win:None.
+        Custom tasks must use values 1-65535.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="task" type="man:TaskType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TaskType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a custom task for use by this provider.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="opcodes" type="man:OpcodeListType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:QName" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="value" type="man:UInt16Type" use="required"/>
+    <xs:attribute name="eventGUID" type="man:GUIDType" use="optional"/>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="OpcodeListType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines custom opcodes for use by this provider. An opcode is a
+        semantic category for certain special types of event. For example, the
+        Start opcode is used on events that trace the beginning of an activity,
+        and the Stop opcode is used on events that trace the end.
+
+        Note that winmeta.xml provides predefined opcodes win:Info, win:Start,
+        win:Stop, win:DC_Start, win:DC_Stop, win:Extension, win:Reply,
+        win:Resume, win:Suspend, win:Send, win:Receive. Custom opcodes must use
+        values 10-239.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="opcode" type="man:OpcodeType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OpcodeType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a custom opcode for use by this provider.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:QName" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="value" type="man:UInt8Type" use="required"/>
+    <xs:attribute name="mofValue" type="man:UInt8Type" use="optional"/>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="KeywordListType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines custom keywords for use by this provider. A keyword is a bit
+        (flag) that specifies a category that an event may belong to. Keywords
+        are used to filter events.
+
+        Note that winmeta.xml provides several predefined keywords. These
+        keywords should only be used for their described purpose. The reserved
+        keywords should not be used directly (mc.exe adds the reserved keywords
+        to events as appropriate based on the event's channel). Custom keywords
+        must use the low 48 bits of the keyword mask.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="keyword" type="man:KeywordType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="KeywordType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a custom keyword for use by this provider.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:QName" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Each keyword must have a unique name, which is used to reference the keyword
+          from the events section of the manifest.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="mask" type="man:HexInt64Type" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Mask is a 64-bit value in which only one bit is set. Mask value cannot be zero.
+          The high 16 bits of the mask are reserved for definition by winmeta.xml.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="MapType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines custom enumerated types (maps) for use by this provider.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="valueMap" type="man:ValueMapType"/>
+      <xs:element name="bitMap" type="man:BitMapType"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="ValueMapType">
+    <xs:sequence>
+      <xs:element name="map" type="man:ValueMapValueType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="ValueMapValueType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines an enumeration value for use in this value map.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="value" type="man:UInt32Type" use="required"/>
+    <xs:attribute name="message" type="man:strTableRef" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="BitMapType">
+    <xs:sequence>
+      <xs:element name="map" type="man:BitMapValueType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="BitMapValueType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a flag value for use in this bit map.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="value" type="man:HexInt32Type" use="required"/>
+    <xs:attribute name="message" type="man:strTableRef" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="NamedQueryType">
+    <xs:sequence>
+      <xs:element name="patternMaps" type="man:PatternMapListType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="PatternMapListType">
+    <xs:sequence>
+      <xs:element name="patternMap" type="man:PatternMapType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PatternMapType">
+    <xs:sequence>
+      <xs:element name="map" type="man:PatternMapValueType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:QName" use="required"/>
+    <xs:attribute name="format" type="xs:anyURI" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="PatternMapValueType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a value for use in this pattern map.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="TemplateListType">
+    <xs:annotation>
+      <xs:documentation>
+        Use templates to describe the payload logged by an event. Many events
+        can share a template.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" type="man:TemplateItemType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TemplateItemType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="data" type="man:DataDefinitionType"/>
+      <xs:element name="struct" type="man:StructDefinitionType"/>
+      <xs:element name="binary" type="man:TemplateItemBinaryType"/>
+      <xs:element name="UserData" type="man:XmlType"/>
+    </xs:choice>
+    <xs:attribute name="tid" type="xs:token" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="optional"/>
+    <xs:attribute name="tags" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Tags is a 28-bit user-defined metadata value applied to each event that uses
+          this template. The event producer and consumer coordinate to define the
+          semantics of the tags value. During event processing on Windows 10 Fall
+          Creators Update (2017) or later, this value can be retrieved from the
+          TRACE_EVENT_INFO Tags field.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="DataDefinitionType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the name and type of an event property (field).
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="inType" type="xs:QName" use="required"/>
+    <xs:attribute name="outType" type="xs:QName" use="optional"/>
+    <xs:attribute name="map" type="xs:string" use="optional"/>
+    <xs:attribute name="length" type="man:LengthType" use="optional"/>
+    <xs:attribute name="count" type="man:CountType" use="optional"/>
+    <xs:attribute name="tags" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Tags is a 28-bit user-defined metadata value applied to this property. The
+          event producer and consumer coordinate to define the semantics of the tags
+          value. During event processing on Windows 10 Fall Creators Update (2017) or
+          later, this value can be retrieved from the EVENT_PROPERTY_INFO Tags field.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="StructDefinitionType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the properties (fields) of an event structure.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="data" type="man:DataDefinitionType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="count" type="man:CountType" use="optional"/>
+    <xs:attribute name="tags" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Tags is a 28-bit user-defined metadata value applied to this property. The
+          event producer and consumer coordinate to define the semantics of the tags
+          value. During event processing on Windows 10 Fall Creators Update (2017) or
+          later, this value can be retrieved from the EVENT_PROPERTY_INFO Tags field.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="TemplateItemBinaryType">
+    <xs:annotation>
+      <xs:documentation>Represents binary data in classic eventlog API</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="XmlType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DefinitionType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the events logged by this provider.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="event" type="man:EventDefinitionType"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="EventDefinitionType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the event's value (ID), name, level, keywords, fields, etc.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="value" type="man:UInt32Type" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Also referred to as the Event-Id. A manifest-based ETW event is uniquely
+          identified by the {Provider-Guid,Event-Id,Event-Version} tuple.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="name" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Non-localized event name. During event processing on Windows 10 Fall
+          Creators Update (2017) or later, this value can be retrieved from the
+          TRACE_EVENT_INFO EventNameOffset field.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="attributes" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Non-localized event attributes. This should be a semicolon-delimited list of
+          name=value attributes associated with the event. During event processing on
+          Windows 10 Fall Creators Update (2017) or later, this value can be retrieved
+          from the TRACE_EVENT_INFO EventAttributesOffset field.
+
+          Defined attributes include:
+          FILE=Filename of source code associated with event;
+          LINE=Line number of source code associated with event;
+          FUNC=Function name associated with event;
+          MJ=Major component associated with event (component name);
+          MN=Minor component associated with event (subcomponent name).
+          Values containing semicolons or double-quotes should be quoted using
+          double-quotes; double-quotes within the value should be doubled. Example:
+          attributes='FILE=source.cpp;LINE=123;MJ="Value; ""Quoted"""'
+
+          Note that most of these attributes are intended for use with tool-generated
+          manifests and may not be appropriate for use with hand-maintained manifests. For
+          example, the FILE ane LINE attributes are not generally appropriate for use in
+          a hand-maintained manifest, since a single event might be emitted from multiple
+          source code locations and the source code locations will change over time. The
+          FILE and LINE attributes are intended for use in cases where the manifest is
+          regenerated (with a new GUID) by a code generation tool each time the source
+          code changes.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="level" type="xs:QName" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Reference to the name of a predefined level (from winmeta.xml) or the name of a
+          custom level (defined in the &lt;levels&gt; section). If not specified, the
+          event's level will default to "LogAlways".
+
+          Event level is a primary filtering attribute. All events should be assigned
+          a meaningful level (win:Critical, win:Error, win:Warning, win:Informational,
+          or win:Verbose) to support effective filtering during event collection.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="template" type="xs:token" use="optional"/>
+    <xs:attribute name="channel" type="xs:token" use="optional"/>
+    <xs:attribute name="keywords" type="man:QNameList" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Reference to the name of a custom level defined in the &lt;keywords&gt; section.
+          If not specified, the event will have no keywords set and will bypass most
+          keyword-based event filtering.
+
+          Event keyword is a primary filtering attribute. All events should be assigned
+          at least one meaningful keyword to support effective filtering during event
+          collection.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="task" type="xs:QName" use="optional"/>
+    <xs:attribute name="opcode" type="xs:QName" use="optional"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="version" type="man:UInt8Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Increment the version of an event if its template is modified.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:attribute name="notLogged" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          Use this to indicate that this event has been removed and will not be logged
+          by this version of the provider. The description of the event should be retained
+          in this manifest so that if an etl file collected from an older version of the
+          provider on a different machine is brought to this machine, it can be correctly
+          decoded on this machine.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="suppressProjection" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          Use this to indicate that the template associated with this event contains
+          valid WinRT types i.e. the event payload fields can come from arguments
+          of projected WinRT methods. This attribute will be used if generating code
+          for WinRT projection APIs.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="FilterListType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a set of custom filters for use in this provider.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="filter" type="man:FilterType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FilterType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a custom filter for use in this provider.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="value" type="man:UInt8Type" use="required"/>
+    <xs:attribute name="version" type="man:UInt8Type" use="optional"/>
+    <xs:attribute name="name" type="xs:QName" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="message" type="man:strTableRef" use="optional"/>
+    <xs:attribute name="tid" type="xs:token" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="TraitsType">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies values for this provider's provider traits. The provider traits
+        consist of a small binary blob that is registered with the ETW runtime via
+        EventSetInformation and included with each call to EventWrite. The traits
+        blob contains information about a provider's name, decode GUID, and group
+        GUID.
+
+        When provider traits are needed (i.e. when the provider has different values
+        for its control GUID and its decode GUID or when the traits element is
+        present), the MC tool's -um or -km codegen will generate a provider traits
+        blob, will generate code to automatically register the blob as part of
+        EventRegister, and will include the blob in each call to EventWrite.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="includeName" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional. Default is false. If true, the provider's name will be included
+          in the provider traits. If false, the provider's name will be left blank
+          to reduce the size of the trace file. Including the provider name makes it
+          possible to filter an event by provider name.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="groupGuid" type="man:GUIDType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional. Specifies that this provider is a member of the specified provider
+          group. By default, the provider is not a member of any provider group.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- SECTION: messageTable element (MESSAGETABLE string declarations) -->
+
+  <xs:complexType name="EventsMessageTableType">
+    <xs:sequence>
+      <xs:element name="message" type="man:EventsMessageTableMessageType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EventsMessageTableMessageType">
+    <xs:attribute name="value" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Decimal or hexadecimal message ID. Decimal should have no leading 0s.
+          Hexadecimal requires '0x' prefix.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="mid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Deprecated. Specifies an alias for this string table entry.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="message" type="man:strTableRef" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <!-- SECTION: localization element (string values) -->
+
+  <xs:complexType name="LocalizationType">
+    <xs:annotation>
+      <xs:documentation>
+        Contains one or more resource tables, each of which contains resources
+        for a single locale.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="resources" type="man:LocalizationResourcesType"/>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:choice>
+    <xs:attribute name="fallbackCulture" type="xs:string" use="optional" default="en-us">
+      <xs:annotation>
+        <xs:documentation>This attribute is not used.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="LocalizationResourcesType">
+    <xs:annotation>
+      <xs:documentation>
+        Contains resources for a single locale.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="stringTable" type="man:StringTableType"/>
+    </xs:choice>
+    <xs:attribute name="culture" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Specify the locale of the resources using a Windows locale name, e.g.
+          "en-US". Locale name syntax is documented in MSDN topics such as
+          "locale names" and "LocaleNameToLCID".
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="StringTableType">
+    <xs:annotation>
+      <xs:documentation>
+        Localized values of strings referenced in MESSAGETABLE strings and ETW
+        providers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="string" type="man:StringTableStringType"/>
+    </xs:choice>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="StringTableStringType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the localized value of a string referenced by an event or a
+        message table in this manifest.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The stringTableId of the string reference in the ETW provider or the
+          MESSAGETABLE string. For example, if a string is referenced as
+          "$(string.MyString1)" then the id would be "MyString1".
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="value" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The localized string.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="stringType" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Not used by Windows or mc.exe. This attribute can be used to describe
+          the usage of the string to aid in tracking and localization.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- SECTION: metadata element (used by Microsoft-provided winmeta.xml) -->
+
+  <xs:complexType name="MetadataType">
+    <xs:annotation>
+      <xs:documentation>
+        Used only by the Microsoft-provided WinMeta.xml file.
+
+        WinMeta.xml uses this element to document ETW facilities that are built
+        into the Windows operating system or are commonly used by ETW decoding
+        tools. This includes the definitions of the property types supported by
+        TDH APIs as well as Microsoft-defined constants for well-known event
+        levels, opcodes, and channels.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="channels" type="man:ChannelListType"/>
+      <xs:element name="levels" type="man:LevelListType"/>
+      <xs:element name="tasks" type="man:TaskListType"/>
+      <xs:element name="opcodes" type="man:OpcodeListType" minOccurs="0"/>
+      <xs:element name="keywords" type="man:KeywordListType" minOccurs="0"/>
+      <xs:element name="types" type="man:TypeListType" minOccurs="0"/>
+      <xs:element name="namedQueries" type="man:NamedQueryType" minOccurs="0"/>
+      <xs:element name="messageTable" type="man:MetadataMessageTableType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:anyURI" use="required"/>
+    <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+
+  <xs:complexType name="TypeListType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="xmlTypes" type="man:XmlTypeListType"/>
+      <xs:element name="inTypes" type="man:InputTypeListType"/>
+      <xs:any namespace="##other" processContents="lax"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="XmlTypeListType">
+    <xs:sequence>
+      <xs:element name="xmlType" type="man:XmlTypeListItemType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="XmlTypeListItemType">
+    <xs:annotation>
+      <xs:documentation>
+        Declares an outType supported by Windows. An outType is a sub-type that
+        extends the inType with additional semantics and presentation details
+        for a property of an ETW event. For example, a property could have
+        inType "AnsiString" (indicating nul-terminated CHAR8 string) and
+        outType "Utf8" (indicating UTF-8 character encoding).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="man:XmlType">
+        <xs:attribute name="name" type="xs:QName" use="required"/>
+        <xs:attribute name="value" type="xs:string" use="required"/>
+        <xs:attribute name="symbol" type="man:CSymbolType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="InputTypeListType">
+    <xs:sequence>
+      <xs:element name="inType" type="man:InputType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InputType">
+    <xs:annotation>
+      <xs:documentation>
+        Declares an inType supported by Windows. An inType is the type of a
+        property of an ETW event. Every ETW event property declares an inType.
+        The inType fully defines the mechanism for determining the size of a
+        property and also gives a general idea of how the property's value
+        should be interpreted. For example, an inType "Int16" indicates the
+        size is 2 and the property should be interpreted as a signed 16-bit
+        integer.
+
+        Each inType has a set of outTypes that are supported for use with it.
+        The outType adds semantics or presentation details to the inType. For
+        example, the inType "UInt16" can be used with outType "Port" to
+        indicate that an event property is a big-endian 16-bit Internet
+        protocol port number.
+
+        Each inType specifies one outType as "default", indicating the behavior
+        that should be used when an ETW property uses the inType but does not
+        specify an outType.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="outType" type="man:OutputType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:QName" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="OutputType" mixed="true">
+    <xs:annotation>
+      <xs:documentation>
+        Declares that Windows supports the use of the specified outType with
+        this inType.
+
+        Note that only the attributes of this element are significant. The text
+        content of this element is not used by mc.exe.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="default" type="xs:boolean" use="optional"/>
+    <xs:attribute name="xmlType" type="xs:QName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="MetadataMessageTableType">
+    <xs:sequence>
+      <xs:element name="message" type="man:MetadataMessageTableMessageType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MetadataMessageTableMessageType">
+    <xs:attribute name="value" type="man:UInt32Type" use="required"/>
+    <xs:attribute name="mid" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Deprecated. Specifies an alias for this string table entry.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="message" type="man:strTableRef" use="required"/>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+  </xs:complexType>
+
+  <!-- SECTION: simpleType -->
+
+  <xs:simpleType name="GUIDType">
+    <xs:annotation>
+      <xs:documentation>
+        A globally unique identifier in Registry format,
+        e.g. {12345678-4321-ABCD-1234-9ABCDEF012345678}.
+        Use GUIDGen.exe or UUIDGen.exe to create a GUID.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CSymbolType">
+    <xs:annotation>
+      <xs:documentation>
+        Symbol is used for code-generation. It should be a valid C Symbol or an empty string.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="()|([_a-zA-Z][_0-9a-zA-Z]*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NamespaceType">
+    <xs:annotation>
+      <xs:documentation>
+        Is used for code-generation on namespaces which should be valid C++ symbols.
+        E.g. Namespace1._Namespace2.Namespace2
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([_a-zA-Z][_0-9a-zA-Z]*\.)*[_a-zA-Z][_0-9a-zA-Z]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HexInt8Type">
+    <xs:annotation>
+      <xs:documentation>1-2 hexadecimal digits with '0x' prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HexInt16Type">
+    <xs:annotation>
+      <xs:documentation>1-4 hexadecimal digits with '0x' prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HexInt32Type">
+    <xs:annotation>
+      <xs:documentation>1-8 hexadecimal digits with '0x' prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HexInt64Type">
+    <xs:annotation>
+      <xs:documentation>1-16 hexadecimal digits with '0x' prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,16}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="UInt8Type">
+    <xs:annotation>
+      <xs:documentation>
+        8-bit unsigned decimal or hexadecimal integer. Decimal should have no
+        leading 0s. Hexadecimal requires '0x' prefix.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedByte man:HexInt8Type"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="UInt16Type">
+    <xs:annotation>
+      <xs:documentation>
+        16-bit unsigned decimal or hexadecimal integer. Decimal should have no
+        leading 0s. Hexadecimal requires '0x' prefix.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedShort man:HexInt16Type"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="UInt32Type">
+    <xs:annotation>
+      <xs:documentation>
+        32-bit unsigned decimal or hexadecimal integer. Decimal should have no
+        leading 0s. Hexadecimal requires '0x' prefix.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedInt man:HexInt32Type"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="UInt64Type">
+    <xs:annotation>
+      <xs:documentation>
+        64-bit unsigned decimal or hexadecimal integer. Decimal should have no
+        leading 0s. Hexadecimal requires '0x' prefix.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedLong man:HexInt64Type"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="LengthType">
+    <xs:annotation>
+      <xs:documentation>
+        For a constant-Length property, specify the value (decimal).
+        For a variable-Length property, specify the name of the property that
+        will have the length of this property.
+
+        Length is required for "Binary" properties. It indicates the size (in
+        bytes) of the property value.
+
+        Length is optional for "UnicodeString" and "AnsiString" properties. If
+        present, Length indicates the size (in characters) of the property
+        value. If Length is not present, the property is assumed to be
+        nul-terminated.
+
+        Length is not used for other inTypes. Other inTypes either use a
+        well-known constant size (e.g. Int32 length is 4) or encode the size
+        within the value (e.g. nul-terminated strings end at the first 0
+        character, and "counted" values start with a 16-bit size).
+
+        In the case of an array (i.e. when the property has a Count), the same
+        Length value applies to all elements of the array. As a result, it is
+        not generally useful to create an array of variable-Length properties.
+
+        Note that some decoders only recognize Length properties that
+        immediately precede the corresponding variable-Length property.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedShort xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="CountType">
+    <xs:annotation>
+      <xs:documentation>
+        For constant-Count array, specify the value (decimal).
+        For variable-Count array, specify the name of the property that will
+        have the count of this property.
+
+        Note that some decoders will treat Count="0" as an error, and some
+        decoders will treat Count="1" as non-array.
+
+        Note that some decoders only recognize Count properties that
+        immediately precede the corresponding variable-Count property.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedShort xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="strTableRef">
+    <xs:annotation>
+      <xs:documentation>
+        A reference to a localized string value provided elsewhere. The value
+        of this attribute should be of the form "$(string.stringTableId)",
+        where stringTableId is the "id" attribute of a &lt;string&gt; element
+        defined in the &lt;stringTable&gt; section, or of the form
+        "$(mc.mcSymbolId)", where mcSymbolId is the symbol of a message string
+        defined in an .mc file compiled along with this manifest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\$\([Ss]tring\..*\))|(\$\([Mm][Cc]\..*\))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filePath">
+    <xs:annotation>
+      <xs:documentation>
+        A fully-qualified path to a file. Standard Windows environment variables are
+        allowed. Typically, the file is of type .exe, .dll, or .sys.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="QNameList">
+    <xs:annotation>
+      <xs:documentation>
+        Space-separated list of keywords. To support consistent event
+        filtering, all events should have at least one keyword assigned.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="xs:QName"/>
+  </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,832 @@
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+
+cpp_quote( "// Copyright (c) Microsoft Corporation.  All rights reserved." )
+cpp_quote( "" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote( "#include <SpecStrings.h>" )
+
+#ifndef ALGIDDEF
+#define ALGIDDEF
+typedef unsigned int ALG_ID;
+#endif
+
+interface IDpxJob;
+interface IDpxContainer;
+interface IDpxFile;
+interface IDpxContainerDirectoryEntry;
+interface IDpxDownloadProvider;
+interface IDpxDownloadCallback;
+
+interface IEnumDpxContainers;
+interface IEnumDpxFiles;
+interface IEnumDpxContainerDirectoryEntries;
+
+typedef unsigned LOCATIONTYPE;
+
+const unsigned LOCATIONTYPE_UNKNOWN = 0x00000000;
+const unsigned LOCATIONTYPE_NONE = 0x01000000;
+const unsigned LOCATIONTYPE_LOCAL = 0x02000000;
+const unsigned LOCATIONTYPE_CAB = 0x03000000;
+const unsigned LOCATIONTYPE_CMI = 0x04000000;
+const unsigned LOCATIONTYPE__MASK_FLAGS = 0x0000FFFF;
+const unsigned LOCATIONTYPE_RECURSIVE = 0x00000001;
+const unsigned LOCATIONTYPE_ABSOLUTE = 0x00000002;
+const unsigned LOCATIONTYPE_COMPRESSED = 0x00000004;
+const unsigned LOCATIONTYPE_IGNORE = 0x00000008;
+const unsigned LOCATIONTYPE_DUPLICATE = 0x00000010;
+const unsigned LOCATIONTYPE_INTERMEDIATE = 0x00000020;
+const unsigned LOCATIONTYPE__MASK_TYPE = 0xFFFF0000;
+
+typedef enum
+{
+    DPX_RESUME_AND_DOWNLOAD   = 0x0000,    // perform end-to-end extract/download as needed
+    DPX_RESUME_UNTIL_DOWNLOAD = 0x0001,    // proceed until download is needed, then stop
+                                          //   (can then use download provider directly)
+    DPX_RESUME_AND_DOWNLOAD_FALLBACK = 0x0002, // perform end to end extraction and use only fallbacks
+    DPX_RESUME_UNTIL_DOWNLOAD_NO_CLONE = 0x0003, // proceed until download is needed, then stop
+                                                 //   (can then use download provider directly)
+                                                 //   don't clone files from local machine
+}
+DPX_RESUME_TYPE;
+
+
+#define DPX_MAX_HASH_SIZE 64    // 512 bits is largest supported hash algorithm
+cpp_quote( "#define DPX_MAX_HASH_SIZE 64" )
+
+typedef struct
+{
+    ALG_ID AlgorithmId;
+    UINT   HashSize;
+    [length_is( HashSize )] BYTE HashData[ DPX_MAX_HASH_SIZE ];
+}
+DPX_HASH;
+
+
+typedef struct
+{
+    UINT64 Offset;
+    UINT64 Length;
+}
+DPX_BYTE_RANGE;
+
+
+typedef enum
+{
+    DPX_PHASE_JOB_IDLE       = 0x0000,   // job in suspended state. job is waiting
+                                         // to be resumed.
+    DPX_PHASE_DOWNLOAD_INDEX = 0x0010,   // downloading container file index
+    DPX_PHASE_INVENTORY      = 0x0020,   // searching for delta basis files
+    DPX_PHASE_DOWNLOAD_FILES = 0x0030,   // downloading container file contents
+    DPX_PHASE_EXPAND_FILES   = 0x0040,   // expanding/verifying downloaded data
+    DPX_PHASE_JOB_INPROGRESS = 0x0050,   // job is in progress
+
+    DPX_PHASE_JOB_COMPLETE   = 0x7F00,   // most recent Resume returned S_OK
+    DPX_PHASE_JOB_CANCELLED  = 0xFFFE,   // job cancelled
+    DPX_PHASE_JOB_FAILURE    = 0xFFFF,   // job unsuccessful
+}
+DPX_PROGRESS_PHASE;
+
+
+typedef struct
+{
+    UINT64 Completed;
+    UINT64 Remaining;    //  (Completed/(Completed+Remaining)) == Percent
+}
+DPX_PROGRESS_REMAIN;
+
+
+typedef struct
+{
+    DPX_PROGRESS_REMAIN Inventory;  // one tick for each FindNext or byte scanned
+    DPX_PROGRESS_REMAIN Download;   // one tick for each byte downloaded
+    DPX_PROGRESS_REMAIN Expansion;  // one tick for each downloaded byte processed
+    DPX_PROGRESS_REMAIN Files;      // one tick for each target file completed
+    DPX_PROGRESS_REMAIN Overall;    // sum of above
+    DPX_PROGRESS_PHASE  ePhase;     // current phase
+}
+DPX_PROGRESS;
+
+#define DPX_OPTION_DELTA_BASIS_ROOT L"delta_basis_root"
+cpp_quote( "#define DPX_OPTION_DELTA_BASIS_ROOT L\"delta_basis_root\"" )
+
+#define DPX_COMPRESSION_ALGORITHM_OPTION_NAME L"postprocess_compression_algorithm"
+cpp_quote( "#define DPX_COMPRESSION_ALGORITHM_OPTION_NAME L\"postprocess_compression_algorithm\"" )
+#define DPX_CLEANUP_OPTION_NAME L"postprocess_source_cleanup"
+cpp_quote( "#define DPX_CLEANUP_OPTION_NAME L\"postprocess_source_cleanup\"" )
+
+#define DPX_COMPRESSION_ALGORITHM_XPRESS_HUFF L"xpress_huff"
+cpp_quote( "#define DPX_COMPRESSION_ALGORITHM_XPRESS_HUFF L\"xpress_huff\"" )
+#define DPX_COMPRESSION_ALGORITHM_WOF_PROVIDER_FILE L"wof_provider_file"
+cpp_quote( "#define DPX_COMPRESSION_ALGORITHM_WOF_PROVIDER_FILE L\"wof_provider_file\"" )
+
+#define DPX_COMPRESSED_FILE_HEADER_LENGTH 4
+cpp_quote( "#define DPX_COMPRESSED_FILE_HEADER_LENGTH 4" )
+
+#define DPX_COMPRESSED_FILE_HEADER_XPRESS_HUFF {'D', 'C', 'X', '\x01'}
+cpp_quote( "#define DPX_COMPRESSED_FILE_HEADER_XPRESS_HUFF {'D', 'C', 'X', '\x01'}" )
+
+#define DPX_XPRESS_HUFF_BLOCK_SIZE (1024 * 1024)
+cpp_quote( "#define DPX_XPRESS_HUFF_BLOCK_SIZE (1024 * 1024)" )
+
+#define DPX_OPTION_TELEMETRY_CORRELATION_VECTOR L"Telemetry_correlation_vector"
+cpp_quote("#define DPX_OPTION_TELEMETRY_CORRELATION_VECTOR L\"Telemetry_correlation_vector\"")
+
+#define DPX_OPTION_HASH_TYPE L"cix_hash_type"
+cpp_quote( "#define DPX_OPTION_HASH_TYPE L\"cix_hash_type\"" )
+
+#define DPX_OPTION_HARDLINK_ASSETS L"hardlink_assets"
+cpp_quote("#define DPX_OPTION_HARDLINK_ASSETS L\"hardlink_assets\"")
+
+#define DPX_OPTION_COMPLETE_SELF_COPIES L"complete_self_copies"
+cpp_quote("#define DPX_OPTION_COMPLETE_SELF_COPIES L\"complete_self_copies\"")
+
+#define DPX_OPTION_IGNORE_FNF_WARNINGS L"ignore_filenotfound_warnings"
+cpp_quote("#define DPX_OPTION_IGNORE_FNF_WARNINGS L\"ignore_filenotfound_warnings\"")
+
+#define DPX_OPTION_SKIP_EXTRACTION_FOR_FILE L"skip_extraction_for_file"
+cpp_quote( "#define DPX_OPTION_SKIP_EXTRACTION_FOR_FILE L\"skip_extraction_for_file\"" )
+
+[ uuid( ddc1b711-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IDpxJob : IUnknown
+{
+    //
+    //  TargetPath is the local file system directory under which extracted
+    //  files should be created, specified at Job creation.  Files created
+    //  under this directory may include relative subdirectory names or even
+    //  stream names.  Files and subdirectories will be created with inherited
+    //  ACL from TargetPath and owner from the thread calling
+    //  IDpxDownloadCallback.  During the course of extraction, additional
+    //  temporary files might be created in the TargetPath but will be deleted
+    //  when the job completes.  If the job is cancelled or destroyed before
+    //  completing, these temporary files may not be automatically deleted.
+    //
+
+    HRESULT GetTargetPath( [out] LPWSTR* TargetPath );  // FreeMemory
+
+    //
+    //  An extract job consists of one or more containers, which are packages
+    //  containing one or more files (e.g., .cab, .psf, .wim).  A container
+    //  has a single source path, usually a URL or local filename, but is
+    //  interpreted only by the download provider.  AddContainer with same
+    //  ContainerPath as an already existing container object will return
+    //  interface pointer to the existing container object.  For each
+    //  container, specify which files from the container are desired for
+    //  download/extraction.  See IDpxContainer for more details on specifying
+    //  individual files within each container.
+    //
+
+    HRESULT AddContainer(
+                [in]  LPCWSTR ContainerPath,
+                [out] IDpxContainer ** ppContainer
+                );
+
+    HRESULT EnumContainers(
+                [out] IEnumDpxContainers ** ppEnumContainers
+                );
+
+    //
+    //  Caller may optionally specify a download provider.  If caller does not
+    //  specify a download provider, a default download provider will be used
+    //  that supports local file system and UNC through CreateFile/ReadFile.
+    //
+    //  Since this is a pointer, it is ignored during SaveJobState, so
+    //  caller must SetDownloadProvider after DpxRestoreJob before calling
+    //  Resume to continue the job.
+    //
+    //  Attempt to change the download provider during an active job will fail,
+    //  but can be done while job is suspended.  If provider is changed while
+    //  job is suspended, any in-progress downloads will be abandoned.
+    //
+    //  SetDownloadProvider( NULL ) will reset to default download provider.
+    //
+
+    HRESULT SetDownloadProvider( [in, unique] IDpxDownloadProvider*   pDownloadProvider );
+    HRESULT GetDownloadProvider( [out]        IDpxDownloadProvider** ppDownloadProvider );
+
+    //
+    //  Extract jobs are always created in the suspended state.  After
+    //  populating the job with all the desired files to extract/download,
+    //  call Resume to begin the evaluation and optional download.  If caller
+    //  specifies DPX_RESUME_WITH_DOWNLOAD, the download provider's Resume
+    //  method will be called after the download is computed and will not
+    //  return to caller until job is complete or an error occurs.  If caller
+    //  specifies DPX_RESUME_UNTIL_DOWNLOAD, the download provider's Resume
+    //  will not be called, and this Resume call will return to caller with
+    //  E_PENDING after populating download provider job or S_OK if the job
+    //  is complete without requiring additional download.  If Resume returns
+    //  E_PENDING, it is caller's responsibility to Resume the download
+    //  provider directly.
+    //
+
+    HRESULT Resume( DPX_RESUME_TYPE eResumeType );
+
+    //
+    //  Suspend may be called by another thread to cause Resume to stop
+    //  within short period of time and return (BUGBUG) DPX_E_SUSPENDED.
+    //  After Resume returns, caller may call Resume again to continue
+    //  the job.
+    //
+
+    HRESULT Suspend();
+
+    //
+    //  Cancel may be called to destructively end a job.  Unlike Suspend,
+    //  Cancel will destroy all the outstanding downloads and job state,
+    //  and will leave any already downloaded, extracted, and validated
+    //  target files in the target directory.
+    //
+
+    HRESULT Cancel();
+
+    //
+    //  GetProgress can be used to poll job progress.  See description of
+    //  DPX_PROGRESS structure for more info.  Job progress is summation of
+    //  all underlying container extractions progress and download provider
+    //  progress.
+    //
+
+    HRESULT GetProgress( [out] DPX_PROGRESS * pProgress );
+
+    //
+    //  While a job is in suspended state, SaveJobState can be used to
+    //  save the current state of a job in a format that can be stored to disk
+    //  and later resumed through DpxRestoreJob.
+    //
+
+    HRESULT SaveJobState();
+
+    //
+    //  Caller's may store context value for each node in the PackageExtractJob
+    //  hierarchy, useful only to the caller.  This value is preserved across
+    //  Save/DpxRestoreJob.
+    //
+
+    HRESULT SetUserValue( [in]  UINT64   UserValue );
+    HRESULT GetUserValue( [out] UINT64* pUserValue );
+
+    //
+    //  Caller may provide named options with string values that may be
+    //  referenced later by container manifests and otherwise affect job
+    //  processing.  OptionName is case insensitive, OptionValue case is
+    //  preserved.  Setting NULL or empty OptionValue is acceptable and
+    //  GetOptionValue will return S_OK with NULL pOptionValue for these.
+    //  GetOptionValue will fail if the named value does not exist.
+    //
+
+    HRESULT SetOptionValue( [in] LPCWSTR OptionName, [in, unique] LPCWSTR OptionValue );
+    HRESULT GetOptionValue( [in] LPCWSTR OptionName, [out] LPWSTR* pOptionValue );
+
+    //
+    //  Memory allocated as return parameters from methods on this interface
+    //  should be freed by the caller using this interface-specific local
+    //  FreeMemory method before Release of the allocating object.
+    //
+
+    [local] void FreeMemory( [in] void* Allocation );
+
+}
+
+cpp_quote("#ifdef __cplusplus")
+
+cpp_quote("enum class DPX_FILE_PROVIDER_QUERY_DISPOSITION")
+cpp_quote("{")
+cpp_quote("    Invalid = 0,")
+cpp_quote("    Success = 1,")
+cpp_quote("    Compressed = 2")
+cpp_quote("};")
+
+cpp_quote("#else")
+
+typedef enum tagDPX_FILE_PROVIDER_QUERY_DISPOSITION
+{
+    DPX_FILE_PROVIDER_QUERY_DISPOSITION_INVALID = 0,
+    DPX_FILE_PROVIDER_QUERY_DISPOSITION_SUCCESS = 1,
+    DPX_FILE_PROVIDER_QUERY_DISPOSITION_COMPRESSED = 2,
+} DPX_FILE_PROVIDER_QUERY_DISPOSITION;
+
+cpp_quote("#endif")
+
+[uuid(e9a288f7-bcfb-4466-95c6-5a388263d8fb), object, pointer_default(unique)]
+interface IFileHashProviderCallback : IUnknown
+{
+    //
+    // Caller retrieves a hash for a given file at the given path.
+    // The input parameters is an Absolute file path and a algorithm type.
+    // The output parameters are the disposition and the value of the hash queried.
+    //
+    HRESULT GetFileHash(
+        [in] LPCWSTR FilePath,
+        [in] ALG_ID algId,
+        [out] DPX_FILE_PROVIDER_QUERY_DISPOSITION* pDisposition,
+        [in] UINT cbHashData,
+        [out, size_is(cbHashData)] BYTE pbHashData[]
+    );
+};
+
+[uuid(e1c292c8-919a-4f1b-b85a-9c542932fc8d), object, pointer_default(unique)]
+interface IDpxJob2 : IDpxJob
+{
+    //
+    // Caller uses this to set the location type on the provider.
+    // The input parameters is the location type and 
+    // a pointer to IFileHashProviderCallback.
+    //
+    HRESULT SetInventoryProvider(
+        [in] LOCATIONTYPE locationType,
+        [in] IFileHashProviderCallback* pProvider
+    );
+};
+
+[ uuid( ddc1b712-0e55-452f-838e-d1505b866e2b ), object, pointer_default(unique) ]
+interface IDpxContainer : IUnknown
+{
+    //
+    //  IDpxContainer exposes a ContainerPath property which is interpreted
+    //  only by download provider of parent extract job.  Usually this is URL
+    //  or local/UNC filename, but is interpreted only by the specified
+    //  download provider.  It can be simply a filename without a path if
+    //  the download provider knows how to translate that to full path for the
+    //  actual download.  The ContainerPath must be unique for each container
+    //  within a job.
+    //
+
+    HRESULT SetContainerPath( [in]  LPCWSTR  ContainerPath );
+    HRESULT GetContainerPath( [out] LPWSTR* pContainerPath );   // FreeMemory
+
+    //
+    //  Caller adds specific files to the extract job prior to "starting" the
+    //  extract job.  Caller may specify additional files to extract after a
+    //  job has been started, and also after a job has completed.  See the
+    //  IDpxFile interface for more information on specifying files.
+    //  Caller can first call EnumDirectoryEntries and then add some
+    //  or all of the files to the job or use ExtractAllFiles for "wildcard"
+    //  extraction.  Additional files can be added to the job at
+    //  any time, even after job has been completed.  After files are added, caller
+    //  must perform Resume again.  AddFileToExtract with same SourceFileName and
+    //  TargetFileName as an already existing file object will return interface
+    //  pointer to the existing file object.  AddFileToExtract with same
+    //  TargetFileName (explicit or implied) as an already existing file object
+    //  with a different SourceFileName will fail with E_BUGBUG.
+    //
+
+    HRESULT AddFileToExtract(
+                [in]         LPCWSTR   SourceFileName,  // within container
+                [in, unique] LPCWSTR   TargetFileName,  // if different
+                [in, unique] DPX_HASH* TargetFileHash   // if verify desired
+                );
+
+    HRESULT AddFileToExtract2(
+                [in]         LPCWSTR SourceFileName,    // within container
+                [in, unique] LPCWSTR TargetFileName,    // if different
+                [out]        IDpxFile ** ppFile
+                );
+
+    //
+    //  Alternative to specifying individual files to extract, may call
+    //  ExtractAllFiles, which automatically AddFileToExtract every file
+    //  in the container index, once the container index is provided or
+    //  downloaded.
+    //
+
+    HRESULT ExtractAllFiles();
+
+    //
+    //  EnumFilesToExtract returns enumerator that can return each file
+    //  added to this container for extraction.  If ExtractAllFiles is
+    //  used, the files can only be enumerated after ProvideContainerIndex
+    //  is called, or after the index is automatically downloaded.
+    //
+
+    HRESULT EnumFilesToExtract(
+                [out] IEnumDpxFiles ** ppEnumFiles
+                );
+
+    //
+    //  There are four security validation models for package extraction when
+    //  downloading from an untrusted source or over an untrusted medium.
+    //
+    //    1) Provide complete trusted container index at start of job
+    //    2) Provide trusted hash of container index to be downloaded
+    //    3) Provide trusted hash of each individual file to be extracted
+    //    4) No Validation
+    //
+    //  Some containers, such as raw .cab, do not contain individual file hashes
+    //  inside the container index, so the caller must specify individual file
+    //  hashes if the caller wants PackageExtractJob to perform the validation.
+    //  Some containers, such as .psf, optionally provide individual file
+    //  hashes inside the container index, so only a trusted hash of the
+    //  container index is required to validate trust for each extracted file.
+    //  Likewise, if caller provides .psf index through ProvideContainerIndex,
+    //  and the index contains individual file hashes, the extracted files are
+    //  validated to the same level of trust as the provided container index.
+    //  Generally, a content authoring scheme should conform to one of these
+    //  four models, three of which provide validation during the extract job,
+    //  the other requring the caller to separately validate the files after
+    //  extraction.  Based on the model, the client for that content should
+    //  choose one of ProvideContainerIndex, SetExpectedContainerIndexHash,
+    //  SetExpectedHash on each target file, or perform separate validation
+    //  after the job is complete if validation is required.
+    //
+
+    HRESULT SetExpectedContainerIndexHash( [in]  DPX_HASH *   pExpectedHash );
+    HRESULT GetExpectedContainerIndexHash( [out] DPX_HASH ** ppExpectedHash );  // FreeMemory
+
+    HRESULT ProvideContainerIndex(
+                [in] UINT IndexSize,
+                [in, size_is( IndexSize )] BYTE IndexData[]
+                );
+
+    HRESULT ProvideContainerIndexByFile(
+                [in] LPCWSTR IndexFileName  // can open with CreateFileW
+                );
+
+    //
+    //  EnumDirectoryEntries is used if caller needs to query the contents
+    //  of a container, usually to determine the set of filenames to specify
+    //  for extraction.  If the set of filenames to extract is known, then
+    //  EnumDirectoryEntries is not necessary.  If EnumDirectoryEntries is
+    //  called before the container index has been downloaded or provided, it
+    //  will return E_NOTAVAILABLE.
+    //
+
+    HRESULT EnumDirectoryEntries(
+                [out] IEnumDpxContainerDirectoryEntries ** ppEnumEntries
+                );
+
+    //
+    //  Remove will remove a container and all its files from the parent
+    //  extract job.  Any files for this container that have already been
+    //  downloaded and validated will not be deleted from the TargetPath.
+    //  Removing a container after job has started might result in larger
+    //  download.  After calling Remove, caller must Release the object.
+    //
+
+    HRESULT Remove();
+
+    //
+    //  Caller's may store context value for each node in the PackageExtractJob
+    //  hierarchy, useful only to the caller.  This value is preserved across
+    //  Save/DpxRestoreJob.
+    //
+
+    HRESULT SetUserValue( [in]  UINT64   UserValue );
+    HRESULT GetUserValue( [out] UINT64* pUserValue );
+
+    //
+    //  Memory allocated as return parameters from methods on this interface
+    //  should be freed by the caller using this interface-specific local
+    //  FreeMemory method before Release of the allocating object.
+    //
+
+    [local] void FreeMemory( [in] void* Allocation );
+
+}
+
+
+[ uuid( ddc1b713-0e55-452f-838e-d1505b866e2b ), object, pointer_default(unique) ]
+interface IDpxFile : IUnknown
+{
+    //
+    //  IDpxContainer::AddFileToExtract2 returns pointer to this interface.
+    //  File objects have a SourceFileName and optional TargetFileName if
+    //  different than the SourceFileName.  GetTargetFileName will return same
+    //  value as GetSourceFileName if file object created with NULL
+    //  TargetFileName.  File objects within a job are unique by TargetFileName
+    //  in the job's TargetPath.  Multiple file objects may exist using same
+    //  SourceFileName from same or different containers, allowing single
+    //  source file to be extracted to multiple target files.  Attempt to add a
+    //  file with same TargetFileName [explicit or implied] as an existing file
+    //  with same SourceFileName will simply reference existing file object.
+    //  Attempt to add a file with same TargetFileName as an existing file with
+    //  different SourceFileName will fail.  TargetFileName can contain a
+    //  relative path from the TargetPath but cannot contain "." or ".." path
+    //  components. Subdirectories within the TargetPath will be created as
+    //  necessary during extraction.
+    //
+
+    HRESULT GetSourceFileName( [out] LPWSTR * pSourceFileName );   // FreeMemory
+    HRESULT GetTargetFileName( [out] LPWSTR * pTargetFileName );   // FreeMemory
+
+    //
+    //  SetExpectedHash can be used to validate trust for the extracted
+    //  files, especially when the source is over a network or the internet.
+    //  If an extracted file fails the hash check, it will be re-requested
+    //  at least once before failing the job completely.
+    //
+
+    HRESULT SetExpectedHash( [in]  DPX_HASH *   pExpectedHash );
+    HRESULT GetExpectedHash( [out] DPX_HASH ** ppExpectedHash );   // FreeMemory
+
+    //
+    //  Remove will remove a file from its parent extract job.  If the file
+    //  has already been downloaded and validated, it will not be deleted
+    //  from the TargetPath.  Removing a file after job has started might
+    //  result in larger download.  After calling Remove, caller must Release
+    //  the object.
+    //
+
+    HRESULT Remove();
+
+    //
+    //  Caller's may store context value for each node in the PackageExtractJob
+    //  hierarchy, useful only to the caller.  This value is preserved across
+    //  Save/DpxRestoreJob.
+    //
+
+    HRESULT SetUserValue( [in]  UINT64   UserValue );
+    HRESULT GetUserValue( [out] UINT64* pUserValue );
+
+    //
+    // Gives caller HRESULT status for individual file.
+    // Note that HRESULT status is given via output parameter, not via function return value.
+    // pStatus will equal one of the following after return:
+    // S_OK (file created in target path)
+    // E_ABORT (when Remove() is called)
+    // E_PENDING (file not removed or created in target path)
+    //
+
+    HRESULT GetStatus( [out] HRESULT *pStatus );
+
+    //
+    //  Memory allocated as return parameters from methods on this interface
+    //  should be freed by the caller using this interface-specific local
+    //  FreeMemory method before Release of the allocating object.
+    //
+
+    [local] void FreeMemory( [in] void* Allocation );
+
+}
+
+[ uuid( c249cc11-c1f5-428e-acbf-e1b78b30b971 ), object, pointer_default( unique ) ]
+interface IDpxFile2 : IDpxFile
+{
+    HRESULT GetSize( [out] UINT64* pSize );
+}
+
+
+[ uuid( ddc1b715-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IDpxContainerDirectoryEntry : IUnknown
+{
+    HRESULT GetName( [out] LPWSTR *pDirEntryName );      // FreeMemory
+
+    HRESULT GetHash( [out] DPX_HASH **pDirEntryHash );   // FreeMemory
+
+    HRESULT GetSize( [out] UINT64 *pDirEntrySize );
+
+    HRESULT GetTime( [out] FILETIME *pDirEntryTime );
+
+    [local] void FreeMemory( [in] void* Allocation );
+}
+
+
+[ uuid( ddc1b716-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IDpxDownloadProvider : IUnknown
+{
+    HRESULT SetProvideDataCallback( [in]  IDpxDownloadCallback*   pProvideData );
+    HRESULT GetProvideDataCallback( [out] IDpxDownloadCallback** ppProvideData );
+
+    //
+    //  Adding container with no ranges implies entire source file.
+    //
+
+    HRESULT AddContainer(
+                [in] LPCWSTR ContainerFilePath,
+                [in] UINT64  ContainerId
+                );
+
+    HRESULT AddRanges(
+                [in] UINT64 ContainerId,
+                [in] UINT   RangeCount,
+                [in, size_is( RangeCount )] DPX_BYTE_RANGE RangeList[]
+                );
+
+    HRESULT GetContainers(
+                [out] UINT* ContainerCount,
+                [out, size_is( , *ContainerCount )] UINT64** ppContainerIdArray // FreeMemory
+                );
+
+    HRESULT GetContainerPath(
+                [in]  UINT64  ContainerId,
+                [out] LPWSTR* ContainerPath                                     // FreeMemory
+                );
+
+    HRESULT GetRanges(
+                [in]  UINT64  ContainerId,
+                [in]  BOOL    IncludeCompletedRanges,
+                [out] UINT*   RangeCount,
+                [out, size_is( , *RangeCount )] DPX_BYTE_RANGE ** ppRangeArray  // FreeMemory
+                );
+
+    HRESULT Resume();
+    HRESULT Suspend();
+    HRESULT Cancel();
+
+    //
+    //  After a job is started with Resume, caller may either poll for progress
+    //  to determine completion, or call WaitForCompletion instead.
+    //
+
+    HRESULT WaitForCompletion( [in] DWORD TimeoutMilliseconds );
+
+    //
+    //  GetProgress can be used to poll download progress.
+    //
+
+    HRESULT GetProgress( [out] DPX_PROGRESS_REMAIN * pDownloadProgress );
+
+    //
+    //  ClearRequest removes all container files and their requested ranges
+    //  from the download provider job.  It is used to re-initialize the
+    //  download provider object for multiple download requests during lifetime
+    //  of IDpxJob object.
+    //
+
+    HRESULT ClearRequest();
+
+    [local] void FreeMemory( [in] void* Allocation );
+}
+
+
+[ uuid( ddc1b717-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IDpxDownloadCallback : IUnknown
+{
+    //
+    //  There are several methods for providing the requested data.  The first
+    //  is memory buffer based, the others are file based requiring a path/file
+    //  name that can be opened with CreateFileW (shared read access).  The
+    //  ProvideRequestedDataByFile method can take a whole container file such
+    //  as a local .cab or .psf file, or a file containing individual ranges
+    //  whose offsets in the provided file may differ than the original whole
+    //  container file.  The OffsetInResponseFile array maps the parallel
+    //  array of ranges in the provided file to the offsets in the original
+    //  whole file.  The ProvideRequestedDataByPackedRangeFile is similar, but
+    //  assumes that the provided file contains packed ranges corresponding
+    //  exactly (number, order, and sizes) to the set of ranges requested by
+    //  most recent call to Resume.  This facilitates download providers
+    //  utilizing BITS which provides response file in this packed format.
+    //
+
+    HRESULT ProvideRequestedData(
+                [in] UINT64   ContainerId,
+                [in] UINT     RangeCount,
+                [in, size_is( RangeCount )] DPX_BYTE_RANGE RangeList[],
+                [in, size_is( RangeCount )] const BYTE* RangeData[]
+                );
+
+    HRESULT ProvideRequestedDataByFile(
+                [in] UINT64   ContainerId,
+                [in] LPCWSTR  ResponseFilePath,  // can open with CreateFileW
+                [in] UINT     RangeCount,
+                [in, size_is( RangeCount )] DPX_BYTE_RANGE RangeArray[],
+                [in, size_is( RangeCount )] UINT64 OffsetInResponseFile[]
+                );
+
+    HRESULT ProvideRequestedDataByPackedRangeFile(
+                [in] UINT64   ContainerId,
+                [in] LPCWSTR  ResponseFilePath   // can open with CreateFileW
+                );
+
+}
+
+
+[ uuid( ddc1b722-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IEnumDpxContainers : IUnknown
+{
+    HRESULT Next(
+                [in] UINT ItemCount,
+                [out, size_is( ItemCount ), length_is( *pFetchedCount )] IDpxContainer **ppContainers,
+                [out] UINT * pFetchedCount
+                );
+
+    HRESULT Skip( [in] UINT ItemCount );
+
+    HRESULT Reset();
+
+    HRESULT Clone( [out] IEnumDpxContainers **ppEnum );
+
+    HRESULT GetCount( [out] UINT * pItemCount );
+}
+
+
+[ uuid( ddc1b723-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IEnumDpxFiles : IUnknown
+{
+    HRESULT Next(
+                [in] UINT ItemCount,
+                [out, size_is( ItemCount ), length_is( *pFetchedCount )] IDpxFile **ppFiles,
+                [out] UINT * pFetchedCount
+                );
+
+    HRESULT Skip( [in] UINT ItemCount );
+
+    HRESULT Reset();
+
+    HRESULT Clone( [out] IEnumDpxFiles **ppEnum );
+
+    HRESULT GetCount( [out] UINT * pItemCount );
+}
+
+
+[ uuid( ddc1b725-0e55-452f-838e-d1505b866e2b ), object, pointer_default( unique ) ]
+interface IEnumDpxContainerDirectoryEntries : IUnknown
+{
+    HRESULT Next(
+                [in] UINT ItemCount,
+                [out, size_is( ItemCount ), length_is( *pFetchedCount )] IDpxContainerDirectoryEntry **ppDirectoryEntries,
+                [out] UINT * pFetchedCount
+                );
+
+    HRESULT Skip( [in] UINT ItemCount );
+
+    HRESULT Reset();
+
+    HRESULT Clone( [out] IEnumDpxContainerDirectoryEntries **ppEnum );
+
+    HRESULT GetCount( [out] UINT * pItemCount );
+}
+
+typedef struct tagDpxContainerDecryptionData
+{  
+    ULONG cbDecryptionData;
+    [size_is(cbDecryptionData)] BYTE *pDecryptionData;
+} DpxContainerDecryptionData;
+
+typedef enum tagDPX_CONTAINER_ENCRYPTION_ENUM
+{
+    DPX_CONTAINER_ENCRYPTION_NONE = 0,
+    DPX_CONTAINER_ENCRYPTION_ITERATIVE = 1,
+    DPX_CONTAINER_ENCRYPTION_MAX_ENUM = DPX_CONTAINER_ENCRYPTION_ITERATIVE
+} DPX_CONTAINER_ENCRYPTION_ENUM;
+
+[ uuid( ddc1b726-0e55-452f-838e-d1505b866e2b ), object, pointer_default(unique) ]
+interface IDpxEncryptedContainer : IDpxContainer 
+{
+    HRESULT SetContainerDecryption(
+        [in] UINT DecryptionDataCount,
+        [in, size_is( DecryptionDataCount )] DpxContainerDecryptionData DecryptionData[],
+        [in] DPX_CONTAINER_ENCRYPTION_ENUM EncryptionType
+        );
+}
+
+typedef struct tagDpxPredecessorFilePathInfo
+{
+    LPCWSTR PredecessorInstallPath;
+    LPCWSTR PredecessorCabPath;
+    LPCWSTR CabPath;
+} PredecessorFilePathInfo;
+
+//
+// Add a predecessor to this container.
+// A predecessor container is an earlier version of the container that
+// contains content that this container can use as basis content.
+//
+// The BasisRemappings contains a set of remappings that indicate
+// what files in the predecessor containers targetpath could be used
+// as basis content for this container.
+//
+[ uuid( c8e1e004-3a8d-45c7-a6aa-8c8f2f2ed1e1 ), object, pointer_default(unique) ]
+interface IDpxContainer2 : IDpxEncryptedContainer
+{
+    HRESULT AddPredecessorContainer(
+        [in]  LPCWSTR ContainerPath,
+        [in] UINT PredecessorFilePathsCount,
+        [in, size_is( PredecessorFilePathsCount )] PredecessorFilePathInfo PredecessorFilePaths[],
+        [out] IDpxContainer2 ** ppContainer
+        );
+}
+
+//
+// Add a peer to this container.
+// Peers contain equivalent content, but the content may be
+// stored differently.  All peers are processed together when evaluating
+// download options.
+//
+[ uuid( 582f768c-fe7d-4bf5-b0b8-3ab01d53b0d0 ), object, pointer_default(unique) ]
+interface IDpxContainer3 : IDpxContainer2
+{
+    HRESULT AddPeerContainer(
+        [in] LPCWSTR ContainerPath,
+        [out] IDpxContainer3 ** ppContainer
+        );
+        
+    HRESULT IsPeer(
+        [in] IDpxContainer3 * ppOtherContainer,
+        [out] BOOL *pIsPeer
+        );
+        
+    HRESULT GetPeerGroupId(
+        [out] UINT64* pnPeerGroupId
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

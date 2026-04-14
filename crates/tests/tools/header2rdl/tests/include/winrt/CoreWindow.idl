@@ -1,0 +1,94 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "inspectable.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+    // Interfaces
+    [object, uuid(45D64A29-A63E-4CB6-B498-5781D298CB4F)]
+    interface ICoreWindowInterop : IUnknown
+    {
+        [propget] HRESULT WindowHandle([out,retval] HWND *hwnd);
+        [propput] HRESULT MessageHandled([in] boolean value);
+    }
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WIN8")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+    // Interfaces
+    [object, uuid(40BFE3E3-B75A-4479-AC96-475365749BB8)]
+    interface ICoreInputInterop : IUnknown
+    {
+        // The input parameter should be IDComposition2Visual. Use IUnknown for now.
+        // QI for this interface from ICoreInputSourceBase.
+        HRESULT SetInputSource([in] IUnknown *value);
+        [propput] HRESULT MessageHandled([in] boolean value);
+    }
+
+cpp_quote("")
+cpp_quote("HRESULT _cdecl CreateControlInput(")
+cpp_quote("    _In_ REFIID riid,")
+cpp_quote("    _COM_Outptr_ void **ppv);")
+cpp_quote("")
+cpp_quote("HRESULT _cdecl CreateControlInputEx(")
+cpp_quote("    _In_ IUnknown *pCoreWindow,")
+cpp_quote("    _In_ REFIID riid,")
+cpp_quote("    _COM_Outptr_ void **ppv);")
+cpp_quote("")
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WINBLUE")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_THRESHOLD)")
+
+    // Interfaces
+    [object, uuid(0576AB31-A310-4C40-BA31-FD37E0298DFA)]
+    interface ICoreWindowComponentInterop : IUnknown
+    {
+        // The input parameter should be IDComposition2Visual. Use IUnknown for now.
+        // QI for this interface from ICoreInputSourceBase.
+        HRESULT ConfigureComponentInput([in] UINT32 hostViewInstanceId, [in] HWND hwndHost, [in] IUnknown* inputSourceVisual);
+        HRESULT GetViewInstanceId([out] UINT32* componentViewInstanceId);
+    }
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_THRESHOLD")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_THRESHOLD)")
+
+    [object, uuid(7a5b6fd1-cd73-4b6c-9cf4-2e869eaf470a)]
+    interface ICoreWindowAdapterInterop : IInspectable
+    {
+        [propget] HRESULT AppActivationClientAdapter([out, retval] IUnknown** value);
+        [propget] HRESULT ApplicationViewClientAdapter([out, retval] IUnknown** value);
+        [propget] HRESULT CoreApplicationViewClientAdapter([out, retval] IUnknown** value);
+        [propget] HRESULT HoloViewClientAdapter([out, retval] IUnknown** value);
+        [propget] HRESULT PositionerClientAdapter([out, retval] IUnknown** value);
+        [propget] HRESULT SystemNavigationClientAdapter([out, retval] IUnknown** value);
+        [propget] HRESULT TitleBarClientAdapter([out, retval] IUnknown** value);
+
+        HRESULT SetWindowClientAdapter([in] IUnknown* value);
+    }
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_THRESHOLD")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+
+    [object, uuid(B8A2ACD7-A0F0-40EE-8EE7-C82F59CC5CD4)]
+    interface ICoreInputInterop2: IInspectable
+    {
+        [propget] HRESULT WindowHandle([out,retval] HWND *window);
+        HRESULT ChangeHostingContext([in] HWND newParentWindow, [in] UINT32 newViewInstanceId);
+    }
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

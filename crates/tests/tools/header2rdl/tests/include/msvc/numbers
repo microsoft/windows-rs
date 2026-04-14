@@ -1,0 +1,106 @@
+// numbers standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _NUMBERS_
+#define _NUMBERS_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#if !_HAS_CXX20
+_EMIT_STL_WARNING(STL4038, "The contents of <numbers> are available only with C++20 or later.");
+#else // ^^^ !_HAS_CXX20 / _HAS_CXX20 vvv
+#include <concepts>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+namespace numbers {
+    template <class _Ty>
+    struct _Invalid {
+        static_assert(_Always_false<_Ty>, "A program that instantiates a primary template of a mathematical constant "
+                                          "variable template is ill-formed. (N4950 [math.constants]/3)");
+    };
+
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty e_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty log2e_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty log10e_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty pi_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty inv_pi_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty inv_sqrtpi_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty ln2_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty ln10_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty sqrt2_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty sqrt3_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty inv_sqrt3_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty egamma_v = _Invalid<_Ty>{};
+    _EXPORT_STD template <class _Ty>
+    constexpr _Ty phi_v = _Invalid<_Ty>{};
+
+    template <floating_point _Floating>
+    constexpr _Floating e_v<_Floating> = static_cast<_Floating>(2.718281828459045);
+    template <floating_point _Floating>
+    constexpr _Floating log2e_v<_Floating> = static_cast<_Floating>(1.4426950408889634);
+    template <floating_point _Floating>
+    constexpr _Floating log10e_v<_Floating> = static_cast<_Floating>(0.4342944819032518);
+    template <floating_point _Floating>
+    constexpr _Floating pi_v<_Floating> = static_cast<_Floating>(3.141592653589793);
+    template <floating_point _Floating>
+    constexpr _Floating inv_pi_v<_Floating> = static_cast<_Floating>(0.3183098861837907);
+    template <floating_point _Floating>
+    constexpr _Floating inv_sqrtpi_v<_Floating> = static_cast<_Floating>(0.5641895835477563);
+    template <floating_point _Floating>
+    constexpr _Floating ln2_v<_Floating> = static_cast<_Floating>(0.6931471805599453);
+    template <floating_point _Floating>
+    constexpr _Floating ln10_v<_Floating> = static_cast<_Floating>(2.302585092994046);
+    template <floating_point _Floating>
+    constexpr _Floating sqrt2_v<_Floating> = static_cast<_Floating>(1.4142135623730951);
+    template <floating_point _Floating>
+    constexpr _Floating sqrt3_v<_Floating> = static_cast<_Floating>(1.7320508075688772);
+    template <floating_point _Floating>
+    constexpr _Floating inv_sqrt3_v<_Floating> = static_cast<_Floating>(0.5773502691896257);
+    template <floating_point _Floating>
+    constexpr _Floating egamma_v<_Floating> = static_cast<_Floating>(0.5772156649015329);
+    template <floating_point _Floating>
+    constexpr _Floating phi_v<_Floating> = static_cast<_Floating>(1.618033988749895);
+
+    _EXPORT_STD inline constexpr double e          = e_v<double>;
+    _EXPORT_STD inline constexpr double log2e      = log2e_v<double>;
+    _EXPORT_STD inline constexpr double log10e     = log10e_v<double>;
+    _EXPORT_STD inline constexpr double pi         = pi_v<double>;
+    _EXPORT_STD inline constexpr double inv_pi     = inv_pi_v<double>;
+    _EXPORT_STD inline constexpr double inv_sqrtpi = inv_sqrtpi_v<double>;
+    _EXPORT_STD inline constexpr double ln2        = ln2_v<double>;
+    _EXPORT_STD inline constexpr double ln10       = ln10_v<double>;
+    _EXPORT_STD inline constexpr double sqrt2      = sqrt2_v<double>;
+    _EXPORT_STD inline constexpr double sqrt3      = sqrt3_v<double>;
+    _EXPORT_STD inline constexpr double inv_sqrt3  = inv_sqrt3_v<double>;
+    _EXPORT_STD inline constexpr double egamma     = egamma_v<double>;
+    _EXPORT_STD inline constexpr double phi        = phi_v<double>;
+} // namespace numbers
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // ^^^ _HAS_CXX20 ^^^
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _NUMBERS_

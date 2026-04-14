@@ -1,0 +1,1108 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Public Interfaces for the Video Mixing Renderer DShow filter
+//
+// Copyright (c) 1999 - 2002, Microsoft Corporation.  All rights reserved.
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if 0")
+// This is temporary work around to persuade
+// MIDL to allow forward declarations.
+typedef DWORD*    LPDIRECTDRAW7;
+typedef DWORD*    LPDIRECTDRAWSURFACE7;
+typedef DWORD*    LPDDPIXELFORMAT;
+typedef DWORD*    LPBITMAPINFOHEADER;
+typedef struct DDCOLORKEY {DWORD dw1; DWORD dw2;} DDCOLORKEY;
+typedef DDCOLORKEY*    LPDDCOLORKEY;
+cpp_quote ("#endif")
+cpp_quote("#include <ddraw.h>")
+
+
+// public interfaces supported by the VMR
+interface IVMRSurface;
+
+interface IVMRSurfaceAllocator;
+interface IVMRSurfaceAllocatorNotify;
+interface IVMRImagePresenter;
+interface IVMRImagePresenterConfig;
+
+interface IVMRWindowlessControl;
+interface IVMRMixerControl;
+interface IVMRMixerBitmap;
+interface IVMRFilterConfig;
+interface IVMRAspectRatioControl;
+interface IVMRDeinterlaceControl;
+interface IVMRMonitorConfig;
+
+interface IVMRImageCompositor;
+
+interface IVMRVideoStreamControl;
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Allocator Presenter interfaces
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+
+//=====================================================================
+//
+// IVMRImagePresenter
+//
+//=====================================================================
+typedef enum VMRPresentationFlags {
+    VMRSample_SyncPoint       = 0x00000001,
+    VMRSample_Preroll         = 0x00000002,
+    VMRSample_Discontinuity   = 0x00000004,
+    VMRSample_TimeValid       = 0x00000008,
+    VMRSample_SrcDstRectsValid= 0x00000010
+} VMRPresentationFlags;
+
+
+typedef struct tagVMRPRESENTATIONINFO {
+    DWORD                   dwFlags;
+    LPDIRECTDRAWSURFACE7    lpSurf;
+    REFERENCE_TIME          rtStart;
+    REFERENCE_TIME          rtEnd;
+    SIZE                    szAspectRatio;
+    RECT                    rcSrc;
+    RECT                    rcDst;
+    DWORD                   dwTypeSpecificFlags;
+    DWORD                   dwInterlaceFlags;
+} VMRPRESENTATIONINFO;
+
+[
+    local,
+    object,
+    local,
+    uuid(CE704FE7-E71E-41fb-BAA2-C4403E1182F5),
+    helpstring("IVMRImagePresenter Interface"),
+    pointer_default(unique)
+]
+interface IVMRImagePresenter : IUnknown
+{
+    HRESULT StartPresenting(
+        [in] DWORD_PTR dwUserID
+        );
+
+    HRESULT StopPresenting(
+        [in] DWORD_PTR dwUserID
+        );
+
+
+    HRESULT PresentImage(
+        [in] DWORD_PTR dwUserID,
+        [in] VMRPRESENTATIONINFO* lpPresInfo
+        );
+};
+
+
+//=====================================================================
+//
+// IVMRSurfaceAllocator
+//
+//=====================================================================
+
+typedef enum VMRSurfaceAllocationFlags {
+    AMAP_PIXELFORMAT_VALID  = 0x01,
+    AMAP_3D_TARGET          = 0x02,
+    AMAP_ALLOW_SYSMEM       = 0x04,
+    AMAP_FORCE_SYSMEM       = 0x08,
+    AMAP_DIRECTED_FLIP      = 0x10,
+    AMAP_DXVA_TARGET        = 0x20
+} VMRSurfaceAllocationFlags;
+
+typedef struct tagVMRALLOCATIONINFO {
+    DWORD                   dwFlags;
+    LPBITMAPINFOHEADER      lpHdr;
+    LPDDPIXELFORMAT         lpPixFmt;
+    SIZE                    szAspectRatio;
+    DWORD                   dwMinBuffers;
+    DWORD                   dwMaxBuffers;
+    DWORD                   dwInterlaceFlags;
+    SIZE                    szNativeSize;
+} VMRALLOCATIONINFO;
+
+[
+    local,
+    object,
+    local,
+    uuid(31ce832e-4484-458b-8cca-f4d7e3db0b52),
+    helpstring("IVMRSurfaceAllocator Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurfaceAllocator : IUnknown
+{
+    HRESULT AllocateSurface(
+        [in] DWORD_PTR dwUserID,
+        [in] VMRALLOCATIONINFO* lpAllocInfo,
+        [in] [out] DWORD* lpdwActualBuffers,
+        [out] LPDIRECTDRAWSURFACE7 *lplpSurface
+        );
+
+    HRESULT FreeSurface(
+        [in] DWORD_PTR dwID
+        );
+
+    HRESULT PrepareSurface(
+        [in] DWORD_PTR dwUserID,
+        [in] LPDIRECTDRAWSURFACE7 lpSurface,
+        [in] DWORD dwSurfaceFlags
+        );
+
+    HRESULT AdviseNotify(
+        [in] IVMRSurfaceAllocatorNotify* lpIVMRSurfAllocNotify
+        );
+};
+
+
+//=====================================================================
+//
+// IVMRSurfaceAllocatorNotify
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(aada05a8-5a4e-4729-af0b-cea27aed51e2),
+    helpstring("IVMRSurfaceAllocatorNotify Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurfaceAllocatorNotify : IUnknown
+{
+    HRESULT AdviseSurfaceAllocator(
+        [in] DWORD_PTR dwUserID,
+        [in] IVMRSurfaceAllocator* lpIVRMSurfaceAllocator
+        );
+
+    HRESULT SetDDrawDevice(
+        [in] LPDIRECTDRAW7 lpDDrawDevice,
+        [in] HMONITOR hMonitor
+        );
+
+    HRESULT ChangeDDrawDevice(
+        [in] LPDIRECTDRAW7 lpDDrawDevice,
+        [in] HMONITOR hMonitor
+        );
+
+    HRESULT RestoreDDrawSurfaces();
+
+    HRESULT NotifyEvent(
+        [in] LONG EventCode,
+        [in] LONG_PTR Param1,
+        [in] LONG_PTR Param2
+        );
+
+    HRESULT SetBorderColor(
+        [in] COLORREF clrBorder
+        );
+};
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Application control and configuration interfaces
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+//=====================================================================
+//
+// IVMRWindowlessControl
+//
+//=====================================================================
+typedef enum VMR_ASPECT_RATIO_MODE {
+    VMR_ARMODE_NONE,
+    VMR_ARMODE_LETTER_BOX
+} VMR_ASPECT_RATIO_MODE;
+
+[
+    local,
+    object,
+    local,
+    uuid(0eb1088c-4dcd-46f0-878f-39dae86a51b7),
+    helpstring("IVMRWindowlessControl Interface"),
+    pointer_default(unique)
+]
+interface IVMRWindowlessControl : IUnknown
+{
+    //
+    //////////////////////////////////////////////////////////
+    // Video size and position information
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT GetNativeVideoSize(
+        [out] LONG* lpWidth,
+        [out] LONG* lpHeight,
+        [out] LONG* lpARWidth,
+        [out] LONG* lpARHeight
+        );
+
+    HRESULT GetMinIdealVideoSize(
+        [out] LONG* lpWidth,
+        [out] LONG* lpHeight
+        );
+
+    HRESULT GetMaxIdealVideoSize(
+        [out] LONG* lpWidth,
+        [out] LONG* lpHeight
+        );
+
+    HRESULT SetVideoPosition(
+        [in] const LPRECT lpSRCRect,
+        [in] const LPRECT lpDSTRect
+        );
+
+    HRESULT GetVideoPosition(
+        [out] LPRECT lpSRCRect,
+        [out] LPRECT lpDSTRect
+        );
+
+    HRESULT GetAspectRatioMode(
+        [out] DWORD* lpAspectRatioMode
+        );
+
+    HRESULT SetAspectRatioMode(
+        [in] DWORD AspectRatioMode
+        );
+
+    //
+    //////////////////////////////////////////////////////////
+    // Display and clipping management
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT SetVideoClippingWindow(
+        [in] HWND hwnd
+        );
+
+    HRESULT RepaintVideo(
+        [in] HWND hwnd,
+        [in] HDC hdc
+        );
+
+    HRESULT DisplayModeChanged();
+
+
+    //
+    //////////////////////////////////////////////////////////
+    // GetCurrentImage
+    //
+    // Returns the current image being displayed.  This images
+    // is returned in the form of packed Windows DIB.
+    //
+    // GetCurrentImage can be called at any time, also
+    // the caller is responsible for free the returned memory
+    // by calling CoTaskMemFree.
+    //
+    // Excessive use of this function will degrade video
+    // playback performed.
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT GetCurrentImage(
+        [out] BYTE** lpDib
+        );
+
+    //
+    //////////////////////////////////////////////////////////
+    // Border Color control
+    //
+    // The border color is color used to fill any area of the
+    // the destination rectangle that does not contain video.
+    // It is typically used in two instances.  When the video
+    // straddles two monitors and when the VMR is trying
+    // to maintain the aspect ratio of the movies by letter
+    // boxing the video to fit within the specified destination
+    // rectangle. See SetAspectRatioMode above.
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT SetBorderColor(
+        [in] COLORREF Clr
+        );
+
+    HRESULT GetBorderColor(
+        [out] COLORREF* lpClr
+        );
+
+    //
+    //////////////////////////////////////////////////////////
+    // Color key control only meaningful when the VMR is using
+    // and overlay
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT SetColorKey(
+        [in] COLORREF Clr
+        );
+
+    HRESULT GetColorKey(
+        [out] COLORREF* lpClr
+        );
+};
+
+
+
+//=====================================================================
+//
+// IVMRMixerControl
+//
+//=====================================================================
+
+typedef enum VMRMixerPrefs {
+    MixerPref_NoDecimation          = 0x00000001, // No decimation - full size
+    MixerPref_DecimateOutput        = 0x00000002, // decimate output by 2 in x & y
+    MixerPref_ARAdjustXorY          = 0x00000004, // adjust the aspect ratio in x or y
+    MixerPref_DecimationReserved    = 0x00000008, // bits reserved for future use.
+    MixerPref_DecimateMask          = 0x0000000F,
+
+    MixerPref_BiLinearFiltering     = 0x00000010, // use bi-linear filtering
+    MixerPref_PointFiltering        = 0x00000020, // use point filtering
+    MixerPref_FilteringMask         = 0x000000F0, // OR of all above flags
+
+    MixerPref_RenderTargetRGB       = 0x00000100, // Uses D3D to perform mixing
+    MixerPref_RenderTargetYUV       = 0x00001000, // Uses DXVA to perform mixing
+
+    MixerPref_RenderTargetYUV420    = 0x00000200, // Depricated render target
+    MixerPref_RenderTargetYUV422    = 0x00000400, // Depricated render target
+    MixerPref_RenderTargetYUV444    = 0x00000800, // Depricated render target
+    MixerPref_RenderTargetReserved  = 0x0000E000, // 3 bits reserved for future use.
+    MixerPref_RenderTargetMask      = 0x0000FF00, // OR of all above flags
+
+    //
+    // Dynamic changes that can be performed when the VMR's mixer is
+    // configured to use the YUV Render target (see MixerPref_RenderTargetYUV)
+    // These preferences can be applied while the graph is running and take effect
+    // when the next frame is composed by the mixer.
+    //
+    MixerPref_DynamicSwitchToBOB           = 0x00010000,
+    MixerPref_DynamicDecimateBy2           = 0x00020000,
+
+    MixerPref_DynamicReserved              = 0x000C0000,
+    MixerPref_DynamicMask                  = 0x000F0000
+
+} VMRMixerPrefs;
+
+//
+//  Normalized relative rectangle
+//  Coordinate ranges: x=[0...1) y=[0...1)
+//  Where the output window goes from 0,0 (closed inclusive lower bound)
+//  to 1,1 (open exclusive upper bound)
+//
+typedef struct _NORMALIZEDRECT
+{
+	float left;
+	float top;
+	float right;
+	float bottom;
+} NORMALIZEDRECT, *PNORMALIZEDRECT;
+
+[
+    local,
+    object,
+    local,
+    uuid(1c1a17b0-bed0-415d-974b-dc6696131599),
+    helpstring("IVMRMixerControl Interface"),
+    pointer_default(unique)
+]
+interface IVMRMixerControl : IUnknown
+{
+    HRESULT SetAlpha(
+        [in] DWORD dwStreamID,
+        [in] float Alpha // Source alpha premultication factor (global alpha for source)
+        );
+
+    HRESULT GetAlpha(
+        [in] DWORD dwStreamID,
+        [out] float* pAlpha
+        );
+
+    HRESULT SetZOrder(
+        [in] DWORD dwStreamID,
+        [in] DWORD dwZ
+        );
+
+    HRESULT GetZOrder(
+        [in] DWORD dwStreamID,
+        [out] DWORD* pZ
+        );
+
+    HRESULT SetOutputRect(
+        [in] DWORD dwStreamID,
+        [in] const NORMALIZEDRECT *pRect
+        );
+
+    HRESULT GetOutputRect(
+        [in] DWORD dwStreamID,
+        [out] NORMALIZEDRECT *pRect
+        );
+
+    HRESULT SetBackgroundClr(
+        [in] COLORREF ClrBkg
+        );
+
+    HRESULT GetBackgroundClr(
+        [in] COLORREF* lpClrBkg
+        );
+
+    HRESULT SetMixingPrefs(
+        [in] DWORD dwMixerPrefs  // a combination of VMRMixingPrefFlags
+        );
+
+    HRESULT GetMixingPrefs(
+        [out] DWORD* pdwMixerPrefs
+        );
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// VMR Multimon configuration interface
+//
+///////////////////////////////////////////////////////////////////////////////
+typedef struct tagVMRGUID {
+    GUID*       pGUID; // is NULL if the default DDraw device
+    GUID        GUID;   // otherwise points to this GUID
+} VMRGUID;
+
+#define VMRDEVICENAMELEN 32
+#define VMRDEVICEDESCRIPTIONLEN  256
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+typedef struct tagVMRMONITORINFO {
+    VMRGUID     guid;
+    RECT        rcMonitor;
+    HMONITOR    hMon;
+    DWORD       dwFlags;    // described in MONITORINFOEX, currently only MONITORINFOF_PRIMARY
+    wchar_t     szDevice[VMRDEVICENAMELEN];
+    wchar_t     szDescription[VMRDEVICEDESCRIPTIONLEN];
+    LARGE_INTEGER liDriverVersion;
+    DWORD       dwVendorId;
+    DWORD       dwDeviceId;
+    DWORD       dwSubSysId;
+    DWORD       dwRevision;
+    // find out the DDCAPS using DDrawCreate on the monitor GUID
+} VMRMONITORINFO;
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+[
+    object,
+    local,
+    uuid(9cf0b1b6-fbaa-4b7f-88cf-cf1f130a0dce),
+    helpstring("IVMRMonitorConfig Interface"),
+    pointer_default(unique)
+]
+interface IVMRMonitorConfig : IUnknown
+{
+    // Use this method on a Multi-Monitor system to specify to the
+    // mixer filter which Direct Draw driver should be used when connecting
+    // to an upstream decoder filter.
+    //
+    HRESULT SetMonitor(
+        [in] const VMRGUID *pGUID
+        );
+
+    // Use this method to determine the direct draw object that will be used when
+    // connecting the  mixer filter to an upstream decoder filter.
+    //
+    HRESULT GetMonitor(
+        [out] VMRGUID *pGUID
+        );
+
+    // Use this method on a multi-monitor system to specify to the
+    //  mixer filter the default Direct Draw device to use when
+    // connecting to an upstream filter.  The default direct draw device
+    // can be overriden for a particular connection by SetMonitor method
+    // described above.
+    //
+    HRESULT SetDefaultMonitor(
+        [in] const VMRGUID *pGUID
+        );
+
+    // Use this method on a multi-monitor system to determine which
+    // is the default direct draw device the overlay mixer filter
+    // will  use when connecting to an upstream filter.
+    //
+    HRESULT GetDefaultMonitor(
+        [out] VMRGUID *pGUID
+        );
+
+    // Use this method to get a list of Direct Draw device GUIDs and thier
+    // associated monitor information that the mixer can use when
+    // connecting to an upstream decoder filter.  Passing down a NULL pInfo
+    // parameter allows the app to determine the required array size (returned
+    // in pdwNumDevices).  Otherwise, dwNumDevices returns the actual
+    // number of devices retrieved.
+    //
+    HRESULT GetAvailableMonitors(
+        [out, size_is(dwMaxInfoArraySize)] VMRMONITORINFO* pInfo,
+        [in] DWORD dwMaxInfoArraySize, // in array members
+        [out] DWORD* pdwNumDevices // actual number of devices retrieved
+        );
+};
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// VMR Filter configuration interfaces
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+typedef enum VMRRenderPrefs {
+    RenderPrefs_RestrictToInitialMonitor     = 0x00000000, // not implemented do not use
+    RenderPrefs_ForceOffscreen               = 0x00000001,
+    RenderPrefs_ForceOverlays                = 0x00000002, // fail if no overlays
+    RenderPrefs_AllowOverlays                = 0x00000000, // overlay used by default
+    RenderPrefs_AllowOffscreen               = 0x00000000, // offscreen used if no overlay
+    RenderPrefs_DoNotRenderColorKeyAndBorder = 0x00000008, // app paints color keys
+    RenderPrefs_Reserved                     = 0x00000010, // note: used to be RestrictToInitialMonitor
+    RenderPrefs_PreferAGPMemWhenMixing       = 0x00000020, // try agp mem when allocating textures
+
+    RenderPrefs_Mask                         = 0x0000003f, // OR of all above flags
+} VMRRenderPrefs;
+
+typedef enum VMRMode {
+    VMRMode_Windowed                         = 0x00000001,
+    VMRMode_Windowless                       = 0x00000002,
+    VMRMode_Renderless                       = 0x00000004,
+
+    // not a valid value to pass to SetRenderMode
+    VMRMode_Mask                             = 0x00000007, // OR of all above flags
+} VMRMode;
+
+enum {
+        MAX_NUMBER_OF_STREAMS = 16
+};
+
+[
+    object,
+    local,
+    uuid(9e5530c5-7034-48b4-bb46-0b8a6efc8e36),
+    helpstring("IVMRFilterConfig Interface"),
+    pointer_default(unique)
+]
+interface IVMRFilterConfig : IUnknown
+{
+    HRESULT SetImageCompositor(
+        [in] IVMRImageCompositor* lpVMRImgCompositor
+        );
+
+    HRESULT SetNumberOfStreams(
+        [in] DWORD dwMaxStreams
+        );
+
+    HRESULT GetNumberOfStreams(
+        [out] DWORD* pdwMaxStreams
+        );
+
+    HRESULT SetRenderingPrefs(
+        [in] DWORD dwRenderFlags  // a combination of VMRRenderingPrefFlags
+        );
+
+    HRESULT GetRenderingPrefs(
+        [out] DWORD* pdwRenderFlags
+        );
+
+    HRESULT SetRenderingMode(
+        [in] DWORD Mode  // a combination of VMRMode
+        );
+
+    HRESULT GetRenderingMode(
+        [out] DWORD* pMode
+        );
+}
+
+
+//=====================================================================
+//
+// IVMRAspectRatioControl
+//
+//=====================================================================
+[
+    object,
+    local,
+    uuid(ede80b5c-bad6-4623-b537-65586c9f8dfd),
+    helpstring("IVMRAspectRatioControl Interface"),
+    pointer_default(unique)
+]
+interface IVMRAspectRatioControl : IUnknown
+{
+    HRESULT GetAspectRatioMode(
+        [out] LPDWORD lpdwARMode
+            );
+
+    HRESULT SetAspectRatioMode(
+        [in] DWORD dwARMode
+            );
+}
+
+
+//=====================================================================
+//
+// IVMRDeinterlaceControl
+//
+// New interfaced introduced into the WindowsXP SP1 release of the VMR.
+// This interface allows applications to control the DX-VA deinterlacing
+// support provided by the VMR.
+//
+// The VMR needs to be set into "mixing" mode for this interface to work.
+//
+// SetDeinterlaceMode is only effective for new connections made to the
+// VMR.  It should be noted that the graphics device driver may refuse
+// to use the specified deinterlace mode, in which case 3 fallback
+// policies are offered by the VMR, these being:
+//
+//      1. Fallback to the next best mode offered by the driver.
+//      2. Fallback to the BOB deinterlace mode.
+//      3. Fallback to the WEAVE deinterlace mode (ie. turn deinterlacing off).
+//
+//=====================================================================
+
+typedef enum VMRDeinterlacePrefs {
+    DeinterlacePref_NextBest = 0x01,
+    DeinterlacePref_BOB = 0x02,
+    DeinterlacePref_Weave = 0x04,
+    DeinterlacePref_Mask = 0x07
+} VMRDeinterlacePrefs;
+
+typedef enum VMRDeinterlaceTech {
+
+    // the algorithm is unknown or proprietary
+    DeinterlaceTech_Unknown                = 0x0000,
+
+    // the algorithm creates the missing lines by repeating
+    // the line either above or below it - this method will look very jaggy and
+    // isn't recommended
+    DeinterlaceTech_BOBLineReplicate       = 0x0001,
+
+
+    // the algorithm creates the missing lines by vertically stretching each
+    // video field by a factor of two, for example by averaging two lines or
+    // using a [-1, 9, 9, -1]/16 filter across four lines.
+    // Slight vertical adjustments are made to ensure that the resulting image
+    // does not "bob" up and down.
+    DeinterlaceTech_BOBVerticalStretch     = 0x0002,
+
+    // the pixels in the missing line are recreated by a median filtering operation
+    DeinterlaceTech_MedianFiltering        = 0x0004,
+
+    // the pixels in the missing line are recreated by an edge filter.
+    // In this process, spatial directional filters are applied to determine
+    // the orientation of edges in the picture content, and missing
+    // pixels are created by filtering along (rather than across) the
+    // detected edges.
+    DeinterlaceTech_EdgeFiltering          = 0x0010,
+
+    // the pixels in the missing line are recreated by switching on a field by
+    // field basis between using either spatial or temporal interpolation
+    // depending on the amount of motion.
+    DeinterlaceTech_FieldAdaptive          = 0x0020,
+
+    // the pixels in the missing line are recreated by switching on a pixel by pixel
+    // basis between using either spatial or temporal interpolation depending on
+    // the amount of motion..
+    DeinterlaceTech_PixelAdaptive          = 0x0040,
+
+    // Motion Vector Steering  identifies objects within a sequence of video
+    // fields.  The missing pixels are recreated after first aligning the
+    // movement axes of the individual objects in the scene to make them
+    // parallel with the time axis.
+    DeinterlaceTech_MotionVectorSteered      = 0x0080
+
+} VMRDeinterlaceTech;
+
+typedef struct _VMRFrequency {
+    DWORD dwNumerator;
+    DWORD dwDenominator;
+} VMRFrequency;
+
+typedef struct _VMRVideoDesc {
+    DWORD               dwSize;
+    DWORD               dwSampleWidth;
+    DWORD               dwSampleHeight;
+    BOOL                SingleFieldPerSample;
+    DWORD               dwFourCC;
+    VMRFrequency        InputSampleFreq;
+    VMRFrequency        OutputFrameFreq;
+} VMRVideoDesc;
+
+typedef struct _VMRDeinterlaceCaps {
+    DWORD               dwSize;
+    DWORD               dwNumPreviousOutputFrames;
+    DWORD               dwNumForwardRefSamples;
+    DWORD               dwNumBackwardRefSamples;
+    VMRDeinterlaceTech  DeinterlaceTechnology;
+} VMRDeinterlaceCaps;
+
+[
+    object,
+    local,
+    uuid(bb057577-0db8-4e6a-87a7-1a8c9a505a0f),
+    helpstring("IVMRDeinterlaceControl Interface"),
+    pointer_default(unique)
+]
+interface IVMRDeinterlaceControl : IUnknown
+{
+    //
+    // For the specified video description returns the
+    // number of deinterlacing modes available to the VMR.
+    // The deinterlacing modes are returned in descending
+    // quality order ie. the best quality mode is at
+    // lpdwNumDeinterlaceModes[0], the next best at
+    // lpdwNumDeinterlaceModes[1] and so on.
+    //
+    // To determine how big an array of guids to pass to the
+    // GetNumberOfDeinterlaceModes method call
+    // GetNumberOfDeinterlaceModes(lpVideoDescription, &dwNumModes, NULL);
+    //
+    HRESULT GetNumberOfDeinterlaceModes(
+        [in] VMRVideoDesc* lpVideoDescription,
+        [in] [out] LPDWORD lpdwNumDeinterlaceModes,
+        [out] LPGUID lpDeinterlaceModes
+        );
+
+    //
+    // For the given video description get the capabilities of the
+    // specified de-interlace mode.
+    //
+    HRESULT GetDeinterlaceModeCaps(
+        [in] LPGUID lpDeinterlaceMode,
+        [in] VMRVideoDesc* lpVideoDescription,
+        [in] [out] VMRDeinterlaceCaps* lpDeinterlaceCaps
+        );
+
+    //
+    // Get/Set the deinterlace mode that you would like the
+    // VMR to use when de-interlacing the specified stream.
+    // It should be noted that the VMR may not actually be able
+    // to use the requested deinterlace mode, in which case the
+    // the VMR will fall back to other de-interlace modes as specified
+    // by the de-interlace preferences (see SetDeinterlacePrefs below).
+    //
+    HRESULT GetDeinterlaceMode(
+        [in] DWORD dwStreamID,
+        [out] LPGUID lpDeinterlaceMode  // returns GUID_NULL if SetDeinterlaceMode
+        );                              // has not been called yet.
+
+    HRESULT SetDeinterlaceMode(
+        [in] DWORD dwStreamID,          // use 0xFFFFFFFF to set mode for all streams
+        [in] LPGUID lpDeinterlaceMode   // GUID_NULL == turn deinterlacing off
+        );
+
+
+    HRESULT GetDeinterlacePrefs(
+        [out] LPDWORD lpdwDeinterlacePrefs
+        );
+
+    HRESULT SetDeinterlacePrefs(
+        [in] DWORD dwDeinterlacePrefs
+        );
+
+    //
+    // Get the DeinterlaceMode currently in use for the specified
+    // video stream (ie. pin).  The returned GUID will be NULL if
+    // the de-interlacing h/w has not been created by the VMR at the
+    // time the function is called, or if the VMR determines that
+    // this stream should not or can be de-interlaced.
+    //
+    HRESULT GetActualDeinterlaceMode(
+        [in] DWORD dwStreamID,
+        [out] LPGUID lpDeinterlaceMode
+        );
+}
+
+
+//=====================================================================
+//
+// IVMRMixerBitmap
+//
+//=====================================================================
+typedef struct _VMRALPHABITMAP
+{
+    DWORD                   dwFlags;    // flags word
+    HDC                     hdc;        // DC for the bitmap to copy
+    LPDIRECTDRAWSURFACE7    pDDS;       // DirectDraw surface to copy
+    RECT                    rSrc;       // rectangle to copy from the DC/DDS
+    NORMALIZEDRECT          rDest;      // output rectangle in composition space
+    FLOAT	            fAlpha;     // opacity of the bitmap
+    COLORREF                clrSrcKey;  // src color key
+} VMRALPHABITMAP, *PVMRALPHABITMAP;
+
+// Disable the alpha bitmap for now
+cpp_quote("#define VMRBITMAP_DISABLE            0x00000001")
+
+// Take the bitmap from the HDC rather than the DirectDraw surface
+cpp_quote("#define VMRBITMAP_HDC                0x00000002")
+
+// Take the entire DDraw surface - rSrc is ignored
+cpp_quote("#define VMRBITMAP_ENTIREDDS          0x00000004")
+
+// Indicates that the clrTrans value is valid and should be
+// used when blending
+cpp_quote("#define VMRBITMAP_SRCCOLORKEY        0x00000008")
+
+// Indicates that the rSrc rectangle is valid and specifies a
+// sub-rectangle of the of original app image to be blended.
+// Use of this parameter enables "Image Strips"
+cpp_quote("#define VMRBITMAP_SRCRECT            0x00000010")
+
+[
+    object,
+    local,
+    uuid(1E673275-0257-40aa-AF20-7C608D4A0428),
+    helpstring("IVMRMixerBitmap Interface"),
+    pointer_default(unique)
+]
+interface IVMRMixerBitmap : IUnknown
+{
+    // Set bitmap, location to blend it, and blending value
+    HRESULT SetAlphaBitmap(
+        [in] const VMRALPHABITMAP *pBmpParms
+        );
+
+    // Change bitmap location, size and blending value,
+    // graph must be running for change to take effect.
+    HRESULT UpdateAlphaBitmapParameters(
+        [in] PVMRALPHABITMAP pBmpParms
+        );
+
+    // Get bitmap, location to blend it, and blending value
+    HRESULT GetAlphaBitmapParameters(
+        [out] PVMRALPHABITMAP pBmpParms
+        );
+};
+
+
+
+
+
+//=====================================================================
+//
+// IVMRImageCompositor
+//
+//=====================================================================
+
+typedef struct _VMRVIDEOSTREAMINFO {
+    LPDIRECTDRAWSURFACE7        pddsVideoSurface;
+    DWORD                       dwWidth, dwHeight;
+    DWORD                       dwStrmID;
+    FLOAT                       fAlpha;
+    DDCOLORKEY                  ddClrKey;
+    NORMALIZEDRECT              rNormal;
+} VMRVIDEOSTREAMINFO;
+[
+    local,
+    object,
+    local,
+    uuid(7a4fb5af-479f-4074-bb40-ce6722e43c82),
+    helpstring("IVMRImageCompositor Interface"),
+    pointer_default(unique)
+]
+interface IVMRImageCompositor : IUnknown
+{
+    HRESULT InitCompositionTarget(
+        [in] IUnknown* pD3DDevice,
+        [in] LPDIRECTDRAWSURFACE7 pddsRenderTarget
+        );
+
+    HRESULT TermCompositionTarget(
+        [in] IUnknown* pD3DDevice,
+        [in] LPDIRECTDRAWSURFACE7 pddsRenderTarget
+        );
+
+    HRESULT SetStreamMediaType(
+        [in] DWORD dwStrmID,
+        [in] AM_MEDIA_TYPE* pmt,
+        [in] BOOL fTexture
+        );
+
+    HRESULT CompositeImage(
+        [in] IUnknown* pD3DDevice,
+        [in] LPDIRECTDRAWSURFACE7 pddsRenderTarget,
+        [in] AM_MEDIA_TYPE* pmtRenderTarget,
+        [in] REFERENCE_TIME rtStart,
+        [in] REFERENCE_TIME rtEnd,
+        [in] DWORD dwClrBkGnd,
+        [in] VMRVIDEOSTREAMINFO* pVideoStreamInfo,
+        [in] UINT cStreams
+        );
+};
+
+
+
+//=====================================================================
+//
+// IVMRVideoStreamControl
+//
+//=====================================================================
+[
+    object,
+    local,
+    uuid(058d1f11-2a54-4bef-bd54-df706626b727),
+    helpstring("IVMRMixerStreamConfig Interface"),
+    pointer_default(unique)
+]
+interface IVMRVideoStreamControl: IUnknown
+{
+    HRESULT SetColorKey(
+        [in] LPDDCOLORKEY lpClrKey // Source color key, set to 0xFFFFFFFF to disable
+        );
+
+    HRESULT GetColorKey(
+        [out] LPDDCOLORKEY lpClrKey
+        );
+
+
+    HRESULT SetStreamActiveState(
+        [in] BOOL fActive
+        );
+
+    HRESULT GetStreamActiveState(
+        [out] BOOL* lpfActive
+        );
+};
+
+
+
+//=====================================================================
+//
+// IVMRSurface
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(a9849bbe-9ec8-4263-b764-62730f0d15d0),
+    helpstring("IVMRSurface Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurface : IUnknown
+{
+    HRESULT IsSurfaceLocked();
+
+    HRESULT LockSurface(
+        [out] BYTE** lpSurface
+        );
+
+    HRESULT UnlockSurface();
+
+    HRESULT GetSurface(
+        [out] LPDIRECTDRAWSURFACE7 *lplpSurface
+        );
+};
+
+
+
+//=====================================================================
+//
+// IID_IVMRImagePresenterConfig - this interface allows applications
+// to configure the default Microsoft provided allocator-presenter
+// inorder to simplify the implementation of their own
+// allocator-presenter plug-in.
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(9f3a1c85-8555-49ba-935f-be5b5b29d178),
+    helpstring("IVMRImagePresenterConfig Interface"),
+    pointer_default(unique)
+]
+
+interface IVMRImagePresenterConfig : IUnknown
+{
+
+    HRESULT SetRenderingPrefs(
+        [in] DWORD dwRenderFlags   // see VMRRenderPrefs for valid flags
+        );
+
+    HRESULT GetRenderingPrefs(
+        [out] DWORD* dwRenderFlags // see VMRRenderPrefs for valid flags
+        );
+
+}
+
+//=====================================================================
+//
+// IID_IVMRImagePresenterExclModeConfig - this interface allows applications
+// to configure the DDraw exclusive mode allocator-presenter.  This
+// interface extends the IVMRImagePresenterConfig interface defined
+// above and is only implemented by the CLSID_AllocPresenterDDXclMode
+// allocator-presenter object.
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(e6f7ce40-4673-44f1-8f77-5499d68cb4ea),
+    helpstring("IVMRImagePresenterExclModeConfig Interface"),
+    pointer_default(unique)
+]
+
+interface IVMRImagePresenterExclModeConfig : IVMRImagePresenterConfig
+{
+    HRESULT SetXlcModeDDObjAndPrimarySurface(
+        [in] LPDIRECTDRAW7 lpDDObj,
+        [in] LPDIRECTDRAWSURFACE7 lpPrimarySurf
+        );
+
+    HRESULT GetXlcModeDDObjAndPrimarySurface(
+        [out] LPDIRECTDRAW7* lpDDObj,
+        [out] LPDIRECTDRAWSURFACE7* lpPrimarySurf
+        );
+}
+
+
+//=====================================================================
+//
+// IVPManager
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(aac18c18-e186-46d2-825d-a1f8dc8e395a),
+    helpstring("IVPManager Interface"),
+    pointer_default(unique)
+]
+interface IVPManager : IUnknown
+{
+    // Use this method on a Multi-Monitor system to specify to the
+    // video port manager filter which videoport index is used
+    // to an upstream decoder filter.
+    //
+    HRESULT SetVideoPortIndex(
+        [in] DWORD dwVideoPortIndex // the video port number that this is connected to
+        );
+
+    // This method returns the current video port index being used by the VPM.
+    //
+    HRESULT GetVideoPortIndex(
+        [out] DWORD* pdwVideoPortIndex // the video port number that this is connected to
+        );
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

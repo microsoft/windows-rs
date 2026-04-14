@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+           xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="FileExplorerContextMenus" type="CT_FileExplorerContextMenus"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Desktop4" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_FileExplorerContextMenus">
+    <xs:sequence minOccurs="0" maxOccurs="10000">
+      <xs:element name="ItemType" type="CT_ItemType" minOccurs="0"/>
+      <xs:element ref="desktop5:ItemType" minOccurs="0"/>
+      <xs:element ref="desktop10:ItemType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ItemType">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Verb" maxOccurs="10000">
+        <xs:complexType>
+          <xs:attribute name="Id" type="t:ST_FileTypeAssociationSupportedVerbId" use="required" />
+          <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Type" type="t:ST_FileTypeOrStar" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="DesktopIconOverlayHandlers">
+    <xs:complexType >
+      <xs:sequence minOccurs="0">
+        <xs:element name="DesktopIconOverlayHandler" maxOccurs="10000">
+          <xs:complexType>
+            <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ContentUriSource">
+    <xs:complexType>
+      <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attribute name="Subsystem" type="t:ST_Subsystem"/>
+  <xs:attribute name="SupportsMultipleInstances" type="xs:boolean"/>
+
+</xs:schema>
+
+

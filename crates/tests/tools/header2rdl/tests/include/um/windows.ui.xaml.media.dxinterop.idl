@@ -1,0 +1,132 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+import "oaidl.idl";
+import "dxgi.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// The following typedefs are used internally by MIDL.
+cpp_quote("#if 0")
+    /* MIDL 2.0+ definitions */
+    typedef RECT *REFRECT;
+cpp_quote("#endif // 0")
+
+cpp_quote("#ifndef REFRECT")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#define REFRECT const RECT &")
+cpp_quote("#else // !__cplusplus")
+cpp_quote("#define REFRECT const RECT * __MIDL_CONST")
+cpp_quote("#endif // __cplusplus")
+cpp_quote("#endif //REFRECT")
+
+[
+    object,
+    uuid( f2e9edc1-d307-4525-9886-0fafaa44163c ),
+    local,
+    pointer_default(unique)
+]
+interface ISurfaceImageSourceNative: IUnknown
+{
+    HRESULT SetDevice([in, annotation("_In_")] IDXGIDevice *device);
+    HRESULT BeginDraw([in, annotation("_In_")] RECT updateRect, [out, annotation("_Out_")] IDXGISurface** surface, [out, annotation("_Out_")] POINT* offset);
+    HRESULT EndDraw();
+}
+
+[
+    object,
+    uuid( dbf2e947-8e6c-4254-9eee-7738f71386c9 ),
+    local,
+    pointer_default(unique)
+]
+interface IVirtualSurfaceUpdatesCallbackNative: IUnknown
+{
+    HRESULT UpdatesNeeded();
+}
+
+[
+    object,
+    uuid( e9550983-360b-4f53-b391-afd695078691 ),
+    local,
+    pointer_default(unique)
+]
+interface IVirtualSurfaceImageSourceNative: ISurfaceImageSourceNative
+{
+	HRESULT Invalidate([in, annotation("_In_")] RECT updateRect);
+	HRESULT GetUpdateRectCount([out, annotation("_Out_")] DWORD *count);
+	HRESULT GetUpdateRects([out, size_is(count), annotation("_Out_writes_(count)")] RECT *updates, [in, annotation("_In_")] DWORD count);
+	HRESULT GetVisibleBounds([out, annotation("_Out_")] RECT *bounds);
+	HRESULT RegisterForUpdatesNeeded([in, annotation("_In_opt_")] IVirtualSurfaceUpdatesCallbackNative *callback);
+	HRESULT Resize([in, annotation("_In_")] INT newWidth, [in, annotation("_In_")] INT newHeight);
+}
+
+[
+    object,
+    uuid( 43bebd4e-add5-4035-8f85-5608d08e9dc9 ),
+    local,
+    pointer_default(unique)
+]
+interface ISwapChainBackgroundPanelNative: IUnknown
+{
+    HRESULT SetSwapChain([in, annotation("_In_")] IDXGISwapChain *swapChain);
+}
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WIN8")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+cpp_quote("#define E_SURFACE_CONTENTS_LOST 0x802b0020")
+
+[
+    object,
+    uuid( 4C8798B7-1D88-4A0F-B59B-B93F600DE8C8 ),
+    local,
+    pointer_default(unique)
+]
+interface ISurfaceImageSourceManagerNative: IUnknown
+{
+    HRESULT FlushAllSurfacesWithDevice([in, annotation("_In_")] IUnknown *device);
+}
+
+// ISurfaceImageSourceNativeWithD2D:  Interface which enables coalesced D2D batches and drawing off-thread.
+// Clients QI for this interface off of SurfaceImageSource or VirtualSurfaceImageSource.
+[
+    object,
+    uuid( 54298223-41e1-4a41-9c08-02e8256864a1 ),
+    local,
+    pointer_default(unique)
+]
+interface ISurfaceImageSourceNativeWithD2D: IUnknown
+{
+    HRESULT SetDevice([in, annotation("_In_")] IUnknown* device);
+    HRESULT BeginDraw([in, annotation("_In_")] REFRECT updateRect, [in, annotation("_In_")] REFIID iid, [out, annotation("_COM_Outptr_")] void** updateObject, [out, annotation("_Out_")] POINT* offset);
+    HRESULT EndDraw();
+    HRESULT SuspendDraw();
+    HRESULT ResumeDraw();
+}
+
+[
+    object,
+    uuid( F92F19D2-3ADE-45A6-A20C-F6F1EA90554B ),
+    local,
+    pointer_default(unique)
+]
+interface ISwapChainPanelNative: IUnknown
+{
+    HRESULT SetSwapChain([in, annotation("_In_")] IDXGISwapChain *swapChain);
+}
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WINBLUE")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+[
+    object,
+    uuid( D5A2F60C-37B2-44A2-937B-8D8EB9726821 ),
+    local,
+    pointer_default(unique)
+]
+interface ISwapChainPanelNative2: ISwapChainPanelNative
+{
+    HRESULT SetSwapChainHandle([in, annotation("_In_")] HANDLE swapChainHandle);
+}
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WINTHRESHOLD")
+

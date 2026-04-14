@@ -1,0 +1,30 @@
+// ctgmath standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CTGMATH_
+#define _CTGMATH_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <cmath>
+#include <complex>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+using _Header_ctgmath _CXX17_DEPRECATE_C_HEADER = int;
+using _Hdr_ctgmath                              = _Header_ctgmath;
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CTGMATH_

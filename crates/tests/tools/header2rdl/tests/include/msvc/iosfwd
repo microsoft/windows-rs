@@ -1,0 +1,283 @@
+// iosfwd standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _IOSFWD_
+#define _IOSFWD_
+#include <yvals.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <cstdio>
+#include <cstring>
+#include <cwchar>
+#include <xtr1common>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+
+#if _HAS_EXCEPTIONS
+#define _TRY_IO_BEGIN _TRY_BEGIN // begin try block
+
+#define _CATCH_IO_END                                                          \
+    _CATCH_ALL /* catch block for _Myios */                                    \
+        _Myios::setstate(ios_base::badbit, true); /* set badbit and rethrow */ \
+    _CATCH_END
+
+#define _CATCH_IO_(xtype, x)                                             \
+    _CATCH_ALL /* catch block for basic_ios x */                         \
+        (x)                                                              \
+            .setstate(xtype::badbit, true); /* set badbit and rethrow */ \
+    _CATCH_END
+
+#else // ^^^ _HAS_EXCEPTIONS / !_HAS_EXCEPTIONS vvv
+#define _TRY_IO_BEGIN        { // begin try block
+#define _CATCH_IO_END        } // catch block for _Myios
+#define _CATCH_IO_(xtype, x) } // catch block for basic_ios x
+#endif // ^^^ !_HAS_EXCEPTIONS ^^^
+
+// from <streambuf>
+_EXPORT_STD using streamoff  = long long;
+_EXPORT_STD using streamsize = long long;
+
+_EXPORT_STD template <class _Statetype>
+class fpos { // store arbitrary file position
+public:
+    /* implicit */ fpos(streamoff _Off = 0) : _Myoff(_Off), _Fpos(0), _Mystate() {}
+
+    fpos(_Statetype _State, fpos_t _Fileposition) : _Myoff(_Fileposition), _Fpos(0), _Mystate(_State) {}
+
+    _NODISCARD _Statetype state() const {
+        return _Mystate;
+    }
+
+    void state(_Statetype _State) {
+        _Mystate = _State;
+    }
+
+    operator streamoff() const noexcept /* strengthened */ {
+        // TRANSITION, ABI: We currently always set _Fpos to 0 but older .objs containing old
+        // basic_filebuf would set _Fpos.
+        return _Myoff + _Fpos;
+    }
+
+    _NODISCARD streamoff operator-(const fpos& _Right) const noexcept /* strengthened */ {
+        return static_cast<streamoff>(*this) - static_cast<streamoff>(_Right);
+    }
+
+    fpos& operator+=(streamoff _Off) noexcept /* strengthened */ { // add offset
+        _Myoff += _Off;
+        return *this;
+    }
+
+    fpos& operator-=(streamoff _Off) noexcept /* strengthened */ { // subtract offset
+        _Myoff -= _Off;
+        return *this;
+    }
+
+    _NODISCARD fpos operator+(streamoff _Off) const {
+        fpos _Tmp = *this;
+        _Tmp += _Off;
+        return _Tmp;
+    }
+
+    _NODISCARD fpos operator-(streamoff _Off) const {
+        fpos _Tmp = *this;
+        _Tmp -= _Off;
+        return _Tmp;
+    }
+
+    _NODISCARD bool operator==(const fpos& _Right) const noexcept /* strengthened */ {
+        return static_cast<streamoff>(*this) == static_cast<streamoff>(_Right);
+    }
+
+    template <class _Int, enable_if_t<is_integral_v<_Int>, int> = 0>
+    _NODISCARD friend bool operator==(const fpos& _Left, const _Int _Right) noexcept /* strengthened */ {
+        return static_cast<streamoff>(_Left) == _Right;
+    }
+
+#if !_HAS_CXX20
+    template <class _Int, enable_if_t<is_integral_v<_Int>, int> = 0>
+    _NODISCARD friend bool operator==(const _Int _Left, const fpos& _Right) noexcept /* strengthened */ {
+        return _Left == static_cast<streamoff>(_Right);
+    }
+
+    _NODISCARD bool operator!=(const fpos& _Right) const noexcept /* strengthened */ {
+        return static_cast<streamoff>(*this) != static_cast<streamoff>(_Right);
+    }
+
+    template <class _Int, enable_if_t<is_integral_v<_Int>, int> = 0>
+    _NODISCARD friend bool operator!=(const fpos& _Left, const _Int _Right) noexcept /* strengthened */ {
+        return static_cast<streamoff>(_Left) != _Right;
+    }
+
+    template <class _Int, enable_if_t<is_integral_v<_Int>, int> = 0>
+    _NODISCARD friend bool operator!=(const _Int _Left, const fpos& _Right) noexcept /* strengthened */ {
+        return _Left != static_cast<streamoff>(_Right);
+    }
+#endif // !_HAS_CXX20
+
+private:
+    streamoff _Myoff; // stream offset
+    fpos_t _Fpos; // TRANSITION, ABI. C file position, not currently used
+    _Statetype _Mystate; // current conversion state
+};
+
+_EXPORT_STD using streampos  = fpos<_Mbstatet>;
+_EXPORT_STD using wstreampos = streampos;
+#ifdef __cpp_lib_char8_t
+_EXPORT_STD using u8streampos = streampos;
+#endif // defined(__cpp_lib_char8_t)
+_EXPORT_STD using u16streampos = streampos;
+_EXPORT_STD using u32streampos = streampos;
+
+_EXPORT_STD extern "C++" class locale;
+_EXPORT_STD template <class _Facet>
+const _Facet& __CRTDECL use_facet(const locale&);
+
+_EXPORT_STD template <class _Elem>
+struct char_traits;
+template <>
+struct char_traits<char>;
+#ifdef __cpp_char8_t
+template <>
+struct char_traits<char8_t>;
+#endif // defined(__cpp_char8_t)
+template <>
+struct char_traits<char16_t>;
+template <>
+struct char_traits<char32_t>;
+template <>
+struct char_traits<wchar_t>;
+#ifdef _CRTBLD
+template <>
+struct char_traits<unsigned short>;
+#endif // defined(_CRTBLD)
+
+_EXPORT_STD template <class _Ty>
+class allocator;
+_EXPORT_STD extern "C++" class ios_base;
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_ios;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class istreambuf_iterator;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class ostreambuf_iterator;
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_streambuf;
+
+#pragma vtordisp(push, 2) // compiler bug workaround
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_istream;
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_ostream;
+#pragma vtordisp(pop) // compiler bug workaround
+
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_iostream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+class basic_stringbuf;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+class basic_istringstream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+class basic_ostringstream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+class basic_stringstream;
+#if _HAS_CXX23
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_spanbuf;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_ispanstream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_ospanstream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_spanstream;
+#endif // _HAS_CXX23
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_filebuf;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_ifstream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_ofstream;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>>
+class basic_fstream;
+#if _HAS_CXX20
+template <class _Elem, class _Traits = char_traits<_Elem>>
+class _Basic_syncbuf_impl;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+class basic_syncbuf;
+_EXPORT_STD template <class _Elem, class _Traits = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+class basic_osyncstream;
+#endif // _HAS_CXX20
+
+#if defined(_DLL_CPPLIB)
+_EXPORT_STD extern "C++" template <class _Elem, class _InIt>
+class num_get;
+_EXPORT_STD extern "C++" template <class _Elem, class _OutIt>
+class num_put;
+_EXPORT_STD template <class _Elem>
+class collate;
+#endif // defined(_DLL_CPPLIB)
+
+_EXPORT_STD using ios           = basic_ios<char, char_traits<char>>;
+_EXPORT_STD using streambuf     = basic_streambuf<char, char_traits<char>>;
+_EXPORT_STD using istream       = basic_istream<char, char_traits<char>>;
+_EXPORT_STD using ostream       = basic_ostream<char, char_traits<char>>;
+_EXPORT_STD using iostream      = basic_iostream<char, char_traits<char>>;
+_EXPORT_STD using stringbuf     = basic_stringbuf<char, char_traits<char>, allocator<char>>;
+_EXPORT_STD using istringstream = basic_istringstream<char, char_traits<char>, allocator<char>>;
+_EXPORT_STD using ostringstream = basic_ostringstream<char, char_traits<char>, allocator<char>>;
+_EXPORT_STD using stringstream  = basic_stringstream<char, char_traits<char>, allocator<char>>;
+_EXPORT_STD using filebuf       = basic_filebuf<char, char_traits<char>>;
+_EXPORT_STD using ifstream      = basic_ifstream<char, char_traits<char>>;
+_EXPORT_STD using ofstream      = basic_ofstream<char, char_traits<char>>;
+_EXPORT_STD using fstream       = basic_fstream<char, char_traits<char>>;
+#if _HAS_CXX20
+_EXPORT_STD using syncbuf     = basic_syncbuf<char>;
+_EXPORT_STD using osyncstream = basic_osyncstream<char>;
+#endif // _HAS_CXX20
+#if _HAS_CXX23
+_EXPORT_STD using spanbuf     = basic_spanbuf<char>;
+_EXPORT_STD using ispanstream = basic_ispanstream<char>;
+_EXPORT_STD using ospanstream = basic_ospanstream<char>;
+_EXPORT_STD using spanstream  = basic_spanstream<char>;
+#endif // _HAS_CXX23
+
+_EXPORT_STD using wios           = basic_ios<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wstreambuf     = basic_streambuf<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wistream       = basic_istream<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wostream       = basic_ostream<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wiostream      = basic_iostream<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wstringbuf     = basic_stringbuf<wchar_t, char_traits<wchar_t>, allocator<wchar_t>>;
+_EXPORT_STD using wistringstream = basic_istringstream<wchar_t, char_traits<wchar_t>, allocator<wchar_t>>;
+_EXPORT_STD using wostringstream = basic_ostringstream<wchar_t, char_traits<wchar_t>, allocator<wchar_t>>;
+_EXPORT_STD using wstringstream  = basic_stringstream<wchar_t, char_traits<wchar_t>, allocator<wchar_t>>;
+_EXPORT_STD using wfilebuf       = basic_filebuf<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wifstream      = basic_ifstream<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wofstream      = basic_ofstream<wchar_t, char_traits<wchar_t>>;
+_EXPORT_STD using wfstream       = basic_fstream<wchar_t, char_traits<wchar_t>>;
+#if _HAS_CXX20
+_EXPORT_STD using wsyncbuf     = basic_syncbuf<wchar_t>;
+_EXPORT_STD using wosyncstream = basic_osyncstream<wchar_t>;
+#endif // _HAS_CXX20
+#if _HAS_CXX23
+_EXPORT_STD using wspanbuf     = basic_spanbuf<wchar_t>;
+_EXPORT_STD using wispanstream = basic_ispanstream<wchar_t>;
+_EXPORT_STD using wospanstream = basic_ospanstream<wchar_t>;
+_EXPORT_STD using wspanstream  = basic_spanstream<wchar_t>;
+#endif // _HAS_CXX23
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _IOSFWD_

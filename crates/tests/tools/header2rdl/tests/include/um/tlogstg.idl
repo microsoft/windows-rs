@@ -1,0 +1,188 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       Tlogstg.idl
+//
+//  Contents:   TravelLog public interfaces
+//
+//  Classes:
+//
+//  Functions:
+//
+//  History:    10-DEC-99  Sifrim (Silviu Ifrim)  - created
+//
+//----------------------------------------------------------------------------
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// tlogstg.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("//---------------------------------------------------------------------------=")
+cpp_quote("// ITravelLogStg Interface.")
+cpp_quote("")
+cpp_quote("#define SID_STravelLogCursor IID_ITravelLogStg ")
+
+import "objidl.idl";
+import "oleidl.idl";
+
+import "shtypes.idl";
+
+typedef struct _WINDOWDATA
+{
+    DWORD     dwWindowID;                   // Window ID
+    UINT      uiCP;                         // Codepage of the current entry
+    PIDLIST_ABSOLUTE  pidl;                 // Current pidl - pidl and lpszUrl are exclusive.
+    [string]  LPWSTR lpszUrl;               // Pointer to a buffer to hold the window URL
+    [string]  LPWSTR lpszUrlLocation;       // Pointer to a buffer to hold the window URL Location (local anchor).
+    [string]  LPWSTR lpszTitle;             // Pointer to a buffer to hold the window Title
+} WINDOWDATA;
+
+typedef WINDOWDATA * LPWINDOWDATA;
+typedef const WINDOWDATA * LPCWINDOWDATA;
+
+// ITravelLogEntry
+[
+    object,
+    uuid(7EBFDD87-AD18-11d3-A4C5-00C04F72D6B8), //IID_ITravelLogEntry
+    helpstring("ITravelLogEntry interface"),
+]
+interface ITravelLogEntry : IUnknown
+{
+    [helpstring("Get page title"), helpcontext(0x0000)]
+    HRESULT GetTitle([out] LPWSTR *ppszTitle);
+
+    [helpstring("Get URL"), helpcontext(0x0000)]
+    HRESULT GetURL([out] LPWSTR *ppszURL);
+};
+
+[
+    uuid(241c033e-e659-43da-aa4d-4086dbc4758d), // IID_ITravelLogClient
+    object,
+    helpstring("ITravelClient interface"),
+    helpcontext(0x0000)
+]
+interface ITravelLogClient : IUnknown
+{
+    [helpstring("Finds the window with the specified index."), helpcontext(0x0000)]
+    HRESULT FindWindowByIndex(
+        [in] DWORD dwID,
+        [out] IUnknown ** ppunk);
+    
+    [helpstring("Finds and returns the travel entry containing the specified URL."), helpcontext(0x0000)]
+    HRESULT GetWindowData(
+        [in] IStream *pStream,
+        [out] LPWINDOWDATA pWinData);
+
+    [helpstring("Loads the Url Location and position"), helpcontext(0x0000)]
+    HRESULT LoadHistoryPosition(
+        [in] LPWSTR pszUrlLocation,
+        [in] DWORD dwPosition);
+};
+
+//IEnumTravelLogEntry
+[
+    object,
+    uuid(7EBFDD85-AD18-11d3-A4C5-00C04F72D6B8), //IID_IEnumTravelLogEntry
+    helpstring("IEnumTravelLogEntry interface"),
+    helpcontext(0x0000),
+]
+interface IEnumTravelLogEntry : IUnknown 
+{ 
+    [helpstring("Get the next items in the enumeration sequence"), helpcontext(0x0000)]
+    HRESULT Next(
+        [in]                        ULONG cElt,
+        [out, 
+         size_is(cElt), 
+         length_is(*pcEltFetched)]  ITravelLogEntry **rgElt,
+        [out]                       ULONG* pcEltFetched);
+
+    [helpstring("Skip over the next cElt elements"), helpcontext(0x0000)]
+    HRESULT Skip(
+        [in] ULONG cElt);
+
+    [helpstring("Reset the enumeration sequence"), helpcontext(0x0000)]
+    HRESULT Reset(void);
+
+    [helpstring("Creates a copy of the current state of enumeration"), helpcontext(0x0000)]
+    HRESULT Clone(
+        [out] IEnumTravelLogEntry **ppEnum);
+ };
+
+
+
+[
+    uuid(7EBFDD80-AD18-11d3-A4C5-00C04F72D6B8),  // IID_ITravelLogStg 
+    object,
+    pointer_default(unique),
+]
+interface ITravelLogStg : IUnknown
+{
+    // care on these, they should match TLMENUF_xxx
+    enum tagTLENUMF
+    {
+        TLEF_RELATIVE_INCLUDE_CURRENT   = 0x00000001,
+        TLEF_RELATIVE_BACK              = 0x00000010,
+        TLEF_RELATIVE_FORE              = 0x00000020,
+        TLEF_INCLUDE_UNINVOKEABLE       = 0x00000040,
+        TLEF_ABSOLUTE                   = 0x00000031,
+        TLEF_EXCLUDE_SUBFRAME_ENTRIES   = 0x00000080,
+        TLEF_EXCLUDE_ABOUT_PAGES        = 0x00000100,
+    };
+    typedef DWORD TLENUMF;
+
+    [helpstring("Insert a dummy entry in the travel log"), helpcontext(0x0000)]
+    HRESULT CreateEntry(
+        [in] LPCWSTR pszUrl,
+        [in] LPCWSTR pszTitle,
+        [in] ITravelLogEntry *ptleRelativeTo,
+        [in] BOOL fPrepend,
+        [out] ITravelLogEntry **pptle);
+
+    [helpstring("Navigate to an entry"), helpcontext(0x0000)]
+    HRESULT TravelTo(
+        [in] ITravelLogEntry *ptle);
+
+    [helpstring("Create enumerator for travel log entries"), helpcontext(0x0000)]
+    HRESULT EnumEntries(
+        [in] TLENUMF flags,
+        [out] IEnumTravelLogEntry **ppenum);
+
+    [helpstring("Search for all entries with given URL"), helpcontext(0x0000)]
+    HRESULT FindEntries(
+        [in] TLENUMF flags,
+        [in] LPCWSTR pszUrl,
+        [out] IEnumTravelLogEntry **ppenum);
+
+    [helpstring("Number of entries in the travel log"), helpcontext(0x0000)]
+    HRESULT GetCount(
+        [in] TLENUMF flags,
+        [out] DWORD *pcEntries);
+    
+    [helpstring("Delete from travel log"), helpcontext(0x0000)]
+    HRESULT RemoveEntry(
+        [in] ITravelLogEntry *ptle);
+       
+    [helpstring("Get entry from the travel log"), helpcontext(0x0000)]
+    HRESULT GetRelativeEntry(
+        [in] int iOffset,
+        [out] ITravelLogEntry **ptle);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

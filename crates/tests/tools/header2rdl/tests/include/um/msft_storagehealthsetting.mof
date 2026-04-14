@@ -1,0 +1,15 @@
+[ClassVersion( "1.0" ), Abstract, Description(
+    "This class represents the Name - Value pairs for storage health settings related to the subsystem."
+    )]
+class MSFT_StorageHealthSetting
+{
+    [Read, Description(
+        "Name of the storage health setting"
+        )]
+    String Name;
+    
+    [Read, Description(
+        "Value of the storage health setting."
+        )]
+    String Value;
+};

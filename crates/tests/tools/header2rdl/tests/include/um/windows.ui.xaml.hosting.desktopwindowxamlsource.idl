@@ -1,0 +1,34 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+import "oaidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)")
+
+[
+    object,
+    uuid( 3cbcf1bf-2f76-4e9c-96ab-e84b37972554 ),
+    local,
+    pointer_default(unique)
+]
+interface IDesktopWindowXamlSourceNative: IUnknown
+{
+    HRESULT AttachToWindow([in, annotation("_In_")] HWND parentWnd);
+    [propget] HRESULT WindowHandle([out, retval] HWND* hWnd);
+};
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WIN10_RS5")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+
+[
+    object,
+    uuid( e3dcd8c7-3057-4692-99c3-7b7720afda31 ),
+    local,
+    pointer_default(unique)
+]
+interface IDesktopWindowXamlSourceNative2: IDesktopWindowXamlSourceNative
+{
+    HRESULT PreTranslateMessage([in, annotation("_In_")] const MSG* message, [out, retval] BOOL* result);
+};
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1")

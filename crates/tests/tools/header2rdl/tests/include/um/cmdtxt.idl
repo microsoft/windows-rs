@@ -1,0 +1,60 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			cmdtxt.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+	REMOTED_INTERFACE(0c733a27-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface ICommandText : ICommand {
+
+	[local]
+	HRESULT GetCommandText(
+		[in, out, annotation("_Inout_opt_")] GUID * pguidDialect,
+		[out, annotation("_Outptr_")] LPOLESTR * ppwszCommand
+	);
+
+	[call_as(GetCommandText)]
+	HRESULT RemoteGetCommandText(
+		[in, out, unique] GUID * pguidDialect,
+		[out] LPOLESTR * ppwszCommand,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT SetCommandText(
+		[in] REFGUID rguidDialect,
+		[in, unique, annotation("_In_opt_z_")] LPCOLESTR pwszCommand
+	);
+
+	[call_as(SetCommandText)]
+	HRESULT RemoteSetCommandText(
+		[in] REFGUID rguidDialect,
+		[in, unique] LPCOLESTR pwszCommand,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

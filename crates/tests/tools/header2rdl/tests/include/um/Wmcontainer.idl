@@ -1,0 +1,1412 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+cpp_quote("#include <winapifamily.h>")
+
+import "mfidl.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+///////////////////////////////////////////////////////////////////////////////
+// 
+// ASF content description
+//
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+interface IMFASFProfile;
+
+[
+    object,
+    uuid(B1DCA5CD-D5DA-4451-8E9E-DB5C59914EAD),
+    local
+]
+interface IMFASFContentInfo : IUnknown
+{
+    //
+    //  Methods for Parsing & Creating Headers
+    //
+    HRESULT GetHeaderSize(
+        [in]      IMFMediaBuffer *pIStartOfContent,
+        [out]     QWORD          *cbHeaderSize);
+
+    HRESULT ParseHeader(
+        [in]      IMFMediaBuffer  *pIHeaderBuffer,
+        [in]      QWORD           cbOffsetWithinHeader);
+
+    HRESULT GenerateHeader(
+        [in, out] IMFMediaBuffer   *pIHeader,
+        [out]     DWORD            *pcbHeader);
+
+    //
+    //  Methods for working with ASF profiles
+    //
+    HRESULT GetProfile(
+        [out]     IMFASFProfile **ppIProfile);
+
+    HRESULT SetProfile(
+        [in]      IMFASFProfile  *pIProfile);
+
+
+    //
+    //  Methods for use when reading existing content
+    //  Generates an IMFPresentationDescriptor describing the content
+    // 
+    HRESULT GeneratePresentationDescriptor(
+        [out]     IMFPresentationDescriptor **ppIPresentationDescriptor);
+
+    //
+    //  Methods for configuring encoding
+    //  Setting wStreamNumber to 0 retrieves the IPropertyStore for file-wide
+    //  encoding settings
+    //
+    HRESULT GetEncodingConfigurationPropertyStore(
+        [in]      WORD           wStreamNumber,
+        [out]     IPropertyStore **ppIStore);
+};
+
+cpp_quote("STDAPI MFCreateASFContentInfo( ")
+cpp_quote("        /* out */     IMFASFContentInfo     **ppIContentInfo);")
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+interface IMFASFStreamConfig;
+interface IMFASFMutualExclusion;
+interface IMFASFStreamPrioritization;
+
+[
+    object,
+    uuid(D267BF6A-028B-4e0d-903D-43F0EF82D0D4),
+    local
+]
+interface IMFASFProfile : IMFAttributes
+{
+    HRESULT GetStreamCount(
+        [out] DWORD                   *pcStreams);
+
+    HRESULT GetStream(
+        [in]  DWORD                    dwStreamIndex,
+        [out] WORD                    *pwStreamNumber,
+        [out] IMFASFStreamConfig     **ppIStream);
+
+    HRESULT GetStreamByNumber(
+        [in]  WORD                     wStreamNumber,
+        [out] IMFASFStreamConfig     **ppIStream);
+
+    HRESULT SetStream(
+        [in]  IMFASFStreamConfig      *pIStream);
+
+    HRESULT RemoveStream(
+        [in]  WORD                     wStreamNumber);
+
+    HRESULT CreateStream(
+        [in]  IMFMediaType            *pIMediaType,
+        [out] IMFASFStreamConfig     **ppIStream);
+
+
+
+    HRESULT GetMutualExclusionCount(
+        [out] DWORD                   *pcMutexs);
+
+    HRESULT GetMutualExclusion(
+        [in]  DWORD                    dwMutexIndex,
+        [out] IMFASFMutualExclusion  **ppIMutex);
+
+    HRESULT AddMutualExclusion(
+        [in]  IMFASFMutualExclusion   *pIMutex);
+
+    HRESULT RemoveMutualExclusion(
+        [in]  DWORD                    dwMutexIndex);
+
+    HRESULT CreateMutualExclusion(
+        [out] IMFASFMutualExclusion  **ppIMutex);
+
+
+    HRESULT GetStreamPrioritization(
+        [out] IMFASFStreamPrioritization **ppIStreamPrioritization);
+
+    HRESULT AddStreamPrioritization(
+        [in]  IMFASFStreamPrioritization  *pIStreamPrioritization);
+
+    HRESULT RemoveStreamPrioritization();
+
+    HRESULT CreateStreamPrioritization(
+        [out] IMFASFStreamPrioritization **ppIStreamPrioritization);
+
+
+    HRESULT Clone(
+        [out] IMFASFProfile          **ppIProfile);
+};
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(9E8AE8D2-DBBD-4200-9ACA-06E6DF484913),
+    local
+]
+//
+// The ASF Stream Config object will also QI for IPropertyStore.
+// This Property Store is for use when encoding and is for write-only
+// properties intended for the ASF Stream Sink's Property Store.
+// Most of these are configuration properties intended for the encoder
+// MF Transform; see wmcodecdsp.idl for the property definitions.
+// Once the ASF Media Sink has been created, these properties should be set
+// on the ASF Stream Sink object's IProperty Store interface instead;
+// setting them here will have no effect.
+//
+interface IMFASFStreamConfig : IMFAttributes
+{
+    HRESULT GetStreamType(
+        [out] GUID               *pguidStreamType);
+
+    WORD GetStreamNumber();
+
+    HRESULT SetStreamNumber(
+        [in]  WORD                wStreamNum);
+
+    HRESULT GetMediaType(
+        [out] IMFMediaType      **ppIMediaType);
+
+    HRESULT SetMediaType(
+        [in]  IMFMediaType       *pIMediaType);
+
+
+    HRESULT GetPayloadExtensionCount(
+        [out] WORD              *pcPayloadExtensions);
+
+    HRESULT GetPayloadExtension(
+        [in]  WORD               wPayloadExtensionNumber,
+        [out] GUID              *pguidExtensionSystemID,
+        [out] WORD              *pcbExtensionDataSize,
+        [out, optional, size_is(*pcbExtensionSystemInfo)] BYTE *pbExtensionSystemInfo,
+        [in, out, optional] DWORD *pcbExtensionSystemInfo);
+
+    HRESULT AddPayloadExtension(
+        [in]  GUID               guidExtensionSystemID,
+        [in]  WORD               cbExtensionDataSize,
+        [in, size_is(cbExtensionSystemInfo)] BYTE *pbExtensionSystemInfo,
+        [in]  DWORD              cbExtensionSystemInfo);
+
+    HRESULT RemoveAllPayloadExtensions();
+
+
+
+    HRESULT Clone(
+        [out] IMFASFStreamConfig  **ppIStreamConfig);
+};
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(12558291-E399-11D5-BC2A-00B0D0F3F4AB),
+    local
+]
+interface IMFASFMutualExclusion : IUnknown
+{
+    HRESULT GetType(
+        [out]    GUID           *pguidType);
+    HRESULT SetType(
+        [in]     REFGUID         guidType);
+
+    HRESULT GetRecordCount(
+        [out]    DWORD          *pdwRecordCount);
+
+    HRESULT GetStreamsForRecord(
+        [in]     DWORD           dwRecordNumber,
+        [out]    WORD           *pwStreamNumArray,
+        [in, out] DWORD          *pcStreams);
+
+    HRESULT AddStreamForRecord(
+        [in]     DWORD           dwRecordNumber,
+        [in]     WORD            wStreamNumber);
+
+    HRESULT RemoveStreamFromRecord(
+        [in]     DWORD           dwRecordNumber,
+        [in]     WORD            wStreamNumber);
+
+    HRESULT RemoveRecord(
+        [in]     DWORD           dwRecordNumber);
+
+    HRESULT AddRecord(
+        [out]    DWORD          *pdwRecordNumber);
+
+
+
+    HRESULT Clone(
+        [out] IMFASFMutualExclusion  **ppIMutex);
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(699bdc27-bbaf-49ff-8e38-9c39c9b5e088),
+    local
+]
+interface IMFASFStreamPrioritization : IUnknown
+{
+    HRESULT GetStreamCount(
+        [out]    DWORD          *pdwStreamCount);
+
+    HRESULT GetStream(
+        [in]     DWORD           dwStreamIndex,
+        [out]    WORD           *pwStreamNumber,
+        [out]    WORD           *pwStreamFlags);
+
+    HRESULT AddStream(
+        [in]     WORD            wStreamNumber,
+        [in]     WORD            wStreamFlags);
+
+    HRESULT RemoveStream(
+        [in]     DWORD           dwStreamIndex);
+
+
+    HRESULT Clone(
+        [out] IMFASFStreamPrioritization  **ppIStreamPrioritization);
+};
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF indexing/seeking
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//
+// ASF Indexer flags
+//
+typedef enum MFASF_INDEXERFLAGS
+{
+    MFASF_INDEXER_WRITE_NEW_INDEX = 0x00000001,
+    MFASF_INDEXER_READ_FOR_REVERSEPLAYBACK = 0x00000002,
+    MFASF_INDEXER_WRITE_FOR_LIVEREAD = 0x00000004,
+
+} MFASF_INDEXER_FLAGS;
+
+//
+// Index identifier structure
+//
+typedef struct _ASF_INDEX_IDENTIFIER
+{
+    //
+    // Use the MFASFINDEXER_TYPE values defined below
+    //  GUID_NULL: Time indexing
+    //  other GUIDs: Other types of indexing not supported yet
+    //
+    GUID guidIndexType;
+
+    WORD wStreamNumber;
+
+}   ASF_INDEX_IDENTIFIER;
+
+//
+// This structure is used for describing the details of indexing corresponding
+// to a specific ASF_INDEX_IDENTIFIER
+//
+typedef struct _ASF_INDEX_DESCRIPTOR
+{
+    //
+    // Index identifier for this index
+    //
+    ASF_INDEX_IDENTIFIER    Identifier;
+
+    //
+    // Number of bytes per index entry for this index.
+    // MFASFINDEXER_PER_ENTRY_BYTES_DYNAMIC indicates that this number can vary.
+    //
+    WORD                    cPerEntryBytes;
+
+    //
+    // Optional text descriptiong of the index
+    //
+    WCHAR                   szDescription[32];
+
+    //
+    // Indexing interval.  The units of this value depend on the index type.
+    // A value of MFASFINDEXER_NO_FIXED_INTERVAL indicates that there is
+    // no fixed indexing interval.
+    //
+    DWORD                   dwInterval;
+
+}   ASF_INDEX_DESCRIPTOR;
+
+[
+    object,
+    uuid(53590F48-DC3B-4297-813F-787761AD7B3E),
+    local
+]
+interface IMFASFIndexer : IUnknown
+{
+    HRESULT SetFlags(
+        [in]    DWORD               dwFlags);
+    HRESULT GetFlags(
+        [out]   DWORD              *pdwFlags);
+
+    HRESULT Initialize(
+        [in]      IMFASFContentInfo   *pIContentInfo);
+
+    HRESULT GetIndexPosition(
+        [in]      IMFASFContentInfo   *pIContentInfo,
+        [out]     QWORD               *pcbIndexOffset);
+
+    HRESULT SetIndexByteStreams(
+        [in]      IMFByteStream    **ppIByteStreams,
+        [in]      DWORD              cByteStreams);
+
+    HRESULT GetIndexByteStreamCount(
+        [out]       DWORD          *pcByteStreams);
+
+    //
+    // For GetIndexStatus and SetIndexStatus:
+    // pbIndexDescriptor will begin with the ASF_INDEX_DESCRIPTOR structure
+    // and may have index-specific data following.
+    //
+    HRESULT GetIndexStatus(
+        [in]      ASF_INDEX_IDENTIFIER  *pIndexIdentifier,
+        [out]     BOOL                  *pfIsIndexed,
+        [out]     BYTE                  *pbIndexDescriptor,
+        [in, out]  DWORD                 *pcbIndexDescriptor);
+
+    HRESULT SetIndexStatus(
+        [in]      BYTE            *pbIndexDescriptor,
+        [in]      DWORD           cbIndexDescriptor,
+        [in]      BOOL            fGenerateIndex);
+
+
+    //
+    // GetSeekPositionForValue is the method used when seeking according to
+    // this index.
+    // Input parameters are pvarValue and pIndexIdentifier, which define,
+    // respectively, where to seek to and using which stream / index type.
+    // The main output parameter is pcbOffsetWithinData, which gives the 
+    // offset within the data segment of the ASF Data Object (i.e. from the
+    // beginning of packet 0) of the packet from which the caller should start
+    // reading.
+    // Optional output parameters are as follows:
+    //      phnsApproxTime - Specifies an approximate timestamp around where
+    //                       this stream will actually begin if the caller
+    //                       starts reading from *pcbOffsetWithinData.
+    //                       The accuracy of this value is the index interval
+    //                       of the index (usually 1sec).
+    //                       Example: Caller seeks to t=27sec.
+    //                                Nearest previous key frame is at 
+    //                                t=25.8sec.
+    //                                *phnsApproxTime will be set to 25sec.
+    //                       This parameter can be set to a non-NULL value
+    //                       only when the guidIndexType field of 
+    //                       pIndexIdentifier is GUID_NULL.  Otherwise, an
+    //                       error will be returned.
+    //                       If this information cannot be determined,
+    //                       then this value will be set to 
+    //                       MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN upon return.
+    //      pdwPayloadNumberOfStreamWithinPacket - Specifies which payload
+    //                                             in the packet at
+    //                                             *pcbOffsetWithinData 
+    //                                             the indexer is referring to
+    HRESULT GetSeekPositionForValue(
+        [in]      const PROPVARIANT     *pvarValue,
+        [in]      ASF_INDEX_IDENTIFIER  *pIndexIdentifier,
+        [out]     QWORD                 *pcbOffsetWithinData,
+        [out, optional]  MFTIME         *phnsApproxTime,
+        [out, optional]  DWORD          *pdwPayloadNumberOfStreamWithinPacket);
+
+    //
+    // The following methods are useful when generating an index
+    //
+    HRESULT GenerateIndexEntries(
+        [in]      IMFSample       *pIASFPacketSample);
+
+    HRESULT CommitIndex(
+        [in]      IMFASFContentInfo   *pIContentInfo);
+
+    HRESULT GetIndexWriteSpace(
+        [out]     QWORD           *pcbIndexWriteSpace);
+
+    HRESULT GetCompletedIndex(
+        [in]      IMFMediaBuffer  *pIIndexBuffer,
+        [in]      QWORD           cbOffsetWithinIndex);
+
+};
+
+cpp_quote("STDAPI MFCreateASFIndexer( ")
+cpp_quote("        /* out */     IMFASFIndexer         **ppIIndexer);")
+
+//
+// We will provide a default implementation of IMFByteStream that works
+// with the Indexer for read-only indexing (seeking).
+//
+// For write-mode indexing, the Indexer will automatically use default
+// IMFByteStreams, unless overridden by the user with custom byte streams.
+//
+cpp_quote("STDAPI MFCreateASFIndexerByteStream( ")
+cpp_quote("        /* in */      IMFByteStream         *pIContentByteStream,")
+cpp_quote("        /* in */      QWORD                  cbIndexStartOffset,")
+cpp_quote("        /* out */     IMFByteStream        **pIIndexByteStream);")
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF packet splitting
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(12558295-E399-11D5-BC2A-00B0D0F3F4AB),
+    local
+]
+interface IMFASFSplitter : IUnknown
+{
+
+    HRESULT Initialize(
+        [in]      IMFASFContentInfo   *pIContentInfo);
+
+    HRESULT SetFlags(
+        [in]      DWORD               dwFlags);
+
+    HRESULT GetFlags(
+        [out]     DWORD               *pdwFlags);
+
+    HRESULT SelectStreams(
+        [in]      WORD                *pwStreamNumbers,
+        [in]      WORD                 wNumStreams);
+
+    HRESULT GetSelectedStreams(
+        [out]     WORD                *pwStreamNumbers,
+        [in, out] WORD                *pwNumStreams);
+
+    HRESULT ParseData(
+        [in]      IMFMediaBuffer       *pIBuffer,
+        [in]      DWORD                cbBufferOffset,
+        [in]      DWORD                cbLength);
+
+    //
+    // pdwStatusFlags should be a combination of ASF_STATUSFLAGS
+    //
+    HRESULT GetNextSample(
+        [out]     DWORD               *pdwStatusFlags,
+        [out]     WORD                *pwStreamNumber,
+        [out]     IMFSample          **ppISample);
+
+    HRESULT Flush();
+
+    HRESULT GetLastSendTime(
+        [out]     DWORD               *pdwLastSendTime);
+
+};
+
+cpp_quote("STDAPI MFCreateASFSplitter( ")
+cpp_quote("        /* out */     IMFASFSplitter        **ppISplitter);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+///////////////////////////////////////////////////////////////////////////////
+// 
+// ASF content description
+//
+///////////////////////////////////////////////////////////////////////////////
+
+//
+// Minimum number of bytes that need to be given to 
+// IMFASFContentInfo::ParseHeader
+//
+cpp_quote( "#define MFASF_MIN_HEADER_BYTES ( sizeof( GUID ) + sizeof( QWORD ) )" )
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+//
+// When IMFASFContentInfo::GeneratePresentationDescriptor is used to generate 
+// an IMFPresentationDescriptor describing the content, the following 
+// attributes may be set and are pulled directly from the ASF header
+//
+// Note that all of these attributes are meaningful only reading ASF content;
+// they cannot be used to set values while writing ASF content.
+//
+
+//-----------------------------------
+// Presentation Descriptor attributes
+//-----------------------------------
+
+//
+// Attributes from the ASF File Properties Object
+//
+
+
+// MF_PD_ASF_FILEPROPERTIES_FILE_ID
+// Type: GUID
+// {3DE649B4-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_FILE_ID, 0x3de649b4, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_CREATION_TIME
+// Type: BLOB
+// The format of this blob is given by the FILETIME structure
+// {3DE649B6-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_CREATION_TIME, 0x3de649b6, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_PACKETS
+// Type: UINT32
+// {3DE649B7-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_PACKETS, 0x3de649b7, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_PLAY_DURATION
+// Type: UINT64
+// {3DE649B8-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_PLAY_DURATION, 0x3de649b8, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_SEND_DURATION
+// Type: UINT64
+// {3DE649B9-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_SEND_DURATION, 0x3de649b9, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_PREROLL
+// Type: UINT64
+// {3DE649BA-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_PREROLL, 0x3de649ba, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_FLAGS
+// Type: UINT32
+// {3DE649BB-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_FLAGS, 0x3de649bb, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_MIN_PACKET_SIZE
+// Type: UINT32
+// {3DE649BC-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_MIN_PACKET_SIZE, 0x3de649bc, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_MAX_PACKET_SIZE
+// Type: UINT32
+// {3DE649BD-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_MAX_PACKET_SIZE, 0x3de649bd, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+// MF_PD_ASF_FILEPROPERTIES_MAX_BITRATE
+// Type: UINT32
+// {3DE649BE-D76D-4e66-9EC9-78120FB4C7E3}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_FILEPROPERTIES_MAX_BITRATE, 0x3de649be, 0xd76d, 0x4e66, 0x9e, 0xc9, 0x78, 0x12, 0xf, 0xb4, 0xc7, 0xe3);" )
+
+//
+// Attributes from the ASF Content Encryption Object
+//
+
+// {8948BB22-11BD-4796-93E3-974D1B575678}   CLSID_WMDRMSystemID
+// WM-DRM Content Protection System ID
+cpp_quote( "EXTERN_GUID( CLSID_WMDRMSystemID, 0x8948BB22, 0x11BD, 0x4796, 0x93, 0xE3, 0x97, 0x4D, 0x1B, 0x57, 0x56, 0x78 );" )
+
+// MF_PD_ASF_CONTENTENCRYPTION_TYPE
+// Type: LPWSTR
+// {8520FE3D-277E-46ea-99E4-E30A86DB12BE}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_CONTENTENCRYPTION_TYPE, 0x8520fe3d, 0x277e, 0x46ea, 0x99, 0xe4, 0xe3, 0xa, 0x86, 0xdb, 0x12, 0xbe);" )
+
+// MF_PD_ASF_CONTENTENCRYPTION_KEYID
+// Type: LPWSTR
+// {8520FE3E-277E-46ea-99E4-E30A86DB12BE}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_CONTENTENCRYPTION_KEYID, 0x8520fe3e, 0x277e, 0x46ea, 0x99, 0xe4, 0xe3, 0xa, 0x86, 0xdb, 0x12, 0xbe);" )
+
+// MF_PD_ASF_CONTENTENCRYPTION_SECRET_DATA
+// Type: BLOB
+// {8520FE3F-277E-46ea-99E4-E30A86DB12BE}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_CONTENTENCRYPTION_SECRET_DATA, 0x8520fe3f, 0x277e, 0x46ea, 0x99, 0xe4, 0xe3, 0xa, 0x86, 0xdb, 0x12, 0xbe);" )
+
+// MF_PD_ASF_CONTENTENCRYPTION_LICENSE_URL
+// Type: LPWSTR
+// {8520FE40-277E-46ea-99E4-E30A86DB12BE}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_CONTENTENCRYPTION_LICENSE_URL, 0x8520fe40, 0x277e, 0x46ea, 0x99, 0xe4, 0xe3, 0xa, 0x86, 0xdb, 0x12, 0xbe);" )
+
+//
+// Attributes from the ASF Extended Content Encryption Object
+//
+
+// MF_PD_ASF_CONTENTENCRYPTIONEX_ENCRYPTION_DATA
+// Type: BLOB
+// {62508BE5-ECDF-4924-A359-72BAB3397B9D}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_CONTENTENCRYPTIONEX_ENCRYPTION_DATA, 0x62508be5, 0xecdf, 0x4924, 0xa3, 0x59, 0x72, 0xba, 0xb3, 0x39, 0x7b, 0x9d);" )
+
+// 
+// Attributes from the ASF Language List Object
+//
+
+// MF_PD_ASF_LANGLIST
+// Type: BLOB
+// This is the set of RFC1766 languages used in this presentation.
+// Wherever a "language ID index" is mentioned, it's referring to an index in
+// this list.
+// This blob takes the following format:
+//      DWORD cLanguages
+//      For each language:
+//          DWORD cbLanguage: size in bytes of language string, including nul
+//          BYTE[] pbLanguage: nul-terminated WCHAR string
+// {F23DE43C-9977-460d-A6EC-32937F160F7D}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_LANGLIST, 0xf23de43c, 0x9977, 0x460d, 0xa6, 0xec, 0x32, 0x93, 0x7f, 0x16, 0xf, 0x7d);" )
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+// MF_PD_ASF_LANGLIST_LEGACYORDER
+// Type: BLOB
+// This is the set of RFC1766 languages used in this presentation.
+// Unlike the MF_PD_ASF_LANGLIST attribute above, the ordering of the 
+// languages here will match the order in which the Windows Media Format
+// SDK would have enumerated languages from IWMReaderAdvanced4.  
+// This attribute should not be used except in cases where there is a 
+// backwards-compatibility requirement to enumerate languages in the same
+// order as the WMFSDK did.
+// This blob takes the following format:
+//      DWORD cLanguages
+//      For each language:
+//          DWORD cbLanguage: size in bytes of language string, including nul
+//          BYTE[] pbLanguage: nul-terminated WCHAR string
+// {F23DE43D-9977-460d-A6EC-32937F160F7D}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_LANGLIST_LEGACYORDER, 0xf23de43d, 0x9977, 0x460d, 0xa6, 0xec, 0x32, 0x93, 0x7f, 0x16, 0xf, 0x7d);" )
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+//
+// Attributes from the ASF Marker Object
+//
+
+// MF_PD_ASF_MARKER
+// Type: BLOB
+// This is the set of markers found in the Marker Object.
+// This blob takes the following format:
+//      DWORD cMarkers
+//      For each marker:
+//          DWORD cbMarkerDescription: size in byte of description string, including nul
+//          BYTE[] pbMarkerDescription: nul-terminated WCHAR string
+//          LONGLONG: presentation time
+//          LONGLONG: send time
+//          UINT64: Marker offset in bytes
+// {5134330E-83A6-475e-A9D5-4FB875FB2E31}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_MARKER, 0x5134330e, 0x83a6, 0x475e, 0xa9, 0xd5, 0x4f, 0xb8, 0x75, 0xfb, 0x2e, 0x31);" )
+
+
+//
+// Attributes from the ASF Script Object
+//
+
+// MF_PD_ASF_SCRIPT
+// Type: BLOB
+// This is the set of script commands found in the Script Command Object,
+// excluding WMDRM-related script commands.
+// This blob takes the following format:
+//      DWORD cScriptCommands
+//      For each script command
+//          DWORD cbCommand: size in bytes of command string, including nul
+//          BYTE[] pbCommand: nul-terminated WCHAR string
+//          DWORD cbType: size in bytes of type string, including nul
+//          BYTE[] pbType: nul-terminated WCHAR string
+//          LONGLONG llPresTime
+// {E29CD0D7-D602-4923-A7FE-73FD97ECC650}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_SCRIPT, 0xe29cd0d7, 0xd602, 0x4923, 0xa7, 0xfe, 0x73, 0xfd, 0x97, 0xec, 0xc6, 0x50);" )
+
+
+//
+// Attributes from the ASF Codec List Object
+//
+
+// MF_PD_ASF_CODECLIST
+// Type: BLOB
+// This is the list of codecs used for this content.
+// This blob takes the following format:
+//      DWORD cCodecs
+//      For each codec in the list:
+//          DWORD dwType
+//          DWORD cbName: size in bytes of name string, including nul
+//          BYTE[] pbName: nul-terminated WCHAR string
+//          DWORD cbDescription: size in bytes of description string, including nul
+//          BYTE[] pbDescription: nul-terminated WCHAR string
+//          DWORD cbCodecInfo: size of info blob
+//          BYTE[] pbCodecInfo: info blob
+// {E4BB3509-C18D-4df1-BB99-7A36B3CC4119}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_CODECLIST, 0xe4bb3509, 0xc18d, 0x4df1, 0xbb, 0x99, 0x7a, 0x36, 0xb3, 0xcc, 0x41, 0x19);" )
+
+//
+// Attributes culled from the various metadata objects
+//
+
+// MF_PD_ASF_METADATA_IS_VBR
+// Type: UINT32
+// This attribute is present and nonzero if the "IsVBR" metadata attribute
+// is present and set to 1 in the file.
+// {5FC6947A-EF60-445d-B449-442ECC78B4C1}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_METADATA_IS_VBR, 0x5fc6947a, 0xef60, 0x445d, 0xb4, 0x49, 0x44, 0x2e, 0xcc, 0x78, 0xb4, 0xc1);" )
+
+// MF_PD_ASF_METADATA_V8_VBRPEAK
+// Type: UINT32
+// This attribute is present for VBR content created by version 8 of the
+// Windows Media Format SDK.  It corresponds to the "VBR Peak" metadata 
+// attribute.  For newer VBR content, use the MF_SD_ASF_EXTSTRMPROP_xxx 
+// attributes
+// {5FC6947B-EF60-445d-B449-442ECC78B4C1}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_METADATA_V8_VBRPEAK, 0x5fc6947b, 0xef60, 0x445d, 0xb4, 0x49, 0x44, 0x2e, 0xcc, 0x78, 0xb4, 0xc1);" )
+
+// MF_PD_ASF_METADATA_V8_BUFFERAVERAGE
+// Type: UINT32
+// This attribute is present for VBR content created by version 8 of the
+// Windows Media Format SDK.  It corresponds to the "Buffer Average" metadata 
+// attribute.  For newer VBR content, use the MF_SD_ASF_EXTSTRMPROP_xxx 
+// attributes
+// {5FC6947C-EF60-445d-B449-442ECC78B4C1}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_METADATA_V8_BUFFERAVERAGE, 0x5fc6947c, 0xef60, 0x445d, 0xb4, 0x49, 0x44, 0x2e, 0xcc, 0x78, 0xb4, 0xc1);" )
+
+// MF_PD_ASF_METADATA_LEAKY_BUCKET_PAIRS
+// Type: UINT32
+// This attribute corresponds to the "ASFLeakyBucketPairs" metadata attribute.
+// {5FC6947D-EF60-445d-B449-442ECC78B4C1}
+cpp_quote( "EXTERN_GUID( MF_PD_ASF_METADATA_LEAKY_BUCKET_PAIRS, 0x5fc6947d, 0xef60, 0x445d, 0xb4, 0x49, 0x44, 0x2e, 0xcc, 0x78, 0xb4, 0xc1);" )
+
+
+//
+// Attributes from the top-level ASF Data Object
+//
+
+// MF_PD_ASF_DATA_START_OFFSET
+// Type: UINT64
+// {E7D5B3E7-1F29-45d3-8822-3E78FAE272ED}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_DATA_START_OFFSET, 0xe7d5b3e7, 0x1f29, 0x45d3, 0x88, 0x22, 0x3e, 0x78, 0xfa, 0xe2, 0x72, 0xed);" )
+
+// MF_PD_ASF_DATA_LENGTH
+// Type: UINT64
+// {E7D5B3E8-1F29-45d3-8822-3E78FAE272ED}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_DATA_LENGTH, 0xe7d5b3e8, 0x1f29, 0x45d3, 0x88, 0x22, 0x3e, 0x78, 0xfa, 0xe2, 0x72, 0xed);" )
+
+
+//-----------------------------
+// Stream Descriptor attributes
+//-----------------------------
+
+//
+// Attributes from the ASF Extended Stream Properties Object
+//
+
+// MF_SD_ASF_EXTSTRMPROP_LANGUAGE_ID_INDEX
+// Type: UINT32
+// {48F8A522-305D-422d-8524-2502DDA33680}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_EXTSTRMPROP_LANGUAGE_ID_INDEX, 0x48f8a522, 0x305d, 0x422d, 0x85, 0x24, 0x25, 0x2, 0xdd, 0xa3, 0x36, 0x80);" )
+
+// MF_SD_ASF_EXTSTRMPROP_AVG_DATA_BITRATE
+// Type: UINT32
+// {48F8A523-305D-422d-8524-2502DDA33680}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_EXTSTRMPROP_AVG_DATA_BITRATE, 0x48f8a523, 0x305d, 0x422d, 0x85, 0x24, 0x25, 0x2, 0xdd, 0xa3, 0x36, 0x80);" )
+
+// MF_SD_ASF_EXTSTRMPROP_AVG_BUFFERSIZE
+// Type: UINT32
+// {48F8A524-305D-422d-8524-2502DDA33680}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_EXTSTRMPROP_AVG_BUFFERSIZE, 0x48f8a524, 0x305d, 0x422d, 0x85, 0x24, 0x25, 0x2, 0xdd, 0xa3, 0x36, 0x80);" )
+
+// MF_SD_ASF_EXTSTRMPROP_MAX_DATA_BITRATE
+// Type: UINT32
+// {48F8A525-305D-422d-8524-2502DDA33680}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_EXTSTRMPROP_MAX_DATA_BITRATE, 0x48f8a525, 0x305d, 0x422d, 0x85, 0x24, 0x25, 0x2, 0xdd, 0xa3, 0x36, 0x80);" )
+
+// MF_SD_ASF_EXTSTRMPROP_MAX_BUFFERSIZE
+// Type: UINT32
+// {48F8A526-305D-422d-8524-2502DDA33680}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_EXTSTRMPROP_MAX_BUFFERSIZE, 0x48f8a526, 0x305d, 0x422d, 0x85, 0x24, 0x25, 0x2, 0xdd, 0xa3, 0x36, 0x80);" )
+
+
+//
+// Attributes from the ASF Stream Bitrate Properties Object
+//
+
+// MF_SD_ASF_STREAMBITRATES_BITRATE
+// Type: UINT32
+// While the ASF Stream Bitrates Object is file-wide, we apply each bitrate
+// contained therein to the appropriate Stream Descriptor.  Note that not
+// all streams will necessarily appear in the Stream Bitrates Object.
+// {A8E182ED-AFC8-43d0-B0D1-F65BAD9DA558}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_STREAMBITRATES_BITRATE, 0xa8e182ed, 0xafc8, 0x43d0, 0xb0, 0xd1, 0xf6, 0x5b, 0xad, 0x9d, 0xa5, 0x58);" )
+
+//
+// Attributes culled from the various metadata objects
+// 
+
+// MF_SD_ASF_METADATA_DEVICE_CONFORMANCE_TEMPLATE
+// Type: LPWSTR
+// Corresponds to the "DeviceConformanceTemplate" metadata attribute
+// {245E929D-C44E-4f7e-BB3C-77D4DFD27F8A}
+cpp_quote( "EXTERN_GUID(MF_SD_ASF_METADATA_DEVICE_CONFORMANCE_TEMPLATE, 0x245e929d, 0xc44e, 0x4f7e, 0xbb, 0x3c, 0x77, 0xd4, 0xdf, 0xd2, 0x7f, 0x8a);" )
+
+//----------------------------------------------------------------------
+// Presentation Descriptor informational attributes generated at runtime
+//----------------------------------------------------------------------
+
+// MF_PD_ASF_INFO_HAS_AUDIO
+// Type: UINT32
+// {80E62295-2296-4a44-B31C-D103C6FED23C}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_INFO_HAS_AUDIO, 0x80e62295, 0x2296, 0x4a44, 0xb3, 0x1c, 0xd1, 0x3, 0xc6, 0xfe, 0xd2, 0x3c);" )
+
+// MF_PD_ASF_INFO_HAS_VIDEO
+// Type: UINT32
+// {80E62296-2296-4a44-B31C-D103C6FED23C}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_INFO_HAS_VIDEO, 0x80e62296, 0x2296, 0x4a44, 0xb3, 0x1c, 0xd1, 0x3, 0xc6, 0xfe, 0xd2, 0x3c);" )
+
+// MF_PD_ASF_INFO_HAS_NON_AUDIO_VIDEO
+// Type: UINT32
+// {80E62297-2296-4a44-B31C-D103C6FED23C}
+cpp_quote( "EXTERN_GUID(MF_PD_ASF_INFO_HAS_NON_AUDIO_VIDEO, 0x80e62297, 0x2296, 0x4a44, 0xb3, 0x1c, 0xd1, 0x3, 0xc6, 0xfe, 0xd2, 0x3c);" )
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+//
+// ASF Profile attributes
+//
+
+// MF_ASFPROFILE_MINPACKETSIZE
+// Type: UINT32
+// {22587626-47DE-4168-87F5-B5AA9B12A8F0}
+cpp_quote( "EXTERN_GUID(MF_ASFPROFILE_MINPACKETSIZE, 0x22587626, 0x47de, 0x4168, 0x87, 0xf5, 0xb5, 0xaa, 0x9b, 0x12, 0xa8, 0xf0);" )
+
+// MF_ASFPROFILE_MAXPACKETSIZE
+// Type: UINT32
+// {22587627-47DE-4168-87F5-B5AA9B12A8F0}
+cpp_quote( "EXTERN_GUID(MF_ASFPROFILE_MAXPACKETSIZE, 0x22587627, 0x47de, 0x4168, 0x87, 0xf5, 0xb5, 0xaa, 0x9b, 0x12, 0xa8, 0xf0);" )
+
+
+//
+// ASF Profile functions
+//
+cpp_quote( "STDAPI MFCreateASFProfile( "                                      )
+cpp_quote( "        /* out */     IMFASFProfile         **ppIProfile);"       )
+
+cpp_quote( "STDAPI MFCreateASFProfileFromPresentationDescriptor( "            )
+cpp_quote( "        /* in  */     IMFPresentationDescriptor  *pIPD,"          )
+cpp_quote( "        /* out */     IMFASFProfile             **ppIProfile);"   )
+
+cpp_quote( "STDAPI MFCreatePresentationDescriptorFromASFProfile( "            )
+cpp_quote( "        /* in  */     IMFASFProfile              *pIProfile,"     )
+cpp_quote( "        /* out */     IMFPresentationDescriptor **ppIPD);"        )
+
+//
+// ASF Stream Config attributes
+//
+
+// Leaky bucket attributes are stored in 3-DWORD blobs as follows:
+//      DWORD dwBitrate
+//      DWORD msBufferSize
+//      DWORD msInitialBufferFullness
+// LEAKYBUCKET1 defines the "average" values for the above quantities
+// LEAKYBUCKET2 defines an alternate set of values.  This is sometimes  
+// referred to as "peak" values
+
+// MF_ASFSTREAMCONFIG_LEAKYBUCKET1
+// Type: BLOB
+// {C69B5901-EA1A-4c9b-B692-E2A0D29A8ADD}
+cpp_quote( "EXTERN_GUID(MF_ASFSTREAMCONFIG_LEAKYBUCKET1, 0xc69b5901, 0xea1a, 0x4c9b, 0xb6, 0x92, 0xe2, 0xa0, 0xd2, 0x9a, 0x8a, 0xdd);" )
+
+// MF_ASFSTREAMCONFIG_LEAKYBUCKET2
+// Type: BLOB
+// {C69B5902-EA1A-4c9b-B692-E2A0D29A8ADD}
+cpp_quote( "EXTERN_GUID(MF_ASFSTREAMCONFIG_LEAKYBUCKET2, 0xc69b5902, 0xea1a, 0x4c9b, 0xb6, 0x92, 0xe2, 0xa0, 0xd2, 0x9a, 0x8a, 0xdd);" )
+
+
+//
+// Pre-defined ASF paylod extension systems
+//
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_SampleDuration, 0xc6bd9450, 0x867f, 0x4907, 0x83, 0xa3, 0xc7, 0x79, 0x21, 0xb7, 0x33, 0xad);" )
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_OutputCleanPoint, 0xf72a3c6f, 0x6eb4, 0x4ebc, 0xb1, 0x92, 0x9, 0xad, 0x97, 0x59, 0xe8, 0x28);" )
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_SMPTE, 0x399595ec, 0x8667, 0x4e2d, 0x8f, 0xdb, 0x98, 0x81, 0x4c, 0xe7, 0x6c, 0x1e);" )
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_FileName, 0xe165ec0e, 0x19ed, 0x45d7, 0xb4, 0xa7, 0x25, 0xcb, 0xd1, 0xe2, 0x8e, 0x9b);" )
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_ContentType, 0xd590dc20, 0x07bc, 0x436c, 0x9c, 0xf7, 0xf3, 0xbb, 0xfb, 0xf1, 0xa4, 0xdc);" )
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_PixelAspectRatio, 0x1b1ee554, 0xf9ea, 0x4bc8, 0x82, 0x1a, 0x37, 0x6b, 0x74, 0xe4, 0xc4, 0xb8);" )
+
+// The following two extension systems are used by WMDRM-ND
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_Encryption_SampleID, 0x6698B84E, 0x0AFA, 0x4330, 0xAE, 0xB2, 0x1C, 0x0A, 0x98, 0xD7, 0xA4, 0x4D);" )
+cpp_quote( "EXTERN_GUID(MFASFSampleExtension_Encryption_KeyID, 0x76376591,  0x795f,  0x4da1, 0x86, 0xed, 0x9d, 0x46, 0xec, 0xa1, 0x09, 0xa9);" )
+
+//
+// ASF Mutual Exclusion types
+//
+cpp_quote( "EXTERN_GUID(MFASFMutexType_Language, 0x72178C2B, 0xE45B, 0x11D5, 0xBC, 0x2A, 0x00, 0xB0, 0xD0, 0xF3, 0xF4, 0xAB);" )
+cpp_quote( "EXTERN_GUID(MFASFMutexType_Bitrate, 0x72178C2C, 0xE45B, 0x11D5, 0xBC, 0x2A, 0x00, 0xB0, 0xD0, 0xF3, 0xF4, 0xAB);" )
+cpp_quote( "EXTERN_GUID(MFASFMutexType_Presentation, 0x72178C2D, 0xE45B, 0x11D5, 0xBC, 0x2A, 0x00, 0xB0, 0xD0, 0xF3, 0xF4, 0xAB);" )
+cpp_quote( "EXTERN_GUID(MFASFMutexType_Unknown, 0x72178C2E, 0xE45B, 0x11D5, 0xBC, 0x2A, 0x00, 0xB0, 0xD0, 0xF3, 0xF4, 0xAB);" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF packet splitting
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+typedef enum MFASF_SPLITTERFLAGS
+{
+    MFASF_SPLITTER_REVERSE     = 0x00000001,
+    MFASF_SPLITTER_WMDRM     = 0x00000002,
+
+} MFASF_SPLITTERFLAGS;
+
+
+typedef enum ASF_STATUSFLAGS
+{
+    ASF_STATUSFLAGS_INCOMPLETE      = 0x00000001,
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    ASF_STATUSFLAGS_NONFATAL_ERROR  = 0x00000002,
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+} ASF_STATUSFLAGS;
+
+// MFASFSPLITTER_PACKET_BOUNDARY {FE584A05-E8D6-42e3-B176-F1211705FB6F}
+// Type: UINT32
+// If the IMFMediaBuffer passed to IMFASFSplitter::ParseData can QueryInterface
+// for IMFAttributes, and if this attribute is present and nonzero, then
+// this buffer is assumed to start at a packet boundary, regardless of where
+// the last buffer ended.  In this case, the splitter will clear its 
+// parsing state and parse this buffer as a new ASF packet.
+cpp_quote( "EXTERN_GUID(MFASFSPLITTER_PACKET_BOUNDARY, 0xfe584a05, 0xe8d6, 0x42e3, 0xb1, 0x76, 0xf1, 0x21, 0x17, 0x5, 0xfb, 0x6f);" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF packet multiplexing
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+typedef enum MFASF_MULTIPLEXERFLAGS
+{
+    MFASF_MULTIPLEXER_AUTOADJUST_BITRATE = 0x00000001,
+        
+} MFASF_MULTIPLEXERFLAGS;
+
+typedef struct ASF_MUX_STATISTICS
+{
+    DWORD cFramesWritten;
+    DWORD cFramesDropped;
+
+} ASF_MUX_STATISTICS;
+
+[
+    object,
+    uuid(57BDD80A-9B38-4838-B737-C58F670D7D4F),
+    local
+]
+interface IMFASFMultiplexer : IUnknown
+{
+    HRESULT Initialize(
+                [in]      IMFASFContentInfo   *pIContentInfo  );
+
+    HRESULT SetFlags(
+                [in]      DWORD               dwFlags );
+
+    HRESULT GetFlags(
+                [out]     DWORD               *pdwFlags );
+
+    HRESULT ProcessSample(
+                [in]      WORD                 wStreamNumber,
+                [in]      IMFSample           *pISample,
+                [in]      LONGLONG             hnsTimestampAdjust );
+                
+    HRESULT GetNextPacket(
+                [out]     DWORD               *pdwStatusFlags,
+                [out]     IMFSample          **ppIPacket );
+               
+    HRESULT Flush( );
+     
+    HRESULT End(
+                [in,out]  IMFASFContentInfo   *pIContentInfo );
+              
+    HRESULT GetStatistics(    
+                [in]      WORD                 wStreamNumber,
+                [out]     ASF_MUX_STATISTICS  *pMuxStats );
+
+    HRESULT SetSyncTolerance(
+                [in]      DWORD                msSyncTolerance );
+};
+
+cpp_quote( "STDAPI MFCreateASFMultiplexer( "                          )
+cpp_quote( "        /* out */     IMFASFMultiplexer     **ppIMultiplexer);"     )
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF indexing/seeking
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//
+// Index descriptor GUIDs and flags
+// These are used in the ASF_INDEX_DESCRIPTOR structure
+//
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+cpp_quote( "EXTERN_GUID( MFASFINDEXER_TYPE_TIMECODE, 0x49815231, 0x6bad, 0x44fd, 0x81, 0xa, 0x3f, 0x60, 0x98, 0x4e, 0xc7, 0xfd );" )
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+cpp_quote( "#define MFASFINDEXER_PER_ENTRY_BYTES_DYNAMIC        0xffff" )
+cpp_quote( "#define MFASFINDEXER_NO_FIXED_INTERVAL              0xffffffff" )
+
+
+// When indexer is asked to seek to a position for reverse playback, 
+// if there is no keyframe after the seeking position, this value should be 
+// returned to indicate that the seeking position should be 1 byte past the
+// end of the data segment.
+//
+cpp_quote( "#define MFASFINDEXER_READ_FOR_REVERSEPLAYBACK_OUTOFDATASEGMENT        0xffffffffffffffff" )
+
+// The *phnsApproxTime parameter in IMFASFIndexer::GetSeekPositionForValue
+// will return this value if an approximate seek time cannot be determined
+cpp_quote( "#define MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN 0xffffffffffffffff" )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF stream selection
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+typedef enum MFASF_STREAMSELECTORFLAGS
+{
+    MFASF_STREAMSELECTOR_DISABLE_THINNING   = 0x00000001,
+    MFASF_STREAMSELECTOR_USE_AVERAGE_BITRATE  = 0x00000002,
+
+} MFASF_STREAMSELECTOR_FLAGS;
+
+typedef enum ASF_SELECTION_STATUS
+{
+    ASF_STATUS_NOTSELECTED      = 0,
+    ASF_STATUS_CLEANPOINTSONLY  = 1,
+    ASF_STATUS_ALLDATAUNITS     = 2,
+
+} ASF_SELECTION_STATUS;
+
+[
+    object,
+    uuid(d01bad4a-4fa0-4a60-9349-c27e62da9d41),
+    local
+]
+interface IMFASFStreamSelector : IUnknown
+{
+    HRESULT GetStreamCount( [out] DWORD *pcStreams );
+    HRESULT GetOutputCount( [out] DWORD *pcOutputs );
+    HRESULT GetOutputStreamCount( [in] DWORD dwOutputNum,
+                                  [out] DWORD *pcStreams );
+    HRESULT GetOutputStreamNumbers( [in] DWORD dwOutputNum,
+                                    [out] WORD *rgwStreamNumbers );
+    HRESULT GetOutputFromStream( [in] WORD wStreamNum,
+                                 [out] DWORD *pdwOutput );
+    HRESULT GetOutputOverride( [in] DWORD dwOutputNum,
+                   [out] ASF_SELECTION_STATUS* pSelection );
+    HRESULT SetOutputOverride( [in] DWORD dwOutputNum,
+                               [in] ASF_SELECTION_STATUS Selection );
+
+    HRESULT GetOutputMutexCount( [in] DWORD dwOutputNum,
+                                 [out] DWORD *pcMutexes );
+    HRESULT GetOutputMutex( [in] DWORD dwOutputNum,
+                            [in] DWORD dwMutexNum,
+                            [out] IUnknown **ppMutex );
+    HRESULT SetOutputMutexSelection( [in] DWORD dwOutputNum,
+                                     [in] DWORD dwMutexNum,
+                                     [in] WORD wSelectedRecord );
+
+    HRESULT GetBandwidthStepCount( [out] DWORD *pcStepCount );
+    HRESULT GetBandwidthStep( [in] DWORD dwStepNum,
+                              [out] DWORD *pdwBitrate,
+                              [out] WORD *rgwStreamNumbers,
+                              [out] ASF_SELECTION_STATUS *rgSelections );
+    HRESULT BitrateToStepNumber( [in] DWORD dwBitrate,
+                                 [out] DWORD *pdwStepNum );
+
+    //
+    // The parameter dwStreamSelectorFlags is a combination of MFASF_STREAMSELECTOR_FLAGS
+    //
+    HRESULT SetStreamSelectorFlags( [in] DWORD dwStreamSelectorFlags );
+};
+
+cpp_quote( "STDAPI MFCreateASFStreamSelector( " )
+cpp_quote( "    /* in */ IMFASFProfile *pIASFProfile, " )
+cpp_quote( "    /* out */ IMFASFStreamSelector **ppSelector );" )
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// ASF encoding 
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//
+// ASF Encoding topology components
+//
+
+/// <summary>
+///     Creates an inproc ASF Media Sink
+/// </summary>
+/// <param name="pIByteStream">
+///     Byte Stream to which this sink will archive
+/// </param>
+/// <param name="ppIMediaSink">
+///     Returns pointer to Media Sink.
+/// </param>
+/// <remarks>
+///     The ASF Media Sink can be QIed for the IMFASFContentInfo interface,
+///     which should be used for configuring the encoding (SetProfile,
+///     encode settings, etc)
+/// </remarks>
+cpp_quote( "STDAPI" )
+cpp_quote( "MFCreateASFMediaSink(" )
+cpp_quote( "    IMFByteStream *pIByteStream," )
+cpp_quote( "    IMFMediaSink** ppIMediaSink" )
+cpp_quote( "    );" )
+
+
+/// <summary>
+///     Creates an ASF Media Sink Activate.
+///     This is useful in e.g. secure transcode scenarios where the ASF
+///     Media Sink needs to be instantiated and configured in the remote
+///     process
+/// </summary>
+/// <param name="pwszFileName">
+///     A file name to archive the samples
+/// </param>
+/// <param name="pContentInfo">
+///     A pointer to the IMFASFContentInfo that describes the content.
+///     Any encoding configuration properties should be set using the
+///     IMFASFContentInfo::GetEncodingConfigurationProperties Property Store.
+///     Also use the IMFMetadata obtained from pContentInfo to set any
+///     metadata.
+/// </param>
+/// <param name="ppIActivate">
+///     Returns pointer to an ASF Media Sink Activate
+/// </param>
+cpp_quote( "STDAPI MFCreateASFMediaSinkActivate(" )
+cpp_quote( "    LPCWSTR pwszFileName," )
+cpp_quote( "    IMFASFContentInfo *pContentInfo," )
+cpp_quote( "    IMFActivate** ppIActivate" )
+cpp_quote( "    );" )
+
+/// <summary>
+///     Creates a WMV encoder MFT Activate
+/// </summary>
+/// <param name="pMediaType">
+///     Desired output type for the encoder
+/// </param>
+/// <param name="pEncodingConfigurationProperties">
+///     IPropertyStore containing any configuration properties for 
+///     the encoding MFT.  See wmcodecdsp.idl for possible properties.
+/// </param>
+/// <param name="ppIActivate">
+///     Returns pointer to a WMV encoder MFT Activate
+/// </param>
+cpp_quote( "HRESULT STDMETHODCALLTYPE" )
+cpp_quote( "MFCreateWMVEncoderActivate(" )
+cpp_quote( "    IMFMediaType * pMediaType, " )
+cpp_quote( "    IPropertyStore * pEncodingConfigurationProperties, " )
+cpp_quote( "    IMFActivate ** ppActivate " )
+cpp_quote( "    );" )
+
+/// <summary>
+///     Creates a WMA encoder MFT Activate
+/// </summary>
+/// <param name="pMediaType">
+///     Desired output type for the encoder
+/// </param>
+/// <param name="pEncodingConfigurationProperties">
+///     IPropertyStore containing any configuration properties for 
+///     the encoding MFT.  See wmcodecdsp.idl for possible properties.
+/// </param>
+/// <param name="ppIActivate">
+///     Returns pointer to a WMA encoder MFT Activate
+/// </param>
+cpp_quote( "HRESULT STDMETHODCALLTYPE" )
+cpp_quote( "MFCreateWMAEncoderActivate(" )
+cpp_quote( "    IMFMediaType * pMediaType, " )
+cpp_quote( "    IPropertyStore * pEncodingConfigurationProperties, " )
+cpp_quote( "    IMFActivate ** ppActivate " )
+cpp_quote( "    );" )
+
+/// <summary>
+///     Creates an inproc ASF Streaming Media Sink
+/// </summary>
+/// <param name="pIByteStream">
+///     Byte Stream to which this sink will stream to.
+/// </param>
+/// <param name="ppIMediaSink">
+///     Returns pointer to Media Sink.
+/// </param>
+/// <remarks>
+///     The ASF Streaming Media Sink can be QIed for the IMFASFContentInfo interface,
+///     which should be used for configuring the encoding (SetProfile,
+///     encode settings, etc)
+/// </remarks>
+cpp_quote( "STDAPI" )
+cpp_quote( "MFCreateASFStreamingMediaSink(" )
+cpp_quote( "    IMFByteStream *pIByteStream," )
+cpp_quote( "    IMFMediaSink** ppIMediaSink" )
+cpp_quote( "    );" )
+
+
+/// <summary>
+///     Creates an ASF Streaming Media Sink Activate.
+///     This is useful in e.g. secure transcode scenarios where the ASF
+///     Streaming Media Sink needs to be instantiated and configured in the remote
+///     process
+/// </summary>
+/// <param name="pByteStream">
+///     A destination byte stream for the output samples.
+/// </param>
+/// <param name="pContentInfo">
+///     A pointer to the IMFASFContentInfo that describes the content.
+///     Any encoding configuration properties should be set using the
+///     IMFASFContentInfo::GetEncodingConfigurationProperties Property Store.
+///     Also use the IMFMetadata obtained from pContentInfo to set any
+///     metadata.
+/// </param>
+/// <param name="ppIActivate">
+///     Returns pointer to an ASF Streaming Media Sink Activate
+/// </param>
+cpp_quote( "STDAPI MFCreateASFStreamingMediaSinkActivate(" )
+cpp_quote( "    IMFActivate *pByteStreamActivate," )
+cpp_quote( "    IMFASFContentInfo *pContentInfo," )
+cpp_quote( "    IMFActivate** ppIActivate" )
+cpp_quote( "    );" )
+
+//
+// ASF encoding configuration properties
+// Many of the properties/settings used by the WMV and WMA encoders
+// can be found in wmcodecdsp.idl.
+// Some of these properties are also used to communicate settings to
+// the ASF Media Sink and ASF Stream Sink.
+//
+
+//
+// ASF Media Sink configuration properties
+// When creating the ASF Media Sink inproc (MFCreateASFMediaSink), QI the
+// ASF Media Sink for IPropertyStore and set these properties there.
+// When creating the ASF Media Sink via IMFActivate 
+// (MFCreateASFMediaSinkActivate), set them on the Property Store obtained from 
+// IMFASFContentInfo::GetEncodingConfigurationProperties.
+//
+
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_ASFMEDIASINK_BASE_SENDTIME = { { 0xcddcbc82, 0x3411, 0x4119, 0x91, 0x35, 0x84, 0x23, 0xc4, 0x1b, 0x39, 0x57}, 3  }; ")
+
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_ASFMEDIASINK_AUTOADJUST_BITRATE = { { 0xcddcbc82, 0x3411, 0x4119, 0x91, 0x35, 0x84, 0x23, 0xc4, 0x1b, 0x39, 0x57}, 4  }; ")
+
+// Should be a VT_UI4 set to one of the enumerated MFSINK_WMDRMACTION values.
+// Currently, only MFSINK_WMDRMACTION_TRANSCODE is supported.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_ASFMEDIASINK_DRMACTION = { { 0xa1db6f6c, 0x1d0a, 0x4cb6, 0x82, 0x54, 0xcb, 0x36, 0xbe, 0xed, 0xbc, 0x48}, 5  }; ")
+
+//
+// WMDRM can be configured on the ASF Media Sink via the property 
+// MFPKEY_ASFMEDIASINK_DRMACTION.
+//
+typedef enum _MFSINK_WMDRMACTION
+{
+    MFSINK_WMDRMACTION_UNDEFINED = 0,
+    MFSINK_WMDRMACTION_ENCODE = 1,
+    MFSINK_WMDRMACTION_TRANSCODE = 2,
+    MFSINK_WMDRMACTION_TRANSCRYPT = 3,
+    MFSINK_WMDRMACTION_LAST = 3
+} MFSINK_WMDRMACTION;
+
+
+//
+// ASF Stream Sink configuration properties
+// When creating the ASF Media Sink inproc (MFCreateASFMediaSink), QI the
+// ASF Stream Sink for IPropertyStore and set these properties there.
+// When creating the ASF Media Sink via IMFActivate 
+// (MFCreateASFMediaSinkActivate), set them on the Property Store obtained from 
+// IMFASFContentInfo::GetEncodingConfigurationProperties for the appropriate 
+// stream.
+//
+
+// This property can be set on the ASF Stream Sink after media type negotiation
+// to communicate the actual buffer window to be used by the codec as 
+// obtained through IWMCodecLeakyBucket.  Its type is VT_VECTOR | VT_UI4.
+// The 3 DWORDs in the vector are as follows:
+//      DWORD dwBitrate
+//      DWORD msBufferSize
+//      DWORD msInitialBufferFullness
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_ASFSTREAMSINK_CORRECTED_LEAKYBUCKET = { { 0xa2f152fb, 0x8ad9, 0x4a11, 0xb3, 0x45, 0x2c, 0xe2, 0xfa, 0xd8, 0x72, 0x3d}, 1  }; ")
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "// " )
+cpp_quote( "// Define WMContainer constants "   )
+cpp_quote( "// "   )
+cpp_quote( "#define  MFASF_MAX_STREAM_NUMBER       127"  )
+cpp_quote( "#define  MFASF_INVALID_STREAM_NUMBER  ( MFASF_MAX_STREAM_NUMBER + 1 )" )
+cpp_quote( "#define  MFASF_PAYLOADEXTENSION_MAX_SIZE        0xff"   )
+cpp_quote( "#define  MFASF_PAYLOADEXTENSION_VARIABLE_SIZE   0xffff" )
+cpp_quote( "#define  MFASF_DEFAULT_BUFFER_WINDOW_MS 		3000"   )
+cpp_quote( "// "  )
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+[
+    object,
+    uuid(3D1FF0EA-679A-4190-8D46-7FA69E8C7E15)
+]
+///<summary>
+///     Supported by some network sinks for use in configuring a WMDRM-ND Output Trust Authority.
+///    
+///</summary>
+interface IMFDRMNetHelper : IUnknown
+{
+    HRESULT ProcessLicenseRequest(
+        [in, size_is(cbLicenseRequest)] BYTE * pLicenseRequest,
+        [in] DWORD cbLicenseRequest,
+        [out, size_is(, *pcbLicenseResponse )] BYTE ** ppLicenseResponse,
+        [out] DWORD * pcbLicenseResponse,
+        [out] BSTR * pbstrKID
+        );
+
+    HRESULT GetChainedLicenseResponse(
+        [out, size_is(, *pcbLicenseResponse )] BYTE ** ppLicenseResponse,
+        [out] DWORD * pcbLicenseResponse
+        );
+};
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

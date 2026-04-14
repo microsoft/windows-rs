@@ -1,0 +1,675 @@
+cpp_quote("/*******************************************************************************/" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    Copyright (c) Microsoft Corporation.  All rights reserved.               */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*******************************************************************************/" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or WinMgmt Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT)")
+
+[uuid(226c9290-dd96-11d3-a120-00105a1f515a)]
+
+library WbemUtilities_v1
+{
+    importlib("stdole32.tlb");
+
+    typedef [v1_enum] enum tag_WBEM_PATH_STATUS_FLAG
+    {
+          WBEMPATH_INFO_ANON_LOCAL_MACHINE    = 0x1,   //  <path has \\. as server name>
+          WBEMPATH_INFO_HAS_MACHINE_NAME      = 0x2,   //  <not a dot>
+          WBEMPATH_INFO_IS_CLASS_REF          = 0x4,   //  <a path to a classs, not a path to an instance>
+          WBEMPATH_INFO_IS_INST_REF           = 0x8,   //  <a path to an instance>
+          WBEMPATH_INFO_HAS_SUBSCOPES         = 0x10,  //  <true if a subscope is present>
+          WBEMPATH_INFO_IS_COMPOUND           = 0x20,  //  <true if compound key is used>
+          WBEMPATH_INFO_HAS_V2_REF_PATHS      = 0x40,  //  <true if V2-style ref paths are used>
+          WBEMPATH_INFO_HAS_IMPLIED_KEY       = 0x80,  //  <true if keynames are missing somewhere>
+          WBEMPATH_INFO_CONTAINS_SINGLETON    = 0x100, //  <true if one or more singletons>
+          WBEMPATH_INFO_V1_COMPLIANT          = 0x200, //  <true if path is WBEM-V1-compliant>
+          WBEMPATH_INFO_V2_COMPLIANT          = 0x400, //  <true if path is WBEM-V2-compliant>
+          WBEMPATH_INFO_CIM_COMPLIANT         = 0x800, //  <true if path is CIM-compliant>
+          WBEMPATH_INFO_IS_SINGLETON          = 0x1000, // <a path to a singleton>
+          WBEMPATH_INFO_IS_PARENT             = 0x2000, // <path is just "..">
+          WBEMPATH_INFO_SERVER_NAMESPACE_ONLY = 0x4000, // <path is just "..">
+          WBEMPATH_INFO_NATIVE_PATH           = 0X8000,
+          WBEMPATH_INFO_WMI_PATH              = 0X10000,
+		  WBEMPATH_INFO_PATH_HAD_SERVER		  = 0X20000,  // server name is present and was not set by default
+    } tag_WBEM_PATH_STATUS_FLAG;
+
+
+    typedef [v1_enum] enum tag_WBEM_PATH_CREATE_FLAG
+    {
+          WBEMPATH_CREATE_ACCEPT_RELATIVE     = 0x1,
+          WBEMPATH_CREATE_ACCEPT_ABSOLUTE     = 0x2,
+          WBEMPATH_CREATE_ACCEPT_ALL          = 0x4,
+          WBEMPATH_TREAT_SINGLE_IDENT_AS_NS   = 0x8,
+    } tag_WBEM_PATH_CREATE_FLAG;
+
+	// A flag of 0 will get the namespace and relative part
+
+    typedef [v1_enum] enum tag_WBEM_GET_TEXT_FLAGS
+    {
+          WBEMPATH_COMPRESSED     = 0x1,				// Obsolete, dont use
+          WBEMPATH_GET_RELATIVE_ONLY = 0X2,				// gets relative path
+          WBEMPATH_GET_SERVER_TOO = 0X4,				// gets everything
+          WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY = 0X8, // gets server and namespace
+          WBEMPATH_GET_NAMESPACE_ONLY = 0X10,			// gets just namespace
+          WBEMPATH_GET_ORIGINAL = 0X20,					// returns whatever was passed in
+    } tag_WBEM_GET_TEXT_FLAGS;
+
+    typedef [v1_enum] enum tag_WBEM_GET_KEY_FLAGS
+    {
+          WBEMPATH_TEXT     = 0x1,
+          WBEMPATH_QUOTEDTEXT = 0X2
+    } tag_WBEM_GET_KEY_FLAGS;
+
+    //*******************************************************************
+    // NOT CoCreatable; get this from IWbemPath
+
+    [local, object, uuid(9AE62877-7544-4bb0-AA26-A13824659ED6)]
+
+    interface IWbemPathKeyList : IUnknown
+    {
+        HRESULT GetCount(
+            [out] ULONG * puKeyCount
+            );
+
+        HRESULT SetKey(
+            [in, string] LPCWSTR wszName,
+            [in] ULONG uFlags,                  // Add flag for SINGLETON
+            [in] ULONG uCimType,                // Implies the size
+            [in] LPVOID pKeyVal
+            );
+
+        HRESULT SetKey2(
+            [in, string] LPCWSTR wszName,
+            [in] ULONG uFlags,                  // Add flag for SINGLETON
+            [in] ULONG uCimType,
+            [in] VARIANT * pKeyVal
+            );
+
+        HRESULT GetKey(
+            [in] ULONG uKeyIx,
+            [in] ULONG uFlags,                         // Add flag for SINGLETON
+            [in,out] ULONG * puNameBufSize,            // In bytes; must be large enough for UNICODE null
+            [in,out, annotation("_Out_writes_opt_(*puNameBufSize)")] LPWSTR pszKeyName,                // May be NULL for implicit keys
+            [in,out] ULONG * puKeyValBufSize,          // In Bytes, includes double NULL
+            [in,out] LPVOID pKeyVal,                   // Key Val
+            [out] ULONG *puApparentCimType             // One of CIM_SINT32, CIM_SINT64, CIM_STRING, etc.
+            );
+
+        HRESULT GetKey2(
+            [in] ULONG uKeyIx,
+            [in] ULONG uFlags,                         // Add flag for SINGLETON
+            [in,out] ULONG * puNameBufSize,            // In bytes; must be large enough for UNICODE null
+            [in,out, annotation("_Out_writes_opt_(*puNameBufSize)")] LPWSTR pszKeyName,                // May be NULL for implicit keys
+            [in,out] VARIANT * pKeyValue,              // In Bytes, includes double NULL
+            [out] ULONG *puApparentCimType             // One of CIM_SINT32, CIM_SINT64, CIM_STRING, etc.
+            );
+
+   	    HRESULT RemoveKey(
+            [in, string] LPCWSTR wszName,
+            [in] ULONG uFlags
+            );
+
+   	    HRESULT RemoveAllKeys(
+            [in] ULONG uFlags
+            );
+
+        HRESULT MakeSingleton([in] boolean bSet);
+
+        // WBEMPATH_INFO_IS_COMPOUND             <true if compound key is used
+        // WBEMPATH_INFO_HAS_V2_REF_PATHS        <true if V2-style ref paths are used
+        // WBEMPATH_INFO_HAS_IMPLIED_KEY         <true if keynames are missing somewhere
+        // WBEMPATH_INFO_CONTAINS_SINGLETON      <true if one or more singletons
+
+        HRESULT GetInfo(
+            [in] ULONG uRequestedInfo,
+            [out] ULONGLONG *puResponse
+            );
+
+        HRESULT GetText(
+            [in] long lFlags,       // tag_WBEM_GET_KEY_FLAGS
+            [in,out] ULONG * puBuffLength,
+            [in, out, string, annotation("_Out_writes_(*puBuffLength)")] LPWSTR pszText
+            );
+
+    };
+
+    //*******************************************************************
+    // CoCreatable
+
+    [local, object, uuid(3BC15AF2-736C-477e-9E51-238AF8667DCC)]
+
+    interface IWbemPath : IUnknown
+    {
+        HRESULT SetText(
+            [in] ULONG uMode,       // see tag_WBEM_PATH_CREATE_FLAG
+            [in] LPCWSTR pszPath
+            );
+
+        HRESULT GetText(
+            [in] long lFlags,       // see tag_WBEM_GET_TEXT_FLAGS
+            [in,out] ULONG * puBuffLength,
+            [in, out, string, annotation("_Out_writes_(*puBuffLength)")] LPWSTR pszText
+            );
+
+	    // Path tests
+        // ==========
+
+
+        HRESULT GetInfo(
+            [in] ULONG uRequestedInfo,      // zero for now
+            [out] ULONGLONG *puResponse     // see tag_WBEM_PATH_STATUS_FLAG
+            );
+
+    	// Server access
+        // =============
+
+    	HRESULT SetServer(
+            [in, string] LPCWSTR Name
+            );
+
+        HRESULT GetServer(
+            [in,out] ULONG * puNameBufLength,
+            [in, out, string, annotation("_Out_writes_(*puNameBufLength)")] LPWSTR pName
+            );
+
+    	// Namespace access.  Example, root\default, root is 0, 1 is def
+        // =============================================================
+
+        HRESULT GetNamespaceCount(
+            [out] ULONG* puCount
+            );
+
+    	HRESULT SetNamespaceAt(
+            [in] ULONG uIndex,
+ 			[in, string] LPCWSTR pszName
+            );
+
+    	HRESULT GetNamespaceAt(
+            [in] ULONG uIndex,
+            [in,out] ULONG * puNameBufLength,
+            [in, out, string, annotation("_Out_writes_(*puNameBufLength)")] LPWSTR pName
+            );
+
+        HRESULT RemoveNamespaceAt(
+            [in] ULONG uIndex
+            );
+
+        HRESULT RemoveAllNamespaces(
+            );
+
+        //
+        // Scope manipulators.  The leftmost scope is 0
+        // ============================================
+
+        HRESULT GetScopeCount(
+            [out] ULONG *puCount
+            );
+
+        HRESULT SetScope(
+            [in] ULONG uIndex,
+            [in, annotation("_In_")] LPWSTR pszClass
+            );
+
+        HRESULT SetScopeFromText(
+            [in] ULONG uIndex,
+            [in, annotation("_In_")] LPWSTR pszText
+            );
+
+        HRESULT GetScope(
+            [in] ULONG uIndex,
+            [in,out] ULONG * puClassNameBufSize,
+            [in,out, annotation("_Out_writes_(*puClassNameBufSize)")] LPWSTR pszClass,
+            [out] IWbemPathKeyList **pKeyList
+            );
+
+        HRESULT GetScopeAsText(
+            [in] ULONG uIndex,
+            [in,out] ULONG * puTextBufSize,
+            [in,out, annotation("_Out_writes_(*puTextBufSize)")] LPWSTR pszText
+            );
+
+        HRESULT RemoveScope(
+            [in] ULONG uIndex
+            );
+
+        HRESULT RemoveAllScopes(
+            );
+
+        // General class and key access routines
+        // =====================================
+
+        HRESULT SetClassName(
+            [in, string] LPCWSTR Name
+            );
+
+        HRESULT GetClassName(
+            [in, out] ULONG * puBuffLength,
+            [in, out, string, annotation("_Out_writes_opt_(*puBuffLength)")] LPWSTR pszName
+            );
+
+	    HRESULT GetKeyList(
+            [out] IWbemPathKeyList ** pOut
+            );
+
+	    HRESULT CreateClassPart(
+            [in] long lFlags,
+            [in, string] LPCWSTR Name
+            );
+
+	    HRESULT DeleteClassPart(
+            [in] long lFlags
+            );
+
+	    BOOL IsRelative(
+			[in, string, annotation("_In_")] LPWSTR wszMachine,
+			[in, string, annotation("_In_")] LPWSTR wszNamespace
+			);
+
+	    BOOL IsRelativeOrChild(
+			[in, string, annotation("_In_")] LPWSTR wszMachine,
+			[in, string, annotation("_In_")] LPWSTR wszNamespace,
+			[in] long lFlags
+			);
+		
+		BOOL IsLocal(
+			[in, string] LPCWSTR wszMachine
+			);
+
+		BOOL IsSameClassName(
+			[in, string] LPCWSTR wszClass
+			);
+
+
+    };
+
+    //***********************************************************************
+    //
+
+    [restricted, uuid(cf4cc405-e2c5-4ddd-b3ce-5e7582d8c9fa)]
+    coclass WbemDefPath
+    {
+        interface IWbemPath;
+    };
+
+    interface IWbemQuery;
+
+
+    [uuid(EAC8A024-21E2-4523-AD73-A71A0AA2F56A)]
+    coclass WbemQuery
+    {
+        interface IWbemQuery;
+    };
+};
+
+
+//*******************************************************************
+// Query parser & analysis interfaces
+
+typedef enum
+{
+    WMIQ_ANALYSIS_RPN_SEQUENCE          = 0x1,
+    WMIQ_ANALYSIS_ASSOC_QUERY           = 0x2,
+    WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX  = 0x3,
+    WMIQ_ANALYSIS_QUERY_TEXT            = 0x4,
+
+    WMIQ_ANALYSIS_RESERVED     = 0x8000000
+
+}   WMIQ_ANALYSIS_TYPE;
+
+typedef enum
+{
+    // Group 1
+    WMIQ_RPN_TOKEN_EXPRESSION   = 1,
+    WMIQ_RPN_TOKEN_AND          = 2,
+    WMIQ_RPN_TOKEN_OR           = 3,
+    WMIQ_RPN_TOKEN_NOT          = 4,
+
+    // Group 2
+    WMIQ_RPN_OP_UNDEFINED       = 0,
+    WMIQ_RPN_OP_EQ              = 1,
+    WMIQ_RPN_OP_NE              = 2,
+    WMIQ_RPN_OP_GE              = 3,
+    WMIQ_RPN_OP_LE              = 4,
+    WMIQ_RPN_OP_LT              = 5,
+    WMIQ_RPN_OP_GT              = 6,
+    WMIQ_RPN_OP_LIKE            = 7,
+    WMIQ_RPN_OP_ISA             = 8,
+    WMIQ_RPN_OP_ISNOTA          = 9,
+    WMIQ_RPN_OP_ISNULL          = 10,
+    WMIQ_RPN_OP_ISNOTNULL          = 11,
+
+    // Group 3
+    WMIQ_RPN_LEFT_PROPERTY_NAME  = 0x1,
+    WMIQ_RPN_RIGHT_PROPERTY_NAME = 0x2,
+    WMIQ_RPN_CONST2              = 0x4,
+    WMIQ_RPN_CONST               = 0x8,
+    WMIQ_RPN_RELOP               = 0x10,
+    WMIQ_RPN_LEFT_FUNCTION       = 0x20,
+    WMIQ_RPN_RIGHT_FUNCTION      = 0x40,
+
+    // Group 4
+    WMIQ_RPN_GET_TOKEN_TYPE         = 1,    // Returns Group 1 ULONG value
+    WMIQ_RPN_GET_EXPR_SHAPE         = 2,    // Returns Group 3 ULONG mask
+    WMIQ_RPN_GET_LEFT_FUNCTION      = 3,    // Returns LPWSTR
+    WMIQ_RPN_GET_RIGHT_FUNCTION     = 4,    // Returns LPWSTR
+    WMIQ_RPN_GET_RELOP              = 5,    // Returns a Group 2 ULONG
+
+    // Group 5
+    WMIQ_RPN_NEXT_TOKEN             = 1,
+
+    // Group 6 (FROM clause options)
+    WMIQ_RPN_FROM_UNARY      = 0x1,
+    WMIQ_RPN_FROM_PATH       = 0x2,
+    WMIQ_RPN_FROM_CLASS_LIST = 0x4,
+    WMIQ_RPN_FROM_MULTIPLE   = 0x8
+
+}   WMIQ_RPN_TOKEN_FLAGS;
+
+
+typedef enum
+{
+    WMIQ_ASSOCQ_ASSOCIATORS             = 0x1,
+    WMIQ_ASSOCQ_REFERENCES              = 0x2,
+
+    WMIQ_ASSOCQ_RESULTCLASS             = 0x4,
+    WMIQ_ASSOCQ_ASSOCCLASS              = 0x8,
+    WMIQ_ASSOCQ_ROLE                    = 0x10,
+    WMIQ_ASSOCQ_RESULTROLE              = 0x20,
+    WMIQ_ASSOCQ_REQUIREDQUALIFIER       = 0x40,
+    WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER  = 0x80,
+
+    WMIQ_ASSOCQ_CLASSDEFSONLY           = 0x100,
+	WMIQ_ASSOCQ_KEYSONLY                = 0x200,
+    WMIQ_ASSOCQ_SCHEMAONLY              = 0x400,
+    WMIQ_ASSOCQ_CLASSREFSONLY           = 0x800
+
+}   WMIQ_ASSOCQ_FLAGS;
+
+
+// **********************************************************************
+//
+
+typedef struct tag_SWbemQueryQualifiedName
+{
+    ULONG    m_uVersion;
+    ULONG    m_uTokenType;
+
+    ULONG    m_uNameListSize;
+    LPCWSTR *m_ppszNameList;
+
+    BOOL     m_bArraysUsed;
+    BOOL    *m_pbArrayElUsed;
+    ULONG   *m_puArrayIndex;
+
+}   SWbemQueryQualifiedName;
+
+// **********************************************************************
+//
+typedef union tag_SWbemRpnConst
+{
+    LPCWSTR m_pszStrVal;        // VT_LPWSTR
+    BOOL    m_bBoolVal;         // VT_BOOL
+    LONG    m_lLongVal;         // VT_I4
+    ULONG   m_uLongVal;         // VT_UI4
+    double  m_dblVal;           // VT_R8
+    __int64 m_lVal64;           // VT_I8
+    __int64 m_uVal64;           // VT_UI8
+
+}   SWbemRpnConst;
+
+// **********************************************************************
+// RPN token for normal queries
+
+typedef struct tag_SWbemRpnQueryToken
+{
+    ULONG   m_uVersion;
+    ULONG   m_uTokenType;
+
+    ULONG   m_uSubexpressionShape;
+    ULONG   m_uOperator;
+
+    SWbemQueryQualifiedName *m_pRightIdent;
+    SWbemQueryQualifiedName *m_pLeftIdent;
+
+    ULONG   m_uConstApparentType;  // VT_
+    SWbemRpnConst m_Const;
+
+    // Const2 used only for BETWEEN
+    ULONG   m_uConst2ApparentType;   // VT_
+    SWbemRpnConst m_Const2;
+
+    LPCWSTR m_pszRightFunc;
+    LPCWSTR m_pszLeftFunc;
+
+}   SWbemRpnQueryToken;
+
+
+typedef struct tag_SWbemRpnTokenList
+{
+    ULONG m_uVersion;
+    ULONG m_uTokenType;
+
+    ULONG m_uNumTokens;
+
+}   SWbemRpnTokenList;
+
+
+typedef enum tag_WMIQ_LANGUAGE_FEATURES
+{
+    // The LF1 corresponds to the integer value. Do not alter!
+
+    WMIQ_LF1_BASIC_SELECT                   = 1,                // *
+    WMIQ_LF2_CLASS_NAME_IN_QUERY            = 2,                // *
+    WMIQ_LF3_STRING_CASE_FUNCTIONS          = 3,                // *
+    WMIQ_LF4_PROP_TO_PROP_TESTS             = 4,                // *
+    WMIQ_LF5_COUNT_STAR                     = 5,
+    WMIQ_LF6_ORDER_BY                       = 6,                // *
+    WMIQ_LF7_DISTINCT			            = 7,
+    WMIQ_LF8_ISA 			                = 8,                // *
+    WMIQ_LF9_THIS			                = 9,                // *
+    WMIQ_LF10_COMPEX_SUBEXPRESSIONS         = 10,
+    WMIQ_LF11_ALIASING                      = 11,
+    WMIQ_LF12_GROUP_BY_HAVING               = 12,               // *
+    WMIQ_LF13_WMI_WITHIN                    = 13,               // *
+    WMIQ_LF14_SQL_WRITE_OPERATIONS          = 14,
+    WMIQ_LF15_GO                            = 15,
+    WMIQ_LF16_SINGLE_LEVEL_TRANSACTIONS     = 16,
+    WMIQ_LF17_QUALIFIED_NAMES               = 17,               // *
+    WMIQ_LF18_ASSOCIATONS                   = 18,               // *
+    WMIQ_LF19_SYSTEM_PROPERTIES             = 19,
+    WMIQ_LF20_EXTENDED_SYSTEM_PROPERTIES    = 20,
+    WMIQ_LF21_SQL89_JOINS                   = 21,
+    WMIQ_LF22_SQL92_JOINS                   = 22,
+    WMIQ_LF23_SUBSELECTS                    = 23,
+    WMIQ_LF24_UMI_EXTENSIONS                = 24,
+    WMIQ_LF25_DATEPART                      = 25,               // *
+    WMIQ_LF26_LIKE                          = 26,               // *
+    WMIQ_LF27_CIM_TEMPORAL_CONSTRUCTS       = 27,               // *
+    WMIQ_LF28_STANDARD_AGGREGATES           = 28,
+    WMIQ_LF29_MULTI_LEVEL_ORDER_BY          = 29,
+    WMIQ_LF30_WMI_PRAGMAS                   = 30,
+    WMIQ_LF31_QUALIFIER_TESTS               = 31,
+    WMIQ_LF32_SP_EXECUTE                    = 32,
+    WMIQ_LF33_ARRAY_ACCESS                  = 33,               // *
+    WMIQ_LF34_UNION	                        = 34,
+    WMIQ_LF35_COMPLEX_SELECT_TARGET         = 35,
+    WMIQ_LF36_REFERENCE_TESTS               = 36,
+    WMIQ_LF37_SELECT_INTO                   = 37,
+    WMIQ_LF38_BASIC_DATETIME_TESTS          = 38,
+    WMIQ_LF39_COUNT_COLUMN                  = 39,
+    WMIQ_LF40_BETWEEN                       = 40,
+
+    WMIQ_LF_LAST                            = 40
+}   WMIQ_LANGUAGE_FEATURES;
+
+typedef enum tag_WMIQ_RPNQ_FEATURE
+{
+    WMIQ_RPNF_WHERE_CLAUSE_PRESENT          = 0x1,      // *
+    WMIQ_RPNF_QUERY_IS_CONJUNCTIVE          = 0x2,      // *
+    WMIQ_RPNF_QUERY_IS_DISJUNCTIVE          = 0x4,      // *
+    WMIQ_RPNF_PROJECTION                    = 0x8,      // *
+    WMIQ_RPNF_FEATURE_SELECT_STAR           = 0x10,     // *
+    WMIQ_RPNF_EQUALITY_TESTS_ONLY           = 0x20,     // *
+    WMIQ_RPNF_COUNT_STAR                    = 0x40,     // *
+    WMIQ_RPNF_QUALIFIED_NAMES_USED          = 0x80,     // *
+    WMIQ_RPNF_SYSPROP_CLASS_USED            = 0x100,    // *
+    WMIQ_RPNF_PROP_TO_PROP_TESTS            = 0x200,    // *
+    WMIQ_RPNF_ORDER_BY                      = 0x400,    // *
+    WMIQ_RPNF_ISA_USED                      = 0x800,    // *
+    WMIQ_RPNF_GROUP_BY_HAVING               = 0x1000,   // *
+    WMIQ_RPNF_ARRAY_ACCESS_USED             = 0x2000,   // *
+
+}   WMIQ_RPNF_FEATURE;
+
+
+typedef struct tag_SWbemRpnEncodedQuery
+{
+    ULONG m_uVersion;
+    ULONG m_uTokenType;
+
+    // General query features
+    // ======================
+    unsigned __int64 m_uParsedFeatureMask;
+
+    // Overall language features encountered
+    // ======================================
+
+    ULONG      m_uDetectedArraySize;
+    ULONG     *m_puDetectedFeatures;    // Array of LFn_ constants
+
+    // Values being selected if WMIQ_RPNF_PROJECTION is set
+    // =====================================================
+
+    ULONG  m_uSelectListSize;
+    SWbemQueryQualifiedName  **m_ppSelectList;
+
+    // FROM clause
+    // ===========
+
+    ULONG   m_uFromTargetType;          // WMIQ_RPN_FROM_ constants
+    LPCWSTR m_pszOptionalFromPath;      // NULL if not used
+    ULONG   m_uFromListSize;
+    LPCWSTR *m_ppszFromList;
+
+    // Where clause
+    // ============
+
+    ULONG                    m_uWhereClauseSize;
+    SWbemRpnQueryToken      **m_ppRpnWhereClause;
+
+    // WITHIN value
+    // ============
+
+    double  m_dblWithinPolling;
+    double  m_dblWithinWindow;
+
+    // ORDER BY
+    // ========
+
+    ULONG    m_uOrderByListSize;
+    LPCWSTR *m_ppszOrderByList;
+    ULONG   *m_uOrderDirectionEl;
+
+}   SWbemRpnEncodedQuery;
+
+
+// **********************************************************************
+
+typedef struct tag_SWbemAnalysisMatrix
+{
+    ULONG   m_uVersion;
+    ULONG   m_uMatrixType;
+
+    LPCWSTR  m_pszProperty;
+    ULONG    m_uPropertyType;
+    ULONG    m_uEntries;
+    LPVOID  *m_pValues;
+    BOOL    *m_pbTruthTable;
+
+}   SWbemAnalysisMatrix;
+
+typedef struct tag_SWbemAnalysisMatrixList
+{
+    ULONG m_uVersion;
+    ULONG m_uMatrixType;
+
+    ULONG m_uNumMatrices;
+    SWbemAnalysisMatrix *m_pMatrices;
+
+}   SWbemAnalysisMatrixList;
+
+
+// **********************************************************************
+// Associators/ References queries
+
+typedef struct tag_SWbemAssocQueryInf
+{
+    ULONG       m_uVersion;
+    ULONG       m_uAnalysisType;
+
+    ULONG       m_uFeatureMask;
+    IWbemPath  *m_pPath;
+    LPWSTR      m_pszPath;
+    LPWSTR      m_pszQueryText;
+
+    LPWSTR      m_pszResultClass;
+    LPWSTR      m_pszAssocClass;
+    LPWSTR      m_pszRole;
+    LPWSTR      m_pszResultRole;
+    LPWSTR      m_pszRequiredQualifier;
+    LPWSTR      m_pszRequiredAssocQualifier;
+
+}   SWbemAssocQueryInf;
+
+
+
+
+[local, object, uuid(81166f58-dd98-11d3-a120-00105a1f515a)]
+interface IWbemQuery : IUnknown
+{
+    HRESULT Empty();
+
+    HRESULT SetLanguageFeatures(
+        [in] ULONG uFlags,
+        [in] ULONG uArraySize,
+        [in] ULONG *puFeatures
+        );
+        // If not called, all features are supported
+
+    HRESULT TestLanguageFeatures(
+        [in] ULONG uFlags,
+        [in,out] ULONG *uArraySize,
+        [out] ULONG *puFeatures
+        );
+
+    HRESULT Parse(
+        [in] LPCWSTR pszLang,
+        [in] LPCWSTR pszQuery,
+        [in] ULONG uFlags
+        );
+
+    HRESULT GetAnalysis(
+        [in]  ULONG uAnalysisType,
+        [in]  ULONG uFlags,
+        [out] LPVOID *pAnalysis
+        );
+
+    HRESULT FreeMemory(
+        [in] LPVOID pMem
+        );
+
+    HRESULT GetQueryInfo(
+        [in]  ULONG  uAnalysisType,
+        [in]  ULONG  uInfoId,
+        [in]  ULONG  uBufSize,
+        [out] LPVOID pDestBuf
+        );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT) */")
+#pragma endregion
+

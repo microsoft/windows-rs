@@ -1,0 +1,285 @@
+// manipulations.idl
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+typedef [v1_enum] enum MANIPULATION_PROCESSOR_MANIPULATIONS
+{
+    MANIPULATION_NONE = 0x00000000,
+    MANIPULATION_TRANSLATE_X = 0x00000001,
+    MANIPULATION_TRANSLATE_Y = 0x00000002,
+    MANIPULATION_SCALE = 0x00000004,
+    MANIPULATION_ROTATE = 0x00000008,
+	MANIPULATION_ALL = 0x0000000F
+}  MANIPULATION_PROCESSOR_MANIPULATIONS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(MANIPULATION_PROCESSOR_MANIPULATIONS)")
+
+cpp_quote("// Floating point constants.")
+cpp_quote("DECLSPEC_SELECTANY extern const float POSITIVE_INFINITY = ((float)(1e308 * 10));")
+cpp_quote("DECLSPEC_SELECTANY extern const float NEGATIVE_INFINITY = ((float)(-1e308 * 10));")
+cpp_quote("DECLSPEC_SELECTANY extern const float NaN = ((float)((1e308 * 10)*0.));")
+
+
+// Manipulation ID typically provided by the WM_TOUCH param TOUCHINPUT.id.
+typedef unsigned long MANIPULATOR_ID;
+
+[
+    uuid(935610b3-6f81-450f-85d5-42d3d26c5c11),
+    version(1.0),
+    helpstring("Manipulations Library 1.0")
+]
+library ManipulationsLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+
+    //////// Manipulation objects (begin) //////////////////
+
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    // _IManipulationEvents interface
+    // Public COM event interface for Manipulation and Inertia Processors
+    ////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        uuid(4f62c8da-9c53-4b22-93df-927a862bbb03),
+        helpstring("_IManipulationEvents interface"),
+        pointer_default(unique)
+    ]
+    interface _IManipulationEvents : IUnknown
+    {
+        [helpstring("event ManipulationStarted Returns the beginning position of a new manipulation")]
+        HRESULT ManipulationStarted([in] FLOAT x, [in] FLOAT y);
+        [helpstring("event ManipulationDelta Returns the change in position from the manipulation underway (rotation in radians)")] 
+        HRESULT ManipulationDelta([in] FLOAT x, [in] FLOAT y,
+                    [in] FLOAT translationDeltaX, 
+                    [in] FLOAT translationDeltaY,
+                    [in] FLOAT scaleDelta, 
+                    [in] FLOAT expansionDelta, 
+                    [in] FLOAT rotationDelta,
+                    [in] FLOAT cumulativeTranslationX, 
+                    [in] FLOAT cumulativeTranslationY,
+                    [in] FLOAT cumulativeScale, 
+                    [in] FLOAT cumulativeExpansion, 
+                    [in] FLOAT cumulativeRotation);
+        [helpstring("event ManipulationCompleted Returns the final position change from the manipulation (rotation in radians)")] 
+        HRESULT ManipulationCompleted([in] FLOAT x, [in] FLOAT y,
+                    [in] FLOAT cumulativeTranslationX, 
+                    [in] FLOAT cumulativeTranslationY,
+                    [in] FLOAT cumulativeScale, 
+                    [in] FLOAT cumulativeExpansion, 
+                    [in] FLOAT cumulativeRotation);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    // IInertiaProcessor interface
+    // Public COM interface for Inertia Processor
+    ////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        uuid(18b00c6d-c5ee-41b1-90a9-9d4a929095ad),
+        helpstring("IInertiaProcessor interface"),
+        pointer_default(unique)
+    ]
+    interface IInertiaProcessor : IUnknown
+    {
+        // Note: Coordinates are in caller-specified units.
+
+        // Initial origin, default {0,0}.
+        HRESULT get_InitialOriginX([out]FLOAT *x);
+        HRESULT put_InitialOriginX([in]FLOAT x);                
+        HRESULT get_InitialOriginY([out]FLOAT *y);
+        HRESULT put_InitialOriginY([in]FLOAT y);
+
+        // Initial velocity, in units per msec, default 0, 0.
+        HRESULT get_InitialVelocityX([out]FLOAT *x);
+        HRESULT put_InitialVelocityX([in]FLOAT x);                
+        HRESULT get_InitialVelocityY([out]FLOAT *y);
+        HRESULT put_InitialVelocityY([in]FLOAT y);
+
+        // Initial angular velocity, in clockwise radians per msec, default 0
+        HRESULT get_InitialAngularVelocity([out]FLOAT *velocity);
+        HRESULT put_InitialAngularVelocity([in]FLOAT velocity);
+
+        // Expansion velocity - how fast average radius gets changed, 
+        // in units per msec, default 0.
+        HRESULT get_InitialExpansionVelocity([out]FLOAT *velocity);
+        HRESULT put_InitialExpansionVelocity([in]FLOAT velocity);
+
+        // Initial average radius of the object. 
+        // NOTE: This parameter must be specified if InitialExpensionVelocity
+        // is specified.
+        HRESULT get_InitialRadius([out]FLOAT *radius);
+        HRESULT put_InitialRadius([in]FLOAT radius);
+            
+        // Bounds, how far the object can travel in any direction, for
+        // example, distance to the control boundary.
+        // Default (NEGATIVE_INFINITY, POSITIVE_INFINITY)
+        HRESULT get_BoundaryLeft([out]FLOAT *left);
+        HRESULT put_BoundaryLeft([in]FLOAT left);
+        HRESULT get_BoundaryTop([out]FLOAT *top);
+        HRESULT put_BoundaryTop([in]FLOAT top);
+        HRESULT get_BoundaryRight([out]FLOAT *right);
+        HRESULT put_BoundaryRight([in]FLOAT right);
+        HRESULT get_BoundaryBottom([out]FLOAT *bottom);
+        HRESULT put_BoundaryBottom([in]FLOAT bottom);
+
+        // Size of the elastic region for bouncing, 
+        // default {0, 0, 0, 0}.
+        HRESULT get_ElasticMarginLeft([out]FLOAT *left);
+        HRESULT put_ElasticMarginLeft([in]FLOAT left);
+        HRESULT get_ElasticMarginTop([out]FLOAT *top);
+        HRESULT put_ElasticMarginTop([in]FLOAT top);
+        HRESULT get_ElasticMarginRight([out]FLOAT *right);
+        HRESULT put_ElasticMarginRight([in]FLOAT right);
+        HRESULT get_ElasticMarginBottom([out]FLOAT *bottom);
+        HRESULT put_ElasticMarginBottom([in]FLOAT bottom);
+
+        // Desired distance the object needs to travel.
+        // Default is NaN.
+        // This value is mutually exclusive with DesiredDeceleration.
+        HRESULT get_DesiredDisplacement([out]FLOAT *displacement);
+        HRESULT put_DesiredDisplacement([in]FLOAT displacement);
+
+        // Desired rotation when the object stops, in radians.
+        // Default is NaN.
+        // This value is mutually exclusive with DesiredAngularDeceleration.
+        HRESULT get_DesiredRotation([out]FLOAT *rotation);
+        HRESULT put_DesiredRotation([in]FLOAT rotation);
+
+        // Desired change in the object average radius.
+        // Default is NaN.
+        // This value is mutually exclusive with DesiredExpansionDeceleration
+        HRESULT get_DesiredExpansion([out]FLOAT *expansion);
+        HRESULT put_DesiredExpansion([in]FLOAT expansion);
+
+        // Desired absolute deceleration, in units per square msec.
+        // Default is NaN.
+        // This value is mutually exclusive with DesiredTranslation.
+        HRESULT get_DesiredDeceleration([out]FLOAT *deceleration);
+        HRESULT put_DesiredDeceleration([in]FLOAT deceleration);
+        HRESULT get_DesiredAngularDeceleration([out]FLOAT *deceleration);
+        HRESULT put_DesiredAngularDeceleration([in]FLOAT deceleration);
+        HRESULT get_DesiredExpansionDeceleration([out]FLOAT *deceleration);
+        HRESULT put_DesiredExpansionDeceleration([in]FLOAT deceleration);
+
+        // Initial timestamp.
+        HRESULT get_InitialTimestamp([out]DWORD *timestamp);
+        HRESULT put_InitialTimestamp([in]DWORD timestamp);
+
+        // Initializes the processor with initial timestamp.
+        HRESULT Reset();
+
+        // Processes the given tick, can raise Delta or Completed event
+        // depending on whether extrapolation is completed or not.
+        // If extrapolation finished at the previous tick, the method
+        // is no-op.
+        // Returns false if extrapolation is already completed.
+        HRESULT Process([out]BOOL *completed);
+
+        // Processes the given tick, can raise Delta or Completed event
+        // depending on whether extrapolation is completed or not.
+        // If extrapolation finished at the previous tick, the method 
+        // is no-op.
+        // Timestamp is in QueryPerformanceCounter() units.
+        // Returns false if extrapolation is already completed.
+        HRESULT ProcessTime([in]DWORD timestamp, [out]BOOL *completed);
+
+        // Processes the given tick and raises Completed event.
+        HRESULT Complete();
+
+        // Processes the given tick and raises Completed event.
+        HRESULT CompleteTime([in]DWORD timestamp); // in QueryPerformanceCounter() units
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    // IManipulationProcessor interface
+    // Public COM Interface for Manipulation Processor (WM_TOUCH-based)
+    ////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        uuid(A22AC519-8300-48a0-BEF4-F1BE8737DBA4),
+        //  DEFINE_GUID(<<name>>, 0xa22ac519, 0x8300, 0x48a0, 0xbe, 0xf4, 0xf1, 0xbe, 0x87, 0x37, 0xdb, 0xa4);
+        // static const GUID <<name>> = { 0xa22ac519, 0x8300, 0x48a0, { 0xbe, 0xf4, 0xf1, 0xbe, 0x87, 0x37, 0xdb, 0xa4 } };
+        helpstring("IManipulationProcessor interface"),
+        pointer_default(unique)
+    ]
+    interface IManipulationProcessor : IUnknown
+    {
+        // Get/set the desired manipulation types (Translate, Rotate, Scale).
+        HRESULT get_SupportedManipulations([out]MANIPULATION_PROCESSOR_MANIPULATIONS *manipulations);
+        HRESULT put_SupportedManipulations([in]MANIPULATION_PROCESSOR_MANIPULATIONS manipulations);
+
+        // Get/set the X and Y pivot points for rotation.
+        HRESULT get_PivotPointX([out]FLOAT *pivotPointX);
+        HRESULT put_PivotPointX([in]FLOAT pivotPointX);
+        HRESULT get_PivotPointY([out]FLOAT *pivotPointY);
+        HRESULT put_PivotPointY([in]FLOAT pivotPointY);
+
+        // Get/set the radius for rotation.
+        HRESULT get_PivotRadius([out]FLOAT *pivotRadius);
+        HRESULT put_PivotRadius([in]FLOAT pivotRadius);
+
+        // Explicitly declare the current manipulation completed, 
+        // which resets the state of the manipulation processor.
+        HRESULT CompleteManipulation();
+
+        // Down/Move/Up methods.  These are the workhorse methods for providing individual
+        // contact point data to the ManipulationProcessor during a real-time manipulation, 
+        // and are typically called from within the message handler for the input device(s).
+        HRESULT ProcessDown([in]MANIPULATOR_ID manipulatorId, [in]FLOAT x, [in]FLOAT y);
+        HRESULT ProcessMove([in]MANIPULATOR_ID manipulatorId, [in]FLOAT x, [in]FLOAT y);
+        HRESULT ProcessUp([in]MANIPULATOR_ID manipulatorId, [in]FLOAT x, [in]FLOAT y);
+        HRESULT ProcessDownWithTime([in]MANIPULATOR_ID manipulatorId, [in]FLOAT x, [in]FLOAT y, [in]DWORD timestamp);
+        HRESULT ProcessMoveWithTime([in]MANIPULATOR_ID manipulatorId, [in]FLOAT x, [in]FLOAT y, [in]DWORD timestamp);
+        HRESULT ProcessUpWithTime([in]MANIPULATOR_ID manipulatorId, [in]FLOAT x, [in]FLOAT y, [in]DWORD timestamp);
+
+        // Velocity access methods.  These methods are provided to poll the X,Y translation,
+        // scale expansion, and angular rotation velocities.
+        HRESULT GetVelocityX([out]FLOAT *velocityX);
+        HRESULT GetVelocityY([out]FLOAT *velocityY);
+        HRESULT GetExpansionVelocity([out]FLOAT *expansionVelocity);
+        HRESULT GetAngularVelocity([out]FLOAT *angularVelocity);
+
+        // Get/set the minimum scale and rotation radius.
+        HRESULT get_MinimumScaleRotateRadius([out]FLOAT *minRadius);
+        HRESULT put_MinimumScaleRotateRadius([in]FLOAT minRadius);
+    }
+
+
+    ///////////////////////////////////////////////////
+    //  CoCreateable objects 
+    ///////////////////////////////////////////////////
+
+    // InertiaProcessor object
+    [
+        uuid(abb27087-4ce0-4e58-a0cb-e24df96814be),
+        helpstring("InertiaProcessor Class")
+    ]
+    coclass InertiaProcessor
+    {
+        [default] interface IInertiaProcessor;
+        [default, source] interface _IManipulationEvents;
+    };
+
+    // ManipulationProcessor object
+    [
+        uuid(597D4FB0-47FD-4aff-89B9-C6CFAE8CF08E),
+        helpstring("ManipulationProcessor Class")
+    ]
+    coclass ManipulationProcessor
+    {
+        [default] interface IManipulationProcessor;
+        [default, source] interface _IManipulationEvents;
+    };
+
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

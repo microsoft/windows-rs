@@ -1,0 +1,115 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//    Copyright (c) 2000    Microsoft Corporation
+//
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//    Imports
+//
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "vss.idl";
+
+[
+    object,
+    uuid(77ED5996-2F63-11d3-8A39-00C04F72D8E3),
+    helpstring("IVssAdmin interface"),
+    pointer_default(unique)
+]
+interface IVssAdmin : IUnknown
+{
+    [helpstring("method RegisterProvider")]             
+    HRESULT RegisterProvider(                            
+        [in]    VSS_ID        pProviderId,                 
+        [in]    CLSID        ClassId,                    
+        [in]    VSS_PWSZ    pwszProviderName,            
+        [in]    VSS_PROVIDER_TYPE eProviderType,
+        [in]    VSS_PWSZ    pwszProviderVersion,        
+        [in]    VSS_ID        ProviderVersionId
+        );                                                
+
+    [helpstring("method UnregisterProvider")]            
+    HRESULT UnregisterProvider(                         
+        [in]    VSS_ID    ProviderId                        
+        );                                                
+
+    [helpstring("method QueryProviders")]                
+    HRESULT QueryProviders(                             
+        [out]    IVssEnumObject**ppEnum                    
+        );                                                
+
+    [helpstring("method AbortAllSnapshotsInProgress")]    
+    HRESULT AbortAllSnapshotsInProgress(                
+        );                                                
+};
+
+[
+    object,
+    uuid(7858A9F8-B1FA-41a6-964F-B9B36B8CD8D8),
+    helpstring("IVssAdminEx interface"),
+    pointer_default(unique)
+]
+interface IVssAdminEx : IVssAdmin
+{
+    // Inform caller of features that provider supports
+    [helpstring("method GetProviderCapability")]             
+    HRESULT GetProviderCapability(                            
+        [in]    VSS_ID        pProviderId,                 
+        [out]    ULONGLONG * pllOriginalCapabilityMask
+        );                                                
+
+    // Retrieve persistent context of given provider
+    [helpstring("method GetProviderContext")]            
+    HRESULT GetProviderContext(                         
+        [in]    VSS_ID    ProviderId,                        
+        [out]    LONG * plContext                    
+        );                                                
+
+    // Set persistent context of specified provider
+    // The setting is persisted in registry by VSS
+    // It is automatically applied to the snapshot context
+    // Requestors should NOT call this method
+    [helpstring("method SetProviderContext")]                
+    HRESULT SetProviderContext(                             
+        [in]    VSS_ID    ProviderId,                        
+        [in]    LONG lContext                    
+        );                                                
+
+};
+
+
+////////////////////////////////////////////////////////
+//    VSS Admin Type Library
+
+[
+    uuid(9148a774-0304-4243-b269-a339aa96d264),
+    version(1.0),
+    helpstring("Volume Shadow Copy Admin 1.0 Type Library")
+]
+library VSSAdmin
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(E579AB5F-1CC4-44b4-BED9-DE0991FF0623),
+        helpstring("VSSCoordinator Class")
+    ]
+    coclass VSSCoordinator
+    {
+        [default] interface IVssAdmin;
+        interface IVssAdminEx;
+    }
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

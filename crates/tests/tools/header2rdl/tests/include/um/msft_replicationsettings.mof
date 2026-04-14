@@ -1,0 +1,47 @@
+[ClassVersion( "1.0" ), Abstract,
+Description(
+    "Represents the settings to be configured on a group or sync pair."
+    )]
+class MSFT_ReplicationSettings {
+    
+    [Description(
+        "TODO"
+        )]
+    UInt16 TargetElementSupplier;
+
+    [Description(
+        "TODO"
+        )]
+    UInt16 ThinProvisioningPolicy;
+
+    [Description(
+        "A set of volumes where the replication journal for the Replication"
+        "Group is hosted."
+        ),
+        EmbeddedInstance("MSFT_Volume")]
+    String LogDevices[];
+
+    [Description(
+        "Size of replication journal in units of bytes. Size must be in multiples of gigabytes."
+        )]
+    UInt64 LogSizeInBytes;
+
+    [Description(
+        "Minimum number of synchronous replication partnerships that are in"
+        " synchronous replication state for I/O to continue on source Replication"
+        " Group."
+        )]    
+    UInt16 ReplicationQuorum;
+
+    [Description(
+        "Mode describes whether the target elements will be updated synchronously or "
+        "asynchronously. If NULL, implementation decides the mode."), 
+        ValueMap {
+            "0", "2", "3", "..", "32768..65535"
+            },
+        Values {
+            "Unknown", "Synchronous", "Asynchronous",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 SyncMode;
+};

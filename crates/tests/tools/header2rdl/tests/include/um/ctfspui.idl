@@ -1,0 +1,95 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2001.
+//
+//  File: ctfspui.idl
+//
+//  Contents: Speech UI declarations.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ctfspui.h")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// Speech UI declarations.")
+cpp_quote("")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1995-2001 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR TFPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE TFPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#ifndef CTFSPUI_DEFINED")
+cpp_quote("#define CTFSPUI_DEFINED")
+cpp_quote("")
+cpp_quote("#include <windows.h>")
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("extern \"C\" {")
+cpp_quote("#endif /* __cplusplus */")
+cpp_quote("")
+
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("}")
+cpp_quote("#endif  /* __cplusplus */")
+
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "msctf.idl";
+
+//
+// exported CLSID
+//
+cpp_quote("EXTERN_C const CLSID CLSID_SpeechUIServer;")
+
+//
+// ITfSpeechUIServer
+//
+// Implemented by TIP.
+//
+[
+  object,
+  uuid(90e9a944-9244-489f-a78f-de67afc013a7),
+  pointer_default(unique)
+]
+interface ITfSpeechUIServer : IUnknown
+{
+    HRESULT Initialize();
+    HRESULT ShowUI([in] BOOL fShow);
+    HRESULT UpdateBalloon([in] TfLBBalloonStyle style,
+                          [in, size_is(cch)] const WCHAR *pch,
+                          [in] ULONG cch);
+}
+
+
+// =-------------------------------------------------------------------------=
+// 
+//   C L S I D / I I D  D E F I N I T I O N
+//
+// =-------------------------------------------------------------------------=
+
+cpp_quote("")
+
+cpp_quote("DEFINE_GUID(IID_ITfSpeechUIServer, 0x90e9a944, 0x9244, 0x489f, 0xa7, 0x8f, 0xde, 0x67, 0xaf, 0xc0, 0x13, 0xa7 );")
+
+
+cpp_quote("")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("")
+
+cpp_quote("#endif // CTFSPUI_DEFINED")

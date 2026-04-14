@@ -1,0 +1,84 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+import "Windows.Foundation.idl";
+import "Windows.Foundation.CustomAttributes.idl";
+
+namespace Windows.UI.Xaml
+{
+    [attributeusage(target_runtimeclass)]
+    [allowmultiple]
+    [attributename("templatepart")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute TemplatePartAttribute
+    {
+        HSTRING Name;
+        type Type;
+    }
+
+    [attributeusage(target_runtimeclass)]
+    [allowmultiple]
+    [attributename("templatevisualstate")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute TemplateVisualStateAttribute
+    {
+        HSTRING Name;
+        HSTRING GroupName;
+    }
+
+    [attributeusage(target_runtimeclass)]
+    [allowmultiple]
+    [attributename("styletypedproperty")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute StyleTypedPropertyAttribute
+    {
+        HSTRING Property;
+        type StyleTargetType;
+    }
+}
+
+namespace Windows.UI.Xaml.Markup
+{
+    [attributeusage(target_runtimeclass)]
+    [attributename("contentproperty")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute ContentPropertyAttribute
+    {
+        HSTRING Name;
+    }
+}
+
+namespace Windows.UI.Xaml.Media.Animation
+{
+    [attributeusage(target_property)]
+    [attributename("independentlyanimatable")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute IndependentlyAnimatableAttribute
+    {
+    }
+
+    [attributeusage(target_property)]
+    [attributename("conditionallyindependentlyanimatable")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute ConditionallyIndependentlyAnimatableAttribute
+    {
+    }
+}
+
+namespace Windows.UI.Xaml.Data
+{
+    [attributeusage(target_runtimeclass)]
+    [attributename("bindable")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute BindableAttribute
+    {
+    }
+}

@@ -1,0 +1,1196 @@
+//****************************************************************************
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       SyncMgr.idl
+//
+//  Contents:   Types and interfaces for integrating with Sync Center.
+//
+//****************************************************************************
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "objidl.idl";
+import "oleidl.idl";
+import "shobjidl_core.idl";  // IShellItem
+import "ocidl.idl";     // IObjectWithSite
+import "comcat.idl";    // IEnumString
+#endif
+
+interface ISyncMgrHandlerCollection;
+interface ISyncMgrHandler;
+interface ISyncMgrHandlerInfo;
+interface ISyncMgrSyncItemContainer;
+interface ISyncMgrSyncItem;
+interface ISyncMgrSyncItemInfo;
+interface IEnumSyncMgrSyncItems;
+interface ISyncMgrSessionCreator;
+interface ISyncMgrSyncCallback;
+interface ISyncMgrUIOperation;
+interface ISyncMgrEventLinkUIOperation;
+interface ISyncMgrScheduleWizardUIOperation;
+interface ISyncMgrControl;
+
+interface ISyncMgrEventStore;
+interface ISyncMgrEvent;
+interface IEnumSyncMgrEvents;
+
+interface ISyncMgrConflictStore;
+interface IEnumSyncMgrConflict;
+interface ISyncMgrConflict;
+interface ISyncMgrResolutionHandler;
+interface ISyncMgrConflictPresenter;
+interface ISyncMgrConflictFolder;
+interface ISyncMgrConflictItems;
+interface ISyncMgrConflictResolutionItems;
+
+const ULONG MAX_SYNCMGR_ID = 64;
+const ULONG MAX_SYNCMGR_PROGRESSTEXT = 260;
+const ULONG MAX_SYNCMGR_NAME = 128;
+
+//
+// The ISyncMgrHandlerCollection interface allows a handler writer to add
+// handlers to the Sync Center folder dynamically instead of registering each
+// one in the registry.  For example, a handler collection could be used to
+// expose each music device in the top-level Sync Center folder.
+//
+// A handler ID is a string that uniquely represents the handler.  The ID must
+// be unique across all handlers in the system.  For that reason, most handler
+// IDs will be simply string-ized GUIDs.
+//
+[
+    object,
+    uuid(a7f337a3-d20b-45cb-9ed7-87d094ca5045)
+]
+interface ISyncMgrHandlerCollection : IUnknown
+{
+    HRESULT GetHandlerEnumerator([out] IEnumString **ppenum);
+    HRESULT BindToHandler([in, ref, string] LPCWSTR pszHandlerID, [in] REFIID riid, [out, iid_is(riid)] void **ppv);
+}
+
+//
+// These values specify the capabilities of a handler with respect to the
+// actions that can be performed against it.
+//
+typedef [v1_enum] enum SYNCMGR_HANDLER_CAPABILITIES
+{
+    SYNCMGR_HCM_NONE                            = 0x00000000,
+
+    SYNCMGR_HCM_PROVIDES_ICON                   = 0x00000001,
+    SYNCMGR_HCM_EVENT_STORE                     = 0x00000002,
+    SYNCMGR_HCM_CONFLICT_STORE                  = 0x00000004,
+
+    SYNCMGR_HCM_SUPPORTS_CONCURRENT_SESSIONS    = 0x00000010,
+
+    SYNCMGR_HCM_CAN_BROWSE_CONTENT              = 0x00010000,
+    SYNCMGR_HCM_CAN_SHOW_SCHEDULE               = 0x00020000,
+
+    SYNCMGR_HCM_QUERY_BEFORE_ACTIVATE           = 0x00100000,
+    SYNCMGR_HCM_QUERY_BEFORE_DEACTIVATE         = 0x00200000,
+    SYNCMGR_HCM_QUERY_BEFORE_ENABLE             = 0x00400000,
+    SYNCMGR_HCM_QUERY_BEFORE_DISABLE            = 0x00800000,
+
+    SYNCMGR_HCM_VALID_MASK                      = 0x00f30017
+
+} SYNCMGR_HANDLER_CAPABILITIES;
+
+//
+// These values specify policies a handler can specify that deviate from
+// normal operations.
+//
+typedef [v1_enum] enum SYNCMGR_HANDLER_POLICIES
+{
+    SYNCMGR_HPM_NONE                            = 0x00000000,
+
+    // These policies prevent tasks from showing up in the UI.
+    SYNCMGR_HPM_PREVENT_ACTIVATE                = 0x00000001,
+    SYNCMGR_HPM_PREVENT_DEACTIVATE              = 0x00000002,
+    SYNCMGR_HPM_PREVENT_ENABLE                  = 0x00000004,
+    SYNCMGR_HPM_PREVENT_DISABLE                 = 0x00000008,
+    SYNCMGR_HPM_PREVENT_START_SYNC              = 0x00000010,
+    SYNCMGR_HPM_PREVENT_STOP_SYNC               = 0x00000020,
+
+    SYNCMGR_HPM_DISABLE_ENABLE                  = 0x00000100,
+    SYNCMGR_HPM_DISABLE_DISABLE                 = 0x00000200,
+    SYNCMGR_HPM_DISABLE_START_SYNC              = 0x00000400,
+    SYNCMGR_HPM_DISABLE_STOP_SYNC               = 0x00000800,
+    SYNCMGR_HPM_DISABLE_BROWSE                  = 0x00001000,
+    SYNCMGR_HPM_DISABLE_SCHEDULE                = 0x00002000,
+
+    SYNCMGR_HPM_HIDDEN_BY_DEFAULT               = 0x00010000,
+
+    SYNCMGR_HPM_BACKGROUND_SYNC_ONLY            = (SYNCMGR_HPM_PREVENT_START_SYNC | SYNCMGR_HPM_PREVENT_STOP_SYNC),
+
+    SYNCMGR_HPM_VALID_MASK                      = 0x00012f3f
+
+} SYNCMGR_HANDLER_POLICIES;
+
+//
+// ISyncMgrHandler is the primary interface implemented by a sync handler.
+// Sync Center will instantiate the handler with this interface to get
+// properties, to enumerate sync items. and to modify state.  It will also be
+// instantiated on a separate thread to perform a synchronization or a UI
+// operation.
+//
+// The handler can implement the handler info interface on the same object or
+// on a separate object.
+//
+// The following types of operations can be specified to GetObject():
+//
+//  SYNCMGR_OBJECTID_Icon
+//      If the handler info interface doesn't return a value from the
+//      GetIconLocation() method, Sync Center will call GetObject() with this
+//      object ID to allow the handler to implement IExtractIcon.
+//  SYNCMGR_OBJECTID_EventStore
+//      Provide an event store for events specific to the handler.
+//  SYNCMGR_OBJECTID_ConflictStore
+//      Provide a conflict store for conflicts specific to the handler.
+//  SYNCMGR_OBJECTID_BrowseContent
+//      Show UI to allow the user to browse the content of the handler.
+//  SYNCMGR_OBJECTID_ShowSchedule
+//      Show UI that allows the user to configure the schedule for the
+//      handler.
+//  SYNCMGR_OBJECTID_QueryBeforeActivate
+//      Query the user before a handler is activated.  This occurs when the
+//      user requests that a handler in the New Handlers folder be setup.
+//  SYNCMGR_OBJECTID_QueryBeforeDeactivate
+//      Query the user when the user chooses to delete a partnership from the
+//      active partnerships folder.
+//  SYNCMGR_OBJECTID_QueryBeforeEnable
+//      Query the user before enabling the handler.
+//  SYNCMGR_OBJECTID_QueryBeforeDisable
+//      Query the user before disabling the handler.
+//
+[
+    object,
+    uuid(04ec2e43-ac77-49f9-9b98-0307ef7a72a2)
+]
+interface ISyncMgrHandler : IUnknown
+{
+    HRESULT GetName([out, string] LPWSTR *ppszName);
+    HRESULT GetHandlerInfo([out] ISyncMgrHandlerInfo **ppHandlerInfo);
+    HRESULT GetObject([in] REFGUID rguidObjectID, [in] REFIID riid, [out, iid_is(riid)] void **ppv);
+
+    HRESULT GetCapabilities([out] SYNCMGR_HANDLER_CAPABILITIES *pmCapabilities);
+    HRESULT GetPolicies([out] SYNCMGR_HANDLER_POLICIES *pmPolicies);
+
+    HRESULT Activate([in] BOOL fActivate);
+    HRESULT Enable([in] BOOL fEnable);
+
+    HRESULT Synchronize(
+        [in, ref, string, size_is(cItems)] LPCWSTR     *ppszItemIDs,
+        [in] ULONG                                      cItems,
+        [in, unique] HWND                               hwndOwner,
+        [in] ISyncMgrSessionCreator                    *pSessionCreator,
+        [in, unique] IUnknown                          *punk);
+}
+
+//
+// These values identify the handler to Sync Center and allow handlers to be
+// easily grouped together in the folder.
+//
+typedef [v1_enum] enum SYNCMGR_HANDLER_TYPE
+{
+    SYNCMGR_HT_UNSPECIFIED      = 0,    // All handlers that do not specify or do not fit
+                                        //   in the rest of the options should use this value.
+    SYNCMGR_HT_APPLICATION      = 1,    // Handler is an application.
+    SYNCMGR_HT_DEVICE           = 2,    // Handler syncs with a device.
+    SYNCMGR_HT_FOLDER           = 3,    // Handler syncs with local or remote folders.
+    SYNCMGR_HT_SERVICE          = 4,    // Handler syncs with a web service.
+    SYNCMGR_HT_COMPUTER         = 5,    // Handler syncs with a computer.
+
+    SYNCMGR_HT_MIN              = 0,
+    SYNCMGR_HT_MAX              = SYNCMGR_HT_COMPUTER
+
+} SYNCMGR_HANDLER_TYPE;
+
+//
+// The ISyncMgrHandlerInfo interface provides all the optional properties for
+// the handler.  By defining this as an interface the set of properties can be
+// changed in the future without requiring handlers to be recompiled.  It also
+// provides type-safe access to the properties.
+//
+[
+    object,
+    uuid(4ff1d798-ecf7-4524-aa81-1e362a0aef3a)
+]
+interface ISyncMgrHandlerInfo : IUnknown
+{
+    HRESULT GetType([out] SYNCMGR_HANDLER_TYPE *pnType);
+    HRESULT GetTypeLabel([out, string] LPWSTR *ppszTypeLabel);
+    HRESULT GetComment([out, string] LPWSTR *ppszComment);
+    HRESULT GetLastSyncTime([out] FILETIME *pftLastSync);
+
+    HRESULT IsActive();
+    HRESULT IsEnabled();
+    HRESULT IsConnected();
+}
+
+//
+// The ISyncMgrSyncItemContainer interface is implemented by handlers to
+// provide information about the items contained in them.  Sync Center will
+// call QueryInterface() on the ISyncMgrHandler interface to query for the
+// ISyncMgrItemContainer interface.
+//
+[
+    object,
+    uuid(90701133-be32-4129-a65c-99e616cafff4)
+]
+interface ISyncMgrSyncItemContainer : IUnknown
+{
+    HRESULT GetSyncItem([in, ref, string] LPCWSTR pszItemID, [out] ISyncMgrSyncItem **ppItem);
+    HRESULT GetSyncItemEnumerator([out] IEnumSyncMgrSyncItems **ppenum);
+    HRESULT GetSyncItemCount([out] ULONG *pcItems);
+}
+
+//
+// These values specify the capabilities of a sync item with respect to the
+// actions that can be performed against it.
+//
+typedef [v1_enum] enum SYNCMGR_ITEM_CAPABILITIES
+{
+    SYNCMGR_ICM_NONE                        = 0x00000000,
+
+    SYNCMGR_ICM_PROVIDES_ICON               = 0x00000001,
+    SYNCMGR_ICM_EVENT_STORE                 = 0x00000002,
+    SYNCMGR_ICM_CONFLICT_STORE              = 0x00000004,
+
+    SYNCMGR_ICM_CAN_DELETE                  = 0x00000010,
+
+    SYNCMGR_ICM_CAN_BROWSE_CONTENT          = 0x00010000,
+
+    SYNCMGR_ICM_QUERY_BEFORE_ENABLE         = 0x00100000,
+    SYNCMGR_ICM_QUERY_BEFORE_DISABLE        = 0x00200000,
+    SYNCMGR_ICM_QUERY_BEFORE_DELETE         = 0x00400000,
+
+    SYNCMGR_ICM_VALID_MASK                  = 0x00710017
+
+} SYNCMGR_ITEM_CAPABILITIES;
+
+//
+// These values specify policies an item can specify that deviate from
+// normal operations.
+//
+typedef [v1_enum] enum SYNCMGR_ITEM_POLICIES
+{
+    SYNCMGR_IPM_NONE                        = 0x00000000,
+
+    SYNCMGR_IPM_PREVENT_ENABLE              = 0x00000001,
+    SYNCMGR_IPM_PREVENT_DISABLE             = 0x00000002,
+    SYNCMGR_IPM_PREVENT_START_SYNC          = 0x00000004,
+    SYNCMGR_IPM_PREVENT_STOP_SYNC           = 0x00000008,
+
+    SYNCMGR_IPM_DISABLE_ENABLE              = 0x00000010,
+    SYNCMGR_IPM_DISABLE_DISABLE             = 0x00000020,
+    SYNCMGR_IPM_DISABLE_START_SYNC          = 0x00000040,
+    SYNCMGR_IPM_DISABLE_STOP_SYNC           = 0x00000080,
+    SYNCMGR_IPM_DISABLE_BROWSE              = 0x00000100,
+    SYNCMGR_IPM_DISABLE_DELETE              = 0x00000200,
+
+    SYNCMGR_IPM_HIDDEN_BY_DEFAULT           = 0x00010000,
+
+    SYNCMGR_IPM_VALID_MASK                  = 0x000102ff
+
+} SYNCMGR_ITEM_POLICIES;
+
+//
+// The ISyncMgrSyncItem interface represents a sync item which typically
+// represents a group of data (e.g. a sync item represents a folder of file).
+// By defining this as an interface the item can easily be managed and
+// implemented as an object, and that object maintains the state of the item
+// when accessing the item.
+//
+// The following types of operations can be specified to GetObject():
+//
+//  SYNCMGR_OBJECTID_Icon
+//      If the item info interface doesn't return a value from the
+//      GetIconLocation() method, Sync Center will call GetObject() with this
+//      object ID to allow the handler to implement IExtractIcon.
+//  SYNCMGR_OBJECTID_EventStore
+//      Provide an event store for events specific to the item.
+//  SYNCMGR_OBJECTID_ConflictStore
+//      Provide a conflict store for conflicts specific to the item.
+//  SYNCMGR_OBJECTID_BrowseContent
+//      Show UI to allow the user to browse the content of the item.
+//  SYNCMGR_OBJECTID_QueryBeforeEnable
+//      Query the user before enabling the item.
+//  SYNCMGR_OBJECTID_QueryBeforeDisable
+//      Query the user before disabling the item.
+//  SYNCMGR_OBJECTID_QueryBeforeDelete
+//      Query the user before deleting an item.
+//
+[
+    object,
+    uuid(b20b24ce-2593-4f04-bd8b-7ad6c45051cd)
+]
+interface ISyncMgrSyncItem : IUnknown
+{
+    HRESULT GetItemID([out, string] LPWSTR *ppszItemID);
+    HRESULT GetName([out, string] LPWSTR *ppszName);
+    HRESULT GetItemInfo([out] ISyncMgrSyncItemInfo **ppItemInfo);
+    HRESULT GetObject([in] REFGUID rguidObjectID, [in] REFIID riid, [out, iid_is(riid)] void **ppv);
+
+    HRESULT GetCapabilities([out] SYNCMGR_ITEM_CAPABILITIES *pmCapabilities);
+    HRESULT GetPolicies([out] SYNCMGR_ITEM_POLICIES *pmPolicies);
+
+    HRESULT Enable([in] BOOL fEnable);
+    HRESULT Delete();
+}
+
+//
+// The ISyncMgrSyncItemInfo interface provides all the optional properties for
+// the handler.  Just as with handler info, by defining this as an interface
+// the set of properties can be changed in the future without requiring
+// handlers to be recompiled.  It also provides type-safe access to the
+// properties.
+//
+// An alternate approach would be to define a single method that returns a
+// structure.
+//
+[
+    object,
+    uuid(e7fd9502-be0c-4464-90a1-2b5277031232)
+]
+interface ISyncMgrSyncItemInfo : IUnknown
+{
+    HRESULT GetTypeLabel([out, string] LPWSTR *ppszTypeLabel);
+    HRESULT GetComment([out, string] LPWSTR *ppszComment);
+    HRESULT GetLastSyncTime([out] FILETIME *pftLastSync);
+
+    HRESULT IsEnabled();
+    HRESULT IsConnected();
+}
+
+//
+// The IEnumSyncMgrSyncItems interface simply enumerates the sync item objects
+// managed by the handler.
+//
+[
+    object,
+    uuid(54b3abf3-f085-4181-b546-e29c403c726b)
+]
+interface IEnumSyncMgrSyncItems : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG                                                            celt,
+        [out, size_is(celt), length_is(*pceltFetched)] ISyncMgrSyncItem     **rgelt,
+        [out] ULONG                                                          *pceltFetched);
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumSyncMgrSyncItems **ppenum);
+}
+
+//
+// These values are used to indicate the current status of the progress report
+// in the call to ReportProgress().
+//
+typedef [v1_enum] enum SYNCMGR_PROGRESS_STATUS
+{
+    SYNCMGR_PS_UPDATING                     = 1,
+    SYNCMGR_PS_UPDATING_INDETERMINATE       = 2,
+    SYNCMGR_PS_SUCCEEDED                    = 3,
+    SYNCMGR_PS_FAILED                       = 4,
+    SYNCMGR_PS_CANCELED                     = 5,
+    SYNCMGR_PS_DISCONNECTED                 = 6,
+
+    SYNCMGR_PS_MAX                          = SYNCMGR_PS_DISCONNECTED
+
+} SYNCMGR_PROGRESS_STATUS;
+
+//
+// These values are used to indicate whether the user has requested a sync
+// operation be canceled when progress is being reported.
+//
+typedef [v1_enum] enum SYNCMGR_CANCEL_REQUEST
+{
+    SYNCMGR_CR_NONE             = 0,
+    SYNCMGR_CR_CANCEL_ITEM      = 1,
+    SYNCMGR_CR_CANCEL_ALL       = 2,
+
+    SYNCMGR_CR_MAX              = SYNCMGR_CR_CANCEL_ALL
+
+} SYNCMGR_CANCEL_REQUEST;
+
+//
+// These values are used to indicate the error level of an event in a call to
+// the ReportEvent() method.
+//
+typedef [v1_enum] enum SYNCMGR_EVENT_LEVEL
+{
+    SYNCMGR_EL_INFORMATION      = 1,
+    SYNCMGR_EL_WARNING          = 2,
+    SYNCMGR_EL_ERROR            = 3,
+
+    SYNCMGR_EL_MAX              = SYNCMGR_EL_ERROR
+
+} SYNCMGR_EVENT_LEVEL;
+
+typedef [v1_enum] enum SYNCMGR_EVENT_FLAGS
+{
+    SYNCMGR_EF_NONE     = 0x00000000,
+
+    SYNCMGR_EF_VALID    = 0x00000000
+
+} SYNCMGR_EVENT_FLAGS;
+
+//
+// If a handler is implemented to perform automatic synchronizations in an
+// external process (e.g. in a service), it needs to provide progress reports
+// to Sync Center to allow it to update the UI for the user.  It also needs
+// to be able to add events to Sync Center's Sync Results folder.  To allow
+// the background process to report progress and events, an external process
+// can CoCreate the CLSID_SyncMgrClient object with CLSCTX_SERVER and specify
+// the ISyncMgrSessionCreator interface ID.  This will allow that process to
+// report progress and events as well as query Sync Center to determine if
+// the user canceled the sync.
+//
+// The ISyncMgrSessionCreator interface is also passed to the Syncrhonize()
+// method on the ISyncMgrHandler interface.  This allows the handler to report
+// progress and events itself or to signal a background proess to report
+// progress and events itself.
+//
+// Note that the ISyncMgrSyncCallback interface should NOT be created in the
+// handler and then passed to the external process.
+//
+[
+    object,
+    uuid(17f48517-f305-4321-a08d-b25a834918fd)
+]
+interface ISyncMgrSessionCreator : IUnknown
+{
+    HRESULT CreateSession(
+        [in, ref, string] LPCWSTR                        pszHandlerID,
+        [in, unique, string, size_is(cItems)] LPCWSTR   *ppszItemIDs,
+        [in] ULONG                                       cItems,
+        [out] ISyncMgrSyncCallback                     **ppCallback);
+}
+
+//
+// The ISyncMgrSyncCallback interface will be passed to the handler in the
+// Synchronize() method when starting a sync.  The handler is expected to call
+// this interface to update the progress UI in the folder for each item and to
+// notify Sync Center when it has completed synchronization for each item.
+//
+// The object implementing this interface will also implement the
+// ISyncMgrEvents interface.
+//
+[
+    object,
+    uuid(884ccd87-b139-4937-a4ba-4f8e19513fbe)
+]
+interface ISyncMgrSyncCallback : IUnknown
+{
+    HRESULT ReportProgress(
+        [in, ref, string] LPCWSTR                pszItemID,
+        [in, unique, string] LPCWSTR             pszProgressText,
+        [in] SYNCMGR_PROGRESS_STATUS             nStatus,
+        [in] ULONG                               uCurrentStep,
+        [in] ULONG                               uMaxStep,
+        [in, out, unique] SYNCMGR_CANCEL_REQUEST *pnCancelRequest);
+    HRESULT SetHandlerProgressText(
+        [in, ref, string] LPCWSTR                pszProgressText,
+        [in, out, unique] SYNCMGR_CANCEL_REQUEST *pnCancelRequest);
+    HRESULT ReportEvent(
+        [in, unique, string] LPCWSTR             pszItemID,
+        [in] SYNCMGR_EVENT_LEVEL                 nLevel,
+        [in] SYNCMGR_EVENT_FLAGS                 nFlags,
+        [in, ref, string] LPCWSTR                pszName,
+        [in, ref, string] LPCWSTR                pszDescription,
+        [in, unique, string] LPCWSTR             pszLinkText,
+        [in, unique, string] LPCWSTR             pszLinkReference,
+        [in, unique, string] LPCWSTR             pszContext,  // Handler-specific data to associate with the event
+        [out] GUID                              *pguidEventID);
+    HRESULT CanContinue([in, ref, string] LPCWSTR pszItemID);
+
+    HRESULT QueryForAdditionalItems([out] IEnumString **ppenumItemIDs, [out] IEnumUnknown **ppenumPunks);
+    HRESULT AddItemToSession([in, ref, string] LPCWSTR pszItemID);
+    HRESULT AddIUnknownToSession([in] IUnknown *punk);
+    HRESULT ProposeItem([in] ISyncMgrSyncItem *pNewItem);
+    HRESULT CommitItem([in, ref, string] LPCWSTR pszItemID);
+
+    // Report that a sync is being performed that was requested manually from
+    // outside the Sync Center UI.  This will cause a notification balloon to
+    // be displayed for this handler the first time this is called.
+    HRESULT ReportManualSync();
+}
+
+
+//
+// Handlers implement the ISyncMgrUIOperation interface to provide UI for a
+// particular action.  Sync Center will call the GetObject() method on the
+// handler or on the item to get the right type of UI operation that
+// implements this interface.  A handler should only implement this interface
+// for operations it wants to present UI.
+//
+// Sync Center will create a separate thread for the UI operation.  It will
+// then create a new instance of the handler to get the UI object from.  If
+// the operation is for an item, Sync Center will ask the handler for that
+// item and then ask the item for the UI operation.
+//
+// The following types of operations can be specified to GetObject() on
+// ISyncMgrHandler or ISyncMgrSyncItem:
+//
+//  SYNCMGR_OBJECTID_BrowseContent
+//      Show UI to allow the user to browse the content of the handler or
+//      item.
+//  SYNCMGR_OBJECTID_ShowSchedule
+//      Show UI that allows the user to configure the schedule for the
+//      handler.
+//  SYNCMGR_OBJECTID_QueryBeforeActivate
+//      Query the user before a handler is activated.  This occurs when the
+//      user requests that a handler in the New Handlers folder be setup.
+//  SYNCMGR_OBJECTID_QueryBeforeDeactivate
+//      Query the user before removing a handler from the active partnerships
+//      folder.
+//  SYNCMGR_OBJECTID_QueryBeforeEnable
+//      Query the user before enabling a handler or item.
+//  SYNCMGR_OBJECTID_QueryBeforeDisable
+//      Query the user before disabling a handler or item.
+//  SYNCMGR_OBJECTID_QueryBeforeDelete
+//      Query the user before deleting an item.
+//
+[
+    object,
+    uuid(fc7cfa47-dfe1-45b5-a049-8cfd82bec271)
+]
+interface ISyncMgrUIOperation : IUnknown
+{
+    HRESULT Run([in, unique] HWND hwndOwner);
+}
+
+//
+// The ISyncMgrEventLinkUIOperation interface will be called when event links
+// are clicked in the sync results folder.  Sync Center will call GetObject()
+// on the ISyncMgrHandler specifying SYNCMGR_OBJECTID_EventLinkClick for the
+// object ID.
+//
+[
+    object,
+    uuid(64522e52-848b-4015-89ce-5a36f00b94ff)
+]
+interface ISyncMgrEventLinkUIOperation : ISyncMgrUIOperation
+{
+    // The Init() method allows the object to store the event ID so that when
+    // the Run() method is called it knows which event to operate upon.
+    HRESULT Init([in] REFGUID rguidEventID, [in] ISyncMgrEvent *pEvent);
+}
+
+//
+// The ISyncMgrScheduleWizardUIOperation interface allows a handler to display
+// the sync schedule wizard for the handler.  The wizard can be invoked by
+// CoCreating CLSID_SyncMgrScheduleWizard.  This is typically done whe Sync
+// Center calls the GetObject() method on ISyncMgrHandler specifying
+// SYNCMGR_OBJECTID_ShowSchedule for the object ID.
+//
+[
+    object,
+    uuid(459a6c84-21d2-4ddc-8a53-f023a46066f2)
+]
+interface ISyncMgrScheduleWizardUIOperation : ISyncMgrUIOperation
+{
+    HRESULT InitWizard([in, ref, string] LPCWSTR pszHandlerID);
+}
+
+//
+// Applications calling ISyncMgrControl can pass this interface to get the
+// result of a StartHandlerSync() or StartItemSync() call.
+//
+[
+    object,
+    uuid(2b90f17e-5a3e-4b33-bb7f-1bc48056b94d)
+]
+interface ISyncMgrSyncResult : IUnknown
+{
+    HRESULT Result([in] SYNCMGR_PROGRESS_STATUS nStatus, [in] UINT cError, [in] UINT cConflicts);
+}
+
+//
+// These values are used to modify the operations requested on the methods of
+// the ISyncMgrControl interface.  In particular, they are intended to allow
+// the caller to specify whether the operation should be performed
+// synchronously or asynchronously.
+//
+typedef [v1_enum] enum SYNCMGR_CONTROL_FLAGS
+{
+    SYNCMGR_CF_NONE         = 0x00000000,
+
+    SYNCMGR_CF_NOWAIT       = 0x00000000,
+    SYNCMGR_CF_WAIT         = 0x00000001,
+
+    SYNCMGR_CF_NOUI         = 0x00000002,
+
+    SYNCMGR_CF_VALID        = 0x00000003
+} SYNCMGR_CONTROL_FLAGS;
+
+// These values are used to modify the sync-related operations requested on
+// the methods of the ISyncMgrControl interface.
+typedef [v1_enum] enum SYNCMGR_SYNC_CONTROL_FLAGS
+{
+    SYNCMGR_SCF_NONE                            = 0x00000000,
+
+    // Normally sync requests are queued if a synchronization is currently in
+    // progress.  If this flag is specified, however, only items that are not
+    // currently syncing will be synced again once the current sync session
+    // has completed.
+    SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING       = 0x00000001,
+
+    SYNCMGR_SCF_VALID                           = 0x00000001
+
+} SYNCMGR_SYNC_CONTROL_FLAGS;
+
+// This enum is used when ISyncMgrControl::UpdateConflict is called.
+typedef [v1_enum] enum SYNCMGR_UPDATE_REASON
+{
+    SYNCMGR_UR_ADDED        = 0,
+    SYNCMGR_UR_CHANGED      = 1,
+    SYNCMGR_UR_REMOVED      = 2,
+
+    SYNCMGR_UR_MAX          = SYNCMGR_UR_REMOVED
+
+} SYNCMGR_UPDATE_REASON;
+
+//
+// This interface is implemented by Sync Center and can be CoCreated() by an
+// application or handler by specifying CLSID_SyncMgrControl and specify
+// CLSCTX_SERVER.  It allows the application or handler to start or stop a
+// sync or to notify Sync Center of changes to the set of handlers or items
+// or to properties.  All methods on this interface will not block but will
+// queue the request with Sync Center.
+//
+[
+    object,
+    uuid(9B63616C-36B2-46BC-959F-C1593952D19B)
+]
+interface ISyncMgrControl : IUnknown
+{
+    // These methods add a sync request to the sync request queue for the
+    // specified handler to sync all items in the handler or the specified
+    // items respectively that are currently sync-able (excludes disabled and
+    // disconnected items).  If an item is already syncing, it will be synced
+    // again after the current sync session completes unless the
+    // SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING flag is specified.  If a punk is
+    // specified, the items in the request will always be queued.  If a result
+    // interface is specified Sync Center will notifier that interface when
+    // the sync request has completed.
+    HRESULT StartHandlerSync(
+        [in, ref, string] LPCWSTR                    pszHandlerID,
+        [in, unique] HWND                            hwndOwner,
+        [in, unique] IUnknown                       *punk,
+        [in] SYNCMGR_SYNC_CONTROL_FLAGS              nSyncControlFlags,
+        [in, unique] ISyncMgrSyncResult             *pResult);
+    HRESULT StartItemSync(
+        [in, ref, string] LPCWSTR                    pszHandlerID,
+        [in, ref, string, size_is(cItems)] LPCWSTR  *ppszItemIDs,
+        [in] ULONG                                   cItems,
+        [in, unique] HWND                            hwndOwner,
+        [in, unique] IUnknown                       *punk,
+        [in] SYNCMGR_SYNC_CONTROL_FLAGS              nSyncControlFlags,
+        [in, unique] ISyncMgrSyncResult             *pResult);
+
+    // This method places a sync request in the sync request for all handlers
+    // to sync all items in each handler.  If the handler is already syncing
+    // items, those items will be synced again once the current session has
+    // completed.
+    HRESULT StartSyncAll( [in, unique] HWND          hwndOwner);
+
+    // These methods signal the handler to indicate that the user wants to
+    // cancel a currently sync operation for the specified items.
+    HRESULT StopHandlerSync([in, ref, string] LPCWSTR pszHandlerID);
+    HRESULT StopItemSync(
+        [in, ref, string] LPCWSTR                    pszHandlerID,
+        [in, ref, string, size_is(cItems)] LPCWSTR  *ppszItemIDs,
+        [in] ULONG                                   cItems);
+    HRESULT StopSyncAll();
+
+    // This method allows Sync Center to be notified when the collection of
+    // handlers has changed (e.g. new handlers are available or existing
+    // handlers have been removed).
+    HRESULT UpdateHandlerCollection(
+        [in] REFCLSID                   rclsidCollectionID,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+
+    // These methods allows Sync Center to be notified when the handler or the
+    // item has changed in some way, such as the handler has been disabled or
+    // the comment string has changed.
+    HRESULT UpdateHandler(
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+    HRESULT UpdateItem(
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, ref, string] LPCWSTR       pszItemID,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+
+    // This method allows Sync Center to be notified when the handler's custom
+    // event store (implemented by ISyncMgrEventStore) has changed.  This
+    // causes Sync Center to reread the events for the specified item or for
+    // the whole handler from the handler's event store and to update the
+    // UI and the sync tray icon.
+    HRESULT UpdateEvents(
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, unique, string] LPCWSTR    pszItemID,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+
+    // This method allows Sync Center to be notified when a specific conflict
+    // has been updated in the handler's conflit store (implemented by
+    // ISyncMgrConflitStore).  This causes Sync Center to read the conflict
+    // from the handler's conflict store and to update the UI and the sync
+    // tray icon.
+    HRESULT UpdateConflict(
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, unique, string] LPCWSTR    pszItemID,
+        [in] ISyncMgrConflict          *pConflict,
+        [in] SYNCMGR_UPDATE_REASON      nReason);
+
+    // This method is similar to UpdateConflict() but it applies to all
+    // conflicts for the specified item or all items for the specified
+    // handler.
+    HRESULT UpdateConflicts(
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, unique, string] LPCWSTR    pszItemID,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+
+    // Notifies Sync Center that the activation state of the specified handler
+    // has changed.  This causes the handler to move between the Sync Center
+    // folder and the Sync Setup folder.  A handler must be active before it
+    // can be synced.
+    HRESULT ActivateHandler(
+        [in] BOOL                       fActivate,
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, unique] HWND               hwndOwner,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+
+    // Notifies Sync Center that the enabled state of the specified handler
+    // has changed.  A handler must be enabled before it can be synced,
+    // although not all handlers support being disabled.  A disabled handler
+    // and its items can be managed, unlike an inactive handler.
+    HRESULT EnableHandler(
+        [in] BOOL                       fEnable,
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, unique] HWND               hwndOwner,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+
+    // Notifies Sync Center that the enabled state of the specified sync item
+    // has changed.  A sync item must be enabled before it can be synced.
+    HRESULT EnableItem(
+        [in] BOOL                       fEnable,
+        [in, ref, string] LPCWSTR       pszHandlerID,
+        [in, ref, string] LPCWSTR       pszItemID,
+        [in, unique] HWND               hwndOwner,
+        [in] SYNCMGR_CONTROL_FLAGS      nControlFlags);
+}
+
+//
+// Sync Center provides a default event store that handlers can use for
+// reporting events that are displayed in the Sync Results folder.  However,
+// if a component already reports events, it might be more convenient for it
+// to provide its own event store that enumerates events for the Sync Results
+// folder for that handler.
+//
+// Sync Center will query a handler for an event store if it sets the
+// SYNCMGR_HC_EVENT_STORE flag in the mask returned from its
+// GetCapabilities() method.
+//
+[
+    object,
+    uuid(37e412f9-016e-44c2-81ff-db3add774266)
+]
+interface ISyncMgrEventStore : IUnknown
+{
+    HRESULT GetEventEnumerator([out] IEnumSyncMgrEvents **ppenum);
+    HRESULT GetEventCount([out] ULONG *pcEvents);
+    HRESULT GetEvent([in] REFGUID rguidEventID, [out] ISyncMgrEvent **ppEvent);
+    HRESULT RemoveEvent([in, ref, size_is(cEvents)] GUID *pguidEventIDs, [in] ULONG cEvents);
+}
+
+//
+// An event store allows Sync Center to get an enumerator of all events in
+// the store as well as toretrieve individual events.  The ISyncMgrEvent
+// interface provides the data for the event to Sync Center.
+//
+[
+    object,
+    uuid(fee0ef8b-46bd-4db4-b7e6-ff2c687313bc)
+]
+interface ISyncMgrEvent : IUnknown
+{
+    HRESULT GetEventID([out, ref] GUID *pguidEventID);
+    HRESULT GetHandlerID([out, ref, string] LPWSTR *ppszHandlerID);
+    HRESULT GetItemID([out, ref, string] LPWSTR *ppszItemID);
+    HRESULT GetLevel([out, ref] SYNCMGR_EVENT_LEVEL *pnLevel);
+    HRESULT GetFlags([out, ref] SYNCMGR_EVENT_FLAGS *pnFlags);
+    HRESULT GetTime([out, ref] FILETIME *pfCreationTime);
+    HRESULT GetName([out, ref, string] LPWSTR *ppszName);
+    HRESULT GetDescription([out, ref, string] LPWSTR *ppszDescription);
+    HRESULT GetLinkText([out, ref, string] LPWSTR *ppszLinkText);
+    HRESULT GetLinkReference([out, ref, string] LPWSTR *ppszLinkReference);
+    HRESULT GetContext([out, ref, string] LPWSTR *ppszContext);
+}
+
+[
+    object,
+    uuid(c81a1d4e-8cf7-4683-80e0-bcae88d677b6)
+]
+interface IEnumSyncMgrEvents : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG                                                        celt,
+        [out, size_is(celt), length_is(*pceltFetched)] ISyncMgrEvent    **rgelt,
+        [out] ULONG                                                      *pceltFetched);
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumSyncMgrEvents **ppenum);
+}
+
+typedef struct SYNCMGR_CONFLICT_ID_INFO
+{
+    [unique] BYTE_BLOB *pblobID;      // For comparison
+    [unique] BYTE_BLOB *pblobExtra;   // [optional] Extra data used to init conflict objects
+
+} SYNCMGR_CONFLICT_ID_INFO, *PSYNCMGR_CONFLICT_ID_INFO;
+
+// ISyncMgrConflictStore
+[
+    uuid(cf8fc579-c396-4774-85f1-d908a831156e),
+    pointer_default(unique),
+    object
+]
+interface ISyncMgrConflictStore : IUnknown
+{
+    // Enumerate conflicts, scoped to the provided sync handler, sync item
+    // If the sync handler or sync item is GUID_NULL, or if the partner name is
+    // NULL, the conflict store should ignore that parameter.
+    HRESULT EnumConflicts([in, ref, string] LPCWSTR pszHandlerID, [in, unique, string] LPCWSTR pszItemID, [out] IEnumSyncMgrConflict **ppEnum);
+
+    // Bind to a particular conflict given its ID
+    // This is used when the conflict folder binds to a conflict given its PIDL
+    // or parsing name.  The ID is obtained from a conflict that was previously
+    // extracted from the store. See the notes concerning the ISyncMgrConflict
+    // interface
+    HRESULT BindToConflict([in] const SYNCMGR_CONFLICT_ID_INFO *pConflictIdInfo, [in] REFIID riid, [out, iid_is(riid)] void **ppv);
+
+    // Remove a set of conflicts from the store given their conflict ids
+    HRESULT RemoveConflicts([in, size_is(cConflicts)] const SYNCMGR_CONFLICT_ID_INFO *rgConflictIdInfo, [in] DWORD cConflicts);
+
+    // Get the number of conflicts in the store
+    HRESULT GetCount([in, ref, string] LPCWSTR pszHandlerID, [in, unique, string] LPCWSTR pszItemID, [out] DWORD *pnConflicts);
+};
+
+// IEnumSyncMgrConflict
+[
+    uuid(82705914-dda3-4893-ba99-49de6c8c8036),
+    pointer_default(unique),
+    object
+]
+interface IEnumSyncMgrConflict : IUnknown
+{
+    // Standard COM enumerator for ISyncMgrConflict*
+    HRESULT Next([in] ULONG celt, [out, size_is(celt), length_is(*pceltFetched)] ISyncMgrConflict **rgelt, [out] ULONG *pceltFetched);
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumSyncMgrConflict **ppenum);
+}
+
+// This is _enum_, not a mask
+typedef [v1_enum] enum SYNCMGR_CONFLICT_ITEM_TYPE
+{
+    SYNCMGR_CIT_UPDATED         = 0x00000001,    // This conflict item was updated
+    SYNCMGR_CIT_DELETED         = 0x00000002,    // This conflict item was deleted
+} SYNCMGR_CONFLICT_ITEM_TYPE;
+typedef DWORD SYNCMGR_CONFLICT_ITEM_TYPE_FLAG;
+
+interface ISyncMgrConflictItems;
+interface ISyncMgrConflictResolveInfo;
+
+// ISyncMgrConflict
+[
+    uuid(9c204249-c443-4ba4-85ed-c972681db137),
+    pointer_default(unique),
+    object
+]
+interface ISyncMgrConflict : IUnknown
+{
+    // Get a conflict property (see propkey.h for PKEY types).
+    // PKEY_ItemNameDisplay - Name of the conflict
+    // PKEY_Sync_ConflictDescription - Summary of the conflict
+    // PKEY_Sync_HandlerID - Sync handler that created the conflict
+    // PKEY_Sync_ItemID - The sync item that created the conflict
+    // PKEY_DateModified - The time the conflict was detected
+    HRESULT GetProperty([in] REFPROPERTYKEY propkey, [out] PROPVARIANT *ppropvar);
+
+    // Information identifying a conflict within a conflict store.
+    // Contains two opaque blobs.  One is the ID uniquely identifying a conflict
+    // within a conflict store.  The other is optional extra information stored with the
+    // conflict that may be used by the implementation when creating conflict objects
+    // in ISyncMgrConflictStore::BindToConflict and RemoveConflicts.
+    // The size of of the ID blob must be kept short so that the ID may be embedded
+    // inside the conflict's PIDL or parsing name.  Free each member using CoTaskMemFree()
+    HRESULT GetConflictIdInfo([out] SYNCMGR_CONFLICT_ID_INFO *pConflictIdInfo);
+
+    HRESULT GetItemsArray([out] ISyncMgrConflictItems ** ppArray);
+
+    // Resolve the conflict using its own UI (sync handler controls UI).
+    // If the conflict desires standard resolution behavior, it should set the
+    // pnPresenterNextStep parameter to SYNCMGR_PF_DEFAULT and return S_OK.
+    HRESULT Resolve([in] ISyncMgrConflictResolveInfo *pResolveInfo);
+
+    // Get the resolution handler for the conflict
+    HRESULT GetResolutionHandler([in] REFIID riid, [out, iid_is(riid)] void **ppvResolutionHandler);
+}
+
+typedef [v1_enum] enum SYNCMGR_RESOLUTION_ABILITIES
+{
+    SYNCMGR_RA_KEEPOTHER                = 0x00000001,
+    SYNCMGR_RA_KEEPRECENT               = 0x00000002,
+    SYNCMGR_RA_REMOVEFROMSYNCSET        = 0x00000004,
+    SYNCMGR_RA_KEEP_SINGLE              = 0x00000008,
+    SYNCMGR_RA_KEEP_MULTIPLE            = 0x00000010,
+
+    SYNCMGR_RA_VALID                    = 0x0000001f
+} SYNCMGR_RESOLUTION_ABILITIES;
+typedef DWORD SYNCMGR_RESOLUTION_ABILITIES_FLAGS;
+
+typedef [v1_enum] enum SYNCMGR_RESOLUTION_FEEDBACK
+{
+    SYNCMGR_RF_CONTINUE,
+    SYNCMGR_RF_REFRESH,
+    SYNCMGR_RF_CANCEL,
+} SYNCMGR_RESOLUTION_FEEDBACK;
+
+// ISyncMgrResolutionHandler
+[
+    uuid(40A3D052-8BFF-4c4b-A338-D4A395700DE9),
+    pointer_default(unique),
+    object
+]
+interface ISyncMgrResolutionHandler : IUnknown
+{
+    HRESULT QueryAbilities([out] SYNCMGR_RESOLUTION_ABILITIES_FLAGS *pdwAbilities);
+
+    // Replacing both the first and second items with a third shell item
+    // This usually is a merged version of the two originals
+    HRESULT KeepOther([in] IShellItem *psiOther, [out] SYNCMGR_RESOLUTION_FEEDBACK *pFeedback);
+
+    // Keep the more recent copy
+    HRESULT KeepRecent([out] SYNCMGR_RESOLUTION_FEEDBACK *pFeedback);
+
+    // Remove both items from the set of items that sync
+    HRESULT RemoveFromSyncSet([out] SYNCMGR_RESOLUTION_FEEDBACK *pFeedback);
+
+    HRESULT KeepItems([in] ISyncMgrConflictResolutionItems *pArray, [out] SYNCMGR_RESOLUTION_FEEDBACK *pFeedback);
+}
+
+// ISyncMgrConflictPresenter
+[
+    uuid(0b4f5353-fd2b-42cd-8763-4779f2d508a3),
+    pointer_default(unique),
+    object
+]
+interface ISyncMgrConflictPresenter : IUnknown
+{
+    // Present the conflict to the user.
+    HRESULT PresentConflict([in] ISyncMgrConflict *pConflict, [in] ISyncMgrConflictResolveInfo *pResolveInfo);
+}
+
+typedef [v1_enum] enum SYNCMGR_PRESENTER_NEXT_STEP
+{
+    // Returned to indicate that the conflict has been resolved and subsequent
+    // selected conflicts should continue to be resolved.
+    SYNCMGR_PNS_CONTINUE,
+
+    // Returned to indicate that the default conflict presenter should be used.
+    SYNCMGR_PNS_DEFAULT,
+
+    // Returned to indicate the conflict resolution should be canceled.  No
+    // more conflicts will resolved if this is returned.
+    SYNCMGR_PNS_CANCEL,
+
+} SYNCMGR_PRESENTER_NEXT_STEP;
+
+typedef [v1_enum] enum SYNCMGR_PRESENTER_CHOICE
+{
+    // Returned if the user is skipping this conflict or if conflict
+    // resolution is being canceled.
+    SYNCMGR_PC_NO_CHOICE,
+
+    // Returned if the user chose to keep only one item.
+    SYNCMGR_PC_KEEP_ONE,
+
+    // Returned if the user chose to keep multiple items.
+    SYNCMGR_PC_KEEP_MULTIPLE,
+
+    // Returned if the user chose to keep the most recent item.
+    SYNCMGR_PC_KEEP_RECENT,
+
+    // Returned if the item is to be removed from the sync set.
+    SYNCMGR_PC_REMOVE_FROM_SYNC_SET,
+
+    // Returned if the item is not being resolved but is instead being skipped
+    // so that it can be resolved at another time.
+    SYNCMGR_PC_SKIP,
+
+} SYNCMGR_PRESENTER_CHOICE;
+
+// ISyncMgrConflictResolveInfo
+[
+    object,
+    local,  // don't allow marshaling across threads/processes
+    uuid(c405a219-25a2-442e-8743-b845a2cee93f)
+]
+interface ISyncMgrConflictResolveInfo : IUnknown
+{
+    //
+    // Get information about which conflict in a set of conflicts is being
+    // resolved.
+    //
+    HRESULT GetIterationInfo(
+        [out] UINT *pnCurrentConflict,          // Index of conflict in the set.
+        [out] UINT *pcConflicts,                // Count of conflicts being resolved.
+        [out] UINT *pcRemainingForApplyToAll);  // Remaining conflicts to which an 'apply to all' response would be applied.
+
+    //
+    // Get results set by a resolve operation.
+    //
+
+    // Get what the presenter wants to do next step.
+    HRESULT GetPresenterNextStep([out] SYNCMGR_PRESENTER_NEXT_STEP *pnPresenterNextStep);
+
+    // Get what kind of choice was made and whether to apply the choice to all
+    // subsequent conflicts in the set.  If *pfApplyToAll is set to TRUE,
+    // GetItemChoice() and GetItemChoiceCount() will have information on how
+    // to apply this choice.
+    HRESULT GetPresenterChoice([out] SYNCMGR_PRESENTER_CHOICE *pnPresenterChoice, [out] BOOL *pfApplyToAll);
+
+    // Get the count of items user wants to keep.
+    HRESULT GetItemChoiceCount([out] UINT *pcChoices);
+
+    // Get the index of a specific item the user wants to keep.  The index is
+    // the index into the conflict's item array and is passed to the resolver
+    // for subsequent conflicts in the same set if the user chooses to apply
+    // the same operation to all selected conflicts of the same type from the
+    // same handler.
+    HRESULT GetItemChoice([in] UINT iChoice, [out] UINT *piChoiceIndex);
+
+    //
+    // Set the results of a resolve operation.
+    //
+
+    // Set what the presenter wants to do next.
+    HRESULT SetPresenterNextStep([in] SYNCMGR_PRESENTER_NEXT_STEP nPresenterNextStep);
+
+    // Set what kind of choice was made and whether to apply the choice to
+    // all subsequent conflicts in the set.  If fApplyToAll is set to TRUE,
+    // SetItemChoices() must also be called.
+    HRESULT SetPresenterChoice([in] SYNCMGR_PRESENTER_CHOICE nPresenterChoice, [in] BOOL fApplyToAll);
+
+    // Set the array of indexes representing which items the user wants to
+    // keep.  This is used if the user chooses to apply the same operation to
+    // all selected conflicts of the same type from the same handler.
+    HRESULT SetItemChoices([in, ref, size_is(cChoices)] UINT *prgiConflictItemIndexes, [in] UINT cChoices);
+}
+
+// ISyncMgrConflictFolder
+[
+    uuid(59287f5e-bc81-4fca-a7f1-e5a8ecdb1d69),
+    pointer_default(unique),
+    local
+]
+interface ISyncMgrConflictFolder : IUnknown
+{
+      // Used to map a conflict to its IShellItem
+      HRESULT GetConflictIDList([in] ISyncMgrConflict *pConflict, [out] PIDLIST_RELATIVE *ppidlConflict);
+}
+
+typedef struct CONFIRM_CONFLICT_ITEM
+{
+    IShellItem2                 *pShellItem;        // the item
+    LPWSTR                      pszOriginalName;    // If NULL then IShellItem's display name will be used
+    LPWSTR                      pszAlternateName;   // If multiple items will be kept then this item must be renamed to
+                                                    // pszAlternateName. User may or may not have an ability to change the name.
+    LPWSTR                      pszLocationShort;   // the string presented to the user the represents the "location"
+    LPWSTR                      pszLocationFull;    // longer version of the above
+    SYNCMGR_CONFLICT_ITEM_TYPE  nType;              // Type of the item - updated or deleted
+} CONFIRM_CONFLICT_ITEM;
+
+cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("__inline void FreeConfirmConflictItem(_Inout_ CONFIRM_CONFLICT_ITEM *pcci)")
+cpp_quote("{")
+cpp_quote("    if (pcci->pShellItem)")
+cpp_quote("    {")
+cpp_quote("        pcci->pShellItem->Release();")
+cpp_quote("    }")
+cpp_quote("    ::CoTaskMemFree(pcci->pszOriginalName);")
+cpp_quote("    ::CoTaskMemFree(pcci->pszAlternateName);")
+cpp_quote("    ::CoTaskMemFree(pcci->pszLocationShort);")
+cpp_quote("    ::CoTaskMemFree(pcci->pszLocationFull);")
+cpp_quote("    ::ZeroMemory(pcci, sizeof(*pcci));")
+cpp_quote("}")
+cpp_quote("#endif // defined(__cplusplus) && !defined(CINTERFACE)")
+
+typedef struct CONFIRM_CONFLICT_RESULT_INFO
+{
+    LPWSTR      pszNewName;     // Item's new name or NULL if item has not been renamed
+    UINT        iItemIndex;     // Item index
+} CONFIRM_CONFLICT_RESULT_INFO;
+
+// ISyncMgrConflictItems
+[
+    uuid(9C7EAD52-8023-4936-A4DB-D2A9A99E436A),
+    pointer_default(unique),
+    object
+]
+interface ISyncMgrConflictItems : IUnknown
+{
+    HRESULT GetCount([out] UINT *pCount);
+
+    // returns S_OK if successful
+    // returns E_INVALIDARG if iIndex is out of range
+    HRESULT GetItem([in] UINT iIndex, [out] CONFIRM_CONFLICT_ITEM *pItemInfo);
+}
+
+// ISyncMgrConflictResolutionItems
+[
+    uuid(458725B9-129D-4135-A998-9CEAFEC27007),
+    pointer_default(unique),
+    object
+]
+interface ISyncMgrConflictResolutionItems : IUnknown
+{
+    HRESULT GetCount([out] UINT *pCount);
+
+    // returns S_OK if successful
+    // returns E_INVALIDARG if iIndex is out of range
+    HRESULT GetItem([in] UINT iIndex, [out] CONFIRM_CONFLICT_RESULT_INFO *pItemInfo);
+}
+
+
+// CLSID definitions.
+[
+    uuid(bff8075e-5a75-4c59-b35a-bd4804636dd4), // LIBID_SyncMgrObjects (not registered)
+    helpstring("Microsoft Sync Center Objects"),
+    lcid(0x0000),
+    version(1.0)
+]
+library SyncMgrObjects
+{
+    [uuid(1202db60-1dac-42c5-aed5-1abdd432248e)] coclass SyncMgrClient              { interface ISyncMgrSessionCreator; };
+    [uuid(1a1f4206-0688-4e7f-be03-d82ec69df9a5)] coclass SyncMgrControl             { interface ISyncMgrControl; };
+    [uuid(8d8b8e30-c451-421b-8553-d2976afa648c)] coclass SyncMgrScheduleWizard      { interface ISyncMgrScheduleWizardUIOperation; };
+    [uuid(9c73f5e5-7ae7-4e32-a8e8-8d23b85255bf)] coclass SyncMgrFolder              { interface IShellFolder2; };
+    [uuid(2e9e59c0-b437-4981-a647-9c34b9b90891)] coclass SyncSetupFolder            { interface IShellFolder2; };
+    [uuid(289978ac-a101-4341-a817-21eba7fd046d)] coclass ConflictFolder             { interface IShellFolder2; };
+    [uuid(71d99464-3b6b-475c-b241-e15883207529)] coclass SyncResultsFolder          { interface IShellFolder2; };
+    [uuid(7a0f6ab7-ed84-46b6-b47e-02aa159a152b)] coclass SimpleConflictPresenter    { interface ISyncMgrConflictPresenter; };
+};
+
+//
+// SYNCMGR_OBJECTID_* GUIDs are defined in shlguid.h.
+//
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,1536 @@
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: shobjidl.idl
+//
+//  Contents: This interface definition contains shell objects that can be remoted
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#ifndef _MSC_EXTENSIONS")
+cpp_quote("#pragma warning(disable:4309) /* truncation of constant value */")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "objidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+import "docobj.idl";
+import "shtypes.idl";
+import "servprov.idl";
+import "comcat.idl";        // for IEnumGUID
+import "propidl.idl";
+import "prsht.idl";
+import "msxml.idl";
+import "wtypes.idl";
+import "propsys.idl";
+import "ObjectArray.idl";
+import "StructuredQueryCondition.idl";
+import "shobjidl_core.idl";
+
+cpp_quote("#include <sherrors.h>")
+
+
+[
+    object,
+    uuid("C7B236CE-EE80-11D0-985F-006008059382"),
+    pointer_default(unique),
+    local
+]
+interface IQueryCodePage : IUnknown
+{
+    HRESULT GetCodePage([out, annotation("_Out_")] UINT *puiCodePage);
+    HRESULT SetCodePage([in, annotation("_In_")] UINT uiCodePage);
+} ;
+
+// These values are used by any Sync Engine to expose internal engine states to the PropertyStore's PKEY_StorageProviderState
+// in the File Indexer. To update the key, bind through GPS_EXTRINSICPROPERTIES and use the IPropertyStore interface 
+// to set the key to the desired bitmask value.
+typedef [v1_enum] enum SYNC_ENGINE_STATE_FLAGS
+{
+    SESF_NONE                                       = 0x00, // No state
+    SESF_SERVICE_QUOTA_NEARING_LIMIT                = 0x01, // This value is set when the user's quota is nearing capacity. The values for this is dependent on the user's total quota space.
+    SESF_SERVICE_QUOTA_EXCEEDED_LIMIT               = 0x02, // The user's quota is completely filled
+    SESF_AUTHENTICATION_ERROR                       = 0x04, // The credentials for the user's account are invalid
+    SESF_PAUSED_DUE_TO_METERED_NETWORK              = 0x08, // Sync engine is paused due to metered network settings
+    SESF_PAUSED_DUE_TO_DISK_SPACE_FULL              = 0x10, // The drive that contains the sync engine content has reached the maximum allowed space
+    SESF_PAUSED_DUE_TO_CLIENT_POLICY                = 0x20, // User has gone over the daily limit of requests or data transfers to the service 
+    SESF_PAUSED_DUE_TO_SERVICE_POLICY               = 0x40, // Service has requested us to throttle all requests
+    SESF_SERVICE_UNAVAILABLE                        = 0x80, // Service can't be reached at this time
+    SESF_PAUSED_DUE_TO_USER_REQUEST                 = 0x100, // Sync engine was paused due to an explicit user request
+    SESF_ALL_FLAGS                                  = (SESF_NONE | SESF_SERVICE_QUOTA_NEARING_LIMIT | SESF_SERVICE_QUOTA_EXCEEDED_LIMIT | SESF_AUTHENTICATION_ERROR | SESF_PAUSED_DUE_TO_METERED_NETWORK | SESF_PAUSED_DUE_TO_DISK_SPACE_FULL | SESF_PAUSED_DUE_TO_CLIENT_POLICY | SESF_PAUSED_DUE_TO_SERVICE_POLICY | SESF_SERVICE_UNAVAILABLE | SESF_PAUSED_DUE_TO_USER_REQUEST),
+} SYNC_ENGINE_STATE_FLAGS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(SYNC_ENGINE_STATE_FLAGS)")
+
+
+// FOLDERSETTINGS is a data structure that explorer passes from one folder
+// view to another, when the user is browsing. It calls ISV::GetCurrentInfo
+// member to get the current settings and pass it to ISV::CreateViewWindow
+// to allow the next folder view 'inherit' it. These settings assumes a
+// particular UI (which the shell's folder view has), and shell extensions
+// may or may not use those settings.
+
+typedef char * LPVIEWSETTINGS;
+
+[
+    uuid(3cc974d2-b302-4d36-ad3e-06d93f695d3f),
+    object,
+    pointer_default(unique)
+]
+interface IFolderViewOptions : IUnknown
+{
+    typedef [v1_enum] enum FOLDERVIEWOPTIONS
+    {
+        FVO_DEFAULT               = 0x00000000, // default needs none of these options and will use Itemsview
+        FVO_VISTALAYOUT           = 0x00000001, // always use listview to maintain vista parity
+        FVO_CUSTOMPOSITION        = 0x00000002, // requires the custom positioning of items within the X,Y space of the view
+        FVO_CUSTOMORDERING        = 0x00000004, // requires the custom reordering feature of the view
+        FVO_SUPPORTHYPERLINKS     = 0x00000008, // requires the use of hyperlinks in tiles and details modes
+        FVO_NOANIMATIONS          = 0x00000010, // turn off animations within the view
+        FVO_NOSCROLLTIPS          = 0x00000020, // turn off scroll tips
+    } FOLDERVIEWOPTIONS;
+
+    cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(FOLDERVIEWOPTIONS)")
+
+    HRESULT SetFolderViewOptions(
+               [in] FOLDERVIEWOPTIONS fvoMask,
+               [in] FOLDERVIEWOPTIONS fvoFlags);
+
+    HRESULT GetFolderViewOptions(
+               [out] FOLDERVIEWOPTIONS *pfvoFlags);
+}
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+[
+    uuid(ec39fa88-f8af-41c5-8421-38bed28f4673),
+    object,
+    pointer_default(unique)
+]
+interface IShellView3 :  IShellView2
+{
+    [v1_enum] enum _SV3CVW3_FLAGS
+    {
+        SV3CVW3_DEFAULT             = 0x00000000,
+        SV3CVW3_NONINTERACTIVE      = 0x00000001,    // Instead of bringing up UI, fail silently.
+        SV3CVW3_FORCEVIEWMODE       = 0x00000002,    // Prefer view mode set by CreateViewWindow3 over saved view state
+        SV3CVW3_FORCEFOLDERFLAGS    = 0x00000004,    // Prefer folder flags set by CreateViewWindow3 over saved view state
+    };
+
+    typedef DWORD SV3CVW3_FLAGS;
+
+    HRESULT CreateViewWindow3(
+        [in] IShellBrowser *psbOwner,
+        [in, unique] IShellView *psvPrev,
+        [in] SV3CVW3_FLAGS dwViewFlags,
+        [in] FOLDERFLAGS dwMask,
+        [in] FOLDERFLAGS dwFlags,
+        [in] FOLDERVIEWMODE fvMode,
+        [in, unique] const SHELLVIEWID *pvid,
+        [in] const RECT *prcView,
+        [out] HWND *phwndView);
+}
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// to discover the search box, use IServiceProvider::QueryService() using SID_SSearchBoxInfo on a site pointer within the explorer window
+[
+    uuid(6af6e03f-d664-4ef4-9626-f7e0ed36755e),
+    object
+]
+interface ISearchBoxInfo : IUnknown
+{
+    HRESULT GetCondition(
+        [in] REFIID riid,
+        [out, iid_is(riid)] void **ppv);
+
+    HRESULT GetText([out, string] LPWSTR *ppsz);
+}
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE70)")
+
+[
+    uuid(e693cf68-d967-4112-8763-99172aee5e5a),
+    object,
+    pointer_default(unique)
+]
+interface IVisualProperties : IUnknown
+{
+    typedef [v1_enum] enum VPWATERMARKFLAGS
+    {
+        VPWF_DEFAULT    = 0x00000000,     // Windows XP behavior
+        VPWF_ALPHABLEND = 0x00000001,     // alpha blend the bitmap, assumed 24-bit color + 8-bit alpha
+    } VPWATERMARKFLAGS;
+
+    cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(VPWATERMARKFLAGS)")
+
+    HRESULT SetWatermark([in, unique] HBITMAP hbmp, [in] VPWATERMARKFLAGS vpwf);
+
+    typedef [v1_enum] enum VPCOLORFLAGS
+    {
+        VPCF_TEXT           = 1,
+        VPCF_BACKGROUND     = 2,
+        VPCF_SORTCOLUMN     = 3,
+        VPCF_SUBTEXT        = 4,
+        VPCF_TEXTBACKGROUND = 5,
+    } VPCOLORFLAGS; // misnamed, this is not a flags type
+
+    HRESULT SetColor(
+        [in] VPCOLORFLAGS vpcf,
+        [in] COLORREF cr);
+
+    HRESULT GetColor(
+        [in] VPCOLORFLAGS vpcf,
+        [out] COLORREF *pcr);
+
+    HRESULT SetItemHeight([in] int cyItemInPixels);
+
+    HRESULT GetItemHeight([out] int *cyItemInPixels);
+
+    HRESULT SetFont(
+        [in] const LOGFONTW* plf,
+        [in] BOOL bRedraw);
+
+    HRESULT GetFont([out] LOGFONTW* plf);
+
+    HRESULT SetTheme(
+        [in, unique, string] LPCWSTR pszSubAppName,
+        [in, unique, string] LPCWSTR pszSubIdList);
+}
+
+cpp_quote("#endif  // _WIN32_IE_IE70")
+
+
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE70)")
+
+[
+    uuid(c8ad25a1-3294-41ee-8165-71174bd01c57),
+    object,
+    pointer_default(unique)
+]
+interface ICommDlgBrowser3 : ICommDlgBrowser2
+{
+    HRESULT OnColumnClicked(
+        [in] IShellView *ppshv,
+        [in] int iColumn);
+
+    HRESULT GetCurrentFilter(
+        [out, string, size_is(cchFileSpec)] LPWSTR pszFileSpec,
+        [in] int cchFileSpec);
+
+    HRESULT OnPreViewCreated([in] IShellView *ppshv);
+}
+
+cpp_quote("#endif  // (_WIN32_IE >= _WIN32_IE_IE70)")
+
+
+// Notification callback for changes to user accounts
+[
+    object,
+    uuid(a561e69a-b4b8-4113-91a5-64c6bcca3430),
+    version(1.0)
+]
+interface IUserAccountChangeCallback : IUnknown
+{
+    HRESULT OnPictureChange(
+        [in, string] LPCWSTR pszUserName);
+}
+
+
+// This structure is defined in winbase.h or winternl.h which is not visible to idl files,
+// so we redeclare it here.
+
+cpp_quote("#ifdef MIDL_PASS")
+
+typedef struct _OVERLAPPED {
+    ULONG_PTR Internal;
+    ULONG_PTR InternalHigh;
+    union {
+        struct {
+            DWORD Offset;
+            DWORD OffsetHigh;
+        };
+
+        PVOID Pointer;
+    };
+
+    HANDLE  hEvent;
+} OVERLAPPED, *LPOVERLAPPED;
+
+cpp_quote("#endif // MIDL_PASS")
+
+[
+    object,
+    uuid(fe0b6665-e0ca-49b9-a178-2b5cb48d92a5),
+    pointer_default(unique),
+    local
+]
+interface IStreamAsync : IStream
+{
+    HRESULT ReadAsync([out, size_is(cb), length_is(*pcbRead), annotation("_Out_writes_bytes_to_(cb, *pcbRead)")] void *pv, [in] DWORD cb, [out, annotation("_Out_opt_ _Deref_out_range_(0, cb)")] LPDWORD pcbRead, [in, annotation("_In_")] LPOVERLAPPED lpOverlapped);
+    HRESULT WriteAsync([in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *lpBuffer, [in] DWORD cb, [out, annotation("_Out_opt_ _Deref_out_range_(0, cb)")] LPDWORD pcbWritten, [in, annotation("_In_")] LPOVERLAPPED lpOverlapped);
+    HRESULT OverlappedResult([in, annotation("_In_")] LPOVERLAPPED lpOverlapped, [out, annotation("_Out_")] LPDWORD lpNumberOfBytesTransferred, [in, annotation("_In_")] BOOL bWait);
+    HRESULT CancelIo();
+}
+
+[
+    object,
+    uuid(8a68fdda-1fdc-4c20-8ceb-416643b5a625),
+    pointer_default(unique),
+    local
+]
+interface IStreamUnbufferedInfo : IUnknown
+{
+    HRESULT GetSectorSize([out, annotation("_Out_")] ULONG *pcbSectorSize);
+}
+
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE70)")
+cpp_quote("SHSTDAPI SHRemovePersonalPropertyValues(_In_ IShellItemArray *psia);")
+cpp_quote("SHSTDAPI SHAddDefaultPropertiesByExt(_In_ PCWSTR pszExt, _In_ IPropertyStore *pPropStore);")
+cpp_quote("SHSTDAPI SHCreateDefaultPropertiesOp(_In_ IShellItem *psi, _Outptr_ IFileOperation **ppFileOp);")
+cpp_quote("SHSTDAPI SHSetDefaultProperties(_In_opt_ HWND hwnd, _In_ IShellItem *psi, DWORD dwFileOpFlags, _In_opt_ IFileOperationProgressSink *pfops);")
+cpp_quote("#endif  // (_WIN32_IE >= _WIN32_IE_IE70)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN2K)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+// IDragSourceHelper2::SetFlags dwFlags
+typedef [v1_enum] enum DSH_FLAGS
+{
+    DSH_ALLOWDROPDESCRIPTIONTEXT     = 0x0001,   // Allow text specified in DropDescription to be displayed on drag image
+} DSH_FLAGS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DSH_FLAGS)")
+
+[
+    uuid(83E07D0D-0C5F-4163-BF1A-60B274051E40),
+    local,
+    pointer_default(unique)
+]
+interface IDragSourceHelper2 : IDragSourceHelper
+{
+    HRESULT SetFlags(
+        [in, annotation("_In_")] DWORD dwFlags);
+}
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+cpp_quote("#endif  // NTDDI_WIN2K")
+
+// New for XP, but used by downlevel code
+//cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINXP)")
+
+// HW Event Handler Interface
+[
+    object,
+    uuid(C1FB73D0-EC3A-4ba2-B512-8CDB9187B6D1),
+    pointer_default(unique)
+]
+interface IHWEventHandler : IUnknown
+{
+    HRESULT Initialize(
+        [in, string] LPCWSTR pszParams);
+
+    HRESULT HandleEvent(
+        [in, string] LPCWSTR pszDeviceID,
+        [in, string] LPCWSTR pszAltDeviceID,
+        [in, string] LPCWSTR pszEventType);
+
+    HRESULT HandleEventWithContent(
+        [in, string] LPCWSTR pszDeviceID,
+        [in, string] LPCWSTR pszAltDeviceID,
+        [in, string] LPCWSTR pszEventType,
+        [in, string] LPCWSTR pszContentTypeHandler,
+        [in] IDataObject* pdataobject);
+}
+
+// HW Event Handler Interface 2
+[
+    object,
+    uuid(CFCC809F-295D-42e8-9FFC-424B33C487E6),
+    pointer_default(unique)
+]
+interface IHWEventHandler2 : IHWEventHandler
+{
+    HRESULT HandleEventWithHWND(
+        [in, string] LPCWSTR pszDeviceID,
+        [in, string] LPCWSTR pszAltDeviceID,
+        [in, string] LPCWSTR pszEventType,
+        [in] HWND hwndOwner);
+}
+
+// HW Event Handler Interface
+[
+    object,
+    uuid(DDEFE873-6997-4e68-BE26-39B633ADBE12),
+    pointer_default(unique)
+]
+interface IQueryCancelAutoPlay : IUnknown
+{
+    HRESULT AllowAutoPlay(
+        [in, string] LPCWSTR pszPath,
+        [in] DWORD dwContentType,
+        [in, string] LPCWSTR pszLabel,
+        [in] DWORD dwSerialNumber);
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+//
+// IDynamicHWHandler is a new feature in AutoPlay V3 (Vista)
+// A handler can register this interface for show/hide itself from the Autoplay prompt dialog.
+// Additionally, it may specify a different action string than one supplied by the static
+// handler registration under HKLM.
+//
+// params:
+//  [in]  pszDeviceID - DevicePath or drive root (e.g. G:\),
+//  [in]  dwContentType - bitfield of content types detected so far, similar to the param in IQueryCancelAutoPlay
+//  [out] *ppszAction - if not NULL, use this as the Action string.
+//                      if NULL, fallback to default static action string.
+//
+// returns:
+//  S_OK = show, S_FALSE = hide, E_xx = error
+//
+// Dynamic HW Handler Interface
+[
+    object,
+    uuid(DC2601D7-059E-42fc-A09D-2AFD21B6D5F7),
+    pointer_default(unique)
+]
+interface IDynamicHWHandler : IUnknown
+{
+    HRESULT GetDynamicInfo(
+        [in, string] LPCWSTR pszDeviceID,
+        [in] DWORD dwContentType,
+        [out, string] LPWSTR* ppszAction);
+}
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+//cpp_quote("#endif  // NTDDI_WINXP")
+
+
+[
+    uuid(19108294-0441-4AFF-8013-FA0A730B0BEA),
+    object
+]
+interface IUserNotificationCallback : IUnknown
+{
+    // All of these return S_OK to continue, S_FALSE or other error codes to stop
+    // These are all "fire and forget" callbacks. Dont pump messages during these
+    // callbacks...
+    HRESULT OnBalloonUserClick([in] POINT * pt);
+    HRESULT OnLeftClick([in] POINT * pt);
+    HRESULT OnContextMenu([in] POINT * pt);
+}
+
+[
+    uuid(215913CC-57EB-4FAB-AB5A-E5FA7BEA2A6C),
+    object,
+    pointer_default(unique)
+]
+interface IUserNotification2 : IUnknown
+{
+    HRESULT SetBalloonInfo(
+        [in, unique, string] LPCWSTR pszTitle,
+        [in, unique, string] LPCWSTR pszText,
+        [in] DWORD dwInfoFlags);
+
+    HRESULT SetBalloonRetry(
+        [in] DWORD dwShowTime,  // times in msec
+        [in] DWORD dwInterval,
+        [in] UINT cRetryCount);
+
+    HRESULT SetIconInfo(
+        [in, unique] HICON hIcon,
+        [in, unique, string] LPCWSTR pszToolTip);
+
+    HRESULT Show(
+        [in, unique] IQueryContinue *pqc,
+        [in] DWORD dwContinuePollInterval,
+        [in, unique] IUserNotificationCallback *pSink);
+
+    HRESULT PlaySound([in, string] LPCWSTR pszSoundName);
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+//-------------------------------------------------------------------------
+//
+// IDeskBand2 interface
+//
+//
+// [Member functions]
+//
+// IDeskBand2::CanRenderComposited(pfCanRenderComposited)
+//   Does the deskband support composited rendering (glass/translucent)?
+//
+// IDeskBand2::SetCompositionState(fCompositionEnabled)
+//   Tell the deskband to render with or without composition.
+//
+// IDeskBand2::GetCompositionState(pfCompositionEnabled)
+//   Does the deskband currently render with or without composition?
+//
+//-------------------------------------------------------------------------
+[
+    uuid(79D16DE4-ABEE-4021-8D9D-9169B261D657),
+    object,
+]
+interface IDeskBand2 : IDeskBand
+{
+    HRESULT CanRenderComposited([out] BOOL *pfCanRenderComposited);
+
+    HRESULT SetCompositionState([in] BOOL fCompositionEnabled);
+
+    HRESULT GetCompositionState([out] BOOL *pfCompositionEnabled);
+}
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+[
+    uuid(4CD19ADA-25A5-4A32-B3B7-347BEE5BE36B),
+    object,
+]
+interface IStartMenuPinnedList : IUnknown
+{
+    //  if pitem is not pinned, return S_OK
+    //  if pitem is pinned, the pitem is successfully removed from pinned list, return S_OK
+    //  if pitem is pinned, the pitem fail to be removed from pinned list, return error HRESULT
+    HRESULT RemoveFromList([in] IShellItem *pitem);
+}
+
+[
+    object,
+    uuid(3d73a659-e5d0-4d42-afc0-5121ba425c8d),     // IID_ICDBurn
+    pointer_default(unique)
+]
+interface ICDBurn : IUnknown
+{
+    HRESULT GetRecorderDriveLetter(
+        [out, string, size_is(cch)] LPWSTR pszDrive,
+        [in] UINT cch);
+
+    HRESULT Burn([in] HWND hwnd);
+
+    HRESULT HasRecordableDrive([out] BOOL *pfHasRecorder);
+}
+
+// Wizard Extension objects.  These interfaces defined methods for extending
+// Win32 wizard in a progromatic way.
+
+// Range of ID's that extensions can used, these mustn't clash with
+// the existing wizards dialog IDS.  (That enables them to still
+// do PropSheet_SetCurSelByID).
+
+cpp_quote("#define IDD_WIZEXTN_FIRST    0x5000")
+cpp_quote("#define IDD_WIZEXTN_LAST     0x5100")
+
+
+// This site object is requested via a QueryService of the objects site,
+// it allows the extension to navigate in/out out itself, eg. when the
+// extension has shown all of its pages and wants to navigate to the
+// next page it would call GetNextPage and select the specified HPAGE.
+
+// Wizard Extension Site
+[
+    uuid(88960f5b-422f-4e7b-8013-73415381c3c3),
+    local
+]
+interface IWizardSite : IUnknown
+{
+    HRESULT GetPreviousPage([out, annotation("_Out_")] HPROPSHEETPAGE *phpage);
+
+    HRESULT GetNextPage([out, annotation("_Out_")] HPROPSHEETPAGE *phpage);
+
+    HRESULT GetCancelledPage([out, annotation("_Out_")] HPROPSHEETPAGE *phpage);
+}
+
+cpp_quote("#define SID_WizardSite IID_IWizardSite")
+
+
+// A wizard extension is implemented using this object, the extension will declare the
+// pages that it supports using the AddPages method, and then when its host needs to navigate
+// into the extenion it will do so via GetFirstPage and selecting that.
+
+// Wizard Extension
+[
+    uuid(c02ea696-86cc-491e-9b23-74394a0444a8),
+    local
+]
+interface IWizardExtension : IUnknown
+{
+    HRESULT AddPages(
+        [out, size_is(cPages), annotation("_Out_writes_to_(cPages, *pnPagesAdded)")] HPROPSHEETPAGE* aPages,
+        [in, annotation("_In_")] UINT cPages,
+        [out, annotation("_Out_ _Deref_out_range_(0, cPages)")] UINT *pnPagesAdded);
+
+    HRESULT GetFirstPage([out, annotation("_Out_")] HPROPSHEETPAGE *phpage);
+
+    HRESULT GetLastPage([out, annotation("_Out_")] HPROPSHEETPAGE *phpage);
+}
+
+
+// The Web Wizard is a HTML host for wizard pages, it allows you
+// create a HTML wizard starting at the URL defined via SetInitialURL.
+
+// Web Wizard Page Extension
+[
+    uuid(0e6b3f66-98d1-48c0-a222-fbde74e2fbc5),
+    local,
+    pointer_default(unique)
+]
+interface IWebWizardExtension : IWizardExtension
+{
+    HRESULT SetInitialURL([in, string, annotation("_In_")] LPCWSTR pszURL);
+
+    HRESULT SetErrorURL([in, string, annotation("_In_")] LPCWSTR pszErrorURL);
+}
+
+cpp_quote("#define SID_WebWizardHost IID_IWebWizardExtension")
+
+
+// flags for the host to control the publishing wizard
+
+cpp_quote ("#define SHPWHF_NORECOMPRESS             0x00000001  // don't allow/prompt for recompress of streams")
+cpp_quote ("#define SHPWHF_NONETPLACECREATE         0x00000002  // don't create a network place when transfer is complete")
+cpp_quote ("#define SHPWHF_NOFILESELECTOR           0x00000004  // don't show the file selector")
+cpp_quote ("#define SHPWHF_USEMRU                   0x00000008  // For OPW.  Use the Most-Recently-Used Print Provider")
+cpp_quote ("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+cpp_quote ("#define SHPWHF_ANYLOCATION              0x00000100  // allow publishing to any location")
+cpp_quote ("#endif  // NTDDI_VISTA")
+cpp_quote ("#define SHPWHF_VALIDATEVIAWEBFOLDERS    0x00010000  // enable web folders to validate network places (ANP support)")
+
+// Web Publishing Wizard
+[
+    uuid(aa9198bb-ccec-472d-beed-19a4f6733f7a),
+    local,
+    pointer_default(unique)
+]
+interface IPublishingWizard : IWizardExtension
+{
+    HRESULT Initialize(
+        [in, unique, annotation("_In_opt_")] IDataObject *pdo,
+        [in, annotation("_In_")] DWORD dwOptions,
+        [in, string, annotation("_In_")] LPCWSTR pszServiceScope);
+
+    HRESULT GetTransferManifest(
+        [out, annotation("_Out_opt_")] HRESULT *phrFromTransfer,
+        [out, annotation("_Outptr_opt_")] IXMLDOMDocument **pdocManifest);
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINXP) || (_WIN32_IE >= _WIN32_IE_IE70)")
+
+// Object to host an IFolderView in a window.  This is used to build check mark selection
+// UI for files.
+// Shell Folder Host
+[
+    uuid(1ea58f02-d55a-411d-b09e-9e65ac21605b),
+    local,
+]
+interface IFolderViewHost : IUnknown
+{
+    HRESULT Initialize(
+        [in, annotation("_In_")] HWND hwndParent,
+        [in, annotation("_In_")] IDataObject *pdo,
+        [in, annotation("_In_")] RECT *prc);
+}
+
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE70)")
+
+//
+//  This allows you to set the accessible name on COM objects that function as UI elements
+//
+[
+    uuid(95A391C5-9ED4-4c28-8401-AB9E06719E11),
+    object,
+]
+interface IAccessibleObject : IUnknown
+{
+    HRESULT SetAccessibleName([in, string] LPCWSTR pszName);
+}
+
+cpp_quote("#endif  // (_WIN32_IE >= _WIN32_IE_IE70)")
+
+// New for Vista, but used by downlevel code
+//cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+[
+    object,
+    uuid(96E5AE6D-6AE1-4b1c-900C-C6480EAA8828),
+    pointer_default(unique)
+]
+interface IResultsFolder : IUnknown
+{
+    HRESULT AddItem([in] IShellItem *psi);
+
+    [local]
+    HRESULT AddIDList(
+        [in, annotation("_In_")] PCIDLIST_ABSOLUTE pidl,
+        [out, annotation("_Outptr_opt_")] PITEMID_CHILD *ppidlAdded);
+
+    [call_as(AddIDList)]
+    HRESULT RemoteAddIDList(
+        [in] PCIDLIST_ABSOLUTE pidl,
+        [out] PITEMID_CHILD *ppidlAdded);
+
+    HRESULT RemoveItem([in] IShellItem *psi);
+
+    HRESULT RemoveIDList([in] PCIDLIST_ABSOLUTE pidl);
+
+    HRESULT RemoveAll();
+}
+//cpp_quote("#endif  // NTDDI_VISTA")
+
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE70)")
+
+cpp_quote("#endif  // (_WIN32_IE >= _WIN32_IE_IE70)")
+
+cpp_quote("#endif  // NTDDI_WINXP || (_WIN32_IE >= _WIN32_IE_IE70)")
+
+
+//
+//  Flags for IAutoCompleteDropDown::GetDropDownStatus
+//
+cpp_quote("#define ACDD_VISIBLE        0x0001")
+
+[
+    uuid(3CD141F4-3C6A-11d2-BCAA-00C04FD929DB),
+    object,
+    pointer_default(unique)
+]
+interface IAutoCompleteDropDown : IUnknown
+{
+    HRESULT GetDropDownStatus(
+        [out] DWORD *pdwFlags,
+        [out, string] LPWSTR *ppwszString);
+
+    HRESULT ResetEnumerator();
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINXP)")
+
+// the cd burning wizard extension sets return codes through a property bag
+// to tell the main wizard whether it should stop or keep going
+cpp_quote("#define PROPSTR_EXTENSIONCOMPLETIONSTATE L\"ExtensionCompletionState\"")
+enum tagCDBURNINGEXTENSIONRET
+{
+    CDBE_RET_DEFAULT          = 0x00000000,
+    CDBE_RET_DONTRUNOTHEREXTS = 0x00000001,
+    CDBE_RET_STOPWIZARD       = 0x00000002,
+};
+cpp_quote("#define SID_CDWizardHost IID_ICDBurnExt")
+
+[v1_enum] enum _CDBE_ACTIONS
+{
+    CDBE_TYPE_MUSIC = 0x00000001,
+    CDBE_TYPE_DATA  = 0x00000002,
+    CDBE_TYPE_ALL   = (int) 0xFFFFFFFF
+};
+typedef DWORD CDBE_ACTIONS;
+
+// add-ons for cd burning
+[
+    uuid(2271dcca-74fc-4414-8fb7-c56b05ace2d7)
+]
+interface ICDBurnExt : IUnknown
+{
+    HRESULT GetSupportedActionTypes([out] CDBE_ACTIONS *pdwActions);
+}
+
+cpp_quote("#endif  // NTDDI_WINXP")
+
+// New for XP, but used by downlevel code
+//cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINXP)")
+
+[
+    uuid(61E00D45-8FFF-4e60-924E-6537B61612DD),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IEnumReadyCallback : IUnknown
+{
+    HRESULT EnumReady();
+}
+
+// interface between CDefView and clients like the NSC which will try to share enumeration with the view
+[
+    uuid(8C8BF236-1AEC-495f-9894-91D57C3C686F),
+    local
+]
+interface IEnumerableView : IUnknown
+{
+    HRESULT SetEnumReadyCallback([in, annotation("_In_")] IEnumReadyCallback *percb);
+
+    HRESULT CreateEnumIDListFromContents(
+        [in, annotation("_In_")] PCIDLIST_ABSOLUTE pidlFolder,
+        [in, annotation("_In_")] DWORD dwEnumFlags,
+        [out, annotation("_Outptr_")] IEnumIDList **ppEnumIDList);
+}
+
+// QueryService id find the enumerable view.  One case where the QS may fail is if the view is holding on to unrealized items (requires possible I/O to get the real item).
+cpp_quote("#define SID_EnumerableView IID_IEnumerableView")
+//cpp_quote("#endif  // NTDDI_WINXP")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINXP) || (_WIN32_IE >= _WIN32_IE_IE70)")
+
+// supports inserting an item into a folder
+[
+    uuid(D2B57227-3D23-4b95-93C0-492BD454C356),
+    object,
+    local
+]
+interface IInsertItem : IUnknown
+{
+    HRESULT InsertItem([in, annotation("_In_")] PCUIDLIST_RELATIVE pidl);
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINXP)")
+
+[
+    object,
+    uuid(47c01f95-e185-412c-b5c5-4f27df965aea),     // IID_IFolderBandPriv
+    pointer_default(unique)
+]
+interface IFolderBandPriv : IUnknown
+{
+    HRESULT SetCascade([in] BOOL fCascade);
+
+    HRESULT SetAccelerators([in] BOOL fAccelerators);
+
+    HRESULT SetNoIcons([in] BOOL fNoIcons);
+
+    HRESULT SetNoText([in] BOOL fNoText);
+}
+
+// image recompression object, given the cx, cy and a quality that we need go through the steps
+// of creating a stream that we can give to somebody containing an image that size.  if the
+// image is < that size then return S_FALSE.
+
+// Image Recompression Object
+[
+    uuid(505f1513-6b3e-4892-a272-59f8889a4d3e),
+    pointer_default(unique),
+    object
+]
+interface IImageRecompress : IUnknown
+{
+    HRESULT RecompressImage(
+        [in] IShellItem *psi,
+        [in] int cx,
+        [in] int cy,
+        [in] int iQuality,
+        [in] IStorage *pstg,
+        [out] IStream **ppstrmOut);
+}
+
+
+cpp_quote("#endif  // NTDDI_WINXP")
+cpp_quote("#endif  // NTDDI_WINXP) || (_WIN32_IE >= _WIN32_IE_IE70)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+// Event notifications from the controls, handled by an interface
+// optionally implemented by the same IFileDialogEvents object supplied by the app.
+[
+    uuid(36116642-D713-4b97-9B83-7484A9D00433),
+    object,
+    pointer_default(unique)
+]
+interface IFileDialogControlEvents : IUnknown
+{
+    // An item in a combobox, toolsmenu, or radiobutton group was selected.
+    // (this notification is *not* sent when an item is chosen from the open dropdown,
+    //  as the action here is always the same: close the dialog as if the user clicked open.
+    //  At that point, the app will then be able to call GetSelectedItem() for the open dropdown, to
+    //  obtain the item that was chosen).
+    HRESULT OnItemSelected(
+        [in] IFileDialogCustomize *pfdc,
+        [in] DWORD dwIDCtl,
+        [in] DWORD dwIDItem);
+
+    // A pushbutton was clicked.
+    HRESULT OnButtonClicked(
+        [in] IFileDialogCustomize *pfdc,
+        [in] DWORD dwIDCtl);
+
+    // A checkbutton was toggled.
+    HRESULT OnCheckButtonToggled(
+        [in] IFileDialogCustomize *pfdc,
+        [in] DWORD dwIDCtl,
+        [in] BOOL bChecked);
+
+    // A combobox, toolsmenu or open dropdown is about to be "dropped down".  At this point,
+    // the application may want to update the contents based on the current state of the dialog.
+    HRESULT OnControlActivating(
+        [in] IFileDialogCustomize *pfdc,
+        [in] DWORD dwIDCtl);
+}
+
+[
+    uuid(61744fc7-85b5-4791-a9b0-272276309b13),
+    object,
+    pointer_default(unique)
+]
+interface IFileDialog2 : IFileDialog
+{
+    // Changing the text on the Cancel button can be useful for a "basket mode" where IFileDialogEvents::OnFileOk
+    // is used to accumulate items, and Open/Cancel would be changed to Add/Done for example.
+    HRESULT SetCancelButtonLabel([in] LPCWSTR pszLabel);
+
+    // Replaces any items in the navigation pane with this item instead, to guide the user from navigating outside of
+    // this part of the namespace.
+    HRESULT SetNavigationRoot([in] IShellItem *psi);
+}
+
+// Application File Extension and URL Protocol Registration UI
+[
+    object,
+    uuid(1f76a169-f994-40ac-8fc8-0959e8874710),
+    pointer_default(unique)
+]
+interface IApplicationAssociationRegistrationUI : IUnknown
+{
+    HRESULT LaunchAdvancedAssociationUI([in, string] LPCWSTR pszAppRegistryName);
+}
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+[
+    uuid(fce4bde0-4b68-4b80-8e9c-7426315a7388),
+    object,
+    pointer_default(ref),
+    local,
+]
+interface IShellRunDll : IUnknown
+{
+    HRESULT Run([in, string, annotation("_In_")] LPCWSTR pszArgs);
+}
+
+[
+    object,
+    uuid(76e54780-ad74-48e3-a695-3ba9a0aff10d),
+    pointer_default(unique),
+    local
+]
+interface IPreviousVersionsInfo : IUnknown
+{
+    HRESULT AreSnapshotsAvailable(
+        [in, string, annotation("_In_")] LPCWSTR pszPath,
+        [in, annotation("_In_")] BOOL fOkToBeSlow,
+        [out, annotation("_Out_")] BOOL *pfAvailable);
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+// used to find the item that should be used when browsing to this item (used by pagespace control)
+[
+    object,
+    uuid(05edda5c-98a3-4717-8adb-c5e7da991eb1),
+    pointer_default(unique)
+]
+interface IUseToBrowseItem : IRelatedItem
+{
+}
+
+// and many more to come "related items"...
+//
+//  "public partner" - like to SharedPics from MyPics
+//  "private partner" - link to MyPics from SharedPics
+//  "recyle bin root" - where (and if) recycle bin is supported
+//  "machine root" - for "open containing machine"
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+
+// SID_SCommandBarState: {B99EAA5C-3850-4400-BC33-2CE534048BF8}
+cpp_quote("DEFINE_GUID(SID_SCommandBarState, 0xB99EAA5C, 0x3850, 0x4400, 0xBC, 0x33, 0x2C, 0xE5, 0x34, 0x04, 0x8B, 0xF8);")
+
+// New for Vista, but used by downlevel code
+//cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+[
+    object,
+    uuid(7cc7aed8-290e-49bc-8945-c1401cc9306c),
+]
+interface INameSpaceTreeControl2 : INameSpaceTreeControl
+{
+    typedef [v1_enum] enum NSTCSTYLE2
+    {
+        NSTCS2_DEFAULT                  = 0x00000000,
+        NSTCS2_INTERRUPTNOTIFICATIONS   = 0x00000001,
+        NSTCS2_SHOWNULLSPACEMENU        = 0x00000002,
+        NSTCS2_DISPLAYPADDING           = 0x00000004,
+        NSTCS2_DISPLAYPINNEDONLY        = 0x00000008, // Filters items based on PKEY_IsPinnedToNameSpaceTree
+        NTSCS2_NOSINGLETONAUTOEXPAND    = 0x00000010, // Prevent auto expansion of singleton nodes in tree
+        NTSCS2_NEVERINSERTNONENUMERATED = 0x00000020, // Don't insert non-enumerated (SFGAO_NONENUMERATED) items
+    } NSTCSTYLE2;
+
+    cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(NSTCSTYLE2)")
+
+    HRESULT SetControlStyle(
+               [in] NSTCSTYLE nstcsMask,
+               [in] NSTCSTYLE nstcsStyle);
+
+    HRESULT GetControlStyle(
+               [in] NSTCSTYLE nstcsMask,
+               [out] NSTCSTYLE *pnstcsStyle);
+
+    HRESULT SetControlStyle2(
+               [in] NSTCSTYLE2 nstcsMask,
+               [in] NSTCSTYLE2 nstcsStyle);
+
+    HRESULT GetControlStyle2(
+               [in] NSTCSTYLE2 nstcsMask,
+               [out] NSTCSTYLE2 *pnstcsStyle);
+}
+
+cpp_quote("#define NSTCS2_ALLMASK (NSTCS2_INTERRUPTNOTIFICATIONS | NSTCS2_SHOWNULLSPACEMENU | NSTCS2_DISPLAYPADDING)")
+
+cpp_quote("#define ISLBUTTON(x) (NSTCECT_LBUTTON == ((x) & NSTCECT_BUTTON))")
+cpp_quote("#define ISMBUTTON(x) (NSTCECT_MBUTTON == ((x) & NSTCECT_BUTTON))")
+cpp_quote("#define ISRBUTTON(x) (NSTCECT_RBUTTON == ((x) & NSTCECT_BUTTON))")
+cpp_quote("#define ISDBLCLICK(x) (NSTCECT_DBLCLICK == ((x) & NSTCECT_DBLCLICK))")
+
+[
+    object,
+    uuid(93D77985-B3D8-4484-8318-672CDDA002CE),
+    local
+]
+interface INameSpaceTreeControlEvents : IUnknown
+{
+    [v1_enum] enum _NSTCEHITTEST
+    {
+        // items up to 0x00ff reflect the TVHITTESTINFO flags
+        NSTCEHT_NOWHERE         = 0x0001,
+        NSTCEHT_ONITEMICON      = 0x0002,
+        NSTCEHT_ONITEMLABEL     = 0x0004,
+        NSTCEHT_ONITEMINDENT    = 0x0008,
+        NSTCEHT_ONITEMBUTTON    = 0x0010,
+        NSTCEHT_ONITEMRIGHT     = 0x0020,
+        NSTCEHT_ONITEMSTATEICON = 0x0040,
+        NSTCEHT_ONITEM          = 0x0046,
+        // items below don't reflect the TVHITTESTINFO flags
+        NSTCEHT_ONITEMTABBUTTON = 0x1000,
+    };
+    typedef DWORD NSTCEHITTEST;
+
+    [v1_enum] enum _NSTCECLICKTYPE
+    {
+        NSTCECT_LBUTTON    = 0x0001,
+        NSTCECT_MBUTTON    = 0x0002,
+        NSTCECT_RBUTTON    = 0x0003,
+        NSTCECT_BUTTON     = 0x0003,
+        NSTCECT_DBLCLICK   = 0x0004,
+    };
+    typedef DWORD NSTCECLICKTYPE;
+
+    HRESULT OnItemClick(
+        [in, annotation("_In_")] IShellItem *psi,
+        [in, annotation("_In_")] NSTCEHITTEST nstceHitTest,
+        [in, annotation("_In_")] NSTCECLICKTYPE nstceClickType);
+
+    HRESULT OnPropertyItemCommit([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnItemStateChanging(
+        [in, annotation("_In_")] IShellItem *psi,
+        [in, annotation("_In_")] NSTCITEMSTATE nstcisMask,
+        [in, annotation("_In_")] NSTCITEMSTATE nstcisState);
+
+    HRESULT OnItemStateChanged(
+        [in, annotation("_In_")] IShellItem *psi,
+        [in, annotation("_In_")] NSTCITEMSTATE nstcisMask,
+        [in, annotation("_In_")] NSTCITEMSTATE nstcisState);
+
+    HRESULT OnSelectionChanged([in, annotation("_In_")] IShellItemArray *psiaSelection);
+
+    HRESULT OnKeyboardInput(
+        [in, annotation("_In_")] UINT uMsg,
+        [in, annotation("_In_")] WPARAM wParam,
+        [in, annotation("_In_")] LPARAM lParam);
+
+    HRESULT OnBeforeExpand([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnAfterExpand([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnBeginLabelEdit([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnEndLabelEdit([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnGetToolTip(
+        [in, annotation("_In_")] IShellItem *psi,
+        [out, string, size_is(cchTip), annotation("_Out_writes_(cchTip)")] LPWSTR pszTip,
+        [in, annotation("_In_")] int cchTip);
+
+    HRESULT OnBeforeItemDelete([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnItemAdded(
+        [in, annotation("_In_")] IShellItem *psi,
+        [in, annotation("_In_")] BOOL fIsRoot);
+
+    HRESULT OnItemDeleted(
+        [in, annotation("_In_")] IShellItem *psi,
+        [in, annotation("_In_")] BOOL fIsRoot);
+
+    HRESULT OnBeforeContextMenu(
+        [in, unique, annotation("_In_opt_")] IShellItem *psi,
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_Outptr_")] void **ppv);
+
+    // psi can only be NULL if NSTCS2_SHOWNULLSPACEMENU is set
+    HRESULT OnAfterContextMenu(
+        [in, annotation("_In_opt_")] IShellItem *psi,
+        [in, annotation("_In_")] IContextMenu *pcmIn,
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_Outptr_")] void **ppv);
+
+    HRESULT OnBeforeStateImageChange([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnGetDefaultIconIndex(
+        [in, annotation("_In_")] IShellItem *psi,
+        [out, annotation("_Out_")] int *piDefaultIcon,
+        [out, annotation("_Out_")] int *piOpenIcon);
+}
+
+cpp_quote("#define NSTCDHPOS_ONTOP  -1")
+
+[
+    object,
+    uuid(F9C665D6-C2F2-4c19-BF33-8322D7352F51),
+    local
+]
+interface INameSpaceTreeControlDropHandler : IUnknown
+{
+    HRESULT OnDragEnter(
+        [in, unique, annotation("_In_opt_")] IShellItem *psiOver,
+        [in, annotation("_In_")] IShellItemArray *psiaData,
+        [in, annotation("_In_")] BOOL fOutsideSource,
+        [in, annotation("_In_")] DWORD grfKeyState,
+        [in, out, annotation("_Inout_")] DWORD *pdwEffect);
+
+    HRESULT OnDragOver(
+        [in, unique, annotation("_In_opt_")] IShellItem *psiOver,
+        [in, annotation("_In_")] IShellItemArray *psiaData,
+        [in, annotation("_In_")] DWORD grfKeyState,
+        [in, out, annotation("_Inout_")] DWORD *pdwEffect);
+
+    HRESULT OnDragPosition(
+        [in, unique, annotation("_In_opt_")] IShellItem *psiOver,
+        [in, annotation("_In_")] IShellItemArray *psiaData,
+        [in, annotation("_In_")] int iNewPosition,
+        [in, annotation("_In_")] int iOldPosition);
+
+    HRESULT OnDrop(
+        [in, unique, annotation("_In_opt_")] IShellItem *psiOver,
+        [in, annotation("_In_")] IShellItemArray *psiaData,
+        [in, annotation("_In_")] int iPosition,
+        [in, annotation("_In_")] DWORD grfKeyState,
+        [in, out, annotation("_Inout_")] DWORD *pdwEffect);
+
+    HRESULT OnDropPosition(
+        [in, unique, annotation("_In_opt_")] IShellItem *psiOver,
+        [in, annotation("_In_")] IShellItemArray *psiaData,
+        [in, annotation("_In_")] int iNewPosition,
+        [in, annotation("_In_")] int iOldPosition);
+
+    HRESULT OnDragLeave([in, unique, annotation("_In_opt_")] IShellItem *psiOver);
+}
+
+[
+    object,
+    uuid(71f312de-43ed-4190-8477-e9536b82350b),
+    local
+]
+interface INameSpaceTreeAccessible : IUnknown
+{
+    HRESULT OnGetDefaultAccessibilityAction(
+        [in, annotation("_In_")] IShellItem *psi,
+        [out, annotation("_Outptr_")] BSTR *pbstrDefaultAction);
+
+    HRESULT OnDoDefaultAccessibilityAction([in, annotation("_In_")] IShellItem *psi);
+
+    HRESULT OnGetAccessibilityRole(
+        [in, annotation("_In_")] IShellItem *psi,
+        [out, annotation("_Out_")] VARIANT *pvarRole);
+}
+
+[
+    object,
+    uuid(2D3BA758-33EE-42d5-BB7B-5F3431D86C78),
+    local
+]
+interface INameSpaceTreeControlCustomDraw : IUnknown
+{
+    typedef struct NSTCCUSTOMDRAW
+    {
+        IShellItem *psi;
+        UINT uItemState; // CDIS_xxx values
+        NSTCITEMSTATE nstcis;
+        LPCWSTR pszText;
+        int iImage;
+        HIMAGELIST himl;
+        int iLevel;
+        int iIndent;
+    } NSTCCUSTOMDRAW;
+
+    HRESULT PrePaint(
+        [in, annotation("_In_")] HDC hdc,
+        [in, annotation("_In_")] RECT *prc,
+        [out, annotation("_Out_")] LRESULT *plres);
+
+    HRESULT PostPaint(
+        [in, annotation("_In_")] HDC hdc,
+        [in, annotation("_In_")] RECT *prc);
+
+    HRESULT ItemPrePaint(
+        [in, annotation("_In_")] HDC hdc,
+        [in, annotation("_In_")] RECT *prc,
+        [in, annotation("_In_")] NSTCCUSTOMDRAW *pnstccdItem,
+        [in, out, annotation("_Inout_")] COLORREF *pclrText,
+        [in, out, annotation("_Inout_")] COLORREF *pclrTextBk,
+        [out, annotation("_Out_")] LRESULT *plres);
+
+    HRESULT ItemPostPaint(
+        [in, annotation("_In_")] HDC hdc,
+        [in, annotation("_In_")] RECT *prc,
+        [in, annotation("_In_")] NSTCCUSTOMDRAW *pnstccdItem);
+}
+
+//cpp_quote("#endif  // NTDDI_VISTA")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+//
+// for show/hide deskbands
+//
+[
+    object,
+    uuid(6D67E846-5B9C-4db8-9CBC-DDE12F4254F1),
+    pointer_default(unique)
+]
+interface ITrayDeskBand : IUnknown
+{
+    HRESULT ShowDeskBand([in] REFCLSID clsid);
+
+    HRESULT HideDeskBand([in] REFCLSID clsid);
+
+    HRESULT IsDeskBandShown([in] REFCLSID clsid);
+
+    HRESULT DeskBandRegistrationChanged();
+}
+
+[
+    uuid(B9075C7C-D48E-403f-AB99-D6C77A1084AC),
+    object,
+    pointer_default(unique)
+]
+interface IBandHost : IUnknown
+{
+    HRESULT CreateBand(
+        [in] REFCLSID rclsidBand,
+        [in] BOOL fAvailable,
+        [in] BOOL fVisible,
+        [in] REFIID riid,
+        [out, iid_is(riid)]void **ppv);
+
+    HRESULT SetBandAvailability(
+        [in] REFCLSID rclsidBand,
+        [in] BOOL fAvailable);
+
+    HRESULT DestroyBand([in] REFCLSID rclsidBand);
+}
+
+cpp_quote("#define SID_SBandHost IID_IBandHost")
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+
+[
+    object,
+    uuid(0DF60D92-6818-46d6-B358-D66170DDE466),
+    pointer_default(unique)
+]
+interface IComputerInfoChangeNotify : IUnknown
+{
+    HRESULT ComputerInfoChanged();
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#endif // NTDDI_WIN7")
+
+[
+    object,
+    uuid(c1646bc4-f298-4f91-a204-eb2dd1709d1a),
+]
+interface IDesktopGadget : IUnknown
+{
+    HRESULT RunGadget([in] LPCWSTR gadgetPath);
+}
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+
+cpp_quote("#endif // NTDDI_WINTHRESHOLD")
+
+//
+//  NOTE - this typelib is never registered anywhere
+//  objects that want their typelibs to be registered
+//  in shell32 should add their coclass to shldisp.idl
+//
+// Microsoft Shell Objects
+[
+    uuid(50a7e9b1-70ef-11d1-b75a-00a0c90564fe), // LIBID_ShellObjects
+    lcid(0x0000),
+    version(1.0)
+]
+library ShellObjects
+{
+    // CLSID_QueryCancelAutoPlay
+    [ uuid(331F1768-05A9-4ddd-B86E-DAE34DDC998A) ] coclass QueryCancelAutoPlay { interface IQueryCancelAutoPlay; }
+
+    // CLSID_TimeCategorizer
+    [ uuid(3bb4118f-ddfd-4d30-a348-9fb5d6bf1afe) ] coclass TimeCategorizer { interface ICategorizer; }
+
+    // CLSID_AlphabeticalCategorizer
+    [ uuid(3c2654c6-7372-4f6b-b310-55d6128f49d2) ] coclass AlphabeticalCategorizer { interface ICategorizer; }
+
+    // CLSID_MergedCategorizer
+    [ uuid(8e827c11-33e7-4bc1-b242-8cd9a1c2b304) ] coclass MergedCategorizer { interface ICategorizer; }
+
+    // CLSID_ImageProperties
+    [ uuid(7ab770c7-0e23-4d7a-8aa2-19bfad479829) ] coclass ImageProperties { interface IPersistFile; }
+
+    // CLSID_CDBurn
+    [ uuid(fbeb8a05-beee-4442-804e-409d6c4515e9) ] coclass CDBurn { interface ICDBurn; }
+
+    // CLSID_StartMenuPin
+    [ uuid(a2a9545d-a0c2-42b4-9708-a0b2badd77c8) ] coclass StartMenuPin { interface IStartMenuPinnedList; }
+
+    // For supporting HTML wizard extensions we provide this object, it implements the IWizardExtenion
+    // and allows the site to specific via an IPropertyBag an URL which should be displayed.  The property
+    // bag is requested from the SID_WebWizardHost, and it used inturn to return parameter information
+    // back to the site (eg. any information that the displayed HTML would like to communicate).
+
+    // CLSID_WebWizardHost
+    [ uuid(c827f149-55c1-4d28-935e-57e47caed973) ] coclass WebWizardHost { interface IWebWizardExtension; }
+
+    // CLSID_PublishDropTarget
+    [ uuid(CC6EEFFB-43F6-46c5-9619-51D571967F7D) ] coclass PublishDropTarget { interface IDropTarget; }
+
+    // CLSID_PublishingWizard
+    [ uuid(6b33163c-76a5-4b6c-bf21-45de9cd503a1) ] coclass PublishingWizard { interface IPublishingWizard; }
+    cpp_quote("#define SID_PublishingWizard CLSID_PublishingWizard")
+
+    // CLSID_InternetPrintOrdering
+    [ uuid(add36aa8-751a-4579-a266-d66f5202ccbb) ] coclass InternetPrintOrdering { interface IDropTarget; }
+
+    // CLSID_FolderViewHost
+    [ uuid(20b1cb23-6968-4eb9-b7d4-a66d00d07cee) ] coclass FolderViewHost { interface IFolderViewHost; }
+
+    // CLSID_ExplorerBrowser
+    [ uuid(71f96385-ddd6-48d3-a0c1-ae06e8b055fb) ] coclass ExplorerBrowser { interface IExplorerBrowser; }
+
+    // CLSID_ImageRecompress
+    [ uuid(6e33091c-d2f8-4740-b55e-2e11d1477a2c) ] coclass ImageRecompress { interface IImageRecompress; }
+
+    // CLSID_TrayBandSiteService
+    [ uuid(F60AD0A0-E5E1-45cb-B51A-E15B9F8B2934) ] coclass TrayBandSiteService { interface IBandSite; }
+
+    // CLSID_TrayDeskBand
+    [ uuid(E6442437-6C68-4f52-94DD-2CFED267EFB9) ] coclass TrayDeskBand { interface ITrayDeskBand; }
+
+    // CLSID_AttachmentServices
+    [ uuid(4125dd96-e03a-4103-8f70-e0597d803b9c) ] coclass AttachmentServices { interface IAttachmentExecute2; }
+
+    // CLSID_DocPropShellExtension
+    [ uuid(883373C3-BF89-11D1-BE35-080036B11A03) ] coclass DocPropShellExtension { interface IShellExtInit; }
+
+    // CLSID_FSCopyHandler
+    [ uuid(D197380A-0A79-4dc8-A033-ED882C2FA14B) ] coclass FSCopyHandler { interface IUnknown; }
+
+    // CLSID_PreviousVersions
+    [ uuid(596AB062-B4D2-4215-9F74-E9109B0A8153) ] coclass PreviousVersions { interface IPreviousVersionsInfo; }
+
+    // CLSID_NamespaceTreeControl
+    [ uuid(AE054212-3535-4430-83ED-D501AA6680E6) ] coclass NamespaceTreeControl { interface INameSpaceTreeControl2; }
+
+    // CLSID_IENamespaceTreeControl
+    [ uuid(ACE52D03-E5CD-4b20-82FF-E71B11BEAE1D) ] coclass IENamespaceTreeControl { interface IUnknown; }
+
+    // CLSID_ApplicationAssociationRegistrationUI
+    [ uuid(1968106d-f3b5-44cf-890e-116fcb9ecef1) ] coclass ApplicationAssociationRegistrationUI { interface IApplicationAssociationRegistrationUI; }
+
+    // CLSID_DesktopGadget
+    [ uuid(924ccc1b-6562-4c85-8657-d177925222b6) ] coclass DesktopGadget { interface IDesktopGadget; }
+
+    // CLSID_AccessibilityDockingService
+    [ uuid(29CE1D46-B481-4AA0-A08A-D3EBC8ACA402) ] coclass AccessibilityDockingService { interface IAccessibilityDockingService; }
+
+    // CLSID_ExecuteFolder
+    [ uuid(11dbb47c-a525-400b-9e80-a54615a090c0) ] coclass ExecuteFolder { interface IExecuteCommand; }
+    
+    // CLSID_VirtualDesktopManager
+    [ uuid(aa509086-5ca9-4c25-8f95-589d3c07b48a) ] coclass VirtualDesktopManager { interface IVirtualDesktopManager; }
+
+    // CLSID_StorageProviderBanners
+    [uuid(7CCDF9F4-E576-455A-8BC7-F6EC68D6F063)] coclass StorageProviderBanners { interface IStorageProviderBanners; }
+};
+
+// helper APIs to simplify initializing an instance of IShellLibrary and working with file system paths
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE70)")
+
+cpp_quote("#if defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("")
+cpp_quote("// These functions properly initialize their _Outptr_ parameters to NULL, and only return NULL")
+cpp_quote("// on failure, but /analyze can't presently distinguish the failure case from the success case, and")
+cpp_quote("// throws warning C6387 anyway.  Thus, the warning is disabled to avoid generating noise for code")
+cpp_quote("// that includes shobjidl.h and compiles with /analyze.")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:6387)")
+cpp_quote("__inline HRESULT SHResolveFolderPathInLibrary(_In_ IShellLibrary *plib, _In_ PCWSTR pszFolderPath, _In_ DWORD dwTimeout, _Outptr_ PWSTR *ppszResolvedPath)")
+cpp_quote("{")
+cpp_quote("    *ppszResolvedPath = NULL;")
+cpp_quote("    PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);")
+cpp_quote("    HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;")
+cpp_quote("    if (SUCCEEDED(hr))")
+cpp_quote("    {")
+cpp_quote("        IShellItem *psiFolder;")
+cpp_quote("        hr = SHCreateItemFromIDList(pidlFolder, IID_PPV_ARGS(&psiFolder));")
+cpp_quote("        if (SUCCEEDED(hr))")
+cpp_quote("        {")
+cpp_quote("            IShellItem *psiResolved;")
+cpp_quote("            hr = plib->ResolveFolder(psiFolder, dwTimeout, IID_PPV_ARGS(&psiResolved));")
+cpp_quote("            if (SUCCEEDED(hr))")
+cpp_quote("            {")
+cpp_quote("                hr = psiResolved->GetDisplayName(SIGDN_DESKTOPABSOLUTEPARSING, ppszResolvedPath);")
+cpp_quote("                psiResolved->Release();")
+cpp_quote("            }")
+cpp_quote("            psiFolder->Release();")
+cpp_quote("        }")
+cpp_quote("        CoTaskMemFree(pidlFolder);")
+cpp_quote("    }")
+cpp_quote("    return hr;")
+cpp_quote("}")
+cpp_quote("")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif  // __cplusplus && !CINTERFACE")
+cpp_quote("#endif  // _WIN32_IE >= _WIN32_IE_IE70")
+cpp_quote("#endif  // NTDDI_WIN7")
+
+
+
+cpp_quote("")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Accessibility Docking Service
+// This service allows an accessibility window to dock itself to the bottom of
+// the app monitor. This API ensures that when the docking has completed,
+// the accessibility window is no longer obscuring/overlaying any of the user's applications or other windows
+// A sample scenario:
+// The user has an accessibility keyboard that is currently a floating window. Since it is above all other windows,
+// it's obsuring the user's applications. The user presses the "dock" button on the keyboard, which causes it to dock
+// to bottom of the screen. Tailored experiences and most desktop applications are moved so that they are no
+// longer obscured by keyboard.
+typedef [v1_enum] enum UNDOCK_REASON
+{
+    UR_RESOLUTION_CHANGE       = 0, // The accessibility window has been undocked because the resolution has changed
+    UR_MONITOR_DISCONNECT      = 1, // Undocked because the monitor was disconnected
+} UNDOCK_REASON;
+
+
+// Developers who are interested in using the Accessibility Docking Service
+// will need to implement this interface. This is the interface on which apps will receive undock notifications
+// that happen in response to certain system events (listed in the enumeration above)
+[
+    object,
+    uuid(157733FD-A592-42E5-B594-248468C5A81B)
+]
+interface IAccessibilityDockingServiceCallback : IUnknown
+{
+    HRESULT Undocked([in] UNDOCK_REASON undockReason); // Called when the accessibility window has been undocked
+}
+
+// Developers who are interested in using the Accessibility Docking Service
+// do not need to implement the following interface. An implementation is provided through the CoCreatable Object
+// with the ID CLSID_AccessibilityDockingService
+[
+    object,
+    uuid(8849DC22-CEDF-4C95-998D-051419DD3F76)
+]
+interface IAccessibilityDockingService : IUnknown
+{
+    // This is used to get the available docking size (Fixed Width, Max Height) on a particular monitor
+    // The units passed back are in screen pixels
+    HRESULT GetAvailableSize([in] HMONITOR hMonitor, [out] UINT *pcxFixed, [out] UINT *pcyMax);
+
+    // This is used to dock a window into the bottom of a monitor while the system is in immersive mode
+    // The requested height is in screen pixels
+    HRESULT DockWindow([in] HWND hwnd, [in] HMONITOR hMonitor, [in] UINT cyRequested, [in] IAccessibilityDockingServiceCallback *pCallback);
+
+    // This undocks the passed in window
+    HRESULT UndockWindow([in] HWND hwnd);
+}
+
+cpp_quote("#endif // NTDDI_WIN8")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+// StorageProviderBanners implements this interface.
+// Interface can obtained by instantiating StorageProviderBanners using CoCreateInstance with CLSID_StorageProviderBanners as an inproc server.
+[
+    object,
+    uuid(5efb46d7-47C0-4b68-acda-ded47c90ec91),
+    pointer_default(unique),
+]
+interface IStorageProviderBanners : IUnknown
+{
+    HRESULT SetBanner([in] LPCWSTR providerIdentity, [in] LPCWSTR subscriptionId, [in] LPCWSTR contentId);
+
+    HRESULT ClearBanner([in] LPCWSTR providerIdentity, [in] LPCWSTR subscriptionId);
+
+    HRESULT ClearAllBanners([in] LPCWSTR providerIdentity);
+
+    HRESULT GetBanner([in] LPCWSTR providerIdentity, [in] LPCWSTR subscriptionId, [out] LPWSTR* contentId);
+}
+cpp_quote("#endif // NTDDI_WIN10_RS4")
+
+[
+    object,
+    uuid(7bf992a9-af7a-4dba-b2e5-4d080b1ecbc6),
+]
+interface IStorageProviderCopyHook : IUnknown
+{
+    HRESULT CopyCallback(
+        [in, unique] HWND hwnd, 
+        [in] UINT operation, 
+        [in] UINT flags,
+        [in, string] LPCWSTR srcFile, 
+        [in] DWORD srcAttribs,
+        [in, unique, string] LPCWSTR destFile, 
+        [in] DWORD destAttribs,
+        [out] UINT* result);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+
+#pragma endregion
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+

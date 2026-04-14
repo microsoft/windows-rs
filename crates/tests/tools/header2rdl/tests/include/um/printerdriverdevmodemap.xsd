@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/windows/2011/08/printing/devmodemap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Properties">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" name="Property">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="ByteArray">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:hexBinary">
+                                            <xs:attribute name="Size" type="xs:unsignedShort" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="String">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="Length" type="xs:unsignedShort" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Bool" type="xs:boolean" default="false" />
+                            <xs:element name="Int32" type="xs:int" default="0" />
+                        </xs:choice>
+                        <xs:attribute name="Name" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,455 @@
+//+--------------------------------------------------------------------------
+//
+// Microsoft Windows
+// Copyright (C) Microsoft Corporation, 1996 - 2001
+//
+// File:        casetup.idl
+//
+// Contents:    Definition of COM Interface for Certification Authority Setup
+//
+//---------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+import "oaidl.idl";
+
+//
+// Interface ICertSrvSetupKeyInformation
+//
+[
+    object,
+    uuid(6ba73778-36da-4c39-8a85-bcfa7d000793),
+    helpstring("ICertSrvSetupKeyInformation COM Interface"),
+    dual,
+    pointer_default(unique)
+]
+interface ICertSrvSetupKeyInformation: IDispatch
+{
+    // Properties
+    [propget, id(1), helpstring("property ProviderName")]
+    HRESULT ProviderName(
+		[out, retval] BSTR* pVal);
+
+    [propput, id(1), helpstring("property ProviderName")]
+    HRESULT ProviderName(
+		[in] BSTR const bstrVal);
+
+    [propget, id(2), helpstring("property Length")]
+    HRESULT Length(
+		[out, retval] LONG* pVal);
+
+    [propput, id(2), helpstring("property Length")]
+    HRESULT Length(
+		[in] LONG lVal);
+
+    [propget, id(3), helpstring("property Existing")]
+    HRESULT Existing(
+		[out, retval] VARIANT_BOOL* pVal);
+
+    [propput, id(3), helpstring("property Existing")]
+    HRESULT Existing(
+		[in] VARIANT_BOOL bVal);
+
+    [propget, id(4), helpstring("property ContainerName")]
+    HRESULT ContainerName(
+		[out, retval] BSTR* pVal);
+
+    [propput, id(4), helpstring("property ContainerName")]
+    HRESULT ContainerName(
+		[in] BSTR const bstrVal);
+
+    [propget, id(5), helpstring("property HashAlgorithm")]
+    HRESULT HashAlgorithm(
+		[out, retval] BSTR* pVal);
+
+    [propput, id(5), helpstring("property HashAlgorithm")]
+    HRESULT HashAlgorithm(
+		[in] BSTR const bstrVal);
+
+    [propget, id(6), helpstring("property ExistingCACertificate")]
+    HRESULT ExistingCACertificate(
+		[out, retval] VARIANT* pVal);
+
+    [propput, id(6), helpstring("property ExistingCACertificate")]
+    HRESULT ExistingCACertificate(
+		[in] VARIANT varVal);
+
+};
+
+//+--------------------------------------------------------------------------
+// ICertSrvSetupKeyInformationCollection -- local COM interface
+//+--------------------------------------------------------------------------
+[
+    object,
+    uuid(e65c8b00-e58f-41f9-a9ec-a28d7427c844),
+    dual,
+    nonextensible,
+    helpstring("ICertSrvSetupKeyInformationCollection Interface"),
+    pointer_default(unique)
+]
+interface ICertSrvSetupKeyInformationCollection : IDispatch
+{
+    [propget, id(DISPID_NEWENUM), helpstring("property _NewEnum")]
+    HRESULT _NewEnum(
+        [out, retval] IUnknown** ppVal);
+
+    [propget, id(DISPID_VALUE), helpstring("property Item")]
+    HRESULT Item(
+        [in] LONG Index,
+        [out, retval] VARIANT* pVal);
+
+    [propget, id(1), helpstring("property Count")]
+    HRESULT Count(
+        [out, retval] LONG* pVal);
+
+    HRESULT Add(
+	[in] ICertSrvSetupKeyInformation* pIKeyInformation);
+};
+
+typedef enum {
+    ENUM_SETUPPROP_INVALID = -1,
+    ENUM_SETUPPROP_CATYPE = 0,			    // VT_UI4, ENUM_CATYPES
+    ENUM_SETUPPROP_CAKEYINFORMATION = 1,	    // VT_DISPATCH, ICertSrvSetupKeyInformation
+    ENUM_SETUPPROP_INTERACTIVE = 2,		    // VT_BOOL
+    ENUM_SETUPPROP_CANAME = 3,			    // VT_BSTR
+    ENUM_SETUPPROP_CADSSUFFIX = 4,		    // VT_BSTR
+    ENUM_SETUPPROP_VALIDITYPERIOD = 5,		    // VT_UI4, enum ENUM_PERIOD
+    ENUM_SETUPPROP_VALIDITYPERIODUNIT = 6,	    // VT_UI4
+    ENUM_SETUPPROP_EXPIRATIONDATE = 7,		    // VT_BSTR
+    ENUM_SETUPPROP_PRESERVEDATABASE = 8,	    // VT_BOOL
+    ENUM_SETUPPROP_DATABASEDIRECTORY = 9,	    // VT_BSTR
+    ENUM_SETUPPROP_LOGDIRECTORY = 10,		    // VT_BSTR
+    ENUM_SETUPPROP_SHAREDFOLDER = 11,		    // VT_BSTR
+    ENUM_SETUPPROP_PARENTCAMACHINE = 12,	    // VT_BSTR
+    ENUM_SETUPPROP_PARENTCANAME = 13,		    // VT_BSTR
+    ENUM_SETUPPROP_REQUESTFILE = 14,		    // VT_BSTR
+    ENUM_SETUPPROP_WEBCAMACHINE = 15,		    // VT_BSTR
+    ENUM_SETUPPROP_WEBCANAME = 16		    // VT_BSTR
+} CASetupProperty;
+
+//
+// Interface ICertSrvSetup
+//
+[
+    object,
+    uuid(b760a1bb-4784-44c0-8f12-555f0780ff25),
+    helpstring("ICertSrvSetup COM Interface"),
+    dual,
+    pointer_default(unique)
+]
+interface ICertSrvSetup: IDispatch
+{
+    // Properties
+
+    [propget, id(1), helpstring("property CAErrorId")]
+    HRESULT CAErrorId(
+		[out, retval] LONG* pVal);
+
+    [propget, id(2), helpstring("property CAErrorString")]
+    HRESULT CAErrorString(
+		[out, retval] BSTR* pVal);
+
+    // Methods
+    HRESULT InitializeDefaults(
+		[in] VARIANT_BOOL bServer,
+		[in] VARIANT_BOOL bClient);
+    
+    HRESULT GetCASetupProperty(
+		[in] CASetupProperty propertyId,
+		[out, retval] VARIANT* pPropertyValue);
+
+    HRESULT SetCASetupProperty(
+		[in] CASetupProperty propertyId,
+		[in] VARIANT* pPropertyValue);
+
+    HRESULT IsPropertyEditable(
+		[in] CASetupProperty  propertyId,
+		[out, retval] VARIANT_BOOL* pbEditable);
+
+    HRESULT GetSupportedCATypes(
+		[out, retval] VARIANT* pCATypes);
+    
+    HRESULT GetProviderNameList(
+		[out, retval] VARIANT* pVal);
+
+    HRESULT GetKeyLengthList(
+		[in] BSTR const bstrProviderName,
+		[out, retval] VARIANT* pVal);
+
+    HRESULT GetHashAlgorithmList(
+		[in] BSTR const bstrProviderName,
+		[out, retval] VARIANT* pVal);
+
+    HRESULT GetPrivateKeyContainerList(
+		[in] BSTR const bstrProviderName,
+		[out, retval] VARIANT* pVal);
+
+    HRESULT GetExistingCACertificates(
+		[out, retval] ICertSrvSetupKeyInformationCollection** ppVal);
+
+    HRESULT CAImportPFX(
+                [in] const BSTR bstrFileName,
+                [in] const BSTR bstrPasswd,
+                [in] VARIANT_BOOL bOverwriteExistingKey,
+                [out, retval] ICertSrvSetupKeyInformation** ppVal);
+
+    HRESULT SetCADistinguishedName(
+		[in] BSTR const bstrCADN,
+		[in] VARIANT_BOOL bIgnoreUnicode,
+		[in] VARIANT_BOOL bOverwriteExistingKey,
+		[in] VARIANT_BOOL bOverwriteExistingCAInDS);
+    
+    HRESULT SetDatabaseInformation(
+		[in] BSTR const bstrDBDirectory,
+		[in] BSTR const bstrLogDirectory,
+		[in] BSTR const bstrSharedFolder,
+		[in] VARIANT_BOOL bForceOverwrite);
+
+    HRESULT SetParentCAInformation(
+		[in] BSTR const bstrCAConfiguration);
+
+    HRESULT SetWebCAInformation(
+		[in] BSTR const bstrCAConfiguration);
+
+
+    HRESULT Install();
+
+    HRESULT PreUnInstall(
+		[in] VARIANT_BOOL bClientOnly);
+
+    HRESULT PostUnInstall();
+
+};
+
+typedef enum
+{
+    ENUM_CEPSETUPPROP_USELOCALSYSTEM = 0, // VT_BOOL
+    ENUM_CEPSETUPPROP_USECHALLENGE = 1, // VT_BOOL
+    ENUM_CEPSETUPPROP_RANAME_CN = 2, // VT_BSTR
+    ENUM_CEPSETUPPROP_RANAME_EMAIL = 3, // VT_BSTR
+    ENUM_CEPSETUPPROP_RANAME_COMPANY = 4, // VT_BSTR
+    ENUM_CEPSETUPPROP_RANAME_DEPT = 5, // VT_BSTR
+    ENUM_CEPSETUPPROP_RANAME_CITY = 6, // VT_BSTR
+    ENUM_CEPSETUPPROP_RANAME_STATE = 7, // VT_BSTR
+    ENUM_CEPSETUPPROP_RANAME_COUNTRY = 8, // VT_BSTR
+    ENUM_CEPSETUPPROP_SIGNINGKEYINFORMATION = 9, // VT_IDISPATCH, ICertSrvSetupKeyInformation
+    ENUM_CEPSETUPPROP_EXCHANGEKEYINFORMATION = 10, // VT_IDISPATCH, ICertSrvSetupKeyInformation
+    ENUM_CEPSETUPPROP_CAINFORMATION = 11, //VT_BSTR
+    ENUM_CEPSETUPPROP_MSCEPURL=12,  // VT_BSTR
+    ENUM_CEPSETUPPROP_CHALLENGEURL =13,	// VT_BSTR
+} MSCEPSetupProperty;
+
+//
+// Interface IMSCEPSetup
+//
+[
+    object,
+    uuid(4f7761bb-9f3b-4592-9ee0-9a73259c313e),
+    helpstring("IMSCEPSetup COM Interface"),
+    dual,
+    pointer_default(unique)
+]   
+interface IMSCEPSetup: IDispatch
+{
+        // Properties
+    [propget, id(1), helpstring("property MSCEPErrorId")]
+    HRESULT MSCEPErrorId(
+		[out, retval] LONG* pVal);
+
+    [propget, id(2), helpstring("property MSCEPErrorString")]
+    HRESULT MSCEPErrorString(
+		[out, retval] BSTR* pVal);
+
+    HRESULT InitializeDefaults();
+
+    HRESULT GetMSCEPSetupProperty(
+		[in] MSCEPSetupProperty propertyId,
+		[out, retval] VARIANT*	pVal);
+
+    HRESULT SetMSCEPSetupProperty(
+		[in] MSCEPSetupProperty propertyId,
+		[in] VARIANT* pPropertyValue);
+
+    HRESULT SetAccountInformation(
+		[in] BSTR const bstrUserName,
+		[in] BSTR const bstrPassword);
+
+    HRESULT IsMSCEPStoreEmpty(
+		[out, retval] VARIANT_BOOL* pbEmpty);
+
+    HRESULT GetProviderNameList(
+		[in] VARIANT_BOOL bExchange,
+		[out, retval] VARIANT* pVal);
+
+    HRESULT GetKeyLengthList(
+		[in] VARIANT_BOOL bExchange,
+		[in] BSTR const bstrProviderName,
+		[out, retval] VARIANT* pVal);
+
+    HRESULT Install();
+
+    HRESULT PreUnInstall();
+    HRESULT PostUnInstall();
+
+};
+
+
+typedef enum
+{
+    ENUM_CESSETUPPROP_USE_IISAPPPOOLIDENTITY = 0,   // VT_BOOL
+    ENUM_CESSETUPPROP_CACONFIG = 1,                 // VT_BSTR
+    ENUM_CESSETUPPROP_AUTHENTICATION = 2,           // VT_UI4, VT_I4, VT_I2
+    ENUM_CESSETUPPROP_SSLCERTHASH = 3,              // VT_BSTR
+    ENUM_CESSETUPPROP_URL = 4,                       // VT_BSTR
+    ENUM_CESSETUPPROP_RENEWALONLY = 5,              // VT_BOOL
+    ENUM_CESSETUPPROP_ALLOW_KEYBASED_RENEWAL = 6,   // VT_BOOL
+} CESSetupProperty;
+
+//
+// Interface ICertificateEnrollmentServerSetup
+//
+[
+    object,
+    uuid(70027FDB-9DD9-4921-8944-B35CB31BD2EC),
+    helpstring("ICertificateEnrollmentServerSetup COM Interface"),
+    dual,
+    pointer_default(unique)
+]
+interface ICertificateEnrollmentServerSetup: IDispatch
+{
+    // Properties
+    [propget, id(1), helpstring("property ErrorString")]
+    HRESULT ErrorString(
+		[out, retval] BSTR* pVal);
+
+    // Methods
+    HRESULT InitializeInstallDefaults();
+    
+    HRESULT GetProperty(
+		[in] CESSetupProperty propertyId,
+		[out, retval] VARIANT* pPropertyValue);
+
+    HRESULT SetProperty(
+		[in] CESSetupProperty propertyId,
+		[in] VARIANT* pPropertyValue);
+
+    HRESULT SetApplicationPoolCredentials(
+		[in] BSTR const bstrUsername,
+		[in] BSTR const bstrPassword);
+
+    HRESULT Install();
+
+    HRESULT UnInstall(
+		[in, optional] VARIANT* pCAConfig,
+		[in, optional] VARIANT* pAuthentication);
+};
+
+typedef enum
+{
+    ENUM_CEPSETUPPROP_AUTHENTICATION = 0,    // VT_UI4, VT_I4, VT_I2
+    ENUM_CEPSETUPPROP_SSLCERTHASH = 1,       // VT_BSTR
+    ENUM_CEPSETUPPROP_URL = 2,               // VT_BSTR
+    ENUM_CEPSETUPPROP_KEYBASED_RENEWAL = 3,  // VT_BOOL
+} CEPSetupProperty;
+
+//
+// Interface ICertificateEnrollmentPolicyServerSetup
+//
+[
+    object,
+    uuid(859252CC-238C-4a88-B8FD-A37E7D04E68B),
+    helpstring("ICertificateEnrollmentPolicyServerSetup COM Interface"),
+    dual,
+    pointer_default(unique)
+]
+interface ICertificateEnrollmentPolicyServerSetup: IDispatch
+{
+    // Properties
+    [propget, id(1), helpstring("property ErrorString")]
+    HRESULT ErrorString(
+		[out, retval] BSTR* pVal);
+
+    // Methods
+    HRESULT InitializeInstallDefaults();
+    
+    HRESULT GetProperty(
+		[in] CEPSetupProperty propertyId,
+		[out, retval] VARIANT* pPropertyValue);
+
+    HRESULT SetProperty(
+		[in] CEPSetupProperty propertyId,
+		[in] VARIANT* pPropertyValue);
+
+    HRESULT Install();
+
+    HRESULT UnInstall(
+		[in, optional] VARIANT* pAuthKeyBasedRenewal);
+};
+
+
+//+--------------------------------------------------------------------------
+// casetup Type library
+//+--------------------------------------------------------------------------
+
+[
+    uuid(8abc9d1a-02d4-42e4-b542-17b1ebcb2f51),
+    version(1.0),
+    helpstring("Certificate Server Installer Type Library")
+]
+
+library CertSrvSetupLib
+{
+    importlib("stdole2.tlb");
+
+    [
+	uuid(38373906-5433-4633-b0fb-29b7e78262e1),
+	helpstring("CCertSrvSetup Class")
+    ]
+    coclass CCertSrvSetupKeyInformation
+    {
+	[default] interface ICertSrvSetupKeyInformation;
+    };
+
+    [
+	uuid(961f180f-f55c-413d-a9b3-7d2af4d8e42f),
+	helpstring("CCertSrvSetup Class")
+    ]
+    coclass CCertSrvSetup
+    {
+	[default] interface ICertSrvSetup;
+    };
+
+    [
+	uuid(aa4f5c02-8e7c-49c4-94fa-67a5cc5eadb4),
+	helpstring("CMSCEPSetup Class")
+    ]
+    coclass CMSCEPSetup
+    {
+	[default] interface IMSCEPSetup;
+    };
+    [
+	uuid(9902F3BC-88AF-4cf8-AE62-7140531552B6),
+	helpstring("CCertificateEnrollmentServerSetup Class")
+    ]
+
+    coclass CCertificateEnrollmentServerSetup
+    {
+	[default] interface ICertificateEnrollmentServerSetup;
+    };
+    [
+	uuid(AFE2FA32-41B1-459d-A5DE-49ADD8A72182),
+	helpstring("CCertificateEnrollmentPolicyServerSetup Class")
+    ]
+    coclass CCertificateEnrollmentPolicyServerSetup
+    {
+	[default] interface ICertificateEnrollmentPolicyServerSetup;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

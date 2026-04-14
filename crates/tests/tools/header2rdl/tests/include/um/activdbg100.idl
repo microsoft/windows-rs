@@ -1,0 +1,489 @@
+// ActivDbg100.idl : ActiveX Debugging Interfaces for PDM v10.0
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ActivDbg100.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("//")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("//")
+cpp_quote("// Declarations for ActiveX Scripting authoring/Debugging.")
+cpp_quote("//")
+
+#ifdef _MSC_VER
+#pragma once
+#endif  // _MSC_VER
+
+import "activdbg.idl";
+
+// Flag enumerator of the types of nodes to exclude
+typedef enum tagAPPLICATION_NODE_EVENT_FILTER {
+    // send all events
+    FILTER_EXCLUDE_NOTHING = 0,
+    // Exclude 'anonymous code' nodes. 'annonymous code' nodes are used by the jscript
+    // runtime for 'new Function([args,] <code>)'
+    FILTER_EXCLUDE_ANONYMOUS_CODE = 0x1,
+    // Exclude 'eval code' nodes. 'eval code' nodes are used by the jscript runtime for
+    // 'eval' support.
+    FILTER_EXCLUDE_EVAL_CODE = 0x2
+} APPLICATION_NODE_EVENT_FILTER;
+
+// Array of IDebugDocumentText, Members allocated with CoTaskMemAlloc
+typedef struct tagTEXT_DOCUMENT_ARRAY
+{
+    DWORD dwCount;
+    [size_is(dwCount)] IDebugDocumentText **Members;
+} TEXT_DOCUMENT_ARRAY;
+
+// Interface implemented by PDM v10.0 and better. This can be QI'ed from the implementation
+// of IDebugApplicationNode
+[
+    object,
+    uuid(90a7734e-841b-4f77-9384-a2891e76e7e2),
+    pointer_default(unique)
+]
+interface IDebugApplicationNode100: IUnknown
+{
+    // Sets the filter on a particular IDebugApplicationNodeEvents implementation. It 
+    // allows script debuggers to filter out complier-generated child application nodes
+    // so that the PDM will no longer send events when these are created/removed. By 
+    // default, all nodes will be sent.
+    HRESULT SetFilterForEventSink(
+        [in] DWORD dwCookie,
+        [in] APPLICATION_NODE_EVENT_FILTER filter
+        );
+
+    // Obtains the text documents which are hidden by the specified filter
+    HRESULT GetExcludedDocuments(
+        [in] APPLICATION_NODE_EVENT_FILTER filter,
+        [out] TEXT_DOCUMENT_ARRAY* pDocuments
+        );
+
+    // Determines if the specified document is the document of one of the child
+    // nodes of this node.
+    HRESULT QueryIsChildNode(
+        [in] IDebugDocument* pSearchKey
+        );
+};
+
+interface IWebAppDiagnosticsSetupEvent;
+// -------------------------------------------------------------
+// IWebAppDiagnosticsSetup - interface exposed by PDM application
+// objects to create COM objects in the debugee process and pass 
+// off IWebBrowser2 to enable web diagnostics
+// 
+[
+    object,
+    uuid(379BFBE1-C6C9-432A-93E1-6D17656C538C),
+    pointer_default(unique)
+]
+interface IWebAppDiagnosticsSetup : IUnknown
+{
+    HRESULT DiagnosticsSupported(
+        [out, retval] VARIANT_BOOL* pRetVal
+        );
+    // See: http://blogs.msdn.com/b/larryosterman/archive/2005/01/31/363881.aspx 
+    // for why pipeHandle is a DWORD_PTR and not a HANDLE_PTR
+    HRESULT CreateObjectWithSiteAtWebApp(
+        [in] REFCLSID rclsid, 
+        [in] DWORD dwClsContext, 
+        [in] REFIID riid, 
+        [in] DWORD_PTR hPassToObject
+        );
+};
+
+// Flags enum indicating a set of options and/or capabilities that apply to the attached debugger
+enum SCRIPT_DEBUGGER_OPTIONS
+{
+    // no options are set
+    SDO_NONE                                = 0x00000000,
+
+    // Indicates if the script runtime should raise BREAKREASON_ERROR events when an exception
+    // is thrown. This option may be set by the debugger, or set by user-code via 
+    // 'Debug.enableFirstChanceExceptions(<true|false>)'.
+    SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS      = 0x00000001,
+    
+    // Indicates if the attached debugger supports web workers.
+    SDO_ENABLE_WEB_WORKER_SUPPORT           = 0x00000002,
+
+    // Indicates if the attached debugger enables the script runtime to participate in
+    // identifying exception in non-user code.
+    SDO_ENABLE_NONUSER_CODE_SUPPORT         = 0x00000004,
+    
+    // Indicates if the debugger supports handling library stack frame (provided for purpose of
+    // display only, no associated code/document context)
+    SDO_ENABLE_LIBRARY_STACK_FRAME          = 0x00000008
+};
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(SCRIPT_DEBUGGER_OPTIONS)")
+
+// Interface implemented by the IDebugApplication object in pdm.dll to provide new capabilities
+// which are intended to be callable by script debuggers in addition to in proc callers.
+[
+    object,
+    uuid(D5FE005B-2836-485e-B1F9-89D91AA24FD4),
+    pointer_default(unique),
+]
+interface IRemoteDebugApplication110: IUnknown
+{
+    // Called to update debugger options. This method should be called after ConnectDebugger.
+    // DisconnectDebugger automatically resets to the default options.
+    // The options default to 0 (SDO_NONE).
+    HRESULT SetDebuggerOptions(
+        [in] enum SCRIPT_DEBUGGER_OPTIONS mask,
+        [in] enum SCRIPT_DEBUGGER_OPTIONS value
+    );
+
+    // Returns the current set of options which are enabled
+    HRESULT GetCurrentDebuggerOptions([out] enum SCRIPT_DEBUGGER_OPTIONS* pCurrentOptions);
+    // Returns the Main thread for hosts that call SetSite (IE) otherwise returns E_FAIL
+    HRESULT GetMainThread([out] IRemoteDebugApplicationThread **ppThread);
+}
+
+cpp_quote("#ifndef DISABLE_ACTIVDBG_INTERFACE_WRAPPERS")  
+cpp_quote("#ifdef _WIN64")  
+cpp_quote("#define IDebugApplication110 IDebugApplication11064")  
+cpp_quote("#define IID_IDebugApplication110 IID_IDebugApplication11064")  
+cpp_quote("#else")  
+cpp_quote("#define IDebugApplication110 IDebugApplication11032")  
+cpp_quote("#define IID_IDebugApplication110 IID_IDebugApplication11032")  
+cpp_quote("#endif")  
+cpp_quote("#endif")  
+
+
+// Interface implemented by the IDebugApplication object in pdm.dll to provide new capabilities
+// which are intended to be callable from inside the script target process (local).
+
+[
+    object,
+    uuid(BDB3B5DE-89F2-4E11-84A5-97445F941C7D),
+    local,
+    pointer_default(unique)
+]
+interface IDebugApplication11032 : IRemoteDebugApplication110
+{
+    HRESULT SynchronousCallInMainThread([in] IDebugThreadCall32* pptc, [in] DWORD_PTR dwParam1, [in] DWORD_PTR dwParam2, [in] DWORD_PTR dwParam3);
+    HRESULT AsynchronousCallInMainThread([in] IDebugThreadCall32* pptc, [in] DWORD_PTR dwParam1, [in] DWORD_PTR dwParam2, [in] DWORD_PTR dwParam3);
+
+    // Waits for any of the specified handles to be signalled while allowing cross-thread calls to be posted to this thread. API must
+    // be called from the debugger thread.
+    HRESULT CallableWaitForHandles([in] DWORD handleCount, [in, size_is(handleCount)] const HANDLE* pHandles, [out] DWORD* pIndex);
+}
+
+[
+    object,
+    uuid(2039D958-4EEB-496A-87BB-2E5201EADEEF),
+    local,
+    pointer_default(unique)
+]
+interface IDebugApplication11064 : IRemoteDebugApplication110
+{
+    HRESULT SynchronousCallInMainThread([in] IDebugThreadCall64* pptc, [in] DWORD_PTR dwParam1, [in] DWORD_PTR dwParam2, [in] DWORD_PTR dwParam3);
+    HRESULT AsynchronousCallInMainThread([in] IDebugThreadCall64* pptc, [in] DWORD_PTR dwParam1, [in] DWORD_PTR dwParam2, [in] DWORD_PTR dwParam3);
+
+    // Waits for any of the specified handles to be signalled while allowing cross-thread calls to be posted to this thread. API must
+    // be called from the debugger thread.
+    HRESULT CallableWaitForHandles([in] DWORD handleCount, [in, size_is(handleCount)] const HANDLE* pHandles, [out] DWORD* pIndex);
+}
+
+[
+    object,
+    uuid(16FF3A42-A5F5-432B-B625-8E8E16F57E15),
+    local,
+    pointer_default(unique)
+]
+interface IWebAppDiagnosticsObjectInitialization : IUnknown 
+{
+    // because this is a local interface, HANDLE_PTR is used
+    HRESULT Initialize(
+        [in, annotation("_In_")] HANDLE_PTR hPassedHandle,
+        [in, annotation("_In_")] IUnknown* pDebugApplication
+        );
+}
+
+
+// Implemented by the javascript engine to provide extended WinRT error info 
+// from a BREAKREASON_ERROR event. QI-able from IActiveScriptError.
+[  
+    object,  
+    uuid(73A3F82A-0FE9-4B33-BA3B-FE095F697E0A),  
+    pointer_default(unique)
+]  
+interface IActiveScriptWinRTErrorDebug : IActiveScriptError  
+{  
+    /// Return WinRT Restricted Error string, if available  
+    HRESULT GetRestrictedErrorString([out] BSTR * errorString);  
+    /// Return WinRT Restricted Error reference string, if available  
+    HRESULT GetRestrictedErrorReference([out] BSTR * referenceString);  
+    /// Return Capability SID for the WinRT error, if available
+    HRESULT GetCapabilitySid([out] BSTR * capabilitySid);
+}  
+
+// Indicates the kind of exception thrown 
+typedef enum tagSCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND
+{
+    // Indicates if the current exception is a first chance exception.
+    ETK_FIRST_CHANCE                 = 0x00000000,
+
+    // Indicates if the current exception is not handled in the user code.
+    ETK_USER_UNHANDLED              = 0x00000001,
+
+    // Indicates if the current exception is not handled.
+    ETK_UNHANDLED                   = 0x00000002
+} SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND;
+
+// Implemented by the javascript engine to provide information whether a
+// BREAKREASON_ERROR event is for a first chance exception,
+// unhandled in the user code, or an unhandled exception.
+[
+    object,
+    uuid(516E42B6-89A8-4530-937B-5F0708431442),
+    pointer_default(unique)
+]
+interface IActiveScriptErrorDebug110 : IUnknown
+{
+    // Returns S_OK on success of the operation.
+    HRESULT GetExceptionThrownKind([out] SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND * pExceptionKind);
+};
+
+// Connection point based event interface.  Advise against
+// a debug application thread to receive these events from that thread.
+// Events will be fired on the originating thread.
+[
+    object,
+    uuid(84E5E468-D5DA-48A8-83F4-40366429007B),
+    helpstring("IDebugApplicationThreadEvents110 Interface"),  
+    local,
+    pointer_default(unique)
+]
+interface IDebugApplicationThreadEvents110 : IUnknown
+{
+    // The thread is suspending for a breakpoint and can handle
+    // calls which require the thread to be fully suspended
+    HRESULT OnSuspendForBreakPoint( void );
+    // The thread is resuming from a breakpoint and will be 
+    // active once again
+    HRESULT OnResumeFromBreakPoint( void );
+
+    // A call into the thread using the PDM's thread switching has completed
+    HRESULT OnThreadRequestComplete( void );
+
+    // A call into the thread using the PDM's thraed switching has begun
+    HRESULT OnBeginThreadRequest( void );
+}
+
+cpp_quote("#ifndef DISABLE_ACTIVDBG_INTERFACE_WRAPPERS")  
+cpp_quote("#ifdef _WIN64")  
+cpp_quote("#define IDebugApplicationThread110 IDebugApplicationThread11064")  
+cpp_quote("#define IID_IDebugApplicationThread110 IID_IDebugApplicationThread11064")  
+cpp_quote("#else")  
+cpp_quote("#define IDebugApplicationThread110 IDebugApplicationThread11032")  
+cpp_quote("#define IID_IDebugApplicationThread110 IID_IDebugApplicationThread11032")  
+cpp_quote("#endif")  
+cpp_quote("#endif")  
+
+// Implemented by a debug application thread.  QI'able off objects implementing IDebugApplicationThread
+[
+    object,
+    uuid(2194AC5C-6561-404A-A2E9-F57D72DE3702),
+    helpstring("IDebugApplicationThread11032 Interface"),
+    local,
+    pointer_default(unique)
+]
+interface IDebugApplicationThread11032 : IUnknown
+{
+    // A count of how many thread requests from the PDM's thread switching mechanisms are currently processing
+    // Usually 0 or 1, but it's possible for this to be higher if one thread call starts processing but 
+    // triggers a synchronous call out of thread or otherwise suspends the thread (for example, by triggering
+    // an IDebugApplicationEvents event which is issued on the debugger thread)
+    HRESULT GetActiveThreadRequestCount([out, annotation("_Out_")] UINT * puiThreadRequests);
+
+    // SuspendForBreakPoint has been called on this thread and has not yet completed.
+    HRESULT IsSuspendedForBreakPoint([out, annotation("_Out_")] BOOL * pfIsSuspended);
+
+    // This thread is in a state that will process calls made using the PDM's thread 
+    // switching mechanisms (SynchronousCallInThread etc)
+    HRESULT IsThreadCallable([out, annotation("_Out_")] BOOL * pfIsCallable);
+
+    HRESULT AsynchronousCallIntoThread([in] IDebugThreadCall32* pptc, [in] DWORD_PTR dwParam1, [in] DWORD_PTR dwParam2, [in] DWORD_PTR dwParam3);
+}
+
+[
+    object,
+    uuid(420AA4CC-EFD8-4DAC-983B-47127826917D),
+    helpstring("IDebugApplicationThread11064 Interface"),
+    local,
+    pointer_default(unique)
+]
+interface IDebugApplicationThread11064 : IUnknown
+{
+    // A count of how many thread requests from the PDM's thread switching mechanisms are currently processing
+    // Usually 0 or 1, but it's possible for this to be higher if one thread call starts processing but 
+    // triggers a synchronous call out of thread or otherwise suspends the thread (for example, by triggering
+    // an IDebugApplicationEvents event which is issued on the debugger thread)
+    HRESULT GetActiveThreadRequestCount([out, annotation("_Out_")] UINT * puiThreadRequests);
+
+    // SuspendForBreakPoint has been called on this thread and has not yet completed.
+    HRESULT IsSuspendedForBreakPoint([out, annotation("_Out_")] BOOL * pfIsSuspended);
+
+    // This thread is in a state that will process calls made using the PDM's thread 
+    // switching mechanisms (SynchronousCallInThread etc)
+    HRESULT IsThreadCallable([out, annotation("_Out_")] BOOL * pfIsCallable);
+
+    HRESULT AsynchronousCallIntoThread([in] IDebugThreadCall64* pptc, [in] DWORD_PTR dwParam1, [in] DWORD_PTR dwParam2, [in] DWORD_PTR dwParam3);
+}
+
+// Represents a syntax error, or other critical error which is being raised to the
+// the debugger. This event is fired using IDebugApplication.FireDebuggerEvent, 
+// and is received by the debugger using IApplicationDebugger.onDebuggerEvent. The
+// debugger should block in its implementation of onDebuggerEvent until it is ready
+// for the host to resume further processing.
+[
+    object,
+    uuid(2f69c611-6b14-47e8-9260-4bb7c52f504b),
+    pointer_default(unique)
+]
+interface IRemoteDebugCriticalErrorEvent110 : IUnknown
+{
+    // Obtains information about the error
+    //
+    // pbstrSource: Specifies to the web developer what aspect of their page the issue
+    //   pertains to. Ex: "HTML", "DOM", "SCRIPT", etc
+    // pMessageId: Indicates an error code. source+messageid should uniquely identify the
+    //   message so that information about the error can be found in help.
+    // pbstrMessage: Message to display to users
+    // ppLocation: [Optional] Location where the error occurred. Should be non-null 
+    //   whenever possible.
+    HRESULT GetErrorInfo(
+        [out] BSTR* pbstrSource,
+        [out] int* pMessageId,
+        [out] BSTR* pbstrMessage,
+        [out] IDebugDocumentContext** ppLocation);
+};
+
+///
+/// Exhautive list of the all possible invocation types
+typedef enum tagSCRIPT_INVOCATION_CONTEXT_TYPE
+{
+       SICT_Event,
+       SICT_SetTimeout,
+       SICT_SetInterval,
+       SICT_SetImmediate,
+       SICT_RequestAnimationFrame,
+       SICT_ToString,
+       SICT_MutationObserverCheckpoint,
+       SICT_WWAExecUnsafeLocalFunction,
+       SICT_WWAExecAtPriority
+} SCRIPT_INVOCATION_CONTEXT_TYPE;
+
+///
+/// Provides the information about invocation context.
+/// The object will be available to the debugger when debugger queries for a stack frame which belongs to the virtual invocation context frame.
+[
+    object,
+    uuid(5D7741B7-AF7E-4A2A-85E5-C77F4D0659FB),
+    helpstring("IScriptInvocationContext Interface"),
+    pointer_default(unique)
+]
+interface IScriptInvocationContext : IUnknown
+{
+    // Populates the script invocation context type.
+    HRESULT GetContextType([out] SCRIPT_INVOCATION_CONTEXT_TYPE * pInvocationContextType);
+
+    // Populates the description of the invocation context.
+    HRESULT GetContextDescription([out] BSTR* pDescription);
+
+    // Populates the context object.
+    HRESULT GetContextObject([out] IUnknown** ppContextObject);
+};
+
+// Indicates the type of frame provided from the runtime.
+typedef enum tagDEBUG_STACKFRAME_TYPE
+{
+    // Indicates if the current frame is script code.
+    DST_SCRIPT_FRAME,
+
+    // Indicates if the current frame is an internal frame
+    DST_INTERNAL_FRAME,
+
+    // Indicates if the current frame is an invocation/event frame
+    DST_INVOCATION_FRAME
+} DEBUG_STACKFRAME_TYPE;
+
+///
+/// This interface is an extension of the interface IDebugStackFrame. This extension is made to provide invocation context information to the debugger.
+///
+[
+    object,
+    uuid(4B509611-B6EA-4B24-ADCB-D0CCFD1A7E33),
+    helpstring("IDebugStackFrame110 Interface"),
+    pointer_default(unique)
+]
+interface IDebugStackFrame110: IDebugStackFrame
+{
+    // Mentions the type of current frame, which helps debugger to distinguish among the usual script frame or internal frame or virtual invocation frame.
+    // Returns S_OK on success.
+    HRESULT GetStackFrameType([out] DEBUG_STACKFRAME_TYPE * pStackFrameKind);
+
+    // If the current frame is a  invocation frame, this API will be used to get more info about the context of the invocation.
+    // ppInvocationContext: an object passed from the host.
+    // Returns S_OK upon success.
+    //        E_FAIL when this is not virtual invocation/event frame.
+    HRESULT GetScriptInvocationContext([out] IScriptInvocationContext ** ppInvocationContext);
+};
+
+// Indicates the type of message provided by the runtime
+typedef enum tagDEBUG_EVENT_INFO_TYPE
+{
+    // Indicates if the current message general - imagine as console.info.
+    DEIT_GENERAL,
+
+    // Special message - AsmJS error due to debugging
+    DEIT_ASMJS_IN_DEBUGGING,
+
+    // Special message - Runtime succeeded on AsmJS 
+    DEIT_ASMJS_SUCCEEDED,
+
+    // Special message - Runtime failed on AsmJS 
+    DEIT_ASMJS_FAILED
+
+} DEBUG_EVENT_INFO_TYPE;
+
+// Represents a message/info raised by the runtime to the debugger in order to pass any kind of message (think of this similar to console.* APIs)
+// This event is fired using IDebugApplication.FireDebuggerEvent, and is received by the debugger using IApplicationDebugger.onDebuggerEvent.
+// The debugger should block in its implementation of onDebuggerEvent until it is ready
+// for the host to resume further processing.
+[
+    object,
+    uuid(9FF56BB6-EB89-4C0F-8823-CC2A4C0B7F26),
+    pointer_default(unique)
+]
+interface IRemoteDebugInfoEvent110 : IUnknown
+{
+    // Obtains information about the message info
+    //
+    HRESULT GetEventInfo(
+        // Mention the message type - a way of filtering on the debugger side
+        [out] DEBUG_EVENT_INFO_TYPE* pMessageType,
+
+        // pbstrMessage : Message text 
+        [out] BSTR* pbstrMessage,
+
+        // pbstrUrl [Optional] : An URL - represents the page url for the script engine points the message to
+        [out] BSTR* pbstrUrl,
+
+        // ppLocation: [Optional] Location where the message is meant in the page source.
+        [out] IDebugDocumentContext** ppLocation);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

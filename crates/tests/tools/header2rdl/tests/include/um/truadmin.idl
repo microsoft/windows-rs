@@ -1,0 +1,69 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			truadmin.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+cpp_quote("#if 0  // to get around a MIDL limitation")
+//#define UNICODE
+#include <accctrl.h>
+cpp_quote("#else")
+cpp_quote("#include <accctrl.h>")
+cpp_quote("#endif")
+
+#if( OLEDBVER >= 0x0200 )
+    REMOTED_INTERFACE(0c733aa1-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733aa1-2a1c-11ce-ade5-00aa0044773d)
+#endif
+
+interface ITrusteeAdmin : IUnknown {
+	HRESULT CompareTrustees(
+	[in] TRUSTEE_W*		pTrustee1,
+	[in] TRUSTEE_W*    	pTrustee2
+	);
+	
+	HRESULT CreateTrustee(
+	[in] TRUSTEE_W*	pTrustee,
+	[in] ULONG	cPropertySets,
+	[in, out, size_is(cPropertySets)] DBPROPSET rgPropertySets[]
+	);
+
+	HRESULT DeleteTrustee (
+	[in] TRUSTEE_W*	pTrustee
+	);
+
+	HRESULT SetTrusteeProperties (
+	[in] TRUSTEE_W*	pTrustee,
+	[in] ULONG	cPropertySets,
+	[in, out, size_is(cPropertySets)] DBPROPSET rgPropertySets[]
+	);
+
+	HRESULT GetTrusteeProperties (
+	[in] TRUSTEE_W*		pTrustee,
+	[in] const ULONG cPropertyIDSets,
+	[in, size_is(cPropertyIDSets)] const DBPROPIDSET rgPropertyIDSets[],
+	[in, out] ULONG * pcPropertySets,
+	[out, size_is(,*pcPropertySets)] DBPROPSET ** prgPropertySets
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,481 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: vidcap.idl
+//
+//  Contents: Video Capture and Topology Interface Definitions
+//
+//  History:  first published in XP SP2 (ISelector,IKsTopologyInfo)
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "strmif.idl";
+
+// The preprocessor directives here ensure that KSTOPOLOGY_CONNECTION is defined in the correct way
+// Constraint is that ks.h cannot be included in the idl file. The directives below ensure that
+// 1) KSTOPOLOGY_CONNECTION is locally defined for purposes of building the idl file itself.
+// 2) An app can include vidcap.h and ks.h in either order.
+// 3) The structure definition for KSTOPOLOGY_CONNECTION does not show up in vidcap.h since ks.h gets included.
+// Look at vidcap.h to understand exactly what gets generated.
+cpp_quote("#include \"ks.h\"")
+cpp_quote("#ifndef _KS_")
+typedef struct {
+    ULONG   FromNode;
+    ULONG   FromNodePin;
+    ULONG   ToNode;
+    ULONG   ToNodePin;
+} KSTOPOLOGY_CONNECTION, *PKSTOPOLOGY_CONNECTION;
+cpp_quote("#endif")
+
+
+// IKsTopologyInfo interface
+[
+    object,
+    local,
+    uuid(720D4AC0-7533-11D0-A5D6-28DB04C10000),
+    pointer_default(unique)
+]
+interface IKsTopologyInfo : IUnknown
+{
+    HRESULT get_NumCategories([out] DWORD *pdwNumCategories);
+    HRESULT get_Category([in] DWORD dwIndex, [out] GUID *pCategory);
+    HRESULT get_NumConnections([out] DWORD *pdwNumConnections);
+    HRESULT get_ConnectionInfo([in] DWORD dwIndex, [out] KSTOPOLOGY_CONNECTION *pConnectionInfo);
+    HRESULT get_NodeName([in] DWORD dwNodeId, [out, annotation("_Out_writes_bytes_opt_(dwBufSize)")] WCHAR *pwchNodeName, [in] DWORD dwBufSize, [out, annotation("_Out_")] DWORD *pdwNameLen);
+    HRESULT get_NumNodes([out] DWORD *pdwNumNodes);
+    HRESULT get_NodeType([in] DWORD dwNodeId, [out] GUID *pNodeType);
+    HRESULT CreateNodeInstance([in] DWORD dwNodeId, [in] REFIID iid, [out] void **ppvObject);
+}
+
+
+// ISelector interface
+[
+    object,
+    local,
+    uuid(1ABDAECA-68B6-4F83-9371-B413907C7B9F),
+    pointer_default(unique)
+]
+interface ISelector : IUnknown
+{
+    HRESULT get_NumSources([out] DWORD *pdwNumSources);
+    HRESULT get_SourceNodeId([out] DWORD *pdwPinId);
+    HRESULT put_SourceNodeId([in] DWORD dwPinId);
+}
+
+// ICameraControl interface
+[
+    object,
+    local,
+    uuid(2BA1785D-4D1B-44EF-85E8-C7F1D3F20184),
+    pointer_default(unique)
+]
+interface ICameraControl : IUnknown
+{
+    HRESULT get_Exposure(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Exposure(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Exposure(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_Focus(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Focus(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Focus(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_Iris(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Iris(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Iris(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_Zoom(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Zoom(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Zoom(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_FocalLengths(
+        [out] long *plOcularFocalLength,
+        [out] long *plObjectiveFocalLengthMin,
+        [out] long *plObjectiveFocalLengthMax);
+    HRESULT get_Pan(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Pan(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Pan(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_Tilt(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Tilt(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Tilt(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_PanTilt(
+        [out] long *pPanValue, 
+        [out] long *pTiltValue,
+        [out] long *pFlags);
+    HRESULT put_PanTilt(
+        [in] long PanValue, 
+        [in] long TiltValue,
+        [in] long Flags);
+    HRESULT get_Roll(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Roll(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Roll(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_ExposureRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_ExposureRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_ExposureRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_FocusRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_FocusRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_FocusRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_IrisRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_IrisRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_IrisRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_ZoomRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_ZoomRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_ZoomRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_PanRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_PanRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT get_TiltRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_TiltRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_TiltRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_PanTiltRelative(
+        [out] long *pPanValue, 
+        [out] long *pTiltValue,
+        [out] long *pFlags);
+    HRESULT put_PanTiltRelative(
+        [in] long PanValue, 
+        [in] long TiltValue,
+        [in] long Flags);
+    HRESULT getRange_PanRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_RollRelative(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_RollRelative(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_RollRelative(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+    HRESULT get_ScanMode(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_ScanMode(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT get_PrivacyMode(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_PrivacyMode(
+        [in] long Value, 
+        [in] long Flags);
+}
+
+
+// IVideoProcAmp interface
+[
+    object,
+    local,
+    uuid(4050560E-42A7-413a-85C2-09269A2D0F44),
+    pointer_default(unique)
+]
+interface IVideoProcAmp : IUnknown
+{  
+    HRESULT get_BacklightCompensation(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_BacklightCompensation(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_BacklightCompensation(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Brightness(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Brightness (
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Brightness(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta,
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_ColorEnable(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_ColorEnable(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_ColorEnable(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Contrast(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Contrast(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Contrast(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Gamma(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Gamma(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Gamma(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Saturation(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Saturation(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Saturation(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Sharpness(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Sharpness(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Sharpness(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_WhiteBalance(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_WhiteBalance(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_WhiteBalance(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Gain(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Gain(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Gain(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_Hue(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_Hue(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_Hue(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_DigitalMultiplier(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_DigitalMultiplier(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_DigitalMultiplier(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_PowerlineFrequency(
+        [out] long *pValue, 
+        [out] long *pFlags);
+    HRESULT put_PowerlineFrequency(
+        [in] long Value, 
+        [in] long Flags);
+    HRESULT getRange_PowerlineFrequency(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [out] long* pCapsFlag);
+
+    HRESULT get_WhiteBalanceComponent(
+        [out] long *pValue1,
+        [out] long *pValue2, 
+        [in, out] long *pFlags);
+    HRESULT put_WhiteBalanceComponent(
+        [in] long Value1, 
+        [in] long Value2,
+        [in] long Flags);
+    HRESULT getRange_WhiteBalanceComponent(
+        [out] long *pMin, 
+        [out] long *pMax, 
+        [out] long *pSteppingDelta, 
+        [out] long* pDefault, 
+        [in, out] long* pCapsFlag);
+}
+
+// IKsNodeControl interface
+[
+    object,
+    local,
+    uuid(11737C14-24A7-4bb5-81A0-0D003813B0C4),
+    pointer_default(unique)
+]
+interface IKsNodeControl :IUnknown
+{
+    HRESULT put_NodeId([in] DWORD dwNodeId);
+    HRESULT put_KsControl([in] PVOID pKsControl);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

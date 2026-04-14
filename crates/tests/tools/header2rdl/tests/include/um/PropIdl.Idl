@@ -1,0 +1,213 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: propidl.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820)    /* padding added after data member */")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)    /* Nameless struct/union */")
+cpp_quote("#pragma warning(disable:4237)    /* obsolete member named 'bool' */")
+cpp_quote("#endif")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "objidl.idl";
+import "oaidl.idl";
+import "wtypes.idl";
+#endif
+
+#define BUILDING_PROPIDL_IDL
+#include "propidlbase.idl"
+
+cpp_quote("#include <coml2api.h>")
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+cpp_quote("// Property IDs for the DiscardableInformation Property Set")
+cpp_quote("")
+cpp_quote("#define PIDDI_THUMBNAIL          0x00000002L // VT_BLOB")
+cpp_quote("")
+
+cpp_quote("// Property IDs for the SummaryInformation Property Set")
+cpp_quote("")
+cpp_quote("#define PIDSI_TITLE               0x00000002L  // VT_LPSTR")
+cpp_quote("#define PIDSI_SUBJECT             0x00000003L  // VT_LPSTR")
+cpp_quote("#define PIDSI_AUTHOR              0x00000004L  // VT_LPSTR")
+cpp_quote("#define PIDSI_KEYWORDS            0x00000005L  // VT_LPSTR")
+cpp_quote("#define PIDSI_COMMENTS            0x00000006L  // VT_LPSTR")
+cpp_quote("#define PIDSI_TEMPLATE            0x00000007L  // VT_LPSTR")
+cpp_quote("#define PIDSI_LASTAUTHOR          0x00000008L  // VT_LPSTR")
+cpp_quote("#define PIDSI_REVNUMBER           0x00000009L  // VT_LPSTR")
+cpp_quote("#define PIDSI_EDITTIME            0x0000000aL  // VT_FILETIME (UTC)")
+cpp_quote("#define PIDSI_LASTPRINTED         0x0000000bL  // VT_FILETIME (UTC)")
+cpp_quote("#define PIDSI_CREATE_DTM          0x0000000cL  // VT_FILETIME (UTC)")
+cpp_quote("#define PIDSI_LASTSAVE_DTM        0x0000000dL  // VT_FILETIME (UTC)")
+cpp_quote("#define PIDSI_PAGECOUNT           0x0000000eL  // VT_I4")
+cpp_quote("#define PIDSI_WORDCOUNT           0x0000000fL  // VT_I4")
+cpp_quote("#define PIDSI_CHARCOUNT           0x00000010L  // VT_I4")
+cpp_quote("#define PIDSI_THUMBNAIL           0x00000011L  // VT_CF")
+cpp_quote("#define PIDSI_APPNAME             0x00000012L  // VT_LPSTR")
+cpp_quote("#define PIDSI_DOC_SECURITY        0x00000013L  // VT_I4")
+cpp_quote("")
+
+cpp_quote("// Property IDs for the DocSummaryInformation Property Set")
+cpp_quote("")
+cpp_quote("#define PIDDSI_CATEGORY          0x00000002 // VT_LPSTR") 
+cpp_quote("#define PIDDSI_PRESFORMAT        0x00000003 // VT_LPSTR")
+cpp_quote("#define PIDDSI_BYTECOUNT         0x00000004 // VT_I4")
+cpp_quote("#define PIDDSI_LINECOUNT         0x00000005 // VT_I4")
+cpp_quote("#define PIDDSI_PARCOUNT          0x00000006 // VT_I4")
+cpp_quote("#define PIDDSI_SLIDECOUNT        0x00000007 // VT_I4")
+cpp_quote("#define PIDDSI_NOTECOUNT         0x00000008 // VT_I4")
+cpp_quote("#define PIDDSI_HIDDENCOUNT       0x00000009 // VT_I4")
+cpp_quote("#define PIDDSI_MMCLIPCOUNT       0x0000000A // VT_I4")
+cpp_quote("#define PIDDSI_SCALE             0x0000000B // VT_BOOL") 
+cpp_quote("#define PIDDSI_HEADINGPAIR       0x0000000C // VT_VARIANT | VT_VECTOR")
+cpp_quote("#define PIDDSI_DOCPARTS          0x0000000D // VT_LPSTR | VT_VECTOR")
+cpp_quote("#define PIDDSI_MANAGER           0x0000000E // VT_LPSTR")
+cpp_quote("#define PIDDSI_COMPANY           0x0000000F // VT_LPSTR")
+cpp_quote("#define PIDDSI_LINKSDIRTY        0x00000010 // VT_BOOL")
+cpp_quote("")
+
+cpp_quote("")
+cpp_quote("//  FMTID_MediaFileSummaryInfo - Property IDs")
+cpp_quote("")
+cpp_quote("#define PIDMSI_EDITOR                   0x00000002L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_SUPPLIER                 0x00000003L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_SOURCE                   0x00000004L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_SEQUENCE_NO              0x00000005L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_PROJECT                  0x00000006L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_STATUS                   0x00000007L  // VT_UI4")
+cpp_quote("#define PIDMSI_OWNER                    0x00000008L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_RATING                   0x00000009L  // VT_LPWSTR")
+cpp_quote("#define PIDMSI_PRODUCTION               0x0000000AL  // VT_FILETIME (UTC)")
+cpp_quote("#define PIDMSI_COPYRIGHT                0x0000000BL  // VT_LPWSTR")
+
+cpp_quote("")
+cpp_quote("//  PIDMSI_STATUS value definitions")
+enum PIDMSI_STATUS_VALUE
+{
+    PIDMSI_STATUS_NORMAL  = 0,
+    PIDMSI_STATUS_NEW,
+    PIDMSI_STATUS_PRELIM,
+    PIDMSI_STATUS_DRAFT,
+    PIDMSI_STATUS_INPROGRESS,
+    PIDMSI_STATUS_EDIT,
+    PIDMSI_STATUS_REVIEW,
+    PIDMSI_STATUS_PROOF,
+    PIDMSI_STATUS_FINAL,
+    PIDMSI_STATUS_OTHER   = 0x7FFF
+} ;
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+cpp_quote("_Check_return_ WINOLEAPI PropVariantCopy(")
+cpp_quote("            _Out_ PROPVARIANT* pvarDest,")
+cpp_quote("            _In_ const PROPVARIANT * pvarSrc);")
+cpp_quote("")
+cpp_quote("WINOLEAPI PropVariantClear(_Inout_ PROPVARIANT* pvar);")
+cpp_quote("")
+cpp_quote("WINOLEAPI FreePropVariantArray(")
+cpp_quote("            _In_ ULONG cVariants,")
+cpp_quote("            _Inout_updates_(cVariants) PROPVARIANT* rgvars);")
+cpp_quote("")
+
+cpp_quote("#if defined(_MSC_EXTENSIONS)")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("#define _PROPVARIANTINIT_DEFINED_")
+cpp_quote("")
+cpp_quote("#   ifdef __cplusplus")
+cpp_quote("")
+cpp_quote("inline void PropVariantInit (_Out_ PROPVARIANT * pvar )")
+cpp_quote("{")
+cpp_quote("    memset ( pvar, 0, sizeof(PROPVARIANT) );")
+cpp_quote("}")
+cpp_quote("")
+cpp_quote("#   else")
+cpp_quote("")
+cpp_quote("#   define PropVariantInit(pvar) memset ( (pvar), 0, sizeof(PROPVARIANT) )")
+cpp_quote("")
+cpp_quote("#   endif")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("#endif /* _MSC_EXTENSIONS */")
+cpp_quote("")
+cpp_quote("")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+cpp_quote("")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("")
+
+cpp_quote("#ifndef _SERIALIZEDPROPERTYVALUE_DEFINED_")
+cpp_quote("#define _SERIALIZEDPROPERTYVALUE_DEFINED_")
+cpp_quote("typedef struct tagSERIALIZEDPROPERTYVALUE")
+cpp_quote("{")
+cpp_quote("    DWORD	dwType;")
+cpp_quote("    BYTE	rgb[1];")
+cpp_quote("} SERIALIZEDPROPERTYVALUE;")
+cpp_quote("#endif")
+cpp_quote("")
+
+cpp_quote("EXTERN_C")
+cpp_quote("_Success_(TRUE)  /* Raises status on failure */")
+cpp_quote("SERIALIZEDPROPERTYVALUE* __stdcall")
+cpp_quote("StgConvertVariantToProperty(")
+cpp_quote("            _In_ const PROPVARIANT* pvar,")
+cpp_quote("            _In_ USHORT CodePage,")
+cpp_quote("            _Out_writes_bytes_opt_(*pcb) SERIALIZEDPROPERTYVALUE* pprop,")
+cpp_quote("            _Inout_ ULONG* pcb,")
+cpp_quote("            _In_ PROPID pid,")
+cpp_quote("            _Reserved_ BOOLEAN fReserved,")
+cpp_quote("            _Inout_opt_ ULONG* pcIndirect);")
+cpp_quote("")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("class PMemoryAllocator;")
+cpp_quote("")
+cpp_quote("EXTERN_C")
+cpp_quote("_Success_(TRUE)  /* Raises status on failure */")
+cpp_quote("BOOLEAN __stdcall")
+cpp_quote("StgConvertPropertyToVariant(")
+cpp_quote("            _In_ const SERIALIZEDPROPERTYVALUE* pprop,")
+cpp_quote("            _In_ USHORT CodePage,")
+cpp_quote("            _Out_ PROPVARIANT* pvar,")
+cpp_quote("            _In_ PMemoryAllocator* pma);")
+cpp_quote("#endif")
+cpp_quote("")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+cpp_quote("")
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)    /* Nameless struct/union */")
+cpp_quote("#pragma warning(default:4237)    /* keywords bool, true, false, etc.. */")
+cpp_quote("#endif")
+

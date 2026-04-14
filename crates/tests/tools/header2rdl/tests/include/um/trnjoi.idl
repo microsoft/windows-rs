@@ -1,0 +1,61 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			trnjoi.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a5e-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface ITransactionJoin : IUnknown {
+
+	[local]
+	HRESULT GetOptionsObject(
+		[out, annotation("_Outptr_")] ITransactionOptions ** ppOptions
+	);
+
+	[call_as(GetOptionsObject)]
+	HRESULT RemoteGetOptionsObject(
+		[out] ITransactionOptions ** ppOptions,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT JoinTransaction(
+		[in, annotation("_In_opt_")] IUnknown * punkTransactionCoord,
+		[in] ISOLEVEL isoLevel,
+		[in] ULONG isoFlags,
+		[in, annotation("_In_opt_")] ITransactionOptions * pOtherOptions
+	);
+
+	[call_as(JoinTransaction)]
+	HRESULT RemoteJoinTransaction(
+		[in, unique] IUnknown * punkTransactionCoord,
+		[in] ISOLEVEL isoLevel,
+		[in] ULONG isoFlags,
+		[in] ITransactionOptions * pOtherOptions,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

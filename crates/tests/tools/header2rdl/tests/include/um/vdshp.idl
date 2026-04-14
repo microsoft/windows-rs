@@ -1,0 +1,2187 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdshp.idl
+//
+//    Abstract:
+//        declarations of interfaces and types implemented by hardware provider
+//        and also exposed by the common layer.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+interface IVdsHwProvider;
+interface IVdsHwProviderType;
+interface IVdsHwProviderType2;
+interface IVdsHwProviderStoragePools;
+interface IVdsLun;
+interface IVdsLun2;
+interface IVdsLunNaming;
+interface IVdsLunNumber;
+interface IVdsLunControllerPorts;
+interface IVdsLunMpio;
+interface IVdsSubSystem;
+interface IVdsSubSystemNaming;
+interface IVdsSubSystemIscsi;
+interface IVdsSubSystem2;
+interface IVdsSubSystemInterconnect;
+interface IVdsControllerPort;
+interface IVdsController;
+interface IVdsControllerControllerPort;
+interface IVdsDrive;
+interface IVdsDrive2;
+interface IVdsLunPlex;
+interface IVdsIscsiPortal;
+interface IVdsIscsiTarget;
+interface IVdsIscsiPortalGroup;
+interface IVdsStoragePool;
+interface IVdsMaintenance;
+
+
+
+//
+// --- SubSystem related enums ---
+//
+
+//
+// Status
+//
+typedef enum _VDS_SUB_SYSTEM_STATUS
+{
+    VDS_SSS_UNKNOWN             = STATUS_UNKNOWN,
+    VDS_SSS_ONLINE              = STATUS_ONLINE,
+    VDS_SSS_NOT_READY           = STATUS_NOT_READY,
+    VDS_SSS_OFFLINE             = STATUS_OFFLINE,
+    VDS_SSS_FAILED              = STATUS_FAILED,
+    VDS_SSS_PARTIALLY_MANAGED   = STATUS_PARTIALLY_MANAGED
+ 
+} VDS_SUB_SYSTEM_STATUS, *PVDS_SUB_SYSTEM_STATUS;
+
+
+//
+// Flags
+//
+typedef enum _VDS_SUB_SYSTEM_FLAG
+{
+    VDS_SF_LUN_MASKING_CAPABLE              = 0x00001,
+    VDS_SF_LUN_PLEXING_CAPABLE              = 0x00002,
+    VDS_SF_LUN_REMAPPING_CAPABLE            = 0x00004,
+    VDS_SF_DRIVE_EXTENT_CAPABLE             = 0x00008,
+    VDS_SF_HARDWARE_CHECKSUM_CAPABLE        = 0x00010,
+
+    // VDS 1.1 specific flags
+    VDS_SF_RADIUS_CAPABLE                   = 0x00020,
+    VDS_SF_READ_BACK_VERIFY_CAPABLE         = 0x00040,
+    VDS_SF_WRITE_THROUGH_CACHING_CAPABLE    = 0x00080,
+
+    VDS_SF_SUPPORTS_FAULT_TOLERANT_LUNS     = 0x00200,
+    VDS_SF_SUPPORTS_NON_FAULT_TOLERANT_LUNS = 0x00400,
+    VDS_SF_SUPPORTS_SIMPLE_LUNS             = 0x00800,
+    VDS_SF_SUPPORTS_SPAN_LUNS               = 0x01000,
+    VDS_SF_SUPPORTS_STRIPE_LUNS             = 0x02000,
+    VDS_SF_SUPPORTS_MIRROR_LUNS             = 0x04000,
+    VDS_SF_SUPPORTS_PARITY_LUNS             = 0x08000,
+
+    // iSCSI specific flags
+    VDS_SF_SUPPORTS_AUTH_CHAP               = 0x10000,
+    VDS_SF_SUPPORTS_AUTH_MUTUAL_CHAP        = 0x20000,
+    VDS_SF_SUPPORTS_SIMPLE_TARGET_CONFIG    = 0x40000,
+
+    // Win7 flags
+    VDS_SF_SUPPORTS_LUN_NUMBER              = 0x80000,
+    VDS_SF_SUPPORTS_MIRRORED_CACHE          = 0x100000,
+    VDS_SF_READ_CACHING_CAPABLE             = 0x200000,
+    VDS_SF_WRITE_CACHING_CAPABLE            = 0x400000,
+    VDS_SF_MEDIA_SCAN_CAPABLE               = 0x800000,
+    VDS_SF_CONSISTENCY_CHECK_CAPABLE        = 0x1000000
+
+} VDS_SUB_SYSTEM_FLAG, *PVDS_SUB_SYSTEM_FLAG;
+
+
+//
+// Supported raid type flag
+//
+typedef enum _VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG
+{        
+    VDS_SF_SUPPORTS_RAID2_LUNS              = 0x00001,
+    VDS_SF_SUPPORTS_RAID3_LUNS              = 0x00002,
+    VDS_SF_SUPPORTS_RAID4_LUNS              = 0x00004,
+    VDS_SF_SUPPORTS_RAID5_LUNS              = 0x00008,
+    VDS_SF_SUPPORTS_RAID6_LUNS              = 0x00010,
+    VDS_SF_SUPPORTS_RAID01_LUNS             = 0x00020,
+    VDS_SF_SUPPORTS_RAID03_LUNS             = 0x00040,
+    VDS_SF_SUPPORTS_RAID05_LUNS             = 0x00080,
+    VDS_SF_SUPPORTS_RAID10_LUNS             = 0x00100,
+    VDS_SF_SUPPORTS_RAID15_LUNS             = 0x00200,
+    VDS_SF_SUPPORTS_RAID30_LUNS             = 0x00400,
+    VDS_SF_SUPPORTS_RAID50_LUNS             = 0x00800,
+    VDS_SF_SUPPORTS_RAID51_LUNS             = 0x01000,
+    VDS_SF_SUPPORTS_RAID53_LUNS             = 0x02000,
+    VDS_SF_SUPPORTS_RAID60_LUNS             = 0x04000,
+    VDS_SF_SUPPORTS_RAID61_LUNS             = 0x08000,    
+
+} VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG, *PVDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG;
+
+
+//
+// Supported interconnects flag
+//
+typedef enum _VDS_INTERCONNECT_FLAG
+{
+    VDS_ITF_PCI_RAID        = 0x01,
+    VDS_ITF_FIBRE_CHANNEL   = 0x02,
+    VDS_ITF_ISCSI           = 0x04,
+    VDS_ITF_SAS             = 0x08    
+    
+} VDS_INTERCONNECT_FLAG, *PVDS_INTERCONNECT_FLAG;
+
+
+//
+// --- Controller related enums ---
+//
+
+//
+// Status
+//
+typedef enum _VDS_CONTROLLER_STATUS
+{
+    VDS_CS_UNKNOWN      = STATUS_UNKNOWN,
+    VDS_CS_ONLINE       = STATUS_ONLINE,
+    VDS_CS_NOT_READY    = STATUS_NOT_READY,
+    VDS_CS_OFFLINE      = STATUS_OFFLINE,
+    VDS_CS_FAILED       = STATUS_FAILED,
+    VDS_CS_REMOVED      = STATUS_REMOVED
+
+} VDS_CONTROLLER_STATUS, *PVDS_CONTROLLER_STATUS;
+
+
+
+//
+// --- Controller Port related enums ---
+//
+
+//
+// Status
+//
+typedef enum _VDS_PORT_STATUS
+{
+    VDS_PRS_UNKNOWN     = STATUS_UNKNOWN,
+    VDS_PRS_ONLINE      = STATUS_ONLINE,
+    VDS_PRS_NOT_READY   = STATUS_NOT_READY,
+    VDS_PRS_OFFLINE     = STATUS_OFFLINE,
+    VDS_PRS_FAILED      = STATUS_FAILED,
+    VDS_PRS_REMOVED     = STATUS_REMOVED
+
+} VDS_PORT_STATUS, *PVDS_PORT_STATUS;
+
+
+
+//
+// --- Drive related enums ---
+//
+
+//
+// Status
+//
+typedef enum _VDS_DRIVE_STATUS
+{
+    VDS_DRS_UNKNOWN     = STATUS_UNKNOWN,
+    VDS_DRS_ONLINE      = STATUS_ONLINE,
+    VDS_DRS_NOT_READY   = STATUS_NOT_READY,
+    VDS_DRS_OFFLINE     = STATUS_OFFLINE,
+    VDS_DRS_FAILED      = STATUS_FAILED,
+    VDS_DRS_REMOVED     = STATUS_REMOVED
+
+} VDS_DRIVE_STATUS, *PVDS_DRIVE_STATUS;
+
+
+//
+// Flags
+//
+typedef enum _VDS_DRIVE_FLAG
+{
+    VDS_DRF_HOTSPARE            = 0x01,
+    VDS_DRF_ASSIGNED            = 0x02,
+    VDS_DRF_UNASSIGNED          = 0x04,
+    VDS_DRF_HOTSPARE_IN_USE     = 0x08,
+    VDS_DRF_HOTSPARE_STANDBY    = 0x10
+
+} VDS_DRIVE_FLAG, *PVDS_DRIVE_FLAG;
+
+
+
+//
+// --- LUN related enums ---
+//
+
+//
+// Types
+//
+typedef enum _VDS_LUN_TYPE
+{
+    VDS_LT_UNKNOWN  = 0,
+
+    // automagic types (used as input parameters only)
+    VDS_LT_DEFAULT              = 1,
+    VDS_LT_FAULT_TOLERANT       = 2,
+    VDS_LT_NON_FAULT_TOLERANT   = 3,
+
+    // actual types (used as input and query return)
+    VDS_LT_SIMPLE               = 10,
+    VDS_LT_SPAN                 = 11,
+    VDS_LT_STRIPE               = 12,
+    VDS_LT_MIRROR               = 13,
+    VDS_LT_PARITY               = 14,
+    
+    VDS_LT_RAID2                = 15,
+    VDS_LT_RAID3                = 16,
+    VDS_LT_RAID4                = 17,
+    VDS_LT_RAID5                = 18,
+    VDS_LT_RAID6                = 19,
+    VDS_LT_RAID01               = 20,
+    VDS_LT_RAID03               = 21,
+    VDS_LT_RAID05               = 22,
+    VDS_LT_RAID10               = 23,
+    VDS_LT_RAID15               = 24,
+    VDS_LT_RAID30               = 25,
+    VDS_LT_RAID50               = 26,
+    VDS_LT_RAID51               = 27,
+    VDS_LT_RAID53               = 28,
+    VDS_LT_RAID60               = 29,
+    VDS_LT_RAID61               = 30,
+
+} VDS_LUN_TYPE, *PVDS_LUN_TYPE;
+
+
+//
+// Status
+//
+typedef enum _VDS_LUN_STATUS
+{
+    VDS_LS_UNKNOWN      = STATUS_UNKNOWN,
+    VDS_LS_ONLINE       = STATUS_ONLINE,
+    VDS_LS_NOT_READY    = STATUS_NOT_READY,
+    VDS_LS_OFFLINE      = STATUS_OFFLINE,
+    VDS_LS_FAILED       = STATUS_FAILED
+
+} VDS_LUN_STATUS, *PVDS_LUN_STATUS;
+
+
+//
+// Flags
+//
+typedef enum _VDS_LUN_FLAG
+{
+    VDS_LF_LBN_REMAP_ENABLED             = 0x01,
+    VDS_LF_READ_BACK_VERIFY_ENABLED      = 0x02,
+    VDS_LF_WRITE_THROUGH_CACHING_ENABLED = 0x04,
+    VDS_LF_HARDWARE_CHECKSUM_ENABLED     = 0x08,
+    VDS_LF_READ_CACHE_ENABLED            = 0x10,
+    VDS_LF_WRITE_CACHE_ENABLED           = 0x20,
+    VDS_LF_MEDIA_SCAN_ENABLED            = 0x40,
+    VDS_LF_CONSISTENCY_CHECK_ENABLED     = 0x80,
+    VDS_LF_SNAPSHOT                      = 0x100
+
+} VDS_LUN_FLAG, *PVDS_LUN_FLAG;
+
+//
+// --- LUN plex related enums ---
+//
+
+//
+// Types
+//
+typedef enum _VDS_LUN_PLEX_TYPE
+{
+    VDS_LPT_UNKNOWN     = 0,
+    VDS_LPT_SIMPLE      = VDS_LT_SIMPLE,
+    VDS_LPT_SPAN        = VDS_LT_SPAN,
+    VDS_LPT_STRIPE      = VDS_LT_STRIPE,
+    VDS_LPT_PARITY      = VDS_LT_PARITY,
+    
+    VDS_LPT_RAID2       = VDS_LT_RAID2,
+    VDS_LPT_RAID3       = VDS_LT_RAID3,
+    VDS_LPT_RAID4       = VDS_LT_RAID4,
+    VDS_LPT_RAID5       = VDS_LT_RAID5,
+    VDS_LPT_RAID6       = VDS_LT_RAID6,
+    VDS_LPT_RAID03      = VDS_LT_RAID03,
+    VDS_LPT_RAID05      = VDS_LT_RAID05,
+    VDS_LPT_RAID10      = VDS_LT_RAID10,
+    VDS_LPT_RAID15      = VDS_LT_RAID15,
+    VDS_LPT_RAID30      = VDS_LT_RAID30,
+    VDS_LPT_RAID50      = VDS_LT_RAID50,
+    VDS_LPT_RAID53      = VDS_LT_RAID53,
+    VDS_LPT_RAID60      = VDS_LT_RAID60,
+
+
+} VDS_LUN_PLEX_TYPE;
+
+//
+// Status
+//
+typedef enum _VDS_LUN_PLEX_STATUS
+{
+    VDS_LPS_UNKNOWN     = STATUS_UNKNOWN,
+    VDS_LPS_ONLINE      = STATUS_ONLINE,
+    VDS_LPS_NOT_READY   = STATUS_NOT_READY,
+    VDS_LPS_OFFLINE     = STATUS_OFFLINE,
+    VDS_LPS_FAILED      = STATUS_FAILED
+
+} VDS_LUN_PLEX_STATUS;
+
+
+typedef enum _VDS_LUN_PLEX_FLAG
+{
+    VDS_LPF_LBN_REMAP_ENABLED = VDS_LF_LBN_REMAP_ENABLED
+
+} VDS_LUN_PLEX_FLAG;
+
+
+//
+// --- iSCSI portal related enums ---
+//
+
+//
+// Status
+//
+typedef enum _VDS_ISCSI_PORTAL_STATUS
+{
+    VDS_IPS_UNKNOWN     = STATUS_UNKNOWN,
+    VDS_IPS_ONLINE      = STATUS_ONLINE,
+    VDS_IPS_NOT_READY   = STATUS_NOT_READY,
+    VDS_IPS_OFFLINE     = STATUS_OFFLINE,
+    VDS_IPS_FAILED      = STATUS_FAILED
+} VDS_ISCSI_PORTAL_STATUS;
+
+
+//
+// --- Storage Pool related enums ---
+//
+
+//
+// Status
+//
+typedef enum _VDS_STORAGE_POOL_STATUS
+{
+    VDS_SPS_UNKNOWN      = STATUS_UNKNOWN,
+    VDS_SPS_ONLINE       = STATUS_ONLINE,
+    VDS_SPS_NOT_READY     = STATUS_NOT_READY,
+    VDS_SPS_OFFLINE       = STATUS_OFFLINE
+} VDS_STORAGE_POOL_STATUS;
+
+//
+// Pool type
+// Note: The values are used as flags
+// So, if a new type is added, its
+// value should be 0x04.
+//
+typedef enum _VDS_STORAGE_POOL_TYPE
+{
+    VDS_SPT_UNKNOWN  	= 0x00,
+    VDS_SPT_PRIMORDIAL 	= 0x01,
+    VDS_SPT_CONCRETE 	= 0x02
+} VDS_STORAGE_POOL_TYPE;
+
+
+//
+// --- Miscellaneous enums ---
+//
+
+//
+// Maintenance Operations
+//
+typedef enum _VDS_MAINTENANCE_OPERATION
+{
+    BlinkLight          = 1,
+    BeepAlarm           = 2,
+    SpinDown            = 3,
+    SpinUp              = 4,
+    Ping                = 5
+
+} VDS_MAINTENANCE_OPERATION;
+
+
+//
+// Hints for creating a LUN
+//
+typedef struct _VDS_HINTS
+{
+    ULONGLONG   ullHintMask;
+    ULONGLONG   ullExpectedMaximumSize;
+
+    ULONG       ulOptimalReadSize;           // 0 indicates no optimal size
+    ULONG       ulOptimalReadAlignment;      // 0 indicates no optimal alignment
+    ULONG       ulOptimalWriteSize;          // 0 indicates no optimal size
+    ULONG       ulOptimalWriteAlignment;     // 0 indicates no optimal alignment
+    ULONG       ulMaximumDriveCount;         // 0 indicates no maximum
+    ULONG       ulStripeSize;                // 0 indicates unspecified stripe size
+
+    BOOL        bFastCrashRecoveryRequired;
+    BOOL        bMostlyReads;
+    BOOL        bOptimizeForSequentialReads;
+    BOOL        bOptimizeForSequentialWrites;
+    BOOL        bRemapEnabled;
+    BOOL        bReadBackVerifyEnabled;
+    BOOL        bWriteThroughCachingEnabled;
+    BOOL        bHardwareChecksumEnabled;
+    BOOL        bIsYankable;                 // No migration prior to media
+
+    SHORT       sRebuildPriority;
+
+} VDS_HINTS, *PVDS_HINTS;
+
+const ULONGLONG         VDS_HINT_FASTCRASHRECOVERYREQUIRED  = 0x0000000000000001L;
+const ULONGLONG         VDS_HINT_MOSTLYREADS                = 0x0000000000000002L;
+const ULONGLONG         VDS_HINT_OPTIMIZEFORSEQUENTIALREADS = 0x0000000000000004L;
+const ULONGLONG         VDS_HINT_OPTIMIZEFORSEQUENTIALWRITES= 0x0000000000000008L;
+
+const ULONGLONG         VDS_HINT_READBACKVERIFYENABLED      = 0x0000000000000010L;
+const ULONGLONG         VDS_HINT_REMAPENABLED               = 0x0000000000000020L;
+const ULONGLONG         VDS_HINT_WRITETHROUGHCACHINGENABLED = 0x0000000000000040L;
+const ULONGLONG         VDS_HINT_HARDWARECHECKSUMENABLED    = 0x0000000000000080L;
+
+const ULONGLONG         VDS_HINT_ISYANKABLE                 = 0x0000000000000100L;
+
+
+//
+// New hints structure for creating a LUN
+//
+typedef struct _VDS_HINTS2
+{
+    ULONGLONG               ullHintMask;
+    ULONGLONG               ullExpectedMaximumSize;
+
+    ULONG                   ulOptimalReadSize;           // 0 indicates no optimal size
+    ULONG                   ulOptimalReadAlignment;      // 0 indicates no optimal alignment
+    ULONG                   ulOptimalWriteSize;          // 0 indicates no optimal size
+    ULONG                   ulOptimalWriteAlignment;     // 0 indicates no optimal alignment
+    ULONG                   ulMaximumDriveCount;         // 0 indicates no maximum
+    ULONG                   ulStripeSize;                // 0 indicates unspecified stripe size
+
+    // reserved for future use
+    ULONG                   ulReserved1;
+    ULONG                   ulReserved2;
+    ULONG                   ulReserved3;     
+
+    BOOL                    bFastCrashRecoveryRequired;
+    BOOL                    bMostlyReads;
+    BOOL                    bOptimizeForSequentialReads;
+    BOOL                    bOptimizeForSequentialWrites;
+    BOOL                    bRemapEnabled;
+    BOOL                    bReadBackVerifyEnabled;
+    BOOL                    bWriteThroughCachingEnabled;
+    BOOL                    bHardwareChecksumEnabled;
+    BOOL                    bIsYankable;                 // No migration prior to media
+
+    // new additions
+    BOOL                    bAllocateHotSpare;
+    BOOL                    bUseMirroredCache;
+    BOOL                    bReadCachingEnabled;
+    BOOL                    bWriteCachingEnabled;
+    BOOL                    bMediaScanEnabled;
+    BOOL                    bConsistencyCheckEnabled;
+
+    VDS_STORAGE_BUS_TYPE    BusType;
+
+    // reserved for future use
+    BOOL                    bReserved1;
+    BOOL                    bReserved2;
+    BOOL                    bReserved3;
+
+    SHORT                   sRebuildPriority;    
+
+} VDS_HINTS2, *PVDS_HINTS2;
+
+const ULONGLONG	        VDS_HINT_ALLOCATEHOTSPARE           = 0x0000000000000200L;
+const ULONGLONG	        VDS_HINT_BUSTYPE 		            = 0x0000000000000400L;
+const ULONGLONG	        VDS_HINT_USEMIRROREDCACHE           = 0x0000000000000800L;
+const ULONGLONG	        VDS_HINT_READCACHINGENABLED         = 0x0000000000001000L;
+const ULONGLONG	        VDS_HINT_WRITECACHINGENABLED        = 0x0000000000002000L;
+const ULONGLONG	        VDS_HINT_MEDIASCANENABLED           = 0x0000000000004000L;
+const ULONGLONG	        VDS_HINT_CONSISTENCYCHECKENABLED    = 0x0000000000008000L;
+
+
+
+//
+// --- VDS Object Properties ---
+//
+
+//
+// Subsytem Properties
+//
+typedef struct _VDS_SUB_SYSTEM_PROP
+{
+    VDS_OBJECT_ID           id;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification; // The disk array's serial number, the subsystem's identifier.
+
+    ULONG                   ulFlags;
+    ULONG                   ulStripeSizeFlags;
+
+    VDS_SUB_SYSTEM_STATUS   status;
+    VDS_HEALTH              health; // Healthy, Failed
+
+    SHORT                   sNumberOfInternalBuses;
+    SHORT                   sMaxNumberOfSlotsEachBus;
+    SHORT                   sMaxNumberOfControllers;
+    SHORT                   sRebuildPriority;
+
+} VDS_SUB_SYSTEM_PROP, *PVDS_SUB_SYSTEM_PROP;
+
+
+typedef struct _VDS_SUB_SYSTEM_PROP2
+{
+    VDS_OBJECT_ID           id;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification; // The disk array's serial number, the subsystem's identifier.
+
+    ULONG                   ulFlags;
+    ULONG                   ulStripeSizeFlags;
+    ULONG                   ulSupportedRaidTypeFlags;
+
+    VDS_SUB_SYSTEM_STATUS   status;
+    VDS_HEALTH              health; // Healthy, Failed
+
+    SHORT                   sNumberOfInternalBuses;
+    SHORT                   sMaxNumberOfSlotsEachBus;
+    SHORT                   sMaxNumberOfControllers;
+    SHORT                   sRebuildPriority;
+
+    ULONG                   ulNumberOfEnclosures;
+
+} VDS_SUB_SYSTEM_PROP2, *PVDS_SUB_SYSTEM_PROP2;
+
+
+
+//
+// Controller Properties
+//
+typedef struct _VDS_CONTROLLER_PROP
+{
+    VDS_OBJECT_ID           id;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification;
+
+    VDS_CONTROLLER_STATUS   status;
+    VDS_HEALTH              health;  // HEALTHY, FAILED
+
+    SHORT                   sNumberOfPorts; // always >= 1.
+            // ports are numbered starting from 0.
+
+} VDS_CONTROLLER_PROP, *PVDS_CONTROLLER_PROP;
+
+
+//
+// Drive Properties
+//
+typedef struct _VDS_DRIVE_PROP
+{
+    VDS_OBJECT_ID           id;
+
+    ULONGLONG               ullSize;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification;
+
+    ULONG                   ulFlags;
+
+    VDS_DRIVE_STATUS        status;
+    VDS_HEALTH              health;
+
+    SHORT                   sInternalBusNumber;
+    SHORT                   sSlotNumber;
+
+} VDS_DRIVE_PROP, *PVDS_DRIVE_PROP;
+
+
+//
+// Drive Properties 2
+//
+typedef struct _VDS_DRIVE_PROP2
+{
+    VDS_OBJECT_ID           id;
+
+    ULONGLONG               ullSize;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification;
+
+    ULONG                   ulFlags;
+
+    VDS_DRIVE_STATUS        status;
+    VDS_HEALTH              health;
+
+    SHORT                   sInternalBusNumber;
+    SHORT                   sSlotNumber;
+
+    ULONG                   ulEnclosureNumber;
+    VDS_STORAGE_BUS_TYPE    busType;
+    ULONG                   ulSpindleSpeed;
+
+} VDS_DRIVE_PROP2, *PVDS_DRIVE_PROP2;
+
+
+//
+// Drive Extent
+//
+typedef struct _VDS_DRIVE_EXTENT
+{
+    VDS_OBJECT_ID       id;
+
+    VDS_OBJECT_ID       LunId;
+
+    ULONGLONG           ullSize;
+
+    BOOL                bUsed;
+
+} VDS_DRIVE_EXTENT, *PVDS_DRIVE_EXTENT;
+
+
+
+
+//
+// LUN properties
+//
+cpp_quote("#define VDS_REBUILD_PRIORITY_MIN        0")
+cpp_quote("#define VDS_REBUILD_PRIORITY_MAX        16")
+
+typedef struct _VDS_LUN_PROP
+{
+    VDS_OBJECT_ID           id;
+
+    ULONGLONG               ullSize;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification;
+
+    // This is a list of masks (or one mask) of the LUN. It specifies
+    // which node(s) (designated by a string meaningful to the provider)
+    // can access the LUN. If the LUN is not masked, pwszUnmaskingList
+    // should be NULL.
+    [string] LPWSTR         pwszUnmaskingList;
+
+    ULONG                   ulFlags;
+
+    VDS_LUN_TYPE            type;
+    VDS_LUN_STATUS          status;
+    VDS_HEALTH              health;
+    VDS_TRANSITION_STATE    TransitionState;
+
+    SHORT                   sRebuildPriority;
+
+} VDS_LUN_PROP, *PVDS_LUN_PROP;
+
+//
+// LUN plex properties
+//
+typedef struct _VDS_LUN_PLEX_PROP
+{
+    VDS_OBJECT_ID           id;
+    ULONGLONG               ullSize;
+
+    VDS_LUN_PLEX_TYPE       type;
+    VDS_LUN_PLEX_STATUS     status;
+    VDS_HEALTH              health;
+    VDS_TRANSITION_STATE    TransitionState;
+
+    ULONG                   ulFlags;
+
+    // These properties are returned by the provider.  They are
+    // set using VDS_HINTS as part of CreateLun or ApplyHints.
+    ULONG                   ulStripeSize;
+
+    SHORT                   sRebuildPriority;
+
+} VDS_LUN_PLEX_PROP, *PVDS_LUN_PLEX_PROP;
+
+
+
+//
+// Port properties
+//
+typedef struct _VDS_PORT_PROP
+{
+    VDS_OBJECT_ID           id;
+
+    [string] LPWSTR         pwszFriendlyName;
+
+    [string] LPWSTR         pwszIdentification;
+
+    VDS_PORT_STATUS         status;
+
+} VDS_PORT_PROP, *PVDS_PORT_PROP;
+
+
+
+//
+// iSCSI portal properties
+//
+typedef struct _VDS_ISCSI_PORTAL_PROP
+{
+    VDS_OBJECT_ID           id;
+
+    VDS_IPADDRESS           address;
+
+    VDS_ISCSI_PORTAL_STATUS status;
+
+} VDS_ISCSI_PORTAL_PROP, *PVDS_ISCSI_PORTAL_PROP;
+
+
+
+//
+// iSCSI target properties
+//
+typedef struct _VDS_ISCSI_TARGET_PROP
+{
+    VDS_OBJECT_ID   id;
+
+    [string] LPWSTR pwszIscsiName;
+    [string] LPWSTR pwszFriendlyName;
+
+    BOOL            bChapEnabled;
+
+} VDS_ISCSI_TARGET_PROP, *PVDS_ISCSI_TARGET_PROP;
+
+
+
+//
+// iSCSI portal group properties
+//
+typedef struct _VDS_ISCSI_PORTALGROUP_PROP
+{
+    VDS_OBJECT_ID               id;
+
+    VDS_ISCSI_PORTALGROUP_TAG   tag;
+
+} VDS_ISCSI_PORTALGROUP_PROP, *PVDS_ISCSI_PORTALGROUP_PROP;
+
+
+//
+// Storage Pool attributes
+//
+typedef enum _VDS_RAID_TYPE
+{
+    VDS_RT_UNKNOWN  		  = 0,
+
+    VDS_RT_RAID0              = 10,
+    VDS_RT_RAID1              = 11,
+    VDS_RT_RAID2              = 12,    
+    VDS_RT_RAID3			  = 13,
+    VDS_RT_RAID4			  = 14,
+    VDS_RT_RAID5			  = 15,
+    VDS_RT_RAID6			  = 16,
+    VDS_RT_RAID01			  = 17,
+    VDS_RT_RAID03			  = 18,
+    VDS_RT_RAID05			  = 19,
+    VDS_RT_RAID10			  = 20,
+    VDS_RT_RAID15			  = 21,
+    VDS_RT_RAID30			  = 22,
+    VDS_RT_RAID50			  = 23,
+    VDS_RT_RAID51			  = 24,
+    VDS_RT_RAID53			  = 25,
+    VDS_RT_RAID60			  = 26,
+    VDS_RT_RAID61			  = 27,
+
+} VDS_RAID_TYPE, *PVDS_RAID_TYPE;
+
+
+typedef struct _VDS_POOL_CUSTOM_ATTRIBUTES
+{
+	LPWSTR	pwszName;
+	LPWSTR	pwszValue;
+} VDS_POOL_CUSTOM_ATTRIBUTES, *PVDS_POOL_CUSTOM_ATTRIBUTES;
+
+typedef struct _VDS_POOL_ATTRIBUTES
+{
+    ULONGLONG			    ullAttributeMask;
+    
+    VDS_RAID_TYPE			raidType;
+    VDS_STORAGE_BUS_TYPE	busType;
+    LPWSTR				    pwszIntendedUsage;
+    BOOL				    bSpinDown;
+    BOOL				    bIsThinProvisioned;
+    ULONGLONG			    ullProvisionedSpace;    
+    
+    BOOL				    bNoSinglePointOfFailure;
+    ULONG				    ulDataRedundancyMax;
+    ULONG				    ulDataRedundancyMin;
+    ULONG				    ulDataRedundancyDefault;
+    ULONG				    ulPackageRedundancyMax;
+    ULONG				    ulPackageRedundancyMin;
+    ULONG				    ulPackageRedundancyDefault;
+
+    ULONG				    ulStripeSize;
+    ULONG				    ulStripeSizeMax;
+    ULONG				    ulStripeSizeMin;
+    ULONG				    ulDefaultStripeSize;
+    ULONG				    ulNumberOfColumns;
+    ULONG				    ulNumberOfColumnsMax;
+    ULONG				    ulNumberOfColumnsMin;
+    ULONG				    ulDefaultNumberofColumns;
+    
+    ULONG				    ulDataAvailabilityHint;
+    ULONG				    ulAccessRandomnessHint;
+    ULONG				    ulAccessDirectionHint;
+    ULONG				    ulAccessSizeHint;
+    ULONG				    ulAccessLatencyHint;
+    ULONG				    ulAccessBandwidthWeightHint;
+    ULONG				    ulStorageCostHint;
+    ULONG				    ulStorageEfficiencyHint;
+
+    // Custom attributes array
+    ULONG				    ulNumOfCustomAttributes;
+    [size_is(ulNumOfCustomAttributes)] 
+    VDS_POOL_CUSTOM_ATTRIBUTES* 	pPoolCustomAttributes;
+            
+    // Reserved for future use
+    BOOL				    bReserved1;
+    BOOL				    bReserved2;
+
+    ULONG				    ulReserved1;
+    ULONG				    ulReserved2;
+
+    ULONGLONG			    ullReserved1;
+    ULONGLONG			    ullReserved2;
+    
+} VDS_POOL_ATTRIBUTES, *PVDS_POOL_ATTRIBUTES;
+
+const ULONGLONG VDS_POOL_ATTRIB_RAIDTYPE 		 = 0x0000000000000001L;
+const ULONGLONG VDS_POOL_ATTRIB_BUSTYPE 		 = 0x0000000000000002L;
+const ULONGLONG VDS_POOL_ATTRIB_ALLOW_SPINDOWN   = 0x0000000000000004L;
+const ULONGLONG VDS_POOL_ATTRIB_THIN_PROVISION   = 0x0000000000000008L;
+
+const ULONGLONG VDS_POOL_ATTRIB_NO_SINGLE_POF 	 = 0x0000000000000010L;
+const ULONGLONG VDS_POOL_ATTRIB_DATA_RDNCY_MAX   = 0x0000000000000020L;
+const ULONGLONG VDS_POOL_ATTRIB_DATA_RDNCY_MIN   = 0x0000000000000040L;
+const ULONGLONG VDS_POOL_ATTRIB_DATA_RDNCY_DEF   = 0x0000000000000080L;
+const ULONGLONG VDS_POOL_ATTRIB_PKG_RDNCY_MAX    = 0x0000000000000100L;
+const ULONGLONG VDS_POOL_ATTRIB_PKG_RDNCY_MIN    = 0x0000000000000200L;
+const ULONGLONG VDS_POOL_ATTRIB_PKG_RDNCY_DEF    = 0x0000000000000400L;
+const ULONGLONG VDS_POOL_ATTRIB_STRIPE_SIZE      = 0x0000000000000800L;
+const ULONGLONG VDS_POOL_ATTRIB_STRIPE_SIZE_MAX  = 0x0000000000001000L;
+const ULONGLONG VDS_POOL_ATTRIB_STRIPE_SIZE_MIN  = 0x0000000000002000L;
+const ULONGLONG VDS_POOL_ATTRIB_STRIPE_SIZE_DEF  = 0x0000000000004000L;
+const ULONGLONG VDS_POOL_ATTRIB_NUM_CLMNS        = 0x0000000000008000L;
+const ULONGLONG VDS_POOL_ATTRIB_NUM_CLMNS_MAX    = 0x0000000000010000L;
+const ULONGLONG VDS_POOL_ATTRIB_NUM_CLMNS_MIN    = 0x0000000000020000L;
+const ULONGLONG VDS_POOL_ATTRIB_NUM_CLMNS_DEF    = 0x0000000000040000L;
+
+const ULONGLONG VDS_POOL_ATTRIB_DATA_AVL_HINT    = 0x0000000000080000L;
+const ULONGLONG VDS_POOL_ATTRIB_ACCS_RNDM_HINT   = 0x0000000000100000L;
+const ULONGLONG VDS_POOL_ATTRIB_ACCS_DIR_HINT    = 0x0000000000200000L;
+const ULONGLONG VDS_POOL_ATTRIB_ACCS_SIZE_HINT   = 0x0000000000400000L;
+const ULONGLONG VDS_POOL_ATTRIB_ACCS_LTNCY_HINT  = 0x0000000000800000L;
+const ULONGLONG VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT = 0x0000000001000000L;
+const ULONGLONG VDS_POOL_ATTRIB_STOR_COST_HINT   = 0x0000000002000000L;
+const ULONGLONG VDS_POOL_ATTRIB_STOR_EFFCY_HINT  = 0x0000000004000000L;
+
+const ULONGLONG VDS_POOL_ATTRIB_CUSTOM_ATTRIB    = 0x0000000008000000L;    
+
+
+//
+// Storage Pool properties
+//
+typedef struct _VDS_STORAGE_POOL_PROP
+{    
+    VDS_OBJECT_ID           id;
+    VDS_STORAGE_POOL_STATUS status;    
+    VDS_HEALTH              health;
+    
+    VDS_STORAGE_POOL_TYPE   type;    
+    [string] LPWSTR         pwszName;
+    [string] LPWSTR         pwszDescription;
+    ULONGLONG               ullTotalConsumedSpace;
+    ULONGLONG               ullTotalManagedSpace;
+    ULONGLONG               ullRemainingFreeSpace;
+
+} VDS_STORAGE_POOL_PROP, *PVDS_STORAGE_POOL_PROP;
+
+//
+// Storage pool drive extent
+//
+typedef struct _VDS_STORAGE_POOL_DRIVE_EXTENT
+{
+    VDS_OBJECT_ID       id;
+    ULONGLONG           ullSize;
+    BOOL                bUsed;
+
+} VDS_STORAGE_POOL_DRIVE_EXTENT, *PVDS_STORAGE_POOL_DRIVE_EXTENT;
+
+
+
+//
+// --- Interface definitions ---
+//
+
+
+//
+// IVdsHwProvider:
+//   This interface exposes hardware provider specific functions.
+// Implemented by: provider object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(d99bdaae-b13a-4178-9fdb-e27f16b4603e),
+    pointer_default(unique)
+]
+
+interface IVdsHwProvider : IUnknown
+{
+    // QuerySubSystems:
+    //   A subsystem is a hardware array or software implementation of
+    //   hardware array functionality. Hardware arrays can have more
+    //   than one controller (failover). PCI-RAID controllers can be
+    //   connected to the host server directly. In this case, each
+    //   PCI-RAID controller is a storage system.
+    [helpstring("method QuerySubSystems")]
+    HRESULT QuerySubSystems(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+
+    // Reenumerate:
+    //   For providers that cannot automatically detect new subsystems,
+    //   this method needs to be called to find new subsystems.
+    [helpstring("method Reenumerate")]
+    HRESULT Reenumerate(
+                void
+            );
+
+    // Refresh
+    [helpstring("method Refresh")]
+    HRESULT Refresh(
+                void
+            );
+
+ }
+
+//
+// IVdsHwProviderType:
+//
+// Implemented by: provider object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(3e0f5166-542d-4fc6-947a-012174240b7e),
+    pointer_default(unique)
+]
+
+interface IVdsHwProviderType : IUnknown
+{
+    [helpstring("method GetProviderType")]
+    HRESULT GetProviderType(
+                [out] VDS_HWPROVIDER_TYPE *pType
+            );
+
+}
+
+//
+// IVdsHwProviderType2:
+//
+// Implemented by: provider object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(8190236f-c4d0-4e81-8011-d69512fcc984),
+    pointer_default(unique)
+]
+
+interface IVdsHwProviderType2 : IUnknown
+{
+    [helpstring("method GetProviderType2")]
+    HRESULT GetProviderType2(
+                [out] VDS_HWPROVIDER_TYPE *pType
+            );
+
+}
+
+//
+// IVdsHwProviderStoragePools:
+//
+// Implemented by: provider object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(d5b5937a-f188-4c79-b86c-11c920ad11b8),
+    pointer_default(unique)
+]
+
+interface IVdsHwProviderStoragePools : IUnknown
+{
+    [helpstring("method QueryStoragePools")]
+    HRESULT QueryStoragePools(
+                [in] ULONG ulFlags,
+                [in] ULONGLONG ullRemainingFreeSpace,
+                [in,unique] VDS_POOL_ATTRIBUTES *pPoolAttributes,
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method CreateLunInStoragePool")]
+    HRESULT CreateLunInStoragePool(
+                [in] VDS_LUN_TYPE type,
+                [in] ULONGLONG ullSizeInBytes,
+                [in] VDS_OBJECT_ID StoragePoolId,                
+                [in,string] LPWSTR pwszUnmaskingList,                        
+                [in,unique] VDS_HINTS2 *pHints2,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method QueryMaxLunCreateSizeInStoragePool")]
+    HRESULT QueryMaxLunCreateSizeInStoragePool(
+                [in] VDS_LUN_TYPE type,
+                [in] VDS_OBJECT_ID StoragePoolId,
+                [in,unique] VDS_HINTS2 *pHints2,
+                [out] ULONGLONG *pullMaxLunSize
+            );
+}
+
+
+//
+// IVdsSubSystem:
+//
+// Implemented by: subsystem object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(6fcee2d3-6d90-4f91-80e2-a5c7caaca9d8),
+    pointer_default(unique)
+]
+
+interface IVdsSubSystem : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_SUB_SYSTEM_PROP *pSubSystemProp
+            );
+
+    [helpstring("method GetProvider")]
+    HRESULT GetProvider(
+                [out] IVdsProvider **ppProvider
+            );
+
+    [helpstring("method QueryControllers")]
+    HRESULT QueryControllers(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryLuns")]
+    HRESULT QueryLuns(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryDrives")]
+    HRESULT QueryDrives(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method GetDrive")]
+    HRESULT GetDrive(
+                [in] SHORT sBusNumber,
+                [in] SHORT sSlotNumber,
+                [out] IVdsDrive **ppDrive
+            );
+
+    // Reenumerate:
+    //   For subsystems that cannot automatically detect new spindle arrival,
+    //   departure, this method needs to be called to find new spindle.
+    [helpstring("method Reenumerate")]
+    HRESULT Reenumerate(
+                void
+            );
+
+    //
+    // Sets the controller states to be either "online" or "offline."
+    // Note that all the controllers of the current subsystem
+    // must be on one and only one of the two arrays.
+    //
+    [helpstring("method SetControllerStatus")]
+    HRESULT SetControllerStatus(
+            [in, size_is(lNumberOfOnlineControllers)]
+                  VDS_OBJECT_ID *pOnlineControllerIdArray,
+            [in] LONG lNumberOfOnlineControllers,
+            [in, size_is(lNumberOfOfflineControllers)]
+                  VDS_OBJECT_ID *pOfflineControllerIdArray,
+            [in] LONG lNumberOfOfflineControllers
+            );
+
+
+    [helpstring("method CreateLun")]
+    HRESULT CreateLun(
+                [in] VDS_LUN_TYPE type,
+                [in] ULONGLONG ullSizeInBytes,
+                [in, size_is(lNumberOfDrives), unique]
+                     VDS_OBJECT_ID *pDriveIdArray,
+                [in] LONG lNumberOfDrives,
+                [in,string] LPWSTR pwszUnmaskingList,
+                        // for enclosures that support hardware lun masking,
+                        // this is a list of computer names that should be
+                        // able to see the LUN; otherwise, it's ignored.
+                        //   "*": everybody can see it;
+                        //   "": nobody can see it.
+                [in,unique] VDS_HINTS *pHints,
+                [out] IVdsAsync **ppAsync
+            );
+
+
+    [helpstring("method ReplaceDrive")]
+    HRESULT ReplaceDrive(
+                [in] VDS_OBJECT_ID DriveToBeReplaced,
+                [in] VDS_OBJECT_ID ReplacementDrive
+            );
+
+    [helpstring("method SetStatus")]
+    HRESULT SetStatus(
+                [in] VDS_SUB_SYSTEM_STATUS status
+            );
+
+    [helpstring("method QueryMaxLunCreateSize")]
+    HRESULT QueryMaxLunCreateSize(
+                [in] VDS_LUN_TYPE type,
+                [in, size_is(lNumberOfDrives), unique]
+                     VDS_OBJECT_ID *pDriveIdArray,
+                [in] LONG lNumberOfDrives,
+                [in,unique] VDS_HINTS *pHints,
+                [out] ULONGLONG *pullMaxLunSize
+            );
+
+}
+
+//
+// IVdsSubSystem2:
+//
+// Implemented by: subsystem object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(be666735-7800-4a77-9d9c-40f85b87e292),
+    pointer_default(unique)
+]
+
+interface IVdsSubSystem2 : IUnknown
+{
+    [helpstring("method GetProperties2")]
+    HRESULT GetProperties2(
+                [out] VDS_SUB_SYSTEM_PROP2 *pSubSystemProp2
+            );
+
+    [helpstring("method GetDrive2")]
+    HRESULT GetDrive2(
+                [in] SHORT sBusNumber,
+                [in] SHORT sSlotNumber,
+                [in] ULONG ulEnclosureNumber,
+                [out] IVdsDrive **ppDrive
+            );
+
+    [helpstring("method CreateLun2")]
+    HRESULT CreateLun2(
+                [in] VDS_LUN_TYPE type,
+                [in] ULONGLONG ullSizeInBytes,
+                [in, size_is(lNumberOfDrives), unique]
+                     VDS_OBJECT_ID *pDriveIdArray,
+                [in] LONG lNumberOfDrives,
+                [in,string] LPWSTR pwszUnmaskingList,
+                        // for enclosures that support hardware lun masking,
+                        // this is a list of computer names that should be
+                        // able to see the LUN; otherwise, it's ignored.
+                        //   "*": everybody can see it;
+                        //   "": nobody can see it.
+                [in,unique] VDS_HINTS2 *pHints2,
+                [out] IVdsAsync **ppAsync
+            );    
+
+    [helpstring("method QueryMaxLunCreateSize2")]
+    HRESULT QueryMaxLunCreateSize2(
+                [in] VDS_LUN_TYPE type,
+                [in, size_is(lNumberOfDrives), unique]
+                     VDS_OBJECT_ID *pDriveIdArray,
+                [in] LONG lNumberOfDrives,
+                [in,unique] VDS_HINTS2 *pHints2,
+                [out] ULONGLONG *pullMaxLunSize
+            );
+
+}
+
+//
+// IVdsSubSystemNaming:
+//   This interface is for adding the ability to set a friendly name for
+//   subsystems.
+// Implemented by: subsystem object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0d70faa3-9cd4-4900-aa20-6981b6aafc75),
+    pointer_default(unique)
+]
+
+interface IVdsSubSystemNaming : IUnknown
+{
+    HRESULT SetFriendlyName(
+                [in, string] LPWSTR pwszFriendlyName
+            );
+}
+
+//
+// IVdsSubSystemIscsi:
+//
+// Implemented by: subsystem object
+// Implemented where: iSCSI hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0027346f-40d0-4b45-8cec-5906dc0380c8),
+    pointer_default(unique)
+]
+
+interface IVdsSubSystemIscsi : IUnknown
+{
+    [helpstring("method QueryTargets")]
+    HRESULT QueryTargets(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryPortals")]
+    HRESULT QueryPortals(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method CreateTarget")]
+    HRESULT CreateTarget(
+                [in,unique,string] LPWSTR pwszIscsiName,
+                [in,string] LPWSTR pwszFriendlyName,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method SetIpsecGroupPresharedKey")]
+    HRESULT SetIpsecGroupPresharedKey(
+                [in,unique] VDS_ISCSI_IPSEC_KEY *pIpsecKey
+            );
+
+}
+
+//
+// IVdsSubSystemInterconnect:
+//
+// Implemented by: subsystem object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(9e6fa560-c141-477b-83ba-0b6c38f7febf),
+    pointer_default(unique)
+]
+
+interface IVdsSubSystemInterconnect : IUnknown
+{
+    HRESULT GetSupportedInterconnects(
+                [out] ULONG *pulSupportedInterconnectsFlag
+            );
+}
+
+//
+// IVdsControllerPort:
+//
+// Implemented by: controllerport object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(18691d0d-4e7f-43e8-92e4-cf44beeed11c),
+    pointer_default(unique)
+]
+interface IVdsControllerPort : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_PORT_PROP *pPortProp
+            );
+
+    [helpstring("method GetController")]
+    HRESULT GetController(
+                [out] IVdsController **ppController
+            );
+
+    [helpstring("method QueryAssociatedLuns")]
+    HRESULT QueryAssociatedLuns(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method Reset")]
+    HRESULT Reset(
+                void
+            );
+
+    [helpstring("method SetStatus")]
+    HRESULT SetStatus(
+                [in] VDS_PORT_STATUS status
+            );
+
+}
+
+
+//
+// IVdsController:
+//
+// Implemented by: controller object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(cb53d96e-dffb-474a-a078-790d1e2bc082),
+    pointer_default(unique)
+]
+
+interface IVdsController : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_CONTROLLER_PROP *pControllerProp
+            );
+
+    [helpstring("method GetSubSystem")]
+    HRESULT GetSubSystem(
+                [out] IVdsSubSystem **ppSubSystem
+            );
+
+    // GetPortProperties:
+    //   If a port on a controller failed, all paths using this port fail.
+    // Deprecated by IVdsControllerPort::GetProperties()
+    [helpstring("method GetPortProperties")]
+    HRESULT GetPortProperties(
+                [in] SHORT sPortNumber,
+                [out] VDS_PORT_PROP *pPortProp
+            );
+
+    [helpstring("method FlushCache")]
+    HRESULT FlushCache(
+                void
+            );
+
+    [helpstring("method InvalidateCache")]
+    HRESULT InvalidateCache(
+                void
+            );
+
+    [helpstring("method Reset")]
+    HRESULT Reset(
+                void
+            );
+
+    // Deprecated by IVdsControllerPort::QueryAssociatedLuns()
+    [helpstring("method QueryAssociatedLuns")]
+    HRESULT QueryAssociatedLuns(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method SetStatus")]
+    HRESULT SetStatus(
+                [in] VDS_CONTROLLER_STATUS status
+            );
+
+}
+
+//
+// IVdsControllerControllerPort:
+//   This interface is to add the ability to enumerate Controller ports for a
+//   class implementing the IVdsController interface.
+// Implemented by: controller object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(ca5d735f-6bae-42c0-b30e-f2666045ce71),
+    pointer_default(unique)
+]
+
+interface IVdsControllerControllerPort : IUnknown
+{
+    [helpstring("method QueryControllerPorts")]
+    HRESULT QueryControllerPorts(
+                [out] IEnumVdsObject **ppEnum
+            );
+}
+
+//
+// IVdsDrive:
+//
+// Implemented by: drive object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(ff24efa4-aade-4b6b-898b-eaa6a20887c7),
+    pointer_default(unique)
+]
+
+interface IVdsDrive : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_DRIVE_PROP *pDriveProp
+            );
+
+    [helpstring("method GetSubSystem")]
+    HRESULT GetSubSystem(
+                [out] IVdsSubSystem **ppSubSystem
+            );
+
+    // QueryExtents:
+    //   A spindle can contribute to more than one LUNs, which could be surfaced
+    //   to different computers. All LUNs are returned.
+    [helpstring("method QueryExtents")]
+    HRESULT QueryExtents(
+                [out, size_is(,*plNumberOfExtents)]
+                      VDS_DRIVE_EXTENT **ppExtentArray,
+                [out] LONG *plNumberOfExtents
+                );
+
+    [helpstring("method SetFlags")]
+    HRESULT SetFlags(
+                [in] ULONG ulFlags
+            );
+
+    [helpstring("method ClearFlags")]
+    HRESULT ClearFlags(
+                [in] ULONG ulFlags
+            );
+
+    [helpstring("method SetStatus")]
+    HRESULT SetStatus(
+                [in] VDS_DRIVE_STATUS status
+            );
+
+}
+
+
+//
+// IVdsDrive2:
+//
+// Implemented by: drive object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(60b5a730-addf-4436-8ca7-5769e2d1ffa4),
+    pointer_default(unique)
+]
+
+interface IVdsDrive2 : IUnknown
+{
+    [helpstring("method GetProperties2")]
+    HRESULT GetProperties2(
+                [out] VDS_DRIVE_PROP2 *pDriveProp2
+            );
+}
+
+
+//
+// IVdsLun
+//   Only LUNs exposed by RAID controllers implement this interface.
+// Implemented by: disk(LUN) object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(3540a9c7-e60f-4111-a840-8bba6c2c83d8),
+    pointer_default(unique)
+]
+
+interface IVdsLun : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_LUN_PROP *pLunProp
+            );
+
+    [helpstring("method GetSubSystem")]
+    HRESULT GetSubSystem(
+                [out] IVdsSubSystem **ppSubSystem
+            );
+
+    [helpstring("method GetIdentificationData")]
+    HRESULT GetIdentificationData(
+                [out] VDS_LUN_INFORMATION *pLunInfo
+            );
+
+    // QueryActiveControllers:
+    //   The model is that all controllers can control a LUN. One or more of
+    //   them are active, and the rest are inactive.
+    // Deprecated by IVdsLunControllerPorts::QueryActiveControllerPorts()
+    [helpstring("method QueryActiveControllers")]
+    HRESULT QueryActiveControllers(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method Extend")]
+    HRESULT Extend(
+                [in] ULONGLONG ullNumberOfBytesToAdd,
+                [in, size_is(lNumberOfDrives), unique]
+                     VDS_OBJECT_ID *pDriveIdArray,
+                [in] LONG lNumberOfDrives,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method Shrink")]
+    HRESULT Shrink(
+                [in] ULONGLONG ullNumberOfBytesToRemove,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method QueryPlexes")]
+        HRESULT QueryPlexes(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    // AddPlex:
+    //   Add a LUN as a plex to this LUN. The added LUN is no longer a LUN
+    //   (cannot be accessed from outside).
+    //
+    //   If a mirrored LUN is added, each plex of it is added.
+    //
+    [helpstring("method AddPlex")]
+    HRESULT AddPlex(
+                [in] VDS_OBJECT_ID lunId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method RemovePlex")]
+    HRESULT RemovePlex(
+                [in] VDS_OBJECT_ID plexId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // Recover:
+    //   This method is used to trigger a recover process. High-end RAID
+    //   subsystems may be able to do this automatically, but low-end
+    //   ones (like storport) may need this method to explicitly start
+    //   the process.
+    [helpstring("method Recover")]
+    HRESULT Recover(
+                [out] IVdsAsync **ppAsync
+            );
+
+    // SetMask: (hardware lun masking)
+    //   Mask/Unmask the LUN. pwszUnmaskingList is a list of nodes separated by
+    //   ";". These nodes should be granted access to the LUN.
+    //
+    //   If the value is "*", all computers on the network are to be
+    //   granted access to the LUN. If the value is "", no computers are to
+    //   be granted access to the LUN.
+    //
+    //   For Fibre Channel networks, each entry is a World-Wide Name
+    //   (WWN) of each port to which the LUN is unmasked, formatted as
+    //   a 64-bit uppercased hexadecimal string (16 characters long),
+    //   most significant bit first.
+    //
+    //   For iSCSI networks, each entry is an iSCSI name of each target
+    //   to which the LUN is unmasked. A LUN unmasked to a particular target
+    //   is considered to be associated with that target.
+    //
+    // Notes to Implementers
+    //
+    //   The unmasking list can contain the same WWN or iSCSI name
+    //   twice. The caller is neither expected to remove duplicates from
+    //   the list nor to validate the format of the WWN or iSCSI name.
+    //   If the hardware is unable to handle the duplicates correctly,
+    //   the provider should perform all validations and remove duplicate
+    //   WWNs and iSCSI names from the list before processing.
+    //
+    //   It used to be the case that any format could be specified, but
+    //   we decided that was a bad thing because an application could
+    //   never figure out what a provider would understand.  So, we
+    //   mandated that all providers must accept a WWN formatted as
+    //   specified (or an iSCSI name in the case of iSCSI).
+    //
+    //   However, we don’t require that providers should only accept
+    //   this format.  If a provider is able to translate or interpret
+    //   another type of name, then it’s still fine.  For instance,
+    //   if a provider understands WWN formatted using lowercase
+    //   characters instead of uppercase, then it is free to accept
+    //   them and return success (it’s also free to return failure
+    //   as well).  The only stipulation is that the provider must
+    //   understand the WWN when it’s formatted as specified above.
+    //
+    //   This method works only if the LUN's enclosure supports hardware
+    //   lun masking.
+    //
+    [helpstring("method SetMask")]
+    HRESULT SetMask(
+                [in,string] LPWSTR pwszUnmaskingList
+            );
+
+    // Delete:
+    //   Delete the LUN.
+    [helpstring("method Delete")]
+    HRESULT Delete(
+                void
+            );
+
+    //
+    // Sets the list of controllers "Active" and "Inactive" for this
+    // LUN.  Note that all the controllers of the current subsystem
+    // must be on one and only one of the two arrays.
+    //
+    // Deprecated by IVdsLunControllerPorts::AssociateControllerPorts()
+    [helpstring("method AssociateControllers")]
+    HRESULT AssociateControllers(
+            [in, unique, size_is(lNumberOfActiveControllers)]
+                  VDS_OBJECT_ID *pActiveControllerIdArray,
+            [in] LONG lNumberOfActiveControllers,
+            [in, unique, size_is(lNumberOfInactiveControllers)]
+                  VDS_OBJECT_ID *pInactiveControllerIdArray,
+            [in] LONG lNumberOfInactiveControllers
+            );
+
+
+    [helpstring("method QueryHints")]
+    HRESULT QueryHints(
+                [out] VDS_HINTS *pHints
+            );
+
+    [helpstring("method ApplyHints")]
+    HRESULT ApplyHints(
+                [in] VDS_HINTS *pHints
+            );
+
+    [helpstring("method SetStatus")]
+    HRESULT SetStatus(
+                [in] VDS_LUN_STATUS status
+            );
+
+    [helpstring("method QueryMaxLunExtendSize")]
+    HRESULT QueryMaxLunExtendSize(
+                [in, size_is(lNumberOfDrives), unique]
+                     VDS_OBJECT_ID *pDriveIdArray,
+                [in] LONG lNumberOfDrives,
+                [out] ULONGLONG *pullMaxBytesToBeAdded
+            );
+
+}
+
+//
+// IVdsLun2
+//   Only LUNs exposed by RAID controllers implement this interface.
+// Implemented by: disk(LUN) object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(e5b3a735-9efb-499a-8071-4394d9ee6fcb),
+    pointer_default(unique)
+]
+
+interface IVdsLun2 : IUnknown
+{
+    [helpstring("method QueryHints2")]
+    HRESULT QueryHints2(
+                [out] VDS_HINTS2 *pHints2
+            );
+
+    [helpstring("method ApplyHints2")]
+    HRESULT ApplyHints2(
+                [in] VDS_HINTS2 *pHints2
+            );
+}
+
+//
+// IVdsLunNaming:
+//   This interface is for adding the ability to set a friendly name for LUNs.
+// Implemented by: disk(LUN) object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(907504cb-6b4e-4d88-a34d-17ba661fbb06),
+    pointer_default(unique)
+]
+
+interface IVdsLunNaming : IUnknown
+{
+    HRESULT SetFriendlyName(
+                [in, string] LPWSTR pwszFriendlyName
+            );
+}
+
+//
+// IVdsLunNumber:
+//  This interface is for adding the ability to retrieve the LUN number of a LUN.
+// Implemented by: disk(LUN) object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(d3f95e46-54b3-41f9-b678-0f1871443a08),
+    pointer_default(unique)
+]
+
+interface IVdsLunNumber : IUnknown
+{
+    HRESULT GetLunNumber(
+                [out] ULONG *pulLunNumber
+            );
+}
+
+//
+// IVdsLunControllerPorts:
+//   This interface is for adding the ability to work with controller ports.
+// Implemented by: disk(LUN) object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(451fe266-da6d-406a-bb60-82e534f85aeb),
+    pointer_default(unique)
+]
+
+interface IVdsLunControllerPorts : IUnknown
+{
+    //
+    // Sets the list of controller ports "Active" and "Inactive" for this LUN.
+    // Note that all the controller ports of the current subsystem must be on
+    // one and only one of the two arrays.
+    //
+    [helpstring("method AssociateControllerPorts")]
+    HRESULT AssociateControllerPorts(
+            [in, unique, size_is(lNumberOfActiveControllerPorts)]
+                  VDS_OBJECT_ID *pActiveControllerPortIdArray,
+            [in] LONG lNumberOfActiveControllerPorts,
+            [in, unique, size_is(lNumberOfInactiveControllerPorts)]
+                  VDS_OBJECT_ID *pInactiveControllerPortIdArray,
+            [in] LONG lNumberOfInactiveControllerPorts
+            );
+
+    [helpstring("method QueryActiveControllerPorts")]
+    HRESULT QueryActiveControllerPorts(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+}
+
+//
+// IVdsLunMpio:
+//   This interface is for adding the ability to work with MPIO paths for a
+//   class implementing the IVdsLun interface.  This is needed to support MPIO.
+// Implemented by: disk(LUN) object
+// Implemented where: non-iSCSI hardware providers supporting MPIO, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(7c5fbae3-333a-48a1-a982-33c15788cde3),
+    pointer_default(unique)
+]
+
+interface IVdsLunMpio : IUnknown
+{
+    //
+    // Returns information about the paths to the LUN.  The VDS_PATH_INFO
+    // structure identifies that path in terms of the endpoints and the status
+    // of the path.
+    // If a provider is an iSCSI provider or if a provider does not support
+    // MPIO, this interface should not be implemented at all.  In the case
+    // of iSCSI, VDS will completely ignore it since it will use the
+    // service's own routines to handle MPIO for iSCSI.
+    //
+    [helpstring("method GetPathInfo")]
+    HRESULT GetPathInfo(
+                [out, size_is(, *plNumberOfPaths)] VDS_PATH_INFO **ppPaths,
+                [out] LONG *plNumberOfPaths
+            );
+
+    [helpstring("method GetLoadBalancePolicy")]
+    HRESULT GetLoadBalancePolicy(
+                [out] VDS_LOADBALANCE_POLICY_ENUM *pPolicy,
+                [out, size_is(, *plNumberOfPaths)] VDS_PATH_POLICY **ppPaths,
+                [out] LONG *plNumberOfPaths
+            );
+
+    [helpstring("method SetLoadBalancePolicy")]
+    HRESULT SetLoadBalancePolicy(
+                [in] VDS_LOADBALANCE_POLICY_ENUM policy,
+                [in, unique, size_is(lNumberOfPaths)] VDS_PATH_POLICY *pPaths,
+                [in] LONG lNumberOfPaths
+            );
+
+    [helpstring("method GetSupportedLbPolicies")]
+    HRESULT GetSupportedLbPolicies(
+                [out] ULONG *pulLbFlags
+            );
+
+}
+
+//
+// IVdsLunIscsi:
+//   This interface is for adding the ability to associate LUNs with iSCSI
+//   targets.
+// Implemented by: disk(LUN) object
+// Implemented where: iSCSI hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0d7c1e64-b59b-45ae-b86a-2c2cc6a42067),
+    pointer_default(unique)
+]
+
+interface IVdsLunIscsi : IUnknown
+{
+    [helpstring("method AssociateTargets")]
+    HRESULT AssociateTargets(
+                [in, unique, size_is(lNumberOfTargets)]
+                      VDS_OBJECT_ID *pTargetIdArray,
+                [in] LONG lNumberOfTargets
+            );
+
+    [helpstring("method QueryAssociatedTargets")]
+    HRESULT QueryAssociatedTargets(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+}
+
+// IVdsLunPlex:
+//
+// Implemented by: LUN plex object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0ee1a790-5d2e-4abb-8c99-c481e8be2138),
+    pointer_default(unique)
+]
+
+interface IVdsLunPlex : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_LUN_PLEX_PROP *pPlexProp
+            );
+
+    [helpstring("method GetLun")]
+    HRESULT GetLun(
+                [out] IVdsLun **ppLun
+            );
+
+    [helpstring("method QueryExtents")]
+    HRESULT QueryExtents(
+                [out, size_is(,*plNumberOfExtents)]
+                      VDS_DRIVE_EXTENT **ppExtentArray,
+                [out] LONG *plNumberOfExtents
+            );
+
+    [helpstring("method QueryHints")]
+    HRESULT QueryHints(
+                [out] VDS_HINTS *pHints
+            );
+
+    [helpstring("method ApplyHints")]
+    HRESULT ApplyHints(
+                [in] VDS_HINTS *pHints
+            );
+
+}
+
+//
+// IVdsIscsiPortal:
+//
+// Implemented by: iSCSI target portal object
+// Implemented where: iSCSI hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(7fa1499d-ec85-4a8a-a47b-ff69201fcd34),
+    pointer_default(unique)
+]
+interface IVdsIscsiPortal : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_ISCSI_PORTAL_PROP *pPortalProp
+            );
+
+    [helpstring("method GetSubSystem")]
+    HRESULT GetSubSystem(
+                [out] IVdsSubSystem **ppSubSystem
+            );
+
+    [helpstring("method QueryAssociatedPortalGroups")]
+    HRESULT QueryAssociatedPortalGroups(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method SetStatus")]
+    HRESULT SetStatus(
+                [in] VDS_ISCSI_PORTAL_STATUS status
+            );
+
+    [helpstring("method SetIpsecTunnelAddress")]
+    HRESULT SetIpsecTunnelAddress(
+                [in] VDS_IPADDRESS *pTunnelAddress,
+                [in] VDS_IPADDRESS *pDestinationAddress
+            );
+
+    [helpstring("method GetIpsecSecurity")]
+    HRESULT GetIpsecSecurity(
+                [in] VDS_IPADDRESS *pInitiatorPortalAddress,
+                [out] ULONGLONG *pullSecurityFlags
+            );
+
+    [helpstring("method SetIpsecSecurity")]
+    HRESULT SetIpsecSecurity(
+                [in] VDS_IPADDRESS *pInitiatorPortalAddress,
+                [in] ULONGLONG ullSecurityFlags,
+                [in,unique] VDS_ISCSI_IPSEC_KEY *pIpsecKey
+            );
+
+}
+
+//
+// IVdsIscsiTarget:
+//
+// Implemented by: iSCSI target object
+// Implemented where: iSCSI hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(aa8f5055-83e5-4bcc-aa73-19851a36a849),
+    pointer_default(unique)
+]
+interface IVdsIscsiTarget : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_ISCSI_TARGET_PROP *pTargetProp
+            );
+
+    [helpstring("method GetSubSystem")]
+    HRESULT GetSubSystem(
+                [out] IVdsSubSystem **ppSubSystem
+            );
+
+    [helpstring("method QueryPortalGroups")]
+    HRESULT QueryPortalGroups(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryAssociatedLuns")]
+    HRESULT QueryAssociatedLuns(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method CreatePortalGroup")]
+    HRESULT CreatePortalGroup(
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method Delete")]
+    HRESULT Delete(
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method SetFriendlyName")]
+    HRESULT SetFriendlyName(
+                [in,string] LPWSTR pwszFriendlyName
+            );
+
+    [helpstring("method SetSharedSecret")]
+    HRESULT SetSharedSecret(
+                [in,unique] VDS_ISCSI_SHARED_SECRET *pTargetSharedSecret,
+                [in,unique,string] LPWSTR pwszInitiatorName
+            );
+
+    [helpstring("method RememberInitiatorSharedSecret")]
+    HRESULT RememberInitiatorSharedSecret(
+                [in,string] LPWSTR pwszInitiatorName,
+                [in,unique] VDS_ISCSI_SHARED_SECRET *pInitiatorSharedSecret
+            );
+
+    [helpstring("method GetConnectedInitiators")]
+    HRESULT GetConnectedInitiators(
+                [out,string,size_is(,*plNumberOfInitiators)]
+                    LPWSTR **pppwszInitiatorList,
+                [out] LONG *plNumberOfInitiators
+            );
+
+}
+
+//
+// IVdsIscsiPortalGroup:
+//
+// Implemented by: iSCSI portal group object
+// Implemented where: iSCSI hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(fef5f89d-a3dd-4b36-bf28-e7dde045c593),
+    pointer_default(unique)
+]
+interface IVdsIscsiPortalGroup : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_ISCSI_PORTALGROUP_PROP *pPortalGroupProp
+            );
+
+    [helpstring("method GetTarget")]
+    HRESULT GetTarget(
+                [out] IVdsIscsiTarget **ppTarget
+            );
+
+    [helpstring("method QueryAssociatedPortals")]
+    HRESULT QueryAssociatedPortals(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method AddPortal")]
+    HRESULT AddPortal(
+                [in] VDS_OBJECT_ID portalId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method RemovePortal")]
+    HRESULT RemovePortal(
+                [in] VDS_OBJECT_ID portalId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method Delete")]
+    HRESULT Delete(
+                [out] IVdsAsync **ppAsync
+            );
+
+}
+
+//
+// IVdsStoragePool:
+//
+// Implemented by: storage pool object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(932ca8cf-0eb3-4ba8-9620-22665d7f8450),
+    pointer_default(unique)
+]
+
+interface IVdsStoragePool : IUnknown
+{
+    [helpstring("method GetProvider")]
+    HRESULT GetProvider(
+                [out] IVdsProvider **ppProvider
+            );
+
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_STORAGE_POOL_PROP *pStoragePoolProp
+            );
+
+    [helpstring("method GetAttributes")]
+    HRESULT GetAttributes(
+                [out] VDS_POOL_ATTRIBUTES *pStoragePoolAttributes
+            );
+
+    [helpstring("method QueryDriveExtents")]
+    HRESULT QueryDriveExtents(
+                [out, size_is(,*plNumberOfExtents)]
+                      VDS_STORAGE_POOL_DRIVE_EXTENT **ppExtentArray,
+                [out] LONG *plNumberOfExtents
+                );
+
+    [helpstring("method QueryAllocatedLuns")]
+    HRESULT QueryAllocatedLuns(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryAllocatedStoragePools")]
+    HRESULT QueryAllocatedStoragePools(
+                [out] IEnumVdsObject **ppEnum
+            );
+}
+
+//
+// IVdsMaintenance:
+// Implemented by: drive object, controller object, subsystem object
+// Implemented where: hardware providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(daebeef3-8523-47ed-a2b9-05cecce2a1ae),
+    pointer_default(unique)
+]
+
+interface IVdsMaintenance : IUnknown
+{
+    [helpstring("method StartMaintenance")]
+    HRESULT StartMaintenance(
+                [in] VDS_MAINTENANCE_OPERATION operation
+            );
+
+    [helpstring("method StopMaintenance")]
+    HRESULT StopMaintenance(
+                [in] VDS_MAINTENANCE_OPERATION operation
+            );
+
+    [helpstring("method PulseMaintenance")]
+    HRESULT PulseMaintenance(
+                [in] VDS_MAINTENANCE_OPERATION operation,
+                [in] ULONG ulCount
+            );
+}
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

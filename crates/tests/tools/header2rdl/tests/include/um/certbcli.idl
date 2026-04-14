@@ -1,0 +1,25 @@
+//+--------------------------------------------------------------------------
+//
+// Microsoft Windows
+// Copyright (C) Microsoft Corporation, 1996 - 1999
+//
+// File:        certbcli.idl
+//
+// Contents:    IDL imports for certbcli.h
+//
+//---------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include <SpecStrings.h>
+typedef _Null_terminated_ WCHAR *        PWSTR;
+typedef _Null_terminated_ WCHAR const *  PCWSTR;
+typedef _Null_terminated_ CHAR *         PSTR;
+typedef _Null_terminated_ CHAR const *   PCSTR;
+#include "certbcli.h"
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

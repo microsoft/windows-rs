@@ -1,0 +1,119 @@
+//+----------------------------------------------------------------------------
+//
+//  Microsoft (R) Search
+//  Copyright (C) Microsoft Corporation, 1998-2000.
+//
+//  File:       urlaccsdk.idl
+//
+//  Contents:   Search Protocol Handler URL Accessor Interface
+//
+//  Interfaces: IUrlAccessor
+//
+//  History:    11/11/00    mcheng      Created
+//
+//+----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "propsys.idl";
+
+[
+    object,
+    uuid(0b63e318-9ccc-11d0-bcdb-00805fccce04),
+    helpstring("URL Accessor Interface"),
+    public,
+    pointer_default(unique)
+]
+interface IUrlAccessor: IUnknown
+{
+    HRESULT AddRequestParameter([in] PROPSPEC *pSpec,
+                                [in] PROPVARIANT *pVar);
+
+    HRESULT GetDocFormat([out, length_is(*pdwLength), size_is(dwSize)] WCHAR wszDocFormat[],
+                            [in] DWORD dwSize,
+                            [out] DWORD *pdwLength);
+
+    HRESULT GetCLSID([out] CLSID *pClsid);
+
+    HRESULT GetHost([out, length_is(*pdwLength), size_is(dwSize)] WCHAR wszHost[],
+                            [in] DWORD dwSize,
+                            [out] DWORD *pdwLength);
+
+    HRESULT IsDirectory();
+
+    HRESULT GetSize([out] ULONGLONG *pllSize);
+
+    HRESULT GetLastModified([out] FILETIME *pftLastModified);
+
+    HRESULT GetFileName([out, length_is(*pdwLength), size_is(dwSize)] WCHAR wszFileName[],
+                        [in] DWORD dwSize,
+                        [out] DWORD *pdwLength);
+
+    HRESULT GetSecurityDescriptor([out, size_is(dwSize)] BYTE *pSD,
+                                    [in] DWORD dwSize,
+                                    [out] DWORD *pdwLength);
+
+    HRESULT GetRedirectedURL([out, length_is(*pdwLength), size_is(dwSize)] WCHAR wszRedirectedURL[],
+                                [in] DWORD dwSize,
+                                [out] DWORD *pdwLength);
+
+      HRESULT GetSecurityProvider([out] CLSID *pSPClsid);
+
+    HRESULT BindToStream([out] IStream **ppStream);
+    HRESULT BindToFilter([out] IFilter **ppFilter);
+};
+
+[
+    object,
+    uuid(c7310734-ac80-11d1-8df3-00c04fb6ef4f),
+    helpstring("URL Accessor Interface"),
+    public,
+    pointer_default(unique)
+]
+
+interface IUrlAccessor2: IUrlAccessor
+{
+    HRESULT  GetDisplayUrl([out, length_is(*pdwLength), size_is(dwSize)] WCHAR wszDocUrl[],
+                            [in] DWORD dwSize,
+                            [out] DWORD *pdwLength);
+
+    HRESULT IsDocument();
+
+    HRESULT GetCodePage([out, length_is(*pdwLength), size_is(dwSize)] WCHAR wszCodePage[],
+                            [in] DWORD dwSize,
+                            [out] DWORD *pdwLength);
+};
+
+[
+    object,
+    uuid(6FBC7005-0455-4874-B8FF-7439450241A3),
+    helpstring("URL Accessor Interface"),
+    public,
+    pointer_default(unique)
+]
+
+interface IUrlAccessor3: IUrlAccessor2
+{
+    HRESULT GetImpersonationSidBlobs([in] LPCWSTR pcwszURL, [out] DWORD *pcSidCount, [out] BLOB **ppSidBlobs);
+};
+
+[
+    object,
+    uuid(5CC51041-C8D2-41d7-BCA3-9E9E286297DC),
+    helpstring("URL Accessor Interface"),
+    public,
+    pointer_default(unique)
+]
+
+interface IUrlAccessor4: IUrlAccessor3
+{
+    HRESULT ShouldIndexItemContent([out] BOOL *pfIndexContent);
+    HRESULT ShouldIndexProperty([in] REFPROPERTYKEY key, [out] BOOL *pfIndexProperty);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

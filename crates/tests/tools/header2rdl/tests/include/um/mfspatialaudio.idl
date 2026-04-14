@@ -1,0 +1,152 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+import "mfobjects.idl";
+import "SpatialAudioClient.idl";
+import "SpatialAudioMetadata.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS2)
+
+[
+    object,
+    uuid(d396ec8c-605e-4249-978d-72ad1c312872),
+    local,
+]
+/// <summary>
+///     The IMFSpatialAudioObjectBuffer interface represents a section of audio data with
+///     associated positional and rendering information metadata.  Spatial audio
+///     objects are stored in IMFSpatialAudioSample instances, and allow passing of 
+///     spatial audio information between Media Foundation components.
+///
+///	    To get the audio data contained in the spatial audio object, use the IMFMediaBuffer
+///	    Lock() and Unlock() methods.
+/// </summary>
+interface IMFSpatialAudioObjectBuffer : IMFMediaBuffer
+{
+    /// <summary>
+    ///     The SetID() method sets the ID of the spatial audio object.
+    /// </summary>
+    /// <param name="u32ID">
+    ///     A 32-bit unsigned unique ID of the audio object.
+    /// </param>
+    /// <remarks>
+    ///     The object ID must be unique for each spatial audio sample.  Subsequent samples can 
+    ///     contain spatial audio objects with the same IDs to represent moving objects or constant
+    ///     static objects (speaker channels).
+    /// </remarks>
+    HRESULT SetID(
+        [in, annotation( "_In_" )] UINT32 u32ID );
+
+    /// <summary>
+    ///     The GetID() method returns 32-bit unique, unsigned ID of the spatial audio object.
+    ///     If SetID() method was not called, this method returns the invalid object ID -1 
+    ///     (0xffffffff).  The invalid ID indicates that the object buffer is unused and
+    ///     contains invalid data.
+    /// </summary>
+    /// <param name="pu32ID">
+    ///     Pointer to a 32-bit variable where the object ID will be stored.
+    /// </param>
+    HRESULT GetID(
+        [out, annotation( "_Out_" )] UINT32* pu32ID );
+
+    /// <summary>
+    ///     The SetType() method sets the type of audio object.
+    /// </summary>
+    /// <param name="type">
+    ///     A value from the AudioObjectType enumeration, specifying the type of the audio object.
+    /// </param>
+    /// <remarks>
+    ///     A spatial audio object can represent a dynamic moving object with changing coordinates 
+    ///     (AudioObjectType_Dynamic), or it can be a pre-defined speaker channel such as 
+    ///     AudioObjectType_FrontLeft.
+    /// </remarks>
+    HRESULT SetType(
+        [in, annotation( "_In_" )] AudioObjectType type );
+
+    /// <summary>
+    ///     The GetType() method returns the audio object type of the spatial audio object.  If
+    ///     SetType() method was not called, this method returns a default value of 
+    ///     AudioObjectType_None.
+    /// </summary>
+    /// <param name="pType">
+    ///     Pointer to an AudioObjectType variable where the audio object type will be stored.
+    /// </param>
+    HRESULT GetType(
+        [out, annotation( "_Out_" )] AudioObjectType* pType );
+
+    /// <summary>
+    ///     The GetMetadataItems() method retrieves a pointer to a buffer that may 
+    ///     contain metadata.  The metadata is written to the ISpatialAudioMetadtaItems
+    ///     collection in a format identified by the MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_ID 
+    ///     media type attribute specified during media type negotiation phase of MF 
+    ///     topology construction.
+    /// </summary>
+    /// <param name="ppMetadataItems">
+    ///     Pointer to a ISpatialAudioMetadataItems object which will contain a collection
+    ///     of metadata metadata items.
+    /// </param>
+    HRESULT GetMetadataItems(
+        [out, annotation( "_Outptr_result_nullonfailure_" )] ISpatialAudioMetadataItems **ppMetadataItems);
+};
+
+
+
+[
+    object,
+    uuid(abf28a9B-3393-4290-ba79-5ffc46d986b2),
+    local,
+]
+/// <summary>
+///     The IMFSpatialAudioSample interface represents a multimedia sample 
+///     with spatial audio information.  Each spatial audio sample contains one
+///     or more IMFSpatialAudioObjectBuffer objects.
+/// </summary>
+interface IMFSpatialAudioSample : IMFSample
+{
+    /// <summary>
+    ///     The GetObjectCount method returns the number of spatial audio objects in the 
+    ///     sample.
+    /// </summary>
+    /// <param name="pdwObjectCount">
+    ///     Pointer to a 32 bit variable where the total number of audio objects in the 
+    ///     sample will be stored.
+    /// </param>
+    HRESULT GetObjectCount( [out, annotation( "_Out_" )] DWORD* pdwObjectCount );
+
+    /// <summary>
+    ///     The AddSpatialAudioObject method adds a new spatial audio object to the spatial
+    ///     sample.
+    /// </summary>
+    /// <param name="pAudioObjBuffer">
+    ///     Pointer to the new IMFSpatialAudioObject.
+    /// </param>
+    HRESULT AddSpatialAudioObject(
+        [in, annotation( "_In_" )] IMFSpatialAudioObjectBuffer* pAudioObjBuffer );
+
+    /// <summary>
+    ///     The GetSpatialAudioObjectByIndex() method returns an audio object specified
+    ///     with the passed-in index.
+    /// </summary>
+    /// <param name="dwIndex">
+    ///     A 32 bit variable with the 0-based index of the audio object requested.
+    /// </param>
+    /// <param name="ppSpatialAudioObjectBuffer">
+    ///     The out param where a pointer to the IMFSpatialAudioObjectBuffer with the 
+    ///     specified index will be stored.
+    /// </param>
+    HRESULT GetSpatialAudioObjectByIndex(
+        [in, annotation( "_In_" )] DWORD dwIndex,
+        [out, annotation( "_COM_Outptr_" )] IMFSpatialAudioObjectBuffer** ppAudioObjBuffer );
+};
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS2)
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")

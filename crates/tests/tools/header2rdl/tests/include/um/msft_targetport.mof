@@ -1,0 +1,177 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "A target port represents an instance of an endpoint in a storage subsystem with associated "
+    "properties for showing and hiding virtual disks. Fibre Channel, Serial Attached SCSI, or "
+    "iSCSI ports within a storage subsystem controller are all examples of target ports."
+    )]
+class MSFT_TargetPort : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "FriendlyName is a user-friendly name of the target port."
+        )]
+    String FriendlyName;
+
+    [Read, Required]
+    String PortAddress;
+
+    [Read, Required, Description(
+        "This field is the node identifier / address. \n"
+        "For Fibre Channel networks, this field should be the World-Wide Name (WWN) for the port, "
+        "formatted as a hexadecimal string (16 characters long), with the most significant byte "
+        "first. For example, a WWN address of 01:23:45:67:89:AB:CD:EF should be represented "
+        "as 0123456789ABCDEF. \n"
+        "For iSCSI networks, this field should be the IQN."
+        )]
+    String NodeAddress;
+
+    [Read, Description(
+        "The identifier of the controller to which this port belongs"
+        )]
+    String StorageControllerId;
+
+    [Read, Required, Description(
+        "Denotes the role of this controller port. For iSCSI, this port must act as either a "
+        "target or an initiator endpoint. Other transports allow a port to act as both an "
+        "initiator and a target."
+        ),
+        ValueMap { "0", "1", "2", "3" },
+        Values { "Unknown", "Initiator", "Target", "Both Initiator and Target" }]
+    UInt16 Role;
+
+    [Read, Description(
+        "In some circumstances, a target port may be identifiable as a front-end or back-end "
+        "port. For example: a storage array might have back-end ports to communicate with "
+        "physical disks, and front-end ports to communicate with hosts. If there is no "
+        "restriction on the use of the port, then the value should be set to 4 - 'Not restricted'."
+        ),
+        ValueMap { "0", "2", "3", "4" },
+        Values { "Unknown", "Front-end only", "Back-end only", "Not restricted" }]
+    UInt16 UsageRestriction;
+
+    [Read, Required,
+        ValueMap { "0", "1", "2" },
+        Values { "Healthy", "Warning", "Unhealthy" }]
+    UInt16 HealthStatus;
+
+    [Read, Required, Description(
+        "Indicates the current operating status of the target port."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            ".."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 OperationalStatus[];
+
+    [Read, Description(
+        "A string representation of the vendor defined operational status. This field should "
+        "only be set if the OperationalStatus array contains 1 - 'Other'."
+        )]
+    String OtherOperationalStatusDescription;
+
+    [Read, Required,
+        ValueMap { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+        Values {
+            // 1 - 5
+            "Other", "Fibre Channel", "Parallel SCSI", "SSA", "IEEE 1394",
+            // 6 - 9
+            "RDMA", "iSCSI", "SAS", "ADT"
+            }]
+    UInt16 ConnectionType;
+
+    [Read, Description(
+        "A string representation of the vendor defined connection type. This field should only "
+        "be set if ConnectionType is set to 1 - 'Other'."
+        )]
+    String OtherConnectionTypeDescription;
+
+    [Read,
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11",
+            ".."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "Ethernet", "IB", "FC",
+            // 5 - 9
+            "FDDI", "ATM", "Token Ring", "Frame Relay", "Infrared",
+            // 10 - 11
+            "Bluetooth", "Wireless LAN",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 LinkTechnology;
+
+    [Read, Description(
+        "A string representation of the vendor defined link technology. This field should only "
+        "be set if LinkTechnology is set to 1 - 'Other'."
+        )]
+    String OtherLinkTechnology;
+
+    [Read, Description(
+        "The current bandwidth of the port in bits per second. For ports that vary in bandwidth "
+        "or for those where no accurate estimation can be made, this property should contain "
+        "the nominal bandwidth for the port."
+        ), Units( "bits/sec" )]
+    UInt64 Speed;
+
+    [Read, Description(
+        "The maximum bandwidth of the port in bits per second"
+        ), Units( "bits/sec" )]
+    UInt64 MaxSpeed;
+
+    [Read, Description(
+        "An array of strings that represent the various network addresses for the target port. "
+        "The type and format of these addresses depend on the PortType."
+        )]
+    String NetworkAddresses[];
+
+    [Read]
+    UInt16 PortNumbers[];
+
+    [Read, Description(
+        "Indicates the specific mode currently enabled for the port. If the port is logged in, "
+        "this will be the negotiated port type. Otherwise, the configured port type will be "
+        "reported."
+        ),
+        ValueMap {
+            "0", "1", "10", "11", "12", "13", "14", "15", "16", "17", "18",
+            "50", "51", "52", "53", "54", "55", "56", "94","100","101","102",
+            "103","104","105","106","107","108","109","110", "111","112..15999",
+            "16000..65535"
+            },
+        Values {
+            "Unknown", "Other",
+            // 10 Fiber Channel
+            "N", "NL", "F/NL", "Nx", "E", "F", "FL", "B", "G",
+            //50 Copper Ethernet
+            "10BaseT", "10-100BaseT", "100BaseT", "1000BaseT", "2500BaseT", "10GBaseT", "10GBase-CX4",
+            // 94 Serial-attached SCSI
+            "SAS",
+            //100 Fiber Ethernet
+            "100Base-FX", "100Base-SX", "1000Base-SX", "1000Base-LX", "1000Base-CX",
+            "10GBase-SR", "10GBase-SW", "10GBase-LX4", "10GBase-LR",
+            "10GBase-LW", "10GBase-ER", "10GBase-EW",
+            // Remaining:
+            "Microsoft Reserved", "Vendor Reserved"
+            }]
+    UInt16 PortType;
+};

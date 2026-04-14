@@ -1,0 +1,111 @@
+// CloneViewHelper.idl : IDL source for ICloneViewHelper
+//
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#define GETCONNECTEDIDS_TARGET 0")
+cpp_quote("#define GETCONNECTEDIDS_SOURCE 1")
+cpp_quote("#define S_INIT 2")
+cpp_quote("// 0 == TMM's passed in configuration was applied")
+cpp_quote("#define SETCONFIGURATION_STATUS_APPLIED 0")
+cpp_quote("// 1 == TMM's passed in configuration was applied, with additional proprietary IHV settings")
+cpp_quote("#define SETCONFIGURATION_STATUS_ADDITIONAL 1")
+cpp_quote("// 2 == TMM's passed in configuration was overridden and IHV's own settings were applied")
+cpp_quote("#define SETCONFIGURATION_STATUS_OVERRIDDEN 2")
+cpp_quote("")
+cpp_quote("// Topology Data")
+cpp_quote("")
+cpp_quote("typedef struct tagSources")
+cpp_quote("{")
+cpp_quote("    ULONG sourceId;")
+cpp_quote("    int numTargets;")
+cpp_quote("    ULONG aTargets[1];")
+cpp_quote("} Sources;")
+cpp_quote("")
+cpp_quote("typedef struct tagAdapter")
+cpp_quote("{")
+cpp_quote("    WCHAR AdapterName[128];")
+cpp_quote("    int numSources;")
+cpp_quote("    Sources sources[1];")
+cpp_quote("} Adapter;")
+cpp_quote("")
+cpp_quote("typedef struct tagAdapters")
+cpp_quote("{")
+cpp_quote("    int numAdapters;")
+cpp_quote("    Adapter adapter[1];")
+cpp_quote("} Adapters;")
+cpp_quote("")
+cpp_quote("// Display Mode Data")
+cpp_quote("")
+cpp_quote("typedef struct tagDisplayMode")
+cpp_quote("{")
+cpp_quote("    WCHAR DeviceName[32];")
+cpp_quote("    DEVMODEW devMode;")
+cpp_quote("} DisplayMode;")
+cpp_quote("")
+cpp_quote("typedef struct tagDisplayModes")
+cpp_quote("{")
+cpp_quote("    int numDisplayModes;")
+cpp_quote("    DisplayMode displayMode[1];")
+cpp_quote("} DisplayModes;")
+cpp_quote("")
+
+[
+    object,
+    uuid(F6A3D4C4-5632-4D83-B0A1-FB88712B1EB7),
+    nonextensible,
+    helpstring("ICloneViewHelper Interface"),
+    pointer_default(unique)
+]
+interface ICloneViewHelper : IUnknown
+{
+    HRESULT GetConnectedIDs(  [in]      LPCWSTR     wszAdaptorName, 
+                              [in,out]  ULONG *     pulCount, 
+                              [in,out]  ULONG *     pulID, 
+                              [in]      ULONG       ulFlags);
+    HRESULT GetActiveTopology([in]      LPCWSTR     wszAdaptorName, 
+                              [in]      ULONG       ulSourceID, 
+                              [in,out]  ULONG *     pulCount, 
+                              [in,out]  ULONG *     pulTargetID);
+    HRESULT SetActiveTopology([in]      LPCWSTR     wszAdaptorName, 
+                              [in]      ULONG       ulSourceID, 
+                              [in]      ULONG       ulCount, 
+                              [in]      ULONG *     pulTargetID);
+    HRESULT Commit(           [in]      BOOL        fFinalCall);
+};
+
+[
+    object,
+    uuid(E85CCEF5-AAAA-47f0-B5E3-61F7AECDC4C1),
+    nonextensible,
+    helpstring("IViewHelper Interface"),
+    pointer_default(unique)
+]
+interface IViewHelper : IUnknown
+{
+    HRESULT GetConnectedIDs(  [in]      LPCWSTR     wszAdaptorName, 
+                              [in,out]  ULONG *     pulCount, 
+                              [in,out]  ULONG *     pulID, 
+                              [in]      ULONG       ulFlags);
+    HRESULT GetActiveTopology([in]      LPCWSTR     wszAdaptorName, 
+                              [in]      ULONG       ulSourceID, 
+                              [in,out]  ULONG *     pulCount, 
+                              [in,out]  ULONG *     pulTargetID);
+    HRESULT SetActiveTopology([in]      LPCWSTR     wszAdaptorName, 
+                              [in]      ULONG       ulSourceID, 
+                              [in]      ULONG       ulCount, 
+                              [in]      ULONG *     pulTargetID);
+    HRESULT Commit();
+    HRESULT SetConfiguration( [in]      IStream *   pIStream,
+                              [out]     ULONG *     pulStatus);
+    HRESULT GetProceedOnNewConfiguration();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

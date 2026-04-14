@@ -1,0 +1,54 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstwtn.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+#if( OLEDBVER >= 0x0200 )
+    REMOTED_INTERFACE(0c733a44-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733a44-2a1c-11ce-ade5-00aa0044773d)
+#endif
+
+    
+interface IRowsetWatchNotify : IUnknown {
+
+	//
+	//	DBWATCHNOTIFY and related definitions
+	//
+
+typedef DWORD DBWATCHNOTIFY;
+
+enum DBWATCHNOTIFYENUM {
+	DBWATCHNOTIFY_ROWSCHANGED     = 1,
+	DBWATCHNOTIFY_QUERYDONE       = 2,
+	DBWATCHNOTIFY_QUERYREEXECUTED = 3
+};
+
+	HRESULT OnChange(
+		[in] IRowset * pRowset,
+		[in] DBWATCHNOTIFY eChangeReason
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,492 @@
+// set standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _SET_
+#define _SET_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xtree>
+
+#if _HAS_CXX17
+#include <xpolymorphic_allocator.h>
+#endif // _HAS_CXX17
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+_STD_BEGIN
+template <class _Kty, // key/value type
+    class _Pr, // comparator predicate type
+    class _Alloc, // actual allocator type (should be value allocator)
+    bool _Mfl> // true if multiple equivalent keys are permitted
+class _Tset_traits { // traits required to make _Tree behave like a set
+public:
+    using key_type       = _Kty;
+    using value_type     = _Kty;
+    using key_compare    = _Pr;
+    using allocator_type = _Alloc;
+#if _HAS_CXX17
+    using node_type = _Node_handle<_Tree_node<value_type, typename allocator_traits<_Alloc>::void_pointer>, _Alloc,
+        _Node_handle_set_base, _Kty>;
+#endif // _HAS_CXX17
+
+    static constexpr bool _Multi = _Mfl;
+
+    template <class... _Args>
+    using _In_place_key_extractor = _In_place_key_extract_set<_Kty, _Args...>;
+
+    using value_compare = key_compare;
+
+    static const _Kty& _Kfn(const value_type& _Val) { // extract key from element value
+        return _Val;
+    }
+};
+
+_EXPORT_STD template <class _Kty, class _Pr = less<_Kty>, class _Alloc = allocator<_Kty>>
+class set : public _Tree<_Tset_traits<_Kty, _Pr, _Alloc, false>> {
+    // ordered red-black tree of key values, unique keys
+public:
+    static_assert(!_ENFORCE_MATCHING_ALLOCATORS || is_same_v<_Kty, typename _Alloc::value_type>,
+        _MISMATCHED_ALLOCATOR_MESSAGE("set<T, Compare, Allocator>", "T"));
+    static_assert(is_object_v<_Kty>, "The C++ Standard forbids containers of non-object types "
+                                     "because of [container.requirements].");
+
+    using _Mybase                = _Tree<_Tset_traits<_Kty, _Pr, _Alloc, false>>;
+    using key_type               = _Kty;
+    using key_compare            = _Pr;
+    using value_compare          = typename _Mybase::value_compare;
+    using value_type             = typename _Mybase::value_type;
+    using allocator_type         = typename _Mybase::allocator_type;
+    using size_type              = typename _Mybase::size_type;
+    using difference_type        = typename _Mybase::difference_type;
+    using pointer                = typename _Mybase::pointer;
+    using const_pointer          = typename _Mybase::const_pointer;
+    using reference              = value_type&;
+    using const_reference        = const value_type&;
+    using iterator               = typename _Mybase::iterator;
+    using const_iterator         = typename _Mybase::const_iterator;
+    using reverse_iterator       = typename _Mybase::reverse_iterator;
+    using const_reverse_iterator = typename _Mybase::const_reverse_iterator;
+
+    using _Alnode        = typename _Mybase::_Alnode;
+    using _Alnode_traits = typename _Mybase::_Alnode_traits;
+
+#if _HAS_CXX17
+    using insert_return_type = _Insert_return_type<iterator, typename _Mybase::node_type>;
+#endif // _HAS_CXX17
+
+    set() : _Mybase(key_compare()) {}
+
+    explicit set(const allocator_type& _Al) : _Mybase(key_compare(), _Al) {}
+
+    set(const set& _Right) : _Mybase(_Right, _Alnode_traits::select_on_container_copy_construction(_Right._Getal())) {}
+
+    set(const set& _Right, const allocator_type& _Al) : _Mybase(_Right, _Al) {}
+
+    explicit set(const key_compare& _Pred) : _Mybase(_Pred) {}
+
+    set(const key_compare& _Pred, const allocator_type& _Al) : _Mybase(_Pred, _Al) {}
+
+    template <class _Iter>
+    set(_Iter _First, _Iter _Last) : _Mybase(key_compare()) {
+        this->insert(_First, _Last);
+    }
+
+    template <class _Iter>
+    set(_Iter _First, _Iter _Last, const key_compare& _Pred) : _Mybase(_Pred) {
+        this->insert(_First, _Last);
+    }
+
+    template <class _Iter>
+    set(_Iter _First, _Iter _Last, const allocator_type& _Al) : _Mybase(key_compare(), _Al) {
+        this->insert(_First, _Last);
+    }
+
+    template <class _Iter>
+    set(_Iter _First, _Iter _Last, const key_compare& _Pred, const allocator_type& _Al) : _Mybase(_Pred, _Al) {
+        this->insert(_First, _Last);
+    }
+
+#if _HAS_CXX23
+    template <_Container_compatible_range<value_type> _Rng>
+    set(from_range_t, _Rng&& _Range) : _Mybase(key_compare()) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+
+    template <_Container_compatible_range<value_type> _Rng>
+    set(from_range_t, _Rng&& _Range, const key_compare& _Pred) : _Mybase(_Pred) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+
+    template <_Container_compatible_range<value_type> _Rng>
+    set(from_range_t, _Rng&& _Range, const key_compare& _Pred, const allocator_type& _Al) : _Mybase(_Pred, _Al) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+
+    template <_Container_compatible_range<value_type> _Rng>
+    set(from_range_t, _Rng&& _Range, const allocator_type& _Al) : _Mybase(key_compare(), _Al) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+#endif // _HAS_CXX23
+
+    set& operator=(const set& _Right) {
+        _Mybase::operator=(_Right);
+        return *this;
+    }
+
+    set(set&& _Right) : _Mybase(_STD move(_Right)) {}
+
+    set(set&& _Right, const allocator_type& _Al) : _Mybase(_STD move(_Right), _Al) {}
+
+    set& operator=(set&& _Right) noexcept(_Alnode_traits::is_always_equal::value && is_nothrow_move_assignable_v<_Pr>) {
+        _Mybase::operator=(_STD move(_Right));
+        return *this;
+    }
+
+    void swap(set& _Right) noexcept(noexcept(_Mybase::swap(_Right))) {
+        _Mybase::swap(_Right);
+    }
+
+    set(initializer_list<value_type> _Ilist) : _Mybase(key_compare()) {
+        this->insert(_Ilist);
+    }
+
+    set(initializer_list<value_type> _Ilist, const key_compare& _Pred) : _Mybase(_Pred) {
+        this->insert(_Ilist);
+    }
+
+    set(initializer_list<value_type> _Ilist, const allocator_type& _Al) : _Mybase(key_compare(), _Al) {
+        this->insert(_Ilist);
+    }
+
+    set(initializer_list<value_type> _Ilist, const key_compare& _Pred, const allocator_type& _Al)
+        : _Mybase(_Pred, _Al) {
+        this->insert(_Ilist);
+    }
+
+    set& operator=(initializer_list<value_type> _Ilist) {
+        this->clear();
+        this->insert(_Ilist);
+        return *this;
+    }
+
+    using _Mybase::_Unchecked_begin;
+    using _Mybase::_Unchecked_end;
+};
+
+#if _HAS_CXX17
+template <class _Iter, class _Pr = less<_Iter_value_t<_Iter>>, class _Alloc = allocator<_Iter_value_t<_Iter>>,
+    enable_if_t<conjunction_v<_Is_iterator<_Iter>, negation<_Is_allocator<_Pr>>, _Is_allocator<_Alloc>>, int> = 0>
+set(_Iter, _Iter, _Pr = _Pr(), _Alloc = _Alloc()) -> set<_Iter_value_t<_Iter>, _Pr, _Alloc>;
+
+template <class _Kty, class _Pr = less<_Kty>, class _Alloc = allocator<_Kty>,
+    enable_if_t<conjunction_v<negation<_Is_allocator<_Pr>>, _Is_allocator<_Alloc>>, int> = 0>
+set(initializer_list<_Kty>, _Pr = _Pr(), _Alloc = _Alloc()) -> set<_Kty, _Pr, _Alloc>;
+
+template <class _Iter, class _Alloc, enable_if_t<conjunction_v<_Is_iterator<_Iter>, _Is_allocator<_Alloc>>, int> = 0>
+set(_Iter, _Iter, _Alloc) -> set<_Iter_value_t<_Iter>, less<_Iter_value_t<_Iter>>, _Alloc>;
+
+template <class _Kty, class _Alloc, enable_if_t<_Is_allocator<_Alloc>::value, int> = 0>
+set(initializer_list<_Kty>, _Alloc) -> set<_Kty, less<_Kty>, _Alloc>;
+
+#if _HAS_CXX23
+template <_RANGES input_range _Rng, class _Pr = less<_RANGES range_value_t<_Rng>>,
+    _Allocator_for_container _Alloc = allocator<_RANGES range_value_t<_Rng>>>
+    requires (!_Allocator_for_container<_Pr>)
+set(from_range_t, _Rng&&, _Pr = _Pr(), _Alloc = _Alloc()) -> set<_RANGES range_value_t<_Rng>, _Pr, _Alloc>;
+
+template <_RANGES input_range _Rng, _Allocator_for_container _Alloc>
+set(from_range_t, _Rng&&, _Alloc) -> set<_RANGES range_value_t<_Rng>, less<_RANGES range_value_t<_Rng>>, _Alloc>;
+#endif // _HAS_CXX23
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator==(const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return _Left.size() == _Right.size()
+        && _STD equal(_Left._Unchecked_begin(), _Left._Unchecked_end_iter(), _Right._Unchecked_begin());
+}
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD _Synth_three_way_result<_Kty> operator<=>(
+    const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return _STD lexicographical_compare_three_way(_Left._Unchecked_begin(), _Left._Unchecked_end_iter(),
+        _Right._Unchecked_begin(), _Right._Unchecked_end_iter(), _Synth_three_way{});
+}
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator!=(const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return !(_Left == _Right);
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator<(const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return _STD lexicographical_compare(
+        _Left._Unchecked_begin(), _Left._Unchecked_end_iter(), _Right._Unchecked_begin(), _Right._Unchecked_end_iter());
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator>(const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return _Right < _Left;
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator<=(const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return !(_Right < _Left);
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator>=(const set<_Kty, _Pr, _Alloc>& _Left, const set<_Kty, _Pr, _Alloc>& _Right) {
+    return !(_Left < _Right);
+}
+#endif // ^^^ !_HAS_CXX20 ^^^
+
+_EXPORT_STD template <class _Kty, class _Pr, class _Alloc>
+void swap(set<_Kty, _Pr, _Alloc>& _Left, set<_Kty, _Pr, _Alloc>& _Right) noexcept(noexcept(_Left.swap(_Right))) {
+    _Left.swap(_Right);
+}
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Kty, class _Keylt, class _Alloc, class _Pr>
+set<_Kty, _Keylt, _Alloc>::size_type erase_if(set<_Kty, _Keylt, _Alloc>& _Cont, _Pr _Pred) {
+    return _STD _Erase_nodes_if(_Cont, _STD _Pass_fn(_Pred));
+}
+#endif // _HAS_CXX20
+
+_EXPORT_STD template <class _Kty, class _Pr = less<_Kty>, class _Alloc = allocator<_Kty>>
+class multiset : public _Tree<_Tset_traits<_Kty, _Pr, _Alloc, true>> {
+    // ordered red-black tree of key values, non-unique keys
+public:
+    static_assert(!_ENFORCE_MATCHING_ALLOCATORS || is_same_v<_Kty, typename _Alloc::value_type>,
+        _MISMATCHED_ALLOCATOR_MESSAGE("multiset<T, Compare, Allocator>", "T"));
+    static_assert(is_object_v<_Kty>, "The C++ Standard forbids containers of non-object types "
+                                     "because of [container.requirements].");
+
+    using _Mybase                = _Tree<_Tset_traits<_Kty, _Pr, _Alloc, true>>;
+    using key_type               = _Kty;
+    using key_compare            = _Pr;
+    using value_compare          = typename _Mybase::value_compare;
+    using value_type             = typename _Mybase::value_type;
+    using allocator_type         = typename _Mybase::allocator_type;
+    using size_type              = typename _Mybase::size_type;
+    using difference_type        = typename _Mybase::difference_type;
+    using pointer                = typename _Mybase::pointer;
+    using const_pointer          = typename _Mybase::const_pointer;
+    using reference              = value_type&;
+    using const_reference        = const value_type&;
+    using iterator               = typename _Mybase::iterator;
+    using const_iterator         = typename _Mybase::const_iterator;
+    using reverse_iterator       = typename _Mybase::reverse_iterator;
+    using const_reverse_iterator = typename _Mybase::const_reverse_iterator;
+
+    using _Alnode        = typename _Mybase::_Alnode;
+    using _Alnode_traits = typename _Mybase::_Alnode_traits;
+
+    multiset() : _Mybase(key_compare()) {}
+
+    explicit multiset(const allocator_type& _Al) : _Mybase(key_compare(), _Al) {}
+
+    multiset(const multiset& _Right)
+        : _Mybase(_Right, _Alnode_traits::select_on_container_copy_construction(_Right._Getal())) {}
+
+    multiset(const multiset& _Right, const allocator_type& _Al) : _Mybase(_Right, _Al) {}
+
+    explicit multiset(const key_compare& _Pred) : _Mybase(_Pred) {}
+
+    multiset(const key_compare& _Pred, const allocator_type& _Al) : _Mybase(_Pred, _Al) {}
+
+    template <class _Iter>
+    multiset(_Iter _First, _Iter _Last) : _Mybase(key_compare()) {
+        this->insert(_First, _Last);
+    }
+
+    template <class _Iter>
+    multiset(_Iter _First, _Iter _Last, const key_compare& _Pred) : _Mybase(_Pred) {
+        this->insert(_First, _Last);
+    }
+
+    template <class _Iter>
+    multiset(_Iter _First, _Iter _Last, const allocator_type& _Al) : _Mybase(key_compare(), _Al) {
+        this->insert(_First, _Last);
+    }
+
+    template <class _Iter>
+    multiset(_Iter _First, _Iter _Last, const key_compare& _Pred, const allocator_type& _Al) : _Mybase(_Pred, _Al) {
+        this->insert(_First, _Last);
+    }
+
+#if _HAS_CXX23
+    template <_Container_compatible_range<value_type> _Rng>
+    multiset(from_range_t, _Rng&& _Range) : _Mybase(key_compare()) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+
+    template <_Container_compatible_range<value_type> _Rng>
+    multiset(from_range_t, _Rng&& _Range, const key_compare& _Pred) : _Mybase(_Pred) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+
+    template <_Container_compatible_range<value_type> _Rng>
+    multiset(from_range_t, _Rng&& _Range, const key_compare& _Pred, const allocator_type& _Al) : _Mybase(_Pred, _Al) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+
+    template <_Container_compatible_range<value_type> _Rng>
+    multiset(from_range_t, _Rng&& _Range, const allocator_type& _Al) : _Mybase(key_compare(), _Al) {
+        this->_Insert_range_unchecked(_RANGES _Ubegin(_Range), _RANGES _Uend(_Range));
+    }
+#endif // _HAS_CXX23
+
+    multiset& operator=(const multiset& _Right) {
+        _Mybase::operator=(_Right);
+        return *this;
+    }
+
+    multiset(multiset&& _Right) : _Mybase(_STD move(_Right)) {}
+
+    multiset(multiset&& _Right, const allocator_type& _Al) : _Mybase(_STD move(_Right), _Al) {}
+
+    multiset& operator=(multiset&& _Right)
+        noexcept(_Alnode_traits::is_always_equal::value && is_nothrow_move_assignable_v<_Pr>) {
+        _Mybase::operator=(_STD move(_Right));
+        return *this;
+    }
+
+    template <class... _Valty>
+    iterator emplace(_Valty&&... _Val) {
+        return _Mybase::emplace(_STD forward<_Valty>(_Val)...).first;
+    }
+
+    void swap(multiset& _Right) noexcept(noexcept(_Mybase::swap(_Right))) {
+        _Mybase::swap(_Right);
+    }
+
+    multiset(initializer_list<value_type> _Ilist) : _Mybase(key_compare()) {
+        this->insert(_Ilist);
+    }
+
+    multiset(initializer_list<value_type> _Ilist, const key_compare& _Pred) : _Mybase(_Pred) {
+        this->insert(_Ilist);
+    }
+
+    multiset(initializer_list<value_type> _Ilist, const allocator_type& _Al) : _Mybase(key_compare(), _Al) {
+        this->insert(_Ilist);
+    }
+
+    multiset(initializer_list<value_type> _Ilist, const key_compare& _Pred, const allocator_type& _Al)
+        : _Mybase(_Pred, _Al) {
+        this->insert(_Ilist);
+    }
+
+    multiset& operator=(initializer_list<value_type> _Ilist) {
+        this->clear();
+        this->insert(_Ilist);
+        return *this;
+    }
+
+    using _Mybase::_Unchecked_begin;
+    using _Mybase::_Unchecked_end;
+};
+
+#if _HAS_CXX17
+template <class _Iter, class _Pr = less<_Iter_value_t<_Iter>>, class _Alloc = allocator<_Iter_value_t<_Iter>>,
+    enable_if_t<conjunction_v<_Is_iterator<_Iter>, negation<_Is_allocator<_Pr>>, _Is_allocator<_Alloc>>, int> = 0>
+multiset(_Iter, _Iter, _Pr = _Pr(), _Alloc = _Alloc()) -> multiset<_Iter_value_t<_Iter>, _Pr, _Alloc>;
+
+template <class _Kty, class _Pr = less<_Kty>, class _Alloc = allocator<_Kty>,
+    enable_if_t<conjunction_v<negation<_Is_allocator<_Pr>>, _Is_allocator<_Alloc>>, int> = 0>
+multiset(initializer_list<_Kty>, _Pr = _Pr(), _Alloc = _Alloc()) -> multiset<_Kty, _Pr, _Alloc>;
+
+template <class _Iter, class _Alloc, enable_if_t<conjunction_v<_Is_iterator<_Iter>, _Is_allocator<_Alloc>>, int> = 0>
+multiset(_Iter, _Iter, _Alloc) -> multiset<_Iter_value_t<_Iter>, less<_Iter_value_t<_Iter>>, _Alloc>;
+
+template <class _Kty, class _Alloc, enable_if_t<_Is_allocator<_Alloc>::value, int> = 0>
+multiset(initializer_list<_Kty>, _Alloc) -> multiset<_Kty, less<_Kty>, _Alloc>;
+
+#if _HAS_CXX23
+template <_RANGES input_range _Rng, class _Pr = less<_RANGES range_value_t<_Rng>>,
+    _Allocator_for_container _Alloc = allocator<_RANGES range_value_t<_Rng>>>
+    requires (!_Allocator_for_container<_Pr>)
+multiset(from_range_t, _Rng&&, _Pr = _Pr(), _Alloc = _Alloc()) -> multiset<_RANGES range_value_t<_Rng>, _Pr, _Alloc>;
+
+template <_RANGES input_range _Rng, _Allocator_for_container _Alloc>
+multiset(from_range_t, _Rng&&, _Alloc)
+    -> multiset<_RANGES range_value_t<_Rng>, less<_RANGES range_value_t<_Rng>>, _Alloc>;
+#endif // _HAS_CXX23
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator==(const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return _Left.size() == _Right.size()
+        && _STD equal(_Left._Unchecked_begin(), _Left._Unchecked_end_iter(), _Right._Unchecked_begin());
+}
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD _Synth_three_way_result<_Kty> operator<=>(
+    const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return _STD lexicographical_compare_three_way(_Left._Unchecked_begin(), _Left._Unchecked_end_iter(),
+        _Right._Unchecked_begin(), _Right._Unchecked_end_iter(), _Synth_three_way{});
+}
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator!=(const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return !(_Left == _Right);
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator<(const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return _STD lexicographical_compare(
+        _Left._Unchecked_begin(), _Left._Unchecked_end_iter(), _Right._Unchecked_begin(), _Right._Unchecked_end_iter());
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator>(const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return _Right < _Left;
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator<=(const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return !(_Right < _Left);
+}
+
+template <class _Kty, class _Pr, class _Alloc>
+_NODISCARD bool operator>=(const multiset<_Kty, _Pr, _Alloc>& _Left, const multiset<_Kty, _Pr, _Alloc>& _Right) {
+    return !(_Left < _Right);
+}
+#endif // ^^^ !_HAS_CXX20 ^^^
+
+_EXPORT_STD template <class _Kty, class _Pr, class _Alloc>
+void swap(multiset<_Kty, _Pr, _Alloc>& _Left, multiset<_Kty, _Pr, _Alloc>& _Right)
+    noexcept(noexcept(_Left.swap(_Right))) {
+    _Left.swap(_Right);
+}
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Kty, class _Keylt, class _Alloc, class _Pr>
+multiset<_Kty, _Keylt, _Alloc>::size_type erase_if(multiset<_Kty, _Keylt, _Alloc>& _Cont, _Pr _Pred) {
+    return _STD _Erase_nodes_if(_Cont, _STD _Pass_fn(_Pred));
+}
+#endif // _HAS_CXX20
+
+#if _HAS_CXX17
+namespace pmr {
+    _EXPORT_STD template <class _Kty, class _Pr = less<_Kty>>
+    using set = _STD set<_Kty, _Pr, polymorphic_allocator<_Kty>>;
+
+    _EXPORT_STD template <class _Kty, class _Pr = less<_Kty>>
+    using multiset = _STD multiset<_Kty, _Pr, polymorphic_allocator<_Kty>>;
+} // namespace pmr
+#endif // _HAS_CXX17
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _SET_

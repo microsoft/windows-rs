@@ -1,0 +1,242 @@
+cpp_quote("/*******************************************************************************/" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    Copyright (c) Microsoft Corporation.  All rights reserved.               */" )
+cpp_quote("/*                                                                             */" )
+           /*    WBEMTRAN.IDL                                                             */
+           /*                                                                             */
+cpp_quote("/*    This IDL file contains interfaces needed only by implementors of custom  */" )
+cpp_quote("/*    transports and custom security systems. These interfaces are not needed  */" )
+cpp_quote("/*    for either client or provider access to CIMOM.                           */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    See WBEMCLI.IDL for client interfaces, and WBEMPROV.IDL for provider     */" )
+cpp_quote("/*    extensions                                                               */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*******************************************************************************/" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or WinMgmt Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT)")
+
+import "objidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+import "wbemcli.idl";
+
+#define OPTIONAL in, unique
+
+[uuid(027947f3-d731-11ce-a357-000000000001)]
+library WbemTransports_v1
+{
+    interface IWbemTransport;
+    interface IWbemLevel1Login;
+    interface IWbemConnectorLogin;
+    interface IWbemAddressResolution;
+        
+    typedef enum tag_WBEM_LOGIN_TYPE
+    {
+        WBEM_FLAG_INPROC_LOGIN = 0,
+        WBEM_FLAG_LOCAL_LOGIN  = 1,
+        WBEM_FLAG_REMOTE_LOGIN = 2,
+        WBEM_AUTHENTICATION_METHOD_MASK  = 0xF,
+
+        WBEM_FLAG_USE_MULTIPLE_CHALLENGES = 0x10,
+    }   WBEM_LOGIN_TYPE;
+
+    typedef [size_is(16), length_is(16)] BYTE* WBEM_128BITS;
+
+    [restricted, uuid(8BC3F05E-D86B-11d0-A075-00C04FB68820)]
+    coclass WbemLevel1Login
+    {
+        interface IWbemLevel1Login;
+        interface IWbemConnectorLogin;
+    };
+
+    [restricted, uuid(A1044801-8F7E-11d1-9E7C-00C04FC324A8)]
+    coclass WbemLocalAddrRes
+    {
+        interface IWbemAddressResolution;
+    };
+
+    [restricted, uuid(7a0227f6-7108-11d1-ad90-00c04fd8fdff)]
+    coclass WbemUninitializedClassObject
+    {
+        interface IWbemClassObject;
+        interface IWbemObjectAccess;
+        interface IWbemConstructClassObject;
+    };
+
+    interface IWbemClientTransport;
+    interface IWbemClientConnectionTransport;
+
+    [restricted, uuid(F7CE2E13-8C90-11d1-9E7B-00C04FC324A8)]
+    coclass WbemDCOMTransport
+    {
+        interface IWbemClientTransport;
+        interface IWbemClientConnectionTransport;
+    };
+
+};
+
+
+[object, restricted, uuid(F309AD18-D86A-11d0-A075-00C04FB68820), 
+pointer_default(unique)]
+interface IWbemLevel1Login :  IUnknown
+{
+    HRESULT EstablishPosition(
+        [in, unique, string] LPWSTR wszLocaleList,
+        [in] DWORD dwNumLocales,
+        [out] DWORD* reserved);
+
+    // WBEM portion
+
+    HRESULT RequestChallenge(
+   	    [in, unique, string] LPWSTR wszNetworkResource,
+        [in, unique, string] LPWSTR wszUser,
+        [out] WBEM_128BITS Nonce
+        );
+
+    HRESULT WBEMLogin(
+        [in, unique, string] LPWSTR wszPreferredLocale,
+        [in, unique]  WBEM_128BITS AccessToken,
+        [in]   long lFlags,                   
+        [in]   IWbemContext* pCtx,              
+        [out]  IWbemServices** ppNamespace
+        );
+
+    // NTLM portion
+
+    HRESULT NTLMLogin(
+        [in, unique, string] LPWSTR wszNetworkResource,
+        [in, unique, string] LPWSTR wszPreferredLocale,
+        [in]   long lFlags,                   
+        [in]   IWbemContext* pCtx,              
+        [out]  IWbemServices** ppNamespace);
+        
+};
+
+[object, restricted, uuid(d8ec9cb1-b135-4f10-8b1b-c7188bb0d186), 
+pointer_default(unique)]
+interface IWbemConnectorLogin :  IUnknown
+{
+    HRESULT ConnectorLogin(
+        [in, unique, string] LPWSTR wszNetworkResource,
+        [in, unique, string] LPWSTR wszPreferredLocale,
+        [in]   long lFlags,                   
+        [in]   IWbemContext* pCtx,  
+        [in]  REFIID riid,
+        [out, iid_is(riid)] void **pInterface
+        );
+};
+
+
+[object, local, uuid(F7CE2E12-8C90-11d1-9E7B-00C04FC324A8), 
+restricted, pointer_default(unique)]
+
+interface IWbemAddressResolution :  IUnknown
+{
+
+    HRESULT Resolve(
+        [in, annotation("_In_")]    LPWSTR wszNamespacePath,
+        [out, annotation("_Out_")]   LPWSTR  wszAddressType,
+        [out, annotation("_Out_")]   DWORD* pdwAddressLength,
+        [out, size_is(,*pdwAddressLength), annotation("_Out_")] BYTE** pabBinaryAddress);
+};
+
+/////////////////////////////////////////////////////////////////
+//
+//
+
+[restricted, local, object, uuid(553fe584-2156-11d0-b6ae-00aa003240c7)]
+
+interface IWbemTransport : IUnknown
+{
+    HRESULT Initialize();
+}
+
+[restricted, local, object, uuid(9ef76194-70d5-11d1-ad90-00c04fd8fdff)]
+interface IWbemConstructClassObject : IUnknown
+{
+    HRESULT SetInheritanceChain(
+        [in, annotation("_In_")] long lNumAntecedents,
+        [in, size_is(lNumAntecedents), string, annotation("_In_reads_bytes_(lNumAntecedents)")] LPWSTR* awszAntecedents);
+
+    HRESULT SetPropertyOrigin(
+        [in, string, annotation("_In_")] LPCWSTR wszPropertyName,
+        [in, annotation("_In_")] long lOriginIndex); 
+
+    HRESULT SetMethodOrigin(
+        [in, string, annotation("_In_")] LPCWSTR wszMethodName,
+        [in, annotation("_In_")] long lOriginIndex); 
+
+    HRESULT SetServerNamespace(
+        [in, string, annotation("_In_")] LPCWSTR wszServer, 
+        [in, string, annotation("_In_")] LPCWSTR wszNamespace);
+};
+
+
+[object, local, uuid(F7CE2E11-8C90-11d1-9E7B-00C04FC324A8), 
+restricted, pointer_default(unique)]
+
+interface IWbemClientTransport :  IUnknown
+{
+    HRESULT ConnectServer(
+        [in]    BSTR strAddressType,               
+        [in]    DWORD dwBinaryAddressLength,
+        [in, size_is(dwBinaryAddressLength)]    BYTE* abBinaryAddress,
+
+        [in]    BSTR strNetworkResource,               
+        [in]    BSTR strUser,
+        [in]    BSTR strPassword,
+        [in]    BSTR strLocale,
+        [in]    long lSecurityFlags,                 
+        [in]    BSTR strAuthority,                  
+        [in]    IWbemContext* pCtx,                 
+        [out]   IWbemServices** ppNamespace
+        );     
+        
+};
+
+[object, local, uuid(a889c72a-fcc1-4a9e-af61-ed071333fb5b), 
+restricted, pointer_default(unique)]
+
+interface IWbemClientConnectionTransport :  IUnknown
+{
+    HRESULT Open(
+        [in]    BSTR strAddressType,               
+        [in]    DWORD dwBinaryAddressLength,
+        [in, size_is(dwBinaryAddressLength)]    BYTE* abBinaryAddress,
+        [in]  const BSTR strObject,
+        [in]  const BSTR strUser,
+        [in]  const BSTR strPassword,
+        [in]  const BSTR strLocale,
+        [in]  long lFlags,
+        [in]  IWbemContext *pCtx,
+        [in]  REFIID riid,
+        [out, iid_is(riid)] void **pInterface,
+        [out] IWbemCallResult **pCallRes
+        );
+
+    HRESULT OpenAsync(
+        [in]    BSTR strAddressType,               
+        [in]    DWORD dwBinaryAddressLength,
+        [in, size_is(dwBinaryAddressLength)]    BYTE* abBinaryAddress,
+        [in]  const BSTR strObject,
+        [in]  const BSTR strUser,
+        [in]  const BSTR strPassword,
+        [in]  const BSTR strLocale,
+        [in]  long lFlags,
+        [in]  IWbemContext *pCtx,
+        [in]  REFIID riid,
+        [in]  IWbemObjectSink *pResponseHandler
+        );
+
+    HRESULT Cancel(
+        [in] long lFlags,
+        [in] IWbemObjectSink *pHandler
+        );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT) */")
+#pragma endregion
+

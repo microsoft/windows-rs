@@ -1,0 +1,66 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			cmdprp.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a79-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface ICommandProperties : IUnknown {
+
+	[local]
+	HRESULT GetProperties(
+		[in] const ULONG cPropertyIDSets,
+		[in, size_is(cPropertyIDSets), annotation("_In_reads_opt_(cPropertyIDSets)")] const DBPROPIDSET rgPropertyIDSets[],
+		[in, out, annotation("_Out_")] ULONG * pcPropertySets,
+		[out, size_is(,*pcPropertySets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertySets)")] DBPROPSET ** prgPropertySets
+	);
+
+	[call_as(GetProperties)]
+	HRESULT RemoteGetProperties(
+		[in] const ULONG cPropertyIDSets,
+		[in, unique, size_is(cPropertyIDSets)] const DBPROPIDSET *rgPropertyIDSets,
+		[in, out] ULONG * pcPropertySets,
+		[out, size_is(,*pcPropertySets)] DBPROPSET ** prgPropertySets,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT SetProperties(
+		[in] ULONG cPropertySets,
+		[in, out, unique, size_is(cPropertySets), annotation("_In_reads_(cPropertySets)")] DBPROPSET rgPropertySets[]
+	);
+
+	[call_as(SetProperties)]
+	HRESULT RemoteSetProperties(
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

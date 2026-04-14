@@ -1,0 +1,69 @@
+//+-----------------------------------------------
+//
+//      Microsoft (R) Site Server Search
+//      Copyright (C) Microsoft Corporation, 1996-1997.
+//
+//      File:   urlacc.idl
+//
+//      Contents:       Protocol Handler and URL Accessor interfaces
+//
+//      Interfaces:     IProtocolHandler, IProtocolHandlerSite, IUrlAccessor
+//
+//      History:        6/12/98 dmitriym        Created
+//
+//+-----------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface ISearchProtocolThreadContext;
+
+[
+    object,
+    uuid(c731065d-ac80-11d1-8df3-00c04fb6ef4f),
+    helpstring("Opportunistic Locking Status"),
+    local,
+    pointer_default(unique)
+]
+interface IOpLockStatus: IUnknown
+{
+    HRESULT IsOplockValid([out, annotation("_Out_")] BOOL *pfIsOplockValid);
+
+    HRESULT IsOplockBroken([out, annotation("_Out_")] BOOL *pfIsOplockBroken);
+
+    HRESULT GetOplockEventHandle([out, annotation("_Outptr_")] HANDLE *phOplockEv);
+};
+
+
+//+-------------------------------------------------------------------------------------------------
+//
+//  Interface:  ISearchProtocolThreadContext
+//
+//  Comment:    Provide thread specific support on Search protocol handlers
+//
+//  History:    05/23/00    mcheng      Created
+//
+//+-------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid(c73106e1-ac80-11d1-8df3-00c04fb6ef4f),
+    helpstring("Search Protocol Handler Thread Context Interface"),
+    local,
+    pointer_default(unique)
+]
+interface ISearchProtocolThreadContext : IUnknown
+{
+    HRESULT ThreadInit();
+
+    HRESULT ThreadShutdown();
+
+    HRESULT ThreadIdle([in] DWORD dwTimeElaspedSinceLastCallInMS);
+};
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

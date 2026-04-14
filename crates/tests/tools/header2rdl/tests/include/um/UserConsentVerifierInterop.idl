@@ -1,0 +1,38 @@
+/*  UserConsentVerifierWinRTInterop.idl
+ *
+ *  IDL defines for COM APIs to support interop with Windows.Security.Credentials.UI.UserConsentVerifier
+ *
+ *  Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "inspectable.idl";
+import "asyncinfo.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+
+[
+    uuid(39E050C3-4E74-441A-8DC0-B81104DF949C),
+    pointer_default(unique),
+    object,
+    local
+]
+interface IUserConsentVerifierInterop : IInspectable
+{
+    HRESULT 
+    RequestVerificationForWindowAsync(
+        [in] HWND appWindow,
+        [in] HSTRING message, 
+        [in] REFIID riid, 
+        [out, retval, iid_is(riid)] void** asyncOperation
+        );
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

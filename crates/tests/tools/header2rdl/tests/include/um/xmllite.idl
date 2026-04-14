@@ -1,0 +1,574 @@
+//+-------------------------------------------------------------------------
+//
+//  File: XmlLite.idl
+//
+//  Copyright (C) Microsoft. All rights reserved.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "wtypes.idl";
+import "objidl.idl";
+import "oaidl.idl";
+#endif
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)")
+
+interface IXmlReader;
+interface IXmlResolver;
+interface IXmlWriter;
+interface IXmlWriterLite;
+cpp_quote("typedef IUnknown IXmlReaderInput;")
+cpp_quote("typedef IUnknown IXmlWriterOutput;")
+
+cpp_quote("////////////////////////////////////////////////////////////////////////////////////////////////////////////")
+cpp_quote("// XmlReader Constructors")
+cpp_quote("STDAPI CreateXmlReader(_In_ REFIID riid,")
+cpp_quote("    _Outptr_ void ** ppvObject,")
+cpp_quote("    _In_opt_ IMalloc * pMalloc);")
+
+cpp_quote("////////////////////////////////////////////////////////////////////////////////////////////////////////////")
+cpp_quote("// XmlReaderInput Constructors")
+cpp_quote("STDAPI CreateXmlReaderInputWithEncodingCodePage(")
+cpp_quote("    _In_ IUnknown * pInputStream,")
+cpp_quote("    _In_opt_ IMalloc * pMalloc,")
+cpp_quote("    _In_ UINT nEncodingCodePage,")
+cpp_quote("    _In_ BOOL fEncodingHint,")
+cpp_quote("    _In_opt_ LPCWSTR pwszBaseUri,")
+cpp_quote("    _Out_ IXmlReaderInput ** ppInput);")
+cpp_quote("STDAPI CreateXmlReaderInputWithEncodingName(")
+cpp_quote("    _In_ IUnknown * pInputStream,")
+cpp_quote("    _In_opt_ IMalloc * pMalloc,")
+cpp_quote("    _In_ LPCWSTR pwszEncodingName,")
+cpp_quote("    _In_ BOOL fEncodingHint,")
+cpp_quote("    _In_opt_ LPCWSTR pwszBaseUri,")
+cpp_quote("    _Out_ IXmlReaderInput ** ppInput);")
+
+cpp_quote("////////////////////////////////////////////////////////////////////////////////////////////////////////////")
+cpp_quote("// XmlWriter Constructors")
+cpp_quote("STDAPI CreateXmlWriter(_In_ REFIID riid,")
+cpp_quote("    _Out_ void ** ppvObject,")
+cpp_quote("    _In_opt_ IMalloc * pMalloc);")
+
+cpp_quote("////////////////////////////////////////////////////////////////////////////////////////////////////////////")
+cpp_quote("// XmlWriterOutput Constructors")
+cpp_quote("STDAPI CreateXmlWriterOutputWithEncodingCodePage(")
+cpp_quote("    _In_ IUnknown *pOutputStream,")
+cpp_quote("    _In_opt_ IMalloc *pMalloc,")
+cpp_quote("    _In_ UINT nEncodingCodePage,")
+cpp_quote("    _Out_ IXmlWriterOutput **ppOutput);")
+cpp_quote("STDAPI CreateXmlWriterOutputWithEncodingName(")
+cpp_quote("    _In_ IUnknown *pOutputStream,")
+cpp_quote("    _In_opt_ IMalloc *pMalloc,")
+cpp_quote("    _In_ LPCWSTR pwszEncodingName,")
+cpp_quote("    _Out_ IXmlWriterOutput **ppOutput);")
+
+[
+    uuid(7279FC80-709D-4095-B63D-69FE4B0D9030),
+    helpstring("Microsoft XmlLite Library"),
+    lcid(0x0000),
+    version(1.0)
+]
+
+library XmlLite
+{
+
+typedef enum XmlNodeType
+{
+    XmlNodeType_None = 0,
+    XmlNodeType_Element = 1,
+    XmlNodeType_Attribute = 2,
+    XmlNodeType_Text = 3,
+    XmlNodeType_CDATA = 4,
+    // XmlNodeType_EntityReference = 5,
+    // XmlNodeType_Entity = 6,
+    XmlNodeType_ProcessingInstruction = 7,
+    XmlNodeType_Comment = 8,
+    // XmlNodeType_Document = 9,
+    XmlNodeType_DocumentType = 10,
+    // XmlNodeType_DocumentFragment = 11,
+    // XmlNodeType_Notation = 12,
+    XmlNodeType_Whitespace = 13,
+    // XmlNodeType_SignificantWhitespace = 14,
+    XmlNodeType_EndElement = 15,
+    // XmlNodeType_EndEntity = 16,
+    XmlNodeType_XmlDeclaration = 17,
+
+    _XmlNodeType_Last = 17,
+} XmlNodeType;
+
+typedef enum XmlConformanceLevel
+{
+    XmlConformanceLevel_Auto = 0,
+    XmlConformanceLevel_Fragment = 1,
+    XmlConformanceLevel_Document = 2,
+
+    _XmlConformanceLevel_Last = 2,
+} XmlConformanceLevel;
+
+typedef enum DtdProcessing
+{
+    DtdProcessing_Prohibit,
+    DtdProcessing_Parse,
+
+    _DtdProcessing_Last = DtdProcessing_Parse,
+} DtdProcessing;
+
+typedef enum XmlReadState
+{
+    XmlReadState_Initial = 0,
+    XmlReadState_Interactive = 1,
+    XmlReadState_Error = 2,
+    XmlReadState_EndOfFile = 3,
+    XmlReadState_Closed = 4,
+} XmlReadState;
+
+typedef enum XmlReaderProperty
+{
+    XmlReaderProperty_MultiLanguage,
+    XmlReaderProperty_ConformanceLevel,
+    XmlReaderProperty_RandomAccess,
+    XmlReaderProperty_XmlResolver,
+    XmlReaderProperty_DtdProcessing,
+    XmlReaderProperty_ReadState,
+    XmlReaderProperty_MaxElementDepth,
+    XmlReaderProperty_MaxEntityExpansion,
+//    XmlReaderProperty_StringAllocator,
+
+//    _XmlReaderProperty_Last = XmlReaderProperty_StringAllocator,
+    _XmlReaderProperty_Last = XmlReaderProperty_MaxEntityExpansion,
+} XmlReaderProperty;
+
+typedef enum XmlError
+{
+    MX_E_MX                         =  0xC00CEE00,
+    MX_E_INPUTEND,                  // 0xC00CEE01 unexpected end of input
+    MX_E_ENCODING,                  // 0xC00CEE02 unrecognized encoding
+    MX_E_ENCODINGSWITCH,            // 0xC00CEE03 unable to switch the encoding
+    MX_E_ENCODINGSIGNATURE,         // 0xC00CEE04 unrecognized input signature
+    WC_E_WC                         =  0xC00CEE20,
+    WC_E_WHITESPACE,                // 0xC00CEE21 whitespace expected
+    WC_E_SEMICOLON,                 // 0xC00CEE22 semicolon expected
+    WC_E_GREATERTHAN,               // 0xC00CEE23 '>' expected
+    WC_E_QUOTE,                     // 0xC00CEE24 quote expected
+    WC_E_EQUAL,                     // 0xC00CEE25 equal expected
+    WC_E_LESSTHAN,                  // 0xC00CEE26 wfc: no '<' in attribute value
+    WC_E_HEXDIGIT,                  // 0xC00CEE27 hexadecimal digit expected
+    WC_E_DIGIT,                     // 0xC00CEE28 decimal digit expected
+    WC_E_LEFTBRACKET,               // 0xC00CEE29 '[' expected
+    WC_E_LEFTPAREN,                 // 0xC00CEE2A '(' expected
+    WC_E_XMLCHARACTER,              // 0xC00CEE2B illegal xml character
+    WC_E_NAMECHARACTER,             // 0xC00CEE2C illegal name character
+    WC_E_SYNTAX,                    // 0xC00CEE2D incorrect document syntax
+    WC_E_CDSECT,                    // 0xC00CEE2E incorrect CDATA section syntax
+    WC_E_COMMENT,                   // 0xC00CEE2F incorrect comment syntax
+    WC_E_CONDSECT,                  // 0xC00CEE30 incorrect conditional section syntax
+    WC_E_DECLATTLIST,               // 0xC00CEE31 incorrect ATTLIST declaration syntax
+    WC_E_DECLDOCTYPE,               // 0xC00CEE32 incorrect DOCTYPE declaration syntax
+    WC_E_DECLELEMENT,               // 0xC00CEE33 incorrect ELEMENT declaration syntax
+    WC_E_DECLENTITY,                // 0xC00CEE34 incorrect ENTITY declaration syntax
+    WC_E_DECLNOTATION,              // 0xC00CEE35 incorrect NOTATION declaration syntax
+    WC_E_NDATA,                     // 0xC00CEE36 NDATA expected
+    WC_E_PUBLIC,                    // 0xC00CEE37 PUBLIC expected
+    WC_E_SYSTEM,                    // 0xC00CEE38 SYSTEM expected
+    WC_E_NAME,                      // 0xC00CEE39 name expected
+    WC_E_ROOTELEMENT,               // 0xC00CEE3A one root element 
+    WC_E_ELEMENTMATCH,              // 0xC00CEE3B wfc: element type match
+    WC_E_UNIQUEATTRIBUTE,           // 0xC00CEE3C wfc: unique attribute spec
+    WC_E_TEXTXMLDECL,               // 0xC00CEE3D text/xmldecl not at the beginning of input
+    WC_E_LEADINGXML,                // 0xC00CEE3E leading "xml" 
+    WC_E_TEXTDECL,                  // 0xC00CEE3F incorrect text declaration syntax
+    WC_E_XMLDECL,                   // 0xC00CEE40 incorrect xml declaration syntax
+    WC_E_ENCNAME,                   // 0xC00CEE41 incorrect encoding name syntax
+    WC_E_PUBLICID,                  // 0xC00CEE42 incorrect public identifier syntax
+    WC_E_PESINTERNALSUBSET,         // 0xC00CEE43 wfc: pes in internal subset
+    WC_E_PESBETWEENDECLS,           // 0xC00CEE44 wfc: pes between declarations
+    WC_E_NORECURSION,               // 0xC00CEE45 wfc: no recursion
+    WC_E_ENTITYCONTENT,             // 0xC00CEE46 entity content not well formed
+    WC_E_UNDECLAREDENTITY,          // 0xC00CEE47 wfc: undeclared entity 
+    WC_E_PARSEDENTITY,              // 0xC00CEE48 wfc: parsed entity
+    WC_E_NOEXTERNALENTITYREF,       // 0xC00CEE49 wfc: no external entity references
+    WC_E_PI,                        // 0xC00CEE4A incorrect processing instruction syntax
+    WC_E_SYSTEMID,                  // 0xC00CEE4B incorrect system identifier syntax
+    WC_E_QUESTIONMARK,              // 0xC00CEE4C '?' expected
+    WC_E_CDSECTEND,                 // 0xC00CEE4D no ']]>' in element content
+    WC_E_MOREDATA,                  // 0xC00CEE4E not all chunks of value have been read
+    WC_E_DTDPROHIBITED,             // 0xC00CEE4F DTD was found but is prohibited
+    WC_E_INVALIDXMLSPACE,           // 0xC00CEE50 Invalid xml:space value
+    NC_E_NC                         =  0xC00CEE60,
+    NC_E_QNAMECHARACTER,            // 0xC00CEE61 illegal qualified name character
+    NC_E_QNAMECOLON,                // 0xC00CEE62 multiple colons in qualified name
+    NC_E_NAMECOLON,                 // 0xC00CEE63 colon in name
+    NC_E_DECLAREDPREFIX,            // 0xC00CEE64 declared prefix
+    NC_E_UNDECLAREDPREFIX,          // 0xC00CEE65 undeclared prefix
+    NC_E_EMPTYURI,                  // 0xC00CEE66 non default namespace with empty uri
+    NC_E_XMLPREFIXRESERVED,         // 0xC00CEE67 "xml" prefix is reserved and must have the http://www.w3.org/XML/1998/namespace URI
+    NC_E_XMLNSPREFIXRESERVED,       // 0xC00CEE68 "xmlns" prefix is reserved for use by XML
+    NC_E_XMLURIRESERVED,            // 0xC00CEE69 xml namespace URI (http://www.w3.org/XML/1998/namespace) must be assigned only to prefix "xml"
+    NC_E_XMLNSURIRESERVED,          // 0xC00CEE6A xmlns namespace URI (http://www.w3.org/2000/xmlns/) is reserved and must not be used
+    SC_E_SC                         =  0xC00CEE80,
+    SC_E_MAXELEMENTDEPTH,           // 0xC00CEE81 max element depth was exceeded
+    SC_E_MAXENTITYEXPANSION,        // 0xC00CEE82 max number of expanded entities was exceeded
+    WR_E_WR                         =  0xC00CEF00,
+    WR_E_NONWHITESPACE,             // 0xC00CEF01 writer: specified string is not whitespace
+    WR_E_NSPREFIXDECLARED,          // 0xC00CEF02 writer: namespace prefix is already declared with a different namespace
+    WR_E_NSPREFIXWITHEMPTYNSURI,    // 0xC00CEF03 writer: cannot use prefix with empty namespace URI
+    WR_E_DUPLICATEATTRIBUTE,        // 0xC00CEF04 writer: duplicate attribute
+    WR_E_XMLNSPREFIXDECLARATION,    // 0xC00CEF05 writer: can not redefine the xmlns prefix
+    WR_E_XMLPREFIXDECLARATION,      // 0xC00CEF06 writer: xml prefix must have the http://www.w3.org/XML/1998/namespace URI
+    WR_E_XMLURIDECLARATION,         // 0xC00CEF07 writer: xml namespace URI (http://www.w3.org/XML/1998/namespace) must be assigned only to prefix "xml"
+    WR_E_XMLNSURIDECLARATION,       // 0xC00CEF08 writer: xmlns namespace URI (http://www.w3.org/2000/xmlns/) is reserved and must not be used
+    WR_E_NAMESPACEUNDECLARED,       // 0xC00CEF09 writer: namespace is not declared
+    WR_E_INVALIDXMLSPACE,           // 0xC00CEF0A writer: invalid value of xml:space attribute (allowed values are "default" and "preserve")
+    WR_E_INVALIDACTION,             // 0xC00CEF0B writer: performing the requested action would result in invalid XML document
+    WR_E_INVALIDSURROGATEPAIR,      // 0xC00CEF0C writer: input contains invalid or incomplete surrogate pair
+    XML_E_INVALID_DECIMAL           =  0xC00CE01D,
+    XML_E_INVALID_HEXIDECIMAL       =  0xC00CE01E,
+    XML_E_INVALID_UNICODE           =  0xC00CE01F,
+    XML_E_INVALIDENCODING           =  0xC00CE06E,
+} XmlError;
+
+[
+    hidden,
+    object,
+    local,
+    uuid(7279FC81-709D-4095-B63D-69FE4B0D9030),
+    pointer_default(unique)
+]
+interface IXmlReader : IUnknown
+{
+    HRESULT SetInput(
+        [annotation("_In_opt_")] IUnknown * pInput);
+
+    HRESULT GetProperty(
+        [annotation("_In_")] UINT nProperty, 
+        [annotation("_Out_")] LONG_PTR * ppValue);
+    HRESULT SetProperty(
+        [annotation("_In_")] UINT nProperty, 
+        [annotation("_In_opt_")] LONG_PTR pValue);
+
+    HRESULT Read(
+        [annotation("_Out_opt_")] XmlNodeType * pNodeType);
+    HRESULT GetNodeType(
+        [annotation("_Out_")] XmlNodeType * pNodeType);
+    HRESULT MoveToFirstAttribute();
+    HRESULT MoveToNextAttribute();
+    HRESULT MoveToAttributeByName(
+        [annotation("_In_")] LPCWSTR pwszLocalName, 
+        [annotation("_In_opt_")] LPCWSTR pwszNamespaceUri);
+    HRESULT MoveToElement();
+
+    HRESULT GetQualifiedName(
+        [annotation("_Outptr_result_buffer_maybenull_(*pcwchQualifiedName+1)")] LPCWSTR * ppwszQualifiedName, 
+        [annotation("_Out_opt_")] UINT * pcwchQualifiedName);
+    HRESULT GetNamespaceUri(
+        [annotation("_Outptr_result_buffer_maybenull_(*pcwchNamespaceUri+1)")] LPCWSTR * ppwszNamespaceUri, 
+        [annotation("_Out_opt_")] UINT * pcwchNamespaceUri);
+    HRESULT GetLocalName(
+        [annotation("_Outptr_result_buffer_maybenull_(*pcwchLocalName+1)")] LPCWSTR * ppwszLocalName, 
+        [annotation("_Out_opt_")] UINT * pcwchLocalName);
+    HRESULT GetPrefix(
+        [annotation("_Outptr_result_buffer_maybenull_(*pcwchPrefix+1)")] LPCWSTR * ppwszPrefix, 
+        [annotation("_Out_opt_")] UINT * pcwchPrefix);
+    HRESULT GetValue(
+        [annotation("_Outptr_result_buffer_maybenull_(*pcwchValue+1)")] LPCWSTR * ppwszValue, 
+        [annotation("_Out_opt_")] UINT * pcwchValue);
+    HRESULT ReadValueChunk(
+        [annotation("_Out_writes_to_(cwchChunkSize, *pcwchRead)")] WCHAR * pwchBuffer, 
+        [annotation("_In_")] UINT cwchChunkSize, 
+        [annotation("_Inout_")] UINT * pcwchRead);
+    HRESULT GetBaseUri(
+        [annotation("_Outptr_result_buffer_maybenull_(*pcwchBaseUri+1)")] LPCWSTR * ppwszBaseUri, 
+        [annotation("_Out_opt_")] UINT * pcwchBaseUri);
+    BOOL IsDefault();
+    BOOL IsEmptyElement();
+
+    HRESULT GetLineNumber(
+        [annotation("_Out_")] UINT * pnLineNumber);
+    HRESULT GetLinePosition(
+        [annotation("_Out_")] UINT * pnLinePosition);
+
+    HRESULT GetAttributeCount(
+        [annotation("_Out_")] UINT * pnAttributeCount);
+    HRESULT GetDepth(
+        [annotation("_Out_")] UINT * pnDepth);
+    BOOL IsEOF();
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(7279FC82-709D-4095-B63D-69FE4B0D9030),
+    pointer_default(unique)
+]
+interface IXmlResolver : IUnknown
+{
+    HRESULT ResolveUri(
+        [annotation("_In_opt_")] LPCWSTR pwszBaseUri,
+        [annotation("_In_opt_")] LPCWSTR pwszPublicIdentifier,
+        [annotation("_In_opt_")] LPCWSTR pwszSystemIdentifier,
+        [annotation("_Out_")] IUnknown ** ppResolvedInput);
+};
+
+/*
+[
+    hidden,
+    object,
+    local,
+    uuid(7279FC83-709D-4095-B63D-69FE4B0D9030),
+    pointer_default(unique)
+]
+interface IXmlStringAllocator : IUnknown
+{
+    // Given a string this method must return a copy of that string
+    // The pwh buffer will get deleted soon, so the data must be copied out.
+    // The returned string must be NUL terminated
+    // The reader will use this to allocate names (LocalName, Prefix, QName, NamespaceUri)
+    //   This is intended as an extension point for XmlCache which would implement this
+    //   using some kind of NameTable -> the reader itself doesn't require atomization
+    //   but the cache probably would. That's why this call will always provide the
+    //   whole string (so that it can be easily atomized).
+    HRESULT CreateName(
+        [annotation("_In_reads_(cwch)")] const WCHAR *pwch, 
+        [annotation("_In_")] UINT cwch, 
+        [annotation("_Out_")] LPWSTR *ppwsz);
+
+    // Given the size of the value, this returns a buffer in which a string
+    //   should be stored. Please note, that the size will be given INCLUDING the
+    //   terminating NUL character.
+    // This is basically a simple memory allocator.
+    // The reader will fill the returned buffer with the string.
+    HRESULT CreateValue(
+        [annotation("_In_")] UINT cwch,
+        [annotation("_Out_")] WCHAR **ppwch);
+};
+*/
+
+typedef enum XmlStandalone
+{
+    XmlStandalone_Omit = 0,
+    XmlStandalone_Yes = 1,
+    XmlStandalone_No = 2,
+
+    _XmlStandalone_Last = 2,
+} XmlStandalone;
+
+typedef enum XmlWriterProperty
+{
+    XmlWriterProperty_MultiLanguage,
+    XmlWriterProperty_Indent,
+    XmlWriterProperty_ByteOrderMark,
+    XmlWriterProperty_OmitXmlDeclaration,
+    XmlWriterProperty_ConformanceLevel,
+    XmlWriterProperty_CompactEmptyElement,
+    
+    _XmlWriterProperty_Last = XmlWriterProperty_CompactEmptyElement,
+} XmlWriterProperty;
+
+[
+    hidden,
+    object,
+    local,
+    uuid(7279FC88-709D-4095-B63D-69FE4B0D9030),
+    pointer_default(unique)
+]
+interface IXmlWriter : IUnknown
+{
+    HRESULT SetOutput(
+        [annotation("_In_opt_")] IUnknown *pOutput);
+
+    HRESULT GetProperty(
+        [annotation("_In_")] UINT nProperty, 
+        [annotation("_Out_")] LONG_PTR *ppValue);
+    HRESULT SetProperty(
+        [annotation("_In_")] UINT nProperty, 
+        [annotation("_In_opt_")] LONG_PTR pValue);
+
+    HRESULT WriteAttributes(
+        [annotation("_In_")] IXmlReader *pReader, 
+        [annotation("_In_")] BOOL fWriteDefaultAttributes);
+    HRESULT WriteAttributeString(
+        [annotation("_In_opt_")] LPCWSTR pwszPrefix, 
+        [annotation("_In_opt_")] LPCWSTR pwszLocalName, 
+        [annotation("_In_opt_")] LPCWSTR pwszNamespaceUri, 
+        [annotation("_In_opt_")] LPCWSTR pwszValue);
+    HRESULT WriteCData(
+        [annotation("_In_opt_")] LPCWSTR pwszText);
+    HRESULT WriteCharEntity(
+        [annotation("_In_")] WCHAR wch);
+    HRESULT WriteChars(
+        [annotation("_In_reads_opt_(cwch)")] const WCHAR *pwch, 
+        [annotation("_In_")] UINT cwch);
+    HRESULT WriteComment(
+        [annotation("_In_opt_")] LPCWSTR pwszComment);
+    HRESULT WriteDocType(
+        [annotation("_In_opt_")] LPCWSTR pwszName, 
+        [annotation("_In_opt_")] LPCWSTR pwszPublicId, 
+        [annotation("_In_opt_")] LPCWSTR pwszSystemId, 
+        [annotation("_In_opt_")] LPCWSTR pwszSubset);
+    HRESULT WriteElementString(
+        [annotation("_In_opt_")] LPCWSTR pwszPrefix, 
+        [annotation("_In_")] LPCWSTR pwszLocalName, 
+        [annotation("_In_opt_")] LPCWSTR pwszNamespaceUri, 
+        [annotation("_In_opt_")] LPCWSTR pwszValue);
+    HRESULT WriteEndDocument();
+    HRESULT WriteEndElement();
+    HRESULT WriteEntityRef(
+        [annotation("_In_")] LPCWSTR pwszName);
+    HRESULT WriteFullEndElement();
+    HRESULT WriteName(
+        [annotation("_In_")] LPCWSTR pwszName);
+    HRESULT WriteNmToken(
+        [annotation("_In_")] LPCWSTR pwszNmToken);
+    HRESULT WriteNode(
+        [annotation("_In_")] IXmlReader *pReader, 
+        [annotation("_In_")] BOOL fWriteDefaultAttributes);
+    HRESULT WriteNodeShallow(
+        [annotation("_In_")] IXmlReader *pReader, 
+        [annotation("_In_")] BOOL fWriteDefaultAttributes);
+    HRESULT WriteProcessingInstruction(
+        [annotation("_In_")] LPCWSTR pwszName, 
+        [annotation("_In_opt_")] LPCWSTR pwszText);
+    HRESULT WriteQualifiedName(
+        [annotation("_In_")] LPCWSTR pwszLocalName, 
+        [annotation("_In_opt_")] LPCWSTR pwszNamespaceUri);
+    HRESULT WriteRaw(
+        [annotation("_In_opt_")] LPCWSTR pwszData);
+    HRESULT WriteRawChars(
+        [annotation("_In_reads_opt_(cwch)")] const WCHAR *pwch, 
+        [annotation("_In_")] UINT cwch);
+    HRESULT WriteStartDocument(
+        [annotation("_In_")] XmlStandalone standalone);
+    HRESULT WriteStartElement(
+        [annotation("_In_opt_")] LPCWSTR pwszPrefix, 
+        [annotation("_In_")] LPCWSTR pwszLocalName, 
+        [annotation("_In_opt_")] LPCWSTR pwszNamespaceUri);
+    HRESULT WriteString(
+        [annotation("_In_opt_")] LPCWSTR pwszText);
+    HRESULT WriteSurrogateCharEntity(
+        [annotation("_In_")] WCHAR wchLow, 
+        [annotation("_In_")] WCHAR wchHigh);
+    HRESULT WriteWhitespace(
+        [annotation("_In_opt_")] LPCWSTR pwszWhitespace);
+
+    HRESULT Flush();
+};
+
+/*
+    In some scenarios, customer are clear about output xml and want 
+    high performance in xml writing, in this case, full validation
+    of xml format is not needed. To adapt to this case, IXmlWriterLite
+    is provided. IXmlWriterLite have high performance in writing and do
+    not do validations of namespaces and attributes.
+*/
+[
+    hidden,
+    object,
+    local,
+    uuid(862494C6-1310-4AAD-B3CD-2DBEEBF670D3),
+    pointer_default(unique)
+]
+interface IXmlWriterLite : IUnknown
+{
+    HRESULT SetOutput(
+        [annotation("_In_opt_")] IUnknown *pOutput);
+
+    HRESULT GetProperty(
+        [annotation("_In_")] UINT nProperty, 
+        [annotation("_Out_")] LONG_PTR *ppValue);
+    HRESULT SetProperty(
+        [annotation("_In_")] UINT nProperty, 
+        [annotation("_In_opt_")] LONG_PTR pValue);
+
+    HRESULT WriteAttributes(
+        [annotation("_In_")] IXmlReader *pReader, 
+        [annotation("_In_")] BOOL fWriteDefaultAttributes);
+    HRESULT WriteAttributeString(
+        [annotation("_In_reads_(cwszQName)")] const WCHAR *pwszQName, 
+        [annotation("_In_")] UINT cwszQName,
+        [annotation("_In_reads_opt_(cwszValue)")] const WCHAR *pwszValue, 
+        [annotation("_In_")] UINT cwszValue);
+    HRESULT WriteCData(
+        [annotation("_In_opt_")] LPCWSTR pwszText);
+    HRESULT WriteCharEntity(
+        [annotation("_In_")] WCHAR wch);
+    HRESULT WriteChars(
+        [annotation("_In_reads_opt_(cwch)")] const WCHAR *pwch, 
+        [annotation("_In_")] UINT cwch);
+    HRESULT WriteComment(
+        [annotation("_In_opt_")] LPCWSTR pwszComment);
+    HRESULT WriteDocType(
+        [annotation("_In_opt_")] LPCWSTR pwszName, 
+        [annotation("_In_opt_")] LPCWSTR pwszPublicId, 
+        [annotation("_In_opt_")] LPCWSTR pwszSystemId, 
+        [annotation("_In_opt_")] LPCWSTR pwszSubset);
+    HRESULT WriteElementString(
+        [annotation("_In_reads_(cwszQName)")] const WCHAR *pwszQName, 
+        [annotation("_In_")] UINT cwszQName,        
+        [annotation("_In_opt_")] LPCWSTR pwszValue);
+    HRESULT WriteEndDocument();
+    HRESULT WriteEndElement(
+        [annotation("_In_reads_(cwszQName)")] const WCHAR *pwszQName, 
+        [annotation("_In_")] UINT cwszQName);
+    HRESULT WriteEntityRef(
+        [annotation("_In_")] LPCWSTR pwszName);
+    HRESULT WriteFullEndElement(
+        [annotation("_In_reads_(cwszQName)")] const WCHAR *pwszQName, 
+        [annotation("_In_")] UINT cwszQName);
+    HRESULT WriteName(
+        [annotation("_In_")] LPCWSTR pwszName);
+    HRESULT WriteNmToken(
+        [annotation("_In_")] LPCWSTR pwszNmToken);
+    HRESULT WriteNode(
+        [annotation("_In_")] IXmlReader *pReader, 
+        [annotation("_In_")] BOOL fWriteDefaultAttributes);
+    HRESULT WriteNodeShallow(
+        [annotation("_In_")] IXmlReader *pReader, 
+        [annotation("_In_")] BOOL fWriteDefaultAttributes);
+    HRESULT WriteProcessingInstruction(
+        [annotation("_In_")] LPCWSTR pwszName, 
+        [annotation("_In_opt_")] LPCWSTR pwszText);
+    HRESULT WriteRaw(
+        [annotation("_In_opt_")] LPCWSTR pwszData);
+    HRESULT WriteRawChars(
+        [annotation("_In_reads_opt_(cwch)")] const WCHAR *pwch, 
+        [annotation("_In_")] UINT cwch);
+    HRESULT WriteStartDocument(
+        [annotation("_In_")] XmlStandalone standalone);
+    HRESULT WriteStartElement(
+        [annotation("_In_reads_(cwszQName)")] const WCHAR *pwszQName, 
+        [annotation("_In_")] UINT cwszQName);
+    HRESULT WriteString(
+        [annotation("_In_opt_")] LPCWSTR pwszText);
+    HRESULT WriteSurrogateCharEntity(
+        [annotation("_In_")] WCHAR wchLow, 
+        [annotation("_In_")] WCHAR wchHigh);
+    HRESULT WriteWhitespace(
+        [annotation("_In_opt_")] LPCWSTR pwszWhitespace);
+
+    HRESULT Flush();
+};
+
+};
+
+cpp_quote("////////////////////////////////////////////////////////////////////////////////////////////////////////////")
+cpp_quote("// IID helpers")
+cpp_quote("static const IID _IID_IXmlReader = { 0x7279FC81, 0x709D, 0x4095, { 0xB6, 0x3D, 0x69, 0xFE, 0x4B, 0x0D, 0x90, 0x30 } };")
+cpp_quote("static const IID _IID_IXmlWriter = { 0x7279FC88, 0x709D, 0x4095, { 0xB6, 0x3D, 0x69, 0xFE, 0x4B, 0x0D, 0x90, 0x30 } };")
+cpp_quote("static const IID _IID_IXmlResolver = { 0x7279FC82, 0x709D, 0x4095, { 0xB6, 0x3D, 0x69, 0xFE, 0x4B, 0x0D, 0x90, 0x30 } };")
+cpp_quote("#define IID_IXmlReader _IID_IXmlReader")
+cpp_quote("#define IID_IXmlWriter _IID_IXmlWriter")
+cpp_quote("#define IID_IXmlResolver _IID_IXmlResolver")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion

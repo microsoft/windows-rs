@@ -1,0 +1,34 @@
+/*  Windows.Graphics.Display.Interop.idl
+ *
+ *	IDL defines COM APIs to support interop with Windows.Graphics.Display.DisplayInformation
+ *
+ *	Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_NI)")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(7449121C-382B-4705-8DA7-A795BA482013),
+]
+interface IDisplayInformationStaticsInterop : IInspectable
+{
+    HRESULT GetForWindow(
+            [in] HWND window,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** displayInfo);
+
+    HRESULT GetForMonitor(
+            [in] HMONITOR monitor,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** displayInfo);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_NI)")
+
+

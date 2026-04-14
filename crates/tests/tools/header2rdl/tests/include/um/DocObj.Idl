@@ -1,0 +1,807 @@
+//+---------------------------------------------------------------------------
+//
+//  Copyright Microsoft Corporation. All Rights Reserved.
+//
+//  Contents:   OLE Document Object interfaces
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// DocObj.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("// OLE Document Object Interfaces.")
+
+
+import "ocidl.idl";
+import "objidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+import "servprov.idl";
+
+/*
+#define HWND        UserHWND
+#define HACCEL      UserHACCEL
+#define HDC         UserHDC
+#define HFONT       UserHFONT
+#define MSG         UserMSG
+#define BSTR        UserBSTR
+#define EXCEPINFO   UserEXCEPINFO
+#define VARIANT     UserVARIANT
+*/
+
+interface IOleDocument;
+interface IOleDocumentSite;
+interface IOleDocumentView;
+interface IEnumOleDocumentViews;
+interface IContinueCallback;
+interface IPrint;
+interface IOleCommandTarget;
+interface IProtectedModeMenuServices;
+
+cpp_quote("")
+cpp_quote("////////////////////////////////////////////////////////////////////////////")
+cpp_quote("//  Interface Definitions")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IOleDocument interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPOLEDOCUMENT_DEFINED")
+cpp_quote("#define _LPOLEDOCUMENT_DEFINED")
+[
+        object,
+        uuid(b722bcc5-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IOleDocument : IUnknown
+{
+        typedef [unique] IOleDocument *LPOLEDOCUMENT;
+
+        typedef enum {
+                DOCMISC_CANCREATEMULTIPLEVIEWS          = 1,
+                DOCMISC_SUPPORTCOMPLEXRECTANGLES        = 2,
+                DOCMISC_CANTOPENEDIT                        = 4,        // fails the IOleDocumentView::Open  method
+                DOCMISC_NOFILESUPPORT                       = 8,        //  does not support read/writing to a file
+        } DOCMISC;
+
+
+        HRESULT CreateView(
+                [in, unique] IOleInPlaceSite *pIPSite,
+                [in, unique] IStream *pstm,
+                [in] DWORD dwReserved,
+                [out] IOleDocumentView **ppView);
+
+        HRESULT GetDocMiscStatus(
+                [out] DWORD *pdwStatus);
+
+        HRESULT EnumViews(
+                [out] IEnumOleDocumentViews **ppEnum,
+                [out] IOleDocumentView **ppView);
+}
+cpp_quote("#endif")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IOleDocumentSite interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPOLEDOCUMENTSITE_DEFINED")
+cpp_quote("#define _LPOLEDOCUMENTSITE_DEFINED")
+[
+        object,
+        uuid(b722bcc7-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IOleDocumentSite : IUnknown
+{
+        typedef [unique] IOleDocumentSite *LPOLEDOCUMENTSITE;
+
+        HRESULT ActivateMe(
+                [in] IOleDocumentView *pViewToActivate);
+}
+cpp_quote("#endif")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IOleDocumentView interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPOLEDOCUMENTVIEW_DEFINED")
+cpp_quote("#define _LPOLEDOCUMENTVIEW_DEFINED")
+[
+        object,
+        uuid(b722bcc6-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IOleDocumentView : IUnknown
+{
+        typedef [unique] IOleDocumentView *LPOLEDOCUMENTVIEW;
+
+        HRESULT SetInPlaceSite(
+                [in, unique] IOleInPlaceSite *pIPSite);
+
+        HRESULT GetInPlaceSite(
+                [out] IOleInPlaceSite **ppIPSite);
+
+        HRESULT GetDocument(
+                [out] IUnknown **ppunk);
+
+        [input_sync]
+        HRESULT SetRect(
+        [in] LPRECT prcView);
+
+        HRESULT GetRect(
+        [out] LPRECT prcView);
+
+        [input_sync]
+        HRESULT SetRectComplex(
+                [in, unique] LPRECT prcView,
+                [in, unique] LPRECT prcHScroll,
+                [in, unique] LPRECT prcVScroll,
+                [in, unique] LPRECT prcSizeBox);
+
+        HRESULT Show(
+                [in] BOOL fShow);
+
+        HRESULT UIActivate(
+                [in] BOOL fUIActivate);
+
+        HRESULT Open(void);
+
+        HRESULT CloseView([in] DWORD dwReserved);
+
+        HRESULT SaveViewState(
+                [in] LPSTREAM pstm);
+
+        HRESULT ApplyViewState(
+                [in] LPSTREAM pstm);
+
+        HRESULT Clone(
+                [in] IOleInPlaceSite *pIPSiteNew,
+                [out] IOleDocumentView **ppViewNew);
+}
+cpp_quote("#endif")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IEnumOleDocumentViews interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPENUMOLEDOCUMENTVIEWS_DEFINED")
+cpp_quote("#define _LPENUMOLEDOCUMENTVIEWS_DEFINED")
+[
+        object,
+        uuid(b722bcc8-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IEnumOleDocumentViews : IUnknown
+{
+
+        typedef [unique] IEnumOleDocumentViews *LPENUMOLEDOCUMENTVIEWS;
+
+        [local]
+        HRESULT __stdcall Next(
+        [in] ULONG cViews,
+                [out] IOleDocumentView **rgpView,
+                [out] ULONG *pcFetched);
+
+        [call_as(Next)]
+        HRESULT __stdcall RemoteNext(
+        [in] ULONG cViews,
+                [out, size_is(cViews), length_is(*pcFetched)]
+                IOleDocumentView **rgpView,
+                [out] ULONG *pcFetched);
+
+        HRESULT Skip(
+                [in] ULONG cViews);
+
+        HRESULT Reset();
+
+        HRESULT Clone(
+                [out] IEnumOleDocumentViews **ppEnum);
+}
+cpp_quote("#endif")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IContinueCallback interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPCONTINUECALLBACK_DEFINED")
+cpp_quote("#define _LPCONTINUECALLBACK_DEFINED")
+[
+        object,
+        uuid(b722bcca-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IContinueCallback : IUnknown
+{
+        typedef [unique] IContinueCallback *LPCONTINUECALLBACK;
+
+        HRESULT FContinue();
+
+        HRESULT FContinuePrinting(
+                [in] LONG nCntPrinted,
+                [in] LONG nCurPage,
+                [in, unique] wchar_t * pwszPrintStatus);
+}
+cpp_quote("#endif")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IPrint interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPPRINT_DEFINED")
+cpp_quote("#define _LPPRINT_DEFINED")
+[
+        object,
+        uuid(b722bcc9-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IPrint : IUnknown
+{
+        typedef [unique] IPrint *LPPRINT;
+
+        typedef enum
+        {
+                PRINTFLAG_MAYBOTHERUSER         = 1,
+                PRINTFLAG_PROMPTUSER            = 2,
+                PRINTFLAG_USERMAYCHANGEPRINTER  = 4,
+                PRINTFLAG_RECOMPOSETODEVICE     = 8,
+                PRINTFLAG_DONTACTUALLYPRINT     = 16,
+                PRINTFLAG_FORCEPROPERTIES       = 32,
+                PRINTFLAG_PRINTTOFILE           = 64
+        } PRINTFLAG;
+
+        typedef struct  tagPAGERANGE
+        {
+                LONG nFromPage;
+                LONG nToPage;
+        } PAGERANGE;
+
+        typedef struct  tagPAGESET
+        {
+                ULONG   cbStruct;
+                BOOL    fOddPages;
+                BOOL    fEvenPages;
+                ULONG   cPageRange;
+                [size_is(cPageRange)]
+                PAGERANGE rgPages[];
+        } PAGESET;
+
+        cpp_quote("#define PAGESET_TOLASTPAGE   ((WORD)(-1L))")
+
+        HRESULT SetInitialPageNum(
+                [in] LONG nFirstPage);
+
+        HRESULT GetPageInfo(
+                [out] LONG *pnFirstPage,
+                [out] LONG *pcPages);
+
+        [local]
+        HRESULT __stdcall Print(
+                [in] DWORD grfFlags,
+                [in, out] DVTARGETDEVICE **pptd,
+                [in, out] PAGESET ** ppPageSet,
+                [in, out, unique] STGMEDIUM * pstgmOptions,
+                [in] IContinueCallback *pcallback,
+                [in]  LONG nFirstPage,
+                [out] LONG *pcPagesPrinted,
+                [out] LONG *pnLastPage);
+
+        [call_as(Print)]
+        HRESULT __stdcall RemotePrint(
+                [in] DWORD grfFlags,
+                [in, out] DVTARGETDEVICE **pptd,
+                [in, out] PAGESET ** pppageset,
+                [in, out, unique] RemSTGMEDIUM * pstgmOptions,
+                [in] IContinueCallback * pcallback,
+                [in]  LONG nFirstPage,
+                [out] LONG * pcPagesPrinted,
+                [out] LONG * pnLastPage);
+}
+cpp_quote("#endif")
+
+
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation, 1995-1998.
+//
+//  Contents:    IOleCommandTarget interface definition
+//
+//----------------------------------------------------------------------------
+cpp_quote("#ifndef _LPOLECOMMANDTARGET_DEFINED")
+cpp_quote("#define _LPOLECOMMANDTARGET_DEFINED")
+[
+        //local,
+        object,
+        uuid(b722bccb-4e68-101b-a2bc-00aa00404770),
+        pointer_default(unique)
+]
+interface IOleCommandTarget : IUnknown
+{
+        typedef [unique] IOleCommandTarget *LPOLECOMMANDTARGET;
+
+        typedef enum OLECMDF
+        {
+                OLECMDF_SUPPORTED       = 0x00000001,
+                OLECMDF_ENABLED         = 0x00000002,
+                OLECMDF_LATCHED         = 0x00000004,
+                OLECMDF_NINCHED         = 0x00000008,
+                OLECMDF_INVISIBLE       = 0x00000010,
+                OLECMDF_DEFHIDEONCTXTMENU = 0x00000020,
+        } OLECMDF;
+
+
+        typedef struct _tagOLECMD {
+                ULONG   cmdID;
+                DWORD   cmdf;
+        } OLECMD;
+
+        typedef struct _tagOLECMDTEXT{
+                DWORD cmdtextf;
+                ULONG cwActual;
+                ULONG cwBuf;    /* size in wide chars of the buffer for text */
+                [size_is(cwBuf)]
+                wchar_t rgwz[]; /* Array into which callee writes the text */
+        } OLECMDTEXT;
+
+        typedef enum OLECMDTEXTF
+        {
+                OLECMDTEXTF_NONE        = 0,
+                OLECMDTEXTF_NAME        = 1,
+                OLECMDTEXTF_STATUS      = 2,
+        } OLECMDTEXTF;
+
+        typedef enum OLECMDEXECOPT
+        {
+                OLECMDEXECOPT_DODEFAULT         = 0,
+                OLECMDEXECOPT_PROMPTUSER        = 1,
+                OLECMDEXECOPT_DONTPROMPTUSER    = 2,
+                OLECMDEXECOPT_SHOWHELP          = 3
+        } OLECMDEXECOPT;
+
+cpp_quote("/* OLECMDID_STOPDOWNLOAD and OLECMDID_ALLOWUILESSSAVEAS are supported for QueryStatus Only */")
+
+        typedef enum OLECMDID {
+                OLECMDID_OPEN                           = 1,
+                OLECMDID_NEW                            = 2,
+                OLECMDID_SAVE                           = 3,
+                OLECMDID_SAVEAS                         = 4,
+                OLECMDID_SAVECOPYAS                     = 5,
+                OLECMDID_PRINT                          = 6,
+                OLECMDID_PRINTPREVIEW                   = 7,
+                OLECMDID_PAGESETUP                      = 8,
+                OLECMDID_SPELL                          = 9,
+                OLECMDID_PROPERTIES                     = 10,
+                OLECMDID_CUT                            = 11,
+                OLECMDID_COPY                           = 12,
+                OLECMDID_PASTE                          = 13,
+                OLECMDID_PASTESPECIAL                   = 14,
+                OLECMDID_UNDO                           = 15,
+                OLECMDID_REDO                           = 16,
+                OLECMDID_SELECTALL                      = 17,
+                OLECMDID_CLEARSELECTION                 = 18,
+                OLECMDID_ZOOM                           = 19,
+                OLECMDID_GETZOOMRANGE                   = 20,
+                OLECMDID_UPDATECOMMANDS                 = 21,
+                OLECMDID_REFRESH                        = 22,
+                OLECMDID_STOP                           = 23,
+                OLECMDID_HIDETOOLBARS                   = 24,
+                OLECMDID_SETPROGRESSMAX                 = 25,
+                OLECMDID_SETPROGRESSPOS                 = 26,
+                OLECMDID_SETPROGRESSTEXT                = 27,
+                OLECMDID_SETTITLE                       = 28,
+                OLECMDID_SETDOWNLOADSTATE               = 29,
+                OLECMDID_STOPDOWNLOAD                   = 30,
+                OLECMDID_ONTOOLBARACTIVATED             = 31,
+                OLECMDID_FIND                           = 32,
+                OLECMDID_DELETE                         = 33,
+                OLECMDID_HTTPEQUIV                      = 34,
+                OLECMDID_HTTPEQUIV_DONE                 = 35,
+                OLECMDID_ENABLE_INTERACTION             = 36,
+                OLECMDID_ONUNLOAD                       = 37,
+                OLECMDID_PROPERTYBAG2                   = 38,
+                OLECMDID_PREREFRESH                     = 39,
+                OLECMDID_SHOWSCRIPTERROR                = 40,
+                OLECMDID_SHOWMESSAGE                    = 41,
+                OLECMDID_SHOWFIND                       = 42,
+                OLECMDID_SHOWPAGESETUP                  = 43,
+                OLECMDID_SHOWPRINT                      = 44,
+                OLECMDID_CLOSE                          = 45,
+                OLECMDID_ALLOWUILESSSAVEAS              = 46,
+                OLECMDID_DONTDOWNLOADCSS                = 47,
+                OLECMDID_UPDATEPAGESTATUS               = 48,
+                OLECMDID_PRINT2                         = 49,
+                OLECMDID_PRINTPREVIEW2                  = 50,
+                OLECMDID_SETPRINTTEMPLATE               = 51,
+                OLECMDID_GETPRINTTEMPLATE               = 52,
+                OLECMDID_PAGEACTIONBLOCKED              = 55,
+                OLECMDID_PAGEACTIONUIQUERY              = 56,
+                OLECMDID_FOCUSVIEWCONTROLS              = 57,
+                OLECMDID_FOCUSVIEWCONTROLSQUERY         = 58,
+                OLECMDID_SHOWPAGEACTIONMENU             = 59,
+                OLECMDID_ADDTRAVELENTRY                 = 60,
+                OLECMDID_UPDATETRAVELENTRY              = 61,
+                OLECMDID_UPDATEBACKFORWARDSTATE         = 62,
+                OLECMDID_OPTICAL_ZOOM                   = 63,
+                OLECMDID_OPTICAL_GETZOOMRANGE           = 64,
+                OLECMDID_WINDOWSTATECHANGED             = 65,
+                OLECMDID_ACTIVEXINSTALLSCOPE            = 66,
+                OLECMDID_UPDATETRAVELENTRY_DATARECOVERY = 67,
+                OLECMDID_SHOWTASKDLG                    = 68,
+                OLECMDID_POPSTATEEVENT                  = 69,
+                OLECMDID_VIEWPORT_MODE                  = 70,
+                OLECMDID_LAYOUT_VIEWPORT_WIDTH          = 71,
+                OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM = 72,
+                OLECMDID_USER_OPTICAL_ZOOM              = 73,
+                OLECMDID_PAGEAVAILABLE                  = 74,
+                OLECMDID_GETUSERSCALABLE                = 75,
+                OLECMDID_UPDATE_CARET                   = 76,
+                OLECMDID_ENABLE_VISIBILITY              = 77,
+                OLECMDID_MEDIA_PLAYBACK                 = 78,
+                OLECMDID_SETFAVICON                     = 79,
+                OLECMDID_SET_HOST_FULLSCREENMODE        = 80,
+                OLECMDID_EXITFULLSCREEN                 = 81,
+                OLECMDID_SCROLLCOMPLETE                 = 82,
+                OLECMDID_ONBEFOREUNLOAD                 = 83,
+                OLECMDID_SHOWMESSAGE_BLOCKABLE          = 84,
+                OLECMDID_SHOWTASKDLG_BLOCKABLE          = 85,
+        } OLECMDID;
+
+typedef enum MEDIAPLAYBACK_STATE {
+        MEDIAPLAYBACK_RESUME = 0,
+        MEDIAPLAYBACK_PAUSE = 1,
+        MEDIAPLAYBACK_PAUSE_AND_SUSPEND = 2,
+        MEDIAPLAYBACK_RESUME_FROM_SUSPEND = 3,
+        } MEDIAPLAYBACK_STATE;
+        
+/* error codes */
+cpp_quote("#define OLECMDERR_E_FIRST            (OLE_E_LAST+1)")
+cpp_quote("#define OLECMDERR_E_NOTSUPPORTED     (OLECMDERR_E_FIRST)")
+cpp_quote("#define OLECMDERR_E_DISABLED         (OLECMDERR_E_FIRST+1)")
+cpp_quote("#define OLECMDERR_E_NOHELP           (OLECMDERR_E_FIRST+2)")
+cpp_quote("#define OLECMDERR_E_CANCELED         (OLECMDERR_E_FIRST+3)")
+cpp_quote("#define OLECMDERR_E_UNKNOWNGROUP     (OLECMDERR_E_FIRST+4)")
+
+cpp_quote("#define MSOCMDERR_E_FIRST            OLECMDERR_E_FIRST")
+cpp_quote("#define MSOCMDERR_E_NOTSUPPORTED     OLECMDERR_E_NOTSUPPORTED")
+cpp_quote("#define MSOCMDERR_E_DISABLED         OLECMDERR_E_DISABLED")
+cpp_quote("#define MSOCMDERR_E_NOHELP           OLECMDERR_E_NOHELP")
+cpp_quote("#define MSOCMDERR_E_CANCELED         OLECMDERR_E_CANCELED")
+cpp_quote("#define MSOCMDERR_E_UNKNOWNGROUP     OLECMDERR_E_UNKNOWNGROUP")
+
+/* taskdlg IDs */
+cpp_quote("#define OLECMD_TASKDLGID_ONBEFOREUNLOAD            1")
+
+/* indexes into SafeArray passed as pvarargIn */
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_WINXPSP2)")
+cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND     0")
+cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_X        1")
+cpp_quote("#define OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y        2")
+cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER    0")
+cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME  1")
+cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_CLSID        2")
+cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE 3")
+cpp_quote("#define OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL    4")
+
+/* Available install scopes */
+cpp_quote("#define INSTALL_SCOPE_INVALID    0")
+cpp_quote("#define INSTALL_SCOPE_MACHINE    1")
+cpp_quote("#define INSTALL_SCOPE_USER       2")
+
+
+        typedef enum IGNOREMIME {
+        IGNOREMIME_PROMPT = 0x00000001,
+        IGNOREMIME_TEXT   = 0x00000002,
+        } IGNOREMIME;
+
+        typedef enum WPCSETTING {
+        WPCSETTING_LOGGING_ENABLED = 0x00000001,
+        WPCSETTING_FILEDOWNLOAD_BLOCKED   = 0x00000002,
+        } WPCSETTING;
+cpp_quote("#endif")
+
+        [input_sync]
+        HRESULT QueryStatus(
+        [in, unique] const GUID *pguidCmdGroup,
+                [in] ULONG cCmds,
+                [size_is(cCmds)]
+                [in, out] OLECMD prgCmds[],
+                [in, out, unique] OLECMDTEXT *pCmdText);
+
+
+        HRESULT Exec(
+        [in, unique] const GUID *pguidCmdGroup,
+                [in] DWORD nCmdID,
+                [in] DWORD nCmdexecopt,
+                [in, unique] VARIANT *pvaIn,
+                [in, out, unique] VARIANT *pvaOut);
+}
+cpp_quote("#endif")
+
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("      OLECMDIDF_REFRESH_NORMAL          = 0,")
+cpp_quote("      OLECMDIDF_REFRESH_IFEXPIRED       = 1,")
+cpp_quote("      OLECMDIDF_REFRESH_CONTINUE        = 2,")
+cpp_quote("      OLECMDIDF_REFRESH_COMPLETELY      = 3,")
+cpp_quote("      OLECMDIDF_REFRESH_NO_CACHE        = 4,")
+cpp_quote("      OLECMDIDF_REFRESH_RELOAD          = 5,")
+cpp_quote("      OLECMDIDF_REFRESH_LEVELMASK       = 0x00FF,")
+cpp_quote("      OLECMDIDF_REFRESH_CLEARUSERINPUT  = 0x1000,")
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_WINXPSP2)")
+cpp_quote("      OLECMDIDF_REFRESH_PROMPTIFOFFLINE = 0x2000,")
+cpp_quote("      OLECMDIDF_REFRESH_THROUGHSCRIPT   = 0x4000,")
+cpp_quote("      OLECMDIDF_REFRESH_SKIPBEFOREUNLOADEVENT     = 0x8000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_ACTIVEXINSTALL = 0x00010000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_FILEDOWNLOAD   = 0x00020000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_LOCALMACHINE   = 0x00040000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_POPUPWINDOW    = 0x00080000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNLOCALMACHINE  = 0x00100000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNTRUSTED       = 0x00200000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTRANET      = 0x00400000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTERNET      = 0x00800000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED    = 0x01000000,")
+cpp_quote("#elif(NTDDI_VERSION >= NTDDI_WINXP)")
+cpp_quote("      OLECMDIDF_REFRESH_PROMPTIFOFFLINE = 0x2000,")
+cpp_quote("      OLECMDIDF_REFRESH_THROUGHSCRIPT   = 0x4000,")
+cpp_quote("#else")
+cpp_quote("      OLECMDIDF_REFRESH_PROMPTIFOFFLINE = 0x2000,")
+cpp_quote("#endif")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT              = 0x02000000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT              = 0x04000000,")
+cpp_quote("      OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION             = 0x08000000,")
+
+cpp_quote("} OLECMDID_REFRESHFLAG;")
+
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_WINXPSP2)")
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("      OLECMDIDF_PAGEACTION_FILEDOWNLOAD                       = 0x00000001,")  // File download (e.g. exe) was attempted and blocked
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEXINSTALL                     = 0x00000002,")  // Blocked due to default handling of code downloads    
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEXTRUSTFAIL                   = 0x00000004,")  // Blocked due to publisher being untrusted
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEXUSERDISABLE                 = 0x00000008,")  // Blocked due to explicit disabling of clsid by user
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEXDISALLOW                    = 0x00000010,")  // Blocked due to security settings disabling ActiveX
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEXUNSAFE                      = 0x00000020,")  // Blocked due to unsafe init or scripting
+cpp_quote("      OLECMDIDF_PAGEACTION_POPUPWINDOW                        = 0x00000040,")  // Popup window was blocked
+cpp_quote("      OLECMDIDF_PAGEACTION_LOCALMACHINE                       = 0x00000080,")  // Local machine zone action
+cpp_quote("      OLECMDIDF_PAGEACTION_MIMETEXTPLAIN                      = 0x00000100,")  // Mime text/plain action
+cpp_quote("      OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE                     = 0x00000200,")  // Site navigated after having blocked content
+cpp_quote("      OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXINSTALL      = 0x00000200,")  // Site navigated after having blocked install
+cpp_quote("      OLECMDIDF_PAGEACTION_PROTLOCKDOWNLOCALMACHINE           = 0x00000400,")  // Protocol Lockdown action for LocalMachine
+cpp_quote("      OLECMDIDF_PAGEACTION_PROTLOCKDOWNTRUSTED                = 0x00000800,")  // Protocol Lockdown action for Intranet
+cpp_quote("      OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTRANET               = 0x00001000,")  // Protocol Lockdown action for Trusted
+cpp_quote("      OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTERNET               = 0x00002000,")  // Protocol Lockdown action for Internet
+cpp_quote("      OLECMDIDF_PAGEACTION_PROTLOCKDOWNRESTRICTED             = 0x00004000,")  // Protocol Lockdown action for Untrusted
+cpp_quote("      OLECMDIDF_PAGEACTION_PROTLOCKDOWNDENY                   = 0x00008000,")  // Protocol Lockdown action was denied.
+cpp_quote("      OLECMDIDF_PAGEACTION_POPUPALLOWED                       = 0x00010000,")  // Popup windows are allowed
+cpp_quote("      OLECMDIDF_PAGEACTION_SCRIPTPROMPT                       = 0x00020000,")  // Blocked due to script prompting the user
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEXUSERAPPROVAL                = 0x00040000,")  // Blocked due to user approval needed
+cpp_quote("      OLECMDIDF_PAGEACTION_MIXEDCONTENT                       = 0x00080000,")  // Blocked due to insecure content on a secure page
+cpp_quote("      OLECMDIDF_PAGEACTION_INVALID_CERT                       = 0x00100000,")  // Blocked due to certificate error
+cpp_quote("      OLECMDIDF_PAGEACTION_INTRANETZONEREQUEST                = 0x00200000,")  // Attempted map to intranet when no intranet detected
+cpp_quote("      OLECMDIDF_PAGEACTION_XSSFILTERED                        = 0x00400000,")  // Notification that a XSS was detected and has been filtered
+cpp_quote("      OLECMDIDF_PAGEACTION_SPOOFABLEIDNHOST                   = 0x00800000,")  // Goldbar for IDN
+cpp_quote("      OLECMDIDF_PAGEACTION_ACTIVEX_EPM_INCOMPATIBLE           = 0x01000000,")  // Blocked activex due to incompatibility to enhanced protected mode
+cpp_quote("      OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXUSERAPPROVAL = 0x02000000,")  // Site navigated after having blocked user approval
+cpp_quote("      OLECMDIDF_PAGEACTION_WPCBLOCKED                         = 0x04000000,")  // Blocked subcontent due to Parental Controls restrictions
+cpp_quote("      OLECMDIDF_PAGEACTION_WPCBLOCKED_ACTIVEX                 = 0x08000000,")  // Blocked activex due to Parental Controls restrictions
+cpp_quote("      OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED           = 0x10000000,")  // Blocked due to extension not being UIPI Compatible
+cpp_quote("      OLECMDIDF_PAGEACTION_NORESETACTIVEX                     = 0x20000000,")  // In a reset, don't reset ActiveX install/approve data
+cpp_quote("      OLECMDIDF_PAGEACTION_GENERIC_STATE                      = 0x40000000,")  // Flag contains state driven goldbar events as apposed to event driven
+cpp_quote("      OLECMDIDF_PAGEACTION_RESET                              = (int) 0x80000000,")  // Flags reset
+cpp_quote("} OLECMDID_PAGEACTIONFLAG;")
+
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("      OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF                      = 0x00000001,")  // Extensions are Turned Off
+cpp_quote("      OLECMDIDF_BROWSERSTATE_IESECURITY                         = 0x00000002,")  // Note: this is just a warning that comes up if IE zone settings
+                                                                                            // are considered "unsecure".
+cpp_quote("      OLECMDIDF_BROWSERSTATE_PROTECTEDMODE_OFF                  = 0x00000004,")  // Displays when user switches off protected mode
+cpp_quote("      OLECMDIDF_BROWSERSTATE_RESET                              = 0x00000008,")  // Flags reset
+cpp_quote("      OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX                    = 0x00000010,")  // Displays when a site requires blocked ActiveX in App-style IE
+cpp_quote("      OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG                  = 0x00000020,")  // The site requires desktop IE to display its dialogs
+cpp_quote("      OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION                     = 0x00000040,")  // The site attempted to load an outdated control
+cpp_quote("} OLECMDID_BROWSERSTATEFLAG;")
+
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("      OLECMDIDF_OPTICAL_ZOOM_NOPERSIST                          = 0x00000001,")  // Don't persist the zoom state being set
+//;begin_internal
+//               COMPAT: Avoid adding new flag values that overlap with
+//               OLECMDEXECOPT_*.
+//;end_internal
+cpp_quote("      OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT                           = 0x00000010,")  // Pure optical, not layout
+cpp_quote("      OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT                        = 0x00000020,")  // Mark the zoom state as non-transient so that the zoom state does not get reset during navigation
+cpp_quote("      OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB                    = 0x00000040,")  // Reload the zoom just as it would for a new tab
+cpp_quote("} OLECMDID_OPTICAL_ZOOMFLAG;")
+
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("    PAGEACTION_UI_DEFAULT     = 0,")          
+cpp_quote("    PAGEACTION_UI_MODAL       = 1,")         
+cpp_quote("    PAGEACTION_UI_MODELESS    = 2,")         
+cpp_quote("    PAGEACTION_UI_SILENT      = 3,")         
+cpp_quote("} PAGEACTION_UI;")
+
+
+
+cpp_quote("#endif")
+// The low order word contains the current state of the window.
+// The mask in the high order word indicates which bits in the low order word have been initialized
+
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("    OLECMDIDF_WINDOWSTATE_USERVISIBLE        = 0x00000001,")  // The object is in the active tab and the top level window is not minimized
+cpp_quote("    OLECMDIDF_WINDOWSTATE_ENABLED            = 0x00000002,")  // The top level window is enabled
+cpp_quote("    OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID  = 0x00010000,") 
+cpp_quote("    OLECMDIDF_WINDOWSTATE_ENABLED_VALID      = 0x00020000,")
+cpp_quote("} OLECMDID_WINDOWSTATE_FLAG;")
+
+
+cpp_quote("typedef enum")
+cpp_quote("{")
+cpp_quote("    OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH          = 0x00000001,")  // The layout viewport has an explicitly set width, as opposed to matching the visual viewport width.
+cpp_quote("    OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM       = 0x00000002,")  // The visual viewport is shorter than the full view size by a fixed amount.
+cpp_quote("    OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID    = 0x00010000,")
+cpp_quote("    OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID = 0x00020000,")
+cpp_quote("} OLECMDID_VIEWPORT_MODE_FLAG;")
+
+
+cpp_quote("")
+cpp_quote("////////////////////////////////////////////////////////////////////////////")
+cpp_quote("//  Aliases to original office-compatible names")
+cpp_quote("#define IMsoDocument             IOleDocument")
+cpp_quote("#define IMsoDocumentSite         IOleDocumentSite")
+cpp_quote("#define IMsoView                 IOleDocumentView")
+cpp_quote("#define IEnumMsoView             IEnumOleDocumentViews")
+cpp_quote("#define IMsoCommandTarget        IOleCommandTarget")
+cpp_quote("#define LPMSODOCUMENT            LPOLEDOCUMENT")
+cpp_quote("#define LPMSODOCUMENTSITE        LPOLEDOCUMENTSITE")
+cpp_quote("#define LPMSOVIEW                LPOLEDOCUMENTVIEW")
+cpp_quote("#define LPENUMMSOVIEW            LPENUMOLEDOCUMENTVIEWS")
+cpp_quote("#define LPMSOCOMMANDTARGET       LPOLECOMMANDTARGET")
+cpp_quote("#define MSOCMD                   OLECMD")
+cpp_quote("#define MSOCMDTEXT               OLECMDTEXT")
+cpp_quote("#define IID_IMsoDocument         IID_IOleDocument")
+cpp_quote("#define IID_IMsoDocumentSite     IID_IOleDocumentSite")
+cpp_quote("#define IID_IMsoView             IID_IOleDocumentView")
+cpp_quote("#define IID_IEnumMsoView         IID_IEnumOleDocumentViews")
+cpp_quote("#define IID_IMsoCommandTarget    IID_IOleCommandTarget")
+cpp_quote("#define MSOCMDF_SUPPORTED OLECMDF_SUPPORTED")
+cpp_quote("#define MSOCMDF_ENABLED OLECMDF_ENABLED")
+cpp_quote("#define MSOCMDF_LATCHED OLECMDF_LATCHED")
+cpp_quote("#define MSOCMDF_NINCHED OLECMDF_NINCHED")
+cpp_quote("#define MSOCMDTEXTF_NONE OLECMDTEXTF_NONE")
+cpp_quote("#define MSOCMDTEXTF_NAME OLECMDTEXTF_NAME")
+cpp_quote("#define MSOCMDTEXTF_STATUS OLECMDTEXTF_STATUS")
+cpp_quote("#define MSOCMDEXECOPT_DODEFAULT OLECMDEXECOPT_DODEFAULT")
+cpp_quote("#define MSOCMDEXECOPT_PROMPTUSER OLECMDEXECOPT_PROMPTUSER")
+cpp_quote("#define MSOCMDEXECOPT_DONTPROMPTUSER OLECMDEXECOPT_DONTPROMPTUSER")
+cpp_quote("#define MSOCMDEXECOPT_SHOWHELP OLECMDEXECOPT_SHOWHELP")
+cpp_quote("#define MSOCMDID_OPEN OLECMDID_OPEN")
+cpp_quote("#define MSOCMDID_NEW OLECMDID_NEW")
+cpp_quote("#define MSOCMDID_SAVE OLECMDID_SAVE")
+cpp_quote("#define MSOCMDID_SAVEAS OLECMDID_SAVEAS")
+cpp_quote("#define MSOCMDID_SAVECOPYAS OLECMDID_SAVECOPYAS")
+cpp_quote("#define MSOCMDID_PRINT OLECMDID_PRINT")
+cpp_quote("#define MSOCMDID_PRINTPREVIEW OLECMDID_PRINTPREVIEW")
+cpp_quote("#define MSOCMDID_PAGESETUP OLECMDID_PAGESETUP")
+cpp_quote("#define MSOCMDID_SPELL OLECMDID_SPELL")
+cpp_quote("#define MSOCMDID_PROPERTIES OLECMDID_PROPERTIES")
+cpp_quote("#define MSOCMDID_CUT OLECMDID_CUT")
+cpp_quote("#define MSOCMDID_COPY OLECMDID_COPY")
+cpp_quote("#define MSOCMDID_PASTE OLECMDID_PASTE")
+cpp_quote("#define MSOCMDID_PASTESPECIAL OLECMDID_PASTESPECIAL")
+cpp_quote("#define MSOCMDID_UNDO OLECMDID_UNDO")
+cpp_quote("#define MSOCMDID_REDO OLECMDID_REDO")
+cpp_quote("#define MSOCMDID_SELECTALL OLECMDID_SELECTALL")
+cpp_quote("#define MSOCMDID_CLEARSELECTION OLECMDID_CLEARSELECTION")
+cpp_quote("#define MSOCMDID_ZOOM OLECMDID_ZOOM")
+cpp_quote("#define MSOCMDID_GETZOOMRANGE OLECMDID_GETZOOMRANGE")
+
+cpp_quote("EXTERN_C const GUID SID_SContainerDispatch;")
+
+
+//
+// IZoomEvents 
+//
+// Notifies hosts of changes in the zoom state.  Hosts should implement
+// this interface on their IOleClientSite object
+//
+[
+    object,    
+    uuid(41B68150-904C-4e17-A0BA-A438182E359D),
+    pointer_default(unique)
+]
+interface IZoomEvents : IUnknown
+{
+    HRESULT OnZoomPercentChanged([in] ULONG ulZoomPercent);
+};
+
+
+//
+// IProtectFocus
+//
+// Queries for permission to grab the focus when loading the page
+// or when script attempts to focus an element.  Hosts should respond to
+// a QueryService for SID_SProtectFocus
+//  
+[
+    object,
+    uuid(d81f90a3-8156-44f7-ad28-5abb87003274),
+    pointer_default(unique),
+]
+interface IProtectFocus : IUnknown
+{
+    HRESULT AllowFocusChange([out] BOOL *pfAllow);
+};
+
+cpp_quote("#define SID_SProtectFocus  IID_IProtectFocus")
+
+
+
+cpp_quote("#ifndef _LPPROTECTEDMODEMENUSERVICES_DEFINED")
+cpp_quote("#define _LPPROTECTEDMODEMENUSERVICES_DEFINED")
+[
+        object,
+        uuid(73c105ee-9dff-4a07-b83c-7eff290c266e),
+        pointer_default(unique)
+]
+interface IProtectedModeMenuServices : IUnknown
+{
+    HRESULT CreateMenu([out] HMENU *phMenu);
+    HRESULT LoadMenu([in, string] LPCWSTR pszModuleName,
+                     [in, string] LPCWSTR pszMenuName,
+                     [out] HMENU *phMenu);
+    HRESULT LoadMenuID([in, string] LPCWSTR pszModuleName,
+                       [in] WORD wResourceID,
+                       [out] HMENU *phMenu);
+}
+
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("typedef struct tagPAGESET {} PAGESET;")
+cpp_quote("#endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+

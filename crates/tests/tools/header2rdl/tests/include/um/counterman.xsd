@@ -1,0 +1,357 @@
+﻿<xs:schema
+  targetNamespace="http://schemas.microsoft.com/win/2005/12/counters"
+  elementFormDefault="qualified"
+  xmlns:man="http://schemas.microsoft.com/win/2005/12/counters"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="counters" type="man:counters">
+    <xs:annotation>
+      <xs:documentation>
+        A counters element may occur within the &lt;instrumentation&gt; element
+        of an instrumentation manifest. Refer to eventman.xsd for the
+        instrumentation manifest schema.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:key name="uniqueCounterSetGUID">
+      <xs:annotation>
+        <xs:documentation>
+          counterSet.guid must be unique.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath="./man:provider/man:counterSet"/>
+      <xs:field xpath="@guid"/>
+    </xs:key>
+  </xs:element>
+
+  <xs:complexType name="counters">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a Windows Performance Counter V2 provider.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element name="provider" type="man:provider"/>
+    </xs:choice>
+    <xs:attribute name="schemaVersion" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="provider">
+    <xs:annotation>
+      <xs:documentation>
+        A provider is a component that publishes data for one or more
+        countersets.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="counterSet" type="man:counterSet"/>
+    </xs:choice>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Provider Symbol is required for User Mode providers.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="callback" use="optional" default="default">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="custom"/>
+          <xs:enumeration value="default"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="providerGuid" type="man:GUIDType" use="required"/>
+    <xs:attribute name="applicationIdentity" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Specify the name of the binary (DLL, EXE, or SYS file) into which the
+          string resources for this provider will be linked. During provider
+          installation via "lodctr.exe /m:ManifestFile InstallationPath", the
+          value of this attribute will be combined with the InstallationPath
+          to determine the full path to the provider binary. The full path will
+          be recorded as part of provider installation and used when the
+          provider string resources are needed.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="providerType" use="optional" default="userMode">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="userMode"/>
+          <xs:enumeration value="kernelMode"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="providerName" type="xs:string" use="optional" default="Counters"/>
+    <xs:attribute name="resourceBase" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          This attribute is not allowed for schemaVersion >= 2.0.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="counterSet">
+    <xs:sequence>
+      <xs:element name="structs" type="man:structs" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If providerType=kernelMode, required.
+            If providerType=userMode, not allowed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="counter" type="man:counter" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="required"/>
+    <xs:attribute name="guid" type="man:GUIDType" use="required"/>
+    <xs:attribute name="uri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="name" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1023"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="nameID" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Resource ID of the name string. This attribute is required
+          for schemaVersion >= 2.0, and not allowed for older versions.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="description" use="required"/>
+    <xs:attribute name="descriptionID" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Resource ID of the description string. This attribute is required
+          for schemaVersion >= 2.0, and not allowed for older versions.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="instances" use="optional" default="single">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="single"/>
+          <xs:enumeration value="multiple"/>
+          <xs:enumeration value="globalAggregate"/>
+          <xs:enumeration value="multipleAggregate"/>
+          <xs:enumeration value="globalAggregateHistory"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="structs">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="struct" type="man:struct"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="struct" mixed="true">
+    <xs:attribute name="name" type="man:CSymbolType" use="required"/>
+    <xs:attribute name="type" type="man:CSymbolType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="counter">
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:element name="counterAttributes" type="man:counterAttributes">
+        <xs:key name="uniqueCounterAttributeName">
+          <xs:annotation>
+            <xs:documentation>
+              Only five counterAttribute elements allowed. They should all be unique.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:selector xpath="./man:counterAttribute"/>
+          <xs:field xpath="@name"/>
+        </xs:key>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="symbol" type="man:CSymbolType" use="optional"/>
+    <xs:attribute name="id" type="man:UInt32Type" use="required"/>
+    <xs:attribute name="uri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="name" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1023"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="nameID" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Resource ID of the name string. For schemaVersion >= 2.0, this
+          attribute must be specified if the 'name` attribute was
+          specified. This attribute is not allowed for older schema versions.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="description" type="xs:string" use="optional"/>
+    <xs:attribute name="descriptionID" type="man:UInt32Type" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Resource ID of the description string. For schemaVersion >= 2.0, this
+          attribute must be specified if the 'description` attribute was
+          specified. This attribute is not allowed for older schema versions.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="perf_counter_counter"/>
+          <xs:enumeration value="perf_counter_timer"/>
+          <xs:enumeration value="perf_counter_queuelen_type"/>
+          <xs:enumeration value="perf_counter_large_queuelen_type"/>
+          <xs:enumeration value="perf_counter_100ns_queuelen_type"/>
+          <xs:enumeration value="perf_counter_obj_time_queuelen_type"/>
+          <xs:enumeration value="perf_counter_bulk_count"/>
+          <xs:enumeration value="perf_counter_text"/>
+          <xs:enumeration value="perf_counter_rawcount"/>
+          <xs:enumeration value="perf_counter_large_rawcount"/>
+          <xs:enumeration value="perf_counter_rawcount_hex"/>
+          <xs:enumeration value="perf_counter_large_rawcount_hex"/>
+          <xs:enumeration value="perf_sample_fraction"/>
+          <xs:enumeration value="perf_sample_counter"/>
+          <xs:enumeration value="perf_counter_timer_inv"/>
+          <xs:enumeration value="perf_sample_base"/>
+          <xs:enumeration value="perf_average_timer"/>
+          <xs:enumeration value="perf_average_base"/>
+          <xs:enumeration value="perf_average_bulk"/>
+          <xs:enumeration value="perf_obj_time_timer"/>
+          <xs:enumeration value="perf_100nsec_timer"/>
+          <xs:enumeration value="perf_100nsec_timer_inv"/>
+          <xs:enumeration value="perf_counter_multi_timer"/>
+          <xs:enumeration value="perf_counter_multi_timer_inv"/>
+          <xs:enumeration value="perf_counter_multi_base"/>
+          <xs:enumeration value="perf_100nsec_multi_timer"/>
+          <xs:enumeration value="perf_100nsec_multi_timer_inv"/>
+          <xs:enumeration value="perf_raw_fraction"/>
+          <xs:enumeration value="perf_large_raw_fraction"/>
+          <xs:enumeration value="perf_raw_base"/>
+          <xs:enumeration value="perf_large_raw_base"/>
+          <xs:enumeration value="perf_elapsed_time"/>
+          <xs:enumeration value="perf_counter_delta"/>
+          <xs:enumeration value="perf_counter_large_delta"/>
+          <xs:enumeration value="perf_precision_system_timer"/>
+          <xs:enumeration value="perf_precision_100ns_timer"/>
+          <xs:enumeration value="perf_precision_object_timer"/>
+          <xs:enumeration value="perf_counter_composite"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="baseID" type="man:UInt32Type" use="optional"/>
+    <xs:attribute name="detailLevel" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="standard"/>
+          <xs:enumeration value="advanced"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="defaultScale" use="optional" default="0">
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="-10"/>
+          <xs:maxInclusive value="10"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="aggregate" use="optional">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="sum"/>
+          <xs:enumeration value="avg"/>
+          <xs:enumeration value="max"/>
+          <xs:enumeration value="min"/>
+          <xs:enumeration value="undefined"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="perfTimeID" type="man:UInt32Type" use="optional"/>
+    <xs:attribute name="perfFreqID" type="man:UInt32Type" use="optional"/>
+    <xs:attribute name="multiCounterID" type="man:UInt32Type" use="optional"/>
+    <xs:attribute name="struct" type="man:CSymbolType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          If providerType=kernelMode, required.
+          If providerType=userMode, not allowed.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="field" type="man:CSymbolType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          If providerType=kernelMode, required.
+          If providerType=userMode, not allowed.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="counterAttributes">
+    <xs:choice minOccurs="1" maxOccurs="5">
+      <xs:element name="counterAttribute" type="man:counterAttribute"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="counterAttribute" mixed="true">
+    <xs:attribute name="name" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="reference"/>
+          <xs:enumeration value="noDisplay"/>
+          <xs:enumeration value="noDigitGrouping"/>
+          <xs:enumeration value="displayAsHex"/>
+          <xs:enumeration value="displayAsReal"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="GUIDType">
+    <xs:annotation>
+      <xs:documentation>
+        A globally unique identifier in Registry format,
+        e.g. {12345678-4321-ABCD-1234-9ABCDEF012345678}.
+        Use GUIDGen.exe or UUIDGen.exe to create a GUID.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HexInt32Type">
+    <xs:annotation>
+      <xs:documentation>1-8 hexadecimal digits with '0x' prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="UInt32Type">
+    <xs:annotation>
+      <xs:documentation>
+        32-bit unsigned decimal or hexadecimal integer. Decimal should have no
+        leading 0s. Hexadecimal requires '0x' prefix.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:unsignedInt man:HexInt32Type"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="CSymbolType">
+    <xs:annotation>
+      <xs:documentation>
+        Symbol is used for code-generation. It should be a valid C Symbol or an empty string.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="()|([_a-zA-Z][_0-9a-zA-Z]*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,1167 @@
+/****************************************************************************
+*   sapiddk.idl
+*
+*   This is the interface definition file for the Microsoft Speech API DLL's
+*   Version 5.4.
+*
+*   It contains definitions for the DDI layer between SAPI.DLL and both
+*   TTS and SR engines.
+*
+*   Copyright (c) Microsoft Corporation. All rights reserved.
+*****************************************************************************/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//-- Header file selection --------------------------------------------------
+// This section must be at the beginning of this file
+#ifndef _SAPI_BUILD_VER
+#define _SAPI_BUILD_VER 0x054
+#endif
+
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#ifndef _SAPI_VER")
+
+cpp_quote("// Use SAPI 5.4 by default if target Windows 7")
+cpp_quote("#if _WIN32_WINNT >= 0x0601")
+cpp_quote("#define _SAPI_VER 0x054")
+cpp_quote("#elif _WIN32_WINNT >= 0x0600")
+cpp_quote("#define _SAPI_VER 0x053")
+cpp_quote("#else // _WIN32_WINNT < 0x0600")
+cpp_quote("#define _SAPI_VER 0x051")
+cpp_quote("#endif // _WIN32_WINNT >= 0x0601")
+
+cpp_quote("#endif // _SAPI_VER")
+
+cpp_quote("// The following definitions are for SAPI 5.3 and newer")
+cpp_quote("#if  _SAPI_VER >= 0x053")
+#endif 
+// -- End of header file selection ------------------------------------------
+
+//--- Includes --------------------------------------------------------------
+import "oaidl.idl";
+import "ocidl.idl";
+import "sapi.idl";
+
+//--- Locally scoped define for LANGID
+#ifndef LANGID
+#define LANGID WORD
+#endif
+
+#if defined(NO_SAL)
+#define annotation(x)
+#endif
+
+//--- ITN Processor
+interface ISpITNProcessor;
+
+//--- Grammar compiler and dynamic manipulation
+interface ISpErrorLog;
+interface ISpGrammarCompiler;
+interface ISpGramCompBackend;
+
+//--- Phrase builder
+interface ISpPhraseBuilder;
+
+//--- Token String Key Names
+cpp_quote("#define SPRECOEXTENSION   L\"RecoExtension\"")
+cpp_quote("#define SPALTERNATESCLSID L\"AlternatesCLSID\"")
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#define SR_LOCALIZED_DESCRIPTION L\"Description\"") 
+#endif // _SAPI_BUILD_VER >= 0x053
+//--- ISpTokenUI -----------------------------------------------------------
+[
+    object,
+    uuid(F8E690F0-39CB-4843-B8D7-C84696E1119D),
+    helpstring("ISpTokenUI Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpTokenUI : IUnknown
+{
+    [local] HRESULT IsUISupported(
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData,
+                [in] IUnknown* punkObject,
+                [out] BOOL *pfSupported);
+    [local] HRESULT DisplayUI(
+                [in] HWND hwndParent,
+                [annotation("_In_opt_")] [in] LPCWSTR pszTitle,
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData,
+                [in] ISpObjectToken* pToken,
+                [in] IUnknown* punkObject);
+};
+
+//--- ISpObjectTokenEnumBuilder ---------------------------------------------
+[
+    object,
+    uuid(06B64F9F-7FDA-11D2-B4F2-00C04F797396),
+    helpstring("ISpObjectTokensEnumBuilder Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpObjectTokenEnumBuilder : IEnumSpObjectTokens
+{
+    HRESULT SetAttribs(
+                [annotation("_In_opt_")] [in] LPCWSTR pszReqAttribs, 
+                [annotation("_In_opt_")] [in] LPCWSTR pszOptAttribs);
+    HRESULT AddTokens(
+                [in] ULONG cTokens, 
+                [in] ISpObjectToken** pToken);
+    HRESULT AddTokensFromDataKey(
+                [in] ISpDataKey* pDataKey, 
+                [in] LPCWSTR pszSubKey, 
+                [in] LPCWSTR pszCategoryId);
+    HRESULT AddTokensFromTokenEnum(
+                [in] IEnumSpObjectTokens* pTokenEnum);
+    HRESULT Sort(
+                [in] LPCWSTR pszTokenIdToListFirst);
+};
+
+//--- Handles for SR grammars and results
+cpp_quote("#if 0")
+typedef void* SPWORDHANDLE;
+typedef void* SPRULEHANDLE;
+typedef void* SPGRAMMARHANDLE;
+typedef void* SPRECOCONTEXTHANDLE;
+typedef void* SPPHRASERULEHANDLE;
+typedef void* SPPHRASEPROPERTYHANDLE;
+typedef void* SPTRANSITIONID;
+cpp_quote("#else")
+cpp_quote("DECLARE_HANDLE(SPWORDHANDLE);")
+cpp_quote("DECLARE_HANDLE(SPRULEHANDLE);")
+cpp_quote("DECLARE_HANDLE(SPGRAMMARHANDLE);")
+cpp_quote("DECLARE_HANDLE(SPRECOCONTEXTHANDLE);")
+cpp_quote("DECLARE_HANDLE(SPPHRASERULEHANDLE);")
+cpp_quote("DECLARE_HANDLE(SPPHRASEPROPERTYHANDLE);")
+cpp_quote("DECLARE_HANDLE(SPTRANSITIONID);")
+cpp_quote("#endif")
+
+
+//--- ISpErrorLog -----------------------------------------------------------
+// This interface is used to log error information.
+
+[
+    object,
+    uuid(F4711347-E608-11D2-A086-00C04F8EF9B5),
+    helpstring("ISpErrorLog Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpErrorLog : IUnknown
+{
+    HRESULT AddError(
+                [in] const long lLineNumber,
+                [in] HRESULT hr, 
+                [in] LPCWSTR pszDescription, 
+                [annotation("_In_opt_")] [in] LPCWSTR pszHelpFile, 
+                [in] DWORD dwHelpContext);
+};
+
+//--- ISpGrammarCompiler ----------------------------------------------------
+
+[
+    object,
+    uuid(B1E29D58-A675-11D2-8302-00C04F8EE6C0),
+    helpstring("ISpGrammarCompiler Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpGrammarCompiler : IUnknown
+{
+    HRESULT CompileStream(
+                [in] IStream* pSource, 
+                [out] IStream* pDest, 
+                [annotation("_In_opt_")] [in] IStream* pHeader, 
+                [annotation("_In_opt_")] [in] IUnknown* pReserved, 
+                [annotation("_In_opt_")] [in] ISpErrorLog* pErrorLog, 
+                [in] DWORD dwFlags);
+};
+
+[
+    object,
+    uuid(3DDCA27C-665C-4786-9F97-8C90C3488B61),
+    helpstring("ISpGramCompBackend Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpGramCompBackend : ISpGrammarBuilder
+{
+    HRESULT SetSaveObjects(
+                [in] IStream* pStream, 
+                [in] ISpErrorLog* pErrorLog);
+    HRESULT InitFromBinaryGrammar(
+                [in] const SPBINARYGRAMMAR* pBinaryData);
+};
+
+//--- ISpITNProcessor ----------------------------------------------------------
+[
+    object,
+    uuid(12D7360F-A1C9-11D3-BC90-00C04F72DF9F),
+    helpstring("ISpITNProcessor Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpITNProcessor : IUnknown
+{
+    HRESULT LoadITNGrammar(
+                [annotation("_In_")] [in] LPWSTR pszCLSID);
+    HRESULT ITNPhrase(
+                [in] ISpPhraseBuilder *pPhrase);
+};
+
+
+[
+    object,
+    uuid(88A3342A-0BED-4834-922B-88D43173162F),
+    local,
+    helpstring("ISpPhraseBuilder Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpPhraseBuilder : ISpPhrase
+{
+    HRESULT InitFromPhrase(
+                [in] const SPPHRASE* pPhrase);
+    HRESULT InitFromSerializedPhrase(
+                [in] const SPSERIALIZEDPHRASE* pPhrase);
+    HRESULT AddElements(
+                [in] ULONG cElements, 
+                [in] const SPPHRASEELEMENT *pElement);
+    HRESULT AddRules(
+                [in] const SPPHRASERULEHANDLE hParent, 
+                [in] const SPPHRASERULE* pRule, 
+                [out] SPPHRASERULEHANDLE* phNewRule);
+    HRESULT AddProperties(
+                [in] const SPPHRASEPROPERTYHANDLE hParent, 
+                [in] const SPPHRASEPROPERTY* pProperty, 
+                [out] SPPHRASEPROPERTYHANDLE* phNewProperty);
+    HRESULT AddReplacements(
+                [in] ULONG cReplacements, 
+                [in] const SPPHRASEREPLACEMENT* pReplacements);
+};
+
+
+
+//--- ISpTask ---------------------------------------------------------------
+
+cpp_quote("#if defined(__cplusplus)")
+cpp_quote("interface ISpTask")
+cpp_quote("{")
+cpp_quote("virtual HRESULT STDMETHODCALLTYPE Execute(")
+cpp_quote("                 void *pvTaskData,")
+cpp_quote("                 volatile const BOOL* pfContinueProcessing) = 0;")
+cpp_quote("};")
+cpp_quote("#else")
+typedef void* ISpTask;
+cpp_quote("#endif")
+
+//--- ISpThreadTask ---------------------------------------------------------
+
+cpp_quote("#if defined(__cplusplus)")
+cpp_quote("interface ISpThreadTask")
+cpp_quote("{")
+cpp_quote("virtual HRESULT STDMETHODCALLTYPE InitThread(")
+cpp_quote("                 void* pvTaskData,")
+cpp_quote("                 HWND hwnd) = 0;")
+cpp_quote("virtual HRESULT STDMETHODCALLTYPE ThreadProc(")
+cpp_quote("                 void *pvTaskData,")
+cpp_quote("                 HANDLE hExitThreadEvent,")
+cpp_quote("                 HANDLE hNotifyEvent,")
+cpp_quote("                 HWND hwndWorker,")
+cpp_quote("                 volatile const BOOL* pfContinueProcessing) = 0;")
+cpp_quote("virtual LRESULT STDMETHODCALLTYPE WindowMessage(")
+cpp_quote("                 void *pvTaskData,")
+cpp_quote("                 HWND hWnd,")
+cpp_quote("                 UINT Msg,")
+cpp_quote("                 WPARAM wParam,")
+cpp_quote("                 LPARAM lParam) = 0;")
+cpp_quote("};")
+cpp_quote("#else")
+typedef void* ISpThreadTask;
+cpp_quote("#endif")
+
+//--- ISpThreadControl ------------------------------------------------------
+[
+    object,
+    uuid(A6BE4D73-4403-4358-B22D-0346E23B1764),
+    helpstring("ISpThreadControl Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpThreadControl : ISpNotifySink
+{
+    HRESULT StartThread(
+                [in] DWORD dwFlags, 
+                [out] HWND* phwnd);
+    HRESULT WaitForThreadDone(
+                [in] BOOL fForceStop, 
+                [out] HRESULT* phrThreadResult, 
+                [in] ULONG msTimeOut);
+    HRESULT TerminateThread(void);
+    HANDLE  ThreadHandle(void);
+    DWORD   ThreadId(void);
+    HANDLE  NotifyEvent(void);
+    HWND    WindowHandle(void);
+    HANDLE  ThreadCompleteEvent(void);
+    HANDLE  ExitThreadEvent(void);
+};
+
+//--- ISpTaskManager --------------------------------------------------------
+// This interface is used to implement a task managment service provider
+// to optimize thread usage.
+
+typedef [restricted] struct SPTMTHREADINFO
+{
+    long    lPoolSize;              // Number of threads in pool (-1 default)
+    long    lPriority;              // Priority of threads in pool
+    ULONG   ulConcurrencyLimit;     // Number of threads allowed to concurrently execute (0 default)
+    ULONG   ulMaxQuickAllocThreads; // Maximum number of dedicated threads retained
+} SPTMTHREADINFO;
+
+[
+    local,
+    uuid(2BAEEF81-2CA3-4331-98F3-26EC5ABEFB03),
+    helpstring("ISpTaskManager Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpTaskManager : IUnknown
+{
+    HRESULT SetThreadPoolInfo(
+                [in] const SPTMTHREADINFO* pPoolInfo);
+    HRESULT GetThreadPoolInfo(
+                [out] SPTMTHREADINFO* pPoolInfo);
+    HRESULT QueueTask(
+                [in] ISpTask* pTask, 
+                [in] void* pvTaskData, 
+                [in] HANDLE hCompEvent, 
+                [in, out] DWORD* pdwGroupId, 
+                [out] DWORD* pTaskID);
+    HRESULT CreateReoccurringTask(
+                [in] ISpTask* pTask, 
+                [in] void* pvTaskData, 
+                [in] HANDLE hCompEvent, 
+                [out] ISpNotifySink** ppTaskCtrl);
+    HRESULT CreateThreadControl(
+                [in] ISpThreadTask* pTask, 
+                [in] void* pvTaskData, 
+                [in] long nPriority, 
+                [annotation("_Outptr_")] [out] ISpThreadControl** ppTaskCtrl);
+    HRESULT TerminateTask(
+                [in] DWORD dwTaskId, 
+                [in] ULONG ulWaitPeriod);
+    HRESULT TerminateTaskGroup(
+                [in] DWORD dwGroupId, 
+                [in] ULONG ulWaitPeriod);
+};
+
+
+//--- ISpTTSEngineSite ------------------------------------------------------
+
+typedef enum SPVSKIPTYPE
+{
+    SPVST_SENTENCE  = (1L << 0)           // Skip sentences
+} SPVSKIPTYPE;
+
+typedef enum SPVESACTIONS
+{
+    SPVES_CONTINUE = 0,
+    SPVES_ABORT    = ( 1L << 0 ),
+    SPVES_SKIP     = ( 1L << 1 ),
+    SPVES_RATE     = ( 1L << 2 ),
+    SPVES_VOLUME   = ( 1L << 3 )
+} SPVESACTIONS;
+
+[
+    object,
+    local,
+    uuid(9880499B-CCE9-11D2-B503-00C04F797396),
+    helpstring("ISpTTSEngineSite Interface"),
+    pointer_default(unique)
+]
+interface ISpTTSEngineSite : ISpEventSink
+{
+    DWORD   GetActions( void );
+    HRESULT Write(
+                [in] const void* pBuff, 
+                [in] ULONG cb, 
+                [out] ULONG *pcbWritten );
+    HRESULT GetRate(
+                [out] long* pRateAdjust );
+    HRESULT GetVolume(
+                [out] USHORT* pusVolume );
+    HRESULT GetSkipInfo(
+                [out] SPVSKIPTYPE* peType, 
+                [out] long* plNumItems );
+    HRESULT CompleteSkip(
+                [in] long ulNumSkipped );
+};
+
+//--- ISpTTSEngine ----------------------------------------------------------
+
+typedef struct SPVTEXTFRAG
+{
+    struct SPVTEXTFRAG* pNext;   // Next text fragment in list, NULL == end of list
+    SPVSTATE  State;             // Current XML attribute state
+    LPCWSTR  pTextStart;
+    ULONG     ulTextLen;
+    ULONG     ulTextSrcOffset;   // Original source position of the fragment text
+} SPVTEXTFRAG;
+
+[
+    object,
+    local,
+    uuid(A74D7C8E-4CC5-4F2F-A6EB-804DEE18500E),
+    helpstring("ISpTTSEngine Interface"),
+    pointer_default(unique)
+]
+interface ISpTTSEngine : IUnknown
+{
+    HRESULT Speak(
+                [in] DWORD dwSpeakFlags,
+                [in] REFGUID rguidFormatId, 
+                [in] const WAVEFORMATEX* pWaveFormatEx,
+                [in] const SPVTEXTFRAG* pTextFragList, 
+                [in] ISpTTSEngineSite* pOutputSite );
+    HRESULT GetOutputFormat(
+                [in] const GUID* pTargetFmtId, 
+                [in] const WAVEFORMATEX* pTargetWaveFormatEx,
+                [out] GUID* pOutputFormatId, 
+                [annotation("_Outptr_")] [out] WAVEFORMATEX** ppCoMemOutputWaveFormatEx);
+};
+
+//--- SR Engine data structures ----------------------------------------
+
+
+typedef [restricted] struct SPWORDENTRY
+{
+    SPWORDHANDLE    hWord;
+    LANGID          LangID;
+    WCHAR*          pszDisplayText;
+    WCHAR*          pszLexicalForm;
+    SPPHONEID*      aPhoneId;
+    void*           pvClientContext;
+} SPWORDENTRY;
+
+typedef [restricted] struct SPRULEENTRY
+{
+    SPRULEHANDLE    hRule;
+    SPSTATEHANDLE   hInitialState;
+    DWORD           Attributes;     // SPCFGRULEATTRIBUTES   
+    void*           pvClientRuleContext;
+    void*           pvClientGrammarContext;
+} SPRULEENTRY;
+
+typedef enum SPTRANSITIONTYPE
+{
+    SPTRANSEPSILON,
+    SPTRANSWORD,
+    SPTRANSRULE,
+    SPTRANSTEXTBUF,
+    SPTRANSWILDCARD,
+    SPTRANSDICTATION
+} SPTRANSITIONTYPE;
+
+typedef [restricted] struct SPTRANSITIONENTRY
+{
+    SPTRANSITIONID      ID;
+    SPSTATEHANDLE       hNextState;
+    BYTE                Type;       // SPTRANSITIONTYPE
+    char                RequiredConfidence;
+    struct
+    {
+    	DWORD fHasProperty;         // Boolean type
+    };
+    float               Weight;
+    union
+    {
+        struct
+        {
+            SPSTATEHANDLE   hRuleInitialState;  // Only if Type == SPTRANSRULE
+            SPRULEHANDLE    hRule;
+            void*           pvClientRuleContext;
+        };
+        struct
+        {
+            SPWORDHANDLE    hWord;              // Only if Type == SPTRANSWORD
+            void*           pvClientWordContext;
+        };
+        struct
+        {
+            void*           pvGrammarCookie;    // Only if Type == SPTRANSTEXTBUF or SPTRANSWILDCARD or SPTRANSDICTATION
+        };
+    };
+} SPTRANSITIONENTRY;
+
+typedef [restricted] struct  SPTRANSITIONPROPERTY
+{
+    LPCWSTR                 pszName;     
+    ULONG                   ulId;
+    LPCWSTR                 pszValue;   
+    VARIANT                 vValue;     // Will be VT_BOOL, VT_I4, VT_R4, VT_R8, or VT_BYREF (only for dynamic grammars)
+} SPTRANSITIONPROPERTY;
+
+typedef [restricted] struct SPSTATEINFO
+{
+    ULONG               cAllocatedEntries;
+    SPTRANSITIONENTRY*  pTransitions;
+    ULONG               cEpsilons;
+    ULONG               cRules;
+    ULONG               cWords;
+    ULONG               cSpecialTransitions;
+} SPSTATEINFO;
+
+typedef [restricted] struct SPPATHENTRY
+{
+    SPTRANSITIONID      hTransition;
+    SPPHRASEELEMENT     elem;
+} SPPATHENTRY;
+
+
+
+
+
+//--- ISpCFGInterpreterSite -------------------------------------------------
+[
+    object,
+    uuid(6A6FFAD8-78B6-473D-B844-98152E4FB16B),
+    helpstring("ISpCFGInterpreterSite Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpCFGInterpreterSite : IUnknown
+{
+    HRESULT AddTextReplacement(
+                [in] SPPHRASEREPLACEMENT* pReplace);
+    HRESULT AddProperty(
+                [in] const SPPHRASEPROPERTY *pProperty);
+    HRESULT GetResourceValue(
+                [in] LPCWSTR pszResourceName,
+                [annotation("_Outptr_")] [out] LPWSTR* ppCoMemResource);
+};
+
+
+//--- ISpCFGInterpreter -----------------------------------------------------
+
+[
+    object,
+    uuid(F3D3F926-11FC-11D3-BB97-00C04F8EE6C0),
+    helpstring("ISpCFGInterpreter Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpCFGInterpreter : IUnknown
+{
+    HRESULT InitGrammar(
+                [in] LPCWSTR pszGrammarName, 
+                [in] const void** pvGrammarData);
+    HRESULT Interpret(
+                [in] ISpPhraseBuilder* pPhrase,
+                [in] const ULONG ulFirstElement,
+                [in] const ULONG ulCountOfElements,
+                [in] ISpCFGInterpreterSite* pSite);
+};
+
+
+typedef enum SPCFGNOTIFY
+{
+    SPCFGN_ADD,
+    SPCFGN_REMOVE,
+    SPCFGN_INVALIDATE,
+    SPCFGN_ACTIVATE,
+    SPCFGN_DEACTIVATE
+} SPCFGNOTIFY;
+
+//--- ISpSREngineSite -------------------------------------------------------
+
+typedef enum SPRESULTTYPE
+{
+    SPRT_CFG                = 0,
+    SPRT_SLM                = 1,
+    SPRT_PROPRIETARY        = 2,
+    SPRT_FALSE_RECOGNITION  = ( 1L << 2 ), // Flag used to indicate a false recognition
+#if _SAPI_BUILD_VER >= 0x053
+    SPRT_TYPE_MASK          = 3,
+    SPRT_EMULATED           = ( 1L << 3 ),
+    SPRT_EXTENDABLE_PARSE   = ( 1L << 4 )
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPRESULTTYPE;
+
+typedef struct tagSPPHRASEALT
+{
+    ISpPhraseBuilder* pPhrase;
+    ULONG              ulStartElementInParent;
+    ULONG              cElementsInParent;
+    ULONG              cElementsInAlternate;
+    void*             pvAltExtra;
+    ULONG              cbAltExtra;
+} SPPHRASEALT;
+
+// Result structure passed from engine to SAPI
+typedef struct SPRECORESULTINFO
+{
+    ULONG             cbSize;               // Total size of this structure
+    SPRESULTTYPE      eResultType;          // Type of result object (CFG, SLM, or Proprietary)
+    BOOL              fHypothesis;          // If true then this recognition is a hypothesis
+    BOOL              fProprietaryAutoPause;// This field is only used for SPERT_PROPRIETARY grammars.  If true, recognition will pause.
+    ULONGLONG         ullStreamPosStart;    // Start and end stream positions of recognition
+    ULONGLONG         ullStreamPosEnd;
+    SPGRAMMARHANDLE   hGrammar;             // Required for SPERT_SLM and SPERT_PROPRIETARY else NULL
+    ULONG             ulSizeEngineData;     // Size of pvEngineData
+    void*             pvEngineData;         // Extra engine specific data
+    ISpPhraseBuilder* pPhrase;              // Pointer to phrase object
+    SPPHRASEALT*      aPhraseAlts;          // Alternates array
+    ULONG             ulNumAlts;            // Number of alternates in the array
+} SPRECORESULTINFO;
+
+
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#if 0")
+// Result structure passed from engine to SAPI
+typedef struct SPRECORESULTINFOEX
+{
+    ULONG             cbSize;               // Total size of this structure
+    SPRESULTTYPE      eResultType;          // Type of result object (CFG, SLM, or Proprietary)
+    BOOL              fHypothesis;          // If true then this recognition is a hypothesis
+    BOOL              fProprietaryAutoPause;// This field is only used for SPERT_PROPRIETARY grammars.  If true, recognition will pause.
+    ULONGLONG         ullStreamPosStart;    // Start and end stream positions of recognition
+    ULONGLONG         ullStreamPosEnd;
+    SPGRAMMARHANDLE   hGrammar;             // Required for SPERT_SLM and SPERT_PROPRIETARY else NULL
+    ULONG             ulSizeEngineData;     // Size of pvEngineData
+    void*             pvEngineData;         // Extra engine specific data
+    ISpPhraseBuilder* pPhrase;              // Pointer to phrase object
+    SPPHRASEALT*      aPhraseAlts;          // Alternates array
+    ULONG             ulNumAlts;            // Number of alternates in the array
+    ULONGLONG         ullStreamTimeStart;   // Value set in RecoResultTimes ullStart
+    ULONGLONG         ullStreamTimeEnd;
+} SPRECORESULTINFOEX;
+cpp_quote("#else")
+//This typedef is used for C++ to include the header
+cpp_quote("typedef struct SPRECORESULTINFOEX : public SPRECORESULTINFO")
+cpp_quote("{")
+cpp_quote("    ULONGLONG         ullStreamTimeStart;")
+cpp_quote("    ULONGLONG         ullStreamTimeEnd;")
+cpp_quote("} SPRECORESULTINFOEX;")
+cpp_quote("#endif")
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+
+typedef enum SPWORDINFOOPT
+{
+    SPWIO_NONE      = 0,
+    SPWIO_WANT_TEXT = 1
+} SPWORDINFOOPT;
+
+
+typedef enum SPRULEINFOOPT
+{
+    SPRIO_NONE      = 0,
+} SPRULEINFOOPT;
+
+typedef struct SPPARSEINFO
+{
+    ULONG           cbSize;
+    SPRULEHANDLE    hRule;
+    ULONGLONG       ullAudioStreamPosition;
+    ULONG           ulAudioSize;
+    ULONG           cTransitions;
+    SPPATHENTRY*    pPath;
+    GUID            SREngineID;
+    ULONG           ulSREnginePrivateDataSize;
+    const BYTE*     pSREnginePrivateData;
+    BOOL            fHypothesis;
+} SPPARSEINFO;
+
+
+
+[
+    object,
+    uuid(3B414AEC-720C-4883-B9EF-178CD394FB3A),
+    helpstring("ISpSREngineSite Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpSREngineSite : IUnknown
+{
+    HRESULT Read(
+                [in] void* pv, 
+                [in] ULONG cb, 
+                [out] ULONG* pcbRead);
+    HRESULT DataAvailable(
+                [out] ULONG* pcb);
+    HRESULT SetBufferNotifySize(
+                [in] ULONG cbSize);
+    HRESULT ParseFromTransitions(
+                [in] const SPPARSEINFO* pParseInfo,
+                [out] ISpPhraseBuilder** ppNewPhrase);
+    HRESULT Recognition(
+                [in] const SPRECORESULTINFO* pResultInfo);
+    HRESULT AddEvent(
+                [in] const SPEVENT* pEvent, 
+                [in] SPRECOCONTEXTHANDLE hSAPIRecoContext);
+    HRESULT Synchronize(
+                [in] ULONGLONG ullProcessedThruPos);
+    HRESULT GetWordInfo(
+                [in, out] SPWORDENTRY* pWordEntry, 
+                [in] SPWORDINFOOPT Options);    // Caller must fill in hWord.  if fWantWordText then caller must CoTaskMemFree the pszWord.
+    HRESULT SetWordClientContext(
+                [in] SPWORDHANDLE hWord, 
+                [in] void* pvClientContext);
+    HRESULT GetRuleInfo(
+                [in, out] SPRULEENTRY* pRuleEntry, 
+                [in] SPRULEINFOOPT Options); // Caller must fill in hRule.SPRULEHANDLE hRule, BOOL* pfActive, BOOL *pfAutoPause, SPSTATEHANDLE* phInitialState, void** ppvClientContext);
+    HRESULT SetRuleClientContext(
+                [in] SPRULEHANDLE hRule, 
+                [in] void* pvClientContext);
+    HRESULT GetStateInfo(
+                [in] SPSTATEHANDLE hState, 
+                [out] SPSTATEINFO* pStateInfo);
+    HRESULT GetResource( 
+                [in] SPRULEHANDLE hRule, 
+                [in] LPCWSTR pszResourceName, 
+                [annotation("_Outptr_")] [out] LPWSTR* ppCoMemResource );
+    HRESULT GetTransitionProperty(
+                [in] SPTRANSITIONID ID, 
+                [annotation("_Outptr_")] [out] SPTRANSITIONPROPERTY **ppCoMemProperty);
+    HRESULT IsAlternate(
+                [in] SPRULEHANDLE hRule, 
+                [in] SPRULEHANDLE hAltRule );
+    HRESULT GetMaxAlternates(
+                [in]SPRULEHANDLE hRule, 
+                [out] ULONG* pulNumAlts);
+    HRESULT GetContextMaxAlternates(
+                [in] SPRECOCONTEXTHANDLE hContext, 
+                [out] ULONG* pulNumAlts);
+    HRESULT UpdateRecoPos(
+                [in] ULONGLONG ullCurrentRecoPos);
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+[
+    object,
+    uuid(7BC6E012-684A-493E-BDD4-2BF5FBF48CFE),
+    helpstring("ISpSREngineSite2 Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpSREngineSite2 : ISpSREngineSite
+{
+    HRESULT AddEventEx(
+                [in] const SPEVENTEX* pEvent, 
+                [in] SPRECOCONTEXTHANDLE hSAPIRecoContext);
+    HRESULT UpdateRecoPosEx(
+                [in] ULONGLONG ullCurrentRecoPos, 
+                [in] ULONGLONG ullCurrentRecoTime);    
+    HRESULT GetRuleTransition(
+                [in] ULONG ulGrammarID, 
+                [in] ULONG RuleIndex, 
+                [out] SPTRANSITIONENTRY* pTrans);    
+    HRESULT RecognitionEx(
+                [in] const SPRECORESULTINFOEX* pResultInfo);
+};
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- ISpSREngine -----------------------------------------------------------
+typedef enum SPPROPSRC
+{
+    SPPROPSRC_RECO_INST,
+    SPPROPSRC_RECO_CTX,
+    SPPROPSRC_RECO_GRAMMAR
+} SPPROPSRC;
+
+[
+    object,
+    uuid(2F472991-854B-4465-B613-FBAFB3AD8ED8),
+    helpstring("ISpSREngine Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpSREngine : IUnknown
+{
+    HRESULT SetSite(
+                [in] ISpSREngineSite *pSite);
+    HRESULT GetInputAudioFormat(
+                [in] const GUID* pguidSourceFormatId,
+                [in] const WAVEFORMATEX* pSourceWaveFormatEx,
+                [out] GUID* pguidDesiredFormatId, 
+                [annotation("_Outptr_")] [out] WAVEFORMATEX** ppCoMemDesiredWaveFormatEx);
+    HRESULT RecognizeStream(
+                [in] REFGUID rguidFmtId, 
+                [in] const WAVEFORMATEX* pWaveFormatEx,
+                [in] HANDLE hRequestSync, 
+                [in] HANDLE hDataAvailable,
+                [in] HANDLE hExit, 
+                [in] BOOL fNewAudioStream, 
+                [in] BOOL fRealTimeAudio,
+                [in] ISpObjectToken* pAudioObjectToken);
+    HRESULT SetRecoProfile(
+                [in] ISpObjectToken* pProfile);
+    HRESULT OnCreateGrammar(
+                [in] void* pvEngineRecoContext,
+                [in] SPGRAMMARHANDLE hSAPIGrammar,
+                [annotation("_Outptr_")] [out] void** ppvEngineGrammarContext);
+    HRESULT OnDeleteGrammar(
+                [in] void* pvEngineGrammar);
+    HRESULT LoadProprietaryGrammar(
+                [in] void* pvEngineGrammar,
+                [in] REFGUID rguidParam,
+                [in, string] LPCWSTR pszStringParam,
+                [in] const void* pvDataParam,
+                [in] ULONG ulDataSize,
+                [in] SPLOADOPTIONS Options);    // Note for SAPI 5.0 this is always SPLO_NONE
+    HRESULT UnloadProprietaryGrammar(
+                [in] void* pvEngineGrammar);
+    HRESULT SetProprietaryRuleState(
+                [in] void* pvEngineGrammar, 
+                [in, string] LPCWSTR pszName,
+                [in] void* pReserved,
+                [in] SPRULESTATE NewState,
+                [out] ULONG* pcRulesChanged);
+    HRESULT SetProprietaryRuleIdState(
+                [in] void* pvEngineGrammar, 
+                [in] DWORD dwRuleId,
+                [in] SPRULESTATE NewState);
+    HRESULT LoadSLM(
+                [in] void* pvEngineGrammar, 
+                [in, string] LPCWSTR pszTopicName);
+    HRESULT UnloadSLM(
+                [in] void* pvEngineGrammar);
+    HRESULT SetSLMState(
+                [in] void* pvEngineGrammar, 
+                [in] SPRULESTATE NewState);
+    HRESULT SetWordSequenceData(
+                [in] void* pvEngineGrammar, 
+                [annotation("_In_reads_(cchText)"),in] const WCHAR* pText, 
+                [in] ULONG cchText, 
+                [in] const SPTEXTSELECTIONINFO* pInfo);
+    HRESULT SetTextSelection(
+                [in] void* pvEngineGrammar, 
+                [in] const SPTEXTSELECTIONINFO* pInfo);
+    HRESULT IsPronounceable(
+                [in] void* pvEngineGrammar, 
+                [in, string] LPCWSTR pszWord, 
+                [out] SPWORDPRONOUNCEABLE *pWordPronounceable);
+    HRESULT OnCreateRecoContext(
+                [in] SPRECOCONTEXTHANDLE hSAPIRecoContext, 
+                [out] void** ppvEngineContext);
+    HRESULT OnDeleteRecoContext(
+                [in] void* pvEngineContext);
+    HRESULT PrivateCall(
+                [in] void* pvEngineContext, 
+                [in, out] PVOID pCallFrame, 
+                [in] ULONG ulCallFrameSize);
+    HRESULT SetAdaptationData(
+                [in] void* pvEngineContext, 
+                [annotation("_In_reads_(cch)")] const WCHAR* pAdaptationData, 
+                [in] const ULONG cch);
+    HRESULT SetPropertyNum(
+                [in] SPPROPSRC eSrc, 
+                [in] void* pvSrcObj,
+                [in] const WCHAR* pName, 
+                [in] LONG lValue );
+    HRESULT GetPropertyNum(
+                [in] SPPROPSRC eSrc, 
+                [in] void* pvSrcObj,
+                [in] const WCHAR* pName, 
+                [out] LONG* lValue );
+    HRESULT SetPropertyString(
+                [in] SPPROPSRC eSrc, 
+                [in] void* pvSrcObj,
+                [in] LPCWSTR pName, 
+                [in] LPCWSTR pValue );
+    HRESULT GetPropertyString(
+                [in] SPPROPSRC eSrc, 
+                [in] void* pvSrcObj,
+                [in] LPCWSTR pName, 
+                [annotation("_Outptr_")] [out] LPWSTR* ppCoMemValue );
+    HRESULT SetGrammarState(
+                [in] void* pvEngineGrammar, 
+                [in] SPGRAMMARSTATE eGrammarState);
+    HRESULT WordNotify(
+                [in] SPCFGNOTIFY Action, 
+                [in] ULONG cWords, 
+                [in] const SPWORDENTRY* pWords);
+    HRESULT RuleNotify(
+                [in] SPCFGNOTIFY Action, 
+                [in] ULONG cRules, 
+                [in] const SPRULEENTRY* pRules);
+    HRESULT PrivateCallEx(
+                [in] void* pvEngineContext, 
+                [in] const void* pInCallFrame, 
+                [in] ULONG ulInCallFrameSize,
+                [out] void** ppvCoMemResponse, 
+                [out] ULONG* pulResponseSize);
+    HRESULT SetContextState(
+                [in] void* pvEngineContext, 
+                [in] SPCONTEXTSTATE eContextState);
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+[
+    object,
+    uuid(7BA627D8-33F9-4375-90C5-9985AEE5EDE5),
+    helpstring("ISpSREngine2 Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpSREngine2 : ISpSREngine
+{
+    HRESULT PrivateCallImmediate(
+                [in] void* pvEngineContext,
+                [in] const void* pInCallFrame,
+                [in] ULONG ulInCallFrameSize,
+                [annotation("_Outptr_")] [out] void** ppvCoMemResponse,
+                [out] ULONG* pulResponseSize);
+    HRESULT SetAdaptationData2(
+                [in] void* pvEngineContext, 
+                [annotation("_In_reads_(cch)"), in] const WCHAR* pAdaptationData, 
+                [in] const ULONG cch, 
+                [in] LPCWSTR pTopicName, 
+                [in] SPADAPTATIONSETTINGS eSettings, 
+                [in] SPADAPTATIONRELEVANCE eRelevance);
+    HRESULT SetGrammarPrefix(
+                [in] void *pvEngineGrammar, 
+                [annotation("_In_opt_"), in, string] LPCWSTR pszPrefix, 
+                [in] BOOL fIsPrefixRequired);
+    HRESULT SetRulePriority(
+                [in] SPRULEHANDLE hRule,
+                [in] void *pvClientRuleContext,
+                [in] int nRulePriority);
+    HRESULT EmulateRecognition(
+                [in] ISpPhrase *pPhrase, 
+                [in] DWORD dwCompareFlags);
+    HRESULT SetSLMWeight(
+                [in] void *pvEngineGrammar, 
+                [in] float flWeight);
+    HRESULT SetRuleWeight(
+                [in] SPRULEHANDLE hRule,
+                [in] void *pvClientRuleContext,
+                [in] float flWeight);
+    HRESULT SetTrainingState(
+                [in] BOOL fDoingTraining, 
+                [in] BOOL fAdaptFromTrainingData);
+    HRESULT ResetAcousticModelAdaptation();
+    HRESULT OnLoadCFG(
+                [in] void* pvEngineGrammar, 
+                [in] const SPBINARYGRAMMAR* pGrammarData,  // actually an SPCFGSERIALIZEDHEADER
+                [in] ULONG ulGrammarID);
+    HRESULT OnUnloadCFG(
+                [in] void* pvEngineGrammar,
+                [in] ULONG ulGrammarID);
+}
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+//--- ISpSRAlternates
+
+typedef struct tagSPPHRASEALTREQUEST
+{
+    ULONG            ulStartElement;
+    ULONG            cElements;
+    ULONG            ulRequestAltCount;
+
+    void*            pvResultExtra;
+    ULONG            cbResultExtra;
+
+    ISpPhrase*       pPhrase;
+    ISpRecoContext*  pRecoContext;
+} SPPHRASEALTREQUEST;
+
+#if _SAPI_BUILD_VER >= 0x053
+[
+    object,
+    uuid(FECE8294-2BE1-408F-8E68-2DE377092F0E),
+    helpstring("ISpSRAlternates Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpSRAlternates : IUnknown
+{
+    HRESULT GetAlternates(
+                [in] SPPHRASEALTREQUEST* pAltRequest,
+                [out] SPPHRASEALT **ppAlts,
+                [out] ULONG *pcAlts);
+    HRESULT Commit(
+                [in] SPPHRASEALTREQUEST* pAltRequest,
+                [in] SPPHRASEALT* pAlt,
+                [out] void **ppvResultExtra,
+                [out] ULONG *pcbResultExtra);
+}
+#endif // _SAPI_BUILD_VER >= 0x053
+
+#if _SAPI_BUILD_VER >= 0x053
+[
+    object,
+    uuid(F338F437-CB33-4020-9CAB-C71FF9CE12D3),
+    helpstring("ISpSRAlternates Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpSRAlternates2 : ISpSRAlternates
+{
+    // Used when app Commits particular text. The original phrase, and start and count of elements being replaced are stored in the pAltRequest.
+    HRESULT CommitText(
+                [in] SPPHRASEALTREQUEST* pAltRequest, 
+                [annotation("_In_opt_")] LPCWSTR pcszNewText, 
+                [in] SPCOMMITFLAGS commitFlags);
+}
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+// Interface used by engine specific recoctxt extension object to call into engine
+[
+    object,
+    uuid(8E7C791E-4467-11D3-9723-00C04F72DB08),
+    helpstring("_ISpPrivateEngineCall Interface"),
+    pointer_default(unique),
+    local
+]
+interface _ISpPrivateEngineCall : IUnknown
+{
+    HRESULT CallEngine(
+                [annotation("_Inout_updates_bytes_(ulCallFrameSize)")] [in, out] void* pCallFrame, 
+                [in] ULONG ulCallFrameSize);
+    HRESULT CallEngineEx(
+                [annotation("_In_reads_bytes_(ulInFrameSize)")] [in] const void* pInFrame, 
+                [in] ULONG ulInFrameSize,
+                [annotation("_Outptr_result_buffer_maybenull_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
+                [annotation("_Out_writes_(1)")] [out] ULONG* pulOutFrameSize);
+}
+
+#if _SAPI_BUILD_VER >= 0x053
+// Interface used by engine specific recoctxt extension object to call into engine
+[
+    object,
+    uuid(DEFD682A-FE0A-42B9-BFA1-56D3D6CECFAF),
+    helpstring("ISpPrivateEngineCallEx Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpPrivateEngineCallEx : IUnknown
+{
+    HRESULT CallEngineSynchronize(
+                [annotation("_In_reads_bytes_(ulInFrameSize)")] [in] const void* pInFrame, 
+                [in] ULONG ulInFrameSize,
+                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
+                [annotation("_Out_writes_(1)")] [out] ULONG* pulOutFrameSize);
+    HRESULT CallEngineImmediate(
+                [annotation("_In_reads_bytes_(ulInFrameSize)")] [in] const void* pInFrame, 
+                [in] ULONG ulInFrameSize,
+                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
+                [annotation("_Out_writes_(1)")] [out] ULONG* pulOutFrameSize);
+}
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//
+//--- CoClass definitions ---------------------------------------------------
+//
+
+[
+    helpstring("Microsoft Speech Object DDK Library"),
+    uuid(9903F14C-12CE-4C99-9986-2EE3D7D588A8),
+    version(5.4)
+]
+library SpeechDDKLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    //--- SpDataKey ---------------------------------------------------------
+    [
+        uuid(D9F6EE60-58C9-458B-88E1-2F908FD7F87C),
+        helpstring("Data Key")
+    ]
+    coclass SpDataKey
+    {
+        interface ISpRegDataKey;
+        [default] interface ISpDataKey;
+    }
+
+    //--- SpObjectTokenEnum --------------------------------------------------
+    [
+        uuid(3918D75F-0ACB-41F2-B733-92AA15BCECF6),
+        helpstring("Object Token Enumerator")
+    ]
+    coclass SpObjectTokenEnum
+    {
+        interface ISpObjectTokenEnumBuilder;
+        [default] interface IEnumSpObjectTokens;
+    }
+        
+    //--- SpPhraseBuilder ---------------------------------------------------
+    [
+        uuid(777B6BBD-2FF2-11D3-88FE-00C04F8EF9B5),
+        helpstring("Phrase Builder Class")
+    ]
+    coclass SpPhraseBuilder
+    {
+        [default] interface ISpPhraseBuilder;
+    }
+    //--- SpITNProcessor ----------------------------------------------------
+    [
+        uuid(12D73610-A1C9-11D3-BC90-00C04F72DF9F),
+        helpstring("SpITNProcessor Class"),
+        restricted
+    ]
+    coclass SpITNProcessor
+    {
+        [default] interface ISpITNProcessor;
+    };
+    //--- SpGrammarCompiler ---------------------------------------------
+    [
+        uuid(B1E29D59-A675-11D2-8302-00C04F8EE6C0),
+        helpstring("Microsoft Speech Grammar Compiler")
+    ]
+    coclass SpGrammarCompiler
+    {
+        [default] interface ISpGrammarCompiler;
+    };
+
+#if _SAPI_BUILD_VER >= 0x053
+    //--- SpW3CGrammarCompiler ---------------------------------------------
+    [
+        uuid(D2C13906-51EF-454E-BC67-A52475FF074C),
+        helpstring("Microsoft Speech Grammar Compiler For W3C Grammar Format")
+    ]
+    coclass SpW3CGrammarCompiler
+    {
+        [default] interface ISpGrammarCompiler;
+    };
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    //--- SpGramCompBackend ---------------------------------------------
+    [
+        uuid(DA93E903-C843-11D2-A084-00C04F8EF9B5),
+        helpstring("Grammar Class"),
+        restricted
+    ]
+    coclass SpGramCompBackend
+    {
+        [default] interface ISpGramCompBackend;
+    };
+
+}
+
+// This must be at the end of this file
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#else")
+cpp_quote("#include \"sapiddk51.h\"")
+cpp_quote("#endif  // _SAPI_VER >= 0x053")
+#endif
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

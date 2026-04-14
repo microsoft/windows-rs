@@ -1,0 +1,651 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract,
+Description ( "A subsystem drive or spindle." )]
+class MSFT_PhysicalDisk : MSFT_StorageFaultDomain {
+
+    [Read, Required, Description(
+        "UniqueIdFormat indicates the type of identifier used in the UniqueId field. The "
+        "identifier used in UniqueId must be the highest available identifier using the "
+        "following order of preference: 8 (highest), 3, 2, 1, 0 (lowest). For example: "
+        "if the physical disk device exposes identifiers of type 0, 1, and 3, UniqueId must "
+        "be the identifier of type 3, and UniqueIdFormat should be set to 3."
+        ),
+        ValueMap { "0", "1", "2", "3", "8" },
+        Values { "Vendor Specific", "Vendor Id", "EUI64", "FCPH Name", "SCSI Name String" },
+        ModelCorrespondence {
+            "MSFT_StorageObject.UniqueId"
+            }]
+    UInt16 UniqueIdFormat;
+
+    [Read, Description(
+        "DeviceId is an address or other identifier that uniquely names the physical disk."
+        )]
+    String DeviceId;
+
+    [Read, Required, Description(
+        "This field describes the intended usage of this physical disk within a concrete pool. "
+        "Storage pools are required to follow the assigned policy for a physical disk. \n"
+        "1 - 'Auto-Select': This physical disk should only be used for data storage. \n"
+        "2 - 'Manual-Select': This physical disk should only be used if manually selected by "
+        "an administrator at the time of virtual disk creation. A manual-select disk is selected "
+        "using the PhysicalDisksToUse parameter to CreateVirtualDisk. \n"
+        "3 - 'Hot Spare': This physical disk should be used as a hot spare. \n"
+        "4 - 'Retired': This physical disk should be retired from use. At a minimum, no new "
+        "allocations should go to this disk. If the virtual disks that reside on this disk "
+        "are repaired, the data should be moved to another active physical disk."
+        ),
+        ValueMap { "0", "1", "2", "3", "4", "5" },
+        Values { "Unknown", "Auto-Select", "Manual-Select", "Hot Spare", "Retired", "Journal" }]
+    UInt16 Usage;
+
+    [Read, Required, Description(
+        "This field describes the supported usages of this physical disk."
+        ),
+        ValueMap { "1", "2", "3", "4", "5" },
+        Values { "Auto-Select", "Manual-Select", "Hot Spare", "Retired", "Journal" }]
+    UInt16 SupportedUsages[];
+
+    [Read, Required, Description(
+        "This field is a string representation of the physical disk's part number or SKU."
+        )]
+    String PartNumber;
+
+    [Read, Required, Description(
+        "This field is a string representation of the physical disk's firmware version."
+        )]
+    String FirmwareVersion;
+
+    [Read, Required, Description(
+        "This field is a string representation of the physical disk's software version."
+        )]
+    String SoftwareVersion;
+
+    [Read, Required, Description(
+        "Indicates the total physical storage size of the disk in bytes"
+        ), Units("Bytes")]
+    UInt64 Size;
+
+    [Read, Description(
+        "This field indicates the sum of used space on this physical disk. This should include "
+        "usage from all storage pools and other data stored on the disk."
+        ), Units("Bytes")]
+    UInt64 AllocatedSize;
+
+    [Read, Description(
+        "This field indicates the size in bytes of the user data footprint from virtual disks "
+        "on this physical disk."
+        ), Units("Bytes")]
+    UInt64 VirtualDiskFootprint;
+
+    [Read, Required,
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18.."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "SCSI", "ATAPI", "ATA", "1394",
+            // 5 - 9
+            "SSA", "Fibre Channel", "USB", "RAID", "iSCSI",
+            // 10 - 14
+            "SAS", "SATA", "SD", "MMC", "Virtual",
+            // 15 - 17
+            "File Backed Virtual", "Storage Spaces", "NVMe",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 BusType;
+
+    [Read, Required, Description(
+        "This field indicates the physical sector size of the physical disk in bytes. For "
+        "example: for 4K native and 512 emulated disks, the value should be 4096."
+        ), Units("Bytes")]
+    UInt64 PhysicalSectorSize;
+
+    [Read, Required, Description(
+        "This field indicates the logical sector size of the physical disk in bytes. For "
+        "example: a 4K native disk should report 4096, while a 512 emulated disk should report "
+        "512."
+        ), Units("Bytes")]
+    UInt64 LogicalSectorSize;
+
+    [Read, Required, Description(
+        "This field indicates the rotational speed of spindle-based physical disks. For solid "
+        "state devices (SSDs) or other non-rotational media, this field should set to 0. For "
+        "rotating media which has an unknown speed, this field should be set to -1 (UINT32_MAX)."
+        ), Units("RPM")]
+    UInt32 SpindleSpeed;
+
+    [Read, Description(
+        "Indicates whether the physical disk's identification LEDs are active or not. This "
+        "is typically used in maintenance operations."
+        )]
+    Boolean IsIndicationEnabled;
+
+    [Read, Description(
+        "Indicates the enclosure number in which the disk physically resides"
+        )]
+    UInt16 EnclosureNumber;
+
+    [Read, Description(
+        "Indicates the enclosure slot number in which the disk physically resides"
+        )]
+    UInt16 SlotNumber;
+
+    [Read]
+    String StoragePoolUniqueId;
+
+    [Read, Required, Description(
+        "Indicates whether this physical disk can be added to a concrete pool or not"
+        )]
+    Boolean CanPool;
+
+    [Read, Required,
+        Description(
+            "Indicates the reason why this physical disk cannot be added to a concrete pool"
+            ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "6", "7", "8", "9", "10", "11", "12",
+            "..",
+            "0x8000", "0x8001", "0x8002", "0x8003",
+            "0x8004.."
+            },
+        Values {
+            // 0 - 5
+            "Unknown", "Other", "In a Pool", "Not Healthy", "Removable Media", "In Use by Cluster",
+            // 6 - 12
+            "Offline", "Insufficient Capacity", "Spare Disk", "Reserved by subsystem", "Starting", "Partial SCM", "Discovery Disabled",
+            // ..
+            "Microsoft Reserved",
+            // 0x8000 - 0x8003
+            "Verification in progress", "Verification failed", "Firmware not compliant", "Hardware not compliant",
+            // ..
+            "Vendor Reserved"
+            }]
+    UInt16 CannotPoolReason[];
+
+    [Read, Description(
+        "If CannotPoolReason contains 1 - 'Other', this field contains the string representing "
+        "the vendor defined reason why this physical disk cannot be added to a concrete pool. "
+        "This property must be NULL if CannotPoolReason does not contain 1 - 'Other'."
+        )]
+    String OtherCannotPoolReasonDescription;
+
+    [Read, Description(
+        "Indicates whether this physical disk is partially consumed by a system or service "
+        "whose use is outside of normal storage pool operations."
+        )]
+    Boolean IsPartial;
+
+    [Description( "Media type of this physical disk" ),
+        ValueMap { "0", "3", "4" },
+        Values { "Unspecified", "HDD", "SSD" }]
+    UInt16 MediaType;
+
+    [Read, Description(
+        "A string representation of the Adapter's serial number."
+        )]
+    String AdapterSerialNumber;
+
+    [Read, Description(
+        "FruId is an identifier of the replacement unit housing the physical disk."
+        )]
+    String FruId;
+
+
+    //
+    // Method: GetPhysicalExtent
+    //
+
+    UInt32 GetPhysicalExtent(
+
+        [Out, EmbeddedInstance("MSFT_PhysicalExtent")]
+        String PhysicalExtents[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Maintenance
+    //
+
+    [Description(
+        "This method allows a user to perform certain maintenance tasks on the physical disk. "
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only."
+            }]
+    UInt32 Maintenance(
+
+        [In, Description(
+            "If set to TRUE, this instructs the physical disk to enable its indication LED. The "
+            "indication LED should remain enabled until a second call to Maintenance is made "
+            "with this parameter specified as FALSE."
+            )]
+        Boolean EnableIndication,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: Maintenance2
+    //
+
+    UInt32 Maintenance2(
+
+        [In]
+        Boolean EnableIndication,
+
+        [In]
+        Boolean ValidateMaintenanceMode,
+
+        [In]
+        Boolean EnableMaintenanceMode,
+
+        [In]
+        UInt32 Timeout,
+
+        [In]
+        Boolean IgnoreDetachedVirtualDisks,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: Reset
+    //
+
+    [Description(
+        "This method resets the health and operational status of the physical disk. Exact "
+        "behavior of this method is dependent on whether this physical disk belongs to a "
+        "concrete pool. \n"
+        "If it is a member of a concrete pool, the health and operational statuses should be "
+        "reset to 1 - 'Healthy', and 1 - 'OK', respectively. If any additional errors are "
+        "detected after Reset, the health and operational statuses should reflect these "
+        "new errors. \n"
+        "If the physical disk is not a member of a concrete pool, then this method should not "
+        "only reset the health and operational statuses, but it should return the disk into a "
+        "state where it is usable as storage for a concrete pool. For example: If a physical "
+        "disk had become missing and then has reappeared (after it has been replaced) this "
+        "physical disk is expected to be in the primordial pool only with an operational "
+        "status indicating its data is either split or unrecognized. Calling Reset should clear "
+        "the physical disk of any data, remove any remaining ties to its former concrete "
+        "pool, and return the disk to a healthy, usable state."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only."
+            }]
+    UInt32 Reset(
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: SetFriendlyName
+    //
+
+    [Description(
+        "This method allows the physical disk to be renamed."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only." }]
+    UInt32 SetFriendlyName(
+
+        [In, Required]
+        String FriendlyName,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetDescription
+    //
+
+    [Description(
+        "This method allows the physical disk's description to be changed."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only."
+            }]
+    UInt32 SetDescription(
+
+        [In, Required]
+        String Description,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetUsage
+    //
+
+    [Description(
+        "This method allows the physical disk's usage to be updated."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only."
+            }]
+    UInt32 SetUsage(
+
+        [In, Required, Description(
+            "This field describes the intended usage of this physical disk within a concrete pool. "
+            "Storage pools are required to follow the assigned policy for a physical disk. \n"
+            "1 - 'Auto-Select': This physical disk should only be used for data storage. \n"
+            "2 - 'Manual-Select': This physical disk should only be used if manually selected by "
+            "an administrator at the time of virtual disk creation. A manual-select disk is selected "
+            "using the PhysicalDisksToUse parameter to CreateVirtualDisk. \n"
+            "3 - 'Hot Spare': This physical disk should be used as a hot spare. \n"
+            "4 - 'Retired': This physical disk should be retired from use. At a minimum, no new "
+            "allocations should go to this disk. If the virtual disks that reside on this disk "
+            "are repaired, the data should be moved to another active physical disk."
+            ),
+            ValueMap { "1", "2", "3", "4", "5" },
+            Values { "Auto-Select", "Manual-Select", "Hot Spare", "Retired", "Journal" }]
+        UInt16 Usage,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetAttributes
+    //
+
+    [Description(
+        "This method allows the physical disk's attributes to be updated."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48006", "48007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only."
+            }]
+    UInt32 SetAttributes(
+
+        [In, Required, Description( "Media type of this physical disk" ),
+            ValueMap { "3", "4" },
+            Values { "HDD", "SSD" }]
+        UInt16 MediaType,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetAttributes2
+    //
+
+    UInt32 SetAttributes2(
+
+        [In]
+        UInt16 MediaType,
+
+        [In]
+        String StorageEnclosureId,
+
+        [In]
+        String StorageScaleUnitId,
+
+        [In]
+        Boolean IsHidden,
+
+        [Out]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: IsDeviceCacheEnabled
+    //
+
+    UInt32 IsDeviceCacheEnabled(
+
+        [Out]
+        Boolean IsDeviceCacheEnabled,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: IsPowerProtected
+    //
+
+    UInt32 IsPowerProtected(
+
+        [Out]
+        Boolean IsPowerProtected,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetFirmwareInformation
+    //
+
+    UInt32 GetFirmwareInformation(
+
+        [Out]
+        Boolean SupportsUpdate,
+
+        [Out]
+        UInt16 NumberOfSlots,
+
+        [Out]
+        UInt16 ActiveSlotNumber,
+
+        [Out]
+        UInt16 SlotNumber[],
+
+        [Out]
+        Boolean IsSlotWritable[],
+
+        [Out]
+        String FirmwareVersionInSlot[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: UpdateFirmware
+    //
+
+    UInt32 UpdateFirmware(
+
+        [In]
+        String ImagePath,
+
+        [In]
+        UInt16 SlotNumber,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Convert
+    //
+
+    UInt32 Convert(
+
+        [In, Required]
+        UInt16 Format,
+
+        [In, Required]
+        String StoragePoolFriendlyName,
+
+        [In]
+        UInt16 StoragePoolVersion,
+
+        [In, Units("Bytes")]
+        UInt64 StoragePoolMetadataLength,
+
+        [In, Units("Bytes")]
+        UInt64 StoragePoolMinimumAllocationSize,
+
+        [In, Required]
+        String VirtualDiskFriendlyName,
+
+        [In]
+        UInt16 VirtualDiskProvisioningType,
+
+        [In, Units("Bytes")]
+        UInt64 VirtualDiskAllocationUnitSize,
+
+        [In]
+        UInt16 VirtualDiskResiliencySettingName,
+
+        [Out, EmbeddedInstance("MSFT_StorageObject")]
+        String CreatedStorageObject,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+};

@@ -1,0 +1,912 @@
+//==========================================================================;
+//
+//  THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+//  KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+//  IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+//  PURPOSE.
+//
+//  Copyright (c) 1992 - 2002  Microsoft Corporation.  All Rights Reserved.
+//
+//--------------------------------------------------------------------------;
+
+// Neutral/English language type library for basic Quartz control interfaces
+
+// the quartz type library defines the basic control interfaces
+[
+    uuid(56a868b0-0ad4-11ce-b03a-0020af0ba770),
+    helpstring("ActiveMovie control type library"),
+    lcid(0x0000),
+    version(1.0)
+]
+library QuartzTypeLib
+{
+    importlib("STDOLE2.TLB");
+
+    // types are restricted to be automation-compatible
+    typedef double REFTIME;             // ReferenceTime
+    typedef LONG_PTR OAEVENT;         // should be a HANDLE
+    typedef LONG_PTR OAHWND;          // should be an hwnd
+
+    // from strmif.idl
+    typedef long OAFilterState;
+
+    // collection interface - represents a collection of IUnknowns
+    // this is used below to collect filter-info objects, registry-filters
+    // pin-info objects and wrapped media type objects
+    [
+        uuid(56a868b9-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("Collection"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IAMCollection : IDispatch
+    {
+        // number of items in collection
+        [propget]
+        HRESULT Count(
+                    [out, retval] LONG* plCount);
+
+        // return IUnknown for contained item by index
+        HRESULT Item(
+                    [in]  long lItem,
+                    [out] IUnknown** ppUnk);
+
+        // return IUnknown for an object that implements IEnumVARIANT on
+        // this collection
+        [propget]
+        HRESULT _NewEnum(
+                    [out, retval] IUnknown** ppUnk);
+    }
+
+
+    // core control providing state control
+    [
+        uuid(56a868b1-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IMediaControl interface"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IMediaControl : IDispatch
+    {
+        // methods
+        HRESULT Run();
+        HRESULT Pause();
+        HRESULT Stop();
+
+        //returns the state. same semantics as IMediaFilter::GetState
+
+        HRESULT GetState(
+                    [in] LONG msTimeout,
+                    [out] OAFilterState* pfs);
+
+        // adds and connects filters needed to play the specified file
+        // (same as IFilterGraph::RenderFile)
+        HRESULT RenderFile(
+                    [in] BSTR strFilename);
+
+        // adds to the graph the source filter that can read this file,
+        // and returns an IFilterInfo object for it (actually returns
+        // an IDispatch for the IFilterInfo object).
+        HRESULT AddSourceFilter(
+                    [in] BSTR strFilename,
+                    [out] IDispatch**ppUnk);
+
+        // get a collection of IFilterInfo objects representing the
+        // filters in the graph (returns IDispatch for an object
+        // that supports IAMCollection
+        [propget]
+        HRESULT FilterCollection(
+                        [out, retval] IDispatch** ppUnk);
+
+        // get a collection of IRegFilter objects representing the
+        // filters available in the registry
+        [propget]
+        HRESULT RegFilterCollection(
+                        [out, retval] IDispatch** ppUnk);
+
+        HRESULT StopWhenReady();
+    }
+
+
+    // provides an event notification scheme passing events
+    // asynchronously to applications. See also IMediaEventSink in
+    // strmif.idl and sdk\h\evcodes.h.
+    //
+    // this interface behaves as if events are held on a queue. A call to
+    // IMediaEventSink::Notify will place an event on this queue. Calling
+    // GetEvent removes the first item off the queue and returns it. Items are
+    // returned in the order they were queued (there is no priority scheme).
+    // The event handle is in a signalled state iff the queue is non-empty.
+    //
+    // Apps that issue multiple Run calls without always picking up the
+    // completion events are advised to call GetEvent or WaitForCompletion
+    // (with a 0 timeout) repeatedly to remove all events from the queue
+    // when in stopped or paused state before each Run method.
+    //
+    // Parameters to events are actually LONG, IUnknown* or BSTR. You need to
+    // look at evcode.h for details of parameters to a specific event code.
+    // In order to correctly free resources, always call FreeEventParams
+    // after receiving an event.
+    //
+
+    [
+        uuid(56a868b6-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IMediaEvent interface"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IMediaEvent : IDispatch
+    {
+        // get back the event handle. This is manual-reset
+        // (don't - it's reset by the event mechanism) and remains set
+        // when events are queued, and reset when the queue is empty.
+        HRESULT GetEventHandle(
+                        [out] OAEVENT * hEvent);
+
+        // remove the next event notification from the head of the queue and
+        // return it. Waits up to msTimeout millisecs if there are no events.
+        // if a timeout occurs without any events, this method will return
+        // E_ABORT, and the value of the event code and other parameters
+        // is undefined.
+        //
+        // If this call returns successfully the caller MUST call
+        // FreeEventParams(lEventCode, lParam1, lParam2) to release
+        // resources held inside the event arguments
+        //
+        HRESULT GetEvent(
+                        [out] long * lEventCode,
+                        [out] LONG_PTR * lParam1,
+                        [out] LONG_PTR * lParam2,
+                        [in] long msTimeout
+                        );
+
+        // Calls GetEvent repeatedly discarding events until it finds a
+        // completion event (EC_COMPLETE, EC_ERRORABORT, or EC_USERABORT).
+        // The completion event is removed from the queue and returned
+        // in pEvCode. Note that the object is still in running mode until
+        // a Pause or Stop call is made.
+        // If the timeout occurs, *pEvCode will be 0 and E_ABORT will be
+        // returned.
+        HRESULT WaitForCompletion(
+                        [in] long msTimeout,
+                        [out] long * pEvCode);
+
+        // cancels any system handling of the specified event code
+        // and ensures that the events are passed straight to the application
+        // (via GetEvent) and not handled. A good example of this is
+        // EC_REPAINT: default handling for this ensures the painting of the
+        // window and does not get posted to the app.
+        HRESULT CancelDefaultHandling(
+                        [in] long lEvCode);
+
+        // restore the normal system default handling that may have been
+        // cancelled by CancelDefaultHandling().
+        HRESULT RestoreDefaultHandling( [in] long lEvCode);
+
+	// Free any resources associated with the parameters to an event.
+        // Event parameters may be LONGs, IUnknown* or BSTR. No action
+        // is taken with LONGs. IUnknown are passed addrefed and need a
+        // Release call. BSTR are allocated by the task allocator and will be
+        // freed by calling the task allocator.
+        HRESULT FreeEventParams(
+        		[in] long lEvCode,
+                        [in] LONG_PTR lParam1,
+                        [in] LONG_PTR lParam2
+                        );
+    }
+
+    [
+        uuid(56a868c0-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IMediaEventEx interface"),
+        odl
+    ]
+    interface IMediaEventEx : IMediaEvent
+    {
+
+        // Register a window to send messages to when events occur
+        // Parameters:
+        //
+        //    hwnd - handle of window to notify -
+        //           pass NULL to stop notification
+        //    lMsg - Message id to pass messages with
+	//    lInstanceData - will come back in lParam
+        //
+        // The event information must still be retrived by a call
+        // to GetEvent when the window message is received.
+        //
+        // Multiple events may be notified with one window message.
+        //
+        HRESULT SetNotifyWindow(
+                        [in] OAHWND hwnd,
+                        [in] long lMsg,
+			[in] LONG_PTR lInstanceData
+                        );
+
+        // Turn events notification on or off
+        // lNoNotify = 0x00 event notification is ON
+        // lNoNotify = 0x01 event notification is OFF.  The
+        // handle returned by GetEventHandle will be signalled at
+        // end of stream
+        HRESULT SetNotifyFlags(
+                        [in] long lNoNotifyFlags
+                         );
+        HRESULT GetNotifyFlags(
+                        [out] long *lplNoNotifyFlags
+                         );
+    }
+
+
+
+
+    // seek/cueing for positional media
+    [
+        uuid(56a868b2-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IMediaPosition interface"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IMediaPosition : IDispatch
+    {
+        // properties
+
+        [propget]
+        HRESULT Duration(
+                    [out, retval] REFTIME* plength);
+
+        [propput]
+        HRESULT CurrentPosition(
+                    [in] REFTIME llTime);
+
+        [propget]
+        HRESULT CurrentPosition(
+                    [out, retval] REFTIME* pllTime);
+
+        [propget]
+        HRESULT StopTime(
+                    [out, retval] REFTIME* pllTime);
+        [propput]
+        HRESULT StopTime(
+                    [in] REFTIME llTime);
+
+        [propget]
+        HRESULT PrerollTime(
+                    [out, retval] REFTIME* pllTime);
+        [propput]
+        HRESULT PrerollTime(
+                    [in] REFTIME llTime);
+
+        [propput]
+        HRESULT Rate(
+                    [in] double dRate);
+        [propget]
+        HRESULT Rate(
+                    [out, retval] double * pdRate);
+
+        HRESULT CanSeekForward([out, retval] LONG *pCanSeekForward);
+        HRESULT CanSeekBackward([out, retval] LONG *pCanSeekBackward);
+    }
+
+    // basic audio-related functionality
+    [
+        uuid(56a868b3-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IBasicAudio interface"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IBasicAudio : IDispatch
+    {
+        // properties
+
+        [propput]
+        HRESULT Volume(
+                    [in] long lVolume);
+        [propget]
+        HRESULT Volume(
+                    [out, retval] long * plVolume);
+
+        [propput]
+        HRESULT Balance(
+                    [in] long lBalance);
+        [propget]
+        HRESULT Balance(
+                    [out, retval] long * plBalance);
+    }
+
+    // basic window-related functionality
+    [
+        uuid(56a868b4-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IVideoWindow interface"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IVideoWindow : IDispatch
+    {
+        // properties
+
+        // set and get the window title caption
+
+        [propput]
+        HRESULT Caption([in] BSTR strCaption);
+        [propget]
+        HRESULT Caption([out, retval] BSTR *strCaption);
+
+        // change the window styles (as per Win32)
+
+        [propput]
+        HRESULT WindowStyle([in] long WindowStyle);
+        [propget]
+        HRESULT WindowStyle([out, retval] long *WindowStyle);
+
+        // change the extended window styles (as per Win32)
+
+        [propput]
+        HRESULT WindowStyleEx([in] long WindowStyleEx);
+        [propget]
+        HRESULT WindowStyleEx([out, retval] long *WindowStyleEx);
+
+        [propput]
+        HRESULT AutoShow([in] long AutoShow);
+        [propget]
+        HRESULT AutoShow([out, retval] long *AutoShow);
+
+        // change the window state (as per Win32)
+
+        [propput]
+        HRESULT WindowState([in] long WindowState);
+        [propget]
+        HRESULT WindowState([out, retval] long *WindowState);
+
+        // realise the palette in the background
+
+        [propput]
+        HRESULT BackgroundPalette([in] long BackgroundPalette);
+        [propget]
+        HRESULT BackgroundPalette([out, retval] long *pBackgroundPalette);
+
+        // affect the visibility of the window
+
+        [propput]
+        HRESULT Visible([in] long Visible);
+        [propget]
+        HRESULT Visible([out, retval] long *pVisible);
+
+        // change the desktop position of the video window
+
+        [propput]
+        HRESULT Left([in] long Left);
+        [propget]
+        HRESULT Left([out, retval] long *pLeft);
+
+        [propput]
+        HRESULT Width([in] long Width);
+        [propget]
+        HRESULT Width([out, retval] long *pWidth);
+
+        [propput]
+        HRESULT Top([in] long Top);
+        [propget]
+        HRESULT Top([out, retval] long *pTop);
+
+        [propput]
+        HRESULT Height([in] long Height);
+        [propget]
+        HRESULT Height([out, retval] long *pHeight);
+
+        // change the owning window of the video
+
+        [propput]
+        HRESULT Owner([in] OAHWND Owner);
+        [propget]
+        HRESULT Owner([out, retval] OAHWND *Owner);
+
+        // change the window to receive posted messages
+
+        [propput]
+        HRESULT MessageDrain([in] OAHWND Drain);
+        [propget]
+        HRESULT MessageDrain([out, retval] OAHWND *Drain);
+
+        [propget]
+        HRESULT BorderColor([out, retval] long *Color);
+
+        [propput]
+        HRESULT BorderColor([in] long Color);
+
+        [propget]
+        HRESULT FullScreenMode([out, retval] long *FullScreenMode);
+
+        [propput]
+        HRESULT FullScreenMode([in] long FullScreenMode);
+
+        // methods
+
+        // ask the renderer to grab it's window the foreground
+        // and optionally also give the window the input focus
+        HRESULT SetWindowForeground([in] long Focus);
+
+        // owners should pass WM_PALETTECHANGED and WM_SYSCOLORCHANGE
+        // messages on the filter graph so they can be distributed
+        // otherwise child renderers never see these messages go by
+
+        HRESULT NotifyOwnerMessage([in] OAHWND hwnd,
+                                   [in] long uMsg,
+                                   [in] LONG_PTR wParam,
+                                   [in] LONG_PTR lParam
+                                   );
+
+        // get and set the window position on the desktop
+
+        HRESULT SetWindowPosition([in] long Left,
+                                  [in] long Top,
+                                  [in] long Width,
+                                  [in] long Height);
+
+        HRESULT GetWindowPosition([out] long *pLeft,
+                                  [out] long *pTop,
+                                  [out] long *pWidth,
+                                  [out] long *pHeight);
+
+        // get the ideal sizes for the video image playback (client) area
+
+        HRESULT GetMinIdealImageSize([out] long *pWidth,[out] long *pHeight);
+        HRESULT GetMaxIdealImageSize([out] long *pWidth,[out] long *pHeight);
+
+        // get the restored window size when we're maximised or iconic
+
+        HRESULT GetRestorePosition([out] long *pLeft,
+                                   [out] long *pTop,
+                                   [out] long *pWidth,
+                                   [out] long *pHeight);
+
+	// show and hide cursors useful when fullscreen
+	HRESULT HideCursor([in] long HideCursor);
+        HRESULT IsCursorHidden([out] long *CursorHidden);
+    }
+
+    // basic video-related functionality
+    [
+        uuid(56a868b5-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IBasicVideo interface"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IBasicVideo : IDispatch
+    {
+        // properties
+
+        // Video specific (approximate) bit and frame rates
+
+        [propget]
+        HRESULT AvgTimePerFrame([out, retval] REFTIME *pAvgTimePerFrame);
+
+        [propget]
+        HRESULT BitRate([out, retval] long *pBitRate);
+
+        [propget]
+        HRESULT BitErrorRate([out, retval] long *pBitErrorRate);
+
+        // read the native video size
+
+        [propget]
+        HRESULT VideoWidth([out, retval] long *pVideoWidth);
+
+        [propget]
+        HRESULT VideoHeight([out, retval] long *pVideoHeight);
+
+        // change the source rectangle for the video
+
+        [propput]
+        HRESULT SourceLeft([in] long SourceLeft);
+        [propget]
+        HRESULT SourceLeft([out, retval] long *pSourceLeft);
+
+        [propput]
+        HRESULT SourceWidth([in] long SourceWidth);
+        [propget]
+        HRESULT SourceWidth([out, retval] long *pSourceWidth);
+
+        [propput]
+        HRESULT SourceTop([in] long SourceTop);
+        [propget]
+        HRESULT SourceTop([out, retval] long *pSourceTop);
+
+        [propput]
+        HRESULT SourceHeight([in] long SourceHeight);
+        [propget]
+        HRESULT SourceHeight([out, retval] long *pSourceHeight);
+
+        // change the destination rectangle for the video
+
+        [propput]
+        HRESULT DestinationLeft([in] long DestinationLeft);
+        [propget]
+        HRESULT DestinationLeft([out, retval] long *pDestinationLeft);
+
+        [propput]
+        HRESULT DestinationWidth([in] long DestinationWidth);
+        [propget]
+        HRESULT DestinationWidth([out, retval] long *pDestinationWidth);
+
+        [propput]
+        HRESULT DestinationTop([in] long DestinationTop);
+        [propget]
+        HRESULT DestinationTop([out, retval] long *pDestinationTop);
+
+        [propput]
+        HRESULT DestinationHeight([in] long DestinationHeight);
+        [propget]
+        HRESULT DestinationHeight([out, retval] long *pDestinationHeight);
+
+        // methods
+
+        // get and set the source rectangle position
+
+        HRESULT SetSourcePosition([in] long Left,
+                                  [in] long Top,
+                                  [in] long Width,
+                                  [in] long Height);
+
+        HRESULT GetSourcePosition([out] long *pLeft,
+                                  [out] long *pTop,
+                                  [out] long *pWidth,
+                                  [out] long *pHeight);
+
+        HRESULT SetDefaultSourcePosition();
+
+        // get and set the destination rectangle position
+
+        HRESULT SetDestinationPosition([in] long Left,
+                                       [in] long Top,
+                                       [in] long Width,
+                                       [in] long Height);
+
+        HRESULT GetDestinationPosition([out] long *pLeft,
+                                       [out] long *pTop,
+                                       [out] long *pWidth,
+                                       [out] long *pHeight);
+
+        HRESULT SetDefaultDestinationPosition();
+
+        // get the native video dimensions
+
+        HRESULT GetVideoSize([out] long *pWidth,[out] long *pHeight);
+
+        // get all or some of the current video palette
+
+        HRESULT GetVideoPaletteEntries([in] long StartIndex,
+                                       [in] long Entries,
+                                       [out] long *pRetrieved,
+                                       [out] long *pPalette);
+
+        HRESULT GetCurrentImage([in,out] long *pBufferSize,
+                                [out] long *pDIBImage);
+
+        // are we using a default source or destination
+
+        HRESULT IsUsingDefaultSource();
+        HRESULT IsUsingDefaultDestination();
+    }
+
+    // interface extension to IBasicVideo to return preferred aspect ratio
+    [
+        uuid(329bb360-f6ea-11d1-9038-00a0c9697298),
+        helpstring("IBasicVideo2"),
+        odl
+    ]
+    interface IBasicVideo2 : IBasicVideo
+    {
+        //  This may not match the native video dimensions because of
+        //  non-square pixels or whatever.
+        //  The video may not always be displayed in the preferred
+        //  aspect ratio for performance reasons
+
+        HRESULT GetPreferredAspectRatio([out] long *plAspectX,
+                                        [out] long *plAspectY);
+    }
+
+    // interface returned to a command that has been queued via IQueueCommand
+    [
+        uuid(56a868b8-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IDeferredCommand"),
+        odl
+    ]
+    interface IDeferredCommand : IUnknown
+    {
+        HRESULT Cancel();
+        HRESULT Confidence(
+                    [out] LONG* pConfidence);
+        HRESULT Postpone(
+                    [in] REFTIME newtime);
+        // return value is S_OK if completed. phrResult is set to the
+        // result of the deferred command.
+        HRESULT GetHResult(
+                    [out] HRESULT* phrResult);
+    };
+
+    // queue an IDispatch-based command for execution at a specified time
+    [
+        uuid(56a868b7-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("IQueueCommand"),
+        odl
+    ]
+    interface IQueueCommand  : IUnknown
+    {
+        HRESULT InvokeAtStreamTime(
+                    [out] IDeferredCommand** pCmd,
+                    [in] REFTIME time,            // at this streamtime
+                    [in] GUID* iid,                   // call this interface
+                    [in] long dispidMethod,         // ..and this method
+                    [in] short wFlags,              // method/property
+                    [in] long cArgs,                // count of args
+                    [in] VARIANT* pDispParams,      // actual args
+                    [in, out] VARIANT* pvarResult,  // return value
+                    [out] short* puArgErr           // which arg in error
+        );
+
+        HRESULT InvokeAtPresentationTime(
+                    [out] IDeferredCommand** pCmd,
+                    [in] REFTIME time,            // at this presentation time
+                    [in] GUID* iid,                   // call this interface
+                    [in] long dispidMethod,         // ..and this method
+                    [in] short wFlags,              // method/property
+                    [in] long cArgs,                // count of args
+                    [in] VARIANT* pDispParams,      // actual args
+                    [in, out] VARIANT* pvarResult,  // return value
+                    [out] short* puArgErr           // which arg in error
+        );
+
+    };
+
+
+
+    // the filgraph object (CLSID_Filgraph)
+    [
+        uuid(e436ebb3-524f-11ce-9f53-0020af0ba770),
+        helpstring("Filtergraph type info")
+    ]
+    coclass FilgraphManager
+    {
+        [default] interface IMediaControl;
+        interface IMediaEvent;
+        interface IMediaPosition;
+        interface IBasicAudio;
+        interface IBasicVideo;
+        interface IVideoWindow;
+
+    };
+
+
+    // represents a filter (you can't QI for IBaseFilter from this object)
+    [
+        uuid(56a868ba-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("FilterInfo"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IFilterInfo : IDispatch
+    {
+        // find a pin given an id - returns an object supporting
+        // IPinInfo
+        HRESULT FindPin(
+                    [in] BSTR strPinID,
+                    [out] IDispatch** ppUnk);
+
+        // filter name
+        [propget]
+        HRESULT Name(
+                    [out, retval] BSTR* strName);
+
+        // Vendor info string
+        [propget]
+        HRESULT VendorInfo(
+                    [out, retval] BSTR* strVendorInfo);
+
+        // returns the actual filter object (supports IBaseFilter)
+        [propget]
+        HRESULT Filter(
+                    [out, retval] IUnknown **ppUnk);
+
+        // returns an IAMCollection object containing the PinInfo objects
+        // for this filter
+        [propget]
+        HRESULT Pins(
+                    [out, retval] IDispatch ** ppUnk);
+
+        // returns -1 if true or 0 if false (OATRUE/FALSE)
+        [propget]
+        HRESULT IsFileSource(
+                    [out, retval] LONG * pbIsSource);
+
+        [propget]
+        HRESULT Filename(
+                    [out, retval] BSTR* pstrFilename);
+
+        [propput]
+        HRESULT Filename(
+                    [in] BSTR strFilename);
+    }
+
+    [
+        uuid(56a868bb-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("Registry Filter Info"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IRegFilterInfo : IDispatch
+    {
+        // get the name of this filter
+        [propget]
+        HRESULT Name(
+                    [out, retval] BSTR* strName);
+
+
+        // make an instance of this filter, add it to the graph and
+        // return an IFilterInfo for it.
+        HRESULT Filter(
+                    [out] IDispatch** ppUnk);
+    }
+
+    // wrapper for a media type
+    [
+        uuid(56a868bc-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("Media Type"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IMediaTypeInfo : IDispatch
+    {
+        // get the major type GUID as a string
+        [propget]
+        HRESULT Type(
+                    [out, retval] BSTR* strType);
+
+        // get the subtype GUID as a string
+        [propget]
+        HRESULT Subtype(
+                    [out, retval] BSTR* strType);
+    }
+
+    [
+        uuid(56a868bd-0ad4-11ce-b03a-0020af0ba770),
+        helpstring("Pin Info"),
+        odl,
+        oleautomation,
+        dual
+    ]
+    interface IPinInfo : IDispatch
+    {
+        // get the pin object (IUnknown for an object that
+        // supports IPin
+        [propget]
+        HRESULT Pin(
+                    [out, retval] IUnknown** ppUnk);
+
+        // get the PinInfo object for the pin we are connected to
+        [propget]
+        HRESULT ConnectedTo(
+                    [out, retval] IDispatch** ppUnk);
+
+        // get the media type on this connection - returns an
+        // object supporting IMediaTypeInfo
+        [propget]
+        HRESULT ConnectionMediaType(
+                    [out, retval] IDispatch** ppUnk);
+
+
+        // return the FilterInfo object for the filter this pin
+        // is part of
+        [propget]
+        HRESULT FilterInfo(
+                    [out, retval] IDispatch** ppUnk);
+
+        // get the name of this pin
+        [propget]
+        HRESULT Name(
+                    [out, retval] BSTR* ppUnk);
+
+        // pin direction
+        [propget]
+        HRESULT Direction(
+                    [out, retval] LONG *ppDirection);
+
+        // PinID - can pass to IFilterInfo::FindPin
+        [propget]
+        HRESULT PinID(
+                    [out, retval] BSTR* strPinID);
+
+        // collection of preferred media types (IAMCollection)
+        [propget]
+        HRESULT MediaTypes(
+                    [out, retval] IDispatch** ppUnk);
+
+        // Connect to the following pin, using other transform
+        // filters as necessary. pPin can support either IPin or IPinInfo
+        HRESULT Connect(
+                    [in] IUnknown* pPin);
+
+        // Connect directly to the following pin, not using any intermediate
+        // filters
+        HRESULT ConnectDirect(
+                    [in] IUnknown* pPin);
+
+        // Connect directly to the following pin, using the specified
+        // media type only. pPin is an object that must support either
+        // IPin or IPinInfo, and pMediaType must support IMediaTypeInfo.
+        HRESULT ConnectWithType(
+                    [in] IUnknown * pPin,
+                    [in] IDispatch * pMediaType);
+
+        // disconnect this pin and the corresponding connected pin from
+        // each other. (Calls IPin::Disconnect on both pins).
+        HRESULT Disconnect(void);
+
+        // render this pin using any necessary transform and rendering filters
+        HRESULT Render(void);
+    }
+
+    //--------------------------------------------------------------------
+    //
+    //  IAMStats - statistics
+    //
+    //  Note that the calls using an index are likely to be much faster
+    //--------------------------------------------------------------------
+
+    [
+            uuid(bc9bcf80-dcd2-11d2-abf6-00a0c905f375),
+            helpstring("Statistics"),
+            odl,
+            oleautomation,
+            dual
+    ]
+    interface IAMStats : IDispatch {
+        //  Reset all stats
+        HRESULT Reset();
+
+        //  Get number of stats collected
+        [propget]
+        HRESULT Count(
+                    [out, retval] LONG* plCount);
+
+        //  Pull out a specific value by position
+        HRESULT GetValueByIndex([in] long lIndex,
+                                [out] BSTR *szName,
+                                [out] long *lCount,
+                                [out] double *dLast,
+                                [out] double *dAverage,
+                                [out] double *dStdDev,
+                                [out] double *dMin,
+                                [out] double *dMax);
+
+        //  Pull out a specific value by name
+        HRESULT GetValueByName([in] BSTR szName,
+                               [out] long *lIndex,
+                               [out] long *lCount,
+                                [out] double *dLast,
+                               [out] double *dAverage,
+                               [out] double *dStdDev,
+                               [out] double *dMin,
+                               [out] double *dMax);
+
+
+        //  The calls below are for generators of statistics
+
+        //  Return the index for a string - optinally create
+        HRESULT GetIndex([in] BSTR szName,
+                         [in] long lCreate,
+                         [out] long *plIndex);
+
+        //  Add a new value
+        HRESULT AddValue([in] long lIndex,
+                         [in] double dValue);
+    }
+};

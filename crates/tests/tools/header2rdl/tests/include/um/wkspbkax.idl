@@ -1,0 +1,92 @@
+// wkspbkax.idl : IDL source for wkspbkax
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (wkspbkax.tlb) and marshalling code.
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+const int DISPID_WKSPAX_WORKSPACE_SETUP_COMPLETED = 1;
+
+[
+    object,
+    uuid(2F93474C-2ED7-4A68-AFD1-D3C9781F341E),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IWorkspaceBrokerAx : IDispatch{
+    [id(1), helpstring("SetupWorkspace")] HRESULT SetupWorkspace();
+    [id(2), helpstring("InitializeWorkspaceConfiguration")] HRESULT InitializeWorkspaceConfiguration();
+    
+    [propget, id(3), helpstring("WorkspacesCount")] HRESULT WorkspacesCount([out, retval] LONG* pVal);
+    [propget, id(4), helpstring("WorkspaceName")] HRESULT WorkspaceName([in] LONG itr, [out, retval] BSTR* pVl);
+    [propget, id(5), helpstring("WorkspaceId")] HRESULT WorkspaceId([in] LONG itr, [out, retval] BSTR* pVal);
+    [propget, id(6), helpstring("WorkspaceFoldersCount")] HRESULT WorkspaceFoldersCount([in] BSTR WkspId,[out, retval] LONG* pVal);
+    [propget, id(7), helpstring("WorkspaceFolderName")] HRESULT WorkspaceFolderName([in] BSTR WkspId, [in] LONG itr, [out, retval] BSTR* pVal);
+    [propget, id(8), helpstring("WorkspaceFolderContentsCount")] HRESULT WorkspaceFolderContentsCount([in] BSTR WkspId, [in] BSTR WkspFolder,[out, retval] LONG* pVal);
+    [propget, id(9), helpstring("WorkspaceFolderImageData")] HRESULT WorkspaceFolderImageData([in] BSTR WkspId, [in] BSTR WkspFolder, [in] LONG itr,[out, retval] BSTR* pVal);
+    [propget, id(10), helpstring("WorkspaceFolderItemName")] HRESULT WorkspaceFolderItemName([in] BSTR WkspId, [in] BSTR WkspFolder, [in] LONG itr,[out, retval] BSTR* pVal);
+    [propget, id(11), helpstring("WorkspaceFolderItemFileExtension")] HRESULT WorkspaceFolderItemFileExtension([in] BSTR WkspId, [in] BSTR WkspFolder, [in] LONG itr,[out, retval] BSTR* pVal);
+    [propget, id(12), helpstring("IsWorkspaceFolderItemRemoteDesktop")] HRESULT IsWorkspaceFolderItemRemoteDesktop([in] BSTR WkspId, [in] BSTR WkspFolder, [in] LONG itr, [out, retval] VARIANT_BOOL* pVal);    
+
+    [id(13),helpstring("LaunchWorkspaceItem")] HRESULT LaunchWorkspaceItem([in] BSTR WkspId, [in] BSTR WkspFolder, [in] BSTR WkspItemName, [in] BSTR ActivationContext);
+
+    [id(14),helpstring("attachEvent")] HRESULT attachEvent([in] BSTR eventName, [in] IDispatch* callback);
+    [id(15),helpstring("detachEvent")] HRESULT detachEvent([in] BSTR eventName, [in] IDispatch* callback);
+};
+[
+    object,
+    uuid(57D42F01-D762-4680-9893-326B08F22652),
+    dual,
+    pointer_default(unique)
+]
+interface IWorkspaceBrokerAx2 : IWorkspaceBrokerAx{
+    
+    [id(30), helpstring("RefreshWorkspace")] HRESULT RefreshWorkspace([in] BSTR bstrWorkspaceGUID);
+    [id(31), helpstring("RemoveWorkspace")] HRESULT RemoveWorkspace([in] BSTR bstrWorkspaceGUID);
+    [propget, id(32), helpstring("WorkspaceDescription")] HRESULT WorkspaceDescription([in] BSTR bstrWorkspaceGUID, [out, retval] BSTR* pbstrMessage);
+    [propget, id(33), helpstring("WorkspaceURL")] HRESULT WorkspaceURL([in] BSTR bstrWorkspaceGUID, [out, retval] BSTR* pbstrMessage);
+    [propget, id(34), helpstring("WorkspaceLastUpdateDescription")] HRESULT WorkspaceLastUpdateDescription([in] BSTR bstrWorkspaceGUID, [out, retval] BSTR* pbstrMessage);
+    [propget, id(35), helpstring("IsDefaultWorkspace")] HRESULT IsDefaultWorkspace([in] BSTR bstrWorkspaceGUID, [out, retval] VARIANT_BOOL* pVal);
+}
+
+[
+    uuid(A47EDEDD-2921-4E5A-9B91-13C953EC7FE3),
+    version(1.0),
+]
+library wkspbkaxLib
+{
+    importlib("stdole2.tlb");
+    [
+        uuid(7A3D0ADC-0CC4-473D-B327-D37886308F28)      
+    ]
+    dispinterface _IWorkspaceBrokerAxEvents
+    {
+        properties:
+        methods:
+            [id(DISPID_WKSPAX_WORKSPACE_SETUP_COMPLETED), helpstring("OnWorkspaceSetupCompleted")] void OnWorkspaceSetupCompleted([in] ULONG Result);         
+    };
+    [
+        uuid(CD70A734-B6DB-4588-9813-FF2E37A4661F),
+        control
+    ]
+    coclass WorkspaceBrokerAx
+    {
+        interface IWorkspaceBrokerAx;
+        [default] interface IWorkspaceBrokerAx2;
+        [default, source] dispinterface _IWorkspaceBrokerAxEvents;
+    };
+};
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")

@@ -1,0 +1,94 @@
+// cstdio standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CSTDIO_
+#define _CSTDIO_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <stdio.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// undef common macro overrides
+#undef clearerr
+#undef feof
+#undef ferror
+#undef getc
+#undef getchar
+#undef putc
+#undef putchar
+
+_STD_BEGIN
+#pragma warning(push)
+#pragma warning(disable : 4995) // name was marked as #pragma deprecated
+
+using _CSTD _Mbstatet;
+
+_EXPORT_STD using _CSTD size_t;
+_EXPORT_STD using _CSTD fpos_t;
+_EXPORT_STD using _CSTD FILE;
+_EXPORT_STD using _CSTD clearerr;
+_EXPORT_STD using _CSTD fclose;
+_EXPORT_STD using _CSTD feof;
+_EXPORT_STD using _CSTD ferror;
+_EXPORT_STD using _CSTD fflush;
+_EXPORT_STD using _CSTD fgetc;
+_EXPORT_STD using _CSTD fgetpos;
+_EXPORT_STD using _CSTD fgets;
+_EXPORT_STD using _CSTD fopen;
+_EXPORT_STD using _CSTD fprintf;
+_EXPORT_STD using _CSTD fputc;
+_EXPORT_STD using _CSTD fputs;
+_EXPORT_STD using _CSTD fread;
+_EXPORT_STD using _CSTD freopen;
+_EXPORT_STD using _CSTD fscanf;
+_EXPORT_STD using _CSTD fseek;
+_EXPORT_STD using _CSTD fsetpos;
+_EXPORT_STD using _CSTD ftell;
+_EXPORT_STD using _CSTD fwrite;
+_EXPORT_STD using _CSTD getc;
+_EXPORT_STD using _CSTD getchar;
+_EXPORT_STD using _CSTD perror;
+_EXPORT_STD using _CSTD putc;
+_EXPORT_STD using _CSTD putchar;
+_EXPORT_STD using _CSTD printf;
+_EXPORT_STD using _CSTD puts;
+_EXPORT_STD using _CSTD remove;
+_EXPORT_STD using _CSTD rename;
+_EXPORT_STD using _CSTD rewind;
+_EXPORT_STD using _CSTD scanf;
+_EXPORT_STD using _CSTD setbuf;
+_EXPORT_STD using _CSTD setvbuf;
+_EXPORT_STD using _CSTD sprintf;
+_EXPORT_STD using _CSTD sscanf;
+_EXPORT_STD using _CSTD tmpfile;
+_EXPORT_STD using _CSTD tmpnam;
+_EXPORT_STD using _CSTD ungetc;
+_EXPORT_STD using _CSTD vfprintf;
+_EXPORT_STD using _CSTD vprintf;
+_EXPORT_STD using _CSTD vsprintf;
+
+_EXPORT_STD using _CSTD snprintf;
+_EXPORT_STD using _CSTD vsnprintf;
+_EXPORT_STD using _CSTD vfscanf;
+_EXPORT_STD using _CSTD vscanf;
+_EXPORT_STD using _CSTD vsscanf;
+
+#pragma warning(pop)
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CSTDIO_

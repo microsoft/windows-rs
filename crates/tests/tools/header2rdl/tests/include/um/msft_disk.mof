@@ -1,0 +1,479 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Description(
+    "A disk object models the operating system's concept of a disk device. The disk may be "
+    "directly attached to the computer system, or a virtual disk exposed to the system through "
+    "the use of a Storage Management Provider."
+    )]
+class MSFT_Disk : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "Path can be used to open an operating system handle to the disk device."
+        )]
+    String Path;
+
+    [Read, Description(
+        "Location contains the PnP location path of the disk. The format of this string "
+        "depends on the bus type. If the bus type is SCSI, SAS, or PCI RAID, the format is "
+        "<AdapterPnpLocationPath>#<BusType>(P<PathId>T<TargetId>L<LunId>). If the bus type is "
+        "IDE, ATA, PATA, or SATA, the format is <AdapterPnpLocationPath>#<BusType>"
+        "(C<PathId>T<TargetId>L<LunId>). For example, a SCSI location may look like: "
+        "PCIROOT(0)#PCI(1C00)#PCI(0000)#SCSI(P00T01L01). Note: For Hyper-V and VHD images, "
+        "this member is NULL because the virtual controller does not return the location path."
+        )]
+    String Location;
+
+    [Read, Required, Description(
+        "FriendlyName is a user-friendly, display-oriented string to identify the disk."
+        )]
+    String FriendlyName;
+
+    [Read, Description(
+        "UniqueId of a disk contains the VPD Page 0x83 information that uniquely identifies "
+        "this disk. The following types are accepted (in order of precedence): 8 - SCSI Name "
+        "String; 3 - FCPH Name; 2 - EUI64, 1 - Vendor Id, 0 - Vendor Specific. If the disk is "
+        "an exposed VirtualDisk, UniqueId is used map the association between the two objects."
+        )]
+    String UniqueId;
+
+    [Read, Description(
+        "UniqueIdFormat informs the user what VPD Page 0x83 descriptor type was used to "
+        "populate the UniqueId field."
+        ),
+        ValueMap { "0", "1", "2", "3", "8" },
+        Values { "Vendor Specific", "Vendor Id", "EUI64", "FCPH Name", "SCSI Name String" }]
+    UInt16 UniqueIdFormat;
+
+    [Read, Description(
+        "The operating system's number for the disk. Disk 0 is typically the boot device. Disk "
+        "numbers may not necessarily remain the same across reboots."
+        )]
+    UInt32 Number;
+
+    [Read, Description(
+        "A string representation of the disk's serial number."
+        )]
+    String SerialNumber;
+
+    [Read, Description(
+        "A string representation of the Adapter's serial number."
+        )]
+    String AdapterSerialNumber;
+
+    [Read, Description(
+        "A string representation of the disk's firmware version."
+        )]
+    String FirmwareVersion;
+
+    [Read, Description(
+        "A string representation of the disk's hardware manufacturer."
+        )]
+    String Manufacturer;
+
+    [Read, Description(
+        "A string representation of the disk's model."
+        )]
+    String Model;
+
+    [Read, Required, Description(
+        "The total size of the disk, measured in bytes."
+        ), Units( "Bytes" )]
+    UInt64 Size;
+
+    [Read, Required, Description(
+        "The amount of space currently used on the disk."
+        ), Units( "Bytes" )]
+    UInt64 AllocatedSize;
+
+    [Read, Description(
+        "This field indicates the logical sector size of the disk in bytes. For example: a 4K "
+        "native disk will report 4096, while a 512 emulated disk will report 512."
+        ), Units( "Bytes" )]
+    UInt32 LogicalSectorSize;
+
+    [Read, Description(
+        "This field indicates the physical sector size of the disk in bytes. For example: both "
+        "4K native disks and 512 emulated disks will report 4096."
+        ), Units( "Bytes" )]
+    UInt32 PhysicalSectorSize;
+
+    [Read, Description(
+        "This field indicates the largest contiguous block of free space on the disk. This is "
+        "also the largest size of a partition which can be created on the disk."
+        ), Units( "Bytes" )]
+    UInt64 LargestFreeExtent;
+
+    [Read]
+    UInt32 NumberOfPartitions;
+
+    [Read, Description(
+        "Denotes the provisioning type of the disk device. \n"
+        "1 - 'Thin' means that the storage for the disk is allocated on-demand. \n"
+        "2 - 'Fixed' means that the storage is allocated up front."
+        ),
+        ValueMap { "0", "1", "2" },
+        Values { "Unknown", "Thin", "Fixed" }]
+    UInt16 ProvisioningType;
+
+    [Read, Required, Description( 
+        "An array of values that denote the current operational status of the volume.\n" 
+        "0 - 'Unknown': The operational status is unknown.\n" 
+        "1 - 'Other': A vendor-specific OperationalStatus has been specified by setting the OtherOperationalStatusDescription property.\n" 
+        "2 - 'OK': The disk is responding to commands and is in a normal operating state.\n" 
+        "3 - 'Degraded': The disk is responding to commands, but is not running in an optimal operating state.\n" 
+        "4 - 'Stressed': The disk is functioning, but needs attention. For example, the disk might be overloaded or overheated.\n" 
+        "5 - 'Predictive Failure': The disk is functioning, but a failure is likely to occur in the near future.\n" 
+        "6 - 'Error': An error has occurred.\n" 
+        "7 - 'Non-Recoverable Error': A non-recoverable error has occurred.\n" 
+        "8 - 'Starting': The disk is in the process of starting.\n" 
+        "9 - 'Stopping': The disk is in the process of stopping.\n" 
+        "10 - 'Stopped': The disk was stopped or shut down in a clean and orderly fashion.\n" 
+        "11 - 'In Service': The disk is being configured, maintained, cleaned, or otherwise administered.\n" 
+        "12 - 'No Contact': The storage provider has knowledge of the disk, but has never been able to establish communication with it.\n" 
+        "13 - 'Lost Communication': The storage provider has knowledge of the disk and has contacted it successfully in the past, but the disk is currently unreachable.\n" 
+        "14 - 'Aborted': Similar to Stopped, except that the disk stopped abruptly and may require configuration or maintenance.\n" 
+        "15 - 'Dormant': The disk is reachable, but it is inactive.\n" 
+        "16 - 'Supporting Entity in Error': This status value does not necessarily indicate trouble with the disk, but it does indicate that another device or connection that the disk depends on may need attention.\n" 
+        "17 - 'Completed': The disk has completed an operation. This status value should be combined with OK, Error, or Degraded, depending on the outcome of the operation.\n" 
+        "0xD010 - 'Online': In Windows-based storage subsystems, this indicates that the object is online.\n" 
+        "0xD011 - 'Not Ready': In Windows-based storage subsystems, this indicates that the object is not ready.\n" 
+        "0xD012 - 'No Media': In Windows-based storage subsystems, this indicates that the object has no media present.\n" 
+        "0xD013 - 'Offline': In Windows-based storage subsystems, this indicates that the object is offline.\n" 
+        "0xD014 - 'Failed': In Windows-based storage subsystems, this indicates that the object is in a failed state."
+        ), 
+        ValueMap { 
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
+            "10", "11", "12", "13", "14", "15", "16", "17", 
+            "..", 
+            "0xD010", "0xD011", "0xD012", "0xD013", "0xD014" 
+            }, 
+        Values { 
+            // 0 - 4 
+            "Unknown", "Other", "OK", "Degraded", "Stressed", 
+            // 5 - 9 
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping", 
+            // 10 - 14 
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted", 
+            // 15 - 19 
+            "Dormant", "Supporting Entity in Error", "Completed", 
+            // .. 
+            "Vendor Specific", 
+            // 0xD010- 0xD014 
+            "Online", "Not Ready", "No Media", "Offline", "Failed" 
+        }] 
+    UInt16 OperationalStatus[];
+
+    [Read, Required, Description( 
+        "The health status of the Volume.\n" 
+        "0 - 'Healthy': The disk is functioning normally.\n" 
+        "1 - 'Warning': The disk is still functioning, but has detected errors or issues that require administrator intervention.\n" 
+        "2 - 'Unhealthy': The volume is not functioning, due to errors or failures. The volume needs immediate attention from an administrator." ), 
+        ValueMap { "0", "1", "2" }, 
+        Values { "Healthy", "Warning", "Unhealthy" }] 
+    UInt16 HealthStatus; 
+
+    [Read, Description(
+        "Denotes the I/O bus type used by this disk."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+            "12", "13", "14", "15", "16", "17"
+            },
+        Values {
+            "Unknown", "SCSI", "ATAPI", "ATA", "1394", "SSA", "Fibre Channel", "USB", "RAID",
+            "iSCSI", "SAS", "SATA", "SD", "MMC", "Virtual", "File Backed Virtual", "Storage Spaces",
+            "NVMe"
+            }]
+    UInt16 BusType;
+
+    [Read, Required,
+        ValueMap { "0", "1", "2" },
+        Values { "Unknown", "MBR", "GPT" }]
+    UInt16 PartitionStyle;
+
+    [Read, Description(
+        "The MBR signature of the disk. This property is only valid on MBR disks and will be "
+        "NULL for all other disk types."
+        )]
+    UInt32 Signature;
+
+    [Read, Description(
+        "The GPT guid of the disk. This property is only valid on GPT disks and will be NULL "
+        "for all other disk types."
+        )]
+    String Guid;
+
+    [Read]
+    Boolean IsOffline;
+
+    [Read, Description(
+        "If IsOffline is TRUE, this property informs the user of the specific reason for the "
+        "disk being offline. \n"
+        "1 - 'Policy': The user requested the disk to be offline. \n"
+        "2 - 'Redundant Path': The disk is used for multi-path I/O. \n"
+        "3 - 'Snapshot': The disk is a snapshot disk. \n"
+        "4 - 'Collision': There was a signature or identifier collision with another disk. \n"
+        "5 - 'Resource Exhaustion': There were insufficient resources to bring the disk online. \n"
+        "6 - 'Critical Write Failures': There were critical write failures on the disk. \n"
+        "7 - 'Data Integrity Scan Required': A data integrity scan is required."
+        ),
+        ValueMap { "1", "2", "3", "4", "5", "6", "7" },
+        Values { "Policy", "Redundant Path", "Snapshot", "Collision", "Resource Exhaustion", 
+                 "Critical Write Failures", "Data Integrity Scan Required" }]
+    UInt16 OfflineReason;
+
+    [Read]
+    Boolean IsReadOnly;
+
+    [Read, Description(
+        "If IsSystem is TRUE, this disk contains the system partition."
+        )]
+    Boolean IsSystem;
+
+    [Read, Description(
+        "If IsClustered is TRUE, this disk is used in a clustered environment."
+        )]
+    Boolean IsClustered;
+
+    [Read, Description(
+        "This property indicates that the computer has booted off of this disk."
+        )]
+    Boolean IsBoot;
+
+    [Read, Description(
+        "This property indicates that the computer is configured to start off of this disk. "
+        "On computers with BIOS firmware, this is the first disk that the firmware detects "
+        "during startup. On computers that use EFI firmware, this is the disk that contains "
+        "the EFI System Partition (ESP). If there are no disks or multiple disks with an ESP "
+        "partition, this flag is not set for any disk."
+        )]
+    Boolean BootFromDisk;
+
+    [Read, Description(
+        "If IsHighlyAvailable is TRUE, the disk is highly available."
+    )]
+    Boolean IsHighlyAvailable;
+    
+    [Read, Description(
+        "If IsScaleOut is TRUE, the disk is scaled out."
+    )]
+    Boolean IsScaleOut;
+
+    //
+    // Method: CreatePartition
+    //
+
+    [Required]
+    UInt32 CreatePartition(
+
+        [In, Units("Bytes")]
+        UInt64 Size,
+
+        [In]
+        Boolean UseMaximumSize,
+
+        [In, Units("Bytes")]
+        UInt64 Offset,
+
+        [In, Units("Bytes")]
+        UInt32 Alignment,
+
+        [In]
+        Char16 DriveLetter,
+
+        [In]
+        Boolean AssignDriveLetter,
+
+        [In]
+        UInt16 MbrType,
+
+        [In]
+        String GptType,
+
+        [In]
+        Boolean IsHidden,
+
+        [In]
+        Boolean IsActive,
+
+        [Out, EmbeddedInstance("MSFT_Partition")]
+        String CreatedPartition,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Initialize
+    //
+
+    [Required]
+    UInt32 Initialize(
+
+        [In]
+        UInt16 PartitionStyle,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Clear
+    //
+
+    [Required]
+    UInt32 Clear(
+
+        [In]
+        Boolean RemoveData,
+
+        [In]
+        Boolean RemoveOEM,
+
+        [In]
+        Boolean ZeroOutEntireDisk,
+
+        [In]
+        Boolean Sanitize,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: ConvertStyle
+    //
+
+    [Required]
+    UInt32 ConvertStyle(
+
+        [In, Required]
+        UInt16 PartitionStyle,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Offline
+    //
+
+    UInt32 Offline(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Online
+    //
+
+    UInt32 Online(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetAttributes
+    //
+
+    UInt32 SetAttributes(
+
+        [In]
+        Boolean IsReadOnly,
+
+        [In]
+        UInt32 Signature,
+
+        [In]
+        String Guid,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: Refresh
+    //
+
+    [Required]
+    UInt32 Refresh(
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: CreateVolume
+    //
+
+    UInt32 CreateVolume(
+
+        [In, Required]
+        String FriendlyName,
+
+        [In]
+        UInt16 FileSystem,
+
+        [In]
+        String AccessPath,
+
+        [In]
+        UInt32 AllocationUnitSize,
+
+        [Out, EmbeddedInstance("MSFT_Volume")]
+        String CreatedVolume,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+ 
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: EnableHighAvailability
+    //
+    
+    UInt32 EnableHighAvailability(
+
+        [In]
+        Boolean ScaleOut,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: DisableHighAvailability
+    //
+
+    UInt32 DisableHighAvailability(
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};
+

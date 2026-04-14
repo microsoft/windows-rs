@@ -1,0 +1,69 @@
+/*******************************************************
+ *                                                     *
+ *     Copyright (C) Microsoft. All rights reserved.   *
+ *                                                     *
+ *******************************************************/
+cpp_quote("/*******************************************************")
+cpp_quote(" *                                                     *")
+cpp_quote(" *     Copyright (C) Microsoft. All rights reserved.   *")
+cpp_quote(" *                                                     *")
+cpp_quote(" *******************************************************/")
+cpp_quote("#ifdef _MSC_VER")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "Mshtml.idl";
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+typedef enum ExtensionValidationContexts
+{
+    ExtensionValidationContextNone    = 0x00,
+    ExtensionValidationContextDynamic = 0x01,
+    ExtensionValidationContextParsed  = 0x02,
+} ExtensionValidationContexts;
+
+typedef enum ExtensionValidationResults
+{   
+    ExtensionValidationResultNone             = 0x00,
+    ExtensionValidationResultDoNotInstantiate = 0x01,
+    ExtensionValidationResultArrestPageLoad   = 0x02,   
+} ExtensionValidationResults;
+
+//-------------------------------------------------------------------------
+//
+//  IExtensionValidation
+//
+//-------------------------------------------------------------------------
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(7d33f73d-8525-4e0f-87db-830288baff44)
+]
+interface IExtensionValidation : IUnknown
+{
+    HRESULT Validate([in] REFGUID extensionGuid,
+                     [in, string] LPWSTR extensionModulePath,
+                     [in] DWORD extensionFileVersionMS,
+                     [in] DWORD extensionFileVersionLS,
+                     [in] IHTMLDocument2* htmlDocumentTop, 
+                     [in] IHTMLDocument2* htmlDocumentSubframe, 
+                     [in] IHTMLElement* htmlElement,
+                     [in] ExtensionValidationContexts contexts,
+                     [out] ExtensionValidationResults* results);
+
+    HRESULT DisplayName([out, string] LPWSTR* displayName);
+};
+
+cpp_quote("EXTERN_C GUID CATID_ExtensionValidation;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

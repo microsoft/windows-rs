@@ -1,0 +1,109 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			dbseci.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+#if( OLEDBVER >= 0x0200 )    
+    REMOTED_INTERFACE(0c733a62-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733a62-2a1c-11ce-ade5-00aa0044773d)
+#endif
+
+    
+interface IDBSecurityInfo : IUnknown {
+
+typedef DWORD DBTRUSTEEACCTTYPE;
+
+enum DBTRUSTEEACCTTYPEENUM {
+	DBTRUSTEEACCTTYPE_UNKNOWN,
+	DBTRUSTEEACCTTYPE_USER,
+	DBTRUSTEEACCTTYPE_GROUP,
+};
+
+typedef DWORD DBTRUSTEEIDTYPE;
+
+enum DBTRUSTEEIDTYPEENUM {
+	DBTRUSTEEIDTYPE_SID,
+	DBTRUSTEEIDTYPE_NAME,
+};
+
+typedef DWORD DBTRUSTEEMULT;
+
+enum DBTRUSTEEMULTENUM {
+	DBTRUSTEEMULT_NONE,
+	DBTRUSTEEMULT_IMPERSONATE,
+};
+
+typedef struct tagDBTRUSTEE {
+	struct tagDBTRUSTEE * pMultipleTrustee;
+	LPOLESTR pwszName;
+	DBTRUSTEEMULT dwMultipleTrusteeOp;
+	DBTRUSTEEIDTYPE dwTrusteeIDType;
+	DBTRUSTEEACCTTYPE dwTrusteeAcctType;
+} DBTRUSTEE, *PDBTRUSTEE;
+
+typedef struct tagDBOBJECTTYPE {
+	LPOLESTR pwszObjectTypeName;
+	GUID * pguidObjectTypeId;
+} DBOBJECTTYPE;
+
+typedef struct tagDBPERMTYPE {
+	LPOLESTR pwszPermissionTypeName;
+	GUID * pguidPermissionTypeId;
+} DBPERMTYPE;
+
+typedef struct tagDBTRUSTEETYPE {
+	LPOLESTR pwszTrusteeTypeName;
+	GUID * pguidTrusteeTypeId;
+} DBTRUSTEETYPE;
+
+typedef struct tagDBACCESSTRIPLE {
+//	DBPERMISSION Permission;
+	DBPERMTYPE PermissionType;
+	DBOBJECTTYPE ObjectType;
+	DBTRUSTEETYPE TrusteeType;
+} DBACCESSTRIPLE;
+
+	HRESULT GetAccessTriples(
+		[in, out] ULONG * pcAccessTriplesInfo,
+		[out, size_is(,*pcAccessTriplesInfo)] DBACCESSTRIPLE ** prgAccessTripleInfo
+	);
+
+	HRESULT GetAuthenticatedTrusteeIdentity(
+		[out] DBTRUSTEE * pTrustee
+	);
+
+	HRESULT GetObjectTypesInfo(
+		[in, out] ULONG * pcObjectInfo,
+		[out, size_is(,*pcObjectInfo)] DBOBJECTTYPE ** prgObjectInfo
+	);
+
+	HRESULT GetPermTypesInfo(
+		[in, out] ULONG * pcPermInfo,
+		[out, size_is(,*pcPermInfo)] DBPERMTYPE ** prgPermInfo
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

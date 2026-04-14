@@ -1,0 +1,68 @@
+/*  DocumentSource.idl
+ *
+ *  IDL defines for public Document Source COM APIs.
+ *
+ *  Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "Inspectable.idl";
+import "DocumentTarget.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+const UINT32 JOB_PAGE_APPLICATION_DEFINED = (UINT32)-1;
+
+[
+    uuid(0b31cc62-d7ec-4747-9d6e-f2537d870f2b),
+    helpstring("Print Document Source IPrintPreviewPageCollection interface")
+]
+interface IPrintPreviewPageCollection : IUnknown
+{
+    HRESULT Paginate(
+            [in] UINT32 currentJobPage,
+            [in] IInspectable* printTaskOptions);
+
+	HRESULT MakePage(
+			[in] UINT32 desiredJobPage,
+			[in] FLOAT width,
+			[in] FLOAT height);
+}
+
+[
+    uuid(a96bb1db-172e-4667-82b5-ad97a252318f),
+    helpstring("Document Source IPrintDocumentPageSource interface")
+]
+interface IPrintDocumentPageSource : IUnknown
+{
+    HRESULT GetPreviewPageCollection(
+            [in]  IPrintDocumentPackageTarget* docPackageTarget,
+            [out] IPrintPreviewPageCollection** docPageCollection);
+
+    HRESULT MakeDocument(
+            [in] IInspectable* printTaskOptions,
+            [in] IPrintDocumentPackageTarget* docPackageTarget);
+}
+
+
+[
+    uuid(172d2572-0e3f-4164-b3ae-ebb4772db3b6),
+    version(1.0),
+    helpstring("Print Document Source Interface Library")
+]
+library PrintDocumentSource
+{
+    interface IPrintPreviewPageCollection;
+    interface IPrintDocumentPageSource;
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+

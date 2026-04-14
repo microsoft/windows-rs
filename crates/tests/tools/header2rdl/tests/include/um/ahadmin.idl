@@ -1,0 +1,1297 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "oaidl.idl";
+
+interface IAppHostElementCollection;
+interface IAppHostElement;
+interface IAppHostConfigManager;
+interface IAppHostAdminManager;
+interface IAppHostPathMapper;
+interface IAppHostChangeHandler;
+interface IAppHostConfigFile;
+interface IAppHostConfigLocation;
+interface IAppHostProperty;
+interface IAppHostPropertyCollection;
+interface IAppHostElementSchema;
+interface IAppHostPropertySchema;
+interface IAppHostCollectionSchema;
+interface IAppHostPropertySchemaCollection;
+interface IAppHostElementSchemaCollection;
+interface IAppHostSectionGroup;
+interface IAppHostSectionDefinitionCollection;
+interface IAppHostSectionDefinition;
+interface IAppHostMethodCollection;
+interface IAppHostMethodInstance;
+interface IAppHostMethod;
+interface IAppHostMethodExtension;
+interface IAppHostConstantValue;
+interface IAppHostConstantValueCollection;
+interface IAppHostPathMapper2;
+
+[
+    object,
+    uuid( 70184ac9-7673-4770-96b1-445ce035cf70 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostMethodExtension" )
+]
+interface IAppHostMethodExtension : IUnknown
+{
+    HRESULT
+    ProvideMethod(
+        [in] IAppHostMethod *             pMethod,
+        [in] IAppHostMethodInstance *     pMethodInstance,
+        [in] IAppHostElement *            pElement
+    );
+};
+
+[
+    object,
+    uuid( 88e220f3-33e8-4534-afac-b4a98eccf9ae ),
+    pointer_default( unique ),
+    helpstring( "IAppHostPropertyExtension" )
+]
+interface IAppHostPropertyExtension : IUnknown
+{
+    HRESULT
+    ProvideGetProperty(
+        [in] IAppHostElement *            pElement,
+        [in] IAppHostProperty *           pProperty
+    );
+};
+
+[
+    object,
+    uuid( 518eb37d-1ff4-42dd-86c3-3140bc35b823 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostElementExtension" )
+]
+interface IAppHostElementExtension : IUnknown
+{
+    HRESULT
+    ProvideElement(
+        [in] IAppHostElement *            pNewElement
+    );
+};
+
+[
+    object,
+    uuid( 31a83ea0-c0e4-4a2c-8a01-353cc2a4c60a ),
+    pointer_default( unique ),
+    helpstring( "IAppHostMappingExtension" )
+]
+interface IAppHostMappingExtension : IUnknown
+{
+    HRESULT
+    GetSiteNameFromSiteId(
+        [in] DWORD                        dwSiteId,
+        [out, retval, string] BSTR *      pbstrSiteName
+    );
+
+    HRESULT
+    GetSiteIdFromSiteName(
+        [in, string] BSTR                 bstrSiteName,
+        [out, retval] DWORD *             pdwSiteId
+    );
+
+    HRESULT
+    GetSiteElementFromSiteId(
+        [in] DWORD                        dwSiteId,
+        [out, retval] IAppHostElement **  ppSiteElement
+    );
+    
+    HRESULT
+    MapPath(
+        [in, string] BSTR                 bstrSiteName,
+        [in, string] BSTR                 bstrVirtualPath,
+        [out, string] BSTR *              pbstrPhysicalPath,
+        [out] IAppHostElement **          ppVirtualDirectoryElement,
+        [out] IAppHostElement **          ppApplicationElement
+    );
+};
+
+[
+    object,
+    uuid( 08a90f5f-0702-48d6-b45f-02a9885a9768 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostChildElementCollection" )
+]
+interface IAppHostChildElementCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostElement **        ppElement
+    );
+}
+
+[
+    object,
+    uuid( 0191775e-bcff-445a-b4f4-3bdda54e2816 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostPropertyCollection" )
+]
+interface IAppHostPropertyCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostProperty **       ppProperty
+    ); 
+}
+
+[
+    object,
+    uuid( 832a32f7-b3ea-4b8c-b260-9a2923001184 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConfigLocationCollection" )
+]
+interface IAppHostConfigLocationCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            varIndex,
+        [out, retval] IAppHostConfigLocation ** ppLocation
+    );
+
+    HRESULT
+    AddLocation(
+        [in, string] BSTR                       bstrLocationPath,
+        [out, retval] IAppHostConfigLocation ** ppNewLocation
+    );
+
+    HRESULT
+    DeleteLocation(
+        [in] VARIANT                            cIndex
+    );
+
+    HRESULT
+    RenameLocation(
+        [in] VARIANT                            varIndex,
+        [in, string] BSTR                       bstrLocationPath
+    );
+}
+
+[
+    object,
+    uuid( d6c7cd8f-bb8d-4f96-b591-d3a5f1320269 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostMethodCollection" )
+]
+interface IAppHostMethodCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostMethod **         ppMethod
+    );
+}
+
+[
+    object,
+    uuid( 0344cdda-151e-4cbf-82da-66ae61e97754 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostElementSchemaCollection" )
+]
+interface IAppHostElementSchemaCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostElementSchema **  ppElementSchema
+    );
+}
+
+[
+    object,
+    uuid( 8bed2c68-a5fb-4b28-8581-a0dc5267419f ),
+    pointer_default( unique ),
+    helpstring( "IAppHostPropertySchemaCollection" )
+]
+interface IAppHostPropertySchemaCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostPropertySchema ** ppPropertySchema
+    );
+}
+
+[
+    object,
+    uuid( 5b5a68e6-8b9f-45e1-8199-a95ffccdffff ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConstantValueCollection" )
+]
+interface IAppHostConstantValueCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostConstantValue **  ppConstantValue
+    );
+}
+
+[
+    object,
+    uuid( 0716caf8-7d05-4a46-8099-77594be91394 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConstantValue" )
+]
+interface IAppHostConstantValue : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, retval] BSTR *                    pbstrName
+    );
+
+    [propget]
+    HRESULT
+    Value(
+        [out, retval] DWORD *                   pdwValue
+    );
+}
+
+[
+    object,
+    uuid( 450386db-7409-4667-935e-384dbbee2a9e ),
+    pointer_default( unique ),
+    helpstring( "IAppHostPropertySchema" )
+]
+interface IAppHostPropertySchema : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, string, retval] BSTR *        pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    Type(
+        [out, string, retval] BSTR *        pbstrType
+    );
+    
+    [propget]
+    HRESULT
+    DefaultValue(
+        [out, retval] VARIANT *             pDefaultValue
+    );
+    
+    [propget]
+    HRESULT
+    IsRequired(
+        [out, retval] VARIANT_BOOL *        pfIsRequired
+    );
+    
+    [propget]
+    HRESULT
+    IsUniqueKey(
+        [out, retval] VARIANT_BOOL *        pfIsUniqueKey
+    );
+    
+    [propget]
+    HRESULT
+    IsCombinedKey(
+        [out, retval] VARIANT_BOOL *        pfIsCombinedKey
+    );
+
+    [propget]
+    HRESULT
+    IsExpanded(
+        [out, retval] VARIANT_BOOL *        pfIsExpanded
+    );
+    
+    [propget]
+    HRESULT
+    ValidationType(
+        [out, retval, string] BSTR *        pbstrValidationType
+    );
+    
+    [propget]
+    HRESULT
+    ValidationParameter(
+        [out, retval, string] BSTR *        pbstrValidationParameter
+    );
+    
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [out, retval] VARIANT *             pValue
+    );
+
+    [propget]
+    HRESULT
+    IsCaseSensitive(
+        [out, retval] VARIANT_BOOL *        pfIsCaseSensitive
+    );
+    
+    [propget]
+    HRESULT
+    PossibleValues(
+        [out, retval] IAppHostConstantValueCollection ** ppValues
+    );
+
+    [propget]
+    HRESULT
+    DoesAllowInfinite(
+        [out, retval] VARIANT_BOOL *        pfAllowInfinite
+    );
+    
+    [propget]
+    HRESULT
+    IsEncrypted(
+        [out, retval] VARIANT_BOOL *        pfIsEncrypted
+    );
+
+    [propget]
+    HRESULT
+    TimeSpanFormat(
+        [out, retval] BSTR *                pbstrTimeSpanFormat
+    );
+}
+
+[
+    object,
+    uuid( de095db1-5368-4d11-81f6-efef619b7bcf ),
+    pointer_default( unique ),
+    helpstring( "IAppHostCollectionSchema" )
+]
+interface IAppHostCollectionSchema : IUnknown
+{
+    [propget]
+    HRESULT
+    AddElementNames(
+        [out, string, retval] BSTR *        pbstrElementName
+    );
+
+    HRESULT
+    GetAddElementSchema(
+        [in, string] BSTR                       bstrElementName,
+        [out, retval] IAppHostElementSchema **  ppSchema
+    );
+    
+    [propget]
+    HRESULT
+    RemoveElementSchema(
+        [out, retval] IAppHostElementSchema **  ppSchema
+    );
+    
+    [propget]
+    HRESULT
+    ClearElementSchema(
+        [out, retval] IAppHostElementSchema **  ppSchema
+    );
+    
+    [propget]
+    HRESULT
+    IsMergeAppend(
+        [out, retval] VARIANT_BOOL *        pfIsMergeAppend
+    );
+    
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [out, retval] VARIANT *             pValue
+    );
+
+    [propget]
+    HRESULT
+    DoesAllowDuplicates(
+        [out, retval] VARIANT_BOOL *        pfAllowDuplicates
+    );
+}
+
+[
+    object,
+    uuid( ef13d885-642c-4709-99ec-b89561c6bc69 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostElementSchema" )
+]
+interface IAppHostElementSchema : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, string, retval] BSTR *        pbstrName
+    );
+
+    [propget]
+    HRESULT
+    DoesAllowUnschematizedProperties(
+        [out, retval] VARIANT_BOOL *        pfAllowUnschematized
+    );
+    
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [out, retval] VARIANT *             pValue
+    );
+    
+    [propget]
+    HRESULT
+    CollectionSchema(
+        [out, retval] IAppHostCollectionSchema ** ppCollectionSchema
+    );    
+    
+    [propget]
+    HRESULT
+    ChildElementSchemas(
+        [out, retval] IAppHostElementSchemaCollection ** ppChildSchemas
+    );
+    
+    [propget]
+    HRESULT
+    PropertySchemas(
+        [out, retval] IAppHostPropertySchemaCollection ** ppPropertySchemas
+    );
+
+    [propget]
+    HRESULT
+    IsCollectionDefault(
+        [out, retval] VARIANT_BOOL *        pfIsCollectionDefault
+    );
+}
+
+[
+    object,
+    uuid( 2d9915fb-9d42-4328-b782-1b46819fab9e ),
+    pointer_default( unique ),
+    helpstring( "IAppHostMethodSchema" )
+]
+interface IAppHostMethodSchema : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, string, retval] BSTR *        pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    InputSchema(
+        [out, retval] IAppHostElementSchema **     ppInputSchema
+    );
+    
+    [propget]
+    HRESULT
+    OutputSchema(
+        [out, retval] IAppHostElementSchema **     ppOutputSchema
+    );
+    
+    HRESULT 
+    GetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [out, retval] VARIANT *             pValue
+    );
+}
+
+[
+    object,
+    uuid( b80f3c42-60e0-4ae0-9007-f52852d3dbed ),
+    pointer_default( unique ),
+    helpstring( "IAppHostMethodInstance" )
+]
+interface IAppHostMethodInstance : IUnknown
+{
+    [propget]
+    HRESULT
+    Input(
+        [out, retval] IAppHostElement **    ppInputElement
+    );
+    
+    [propget]
+    HRESULT
+    Output(
+        [out, retval] IAppHostElement **    ppOutputElement
+    );
+    
+    HRESULT
+    Execute(
+    );
+   
+    HRESULT 
+    GetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [out, retval] VARIANT *             pValue
+    );
+    
+    HRESULT
+    SetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [in] VARIANT                        value
+    );
+}
+
+[
+    object,
+    uuid( 7883ca1c-1112-4447-84c3-52fbeb38069d ),
+    pointer_default( unique ),
+    helpstring( "IAppHostMethod" )
+]
+interface IAppHostMethod : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, string, retval] BSTR *        pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    Schema(
+        [out, retval] IAppHostMethodSchema **     ppMethodSchema
+    );
+    
+    HRESULT
+    CreateInstance(
+        [out, retval] IAppHostMethodInstance **   ppMethodInstance
+    );
+}
+
+[
+    object,
+    uuid( 4dfa1df3-8900-4bc7-bbb5-d1a458c52410 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConfigException" )
+]
+interface IAppHostConfigException : IUnknown
+{
+    [propget]
+    HRESULT
+    LineNumber(
+        [out, retval] ULONG *               pcLineNumber
+    );
+
+    [propget]
+    HRESULT
+    FileName(
+        [out, retval] BSTR *                pbstrFileName
+    ); 
+    
+    [propget]
+    HRESULT
+    ConfigPath(
+        [out, retval] BSTR *                pbstrConfigPath
+    );
+    
+    [propget]
+    HRESULT
+    ErrorLine(
+        [out, retval] BSTR *                pbstrErrorLine
+    );
+    
+    [propget]
+    HRESULT
+    PreErrorLine(
+        [out, retval] BSTR *                pbstrPreErrorLine
+    );
+    
+    [propget]
+    HRESULT
+    PostErrorLine(
+        [out, retval] BSTR *                pbstrPostErrorLine
+    );
+
+    [propget]
+    HRESULT
+    ErrorString(
+        [out, retval] BSTR *                pbstrErrorString
+    );
+}
+
+[
+    object,
+    uuid( eafe4895-a929-41ea-b14d-613e23f62b71 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostPropertyException" )
+]
+interface IAppHostPropertyException : IAppHostConfigException
+{
+    [propget]
+    HRESULT
+    InvalidValue(
+        [out, string, retval] BSTR *        pbstrValue
+    );
+
+    [propget]
+    HRESULT
+    ValidationFailureReason(
+        [out, string, retval] BSTR *        pbstrValidationReason
+    );
+    
+    [propget]
+    HRESULT
+    ValidationFailureParameters(
+        [out, retval] SAFEARRAY(VARIANT) *  pParameterArray
+    );
+}
+
+[
+    object,
+    uuid( c8550bff-5281-4b1e-ac34-99b6fa38464d ),
+    pointer_default( unique ),
+    helpstring( "IAppHostElementCollection" )
+]
+interface IAppHostElementCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcElementCount
+    );
+    
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostElement **        ppElement
+    );
+    
+    HRESULT
+    AddElement(
+        [in] IAppHostElement *                  pElement,
+        [in, defaultvalue(-1)] INT              cPosition
+    );
+    
+    HRESULT
+    DeleteElement(
+        [in] VARIANT                            cIndex
+    );
+    
+    HRESULT
+    Clear(
+    );
+    
+    HRESULT
+    CreateNewElement(
+        [in, string, defaultvalue("")] BSTR     bstrElementName,
+        [out, retval] IAppHostElement **        ppElement
+    );
+    
+    [propget]
+    HRESULT
+    Schema(
+        [out, retval] IAppHostCollectionSchema**    ppSchema
+    );
+}
+
+[
+    object,
+    uuid( 64ff8ccc-b287-4dae-b08a-a72cbf45f453 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostElement" )
+]
+interface IAppHostElement : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, retval] BSTR *                        pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    Collection(
+        [out, retval] IAppHostElementCollection **  ppCollection
+    );
+
+    [propget]
+    HRESULT
+    Properties(
+        [out, retval] IAppHostPropertyCollection ** ppProperties
+    );
+    
+    [propget]
+    HRESULT
+    ChildElements(
+        [out, retval] IAppHostChildElementCollection ** ppElements
+    );
+    
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                           bstrMetadataType,
+        [out, retval] VARIANT *                     pValue
+    );
+    
+    HRESULT
+    SetMetadata(
+        [in, string] BSTR                           bstrMetadataType,
+        [in] VARIANT                                value
+    );
+
+    [propget]
+    HRESULT
+    Schema(
+        [out, retval] IAppHostElementSchema **      ppSchema
+    );
+    
+    HRESULT
+    GetElementByName(
+        [in, string] BSTR                           bstrSubName,
+        [out, retval] IAppHostElement **            ppElement
+    );
+    
+    HRESULT
+    GetPropertyByName(
+        [in, string] BSTR                           bstrSubName,
+        [out, retval] IAppHostProperty **           ppProperty
+    );
+
+    HRESULT
+    Clear(
+    );
+    
+    [propget]
+    HRESULT
+    Methods(
+        [out, retval] IAppHostMethodCollection ** ppMethods
+    );
+}
+
+[
+    object,
+    uuid( ed35f7a1-5024-4e7b-a44d-07ddaf4b524d ),
+    pointer_default( unique ),
+    helpstring( "IAppHostProperty" )
+]
+interface IAppHostProperty : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, retval] BSTR *                        pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    Value(
+        [out, retval] VARIANT *                     pVariant
+    );
+    
+    [propput]
+    HRESULT
+    Value(
+        [in] VARIANT                                value
+    );
+    
+    HRESULT
+    Clear(
+    );
+
+    [propget]    
+    HRESULT
+    StringValue(
+        [out, retval] BSTR *                        pbstrValue
+    );
+    
+    [propget]
+    HRESULT
+    Exception(
+        [out, retval] IAppHostPropertyException **  ppException
+    );
+
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                           bstrMetadataType,
+        [out, retval] VARIANT *                     pValue
+    );
+    
+    HRESULT
+    SetMetadata(
+        [in, string] BSTR                           bstrMetadataType,
+        [in] VARIANT                                value
+    );
+    
+    [propget]
+    HRESULT
+    Schema(
+        [out, retval] IAppHostPropertySchema **     ppSchema
+    );
+}
+
+[
+    object,
+    uuid( 370af178-7758-4dad-8146-7391f6e18585 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConfigLocation" )
+]
+interface IAppHostConfigLocation : IUnknown
+{
+    [propget]
+    HRESULT
+    Path(
+        [out, string, retval] BSTR *            pbstrLocationPath
+    );
+
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] DWORD *                   pcCount
+    );
+
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                            cIndex,
+        [out, retval] IAppHostElement **        ppSection
+    );
+
+    HRESULT
+    AddConfigSection(
+        [in] BSTR                               bstrSectionName,
+        [out, retval] IAppHostElement **        ppAdminElement
+    );
+
+    HRESULT
+    DeleteConfigSection(
+        [in] VARIANT                            cIndex
+    );
+}
+
+[
+    object,
+    uuid( c5c04795-321c-4014-8fd6-d44658799393 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostSectionDefinition" )
+]
+interface IAppHostSectionDefinition : IUnknown
+{
+    [propget]
+    HRESULT
+    Name(
+        [out, retval] BSTR *                    pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    Type(
+        [out, retval] BSTR *                    pbstrType
+    );
+    
+    [propput]
+    HRESULT
+    Type(
+        [in] BSTR                               bstrType
+    );
+    
+    [propget]
+    HRESULT
+    OverrideModeDefault(
+        [out, retval] BSTR *                    pbstrOverrideModeDefault
+    );
+    
+    [propput]
+    HRESULT
+    OverrideModeDefault(
+        [in] BSTR                               bstrOverrideModeDefault
+    );
+    
+    [propget]
+    HRESULT
+    AllowDefinition(
+        [out, retval] BSTR *                    pbstrAllowDefinition
+    );
+    
+    [propput]
+    HRESULT
+    AllowDefinition(
+        [in] BSTR                               bstrAllowDefinition
+    );
+
+    [propget]
+    HRESULT
+    AllowLocation(
+        [out, retval] BSTR *                    pbstrAllowLocation
+    );
+    
+    [propput]
+    HRESULT
+    AllowLocation(
+        [in] BSTR                               bstrAllowLocation
+    );
+
+    [propget]
+    HRESULT
+    RequirePermission(
+        [out, retval] VARIANT_BOOL *            pfRequirePermission
+    );
+    
+    [propput]
+    HRESULT
+    RequirePermission(
+        [in] VARIANT_BOOL                       pfRequirePermission
+    );
+}
+
+[
+    object,
+    uuid( b7d381ee-8860-47a1-8af4-1f33b2b1f325 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostSectionDefinitionCollection" )
+]
+interface IAppHostSectionDefinitionCollection : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] ULONG *                       pcCount
+    );
+    
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                                varIndex,
+        [out, retval] IAppHostSectionDefinition **  ppConfigSection
+    );
+    
+    HRESULT
+    AddSection(
+        [in, string] BSTR                           bstrSectionName,
+        [out, retval] IAppHostSectionDefinition **  ppConfigSection
+    ); 
+
+    HRESULT
+    DeleteSection(
+        [in] VARIANT                                varIndex
+    ); 
+}
+
+[
+    object,
+    uuid( 0dd8a158-ebe6-4008-a1d9-b7ecc8f1104b ),
+    pointer_default( unique ),
+    helpstring( "IAppHostSectionGroup" )
+]
+interface IAppHostSectionGroup : IUnknown
+{
+    [propget]
+    HRESULT
+    Count(
+        [out, retval] ULONG *                       pcSectionGroup
+    );
+    
+    [propget, id(DISPID_VALUE)]
+    HRESULT
+    Item(
+        [in] VARIANT                                varIndex,
+        [out, retval] IAppHostSectionGroup **       ppSectionGroup
+    );
+    
+    [propget]
+    HRESULT
+    Sections(
+        [out, retval] IAppHostSectionDefinitionCollection ** ppSections
+    );
+    
+    HRESULT
+    AddSectionGroup(
+        [in, string] BSTR                           bstrSectionGroupName,
+        [out, retval] IAppHostSectionGroup **       ppSectionGroup
+    );
+
+    HRESULT
+    DeleteSectionGroup(
+        [in] VARIANT                                varIndex
+    ); 
+    
+    [propget]
+    HRESULT
+    Name(
+        [out, retval] BSTR *                    pbstrName
+    );
+    
+    [propget]
+    HRESULT
+    Type(
+        [out, retval] BSTR *                    pbstrType
+    );
+    
+    [propput]
+    HRESULT
+    Type(
+        [in] BSTR                               bstrType
+    );
+}
+
+[
+    object,
+    uuid( ada4e6fb-e025-401e-a5d0-c3134a281f07 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConfigFile" )
+]
+interface IAppHostConfigFile : IUnknown
+{
+    [propget]
+    HRESULT
+    ConfigPath(
+        [out, string, retval] BSTR *            pbstrConfigPath
+    );
+    
+    [propget]
+    HRESULT
+    FilePath(
+        [out, string, retval] BSTR *            pbstrFilePath
+    );
+    
+    [propget]
+    HRESULT
+    Locations(
+        [out, retval] IAppHostConfigLocationCollection ** ppLocations
+    );
+    
+    HRESULT
+    GetAdminSection(
+        [in, string] BSTR                       bstrSectionName,
+        [in, string] BSTR                       bstrPath,
+        [out, retval] IAppHostElement **        ppAdminSection
+    );
+
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                       bstrMetadataType,
+        [out, retval] VARIANT *                 pValue
+    );
+    
+    HRESULT
+    SetMetadata(
+        [in, string] BSTR                       bstrMetadataType,
+        [in] VARIANT                            value
+    );
+    
+    HRESULT
+    ClearInvalidSections(
+    );
+
+    [propget]
+    HRESULT
+    RootSectionGroup(
+        [out, retval] IAppHostSectionGroup **   ppSectionGroups
+    );
+}
+
+[
+    object,
+    uuid( e7927575-5cc3-403b-822e-328a6b904bee ),
+    pointer_default( unique ),
+    helpstring( "IAppHostPathMapper" )
+]
+interface IAppHostPathMapper : IUnknown
+{
+    HRESULT
+    MapPath(
+        [in, string] BSTR                   bstrConfigPath,
+        [in, string] BSTR                   bstrMappedPhysicalPath,
+        [out, string, retval] BSTR *        pbstrNewPhysicalPath
+    );
+}
+
+[
+    object,
+    uuid( 0f80e901-8f4c-449a-bf90-13d5d082f187 ),
+    pointer_default( unique ),
+    local,
+    helpstring( "IAppHostPathMapper2" )
+]
+interface IAppHostPathMapper2 : IUnknown
+{
+    HRESULT
+    MapPath(
+        [in, string] BSTR                   bstrConfigPath,
+        [in, string] BSTR                   bstrMappedPhysicalPath,
+        [out, string] BSTR *                pbstrNewPhysicalPath,
+        [out] HANDLE *                      phImpersonationToken
+    );
+}
+
+[
+    object,
+    uuid( 09829352-87c2-418d-8d79-4133969a489d ),
+    pointer_default( unique ),
+    helpstring( "IAppHostChangeHandler" )
+]
+interface IAppHostChangeHandler : IUnknown
+{
+    HRESULT
+    OnSectionChanges(
+        [in, string] BSTR                   bstrSectionName,
+        [in, string] BSTR                   bstrConfigPath
+    );
+}
+
+[
+    object,
+    uuid( 9be77978-73ed-4a9a-87fd-13f09fec1b13 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostAdminManager Interface" )
+]
+interface IAppHostAdminManager : IUnknown
+{
+    HRESULT
+    GetAdminSection(
+        [in, string] BSTR                   bstrSectionName,
+        [in, string] BSTR                   bstrPath,
+        [out, retval] IAppHostElement **    ppAdminSection
+    );
+    
+    HRESULT
+    GetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [out, retval] VARIANT *             pValue
+    );
+    
+    HRESULT
+    SetMetadata(
+        [in, string] BSTR                   bstrMetadataType,
+        [in] VARIANT                        value
+    );
+    
+    [propget]
+    HRESULT
+    ConfigManager(
+        [out, retval] IAppHostConfigManager **  ppConfigManager
+    );
+}
+
+[
+    object,
+    uuid( fa7660f6-7b3f-4237-a8bf-ed0ad0dcbbd9 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostWritableAdminManager Interface" )
+]
+interface IAppHostWritableAdminManager : IAppHostAdminManager
+{
+    HRESULT
+    CommitChanges(
+    );
+    
+    [propget]
+    HRESULT
+    CommitPath(
+        [out, retval, string] BSTR *            pbstrCommitPath
+    );
+
+    [propput]
+    HRESULT
+    CommitPath(
+        [in, string] BSTR                       bstrCommitPath
+    );
+}
+
+[
+    object,
+    uuid( 8f6d760f-f0cb-4d69-b5f6-848b33e9bdc6 ),
+    pointer_default( unique ),
+    helpstring( "IAppHostConfigManager Interface" )
+]
+interface IAppHostConfigManager : IUnknown
+{
+    HRESULT
+    GetConfigFile(
+        [in, string] BSTR                       bstrConfigPath,
+        [out, retval] IAppHostConfigFile **     ppConfigFile
+    );
+
+    HRESULT
+    GetUniqueConfigPath(
+        [in, string] BSTR                       bstrConfigPath,
+        [out, retval, string] BSTR *            pbstrUniquePath
+    );
+}
+
+[
+    uuid( 598f9c7d-d2d7-4980-b234-f1e753cd9fd9 ),
+    version( 1.0 ),
+    helpstring( "Application Host Administration Interface" )
+]
+library AppHostAdminLibrary
+{
+
+    importlib( "stdole32.tlb" );
+    importlib( "stdole2.tlb" );
+
+    [
+        uuid( 228fb8f7-fb53-4fd5-8c7b-ff59de606c5b ),
+        helpstring( "AppHostAdminManager class" )
+    ]
+    coclass AppHostAdminManager
+    {
+        [default] interface IAppHostAdminManager;
+    };
+
+    [
+        uuid( 2b72133b-3f5b-4602-8952-803546ce3344 ),
+        helpstring( "AppHostWritableAdminManager class" )
+    ]
+    coclass AppHostWritableAdminManager
+    {
+        [default] interface IAppHostWritableAdminManager;
+    };
+
+    interface IAppHostConfigException;
+    interface IAppHostPropertyException;
+    interface IAppHostMappingExtension;
+    interface IAppHostPathMapper;
+    interface IAppHostChangeHandler;
+    interface IAppHostPropertyExtension;
+    interface IAppHostElementExtension;
+    interface IAppHostMethodExtension;
+    interface IAppHostPathMapper2;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

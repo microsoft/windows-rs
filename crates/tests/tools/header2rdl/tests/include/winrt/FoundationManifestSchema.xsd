@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+           xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+           xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+           xmlns:uap7="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"
+           xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:uap13="http://schemas.microsoft.com/appx/manifest/uap/windows10/13"
+           xmlns:uap15="http://schemas.microsoft.com/appx/manifest/uap/windows10/15"
+           xmlns:uap16="http://schemas.microsoft.com/appx/manifest/uap/windows10/16"
+           xmlns:uap17="http://schemas.microsoft.com/appx/manifest/uap/windows10/17"
+           xmlns:wincap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities"
+           xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+           xmlns:rescap6="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/6"
+           xmlns:phone="http://schemas.microsoft.com/appx/2014/phone/manifest"
+           xmlns:serverpreview="http://schemas.microsoft.com/appx/manifest/serverpreview/windows10"
+           xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+           xmlns:iot2="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"
+           xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           xmlns:com2="http://schemas.microsoft.com/appx/manifest/com/windows10/2"
+           xmlns:desktop2="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+           xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+           xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:virtualization="http://schemas.microsoft.com/appx/manifest/virtualization/windows10"
+           xmlns:previewsecurity="http://schemas.microsoft.com/appx/manifest/preview/windows10/security"
+           xmlns:heap="http://schemas.microsoft.com/appx/manifest/heap/windows10"
+           xmlns:previewsecurity2="http://schemas.microsoft.com/appx/manifest/preview/windows10/security/2"
+           xmlns:deployment2="http://schemas.microsoft.com/appx/manifest/deployment/windows10/2"
+           xmlns:trustedlaunch="http://schemas.microsoft.com/appx/manifest/trustedlaunch/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/2014/phone/manifest"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/13"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/15"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/16"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/17"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/virtualization/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/security"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/heap/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/security/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/deployment/windows10/2"/>
+
+  <xs:element name="Package">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Identity" type="CT_Identity"/>
+        <xs:element ref="phone:PhoneIdentity" minOccurs="0"/>
+        <xs:element name="Properties" type="CT_Properties"/>
+        <xs:element name="Resources" type="CT_Resources" minOccurs="0"/>
+        <xs:element name="Dependencies" type="CT_Dependencies"/>
+        <xs:element name="Capabilities" type="CT_Capabilities" minOccurs="0"/>
+        <xs:element ref="uap15:Capabilities" minOccurs="0"/>
+        <xs:element name="Extensions" type="CT_PackageExtensions" minOccurs="0"/>
+        <xs:element name="Applications" type="CT_Applications" minOccurs="0"/>
+        <xs:element ref="ComExtensions" minOccurs="0"/>
+      </xs:all>
+      <xs:attribute name="IgnorableNamespaces" type="t:ST_NonEmptyString" use="optional"/>
+    </xs:complexType>
+    <xs:unique name="Resource_Language">
+      <xs:selector xpath="f:Resources/f:Resource"/>
+      <xs:field xpath="@Language"/>
+    </xs:unique>
+    <xs:unique name="Resource_Scale">
+      <xs:selector xpath="f:Resources/f:Resource"/>
+      <xs:field xpath="@uap:Scale"/>
+    </xs:unique>
+    <xs:unique name="Resource_DXFeatureLevel">
+      <xs:selector xpath="f:Resources/f:Resource"/>
+      <xs:field xpath="@uap:DXFeatureLevel"/>
+    </xs:unique>
+    <xs:unique name="Application_Id">
+      <xs:selector xpath="f:Applications/f:Application"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+    <xs:unique name="Capability_Name">
+      <xs:selector xpath="f:Capabilities/f:Capability | f:Capabilities/uap:Capability | f:Capabilities/uap2:Capability | f:Capabilities/uap3:Capability | f:Capabilities/uap4:Capability | f:Capabilities/uap7:Capability | f:Capabilities/uap11:Capability | f:Capabilities/wincap:Capability | f:Capabilities/rescap:Capability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="DeviceCapability_Name">
+      <xs:selector xpath="f:Capabilities/f:DeviceCapability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="CustomCapability_Name">
+      <xs:selector xpath="f:Capabilities/uap4:CustomCapability" />
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Capability_Name_2021">
+      <xs:selector xpath="uap15:Capabilities/f:Capability | uap15:Capabilities/uap:Capability | uap15:Capabilities/uap2:Capability | uap15:Capabilities/uap3:Capability | uap15:Capabilities/uap4:Capability | uap15:Capabilities/uap7:Capability | uap15:Capabilities/uap11:Capability | uap15:Capabilities/wincap:Capability | uap15:Capabilities/rescap:Capability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="DeviceCapability_Name_2021">
+      <xs:selector xpath="uap15:Capabilities/f:DeviceCapability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="CustomCapability_Name_2021">
+      <xs:selector xpath="uap15:Capabilities/uap4:CustomCapability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Extension_FileType_Name">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/uap:Extension/uap:FileTypeAssociation"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Extension_FileType">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/uap:Extension/uap:FileTypeAssociation/uap:SupportedFileTypes/uap:FileType | f:Applications/f:Application/f:Extensions/uap:Extension/uap:FileTypeAssociation/uap:SupportedFileTypes/uap10:FileType"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+    <xs:unique name="Extension_Protocol">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/uap:Extension/uap:Protocol"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Extension_DialProtocol">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/uap:Extension/uap:DialProtocol"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Extension_StartupTask">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/desktop:Extension/desktop:StartupTask"/>
+      <xs:field xpath="@TaskId"/>
+    </xs:unique>
+    <xs:unique name="Extension_AppExecutionAlias">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/uap3:Extension/uap3:AppExecutionAlias/desktop:ExecutionAlias | f:Applications/f:Application/f:Extensions/uap3:Extension/uap3:AppExecutionAlias/uap8:ExecutionAlias | f:Applications/f:Application/f:Extensions/uap5:Extension/uap5:AppExecutionAlias/uap5:ExecutionAlias |
+      f:Applications/f:Application/f:Extensions/uap5:Extension/uap5:AppExecutionAlias/uap8:ExecutionAlias"/>
+      <xs:field xpath="@Alias"/>
+    </xs:unique>
+    <xs:unique name="Class_Id">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/com:Extension/com:ComServer/com:ExeServer/com:Class | f:Applications/f:Application/f:Extensions/com:Extension/com:ComServer/com:SurrogateServer/com:Class | f:Applications/f:Application/f:Extensions/com:Extension/com:ComServer/com:TreatAsClass | f:Applications/f:Application/f:Extensions/com:Extension/com:ComInterface/com:ProxyStub | f:Extensions/com:Extension/com:ComInterface/com:ProxyStub | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComServer/com:ExeServer/com:Class | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComServer/com:SurrogateServer/com:Class | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComServer/com:TreatAsClass | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComInterface/com:ProxyStub | f:Extensions/com2:Extension/com2:ComInterface/com:ProxyStub"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+    <xs:unique name="ProgId_Id">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/com:Extension/com:ComServer/com:ProgId | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComServer/com:ProgId"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+    <xs:unique name="Interface_Id">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/com:Extension/com:ComInterface/com:Interface | f:Extensions/com:Extension/com:ComInterface/com:Interface | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComInterface/com:Interface | f:Extensions/com2:Extension/com2:ComInterface/com:Interface"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+    <xs:unique name="TypeLib_Id">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/com:Extension/com:ComInterface/com:TypeLib | f:Extensions/com:Extension/com:ComInterface/com:TypeLib | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComInterface/com:TypeLib | f:Extensions/com2:Extension/com2:ComInterface/com:TypeLib"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+    <xs:unique name="SurrogateServer_AppId">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/com:Extension/com:ComServer/com:SurrogateServer | f:Applications/f:Application/f:Extensions/com2:Extension/com2:ComServer/com:SurrogateServer"/>
+      <xs:field xpath="@AppId"/>
+    </xs:unique>
+    <xs:unique name="Extension_AppUriHandlerName">
+      <xs:selector xpath="f:Applications/f:Application/f:Extensions/uap3:Extension/uap3:AppUriHandler"/>
+      <xs:field xpath="@uap7:Name"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:element name="ComExtensions" abstract="true"/>
+
+  <xs:element name="AccessControlChoice" abstract="true"/>
+
+  <xs:element name="ApplicationDataChoice" abstract="true"/>
+
+  <xs:complexType name="CT_Identity">
+    <xs:attribute name="Name" type="t:ST_PackageName" use="required"/>
+    <xs:attribute name="ProcessorArchitecture" type="t:ST_Architecture_v2" use="optional"/>
+    <xs:attribute name="Publisher" type="t:ST_Publisher_2010_v2" use="required"/>
+    <xs:attribute name="Version" type="t:ST_VersionQuad" use="required"/>
+    <xs:attribute name="ResourceId" type="t:ST_ResourceId" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Properties">
+    <xs:all>
+      <xs:element name="Framework" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="DisplayName" type="t:ST_DisplayName"/>
+      <xs:element name="PublisherDisplayName" type="t:ST_DisplayName"/>
+      <xs:element name="Description" type="t:ST_Description" minOccurs="0"/>
+      <xs:element name="Logo" type="t:ST_ImageFile"/>
+      <xs:element name="ResourcePackage" type="xs:boolean" minOccurs="0"/>
+      <xs:element ref="uap:SupportedUsers" minOccurs="0"/>
+      <xs:element ref="uap6:AllowExecution" minOccurs="0"/>
+      <xs:element ref="desktop6:RegistryWriteVirtualization" minOccurs="0"/>
+      <xs:element ref="desktop6:FileSystemWriteVirtualization" minOccurs="0"/>
+      <xs:element ref="virtualization:FileSystemWriteVirtualization" minOccurs="0"/>
+      <xs:element ref="virtualization:RegistryWriteVirtualization" minOccurs="0"/>
+      <xs:element ref="rescap6:ModificationPackage" minOccurs="0"/>
+      <xs:element ref="uap10:AllowExternalContent" minOccurs="0"/>
+      <xs:element ref="uap10:PackageIntegrity" minOccurs="0"/>
+      <xs:element ref="uap13:AutoUpdate" minOccurs="0"/>
+      <xs:element ref="uap15:DependencyTarget" minOccurs="0"/>
+      <xs:element ref="uap16:UpdateWhileInUse" minOccurs="0"/>
+      <xs:element ref="uap17:UpdateWhileInUse" minOccurs="0"/>
+      <xs:element ref="heap:HeapPolicy" minOccurs="0"/>
+      <xs:element ref="deployment2:StageWhileInUse" minOccurs="0"/>
+      <xs:element ref="trustedlaunch:TrustedLaunch" minOccurs="0"/>
+      <xs:element ref="AccessControlChoice" minOccurs="0"/>
+      <xs:element ref="ApplicationDataChoice" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Resources">
+    <xs:sequence>
+      <xs:element name="Resource" minOccurs="0" maxOccurs="200">
+        <xs:complexType>
+          <xs:attribute name="Language" type="xs:language" use="optional"/>
+          <xs:attribute ref="uap:Scale" use="optional"/>
+          <xs:attribute ref="uap:DXFeatureLevel" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Dependencies">
+    <xs:sequence>
+      <xs:element name="TargetDeviceFamily" maxOccurs="128">
+        <xs:complexType>
+          <xs:attribute name="Name" type="t:ST_AsciiIdentifier" use="required"/>
+          <xs:attribute name="MinVersion" type="t:ST_VersionQuad" use="required"/>
+          <xs:attribute name="MaxVersionTested" type="t:ST_VersionQuad" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice minOccurs="0" maxOccurs="129">
+        <xs:element name="PackageDependency" type="CT_PackageDependency"/>
+        <xs:element ref="uap13:HostRuntimeDependency"/>
+        <xs:element ref="uap17:PackageDependency"/>
+      </xs:choice>
+      <xs:element ref="MainPackageDependencyChoice" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="MainPackageDependencyChoice2" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="uap5:DriverDependency" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="uap7:OSPackageDependency" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="uap10:HostRuntimeDependency" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="MainPackageDependencyChoice" abstract="true"/>
+  <xs:element name="MainPackageDependencyChoice2" abstract="true"/>
+
+  <xs:complexType name="CT_Capabilities">
+    <xs:sequence>
+      <xs:element ref="CapabilityChoice" minOccurs="0" maxOccurs="100"/>
+      <xs:element ref="CustomCapabilityChoice" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="DeviceCapability" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="CapabilityChoice" abstract="true"/>
+  <xs:element name="Capability" substitutionGroup="CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Foundation" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CustomCapabilityChoice" abstract="true"/>
+
+  <xs:element name="DeviceCapability">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Device" type="CT_Device" minOccurs="0" maxOccurs="100"/>
+        <xs:element ref="AdditionalDeviceChoice" minOccurs="0" maxOccurs="10000"/>
+      </xs:sequence>
+      <xs:attribute name="Name" type="t:ST_DeviceCapability" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AdditionalDeviceChoice" abstract="true"/>
+
+  <xs:complexType name="CT_Device">
+    <xs:sequence>
+      <xs:element name="Function" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="Type" type="t:ST_DeviceFunction_Foundation" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Id" type="t:ST_DeviceId" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_PackageExtensions">
+    <xs:choice minOccurs="0" maxOccurs="10000">
+      <xs:element name="Extension" maxOccurs="10000">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="InProcessServer" type="CT_InProcessServer"/>
+            <xs:element name="OutOfProcessServer" type="CT_OutOfProcessServer"/>
+            <xs:element name="ProxyStub" type="CT_ProxyStub"/>
+            <xs:element name="Certificates" type="CT_Certificates"/>
+            <xs:element name="PublisherCacheFolders" type="CT_PublisherCacheFolders"/>
+          </xs:choice>
+          <xs:attribute name="Category" type="t:ST_PackageExtensionCategory_Foundation" use="required"/>
+          <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+          <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+          <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="ExtensionChoice"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_InProcessServer">
+    <xs:sequence>
+      <xs:element name="Path" type="t:ST_FileName"/>
+      <xs:element name="ActivatableClass" type="CT_InProcessActivatableClass" maxOccurs="65535"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_InProcessActivatableClass">
+    <xs:sequence>
+      <xs:element name="ActivatableClassAttribute" type="t:CT_ActivatableClassAttribute" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="ActivatableClassId" type="t:ST_ActivatableClassId" use="required"/>
+    <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModel" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_OutOfProcessServer">
+    <xs:sequence>
+      <xs:element name="Path" type="t:ST_ExecutableAnyCase"/>
+      <xs:element name="Arguments" type="t:ST_NonEmptyString" minOccurs="0"/>
+      <xs:element name="Instancing" type="t:ST_Instancing"/>
+      <xs:element name="ActivatableClass" type="CT_OutOfProcessActivatableClass" maxOccurs="65535"/>
+    </xs:sequence>
+    <xs:attribute name="ServerName" type="t:ST_AsciiWindowsId" use="required"/>
+    <xs:attributeGroup ref="uap5:OutOfProcessServerFullTrustAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_OutOfProcessActivatableClass">
+    <xs:sequence>
+      <xs:element name="ActivatableClassAttribute" type="t:CT_ActivatableClassAttribute" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="ActivatableClassId" type="t:ST_ActivatableClassId" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ProxyStub">
+    <xs:sequence>
+      <xs:element name="Path" type="t:ST_FileName" />
+      <xs:element name="Interface" type="t:CT_Interface_Foundation" maxOccurs="65535"/>
+    </xs:sequence>
+    <xs:attribute name="ClassId" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Certificates">
+    <xs:sequence>
+      <xs:element name="Certificate" type="t:CT_CertificateContent" minOccurs="0" maxOccurs="100"/>
+      <xs:element name="TrustFlags" type="t:CT_CertificateTrustFlags" minOccurs="0"/>
+      <xs:element name="SelectionCriteria" type="t:CT_CertificateSelectionCriteria" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_PublisherCacheFolders">
+    <xs:sequence>
+      <xs:element name="Folder" minOccurs="1" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="Name" type="t:ST_FileNameSegment" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Applications">
+    <xs:sequence>
+      <xs:element name="Application" maxOccurs="100">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="VisualElementsChoice"/>
+            <xs:element ref="uap:ApplicationContentUriRules" minOccurs="0"/>
+            <xs:element name="Extensions" type="CT_ApplicationExtensions" minOccurs="0"/>
+            <xs:element ref="uap7:Properties" minOccurs="0"/>
+          </xs:all>
+          <xs:attribute name="Id" type="t:ST_ApplicationId" use="required"/>
+          <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase" use="optional"/>
+          <xs:attribute name="EntryPoint" type="t:ST_EntryPoint" use="optional"/>
+          <xs:attribute name="StartPage" type="t:ST_ApplicationStartPage" use="optional"/>
+          <xs:attribute name="ResourceGroup" type="t:ST_AsciiWindowsId" use="optional"/>
+          <xs:attribute ref="desktop4:Subsystem" use="optional"/>
+          <xs:attribute ref="iot2:Subsystem" use="optional"/>
+          <xs:attribute ref="uap10:Subsystem" use="optional"/>
+          <xs:attribute ref="desktop4:SupportsMultipleInstances" use="optional"/>
+          <xs:attribute ref="iot2:SupportsMultipleInstances" use="optional"/>
+          <xs:attribute ref="uap10:SupportsMultipleInstances" use="optional"/>
+          <xs:attribute ref="uap11:CurrentDirectoryPath" use="optional"/>
+          <xs:attribute ref="uap11:Parameters" use="optional"/>
+          <xs:attribute ref="previewsecurity:TrustLevel" use="optional"/>
+          <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+          <xs:attribute ref="previewsecurity2:RuntimeBehavior" use="optional"/>
+          <xs:attribute ref="uap16:BaseNamedObjectsIsolation" use="optional"/>
+          <xs:attribute ref="uap17:BaseNamedObjectsIsolation" use="optional"/>
+          <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+        </xs:complexType>
+        <xs:unique name="ApplicationContentUrisRule_Match">
+          <xs:selector xpath="uap:ApplicationContentUriRules/uap:Rule"/>
+          <xs:field xpath="@Match"/>
+        </xs:unique>
+        <xs:unique name="ShareTarget_FileType">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:ShareTarget/uap:SupportedFileTypes/uap:FileType"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="ShareTarget_DataFormat">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:ShareTarget/uap:DataFormat"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="FileOpenPicker_FileType">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:FileOpenPicker/uap:SupportedFileTypes/uap:FileType"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="FileSavePicker_FileType">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:FileSavePicker/uap:SupportedFileTypes/uap:FileType"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="AutoPlay_ContentVerb">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:AutoPlayContent/uap:LaunchAction"/>
+          <xs:field xpath="@Verb"/>
+        </xs:unique>
+        <xs:unique name="AutoPlay_DeviceVerb">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:AutoPlayDevice/uap:LaunchAction"/>
+          <xs:field xpath="@Verb"/>
+        </xs:unique>
+        <xs:unique name="MediaCodec_AppServiceName">
+          <xs:selector xpath="f:Extensions/uap4:Extension/uap4:MediaCodec"/>
+          <xs:field xpath="@AppServiceName"/>
+        </xs:unique>
+        <xs:key name="ComServer_Class_IdKey">
+          <xs:selector xpath="f:Extensions/com:Extension/com:ComServer/com:SurrogateServer/com:Class | f:Extensions/com:Extension/com:ComServer/com:ExeServer/com:Class | f:Extensions/com:Extension/com:ComServer/com:TreatAsClass | f:Extensions/com2:Extension/com2:ComServer/com:SurrogateServer/com:Class | f:Extensions/com2:Extension/com2:ComServer/com:ExeServer/com:Class | f:Extensions/com2:Extension/com2:ComServer/com:TreatAsClass"/>
+          <xs:field xpath="@Id"/>
+        </xs:key>
+        <xs:key name="ComServer_SurrogateServer_Class_IdKey">
+          <xs:selector xpath="f:Extensions/com:Extension/com:ComServer/com:SurrogateServer/com:Class | f:Extensions/com2:Extension/com2:ComServer/com:SurrogateServer/com:Class"/>
+          <xs:field xpath="@Id"/>
+        </xs:key>
+        <xs:keyref name="ThumbnailHandlerRef" refer="ComServer_SurrogateServer_Class_IdKey">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:FileTypeAssociation/desktop2:ThumbnailHandler | f:Extensions/uap:Extension/uap3:FileTypeAssociation/desktop2:ThumbnailHandler | f:Extensions/uap3:Extension/uap3:FileTypeAssociation/desktop2:ThumbnailHandler"/>
+          <xs:field xpath="@Clsid"/>
+        </xs:keyref>
+        <xs:keyref name="DesktopPreviewHandlerRef" refer="ComServer_Class_IdKey">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:FileTypeAssociation/desktop2:DesktopPreviewHandler | f:Extensions/uap:Extension/uap3:FileTypeAssociation/desktop2:DesktopPreviewHandler | f:Extensions/uap3:Extension/uap3:FileTypeAssociation/desktop2:DesktopPreviewHandler"/>
+          <xs:field xpath="@Clsid"/>
+        </xs:keyref>
+        <xs:keyref name="DesktopPropertyHandlerRef" refer="ComServer_SurrogateServer_Class_IdKey">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:FileTypeAssociation/desktop2:DesktopPropertyHandler | f:Extensions/uap:Extension/uap3:FileTypeAssociation/desktop2:DesktopPropertyHandler | f:Extensions/uap3:Extension/uap3:FileTypeAssociation/desktop2:DesktopPropertyHandler"/>
+          <xs:field xpath="@Clsid"/>
+        </xs:keyref>
+        <xs:keyref name="OleClassRef" refer="ComServer_Class_IdKey">
+          <xs:selector xpath="f:Extensions/uap:Extension/uap:FileTypeAssociation/desktop2:OleClass | f:Extensions/uap:Extension/uap3:FileTypeAssociation/desktop2:OleClass | f:Extensions/uap3:Extension/uap3:FileTypeAssociation/desktop2:OleClass"/>
+          <xs:field xpath="@Clsid"/>
+        </xs:keyref>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="VisualElementsChoice" abstract="true"/>
+
+  <xs:complexType name="CT_ApplicationExtensions">
+    <xs:choice minOccurs="0" maxOccurs="10000">
+      <xs:element ref="ApplicationExtensionChoice"/>
+      <xs:element ref="ExtensionChoice"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="ExtensionChoice" abstract="true"/>
+  <xs:element name="ApplicationExtensionChoice" abstract="true"/>
+  <xs:element name="Extension" substitutionGroup="ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="BackgroundTasks" type="CT_BackgroundTasks"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Foundation" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+    <xs:unique name="BackgroundTasks_Type">
+      <xs:selector xpath="f:BackgroundTasks/f:Task | f:BackgroundTasks/uap:Task"/>
+      <xs:field xpath="@Type"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_BackgroundTasks">
+    <xs:sequence>
+      <xs:element ref="BackgroundTaskChoice" minOccurs="0" maxOccurs="17"/>
+    </xs:sequence>
+    <xs:attribute name="ServerName" type="t:ST_AsciiWindowsId" use="optional"/>
+    <xs:attribute ref="uap4:SupportsMultipleInstances" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="BackgroundTaskChoice" abstract="true"/>
+  <xs:element name="Task" substitutionGroup="BackgroundTaskChoice">
+    <xs:complexType>
+      <xs:attribute name="Type" type="t:ST_BackgroundTasks_Foundation" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_PackageDependency">
+    <xs:attribute name="Name" type="t:ST_PackageName" use="required"/>
+    <xs:attribute name="Publisher" type="t:ST_Publisher_2010_v2" use="required"/>
+    <xs:attribute name="MinVersion" type="t:ST_VersionQuad" use="required"/>
+    <xs:attribute name="MaxMajorVersionTested" type="xs:unsignedShort" use="optional"/>
+    <xs:attribute ref="uap6:Optional" use="optional"/>
+  </xs:complexType>
+</xs:schema>
+

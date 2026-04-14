@@ -1,0 +1,92 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+#endif
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    uuid(82BA7092-4C88-427D-A7BC-16DD93FEB67E),
+    pointer_default(unique),
+    object
+]
+interface IRestrictedErrorInfo : IUnknown
+{
+    HRESULT GetErrorDetails(
+                [out] BSTR * description,
+                [out] HRESULT * error,
+                [out] BSTR * restrictedDescription,
+                [out] BSTR * capabilitySid
+            );
+
+    HRESULT GetReference(
+                [out] BSTR * reference
+            );
+};
+
+[
+    uuid(04a2dbf3-df83-116c-0946-0812abf6e07d),
+    pointer_default(unique),
+    object
+]
+interface ILanguageExceptionErrorInfo : IUnknown
+{
+    HRESULT GetLanguageException( [out] IUnknown** languageException );
+}
+
+[
+    uuid(FEB5A271-A6CD-45CE-880A-696706BADC65),
+    pointer_default(unique),
+    object
+]
+interface ILanguageExceptionTransform : IUnknown
+{
+    HRESULT GetTransformedRestrictedErrorInfo(
+                [out] IRestrictedErrorInfo** restrictedErrorInfo
+            );
+}
+
+[
+    uuid(CBE53FB5-F967-4258-8D34-42F5E25833DE),
+    pointer_default(unique),
+    object
+]
+interface ILanguageExceptionStackBackTrace : IUnknown
+{
+    HRESULT GetStackBackTrace(
+                [in]  ULONG maxFramesToCapture,
+                [in, out, max_is(maxFramesToCapture - 1)] UINT_PTR stackBackTrace[],
+                [out] ULONG* framesCaptured
+            );
+}
+
+[
+    uuid(5746E5C4-5B97-424C-B620-2822915734DD),
+    pointer_default(unique),
+    object
+]
+interface ILanguageExceptionErrorInfo2 : ILanguageExceptionErrorInfo
+{
+    HRESULT GetPreviousLanguageExceptionErrorInfo(
+                [out] ILanguageExceptionErrorInfo2** previousLanguageExceptionErrorInfo
+            );
+
+    HRESULT CapturePropagationContext([in] IUnknown* languageException);
+
+    HRESULT GetPropagationContextHead(
+                [out] ILanguageExceptionErrorInfo2** propagatedLanguageExceptionErrorInfoHead
+            );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion

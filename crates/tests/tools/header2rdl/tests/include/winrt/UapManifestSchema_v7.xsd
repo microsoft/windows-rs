@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="SharedFonts" type="uap4:CT_SharedFonts"/>
+        <xs:element name="EnterpriseDataProtection" type="CT_EnterpriseDataProtection"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Uap7" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_EnterpriseDataProtection">
+    <xs:attribute name="ProtectionMode" type="ST_ProtectionMode" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ProtectionMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="default"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="OSPackageDependency">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_AsciiIdentifier" use="required"/>
+      <xs:attribute name="Version" type="t:ST_VersionQuad" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:attribute name="Default" type="xs:boolean"/>
+
+  <xs:element name="Properties">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="ImportRedirectionTable" type="t:ST_DllFile" minOccurs="0"/>
+        <xs:element ref="uap8:ActiveCodePage" minOccurs="0"/>
+        <xs:element ref="uap10:LanguagePreference" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attribute name="Name" type="t:ST_NonEmptyString"/>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap_7" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

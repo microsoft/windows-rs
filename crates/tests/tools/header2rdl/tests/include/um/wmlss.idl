@@ -1,0 +1,182 @@
+//*****************************************************************************
+//
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+
+[
+    uuid(C21E9CE5-B317-463B-A1B1-B5E36EED59D0),
+    version(1.0),
+    helpstring("Windows Media Library Sharing Services")
+]
+library WMLSS
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    ///////////////////////////////////////////////////////
+    // Enumerations
+
+	[
+	    helpstring("Windows Media Library Sharing Device Authorization"),
+	    v1_enum,
+	    public
+	]
+	typedef [public] enum WindowsMediaLibrarySharingDeviceAuthorizationStatus
+	{
+	    [helpstring("The authorization status is unknown")]    DEVICE_AUTHORIZATION_UNKNOWN = 0,
+	    [helpstring("The authorization status is allowed.")]   DEVICE_AUTHORIZATION_ALLOWED = 1,
+	    [helpstring("The authorization status is denied.")]    DEVICE_AUTHORIZATION_DENIED = 2,
+	}
+	WindowsMediaLibrarySharingDeviceAuthorizationStatus;
+
+	//////////////////////////////////////////////////////////////////////
+	//          IWindowsMediaLibrarySharingDeviceProperty Interface
+	//////////////////////////////////////////////////////////////////////
+
+	[
+	    object,
+	    uuid(81E26927-7A7D-40A7-81D4-BDDC02960E3E),
+	    helpstring("IWindowsMediaLibrarySharingDeviceProperty: Public interface for Windows Media Library Sharing"),
+	    pointer_default(unique),
+	    local,
+	    oleautomation
+	]
+	interface IWindowsMediaLibrarySharingDeviceProperty : IDispatch
+	{
+	    [propget, id(1), helpstring("Returns the Property Name")]
+	    HRESULT Name([out, retval] BSTR* name);
+	    [propget, id(DISPID_VALUE), helpstring("Returns the Property Value")]
+	    HRESULT Value([out, retval] VARIANT* value);
+	};
+
+	//////////////////////////////////////////////////////////////////////
+	//          IWindowsMediaLibrarySharingDeviceProperties Interface
+	//////////////////////////////////////////////////////////////////////
+
+	[
+	    object,
+	    uuid(C4623214-6B06-40C5-A623-B2FF4C076BFD),
+	    helpstring("IWindowsMediaLibrarySharingDeviceProperties: Public interface for Windows Media Library Sharing"),
+	    pointer_default(unique),
+	    local,
+	    oleautomation
+	]
+	interface IWindowsMediaLibrarySharingDeviceProperties : IDispatch
+	{
+	    [propget, id(DISPID_VALUE), helpstring("Returns the specified item in the collection by position (zero based).")]
+	    HRESULT Item([in] LONG index, [out, retval] IWindowsMediaLibrarySharingDeviceProperty** property);
+	    [propget, id(1), helpstring("Returns the number of members in the collection")]
+	    HRESULT Count([out, retval] LONG* count);
+	    [id(2), helpstring("Returns the specified item in the collection by name.")]
+	    HRESULT GetProperty([in] BSTR name, [out, retval] IWindowsMediaLibrarySharingDeviceProperty ** property);
+	};
+
+	//////////////////////////////////////////////////////////////////////
+	//          IWindowsMediaLibrarySharingDevice Interface
+	//////////////////////////////////////////////////////////////////////
+
+	[
+	    object,
+	    uuid(3DCCC293-4FD9-4191-A25B-8E57C5D27BD4),
+	    helpstring("IWindowsMediaLibrarySharingDevice: Public interface for Windows Media Library Sharing"),
+	    pointer_default(unique),
+	    local,
+	    oleautomation
+	]
+	interface IWindowsMediaLibrarySharingDevice : IDispatch
+	{
+	    [propget, id(1), helpstring("The device ID for this device")]
+	    HRESULT DeviceID([out, retval] BSTR* deviceID);
+	    [propget, id(2), helpstring("Returns/Sets the authorization status for this device")]
+	    HRESULT Authorization([out, retval] WindowsMediaLibrarySharingDeviceAuthorizationStatus * authorization);
+	    [propput, id(2), helpstring("Returns/Sets the authorization status for this device")]
+	    HRESULT Authorization([in] WindowsMediaLibrarySharingDeviceAuthorizationStatus authorization);
+	    [propget, id(3), helpstring("A collection of all properties for this Device")]
+	    HRESULT Properties([out, retval] IWindowsMediaLibrarySharingDeviceProperties** deviceProperties);
+	};
+
+	//////////////////////////////////////////////////////////////////////
+	//          IWindowsMediaLibrarySharingDevices Interface
+	//////////////////////////////////////////////////////////////////////
+
+	[
+	    object,
+	    uuid(1803F9D6-FE6D-4546-BF5B-992FE8EC12D1),
+	    helpstring("IWindowsMediaLibrarySharingDevices: Public interface for Windows Media Library Sharing"),
+	    pointer_default(unique),
+	    local,
+	    oleautomation
+	]
+	interface IWindowsMediaLibrarySharingDevices : IDispatch
+	{
+	    [propget, id(DISPID_VALUE), helpstring("Returns the specified item in the collection by position (zero based).")]
+	    HRESULT Item([in] LONG index, [out, retval] IWindowsMediaLibrarySharingDevice** device);
+	    [propget, id(1), helpstring("Returns the number of members in the collection")]
+	    HRESULT Count([out, retval] LONG* count);
+	    [id(2), helpstring("Returns the specified item in the collection by device ID.")]
+	    HRESULT GetDevice([in] BSTR deviceID, [out, retval] IWindowsMediaLibrarySharingDevice** device);
+	};
+
+	//////////////////////////////////////////////////////////////////////
+	//          IWindowsMediaLibrarySharingServices Interface
+	//////////////////////////////////////////////////////////////////////
+
+	[
+	    object,
+	    uuid(01F5F85E-0A81-40DA-A7C8-21EF3AF8440C),
+	    helpstring("IWindowsMediaLibrarySharingServices: Public interface for Windows Media Library Sharing"),
+	    pointer_default(unique),
+	    local,
+	    oleautomation
+	]
+	interface IWindowsMediaLibrarySharingServices : IDispatch
+	{
+	    HRESULT showShareMediaCPL([in] BSTR device);
+	    [propget] HRESULT userHomeMediaSharingState([out, retval] VARIANT_BOOL *sharingEnabled);
+	    [propput] HRESULT userHomeMediaSharingState([in] VARIANT_BOOL sharingEnabled);
+	    [propget] HRESULT userHomeMediaSharingLibraryName([out, retval] BSTR *libraryName);
+	    [propput] HRESULT userHomeMediaSharingLibraryName([in] BSTR libraryName);
+	    [propget] HRESULT computerHomeMediaSharingAllowedState([out, retval] VARIANT_BOOL *sharingAllowed);
+	    [propput] HRESULT computerHomeMediaSharingAllowedState([in] VARIANT_BOOL  sharingAllowed);
+	    [propget] HRESULT userInternetMediaSharingState([out, retval] VARIANT_BOOL *sharingEnabled);
+	    [propput] HRESULT userInternetMediaSharingState([in] VARIANT_BOOL sharingEnabled);
+	    [propget] HRESULT computerInternetMediaSharingAllowedState([out, retval] VARIANT_BOOL *sharingAllowed);
+	    [propput] HRESULT computerInternetMediaSharingAllowedState([in] VARIANT_BOOL sharingAllowed);
+	    [propget] HRESULT internetMediaSharingSecurityGroup([out, retval] BSTR *securityGroup);
+	    [propput] HRESULT internetMediaSharingSecurityGroup([in] BSTR securityGroup);
+	    [propget] HRESULT allowSharingToAllDevices([out, retval] VARIANT_BOOL * sharingEnabled);
+	    [propput] HRESULT allowSharingToAllDevices([in] VARIANT_BOOL sharingEnabled);
+	    HRESULT setDefaultAuthorization([in] BSTR MACAddresses, [in] BSTR friendlyName, [in] VARIANT_BOOL authorization);
+	    HRESULT setAuthorizationState([in] BSTR MACAddress, [in] VARIANT_BOOL authorizationState);
+	    HRESULT getAllDevices([out, retval] IWindowsMediaLibrarySharingDevices ** devices);
+	    [propget] HRESULT customSettingsApplied([out, retval] VARIANT_BOOL * customSettingsApplied);
+	}
+
+    [
+        uuid(AD581B00-7B64-4E59-A38D-D2C5BF51DDB3),
+        helpstring("The WindowsMediaLibrarySharingServices control is an invisible-at-runtime control that manages "
+                   "the shared media libraries associated with this user. The control can be created using "
+                   "\"WMLSS.WindowsMediaLibrarySharingServices\" in a call to CreateObject.")
+    ]
+    coclass WindowsMediaLibrarySharingServices
+    {
+        [default] interface IWindowsMediaLibrarySharingServices;
+    };
+}
+
+cpp_quote("#endif") // cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

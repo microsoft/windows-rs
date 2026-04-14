@@ -1,0 +1,187 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+cpp_quote( "//=========================================================================" )
+cpp_quote( "//" )
+cpp_quote( "// Microsoft Windows Media Technologies" )
+cpp_quote( "// Copyright (C) Microsoft Corporation.  All Rights Reserved." )
+cpp_quote( "//" )
+cpp_quote( "//=========================================================================" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import	"unknwn.idl";
+import	"objidl.idl";
+import	"strmif.idl";			// for media type and time definitions
+import  "wmsdkidl.idl";
+
+cpp_quote( "EXTERN_GUID( IID_IConfigAsfWriter2,0x7989ccaa, 0x53f0, 0x44f0, 0x88, 0x4a, 0xf3, 0xb0, 0x3f, 0x6a, 0xe0, 0x66 );" )
+cpp_quote( "EXTERN_GUID( IID_IConfigAsfWriter,0x45086030,0xF7E4,0x486a,0xB5,0x04,0x82,0x6B,0xB5,0x79,0x2A,0x3B );" )
+
+cpp_quote( "EXTERN_GUID( IID_IAMWMBufferPass,0x6dd816d7, 0xe740, 0x4123, 0x9e, 0x24, 0x24, 0x44, 0x41, 0x26, 0x44, 0xd8 );" )
+cpp_quote( "EXTERN_GUID( IID_IAMWMBufferPassCallback,0xb25b8372, 0xd2d2, 0x44b2, 0x86, 0x53, 0x1b, 0x8d, 0xae, 0x33, 0x24, 0x89 );" )
+
+cpp_quote( "#ifndef EC_PREPROCESS_COMPLETE" )
+cpp_quote( "#define EC_PREPROCESS_COMPLETE 0x56" )
+cpp_quote( "#endif" )
+
+interface IConfigAsfWriter;
+interface IConfigAsfWriter2;
+interface IAMWMBufferPass;
+interface IAMWMBufferPassCallback;
+interface IWMProfile;
+interface IWMProfile;
+
+
+// Interface used to setup callback for app to set/get properties on WindowsMedia buffers that
+// are passed by the ASF reader and writer filters
+[
+object,
+uuid(6DD816D7-E740-4123-9E24-2444412644D8),
+pointer_default(unique)
+]
+interface IAMWMBufferPass : IUnknown
+{
+
+    //
+    // set the interface to use for callback notification
+    //
+    HRESULT SetNotify( [in]  IAMWMBufferPassCallback *pCallback );
+}
+
+// Callback interface used to notify that a WindowMedia buffer is being passed. Typically implemented
+// by the app and called by the ASF writer and reader filters.
+[
+object,
+uuid(B25B8372-D2D2-44b2-8653-1B8DAE332489),
+pointer_default(unique)
+]
+interface IAMWMBufferPassCallback : IUnknown
+{
+    //
+    //  give the callback receiver a chance to examine 
+    //  (and act on) the INSSBuffer3 before passing on
+    //
+    HRESULT Notify( [in] INSSBuffer3 *pNSSBuffer3 
+                  , [in] IPin * pPin
+                  , [in] REFERENCE_TIME *prtStart
+                  , [in] REFERENCE_TIME *prtEnd );
+}
+
+
+//  ASF Writer filter paramaters for IConfigAsfWriter2 interface
+enum _AM_ASFWRITERCONFIG_PARAM {
+    AM_CONFIGASFWRITER_PARAM_AUTOINDEX = 1,    // dynamic indexing, lParam1 boolean, lParam2 
+    AM_CONFIGASFWRITER_PARAM_MULTIPASS,        // multipass encoding, app should be able
+                                               // to handle EC_PREPROCESS_COMPLETE events
+    AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS      // configure writer to take audio and video input data
+                                               // as-is, without any recompression, useful for repackaging 
+                                               // content in the ASF container
+};
+
+// Interface to control the ASF writer (version 2)
+[
+object,
+uuid(7989CCAA-53F0-44f0-884A-F3B03F6AE066),
+pointer_default(unique)
+]
+interface IConfigAsfWriter2 : IConfigAsfWriter
+{
+    //
+    // Helper method to allow caller to pass in a pin pointer and get back the associated 
+    // stream number. This is helpful when using WMF SDK interfaces directly to work with 
+    // stream-specific properties.
+    //
+    HRESULT StreamNumFromPin( [in]  IPin *pPin, [out] WORD *pwStreamNum );
+
+    // Set value corresponding to the passed in parameter id
+    HRESULT SetParam(
+        [in]   DWORD     dwParam,
+        [in]   DWORD     dwParam1,
+        [in]   DWORD     dwParam2 // not used, must be 0
+    );
+    
+    // Get value corresponding to the passed in parameter id
+    HRESULT GetParam(
+        [in]   DWORD     dwParam,
+        [out]  DWORD     *pdwParam1,
+        [out]  DWORD     *pdwParam2 // not used, must be 0
+    );
+
+    //
+    // Multipass encoding
+    //
+    HRESULT ResetMultiPassState( void );
+
+}
+
+// Interface to control the ASF writer
+[
+object,
+uuid(45086030-F7E4-486a-B504-826BB5792A3B),
+pointer_default(unique)
+]
+interface IConfigAsfWriter : IUnknown
+{
+    //
+    // The user is expected to enumerate profiles using the wmsdk IWMProfileManager
+    // method and then pass the desired profile index to the ASF Writer filter via this
+    // method. The filter will then try to configure itself for the selected profile.
+    //
+    // NOTE: The following 2 XXXProfileId methods are obsolete and their use is not recommended.
+    //       Once the WMF SDK added the notion of profile versions, their behavior became ambiguous. 
+    //       At the time of this release (Corona) the methods will assume use of the default profile 
+    //       version number and make no attempt to override that. For instance, in the Corona release 
+    //       version 9 profiles are assumed.
+    //
+    //       Instead, it is recommended that apps use the XXXProfile methods which take the IWMProfile* 
+    //       directly or the ProfileGuid methods which take a profile GUID.
+    //
+    HRESULT ConfigureFilterUsingProfileId([in] DWORD dwProfileId);
+    HRESULT GetCurrentProfileId([out] DWORD *pdwProfileId);
+
+    //    
+    // configure using a pre-defined wmsdk profile guid
+    //
+    HRESULT ConfigureFilterUsingProfileGuid([in] REFGUID guidProfile);
+    HRESULT GetCurrentProfileGuid([out] GUID *pProfileGuid);
+
+    //
+    // Use these methods when a custom profile setup is preferred
+    //
+    HRESULT ConfigureFilterUsingProfile([in] IWMProfile * pProfile);
+    HRESULT GetCurrentProfile([out] IWMProfile **ppProfile);
+
+    //
+    // allow app to control whether or not to index file
+    //
+    HRESULT SetIndexMode( [in]  BOOL bIndexFile );
+    HRESULT GetIndexMode( [out] BOOL *pbIndexFile );
+}
+
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// Windows Media Filters compatibility option flags" )
+cpp_quote( "//" )
+cpp_quote( "static DWORD EXCLUDE_SCRIPT_STREAM_DELIVERY_SYNCHRONIZATION = 0x00000001;" )
+cpp_quote( "" )
+
+cpp_quote( "////////////////////////////////////////////////////////////////" )
+cpp_quote( "//" )
+cpp_quote( "// ATOM strings to match compatibility option flags above for certain applications that don't want to (or not allowed to) update registry entries" )
+cpp_quote( "// These need to be setup by the application using the WM filters to enable the particular functionality" )
+cpp_quote( "//" )
+cpp_quote( "static const WCHAR* g_wszExcludeScriptStreamDeliverySynchronization = L\"ExcludeScriptStreamDeliverySynchronization\";" )
+cpp_quote( "" )
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

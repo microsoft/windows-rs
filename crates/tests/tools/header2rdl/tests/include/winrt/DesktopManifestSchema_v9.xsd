@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/9"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/9"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="FileExplorerClassicContextMenuHandler" type="CT_FileExplorerExtensionHandler"/>
+        <xs:element name="FileExplorerClassicDragDropContextMenuHandler" type="CT_FileExplorerExtensionHandler"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Desktop9" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_FileExplorerExtensionHandler">
+    <xs:choice minOccurs="0" maxOccurs="1000">
+      <xs:element name="ExtensionHandler">
+        <xs:complexType>
+          <xs:attribute name="Type" type="ST_ExtensionHandlerType" use="required" />
+          <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ExtensionHandlerType">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+

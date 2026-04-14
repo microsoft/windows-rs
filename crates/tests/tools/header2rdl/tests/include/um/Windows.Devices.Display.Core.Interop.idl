@@ -1,0 +1,86 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+//import "dxgicommon.idl";
+//import "dxgiformat.idl";
+import "Inspectable.idl";
+
+//--------------------------------------------------------------------------------------------------------
+// The system LUID struct isn't defined in wtypes, so we repeat it here just
+// for the MIDL compiler.
+cpp_quote("#ifdef __midl")
+cpp_quote("#ifndef LUID_DEFINED")
+cpp_quote("#define LUID_DEFINED 1")
+typedef struct __LUID {
+    DWORD LowPart;
+    LONG HighPart;
+} LUID, *PLUID;
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#ifdef __cplusplus")
+
+cpp_quote("inline INT64 Int64FromLuid(const LUID &Luid)")
+cpp_quote("{")
+cpp_quote("    LARGE_INTEGER val;")
+cpp_quote("    val.LowPart = Luid.LowPart;")
+cpp_quote("    val.HighPart = Luid.HighPart;")
+cpp_quote("    return val.QuadPart;")
+cpp_quote("}")
+cpp_quote("")
+cpp_quote("inline LUID LuidFromInt64(INT64 Int64)")
+cpp_quote("{")
+cpp_quote("    LARGE_INTEGER val;")
+cpp_quote("    val.QuadPart= Int64;")
+cpp_quote("")
+cpp_quote("    LUID Luid;")
+cpp_quote("    Luid.LowPart = val.LowPart;")
+cpp_quote("    Luid.HighPart = val.HighPart;")
+cpp_quote("    return Luid;")
+cpp_quote("}")
+
+cpp_quote("#endif")
+
+[
+    object,
+    uuid(64338358-366A-471B-BD56-DD8EF48E439B),
+    local,
+    pointer_default(unique)
+]
+interface IDisplayDeviceInterop : IUnknown
+{
+    HRESULT CreateSharedHandle(
+        [in] IInspectable *pObject,
+        [in] const SECURITY_ATTRIBUTES* pSecurityAttributes,
+        [in] DWORD Access,
+        [in] HSTRING Name,
+        [out, retval] HANDLE *pHandle);
+
+    HRESULT OpenSharedHandle(
+        [in] HANDLE NTHandle,
+        [in] IID riid,
+        [out, retval] void** ppvObj);
+};
+
+[
+    object,
+    uuid(A6BA4205-E59E-4E71-B25B-4E436D21EE3D),
+    local,
+    pointer_default(unique)
+]
+interface IDisplayPathInterop : IUnknown
+{
+    HRESULT CreateSourcePresentationHandle(
+        [out, retval] HANDLE* pValue);
+
+    HRESULT GetSourceId(
+        [out, retval] UINT* pSourceId);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

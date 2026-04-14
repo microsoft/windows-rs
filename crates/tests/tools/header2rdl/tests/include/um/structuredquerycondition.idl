@@ -1,0 +1,147 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "objidl.idl";
+import "propidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+// These types should be inside a a WINAPI_PARTITION_DESKTOP region as well but MIDL generates references
+// to them that we cannot remove so they must exist outside of WINAPI_PARTITION_DESKTOP.
+
+typedef [v1_enum] enum tagCONDITION_TYPE
+{
+    CT_AND_CONDITION,   // AND of subconditions
+    CT_OR_CONDITION,    // OR of subconditions
+    CT_NOT_CONDITION,   // NOT of a single subcondition
+    CT_LEAF_CONDITION,  // No subcondition: property, operation, value.
+} CONDITION_TYPE;  // Prefix CT
+
+typedef [v1_enum] enum tagCONDITION_OPERATION
+{
+    COP_IMPLICIT,
+    COP_EQUAL,
+    COP_NOTEQUAL,
+    COP_LESSTHAN,
+    COP_GREATERTHAN,
+    COP_LESSTHANOREQUAL,
+    COP_GREATERTHANOREQUAL,
+    COP_VALUE_STARTSWITH,     // LIKE FOO%
+    COP_VALUE_ENDSWITH,       // LIKE %FOO
+    COP_VALUE_CONTAINS,       // LIKE %FOO%
+    COP_VALUE_NOTCONTAINS,    // NOT LIKE %FOO%
+    COP_DOSWILDCARDS,         // "DOS wildcards" and the like
+    COP_WORD_EQUAL,           // Contains a word/phrase somewhere.
+    COP_WORD_STARTSWITH,      // Contains a word/phrase beginning with this
+    COP_APPLICATION_SPECIFIC, // Application specific, presumably uses the Value.
+} CONDITION_OPERATION;  // Prefix COP
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(4FDEF69C-DBC9-454e-9910-B34F3C64B510),
+    pointer_default(unique),
+]
+interface IRichChunk : IUnknown
+{
+    // The position *pFirstPos is zero-based.
+    // Any one of pFirstPos, pLength, ppsz and pValue may be NULL.
+    [local]
+    HRESULT GetData([out, unique, annotation("_Out_opt_")] ULONG* pFirstPos, 
+                    [out, unique, annotation("_Out_opt_")] ULONG* pLength, 
+                    [out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR* ppsz, 
+                    [out, unique, annotation("_Out_opt_")] PROPVARIANT* pValue);
+
+    [call_as(GetData)]
+    HRESULT RemoteGetData([out] ULONG* pFirstPos, 
+                          [out] ULONG* pLength, 
+                          [out] LPWSTR* ppsz, 
+                          [out] PROPVARIANT* pValue);
+}
+
+[
+    object,
+    uuid(0FC988D4-C935-4b97-A973-46282EA175C8),
+    pointer_default(unique),
+]
+interface ICondition : IPersistStream
+{
+    // For any node, return what kind of node it is.
+    HRESULT GetConditionType([out, retval] CONDITION_TYPE* pNodeType);
+
+    // riid must be IID_IEnumUnknown, IID_IEnumVARIANT or IID_IObjectArray, or in the case of a negation node IID_ICondition.
+    // If this is a leaf node, E_FAIL will be returned.
+    // If this is a negation node, then if riid is IID_ICondition, *ppv will be set to a single ICondition, otherwise an enumeration of one.
+    // If this is a conjunction or a disjunction, *ppv will be set to an enumeration of the subconditions.
+    HRESULT GetSubConditions([in] REFIID riid, [out, retval, iid_is(riid)] void** ppv);
+
+    // If this is not a leaf node, E_FAIL will be returned.
+    // Retrieve the property name, operation and value from the leaf node.
+    // Any one of ppszPropertyName, pcop and ppropvar may be NULL.
+    [local]
+    HRESULT GetComparisonInfo([out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR *ppszPropertyName,
+                              [out, unique, annotation("_Out_opt_")] CONDITION_OPERATION *pcop,
+                              [out, unique, annotation("_Out_opt_")] PROPVARIANT *ppropvar);
+                              
+    [call_as(GetComparisonInfo)]
+    HRESULT RemoteGetComparisonInfo([out] LPWSTR *ppszPropertyName,
+                                    [out] CONDITION_OPERATION *pcop,
+                                    [out] PROPVARIANT *ppropvar);
+    
+    // If this is not a leaf node, E_FAIL will be returned.
+    // *ppszValueTypeName will be set to the semantic type of the value, or to NULL if this is not meaningful.
+    HRESULT GetValueType([out, retval] LPWSTR* ppszValueTypeName);
+    
+    // If this is not a leaf node, E_FAIL will be returned.
+    // If the value of the leaf node is VT_EMPTY, *ppszNormalization will be set to an empty string.
+    // If the value is a string (VT_LPWSTR, VT_BSTR or VT_LPSTR), then *ppszNormalization will be set to a
+    // character-normalized form of the value.
+    // Otherwise, *ppszNormalization will be set to some (character-normalized) string representation of the value.
+    HRESULT GetValueNormalization([out, retval] LPWSTR* ppszNormalization);
+
+    // Return information about what parts of the input produced the property, the operation and the value.
+    // Any one of ppPropertyTerm, ppOperationTerm and ppValueTerm may be NULL.
+    // For a leaf node returned by the parser, the position information of each IRichChunk identifies the tokens that
+    // contributed the property/operation/value, the string value is the corresponding part of the input string, and
+    // the PROPVARIANT is VT_EMPTY.
+    [local]
+    HRESULT GetInputTerms([out, unique, annotation("_Out_opt_")] IRichChunk** ppPropertyTerm, 
+                          [out, unique, annotation("_Out_opt_")] IRichChunk** ppOperationTerm, 
+                          [out, unique, annotation("_Out_opt_")] IRichChunk** ppValueTerm);
+    
+    [call_as(GetInputTerms)]
+    HRESULT RemoteGetInputTerms([out] IRichChunk** ppPropertyTerm, 
+                                [out] IRichChunk** ppOperationTerm, 
+                                [out] IRichChunk** ppValueTerm);
+
+    // Make a deep copy of this ICondition.
+    HRESULT Clone([out, retval] ICondition** ppc);
+};
+
+[
+    uuid(0DB8851D-2E5B-47eb-9208-D28C325A01D7),
+    object,
+    pointer_default(unique),
+]
+interface ICondition2 : ICondition
+{
+    // If this is not a leaf node, E_FAIL will be returned.
+    // *ppszLocaleName will be set to the locale name of the value,
+    // which may be NULL.
+    HRESULT GetLocale([out] LPWSTR* ppszLocaleName);
+
+    // If this is not a leaf node, E_FAIL will be returned.
+    // Retrieve the property key, operation and value from the leaf node.
+    // Any one of ppropkey, pcop and ppropvar may be NULL.
+    [local] HRESULT GetLeafConditionInfo([out, annotation("_Out_opt_")] PROPERTYKEY* ppropkey, [out, annotation("_Out_opt_")] CONDITION_OPERATION* pcop, [out, annotation("_Out_opt_")] PROPVARIANT* ppropvar);
+
+    // If this is not a leaf node, E_FAIL will be returned.
+    // Retrieve the property key, operation and value from the leaf node.
+    // Any one of ppropkey, pcop and ppropvar may be NULL.
+    [call_as(GetLeafConditionInfo)]
+    HRESULT RemoteGetLeafConditionInfo([out] PROPERTYKEY* ppropkey, [out] CONDITION_OPERATION* pcop, [out] PROPVARIANT* ppropvar);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

@@ -1,0 +1,48 @@
+//+-------------------------------------------------------------------
+//
+//  File:       ctxtcall.idl
+//
+//  Contents:   Public Context interfaces
+//
+//  History:    04-Dec-97  Created
+//
+//--------------------------------------------------------------------
+
+cpp_quote("//+-----------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//------------------------------------------------------------------")
+
+import "wtypes.idl";
+import "objidl.idl";
+import "unknwn.idl";
+
+// ComCallData used with IContextCallback::ContextCallback
+
+typedef struct tagComCallData {
+        DWORD   dwDispid;
+        DWORD   dwReserved;
+        void    *pUserDefined;
+} ComCallData;
+
+
+// IContextCallback interface
+[
+    local,
+    object,
+    uuid(000001da-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IContextCallback : IUnknown
+{
+    typedef [ref] HRESULT __stdcall (*PFNCONTEXTCALL)(ComCallData* pParam);
+
+    HRESULT ContextCallback([in] PFNCONTEXTCALL pfnCallback,
+                            [in] ComCallData *pParam,
+                            [in] REFIID riid,
+                            [in] int iMethod,
+                            [in] IUnknown *pUnk);
+}

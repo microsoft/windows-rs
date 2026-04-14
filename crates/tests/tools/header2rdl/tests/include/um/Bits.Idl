@@ -1,0 +1,456 @@
+//=======================================================================
+//
+//  Copyright (c) 2000 Microsoft Corporation.  All Rights Reserved.
+//
+//  File:   bits.idl
+//
+//  Description:
+//
+//     Interface to the background file copier.
+//
+//=======================================================================
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+#endif
+
+cpp_quote("#include \"bitsmsg.h\"")
+cpp_quote("#define BG_SIZE_UNKNOWN     (UINT64)(-1)")
+
+#define BG_ENUM_SIZEIS(maxcount) maxcount
+#define BG_ENUM_LENGTHIS(maxcount,lengthptr)  \
+    lengthptr ? *lengthptr : maxcount
+
+//
+// =============================
+// Marshalled interfaces
+// =============================
+
+[
+    uuid(01b7bd23-fb88-4a77-8490-5891d3e4653a),
+    odl
+]
+interface IBackgroundCopyFile : IUnknown
+{
+    typedef struct _BG_FILE_PROGRESS
+    {
+        UINT64 BytesTotal;
+        UINT64 BytesTransferred;
+        BOOL   Completed;
+    }
+    BG_FILE_PROGRESS;
+
+    //--------------------------------------------------------------------
+
+    HRESULT GetRemoteName( [out] LPWSTR *pVal );
+    HRESULT GetLocalName( [out] LPWSTR *pVal );
+
+    HRESULT GetProgress( [out] BG_FILE_PROGRESS *pVal );
+}
+
+//--------------------------------------------------------------------
+//
+[
+    uuid(ca51e165-c365-424c-8d41-24aaa4ff3c40),
+    helpstring("IEnumBackgroundCopyFiles Interface"),
+    odl
+]
+interface IEnumBackgroundCopyFiles : IUnknown
+{
+    HRESULT Next( [in] ULONG celt,
+                  [out, size_is(BG_ENUM_SIZEIS(celt)), length_is(BG_ENUM_LENGTHIS(celt,pceltFetched))] IBackgroundCopyFile **rgelt,
+                  [in,out,unique] ULONG *pceltFetched );
+
+    HRESULT Skip( [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone( [out] IEnumBackgroundCopyFiles **ppenum );
+
+    HRESULT GetCount( [out] ULONG *puCount );
+}
+
+//--------------------------------------------------------------------
+//
+
+[
+    uuid(19c613a0-fcb8-4f28-81ae-897c3d078f81),
+    helpstring("error object for IBackgroundCopyJob"),
+    odl
+]
+interface IBackgroundCopyError : IUnknown
+{
+    typedef enum BG_ERROR_CONTEXT
+    {
+       BG_ERROR_CONTEXT_NONE                        = 0,
+       BG_ERROR_CONTEXT_UNKNOWN                     = 1,
+       BG_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER       = 2,
+       BG_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION  = 3,
+       BG_ERROR_CONTEXT_LOCAL_FILE                  = 4,
+       BG_ERROR_CONTEXT_REMOTE_FILE                 = 5,
+       BG_ERROR_CONTEXT_GENERAL_TRANSPORT           = 6,
+       BG_ERROR_CONTEXT_REMOTE_APPLICATION          = 7,
+       BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK = 8,
+    } BG_ERROR_CONTEXT;
+
+    HRESULT GetError( [out,ref] BG_ERROR_CONTEXT *pContext,
+                      [out,ref] HRESULT *pCode );
+
+    // Returns BG_E_FILE_NOT_AVAILABLE if no file is available
+    HRESULT GetFile( [out] IBackgroundCopyFile ** pVal );
+
+    // Return a human readable description of the error.
+    // Use CoTaskMemFree to free the description.
+    HRESULT GetErrorDescription( [in] DWORD LanguageId,
+                                 [out,ref] LPWSTR *pErrorDescription );
+
+    // Return a human readable description of the error context.
+    // Use CoTaskMemFree to free the description.
+    HRESULT GetErrorContextDescription(
+        [in] DWORD LanguageId,
+        [out,ref] LPWSTR *pContextDescription );
+
+    // Returns BG_E_PROTOCOL_NOT_AVAILABLE if no protocol is available
+    HRESULT GetProtocol( [out,ref] LPWSTR *pProtocol );
+}
+
+// ==============================================
+// Job Interface
+[
+    uuid(37668d37-507e-4160-9316-26306d150b12),
+    helpstring("IBackgroundCopyJob Interface"),
+    odl
+]
+interface IBackgroundCopyJob : IUnknown
+{
+    typedef struct _BG_FILE_INFO
+    {
+        LPWSTR    RemoteName;
+        LPWSTR    LocalName;
+    }
+    BG_FILE_INFO;
+
+    typedef struct _BG_JOB_PROGRESS
+    {
+        UINT64  BytesTotal;
+        UINT64  BytesTransferred;
+
+        ULONG   FilesTotal;
+        ULONG   FilesTransferred;
+    }
+    BG_JOB_PROGRESS;
+
+    typedef struct _BG_JOB_TIMES
+    {
+        FILETIME CreationTime;
+        FILETIME ModificationTime;
+        FILETIME TransferCompletionTime;
+    }
+    BG_JOB_TIMES;
+
+    typedef enum BG_JOB_PRIORITY
+    {
+        BG_JOB_PRIORITY_FOREGROUND,
+        BG_JOB_PRIORITY_HIGH,
+        BG_JOB_PRIORITY_NORMAL,
+        BG_JOB_PRIORITY_LOW,
+
+    } BG_JOB_PRIORITY;
+
+    typedef enum BG_JOB_STATE
+    {
+        BG_JOB_STATE_QUEUED,
+        BG_JOB_STATE_CONNECTING,
+        BG_JOB_STATE_TRANSFERRING,
+        BG_JOB_STATE_SUSPENDED,
+        BG_JOB_STATE_ERROR,
+        BG_JOB_STATE_TRANSIENT_ERROR,
+        BG_JOB_STATE_TRANSFERRED,
+        BG_JOB_STATE_ACKNOWLEDGED,
+        BG_JOB_STATE_CANCELLED
+
+    } BG_JOB_STATE;
+
+    typedef enum BG_JOB_TYPE
+    {
+        BG_JOB_TYPE_DOWNLOAD,
+        BG_JOB_TYPE_UPLOAD,
+        BG_JOB_TYPE_UPLOAD_REPLY
+
+    } BG_JOB_TYPE;
+
+    typedef enum BG_JOB_PROXY_USAGE
+    {
+       BG_JOB_PROXY_USAGE_PRECONFIG,
+       BG_JOB_PROXY_USAGE_NO_PROXY,
+       BG_JOB_PROXY_USAGE_OVERRIDE,
+       BG_JOB_PROXY_USAGE_AUTODETECT
+    } BG_JOB_PROXY_USAGE;
+
+    //--------------------------------------------------------------------
+
+    //
+    // Returns E_INVALIDARG if one of the filesets has
+    //      - local name is blank
+    //      - local name contains invalid characters
+    //      - remote name is blank
+    //      - remote name has invalid format
+    //
+    // Returns CO_E_NOT_SUPPORTED if
+    //      - remote URL contains unsupported protocol
+    //
+    HRESULT
+    AddFileSet(
+        [in] ULONG cFileCount,
+        [in, size_is(cFileCount)] BG_FILE_INFO *pFileSet
+        );
+
+    HRESULT
+    AddFile(
+        [in]  LPCWSTR RemoteUrl,
+        [in]  LPCWSTR LocalName
+        );
+
+    //
+    // Gets an enumerator object for all files in the job.
+    //
+    HRESULT
+    EnumFiles(
+        [out] IEnumBackgroundCopyFiles ** pEnum
+        );
+
+    //
+    // Pause all activity on the job.  The service will take no action until one of
+    // Resume(), Cancel(), Complete() is called.
+    //
+    // if already suspended, just returns S_OK.
+    //
+    HRESULT Suspend();
+
+    //
+    // Enable downloading for this job.  Job properties cannot be modified
+    // after Resume() until the app calls Suspend().
+    //
+    // if already running, just returns S_OK.
+    //
+    HRESULT Resume();
+
+    //
+    // Permanently stop the job.  The service will delete the job metadata and downloaded files.
+    //
+    // If already cancelled or resumed, returns ???
+    //
+    HRESULT Cancel();
+
+    //
+    // Acknowledges receipt of the job-complete notification.  The service will delete
+    // the job metadata and leave the downloaded files.
+    //
+    HRESULT Complete();
+
+    //--------------------------------------------------------------------
+
+    HRESULT GetId( [out] GUID *pVal );
+
+    HRESULT GetType( [out] BG_JOB_TYPE * pVal );
+
+    HRESULT GetProgress( [out] BG_JOB_PROGRESS *pVal );
+
+    HRESULT GetTimes( [out] BG_JOB_TIMES * pVal );
+
+    HRESULT GetState( [out] BG_JOB_STATE *pVal );
+
+    HRESULT GetError( [out] IBackgroundCopyError ** ppError );
+
+    //
+    // The owner of the job, represented as a string.
+    // Only the owner and admins are allowed to see or change the job.
+    //
+    HRESULT GetOwner( [out] LPWSTR *pVal );
+
+    //
+    // name of the job, suitable for display in UI
+    //
+    HRESULT SetDisplayName( [in]  LPCWSTR Val );
+    HRESULT GetDisplayName( [out] LPWSTR *pVal );
+
+    //
+    // a field for use by the app
+    //
+    HRESULT SetDescription( [in]  LPCWSTR Val );
+    HRESULT GetDescription( [out] LPWSTR *pVal );
+
+    //
+    // the priority of the job in the queue.
+    // default = PRIORITY_NORMAL
+    // values not in BG_JOB_PRIORITY return E_NOTIMPL.
+    //
+    HRESULT SetPriority( [in]  BG_JOB_PRIORITY Val );
+    HRESULT GetPriority( [out] BG_JOB_PRIORITY *pVal );
+
+    //
+    // ignores extra flags?
+    //
+    HRESULT SetNotifyFlags( [in]  ULONG Val );
+    HRESULT GetNotifyFlags( [out] ULONG *pVal );
+
+    // interface pointer that implements the IBackgroundCallback interface for notifications.
+    // If the pointer becomes invalid, the service will try to create a new notification object
+    // with the notify CLSID.
+    HRESULT SetNotifyInterface( [in]  IUnknown *   Val );
+    HRESULT GetNotifyInterface( [out] IUnknown ** pVal );
+
+    HRESULT SetMinimumRetryDelay( [in]  ULONG Seconds );
+    HRESULT GetMinimumRetryDelay( [out] ULONG * Seconds );
+
+    HRESULT SetNoProgressTimeout( [in]  ULONG Seconds );
+    HRESULT GetNoProgressTimeout( [out] ULONG * Seconds );
+
+    HRESULT GetErrorCount( [out] ULONG * Errors );
+
+    HRESULT SetProxySettings(
+       [in] BG_JOB_PROXY_USAGE ProxyUsage,
+       [in,string,unique] const WCHAR * ProxyList,
+       [in,string,unique] const WCHAR * ProxyBypassList );
+
+    HRESULT GetProxySettings(
+       [out] BG_JOB_PROXY_USAGE *pProxyUsage,
+       [out] LPWSTR *pProxyList,
+       [out] LPWSTR *pProxyBypassList );
+
+    HRESULT TakeOwnership();
+
+}
+
+
+// ==============================================
+// IEnumJobs Interface
+//     This interface allows enumerating the jobs under a Job
+[
+    uuid(1af4f612-3b71-466f-8f58-7b6f73ac57ad),
+    helpstring("IEnumBackgroundCopyJobs2 Interface"),
+    odl
+]
+interface IEnumBackgroundCopyJobs : IUnknown
+{
+    HRESULT Next( [in] ULONG celt,
+                  [out, size_is(BG_ENUM_SIZEIS(celt)), length_is(BG_ENUM_LENGTHIS(celt,pceltFetched))] IBackgroundCopyJob **rgelt,
+                  [in,out,unique] ULONG *pceltFetched );
+
+    HRESULT Skip( [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone( [out] IEnumBackgroundCopyJobs **ppenum );
+
+    HRESULT GetCount( [out] ULONG *puCount );
+}
+
+cpp_quote("#define   BG_NOTIFY_JOB_TRANSFERRED         0x0001")
+cpp_quote("#define   BG_NOTIFY_JOB_ERROR               0x0002")
+cpp_quote("#define   BG_NOTIFY_DISABLE                 0x0004")
+cpp_quote("#define   BG_NOTIFY_JOB_MODIFICATION        0x0008")
+cpp_quote("#define   BG_NOTIFY_FILE_TRANSFERRED        0x0010")  
+cpp_quote("#define   BG_NOTIFY_FILE_RANGES_TRANSFERRED 0x0020")  
+
+// ==============================================
+// IBackgroundCallback Interface
+//     This interface is implemented by the client and is used by the queue manager
+//     to supply progress information to the client.
+[
+    uuid(97ea99c7-0186-4ad4-8df9-c5b4e0ed6b22),
+#if !defined( BITS_DONT_USE_ASYNC_DCOM )
+    async_uuid(ca29d251-b4bb-4679-a3d9-ae8006119d54),
+#endif
+    helpstring("IBackgroundCopyCallback Interface"),
+    odl
+]
+interface IBackgroundCopyCallback : IUnknown
+{
+    //
+    // A job has transferred successfully.
+    //
+    HRESULT JobTransferred( [in] IBackgroundCopyJob *pJob );
+
+    //
+    // An error occurred, and the service has suspended the job.
+    // Fix the error and resume the job.
+    // Get error details by calling (*pFailingJob)->GetStatus().
+    //
+    HRESULT JobError( [in] IBackgroundCopyJob *pJob,
+                      [in] IBackgroundCopyError * pError );
+
+    //
+    // The job has been modified.   Intendended for user interfaces.
+    //
+    HRESULT JobModification( [in] IBackgroundCopyJob *pJob,
+                             [in] DWORD dwReserved );
+
+}
+
+//
+// IBackgroundCopyManager is the "root" interface to the background file copy component.
+//
+[
+    uuid(5ce34c0d-0dc9-4c1f-897c-daa1b78cee7c),
+    helpstring("Background Copy interface"),
+    odl
+]
+interface IBackgroundCopyManager : IUnknown
+{
+
+    HRESULT CreateJob(
+        [in]  LPCWSTR       DisplayName,
+        [in]  BG_JOB_TYPE   Type,
+        [out] GUID *        pJobId,
+        [out] IBackgroundCopyJob **ppJob );
+
+    HRESULT GetJob( [in] REFGUID jobID,
+                    [out] IBackgroundCopyJob **ppJob );
+
+    //
+    // Without this flag, jobs not owned by the caller are excluded from the enumeration.
+    // With this flag, those jobs are included.  Only works if the caller is an administrator.
+    //
+    cpp_quote("#define    BG_JOB_ENUM_ALL_USERS  0x0001")
+
+    HRESULT EnumJobs( [in] DWORD dwFlags,
+                      [out] IEnumBackgroundCopyJobs **ppEnum );
+
+    HRESULT GetErrorDescription(
+        [in] HRESULT hResult,
+        [in] DWORD LanguageId,
+        [out] LPWSTR *pErrorDescription );
+}
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(1deeb74f-7915-4560-b558-918c83f176a6),
+    helpstring("Microsoft Background Copy Queue Manager 1.0"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager
+{
+    [
+        uuid(4991d34b-80a1-4291-83b6-3328366b9097),
+        helpstring("Background copy control class")
+    ]
+    coclass BackgroundCopyManager
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback;
+}
+
+cpp_quote("#include \"bits1_5.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

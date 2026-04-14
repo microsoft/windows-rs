@@ -1,0 +1,96 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("/* Copyright (c) Microsoft Corporation. All rights reserved. */")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef __TAPI3DS_IDL__
+#define __TAPI3DS_IDL__
+
+import "oaidl.idl";
+import "strmif.idl";
+
+// this is exposed by the Media Streaming Terminal (MST) samples
+[
+    uuid( 0364EB00-4A77-11D1-A671-006097C9A2E8 ),
+    helpstring("TAPI 3.0 ITAMMediaFormat interface"),
+]
+interface ITAMMediaFormat : IUnknown
+{
+    [propget, id(1), helpstring("property Media Format")]
+    HRESULT MediaFormat(
+            [out, retval] AM_MEDIA_TYPE **ppmt
+            );
+
+    [propput, id(1), helpstring("property Media Format")]
+    HRESULT MediaFormat(
+            [in] const AM_MEDIA_TYPE *pmt
+            );
+};  
+
+
+// exposes the allocator properties of the Media Streaming Terminal (MST)
+// to a user. A user only needs to use this interface when he needs to
+// use his own buffers or needs to operate with a fixed set of samples
+[
+    uuid( C1BC3C90-BCFE-11D1-9745-00C04FD91AC0 ),
+    helpstring("TAPI 3.0 ITAllocatorProperties interface"),
+]
+interface ITAllocatorProperties : IUnknown
+{
+    // this method may only be called before connection and will
+    // force the MST to use these values during filter negotiation
+    // if the connecting filter doesn't accept these, the connection
+    // shall not be established
+    [id(1), helpstring("method SetAllocatorProperties")]
+    HRESULT SetAllocatorProperties(
+        [in] ALLOCATOR_PROPERTIES *pAllocProperties
+        );
+
+    // gets current values for the allocator properties
+    // after connection, this provides the negotiated values
+    // it is invalid before connection. The MST will accept
+    // any values suggested by the filters it connects to
+    [id(2), helpstring("method GetAllocatorProperties")]
+    HRESULT GetAllocatorProperties(
+        [out] ALLOCATOR_PROPERTIES *pAllocProperties
+        );
+
+    // TRUE by default. when set to FALSE, the sample allocated
+    // by the MST don't have any buffers and they must be supplied
+    // before Update is called on the samples
+    [id(3), helpstring("method SetAllocateBuffers")]
+    HRESULT SetAllocateBuffers(
+        [in] BOOL bAllocBuffers
+        );
+
+    // returns the current value of this boolean configuration parameter
+    [id(4), helpstring("method GetAllocateBuffers")]
+    HRESULT GetAllocateBuffers(
+        [out] BOOL *pbAllocBuffers
+        );
+
+    // this size is used for allocating buffers when AllocateSample is
+	// called. this is only valid when we have been told to allocate buffers
+    [id(5), helpstring("method SetBufferSize")]
+    HRESULT SetBufferSize(
+        [in] DWORD	BufferSize
+        );
+
+    // returns the value used to allocate buffers when AllocateSample is
+	// called. this is only valid when we have been told to allocate buffers
+    [id(6), helpstring("method GetBufferSize")]
+    HRESULT GetBufferSize(
+        [out] DWORD	*pBufferSize
+        );		
+};
+
+#endif
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

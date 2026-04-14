@@ -1,0 +1,198 @@
+// Copyright (c) Microsoft Corporation. All Rights Reserved.
+cpp_quote("// Copyright (c) Microsoft Corporation. All Rights Reserved.")
+
+cpp_quote("#ifndef MIN_SPELLING_NTDDI")
+cpp_quote("#define MIN_SPELLING_NTDDI NTDDI_WIN8")
+cpp_quote("#endif")
+
+cpp_quote("#if NTDDI_VERSION >= MIN_SPELLING_NTDDI")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// Types of user custom wordlists
+// Custom wordlists are language-specific
+typedef [v1_enum] enum WORDLIST_TYPE
+{
+    WORDLIST_TYPE_IGNORE         = 0, // Ignore wordlist - words that should be considered correctly spelled in a single spell checking session
+    WORDLIST_TYPE_ADD            = 1, // Added words wordlist - words that should be considered correctly spelled - permanent and applies to all clients
+    WORDLIST_TYPE_EXCLUDE        = 2, // Excluded words wordlist - words that should be considered misspelled - permanent and applies to all clients
+    WORDLIST_TYPE_AUTOCORRECT    = 3, // Autocorrect wordlit - pairs of words with a word that should be automatically substituted by the other word in the pair - permanent and applies to all clients
+} WORDLIST_TYPE;
+
+// This interface represents a spelling error - you can get information like the range that comprises the error, or the suggestions for that misspelled word
+// Should be implemented by any spell check provider (someone who provides a spell checking engine), and used by clients of spell checking
+// It is obtained through IEnumSpellingError::Next
+[
+    object,
+    uuid(B7C82D61-FBE8-4B47-9B27-6C0D2E0DE0A3),
+    pointer_default(unique)
+]
+interface ISpellingError : IUnknown
+{
+    // Action that a client should take on a specific spelling error (obtained from ISpellingError::get_CorrectiveAction)
+    typedef [v1_enum] enum CORRECTIVE_ACTION
+    {
+        CORRECTIVE_ACTION_NONE                    = 0, // None - there's no error
+        CORRECTIVE_ACTION_GET_SUGGESTIONS         = 1, // GetSuggestions - the client should show a list of suggestions (obtained through ISpellChecker::Suggest) to the user
+        CORRECTIVE_ACTION_REPLACE                 = 2, // Replace - the client should autocorrect the word to the word obtained from ISpellingError::get_Replacement
+        CORRECTIVE_ACTION_DELETE                  = 3, // Delete - the client should delete this word
+    } CORRECTIVE_ACTION;
+
+    [propget] HRESULT StartIndex([out, retval] ULONG* value);
+    [propget] HRESULT Length([out, retval] ULONG* value);
+    [propget] HRESULT CorrectiveAction([out, retval] CORRECTIVE_ACTION* value);
+    [propget] HRESULT Replacement([out, retval] LPWSTR* value);
+}
+
+// This interface is an enumeration of spelling errors
+// Should be implemented by any spell check provider (someone who provides a spell checking engine), and used by clients of spell checking
+// It is obtained through ISpellChecker::Check
+[
+    object,
+    uuid(803E3BD4-2828-4410-8290-418D1D73C762),
+    pointer_default(unique)
+]
+interface IEnumSpellingError : IUnknown
+{
+    HRESULT Next([out, retval] ISpellingError** value);
+}
+
+// This interface holds the associated data of a spelling option
+// Should be implemented by any spell check provider (someone who provides a spell checking engine), and used by clients of spell checking
+// It is obtained through ISpellChecker::GetOptionDescription
+[
+    object,
+    uuid(432E5F85-35CF-4606-A801-6F70277E1D7A),
+    pointer_default(unique)
+]
+interface IOptionDescription : IUnknown
+{
+    [propget] HRESULT Id([out, retval] LPWSTR* value);
+    [propget] HRESULT Heading([out, retval] LPWSTR* value);
+    [propget] HRESULT Description([out, retval] LPWSTR* value);
+    [propget] HRESULT Labels([out, retval] IEnumString** value);
+}
+
+interface ISpellChecker;
+
+// This interface should be implemented by clients of spell checking that wish to be notified of any changes that might change spell checking results
+[
+    object,
+    uuid(0B83A5B0-792F-4EAB-9799-ACF52C5ED08A),
+    pointer_default(unique)
+]
+interface ISpellCheckerChangedEventHandler : IUnknown
+{
+    HRESULT Invoke([in] ISpellChecker* sender);
+}
+
+// This interface represents a spell checker for a specific language
+// Should be used by clients of spell checking
+// It is obtained through ISpellCheckerFactory::CreateSpellChecker
+
+// A suggested scenario for ComprehensiveCheck is for a real-time text input of small text by the user (such as when the user is typing a word) 
+// On the other hand, Check is better suited for large-text input scenarios
+
+[
+    object,
+    uuid(B6FD0B71-E2BC-4653-8D05-F197E412770B),
+    pointer_default(unique)
+]
+interface ISpellChecker : IUnknown
+{
+    [propget] HRESULT LanguageTag([out, retval] LPWSTR* value);
+    HRESULT Check([in] LPCWSTR text, [out, retval] IEnumSpellingError** value);
+    HRESULT Suggest([in] LPCWSTR word, [out, retval] IEnumString** value);
+    HRESULT Add([in] LPCWSTR word);
+    HRESULT Ignore([in] LPCWSTR word);
+    HRESULT AutoCorrect([in] LPCWSTR from, [in] LPCWSTR to);
+    HRESULT GetOptionValue([in] LPCWSTR optionId, [out, retval] BYTE* value);
+    [propget] HRESULT OptionIds([out, retval] IEnumString** value);
+    [propget] HRESULT Id([out, retval] LPWSTR* value);
+    [propget] HRESULT LocalizedName([out, retval] LPWSTR* value);
+    HRESULT add_SpellCheckerChanged([in] ISpellCheckerChangedEventHandler* handler, [out, retval] DWORD* eventCookie);
+    HRESULT remove_SpellCheckerChanged([in] DWORD eventCookie);
+    HRESULT GetOptionDescription([in] LPCWSTR optionId, [out, retval] IOptionDescription** value);
+    HRESULT ComprehensiveCheck([in] LPCWSTR text, [out, retval] IEnumSpellingError** value);
+};
+
+[ 
+    object, 
+    uuid(E7ED1C71-87F7-4378-A840-C9200DACEE47), 
+    pointer_default(unique) 
+] 
+interface ISpellChecker2 : ISpellChecker 
+{ 
+    HRESULT Remove([in] LPCWSTR word); 
+};
+
+
+// This interface is used to create a spell checker for a given language and to obtain information about which language do have a spell checker available in the system
+// Should be used by clients of spell checking
+// It is obtained through CoCreateInstance
+[
+    object,
+    uuid(8E018A9D-2415-4677-BF08-794EA61F94BB),
+    pointer_default(unique)
+]
+interface ISpellCheckerFactory : IUnknown
+{
+    [propget] HRESULT SupportedLanguages([out, retval] IEnumString** value);
+    HRESULT IsSupported([in] LPCWSTR languageTag, [out, retval] BOOL* value);
+    HRESULT CreateSpellChecker([in] LPCWSTR languageTag, [out, retval] ISpellChecker** value);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// This interface is used to register new spelling dictionaries to be read by the spell checking facility
+// Should be used by clients of spell checking
+// It is obtained through a QueryInterface in ISpellCheckerFactory
+[
+    object,
+    uuid(AA176B85-0E12-4844-8E1A-EEF1DA77F586),
+    pointer_default(unique)
+]
+interface IUserDictionariesRegistrar : IUnknown
+{
+    HRESULT RegisterUserDictionary([in] LPCWSTR dictionaryPath, [in] LPCWSTR languageTag);
+    HRESULT UnregisterUserDictionary([in] LPCWSTR dictionaryPath, [in] LPCWSTR languageTag);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    uuid(4A250E01-61EA-400B-A27D-BF3744BCC9F5),
+    version(1.0),
+]
+library MsSpellCheckLib 
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(7AB36653-1796-484B-BDFA-E74F1DB7C1DC)
+    ]
+    coclass SpellCheckerFactory
+    {
+        [default] interface ISpellCheckerFactory;
+        interface IUserDictionariesRegistrar;
+    };
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= MIN_SPELLING_NTDDI)")

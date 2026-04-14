@@ -1,0 +1,83 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:		msdaosp.idl
+//
+// Contents:	Interfaces, UUIDs and Properties For the OLE DB Simple 
+//              Provider Toolkit.
+// 
+// Comments: 	The OLE DB Simple Provider Toolkit reuses two interface 
+//              files, msdatsrc.idl and simpdata.idl.  Now all of the 
+//              definitions needed to build a simple provider are 
+//              included in these files. This IDL completes the 
+//              definitions required to build a simple propvider
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//=--------------------------------------------------------------------------=
+// Use the Data Source and OSP Headers
+//=--------------------------------------------------------------------------=
+cpp_quote("#include \"msdatsrc.h\"")
+cpp_quote("#include \"simpdata.h\"")
+
+//=--------------------------------------------------------------------------=
+// Generate GUIDs for the OSP to Rowset Mapper
+//=--------------------------------------------------------------------------=
+
+cpp_quote("#ifdef DBINITCONSTANTS")
+cpp_quote("extern const GUID CLSID_MSDAOSP		= {0xdfc8bdc0,0xe378,0x11d0,{0x9b,0x30,0x0,0x80,0xc7,0xe9,0xfe,0x95}};")
+cpp_quote("extern const GUID DBPROPSET_PWROWSET = {0xe6e478db,0xf226,0x11d0,{0x94,0xee,0x0,0xc0,0x4f,0xb6,0x6a,0x50}};")
+cpp_quote("#else  // !DBINITCONSTANTS")
+cpp_quote("extern const GUID CLSID_MSDAOSP;")
+cpp_quote("extern const GUID DBPROPSET_PWROWSET;")
+cpp_quote("#endif // DBINITCONSTANTS")
+
+cpp_quote("#define PWPROP_OSPVALUE			2")
+
+import "oaidl.idl";
+
+[
+  uuid(0ae9a4e0-18d4-11d1-b3b3-00aa00c1a924),
+  version(1.0),
+  helpstring("Microsoft OLE DB Simple Provider Toolkit Definitions")
+]
+				   
+library MSDAOSPT
+{
+	//=--------------------------------------------------------------------------=
+	// Standard imports
+	//=--------------------------------------------------------------------------=
+	//  importlib("STDOLE2.TLB");
+	//importlib("stdole32.tlb");
+	//import "msdatsrc.idl";
+
+	//=--------------------------------------------------------------------------=
+	// Define methods for IDispatch interface DataSource Object, since these
+	// aren't defined in msdatsrc.idl or simpdata.idl.
+	//=--------------------------------------------------------------------------=
+
+  [
+    uuid(0ae9a4e4-18d4-11d1-b3b3-00aa00c1a924)
+  ]
+  dispinterface DataSourceObject
+  {
+	properties:
+	methods:
+	[id(-3900)] HRESULT msDataSourceObject([in]BSTR bstrDM, [out,retval]IUnknown** ppUnk);
+	//[id(-3901)] HRESULT addDataSourceListener([in]DataSourceListener* pEvent);
+  };
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,57 @@
+//+---------------------------------------------------------------------------
+//    Microsoft (R) Windows Search Engine
+//
+//    Copyright (C) Microsoft Corporation, 2005.
+//    All Rights Reserved
+//
+//    File:
+//        srchntfyinlinesite.idl
+//
+//    Contents:
+//        IDL for Pusher Interface
+//
+//    History:
+//        10/05     mabarbis    Created
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(B5702E61-E75C-4B64-82A1-6CB4F832FCCF),
+    pointer_default(unique),
+    helpstring("Search Inline Notification Site Client Interface")
+]
+interface ISearchNotifyInlineSite : IUnknown
+{
+    typedef enum _SEARCH_INDEXING_PHASE
+    {
+        SEARCH_INDEXING_PHASE_GATHERER  = 0,
+        SEARCH_INDEXING_PHASE_QUERYABLE = 1,
+        SEARCH_INDEXING_PHASE_PERSISTED = 2
+    } SEARCH_INDEXING_PHASE;
+
+    typedef struct _SEARCH_ITEM_INDEXING_STATUS
+    {
+        DWORD   dwDocID;
+        HRESULT hrIndexingStatus;
+    } SEARCH_ITEM_INDEXING_STATUS;
+
+    HRESULT OnItemIndexedStatusChange(
+        [in]    SEARCH_INDEXING_PHASE   sipStatus,
+        [in]    DWORD                   dwNumEntries,
+        [in, size_is(dwNumEntries)] SEARCH_ITEM_INDEXING_STATUS rgItemStatusEntries[] );
+
+    HRESULT OnCatalogStatusChange(
+        [in]    REFGUID guidCatalogResetSignature,
+        [in]    REFGUID guidCheckPointSignature,
+        [in]    DWORD   dwLastCheckPointNumber );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

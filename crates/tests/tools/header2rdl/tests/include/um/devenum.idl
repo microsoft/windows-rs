@@ -1,0 +1,55 @@
+//------------------------------------------------------------------------------
+// File: DevEnum.idl
+//
+// Desc: IDL source for devenum.dll.  This file will be processed by the 
+//       MIDL tool to produce the type library (devenum.tlb) and marshalling
+//       code.
+//
+// Copyright (c) 1998 - 2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#define CDEF_CLASS_DEFAULT      0x0001")
+cpp_quote("#define CDEF_BYPASS_CLASS_MANAGER   0x0002")
+//cpp_quote("#define CDEF_CLASS_LEGACY  0x0004")
+cpp_quote("#define CDEF_MERIT_ABOVE_DO_NOT_USE  0x0008")
+
+// if any of these flags are set, then only the types specified by the
+// flags are enumerated
+cpp_quote("#define CDEF_DEVMON_CMGR_DEVICE  0x0010")
+cpp_quote("#define CDEF_DEVMON_DMO  0x0020")
+cpp_quote("#define CDEF_DEVMON_PNP_DEVICE  0x0040")
+cpp_quote("#define CDEF_DEVMON_FILTER  0x0080")
+cpp_quote("#define CDEF_DEVMON_SELECTIVE_MASK  0x00f0")
+
+
+// Define for 'local' so that proxy-stubs can be generated for testing
+#ifndef AM_LOCAL
+#define AM_LOCAL local,
+#define AM_ANNOTATION(_x_) ,annotation(_x_)
+#endif
+
+[
+        AM_LOCAL
+        object,
+        uuid(29840822-5B84-11D0-BD3B-00A0C911CE86),
+        pointer_default(unique)
+]
+interface ICreateDevEnum : IUnknown
+{
+        import "oaidl.idl";
+
+        HRESULT CreateClassEnumerator(
+                        [in] REFCLSID clsidDeviceClass,
+                        [out AM_ANNOTATION("_Out_")] IEnumMoniker ** ppEnumMoniker,
+                        [in] DWORD dwFlags);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

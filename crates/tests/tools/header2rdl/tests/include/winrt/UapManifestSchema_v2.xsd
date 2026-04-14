@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+           xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+           xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:uap7="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:rescap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap_2" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SupportedVerbs" substitutionGroup="uap:FileTypeAssociationSupportedVerbsChoice">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="VerbChoice" minOccurs="0" maxOccurs="10000"/>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="UniqueVerbId">
+      <xs:selector xpath="uap2:Verb | uap3:Verb"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:element name="VerbChoice" abstract="true"/>
+  <xs:element name="Verb" substitutionGroup="VerbChoice" type="CT_Verb"/>
+  
+  <xs:complexType name="CT_Verb">
+    <xs:simpleContent>
+      <xs:extension base="t:ST_NonEmptyString">
+        <xs:attribute name="Id" use="required" type="t:ST_FileTypeAssociationSupportedVerbId"/>
+        <xs:attribute name="Extended" use="optional" type="xs:boolean"/>
+        <xs:attribute ref="uap7:Default" use="optional"/>
+        <xs:attributeGroup ref="rescap3:DdeExecAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="WebAccountProvider" type="CT_WebAccountProvider"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Uap2" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_WebAccountProvider">
+    <xs:sequence>
+      <xs:element name="ManagedUrls" type="CT_ManagedUrls" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="Url" type="t:ST_WebAccountProviderUrl" use="required"/>
+    <xs:attribute name="BackgroundEntryPoint" type="t:ST_EntryPoint" use="required"/>
+    <xs:attribute name="DisplayName" type="t:ST_NonEmptyString" use="optional"/>
+    <xs:attribute name="DisplayPurpose" type="t:ST_NonEmptyString" use="optional"/>
+    <xs:attribute name="Square44x44Logo" type="t:ST_ImageFile" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ManagedUrls">
+    <xs:sequence>
+      <xs:element name="Url" type="t:ST_WebAccountProviderUrl"  minOccurs="1" maxOccurs="200"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

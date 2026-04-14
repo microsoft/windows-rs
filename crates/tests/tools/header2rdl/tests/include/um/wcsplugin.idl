@@ -1,0 +1,199 @@
+//+--------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      This interface contains definitions for plug-ins used by color profiles.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Copyright (c) Microsoft Corporation.  All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+typedef struct _XYZColorF
+{
+    FLOAT X;
+    FLOAT Y;
+    FLOAT Z;
+} XYZColorF;
+
+typedef struct _JChColorF
+{
+    FLOAT J;
+    FLOAT C;
+    FLOAT h;
+} JChColorF;
+
+typedef struct _JabColorF
+{
+    FLOAT J;
+    FLOAT a;
+    FLOAT b;
+} JabColorF;
+
+typedef struct _GamutShellTriangle
+{
+    UINT aVertexIndex[3];
+} GamutShellTriangle;
+
+typedef struct _GamutShell
+{
+    FLOAT JMin;
+    FLOAT JMax;
+    UINT cVertices;
+    UINT cTriangles;
+    [size_is(cVertices)] JabColorF *pVertices;
+    [size_is(cTriangles)] GamutShellTriangle *pTriangles;
+} GamutShell;
+
+typedef struct _PrimaryJabColors
+{
+    JabColorF red;
+    JabColorF yellow;
+    JabColorF green;
+    JabColorF cyan;
+    JabColorF blue;
+    JabColorF magenta;
+    JabColorF black;
+    JabColorF white;
+} PrimaryJabColors;
+
+typedef struct _PrimaryXYZColors
+{
+    XYZColorF red;
+    XYZColorF yellow;
+    XYZColorF green;
+    XYZColorF cyan;
+    XYZColorF blue;
+    XYZColorF magenta;
+    XYZColorF black;
+    XYZColorF white;
+} PrimaryXYZColors;
+
+typedef struct _GamutBoundaryDescription
+{
+    PrimaryJabColors *pPrimaries;
+    UINT cNeutralSamples;
+    [size_is(cNeutralSamples)] JabColorF *pNeutralSamples;
+    GamutShell *pReferenceShell;
+    GamutShell *pPlausibleShell;
+    GamutShell *pPossibleShell;
+} GamutBoundaryDescription;
+
+typedef struct _BlackInformation
+{
+    BOOL fBlackOnly;
+    FLOAT blackWeight;
+} BlackInformation;
+
+[
+    object,
+    uuid(1CD63475-07C4-46FE-A903-D655316D11FD),
+    helpstring("WCS device model plug-in interface."),
+    pointer_default(unique)
+]
+interface IDeviceModelPlugIn : IUnknown
+{
+    HRESULT Initialize(
+        [in] BSTR bstrXml,
+        [in] UINT cNumModels,
+        [in] UINT iModelPosition
+        );
+
+    HRESULT GetNumChannels(
+         [out] UINT *pNumChannels
+        );
+
+    HRESULT DeviceToColorimetricColors(
+        [in] UINT cColors,
+        [in] UINT cChannels,
+        [in, size_is(cColors*cChannels)] const FLOAT *pDeviceValues,
+        [out, size_is(cColors)] XYZColorF *pXYZColors
+        );
+
+    HRESULT ColorimetricToDeviceColors(
+        [in] UINT cColors,
+        [in] UINT cChannels,
+        [in, size_is(cColors)] const XYZColorF *pXYZColors,   
+        [out, size_is(cColors*cChannels)] FLOAT *pDeviceValues 
+        );
+
+    HRESULT ColorimetricToDeviceColorsWithBlack(
+        [in] UINT cColors,
+        [in] UINT cChannels,
+        [in, size_is(cColors)] const XYZColorF *pXYZColors,   
+        [in, size_is(cColors)] const BlackInformation *pBlackInformation,   
+        [out, size_is(cColors*cChannels)] FLOAT *pDeviceValues 
+        );
+
+    HRESULT SetTransformDeviceModelInfo(
+        [in] UINT iModelPosition,
+        [in] IDeviceModelPlugIn *pIDeviceModelOther
+        );
+
+    HRESULT GetPrimarySamples(
+        [out] PrimaryXYZColors *pPrimaryColor
+        );
+
+    HRESULT GetGamutBoundaryMeshSize(
+        [out] UINT *pNumVertices,
+        [out] UINT *pNumTriangles
+        );
+        
+    HRESULT GetGamutBoundaryMesh(
+        [in] UINT cChannels,
+        [in] UINT cVertices,
+        [in] UINT cTriangles,
+        [out, size_is(cVertices*cChannels)] FLOAT *pVertices,
+        [out, size_is(cTriangles)] GamutShellTriangle *pTriangles
+        );
+
+    HRESULT GetNeutralAxisSize(
+        [out] UINT *pcColors
+        );
+
+    HRESULT GetNeutralAxis(
+        [in] UINT cColors,
+        [out, size_is(cColors)] XYZColorF *pXYZColors
+        );
+};
+
+[
+    object,
+    uuid(2DD80115-AD1E-41F6-A219-A4F4B583D1F9),
+    helpstring("WCS gamut map plug-in interface."),
+    pointer_default(unique)
+]
+interface IGamutMapModelPlugIn : IUnknown
+{
+    HRESULT Initialize(
+        [in] BSTR bstrXml,
+        [in] IDeviceModelPlugIn *pSrcPlugIn,
+        [in] IDeviceModelPlugIn *pDestPlugIn,
+        [in] GamutBoundaryDescription *pSrcGBD,
+        [in] GamutBoundaryDescription *pDestGBD
+        );
+
+    HRESULT SourceToDestinationAppearanceColors(
+        [in] UINT cColors,
+        [in, size_is(cColors)] const JChColorF *pInputColors,
+        [out, size_is(cColors)] JChColorF *pOutputColors
+        );
+};
+
+// {A0B402E0-8240-405f-8A16-8A5B4DF2F0DD}
+cpp_quote("DEFINE_GUID(CATID_WcsPlugin, 0xa0b402e0, 0x8240, 0x405f, 0x8a, 0x16, 0x8a, 0x5b, 0x4d, 0xf2, 0xf0, 0xdd);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:wincap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3"
+           xmlns:rescap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3"
+           xmlns:previewappcompat="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:attributeGroup name="TrustLevelGroup">
+    <xs:attribute name="TrustLevel" type="ST_TrustLevel" use="optional" form="qualified"/>
+    <xs:attribute name="RuntimeBehavior" type="ST_RuntimeBehavior" use="optional" form="qualified"/>
+    <xs:attribute name="HostId" type="ST_HostRuntimeId" use="optional" form="qualified"/>
+    <xs:attribute name="Parameters" type="t:ST_NonEmptyString" use="optional" form="qualified"/>
+    <xs:attributeGroup ref="previewappcompat:PreviewEntryPointAttributesGroup"/>
+  </xs:attributeGroup>
+
+  <xs:simpleType name="ST_TrustLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="appContainer"/>
+      <xs:enumeration value="mediumIL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_RuntimeBehavior">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windowsApp"/>
+      <xs:enumeration value="packagedClassicApp"/>
+      <xs:enumeration value="win32App"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="AllowExternalContent" type="xs:boolean" />
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="HostRuntime" type="CT_HostRuntime"/>
+        <xs:element name="InstalledLocationVirtualization" type="CT_InstalledLocationVirtualization"/>
+        <xs:element name="MediaContentDecryptionModule" type="CT_MediaContentDecryptionModule"/>
+        <xs:element name="Protocol" type="CT_Protocol"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Uap10" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_HostRuntime">
+    <xs:attribute name="Id" type="ST_HostRuntimeId" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_HostRuntimeId">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:maxLength value="256"/>
+      <xs:pattern value="([A-Za-z][A-Za-z0-9]*)(\.[A-Za-z][A-Za-z0-9]*)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="HostRuntimeDependency">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_AsciiIdentifier" use="required"/>
+      <xs:attribute name="Publisher" type="t:ST_Publisher_2010_v2" use="required"/>
+      <xs:attribute name="MinVersion" type="t:ST_VersionQuad" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attributeGroup name="FileTypeAttributes_2019">
+    <xs:attribute name="PerceivedType" type="t:ST_EntryPoint" use="optional" form="qualified"/>
+    <xs:attribute name="ShellNewCommandParameters" type="t:ST_Parameters" use="optional" form="qualified"/>
+  </xs:attributeGroup>
+
+  <xs:element name="LanguagePreference" type="ST_LanguagePreference" />
+
+  <xs:simpleType name="ST_LanguagePreference">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windowsDisplayLanguage"/>
+      <xs:enumeration value="userPreferredLanguages"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="Subsystem" type="t:ST_Subsystem"/>
+  <xs:attribute name="SupportsMultipleInstances" type="xs:boolean"/>
+
+  <xs:complexType name="CT_InstalledLocationVirtualization">
+    <xs:sequence>
+      <xs:element name="UpdateActions"  minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:attribute name="ModifiedItems" type="ST_UpdateActions" use="required"/>
+          <xs:attribute name="DeletedItems" type="ST_UpdateActions" use="required"/>
+          <xs:attribute name="AddedItems" type="ST_UpdateActions" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_UpdateActions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="keep"/>
+      <xs:enumeration value="reset"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+
+  <xs:complexType name="CT_MediaContentDecryptionModule">
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Description" type="t:ST_Description" use="required"/>
+    <xs:attribute name="SupportedKeySystem" type="t:ST_ActivatableClassId" use="required"/>
+    <xs:attributeGroup ref="wincap3:InprocMediaCodecAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Protocol">
+    <xs:all>
+        <xs:element name="Logo" type="t:ST_ImageFile" minOccurs="0"/>
+        <xs:element name="DisplayName" type="t:ST_DisplayName" minOccurs="0"/>
+        <xs:element ref="rescap3:MigrationProgIds" minOccurs="0"/>
+        <xs:element ref="previewappcompat:ProgId" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+    <xs:attribute name="Name" type="t:ST_Protocol_2019" use="required"/>
+    <xs:attribute name="DesiredView" type="t:ST_DesiredView" use="optional"/>
+    <xs:attribute name="ReturnResults" type="t:ST_ProtocolReturnResults" use="optional"/>
+    <xs:attribute name="Parameters" type="t:ST_Parameters" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="FileType">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="t:ST_FileType_2019">
+          <xs:attribute name="ContentType" type="t:ST_ContentType" use="optional"/>
+          <xs:attributeGroup ref="uap4:ShellNewAttributes"/>
+          <xs:attributeGroup ref="uap10:FileTypeAttributes_2019"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PackageIntegrity">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Content" type="CT_Enforcement" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_Enforcement">
+    <xs:attribute name="Enforcement" type="ST_Enforcement" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_Enforcement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="on"/>
+      <xs:enumeration value="off"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+

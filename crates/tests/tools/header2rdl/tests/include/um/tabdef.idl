@@ -1,0 +1,152 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			tabdef.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a86-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface ITableDefinition : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT CreateTable(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in, annotation("_In_opt_")] DBID * pTableID,
+		[in] DBORDINAL cColumnDescs,
+		[in, size_is((ULONG)cColumnDescs), annotation("_In_reads_opt_(cColumnDescs)")] 
+			const DBCOLUMNDESC rgColumnDescs[],
+		[in, annotation("_In_")] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, out, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] 
+			DBPROPSET rgPropertySets[],
+		[out, annotation("_Outptr_opt_")] DBID ** ppTableID,
+		[out, iid_is(riid), annotation("_Outptr_opt_")] IUnknown ** ppRowset
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(CreateTable)]
+	HRESULT RemoteCreateTable(
+		[in] IUnknown * pUnkOuter,
+		[in, unique] DBID * pTableID,
+		[in] DBORDINAL cColumnDescs,
+		[in, size_is((ULONG)cColumnDescs)] const DBCOLUMNDESC * rgColumnDescs,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[in, out, unique] DBID ** ppTableID,
+		[in, out, unique, iid_is(riid)] IUnknown ** ppRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] BOOL * pfTableCreated,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT CreateTable(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in, annotation("_In_opt_")] DBID * pTableID,
+		[in] DBORDINAL cColumnDescs,
+		[in, size_is(cColumnDescs), annotation("_In_reads_opt_(cColumnDescs)")] 
+			const DBCOLUMNDESC rgColumnDescs[],
+		[in, annotation("_In_")] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, out, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] 
+			DBPROPSET rgPropertySets[],
+		[out, annotation("_Outptr_opt_")] DBID ** ppTableID,
+		[out, iid_is(riid), annotation("_Outptr_opt_")] IUnknown ** ppRowset
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(CreateTable)]
+	HRESULT RemoteCreateTable(
+		[in] IUnknown * pUnkOuter,
+		[in, unique] DBID * pTableID,
+		[in] DBORDINAL cColumnDescs,
+		[in, size_is(cColumnDescs)] const DBCOLUMNDESC * rgColumnDescs,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[in, out, unique] DBID ** ppTableID,
+		[in, out, unique, iid_is(riid)] IUnknown ** ppRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] BOOL * pfTableCreated,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#endif
+
+	[local]
+	HRESULT DropTable(
+		[in, unique, annotation("_In_")] DBID * pTableID
+	);
+
+	[call_as(DropTable)]
+	HRESULT RemoteDropTable(
+		[in, unique] DBID * pTableID,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT AddColumn(
+		[in, annotation("_In_")] DBID * pTableID,
+		[in, out, annotation("_In_")] DBCOLUMNDESC * pColumnDesc,
+		[out, annotation("_Outptr_opt_")] DBID ** ppColumnID
+	);
+
+	[call_as(AddColumn)]
+	HRESULT RemoteAddColumn(
+		[in] DBID * pTableID,
+		[in] DBCOLUMNDESC * pColumnDesc,
+		[in, out, unique] DBID ** ppColumnID,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT DropColumn(
+		[in, unique, annotation("_In_")] DBID * pTableID,
+		[in, unique, annotation("_In_")] DBID * pColumnID
+	);
+
+	[call_as(DropColumn)]
+	HRESULT RemoteDropColumn(
+		[in, unique] DBID * pTableID,
+		[in, unique] DBID * pColumnID,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

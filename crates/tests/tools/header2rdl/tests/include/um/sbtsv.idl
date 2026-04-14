@@ -1,0 +1,1414 @@
+cpp_quote("#pragma once")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "unknwn.idl";
+import "oaidl.idl";
+import "SessdirPublicTypes.idl";
+
+typedef [v1_enum] enum _TS_SB_SORT_BY
+{
+    TS_SB_SORT_BY_NONE  = 0x0, 
+    TS_SB_SORT_BY_NAME  = 0x1,     
+    TS_SB_SORT_BY_PROP  = 0x2
+} TS_SB_SORT_BY;
+
+cpp_quote("// ")
+cpp_quote("// If plugins get synch error (E_SB_SYNCH_CONFLICT) while saving resources to broker store;")
+cpp_quote("// Plugins should attempt to retry saving the object.")
+cpp_quote("// ")
+cpp_quote("#define SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS                  100")
+cpp_quote("#define ACQUIRE_TARGET_LOCK_TIMEOUT                        300000")
+
+//
+// Forward declarations
+//
+//Interfaces implemented by the client
+interface ITsSbPlugin;
+interface ITsSbResourcePlugin;
+interface ITsSbLoadBalancing;
+interface ITsSbPlacement;
+interface ITsSbOrchestration;
+interface ITsSbServiceNotification;
+interface ITsSbEnvironment;
+interface ITsSbLoadBalanceResult;
+interface ITsSbTarget;
+interface ITsSbSession;
+interface ITsSbResourceNotification;
+interface ITsSbResourceNotificationEx;
+interface ITsSbTaskInfo;
+interface ITsSbTaskPlugin;
+
+//Interfaces implemented by the broker
+interface ITsSbPropertySet;
+interface ITsSbPluginPropertySet;
+interface ITsSbClientConnectionPropertySet;
+interface ITsSbTargetPropertySet;
+interface ITsSbEnvironmentPropertySet;
+interface ITsSbBaseNotifySink;
+interface ITsSbPluginNotifySink;
+interface ITsSbLoadBalancingNotifySink;
+interface ITsSbPlacementNotifySink;
+interface ITsSbOrchestrationNotifySink;
+interface ITsSbTaskPluginNotifySink;
+interface ITsSbClientConnection;
+interface ITsSbProvider;
+interface ITsSbResourcePluginStore;
+interface ITsSbFilterPluginStore;
+interface ITsSbGlobalStore;
+interface ITsSbProvisioning;
+interface ITsSbProvisioningPluginNotifySink;
+
+
+[
+    object,
+    uuid(48cd7406-caab-465f-a5d6-baa863b9ea4f),
+    helpstring("interface ITsSbPlugin"),
+    pointer_default(unique)
+]
+interface ITsSbPlugin : IUnknown
+{
+    [id(1), helpstring("method Initialize")]
+    HRESULT 
+    Initialize(
+            [in] ITsSbProvider *pProvider,
+            [in] ITsSbPluginNotifySink* pNotifySink,
+            [in] ITsSbPluginPropertySet* pPropertySet
+            );
+
+    [id(2), helpstring("method Terminate")]
+    HRESULT 
+    Terminate(
+            [in] HRESULT hr
+            );
+};
+
+[
+    object,
+    uuid(EA8DB42C-98ED-4535-A88B-2A164F35490F),
+    helpstring("interface ITsSbResourcePlugin"),
+    pointer_default(unique)
+]
+interface ITsSbResourcePlugin : ITsSbPlugin
+{                      
+};
+
+[
+    object,
+    uuid(86CB68AE-86E0-4F57-8A64-BB7406BC5550),
+    helpstring("interface ITsSbServiceNotification"),
+    pointer_default(unique)
+]
+interface ITsSbServiceNotification : IUnknown
+{
+    [id(1), helpstring("method NotifyServiceFailure")]
+    HRESULT 
+    NotifyServiceFailure();
+
+    [id(2), helpstring("method NotifyServiceSuccess")]
+    HRESULT 
+    NotifyServiceSuccess();
+};
+
+[
+    object,
+    uuid(24329274-9EB7-11DC-AE98-F2B456D89593),
+    helpstring("interface ITsSbLoadBalancing"),
+    pointer_default(unique)
+]
+interface ITsSbLoadBalancing  : ITsSbPlugin
+{
+    [id(1), helpstring("method GetMostSuitableTarget")]
+    HRESULT 
+    GetMostSuitableTarget(
+            [in] ITsSbClientConnection* pConnection,            
+            [in] ITsSbLoadBalancingNotifySink* pLBSink
+            );
+};
+
+[
+    object,
+    uuid(DAADEE5F-6D32-480E-9E36-DDAB2329F06D),
+    helpstring("interface ITsSbPlacement"),
+    pointer_default(unique)
+]
+interface ITsSbPlacement : ITsSbPlugin
+{
+    [id(1), helpstring("method QueryEnvironmentForTarget")]
+    HRESULT 
+    QueryEnvironmentForTarget(
+            [in] ITsSbClientConnection* pConnection,
+            [in] ITsSbPlacementNotifySink* pPlacementSink
+            );
+};
+
+[
+    object,
+    uuid(64FC1172-9EB7-11DC-8B00-3ABA56D89593),
+    helpstring("interface ITsSbOrchestration"),
+    pointer_default(unique)
+]
+interface ITsSbOrchestration  : ITsSbPlugin
+{
+    [id(1), helpstring("method PrepareTargetForConnect")]
+    HRESULT 
+    PrepareTargetForConnect(
+            [in] ITsSbClientConnection* pConnection,
+            [in] ITsSbOrchestrationNotifySink* pOrchestrationNotifySink
+            );   
+};
+
+[
+    object,
+    uuid(8c87f7f7-bf51-4a5c-87bf-8e94fb6e2256),
+    helpstring("interface ITsSbEnvironment "),
+    pointer_default(unique)
+]
+interface ITsSbEnvironment  : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT Name(
+            [out, retval] BSTR *pVal
+            );        
+
+    [propget, id(2), helpstring("property ServerWeight")]
+    HRESULT ServerWeight(
+            [out, retval] DWORD *pVal
+            );
+
+    [propget, id(3), helpstring("property EnvironmentPropertySet")]
+    HRESULT 
+    EnvironmentPropertySet(
+            [out, retval] ITsSbEnvironmentPropertySet** ppPropertySet
+            );
+
+    [propput, id(3), helpstring("property EnvironmentPropertySet")]
+    HRESULT 
+    EnvironmentPropertySet(
+            [in] ITsSbEnvironmentPropertySet* pVal
+            );
+};
+
+[
+    object,
+    uuid(24FDB7AC-FEA6-11DC-9672-9A8956D89593),
+    helpstring("interface ITsSbLoadBalanceResult"),
+    pointer_default(unique)
+]
+interface ITsSbLoadBalanceResult: IUnknown
+{ 
+
+    [propget, id(1), helpstring("property TargetName")]
+    HRESULT TargetName(
+            [out, retval] BSTR *pVal
+            );
+}
+
+[
+    object,
+    uuid(16616ECC-272D-411D-B324-126893033856),
+    helpstring("interface ITsSbTarget"),
+    pointer_default(unique)
+]
+interface ITsSbTarget : IUnknown
+{
+    [propget, id(1), helpstring("property TargetName")]
+    HRESULT TargetName(
+            [out, retval] BSTR *pVal
+            );
+
+    [propput, id(1), helpstring("property TargetName")]
+    HRESULT TargetName(
+            [in] BSTR Val
+            );
+
+    [propget, id(2), helpstring("property FarmName")]
+    HRESULT FarmName(
+            [out, retval] BSTR *pVal
+            );
+
+    [propput, id(2), helpstring("property FarmName")]
+    HRESULT FarmName(
+            [in] BSTR Val
+            );
+    
+    [propget, id(3), helpstring("property TargetFQDN")]
+    HRESULT 
+    TargetFQDN(
+            [out, retval] BSTR *TargetFqdnName
+            );
+  
+    [propput, id(3), helpstring("property TargetFQDN")]
+    HRESULT 
+    TargetFQDN(
+            [in] BSTR Val
+            );
+        
+    [propget, id(4), helpstring("property TargetNetbios")]
+    HRESULT 
+    TargetNetbios(
+            [out, retval] BSTR *TargetNetbiosName 
+            );
+  
+    [propput, id(4), helpstring("property TargetNetbios")]
+    HRESULT 
+    TargetNetbios(
+            [in] BSTR Val
+            );
+     
+    [propget, id(5), helpstring("property IpAddresses")]
+    HRESULT 
+    IpAddresses(
+            [out, size_is(*numAddresses)] TSSD_ConnectionPoint* sockaddr, 
+            [in, out] DWORD* numAddresses
+            );
+   
+    [propput, id(5), helpstring("property IpAddresses")]
+    HRESULT 
+    IpAddresses(
+            [in, size_is(numAddresses)] TSSD_ConnectionPoint *sockaddr, 
+            [in] DWORD numAddresses
+            );
+     
+    [propget, id(6), helpstring("property TargetState")]
+    HRESULT 
+    TargetState(
+            [out, retval] TARGET_STATE* pState
+            );
+    
+    [propput, id(6), helpstring("property TargetState")]
+    HRESULT 
+    TargetState(
+            [in] TARGET_STATE State
+            );
+       
+    [propget, id(7), helpstring("property TargetPropertySet")]
+    HRESULT 
+    TargetPropertySet(
+            [out, retval] ITsSbTargetPropertySet** ppPropertySet
+            );
+    
+    [propput, id(7), helpstring("property TargetPropertySet")]
+    HRESULT 
+    TargetPropertySet(
+            [in] ITsSbTargetPropertySet *pVal
+            ); 
+
+    [propget, id(8), helpstring("property EnvironmentName")]
+    HRESULT 
+    EnvironmentName(
+            [out, retval] BSTR *pVal
+            );
+
+    [propput, id(8), helpstring("property EnvironmentName")]
+    HRESULT 
+    EnvironmentName(
+            [in] BSTR Val
+            );
+
+    //
+    // This property is read only : It indicates the number of sessions maintained by broker for this target
+    [propget, id(9), helpstring("property NumSessions")]
+    HRESULT 
+    NumSessions(
+            [out, retval] DWORD* pNumSessions
+            ); 
+
+    //
+    // This property is read only : It indicates the number of pending user connections for this target
+    [propget, id(10), helpstring("property NumPendingConnections")]
+    HRESULT 
+    NumPendingConnections(
+            [out, retval] DWORD* pNumPendingConnections
+            );            
+
+    [propget, id(11), helpstring("property TargetLoad")]
+    HRESULT 
+    TargetLoad(
+            [out, retval] DWORD* pTargetLoad
+            );
+};
+
+[
+    object,
+    uuid(D453AAC7-B1D8-4C5E-BA34-9AFB4C8C5510),
+    helpstring("interface ITsSbSession"),
+    pointer_default(unique)
+]
+interface ITsSbSession : IUnknown
+{
+    [propget, id(1), helpstring("property SessionId")]
+    HRESULT 
+    SessionId(
+        [out, retval] DWORD *pVal
+        );
+          
+    [propget, id(2), helpstring("property TargetName")]
+    HRESULT 
+    TargetName(
+        [out, retval] BSTR *targetName
+        );
+
+    [propput, id(2), helpstring("property TargetName")]
+    HRESULT 
+    TargetName(
+        [in] BSTR targetName
+        );
+        
+    [propget, id(3), helpstring("property Username")]
+    HRESULT 
+    Username(
+        [out, retval] BSTR *userName
+        );
+        
+    [propget, id(4), helpstring("property Domain")]
+    HRESULT 
+    Domain(
+        [out, retval] BSTR *domain
+        );
+        
+    [propget, id(5), helpstring("property State")]
+    HRESULT 
+    State(
+        [out, retval] TSSESSION_STATE* pState
+        );
+    
+    [propput, id(5), helpstring("property State")]
+    HRESULT 
+    State(
+        [in] TSSESSION_STATE State
+        );
+            
+    [propget, id(6), helpstring("property CreateTime")]
+    HRESULT 
+    CreateTime(
+        [out, retval] FILETIME* pTime
+        );
+    
+    [propput, id(6), helpstring("property CreateTime")]
+    HRESULT 
+    CreateTime(
+            [in] FILETIME Time
+            );
+            
+    [propget, id(7), helpstring("property DisconnectTime")]
+    HRESULT 
+    DisconnectTime(
+        [out, retval] FILETIME* pTime
+        );
+    
+    [propput, id(7), helpstring("property DisconnectTime")]
+    HRESULT 
+    DisconnectTime(
+            [in] FILETIME Time
+            );
+            
+    [propget, id(8), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [out, retval] BSTR *app
+            );
+    
+    [propput, id(8), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [in] BSTR Application
+            );
+            
+    [propget, id(9), helpstring("property ClientDisplay")]
+    HRESULT 
+    ClientDisplay(
+            [out, retval] CLIENT_DISPLAY *pClientDisplay
+            );
+    
+    [propput, id(9), helpstring("property ClientDisplay")]
+    HRESULT 
+    ClientDisplay(
+            [in] CLIENT_DISPLAY pClientDisplay
+            );     
+
+    [propget, id(10), helpstring("property ProtocolType")]
+    HRESULT 
+    ProtocolType(
+            [out, retval] DWORD *pVal
+            );  
+        
+    [propput, id(10), helpstring("property ProtocolType")]
+    HRESULT 
+    ProtocolType(
+            [in] DWORD Val
+            );
+};
+
+[
+    object,
+    uuid(65D3E85A-C39B-11DC-B92D-3CD255D89593),
+    helpstring("interface ITsSbResourceNotification"),
+    pointer_default(unique)
+]
+interface ITsSbResourceNotification : IUnknown
+{
+     [id(1), helpstring("method NotifySessionChange")]
+     HRESULT
+     NotifySessionChange(
+           [in] TSSESSION_STATE changeType,
+           [in] ITsSbSession* pSession
+       );
+
+     [id(2), helpstring("method NotifyTargetChange")]
+     HRESULT
+     NotifyTargetChange(
+           [in] DWORD  TargetChangeType,
+           [in] ITsSbTarget* pTarget
+       );     
+
+     [id(3), helpstring("method NotifyClientConnectionStateChange")]
+     HRESULT
+     NotifyClientConnectionStateChange(
+           [in] CONNECTION_CHANGE_NOTIFICATION ChangeType,
+           [in] ITsSbClientConnection *pConnection
+       );
+};
+
+[
+    object,
+    uuid(A8A47FDE-CA91-44D2-B897-3AA28A43B2B7),
+    helpstring("interface ITsSbResourceNotification"),
+    pointer_default(unique)
+]
+interface ITsSbResourceNotificationEx : IUnknown
+{
+     [id(1), helpstring("method NotifySessionChangeEx")]
+     HRESULT
+     NotifySessionChangeEx(
+           [in] BSTR  targetName,
+           [in] BSTR  userName,
+           [in] BSTR  domain,
+           [in] DWORD sessionId,
+           [in] TSSESSION_STATE sessionState
+       );
+
+     [id(2), helpstring("method NotifyTargetChangeEx")]
+     HRESULT
+     NotifyTargetChangeEx(
+           [in] BSTR  targetName,
+           [in] DWORD targetChangeType
+       );     
+
+     [id(3), helpstring("method NotifyClientConnectionStateChange")]
+     HRESULT
+     NotifyClientConnectionStateChangeEx(
+           [in] BSTR userName,
+           [in] BSTR domain,
+           [in] BSTR initialProgram,
+           [in] BSTR poolName,
+           [in] BSTR targetName,
+           [in] CONNECTION_CHANGE_NOTIFICATION connectionChangeType
+       );
+};
+
+[
+    object,
+    uuid(523D1083-89BE-48DD-99EA-04E82FFA7265),
+    helpstring("interface ITsSbTaskInfo"),
+    pointer_default(unique)
+]
+interface ITsSbTaskInfo : IUnknown
+{
+    [propget, id(1), helpstring("property TargetId")]
+    HRESULT TargetId(
+        [out, retval] BSTR *pName
+        );
+
+    [propget, id(2), helpstring("property Start Time")]
+    HRESULT StartTime(
+        [out, retval] FILETIME *pStartTime
+        );
+
+    [propget, id(3), helpstring("property End Time")]
+    HRESULT EndTime(
+        [out, retval] FILETIME *pEndTime
+        );
+
+    [propget, id(4), helpstring("property Deadline")]
+    HRESULT Deadline(
+        [out, retval] FILETIME *pDeadline
+        );
+
+    [propget, id(5), helpstring("property Identifier")]
+    HRESULT Identifier(
+        [out, retval] BSTR *pIdentifier
+        );
+
+    [propget, id(6), helpstring("property Label")]
+    HRESULT Label(
+        [out, retval] BSTR *pLabel
+        );
+
+    [propget, id(7), helpstring("property Context")]
+    HRESULT Context(
+        [out, retval] SAFEARRAY(BYTE) *pContext
+        );
+
+    [propget, id(8), helpstring("property Plugin")]
+    HRESULT Plugin(
+        [out, retval] BSTR *pPlugin
+        );
+
+    [propget, id(9), helpstring("property Status")]
+    HRESULT Status(
+        [out, retval] RDV_TASK_STATUS *pStatus
+        );
+};
+
+[
+    object,
+    uuid(FA22EF0F-8705-41BE-93BC-44BDBCF1C9C4),
+    helpstring("interface ITsSbTaskPlugin"),
+    pointer_default(unique)
+]
+interface ITsSbTaskPlugin : ITsSbPlugin
+{
+    [id(1), helpstring("method InitializeTaskPlugin")]
+    HRESULT
+    InitializeTaskPlugin(
+        [in] ITsSbTaskPluginNotifySink *pITsSbTaskPluginNotifySink
+        );
+
+    [id(2), helpstring("method SetTaskQueue")]
+    HRESULT
+    SetTaskQueue(
+        [in] BSTR pszHostName,
+        [in] DWORD SbTaskInfoSize,
+        [in, size_is(SbTaskInfoSize)] ITsSbTaskInfo *pITsSbTaskInfo[]
+        );
+};
+
+//
+//Interfaces implemented by the broker
+//
+[
+    object,
+    uuid(5c025171-bb1e-4baf-a212-6d5e9774b33b),
+    helpstring("interface ITsSbPropertySet"),
+    pointer_default(unique)
+]
+interface ITsSbPropertySet : IPropertyBag
+{   
+};
+
+[
+    object,
+    uuid(95006e34-7eff-4b6c-bb40-49a4fda7cea6),
+    helpstring("interface ITsSbPluginPropertySet"),
+    pointer_default(unique)
+]
+interface ITsSbPluginPropertySet : ITsSbPropertySet
+{
+};
+
+[
+    object,
+    uuid(E51995B0-46D6-11DD-AA21-CEDC55D89593),
+    helpstring("interface ITsSbClientConnectionPropertySet"),
+    pointer_default(unique)
+]
+interface ITsSbClientConnectionPropertySet : ITsSbPropertySet
+{
+};
+
+
+[
+    object,
+    uuid(f7bda5d6-994c-4e11-a079-2763b61830ac),
+    helpstring("interface ITsSbTargetPropertySet"),
+    pointer_default(unique)
+]
+interface ITsSbTargetPropertySet : ITsSbPropertySet
+{    
+};
+
+[
+    object,
+    uuid(D0D1BF7E-7ACF-11DD-A243-E51156D89593),
+    helpstring("interface ITsSbEnvironmentPropertySet"),
+    pointer_default(unique)
+]
+interface ITsSbEnvironmentPropertySet : ITsSbPropertySet
+{    
+};
+
+[
+    object,
+    uuid(808a6537-1282-4989-9e09-f43938b71722),
+    helpstring("interface ITsSbBaseNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbBaseNotifySink: IUnknown
+{
+    [id(1), helpstring("method OnError")]
+    HRESULT 
+    OnError(
+            [in] HRESULT hrError
+            );
+
+    [id(2), helpstring("method OnReportStatus")]
+    HRESULT 
+    OnReportStatus(
+            [in] CLIENT_MESSAGE_TYPE messageType,
+            [in] DWORD messageID
+            );            
+};
+
+[
+    object,
+    uuid(44dfe30b-c3be-40f5-bf82-7a95bb795adf),
+    helpstring("interface ITsSbPluginNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbPluginNotifySink: ITsSbBaseNotifySink
+{
+    [id(1), helpstring("method OnInitialized")]
+    HRESULT
+    OnInitialized(
+            [in] HRESULT hr
+            );
+
+    [id(2), helpstring("method OnTerminated")]
+    HRESULT
+    OnTerminated();    
+};
+
+[
+    object,
+    uuid(5F8A8297-3244-4E6A-958A-27C822C1E141),
+    helpstring("interface ITsSbLoadBalancingNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbLoadBalancingNotifySink : ITsSbBaseNotifySink
+{
+    [id(1), helpstring("method OnGetMostSuitableTarget")]
+    HRESULT 
+    OnGetMostSuitableTarget(
+            [in] ITsSbLoadBalanceResult* pLBResult,
+            [in] BOOL fIsNewConnection
+            );
+};
+
+[
+    object,
+    uuid(68A0C487-2B4F-46C2-94A1-6CE685183634),
+    helpstring("interface ITsSbPlacementNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbPlacementNotifySink : ITsSbBaseNotifySink
+{
+    [id(1), helpstring("method OnQueryEnvironmentCompleted")]
+    HRESULT 
+    OnQueryEnvironmentCompleted(
+            [in] ITsSbEnvironment* pEnvironment
+            );    
+};
+
+[
+    object,
+    uuid(36c37d61-926b-442f-bca5-118c6d50dcf2),
+    helpstring("interface ITsSbOrchestrationNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbOrchestrationNotifySink : ITsSbBaseNotifySink
+{
+    [id(1), helpstring("method OnReadyToConnect")]
+    HRESULT 
+    OnReadyToConnect(      
+            [in] ITsSbTarget* pTarget    
+           );                 
+};
+
+[
+    object,
+    uuid(6AAF899E-C2EC-45EE-AA37-45E60895261A),
+    helpstring("interface ITsSbTaskPluginNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbTaskPluginNotifySink : ITsSbBaseNotifySink
+{
+    [id(1), helpstring("method OnSetTaskTime")]
+    HRESULT
+    OnSetTaskTime(
+        [in] BSTR szTargetName,
+        [in] FILETIME TaskStartTime,
+        [in] FILETIME TaskEndTime,
+        [in] FILETIME TaskDeadline,
+        [in] BSTR szTaskLabel,
+        [in] BSTR szTaskIdentifier,
+        [in] BSTR szTaskPlugin,
+        [in] DWORD dwTaskStatus,
+        [in] SAFEARRAY(BYTE) saContext
+        );
+
+    [id(2), helpstring("method OnDeleteTaskTime")]
+    HRESULT
+    OnDeleteTaskTime(
+        [in] BSTR szTargetName,
+        [in] BSTR szTaskIdentifier
+        );
+
+    [id(3), helpstring("method OnUpdateTaskStatus")]
+    HRESULT
+    OnUpdateTaskStatus(
+        [in] BSTR szTargetName,
+        [in] BSTR TaskIdentifier,
+        [in] RDV_TASK_STATUS TaskStatus
+    );
+
+    [id(4), helpstring("method OnReportTasks")]
+    HRESULT
+    OnReportTasks(
+        [in] BSTR szHostName
+        );
+
+};
+
+[
+    object,
+    uuid(18857499-AD61-4B1B-B7DF-CBCD41FB8338),
+    helpstring("interface ITsSbClientConnection"),
+    pointer_default(unique)
+]
+interface ITsSbClientConnection : IUnknown
+{            
+    [propget, id(1), helpstring("property Username")]
+    HRESULT 
+    UserName(
+            [out, retval] BSTR *pVal 
+            );
+            
+    [propget, id(2), helpstring("property Domain")]
+    HRESULT 
+    Domain(
+            [out, retval] BSTR *pVal 
+            );
+            
+    [propget, id(3), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [out, retval] BSTR *pVal
+            );
+
+    [propget, id(4), helpstring("property LoadBalanceResult")]
+    HRESULT 
+    LoadBalanceResult(
+        [out, retval] ITsSbLoadBalanceResult **ppVal
+        );            
+            
+    [propget, id(5), helpstring("property FarmName")]
+    HRESULT 
+    FarmName(
+            [out, retval] BSTR* pVal 
+            );
+
+    [local, id(6), helpstring("method PutContext")]
+    HRESULT
+    PutContext(
+         [annotation("_In_")] BSTR contextId,
+         [annotation("_In_")] VARIANT context,
+         [annotation("_Out_opt_")] VARIANT *existingContext
+         );          
+
+    [id(7), helpstring("method GetContext")]
+    HRESULT
+    GetContext(
+         [in] BSTR contextId,
+         [out, retval] VARIANT *context
+         );  
+    
+    [propget, id(8), helpstring("property Environment")]
+    HRESULT 
+    Environment(
+            [out, retval] ITsSbEnvironment **ppEnvironment
+            );
+
+    [propget, id(9), helpstring("property ConnectionError")]
+    HRESULT 
+    ConnectionError(
+            );
+
+    // This is a helper method, returns domain\username
+    [propget, id(10), helpstring("property SamUserAccount")]
+    HRESULT 
+    SamUserAccount(
+            [out, retval] BSTR* pVal
+            );  
+
+    [propget, id(11), helpstring("property ClientConnectionPropertySet")]
+    HRESULT 
+    ClientConnectionPropertySet(
+            [out, retval] ITsSbClientConnectionPropertySet** ppPropertySet
+            );            
+
+    [propget, id(12), helpstring("property IsFirstAssignment")]
+    HRESULT 
+    IsFirstAssignment(
+        [out, retval] BOOL *ppVal
+        );            
+
+    [propget, id(13), helpstring("property RdFarmType")]
+    HRESULT 
+    RdFarmType(
+            [out, retval] RD_FARM_TYPE* pRdFarmType 
+            );
+
+    [propget, id(14), helpstring("property UserSidString")]
+    HRESULT 
+    UserSidString(
+            [out, retval] LPTSTR *pszUserSidString
+            );
+
+    [id(15), helpstring("property GetDisconnectedSession")]
+    HRESULT 
+    GetDisconnectedSession(
+            [out] ITsSbSession **ppSession
+            );
+            
+};
+
+[
+    object,
+    uuid(87A4098F-6D7B-44DD-BC17-8CE44E370D52),
+    helpstring("interface ITsSbProvider"),
+    pointer_default(unique)
+]
+interface ITsSbProvider : IUnknown
+{
+    [id(1), helpstring("method CreateTargetObject")]
+    HRESULT
+    CreateTargetObject(
+         [in]  BSTR TargetName,
+         [in]  BSTR EnvironmentName,
+         [out] ITsSbTarget **ppTarget
+         );   
+
+    [id(2), helpstring("method CreateLoadBalanceResultObject")]
+    HRESULT
+    CreateLoadBalanceResultObject(
+         [in]  BSTR TargetName,
+         [out] ITsSbLoadBalanceResult **ppLBResult
+         );          
+         
+    [id(3), helpstring("method CreateSessionObject")]
+    HRESULT
+    CreateSessionObject(
+         [in]  BSTR TargetName,
+         [in]  BSTR UserName,
+         [in]  BSTR Domain,
+         [in]  DWORD SessionId,
+         [out] ITsSbSession **ppSession
+         );
+
+    [id(4), helpstring("method CreatePluginPropertySet")]    
+    HRESULT 
+    CreatePluginPropertySet(
+            [out, retval] ITsSbPluginPropertySet** ppPropertySet
+            );
+
+    [id(5), helpstring("method CreateTargetPropertySetObject")]
+    HRESULT
+    CreateTargetPropertySetObject(
+         [out] ITsSbTargetPropertySet **ppPropertySet
+         );
+    
+    [id(6), helpstring("method CreateEnvironmentObject")]
+    HRESULT
+    CreateEnvironmentObject(
+         [in]  BSTR Name,
+         [in] DWORD ServerWeight,
+         [out] ITsSbEnvironment **ppEnvironment
+         );
+
+    [id(8), helpstring("method GetResourcePluginStore")]
+    HRESULT
+    GetResourcePluginStore(
+         [out] ITsSbResourcePluginStore** ppStore
+         );    
+
+    [id(9), helpstring("method GetFilterPluginStore")]
+    HRESULT
+    GetFilterPluginStore(
+         [out] ITsSbFilterPluginStore** ppStore
+         );             
+
+    [id(10), helpstring("method RegisterForNotification")]
+    HRESULT
+    RegisterForNotification(
+         [in] DWORD notificationType,
+         [in] BSTR ResourceToMonitor,
+         [in] ITsSbResourceNotification *pPluginNotification
+         );
+
+    [id(11), helpstring("method UnRegisterForNotification")]
+    HRESULT
+    UnRegisterForNotification(
+         [in] DWORD notificationType,
+         [in] BSTR ResourceToMonitor
+         );    
+    
+    [id(12), helpstring("method GetInstanceOfGlobalStore")]
+    HRESULT
+    GetInstanceOfGlobalStore(
+         [out] ITsSbGlobalStore** ppGlobalStore
+         );
+
+    [id(13), helpstring("method CreateEnvironmentPropertySetObject")]
+    HRESULT
+    CreateEnvironmentPropertySetObject(
+         [out] ITsSbEnvironmentPropertySet **ppPropertySet
+         );
+};
+
+[
+    object,
+    uuid(5C38F65F-BCF1-4036-A6BF-9E3CCCAE0B63),
+    helpstring("interface ITsSbResourcePluginStore"),
+    pointer_default(unique)
+]
+interface ITsSbResourcePluginStore : IUnknown
+{    
+    [id(1), helpstring("method QueryTarget")]
+    HRESULT
+    QueryTarget(
+         [in]  BSTR  TargetName,
+         [in]  BSTR  FarmName, // if NULL, the first target found will be returned
+         [out] ITsSbTarget  **ppTarget
+         );   
+    
+    [id(2), helpstring("method QuerySessionBySessionId")]
+    HRESULT
+    QuerySessionBySessionId(
+         [in]  DWORD  dwSessionId,
+         [in]  BSTR  TargetName,
+         [out] ITsSbSession **ppSession
+         );   
+
+    [id(3), helpstring("method AddTargetToStore")]
+    HRESULT 
+    AddTargetToStore(
+        [in] ITsSbTarget* pTarget
+        );
+
+    [id(4), helpstring("method AddSessionToStore")]
+    HRESULT 
+    AddSessionToStore(
+        [in] ITsSbSession* pSession
+        );            
+
+    [id(5), helpstring("method AddEnvironmentToStore")]
+    HRESULT
+    AddEnvironmentToStore(
+             [in] ITsSbEnvironment *pEnvironment
+             );
+
+    [id(6), helpstring("method RemoveEnvironmentFromStore")]
+    HRESULT
+    RemoveEnvironmentFromStore(
+             [in] BSTR EnvironmentName,
+             [in, optional] BOOL bIgnoreOwner
+             );         
+        
+    [id(7), helpstring("method EnumerateFarms")]
+    HRESULT
+    EnumerateFarms(
+         [out] DWORD *pdwCount,
+         [out] SAFEARRAY(BSTR) *pVal
+         );  
+
+    [id(8), helpstring("method QueryEnvironment")]
+    HRESULT
+    QueryEnvironment(
+         [in]  BSTR  EnvironmentName,
+         [out] ITsSbEnvironment **ppEnvironment
+         );
+
+    [id(9), helpstring("method EnumerateEnvironments")]
+    HRESULT
+    EnumerateEnvironments(
+         [in, out] DWORD *pdwCount,
+         [out, size_is(*pdwCount)] ITsSbEnvironment **pVal[]
+         );
+
+    [id(10), helpstring("property SaveTarget")]
+    HRESULT 
+    SaveTarget(
+        [in] ITsSbTarget *pTarget,
+        [in] BOOL bForceWrite
+        );
+
+    [id(11), helpstring("property SaveEnvironment")]
+    HRESULT 
+    SaveEnvironment(
+        [in] ITsSbEnvironment *pEnvironment,
+        [in] BOOL bForceWrite
+        );
+
+    [id(12), helpstring("property SaveSession")]
+    HRESULT 
+    SaveSession(
+            [in] ITsSbSession *pSession
+            );
+
+    [id(13), helpstring("method SetTargetProperty")]
+    HRESULT
+    SetTargetProperty( 
+        [in] BSTR TargetName,
+        [in] BSTR PropertyName,
+        [in] VARIANT *pProperty
+        );
+
+    [id(14), helpstring("method SetEnvironmentProperty")]
+    HRESULT
+    SetEnvironmentProperty( 
+        [in] BSTR EnvironmentName,
+        [in] BSTR PropertyName,
+        [in] VARIANT *pProperty
+        );
+
+    [id(15), helpstring("method SetTargetState")]
+    HRESULT
+    SetTargetState( 
+        [in] BSTR targetName,
+        [in] TARGET_STATE newState,
+        [out] TARGET_STATE *pOldState
+        );
+
+    [id(16), helpstring("method SetSessionState")]
+    HRESULT
+    SetSessionState( 
+        [in] ITsSbSession *sbSession
+        );
+
+midl_pragma warning( disable: 2495 )   // use of annotation is permitted on non local interface or method
+    [id(17), helpstring("method EnumerateTargets")]
+    HRESULT
+    EnumerateTargets(
+         [in] BSTR FarmName,
+         [in] BSTR EnvName,
+         [in] TS_SB_SORT_BY sortByFieldId,
+         [in] BSTR sortyByPropName, // Used if TS_SB_SORT_BY_PROP is specified
+         [in, out] DWORD *pdwCount,
+         [out, size_is(*pdwCount), annotation("__RPC__deref_out_ecount_full(*pdwCount)")] ITsSbTarget **pVal[]
+         );
+
+    [id(18), helpstring("method EnumerateSessions")]
+    HRESULT
+    EnumerateSessions(
+        [in] BSTR targetName,
+        [in] BSTR userName,
+        [in] BSTR userDomain,
+        [in] BSTR poolName,
+        [in] BSTR initialProgram,
+        [in] TSSESSION_STATE* pSessionState,              // Optional parameter, use NULL if EnumerateByState is not intended
+        [in, out] DWORD * pdwCount,
+        [out, size_is(*pdwCount), annotation("__RPC__deref_out_ecount_full(*pdwCount)")] ITsSbSession **ppVal[]
+         );
+
+    [id(19), helpstring("method GetFarmProperty")]
+    HRESULT 
+    GetFarmProperty(
+            [in] BSTR farmName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );         
+
+    [id(20), helpstring("method DeleteTarget")]
+    HRESULT
+    DeleteTarget( 
+        [in] BSTR targetName,
+        [in] BSTR hostName
+        );
+
+    [id(21), helpstring("method SetTargetProperty")]
+    HRESULT
+    SetTargetPropertyWithVersionCheck( 
+        [in] ITsSbTarget *pTarget,
+        [in] BSTR PropertyName,
+        [in] VARIANT *pProperty
+        );        
+
+    [id(22), helpstring("method SetEnvironmentProperty")]
+    HRESULT
+    SetEnvironmentPropertyWithVersionCheck( 
+        [in] ITsSbEnvironment *pEnvironment,
+        [in] BSTR PropertyName,
+        [in] VARIANT *pProperty
+        );
+
+    [id(23), helpstring("method AcquireTargetLock")]
+    HRESULT 
+    AcquireTargetLock(
+            [in] BSTR targetName,
+            [in] DWORD dwTimeout,
+            [out] IUnknown** ppContext
+            );
+
+    [id(24), helpstring("method ReleaseTargetLock")]
+    HRESULT 
+    ReleaseTargetLock(
+            [in] IUnknown* pContext
+            );
+
+    [id(25), helpstring("method TestAndSetServerState")]
+    HRESULT 
+    TestAndSetServerState(
+        [in] BSTR PoolName,
+        [in] BSTR ServerFQDN,
+        [in] TARGET_STATE NewState,
+        [in] TARGET_STATE TestState,
+        [out] TARGET_STATE* pInitState
+        );
+
+    [id(26), helpstring("method SetServerWaitingToStart")]
+    HRESULT 
+    SetServerWaitingToStart(
+        [in] BSTR PoolName,
+        [in] BSTR serverName
+        );
+
+    [id(27), helpstring("method GetServerState")]
+    HRESULT 
+    GetServerState(
+        [in] BSTR PoolName,
+        [in] BSTR ServerFQDN,
+        [out] TARGET_STATE* pState
+        );
+
+    [id(28), helpstring("method SetServerDrainMode")]
+    HRESULT 
+    SetServerDrainMode(
+        [in] BSTR ServerFQDN,
+        [in] DWORD DrainMode
+        );
+};
+
+[
+    object,
+    uuid(85b44b0f-ed78-413f-9702-fa6d3b5ee755),
+    helpstring("interface ITsSbFilterPluginStore"),
+    pointer_default(unique)
+]
+interface ITsSbFilterPluginStore : IUnknown
+{
+    // 
+    // This method inserts new properties from propertySet to the store.
+    // It also updates the existing properties with new values.
+    // It also deletes the properties that exist in the store but not in the propertySet.
+    [id(1), helpstring("method SaveProperties")]
+    HRESULT 
+    SaveProperties(        
+        [in] ITsSbPropertySet* pPropertySet
+        );
+
+    [id(2), helpstring("method EnumerateProperties")]
+    HRESULT 
+    EnumerateProperties(
+        [out, retval] ITsSbPropertySet** ppPropertySet
+        ); 
+
+    [id(3), helpstring("method DeleteProperties")]
+    HRESULT 
+    DeleteProperties(
+        [in] BSTR propertyName              // Optional parameter, use NULL to delete all properties for this filter plugin
+        );         
+};
+
+[
+    object,
+    uuid(9AB60F7B-BD72-4D9F-8A3A-A0EA5574E635),
+    helpstring("interface ITsSbGlobalStore"),
+    pointer_default(unique)
+]
+interface ITsSbGlobalStore : IUnknown
+{    
+    [id(1), helpstring("method QueryTarget")]
+    HRESULT
+    QueryTarget(
+         [in]  BSTR  ProviderName,
+         [in]  BSTR  TargetName,
+         [in]  BSTR  FarmName, // if NULL, the first target found will be returned
+         [out] ITsSbTarget  **ppTarget
+         );   
+ 
+    [id(2), helpstring("method QuerySessionBySessionId")]
+    HRESULT
+    QuerySessionBySessionId(
+         [in]  BSTR  ProviderName,
+         [in]  DWORD  dwSessionId,
+         [in]  BSTR  TargetName,
+         [out] ITsSbSession **ppSession
+         );   
+ 
+    [id(3), helpstring("method EnumerateFarms")]
+    HRESULT
+    EnumerateFarms(
+         [in]  BSTR  ProviderName,
+         [out] DWORD *pdwCount,
+         [out] SAFEARRAY(BSTR) *pVal
+         );  
+
+    [id(4), helpstring("method EnumerateTargets")]
+    HRESULT
+    EnumerateTargets(
+         [in]  BSTR  ProviderName,
+         [in]  BSTR FarmName,
+         [in]  BSTR EnvName,
+         [in, out] DWORD *pdwCount,
+         [out, size_is(*pdwCount)] ITsSbTarget **pVal[]
+         );
+    
+    [id(5), helpstring("method EnumerateEnvironmentsByProvider")]
+    HRESULT
+    EnumerateEnvironmentsByProvider(
+        [in]  BSTR ProviderName,
+        [in, out] DWORD * pdwCount,
+        [out, size_is(*pdwCount)] ITsSbEnvironment **ppVal[]
+        );
+
+    [id(6), helpstring("method EnumerateSessions")]
+    HRESULT
+    EnumerateSessions(
+        [in] BSTR ProviderName,
+        [in] BSTR targetName,
+        [in] BSTR userName,
+        [in] BSTR userDomain,
+        [in] BSTR poolName,
+        [in] BSTR initialProgram,
+        [in] TSSESSION_STATE* pSessionState,              // Optional parameter, use NULL if EnumerateByState is not intended
+        [in, out] DWORD * pdwCount,
+        [out, size_is(*pdwCount)] ITsSbSession **ppVal[]
+        );
+
+    [id(7), helpstring("method GetFarmProperty")]
+    HRESULT 
+    GetFarmProperty(
+            [in] BSTR farmName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );         
+        
+};
+
+[
+    object,
+    uuid(aca87a8e-818b-4581-a032-49c3dfb9c701),
+    helpstring("interface ITsSbVmProvisioningNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbProvisioningPluginNotifySink : IUnknown
+{
+    [id(1), helpstring("Job created notification")]
+    HRESULT
+    OnJobCreated(
+         [in] VM_NOTIFY_INFO *pVmNotifyInfo
+         );
+
+    [id(2), helpstring("Virtual Machine status changed notification")]
+    HRESULT
+    OnVirtualMachineStatusChanged(
+         [in] VM_NOTIFY_ENTRY *pVmNotifyEntry,
+         [in] VM_NOTIFY_STATUS VmNotifyStatus,
+         [in] HRESULT ErrorCode,
+         [in] BSTR ErrorDescr
+    );
+    
+    [id(3), helpstring("Job complete notification")]
+    HRESULT
+    OnJobCompleted(
+         [in] HRESULT ResultCode,
+         [in] BSTR ResultDescription
+    );
+
+    [id(4), helpstring("Job canceled notification")]
+    HRESULT
+    OnJobCancelled();
+
+    [id(5), helpstring("Lock VM")]
+    HRESULT
+    LockVirtualMachine(
+         [in] VM_NOTIFY_ENTRY *pVmNotifyEntry
+         );         
+
+    [id(6), helpstring("Virtual Machine Host status changed")]
+    HRESULT
+    OnVirtualMachineHostStatusChanged(
+         [in] BSTR VmHost,
+         [in] VM_HOST_NOTIFY_STATUS VmHostNotifyStatus,
+         [in] HRESULT ErrorCode,
+         [in] BSTR ErrorDescr
+    );
+}
+
+
+[
+    object,
+    uuid(2f6f0dbb-9e4f-462b-9c3f-fccc3dcb6232),
+    helpstring("interface ITsSbVmExtensibilityPlugin"),
+    pointer_default(unique)
+]
+interface ITsSbProvisioning : ITsSbPlugin
+{
+    [id(1), helpstring("Async method Create VMs")]
+    HRESULT
+    CreateVirtualMachines(
+         [in] BSTR JobXmlString,
+         [in] BSTR JobGuid,
+         [in] ITsSbProvisioningPluginNotifySink *pSink
+         );
+    
+    [id(2), helpstring("Async method Patch VMs")]
+    HRESULT
+    PatchVirtualMachines(
+         [in] BSTR JobXmlString,
+         [in] BSTR JobGuid,
+         [in] ITsSbProvisioningPluginNotifySink *pSink,
+         [in, optional] VM_PATCH_INFO *pVMPatchInfo
+         );
+    
+    [id(3), helpstring("Async method Delete VMs")]
+    HRESULT
+    DeleteVirtualMachines(
+         [in] BSTR JobXmlString,
+         [in] BSTR JobGuid,
+         [in] ITsSbProvisioningPluginNotifySink *pSink
+         );
+
+    [id(4), helpstring("Async method Cancel Job")]
+    HRESULT
+    CancelJob(
+         [in] BSTR JobGuid
+         );
+}
+
+
+[
+    object,
+    uuid(4c4c8c4f-300b-46ad-9164-8468a7e7568c),
+    helpstring("interface ITsSbGenericNotifySink"),
+    pointer_default(unique)
+]
+interface ITsSbGenericNotifySink : IUnknown
+{
+    [id(1), helpstring("OnCompleted")]
+    HRESULT
+    OnCompleted([in] HRESULT Status);
+
+    [id(2), helpstring("GetWaitTimeoout")]
+    HRESULT
+    GetWaitTimeout([out] FILETIME* pftTimeout);
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,545 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: wtypesbase.idl
+//
+//  Contents: This interface definition contains typedefs for remotable
+//            data types.
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+//
+// Import definitions of the base types related to the 64b porting effort.
+//
+import "basetsd.h";
+import "guiddef.h";
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+[ uuid(B1BEA154-1C2F-4da9-9ABF-6E2D24EEA1BE),
+  version(0.1), pointer_default(unique) ]
+
+interface IWinTypesBase
+{
+
+// just for local wtypesbase
+cpp_quote("#if 0")
+
+typedef byte BYTE;
+typedef unsigned short WORD;
+typedef unsigned int UINT;
+typedef int  INT;
+typedef long BOOL;
+typedef long LONG;
+typedef unsigned long DWORD;
+typedef void * HANDLE;
+typedef WORD *LPWORD;
+typedef DWORD *LPDWORD;
+typedef char CHAR;
+typedef [string] CHAR *LPSTR;
+typedef [string] const CHAR *LPCSTR;
+typedef wchar_t WCHAR;
+typedef WCHAR   TCHAR;
+typedef [string] WCHAR *LPWSTR;
+typedef [string] TCHAR *LPTSTR;
+typedef [string] const WCHAR *LPCWSTR;
+typedef [string] const TCHAR *LPCTSTR;
+typedef HANDLE *LPHANDLE;
+
+// just for local wtypesbase
+cpp_quote("#endif // 0")
+
+cpp_quote("#if defined(_WIN32) && !defined(OLE2ANSI)")
+
+typedef WCHAR                   OLECHAR;
+typedef [string] OLECHAR       *LPOLESTR;
+typedef [string] const OLECHAR *LPCOLESTR;
+cpp_quote("#define OLESTR(str) L##str")
+
+cpp_quote("")
+cpp_quote("#else")
+cpp_quote("")
+
+cpp_quote("typedef char      OLECHAR;")
+cpp_quote("typedef LPSTR     LPOLESTR;")
+cpp_quote("typedef LPCSTR    LPCOLESTR;")
+cpp_quote("#define OLESTR(str) str")
+
+cpp_quote("#endif")
+
+
+// This block contains types that are normally defined by the nt sdk in WINDEF.H
+// but we need them here for definitions that follow in this file.  If WINDEF.H
+// hasn't been included then we need to define them now so that WTYPESBASE.H
+// will compile.
+cpp_quote("#ifndef _WINDEF_")
+cpp_quote("#ifndef _MINWINDEF_")
+typedef void * PVOID, * LPVOID;
+typedef float   FLOAT;
+cpp_quote("#endif  //_MINWINDEF_")
+cpp_quote("#endif  //_WINDEF_")
+
+
+typedef unsigned char   UCHAR;
+typedef short           SHORT;
+typedef unsigned short  USHORT;
+typedef DWORD           ULONG;
+typedef double          DOUBLE;
+
+cpp_quote("#ifndef _DWORDLONG_")
+typedef unsigned __int64 DWORDLONG;
+typedef DWORDLONG *PDWORDLONG;
+cpp_quote("#endif // !_DWORDLONG_")
+
+cpp_quote("#ifndef _ULONGLONG_")
+typedef __int64 LONGLONG;
+typedef unsigned __int64 ULONGLONG;
+typedef LONGLONG *PLONGLONG;
+typedef ULONGLONG *PULONGLONG;
+cpp_quote("#endif // _ULONGLONG_")
+
+// just for local wtypesbase
+cpp_quote("#if 0")
+
+typedef struct _LARGE_INTEGER {
+    LONGLONG QuadPart;
+} LARGE_INTEGER;
+
+typedef LARGE_INTEGER *PLARGE_INTEGER;
+
+typedef struct _ULARGE_INTEGER {
+    ULONGLONG QuadPart;
+} ULARGE_INTEGER;
+
+// just for local wtypesbase
+cpp_quote("#endif // 0")
+
+
+cpp_quote("#ifndef _WINBASE_")
+
+cpp_quote("#ifndef _FILETIME_")
+cpp_quote("#define _FILETIME_")
+typedef struct _FILETIME
+{
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+} FILETIME, *PFILETIME, *LPFILETIME;
+cpp_quote("#endif // !_FILETIME")
+
+cpp_quote("#ifndef _SYSTEMTIME_")
+cpp_quote("#define _SYSTEMTIME_")
+typedef struct _SYSTEMTIME {
+    WORD wYear;
+    WORD wMonth;
+    WORD wDayOfWeek;
+    WORD wDay;
+    WORD wHour;
+    WORD wMinute;
+    WORD wSecond;
+    WORD wMilliseconds;
+} SYSTEMTIME, *PSYSTEMTIME, *LPSYSTEMTIME;
+
+cpp_quote("#endif // !_SYSTEMTIME")
+
+cpp_quote("#ifndef _SECURITY_ATTRIBUTES_")
+cpp_quote("#define _SECURITY_ATTRIBUTES_")
+typedef struct _SECURITY_ATTRIBUTES {
+    DWORD nLength;
+    LPVOID lpSecurityDescriptor;
+    BOOL bInheritHandle;
+} SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;
+cpp_quote("#endif // !_SECURITY_ATTRIBUTES_")
+
+cpp_quote("#ifndef SECURITY_DESCRIPTOR_REVISION")
+
+typedef USHORT SECURITY_DESCRIPTOR_CONTROL, *PSECURITY_DESCRIPTOR_CONTROL;
+
+typedef PVOID PSID;     // winnt
+
+typedef struct _ACL {
+    UCHAR AclRevision;
+    UCHAR Sbz1;
+    USHORT AclSize;
+    USHORT AceCount;
+    USHORT Sbz2;
+} ACL;
+typedef ACL *PACL;
+
+typedef struct _SECURITY_DESCRIPTOR {
+    UCHAR Revision;
+    UCHAR Sbz1;
+    SECURITY_DESCRIPTOR_CONTROL Control;
+    PSID Owner;
+    PSID Group;
+    PACL Sacl;
+    PACL Dacl;
+} SECURITY_DESCRIPTOR, *PISECURITY_DESCRIPTOR;
+
+cpp_quote("#endif // !SECURITY_DESCRIPTOR_REVISION")
+
+cpp_quote("#endif //_WINBASE_")
+
+typedef struct _COAUTHIDENTITY
+{
+  // User and Password length from lmcons.h
+  // Domain length === FQDN length which is 256
+  [size_is(UserLength+1)] USHORT *      User;
+  [range(0,256)]ULONG                   UserLength;
+  [size_is(DomainLength+1)] USHORT *    Domain;
+  [range(0,256)]ULONG                    DomainLength;
+  [size_is(PasswordLength+1)] USHORT *  Password;
+  [range(0,256)]ULONG                   PasswordLength;
+  ULONG                                 Flags;
+} COAUTHIDENTITY;
+
+typedef struct _COAUTHINFO
+{
+    DWORD               dwAuthnSvc;
+    DWORD               dwAuthzSvc;
+    LPWSTR              pwszServerPrincName;
+    DWORD               dwAuthnLevel;
+    DWORD               dwImpersonationLevel;
+    COAUTHIDENTITY *    pAuthIdentityData;
+    DWORD               dwCapabilities;
+} COAUTHINFO;
+
+//
+// SCODE, HRESULT
+//
+//
+//  Status values are 32 bit values layed out as follows:
+//
+//   3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
+//   1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
+//  +-+-----------------------------+-------------------------------+
+//  |S|       Facility              |               Code            |
+//  +-+-----------------------------+-------------------------------+
+//
+//  where
+//
+//      S - is the severity code
+//
+//          0 - Success
+//          1 - Error
+//
+//
+//      Facility - is the facility code
+//
+//      Code - is the facility's status code
+//
+// SCODE and HRESULT are mktyplib base types.
+//
+typedef LONG SCODE;
+typedef SCODE *PSCODE;
+
+cpp_quote("#ifndef _HRESULT_DEFINED")
+cpp_quote("#define _HRESULT_DEFINED")
+#if defined(_STRICT_HRESULT)
+typedef struct _HRESULT_STRUCT {
+        DWORD Data1;
+} HRESULT_STRUCT, *PHRESULT_STRUCT;
+typedef PHRESULT_STRUCT HRESULT;
+#else // defined(_STRICT_HRESULT)
+cpp_quote("#ifdef __midl")
+typedef LONG HRESULT;
+cpp_quote("#else // __midl")
+cpp_quote("typedef _Return_type_success_(return >= 0) LONG HRESULT;")
+cpp_quote("#endif // __midl")
+#endif // defined(_STRICT_HRESULT)
+cpp_quote("#endif // !_HRESULT_DEFINED")
+cpp_quote("")
+
+cpp_quote("#ifndef __OBJECTID_DEFINED")
+cpp_quote("#define __OBJECTID_DEFINED")
+cpp_quote("#define _OBJECTID_DEFINED")
+typedef struct _OBJECTID     // NOTE!! Order of structure members is important for OFS
+{                            // enumeration.
+   GUID Lineage;             // Unique for objects copied from same original and copies of.
+   ULONG Uniquifier; // Random, to provide uniqueness within small set with same
+} OBJECTID;                  // lineage id.
+cpp_quote("#endif // !_OBJECTID_DEFINED")
+
+//The following typedefs are used internally by MIDL.
+cpp_quote("#if 0")
+    /* MIDL 2.0+ definitions */
+    typedef GUID *REFGUID;
+    typedef IID *REFIID;
+    typedef CLSID *REFCLSID;
+cpp_quote("#endif // 0")
+
+/************************* Misc types ***********************************/
+
+// Common typdefs used in API paramaters, gleamed from compobj.h
+
+// memory context values; passed to CoGetMalloc
+typedef enum tagMEMCTX
+{
+    MEMCTX_TASK = 1,            // task (private) memory
+    MEMCTX_SHARED = 2,          // shared memory (between processes)
+    MEMCTX_MACSYSTEM = 3,       // on the mac, the system heap
+    // these are mostly for internal use...
+    MEMCTX_UNKNOWN = -1,        // unknown context (when asked about it)
+    MEMCTX_SAME = -2,           // same context (as some other pointer)
+} MEMCTX;
+
+// For ROT registry flags under AppID
+cpp_quote("#ifndef _ROTREGFLAGS_DEFINED")
+cpp_quote("#define _ROTREGFLAGS_DEFINED")
+cpp_quote("#define ROTREGFLAGS_ALLOWANYCLIENT 0x1")
+cpp_quote("#endif // !_ROTREGFLAGS_DEFINED")
+
+// For AppID registry flags under AppID
+cpp_quote("#ifndef _APPIDREGFLAGS_DEFINED")
+cpp_quote("#define _APPIDREGFLAGS_DEFINED")
+cpp_quote("#define APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP 0x1")
+cpp_quote("#define APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND 0x2")
+cpp_quote("#define APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY 0x4")
+cpp_quote("#define APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN 0x8")
+cpp_quote("#define APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION 0x10")
+cpp_quote("#define APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY 0x20")
+cpp_quote("#define APPIDREGFLAGS_RESERVED1 0x40")
+cpp_quote("#define APPIDREGFLAGS_RESERVED2 0x80")
+cpp_quote("#define APPIDREGFLAGS_RESERVED3 0x100")
+cpp_quote("#define APPIDREGFLAGS_RESERVED4 0x200")
+cpp_quote("#define APPIDREGFLAGS_RESERVED5 0x400")
+cpp_quote("#define APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU 0x800")
+cpp_quote("#define APPIDREGFLAGS_RESERVED7 0x1000")
+cpp_quote("#define APPIDREGFLAGS_RESERVED8 0x2000")
+cpp_quote("#define APPIDREGFLAGS_RESERVED9 0x4000")
+cpp_quote("#define APPIDREGFLAGS_RESERVED10 0x8000")
+cpp_quote("#endif // !_APPIDREGFLAGS_DEFINED")
+
+// Flags controlling security behavior of SCM/Resolver calls from RPCSS
+cpp_quote("#ifndef _DCOMSCM_REMOTECALL_FLAGS_DEFINED")
+cpp_quote("#define _DCOMSCM_REMOTECALL_FLAGS_DEFINED")
+cpp_quote("#define DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES 0x1")
+cpp_quote("#define DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL 0x2")
+cpp_quote("#define DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES 0x4")
+cpp_quote("#define DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL 0x8")
+cpp_quote("#define DCOMSCM_PING_USE_MID_AUTHNSERVICE 0x10")
+cpp_quote("#define DCOMSCM_PING_DISALLOW_UNSECURE_CALL 0x20")
+cpp_quote("#endif // !_DCOMSCM_REMOTECALL_FLAGS_DEFINED")
+
+
+// class context: used to determine what scope and kind of class object to use
+// NOTE: this is a bitwise enum
+typedef enum tagCLSCTX
+{
+    CLSCTX_INPROC_SERVER = 0x01,     // server dll (runs in same process as caller)
+    CLSCTX_INPROC_HANDLER = 0x02,    // handler dll (runs in same process as caller)
+    CLSCTX_LOCAL_SERVER = 0x04,      // server exe (runs on same machine; diff proc)
+    CLSCTX_INPROC_SERVER16 = 0x08,   // 16-bit server dll (runs in same process as caller)
+    CLSCTX_REMOTE_SERVER = 0x10,     // remote server exe (runs on different machine)
+    CLSCTX_INPROC_HANDLER16 = 0x20,  // 16-bit handler dll (runs in same process as caller)
+    CLSCTX_RESERVED1 = 0x40,         // formerly INPROC_SERVERX86, deprecated
+    CLSCTX_RESERVED2 = 0x80,         // formerly INPROC_HANDLERX86, deprecated
+    CLSCTX_RESERVED3 = 0x100,        // formerly ESERVER_HANDLER, deprecated
+    CLSCTX_RESERVED4 = 0x200,        // formerly CLSCTX_KERNEL_SERVER, now used only in kmode
+    CLSCTX_NO_CODE_DOWNLOAD = 0x400, // disallow code download from the Directory Service (if any) or the internet
+    CLSCTX_RESERVED5 = 0x800,        // formerly NO_WX86_TRANSLATION, deprecated
+    CLSCTX_NO_CUSTOM_MARSHAL = 0x1000,
+    CLSCTX_ENABLE_CODE_DOWNLOAD = 0x2000,
+                                     // allow code download from the Directory Service (if any) or the internet
+    CLSCTX_NO_FAILURE_LOG = 0x4000,  // do not log messages about activation failure (should one occur) to Event Log
+    CLSCTX_DISABLE_AAA   = 0x8000,   // Disable activate-as-activator capability for this activation only
+    CLSCTX_ENABLE_AAA   = 0x10000,   // Enable activate-as-activator capability for this activation only
+    CLSCTX_FROM_DEFAULT_CONTEXT = 0x20000,   // Begin this activation from the default context of the current apartment
+    CLSCTX_ACTIVATE_X86_SERVER    = 0x40000, // Pick x86 server only
+    CLSCTX_ACTIVATE_32_BIT_SERVER = CLSCTX_ACTIVATE_X86_SERVER, // Old name for CLSCTX_ACTIVATE_X86_SERVER; value must be identical for compatibility
+    CLSCTX_ACTIVATE_64_BIT_SERVER = 0x80000, // Pick 64-bit server only
+    CLSCTX_ENABLE_CLOAKING = 0x100000, 	      // Use the thread token (if present) for the activation.
+// The following flag is internal only
+    CLSCTX_APPCONTAINER = 0x400000,  // Internal CLSCTX used to indicate activation is for app container
+    CLSCTX_ACTIVATE_AAA_AS_IU = 0x800000, // Interactive User activation behavior for As-Activator servers.
+    CLSCTX_RESERVED6 = 0x1000000, // reserved
+    CLSCTX_ACTIVATE_ARM32_SERVER  = 0x2000000, // Pick ARM32 server only
+    CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION = 0x4000000, // allow activations of servers configured in insufficiently trusted locations.
+    CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE = 0x8000000, // do not activate the server unless it has privilege equal to the caller or greater
+    CLSCTX_DO_NOT_ELEVATE_SERVER = 0x10000000, // do not propagate the caller’s elevated privilege to the server
+    CLSCTX_PS_DLL = 0x80000000, // Internal CLSCTX used for loading Proxy/Stub DLLs
+ } CLSCTX;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(CLSCTX);")
+
+cpp_quote("#define CLSCTX_VALID_MASK \\")
+cpp_quote("   (CLSCTX_INPROC_SERVER | \\")
+cpp_quote("    CLSCTX_INPROC_HANDLER | \\")
+cpp_quote("    CLSCTX_LOCAL_SERVER | \\")
+cpp_quote("    CLSCTX_INPROC_SERVER16 | \\")
+cpp_quote("    CLSCTX_REMOTE_SERVER | \\")
+cpp_quote("    CLSCTX_NO_CODE_DOWNLOAD | \\")
+cpp_quote("    CLSCTX_NO_CUSTOM_MARSHAL | \\")
+cpp_quote("    CLSCTX_ENABLE_CODE_DOWNLOAD | \\")
+cpp_quote("    CLSCTX_NO_FAILURE_LOG | \\")
+cpp_quote("    CLSCTX_DISABLE_AAA | \\")
+cpp_quote("    CLSCTX_ENABLE_AAA | \\")
+cpp_quote("    CLSCTX_FROM_DEFAULT_CONTEXT | \\")
+cpp_quote("    CLSCTX_ACTIVATE_X86_SERVER | \\")
+cpp_quote("    CLSCTX_ACTIVATE_64_BIT_SERVER | \\")
+cpp_quote("    CLSCTX_ENABLE_CLOAKING | \\")
+cpp_quote("    CLSCTX_APPCONTAINER | \\")
+cpp_quote("    CLSCTX_ACTIVATE_AAA_AS_IU | \\")
+cpp_quote("    CLSCTX_RESERVED6 | \\")
+cpp_quote("    CLSCTX_ACTIVATE_ARM32_SERVER | \\")
+cpp_quote("    CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION | \\")
+cpp_quote("    CLSCTX_DO_NOT_ELEVATE_SERVER | \\")
+cpp_quote("    CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE | \\")
+cpp_quote("    CLSCTX_PS_DLL)")
+
+// marshaling flags; passed to CoMarshalInterface
+typedef enum tagMSHLFLAGS
+{
+    MSHLFLAGS_NORMAL = 0,       // normal marshaling via proxy/stub
+    MSHLFLAGS_TABLESTRONG = 1,  // keep object alive; must explicitly release
+    MSHLFLAGS_TABLEWEAK = 2,    // doesn't hold object alive; still must release
+    MSHLFLAGS_NOPING = 4,       // remote clients dont 'ping' to keep objects alive
+    MSHLFLAGS_RESERVED1 = 8,    // reserved
+    MSHLFLAGS_RESERVED2 = 16,   // reserved
+    MSHLFLAGS_RESERVED3 = 32,   // reserved
+    MSHLFLAGS_RESERVED4 = 64    // reserved
+} MSHLFLAGS;
+
+
+// marshal context: determines the destination context of the marshal operation
+typedef enum tagMSHCTX
+{
+    MSHCTX_LOCAL = 0,           // unmarshal context is local (e.g. shared memory)
+    MSHCTX_NOSHAREDMEM = 1,     // unmarshal context has no shared memory access
+    MSHCTX_DIFFERENTMACHINE = 2,// unmarshal context is on a different machine
+    MSHCTX_INPROC = 3,          // unmarshal context is on different thread
+    MSHCTX_CROSSCTX = 4,        // unmarshal context is on different context
+    MSHCTX_CONTAINER = 5,       // unmarshal context is in a different container
+} MSHCTX;
+
+// #######################################################################
+//
+//  User marshal support for Windows data types.
+
+//
+//  Frequently used helpers: sized blobs
+//
+//      Never put [user_marshal] or [wire_marshal] on the helpers directly.
+//
+
+// Simple blobs.
+
+typedef struct _BYTE_BLOB {
+                        ULONG   clSize;
+    [size_is(clSize)]   byte            abData[];
+} BYTE_BLOB;
+
+typedef [unique] BYTE_BLOB * UP_BYTE_BLOB;
+
+typedef struct _WORD_BLOB {
+                        ULONG   clSize;
+    [size_is(clSize)]   unsigned short  asData[];
+} WORD_BLOB;
+
+typedef [unique] WORD_BLOB * UP_WORD_BLOB;
+
+typedef struct _DWORD_BLOB {
+                        ULONG   clSize;
+    [size_is(clSize)]   ULONG   alData[];
+} DWORD_BLOB;
+
+typedef [unique] DWORD_BLOB * UP_DWORD_BLOB;
+
+// Flagged blobs.
+
+typedef struct _FLAGGED_BYTE_BLOB {
+                        ULONG   fFlags;
+                        ULONG   clSize;
+    [size_is(clSize)]   byte            abData[];
+} FLAGGED_BYTE_BLOB;
+
+typedef [unique] FLAGGED_BYTE_BLOB * UP_FLAGGED_BYTE_BLOB;
+
+typedef struct _FLAGGED_WORD_BLOB {
+                        ULONG   fFlags;
+                        ULONG   clSize;
+    [size_is(clSize)]   unsigned short  asData[];
+} FLAGGED_WORD_BLOB;
+
+typedef [unique] FLAGGED_WORD_BLOB * UP_FLAGGED_WORD_BLOB;
+
+// Frequently used helpers with sized pointers.
+
+typedef struct _BYTE_SIZEDARR {
+                        ULONG   clSize;
+    [size_is(clSize)]   byte     *      pData ;
+} BYTE_SIZEDARR;
+
+typedef struct _SHORT_SIZEDARR {
+                        ULONG   clSize;
+    [size_is(clSize)]   unsigned short* pData ;
+} WORD_SIZEDARR;
+
+typedef struct _LONG_SIZEDARR {
+                        ULONG   clSize;
+    [size_is(clSize)]   ULONG * pData ;
+} DWORD_SIZEDARR;
+
+typedef struct _HYPER_SIZEDARR {
+                        ULONG   clSize;
+    [size_is(clSize)]   hyper         * pData ;
+} HYPER_SIZEDARR;
+
+}
+
+// #########################################################################
+//
+
+typedef boolean BOOLEAN;
+
+cpp_quote("#ifndef _tagBLOB_DEFINED")
+cpp_quote("#define _tagBLOB_DEFINED")
+cpp_quote("#define _BLOB_DEFINED")
+cpp_quote("#define _LPBLOB_DEFINED")
+typedef struct tagBLOB {
+    ULONG cbSize;
+    [size_is(cbSize)]
+    BYTE  *pBlobData;
+} BLOB, * LPBLOB;
+cpp_quote("#endif")
+
+// Access Control - ntseapi.h
+cpp_quote( "#ifndef SID_IDENTIFIER_AUTHORITY_DEFINED" )
+cpp_quote( "#define SID_IDENTIFIER_AUTHORITY_DEFINED" )
+typedef struct _SID_IDENTIFIER_AUTHORITY {
+    UCHAR Value[6];
+} SID_IDENTIFIER_AUTHORITY, *PSID_IDENTIFIER_AUTHORITY;
+cpp_quote( "#endif" )
+
+cpp_quote( "#ifndef SID_DEFINED" )
+cpp_quote( "#define SID_DEFINED" )
+typedef struct _SID {
+   BYTE Revision;
+   BYTE SubAuthorityCount;
+   SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
+   [size_is(SubAuthorityCount)] ULONG SubAuthority[*];
+} SID, *PISID;
+
+typedef struct _SID_AND_ATTRIBUTES {
+    SID * Sid;
+    DWORD Attributes;
+    } SID_AND_ATTRIBUTES, * PSID_AND_ATTRIBUTES;
+cpp_quote( "#endif" )
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+

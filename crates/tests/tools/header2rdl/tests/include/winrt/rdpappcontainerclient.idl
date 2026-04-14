@@ -1,0 +1,370 @@
+// ----------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//
+//  Copyright (C) Microsoft Corporation, 1998 - 2003
+//
+//  IDL File for MS RDP Control
+//
+//  File: rdpappcontainerclient.idl
+//
+// ----------------------------------------------------------------------------
+#include <olectl.h>
+
+//
+// This file will be processed by the MIDL tool to
+// produce the type library (mstsax.tlb) and marshalling code.
+//
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+//
+// The following section is for DISPIDs for the new ActiveX that may be hosted in an AppContainer.
+//
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClient interface (701-719)
+//
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT                        = 701;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT                     = 702;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT                      = 703;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS       = 704;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS = 705;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT                   = 706;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT                   = 707;
+
+const int DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS                      = 710;
+const int DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS                       = 711;
+const int DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER                 = 712;
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientSettings interface (720-729)
+//
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY             = 720;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY             = 721;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS              = 722;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS           = 723;
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientActions interface (730-739)
+//
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES      = 730;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES       = 731;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION       = 732;
+const int DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT                = 733;
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientTouchPointer interface (740-749)
+//
+const int DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED          = 740;
+const int DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED    = 741;
+const int DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED     = 742;
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientEvents - common (750-799)
+//
+const int DISPID_AX_CONNECTING                   = 750;
+const int DISPID_AX_CONNECTED                    = 751;
+const int DISPID_AX_LOGINCOMPLETED               = 752;
+const int DISPID_AX_DISCONNECTED                 = 753;
+const int DISPID_AX_STATUSCHANGED                = 754;
+const int DISPID_AX_AUTORECONNECTING             = 755;
+const int DISPID_AX_AUTORECONNECTED              = 756;
+const int DISPID_AX_DIALOGDISPLAYING             = 757;
+const int DISPID_AX_DIALOGDISMISSED              = 758;
+const int DISPID_AX_NETWORKSTATUSCHANGED         = 759;
+const int DISPID_AX_ADMINMESSAGERECEIVED         = 760;
+const int DISPID_AX_KEYCOMBINATIONPRESSED        = 761;
+const int DISPID_AX_REMOTEDESKTOPSIZECHANGED     = 762;
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientEvents - TouchPointer (800-849)
+// 
+const int DISPID_AX_TOUCHPOINTERCURSORMOVED      = 800;
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientSettings
+// (Windows8.0)
+//
+[
+    object,
+    uuid(48A0F2A7-2713-431f-BBAC-6F4558E7D64D),
+    dual,
+    pointer_default(unique)
+]
+
+interface IRemoteDesktopClientSettings: IDispatch
+{
+    typedef enum {
+        PasswordEncodingUTF8       = 0,
+        PasswordEncodingUTF16LE    = 1,
+        PasswordEncodingUTF16BE    = 2
+    } PasswordEncodingType;
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS)
+    ]
+    HRESULT
+    ApplySettings(
+        [in] BSTR rdpFileContents
+        );
+        
+    [   
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS)
+    ]
+    HRESULT
+    RetrieveSettings(
+        [out, retval] BSTR* rdpFileContents
+        );
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY)
+    ]
+    HRESULT
+    GetRdpProperty(
+        [in] BSTR propertyName,
+        [out, retval] VARIANT *value
+        );
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY)
+    ]
+    HRESULT
+    SetRdpProperty(
+        [in] BSTR propertyName,
+        [in] VARIANT value
+        );
+}
+
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientActions
+// (Windows8.0)
+//
+[
+    object,
+    uuid(7D54BC4E-1028-45d4-8B0A-B9B6BFFBA176),
+    dual,
+    pointer_default(unique)
+]
+interface IRemoteDesktopClientActions: IDispatch
+{
+    typedef enum {
+        RemoteActionCharms      = 0,
+        RemoteActionAppbar      = 1,
+        RemoteActionSnap        = 2,
+        RemoteActionStartScreen = 3,
+        RemoteActionAppSwitch   = 4,
+    } RemoteActionType;
+
+   	typedef enum {
+        SnapshotEncodingDataUri = 0,
+    } SnapshotEncodingType;
+
+    typedef enum {
+        SnapshotFormatPng       = 0,
+        SnapshotFormatJpeg      = 1,
+        SnapshotFormatBmp       = 2,
+    } SnapshotFormatType;
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES)
+    ]
+    HRESULT
+    SuspendScreenUpdates();
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES)
+    ]
+    HRESULT
+    ResumeScreenUpdates();
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION)
+    ]
+    HRESULT
+    ExecuteRemoteAction(
+        [in] RemoteActionType remoteAction
+        );
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT)
+    ]
+    HRESULT
+    GetSnapshot(
+        [in] SnapshotEncodingType snapshotEncoding,
+        [in] SnapshotFormatType snapshotFormat,
+        [in] ULONG snapshotWidth,
+        [in] ULONG snapshotHeight,
+        [out, retval] BSTR* snapshotData
+        );
+}
+
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClientTouchPointer
+// (Windows8.0)
+//
+[
+    object,
+    uuid(260ec22d-8cbc-44b5-9e88-2a37f6c93ae9),
+    dual,
+    pointer_default(unique)
+]
+interface IRemoteDesktopClientTouchPointer: IDispatch
+{
+    [
+        propput,
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED)
+    ]
+    HRESULT
+    Enabled(
+        [in] VARIANT_BOOL enabled
+        );
+
+    [
+        propget,
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED)
+    ]
+    HRESULT
+    Enabled(
+        [out, retval] VARIANT_BOOL* enabled
+        );
+
+    [
+        propput,
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED)
+    ]
+    HRESULT
+    EventsEnabled(
+        [in] VARIANT_BOOL eventsEnabled
+        );
+
+    [
+        propget,
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED)
+    ]
+    HRESULT
+    EventsEnabled(
+        [out, retval] VARIANT_BOOL* eventsEnabled
+        );
+
+    [
+        propput,
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED)
+    ]
+    HRESULT
+    PointerSpeed(
+        [in] ULONG pointerSpeed
+        );
+
+    [
+        propget,
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED)
+    ]
+    HRESULT
+    PointerSpeed(
+        [out, retval] ULONG* pointerSpeed
+        );
+}
+
+// ----------------------------------------------------------------------------
+// IRemoteDesktopClient
+// (Windows8.0)
+//
+
+[
+    object,
+    uuid(57D25668-625A-4905-BE4E-304CAA13F89C),
+    dual,
+    pointer_default(unique)
+]
+interface IRemoteDesktopClient: IDispatch
+{
+    typedef enum {
+        KeyCombinationHome      = 0,
+        KeyCombinationLeft      = 1,
+        KeyCombinationUp        = 2,
+        KeyCombinationRight     = 3,
+        KeyCombinationDown      = 4,
+        KeyCombinationScroll    = 5,
+    } KeyCombinationType;
+    
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT)
+    ]
+    HRESULT 
+    Connect();
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT)
+    ]
+    HRESULT 
+    Disconnect();
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT)
+    ]
+    HRESULT
+    Reconnect(
+        [in] ULONG width,
+        [in] ULONG height
+        );
+
+    [
+        propget, 
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS)
+    ]
+    HRESULT 
+    Settings(
+        [out, retval] IRemoteDesktopClientSettings** settings
+        );
+
+    [
+        propget, 
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS)
+    ]
+    HRESULT 
+    Actions(
+        [out, retval] IRemoteDesktopClientActions** actions
+        );
+
+    [
+        propget, 
+        id(DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER)
+    ]
+    HRESULT 
+    TouchPointer(
+        [out, retval] IRemoteDesktopClientTouchPointer** touchPointer
+        );
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS)
+    ]
+    HRESULT 
+    DeleteSavedCredentials(
+        [in] BSTR serverName
+        );
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS)
+    ]
+    HRESULT
+    UpdateSessionDisplaySettings(
+        [in] ULONG width,
+        [in] ULONG height
+        );
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT)
+    ]
+    HRESULT
+    attachEvent(
+    	[in] BSTR eventName,
+    	[in] IDispatch* callback
+    	);
+
+    [
+        id(DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT)
+    ]
+    HRESULT
+    detachEvent(
+    	[in] BSTR eventName,
+    	[in] IDispatch* callback
+    	);
+}
+cpp_quote("#endif")

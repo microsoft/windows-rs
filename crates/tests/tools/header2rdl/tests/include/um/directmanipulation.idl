@@ -1,0 +1,1046 @@
+//****************************************************************************
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       directmanipulation.idl
+//
+//  Contents:   Direct Manipulation interface definitions and related types and enums.
+//
+//****************************************************************************
+
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  directmanipulation.h")
+cpp_quote("//")
+cpp_quote("//  Direct Manipulation interface definitions and related types and enums")
+cpp_quote("//")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#ifdef LIFTED_SDK
+#define DMANIP_INTERFACE(system_uuid, lifted_uuid, help_string)                 \
+    [                                                                           \
+        local,                                                                  \
+        object,                                                                 \
+        uuid(lifted_uuid),                                                      \
+        helpstring(help_string),                                                \
+        pointer_default(unique)                                                 \
+    ]
+
+#define DMANIP_LIBRARY(system_uuid, lifted_uuid, help_string)                   \
+    [                                                                           \
+        uuid(lifted_uuid),                                                      \
+        version(1.0),                                                           \
+        helpstring(help_string),                                                \
+    ]
+
+#define DMANIP_CLASS(system_uuid, lifted_uuid, help_string, class_name)         \
+    [                                                                           \
+        uuid(lifted_uuid),                                                      \
+        helpstring(help_string),                                                \
+    ]                                                                           \
+    coclass Microsoft_ ## class_name
+
+#define DMANIP_INTEROP_CLASS(system_uuid, lifted_uuid, help_string, class_name) \
+    [                                                                           \
+        noncreatable, hidden, restricted,                                       \
+        uuid(lifted_uuid),                                                      \
+        helpstring(help_string),                                                \
+    ]                                                                           \
+    coclass Microsoft_ ## class_name
+
+#define DMANIP_CLSID(clsid, system_uuid, system_str, lifted_uuid, lifted_str)   \
+    cpp_quote("DEFINE_GUID(CLSID_Microsoft_"#clsid", "##lifted_str");")
+
+#else
+#define DMANIP_INTERFACE(system_uuid, lifted_uuid, help_string)                 \
+    [                                                                           \
+        local,                                                                  \
+        object,                                                                 \
+        uuid(system_uuid),                                                      \
+        helpstring(help_string),                                                \
+        pointer_default(unique)                                                 \
+    ]
+
+#define DMANIP_LIBRARY(system_uuid, lifted_uuid, help_string)                   \
+    [                                                                           \
+        uuid(system_uuid),                                                      \
+        version(1.0),                                                           \
+        helpstring(help_string),                                                \
+    ]
+
+#define DMANIP_CLASS(system_uuid, lifted_uuid, help_string, class_name)         \
+    [                                                                           \
+        uuid(system_uuid),                                                      \
+        helpstring(help_string),                                                \
+    ]                                                                           \
+    coclass class_name
+
+#define DMANIP_INTEROP_CLASS(system_uuid, lifted_uuid, help_string, class_name) \
+    [                                                                           \
+        noncreatable, hidden, restricted,                                       \
+        uuid(system_uuid),                                                      \
+        helpstring(help_string),                                                \
+    ]                                                                           \
+    coclass class_name
+
+#define DMANIP_CLSID(clsid, system_uuid, system_str, lifted_uuid, lifted_str)   \
+    cpp_quote("DEFINE_GUID(CLSID_"#clsid", "##system_str");")
+
+#endif /*LIFTED_SDK*/
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if 0")
+typedef void* HWND;
+cpp_quote("#endif")
+
+interface IDirectManipulationManager;
+interface IDirectManipulationUpdateManager;
+interface IDirectManipulationUpdateHandler;
+interface IDirectManipulationFrameInfoProvider;
+interface IDirectManipulationViewport;
+interface IDirectManipulationViewportEventHandler;
+interface IDirectManipulationContent;
+
+
+// Defines manipulation states
+typedef enum DIRECTMANIPULATION_STATUS
+{
+    DIRECTMANIPULATION_BUILDING  = 0,   // Not yet been enabled
+    DIRECTMANIPULATION_ENABLED   = 1,   // Enabled to accept input
+    DIRECTMANIPULATION_DISABLED  = 2,   // Disabled and can be re-enabled
+    DIRECTMANIPULATION_RUNNING   = 3,   // Currently accepting input
+    DIRECTMANIPULATION_INERTIA   = 4,   // Currently accepting inertia
+    DIRECTMANIPULATION_READY     = 5,   // Ready to accept input
+    DIRECTMANIPULATION_SUSPENDED = 6    // Accepting input but output is suspended
+} DIRECTMANIPULATION_STATUS;
+
+// Defines hit-testing options
+// Note: if new types are ever added, make sure to update DIRECTMANIPULATION_HITTEST_TYPE_SYNCHRONOUS_INCLUDE_PTP
+typedef enum DIRECTMANIPULATION_HITTEST_TYPE
+{
+    // The hit-test thread receives WM_POINTERDOWN always
+    DIRECTMANIPULATION_HITTEST_TYPE_ASYNCHRONOUS     = 0x00000000,
+
+    // The UI thread receives WM_POINTERDOWN always
+    DIRECTMANIPULATION_HITTEST_TYPE_SYNCHRONOUS      = 0x00000001,
+
+    // The hit-test thread receives WM_POINTERDOWN first. If it doesn't call SetContact() for this pointer, the UI thread receives WM_POINTERDOWN
+    DIRECTMANIPULATION_HITTEST_TYPE_AUTO_SYNCHRONOUS = 0x00000002
+
+} DIRECTMANIPULATION_HITTEST_TYPE;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_HITTEST_TYPE)")
+
+// Defines interaction configuration states
+typedef enum DIRECTMANIPULATION_CONFIGURATION
+{
+    // Configuration settings for all types
+    DIRECTMANIPULATION_CONFIGURATION_NONE                   = 0x00000000,
+    DIRECTMANIPULATION_CONFIGURATION_INTERACTION            = 0x00000001,
+
+    // Configuration settings for manipulation type
+    DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_X          = 0x00000002,
+    DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_Y          = 0x00000004,
+    DIRECTMANIPULATION_CONFIGURATION_SCALING                = 0x00000010,
+    DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_INERTIA    = 0x00000020,
+    DIRECTMANIPULATION_CONFIGURATION_SCALING_INERTIA        = 0x00000080,
+    DIRECTMANIPULATION_CONFIGURATION_RAILS_X                = 0x00000100,
+    DIRECTMANIPULATION_CONFIGURATION_RAILS_Y                = 0x00000200,
+} DIRECTMANIPULATION_CONFIGURATION;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_CONFIGURATION)")
+
+// Defines gestures detected by Direct Manipulation
+typedef enum DIRECTMANIPULATION_GESTURE_CONFIGURATION
+{
+    // Default gestures are always detected
+    DIRECTMANIPULATION_GESTURE_NONE                         = 0x00000000,
+    DIRECTMANIPULATION_GESTURE_DEFAULT                      = 0x00000000,
+    DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_VERTICAL         = 0x00000008,
+    DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_HORIZONTAL       = 0x00000010,
+    DIRECTMANIPULATION_GESTURE_PINCH_ZOOM                   = 0x00000020,
+} DIRECTMANIPULATION_GESTURE_CONFIGURATION;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_GESTURE_CONFIGURATION)")
+
+// Defines the manipulation motion types
+typedef enum DIRECTMANIPULATION_MOTION_TYPES
+{
+    DIRECTMANIPULATION_MOTION_NONE       = 0x0000,     // None
+    DIRECTMANIPULATION_MOTION_TRANSLATEX = 0x0001,     // Translation in the horizontal axis
+    DIRECTMANIPULATION_MOTION_TRANSLATEY = 0x0002,     // Translation in the vertical axis
+    DIRECTMANIPULATION_MOTION_ZOOM       = 0x0004,     // Zoom
+    DIRECTMANIPULATION_MOTION_CENTERX    = 0x0010,     // The horizontal center of the manipulation
+    DIRECTMANIPULATION_MOTION_CENTERY    = 0x0020,     // The vertical center of the manipulation
+    DIRECTMANIPULATION_MOTION_ALL        = DIRECTMANIPULATION_MOTION_TRANSLATEX |
+                                           DIRECTMANIPULATION_MOTION_TRANSLATEY |
+                                           DIRECTMANIPULATION_MOTION_ZOOM |
+                                           DIRECTMANIPULATION_MOTION_CENTERX |
+                                           DIRECTMANIPULATION_MOTION_CENTERY
+} DIRECTMANIPULATION_MOTION_TYPES;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_MOTION_TYPES)")
+
+// Defines viewport options
+typedef enum DIRECTMANIPULATION_VIEWPORT_OPTIONS
+{
+    DIRECTMANIPULATION_VIEWPORT_OPTIONS_DEFAULT              = 0x0000,
+
+    // This viewport automatically disables itself when a manipulation or a gesture is over
+    DIRECTMANIPULATION_VIEWPORT_OPTIONS_AUTODISABLE          = 0x0001,
+
+    // This viewport updates its content manually by a call to IDirectManipulationUpdateManager::Update (instead of during an input event)
+    DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE         = 0x0002,
+
+    // The UI thread receives all input for contacts associated first with this viewport, when it is running
+    DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT                = 0x0004,
+
+    // This viewport is not implicitly hittested
+    DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST      = 0x0008,
+
+    // Disable pixel snapping on this viewport
+    DIRECTMANIPULATION_VIEWPORT_OPTIONS_DISABLEPIXELSNAPPING = 0x0010,
+
+} DIRECTMANIPULATION_VIEWPORT_OPTIONS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_VIEWPORT_OPTIONS)")
+
+// Defines the rest point behavior of a region
+typedef enum DIRECTMANIPULATION_SNAPPOINT_TYPE
+{
+    DIRECTMANIPULATION_SNAPPOINT_MANDATORY          = 0, // The motion will always rest at a snap point
+    DIRECTMANIPULATION_SNAPPOINT_OPTIONAL           = 1, // The motion will rest at a snap point if it ends near it
+    DIRECTMANIPULATION_SNAPPOINT_MANDATORY_SINGLE   = 2, // The motion will always rest at the next snap point
+    DIRECTMANIPULATION_SNAPPOINT_OPTIONAL_SINGLE    = 3, // The motion will rest at the next snap point if it starts far from it
+} DIRECTMANIPULATION_SNAPPOINT_TYPE;
+
+// Define the coordinate system for snap points
+typedef enum DIRECTMANIPULATION_SNAPPOINT_COORDINATE
+{
+    DIRECTMANIPULATION_COORDINATE_BOUNDARY = 0x00, // The origin of snap points coordinates is the content rectangle
+    DIRECTMANIPULATION_COORDINATE_ORIGIN   = 0x01, // The origin of snap points coordinates is a specified origin
+    DIRECTMANIPULATION_COORDINATE_MIRRORED = 0x10  // The direction of snap points coordinates is reversed relative to the origin
+} DIRECTMANIPULATION_SNAPPOINT_COORDINATE;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_SNAPPOINT_COORDINATE)")
+
+// Defines horizontal content alignment inside a viewport
+typedef enum DIRECTMANIPULATION_HORIZONTALALIGNMENT
+{
+    DIRECTMANIPULATION_HORIZONTALALIGNMENT_NONE         = 0x00,
+    DIRECTMANIPULATION_HORIZONTALALIGNMENT_LEFT         = 0x01,
+    DIRECTMANIPULATION_HORIZONTALALIGNMENT_CENTER       = 0x02,
+    DIRECTMANIPULATION_HORIZONTALALIGNMENT_RIGHT        = 0x04,
+    DIRECTMANIPULATION_HORIZONTALALIGNMENT_UNLOCKCENTER = 0x08
+} DIRECTMANIPULATION_HORIZONTALALIGNMENT;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_HORIZONTALALIGNMENT)")
+
+// Defines vertical content alignment inside a viewport
+typedef enum DIRECTMANIPULATION_VERTICALALIGNMENT
+{
+    DIRECTMANIPULATION_VERTICALALIGNMENT_NONE           = 0x00,
+    DIRECTMANIPULATION_VERTICALALIGNMENT_TOP            = 0x01,
+    DIRECTMANIPULATION_VERTICALALIGNMENT_CENTER         = 0x02,
+    DIRECTMANIPULATION_VERTICALALIGNMENT_BOTTOM         = 0x04,
+    DIRECTMANIPULATION_VERTICALALIGNMENT_UNLOCKCENTER   = 0x08
+} DIRECTMANIPULATION_VERTICALALIGNMENT;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_VERTICALALIGNMENT)")
+
+// Viewport mode options (superseded by DIRECTMANIPULATION_VIEWPORT_OPTIONS)
+typedef enum DIRECTMANIPULATION_INPUT_MODE
+{
+    DIRECTMANIPULATION_INPUT_MODE_AUTOMATIC    = 0,
+    DIRECTMANIPULATION_INPUT_MODE_MANUAL       = 1
+} DIRECTMANIPULATION_INPUT_MODE;
+
+
+// Constants
+const UINT32 DIRECTMANIPULATION_KEYBOARDFOCUS   = 0xFFFFFFFE; // Pseudo-pointer ID for keyboard
+const UINT32 DIRECTMANIPULATION_MOUSEFOCUS      = 0xFFFFFFFD; // Pseudo-pointer ID for mouse
+
+const float DIRECTMANIPULATION_MINIMUM_ZOOM = (float) 0.1; // The minimum zoom boundary permitted is 10%
+
+// Secondary content class-ids
+
+DMANIP_CLSID(
+    VerticalIndicatorContent,
+    {A10B5F17-AFE0-4AA2-91E9-3E7001D2E6B4},
+    "0xa10b5f17, 0xafe0, 0x4aa2, 0x91, 0xe9, 0x3e, 0x70, 0x1, 0xd2, 0xe6, 0xb4",
+    {B45FA27B-1C61-4B5F-BB1F-0E07606AA5D2},
+    "0xB45FA27B, 0x1C61, 0x4B5F, 0xBB, 0x1F, 0x0E, 0x07, 0x60, 0x6A, 0xA5, 0xD2")
+
+DMANIP_CLSID(
+    HorizontalIndicatorContent,
+    {E7D18CF5-3EC7-44D5-A76B-3770F3CF903D},
+    "0xe7d18cf5, 0x3ec7, 0x44d5, 0xa7, 0x6b, 0x37, 0x70, 0xf3, 0xcf, 0x90, 0x3d",
+    {BCA11F2C-3120-48FD-8CE1-48BBC34062FC},
+    "0xBCA11F2C, 0x3120, 0x48FD, 0x8C, 0xE1, 0x48, 0xBB, 0xC3, 0x40, 0x62, 0xFC")
+
+DMANIP_CLSID(
+    VirtualViewportContent,
+    {3206A19A-86F0-4CB4-A7F3-16E3B7E2D852},
+    "0x3206a19a, 0x86f0, 0x4cb4, 0xa7, 0xf3, 0x16, 0xe3, 0xb7, 0xe2, 0xd8, 0x52",
+    {30CAE781-6F39-4397-8A62-FF22AD12C379},
+    "0x30CAE781, 0x6F39, 0x4397, 0x8A, 0x62, 0xFF, 0x22, 0xAD, 0x12, 0xC3, 0x79")
+
+// Behavior objects' class-ids
+
+DMANIP_CLSID(
+    DragDropConfigurationBehavior,
+    {09B01B3E-BA6C-454D-82E8-95E352329F23},
+    "0x09b01b3e, 0xba6c, 0x454d, 0x82, 0xe8, 0x95, 0xe3, 0x52, 0x32, 0x9f, 0x23",
+    {93E92A0A-67E1-4F7C-9AF2-E4B4D18C5FE4},
+    "0x93E92A0A, 0x67E1, 0x4F7C, 0x9A, 0xF2, 0xE4, 0xB4, 0xD1, 0x8C, 0x5F, 0xE4")
+
+DMANIP_CLSID(
+    AutoScrollBehavior,
+    {26126A51-3C70-4C9A-AEC2-948849EEB093},
+    "0x26126a51, 0x3c70, 0x4c9a, 0xae, 0xc2, 0x94, 0x88, 0x49, 0xee, 0xb0, 0x93",
+    {CD37E5C4-B9ED-490A-9025-68883E625D13},
+    "0xCD37E5C4, 0xB9ED, 0x490A, 0x90, 0x25, 0x68, 0x88, 0x3E, 0x62, 0x5D, 0x13")
+
+// Services
+
+DMANIP_CLSID(
+    DeferContactService,
+    {D7B67CF4-84BB-434E-86AE-6592BBC9ABD9},
+    "0xd7b67cf4, 0x84bb, 0x434e, 0x86, 0xae, 0x65, 0x92, 0xbb, 0xc9, 0xab, 0xd9",
+    {91BDAF5D-EDA9-4AF2-9C4D-D0E8F4A35FA7},
+    "0x91BDAF5D, 0xEDA9, 0x4AF2, 0x9C, 0x4D, 0xD0, 0xE8, 0xF4, 0xA3, 0x5F, 0xA7")
+
+
+// Direct Manipulation manager object and factory.
+DMANIP_INTERFACE(
+    FBF5D3B4-70C7-4163-9322-5A6F660D6FBC,
+    1E8F982A-0562-40D5-B245-A2D4EC4E2338,
+    "IDirectManipulationManager Interface")
+interface IDirectManipulationManager : IUnknown
+{
+    // Reference counted activation for Direct Manipulation, always pair with Deactivate().
+    // Activation is specific to a single window handle.
+    HRESULT Activate([in, annotation("_In_")] HWND window);
+
+    // Deactivates a reference of Direct Manipulation, specific to a particular window handle.
+    HRESULT Deactivate([in, annotation("_In_")] HWND window);
+
+#ifndef LIFTED_SDK
+    // Registers an optional window for hit-testing, which will receive WM_POINTERDOWN first
+    HRESULT RegisterHitTestTarget([in, annotation("_In_")] HWND window,
+                                  [in, annotation("_In_opt_")] HWND hitTestWindow,
+                                  [in, annotation("_In_")] DIRECTMANIPULATION_HITTEST_TYPE type);
+#endif /*!LIFTED_SDK*/
+
+    // Process a keyboard or mouse message to drive manipulations.
+    // An output value of handled == TRUE indicates that Direct Manipulation has handled the event and no further action
+    // should be taken.
+    HRESULT ProcessInput([in, annotation("_In_")] const MSG *message,
+                         [out, retval, annotation("_Out_")] BOOL *handled);
+
+    // Gets an instance of IDirectManipulationUpdateManager which manages how content updates are triggered
+    HRESULT GetUpdateManager([in, annotation("_In_")] REFIID riid,
+                             [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+
+    // Factory method to create a new instance of viewport. The retrieved object implements IDirectManipulationViewport
+    HRESULT CreateViewport([in, annotation("_In_opt_")] IDirectManipulationFrameInfoProvider *frameInfo,
+                           [in, annotation("_In_")] HWND window,
+                           [in, annotation("_In_")] REFIID riid,
+                           [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+
+    // Factory method to create a new instance of content, the retrieved object implements IDirectManipulationContent
+    HRESULT CreateContent([in, annotation("_In_opt_")] IDirectManipulationFrameInfoProvider *frameInfo,
+                          [in, annotation("_In_")] REFCLSID clsid,
+                          [in, annotation("_In_")] REFIID riid,
+                          [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+}
+
+// Direct Manipulation manager (v2).
+DMANIP_INTERFACE(
+    FA1005E9-3D16-484C-BFC9-62B61E56EC4E,
+    040E1600-93A2-43A5-A08E-3BAA2160A4AF,
+    "IDirectManipulationManager2 Interface")
+interface IDirectManipulationManager2 : IDirectManipulationManager
+{
+    // Factory method to create a behavior. The returned object could then be attached to a viewport object.
+    HRESULT CreateBehavior([in, annotation("_In_")] REFCLSID clsid,
+                           [in, annotation("_In_")] REFIID riid,
+                           [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+}
+
+// Direct Manipulation manager (v3).
+DMANIP_INTERFACE(
+    2CB6B33D-FFE8-488C-B750-FBDFE88DCA8C,
+    024D86A1-69A3-457A-8993-6897A87070FD,
+    "IDirectManipulationManager3 Interface")
+interface IDirectManipulationManager3 : IDirectManipulationManager2
+{
+    // Return the requested global DirectManipulation service
+    HRESULT GetService([in, annotation("_In_")] REFCLSID clsid,
+                       [in, annotation("_In_")] REFIID riid,
+                       [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+}
+
+// Defines a Direct Manipulation viewport
+DMANIP_INTERFACE(
+    28b85a3d-60a0-48bd-9ba1-5ce8d9ea3a6d,
+    80C9672B-B125-453B-A063-D0A3A94DEDAA,
+    "IDirectManipulationViewport Interface")
+interface IDirectManipulationViewport : IUnknown
+{
+    // Directs the viewport to begin or resume responding to input
+    HRESULT Enable();
+
+    // Directs the viewport to disable responding to input
+    HRESULT Disable();
+
+    // Adds a specific touch contact identifier to the manipulation processor associated with this viewport object.
+    // The pointer identifier is retrieved using GET_POINTERID_WPARAM from a pointer message.
+    // The contact is automatically removed on WM_POINTERUP.
+    HRESULT SetContact([in, annotation("_In_")] UINT32 pointerId);
+
+    // Removes the association between a specific touch contact and a viewport object prior to
+    // WM_POINTERUP, for example if touch capture changes.
+    HRESULT ReleaseContact([in, annotation("_In_")] UINT32 pointerId);
+
+    // This releases all contacts currently associated with this object
+    HRESULT ReleaseAllContacts();
+
+    // Gets the viewport's current status
+    HRESULT GetStatus([out, retval, annotation("_Out_")] DIRECTMANIPULATION_STATUS *status);
+
+    // Gets the viewport's object and identifier tag which was set by the client. The object can be
+    // any object which inherits from IUnknown.
+    HRESULT GetTag([in, annotation("_In_")] REFIID riid,
+                   [out, iid_is(riid), annotation("_COM_Outptr_opt_")] void **object,
+                   [out, annotation("_Out_opt_")] UINT32 *id);
+
+    // Sets an identifier object and identifier on the viewport object
+    HRESULT SetTag([in, unique, annotation("_In_opt_")] IUnknown *object, [in, annotation("_In_")] UINT32 id);
+
+    // Gets the viewport coordinates inside its window
+    HRESULT GetViewportRect([out, retval, annotation("_Out_")] RECT *viewport);
+
+    // Sets the viewport coordinates inside its window
+    HRESULT SetViewportRect([in, annotation("_In_")] const RECT *viewport);
+
+    // Zooms to a specific area of the primary content
+    HRESULT ZoomToRect([in, annotation("_In_")] const float left, [in, annotation("_In_")] const float top,
+        [in, annotation("_In_")] const float right, [in, annotation("_In_")] const float bottom,  [in, annotation("_In_")] BOOL animate);
+
+    // Specifies the transform from viewport coordinates to window coordinates
+    HRESULT SetViewportTransform([in, annotation("_In_reads_(pointCount)")] const float *matrix, [in, annotation("_In_")] DWORD pointCount);
+
+    // Specifies a transform to apply to visual updates of the content
+    HRESULT SyncDisplayTransform([in, annotation("_In_reads_(pointCount)")] const float *matrix, [in, annotation("_In_")] DWORD pointCount);
+
+    // Gets the primary content, which implements IDirectManipulationContent and IDirectManipulationPrimaryContent
+    HRESULT GetPrimaryContent([in, annotation("_In_")] REFIID riid,
+                              [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+
+    // Adds a new content instance to the viewport
+    HRESULT AddContent([in, unique, annotation("_In_")] IDirectManipulationContent *content);
+
+    // Removes a content instance from the viewport
+    HRESULT RemoveContent([in, unique, annotation("_In_")] IDirectManipulationContent *content);
+
+    // Specifies control options for this viewport
+    HRESULT SetViewportOptions([in, annotation("_In_")] DIRECTMANIPULATION_VIEWPORT_OPTIONS options);
+
+    // Adds a manipulation configuration to the list of configurations supported by this viewport
+    HRESULT AddConfiguration([in, annotation("_In_")] DIRECTMANIPULATION_CONFIGURATION configuration);
+
+    // Removes a manipulation configuration from the list of configurations supported by this viewport
+    HRESULT RemoveConfiguration([in, annotation("_In_")] DIRECTMANIPULATION_CONFIGURATION configuration);
+
+    // Sets the current manipulation configuration
+    HRESULT ActivateConfiguration([in, annotation("_In_")] DIRECTMANIPULATION_CONFIGURATION configuration);
+
+    // Defines for which gestures the corresponding input will be forwarded to the UI thread
+    HRESULT SetManualGesture([in, annotation("_In_")] DIRECTMANIPULATION_GESTURE_CONFIGURATION configuration);
+
+    // Determines if this viewport allows chaining input to parent viewports
+    HRESULT SetChaining([in, annotation("_In_")] DIRECTMANIPULATION_MOTION_TYPES enabledTypes);
+
+    // Specifies a handler for viewport status and content update events
+    HRESULT AddEventHandler([in, annotation("_In_opt_")] HWND window,
+                            [in, annotation("_In_")] IDirectManipulationViewportEventHandler *eventHandler,
+                            [out, retval, annotation("_Out_")] DWORD *cookie);
+
+    // Removes an event handler from the viewport
+    HRESULT RemoveEventHandler([in, annotation("_In_")] DWORD cookie);
+
+    // Defines if the UI thread will receive all input for contacts associated first with this viewport, when it is running
+    // (here DIRECTMANIPULATION_INPUT_MODE_MANUAL has the same effect as DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT)
+    HRESULT SetInputMode([in, annotation("_In_")] DIRECTMANIPULATION_INPUT_MODE mode);
+
+    // Defines if this viewport updates its content manually by a call to IDirectManipulationUpdateManager::Update (instead of during an input event)
+    // (here DIRECTMANIPULATION_INPUT_MODE_MANUAL has the same effect as DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE)
+    HRESULT SetUpdateMode([in, annotation("_In_")] DIRECTMANIPULATION_INPUT_MODE mode);
+
+    // Directs the viewport to stop its current manipulation immediately, and go back to the READY state
+    HRESULT Stop();
+
+    // Release all resources used by this viewport and prepare it for destruction from memory
+    HRESULT Abandon();
+}
+
+// Defines a Direct Manipulation viewport (v2)
+DMANIP_INTERFACE(
+    923CCAAC-61E1-4385-B726-017AF189882A,
+    13574032-95CF-4F42-B7F7-53B67BC91DCB,
+    "IDirectManipulationViewport2 Interface")
+interface IDirectManipulationViewport2 : IDirectManipulationViewport
+{
+    // Add a behavior to this viewport and return a cookie to the caller.
+    HRESULT AddBehavior([in, unique, annotation("_In_")] IUnknown *behavior,
+                           [out, retval, annotation("_Out_")] DWORD *cookie);
+
+    // Remove a behavior from this viewport that matches the given cookie.
+    HRESULT RemoveBehavior([in, annotation("_In_")] DWORD cookie);
+
+    // Removes all the behaviors previously attached to this viewport.
+    HRESULT RemoveAllBehaviors();
+}
+
+// Application-implemented interface to receive notifications about manipulations
+DMANIP_INTERFACE(
+    952121DA-D69F-45F9-B0F9-F23944321A6D,
+    7605BD5C-6C94-4C55-8E49-F1F57843FB95,
+    "IDirectManipulationViewportEventHandler Interface")
+interface IDirectManipulationViewportEventHandler : IUnknown
+{
+    // This method is called when the viewport's status changes
+    HRESULT OnViewportStatusChanged([in, annotation("_In_")] IDirectManipulationViewport *viewport,
+                                    [in, annotation("_In_")] DIRECTMANIPULATION_STATUS current,
+                                    [in, annotation("_In_")] DIRECTMANIPULATION_STATUS previous);
+
+    // This method is called after all the content instances in the viewport have been updated for the current input
+    HRESULT OnViewportUpdated([in, annotation("_In_")] IDirectManipulationViewport *viewport);
+
+    // This method is called when a content intance inside viewport is updated
+    HRESULT OnContentUpdated([in, annotation("_In_")] IDirectManipulationViewport *viewport,
+                             [in, annotation("_In_")] IDirectManipulationContent *content);
+}
+
+// Represents visual content that gets transformed by a manipulation
+DMANIP_INTERFACE(
+    B89962CB-3D89-442B-BB58-5098FA0F9F16,
+    61C164A4-065A-47C1-8633-2367F9F73CA1,
+    "IDirectManipulationContent Interface")
+interface IDirectManipulationContent : IUnknown
+{
+    // Gets the current content size and boundaries
+    HRESULT GetContentRect([out, annotation("_Out_")] RECT *contentSize);
+
+    // Sets the current content size and boundaries
+    HRESULT SetContentRect([in, annotation("_In_")] const RECT *contentSize);
+
+    // Gets the viewport object that is currently attached to the content; the returned object is a IDirectManipulationViewport
+    HRESULT GetViewport([in, annotation("_In_")] REFIID riid,
+                        [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void **object);
+
+    // Gets the content's object and identifier tag which was set by the client. The object can be
+    // any object which inherits from IUnknown.
+    HRESULT GetTag([in, annotation("_In_")] REFIID riid,
+                   [out, iid_is(riid), annotation("_COM_Outptr_opt_")] void **object,
+                   [out, annotation("_Out_opt_")] UINT32 *id);
+
+    // Sets an identifier object and identifier on the content object
+    HRESULT SetTag([in, unique, annotation("_In_opt_")] IUnknown *object, [in, annotation("_In_")] UINT32 id);
+
+    // Gets the current visual transform applied to the content
+    HRESULT GetOutputTransform([out, annotation("_Out_writes_(pointCount)")] float *matrix, [in, annotation("_In_")] DWORD pointCount);
+
+    // Gets the current manipulation transform for the content
+    HRESULT GetContentTransform([out, annotation("_Out_writes_(pointCount)")] float *matrix, [in, annotation("_In_")] DWORD pointCount);
+
+    // Syncs the manipulation transform for the content to a transform provided by the application, while preserving the output transform
+    HRESULT SyncContentTransform([in, annotation("_In_reads_(pointCount)")] const float *matrix, [in, annotation("_In_")] DWORD pointCount);
+}
+
+// This describes operations only possible on the primary instance of content for a given viewport
+DMANIP_INTERFACE(
+    C12851E4-1698-4625-B9B1-7CA3EC18630B,
+    6DC692EA-7CA5-4E68-A309-0F8E669DBB03,
+    "IDirectManipulationPrimaryContent Interface")
+interface IDirectManipulationPrimaryContent : IUnknown
+{
+    // Specifies a uniform snap interval for the motion type
+    HRESULT SetSnapInterval([in, annotation("_In_")] DIRECTMANIPULATION_MOTION_TYPES motion, [in, annotation("_In_")] float interval,
+                            [in, annotation("_In_")] float offset);
+
+    // Specifies an array of fixed snap points for the motion type
+    HRESULT SetSnapPoints([in, annotation("_In_")] DIRECTMANIPULATION_MOTION_TYPES motion,
+                          [in, annotation("_In_reads_opt_(pointCount)")] const float *points, [in, annotation("_In_")] DWORD pointCount);
+
+    // Specifies the snap point behavior for all snap points on the motion type
+    HRESULT SetSnapType([in, annotation("_In_")] DIRECTMANIPULATION_MOTION_TYPES motion,
+                        [in, annotation("_In_")] DIRECTMANIPULATION_SNAPPOINT_TYPE type);
+
+    // Sets the coordinate to which snap points will be relative to. Snap points can be set to count "in reverse" and from any start value.
+    // In that case, "origin" is used to determine the far anchor point that valid snap points can take (the near anchor point being 0.0f).
+    // This only applies when coordinateType is DIRECTMANIPULATION_COORDINATE_ORIGIN or DIRECTMANIPULATION_COORDINATE_MIRRORED_ORIGIN.
+    // When using DIRECTMANIPULATION_COORDINATE_BOUNDARY, "origin" is ignored.
+    HRESULT SetSnapCoordinate([in, annotation("_In_")] DIRECTMANIPULATION_MOTION_TYPES motion,
+                              [in, annotation("_In_")] DIRECTMANIPULATION_SNAPPOINT_COORDINATE coordinate,
+                              [in, annotation("_In_")] float origin);
+
+    // Sets the zoom boundaries for the content. ZoomMininum must be at least DIRECTMANIPULATION_MINIMUM_ZOOM.
+    HRESULT SetZoomBoundaries([in, annotation("_In_")] float zoomMinimum, [in, annotation("_In_")] float zoomMaximum);
+
+    // Sets the horizontal content alignment
+    HRESULT SetHorizontalAlignment([in, annotation("_In_")] DIRECTMANIPULATION_HORIZONTALALIGNMENT alignment);
+
+    // Sets the vertical content alignment
+    HRESULT SetVerticalAlignment([in, annotation("_In_")] DIRECTMANIPULATION_VERTICALALIGNMENT alignment);
+
+    // Gets the rest position transform of inertia for the primary content
+    HRESULT GetInertiaEndTransform([out, annotation("_Out_writes_(pointCount)")] float *matrix, [in, annotation("_In_")] DWORD pointCount);
+
+    // Gets the center point for the current manipulation, if it exists
+    HRESULT GetCenterPoint([out, annotation("_Out_")] float *centerX, [out, annotation("_Out_")] float *centerY);
+}
+
+// Defines drag-drop behavior states
+typedef enum DIRECTMANIPULATION_DRAG_DROP_STATUS
+{
+    DIRECTMANIPULATION_DRAG_DROP_READY     = 0,
+    DIRECTMANIPULATION_DRAG_DROP_PRESELECT = 1,
+    DIRECTMANIPULATION_DRAG_DROP_SELECTING = 2,
+    DIRECTMANIPULATION_DRAG_DROP_DRAGGING  = 3,
+    DIRECTMANIPULATION_DRAG_DROP_CANCELLED = 4,
+    DIRECTMANIPULATION_DRAG_DROP_COMMITTED = 5
+} DIRECTMANIPULATION_DRAG_DROP_STATUS;
+
+// Application-implemented interface to receive notifications about drag-drop behavior specific events
+DMANIP_INTERFACE(
+    1FA11B10-701B-41AE-B5F2-49E36BD595AA,
+    1EB08D03-BA3C-43E0-BA94-5EE21B8D0850,
+    "IDirectManipulationDragDropEventHandler Interface")
+interface IDirectManipulationDragDropEventHandler : IUnknown
+{
+    // Called when a status change happens in the viewport the drag-drop behavior is attached to.
+    HRESULT OnDragDropStatusChange([in, annotation("_In_")] IDirectManipulationViewport2 *viewport,
+                                   [in, annotation("_In_")] DIRECTMANIPULATION_DRAG_DROP_STATUS current,
+                                   [in, annotation("_In_")] DIRECTMANIPULATION_DRAG_DROP_STATUS previous);
+}
+
+typedef enum DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION
+{
+    // Configuration setting for drag-drop type.
+    // SELECT_ONLY and SELECT_DRAG are valid only when either HORIZONTAL or VERTICAL is set, but not both.
+    // For HOLD_DRAG, both HORIZONTAL and VERTICAL must be set.
+    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_VERTICAL    = 0x00000001,
+    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HORIZONTAL  = 0x00000002,
+    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_ONLY = 0x00000010,
+    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_DRAG = 0x00000020,
+    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HOLD_DRAG   = 0x00000040
+} DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION)")
+
+DMANIP_INTERFACE(
+    814B5AF5-C2C8-4270-A9B7-A198CE8D02FA,
+    8C0A60CC-9FE2-4D6D-B125-505C224BDBBC,
+    "IDirectManipulationDragDropBehavior Interface")
+interface IDirectManipulationDragDropBehavior : IUnknown
+{
+    // Call to set the configuration of the drag-drop behavior
+    HRESULT SetConfiguration([in, annotation("_In_")] DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION configuration);
+
+    // Call to get the current status of the behavior
+    HRESULT GetStatus([out, retval, annotation("_Out_")] DIRECTMANIPULATION_DRAG_DROP_STATUS *status);
+}
+
+// Defines gesture types
+typedef enum DIRECTMANIPULATION_INTERACTION_TYPE
+{
+    DIRECTMANIPULATION_INTERACTION_BEGIN                    = 0,
+    DIRECTMANIPULATION_INTERACTION_TYPE_MANIPULATION        = 1,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_TAP         = 2,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_HOLD        = 3,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_CROSS_SLIDE = 4,
+    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_PINCH_ZOOM  = 5,
+    DIRECTMANIPULATION_INTERACTION_END                      = 100
+} DIRECTMANIPULATION_INTERACTION_TYPE;
+
+// Application-implemented interface to receive notifications about interaction type events
+DMANIP_INTERFACE(
+    E43F45B8-42B4-403E-B1F2-273B8F510830,
+    320599B5-5B82-4DB2-B881-4B4ACB0BDF63,
+    "IDirectManipulationInteractionEventHandler Interface")
+interface IDirectManipulationInteractionEventHandler : IUnknown
+{
+    // Called when a gesture is detected.
+    HRESULT OnInteraction([in, annotation("_In_")] IDirectManipulationViewport2 *viewport,
+                          [in, annotation("_In_")] DIRECTMANIPULATION_INTERACTION_TYPE interaction);
+}
+
+
+// This interface represents time-based information used by manipulations
+DMANIP_INTERFACE(
+    fb759dba-6f4c-4c01-874e-19c8a05907f9,
+    3D6E45E3-6886-45E5-8D35-FFC24A47D9AF,
+    "IDirectManipulationFrameInfoProvider Interface")
+interface IDirectManipulationFrameInfoProvider : IUnknown
+{
+    // Retrieves the time, in ms, to the next frame to render.
+    HRESULT GetNextFrameInfo([out, annotation("_Out_")] ULONGLONG *time,
+                             [out, annotation("_Out_")] ULONGLONG *processTime,
+                             [out, annotation("_Out_")] ULONGLONG *compositionTime);
+}
+
+// Defines a compositor object, which drives visual updates of content on screen
+DMANIP_INTERFACE(
+    537A0825-0387-4EFA-B62F-71EB1F085A7E,
+    53CB09B8-8B30-4AE0-A9DD-1F3582D299D5,
+    "IDirectManipulationCompositor Interface")
+interface IDirectManipulationCompositor : IUnknown
+{
+    // Adds an instance of content to be managed by the compositor, with parent and child IDCompositionVisual
+    HRESULT AddContent([in, annotation("_In_")] IDirectManipulationContent *content,
+                       [in, annotation("_In_opt_")] IUnknown *device,
+                       [in, annotation("_In_opt_")] IUnknown *parentVisual,
+                       [in, annotation("_In_opt_")] IUnknown *childVisual);
+
+    // Removes an instance of content from being managed by the compositor
+    HRESULT RemoveContent([in, annotation("_In_")] IDirectManipulationContent *content);
+
+    // Specifies the update manager which will be used to handle inertia animations
+    HRESULT SetUpdateManager([in, annotation("_In_")] IDirectManipulationUpdateManager *updateManager);
+
+    // Flushes any pending visuals from the compositor
+    HRESULT Flush();
+}
+
+// Defines a compositor object, which drives visual updates of content on screen
+DMANIP_INTERFACE(
+    D38C7822-F1CB-43CB-B4B9-AC0C767A412E,
+    B09294A8-9A4E-40B0-A84C-AF3412723794,
+    "IDirectManipulationCompositor2 Interface")
+interface IDirectManipulationCompositor2 : IDirectManipulationCompositor
+{
+    // Adds an instance of content to be managed by the compositor, with cross process chaining enabled
+    HRESULT AddContentWithCrossProcessChaining([in, annotation("_In_")] IDirectManipulationPrimaryContent *content,
+                                               [in, annotation("_In_opt_")] IUnknown *device,
+                                               [in, annotation("_In_opt_")] IUnknown *parentVisual,
+                                               [in, annotation("_In_opt_")] IUnknown *childVisual);
+}
+
+// Defines methods for handling inertia animation update events
+DMANIP_INTERFACE(
+    790B6337-64F8-4FF5-A269-B32BC2AF27A7,
+    1BEA57EA-3C25-4B30-8088-FC132540E1E5,
+    "IDirectManipulationUpdateHandler Interface")
+interface IDirectManipulationUpdateHandler : IUnknown
+{
+    HRESULT Update();
+}
+
+// Defines methods for driving a compositor object automatically or manually
+DMANIP_INTERFACE(
+    B0AE62FD-BE34-46E7-9CAA-D361FACBB9CC,
+    54697F09-EE1F-4A4C-9873-C7A6162BD249,
+    "IDirectManipulationUpdateManager Interface")
+interface IDirectManipulationUpdateManager : IUnknown
+{
+    // Registers a callback triggered by an event handle
+    HRESULT RegisterWaitHandleCallback([in, annotation("_In_")] HANDLE handle,
+                                       [in, annotation("_In_")] IDirectManipulationUpdateHandler *eventHandler,
+                                       [out, annotation("_Out_")] DWORD *cookie);
+
+    // Unregisters a callback
+    HRESULT UnregisterWaitHandleCallback([in, annotation("_In_")] DWORD cookie);
+
+    // Manually updates Direct Manipulation for the current time
+    HRESULT Update([in, annotation("_In_opt_")] IDirectManipulationFrameInfoProvider *frameInfo);
+}
+
+// Defines automatic-scrolling behavior.
+typedef enum DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION
+{
+    // If there is an ongoing scrolling motion, slowly stops the motion along its direction of motion.
+    DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP                = 0,
+
+    // Performs scrolling motion towards the end of the content.
+    DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_FORWARD             = 1,
+
+    // Performs scrolling motion towards the origin of the viewport.
+    DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_REVERSE             = 2,
+
+} DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION;
+
+// Behavior to perform automatic-scrolling on the viewport.
+DMANIP_INTERFACE(
+    6D5954D4-2003-4356-9B31-D051C9FF0AF7,
+    4FF0CFBD-ABA0-45BF-BFE2-73C5156ECF24,
+    "IDirectManipulationAutoScrollBehavior Interface")
+interface IDirectManipulationAutoScrollBehavior : IUnknown
+{
+    // Perform a starting or stopping auto-scroll animation on the viewport.
+    // Note: Only translation motions x and y are supported. Combining x and y motion types is also allowed.
+    HRESULT SetConfiguration([in, annotation("_In_")] DIRECTMANIPULATION_MOTION_TYPES motionTypes,
+                             [in, annotation("_In_")] DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION scrollMotion);
+}
+
+// Service to enable deferring SetContact calls with a timeout
+DMANIP_INTERFACE(
+    652D5C71-FE60-4A98-BE70-E5F21291E7F1,
+    CA5024CA-51C7-4EB3-9393-65A69297AF8C,
+    "IDirectManipulationDeferContactService Interface")
+interface IDirectManipulationDeferContactService : IUnknown
+{
+    // Specifies an amount of time (in ms) before SetContact (pointerId, viewport) associations take effect.
+    // The maximum amount of time which can be specified is 500ms.
+    // This function needs to be called before SetContact (for a given pointerId).
+    HRESULT DeferContact([in, annotation("_In_")] UINT32 pointerId, [in, annotation("_In_")] UINT32 timeout);
+
+    // Cancel all scheduled SetContact calls for this pointerId.
+    // This function fails if the previously specified timeout has already been reached
+    HRESULT CancelContact([in, annotation("_In_")] UINT32 pointerId);
+
+    // Immediately process a previously scheduled SetContact
+    HRESULT CancelDeferral([in, annotation("_In_")] UINT32 pointerId);
+}
+
+#ifdef LIFTED_SDK
+// Defines a Direct Manipulation compositor (Experimental)
+[
+    local,
+    object,
+    uuid(cf49a652-14eb-4d6c-bbf9-951745182122),
+    helpstring("IExpDirectManipulationCompositor Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationCompositor : IUnknown
+{
+    HRESULT AddContentAndGetSharedTransform(
+        [in, annotation("_In_")] IDirectManipulationContent* content,
+        [in, annotation("_In_")] IUnknown* compositor,
+        [out, annotation("_Outptr_")] IUnknown** sharedTransform);
+
+    HRESULT CreateSharedInteractionForViewport(
+        [in, annotation("_In_")] IDirectManipulationViewport* viewport,
+        [in, annotation("_In_")] IUnknown* compositor,
+        [out, annotation("_Outptr_")] IUnknown** sharedInteraction);
+}
+
+// Defines the parametric curve types
+typedef enum EXP_DIRECTMANIPULATION_PARAMETRIC_TYPE
+{
+    DIRECTMANIPULATION_PARAMETRIC_NONE = 0x00000,  // None
+    DIRECTMANIPULATION_PARAMETRIC_TRANSLATEX = 0x00001,  // Total Translation in the horizontal axis
+    DIRECTMANIPULATION_PARAMETRIC_TRANSLATEY = 0x00002,  // Total Translation in the vertical axis
+    DIRECTMANIPULATION_PARAMETRIC_ZOOM = 0x00004,  // Zoom
+    DIRECTMANIPULATION_PARAMETRIC_ZOOMX = 0x00040,  // Zoom in the horizontal axis
+    DIRECTMANIPULATION_PARAMETRIC_ZOOMY = 0x00080,  // Zoom in the vertical axis
+    DIRECTMANIPULATION_PARAMETRIC_PANX = 0x00100,  // Amount panned in the horizontal axis
+    DIRECTMANIPULATION_PARAMETRIC_PANY = 0x00200,  // Amount panned in the vertical axis
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_TRANSLATEX = 0x10001,  // Rate of change of TranslateX, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_TRANSLATEY = 0x10002,  // Rate of change of TranslateY, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_ZOOM = 0x10004,  // Rate of change of Zoom, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_PANX = 0x10100,  // Rate of change of PanX, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_PANY = 0x10200   // Rate of change of PanY, in milliseconds
+} DIRECTMANIPULATION_PARAMETRIC_TYPE;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_PARAMETRIC_TYPE)")
+
+// Defines a Direct Manipulation parametric motion behavior. (Experimental)
+// This defines the motion of a content using parametric motion curve(s)
+[
+    local,
+    object,
+    uuid(28C7F993-D655-4CFD-AF37-85E9854D44A3),
+    helpstring("IExpDirectManipulationParametricMotionBehavior Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationParametricMotionBehavior : IUnknown
+{
+    // Creates a parametric motion curve object that can be configured and applied on a parametric motion behavior object.
+    // The retrieved object implements IDirectManipulationParametricMotionCurve.
+    HRESULT CreateCurve([in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void** object);
+
+
+    // Applies a parametric motion curve for the specified source-to-target property type mapping.
+    HRESULT ApplyCurves([in, annotation("_In_")] DWORD targetPropertyType,
+        [in, annotation("_In_")] DWORD sourcePropertyType,
+        [in, annotation("_In_reads_opt_(curveCount)")] IUnknown** curves,
+        [in, annotation("_In_")] DWORD curveCount);
+
+    // Notifies this object that its velocity estimation/accumulation is no longer valid, and resets it.
+    HRESULT ResetVelocity();
+}
+
+// Defines a Direct Manipulation primary instance of the content for a given viewport (Experimental)
+[
+    local,
+    object,
+    uuid(9AB0233D-77E7-4852-934B-648F88FE9B93),
+    helpstring("IExpDirectManipulationPrimaryContent Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationPrimaryContent : IDirectManipulationPrimaryContent
+{
+    // Set the content transform to the provided value(s), by either animating or jumping
+    // immediately there.
+    HRESULT SetContentTransformValues(
+        [in, annotation("_In_reads_(valueCount)")] const DIRECTMANIPULATION_PARAMETRIC_TYPE* valuesRequested,
+        [in, annotation("_In_reads_(valueCount)")] const float* values,
+        [in, annotation("_In_")] const DWORD valueCount);
+}
+
+// Curve coordinate options
+typedef enum EXP_DIRECTMANIPULATION_CURVE_COORDINATE
+{
+    // The curve coordinates are evaluated in the content coordinate space, which are scaled during zoom.
+    // This is the default.
+    DIRECTMANIPULATION_CURVE_COORDINATE_SCALING = 0,
+
+    // The curve coordinates are evaluated in the viewport coordinate space and are not affected by zoom.
+    DIRECTMANIPULATION_CURVE_COORDINATE_STATIC = 1,
+
+} DIRECTMANIPULATION_CURVE_COORDINATE;
+
+// Parametric definition of motion curve that parametrically maps source motion values onto target motion values.
+[
+    local,
+    object,
+    uuid(52765DD7-B932-4747-9FD3-3C9EFEF979D7),
+    helpstring("IDirectManipulationParametricMotionCurve Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationParametricMotionCurve : IUnknown
+{
+    // Sets the coordinate that transforms the source values before evaluating the curve.
+    // The staticOriginOffset and the scalingOriginOffset adjusted by the content-scale factor are both applied first.
+    // The optional offsetRange parameter specifies the minimum and maximum values for (staticOriginOffset + scalingOriginOffset * scale)
+    // The curve-coordinate determines how content-scale affects the source values before evaluating the curve.
+    HRESULT SetSourceCoordinate([in, annotation("_In_")] float staticOriginOffset,
+        [in, annotation("_In_")] float scalingOriginOffset,
+        [in, annotation("_In_reads_opt_(2)")] float* offsetRange,
+        [in, annotation("_In_")] DIRECTMANIPULATION_CURVE_COORDINATE curveCoordinate);
+
+    // Sets the coordinate that transforms the target values after evaluating the curve.
+    // The curve-coordinate determines how content-scale affects the target values after evaluating the curve.
+    HRESULT SetTargetCoordinate([in, annotation("_In_")] float staticOriginOffset,
+        [in, annotation("_In_")] float scalingOriginOffset,
+        [in, annotation("_In_reads_opt_(2)")] float* offsetRange,
+        [in, annotation("_In_")] DIRECTMANIPULATION_CURVE_COORDINATE curveCoordinate);
+
+    // Adds a curve-sgement consisting of contiguous line-segments formed by the given list of points in the
+    // curve-coordinate defined on this parametric motion curve object. The points are each given as a pair of
+    // consecutive source and target values.
+    HRESULT AddSegment([in, annotation("_In_reads_(arraySize)")] float* points,
+        [in, annotation("_In_")] DWORD arraySize);
+
+    // Adds a cubic-polynomial curve. The offsetSource offsets the source-values using the curve-coordinate defined
+    // on this parametric motion curve object. This offset also marks the beginning-offset of this curve.
+    HRESULT AddCubic([in, annotation("_In_")] float offsetSource,
+        [in, annotation("_In_")] float constantCoefficient,
+        [in, annotation("_In_")] float linearCoefficient,
+        [in, annotation("_In_")] float quadraticCoefficient,
+        [in, annotation("_In_")] float cubicCoefficient);
+
+    // Adds a hyperbolic tangent curve segment. The formula is:
+    // f(x) = ( tanh ( (x + offsetShift ) * offsetScale ) + resultShift ) * resultScale
+    // The offsetSource parameter marks the beginning offset of this curve but does not shift the curve in any way.
+    HRESULT AddTanh([in, annotation("_In_")] float offsetSource,
+        [in, annotation("_In_")] float offsetShift,
+        [in, annotation("_In_")] float offsetScale,
+        [in, annotation("_In_")] float resultShift,
+        [in, annotation("_In_")] float resultScale);
+
+    // Clears any curves set on this parametric motion curve object and resets the curve-coordinate to initial state.
+    HRESULT Reset();
+}
+
+// Class-id for creating secondary content or primary content parametric motion behavior.
+
+DMANIP_CLSID(
+    ParametricMotionBehavior,
+    { 8A7BD110-3F9D-472D-BA35-DDD2E0CE94A6 },
+    "0x8a7bd110, 0x3f9d, 0x472d, 0xba, 0x35, 0xdd, 0xd2, 0xe0, 0xce, 0x94, 0xa6",
+    { EB72F502-0028-4406-BA4F-FC3D4C06C1E9 },
+    "0xEB72F502, 0x0028, 0x4406, 0xBA, 0x4F, 0xFC, 0x3D, 0x4C, 0x06, 0xC1, 0xE9")
+
+#endif /*LIFTED_SDK*/
+
+
+cpp_quote("#endif // #if (NTDDI_VERSION > NTDDI_WIN8)")
+
+DMANIP_LIBRARY(
+    9FBEDF98-F6D8-4E3B-B488-FA66DBF5E9F3,
+    9E03AE76-8AEF-4AA4-B5A4-D05207E9252F,
+    "Direct Manipulation 1.0 Type Library")
+library DirectManipulation
+{
+    DMANIP_INTEROP_CLASS(
+        34E211B6-3650-4F75-8334-FA359598E1C5,
+        61B72534-CD8D-4B28-BEFE-40A5AEF99FDC,
+        "DirectManipulationViewport Class, exposed for managed interop definitions",
+        DirectManipulationViewport)
+    {
+        interface IDirectManipulationViewport2;
+        [default] interface IDirectManipulationViewport;
+    }
+
+    DMANIP_INTEROP_CLASS(
+        9FC1BFD5-1835-441A-B3B1-B6CC74B727D0,
+        1A08AF4D-21F9-4A1F-8F0C-308F0ECFF983,
+        "DirectManipulationUpdateManager Class, exposed for managed interop definitions",
+        DirectManipulationUpdateManager)
+    {
+        [default] interface IDirectManipulationUpdateManager;
+    }
+
+    DMANIP_INTEROP_CLASS(
+        CAA02661-D59E-41C7-8393-3BA3BACB6B57,
+        FF7797C5-6D12-4A99-93B8-0E2CC5676DA1,
+        "DirectManipulationPrimaryContent Class, exposed for managed interop definitions",
+        DirectManipulationPrimaryContent)
+    {
+        [default] interface IDirectManipulationPrimaryContent;
+    }
+
+    DMANIP_CLASS(
+        54E211B6-3650-4F75-8334-FA359598E1C5,
+        EC6C9215-FF3E-4A1A-88DA-1C5FDACE3593,
+        "DirectManipulationManager Class",
+        DirectManipulationManager)
+    {
+        interface IDirectManipulationManager2;
+        [default] interface IDirectManipulationManager;
+    }
+
+    DMANIP_CLASS(
+        99793286-77CC-4B57-96DB-3B354F6F9FB5,
+        57BB94E9-A6DA-413A-A69A-D68961539689,
+        "DirectManipulationSharedManager Class",
+        DirectManipulationSharedManager)
+    {
+        interface IDirectManipulationManager2;
+        [default] interface IDirectManipulationManager;
+    }
+
+    DMANIP_CLASS(
+        79DEA627-A08A-43AC-8EF5-6900B9299126,
+        AF9461CD-1F36-4B6D-B61C-B55EC9D4A907,
+        "DCompManipulationCompositor Class",
+        DCompManipulationCompositor)
+    {
+        [default] interface IDirectManipulationCompositor;
+        interface IDirectManipulationCompositor2;
+        interface IDirectManipulationFrameInfoProvider;
+#ifdef LIFTED_SDK
+        interface IExpDirectManipulationCompositor;
+#endif //LIFTED_SDK
+    }
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

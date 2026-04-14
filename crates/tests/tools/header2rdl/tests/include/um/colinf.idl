@@ -1,0 +1,117 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			colinf.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+	REMOTED_INTERFACE(0c733a11-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IColumnsInfo : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT GetColumnInfo(
+		[in, out, annotation("_Out_opt_")] DBORDINAL * pcColumns,
+		[out, size_is(,(ULONG)*pcColumns), annotation("_Outptr_result_buffer_maybenull_(*pcColumns)")] DBCOLUMNINFO ** prgInfo,
+		[out, annotation("_Outptr_result_maybenull_z_")] OLECHAR ** ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+	[call_as(GetColumnInfo)]
+	HRESULT RemoteGetColumnInfo(
+		[in, out] DBORDINAL * pcColumns,
+		[out, size_is(,(ULONG)*pcColumns)] DBCOLUMNINFO  ** prgInfo,
+		[out, size_is(,(ULONG)*pcColumns)] DBBYTEOFFSET ** prgNameOffsets,
+		[out, size_is(,(ULONG)*pcColumns)] DBBYTEOFFSET ** prgcolumnidOffsets,
+		[in, out] DBLENGTH * pcbStringsBuffer,
+		[in, out, unique, size_is(,(ULONG)*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+
+	[local]
+	HRESULT MapColumnIDs(
+		[in] DBORDINAL cColumnIDs,
+		[in, size_is((ULONG)cColumnIDs), annotation("_In_reads_opt_(cColumnIDs)")] const DBID rgColumnIDs[],
+		[out, size_is((ULONG)cColumnIDs), annotation("_Out_writes_opt_(cColumnIDs)")] DBORDINAL rgColumns[]
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(MapColumnIDs)]
+	HRESULT RemoteMapColumnIDs(
+		[in] DBORDINAL cColumnIDs,
+		[in, size_is((ULONG)cColumnIDs)] const DBID *rgColumnIDs,
+		[out, size_is((ULONG)cColumnIDs)] DBORDINAL *rgColumns,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT GetColumnInfo(
+		[in, out, annotation("_Out_")] DBORDINAL * pcColumns,
+		[out, size_is(,*pcColumns), annotation("_Outptr_result_buffer_maybenull_(*pcColumns)")] DBCOLUMNINFO ** prgInfo,
+		[out, annotation("_Outptr_result_maybenull_z_")] OLECHAR ** ppStringsBuffer
+	);
+
+#ifndef NO_REMOTE
+	[call_as(GetColumnInfo)]
+	HRESULT RemoteGetColumnInfo(
+		[in, out] DBORDINAL * pcColumns,
+		[out, size_is(,*pcColumns)] DBCOLUMNINFO  ** prgInfo,
+		[out, size_is(,*pcColumns)] DBBYTEOFFSET ** prgNameOffsets,
+		[out, size_is(,*pcColumns)] DBBYTEOFFSET ** prgcolumnidOffsets,
+		[in, out] DBLENGTH * pcbStringsBuffer,
+		[in, out, unique, size_is(,*pcbStringsBuffer)] OLECHAR ** ppStringsBuffer,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+
+	[local]
+	HRESULT MapColumnIDs(
+		[in] DBORDINAL cColumnIDs,
+		[in, size_is(cColumnIDs), annotation("_In_reads_opt_(cColumnIDs)")] const DBID rgColumnIDs[],
+		[out, size_is(cColumnIDs), annotation("_Out_writes_opt_(cColumnIDs)")] DBORDINAL rgColumns[]
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(MapColumnIDs)]
+	HRESULT RemoteMapColumnIDs(
+		[in] DBORDINAL cColumnIDs,
+		[in, size_is(cColumnIDs)] const DBID *rgColumnIDs,
+		[out, size_is(cColumnIDs)] DBORDINAL *rgColumns,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+	
+#endif
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

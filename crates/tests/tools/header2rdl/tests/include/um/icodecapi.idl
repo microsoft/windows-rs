@@ -1,0 +1,238 @@
+//------------------------------------------------------------------------------
+// File: icodecapi.idl
+//
+// Desc: Defines icodecapi interface
+//
+// Copyright (c) 1992 - 2011, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+import "unknwn.idl";
+import "oaidl.idl";
+
+// Define for 'local' so that proxy-stubs can be generated for testing
+#ifndef AM_LOCAL
+#define AM_LOCAL local,
+#define AM_ANNOTATION(_x_) ,annotation(_x_)
+#endif
+
+struct CodecAPIEventData
+{
+    GUID guid;
+    DWORD   dataLength;
+    DWORD   reserved[3];
+    // BYTE data[dataLength];
+};
+
+interface   IStream;                     //  forward declaration
+//
+//  Applications can pass the CODECAPI_VIDEO_ENCODER to IsSupported to test for video encoders
+//  Similarly, the GUIDs for audio encoders, video decoders, audio decoders and muxes can be
+//  used to test for the codec classification
+//
+//  See uuids.h for a more detailed list.
+//
+[
+    AM_LOCAL
+    object,
+    uuid(901db4c7-31ce-41a2-85dc-8fa0bf41b8da),
+    pointer_default(unique)
+]
+interface ICodecAPI : IUnknown
+{
+    //
+    // IsSupported():
+    //
+    // Query whether a given parameter is supported.
+    //
+    HRESULT
+    IsSupported (
+        [in] const GUID *Api
+        );
+
+    //
+    // IsModifiable
+    //
+    // Query whether a given parameter can be changed given the codec selection
+    // and other parameter selections.
+    //
+    HRESULT
+    IsModifiable (
+        [in] const GUID *Api
+        );
+
+    //
+    // GetParameterRange():
+    //
+    // Returns the valid range of values that the parameter supports should
+    // the parameter support a stepped range as opposed to a list of specific
+    // values.  The support is [ValueMin .. ValueMax] by SteppingDelta.
+    //
+    // Ranged variant types must fall into one of the below types.  Each
+    // parameter will, by definition, return a specific type.
+    //
+    // If the range has no stepping delta (any delta will do), the Stepping
+    // delta will be empty (VT_EMPTY).
+    //
+    HRESULT
+    GetParameterRange (
+        [in] const GUID *Api,
+        [out AM_ANNOTATION("_Out_")] VARIANT *ValueMin,
+        [out AM_ANNOTATION("_Out_")] VARIANT *ValueMax,
+        [out AM_ANNOTATION("_Out_")] VARIANT *SteppingDelta
+        );
+
+    //
+    // GetParameterValues():
+    //
+    // Returns the list of values supported by the given parameter as a
+    // COM allocated array.  The total number of values will be placed in
+    // the ValuesCount parameter and the Values array will contain the
+    // individual values.  This array must be freed by the caller through
+    // CoTaskMemFree().
+    //
+    HRESULT
+    GetParameterValues (
+        [in] const GUID *Api,
+        [out, size_is(,*ValuesCount) AM_ANNOTATION("_Outptr_result_buffer_all_(*ValuesCount)")] VARIANT **Values,
+        [out AM_ANNOTATION("_Out_")] ULONG *ValuesCount
+        );
+
+    //
+    // GetDefaultValue():
+    //
+    // Get the default value for a parameter, if one exists.  Otherwise,
+    // an error will be returned.
+    //
+    HRESULT
+    GetDefaultValue (
+        [in] const GUID *Api,
+        [out AM_ANNOTATION("_Out_")] VARIANT *Value
+        );
+
+    //
+    // GetValue():
+    //
+    // Get the current value of a parameter.
+    //
+    HRESULT
+    GetValue (
+        [in] const GUID *Api,
+        [out AM_ANNOTATION("_Out_")] VARIANT *Value
+        );
+
+    //
+    // SetValue():
+    //
+    // Set the current value of a parameter.
+    //
+    HRESULT
+    SetValue (
+        [in] const GUID *Api,
+        [in AM_ANNOTATION("_In_")] VARIANT *Value
+        );
+
+    // new methods beyond IEncoderAPI
+
+    //
+    // RegisterForEvent():
+    //
+    // Enable events to be reported for the given event GUID.  For DShow
+    // events, the event is returned as
+    //      (EC_CODECAPI_EVENT, lParam=userData, lParam2=CodecAPIEventData* Data)
+    // where
+    //      - the CodecAPIEventData is COM allocated memory and must be handled and freed
+    //        by the application using CoTaskMemFree().
+    //      - the userData is the same pointer passed to RegisterForEvent
+    //
+    // Each data block starts with the following structure:
+    //      struct CodecAPIEventData
+    //      {
+    //          GUID guid;
+    //          DWORD dataLength;
+    //          DWORD reserved[3];     // pad to 16 byte alignment
+    //          BYTE data[dataLength];
+    //      }
+    // The guid parameter identifies the event. The data associated with the event follows the
+    // structure (represented by the variable length BYTE data[dataLength] array).
+    //
+    // If guid is equal to CODECAPI_CHANGELISTS, then data is an array of GUIDs that changed as
+    // a result of setting the parameter, as follows:
+    //      GUID    changedGuids[ header.dataLength / sizeof(GUID) ]
+    //
+    // The current array is limited, so a driver may send multiple messages if the array size is
+    // exceeded.
+    //
+    HRESULT
+    RegisterForEvent (
+        [in] const GUID *Api,
+        [in] LONG_PTR userData
+        );
+
+    //
+    // UnregisterForEvent():
+    //
+    // Disable event reporting for the given event GUID.
+    //
+    HRESULT
+    UnregisterForEvent (
+        [in] const GUID *Api
+        );
+
+    //
+    // SetAllDefaults
+    //
+    HRESULT SetAllDefaults(void);
+
+    //
+    // Extended SetValue & SetAllDefaults:
+    //
+    // Changes the current value of a parameter and returns back an alteration list
+    //
+    //  The secondary arguments return back a list of other settings
+    //  that changed as a result of the SetValue() call (for UI updates etc)
+    //  The client must free the buffer.
+    //
+    HRESULT
+    SetValueWithNotify (
+        [in] const GUID *Api,
+        [in] VARIANT *Value,
+        [out, size_is(,*ChangedParamCount) AM_ANNOTATION("_Outptr_result_buffer_all_(*ChangedParamCount)")] GUID **ChangedParam,
+        [out AM_ANNOTATION("_Out_")] ULONG *ChangedParamCount
+        );
+
+    //
+    // SetAllDefaultsWithNotify
+    //
+    HRESULT SetAllDefaultsWithNotify(
+        [out, size_is(,*ChangedParamCount) AM_ANNOTATION("_Outptr_result_buffer_all_(*ChangedParamCount)")] GUID **ChangedParam,
+        [out AM_ANNOTATION("_Out_")] ULONG *ChangedParamCount
+        );
+    //
+    //  GetAllSettings
+    //      Load the current settings from a stream
+    //
+    HRESULT GetAllSettings( [in] IStream* );
+
+    //
+    //  SetAllSettings
+    //      Save the current settings to a stream
+    //
+    HRESULT SetAllSettings( [in] IStream* );
+
+    //
+    //  SetAllSettingsWithNotify
+    //
+    HRESULT SetAllSettingsWithNotify( IStream*,
+        [out, size_is(,*ChangedParamCount) AM_ANNOTATION("_Outptr_result_buffer_all_(*ChangedParamCount)")] GUID **ChangedParam,
+        [out AM_ANNOTATION("_Out_")] ULONG *ChangedParamCount );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+

@@ -1,0 +1,376 @@
+//.-------------------------------------------------------------------------
+//.
+//.  Microsoft Windows
+//  Copyright (C) 1995-1999 Microsoft Corporation.  All rights reserved.
+//.
+//.  File: transact.idl
+//.
+//.  Contents: The basic transaction interfaces and types.
+//.
+//.--------------------------------------------------------------------------
+
+import "unknwn.idl";
+
+//
+//--------------------------------------------------------------------------
+//
+
+cpp_quote("#include \"winerror.h\"")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface ITransaction;
+interface ITransactionDispenser;
+interface ITransactionOptions;
+interface ITransactionOutcomeEvents;
+interface ITransactionCompletionEvents;
+interface IKernelTransaction;
+
+cpp_quote("#ifndef DECLSPEC_UUID")
+cpp_quote("#if (_MSC_VER >= 1100) && defined (__cplusplus)")
+cpp_quote("#define DECLSPEC_UUID(x)    __declspec(uuid(x))")
+cpp_quote("#else")
+cpp_quote("#define DECLSPEC_UUID(x)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+//==========================================================================
+// Transaction related types
+//==========================================================================
+
+[local,pointer_default(unique)]
+interface BasicTransactionTypes
+    {
+
+    typedef struct BOID {
+        byte rgb[16];
+        } BOID;
+
+    cpp_quote("#define BOID_NULL (*((BOID*)(&IID_NULL)))")
+
+    // change the following two line together
+    cpp_quote("#ifndef MAX_TRAN_DESC_DEFINED")          // conflicts with uimsg.h. This is temporary work around
+    cpp_quote("#define MAX_TRAN_DESC_DEFINED")  
+    typedef enum TX_MISC_CONSTANTS
+        {
+        MAX_TRAN_DESC                   = 40
+        } TX_MISC_CONSTANTS;
+    cpp_quote("#endif") 
+
+    // Unit Of Work.
+
+    typedef BOID XACTUOW;
+
+    // Data type for isolation level values.
+
+    typedef LONG ISOLEVEL;
+
+    // Constants that specifiy isolation level of a transaction.
+
+    typedef enum ISOLATIONLEVEL {
+        ISOLATIONLEVEL_UNSPECIFIED      = 0xFFFFFFFF,   // 
+        ISOLATIONLEVEL_CHAOS            = 0x00000010,   // 
+        ISOLATIONLEVEL_READUNCOMMITTED  = 0x00000100,   // 
+        ISOLATIONLEVEL_BROWSE           = 0x00000100,   // Synonym for _READUNCOMITTED
+        ISOLATIONLEVEL_CURSORSTABILITY  = 0x00001000,   // 
+        ISOLATIONLEVEL_READCOMMITTED    = 0x00001000,   // Synonym for _CURSORSTABILITY
+        ISOLATIONLEVEL_REPEATABLEREAD   = 0x00010000,   // 
+        ISOLATIONLEVEL_SERIALIZABLE     = 0x00100000,   // 
+        ISOLATIONLEVEL_ISOLATED         = 0x00100000,   // Synonym for _SERIALIZABLE
+        } ISOLATIONLEVEL; 
+
+    // Transaction information structure, used in ITransaction
+
+    typedef struct XACTTRANSINFO {
+        XACTUOW     uow;                        // The current unit of work
+        ISOLEVEL    isoLevel;                   // The isolation level for the current UOW
+        ULONG       isoFlags;                   // Values from ISOFLAG enumeration
+        DWORD       grfTCSupported;             // Flags indicating capabilities
+        DWORD       grfRMSupported;             //       ... of this transaction wrt
+        DWORD       grfTCSupportedRetaining;    //       ... parameters to Commit
+        DWORD       grfRMSupportedRetaining;    //       ...
+        } XACTTRANSINFO;
+
+    typedef struct XACTSTATS {
+        ULONG       cOpen;              // The number of currently extant transactions.
+        ULONG       cCommitting;        // The number of transactions which are proceding towards committing.
+        ULONG       cCommitted;         // The number of transactions that are have been committed.
+        ULONG       cAborting;          // The number of transactions which are in the process of aborting.
+        ULONG       cAborted;           // The number of transactions that are have been aborted.
+        ULONG       cInDoubt;           // The number of transactions which are presently in doubt.
+        ULONG       cHeuristicDecision; // The number of transactions that have completed by heuristic decision.
+        FILETIME    timeTransactionsUp; // The amount of time that this transaction service has been up.
+        } XACTSTATS;
+
+    // @enum ISOFLAG | Used in <t XACTTRANSINFO> and <i ITransactionDispenser>.
+
+    typedef enum ISOFLAG { 
+        ISOFLAG_RETAIN_COMMIT_DC    = 1,    // Use just one of ISOFLAG_RETAIN_COMMIT values
+        ISOFLAG_RETAIN_COMMIT       = 2,    // 
+        ISOFLAG_RETAIN_COMMIT_NO    = 3,    // 
+        ISOFLAG_RETAIN_ABORT_DC     = 4,    // Use just one of ISOFLAG_RETAIN_ABORT values
+        ISOFLAG_RETAIN_ABORT        = 8,    // 
+        ISOFLAG_RETAIN_ABORT_NO     = 12,   // 
+        ISOFLAG_RETAIN_DONTCARE     = ISOFLAG_RETAIN_COMMIT_DC | ISOFLAG_RETAIN_ABORT_DC,   // 
+        ISOFLAG_RETAIN_BOTH         = ISOFLAG_RETAIN_COMMIT    | ISOFLAG_RETAIN_ABORT,      // 
+        ISOFLAG_RETAIN_NONE         = ISOFLAG_RETAIN_COMMIT_NO | ISOFLAG_RETAIN_ABORT_NO,   // 
+        ISOFLAG_OPTIMISTIC          = 16,   // 
+        ISOFLAG_READONLY            = 32    // 
+        } ISOFLAG;
+
+    // Used in ITransactionDispenser
+    // A bit field of 32 bits; be sure to mask before comparing.
+
+    typedef enum XACTTC {
+        XACTTC_NONE             = 0,    // use Provider's default.       
+        XACTTC_SYNC_PHASEONE    = 1,
+        XACTTC_SYNC_PHASETWO    = 2,
+        XACTTC_SYNC             = 2,    // nb alias for XACTTC_SYNC_PHASETWO
+        XACTTC_ASYNC_PHASEONE   = 4,
+        XACTTC_ASYNC            = 4     // nb alias for XACTTC_ASYNC_PHASEONE
+        } XACTTC;
+
+    // Used in ITransactionDispenser
+    // A bit field of 32 bits; be sure to mask before comparing.
+    
+    typedef enum XACTRM {       
+        XACTRM_OPTIMISTICLASTWINS = 1,  //
+        XACTRM_NOREADONLYPREPARES = 2,  //
+        } XACTRM;
+
+    typedef enum XACTCONST {
+        XACTCONST_TIMEOUTINFINITE = 0,  //
+        } XACTCONST;
+
+    typedef enum XACTHEURISTIC {
+        XACTHEURISTIC_ABORT     = 1,
+        XACTHEURISTIC_COMMIT    = 2,
+        XACTHEURISTIC_DAMAGE    = 3,
+        XACTHEURISTIC_DANGER    = 4,
+        } XACTHEURISTIC;
+
+    typedef enum XACTSTAT {
+        XACTSTAT_NONE               = 0x00000000,
+        XACTSTAT_OPENNORMAL         = 0x00000001,
+        XACTSTAT_OPENREFUSED        = 0x00000002,
+        XACTSTAT_PREPARING          = 0x00000004,
+        XACTSTAT_PREPARED           = 0x00000008,
+        XACTSTAT_PREPARERETAINING   = 0x00000010,
+        XACTSTAT_PREPARERETAINED    = 0x00000020,
+        XACTSTAT_COMMITTING         = 0x00000040,
+        XACTSTAT_COMMITRETAINING    = 0x00000080,
+        XACTSTAT_ABORTING           = 0x00000100,
+        XACTSTAT_ABORTED            = 0x00000200,
+        XACTSTAT_COMMITTED          = 0x00000400,
+        XACTSTAT_HEURISTIC_ABORT    = 0x00000800,
+        XACTSTAT_HEURISTIC_COMMIT   = 0x00001000,
+        XACTSTAT_HEURISTIC_DAMAGE   = 0x00002000,
+        XACTSTAT_HEURISTIC_DANGER   = 0x00004000,
+        XACTSTAT_FORCED_ABORT       = 0x00008000,
+        XACTSTAT_FORCED_COMMIT      = 0x00010000,
+        XACTSTAT_INDOUBT            = 0x00020000,
+        XACTSTAT_CLOSED             = 0x00040000,
+        XACTSTAT_OPEN               = 0x00000003,   
+        XACTSTAT_NOTPREPARED        = 0x0007FFC3,
+        XACTSTAT_ALL                = 0x0007FFFF,   
+        } XACTSTAT;
+   
+    typedef struct XACTOPT {                        // Transaction configuration options
+        ULONG       ulTimeout;                      // timeout in milliseconds
+        char        szDescription[MAX_TRAN_DESC];   // description string for admin tools
+        } XACTOPT;
+    
+    
+    }
+
+
+    
+//
+//==========================================================================
+// Basic transaction interfaces
+//==========================================================================
+//
+
+// Transaction interface, single phase
+
+[object,uuid(0fb15084-af41-11ce-bd2b-204c4f4f5020), pointer_default(unique)]
+interface ITransaction : IUnknown {
+
+    HRESULT Commit
+        (
+        [in] BOOL  fRetaining, 
+        [in] DWORD grfTC,
+        [in] DWORD grfRM
+        );
+    HRESULT Abort
+        (
+        [in, unique] BOID* pboidReason,
+        [in]         BOOL  fRetaining,
+        [in]         BOOL  fAsync
+        );
+    HRESULT GetTransactionInfo
+        (
+        [out] XACTTRANSINFO* pinfo
+        );
+    }
+
+// ITransactionCloner
+[
+    object,
+    uuid(02656950-2152-11d0-944C-00A0C905416E),
+    pointer_default(unique)
+]
+interface ITransactionCloner : ITransaction
+{
+    HRESULT CloneWithCommitDisabled
+        (
+            [out] ITransaction ** ppITransaction
+        );  
+}; 
+
+// New: Transaction interface, single phase
+[
+    object,
+    uuid(34021548-0065-11d3-bac1-00c04f797be2),
+    pointer_default(unique)
+]
+interface ITransaction2 : ITransactionCloner 
+{
+    HRESULT GetTransactionInfo2
+        (
+            [out] XACTTRANSINFO* pinfo
+        );
+}
+
+
+//
+//--------------------------------------------------------------------------
+//
+
+// Interface by which new transactions are commonly created
+
+[object,uuid(3A6AD9E1-23B9-11cf-AD60-00AA00A74CCD),pointer_default(unique)]
+interface ITransactionDispenser : IUnknown {
+    HRESULT GetOptionsObject
+        (
+        [out] ITransactionOptions** ppOptions
+        );
+    HRESULT BeginTransaction
+        (
+        [in, unique]    IUnknown*      punkOuter,             // controlling unknown
+        [in]            ISOLEVEL       isoLevel,              // isolation level for xtion
+        [in]            ULONG          isoFlags,              // values from ISOFLAG enumeration
+        [in, unique]    ITransactionOptions* pOptions,        // pointer retrieved from previous GetOptions
+        [out]           ITransaction** ppTransaction
+        );
+    }
+
+//
+//--------------------------------------------------------------------------
+//
+
+[object,uuid(3A6AD9E0-23B9-11cf-AD60-00AA00A74CCD),pointer_default(unique)]
+interface ITransactionOptions : IUnknown {
+    HRESULT SetOptions
+        (
+        [in]  XACTOPT* pOptions
+        );
+    HRESULT GetOptions
+        (
+        [in,out]  XACTOPT* pOptions
+        );
+    }
+
+//
+//--------------------------------------------------------------------------
+//
+
+[object,uuid(3A6AD9E2-23B9-11cf-AD60-00AA00A74CCD),pointer_default(unique)]
+interface ITransactionOutcomeEvents : IUnknown {
+    HRESULT Committed
+        (
+        [in]            BOOL       fRetaining, 
+        [in, unique]    XACTUOW*   pNewUOW,
+        [in]            HRESULT    hr
+        );
+    HRESULT Aborted
+        (
+        [in, unique]    BOID*      pboidReason,
+        [in]            BOOL       fRetaining, 
+        [in, unique]    XACTUOW*   pNewUOW,
+        [in]            HRESULT    hr
+        );
+    HRESULT HeuristicDecision
+        (
+        [in]            DWORD      dwDecision, 
+        [in, unique]    BOID*      pboidReason,
+        [in]            HRESULT    hr
+        );
+    HRESULT Indoubt
+        (
+            void
+        );
+    }
+
+//
+//--------------------------------------------------------------------------
+//
+
+[object,uuid(30274F88-6EE4-474e-9B95-7807BC9EF8CF),pointer_default(unique)]
+interface ITmNodeName : IUnknown {
+    HRESULT GetNodeNameSize
+        (
+        [out]  ULONG* pcbNodeNameSize
+        );
+    HRESULT GetNodeName
+        (
+        [in] ULONG cbNodeNameBufferSize,
+        [in,out]  LPWSTR pNodeNameBuffer
+        );
+    }
+
+// Interface to retrieve Kernel Transaction handle.
+
+[object,uuid(79427A2B-F895-40e0-BE79-B57DC82ED231), local, pointer_default(unique)]
+interface IKernelTransaction : IUnknown {
+
+    HRESULT GetHandle
+        (
+        [out] HANDLE*  pHandle 
+        );
+    }
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("#if _MSC_VER < 1100 || !defined(__cplusplus)")
+cpp_quote("")
+cpp_quote("DEFINE_GUID(IID_ITransaction,                0x0fb15084, 0xaf41, 0x11ce, 0xbd, 0x2b, 0x20, 0x4c, 0x4f, 0x4f, 0x50, 0x20);")
+cpp_quote("DEFINE_GUID(IID_ITransactionCloner,          0x02656950, 0x2152, 0x11d0, 0x94, 0x4C, 0x00, 0xA0, 0xC9, 0x05, 0x41, 0x6E);")
+cpp_quote("DEFINE_GUID(IID_ITransaction2,               0x34021548, 0x0065, 0x11d3, 0xba, 0xc1, 0x00, 0xc0, 0x4f, 0x79, 0x7b, 0xe2);")
+cpp_quote("DEFINE_GUID(IID_ITransactionDispenser,       0x3A6AD9E1, 0x23B9, 0x11cf, 0xAD, 0x60, 0x00, 0xAA, 0x00, 0xA7, 0x4C, 0xCD);")
+cpp_quote("DEFINE_GUID(IID_ITransactionOptions,         0x3A6AD9E0, 0x23B9, 0x11cf, 0xAD, 0x60, 0x00, 0xAA, 0x00, 0xA7, 0x4C, 0xCD);")
+cpp_quote("DEFINE_GUID(IID_ITransactionOutcomeEvents,   0x3A6AD9E2, 0x23B9, 0x11cf, 0xAD, 0x60, 0x00, 0xAA, 0x00, 0xA7, 0x4C, 0xCD);")
+cpp_quote("DEFINE_GUID(IID_ITmNodeName,   0x30274F88, 0x6EE4, 0x474e, 0x9B, 0x95, 0x78, 0x07, 0xBC, 0x9E, 0xF8, 0xCF);")
+cpp_quote("DEFINE_GUID(IID_IKernelTransaction,          0x79427a2b, 0xf895, 0x40e0, 0xbe, 0x79, 0xb5, 0x7d, 0xc8, 0x2e, 0xd2, 0x31);")
+
+cpp_quote("")
+cpp_quote("#else // #if _MSC_VER < 1100 || !defined(__cplusplus)")
+cpp_quote("")
+cpp_quote("#define  IID_ITransaction                    __uuidof(ITransaction)")
+cpp_quote("#define  IID_ITransactionCloner              __uuidof(ITransactionCloner)")
+cpp_quote("#define  IID_ITransaction2                   __uuidof(ITransaction2)")
+cpp_quote("#define  IID_ITransactionDispenser           __uuidof(ITransactionDispenser)")
+cpp_quote("#define  IID_ITransactionOptions             __uuidof(ITransactionOptions)")
+cpp_quote("#define  IID_ITransactionOutcomeEvents       __uuidof(ITransactionOutcomeEvents)")
+cpp_quote("#define  IID_ITmNodeName       __uuidof(ITmNodeName)")
+cpp_quote("#define  IID_IKernelTransaction              __uuidof(IKernelTransaction)")
+cpp_quote("")
+cpp_quote("#endif // #if _MSC_VER < 1100 || !defined(__cplusplus)")
+cpp_quote("")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

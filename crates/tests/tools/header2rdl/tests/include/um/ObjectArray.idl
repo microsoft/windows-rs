@@ -1,0 +1,38 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// generic interfaces that express a set of items
+
+[
+    helpstring("Unknown Object Array"),
+    uuid(92CA9DCD-5622-4bba-A805-5E9F541BD8C9),
+    object,
+    pointer_default(unique)
+]
+interface IObjectArray : IUnknown
+{
+    HRESULT GetCount([out] UINT *pcObjects);
+    HRESULT GetAt([in] UINT uiIndex, [in] REFIID riid, [out, iid_is(riid)] void **ppv);
+}
+
+[
+    uuid(5632b1a4-e38a-400a-928a-d4cd63230295),
+    object,
+    pointer_default(unique)
+]
+interface IObjectCollection : IObjectArray
+{
+    HRESULT AddObject([in] IUnknown *punk);
+    HRESULT AddFromArray([in] IObjectArray *poaSource);
+    HRESULT RemoveObjectAt([in] UINT uiIndex);
+    HRESULT Clear();
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

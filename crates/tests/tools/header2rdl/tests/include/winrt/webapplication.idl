@@ -1,0 +1,171 @@
+/*******************************************************
+ *                                                     *
+ *     Copyright (C) Microsoft. All rights reserved.   *
+ *                                                     *
+ *******************************************************/
+cpp_quote("/*******************************************************")
+cpp_quote(" *                                                     *")
+cpp_quote(" *     Copyright (C) Microsoft. All rights reserved.   *")
+cpp_quote(" *                                                     *")
+cpp_quote(" *******************************************************/")
+cpp_quote("#pragma once")
+cpp_quote("")
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("#include <urlmon.h>")
+cpp_quote("#include <winapifamily.h>")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "Mshtml.idl";
+import "activscp.idl";
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    local,
+    uuid(7C3F6998-1567-4BBA-B52B-48D32141D613)
+]
+interface IWebApplicationScriptEvents : IUnknown
+{
+    [helpstring("Fired before any script is executed on the page.")]
+    HRESULT BeforeScriptExecute(
+        [in] IHTMLWindow2* htmlWindow);
+
+    [helpstring("Fired when an unhandled script error occurs.")]
+    HRESULT ScriptError(
+        [in, annotation("_In_opt_")] IHTMLWindow2* htmlWindow,
+        [in] IActiveScriptError* scriptError,
+        [in, string] LPCWSTR url,
+        [in] BOOL errorHandled);
+};
+
+[
+    object,
+    local,
+    uuid(C22615D2-D318-4DA2-8422-1FCAF77B10E4)
+]
+interface IWebApplicationNavigationEvents : IUnknown
+{
+    [helpstring("Fired before navigate occurs in the given host (window or frameset element).")]
+    HRESULT BeforeNavigate(
+        [in] IHTMLWindow2* htmlWindow,
+        [in, string] LPCWSTR url,
+        [in] DWORD navigationFlags,
+        [in, string, annotation("_In_opt_")] LPCWSTR targetFrameName);
+
+    [helpstring("Fired when the document being navigated to becomes visible and enters the navigation stack.")]
+    HRESULT NavigateComplete(
+        [in] IHTMLWindow2* htmlWindow,
+        [in, string] LPCWSTR url);
+
+    [helpstring("Fired when a binding error occurs (window or frameset element).")]
+    HRESULT NavigateError(
+        [in] IHTMLWindow2* htmlWindow,
+        [in, string] LPCWSTR url,
+        [in, string, annotation("_In_opt_")] LPCWSTR targetFrameName,
+        [in] DWORD statusCode);
+
+    [helpstring("Fired when the document being navigated to reaches ReadyState_Complete.")]
+    HRESULT DocumentComplete(
+        [in] IHTMLWindow2* htmlWindow,
+        [in, string] LPCWSTR  url);
+
+    [helpstring("Download of a page started.")]
+    HRESULT DownloadBegin();
+
+    [helpstring("Download of a page has completed.")]
+    HRESULT DownloadComplete();
+};
+
+[
+    object,
+    local,
+    uuid(5B2B3F99-328C-41D5-A6f7-7483ED8E71DD)
+]
+interface IWebApplicationUIEvents : IUnknown
+{
+    [helpstring("Notifies the authoring application about an authentication problem.")]
+    HRESULT SecurityProblem(
+        [in] DWORD securityProblem,
+        [out] HRESULT* result);
+};
+
+[
+    object,
+    local,
+    uuid(3E59E6B7-C652-4DAF-AD5E-16FEB350CDE3)
+]
+interface IWebApplicationUpdateEvents : IUnknown
+{
+    [helpstring("Notifies the authoring application about Paint surface modifications.")]
+    HRESULT OnPaint();
+
+    [helpstring("Notifies the authoring application about CSS changes.")]
+    HRESULT OnCssChanged();
+};
+
+[
+    object,
+    local,
+    uuid(CECBD2C3-A3A5-4749-9681-20E9161C6794)
+]
+interface IWebApplicationHost : IUnknown
+{
+    [propget, helpstring("Returns the HWND of the current WWAHost window.")]
+    HRESULT HWND([out, retval] HWND* hwnd);
+
+    [propget, helpstring("Returns the HTML Document Object Model.")]
+    HRESULT Document([out, retval] IHTMLDocument2** htmlDocument);
+
+    [helpstring("Refresh the current document without sending a 'Pragma:no-cache' HTTP header to the server")]
+    HRESULT Refresh();
+
+    [helpstring("Establishes a connection to allow a client to receive events.")]
+    HRESULT Advise(
+        [in] REFIID interfaceId,
+        [in] IUnknown* callback,
+        [out] DWORD* cookie);
+
+    [helpstring("Removes a previously established connection.")]
+    HRESULT Unadvise(
+        [in] DWORD cookie);
+}
+
+[
+    object,
+    local,
+    uuid(BCDCD0DE-330E-481B-B843-4898A6A8EBAC)
+]
+interface IWebApplicationActivation : IUnknown
+{
+    [helpstring("Cancels a pending activation.")]
+    HRESULT CancelPendingActivation();
+}
+
+cpp_quote("// Implemented by the activator. The query service implementation is required to respond to")
+cpp_quote("// requests for SID_SWebApplicationAuthor.")
+[
+    object,
+    uuid(720AEA93-1964-4DB0-B005-29EB9E2B18A9),
+    pointer_default(unique)
+]
+interface IWebApplicationAuthoringMode : IServiceProvider
+{
+    [propget, helpstring("Gets the full local path to a DLL that will be loaded into the WWAHost process.")]
+    HRESULT AuthoringClientBinary(
+        [out, retval] BSTR* designModeDllPath);
+};
+
+cpp_quote("")
+cpp_quote("#define SID_SWebApplicationAuthor IID_IWebApplicationAuthoringMode")
+
+cpp_quote("")
+cpp_quote("typedef HRESULT (*RegisterAuthoringClientFunctionType)(_In_ IWebApplicationAuthoringMode* authoringModeObject, _In_ IWebApplicationHost* host);")
+cpp_quote("")
+cpp_quote("typedef HRESULT (* UnregisterAuthoringClientFunctionType)(_In_ IWebApplicationHost* host);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

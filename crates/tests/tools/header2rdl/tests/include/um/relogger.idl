@@ -1,0 +1,273 @@
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+
+cpp_quote("//  Copyright (c) Microsoft Corporation.  All rights reserved.")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+import "unknwn.idl";
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+  cpp_quote("#ifndef EVENT_DESCRIPTOR_DEF")
+  cpp_quote("#define EVENT_DESCRIPTOR_DEF")
+  typedef struct _EVENT_DESCRIPTOR {
+      USHORT      Id;
+      UCHAR       Version;
+      UCHAR       Channel;
+      UCHAR       Level;
+      UCHAR       Opcode;
+      USHORT      Task;
+      ULONGLONG   Keyword;
+  } EVENT_DESCRIPTOR, *PEVENT_DESCRIPTOR;
+  typedef const EVENT_DESCRIPTOR *PCEVENT_DESCRIPTOR;
+  cpp_quote("#endif")
+
+  #pragma warning(push)
+  #pragma warning (disable:4201) /* nonstandard extension used : nameless struct/union */
+  cpp_quote("#ifndef EVENT_HEADER_DEF")
+  cpp_quote("#define EVENT_HEADER_DEF")
+  typedef struct _EVENT_HEADER {
+
+      USHORT              Size;                   // Event Size
+      USHORT              HeaderType;             // Header Type
+      USHORT              Flags;                  // Flags
+      USHORT              EventProperty;          // User given event property
+      ULONG               ThreadId;               // Thread Id
+      ULONG               ProcessId;              // Process Id
+      LARGE_INTEGER       TimeStamp;              // Event Timestamp
+      GUID                ProviderId;             // Provider Id
+      EVENT_DESCRIPTOR    EventDescriptor;        // Event Descriptor
+      union {
+          struct {
+              ULONG       KernelTime;             // Kernel Mode CPU ticks
+              ULONG       UserTime;               // User mode CPU ticks
+          } DUMMYSTRUCTNAME;
+          ULONG64         ProcessorTime;          // Processor Clock
+                                                  // for private session events
+      } DUMMYUNIONNAME;
+      GUID                ActivityId;             // Activity Id
+
+  } EVENT_HEADER, *PEVENT_HEADER;
+  cpp_quote("#endif")
+
+
+  cpp_quote("#ifndef ETW_BUFFER_CONTEXT_DEF")
+  cpp_quote("#define ETW_BUFFER_CONTEXT_DEF")
+  typedef struct _ETW_BUFFER_CONTEXT {
+      union {
+          struct {
+              UCHAR ProcessorNumber;
+              UCHAR Alignment;
+          } DUMMYSTRUCTNAME;
+          USHORT ProcessorIndex;
+      } DUMMYUNIONNAME;
+      USHORT  LoggerId;
+  } ETW_BUFFER_CONTEXT, *PETW_BUFFER_CONTEXT;
+  cpp_quote("#endif")
+  #pragma warning(pop)
+
+  cpp_quote("#ifndef EVENT_HEADER_EXTENDED_DATA_ITEM_DEF")
+  cpp_quote("#define EVENT_HEADER_EXTENDED_DATA_ITEM_DEF")
+  typedef struct _EVENT_HEADER_EXTENDED_DATA_ITEM {
+
+      USHORT      Reserved1;                      // Reserved for internal use
+      USHORT      ExtType;                        // Extended info type
+      USHORT      Linkage;                        // Indicates additional extended
+      USHORT      DataSize;                       // Size of extended info data
+      ULONGLONG   DataPtr;                        // Pointer to extended info data
+
+  } EVENT_HEADER_EXTENDED_DATA_ITEM, *PEVENT_HEADER_EXTENDED_DATA_ITEM;
+  cpp_quote("#endif")
+
+  cpp_quote("#ifndef EVENT_RECORD_DEF")
+  cpp_quote("#define EVENT_RECORD_DEF")
+  typedef struct _EVENT_RECORD {
+
+      EVENT_HEADER        EventHeader;            // Event header
+      ETW_BUFFER_CONTEXT  BufferContext;          // Buffer context
+      USHORT              ExtendedDataCount;      // Number of extended
+                                                  // data items
+      USHORT              UserDataLength;         // User data length
+      PEVENT_HEADER_EXTENDED_DATA_ITEM            // Pointer to an array of
+                          ExtendedData;           // extended data items
+      PVOID               UserData;               // Pointer to user data
+      PVOID               UserContext;            // Context from OpenTrace
+  } EVENT_RECORD, *PEVENT_RECORD;
+  typedef const EVENT_RECORD *PCEVENT_RECORD;
+  cpp_quote("#endif")
+
+// Used by ITraceRelogger. Obtain the stream ID from AddLogfileTraceStream or
+// AddRealtimeTraceStream. The stream ID is valid only with the ITraceRelogger
+// object from which it was obtained.
+typedef ULONG64 RELOGSTREAM_ID;
+
+interface ITraceRelogger;
+
+[
+    object,
+    uuid(8CC97F40-9028-4FF3-9B62-7D1F79CA7BCB),
+    helpstring("Interface  ITraceEvent"),
+    local
+]
+interface ITraceEvent : IUnknown
+{
+    HRESULT Clone(
+        [out, retval] ITraceEvent** NewEvent
+        );
+
+    HRESULT GetUserContext(
+        [out, retval] void** UserContext
+        );
+
+    HRESULT GetEventRecord(
+        [out, retval] PEVENT_RECORD* EventRecord
+        );
+
+    HRESULT SetPayload(
+        [in, size_is(PayloadSize)] BYTE* Payload,
+        [in] ULONG PayloadSize
+        );
+
+    HRESULT SetEventDescriptor(
+        [in] PCEVENT_DESCRIPTOR EventDescriptor
+        );
+
+    HRESULT SetProcessId(
+        [in] ULONG ProcessId
+        );
+
+    HRESULT SetProcessorIndex(
+        [in] ULONG ProcessorIndex
+        );
+
+    HRESULT SetThreadId(
+        [in] ULONG ThreadId
+        );
+
+    HRESULT SetThreadTimes(
+        [in] ULONG KernelTime,
+        [in] ULONG UserTime
+        );
+
+    HRESULT SetActivityId(
+        [in] LPCGUID ActivityId
+        );
+
+    HRESULT SetTimeStamp(
+        [in] LARGE_INTEGER* TimeStamp
+        );
+
+    HRESULT SetProviderId(
+        [in] LPCGUID ProviderId
+        );
+};
+
+
+[
+    object,
+    uuid(3ED25501-593F-43E9-8F38-3AB46F5A4A52),
+    helpstring("Interface ITraceEventCallback")
+]
+interface ITraceEventCallback : IUnknown
+{
+    HRESULT OnBeginProcessTrace(
+        [in] ITraceEvent* HeaderEvent,
+        [in] ITraceRelogger* Relogger
+        );
+
+    HRESULT OnFinalizeProcessTrace(
+        [in] ITraceRelogger* Relogger
+        );
+
+    HRESULT OnEvent(
+        [in] ITraceEvent* Event,
+        [in] ITraceRelogger* Relogger
+        );
+};
+
+
+[
+    object,
+    uuid(F754AD43-3BCC-4286-8009-9C5DA214E84E),
+    helpstring("Interface ITraceRelloger"),
+    local
+]
+interface ITraceRelogger : IUnknown
+{
+    HRESULT AddLogfileTraceStream (
+        [in] BSTR LogfileName,
+        [in] void* UserContext,
+        [out, retval] RELOGSTREAM_ID* TraceStreamId
+        );
+
+    HRESULT AddRealtimeTraceStream (
+        [in] BSTR LoggerName,
+        [in] void* UserContext,
+        [out, retval] RELOGSTREAM_ID* TraceStreamId
+        );
+
+    HRESULT RegisterCallback (
+        [in] ITraceEventCallback* Callback
+        );
+
+    HRESULT Inject(
+        [in] ITraceEvent* Event
+        );
+
+    HRESULT CreateEventInstance(
+        [in] RELOGSTREAM_ID TraceStreamId,
+        [in] ULONG Flags,
+        [out, retval] ITraceEvent** Event
+        );
+
+    HRESULT ProcessTrace(
+        void
+        );
+
+    HRESULT SetOutputFilename (
+        [in] BSTR LogfileName
+        );
+
+    HRESULT SetCompressionMode (
+        [in] BOOLEAN CompressionMode
+        );
+
+    HRESULT Cancel (
+        void
+        );
+};
+
+
+[
+    uuid(0764af4c-2169-49f4-8f3a-fb1ff038fce3),
+    helpstring("Interfaces for Relogging support implementation.")
+]
+library TraceReloggerLib
+{
+    interface ITraceEvent;
+    interface ITraceEventCallback;
+    interface ITraceRelogger;
+
+    [
+        uuid(7b40792d-05ff-44c4-9058-f440c71f17d4)
+    ]
+    coclass CTraceRelogger
+    {
+        [default] interface ITraceRelogger;
+    }
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+// {7b40792d-05ff-44c4-9058-f440c71f17d4}
+cpp_quote("EXTERN_GUID(CLSID_TraceRelogger, 0x7b40792d, 0x05ff, 0x44c4, 0x90, 0x58, 0xf4, 0x40, 0xc7, 0x1f, 0x17, 0xd4);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion

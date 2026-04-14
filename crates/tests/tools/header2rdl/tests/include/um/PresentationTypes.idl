@@ -1,0 +1,44 @@
+// ----------------------------------------------------------------------------
+//
+//  Presentation API Basic Types
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+// ----------------------------------------------------------------------------
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "wtypes.idl";
+import "dxgi1_6.idl";
+
+// The amount of time since the system was last started, in 100ns intervals
+typedef struct SystemInterruptTime
+{
+    UINT64 value;
+} SystemInterruptTime;
+
+// 3x2 Presentation Transform
+typedef struct PresentationTransform
+{
+    float M11;
+    float M12;
+    float M21;
+    float M22;
+    float M31;
+    float M32;
+} PresentationTransform;
+
+// An identifier for a composition frame. This frame is reported back in composition frame
+// statistics and can be passed into other APIs, such as the composition timing API
+// (e.g. DCompositionGetTargetStatistics)
+typedef UINT64 CompositionFrameId;
+
+// Statistics kind enumeration
+typedef enum PresentStatisticsKind
+{
+    PresentStatisticsKind_PresentStatus = 1,
+    PresentStatisticsKind_CompositionFrame = 2,
+    PresentStatisticsKind_IndependentFlipFrame = 3,
+
+    // Future versions of the API will extend this enumeration
+} PresentStatisticsKind;

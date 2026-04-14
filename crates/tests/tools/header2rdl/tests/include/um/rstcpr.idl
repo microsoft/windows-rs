@@ -1,0 +1,96 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstcpr.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+#if( OLEDBVER >= 0x0200 )
+    REMOTED_INTERFACE(0c733a6b-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733a6b-2a1c-11ce-ade5-00aa0044773d)
+#endif
+
+    
+interface IRowsetCopyRows : IUnknown {
+
+typedef WORD HSOURCE;
+
+
+	HRESULT CloseSource(
+		[in] HSOURCE hSourceID
+	);
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	HRESULT CopyByHROWS(
+		[in] HSOURCE hSourceID,
+		[in] HCHAPTER hReserved,
+		[in] DBROWCOUNT cRows,
+		[in, size_is((ULONG)cRows)] const HROW rghRows[],
+		[in] ULONG bFlags
+	);
+
+#else  //No casting by ULONG for 32-bit.
+
+	HRESULT CopyByHROWS(
+		[in] HSOURCE hSourceID,
+		[in] HCHAPTER hReserved,
+		[in] DBROWCOUNT cRows,
+		[in, size_is(cRows)] const HROW rghRows[],
+		[in] ULONG bFlags
+	);
+	
+#endif
+
+	HRESULT CopyRows(
+		[in] HSOURCE hSourceID,
+		[in] HCHAPTER hReserved,
+		[in] DBROWCOUNT cRows,
+		[in] ULONG bFlags,
+		[out] DBCOUNTITEM * pcRowsCopied
+	);
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	HRESULT DefineSource(
+		[in] const IRowset * pRowsetSource,
+		[in] const DBORDINAL cColIds,
+		[in, size_is((ULONG)cColIds)] const DB_LORDINAL rgSourceColumns[],
+		[in, size_is((ULONG)cColIds)] const DB_LORDINAL rgTargetColumns[],
+		[out] HSOURCE * phSourceID
+	);
+
+#else  //No casting by ULONG for 32-bit.
+
+	HRESULT DefineSource(
+		[in] const IRowset * pRowsetSource,
+		[in] const DBORDINAL cColIds,
+		[in, size_is(cColIds)] const DB_LORDINAL rgSourceColumns[],
+		[in, size_is(cColIds)] const DB_LORDINAL rgTargetColumns[],
+		[out] HSOURCE * phSourceID
+	);
+	
+#endif
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

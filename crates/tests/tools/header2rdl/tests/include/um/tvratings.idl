@@ -1,0 +1,131 @@
+// TvRatings.idl : IDL source for TvRatings.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TvRatings.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "encdec.idl";
+
+
+// -------------------------------------------------------
+// -------------------------------------------------------
+[
+    object,
+    uuid(C5C5C5B0-3ABC-11D6-B25B-00C04FA0C026),
+    dual,
+    helpstring("IXDSToRat Interface"),
+    pointer_default(unique)
+]
+interface IXDSToRat : IDispatch
+{
+    [id(1),  helpstring("method Init")]
+        HRESULT Init();
+		
+    [id(2),  helpstring("method ParseXDSBytePair")]  
+        HRESULT ParseXDSBytePair(
+            [in]  BYTE                          byte1, 
+            [in]  BYTE                          byte2, 
+            [out] EnTvRat_System                *pEnSystem,
+            [out] EnTvRat_GenericLevel          *pEnLevel,
+            [out] LONG                          *plBfEnAttributes        // bitfield of BfEnTvRat_GenericAttributes
+            );
+};
+
+// ------------------------
+[
+	object,
+	uuid(C5C5C5B1-3ABC-11D6-B25B-00C04FA0C026),
+	dual,
+	helpstring("IEvalRat Interface"),
+	pointer_default(unique)
+]
+interface IEvalRat : IDispatch
+{
+    [propget, id(1), helpstring("property BlockedRatingAttributes")] 
+        HRESULT BlockedRatingAttributes(
+            [in] EnTvRat_System                 enSystem, 
+            [in] EnTvRat_GenericLevel           enLevel,
+            [out, retval] LONG                  *plbfAttrs     // bitfield of BfEnTvRat_GenericAttributes
+            );
+
+    [propput, id(1), helpstring("property BlockedRatingAttributes")] 
+        HRESULT BlockedRatingAttributes(
+            [in] EnTvRat_System                 enSystem, 
+            [in] EnTvRat_GenericLevel           enLevel,
+            [in] LONG                           lbfAttrs                // bitfield of BfEnTvRat_GenericAttributes
+            );
+
+	[propget, id(2), helpstring("property BlockUnRated")] 
+        HRESULT BlockUnRated( 
+            [out, retval] BOOL          *pfBlockUnRatedShows
+            );
+
+	[propput, id(2), helpstring("property BlockUnRated")] 
+        HRESULT BlockUnRated(
+            [in] BOOL                   fBlockUnRatedShows
+            );
+
+	[   id(3), helpstring("method MostRestrictiveRating")] 
+        HRESULT MostRestrictiveRating(
+            [in] EnTvRat_System                 enSystem1, 
+            [in] EnTvRat_GenericLevel           enEnLevel1,
+            [in] LONG                           lbfEnAttr1,                 // bitfield of BfEnTvRat_GenericAttributes
+            [in] EnTvRat_System                 enSystem2, 
+            [in] EnTvRat_GenericLevel           enEnLevel2,
+            [in] LONG                           lbfEnAttr2,                // bitfield of BfEnTvRat_GenericAttributes
+           [out] EnTvRat_System                 *penSystem, 
+           [out] EnTvRat_GenericLevel           *penEnLevel,
+           [out] LONG                           *plbfEnAttr                // bitfield of BfEnTvRat_GenericAttributes
+			);
+
+	[   id(4), helpstring("method TestRating")]  
+        HRESULT TestRating(
+            [in] EnTvRat_System                 enShowSystem,
+            [in] EnTvRat_GenericLevel           enShowLevel,
+            [in] LONG                           lbfEnShowAttributes       // bitfield of BfEnTvRat_GenericAttributes
+            );
+
+};
+
+// This is enforcing a particular implementation on folk...
+//   Don't need this particular TypeLib, just as long
+//   as some library/libraries exists that supports the two coClasses,
+//   with the give ClassID's.
+[
+    uuid(C5C5C500-3ABC-11D6-B25B-00C04FA0C026),
+    version(1.0),
+    helpstring("TvRatings 1.0 Type Library")
+]
+library TVRATINGSLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [
+        uuid(C5C5C5F0-3ABC-11D6-B25B-00C04FA0C026),
+        helpstring("XDSToRat Class")
+    ]
+    coclass XDSToRat
+    {
+        [default] interface IXDSToRat;
+    };
+    [
+        uuid(C5C5C5F1-3ABC-11D6-B25B-00C04FA0C026),
+        helpstring("EvalRat Class")
+    ]
+    coclass EvalRat
+    {
+        [default] interface IEvalRat;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

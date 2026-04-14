@@ -1,0 +1,83 @@
+//=======================================================================
+//
+//  Copyright (c) 2002 Microsoft Corporation.  All Rights Reserved.
+//
+//  File:   bitscfg.idl
+//
+//  Description:
+//
+//  Interface to the ADSI extension for the BITS IIS server extensions
+//
+//=======================================================================
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "mstask.idl";
+
+//
+// =============================
+// Marshalled interfaces
+// =============================
+//
+
+[
+    uuid(29cfbbf7-09e4-4b97-b0bc-f2287e3d8eb3),
+    odl,
+    dual
+]
+interface IBITSExtensionSetup : IDispatch
+{
+  
+    [id(1)] HRESULT EnableBITSUploads();
+
+    [id(2)] HRESULT DisableBITSUploads();
+
+    // Returns the MSTask scheduled task name for this virtual directory
+    // if one has been created.   If one has not been created, NULL is
+    // returned and the HRESULT is S_FALSE;
+    [id(3)] HRESULT GetCleanupTaskName( [out,retval] BSTR *pTaskName );
+
+    // Returns the MSTask scheduled task for this virtual directory 
+    // if one has been created.  If one has not been created, NULL is 
+    // returned and the HRESULT is S_FALSE. Set riid to the UUID of
+    // the task interface required.  See ITaskScheduler::Activate for details.
+
+    [id(4)] HRESULT GetCleanupTask( [in] REFIID riid, [out,retval] IUnknown **ppUnk );
+}
+
+[
+    uuid(d5d2d542-5503-4e64-8b48-72ef91a32ee1),
+    odl,
+    dual
+]
+interface IBITSExtensionSetupFactory : IDispatch
+{
+  
+    [id(1)] HRESULT GetObject( [ in ] BSTR Path, [out,retval] IBITSExtensionSetup **ppExtensionSetup );
+}
+
+[
+    uuid(B0937B9C-D66D-4d9b-B741-49C6D66A1CD5),
+    helpstring("Microsoft BITS Server Extensions Setup 1.0"),
+    version(1.0)
+]
+library BITSExtensionSetup
+{
+    [
+        uuid(efbbab68-7286-4783-94bf-9461d8b7e7e9),
+        helpstring("BITS Server Extensions Setup Factory")
+    ]
+    coclass BITSExtensionSetupFactory
+    {
+        [default] interface IBITSExtensionSetupFactory;
+    };
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

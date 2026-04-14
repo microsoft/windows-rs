@@ -1,0 +1,680 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: netcon.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+import "unknwn.idl";
+import "wtypes.idl";
+import "prsht.idl";
+#endif
+
+cpp_quote("")
+cpp_quote("EXTERN_C const CLSID CLSID_ConnectionManager;")
+cpp_quote("EXTERN_C const CLSID CLSID_NetSharingManager;")
+cpp_quote("")
+cpp_quote("#define NETCON_MAX_NAME_LEN 256")
+cpp_quote("")
+
+// Reserved GUIDS for our use
+//
+// C08956A0-1CD3-11D1-B1C5-00805FC1270E     IID_IEnumNetConnection
+// C08956A1-1CD3-11D1-B1C5-00805FC1270E     IID_INetConnection
+// C08956A2-1CD3-11D1-B1C5-00805FC1270E     IID_INetConnectionManager
+// C08956A3-1CD3-11D1-B1C5-00805FC1270E     IID_INetConnectionConnectUi
+// ...
+// C08956B0-1CD3-11D1-B1C5-00805FC1270E     IID_IEnumNetSharingPortMapping
+// C08956B1-1CD3-11D1-B1C5-00805FC1270E     IID_INetSharingPortMapping
+
+// C08956B4-1CD3-11D1-B1C5-00805FC1270E     IID_IEnumNetSharingPublicConnection
+// C08956B5-1CD3-11D1-B1C5-00805FC1270E     IID_IEnumNetSharingPrivateConnection
+// C08956B6-1CD3-11D1-B1C5-00805FC1270E     IID_INetSharingConfiguration
+// C08956B7-1CD3-11D1-B1C5-00805FC1270E     IID_INetSharingManager
+// C08956B8-1CD3-11D1-B1C5-00805FC1270E     IID_IEnumNetSharingEveryConnection
+
+interface IEnumNetConnection;
+interface INetConnection;
+interface INetConnectionManager;
+interface INetConnectionConnectUi;
+interface INetConnectionCommonUi;
+
+interface IEnumNetSharingPortMapping;
+interface INetSharingPortMapping;
+interface IEnumNetSharingPublicConnection;
+interface IEnumNetSharingPrivateConnection;
+interface IEnumNetSharingEveryConnection;
+interface INetSharingConfiguration;
+interface INetSharingManager;
+
+
+//+---------------------------------------------------------------------------
+// IEnumNetConnection - An enumerator for INetConnection objects.
+//
+[
+    object,
+    uuid(C08956A0-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface IEnumNetConnection : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        INetConnection** rgelt,
+        [out] ULONG* pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumNetConnection** ppenum);
+};
+
+
+//+---------------------------------------------------------------------------
+// INetConnection -
+//
+[
+    object,
+    uuid(C08956A1-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface INetConnection : IUnknown
+{
+    typedef enum tagNETCON_CHARACTERISTIC_FLAGS
+    {
+        NCCF_NONE               = 0x0000,   // No special characteristics
+        NCCF_ALL_USERS          = 0x0001,   // Connection is available to all users
+        NCCF_ALLOW_DUPLICATION  = 0x0002,   // Connection is duplicable
+        NCCF_ALLOW_REMOVAL      = 0x0004,   // Connection is removable
+        NCCF_ALLOW_RENAME       = 0x0008,   // Connection can be renamed
+        NCCF_INCOMING_ONLY      = 0x0020,   // Direction is "incoming" only
+        NCCF_OUTGOING_ONLY      = 0x0040,   // Direction is "outgoing" only
+        NCCF_BRANDED            = 0x0080,   // Icons are branded
+        NCCF_SHARED             = 0x0100,   // Connection is shared
+        NCCF_BRIDGED            = 0x0200,   // Connection is bridged
+        NCCF_FIREWALLED         = 0x0400,   // Connection is firewalled
+        NCCF_DEFAULT            = 0x0800,   // This is the default connection
+        NCCF_HOMENET_CAPABLE    = 0x1000,   // The device supports home networking
+        NCCF_SHARED_PRIVATE     = 0x2000,   // The connection is private (part of ICS)
+        NCCF_QUARANTINED        = 0x4000,   // Connection is quarantined
+        NCCF_RESERVED           = 0x8000,   // Unused
+        NCCF_HOSTED_NETWORK     = 0x00010000,  // Connection is used as Hosted Network
+        NCCF_VIRTUAL_STATION    = 0x00020000,  // Connection is used as Virtual WiFi Station
+        NCCF_WIFI_DIRECT        = 0x00040000,  // Connection is a Wi-Fi Direct network
+        NCCF_BLUETOOTH_MASK     = 0x000F0000, // Bluetooth Characteristics
+        NCCF_LAN_MASK           = 0x00F00000  // LAN Characteristics
+    } NETCON_CHARACTERISTIC_FLAGS;
+
+    typedef enum tagNETCON_STATUS
+    {
+        NCS_DISCONNECTED,
+        NCS_CONNECTING,
+        NCS_CONNECTED,
+        NCS_DISCONNECTING,
+        NCS_HARDWARE_NOT_PRESENT,
+        NCS_HARDWARE_DISABLED,
+        NCS_HARDWARE_MALFUNCTION,
+        NCS_MEDIA_DISCONNECTED,
+        NCS_AUTHENTICATING,
+        NCS_AUTHENTICATION_SUCCEEDED,
+        NCS_AUTHENTICATION_FAILED,
+        NCS_INVALID_ADDRESS,
+        NCS_CREDENTIALS_REQUIRED,
+        NCS_ACTION_REQUIRED,
+        NCS_ACTION_REQUIRED_RETRY,
+        NCS_CONNECT_FAILED
+    } NETCON_STATUS;
+
+    typedef enum tagNETCON_TYPE
+    {
+        NCT_DIRECT_CONNECT, //deprecated and will be removed
+        NCT_INBOUND = 1,
+        NCT_INTERNET,
+        NCT_LAN,
+        NCT_PHONE,
+        NCT_TUNNEL,
+        NCT_BRIDGE,
+    } NETCON_TYPE;
+
+    typedef enum tagNETCON_MEDIATYPE
+    {
+        NCM_NONE,
+        NCM_DIRECT, // deprecated and will be removed
+        NCM_ISDN = 2,
+        NCM_LAN,
+        NCM_PHONE,
+        NCM_TUNNEL,
+        NCM_PPPOE,
+        NCM_BRIDGE,
+        NCM_SHAREDACCESSHOST_LAN,
+        NCM_SHAREDACCESSHOST_RAS,
+    } NETCON_MEDIATYPE;
+
+    typedef struct tagNETCON_PROPERTIES
+    {
+                 GUID               guidId;
+        [string] LPWSTR             pszwName;
+        [string] LPWSTR             pszwDeviceName;
+                 NETCON_STATUS      Status;
+                 NETCON_MEDIATYPE   MediaType;
+                 DWORD              dwCharacter;
+                 CLSID              clsidThisObject;
+                 CLSID              clsidUiObject;
+    } NETCON_PROPERTIES;
+
+    HRESULT Connect();
+
+cpp_quote("#define S_OBJECT_NO_LONGER_VALID ((HRESULT)0x00000002L)")
+
+    // Disconnect can return S_OBJECT_NO_LONGER_VALID which indicates
+    // success, but that the object is no longer valid.  Clients, when
+    // getting this error message, should simply release the interface.
+    //
+    HRESULT Disconnect();
+
+    HRESULT Delete();
+
+    HRESULT Duplicate(
+        [in, string] LPCWSTR    pszwDuplicateName,
+        [out] INetConnection**  ppCon);
+
+    HRESULT GetProperties(
+        [out] NETCON_PROPERTIES** ppProps);
+
+    HRESULT GetUiObjectClassId(
+        [out, ref] CLSID* pclsid);
+
+    HRESULT Rename(
+        [in, string] LPCWSTR pszwNewName);
+};
+
+cpp_quote("")
+cpp_quote("STDAPI_(VOID) NcFreeNetconProperties (NETCON_PROPERTIES* pProps);")
+cpp_quote("")
+
+cpp_quote("")
+cpp_quote("STDAPI_(BOOL) NcIsValidConnectionName (PCWSTR pszwName);")
+cpp_quote("")
+
+
+//+---------------------------------------------------------------------------
+// INetConnectionManager - The top-level object that contains all of the
+//      INetConnection objects on a machine.
+//
+// This interface manages INetConnection objects.  It provides methods
+// to:
+//     - Enumerate INetConnections
+//     - Remove an INetConnection
+//     - Find an INetConnection
+//
+// Note: Adding a connection is not yet performed programatically through
+// the connection manager.  Instead, the shell owns creating connection
+// objects through a UI interface.
+//
+[
+    object,
+    uuid(C08956A2-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface INetConnectionManager : IUnknown
+{
+    typedef enum tagNETCONMGR_ENUM_FLAGS
+    {
+        NCME_DEFAULT = 0x0,
+        NCME_HIDDEN  = 0x1,
+    } NETCONMGR_ENUM_FLAGS;
+
+    // Return an IEnumNetConnection interface used to enumerate all of
+    // the contained connection objects.
+    //
+    HRESULT EnumConnections(
+        [in] NETCONMGR_ENUM_FLAGS   Flags,
+        [out] IEnumNetConnection**  ppEnum);
+};
+
+//+---------------------------------------------------------------------------
+// INetConnectionConnectUi -
+//
+[
+    object,
+    uuid(C08956A3-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface INetConnectionConnectUi : IUnknown
+{
+    typedef enum tagNETCONUI_CONNECT_FLAGS
+    {
+        NCUC_DEFAULT        = 0x0000,
+        NCUC_NO_UI          = 0x0001,
+        NCUC_ENABLE_DISABLE = 0x0002
+    } NETCONUI_CONNECT_FLAGS;
+
+    HRESULT SetConnection(
+        [in] INetConnection* pCon);
+
+    HRESULT Connect (
+        [in] HWND hwndParent,
+        [in] DWORD dwFlags);
+
+    HRESULT Disconnect (
+        [in] HWND hwndParent,
+        [in] DWORD dwFlags);
+};
+
+//+---------------------------------------------------------------------------
+// IEnumNetSharingPortMapping - An enumerator for INetSharingPortMapping objects.
+//
+[
+    object,
+    uuid(C08956B0-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface IEnumNetSharingPortMapping : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        VARIANT * rgVar,
+        [out] ULONG* pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumNetSharingPortMapping** ppenum);
+};
+
+[
+    object,
+    uuid(24B7E9B5-E38F-4685-851B-00892CF5F940),
+    oleautomation, dual,
+    pointer_default(unique)
+]
+interface INetSharingPortMappingProps : IDispatch
+{
+    [propget, id(1), helpstring("property Name")]            HRESULT Name           ([out, retval] BSTR  * pbstrName);
+    [propget, id(2), helpstring("property IPProtocol")]      HRESULT IPProtocol     ([out, retval] UCHAR * pucIPProt);
+    [propget, id(3), helpstring("property ExternalPort")]    HRESULT ExternalPort   ([out, retval] long  * pusPort);
+    [propget, id(4), helpstring("property InternalPort")]    HRESULT InternalPort   ([out, retval] long  * pusPort);
+    [propget, id(5), helpstring("property Options")]         HRESULT Options        ([out, retval] long  * pdwOptions);
+    [propget, id(6), helpstring("property TargetName")]      HRESULT TargetName     ([out, retval] BSTR  * pbstrTargetName);
+    [propget, id(7), helpstring("property TargetIPAddress")] HRESULT TargetIPAddress([out, retval] BSTR  * pbstrTargetIPAddress);
+    [propget, id(8), helpstring("property Enabled")]         HRESULT Enabled        ([out, retval] VARIANT_BOOL * pbool);
+};
+
+
+//+---------------------------------------------------------------------------
+// INetSharingPortMapping -
+//
+[
+    object,
+    uuid(C08956B1-1CD3-11D1-B1C5-00805FC1270E),
+    oleautomation, dual,
+    pointer_default(unique)
+]
+interface INetSharingPortMapping : IDispatch
+{
+    [id(1), helpstring("method Disable")]
+    HRESULT Disable();
+
+    [id(2), helpstring("method Enable")]
+    HRESULT Enable();
+
+    [propget, id(3), helpstring("property Properties")]
+    HRESULT Properties(
+        [out, retval] INetSharingPortMappingProps ** ppNSPMP);
+
+    [id(4), helpstring("method Delete")]
+    HRESULT Delete();
+};
+
+
+//+---------------------------------------------------------------------------
+// IEnumNetSharingEveryConnection - An enumerator for INetConnection interface pointers
+//                          that represent all connections in the connections folder
+//
+[
+    object,
+    uuid(C08956B8-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface IEnumNetSharingEveryConnection : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        VARIANT * rgVar,
+        [out] ULONG* pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumNetSharingEveryConnection** ppenum);
+};
+
+
+//+---------------------------------------------------------------------------
+// IEnumNetSharingPublicConnection - An enumerator for INetConnection interface pointers
+//                         that represent connections configured as publicly shared.
+//
+[
+    object,
+    uuid(C08956B4-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface IEnumNetSharingPublicConnection : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        VARIANT * rgVar,
+        [out] ULONG* pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumNetSharingPublicConnection** ppenum);
+};
+
+
+//+---------------------------------------------------------------------------
+// IEnumNetSharingPrivateConnection - An enumerator for INetConnection interface pointers
+//                         that represent connections configured as privately shared.
+//
+[
+    object,
+    uuid(C08956B5-1CD3-11D1-B1C5-00805FC1270E),
+    pointer_default(unique)
+]
+interface IEnumNetSharingPrivateConnection : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pCeltFetched)] VARIANT * rgVar,
+        [out] ULONG * pCeltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumNetSharingPrivateConnection** ppenum);
+};
+
+// Collection needed for INetSharingConfiguration::EnumPortMappings() below
+[
+    object,
+    uuid(02E4A2DE-DA20-4E34-89C8-AC22275A010B),
+    oleautomation, dual,
+    helpstring("INetSharingPortMappingCollection Interface"),
+    pointer_default(unique)
+]
+interface INetSharingPortMappingCollection : IDispatch
+{
+    [propget, id(DISPID_NEWENUM), restricted, helpstring("property _NewEnum:  gets item enumerator")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+    [propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+};
+
+cpp_quote("// properties for INetConnection (wraps NETCON_PROPERTIES)")
+[
+    object,
+    uuid(F4277C95-CE5B-463D-8167-5662D9BCAA72),
+    oleautomation, dual,
+    helpstring("INetConnectionProps Interface"),
+    pointer_default(unique)
+]
+interface INetConnectionProps : IDispatch
+{
+    [propget, id(1), helpstring("property Guid")]
+    HRESULT Guid ([out, retval] BSTR * pbstrGuid);
+
+    [propget, id(2), helpstring("property Name")]
+    HRESULT Name ([out, retval] BSTR * pbstrName);
+
+    [propget, id(3), helpstring("property DeviceName")]
+    HRESULT DeviceName ([out, retval] BSTR * pbstrDeviceName);
+
+    [propget, id(4), helpstring("property Status")]
+    HRESULT Status ([out, retval] NETCON_STATUS * pStatus);
+
+    [propget, id(5), helpstring("property MediaType")]
+    HRESULT MediaType ([out, retval] NETCON_MEDIATYPE * pMediaType);
+
+    [propget, id(6), helpstring("property Characteristics")]
+    HRESULT Characteristics ([out, retval] DWORD * pdwFlags);
+};
+
+//+---------------------------------------------------------------------------
+// INetSharingConfiguration - the connection level object that
+//
+// It provides methods to:
+//     - Enable/Disable Internet Connection Sharing
+//     - Enable/Disable Internet Connection Protection
+//     - Enumerate Port Mappings
+//     - Add Port Mappings
+//
+[
+    object,
+    uuid(C08956B6-1CD3-11D1-B1C5-00805FC1270E),
+    oleautomation, dual,
+    pointer_default(unique)
+]
+interface INetSharingConfiguration : IDispatch
+{
+    typedef enum tagSHARINGCONNECTIONTYPE
+    {
+        ICSSHARINGTYPE_PUBLIC = 0x0,
+        ICSSHARINGTYPE_PRIVATE
+    }
+    SHARINGCONNECTIONTYPE, *LPSHARINGCONNECTIONTYPE;
+
+    typedef enum tagSHARINGCONNECTION_ENUM_FLAGS
+    {
+            ICSSC_DEFAULT = 0x0,
+            ICSSC_ENABLED
+    }
+    SHARINGCONNECTION_ENUM_FLAGS;
+
+    typedef enum tagICS_TARGETTYPE
+    {
+            ICSTT_NAME = 0x0,
+            ICSTT_IPADDRESS
+    }
+    ICS_TARGETTYPE;
+
+    [propget, id(1), helpstring("property SharingEnabled")]
+    HRESULT SharingEnabled([out, retval] VARIANT_BOOL* pbEnabled);
+
+    [propget, id(2), helpstring("property SharingConnectionType")]
+    HRESULT SharingConnectionType([out, retval] SHARINGCONNECTIONTYPE* pType);
+
+    [id(3), helpstring("method DisableSharing")]
+    HRESULT DisableSharing();
+
+    [id(4), helpstring("method EnableSharing")]
+    HRESULT EnableSharing([in]  SHARINGCONNECTIONTYPE  Type );
+
+    [propget, id(5), helpstring("property InternetFirewallEnabled")]
+    HRESULT InternetFirewallEnabled([out, retval] VARIANT_BOOL *pbEnabled );
+
+    [id(6), helpstring("method DisableInternetFirewall")]
+    HRESULT DisableInternetFirewall();
+
+    [id(7), helpstring("method EnableInternetFirewall")]
+    HRESULT EnableInternetFirewall();
+
+    // Return an IEnumNetSharingPortMapping interface used to enumerate all of
+    // the contained INetSharingPortMapping objects.
+    //
+    [propget, id(8), helpstring("EnumPortMappings")]
+    HRESULT EnumPortMappings(
+        [in]  SHARINGCONNECTION_ENUM_FLAGS Flags,
+        [out, retval] INetSharingPortMappingCollection** ppColl);
+
+    [id(9), helpstring("method AddPortMapping")]
+    HRESULT AddPortMapping(
+        [in]  BSTR     bstrName,
+        [in]  UCHAR    ucIPProtocol,
+        [in]  USHORT   usExternalPort,
+        [in]  USHORT   usInternalPort,
+        [in]  DWORD    dwOptions,
+        [in]  BSTR     bstrTargetNameOrIPAddress,
+        [in]  ICS_TARGETTYPE eTargetType,
+        [out, retval] INetSharingPortMapping** ppMapping );
+
+    [id(10), helpstring("method RemovePortMapping")]
+    HRESULT RemovePortMapping([in]  INetSharingPortMapping*  pMapping );
+};
+
+// ICollection interfaces
+    [
+        object,
+        uuid(33C4643C-7811-46FA-A89A-768597BD7223),
+        oleautomation, dual,
+        helpstring("INetSharingEveryConnectionCollection Interface"),
+        pointer_default(unique)
+    ]
+    interface INetSharingEveryConnectionCollection : IDispatch
+    {
+        [propget, id(DISPID_NEWENUM), restricted, helpstring("property _NewEnum:  gets item enumerator")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+        [propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+    };
+
+    [
+        object,
+        uuid(7D7A6355-F372-4971-A149-BFC927BE762A),
+        oleautomation, dual,
+        helpstring("INetSharingPublicConnectionCollection Interface"),
+        pointer_default(unique)
+    ]
+    interface INetSharingPublicConnectionCollection : IDispatch
+    {
+        [propget, id(DISPID_NEWENUM), restricted, helpstring("property _NewEnum:  gets item enumerator")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+        [propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+    };
+
+    [
+        object,
+        uuid(38AE69E0-4409-402A-A2CB-E965C727F840),
+        oleautomation, dual,
+        helpstring("INetSharingPrivateConnectionCollection Interface"),
+        pointer_default(unique)
+    ]
+    interface INetSharingPrivateConnectionCollection : IDispatch
+    {
+        [propget, id(DISPID_NEWENUM), restricted, helpstring("property _NewEnum:  gets item enumerator")] HRESULT _NewEnum([out, retval] IUnknown* *pVal);
+        [propget, id(1), helpstring("property Count")] HRESULT Count([out, retval] long *pVal);
+    };
+
+//+---------------------------------------------------------------------------
+// INetSharingManager - the top level object that
+//
+// It provides methods to:
+//     - Determine whether Internet Connection Sharing is installed
+//     - Enumerate Public Connections
+//     - Enumerate Private Connections
+//
+[
+    object,
+    uuid(C08956B7-1CD3-11D1-B1C5-00805FC1270E),
+    oleautomation, dual,
+    pointer_default(unique)
+]
+interface INetSharingManager : IDispatch
+{
+    [propget, id(1), helpstring("property SharingInstalled")]
+    HRESULT SharingInstalled([out, retval] VARIANT_BOOL *pbInstalled );
+
+    // Return an IEnumNetSharingPublicConnection interface used to enumerate all of
+    // the contained INetConnections configured as a public adapter
+    //
+    [propget, id(2), helpstring("EnumPublicConnections")]
+    HRESULT EnumPublicConnections(
+        [in]  SHARINGCONNECTION_ENUM_FLAGS Flags,
+        [out, retval] INetSharingPublicConnectionCollection ** ppColl);
+
+    // Return an IEnumNetSharingPrivateConnection interface used to enumerate all of
+    // the contained INetConnections configured as a private adapter
+    //
+    [propget, id(3), helpstring("EnumPrivateConnections")]
+    HRESULT EnumPrivateConnections(
+        [in]  SHARINGCONNECTION_ENUM_FLAGS Flags,
+        [out, retval] INetSharingPrivateConnectionCollection ** ppColl);
+
+    [propget, id(6), helpstring("INetSharingConfigurationForINetConnection")]
+    HRESULT INetSharingConfigurationForINetConnection(
+        [in] INetConnection *pNetConnection,
+        [out, retval] INetSharingConfiguration **ppNetSharingConfiguration
+        );
+
+    // Return an IEnumNetSharingEveryConnection interface used to enumerate all of
+    // the contained INetConnections configured as a public adapter
+    //
+    [propget, id(7), helpstring("EnumEveryConnection")]
+    HRESULT EnumEveryConnection([out, retval] INetSharingEveryConnectionCollection ** ppColl);
+
+    // get properties interface for any INetConnection
+    [propget, id(8), helpstring("NetConnectionProps")]
+    HRESULT NetConnectionProps(
+        [in] INetConnection *pNetConnection,
+        [out, retval] INetConnectionProps ** ppProps);
+};
+
+
+
+
+[
+    uuid(43E734CA-043D-4A70-9A2C-A8F254063D91),
+    version(1.0),
+    helpstring("NetCon 1.0 Type Library")
+]
+library NETCONLib
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(5C63C1AD-3956-4FF8-8486-40034758315B),
+        helpstring("NetSharingManager Class")
+    ]
+    coclass NetSharingManager
+    {
+        [default] interface INetSharingManager;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

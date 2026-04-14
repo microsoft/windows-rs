@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:wincap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3"
+           xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+           xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:mc="http://schemas.microsoft.com/appx/manifest/mediacodec/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/mediacodec/windows10"/>
+  
+  <xs:element name="MainPackageDependency" substitutionGroup="f:MainPackageDependencyChoice2">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_PackageName" use="required"/>
+      <xs:attribute name="Publisher" type="t:ST_Publisher_2010_v2" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="KindMap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Kind" maxOccurs="100">
+          <xs:complexType>
+            <xs:attribute name="Value" type="ST_KindValue" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="Kind_Value">
+      <xs:selector xpath="uap4:Kind"/>
+      <xs:field xpath="@Value"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:simpleType name="ST_KindValue">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="searchfolder"/>
+      <xs:enumeration value="webhistory"/>
+      <xs:enumeration value="folder"/>
+      <xs:enumeration value="feed"/>
+      <xs:enumeration value="communication"/>
+      <xs:enumeration value="program"/>
+      <xs:enumeration value="document"/>
+      <xs:enumeration value="calendar"/>
+      <xs:enumeration value="game"/>
+      <xs:enumeration value="link"/>
+      <xs:enumeration value="video"/>
+      <xs:enumeration value="contact"/>
+      <xs:enumeration value="email"/>
+      <xs:enumeration value="task"/>
+      <xs:enumeration value="journal"/>
+      <xs:enumeration value="note"/>
+      <xs:enumeration value="instantmessage"/>
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attributeGroup name="ShellNewAttributes">
+    <xs:attribute name="ShellNewFileName" type="t:ST_FileName" form="qualified" use="optional"/>
+    <xs:attribute name="ShellNewDisplayName" type="t:ST_DisplayName" form="qualified" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:attribute name="SupportsMultipleInstances" type="xs:boolean"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="SharedFonts" type="CT_SharedFonts"/>
+        <xs:element name="UserDataTaskDataProvider" type="uap3:CT_UserDataProvider"/>
+        <xs:element name="MediaCodec" type="CT_MediaCodec"/>
+        <xs:element name="ContactPanel" type="CT_ContactPanel"/>
+        <xs:element name="LoopbackAccessRules" type="CT_LoopbackAccessRules"/>
+        <xs:element name="DevicePortalProvider" type="CT_DevicePortalProvider"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Uap4" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+    <xs:unique name="SharedFonts_File">
+      <xs:selector xpath="uap4:SharedFonts/uap4:Font"/>
+      <xs:field xpath="@File"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_SharedFonts">
+    <xs:sequence>
+      <xs:element name="Font" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="File" type="t:ST_FileName" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap_4" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CustomCapability" substitutionGroup="f:CustomCapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="ST_CustomCapability" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="ST_CustomCapability">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <!-- The format is company.capabilitynamefromstore_publisherId -->
+      <xs:pattern value="[A-Za-z0-9][-_.A-Za-z0-9]*_[a-hjkmnp-z0-9]{13}"/>
+      <xs:minLength value="15"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_MediaCodec">
+    <xs:all>
+      <xs:element name="MediaEncodingProperties">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="InputTypes">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="InputType" type="CT_MediaCodecInput" minOccurs="1" maxOccurs="1000"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="OutputTypes">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="OutputType" type="CT_MediaCodecOutput" minOccurs="1" maxOccurs="1000"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Description" type="t:ST_Description" use="required"/>
+    <xs:attribute name="Category" type="ST_MediaCodecCategory" use="required"/>
+    <xs:attribute name="AppServiceName" type="t:ST_AppServiceName" use="optional"/>
+    <xs:attributeGroup ref="wincap3:InprocMediaCodecAttributes"/>
+    <xs:attribute ref="mc:CodecType" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_MediaCodecCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="audioDecoder"/>
+      <xs:enumeration value="audioEncoder"/>
+      <xs:enumeration value="videoDecoder"/>
+      <xs:enumeration value="videoEncoder"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_MediaCodecInput">
+    <xs:attribute name="SubType" type="t:ST_MediaCodecSubType" use="required" />
+    <xs:attribute ref="uap5:MkvCodecId" use="optional" />
+    <xs:attribute ref="uap6:CodecMimeType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_MediaCodecOutput">
+    <xs:attribute name="SubType" type="t:ST_MediaCodecSubType" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="CT_ContactPanel">
+    <xs:attribute name="SupportsUnknownContacts" type="xs:boolean"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_LoopbackAccessRules">
+    <xs:sequence>
+      <xs:element name="Rule" minOccurs="0" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Direction" type="ST_LoopbackAccessDirection" use="required"/>
+          <xs:attribute name="PackageFamilyName" type="t:ST_NonEmptyString" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_LoopbackAccessDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="in"/>
+      <xs:enumeration value="out"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_DevicePortalProvider">
+    <xs:all>
+      <xs:element ref="uap8:Tools" minOccurs="0" />
+      <xs:element ref="uap8:Workspaces" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="AppServiceName" type="t:ST_AppServiceName" use="required"/>
+    <xs:attribute name="ContentRoute" type="t:ST_NonEmptyString" use="optional"/>
+    <xs:attribute name="HandlerRoute" type="t:ST_NonEmptyString" use="optional"/>
+  </xs:complexType>
+ 
+</xs:schema>
+
+

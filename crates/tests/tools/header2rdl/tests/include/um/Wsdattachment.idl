@@ -1,0 +1,87 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  Component: WSDAPI - Microsoft Web Services for Devices API
+// 
+//  File: wsdattachment.idl
+//
+//  Abstract: Attachment interface definitions and typedefs for WSDAPI
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "objidl.idl";
+
+//
+// Forward definitions
+//
+interface IWSDAttachment;
+interface IWSDOutboundAttachment;
+interface IWSDInboundAttachment;
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateOutboundAttachment(")
+cpp_quote("    _Outptr_ IWSDOutboundAttachment** ppAttachment);")
+
+//+-------------------------------------------------------------------------
+//  IWSDAttachment Interface
+//  Description: Base interface for inbound and outbound attachments
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(5d55a616-9df8-4b09-b156-9ba351a48b76)
+]
+interface IWSDAttachment : IUnknown
+{
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDOutboundAttachment Interface
+//  Description: Provides a way for applications to send attachment data
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(aa302f8d-5a22-4ba5-b392-aa8486f4c15d),
+    local
+]
+interface IWSDOutboundAttachment : IWSDAttachment
+{
+    HRESULT Write(
+        [in, size_is(dwBytesToWrite), annotation("_In_reads_(dwBytesToWrite)")] const BYTE* pBuffer,
+        [in] DWORD dwBytesToWrite,
+        [out, annotation("_Out_")] LPDWORD pdwNumberOfBytesWritten);
+
+    HRESULT Close();
+
+    HRESULT Abort();    
+}
+
+//+-------------------------------------------------------------------------
+//  IWSDInboundAttachment Interface
+//  Description: Provides a way for applications to receive attachment data
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(5bd6ca65-233c-4fb8-9f7a-2641619655c9),
+    local
+]
+interface IWSDInboundAttachment : IWSDAttachment
+{
+    HRESULT Read(
+        [out, size_is(dwBytesToRead), length_is(*pdwNumberOfBytesRead),
+            annotation("_Out_writes_to_(dwBytesToRead, *pdwNumberOfBytesRead)")] BYTE* pBuffer,
+        [in] DWORD dwBytesToRead,
+        [out, annotation("_Out_")] LPDWORD pdwNumberOfBytesRead);
+
+    HRESULT Close();
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

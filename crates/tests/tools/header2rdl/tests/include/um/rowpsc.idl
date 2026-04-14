@@ -1,0 +1,46 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rowpsc.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+    REMOTED_INTERFACE(0997a571-126e-11d0-9f8a-00a0c9a0631e)
+
+interface IRowPositionChange : IUnknown {
+
+	[local]
+	HRESULT OnRowPositionChange(
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+	[call_as(OnRowPositionChange)]
+	HRESULT RemoteOnRowPositionChange(
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

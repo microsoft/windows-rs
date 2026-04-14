@@ -1,0 +1,29 @@
+// WorkspaceInterface.idl : IDL source for WorkspaceRuntime
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (WorkspaceRuntime.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+    object,
+    uuid(12B952F4-41CA-4F21-A829-A6D07D9A16E5),
+    helpstring("IWorkspaceClientExt Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceClientExt : IUnknown{
+    [helpstring("method GetResourceId")] HRESULT GetResourceId([out] BSTR* bstrWorkspaceId);
+    [helpstring("method GetResourceDisplayName")] HRESULT GetResourceDisplayName([out] BSTR* bstrWorkspaceDisplayName);
+    [helpstring("method IssueDisconnect")] HRESULT IssueDisconnect(void);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

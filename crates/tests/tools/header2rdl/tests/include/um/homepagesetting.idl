@@ -1,0 +1,56 @@
+//+---------------------------------------------------------------------------  
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation.  All Rights Reserved.
+//
+//  File:       homepagesetting.idl
+//
+//----------------------------------------------------------------------------  
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// homepagesetting.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "objidl.idl";
+import "oleidl.idl";
+
+[
+    object,
+    uuid(FDFC244F-18FA-4FF2-B08E-1D618F3FFBE4),
+    pointer_default(unique),
+    local,
+]
+interface IHomePageSetting : IUnknown
+{
+    HRESULT SetHomePage(
+        [in] HWND hwnd,
+        [in] LPCWSTR homePageUri,
+        [in] LPCWSTR brandingMessage);
+    HRESULT IsHomePage(
+        [in]  LPCWSTR uri,
+        [out] BOOL *isDefault);
+    HRESULT SetHomePageToBrowserDefault();
+}
+[
+    uuid(D9903292-C3C3-4D0D-8A09-05DD419D5B6F),
+]
+library IEHomePageSettingObjects
+{
+    [uuid(374CEDE0-873A-4C4F-BC86-BCC8CF5116A3)] coclass HomePageSetting {interface IHomePageSetting;}
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

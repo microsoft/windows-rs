@@ -1,0 +1,169 @@
+//*****************************************************************************
+//
+// Microsoft Windows Media
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+// FileName:            wmsecure.idl
+//
+// Abstract:            This IDL contains interface definitions for Windows Media SDK
+//
+//*****************************************************************************
+
+cpp_quote( "//=========================================================================" )
+cpp_quote( "//" )
+cpp_quote( "//  THIS SOFTWARE HAS BEEN LICENSED FROM MICROSOFT CORPORATION PURSUANT " )
+cpp_quote( "//  TO THE TERMS OF AN END USER LICENSE AGREEMENT (\"EULA\").  " )
+cpp_quote( "//  PLEASE REFER TO THE TEXT OF THE EULA TO DETERMINE THE RIGHTS TO USE THE SOFTWARE.  " )
+cpp_quote( "//" )
+cpp_quote( "// Copyright (C) Microsoft Corporation, 1999 - 1999  All Rights Reserved." )
+cpp_quote( "//" )
+cpp_quote( "//=========================================================================" )
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote( "EXTERN_GUID( IID_IWMAuthorizer,     0xd9b67d36, 0xa9ad, 0x4eb4, 0xba, 0xef, 0xdb, 0x28, 0x4e, 0xf5, 0x50, 0x4c );" )
+cpp_quote( "EXTERN_GUID( IID_IWMSecureChannel,  0x2720598a, 0xd0f2, 0x4189, 0xbd, 0x10, 0x91, 0xc4, 0x6e, 0xf0, 0x93, 0x6f );" )
+cpp_quote( "EXTERN_GUID( IID_IWMGetSecureChannel, 0x94bc0598, 0xc3d2, 0x11d3, 0xbe, 0xdf, 0x00, 0xc0, 0x4f, 0x61, 0x29, 0x86 );" )
+
+
+//
+// IWMAuthorizer Interface : used for passing around certs
+//
+[
+    object,
+    uuid( D9B67D36-A9AD-4eb4-BAEF-DB284EF5504C ),
+    helpstring( "IWMAuthorizer Interface"),
+    pointer_default(unique),
+    local
+]
+interface IWMAuthorizer : IUnknown
+{
+    HRESULT GetCertCount( [out] DWORD*  pcCerts );
+
+    //
+    // *ppbCertData is allocated with CoTaskMemAlloc, and must be free'd by user
+    //
+    HRESULT GetCert( [in] DWORD dwIndex, [out] BYTE** ppbCertData );
+
+    //
+    // *ppbSharedData is allocated with CoTaskMemAlloc, and must be free'd by user
+    //
+    HRESULT GetSharedData(  [in]       DWORD    dwCertIndex,
+                            [in] const BYTE*    pbSharedData,
+                            [in]       BYTE*    pbCert, 
+                            [out]      BYTE**   ppbSharedData );
+};
+
+
+//
+// IWMSecureChannel Interface : provides methods that allow two DLLs to validate
+// each other and do secure communication.
+//
+[
+    object,
+    uuid( 2720598A-D0F2-4189-BD10-91C46EF0936F ),
+    helpstring( "IWMSecureChannel Interface"),
+    pointer_default(unique),
+    local
+]
+interface IWMSecureChannel : IWMAuthorizer
+{
+    //
+    // Adds certificates that this object can present to other securechannel objects
+    // If no certs are added, then this object can only connect to objects with
+    // no signatures
+    //
+    HRESULT WMSC_AddCertificate(    [in] IWMAuthorizer* pCert );
+
+    //
+    // Adds signatures that this object will look for when trying to connect. 
+    // If no signatures are added, then this object will connect to any other object.
+    //
+    HRESULT WMSC_AddSignature(      [in] BYTE* pbCertSig, [in] DWORD cbCertSig );
+
+
+    //
+    //  Initiate, check, and destroy the connection
+    //
+    HRESULT WMSC_Connect(   [in] IWMSecureChannel* pOtherSide );
+    HRESULT WMSC_IsConnected( [out] BOOL* pfIsConnected );
+    HRESULT WMSC_Disconnect();
+
+    //
+    // returns a copy of the certificate that was used provided by the other side
+    // of the connection.  Also returns the index of the signature that validated
+    // that certificate.  ppbCertificate must be CoTaskMemFree'd by the user.
+    // *ppbCertificate can be NULL if no certificate was provided.  *pdwSignature
+    // can be 0xFFFFFFFF if no signature was used to validate the cert.
+    // If no connection was made, this function returns E_FAIL
+    //
+    HRESULT WMSC_GetValidCertificate( [out] BYTE** ppbCertificate, [out] DWORD* pdwSignature );
+
+    //
+    // Encrypt and Decrypt data across DLL boundaries.  Encrypt holds a lock on the connection
+    // which is released by Decrypt, so threads should not block between calls to encrypt
+    // and decrypt
+    //
+    HRESULT WMSC_Encrypt(   [in] BYTE* pbData, [in] DWORD cbData );
+    HRESULT WMSC_Decrypt(   [in] BYTE* pbData, [in] DWORD cbData );
+
+    //
+    // Lock and Unlock are used by Encrypt and Decrypt to serialize access to the connection.
+    //
+    HRESULT WMSC_Lock();
+    HRESULT WMSC_Unlock();
+
+    //
+    // Used during the connection negotiation process
+    //
+    HRESULT WMSC_SetSharedData( [in] DWORD dwCertIndex, [in] const BYTE* pbSharedData );
+};
+
+//
+// IWMGetChannel Interface : used by one communication party to get the
+// other party's IWMSecureChannel interface.
+//
+[
+    object,
+    uuid( 94bc0598-c3d2-11d3-bedf-00c04f612986 ),
+    helpstring( "IWMGetSecureChannel Interface"),
+    pointer_default(unique),
+    local
+]
+interface IWMGetSecureChannel : IUnknown
+{
+    HRESULT GetPeerSecureChannelInterface([out] IWMSecureChannel** ppPeer);
+};
+
+//
+// This handy function will create an object that implements IWMSecureChannel.
+//
+cpp_quote( "HRESULT STDMETHODCALLTYPE WMCreateSecureChannel( IWMSecureChannel** ppChannel );" )
+
+//
+// This handy function will create an object that implements IWMSecureChannel, AND already has some certs.
+//
+
+cpp_quote( "HRESULT STDMETHODCALLTYPE WMCreateSecureChannel_Certified( IWMSecureChannel** ppChannel ); " )
+
+//
+// This handy function will create an object that implements IWMSecureChannel.
+//
+cpp_quote( "HRESULT STDMETHODCALLTYPE WMCreateSecureChannel_DES( IWMSecureChannel** ppChannel );" )
+
+//
+// This handy function will create an object that implements IWMSecureChannel, AND already has some certs.
+//
+
+cpp_quote( "HRESULT STDMETHODCALLTYPE WMCreateSecureChannel_Certified_DES( IWMSecureChannel** ppChannel ); " )
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,5 @@
+[ClassVersion ( "1.0" ),
+Description ( "Represents a storage site in a stretch cluster." )]
+class MSFT_StorageSite : MSFT_StorageFaultDomain {
+
+};

@@ -1,0 +1,67 @@
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "propsys.idl";
+import "FunctionDiscoveryAPI.idl";
+
+[
+    uuid(A1CCFEB3-EBFA-44b7-9D53-CAF2D18A1782),
+    version(1.0),
+    helpstring("Function Discovery 1.0 Type Library")
+]
+library FctnDiscLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+    /// Function Discovery
+    [
+        uuid(C72BE2EC-8E90-452c-B29A-AB8FF1C071FC),
+        helpstring("Function Discovery Class")
+    ]
+    coclass FunctionDiscovery
+    {
+        [default] interface IFunctionDiscovery;
+    };
+
+    /// Property Store
+    [
+        uuid(e4796550-df61-448b-9193-13fc1341b163),
+        helpstring("Property Store")
+    ]
+    coclass PropertyStore
+    {
+        [default] interface IPropertyStore;
+    };
+
+    /// Function Instance Collection
+    [
+        uuid(ba818ce5-b55f-443f-ad39-2fe89be6191f),
+        helpstring("Function Instance Collection Class")
+    ]
+    coclass FunctionInstanceCollection
+    {
+        [default] interface IFunctionInstanceCollection;
+    };
+
+    // Property Store Collection
+    [
+        uuid(EDD36029-D753-4862-AA5B-5BCCAD2A4D29),
+        helpstring("Property Store Collection Class")
+    ]
+    coclass PropertyStoreCollection
+    {
+        [default] interface IPropertyStoreCollection;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

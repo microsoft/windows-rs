@@ -1,0 +1,379 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract,
+Description( "Represents a manageable physical disk enclosure." )]
+class MSFT_StorageEnclosure : MSFT_StorageFaultDomain {
+
+    [Read, Description(
+        "DeviceId is an address or other identifier that uniquely names the enclosure. "
+        "For example, DeviceId is the enclosure GUID in Storage Spaces provider."
+        )]
+    String DeviceId;
+
+    [Read, Description("This field is a string representation of the enclosure's firmware version.")]
+    String FirmwareVersion;
+
+    [Read,
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18",
+            "19.."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "SCSI", "ATAPI", "ATA", "1394",
+            // 5 - 9
+            "SSA", "Fibre Channel", "USB", "RAID", "iSCSI",
+            // 10 - 14
+            "SAS", "SATA", "SD", "MMC", "Virtual",
+            // 15 - 18
+            "File Backed Virtual", "Storage Spaces", "NVMe", "SCM",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 BusType;
+
+    [Read, Description("Number of slots hosted within the enclosure")]
+    UInt32 NumberOfSlots;
+
+    [Read]
+    UInt16 SlotOperationalStatus[];
+
+    [Read, Description(
+        "An array containing the operational status of each "
+        "power supply of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            },
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 PowerSupplyOperationalStatus[];
+
+    [Read, Description(
+        "An array containing the operational status of each "
+        "fan of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            },
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 FanOperationalStatus[];
+
+    [Read, Description(
+        "An array containing the operational status of each "
+        "temperature sensor of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            },
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 TemperatureSensorOperationalStatus[];
+
+    [Read, Description(
+        "An array containing the operational status of each "
+        "voltage sensor of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            },
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 VoltageSensorOperationalStatus[];
+
+    [Read, Description(
+        "An array containing the operational status of each "
+        "current sensor of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            },
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 CurrentSensorOperationalStatus[];
+
+    [Read, Description(
+        "An array containing the operational status of each "
+        "controller of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            },
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 IOControllerOperationalStatus[];
+
+
+    //
+    // Method: IdentifyElement
+    //
+
+    [Description(
+        "This method allows a user to perform certain identification tasks on the enclosure "
+        "and its elements."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "55000", "55001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 55000 - 55999
+            "One or more slot numbers provided are not valid.",
+            "The enclosure does not support identification of the enclosure element."
+            }]
+    UInt32 IdentifyElement(
+
+        [In, Description(
+            "If set to TRUE, this instructs the enclosure to enable its identification LED on the specified "
+            "element. The identification LED should remain enabled until a second call to IdentifyElement "
+            "on the same element is made with this parameter specified as FALSE."
+            )]
+        Boolean Enable,
+
+        [In, Description(
+            "The numbers of the slots on which to enable or disable identification."
+            )]
+        UInt32 SlotNumbers[],
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: GetVendorData
+    //
+
+    [Description(
+        "This method returns the vendor specific data from an enclosure."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "55002"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 55000 - 55999
+            "The given page number has not been implemented."
+            }]
+    UInt32 GetVendorData(
+
+        [In, Required, Description(
+            "Denotes the page number for which vendor data is requested."
+            )]
+        UInt16 PageNumber,
+
+        [Out, Description(
+            "The vendor specific data (page 04h for example) from an enclosure."
+            )]
+        String VendorData,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: Maintenance
+    //
+
+    UInt32 Maintenance(
+
+        [In]
+        Boolean ValidateMaintenanceMode,
+
+        [In]
+        Boolean EnableMaintenanceMode,
+
+        [In]
+        UInt32 Timeout,
+
+        [In]
+        String Model,
+
+        [In]
+        String Manufacturer,
+
+        [In]
+        Boolean IgnoreDetachedVirtualDisks,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: PowerElement
+    //
+
+    UInt32 PowerElement(
+
+        [In]
+        Boolean Off,
+
+        [In]
+        UInt32 SlotNumbers[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: GetFirmwareInformation
+    //
+
+    UInt32 GetFirmwareInformation(
+
+        [Out]
+        Boolean SupportsUpdate,
+
+        [Out]
+        UInt16 NumberOfSlots,
+
+        [Out]
+        UInt16 ActiveSlotNumber,
+
+        [Out]
+        UInt16 SlotNumber[],
+
+        [Out]
+        Boolean IsSlotWritable[],
+
+        [Out]
+        String FirmwareVersionInSlot[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: UpdateFirmware
+    //
+
+    UInt32 UpdateFirmware(
+
+        [In]
+        String ImagePath,
+
+        [In]
+        UInt16 SlotNumber,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};

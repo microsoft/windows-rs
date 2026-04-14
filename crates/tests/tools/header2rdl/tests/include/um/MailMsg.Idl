@@ -1,0 +1,2018 @@
+/*
+        @doc MAILMSG EXTERNAL
+
+        @module MAILMSG.IDL - IDL for Mail Message Object. | This module declares the
+        various interfaces exported for access to the Mail Message Object.
+*/
+
+
+cpp_quote("/*++")
+cpp_quote("")
+cpp_quote("Copyright (c) 1996, 1997  Microsoft Corporation")
+cpp_quote("")
+cpp_quote("Module Name:")
+cpp_quote("")
+cpp_quote("     mailmsg.idl / mailmsg.h")
+cpp_quote("")
+cpp_quote("Abstract:")
+cpp_quote("")
+cpp_quote("     This module contains definitions for the COM interfaces for")
+cpp_quote("     the Mail Message Object.")
+cpp_quote("")
+cpp_quote("Author:")
+cpp_quote("")
+cpp_quote("     Don Dumitru     (dondu@microsoft.com)")
+cpp_quote("")
+cpp_quote("Revision History:")
+cpp_quote("")
+cpp_quote("     dondu   2/24/98         created")
+cpp_quote("")
+cpp_quote("--*/")
+
+
+// mailmsg.idl : IDL source for mailmsg.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (mailmsg.tlb) and marshalling code.
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//
+// Define an FIO_CONTEXT so that the compiler will not complain
+// during MIDL PASS.
+//
+cpp_quote("#ifdef MIDL_PASS")
+
+typedef struct _FIO_CONTEXT {
+   DWORD           m_dwTempHack ;
+   DWORD           m_dwSignature ;
+   HANDLE          m_hFile ;
+} FIO_CONTEXT, *PFIO_CONTEXT;
+
+cpp_quote("#endif")
+
+cpp_quote("#include <filehc.h>")
+
+
+// Define a structure as a filter context for quickly going through
+// recipients in a list of domains and returning recipients that
+// match certain filtering criteria
+typedef struct _RECIPIENT_FILTER_CONTEXT
+{
+    DWORD       dwCurrentDomain;
+    DWORD       dwCurrentRecipientIndex;
+    DWORD       dwRecipientsLeftInDomain;
+    DWORD       dwNextDomain;
+    DWORD       dwFilterMask;
+    DWORD       dwFilterFlags;
+
+} RECIPIENT_FILTER_CONTEXT, *LPRECIPIENT_FILTER_CONTEXT;
+
+
+//@doc MAILMSG EXTERNAL
+
+//
+// Define insertion flags for SetNextDomain
+//
+//@const DWORD | FLAG_FAIL_IF_SOURCE_DOMAIN_LINKED | Fail if current domain has existing domain links
+cpp_quote("#define FLAG_FAIL_IF_SOURCE_DOMAIN_LINKED        0x00000001")
+//@const DWORD | FLAG_FAIL_IF_NEXT_DOMAIN_LINKED | Fail if next domain has existing domain links
+cpp_quote("#define FLAG_FAIL_IF_NEXT_DOMAIN_LINKED          0x00000002")
+//@const DWORD | FLAG_OVERWRITE_EXISTING_LINKS | Force overwrite of exiting domain link information
+cpp_quote("#define FLAG_OVERWRITE_EXISTING_LINKS            0x00000004")
+//@const DWORD | FLAG_OVERWRITE_EXISTING_LINKS | Force the current domain to only domain is a domain list
+cpp_quote("#define FLAG_SET_FIRST_DOMAIN                    0x00000008")
+
+//
+// Define address types for IMailMsgRecipientsBase::Item
+//
+//@const DWORD | ADDRTYPE_SMTP | SMTP address
+cpp_quote("#define ADDRTYPE_SMTP 0")
+//@const DWORD | ADDRTYPE_X400 | X400 address
+cpp_quote("#define ADDRTYPE_X400 1")
+//@const DWORD | ADDRTYPE_X500 | X500 address
+cpp_quote("#define ADDRTYPE_X500 2")
+//@const DWORD | ADDRTYPE_LEGACY_EX_DN | DN For Exchange 5.5 and previous
+cpp_quote("#define ADDRTYPE_LEGACY_EX_DN 3")
+//@const DWORD | ADDRTYPE_OTHER | Other address type
+cpp_quote("#define ADDRTYPE_OTHER 4")
+
+//@const HRESULT | MAILMSG_S_PENDING | Success.  The operation is pending completion.
+cpp_quote("#define MAILMSG_S_PENDING    MAKE_HRESULT(SEVERITY_SUCCESS,FACILITY_NT_BIT,STATUS_PENDING)")
+//@const HRESULT | MAILMSG_E_DUPLICATE | Failure.  The recipient is a duplicate of one already in the list.
+cpp_quote("#define MAILMSG_E_DUPLICATE  __HRESULT_FROM_WIN32(ERROR_FILE_EXISTS)")
+//@const HRESULT | MAILMSG_E_PROPNOTFOUND | Failure.  The requested property does not exist.
+cpp_quote("#define MAILMSG_E_PROPNOTFOUND  STG_E_UNKNOWN")
+
+//@const HRESULT | MAILTRANSPORT_S_PENDING | Success.  The operation is pending completion.
+cpp_quote("#define MAILTRANSPORT_S_PENDING MAILMSG_S_PENDING")
+
+//@const HRESULT | STOREDRV_E_RETRY | Success.  The operation is pending completion.
+cpp_quote("#define STOREDRV_E_RETRY   MAKE_HRESULT(SEVERITY_ERROR,FACILITY_ITF,ERROR_RETRY)")
+
+//@const HRESULT | STOREDRV_E_SHUTDOWN | Success.  The operation is pending shutdown.
+cpp_quote("#define STOREDRV_E_SHUTDOWN  0xC004012DL")
+
+//@const DWORD | MAILMSG_AMF_MUSTCREATE | Store driver must create the message, regardless of recipients.
+cpp_quote("#define MAILMSG_AMF_MUSTCREATE    0x00000001")
+
+//@const DWORD | SMTP_INIT_VSERVER_STARTUP | Virtual server is starting.
+cpp_quote("#define SMTP_INIT_VSERVER_STARTUP    0x00000001")
+//@const DWORD | SMTP_TERM_VSERVER_SHUTDOWN | Virtual server is stopping.
+cpp_quote("#define SMTP_TERM_VSERVER_SHUTDOWN    0x00000002")
+//@const DWORD | SMTP_INIT_BINDING_CHANGE | A binding change occurred.
+cpp_quote("#define SMTP_INIT_BINDING_CHANGE        0x00000003")
+//@const DWORD | SMTP_TERM_BINDING_CHANGE | A binding change occurred.
+cpp_quote("#define SMTP_TERM_BINDING_CHANGE        0x00000004")
+
+
+//@const DWORD | MAILMSG_GETPROPS_COMPLETE | Get the complete property stream.
+cpp_quote("#define MAILMSG_GETPROPS_COMPLETE    0x00000001")
+//@const DWORD | MAILMSG_GETPROPS_INCREMENTAL | Get the incremental property stream.
+cpp_quote("#define MAILMSG_GETPROPS_INCREMENTAL    0x00000002")
+//@const DWORD | MAILMSG_GETPROPS_CLEAR_DIRTY | Clear the dirty flag(s).
+cpp_quote("#define MAILMSG_GETPROPS_CLEAR_DIRTY    0x00000004")
+
+
+//@doc MAILMSG EXTERNAL
+
+
+/*
+    @interface IMailMsgNotify | Interface for receiving async notifications.
+    @meth HRESULT | Notify | Notify than an operation has completed.
+*/
+[
+    helpstring("Mail Message Notify"),
+    object,
+    pointer_default(unique),
+    uuid(0f7c3c30-a8ad-11d1-aa91-00aa006bc80b)
+]
+interface IMailMsgNotify : IUnknown
+{
+    //@method HRESULT | IMailMsgNotify | Notify | Notify that an operation has completed.
+    //@parm HRESULT | hrRes | [in] Specifies the result of the operation.
+    //@rvalue S_OK | Success.
+    [helpstring("Notify that an operation has completed.")]
+    HRESULT Notify([in] HRESULT hrRes);
+};
+
+interface IMailMsgProperties;
+
+
+//@doc MAILMSG EXTERNAL
+
+/*
+    @interface IMailMsgPropertyStream | Used by the message object for storing properties in the
+    store driver.
+    @meth HRESULT | GetSize | Get the number of bytes in the stream (with async completion).
+    @meth HRESULT | ReadBlocks | Read a list of blocks from the stream (with async completion).
+    @meth HRESULT | WriteBlocks | Write a list of blocks to the stream (with async completion).
+    @meth HRESULT | StartWriteBlocks | Mark the start of a writeblocks transaction.
+    @meth HRESULT | EndWriteBlocks | Mark the end of a writeblocks transaction.
+    @meth HRESULT | CancelWriteBlocks | Mark the end of a writeblocks transaction.
+    Signals that the data isn't complete and should be discarded.
+*/
+[
+    helpstring("Mail Message Property Stream"),
+    local, // this interface is local only
+    object,
+    pointer_default(unique),
+    uuid(a44819c0-a7cf-11d1-aa91-00aa006bc80b)
+]
+interface IMailMsgPropertyStream : IUnknown
+{
+    //@method HRESULT | IMailMsgPropertyStream | GetSize | Get the number of bytes in the stream (with
+    // async completion).
+    //@parm DWORD * | pdwSize | [out] Receives the result.  The caller must not change this until the
+    // operation completes.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  Operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Get the number of bytes in the stream (with async completion).")]
+    HRESULT GetSize([in] IMailMsgProperties *pMsg,
+                    [out/*,ptr*/] DWORD *pdwSize,
+                    [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgPropertyStream | ReadBlocks | Read a list of blocks from the stream (with
+    // async completion).
+    //@parm DWORD | dwCount | [in] Specifies the number of blocks.
+    //@parm DWORD * | pdwOffset | [in,size_is(dwCount),length_is(dwCount),unique] Specifies the list of
+    // offsets to read from.  The caller must not change this list until the operation completes.
+    //@parm DWORD * | pdwLength | [in,size_is(dwCount),length_is(dwCount),unique] Specifies the list of
+    // lengths to read.  The caller must not change this list until the operation completes.
+    //@parm BYTE * | ppbBlock | [out] Specifies the buffers to read into.  The caller must not change this
+    // list until the operation completes.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Read a list of blocks from the stream (with async completion).")]
+    HRESULT ReadBlocks([in] IMailMsgProperties *pMsg,
+                       [in] DWORD dwCount,
+                       [in,size_is(dwCount),length_is(dwCount),unique] DWORD *pdwOffset,
+                       [in,size_is(dwCount),length_is(dwCount),unique] DWORD *pdwLength,
+                       [out,size_is(dwCount)] BYTE **ppbBlock,
+                       [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgPropertyStream | WriteBlocks | Write a list of blocks from the stream
+    // (with async completion).  StartWriteBlocks should always be called before this method is called.
+    // The last WriteBlocks will be followed by a call to EndWriteBlocks or CancelWriteBlocks.
+    //@parm DWORD | dwCount | [in] Specifies the number of blocks.
+    //@parm DWORD * | pdwOffset | [in,size_is(dwCount),length_is(dwCount),unique] Specifies the list of
+    // offsets to write to.  The caller must not change this list until the operation completes.
+    //@parm DWORD * | pdwLength | [in,size_is(dwCount),length_is(dwCount),unique] Specifies the list of
+    // lengths to write.  The caller must not change this list until the operation completes.
+    //@parm BYTE * | ppbBlock | [out] Specifes the buffers to write from.  The caller must not change this
+    // list until the operation completes.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Write a list of blocks to the stream (with async completion).")]
+    HRESULT WriteBlocks([in] IMailMsgProperties *pMsg,
+                        [in] DWORD dwCount,
+                        [in,size_is(dwCount),length_is(dwCount),unique] DWORD *pdwOffset,
+                        [in,size_is(dwCount),length_is(dwCount),unique] DWORD *pdwLength,
+                        [in,size_is(dwCount)] BYTE **ppbBlock,
+                        [in,unique] IMailMsgNotify *pNotify);
+    //@method HRESULT | IMailMsgPropertyStream | StartWriteBlocks | Mark the start of a WriteBlocks
+    // transaction.  Reports information on the quantity and size of blocks the that will be written
+    // before the next call to EndWriteBlocks.
+    //@parm DWORD | dwBlocksToWrite | [in] Specifies the number of blocks that will be written write.
+    //@parm DWORD | dwTotalBytesToWrite | [in] Specifies the sum of the size of all blocks that will
+    // be written.
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@xref <om IMailMsgPropertyStream.WriteBlocks>    <om IMailMsgPropertyStream.EndWriteBlocks>
+    [helpstring("Mark the start of a write blocks transaction.")]
+    HRESULT StartWriteBlocks([in] IMailMsgProperties *pMsg,
+                             [in] DWORD dwBlocksToWrite,
+                             [in] DWORD dwTotalBytesToWrite);
+    //@method HRESULT | IMailMsgPropertyStream | StartWriteBlocks | Mark the end of a WriteBlocks
+    // transaction.
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@xref <om IMailMsgPropertyStream.WriteBlocks>    <om IMailMsgPropertyStream.StartWriteBlocks>
+    [helpstring("Mark the end of a write blocks transaction.")]
+    HRESULT EndWriteBlocks([in] IMailMsgProperties *pMsg);
+
+    //@method HRESULT | IMailMsgPropertyStream | CancelWriteBlocks | Mark the end of a WriteBlocks
+    // transaction.  Signals that the data isn't complete and should be discarded.
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@xref <om IMailMsgPropertyStream.WriteBlocks>    <om IMailMsgPropertyStream.StartWriteBlocks>
+    [helpstring("Mark the end of a write blocks transaction.  Signals that the data isn't complete and should be discarded.")]
+    HRESULT CancelWriteBlocks([in] IMailMsgProperties *pMsg);
+};
+
+
+//@doc MAILMSG EXTERNAL
+
+
+/*
+    @interface IMailMsgRecipientsBase | Base interface for accessing a recipient list.
+    @meth HRESULT | Count | Get the number of recipients.
+    @meth HRESULT | Item | Get the name of a recipient.
+    @meth HRESULT | PutProperty | Write a recipient property.
+    @meth HRESULT | GetProperty | Read a recipient property.
+    @meth HRESULT | PutStringA | Write a recipient string property.
+    @meth HRESULT | GetStringA | Read a recipient string property.
+    @meth HRESULT | PutStringW | Write a recipient Unicode string property.
+    @meth HRESULT | GetStringW | Read a recipient Unicode string property.
+    @meth HRESULT | PutDWORD | Write a recipient DWORD property.
+    @meth HRESULT | GetDWORD | Read a recipient DWORD property.
+    @meth HRESULT | PutBool | Write a recipient boolean property.
+    @meth HRESULT | GetBool | Read a recipient boolean property.
+    @xref <i IMailMsgRecipients> <i IMailMsgRecipientsAdd>
+*/
+[
+    helpstring("Mail Message Recipients Base"),
+    object,
+    pointer_default(unique),
+    uuid(d1a97920-a891-11d1-aa91-00aa006bc80b)
+]
+interface IMailMsgRecipientsBase : IUnknown
+{
+    //@method HRESULT | IMailMsgRecipientsBase | Count | Get the number of recipients.
+    //@parm DWORD * | pdwCount | [in] Receives the result.
+    //@rvalue S_OK | Success.
+    [helpstring("Get the number of recipients.")]
+    HRESULT Count([out/*,ptr*/] DWORD *pdwCount);
+
+    //@method HRESULT | IMailMsgRecipientsBase | Item | Get the name of a recipient.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwWhichName | [in] Specifies which name to get.  The possible values
+    // are ADDRTYPE_SMTP, ADDRTYPE_X400, ADDRTYPE_X500,
+    // or ADDRTYPE_LEGACY_EX_DN.
+    //@parm DWORD | cchLength | [in] Specifies the maximum length of the name (including the terminating
+    // NULL).
+    //@parm LPSTR | pszName | [out,size_is(cchLength)] Receives the name.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Failure.  The recipient is not present.  The name receives NULL.
+    [helpstring("Get the name of a recipient.")]
+    HRESULT Item([in] DWORD dwIndex,
+                 [in] DWORD     dwWhichName,
+                 [in] DWORD cchLength,
+                 [out,size_is(cchLength)/*,ptr*/] LPSTR pszName);
+
+    //@method HRESULT | IMailMsgRecipientsBase | PutProperty | Write a recipient property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cbLength | [in] Specifies the length in bytes of the value.  This value should be
+    // passed in as zero if pbValue is NULL.
+    //@parm BYTE * | pbValue | [in,size_is(cbLength),length_is(cbLength),unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.GetProperty>
+    [helpstring("Write a recipient property.")]
+    HRESULT PutProperty([in] DWORD dwIndex,
+                        [in] DWORD dwPropID,
+                        [in] DWORD cbLength,
+                        [in,size_is(cbLength),length_is(cbLength),unique] BYTE *pbValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | GetProperty | Read a recipient property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cbLength | [in] Specifies the length in bytes of the buffer to receive the value.
+    //@parm DWORD * | pcbLength | [out] Receives the length in bytes of the value.  If the property is not
+    // present, this will receive zero.
+    //@parm BYTE * | pbValue | [out,size_is(cbLength),length_is(*pcbLength)] Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.PutProperty>
+    [helpstring("Read a recipient property.")]
+    HRESULT GetProperty([in] DWORD dwIndex,
+                        [in] DWORD dwPropID,
+                        [in] DWORD cbLength,
+                        [out] DWORD *pcbLength,
+                        [out,size_is(cbLength),length_is(*pcbLength)/*,ptr*/] BYTE *pbValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | PutStringA | Write a recipient string property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm LPCSTR | pszValue | [in,unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.GetStringA>
+    [helpstring("Write a recipient string property.")]
+    HRESULT PutStringA([in] DWORD dwIndex,
+                       [in] DWORD dwPropID,
+                       [in,unique] LPCSTR pszValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | GetStringA | Read a recipient string property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the value.
+    //@parm LPCSTR | pszValue | [out,size_is(cchLength)]  Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.PutStringA>
+    [helpstring("Read a recipient string property.")]
+    HRESULT GetStringA([in] DWORD dwIndex,
+                       [in] DWORD dwPropID,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/] LPSTR pszValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | PutStringW | Write a recipient Unicode string property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm LPCWSTR | pszValue | [in,unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.GetStringW>
+    [helpstring("Write a recipient Unicode string property.")]
+    HRESULT PutStringW([in] DWORD dwIndex,
+                       [in] DWORD dwPropID,
+                       [in,unique] LPCWSTR pszValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | GetStringW | Read a recipient Unicode string property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the value.
+    //@parm LPCSTR | pszValue | [out,size_is(cchLength)]  Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.PutStringW>
+    [helpstring("Read a recipient Unicode string property.")]
+    HRESULT GetStringW([in] DWORD dwIndex,
+                       [in] DWORD dwPropID,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/] LPWSTR pszValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | PutDWORD | Write a recipient DWORD property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | dwValue | [in] The value to write.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.GetDWORD>
+    [helpstring("Write a recipient DWORD property.")]
+    HRESULT PutDWORD([in] DWORD dwIndex,
+                     [in] DWORD dwPropID,
+                     [in] DWORD dwValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | GetDWORD | Read a recipient DWORD property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD * | pdwValue | [out] Receives the value.  If the property is not present, the method
+    // sets this to zero and returns S_FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.PutDWORD>
+    [helpstring("Read a recipient DWORD property.")]
+    HRESULT GetDWORD([in] DWORD dwIndex,
+                     [in] DWORD dwPropID,
+                     [out/*,ptr*/] DWORD *pdwValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | PutBool | Write a recipient boolean property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | dwValue | [in] The value to write.  This value is coerced to either TRUE or FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.GetBool>
+    [helpstring("Write a recipient boolean property.")]
+    HRESULT PutBool([in] DWORD dwIndex,
+                    [in] DWORD dwPropID,
+                    [in] DWORD dwValue);
+
+    //@method HRESULT | IMailMsgRecipientsBase | GetBool | Read a recipient boolean property.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD * | pdwValue | [out] Receives the value, which will either be TRUE or FALSE.  If the
+    // property is not present, the method sets this to FALSE and returns S_FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The recipient or property was not present.
+    //@xref <om IMailMsgRecipientsBase.PutBool>
+    [helpstring("Read a recipient boolean property.")]
+    HRESULT GetBool([in] DWORD dwIndex,
+                    [in] DWORD dwPropID,
+                    [out/*,ptr*/] DWORD *pdwValue);
+};
+
+
+/*
+    @interface IMailMsgRecipientsAdd | Interface for adding to a recipient list.
+    @meth HRESULT | AddPrimary | Add a primary recipient (overwrite duplicates).
+    @meth HRESULT | AddSecondary | Add a secondary recipient (reject duplicates).
+    @xref <i IMailMsgRecipientsBase>
+*/
+[
+    helpstring("Mail Message Recipients Add"),
+    object,
+    pointer_default(unique),
+    uuid(4c28a700-a892-11d1-aa91-00aa006bc80b)
+]
+interface IMailMsgRecipientsAdd : IMailMsgRecipientsBase
+{
+    //@method HRESULT | IMailMsgRecipientsAdd | AddPrimary | Add a primary recipient (overwrite
+    // duplicates).
+    //@parm DWORD | dwCount | [in] Specifies the number of recipient names.
+    //@parm LPCSTR * | ppszNames | [in,size_is(dwCount)] Specifies the recipient names.
+    //@parm DWORD * | pdwPropIDs | [in,size_is(dwCount)] Specifies the property ID's of the names.
+    // These can be ADDRTYPE_SMTP, ADDRTYPE_X400, ADDRTYPE_X500,
+    // or ADDRTYPE_LEGACY_EX_DN.  Duplicates are not allowed.
+    //@parm DWORD * | pdwIndex | [out] Receives the zero-based index of the recipient.
+    //@parm IMailMsgRecipientsBase * | pFrom | [in,unique] Specifies the recipient list from which to copy
+    // properties.  If this value is NULL, then no properties will be copied.  Names will only be copied
+    // if the new reciepent has 0 names.  The FLAG_RECIPIENT_DO_NOT_DELIVER
+	// and FLAG_RECIPIENT_NO_NAME_COLLISIONS flags in the
+	// IMMPID_RP_RECEIPIENT_FLAGS property are not copied
+    //@parm DWORD | dwFrom | [in] Specifies the zero-based index of the recipient from which to copy
+    // properties.  This value is ignored if pFrom is NULL.
+    //@rvalue S_OK | Success.
+    //@rvalue S_FALSE | Success.  The recipient is a duplicate of one already in the list.
+    //@xref <i IMailMsgRecipientsBase> <om IMailMsgRecipientsAdd.AddSecondary>
+    [helpstring("Add a primary recipient (overwrite duplicates)."),local]
+    HRESULT AddPrimary([in] DWORD dwCount,
+                       [in,size_is(dwCount)] LPCSTR *ppszNames,
+                       [in,size_is(dwCount)] DWORD *pdwPropIDs,
+                       [out/*,ptr*/] DWORD *pdwIndex,
+                       [in,unique] IMailMsgRecipientsBase *pFrom,
+                       [in] DWORD dwFrom);
+
+    //@method HRESULT | IMailMsgRecipientsAdd | AddSecondary | Add a secondary recipient (reject
+    // duplicates).
+    //@parm DWORD | dwCount | [in] Specifies the number of recipient names.
+    //@parm LPCSTR * | ppszNames | [in,size_is(dwCount)] Specifies the recipient names.
+    //@parm DWORD * | pdwPropIDs | [in,size_is(dwCount)] Specifies the property ID's of the names.
+    //@parm DWORD * | pdwIndex | [out] Receives the zero-based index of the recipient.
+    //@parm IMailMsgRecipientsBase * | pFrom | [in,unique] Specifies the recipient list from which to copy
+    // properties.  If this value is NULL, then no properties will be copied.  Names will only be copied
+    // if the new reciepent has 0 names.  The FLAG_RECIPIENT_DO_NOT_DELIVER and
+	// FLAG_RECIPIENT_NO_NAME_COLLISIONS flags in the
+	// IMMPID_RP_RECEIPIENT_FLAGS property are not copied
+    //@parm DWORD | dwFrom | [in] Specifies the zero-based index of the recipient from which to copy
+    // properties.  This value is ignored if pFrom is NULL.
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_E_DUPLICATE | Failure, the recipient is a duplicate of one already in the list.
+    //@xref <i IMailMsgRecipientsBase> <om IMailMsgRecipientsAdd.AddSecondary>
+    [helpstring("Add a secondary recipient (reject duplicates)."),local]
+    HRESULT AddSecondary([in] DWORD dwCount,
+                         [in,size_is(dwCount)] LPCSTR *ppszNames,
+                         [in,size_is(dwCount)] DWORD *pdwPropIDs,
+                         [out/*,ptr*/] DWORD *pdwIndex,
+                         [in,unique] IMailMsgRecipientsBase *pFrom,
+                         [in] DWORD dwFrom);
+};
+
+
+/*
+    @interface IMailMsgRecipients | Interface for accessing a recipient list.
+    @meth HRESULT | Commit | Commit all changes to a recipient to disk (with async completion).
+    @meth HRESULT | DomainCount | Get the count of the domains.
+    @meth HRESULT | DomainItem | Get information about one domain.
+    @meth HRESULT | AllocNewList | Create a new recipient list.
+    @meth HRESULT | WriteList | Write the new recipient list.
+    @xref <i IMailMsgRecipientsBase>
+*/
+[
+    helpstring("Mail Message Recipients"),
+    object,
+    pointer_default(unique),
+    uuid(19507fe0-a892-11d1-aa91-00aa006bc80b)
+]
+interface IMailMsgRecipients : IMailMsgRecipientsBase
+{
+    //@method HRESULT | IMailMsgRecipients | Commit | Commit all changes to a recipient to disk (with
+    // async completion).
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the recipient to commit.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Commit all changes to a recipient to disk (with async completion).")]
+    HRESULT Commit([in] DWORD dwIndex,
+                   [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgRecipients | DomainCount | Get the count of the domains.
+    //@parm DWORD * | pdwCount | [out] Receives the result.
+    //@rvalue S_OK | Success.
+    [helpstring("Get the count of the domains.")]
+    HRESULT DomainCount([out/*,ptr*/] DWORD *pdwCount);
+
+    //@method HRESULT | IMailMsgRecipients | DomainItem | Get information about one domain.
+    //@parm DWORD | dwIndex | [in] Specifies the zero-based index of the domain.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the domain name.
+    //@parm LPSTR | pszDomain | [out,size_is(cchLength)] Receives the domain name.  This may be NULL.
+    //@parm DWORD * | pdwRecipientIndex | [out] Receives the index of the first recipient in the domain.  This may be NULL.
+    //@parm DWORD * | pdwRecipientCount | [out] Recieves the count of the recipients in the domain.  This may be NULL.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_NOMOREFILES | Failure.  The domain is not present.  The name receives NULL, and the
+    // index and count receive zero.
+    [helpstring("Get information about one domain.")]
+    HRESULT DomainItem([in] DWORD dwIndex,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/] LPSTR pszDomain,
+                       [out/*,ptr*/] DWORD *pdwRecipientIndex,
+                       [out/*,ptr*/] DWORD *pdwRecipientCount);
+
+    //@method HRESULT | IMailMsgRecipients | AllocNewList | Create a new recipient list.
+    //@parm IMailMsgRecipientsAdd ** | ppNewList | [out] Receives the new list.
+    //@rvalue S_OK | Success.
+    //@xref <om IMailMsgRecipients.WriteList>
+    [helpstring("Create a new recipient list.")]
+    HRESULT AllocNewList([out/*,ptr*/] IMailMsgRecipientsAdd **ppNewList);
+
+    //@method HRESULT | IMailMsgRecipients | WriteList | Write the new recipient list.
+    // IMailMsgProperties::Commit must be called after this method in order to commit the new recipient
+    // list to disk.
+    //@parm IMailMsgPropertiesAdd * | pNewList | [in] Specifies the new list.
+    //@rvalue S_OK | Success.
+    //@xref <om IMailMsgRecipients.AllocNewList> <om IMailMsgProperties.Commit>
+    [helpstring("Write the new recipient list.")]
+    HRESULT WriteList([in,unique] IMailMsgRecipientsAdd *pNewList);
+
+    //@method HRESULT | IMailMsgRecipients | SetNextDomain | Link a domain after another.
+    //@parm DWORD | dwDomainIndex | [in] Specifies the zero-based index of the source domain.
+    //@parm DWORD | dwNextDomainIndex | [in] Specifies the index of the domain to link after the source domain.
+    //@parm DWORD | dwFlags | [in] Specifies any optional flags. Flags may be any combination
+    // of FLAG_FAIL_IF_SOURCE_DOMAIN_LINKED or FLAG_FAIL_IF_TARGET_DOMAIN_LINKED.  FLAG_OVERWRITE_EXISTING_LINKS
+    // may also be specified, but not in conjunction with the others.
+    // If FLAG_SET_FIRST_DOMAIN is set, this domain will be set as the first domain in a domain list (the next
+    // domain link for dwDomainIndex will be destroyed).
+    //@rvalue S_OK | Success.
+    //@rvalue E_INVALIDARG | Failure.  One or more arguments are invalid
+    //@rvalue E_FAIL | Failure.  The result contradicts with one or more of the flags.
+    [helpstring("Set the next domain in a recipient filter context.")]
+    HRESULT SetNextDomain(
+                [in] DWORD dwDomainIndex,
+                [in] DWORD dwNextDomainIndex,
+                [in] DWORD dwFlags);
+
+    //@method HRESULT | IMailMsgRecipients | InitializeRecipientFilterContext | Initialize
+    // a recipient filter context against a chain of domain. Filter is based on comparing
+    // a set of filter flags against the IMMPID_RP_STATUS_FLAGS property.
+    //@parm LPRECIPIENT_FILTER_CONTEXT | pContext | [in,unique] Specifies the context variable to
+    // be initialized. This context must be allocated by the caller.
+    //@parm DWORD | dwStartingDomain | [in] Specifies the starting domain index.
+    //@parm DWORD | dwFilterMask | [in] Specifies the filter mask. This mask will mask out
+    // the bits of interest in IMMPID_RP_STATUS_FLAGS before checking the filter flags.
+    //@parm DWORD | dwFilterFlags | [in] Specifies the filter flags. These flags are
+    // compared against the result of the mask, and an exact match is required.
+    //@rvalue S_OK | Success.
+    //@rvalue E_INVALIDARG | Failure.  One or more arguments are invalid
+    //@rvalue E_POINTER | Failure.  The context passed in is NULL.
+    [helpstring("Initialze a recipient filter context.")]
+    HRESULT InitializeRecipientFilterContext(
+                [in,unique] LPRECIPIENT_FILTER_CONTEXT    pContext,
+                [in] DWORD        dwStartingDomain,
+                [in] DWORD        dwFilterFlags,
+                [in] DWORD        dwFilterMask);
+
+    //@method HRESULT | IMailMsgRecipients | TerminateRecipientFilterContext | Terminates
+    // a recipient filter context.
+    //@parm LPRECIPIENT_FILTER_CONTEXT | pContext | [in,unique] Specifies the context variable to
+    // be terminated.
+    //@rvalue S_OK | Success.
+    //@rvalue E_POINTER | Failure.  The context passed in is NULL.
+    [helpstring("Terminate a recipient filter context.")]
+    HRESULT TerminateRecipientFilterContext(
+                [in,unique] LPRECIPIENT_FILTER_CONTEXT    pContext);
+
+    //@method HRESULT | IMailMsgRecipients | GetNextRecipient | Returns the next recipient
+    // in the chain of domains that match the filtering criteria set for the filter context.
+    //@parm LPRECIPIENT_FILTER_CONTEXT | pContext | [in,unique] Specifies the filter context. This
+    // must be previously initialized by InitializeRecipientFilterContext.
+    //@parm DWORD * | pdwRecipientIndex | [out] Receives the next recipient with matching
+    // criteria.
+    //@rvalue S_OK | Success.
+    //@rvalue HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS) | No more recipients match the criteria.
+    //@rvalue HRESULT_FROM_WIN32(ERROR_INVALID_DATA) | The context specified is invalid.
+    //@rvalue E_INVALIDARG | Failure.  One or more arguments are invalid
+    //@rvalue E_POINTER | Failure.  The context passed in is NULL.
+    [helpstring("Get the next domain in a recipient filter context.")]
+    HRESULT GetNextRecipient(
+                [in,unique] LPRECIPIENT_FILTER_CONTEXT    pContext,
+                [out] DWORD        *pdwRecipientIndex);
+
+};
+
+
+/*
+    @interface IMailMsgProperties | Interface for accessing properties of an Mail Message Object.
+    @meth HRESULT | PutProperty | Write a property.
+    @meth HRESULT | GetProperty | Read a property.
+    @meth HRESULT | Commit | Commit all changes to disk (with async completion).
+    @meth HRESULT | PutStringA | Write a string property.
+    @meth HRESULT | GetStringA | Read a string property.
+    @meth HRESULT | PutStringW | Write a Unicode string property.
+    @meth HRESULT | GetStringW | Read a Unicode string property.
+    @meth HRESULT | PutDWORD | Write a DWORD property.
+    @meth HRESULT | GetDWORD | Read a DWORD property.
+    @meth HRESULT | PutBool | Write a boolean property.
+    @meth HRESULT | GetBool | Read a boolean property.
+    @meth HRESULT | GetContentSize | Get the size of the content (with async completion).
+    @meth HRESULT | ReadContent | Read the content (with async completion).
+    @meth HRESULT | WriteContent | Write the content (with async completion).
+    @meth HRESULT | CopyContentToFile | Copy the content to a file (with async completion).
+    @meth HRESULT | CopyContentToFileEx | Copy the content to a file (with async completion).
+//    @meth HRESULT | CopyContentToStream | Copy the content to a stram (with async completion).
+    @meth HRESULT | ForkForRecipients | Create a new Mail Message Object for different recipients.
+    @meth HRESULT | RebindAfterFork | Allocates backing store and binds a forked message.
+    @meth HRESULT | SetContentSize | Set the size of the content (with async completion).
+	@meth HRESULT | MapContent | Memory map the content
+	@meth HRESULT | UnmapContent | Release memory mapped content
+*/
+[
+    helpstring("Mail Message Properties"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(ab95fb40-a34f-11d1-aa8a-00aa006bc80b)
+]
+interface IMailMsgProperties : IUnknown
+{
+    //@method HRESULT | IMailMsgProperties | PutProperty | Write a property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cbLength | [in] Specifies the length in bytes of the value.
+    //@parm BYTE * | pbValue | [in,size_is(cbLength),length_is(cbLength),unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.
+    //@xref <om IMailMsgProperties.GetProperty>
+    [helpstring("Write a property.")]
+    HRESULT PutProperty([in] DWORD dwPropID,
+                        [in] DWORD cbLength,
+                        [in,size_is(cbLength),length_is(cbLength),unique] BYTE *pbValue);
+
+    //@method HRESULT | IMailMsgProperties | GetProperty | Read a property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cbLength | [in] Specifies the length in bytes of the buffer to receive the value.
+    //@parm DWORD * | pcbLength | [out] Receives the length in bytes of the value.  This is set to zero if
+    // the property is not present.
+    //@parm BYTE * | pbValue | [out,size_is(cbLength),length_is(*pcbLength)] Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.  *pcbLength is set to zero.
+    //@xref <om IMailMsgProperties.PutProperty>
+    [helpstring("Read a property.")]
+    HRESULT GetProperty([in] DWORD dwPropID,
+                        [in] DWORD cbLength,
+                        [out] DWORD *pcbLength,
+                        [out,size_is(cbLength),length_is(*pcbLength)/*,ptr*/] BYTE *pbValue);
+
+    //@method HRESULT | IMailMsgProperties | Commit | Commit all changes to disk (with async completion).
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Commit all changes to disk (with async completion).")]
+    HRESULT Commit([in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | PutStringA | Write a string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm LPCSTR | pszValue | [in,unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.
+    //@xref <om IMailMsgProperties.GetStringA>
+    [helpstring("Write a string property.")]
+    HRESULT PutStringA([in] DWORD dwPropID,
+                       [in,unique] LPCSTR pszValue);
+
+    //@method HRESULT | IMailMsgProperties | GetStringA | Read a string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the value.
+    //@parm LPSTR | pszValue | [out,size_is(cchLength)]  Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.  The value receives NULL.
+    //@xref <om IMailMsgProperties.PutStringA>
+    [helpstring("Read a string property.")]
+    HRESULT GetStringA([in] DWORD dwPropID,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/, annotation("_Out_writes_(cchLength)")] LPSTR pszValue);
+
+    //@method HRESULT | IMailMsgProperties | PutStringW | Write a Unicode string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm LPCWSTR | pszValue | [in,unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.
+    //@xref <om IMailMsgProperties.GetStringW>
+    [helpstring("Write a Unicode string property.")]
+    HRESULT PutStringW([in] DWORD dwPropID,
+                       [in,unique] LPCWSTR pszValue);
+
+    //@method HRESULT | IMailMsgProperties | GetStringW | Read a Unicode string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the value.
+    //@parm LPCSTR | pszValue | [out,size_is(cchLength)]  Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.  The value receives NULL.
+    //@xref <om IMailMsgProperties.PutStringW>
+    [helpstring("Read a Unicode string property.")]
+    HRESULT GetStringW([in] DWORD dwPropID,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/, annotation("_Out_writes_(cchLength)")] LPWSTR pszValue);
+
+    //@method HRESULT | IMailMsgProperties | PutDWORD | Write a DWORD property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | dwValue | [in] The value to write.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.
+    //@xref <om IMailMsgProperties.GetDWORD>
+    [helpstring("Write a DWORD property.")]
+    HRESULT PutDWORD([in] DWORD dwPropID,
+                     [in] DWORD dwValue);
+
+    //@method HRESULT | IMailMsgProperties | GetDWORD | Read a DWORD property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD * | pdwValue | [out] Receives the value.  If the property is not present, the method
+    // sets this to zero and returns STG_E_UNKNOWN.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.  *pdwValue is set to zero.
+    //@xref <om IMailMsgProperties.PutDWORD>
+    [helpstring("Read a DWORD property.")]
+    HRESULT GetDWORD([in] DWORD dwPropID,
+                     [out/*,ptr*/] DWORD *pdwValue);
+
+    //@method HRESULT | IMailMsgProperties | PutBool | Write a boolean property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | dwValue | [in] The value to write.  This value is coerced to either TRUE or FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present.
+    //@xref <om IMailMsgProperties.GetBool>
+    [helpstring("Write a boolean property.")]
+    HRESULT PutBool([in] DWORD dwPropID,
+                    [in] DWORD bValue);
+
+    //@method HRESULT | IMailMsgProperties | GetBool | Read a boolean property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD * | pdwValue | [out] Receives the value, which will either be TRUE or FALSE.  If the
+    // property is not present, the method sets this to FALSE and returns STG_E_UNKNOWN.
+    //@rvalue S_OK | Success.
+    //@rvalue STG_E_UNKNOWN | Error.  The property was not present or recipient was not present.
+    //@xref <om IMailMsgProperties.PutBool>
+    [helpstring("Read a boolean property.")]
+    HRESULT GetBool([in] DWORD dwPropID,
+                    [out/*,ptr*/] DWORD *pbValue);
+
+    //@method HRESULT | IMailMsgProperties | GetContentSize | Get the size of the content (with async
+    // completion).
+    //@parm DWORD * | pdwSize | [out] Receives the result.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Get the size of the content.")]
+    HRESULT GetContentSize([out/*,ptr*/] DWORD *pdwSize,
+                           [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | ReadContent | Read the content (with async completion).
+    //@parm DWORD | dwOffset | [in] Specifies the offset to read from.
+    //@parm DWORD | dwLength | [in] Specifies the length in bytes to read.
+    //@parm DWORD * | pdwLength | [out] Receives the number of bytes read.
+    //@parm BYTE * | pbBlock | [out,size_is(dwLength),length_is(*pdwLength)] Receives the result.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Read the content (with async completion).")]
+    HRESULT ReadContent([in] DWORD dwOffset,
+                        [in] DWORD dwLength,
+                        [out] DWORD *pdwLength,
+                        [out,size_is(dwLength),length_is(*pdwLength)] BYTE *pbBlock,
+                        [in] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | WriteContent | Write the content (with async completion).
+    //@parm DWORD | dwOffset | [in] Specifies the offset to write to.
+    //@parm DWORD | dwLength | [in] Specifies the length in bytes to write.
+    //@parm DWORD * | pdwLength | [out] Receives the number of bytes written.
+    //@parm BYTE * | pbBlock | [out,size_is(dwLength),length_is(*pdwLength)] Data to write.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Write the content (with async completion).")]
+    HRESULT WriteContent([in] DWORD dwOffset,
+                         [in] DWORD dwLength,
+                         [out] DWORD *pdwLength,
+                         [in,size_is(dwLength),length_is(*pdwLength)] BYTE *pbBlock,
+                         [in] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | CopyContentToFile | Copy the content to a file (with async
+    // completion).
+    //@parm PFIO_CONTEXT | pFIOCopy | [in] Specifies the file to copy to.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Copy the content to a file (with async completion)."),local]
+    HRESULT CopyContentToFile([in] PFIO_CONTEXT pFIOCopy,
+                              [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | CopyContentToFileEx | Copy the content to a file (with async
+    // completion).
+    //@parm PFIO_CONTEXT | pFIOCopy | [in] Specifies the file to copy to.
+    //@parm BOOL | fDotStuffed | [in] Specify if the pFIOCopy should contain dot stuffed data
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Copy the content to a file (with async completion)."),local]
+    HRESULT CopyContentToFileEx([in] PFIO_CONTEXT pFIOCopy,
+                                [in] BOOL fDotStuffed,
+                                [in,unique] IMailMsgNotify *pNotify);
+
+#if 0
+    //@method HRESULT | IMailMsgProperties | CopyContentToStream | Copy the content to a stream (with
+    // async completion).
+    //@parm IMailMsgPropertyStream * | pStream | [in] Specifies the stream to copy to.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Copy the content to a stream (with async completion).")]
+    HRESULT CopyContentToStream([in,unique] IMailMsgPropertyStream *pStream,
+                                [in,unique] IMailMsgNotify *pNotify);
+#endif
+
+    //@method HRESULT | IMailMsgProperties | ForkForRecipients | Create a new Mail Message Object for
+    // different recipients.
+    //@parm IMailMsgProperties ** | ppNewMessage | [out,unique] Receives the new message object.
+    //@parm IMailMsgRecipientsAdd ** | ppRecipients | [out,unique] Receives the new interface for adding
+    // recipients.
+    //@rvalue S_OK | Success.
+    //@xref <i IMailMsgRecipientsAdd>
+    [helpstring("Create a new Mail Message Object for different recipients.")]
+    HRESULT ForkForRecipients([out,unique] IMailMsgProperties **ppNewMessage,
+                              [out,unique] IMailMsgRecipientsAdd **ppRecipients);
+
+    //@method HRESULT | IMailMsgProperties | CopyContentToFileAtOffset | Copy the content to a file at a given
+    //offset (with async completion).
+    //@parm PFIO_CONTEXT | pFIOCopy | [in] Specifies the file to copy to.
+    //@parm DWORD | dwOffset | [in] Specifies the offset of the file to copy to.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Copy the content to a file at a given offset (with async completion)."),local]
+    HRESULT CopyContentToFileAtOffset([in] PFIO_CONTEXT pFIOCopy,
+                              [in] DWORD dwOffset,
+                              [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | RebindAfterFork | Allocates backing store for a forked object,
+    // and binds the message to the storage. The caller may select to use either the same store driver as
+    // the original message, or any specific store driver.
+    //@parm IMailMsgProperties * | pOriginalMsg | [in] Speciifies the original message object from which to
+    // copy the message content.
+    //@parm IUnknown * | pStoreDriver | [in] Specifies a store driver from which to allocate
+    // backing store. If NULL, the store driver of the original message is used.
+    //@rvalue S_OK | Success.
+    //@xref <i IMailMsgRecipientsAdd>
+    [helpstring("Allocates backing store and binds a forked message.")]
+    HRESULT RebindAfterFork([in] IMailMsgProperties    *pOriginalMsg,
+                            [in] IUnknown *pStoreDriver);
+    //@method HRESULT | IMailMsgProperties | SetContentSize | Get the size of the content (with async
+    // completion).
+    //@parm DWORD | dwSize | [out] Receives the result.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Get the size of the content.")]
+    HRESULT SetContentSize([in] DWORD dwSize,
+                           [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgProperties | MapContent | Map the content
+	// of the message to a pointer.
+    //@parm BOOL | fWrite | [in] Write access?
+    //@parm BYTE ** | ppbContent | [in] Pointer to receive the pointer to
+	//   the content.
+    //@parm BYTE ** | pcContent | [in] Pointer to receive the size of the
+	//   content.
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@xref <i IMailMsgProperties> <om IMailMsgPropeties.UnmapContent>
+    [helpstring("Memory map the content to a pointer.")]
+    HRESULT MapContent([in] BOOL fWrite,
+                       [in] BYTE **ppbContent,
+					   [in] DWORD *pcContent);
+
+    //@method HRESULT | IMailMsgProperties | UnmapContent | Unmap memory
+	// mapped content
+    //@parm BYTE * | ppbContent | [in] Pointer to the content (acquired
+	//   via MapContent)
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@xref <i IMailMsgProperties> <om IMailMsgPropeties.MapContent>
+    [helpstring("Unmap the message contents.")]
+    HRESULT UnmapContent([in] BYTE *pbContent);
+};
+
+/*
+    @interface IMailMsgCommit | Optional store driver supplied interface
+	  that is called to commit the message data.  If the store driver
+	  doesn't support this interface then FlushFileBuffers is called on
+	  the PFIO_CONTEXT's handle.
+    @meth HRESULT | BeginCommit | Called at the start of 
+	   IMailMsgProperties::Commit.
+    @meth HRESULT | EndCommit | Called at the end of 
+	   IMailMsgProperties::Commit (after all StartWriteBlocks / WriteBlocks /
+	   EndWriteBlocks calls).
+*/
+[
+    helpstring("Mail Message Commit"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(02B80EDB-6D5A-4d05-950A-237811F8D412)
+]
+interface IMailMsgCommit : IUnknown
+{
+    //@method HRESULT | IMailMsgCommit | BeginCommit |
+	//   Called at the start of IMailMsgProperties::Commit.
+    //@parm IMailMsgPropertyStream | pStream | [in] Specifies the stream.
+    //@parm PFIO_CONTEXT | pFIOContext | [in] Specifies the content.
+    //@rvalue S_OK | Success.
+    //@rvalue other | Error.
+    [helpstring("Start commit operation")]
+    HRESULT BeginCommit([in] IMailMsgProperties *pMsg, 
+						[in] IMailMsgPropertyStream *pStream,
+						[in] PFIO_CONTEXT pFIO);
+
+    //@method HRESULT | IMailMsgCommit | EndCommit |
+	//   Called at the end of IMailMsgProperties::Commit.
+    //@parm IMailMsgPropertyStream | pStream | [in] Specifies the stream.
+    //@parm PFIO_CONTEXT | pFIOContext | [in] Specifies the content.
+    //@rvalue S_OK | Success.
+    //@rvalue other | Error.
+    [helpstring("End commit operation")]
+    HRESULT EndCommit([in] IMailMsgProperties *pMsg, 
+					  [in] IMailMsgPropertyStream *pStream,
+					  [in] PFIO_CONTEXT pFIO);
+
+};
+
+/*
+    @interface IMailMsgValidate | Interface to validate mailmsg structures
+    @meth HRESULT | ValidateStream | Does the stream contain valid mailmsg
+	  data?.
+*/
+[
+    helpstring("Mail Message Validate"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(6717b03c-072c-11d3-94ff-00c04fa379f1)
+]
+interface IMailMsgValidate : IUnknown
+{
+    //@method HRESULT | IMailMsgProperties | ValidateStream |
+	//  Does the stream contain valid mailmsg data?
+    //@parm IMailMsgPropertyStream | pStream | [in] Specifies the stream.
+    //@rvalue S_OK | Success.
+    //@rvalue HRESULT_FROM_WIN32(ERROR_INVALID_DATA) | The stream is invalid.
+    [helpstring("Check stream data")]
+    HRESULT ValidateStream([in] IMailMsgPropertyStream *pStream);
+};
+
+/*
+    @interface IMailMsgValidateContext | Interface to validate context
+    @meth HRESULT | ValidateMessageContext | Method to validate context
+*/
+[
+    helpstring("MailMsg Interface to validate context"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(60a482b1-b311-4eca-a3a3-907f9dafd16f)
+]
+interface IMailMsgValidateContext : IUnknown
+{
+    //@method HRESULT | IMailMsgValidateContext | ValidateMessageContext |
+	//	Determine if the context for this message is still valid.
+	//@rvalue S_OK | Success.  This context is still valid.
+	//@rvalue HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND) | Failure.  This context
+	//	is no longer valid.
+    //@rvalue E_NOTIMPL | Failure.  The driver does not support this method.
+    HRESULT ValidateContext();
+};
+
+/*
+    @interface IMailMsgPropertyManagement | Manage properties for an Mail Message Object.
+    @meth HRESULT | AllocPropIDRange | Allocate a range of property ID's.
+*/
+[
+    helpstring("Mail Message Property Management"),
+    object,
+    pointer_default(unique),
+    uuid(a2f196c0-a351-11d1-aa8a-00aa006bc80b)
+]
+interface IMailMsgPropertyManagement : IUnknown
+{
+    //@method HRESULT | IMailMsgPropertyManagement | AllocPropIDRange | Allocate a range of property ID's.
+    //@parm REFGUID | rguid | [in] Specifies the GUID for the range.  If this range is not already
+    // registered, or if it is already registered and the count of the registered range matches the
+    // requested count, then the registration succeeds.
+    //@parm DWORD | cCount | [in] Specifies the count.
+    //@parm DWORD * | pdwStart | [out] Receives the starting property ID in the range.
+    //@rvalue S_OK | Success.
+    //@rvalue E_INVALIDARG | Failure.  The range is already registered, with a different count.
+    [helpstring("Allocate a range of property ID's.")]
+    HRESULT AllocPropIDRange([in] REFGUID rguid,
+                             [in] DWORD cCount,
+                             [out/*,ptr*/] DWORD *pdwStart);
+};
+
+
+/*
+    @interface IMailMsgEnumMessages | An enumerator for messages.
+    @meth HRESULT | Next | Enumerate a message (with async completion).
+*/
+[
+    helpstring("Mail Message Enumerator"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(e760a840-c8f1-11d1-9ff2-00c04fa37348)
+]
+interface IMailMsgEnumMessages : IUnknown
+{
+    //@method HRESULT | IMailMsgEnumMessages | Next | Enumerate a message (with async completion).
+    //@parm IMailMsgProperties * | pMsg | [in] Specifies the message.  This may be NULL.
+    //@parm IMailMsgPropertyStream ** | ppStream | [out] Receives the property stream.
+    //@parm PFIO_CONTEXT * | ppFIOContentFile | [out] Receives the content file.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@rvalue STG_E_NOMOREFILES | Failure.  There are no more undelivered messages.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify> <om IMailMsgStoreDriver.EnumMessages>
+    [helpstring("Enumerate a message (with async completion).")]
+    HRESULT Next([in,unique] IMailMsgProperties *pMsg,
+                 [out/*,ptr*/] IMailMsgPropertyStream **ppStream,
+                 [out/*,ptr*/] PFIO_CONTEXT *ppFIOContentFile,
+                 [in,unique] IMailMsgNotify *pNotify);
+};
+
+
+/*
+    @interface IMailMsgStoreDriver | Used by the protocol stack to manage message files in the store
+     driver.
+    @meth HRESULT | AllocMessage | Allocate property stream and content file for a recipient (with async
+     completion).
+    @meth HRESULT | EnumMessages | Get an enumerator for undelivered messages in the store.
+    @meth HRESULT | ReOpen | Re-open a property stream and/or content file (with async completion).
+    @meth HRESULT | Delete | Delete a property stream and content file (with async completion).
+*/
+[
+    helpstring("Mail Message Store Driver"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(246aae60-acc4-11d1-aa91-00aa006bc80b)
+]
+interface IMailMsgStoreDriver : IUnknown
+{
+    //@method HRESULT | IMailMsgStoreDriver | AllocMessage | Allocate property stream and content file for
+    // a recipient (with async completion).
+    //@parm IMailMsgProperties * | pMsg | [in,unique] Specifies the message.
+    //@parm DWORD | dwFlags | [in] Specifies flags.  Currently only MAILMSG_AMF_MUSTCREATE is defined.
+    //@parm IMailMsgPropertyStream ** | ppStream | [out] Receives the property stream.
+
+    //@parm PFIO_CONTEXT * | ppFIOContentFile | [out] Receives the content file.  The content file will have been
+    // opened with FILE_FLAG_OVERLAPPED, and can only be closed by using
+    // IMailMsgStoreDriver::CloseContentFile.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify> <om IMailMsgStoreDriver.CloseContentFile>
+    [helpstring("Allocate property stream and content file for a recipient (with async completion).")]
+    HRESULT AllocMessage([in,unique] IMailMsgProperties *pMsg,
+                         [in] DWORD dwFlags,
+                         [out/*,ptr*/] IMailMsgPropertyStream **ppStream,
+                         [out/*,ptr*/] PFIO_CONTEXT *ppFIOContentFile,
+                         [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgStoreDriver | EnumMessages | Get an enumerator for undelivered messages in
+    // the store.
+    //@parm IMailMsgEnumMessages ** | ppEnum | [out] Receives the result.
+    //@rvalue S_OK | Success.
+    //@xref <i IMailMsgEnumMessages>
+    [helpstring("Get an enumerator for undelivered messages in the store.")]
+    HRESULT EnumMessages([out] IMailMsgEnumMessages **ppEnum);
+
+    //@method HRESULT | IMailMsgStoreDriver | ReOpen | Re-open a property stream and/or content file (with
+    // async completion).  Before calling this method, if the property stream is being re-opened all
+    // instances of the property stream interface must have been released, and if the content file is
+    // being re-opened all instances of the content handle must have been closed.
+    //@parm IMailMsgProperties * | pMsg | [in,unique] Specifies the message.
+    //@parm IMailMsgPropertyStream ** | ppStream | [out] Receives the property stream.  If this parameter
+    // is NULL, the property stream will not be re-opened.
+    //@parm PFIO_CONTEXT * | ppFIOContentFile | [out] Receives the content file.  If this parameter is NULL, the
+    // content file will not be re-opened.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify> <om IMailMsgStoreDriver.CloseContentFile>
+    [helpstring("Re-open a property stream and/or content file (with async completion).")]
+    HRESULT ReOpen([in] IMailMsgProperties *pMsg,
+                   [out/*,ptr*/] IMailMsgPropertyStream **ppStream,
+                   [out/*,ptr*/] PFIO_CONTEXT *ppFIOContentFile,
+                   [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgStoreDriver | Delete | Delete a property stream and content file (with
+    // async completion).  Before calling this method, all instances of the property stream interface must
+    // be released, and all instances of the content file handle must be closed.  This interface should
+    // be used by the MailMsg object only, all other users should go through IMailMsgQueueMgmt::Delete().
+    //@parm IMailMsgProperties * | pMsg | [in,unique] Specifies the message.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Delete a property stream and content file (with async completion).")]
+    HRESULT Delete([in] IMailMsgProperties *pMsg,
+                   [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgStoreDriver | CloseContentFile | Close the content file.
+    //@parm IMailMsgProperties * | pMsg | [in] Specifies the message.
+    //@parm PFIO_CONTEXT | pFIOContentFile | [in] Specifies the content handle.
+    //@xref <om IMailMsgStoreDriver.ReOpen>
+    [helpstring("Close the content file.")]
+    HRESULT CloseContentFile([in] IMailMsgProperties *pMsg, [in] PFIO_CONTEXT pFIOContentFile);
+
+    //@method HRESULT | IMailMsgStoreDriver | ReAllocMessage | Re-allocates a new property stream and/or content
+    // file based on existing storage (with async completion).
+    //@parm IMailMsgProperties * | pOriginalMsg | [in,unique] Specifies the message on which the re-allocation is to be based.
+    //@parm IMailMsgProperties * | pNewMsg | [in,unique] Specifies the message receiving the reallocation.
+    //@parm IMailMsgPropertyStream ** | ppStream | [out] Receives the property stream.
+    //@parm PFIO_CONTEXT * | ppFIOContentFile | [out] Receives the content file.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify> <om IMailMsgStoreDriver.CloseContentFile>
+    [helpstring("Re-allocates an empty property stream and content file based on existing storage (with async completion).")]
+    HRESULT ReAllocMessage(
+                [in]            IMailMsgProperties        *pOriginalMsg,
+                [in]            IMailMsgProperties        *pNewMsg,
+                [out/*,ptr*/]    IMailMsgPropertyStream    **ppStream,
+                [out/*,ptr*/]    PFIO_CONTEXT                    *ppFIOContentFile,
+                [in,unique]        IMailMsgNotify            *pNotify
+                );
+
+    //@method HRESULT | IMailMsgStoreDriver | SupportWriteContent | Does the store support writeable content?
+    // store driver supports writeable content.
+    //@rvalue S_OK | Success.  Writeable content is supported.
+    //@rvalue S_FALSE | Success.  Writable content is not supported.
+    [helpstring("Does the store support writeable content?")]
+    HRESULT SupportWriteContent();
+};
+
+
+/*
+    @interface IMailMsgQueueMgmt | Mail Message Queue Management Interface.
+    @meth HRESULT | AddUsage | Increment the usage count.
+    @meth HRESULT | ReleaseUsage | Decrement the usage count.
+    @meth HRESULT | SetRecipientCount | Set the recipient count.
+    @meth HRESULT | GetRecipientCount | Get the recipient count.
+    @meth HRESULT | DecrementRecipientCount | Decrement the recipient count.
+    @meth HRESULT | IncrementRecipientCount | Increment the recipient count.
+    @meth HRESULT | Delete | Delete the backing store for the message object (with async completion).
+*/
+[
+    helpstring("Mail Message Queue Management Interface"),
+    object,
+    pointer_default(unique),
+    uuid(b2564d0a-d5a1-11d1-9ff7-00c04fa37348)
+]
+interface IMailMsgQueueMgmt : IUnknown
+{
+    //@method HRESULT | IMailMsgQueueMgmt | AddUsage | Increment the usage count.  When the usage count
+    // is non-zero, the message object's resources are more likely to be kept cached in memory.
+    //@rvalue S_OK | Success.  The usage count transitioned from zero to one.
+    //@rvalue S_FALSE | Success.  The usage count was already above one.
+    //@rvalue E_FAIL | Failure.  The usage count was a negative value (which should never happen).  The
+    // increment operation has not been done.
+    //@xref <om IMailMsgQueueMgmt.ReleaseUsage>
+    [helpstring("Increment the usage count.")]
+    HRESULT AddUsage();
+
+    //@method HRESULT | IMailMsgQueueMgmt | ReleaseUsage | Decrement the usage count.  When the usage
+    // count is zero, the message object's resources are more likely to be released from memory.
+    //@rvalue S_OK | Success.  The usage count transitioned from one to zero.
+    //@rvalue S_FALSE | Success.  The resulting usage count was greater than one.
+    //@rvalue E_FAIL | Failure.  The resulting usage count is a negative value (which should never
+    // happen).   The decrement operation has not been done.
+    //@xref <om IMailMsgQueueMgmt.AddUsage>
+    [helpstring("Decrement the usage count.")]
+    HRESULT ReleaseUsage();
+
+    //@method HRESULT | IMailMsgQueueMgmt | SetRecipientCount | Set the recipient count.
+    //@parm DWORD | dwCount | [in] Specifies the value to set the recipient count to.
+    //@rvalue S_OK | Success.
+    //@xref <om IMailMsgQueueMgmt.GetRecipientCount> <om IMailMsgQueueMgmt.DecrementRecipientCount>
+    // <om IMailMsgQueueMgmt.IncrementRecipientCount>
+    [helpstring("Set the recipient count.")]
+    HRESULT SetRecipientCount([in] DWORD dwCount);
+
+    //@method HRESULT | IMailMsgQueueMgmt | GetRecipientCount | Get the recipient count.
+    //@parm DWORD * | pdwCount | [out] Receives the recipient count.
+    //@rvalue S_OK | Success.
+    //@xref <om IMailMsgQueueMgmt.SetRecipientCount> <om IMailMsgQueueMgmt.DecrementRecipientCount>
+    // <om IMailMsgQueueMgmt.IncrementRecipientCount>
+    [helpstring("Get the recipient count.")]
+    HRESULT GetRecipientCount([out] DWORD *pdwCount);
+
+    //@method HRESULT | IMailMsgQueueMgmt | DecrementRecipientCount | Decrement the recipient count.
+    //@parm DWORD | dwDecrement | [in] Specifies the amount to decement the recipient count by.
+    //@rvalue S_OK | Success.  The resulting recipient count is zero.
+    //@rvalue S_FALSE | Success.  The resulting recipient count is non-zero.
+    //@rvalue E_FAIL | Failure.  The resulting recipient count is negative (which should never happen).
+    // The decrement operation has not been done.
+    //@xref <om IMailMsgQueueMgmt.SetRecipientCount> <om IMailMsgQueueMgmt.GetRecipientCount>
+    // <om IMailMsgQueueMgmt.IncrementRecipientCount>
+    [helpstring("Decrement the recipient count.")]
+    HRESULT DecrementRecipientCount([in] DWORD dwDecrement);
+
+    //@method HRESULT | IMailMsgQueueMgmt | IncrementRecipientCount | Increment the recipient count.
+    //@parm DWORD | dwIncrement | [in] Specifies the amount to incement the recipient count by.
+    //@rvalue S_OK | Success.  The recipient count transitioned from zero to non-zero.  The S_OK and
+    // S_FALSE return values are provided for debugging purposes only - clients should not use these
+    // different return values for anything other than debugging code.
+    //@rvalue S_FALSE | Success.  The recipient count was non-zero before the call.  The S_OK and S_FALSE
+    // return values are provided for debugging purposes only - clients should not use these different
+    // return values for anything other than debugging code.
+    //@rvalue E_FAIL | Failure.  The recipient count was negative (which should never happen).  The
+    // increment operation has not been done.
+    //@xref <om IMailMsgQueueMgmt.SetRecipientCount> <om IMailMsgQueueMgmt.GetRecipientCount>
+    // <om IMailMsgQueueMgmt.DecrementRecipientCount>
+    [helpstring("Increment the recipient count.")]
+    HRESULT IncrementRecipientCount([in] DWORD dwIncrement);
+
+    //@method HRESULT | IMailMsgQueueMgmt | Delete | Delete the backing store for the message object (with
+    // async completion).
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the operation will complete synchronously.  Even if this value is non-NULL, the
+    // operation may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Delete the backing store for the message object (with async completion).")]
+    HRESULT Delete([in,unique] IMailMsgNotify *pNotify);
+};
+
+
+/*
+    @interface ISMTPStoreDriver | SMTP Store Driver Interface.
+    @meth HRESULT | Init | Initialize the store driver.
+    @meth HRESULT | PrepareForShutdown | Prepare to shutdown the store driver.
+    @meth HRESULT | Shutdown | Finish shutdown of the store driver.
+    @meth HRESULT | LocalDelivery | Perform local delivery on a message (with async completion).
+    @meth HRESULT | EnumerateAndSubmitMessages | Enumerate all the messages associated with the store driver.
+*/
+[
+    helpstring("SMTP Store Driver Interface."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(ee51588c-d64a-11d1-9ff7-00c04fa37348)
+]
+interface ISMTPStoreDriver : IUnknown
+{
+    //@method HRESULT | ISMTPStoreDriver | Init | Initialize the store driver.  During this call, the
+    // store driver receives the instance number of the server, a pointer to the binding information for
+    // the store driver, and a pointer to the server.  By examing the parameters to this call, the store
+    // driver can determine if a previous instance of this store driver is already running for this
+    // virtual server, and if the binding options are similar enough that that previous instance is still
+    // valid - if so, then the store driver can return a pointer to the previous instance, causing the
+    // virtual-server to make all further calls on that previous instance.
+    //@parm DWORD | dwInstance | [in] Specifies the instance number of the virtual server.
+    //@parm IUnknown * | pBinding | [in,unique] Specifies the binding point for the store driver.  This
+    // may be NULL.
+    //@parm IUnknown * | pServer | [in,unique] Specifies the server.  The store driver may call methods
+    // on this object to perform advanced initialization functions.  This may be NULL.
+    //@parm DWORD | dwReason | [in] Specifies the reason for the initialization.  This will be either
+    // SMTP_INIT_VSERVER_STARTUP, or SMTP_INIT_BINDING_CHANGE.
+    //@parm IUnknown ** | ppStoreDriver | [out] Receives the store driver object.  If this value non-NULL,
+    // the caller should release the original interface pointer, and use this object for all subsequent
+    // calls to the store driver.  This mechanism allows the store driver to examine the parameters to
+    // the Init call, and redirect further operations by the virtual server to this store driver to be on
+    // a different object.
+    //@rvalue E_NOTIMPL | Failure.  The driver does not support this method.
+    [helpstring("Initialize the store driver.")]
+    HRESULT Init([in] DWORD dwInstance,
+                 [in,unique] IUnknown *pBinding,
+                 [in] IUnknown *pServer,
+                 [in] DWORD dwReason,
+                 [out] IUnknown **ppStoreDriver);
+
+    //@method HRESULT | ISMTPStoreDriver | PrepareForShutdown | Prepare to shutdown the store driver.  The
+    // store driver should release any interfaces it is holding on the server.
+    //@parm DWORD | dwReason | [in] Specifies the reason for the shutdown.  This will be either
+    // SMTP_TERM_VSERVER_SHUTDOWN, or SMTP_TERM_BINDING_CHANGE.
+    //@rvalue E_NOTIMPL | Failure.  The driver does not support this method.
+    [helpstring("Prepare to shutdown the store driver.")]
+    HRESULT PrepareForShutdown([in] DWORD dwReason);
+
+    //@method HRESULT | ISMTPStoreDriver | Shutdown | Finish shutdown of the store driver.  The store
+    // driver should cancel any outstanding requests it has received from the server (posting
+    // HRESULT_FROM_WIN32(ERROR_SHUTDOWN_IN_PROGRESS) to any IMailMsgNotify interfaces it is holding).
+    //@parm DWORD | dwReason | [in] Specifies the reason for the shutdown.  This will be either
+    // SMTP_TERM_VSERVER_SHUTDOWN, or SMTP_TERM_BINDING_CHANGE.
+    //@rvalue E_NOTIMPL | Failure.  The driver does not support this method.
+    [helpstring("Finish shutdown of the store driver.")]
+    HRESULT Shutdown([in] DWORD dwReason);
+
+    //@method HRESULT | ISMTPStoreDriver | LocalDelivery | Perform local delivery on a message (with async
+    // completion).
+    //@parm IMailMsgProperties * | pMsg | [in] Specifies the message being delivered.
+     //@parm DWORD | dwRecipCount | [in] Specifies the count of the recipients for this delivery.
+     //@parm DWORD * | pdwRecipIndexes | [in,size_is(dwRecipCount)] Specifies the indexes of the recipients
+     // for this delivery.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Perform local delivery on a message (with async completion).")]
+    HRESULT LocalDelivery([in] IMailMsgProperties *pMsg,
+                           [in] DWORD dwRecipCount,
+                           [in,size_is(dwRecipCount)] DWORD *pdwRecipIndexes,
+                          [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | ISMTPStoreDriver | EnumerateAndSubmitMessages | Enumerate all the messages associated with
+    // the store driver. The enumerator will restore undelivered messages from the store and submit
+    // them for delivery. This must be called after Init, and before any calls to AllocMessage.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Enumerates undelivered messages in the store and submits them to queueing.")]
+    HRESULT EnumerateAndSubmitMessages([in,unique] IMailMsgNotify *pNotify);
+};
+
+
+/*
+    @interface IMailMsgStoreDriverValidateContext | Store Driver Context
+		Validation Interface.
+    @meth HRESULT | ValidateMessageContext | Initialize the store driver.
+*/
+[
+    helpstring("Store Driver Message Validation Interface."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(C6742794-AD31-4711-BE73-9869142A8A23)
+]
+interface IMailMsgStoreDriverValidateContext : IUnknown
+{
+    //@method HRESULT | IMailMsgStoreDriverValidateContext | ValidateMessageContext |
+	//	Given a message context, determine if it belongs to this store driver.  If
+	//	it does, determine if it is still valid (still has backing store).
+    //@parm PBYTE | pbContext | [in,unique] The context currently set on the message
+	//	we are attempting to validate.
+    //@parm DWORD | cbContext | [in] The size of the context in bytes.
+	//@rvalue S_OK | Success.  This context is associated with this store driver
+	//	and is still valid.
+	//@rvalue S_FALSE | Success.  This context is not associated with this store
+	//	driver.
+	//@rvalue HRESULT_FROM_WIN32(ERROR_FILE_NOT_FOUND) | Failure.  This context
+	//	is associated with this driver, but it is no longer valid.
+    //@rvalue E_NOTIMPL | Failure.  The driver does not support this method.
+    HRESULT ValidateMessageContext(	[in, unique] BYTE *pbContext,
+									[in]	DWORD cbContext);
+};
+
+/*
+    @interface IMailMsgBind | Interface for binding operations on a mail message.
+    @meth HRESULT | BindToStore | Bind a mail message to a store.
+    @meth HRESULT | GetProperties | Read the mail message properties into a stream (with async
+     completion).
+*/
+[
+    helpstring("Interface for binding operations on a mail message."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(38cb448a-ca62-11d1-9ff3-00c04fa37348)
+]
+interface IMailMsgBind : IUnknown
+{
+    //@method HRESULT | IMailMsgBind | BindToStore | Bind a mail message to a store.
+    //@parm IMailMsgPropertyStream * | pStream | [in] Specifies the property stream.
+    //@parm IMailMsgStoreDriver * | pStore | [in] Specifies the store driver.
+    //@parm PFIO_CONTEXT | pFIOContentFile | [in] Specifies the content file.
+    //@rvalue S_OK | Success.
+    [helpstring("Bind a mail message to a store.")]
+    HRESULT BindToStore([in] IMailMsgPropertyStream *pStream,
+                        [in] IMailMsgStoreDriver *pStore,
+                        [in] PFIO_CONTEXT pFIOContentFile);
+
+    //@method HRESULT | IMailMsgBind | GetBinding | Get the file handle cache binding (with async completion).  This
+    // method increments the usage count on the file handle cache context, preventing the content handle from being
+    // closed.  IMailMsgBind::ReleaseContext must be called to decrement the usage count
+    // once operations on the handle are complete.
+    //@parm PFIO_CONTEXT * | ppFIOContentFile | [out] Recieves the content file.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify> <om IMailMsgBind.ReleaseContext>
+    [helpstring("Get the file handle cache context (with async completion).")]
+    HRESULT GetBinding([out] PFIO_CONTEXT *ppFIOContentFile,
+                       [in,unique] IMailMsgNotify *pNotify);
+
+    //@method HRESULT | IMailMsgBind | ReleaseContext | Decrement the reference count on the file
+    // handle context.
+    //@rvalue S_OK | Success.
+    //@xref <om IMailMsgBindATQ.GetBinding>
+    [helpstring("Decrement the reference count on the file handle context.")]
+    HRESULT ReleaseContext();
+
+    //@method HRESULT | IMailMsgBind | GetProperties | Read the mail message properties into a stream
+    // (with async completion).
+    //@parm IMailMsgPropertyStream * | pStream | [in] The stream to write the properties to.
+    //@parm DWORD | dwFlags | [in] Specifies the flags.  This may be either MAILMSG_GETPROPS_INCREMENTAL
+    // or MAILMSG_GETPROPS_COMPLETE.  It may also include MAILMSG_GETPROPS_CLEAR_DIRTY.
+    //@parm IMailMsgNotify * | pNotify | [in,unique] Interface to notify for async completion.  If this
+    // value is NULL, then the method will complete synchronously.  Even if this value is non-NULL, the
+    // method may still complete synchronously (i.e. it may return S_OK instead of MAILMSG_S_PENDING).
+    //@rvalue S_OK | Success.  The operation completed synchronously.
+    //@rvalue MAILMSG_S_PENDING | Success.  The operation is pending, and pNotify->Notify will be called
+    // with the result of the operation when it completes.
+    //@xref <i IMailMsgNotify> <om IMailMsgNotify.Notify>
+    [helpstring("Read the mail message properties into a stream (with async completion).")]
+    HRESULT GetProperties([in] IMailMsgPropertyStream *pStream,
+                          [in] DWORD dwFlags,
+                          [in,unique] IMailMsgNotify *pNotify);
+};
+
+/*
+    @interface IMailMsgPropertyBag | Interface for accessing a memory property bag object.
+    @meth HRESULT | PutProperty | Write a property.
+    @meth HRESULT | GetProperty | Read a property.
+    @meth HRESULT | PutStringA | Write a string property.
+    @meth HRESULT | GetStringA | Read a string property.
+    @meth HRESULT | PutStringW | Write a Unicode string property.
+    @meth HRESULT | GetStringW | Read a Unicode string property.
+    @meth HRESULT | PutDWORD | Write a DWORD property.
+    @meth HRESULT | GetDWORD | Read a DWORD property.
+    @meth HRESULT | PutBool | Write a boolean property.
+    @meth HRESULT | GetBool | Read a boolean property.
+*/
+[
+    helpstring("Generic Memory property bag"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(d6d0509c-ec51-11d1-aa65-00c04fa35b82)
+]
+interface IMailMsgPropertyBag : IUnknown
+{
+    //@method HRESULT | IMailMsgPropertyBag | PutProperty | Write a property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cbLength | [in] Specifies the length in bytes of the value.
+    //@parm BYTE * | pbValue | [in,size_is(cbLength),length_is(cbLength),unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue S_FALSE | Success.  The property was not present.
+    //@xref <om ISMTPParams.GetProperty>
+    [helpstring("Write a property.")]
+    HRESULT PutProperty([in] DWORD dwPropID,
+                        [in] DWORD cbLength,
+                        [in,size_is(cbLength),length_is(cbLength),unique] BYTE *pbValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | GetProperty | Read a property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cbLength | [in] Specifies the length in bytes of the buffer to receive the value.
+    //@parm DWORD * | pcbLength | [out] Receives the length in bytes of the value.  This is set to zero if
+    // the property is not present.
+    //@parm BYTE * | pbValue | [out,size_is(cbLength),length_is(*pcbLength)] Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_E_PROPNOTFOUND | Failure.  The property was not present.  *pcbLength is set to zero.
+    //@xref <om ISMTPParams.PutProperty>
+    [helpstring("Read a property.")]
+    HRESULT GetProperty([in] DWORD dwPropID,
+                        [in] DWORD cbLength,
+                        [out] DWORD *pcbLength,
+                        [out,size_is(cbLength),length_is(*pcbLength)/*,ptr*/] BYTE *pbValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | PutStringA | Write a string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm LPCSTR | pszValue | [in,unique] Specifies the value.  If this is NULL, the property will be
+    // erased.
+    //@rvalue S_OK | Success.
+    //@rvalue S_FALSE | Success.  The property was not present.
+    //@xref <om ISMTPParams.GetStringA>
+    [helpstring("Write a string property.")]
+    HRESULT PutStringA([in] DWORD dwPropID,
+                       [in,unique] LPCSTR pszValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | GetStringA | Read a string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the value.
+    //@parm LPSTR | pszValue | [out,size_is(cchLength)]  Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_E_PROPNOTFOUND | Failure.  The property was not present.  The value receives NULL.
+    //@xref <om ISMTPParams.PutStringA>
+    [helpstring("Read a string property.")]
+    HRESULT GetStringA([in] DWORD dwPropID,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/, annotation("_Out_writes_(cchLength)")] LPSTR pszValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | PutStringW | Write a Unicode string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm LPCWSTR | pszValue | [in,unique] Specifies the value.
+    //@rvalue S_OK | Success.
+    //@rvalue S_FALSE | Success.  The property was not present.
+    //@xref <om ISMTPParams.GetStringW>
+    [helpstring("Write a Unicode string property.")]
+    HRESULT PutStringW([in] DWORD dwPropID,
+                       [in,unique] LPCWSTR pszValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | GetStringW | Read a Unicode string property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | cchLength | [in] Specifies the length in characters (including the terminating NULL)
+    // of the buffer to receive the value.
+    //@parm LPCSTR | pszValue | [out,size_is(cchLength)]  Receives the value.
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_E_PROPNOTFOUND | Failure.  The property was not present.  The value receives NULL.
+    //@xref <om ISMTPParams.PutStringW>
+    [helpstring("Read a Unicode string property.")]
+    HRESULT GetStringW([in] DWORD dwPropID,
+                       [in] DWORD cchLength,
+                       [out,size_is(cchLength)/*,ptr*/, annotation("_Out_writes_(cchLength)")] LPWSTR pszValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | PutDWORD | Write a DWORD property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | dwValue | [in] The value to write.
+    //@rvalue S_OK | Success.
+    //@rvalue S_FALSE | Success.  The property was not present.
+    //@xref <om ISMTPParams.GetDWORD>
+    [helpstring("Write a DWORD property.")]
+    HRESULT PutDWORD([in] DWORD dwPropID,
+                     [in] DWORD dwValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | GetDWORD | Read a DWORD property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD * | pdwValue | [out] Receives the value.  If the property is not present, the method
+    // sets this to zero and returns S_FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_E_PROPNOTFOUND | Failure.  The property was not present.  *pdwValue is set to zero.
+    //@xref <om ISMTPParams.PutDWORD>
+    [helpstring("Read a DWORD property.")]
+    HRESULT GetDWORD([in] DWORD dwPropID,
+                     [out/*,ptr*/] DWORD *pdwValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | PutBool | Write a boolean property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD | dwValue | [in] The value to write.  This value is coerced to either TRUE or FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue S_FALSE | Success.  The property was not present.
+    //@xref <om ISMTPParams.GetBool>
+    [helpstring("Write a boolean property.")]
+    HRESULT PutBool([in] DWORD dwPropID,
+                    [in] DWORD bValue);
+
+    //@method HRESULT | IMailMsgPropertyBag | GetBool | Read a boolean property.
+    //@parm DWORD | dwPropID | [in] Specifies the property ID.
+    //@parm DWORD * | pdwValue | [out] Receives the value, which will either be TRUE or FALSE.  If the
+    // property is not present, the method sets this to FALSE and returns S_FALSE.
+    //@rvalue S_OK | Success.
+    //@rvalue MAILMSG_E_PROPNOTFOUND | Failure.  The property was not present.  *pdwValue is set to FALSE.
+    //@xref <om ISMTPParams.PutBool>
+    [helpstring("Read a boolean property.")]
+    HRESULT GetBool([in] DWORD dwPropID,
+                    [out/*,ptr*/] DWORD *pbValue);
+
+};
+
+
+/*
+    @interface IMailMsgLoggingPropertyBag | Interface to the logging facilities.
+    @meth HRESULT | WriteToLog | Write to the log
+*/
+[
+    helpstring("Interface to the logging facilities."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(4cb17416-ec53-11d1-aa65-00c04fa35b82)
+]
+interface IMailMsgLoggingPropertyBag : IMailMsgPropertyBag
+{
+    // @method HRESULT | IMailMsgLoggingPropertyBag | WriteToLog | Write to the log
+    // @parm LPCWSTR | pszClientHostName | [in] Specifies the Client Host Name.  May be NULL.
+    // @parm LPCWSTR | pszClientUserName | [in] Specifies the Client User Name.  May be NULL.
+    // @parm LPCWSTR | pszServerAddress | [in] Specifies the Server Address  May be NULL.
+    // @parm LPCWSTR | pszOperation | [in] Specifies the operation.  May be NULL.
+    // @parm LPCWSTR | pszTarget | [in] Specifies the target.  May be NULL.
+    // @parm LPCWSTR | pszParameters | [in] Specifies the parameters.  May be NULL.
+    // @parm LPCWSTR | pszVersion | [in] Specifies the version.  May be NULL.
+    // @parm DWORD | dwBytesSent | [in] Specifies the number of bytes sent.
+    // @parm DWORD | dwBytesReceived | [in] Specifies the number of bytes received.
+    // @parm DWORD | dwProcessingTimeMS | [in] Specifies the time spent processing, in milliseconds.
+    // @parm DWORD | dwWin32Status | [in] Specifies the Win32 status code.
+    // @parm DWORD | dwProtocolStatus | [in] Specifies the protocol status code.
+    // @parm DWORD | dwPort | [in] Specifies the port.
+    // @parm LPCWSTR | pszHTTPHeader | [in] Specifies the HTTP header.  May be NULL.
+    // @rvalue S_OK | Success
+    // @rvalue E_FAIL | Failure.
+    // @rvalue E_NOTIMPL | Failure, not implemented.
+    // @xref <i ISMTPParams>
+    HRESULT WriteToLog([in] LPCSTR pszClientHostName,
+                       [in] LPCSTR pszClientUserName,
+                       [in] LPCSTR pszServerAddress,
+                       [in] LPCSTR pszOperation,
+                       [in] LPCSTR pszTarget,
+                       [in] LPCSTR pszParameters,
+                       [in] LPCSTR pszVersion,
+                       [in] DWORD dwBytesSent,
+                       [in] DWORD dwBytesReceived,
+                       [in] DWORD dwProcessingTimeMS,
+                       [in] DWORD dwWin32Status,
+                       [in] DWORD dwProtocolStatus,
+                       [in] DWORD dwPort,
+                       [in] LPCSTR pszHTTPHeader);
+};
+
+
+/*
+    @interface IMailMsgCleanupCallback | Interface to receive notification that an object is about to be destroyed.
+    @meth HRESULT | CleanupCallback | Receives notification that an object is about to be destryoed.
+*/
+[
+    helpstring("MailMsg Interface to receive a callback"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(951C04A1-29F0-4b8e-9ED5-836C73766051)
+]
+interface IMailMsgCleanupCallback : IUnknown
+{
+    // @method HRESULT | CleanupCallback | Receives notification that an object is about to be destryoed.
+    // @parm IUnknown | pObject | [in] IUnknown interface to the object about to be destroyed.
+    // @parm PVOID | pvContext | [in] Context previously specified to RegisterCleanupCallback
+    HRESULT CleanupCallback(
+                       [in] IUnknown *pObject,
+                       [in] PVOID     pvContext);
+};
+
+/*
+    @interface IMailMsgRegisterCleanupCallback | Interface to register a callback.
+    @meth HRESULT | RegisterCleanupCallback | Register a callback to be called just before the object is destroyed.
+*/
+[
+    helpstring("MailMsg Interface to register a callback"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(00561C2F-5E90-49e5-9E73-7BF9129298A0)
+]
+interface IMailMsgRegisterCleanupCallback : IUnknown
+{
+    // @method HRESULT | RegisterCleanupCallback | Register a callback to be called just before the object is destroyed.
+    // @parm IMailMsgCleanupCallback | pICallback | [in] Specifies the interface to call back.
+    // @parm PVOID | pvContext | [in] Specifies a context to be passed to the callback routine.
+    // @rvalue S_OK | Success
+    // @rvalue E_OUTOFMEMORY | Out of memory.
+    HRESULT RegisterCleanupCallback(
+                       [in] IMailMsgCleanupCallback *pICallback,
+                       [in] PVOID  pvContext);
+};
+
+//
+// The caller should NULL out all members & fillout only those that are relevant.
+// If some member is null-ed out the LogMsgTrack method will use the info in IMailMsgProperties.
+//
+
+typedef struct _MSG_TRACK_INFO
+{
+    LPSTR       pszClientIp;
+    LPSTR       pszClientName;
+    LPSTR       pszPartnerName;
+    LPSTR       pszServerIp;
+    LPSTR       pszServerName;
+    LPSTR       pszRecipientAddress;
+    LPSTR       pszSenderAddress;
+    DWORD       dwEventId;
+    LPSTR       pszMessageId;
+    DWORD       dwPriority;
+    DWORD       dwRcptReportStatus;
+    DWORD       cbMessageSize;
+    DWORD       cRcpts;
+    DWORD       dwTimeTaken;
+    DWORD       dwEncryption;
+    LPSTR       pszVersion;
+    LPSTR       pszLinkMsgId;
+    LPSTR       pszSubject;
+} MSG_TRACK_INFO, *LPMSG_TRACK_INFO;
+
+typedef struct _EVENT_LOG_INFO
+{
+    DWORD       dwEventId;
+    DWORD       dwErrorCode;
+    LPSTR       pszEventLogMsg;
+} EVENT_LOG_INFO, *LPEVENT_LOG_INFO;
+
+
+// Structure for info passed to SMTP event logging event
+typedef struct _SMTP_LOG_EVENT_INFO
+{
+    DWORD 		idMessage;
+    WORD 		idCategory;
+    WORD 		cSubstrings;
+    LPCSTR 		*rgszSubstrings;
+    WORD 		wType;
+    DWORD 		errCode;
+    WORD 		iDebugLevel;
+    LPCSTR 		szKey;
+    DWORD 		dwOptions;
+    DWORD 		iMessageString;
+    HMODULE 	hModule;
+} SMTP_LOG_EVENT_INFO, *LPSMTP_LOG_EVENT_INFO;
+
+/*
+    @interface ISMTPServer | Interface to the SMTP server.
+    @meth HRESULT | AllocMessage | Allocate a message object.
+    @meth HRESULT | SubmitMessage | Submit a message for delivery.
+*/
+[
+    helpstring("Interface to the SMTP server."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(22625594-d822-11d1-9ff7-00c04fa37348)
+]
+interface ISMTPServer : IUnknown
+{
+    //@method HRESULT | ISMTPServer | AllocMessage | Allocate a message object.
+    //@parm IMailMsgProperties ** | ppMsg | [out] Receives the result.
+    //@rvalue S_OK | Success.
+    [helpstring("Allocate a message object.")]
+    HRESULT AllocMessage([out] IMailMsgProperties **ppMsg);
+
+    //@method HRESULT | ISMTPServer | SubmitMessage | Submit a message for delivery.
+    //@parm IMailMsgProperties * | pMsg | [in] Specifies the message.
+    //@rvalue S_OK | Success.
+    [helpstring("Submit a message for delivery.")]
+    HRESULT SubmitMessage([in] IMailMsgProperties *pMsg);
+
+    //@method HRESULT | ISMTPServer | TriggerLocalDelivery | Trigger the local delivery event.
+    //@parm IMailMsgProperties * | pMsg | [in] Specifies the message.
+    //@parm DWORD | dwRecipCount | [in] Specifies the count of the recipients for this delivery.
+    //@parm DWORD * | pdwRecipIndexes | [in,size_is(dwRecipCount)] Specifies the indexes of the recipients
+    // for this delivery.
+    //@rvalue S_OK | Success.
+    [helpstring("Trigger the local delivery event.")]
+    HRESULT TriggerLocalDelivery([in] IMailMsgProperties *pMsg, DWORD dwRecipientCount, DWORD * pdwRecipIndexes);
+
+    HRESULT ReadMetabaseString([in] DWORD MetabaseId,
+                               [in, out, size_is(*BufferSize), length_is(*BufferSize), annotation("_Out_writes_to_(*BufferSize, *BufferSize)")] char * Buffer,
+                               [in, out] DWORD * BufferSize,
+                               [in] BOOL fSecure);
+
+    HRESULT ReadMetabaseDword([in] DWORD MetabaseId,
+                              [out] DWORD * dwValue);
+
+    HRESULT ServerStartHintFunction ();
+    HRESULT ServerStopHintFunction ();
+
+    HRESULT TriggerServerEvent([in] DWORD dwEventID,
+                               [in] PVOID pvContext);
+
+    HRESULT WriteLog( [in] LPMSG_TRACK_INFO pMsgTrackInfo,
+                      [in] IMailMsgProperties *pMsg,
+                      [in] LPEVENT_LOG_INFO pEventLogInfo,
+                      [in, annotation("_In_")] LPSTR pszProtocolLog );
+
+    HRESULT ReadMetabaseData([in] DWORD MetabaseId,
+                             [in, out, size_is(*BufferSize), length_is(*BufferSize)] BYTE * Buffer,
+                             [in, out] DWORD * BufferSize);
+
+};
+
+[
+    helpstring("Extended Interface to the SMTP server."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(52ae6373-90f6-470c-9d38-526e9060b07d)
+]
+interface ISMTPServerEx : IUnknown
+{
+    // Triggers a Log event - the default handler here logs everything but can be overridden
+    // to allow for configurable logging levels
+    HRESULT TriggerLogEvent([in] DWORD idMessage,
+                            [in] WORD idCategory,
+                            [in] WORD cSubstrings,
+                            [in] LPCSTR *rgszSubstrings,
+                            [in] WORD wType,
+                            [in] DWORD errCode,
+                            [in] WORD iDebugLevel,
+                            [in] LPCSTR szKey,
+                            [in] DWORD dwOptions,
+                            [in] DWORD iMessageString,
+                            [in] HMODULE hModule);
+
+    // Reset any history about events using this message and key,
+    // so that the next TriggerLogEvent with one-time or periodic logging
+    // will cause the event to be logged.
+    HRESULT ResetLogEvent(  [in] DWORD idMessage,
+                            [in] LPCSTR szKey);
+};
+
+/*
+    @interface ISMTPServerAsync | Async Interface to the SMTP server.
+    @meth HRESULT | TriggerLocalDeliveryAsync | Locally deliver a msg.
+*/
+[
+    helpstring("Async Interface to the SMTP server."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(08AF2A87-8C10-4196-9AE6-D517A86B9795)
+]
+interface ISMTPServerAsync : IUnknown
+{
+    //@method HRESULT | ISMTPServerAsync | TriggerLocalDeliveryAsync | Trigger the local delivery event.
+    //@parm IMailMsgProperties * | pMsg | [in] Specifies the message.
+    //@parm DWORD | dwRecipCount | [in] Specifies the count of the recipients for this delivery.
+    //@parm DWORD * | pdwRecipIndexes | [in,size_is(dwRecipCount)] Specifies the indexes of the recipients
+    // for this delivery.
+	//@parm IMailMsgNotify * | pNotify | [in] Specifies the notify class
+    //@rvalue S_OK | Success.
+    [helpstring("Trigger the local delivery event.")]
+    HRESULT TriggerLocalDeliveryAsync([in] IMailMsgProperties *pMsg, 
+								      DWORD dwRecipientCount, 
+								      DWORD * pdwRecipIndexes, 
+								      IMailMsgNotify *pNotify);
+};
+
+[
+    helpstring("SMTP Interface to fire get aux domain info flags event"),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(735e9929-1885-4736-8d07-492f962eceb9)
+]
+interface ISMTPServerGetAuxDomainInfoFlags : IUnknown
+{
+    // Trigger the GetAuxDomainInfoFlags event
+
+    //@method HRESULT | ISMTPServerGetAuxDomainInfoFlags | HrTriggerGetAuxDomainInfoFlagsEvent | Trigger the GetAuxDomainInfoFlags event.
+    //@parm LPCSTR | pszDomainName | [in] Specifies the domain name
+    //@parm DWORD * | pdwDomainInfoFlags | [out] Returns the flags for the specified domain
+    //@rvalue S_OK | Success.
+    [helpstring("Trigger the local delivery event.")]
+    HRESULT HrTriggerGetAuxDomainInfoFlagsEvent(
+                            [in]    LPCSTR  pszDomainName,
+                            [out]   DWORD  *pdwDomainInfoFlags );
+};
+
+
+[
+    helpstring("Internal Interface to the SMTP server."),
+    local,
+    object,
+    pointer_default(unique),
+    uuid(57EE6C15-1870-11d2-A689-00C04FA3490A)
+]
+interface ISMTPServerInternal : ISMTPServer
+{
+    //Allocates a message that has already been bound to a store driver
+    //Returned handle CANNOT be used for normal I/O since it is bound
+    //to a completion port in IIS
+    HRESULT AllocBoundMessage([out] IMailMsgProperties **ppMsg, [out] PFIO_CONTEXT *phContent);
+};
+
+[
+    helpstring("Mail Message 1.0 Type Library"),
+    uuid(daf24820-a8b9-11d1-aa91-00aa006bc80b),
+    version(1.0)
+]
+library MailMsgLib
+{
+    importlib("stdole2.tlb");
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

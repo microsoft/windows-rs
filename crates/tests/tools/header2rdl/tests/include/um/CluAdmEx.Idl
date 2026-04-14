@@ -1,0 +1,520 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+//	Copyright (c) 1996-1997 Microsoft Corporation
+//
+//	Module Name:
+//		CluAdmEx.idl
+//
+//	Abstract:
+//		Definition of COM interfaces for Cluster Administrator extensions.
+//
+//	Author:
+//		davidp	August 22, 1996
+//
+//	Revision History:
+//		davidp	June 23, 1998
+//			Added IWCWizard97Callback and IWEExtendWizard97.
+//
+//	Notes:
+//		The following interfaces defined below are used to get information
+//		about the object(s) for which a property page, wizard, or context
+//		menu is being displayed.  These interfaces may be queried for by
+//		the extension using the piData IUnknown interface pointer.
+//
+//			IGetClusterPropSheetInfo
+//			IGetClusterDataInfo
+//			IGetClusterObjectInfo
+//			IGetClusterNodeInfo
+//			IGetClusterGroupInfo
+//			IGetClusterResourceInfo
+//			IGetClusterNetworkInfo
+//			IGetClusterNetInterfaceInfo
+//
+//		The following interfaces defined below are implemented by extensions
+//		are are used to extend property sheets, wizards, and context menus.
+//
+//			IWEExtendPropertySheet
+//			IWEExtendWizard
+//			IWEExtendWizard97
+//			IWEExtendContextMenu
+//			IWEInvokeCommand
+//
+//		The following interfaces defined below are implemented by CluAdmin
+//		and are passed to the extension to allow it to add its extension
+//		property pages, wizard pages, or context menu items.
+//
+//			IWCPropertySheetCallback
+//			IWCWizardCallback
+//			IWCWizard97Callback
+//			IWCContextMenuCallback
+//
+/////////////////////////////////////////////////////////////////////////////
+
+#ifndef _CLUADMEX_IDL_
+#define _CLUADMEX_IDL_
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+	import "oaidl.idl";
+	import "clusapi.h";
+
+// Define HPROPSHEETPAGE because we can't include prsht.h.
+#define HPROPSHEETPAGE LONG *
+
+/////////////////////////////////////////////////////////////////////////////
+// Cluster Administrator Extensions type definitions
+/////////////////////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// CLUADMEX_OBJECT_TYPE
+	//
+	// Enumeration of the types of objects that can be administered.
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	typedef enum _CLUADMEX_OBJECT_TYPE
+	{
+		CLUADMEX_OT_NONE			= 0,
+		CLUADMEX_OT_CLUSTER,
+		CLUADMEX_OT_NODE,
+		CLUADMEX_OT_GROUP,
+		CLUADMEX_OT_RESOURCE,
+		CLUADMEX_OT_RESOURCETYPE,
+		CLUADMEX_OT_NETWORK,
+		CLUADMEX_OT_NETINTERFACE
+
+	} CLUADMEX_OBJECT_TYPE;
+
+/////////////////////////////////////////////////////////////////////////////
+// Cluster Administrator Extensions data interface definitions
+/////////////////////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterUIInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE50-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterUIInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterUIInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HRESULT GetClusterName(
+					[out] BSTR lpszName,
+					[in, out] LONG * pcchName
+					);
+		[local] LCID GetLocale(void);
+		[local] HFONT GetFont(void);
+		[local] HICON GetIcon(void);
+
+	};  //*** interface IGetClusterUIInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterDataInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE51-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterDataInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterDataInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HRESULT GetClusterName(
+					[out] BSTR lpszName,
+					[in, out] LONG * pcchName
+					);
+		[local] HCLUSTER GetClusterHandle(void);
+		[local] LONG GetObjectCount(void);
+
+	};  //*** interface IGetClusterDataInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterObjectInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE52-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterObjectInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterObjectInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HRESULT GetObjectName(
+					[in] LONG lObjIndex,
+					[out] BSTR	lpszName,
+					[in, out] LONG * pcchName
+					);
+		[local] CLUADMEX_OBJECT_TYPE GetObjectType(
+					[in] LONG lObjIndex
+					);
+
+	};  //*** interface IGetClusterObjectInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterNodeInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE53-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterNodeInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterNodeInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HNODE GetNodeHandle(
+					[in] LONG lObjIndex
+					);
+
+	};  //*** interface IGetClusterObjectInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterGroupInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE54-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterGroupInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterGroupInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HGROUP GetGroupHandle(
+					[in] LONG lObjIndex
+					);
+
+	};  //*** interface IGetClusterGroupInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterResourceInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE55-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterResourceInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterResourceInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HRESOURCE GetResourceHandle(
+					[in] LONG lObjIndex
+					);
+		[local] HRESULT GetResourceTypeName(
+					[in] LONG lObjIndex,
+					[out] BSTR lpszResTypeName,
+					[in, out] LONG * pcchResTypeName
+					);
+		[local] BOOL GetResourceNetworkName(
+					[in] LONG lObjIndex,
+					[out] BSTR lpszNetName,
+					[in, out] ULONG * pcchNetName
+					);
+
+	};  //*** interface IGetClusterResourceInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterNetworkInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE56-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterNetworkInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterNetworkInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HNETWORK GetNetworkHandle(
+					[in] LONG lObjIndex
+					);
+
+	};  //*** interface IGetClusterNetworkInfo
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IGetClusterNetInterfaceInfo
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE57-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IGetClusterNetInterfaceInfo Interface"),
+		pointer_default(unique)
+	]
+	interface IGetClusterNetInterfaceInfo : IUnknown
+	{
+		import "oaidl.idl";
+
+		[local] HNETINTERFACE GetNetInterfaceHandle(
+					[in] LONG lObjIndex
+					);
+
+	};  //*** interface IGetClusterNetInterfaceInfo
+
+/////////////////////////////////////////////////////////////////////////////
+// Cluster Administrator Extensions interface definitions
+/////////////////////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWCPropertySheetCallback
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE60-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWCPropertySheetCallback Interface"),
+		pointer_default(unique)
+	]
+	interface IWCPropertySheetCallback : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT AddPropertySheetPage(
+					[in] HPROPSHEETPAGE hpage
+					);
+
+	};  //*** interface IWCPropertySheetCallback
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWEExtendPropertySheet
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE61-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWSExtendPropertySheet Interface"),
+		pointer_default(unique)
+	]
+	interface IWEExtendPropertySheet : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT CreatePropertySheetPages(
+					[in] IUnknown * piData,
+					[in] IWCPropertySheetCallback * piCallback
+					);
+
+	};  //*** interface IWEExtendPropertySheet
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWCWizardCallback
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE62-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWCWizardCallback Interface"),
+		pointer_default(unique)
+	]
+	interface IWCWizardCallback : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT AddWizardPage(
+					[in] HPROPSHEETPAGE hpage
+					);
+		HRESULT EnableNext(
+					[in] HPROPSHEETPAGE hpage,
+					[in] BOOL bEnable
+					);
+
+	};  //*** interface IWCWizardCallback
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWEExtendWizard
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE63-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWEExtendWizard Interface"),
+		pointer_default(unique)
+	]
+	interface IWEExtendWizard : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT CreateWizardPages(
+					[in] IUnknown * piData,
+					[in] IWCWizardCallback * piCallback
+					);
+
+	};  //*** interface IWEExtendWizard
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWCContextMenuCallback
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE64-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWCContextMenuCallback Interface"),
+		pointer_default(unique)
+	]
+	interface IWCContextMenuCallback : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT AddExtensionMenuItem(
+					[in] BSTR lpszName,
+					[in] BSTR lpszStatusBarText,
+					[in] ULONG nCommandID,
+					[in] ULONG nSubmenuCommandID,
+					[in] ULONG uFlags
+					);
+
+	};  //*** interface IWCContextMenuCallback
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWEExtendContextMenu
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE65-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWEExtendContextMenu Interface"),
+		pointer_default(unique)
+	]
+	interface IWEExtendContextMenu : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT AddContextMenuItems(
+					[in] IUnknown * piData,
+					[in] IWCContextMenuCallback * piCallback
+					);
+
+	};  //*** interface IWEExtendContextMenu
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWEInvokeCommand
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE66-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWEInvokeCommand Interface"),
+		pointer_default(unique)
+	]
+	interface IWEInvokeCommand : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT InvokeCommand(
+					[in] ULONG nCommandID,
+					[in] IUnknown * piData
+					);
+
+	};  //*** interface IWEInvokeCommand
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWCWizard97Callback
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE67-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWCWizard97Callback Interface"),
+		pointer_default(unique)
+	]
+	interface IWCWizard97Callback : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT AddWizard97Page(
+					[in] HPROPSHEETPAGE hpage
+					);
+		HRESULT EnableNext(
+					[in] HPROPSHEETPAGE hpage,
+					[in] BOOL bEnable
+					);
+
+	};  //*** interface IWCWizard97Callback
+
+	/////////////////////////////////////////////////////////////////////////
+	//
+	// IWEExtendWizard97
+	//
+	/////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(97DEDE68-FC6B-11CF-B5F5-00A0C90AB505),
+		helpstring("IWEExtendWizard97 Interface"),
+		pointer_default(unique)
+	]
+	interface IWEExtendWizard97 : IUnknown
+	{
+		import "oaidl.idl";
+
+		HRESULT CreateWizard97Pages(
+					[in] IUnknown * piData,
+					[in] IWCWizard97Callback * piCallback
+					);
+
+	};  //*** interface IWEExtendWizard97
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#endif // _CLUADMEX_IDL_

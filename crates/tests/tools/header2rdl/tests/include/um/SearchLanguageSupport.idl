@@ -1,0 +1,122 @@
+//+----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchLanguageSupport.idl
+//
+//    Purpose:  Search Catalog Interface Description
+//
+//    History:  12/02/2005     jonasbar      New
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// 6A68CC80-4337-4dbc-BD27-FBFB1053820B
+cpp_quote("EXTERN_C const CLSID CLSID_CSearchLanguageSupport;")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("class DECLSPEC_UUID(\"6A68CC80-4337-4dbc-BD27-FBFB1053820B\")")
+cpp_quote("CSearchLanguageSupport;")
+cpp_quote("#endif")
+
+[
+    object,
+    uuid(24C3CBAA-EBC1-491a-9EF1-9F6D8DEB1B8F),
+    pointer_default(unique)
+]
+interface ISearchLanguageSupport : IUnknown
+{
+#if 0
+    //**********************************************************************
+    // Get thesaurus information
+    //
+    // A thesaurus file contains a word and a list of words to
+    // substitute when querying.  It is specific to a catalog and can
+    // be defined in more than one file.
+    //
+    //**********************************************************************
+
+    // Thesaurus terms for word.
+    // Permitted IID: IEnumString
+    // Returns S_OK on success; no other success value.
+    // Various failure return values.
+    HRESULT EnumerateExpandedTerms([in] LPCWSTR pszWord,
+                                   [in] LCID lcid,
+                                   [in] REFIID riid,
+                                   [out, iid_is(riid)] void** ppWords);
+#endif
+
+    //
+    // Sensitivity to diacritics
+    // Both methods return S_OK on success; no other success value.
+    // Various failure return values.
+    // A newly created CSearchLanguageSupport will be insensitive to diacritics.
+    HRESULT SetDiacriticSensitivity([in] BOOL fDiacriticSensitive);
+    HRESULT GetDiacriticSensitivity([out, retval] BOOL* pfDiacriticSensitive);
+
+#if 0
+    //**********************************************************************
+    // Access to noise list
+    //
+    // A noise list contains words that are not indexed substitute
+    // when querying.  It is specific to a catalog and can be defined
+    // in more than one file.
+    //
+    //**********************************************************************
+
+    // Test a word to see if it is a noise word
+    // Returns S_OK on success; no other success value.
+    // Various failure return values.
+    HRESULT IsNoiseWord([in] LPCWSTR pszWord,
+                        [in] LCID lcid,
+                        [out, retval] BOOL* pfIsNoise);
+#endif
+
+    //**********************************************************************
+    //
+    // Word breakers/stemmers
+    //
+    //**********************************************************************
+
+    // Return an interface to the word breaker registered for a
+    // specific language.
+    // Returns S_OK on success; no other success value.
+    // Various failure return values.
+    HRESULT LoadWordBreaker([in] LCID lcid,
+                            [in] REFIID riid,
+                            [out, iid_is(riid)] void** ppWordBreaker,
+                            [out] LCID* pLcidUsed);
+
+    // Return an interface to the stemmer registered for a specific
+    // language.
+    // Returns S_OK on success; no other success value.
+    // Various failure return values.
+    HRESULT LoadStemmer([in] LCID lcid,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] void** ppStemmer,
+                        [out] LCID* pLcidUsed);
+
+    // Ask whether the query token is a prefix of the document token,
+    // when disregarding case, width and (optionally) diacritics.
+    // If this is the case, S_OK is returned and *pulPrefixLength is set to the number
+    // of characters that were matched in the document token (this is typically
+    // but not necessarily the same as the number of characters in the query token).
+    // If the (whole) query token is not a prefix of the document token,
+    // S_FALSE is returned and *pulPrefixLength is set to zero.
+    // Various failure return values.
+    HRESULT IsPrefixNormalized([in, size_is(cwcQueryToken)] LPCWSTR pwcsQueryToken,
+                               [in] ULONG cwcQueryToken,
+                               [in, size_is(cwcDocumentToken)] LPCWSTR pwcsDocumentToken,
+                               [in] ULONG cwcDocumentToken,
+                               [out] ULONG* pulPrefixLength);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

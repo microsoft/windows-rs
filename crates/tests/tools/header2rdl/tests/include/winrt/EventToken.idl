@@ -1,0 +1,12 @@
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("#pragma once")
+
+// RIDL: version[NTDDI_WIN8]
+typedef struct EventRegistrationToken
+{
+    __int64 value;
+} EventRegistrationToken;

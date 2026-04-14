@@ -1,0 +1,392 @@
+////////////////////////////////////////////////////////////
+//
+// Copyright (c) Microsoft Corporation.
+//
+// SYNOPSIS
+//
+//    IDL source for NAP data types
+//
+////////////////////////////////////////////////////////////
+
+#ifndef NAPTYPES_IDL
+#define NAPTYPES_IDL
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// Range attribute does not work on pointers to types before
+// Win2kSp3 and XPSP1. Revisit if we port to older OS's.
+midl_pragma warning(disable : 2467)
+midl_pragma warning(disable : 2466)
+
+[pointer_default(unique)]
+interface INapTypes
+{
+   const UINT16 maxSoHAttributeCount = 100;
+   const UINT16 maxSoHAttributeSize = 4000;
+
+   // The SoH must be atleast 12 bytes to accomodate the 
+   // EAP-TLV header.
+   const UINT16 minNetworkSoHSize = 12;
+   const UINT16 maxNetworkSoHSize = 4000;
+   const UINT16 maxDwordCountPerSoHAttribute = 
+      maxSoHAttributeSize / sizeof(DWORD); 
+   const UINT16 maxIpv4CountPerSoHAttribute =
+      maxSoHAttributeSize / 4;
+   const UINT16 maxIpv6CountPerSoHAttribute =
+      maxSoHAttributeSize / 16;
+   const UINT16 maxStringLength = 1024;
+   const UINT16 maxStringLengthInBytes = 
+      (maxStringLength + 1) * sizeof(WCHAR);
+   const UINT16 maxSystemHealthEntityCount = 20;
+   const UINT16 maxEnforcerCount = 20;
+   const UINT16 maxPrivateDataSize = 200;
+   const UINT16 maxConnectionCountPerEnforcer = 20;
+   const UINT16 maxCachedSoHCount = 
+                   maxSystemHealthEntityCount * 
+                   maxEnforcerCount *
+                   maxConnectionCountPerEnforcer;
+
+   // Flags used by NapAgent on the Enforcement
+   // Client Connection object.
+   const UINT8 freshSoHRequest = 0x1;
+   
+   // Flags used while returning the SoHResponse
+   // to the SHAs
+   const UINT8 shaFixup = 0x1;
+
+   // Describes the isolation state of a machine, i.e. 
+   // whether connectivity is affected.
+   typedef enum tagIsolationState
+   {
+      isolationStateNotRestricted = 1,
+      isolationStateInProbation = 2,
+      isolationStateRestrictedAccess = 3
+   } IsolationState;
+
+   // Describes the extended isolation states needed for ACS
+   typedef enum tagExtendedIsolationState
+   {
+      extendedIsolationStateNoData = 0x00,
+      extendedIsolationStateTransition = 0x01,
+      extendedIsolationStateInfected = 0x02,
+      extendedIsolationStateUnknown = 0x03
+   } ExtendedIsolationState;
+
+   // Indicates the tracing level for Nap Components
+   typedef enum tagNapTracingLevel
+   {
+      tracingLevelUndefined = 0,
+      tracingLevelBasic = 1,
+      tracingLevelAdvanced = 2,
+      tracingLevelDebug = 3
+   } NapTracingLevel;
+
+
+   // Indicates the probation time.
+   typedef FILETIME ProbationTime;
+
+   // Defines a counted null-terminated string. The 'len' 
+   // field does not include the null-terminator.
+   // 
+#ifndef NAP_XP_IDL
+   typedef struct tagCountedString
+   {
+      UINT16 length;
+      [range(1, maxStringLength + 1)]  [size_is(length + 1), string] WCHAR* string;
+   } CountedString;
+#else
+   typedef struct tagCountedString
+   {
+      [range(0, maxStringLength)] UINT16 length;
+      [size_is(length + 1), string] WCHAR* string;
+   } CountedString;
+#endif
+
+   // Defines the isolation status of the machine or of
+   // the connection.
+   // 
+   typedef struct tagIsolationInfo
+   {
+      IsolationState isolationState;
+      ProbationTime probEndTime;
+      CountedString failureUrl;
+   } IsolationInfo;
+
+   // Defines the isolation status of the machine or of
+   // the connection.
+   // 
+   typedef struct tagIsolationInfoEx
+   {
+      IsolationState isolationState;
+      ExtendedIsolationState extendedIsolationState;      
+      ProbationTime probEndTime;
+      CountedString failureUrl;
+   } IsolationInfoEx;
+
+
+   const UINT16 failureCategoryCount = 5;
+   
+   typedef enum tagFailureCategory
+   {
+      failureCategoryNone = 0,
+      failureCategoryOther = 1,
+      failureCategoryClientComponent = 2,
+      failureCategoryClientCommunication = 3,
+      failureCategoryServerComponent = 4,
+      failureCategoryServerCommunication = 5
+   } FailureCategory;
+
+   // If failures occur in the system (eg. component or
+   // communication failures), then the SHV may return
+   // a Failure-Category TLV in its SoH-Response; instead
+   // of making a compliance decision.
+   // The NAP system then maps the failure category to 
+   // compliant or non-compliant; based on the following 
+   // mappings, which are configurable.
+   // By default, all categories map to non-compliant 
+   //  (false).
+   // 
+   // For ex:
+   //   mappingCompliance[0] = mapping for OTHER
+   //   mappingCompliance[1] = mapping for CLIENT COMPONENT
+   // etc.
+   // 
+   // In general:
+   //   mappingCompliance[failureCategory - 1] = 
+   //                mapping for failureCategory
+   //  
+   typedef struct tagFailureCategoryMapping
+   {
+      BOOL mappingCompliance[failureCategoryCount];
+   } FailureCategoryMapping;
+
+   // SHAs, SHVs and enforcers identify themselves
+   // using 4-byte identifiers. The first 3 bytes are
+   // the IETF-assigned SMI code of the vendor, and the
+   // last byte identifies the component itself.
+
+   typedef UINT32 NapComponentId;
+
+   // Defines the IDs of the system health agents and 
+   // validators.
+   typedef NapComponentId SystemHealthEntityId;
+
+   // Defines the IDs of the enforcement clients.
+   typedef NapComponentId EnforcementEntityId;
+   
+   // Component Type
+   // Currently only defined for enforcement clients
+   //
+   const UINT32 ComponentTypeEnforcementClientSoH  = 0x1;
+   const UINT32 ComponentTypeEnforcementClientRp   = 0x2;
+
+   typedef [range(0, maxSystemHealthEntityCount)] 
+      UINT16 SystemHealthEntityCount;
+
+   typedef [range(0, maxEnforcerCount)] 
+      UINT16 EnforcementEntityCount;
+
+
+   // Used to correlate SoHs with SoH-Responses. The
+   // string version is used primarily for logging,
+   // whereas the byte-version is used by SHA/SHVs to
+   // correlate SoHs and SoH-Responses.
+   //
+   // Implementation detail: This id is a concatenation
+   // of the connection id (guid) followed by the 
+   // system DCE time at which the SoH-Request was 
+   // generated (uint64).
+   // 
+   typedef struct tagCorrelationId
+   {
+      GUID connId;
+      FILETIME timeStamp;
+   } CorrelationId;
+   
+   typedef CountedString StringCorrelationId;
+
+
+   // Connection-id is used to track connections at an
+   // enforcement level.
+   typedef GUID ConnectionId;
+
+
+   // Between 0 and 100, 101 if percentage is not supported.
+   const UINT8 percentageNotSupported = 101;
+   typedef [range(0, percentageNotSupported)] 
+      UINT8 Percentage;
+
+
+   // Defines the resource id of a message string.
+   typedef UINT32 MessageId;
+
+
+   // Defines a list of result codes.
+   typedef struct tagResultCodes
+   {
+      [range(0, maxDwordCountPerSoHAttribute)] UINT16 count;
+      [size_is(count)] HRESULT* results;
+   } ResultCodes;
+
+
+   // Define an IPv4 Address
+   typedef struct tagIpv4Address
+   {
+      BYTE addr[4];
+   } Ipv4Address;
+
+
+   // Define an IPv6 Address
+   typedef struct tagIpv6Address
+   {
+      BYTE addr[16];
+   } Ipv6Address;
+
+
+   // Defines the fixup state of the SHA.
+   typedef enum tagFixupState
+   {
+      fixupStateSuccess = 0,
+      fixupStateInProgress = 1,
+      fixupStateCouldNotUpdate = 2
+   } FixupState;
+
+
+   typedef struct tagFixupInfo
+   {
+      FixupState state;
+      Percentage percentage;
+      ResultCodes resultCodes;
+      MessageId fixupMsgId;
+   } FixupInfo;
+
+
+   typedef enum tagNapNotifyType
+   {
+      napNotifyTypeUnknown = 0,
+      napNotifyTypeServiceState = 1,
+      napNotifyTypeQuarState = 2
+   } NapNotifyType;
+
+
+   // Dynamic state of the SHA is captured in the struct
+   // below. 
+   // 
+   // The machineHealthResultCodes and 
+   // failureCategory fields are the Compliance-Result-Codes
+   // and Failure-Category category fields, respectively;
+   // returned in the most recent SoH-Response received 
+   // destined for the particular SHA. 
+   // 
+   // 
+   typedef struct tagSystemHealthAgentState
+   {
+      SystemHealthEntityId id;
+      ResultCodes shaResultCodes;
+      FailureCategory failureCategory;
+      FixupInfo fixupInfo;
+   } SystemHealthAgentState;
+   
+
+   // Defines the SoH protocol between SHA/SHV and the 
+   // NAP system.
+   // 
+   typedef struct tagSoHAttribute
+   {
+      UINT16 type;
+      [range(0, maxSoHAttributeSize)] UINT16 size;
+      [size_is(size)] BYTE* value;
+   } SoHAttribute;
+
+   typedef struct tagSoH
+   {
+      [range(0, maxSoHAttributeCount)] UINT16 count;
+      [size_is(count)] SoHAttribute* attributes;
+   } SoH, SoHRequest, SoHResponse;
+
+
+   // Defines the wire SoH protocol.
+   // 
+   typedef struct tagNetworkSoH
+   {
+      [range(minNetworkSoHSize, maxNetworkSoHSize)]
+         UINT16 size;
+      [size_is(size)] BYTE* data;
+   } NetworkSoH, NetworkSoHRequest, NetworkSoHResponse;
+   
+
+   typedef struct tagPrivateData
+   {
+      [range(0, maxPrivateDataSize)] UINT16 size;
+      [size_is(size)] BYTE* data;
+   } PrivateData;
+
+   // Defines a registered NAP components -- 
+   //    SHA, SHV or enforcer.
+   //
+   // This registration information is not localized, it is
+   // provided in US-English only.
+   // 
+   // Some fields:-
+   //   infoClsid: CLSID of the COM object that implements
+   //      the INapComponentInfo interface. This interface
+   //      is used to retrieve more detailed and localized
+   //      information about the NAP component.
+   //      Currently, enforcement clients do not need to
+   //      provide a valid infoClsid.
+   //   configClsid: CLSID of the COM object that implements
+   //      the INapComponentConfig interface.  This
+   //      interface is used to invoke UI, and serialize/
+   //      deserialize configuration of the NAP component.
+   //      Currently, SHAs and enforcement clients
+   //      do not need to provide a valid configClsid.
+   //   componentType: specifies the type of component.  
+   //      For enforcement clients this value should be either
+   //      ComponentTypeEnforcementClientSoH or 
+   //      ComponentTypeEnforcementClientRp,
+   //      and it defaults to ComponentTypeEnforcementClientSoH
+   //      if the the value is specified to 0x0.
+   //      Currently, the Type is ignored for other
+   //      components (SHA, SHV) and set to 0x0.
+   //
+   // While registering nap components through the 
+   // registration APIs, the registrationDate and isBound
+   // fields are ignored.
+   // 
+   // While retrieving information about registered nap
+   // components, if there is no valid infoClsid, configClsid
+   // or registrationDate, they are set to 0.
+   // 
+   typedef struct tagNapComponentRegistrationInfo
+   {
+      NapComponentId id;
+      CountedString friendlyName;
+      CountedString description;
+      CountedString version;
+      CountedString vendorName;
+      CLSID infoClsid;
+      CLSID configClsid;
+      FILETIME registrationDate;
+      UINT32 componentType;
+   } NapComponentRegistrationInfo;
+
+   // Defines the type of remote configuration possible for a 
+   // component
+   //
+   typedef enum tagRemoteConfigurationType
+   {
+      remoteConfigTypeMachine = 1,
+      remoteConfigTypeConfigBlob
+   } RemoteConfigurationType;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#endif // NAPTYPES_IDL

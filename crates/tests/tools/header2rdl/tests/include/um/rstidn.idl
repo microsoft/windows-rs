@@ -1,0 +1,46 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstidn.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a09-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IRowsetIdentity : IUnknown {
+
+	[local]
+	HRESULT IsSameRow(
+		[in] HROW hThisRow,
+		[in] HROW hThatRow
+	);
+
+	[call_as(IsSameRow)]
+	HRESULT RemoteIsSameRow(
+		[in] HROW hThisRow,
+		[in] HROW hThatRow,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

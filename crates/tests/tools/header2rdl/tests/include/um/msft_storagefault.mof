@@ -1,0 +1,63 @@
+[Indication, ClassVersion( "1.0" ),
+Description( "Storage fault event" )]
+class MSFT_StorageFaultEvent : MSFT_StorageEvent
+{    
+    [Read, Description(
+        "A globally unique identifier for the storage subsystem"
+        )]
+    String StorageSubsystemUniqueId;
+
+    [Read, Description(
+        "The state change of the alert."
+        ),
+        ValueMap { "0", "1", "2" },
+        Values {
+            "Creation", "Deletion", "Modification"
+            }]
+    UInt16 ChangeType;
+
+    [Read, Description(
+        "A unique identifier for the fault"
+        )]
+    String FaultId;
+
+    [Read, Description(
+        "A string that uniquely identifies the type of fault."
+        )]
+    String FaultType;
+
+    [Read, Description(
+        "A unique identifier of the object that triggered the fault."
+        )]
+    String FaultingObjectUniqueId;
+
+    [Read, Description(
+        "A string that uniquely identifies the type of the object that triggered the fault."
+        )]
+    String FaultingObjectType;
+
+    [Read, Required, Description(
+        "The description of the object that triggered the fault"
+        )]
+    String FaultingObjectDescription;
+
+    [Read, Description(
+        "The location of the object that triggered the fault"
+        )]
+    String FaultingObjectLocation;
+
+    [Read, Description(
+        "The formatted message describing the reason for the fault"
+        )]
+    String Reason;
+
+    [Read, Description(
+        "Free form descriptions of the recommended actions to take to resolve the cause of the fault."
+        )]
+    String RecommendedActions[];
+
+    [Read, Description(
+        "A unique identifier for the object reporting the fault."
+        )]
+    String SourceUniqueId;
+};

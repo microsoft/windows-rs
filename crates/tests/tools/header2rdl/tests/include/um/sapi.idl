@@ -1,0 +1,3339 @@
+/****************************************************************************
+*   sapi.idl
+*
+*   This is the interface definition file for the Microsoft Speech API
+*   Version 5.4.
+*
+*   Copyright (c) Microsoft Corporation. All rights reserved.
+*****************************************************************************/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//-- Header file selection --------------------------------------------------
+// This section must be at the beginning of this file
+#ifndef _SAPI_BUILD_VER
+#define _SAPI_BUILD_VER 0x054
+#endif
+
+#if _SAPI_BUILD_VER >= 0x054
+cpp_quote("#ifndef _SAPI_VER")
+
+cpp_quote("// Use SAPI 5.4 by default if target Windows 7 or above")
+cpp_quote("#if _WIN32_WINNT >= 0x0601")
+cpp_quote("#define _SAPI_VER 0x054")
+cpp_quote("#elif _WIN32_WINNT >= 0x0600")
+cpp_quote("#define _SAPI_VER 0x053")
+cpp_quote("#else // _WIN32_WINNT < 0x0600")
+cpp_quote("#define _SAPI_VER 0x051")
+cpp_quote("#endif // _WIN32_WINNT >= 0x0601")
+
+cpp_quote("#endif // _SAPI_VER")
+
+cpp_quote("// The following definitions are for SAPI 5.4 and newer")
+cpp_quote("#if  _SAPI_VER >= 0x054")
+#endif 
+// -- End of header file selection ------------------------------------------
+
+//--- Compiler Directive ----------------------------------------------------
+cpp_quote("#pragma warning(disable:4201) // Allow nameless structs/unions")
+
+//--- wtypes.idl does not import basetsd.h in Windows CE --------------------
+#ifdef UNDER_CE
+import "basetsd.h";
+#endif
+
+//--- Includes --------------------------------------------------------------
+import "oaidl.idl";
+import "ocidl.idl";
+
+#if defined(NO_SAL)
+#define annotation(x)
+#endif
+
+//--- Locally scoped define for LANGID
+#ifndef LANGID
+#define LANGID WORD
+#endif
+
+//--- Link with sapi.lib
+cpp_quote("#pragma comment(lib, \"sapi.lib\")")
+
+//--- Forward and External Declarations -------------------------------------
+
+cpp_quote("#if 0")  // Ignore our definition in the .H file
+typedef [restricted, hidden] struct WAVEFORMATEX
+{
+    WORD    wFormatTag;        /* format type */
+    WORD    nChannels;         /* number of channels (i.e. mono, stereo...) */
+    DWORD   nSamplesPerSec;    /* sample rate */
+    DWORD   nAvgBytesPerSec;   /* for buffer estimation */
+    WORD    nBlockAlign;       /* block size of data */
+    WORD    wBitsPerSample;    /* Number of bits per sample of mono data */
+    WORD    cbSize;            /* The count in bytes of the size of
+                                    extra information (after cbSize) */
+
+} WAVEFORMATEX;
+cpp_quote("#else")
+cpp_quote("#include <mmsystem.h>")
+cpp_quote("#endif")
+
+
+//--- Notifications
+interface ISpNotifySource;
+interface ISpNotifySink;
+interface ISpNotifyTranslator;
+
+//--- Object tokens
+interface ISpDataKey;
+interface ISpObjectTokenCategory;
+interface ISpObjectToken;
+interface IEnumSpObjectTokens;
+interface ISpObjectWithToken;
+
+//--- Resource management
+interface ISpResourceManager;
+
+//--- Speech specific events
+interface ISpEventSource;
+interface ISpEventSink;
+
+//--- Audio streams
+interface ISpStreamFormat;
+interface ISpStream;
+interface ISpStreamFormatConverter;
+interface ISpAudio;
+interface ISpMMSysAudio;
+interface ISpTranscript;
+
+
+//--- TTS interface
+interface ISpVoice;
+
+//--- SR interfaces
+interface ISpRecoResult;
+interface ISpRecoContext;
+interface ISpRecognizer;
+#if _SAPI_BUILD_VER >= 0x053
+interface ISpRecoContext2;
+interface ISpRecognizer2;
+#if _SAPI_BUILD_VER >= 0x054
+interface ISpRecognizer3;
+#endif // _SAPI_BUILD_VER >= 0x054
+#endif // _SAPI_BUILD_VER >= 0x053
+interface ISpProperties;
+
+//--- Lexicon interfaces
+interface ISpLexicon;
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- Shortcut interfaces
+interface ISpShortcut;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- Phoneme conversion interfaces
+interface ISpPhoneConverter;
+#if _SAPI_BUILD_VER >= 0x053
+interface ISpPhoneticAlphabetConverter;
+interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- Phrase interface
+interface ISpPhrase; 
+
+#if _SAPI_BUILD_VER >= 0x053
+interface ISpRecoGrammar2;
+interface ISpeechResourceLoader;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//
+//--- Constants -------------------------------------------------------------
+//
+
+//--- DataKey locations
+typedef [hidden] enum SPDATAKEYLOCATION
+{
+    SPDKL_DefaultLocation = 0,
+    SPDKL_CurrentUser = 1,
+    SPDKL_LocalMachine = 2,
+    SPDKL_CurrentConfig = 5
+} SPDATAKEYLOCATION;
+
+//--- TokenUI constants
+cpp_quote("#define SPDUI_EngineProperties   L\"EngineProperties\"")
+cpp_quote("#define SPDUI_AddRemoveWord      L\"AddRemoveWord\"")
+cpp_quote("#define SPDUI_UserTraining       L\"UserTraining\"")
+cpp_quote("#define SPDUI_MicTraining        L\"MicTraining\"")
+cpp_quote("#define SPDUI_RecoProfileProperties L\"RecoProfileProperties\"")
+cpp_quote("#define SPDUI_AudioProperties    L\"AudioProperties\"")
+cpp_quote("#define SPDUI_AudioVolume        L\"AudioVolume\"")
+cpp_quote("#define SPDUI_UserEnrollment     L\"UserEnrollment\"")
+cpp_quote("#define SPDUI_ShareData          L\"ShareData\"")
+
+// new for Vista.  Nothing prevents use downlevel if an engine exposes them
+cpp_quote("#define SPDUI_Tutorial           L\"Tutorial\"")
+
+//--- Data formats - these are used by the CSpStreamFormat class in sphelper.h
+typedef [hidden] enum SPSTREAMFORMAT
+{
+    SPSF_Default = -1,
+    SPSF_NoAssignedFormat = 0,  // Similar to GUID_NULL
+    SPSF_Text,
+    SPSF_NonStandardFormat,     // Non-SAPI standard format with no WAVEFORMATEX description
+    SPSF_ExtendedAudioFormat,   // Non-SAPI standard format but has WAVEFORMATEX description
+    // Standard PCM wave formats
+    SPSF_8kHz8BitMono,
+    SPSF_8kHz8BitStereo,
+    SPSF_8kHz16BitMono,
+    SPSF_8kHz16BitStereo,
+    SPSF_11kHz8BitMono,
+    SPSF_11kHz8BitStereo,
+    SPSF_11kHz16BitMono,
+    SPSF_11kHz16BitStereo,
+    SPSF_12kHz8BitMono,
+    SPSF_12kHz8BitStereo,
+    SPSF_12kHz16BitMono,
+    SPSF_12kHz16BitStereo,
+    SPSF_16kHz8BitMono,
+    SPSF_16kHz8BitStereo,
+    SPSF_16kHz16BitMono,
+    SPSF_16kHz16BitStereo,
+    SPSF_22kHz8BitMono,
+    SPSF_22kHz8BitStereo,
+    SPSF_22kHz16BitMono,
+    SPSF_22kHz16BitStereo,
+    SPSF_24kHz8BitMono,
+    SPSF_24kHz8BitStereo,
+    SPSF_24kHz16BitMono,
+    SPSF_24kHz16BitStereo,
+    SPSF_32kHz8BitMono,
+    SPSF_32kHz8BitStereo,
+    SPSF_32kHz16BitMono,
+    SPSF_32kHz16BitStereo,
+    SPSF_44kHz8BitMono,
+    SPSF_44kHz8BitStereo,
+    SPSF_44kHz16BitMono,
+    SPSF_44kHz16BitStereo,
+    SPSF_48kHz8BitMono,
+    SPSF_48kHz8BitStereo,
+    SPSF_48kHz16BitMono,
+    SPSF_48kHz16BitStereo,
+    // TrueSpeech format
+    SPSF_TrueSpeech_8kHz1BitMono,
+    // A-Law formats
+    SPSF_CCITT_ALaw_8kHzMono,
+    SPSF_CCITT_ALaw_8kHzStereo,
+    SPSF_CCITT_ALaw_11kHzMono,
+    SPSF_CCITT_ALaw_11kHzStereo,
+    SPSF_CCITT_ALaw_22kHzMono,
+    SPSF_CCITT_ALaw_22kHzStereo,
+    SPSF_CCITT_ALaw_44kHzMono,
+    SPSF_CCITT_ALaw_44kHzStereo,
+    // u-Law formats
+    SPSF_CCITT_uLaw_8kHzMono,
+    SPSF_CCITT_uLaw_8kHzStereo,
+    SPSF_CCITT_uLaw_11kHzMono,
+    SPSF_CCITT_uLaw_11kHzStereo,
+    SPSF_CCITT_uLaw_22kHzMono,
+    SPSF_CCITT_uLaw_22kHzStereo,
+    SPSF_CCITT_uLaw_44kHzMono,
+    SPSF_CCITT_uLaw_44kHzStereo,
+    // ADPCM formats
+    SPSF_ADPCM_8kHzMono,
+    SPSF_ADPCM_8kHzStereo,
+    SPSF_ADPCM_11kHzMono,
+    SPSF_ADPCM_11kHzStereo,
+    SPSF_ADPCM_22kHzMono,
+    SPSF_ADPCM_22kHzStereo,
+    SPSF_ADPCM_44kHzMono,
+    SPSF_ADPCM_44kHzStereo,
+    // GSM 6.10 formats
+    SPSF_GSM610_8kHzMono,
+    SPSF_GSM610_11kHzMono,
+    SPSF_GSM610_22kHzMono,
+    SPSF_GSM610_44kHzMono,
+    SPSF_NUM_FORMATS
+} SPSTREAMFORMAT;
+
+cpp_quote("EXTERN_C const GUID SPDFID_Text;")
+cpp_quote("EXTERN_C const GUID SPDFID_WaveFormatEx;")
+
+//--- Root of registry entries for speech use
+cpp_quote("#define SPREG_USER_ROOT          L\"HKEY_CURRENT_USER\\\\SOFTWARE\\\\Microsoft\\\\Speech\"")
+cpp_quote("#define SPREG_LOCAL_MACHINE_ROOT L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\"")
+
+//--- Categories for speech resource management
+cpp_quote("#define SPCAT_AUDIOOUT         L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\AudioOutput\"")
+cpp_quote("#define SPCAT_AUDIOIN          L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\AudioInput\"")
+cpp_quote("#define SPCAT_VOICES           L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\Voices\"")
+cpp_quote("#define SPCAT_RECOGNIZERS      L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\Recognizers\"")
+cpp_quote("#define SPCAT_APPLEXICONS      L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\AppLexicons\"")
+cpp_quote("#define SPCAT_PHONECONVERTERS  L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\PhoneConverters\"")
+cpp_quote("#define SPCAT_TEXTNORMALIZERS  L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\TextNormalizers\"")
+cpp_quote("#define SPCAT_RECOPROFILES     L\"HKEY_CURRENT_USER\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\RecoProfiles\"")
+
+//--- Specific token ids of interest
+cpp_quote("#define SPMMSYS_AUDIO_IN_TOKEN_ID        L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\AudioInput\\\\TokenEnums\\\\MMAudioIn\\\\\"")
+cpp_quote("#define SPMMSYS_AUDIO_OUT_TOKEN_ID       L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\AudioOutput\\\\TokenEnums\\\\MMAudioOut\\\\\"")
+cpp_quote("#define SPCURRENT_USER_LEXICON_TOKEN_ID  L\"HKEY_CURRENT_USER\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\CurrentUserLexicon\"")
+#if _SAPI_BUILD_VER >= 0x053
+// Shortcuts only supported on Vista and above
+cpp_quote("#define SPCURRENT_USER_SHORTCUT_TOKEN_ID  L\"HKEY_CURRENT_USER\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\CurrentUserShortcut\"")
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- Standard token values
+cpp_quote("#define SPTOKENVALUE_CLSID L\"CLSID\"")
+cpp_quote("#define SPTOKENKEY_FILES L\"Files\"")
+cpp_quote("#define SPTOKENKEY_UI L\"UI\"")
+cpp_quote("#define SPTOKENKEY_ATTRIBUTES L\"Attributes\"")
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#define SPTOKENKEY_RETAINEDAUDIO L\"SecondsPerRetainedAudioEvent\"")
+cpp_quote("#define SPTOKENKEY_AUDIO_LATENCY_WARNING L\"LatencyWarningThreshold\"")
+cpp_quote("#define SPTOKENKEY_AUDIO_LATENCY_TRUNCATE L\"LatencyTruncateThreshold\"")
+cpp_quote("#define SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL L\"LatencyUpdateInterval\"")
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- Standard voice category values
+cpp_quote("#define SPVOICECATEGORY_TTSRATE L\"DefaultTTSRate\"")
+
+//--- Standard SR Engine properties
+cpp_quote("#define SPPROP_RESOURCE_USAGE              L\"ResourceUsage\"")
+cpp_quote("#define SPPROP_HIGH_CONFIDENCE_THRESHOLD   L\"HighConfidenceThreshold\"")
+cpp_quote("#define SPPROP_NORMAL_CONFIDENCE_THRESHOLD L\"NormalConfidenceThreshold\"")
+cpp_quote("#define SPPROP_LOW_CONFIDENCE_THRESHOLD    L\"LowConfidenceThreshold\"")
+cpp_quote("#define SPPROP_RESPONSE_SPEED              L\"ResponseSpeed\"")
+cpp_quote("#define SPPROP_COMPLEX_RESPONSE_SPEED      L\"ComplexResponseSpeed\"")
+cpp_quote("#define SPPROP_ADAPTATION_ON               L\"AdaptationOn\"")
+
+// new for Vista, but nothing prevents engines that run downlevel from supporting these
+cpp_quote("#define SPPROP_PERSISTED_BACKGROUND_ADAPTATION L\"PersistedBackgroundAdaptation\"")
+cpp_quote("#define SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION L\"PersistedLanguageModelAdaptation\"")
+cpp_quote("#define SPPROP_UX_IS_LISTENING             L\"UXIsListening\"")
+
+//--- Standard SAPI Recognition Topics
+cpp_quote("#define SPTOPIC_SPELLING L\"Spelling\"")
+
+// CFG Wildcard token
+cpp_quote("#define SPWILDCARD L\"...\"")
+
+// CFG Dication token
+cpp_quote("#define SPDICTATION    L\"*\"")
+cpp_quote("#define SPINFDICTATION L\"*+\"")
+
+#if _SAPI_BUILD_VER >= 0x053
+// Registry key that stores a list of object token CLSIDs marked as safe to instantiate from HKCU
+cpp_quote("#define SPREG_SAFE_USER_TOKENS       L\"HKEY_LOCAL_MACHINE\\\\SOFTWARE\\\\Microsoft\\\\Speech\\\\UserTokens\"")
+#endif // _SAPI_BUILD_VER >= 0x053
+
+// CFG confidence scores
+const signed char SP_LOW_CONFIDENCE = -1;
+const signed char SP_NORMAL_CONFIDENCE = 0;
+const signed char SP_HIGH_CONFIDENCE = +1;
+
+// CFG default weight
+// MIDL does not support floating point in the RHS.  
+// Thus, using 1.0 instead of 1 resulted in unexpected behavior in the resulting type library.
+const float DEFAULT_WEIGHT = 1;
+
+// Lexicon word and pronunciation limits
+const ULONG SP_MAX_WORD_LENGTH = 128;
+const ULONG SP_MAX_PRON_LENGTH = 384;
+
+#if _SAPI_BUILD_VER >= 0x053
+// Flag used in EmulateRecognitionEx to indicate re-sending an existing result
+const ULONG SP_EMULATE_RESULT = 0x40000000;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+//
+//--- Interface definitions -------------------------------------------------
+//
+
+//--- ISpNotifyCallback -----------------------------------------------------
+
+cpp_quote("#if defined(__cplusplus)")
+cpp_quote("interface ISpNotifyCallback")
+cpp_quote("{")
+cpp_quote("virtual HRESULT STDMETHODCALLTYPE NotifyCallback(")
+cpp_quote("                                     WPARAM wParam,")
+cpp_quote("                                     LPARAM lParam) = 0;")
+cpp_quote("};")
+cpp_quote("#else")
+typedef void* ISpNotifyCallback;
+cpp_quote("#endif")
+
+cpp_quote("#if 0")
+typedef void* SPNOTIFYCALLBACK;
+cpp_quote("#else")
+cpp_quote("typedef void __stdcall SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);")
+cpp_quote("#endif")
+
+//--- ISpNotifySource -------------------------------------------------------
+[
+    object,
+    uuid(5EFF4AEF-8487-11D2-961C-00C04F8EE628),
+    helpstring("ISpNotifySource Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpNotifySource : IUnknown
+{
+    HRESULT SetNotifySink(
+                [in] ISpNotifySink* pNotifySink);
+    [local] HRESULT SetNotifyWindowMessage(
+                [in] HWND hWnd, 
+                [in] UINT Msg, 
+                [in] WPARAM wParam, 
+                [in] LPARAM lParam);
+    [local] HRESULT SetNotifyCallbackFunction(
+                [in] SPNOTIFYCALLBACK* pfnCallback, 
+                [in] WPARAM wParam, 
+                [in] LPARAM lParam);
+    [local] HRESULT SetNotifyCallbackInterface(
+                [in] ISpNotifyCallback* pSpCallback, 
+                [in] WPARAM wParam, 
+                [in] LPARAM lParam);
+    [local] HRESULT SetNotifyWin32Event(void);
+    [local] HRESULT WaitForNotifyEvent(
+                [in] DWORD dwMilliseconds);
+    [local] HANDLE  GetNotifyEventHandle();
+}
+
+//--- ISpNotifySink ---------------------------------------------------------
+[
+    object,
+    uuid(259684DC-37C3-11D2-9603-00C04F8EE628),
+    helpstring("ISpNotifySink Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpNotifySink : IUnknown
+{
+    HRESULT Notify(void);
+}
+
+
+//--- ISpNotifyTranslator ---------------------------------------------------
+[
+    object,
+    uuid(ACA16614-5D3D-11D2-960E-00C04F8EE628),
+    helpstring("ISpNotifyTranslator Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpNotifyTranslator : ISpNotifySink
+{
+    HRESULT InitWindowMessage(
+                [in] HWND hWnd, 
+                [in] UINT Msg, 
+                [in] WPARAM wParam, 
+                [in] LPARAM lParam);
+    HRESULT InitCallback(
+                [in] SPNOTIFYCALLBACK* pfnCallback, 
+                [in] WPARAM wParam, 
+                [in] LPARAM lParam);
+    HRESULT InitSpNotifyCallback(
+                [in] ISpNotifyCallback* pSpCallback, 
+                [in] WPARAM wParam, 
+                [in] LPARAM lParam);
+
+    HRESULT InitWin32Event(
+                [in] HANDLE hEvent, 
+                [in] BOOL fCloseHandleOnRelease);
+    HRESULT Wait(
+                [in] DWORD dwMilliseconds);
+    HANDLE  GetEventHandle();
+}
+
+
+//--- ISpDataKey ------------------------------------------------------------
+[
+    object,
+    uuid(14056581-E16C-11D2-BB90-00C04F8EE6C0),
+    helpstring("ISpDataKey Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpDataKey : IUnknown
+{
+    HRESULT SetData( 
+                [in] LPCWSTR pszValueName, 
+                [in] ULONG cbData, 
+                [in] const BYTE* pData);
+    HRESULT GetData( 
+                [in] LPCWSTR pszValueName, 
+                [in] ULONG* pcbData, 
+                [out] BYTE* pData);
+    HRESULT SetStringValue( 
+                [annotation("_In_opt_")] [in] LPCWSTR pszValueName, 
+                [in] LPCWSTR pszValue );
+    HRESULT GetStringValue( 
+                [annotation("_In_opt_")] [in] LPCWSTR pszValueName, 
+                [annotation("_Outptr_")] [out] LPWSTR* ppszValue);
+    HRESULT SetDWORD(
+                [in] LPCWSTR pszValueName, 
+                [in] DWORD dwValue );
+    HRESULT GetDWORD(
+                [in] LPCWSTR pszValueName, 
+                [out] DWORD* pdwValue );
+    HRESULT OpenKey(
+                [in] LPCWSTR pszSubKeyName, 
+                [annotation("_Outptr_")] [out] ISpDataKey** ppSubKey);
+    HRESULT CreateKey(
+                [in] LPCWSTR pszSubKey, 
+                [annotation("_Outptr_")] [out] ISpDataKey** ppSubKey);
+    HRESULT DeleteKey(
+                [in] LPCWSTR pszSubKey);
+    HRESULT DeleteValue(
+                [in] LPCWSTR pszValueName);
+    HRESULT EnumKeys(
+                [in] ULONG Index, 
+                [annotation("_Outptr_")] [out] LPWSTR* ppszSubKeyName);
+    HRESULT EnumValues(
+                [in] ULONG Index, 
+                [annotation("_Outptr_")] [out] LPWSTR* ppszValueName);
+};
+
+//--- ISpRegDataKey ---------------------------------------------------------
+[
+    object,
+    uuid(92A66E2B-C830-4149-83DF-6FC2BA1E7A5B),
+    helpstring("ISpRegDataKey"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpRegDataKey : ISpDataKey
+{
+    [local] HRESULT SetKey(
+                [in] HKEY hkey, 
+                [in] BOOL fReadOnly);
+}
+
+//--- ISpObjectTokenCategory ------------------------------------------------
+[
+    object,
+    uuid(2D3D3845-39AF-4850-BBF9-40B49780011D),
+    helpstring("ISpObjectTokenCategory"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpObjectTokenCategory : ISpDataKey
+{
+    HRESULT SetId(
+                [in] LPCWSTR pszCategoryId, 
+                [in] BOOL fCreateIfNotExist);
+    HRESULT GetId(
+                [annotation("_Outptr_")] [out] LPWSTR* ppszCoMemCategoryId);
+    HRESULT GetDataKey(
+                [in] SPDATAKEYLOCATION spdkl, 
+                [annotation("_Outptr_")] [out] ISpDataKey** ppDataKey);
+    HRESULT EnumTokens(
+                [annotation ("_In_opt_")] [in, string] LPCWSTR pzsReqAttribs, 
+                [annotation ("_In_opt_")] [in, string] LPCWSTR pszOptAttribs, 
+                [out] IEnumSpObjectTokens** ppEnum);
+    HRESULT SetDefaultTokenId(
+                [in] LPCWSTR pszTokenId);
+    HRESULT GetDefaultTokenId(
+                [annotation("_Outptr_")] [out] LPWSTR* ppszCoMemTokenId);
+};
+
+//--- ISpObjectToken --------------------------------------------------------
+[
+    object,
+    uuid(14056589-E16C-11D2-BB90-00C04F8EE6C0),
+    helpstring("ISpObjectToken Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpObjectToken : ISpDataKey
+{
+    HRESULT SetId(
+                [annotation("_In_opt_")] LPCWSTR pszCategoryId, 
+                [in] LPCWSTR pszTokenId, 
+                [in] BOOL fCreateIfNotExist);
+    HRESULT GetId(
+                [annotation("_Outptr_")] [out] LPWSTR* ppszCoMemTokenId);
+    HRESULT GetCategory(
+                [annotation("_Outptr_")] [out] ISpObjectTokenCategory** ppTokenCategory);
+    HRESULT CreateInstance(
+                [in] IUnknown* pUnkOuter, 
+                [in] DWORD dwClsContext,
+                [in] REFIID riid, 
+                [out, iid_is(riid)] void** ppvObject);
+    HRESULT GetStorageFileName(
+                [in] REFCLSID clsidCaller,
+                [in][annotation("_In_")] LPCWSTR pszValueName,
+                [annotation ("_In_opt_")][in, string] LPCWSTR pszFileNameSpecifier,
+                [in] ULONG nFolder,       // Same as SHGetFolderPath -- If non-zero, must set CSIDL_FLAG_CREATE
+                [annotation("_Outptr_")][out] LPWSTR* ppszFilePath);
+    HRESULT RemoveStorageFileName(
+                [in] REFCLSID clsidCaller,
+                [annotation("_In_")][in] LPCWSTR pszKeyName,
+                [in] BOOL fDeleteFile);
+    HRESULT Remove(
+                [annotation ("_In_opt_")] const CLSID* pclsidCaller);
+    [local] HRESULT IsUISupported(
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData,
+                [in] IUnknown* punkObject,
+                [out] BOOL* pfSupported);
+    [local] HRESULT DisplayUI(
+                [in] HWND hwndParent,
+                [in] LPCWSTR pszTitle,
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData,
+                [in] IUnknown* punkObject);
+    HRESULT MatchesAttributes(
+                [in] LPCWSTR pszAttributes, 
+                [out] BOOL* pfMatches);
+};
+
+[
+    object,
+    uuid(B8AAB0CF-346F-49D8-9499-C8B03F161D51),
+    helpstring("ISpObjectTokenInit Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpObjectTokenInit : ISpObjectToken
+{
+    HRESULT InitFromDataKey(
+                [in] LPCWSTR pszCategoryId, 
+                [in] LPCWSTR pszTokenId, 
+                [in] ISpDataKey* pDataKey);
+};
+
+//--- IEnumSpObjectTokens ---------------------------------------------------
+// This interface is used to enumerate speech object tokens
+
+[
+    object,
+    uuid(06B64F9E-7FDA-11D2-B4F2-00C04F797396),
+    helpstring("IEnumSpObjectTokens Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface IEnumSpObjectTokens : IUnknown
+{
+    HRESULT Next(
+                [in] ULONG celt,
+                [out, size_is(celt), length_is(*pceltFetched)] ISpObjectToken** pelt,
+                [annotation("_Out_opt_")] [out] ULONG* pceltFetched);
+    HRESULT Skip(
+                [in] ULONG celt);
+    HRESULT Reset(void);
+    HRESULT Clone(
+                [out] IEnumSpObjectTokens** ppEnum);
+    HRESULT Item(
+                [in] ULONG Index, 
+                [out] ISpObjectToken** ppToken);
+    HRESULT GetCount(
+                [out] ULONG* pCount);
+};
+
+//--- ISpObjectWithToken ----------------------------------------------------
+[
+    object,
+    uuid(5B559F40-E952-11D2-BB91-00C04F8EE6C0),
+    helpstring("ISpObjectWithToken Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpObjectWithToken : IUnknown
+{
+    HRESULT SetObjectToken(
+                [in] ISpObjectToken* pToken);
+    HRESULT GetObjectToken(
+                [out] ISpObjectToken** ppToken);
+};
+
+//--- ISpResourceManager ----------------------------------------------------
+[
+    object,
+    uuid(93384E18-5014-43D5-ADBB-A78E055926BD),
+    helpstring("ISpResourceManager Interface"),
+    pointer_default(unique),
+    restricted
+]
+#ifdef UNDER_CE
+interface ISpResourceManager : IUnknown //IServiceProvider
+#else
+interface ISpResourceManager : IServiceProvider
+#endif // UNDER_CE
+{
+    HRESULT SetObject(
+                [in] REFGUID guidServiceId, 
+                [in] IUnknown* pUnkObject);
+    HRESULT GetObject(
+                [in] REFGUID guidServiceId, 
+                [in] REFCLSID ObjectCLSID, 
+                [in] REFIID ObjectIID,
+                [in] BOOL fReleaseWhenLastExternalRefReleased,
+                [out, iid_is(ObjectIID)] void** ppObject);
+};
+
+//--- ISpEventSource --------------------------------------------------------
+typedef [hidden] enum SPEVENTLPARAMTYPE
+{
+    SPET_LPARAM_IS_UNDEFINED = 0,
+    SPET_LPARAM_IS_TOKEN,
+    SPET_LPARAM_IS_OBJECT,
+    SPET_LPARAM_IS_POINTER,
+    SPET_LPARAM_IS_STRING,
+} SPEVENTLPARAMTYPE;
+
+typedef [hidden] enum SPEVENTENUM
+{
+    SPEI_UNDEFINED           = 0,
+
+    //--- TTS engine
+    SPEI_START_INPUT_STREAM  = 1,
+    SPEI_END_INPUT_STREAM    = 2,
+    SPEI_VOICE_CHANGE        = 3,   // LPARAM_IS_TOKEN
+    SPEI_TTS_BOOKMARK        = 4,   // LPARAM_IS_STRING
+    SPEI_WORD_BOUNDARY       = 5,
+    SPEI_PHONEME             = 6,
+    SPEI_SENTENCE_BOUNDARY   = 7,
+    SPEI_VISEME              = 8,
+    SPEI_TTS_AUDIO_LEVEL     = 9,   // wParam contains current output audio level
+
+    SPEI_TTS_PRIVATE         = 15, //--- Engine vendors use this reserved value.
+
+    SPEI_MIN_TTS             = 1,
+    SPEI_MAX_TTS             = 15,
+
+    //--- Speech Recognition
+    SPEI_END_SR_STREAM       = 34,      // LPARAM contains HRESULT, WPARAM contains flags (SPESF_xxx)
+    SPEI_SOUND_START         = 35,
+    SPEI_SOUND_END           = 36,
+    SPEI_PHRASE_START        = 37,
+    SPEI_RECOGNITION         = 38,
+    SPEI_HYPOTHESIS          = 39,
+    SPEI_SR_BOOKMARK         = 40,
+    SPEI_PROPERTY_NUM_CHANGE   = 41,  // LPARAM points to a string, WPARAM is the attrib value
+    SPEI_PROPERTY_STRING_CHANGE= 42,  // LPARAM pointer to buffer.  Two concatinated null terminated strings.
+    SPEI_FALSE_RECOGNITION   = 43,  // apparent speech with no valid recognition
+    SPEI_INTERFERENCE        = 44,  // LPARAM is any combination of SPINTERFERENCE flags
+    SPEI_REQUEST_UI          = 45,  // LPARAM is string.  
+    SPEI_RECO_STATE_CHANGE   = 46,  // wParam contains new reco state
+    SPEI_ADAPTATION          = 47,  // we are now ready to accept the adaptation buffer
+    SPEI_START_SR_STREAM     = 48,
+    SPEI_RECO_OTHER_CONTEXT  = 49,  // Phrase finished and recognized, but for other context
+    SPEI_SR_AUDIO_LEVEL      = 50,  // wParam contains current input audio level
+#if _SAPI_BUILD_VER >= 0x053
+    SPEI_SR_RETAINEDAUDIO    = 51,
+#endif // _SAPI_BUILD_VER >= 0x053
+    SPEI_SR_PRIVATE          = 52, // Engine vendors use this reserved value.
+#if _SAPI_BUILD_VER >= 0x053
+#if _SAPI_BUILD_VER >= 0x054
+    SPEI_ACTIVE_CATEGORY_CHANGED = 53, // WPARAM and LPARAM are null.
+#else // _SAPI_BUILD_VER >= 0x054
+    SPEI_RESERVED4           = 53, // Reserved for system use.
+#endif // _SAPI_BUILD_VER >= 0x054
+    SPEI_RESERVED5           = 54, // Reserved for system use.
+    SPEI_RESERVED6           = 55, // Reserved for system use.
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    SPEI_MIN_SR              = 34,
+#if _SAPI_BUILD_VER >= 0x053
+    SPEI_MAX_SR              = 55,  // Value in SAPI 5.3
+#else 
+    SPEI_MAX_SR              = 52,  // Value in SAPI 5.1
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    SPEI_RESERVED1           = 30,  // do not use
+    SPEI_RESERVED2           = 33,  // do not use
+    SPEI_RESERVED3           = 63   // do not use
+} SPEVENTENUM;
+
+cpp_quote("#define SPFEI_FLAGCHECK ( (1ui64 << SPEI_RESERVED1) | (1ui64 << SPEI_RESERVED2) )")
+
+cpp_quote("#define SPFEI_ALL_TTS_EVENTS (0x000000000000FFFEui64 | SPFEI_FLAGCHECK)")
+cpp_quote("#define SPFEI_ALL_SR_EVENTS  (0x003FFFFC00000000ui64 | SPFEI_FLAGCHECK)")
+cpp_quote("#define SPFEI_ALL_EVENTS      0xEFFFFFFFFFFFFFFFui64")
+
+// The SPFEI macro converts an SPEVENTENUM event value into a 64-bit value.
+// Multiple values can then be OR-ed together and passed to SetInterest.
+cpp_quote("#define SPFEI(SPEI_ord) ((1ui64 << SPEI_ord) | SPFEI_FLAGCHECK)")
+
+// SPEVENT is defined 2 ways, because the current version of MIDL does not allow enumerations
+// to be used as bit fields.  So we define eEventId and elParamType as int bitfields for MIDL
+// and redefine them as their appropriate enumerations for C++
+cpp_quote("#if 0")
+typedef [restricted, hidden] struct SPEVENT
+{
+    WORD        eEventId;      //SPEVENTENUM
+    WORD        elParamType;   //SPEVENTLPARAMTYPE
+    ULONG       ulStreamNum;        // Input stream number this event is associated with
+    ULONGLONG   ullAudioStreamOffset;
+    WPARAM      wParam;
+    LPARAM      lParam;
+} SPEVENT;
+
+typedef [restricted, hidden] struct SPSERIALIZEDEVENT
+{  
+    WORD        eEventId;           //SPEVENTENUM
+    WORD        elParamType;        //SPEVENTLPARAMTYPE
+    ULONG       ulStreamNum;        // Input stream number this event is associated with
+    ULONGLONG   ullAudioStreamOffset;
+    ULONG       SerializedwParam;
+    LONG        SerializedlParam;
+} SPSERIALIZEDEVENT;
+
+typedef [restricted, hidden] struct SPSERIALIZEDEVENT64
+{
+    WORD        eEventId;           //SPEVENTENUM
+    WORD        elParamType;        //SPEVENTLPARAMTYPE
+    ULONG       ulStreamNum;        // Input stream number this event is associated with
+    ULONGLONG   ullAudioStreamOffset;
+    ULONGLONG   SerializedwParam;
+    LONGLONG    SerializedlParam;
+    // ULONGLONG   ullAudioStreamOffset; // This parameter is included after any other serialized data.
+} SPSERIALIZEDEVENT64;
+
+cpp_quote("#else")
+cpp_quote("typedef struct SPEVENT")
+cpp_quote("{")
+cpp_quote("    SPEVENTENUM        eEventId : 16;")
+cpp_quote("    SPEVENTLPARAMTYPE  elParamType : 16;")
+cpp_quote("    ULONG       ulStreamNum;")
+cpp_quote("    ULONGLONG   ullAudioStreamOffset;")
+cpp_quote("    WPARAM      wParam;")
+cpp_quote("    LPARAM      lParam;")
+cpp_quote("} SPEVENT;")
+cpp_quote("typedef struct SPSERIALIZEDEVENT")
+cpp_quote("{")
+cpp_quote("    SPEVENTENUM        eEventId : 16;")
+cpp_quote("    SPEVENTLPARAMTYPE  elParamType : 16;")
+cpp_quote("    ULONG       ulStreamNum;")
+cpp_quote("    ULONGLONG   ullAudioStreamOffset;")
+cpp_quote("    ULONG       SerializedwParam;")
+cpp_quote("    LONG        SerializedlParam;")
+cpp_quote("} SPSERIALIZEDEVENT;")
+cpp_quote("typedef struct SPSERIALIZEDEVENT64")
+cpp_quote("{")
+cpp_quote("    SPEVENTENUM        eEventId : 16;")
+cpp_quote("    SPEVENTLPARAMTYPE  elParamType : 16;")
+cpp_quote("    ULONG       ulStreamNum;")
+cpp_quote("    ULONGLONG   ullAudioStreamOffset;")
+cpp_quote("    ULONGLONG   SerializedwParam;")
+cpp_quote("    LONGLONG    SerializedlParam;")
+cpp_quote("} SPSERIALIZEDEVENT64;")
+cpp_quote("#endif")
+
+
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#if 0")
+typedef [restricted, hidden] struct SPEVENTEX
+{
+    WORD        eEventId;      //SPEVENTENUM
+    WORD        elParamType;   //SPEVENTLPARAMTYPE
+    ULONG       ulStreamNum;        // Input stream number this event is associated with
+    ULONGLONG   ullAudioStreamOffset;
+    WPARAM      wParam;
+    LPARAM      lParam;
+    ULONGLONG   ullAudioTimeOffset;
+} SPEVENTEX;
+
+cpp_quote("#else")
+cpp_quote("typedef struct SPEVENTEX")
+cpp_quote("{")
+cpp_quote("    SPEVENTENUM        eEventId : 16;")
+cpp_quote("    SPEVENTLPARAMTYPE  elParamType : 16;")
+cpp_quote("    ULONG       ulStreamNum;")
+cpp_quote("    ULONGLONG   ullAudioStreamOffset;")
+cpp_quote("    WPARAM      wParam;")
+cpp_quote("    LPARAM      lParam;")
+cpp_quote("    ULONGLONG   ullAudioTimeOffset;")
+cpp_quote("} SPEVENTEX;")
+cpp_quote("#endif")
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+//--- Types of interference
+typedef [hidden] enum SPINTERFERENCE
+{
+    SPINTERFERENCE_NONE     = 0,
+    SPINTERFERENCE_NOISE,
+    SPINTERFERENCE_NOSIGNAL,
+    SPINTERFERENCE_TOOLOUD,
+    SPINTERFERENCE_TOOQUIET,
+    SPINTERFERENCE_TOOFAST,
+    SPINTERFERENCE_TOOSLOW,
+    SPINTERFERENCE_LATENCY_WARNING,
+    SPINTERFERENCE_LATENCY_TRUNCATE_BEGIN,
+    SPINTERFERENCE_LATENCY_TRUNCATE_END
+} SPINTERFERENCE;
+
+//--- Flags for END_SR_STREAM event (in WPARAM)
+typedef [hidden] enum SPENDSRSTREAMFLAGS
+{
+    SPESF_NONE              = 0,
+    SPESF_STREAM_RELEASED   = (1 << 0)
+#if _SAPI_BUILD_VER >= 0x053
+    , SPESF_EMULATED          = (1 << 1)
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPENDSRSTREAMFLAGS;
+
+//--- Viseme features
+typedef [hidden] enum SPVFEATURE
+{
+    SPVFEATURE_STRESSED = (1L << 0),
+    SPVFEATURE_EMPHASIS = (1L << 1)
+} SPVFEATURE;
+
+
+//--- Viseme event groups
+typedef [hidden] enum SPVISEMES
+{
+                        // English examples
+                        //------------------
+    SP_VISEME_0 = 0,    // Silence
+    SP_VISEME_1,        // AE, AX, AH
+    SP_VISEME_2,        // AA
+    SP_VISEME_3,        // AO
+    SP_VISEME_4,        // EY, EH, UH
+    SP_VISEME_5,        // ER
+    SP_VISEME_6,        // y, IY, IH, IX
+    SP_VISEME_7,        // w, UW
+    SP_VISEME_8,        // OW
+    SP_VISEME_9,        // AW
+    SP_VISEME_10,       // OY
+    SP_VISEME_11,       // AY
+    SP_VISEME_12,       // h
+    SP_VISEME_13,       // r
+    SP_VISEME_14,       // l
+    SP_VISEME_15,       // s, z
+    SP_VISEME_16,       // SH, CH, JH, ZH
+    SP_VISEME_17,       // TH, DH
+    SP_VISEME_18,       // f, v
+    SP_VISEME_19,       // d, t, n
+    SP_VISEME_20,       // k, g, NG
+    SP_VISEME_21,       // p, b, m
+} SPVISEMES;
+
+typedef [restricted, hidden] struct SPEVENTSOURCEINFO
+{
+    ULONGLONG   ullEventInterest;
+    ULONGLONG   ullQueuedInterest;
+    ULONG       ulCount;
+} SPEVENTSOURCEINFO;
+
+[
+    object,
+    uuid(BE7A9CCE-5F9E-11D2-960F-00C04F8EE628),
+    helpstring("ISpEventSource Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpEventSource : ISpNotifySource
+{
+    // It is neccessary to use the SPFEI macro to convert the
+    // SPEVENTENUM values into ULONGULONG values.
+    HRESULT SetInterest(
+                [in] ULONGLONG ullEventInterest, 
+                [in] ULONGLONG ullQueuedInterest);                
+    HRESULT GetEvents(
+                [in] ULONG ulCount, 
+                [out, size_is(ulCount)] SPEVENT* pEventArray,
+                [out] ULONG* pulFetched);              
+    HRESULT GetInfo(
+                [out] SPEVENTSOURCEINFO* pInfo);
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+[
+    object,
+    uuid(2373A435-6A4B-429e-A6AC-D4231A61975B),
+    helpstring("ISpEventSource2 Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpEventSource2 : ISpEventSource
+{
+    HRESULT GetEventsEx(
+                [in] ULONG ulCount, 
+                [out, size_is(ulCount)] SPEVENTEX* pEventArray,
+                [out] ULONG* pulFetched);
+};
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+//--- ISpEventSink ---------------------------------------------------------
+[
+    object,
+    uuid(BE7A9CC9-5F9E-11D2-960F-00C04F8EE628),
+    helpstring("ISpEventSink Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpEventSink : IUnknown
+{
+    HRESULT AddEvents(
+                [in] const SPEVENT* pEventArray, 
+                [in] ULONG ulCount);
+    HRESULT GetEventInterest(
+                [out] ULONGLONG* pullEventInterest);
+};
+
+
+//--- ISpStreamFormat -------------------------------------------------------
+[
+    object,
+    uuid(BED530BE-2606-4F4D-A1C0-54C5CDA5566F),
+    helpstring("ISpStreamFormat Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpStreamFormat : IStream
+{
+    HRESULT GetFormat(
+                [in] GUID* pguidFormatId, 
+                [out] WAVEFORMATEX** ppCoMemWaveFormatEx);
+}
+
+typedef [hidden] enum SPFILEMODE
+{
+    SPFM_OPEN_READONLY,     // Open existing file, read-only
+    SPFM_OPEN_READWRITE,    // (Not supported for wav files) Open existing file, read-write
+    SPFM_CREATE,            // (Not supported for wav files) Open file if exists, else create if does not exist (opens read-write)    
+    SPFM_CREATE_ALWAYS,     // Create file even if file exists.  Destroys old file.
+    SPFM_NUM_MODES          // Used for limit checking
+} SPFILEMODE;
+
+//--- ISpStream -------------------------------------------------------------
+
+[
+    object,
+    uuid(12E3CCA9-7518-44C5-A5E7-BA5A79CB929E),
+    helpstring("ISpStream Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpStream : ISpStreamFormat
+{
+    HRESULT SetBaseStream(
+                [in] IStream* pStream, 
+                [in] REFGUID rguidFormat, 
+                [in] const WAVEFORMATEX* pWaveFormatEx);
+    HRESULT GetBaseStream(
+                [annotation("_Outptr_")] [out] IStream** ppStream);
+    HRESULT BindToFile(
+                [annotation("_In_z_")] [in] LPCWSTR pszFileName, 
+                [in] SPFILEMODE eMode,
+                [annotation("_In_opt_")] [in] const GUID* pFormatId, 
+                [annotation("_In_opt_")] const WAVEFORMATEX* pWaveFormatEx, 
+                [in] ULONGLONG ullEventInterest);
+    HRESULT Close();
+}
+
+//--- ISpStreamFormatConverter ----------------------------------------------
+[
+    object,
+    uuid(678A932C-EA71-4446-9B41-78FDA6280A29),
+    helpstring("ISpStreamFormatConverter Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpStreamFormatConverter : ISpStreamFormat
+{
+    HRESULT SetBaseStream(
+                [in] ISpStreamFormat* pStream,
+                [in] BOOL fSetFormatToBaseStreamFormat,  // If true, then format of format converter stream
+                [in] BOOL fWriteToBaseStream );          // will be set to same format as bass stream
+                                                         // (set up as a pass-through).  If pStream == NULL
+                                                         // and this is set to TRUE, then format of stream is reset
+    HRESULT GetBaseStream(
+                [out] ISpStreamFormat** ppStream);
+    HRESULT SetFormat(
+                [in] REFGUID rguidFormatIdOfConvertedStream, 
+                [in] const WAVEFORMATEX* pWaveFormatExOfConvertedStream);
+    // Note:  GetFormat method of ISpStreamFormat returns the format of the converted stream.
+    HRESULT ResetSeekPosition();
+    HRESULT ScaleConvertedToBaseOffset(
+                [in] ULONGLONG ullOffsetConvertedStream,
+                [out] ULONGLONG* pullOffsetBaseStream);
+    HRESULT ScaleBaseToConvertedOffset(
+                [in] ULONGLONG ullOffsetBaseStream, 
+                [out] ULONGLONG* pullOffsetConvertedStream);
+};
+
+//--- ISpAudio --------------------------------------------------------------
+
+typedef [hidden] enum _SPAUDIOSTATE
+{
+    SPAS_CLOSED,
+    SPAS_STOP,
+    SPAS_PAUSE,
+    SPAS_RUN
+} SPAUDIOSTATE;
+
+typedef [restricted, hidden] struct SPAUDIOSTATUS
+{
+    long            cbFreeBuffSpace;
+    ULONG           cbNonBlockingIO;
+    SPAUDIOSTATE    State;
+    ULONGLONG       CurSeekPos;
+    ULONGLONG       CurDevicePos;
+    DWORD           dwAudioLevel;
+    DWORD           dwReserved2;
+} SPAUDIOSTATUS;
+
+typedef [restricted, hidden] struct SPAUDIOBUFFERINFO
+{
+    ULONG           ulMsMinNotification;
+    ULONG           ulMsBufferSize;
+    ULONG           ulMsEventBias;
+} SPAUDIOBUFFERINFO;
+
+[
+    object,
+    uuid(C05C768F-FAE8-4EC2-8E07-338321C12452),
+    helpstring("ISpAudio Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpAudio : ISpStreamFormat
+{
+    HRESULT SetState(
+                [in] SPAUDIOSTATE NewState, 
+                [in] ULONGLONG ullReserved );
+    HRESULT SetFormat(
+                [in] REFGUID rguidFmtId, 
+                [in] const WAVEFORMATEX* pWaveFormatEx);
+    HRESULT GetStatus(
+                [out] SPAUDIOSTATUS* pStatus);
+    HRESULT SetBufferInfo(
+                [in] const SPAUDIOBUFFERINFO* pBuffInfo);
+    HRESULT GetBufferInfo(
+                [out] SPAUDIOBUFFERINFO* pBuffInfo);
+    HRESULT GetDefaultFormat(
+                [out] GUID* pFormatId, 
+                [out] WAVEFORMATEX** ppCoMemWaveFormatEx);
+    HANDLE  EventHandle();
+    HRESULT GetVolumeLevel(
+                [out] ULONG* pLevel);
+    HRESULT SetVolumeLevel(
+                [in] ULONG Level);
+    HRESULT GetBufferNotifySize(
+                [out] ULONG* pcbSize);
+    HRESULT SetBufferNotifySize(
+                [in] ULONG cbSize);
+};
+
+//--- ISpMMSysAudio ---------------------------------------------------------
+[
+    object,
+    uuid(15806F6E-1D70-4B48-98E6-3B1A007509AB),
+    helpstring("ISpMMSysAudio Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpMMSysAudio : ISpAudio
+{
+    HRESULT GetDeviceId(
+                [out] UINT* puDeviceId);
+    HRESULT SetDeviceId(
+                [in] UINT uDeviceId);
+    HRESULT GetMMHandle(
+                [out] void** pHandle);
+    HRESULT GetLineId(
+                [out] UINT* puLineId);
+    HRESULT SetLineId(
+                [in] UINT uLineId);
+};
+
+//--- ISpTranscript ---------------------------------------------------------
+[
+    object,
+    uuid(10F63BCE-201A-11D3-AC70-00C04F8EE6C0),
+    helpstring("ISpTranscript Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpTranscript : IUnknown
+{
+    HRESULT GetTranscript(
+                [out, string] LPWSTR* ppszTranscript);
+    HRESULT AppendTranscript(
+                [in, string] LPCWSTR pszTranscript);
+};
+
+//--- Structures used by ISpPhrase interface --------------------------------
+
+typedef [hidden] enum SPDISPLYATTRIBUTES
+{
+    SPAF_ONE_TRAILING_SPACE     = 0x02,
+    SPAF_TWO_TRAILING_SPACES    = 0x04,
+    SPAF_CONSUME_LEADING_SPACES = 0x08,
+#if _SAPI_BUILD_VER >= 0x053
+    SPAF_BUFFER_POSITION        = 0x10,
+    SPAF_ALL                    = 0x1F,
+    SPAF_USER_SPECIFIED         = 0x80
+#else
+    SPAF_ALL                    = 0x0F
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPDISPLAYATTRIBUTES;
+
+typedef WCHAR SPPHONEID;
+typedef LPWSTR PSPPHONEID;      // Use this with NULL-terminated SPPHONEID strings.  This gives the proper SAL annotation.
+typedef LPCWSTR PCSPPHONEID;    // Use this with const NULL-terminated SPPHONEID strings.  This gives the proper SAL annotation.
+
+typedef [restricted, hidden] struct SPPHRASEELEMENT
+{
+    ULONG                   ulAudioTimeOffset;
+    ULONG                   ulAudioSizeTime;    // In 100ns units
+    ULONG                   ulAudioStreamOffset;
+    ULONG                   ulAudioSizeBytes;   
+    ULONG                   ulRetainedStreamOffset;
+    ULONG                   ulRetainedSizeBytes;   
+    LPCWSTR                 pszDisplayText;
+    LPCWSTR                 pszLexicalForm;       
+    const SPPHONEID*        pszPronunciation;
+    BYTE                    bDisplayAttributes;           
+    signed char             RequiredConfidence;
+    signed char             ActualConfidence;
+    BYTE                    Reserved;
+    float                   SREngineConfidence;
+} SPPHRASEELEMENT;
+
+typedef [restricted, hidden] struct SPPHRASERULE SPPHRASERULE;
+
+struct SPPHRASERULE
+{
+    LPCWSTR                 pszName;
+    ULONG                   ulId;
+    ULONG                   ulFirstElement;
+    ULONG                   ulCountOfElements;
+    const SPPHRASERULE*     pNextSibling;
+    const SPPHRASERULE*     pFirstChild;
+    float                   SREngineConfidence;
+    signed char             Confidence;
+};
+
+
+typedef [restricted, hidden] struct SPPHRASEPROPERTY SPPHRASEPROPERTY;
+
+// For SRGS grammars, this enum indicates what the union is used for
+typedef [hidden] enum SPPHRASEPROPERTYUNIONTYPE
+{
+    SPPPUT_UNUSED = 0,
+    SPPPUT_ARRAY_INDEX                      // the union contains usArrayIndex
+} SPPHRASEPROPERTYUNIONTYPE;
+
+struct SPPHRASEPROPERTY
+{
+    LPCWSTR                 pszName;     
+    union
+    {
+        ULONG               ulId;           // for SAPI grammars, indicates the property ID, if specified
+        struct
+        {
+            byte            bType;          // SPPHRASEPROPERTYUNIONTYPE indicating what the union is used for
+            byte            bReserved;
+            unsigned short  usArrayIndex;   // for W3C grammars, indicates the array index, if this is an array element
+                                            // array elements have the name "item".
+        };
+    };
+    LPCWSTR                 pszValue;   
+    VARIANT                 vValue;     // Will be VT_BOOL, VT_I4, VT_R4, VT_R8, or VT_BYREF (only for dynamic grammars)
+    ULONG                   ulFirstElement;
+    ULONG                   ulCountOfElements;
+    const SPPHRASEPROPERTY* pNextSibling;
+    const SPPHRASEPROPERTY* pFirstChild;
+    float                   SREngineConfidence;
+    signed char             Confidence;
+};
+
+typedef [restricted, hidden] struct SPPHRASEREPLACEMENT
+{
+    BYTE                    bDisplayAttributes;
+    LPCWSTR                 pszReplacementText;
+    ULONG                   ulFirstElement;
+    ULONG                   ulCountOfElements;
+} SPPHRASEREPLACEMENT;
+
+#if _SAPI_BUILD_VER >= 0x053
+// Structure used to SML generation error info
+typedef [restricted, hidden] struct SPSEMANTICERRORINFO
+{
+    ULONG ulLineNumber;
+    LPWSTR pszScriptLine;
+    LPWSTR pszSource;
+    LPWSTR pszDescription;
+    HRESULT hrResultCode;
+} SPSEMANTICERRORINFO;
+#endif
+
+#if _SAPI_BUILD_VER >= 0x053
+typedef enum SPSEMANTICFORMAT
+{
+    SPSMF_SAPI_PROPERTIES                   = 0,
+    SPSMF_SRGS_SEMANTICINTERPRETATION_MS    = 1,
+    SPSMF_SRGS_SAPIPROPERTIES               = 2,
+    SPSMF_UPS                               = 4,
+    SPSMF_SRGS_SEMANTICINTERPRETATION_W3C   = 8
+} SPSEMANTICFORMAT;
+#endif
+
+#if _SAPI_BUILD_VER >= 0x053
+typedef [restricted, hidden] struct SPPHRASE_50
+#else
+typedef [restricted, hidden] struct SPPHRASE
+#endif
+{
+    ULONG                       cbSize;     // Size of structure
+    LANGID                      LangID;
+    WORD                        wHomophoneGroupId;
+    ULONGLONG                   ullGrammarID;
+    ULONGLONG                   ftStartTime;
+    ULONGLONG                   ullAudioStreamPosition;
+    ULONG                       ulAudioSizeBytes;
+    ULONG                       ulRetainedSizeBytes;
+    ULONG                       ulAudioSizeTime;  // In 100ns units
+    SPPHRASERULE                Rule;
+    const SPPHRASEPROPERTY*     pProperties;
+    const SPPHRASEELEMENT*      pElements;
+    ULONG                       cReplacements;
+    const SPPHRASEREPLACEMENT*  pReplacements;
+    GUID                        SREngineID;        
+    ULONG                       ulSREnginePrivateDataSize;
+    const BYTE*                 pSREnginePrivateData;
+}
+#if _SAPI_BUILD_VER >= 0x053
+SPPHRASE_50;
+#else
+SPPHRASE;
+#endif
+
+#if _SAPI_BUILD_VER >= 0x053
+cpp_quote("#define SP_SPPHRASESIZE_500 sizeof(SPPHRASE_50)")
+
+cpp_quote("#ifdef __cplusplus")
+//This typedef is used for C++ to include the header
+#if _SAPI_BUILD_VER > 0x053
+cpp_quote("typedef struct SPPHRASE_53 : public SPPHRASE_50")
+#else
+cpp_quote("typedef struct SPPHRASE : public SPPHRASE_50")
+#endif
+cpp_quote("{")
+cpp_quote("LPWSTR pSML;")
+cpp_quote("SPSEMANTICERRORINFO* pSemanticErrorInfo;")
+#if _SAPI_BUILD_VER > 0x053
+cpp_quote("} SPPHRASE_53;")
+#else
+cpp_quote("} SPPHRASE;")
+#endif
+cpp_quote("#else")
+#if _SAPI_BUILD_VER > 0x053
+typedef [restricted, hidden] struct SPPHRASE_53
+#else
+typedef [restricted, hidden] struct SPPHRASE
+#endif
+{
+    ULONG                       cbSize;     // Size of structure
+    LANGID                      LangID;
+    WORD                        wHomophoneGroupId;
+    ULONGLONG                   ullGrammarID;
+    ULONGLONG                   ftStartTime;
+    ULONGLONG                   ullAudioStreamPosition;
+    ULONG                       ulAudioSizeBytes;
+    ULONG                       ulRetainedSizeBytes;
+    ULONG                       ulAudioSizeTime;  // In 100ns units
+    SPPHRASERULE                Rule;
+    const SPPHRASEPROPERTY*     pProperties;
+    const SPPHRASEELEMENT*      pElements;
+    ULONG                       cReplacements;
+    const SPPHRASEREPLACEMENT*  pReplacements;
+    GUID                        SREngineID;        
+    ULONG                       ulSREnginePrivateDataSize;
+    const BYTE*                 pSREnginePrivateData;
+    LPWSTR                      pSML;
+    SPSEMANTICERRORINFO*        pSemanticErrorInfo;
+}
+#if _SAPI_BUILD_VER > 0x053
+SPPHRASE_53;
+#else
+SPPHRASE;
+#endif
+cpp_quote("#endif // __cplusplus")
+#endif // _SAPI_BUILD_VER >= 0x053
+
+#if _SAPI_BUILD_VER >= 0x054
+cpp_quote("#define SP_SPPHRASESIZE_530 sizeof(SPPHRASE_53)")
+
+cpp_quote("#ifdef __cplusplus")
+//This typedef is used for C++ to include the header
+cpp_quote("typedef struct SPPHRASE : public SPPHRASE_53")
+cpp_quote("{")
+cpp_quote("SPSEMANTICFORMAT SemanticTagFormat;")
+cpp_quote("} SPPHRASE;")
+cpp_quote("#else")
+typedef [restricted, hidden] struct SPPHRASE
+{
+    ULONG                       cbSize;     // Size of structure
+    LANGID                      LangID;
+    WORD                        wHomophoneGroupId;
+    ULONGLONG                   ullGrammarID;
+    ULONGLONG                   ftStartTime;
+    ULONGLONG                   ullAudioStreamPosition;
+    ULONG                       ulAudioSizeBytes;
+    ULONG                       ulRetainedSizeBytes;
+    ULONG                       ulAudioSizeTime;  // In 100ns units
+    SPPHRASERULE                Rule;
+    const SPPHRASEPROPERTY*     pProperties;
+    const SPPHRASEELEMENT*      pElements;
+    ULONG                       cReplacements;
+    const SPPHRASEREPLACEMENT*  pReplacements;
+    GUID                        SREngineID;        
+    ULONG                       ulSREnginePrivateDataSize;
+    const BYTE*                 pSREnginePrivateData;
+    LPWSTR                      pSML;
+    SPSEMANTICERRORINFO*        pSemanticErrorInfo;
+    SPSEMANTICFORMAT        SemanticTagFormat;
+} SPPHRASE;
+cpp_quote("#endif // __cplusplus")
+#endif // _SAPI_BUILD_VER >= 0x054
+
+//--- Serialized phrase
+
+typedef [restricted, hidden] struct SPSERIALIZEDPHRASE
+{
+    ULONG                   ulSerializedSize;       // Size of structure in bytes
+} SPSERIALIZEDPHRASE;
+
+#if _SAPI_BUILD_VER >= 0x053
+typedef [restricted, hidden] struct SPRULE
+{
+    LPCWSTR                 pszRuleName;
+    ULONG                   ulRuleId;
+    DWORD                   dwAttributes;
+} SPRULE;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+typedef [hidden] enum SPVALUETYPE
+{
+    SPDF_PROPERTY               = 0x00000001,
+    SPDF_REPLACEMENT            = 0x00000002,
+    SPDF_RULE                   = 0x00000004,
+    SPDF_DISPLAYTEXT            = 0x00000008,
+    SPDF_LEXICALFORM            = 0x00000010,
+    SPDF_PRONUNCIATION          = 0x00000020,
+    SPDF_AUDIO                  = 0x00000040,
+    SPDF_ALTERNATES             = 0x00000080,
+    SPDF_ALL                    = 0x000000FF
+} SPVALUETYPE;
+
+
+// Binary grammar public declaration
+
+typedef [hidden] struct SPBINARYGRAMMAR
+{
+    ULONG       ulTotalSerializedSize;
+} SPBINARYGRAMMAR;
+
+// Possible arguments for methods that take phrase element start and count
+
+typedef [hidden] enum SPPHRASERNG
+{
+    SPPR_ALL_ELEMENTS = -1
+} SPPHRASERNG;
+cpp_quote("#define SP_GETWHOLEPHRASE SPPR_ALL_ELEMENTS")
+cpp_quote("#define SPRR_ALL_ELEMENTS SPPR_ALL_ELEMENTS")
+
+cpp_quote("#if 0")
+typedef void* SPSTATEHANDLE;
+cpp_quote("#else")
+cpp_quote("DECLARE_HANDLE(SPSTATEHANDLE);")
+cpp_quote("#endif")
+
+
+
+
+typedef [hidden] enum SPRECOEVENTFLAGS
+{
+    SPREF_AutoPause         = (1 << 0),
+    SPREF_Emulated          = (1 << 1)
+#if _SAPI_BUILD_VER >= 0x053
+    ,
+    SPREF_SMLTimeout        = (1 << 2),
+    SPREF_ExtendableParse   = (1 << 3),
+    SPREF_ReSent            = (1 << 4),
+    SPREF_Hypothesis        = (1 << 5),
+    SPREF_FalseRecognition  = (1 << 6)
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPRECOEVENTFLAGS;
+
+
+
+//--- ISpLexicon ------------------------------------------------------------
+typedef [hidden] enum SPPARTOFSPEECH
+{
+    //--- SAPI5 public POS category values (bits 28-31)
+    SPPS_NotOverriden  = -1,
+    SPPS_Unknown       = 0,
+    SPPS_Noun          = 0x1000,
+    SPPS_Verb          = 0x2000,
+    SPPS_Modifier      = 0x3000,
+    SPPS_Function      = 0x4000,
+    SPPS_Interjection  = 0x5000
+#if _SAPI_BUILD_VER >= 0x053
+    ,
+    SPPS_Noncontent    = 0x6000,     
+    SPPS_LMA           = 0x7000,    // Words learned through LMA
+    SPPS_SuppressWord  = 0xF000,    // Special flag to indicate this word should not be recognized
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPPARTOFSPEECH;
+
+typedef [hidden] enum SPLEXICONTYPE
+{
+   eLEXTYPE_USER        = (1L << 0),
+   eLEXTYPE_APP         = (1L << 1),
+   eLEXTYPE_VENDORLEXICON = (1L << 2),
+   eLEXTYPE_LETTERTOSOUND = (1L << 3),
+   eLEXTYPE_MORPHOLOGY   = (1L << 4),
+   eLEXTYPE_RESERVED4   = (1L << 5),
+   eLEXTYPE_USER_SHORTCUT   = (1L << 6),
+   eLEXTYPE_RESERVED6   = (1L << 7),
+   eLEXTYPE_RESERVED7   = (1L << 8),
+   eLEXTYPE_RESERVED8   = (1L << 9),
+   eLEXTYPE_RESERVED9   = (1L << 10),
+   eLEXTYPE_RESERVED10  = (1L << 11),
+   eLEXTYPE_PRIVATE1    = (1L << 12),
+   eLEXTYPE_PRIVATE2    = (1L << 13),
+   eLEXTYPE_PRIVATE3    = (1L << 14),
+   eLEXTYPE_PRIVATE4    = (1L << 15),
+   eLEXTYPE_PRIVATE5    = (1L << 16),
+   eLEXTYPE_PRIVATE6    = (1L << 17),
+   eLEXTYPE_PRIVATE7    = (1L << 18),
+   eLEXTYPE_PRIVATE8    = (1L << 19),
+   eLEXTYPE_PRIVATE9    = (1L << 20),
+   eLEXTYPE_PRIVATE10   = (1L << 21),
+   eLEXTYPE_PRIVATE11   = (1L << 22),
+   eLEXTYPE_PRIVATE12   = (1L << 23),
+   eLEXTYPE_PRIVATE13   = (1L << 24),
+   eLEXTYPE_PRIVATE14   = (1L << 25),
+   eLEXTYPE_PRIVATE15   = (1L << 26),
+   eLEXTYPE_PRIVATE16   = (1L << 27),
+   eLEXTYPE_PRIVATE17   = (1L << 28),
+   eLEXTYPE_PRIVATE18   = (1L << 29),
+   eLEXTYPE_PRIVATE19   = (1L << 30),
+   eLEXTYPE_PRIVATE20   = (1L << 31),
+} SPLEXICONTYPE;
+
+typedef [hidden] enum SPWORDTYPE
+{
+   eWORDTYPE_ADDED   = (1L << 0),
+   eWORDTYPE_DELETED = (1L << 1)
+} SPWORDTYPE;
+
+#if _SAPI_BUILD_VER >= 0x053
+typedef [hidden] enum SPPRONUNCIATIONFLAGS
+{
+    ePRONFLAG_USED       = (1 << 0)
+} SPPRONUNCIATIONFLAGS;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+typedef [restricted, hidden] struct SPWORDPRONUNCIATION
+{
+    struct SPWORDPRONUNCIATION*     pNextWordPronunciation;
+    SPLEXICONTYPE                   eLexiconType;
+    LANGID                          LangID;
+    WORD                            wPronunciationFlags; // SPPRONUNCIATIONFLAGS
+    SPPARTOFSPEECH                  ePartOfSpeech;
+    SPPHONEID                       szPronunciation[1];
+} SPWORDPRONUNCIATION;
+
+typedef [restricted, hidden] struct SPWORDPRONUNCIATIONLIST
+{
+    ULONG                   ulSize;
+    BYTE*                   pvBuffer;
+    SPWORDPRONUNCIATION*    pFirstWordPronunciation;
+} SPWORDPRONUNCIATIONLIST;
+
+typedef [restricted, hidden] struct SPWORD
+{
+    struct SPWORD*          pNextWord;
+    LANGID                  LangID;
+    WORD                    wReserved;
+    SPWORDTYPE              eWordType;
+    LPWSTR                  pszWord;
+    SPWORDPRONUNCIATION*    pFirstWordPronunciation;
+} SPWORD;
+
+typedef [restricted, hidden] struct SPWORDLIST
+{
+    ULONG                  ulSize;
+    BYTE*                  pvBuffer;
+    SPWORD*                pFirstWord;
+} SPWORDLIST;
+
+[
+    object,
+    uuid(DA41A7C2-5383-4DB2-916B-6C1719E3DB58),
+    helpstring("ISpLexicon Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpLexicon : IUnknown
+{
+    HRESULT GetPronunciations(
+                [in] LPCWSTR pszWord,
+                [in] LANGID LangID,
+                [in] DWORD dwFlags,
+                [in, out] SPWORDPRONUNCIATIONLIST* pWordPronunciationList);
+    HRESULT AddPronunciation(
+                [in] LPCWSTR pszWord,
+                [in] LANGID LangID,
+                [in] SPPARTOFSPEECH ePartOfSpeech,
+                [annotation("_In_opt_")] [in] PCSPPHONEID pszPronunciation);
+    HRESULT RemovePronunciation(
+                [in] LPCWSTR pszWord,
+                [in] LANGID LangID,
+                [in] SPPARTOFSPEECH ePartOfSpeech,
+                [annotation("_In_opt_")] [in] PCSPPHONEID pszPronunciation);
+    HRESULT GetGeneration(
+                [out] DWORD* pdwGeneration);
+    HRESULT GetGenerationChange(
+                [in] DWORD dwFlags,
+                [in, out] DWORD* pdwGeneration,
+                [in, out] SPWORDLIST* pWordList);
+    HRESULT GetWords(
+                [in] DWORD dwFlags,
+                [in, out] DWORD* pdwGeneration,
+                [annotation("_Inout_opt_")] [in, out] DWORD* pdwCookie,
+                [in, out] SPWORDLIST* pWordList);
+};
+
+[
+    object,
+    uuid(8565572F-C094-41CC-B56E-10BD9C3FF044),
+
+    helpstring("ISpContainerLexicon Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpContainerLexicon : ISpLexicon
+{
+    HRESULT AddLexicon(
+                [in] ISpLexicon* pAddLexicon, 
+                [in] DWORD dwFlags);
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- ISpShortcut-----------------------------------------------------
+typedef [hidden] enum SPSHORTCUTTYPE
+{
+    SPSHT_NotOverriden  = -1,
+    SPSHT_Unknown       = 0,
+    SPSHT_EMAIL        = 0x1000,
+    SPSHT_OTHER        = 0x2000,
+    SPPS_RESERVED1     = 0x3000,
+    SPPS_RESERVED2     = 0x4000,
+    SPPS_RESERVED3     = 0x5000,
+    SPPS_RESERVED4     = 0xF000
+} SPSHORTCUTTYPE;
+
+typedef [restricted, hidden] struct SPSHORTCUTPAIR
+{
+    struct SPSHORTCUTPAIR*  pNextSHORTCUTPAIR;
+    LANGID                  LangID;
+    SPSHORTCUTTYPE          shType;
+    LPWSTR                  pszDisplay;
+    LPWSTR                  pszSpoken;
+} SPSHORTCUTPAIR;
+
+typedef [restricted, hidden] struct SPSHORTCUTPAIRLIST
+{
+    ULONG                   ulSize;
+    BYTE*                   pvBuffer;
+    SPSHORTCUTPAIR*         pFirstShortcutPair;
+} SPSHORTCUTPAIRLIST;
+
+[
+    object,
+    uuid(3DF681E2-EA56-11D9-8BDE-F66BAD1E3F3A),
+    helpstring("ISpShortcut Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpShortcut : IUnknown
+{
+    HRESULT AddShortcut(
+        [in] LPCWSTR pszDisplay, 
+        [in] LANGID LangID, 
+        [in] LPCWSTR pszSpoken,
+        [in] SPSHORTCUTTYPE shType);
+    HRESULT RemoveShortcut(
+        [in] LPCWSTR pszDisplay, 
+        [in] LANGID LangID, 
+        [in] LPCWSTR pszSpoken,
+        [in] SPSHORTCUTTYPE shType);    
+    HRESULT GetShortcuts(         
+        [in] LANGID LangID, 
+        [in, out] SPSHORTCUTPAIRLIST* pShortcutpairList);      
+    HRESULT GetGeneration(
+        [out] DWORD* pdwGeneration);
+    HRESULT GetWordsFromGenerationChange(                
+        [in, out] DWORD* pdwGeneration,
+        [in, out] SPWORDLIST* pWordList);
+    HRESULT GetWords(            
+        [in, out] DWORD* pdwGeneration,
+        [in, out] DWORD* pdwCookie,
+        [in, out] SPWORDLIST* pWordList);
+    HRESULT GetShortcutsForGeneration(         
+        [in, out] DWORD* pdwGeneration,
+        [in, out] DWORD* pdwCookie, 
+        [in, out] SPSHORTCUTPAIRLIST* pShortcutpairList);
+    HRESULT GetGenerationChange(                
+        [in, out] DWORD* pdwGeneration,
+        [in, out] SPSHORTCUTPAIRLIST* pShortcutpairList);
+};
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- ISpPhoneConverter -----------------------------------------------------
+[
+    object,
+    uuid(8445C581-0CAC-4A38-ABFE-9B2CE2826455),
+    helpstring("ISpPhoneConverter Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpPhoneConverter : ISpObjectWithToken
+{
+    HRESULT PhoneToId(
+                [in] LPCWSTR pszPhone, 
+                [out] SPPHONEID* pId);
+    HRESULT IdToPhone(
+                [in] PCSPPHONEID pId, 
+                [out] WCHAR* pszPhone);
+};
+
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- ISpPhoneticAlphabetConverter -----------------------------------------------------
+[
+    object,
+    uuid(133ADCD4-19B4-4020-9FDC-842E78253B17),
+    helpstring("ISpPhoneticAlphabetConverter Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpPhoneticAlphabetConverter : IUnknown
+{
+    HRESULT GetLangId(
+                [annotation("_Out_writes_(1)")] [out] LANGID* pLangID);
+    HRESULT SetLangId(
+                [in] LANGID LangID);
+    HRESULT SAPI2UPS(
+                [annotation("_In_z_")] [in] const SPPHONEID* pszSAPIId, 
+                [annotation("_Out_writes_z_(cMaxLength)")] [out] SPPHONEID* pszUPSId, 
+                [in] DWORD cMaxLength);
+    HRESULT UPS2SAPI(
+                [annotation("_In_z_")] [in] const SPPHONEID* pszUPSId, 
+                [annotation("_Out_writes_z_(cMaxLength)")] [out] SPPHONEID* pszSAPIId, 
+                [in] DWORD cMaxLength);
+    HRESULT GetMaxConvertLength(
+                [in] DWORD cSrcLength, 
+                [in] BOOL bSAPI2UPS, 
+                [annotation("_Out_writes_(1)")] [out] DWORD* pcMaxDestLength);
+};
+
+//--- ISpPhoneticAlphabetSelection -----------------------------------------------------
+[
+    object,
+    uuid(B2745EFD-42CE-48ca-81F1-A96E02538A90),
+    helpstring("ISpPhoneticAlphabetSelection Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpPhoneticAlphabetSelection : IUnknown
+{
+    HRESULT IsAlphabetUPS(
+                [out] BOOL* pfIsUPS);
+    HRESULT SetAlphabetToUPS(
+                [in] BOOL fForceUPS);
+};
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- ISpVoice --------------------------------------------------------------
+//  These structures maintain the absolute state of the voice relative to
+//  the voice's baseline XML state.
+typedef [restricted, hidden] struct SPVPITCH
+{
+    long MiddleAdj;
+    long RangeAdj;
+} SPVPITCH;
+
+typedef [hidden] enum SPVACTIONS
+{
+    SPVA_Speak = 0,
+    SPVA_Silence,
+    SPVA_Pronounce,
+    SPVA_Bookmark,
+    SPVA_SpellOut,
+    SPVA_Section,
+    SPVA_ParseUnknownTag
+} SPVACTIONS;
+
+typedef [restricted, hidden] struct SPVCONTEXT
+{
+    LPCWSTR pCategory;
+    LPCWSTR pBefore;
+    LPCWSTR pAfter;
+} SPVCONTEXT;
+
+typedef [restricted, hidden] struct SPVSTATE
+{
+    //--- Action
+    SPVACTIONS  eAction;
+
+    //--- Running state values
+    LANGID          LangID;
+    WORD            wReserved;
+    long            EmphAdj;
+    long            RateAdj;
+    ULONG           Volume;
+    SPVPITCH        PitchAdj;
+    ULONG           SilenceMSecs;
+    SPPHONEID*      pPhoneIds;              // NULL terminated array of phone ids
+    SPPARTOFSPEECH  ePartOfSpeech;
+    SPVCONTEXT      Context;
+} SPVSTATE;
+
+typedef [hidden] enum SPRUNSTATE
+{
+    SPRS_DONE        = (1L << 0),           // The voice is done rendering all queued phrases
+    SPRS_IS_SPEAKING = (1L << 1)            // The SpVoice currently has the audio queue claimed
+} SPRUNSTATE;
+
+typedef [hidden] enum SPVLIMITS
+{
+    SPMIN_VOLUME =   0,
+    SPMAX_VOLUME = 100,
+    SPMIN_RATE   = -10,
+    SPMAX_RATE   =  10
+} SPVLIMITS;
+
+typedef [hidden] enum SPVPRIORITY
+{
+    SPVPRI_NORMAL = 0,
+    SPVPRI_ALERT  = (1L << 0),
+    SPVPRI_OVER   = (1L << 1)
+} SPVPRIORITY;
+
+typedef [restricted, hidden] struct SPVOICESTATUS
+{
+    ULONG       ulCurrentStream;        // Current stream being rendered
+    ULONG       ulLastStreamQueued;     // Number of the last stream queued
+    HRESULT     hrLastResult;           // Result of last speak
+    DWORD       dwRunningState;         // SPRUNSTATE
+    ULONG       ulInputWordPos;         // Input position of current word being rendered
+    ULONG       ulInputWordLen;         // Length of current word being rendered
+    ULONG       ulInputSentPos;         // Input position of current sentence being rendered
+    ULONG       ulInputSentLen;         // Length of current sentence being rendered
+    LONG        lBookmarkId;            // Current bookmark converted to a long integer
+    SPPHONEID   PhonemeId;              // Current phoneme id
+    SPVISEMES   VisemeId;               // Current viseme
+    DWORD       dwReserved1;            // Reserved for future expansion
+    DWORD       dwReserved2;            // Reserved for future expansion
+} SPVOICESTATUS;
+
+typedef [hidden] enum SPEAKFLAGS
+{
+    //--- SpVoice flags
+    SPF_DEFAULT            = 0,             // Synchronous, no purge, xml auto detect
+    SPF_ASYNC              = (1L << 0),     // Asynchronous call
+    SPF_PURGEBEFORESPEAK   = (1L << 1),     // Purge current data prior to speaking this
+    SPF_IS_FILENAME        = (1L << 2),     // The string passed to Speak() is a file name
+    SPF_IS_XML             = (1L << 3),     // The input text will be parsed for XML markup
+    SPF_IS_NOT_XML         = (1L << 4),     // The input text will not be parsed for XML markup
+    SPF_PERSIST_XML        = (1L << 5),     // Persists XML global state changes
+
+    //--- Normalizer flags
+    SPF_NLP_SPEAK_PUNC     = (1L << 6),     // The normalization processor should speak the punctuation
+
+#if _SAPI_BUILD_VER >= 0x053
+    //--- TTS Format 
+    SPF_PARSE_SAPI         = (1L << 7),     // Force XML parsing as MS SAPI
+    SPF_PARSE_SSML         = (1L << 8),     // Force XML parsing as W3C SSML
+    SPF_PARSE_AUTODETECT   = 0,             // No set flag in bits 7 or 8 results in autodetection
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    //--- Masks
+    SPF_NLP_MASK           = (SPF_NLP_SPEAK_PUNC),
+#if _SAPI_BUILD_VER >= 0x053
+    SPF_PARSE_MASK         = (SPF_PARSE_SAPI|SPF_PARSE_SSML),
+    SPF_VOICE_MASK         = (SPF_ASYNC|SPF_PURGEBEFORESPEAK|SPF_IS_FILENAME|SPF_IS_XML|SPF_IS_NOT_XML|SPF_NLP_MASK|SPF_PERSIST_XML|SPF_PARSE_MASK),
+#else
+    SPF_VOICE_MASK         = (SPF_ASYNC|SPF_PURGEBEFORESPEAK|SPF_IS_FILENAME|SPF_IS_XML|SPF_IS_NOT_XML|SPF_NLP_MASK|SPF_PERSIST_XML),
+#endif // _SAPI_BUILD_VER >= 0x053
+    SPF_UNUSED_FLAGS       = ~(SPF_VOICE_MASK)
+} SPEAKFLAGS;
+
+[
+    object,
+    uuid(6C44DF74-72B9-4992-A1EC-EF996E0422D4),
+    helpstring("ISpVoice Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpVoice : ISpEventSource
+{
+    HRESULT SetOutput(
+                [in] IUnknown* pUnkOutput, 
+                [in] BOOL fAllowFormatChanges );
+    HRESULT GetOutputObjectToken(
+                [annotation("_Outptr_")] [out] ISpObjectToken** ppObjectToken );
+    HRESULT GetOutputStream(
+                [out] ISpStreamFormat** ppStream );
+    HRESULT Pause( void );
+    HRESULT Resume( void );
+    HRESULT SetVoice(
+                [in] ISpObjectToken* pToken);
+    HRESULT GetVoice(
+                [annotation("_Outptr_")] [out] ISpObjectToken** ppToken);
+    HRESULT Speak(
+                [annotation("_In_opt_")] [in, string] LPCWSTR pwcs, 
+                [in] DWORD dwFlags,
+                [annotation ("_Out_opt_")] [out] ULONG* pulStreamNumber);
+    HRESULT SpeakStream(
+                [in] IStream* pStream,  // If not ISpStreamFormat supported then SPDFID_Text assumed
+                [in] DWORD dwFlags, 
+                [annotation ("_Out_opt_")] [out] ULONG* pulStreamNumber);
+    HRESULT GetStatus(
+                [out] SPVOICESTATUS* pStatus, 
+                [annotation("_Outptr_")] [out] LPWSTR* ppszLastBookmark);
+    HRESULT Skip(
+                [in,string] LPCWSTR pItemType, 
+                [in] long lNumItems, 
+                [out] ULONG* pulNumSkipped);      
+    HRESULT SetPriority(
+                [in] SPVPRIORITY ePriority);
+    HRESULT GetPriority(
+                [out] SPVPRIORITY* pePriority);
+    HRESULT SetAlertBoundary(
+                [in] SPEVENTENUM eBoundary);
+    HRESULT GetAlertBoundary(
+                [out] SPEVENTENUM* peBoundary);
+    HRESULT SetRate(
+                [in] long RateAdjust);
+    HRESULT GetRate(
+                [out] long* pRateAdjust);
+    HRESULT SetVolume(
+                [in] USHORT usVolume);
+    HRESULT GetVolume(
+                [out] USHORT* pusVolume);
+    HRESULT WaitUntilDone(
+                [in] ULONG msTimeout);
+    HRESULT SetSyncSpeakTimeout(
+                [in] ULONG msTimeout);
+    HRESULT GetSyncSpeakTimeout(
+                [out] ULONG* pmsTimeout);
+    [local] HANDLE SpeakCompleteEvent();
+    [local] HRESULT IsUISupported(
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData,
+                [out] BOOL* pfSupported);
+    [local] HRESULT DisplayUI(
+                [in] HWND hwndParent,
+                [in] LPCWSTR pszTitle,
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData);
+};
+
+
+//--- ISpPhrase interface ---------------------------------------------------
+[
+    object,
+    uuid(1A5C0354-B621-4b5a-8791-D306ED379E53),
+    local,
+    helpstring("ISpPhrase Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpPhrase : IUnknown
+{
+    HRESULT GetPhrase(
+                [annotation("_Outptr_")] [out] SPPHRASE** ppCoMemPhrase);
+    HRESULT GetSerializedPhrase(
+                [annotation("_Outptr_")] [out] SPSERIALIZEDPHRASE** ppCoMemPhrase);
+    HRESULT GetText(
+                [in] ULONG ulStart, 
+                [in] ULONG ulCount, 
+                [in] BOOL fUseTextReplacements, 
+                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemText,
+                [annotation ("_Out_writes_opt_(1)")] [out, optional] BYTE* pbDisplayAttributes);
+    HRESULT Discard(
+                [in] DWORD dwValueTypes);
+};
+
+[
+    object,
+    uuid(8FCEBC98-4E49-4067-9C6C-D86A0E092E3D),
+    local,
+    helpstring("ISpPhraseAlt Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpPhraseAlt : ISpPhrase
+{
+    HRESULT GetAltInfo(
+                [out] ISpPhrase** ppParent, 
+                [out] ULONG* pulStartElementInParent, 
+                [out] ULONG* pcElementsInParent,
+                [out] ULONG* pcElementsInAlt);
+    HRESULT Commit();
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+typedef enum SPXMLRESULTOPTIONS
+{
+            SPXRO_SML = 0,          // default
+            SPXRO_Alternates_SML = 1
+} SPXMLRESULTOPTIONS;
+
+[
+    object,
+    uuid(F264DA52-E457-4696-B856-A737B717AF79),
+    local,
+    helpstring("ISpPhrase2 Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpPhrase2 : ISpPhrase
+{
+    HRESULT GetXMLResult(
+                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult, 
+                [in] SPXMLRESULTOPTIONS Options);
+    HRESULT GetXMLErrorInfo(
+                [out] SPSEMANTICERRORINFO* pSemanticErrorInfo);
+    HRESULT GetAudio(
+                [in] ULONG ulStartElement, 
+                [in] ULONG cElements, 
+                [annotation("_Outptr_")] [out] ISpStreamFormat** ppStream);
+};
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+
+//--- ISpRecoResult ---------------------------------------------------------
+typedef [restricted, hidden] struct SPRECORESULTTIMES
+{
+    FILETIME        ftStreamTime;           // GetSystemTimeAsFileTime() at start of result
+                                            //   UTC time as number of 100-nanosecond intervals
+                                            //   since January 1, 1601
+    ULONGLONG       ullLength;              // length in 100ns units
+    DWORD           dwTickCount;            // GetTickCount() at start of result
+                                            //   milliseconds that have elapsed since the
+                                            //   system was started.
+    ULONGLONG       ullStart;               // 100ns units since start of stream
+} SPRECORESULTTIMES;
+
+
+typedef [hidden] struct SPSERIALIZEDRESULT
+{
+    ULONG           ulSerializedSize;       // Count in bytes (including this ULONG) of the entire phrase
+} SPSERIALIZEDRESULT;
+
+
+[
+    object,
+    uuid(20B053BE-E235-43cd-9A2A-8D17A48B7842),
+    helpstring("ISpRecoResult Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpRecoResult : ISpPhrase
+{
+    HRESULT GetResultTimes([out] SPRECORESULTTIMES* pTimes);
+
+    HRESULT GetAlternates(
+                [in] ULONG ulStartElement,
+                [in] ULONG cElements,
+                [in] ULONG ulRequestCount,
+                [annotation("_Out_writes_to_(ulRequestCount,*pcPhrasesReturned)")] [out] ISpPhraseAlt** ppPhrases,
+                [out] ULONG* pcPhrasesReturned);
+
+    HRESULT GetAudio(
+                [in] ULONG ulStartElement,
+                [in] ULONG cElements,
+                [out] ISpStreamFormat** ppStream);
+    HRESULT SpeakAudio(
+                [in] ULONG ulStartElement,
+                [in] ULONG cElements,
+                [in] DWORD dwFlags, 
+                [out] ULONG* pulStreamNumber);
+    HRESULT Serialize(
+                [out] SPSERIALIZEDRESULT** ppCoMemSerializedResult);
+    HRESULT ScaleAudio(
+                [in] const GUID* pAudioFormatId, 
+                [in] const WAVEFORMATEX* pWaveFormatEx);
+    HRESULT GetRecoContext(
+                [out] ISpRecoContext** ppRecoContext);
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- Flags for CommitText
+typedef [hidden] enum SPCOMMITFLAGS
+{
+    SPCF_NONE                   = 0,
+    SPCF_ADD_TO_USER_LEXICON    = (1 << 0),
+    SPCF_DEFINITE_CORRECTION    = (1 << 1)
+} SPCOMMITFLAGS;
+
+[
+    object,
+    uuid(27CAC6C4-88F2-41f2-8817-0C95E59F1E6E),
+    helpstring("ISpRecoResult2 Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpRecoResult2 : ISpRecoResult
+{
+    // Does a basic Commit without updating the reco result
+    HRESULT CommitAlternate(
+                [in] ISpPhraseAlt* pPhraseAlt, 
+                [out] ISpRecoResult** ppNewResult);
+
+    // Commits some new text for recognizer learning
+    HRESULT CommitText(
+                [in] ULONG ulStartElement, 
+                [in] ULONG cElements, 
+                [annotation ("_In_opt_")] [in] LPCWSTR pszCorrectedData, 
+                [in] DWORD eCommitFlags); // SPCOMMITFLAGS
+
+    HRESULT SetTextFeedback(
+                [in, string] LPCWSTR pszFeedback,
+                [in] BOOL fSuccessful);
+}
+
+
+[
+    object,
+    uuid(AE39362B-45A8-4074-9B9E-CCF49AA2D0B6),
+    helpstring("ISpXMLRecoResult Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpXMLRecoResult : ISpRecoResult
+{
+    HRESULT GetXMLResult(
+                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult, 
+                [in] SPXMLRESULTOPTIONS Options);
+    HRESULT GetXMLErrorInfo(
+                [out] SPSEMANTICERRORINFO* pSemanticErrorInfo);
+};
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+
+typedef [hidden] struct tagSPTEXTSELECTIONINFO
+{
+    ULONG       ulStartActiveOffset;
+    ULONG       cchActiveChars;
+    ULONG       ulStartSelection;
+    ULONG       cchSelection;
+} SPTEXTSELECTIONINFO;
+
+
+typedef [hidden] enum SPWORDPRONOUNCEABLE
+{
+    SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE   = 0,
+    SPWP_UNKNOWN_WORD_PRONOUNCEABLE     = 1,
+    SPWP_KNOWN_WORD_PRONOUNCEABLE       = 2
+} SPWORDPRONOUNCEABLE;
+
+
+typedef [hidden] enum SPGRAMMARSTATE
+{
+    SPGS_DISABLED   = 0,
+    SPGS_ENABLED    = 1,
+    SPGS_EXCLUSIVE  = 3
+} SPGRAMMARSTATE;
+
+
+typedef [hidden] enum SPCONTEXTSTATE
+{
+    SPCS_DISABLED   = 0,
+    SPCS_ENABLED    = 1,
+} SPCONTEXTSTATE;
+
+
+typedef [hidden] enum SPRULESTATE
+{
+    SPRS_INACTIVE = 0,
+    SPRS_ACTIVE = 1,
+    SPRS_ACTIVE_WITH_AUTO_PAUSE = 3
+#if _SAPI_BUILD_VER >= 0x053
+    , 
+    SPRS_ACTIVE_USER_DELIMITED = 4
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPRULESTATE;
+
+const ULONGLONG SP_STREAMPOS_ASAP = 0;
+const ULONGLONG SP_STREAMPOS_REALTIME = -1;
+
+
+//--- ISpGrammarBuilder -------------------------------------------------------
+
+// Special transition types used only by AddRuleTransition
+
+cpp_quote("#define SPRULETRANS_TEXTBUFFER (SPSTATEHANDLE)(-1)")
+cpp_quote("#define SPRULETRANS_WILDCARD   (SPSTATEHANDLE)(-2)")
+cpp_quote("#define SPRULETRANS_DICTATION  (SPSTATEHANDLE)(-3)")
+
+
+typedef [hidden] enum SPGRAMMARWORDTYPE
+{
+    SPWT_DISPLAY,
+    SPWT_LEXICAL,
+    SPWT_PRONUNCIATION
+#if _SAPI_BUILD_VER >= 0x053
+    ,
+    SPWT_LEXICAL_NO_SPECIAL_CHARS
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPGRAMMARWORDTYPE;
+
+typedef [hidden] struct tagSPPROPERTYINFO
+{
+    LPCWSTR                 pszName;     
+    ULONG                   ulId;
+    LPCWSTR                 pszValue;
+    VARIANT                 vValue;     // Must be VT_BOOL, VT_I4, VT_R4, VT_R8, or VT_BYREF (only for dynamic grammars)
+} SPPROPERTYINFO;
+
+typedef [hidden] enum SPCFGRULEATTRIBUTES
+{
+    SPRAF_TopLevel      = (1 << 0),
+    SPRAF_Active        = (1 << 1),
+    SPRAF_Export        = (1 << 2),
+    SPRAF_Import        = (1 << 3),
+    SPRAF_Interpreter   = (1 << 4),
+    SPRAF_Dynamic       = (1 << 5),
+#if _SAPI_BUILD_VER >= 0x053
+    SPRAF_Root          = (1 << 6),
+#endif // _SAPI_BUILD_VER >= 0x053
+    
+    // The following flags are only valid at run-time as part of a rule state and
+    // are not valid to pass as part of a rule definition.
+    SPRAF_AutoPause     = (1 << 16)
+#if _SAPI_BUILD_VER >= 0x053
+    ,
+    SPRAF_UserDelimited = (1 << 17)
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPCFGRULEATTRIBUTES;
+
+[
+    object,
+    uuid(8137828F-591A-4A42-BE58-49EA7EBAAC68),
+    helpstring("ISpGrammarBuilder Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpGrammarBuilder : IUnknown
+{
+    HRESULT ResetGrammar(
+                [in] LANGID NewLanguage);
+    HRESULT GetRule(
+                [in] LPCWSTR pszRuleName,
+                [in] DWORD dwRuleId,
+                [in] DWORD dwAttributes,
+                [in] BOOL fCreateIfNotExist,
+                [out] SPSTATEHANDLE* phInitialState);
+    HRESULT ClearRule(
+                [in] SPSTATEHANDLE hState);
+    HRESULT CreateNewState(
+                [in] SPSTATEHANDLE hState,   
+                [out] SPSTATEHANDLE* phState);
+    HRESULT AddWordTransition(
+                [in] SPSTATEHANDLE hFromState,
+                [in] SPSTATEHANDLE hToState,
+                [annotation("_In_opt_")] [in] LPCWSTR psz, // If NULL then epsilon
+                [annotation("_In_opt_")] [in] LPCWSTR pszSeparators, // If NULL then psz points to a single word, else specifies valid separator characters
+                [in] SPGRAMMARWORDTYPE eWordType,
+                [in] float Weight,
+                [in] const SPPROPERTYINFO* pPropInfo);
+    HRESULT AddRuleTransition(
+                [in] SPSTATEHANDLE hFromState,
+                [in] SPSTATEHANDLE hToState,
+                [in] SPSTATEHANDLE hRule, // Must be the initial state of the rule
+                [in] float Weight,
+                [in] const SPPROPERTYINFO* pPropInfo);
+    HRESULT AddResource(
+                [in] SPSTATEHANDLE hRuleState,  // Any state handle in a rule is OK
+                [in] LPCWSTR pszResourceName,
+                [annotation("_In_opt_")] [in] LPCWSTR pszResourceValue);
+    HRESULT Commit(
+                [in] DWORD dwReserved);
+};
+
+// --- Options for Load methods on ISpRecoGrammar
+typedef [hidden] enum SPLOADOPTIONS
+{
+    SPLO_STATIC     = 0,
+    SPLO_DYNAMIC    = 1    
+} SPLOADOPTIONS;
+
+
+
+//--- ISpRecoGrammar -------------------------------------------------------
+[
+    object,
+    uuid(2177DB29-7F45-47D0-8554-067E91C80502),
+    helpstring("ISpRecoGrammar Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpRecoGrammar : ISpGrammarBuilder
+{
+    HRESULT GetGrammarId(
+                [out] ULONGLONG* pullGrammarId);
+    HRESULT GetRecoContext(
+                [annotation("_Outptr_")] [out] ISpRecoContext** ppRecoCtxt);
+
+    // Command and control interfaces
+    HRESULT LoadCmdFromFile(
+                [in, string] LPCWSTR pszFileName, 
+                [in] SPLOADOPTIONS Options);
+    HRESULT LoadCmdFromObject(
+                [in] REFCLSID rcid, 
+                [in, string] LPCWSTR pszGrammarName, 
+                [in] SPLOADOPTIONS Options);
+    HRESULT LoadCmdFromResource(
+                [in] HMODULE hModule,
+                [in, string] LPCWSTR pszResourceName,
+                [in, string] LPCWSTR pszResourceType,
+                [in] WORD wLanguage,
+                [in] SPLOADOPTIONS Options);
+    HRESULT LoadCmdFromMemory(
+                [in] const SPBINARYGRAMMAR* pGrammar, 
+                [in] SPLOADOPTIONS Options);
+    HRESULT LoadCmdFromProprietaryGrammar(
+                [in] REFGUID rguidParam,
+                [in, string] LPCWSTR pszStringParam,
+                [in] const void* pvDataPrarm,
+                [in] ULONG cbDataSize,
+                [in] SPLOADOPTIONS Options);
+    HRESULT SetRuleState(
+                [annotation("_In_opt_")] [in, string] LPCWSTR pszName, 
+                [in] void* pReserved,
+                [in] SPRULESTATE NewState);
+    HRESULT SetRuleIdState(
+                [in] ULONG ulRuleId, 
+                [in] SPRULESTATE NewState);
+
+    // Dictation / statistical language model
+    HRESULT LoadDictation(
+                [annotation("_In_opt_")] [in, string] LPCWSTR pszTopicName, 
+                [in] SPLOADOPTIONS Options);
+    HRESULT UnloadDictation();
+    HRESULT SetDictationState(
+                [in] SPRULESTATE NewState);
+
+    // Word sequence buffer
+    HRESULT SetWordSequenceData(
+                [annotation("_In_reads_opt_(cchText)")] [in] const WCHAR* pText, 
+                [in] ULONG cchText, 
+                [in] const SPTEXTSELECTIONINFO* pInfo);
+    HRESULT SetTextSelection(
+                [in] const SPTEXTSELECTIONINFO* pInfo);
+    HRESULT IsPronounceable(
+                [in, string] LPCWSTR pszWord, 
+                [out] SPWORDPRONOUNCEABLE* pWordPronounceable);
+    HRESULT SetGrammarState(
+                [in] SPGRAMMARSTATE eGrammarState);
+    HRESULT SaveCmd(
+                [in] IStream* pStream, 
+                [annotation ("_Outptr_opt_")] [out, optional] LPWSTR* ppszCoMemErrorText);
+    HRESULT GetGrammarState(
+                [out] SPGRAMMARSTATE* peGrammarState);
+};
+
+
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- ISpGrammarBuilder2 -------------------------------------------------------
+
+// Text Subset enumeration
+typedef enum SPMATCHINGMODE 
+{ 
+    AllWords = 0,
+    Subsequence = 1,
+    OrderedSubset = 3,
+    SubsequenceContentRequired = 5,
+    OrderedSubsetContentRequired = 7
+} SPMATCHINGMODE;
+
+// Phonetic alphabet supported
+typedef enum PHONETICALPHABET
+{
+    PA_Ipa   = 0,
+    PA_Ups   = 1,
+    PA_Sapi  = 2,
+}  PHONETICALPHABET;
+
+[
+    object,
+    uuid(8AB10026-20CC-4b20-8C22-A49C9BA78F60),
+    helpstring("ISpGrammarBuilder2 Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpGrammarBuilder2 : IUnknown
+{
+    HRESULT AddTextSubset(
+                [in] SPSTATEHANDLE hFromState, 
+                [in] SPSTATEHANDLE hToState, 
+                [in] LPCWSTR psz, 
+                [in] SPMATCHINGMODE eMatchMode);
+    HRESULT SetPhoneticAlphabet(
+                [in] PHONETICALPHABET phoneticALphabet);
+}
+
+//--- ISpRecoGrammar2 -------------------------------------------------------
+cpp_quote("#define SPRP_NORMAL 0")
+
+[
+    object,
+    uuid(4B37BC9E-9ED6-44a3-93D3-18F022B79EC3),
+    helpstring("ISpRecoGrammar2 Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpRecoGrammar2 : IUnknown
+{
+    HRESULT GetRules(
+                [out] SPRULE** ppCoMemRules, 
+                [out] UINT* puNumRules);
+    HRESULT LoadCmdFromFile2(
+                [in, string] LPCWSTR pszFileName,
+                [in] SPLOADOPTIONS Options,
+                [annotation("_In_opt_")] [in, string] LPCWSTR pszSharingUri,
+                [annotation("_In_opt_")] [in, string] LPCWSTR pszBaseUri);
+    HRESULT LoadCmdFromMemory2(
+                [in] const SPBINARYGRAMMAR* pGrammar,
+                [in] SPLOADOPTIONS Options,
+                [annotation("_In_opt_")] [in, string] LPCWSTR pszSharingUri,
+                [annotation("_In_opt_")] [in, string] LPCWSTR pszBaseUri);
+    HRESULT SetRulePriority(
+                [in, string] LPCWSTR pszRuleName, 
+                [in] ULONG ulRuleId, 
+                [in] int nRulePriority);
+    HRESULT SetRuleWeight(
+                [in, string] LPCWSTR pszRuleName, 
+                [in] ULONG ulRuleId, 
+                [in] float flWeight);
+    HRESULT SetDictationWeight(
+                [in] float flWeight);
+    HRESULT SetGrammarLoader(
+                [in] ISpeechResourceLoader* pLoader);
+    HRESULT SetSMLSecurityManager(
+                [in] IInternetSecurityManager* pSMLSecurityManager);
+}
+
+//--- ISpeechResourceLoader -------------------------------------------------------
+[
+    object,
+    uuid(B9AC5783-FCD0-4b21-B119-B4F8DA8FD2C3),
+    helpstring("ISpeechResourceLoader Interface"),
+    pointer_default(unique),
+    local,
+    dual,
+]
+interface ISpeechResourceLoader : IDispatch
+{
+    [id(1)]
+    HRESULT LoadResource(
+                [in] BSTR bstrResourceUri, 
+                [in] VARIANT_BOOL fAlwaysReload, 
+                [out] IUnknown** pStream, 
+                [annotation ("_Out_opt_")] [out] BSTR* pbstrMIMEType, 
+                [out] VARIANT_BOOL* pfModified, 
+                [annotation ("_Out_opt_")] [out] BSTR* pbstrRedirectUrl);
+    [id(2)]
+    HRESULT GetLocalCopy(
+                [in] BSTR bstrResourceUri, 
+                [out] BSTR* pbstrLocalPath,
+                [annotation ("_Out_opt_")] [out] BSTR* pbstrMIMEType,
+                [annotation ("_Out_opt_")] [out] BSTR* pbstrRedirectUrl);
+    [id(3)]
+    HRESULT ReleaseLocalCopy(
+                [in] BSTR pbstrLocalPath);
+}
+
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+//--- ISpRecoContext --------------------------------------------------------
+typedef [restricted, hidden] struct SPRECOCONTEXTSTATUS
+{
+    SPINTERFERENCE  eInterference;
+    WCHAR           szRequestTypeOfUI[255]; // If first byte null, there is no UI request
+    DWORD           dwReserved1;
+    DWORD           dwReserved2;
+} SPRECOCONTEXTSTATUS;
+
+typedef [hidden] enum SPBOOKMARKOPTIONS
+{
+    SPBO_NONE       = 0,
+    SPBO_PAUSE      = (1 << 0)
+#if _SAPI_BUILD_VER >= 0x053
+    ,
+    SPBO_AHEAD      = (1 << 1),
+    SPBO_TIME_UNITS = (1 << 2)
+#endif // _SAPI_BUILD_VER >= 0x053
+} SPBOOKMARKOPTIONS;
+
+
+typedef [hidden] enum SPAUDIOOPTIONS
+{
+    SPAO_NONE           = 0,
+    SPAO_RETAIN_AUDIO   = (1 << 0)
+} SPAUDIOOPTIONS;
+
+[
+    object,
+    uuid(F740A62F-7C15-489E-8234-940A33D9272D),
+    helpstring("ISpRecoContext Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpRecoContext : ISpEventSource
+{
+    HRESULT GetRecognizer(
+                [out] ISpRecognizer** ppRecognizer);
+    HRESULT CreateGrammar(
+                [in] ULONGLONG ullGrammarId, 
+                [out] ISpRecoGrammar** ppGrammar);    
+    HRESULT GetStatus(
+                [out] SPRECOCONTEXTSTATUS* pStatus);
+    HRESULT GetMaxAlternates(
+                [in] ULONG* pcAlternates);
+    HRESULT SetMaxAlternates(
+                [in] ULONG cAlternates);
+    HRESULT SetAudioOptions(
+                [in] SPAUDIOOPTIONS Options, 
+                [in] const GUID* pAudioFormatId, 
+                [in] const WAVEFORMATEX* pWaveFormatEx);
+    HRESULT GetAudioOptions(
+                [in] SPAUDIOOPTIONS* pOptions, 
+                [out] GUID* pAudioFormatId, 
+                [out] WAVEFORMATEX** ppCoMemWFEX);
+    HRESULT DeserializeResult(
+                [in] const SPSERIALIZEDRESULT* pSerializedResult,
+                [out] ISpRecoResult** ppResult);
+    HRESULT Bookmark(
+                [in] SPBOOKMARKOPTIONS Options, 
+                [in] ULONGLONG ullStreamPosition, 
+                [in] LPARAM lparamEvent);
+    HRESULT SetAdaptationData(
+                [in, string] LPCWSTR pAdaptationData, 
+                [in] const ULONG cch);
+    HRESULT Pause( 
+                [in] DWORD dwReserved );
+    HRESULT Resume( 
+                [in] DWORD dwReserved );
+    HRESULT SetVoice(
+                [in] ISpVoice* pVoice, 
+                [in] BOOL fAllowFormatChanges);
+    HRESULT GetVoice(
+                [out] ISpVoice** ppVoice);
+    HRESULT SetVoicePurgeEvent(
+                [in] ULONGLONG ullEventInterest);
+    HRESULT GetVoicePurgeEvent(
+                [out] ULONGLONG* pullEventInterest);
+    HRESULT SetContextState(
+                [in] SPCONTEXTSTATE eContextState);
+    HRESULT GetContextState(
+                [out] SPCONTEXTSTATE* peContextState);
+};
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- ISpRecoContext2 -------------------------------------------------------
+typedef [hidden] enum SPGRAMMAROPTIONS
+{
+    SPGO_SAPI               = 0x0001,           // Enable SAPI grammar support.
+    SPGO_SRGS               = 0x0002,           // Enable W3C grammar support.
+    SPGO_UPS                = 0x0004,           // IPA phonemes for pronuncation if set.
+    SPGO_SRGS_MS_SCRIPT    = 0x0008,           // format="semantic-ms/1.0"
+    SPGO_SRGS_W3C_SCRIPT    = 0x0100,           // W3C format="semantic/1.0"
+    SPGO_SRGS_STG_SCRIPT    = 0x0200,           // Strongly typed grammars
+    SPGO_SRGS_SCRIPT        = SPGO_SRGS | SPGO_SRGS_MS_SCRIPT | SPGO_SRGS_W3C_SCRIPT | SPGO_SRGS_STG_SCRIPT, // Enable scripting support for SRGS grammar.
+
+    // Additional options to control the location where we load grammars.
+    SPGO_FILE               = 0x0010,           // Local file / UNC file downloading only
+    SPGO_HTTP               = 0x0020,           // Http / Https downloading only
+    SPGO_RES                = 0x0040,           // Resource file loading (this affects importing only, not LoadCmdFromResource)
+    SPGO_OBJECT             = 0x0080,           // Loading from COM objet (this affects importing only, not LoadCmdFromObject)
+
+    SPGO_DEFAULT            = 0x03FB,           // Default = SPGO_SAPI | SPGO_SRGS | SPGO_SRGS_SCRIPT | SPGO_FILE | SPGO_HTTP | SPGO_RES | SPGO_OBJECT    
+    SPGO_ALL                = 0x03FF            // All options
+} SPGRAMMAROPTIONS;
+
+typedef [hidden] enum SPADAPTATIONSETTINGS
+{
+    SPADS_Default                   = 0x0000,
+    SPADS_CurrentRecognizer         = 0x0001,
+    SPADS_RecoProfile               = 0x0002,
+    SPADS_Immediate                 = 0x0004,
+    SPADS_Reset                     = 0x0008,
+    SPADS_HighVolumeDataSource      = 0x0010
+} SPADAPTATIONSETTINGS;
+
+
+typedef [hidden] enum SPADAPTATIONRELEVANCE
+{
+    SPAR_Unknown        = 0,
+    SPAR_Low            = 1,
+    SPAR_Medium         = 2,
+    SPAR_High           = 3
+} SPADAPTATIONRELEVANCE;
+
+
+[
+    object,
+    uuid(BEAD311C-52FF-437f-9464-6B21054CA73D),
+    helpstring("ISpRecoContext2 Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpRecoContext2 : IUnknown
+{
+    HRESULT SetGrammarOptions(
+                [in] DWORD eGrammarOptions); // SPGRAMMAROPTIONS
+    HRESULT GetGrammarOptions(
+                [out] DWORD* peGrammarOptions); // SPGRAMMAROPTIONS
+    HRESULT SetAdaptationData2(
+                [in] LPCWSTR pAdaptationData, 
+                [in] const ULONG cch, 
+                [in] LPCWSTR pTopicName, 
+                [in] DWORD eAdaptationSettings, // SPADAPTATIONSETTINGS
+                [in] SPADAPTATIONRELEVANCE eRelevance);
+}
+#endif // _SAPI_BUILD_VER >= 0x053
+
+//--- ISpProperties ------------------------------------------------------------
+[
+    object,
+    uuid(5B4FB971-B115-4DE1-AD97-E482E3BF6EE4),
+    helpstring("ISpProperties Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpProperties : IUnknown
+{
+    HRESULT SetPropertyNum(
+                [in] LPCWSTR pName, 
+                [in] LONG lValue );
+    HRESULT GetPropertyNum(
+                [in] LPCWSTR pName, 
+                [out] LONG* plValue );
+    HRESULT SetPropertyString(
+                [in] LPCWSTR pName, 
+                [in] LPCWSTR pValue );
+    HRESULT GetPropertyString(
+                [in] LPCWSTR pName, 
+                [annotation("_Outptr_"), out, string] LPWSTR* ppCoMemValue );
+};
+
+const ULONG SP_MAX_LANGIDS = 20;        // Engine can support up to 20 languages at once
+
+//--- ISpRecognizer ---------------------------------------------------------
+typedef [restricted, hidden] struct SPRECOGNIZERSTATUS
+{
+    SPAUDIOSTATUS   AudioStatus;
+    ULONGLONG       ullRecognitionStreamPos;
+    ULONG           ulStreamNumber;
+    ULONG           ulNumActive;    
+    CLSID           clsidEngine;
+    ULONG           cLangIDs;
+    LANGID          aLangID[SP_MAX_LANGIDS];
+    ULONGLONG       ullRecognitionStreamTime;
+} SPRECOGNIZERSTATUS;
+
+typedef [hidden] enum SPWAVEFORMATTYPE
+{
+    SPWF_INPUT,        // WAVEFORMATEX of audio input source
+    SPWF_SRENGINE      // WAVEFORMATEX of the audio received by the SR engine
+} SPSTREAMFORMATTYPE;
+
+typedef [hidden] enum SPRECOSTATE
+{
+    SPRST_INACTIVE,             // Audio deactivated
+    SPRST_ACTIVE,               // Audio running only if one or more rules are active
+    SPRST_ACTIVE_ALWAYS,        // Audio running regardless of rule state
+    SPRST_INACTIVE_WITH_PURGE,  // State will be set to inactive, but all active audio purged
+    SPRST_NUM_STATES
+} SPRECOSTATE;
+
+
+
+
+[
+    object,
+    uuid(C2B5F241-DAA0-4507-9E16-5A1EAA2B7A5C),
+    helpstring("ISpRecognizer Interface"),
+    pointer_default(unique),
+    local,
+    restricted
+]
+interface ISpRecognizer : ISpProperties
+{
+    HRESULT SetRecognizer(
+                [in] ISpObjectToken* pRecognizer);
+    HRESULT GetRecognizer(
+                [out] ISpObjectToken** ppRecognizer);
+    HRESULT SetInput(
+                [annotation ("_In_opt_")] [in] IUnknown* pUnkInput, 
+                [in] BOOL fAllowFormatChanges);
+    HRESULT GetInputObjectToken(
+                [annotation("_Outptr_")] [out] ISpObjectToken** ppToken);
+    HRESULT GetInputStream(
+                [annotation("_Outptr_")] [out] ISpStreamFormat** ppStream);
+    HRESULT CreateRecoContext(
+                [annotation("_Outptr_")] [out] ISpRecoContext** ppNewCtxt);
+    HRESULT GetRecoProfile(
+                [annotation("_Outptr_")] [out] ISpObjectToken** ppToken);
+    HRESULT SetRecoProfile(
+                [in] ISpObjectToken* pToken);
+    HRESULT IsSharedInstance(void);
+    HRESULT GetRecoState(
+                [out] SPRECOSTATE* pState);
+    HRESULT SetRecoState(
+                [in] SPRECOSTATE NewState);
+    HRESULT GetStatus(
+                [out] SPRECOGNIZERSTATUS* pStatus);
+    HRESULT GetFormat(
+                [in] SPSTREAMFORMATTYPE WaveFormatType, 
+                [out] GUID* pFormatId, 
+                [annotation("_Outptr_")] [out] WAVEFORMATEX** ppCoMemWFEX);
+    [local] HRESULT IsUISupported(
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData,
+                [out] BOOL* pfSupported);
+    [local] HRESULT DisplayUI(
+                [in] HWND hwndParent,
+                [annotation("_In_opt_")] [in] LPCWSTR pszTitle,
+                [in] LPCWSTR pszTypeOfUI,
+                [in] void* pvExtraData,
+                [in] ULONG cbExtraData);
+    HRESULT EmulateRecognition(
+                [in] ISpPhrase* pPhrase);
+};
+
+
+#if _SAPI_BUILD_VER >= 0x053
+[
+    object,
+    uuid(21B501A0-0EC7-46c9-92C3-A2BC784C54B9),
+    helpstring("ISpSerializeState Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface ISpSerializeState : IUnknown
+{
+    HRESULT GetSerializedState(
+                [out] BYTE** ppbData, 
+                [out] ULONG* pulSize, 
+                [in] DWORD dwReserved);
+    HRESULT SetSerializedState(
+                [in] BYTE* pbData, 
+                [in] ULONG ulSize, 
+                [in] DWORD dwReserved);
+};
+
+
+//--- ISpRecognizer2 -------------------------------------------------------
+[
+    object,
+    uuid(8FC6D974-C81E-4098-93C5-0147F61ED4D3),
+    helpstring("ISpRecognizer2 Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpRecognizer2 : IUnknown
+{
+    HRESULT EmulateRecognitionEx(
+                [in] ISpPhrase* pPhrase, 
+                [in] DWORD dwCompareFlags);
+    HRESULT SetTrainingState(
+                [in] BOOL fDoingTraining, 
+                [in] BOOL fAdaptFromTrainingData);
+    HRESULT ResetAcousticModelAdaptation();
+}
+
+#if _SAPI_BUILD_VER >= 0x054
+typedef enum SPCATEGORYTYPE
+{
+    SPCT_COMMAND,       // Command category
+    SPCT_DICTATION,     // Dictation category
+    SPCT_SLEEP,         // Sleep category
+    SPCT_SUB_COMMAND,   // Command sub-category
+    SPCT_SUB_DICTATION  // Dictation sub-category
+} SPCATEGORYTYPE;
+
+//--- ISpRecoCategory ---------------------------------------------------
+[
+    object,
+    uuid(DA0CD0F9-14A2-4f09-8C2A-85CC48979345),
+    helpstring("ISpRecoCategory Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpRecoCategory : IUnknown
+{
+    HRESULT GetType(
+                [out] SPCATEGORYTYPE* peCategoryType);
+}
+
+//--- ISpRecognizer3 ---------------------------------------------------
+[
+    object,
+    uuid(DF1B943C-5838-4AA2-8706-D7CD5B333499),
+    helpstring("ISpRecognizer3 Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpRecognizer3 : IUnknown
+{
+    HRESULT GetCategory(
+                [in] SPCATEGORYTYPE categoryType, 
+                [annotation("_Outptr_")] [out] ISpRecoCategory** ppCategory);
+    HRESULT SetActiveCategory(
+                [in] ISpRecoCategory* pCategory);
+    HRESULT GetActiveCategory(
+                [annotation("_Outptr_")] [out] ISpRecoCategory** ppCategory);
+}
+#endif // _SAPI_BUILD_VER >= 0x054
+
+//--- ISpEnginePronunciation -------------------------------------------------------
+
+
+typedef [restricted, hidden] struct SPNORMALIZATIONLIST
+{
+    ULONG ulSize;
+    WCHAR** ppszzNormalizedList;
+} SPNORMALIZATIONLIST;
+
+[
+    object,
+    uuid(C360CE4B-76D1-4214-AD68-52657D5083DA),
+    helpstring("ISpEnginePronunciation Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface ISpEnginePronunciation : IUnknown
+{
+    HRESULT Normalize(
+                [in, string] LPCWSTR pszWord,
+                [in, string] LPCWSTR pszLeftContext,
+                [in, string] LPCWSTR pszRightContext,
+                [in] LANGID LangID,
+                [out] SPNORMALIZATIONLIST* pNormalizationList);
+    HRESULT GetPronunciations([in, string] LPCWSTR pszWord,
+                [in, string] LPCWSTR pszLeftContext,
+                [in, string] LPCWSTR pszRightContext,
+                [in] LANGID LangID,
+                [in, out] SPWORDPRONUNCIATIONLIST* pEnginePronunciationList);
+}
+
+//--- ISpDisplayAlternates ---------------------------------------------------------
+
+typedef [restricted, hidden] struct SPDISPLAYTOKEN
+{
+    const WCHAR*    pszLexical;
+    const WCHAR*    pszDisplay;
+    BYTE            bDisplayAttributes;
+} SPDISPLAYTOKEN;
+
+typedef [restricted, hidden] struct SPDISPLAYPHRASE
+{
+    ULONG            ulNumTokens;
+    SPDISPLAYTOKEN*  pTokens;
+} SPDISPLAYPHRASE;
+
+[
+    object,
+    uuid(C8D7C7E2-0DDE-44b7-AFE3-B0C991FBEB5E),
+    helpstring("ISpDisplayAlternates Interface"),
+    pointer_default(unique),
+    local
+]
+interface ISpDisplayAlternates : IUnknown
+{
+    HRESULT GetDisplayAlternates(
+                [in] const SPDISPLAYPHRASE* pPhrase, 
+                [in] ULONG cRequestCount, 
+                [out] SPDISPLAYPHRASE** ppCoMemPhrases,
+                [out] ULONG* pcPhrasesReturned);
+    HRESULT SetFullStopTrailSpace(
+                [in] ULONG ulTrailSpace);
+}
+
+#endif // _SAPI_BUILD_VER >= 0x053
+
+
+//
+//=== CoClass definitions =====================================================
+//
+[
+    helpstring("Microsoft Speech Object Library"),
+    uuid(C866CA3A-32F7-11D2-9602-00C04F8EE628),
+    version(5.4)
+]
+library SpeechLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+#ifdef SAPI_AUTOMATION
+    #include "sapiaut.idl"
+#endif
+
+    //--- SpNotifyTranslator ------------------------------------------------
+    [
+        uuid(E2AE5372-5D40-11D2-960E-00C04F8EE628),
+        helpstring("SpNotify"),
+        restricted,
+        hidden
+    ]
+    coclass SpNotifyTranslator
+    {
+        interface ISpNotifyTranslator;
+    }
+
+    //--- SpObjectTokenCategory ---------------------------------------------
+    [
+        uuid(A910187F-0C7A-45AC-92CC-59EDAFB77B53),
+        helpstring("SpObjectTokenCategory Class"),
+    ]
+    coclass SpObjectTokenCategory
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechObjectTokenCategory;
+#endif
+        interface ISpObjectTokenCategory;
+    }
+    //--- SpObjectToken ---------------------------------------------
+    [
+        uuid(EF411752-3736-4CB4-9C8C-8EF4CCB58EFE),
+        helpstring("SpObjectToken Class")
+    ]
+    coclass SpObjectToken
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechObjectToken;
+#endif
+        interface ISpObjectToken;
+    }
+
+    //--- SpResourceManager -------------------------------------------------
+    [
+        uuid(96749373-3391-11D2-9EE3-00C04F797396),
+        helpstring("SpResourceManger"),
+        restricted,
+        hidden
+    ]
+    coclass SpResourceManager
+    {
+        [default] interface ISpResourceManager;
+    };
+
+    //--- SpStreamFormatConverter -------------------------------------------
+    [
+        uuid(7013943A-E2EC-11D2-A086-00C04F8EF9B5),
+        helpstring("FormatConverter Class"),
+        restricted,
+        hidden
+    ]
+    coclass SpStreamFormatConverter
+    {
+        [default] interface ISpStreamFormatConverter;
+    };
+
+    //--- SpMMAudioEnum -----------------------------------------------------
+    [
+        uuid(AB1890A0-E91F-11D2-BB91-00C04F8EE6C0),
+        helpstring("SpMMAudioEnum Class"),
+        restricted,
+        hidden
+    ]
+    coclass SpMMAudioEnum
+    {
+        interface IEnumSpObjectTokens;
+    };
+
+    //--- SpMMAudioIn -------------------------------------------------------
+    [
+        uuid(CF3D2E50-53F2-11D2-960C-00C04F8EE628),
+        helpstring("SpMMAudioIn Class")
+    ]
+    coclass SpMMAudioIn
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechMMSysAudio;
+#endif
+        interface ISpEventSource;
+        interface ISpEventSink;
+        interface ISpObjectWithToken;
+        interface ISpMMSysAudio;
+    };
+
+    //--- SpMMAudioOut ------------------------------------------------------
+    [
+        uuid(A8C680EB-3D32-11D2-9EE7-00C04F797396),
+        helpstring("SpMMAudioOut Class")
+    ]
+    coclass SpMMAudioOut
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechMMSysAudio;
+#endif
+        interface ISpEventSource;
+        interface ISpEventSink;
+        interface ISpObjectWithToken;
+        interface ISpMMSysAudio;
+    };
+
+    //--- SpStream ----------------------------------------------------------
+    [
+        uuid(715D9C59-4442-11D2-9605-00C04F8EE628),
+        helpstring("SpStream Class"),
+        restricted,
+        hidden
+    ]
+    coclass SpStream
+    {
+        interface ISpStream;
+    };
+
+    //--- SpVoice -----------------------------------------------------------
+    [
+        uuid(96749377-3391-11D2-9EE3-00C04F797396),
+        helpstring("SpVoice Class")
+    ]
+    coclass SpVoice
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechVoice;
+#endif
+        interface ISpVoice;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+#ifdef SAPI_AUTOMATION
+        [default, source] dispinterface _ISpeechVoiceEvents;
+#endif
+    };
+
+    //--- SpSharedRecoContext -----------------------------------------------
+    [
+        uuid(47206204-5ECA-11D2-960F-00C04F8EE628),
+        helpstring("SpSharedRecoContext Class")
+    ]
+    coclass SpSharedRecoContext
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechRecoContext;
+#endif
+        interface ISpRecoContext;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpRecoContext2;
+        interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+#ifdef SAPI_AUTOMATION
+        [default, source] dispinterface _ISpeechRecoContextEvents;
+#endif
+    };
+
+    //--- SpInprocRecognizer ------------------------------------------------
+    [
+        uuid(41B89B6B-9399-11D2-9623-00C04F8EE628),
+        helpstring("SpInprocRecognizer Class")
+    ]
+    coclass SpInprocRecognizer
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechRecognizer;
+#endif
+        interface ISpRecognizer;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpRecognizer2;
+#if _SAPI_BUILD_VER >= 0x054
+        interface ISpRecognizer3;
+#endif // _SAPI_BUILD_VER >= 0x054
+        interface ISpSerializeState;
+#endif // _SAPI_BUILD_VER >= 0x053
+    };
+
+    //--- SpSharedRecognizer ----------------------------------------------
+    [
+        uuid(3BEE4890-4FE9-4A37-8C1E-5E7E12791C1F),
+        helpstring("SpSharedRecognizer Class")
+    ]
+    coclass SpSharedRecognizer
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechRecognizer;
+#endif
+        interface ISpRecognizer;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpRecognizer2;
+#if _SAPI_BUILD_VER >= 0x054
+        interface ISpRecognizer3;
+#endif // _SAPI_BUILD_VER >= 0x054
+        interface ISpSerializeState;
+#endif // _SAPI_BUILD_VER >= 0x053
+    };
+
+    //--- SpLexicon ----------------------------------------------------------
+    [
+        uuid(0655E396-25D0-11D3-9C26-00C04F8EF87C),
+        helpstring("SpLexicon Class")
+    ]
+    coclass SpLexicon
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechLexicon;
+#endif
+        interface ISpLexicon;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+    };
+
+    //--- SpUnCompressedLexicon ---------------------------------------------------
+    [
+        uuid(C9E37C15-DF92-4727-85D6-72E5EEB6995A),
+        helpstring("SpUnCompressedLexicon Class")
+    ]
+    coclass SpUnCompressedLexicon
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechLexicon;
+#endif
+        interface ISpLexicon;
+        interface ISpObjectWithToken;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+    };
+    
+    //--- SpCompressedLexicon ---------------------------------------------------
+    [
+        uuid(90903716-2F42-11D3-9C26-00C04F8EF87C),
+        helpstring("SpCompressedLexicon Class"),
+        restricted,
+        hidden
+    ]
+    coclass SpCompressedLexicon
+    {
+        [default] interface ISpLexicon;
+        interface ISpObjectWithToken;
+    };
+	
+#if _SAPI_BUILD_VER >= 0x053
+	//--- SpShortcut ---------------------------------------------------
+	[
+        uuid(0D722F1A-9FCF-4E62-96D8-6DF8F01A26AA),
+        helpstring("SpShortcut Class")
+    ]
+    coclass SpShortcut
+    {
+        interface ISpShortcut;
+        interface ISpObjectWithToken;
+    };
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    //--- SpPhoneConverter ------------------------------------------------
+    [
+        uuid(9185F743-1143-4C28-86B5-BFF14F20E5C8),
+        helpstring("SpPhoneConverter Class")
+    ]
+    coclass SpPhoneConverter
+    {
+#ifdef SAPI_AUTOMATION
+        [default] interface ISpeechPhoneConverter;
+#endif
+
+        interface ISpPhoneConverter;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+    };
+
+#if _SAPI_BUILD_VER >= 0x053
+//--- SpPhoneticAlphabetConverter ------------------------------------------------
+    [
+        uuid(4F414126-DFE3-4629-99EE-797978317EAD),
+        helpstring("SpPhoneticAlphabetConverter Class")
+    ]
+    coclass SpPhoneticAlphabetConverter
+    {
+        interface ISpPhoneticAlphabetConverter;
+    };
+#endif // _SAPI_BUILD_VER >= 0x053
+
+    //--- SpNullPhoneConverter ------------------------------------------------
+    [
+        uuid(455F24E9-7396-4A16-9715-7C0FDBE3EFE3),
+        helpstring("SpNullPhoneConverter Class"),
+        restricted,
+        hidden
+    ]
+    coclass SpNullPhoneConverter
+    {
+        [default] interface ISpPhoneConverter;
+    };
+
+#ifdef SAPI_AUTOMATION
+
+    //--- SpTextSelectionInformation ------------------------------------------------
+    [
+        uuid(0F92030A-CBFD-4AB8-A164-FF5985547FF6),
+        helpstring("SpTextSelectionInformation Class"),
+    ]
+    coclass SpTextSelectionInformation
+    {
+        [default] interface ISpeechTextSelectionInformation;
+    };
+
+    //--- SpPhraseInfoBuilder ------------------------------------------------
+    [
+        uuid(C23FC28D-C55F-4720-8B32-91F73C2BD5D1),
+        helpstring("SpPhraseInfoBuilder Class"),
+    ]
+    coclass SpPhraseInfoBuilder
+    {
+        [default] interface ISpeechPhraseInfoBuilder;
+    };
+
+    //--- SpAudioFormat ------------------------------------------------
+    [
+        uuid(9EF96870-E160-4792-820D-48CF0649E4EC),
+        helpstring("SpAudioFormat Class"),
+    ]
+    coclass SpAudioFormat
+    {
+        [default] interface ISpeechAudioFormat;
+    };
+
+    //--- SpWaveFormatEx ------------------------------------------------
+    [
+        uuid(C79A574C-63BE-44b9-801F-283F87F898BE),
+        helpstring("SpWaveFormatEx Class"),
+    ]
+    coclass SpWaveFormatEx
+    {
+        [default] interface ISpeechWaveFormatEx;
+    };
+
+    //--- SpInProcRecoContext -----------------------------------------------
+    [
+        uuid(73AD6842-ACE0-45E8-A4DD-8795881A2C2A),
+        helpstring("SpInProcRecoContext Class")
+    ]
+    coclass SpInProcRecoContext
+    {
+        [default] interface ISpeechRecoContext;
+        interface ISpRecoContext;
+#if _SAPI_BUILD_VER >= 0x053
+        interface ISpRecoContext2;
+        interface ISpPhoneticAlphabetSelection;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+        [default, source] dispinterface _ISpeechRecoContextEvents;
+    };
+
+    //--- SpCustomStream ------------------------------------------------
+    [
+        uuid(8DBEF13F-1948-4aa8-8CF0-048EEBED95D8),
+        helpstring("SpCustomStream Class"),
+    ]
+    coclass SpCustomStream
+    {
+        [default] interface ISpeechCustomStream;
+        interface ISpStream;
+    };
+
+    //--- SpFileStream ------------------------------------------------
+    [
+        uuid(947812B3-2AE1-4644-BA86-9E90DED7EC91),
+        helpstring("SpFileStream Class"),
+    ]
+    coclass SpFileStream
+    {
+        [default] interface ISpeechFileStream;
+        interface ISpStream;
+    };
+
+    //--- SpMemoryStream ------------------------------------------------
+    [
+        uuid(5FB7EF7D-DFF4-468a-B6B7-2FCBD188F994),
+        helpstring("SpMemoryStream Class"),
+    ]
+    coclass SpMemoryStream
+    {
+        [default] interface ISpeechMemoryStream;
+        interface ISpStream;
+    };
+
+#if _SAPI_BUILD_VER >= 0x053
+    interface ISpXMLRecoResult;
+    interface ISpRecoGrammar2;
+    interface ISpeechResourceLoader;
+#endif // _SAPI_BUILD_VER >= 0x053
+
+#endif // SAPI_AUTOMATION
+}
+
+
+// This must be at the end of this file
+#if _SAPI_BUILD_VER >= 0x054
+cpp_quote("#elif _SAPI_VER >= 0x053")
+cpp_quote("#include \"sapi53.h\"")
+cpp_quote("#else // _SAPI_VER < 0x053")
+cpp_quote("#include \"sapi51.h\"")
+cpp_quote("#endif  // _SAPI_VER >= 0x054")
+#endif
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

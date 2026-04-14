@@ -1,0 +1,124 @@
+/*************************************************************
+*                                                            *
+*   Copyright (C) Microsoft Corporation. All rights reserved.*
+*                                                            *
+*************************************************************/
+cpp_quote("#pragma warning(disable: 4995)") // MDAG COM API deprecation warning
+
+cpp_quote("#include <winapifamily.h>")
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+typedef struct _IsolatedAppLauncherTelemetryParameters
+{
+    BOOL EnableForLaunch;   // When set, call specific data will be used for telemetry.
+    GUID CorrelationGUID;   // Data for telemetry.
+} IsolatedAppLauncherTelemetryParameters;
+cpp_quote("#pragma deprecated(IsolatedAppLauncherTelemetryParameters)")
+
+[
+    object,
+    uuid(F686878F-7B42-4CC4-96FB-F4F3B6E3D24D),
+]
+interface IIsolatedAppLauncher : IUnknown
+{
+    HRESULT Launch(
+        [in, string] LPCWSTR appUserModelId, 
+        [in, string] LPCWSTR arguments, 
+        [in] const IsolatedAppLauncherTelemetryParameters *telemetryParameters);
+}
+cpp_quote("#pragma deprecated(IIsolatedAppLauncher)")
+
+[
+    uuid(87CF5084-29D4-4C9B-9222-9A56E786EB99),
+    version(1.0),
+]
+
+library IsolatedAppLauncherLibrary
+{
+    [
+        uuid(BC812430-E75E-4FD1-9641-1F9F1E2D9A1F),
+    ]
+    coclass IsolatedAppLauncher
+    {
+        [default]
+        interface IIsolatedAppLauncher;
+    };
+}
+cpp_quote("#pragma deprecated(IsolatedAppLauncherLibrary)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("__declspec(deprecated(\"IsProcessInWDAGContainer is deprecated and might not work on all platforms. For more info, see MSDN.\"))")
+cpp_quote("STDAPI IsProcessInWDAGContainer(_In_ PVOID Reserved, _Out_ BOOL * isProcessInWDAGContainer);")
+//cpp_quote("#pragma deprecated(IsProcessInWDAGContainer)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)")  
+
+cpp_quote("__declspec(deprecated(\"IsProcessInIsolatedContainer is deprecated and might not work on all platforms. For more info, see MSDN.\"))")
+cpp_quote("STDAPI IsProcessInIsolatedContainer(_Out_ BOOL *isProcessInIsolatedContainer);")
+//cpp_quote("#pragma deprecated(IsProcessInIsolatedContainer)")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_NI)")
+[
+    object,
+    uuid(1aa24232-9a91-4201-88cb-122f9d6522e0)
+]
+
+interface IIsolatedProcessLauncher : IUnknown
+{
+    HRESULT LaunchProcess(
+        [in, string] LPCWSTR process, 
+        [in, string] LPCWSTR arguments,
+        [in, string] LPCWSTR workingDirectory);
+
+    /*
+      ShareDirectory
+        This API will create/resume the container if it isn't already running.
+        Re-sharing a folder is a no-op. (Unspecified behavior if the readOnly
+          flag changes though).
+     */
+    HRESULT ShareDirectory(
+        [in, string] LPCWSTR hostPath,
+        [in, string] LPCWSTR containerPath,
+        [in] BOOL readOnly);
+
+    /*
+      GetContainerGuid
+        This will fail if the container hasn't been created yet.
+     */
+    HRESULT GetContainerGuid(
+        [out] GUID* guid);
+
+    HRESULT AllowSetForegroundAccess(
+        [in] UINT pid);
+
+    HRESULT IsContainerRunning([out] BOOL *running);
+}
+cpp_quote("#pragma deprecated(IIsolatedProcessLauncher)")
+
+[
+    object,
+    uuid(780e4416-5e72-4123-808e-66dc6479feef)
+]
+
+interface IIsolatedProcessLauncher2 : IIsolatedProcessLauncher
+{
+    HRESULT LaunchProcess2(
+        [in, string] LPCWSTR process, 
+        [in, string] LPCWSTR arguments,
+        [in, string] LPCWSTR workingDirectory,
+        [in] REFGUID correlationGuid);
+}
+cpp_quote("#pragma deprecated(IIsolatedProcessLauncher2)")
+cpp_quote("#endif // NTDDI_WIN10_NI")

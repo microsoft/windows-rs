@@ -1,0 +1,689 @@
+// bitset standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _BITSET_
+#define _BITSET_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <__msvc_bit_utils.hpp>
+#include <iosfwd>
+#include <xstring>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+#ifndef _STD_BITSET_TO_STREAM_STACK_RESERVATION
+#define _STD_BITSET_TO_STREAM_STACK_RESERVATION 128
+#endif // !defined(_STD_BITSET_TO_STREAM_STACK_RESERVATION)
+
+#if _USE_STD_VECTOR_ALGORITHMS
+// These bitset functions sometimes assume that the bit array has zero padding to a multiple of 2 or 4 bytes.
+// The assumptions hold true even for the vNext suggestion to use smaller types for small bitsets (see GH-1498)
+// due to vectorization thresholds.
+
+extern "C" {
+__declspec(noalias) void __stdcall __std_bitset_to_string_1(
+    char* _Dest, const void* _Src, size_t _Size_bits, char _Elem0, char _Elem1) noexcept;
+__declspec(noalias) void __stdcall __std_bitset_to_string_2(
+    wchar_t* _Dest, const void* _Src, size_t _Size_bits, wchar_t _Elem0, wchar_t _Elem1) noexcept;
+__declspec(noalias) bool __stdcall __std_bitset_from_string_1(void* _Dest, const char* _Src, size_t _Size_bytes,
+    size_t _Size_bits, size_t _Size_chars, char _Elem0, char _Elem1) noexcept;
+__declspec(noalias) bool __stdcall __std_bitset_from_string_2(void* _Dest, const wchar_t* _Src, size_t _Size_bytes,
+    size_t _Size_bits, size_t _Size_chars, wchar_t _Elem0, wchar_t _Elem1) noexcept;
+} // extern "C"
+#endif // _USE_STD_VECTOR_ALGORITHMS
+
+_STD_BEGIN
+template <class _Elem, size_t _Bits, bool _Dynamic = (_Bits * sizeof(_Elem) > _STD_BITSET_TO_STREAM_STACK_RESERVATION)>
+struct _Buffer_for_bitset {
+    _Buffer_for_bitset() noexcept                            = default;
+    _Buffer_for_bitset(const _Buffer_for_bitset&)            = delete;
+    _Buffer_for_bitset& operator=(const _Buffer_for_bitset&) = delete;
+
+    ~_Buffer_for_bitset() {
+        delete[] _Buf;
+    }
+
+    void _Allocate() {
+        _Buf = new _Elem[_Bits];
+    }
+
+    _Elem* _Buf = nullptr;
+};
+
+template <class _Elem, size_t _Bits>
+struct _Buffer_for_bitset<_Elem, _Bits, false> {
+    _Buffer_for_bitset() noexcept { /* intentionally not initializing _Buf */ }
+    _Buffer_for_bitset(const _Buffer_for_bitset&)            = delete;
+    _Buffer_for_bitset& operator=(const _Buffer_for_bitset&) = delete;
+
+    void _Allocate() noexcept {}
+
+    _Elem _Buf[(_Bits != 0) ? _Bits : 1];
+};
+
+_EXPORT_STD template <size_t _Bits>
+class bitset { // store fixed-length sequence of Boolean elements
+private:
+#pragma warning(push)
+#pragma warning(disable : 4296) // expression is always true (/Wall)
+    using _Ty = conditional_t<_Bits <= sizeof(unsigned long) * CHAR_BIT, unsigned long, unsigned long long>;
+#pragma warning(pop)
+
+public:
+    class reference { // proxy for an element
+        friend bitset;
+
+    public:
+        _CONSTEXPR23 reference(const reference&) = default;
+
+        _CONSTEXPR23 ~reference() noexcept {} // TRANSITION, ABI
+
+        _CONSTEXPR23 reference& operator=(const bool _Val) noexcept {
+            _Pbitset->_Set_unchecked(_Mypos, _Val);
+            return *this;
+        }
+
+        _CONSTEXPR23 reference& operator=(const reference& _Bitref) noexcept {
+            _Pbitset->_Set_unchecked(_Mypos, static_cast<bool>(_Bitref));
+            return *this;
+        }
+
+        _NODISCARD _CONSTEXPR23 bool operator~() const noexcept {
+            return !_Pbitset->_Subscript(_Mypos);
+        }
+
+        _CONSTEXPR23 operator bool() const noexcept {
+            return _Pbitset->_Subscript(_Mypos);
+        }
+
+        _CONSTEXPR23 reference& flip() noexcept {
+            _Pbitset->_Flip_unchecked(_Mypos);
+            return *this;
+        }
+
+    private:
+        _CONSTEXPR23 reference(bitset<_Bits>& _Bitset, const size_t _Pos) noexcept : _Pbitset(&_Bitset), _Mypos(_Pos) {}
+
+        bitset<_Bits>* _Pbitset;
+        size_t _Mypos; // position of element in bitset
+    };
+
+private:
+    constexpr bool _Subscript(size_t _Pos) const noexcept {
+        return (_Array[_Pos / _Bitsperword] & (_Ty{1} << _Pos % _Bitsperword)) != 0;
+    }
+
+    static constexpr bool _Need_mask          = _Bits < CHAR_BIT * sizeof(unsigned long long);
+    static constexpr unsigned long long _Mask = (1ULL << (_Need_mask ? _Bits : 0)) - 1ULL;
+
+public:
+    _NODISCARD constexpr bool operator[](const size_t _Pos) const noexcept /* strengthened */ {
+#if _MSVC_STL_HARDENING_BITSET || _ITERATOR_DEBUG_LEVEL != 0
+        _STL_VERIFY(_Pos < _Bits, "bitset subscript out of range");
+#endif
+
+        return _Subscript(_Pos);
+    }
+
+    _NODISCARD _CONSTEXPR23 reference operator[](const size_t _Pos) noexcept /* strengthened */ {
+#if _MSVC_STL_HARDENING_BITSET || _ITERATOR_DEBUG_LEVEL != 0
+        _STL_VERIFY(_Pos < _Bits, "bitset subscript out of range");
+#endif
+
+        return reference(*this, _Pos);
+    }
+
+    constexpr bitset() noexcept : _Array() {} // construct with all false values
+
+    constexpr bitset(unsigned long long _Val) noexcept : _Array{static_cast<_Ty>(_Need_mask ? _Val & _Mask : _Val)} {}
+
+private:
+    template <class _Traits, class _Elem>
+    _CONSTEXPR23 void _Construct(const _Elem* const _Ptr, size_t _Count, const _Elem _Elem0, const _Elem _Elem1) {
+#if _USE_STD_VECTOR_ALGORITHMS
+        constexpr size_t _Bitset_from_string_vector_threshold = 16;
+        if constexpr (_Bits >= _Bitset_from_string_vector_threshold
+                      && _Is_implementation_handled_char_traits<_Traits> && sizeof(_Elem) <= 2) {
+            if (!_STD _Is_constant_evaluated()) {
+                bool _Result;
+
+                if constexpr (sizeof(_Elem) == 1) {
+                    _Result = __std_bitset_from_string_1(_Array, reinterpret_cast<const char*>(_Ptr), sizeof(_Array),
+                        _Bits, _Count, static_cast<char>(_Elem0), static_cast<char>(_Elem1));
+                } else {
+                    _STL_INTERNAL_STATIC_ASSERT(sizeof(_Elem) == 2);
+                    _Result = __std_bitset_from_string_2(_Array, reinterpret_cast<const wchar_t*>(_Ptr), sizeof(_Array),
+                        _Bits, _Count, static_cast<wchar_t>(_Elem0), static_cast<wchar_t>(_Elem1));
+                }
+
+                if (!_Result) {
+                    _Xinv();
+                }
+
+                return;
+            }
+        }
+#endif // _USE_STD_VECTOR_ALGORITHMS
+        if (_Count > _Bits) {
+            for (size_t _Idx = _Bits; _Idx < _Count; ++_Idx) {
+                const auto _Ch = _Ptr[_Idx];
+                if (!_Traits::eq(_Elem1, _Ch) && !_Traits::eq(_Elem0, _Ch)) {
+                    _Xinv();
+                }
+            }
+
+            _Count = _Bits;
+        }
+
+        size_t _Wpos = 0;
+        if (_Count != 0) {
+            size_t _Bits_used_in_word = 0;
+            auto _Last                = _Ptr + _Count;
+            _Ty _This_word            = 0;
+            do {
+                --_Last;
+                const auto _Ch = *_Last;
+                _This_word |= static_cast<_Ty>(_Traits::eq(_Elem1, _Ch)) << _Bits_used_in_word;
+                if (!_Traits::eq(_Elem1, _Ch) && !_Traits::eq(_Elem0, _Ch)) {
+                    _Xinv();
+                }
+
+                if (++_Bits_used_in_word == _Bitsperword) {
+                    _Array[_Wpos] = _This_word;
+                    ++_Wpos;
+                    _This_word         = 0;
+                    _Bits_used_in_word = 0;
+                }
+            } while (_Ptr != _Last);
+
+            if (_Bits_used_in_word != 0) {
+                _Array[_Wpos] = _This_word;
+                ++_Wpos;
+            }
+        }
+
+        for (; _Wpos <= _Words; ++_Wpos) {
+            _Array[_Wpos] = 0;
+        }
+    }
+
+public:
+    template <class _Elem, class _Traits, class _Alloc>
+    _CONSTEXPR23 explicit bitset(const basic_string<_Elem, _Traits, _Alloc>& _Str,
+        typename basic_string<_Elem, _Traits, _Alloc>::size_type _Pos   = 0,
+        typename basic_string<_Elem, _Traits, _Alloc>::size_type _Count = basic_string<_Elem, _Traits, _Alloc>::npos,
+        _Elem _Elem0 = static_cast<_Elem>('0'), _Elem _Elem1 = static_cast<_Elem>('1')) {
+        // construct from [_Pos, _Pos + _Count) elements in string
+        if (_Str.size() < _Pos) {
+            _Xran(); // _Pos off end
+        }
+
+        if (_Str.size() - _Pos < _Count) {
+            _Count = _Str.size() - _Pos; // trim _Count to size
+        }
+
+        _Construct<_Traits>(_Str.data() + _Pos, _Count, _Elem0, _Elem1);
+    }
+
+    template <class _Elem>
+    _CONSTEXPR23 explicit bitset(const _Elem* _Ntcts,
+        typename basic_string<_Elem>::size_type _Count = basic_string<_Elem>::npos,
+        _Elem _Elem0 = static_cast<_Elem>('0'), _Elem _Elem1 = static_cast<_Elem>('1')) {
+        if (_Count == basic_string<_Elem>::npos) {
+            _Count = char_traits<_Elem>::length(_Ntcts);
+        }
+
+        _Construct<char_traits<_Elem>>(_Ntcts, _Count, _Elem0, _Elem1);
+    }
+
+    _CONSTEXPR23 bitset& operator&=(const bitset& _Right) noexcept {
+        for (size_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+            _Array[_Wpos] &= _Right._Array[_Wpos];
+        }
+
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& operator|=(const bitset& _Right) noexcept {
+        for (size_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+            _Array[_Wpos] |= _Right._Array[_Wpos];
+        }
+
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& operator^=(const bitset& _Right) noexcept {
+        for (size_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+            _Array[_Wpos] ^= _Right._Array[_Wpos];
+        }
+
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& operator<<=(size_t _Pos) noexcept { // shift left by _Pos, first by words then by bits
+        const auto _Wordshift = static_cast<ptrdiff_t>(_Pos / _Bitsperword);
+        if (_Wordshift != 0) {
+            for (ptrdiff_t _Wpos = _Words; 0 <= _Wpos; --_Wpos) {
+                _Array[_Wpos] = _Wordshift <= _Wpos ? _Array[_Wpos - _Wordshift] : 0;
+            }
+        }
+
+        if ((_Pos %= _Bitsperword) != 0) { // 0 < _Pos < _Bitsperword, shift by bits
+            for (ptrdiff_t _Wpos = _Words; 0 < _Wpos; --_Wpos) {
+                _Array[_Wpos] = (_Array[_Wpos] << _Pos) | (_Array[_Wpos - 1] >> (_Bitsperword - _Pos));
+            }
+
+            _Array[0] <<= _Pos;
+        }
+        _Trim();
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& operator>>=(size_t _Pos) noexcept { // shift right by _Pos, first by words then by bits
+        const auto _Wordshift = static_cast<ptrdiff_t>(_Pos / _Bitsperword);
+        if (_Wordshift != 0) {
+            for (ptrdiff_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+                _Array[_Wpos] = _Wordshift <= _Words - _Wpos ? _Array[_Wpos + _Wordshift] : 0;
+            }
+        }
+
+        if ((_Pos %= _Bitsperword) != 0) { // 0 < _Pos < _Bitsperword, shift by bits
+            for (ptrdiff_t _Wpos = 0; _Wpos < _Words; ++_Wpos) {
+                _Array[_Wpos] = (_Array[_Wpos] >> _Pos) | (_Array[_Wpos + 1] << (_Bitsperword - _Pos));
+            }
+
+            _Array[_Words] >>= _Pos;
+        }
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& set() noexcept { // set all bits true
+#if _HAS_CXX23
+        if (_STD is_constant_evaluated()) {
+            for (auto& _El : _Array) {
+                _El = static_cast<_Ty>(-1);
+            }
+        } else
+#endif // _HAS_CXX23
+        {
+            _CSTD memset(&_Array, 0xFF, sizeof(_Array));
+        }
+        _Trim();
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& set(const size_t _Pos, bool _Val = true) { // set bit at _Pos to _Val
+        if (_Bits <= _Pos) {
+            _Xran(); // _Pos off end
+        }
+
+        return _Set_unchecked(_Pos, _Val);
+    }
+
+    _CONSTEXPR23 bitset& reset() noexcept { // set all bits false
+#if _HAS_CXX23
+        if (_STD is_constant_evaluated()) {
+            for (auto& _El : _Array) {
+                _El = 0;
+            }
+        } else
+#endif // _HAS_CXX23
+        {
+            _CSTD memset(&_Array, 0, sizeof(_Array));
+        }
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& reset(const size_t _Pos) { // set bit at _Pos to false
+        return set(_Pos, false);
+    }
+
+    _NODISCARD _CONSTEXPR23 bitset operator~() const noexcept { // flip all bits
+        bitset _Tmp = *this;
+        _Tmp.flip();
+        return _Tmp;
+    }
+
+    _CONSTEXPR23 bitset& flip() noexcept { // flip all bits
+        for (size_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+            _Array[_Wpos] = ~_Array[_Wpos];
+        }
+
+        _Trim();
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& flip(const size_t _Pos) { // flip bit at _Pos
+        if (_Bits <= _Pos) {
+            _Xran(); // _Pos off end
+        }
+
+        return _Flip_unchecked(_Pos);
+    }
+
+    _NODISCARD _CONSTEXPR23 unsigned long to_ulong() const noexcept(_Bits <= 32) /* strengthened */ {
+        constexpr bool _Bits_zero  = _Bits == 0;
+        constexpr bool _Bits_small = _Bits <= 32;
+        constexpr bool _Bits_large = _Bits > 64;
+        if constexpr (_Bits_zero) {
+            return 0;
+        } else if constexpr (_Bits_small) {
+            return static_cast<unsigned long>(_Array[0]);
+        } else {
+            if constexpr (_Bits_large) {
+                for (size_t _Idx = 1; _Idx <= _Words; ++_Idx) {
+                    if (_Array[_Idx] != 0) {
+                        _Xoflo(); // fail if any high-order words are nonzero
+                    }
+                }
+            }
+
+            if (!_STD _In_range<unsigned long>(_Array[0])) {
+                _Xoflo();
+            }
+
+            return static_cast<unsigned long>(_Array[0]);
+        }
+    }
+
+    _NODISCARD _CONSTEXPR23 unsigned long long to_ullong() const noexcept(_Bits <= 64) /* strengthened */ {
+        constexpr bool _Bits_zero  = _Bits == 0;
+        constexpr bool _Bits_large = _Bits > 64;
+        if constexpr (_Bits_zero) {
+            return 0;
+        } else {
+            if constexpr (_Bits_large) {
+                for (size_t _Idx = 1; _Idx <= _Words; ++_Idx) {
+                    if (_Array[_Idx] != 0) {
+                        _Xoflo(); // fail if any high-order words are nonzero
+                    }
+                }
+            }
+
+            return _Array[0];
+        }
+    }
+
+    template <class _Elem = char, class _Tr = char_traits<_Elem>, class _Alloc = allocator<_Elem>>
+    _NODISCARD _CONSTEXPR23 basic_string<_Elem, _Tr, _Alloc> to_string(
+        const _Elem _Elem0 = static_cast<_Elem>('0'), const _Elem _Elem1 = static_cast<_Elem>('1')) const {
+        // convert bitset to string
+        basic_string<_Elem, _Tr, _Alloc> _Str;
+        _Str._Resize_and_overwrite(_Bits, [this, _Elem0, _Elem1](_Elem* _Buf, size_t _Len) {
+            _To_string(_Buf, _Len, _Elem0, _Elem1);
+            return _Len;
+        });
+        return _Str;
+    }
+
+    _NODISCARD _CONSTEXPR23 size_t count() const noexcept { // count number of set bits
+        return _Select_popcount_impl<_Ty>([this](auto _Popcount_impl) {
+            size_t _Val = 0;
+            for (size_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+                _Val += _Popcount_impl(_Array[_Wpos]);
+            }
+
+            return _Val;
+        });
+    }
+
+    _NODISCARD constexpr size_t size() const noexcept {
+        return _Bits;
+    }
+
+    _NODISCARD _CONSTEXPR23 bool operator==(const bitset& _Right) const noexcept {
+#if _HAS_CXX23
+        if (_STD is_constant_evaluated()) {
+            for (size_t _Index = 0; _Index <= _Words; ++_Index) {
+                if (_Array[_Index] != _Right._Array[_Index]) {
+                    return false;
+                }
+            }
+            return true;
+        } else
+#endif // _HAS_CXX23
+        {
+            return _CSTD memcmp(&_Array[0], &_Right._Array[0], sizeof(_Array)) == 0;
+        }
+    }
+
+#if !_HAS_CXX20
+    _NODISCARD bool operator!=(const bitset& _Right) const noexcept {
+        return !(*this == _Right);
+    }
+#endif // !_HAS_CXX20
+
+    _NODISCARD _CONSTEXPR23 bool test(const size_t _Pos) const {
+        if (_Bits <= _Pos) {
+            _Xran(); // _Pos off end
+        }
+
+        return _Subscript(_Pos);
+    }
+
+    _NODISCARD _CONSTEXPR23 bool any() const noexcept {
+        for (size_t _Wpos = 0; _Wpos <= _Words; ++_Wpos) {
+            if (_Array[_Wpos] != 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    _NODISCARD _CONSTEXPR23 bool none() const noexcept {
+        return !any();
+    }
+
+    _NODISCARD _CONSTEXPR23 bool all() const noexcept {
+        constexpr bool _Zero_length = _Bits == 0;
+        if constexpr (_Zero_length) { // must test for this, otherwise would count one full word
+            return true;
+        }
+
+        constexpr bool _No_padding = _Bits % _Bitsperword == 0;
+        for (size_t _Wpos = 0; _Wpos < _Words + _No_padding; ++_Wpos) {
+            if (_Array[_Wpos] != ~static_cast<_Ty>(0)) {
+                return false;
+            }
+        }
+
+        return _No_padding || _Array[_Words] == (static_cast<_Ty>(1) << (_Bits % _Bitsperword)) - 1;
+    }
+
+    _NODISCARD _CONSTEXPR23 bitset operator<<(const size_t _Pos) const noexcept {
+        bitset _Tmp = *this;
+        _Tmp <<= _Pos;
+        return _Tmp;
+    }
+
+    _NODISCARD _CONSTEXPR23 bitset operator>>(const size_t _Pos) const noexcept {
+        bitset _Tmp = *this;
+        _Tmp >>= _Pos;
+        return _Tmp;
+    }
+
+    _NODISCARD _Ty _Getword(size_t _Wpos) const noexcept { // nonstandard extension; get underlying word
+        return _Array[_Wpos];
+    }
+
+    template <class _Elem>
+    _CONSTEXPR23 void _To_string(
+        _Elem* const _Buf, const size_t _Len, const _Elem _Elem0, const _Elem _Elem1) const noexcept {
+#if _USE_STD_VECTOR_ALGORITHMS
+        constexpr size_t _Bitset_to_string_vector_threshold = 32;
+        if constexpr (_Bits >= _Bitset_to_string_vector_threshold && is_integral_v<_Elem> && sizeof(_Elem) <= 2) {
+            if (!_Is_constant_evaluated()) {
+                if constexpr (sizeof(_Elem) == 1) {
+                    __std_bitset_to_string_1(reinterpret_cast<char*>(_Buf), _Array, _Len, static_cast<char>(_Elem0),
+                        static_cast<char>(_Elem1));
+                } else {
+                    _STL_INTERNAL_STATIC_ASSERT(sizeof(_Elem) == 2);
+                    __std_bitset_to_string_2(reinterpret_cast<wchar_t*>(_Buf), _Array, _Len,
+                        static_cast<wchar_t>(_Elem0), static_cast<wchar_t>(_Elem1));
+                }
+
+                return;
+            }
+        }
+#endif // _USE_STD_VECTOR_ALGORITHMS
+
+        for (size_t _Pos = 0; _Pos < _Len; ++_Pos) {
+            _Buf[_Pos] = _Subscript(_Len - 1 - _Pos) ? _Elem1 : _Elem0;
+        }
+    }
+
+private:
+    friend hash<bitset<_Bits>>;
+
+    static constexpr ptrdiff_t _Bitsperword = CHAR_BIT * sizeof(_Ty);
+    static constexpr ptrdiff_t _Words       = _Bits == 0 ? 0 : (_Bits - 1) / _Bitsperword; // NB: number of words - 1
+
+    _CONSTEXPR23 void _Trim() noexcept { // clear any trailing bits in last word
+        constexpr bool _Work_to_do = _Bits == 0 || _Bits % _Bitsperword != 0;
+        if constexpr (_Work_to_do) {
+            _Array[_Words] &= (_Ty{1} << _Bits % _Bitsperword) - 1;
+        }
+    }
+
+    _CONSTEXPR23 bitset& _Set_unchecked(const size_t _Pos, const bool _Val) noexcept {
+        // set bit at _Pos to _Val, no checking
+        auto& _Selected_word = _Array[_Pos / _Bitsperword];
+        const auto _Bit      = _Ty{1} << _Pos % _Bitsperword;
+        if (_Val) {
+            _Selected_word |= _Bit;
+        } else {
+            _Selected_word &= ~_Bit;
+        }
+
+        return *this;
+    }
+
+    _CONSTEXPR23 bitset& _Flip_unchecked(const size_t _Pos) noexcept { // flip bit at _Pos, no checking
+        _Array[_Pos / _Bitsperword] ^= _Ty{1} << _Pos % _Bitsperword;
+        return *this;
+    }
+
+    [[noreturn]] static void _Xinv() {
+        _Xinvalid_argument("invalid bitset char");
+    }
+
+    [[noreturn]] static void _Xoflo() {
+        _Xoverflow_error("bitset overflow");
+    }
+
+    [[noreturn]] static void _Xran() {
+        _Xout_of_range("invalid bitset position");
+    }
+
+    _Ty _Array[_Words + 1];
+};
+
+_EXPORT_STD template <size_t _Bits>
+_NODISCARD _CONSTEXPR23 bitset<_Bits> operator&(const bitset<_Bits>& _Left, const bitset<_Bits>& _Right) noexcept {
+    bitset<_Bits> _Ans = _Left;
+    _Ans &= _Right;
+    return _Ans;
+}
+
+_EXPORT_STD template <size_t _Bits>
+_NODISCARD _CONSTEXPR23 bitset<_Bits> operator|(const bitset<_Bits>& _Left, const bitset<_Bits>& _Right) noexcept {
+    bitset<_Bits> _Ans = _Left;
+    _Ans |= _Right;
+    return _Ans;
+}
+
+_EXPORT_STD template <size_t _Bits>
+_NODISCARD _CONSTEXPR23 bitset<_Bits> operator^(const bitset<_Bits>& _Left, const bitset<_Bits>& _Right) noexcept {
+    bitset<_Bits> _Ans = _Left;
+    _Ans ^= _Right;
+    return _Ans;
+}
+
+_EXPORT_STD template <class _Elem, class _Tr, size_t _Bits>
+basic_ostream<_Elem, _Tr>& operator<<(basic_ostream<_Elem, _Tr>& _Ostr, const bitset<_Bits>& _Right) {
+    using _Ctype             = typename basic_ostream<_Elem, _Tr>::_Ctype;
+    const _Ctype& _Ctype_fac = _STD use_facet<_Ctype>(_Ostr.getloc());
+    const _Elem _Elem0       = _Ctype_fac.widen('0');
+    const _Elem _Elem1       = _Ctype_fac.widen('1');
+
+    _Buffer_for_bitset<_Elem, _Bits> _Buf;
+    _Buf._Allocate();
+    _Right._To_string(_Buf._Buf, _Bits, _Elem0, _Elem1);
+    _Ostr.write(_Buf._Buf, _Bits);
+    return _Ostr;
+}
+
+_EXPORT_STD template <class _Elem, class _Tr, size_t _Bits>
+basic_istream<_Elem, _Tr>& operator>>(basic_istream<_Elem, _Tr>& _Istr, bitset<_Bits>& _Right) {
+    using _Istr_t                    = basic_istream<_Elem, _Tr>;
+    using _Ctype                     = typename _Istr_t::_Ctype;
+    const _Ctype& _Ctype_fac         = _STD use_facet<_Ctype>(_Istr.getloc());
+    const _Elem _Elem0               = _Ctype_fac.widen('0');
+    const _Elem _Elem1               = _Ctype_fac.widen('1');
+    typename _Istr_t::iostate _State = _Istr_t::goodbit;
+    size_t _Count                    = 0;
+    _Buffer_for_bitset<_Elem, _Bits> _Buf;
+    const typename _Istr_t::sentry _Ok(_Istr);
+
+    if (_Ok) { // valid stream, extract elements
+        _TRY_IO_BEGIN
+        _Buf._Allocate();
+        typename _Tr::int_type _Meta = _Istr.rdbuf()->sgetc();
+        for (; _Count < _Bits; ++_Count, _Meta = _Istr.rdbuf()->snextc()) {
+            // test _Meta
+            if (_Tr::eq_int_type(_Tr::eof(), _Meta)) { // end of file, quit
+                _State |= _Istr_t::eofbit;
+                break;
+            }
+
+            const _Elem _Char = _Tr::to_char_type(_Meta);
+
+            if (!_Tr::eq(_Char, _Elem0) && !_Tr::eq(_Char, _Elem1)) {
+                break; // invalid element
+            }
+
+            // valid, append '0' or '1'
+            _Buf._Buf[_Count] = '0' + _Tr::eq(_Char, _Elem1);
+        }
+
+        _CATCH_IO_(_Istr_t, _Istr)
+    }
+
+    constexpr bool _Has_bits = _Bits > 0;
+
+    if constexpr (_Has_bits) {
+        if (_Count == 0) {
+            _State |= _Istr_t::failbit;
+        }
+    }
+
+    _Istr.setstate(_State);
+    _Right = bitset<_Bits>{_Buf._Buf, _Count}; // convert string and store
+    return _Istr;
+}
+
+template <size_t _Bits>
+struct hash<bitset<_Bits>> {
+    using _ARGUMENT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS = bitset<_Bits>;
+    using _RESULT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS   = size_t;
+
+    _NODISCARD _STATIC_CALL_OPERATOR size_t operator()(const bitset<_Bits>& _Keyval) _CONST_CALL_OPERATOR noexcept {
+        return _Hash_representation(_Keyval._Array);
+    }
+};
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _BITSET_

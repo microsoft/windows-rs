@@ -1,0 +1,105 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			vwsrt.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+    REMOTED_INTERFACE(0c733a9a-2a1c-11ce-ade5-00aa0044773d)
+
+interface IViewSort : IUnknown {
+
+	[local]
+	HRESULT GetSortOrder(
+		[out, annotation("_Out_")] DBORDINAL * pcValues,
+		[out, annotation("_Outptr_result_buffer_(*pcValues)")] DBORDINAL * prgColumns[],
+		[out, annotation("_Outptr_result_buffer_(*pcValues)")] DBSORT * prgOrders[]
+	);
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+#ifndef NO_REMOTE
+
+	[call_as(GetSortOrder)]
+	HRESULT RemoteGetSortOrder(
+		[in, out] DBORDINAL * pcValues,
+		[out, size_is(,(ULONG)*pcValues)] DBORDINAL ** prgColumns,
+		[out, size_is(,(ULONG)*pcValues)] DBSORT ** prgOrders,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+	[local]
+	HRESULT SetSortOrder(
+		[in] DBORDINAL cValues,
+		[in, size_is((ULONG)cValues), annotation("_In_reads_(cValues)")] const DBORDINAL rgColumns[],
+		[in, size_is((ULONG)cValues), annotation("_In_reads_(cValues)")] const DBSORT rgOrders[]
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(SetSortOrder)]
+	HRESULT RemoteSetSortOrder(
+		[in] DBORDINAL cValues,
+		[in, size_is((ULONG)cValues)] const DBORDINAL * rgColumns,
+		[in, size_is((ULONG)cValues)] const DBSORT * rgOrders,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+	
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+#ifndef NO_REMOTE
+
+	[call_as(GetSortOrder)]
+	HRESULT RemoteGetSortOrder(
+		[in, out] DBORDINAL * pcValues,
+		[out, size_is(,*pcValues)] DBORDINAL ** prgColumns,
+		[out, size_is(,*pcValues)] DBSORT ** prgOrders,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+	[local]
+	HRESULT SetSortOrder(
+		[in] DBORDINAL cValues,
+		[in, size_is(cValues), annotation("_In_reads_(cValues)")] const DBORDINAL rgColumns[],
+		[in, size_is(cValues), annotation("_In_reads_(cValues)")] const DBSORT rgOrders[]
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(SetSortOrder)]
+	HRESULT RemoteSetSortOrder(
+		[in] DBORDINAL cValues,
+		[in, size_is(cValues)] const DBORDINAL * rgColumns,
+		[in, size_is(cValues)] const DBSORT * rgOrders,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#endif
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

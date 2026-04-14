@@ -1,0 +1,2739 @@
+/* Copyright (c) Microsoft Corporation. All rights reserved. */
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "oaidl.idl"; // what are these, and why are they needed?
+import "ocidl.idl"; // what are these, and why are they needed?
+//import "stdole32.tlb";
+import "propidl.idl"; // what are these, and why are they needed?
+import "oleidl.idl";
+import "objidl.idl";
+
+/*
+#ifndef DEVICE_TYPE
+    #define DEVICE_TYPE ULONG // ntddstor doesn't define this
+#endif
+#define _NTSCSI_USER_MODE_ 1 // CDBs and such only
+#include <scsi.h>     // CDB and similiar
+#include <ntddstor.h> // STORAGE_DEVICE_DESCRIPTOR and similiar
+*/
+
+// NAMING OF INTERFACES:
+// Use IDescriptiveName for dual or v-table only interfaces
+// Use DDescriptiveName for IDispatch-only interfaces
+
+// All interfaces here are scriptable unless otherwise noted:
+interface IDiscMaster2;
+interface IDiscRecorder2;
+interface IDiscRecorder2Ex;
+interface IWriteEngine2;
+interface IWriteEngine2EventArgs;
+interface IDiscFormat2;
+interface IDiscFormat2Erase;
+interface IDiscFormat2Data;
+interface IDiscFormat2DataEventArgs;
+interface IDiscFormat2TrackAtOnce;
+interface IDiscFormat2TrackAtOnceEventArgs;
+interface IDiscFormat2RawCD;
+interface IDiscFormat2RawCDEventArgs;
+interface IBurnVerification;
+interface IWriteSpeedDescriptor;
+interface IMultisession;
+interface IMultisessionSequential;
+interface IMultisessionRandomWrite;
+interface IRawCDImageCreator;
+interface IRawCDImageTrackInfo;
+
+
+// NOTE: Event interfaces cannot be dual if supported by VB or IE.
+interface DDiscMaster2Events;
+//interface DDiscRecorder2Events;
+interface DWriteEngine2Events;
+interface DDiscFormat2EraseEvents;
+interface DDiscFormat2DataEvents;
+interface DDiscFormat2TrackAtOnceEvents;
+interface DDiscFormat2RawCDEvents;
+
+
+const ULONG IMAPI_SECTOR_SIZE = 2048;
+
+cpp_quote("#define IMAPI2_DEFAULT_COMMAND_TIMEOUT 10")
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000002),
+    helpstring( "Physical type of the optical media" ),
+    public
+]
+typedef enum _IMAPI_MEDIA_PHYSICAL_TYPE {
+    [ helpstring( "Media not present or unrecognized" ) ] IMAPI_MEDIA_TYPE_UNKNOWN             = 0x00,
+    [ helpstring( "CD-ROM media"                      ) ] IMAPI_MEDIA_TYPE_CDROM               = 0x01,
+    [ helpstring( "CD-R media"                        ) ] IMAPI_MEDIA_TYPE_CDR                 = 0x02,
+    [ helpstring( "CD-RW media"                       ) ] IMAPI_MEDIA_TYPE_CDRW                = 0x03,
+    [ helpstring( "DVD-ROM media"                     ) ] IMAPI_MEDIA_TYPE_DVDROM              = 0x04,
+    [ helpstring( "DVD-RAM media"                     ) ] IMAPI_MEDIA_TYPE_DVDRAM              = 0x05,
+    [ helpstring( "DVD+R media"                       ) ] IMAPI_MEDIA_TYPE_DVDPLUSR            = 0x06,
+    [ helpstring( "DVD+RW media"                      ) ] IMAPI_MEDIA_TYPE_DVDPLUSRW           = 0x07,
+    [ helpstring( "DVD+R dual layer media"            ) ] IMAPI_MEDIA_TYPE_DVDPLUSR_DUALLAYER  = 0x08,
+    [ helpstring( "DVD-R media"                       ) ] IMAPI_MEDIA_TYPE_DVDDASHR            = 0x09,
+    [ helpstring( "DVD-RW media"                      ) ] IMAPI_MEDIA_TYPE_DVDDASHRW           = 0x0A,
+    [ helpstring( "DVD-R dual layer media"            ) ] IMAPI_MEDIA_TYPE_DVDDASHR_DUALLAYER  = 0x0B,
+    [ helpstring( "Randomly writable media"           ) ] IMAPI_MEDIA_TYPE_DISK                = 0x0C,
+    [ helpstring( "DVD+RW dual layer media"           ) ] IMAPI_MEDIA_TYPE_DVDPLUSRW_DUALLAYER = 0x0D,
+    [ helpstring( "HD DVD-ROM media"                  ) ] IMAPI_MEDIA_TYPE_HDDVDROM            = 0x0E,
+    [ helpstring( "HD DVD-R media"                    ) ] IMAPI_MEDIA_TYPE_HDDVDR              = 0x0F,
+    [ helpstring( "HD DVD-RAM media"                  ) ] IMAPI_MEDIA_TYPE_HDDVDRAM            = 0x10,
+    [ helpstring( "BD-ROM media"                      ) ] IMAPI_MEDIA_TYPE_BDROM               = 0x11,
+    [ helpstring( "BD-R media"                        ) ] IMAPI_MEDIA_TYPE_BDR                 = 0x12,
+    [ helpstring( "BD-RE media"                       ) ] IMAPI_MEDIA_TYPE_BDRE                = 0x13,
+    [ helpstring( "Max value for a media type"        ) ] IMAPI_MEDIA_TYPE_MAX                 = 0x13,
+} IMAPI_MEDIA_PHYSICAL_TYPE, *PIMAPI_MEDIA_PHYSICAL_TYPE;
+
+// this should be a FLAGS setting... how to mark this as such in IDL????
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000003),
+    helpstring( "Detected write protection type of the media" ),
+    public
+]
+typedef enum _IMAPI_MEDIA_WRITE_PROTECT_STATE {
+    [ helpstring( "Software Write Protected Until Powerdown" ) ] IMAPI_WRITEPROTECTED_UNTIL_POWERDOWN           = 0x0001, // (all media) READ_DVD_STRUCTURE format C0h; Timeout and Protect Mode Page
+    [ helpstring( "Cartridge Write Protect"                  ) ] IMAPI_WRITEPROTECTED_BY_CARTRIDGE              = 0x0002, // (DVD media) READ_DVD_STRUCTURE formats C0h, 09h
+    [ helpstring( "Media Specific Write Inhibit"             ) ] IMAPI_WRITEPROTECTED_BY_MEDIA_SPECIFIC_REASON  = 0x0004, // (DVD media) READ_DVD_STRUCTURE formats C0h, 09h
+    [ helpstring( "Persistent Write Protect"                 ) ] IMAPI_WRITEPROTECTED_BY_SOFTWARE_WRITE_PROTECT = 0x0008, // (DVD media) READ_DVD_STRUCTURE format C0h
+    [ helpstring( "Write Inhibit by Disc Control Block"      ) ] IMAPI_WRITEPROTECTED_BY_DISC_CONTROL_BLOCK     = 0x0010, // ( DVD+RW? ) READ_DVD_STRUCTURE format 30h
+    [ helpstring( "Read-only media"                          ) ] IMAPI_WRITEPROTECTED_READ_ONLY_MEDIA           = 0x4000, // (all media) The basic media type is read-only
+} IMAPI_MEDIA_WRITE_PROTECT_STATE, *PIMAPI_MEDIA_WRITE_PROTECT_STATE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000004),
+    helpstring( "Address type provided for reading track information" ),
+    public
+]
+typedef enum _IMAPI_READ_TRACK_ADDRESS_TYPE {
+    [ helpstring( "Read track information by providing an LBA in the track"                   ) ] IMAPI_READ_TRACK_ADDRESS_TYPE_LBA     = 0,
+    [ helpstring( "Read track information by providing the track number"                      ) ] IMAPI_READ_TRACK_ADDRESS_TYPE_TRACK   = 1,
+    [ helpstring( "Read track information for the first track in the provided session number" ) ] IMAPI_READ_TRACK_ADDRESS_TYPE_SESSION = 2,
+} IMAPI_READ_TRACK_ADDRESS_TYPE, *PIMAPI_READ_TRACK_ADDRESS_TYPE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000005),
+    helpstring( "Mode page data type to request" ),
+    public
+]
+typedef enum _IMAPI_MODE_PAGE_REQUEST_TYPE {
+    [ helpstring( "Request the current mode page"                        ) ] IMAPI_MODE_PAGE_REQUEST_TYPE_CURRENT_VALUES    = 0,
+    [ helpstring( "Request the changeable bitmask for a mode page"       ) ] IMAPI_MODE_PAGE_REQUEST_TYPE_CHANGEABLE_VALUES = 1,
+    [ helpstring( "Request the default mode page"                        ) ] IMAPI_MODE_PAGE_REQUEST_TYPE_DEFAULT_VALUES    = 2,
+    [ helpstring( "Request the saved mode page (if supported by device)" ) ] IMAPI_MODE_PAGE_REQUEST_TYPE_SAVED_VALUES      = 3,
+} IMAPI_MODE_PAGE_REQUEST_TYPE, *PIMAPI_MODE_PAGE_REQUEST_TYPE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000006),
+    helpstring( "Type of the mode page data" ),
+    public
+]
+typedef enum _IMAPI_MODE_PAGE_TYPE
+{
+    [ helpstring( "The parameters to use for error recovery during read and write operations") ]
+    IMAPI_MODE_PAGE_TYPE_READ_WRITE_ERROR_RECOVERY = 0x01,
+    [ helpstring( "Mt. Rainier (MRW) mode page for controlling MRW-specific features") ]
+    IMAPI_MODE_PAGE_TYPE_MRW                       = 0x03,
+    [ helpstring( "The parameters required to setup writing to and from some legacy media types") ]
+    IMAPI_MODE_PAGE_TYPE_WRITE_PARAMETERS          = 0x05,
+    [ helpstring( "The parameters to enable or disable the use of caching for read and/or write operations") ]
+    IMAPI_MODE_PAGE_TYPE_CACHING                   = 0x08,
+    [ helpstring( "The parameters for exception reporting mechanisms which result in specific sense codes errors when failures are predicted") ]
+    IMAPI_MODE_PAGE_TYPE_INFORMATIONAL_EXCEPTIONS  = 0x1C, //?
+    [ helpstring( "Default timeouts for commands") ]
+    IMAPI_MODE_PAGE_TYPE_TIMEOUT_AND_PROTECT       = 0x1D,
+    [ helpstring( "The parameters which define how long the logical unit delays before changing its power state") ]
+    IMAPI_MODE_PAGE_TYPE_POWER_CONDITION           = 0x1A,
+    [ helpstring( "Legacy device capabilities, superceded by the feature pages returned by GetConfiguration command") ]
+    IMAPI_MODE_PAGE_TYPE_LEGACY_CAPABILITIES       = 0x2A,
+} IMAPI_MODE_PAGE_TYPE, *PIMAPI_MODE_PAGE_TYPE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000006),
+    helpstring( "Type of the feature page data" ),
+    public
+]
+typedef enum _IMAPI_FEATURE_PAGE_TYPE
+{
+    IMAPI_FEATURE_PAGE_TYPE_PROFILE_LIST                   = 0x0000,
+    IMAPI_FEATURE_PAGE_TYPE_CORE                           = 0x0001,
+    IMAPI_FEATURE_PAGE_TYPE_MORPHING                       = 0x0002,
+    IMAPI_FEATURE_PAGE_TYPE_REMOVABLE_MEDIUM               = 0x0003,
+    IMAPI_FEATURE_PAGE_TYPE_WRITE_PROTECT                  = 0x0004,
+    IMAPI_FEATURE_PAGE_TYPE_RANDOMLY_READABLE              = 0x0010,
+    IMAPI_FEATURE_PAGE_TYPE_CD_MULTIREAD                   = 0x001D,
+    IMAPI_FEATURE_PAGE_TYPE_CD_READ                        = 0x001E,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_READ                       = 0x001F,
+    IMAPI_FEATURE_PAGE_TYPE_RANDOMLY_WRITABLE              = 0x0020,
+    IMAPI_FEATURE_PAGE_TYPE_INCREMENTAL_STREAMING_WRITABLE = 0x0021,
+    IMAPI_FEATURE_PAGE_TYPE_SECTOR_ERASABLE                = 0x0022,
+    IMAPI_FEATURE_PAGE_TYPE_FORMATTABLE                    = 0x0023,
+    IMAPI_FEATURE_PAGE_TYPE_HARDWARE_DEFECT_MANAGEMENT     = 0x0024,
+    IMAPI_FEATURE_PAGE_TYPE_WRITE_ONCE                     = 0x0025,
+    IMAPI_FEATURE_PAGE_TYPE_RESTRICTED_OVERWRITE           = 0x0026,
+    IMAPI_FEATURE_PAGE_TYPE_CDRW_CAV_WRITE                 = 0x0027,
+    IMAPI_FEATURE_PAGE_TYPE_MRW                            = 0x0028,
+    IMAPI_FEATURE_PAGE_TYPE_ENHANCED_DEFECT_REPORTING      = 0x0029,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_RW                    = 0x002A,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_R                     = 0x002B,
+    IMAPI_FEATURE_PAGE_TYPE_RIGID_RESTRICTED_OVERWRITE     = 0x002C,
+    IMAPI_FEATURE_PAGE_TYPE_CD_TRACK_AT_ONCE               = 0x002D,
+    IMAPI_FEATURE_PAGE_TYPE_CD_MASTERING                   = 0x002E,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_DASH_WRITE                 = 0x002F,
+    IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_READ         = 0x0030,
+    IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_R_WRITE      = 0x0031,
+    IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_RW_WRITE     = 0x0032,
+    IMAPI_FEATURE_PAGE_TYPE_LAYER_JUMP_RECORDING           = 0x0033,
+    IMAPI_FEATURE_PAGE_TYPE_CD_RW_MEDIA_WRITE_SUPPORT      = 0x0037,
+    IMAPI_FEATURE_PAGE_TYPE_BD_PSEUDO_OVERWRITE            = 0x0038,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_R_DUAL_LAYER          = 0x003B,
+    IMAPI_FEATURE_PAGE_TYPE_BD_READ                        = 0x0040,
+    IMAPI_FEATURE_PAGE_TYPE_BD_WRITE                       = 0x0041,
+    IMAPI_FEATURE_PAGE_TYPE_HD_DVD_READ                    = 0x0050,
+    IMAPI_FEATURE_PAGE_TYPE_HD_DVD_WRITE                   = 0x0051,
+    IMAPI_FEATURE_PAGE_TYPE_POWER_MANAGEMENT               = 0x0100,
+    IMAPI_FEATURE_PAGE_TYPE_SMART                          = 0x0101,
+    IMAPI_FEATURE_PAGE_TYPE_EMBEDDED_CHANGER               = 0x0102,
+    IMAPI_FEATURE_PAGE_TYPE_CD_ANALOG_PLAY                 = 0x0103,
+    IMAPI_FEATURE_PAGE_TYPE_MICROCODE_UPDATE               = 0x0104,
+    IMAPI_FEATURE_PAGE_TYPE_TIMEOUT                        = 0x0105,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_CSS                        = 0x0106,
+    IMAPI_FEATURE_PAGE_TYPE_REAL_TIME_STREAMING            = 0x0107,
+    IMAPI_FEATURE_PAGE_TYPE_LOGICAL_UNIT_SERIAL_NUMBER     = 0x0108,
+    IMAPI_FEATURE_PAGE_TYPE_MEDIA_SERIAL_NUMBER            = 0x0109,
+    IMAPI_FEATURE_PAGE_TYPE_DISC_CONTROL_BLOCKS            = 0x010A,
+    IMAPI_FEATURE_PAGE_TYPE_DVD_CPRM                       = 0x010B,
+    IMAPI_FEATURE_PAGE_TYPE_FIRMWARE_INFORMATION           = 0x010C,
+    IMAPI_FEATURE_PAGE_TYPE_AACS                           = 0x010D,
+    IMAPI_FEATURE_PAGE_TYPE_VCPS                           = 0x0110,
+} IMAPI_FEATURE_PAGE_TYPE, *PIMAPI_FEATURE_PAGE_TYPE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000006),
+    helpstring( "Type of the profile in feature page data" ),
+    public
+]
+typedef enum _IMAPI_PROFILE_TYPE
+{
+    IMAPI_PROFILE_TYPE_INVALID                = 0x0000,
+    IMAPI_PROFILE_TYPE_NON_REMOVABLE_DISK     = 0x0001,
+    IMAPI_PROFILE_TYPE_REMOVABLE_DISK         = 0x0002,
+    IMAPI_PROFILE_TYPE_MO_ERASABLE            = 0x0003,
+    IMAPI_PROFILE_TYPE_MO_WRITE_ONCE          = 0x0004,
+    IMAPI_PROFILE_TYPE_AS_MO                  = 0x0005,
+    // Reserved           0x0006 - 0x0007
+    IMAPI_PROFILE_TYPE_CDROM                  = 0x0008,
+    IMAPI_PROFILE_TYPE_CD_RECORDABLE          = 0x0009,
+    IMAPI_PROFILE_TYPE_CD_REWRITABLE          = 0x000A,
+    // Reserved           0x000B - 0x000F
+    IMAPI_PROFILE_TYPE_DVDROM                 = 0x0010,
+    IMAPI_PROFILE_TYPE_DVD_DASH_RECORDABLE    = 0x0011,
+    IMAPI_PROFILE_TYPE_DVD_RAM                = 0x0012,
+    IMAPI_PROFILE_TYPE_DVD_DASH_REWRITABLE    = 0x0013,
+    IMAPI_PROFILE_TYPE_DVD_DASH_RW_SEQUENTIAL = 0x0014,
+    IMAPI_PROFILE_TYPE_DVD_DASH_R_DUAL_SEQUENTIAL = 0x0015,
+    IMAPI_PROFILE_TYPE_DVD_DASH_R_DUAL_LAYER_JUMP = 0x0016,
+    // Reserved           0x0017 - 0x0019
+    IMAPI_PROFILE_TYPE_DVD_PLUS_RW            = 0x001A,
+    IMAPI_PROFILE_TYPE_DVD_PLUS_R             = 0x001B,
+    // Reserved           0x001B - 001F
+    IMAPI_PROFILE_TYPE_DDCDROM                = 0x0020,
+    IMAPI_PROFILE_TYPE_DDCD_RECORDABLE        = 0x0021,
+    IMAPI_PROFILE_TYPE_DDCD_REWRITABLE        = 0x0022,
+    // Reserved           0x0023 - 0x0029
+    IMAPI_PROFILE_TYPE_DVD_PLUS_RW_DUAL       = 0x002A,
+    IMAPI_PROFILE_TYPE_DVD_PLUS_R_DUAL        = 0x002B,
+    // Reserved           0x002C - 0x003F
+    IMAPI_PROFILE_TYPE_BD_ROM                 = 0x0040,
+    IMAPI_PROFILE_TYPE_BD_R_SEQUENTIAL        = 0x0041,
+    IMAPI_PROFILE_TYPE_BD_R_RANDOM_RECORDING  = 0x0042,
+    IMAPI_PROFILE_TYPE_BD_REWRITABLE          = 0x0043,
+    // Reserved           0x0044 - 0x004F
+    IMAPI_PROFILE_TYPE_HD_DVD_ROM             = 0x0050,
+    IMAPI_PROFILE_TYPE_HD_DVD_RECORDABLE      = 0x0051,
+    IMAPI_PROFILE_TYPE_HD_DVD_RAM             = 0x0052,
+    // Reserved           0x0053 - 0xFFFE
+    IMAPI_PROFILE_TYPE_NON_STANDARD           = 0xFFFF,
+} IMAPI_PROFILE_TYPE, *PIMAPI_PROFILE_TYPE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000006),
+    helpstring( "The current action being performed for the data write" ),
+    public
+]
+typedef enum _IMAPI_FORMAT2_DATA_WRITE_ACTION
+{
+    [helpstring("Validating the current media is supported")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_VALIDATING_MEDIA      = 0x00,
+    [helpstring("Formatting media, when required (i.e. DVD+RW)")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_FORMATTING_MEDIA      = 0x01,
+    [helpstring("Initializing the drive")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_INITIALIZING_HARDWARE = 0x02,
+    [helpstring("Calibrating the drive's write power")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_CALIBRATING_POWER     = 0x03,
+    [helpstring("Writing user data to the media")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_WRITING_DATA          = 0x04,
+    [helpstring("Finalizing the media (synchronizing the cache, closing tracks/sessions, etc.")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_FINALIZATION          = 0x05,
+    [helpstring("The write process has completed")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_COMPLETED             = 0x06,
+    [helpstring("Performing requested burn verification")]
+    IMAPI_FORMAT2_DATA_WRITE_ACTION_VERIFYING             = 0x07,
+} IMAPI_FORMAT2_DATA_WRITE_ACTION, *PIMAPI_FORMAT2_DATA_WRITE_ACTION;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000006),
+    helpstring( "Set of flags to indicate current media state" ),
+    public
+]
+typedef enum _IMAPI_FORMAT2_DATA_MEDIA_STATE
+{
+    [hidden, helpstring("Unknown")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_UNKNOWN            = 0x0000,
+    [helpstring("Mask of 'supported/informational' media flags")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_INFORMATIONAL_MASK = 0x000F,
+    [helpstring("Mask of 'not supported' media flags")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MASK   = 0xFC00,
+
+    [helpstring("Media may only be overwritten")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_OVERWRITE_ONLY     = 0x0001,
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_RANDOMLY_WRITABLE  = 0x0001, // deprecated, need to replace usage
+
+    [helpstring("Media is blank")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_BLANK              = 0x0002,
+    [helpstring("Media is appendable")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_APPENDABLE         = 0x0004,
+    [helpstring("Media may only be written to one more time, or does not support multiple sessions")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_FINAL_SESSION      = 0x0008,
+
+    [helpstring("Media is not usable by data writer (may require erase or other recovery)")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_DAMAGED            = 0x0400,
+    [helpstring("Media must be erased before use")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_ERASE_REQUIRED     = 0x0800,
+    [helpstring("Media has a partially written last session, which is not supported")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_NON_EMPTY_SESSION  = 0x1000,
+    [helpstring("Media (or drive) is write protected")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_WRITE_PROTECTED    = 0x2000,
+    [helpstring("Media cannot be written to (finalized)")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_FINALIZED          = 0x4000,
+    [helpstring("Media is not supported by data writer")]
+    IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MEDIA  = 0x8000,
+
+
+} IMAPI_FORMAT2_DATA_MEDIA_STATE, *PIMAPI_FORMAT2_DATA_MEDIA_STATE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000007),
+    helpstring( "Current action when writing to CD in Track-at-Once mode" ),
+    public
+]
+typedef enum _IMAPI_FORMAT2_TAO_WRITE_ACTION
+{
+    [hidden, helpstring("Unknown")]
+    IMAPI_FORMAT2_TAO_WRITE_ACTION_UNKNOWN            = 0x0000,
+    [helpstring("Preparing to write track")]
+    IMAPI_FORMAT2_TAO_WRITE_ACTION_PREPARING          = 0x0001,
+    [helpstring("writing the track")]
+    IMAPI_FORMAT2_TAO_WRITE_ACTION_WRITING            = 0x0002,
+    [helpstring("closing the track")]
+    IMAPI_FORMAT2_TAO_WRITE_ACTION_FINISHING          = 0x0003,
+    [helpstring("verifying track data")]
+    IMAPI_FORMAT2_TAO_WRITE_ACTION_VERIFYING          = 0x0004,
+} IMAPI_FORMAT2_TAO_WRITE_ACTION, *PIMAPI_FORMAT2_TAO_WRITE_ACTION;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000008),
+    helpstring( "Data sector type to use when writing to CD in Disc-At-Once (RAW) mode" ),
+    public
+]
+typedef enum _IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE
+{
+    [helpstring("Raw Main Channel P an Q Sub-channel data (type 0x01)")]
+    IMAPI_FORMAT2_RAW_CD_SUBCODE_PQ_ONLY            = 0x0001,
+    [helpstring("Raw Main Channel With Cooked P-W Subcode (type 0x02)")]
+    IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_COOKED          = 0x0002,
+    [helpstring("Raw Main Channel With Raw P-W Subcode (type 0x03)")]
+    IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_RAW             = 0x0003,
+} IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE, *PIMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE;
+
+[
+    v1_enum,
+    //uuid(e2ae82b7-229d-4428-b3d2-500000000009),
+    helpstring( "Current action when writing to the CD in Disc-At-Once (RAW) mode" ),
+    public
+]
+typedef enum _IMAPI_FORMAT2_RAW_CD_WRITE_ACTION
+{
+    [hidden, helpstring("Unknown")]
+    IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_UNKNOWN            = 0x0000,
+    [helpstring("Preparing to write media")]
+    IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_PREPARING          = 0x0001,
+    [helpstring("writing the media")]
+    IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_WRITING            = 0x0002,
+    [helpstring("finishing writing the media")]
+    IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_FINISHING          = 0x0003,
+} IMAPI_FORMAT2_RAW_CD_WRITE_ACTION, *PIMAPI_FORMAT2_RAW_CD_WRITE_ACTION;
+
+[
+    v1_enum,
+    //uuid(2598354F-9D65-49CE-B335-40630D901227),
+    helpstring( "The CD sector type for provided data" ),
+    public
+]
+typedef enum _IMAPI_CD_SECTOR_TYPE {
+    [ helpstring( "2352 bytes per sector of audio data"                              ) ] IMAPI_CD_SECTOR_AUDIO         = 0x00,
+    [ helpstring( "2336 bytes per sector of zeros, rare"                             ) ] IMAPI_CD_SECTOR_MODE_ZERO     = 0x01,
+    [ helpstring( "2048 bytes per sector of user data"                               ) ] IMAPI_CD_SECTOR_MODE1         = 0x02,
+    [ helpstring( "2336 bytes per sector, rare XA form"                              ) ] IMAPI_CD_SECTOR_MODE2FORM0    = 0x03,
+    [ helpstring( "2048 bytes per sector, data XA form"                              ) ] IMAPI_CD_SECTOR_MODE2FORM1    = 0x04,
+    [ helpstring( "2336 bytes per sector, VideoCD form"                              ) ] IMAPI_CD_SECTOR_MODE2FORM2    = 0x05,
+    [ helpstring( "2352 bytes per sector, Mode1 data      (with EDC/ECC/scrambling)" ) ] IMAPI_CD_SECTOR_MODE1RAW      = 0x06,
+    [ helpstring( "2352 bytes per sector, Mode2Form0 data (with EDC/ECC/scrambling)" ) ] IMAPI_CD_SECTOR_MODE2FORM0RAW = 0x07,
+    [ helpstring( "2352 bytes per sector, Mode2Form1 data (with EDC/ECC/scrambling)" ) ] IMAPI_CD_SECTOR_MODE2FORM1RAW = 0x08,
+    [ helpstring( "2352 bytes per sector, Mode2Form2 data (with EDC/ECC/scrambling)" ) ] IMAPI_CD_SECTOR_MODE2FORM2RAW = 0x09,
+} IMAPI_CD_SECTOR_TYPE, *PIMAPI_CD_SECTOR_TYPE;
+
+[
+    v1_enum,
+    //uuid(2598354E-9D65-49CE-B335-40630D901227),
+    helpstring( "The audio track digital copy setting" ),
+    public
+]
+typedef enum _IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
+    [ helpstring( "Digital Copies Allowed"                    ) ] IMAPI_CD_TRACK_DIGITAL_COPY_PERMITTED  = 0x00,
+    [ helpstring( "Digital Copies Not Allowed"                ) ] IMAPI_CD_TRACK_DIGITAL_COPY_PROHIBITED = 0x01,
+    [ helpstring( "Copy of an Original Copy Prohibited Track" ) ] IMAPI_CD_TRACK_DIGITAL_COPY_SCMS       = 0x02,
+} IMAPI_CD_TRACK_DIGITAL_COPY_SETTING, *PIMAPI_CD_TRACK_DIGITAL_COPY_SETTING;
+
+[
+    v1_enum,
+    helpstring( "Burn verification level" ),
+    public
+]
+typedef enum _IMAPI_BURN_VERIFICATION_LEVEL {
+    [ helpstring( "No write verification"       ) ] IMAPI_BURN_VERIFICATION_NONE    = 0,
+    [ helpstring( "Quick write verification"    ) ] IMAPI_BURN_VERIFICATION_QUICK   = 1,
+    [ helpstring( "Full write verification"     ) ] IMAPI_BURN_VERIFICATION_FULL    = 2,
+} IMAPI_BURN_VERIFICATION_LEVEL, *PIMAPI_BURN_VERIFICATION_LEVEL;
+
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(IMAPI_MEDIA_PHYSICAL_TYPE,            ItemEnum(_IMAPI_MEDIA_PHYSICAL_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_MEDIA_WRITE_PROTECT_STATE,      ItemEnum(_IMAPI_MEDIA_WRITE_PROTECT_STATE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_READ_TRACK_ADDRESS_TYPE,        ItemEnum(_IMAPI_READ_TRACK_ADDRESS_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_MODE_PAGE_REQUEST_TYPE,         ItemEnum(_IMAPI_MODE_PAGE_REQUEST_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_MODE_PAGE_TYPE,                 ItemEnum(_IMAPI_MODE_PAGE_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_FEATURE_PAGE_TYPE,              ItemEnum(_IMAPI_FEATURE_PAGE_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_PROFILE_TYPE,                   ItemEnum(_IMAPI_PROFILE_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_FORMAT2_DATA_WRITE_ACTION,      ItemEnum(_IMAPI_FORMAT2_DATA_WRITE_ACTION));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_FORMAT2_DATA_MEDIA_STATE,       ItemEnum(_IMAPI_FORMAT2_DATA_MEDIA_STATE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_FORMAT2_TAO_WRITE_ACTION,       ItemEnum(_IMAPI_FORMAT2_TAO_WRITE_ACTION));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE, ItemEnum(_IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_FORMAT2_RAW_CD_WRITE_ACTION,    ItemEnum(_IMAPI_FORMAT2_RAW_CD_WRITE_ACTION));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_CD_SECTOR_DATA_TYPE,            ItemEnum(_IMAPI_CD_SECTOR_TYPE));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_CD_TRACK_DIGITAL_COPY_SETTING,  ItemEnum(_IMAPI_CD_TRACK_DIGITAL_COPY_SETTING));")
+cpp_quote("// CUSTOM_TYPE(IMAPI_BURN_VERIFICATION_LEVEL,        ItemEnum(_IMAPI_BURN_VERIFICATION_LEVEL));")
+cpp_quote("// end_wpp")
+
+////////////////////////////////////////////////////////////////////////////////
+[
+    object, nonextensible,
+    dual,
+    uuid(27354130-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("IDiscMaster2 is used to get an enumerator for the set of CD/DVD (optical) devices on the system")
+]
+interface IDiscMaster2 : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_NEWENUM),
+        hidden, restricted,
+        helpstring("Enumerates the list of CD/DVD devices on the system (VT_BSTR)")
+    ]
+    HRESULT _NewEnum( [out,ref,retval] IEnumVARIANT ** ppunk );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_VALUE),
+        helpstring("Gets a single recorder's ID (ZERO BASED INDEX)")
+    ]
+    HRESULT Item( [in] LONG index, [out,ref,retval] BSTR * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("The current number of recorders in the system.")
+    ]
+    HRESULT Count( [out,ref,retval] LONG * value );
+        
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(2),
+        helpstring("Whether IMAPI is running in an environment with optical devices and permission to access them.")
+    ]
+    HRESULT IsSupportedEnvironment( [out,ref,retval] VARIANT_BOOL * value );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_DDISCMASTER2EVENTS_DEVICEADDED   0x100")
+cpp_quote("#define DISPID_DDISCMASTER2EVENTS_DEVICEREMOVED 0x101")
+[
+    object, nonextensible, 
+    oleautomation,
+    uuid(27354131-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Provides notification of the arrival/removal of CD/DVD (optical) devices.")
+]
+interface DDiscMaster2Events : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x100),
+        helpstring("A device was added to the system")
+    ]
+    HRESULT NotifyDeviceAdded(
+        [in] IDispatch /* IDiscMaster2 */ * object,
+        [in] BSTR uniqueId
+        );
+    
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x101),
+        helpstring("A device was removed from the system")
+    ]
+    HRESULT NotifyDeviceRemoved(
+        [in] IDispatch /* IDiscMaster2 */ * object,
+        [in] BSTR uniqueId
+        );
+}
+////////////////////////////////////////////////////////////////////////////////
+// to help properly describe output possibilities, a few typedef's are
+// required for IDR2Ex.  In each case, clients can just pass a ULONG.
+// this also greatly assists PREfix/PREfast validation, by creating
+// more appropriate SAL annotations.
+// Need to describe here because IDL cannot have an out parameter
+// properly described as having a valid range unless it's typedef'd.
+
+// DVD structure size is limited to 64k due to two-byte allocation field
+typedef [range(0,0x0000FFFF)] ULONG ULONG_IMAPI2_DVD_STRUCTURE       ;
+// Adapter/Device descriptor are not implicitly limited in size
+typedef [range(0,0x0FFFFFFF)] ULONG ULONG_IMAPI2_ADAPTER_DESCRIPTOR  ;
+typedef [range(0,0x0FFFFFFF)] ULONG ULONG_IMAPI2_DEVICE_DESCRIPTOR   ;
+// Disc/Track information are limited to 64k+2 due to two-byte size field
+typedef [range(0,0x00010002)] ULONG ULONG_IMAPI2_DISC_INFORMATION    ;
+typedef [range(0,0x00010002)] ULONG ULONG_IMAPI2_TRACK_INFORMATION   ;
+// A single feature page is limited to 252 + 4 bytes
+typedef [range(0,0x00000100)] ULONG ULONG_IMAPI2_FEATURE_PAGE        ;
+// A single mode page is limited in size 255 + 2 bytes
+typedef [range(0,0x00000101)] ULONG ULONG_IMAPI2_MODE_PAGE           ;
+// The number of features is limited to a two-byte field
+typedef [range(0,0x00010000)] ULONG ULONG_IMAPI2_ALL_FEATURE_PAGES   ;
+// The number of profiles obtainable is how many fit into a single feature
+// A single feature can hold 252 additional bytes of data.  Each profile
+// takes exactly four bytes.  So, the maximum count is 252/4 == 0x3F
+typedef [range(0,0x0000003F)] ULONG ULONG_IMAPI2_ALL_PROFILES        ;
+// All mode pages, via MODE_SENSE10, is limited to two-byte size field
+// Mode parameter header is 8 bytes, and each page is at least two bytes
+// So, the maximum count of pages is (0xFFFF - 8) / 2 == 0x7FFB
+typedef [range(0,0x00007FFB)] ULONG ULONG_IMAPI2_ALL_MODE_PAGES      ;
+// This is just the generic "anything but zero is OK" value
+typedef [range(1,0x7FFFFFFF)] ULONG ULONG_IMAPI2_NONZERO             ;
+// This is just the generic "everything that isn't negative" value
+typedef [range(0,0x7FFFFFFF)] ULONG ULONG_IMAPI2_NOT_NEGATIVE        ;
+
+////////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(27354132-7F64-5B0F-8F00-5D77AFBE261E),
+    // To generate Async_IDiscRecorder2Ex interface:
+    // async_uuid(e2ae82b7-229d-4428-b3d2-00000001FFFF),
+    pointer_default(unique),
+    helpstring("Represents a single CD/DVD type device, enabling additional commands requiring advanced marshalling code.")
+]
+interface IDiscRecorder2Ex : IUnknown
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Send a command to the device that does not transfer any data")
+    ]
+    HRESULT SendCommandNoData(
+        [in,ref,size_is(CdbSize)]                                  BYTE  * Cdb, // NOTE -- why not use CDB?  not supporting >16 bytes anyways
+        [in,range(6,16)]                                           ULONG   CdbSize,
+        [out,ref]                                                  BYTE    SenseBuffer[18], // NOTE -- use SENSE_DATA structure
+        [in]                                                       ULONG   Timeout
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Send a command to the device that requires data sent to the device")
+    ]
+    HRESULT SendCommandSendDataToDevice(
+        [in,ref,size_is(CdbSize)]                                  BYTE  *              Cdb, // NOTE -- why not use CDB?  not supporting >16 bytes anyways
+        [in,range(6,16)]                                           ULONG                CdbSize,
+        [out,ref]                                                  BYTE                 SenseBuffer[18], // NOTE -- use SENSE_DATA structure
+        [in]                                                       ULONG                Timeout,
+        [in,ref,size_is(BufferSize)]                               BYTE  *              Buffer,
+        [in]                                                       ULONG_IMAPI2_NONZERO BufferSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Send a command to the device that requests data from the device")
+    ]
+    HRESULT SendCommandGetDataFromDevice(
+        [in,ref,size_is(CdbSize)]                                  BYTE  *                      Cdb, // NOTE -- why not use CDB?  not supporting >16 bytes anyways
+        [in,range(6,16)]                                           ULONG                        CdbSize,
+        [out,ref]                                                  BYTE                         SenseBuffer[18], // NOTE -- use SENSE_DATA structure
+        [in]                                                       ULONG                        Timeout,
+        [out,ref,size_is(BufferSize),length_is(*BufferFetched)]    BYTE  *                      Buffer,
+        [in]                                                       ULONG_IMAPI2_NONZERO         BufferSize,
+        [out,ref]                                                  ULONG_IMAPI2_NOT_NEGATIVE *  BufferFetched
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Read a DVD Structure from the media")
+    ]
+    HRESULT ReadDvdStructure(
+        [in,range(0,0xFF)]         ULONG format,
+        [in]                       ULONG address,
+        [in,range(0,0xFF)]         ULONG layer,
+        [in,range(0,0x03)]         ULONG agid,
+        [out,ref,size_is(,*count)] BYTE  ** data,
+        [out,ref]                  ULONG_IMAPI2_DVD_STRUCTURE * count
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Send a DVD Structure to the media")
+    ]
+    HRESULT SendDvdStructure(
+        [in,range(0,0xFF)]         ULONG                        format,
+        [in,ref,size_is(count)]    BYTE                       * data,
+        [in]                       ULONG_IMAPI2_DVD_STRUCTURE   count
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Get the full adapter descriptor (via IOCTL_STORAGE_QUERY_PROPERTY).")
+    ]
+    HRESULT GetAdapterDescriptor(
+        [out,ref,size_is(,*byteSize)] BYTE **                           data,
+        [out,ref]                     ULONG_IMAPI2_ADAPTER_DESCRIPTOR * byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Get the full device descriptor (via IOCTL_STORAGE_QUERY_PROPERTY).")
+    ]
+    HRESULT GetDeviceDescriptor(
+        [out,ref,size_is(,*byteSize)] BYTE **                          data,
+        [out,ref]                     ULONG_IMAPI2_DEVICE_DESCRIPTOR * byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets data from a READ_DISC_INFORMATION command")
+    ]
+    HRESULT GetDiscInformation(
+        [out,ref,size_is(,*byteSize)] BYTE **                         discInformation,
+        [out,ref]                     ULONG_IMAPI2_DISC_INFORMATION * byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets data from a READ_TRACK_INFORMATION command")
+    ]
+    HRESULT GetTrackInformation(
+        [in]                          ULONG                            address,
+        [in]                          IMAPI_READ_TRACK_ADDRESS_TYPE    addressType,
+        [out,ref,size_is(,*byteSize)] BYTE **                          trackInformation,
+        [out,ref]                     ULONG_IMAPI2_TRACK_INFORMATION * byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets a feature's data from a GET_CONFIGURATION command")
+    ]
+    HRESULT GetFeaturePage(
+        [in]                          IMAPI_FEATURE_PAGE_TYPE     requestedFeature,
+        [in]                          BOOLEAN                     currentFeatureOnly,
+        [out,ref,size_is(,*byteSize)] BYTE **                     featureData,
+        [out,ref]                     ULONG_IMAPI2_FEATURE_PAGE * byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets data from a MODE_SENSE10 command")
+    ]
+    HRESULT GetModePage(
+        [in]                          IMAPI_MODE_PAGE_TYPE         requestedModePage,
+        [in]                          IMAPI_MODE_PAGE_REQUEST_TYPE requestType,
+        [out,ref,size_is(,*byteSize)] BYTE **                      modePageData,
+        [out,ref]                     ULONG_IMAPI2_MODE_PAGE *     byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Sets mode page data using MODE_SELECT10 command")
+    ]
+    HRESULT SetModePage(
+        [in]                       IMAPI_MODE_PAGE_REQUEST_TYPE requestType,
+        [in,ref,size_is(byteSize)] BYTE *                       data,
+        [in]                       ULONG_IMAPI2_MODE_PAGE       byteSize
+        );
+
+    //  The following functions are supported here to allow easy access by
+    //  C/C++ clients.  They also exist in a IDiscRecorder2 (scriptable) as properties.
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets a list of all feature pages supported by the device")
+    ]
+    HRESULT GetSupportedFeaturePages(
+        [in]                          BOOLEAN                          currentFeatureOnly,
+        [out,ref,size_is(,*byteSize)] IMAPI_FEATURE_PAGE_TYPE **       featureData,
+        [out,ref]                     ULONG_IMAPI2_ALL_FEATURE_PAGES * byteSize
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets a list of all PROFILES supported by the device")
+    ]
+    HRESULT GetSupportedProfiles(
+        [in]                               BOOLEAN                     currentOnly,
+        [out,ref,size_is(,*validProfiles)] IMAPI_PROFILE_TYPE **       profileTypes,
+        [out,ref]                          ULONG_IMAPI2_ALL_PROFILES * validProfiles
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Gets a list of all MODE PAGES supported by the device")
+    ]
+    HRESULT GetSupportedModePages(
+        [in]                            IMAPI_MODE_PAGE_REQUEST_TYPE    requestType,
+        [out,ref,size_is(,*validPages)] IMAPI_MODE_PAGE_TYPE         ** modePageTypes,
+        [out,ref]                       ULONG_IMAPI2_ALL_MODE_PAGES   * validPages
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("The byte alignment requirement mask for this device.")
+    ]
+    HRESULT GetByteAlignmentMask( [out,ref,retval] ULONG * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("The maximum non-page-aligned transfer size for this device.")
+    ]
+    HRESULT GetMaximumNonPageAlignedTransferSize( [out,ref,retval] ULONG * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("The maximum non-page-aligned transfer size for this device.")
+    ]
+    HRESULT GetMaximumPageAlignedTransferSize( [out,ref,retval] ULONG * value );
+}
+
+cpp_quote("#define DISPID_IDISCRECORDER2_EJECTMEDIA             0x100")
+cpp_quote("#define DISPID_IDISCRECORDER2_CLOSETRAY              0x101")
+cpp_quote("#define DISPID_IDISCRECORDER2_ACQUIREEXCLUSIVEACCESS 0x102")
+cpp_quote("#define DISPID_IDISCRECORDER2_RELEASEEXCLUSIVEACCESS 0x103")
+cpp_quote("#define DISPID_IDISCRECORDER2_DISABLEMCN             0x104")
+cpp_quote("#define DISPID_IDISCRECORDER2_ENABLEMCN              0x105")
+cpp_quote("#define DISPID_IDISCRECORDER2_INITIALIZEDISCRECORDER 0x106")
+cpp_quote("#define DISPID_IDISCRECORDER2_ACTIVEDISCRECORDER     DISPID_VALUE")
+cpp_quote("#define DISPID_IDISCRECORDER2_VENDORID               0x201")
+cpp_quote("#define DISPID_IDISCRECORDER2_PRODUCTID              0x202")
+cpp_quote("#define DISPID_IDISCRECORDER2_PRODUCTREVISION        0x203")
+cpp_quote("#define DISPID_IDISCRECORDER2_VOLUMENAME             0x204")
+cpp_quote("#define DISPID_IDISCRECORDER2_VOLUMEPATHNAMES        0x205")
+cpp_quote("#define DISPID_IDISCRECORDER2_DEVICECANLOADMEDIA     0x206")
+cpp_quote("#define DISPID_IDISCRECORDER2_LEGACYDEVICENUMBER     0x207")
+cpp_quote("#define DISPID_IDISCRECORDER2_SUPPORTEDFEATUREPAGES  0x208")
+cpp_quote("#define DISPID_IDISCRECORDER2_CURRENTFEATUREPAGES    0x209")
+cpp_quote("#define DISPID_IDISCRECORDER2_SUPPORTEDPROFILES      0x20A")
+cpp_quote("#define DISPID_IDISCRECORDER2_CURRENTPROFILES        0x20B")
+cpp_quote("#define DISPID_IDISCRECORDER2_SUPPORTEDMODEPAGES     0x20C")
+cpp_quote("#define DISPID_IDISCRECORDER2_EXCLUSIVEACCESSOWNER   0x20D")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354133-7F64-5B0F-8F00-5D77AFBE261E),
+    // To generate Async_IDiscRecorder2 interface:
+    // async_uuid(e2ae82b7-229d-4428-b3d2-000000010006),
+    pointer_default(unique),
+    helpstring("Represents a single CD/DVD type device, and enables many common operations via a simplified API.")
+]
+interface IDiscRecorder2 : IDispatch
+{
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x100),
+        helpstring("Ejects the media (if any) and opens the tray")
+    ]
+    HRESULT EjectMedia(void);
+    
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x101),
+        helpstring("Close the media tray and load any media in the tray.")
+    ]
+    HRESULT CloseTray(void);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x102),
+        helpstring("Acquires exclusive access to device.  May be called multiple times.")
+    ]
+    HRESULT AcquireExclusiveAccess( [in] VARIANT_BOOL force, [in] BSTR );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x103),
+        helpstring("Releases exclusive access to device.  Call once per AcquireExclusiveAccess().")
+    ]
+    HRESULT ReleaseExclusiveAccess();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x104),
+        helpstring("Disables Media Change Notification (MCN).")
+    ]
+    HRESULT DisableMcn(void);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x105),
+        helpstring("Re-enables Media Change Notification after a call to DisableMcn()")
+    ]
+    HRESULT EnableMcn(void);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x106),
+        helpstring("Initialize the recorder, opening a handle to the specified recorder.")
+    ]
+    HRESULT InitializeDiscRecorder( [in] BSTR recorderUniqueId );
+
+    ////////////////////////////////////////////////////////////////////////////
+    // properties....
+    ////////////////////////////////////////////////////////////////////////////
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_VALUE), // the default property
+        helpstring("The unique ID used to initialize the recorder.")
+    ]
+    HRESULT ActiveDiscRecorder( [out,ref,retval] BSTR * value );
+    
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x201),
+        helpstring("The vendor ID in the device's INQUIRY data.")
+    ]
+    HRESULT VendorId( [out,ref,retval] BSTR * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x202),
+        helpstring("The Product ID in the device's INQUIRY data.")
+    ]
+    HRESULT ProductId( [out,ref,retval] BSTR * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x203),
+        helpstring("The Product Revision in the device's INQUIRY data.")
+    ]
+    HRESULT ProductRevision( [out,ref,retval] BSTR * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x204),
+        helpstring("Get the unique volume name (this is not a drive letter).")
+    ]
+    HRESULT VolumeName( [out,ref,retval] BSTR * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x205),
+        helpstring("Drive letters and NTFS mount points to access the recorder.")
+    ]
+    HRESULT VolumePathNames( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x206),
+        helpstring("Gets whether the device can load the media tray")
+    ]
+    HRESULT DeviceCanLoadMedia( [out,ref,retval] VARIANT_BOOL * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x207),
+        helpstring("Gets the legacy 'device number' associated with the recorder.  This number is not guaranteed to be static.")
+    ]
+    HRESULT LegacyDeviceNumber([out,ref,retval]  LONG * legacyDeviceNumber
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x208),
+        helpstring("Gets a list of all feature pages supported by the device")
+    ]
+    HRESULT SupportedFeaturePages( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x209),
+        helpstring("Gets a list of all feature pages with 'current' bit set to true")
+    ]
+    HRESULT CurrentFeaturePages( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x20A),
+        helpstring("Gets a list of all profiles supported by the device")
+    ]
+    HRESULT SupportedProfiles( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x20B),
+        helpstring("Gets a list of all profiles with 'currentP' bit set to true")
+    ]
+    HRESULT CurrentProfiles( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x20C),
+        helpstring("Gets a list of all MODE PAGES supported by the device")
+    ]
+    HRESULT SupportedModePages( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x20D),
+        helpstring("Queries the device to determine who, if anyone, has acquired exclusive access")
+    ]
+    HRESULT ExclusiveAccessOwner( [out,ref,retval] BSTR * value );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//[
+//    object, nonextensible,
+//    oleautomation,
+//    uuid(27354134-7F64-5B0F-8F00-5D77AFBE261E),
+//    pointer_default(unique),
+//    helpstring("Provides notifications of per-device events (PNP, media, etc) via a simplified API.")
+//]
+//interface DDiscRecorder2Events : IDispatch
+//{
+//    [helpstring("All DBT_CUSTOMEVENT events, unprocessed and unfiltered.")]
+//    HRESULT NotifyAllCustomEvents();
+//    [helpstring("DBT_CUSTOMEVENT, type GUID_IO_MEDIA_ARRIVAL")]
+//    HRESULT NotifyMediaArrival();
+//    [helpstring("DBT_CUSTOMEVENT, type GUID_IO_MEDIA_REMOVAL, media actually removed")]
+//    HRESULT NotifyMediaRemoval();
+//    [helpstring("DBT_CUSTOMEVENT, type GUID_IO_MEDIA_REMOVAL, media not available due to legacy applications")]
+//    HRESULT NotifyMediaUnavailable();
+//}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IWRITEENGINE2_WRITESECTION              0x200")
+cpp_quote("#define DISPID_IWRITEENGINE2_CANCELWRITE               0x201")
+cpp_quote("#define DISPID_IWRITEENGINE2_DISCRECORDER              0x100")
+cpp_quote("#define DISPID_IWRITEENGINE2_USESTREAMINGWRITE12       0x101")
+cpp_quote("#define DISPID_IWRITEENGINE2_STARTINGSECTORSPERSECOND  0x102")
+cpp_quote("#define DISPID_IWRITEENGINE2_ENDINGSECTORSPERSECOND    0x103")
+cpp_quote("#define DISPID_IWRITEENGINE2_BYTESPERSECTOR            0x104")
+cpp_quote("#define DISPID_IWRITEENGINE2_WRITEINPROGRESS           0x105")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354135-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Write Engine")
+]
+interface IWriteEngine2 : IDispatch
+{
+    //// METHODS ////
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Writes data provided in the IStream to the device")
+    ]
+    HRESULT WriteSection(
+        [in] IStream* data,
+        [in] LONG startingBlockAddress,
+        [in] LONG numberOfBlocks
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Cancels the current write operation")
+    ]
+    HRESULT CancelWrite();
+
+    //// PROPERTIES ////
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [in] IDiscRecorder2Ex* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [out,ref,retval] IDiscRecorder2Ex** value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x101),
+        helpstring("If true, uses WRITE12 with the AV bit set to one; else uses WRITE10")
+    ]
+    HRESULT UseStreamingWrite12( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("If true, uses WRITE12 with the AV bit set to one; else uses WRITE10")
+    ]
+    HRESULT UseStreamingWrite12( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x102),
+        helpstring("The approximate number of sectors per second the device can write at the start of the write process.  This is used to optimize sleep time in the write engine.")
+    ]
+    HRESULT StartingSectorsPerSecond( [in] LONG value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("The approximate number of sectors per second the device can write at the start of the write process.  This is used to optimize sleep time in the write engine.")
+    ]
+    HRESULT StartingSectorsPerSecond( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x103),
+        helpstring("The approximate number of sectors per second the device can write at the end of the write process.  This is used to optimize sleep time in the write engine.")
+    ]
+    HRESULT EndingSectorsPerSecond( [in] LONG value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("The approximate number of sectors per second the device can write at the end of the write process.  This is used to optimize sleep time in the write engine.")
+    ]
+    HRESULT EndingSectorsPerSecond( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x104),
+        helpstring("The number of bytes to use for each sector during writing.")
+    ]
+    HRESULT BytesPerSector( [in] LONG value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x104),
+        helpstring("The number of bytes to use for each sector during writing.")
+    ]
+    HRESULT BytesPerSector( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x105),
+        helpstring("Simple check to see if the object is currently writing to media.")
+    ]
+    HRESULT WriteInProgress( [out,ref,retval] VARIANT_BOOL* value );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_STARTLBA             0x100")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_SECTORCOUNT          0x101")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_LASTREADLBA          0x102")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_LASTWRITTENLBA       0x103")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_TOTALDEVICEBUFFER    0x104")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_USEDDEVICEBUFFER     0x105")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_TOTALSYSTEMBUFFER    0x106")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_USEDSYSTEMBUFFER     0x107")
+cpp_quote("#define DISPID_IWRITEENGINE2EVENTARGS_FREESYSTEMBUFFER     0x108")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354136-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Write Engine")
+]
+interface IWriteEngine2EventArgs : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The starting logical block address for the current write operation.")
+    ]
+    HRESULT StartLba( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("The number of sectors being written for the current write operation.")
+    ]
+    HRESULT SectorCount( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("The last logical block address of data read for the current write operation.")
+    ]
+    HRESULT LastReadLba( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("The last logical block address of data written for the current write operation")
+    ]
+    HRESULT LastWrittenLba( [out,ref,retval] LONG* value );
+
+    //[ //////////////////////////////////////////////////////////////////////////
+    //    propget, id(0x104),
+    //    helpstring("The total bytes available on the device's internal buffer")
+    //]
+    //HRESULT TotalDeviceBuffer( [out,ref,retval] LONG* value );
+
+    //[ //////////////////////////////////////////////////////////////////////////
+    //    propget, id(0x105),
+    //    helpstring("The number of bytes used on the device's internal buffer")
+    //]
+    //HRESULT UsedDeviceBuffer( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x106),
+        helpstring("The total bytes available in the system's cache buffer")
+    ]
+    HRESULT TotalSystemBuffer( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x107),
+        helpstring("The used bytes in the system's cache buffer")
+    ]
+    HRESULT UsedSystemBuffer( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x108),
+        helpstring("The free bytes in the system's cache buffer")
+    ]
+    HRESULT FreeSystemBuffer( [out,ref,retval] LONG* value );
+}
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_DWRITEENGINE2EVENTS_UPDATE 0x100")
+[
+    object, nonextensible, 
+    oleautomation,
+    uuid(27354137-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Provides notification of the progress of the WriteEngine2 writing.")
+]
+interface DWriteEngine2Events : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x100),
+        helpstring("Update to current progress")
+    ]
+    HRESULT Update(  [in] IDispatch /* IWriteEngine2 */ * object, [in] IDispatch /* IWriteEngine2EventArgs */ * progress );
+}
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IDISCFORMAT2_RECORDERSUPPORTED        0x800")
+cpp_quote("#define DISPID_IDISCFORMAT2_MEDIASUPPORTED           0x801")
+cpp_quote("#define DISPID_IDISCFORMAT2_MEDIAPHYSICALLYBLANK     0x700")
+cpp_quote("#define DISPID_IDISCFORMAT2_MEDIAHEURISTICALLYBLANK  0x701")
+cpp_quote("#define DISPID_IDISCFORMAT2_SUPPORTEDMEDIATYPES      0x702")
+
+[
+    object, nonextensible,
+    dual,
+    uuid(27354152-8F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Common Disc Format (writer) Operations")
+]
+interface IDiscFormat2 : IDispatch
+{
+    //// METHODS ////
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x800),
+        helpstring("Determines if the recorder object supports the given format")
+    ]
+    HRESULT IsRecorderSupported([in] IDiscRecorder2 * recorder, [out, ref, retval] VARIANT_BOOL* value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x801),
+        helpstring("Determines if the current media in a supported recorder object supports the given format")
+    ]
+    HRESULT IsCurrentMediaSupported([in] IDiscRecorder2 * recorder, [out, ref, retval] VARIANT_BOOL* value);
+
+    //// PROPERTIES ////
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x700),
+        helpstring("Determines if the current media is reported as physically blank by the drive")
+    ]
+    HRESULT MediaPhysicallyBlank([out, ref, retval] VARIANT_BOOL* value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x701),
+        helpstring("Attempts to determine if the media is blank using heuristics (mainly for DVD+RW and DVD-RAM media)")
+    ]
+    HRESULT MediaHeuristicallyBlank([out, ref, retval] VARIANT_BOOL* value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x702),
+        helpstring("Supported media types")
+    ]
+    HRESULT SupportedMediaTypes([out,ref,retval] SAFEARRAY(VARIANT) *value);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IDISCFORMAT2ERASE_RECORDER            0x100")
+cpp_quote("#define DISPID_IDISCFORMAT2ERASE_FULLERASE           0x101")
+cpp_quote("#define DISPID_IDISCFORMAT2ERASE_MEDIATYPE           0x102")
+cpp_quote("#define DISPID_IDISCFORMAT2ERASE_CLIENTNAME          0x103")
+cpp_quote("#define DISPID_IDISCFORMAT2ERASE_ERASEMEDIA          0x201")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354156-8F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Optical media erase")
+]
+interface IDiscFormat2Erase : IDiscFormat2
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x100),
+        helpstring("Sets the recorder object to use for an erase operation")
+    ]
+    HRESULT Recorder([in] IDiscRecorder2 * value);
+    
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("Gets the recorder object to use for an erase operation")
+    ]
+    HRESULT Recorder([out,ref,retval] IDiscRecorder2 ** value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x101),
+        helpstring("Gets the recorder object to use for an erase operation")
+    ]
+    HRESULT FullErase( [in] VARIANT_BOOL value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("Gets the recorder object to use for an erase operation")
+    ]
+    HRESULT FullErase( [out,ref,retval] VARIANT_BOOL * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("Get the current physical media type.")
+    ]
+    HRESULT CurrentPhysicalMediaType( [out,ref,retval] IMAPI_MEDIA_PHYSICAL_TYPE * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x103),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [in] BSTR value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [out,ref,retval] BSTR* value );
+
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Erases the media in the active disc recorder")
+    ]
+    HRESULT EraseMedia();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IDISCFORMAT2ERASEEVENTS_UPDATE 0x200")
+[
+    object, nonextensible, 
+    oleautomation,
+    uuid(2735413A-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Provides notification of media erase progress.")
+]
+interface DDiscFormat2EraseEvents : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Erase progress")
+    ]
+    HRESULT Update( [in] IDispatch /* IDiscFormat2Erase */ * object, [in] LONG elapsedSeconds, [in] LONG estimatedTotalSeconds);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_RECORDER                         0x100")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_BUFFERUNDERRUNFREEDISABLED       0x101")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_POSTGAPALREADYINIMAGE            0x104")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_CURRENTMEDIASTATUS               0x106")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_WRITEPROTECTSTATUS               0x107")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_TOTALSECTORS                     0x108")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_FREESECTORS                      0x109")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_NEXTWRITABLEADDRESS              0x10A")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_STARTSECTOROFPREVIOUSSESSION     0x10B")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_LASTSECTOROFPREVIOUSSESSION      0x10C")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_FORCEMEDIATOBECLOSED             0x10D")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_DISABLEDVDCOMPATIBILITYMODE      0x10E")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_CURRENTMEDIATYPE                 0x10F")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_CLIENTNAME                       0x110")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_REQUESTEDWRITESPEED              0x111")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_REQUESTEDROTATIONTYPEISPURECAV   0x112")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_CURRENTWRITESPEED                0x113")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_CURRENTROTATIONTYPEISPURECAV     0x114")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_SUPPORTEDWRITESPEEDS             0x115")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_SUPPORTEDWRITESPEEDDESCRIPTORS   0x116")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_FORCEOVERWRITE                   0x117")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_MUTLISESSIONINTERFACES           0x118")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_WRITE                            0x200")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_CANCELWRITE                      0x201")
+cpp_quote("#define DISPID_IDISCFORMAT2DATA_SETWRITESPEED                    0x202")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354153-9F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Data Writer")
+]
+interface IDiscFormat2Data : IDiscFormat2
+{
+    //// PROPERTIES ////
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [in] IDiscRecorder2* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [out,ref,retval] IDiscRecorder2** value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x101),
+        helpstring("Buffer Underrun Free recording should be disabled")
+    ]
+    HRESULT BufferUnderrunFreeDisabled( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("Buffer Underrun Free recording should be disabled")
+    ]
+    HRESULT BufferUnderrunFreeDisabled( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x104),
+        helpstring("Postgap is included in image")
+    ]
+    HRESULT PostgapAlreadyInImage( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x104),
+        helpstring("Postgap is included in image")
+    ]
+    HRESULT PostgapAlreadyInImage( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x106),
+        helpstring("The state (usability) of the current media")
+    ]
+    HRESULT CurrentMediaStatus( [out,ref,retval] IMAPI_FORMAT2_DATA_MEDIA_STATE *value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x107),
+        helpstring("The write protection state of the current media.")
+    ]
+    HRESULT WriteProtectStatus( [out,ref,retval] IMAPI_MEDIA_WRITE_PROTECT_STATE *value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x108),
+        helpstring("Total sectors available on the media (used + free).")
+    ]
+    HRESULT TotalSectorsOnMedia( [out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x109),
+        helpstring("Free sectors available on the media.")
+    ]
+    HRESULT FreeSectorsOnMedia( [out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10A),
+        helpstring("Next writable address on the media (also used sectors).")
+    ]
+    HRESULT NextWritableAddress( [out,ref,retval] LONG * value);
+    
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10B),
+        helpstring("The first sector in the previous session on the media.")
+    ]
+    HRESULT StartAddressOfPreviousSession([out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10C),
+        helpstring("The last sector in the previous session on the media.")
+    ]
+    HRESULT LastWrittenAddressOfPreviousSession([out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x10D),
+        helpstring("Prevent further additions to the file system")
+    ]
+    HRESULT ForceMediaToBeClosed( [in] VARIANT_BOOL value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10D),
+        helpstring("Prevent further additions to the file system")
+    ]
+    HRESULT ForceMediaToBeClosed( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x10E),
+        helpstring("Default is to maximize compatibility with DVD-ROM.  May be disabled to reduce time to finish writing the disc or increase usable space on the media for later writing.")
+    ]
+    HRESULT DisableConsumerDvdCompatibilityMode( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10E),
+        helpstring("Default is to maximize compatibility with DVD-ROM.  May be disabled to reduce time to finish writing the disc or increase usable space on the media for later writing.")
+    ]
+    HRESULT DisableConsumerDvdCompatibilityMode( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10F),
+        helpstring("Get the current physical media type.")
+    ]
+    HRESULT CurrentPhysicalMediaType( [out,ref,retval] IMAPI_MEDIA_PHYSICAL_TYPE * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x110),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [in] BSTR value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x110),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [out,ref,retval] BSTR* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x111),
+        helpstring("The last requested write speed.")
+    ]
+    HRESULT RequestedWriteSpeed( [out,ref,retval] LONG* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x112),
+        helpstring("The last requested rotation type.")
+    ]
+    HRESULT RequestedRotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x113),
+        helpstring("The drive's current write speed.")
+    ]
+    HRESULT CurrentWriteSpeed( [out,ref,retval] LONG* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x114),
+        helpstring("The drive's current rotation type.")
+    ]
+    HRESULT CurrentRotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x115),
+        helpstring("Gets an array of the write speeds supported for the attached disc recorder and current media")
+    ]
+    HRESULT SupportedWriteSpeeds( [out,ref,retval] SAFEARRAY(VARIANT) *supportedSpeeds);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x116),
+        helpstring("Gets an array of the detailed write configurations supported for the attached disc recorder and current media")
+    ]
+    HRESULT SupportedWriteSpeedDescriptors( [out,ref,retval] SAFEARRAY(VARIANT) *supportedSpeedDescriptors);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x117),
+        helpstring("Forces the Datawriter to overwrite the disc on overwritable media types")
+    ]
+    HRESULT ForceOverwrite( [in] VARIANT_BOOL value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x117),
+        helpstring("Forces the Datawriter to overwrite the disc on overwritable media types")
+    ]
+    HRESULT ForceOverwrite( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x118),
+        helpstring("Returns the array of available multi-session interfaces. The array shall not be empty")
+    ]
+    HRESULT MultisessionInterfaces([out,ref,retval] SAFEARRAY(VARIANT) *value);
+
+
+    //// METHODS ////
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Writes all the data provided in the IStream to the device")
+    ]
+    HRESULT Write(
+        [in] IStream* data
+        );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Cancels the current write operation")
+    ]
+    HRESULT CancelWrite();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x202),
+        helpstring("Sets the write speed (in sectors per second) of the attached disc recorder")
+    ]
+    HRESULT SetWriteSpeed([in] LONG RequestedSectorsPerSecond, [in] VARIANT_BOOL RotationTypeIsPureCAV);
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_DDISCFORMAT2DATAEVENTS_UPDATE  0x200")
+[
+    object, nonextensible,
+    oleautomation,
+    uuid(2735413C-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Data Writer")
+]
+interface DDiscFormat2DataEvents : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Update to current progress")
+    ]
+    HRESULT Update( [in] IDispatch /* IDiscFormat2Data */ * object, [in] IDispatch /* IDiscFormat2DataEventArgs */ * progress );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// note: dispid's 0x100-0x2FF are for IWriteEngine2EventArgs
+cpp_quote("#define DISPID_IDISCFORMAT2DATAEVENTARGS_ELAPSEDTIME            0x300")
+cpp_quote("#define DISPID_IDISCFORMAT2DATAEVENTARGS_ESTIMATEDREMAININGTIME 0x301")
+cpp_quote("#define DISPID_IDISCFORMAT2DATAEVENTARGS_ESTIMATEDTOTALTIME     0x302")
+cpp_quote("#define DISPID_IDISCFORMAT2DATAEVENTARGS_CURRENTACTION          0x303")
+[
+    object, nonextensible,
+    dual,
+    uuid(2735413D-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Track-at-once Data Writer")
+]
+interface IDiscFormat2DataEventArgs : IWriteEngine2EventArgs
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x300),
+        helpstring("The total elapsed time for the current write operation.")
+    ]
+    HRESULT ElapsedTime( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x301),
+        helpstring("The estimated time remaining for the write operation.")
+    ]
+    HRESULT RemainingTime( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x302),
+        helpstring("The estimated total time for the write operation.")
+    ]
+    HRESULT TotalTime( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x303),
+        helpstring("The current write action.")
+    ]
+    HRESULT CurrentAction( [out,ref,retval] IMAPI_FORMAT2_DATA_WRITE_ACTION* value );
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_RECORDER                          0x100")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_BUFFERUNDERRUNFREEDISABLED        0x102")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_NUMBEROFEXISTINGTRACKS            0x103")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_TOTALSECTORSONMEDIA               0x104")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_FREESECTORSONMEDIA                0x105")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_USEDSECTORSONMEDIA                0x106")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_DONOTFINALIZEMEDIA                0x107")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_EXPECTEDTABLEOFCONTENTS           0x10A")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_CURRENTMEDIATYPE                  0x10B")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_CLIENTNAME                        0x10E")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_REQUESTEDWRITESPEED               0x10F")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_REQUESTEDROTATIONTYPEISPURECAV    0x110")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_CURRENTWRITESPEED                 0x111")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_CURRENTROTATIONTYPEISPURECAV      0x112")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_SUPPORTEDWRITESPEEDS              0x113")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_SUPPORTEDWRITESPEEDDESCRIPTORS    0x114")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_PREPAREMEDIA                      0x200")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_ADDAUDIOTRACK                     0x201")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_CANCELADDTRACK                    0x202")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_FINISHMEDIA                       0x203")
+cpp_quote("#define DISPID_IDISCFORMAT2TAO_SETWRITESPEED                     0x204")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354154-8F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Track-at-Once Audio Writer")
+]
+interface IDiscFormat2TrackAtOnce : IDiscFormat2
+{
+    //// METHODS ////
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Locks the current media for use by this writer.")
+    ]
+    HRESULT PrepareMedia();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Immediately writes a new audio track to the locked media.")
+    ]
+    HRESULT AddAudioTrack([in] IStream* data);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x202),
+        helpstring("Cancels the current addition of a track.")
+    ]
+    HRESULT CancelAddTrack();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x203),
+        helpstring("Finishes use of the locked media.")
+    ]
+    HRESULT ReleaseMedia();
+    
+     [ //////////////////////////////////////////////////////////////////////////
+        id(0x204),
+        helpstring("Sets the write speed (in sectors per second) of the attached disc recorder")
+    ]
+    HRESULT SetWriteSpeed([in] LONG RequestedSectorsPerSecond, [in] VARIANT_BOOL RotationTypeIsPureCAV);
+
+    //// PROPERTIES ////
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [in] IDiscRecorder2* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [out,ref,retval] IDiscRecorder2** value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x102),
+        helpstring("Buffer Underrun Free recording should be disabled")
+    ]
+    HRESULT BufferUnderrunFreeDisabled( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("Buffer Underrun Free recording should be disabled")
+    ]
+    HRESULT BufferUnderrunFreeDisabled( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("Number of tracks already written to the locked media")
+    ]
+    HRESULT NumberOfExistingTracks( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x104),
+        helpstring("Total sectors available on locked media if writing one continuous audio track")
+    ]
+    HRESULT TotalSectorsOnMedia( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x105),
+        helpstring("Number of sectors available for adding a new track to the media")
+    ]
+    HRESULT FreeSectorsOnMedia( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x106),
+        helpstring("Number of sectors used on the locked media, including overhead (space between tracks)")
+    ]
+    HRESULT UsedSectorsOnMedia( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x107),
+        helpstring("Set the media to be left 'open' after writing, to allow multisession discs.")
+    ]
+    HRESULT DoNotFinalizeMedia( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x107),
+        helpstring("Set the media to be left 'open' after writing, to allow multisession discs.")
+    ]
+    HRESULT DoNotFinalizeMedia( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10A),
+        helpstring("The expected TOC if the media is closed without adding additional tracks.")
+    ]
+    HRESULT ExpectedTableOfContents( [out,ref,retval] SAFEARRAY(VARIANT) *value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10B),
+        helpstring("Get the current physical media type.")
+    ]
+    HRESULT CurrentPhysicalMediaType( [out,ref,retval] IMAPI_MEDIA_PHYSICAL_TYPE * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x10E),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [in] BSTR value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10E),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [out,ref,retval] BSTR* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10F),
+        helpstring("The last requested write speed.")
+    ]
+    HRESULT RequestedWriteSpeed( [out,ref,retval] LONG* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x110),
+        helpstring("The last requested rotation type.")
+    ]
+    HRESULT RequestedRotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x111),
+        helpstring("The drive's current write speed.")
+    ]
+    HRESULT CurrentWriteSpeed( [out,ref,retval] LONG* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x112),
+        helpstring("The drive's current rotation type.")
+    ]
+    HRESULT CurrentRotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x113),
+        helpstring("Gets an array of the write speeds supported for the attached disc recorder and current media")
+    ]
+    HRESULT SupportedWriteSpeeds( [out,ref,retval] SAFEARRAY(VARIANT) *supportedSpeeds);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x114),
+        helpstring("Gets an array of the detailed write configurations supported for the attached disc recorder and current media")
+    ]
+    HRESULT SupportedWriteSpeedDescriptors( [out,ref,retval] SAFEARRAY(VARIANT) *supportedSpeedDescriptors);
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_DDISCFORMAT2TAOEVENTS_UPDATE  0x200")
+[
+    object, nonextensible,
+    oleautomation,
+    uuid(2735413F-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Track-at-Once Audio Writer Events")
+]
+interface DDiscFormat2TrackAtOnceEvents : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Update to current progress")
+    ]
+    HRESULT Update( [in] IDispatch /* IDiscFormat2TrackAtOnce */ * object, [in] IDispatch /* IDiscFormat2TrackAtOnceEventArgs */ * progress );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// note: dispid's 0x100-0x2FF are for IWriteEngine2EventArgs
+cpp_quote("#define DISPID_IDISCFORMAT2TAOEVENTARGS_CURRENTTRACKNUMBER     0x300")
+cpp_quote("#define DISPID_IDISCFORMAT2TAOEVENTARGS_CURRENTACTION          0x301")
+cpp_quote("#define DISPID_IDISCFORMAT2TAOEVENTARGS_ELAPSEDTIME            0x302")
+cpp_quote("#define DISPID_IDISCFORMAT2TAOEVENTARGS_ESTIMATEDREMAININGTIME 0x303")
+cpp_quote("#define DISPID_IDISCFORMAT2TAOEVENTARGS_ESTIMATEDTOTALTIME     0x304")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354140-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Track-at-once Audio Writer Event Arguments")
+]
+interface IDiscFormat2TrackAtOnceEventArgs : IWriteEngine2EventArgs
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x300),
+        helpstring("The total elapsed time for the current write operation.")
+    ]
+    HRESULT CurrentTrackNumber( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x301),
+        helpstring("The current write action.")
+    ]
+    HRESULT CurrentAction( [out,ref,retval] IMAPI_FORMAT2_TAO_WRITE_ACTION* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x302),
+        helpstring("The elapsed time for the current track write or media finishing operation.")
+    ]
+    HRESULT ElapsedTime( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x303),
+        helpstring("The estimated time remaining for the current track write or media finishing operation.")
+    ]
+    HRESULT RemainingTime( [out,ref,retval] LONG* value );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_RECORDER                        0x100")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_BUFFERUNDERRUNFREEDISABLED      0x102")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_STARTOFNEXTSESSION              0x103")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_LASTPOSSIBLESTARTOFLEADOUT      0x104")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_CURRENTMEDIATYPE                0x105")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_SUPPORTEDDATASECTORTYPES        0x108")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_REQUESTEDDATASECTORTYPE         0x109")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_CLIENTNAME                      0x10A")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_REQUESTEDWRITESPEED             0x10B")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_REQUESTEDROTATIONTYPEISPURECAV  0x10C")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_CURRENTWRITESPEED               0x10D")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_CURRENTROTATIONTYPEISPURECAV    0x10E")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_SUPPORTEDWRITESPEEDS            0x10F")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_SUPPORTEDWRITESPEEDDESCRIPTORS  0x110")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_PREPAREMEDIA                    0x200")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_WRITEMEDIA                      0x201")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_WRITEMEDIAWITHVALIDATION        0x202")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_CANCELWRITE                     0x203")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_RELEASEMEDIA                    0x204")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCD_SETWRITESPEED                   0x205")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354155-8F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Disc-At-Once RAW Writer")
+]
+interface IDiscFormat2RawCD : IDiscFormat2
+{
+    //// METHODS ////
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Locks the current media for use by this writer.")
+    ]
+    HRESULT PrepareMedia();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Writes a RAW image that starts at 95:00:00 (MSF) to the currently inserted blank CD media.")
+    ]
+    HRESULT WriteMedia([in] IStream* data);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x202),
+        helpstring("Writes a RAW image to the currently inserted blank CD media.  A stream starting at 95:00:00 (-5 minutes) would use 5*60*75 + 150 sectors pregap == 22,650 for the number of sectors")
+    ]
+    HRESULT WriteMedia2([in] IStream* data, [in] LONG streamLeadInSectors);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x203),
+        helpstring("Cancels the current write.")
+    ]
+    HRESULT CancelWrite();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x204),
+        helpstring("Finishes use of the locked media.")
+    ]
+    HRESULT ReleaseMedia();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x205),
+        helpstring("Sets the write speed (in sectors per second) of the attached disc recorder")
+    ]
+    HRESULT SetWriteSpeed([in] LONG RequestedSectorsPerSecond, [in] VARIANT_BOOL RotationTypeIsPureCAV);
+
+
+    //// PROPERTIES ////
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [in] IDiscRecorder2* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The disc recorder to use")
+    ]
+    HRESULT Recorder( [out,ref,retval] IDiscRecorder2** value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x102),
+        helpstring("Buffer Underrun Free recording should be disabled")
+    ]
+    HRESULT BufferUnderrunFreeDisabled( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("Buffer Underrun Free recording should be disabled")
+    ]
+    HRESULT BufferUnderrunFreeDisabled( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("The first sector of the next session.  May be negative for blank media.")
+    ]
+    HRESULT StartOfNextSession( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x104),
+        helpstring("The last possible start for the leadout area.  Can be used to calculate available space on media.")
+    ]
+    HRESULT LastPossibleStartOfLeadout( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x105),
+        helpstring("Get the current physical media type.")
+    ]
+    HRESULT CurrentPhysicalMediaType( [out,ref,retval] IMAPI_MEDIA_PHYSICAL_TYPE * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x108),
+        helpstring("Supported data sector types for the current recorder")
+    ]
+    HRESULT SupportedSectorTypes( [out,ref,retval] SAFEARRAY(VARIANT) *value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x109),
+        helpstring("Requested data sector to use during write of the stream")
+    ]
+    HRESULT RequestedSectorType( [in] IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x109),
+        helpstring("Requested data sector to use during write of the stream")
+    ]
+    HRESULT RequestedSectorType( [out,ref,retval] IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x10A),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [in] BSTR value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10A),
+        helpstring("The friendly name of the client (used to determine recorder reservation conflicts).")
+    ]
+    HRESULT ClientName( [out,ref,retval] BSTR* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10B),
+        helpstring("The last requested write speed.")
+    ]
+    HRESULT RequestedWriteSpeed( [out,ref,retval] LONG* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10C),
+        helpstring("The last requested rotation type.")
+    ]
+    HRESULT RequestedRotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10D),
+        helpstring("The drive's current write speed.")
+    ]
+    HRESULT CurrentWriteSpeed( [out,ref,retval] LONG* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10E),
+        helpstring("The drive's current rotation type.")
+    ]
+    HRESULT CurrentRotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x10F),
+        helpstring("Gets an array of the write speeds supported for the attached disc recorder and current media")
+    ]
+    HRESULT SupportedWriteSpeeds( [out,ref,retval] SAFEARRAY(VARIANT) *supportedSpeeds);
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x110),
+        helpstring("Gets an array of the detailed write configurations supported for the attached disc recorder and current media")
+    ]
+    HRESULT SupportedWriteSpeedDescriptors( [out,ref,retval] SAFEARRAY(VARIANT) *supportedSpeedDescriptors);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE  0x200")
+[
+    object, nonextensible,
+    oleautomation,
+    uuid(27354142-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Disc-At-Once RAW Writer Events")
+]
+interface DDiscFormat2RawCDEvents : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Update to current progress")
+    ]
+    HRESULT Update( [in] IDispatch /* IDiscFormat2CDRaw */ * object, [in] IDispatch /* IDiscFormat2RawCDEventArgs */ * progress );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// note: dispid's 0x100-0x2FF are for IWriteEngine2EventArgs
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCDEVENTARGS_CURRENTTRACKNUMBER     0x300")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCDEVENTARGS_CURRENTACTION          0x301")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCDEVENTARGS_ELAPSEDTIME            0x300")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCDEVENTARGS_ESTIMATEDREMAININGTIME 0x301")
+cpp_quote("#define DISPID_IDISCFORMAT2RAWCDEVENTARGS_ESTIMATEDTOTALTIME     0x302")
+[
+    object, nonextensible,
+    dual,
+    uuid(27354143-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("CD Disc-At-Once RAW Writer Event Arguments")
+]
+interface IDiscFormat2RawCDEventArgs : IWriteEngine2EventArgs
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x301),
+        helpstring("The current write action.")
+    ]
+    HRESULT CurrentAction( [out,ref,retval] IMAPI_FORMAT2_RAW_CD_WRITE_ACTION* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x302),
+        helpstring("The elapsed time for the current track write or media finishing operation.")
+    ]
+    HRESULT ElapsedTime( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x303),
+        helpstring("The estimated time remaining for the current track write or media finishing operation.")
+    ]
+    HRESULT RemainingTime( [out,ref,retval] LONG* value );
+}
+
+
+[
+    object,
+    uuid(D2FFD834-958B-426d-8470-2A13879C6A91),
+    pointer_default(unique),
+    helpstring("An interface to control burn verification for a burning object")
+]
+interface IBurnVerification : IUnknown
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x400),
+        helpstring("The requested level of burn verification.")
+    ]
+    HRESULT BurnVerificationLevel( [in] IMAPI_BURN_VERIFICATION_LEVEL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x400),
+        helpstring("The requested level of burn verification.")
+    ]
+    HRESULT BurnVerificationLevel( [out,ref,retval] IMAPI_BURN_VERIFICATION_LEVEL *value );
+}
+
+
+
+cpp_quote("#define IMAPI_SECTORS_PER_SECOND_AT_1X_CD      75")
+cpp_quote("#define IMAPI_SECTORS_PER_SECOND_AT_1X_DVD     680")
+cpp_quote("#define IMAPI_SECTORS_PER_SECOND_AT_1X_BD      2195")
+cpp_quote("#define IMAPI_SECTORS_PER_SECOND_AT_1X_HD_DVD  4568")
+
+[
+    object,
+    dual,
+    uuid(27354144-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("A single optical drive Write Speed Configuration")
+
+]
+interface IWriteSpeedDescriptor : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("The type of media that this descriptor is valid for.")
+    ]
+    HRESULT MediaType( [out,ref,retval] IMAPI_MEDIA_PHYSICAL_TYPE *value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("Whether or not this descriptor represents a writing configuration that uses Pure CAV rotation control.")
+    ]
+    HRESULT RotationTypeIsPureCAV( [out,ref,retval] VARIANT_BOOL *value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("The maximum speed at which the media will be written in the write configuration represented by this descriptor.")
+    ]
+    HRESULT WriteSpeed( [out,ref,retval] LONG *value );
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IMULTISESSION_SUPPORTEDONCURRENTMEDIA 0x100")
+cpp_quote("#define DISPID_IMULTISESSION_INUSE                   0x101")
+cpp_quote("#define DISPID_IMULTISESSION_IMPORTRECORDER          0x102")
+[
+    object, dual,
+    uuid(27354150-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Generic multisession support interface.")
+]
+interface IMultisession : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("Is it possible to write this multi-session type on the current media in its present state.")
+    ]
+    HRESULT IsSupportedOnCurrentMediaState( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x101),
+        helpstring("Is this multi-session type the one to use on current media")
+    ]
+    HRESULT InUse( [in] VARIANT_BOOL value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("Is this multi-session type the one to use on current media")
+    ]
+    HRESULT InUse( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("The disc recorder to use to import previous session(s)")
+    ]
+    HRESULT ImportRecorder( [out,ref,retval] IDiscRecorder2** value );
+}
+
+cpp_quote("#define DISPID_IMULTISESSION_FIRSTDATASESSION             0x200")
+cpp_quote("#define DISPID_IMULTISESSION_STARTSECTOROFPREVIOUSSESSION 0x201")
+cpp_quote("#define DISPID_IMULTISESSION_LASTSECTOROFPREVIOUSSESSION  0x202")
+cpp_quote("#define DISPID_IMULTISESSION_NEXTWRITABLEADDRESS          0x203")
+cpp_quote("#define DISPID_IMULTISESSION_FREESECTORS                  0x204")
+cpp_quote("#define DISPID_IMULTISESSION_WRITEUNITSIZE                0x205")
+[
+    object, dual,
+    uuid(27354151-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Sequential multisession support interface")
+]
+interface IMultisessionSequential : IMultisession
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x200),
+        helpstring("Is this the first data session on the media?")
+    ]
+    HRESULT IsFirstDataSession([out,ref,retval] VARIANT_BOOL * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x201),
+        helpstring("The first sector in the previous session on the media.")
+    ]
+    HRESULT StartAddressOfPreviousSession([out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x202),
+        helpstring("The last sector in the previous session on the media.")
+    ]
+    HRESULT LastWrittenAddressOfPreviousSession([out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x203),
+        helpstring("Next writable address on the media (also used sectors).")
+    ]
+    HRESULT NextWritableAddress( [out,ref,retval] LONG * value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x204),
+        helpstring("Free sectors available on the media.")
+    ]
+    HRESULT FreeSectorsOnMedia( [out,ref,retval] LONG * value);
+}
+
+[
+    object, dual,
+    uuid(B507CA22-2204-11DD-966A-001AA01BBC58),
+    pointer_default(unique),
+    helpstring("Sequential multisession support interface (rev.2)")
+]
+interface IMultisessionSequential2 : IMultisessionSequential
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x205),
+        helpstring("Write unit size (writes must be performed in these units).")
+    ]
+    HRESULT WriteUnitSize([out,ref,retval] LONG *value);
+}
+
+cpp_quote("#define DISPID_IMULTISESSION_LASTWRITTENADDRESS           0x206")
+cpp_quote("#define DISPID_IMULTISESSION_SECTORSONMEDIA               0x207")
+ [
+    object, dual,
+    uuid(B507CA23-2204-11DD-966A-001AA01BBC58),
+    pointer_default(unique),
+    helpstring("Random write multisession support interface.")
+]
+interface IMultisessionRandomWrite : IMultisession
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x205),
+        helpstring("Write unit size (writes must be performed in these units).")
+    ]
+    HRESULT WriteUnitSize([out,ref,retval] LONG *value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x206),
+        helpstring("The last sector written on the media.")
+    ]
+    HRESULT LastWrittenAddress([out,ref,retval] LONG *value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x207),
+        helpstring("The total number of sectors available on the media.")
+    ]
+    HRESULT TotalSectorsOnMedia([out,ref,retval] LONG *value);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(27354145-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Pseudo-random based IStream data (implementation dependent)")
+]
+interface IStreamPseudoRandomBased : IStream
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Seeds the random number generator and seeks to start of stream")
+    ]
+    HRESULT put_Seed( [in] ULONG value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Seeds the random number generator and seeks to start of stream")
+    ]
+    HRESULT get_Seed( [out] ULONG * value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Extended seed method for the random number generator (seeks to start of stream)")
+    ]
+    HRESULT put_ExtendedSeed( [in, size_is(eCount)] ULONG * values, [in] ULONG eCount );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Extended seed method for the random number generator (seeks to start of stream)")
+    ]
+    HRESULT get_ExtendedSeed( [out, size_is(,*eCount)] ULONG ** values, [out] ULONG * eCount );
+}
+////////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(27354146-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Stream concatenation")
+]
+interface IStreamConcatenate : IStream
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Initialize the stream with two IStreams")
+    ]
+    HRESULT Initialize( [in] IStream* stream1, [in] IStream* stream2 );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Initialize the stream with an array of IStreams")
+    ]
+    HRESULT Initialize2( [in,size_is(streamCount)] IStream** streams, [in] ULONG streamCount );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Append another stream (grow)")
+    ]
+    HRESULT Append( [in] IStream* stream );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Append an array of streams (grow)")
+    ]
+    HRESULT Append2( [in,size_is(streamCount)] IStream** streams, [in] ULONG streamCount );
+}
+////////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(27354147-7F64-5B0F-8F00-5D77AFBE261E),
+    pointer_default(unique),
+    helpstring("Stream interleave: each stream gets interleaveSize bytes, then cycles to the next stream")
+]
+interface IStreamInterleave : IStream
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Initialize the stream with an array of IStreams and interleave sizes")
+    ]
+    HRESULT Initialize( [in,size_is(streamCount)] IStream** streams,
+                        [in,size_is(streamCount)] ULONG*    interleaveSizes,
+                        [in,range(1,0x7FFFFFFF) ] ULONG     streamCount
+                        );
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_CREATERESULTIMAGE        0x200")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_ADDTRACK                 0x201")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_ADDSPECIALPREGAP         0x202")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_ADDSUBCODERWGENERATOR    0x203")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_RESULTINGIMAGETYPE       0x100")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_STARTOFLEADOUT           0x101")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_STARTOFLEADOUTLIMIT      0x102")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_DISABLEGAPLESSAUDIO      0x103")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_MEDIACATALOGNUMBER       0x104")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_STARTINGTRACKNUMBER      0x105")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_TRACKINFO                0x106")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_NUMBEROFEXISTINGTRACKS   0x107")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_USEDSECTORSONDISC        0x108")
+cpp_quote("#define DISPID_IRAWCDIMAGECREATOR_EXPECTEDTABLEOFCONTENTS  0x109")
+[
+    object, nonextensible,
+    dual,
+    uuid(25983550-9D65-49CE-B335-40630D901227),
+    pointer_default(unique),
+    helpstring("CD Raw CD (Disc-at-Once) Image Creator")
+]
+interface IRawCDImageCreator : IDispatch
+{
+    //// METHODS ////
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Creates the result stream.")
+    ]
+    HRESULT CreateResultImage( [out,retval] IStream ** resultStream );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Adds a track to the media (defaults to audio, always 2352 bytes/sector).")
+    ]
+    HRESULT AddTrack( [in] IMAPI_CD_SECTOR_TYPE dataType, [in] IStream* data, [out,retval] LONG * trackIndex );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x202),
+        helpstring("Adds a special pregap to the first track, and implies an audio CD")
+    ]
+    HRESULT AddSpecialPregap( [in] IStream* data );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x203),
+        helpstring("Adds an R-W subcode generation object to supply R-W subcode (i.e. CD-Text or CD-G).")
+    ]
+    HRESULT AddSubcodeRWGenerator( [in] IStream* subcode );
+
+
+    //// PROPERTIES ////
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x100),
+        helpstring("")
+    ]
+    HRESULT ResultingImageType( [in] IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("")
+    ]
+    HRESULT ResultingImageType( [out,ref,retval] IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("Equal to (final user LBA+1), defines minimum disc size image can be written to.")
+    ]
+    HRESULT StartOfLeadout( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x102),
+        helpstring("")
+    ]
+    HRESULT StartOfLeadoutLimit( [in] LONG value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("")
+    ]
+    HRESULT StartOfLeadoutLimit( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x103),
+        helpstring("Disables gapless recording of consecutive audio tracks.")
+    ]
+    HRESULT DisableGaplessAudio( [in] VARIANT_BOOL value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("Disables gapless recording of consecutive audio tracks.")
+    ]
+    HRESULT DisableGaplessAudio( [out,ref,retval] VARIANT_BOOL* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x104),
+        helpstring("The Media Catalog Number for the CD image")
+    ]
+    HRESULT MediaCatalogNumber( [in] BSTR value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x104),
+        helpstring("The Media Catalog Number for the CD image")
+    ]
+    HRESULT MediaCatalogNumber( [out,ref,retval] BSTR* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x105),
+        helpstring("The starting track number (only for pure audio CDs)")
+    ]
+    HRESULT StartingTrackNumber( [in,range(1,99)] LONG value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x105),
+        helpstring("The starting track number (only for pure audio CDs)")
+    ]
+    HRESULT StartingTrackNumber( [out,ref,retval] LONG* value );
+
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x106),
+        helpstring("Track-specific information")
+    ]
+    HRESULT TrackInfo( [in] LONG trackIndex, [out,ref,retval] IRawCDImageTrackInfo ** value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x107),
+        helpstring("")
+    ]
+    HRESULT NumberOfExistingTracks( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x108),
+        helpstring("")
+    ]
+    HRESULT LastUsedUserSectorInImage( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x109),
+        helpstring("")
+    ]
+    HRESULT ExpectedTableOfContents( [out,ref,retval] SAFEARRAY(VARIANT) *value );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_STARTINGLBA              0x100")
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_SECTORCOUNT              0x101")
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_TRACKNUMBER              0x102")
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_SECTORTYPE               0x103")
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_ISRC                     0x104")
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_DIGITALAUDIOCOPYSETTING  0x105")
+cpp_quote("#define DISPID_IRAWCDTRACKINFO_AUDIOHASPREEMPHASIS      0x106")
+[
+    object, nonextensible,
+    dual,
+    uuid(25983551-9D65-49CE-B335-40630D901227),
+    pointer_default(unique),
+    helpstring("CD Raw CD (Disc-at-Once) Per-Track Information")
+]
+interface IRawCDImageTrackInfo : IDispatch
+{
+    //// PROPERTIES ////
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The LBA of the first user sector in this track.")
+    ]
+    HRESULT StartingLba( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("The number of user sectors in this track.")
+    ]
+    HRESULT SectorCount( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x102),
+        helpstring("The track number assigned for this track.")
+    ]
+    HRESULT TrackNumber( [out,ref,retval] LONG* value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x103),
+        helpstring("The type of data being recorded on the current sector.")
+    ]
+    HRESULT SectorType( [out,ref,retval] IMAPI_CD_SECTOR_TYPE* value );
+
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x104),
+        helpstring("The International Standard Recording Code (ISRC) for this track.")
+    ]
+    HRESULT ISRC( [out,ref,retval] BSTR* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x104),
+        helpstring("The International Standard Recording Code (ISRC) for this track.")
+    ]
+    HRESULT ISRC( [in] BSTR value );
+
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x105),
+        helpstring("The digital audio copy setting for this track.")
+    ]
+    HRESULT DigitalAudioCopySetting( [out,ref,retval] IMAPI_CD_TRACK_DIGITAL_COPY_SETTING* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x105),
+        helpstring("The digital audio copy setting for this track.")
+    ]
+    HRESULT DigitalAudioCopySetting( [in] IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value );
+
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x106),
+        helpstring("The audio provided already has preemphasis applied (rare).")
+    ]
+    HRESULT AudioHasPreemphasis( [out,ref,retval] VARIANT_BOOL* value );
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(0x106),
+        helpstring("The audio provided already has preemphasis applied (rare).")
+    ]
+    HRESULT AudioHasPreemphasis( [in] VARIANT_BOOL value );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x107),
+        helpstring("The list of current track-relative indexes within the CD track.")
+    ]
+    HRESULT TrackIndexes( [out,ref,retval] SAFEARRAY(VARIANT) * value );
+
+    //// METHODS ////
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Add the specified LBA (relative to the start of the track) as an index.")
+    ]
+    HRESULT AddTrackIndex( [in,range(0,0x7FFFFFFF)] LONG lbaOffset);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Removes the specified LBA (relative to the start of the track) as an index.")
+    ]
+    HRESULT ClearTrackIndex( [in, range(0,0x7FFFFFFF)] LONG lbaOffset);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+cpp_quote("#define DISPID_IBLOCKRANGE_STARTLBA                       0x100")
+cpp_quote("#define DISPID_IBLOCKRANGE_ENDLBA                         0x101")
+[
+    object,
+    dual,
+    uuid(B507CA25-2204-11DD-966A-001AA01BBC58),
+    pointer_default(unique),
+    helpstring("A continuous LBA range")
+]
+interface IBlockRange : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("The first LBA in the range.")
+    ]
+    HRESULT StartLba([out,ref,retval] LONG *value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("The last LBA in the range.")
+    ]
+    HRESULT EndLba([out,ref,retval] LONG *value);
+}
+
+cpp_quote("#define DISPID_IBLOCKRANGELIST_BLOCKRANGES                0x100")
+[
+    object,
+    dual,
+    uuid(B507CA26-2204-11DD-966A-001AA01BBC58),
+    pointer_default(unique),
+    helpstring("A list of continuous LBA ranges")
+]
+interface IBlockRangeList : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("Returns an array of LBA ranges.")
+    ]
+    HRESULT BlockRanges([out,ref,retval] SAFEARRAY(VARIANT) *value);
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("")
+cpp_quote("//")
+cpp_quote("// IMAPIv2 version information for TYPELib loading")
+cpp_quote("//")
+cpp_quote("#define IMAPILib2_MajorVersion 1")
+cpp_quote("#define IMAPILib2_MinorVersion 0")
+cpp_quote("#define LIBID_IMAPILib2 LIBID_IMAPI2")
+cpp_quote("")
+[
+    uuid(2735412F-7F64-5B0F-8F00-5D77AFBE261E),
+    version(1.0),
+    helpstring("Microsoft IMAPI2 Base Functionality")
+]
+library IMAPI2
+{
+    importlib("stdole2.tlb");
+
+
+    // reference the enums and event args to ensure they show up in the type library
+
+    enum IMAPI_MEDIA_PHYSICAL_TYPE;
+    enum IMAPI_MEDIA_WRITE_PROTECT_STATE;
+    enum IMAPI_READ_TRACK_ADDRESS_TYPE;
+    enum IMAPI_MODE_PAGE_REQUEST_TYPE;
+    enum IMAPI_MODE_PAGE_TYPE;
+    enum IMAPI_FEATURE_PAGE_TYPE;
+    enum IMAPI_PROFILE_TYPE;
+    enum IMAPI_FORMAT2_DATA_WRITE_ACTION;
+    enum IMAPI_FORMAT2_DATA_MEDIA_STATE;
+    enum IMAPI_FORMAT2_TAO_WRITE_ACTION;
+    enum IMAPI_FORMAT2_RAW_DATA_BLOCK_TYPE;
+    enum IMAPI_FORMAT2_RAW_WRITE_ACTION;
+    enum IMAPI_CD_SECTOR_DATA_TYPE;
+    enum IMAPI_CD_TRACK_DIGITAL_COPY_SETTING;
+    enum IMAPI_BURN_VERIFICATION_LEVEL;
+
+
+    interface IWriteEngine2EventArgs;
+    interface IDiscFormat2DataEventArgs;
+    interface IDiscFormat2TrackAtOnceEventArgs;
+    interface IDiscFormat2RawCDEventArgs;
+    interface IWriteSpeedDescriptor;
+    interface DDiscMaster2Events;
+    interface DWriteEngine2Events;
+    interface DDiscFormat2EraseEvents;
+    interface DDiscFormat2DataEvents;
+    interface DDiscFormat2TrackAtOnceEvents;
+    interface DDiscFormat2RawCDEvents;
+    interface IRawCDImageCreator;
+    interface IRawCDImageTrackInfo;
+    interface IBurnVerification;
+    interface IBlockRange;
+    interface IBlockRangeList;
+
+
+    [
+        uuid(2735412E-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Disc Master"),
+    ]
+    coclass MsftDiscMaster2
+    {
+        [default] interface IDiscMaster2;
+        interface IConnectionPointContainer;
+        [default,source] interface DDiscMaster2Events;
+    };
+
+    [
+        uuid(2735412D-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Disc Recorder"),
+    ]
+    coclass MsftDiscRecorder2
+    {
+        [default] interface IDiscRecorder2;
+        interface IDiscRecorder2Ex;
+    };
+
+    [
+        uuid(2735412C-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 CD Write Engine"),
+    ]
+    coclass MsftWriteEngine2
+    {
+        [default] interface IWriteEngine2;
+        interface IConnectionPointContainer;
+        [default,source] interface DWriteEngine2Events;
+    };
+
+    [
+        uuid(2735412B-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Media Erase/Blank"),
+    ]
+    coclass MsftDiscFormat2Erase
+    {
+        [default] interface IDiscFormat2Erase;
+        interface IConnectionPointContainer;
+        [default,source] interface DDiscFormat2EraseEvents;
+    };
+
+    [
+        uuid(2735412A-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Data Writer"),
+    ]
+    coclass MsftDiscFormat2Data
+    {
+        [default] interface IDiscFormat2Data;
+        interface IBurnVerification;
+        interface IConnectionPointContainer;
+        [default,source] interface DDiscFormat2DataEvents;
+    };
+
+    [
+        uuid(27354129-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Track-at-Once Audio CD Writer"),
+    ]
+    coclass MsftDiscFormat2TrackAtOnce
+    {
+        [default] interface IDiscFormat2TrackAtOnce;
+        interface IBurnVerification;
+        interface IConnectionPointContainer;
+        [default,source] interface DDiscFormat2TrackAtOnceEvents;
+    };
+
+    [
+        uuid(27354128-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Disc-at-Once RAW CD Image Writer"),
+    ]
+    coclass MsftDiscFormat2RawCD
+    {
+        [default] interface IDiscFormat2RawCD;
+        interface IConnectionPointContainer;
+        [default,source] interface DDiscFormat2RawCDEvents;
+    };
+
+
+    [
+        uuid(27354127-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 /dev/zero Stream "),
+    ]
+    coclass MsftStreamZero
+    {
+        [default] interface IStream;
+    };
+
+    [
+        uuid(27354126-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 PRNG based Stream (LCG: 0x19660D, 0x3C6EF35F)"),
+    ]
+    coclass MsftStreamPrng001
+    {
+        [default] interface IStreamPseudoRandomBased;
+    };
+
+    [
+        uuid(27354125-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 concatenation stream"),
+    ]
+    coclass MsftStreamConcatenate
+    {
+        [default] interface IStreamConcatenate;
+    };
+
+    [
+        uuid(27354124-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 interleave stream"),
+    ]
+    coclass MsftStreamInterleave
+    {
+        [default] interface IStreamInterleave;
+    };
+    
+    [
+        noncreatable,
+        uuid(27354123-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 Write Speed Descriptor"),
+    ]
+    coclass MsftWriteSpeedDescriptor
+    {
+        [default] interface IWriteSpeedDescriptor;
+    };
+    
+    [
+        noncreatable,
+        uuid(27354122-7F64-5B0F-8F00-5D77AFBE261E),
+        helpstring("Microsoft IMAPIv2 sequential Multi-session"),
+    ]
+    coclass MsftMultisessionSequential
+    {
+        [default] interface IMultisessionSequential2;
+                  interface IMultisessionSequential;
+    };
+    [
+        noncreatable,
+        uuid(B507CA24-2204-11DD-966A-001AA01BBC58),
+        helpstring("Microsoft IMAPIv2 random write Multi-session"),
+    ]
+    coclass MsftMultisessionRandomWrite
+    {
+        [default] interface IMultisessionRandomWrite;
+    };
+
+    [
+        uuid(25983561-9D65-49CE-B335-40630D901227),
+        helpstring("Microsoft IMAPIv2 RAW CD Image Creator"),
+    ]
+    coclass MsftRawCDImageCreator
+    {
+        [default] interface IRawCDImageCreator;
+    };
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

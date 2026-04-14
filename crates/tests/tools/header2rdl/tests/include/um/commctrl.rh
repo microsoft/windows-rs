@@ -1,0 +1,319 @@
+/*++ BUILD Version: 0000     Increment this if a change has global effects
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Module Name:
+
+    commctrl.rh
+
+Abstract:
+
+    This module defines the 32-Bit Windows resource codes from commctrl.h.
+
+Revision History:
+
+--*/
+
+#define HDS_HORZ                0x0000
+#define HDS_BUTTONS             0x0002
+#define HDS_HOTTRACK            0x0004
+#define HDS_HIDDEN              0x0008
+
+#define HDS_DRAGDROP            0x0040
+#define HDS_FULLDRAG            0x0080
+#define HDS_FILTERBAR           0x0100
+
+#if (NTDDI_VERSION >= NTDDI_WINXP)
+#define HDS_FLAT                0x0200
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define HDS_CHECKBOXES          0x0400
+#define HDS_NOSIZING            0x0800
+#define HDS_OVERFLOW            0x1000
+#endif
+
+#define TBSTYLE_BUTTON          0x0000  // obsolete; use BTNS_BUTTON instead
+#define TBSTYLE_SEP             0x0001  // obsolete; use BTNS_SEP instead
+#define TBSTYLE_CHECK           0x0002  // obsolete; use BTNS_CHECK instead
+#define TBSTYLE_GROUP           0x0004  // obsolete; use BTNS_GROUP instead
+#define TBSTYLE_CHECKGROUP      (TBSTYLE_GROUP | TBSTYLE_CHECK)     // obsolete; use BTNS_CHECKGROUP instead
+#define TBSTYLE_DROPDOWN        0x0008  // obsolete; use BTNS_DROPDOWN instead
+#define TBSTYLE_AUTOSIZE        0x0010  // obsolete; use BTNS_AUTOSIZE instead
+#define TBSTYLE_NOPREFIX        0x0020  // obsolete; use BTNS_NOPREFIX instead
+
+#define TBSTYLE_TOOLTIPS        0x0100
+#define TBSTYLE_WRAPABLE        0x0200
+#define TBSTYLE_ALTDRAG         0x0400
+#define TBSTYLE_FLAT            0x0800
+#define TBSTYLE_LIST            0x1000
+#define TBSTYLE_CUSTOMERASE     0x2000
+#define TBSTYLE_REGISTERDROP    0x4000
+#define TBSTYLE_TRANSPARENT     0x8000
+
+
+#define BTNS_BUTTON     TBSTYLE_BUTTON      // 0x0000
+#define BTNS_SEP        TBSTYLE_SEP         // 0x0001
+#define BTNS_CHECK      TBSTYLE_CHECK       // 0x0002
+#define BTNS_GROUP      TBSTYLE_GROUP       // 0x0004
+#define BTNS_CHECKGROUP TBSTYLE_CHECKGROUP  // (TBSTYLE_GROUP | TBSTYLE_CHECK)
+#define BTNS_DROPDOWN   TBSTYLE_DROPDOWN    // 0x0008
+#define BTNS_AUTOSIZE   TBSTYLE_AUTOSIZE    // 0x0010; automatically calculate the cx of the button
+#define BTNS_NOPREFIX   TBSTYLE_NOPREFIX    // 0x0020; this button should not have accel prefix
+#define BTNS_SHOWTEXT   0x0040              // ignored unless TBSTYLE_EX_MIXEDBUTTONS is set
+#define BTNS_WHOLEDROPDOWN  0x0080          // draw drop-down arrow, but without split arrow section
+
+
+#define RBS_TOOLTIPS                  0x00000100
+#define RBS_VARHEIGHT                 0x00000200
+#define RBS_BANDBORDERS               0x00000400
+#define RBS_FIXEDORDER                0x00000800
+#define RBS_REGISTERDROP              0x00001000
+#define RBS_AUTOSIZE                  0x00002000
+#define RBS_VERTICALGRIPPER           0x00004000  // this always has the vertical gripper (default for horizontal mode)
+#define RBS_DBLCLKTOGGLE              0x00008000
+
+#define TTS_ALWAYSTIP           0x01
+#define TTS_NOPREFIX            0x02
+#define TTS_NOANIMATE           0x10
+#define TTS_NOFADE              0x20
+#define TTS_BALLOON             0x40
+#define TTS_CLOSE               0x80
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define TTS_USEVISUALSTYLE      0x100  // Use themed hyperlinks
+
+#endif
+
+
+#define SBARS_SIZEGRIP          0x0100
+#define SBARS_TOOLTIPS          0x0800
+
+// this is a status bar flag, preference to SBARS_TOOLTIPS
+#define SBT_TOOLTIPS            0x0800
+
+
+#define TBS_AUTOTICKS           0x0001
+#define TBS_VERT                0x0002
+#define TBS_HORZ                0x0000
+#define TBS_TOP                 0x0004
+#define TBS_BOTTOM              0x0000
+#define TBS_LEFT                0x0004
+#define TBS_RIGHT               0x0000
+#define TBS_BOTH                0x0008
+#define TBS_NOTICKS             0x0010
+#define TBS_ENABLESELRANGE      0x0020
+#define TBS_FIXEDLENGTH         0x0040
+#define TBS_NOTHUMB             0x0080
+#define TBS_TOOLTIPS            0x0100
+#define TBS_REVERSED            0x0200  // Accessibility hint: the smaller number (usually the min value) means "high" and the larger number (usually the max value) means "low"
+
+#define TBS_DOWNISLEFT          0x0400  // Down=Left and Up=Right (default is Down=Right and Up=Left)
+
+#if (_WIN32_IE >= 0x0600)
+#define TBS_NOTIFYBEFOREMOVE    0x0800  // Trackbar should notify parent before repositioning the slider due to user action (enables snapping)
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define TBS_TRANSPARENTBKGND    0x1000  // Background is painted by the parent via WM_PRINTCLIENT
+#endif
+
+
+#define UDS_WRAP                0x0001
+#define UDS_SETBUDDYINT         0x0002
+#define UDS_ALIGNRIGHT          0x0004
+#define UDS_ALIGNLEFT           0x0008
+#define UDS_AUTOBUDDY           0x0010
+#define UDS_ARROWKEYS           0x0020
+#define UDS_HORZ                0x0040
+#define UDS_NOTHOUSANDS         0x0080
+#define UDS_HOTTRACK            0x0100
+
+
+#define PBS_SMOOTH              0x01
+#define PBS_VERTICAL            0x04
+
+
+#if (NTDDI_VERSION >= NTDDI_WINXP)
+#define PBS_MARQUEE             0x08
+#endif       // (NTDDI_VERSION >= NTDDI_WINXP)
+
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define PBS_SMOOTHREVERSE       0x10
+#endif       // (NTDDI_VERSION >= NTDDI_VISTA)
+
+
+//====== COMMON CONTROL STYLES ================================================
+
+#define CCS_TOP                 0x00000001L
+#define CCS_NOMOVEY             0x00000002L
+#define CCS_BOTTOM              0x00000003L
+#define CCS_NORESIZE            0x00000004L
+#define CCS_NOPARENTALIGN       0x00000008L
+#define CCS_ADJUSTABLE          0x00000020L
+#define CCS_NODIVIDER           0x00000040L
+#define CCS_VERT                0x00000080L
+#define CCS_LEFT                (CCS_VERT | CCS_TOP)
+#define CCS_RIGHT               (CCS_VERT | CCS_BOTTOM)
+#define CCS_NOMOVEX             (CCS_VERT | CCS_NOMOVEY)
+
+
+#define LWS_TRANSPARENT     0x0001
+#define LWS_IGNORERETURN    0x0002
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define LWS_NOPREFIX        0x0004
+#define LWS_USEVISUALSTYLE  0x0008
+#define LWS_USECUSTOMTEXT   0x0010
+#define LWS_RIGHT           0x0020
+#endif // (NTDDI_VERSION >= NTDDI_VISTA)
+
+
+#define LVS_ICON                0x0000
+#define LVS_REPORT              0x0001
+#define LVS_SMALLICON           0x0002
+#define LVS_LIST                0x0003
+#define LVS_TYPEMASK            0x0003
+#define LVS_SINGLESEL           0x0004
+#define LVS_SHOWSELALWAYS       0x0008
+#define LVS_SORTASCENDING       0x0010
+#define LVS_SORTDESCENDING      0x0020
+#define LVS_SHAREIMAGELISTS     0x0040
+#define LVS_NOLABELWRAP         0x0080
+#define LVS_AUTOARRANGE         0x0100
+#define LVS_EDITLABELS          0x0200
+#define LVS_OWNERDATA           0x1000
+#define LVS_NOSCROLL            0x2000
+
+#define LVS_TYPESTYLEMASK       0xfc00
+
+#define LVS_ALIGNTOP            0x0000
+#define LVS_ALIGNLEFT           0x0800
+#define LVS_ALIGNMASK           0x0c00
+
+#define LVS_OWNERDRAWFIXED      0x0400
+#define LVS_NOCOLUMNHEADER      0x4000
+#define LVS_NOSORTHEADER        0x8000
+
+
+#define TVS_HASBUTTONS          0x0001
+#define TVS_HASLINES            0x0002
+#define TVS_LINESATROOT         0x0004
+#define TVS_EDITLABELS          0x0008
+#define TVS_DISABLEDRAGDROP     0x0010
+#define TVS_SHOWSELALWAYS       0x0020
+#define TVS_RTLREADING          0x0040
+
+#define TVS_NOTOOLTIPS          0x0080
+#define TVS_CHECKBOXES          0x0100
+#define TVS_TRACKSELECT         0x0200
+#define TVS_SINGLEEXPAND        0x0400
+#define TVS_INFOTIP             0x0800
+#define TVS_FULLROWSELECT       0x1000
+#define TVS_NOSCROLL            0x2000
+#define TVS_NONEVENHEIGHT       0x4000
+#define TVS_NOHSCROLL           0x8000  // TVS_NOSCROLL overrides this
+
+#if (NTDDI_VERSION >= NTDDI_WINXP)
+#define TVS_EX_NOSINGLECOLLAPSE     0x0001
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define TVS_EX_MULTISELECT          0x0002
+#define TVS_EX_DOUBLEBUFFER         0x0004
+#define TVS_EX_NOINDENTSTATE        0x0008
+#define TVS_EX_RICHTOOLTIP          0x0010
+#define TVS_EX_AUTOHSCROLL          0x0020
+#define TVS_EX_FADEINOUTEXPANDOS    0x0040
+#define TVS_EX_PARTIALCHECKBOXES    0x0080
+#define TVS_EX_EXCLUSIONCHECKBOXES  0x0100
+#define TVS_EX_DIMMEDCHECKBOXES     0x0200
+#define TVS_EX_DRAWIMAGEASYNC       0x0400
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
+#endif
+
+
+#define TCS_SCROLLOPPOSITE      0x0001   // assumes multiline tab
+#define TCS_BOTTOM              0x0002
+#define TCS_RIGHT               0x0002
+#define TCS_MULTISELECT         0x0004  // allow multi-select in button mode
+#define TCS_FLATBUTTONS         0x0008
+#define TCS_FORCEICONLEFT       0x0010
+#define TCS_FORCELABELLEFT      0x0020
+#define TCS_HOTTRACK            0x0040
+#define TCS_VERTICAL            0x0080
+#define TCS_TABS                0x0000
+#define TCS_BUTTONS             0x0100
+#define TCS_SINGLELINE          0x0000
+#define TCS_MULTILINE           0x0200
+#define TCS_RIGHTJUSTIFY        0x0000
+#define TCS_FIXEDWIDTH          0x0400
+#define TCS_RAGGEDRIGHT         0x0800
+#define TCS_FOCUSONBUTTONDOWN   0x1000
+#define TCS_OWNERDRAWFIXED      0x2000
+#define TCS_TOOLTIPS            0x4000
+#define TCS_FOCUSNEVER          0x8000
+
+
+#define ACS_CENTER              0x0001
+#define ACS_TRANSPARENT         0x0002
+#define ACS_AUTOPLAY            0x0004
+#define ACS_TIMER               0x0008  // don't use threads... use timers
+
+
+#define MCS_DAYSTATE        0x0001
+#define MCS_MULTISELECT     0x0002
+#define MCS_WEEKNUMBERS     0x0004
+#define MCS_NOTODAYCIRCLE   0x0008
+#define MCS_NOTODAY         0x0010
+#if (NTDDI_VERSION >= NTDDI_VISTA)
+#define MCS_NOTRAILINGDATES  0x0040
+#define MCS_SHORTDAYSOFWEEK  0x0080
+#define MCS_NOSELCHANGEONNAV 0x0100
+#endif
+
+
+
+#define DTS_UPDOWN          0x0001 // use UPDOWN instead of MONTHCAL
+#define DTS_SHOWNONE        0x0002 // allow a NONE selection
+#define DTS_SHORTDATEFORMAT 0x0000 // use the short date format (app must forward WM_WININICHANGE messages)
+#define DTS_LONGDATEFORMAT  0x0004 // use the long date format (app must forward WM_WININICHANGE messages)
+#define DTS_SHORTDATECENTURYFORMAT 0x000C// short date format with century (app must forward WM_WININICHANGE messages)
+#define DTS_TIMEFORMAT      0x0009 // use the time format (app must forward WM_WININICHANGE messages)
+#define DTS_APPCANPARSE     0x0010 // allow user entered strings (app MUST respond to DTN_USERSTRING)
+#define DTS_RIGHTALIGN      0x0020 // right-align popup instead of left-align it
+
+
+#define PGS_VERT                0x00000000
+#define PGS_HORZ                0x00000001
+#define PGS_AUTOSCROLL          0x00000002
+#define PGS_DRAGNDROP           0x00000004
+
+
+// style definition
+#define NFS_EDIT                0x0001
+#define NFS_STATIC              0x0002
+#define NFS_LISTCOMBO           0x0004
+#define NFS_BUTTON              0x0008
+#define NFS_ALL                 0x0010
+#define NFS_USEFONTASSOC        0x0020
+
+
+// BUTTON STYLES
+#define BS_SPLITBUTTON          0x0000000CL
+#define BS_DEFSPLITBUTTON       0x0000000DL
+#define BS_COMMANDLINK          0x0000000EL
+#define BS_DEFCOMMANDLINK       0x0000000FL
+
+// SPLIT BUTTON INFO mask flags
+#define BCSIF_GLYPH             0x0001
+#define BCSIF_IMAGE             0x0002
+#define BCSIF_STYLE             0x0004
+#define BCSIF_SIZE              0x0008
+
+// SPLIT BUTTON STYLE flags
+#define BCSS_NOSPLIT            0x0001
+#define BCSS_STRETCH            0x0002
+#define BCSS_ALIGNLEFT          0x0004
+#define BCSS_IMAGE              0x0008
+

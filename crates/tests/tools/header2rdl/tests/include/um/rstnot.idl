@@ -1,0 +1,155 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstnot.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a83-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IRowsetNotify : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT OnFieldChange(
+		[in, annotation("_In_")] IRowset * pRowset,
+		[in] HROW hRow,
+		[in] DBORDINAL cColumns,
+		[in, size_is((ULONG)cColumns), annotation("_In_reads_(cColumns)")] DBORDINAL rgColumns[],
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(OnFieldChange)]
+	HRESULT RemoteOnFieldChange(
+		[in] IRowset * pRowset,
+		[in] HROW hRow,
+		[in] DBORDINAL cColumns,
+		[in, size_is((ULONG)cColumns)] DBORDINAL * rgColumns,
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#endif
+
+	[local]
+	HRESULT OnRowChange(
+		[in, annotation("_In_")] IRowset * pRowset,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is((ULONG)cRows), annotation("_In_reads_(cRows)")] const HROW rghRows[],
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(OnRowChange)]
+	HRESULT RemoteOnRowChange(
+		[in] IRowset * pRowset,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is((ULONG)cRows)] const HROW * rghRows,
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT OnFieldChange(
+		[in, annotation("_In_")] IRowset * pRowset,
+		[in] HROW hRow,
+		[in] DBORDINAL cColumns,
+		[in, size_is(cColumns), annotation("_In_reads_(cColumns)")] DBORDINAL rgColumns[],
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(OnFieldChange)]
+	HRESULT RemoteOnFieldChange(
+		[in] IRowset * pRowset,
+		[in] HROW hRow,
+		[in] DBORDINAL cColumns,
+		[in, size_is(cColumns)] DBORDINAL * rgColumns,
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#endif
+
+	[local]
+	HRESULT OnRowChange(
+		[in, annotation("_In_")] IRowset * pRowset,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows), annotation("_In_reads_(cRows)")] const HROW rghRows[],
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(OnRowChange)]
+	HRESULT RemoteOnRowChange(
+		[in] IRowset * pRowset,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows)] const HROW * rghRows,
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+#endif
+
+#endif
+
+	[local]
+	HRESULT OnRowsetChange(
+		[in, annotation("_In_")] IRowset * pRowset,
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+	[call_as(OnRowsetChange)]
+	HRESULT RemoteOnRowsetChange(
+		[in] IRowset * pRowset,
+		[in] DBREASON eReason,
+		[in] DBEVENTPHASE ePhase,
+		[in] BOOL fCantDeny
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,63 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			oledbnew.idl
+//
+// Contents: 		Top level "container" for all OLE-DB related interfaces, that
+//					are proposed.
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//")
+cpp_quote("// OLEDB_PROPOSED_OK")
+cpp_quote("//	These interfaces are proposed.  You must define OLEDB_PROPOSED_OK to use them.")
+cpp_quote("//")
+cpp_quote("")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oledb.idl";
+
+cpp_quote("#include <oledb.h>")
+cpp_quote("")
+cpp_quote("#ifdef OLEDB_PROPOSED_OK")
+cpp_quote("")
+cpp_quote("//@@@+ V3.0")
+cpp_quote("//#if( OLEDBVER >= 0x0300 )")
+
+cpp_quote("#ifdef DBINITCONSTANTS")
+cpp_quote("")
+cpp_quote("extern const OLEDBDECLSPEC DBID DBCOLUMN_HASCHILDROWSET        = {DBCIDGUID, DBKIND_GUID_PROPID, (LPOLESTR)42};")
+cpp_quote("")
+cpp_quote("#else //DBINITCONSTANTS")
+cpp_quote("")
+cpp_quote("extern const DBID DBCOLUMN_HASCHILDROWSET;")
+cpp_quote("")
+cpp_quote("#endif //DBINITCONSTANTS")
+
+#include "rowinf.idl"   // IRowInfo                : IUnknown
+
+enum DBPROPENUM30 {
+	DBPROP_IPersistFile							 = 0x00000121L,
+	DBPROP_IPersistStream						 = 0x00000122L,
+};
+
+cpp_quote("//#endif // OLEDBVER >= 0x0300")
+cpp_quote("//@@@- V3.0")
+cpp_quote("")
+cpp_quote("#endif // OLEDB_PROPOSED_OK")
+cpp_quote("")
+cpp_quote("#include <poppack.h>     // restore original structure packing")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,193 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#ifndef _SHAPPMGR_H_")
+cpp_quote("#define _SHAPPMGR_H_")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+
+//
+// shappmgr.idl : IDL source for shappmgr.h
+//
+import "oaidl.idl";
+import "ocidl.idl";
+import "appmgmt.h";
+
+//
+// IShellApp interface
+//
+[
+    uuid(A3E14960-935F-11D1-B8B8-006008059382),     // IID_IShellApp
+    object
+]
+interface IShellApp : IUnknown
+{
+    typedef enum _tagAppInfoFlags {
+        AIM_DISPLAYNAME           = 0x00000001,
+        AIM_VERSION               = 0x00000002,
+        AIM_PUBLISHER             = 0x00000004,
+        AIM_PRODUCTID             = 0x00000008,
+        AIM_REGISTEREDOWNER       = 0x00000010,
+        AIM_REGISTEREDCOMPANY     = 0x00000020,
+        AIM_LANGUAGE              = 0x00000040,
+        AIM_SUPPORTURL            = 0x00000080,
+        AIM_SUPPORTTELEPHONE      = 0x00000100,
+        AIM_HELPLINK              = 0x00000200,
+        AIM_INSTALLLOCATION       = 0x00000400,
+        AIM_INSTALLSOURCE         = 0x00000800,
+        AIM_INSTALLDATE           = 0x00001000,
+//        AIM_REQUIREDBYPOLICY      = 0x00002000,  Obsolete. Do not reuse.
+        AIM_CONTACT               = 0x00004000,
+        AIM_COMMENTS              = 0x00008000,
+        AIM_IMAGE                 = 0x00020000,
+        AIM_READMEURL             = 0x00040000,
+        AIM_UPDATEINFOURL         = 0x00080000
+    } APPINFODATAFLAGS;
+
+    typedef struct _AppInfoData {
+        DWORD cbSize;
+        DWORD dwMask;                // APPINFODATAFLAGS, IN/OUT
+        LPWSTR pszDisplayName;
+        LPWSTR pszVersion;
+        LPWSTR pszPublisher;
+        LPWSTR pszProductID;
+        LPWSTR pszRegisteredOwner;
+        LPWSTR pszRegisteredCompany;
+        LPWSTR pszLanguage;
+        LPWSTR pszSupportUrl;
+        LPWSTR pszSupportTelephone;
+        LPWSTR pszHelpLink;
+        LPWSTR pszInstallLocation;
+        LPWSTR pszInstallSource;
+        LPWSTR pszInstallDate;
+        LPWSTR pszContact;
+        LPWSTR pszComments;
+        LPWSTR pszImage;
+        LPWSTR pszReadmeUrl;
+        LPWSTR pszUpdateInfoUrl;
+    } APPINFODATA, *PAPPINFODATA;
+
+    HRESULT GetAppInfo([in, out] PAPPINFODATA pai);
+
+    typedef enum _tagAppActionFlags {
+        APPACTION_INSTALL      = 0x00000001,
+        APPACTION_UNINSTALL    = 0x00000002,
+        APPACTION_MODIFY       = 0x00000004,
+        APPACTION_REPAIR       = 0x00000008,
+        APPACTION_UPGRADE      = 0x00000010,
+        APPACTION_CANGETSIZE   = 0x00000020,
+        APPACTION_MODIFYREMOVE = 0x00000080,
+        APPACTION_ADDLATER     = 0x00000100,
+        APPACTION_UNSCHEDULE   = 0x00000200
+    } APPACTIONFLAGS;
+
+    HRESULT GetPossibleActions([out] DWORD * pdwActions);
+    //
+    // Synchronously obtains the slow info for the app. This method call
+    // can be very slow.
+    //
+    typedef struct _tagSlowAppInfo {
+        ULONGLONG ullSize;
+        FILETIME  ftLastUsed;
+        int       iTimesUsed;
+        LPWSTR    pszImage;
+    } SLOWAPPINFO, *PSLOWAPPINFO;
+
+    HRESULT GetSlowAppInfo([out] PSLOWAPPINFO psaid);
+    //
+    // Obtain the cached slow info for the app, this will be fast.
+    //
+    HRESULT GetCachedSlowAppInfo([out] PSLOWAPPINFO psaid);
+    //
+    // Returns S_OK if installed S_FALSE if not installed
+    //
+    HRESULT IsInstalled(void);
+};
+
+
+//
+// IPublishedApp interface
+//
+[
+    uuid(1BC752E0-9046-11D1-B8B3-006008059382),     // IID_IPublishedApp
+    object
+]
+interface IPublishedApp : IShellApp
+{
+    typedef enum _tagPublishedAppInfoFlags {
+        PAI_SOURCE        = 0x00000001,
+        PAI_ASSIGNEDTIME  = 0x00000002,
+        PAI_PUBLISHEDTIME = 0x00000004,
+        PAI_SCHEDULEDTIME = 0x00000008,
+        PAI_EXPIRETIME    = 0x00000010
+    } PUBAPPINFOFLAGS;
+
+    typedef struct _PubAppInfo {
+        DWORD cbSize;
+        DWORD dwMask;              // PUBAPPINFOFLAGS, IN/OUT
+        LPWSTR pszSource;
+        SYSTEMTIME  stAssigned;
+        SYSTEMTIME  stPublished;
+        SYSTEMTIME  stScheduled;
+        SYSTEMTIME  stExpire;
+    } PUBAPPINFO, *PPUBAPPINFO;
+
+    HRESULT Install([in, unique] LPSYSTEMTIME pstInstall);
+    HRESULT GetPublishedAppInfo([in, out] PPUBAPPINFO ppai);
+    HRESULT Unschedule(void);
+};
+
+[
+    uuid(12B81347-1B3A-4A04-AA61-3F768B67FD7E),     // IID_IPublishedApp2
+    object
+]
+interface IPublishedApp2 : IPublishedApp
+{
+    HRESULT Install2([in, unique] LPSYSTEMTIME pstInstall, [in, unique] HWND hwndParent);
+}
+
+//
+// IEnumPublishedApps interface
+//
+[
+    uuid(0B124F8C-91F0-11D1-B8B5-006008059382),     // IID_IEnumPublishedApps
+    object
+]
+interface IEnumPublishedApps : IUnknown
+{
+
+    HRESULT Next([out] IPublishedApp** pia);
+    HRESULT Reset(void);
+};
+
+
+//
+// IAppPublisher interface
+//
+[
+    uuid(07250A10-9CF9-11D1-9076-006008059382),     // IID_IAppPublisher
+    object
+]
+interface IAppPublisher : IUnknown
+{
+    HRESULT GetNumberOfCategories([out] DWORD * pdwCat);
+    HRESULT GetCategories([out] APPCATEGORYINFOLIST * pAppCategoryList);
+    HRESULT GetNumberOfApps([out] DWORD * pdwApps);
+    HRESULT EnumApps([in, unique] GUID * pAppCategoryId, [out] IEnumPublishedApps ** ppepa);
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // _SHAPPMGR_H_")
+
+

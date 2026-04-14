@@ -1,0 +1,42 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstnxr.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+
+#if( OLEDBVER >= 0x0200 )    
+    REMOTED_INTERFACE(0c733a72-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733a72-2a1c-11ce-ade5-00aa0044773d)
+#endif
+    
+interface IRowsetNextRowset : IUnknown {
+
+	HRESULT GetNextRowset(
+		[in] IUnknown * pUnkOuter,
+		[in] REFIID riid,
+		[out, iid_is(riid)] IUnknown ** ppNextRowset
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

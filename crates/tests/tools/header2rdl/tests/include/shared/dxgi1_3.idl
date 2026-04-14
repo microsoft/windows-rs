@@ -1,0 +1,260 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved
+
+import "dxgi1_2.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+cpp_quote( "#define DXGI_CREATE_FACTORY_DEBUG 0x1")
+cpp_quote( "HRESULT WINAPI CreateDXGIFactory2(UINT Flags, REFIID riid, _COM_Outptr_ void **ppFactory);" )
+cpp_quote( "HRESULT WINAPI DXGIGetDebugInterface1(UINT Flags, REFIID riid, _COM_Outptr_ void **pDebug);" )
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIDevice3 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid( 6007896c-3244-4afd-bf18-a6d3beda5023 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIDevice3 :
+    IDXGIDevice2
+{
+    void Trim();
+};
+
+//+-----------------------------------------------------------------------------
+//
+//  Struct:
+//      DXGI_MATRIX_3X2_F
+//
+//------------------------------------------------------------------------------
+typedef struct DXGI_MATRIX_3X2_F
+{
+    FLOAT _11;
+    FLOAT _12;
+    FLOAT _21;
+    FLOAT _22;
+    FLOAT _31;
+    FLOAT _32;
+} DXGI_MATRIX_3X2_F;
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGISwapChain2 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid( a8be2ac4-199f-4946-b331-79599fb98de7 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGISwapChain2 :
+    IDXGISwapChain1
+{
+    HRESULT SetSourceSize( UINT Width, UINT Height );
+    HRESULT GetSourceSize( [out, annotation("_Out_")] UINT *pWidth,
+                           [out, annotation("_Out_")] UINT *pHeight );
+    HRESULT SetMaximumFrameLatency(UINT MaxLatency);
+    HRESULT GetMaximumFrameLatency( [out, annotation("_Out_")] UINT *pMaxLatency);
+    HANDLE  GetFrameLatencyWaitableObject();
+    HRESULT SetMatrixTransform(const DXGI_MATRIX_3X2_F *pMatrix);
+    HRESULT GetMatrixTransform( [out, annotation("_Out_")] DXGI_MATRIX_3X2_F *pMatrix);
+};
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIOutput2 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid( 595e39d1-2724-4663-99b1-da969de28364 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIOutput2 :
+    IDXGIOutput1
+{
+    BOOL SupportsOverlays();
+};
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIFactory3 interface
+//--------------------------------------------------------------------------------------------------------
+
+[
+    object,
+    uuid( 25483823-cd46-4c7d-86ca-47aa95b837bd ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIFactory3 :
+    IDXGIFactory2
+{
+    UINT GetCreationFlags();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//+-----------------------------------------------------------------------------
+//
+//  Struct: DXGI_DECODE_SWAP_CHAIN_DESC
+//
+//------------------------------------------------------------------------------
+typedef struct DXGI_DECODE_SWAP_CHAIN_DESC
+{
+    UINT Flags;
+}  DXGI_DECODE_SWAP_CHAIN_DESC;
+
+//+-----------------------------------------------------------------------------
+//
+//  Flags: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS
+//
+//------------------------------------------------------------------------------
+typedef enum DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS
+{
+    DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE = 0x1, // 16 - 235 vs. 0 - 255
+    DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709         = 0x2, // BT.709 vs. BT.601
+    DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC         = 0x4, // xvYCC vs. conventional YCbCr
+} DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS;
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIDecodeSwapChain interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid( 2633066b-4514-4c7a-8fd8-12ea98059d18 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIDecodeSwapChain :
+    IUnknown
+{
+    HRESULT PresentBuffer(UINT BufferToPresent, UINT SyncInterval, UINT Flags);
+
+    HRESULT SetSourceRect(const RECT *pRect); // ID3D11VideoContext::VideoProcessorSetStreamSourceRect
+    HRESULT SetTargetRect(const RECT *pRect); // ID3D11VideoContext::VideoProcessorSetOutputTargetRect
+    HRESULT SetDestSize(UINT Width, UINT Height); // ID3D11VideoContext::VideoProcessorSetStreamDestRect
+
+    HRESULT GetSourceRect([out, annotation("_Out_")] RECT *pRect);
+    HRESULT GetTargetRect([out, annotation("_Out_")] RECT *pRect);
+    HRESULT GetDestSize([out, annotation("_Out_")] UINT *pWidth, [out, annotation("_Out_")] UINT *pHeight);
+
+    // Set and get color space
+    HRESULT SetColorSpace(DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS ColorSpace);
+    DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS GetColorSpace();
+};
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIFactoryMedia interface
+//--------------------------------------------------------------------------------------------------------
+
+[
+    object,
+    uuid( 41e7d1f2-a591-4f7b-a2e5-fa9c843e1c12 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIFactoryMedia :
+    IUnknown
+{
+    HRESULT CreateSwapChainForCompositionSurfaceHandle(
+        [in, annotation("_In_")] IUnknown *pDevice,
+        [in, annotation("_In_opt_")] HANDLE hSurface,
+        [in, annotation("_In_")] const DXGI_SWAP_CHAIN_DESC1 *pDesc,
+        [in, annotation("_In_opt_")] IDXGIOutput *pRestrictToOutput,
+        [out, annotation("_COM_Outptr_")] IDXGISwapChain1 **ppSwapChain );
+
+    HRESULT CreateDecodeSwapChainForCompositionSurfaceHandle(
+        [in, annotation("_In_")] IUnknown *pDevice,
+        [in, annotation("_In_opt_")] HANDLE hSurface,
+        [in, annotation("_In_")] DXGI_DECODE_SWAP_CHAIN_DESC *pDesc,
+        [in, annotation("_In_")] IDXGIResource *pYuvDecodeBuffers,
+        [in, annotation("_In_opt_")] IDXGIOutput *pRestrictToOutput,
+        [out, annotation("_COM_Outptr_")] IDXGIDecodeSwapChain **ppSwapChain );
+};
+
+//+-----------------------------------------------------------------------------
+//
+//  Struct: DXGI_FRAME_PRESENTATION_MODE & DXGI_FRAME_STATISTICS_MEDIA
+//
+//------------------------------------------------------------------------------
+typedef enum DXGI_FRAME_PRESENTATION_MODE
+{
+   DXGI_FRAME_PRESENTATION_MODE_COMPOSED = 0,
+   DXGI_FRAME_PRESENTATION_MODE_OVERLAY = 1,
+   DXGI_FRAME_PRESENTATION_MODE_NONE = 2,
+   DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE = 3,
+} DXGI_FRAME_PRESENTATION_MODE;
+
+typedef struct DXGI_FRAME_STATISTICS_MEDIA
+{
+    UINT PresentCount;
+    UINT PresentRefreshCount;
+    UINT SyncRefreshCount;
+    LARGE_INTEGER SyncQPCTime;
+    LARGE_INTEGER SyncGPUTime;
+    DXGI_FRAME_PRESENTATION_MODE CompositionMode;
+    UINT ApprovedPresentDuration;
+} DXGI_FRAME_STATISTICS_MEDIA;
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGISwapChainMedia interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid( dd95b90b-f05f-4f6a-bd65-25bfb264bd84 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGISwapChainMedia :
+    IUnknown
+{
+    HRESULT GetFrameStatisticsMedia([out, annotation("_Out_")] DXGI_FRAME_STATISTICS_MEDIA *pStats);
+    HRESULT SetPresentDuration(UINT Duration);
+    HRESULT CheckPresentDurationSupport(UINT DesiredPresentDuration, [out, annotation("_Out_")] UINT *pClosestSmallerPresentDuration, [out, annotation("_Out_")] UINT *pClosestLargerPresentDuration);
+};
+
+typedef enum DXGI_OVERLAY_SUPPORT_FLAG
+{
+    DXGI_OVERLAY_SUPPORT_FLAG_DIRECT   = 0x1,
+    DXGI_OVERLAY_SUPPORT_FLAG_SCALING  = 0x2
+} DXGI_OVERLAY_SUPPORT_FLAG;
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+//--------------------------------------------------------------------------------------------------------
+// IDXGIOutput3 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid( 8a6bb301-7e7e-41F4-a8e0-5b32f7f99b18 ),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIOutput3 :
+    IDXGIOutput2
+{
+    HRESULT CheckOverlaySupport( [in, annotation("_In_")] DXGI_FORMAT EnumFormat, [out, annotation("_In_")] IUnknown *pConcernedDevice, [out, annotation("_Out_")] UINT *pFlags );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote( "DEFINE_GUID(IID_IDXGIDevice3,0x6007896c,0x3244,0x4afd,0xbf,0x18,0xa6,0xd3,0xbe,0xda,0x50,0x23);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGISwapChain2,0xa8be2ac4,0x199f,0x4946,0xb3,0x31,0x79,0x59,0x9f,0xb9,0x8d,0xe7);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIOutput2,0x595e39d1,0x2724,0x4663,0x99,0xb1,0xda,0x96,0x9d,0xe2,0x83,0x64);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIFactory3,0x25483823,0xcd46,0x4c7d,0x86,0xca,0x47,0xaa,0x95,0xb8,0x37,0xbd);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIDecodeSwapChain,0x2633066b,0x4514,0x4c7a,0x8f,0xd8,0x12,0xea,0x98,0x05,0x9d,0x18);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIFactoryMedia,0x41e7d1f2,0xa591,0x4f7b,0xa2,0xe5,0xfa,0x9c,0x84,0x3e,0x1c,0x12);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGISwapChainMedia,0xdd95b90b,0xf05f,0x4f6a,0xbd,0x65,0x25,0xbf,0xb2,0x64,0xbd,0x84);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIOutput3,0x8a6bb301,0x7e7e,0x41F4,0xa8,0xe0,0x5b,0x32,0xf7,0xf9,0x9b,0x18);" )

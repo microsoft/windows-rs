@@ -1,0 +1,59 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			vwrst.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+    REMOTED_INTERFACE(0c733a97-2a1c-11ce-ade5-00aa0044773d)
+
+interface IViewRowset : IUnknown {
+
+	[local]
+	HRESULT GetSpecification(
+		[in, annotation("_In_")] REFIID riid,
+		[out, iid_is(riid), annotation("_Outptr_")] IUnknown ** ppObject
+	);
+
+	[call_as(GetSpecification)]
+	HRESULT RemoteGetSpecification(
+		[in] REFIID riid,
+		[out, iid_is(riid)] IUnknown ** ppObject,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT OpenViewRowset(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in, annotation("_In_")] REFIID riid,
+		[out, iid_is(riid), annotation("_Outptr_")] IUnknown ** ppRowset
+	);
+
+	[call_as(OpenViewRowset)]
+	HRESULT RemoteOpenViewRowset(
+		[in] IUnknown * pUnkOuter,
+		[in] REFIID riid,
+		[out, iid_is(riid)] IUnknown ** ppRowset,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

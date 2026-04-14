@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/security"
+           xmlns="http://schemas.microsoft.com/appx/manifest/preview/windows10/security"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  
+  <xs:attribute name="TrustLevel" type="ST_TrustLevel_2021" />
+
+  <xs:simpleType name="ST_TrustLevel_2021">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="appContainer"/>
+      <xs:enumeration value="mediumIL"/>
+      <xs:enumeration value="appSilo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+

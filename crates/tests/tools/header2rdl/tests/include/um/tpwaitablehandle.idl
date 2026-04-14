@@ -1,0 +1,52 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+object,
+uuid(46305c32-09c6-45b2-b032-c12e467d7c7e),
+pointer_default(unique)
+]
+interface ISignalableNotifier : IUnknown
+{
+
+    HRESULT
+    AttachToWaitHandle(
+        [in] HANDLE_PTR waitableHandle,
+        [in] IUnknown * handler,
+        [in] IUnknown * pUnkOuter,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void ** SignalNotifier
+        );
+
+    HRESULT
+    AttachToWaitHandleWithTimeout(
+        [in] HANDLE_PTR waitableHandle,
+        [in] IUnknown * handler,
+        [in] LARGE_INTEGER timeout,
+        [in] IUnknown * pUnkOuter,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void ** SignalNotifier
+        );
+}
+
+[
+uuid(89739276-dc62-4a6d-a790-7f10323ef15e)
+]
+library SignalableNotifierProviders
+{
+    [
+    uuid(96c7a5ef-0e2c-46d7-9bc1-6445c2444d7a)
+    ]
+    coclass SignalableNotifier
+    {
+        interface ISignalableNotifier;
+    };
+}
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN8)")

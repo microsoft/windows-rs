@@ -1,0 +1,56 @@
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("#pragma once")
+
+#ifndef DO_NO_IMPORTS
+import "inspectable.idl";
+#endif
+
+[
+    object,
+    uuid(00000037-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IWeakReference: IUnknown
+{    
+cpp_quote("#if (_MSC_VER >= 1600) && defined(__cplusplus) && !defined(CINTERFACE)")
+cpp_quote("    EXTERN_C const IID IID_IWeakReference;")
+cpp_quote("    extern \"C++\"")
+cpp_quote("    {")
+cpp_quote("        MIDL_INTERFACE(\"00000037-0000-0000-C000-000000000046\")")
+cpp_quote("        IWeakReference : public IUnknown")
+cpp_quote("        {")
+cpp_quote("        public:")
+cpp_quote("            virtual HRESULT STDMETHODCALLTYPE Resolve( ")
+cpp_quote("                /* [in] */ __RPC__in REFIID riid,")
+cpp_quote("                /* [iid_is][out] */ __RPC__deref_out IInspectable **objectReference) = 0;")
+cpp_quote("")
+cpp_quote("            template <typename T>")
+cpp_quote("            _At_(*objectReference, _When_(FAILED(return), _Null_))")
+cpp_quote("            _At_(*objectReference, _When_(SUCCEEDED(return), _Maybenull_))")
+cpp_quote("            HRESULT Resolve(_Out_ T** objectReference)")
+cpp_quote("            {")
+cpp_quote("                static_assert(__is_base_of(IInspectable, T), \"Only Windows Runtime interfaces can be resolved by weak reference\");")
+cpp_quote("                return Resolve(__uuidof(T), (IInspectable**)objectReference);")
+cpp_quote("            }")
+cpp_quote("        };")
+cpp_quote("    } // extern C++")
+cpp_quote("#else")
+
+   HRESULT Resolve([in] REFIID riid, 
+                   [out, retval, iid_is(riid)] IInspectable **objectReference);
+}
+cpp_quote("#endif")
+
+[
+    object,
+    uuid(00000038-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IWeakReferenceSource : IUnknown
+{    
+    HRESULT GetWeakReference([out, retval] IWeakReference **weakReference);
+}

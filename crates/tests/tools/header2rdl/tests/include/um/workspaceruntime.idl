@@ -1,0 +1,235 @@
+// WorkspaceRuntime.idl : IDL source for WorkspaceRuntime
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (WorkspaceRuntime.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "workspaceruntimeclientext.idl";
+
+cpp_quote( "#define WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE 1" )
+cpp_quote( "#define WKS_FLAG_PASSWORD_ENCRYPTED   2" )
+cpp_quote( "#define WKS_FLAG_CREDS_AUTHENTICATED  4" )
+
+
+[
+    object,
+    uuid(B922BBB8-4C55-4FEA-8496-BEB0B44285E5),
+    helpstring("IWorkspace Interface"),
+    pointer_default(unique)
+]
+interface IWorkspace : IUnknown{
+    [helpstring("method GetWorkspaceNames")] HRESULT GetWorkspaceNames([out] SAFEARRAY(BSTR)* psaWkspNames);
+    [helpstring("method StartRemoteApplication")] HRESULT StartRemoteApplication([in] BSTR bstrWorkspaceId, [in] SAFEARRAY(BSTR) psaParams);
+    [helpstring("method GetProcessId")] HRESULT GetProcessId([out,retval] ULONG* pulProcessId);
+};
+
+[
+    object,
+    uuid(96D8D7CF-783E-4286-834C-EBC0E95F783C),
+    helpstring("IWorkspace2 Interface"),
+    pointer_default(unique)
+]
+interface IWorkspace2 : IWorkspace{
+    [helpstring("method StartRemoteApplicationEx")] 
+    HRESULT StartRemoteApplicationEx(
+        [in] BSTR bstrWorkspaceId, 
+        [in] BSTR bstrRequestingAppId,
+        [in] BSTR bstrRequestingAppFamilyName,
+        [in] VARIANT_BOOL bLaunchIntoImmersiveClient,
+        [in] BSTR bstrImmersiveClientActivationContext,
+        [in] SAFEARRAY(BSTR) psaParams);
+};
+
+[
+    object,
+    uuid(1BECBE4A-D654-423B-AFEB-BE8D532C13C6),
+    helpstring("IWorkspace3 Interface"),
+    pointer_default(unique)
+]
+interface IWorkspace3 : IWorkspace2{
+    [helpstring("method GetClaimsToken2")] 
+    HRESULT GetClaimsToken2(
+        [in] BSTR bstrClaimsHint, 
+        [in] BSTR bstrUserHint,
+        [in] ULONG claimCookie,
+        [in] ULONG hwndCredUiParent,
+        [in] RECT rectCredUiParent,
+        [out,retval] BSTR* pbstrAccessToken);
+
+    [helpstring("method SetClaimsToken")] 
+    HRESULT SetClaimsToken(
+        [in] BSTR bstrAccessToken,
+        [in] ULONGLONG ullAccessTokenExpiration,
+        [in] BSTR bstrRefreshToken);
+};
+
+[
+    object,
+    uuid(B922BBB8-4C55-4FEA-8496-BEB0B44285E6),
+    helpstring("IWorkspaceRegistration  Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceRegistration : IUnknown{
+
+    [helpstring("method AddResource")] HRESULT AddResource([in]IWorkspaceClientExt * pUnk, [out] DWORD* pdwCookie);
+    [helpstring("method RemoveResource")] HRESULT RemoveResource([in] DWORD dwCookieConnection);
+};
+
+[
+    object,
+    uuid(CF59F654-39BB-44D8-94D0-4635728957E9),
+    helpstring("IWorkspaceRegistration2 Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceRegistration2 : IWorkspaceRegistration{
+
+    [helpstring("method AddResourceEx")] HRESULT AddResourceEx([in]IWorkspaceClientExt * pUnk, [in] BSTR bstrEventLogUploadAddress, [out] DWORD* pdwCookie, [in] GUID correlationId);
+    [helpstring("method RemoveResourceEx")] HRESULT RemoveResourceEx([in] DWORD dwCookieConnection, [in] GUID correlationId);
+};
+
+
+[
+    object,
+    uuid(EFEA49A2-DDA5-429D-8F42-B23B92C4C347),
+    dual,
+    nonextensible,
+    helpstring("IWorkspaceScriptable Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceScriptable : IDispatch{
+    [id(1), helpstring("method DisconnectWorkspace")] HRESULT DisconnectWorkspace([in] BSTR bstrWorkspaceId);
+    [id(2), helpstring("method StartWorkspace")] HRESULT StartWorkspace([in] BSTR bstrWorkspaceId, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] BSTR bstrWorkspaceParams, [in] LONG lTimeout, [in] LONG lFlags);
+    [id(3), helpstring("method IsWorkspaceCredentialSpecified")] HRESULT IsWorkspaceCredentialSpecified([in] BSTR bstrWorkspaceId, [in] VARIANT_BOOL bCountUnauthenticatedCredentials, [out,retval] VARIANT_BOOL* pbCredExist);
+    [id(4), helpstring("method IsWorkspaceSSOEnabled")] HRESULT IsWorkspaceSSOEnabled([out,retval] VARIANT_BOOL* pbSSOEnabled);
+    [id(5), helpstring("method ClearWorkspaceCredential")] HRESULT ClearWorkspaceCredential([in] BSTR bstrWorkspaceId);
+    [id(6), helpstring("method OnAuthenticated")] HRESULT OnAuthenticated([in] BSTR bstrWorkspaceId, [in] BSTR bstrUserName);
+    [id(7), helpstring("method DisconnectWorkspaceByFriendlyName")] HRESULT DisconnectWorkspaceByFriendlyName([in] BSTR bstrWorkspaceFriendlyName);
+};
+
+[
+    object,
+    uuid(EFEA49A2-DDA5-429D-8F42-B33BA2C4C348),
+    dual,
+    nonextensible,
+    helpstring("IWorkspaceScriptable2 Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceScriptable2 : IWorkspaceScriptable
+{
+    [id(8), helpstring("method StartWorkspaceEx")]
+    HRESULT StartWorkspaceEx(
+        [in] BSTR bstrWorkspaceId,
+        [in] BSTR bstrWorkspaceFriendlyName,
+        [in] BSTR bstrRedirectorName,
+        [in] BSTR bstrUserName,
+        [in] BSTR bstrPassword,
+        [in] BSTR bstrAppContainer,
+        [in] BSTR bstrWorkspaceParams, 
+        [in] LONG lTimeout, 
+        [in] LONG lFlags);    
+
+    [id(9), helpstring("method ResourceDisconnected")]
+    HRESULT ResourceDismissed(
+        [in] BSTR bstrWorkspaceId,
+        [in] BSTR bstrWorkspaceFriendlyName);
+};
+
+[
+    object,
+    uuid(531E6512-2CBF-4BD2-80A5-D90A71636A9A),
+    dual,
+    nonextensible,
+    helpstring("IWorkspaceScriptable3 Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceScriptable3 : IWorkspaceScriptable2
+{
+    [id(10), helpstring("method StartWorkspaceEx2")]
+    HRESULT StartWorkspaceEx2(
+        [in] BSTR bstrWorkspaceId,
+        [in] BSTR bstrWorkspaceFriendlyName,
+        [in] BSTR bstrRedirectorName,
+        [in] BSTR bstrUserName,
+        [in] BSTR bstrPassword,
+        [in] BSTR bstrAppContainer,
+        [in] BSTR bstrWorkspaceParams, 
+        [in] LONG lTimeout, 
+        [in] LONG lFlags,
+        [in] BSTR bstrEventLogUploadAddress,
+        [in] GUID correlationId);    
+};
+
+[
+    object,
+    uuid(a7c06739-500f-4e8c-99a8-2bd6955899eb),        
+    helpstring("IWorkspaceReportMessage Interface"),
+    pointer_default(unique)
+]
+interface IWorkspaceReportMessage : IUnknown
+{
+    [helpstring("method RegisterErrorLogMessage")]
+    HRESULT RegisterErrorLogMessage(
+        [in] BSTR bstrMessage);
+
+    [helpstring("method IsErrorMessageRegistered")]
+    HRESULT IsErrorMessageRegistered(
+        [in] BSTR bstrWkspId,
+        [in] DWORD dwErrorType,
+        [in] BSTR bstrErrorMessageType,
+        [in] DWORD dwErrorCode,
+        [out,retval] VARIANT_BOOL* pfErrorExist);
+
+    [helpstring("method RegisterErrorEvent")]
+    HRESULT RegisterErrorEvent(
+        [in] BSTR bstrWkspId,
+        [in] DWORD dwErrorType,
+        [in] BSTR bstrErrorMessageType,
+        [in] DWORD dwErrorCode);
+}; 
+
+[
+    uuid(1B8D8AE1-A595-4687-A7AD-9E3828E09B79),
+    version(1.0),
+    helpstring("WorkspaceRuntime 1.0 Type Library")
+]
+library WorkspaceRuntimeLib
+{
+    importlib("stdole2.tlb");
+    [    
+    uuid(B922BBB8-4C55-4FEA-8496-BEB0B44285E9),
+    helpstring("_ITSWkspEvents Interface"),  
+    ]
+    dispinterface _ITSWkspEvents
+    {   
+    properties:
+    methods:
+        [id(1), helpstring("method OnConnected")] HRESULT OnConnected([in] BSTR bstrWorkspaceName);
+        [id(2), helpstring("method OnDisconnected")] HRESULT OnDisconnected([in] BSTR bstrWorkspaceName);
+    }
+    [
+        uuid(4F1DFCA6-3AAD-48E1-8406-4BC21A501D7C),
+        helpstring("Workspace Class")
+    ]
+    coclass Workspace
+    {
+        interface IWorkspace;
+        interface IWorkspace2;
+        interface IWorkspace3;
+        interface IWorkspaceRegistration;
+        interface IWorkspaceRegistration2;
+        interface IWorkspaceScriptable;
+        interface IWorkspaceScriptable2;
+        interface IWorkspaceReportMessage;
+        [default] interface IWorkspaceScriptable3;
+        [default, source] dispinterface _ITSWkspEvents;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://schemas.microsoft.com/appx/2019/bundle"
+    xmlns="http://schemas.microsoft.com/appx/2019/bundle"
+    xmlns:b="http://schemas.microsoft.com/appx/2019/bundle"
+    xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+    xmlns:b4="http://schemas.microsoft.com/appx/2018/bundle">
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types" />
+  <xs:import namespace="http://schemas.microsoft.com/appx/2018/bundle" />
+
+  <xs:element name="Package">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Resources" type="CT_Resources" minOccurs="0" />
+        <xs:element ref="b4:Dependencies" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+      <xs:attribute name="Type" type="t:ST_PackageType" use="optional" default="resource" />
+      <xs:attribute name="Version" type="t:ST_VersionQuad" use="required" />
+      <xs:attribute name="Architecture" type="t:ST_ArchitectureUnrestricted" use="optional" default="neutral" />
+      <xs:attribute name="ResourceId" type="t:ST_ResourceId" use="optional" />
+      <xs:attribute name="FileName" type="t:ST_FileName" use="required" />
+      <xs:attribute name="Offset" type="xs:unsignedLong" use="optional" />
+      <xs:attribute name="Size" type="xs:unsignedLong" use="optional" />
+      <xs:attribute name="IsStub" type="xs:boolean" use="optional" default="false" />
+    </xs:complexType>
+    <xs:unique name="Unique_Language">
+      <xs:selector xpath="b:Resources/b:Resource"/>
+      <xs:field xpath="@Language"/>
+    </xs:unique>
+    <xs:unique name="Unique_Scale">
+      <xs:selector xpath="b:Resources/b:Resource"/>
+      <xs:field xpath="@Scale"/>
+    </xs:unique>
+    <xs:unique name="Unique_DXFeatureLevel">
+      <xs:selector xpath="b:Resources/b:Resource"/>
+      <xs:field xpath="@DXFeatureLevel"/>
+    </xs:unique>
+    <xs:unique name="Unique_TDF_Name">
+      <xs:selector xpath="b4:Dependencies/b4:TargetDeviceFamily"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_Resources">
+    <xs:sequence>
+      <xs:element name="Resource" minOccurs="0" maxOccurs="200">
+        <xs:complexType>
+          <xs:attribute name="Language" type="xs:language" use="optional"/>
+          <xs:attribute name="Scale" type="t:ST_Scale_All" use="optional"/>
+          <xs:attribute name="DXFeatureLevel" type="t:ST_DXFeatureLevel" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Default" type="xs:boolean" use="optional" default="false"/>
+  </xs:complexType>
+
+</xs:schema>
+

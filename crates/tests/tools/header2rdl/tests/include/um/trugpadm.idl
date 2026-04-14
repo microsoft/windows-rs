@@ -1,0 +1,63 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			trugpadm.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+#if( OLEDBVER >= 0x0200 )
+    REMOTED_INTERFACE(0c733aa2-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733aa2-2a1c-11ce-ade5-00aa0044773d)
+#endif
+    
+
+interface ITrusteeGroupAdmin : IUnknown {
+	HRESULT AddMember (
+	[in] TRUSTEE_W*	pMembershipTrustee,
+	[in] TRUSTEE_W*	pMemberTrustee 
+	);
+
+	HRESULT DeleteMember (
+	[in] TRUSTEE_W*	pMembershipTrustee,
+	[in] TRUSTEE_W*	pMemberTrustee 
+	);
+
+	HRESULT IsMember (
+	[in] TRUSTEE_W*	pMembershipTrustee,
+	[in] TRUSTEE_W*	pMemberTrustee,
+	[out] BOOL *	pfStatus 
+	);
+
+	HRESULT GetMembers (
+	[in] TRUSTEE_W*		 	pMembershipTrustee,
+	[out] ULONG*			pcMembers,
+	[out] TRUSTEE_W**		prgMembers
+	);
+
+	HRESULT GetMemberships (
+	[in] TRUSTEE_W*		 	pTrustee,
+	[out] ULONG*			pcMemberships,
+	[out] TRUSTEE_W**		prgMemberships
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

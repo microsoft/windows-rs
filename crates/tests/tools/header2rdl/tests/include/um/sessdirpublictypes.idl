@@ -1,0 +1,338 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "wtypes.idl";
+
+//
+// join flags
+// NOTE : High 16 bits are reserved by SB
+//
+cpp_quote("")
+cpp_quote("#define SINGLE_SESSION 0x1") // legacy TS uses this value - so, do NOT change
+cpp_quote("#define FORCE_REJOIN 0x2") // legacy TS uses this value - so, do NOT change
+cpp_quote("#define FORCE_REJOIN_IN_CLUSTERMODE 0x3")
+cpp_quote("#define RESERVED_FOR_LEGACY   0x4") // legacy TS uses this value - so, do NOT change
+cpp_quote("#define KEEP_EXISTING_SESSIONS 0x8")
+cpp_quote("")
+
+//
+// Plugin property strings specific to each plugin.
+// These are available to plugins to query (they must be populated by plugin on registration)
+//
+cpp_quote("")
+cpp_quote("#define SBPLUGIN_CLSID_PROP_STR     _T(\"CLSID\")")
+cpp_quote("#define SBPLUGIN_ISENABLED_PROP_STR _T(\"IsEnabled\")")
+cpp_quote("#define SBPLUGIN_PROVIDER_PROP_STR _T(\"Provider\")")
+cpp_quote("")
+
+
+// these are properties common to all plugins that 
+// can be queried and provided to plugins by the broker.
+cpp_quote("")
+cpp_quote("#define SB_NAME_PROP_STR             _T(\"SbName\")")        // bstr
+cpp_quote("#define SB_ISREDIRECTOR_PROP_STR     _T(\"IsRedirector\")")  // bool
+cpp_quote("")
+
+//
+// these are properties set/get by SB on a target property set
+// for each target
+// can be queried and provided to plugins by/to the broker.
+//
+cpp_quote("")
+cpp_quote("#define TARGET_GUID_STR                      _T(\"TargetGuid\")")        // string
+cpp_quote("#define TARGET_SINGLESESSION                 _T(\"SingleSession\")") //bool
+cpp_quote("#define TARGET_SERVERCAPABILITY              _T(\"ServerCapability\")") //ulong
+cpp_quote("#define TARGET_MAX_ACTIVE_SESSIONS           _T(\"ServerMaxActiveSessions\")") // int
+cpp_quote("#define TARGET_CLIENT_CONNECTION_MONITORING  _T(\"TargetClientConnectionMonitoring\")") // bool
+cpp_quote("#define TARGET_OWNER_PROP                    _T(\"TargetOwner\")") //long
+cpp_quote("#define TARGET_REDIRECTION_GUID              _T(\"TargetRedirectionGuid\")") //SAFEARRAY of bytes
+cpp_quote("#define TARGET_CERTIFICATE                   _T(\"TargetCertificate\")") //SAFEARRAY of bytes
+cpp_quote("#define TARGET_SYMMETRIC_ALG_ID              _T(\"TargetSymmetricAlgId\")") //string
+cpp_quote("#define TARGET_SYMMETRIC_KEY                 _T(\"TargetSymmetricKey\")") //SAFEARRAY of bytes
+cpp_quote("#define TARGET_IS_REMOTE_FX_ENABLED          _T(\"IsRemoteFxEnabled\")") // bool
+cpp_quote("#define TARGET_GRANT_ADMIN_PRIVILEGE         _T(\"IsUserAdmin\")") // bool
+cpp_quote("#define TARGET_LOAD_WAITTIMEOUT              _T(\"WaitForTargetTimeout\")") // long
+cpp_quote("")
+
+//
+// these are properties set/get by SB on a connection request property set
+// for each Connection Request (a.k.a. ITsSbClientConnection)
+// can be queried and provided to plugins by/to the broker.
+//
+cpp_quote("#define CONN_REQUEST_CALLING_SERVER_NAME_STR       _T(\"CallingServerName\")") // string
+cpp_quote("#define CONN_REQUEST_IS_CALL_FROM_TS_REDIRECTOR    _T(\"IsCallFromTSRedirector\")") // bool
+cpp_quote("#define CONN_REQUEST_CALLING_SERVER_FARM_NAME_STR  _T(\"CallingServerFarmName\")") // string
+cpp_quote("#define CONN_REQUEST_TSV_URL_STR                   _T(\"TsvUrl\")") // string
+cpp_quote("#define CONN_REQUEST_TARGETTYPE_FROM_TSVURL        _T(\"TargetTypeFromTsvUrl\")") // ulong
+cpp_quote("#define CONN_REQUEST_TARGETID_FROM_TSVURL          _T(\"TargetIdFromTsvUrl\")") // string
+cpp_quote("#define CONN_REQUEST_CPUBPLUGINID_FROM_TSVURL      _T(\"CPubPluginIdFromTsvUrl\")") // string
+cpp_quote("#define CONN_REQUEST_RESOURCEPLUGIN_FROM_TSVURL    _T(\"ResourcePluginFromTsvUrl\")") // string
+cpp_quote("#define CONN_REQUEST_GUID                          _T(\"ConnectionRequestGUID\")") // VT_ARRRAY | VT_UI1, use VariantToBuffer() to get the GUID
+cpp_quote("#define CONN_REQUEST_CLIENT_NAME                   _T(\"ConnectionRequestClientName\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_ADDRESS_FAMILY         _T(\"ConnectionRequestClientAddressFamily\")") // ulong
+cpp_quote("#define CONN_REQUEST_CLIENT_ADDRESS                _T(\"ConnectionRequestClientAddress\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_BUILD_NUMBER           _T(\"ConnectionRequestClientBuildNumber\")") // string
+cpp_quote("#define CONN_REQUEST_PROTOCOL_TYPE                 _T(\"ConnectionRequestProtocolType\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_TIME_ZONE_BIAS         _T(\"ConnectionRequestClinetTimeZoneBias\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_TIME_ZONE_STANDARD_BIAS _T(\"ConnectionRequestClinetTimeZoneStandardBias\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_TIME_ZONE_DAYLIGHT_BIAS _T(\"ConnectionRequestClinetTimeZoneDaylightBias\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_TIME_ZONE_STANDARD_NAME _T(\"ConnectionRequestClinetTimeZoneStandardName\")") // string
+cpp_quote("#define CONN_REQUEST_CLIENT_TIME_ZONE_DAYLIGHT_NAME _T(\"ConnectionRequestClinetTimeZoneDaylightName\")") // string
+                 
+//
+// Structs imported from sbtsv.idl
+//
+typedef [v1_enum] enum _TSSD_AddrV46Type
+{
+    TSSD_ADDR_UNDEFINED                = 0, 
+    TSSD_ADDR_IPv4                     = 4, 
+    TSSD_ADDR_IPv6                     = 6,
+} TSSD_AddrV46Type;
+
+typedef [v1_enum] enum _TSSB_NOTIFICATION_TYPE
+{
+	TSSB_NOTIFY_INVALID = 0x0,
+	TSSB_NOTIFY_TARGET_CHANGE = 0x1,
+	TSSB_NOTIFY_SESSION_CHANGE = 0x2,
+	TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE = 0x4
+} TSSB_NOTIFICATION_TYPE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TssbNotificationType, ItemEnum(_TSSB_NOTIFICATION_TYPE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _TARGET_STATE
+{
+    TARGET_UNKNOWN = 0x1,
+    TARGET_INITIALIZING,
+    TARGET_RUNNING,
+    TARGET_DOWN,
+    TARGET_HIBERNATED,
+    TARGET_CHECKED_OUT,
+    TARGET_STOPPED,
+    TARGET_INVALID,
+    TARGET_STARTING,
+    TARGET_STOPPING,
+    TARGET_MAXSTATE,
+} TARGET_STATE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TargetState, ItemEnum(_TARGET_STATE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _TARGET_CHANGE_TYPE
+{
+    TARGET_CHANGE_UNSPEC      = 0x1,
+    TARGET_EXTERNALIP_CHANGED = 0x2,
+    TARGET_INTERNALIP_CHANGED = 0x4,
+    TARGET_JOINED             = 0x8,
+    TARGET_REMOVED            = 0x10,
+    TARGET_STATE_CHANGED      = 0x20,
+    TARGET_IDLE               = 0x40,
+    TARGET_PENDING            = 0x80,
+    TARGET_INUSE                = 0x100,
+    TARGET_PATCH_STATE_CHANGED  = 0x200,
+    TARGET_FARM_MEMBERSHIP_CHANGED = 0x400,
+} TARGET_CHANGE_TYPE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TargetChangeType, ItemEnum(_TARGET_CHANGE_TYPE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _TARGET_TYPE
+{ 
+    UNKNOWN    = 0,
+    FARM       = 1,
+    NONFARM    = 2,
+} TARGET_TYPE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TargetType, ItemEnum(_TARGET_TYPE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _TARGET_PATCH_STATE
+{ 
+    TARGET_PATCH_UNKNOWN            = 0,
+    TARGET_PATCH_NOT_STARTED        = 1,
+    TARGET_PATCH_IN_PROGRESS        = 2,
+    TARGET_PATCH_COMPLETED          = 3,
+    TARGET_PATCH_FAILED             = 4,
+} TARGET_PATCH_STATE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TargetPatchState, ItemEnum(_TARGET_PATCH_STATE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _CLIENT_MESSAGE_TYPE
+{
+    CLIENT_MESSAGE_CONNECTION_INVALID = 0,
+    CLIENT_MESSAGE_CONNECTION_STATUS,
+    CLIENT_MESSAGE_CONNECTION_ERROR,
+} CLIENT_MESSAGE_TYPE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(ClientMessageType, ItemEnum(_CLIENT_MESSAGE_TYPE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _CONNECTION_CHANGE_NOTIFICATION
+{
+    CONNECTION_REQUEST_INVALID = 0,
+    CONNECTION_REQUEST_PENDING,
+    CONNECTION_REQUEST_FAILED,
+    CONNECTION_REQUEST_TIMEDOUT,
+    CONNECTION_REQUEST_SUCCEEDED,
+    CONNECTION_REQUEST_CANCELLED,
+    CONNECTION_REQUEST_LB_COMPLETED,
+    CONNECTION_REQUEST_QUERY_PL_COMPLETED,
+    CONNECTION_REQUEST_ORCH_COMPLETED
+} CONNECTION_CHANGE_NOTIFICATION;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(ConnChangeNotification, ItemEnum(_CONNECTION_CHANGE_NOTIFICATION));")
+cpp_quote("// end_wpp")
+
+typedef [v1_enum] enum _RD_FARM_TYPE
+{
+    RD_FARM_RDSH                        = 0,
+    RD_FARM_TEMP_VM                     = 1,
+    RD_FARM_MANUAL_PERSONAL_VM          = 2,
+    RD_FARM_AUTO_PERSONAL_VM            = 3,
+    RD_FARM_MANUAL_PERSONAL_RDSH  = 4,
+    RD_FARM_AUTO_PERSONAL_RDSH    = 5,
+    RD_FARM_TYPE_UNKNOWN                = 0xFFFFFFFF
+} RD_FARM_TYPE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(RdFarmType, ItemEnum(_RD_FARM_TYPE));")
+cpp_quote("// end_wpp")
+
+typedef [v1_enum] enum _PLUGIN_TYPE
+{ 
+    UNKNOWN_PLUGIN          = 0,
+    POLICY_PLUGIN           = 0x1,
+    RESOURCE_PLUGIN         = 0x2,
+    LOAD_BALANCING_PLUGIN   = 0x4,
+    PLACEMENT_PLUGIN        = 0x8,
+    ORCHESTRATION_PLUGIN    = 0x10,
+    PROVISIONING_PLUGIN     = 0x20,
+    TASK_PLUGIN             = 0x40,
+} PLUGIN_TYPE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(PluginType, ItemEnum(_PLUGIN_TYPE));")
+cpp_quote("// end_wpp")
+
+
+typedef [v1_enum] enum _TSSESSION_STATE
+{
+    STATE_INVALID = -1,
+    STATE_ACTIVE,              // User logged on to WinStation
+    STATE_CONNECTED,           // WinStation connected to client (session reconnected)
+    STATE_CONNECTQUERY,        // In the process of connecting to client (session reconnect pending)
+    STATE_SHADOW,              // Shadowing another WinStation
+    STATE_DISCONNECTED,        // WinStation logged on without client
+    STATE_IDLE,                // Waiting for client to connect
+    STATE_LISTEN,              // WinStation is listening for connection
+    STATE_RESET,               // WinStation is being reset (session logged off)
+    STATE_DOWN,                // WinStation is down due to error
+    STATE_INIT,                // WinStation in initialization
+    STATE_MAX,
+} TSSESSION_STATE;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TsSessionState, ItemEnum(_TSSESSION_STATE));")
+cpp_quote("// end_wpp")
+
+
+//
+// Target owner property is added to a target prop set
+// So that Filter plugins can filter out targets based on plugin name
+typedef [v1_enum] enum _TARGET_OWNER
+{ 
+    OWNER_UNKNOWN           = 0,
+    OWNER_MS_TS_PLUGIN      = 0x1,
+    OWNER_MS_VM_PLUGIN      = 0x2
+} TARGET_OWNER;
+
+cpp_quote("// begin_wpp config")
+cpp_quote("// CUSTOM_TYPE(TargetOwner, ItemEnum(TARGET_OWNER));")
+cpp_quote("// end_wpp")
+
+
+typedef struct 
+{
+    DWORD HorizontalResolution; // horizontal dimensions, in pixels
+    DWORD VerticalResolution;   // vertical dimensions, in pixels
+    DWORD ColorDepth;           // 1=16, 2=256, 4=64K, 8=16M
+} CLIENT_DISPLAY, *PCLIENT_DISPLAY;
+
+typedef struct {
+    byte              ServerAddressB[16];
+    TSSD_AddrV46Type  AddressType;
+    USHORT            PortNumber;
+    ULONG             AddressScope;
+} TSSD_ConnectionPoint, *PTSSD_ConnectionPoint;
+
+typedef [v1_enum] enum _VM_NOTIFY_STATUS
+{ 
+    VM_NOTIFY_STATUS_PENDING = 0,
+    VM_NOTIFY_STATUS_IN_PROGRESS = 1,
+    VM_NOTIFY_STATUS_COMPLETE = 2,
+    VM_NOTIFY_STATUS_FAILED = 3,
+    VM_NOTIFY_STATUS_CANCELED = 4
+} VM_NOTIFY_STATUS;
+
+typedef struct _VM_NOTIFY_ENTRY
+{
+    WCHAR VmName[128];
+    WCHAR VmHost[128];
+} VM_NOTIFY_ENTRY;
+
+typedef struct _VM_PATCH_INFO
+{
+    DWORD   dwNumEntries;
+    [size_is(dwNumEntries)]   LPWSTR *pVmNames;
+} VM_PATCH_INFO;
+
+typedef struct _VM_NOTIFY_INFO
+{
+    DWORD   dwNumEntries;
+    [size_is(dwNumEntries)]    VM_NOTIFY_ENTRY **ppVmEntries;   
+    
+} VM_NOTIFY_INFO;
+
+typedef [v1_enum] enum _VM_HOST_NOTIFY_STATUS
+{ 
+    VM_HOST_STATUS_INIT_PENDING = 0,
+    VM_HOST_STATUS_INIT_IN_PROGRESS = 1,
+    VM_HOST_STATUS_INIT_COMPLETE = 2,
+    VM_HOST_STATUS_INIT_FAILED = 3
+} VM_HOST_NOTIFY_STATUS;
+
+typedef [v1_enum] enum _RDV_TASK_STATUS
+{
+    RDV_TASK_STATUS_UNKNOWN,       // (not used by task agent)
+    RDV_TASK_STATUS_SEARCHING,     // Searching for applicable tasks
+    RDV_TASK_STATUS_DOWNLOADING,   // Downloading tasks
+    RDV_TASK_STATUS_APPLYING,      // Executing tasks.
+    RDV_TASK_STATUS_REBOOTING,     // Rebooting after performing tasks.
+    RDV_TASK_STATUS_REBOOTED,      // Rebooted complete after performing tasks
+    RDV_TASK_STATUS_SUCCESS,       // Task completed successfully.
+    RDV_TASK_STATUS_FAILED,        // Task failed.
+    RDV_TASK_STATUS_TIMEOUT,       // Task did not end in time (not used by task agent).
+} RDV_TASK_STATUS;
+
+// ---- End of sbtsv data structs ---- 
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,527 @@
+cpp_quote("/***************************************************************/" )
+cpp_quote("/*                                                             */" )
+cpp_quote("/*    Copyright (C) Microsoft Corporation.  All rights reserved. */" )
+cpp_quote("/*                                                             */" )
+cpp_quote("/*    wsmandisp.idl                                              */")
+cpp_quote("/*                                                             */")
+cpp_quote("/*    WSMAN IDispatch Compatible Access for Automation clients.  */" )
+cpp_quote("/*                                                             */" )
+cpp_quote("/***************************************************************/" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or WinMgmt Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT)")
+
+[
+    uuid(F010BE25-296D-4036-980F-5A0669A17577),
+    lcid(0x00),
+    version(1.0),
+    helpstring("Microsoft WSMAN Automation V1.0 Library")
+]
+library WSManAutomation
+{
+    importlib("stdole2.tlb");
+
+    typedef [v1_enum] enum  _WSManSessionFlags
+    {
+        WSManFlagUTF8                   = 0x00000001,
+        WSManFlagCredUsernamePassword   = 0x00001000,
+        WSManFlagSkipCACheck            = 0x00002000,
+        WSManFlagSkipCNCheck            = 0x00004000,
+        WSManFlagUseNoAuthentication    = 0x00008000,
+        WSManFlagUseDigest              = 0x00010000,
+        WSManFlagUseNegotiate           = 0x00020000,
+        WSManFlagUseBasic               = 0x00040000,
+        WSManFlagUseKerberos            = 0x00080000,
+        WSManFlagNoEncryption           = 0x00100000,
+        WSManFlagUseClientCertificate   = 0x00200000,
+        WSManFlagEnableSPNServerPort    = 0x00400000,
+        WSManFlagUTF16                  = 0x00800000,
+        WSManFlagUseCredSsp             = 0x01000000,
+        WSManFlagSkipRevocationCheck    = 0x02000000,
+        WSManFlagAllowNegotiateImplicitCredentials    = 0x04000000,
+        WSManFlagUseSsl                 = 0x08000000
+    } WSManSessionFlags;
+
+    typedef [v1_enum] enum  _WSManEnumFlags
+    {
+        WSManFlagNonXmlText         				= 0x00000001,
+        WSManFlagReturnObject     			 	= 0x00000000,
+        WSManFlagReturnEPR   				       = 0x00000002,
+        WSManFlagReturnObjectAndEPR 			= 0x00000004,
+        WSManFlagHierarchyDeep              		= 0x00000000,
+        WSManFlagHierarchyShallow           		= 0x00000020,
+        WSManFlagHierarchyDeepBasePropsOnly  = 0x00000040,
+        WSManFlagAssociatedInstance                  = 0x00000000,
+        WSManFlagAssociationInstance                 = 0x00000080
+    } WSManEnumFlags;
+
+    typedef [v1_enum] enum  _WSManProxyAccessTypeFlags
+    {
+        WSManProxyIEConfig              = 0x00000001,
+        WSManProxyWinHttpConfig         = 0x00000002,
+        WSManProxyAutoDetect            = 0x00000004,
+        WSManProxyNoProxyServer         = 0x00000008
+     } WSManProxyAccessTypeFlags;
+
+    typedef [v1_enum] enum  _WSManProxyAuthenticationFlags
+    {
+        WSManFlagProxyAuthenticationUseNegotiate  = 0x00000001,
+        WSManFlagProxyAuthenticationUseBasic      = 0x00000002,
+        WSManFlagProxyAuthenticationUseDigest     = 0x00000004
+    } WSManProxyAuthenticationFlags;
+
+    interface IWSMan;
+    interface IWSManEx;
+    interface IWSManEx2;
+    interface IWSManEx3;
+    interface IWSManConnectionOptions;
+    interface IWSManConnectionOptionsEx;
+    interface IWSManConnectionOptionsEx2;
+    interface IWSManSession;
+    interface IWSManSessionEx;    
+    interface IWSManEnumerator;
+    interface IWSManResourceLocator;
+    interface IWSManResourceLocatorInternal;
+    [
+       uuid(BCED617B-EC03-420b-8508-977DC7A686BD)
+    ]
+    coclass WSMan
+    {
+                  interface IWSMan;
+                  interface IWSManEx;
+                  interface IWSManEx2;        
+       [default] interface IWSManEx3;        
+    };
+
+   
+    interface IWSManInternal	;
+    [
+       uuid(7DE087A5-5DCB-4df7-BB12-0924AD8FBD9A)
+    ]
+    coclass WSManInternal
+    {
+       interface IWSManInternal;        
+    };    
+};
+
+[
+    dual,
+    object,
+    uuid(190D8637-5CD3-496d-AD24-69636BB5A3B5),
+    oleautomation,
+    local,
+    nonextensible,
+    hidden
+]
+interface IWSMan : IDispatch
+{
+    [id(1)]
+    HRESULT CreateSession(
+        [in, defaultvalue("")] BSTR connection,
+        [in, defaultvalue(0)] long flags,
+        [in, defaultvalue(0)] IDispatch * connectionOptions,
+        [out, retval] IDispatch ** session);
+
+    [id(2)]
+    HRESULT CreateConnectionOptions(
+        [out, retval] IDispatch ** connectionOptions);
+
+    [id(3), propget]
+    HRESULT CommandLine([out, retval] BSTR * value);
+
+    [id(4), propget]
+    HRESULT Error([out, retval] BSTR * value);
+};
+
+[
+    dual,
+    object,
+    uuid(2D53BDAA-798E-49e6-A1AA-74D01256F411),
+    oleautomation,
+    local,
+    nonextensible,
+    hidden
+]
+interface IWSManEx : IWSMan
+{
+    [id(5)]
+    HRESULT CreateResourceLocator(
+		        [in, defaultvalue("")] BSTR strResourceLocator,
+        		[out, retval] IDispatch ** newResourceLocator
+        		);
+
+    [id(6)]
+    HRESULT SessionFlagUTF8([out, retval] long *flags);
+
+    [id(7)]
+    HRESULT SessionFlagCredUsernamePassword([out, retval] long *flags);
+
+    [id(8)]
+    HRESULT SessionFlagSkipCACheck([out, retval] long *flags);
+
+    [id(9)]
+    HRESULT SessionFlagSkipCNCheck([out, retval] long *flags);
+
+    [id(10)]
+    HRESULT SessionFlagUseDigest([out, retval] long *flags);
+
+    [id(11)]
+    HRESULT SessionFlagUseNegotiate([out, retval] long *flags);
+
+    [id(12)]
+    HRESULT SessionFlagUseBasic([out, retval] long *flags);
+
+    [id(13)]
+    HRESULT SessionFlagUseKerberos([out, retval] long *flags);
+
+    [id(14)]
+    HRESULT SessionFlagNoEncryption([out, retval] long *flags);
+
+    [id(15)]
+    HRESULT SessionFlagEnableSPNServerPort([out, retval] long *flags);
+
+    [id(16)]
+    HRESULT SessionFlagUseNoAuthentication([out, retval] long *flags);
+
+    [id(17)]
+    HRESULT EnumerationFlagNonXmlText([out, retval] long *flags);
+
+    [id(18)]
+    HRESULT EnumerationFlagReturnEPR([out, retval] long *flags);
+
+    [id(19)]
+    HRESULT EnumerationFlagReturnObjectAndEPR([out, retval] long *flags);
+
+    [id(20)]
+    HRESULT GetErrorMessage([in] DWORD errorNumber, [out, retval] BSTR* errorMessage);    
+
+    [id(21)]
+    HRESULT EnumerationFlagHierarchyDeep([out, retval] long *flags);
+
+    [id(22)]
+    HRESULT EnumerationFlagHierarchyShallow([out, retval] long *flags);
+
+    [id(23)]
+    HRESULT EnumerationFlagHierarchyDeepBasePropsOnly([out, retval] long *flags);
+
+    [id(24)]
+    HRESULT EnumerationFlagReturnObject([out, retval] long *flags);
+};
+
+[
+    dual,
+    object,
+    uuid(1D1B5AE0-42D9-4021-8261-3987619512E9),
+    oleautomation,
+    local,
+    nonextensible,
+    hidden
+]
+interface IWSManEx2 : IWSManEx
+{
+    [id(25)]
+    HRESULT SessionFlagUseClientCertificate([out, retval] long *flags);
+};
+
+[
+    dual,
+    object,
+    uuid(6400E966-011D-4eac-8474-049E0848AFAD),
+    oleautomation,
+    local,
+    nonextensible,
+    hidden
+]
+interface IWSManEx3 : IWSManEx2
+{
+    [id(26)]
+    HRESULT SessionFlagUTF16([out, retval] long *flags);
+
+    [id(27)]
+    HRESULT SessionFlagUseCredSsp([out, retval] long *flags);
+
+    [id(28)]
+    HRESULT EnumerationFlagAssociationInstance([out, retval] long *flags);
+
+    [id(29)]
+    HRESULT EnumerationFlagAssociatedInstance([out, retval] long *flags);
+
+    [id(30)]
+    HRESULT SessionFlagSkipRevocationCheck([out, retval] long *flags);
+
+    [id(31)]
+    HRESULT SessionFlagAllowNegotiateImplicitCredentials([out, retval] long *flags);
+
+    [id(32)]
+    HRESULT SessionFlagUseSsl([out, retval] long *flags);
+};
+[
+    dual,
+    object,
+    uuid(F704E861-9E52-464f-B786-DA5EB2320FDD),
+    oleautomation,
+    local,
+    nonextensible
+]
+interface IWSManConnectionOptions : IDispatch
+{
+    [id(1), propget]
+    HRESULT UserName([out, retval] BSTR * name);
+    [id(1), propput]
+    HRESULT UserName([in] BSTR name);
+
+    [id(2), propput]
+    HRESULT Password([in] BSTR password);
+
+};
+
+[
+    dual,
+    object,
+    uuid(EF43EDF7-2A48-4d93-9526-8BD6AB6D4A6B),
+    oleautomation,
+    local,
+    nonextensible
+]
+interface IWSManConnectionOptionsEx : IWSManConnectionOptions
+{
+    [id(3), propget]
+    HRESULT CertificateThumbprint([out, retval] BSTR * thumbprint);
+    [id(3), propput]
+    HRESULT CertificateThumbprint([in] BSTR thumbprint);
+};
+
+[
+    dual,
+    object,
+    uuid(F500C9EC-24EE-48ab-B38D-FC9A164C658E),
+    oleautomation,
+    local,
+    nonextensible
+]
+interface IWSManConnectionOptionsEx2 : IWSManConnectionOptionsEx
+{
+    [id(4)]
+    HRESULT SetProxy(
+        [in, defaultvalue(0)] long accessType,
+        [in, defaultvalue(0)] long authenticationMechanism,
+        [in, defaultvalue("")] BSTR userName,
+        [in, defaultvalue("")] BSTR password);
+
+    [id(5)]
+    HRESULT ProxyIEConfig([out, retval] long *value);
+
+    [id(6)]
+    HRESULT ProxyWinHttpConfig([out, retval] long *value);
+
+    [id(7)]
+    HRESULT ProxyAutoDetect([out, retval] long *value);
+
+    [id(8)]
+    HRESULT ProxyNoProxyServer([out, retval] long *value);
+
+    [id(9)]
+    HRESULT ProxyAuthenticationUseNegotiate([out, retval] long *value);
+
+    [id(10)]
+    HRESULT ProxyAuthenticationUseBasic([out, retval] long *value);
+
+    [id(11)]
+    HRESULT ProxyAuthenticationUseDigest([out, retval] long *value);
+};
+
+[
+    dual,
+    object,
+    uuid(FC84FC58-1286-40c4-9DA0-C8EF6EC241E0),
+    oleautomation,
+    local,
+    nonextensible
+]
+interface IWSManSession : IDispatch
+{
+    [id(1)]
+    HRESULT Get(
+        [in] VARIANT resourceUri,
+        [in, defaultvalue(0)] long flags,
+        [out, retval] BSTR * resource);
+
+    [id(2)]
+    HRESULT Put(
+        [in] VARIANT resourceUri,
+        [in] BSTR resource,
+        [in, defaultvalue(0)] long flags,
+        [out, retval] BSTR * resultResource);
+
+    [id(3)]
+    HRESULT Create(
+        [in] VARIANT resourceUri,
+        [in] BSTR resource,
+        [in, defaultvalue(0)] long flags,
+        [out, retval] BSTR* newUri);
+
+    [id(4)]
+    HRESULT Delete(
+        [in] VARIANT resourceUri,
+        [in, defaultvalue(0)] long flags);
+
+    [id(5)]
+    HRESULT Invoke(
+        [in] BSTR actionUri,
+        [in] VARIANT resourceUri,
+        [in] BSTR parameters,
+        [in, defaultvalue(0)] long flags,
+        [out, retval] BSTR * result);
+
+    [id(6)]
+    HRESULT Enumerate(
+        [in] VARIANT resourceUri,
+        [in, defaultvalue("")] BSTR filter,
+        [in, defaultvalue("")] BSTR dialect,
+        [in, defaultvalue(0)] long flags,
+        [out, retval] IDispatch ** resultSet);
+
+    [id(7)]
+    HRESULT Identify(
+        [in, defaultvalue(0)] long flags,
+        [out, retval] BSTR * result);
+
+    [id(8), propget]
+    HRESULT Error([out, retval] BSTR * value);
+
+    [id(9), propget]
+    HRESULT BatchItems([out, retval] long * value);
+    [id(9), propput]
+    HRESULT BatchItems([in] long value);
+
+    [id(10), propget]
+    HRESULT Timeout([out, retval] long * value);
+    [id(10), propput]
+    HRESULT Timeout([in] long value);    
+   
+};
+
+[
+    dual,
+    object,
+    uuid(F3457CA9-ABB9-4fa5-B850-90E8CA300E7F),
+    oleautomation, 
+    local,
+    nonextensible
+]
+interface IWSManEnumerator : IDispatch
+{
+    [id(1)]
+    HRESULT ReadItem([out, retval] BSTR * resource);
+
+    [id(2), propget]
+    HRESULT AtEndOfStream([out, retval] VARIANT_BOOL * eos);
+
+    [id(8), propget]
+    HRESULT Error([out, retval] BSTR * value);
+};
+
+[
+    dual,
+    object,
+    uuid(A7A1BA28-DE41-466a-AD0A-C4059EAD7428),
+    oleautomation, 
+    local,
+    nonextensible
+]
+interface IWSManResourceLocator : IDispatch
+{
+    [id(1), propput, helpstring("Set the resource URI. Must contain path only -- query string is not allowed here.")]
+    HRESULT ResourceURI([in] BSTR uri);
+
+    [id(1), propget, helpstring("Get the resource URI")]
+    HRESULT ResourceURI([out, retval] BSTR *uri);
+    
+    ///////////////////////////////////////////////////////
+    // Selectors
+    
+    [id(2), helpstring("Add selector to resource locator")]
+    HRESULT AddSelector(
+        [in] BSTR resourceSelName,
+        [in] VARIANT selValue
+        );
+ 
+    [id(3), helpstring("Clear all selectors")]
+    HRESULT ClearSelectors();
+ 
+    ///////////////////////////////////////////////////////
+    // Fragment
+ 
+    [id(4), propget, helpstring("Gets the fragment path")]
+    HRESULT FragmentPath([out, retval] BSTR * text);
+    
+    [id(4), propput, helpstring("Sets the Fragment path")]
+    HRESULT FragmentPath([in] BSTR text);
+ 
+    [id(5), propget, helpstring("Gets the Fragment dialect")]
+    HRESULT FragmentDialect([out, retval] BSTR * text);
+    
+    [id(5), propput, helpstring("Sets the Fragment dialect")]
+    HRESULT FragmentDialect([in] BSTR text);
+ 
+    ///////////////////////////////////////////////////////
+    // Options
+    
+    [id(6), helpstring("Add option to resource locator")]
+    HRESULT AddOption(
+        [in] BSTR OptionName,
+        [in] VARIANT OptionValue,
+        [in, defaultvalue(0)] BOOL mustComply
+        );
+ 
+    [id(7), propput, helpstring("Sets the  MustUnderstandOptions value")]
+    HRESULT MustUnderstandOptions([in] BOOL mustUnderstand);
+
+    [id(7), propget, helpstring("Gets MustUnderstandOptions value")]
+    HRESULT MustUnderstandOptions([out, retval] BOOL *mustUnderstand);
+ 
+    [id(8), helpstring("Clear all options")]
+    HRESULT ClearOptions();    
+
+    [id(9), propget]
+    HRESULT Error([out, retval] BSTR * value);
+
+}
+
+
+[
+    object,
+    uuid(EFFAEAD7-7EC8-4716-B9BE-F2E7E9FB4ADB),
+    oleautomation,
+    local,
+    nonextensible,
+    hidden
+]
+interface IWSManResourceLocatorInternal : IUnknown
+{
+}
+
+[
+    object,
+    uuid(04AE2B1D-9954-4D99-94A9-A961E72C3A13),
+    oleautomation,
+    local,
+    nonextensible,
+    hidden
+]
+interface IWSManInternal : IDispatch
+{
+    [id(2)]
+    HRESULT ConfigSDDL(
+        [in] IDispatch * session,      
+        [in] VARIANT resourceUri,
+        [in, defaultvalue(0)] long flags,
+        [out, retval] BSTR * resource);     
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT) */")
+#pragma endregion
+

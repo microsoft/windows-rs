@@ -1,0 +1,1546 @@
+//
+// audioenginebaseapo.idl -- Copyright (c) 2003 Microsoft Corporation
+//
+// Author: alpers
+//
+// Description:
+//
+//  The interface and type definitions for base APO functionality.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "mmdeviceapi.idl";
+import "audiomediatype.idl";
+import "AudioAPOTypes.h";
+
+cpp_quote("//")
+cpp_quote("// Error Codes for APO")
+cpp_quote("// The facility code for APOs is 0x87D.")
+cpp_quote("//")
+cpp_quote("// The object has already been initialized.")
+cpp_quote("#define APOERR_ALREADY_INITIALIZED               _HRESULT_TYPEDEF_(0x887D0001)")
+cpp_quote("// Object/structure is not initialized.")
+cpp_quote("#define APOERR_NOT_INITIALIZED                   _HRESULT_TYPEDEF_(0x887D0002)")
+cpp_quote("// a pin supporting the format cannot be found.")
+cpp_quote("#define APOERR_FORMAT_NOT_SUPPORTED              _HRESULT_TYPEDEF_(0x887D0003)")
+cpp_quote("// Invalid CLSID in an APO Initialization structure")
+cpp_quote("#define APOERR_INVALID_APO_CLSID                 _HRESULT_TYPEDEF_(0x887D0004)")
+cpp_quote("// Buffers overlap on an APO that does not accept in-place buffers.")
+cpp_quote("#define APOERR_BUFFERS_OVERLAP                   _HRESULT_TYPEDEF_(0x887D0005)")
+cpp_quote("// APO is already in an unlocked state")
+cpp_quote("#define APOERR_ALREADY_UNLOCKED                  _HRESULT_TYPEDEF_(0x887D0006)")
+cpp_quote("// number of input or output connections not valid on this APO")
+cpp_quote("#define APOERR_NUM_CONNECTIONS_INVALID           _HRESULT_TYPEDEF_(0x887D0007)")
+cpp_quote("// Output maxFrameCount not large enough.")
+cpp_quote("#define APOERR_INVALID_OUTPUT_MAXFRAMECOUNT      _HRESULT_TYPEDEF_(0x887D0008)")
+cpp_quote("// Invalid connection format for this operation")
+cpp_quote("#define APOERR_INVALID_CONNECTION_FORMAT         _HRESULT_TYPEDEF_(0x887D0009)")
+cpp_quote("// APO is locked ready to process and can not be changed")
+cpp_quote("#define APOERR_APO_LOCKED                        _HRESULT_TYPEDEF_(0x887D000A)")
+cpp_quote("// Invalid coefficient count")
+cpp_quote("#define APOERR_INVALID_COEFFCOUNT                _HRESULT_TYPEDEF_(0x887D000B)")
+cpp_quote("// Invalid coefficient")
+cpp_quote("#define APOERR_INVALID_COEFFICIENT               _HRESULT_TYPEDEF_(0x887D000C)")
+cpp_quote("// an invalid curve parameter was specified")
+cpp_quote("#define APOERR_INVALID_CURVE_PARAM               _HRESULT_TYPEDEF_(0x887D000D)")
+cpp_quote("// Invalid auxiliary input index")
+cpp_quote("#define APOERR_INVALID_INPUTID                   _HRESULT_TYPEDEF_(0x887D000E)")
+
+cpp_quote("//")
+cpp_quote("// Signatures for data structures.")
+cpp_quote("//")
+cpp_quote("#define APO_CONNECTION_DESCRIPTOR_SIGNATURE     'ACDS'")
+cpp_quote("#define APO_CONNECTION_PROPERTY_SIGNATURE       'ACPS'")
+cpp_quote("#define APO_CONNECTION_PROPERTY_V2_SIGNATURE    'ACP2'")
+cpp_quote("")
+cpp_quote("// Min and max framerates for the engine")
+cpp_quote("#define AUDIO_MIN_FRAMERATE                    10.0     // Minimum frame rate for APOs")
+cpp_quote("#define AUDIO_MAX_FRAMERATE                     384000.0 // Maximum frame rate for APOs")
+cpp_quote("")
+cpp_quote("// Min and max # of channels (samples per frame) for the APOs")
+cpp_quote("#define AUDIO_MIN_CHANNELS                      1    // Current minimum number of channels for APOs")
+cpp_quote("#define AUDIO_MAX_CHANNELS                      4096 // Current maximum number of channels for APOs")
+cpp_quote("")
+cpp_quote("//-----------------------------------------------------------------------------")
+cpp_quote("")
+
+// Flags for APO connection creation. These flags are internally used by
+// APO connection objects.
+typedef enum APO_CONNECTION_BUFFER_TYPE
+{
+    // Connection buffer is internally allocated (Initialize)
+    APO_CONNECTION_BUFFER_TYPE_ALLOCATED = 0,
+
+    // Connection buffer is passed as parameter (InitializeWithBuffer)
+    APO_CONNECTION_BUFFER_TYPE_EXTERNAL = 1,
+
+    // Connection buffer is extracted from another Connection Object
+    // (InitializeWithConnection)
+    APO_CONNECTION_BUFFER_TYPE_DEPENDANT = 2
+} APO_CONNECTION_BUFFER_TYPE;
+
+// This structure is the descriptor for an APO connection. It is passed
+// into the processor's CreateConnection call.
+//
+// See IAudioProcessor::CreateConnection.
+//
+// Structure of a connection buffer, including the extra space:
+//
+//  {image:APO_CONN_DESC}
+//
+typedef struct APO_CONNECTION_DESCRIPTOR
+{
+    // Indicates how the connection buffer inside the APO Connection is allocated.
+    // This field is set only by APO Connection during initialization. It is a
+    // private field that should be cleared before making the
+    // CreateConnection call.
+    APO_CONNECTION_BUFFER_TYPE Type;
+
+    // The buffer to be used for the APO connection.
+    //
+    // If NULL, the CreatConnection call will allocate memory.
+    //
+    // If not NULL, CreateConnetion will use the specified memory region as the
+    // connection buffer. pBuffer must be frame-aligned or 128 bit aligned,
+    // both at the beginning of the buffer and at the start of the audio
+    // buffer section. It must be large enough to hold u32MaxFrameCount
+    // frames. It must point to the beginning of the audio buffer area.
+    // See the diagram below.
+    UINT_PTR pBuffer;
+
+    // Maximum size, in number of frames, of the connection buffer
+    // associated with the connection. Note that the actual space allocated
+    // depends on the exact format of the audio data specified in Format.
+    UINT32 u32MaxFrameCount;
+
+    // The format of the connection. This also represents the format
+    // of the data in the connection buffer.
+    IAudioMediaType* pFormat;
+
+    // A tag identifying a valid APO_CONNECTION_DESCRIPTOR structure.
+    UINT32 u32Signature;
+} APO_CONNECTION_DESCRIPTOR;
+
+//---------------------------------------------------------------------------
+//  These flags specify the basic properties of Audio Processing objects. If
+//  the APO is being used directly by a client without using an audio
+//  processor, the client needs to ensure these flags are respected.
+typedef enum APO_FLAG
+{
+    // No flags set
+    APO_FLAG_NONE = 0x00000000,
+
+    // APO can perform in-place processing. This allows the processor to
+    // connect a common buffer on input and output.
+    APO_FLAG_INPLACE = 0x00000001,
+
+    // Samples Per Frame of input and output connections must match.
+    APO_FLAG_SAMPLESPERFRAME_MUST_MATCH = 0x00000002,
+
+    // Frames per second of input and output connections must match
+    APO_FLAG_FRAMESPERSECOND_MUST_MATCH = 0x00000004,
+
+    // Bits per sample AND bytes per sample containter of input and output
+    // connections must match.
+    APO_FLAG_BITSPERSAMPLE_MUST_MATCH = 0x00000008,
+
+    // APO is a mix APO. This flag should be set only for the mixer APO.
+    APO_FLAG_MIXER = 0x00000010,
+
+    // standard flags for default APOs
+    APO_FLAG_DEFAULT = (APO_FLAG_SAMPLESPERFRAME_MUST_MATCH | APO_FLAG_FRAMESPERSECOND_MUST_MATCH |
+                        APO_FLAG_BITSPERSAMPLE_MUST_MATCH)
+} APO_FLAG;
+
+
+// Registration properties for an APO.  This structure is used by the registration
+// API functions and by IAudioProcessingObject::GetRegistrationProperties().
+typedef struct APO_REG_PROPERTIES
+{
+    // The CLSID that uniquely identifies this COM object.
+    CLSID   clsid;
+
+    // The basic properties of the APO.
+    APO_FLAG Flags;
+
+    // String that identifies the friendly name of this APO.
+    WCHAR   szFriendlyName[256];
+
+    // String that lists any relevant copyright information.
+    WCHAR   szCopyrightInfo[256];
+
+    // The major version number of this APO.
+    UINT32  u32MajorVersion;
+
+    // The minor version number of this APO.
+    UINT32  u32MinorVersion;
+
+    // The minimum number of input connections this APO must have to operate properly.
+    UINT32  u32MinInputConnections;
+
+    // The maximum number of input connections this APO can handle.
+    UINT32  u32MaxInputConnections;
+
+    // The minimum number of output connections this APO must have to operate properly.
+    UINT32  u32MinOutputConnections;
+
+    // The maximum number of output connections this APO can handle.
+    UINT32  u32MaxOutputConnections;
+
+    // The maximum number of times this APO can be instantiated system-wide. This is
+    // primarily used to indicate a max instance count for a hardware based APO with
+    // limited hardware resources. For software APOs with no max instances, set to
+    // MAXUINT32.
+    UINT32  u32MaxInstances;
+
+    // Number of GUIDs in the iidAPOInterfaceList.
+    UINT32  u32NumAPOInterfaces;
+
+    // This is an array of GUIDs that define all the APO interfaces that can be found in
+    // this APO.  There are u32NumAPOInterfaces in the list.
+    [size_is(u32NumAPOInterfaces)] IID  iidAPOInterfaceList[];
+} APO_REG_PROPERTIES, *PAPO_REG_PROPERTIES;
+
+
+// this the base initialization header that must preceed other
+// initialization data in IAudioProcessingObject::Initialize
+typedef struct APOInitBaseStruct
+{
+    // this is the total size in bytes of the structure
+    UINT32   cbSize;
+
+    // this is the CLSID of the APO.  If the CLSID does not match, this
+    // structure was not designed for this APO and this is an error.  This
+    // may also be used for versioning, if the CLSID of the APO changes
+    // between versions.  In this case a CLSID of a previous version MAY
+    // be still supported by the APO.
+    CLSID    clsid;
+} APOInitBaseStruct;
+
+
+// Two flow types, push and pull may be supported for each SRC APO,
+//  and specified in the initialization structure for each particular APO.
+//  These flow types specify how the rate converter will consume and
+//  generate samples based on the amount of available input, or amount
+//  of requested output.
+typedef enum AUDIO_FLOW_TYPE
+{
+    AUDIO_FLOW_PULL = 0,    // If AUDIO_FLOW_PULL is specified then the converter will
+                            // generate a fixed and equal number of output frames on
+                            // each processing pass, and consume the entire input APO
+                            // Connection buffer.
+                            //
+                            // The CalcMaxInputFrames API should be called initially to
+                            // determine the maximum frameCount for APOC buffer allocation.
+                            // CalcInputFrames should then be called before every call to
+                            // APOProcess to determine the number of input frames required
+                            // to fill the output APO Connection.  On subsequent calls to APOProcess,
+                            // the returned u32InputFrameCount must equal the input APO Connection�s
+                            // u32ValidFrameCount value, or the APO will fail.
+
+    AUDIO_FLOW_PUSH         // With AUDIO_FLOW_PUSH the converter will generate as much output
+                            // possible with the available input on each processing pass, and
+                            // consume the entire input APO Connection buffer.
+                            //
+                            // CalcMaxOutputFrames should be called to determine the maximum
+                            // frameCount that may be generated on a processing pass.
+                            // This call should be made after Initialize to determine the
+                            // size of APO output Connection buffer to allocate.
+                            // CalcOutputFrames may be called to query the next output
+                            // frameCount, however, this call is not required when
+                            // using AUDIO_FLOW_PUSH.
+} AUDIO_FLOW_TYPE;
+
+// Constriction levels
+typedef enum EAudioConstriction
+{
+    // order least to most
+    eAudioConstrictionOff,
+    eAudioConstriction48_16,
+    eAudioConstriction44_16,
+    eAudioConstriction14_14,
+    eAudioConstrictionMute
+} EAudioConstriction;
+
+// This is the realtime-safe interface for an APO. It may be called from
+// a real-time processing thread. The implementation of these methods do not
+// and should not block, touch paged memory, or call any blocking system
+// routines.
+//
+// This interface is declared "local" and is not callable out of proc.
+//
+// This interface is hidden by the Audio Processor and is not available to
+// clients when creating APOs with IAudioProcessor::CreateAPO.
+[
+    object,
+    uuid(9E1D6A6D-DDBC-4E95-A4C7-AD64BA37846C),
+    pointer_default(unique),
+    local
+]
+interface IAudioProcessingObjectRT : IUnknown{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Cause the APO to perform a processing pass.
+    //
+    // Parameters:
+    //
+    //      u32NumInputConnections - [in] Number of input connections.
+    //      ppInputConnections - [in] Array of input connection property
+    //              structures, one per input connection.
+    //      u32NumOutputConnections - [in] Number of output connections.
+    //      ppOutputConnections - [in, out] Array of output connection
+    //              property structures, one per output connection.
+    //
+    // Remarks:
+    //
+    //  This method is called for the APO to process audio data. The process
+    //  method must conform to the Real Time processing specification.
+    //
+    //  An APO is required to propagate the time-stamp on the input connection
+    //  to the output connection. It needs to subtract its own latency when it
+    //  sets the output connection time-stamp. For example a zero-latency APO
+    //  will set the same time-stamp on its output connection as that coming
+    //  in on input.
+    //
+    //  The data to process is described in the array of input connections.
+    //
+    //  The APO may not change the ppOutputConnections array, but it can and
+    //  should set the properties of the output connections after processing.
+    //
+    //  Note: This method may be called from a real-time processing thread. The
+    //  implementation of this method does not and should not block, touch
+    //  paged memory, or call any blocking system routines.
+    //
+    //
+    void APOProcess([in, annotation("_In_")] UINT32 u32NumInputConnections, [in, annotation("_In_")] APO_CONNECTION_PROPERTY** ppInputConnections,
+        [in, annotation("_In_")] UINT32 u32NumOutputConnections, [in, out, annotation("_Inout_")] APO_CONNECTION_PROPERTY** ppOutputConnections);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the number of input frames an APO requires to generate a given
+    //  number of output frames.
+    //
+    // Parameters:
+    //
+    //      u32OutputFrameCount - [in] Count of desired output frames.
+    //
+    // Return values:
+    //
+    //      The required number of input frames to generate the given
+    //      number of output frames.
+    //
+    // Remarks:
+    //
+    //  This method returns the number of input frames an APO will require
+    //  to generate a given number of output frames.
+    //
+    //  This routine is useful for providing a "pull" model for audio
+    //  processing. The main processing loop can use this call to determine
+    //  the number of frames it should provide the APO in order to
+    //  generate a specific desired number of output frames.
+    //
+    //  Note: This method may be called from a real-time processing thread. The
+    //  implementation of this method does not and should not block, touch
+    //  paged memory, or call any blocking system routines.
+    //
+    //
+    UINT32 CalcInputFrames([in] UINT32 u32OutputFrameCount);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the number of output frames an APO requires to generate a given
+    //  amount of input frames.
+    //
+    // Parameters:
+    //
+    //      u32InputFrameCount - [in] Count of desired input frames.
+    //
+    // Return values:
+    //
+    //      The number of output frames that will be generated with
+    //      the given number of input frames.
+    //
+    // Remarks:
+    //
+    //  This method returns the number of output frames an APO will generate
+    //  given a number of input frames.
+    //
+    //  Note: This method may be called from a real-time processing thread. The
+    //  implementation of this method does not and should not block, touch
+    //  paged memory, or call any blocking system routines.
+    //
+    UINT32 CalcOutputFrames([in, annotation("_In_")] UINT32 u32InputFrameCount);
+};
+
+
+// The IAudioProcessingObjectVBR interface provides two APIs for calculating the
+//  maximum frameCounts needed based on a requested or provided
+//  number of output or input frames.  Since VBR APOs may consume or
+//  output varying numbers of frames, these APIs should be used by clients to determine
+//  the largest possible input or output buffer size (in frames) that will be needed
+//  during processing.
+//
+[
+    object,
+    uuid(7ba1db8f-78ad-49cd-9591-f79d80a17c81),
+    pointer_default(unique),
+]
+interface IAudioProcessingObjectVBR : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Calculates the maximum input frame count.
+    //
+    // Parameters:
+    //
+    //      u32MaxOutputFrameCount  - [in] maximum output frame count that will be requested
+    //      pu32InputFrameCount     - [out] pointer to UINT32 to receive input frame count
+    //
+    // Return values:
+    //
+    //      S_OK
+    //      E_POINTER
+    //
+    // Remarks:
+    //
+    //  This method returns the maximum number of input frames that may be required
+    //  given some number of output frames.  This API should be called after APO
+    //  initialization to determine the size of the input APO connection buffer to be allocated.
+    //  The return value should be the minimum size of APO connection used on the
+    //  APO's input connection.
+    //
+    //  The returned count takes into account the maximum range of frequency shift,
+    //  so that input connections are large enough during processing.  This API should
+    //  not be confused with CalcInputFrames which takes into account the current
+    //  frame rate set on the APO which may change after initialization.
+    //
+    //  This method may not be called from a real-time processing thread.
+    //
+    HRESULT CalcMaxInputFrames([in] UINT32 u32MaxOutputFrameCount, [out] UINT32* pu32InputFrameCount );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Calculates the max output frameCount.
+    //
+    // Parameters:
+    //
+    //      u32MaxInputFrameCount   -  [in] maxmimum input frame count that may occur
+    //                                      during processing
+    //      pu32OutputFrameCount    -  [out] pointer to UINT32 to receive the
+    //                                       maxOutputFrameCount which may be generated.
+    //
+    // Return values:
+    //
+    //      S_OK
+    //      E_POINTER
+    //
+    // Remarks:
+    //
+    //  This routine uses the input and output max and min frameRate ranges to determine
+    //  the maximum output frameCount.  The return value should be the minimum size
+    //  connection used on this APOs output connection.
+    //
+    //  The returned count takes into account the maximum range of frequency shift,
+    //  so that output connections are large enough during processing.  This API should
+    //  not be confused with CalcOutputFrames which takes into account the current
+    //  frame rate set on the APO which may change after initialization.
+    //
+    //  This method may not be called from a real-time processing thread.
+    //
+    HRESULT CalcMaxOutputFrames([in] UINT32 u32MaxInputFrameCount, [out] UINT32* pu32OutputFrameCount );
+};
+
+
+// This is the configuration interface for an APO. The processor uses
+// these methods to lock and unlock APOs for processing. Clients of APOs
+// will not normally need to call this interface if the APOs are used with
+// the AudioProcessor provided by the audio core team.
+//
+// This interface is hidden by the Audio Processor and is not available to
+// clients when creating APOs with IAudioProcessor::CreateAPO.
+//
+// Clients writing their own processor, or using APOs "raw" will need to
+// use this interface to enable processing with the APOs.
+//
+// This interface is declared "local" and is not callable out of proc.
+//
+[
+    object,
+    uuid(0E5ED805-ABA6-49c3-8F9A-2B8C889C4FA8),
+    pointer_default(unique),
+    local
+]
+interface IAudioProcessingObjectConfiguration : IUnknown{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Verifies that the APO is ready to process and locks its state if so.
+    //
+    // Parameters:
+    //
+    //      u32NumInputConnections  - [in] number of input connections attached to this APO.
+    //      ppInputConnections      - [in] connection descriptor of each input connection attached to this APO.
+    //      u32NumOutputConnections - [in] number of output connections attached to this APO.
+    //      ppOutputConnections     - [in] connection descriptor of each output connection attached to this APO.
+    //
+    // Return values:
+    //
+    //      S_OK                                Object is locked and ready to process.
+    //      E_POINTER                           Invalid pointer passed to function.
+    //      APOERR_INVALID_CONNECTION_FORMAT     Invalid connection format.
+    //      APOERR_NUM_CONNECTIONS_INVALID       Number of input or output
+    //                                          connections is not valid on this APO.
+    //      APOERR_APO_LOCKED                    APO is already locked.
+    //      Other HRESULTs                      When another component is causing a failure.
+    //                                          These failures will be tracked by the the Audio Engine.
+    //
+    // Remarks:
+    //
+    //  LockForProcess performs an internal check to see if the APO is ready to
+    //  process, meaning that it has been sufficiently initialized to perform
+    //  useful processing. If this method call succeeds, the object will be
+    //  locked in this state.
+    //
+    //  Once locked, certain APO configuration changes will be disallowed.  These
+    //  include Add/Remove/Swap of Input/Output connections, as well as any specific
+    //  APO re-configuration that cannot be performed dynamically.
+    //
+    //  The APO can only be unlocked by calling UnlockForProcess.
+    //
+    //  The latency of an APO must be fixed and unchangeable once a LockForProcess
+    //  call succeeds. This is so that the latency of the graph cannot change while
+    //  processing, which allows the client to optimize and not have to query all
+    //  APO latencies constantly.
+    //
+    //  Each APO will have different initialization requirements.  APOs should
+    //  define an Initialize routine if it needs one. LockForProcess should fail
+    //  if this Initialize routine hasn�t been called. All non-modifiable parameters
+    //  should be set in the initalize routine. All parameters that can be set
+    //  after LockForProcess should have their own interface methods.
+    //
+    //  This call must be made before calling APOProcess (if the APO is being used
+    //  outside the Audio Processor). The Processor will call LockForProcess before
+    //  the APO is added into its active APO list. See IAudioProcessor::ActivateAPO.
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT LockForProcess([in, annotation("_In_")] UINT32 u32NumInputConnections, [in, annotation("_In_")] APO_CONNECTION_DESCRIPTOR** ppInputConnections,
+        [in, annotation("_In_")] UINT32 u32NumOutputConnections, [in, annotation("_In_")] APO_CONNECTION_DESCRIPTOR** ppOutputConnections);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Releases the lock imposed by LockForProcess.
+    //
+    // Return values:
+    //
+    //     S_OK                     Successful completion.
+    //     APOERR_ALREADY_UNLOCKED   APO was not locked.
+    //
+    // Remarks:
+    //
+    //  UnlockForProcess releases the lock imposed by LockForProcess.  This will
+    //  allow certain APO configuration changes to occur without causing any
+    //  problems for the Processor.   These changes may include Add/Remove/Swap
+    //  of Input/Output connections, as well as any specific APO re-configuration
+    //  that can not be performed dynamically.
+    //
+    HRESULT UnlockForProcess(void);
+};
+
+// Effects, transforms, and synthesizers are enabled through the creation and
+// usage of Audio Processing Objects (APOs). APOs may be supplied by Microsoft
+// or by third parties. Part of the Audio Engine is an APO SDK that documents
+// and provides examples of creating APOs.
+//
+// APOs typically have one input and one output connection; however, any number
+// of input and output connections (including none) may be processed.
+//
+// For an APO which operates inplace, the same connection may be set for input and
+// output.
+//
+// All APOs must be real-time compatible (RT-compatible). This implies the
+// following.
+//
+// 1) All buffers (including connection buffers) that APOs are
+//    processing must be non-paged.
+//
+// 2) All APO code and data that is used in the processing path must be
+//    non-paged.
+//
+// 3) All IXXXRT interface methods must be implemented in a non-blocking
+//    fashion. They should not block, touch paged memory or call any
+//    blocking system routines. (Note that most system routines are
+//    blocking.)
+//
+// 4) RT-compliant APOs can be used in non-RT applications.
+//
+// There are three main interfaces for the APO: IAudioProcessingObject,
+// IAudioProcessingObjectConfiguration, and IAudioProcessingObjectRT.  APO
+// specific methods not covered in the interface may be handled through a
+// private or public interface that the caller can query for. See
+// AudioEngineCoreAPO.idl for examples of these methods.
+//
+// APOs that require more functionality than what�s provided in the base APO
+// interface may need to create their own interface. APOs may support any number
+// of optional interfaces including IMediaParams, IPersistStream, etc. See
+// individual APOs for examples.
+//
+// The IAudioProcessingObject interface exposes the non-real-time compliant
+// parts of an Audio Processing Object to the client. This interface may not
+// be called from a real time thread.
+[
+    object,
+    uuid(FD7F2B29-24D0-4b5c-B177-592C39F9CA10),
+    pointer_default(unique)
+]
+interface IAudioProcessingObject : IUnknown{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Resets the APO to its initial state.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //
+    // Remarks:
+    //
+    //  This method resets the APO to a known state. It does not cause
+    //  any changes in the connection objects attached to the input or output
+    //  of the APO. The APO defines the initial state.
+    //
+    //  See the documentation for each APO for specifics as to exactly what
+    //  the "known" state of the APO is after this call.
+    //
+    //  Note: This method may not be called from a real-time processing thread. The
+    //  implementation of this method does not and should not block, touch paged
+    //  memory, or call any blocking system routines.
+    //
+    HRESULT Reset(void);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the latency for this APO.
+    //
+    // Parameters:
+    //
+    //     pTime - [out] Points to a HNSTIME structure that will receive the
+    //              number of 100 nanosecond units of delay that this APO
+    //              introduces.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_POINTER   Invalid pointer passed to function.
+    //
+    // Remarks:
+    //
+    //  Get the latency in 100 nanosecond units.  If the caller knows the
+    //  sampling rate, they can calculate the latency in number of frames. The
+    //  latency is with respect to this APO.  To get the total latency on the
+    //  processing stream, the caller would query every APO in the processing
+    //  chain for its latency and sum the results.
+    //
+    //  Latency is the amount of time it takes a frame to traverse the
+    //  processing pass of this APO. That is, it describes how long an APO
+    //  will hold on to a frame before releasing it downstream to the remainder
+    //  of the audio graph. Another way of looking at it is that it is the
+    //  amount of time by which the timestamp of the output connection will
+    //  be offset relative to the timestamp of the input connection.
+    //
+    //  For instance, a typical APO such as volume or mixing will not introduce
+    //  any latency. A frame going in the input connection buffer will come out at the
+    //  corresponding position of the output connection buffer, and the timestamp on the
+    //  output connection will match that of the input connection in a single APOProcess()
+    //  call. An APO such as a delay or frame rate converter will introduce a
+    //  latency into the stream. That is, the input frames will be held by the
+    //  APO for a time (the latency time) and only output at a later time. So a
+    //  frame coming in at time 10 on the input will still come out at time 10
+    //  on the output, but if there is a 5 time-unit latency for the APO, the
+    //  APOProcess() pass made with an input connection of time 10 would generate an
+    //  output connection of time 5. In effect, the input frames have been held or
+    //  delayed by 5 time units. The APO would report a latency of 5 units.
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT GetLatency([out] HNSTIME* pTime);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the registration properties of the APO.
+    //
+    // Parameters:
+    //
+    //     ppRegProps - [out] Pointer to an APO_REG_PROPERTIES pointer to be filled
+    //                  in by the APO with its registration properties pointer.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_POINTER   Invalid pointer passed to this function.
+    //
+    // Remarks:
+    //
+    //  This method returns the registration properties of the APO.  See the APO
+    //  Registration API section for details on this struct.
+    //
+    //  The caller must free the memory returned by this function using CoTaskMemFree.
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT GetRegistrationProperties([out] APO_REG_PROPERTIES** ppRegProps);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Generic initialization routine for APOs.
+    //
+    // Parameters:
+    //
+    //     cbDataSize - [in] the size in bytes of the initialization data.
+    //     pbyData - [in] initialization data specific to this APO
+    //
+    // Return values:
+    //
+    //     S_OK                         Successful completion.
+    //     E_POINTER                    Invalid pointer passed to this function.
+    //     E_INVALIDARG                 Invalid argument
+    //     APOERR_ALREADY_INITIALIZED    APO is already initialized
+    //     Other HRESULTs               When another component is causing a failure.
+    //                                  These failures will be tracked by the the Audio Engine.
+    //
+    // Remarks:
+    //
+    //  This method initializes the APO.  The data is variable length and
+    //  should have the form of:
+    //
+    //          struct MyAPOInitializationData
+    //          {
+    //              APOInitBaseStruct    APOInit;
+    //              // add additional fields here...
+    //          };
+    //
+    //  If the APO needs no initialization or needs no data to initialize
+    //  itself, it is valid to pass NULL as the pbyData parameter and 0 as
+    //  the cbDataSize parameter.
+    //
+    //  As part of designing an APO, decide which parameters should be
+    //  immutable (set once during initialization) and which mutable (changeable
+    //  during the lifetime of the APO instance).  Immutable parameters must
+    //  only be specifiable in the Initialize call; mutable parameters must be
+    //  settable via methods on whichever parameter control interface(s) your
+    //  APO provides. Mutable values should either be set in the initialize
+    //  method (if they are required for proper operation of the APO prior to
+    //  LockForProcess) or default to reasonable values upon initialize and not
+    //  be required to be set before LockForProcess.
+    //
+    //  Within the mutable parameters, you must also decide which can be changed
+    //  while the APO is locked for processing and which cannot.
+    //
+    //  All parameters should be considered immutable as a first choice, unless
+    //  there is a specific scenario which requires them to be mutable; similarly,
+    //  no mutable parameters should be changeable while the APO is locked, unless
+    //  a specific scenario requires them to be.  Following this guideline will
+    //  simplify the APO's state diagram and implementation and prevent certain
+    //  types of bug.
+    //
+    //  If a parameter changes the APOs latency or MaxXXXFrames values, it must be
+    //  immutable.
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT Initialize([in] UINT32 cbDataSize, [in, size_is(cbDataSize)] BYTE* pbyData);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Verifies that a specific input format is supported.
+    //
+    // Parameters:
+    //
+    //     pOppositeFormat - [in] the output format, or NULL for any
+    //     pRequestedInputFormat - [in] the input format that is to be verified
+    //     ppSupportedInputFormat - [out] the closest input format supported
+    //
+    // Return values:
+    //
+    //     S_OK                         Successful completion.
+    //                                  ppSupportedInputFormat returns pRequestedInputFormat.
+    //
+    //     S_FALSE                      Format or input/output format pair is not supported.
+    //                                  ppSupportedInputFormat returns new suggested format.
+    //
+    //     APOERR_FORMAT_NOT_SUPPORTED  Format is not supported.
+    //                                  ppSupportedInputFormat is left untouched.
+    //
+    //     E_POINTER                    Invalid pointer passed to this function.
+    //
+    //     Other HRESULTs               When another component is causing a failure.
+    //                                  These failures will be tracked by the the Audio Engine.
+    //
+    // Remarks:
+    //
+    //  When pOppositeFormat is not NULL, the APO will answer this query
+    //  for the input/output (I/O) format pair. Some APOs may give
+    //  different answers depending on the opposite format.  For instance, a format
+    //  converter may only support integer input if the output is float.
+    //
+    //  If the APO can accept the requested format or I/O format pair it should add a
+    //  reference to the requested format, return this as the supported output
+    //  format, and return S_OK.
+    //
+    //  If the APO cannot accept the requested format or I/O format pair it may suggest
+    //  an alternate requested format.  In this case it should create and return the
+    //  suggested format, and return S_FALSE.
+    //
+    //  The returned supported format should be 'closest' to
+    //  the requested format (where 'close' means 'same sample format / bit depth /
+    //  number of channels / sample rate' in roughly that order). This format may
+    //  only be different from the requested format if S_FALSE is returned
+    //
+    //  When returning any failure the suggested format should be left untouched.
+    //
+    //  This API  may be called at any time. The answers
+    //  given will depend on the internal state of the APO which may
+    //  be manipulated by external user-interfaces.  Once the APO is locked for
+    //  processing, however, these I/O formats cannot and will not change.
+
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT IsInputFormatSupported([in, unique] IAudioMediaType* pOppositeFormat,
+                                            [in] IAudioMediaType* pRequestedInputFormat,
+                                            [out] IAudioMediaType** ppSupportedInputFormat);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Verifies that a specific output format is supported.
+    //
+    // Parameters:
+    //
+    //     pOppositeFormat  - [in] the input format, or NULL for any
+    //     pRequestedOutputFormat - [in] the output format that is to be verified
+    //     ppSupportedOutputFormat - [out] the closest output format supported
+    //
+    // Return values:
+    //
+    //     S_OK                         Successful completion.
+    //                                  ppSupportedOutputFormat returns pRequestedOutputFormat.
+    //
+    //     S_FALSE                      Format or input/output format pair is not supported.
+    //                                  ppSupportedOutputFormat returns new suggested format.
+    //
+    //     APOERR_FORMAT_NOT_SUPPORTED  Format is not supported.
+    //                                  ppSupportedOutputFormat is left untouched.
+    //
+    //     E_POINTER                    Invalid pointer passed to this function.
+    //
+    //     Other HRESULTs               When another component is causing a failure.
+    //                                  These failures will be tracked by the the Audio Engine.
+    //
+    // Remarks:
+    //
+    //  When pOppositeFormat is not NULL, the APO will answer this query
+    //  for the input/output (I/O) format pair. Some APOs may give
+    //  different answers depending on the opposite format.  For instance, a format
+    //  converter may only support integer input if the output is float.
+    //
+    //  If the APO can accept the requested format or I/O format pair it should add a
+    //  reference to the requested format, return this as the supported output
+    //  format, and return S_OK.
+    //
+    //  If the APO cannot accept the requested format or I/O format pair it may suggest
+    //  an alternate requested format.  In this case it should create and return the
+    //  suggested format, and return S_FALSE.
+    //
+    //  The returned supported format should be 'closest' to
+    //  the requested format (where 'close' means 'same sample format / bit depth /
+    //  number of channels / sample rate' in roughly that order). This format may
+    //  only be different from the requested format if S_FALSE is returned
+    //
+    //  When returning any failure the suggested format should be left untouched.
+    //
+    //  This API  may be called at any time. The answers
+    //  given will depend on the internal state of the APO which may
+    //  be manipulated by external user-interfaces.  Once the APO is locked for
+    //  processing, however, these I/O formats cannot and will not change.
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT IsOutputFormatSupported([in, unique] IAudioMediaType* pOppositeFormat,
+                                            [in] IAudioMediaType* pRequestedOutputFormat,
+                                            [out] IAudioMediaType** ppSupportedOutputFormat);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the input channel count (samples-per-frame) for this APO.
+    //
+    // Parameters:
+    //
+    //     pu32ChannelCount - [out] Points to a UINT32 that will receive the channel count.
+    //
+    // Return values:
+    //
+    //      S_OK                    Successful completion.
+    //      E_POINTER               Invalid pointer passed to function.
+    //      APOERR_NOT_INITIALIZED   APO is not initialized.
+    //
+    // Remarks:
+    //
+    //  The interface returns the number of channels on the input side of the APO.
+    //
+    HRESULT GetInputChannelCount([out] UINT32* pu32ChannelCount);
+
+
+}; // IAudioProcessingObject
+
+[
+    object,
+    local,
+    uuid(98F37DAC-D0B6-49F5-896A-AA4D169A4C48),
+    nonextensible,
+    helpstring("IAudioDeviceModulesClient"),
+    pointer_default(unique)
+]
+interface IAudioDeviceModulesClient : IUnknown
+{
+    HRESULT SetAudioDeviceModulesManager([in, annotation("_In_")] IUnknown* pAudioDeviceModulesManager);
+};
+
+cpp_quote("//")
+cpp_quote("// APO registration functions")
+cpp_quote("//")
+cpp_quote("typedef HRESULT (WINAPI FNAPONOTIFICATIONCALLBACK)(APO_REG_PROPERTIES* pProperties, VOID* pvRefData);")
+
+cpp_quote("extern HRESULT WINAPI RegisterAPO(APO_REG_PROPERTIES const* pProperties);")
+cpp_quote("extern HRESULT WINAPI UnregisterAPO(REFCLSID clsid);")
+cpp_quote("extern HRESULT WINAPI RegisterAPONotification(HANDLE hEvent);")
+cpp_quote("extern HRESULT WINAPI UnregisterAPONotification(HANDLE hEvent);")
+cpp_quote("extern HRESULT WINAPI EnumerateAPOs(FNAPONOTIFICATIONCALLBACK pfnCallback, PVOID pvRefData);")
+cpp_quote("extern HRESULT WINAPI GetAPOProperties(REFCLSID clsid, APO_REG_PROPERTIES* pProperties);")
+
+//
+// System Effects settings/definitions
+//
+
+//
+// This is the interface by which system effects get identified.
+//
+[
+    uuid(5FA00F27-ADD6-499a-8A9D-6B98521FA75B)
+]
+interface IAudioSystemEffects : IUnknown
+{};
+
+//
+// This is the interface by which mode-aware system effects get identified.
+//
+[
+    local,
+    uuid(BAFE99D2-7436-44CE-9E0E-4D89AFBFFF56)
+]
+interface IAudioSystemEffects2 : IAudioSystemEffects
+{
+    HRESULT GetEffectsList([out, annotation("_Outptr_result_buffer_maybenull_(*pcEffects)")] LPGUID* ppEffectsIds, [out, annotation("_Out_")] UINT *pcEffects, [in, annotation("_In_")] HANDLE Event);
+};
+
+
+//
+// System Effects APOs that support some form of encoding or want
+// to drive the device at an atypical format (one not normally exposed
+// in the audio control panel applet) can support this interface.
+//
+[
+    uuid(B1176E34-BB7F-4f05-BEBD-1B18A534E097)
+]
+interface IAudioSystemEffectsCustomFormats : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the number of custom formats supported by this APO
+    //
+    // Parameters:
+    //
+    //      pcFormats - [out] Receives the number of formats supported
+    //
+    // Return values:
+    //
+    //      S_OK            Successful completion.
+    //      E_POINTER       Invalid pointer passed to function.
+    //
+    HRESULT GetFormatCount([out] UINT* pcFormats);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves a IAudioMediaType representation of a custom format
+    //
+    // Parameters:
+    //
+    //      nFormat - [in] the index of the format (in the range 0 to GetFormatCount() result - 1)
+    //      ppFormat - [out] the address of a pointer that will receive the format
+    //
+    // Return values:
+    //
+    //      S_OK            Successful completion.
+    //      E_POINTER       Invalid pointer passed to function.
+    //      E_OUTOFMEMORY   Return buffer cannot be allocated.
+    //      E_INVALIDARG    nFormat is out of range.
+    //
+    // Remarks:
+    //
+    //  The caller is responsible for deleting the IAudioMediaType object pointed to by *ppFormat.
+    //
+    HRESULT GetFormat([in] UINT nFormat, [out] IAudioMediaType** ppFormat);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves a string representation of a custom format for UI purposes
+    //
+    // Parameters:
+    //
+    //      nFormat - [in] the index of the format (in the range 0 to GetFormatCount() result - 1)
+    //      ppwstrFormatRep - [out] the address of a buffer pointer that will receive a null-
+    //                        terminated string describing the format
+    //
+    // Return values:
+    //
+    //      S_OK            Successful completion.
+    //      E_POINTER       Invalid pointer passed to function.
+    //      E_OUTOFMEMORY   Return buffer cannot be allocated.
+    //      E_INVALIDARG    nFormat is out of range.
+    //
+    // Remarks:
+    //
+    //  The caller is responsible for freeing the buffer pointed to by *pwstrFormatRep
+    //  using CoTaskMemFree.
+    //
+    HRESULT GetFormatRepresentation([in] UINT nFormat, [out] LPWSTR* ppwstrFormatRep);
+};
+
+// This is the configuration interface for an APO used to configure its auxiliary inputs. 
+//
+// This interface is declared "local" and is not callable out of proc.
+//
+[
+    object,
+    uuid(4CEB0AAB-FA19-48ED-A857-87771AE1B768),
+    local
+]
+interface IApoAuxiliaryInputConfiguration : IUnknown
+{
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Adds an auxiliary input to the APO, and provides initialization parameters.
+    //
+    // Parameters:
+    //
+    //      dwInputId  -  [in] identifier for the input. This is a unique identifier generated by the audio stack
+    //                      The APO can use this identifier to differentiate between multiple auxiliary inputs.
+    //
+    //     cbDataSize - [in] the size in bytes of the initialization data.
+    //     pbyData    - [in] initialization data specific to this APO
+    //     pInputConnection - [in] connection descriptor for this auxiliary input connection
+    //
+    // Return values:
+    //
+    //     APOERR_NUM_CONNECTIONS_INVALID     APO does not expect this auxiliary input.
+    //                                  
+    // Remarks:
+    //
+    //  This method initializes an auxiliary input of the APO.  The data is variable length and
+    //  should have the form of:
+    //
+    //          struct MyAPOInitializationData
+    //          {
+    //              APOInitBaseStruct    APOInit;
+    //              // add additional fields here...
+    //          };
+    //  See IAudioProcessingObject::Initialize for use of the initialization blob.
+    //
+    //  This method may be called only when the APO is not locked for processing.
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT AddAuxiliaryInput([in] DWORD dwInputId, 
+                              [in] UINT32 cbDataSize, 
+                              [in, size_is(cbDataSize)] BYTE* pbyData, 
+                              [in, annotation("_In_")] APO_CONNECTION_DESCRIPTOR *pInputConnection);
+    
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Removes an auxiliary input from the APO.
+    //
+    // Parameters:
+    //
+    //      dwInputId  -  [in] identifier for the input. This is a unique identifier generated by the audio stack
+    //                      The APO can use this identifier to differentiate between multiple auxiliary inputs.
+    //
+    //
+    //  This method may be called only when the APO is not locked for processing
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT RemoveAuxiliaryInput([in] DWORD dwInputId);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Verifies that a specific auxiliary input format is supported.
+    //
+    // Parameters:
+    //
+    //     pRequestedInputFormat - [in] the input format that is to be verified
+    //     ppSupportedInputFormat - [out] the closest input format supported
+    //
+    // Return values:
+    //
+    //     S_OK                         Successful completion.
+    //                                  ppSupportedInputFormat returns pRequestedInputFormat.
+    //
+    //     S_FALSE                      Format is not supported.
+    //                                  ppSupportedInputFormat returns new suggested format.
+    //
+    //     APOERR_FORMAT_NOT_SUPPORTED  Format is not supported.
+    //                                  ppSupportedInputFormat is left untouched.
+    //
+    //     E_POINTER                    Invalid pointer passed to this function.
+    //
+    //     Other HRESULTs               When another component is causing a failure.
+    //                                  These failures will be tracked by the the Audio Engine.
+    //
+    // Remarks:
+    //
+    //  If the APO can accept the requested format it should add a
+    //  reference to the requested format, return this as the supported output
+    //  format, and return S_OK.
+    //
+    //  If the APO cannot accept the requested format it may suggest
+    //  an alternate requested format.  In this case it should create and return the
+    //  suggested format, and return S_FALSE.
+    //
+    //  The returned supported format should be 'closest' to
+    //  the requested format (where 'close' means 'same sample format / bit depth /
+    //  number of channels / sample rate' in roughly that order). This format may
+    //  only be different from the requested format if S_FALSE is returned
+    //
+    //  When returning any failure the suggested format should be left untouched.
+    //
+    //  This API  may be called at any time. The answers
+    //  given will depend on the internal state of the APO which may
+    //  be manipulated by external user-interfaces.  Once the APO is locked for
+    //  processing, however, this format cannot and will not change.
+
+    //
+    //  Note: This method may not be called from a real-time processing thread.
+    //
+    HRESULT IsInputFormatSupported([in] IAudioMediaType* pRequestedInputFormat,
+                                   [out] IAudioMediaType** ppSupportedInputFormat);
+};
+
+// This is the realtime-safe interface used to drive the auxiliary inputs 
+// of an APO. It may be called from a real-time processing thread. The implementation 
+// of these methods do not and should not block, touch paged memory, or call any blocking 
+// system routines.
+//
+// Additionally these calls should not block the main processing method called on APOs - 
+// IAudioProcessingObjectRT::APOProcess
+//
+// This interface is declared "local" and is not callable out of proc.
+//
+[
+    object,
+    uuid(F851809C-C177-49A0-B1B2-B66F017943AB),
+    local
+]
+interface IApoAuxiliaryInputRT : IUnknown
+{
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Provides input to the APO on one of its auxiliary inputs
+    //
+    // Parameters:
+    //
+    //     dwInputId  -               [in] the input identifier 
+    //     pInputConnections -      [in] the input connection property structure
+    //
+    // Remarks:
+    //
+    //  This method is called to provide input to the APO on one of its auxiliary inputs.
+    //
+    //  Note: This method may be called from a real-time processing thread. The
+    //  implementation of this method does not and should not block, touch
+    //  paged memory, or call any blocking system routines.
+    //
+    //
+    void AcceptInput([in, annotation("_In_")] DWORD dwInputId,
+                     [in, annotation("_In_")] const APO_CONNECTION_PROPERTY* pInputConnection);
+};
+
+// This interface is used to identify APOs that implement Acoustic Echo Cancellation
+[
+    object,
+    uuid(25385759-3236-4101-A943-25693DFB5D2D),
+    pointer_default(unique)
+]
+interface IApoAcousticEchoCancellation : IUnknown
+{
+};
+
+//-------------------------------------------------------------------------
+// Description: Flags describing the desired characteristics of a refrence
+//              stream.
+//
+//    APO_REFERENCE_STREAM_PROPERTIES_POST_VOLUME_LOOPBACK -
+//         If the device endpoint supports it, use the post volume tap point
+//         for the loopback stream.
+typedef [v1_enum] enum APO_REFERENCE_STREAM_PROPERTIES
+{
+    APO_REFERENCE_STREAM_PROPERTIES_NONE                  = 0x00,
+    APO_REFERENCE_STREAM_PROPERTIES_POST_VOLUME_LOOPBACK  = 0x01
+} APO_REFERENCE_STREAM_PROPERTIES;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(APO_REFERENCE_STREAM_PROPERTIES);")
+
+// This interface is used to identify APOs that implement Acoustic Echo Cancellation
+// and wish to use post-volume processing loopback streams.
+[
+    object,
+    uuid(F235855F-F06D-45B3-A63F-EE4B71509DC2),
+    pointer_default(unique)
+]
+interface IApoAcousticEchoCancellation2 : IApoAcousticEchoCancellation
+{
+    HRESULT GetDesiredReferenceStreamProperties ([out] APO_REFERENCE_STREAM_PROPERTIES* pProperties);
+};
+
+//
+// This is the structure that gets passed to the system effects APO for
+// initialization.
+//
+typedef struct APOInitSystemEffects
+{
+    APOInitBaseStruct   APOInit;                // currently defined in AudioEngineBaseAPO.idl
+    IPropertyStore      *pAPOEndpointProperties;
+    IPropertyStore      *pAPOSystemEffectsProperties;
+    void                *pReserved;             // TBD for Transport Endpoint interface
+    IMMDeviceCollection *pDeviceCollection;     // A collection of Endpoint, Topology filter, Wave filter.
+} APOInitSystemEffects;
+
+//
+// This is the structure that gets passed to a mode-aware system effects APO
+// for initialization.
+//
+typedef struct APOInitSystemEffects2
+{
+    APOInitBaseStruct   APOInit;
+    IPropertyStore      *pAPOEndpointProperties;
+    IPropertyStore      *pAPOSystemEffectsProperties;
+    void                *pReserved;
+    IMMDeviceCollection *pDeviceCollection;
+    UINT                nSoftwareIoDeviceInCollection;
+    UINT                nSoftwareIoConnectorIndex;
+    GUID                AudioProcessingMode;
+    BOOL                InitializeForDiscoveryOnly;
+} APOInitSystemEffects2;
+
+//
+// This is the structure that is passed to the system effects ControlPanel
+// Extension PropertyPage via IShellPropSheetExt::AddPages
+//
+typedef struct
+{
+    LPARAM          AddPageParam;
+    LPWSTR          pwstrEndpointID;
+    IPropertyStore* pFxProperties;
+} AudioFXExtensionParams;
+
+// ----------------------------------------------------------------------
+// _GFX_ properties
+
+// PKEY_FX_Association:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_Association, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 0);")
+
+// PKEY_FX_PreMixEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},1
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_PreMixEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 1);")
+
+// PKEY_FX_PostMixEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},2
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_PostMixEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 2);")
+
+// PKEY_FX_UserInterfaceClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},3
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_UserInterfaceClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 3);")
+
+// PKEY_FX_FriendlyName:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},4
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_FriendlyName, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 4);")
+
+// PKEY_FX_StreamEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},5
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_StreamEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 5);")
+
+// PKEY_FX_ModeEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},6
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_ModeEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 6);")
+
+// PKEY_FX_EndpointEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},7
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_EndpointEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 7);")
+
+// PKEY_FX_KeywordDetector_StreamEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},8
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_KeywordDetector_StreamEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 8);")
+
+// PKEY_FX_KeywordDetector_ModeEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},9
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_KeywordDetector_ModeEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 9);")
+
+// PKEY_FX_KeywordDetector_EndpointEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},10
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_KeywordDetector_EndpointEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 10);")
+
+// PKEY_FX_Offload_StreamEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},11
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_Offload_StreamEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 11);")
+
+// PKEY_FX_Offload_ModeEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},12
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_Offload_ModeEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 12);")
+
+// PKEY_CompositeFX_StreamEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},13
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_StreamEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 13);")
+
+// PKEY_CompositeFX_ModeEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},14
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_ModeEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 14);")
+
+// PKEY_CompositeFX_EndpointEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},15
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_EndpointEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 15);")
+
+// PKEY_CompositeFX_KeywordDetector_StreamEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},16
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_KeywordDetector_StreamEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 16);")
+
+// PKEY_CompositeFX_KeywordDetector_ModeEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},17
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_KeywordDetector_ModeEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 17);")
+
+// PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},18
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 18);")
+
+// PKEY_CompositeFX_Offload_StreamEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},19
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_Offload_StreamEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 19);")
+
+// PKEY_CompositeFX_Offload_ModeEffectClsid:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},20
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_CompositeFX_Offload_ModeEffectClsid, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 20);")
+
+// PKEY_FX_SupportAppLauncher:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},21
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_SupportAppLauncher, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 21);")
+
+// PKEY_FX_SupportedFormats:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},22
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_SupportedFormats, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 22);")
+
+// PKEY_FX_Enumerator:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},23
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_Enumerator, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 23);")
+
+// PKEY_FX_VersionMajor:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},24
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_VersionMajor, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 24);")
+
+// PKEY_FX_VersionMinor:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},25
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_VersionMinor, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 25);")
+
+// PKEY_FX_Author:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},26
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_Author, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 26);")
+
+// PKEY_FX_ObjectId:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},27
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_ObjectId, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 27);")
+
+// PKEY_FX_State:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},28
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_State, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 28);")
+
+// PKEY_FX_EffectPackSchema_Version:
+// vartype = VT_LPWSTR
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},29
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_EffectPackSchema_Version, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 29);")
+
+// PKEY_FX_ApplyToBluetooth:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},30
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_ApplyToBluetooth, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 30);")
+
+// PKEY_FX_ApplyToUsb:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},31
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_ApplyToUsb, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 31);")
+
+// PKEY_FX_ApplyToRender:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},32
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_ApplyToRender, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 32);")
+
+// PKEY_FX_ApplyToCapture:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},33
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_ApplyToCapture, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 33);")
+
+// PKEY_FX_RequestSetAsDefault:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},34
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_RequestSetAsDefault, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 34);")
+
+// PKEY_FX_RequestSetAsDefaultPriority:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},35
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_RequestSetAsDefaultPriority, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 35);")
+
+// PKEY_FX_OEM_Preferred_EffectPack_Id:
+// vartype = VT_I4
+// {D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},36
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_FX_OEM_Preferred_EffectPack_Id, 0xD04E05A6, 0x594B, 0x4fb6, 0xA8, 0x0D, 0x01, 0xAF, 0x5E, 0xED, 0x7D, 0x1D, 36);")
+
+
+// PKEY_SFX_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},5
+// Lists the signal processing modes supported by the stream effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_SFX_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 5);")
+
+// PKEY_MFX_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},6
+// Lists the signal processing modes supported by the mode effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_MFX_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 6);")
+
+// PKEY_EFX_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},7
+// Lists the signal processing modes supported by the endpoint effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_EFX_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 7);")
+
+// PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},8
+// Lists the signal processing modes supported by the stream effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 8);")
+
+// PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},9
+// Lists the signal processing modes supported by the mode effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 9);")
+
+// PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},10
+// Lists the signal processing modes supported by the endpoint effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 10);")
+
+// PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},11
+// Lists the signal processing modes supported by the stream effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 11);")
+
+// PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},12
+// Lists the signal processing modes supported by the mode effect APO. This list only includes signal processing modes where the APO actually
+// processes the audio signal during streaming. This list does not include any signal processing modes supported by the APO for discovery purposes only.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 12);")
+
+// PKEY_APO_SWFallback_ProcessingModes:
+// vartype = VT_VECTOR | VT_LPWSTR
+// {D3993A3F-99C2-4402-B5EC-A92A0367664B},13
+// Lists the signal processing modes supported by the host connector that are available for fallback to SW APO if sufficient HW resources
+// aren't available.
+cpp_quote ("DEFINE_PROPERTYKEY(PKEY_APO_SWFallback_ProcessingModes, 0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x3, 0x67, 0x66, 0x4b, 13);")
+
+// PKEY_FX_EffectPack_Schema_V1:
+// {7abf23d9-727e-4d0b-86a3-dd501d260001}
+// Effect pack schema version 1 GUID, used with PKEY_FX_EffectPackSchema_Version
+cpp_quote ("DEFINE_GUID(PKEY_FX_EffectPack_Schema_V1, 0x7abf23d9, 0x727e, 0x4d0b, 0x86, 0xa3, 0xdd, 0x50, 0x1d, 0x26, 0x0, 0x1);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

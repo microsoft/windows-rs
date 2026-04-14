@@ -1,0 +1,208 @@
+//+----------------------------------------------------------------------------
+//
+//  Microsoft (R) Search
+//  Copyright (C) Microsoft Corporation, 1998-2000.
+//
+//  File:       srchprth.idl
+//
+//  Contents:   Search Protocol Handler Data Structures and Interfaces
+//
+//  Structures: TIMEOUT_INFO
+//              PROXY_INFO
+//              AUTHENTICATION_INFO
+//              INCREMENTAL_ACCESS_INFO
+//
+//  Interfaces: ISearchProtocol
+//              IProtocolHandlerSite
+//              ISearchUrlAccessor
+//
+//  History:    02/09/00    mcheng      Created
+//
+//+----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IUrlAccessor;
+
+#pragma pack(8)
+
+typedef struct _TIMEOUT_INFO
+{
+    DWORD       dwSize;                     //  Actual size of structure (bytes)
+    DWORD       dwConnectTimeout;           //  Timeout for connection (seconds)
+    DWORD       dwDataTimeout;              //  Timeout for data (seconds)
+} TIMEOUT_INFO;
+
+
+
+typedef enum _PROXY_ACCESS
+{
+        PROXY_ACCESS_PRECONFIG = 0,
+        PROXY_ACCESS_DIRECT,
+        PROXY_ACCESS_PROXY
+} PROXY_ACCESS;
+
+
+
+typedef struct _PROXY_INFO
+{
+    DWORD           dwSize;                     //  Actual size of structure (bytes)
+    LPCWSTR         pcwszUserAgent;             //
+    PROXY_ACCESS    paUseProxy;                 //
+    BOOL            fLocalBypass;               //  Bypass proxy for local address
+    DWORD           dwPortNumber;
+    LPCWSTR         pcwszProxyName;
+    LPCWSTR         pcwszBypassList;
+} PROXY_INFO;
+
+
+
+typedef enum _AUTH_TYPE
+{
+    eAUTH_TYPE_ANONYMOUS = 0,
+    eAUTH_TYPE_NTLM,
+    eAUTH_TYPE_BASIC
+} AUTH_TYPE;
+
+
+
+typedef struct _AUTHENTICATION_INFO
+{
+    DWORD       dwSize;                     //  Actual size of structure (bytes)
+    AUTH_TYPE   atAuthenticationType;       //  Anonymous, Basic, or NTLM
+    LPCWSTR     pcwszUser;
+    LPCWSTR     pcwszPassword;
+} AUTHENTICATION_INFO;
+
+
+
+typedef struct _INCREMENTAL_ACCESS_INFO
+{
+    DWORD       dwSize;                     //  Actual size of structure (bytes)
+    FILETIME    ftLastModifiedTime;
+} INCREMENTAL_ACCESS_INFO;
+
+
+
+typedef struct _ITEM_INFO
+{
+    DWORD       dwSize;                     //  Actual size of structure (bytes)
+    LPCWSTR     pcwszFromEMail;
+    LPCWSTR     pcwszApplicationName;
+    LPCWSTR     pcwszCatalogName;
+    LPCWSTR     pcwszContentClass;
+} ITEM_INFO;
+
+
+
+interface ISearchProtocol;
+interface IProtocolHandlerSite;
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  ISearchProtocol
+//
+//  Comment:    This is the main protocol handler interface where accessors
+//              are created. Initialization information is passed in through
+//              this interface. Re-using or pooling of accessors are
+//              encouraged, if the protocol allows. The CloseAccessor method
+//              is there to support this re-use/pooling.
+//
+//  History:    02/18/00    mcheng      Created
+//
+//+----------------------------------------------------------------------------
+
+[
+    object,
+    local,
+    uuid(c73106ba-ac80-11d1-8df3-00c04fb6ef4f),
+    helpstring("Protocol Handler Interface"),
+    pointer_default(unique)
+]
+interface ISearchProtocol : IUnknown
+{
+    HRESULT Init([in] TIMEOUT_INFO *pTimeoutInfo,
+                 [in] IProtocolHandlerSite *pProtocolHandlerSite,
+                 [in] PROXY_INFO *pProxyInfo);
+
+    HRESULT CreateAccessor([in] LPCWSTR pcwszURL,
+                           [in] AUTHENTICATION_INFO *pAuthenticationInfo,
+                           [in] INCREMENTAL_ACCESS_INFO *pIncrementalAccessInfo,
+                           [in] ITEM_INFO *pItemInfo,
+                           [out] IUrlAccessor **ppAccessor);
+                           // ISSUE: The last step will cause us to return ISearchUrlAccessor
+                           // [out] ISearchUrlAccessor **ppAccessor);
+
+
+    // ISSUE: Pass ISearchUrlAccessor when we support that
+    HRESULT CloseAccessor([in] IUrlAccessor *pAccessor);
+
+    HRESULT ShutDown();
+}
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  ISearchProtocol2
+//
+//  Comment:    Protocol handler interface which allows user data that is
+//              passed in with notifications to reach the PHs.
+//
+//  History:    11/11/05    mabarbis      Created
+//
+//+----------------------------------------------------------------------------
+
+[
+    object,
+    local,
+    uuid(7789F0B2-B5B2-4722-8B65-5DBD150697A9),
+    helpstring("Protocol Handler Interface"),
+    pointer_default(unique)
+]
+interface ISearchProtocol2 : ISearchProtocol
+{
+    HRESULT CreateAccessorEx([in] LPCWSTR pcwszURL,
+                             [in] AUTHENTICATION_INFO *pAuthenticationInfo,
+                             [in] INCREMENTAL_ACCESS_INFO *pIncrementalAccessInfo,
+                             [in] ITEM_INFO *pItemInfo,
+                             [in] const BLOB *pUserData,
+                             [out] IUrlAccessor **ppAccessor);
+}
+
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  IProtocolHandlerSite
+//
+//  Comment:    This interface allows protocol handlers to get "services" from
+//              the filter daemon. If a protocol handler needs to get an
+//              IFilter for an embedded document, it can do so by calling the
+//              GetFilter method.
+//
+//  History:    02/18/00    mcheng      Created
+//
+//+----------------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(0b63e385-9ccc-11d0-bcdb-00805fccce04),
+    helpstring("Protocol Handler Site Interface"),
+    pointer_default(unique)
+]
+interface IProtocolHandlerSite : IUnknown
+{
+    HRESULT GetFilter([in] CLSID *pclsidObj,
+                      [in] LPCWSTR pcwszContentType,
+                      [in] LPCWSTR pcwszExtension,
+                      [out] IFilter **ppFilter);
+
+};
+
+
+#pragma pack()
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

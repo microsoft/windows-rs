@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:desktop2="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="AppPrinter" type="CT_AppPrinter"/>
+        <xs:element name="SearchFilterHandler" type="CT_SearchFilterHandler"/>
+        <xs:element name="SearchPropertyHandler" type="CT_SearchPropertyHandler"/>
+        <xs:element name="DesktopEventLogging" type="CT_DesktopEventLogging"/>
+        <xs:element name="FirewallRules" type="CT_FirewallRules"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Desktop2" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_AppPrinter">
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Parameters" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute ref="uap11:DataFormat" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="CT_SearchFilterHandler">
+    <xs:sequence>
+      <xs:element name="FilterExtension" minOccurs="0" maxOccurs="10000" type="t:ST_FileType" />
+    </xs:sequence>
+    <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="Path" type="t:ST_DllFile"/>
+    <xs:attribute name="ProcessorArchitecture" type="t:ST_Architecture"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SearchPropertyHandler">
+    <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="Path" type="t:ST_DllFile" use="required"/>
+    <xs:attribute name="ProcessorArchitecture" type="t:ST_Architecture" use="required"/>
+  </xs:complexType>
+
+  <xs:attribute name="UseUrl" type="xs:boolean"/>
+  <xs:attribute name="AllowSilentDefaultTakeOver" type="xs:boolean"/>
+  <xs:attribute name="Parameters" type="t:ST_Parameters"/>
+
+  <xs:element name="ThumbnailHandler">
+    <xs:complexType>
+      <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DesktopPreviewHandler">
+    <xs:complexType>
+      <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+      <xs:attribute ref="desktop10:DisplayName" use="optional"/>
+      <xs:attributeGroup ref="DesktopFtaHandlerAttributes"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DesktopPropertyHandler">
+    <xs:complexType>
+      <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+      <xs:attributeGroup ref="DesktopFtaHandlerAttributes"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attributeGroup name="DesktopFtaHandlerAttributes">
+    <xs:attribute name="ManualSafeSave" type="xs:boolean" use="optional"/>
+    <xs:attribute name="EnableShareDenyNone" type="xs:boolean" use="optional"/>
+    <xs:attribute name="EnableShareDenyWrite" type="xs:boolean" use="optional"/>
+    <xs:attribute name="NoOplock" type="xs:boolean" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="CT_FirewallRules">
+    <xs:sequence>
+      <xs:element name="Rule" minOccurs="0" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Direction" type="ST_FirewallRuleDirection" use="required"/>
+          <xs:attribute name="IPProtocol" type="ST_FirewallRuleIPProtocol" use="required"/>
+          <xs:attribute name="Profile" type="ST_FirewallRuleProfile" use="required"/>
+          <xs:attribute name="LocalPortMin" type="ST_FirewallRulePort" use="optional"/>
+          <xs:attribute name="LocalPortMax" type="ST_FirewallRulePort" use="optional"/>
+          <xs:attribute name="RemotePortMin" type="ST_FirewallRulePort" use="optional"/>
+          <xs:attribute name="RemotePortMax" type="ST_FirewallRulePort" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_FirewallRuleDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="in"/>
+      <xs:enumeration value="out"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FirewallRuleIPProtocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ICMPv4"/>
+      <xs:enumeration value="ICMPv6"/>
+      <xs:enumeration value="TCP"/>
+      <xs:enumeration value="UDP"/>
+      <xs:enumeration value="GRE"/>
+      <xs:enumeration value="AH"/>
+      <xs:enumeration value="ESP"/>
+      <xs:enumeration value="EGP"/>
+      <xs:enumeration value="GGP"/>
+      <xs:enumeration value="HMP"/>
+      <xs:enumeration value="IGMP"/>
+      <xs:enumeration value="RVD"/>
+      <xs:enumeration value="OSPFIGP"/>
+      <xs:enumeration value="PUP"/>
+      <xs:enumeration value="RDP"/>
+      <xs:enumeration value="RSVP"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FirewallRuleProfile">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="domain"/>
+      <xs:enumeration value="private"/>
+      <xs:enumeration value="domainAndPrivate"/>
+      <xs:enumeration value="public"/>
+      <xs:enumeration value="all"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FirewallRulePort">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="65535"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="OleClass">
+    <xs:complexType>
+      <xs:attribute name="Clsid" type="t:ST_GUID" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_DesktopEventLogging">
+    <xs:all>
+      <xs:element name="EventMessageFiles">
+        <xs:complexType>
+          <xs:sequence maxOccurs="1000">
+            <xs:element name="File">
+              <xs:complexType>
+                <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TypesSupported">
+        <xs:complexType>
+          <xs:sequence maxOccurs="5">
+            <xs:element name="TypeSupported">
+              <xs:complexType>
+                <xs:attribute name="Value" type="ST_DesktopEventLoggingType" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="TypeSupported_Value">
+          <xs:selector xpath="desktop2:TypeSupported"/>
+          <xs:field xpath="@Value"/>
+        </xs:unique>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="AppName" type="t:ST_NonEmptyString" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_DesktopEventLoggingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EVENTLOG_AUDIT_FAILURE"/>
+      <xs:enumeration value="EVENTLOG_AUDIT_SUCCESS"/>
+      <xs:enumeration value="EVENTLOG_ERROR_TYPE"/>
+      <xs:enumeration value="EVENTLOG_INFORMATION_TYPE"/>
+      <xs:enumeration value="EVENTLOG_WARNING_TYPE"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

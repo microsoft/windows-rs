@@ -1,0 +1,1105 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+midl_pragma warning( disable: 2400 )
+
+#include <olectl.h>
+import "ocidl.idl";
+
+#include "shdispid.h"
+
+[
+    uuid(50a7e9b0-70ef-11d1-b75a-00a0c90564fe), // LIBID_Shell32
+    helpstring("Microsoft Shell Controls And Automation"),
+    lcid(0x0000),
+    version(1.0)
+]
+library Shell32
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(9BA05970-F6A8-11CF-A442-00A0C90A8F39), // IID_IFolderViewOC
+        helpstring("Folder View Events Forwarder Object"),
+        helpcontext(0x0000),
+        hidden,
+        oleautomation,
+        dual,
+        odl
+    ]
+    interface IFolderViewOC : IDispatch
+    {
+        [helpstring("Set the ShellFolderView object to monitor events of."), helpcontext(0x0000)]
+        HRESULT SetFolderView([in] IDispatch *pdisp);
+    }
+
+    [
+        uuid(62112AA2-EBE4-11cf-A5FB-0020AFE7292D), // IID_DShellFolderViewEvents
+        helpstring("Event interface for ShellFolderView"),
+    ]
+    dispinterface DShellFolderViewEvents
+    {
+        properties:
+        methods:
+        [id(DISPID_SELECTIONCHANGED), helpstring("The Selection in the view changed."), helpcontext(0x0000)]
+        void SelectionChanged();
+
+        [id(DISPID_FILELISTENUMDONE), helpstring("The folder has finished enumerating (flashlight is gone)."), helpcontext(0x0000)]
+        void EnumDone();
+
+        [id(DISPID_VERBINVOKED), helpstring("A verb was invoked on an items in the view (return false to cancel)."), helpcontext(0x0000)]
+        VARIANT_BOOL VerbInvoked();
+
+        [id(DISPID_DEFAULTVERBINVOKED), helpstring("the default verb (double click) was invoked on an items in the view (return false to cancel)."), helpcontext(0x0000)]
+        VARIANT_BOOL DefaultVerbInvoked();
+
+        [id(DISPID_BEGINDRAG), helpstring("user started to drag an item (return false to cancel)."), helpcontext(0x0000)]
+        VARIANT_BOOL BeginDrag();
+    }
+
+    [
+        uuid(9BA05971-F6A8-11CF-A442-00A0C90A8F39), // CLSID_ShellFolderViewOC
+        helpstring("Shell Folder View Events Router."),
+        hidden
+    ]
+    coclass ShellFolderViewOC
+    {
+        [default]         interface     IFolderViewOC;
+        [default, source] dispinterface DShellFolderViewEvents;
+    }
+
+    [
+        uuid(4a3df050-23bd-11d2-939f-00a0c91eedba), // IID_DFConstraint
+        helpstring("Constraint used in search command"),
+        oleautomation,
+        dual,
+    ]
+    interface DFConstraint : IDispatch
+    {
+        [propget, helpstring("Get the constraint name")]
+        HRESULT Name([out, retval] BSTR *pbs);
+
+        [propget, helpstring("Get the constraint Value")]
+        HRESULT Value([out, retval] VARIANT *pv);
+    }
+
+    // Setup a set of Forward references
+    interface FolderItem;
+    interface FolderItems;
+    interface FolderItemVerb;
+    interface FolderItemVerbs;
+
+    [
+        uuid(BBCBDE60-C3FF-11CE-8350-444553540000), // IID_Folder
+        helpstring("Definition of interface Folder"),
+        oleautomation,
+        dual,
+    ]
+    interface Folder : IDispatch
+    {
+        //Properties
+        [id(0), propget, helpstring("Get the display name for the window")]
+        HRESULT Title([out, retval] BSTR *pbs);
+
+        [propget, helpstring("Get Application object")]
+        HRESULT Application ([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT ParentFolder([out, retval] Folder **ppsf);
+
+        //Methods
+        [helpstring("The collection of Items in folder")]
+        HRESULT Items([out, retval] FolderItems **ppid);
+
+        [helpstring("Parse the name to get an item.")]
+        HRESULT ParseName([in] BSTR bName, [out, retval] FolderItem **ppid);
+
+        [helpstring("Create a new sub folder in this folder.")]
+        HRESULT NewFolder([in] BSTR bName, [in, optional] VARIANT vOptions);
+
+        [helpstring("Move Items to this folder.")]
+        HRESULT MoveHere([in] VARIANT vItem, [in, optional] VARIANT vOptions);
+
+        [helpstring("Copy Items to this folder.")]
+        HRESULT CopyHere([in] VARIANT vItem, [in, optional] VARIANT vOptions);
+
+        [helpstring("Get the details about an item.")]
+        HRESULT GetDetailsOf([in] VARIANT vItem, [in] int iColumn, [out, retval]BSTR *pbs);
+    }
+
+    [
+        uuid(f0d2d8ef-3890-11d2-bf8b-00c04fb93661), //IID_Folder2
+        helpstring("Definition of interface Folder2"),
+        oleautomation,
+        dual,
+    ]
+    // ie5+ interface
+    interface Folder2 : Folder
+    {
+        [propget, helpstring("Folder's FolderItem interface")]
+        HRESULT Self([out, retval] FolderItem **ppfi);
+
+        [propget, helpstring("Offline status of the server?")]
+        HRESULT OfflineStatus([out, retval] LONG *pul);
+
+        [helpstring("Synchronize all offline files")]
+        HRESULT Synchronize(void);
+
+        [id(1), propget, helpstring("Should the WebView barricade be shown?")]
+        HRESULT HaveToShowWebViewBarricade([out, retval] VARIANT_BOOL *pbHaveToShowWebViewBarricade);
+
+        [helpstring("Call this after the WebView barricade is dismissed by the user")]
+        HRESULT DismissedWebViewBarricade();
+    }
+
+    typedef
+    [
+        uuid(35f1a0d0-3e9a-11d2-8499-005345000000),
+        helpstring("Constants for Folder2.OfflineStatus")
+    ]
+    enum OfflineFolderStatus {
+        [helpstring("Offline caching not available for this folder")]   OFS_INACTIVE = -1,
+        [helpstring("Server is online")]                                OFS_ONLINE,
+        [helpstring("Server is offline")]                               OFS_OFFLINE,
+        [helpstring("Server is offline but is reachable")]              OFS_SERVERBACK,
+        [helpstring("Server is online with unmerged changes")]          OFS_DIRTYCACHE,
+    } OfflineFolderStatus;
+
+    [
+        uuid(A7AE5F64-C4D7-4d7f-9307-4D24EE54B841), //IID_Folder3
+        helpstring("Definition of interface Folder version 3"),
+        oleautomation,
+        dual,
+    ]
+    // Windows Me interface
+    interface Folder3 : Folder2
+    {
+        [id(2), propget, helpstring("Ask if the WebView barricade should be shown or not")]
+        HRESULT ShowWebViewBarricade([out, retval] VARIANT_BOOL *pbShowWebViewBarricade);
+
+        [id(2), propput, helpstring("Set if the WebView barricade should be shown or not for this barricadable folder")]
+        HRESULT ShowWebViewBarricade([in] VARIANT_BOOL bShowWebViewBarricade);
+    }
+
+    [
+        uuid(FAC32C80-CBE4-11CE-8350-444553540000), // IID_FolderItem
+        helpstring("Definition of interface FolderItem"),
+        oleautomation,
+        dual
+    ]
+    interface FolderItem : IDispatch
+    {
+        typedef [unique] FolderItem *LPFOLDERITEM;      // For C callers
+
+        [propget, helpstring("Get Application object")]
+        HRESULT Application ([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        [id(0), propget, helpstring("Get display name for item")]
+        HRESULT Name([out, retval] BSTR *pbs);
+
+        [id(0), propput, helpstring("Set the name for the item")]
+        HRESULT Name([in] BSTR bs);
+
+        [propget, helpstring("Get the pathname to the item")]
+        HRESULT Path([out, retval]BSTR *pbs);
+
+        [propget, helpstring("If item is link return link object")]
+        HRESULT GetLink([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("If item is a folder return folder object")]
+        HRESULT GetFolder([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Is the item a link?")]
+        HRESULT IsLink([out, retval] VARIANT_BOOL *pb);
+
+        [propget, helpstring("Is the item a Folder?")]
+        HRESULT IsFolder([out, retval] VARIANT_BOOL *pb);
+
+        [propget, helpstring("Is the item a file system object?")]
+        HRESULT IsFileSystem([out, retval] VARIANT_BOOL *pb);
+
+        [propget, helpstring("Is the item browsable?")]
+        HRESULT IsBrowsable([out, retval] VARIANT_BOOL *pb);
+
+        [propget, helpstring("Modification Date?")]
+        HRESULT ModifyDate([out, retval] DATE *pdt);
+
+        [propput, helpstring("Modification Date?")]
+        HRESULT ModifyDate([in] DATE dt);
+
+        [propget, helpstring("Size")]
+        HRESULT Size([out, retval] LONG *pul);
+
+        [propget, helpstring("Type")]
+        HRESULT Type([out, retval] BSTR *pbs);
+
+        [helpstring("Get the list of verbs for the object")]
+        HRESULT Verbs([out, retval] FolderItemVerbs **ppfic);
+
+        [helpstring("Execute a command on the item")]
+        HRESULT InvokeVerb([in,optional] VARIANT vVerb);
+    }
+
+    [
+        uuid(edc817aa-92b8-11d1-b075-00c04fc33aa5), // IID_FolderItem2
+        helpstring("Definition of interface FolderItem Version 2"),
+        oleautomation,
+        dual
+    ]
+    // IE5+ interface, right?
+    interface FolderItem2 : FolderItem
+    {
+        [helpstring("Extended version of InvokeVerb")]
+        HRESULT InvokeVerbEx([in,optional] VARIANT vVerb, [in,optional] VARIANT vArgs);
+
+        [helpstring("Access an extended property")]
+        HRESULT ExtendedProperty([in] BSTR bstrPropName, [out, retval] VARIANT *pvRet);
+    }
+
+    [
+        uuid(2fe352ea-fd1f-11d2-b1f4-00c04f8eeb3e), // CLSID_ShellFolderItem
+        noncreatable,
+        helpstring("Shell Folder Item"),
+    ]
+    coclass ShellFolderItem
+    {
+        [default] interface FolderItem2;
+    }
+
+    [
+        uuid(744129E0-CBE5-11CE-8350-444553540000), // IID_FolderItems
+        helpstring("Definition of interface FolderItems"),
+        oleautomation,
+        dual
+    ]
+    interface FolderItems : IDispatch
+    {
+        //Properties
+        [propget, helpstring("Get count of items in the folder")]
+        HRESULT Count([out, retval] long *plCount);
+
+        [propget, helpstring("Get Application object")]
+        HRESULT Application ([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        //Methods
+        //Standard Methods
+        [helpstring("Return the figure for the given index")]
+        HRESULT Item([in,optional] VARIANT index, [out, retval]FolderItem **ppid);
+
+        [id(-4), helpstring("Enumerates the figures")]
+        HRESULT _NewEnum([out, retval] IUnknown **ppunk);
+    }
+
+    // IE5+ interface
+    [
+        uuid(C94F0AD0-F363-11d2-A327-00C04F8EEC7F), // IID_FolderItems2
+        helpstring("Definition of interface FolderItems Version 2"),
+        oleautomation,
+        dual,
+        odl,
+    ]
+    interface FolderItems2 : FolderItems
+    {
+        [helpstring("Extended version of InvokeVerb for a collection of Folder Items")]
+        HRESULT InvokeVerbEx([in,optional] VARIANT vVerb, [in,optional] VARIANT vArgs);
+    }
+
+    // Millennium interface
+    [
+        uuid(eaa7c309-bbec-49d5-821d-64d966cb667f), // IID_FolderItems3
+        helpstring("Definition of interface FolderItems Version 3"),
+        oleautomation,
+        dual,
+        odl,
+    ]
+    interface FolderItems3 : FolderItems2
+    {
+        [helpstring("Set a wildcard filter to apply to the items returned")]
+        HRESULT Filter([in] long grfFlags, [in] BSTR bstrFileSpec);
+
+        [id(0), propget, helpstring("Get the list of verbs common to all the items")]
+        HRESULT Verbs([out, retval] FolderItemVerbs **ppfic);
+    }
+
+    [
+        uuid(08EC3E00-50B0-11CF-960C-0080C7F4EE85), // IID_FolderItemVerb
+        helpstring("Definition of interface FolderItemVerb"),
+        oleautomation,
+        dual
+    ]
+    interface FolderItemVerb : IDispatch
+    {
+        [propget, helpstring("Get Application object")]
+        HRESULT Application ([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        [id(0), propget, helpstring("Get display name for item")]
+        HRESULT Name([out, retval] BSTR *pbs);
+
+        [helpstring("Execute the verb")]
+        HRESULT DoIt();
+    }
+
+    [
+        uuid(1F8352C0-50B0-11CF-960C-0080C7F4EE85), // IID_FolderItemVerbs
+        helpstring("Definition of interface FolderItemVerbs"),
+        oleautomation,
+        dual
+    ]
+    interface FolderItemVerbs : IDispatch
+    {
+        //Properties
+        [propget, helpstring("Get count of open folder windows")]
+        HRESULT Count([out, retval] long *plCount);
+
+        [propget, helpstring("Get Application object")]
+        HRESULT Application ([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        //Methods
+        //Standard Methods
+        [helpstring("Return the specified verb")]
+        HRESULT Item([in,optional] VARIANT index, [out, retval]FolderItemVerb **ppid);
+
+        [id(-4), helpstring("Enumerates the figures")]
+        HRESULT _NewEnum([out, retval] IUnknown **ppunk);
+    }
+
+    [
+        uuid(88A05C00-F000-11CE-8350-444553540000), // IID_IShellLinkDual
+        helpstring("Definition of Shell Link IDispatch interface"),
+        oleautomation,
+        dual,
+        hidden,
+    ]
+    interface IShellLinkDual : IDispatch
+    {
+        [propget, helpstring("Get the path of the link")]
+        HRESULT Path([out, retval] BSTR *pbs);
+
+        [propput, helpstring("Set the path of the link")]
+        HRESULT Path([in] BSTR bs);
+
+        [propget, helpstring("Get the description for the link")]
+        HRESULT Description([out, retval] BSTR *pbs);
+
+        [propput, helpstring("Set the description for the link")]
+        HRESULT Description([in] BSTR bs);
+
+        [propget, helpstring("Get the working directory for the link")]
+        HRESULT WorkingDirectory([out, retval] BSTR *pbs);
+
+        [propput, helpstring("Set the working directory for the link")]
+        HRESULT WorkingDirectory([in] BSTR bs);
+
+        [propget, helpstring("Get the arguments for the link")]
+        HRESULT Arguments([out, retval] BSTR *pbs);
+
+        [propput, helpstring("Set the arguments for the link")]
+        HRESULT Arguments([in] BSTR bs);
+
+
+        [propget, helpstring("Get the Hotkey for the link")]
+        HRESULT Hotkey([out, retval] int *piHK);
+
+        [propput, helpstring("Set the Hotkey for the link")]
+        HRESULT Hotkey([in] int iHK);
+
+        [propget, helpstring("Get the Show Command for the link")]
+        HRESULT ShowCommand([out, retval] int *piShowCommand);
+
+        [propput, helpstring("Set the Show Command for the link")]
+        HRESULT ShowCommand([in] int iShowCommand);
+
+        // STDMETHOD(SetRelativePath)(THIS_ LPCSTR pszPathRel, DWORD dwReserved) PURE;
+        //Methods
+        [helpstring("Tell the link to resolve itself")]
+        HRESULT Resolve([in] int fFlags);
+
+        [helpstring("Get the IconLocation for the link")]
+        HRESULT GetIconLocation([out] BSTR *pbs, [out,retval] int *piIcon);
+
+        [helpstring("Set the IconLocation for the link")]
+        HRESULT SetIconLocation([in] BSTR bs, [in] int iIcon);
+
+        [helpstring("Tell the link to save the changes")]
+        HRESULT Save ([in, optional] VARIANT vWhere);
+    }
+
+    [
+        uuid(317EE249-F12E-11d2-B1E4-00C04F8EEB3E), // IID_IShellLinkDual2
+        helpstring("Shell Link2 IDispatch interface"),
+        oleautomation,
+        dual,
+        hidden
+    ]
+    interface IShellLinkDual2 : IShellLinkDual
+    {
+        [propget, helpstring("Get the target of a link object")]
+        HRESULT Target([out, retval] FolderItem **ppfi);
+    }
+
+    [
+        // note, this object does not really exist, leave this for compat with
+        // VB programs that do "dim foo as ShellLinkObject"
+        uuid(11219420-1768-11d1-95BE-00609797EA4F), // CLSID_ShellLinkObject
+        helpstring("Shell Link object"),
+        noncreatable,
+    ]
+    coclass ShellLinkObject // funny name so we don't conflict with CLSID_ShellLink
+    {
+        [default] interface IShellLinkDual2;
+    }
+
+
+    [
+        uuid(E7A1AF80-4D96-11CF-960C-0080C7F4EE85), // IID_IShellFolderViewDual
+        helpstring("definition of interface IShellFolderViewDual"),
+        oleautomation,
+        hidden,
+        dual
+    ]
+    interface IShellFolderViewDual : IDispatch
+    {
+        [propget, helpstring("Get Application object")]
+        HRESULT Application([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get the folder being viewed")]
+        HRESULT Folder([out, retval] Folder **ppid);
+
+        [helpstring("The collection of Selected Items in folder")]
+        HRESULT SelectedItems([out, retval] FolderItems **ppid);
+
+        [propget, helpstring("The currently focused item in the folder")]
+        HRESULT FocusedItem([out, retval] FolderItem **ppid);
+
+        [helpstring("Select the item")]
+        HRESULT SelectItem([in]VARIANT *pvfi, [in] int dwFlags);
+
+        [helpstring("Show items menu and return command selected")]
+        HRESULT PopupItemMenu([in]FolderItem *pfi, [in, optional]VARIANT vx, [in, optional]VARIANT vy, [out, retval] BSTR *pbs);
+
+        [propget, helpstring("Returns the scripting automation model."), helpcontext(0x0000)]
+        HRESULT Script([out,retval] IDispatch** ppDisp);
+
+        [propget, helpstring("Returns the view options for showing a folder."), helpcontext(0x0000)]
+        HRESULT ViewOptions([out,retval] long * plViewOptions);
+    }
+
+    [
+        uuid(31C147b6-0ADE-4A3C-B514-DDF932EF6D17), // IID_IShellFolderViewDual2
+        helpstring("definition of interface IShellFolderViewDual2"),
+        oleautomation,
+        hidden,
+        dual
+    ]
+    interface IShellFolderViewDual2 : IShellFolderViewDual
+    {
+        [propget, helpstring("Get Current View Mode")]
+        HRESULT CurrentViewMode([out, retval] UINT *pViewMode);
+        [propput, helpstring("Put Current View Mode")]
+        HRESULT CurrentViewMode([in] UINT ViewMode);
+        [helpstring("Select Item relative to the Current Item")]
+        HRESULT SelectItemRelative([in] int iRelative);
+    }
+
+    [
+        uuid(29EC8E6C-46D3-411f-BAAA-611A6C9CAC66), // IID_IShellFolderViewDual3
+        helpstring("definition of interface IShellFolderViewDual3"),
+        oleautomation,
+        hidden,
+        dual
+    ]
+    interface IShellFolderViewDual3 : IShellFolderViewDual2
+    {
+        [propget, helpstring("Get Group By Column")]
+        HRESULT GroupBy([out, retval] BSTR *pbstrGroupBy);
+        [propput, helpstring("Set Group By Column")]
+        HRESULT GroupBy([in] BSTR bstrGroupBy);
+
+        [propget, helpstring("Get Folder Flags")]
+        HRESULT FolderFlags([out, retval] DWORD *pdwFlags);
+        [propput, helpstring("Set Folder Flags")]
+        HRESULT FolderFlags([in] DWORD dwFlags);
+
+        [propget, helpstring("Get Sorting Columns")]
+        HRESULT SortColumns([out, retval] BSTR* pbstrSortColumns);
+        [propput, helpstring("Set Sorting Columns")]
+        HRESULT SortColumns([in] BSTR bstrSortColumns);
+
+        [propput, helpstring("Set Icon Size")]
+        HRESULT IconSize([in] int iIconSize);
+        [propget, helpstring("Get Icon Size")]
+        HRESULT IconSize([out, retval] int* piIconSize);
+        [helpstring("Filter View")]
+        HRESULT FilterView([in, unique] BSTR bstrFilterText);
+    }
+
+    [
+        uuid(62112AA1-EBE4-11cf-A5FB-0020AFE7292D),  // CLSID_ShellFolderView
+        helpstring("Shell Folder View Object")
+    ]
+    coclass ShellFolderView
+    {
+        [default] interface IShellFolderViewDual3;
+        [source,default] dispinterface DShellFolderViewEvents;
+    }
+
+    typedef
+    [
+        uuid(742A99A0-C77E-11D0-A32C-00A0C91EEDBA),
+        helpstring("Constants for ViewOptions")
+    ]
+    enum ShellFolderViewOptions {
+        [helpstring("Show All Objects")]                        SFVVO_SHOWALLOBJECTS = 0x00000001,
+        [helpstring("Show File Extensions")]                    SFVVO_SHOWEXTENSIONS = 0x00000002,
+        [helpstring("Color encode Compressed files")]           SFVVO_SHOWCOMPCOLOR = 0x00000008,
+        [helpstring("Show System Files")]                       SFVVO_SHOWSYSFILES = 0x00000020,
+        [helpstring("Use Windows 95 UI settings")]              SFVVO_WIN95CLASSIC = 0x00000040,
+        [helpstring("User needs to double click in web View")]  SFVVO_DOUBLECLICKINWEBVIEW = 0x00000080,
+        [helpstring("Is Desktop HTML enabled")]                 SFVVO_DESKTOPHTML = 0x00000200,
+    } ShellFolderViewOptions;
+
+    [
+        uuid(D8F015C0-C278-11CE-A49E-444553540000), // IID_IShellDispatch
+        helpstring("Definition of interface IShellDispatch"),
+        oleautomation,
+        hidden,
+        dual,
+    ]
+    interface IShellDispatch : IDispatch
+    {
+        [propget, helpstring("Get Application object")]
+        HRESULT Application ([out, retval] IDispatch **ppid);
+
+        [propget, helpstring("Get Parent object")]
+        HRESULT Parent([out, retval] IDispatch **ppid);
+
+        //=========================================================
+        // Name Space methods and properties
+
+        [helpstring("Get special folder from ShellSpecialFolderConstants")]
+        HRESULT NameSpace([in] VARIANT vDir, [out, retval] Folder **ppsdf);
+
+        [helpstring("Browse the name space for a Folder")]
+        HRESULT BrowseForFolder([in] long Hwnd, 
+            [in] BSTR Title,
+            [in] long Options,
+            [in,optional] VARIANT RootFolder,
+            [out, retval] FOLDER **ppsdf);
+
+        [helpstring("The collection of open folder windows")]
+        HRESULT Windows([out, retval] IDispatch **ppid);
+
+        [helpstring("Open a folder")]
+        HRESULT Open([in] VARIANT vDir);
+
+        [helpstring("Explore a folder")]
+        HRESULT Explore([in] VARIANT vDir);
+
+        [helpstring("Minimize all windows")]
+        HRESULT MinimizeAll(void);
+
+        [helpstring("Undo Minimize All")]
+        HRESULT UndoMinimizeALL(void);
+
+        [helpstring("Bring up the file run")]
+        HRESULT FileRun(void);
+
+        [helpstring("Cascade Windows")]
+        HRESULT CascadeWindows(void);
+
+        [helpstring("Tile windows vertically")]
+        HRESULT TileVertically(void);
+
+        [helpstring("Tile windows horizontally")]
+        HRESULT TileHorizontally(void);
+
+        [helpstring("Exit Windows")]
+        HRESULT ShutdownWindows(void);
+
+        [helpstring("Suspend the pc")]
+        HRESULT Suspend(void);
+
+        [helpstring("Eject the pc")]
+        HRESULT EjectPC(void);
+
+        [helpstring("Bring up the Set time dialog")]
+        HRESULT SetTime(void);
+
+        [helpstring("Handle Tray properties")]
+        HRESULT TrayProperties(void);
+
+        [helpstring("Display shell help")]
+        HRESULT Help(void);
+
+        [helpstring("Find Files")]
+        HRESULT FindFiles(void);
+
+        [helpstring("Find a computer")]
+        HRESULT FindComputer(void);
+
+        [helpstring("Refresh the menu")]
+        HRESULT RefreshMenu(void);
+
+        [helpstring("Run a Control Panel Item")]
+        HRESULT ControlPanelItem([in] BSTR bstrDir);
+    }
+
+    [
+        uuid(A4C6892C-3BA9-11d2-9DEA-00C04FB16162), // IID_IShellDispatch2
+        helpstring("Updated IShellDispatch"),
+        oleautomation,
+        hidden,
+        dual,
+    ]
+    interface IShellDispatch2 : IShellDispatch
+    {
+        [helpstring("get restriction settings")]
+        HRESULT IsRestricted([in] BSTR Group, [in] BSTR Restriction, [out, retval] long * plRestrictValue);
+
+        [helpstring("Execute generic command")]
+        HRESULT ShellExecute([in] BSTR File, [in, optional] VARIANT vArgs,
+                [in, optional] VARIANT vDir, [in, optional] VARIANT vOperation,
+                [in, optional] VARIANT vShow);
+
+        // search for a printer
+        [helpstring("Find a Printer in the Directory Service")]
+        HRESULT FindPrinter([in, optional] BSTR name, [in, optional] BSTR location, [in, optional] BSTR model);
+
+        [helpstring("Retrieve info about the user's system")]
+        HRESULT GetSystemInformation([in] BSTR name, [out, retval] VARIANT *pv);
+
+        [helpstring("Start a service by name, and optionally set it to autostart.")]
+        HRESULT ServiceStart([in] BSTR ServiceName, [in] VARIANT Persistent,
+                [out,retval] VARIANT *pSuccess);
+
+        [helpstring("Stop a service by name, and optionally disable autostart.")]
+        HRESULT ServiceStop([in] BSTR ServiceName, [in] VARIANT Persistent,
+                [out,retval] VARIANT *pSuccess);
+
+        [helpstring("Determine if a service is running by name.")]
+        HRESULT IsServiceRunning([in] BSTR ServiceName,
+                [out,retval] VARIANT *pRunning);
+
+        [helpstring("Determine if the current user can start/stop the named service.")]
+        HRESULT CanStartStopService([in] BSTR ServiceName,
+                [out,retval] VARIANT *pCanStartStop);
+
+        [helpstring("Show/Hide browser bar.")]
+        HRESULT ShowBrowserBar( [in]BSTR bstrClsid, [in]VARIANT bShow, [out,retval] VARIANT *pSuccess );
+    }
+
+    // Windows Me interface
+    [
+        uuid(177160ca-bb5a-411c-841d-bd38facdeaa0), // IID_IShellDispatch3
+        helpstring("Updated IShellDispatch"),
+        oleautomation,
+        hidden,
+        dual,
+    ]
+    interface IShellDispatch3 : IShellDispatch2
+    {
+        [helpstring("Add an object to the Recent Docuements")]
+        HRESULT AddToRecent([in] VARIANT varFile, [in, optional] BSTR bstrCategory);
+    }
+
+
+    // Windows XP interface
+    [
+        uuid(efd84b2d-4bcf-4298-be25-eb542a59fbda), // IID_IShellDispatch4
+        helpstring("Updated IShellDispatch"),
+        oleautomation,
+        hidden,
+        dual,
+    ]
+    interface IShellDispatch4 : IShellDispatch3
+    {
+        [helpstring("Windows Security")]
+        HRESULT WindowsSecurity(void);
+
+        [helpstring("Raise/lower the desktop")]
+        HRESULT ToggleDesktop(void);
+
+        [helpstring("Return explorer policy value")]
+        HRESULT ExplorerPolicy([in] BSTR bstrPolicyName, [out, retval] VARIANT *pValue);
+
+        [helpstring("Return shell global setting")]
+        HRESULT GetSetting([in] long lSetting, [out,retval] VARIANT_BOOL *pResult);
+    }
+
+    // Vista Interface
+    [
+        uuid(866738b9-6cf2-4de8-8767-f794ebe74f4e), // IID_IShellDispatch5
+        helpstring("Updated IShellDispatch"),
+        oleautomation,
+        hidden,
+        dual,
+    ]
+    interface IShellDispatch5 : IShellDispatch4
+    {
+        [helpstring("Window Switcher")]
+        HRESULT WindowSwitcher(void);
+    }
+
+    // Search Command
+    cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+    [
+        uuid(286e6f1b-7113-4355-9562-96b7e9d64c54), // IID_IShellDispatch6
+        helpstring("Updated IShellDispatch"),
+        oleautomation,
+        hidden,
+        dual,
+    ]
+    interface IShellDispatch6 : IShellDispatch5
+    {
+        [helpstring("Immersive Search")]
+        HRESULT SearchCommand(void);
+    }
+    cpp_quote("#endif // NTDDI_WIN8")
+
+    [
+        uuid(13709620-C279-11CE-A49E-444553540000), // CLSID_Shell
+        helpstring("Shell Object Type Information")
+    ]
+    coclass Shell
+    {
+        [default] interface IShellDispatch6;
+    }
+
+    [
+        uuid(0A89A860-D7B1-11CE-8350-444553540000), // CLSID_ShellDispatchInproc
+        helpstring("ShellDispatch Load in Shell Context"),
+        hidden
+    ]
+    coclass ShellDispatchInproc
+    {
+        interface IUnknown;
+    }
+
+    typedef
+    [
+        uuid(CA31EA20-48D0-11CF-8350-444553540000),
+        helpstring("Constants for Special Folders for open/Explore")
+    ]
+    enum ShellSpecialFolderConstants    {
+        [helpstring("Special Folder DESKTOP")]      ssfDESKTOP = 0x0000,
+        [helpstring("Special Folder PROGRAMS")]     ssfPROGRAMS = 0x0002,
+        [helpstring("Special Folder CONTROLS")]     ssfCONTROLS = 0x0003,
+        [helpstring("Special Folder PRINTERS")]     ssfPRINTERS = 0x0004,
+        [helpstring("Special Folder PERSONAL")]     ssfPERSONAL = 0x0005,
+        [helpstring("Special Folder FAVORITES")]    ssfFAVORITES = 0x0006,
+        [helpstring("Special Folder STARTUP")]      ssfSTARTUP = 0x0007,
+        [helpstring("Special Folder RECENT")]       ssfRECENT = 0x0008,
+        [helpstring("Special Folder SENDTO")]       ssfSENDTO = 0x0009,
+        [helpstring("Special Folder BITBUCKET")]    ssfBITBUCKET = 0x000a,
+        [helpstring("Special Folder STARTMENU")]    ssfSTARTMENU = 0x000b,
+        [helpstring("Special Folder DESKTOPDIRECTORY")]    ssfDESKTOPDIRECTORY = 0x0010,
+        [helpstring("Special Folder DRIVES")]       ssfDRIVES = 0x0011,
+        [helpstring("Special Folder NETWORK")]      ssfNETWORK = 0x0012,
+        [helpstring("Special Folder NETHOOD")]      ssfNETHOOD = 0x0013,
+        [helpstring("Special Folder FONTS")]        ssfFONTS = 0x0014,
+        [helpstring("Special Folder TEMPLATES")]    ssfTEMPLATES = 0x0015,
+        [helpstring("Special Folder COMMON STARTMENU")]    ssfCOMMONSTARTMENU = 0x0016,
+        [helpstring("Special Folder COMMON PROGRAMS")]    ssfCOMMONPROGRAMS = 0x0017,
+        [helpstring("Special Folder COMMON STARTUP")]    ssfCOMMONSTARTUP = 0x0018,
+        [helpstring("Special Folder COMMON DESKTOPDIR")]    ssfCOMMONDESKTOPDIR = 0x0019,
+        [helpstring("Special Folder APPDATA")]    ssfAPPDATA = 0x001a,
+        [helpstring("Special Folder PRINTHOOD")]    ssfPRINTHOOD = 0x001b,
+        [helpstring("Special Folder LOCAL APPDATA")]    ssfLOCALAPPDATA = 0x001c,
+        [helpstring("Special Folder ALTSTARTUP")]    ssfALTSTARTUP = 0x001d,
+        [helpstring("Special Folder COMMON ALTSTARTUP")]    ssfCOMMONALTSTARTUP = 0x001e,
+        [helpstring("Special Folder COMMON FAVORITES")]    ssfCOMMONFAVORITES = 0x001f,
+        [helpstring("Special Folder INTERNET CACHE")]    ssfINTERNETCACHE = 0x0020,
+        [helpstring("Special Folder COOKIES")]    ssfCOOKIES = 0x0021,
+        [helpstring("Special Folder HISTORY")]    ssfHISTORY = 0x0022,
+        [helpstring("Special Folder COMMON APPDATA")]    ssfCOMMONAPPDATA = 0x0023,
+        [helpstring("Special Folder WINDOWS")]    ssfWINDOWS = 0x0024,
+        [helpstring("Special Folder SYSTEM")]    ssfSYSTEM = 0x0025,
+        [helpstring("Special Folder PROGRAM FILES")]    ssfPROGRAMFILES = 0x0026,
+        [helpstring("Special Folder MYPICTURES")]    ssfMYPICTURES = 0x0027,
+        [helpstring("Special Folder PROFILE")]    ssfPROFILE = 0x0028,
+        [helpstring("Special Folder SYSTEMx86")]    ssfSYSTEMx86 = 0x0029,
+        [helpstring("Special Folder PROGRAM FILESx86")]    ssfPROGRAMFILESx86 = 0x0030,
+    } ShellSpecialFolderConstants;
+
+    [
+        uuid(2D91EEA1-9932-11d2-BE86-00A0C9A83DA1), // IID_IFileSearchBand
+        helpstring("IFileSearchBand Interface"),
+        oleautomation,
+        dual,
+        hidden,
+        pointer_default(unique)
+    ]
+    interface IFileSearchBand : IDispatch
+    {
+        [id(1), helpstring("method SetFocus")]
+        HRESULT SetFocus(void);
+
+        [id(2), helpstring("method SetSearchParameters")]
+        HRESULT SetSearchParameters([in] BSTR* pbstrSearchID, [in]VARIANT_BOOL bNavToResults, [in,optional] VARIANT* pvarScope, [in,optional]VARIANT* pvarQueryFile );
+
+        [id(3), propget, helpstring("Retrieve the guid of the currently active search.")]
+        HRESULT SearchID([out, retval] BSTR* pbstrSearchID );
+
+        [id(4), propget, helpstring("Get the search scope")]
+        HRESULT Scope([out, retval] VARIANT *pvarScope );
+
+        [id(5), propget, helpstring("Retrieve the file from which the search was restored.")]
+        HRESULT QueryFile([out, retval] VARIANT *pvarFile );
+    };
+
+    [
+        uuid(C4EE31F3-4768-11D2-BE5C-00A0C9A83DA1),     // CLSID_FileSearchBand
+        helpstring("FileSearchBand Class"),
+        hidden
+    ]
+    coclass FileSearchBand
+    {
+        [default] interface IFileSearchBand;
+    };
+
+    [
+        uuid(18bcc359-4990-4bfb-b951-3c83702be5f9),
+        object,
+        dual,
+        helpstring("IWebWizardHost interface")
+    ]
+    interface IWebWizardHost : IDispatch
+    {
+        [id(0)]             HRESULT FinalBack();
+        [id(1)]             HRESULT FinalNext();
+        [id(2)]             HRESULT Cancel();
+        [id(3), propput]    HRESULT Caption([in] BSTR bstrCaption);
+        [id(3), propget]    HRESULT Caption([out, retval] BSTR* pbstrCaption);
+        [id(4), propput]    HRESULT Property([in] BSTR bstrPropertyName, [in] VARIANT* pvProperty);
+        [id(4), propget]    HRESULT Property([in] BSTR bstrPropertyName, [out, retval] VARIANT* pvProperty);
+        [id(5)]             HRESULT SetWizardButtons([in] VARIANT_BOOL vfEnableBack, [in] VARIANT_BOOL vfEnableNext, [in] VARIANT_BOOL vfLastPage);
+        [id(6)]             HRESULT SetHeaderText([in] BSTR bstrHeaderTitle, [in] BSTR bstrHeaderSubtitle);
+    };
+
+    [
+        uuid(F9C013DC-3C23-4041-8E39-CFB402F7EA59),
+        object,
+        dual
+    ]
+    interface IWebWizardHost2 : IWebWizardHost
+    {
+        [id(7)]             HRESULT SignString([in] BSTR value, [out, retval] BSTR* signedValue);
+    }
+
+    [
+        uuid(0751c551-7568-41c9-8e5b-e22e38919236),
+        object,
+        dual,
+        helpstring("INewWDEvents interface")
+    ]
+    interface INewWDEvents: IWebWizardHost
+    {
+        [id(7)]             HRESULT PassportAuthenticate([in] BSTR bstrSignInUrl, [out, retval] VARIANT_BOOL* pvfAuthenitcated);
+    };
+
+};  // Shell32 library
+
+
+interface IAutoComplete;
+
+cpp_quote("//-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("// IAutoComplete interface")
+cpp_quote("//")
+cpp_quote("//")
+cpp_quote("// [Member functions]")
+cpp_quote("//")
+cpp_quote("// IAutoComplete::Init(hwndEdit, punkACL, pwszRegKeyPath, pwszQuickComplete)")
+cpp_quote("//   This function initializes an AutoComplete object, telling it")
+cpp_quote("//   what control to subclass, and what list of strings to process.")
+cpp_quote("//")
+cpp_quote("// IAutoComplete::Enable(fEnable)")
+cpp_quote("//   This function enables or disables the AutoComplete functionality.")
+cpp_quote("//")
+cpp_quote("//-------------------------------------------------------------------------")
+
+[
+    helpstring("AutoComplete engine for URL type formatted strings"),
+    local,
+    object,
+    uuid(00bb2762-6a77-11d0-a535-00c04fd7d062),
+    pointer_default(unique)
+]
+
+interface IAutoComplete : IUnknown
+{
+    typedef [unique] IAutoComplete *LPAUTOCOMPLETE;     // For C callers
+
+    HRESULT Init(
+            [in, annotation("_In_")] HWND hwndEdit,     // hwnd of editbox or editbox deriviative.
+            [in, unique, annotation("_In_")] IUnknown * punkACL, // Pointer to object containing string to complete from. (IEnumString *)
+            [in, unique, annotation("_In_opt_")] LPCWSTR pwszRegKeyPath,
+            [in, annotation("_In_opt_")] LPCWSTR pwszQuickComplete
+            );
+    HRESULT Enable([in] BOOL fEnable);                  // Is it enabled?
+}
+
+[
+    helpstring("AutoComplete engine for URL type formatted strings"),
+    local,
+    object,
+    uuid(EAC04BC0-3791-11d2-BB95-0060977B464C),
+    pointer_default(unique)
+]
+
+interface IAutoComplete2 : IAutoComplete
+{
+    typedef [unique] IAutoComplete2 *LPAUTOCOMPLETE2;     // For C callers
+
+    typedef enum _tagAUTOCOMPLETEOPTIONS
+    {
+        ACO_NONE               = 0x00,      // No AutoComplete
+        ACO_AUTOSUGGEST        = 0x01,      // enable autosuggest dropdown
+        ACO_AUTOAPPEND         = 0x02,      // enable autoappend
+        ACO_SEARCH             = 0x04,      // add search entry to completion list
+        ACO_FILTERPREFIXES     = 0x08,      // don't match common prefixes (www., http://, etc)
+        ACO_USETAB             = 0x10,      // use tab to select autosuggest entries
+        ACO_UPDOWNKEYDROPSLIST = 0x20,      // up/down arrow key invokes autosuggest dropdown (if enabled)
+        ACO_RTLREADING         = 0x40,      // enable RTL reading order for dropdown
+        ACO_WORD_FILTER        = 0x80,      // Enable AND-ing of results for the search ux.
+        ACO_NOPREFIXFILTERING  = 0x100,     // Disable prefix filtering when displaying autosuggest dropdown.  Always display all suggestions.
+    } AUTOCOMPLETEOPTIONS;
+
+    HRESULT SetOptions([in] DWORD dwFlag);
+    HRESULT GetOptions([out, annotation("_Out_")] DWORD* pdwFlag);
+}
+
+cpp_quote("// INTERFACE: IEnumACString")
+cpp_quote("//")
+cpp_quote("// This interface was implemented to return autocomplete strings")
+cpp_quote("// into the caller's buffer (to reduce the number of memory allocations).")
+cpp_quote("// A sort index is also returned to control the order of items displayed.")
+cpp_quote("// by autocomplete.  The sort index should be set to zero if unused.")
+cpp_quote("//")
+cpp_quote("// The NextItem method increments the current index by one (similar to Next")
+cpp_quote("// when one item is requested).")
+cpp_quote("//")
+
+[
+    helpstring("Enumerator for Autocomplete Strings"),
+    local,
+    object,
+    uuid(8E74C210-CF9D-4eaf-A403-7356428F0A5A),
+    pointer_default(unique)
+]
+
+interface IEnumACString : IEnumString
+{
+    typedef [unique] IEnumACString *PENUMACSTRING;
+    typedef [unique] IEnumACString *LPENUMACSTRING;
+
+    typedef enum _tagACENUMOPTION
+    {
+        ACEO_NONE            = 0x0000, // No options
+        ACEO_MOSTRECENTFIRST = 0x0001, // Display most recently used items first
+                                       // (pulSortIndex is seconds since item was last used)
+
+        ACEO_FIRSTUNUSED     = 0x10000,// 0x00010000 through 0xffff0000 are for enumerator
+                                       // specific options (0x0002-0xffff are reserved)
+    } ACENUMOPTION;
+
+    HRESULT NextItem(
+        [out, string, unique, size_is(cchMax), annotation("_Out_writes_opt_(cchMax)")] LPWSTR pszUrl,
+        [in] ULONG cchMax,
+        [out, annotation("_Out_")] ULONG* pulSortIndex);
+
+    HRESULT SetEnumOptions([in] DWORD dwOptions);
+    HRESULT GetEnumOptions([out, annotation("_Out_")] DWORD* pdwOptions);
+}
+
+// IDataObjectAsyncCapability interface was implemented to turn some previously synchronous
+// interfaces into async.  The following example is for
+// doing the IDataObject::Drop() operation asynchronously.
+//
+// Sometimes the rendering of the IDataObject data (IDataObject::GetData() or
+// STGMEDIUM.pStream->Read()) can be time intensive.  The IDropTarget
+// may want to do this on another thread.
+//
+// Implimentation Check list:
+// DoDragDrop Caller:
+//    If this code can support asynch operations, then it needs to
+//    QueryInterface() the IDataObject for IDataObjectAsyncCapability.
+//    IDataObjectAsyncCapability::SetAsyncMode(VARIANT_TRUE).
+//    After calling DoDragDrop(), call InOperation().  If any call fails
+//    or InOperation() return FALSE, use the pdwEffect returned by DoDragDrop()
+//    and the operation completed synchrously.
+//
+// OleSetClipboard Caller:
+//    If this code can support asynch operations, then it needs to
+//    QueryInterface() the IDataObject for IDataObjectAsyncCapability.  Then call
+//    IDataObjectAsyncCapability::SetAsyncMode(VARIANT_TRUE).
+//    If any of that fails, the final dwEffect should be passed to the IDataObject via
+//    CFSTR_PERFORMEDDROPEFFECT.
+//
+// IDataObect Object:
+//    IDataObjectAsyncCapability::GetAsyncMode() should return whatever was last passed in
+//          fDoOpAsync to ::SetAsyncMode() or VARIANT_FALSE if ::SetAsyncMode()
+//          was never called.
+//    IDataObjectAsyncCapability::SetAsyncMode() should AddRef and store paocb.
+//    IDataObjectAsyncCapability::StartOperation() should store the fact that this was called and
+//          cause InOperation() to return VARIANT_TRUE.  pbcReserved is not used and needs
+//          to be NULL.
+//    IDataObjectAsyncCapability::InOperation() should return VARIANT_TRUE only if ::StartOperation()
+//          was called.
+//    IDataObjectAsyncCapability::EndOperation() needs to call paocbpaocb->EndOperation() with the same
+//          parameters.  Then release paocb.
+//    IDataObject::SetData(CFSTR_PERFORMEDDROPEFFECT) When this happens, call
+//          EndOperation(<into VAR>S_OK, NULL, <into VAR>dwEffect) and pass the dwEffect from the hglobal.
+//
+// IDropTarget Object:
+//    IDropTarget::Drop() If asynch operations aren't supported, nothing is required.
+//          The asynch operation can only happen if GetAsyncMode() returns VARIANT_TRUE.
+//          Before starting the asynch operation, StartOperation(NULL) needs to be called before
+//          returning from IDropTarget::Drop().
+
+// IDataObjectAsyncCapability used to be named IAsyncOperation but that conflicted with 
+// Windows::Foundation::IAsyncOperation<T> so this was renamed. It remains binary
+// compatible with the old definition but code that uses IAsyncOperation will
+// need to use this new name if it is recompiled.
+
+[uuid(3D8B0590-F691-11d2-8EA9-006097DF5BD4), object]
+interface IDataObjectAsyncCapability : IUnknown
+{
+    HRESULT SetAsyncMode([in] BOOL fDoOpAsync);
+    HRESULT GetAsyncMode([out] BOOL * pfIsOpAsync);
+    HRESULT StartOperation([in, unique, optional] IBindCtx * pbcReserved);
+    HRESULT InOperation([out] BOOL * pfInAsyncOp);
+    HRESULT EndOperation([in] HRESULT hResult, [in, unique] IBindCtx * pbcReserved, [in] DWORD dwEffects);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

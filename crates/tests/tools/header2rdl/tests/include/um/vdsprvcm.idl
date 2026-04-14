@@ -1,0 +1,72 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdsprvcm.idl
+//
+//    Abstract:
+//        declarations of interfaces and types that are exposed by providers
+//        to the service, but not exposed through the service.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IVdsProviderPrivate;
+
+//
+// IVdsProviderPrivate:
+// Implemented by: provider object
+// Implemented where: providers
+// Accessed by: common layer
+//
+[
+    object,
+    uuid(11f3cd41-b7e8-48ff-9472-9dff018aa292),
+    pointer_default(unique)
+]
+
+interface IVdsProviderPrivate : IUnknown
+{
+    // GetObject:
+    //   The service queries each provider using this method to find
+    //   the object and create a wrapper object for it.
+    [helpstring("method GetObject")]
+    HRESULT GetObject(
+                [in] VDS_OBJECT_ID ObjectId,
+                [in] VDS_OBJECT_TYPE type,
+                [out] IUnknown **ppObjectUnk
+            );
+
+    // OnLoad:
+    //   The service call OnLoad() method after loading
+    //   a provider. The provider should intialize itself in
+    //   this call.
+    [helpstring("method OnLoad")]
+    HRESULT OnLoad(
+                [in,string] LPWSTR pwszMachineName,
+                [in] IUnknown *pCallbackObject
+            );
+        // A provider should call QueryInterface() on pCallbackObject to
+        // get any interface pointer needed. At this time, there are only
+        // two such interface: IVdsOwnershipChangeQuery(for software provider
+        // only) and IVdsAdviseSink.
+
+    // OnUnload:
+    //   The service call OnUnload() method before unloading
+    //   a provider. The provider should unintialize itself in
+    //   this call. It returns S_FALSE to let the service know
+    //   it's not ready to unload yet.
+    [helpstring("method OnUnload")]
+    HRESULT OnUnload(
+                [in] BOOL bForceUnload
+            );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

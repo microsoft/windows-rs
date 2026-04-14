@@ -1,0 +1,73 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract, Description (
+    "Represents a storage node in a cluster."
+     )]
+Class MSFT_StorageNode : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "Name is a human-readable string used to identify a storage node."
+        )]
+    String Name;
+
+    [Read, Required, Description(
+        "NameFormat describes the format of the Name identifier."
+        ),
+        ValueMap {
+            "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+            "11", "12", "13", "14", "15", "16"
+            },
+        Values {
+            // 1 - 5
+            "Other", "IP", "Dial", "HID", "NWA",
+            // 6 - 10
+            "HWA", "X25", "ISDN", "IPX", "DCC",
+            // 11 - 15
+            "ICD", "E.164", "SNA", "OID/OSI", "WWN",
+            // 16
+            "NAA"
+            }]
+    UInt16 NameFormat;
+
+    [Read]
+    String Manufacturer;
+
+    [Read]
+    String Model;
+
+    [Read]
+    String SerialNumber;
+
+    [Read, Description(
+        "This field is an array of custom identifier for the node. If this field is set, "
+        "the OtherIdentifyingInfoDescription field must also be set."
+        )]
+    String OtherIdentifyingInfo[];
+
+    [Read, Description(
+        "An array of string description of the format used in the custom identifiers defined in "
+        "the OtherIdentifyingInfo field. There must be a 1:1 mapping between this array and "
+        "OtherIdentifyingInfo."
+        )]
+    String OtherIdentifyingInfoDescription[];
+
+    [Read, Required, Description(
+        "Indicates the current status of the node."
+        ),
+        ValueMap {
+            "0", "2", "6", "8", "10"
+            },
+        Values {
+            "Unknown", "Up", "Down", "Joining", "Paused"
+            }]
+    UInt16 OperationalStatus;
+
+    [Read, Description(
+        "This field is a string representation of the node's firmware version."
+        )]
+    String FirmwareVersion;
+};

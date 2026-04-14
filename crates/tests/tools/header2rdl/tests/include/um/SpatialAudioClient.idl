@@ -1,0 +1,478 @@
+cpp_quote("#include <winapifamily.h>")
+
+//
+// Copyright Microsoft Corporation, All Rights Reserved
+//
+// SpatialAudioClient.idl : SpatialAudioClient API interface definition
+//
+
+import "wtypes.idl";
+import "unknwn.idl";
+import "hstring.idl";
+import "AudioClient.idl";
+import "propsys.idl";
+
+#pragma region Application and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+
+// Spatial Audio Object are mono PCM data plus set of attributes that
+// describes and gives information about the PCM data called metadata.
+//
+// Dynamic Spatial Audio Objects (AudioObjectType_Dynamic), are comprised of a mono buffer and metadata,
+// including position metadata, which can move over time
+//
+// Static Spatial Audio Objects also have a mono buffer and metadata, but the position is fixed.
+// Each static audio object represents an audio channel, which corresponds to a real or virtualized speaker
+// Static audio object are less resource intensive compared to dynamic audio objects
+// type from AudioObjectType_FrontLeft to AudioObjectType_BackCenter are static objects
+
+typedef[v1_enum] enum AudioObjectType
+{
+    AudioObjectType_None             = 0,
+    AudioObjectType_Dynamic          = 1 << 0,
+    AudioObjectType_FrontLeft        = 1 << 1,   // SPEAKER_FRONT_LEFT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_FrontRight       = 1 << 2,   // SPEAKER_FRONT_RIGHT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_FrontCenter      = 1 << 3,   // SPEAKER_FRONT_CENTER is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_LowFrequency     = 1 << 4,   // SPEAKER_LOW_FREQUENCY  is the WAVEFORMATEXTENSIBLE channel mask equivalent - This audio object is not spatialized and therefore doesn't count against spatial audio object resource limits
+    AudioObjectType_SideLeft         = 1 << 5,   // SPEAKER_SIDE_LEFT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_SideRight        = 1 << 6,   // SPEAKER_SIDE_RIGHT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_BackLeft         = 1 << 7,   // SPEAKER_BACK_LEFT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_BackRight        = 1 << 8,   // SPEAKER_BACK_RIGHT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_TopFrontLeft     = 1 << 9,   // SPEAKER_TOP_FRONT_LEFT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_TopFrontRight    = 1 << 10,  // SPEAKER_TOP_FRONT_RIGHT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_TopBackLeft      = 1 << 11,  // SPEAKER_TOP_BACK_LEFT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_TopBackRight     = 1 << 12,  // SPEAKER_TOP_BACK_RIGHT is the WAVEFORMATEXTENSIBLE channel mask equivalent
+    AudioObjectType_BottomFrontLeft  = 1 << 13,
+    AudioObjectType_BottomFrontRight = 1 << 14,
+    AudioObjectType_BottomBackLeft   = 1 << 15,
+    AudioObjectType_BottomBackRight  = 1 << 16,
+    AudioObjectType_BackCenter       = 1 << 17,
+    AudioObjectType_StereoLeft       = 1 << 18, // Equivalent to SPEAKER_FRONT_LEFT without any virtualization
+    AudioObjectType_StereoRight      = 1 << 19, // Equivalent to SPEAKER_FRONT_RIGHT without any virtualization
+} AudioObjectType;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(AudioObjectType);")
+
+typedef [v1_enum] enum SPATIAL_AUDIO_STREAM_OPTIONS
+{
+    SPATIAL_AUDIO_STREAM_OPTIONS_NONE = 0x00,
+    SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD = 0x01
+} SPATIAL_AUDIO_STREAM_OPTIONS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(SPATIAL_AUDIO_STREAM_OPTIONS);")
+
+interface ISpatialAudioObjectRenderStreamNotify;
+
+#pragma pack(push, 1)
+typedef struct SpatialAudioObjectRenderStreamActivationParams
+{
+    WAVEFORMATEX const* ObjectFormat;     // Format descriptor for a single spatial audio objects. All objects must have the same format and must be of type WAVEFORMATEX or WAVEFORMATEXTENSIBLE. 
+    AudioObjectType StaticObjectTypeMask; // (static channel bed mask) mask of static audio object type that are allowed
+    UINT32 MinDynamicObjectCount;         // Minimum number of dynamic audio objects. If at least this count cannot be granted, stream activation will fail with SPTLAUDCLNT_E_NO_MORE_OBJECTS.
+    UINT32 MaxDynamicObjectCount;         // Maximum number of dynamic audio objects that can be activated via ISpatialAudioObjectRenderStream
+    AUDIO_STREAM_CATEGORY Category;       // Specifies the category of the audio stream and its spatial audio objects
+    HANDLE EventHandle;                   // Event that will signal the need for more audio data. This handle will be duplicated internally before getting used. This handle must be unique across stream instances.
+    ISpatialAudioObjectRenderStreamNotify* NotifyObject;
+} SpatialAudioObjectRenderStreamActivationParams;
+
+typedef struct SpatialAudioObjectRenderStreamActivationParams2
+{
+    WAVEFORMATEX const* ObjectFormat;     // Format descriptor for a single spatial audio objects. All objects must have the same format and must be of type WAVEFORMATEX or WAVEFORMATEXTENSIBLE. 
+    AudioObjectType StaticObjectTypeMask; // (static channel bed mask) mask of static audio object type that are allowed
+    UINT32 MinDynamicObjectCount;         // Minimum number of dynamic audio objects. If at least this count cannot be granted, stream activation will fail with SPTLAUDCLNT_E_NO_MORE_OBJECTS.
+    UINT32 MaxDynamicObjectCount;         // Maximum number of dynamic audio objects that can be activated via ISpatialAudioObjectRenderStream
+    AUDIO_STREAM_CATEGORY Category;       // Specifies the category of the audio stream and its spatial audio objects
+    HANDLE EventHandle;                   // Event that will signal the need for more audio data. This handle will be duplicated internally before getting used. This handle must be unique across stream instances.
+    ISpatialAudioObjectRenderStreamNotify* NotifyObject;
+    SPATIAL_AUDIO_STREAM_OPTIONS Options;
+} SpatialAudioObjectRenderStreamActivationParams2;
+#pragma pack(pop)
+
+[
+    object,
+    uuid(DCDAA858-895A-4A22-A5EB-67BDA506096D),
+    pointer_default(unique),
+    local
+]
+interface IAudioFormatEnumerator : IUnknown
+{
+    HRESULT GetCount(
+        [out, annotation("_Out_")] UINT32* count);
+
+    // This method returns format in order of importance, first format is the most favorable format
+    HRESULT GetFormat(
+        [in, annotation("_In_")] UINT32 index,
+        [out, annotation("_Outptr_")] WAVEFORMATEX** format);
+}
+
+[
+    object,
+    uuid(CCE0B8F2-8D4D-4EFB-A8CF-3D6ECF1C30E0),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectBase : IUnknown
+{
+    // Called to get buffer to pass data for the current processing pass.
+    // The buffer length value returned by this method "bufferLength" is the "frameCount" value
+    // retrieved by BeginUpdatingAudioObjects multiplied by WAVEFORMATEX::nBlockAlign of objectFormat
+    // passed to ActivateSpatialAudioObjectRenderStream
+    //
+    // The first time this method is called after activation, ActivateSpatialAudioObject,
+    // the audio object life starts.
+    // To keep the audio object alive after that, this method must be called on every processing pass,
+    // otherwise ISpatialAudioObject::SetEndOfStream() gets called implicitly on the audio object
+    // and the audio object cannot be reused again without reactivation
+    //
+    // BeginUpdatingAudioObjects() should be called before
+    // calling this method, otherwise this method will return SPTLAUDCLNT_E_OUT_OF_ORDER
+    //
+    // If ISpatialAudioObject::SetEndOfStream() is called explicitly or implicitly in a previous pass,
+    // then the audio object is revoked and no longer usable and this method will return 
+    // SPTLAUDCLNT_E_RESOURCES_INVALIDATED
+    // SetEndOfStream will be implicitly called if GetBuffer is not called during any processing pass
+    //
+    // The pointers retrieved by ISpatialAudioObject::GetBuffer should not be used after calling
+    // EndUpdatingAudioObjects
+    HRESULT GetBuffer(
+        [out, size_is(, *bufferLength), annotation("_Outptr_result_bytebuffer_(*bufferLength)")] BYTE **buffer,
+        [out, annotation("_Out_")] UINT32 *bufferLength);
+    
+    // Should be called when submitting the last block of data for the audio object.
+    // The frameCount value passed to this function represents the length of the last block of data in frames, 
+    // which could be smaller than or equal to frameCount retrieved by BeginUpdatingAudioObjects.
+    // When this method is called, the spatial audio rendering engine starts flushing
+    // data out of the audio object then deactivates the audio object resources so they are available for future use.
+    //
+    // BeginUpdatingAudioObjects() should be called before
+    // calling this method, otherwise this method will return SPTLAUDCLNT_E_OUT_OF_ORDER
+    //
+    // If ISpatialAudioObject::SetEndOfStream() is called explicitly or implicitly in a previous pass,
+    // then the audio object is revoked and no longer usable and this method will return 
+    // SPTLAUDCLNT_E_RESOURCES_INVALIDATED
+    //
+    // ISpatialAudioObject->Release() should be called after calling this method to make the audio object
+    // resources available in future passes
+    HRESULT SetEndOfStream(
+        [in, annotation("_In_")] UINT32 frameCount);
+
+    // When isActive is false, the object cannot be used anymore and Release() should be called
+    // to make this audio object resource available in the future
+    // This happens after SetEndOfStream is called explicitly or implicitly on the audio object
+    // SetEndOfStream will be implicitly called if GetBuffer is not called during any processing pass
+    // The rendering engine will deactivate objects when system resource is not available but before that
+    // happen, it will send a notification via ISpatialAudioObjectRenderStreamNotify
+    HRESULT IsActive(
+        [out, annotation("_Out_")] BOOL *isActive);
+
+    // Retrieve the audio object type submitted via ActivateSpatialAudioObject
+    HRESULT GetAudioObjectType(
+        [out, annotation("_Out_")] AudioObjectType* audioObjectType);
+}
+
+[
+    object,
+    uuid(DDE28967-521B-46E5-8F00-BD6F2BC8AB1D),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObject : ISpatialAudioObjectBase
+{
+    // Right-handed Cartesian, where each unit represents 1 meter
+    // x=0.0, y=0.0, z=0.0 represents the center point between the listener's ears
+    //
+    // x controls the horizontal movement of the audio object, right(+x) or left(-x)
+    // y controls the elevation movement of the audio object, up (+y) or down (-y)
+    // z controls the forward (-z) or backward (+z) movement of the audio object
+    //
+    // If the API client does not call this method, the last value will be used,
+    // if there is no last value the default value will be used of 0.0, 0.0, 0.0 (in your head)
+    //
+    // BeginUpdatingAudioObjects() should be called before
+    // calling this method, otherwise this method will return SPTLAUDCLNT_E_OUT_OF_ORDER
+    //
+    // This method returns SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED if the audio object type
+    // is not AudioObjectType_Dynamic
+    //
+    // If ISpatialAudioObject::SetEndOfStream() is called explicitly or implicitly in a previous pass,
+    // then the audio object is revoked and no longer usable and this method will return 
+    // SPTLAUDCLNT_E_RESOURCES_INVALIDATED
+    HRESULT SetPosition(
+        [in, annotation("_In_")] float x,
+        [in, annotation("_In_")] float y,
+        [in, annotation("_In_")] float z);
+
+    // Set audio-object amplitude, PCM, values multiplier which will be applied before passing data 
+    // to the audio rendering engine
+    //
+    // If the API client does not call this method, the last value will be used,
+    // if there is no last value the default value will be used of 1.0
+    //
+    // BeginUpdatingAudioObjects() should be called before
+    // calling this method, otherwise this method will return SPTLAUDCLNT_E_OUT_OF_ORDER
+    //
+    // If ISpatialAudioObject::SetEndOfStream() is called explicitly or implicitly in a previous pass,
+    // then the audio object is revoked and no longer usable and this method will return 
+    // SPTLAUDCLNT_E_RESOURCES_INVALIDATED
+    HRESULT SetVolume(
+        [in, annotation("_In_")] float volume); // Volume scale, value between 0.0 and 1.0
+}
+
+
+[
+    object,
+    uuid(FEAAF403-C1D8-450D-AA05-E0CCEE7502A8),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectRenderStreamBase : IUnknown
+{
+    // Get available dynamic object count for this stream
+    HRESULT GetAvailableDynamicObjectCount(
+        [out, annotation("_Out_")] UINT32* value);
+   
+    // Accesses additional services from the spatial audio client
+    HRESULT GetService(
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void **service);
+
+    // Streaming control method that starts the spatial audio stream.
+    // Starting the stream causes data flow between the endpoint buffer and the audio engine.
+    // The first time this method is called, the stream's audio clock position will be at 0.
+    // Otherwise, the clock resumes from its position at the time that the stream was last paused.
+    HRESULT Start();
+
+    // Streaming control method to pause the spatial audio stream.
+    // Pausing the stream causes data to stop flowing between the endpoint buffer and the audio engine.
+    // Pausing the stream freezes the stream's audio clock at its current stream position.
+    // A subsequent call to Start() causes the stream to resume running from that position.
+    // This method fails if it is called when the stream is not started.
+    HRESULT Stop();
+
+    // Streaming control method to reset a stopped audio stream. 
+    // Resetting the stream flushes all pending data and resets the audio clock stream position to 0.
+    // Resetting the stream will cause all active ISpatialAudioObjectBase to be revoked.
+    // A subsequent call to Start() causes the stream to start from 0 position.
+    // This method fails if it is called on a stream that is not stopped.
+    HRESULT Reset();
+
+    // Begin Supplying Audio-Object Data
+    // frameCountPerBuffer is buffer length of in frames for the buffer returned by ISpatialAudioObject::GetBuffer
+    // availableDynamicObjectCount is available dynamic object count for current processing pass
+    //
+    // This method must be called each time the event passed to ActivateSpatialAudioObjectRenderStream is signaled,
+    // even if there no audio object data to submit
+    //
+    // availableDynamicObjectCount is the number of dynamic audio objects available for rendering
+    // for this pass.
+    //
+    // All allocated static audio objects can be rendered in each processing pass
+    //
+    // For each BeginUpdatingAudioObjects() call, there should be a corresponding EndUpdatingAudioObjects() call.
+    // If BeginUpdatingAudioObjects() is called twice without calling EndUpdatingAudioObjects(), the second call to
+    // BeginUpdatingAudioObjects() will return SPTLAUDCLNT_E_OUT_OF_ORDER
+    HRESULT BeginUpdatingAudioObjects(
+        [out, annotation("_Out_")] UINT32* availableDynamicObjectCount,
+        [out, annotation("_Out_")] UINT32* frameCountPerBuffer);
+
+    // End Supplying Audio-Object Data
+    // This method must be called after BeginUpdatingAudioObjects was successfully executed and the API caller
+    // is done supplying audio object data
+    //
+    // The pointers retrieved by ISpatialAudioObject::GetBuffer cannot be used after calling this method.
+    //
+    // If EndUpdatingAudioObjects() is called before calling BeginUpdatingAudioObjects() first, this method will
+    // return SPTLAUDCLNT_E_OUT_OF_ORDER
+    HRESULT EndUpdatingAudioObjects();
+}
+
+[
+    object,
+    uuid(BAB5F473-B423-477B-85F5-B5A332A04153),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectRenderStream : ISpatialAudioObjectRenderStreamBase
+{
+    // Activate an ISpatialAudioObject for rendering, counts against total resources
+    // This method will return SPTLAUDCLNT_E_NO_MORE_OBJECTS if all audio objects are 
+    // being used
+    // To avoid this error, call Release() when object life ends
+    // and there is no more data to feed or after SetEndOfStream()
+    HRESULT ActivateSpatialAudioObject(
+        [in, annotation("_In_")] AudioObjectType type,
+        [out, annotation("_COM_Outptr_")] ISpatialAudioObject** audioObject);
+};
+
+
+// Notify interface to be implemented by API clients to respond to changes in ISpatialAudioObjectRenderStreamBase state
+[
+    object,
+    uuid(DDDF83E6-68D7-4C70-883F-A1836AFB4A50),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioObjectRenderStreamNotify : IUnknown
+{
+    // Called when audio object rendering capacity is about to change for the stream
+    // and let API client knows how many dynamic audio objects will be available
+    // in hnsComplianceDeadlineTime
+    HRESULT OnAvailableDynamicObjectCountChange(
+        [in, annotation("_In_")] ISpatialAudioObjectRenderStreamBase* sender,
+        [in, annotation("_In_")] LONGLONG hnsComplianceDeadlineTime,        // When the spatial resource limit will be enforced in 100-nanosecond units, 0 = Now
+        [in, annotation("_In_")] UINT32 availableDynamicObjectCountChange); // How many dynamic audio objects will be available in hnsComplianceDeadlineTime
+};
+
+[
+    object,
+    uuid(BBF8E066-AAAA-49BE-9A4D-FD2A858EA27F),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioClient : IUnknown
+{
+    // Return the position of the input static object type
+    // This method returns E_INVALIDARG if "type" is not a static audio object type
+    HRESULT GetStaticObjectPosition(
+        [in, annotation("_In_")] AudioObjectType type,
+        [out, annotation("_Out_")] float* x,
+        [out, annotation("_Out_")] float* y,
+        [out, annotation("_Out_")] float* z);
+
+    // Return the native static object mask / channel bed mask of the currently active spatial
+    // rendering engine
+    HRESULT GetNativeStaticObjectTypeMask(
+        [out, annotation("_Out_")] AudioObjectType* mask);
+
+    // Get maximum dynamic object count for this client
+    HRESULT GetMaxDynamicObjectCount(
+        [out, annotation("_Out_")] UINT32* value);
+
+    // List all supported object formats, the first on in the list is the most preferable format
+    HRESULT GetSupportedAudioObjectFormatEnumerator(
+        [out, annotation("_COM_Outptr_")] IAudioFormatEnumerator** enumerator);
+
+    // Get max possible frame count per processing pass.
+    // This value will change when the endpoint cadence gets changed
+    // The value returned by this method can be used to allocate source buffer
+    // Must specify same format which stream will be created
+    HRESULT GetMaxFrameCount(
+        [in, annotation("_In_")] WAVEFORMATEX const * objectFormat,
+        [out, annotation("_Out_")] UINT32* frameCountPerBuffer
+        );
+
+    // Indicates whether ISpatialAudioObjectRenderStream supports a particular format
+    // If format is not supported, this method returns AUDCLNT_E_UNSUPPORTED_FORMAT
+    // otherwise it will return S_OK
+    HRESULT IsAudioObjectFormatSupported(
+        [in, annotation("_In_")] WAVEFORMATEX const * objectFormat);
+
+    // Check whether the currently active spatial rendering engine supports spatial audio
+    // stream type such as ISpatialAudioObjectRenderStreamForMetadata.
+    // Also check metadata format ID if supported by passing the GUID via auxiliaryInfo
+    // example how to set auxiliaryInfo:
+    //      PROPVARIANT auxiliaryInfo;
+    //      auxiliaryInfo.vt = VT_CLSID;
+    //      auxiliaryInfo.puuid = const_cast<CLSID*>(&CONTOSO_SPATIAL_METADATA_V1_0);
+    //
+    // If the stream cannot be activated for the currently active rendering engine, this
+    // method returns SPTLAUDCLNT_E_STREAM_IS_NOT_AVAILABLE.
+    // If the format is not supported, the method returns SPTLAUDCLNT_E_METADATA_FORMAT_IS_NOT_SUPPORTED
+    HRESULT IsSpatialAudioStreamAvailable(
+        [in, annotation("_In_")] REFIID streamUuid,
+        [in, annotation("_In_opt_")] PROPVARIANT const * auxiliaryInfo);
+
+    // Activate and initialize spatial audio stream using one of the spatial audio stream activation structures.
+    // for example:
+    //    SpatialAudioObjectRenderStreamForMetadataActivationParams params = {};
+    //    PROPVARIANT activateParams;
+    //    PropVariantInit(&activateParams);
+    //    activateParams.vt = VT_BLOB;
+    //    activateParams.blob.cbSize = sizeof(params);
+    //    activateParams.blob.pBlobData = reinterpret_cast<BYTE*>(&params);
+    //
+    HRESULT ActivateSpatialAudioStream(
+        [in, annotation("_In_")] PROPVARIANT const* activationParams, // activation parameters for the required streams for example SpatialAudioObjectRenderStreamForMetadataActivationParams
+        [in, annotation("_In_")] REFIID riid,                   // spatial audio stream interface UUID for example ISpatialAudioObjectRenderStreamForMetadata
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void** stream);
+}
+
+[
+    object,
+    uuid(caabe452-a66a-4bee-a93e-e320463f6a53),
+    pointer_default(unique),
+    local
+]
+interface ISpatialAudioClient2 : ISpatialAudioClient
+{
+    // This method is called to find out if the audio rendering endpoint that the
+    // ISpatialAudioClient2 was created on supports hardware offloaded audio processing.
+    // The method also considers the capabilities of the AUDIO_STREAM_CATEGORY value that will
+    // be used, as use of offload is restricted to only certain AUDIO_STREAM_CATEGORY values.
+    HRESULT IsOffloadCapable(
+        [in] AUDIO_STREAM_CATEGORY category,
+        [out, annotation("_Out_")] BOOL* isOffloadCapable);
+
+    // Get max possible frame count per processing pass. This value will change if the endpoint cadence changes.
+    // The value returned by this method can be used to allocate source buffer.
+    // The caller must specify same AUDIO_STREAM_CATEGORY value and WAVEFORMATEX that will be used when creating the stream.
+    // The offloadEnabled parameter must be set to TRUE if the stream will be created with the
+    // SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD flag.
+    HRESULT GetMaxFrameCountForCategory(
+        [in] AUDIO_STREAM_CATEGORY category,
+        [in] BOOL offloadEnabled,
+        [in, annotation("_In_")] WAVEFORMATEX const* objectFormat,
+        [out, annotation("_Out_")] UINT32* frameCountPerBuffer);
+}
+
+// SpatialAudioClientActivationParams
+cpp_quote("// SpatialAudioClientActivationParams is an optional activation parameter for ISpatialAudioClient")
+cpp_quote("//")
+cpp_quote("// ISpatialAudioClient implementations log various things via ETW tracing")
+cpp_quote("// including a \"context\" identifier and version information.")
+cpp_quote("//")
+cpp_quote("// The \"tracing context\" identifier helps with correlation of which audio client instance belongs to which application context")
+cpp_quote("//")
+cpp_quote("// Sample app code:")
+cpp_quote("// PROPVARIANT var;")
+cpp_quote("// PropVariantInit(&var);")
+cpp_quote("// auto p = reinterpret_cast<SpatialAudioClientActivationParams *>(CoTaskMemAlloc(sizeof(SpatialAudioClientActivationParams)));")
+cpp_quote("// if (nullptr == p) { ... }")
+cpp_quote("// p->tracingContextId = /* context identifier */;")
+cpp_quote("// p->appId = /* app identifier */;")
+cpp_quote("// p->majorVersion = /* app version info */;")
+cpp_quote("// p->majorVersionN = /* app version info */;")
+cpp_quote("// var.vt = VT_BLOB;")
+cpp_quote("// var.blob.cbSize = sizeof(*p);")
+cpp_quote("// var.blob.pBlobData = reinterpret_cast<BYTE *>(p);")
+cpp_quote("// hr = ActivateAudioInterfaceAsync(device, __uuidof(ISpatialAudioClient), &var, ...);")
+cpp_quote("// ...")
+cpp_quote("// PropVariantClear(&var);")
+
+typedef struct SpatialAudioClientActivationParams
+{
+    GUID tracingContextId;
+    GUID appId;
+    int majorVersion;
+    int minorVersion1;
+    int minorVersion2;
+    int minorVersion3;
+} SpatialAudioClientActivationParams;
+
+// error codes
+cpp_quote("#define SPTLAUDCLNT_E_DESTROYED                           AUDCLNT_ERR(0x0100)")
+cpp_quote("#define SPTLAUDCLNT_E_OUT_OF_ORDER                        AUDCLNT_ERR(0x0101)")
+cpp_quote("#define SPTLAUDCLNT_E_RESOURCES_INVALIDATED               AUDCLNT_ERR(0x0102)")
+cpp_quote("#define SPTLAUDCLNT_E_NO_MORE_OBJECTS                     AUDCLNT_ERR(0x0103)")
+cpp_quote("#define SPTLAUDCLNT_E_PROPERTY_NOT_SUPPORTED              AUDCLNT_ERR(0x0104)")
+cpp_quote("#define SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS              AUDCLNT_ERR(0x0105)")
+cpp_quote("#define SPTLAUDCLNT_E_METADATA_FORMAT_NOT_SUPPORTED       AUDCLNT_ERR(0x0106)")
+cpp_quote("#define SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE                AUDCLNT_ERR(0x0107)")
+cpp_quote("#define SPTLAUDCLNT_E_INVALID_LICENSE                     AUDCLNT_ERR(0x0108)")
+cpp_quote("#define SPTLAUDCLNT_E_STREAM_NOT_STOPPED                  AUDCLNT_ERR(0x010a)")
+cpp_quote("#define SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE         AUDCLNT_ERR(0x010b)")
+cpp_quote("#define SPTLAUDCLNT_E_OBJECT_ALREADY_ACTIVE               AUDCLNT_ERR(0x010c)")
+cpp_quote("#define SPTLAUDCLNT_E_INTERNAL                            AUDCLNT_ERR(0x010d)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")

@@ -1,0 +1,175 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// D3D11.2 IDL
+//
+// Contains interface definitions for the D3D11.2 API.
+//
+// Copyright (C) Microsoft Corporation
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "dxgi1_3.idl";
+import "d3dcommon.idl";
+
+
+
+import "d3d11_1.idl"; //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "#endif" )
+cpp_quote( "#include \"d3d11_1.h\" //") //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+typedef struct D3D11_TILED_RESOURCE_COORDINATE
+{
+    UINT X;
+    UINT Y;
+    UINT Z;
+    UINT Subresource; 
+} D3D11_TILED_RESOURCE_COORDINATE;
+
+typedef struct D3D11_TILE_REGION_SIZE
+{
+    UINT NumTiles; 
+    BOOL bUseBox; 
+    UINT Width; 
+    UINT16 Height;
+    UINT16 Depth;
+} D3D11_TILE_REGION_SIZE;
+
+typedef enum D3D11_TILE_MAPPING_FLAG
+{
+    D3D11_TILE_MAPPING_NO_OVERWRITE = 0x00000001,
+} D3D11_TILE_MAPPING_FLAG;
+
+typedef enum D3D11_TILE_RANGE_FLAG
+{
+    D3D11_TILE_RANGE_NULL = 0x00000001,
+    D3D11_TILE_RANGE_SKIP = 0x00000002,
+    D3D11_TILE_RANGE_REUSE_SINGLE_TILE = 0x00000004,
+} D3D11_TILE_RANGE_FLAG;
+
+typedef struct D3D11_SUBRESOURCE_TILING
+{
+    UINT WidthInTiles;
+    UINT16 HeightInTiles;
+    UINT16 DepthInTiles;
+    UINT StartTileIndexInOverallResource;
+} D3D11_SUBRESOURCE_TILING;
+
+const UINT D3D11_PACKED_TILE = 0xffffffff;
+
+typedef struct D3D11_TILE_SHAPE
+{
+    UINT WidthInTexels; 
+    UINT HeightInTexels;
+    UINT DepthInTexels;
+} D3D11_TILE_SHAPE;
+
+typedef struct D3D11_PACKED_MIP_DESC
+{
+    UINT8 NumStandardMips;
+    UINT8 NumPackedMips;
+    UINT NumTilesForPackedMips;
+    UINT StartTileIndexInOverallResource;
+} D3D11_PACKED_MIP_DESC;
+
+typedef enum D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG
+{
+    D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_TILED_RESOURCE = 0x00000001,
+} D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG;
+
+typedef enum D3D11_TILE_COPY_FLAG 
+{
+    D3D11_TILE_COPY_NO_OVERWRITE = 0x00000001,
+    D3D11_TILE_COPY_LINEAR_BUFFER_TO_SWIZZLED_TILED_RESOURCE = 0x00000002,
+    D3D11_TILE_COPY_SWIZZLED_TILED_RESOURCE_TO_LINEAR_BUFFER = 0x00000004,
+} D3D11_TILE_COPY_FLAG;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// DeviceContext2
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[ uuid( 420d5b32-b90c-4da4-bef0-359f6a24a83a ), object, local, pointer_default( unique ) ]
+interface ID3D11DeviceContext2
+    : ID3D11DeviceContext1
+{
+    HRESULT UpdateTileMappings( [annotation("_In_")] ID3D11Resource* pTiledResource,
+                                [annotation("_In_")] UINT NumTiledResourceRegions,
+                                [annotation("_In_reads_opt_(NumTiledResourceRegions)")] const D3D11_TILED_RESOURCE_COORDINATE* pTiledResourceRegionStartCoordinates, 
+                                [annotation("_In_reads_opt_(NumTiledResourceRegions)")] const D3D11_TILE_REGION_SIZE* pTiledResourceRegionSizes, 
+                                [annotation("_In_opt_")] ID3D11Buffer* pTilePool,
+                                [annotation("_In_")] UINT NumRanges, 
+                                [annotation("_In_reads_opt_(NumRanges)")] const UINT* pRangeFlags,
+                                [annotation("_In_reads_opt_(NumRanges)")] const UINT* pTilePoolStartOffsets, 
+                                [annotation("_In_reads_opt_(NumRanges)")] const UINT* pRangeTileCounts, 
+                                [annotation("_In_")] UINT Flags
+                                );
+
+    HRESULT CopyTileMappings( [annotation("_In_")] ID3D11Resource* pDestTiledResource,
+                              [annotation("_In_")] const D3D11_TILED_RESOURCE_COORDINATE* pDestRegionStartCoordinate, 
+                              [annotation("_In_")] ID3D11Resource* pSourceTiledResource,
+                              [annotation("_In_")] const D3D11_TILED_RESOURCE_COORDINATE* pSourceRegionStartCoordinate,
+                              [annotation("_In_")] const D3D11_TILE_REGION_SIZE* pTileRegionSize,
+                              [annotation("_In_")] UINT Flags
+                              );
+
+    void CopyTiles( [annotation("_In_")] ID3D11Resource* pTiledResource,
+                    [annotation("_In_")] const D3D11_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, 
+                    [annotation("_In_")] const D3D11_TILE_REGION_SIZE* pTileRegionSize,                     
+                    [annotation("_In_")] ID3D11Buffer* pBuffer, 
+                    [annotation("_In_")] UINT64 BufferStartOffsetInBytes, 
+                    [annotation("_In_")] UINT Flags 
+                    );
+
+    void UpdateTiles( [annotation("_In_")] ID3D11Resource* pDestTiledResource,
+                      [annotation("_In_")] const D3D11_TILED_RESOURCE_COORDINATE* pDestTileRegionStartCoordinate, 
+                      [annotation("_In_")] const D3D11_TILE_REGION_SIZE* pDestTileRegionSize, 
+                      [annotation("_In_")] const void* pSourceTileData, 
+                      [annotation("_In_")] UINT Flags 
+                      );
+
+    HRESULT ResizeTilePool( [annotation("_In_")] ID3D11Buffer* pTilePool,
+                            [annotation("_In_")] UINT64 NewSizeInBytes );
+
+    void TiledResourceBarrier( [annotation("_In_opt_")] ID3D11DeviceChild* pTiledResourceOrViewAccessBeforeBarrier,
+                               [annotation("_In_opt_")] ID3D11DeviceChild* pTiledResourceOrViewAccessAfterBarrier
+                               );
+
+    BOOL IsAnnotationEnabled();
+    void SetMarkerInt( [annotation("_In_")] LPCWSTR pLabel, INT Data );
+    void BeginEventInt( [annotation("_In_")] LPCWSTR pLabel, INT Data );
+    void EndEvent();
+};[ uuid( 9d06dffa-d1e5-4d07-83a8-1bb123f2f841 ), object, local, pointer_default( unique ) ]
+interface ID3D11Device2
+    : ID3D11Device1
+{
+    void GetImmediateContext2( [annotation("_Outptr_")] ID3D11DeviceContext2** ppImmediateContext );
+
+    HRESULT CreateDeferredContext2(
+            UINT ContextFlags, 
+            [annotation("_COM_Outptr_opt_")] ID3D11DeviceContext2** ppDeferredContext );
+
+    void GetResourceTiling( 
+            [annotation("_In_")] ID3D11Resource* pTiledResource,
+            [annotation("_Out_opt_")] UINT* pNumTilesForEntireResource, 
+            [annotation("_Out_opt_")] D3D11_PACKED_MIP_DESC* pPackedMipDesc, 
+            [annotation("_Out_opt_")] D3D11_TILE_SHAPE* pStandardTileShapeForNonPackedMips, 
+            [annotation("_Inout_opt_")] UINT* pNumSubresourceTilings, 
+            [annotation("_In_")] UINT FirstSubresourceTilingToGet, 
+            [annotation("_Out_writes_(*pNumSubresourceTilings)")] D3D11_SUBRESOURCE_TILING* pSubresourceTilingsForNonPackedMips
+           );
+
+    HRESULT CheckMultisampleQualityLevels1(
+            [annotation("_In_")]  DXGI_FORMAT Format,
+            [annotation("_In_")]  UINT SampleCount,
+            [annotation("_In_")]  UINT Flags, 
+            [annotation("_Out_")]  UINT *pNumQualityLevels);
+};
+cpp_quote( "DEFINE_GUID(IID_ID3D11DeviceContext2,0x420d5b32,0xb90c,0x4da4,0xbe,0xf0,0x35,0x9f,0x6a,0x24,0xa8,0x3a);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Device2,0x9d06dffa,0xd1e5,0x4d07,0x83,0xa8,0x1b,0xb1,0x23,0xf2,0xf8,0x41);" )

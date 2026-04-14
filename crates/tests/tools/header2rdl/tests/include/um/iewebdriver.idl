@@ -1,0 +1,70 @@
+//+------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation
+//
+//  File:       IEWebDriver.idl
+//
+//-------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// iewebdriver.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+    object,
+    uuid(FFB84444-453D-4FBC-9F9D-8DB5C471EC75),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IIEWebDriverSite : IDispatch {
+    [id(2)] HRESULT WindowOperation([in] DWORD operationCode, [in] DWORD hWnd);
+    [id(3)] HRESULT DetachWebdriver([in] IUnknown * pUnkWD);
+    [id(4)] HRESULT GetCapabilityValue([in] IUnknown * pUnkWD, [in] LPWSTR capName, [out] VARIANT * capValue);
+};
+
+[
+    object,
+    uuid(BD1DC630-6590-4CA2-A293-6BC72B2438D8),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IIEWebDriverManager : IDispatch{
+    [id(1)] HRESULT ExecuteCommand([in] LPWSTR command, [out] LPWSTR * response);
+};
+
+[
+    uuid(B7BBFE94-693D-48EE-B236-A189FBB69937),
+    version(1.0),
+]
+library IEWebDriverLib
+{
+    importlib("stdole2.tlb");
+    [
+        uuid(90314AF2-5250-47B3-89D8-6295FC23BC22)
+    ]
+    coclass IEWebDriverManager
+    {
+        [default] interface IIEWebDriverManager;
+        interface IIEWebDriverSite;
+    };
+};
+
+cpp_quote("#define SID_SIEWebDriverManager IID_IIEWebDriverManager")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

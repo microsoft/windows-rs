@@ -1,0 +1,1229 @@
+// FileSystemImaging.idl : IDL source for the FileSystemImaging family of interfaces
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (FileSystemImaging.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "imapi2.idl";
+
+cpp_quote("#define IMAPI2FS_BOOT_ENTRY_COUNT_MAX    32")
+
+[
+    v1_enum, public,
+    helpstring("File system item type")
+] 
+typedef enum FsiItemType {
+    FsiItemNotFound = 0,
+    FsiItemDirectory = 1,
+    FsiItemFile = 2,
+} FsiItemType;
+
+[
+    v1_enum, public,
+    helpstring("Type of file system")
+] 
+typedef enum FsiFileSystems {
+    FsiFileSystemNone = 0,
+    FsiFileSystemISO9660 = 1,
+    FsiFileSystemJoliet = 2,
+    FsiFileSystemUDF = 4,
+    FsiFileSystemUnknown = 0x40000000,
+} FsiFileSystems;
+
+[
+    v1_enum, public,
+    helpstring("Boot emulation type")
+] 
+typedef enum EmulationType {
+    EmulationNone = 0,
+    Emulation12MFloppy = 1,
+    Emulation144MFloppy = 2,
+    Emulation288MFloppy = 3,
+    EmulationHardDisk = 4,
+} EmulationType;
+
+[
+    v1_enum, public,
+    helpstring("Boot platform type")
+] 
+typedef enum PlatformId {
+    PlatformX86 = 0,
+    PlatformPowerPC = 1,
+    PlatformMac = 2,
+    PlatformEFI = 0xEF,
+} PlatformId;
+
+[
+    object, pointer_default(unique),
+    dual, nonextensible, oleautomation,
+    uuid(2C941FD4-975B-59BE-A960-9A2A262853A5),
+    helpstring("Boot options")
+] 
+interface IBootOptions : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("Get boot image data stream")
+    ] 
+    HRESULT  BootImage([out,retval] IStream **pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(2),
+        helpstring("Get boot manufacturer")
+    ] 
+    HRESULT  Manufacturer([out,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(2),
+        helpstring("Put boot manufacturer")
+    ] 
+    HRESULT  Manufacturer([in] BSTR newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(3),
+        helpstring("Get boot platform identifier")
+    ] 
+    HRESULT  PlatformId([out,retval] PlatformId *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(3),
+        helpstring("Put boot platform identifier")
+    ] 
+    HRESULT  PlatformId([in] PlatformId newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(4),
+        helpstring("Get boot emulation type")
+    ] 
+    HRESULT  Emulation([out,retval] EmulationType *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(4),
+        helpstring("Put boot emulation type")
+    ] 
+    HRESULT  Emulation([in] EmulationType newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(5),
+        helpstring("Get boot image size")
+    ] 
+    HRESULT  ImageSize([out,retval] ULONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(20),
+        helpstring("Set the boot image data stream, emulation type, and image size")
+    ] 
+    HRESULT  AssignBootImage([in] IStream *newVal);
+
+};
+
+[
+    object, pointer_default(unique),
+    dual, nonextensible, oleautomation,
+    uuid(2C941FD5-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImageResult progress item")
+] 
+interface IProgressItem : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("Progress item description")
+    ] 
+    HRESULT  Description([out,retval] BSTR *desc );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(2),
+        helpstring("First block in the range of blocks used by the progress item")
+    ] 
+    HRESULT  FirstBlock([out,retval] ULONG *block);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(3),
+        helpstring("Last block in the range of blocks used by the progress item")
+    ] 
+    HRESULT  LastBlock([out,retval] ULONG *block);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(4),
+        helpstring("Number of blocks used by the progress item")
+    ] 
+    HRESULT  BlockCount([out,retval] ULONG *blocks);
+};
+
+[
+    object, pointer_default(unique),
+    uuid(2C941FD6-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImageResult progress item enumerator")
+] 
+interface IEnumProgressItems : IUnknown 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        local,
+        helpstring("Get next items in the enumeration")
+    ] 
+    HRESULT  Next([in] ULONG celt, [out,size_is(celt)] IProgressItem **rgelt , [out] ULONG *pceltFetched);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        call_as(Next),
+        helpstring("Remoting support for Next (allow NULL pointer for item count when requesting single item)")
+    ] 
+    HRESULT  RemoteNext([in,range(1,0x7FFFFFFF)] ULONG celt, [out,size_is(celt)] IProgressItem **rgelt , [out] ULONG *pceltFetched);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Skip items in the enumeration")
+    ]
+    HRESULT  Skip([in] ULONG celt);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Reset the enumerator")
+    ]
+    HRESULT  Reset();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Make a copy of the enumerator")
+    ]
+    HRESULT  Clone([out] IEnumProgressItems **ppEnum );
+};
+
+[
+    object, pointer_default(unique),
+    dual, nonextensible, oleautomation,
+    uuid(2C941FD7-975B-59BE-A960-9A2A262853A5),
+    helpstring("Progress item block mapping collection")
+] 
+interface IProgressItems : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_NEWENUM),
+        hidden, restricted,
+        helpstring("Get an enumerator for the collection")
+    ] 
+    HRESULT  _NewEnum([out,retval] IEnumVARIANT **NewEnum );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_VALUE),
+        helpstring("Find the block mapping from the specified index")
+    ] 
+    HRESULT  Item([in] long Index, [out,retval] IProgressItem **item );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("Number of items in the collection")
+    ] 
+    HRESULT  Count([out,retval] long *Count);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(2),
+        helpstring("Find the block mapping from the specified block")
+    ] 
+    HRESULT  ProgressItemFromBlock([in] ULONG block, [out,retval] IProgressItem **item );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(3),
+        helpstring("Find the block mapping from the specified item description")
+    ] 
+    HRESULT  ProgressItemFromDescription([in] BSTR description, [out,retval] IProgressItem **item );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(4),
+        hidden,restricted,
+        helpstring("Get a non-variant enumerator")
+    ] 
+    HRESULT  EnumProgressItems([out,retval] IEnumProgressItems **NewEnum );
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(2C941FD8-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImage result stream")
+] 
+interface IFileSystemImageResult : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("Image stream")
+    ] 
+    HRESULT  ImageStream([out,retval] IStream **pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(2),
+        helpstring("Progress item block mapping collection")
+    ] 
+    HRESULT  ProgressItems([out,retval] IProgressItems **pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(3),
+        helpstring("Number of blocks in the result image")
+    ] 
+    HRESULT  TotalBlocks([out,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(4),
+        helpstring("Number of bytes in a block")
+    ] 
+    HRESULT  BlockSize([out,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(5),
+        helpstring("Disc Identifier (for identifing imported session of multi-session disc)")
+    ] 
+    HRESULT  DiscId([out,retval] BSTR *pVal);
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation, 
+    uuid(B507CA29-2204-11DD-966A-001AA01BBC58),
+    helpstring("FileSystemImage result stream (rev.2)")
+] 
+interface IFileSystemImageResult2 : IFileSystemImageResult 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(6),
+        helpstring("List of modified block ranges in the result stream")
+    ] 
+    HRESULT  ModifiedBlocks([out,ref,retval] IBlockRangeList **pVal);
+}
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(2C941FD9-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImage item")
+] 
+interface IFsiItem : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(11),
+        helpstring("Item name")
+    ] 
+    HRESULT  Name([out,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(12),
+        helpstring("Full path")
+    ] 
+    HRESULT  FullPath([out,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(13),
+        helpstring("Date and time of creation")
+    ] 
+    HRESULT  CreationTime([out,retval] DATE *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(13),
+        helpstring("Date and time of creation")
+    ] 
+    HRESULT  CreationTime([in] DATE newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(14),
+        helpstring("Date and time of last access")
+    ] 
+    HRESULT  LastAccessedTime([out,retval] DATE *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(14),
+        helpstring("Date and time of last access")
+    ] 
+    HRESULT  LastAccessedTime([in] DATE newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(15),
+        helpstring("Date and time of last modification")
+    ] 
+    HRESULT  LastModifiedTime([out,retval] DATE *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(15),
+        helpstring("Date and time of last modification")
+    ] 
+    HRESULT  LastModifiedTime([in] DATE newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(16),
+        helpstring("Flag indicating if item is hidden")
+    ] 
+    HRESULT  IsHidden([out,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(16),
+        helpstring("Flag indicating if item is hidden")
+    ] 
+    HRESULT  IsHidden([in] VARIANT_BOOL newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(17),
+        helpstring("Name of item in the specified file system")
+    ] 
+    HRESULT  FileSystemName([in] FsiFileSystems fileSystem, [out,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(18),
+        helpstring("Name of item in the specified file system")
+    ] 
+    HRESULT  FileSystemPath([in] FsiFileSystems fileSystem, [out,retval] BSTR *pVal );
+};
+
+[
+    object, pointer_default(unique),
+    uuid(2C941FDA-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImage item enumerator")
+] 
+interface IEnumFsiItems : IUnknown 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        local,
+        helpstring("Get next items in the enumeration")
+    ] 
+    HRESULT  Next([in] ULONG celt, [out,size_is(celt)] IFsiItem **rgelt , [out] ULONG *pceltFetched);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        call_as(Next),
+        helpstring("Remoting support for Next (allow NULL pointer for item count when requesting single item)")
+    ] 
+    HRESULT  RemoteNext([in,range(0,0x7FFFFFFF)] ULONG celt, [out,size_is(celt)] IFsiItem **rgelt , [out] ULONG *pceltFetched);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Skip items in the enumeration")
+    ]
+    HRESULT  Skip([in] ULONG celt);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Reset the enumerator")
+    ]
+    HRESULT  Reset();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        helpstring("Make a copy of the enumerator")
+    ]
+    HRESULT  Clone([out] IEnumFsiItems **ppEnum );
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(2C941FDB-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImage file item")
+] 
+interface IFsiFileItem : IFsiItem
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(41),
+        helpstring("Data byte count")
+    ] 
+    HRESULT  DataSize([out,retval] LONGLONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(42),
+        helpstring("Lower 32 bits of the data byte count")
+    ] 
+    HRESULT  DataSize32BitLow([out,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(43),
+        helpstring("Upper 32 bits of the data byte count")
+    ] 
+    HRESULT  DataSize32BitHigh([out,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(44),
+        helpstring("Data stream")
+    ] 
+    HRESULT  Data([out,retval] IStream **pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(44),
+        helpstring("Data stream")
+    ] 
+    HRESULT  Data([in] IStream *newVal);
+};
+
+// Forward declaration for interface IFsiNamedStreams
+interface IFsiNamedStreams;
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(199D0C19-11E1-40eb-8EC2-C8C822A07792),
+    helpstring("FileSystemImage file item (rev.2)")
+] 
+interface IFsiFileItem2 : IFsiFileItem 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(45),
+        hidden,restricted,
+        helpstring("Get the list of the named streams of the file")
+    ] 
+    HRESULT  FsiNamedStreams([out,ref,retval] IFsiNamedStreams **streams);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(46),
+        helpstring("Flag indicating if file item is a named stream of a file")
+    ] 
+    HRESULT  IsNamedStream([out,ref,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(47),
+        helpstring("Add a new named stream to the collection")
+    ] 
+    HRESULT  AddStream([in] BSTR name, [in] IStream *streamData);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(48),
+        helpstring("Remove a specific named stream from the collection")
+    ] 
+    HRESULT  RemoveStream([in] BSTR name);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(49),
+        helpstring("Flag indicating if file is Real-Time")
+    ] 
+    HRESULT  IsRealTime([out,ref,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(49),
+        helpstring("Flag indicating if file is Real-Time")
+    ] 
+    HRESULT  IsRealTime([in] VARIANT_BOOL newVal);
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation, nonextensible,
+    uuid(ED79BA56-5294-4250-8D46-F9AECEE23459),
+    helpstring("Named stream collection")
+] 
+interface IFsiNamedStreams : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_NEWENUM),
+        hidden, restricted,
+        helpstring("Get an enumerator for the named stream collection")
+    ] 
+    HRESULT  _NewEnum([out,ref,retval] IEnumVARIANT **NewEnum);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_VALUE),
+        helpstring("Get a named stream from the collection")
+    ] 
+    HRESULT  Item([in] LONG index, [out,ref,retval] IFsiFileItem2 **item);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(81),
+        helpstring("Number of named streams in the collection")
+    ] 
+    HRESULT  Count([out,ref,retval] LONG *count);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(82),
+        hidden,restricted,
+        helpstring("Get a non-variant enumerator for the named stream collection")
+    ] 
+    HRESULT  EnumNamedStreams([out,ref,retval] IEnumFsiItems **NewEnum);
+}
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(2C941FDC-975B-59BE-A960-9A2A262853A5),
+    helpstring("FileSystemImage directory item")
+] 
+interface IFsiDirectoryItem : IFsiItem 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_NEWENUM),
+        hidden, restricted,
+        helpstring("Get an enumerator for the collection")
+    ] 
+    HRESULT  _NewEnum([out,retval] IEnumVARIANT **NewEnum );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(DISPID_VALUE),
+        helpstring("Get the item with the given relative path")
+    ] 
+    HRESULT  Item([in] BSTR path, [out,retval] IFsiItem **item );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("Number of items in the collection")
+    ] 
+    HRESULT  Count([out,retval] LONG *Count);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(2),
+        hidden,restricted,
+        helpstring("Get a non-variant enumerator")
+    ] 
+    HRESULT  EnumFsiItems([out,retval] IEnumFsiItems **NewEnum );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(30),
+        helpstring("Add a directory with the specified relative path")
+    ] 
+    HRESULT  AddDirectory([in] BSTR path);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(31),
+        helpstring("Add a file with the specified relative path and data")
+    ] 
+    HRESULT  AddFile([in] BSTR path, [in] IStream *fileData);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(32),
+        helpstring("Add files and directories from the specified source directory")
+    ] 
+    HRESULT  AddTree([in] BSTR sourceDirectory, [in] VARIANT_BOOL includeBaseDirectory);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(33),
+        helpstring("Add an item")
+    ] 
+    HRESULT  Add([in] IFsiItem *item);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(34),
+        helpstring("Remove an item with the specified relative path")
+    ] 
+    HRESULT  Remove([in] BSTR path);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(35),
+        helpstring("Remove a subtree with the specified relative path")
+    ] 
+    HRESULT  RemoveTree([in] BSTR path);
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(F7FB4B9B-6D96-4d7b-9115-201B144811EF),
+    helpstring("FileSystemImage directory item (rev.2)")
+] 
+interface IFsiDirectoryItem2 : IFsiDirectoryItem
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(36),
+        helpstring("Add files and directories from the specified source directory"
+                   " including named streams")
+    ] 
+    HRESULT  AddTreeWithNamedStreams([in] BSTR sourceDirectory,
+                                     [in] VARIANT_BOOL includeBaseDirectory);
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(2C941FE1-975B-59BE-A960-9A2A262853A5),
+    helpstring("File system image")
+] 
+interface IFileSystemImage : IDispatch 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0),
+        helpstring("Root directory item")
+    ] 
+    HRESULT  Root([out,ref,retval] IFsiDirectoryItem **pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(1),
+        helpstring("Disc start block for the image")
+    ] 
+    HRESULT  SessionStartBlock([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(1),
+        helpstring("Disc start block for the image")
+    ] 
+    HRESULT  SessionStartBlock([in] LONG newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(2),
+        helpstring("Maximum number of blocks available for the image")
+    ] 
+    HRESULT  FreeMediaBlocks([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(2),
+        helpstring("Maximum number of blocks available for the image")
+    ] 
+    HRESULT  FreeMediaBlocks([in] LONG newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(36),
+        helpstring("Set maximum number of blocks available based on the recorder supported discs. 0 for unknown maximum may be set.")
+    ] 
+    HRESULT  SetMaxMediaBlocksFromDevice([in] IDiscRecorder2 *discRecorder);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(3),
+        helpstring("Number of blocks in use")
+    ] 
+    HRESULT  UsedBlocks([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(4),
+        helpstring("Volume name")
+    ] 
+    HRESULT  VolumeName([out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(4),
+        helpstring("Volume name")
+    ] 
+    HRESULT  VolumeName([in] BSTR newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(5),
+        helpstring("Imported Volume name")
+    ] 
+    HRESULT  ImportedVolumeName([out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(6),
+        helpstring("Boot image and boot options")
+    ] 
+    HRESULT  BootImageOptions([out,ref,retval] IBootOptions **pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(6),
+        helpstring("Boot image and boot options")
+    ] 
+    HRESULT  BootImageOptions([in] IBootOptions *newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(7),
+        helpstring("Number of files in the image")
+    ] 
+    HRESULT  FileCount([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(8),
+        helpstring("Number of directories in the image")
+    ] 
+    HRESULT  DirectoryCount([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(9),
+        helpstring("Temp directory for stash files")
+    ] 
+    HRESULT  WorkingDirectory([out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(9),
+        helpstring("Temp directory for stash files")
+    ] 
+    HRESULT  WorkingDirectory([in] BSTR newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(10),
+        helpstring("Change point identifier")
+    ] 
+    HRESULT  ChangePoint([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(11),
+        helpstring("Strict file system compliance option")
+    ] 
+    HRESULT  StrictFileSystemCompliance([out,ref,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(11),
+        helpstring("Strict file system compliance option")
+    ] 
+    HRESULT  StrictFileSystemCompliance([in] VARIANT_BOOL newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(12),
+        helpstring("If true, indicates restricted character set is being used for file and directory names")
+    ] 
+    HRESULT  UseRestrictedCharacterSet([out,ref,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(12),
+        helpstring("Set to true to restrict character set for file and directory names")
+    ] 
+    HRESULT  UseRestrictedCharacterSet([in] VARIANT_BOOL newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(13),
+        helpstring("File systems to create")
+    ] 
+    HRESULT  FileSystemsToCreate([out,ref,retval] FsiFileSystems *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(13),
+        helpstring("File systems to create")
+    ] 
+    HRESULT  FileSystemsToCreate([in] FsiFileSystems newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(14),
+        helpstring("File systems supported")
+    ] 
+    HRESULT  FileSystemsSupported([out,ref,retval] FsiFileSystems *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(37),
+        helpstring("UDF revision")
+    ] 
+    HRESULT  UDFRevision([in] LONG newVal);
+    
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(37),
+        helpstring("UDF revision")
+    ] 
+    HRESULT  UDFRevision([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(31),
+        helpstring("UDF revision(s) supported")
+    ] 
+    HRESULT  UDFRevisionsSupported([out,ref,retval] SAFEARRAY(VARIANT) *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(32),
+        helpstring("Select filesystem types and image size based on the current media")
+    ] 
+    HRESULT  ChooseImageDefaults([in] IDiscRecorder2 *discRecorder);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(33),
+        helpstring("Select filesystem types and image size based on the media type")
+    ] 
+    HRESULT  ChooseImageDefaultsForMediaType([in] IMAPI_MEDIA_PHYSICAL_TYPE value);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(34),
+        helpstring("ISO compatibility level to create")
+    ] 
+    HRESULT  ISO9660InterchangeLevel([in] LONG newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(34),
+        helpstring("ISO compatibility level to create")
+    ] 
+    HRESULT  ISO9660InterchangeLevel([out,ref,retval] LONG *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(38),
+        helpstring("ISO compatibility level(s) supported")
+    ] 
+    HRESULT  ISO9660InterchangeLevelsSupported([out,ref,retval] SAFEARRAY(VARIANT) *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(15),
+        helpstring("Create result image stream")
+    ] 
+    HRESULT  CreateResultImage([out,ref,retval] IFileSystemImageResult **resultStream );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(16),
+        helpstring("Check for existance an item in the file system")
+    ] 
+    HRESULT  Exists([in] BSTR fullPath, [out,ref,retval] FsiItemType *itemType);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(18),
+        helpstring("Return a string useful for identifying the current disc")
+    ] 
+    HRESULT  CalculateDiscIdentifier([out,ref,retval] BSTR *discIdentifier );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(19),
+        helpstring("Identify file systems on a given disc")
+    ] 
+    HRESULT  IdentifyFileSystemsOnDisc([in] IDiscRecorder2 *discRecorder, [out,ref,retval] FsiFileSystems *fileSystems);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(20),
+        helpstring("Identify which of the specified file systems would be imported by default")
+    ] 
+    HRESULT  GetDefaultFileSystemForImport([in] FsiFileSystems fileSystems, [out,ref,retval] FsiFileSystems *importDefault);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(21),
+        helpstring("Import the default file system on the current disc")
+    ] 
+    HRESULT  ImportFileSystem([out,ref,retval] FsiFileSystems *importedFileSystem);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(22),
+        helpstring("Import a specific file system on the current disc")
+    ] 
+    HRESULT  ImportSpecificFileSystem([in] FsiFileSystems fileSystemToUse);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(23),
+        helpstring("Roll back to the specified change point")
+    ] 
+    HRESULT  RollbackToChangePoint([in] LONG changePoint);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(24),
+        helpstring("Lock in changes")
+    ] 
+    HRESULT  LockInChangePoint();
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(25),
+        helpstring("Create a directory item with the specified name")
+    ] 
+    HRESULT  CreateDirectoryItem([in] BSTR name, [out,ref,retval] IFsiDirectoryItem **newItem );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(26),
+        helpstring("Create a file item with the specified name")
+    ] 
+    HRESULT  CreateFileItem([in] BSTR name, [out,ref,retval] IFsiFileItem **newItem );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(27),
+        helpstring("Volume name")
+    ] 
+    HRESULT  VolumeNameUDF([out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(28),
+        helpstring("Volume name")
+    ] 
+    HRESULT  VolumeNameJoliet([out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(29),
+        helpstring("Volume name")
+    ] 
+    HRESULT  VolumeNameISO9660([out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(30),
+        helpstring("Indicates whether or not IMAPI should stage the filesystem before the burn")
+    ] 
+    HRESULT  StageFiles([out,ref,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(30),
+        helpstring("Set to false to force IMAPI to not stage the filesystem prior to the burn")
+    ] 
+    HRESULT  StageFiles([in] VARIANT_BOOL newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(40),
+        helpstring("Get array of available multi-session interfaces.")
+    ] 
+    HRESULT  MultisessionInterfaces([out,ref,retval] SAFEARRAY(VARIANT) *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(40),
+        helpstring("Set array of available multi-session interfaces.")
+    ] 
+    HRESULT  MultisessionInterfaces([in] SAFEARRAY(VARIANT) newVal);
+};
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(D7644B2C-1537-4767-B62F-F1387B02DDFD),
+    helpstring("File system image (rev.2)")
+] 
+interface IFileSystemImage2 : IFileSystemImage 
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(60),
+        helpstring("Get boot options array for supporting multi-boot")
+    ] 
+    HRESULT  BootImageOptionsArray([out,ref,retval] SAFEARRAY(VARIANT) *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(60),
+        helpstring("Set boot options array for supporting multi-boot")
+    ] 
+    HRESULT  BootImageOptionsArray([in] SAFEARRAY(VARIANT) newVal);
+}
+
+[
+    object, pointer_default(unique),
+    dual, oleautomation,
+    uuid(7CFF842C-7E97-4807-8304-910DD8F7C051),
+    helpstring("File system image (rev.3)")
+] 
+interface IFileSystemImage3 : IFileSystemImage2
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(61),
+        helpstring("If true, indicates that UDF Metadata and Metadata Mirror "
+                   "files are truly redundant, i.e. reference different extents")
+    ] 
+    HRESULT  CreateRedundantUdfMetadataFiles([out,ref,retval] VARIANT_BOOL *pVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propput, id(61),
+        helpstring("Set to true to force UDF Metadata and Metadata Mirror files "
+                   "to be truly redundant, i.e. reference different extents")
+    ] 
+    HRESULT  CreateRedundantUdfMetadataFiles([in] VARIANT_BOOL newVal);
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(70),
+        helpstring("Probe if a specific file system on the disc is appendable through IMAPI")
+    ] 
+    HRESULT  ProbeSpecificFileSystem([in] FsiFileSystems fileSystemToProbe, [out,ref,retval] VARIANT_BOOL *isAppendable);
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#define DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE 0x100")
+[
+    object, nonextensible, 
+    oleautomation,
+    uuid(2C941FDF-975B-59BE-A960-9A2A262853A5),
+    pointer_default(unique),
+    helpstring("Provides notification of file system creation progress")
+]
+interface DFileSystemImageEvents : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x100),
+        helpstring("File Import Progress")
+    ]
+    HRESULT Update([in] IDispatch /* IFileSystemImage */ * object,
+                   [in] BSTR currentFile,
+                   [in] LONG copiedSectors,
+                   [in] LONG totalSectors);
+}
+
+cpp_quote("#define DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT 0x101")
+[
+    object, nonextensible, 
+    oleautomation,
+    uuid(D25C30F9-4087-4366-9E24-E55BE286424B),
+    pointer_default(unique),
+    helpstring("Provides notification of file system import progress")
+]
+interface DFileSystemImageImportEvents : IDispatch
+{
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x101),
+        helpstring("File System Import Progress")
+    ]
+    HRESULT UpdateImport([in] IDispatch /* IFileSystemImage3 */ *object,
+                         [in] FsiFileSystems fileSystem,
+                         [in] BSTR currentItem,
+                         [in] LONG importedDirectoryItems,
+                         [in] LONG totalDirectoryItems,
+                         [in] LONG importedFileItems,
+                         [in] LONG totalFileItems);
+}
+
+[
+    object,
+    uuid(6CA38BE5-FBBB-4800-95A1-A438865EB0D4),
+    pointer_default(unique),
+    helpstring("ISO Image Manager: Helper object for ISO image file manipulation")
+]
+interface IIsoImageManager : IDispatch
+{
+    //// PROPERTIES ////
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x100),
+        helpstring("Path to the ISO image file")
+    ]
+    HRESULT Path( [out,ref,retval] BSTR *pVal );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        propget, id(0x101),
+        helpstring("Stream from the ISO image")
+    ]
+    HRESULT Stream( [out,retval] IStream** data );
+
+    //// METHODS ////
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x200),
+        helpstring("Set path to the ISO image file, overwrites stream")
+    ]
+    HRESULT SetPath( [in] BSTR Val );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x201),
+        helpstring("Set stream from the ISO image, overwrites path")
+    ]
+    HRESULT SetStream( [in] IStream* data );
+
+    [ //////////////////////////////////////////////////////////////////////////
+        id(0x202),
+        helpstring("Validate if the ISO image file is a valid file")
+    ]
+    HRESULT Validate();
+}
+////////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("")
+cpp_quote("//")
+cpp_quote("// IMAPIv2 FileSystemImaging version information for TYPELib loading")
+cpp_quote("//")
+cpp_quote("#define IMAPI2FS_MajorVersion          1  " )
+cpp_quote("#define IMAPI2FS_MinorVersion          0  " )
+cpp_quote("#define IMAPI2FS_FullVersion_STR    \"1.0\"")
+cpp_quote("#define IMAPI2FS_FullVersion_WSTR  L\"1.0\"")
+
+[
+    version(1.0), 
+    uuid(2C941FD0-975B-59BE-A960-9A2A262853A5), 
+    helpstring("Microsoft IMAPI2 File System Image Creator") 
+]
+library IMAPI2FS
+{
+    importlib("stdole2.tlb");
+
+    interface DFileSystemImageEvents;
+    interface DFileSystemImageImportEvents;
+
+    [
+        uuid(2C941FCE-975B-59BE-A960-9A2A262853A5),
+        helpstring("Boot options")
+    ] 
+    coclass BootOptions 
+    {
+        [default]    interface IBootOptions;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FCD-975B-59BE-A960-9A2A262853A5),
+        helpstring("Stream")
+    ] 
+    coclass FsiStream {
+        [default]    interface IStream;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FCC-975B-59BE-A960-9A2A262853A5),
+        helpstring("FileSystemImage result stream")
+    ] 
+    coclass FileSystemImageResult {
+        [default]    interface IFileSystemImageResult2;
+                     interface IFileSystemImageResult;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FCB-975B-59BE-A960-9A2A262853A5),
+        helpstring("Progress item block mapping")
+    ] 
+    coclass ProgressItem {
+        [default]    interface IProgressItem;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FCA-975B-59BE-A960-9A2A262853A5),
+        helpstring("Progress item block mapping enumerator")
+    ] 
+    coclass EnumProgressItems {
+        [default]    interface IEnumProgressItems;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FC9-975B-59BE-A960-9A2A262853A5),
+        helpstring("Progress item block mapping collection")
+    ] 
+    coclass ProgressItems {
+        [default]    interface IProgressItems;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FC8-975B-59BE-A960-9A2A262853A5),
+        helpstring("Directory item")
+    ] 
+    coclass FsiDirectoryItem {
+        [default]    interface IFsiDirectoryItem2;
+                     interface IFsiDirectoryItem;
+                     interface IFsiItem;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FC7-975B-59BE-A960-9A2A262853A5),
+        helpstring("File item")
+    ] 
+    coclass FsiFileItem {
+        [default]    interface IFsiFileItem2;
+                     interface IFsiFileItem; 
+                     interface IFsiItem;
+    };
+
+    [
+        noncreatable,
+        uuid(2C941FC6-975B-59BE-A960-9A2A262853A5),
+        helpstring("FileSystemImage item enumerator")
+    ] 
+    coclass EnumFsiItems {
+        [default]    interface IEnumFsiItems;
+    };
+    
+    [
+        noncreatable,
+        uuid(C6B6F8ED-6D19-44b4-B539-B159B793A32D),
+        helpstring("Named stream collection")
+    ] 
+    coclass FsiNamedStreams {
+        [default]    interface IFsiNamedStreams;
+    };
+    
+    [
+        uuid(2C941FC5-975B-59BE-A960-9A2A262853A5),
+        helpstring("File system image")
+    ] 
+    coclass MsftFileSystemImage {
+        [default]               interface IFileSystemImage3;
+                                interface IFileSystemImage2;      
+        [default,source]        interface DFileSystemImageEvents;
+        [source]                interface DFileSystemImageImportEvents;
+                                interface IConnectionPointContainer;
+                                interface IFileSystemImage;
+    };
+
+    [
+        uuid(CEEE3B62-8F56-4056-869B-EF16917E3EFC),
+        helpstring("Microsoft IMAPIv2 Iso Image Manager"),
+    ]
+    coclass MsftIsoImageManager
+    {
+        [default] interface IIsoImageManager;
+    };
+
+    [
+        noncreatable,
+        uuid(B507CA27-2204-11DD-966A-001AA01BBC58),
+        helpstring("A range of LBAs")
+    ] 
+    coclass BlockRange {
+        [default]    interface IBlockRange;
+    };
+    [
+        noncreatable,
+        uuid(B507CA28-2204-11DD-966A-001AA01BBC58),
+        helpstring("A list of LBA ranges")
+    ] 
+    coclass BlockRangeList {
+        [default]    interface IBlockRangeList;
+    };
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

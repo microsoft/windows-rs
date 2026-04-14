@@ -1,0 +1,488 @@
+/*++ BUILD Version: 0001    // Increment this if a change has global effects
+
+Copyright (c) 2004 Microsoft Corporation
+
+Module Name:
+
+    mileffects.idl
+
+Abstract:
+
+    This module contains the public data structures and API definitions
+    needed for Effects.
+
+--*/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//import "wtypes.idl";
+//import "objidl.idl";
+import "oaidl.idl";
+import "ocidl.idl";
+import "wincodec.idl";
+
+cpp_quote("#if 0")
+// This is temporary work around to persuade
+// MIDL to allow forward declarations.
+typedef DWORD           MilPoint2D;
+typedef DWORD           MilRectD;
+typedef DWORD           MilMatrix3x2D;
+cpp_quote ("#endif")
+
+cpp_quote("#ifndef MILTYPES_DEFINED")
+cpp_quote("typedef struct MilRectD")
+cpp_quote("{")
+cpp_quote("    DOUBLE left;")
+cpp_quote("    DOUBLE top;")
+cpp_quote("    DOUBLE right;")
+cpp_quote("    DOUBLE bottom;")
+cpp_quote("} MilRectD;")
+cpp_quote("")
+cpp_quote("typedef struct MilPoint2D")
+cpp_quote("{")
+cpp_quote("    DOUBLE X;")
+cpp_quote("    DOUBLE Y;")
+cpp_quote("} MilPoint2D;")
+cpp_quote("")
+cpp_quote("typedef struct MilMatrix3x2D")
+cpp_quote("{")
+cpp_quote("    DOUBLE S_11;")
+cpp_quote("    DOUBLE S_12;")
+cpp_quote("    DOUBLE S_21;")
+cpp_quote("    DOUBLE S_22;")
+cpp_quote("    DOUBLE DX;")
+cpp_quote("    DOUBLE DY;")
+cpp_quote("} MilMatrix3x2D;")
+cpp_quote("#endif // MILTYPES_DEFINED")
+cpp_quote("")
+cpp_quote("typedef MilPoint2D MIL_2DPOINTD;")
+cpp_quote("")
+cpp_quote("#ifndef MILCORE_MIL_MATRIX3X2D_COMPAT_TYPEDEF")
+cpp_quote("")
+cpp_quote("typedef MilMatrix3x2D MIL_MATRIX3X2D;")
+cpp_quote("")
+cpp_quote("#define MILCORE_MIL_MATRIX3X2D_COMPAT_TYPEDEF")
+cpp_quote("#endif // MILCORE_MIL_MATRIX3X2D_COMPAT_TYPEDEF")
+cpp_quote("")
+
+[
+    uuid(5E90D980-A4B8-4f5d-B7C6-99B1452D03CD),
+    version(1.0),
+]
+library MILEffects
+{
+
+cpp_quote("#define MILBITMAPEFFECT_SDK_VERSION 0x01000000")
+
+//**********************************************************************
+// The following list of GUIDs are the official built-in effects.
+//**********************************************************************
+cpp_quote("DEFINE_GUID(CLSID_MILBitmapEffectGroup, 0xac9c1a9a, 0x7e18, 0x4f64, 0xac, 0x7e, 0x47, 0xcf, 0x7f, 0x05, 0x1e, 0x95);")
+cpp_quote("DEFINE_GUID(CLSID_MILBitmapEffectBlur, 0xa924df87, 0x225d, 0x4373, 0x8f, 0x5b, 0xb9, 0xe, 0xc8, 0x5a, 0xe3, 0xde);")
+cpp_quote("DEFINE_GUID(CLSID_MILBitmapEffectDropShadow, 0x459a3fbe, 0xd8ac, 0x4692, 0x87, 0x4b, 0x7a, 0x26, 0x57, 0x15, 0xaa, 0x16);")
+cpp_quote("DEFINE_GUID(CLSID_MILBitmapEffectOuterGlow, 0xe2161bdd, 0x7eb6, 0x4725, 0x9c, 0x0b, 0x8a, 0x2a, 0x1b, 0x4f, 0x06, 0x67);")
+cpp_quote("DEFINE_GUID(CLSID_MILBitmapEffectBevel, 0xfd361dbe, 0x6c9b, 0x4de0, 0x82, 0x90, 0xf6, 0x40, 0xc, 0x27, 0x37, 0xed);")
+cpp_quote("DEFINE_GUID(CLSID_MILBitmapEffectEmboss, 0xcd299846, 0x824f, 0x47ec, 0xa0, 0x07, 0x12, 0xaa, 0x76, 0x7f, 0x28, 0x16);")
+
+cpp_quote("extern STDMETHODIMP MILCreateBitmapEffectFactory(DWORD dwSDKVersion, IMILBitmapEffectFactory **ppFactory);")
+
+interface IMILBitmapEffectConnectorInfo;
+interface IMILBitmapEffectConnectionsInfo;
+interface IMILBitmapEffectConnections;
+interface IMILBitmapEffect;
+interface IMILBitmapEffectImpl;
+interface IMILBitmapEffectGroup;
+interface IMILBitmapEffectGroupImpl;
+interface IMILBitmapEffectRenderContext;
+interface IMILBitmapEffectRenderContextImpl;
+interface IMILBitmapEffectFactory;
+interface IMILBitmapEffectPrimitive;
+interface IMILBitmapEffectPrimitiveImpl;
+interface IMILBitmapEffects;
+interface IMILBitmapEffectConnector;
+interface IMILBitmapEffectInputConnector;
+interface IMILBitmapEffectOutputConnector;
+interface IMILBitmapEffectOutputConnectorImpl;
+interface IMILBitmapEffectInteriorInputConnector;
+interface IMILBitmapEffectInteriorOutputConnector;
+interface IMILBitmapEffectEvents;
+
+typedef [public] REFGUID REFWICPixelFormatGUID;
+typedef [public] GUID WICPixelFormatGUID;
+
+typedef [public] struct MILMatrixF
+{
+    DOUBLE        _11, _12, _13, _14;
+    DOUBLE        _21, _22, _23, _24;
+    DOUBLE        _31, _32, _33, _34;
+    DOUBLE        _41, _42, _43, _44;
+} MILMatrixF;
+
+/*=========================================================================*\
+    IMILBitmapEffectConnectorInfo -
+    This interface returns the information about a specific input/output
+    connector pin. Note, that this interface is implemented/used by the same
+    object that implements IMILBitmapEffectConnector and also by 3rd party
+    effects who rely on the default connection implementation (they use
+    this interface for describing what their default connectors should
+    look like).
+\*=========================================================================*/
+
+[
+   object,
+   uuid(F66D2E4B-B46B-42FC-859E-3DA0ECDB3C43)
+]
+interface IMILBitmapEffectConnectorInfo : IUnknown
+{
+    HRESULT GetIndex([out, retval] ULONG *puiIndex);
+    HRESULT GetOptimalFormat([out, retval] WICPixelFormatGUID *pFormat);
+    HRESULT GetNumberFormats([out, retval] ULONG *pulNumberFormats);
+    HRESULT GetFormat([in]ULONG ulIndex, [out, retval] WICPixelFormatGUID *pFormat);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectConnectionsInfo -
+    This interface is used to get information about what input/output pins
+    are exposed by an effect. If a 3rd party effect doesn't implement this
+    interface then a default implementation is provided which assumes that
+    there is 1 input and 1 output both of type 32bit RGBA.
+\*=========================================================================*/
+
+[
+   object,
+   uuid(476B538A-C765-4237-BA4A-D6A880FF0CFC)
+]
+interface IMILBitmapEffectConnectionsInfo : IUnknown
+{
+    HRESULT GetNumberInputs([out, retval] ULONG *puiNumInputs);
+    HRESULT GetNumberOutputs([out, retval] ULONG *puiNumOutputs);
+    HRESULT GetInputConnectorInfo([in] ULONG uiIndex, [out]IMILBitmapEffectConnectorInfo **ppConnectorInfo);
+    HRESULT GetOutputConnectorInfo([in] ULONG uiIndex, [out]IMILBitmapEffectConnectorInfo **ppConnectorInfo);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectConnections -
+    This interface is implemented by effects that want to implement their
+    own input/output connector pins. If an effect doesn't implement this
+    interface than the default connector pins are instantiated (which for
+    most uses is adequate).
+\*=========================================================================*/
+
+[
+    object,
+    uuid(C2B5D861-9B1A-4374-89B0-DEC4874D6A81)
+]
+interface IMILBitmapEffectConnections : IUnknown
+{
+    HRESULT GetInputConnector([in] ULONG uiIndex,
+                [out, retval] IMILBitmapEffectInputConnector **ppConnector);
+    HRESULT GetOutputConnector([in] ULONG uiIndex,
+                [out, retval] IMILBitmapEffectOutputConnector **ppConnector);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffect -
+    This interface is defined by the object that wraps all effects.
+    This wrapper object is automatically created by the effect's framework
+    provided the effect was instantiated through the IMILBitmapEffectFactory.
+    When you create your effect through the factory, the framework will
+    provide all the support necessary for handling of input/output connections,
+    caching, format conversion, and eventing. Otherwise, the writer of the effect
+    must implement this functionality themselves.
+\*=========================================================================*/
+
+[
+   object,
+   uuid(8A6FF321-C944-4A1B-9944-9954AF301258)
+]
+interface IMILBitmapEffect : IUnknown
+{
+    HRESULT GetOutput([in] ULONG uiIndex,
+                      [in] IMILBitmapEffectRenderContext *pContext,
+                      [out, retval] IWICBitmapSource **ppBitmapSource);    
+    HRESULT GetParentEffect([out, retval] IMILBitmapEffectGroup **ppParentEffect);
+    HRESULT SetInputSource([in] ULONG uiIndex, [in] IWICBitmapSource *pBitmapSource);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectImpl -
+    This interface contains all the methods that an implementor of an
+    object exposing IMILBitmapEffect must also implement. Clients of
+    effects should not access these methods.
+\*=========================================================================*/
+
+[
+   object,
+   uuid(CC2468F2-9936-47BE-B4AF-06B5DF5DBCBB)
+]
+interface IMILBitmapEffectImpl : IUnknown
+{
+    HRESULT IsInPlaceModificationAllowed([in] IMILBitmapEffectOutputConnector *pOutputConnector,
+                                         [out] VARIANT_BOOL *pfModifyInPlace);
+    HRESULT SetParentEffect([in] IMILBitmapEffectGroup *pParentEffect);
+    HRESULT GetInputSource([in] ULONG uiIndex, [out, retval] IWICBitmapSource **ppBitmapSource);
+    HRESULT GetInputSourceBounds([in] ULONG uiIndex, [out] MilRectD *pRect);
+    HRESULT GetInputBitmapSource([in] ULONG uiIndex,
+                                 [in] IMILBitmapEffectRenderContext *pRenderContext,
+                                 [in, out] VARIANT_BOOL *pfModifyInPlace,
+                                 [out, retval] IWICBitmapSource **ppBitmapSource);
+    HRESULT GetOutputBitmapSource([in] ULONG uiIndex,
+                                 [in] IMILBitmapEffectRenderContext *pRenderContext,
+                                 [in, out] VARIANT_BOOL *pfModifyInPlace,
+                                 [out, retval] IWICBitmapSource **ppBitmapSource);
+    HRESULT Initialize([in]IUnknown *pInner);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectFactory -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(33A9DF34-A403-4EC7-B07E-BC0682370845)
+]
+interface IMILBitmapEffectFactory : IUnknown
+{
+    HRESULT CreateEffect([in]const GUID *pguidEffect, [out] IMILBitmapEffect **ppEffect);
+    HRESULT CreateContext([out] IMILBitmapEffectRenderContext **ppContext);
+    HRESULT CreateEffectOuter([out] IMILBitmapEffect **ppEffect);
+};
+
+
+/*=========================================================================*\
+    IMILBitmapEffectRenderContext -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(12A2EC7E-2D33-44b2-B334-1ABB7846E390)
+]
+interface IMILBitmapEffectRenderContext : IUnknown
+{
+    HRESULT SetOutputPixelFormat([in] REFWICPixelFormatGUID format);
+    HRESULT GetOutputPixelFormat([out, retval] WICPixelFormatGUID *pFormat);
+    HRESULT SetUseSoftwareRenderer([in] VARIANT_BOOL fSoftware);
+    HRESULT SetInitialTransform([in] MILMatrixF *pMatrix);
+    HRESULT GetFinalTransform([out] MILMatrixF *pMatrix);
+    HRESULT SetOutputDPI([in] double dblDpiX, [in] double dblDpiY);
+    HRESULT GetOutputDPI([out] double *pdblDpiX, [out] double *pdblDpiY);
+    HRESULT SetRegionOfInterest([in] MilRectD *pRect);
+};
+
+
+/*=========================================================================*\
+    IMILBitmapEffectPrimitive -  
+    This interface is what is exposed by 3rd party effects. This is
+    the real effect (versus IMILBitmapEffect which is on the wrapper object).
+\*=========================================================================*/
+
+[
+   object,
+   uuid(67E31025-3091-4dfc-98D6-DD494551461D)
+]
+interface IMILBitmapEffectPrimitive : IUnknown
+{
+    HRESULT GetOutput([in] ULONG uiIndex,
+                      [in] IMILBitmapEffectRenderContext *pContext,
+                      [in, out] VARIANT_BOOL *pfModifyInPlace,
+                      [out, retval] IWICBitmapSource **ppBitmapSource);
+    HRESULT TransformPoint([in] ULONG uiIndex,
+                           [in, out] MilPoint2D *p,
+                           [in] VARIANT_BOOL fForwardTransform,
+                           [in] IMILBitmapEffectRenderContext *pContext,
+                           [out] VARIANT_BOOL *pfPointTransformed);
+    HRESULT TransformRect([in] ULONG uiIndex,
+                          [in, out] MilRectD *p,
+                          [in] VARIANT_BOOL fForwardTransform,
+                          [in] IMILBitmapEffectRenderContext *pContext);
+    HRESULT HasAffineTransform([in] ULONG uiIndex,
+                               [out] VARIANT_BOOL *pfAffine);
+    HRESULT HasInverseTransform([in] ULONG uiIndex,
+                                [out] VARIANT_BOOL *pfHasInverse);
+    HRESULT GetAffineMatrix([in] ULONG uiIndex,
+                            [in, out] MilMatrix3x2D *pMatrix);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffects -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(51AC3DCE-67C5-448b-9180-AD3EABDDD5DD)
+]
+interface IMILBitmapEffects : IUnknown
+{
+    HRESULT _NewEnum([out, retval] IUnknown **ppiuReturn);
+    [propget]
+    HRESULT Parent ([out, retval] IMILBitmapEffectGroup **ppEffect);
+    HRESULT Item(ULONG uindex, [out, retval] IMILBitmapEffect **ppEffect);
+    [propget]
+    HRESULT Count([out, retval] ULONG *puiCount);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectGroup -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(2F952360-698A-4ac6-81A1-BCFDF08EB8E8)
+]
+interface IMILBitmapEffectGroup : IUnknown
+{
+    HRESULT GetInteriorInputConnector([in] ULONG uiIndex, [out, retval] IMILBitmapEffectOutputConnector **ppConnector);
+    HRESULT GetInteriorOutputConnector([in] ULONG uiIndex, [out, retval] IMILBitmapEffectInputConnector **ppConnector);
+    HRESULT Add([in] IMILBitmapEffect *pEffect);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectConnector -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(F59567B3-76C1-4d47-BA1E-79F955E350EF)
+]
+interface IMILBitmapEffectConnector : IMILBitmapEffectConnectorInfo
+{
+    HRESULT IsConnected([out, retval] VARIANT_BOOL *pfConnected);
+    HRESULT GetBitmapEffect([out, retval] IMILBitmapEffect **ppEffect);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectInputConnector -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(A9B4ECAA-7A3C-45e7-8573-F4B81B60DD6C)
+]
+interface IMILBitmapEffectInputConnector : IMILBitmapEffectConnector
+{
+    HRESULT ConnectTo([in] IMILBitmapEffectOutputConnector *pConnector);
+    HRESULT GetConnection([out, retval] IMILBitmapEffectOutputConnector **ppConnector);
+};
+
+
+/*=========================================================================*\
+    IMILBitmapEffectOutputConnector -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(92957AAD-841B-4866-82EC-8752468B07FD)
+]
+interface IMILBitmapEffectOutputConnector : IMILBitmapEffectConnector
+{
+    HRESULT GetNumberConnections([out, retval] ULONG *puiNumberConnections);
+    HRESULT GetConnection([in] ULONG uiIndex, [out, retval] IMILBitmapEffectInputConnector **ppConnection);
+};
+
+[
+   object,
+   uuid(00BBB6DC-ACC9-4bfc-B344-8BEE383DFEFA)
+]
+interface IMILBitmapEffectInteriorOutputConnector : IUnknown
+{
+    HRESULT GetOutputConnector([out, retval] IMILBitmapEffectOutputConnector **pOutputConnector);
+};
+
+[
+   object,
+   uuid(20287E9E-86A2-4e15-953D-EB1438A5B842)
+]
+interface IMILBitmapEffectInteriorInputConnector : IUnknown
+{
+    HRESULT GetInputConnector([out, retval] IMILBitmapEffectInputConnector **pInputConnector);
+};
+
+
+/*=========================================================================*\
+    IMILBitmapEffectEvents -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(2E880DD8-F8CE-457b-8199-D60BB3D7EF98)
+]
+interface IMILBitmapEffectEvents : IUnknown
+{
+    HRESULT PropertyChange([in] IMILBitmapEffect *pEffect, [in] BSTR bstrPropertyName);
+    HRESULT DirtyRegion([in] IMILBitmapEffect *pEffect, [in] MilRectD *pRect);
+};
+
+/* Interfaces Needed for Developers of Effects
+    The following section defines the interfaces that are exposed by effects but are only useful to developers of effects or the effect system (i.e. by Connector objects).
+*/
+
+
+/*=========================================================================*\
+    IMILBitmapEffectRenderContextImpl -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(4D25ACCB-797D-4fd2-B128-DFFEFF84FCC3)
+]
+interface IMILBitmapEffectRenderContextImpl : IUnknown
+{
+    HRESULT GetUseSoftwareRenderer([out, retval] VARIANT_BOOL *pfSoftware);
+    HRESULT GetTransform([in, out] MILMatrixF *pMatrix);
+    HRESULT UpdateTransform([in] MILMatrixF *pMatrix);
+    HRESULT GetOutputBounds([in, out] MilRectD *pRect);
+    HRESULT UpdateOutputBounds([in] MilRectD *pRect);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectPrimitiveImpl -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(CE41E00B-EFA6-44e7-B007-DD042E3AE126)
+]
+interface IMILBitmapEffectPrimitiveImpl : IUnknown
+{
+    HRESULT IsDirty([in] ULONG uiOutputIndex, [out, retval] VARIANT_BOOL *pfDirty);
+    HRESULT IsVolatile([in] ULONG uiOutputIndex, [out, retval] VARIANT_BOOL *pfVolatile);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectGroupImpl -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(78FED518-1CFC-4807-8B85-6B6E51398F62)
+]
+interface IMILBitmapEffectGroupImpl : IUnknown
+{
+    HRESULT Preprocess([in] IMILBitmapEffectRenderContext *pContext);
+    HRESULT GetNumberChildren([out, retval] ULONG *puiNumberChildren);
+    HRESULT GetChildren([out, retval] IMILBitmapEffects **pChildren);
+};
+
+/*=========================================================================*\
+    IMILBitmapEffectOutputConnectorImpl -  
+\*=========================================================================*/
+
+[
+   object,
+   uuid(21FAE777-8B39-4bfa-9F2D-F3941ED36913)
+]
+interface IMILBitmapEffectOutputConnectorImpl : IUnknown
+{
+    HRESULT AddBackLink([in] IMILBitmapEffectInputConnector *pConnection);
+    HRESULT RemoveBackLink([in] IMILBitmapEffectInputConnector *pConnection);
+};
+
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

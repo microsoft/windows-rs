@@ -1,0 +1,126 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ieautomation.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include <olectl.h>
+import "ocidl.idl";
+
+typedef
+[
+    uuid(44EC9B57-DCAB-4CDE-B373-EE94962950E3),
+    helpstring("Constants for InternetExlorerManager's Configuration")
+]
+
+// By default regardless of which enum is set, CLSID_InternetExplorerManager is always:
+// - no frame merging
+// - isolated from CLSID_InternetExplorer and other IE instances
+// - TabProcGrowth = 1
+// - always run in non-EPM mode
+enum INTERNETEXPLORERCONFIGURATION {
+    // INTERNETEXPLORERCONFIGURATION_HOST will have:
+    // - disable first run dialog and welcome page
+    // - disable crash and hang recover
+    // - disable toolbar and bho
+    // - only accept pszUrl as NULL and always return a low-IL webbrowser instance 
+    INTERNETEXPLORERCONFIGURATION_HOST      = 0x0001,
+
+    // INTERNETEXPLORERCONFIGURATION_WEB_DRIVER is unused.
+    INTERNETEXPLORERCONFIGURATION_WEB_DRIVER = 0x0002,
+
+    // INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE is unused.
+    INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE = 0x0004,
+} INTERNETEXPLORERCONFIGURATION;
+
+[
+    object,
+    uuid(3CAA826A-9B1F-4A79-BC81-F0430DED1648), // IID_IEnumManagerFrames
+    helpstring("IEnumManagerFrames Interface"),
+    pointer_default(unique)
+]
+interface IEnumManagerFrames : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] HWND ** ppWindows,
+        [out] ULONG * pceltFetched);
+
+    HRESULT Count(
+        [out] ULONG * pcelt);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumManagerFrames ** ppEnum);
+};
+
+[
+    object,
+    uuid(ACC84351-04FF-44F9-B23F-655ED168C6D5), // IID_IInternetExplorerManager
+    helpstring("IInternetExplorerManager Interface"),
+    pointer_default(unique)
+]
+interface IInternetExplorerManager : IUnknown
+{
+    // CreateObject will create a browser object based on the dwConfig and the URL
+    HRESULT CreateObject([in] DWORD dwConfig,                   // INTERNETEXPLORERCONFIGURATION enumeration
+                         [in, unique, string] LPCWSTR pszURL,   // The url that likely to be navigated to
+                         [in] REFIID riid,                      // Interface identifier
+                         [out, iid_is(riid)] void **ppv);       // Get the point to the object instance
+};
+
+[
+    object,
+    uuid(DFBB5136-9259-4895-B4A7-C1934429919A),
+    helpstring("IInternetExplorerManager2 Interface"),
+    pointer_default(unique)
+]
+interface IInternetExplorerManager2 : IUnknown
+{
+    HRESULT EnumFrameWindows([out] IEnumManagerFrames ** ppEnum);
+};
+
+[
+	uuid( CFCAFE7B-E20E-41B0-B27E-D62F6A36FED0 ),
+	version( 1.0 ),
+	helpstring( "InternetExplorerAutomation 1.0 Type Library")
+]
+library InternetExplorerAutomationLib
+{
+    [
+        uuid(DF4FCC34-067A-4E0A-8352-4A1A5095346E), // CLSID_InternetExplorerManager
+        helpstring("Internet Explorer Manager"),
+    ]
+    coclass InternetExplorerManager
+    {
+        [default]         interface     IInternetExplorerManager;
+                          interface     IInternetExplorerManager2;
+    };
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

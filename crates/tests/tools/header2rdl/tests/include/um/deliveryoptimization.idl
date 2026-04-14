@@ -1,0 +1,150 @@
+//+-------------------------------------------------------------------------
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//+-------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("")
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+#endif
+
+typedef struct _DO_DOWNLOAD_RANGE
+{
+    UINT64 Offset;
+    UINT64 Length;
+} DO_DOWNLOAD_RANGE;
+
+typedef struct _DO_DOWNLOAD_RANGES_INFO
+{
+    UINT RangeCount;
+    [size_is(RangeCount)] DO_DOWNLOAD_RANGE Ranges[];
+} DO_DOWNLOAD_RANGES_INFO;
+
+typedef enum _DODownloadState
+{
+    DODownloadState_Created = 0,     // download object is created but hasn't been started yet
+    DODownloadState_Transferring,    // download is in progress
+    DODownloadState_Transferred,     // download is transferred (can start again)
+    DODownloadState_Finalized,       // download is finalized (cannot be started again)
+    DODownloadState_Aborted,         // download is aborted
+    DODownloadState_Paused,          // download has been paused on demand or due to (transient) error
+} DODownloadState;
+
+typedef struct _DO_DOWNLOAD_STATUS
+{
+    UINT64 BytesTotal;
+    UINT64 BytesTransferred;
+    DODownloadState State;
+    HRESULT Error;
+    HRESULT ExtendedError;
+} DO_DOWNLOAD_STATUS;
+
+typedef enum _DODownloadCostPolicy
+{
+    DODownloadCostPolicy_Always = 0,    // download runs regardless of the cost
+    DODownloadCostPolicy_Unrestricted,  // download runs unless imposes costs or traffic limits
+    DODownloadCostPolicy_Standard,      // download runs unless neither subject to a surcharge nor near exhaustion
+    DODownloadCostPolicy_NoRoaming,     // download runs unless that connectivity is subject to roaming surcharges
+    DODownloadCostPolicy_NoSurcharge,   // download runs unless subject to a surcharge
+    DODownloadCostPolicy_NoCellular,    // deprecated, use DODownloadProperty_DisallowOnCellular instead
+} DODownloadCostPolicy;
+
+typedef enum _DODownloadProperty
+{
+    DODownloadProperty_Id = 0,                    // [VT_BSTR] read-only ID to uniquely identify the download
+    DODownloadProperty_Uri,                       // [VT_BSTR] remote URI path (required if content ID isn't provided)
+    DODownloadProperty_ContentId,                 // [VT_BSTR] download content ID (required if URI isn't provided)
+    DODownloadProperty_DisplayName,               // [VT_BSTR] download display name
+    DODownloadProperty_LocalPath,                 // [VT_BSTR] Local path (may not exist, and DO will attempt to create it under the caller's token)
+    DODownloadProperty_HttpCustomHeaders,         // [VT_BSTR] custom HTTP request headers
+    DODownloadProperty_CostPolicy,                // [VT_UI4] one of the DODownloadCostPolicy values
+    DODownloadProperty_SecurityFlags,             // [VT_UI4] WinHTTP security flags
+    DODownloadProperty_CallbackFreqPercent,       // [VT_UI4] callback frequency calls based on percentage
+    DODownloadProperty_CallbackFreqSeconds,       // [VT_UI4] callback frequency calls based on seconds (default: 1 second)
+    DODownloadProperty_NoProgressTimeoutSeconds,  // [VT_UI4] DO timeout length for no download progress (min value: 60 sec and 0 is DO default)
+    DODownloadProperty_ForegroundPriority,        // [VT_BOOL] foreground download (background is the default)
+    DODownloadProperty_BlockingMode,              // [VT_BOOL] blocking mode - Start() will block until download is complete/error
+    DODownloadProperty_CallbackInterface,         // [VT_UNKNOWN] IDODownloadStatusCallback* for download callbacks
+    DODownloadProperty_StreamInterface,           // [VT_UNKNOWN] IStream* for direct streaming
+    DODownloadProperty_SecurityContext,           // [VT_ARRAY | VT_UI1] bytes safe array of a serialized CERT_CONTEXT
+    DODownloadProperty_NetworkToken,              // [VT_BOOL] network token to be used during HTTP operations (set false to clear the token)
+    DODownloadProperty_CorrelationVector,         // [VT_BSTR] CV
+    DODownloadProperty_DecryptionInfo,            // [VT_BSTR] decryption info [can't be read], serialized json
+    DODownloadProperty_IntegrityCheckInfo,        // [VT_BSTR] PHF [can't be read], serialized json
+    DODownloadProperty_IntegrityCheckMandatory,   // [VT_BOOL] PHF boolean
+    DODownloadProperty_TotalSizeBytes,            // [VT_UI8] download size
+    // Added in 2020-H2 (Iron)
+    DODownloadProperty_DisallowOnCellular,        // [VT_BOOL] don't download on cellular, regardless of cost policy
+    DODownloadProperty_HttpCustomAuthHeaders,     // [VT_BSTR] custom HTTPS headers used when challenged
+    // Added in 2021-H2 (Nickel)
+    DODownloadProperty_HttpAllowSecureToNonSecureRedirect,  // [VT_BOOL] https to http redirection (default: FALSE)
+    DODownloadProperty_NonVolatile,               // [VT_BOOL] save download info to registry (default: FALSE)
+    // Added in 2023-H2 (Germanium)
+    DODownloadProperty_HttpRedirectionTarget,     // [VT_BSTR] [read-only] URL to which the download was redirected, if any
+    DODownloadProperty_HttpResponseHeaders,       // [VT_BSTR] [read-only] Response headers for the last HTTP response
+    DODownloadProperty_HttpServerIPAddress,       // [VT_BSTR] [read-only] Server IP Address for the last HTTP response
+    DODownloadProperty_HttpStatusCode,            // [VT_UI4] [read-only] Status code for the last HTTP response
+} DODownloadProperty;
+
+typedef struct _DO_DOWNLOAD_ENUM_CATEGORY
+{
+    DODownloadProperty Property;
+    LPCWSTR Value;
+} DO_DOWNLOAD_ENUM_CATEGORY;
+
+[ object, uuid(FBBD7FC0-C147-4727-A38D-827EF071EE77) ]
+interface IDODownload : IUnknown
+{
+    HRESULT Start([in, unique] const DO_DOWNLOAD_RANGES_INFO *ranges);
+    HRESULT Pause();
+    HRESULT Abort();
+    HRESULT Finalize();
+    HRESULT GetStatus([out] DO_DOWNLOAD_STATUS *status);
+    HRESULT GetProperty([in] DODownloadProperty propId, [out] VARIANT* propVal);
+    HRESULT SetProperty([in] DODownloadProperty propId, [in] const VARIANT* propVal);
+}
+
+[ object, uuid(D166E8E3-A90E-4392-8E87-05E996D3747D) ]
+interface IDODownloadStatusCallback : IUnknown
+{
+    HRESULT OnStatusChange([in] IDODownload *download, [in] const DO_DOWNLOAD_STATUS *status);
+}
+
+[ object, uuid(400E2D4A-1431-4C1A-A748-39CA472CFDB1) ]
+interface IDOManager : IUnknown
+{
+    HRESULT CreateDownload([out] IDODownload **download);
+    HRESULT EnumDownloads([in, unique] const DO_DOWNLOAD_ENUM_CATEGORY *category, [out] IEnumUnknown **ppEnum);
+}
+
+[uuid(6a1fae95-21b8-46c4-a0c9-5d5fae106ef0)]
+library DeliveryOptimization
+{
+    [uuid(5b99fa76-721c-423c-adac-56d03c8a8007)]
+    coclass DeliveryOptimization
+    {
+        interface IDOManager;
+    };
+}
+
+cpp_quote("#define DO_LENGTH_TO_EOF     (UINT64)(-1)")
+cpp_quote("")
+cpp_quote("#define DecryptionInfo_KeyData               L\"KeyData\"")
+cpp_quote("#define DecryptionInfo_EncryptionBufferSize  L\"EncryptionBufferSize\"")
+cpp_quote("#define DecryptionInfo_AlgorithmName         L\"AlgorithmName\"")
+cpp_quote("#define DecryptionInfo_ChainingMode          L\"ChainingMode\"")
+cpp_quote("")
+cpp_quote("#define IntegrityCheckInfo_PiecesHashFileUrl             L\"PiecesHashFileUrl\"")
+cpp_quote("#define IntegrityCheckInfo_PiecesHashFileDigest          L\"PiecesHashFileDigest\"")
+cpp_quote("#define IntegrityCheckInfo_PiecesHashFileDigestAlgorithm L\"PiecesHashFileDigestAlgorithm\"")
+cpp_quote("#define IntegrityCheckInfo_HashOfHashes                  L\"HashOfHashes\"")
+cpp_quote("")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/3"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/3"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:desktop3="http://schemas.microsoft.com/appx/manifest/desktop/windows10/3"
+           xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:cloudfiles2="http://schemas.microsoft.com/appx/manifest/cloudfiles/windows10/2"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/cloudfiles/windows10/2"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="CloudFiles" type="CT_CloudFiles"/>
+        <xs:element name="AutoPlayHandler" type="CT_AutoPlayHandler"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Desktop3" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_CloudFiles">
+    <xs:all minOccurs="0">
+      <xs:element name="CustomStateHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="ThumbnailProviderHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="ExtendedPropertyHandler" type="CT_CloudFilesHandler" />
+      <xs:element name="BannersHandler" type="CT_CloudFilesHandler" />
+      <xs:element ref="desktop4:ContentUriSource" minOccurs="0"/>
+      <xs:element name="CloudFilesContextMenus" type="CT_CloudFilesContextMenus" />
+      <xs:element ref="desktop4:DesktopIconOverlayHandlers" minOccurs="0"/>
+      <xs:element ref="cloudfiles2:StorageProviderStatusUISourceFactory" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="IconResource" type="t:ST_ImageFile"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CloudFilesHandler">
+    <xs:attribute name="Clsid" type="t:ST_GUID"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CloudFilesContextMenus">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Verb" maxOccurs="10000">
+        <xs:complexType>
+          <xs:attribute name="Id" type="t:ST_FileTypeAssociationSupportedVerbId" use="required" />
+          <xs:attribute name="Clsid" type="t:ST_GUID"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AutoPlayHandler">
+    <xs:sequence minOccurs="0" maxOccurs="1000">
+      <xs:element name="InvokeAction">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="1000">
+            <xs:element name="Content" type="CT_Content"/>
+            <xs:element name="Device" type="CT_Device"/>
+          </xs:choice>
+          <xs:attribute name="ActionDisplayName" type="t:ST_DisplayName" use="required"/>
+          <xs:attribute name="ProviderDisplayName" type="t:ST_DisplayName" use="required"/>
+          <xs:attribute name="DefaultIcon" type="t:ST_FileName"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Content">
+    <xs:attribute name="ContentEvent" type="t:ST_AutoPlayEvent" use="required"/>
+    <xs:attribute name="Verb" type="t:ST_AutoPlayVerb" use="required"/>
+    <xs:attribute name="DropTargetHandler" type="t:ST_GUID"/>
+    <xs:attribute name="Parameters" type="t:ST_NonEmptyString"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Device">
+    <xs:attribute name="DeviceEvent" type="t:ST_AutoPlayEvent" use="required"/>
+    <xs:attribute name="HWEventHandler" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="InitCmdLine" type="t:ST_NonEmptyString"/>
+  </xs:complexType>
+
+  <xs:element name="PropertyLists">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="2">
+        <xs:element name="PropertyList">
+          <xs:complexType>
+            <xs:attribute name="Property" type="ST_Property" use="required"/>
+            <xs:attribute name="Value" type="t:ST_NonEmptyString" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="PropertyList_Property">
+      <xs:selector xpath="desktop3:PropertyList"/>
+      <xs:field xpath="@Property"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:simpleType name="ST_Property">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fullDetails"/>
+      <xs:enumeration value="previewDetails"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
+

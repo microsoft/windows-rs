@@ -1,0 +1,143 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			dbsrst.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a7b-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IDBSchemaRowset : IUnknown {
+
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_ASSERTIONS                      3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_CATALOGS                        1")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_CHARACTER_SETS                  3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_COLLATIONS                      3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_COLUMNS                         4")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS               3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_CONSTRAINT_COLUMN_USAGE         4")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_CONSTRAINT_TABLE_USAGE          3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_KEY_COLUMN_USAGE                7")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_REFERENTIAL_CONSTRAINTS         3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TABLE_CONSTRAINTS               7")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_COLUMN_DOMAIN_USAGE             4")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_INDEXES                         5")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_OBJECT_ACTIONS                  1")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_OBJECTS                         1")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_COLUMN_PRIVILEGES               6")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TABLE_PRIVILEGES                5")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_USAGE_PRIVILEGES                6")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_PROCEDURES                      4")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_SCHEMATA                        3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_SQL_LANGUAGES                   0")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_STATISTICS                      3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TABLES                          4")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TRANSLATIONS                    3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_PROVIDER_TYPES                  2")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_VIEWS                           3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_VIEW_COLUMN_USAGE               3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_VIEW_TABLE_USAGE                3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_PROCEDURE_PARAMETERS            4")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_FOREIGN_KEYS                    6")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_PRIMARY_KEYS                    3")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_PROCEDURE_COLUMNS               4")
+
+// VERSION 2.0
+cpp_quote("//@@@+ V2.0")
+cpp_quote("#if( OLEDBVER >= 0x0200 )")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TABLES_INFO                     4")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_CUBES                           3")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_DIMENSIONS                      5")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_HIERARCHIES                     6")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_LEVELS                          7")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_MEASURES                        5")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_PROPERTIES                      9")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_MEMBERS                         12")
+cpp_quote("#endif // OLEDBVER >= 0x0200")
+cpp_quote("//@@@- V2.0")
+
+cpp_quote("//@@@+ V2.1")
+cpp_quote("#if( OLEDBVER >= 0x0210 )")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TRUSTEE		                  4")
+cpp_quote("#endif // OLEDBVER >= 0x0210")
+cpp_quote("//@@@- V2.1")
+
+cpp_quote("//@@@+ V2.6")
+cpp_quote("#if( OLEDBVER >= 0x0260 )")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_TABLE_STATISTICS                7")
+cpp_quote("#define CRESTRICTIONS_DBSCHEMA_CHECK_CONSTRAINTS_BY_TABLE      6")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_FUNCTIONS						  4")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_ACTIONS						  8")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_COMMANDS					      5")
+cpp_quote("#define CRESTRICTIONS_MDSCHEMA_SETS							  5")
+cpp_quote("#endif // OLEDBVER >= 0x0260")
+cpp_quote("//@@@- V2.6")
+
+	[local]
+	HRESULT GetRowset(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in] REFGUID rguidSchema,
+		[in] ULONG cRestrictions,
+		[in, size_is(cRestrictions), annotation("_In_reads_opt_(cRestrictions)")]
+			const VARIANT rgRestrictions[],
+		[in, annotation("_In_")] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, out, unique, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")]
+			DBPROPSET rgPropertySets[],
+		[out, iid_is(riid), annotation("_Outptr_result_maybenull_")]
+			IUnknown ** ppRowset
+	);
+
+	[call_as(GetRowset)]
+	HRESULT RemoteGetRowset(
+		[in] IUnknown * pUnkOuter,
+		[in] REFGUID rguidSchema,
+		[in] ULONG cRestrictions,
+		[in, unique, size_is(cRestrictions)] const VARIANT * rgRestrictions,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[out, iid_is(riid)] IUnknown ** ppRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetSchemas(
+		[in, out, annotation("_Out_")] ULONG * pcSchemas,
+		[out, size_is(,*pcSchemas), annotation("_Outptr_result_buffer_maybenull_(*pcSchemas)")] GUID ** prgSchemas,
+		[out, size_is(,*pcSchemas), annotation("_Outptr_result_buffer_maybenull_(*pcSchemas)")] ULONG ** prgRestrictionSupport
+	);
+
+	[call_as(GetSchemas)]
+	HRESULT RemoteGetSchemas(
+		[in, out] ULONG * pcSchemas,
+		[out, size_is(,*pcSchemas)] GUID ** prgSchemas,
+		[out, size_is(,*pcSchemas)] ULONG ** prgRestrictionSupport,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

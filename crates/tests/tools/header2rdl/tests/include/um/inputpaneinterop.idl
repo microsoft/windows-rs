@@ -1,0 +1,30 @@
+/*  InputPaneInterop.idl
+*
+* IDL defines for COM APIs to support interop with Windows.UI.ViewManagement.CInputPaneEventSourceFactory
+*
+* Copyright (c) Microsoft Corporation. All rights reserved
+*/
+
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS1)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(75CF2C57-9195-4931-8332-F0B409E916AF),
+]
+interface IInputPaneInterop : IInspectable
+{
+    // create an instance of InputPane inited with the hwnd
+    HRESULT GetForWindow([in] HWND appWindow, [in] REFIID riid,
+        [out, retval, iid_is(riid)] void** inputPane);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS1)")

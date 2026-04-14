@@ -1,0 +1,1039 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Public Interfaces for DXVA2
+//
+// Copyright (c) 1999 - 2005, Microsoft Corporation.  All rights reserved.
+///////////////////////////////////////////////////////////////////////////////
+
+import "unknwn.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("//")
+cpp_quote("//   The following declarations within the 'if 0' block are dummy typedefs used to make")
+cpp_quote("//   the evr.idl file build. The actual definitions are contained in d3d9.h")
+cpp_quote("//")
+cpp_quote("#if 0")
+
+typedef DWORD IDirect3DDevice9;
+typedef DWORD IDirect3DSurface9;
+
+typedef DWORD D3DFORMAT;
+typedef DWORD D3DPOOL;
+
+cpp_quote("#endif")
+
+cpp_quote("#ifndef DXVA2_API_DEFINED")
+cpp_quote("#define DXVA2_API_DEFINED")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//=============================================================================
+// Description:
+//
+//  Decode guids potentially supported by the underlying device hardware.
+//
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG2_MoComp, 0xe6a9f44b, 0x61b0, 0x4563,0x9e,0xa4,0x63,0xd2,0xa3,0xc6,0xfe,0x66);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG2_IDCT,   0xbf22ad00, 0x03ea, 0x4690,0x80,0x77,0x47,0x33,0x46,0x20,0x9b,0x7e);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG2_VLD,    0xee27417f, 0x5e28, 0x4e65,0xbe,0xea,0x1d,0x26,0xb5,0x08,0xad,0xc9);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG1_VLD,    0x6f3ec719, 0x3735, 0x42cc,0x80,0x63,0x65,0xcc,0x3c,0xb3,0x66,0x16);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG2and1_VLD,0x86695f12, 0x340e, 0x4f04,0x9f,0xd3,0x92,0x53,0xdd,0x32,0x74,0x60);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_A,  0x1b81be64, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_B,  0x1b81be65, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_C,  0x1b81be66, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_D,  0x1b81be67, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_E,  0x1b81be68, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_F,  0x1b81be69, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_VLD_WithFMOASO_NoFGT,  0xd5f04ff9, 0x3418,0x45d8,0x95,0x61,0x32,0xa7,0x6a,0xae,0x2d,0xdd);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_VLD_Stereo_Progressive_NoFGT, 0xd79be8da, 0x0cf1,0x4c81,0xb8,0x2a,0x69,0xa4,0xe2,0x36,0xf4,0x3d);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_VLD_Stereo_NoFGT,             0xf9aaccbb, 0xc2b6,0x4cfc,0x87,0x79,0x57,0x07,0xb1,0x76,0x05,0x52);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeH264_VLD_Multiview_NoFGT,          0x705b9d82, 0x76cf,0x49d6,0xb7,0xe6,0xac,0x88,0x72,0xdb,0x01,0x3c);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeWMV8_A,  0x1b81be80, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeWMV8_B,  0x1b81be81, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeWMV9_A,  0x1b81be90, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeWMV9_B,  0x1b81be91, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeWMV9_C,  0x1b81be94, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_A,   0x1b81beA0, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_B,   0x1b81beA1, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_C,   0x1b81beA2, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_D,   0x1b81beA3, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeVC1_D2010,0x1b81beA4, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+
+cpp_quote("DEFINE_GUID(DXVA2_NoEncrypt,   0x1b81beD0, 0xa0c7,0x11d3,0xb9,0x84,0x00,0xc0,0x4f,0x2e,0x73,0xc5);")
+
+cpp_quote("DEFINE_GUID(DXVA2_VideoProcProgressiveDevice, 0x5a54a0c9,0xc7ec,0x4bd9,0x8e,0xde,0xf3,0xc7,0x5d,0xc4,0x39,0x3b);")
+cpp_quote("DEFINE_GUID(DXVA2_VideoProcBobDevice,         0x335aa36e,0x7884,0x43a4,0x9c,0x91,0x7f,0x87,0xfa,0xf3,0xe3,0x7e);")
+cpp_quote("DEFINE_GUID(DXVA2_VideoProcSoftwareDevice,    0x4553d47f,0xee7e,0x4e3f,0x94,0x75,0xdb,0xf1,0x37,0x6c,0x48,0x10);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG4pt2_VLD_Simple,           0xefd64d74, 0xc9e8,0x41d7,0xa5,0xe9,0xe9,0xb0,0xe3,0x9f,0xa3,0x19);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG4pt2_VLD_AdvSimple_NoGMC,  0xed418a9f, 0x010d,0x4eda,0x9a,0xe3,0x9a,0x65,0x35,0x8d,0x8d,0x2e);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeMPEG4pt2_VLD_AdvSimple_GMC,    0xab998b5b, 0x4258,0x44a9,0x9f,0xeb,0x94,0xe5,0x97,0xa6,0xba,0xae);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeHEVC_VLD_Main,    0x5b11d51b, 0x2f4c,0x4452,0xbc,0xc3,0x09,0xf2,0xa1,0x16,0x0c,0xc0);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeHEVC_VLD_Main10,  0x107af0e0, 0xef1a,0x4d19,0xab,0xa8,0x67,0xa1,0x63,0x07,0x3d,0x13);")
+
+cpp_quote("DEFINE_GUID(DXVA2_ModeVP9_VLD_Profile0,       0x463707f8, 0xa1d0, 0x4585, 0x87, 0x6d, 0x83, 0xaa, 0x6d, 0x60, 0xb8, 0x9e);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeVP9_VLD_10bit_Profile2, 0xa4c749ef, 0x6ecf, 0x48aa, 0x84, 0x48, 0x50, 0xa7, 0xa1, 0x16, 0x5f, 0xf7);")
+cpp_quote("DEFINE_GUID(DXVA2_ModeVP8_VLD,                0x90b899ea, 0x3a62, 0x4705, 0x88, 0xb3, 0x8d, 0xf0, 0x4b, 0x27, 0x44, 0xe7);")
+
+cpp_quote("#define DXVA2_ModeMPEG2_MOCOMP      DXVA2_ModeMPEG2_MoComp")
+
+cpp_quote("#define DXVA2_ModeWMV8_PostProc     DXVA2_ModeWMV8_A")
+cpp_quote("#define DXVA2_ModeWMV8_MoComp       DXVA2_ModeWMV8_B")
+
+cpp_quote("#define DXVA2_ModeWMV9_PostProc     DXVA2_ModeWMV9_A")
+cpp_quote("#define DXVA2_ModeWMV9_MoComp       DXVA2_ModeWMV9_B")
+cpp_quote("#define DXVA2_ModeWMV9_IDCT         DXVA2_ModeWMV9_C")
+
+cpp_quote("#define DXVA2_ModeVC1_PostProc      DXVA2_ModeVC1_A")
+cpp_quote("#define DXVA2_ModeVC1_MoComp        DXVA2_ModeVC1_B")
+cpp_quote("#define DXVA2_ModeVC1_IDCT          DXVA2_ModeVC1_C")
+cpp_quote("#define DXVA2_ModeVC1_VLD           DXVA2_ModeVC1_D")
+
+cpp_quote("#define DXVA2_ModeH264_MoComp_NoFGT DXVA2_ModeH264_A")
+cpp_quote("#define DXVA2_ModeH264_MoComp_FGT   DXVA2_ModeH264_B")
+cpp_quote("#define DXVA2_ModeH264_IDCT_NoFGT   DXVA2_ModeH264_C")
+cpp_quote("#define DXVA2_ModeH264_IDCT_FGT     DXVA2_ModeH264_D")
+cpp_quote("#define DXVA2_ModeH264_VLD_NoFGT    DXVA2_ModeH264_E")
+cpp_quote("#define DXVA2_ModeH264_VLD_FGT      DXVA2_ModeH264_F")
+
+//=============================================================================
+// Description:
+//
+//  DXVA2-specific error codes.
+//
+cpp_quote("#define DXVA2_E_NOT_INITIALIZED     ((HRESULT)0x80041000L)")
+cpp_quote("#define DXVA2_E_NEW_VIDEO_DEVICE    ((HRESULT)0x80041001L)")
+cpp_quote("#define DXVA2_E_VIDEO_DEVICE_LOCKED ((HRESULT)0x80041002L)")
+cpp_quote("#define DXVA2_E_NOT_AVAILABLE       ((HRESULT)0x80041003L)")
+
+//=============================================================================
+// Description:
+//
+//  COM objects.
+//
+cpp_quote("#if defined(_WIN32) && !defined(_NO_COM)")
+cpp_quote("DEFINE_GUID(IID_IDirect3DDeviceManager9,          0xa0cade0f,0x06d5,0x4cf4,0xa1,0xc7,0xf3,0xcd,0xd7,0x25,0xaa,0x75);")
+
+cpp_quote("DEFINE_GUID(IID_IDirectXVideoAccelerationService, 0xfc51a550,0xd5e7,0x11d9,0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);")
+cpp_quote("DEFINE_GUID(IID_IDirectXVideoDecoderService,      0xfc51a551,0xd5e7,0x11d9,0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);")
+cpp_quote("DEFINE_GUID(IID_IDirectXVideoProcessorService,    0xfc51a552,0xd5e7,0x11d9,0xaf,0x55,0x00,0x05,0x4e,0x43,0xff,0x02);")
+
+cpp_quote("DEFINE_GUID(IID_IDirectXVideoDecoder,             0xf2b0810a,0xfd00,0x43c9,0x91,0x8c,0xdf,0x94,0xe2,0xd8,0xef,0x7d);")
+cpp_quote("DEFINE_GUID(IID_IDirectXVideoProcessor,           0x8c3a39f0,0x916e,0x4690,0x80,0x4f,0x4c,0x80,0x01,0x35,0x5d,0x25);")
+cpp_quote("DEFINE_GUID(IID_IDirectXVideoMemoryConfiguration, 0xb7f916dd,0xdb3b,0x49c1,0x84,0xd7,0xe4,0x5e,0xf9,0x9e,0xc7,0x26);")
+cpp_quote("#endif")
+
+
+//=============================================================================
+// Description:
+//
+//  Structures and enums used by the DXVA2 Video Processor API.
+//
+
+cpp_quote("#ifndef MAX_DEINTERLACE_SURFACES")
+cpp_quote("#define MAX_DEINTERLACE_SURFACES 32")
+cpp_quote("#endif")
+
+cpp_quote("#ifndef MAX_SUBSTREAMS")
+cpp_quote("#define MAX_SUBSTREAMS 15")
+cpp_quote("#endif")
+
+cpp_quote("#pragma warning( push )")
+cpp_quote("#pragma warning( disable : 4201 ) // nonstandard extension used : nameless struct/union")
+typedef struct _DXVA2_ExtendedFormat
+{
+    union {
+        struct {
+            UINT SampleFormat : 8;           // See DXVA2_SampleFormat
+            UINT VideoChromaSubsampling : 4; // See DXVA2_VideoChromaSubSampling
+            UINT NominalRange : 3;           // See DXVA2_NominalRange
+            UINT VideoTransferMatrix : 3;    // See DXVA2_VideoTransferMatrix
+            UINT VideoLighting : 4;          // See DXVA2_VideoLighting
+            UINT VideoPrimaries : 5;         // See DXVA2_VideoPrimaries
+            UINT VideoTransferFunction : 5;  // See DXVA2_VideoTransferFunction
+        };
+        UINT value;
+    };
+} DXVA2_ExtendedFormat;
+cpp_quote("#pragma warning( pop )")
+
+typedef enum _DXVA2_SampleFormat
+{
+    DXVA2_SampleFormatMask = 0x00FF,   // 8 bits used for DXVA Sample format
+    DXVA2_SampleUnknown = 0,
+    DXVA2_SampleProgressiveFrame = 2,
+    DXVA2_SampleFieldInterleavedEvenFirst = 3,
+    DXVA2_SampleFieldInterleavedOddFirst = 4,
+    DXVA2_SampleFieldSingleEven = 5,
+    DXVA2_SampleFieldSingleOdd = 6,
+    DXVA2_SampleSubStream = 7
+} DXVA2_SampleFormat;
+
+typedef enum _DXVA2_VideoChromaSubSampling
+{
+    DXVA2_VideoChromaSubsamplingMask = 0x0F,
+    DXVA2_VideoChromaSubsampling_Unknown = 0,
+
+    // base values
+    DXVA2_VideoChromaSubsampling_ProgressiveChroma = 0x8,
+    DXVA2_VideoChromaSubsampling_Horizontally_Cosited = 0x4,
+    DXVA2_VideoChromaSubsampling_Vertically_Cosited = 0x2,
+    DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes = 0x1,
+
+    // 4:2:0 variations
+    DXVA2_VideoChromaSubsampling_MPEG2  =   DXVA2_VideoChromaSubsampling_Horizontally_Cosited |
+                                            DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes,
+
+    DXVA2_VideoChromaSubsampling_MPEG1  =   DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes,
+
+    DXVA2_VideoChromaSubsampling_DV_PAL  =  DXVA2_VideoChromaSubsampling_Horizontally_Cosited |
+                                            DXVA2_VideoChromaSubsampling_Vertically_Cosited,
+    // 4:4:4, 4:2:2, 4:1:1
+    DXVA2_VideoChromaSubsampling_Cosited =  DXVA2_VideoChromaSubsampling_Horizontally_Cosited |
+                                            DXVA2_VideoChromaSubsampling_Vertically_Cosited |
+                                            DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes,
+} DXVA2_VideoChromaSubSampling;
+
+typedef enum _DXVA2_NominalRange
+{
+    DXVA2_NominalRangeMask = 0x07,
+    DXVA2_NominalRange_Unknown = 0,
+    // older forms
+    DXVA2_NominalRange_Normal = 1,
+    DXVA2_NominalRange_Wide = 2,
+    /// explicit range forms
+    DXVA2_NominalRange_0_255 = 1,
+    DXVA2_NominalRange_16_235 = 2,
+    DXVA2_NominalRange_48_208 = 3
+} DXVA2_NominalRange;
+
+typedef enum _DXVA2_VideoTransferMatrix
+{
+    DXVA2_VideoTransferMatrixMask = 0x07,
+    DXVA2_VideoTransferMatrix_Unknown = 0,
+    DXVA2_VideoTransferMatrix_BT709 = 1,
+    DXVA2_VideoTransferMatrix_BT601 = 2,
+    DXVA2_VideoTransferMatrix_SMPTE240M = 3
+} DXVA2_VideoTransferMatrix;
+
+typedef enum _DXVA2_VideoLighting
+{
+    DXVA2_VideoLightingMask = 0x0F,
+    DXVA2_VideoLighting_Unknown = 0,
+    DXVA2_VideoLighting_bright = 1,
+    DXVA2_VideoLighting_office = 2,
+    DXVA2_VideoLighting_dim = 3,
+    DXVA2_VideoLighting_dark = 4
+} DXVA2_VideoLighting;
+
+typedef enum _DXVA2_VideoPrimaries
+{
+    DXVA2_VideoPrimariesMask = 0x001f,
+    DXVA2_VideoPrimaries_Unknown = 0,
+    DXVA2_VideoPrimaries_reserved = 1,
+    DXVA2_VideoPrimaries_BT709 = 2,
+    DXVA2_VideoPrimaries_BT470_2_SysM = 3,
+    DXVA2_VideoPrimaries_BT470_2_SysBG = 4,
+    DXVA2_VideoPrimaries_SMPTE170M = 5,
+    DXVA2_VideoPrimaries_SMPTE240M = 6,
+    DXVA2_VideoPrimaries_EBU3213 = 7,
+    DXVA2_VideoPrimaries_SMPTE_C = 8
+} DXVA2_VideoPrimaries;
+
+typedef enum _DXVA2_VideoTransferFunction
+{
+    DXVA2_VideoTransFuncMask = 0x001f,
+    DXVA2_VideoTransFunc_Unknown = 0,
+    DXVA2_VideoTransFunc_10 = 1,
+    DXVA2_VideoTransFunc_18 = 2,
+    DXVA2_VideoTransFunc_20 = 3,
+    DXVA2_VideoTransFunc_22 = 4,
+    DXVA2_VideoTransFunc_709  = 5,
+    DXVA2_VideoTransFunc_240M = 6,
+    DXVA2_VideoTransFunc_sRGB = 7,
+    DXVA2_VideoTransFunc_28 = 8
+} DXVA2_VideoTransferFunction;
+
+cpp_quote("//")
+cpp_quote("// Deprecated labels - please use the ones in the DXVA2_VideoTransferFunction enum.")
+cpp_quote("//")
+cpp_quote("#define DXVA2_VideoTransFunc_22_709         DXVA2_VideoTransFunc_709     ")
+cpp_quote("#define DXVA2_VideoTransFunc_22_240M        DXVA2_VideoTransFunc_240M    ")
+cpp_quote("#define DXVA2_VideoTransFunc_22_8bit_sRGB   DXVA2_VideoTransFunc_sRGB    ")
+
+typedef struct _DXVA2_Frequency
+{
+    UINT    Numerator;
+    UINT    Denominator;
+} DXVA2_Frequency;
+
+typedef struct _DXVA2_VideoDesc
+{
+    UINT                   SampleWidth;
+    UINT                   SampleHeight;
+    DXVA2_ExtendedFormat   SampleFormat;
+    D3DFORMAT              Format;
+    DXVA2_Frequency        InputSampleFreq;
+    DXVA2_Frequency        OutputFrameFreq;
+    UINT                   UABProtectionLevel;
+    UINT                   Reserved;
+} DXVA2_VideoDesc;
+
+enum
+{
+    DXVA2_DeinterlaceTech_Unknown                   = 0x0000,
+    DXVA2_DeinterlaceTech_BOBLineReplicate          = 0x0001,
+    DXVA2_DeinterlaceTech_BOBVerticalStretch        = 0x0002,
+    DXVA2_DeinterlaceTech_BOBVerticalStretch4Tap    = 0x0004,
+    DXVA2_DeinterlaceTech_MedianFiltering           = 0x0008,
+    DXVA2_DeinterlaceTech_EdgeFiltering             = 0x0010,
+    DXVA2_DeinterlaceTech_FieldAdaptive             = 0x0020,
+    DXVA2_DeinterlaceTech_PixelAdaptive             = 0x0040,
+    DXVA2_DeinterlaceTech_MotionVectorSteered       = 0x0080,
+    DXVA2_DeinterlaceTech_InverseTelecine           = 0x0100,
+    DXVA2_DeinterlaceTech_Mask                      = 0x01FF
+};
+
+enum
+{
+    DXVA2_NoiseFilterLumaLevel                      = 1,
+    DXVA2_NoiseFilterLumaThreshold                  = 2,
+    DXVA2_NoiseFilterLumaRadius                     = 3,
+    DXVA2_NoiseFilterChromaLevel                    = 4,
+    DXVA2_NoiseFilterChromaThreshold                = 5,
+    DXVA2_NoiseFilterChromaRadius                   = 6,
+    DXVA2_DetailFilterLumaLevel                     = 7,
+    DXVA2_DetailFilterLumaThreshold                 = 8,
+    DXVA2_DetailFilterLumaRadius                    = 9,
+    DXVA2_DetailFilterChromaLevel                   = 10,
+    DXVA2_DetailFilterChromaThreshold               = 11,
+    DXVA2_DetailFilterChromaRadius                  = 12
+};
+
+enum
+{
+    DXVA2_NoiseFilterTech_Unsupported               = 0,
+    DXVA2_NoiseFilterTech_Unknown                   = 0x0001,
+    DXVA2_NoiseFilterTech_Median                    = 0x0002,
+    DXVA2_NoiseFilterTech_Temporal                  = 0x0004,
+    DXVA2_NoiseFilterTech_BlockNoise                = 0x0008,
+    DXVA2_NoiseFilterTech_MosquitoNoise             = 0x0010,
+    DXVA2_NoiseFilterTech_Mask                      = 0x001F
+};
+
+enum
+{
+    DXVA2_DetailFilterTech_Unsupported              = 0,
+    DXVA2_DetailFilterTech_Unknown                  = 0x0001,
+    DXVA2_DetailFilterTech_Edge                     = 0x0002,
+    DXVA2_DetailFilterTech_Sharpening               = 0x0004,
+    DXVA2_DetailFilterTech_Mask                     = 0x0007
+};
+
+enum
+{
+    DXVA2_ProcAmp_None                              = 0x0000,
+    DXVA2_ProcAmp_Brightness                        = 0x0001,
+    DXVA2_ProcAmp_Contrast                          = 0x0002,
+    DXVA2_ProcAmp_Hue                               = 0x0004,
+    DXVA2_ProcAmp_Saturation                        = 0x0008,
+    DXVA2_ProcAmp_Mask                              = 0x000F
+};
+
+enum
+{
+    DXVA2_VideoProcess_None                         = 0x0000,
+    DXVA2_VideoProcess_YUV2RGB                      = 0x0001,
+    DXVA2_VideoProcess_StretchX                     = 0x0002,
+    DXVA2_VideoProcess_StretchY                     = 0x0004,
+    DXVA2_VideoProcess_AlphaBlend                   = 0x0008,
+    DXVA2_VideoProcess_SubRects                     = 0x0010,
+    DXVA2_VideoProcess_SubStreams                   = 0x0020,
+    DXVA2_VideoProcess_SubStreamsExtended           = 0x0040,
+    DXVA2_VideoProcess_YUV2RGBExtended              = 0x0080,
+    DXVA2_VideoProcess_AlphaBlendExtended           = 0x0100,
+    DXVA2_VideoProcess_Constriction                 = 0x0200,
+    DXVA2_VideoProcess_NoiseFilter                  = 0x0400,
+    DXVA2_VideoProcess_DetailFilter                 = 0x0800,
+    DXVA2_VideoProcess_PlanarAlpha                  = 0x1000,
+    DXVA2_VideoProcess_LinearScaling                = 0x2000,
+    DXVA2_VideoProcess_GammaCompensated             = 0x4000,
+    DXVA2_VideoProcess_MaintainsOriginalFieldData   = 0x8000,
+    DXVA2_VideoProcess_Mask                         = 0xFFFF
+};
+
+enum
+{
+    DXVA2_VPDev_HardwareDevice                      = 0x0001,
+    DXVA2_VPDev_EmulatedDXVA1                       = 0x0002,
+    DXVA2_VPDev_SoftwareDevice                      = 0x0004,
+    DXVA2_VPDev_Mask                                = 0x0007
+};
+
+enum
+{
+    DXVA2_SampleData_RFF                            = 0x0001,
+    DXVA2_SampleData_TFF                            = 0x0002,
+    DXVA2_SampleData_RFF_TFF_Present                = 0x0004,
+    DXVA2_SampleData_Mask                           = 0xFFFF
+};
+
+enum
+{
+    DXVA2_DestData_RFF                              = 0x0001,
+    DXVA2_DestData_TFF                              = 0x0002,
+    DXVA2_DestData_RFF_TFF_Present                  = 0x0004,
+    DXVA2_DestData_Mask                             = 0xFFFF
+};
+
+typedef struct _DXVA2_VideoProcessorCaps
+{
+    UINT        DeviceCaps;               // see DXVA2_VPDev_Xxxx
+    D3DPOOL     InputPool;
+    UINT        NumForwardRefSamples;
+    UINT        NumBackwardRefSamples;
+    UINT        Reserved;
+    UINT        DeinterlaceTechnology;    // see DXVA2_DeinterlaceTech_Xxxx
+    UINT        ProcAmpControlCaps;       // see DXVA2_ProcAmp_Xxxx
+    UINT        VideoProcessorOperations; // see DXVA2_VideoProcess_Xxxx
+    UINT        NoiseFilterTechnology;    // see DXVA2_NoiseFilterTech_Xxxx
+    UINT        DetailFilterTechnology;   // see DXVA2_DetailFilterTech_Xxxx
+} DXVA2_VideoProcessorCaps;
+
+cpp_quote("#ifdef __midl")
+typedef LONG DXVA2_Fixed32;
+cpp_quote("#else")
+cpp_quote("#pragma warning( push )")
+cpp_quote("#pragma warning( disable : 4201 ) // nonstandard extension used : nameless struct/union")
+cpp_quote("typedef struct _DXVA2_Fixed32")
+cpp_quote("{")
+cpp_quote("    union {")
+cpp_quote("        struct {")
+cpp_quote("            USHORT  Fraction;")
+cpp_quote("            SHORT   Value;")
+cpp_quote("        };")
+cpp_quote("        LONG ll;")
+cpp_quote("    };")
+cpp_quote("} DXVA2_Fixed32;")
+cpp_quote("#pragma warning( pop )")
+cpp_quote("#endif")
+
+typedef struct _DXVA2_AYUVSample8
+{
+    UCHAR    Cr;      // V
+    UCHAR    Cb;      // U
+    UCHAR    Y;
+    UCHAR    Alpha;
+} DXVA2_AYUVSample8;
+
+typedef struct _DXVA2_AYUVSample16
+{
+    USHORT     Cr;      // V
+    USHORT     Cb;      // U
+    USHORT     Y;
+    USHORT     Alpha;
+} DXVA2_AYUVSample16;
+
+typedef LONGLONG REFERENCE_TIME;
+
+cpp_quote("#if defined(_D3D9_H_) || defined(_d3d9P_H_)")
+
+typedef struct _DXVA2_VideoSample
+{
+    REFERENCE_TIME           Start;
+    REFERENCE_TIME           End;
+    DXVA2_ExtendedFormat     SampleFormat;
+    IDirect3DSurface9*       SrcSurface;
+    RECT                     SrcRect;
+    RECT                     DstRect;
+    DXVA2_AYUVSample8        Pal[16];   // Palette used with AI44 surface types
+    DXVA2_Fixed32            PlanarAlpha;
+    DWORD                    SampleData; // Sample metadata
+} DXVA2_VideoSample;
+
+cpp_quote("#endif  // _D3D9_H_")
+
+typedef struct _DXVA2_ValueRange
+{
+    DXVA2_Fixed32   MinValue;
+    DXVA2_Fixed32   MaxValue;
+    DXVA2_Fixed32   DefaultValue;
+    DXVA2_Fixed32   StepSize;
+} DXVA2_ValueRange;
+
+typedef struct _DXVA2_ProcAmpValues
+{
+    DXVA2_Fixed32   Brightness;
+    DXVA2_Fixed32   Contrast;
+    DXVA2_Fixed32   Hue;
+    DXVA2_Fixed32   Saturation;
+} DXVA2_ProcAmpValues;
+
+typedef struct _DXVA2_FilterValues {
+    DXVA2_Fixed32 Level;
+    DXVA2_Fixed32 Threshold;
+    DXVA2_Fixed32 Radius;
+} DXVA2_FilterValues;
+
+typedef struct _DXVA2_VideoProcessBltParams
+{
+    REFERENCE_TIME          TargetFrame;
+    RECT                    TargetRect;
+    SIZE                    ConstrictionSize;
+    UINT                    StreamingFlags;
+    DXVA2_AYUVSample16      BackgroundColor;
+    DXVA2_ExtendedFormat    DestFormat;
+    DXVA2_ProcAmpValues     ProcAmpValues;
+    DXVA2_Fixed32           Alpha;
+    DXVA2_FilterValues      NoiseFilterLuma;
+    DXVA2_FilterValues      NoiseFilterChroma;
+    DXVA2_FilterValues      DetailFilterLuma;
+    DXVA2_FilterValues      DetailFilterChroma;
+    DWORD                   DestData;
+} DXVA2_VideoProcessBltParams;
+
+
+//=============================================================================
+// Description:
+//
+//  Structures and enums used by the DXVA2 Video Decoding API.
+//
+
+// Compressed buffer types.
+enum
+{
+    DXVA2_PictureParametersBufferType               = 0,
+    DXVA2_MacroBlockControlBufferType               = 1,
+    DXVA2_ResidualDifferenceBufferType              = 2,
+    DXVA2_DeblockingControlBufferType               = 3,
+    DXVA2_InverseQuantizationMatrixBufferType       = 4,
+    DXVA2_SliceControlBufferType                    = 5,
+    DXVA2_BitStreamDateBufferType                   = 6,
+    DXVA2_MotionVectorBuffer                        = 7,
+    DXVA2_FilmGrainBuffer                           = 8
+};
+
+// Uncompressed buffer types
+enum
+{
+    DXVA2_VideoDecoderRenderTarget                  = 0,
+    DXVA2_VideoProcessorRenderTarget                = 1,
+    DXVA2_VideoSoftwareRenderTarget                 = 2
+};
+
+typedef struct _DXVA2_ConfigPictureDecode
+{
+    GUID        guidConfigBitstreamEncryption;
+    GUID        guidConfigMBcontrolEncryption;
+    GUID        guidConfigResidDiffEncryption;
+    UINT        ConfigBitstreamRaw;
+    UINT        ConfigMBcontrolRasterOrder;
+    UINT        ConfigResidDiffHost;
+    UINT        ConfigSpatialResid8;
+    UINT        ConfigResid8Subtraction;
+    UINT        ConfigSpatialHost8or9Clipping;
+    UINT        ConfigSpatialResidInterleaved;
+    UINT        ConfigIntraResidUnsigned;
+    UINT        ConfigResidDiffAccelerator;
+    UINT        ConfigHostInverseScan;
+    UINT        ConfigSpecificIDCT;
+    UINT        Config4GroupedCoefs;
+    USHORT      ConfigMinRenderTargetBuffCount;
+    USHORT      ConfigDecoderSpecific;
+} DXVA2_ConfigPictureDecode;
+
+typedef struct _DXVA2_DecodeBufferDesc
+{
+    DWORD       CompressedBufferType;
+    UINT        BufferIndex;    // reserved
+    UINT        DataOffset;
+    UINT        DataSize;
+    UINT        FirstMBaddress;
+    UINT        NumMBsInBuffer;
+    UINT        Width;          // reserved
+    UINT        Height;         // reserved
+    UINT        Stride;         // reserved
+    UINT        ReservedBits;
+    PVOID       pvPVPState;
+} DXVA2_DecodeBufferDesc;
+
+cpp_quote("// The value in pvPVPState depends on the type of crypo used.  For ")
+cpp_quote("// D3DCRYPTOTYPE_AES128_CTR, pvPState points to the following structure:")
+cpp_quote(" ")
+
+typedef struct _DXVA2_AES_CTR_IV
+{
+    UINT64   IV;         // Big-Endian IV
+    UINT64   Count;      // Big-Endian Block Count
+} DXVA2_AES_CTR_IV;
+
+typedef struct _DXVA2_DecodeExtensionData
+{
+    UINT        Function;
+    PVOID       pPrivateInputData;
+    UINT        PrivateInputDataSize;
+    PVOID       pPrivateOutputData;
+    UINT        PrivateOutputDataSize;
+} DXVA2_DecodeExtensionData;
+
+cpp_quote("// DXVA2_DECODE_GET_DRIVER_HANDLE is an extension function that allows the ")
+cpp_quote("// driver to return a handle for the DXVA2 decode device that can be used to")
+cpp_quote("// associate it with a IDirect3DCryptoSession9 interface.  When this function")
+cpp_quote("// is used:")
+cpp_quote("//     pPrivateInputData = NULL")
+cpp_quote("//     pPrivateInputDataSize = 0")
+cpp_quote("//     pPrivateOutputData = HANDLE*")
+cpp_quote("//     pPrivateOutputDataSize = sizeof(HANDLE)")
+cpp_quote("#define DXVA2_DECODE_GET_DRIVER_HANDLE               0x725")
+cpp_quote(" ")
+cpp_quote("// DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS is an extension function that that allows ")
+cpp_quote("// the decoder to specify which portions of the compressed buffers are encrypted. ")
+cpp_quote("// If this fucntion is not used to specify this information, it is assumed that ")
+cpp_quote("// the entire buffer is encrypted. ")
+cpp_quote("//     pPrivateInputData = D3DENCRYPTED_BLOCK_INFO*; ")
+cpp_quote("//     PrivateInputDataSize = sizeof(D3DENCRYPTED_BLOCK_INFO); ")
+cpp_quote("//     pPrivateOutputData = NULL; ")
+cpp_quote("//     PrivateOutputDataSize = 0; ")
+cpp_quote("#define DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS	0x724 ")
+cpp_quote(" ")
+
+typedef struct _DXVA2_DecodeExecuteParams
+{
+    UINT                       NumCompBuffers;
+    DXVA2_DecodeBufferDesc*    pCompressedBuffers;
+    DXVA2_DecodeExtensionData* pExtensionData;
+} DXVA2_DecodeExecuteParams;
+
+
+cpp_quote("#if defined(_D3D9_H_) || defined(_d3d9P_H_)")
+
+//=============================================================================
+// Description:
+//
+//  Public interfaces supported by the DXVA2 API.
+//
+interface IDirect3DDeviceManager9;
+interface IDirectXVideoAccelerationService;
+interface IDirectXVideoDecoderService;
+interface IDirectXVideoProcessorService;
+interface IDirectXVideoDecoder;
+interface IDirectXVideoProcessor;
+
+//=============================================================================
+// Description:
+//
+//  TBD.
+//
+[
+    object,
+    uuid(a0cade0f-06d5-4cf4-a1c7-f3cdd725aa75),
+    helpstring("IDirect3DDeviceManager9 Interface"),
+    local
+]
+interface IDirect3DDeviceManager9 : IUnknown
+{
+    HRESULT ResetDevice(
+        [in, annotation("_In_")] IDirect3DDevice9* pDevice,
+        [in, annotation("_In_")] UINT resetToken
+        );
+
+    HRESULT OpenDeviceHandle(
+        [out, annotation("_Out_")] HANDLE* phDevice
+        );
+
+    HRESULT CloseDeviceHandle(
+        [in, annotation("_In_")] HANDLE hDevice
+        );
+
+    HRESULT TestDevice(
+        [in, annotation("_In_")] HANDLE hDevice
+        );
+
+    HRESULT LockDevice(
+        [in, annotation("_In_")] HANDLE hDevice,
+        [out, annotation("_Outptr_")] IDirect3DDevice9** ppDevice,
+        [in, annotation("_In_")] BOOL fBlock
+        );
+
+    HRESULT UnlockDevice(
+        [in, annotation("_In_")] HANDLE hDevice,
+        [in, annotation("_In_")] BOOL fSaveState
+        );
+
+    HRESULT GetVideoService(
+        [in, annotation("_In_")] HANDLE hDevice,
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_Outptr_")] void** ppService
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  TBD.
+//
+[
+    object,
+    uuid(fc51a550-d5e7-11d9-af55-00054e43ff02),
+    helpstring("IDirectXVideoAccelerationService Interface"),
+    local
+]
+interface IDirectXVideoAccelerationService : IUnknown
+{
+    HRESULT CreateSurface(
+        [in, annotation("_In_")] UINT Width,
+        [in, annotation("_In_")] UINT Height,
+        [in, annotation("_In_")] UINT BackBuffers,
+        [in, annotation("_In_")] D3DFORMAT Format,
+        [in, annotation("_In_")] D3DPOOL Pool,
+        [in, annotation("_In_")] DWORD Usage,
+        [in, annotation("_In_")] DWORD DxvaType,    // see DXVA2_VideoXxxxRenderTarget
+        [out, size_is(BackBuffers+1), annotation("_Out_writes_(BackBuffers+1)")] IDirect3DSurface9** ppSurface,
+        [in, out, annotation("_Inout_opt_")] HANDLE* pSharedHandle
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  TBD.
+//
+[
+    object,
+    uuid(fc51a551-d5e7-11d9-af55-00054e43ff02),
+    helpstring("IDirectXVideoDecoderService Interface"),
+    local
+]
+interface IDirectXVideoDecoderService : IDirectXVideoAccelerationService
+{
+    HRESULT GetDecoderDeviceGuids(
+        [out, annotation("_Out_")] UINT* pCount,
+        [out, unique, size_is(*pCount), annotation("_Outptr_result_buffer_maybenull_(*pCount)")] GUID** pGuids
+        );
+
+    HRESULT GetDecoderRenderTargets(
+        [in, annotation("_In_")] REFGUID Guid,
+        [out, annotation("_Out_")] UINT* pCount,
+        [out, unique, size_is(*pCount), annotation("_Outptr_result_buffer_maybenull_(*pCount)")] D3DFORMAT** pFormats
+        );
+
+    HRESULT GetDecoderConfigurations(
+        [in, annotation("_In_")] REFGUID Guid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_Reserved_")] void* pReserved,
+        [out, annotation("_Out_")] UINT* pCount,
+        [out, unique, size_is(*pCount), annotation("_Outptr_result_buffer_maybenull_(*pCount)")] DXVA2_ConfigPictureDecode** ppConfigs
+        );
+
+    HRESULT CreateVideoDecoder(
+        [in, annotation("_In_")] REFGUID Guid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_In_")] const DXVA2_ConfigPictureDecode* pConfig,
+        [in, size_is(NumRenderTargets), annotation("_In_reads_(NumRenderTargets)")] IDirect3DSurface9** ppDecoderRenderTargets,
+        [in, annotation("_In_")] UINT NumRenderTargets,
+        [out, annotation("_Outptr_")] IDirectXVideoDecoder** ppDecode
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  TBD.
+//
+[
+    object,
+    uuid(fc51a552-d5e7-11d9-af55-00054e43ff02),
+    helpstring("IDirectXVideoProcessorService Interface"),
+    local
+]
+interface IDirectXVideoProcessorService : IDirectXVideoAccelerationService
+{
+    HRESULT RegisterVideoProcessorSoftwareDevice(
+        [in, annotation("_In_")] void* pCallbacks
+        );
+
+    HRESULT GetVideoProcessorDeviceGuids(
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [out, annotation("_Out_")] UINT* pCount,
+        [out, unique, size_is(*pCount), annotation("_Outptr_result_buffer_maybenull_(*pCount)")] GUID** pGuids
+        );
+
+    HRESULT GetVideoProcessorRenderTargets(
+        [in, annotation("_In_")] REFGUID VideoProcDeviceGuid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [out, annotation("_Out_")] UINT* pCount,
+        [out, unique, size_is(*pCount), annotation("_Outptr_result_buffer_maybenull_(*pCount)")] D3DFORMAT** pFormats
+        );
+
+    HRESULT GetVideoProcessorSubStreamFormats(
+        [in, annotation("_In_")] REFGUID VideoProcDeviceGuid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_In_")] D3DFORMAT RenderTargetFormat,
+        [out, annotation("_Out_")] UINT* pCount,
+        [out, unique, size_is(*pCount), annotation("_Outptr_result_buffer_maybenull_(*pCount)")] D3DFORMAT** pFormats
+        );
+
+    HRESULT GetVideoProcessorCaps(
+        [in, annotation("_In_")] REFGUID VideoProcDeviceGuid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_In_")] D3DFORMAT RenderTargetFormat,
+        [out, annotation("_Out_")] DXVA2_VideoProcessorCaps* pCaps
+        );
+
+    HRESULT GetProcAmpRange(
+        [in, annotation("_In_")] REFGUID VideoProcDeviceGuid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_In_")] D3DFORMAT RenderTargetFormat,
+        [in, annotation("_In_")] UINT ProcAmpCap,
+        [out, annotation("_Out_")] DXVA2_ValueRange* pRange
+        );
+
+    HRESULT GetFilterPropertyRange(
+        [in, annotation("_In_")] REFGUID VideoProcDeviceGuid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_In_")] D3DFORMAT RenderTargetFormat,
+        [in, annotation("_In_")] UINT FilterSetting,
+        [out, annotation("_Out_")] DXVA2_ValueRange* pRange
+        );
+
+    HRESULT CreateVideoProcessor(
+        [in, annotation("_In_")] REFGUID VideoProcDeviceGuid,
+        [in, annotation("_In_")] const DXVA2_VideoDesc* pVideoDesc,
+        [in, annotation("_In_")] D3DFORMAT RenderTargetFormat,
+        [in, annotation("_In_")] UINT MaxNumSubStreams,
+        [out, annotation("_Outptr_")] IDirectXVideoProcessor** ppVidProcess
+        );
+};
+
+//=============================================================================
+// Description:
+//
+//  TBD.
+//
+[
+    object,
+    uuid(f2b0810a-fd00-43c9-918c-df94e2d8ef7d),
+    helpstring("IDirectXVideoDecoder Interface"),
+    local
+]
+interface IDirectXVideoDecoder : IUnknown
+{
+    HRESULT GetVideoDecoderService(
+        [out, annotation("_Outptr_")] IDirectXVideoDecoderService** ppService
+        );
+
+    HRESULT GetCreationParameters(
+        [out, annotation("_Out_opt_")] GUID* pDeviceGuid,
+        [out, annotation("_Out_opt_")] DXVA2_VideoDesc* pVideoDesc,
+        [out, annotation("_Out_opt_")] DXVA2_ConfigPictureDecode* pConfig,
+        [out, unique, size_is(*pNumSurfaces), annotation("_Out_writes_(*pNumSurfaces)")] IDirect3DSurface9*** pDecoderRenderTargets,
+        [out, annotation("_Out_opt_")] UINT* pNumSurfaces
+        );
+
+    HRESULT GetBuffer(
+        [in, annotation("_In_")] UINT BufferType,
+        [out, annotation("_Out_")] void** ppBuffer,
+        [out, annotation("_Out_")] UINT* pBufferSize
+        );
+
+    HRESULT ReleaseBuffer(
+        [in, annotation("_In_")] UINT BufferType
+        );
+
+    HRESULT BeginFrame(
+        [in, annotation("_In_")] IDirect3DSurface9* pRenderTarget,
+        [in, annotation("_In_opt_")] void* pvPVPData
+        );
+
+    HRESULT EndFrame(
+        [out, annotation("_Inout_opt_")] HANDLE* pHandleComplete    // reserved
+        );
+
+    HRESULT Execute(
+        [in, annotation("_In_")] const DXVA2_DecodeExecuteParams* pExecuteParams
+        );
+};
+
+
+//=============================================================================
+// Description:
+//
+//  TBD.
+//
+[
+    object,
+    uuid(8c3a39f0-916e-4690-804f-4c8001355d25),
+    helpstring("IDirectXVideoProcessor Interface"),
+    local
+]
+interface IDirectXVideoProcessor : IUnknown
+{
+    HRESULT GetVideoProcessorService(
+        [out, annotation("_Outptr_")] IDirectXVideoProcessorService** ppService
+        );
+
+    HRESULT GetCreationParameters(
+        [out, annotation("_Out_opt_")] GUID* pDeviceGuid,
+        [out, annotation("_Out_opt_")] DXVA2_VideoDesc* pVideoDesc,
+        [out, annotation("_Out_opt_")] D3DFORMAT* pRenderTargetFormat,
+        [out, annotation("_Out_opt_")] UINT* pMaxNumSubStreams
+        );
+
+    HRESULT GetVideoProcessorCaps(
+        [out, annotation("_Out_")] DXVA2_VideoProcessorCaps* pCaps
+        );
+
+    HRESULT GetProcAmpRange(
+        [in, annotation("_In_")] UINT ProcAmpCap,
+        [out, annotation("_Out_")] DXVA2_ValueRange* pRange
+        );
+
+    HRESULT GetFilterPropertyRange(
+        [in, annotation("_In_")] UINT FilterSetting,
+        [out, annotation("_Out_")] DXVA2_ValueRange* pRange
+        );
+
+    HRESULT VideoProcessBlt(
+        [in, annotation("_In_")] IDirect3DSurface9* pRenderTarget,
+        [in, annotation("_In_")] const DXVA2_VideoProcessBltParams* pBltParams,
+        [in, size_is(NumSamples), annotation("_In_reads_(NumSamples)")] const DXVA2_VideoSample* pSamples,
+        [in, annotation("_In_")] UINT NumSamples,
+        [out, annotation("_Inout_opt_")] HANDLE* pHandleComplete    // reserved
+        );
+};
+
+typedef enum
+{
+    DXVA2_SurfaceType_DecoderRenderTarget           = 0,
+    DXVA2_SurfaceType_ProcessorRenderTarget         = 1,
+    DXVA2_SurfaceType_D3DRenderTargetTexture        = 2
+} DXVA2_SurfaceType;
+
+//=============================================================================
+// Description:
+//
+//  IDirectXVideoMemoryConfiguration is used by video decoders
+//  and transforms to agree the type of video memory to be allocated
+//  for uncompressed surfaces used as inputs or outputs
+//
+//  For example, a video decoder will acquire a service implementing
+//  this interface through a service provider such as the Enhanced Video
+//  renderer.  The decoder enumerates the service's preferred surface types
+//  and chooses the first acceptable one.  Then the decoder creates output
+//  surfaces of this type and passes the results of the decode (often created
+//  using DirectX Video Acceleration Services) as its output
+//
+//  This interface is used along with other information, for example pixel
+//  format information and required buffer queue depth to determine the
+//  surfaces to allocate
+//
+//  There is no way to 'unset' the type of surface to use.  Other context
+//  in the contract between objects may invalidate the type selected.  For example
+//  in DirectShow disconnecting 2 filters invalidates any prior agreement between
+//  the two filters about the surface type to use for media samples.
+//
+[
+    object,
+    uuid(b7f916dd-db3b-49c1-84d7-e45ef99ec726),
+    helpstring("IDirectXVideoMemoryConfiguration Interface"),
+    local
+]
+interface IDirectXVideoMemoryConfiguration : IUnknown
+{
+    //=============================================================================
+    // Description:
+    //     Returns acceptable surface types in preference order starting at index 0
+    //     for the most preferred surface type
+    //
+    // Parameters:
+    //     dwTypeIndex -  0-based index saying which preferred surface type to
+    //                   return
+    //     pdwType -   Surface type returned for that index
+    //
+    // Return Values:
+    //
+    //          S_OK - returned valid acceptable type
+    //          Failure code - dwIndex beyond range of acceptable surface type indexes
+    //
+
+    HRESULT GetAvailableSurfaceTypeByIndex(
+        [in, annotation("_In_")] DWORD dwTypeIndex,
+        [out, annotation("_Out_")] DXVA2_SurfaceType *pdwType
+        );
+
+    //==============================================================================
+    //  Description:
+    //      Selects the surface type to be used
+    //
+    //
+    //  Parameters:
+    //      dwType - Type to be used
+    //
+    //  Return Values:
+    //          S_OK - surface type accepted
+    //          Failure code - surface type rejected
+    //
+
+    HRESULT SetSurfaceType(
+        [in, annotation("_In_")] DXVA2_SurfaceType dwType
+        );
+};
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("STDAPI DXVA2CreateDirect3DDeviceManager9(")
+cpp_quote("    _Out_ UINT* pResetToken,")
+cpp_quote("    _Outptr_ IDirect3DDeviceManager9** ppDeviceManager")
+cpp_quote("    );")
+
+cpp_quote("STDAPI DXVA2CreateVideoService(")
+cpp_quote("    _In_ IDirect3DDevice9* pDD,")
+cpp_quote("    _In_ REFIID riid,")
+cpp_quote("    _Outptr_ void** ppService")
+cpp_quote("    );")
+
+cpp_quote("#endif  // _D3D9_H_")
+
+//=============================================================================
+// Description:
+//
+//  DXVA2_Fixed32 helper inline functions.
+//
+
+cpp_quote("__inline DXVA2_Fixed32 DXVA2FloatToFixed(_In_ const float _float_)")
+cpp_quote("{")
+cpp_quote("    DXVA2_Fixed32 _fixed_;")
+cpp_quote("    _fixed_.Fraction = LOWORD(_float_ * 0x10000);")
+cpp_quote("    _fixed_.Value = HIWORD(_float_ * 0x10000);")
+cpp_quote("    return _fixed_;")
+cpp_quote("}")
+
+cpp_quote("__inline float DXVA2FixedToFloat(_In_ const DXVA2_Fixed32 _fixed_)")
+cpp_quote("{")
+cpp_quote("    return (FLOAT)_fixed_.Value + (FLOAT)_fixed_.Fraction / 0x10000;")
+cpp_quote("}")
+
+cpp_quote("__inline const DXVA2_Fixed32 DXVA2_Fixed32TransparentAlpha()")
+cpp_quote("{")
+cpp_quote("    DXVA2_Fixed32 _fixed_ = {0, 0};")
+cpp_quote("    return _fixed_;")
+cpp_quote("}")
+
+cpp_quote("__inline const DXVA2_Fixed32 DXVA2_Fixed32OpaqueAlpha()")
+cpp_quote("{")
+cpp_quote("    DXVA2_Fixed32 _fixed_ = {0, 1};")
+cpp_quote("    return _fixed_;")
+cpp_quote("}")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif")

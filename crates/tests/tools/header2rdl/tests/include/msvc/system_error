@@ -1,0 +1,738 @@
+// system_error standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _SYSTEM_ERROR_
+#define _SYSTEM_ERROR_
+#include <yvals.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <__msvc_system_error_abi.hpp>
+#include <cerrno>
+#include <cstdlib>
+#include <stdexcept>
+#include <xcall_once.h>
+#include <xerrc.h>
+#ifndef _M_CEE_PURE
+#include <atomic>
+#endif // !defined(_M_CEE_PURE)
+
+#if _HAS_CXX20
+#include <compare>
+#endif // _HAS_CXX20
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma push_macro("msvc")
+#pragma push_macro("noop_dtor")
+#undef msvc
+#undef noop_dtor
+
+_STD_BEGIN
+_EXPORT_STD enum class io_errc { // error codes for ios_base::failure
+    stream = 1
+};
+
+_EXPORT_STD template <class _Enum>
+struct is_error_code_enum : false_type {};
+
+template <>
+struct is_error_code_enum<io_errc> : true_type {};
+
+_EXPORT_STD template <class _Ty>
+constexpr bool is_error_code_enum_v = is_error_code_enum<_Ty>::value;
+
+_EXPORT_STD template <class _Enum>
+struct is_error_condition_enum : false_type {};
+
+template <>
+struct is_error_condition_enum<errc> : true_type {};
+
+_EXPORT_STD template <class _Ty>
+constexpr bool is_error_condition_enum_v = is_error_condition_enum<_Ty>::value;
+
+_EXPORT_STD class error_code;
+_EXPORT_STD class error_condition;
+
+namespace _Ensure_adl {
+    void make_error_code()      = delete;
+    void make_error_condition() = delete;
+} // namespace _Ensure_adl
+
+_EXPORT_STD class error_category;
+
+_EXPORT_STD _NODISCARD const error_category& generic_category() noexcept;
+_EXPORT_STD _NODISCARD const error_category& iostream_category() noexcept;
+_EXPORT_STD _NODISCARD const error_category& system_category() noexcept;
+
+_EXPORT_STD class __declspec(novtable) error_category { // categorize an error
+public:
+#ifdef _M_CEE_PURE
+    /* constexpr */ error_category() noexcept { // TRANSITION, ABI
+        _Addr = reinterpret_cast<uintptr_t>(this);
+    }
+#else // ^^^ defined(_M_CEE_PURE) / !defined(_M_CEE_PURE) vvv
+#pragma warning(push)
+#pragma warning(disable : 4355) // 'this': used in base member initializer list
+    constexpr error_category() noexcept : _Addr(this) {}
+#pragma warning(pop)
+#endif // ^^^ !defined(_M_CEE_PURE) ^^^
+
+    _CONSTEXPR20 virtual ~error_category() noexcept = default;
+
+    _NODISCARD virtual const char* name() const noexcept = 0;
+
+    _NODISCARD virtual string message(int _Errval) const = 0;
+
+    _NODISCARD virtual error_condition default_error_condition(int _Errval) const noexcept;
+
+    _NODISCARD virtual bool equivalent(int _Errval, const error_condition& _Cond) const noexcept;
+
+    _NODISCARD virtual bool equivalent(const error_code& _Code, int _Errval) const noexcept;
+
+    _NODISCARD bool operator==(const error_category& _Right) const noexcept {
+#ifdef _M_CEE_PURE
+        return _Addr == _Right._Addr;
+#else // ^^^ defined(_M_CEE_PURE) / !defined(_M_CEE_PURE) vvv
+        return _Bit_cast<uintptr_t>(_Addr) == _Bit_cast<uintptr_t>(_Right._Addr);
+#endif // ^^^ !defined(_M_CEE_PURE) ^^^
+    }
+
+#if _HAS_CXX20
+    _NODISCARD strong_ordering operator<=>(const error_category& _Right) const noexcept {
+        return _Bit_cast<uintptr_t>(_Addr) <=> _Bit_cast<uintptr_t>(_Right._Addr);
+    }
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+    _NODISCARD bool operator!=(const error_category& _Right) const noexcept {
+        return !(*this == _Right);
+    }
+
+    _NODISCARD bool operator<(const error_category& _Right) const noexcept {
+#ifdef _M_CEE_PURE
+        return _Addr < _Right._Addr;
+#else // ^^^ defined(_M_CEE_PURE) / !defined(_M_CEE_PURE) vvv
+        return _Bit_cast<uintptr_t>(_Addr) < _Bit_cast<uintptr_t>(_Right._Addr);
+#endif // ^^^ !defined(_M_CEE_PURE) ^^^
+    }
+#endif // ^^^ !_HAS_CXX20 ^^^
+
+    error_category(const error_category&)            = delete;
+    error_category& operator=(const error_category&) = delete;
+
+protected:
+#ifdef _M_CEE_PURE
+    uintptr_t _Addr;
+#else // ^^^ defined(_M_CEE_PURE) / !defined(_M_CEE_PURE) vvv
+    union _Addr_storage {
+    private:
+        uintptr_t _Num;
+        error_category* _Ptr;
+
+    public:
+        constexpr explicit _Addr_storage(const uintptr_t _Addr_num) noexcept : _Num(_Addr_num) {}
+        constexpr explicit _Addr_storage(error_category* const _Addr_ptr) noexcept : _Ptr(_Addr_ptr) {}
+
+        // TRANSITION: As of Boost 1.80.0, boost::system::detail::std_category assigns to _Addr.
+        constexpr _Addr_storage& operator=(const uintptr_t _Addr_num) noexcept {
+            _Num = _Addr_num;
+            return *this;
+        }
+    };
+    _STL_INTERNAL_STATIC_ASSERT(sizeof(_Addr_storage) == sizeof(uintptr_t));
+    _STL_INTERNAL_STATIC_ASSERT(alignof(_Addr_storage) == alignof(uintptr_t));
+
+    _Addr_storage _Addr;
+#endif // ^^^ !defined(_M_CEE_PURE) ^^^
+
+    constexpr explicit error_category(const uintptr_t _Addr_) noexcept : _Addr(_Addr_) {}
+
+    enum : uintptr_t { // symbolic addresses for Standard error_category objects
+        _Future_addr   = 1,
+        _Generic_addr  = 3,
+        _Iostream_addr = 5,
+        _System_addr   = 7
+    };
+};
+
+#if _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+_NODISCARD inline bool _System_error_equal(const error_code&, const error_condition&) noexcept;
+#endif // _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+
+_EXPORT_STD class error_code { // store an implementation-specific error code and category
+public:
+    error_code() noexcept : _Myval(0), _Mycat(&_STD system_category()) {} // construct non-error
+
+    error_code(int _Val, const error_category& _Cat) noexcept : _Myval(_Val), _Mycat(&_Cat) {}
+
+    template <class _Enum, enable_if_t<is_error_code_enum_v<_Enum>, int> = 0>
+    error_code(_Enum _Errcode) noexcept : _Myval(0), _Mycat(nullptr) {
+        using _Ensure_adl::make_error_code;
+        *this = make_error_code(_Errcode); // intentional ADL
+    }
+
+    void assign(int _Val, const error_category& _Cat) noexcept {
+        _Myval = _Val;
+        _Mycat = &_Cat;
+    }
+
+    template <class _Enum, enable_if_t<is_error_code_enum_v<_Enum>, int> = 0>
+    error_code& operator=(_Enum _Errcode) noexcept {
+        using _Ensure_adl::make_error_code;
+        *this = make_error_code(_Errcode); // intentional ADL
+        return *this;
+    }
+
+    void clear() noexcept {
+        _Myval = 0;
+        _Mycat = &_STD system_category();
+    }
+
+    _NODISCARD int value() const noexcept {
+        return _Myval;
+    }
+
+    _NODISCARD const error_category& category() const noexcept {
+        return *_Mycat;
+    }
+
+    _NODISCARD error_condition default_error_condition() const noexcept;
+
+    _NODISCARD string message() const {
+        return category().message(value());
+    }
+
+    explicit operator bool() const noexcept {
+        return value() != 0;
+    }
+
+#if _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+    _NODISCARD friend bool operator==(const error_code& _Left, const error_code& _Right) noexcept {
+        return _Left.category() == _Right.category() && _Left.value() == _Right.value();
+    }
+
+    _NODISCARD friend bool operator==(const error_code& _Left, const error_condition& _Right) noexcept {
+        return _System_error_equal(_Left, _Right);
+    }
+
+#if _HAS_CXX20
+    _NODISCARD friend strong_ordering operator<=>(const error_code& _Left, const error_code& _Right) noexcept {
+        if (const auto _Result = _Left.category() <=> _Right.category(); _Result != 0) {
+            return _Result;
+        }
+        return _Left.value() <=> _Right.value();
+    }
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+    _NODISCARD friend bool operator<(const error_code& _Left, const error_code& _Right) noexcept {
+        return _Left.category() < _Right.category()
+            || (_Left.category() == _Right.category() && _Left.value() < _Right.value());
+    }
+    _NODISCARD friend bool operator==(const error_condition& _Left, const error_code& _Right) noexcept {
+        return _System_error_equal(_Right, _Left);
+    }
+
+    _NODISCARD friend bool operator!=(const error_code& _Left, const error_code& _Right) noexcept {
+        return !(_Left == _Right);
+    }
+
+    _NODISCARD friend bool operator!=(const error_code& _Left, const error_condition& _Right) noexcept {
+        return !_System_error_equal(_Left, _Right);
+    }
+
+    _NODISCARD friend bool operator!=(const error_condition& _Left, const error_code& _Right) noexcept {
+        return !_System_error_equal(_Right, _Left);
+    }
+#endif // ^^^ !_HAS_CXX20 ^^^
+#endif // _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+
+private:
+    int _Myval; // the stored error number
+    const error_category* _Mycat; // pointer to error category
+};
+
+_EXPORT_STD class error_condition { // store an abstract error code and category
+public:
+    error_condition() noexcept : _Myval(0), _Mycat(&_STD generic_category()) {} // construct non-error
+
+    error_condition(int _Val, const error_category& _Cat) noexcept : _Myval(_Val), _Mycat(&_Cat) {}
+
+    template <class _Enum, enable_if_t<is_error_condition_enum_v<_Enum>, int> = 0>
+    error_condition(_Enum _Errcode) noexcept : _Myval(0), _Mycat(nullptr) {
+        using _Ensure_adl::make_error_condition;
+        *this = make_error_condition(_Errcode); // intentional ADL
+    }
+
+    void assign(int _Val, const error_category& _Cat) noexcept {
+        _Myval = _Val;
+        _Mycat = &_Cat;
+    }
+
+    template <class _Enum, enable_if_t<is_error_condition_enum_v<_Enum>, int> = 0>
+    error_condition& operator=(_Enum _Errcode) noexcept {
+        using _Ensure_adl::make_error_condition;
+        *this = make_error_condition(_Errcode); // intentional ADL
+        return *this;
+    }
+
+    void clear() noexcept {
+        _Myval = 0;
+        _Mycat = &_STD generic_category();
+    }
+
+    _NODISCARD int value() const noexcept {
+        return _Myval;
+    }
+
+    _NODISCARD const error_category& category() const noexcept {
+        return *_Mycat;
+    }
+
+    _NODISCARD string message() const {
+        return category().message(value());
+    }
+
+    explicit operator bool() const noexcept {
+        return value() != 0;
+    }
+
+#if _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+    _NODISCARD friend bool operator==(const error_condition& _Left, const error_condition& _Right) noexcept {
+        return _Left.category() == _Right.category() && _Left.value() == _Right.value();
+    }
+
+#if _HAS_CXX20
+    _NODISCARD friend strong_ordering operator<=>(
+        const error_condition& _Left, const error_condition& _Right) noexcept {
+        if (const auto _Result = _Left.category() <=> _Right.category(); _Result != 0) {
+            return _Result;
+        }
+        return _Left.value() <=> _Right.value();
+    }
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+    _NODISCARD friend bool operator<(const error_condition& _Left, const error_condition& _Right) noexcept {
+        return _Left.category() < _Right.category()
+            || (_Left.category() == _Right.category() && _Left.value() < _Right.value());
+    }
+    _NODISCARD friend bool operator!=(const error_condition& _Left, const error_condition& _Right) noexcept {
+        return !(_Left == _Right);
+    }
+#endif // ^^^ !_HAS_CXX20 ^^^
+
+    // We grant friendship to the operators from error_code here to allow is_error_code_enum_v but not
+    // is_error_condition_enum_v enums to be compared directly with error_condition; for example:
+    // io_errc::stream == make_error_condition(errc::out_of_memory)
+    friend bool operator==(const error_code& _Left, const error_condition& _Right) noexcept;
+#if !_HAS_CXX20
+    friend bool operator==(const error_condition& _Left, const error_code& _Right) noexcept;
+    friend bool operator!=(const error_code& _Left, const error_condition& _Right) noexcept;
+    friend bool operator!=(const error_condition& _Left, const error_code& _Right) noexcept;
+#endif // !_HAS_CXX20
+#endif // _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+
+private:
+    int _Myval; // the stored error number
+    const error_category* _Mycat; // pointer to error category
+};
+
+#if _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS
+_NODISCARD inline bool _System_error_equal(const error_code& _Left, const error_condition& _Right) noexcept {
+    return _Left.category().equivalent(_Left.value(), _Right) || _Right.category().equivalent(_Left, _Right.value());
+}
+#else // ^^^ _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS / !_STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS vvv
+_EXPORT_STD _NODISCARD inline bool operator==(const error_code& _Left, const error_code& _Right) noexcept {
+    return _Left.category() == _Right.category() && _Left.value() == _Right.value();
+}
+
+_EXPORT_STD _NODISCARD inline bool operator==(const error_code& _Left, const error_condition& _Right) noexcept {
+    return _Left.category().equivalent(_Left.value(), _Right) || _Right.category().equivalent(_Left, _Right.value());
+}
+
+_EXPORT_STD _NODISCARD inline bool operator==(const error_condition& _Left, const error_condition& _Right) noexcept {
+    return _Left.category() == _Right.category() && _Left.value() == _Right.value();
+}
+
+#if _HAS_CXX20
+_EXPORT_STD _NODISCARD inline strong_ordering operator<=>(const error_code& _Left, const error_code& _Right) noexcept {
+    if (const auto _Result = _Left.category() <=> _Right.category(); _Result != 0) {
+        return _Result;
+    }
+    return _Left.value() <=> _Right.value();
+}
+
+_EXPORT_STD _NODISCARD inline strong_ordering operator<=>(
+    const error_condition& _Left, const error_condition& _Right) noexcept {
+    if (const auto _Result = _Left.category() <=> _Right.category(); _Result != 0) {
+        return _Result;
+    }
+    return _Left.value() <=> _Right.value();
+}
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+_NODISCARD inline bool operator<(const error_code& _Left, const error_code& _Right) noexcept {
+    return _Left.category() < _Right.category()
+        || (_Left.category() == _Right.category() && _Left.value() < _Right.value());
+}
+
+_NODISCARD inline bool operator<(const error_condition& _Left, const error_condition& _Right) noexcept {
+    return _Left.category() < _Right.category()
+        || (_Left.category() == _Right.category() && _Left.value() < _Right.value());
+}
+
+_NODISCARD inline bool operator==(const error_condition& _Left, const error_code& _Right) noexcept {
+    return _Right.category().equivalent(_Right.value(), _Left) || _Left.category().equivalent(_Right, _Left.value());
+}
+
+_NODISCARD inline bool operator!=(const error_code& _Left, const error_code& _Right) noexcept {
+    return !(_Left == _Right);
+}
+
+_NODISCARD inline bool operator!=(const error_code& _Left, const error_condition& _Right) noexcept {
+    return !(_Left == _Right);
+}
+
+_NODISCARD inline bool operator!=(const error_condition& _Left, const error_code& _Right) noexcept {
+    return !(_Left == _Right);
+}
+
+_NODISCARD inline bool operator!=(const error_condition& _Left, const error_condition& _Right) noexcept {
+    return !(_Left == _Right);
+}
+#endif // ^^^ !_HAS_CXX20 ^^^
+#endif // ^^^ !_STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS ^^^
+
+_NODISCARD inline error_condition error_category::default_error_condition(int _Errval) const noexcept {
+    // make error_condition for error code
+    return error_condition(_Errval, *this);
+}
+
+_NODISCARD inline bool error_category::equivalent(int _Errval, const error_condition& _Cond) const noexcept {
+    return default_error_condition(_Errval) == _Cond;
+}
+
+_NODISCARD inline bool error_category::equivalent(const error_code& _Code, int _Errval) const noexcept {
+    return *this == _Code.category() && _Code.value() == _Errval;
+}
+
+_NODISCARD inline error_condition error_code::default_error_condition() const noexcept {
+    // make error_condition for error code
+    return category().default_error_condition(value());
+}
+
+_EXPORT_STD _NODISCARD inline error_code make_error_code(errc _Ec) noexcept {
+    return error_code(static_cast<int>(_Ec), _STD generic_category());
+}
+
+_EXPORT_STD _NODISCARD inline error_code make_error_code(io_errc _Ec) noexcept {
+    return error_code(static_cast<int>(_Ec), _STD iostream_category());
+}
+
+_EXPORT_STD _NODISCARD inline error_condition make_error_condition(errc _Ec) noexcept {
+    return error_condition(static_cast<int>(_Ec), _STD generic_category());
+}
+
+_EXPORT_STD _NODISCARD inline error_condition make_error_condition(io_errc _Ec) noexcept {
+    return error_condition(static_cast<int>(_Ec), _STD iostream_category());
+}
+
+template <>
+struct hash<error_code> {
+    using _ARGUMENT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS = error_code;
+    using _RESULT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS   = size_t;
+
+    _NODISCARD _STATIC_CALL_OPERATOR size_t operator()(const error_code& _Keyval) _CONST_CALL_OPERATOR noexcept {
+        return hash<int>{}(_Keyval.value());
+    }
+};
+
+template <>
+struct hash<error_condition> {
+    using _ARGUMENT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS = error_condition;
+    using _RESULT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS   = size_t;
+
+    _NODISCARD _STATIC_CALL_OPERATOR size_t operator()(const error_condition& _Keyval) _CONST_CALL_OPERATOR noexcept {
+        return hash<int>{}(_Keyval.value());
+    }
+};
+
+class _NODISCARD _System_error : public runtime_error { // base of all system-error exceptions
+private:
+    static string _Makestr(error_code _Errcode, string _Message) { // compose error message
+        if (!_Message.empty()) {
+            _Message.append(": ");
+        }
+
+        _Message.append(_Errcode.message());
+        return _Message;
+    }
+
+protected:
+    _System_error(error_code _Errcode) : runtime_error(_Errcode.message()), _Mycode(_Errcode) {}
+
+    _System_error(error_code _Errcode, const string& _Message)
+        : runtime_error(_Makestr(_Errcode, _Message)), _Mycode(_Errcode) {}
+
+    error_code _Mycode; // the stored error code
+};
+
+_EXPORT_STD class _NODISCARD system_error : public _System_error { // base of all system-error exceptions
+private:
+    using _Mybase = _System_error;
+
+public:
+    system_error(error_code _Errcode) : _Mybase(_Errcode) {}
+
+    system_error(error_code _Errcode, const string& _Message) : _Mybase(_Errcode, _Message) {}
+
+    system_error(error_code _Errcode, const char* _Message) : _Mybase(_Errcode, _Message) {}
+
+    system_error(int _Errval, const error_category& _Errcat) : _Mybase(error_code(_Errval, _Errcat)) {}
+
+    system_error(int _Errval, const error_category& _Errcat, const string& _Message)
+        : _Mybase(error_code(_Errval, _Errcat), _Message) {}
+
+    system_error(int _Errval, const error_category& _Errcat, const char* _Message)
+        : _Mybase(error_code(_Errval, _Errcat), _Message) {}
+
+    _NODISCARD const error_code& code() const noexcept {
+        return _Mycode;
+    }
+
+#if !_HAS_EXCEPTIONS
+protected:
+    void _Doraise() const override { // perform class-specific exception handling
+        _RAISE(*this);
+    }
+#endif // !_HAS_EXCEPTIONS
+};
+
+[[noreturn]] inline void _Throw_system_error(const errc _Ec) {
+    _THROW(system_error{_STD make_error_code(_Ec)});
+}
+
+extern "C++" _CRTIMP2_PURE const char* __CLRCALL_PURE_OR_CDECL _Syserror_map(int);
+extern "C++" _CRTIMP2_PURE int __CLRCALL_PURE_OR_CDECL _Winerror_map(int);
+
+struct _System_error_message {
+    char* _Str;
+    size_t _Length;
+
+    explicit _System_error_message(const unsigned long _Ec) noexcept
+        : _Str(nullptr), _Length(_CSTD __std_system_error_allocate_message(_Ec, &_Str)) {}
+
+    _System_error_message(const _System_error_message&)            = delete;
+    _System_error_message& operator=(const _System_error_message&) = delete;
+
+    ~_System_error_message() {
+        _CSTD __std_system_error_deallocate_message(_Str);
+    }
+};
+
+class _Generic_error_category : public error_category { // categorize a generic error
+public:
+    constexpr _Generic_error_category() noexcept : error_category(_Generic_addr) {}
+
+    _NODISCARD const char* name() const noexcept override {
+        return "generic";
+    }
+
+    _NODISCARD string message(int _Errcode) const override {
+        return _Syserror_map(_Errcode);
+    }
+};
+
+class _Iostream_error_category2 : public error_category { // categorize an iostream error
+public:
+    constexpr _Iostream_error_category2() noexcept : error_category(_Iostream_addr) {}
+
+    _NODISCARD const char* name() const noexcept override {
+        return "iostream";
+    }
+
+    _NODISCARD string message(int _Errcode) const override {
+        if (_Errcode == static_cast<int>(io_errc::stream)) {
+            static constexpr char _Iostream_error[] = "iostream stream error";
+            constexpr size_t _Iostream_error_length = sizeof(_Iostream_error) - 1; // TRANSITION, DevCom-906503
+            return string{_Iostream_error, _Iostream_error_length};
+        } else {
+            return _Syserror_map(_Errcode);
+        }
+    }
+};
+
+class _System_error_category : public error_category { // categorize an operating system error
+public:
+    constexpr _System_error_category() noexcept : error_category(_System_addr) {}
+
+    _NODISCARD const char* name() const noexcept override {
+        return "system";
+    }
+
+    _NODISCARD string message(int _Errcode) const override {
+        const _System_error_message _Msg(static_cast<unsigned long>(_Errcode));
+
+        if (_Msg._Str && _Msg._Length != 0) {
+            // CodeQL [SM02310] _Msg's ctor inits _Str(nullptr) before doing work, then we test _Msg._Str above.
+            return string{_Msg._Str, _Msg._Length};
+        } else {
+            static constexpr char _Unknown_error[] = "unknown error";
+            constexpr size_t _Unknown_error_length = sizeof(_Unknown_error) - 1; // TRANSITION, DevCom-906503
+            return string{_Unknown_error, _Unknown_error_length};
+        }
+    }
+
+    _NODISCARD error_condition default_error_condition(int _Errval) const noexcept override {
+        if (_Errval == 0) {
+            return error_condition(0, _STD generic_category());
+        }
+
+        // make error_condition for error code (generic if possible)
+        const int _Posv = _Winerror_map(_Errval);
+        if (_Posv == 0) {
+            return error_condition(_Errval, _STD system_category());
+        } else {
+            return error_condition(_Posv, _STD generic_category());
+        }
+    }
+};
+
+// _Immortalize_memcpy_image is used to provide a nonstandard guarantee.
+// Specifically, we want the error category objects returned from things like std::system_category() to always
+//   be available, even during DLL unload (otherwise, <system_error> would be a huge regression vs. legacy error codes).
+// Moreover, we need to be very conservative in the runtime support we request. Thus, we have these constraints:
+//
+// * can't use magic statics in standard modes, because that would inject a .TLS section into all binaries using
+//   <system_error> and would likely put borderline programs over the TLS slot count limit, and would destroy the
+//   variable during DLL unload
+// * can't declare the error_category as an ordinary constexpr variable for most compilers before C++20, because
+//   error_category has a virtual destructor
+// * can't declare the error_category as an ordinary non-constexpr variable even with a constexpr constructor, because
+//   the compiler will emit code to destroy it which invalidates its use in these DLL shutdown scenarios
+//
+// As a result, we use a workaround: We create an atomic<uintptr_t> array to store the error_category instance, test
+//   if the first atomic is nonzero (acquire), and if so, we know we have formed the instance and can return a
+//   reinterpreted pointer to that storage. If the first atomic is zero, we write all except the first atomic (relaxed),
+//   then write the first one as a store-release. (The non-first values are transferred to other threads in the
+//   release sequence).
+//
+// Acknowledged undefined and implementation-defined behavior happening here:
+// * There is a data race when filling in the values other than the first atomic; this is OK on all hardware we target
+//   because the racing threads are all writing identical values that never change afterwards.
+// * We are reaching into the layout of atomic<uintptr_t>[N] and assuming we can reinterpret that as some other type.
+// * We are assuming that virtual functions are implemented with a vfptr located as the first member of an object.
+// (there are probably others)
+//
+// Inspecting the resulting assembly of any callers of _Immortalize_memcpy_image is recommended.
+//
+
+#if defined(_M_CEE_PURE)
+// /clr:pure doesn't ever do constant initialization, so rely on the CLR and magic statics
+template <class _Ty>
+_NODISCARD const _Ty& _Immortalize_memcpy_image() noexcept {
+    /* MAGIC */ static _Immortalizer_impl<_Ty> _Static;
+    return _Static._Storage;
+}
+#elif _HAS_CXX20
+template <class _Ty>
+_NODISCARD const _Ty& _Immortalize_memcpy_image() noexcept {
+    static constexpr _Ty _Static;
+    return _Static;
+}
+#elif defined(__clang__)
+template <class _Ty>
+_NODISCARD const _Ty& _Immortalize_memcpy_image() noexcept {
+    [[_Clang::__require_constant_initialization__]] static _Ty _Static;
+    return _Static;
+}
+#elif !defined(_M_CEE)
+template <class _Ty>
+struct _Constexpr_immortalize_impl {
+    union {
+        _Ty _Storage;
+    };
+
+    constexpr _Constexpr_immortalize_impl() noexcept : _Storage{} {}
+
+    _Constexpr_immortalize_impl(const _Constexpr_immortalize_impl&)            = delete;
+    _Constexpr_immortalize_impl& operator=(const _Constexpr_immortalize_impl&) = delete;
+
+    _MSVC_NOOP_DTOR ~_Constexpr_immortalize_impl() {
+        // do nothing, allowing _Ty to be used during shutdown
+    }
+};
+
+template <class _Ty>
+_NODISCARD const _Ty& _Immortalize_memcpy_image() noexcept {
+    static _Constexpr_immortalize_impl<_Ty> _Static;
+    return _Static._Storage;
+}
+#else // ^^^ !defined(_M_CEE) / defined(_M_CEE), TRANSITION, VSO-1153256 vvv
+template <class _Ty>
+_NODISCARD const _Ty& _Immortalize_memcpy_image() noexcept {
+    // return reference to a memcpy'd default-initialized _Ty
+    // pre: A default-initialized _Ty sets the first pointer-sized field to nonzero
+    constexpr size_t _Pointer_count = sizeof(_Ty) / sizeof(uintptr_t);
+    static atomic<uintptr_t> _Storage[_Pointer_count];
+    static_assert(sizeof(_Storage) == sizeof(_Ty), "Bad storage size");
+    static_assert(alignof(decltype(_Storage)) >= alignof(_Ty), "Bad alignment assumptions");
+    if (_Storage[0].load(memory_order_acquire) != 0) {
+        return reinterpret_cast<_Ty&>(_Storage);
+    }
+
+    const _Ty _Target;
+    const auto _Target_iter = reinterpret_cast<const uintptr_t*>(_STD addressof(_Target));
+    _CSTD memcpy(_Storage + 1, _Target_iter + 1, sizeof(_Ty) - sizeof(uintptr_t));
+    _Storage[0].store(_Target_iter[0], memory_order_release);
+    return reinterpret_cast<_Ty&>(_Storage);
+}
+#endif // ^^^ defined(_M_CEE), TRANSITION, VSO-1153256 ^^^
+
+_EXPORT_STD _NODISCARD inline const error_category& generic_category() noexcept {
+    return _Immortalize_memcpy_image<_Generic_error_category>();
+}
+
+_EXPORT_STD _NODISCARD inline const error_category& iostream_category() noexcept {
+    return _Immortalize_memcpy_image<_Iostream_error_category2>();
+}
+
+_EXPORT_STD _NODISCARD inline const error_category& system_category() noexcept {
+    return _Immortalize_memcpy_image<_System_error_category>();
+}
+_STD_END
+
+#if _HAS_CXX17
+extern "C" {
+enum class __std_win_error : unsigned long;
+} // extern "C"
+
+_STD_BEGIN
+// We would really love to use the proper way of building error_code by specializing
+// is_error_code_enum and make_error_code for __std_win_error, but because:
+//   1. We would like to keep the definition of __std_win_error in xfilesystem_abi.h
+//   2. and xfilesystem_abi.h cannot include <system_error>
+//   3. and specialization of is_error_code_enum and overload of make_error_code
+//      need to be kept together with the enum (see limerick in N4950 [temp.expl.spec]/8)
+// we resort to using this _Make_ec helper.
+_NODISCARD inline error_code _Make_ec(__std_win_error _Errno) noexcept { // make an error_code
+    return {static_cast<int>(_Errno), _STD system_category()};
+}
+
+[[noreturn]] inline void _Throw_system_error_from_std_win_error(const __std_win_error _Errno) {
+    _THROW(system_error{_Make_ec(_Errno)});
+}
+_STD_END
+#endif // _HAS_CXX17
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma pop_macro("noop_dtor")
+#pragma pop_macro("msvc")
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _SYSTEM_ERROR_

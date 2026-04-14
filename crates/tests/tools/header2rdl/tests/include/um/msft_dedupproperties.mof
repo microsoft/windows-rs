@@ -1,0 +1,169 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "Volume deduplication properties."
+    )]
+class MSFT_DedupProperties
+{
+    [Read, Description(
+        "The total logical size of all files on the volume, in bytes. This is an estimate of the volume used space if deduplication feature was disabled."
+        )]
+    UInt64 UnoptimizedSize;
+
+    [Read, Description(
+        "The difference between the logical size of the optimized files and the logical size of the store (the deduplicated user data plus deduplication metadata)."
+        )]
+    UInt64 SavingsSize;
+
+    [Read, Description(
+        "The ratio of deduplication savings to the logical size of all of the files on the volume, expressed as a percentage."
+        )]
+    UInt32 SavingsRate;
+
+    [Read, Description(
+        "The number of optimized files on the volume."
+        )]
+    UInt64 OptimizedFilesCount;
+
+    [Read, Description(
+        "The total logical size of all optimized files on the volume, in bytes."
+        )]
+    UInt64 OptimizedFilesSize;
+
+    [Read, Description(
+        "The ratio of deduplication savings to the logical size of all optimized files on the volume, expressed as a percentage."
+        )]
+    UInt32 OptimizedFilesSavingsRate;
+
+    [Read, Description(
+        "The number of files that currently qualify for optimization."
+        )]
+    UInt64 InPolicyFilesCount;
+
+    [Read, Description(
+        "The aggregate size of all files that currently qualify for optimization."
+        )]
+    UInt64 InPolicyFilesSize;
+
+    [Read, Description ("Indicates the deduplication mode of the volume."),
+        ValueMap {"0", "1", "2", "3", "4"},
+        Values { "Disabled", "GeneralPurpose", "HyperV", "Backup", "NotAvailable" }
+    ]
+    UInt32 DedupMode;
+
+    [Read, Description ("Indicates the ReFS deduplication mode of the volume."),
+        ValueMap {"0", "1", "2", "3", "4"},
+        Values { "Disabled", "Dedup", "DedupAndCompress", "Compress", "NotAvailable" }
+    ]
+    UInt32 ReFSDedupMode;
+
+    [Read, Description(
+        "The size of the RsFS volume in bytes."
+        )]
+    UInt64 ReFSDedupVolSize;
+
+    [Read, Description(
+        "Total space savings due to deduplication in bytes."
+        )]
+    UInt64 ReFSDedupSavingsSize;
+
+    [Read, Description(
+        "Amount of space processed on last run."
+        )]
+    UInt64 ReFSDedupProcessedOnLastRun;
+
+    [Read, Description(
+        "The percentage of ReFS deduplication completed at the time of query."
+        ), Units( "Percent" ), MinValue( 0 ), MaxValue( 100 )]
+    Real64 ReFSDedupPercentComplete;
+
+    [Read, Description(
+        "Denotes if ReFS deduplication is running."
+        )]
+    Boolean ReFSDedupRunning;
+
+    [Read, Description(
+        "Total space savings due to deduplication in bytes during last run."
+        )]
+    UInt64 ReFSDedupSavingsSizeOnLastRun;
+
+    [Read, Description(
+        "The time interval that deduplication took for last run."
+        )]
+    Datetime ReFSDedupLastRunDuration;
+
+    [Read, Description(
+        "The last run status of deduplication."
+        )]
+    UInt64 ReFSDedupLastRunStatus;
+
+    [Read, Description(
+        "Denotes the date and time when ReFSDedup ran last time."
+        )]
+    Datetime ReFSDedupLastRunTime;
+
+    [Read, Description(
+        "Denotes the date and time when ReFSDedup is scheduled to run next."
+        )]
+    Datetime ReFSDedupNextRunTime;
+
+    [Read, Description ("Denotes the compression format for ReFS deduplication."),
+        ValueMap {"0", "1", "2", "3"},
+        Values { "Unknown", "Uncompressed", "LZ4", "ZSTD" }
+    ]
+    UInt32 ReFSDedupCompressionFormat;
+
+    [Read, Description(
+        "Denotes the compression level for ReFS deduplication."
+        )]
+    UInt16 ReFSDedupCompressionLevel;
+
+    [Read, Description(
+        "Denotes the compression chunk size for ReFS deduplication."
+        )]
+    UInt32 ReFSDedupCompressionChunkSize;
+
+    [Read, Description(
+        "Denotes volume cluster size for ReFS deduplication in bytes."
+        )]
+    UInt32 ReFSDedupVolumeClusterSizeBytes;
+
+    [Read, Description(
+        "Denotes volume total clusters for ReFS deduplication."
+        )]
+    UInt64 ReFSDedupVolumeTotalClusters;
+
+    [Read, Description(
+        "Denotes volume total allocated clusters for ReFS deduplication."
+        )]
+    UInt64 ReFSDedupVolumeTotalAllocatedClusters;
+
+    [Read, Description(
+        "Denotes volume total allocated compressible clusters for ReFS deduplication."
+        )]
+    UInt64 ReFSDedupVolumeTotalAllocatedCompressibleClusters;
+
+    [Read, Description(
+        "Denotes volume total in use compressible clusters for ReFS deduplication."
+        )]
+    UInt64 ReFSDedupVolumeTotalInUseCompressibleClusters;
+
+    [Read, Description(
+        "Denotes volume total compressed clusters for ReFS deduplication."
+        )]
+    UInt64 ReFSDedupVolumeTotalCompressedClusters;
+
+    [Read, Description(
+        "Denotes total savings due to compression for ReFS deduplication."
+        )]
+    UInt64 ReFSDedupVolumeTotalCompressionSavings;
+
+    [Read, Description(
+        "Denotes if Compression is in progress or not."
+        )]
+    Boolean ReFSDedupCompressionInProgress;
+};

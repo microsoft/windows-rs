@@ -1,0 +1,504 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("/* Copyright (c) Microsoft Corporation. All rights reserved. */")
+
+// rend.idl : IDL source for rend.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (rend.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "tapi3if.idl";
+
+// Conference and user object Interfaces
+const DISPID  IDISPDIROBJECT            = 0x00010000;
+const DISPID  IDISPDIROBJCONFERENCE     = 0x00020000;
+const DISPID  IDISPDIROBJUSER           = 0x00030000;
+
+// Directory object interfaces
+const DISPID  IDISPDIRECTORY            = 0x00010000;
+const DISPID  IDISPILSCONFIG            = 0x00020000;
+
+
+typedef enum DIRECTORY_TYPE
+{
+    DT_NTDS   = 1,
+    DT_ILS    = 2
+
+} DIRECTORY_TYPE;
+
+typedef enum DIRECTORY_OBJECT_TYPE
+{
+    OT_CONFERENCE  = 1,
+    OT_USER        = 2
+
+} DIRECTORY_OBJECT_TYPE;
+
+typedef enum RND_ADVERTISING_SCOPE
+{
+    RAS_LOCAL   = 1,
+    RAS_SITE    = 2,
+    RAS_REGION  = 3,
+    RAS_WORLD   = 4
+
+} RND_ADVERTISING_SCOPE;
+
+[
+    object,
+    uuid(F1029E5D-CB5B-11D0-8D59-00C04FD91AC0),
+    dual,
+    helpstring("Interface for conference announcements."),
+    pointer_default(unique)
+]
+
+interface ITDirectoryObjectConference : IDispatch
+{
+    [propget, id(IDISPDIROBJCONFERENCE | 1), helpstring("The protocol used in describing the conference.")]
+    HRESULT Protocol(
+        [out, retval] BSTR *ppProtocol
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 2), helpstring("The originator of the conference.")]
+    HRESULT Originator(
+        [out, retval] BSTR *ppOriginator
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 2), helpstring("The originator of the conference.")]
+    HRESULT Originator(
+        [in] BSTR pOriginator
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 3), helpstring("The scope of the conference.")]
+    HRESULT AdvertisingScope(
+        [out, retval] RND_ADVERTISING_SCOPE *pAdvertisingScope
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 3), helpstring("The scope of the conference.")]
+    HRESULT AdvertisingScope(
+        [in] RND_ADVERTISING_SCOPE AdvertisingScope
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 4), helpstring("The Url for the conference.")]
+    HRESULT Url(
+        [out, retval] BSTR *ppUrl
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 4), helpstring("The Url for the conference.")]
+    HRESULT Url(
+        [in] BSTR pUrl
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 5), helpstring("The description of the conference.")]
+    HRESULT Description(
+        [out, retval] BSTR *ppDescription
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 5), helpstring("The description of the conference.")]
+    HRESULT Description(
+        [in] BSTR pDescription
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 6), helpstring("If the conference is encrypted.")]
+    HRESULT IsEncrypted(
+        [out, retval] VARIANT_BOOL *pfEncrypted
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 6), helpstring("If the conference is encrypted.")]
+    HRESULT IsEncrypted(
+        [in] VARIANT_BOOL fEncrypted
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 7), helpstring("The start time of the conference.")]
+    HRESULT StartTime(
+        [out, retval] DATE *pDate
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 7), helpstring("The start time of the conference.")]
+    HRESULT StartTime(
+        [in] DATE   Date
+        );
+
+    [propget, id(IDISPDIROBJCONFERENCE | 8), helpstring("The stop time of the conference.")]
+    HRESULT StopTime(
+        [out, retval] DATE *pDate
+        );
+
+    [propput, id(IDISPDIROBJCONFERENCE | 8), helpstring("The stop time of the conference.")]
+    HRESULT StopTime(
+        [in] DATE   Date
+        );
+};
+
+
+[
+    object,
+    uuid(34621D6F-6CFF-11d1-AFF7-00C04FC31FEE),
+    dual,
+    helpstring("Interface for user object."),
+    pointer_default(unique)
+]
+
+interface ITDirectoryObjectUser : IDispatch
+{
+    [propget, id(IDISPDIROBJUSER | 1), helpstring("The primary IP phone attribute.")]
+    HRESULT IPPhonePrimary(
+        [out, retval] BSTR *ppName
+        );
+
+    [propput, id(IDISPDIROBJUSER | 1), helpstring("The primary IP phone attribute.")]
+    HRESULT IPPhonePrimary(
+        [in] BSTR pName
+        );
+};
+
+[
+    uuid(34621D70-6CFF-11d1-AFF7-00C04FC31FEE),
+    helpstring("IEnumDialableAddresses interface"),
+    hidden,
+    restricted,
+    pointer_default(unique)
+]
+
+interface IEnumDialableAddrs : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt)] BSTR * ppElements,
+        [in,out,ptr] ULONG * pcFetched
+        );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+        [in] ULONG celt
+        );
+
+    HRESULT Clone (
+        [out, retval] IEnumDialableAddrs ** ppEnum
+        );
+};
+
+[
+    object,
+    uuid(34621D6E-6CFF-11d1-AFF7-00C04FC31FEE),
+    dual,
+    helpstring("Interface for an object in the directory."),
+    pointer_default(unique)
+]
+
+interface ITDirectoryObject : IDispatch
+{
+    [propget, id(IDISPDIROBJECT | 1), helpstring("The type of this object.")]
+    HRESULT ObjectType(
+        [out, retval] DIRECTORY_OBJECT_TYPE *   pObjectType
+        );
+
+    [propget, id(IDISPDIROBJECT | 2), helpstring("The name of this object.")]
+    HRESULT Name(
+        [out, retval] BSTR *ppName
+        );
+
+    [propput, id(IDISPDIROBJECT | 2), helpstring("The name of this object.")]
+    HRESULT Name(
+        [in] BSTR pName
+        );
+
+    [propget, id(IDISPDIROBJECT | 3), helpstring("The addresses of the object that can be dialed.")]
+    HRESULT DialableAddrs(
+        [in]            long       dwAddressType,   //defined in tapi.h
+        [out, retval]   VARIANT *   pVariant
+        );
+
+    [id(IDISPDIROBJECT | 4), hidden, restricted, helpstring("method EnumerateDialableAddrs")]
+    HRESULT EnumerateDialableAddrs(
+        [in]    DWORD                   dwAddressType, //defined in tapi.h
+        [out]   IEnumDialableAddrs **   ppEnumDialableAddrs
+        );
+
+    [propget, id(IDISPDIROBJECT | 5), helpstring("The security descriptor.")]
+    HRESULT SecurityDescriptor(
+        [out, retval] IDispatch ** ppSecDes
+        );
+
+    [propput, id(IDISPDIROBJECT | 5), helpstring("The security descriptor.")]
+    HRESULT SecurityDescriptor(
+        [in] IDispatch * pSecDes
+        );
+};
+
+[
+    object,
+    uuid(06C9B64A-306D-11D1-9774-00C04FD91AC0),
+    helpstring("IEnumDirectoryObject interface"),
+    hidden,
+    restricted,
+    pointer_default(unique)
+]
+interface IEnumDirectoryObject : IUnknown
+{
+    HRESULT Next(
+        [in]  ULONG celt,
+        [out, size_is(celt)] ITDirectoryObject **pVal,
+        [in, out, ptr] ULONG * pcFetched
+        );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+        [in] ULONG celt
+        );
+
+    HRESULT Clone (
+        [out, retval] IEnumDirectoryObject ** ppEnum
+        );
+};
+
+[
+    object,
+    public,
+    uuid(34621D72-6CFF-11d1-AFF7-00C04FC31FEE),
+    dual,
+    helpstring("Interface to configure ILS server.")
+]
+interface ITILSConfig : IDispatch
+{
+    [propget, id(IDISPILSCONFIG | 1), helpstring("The port the ILS server is listening on.")]
+    HRESULT Port(
+        [out, retval] long *pPort
+        );
+
+    [propput, id(IDISPILSCONFIG | 1), helpstring("The port the ILS server is listening on.")]
+    HRESULT Port(
+        [in] long Port
+        );
+};
+
+[
+    object,
+    public,
+    uuid(34621D6C-6CFF-11d1-AFF7-00C04FC31FEE),
+    dual,
+    helpstring("Interface to a generic directory service.")
+]
+interface ITDirectory : IDispatch
+{
+    // find the type of the directory, NTDS, ILS, etc.
+    [propget, id(IDISPDIRECTORY | 1), helpstring("The type of the directory.")]
+    HRESULT DirectoryType(
+        [out, retval] DIRECTORY_TYPE *  pDirectoryType
+        );
+
+    [propget, id(IDISPDIRECTORY | 2), helpstring("The name of the directory.")]
+    HRESULT DisplayName(
+        [out, retval] BSTR *  pName
+        );
+    
+    [propget, id(IDISPDIRECTORY | 3), helpstring("If the object on the server needs refresh.")]
+    HRESULT IsDynamic(
+        [out, retval] VARIANT_BOOL *pfDynamic
+        );
+
+    [propget, id(IDISPDIRECTORY | 4), helpstring("The default Time To Live value(in seconds) for object created. Only apply to dynamic servers.")]
+    HRESULT DefaultObjectTTL(
+        [out, retval] long *pTTL
+        );
+
+    [propput, id(IDISPDIRECTORY | 4), helpstring("The default Time To Live value(in seconds) for object created. Only apply to dynamic servers. Minimum 300 seconds.")]
+    HRESULT DefaultObjectTTL(
+        [in] long TTL                   
+        );
+
+    [id(IDISPDIRECTORY | 5), helpstring("Enable the auto refresh for object created afterwards. Only apply to dynamic servers.")]
+    HRESULT EnableAutoRefresh(
+        [in] VARIANT_BOOL fEnable
+        );
+
+    [id(IDISPDIRECTORY | 6), helpstring("Connect to the server.")]
+    HRESULT Connect(
+        [in] VARIANT_BOOL fSecure
+        );
+
+    [id(IDISPDIRECTORY | 7), helpstring("Bind to the server.")]
+    HRESULT Bind(
+        [in] BSTR           pDomainName,   // Can be NULL.
+        [in] BSTR           pUserName,     // Can be NULL.
+        [in] BSTR           pPassword,     // Can be NULL.
+        [in] long           lFlags
+        );
+
+    [id(IDISPDIRECTORY | 8), helpstring("Add an object to the server.")]
+    HRESULT AddDirectoryObject(
+        [in] ITDirectoryObject *pDirectoryObject
+        );
+
+    [id(IDISPDIRECTORY | 9), helpstring("Modify an object on the server.")]
+    HRESULT ModifyDirectoryObject(
+        [in] ITDirectoryObject *pDirectoryObject
+        );
+
+    [id(IDISPDIRECTORY | 10), helpstring("Refresh the TTL for an object on the server. Only apply to dynamic servers.")]
+    HRESULT RefreshDirectoryObject(
+        [in] ITDirectoryObject *pDirectoryObject
+        );
+
+    [id(IDISPDIRECTORY | 11), helpstring("Delete an object from the server.")]
+    HRESULT DeleteDirectoryObject(
+        [in] ITDirectoryObject *pDirectoryObject
+        );
+
+    [propget, id(IDISPDIRECTORY | 12), helpstring("All the objects on the server with specified type and name.")]
+    HRESULT DirectoryObjects(
+        [in]            DIRECTORY_OBJECT_TYPE   DirectoryObjectType,
+        [in]            BSTR                    pName,
+        [out, retval]   VARIANT *               pVariant
+        );
+
+    [id(IDISPDIRECTORY | 13), hidden, restricted, helpstring("method EnumerateDirectoryObjects")]
+    HRESULT EnumerateDirectoryObjects(
+        [in]    DIRECTORY_OBJECT_TYPE   DirectoryObjectType,
+        [in]    BSTR                    pName,
+	    [out]   IEnumDirectoryObject ** ppEnumObject
+	    );
+};
+
+[
+    uuid(34621D6D-6CFF-11d1-AFF7-00C04FC31FEE),
+    helpstring("IEnumDirectory interface"),
+    hidden,
+    restricted,
+    pointer_default(unique)
+]
+
+interface IEnumDirectory : IUnknown
+{
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pcFetched)] ITDirectory ** ppElements,
+        [in,out,ptr] ULONG * pcFetched
+        );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+        [in] ULONG celt
+        );
+
+    HRESULT Clone (
+        [out, retval] IEnumDirectory ** ppEnum
+        );
+};
+
+[
+    object,
+    public,
+    uuid(34621D6B-6CFF-11d1-AFF7-00C04FC31FEE),
+    dual,
+    helpstring("Interface to access directories and obejcts.")
+]
+interface ITRendezvous : IDispatch
+{
+    [propget, id(1), helpstring("The default directories configured by system administrator.")]
+    HRESULT DefaultDirectories(
+        [out, retval] VARIANT * pVariant
+        );
+
+    [id(2), hidden, restricted, helpstring("method Enumerate directories")]
+    HRESULT EnumerateDefaultDirectories(
+	    [out]   IEnumDirectory ** ppEnumDirectory
+	    );
+
+    [id(3), helpstring("Create a directory of given type and name.")]
+    HRESULT CreateDirectory(
+        [in]            DIRECTORY_TYPE  DirectoryType,
+        [in]            BSTR            pName,
+	    [out, retval]   ITDirectory **  ppDir
+	    );
+
+    [id(4), helpstring("Create a new directory object.")]
+    HRESULT CreateDirectoryObject(
+        [in]            DIRECTORY_OBJECT_TYPE   DirectoryObjectType,
+        [in]            BSTR                    pName,
+	    [out, retval]   ITDirectoryObject **    ppDirectoryObject
+	    );
+};
+
+
+cpp_quote("")
+cpp_quote("")
+cpp_quote("/***************************************************************/")
+cpp_quote("/* Rend constants -- defined here for C apps                   */")
+cpp_quote("/* The subsequent definitions that MIDL generates from the     */")
+cpp_quote("/* module declaration are not used. The module declaration is  */")
+cpp_quote("/* retained, however, so that the constants show up in the     */")
+cpp_quote("/* type library.                                               */")
+cpp_quote("/***************************************************************/")
+cpp_quote("")
+cpp_quote("#define RENDBIND_AUTHENTICATE       0x00000001")
+cpp_quote("#define RENDBIND_DEFAULTDOMAINNAME  0x00000002")
+cpp_quote("#define RENDBIND_DEFAULTUSERNAME    0x00000004")
+cpp_quote("#define RENDBIND_DEFAULTPASSWORD    0x00000008")
+cpp_quote("/* this is just the previous three |'ed together for convenience. */")
+cpp_quote("#define RENDBIND_DEFAULTCREDENTIALS 0x0000000e")
+cpp_quote("")
+cpp_quote("#define __RendConstants_MODULE_DEFINED__")
+cpp_quote("")
+cpp_quote("/***************************************************************/")
+cpp_quote("/* end of rend constants section                               */")
+cpp_quote("/***************************************************************/")
+cpp_quote("")
+cpp_quote("")
+
+[
+    uuid(F1029E4D-CB5B-11D0-8D59-00C04FD91AC0),
+    version(1.0),
+    helpstring("Microsoft Rendezvous control 1.0 Type Library")
+]
+library RENDLib
+{
+    importlib("stdole2.tlb");
+    
+    interface ITRendezvous;
+    interface ITDirectoryObjectConference;
+    interface ITDirectoryObjectUser;
+    interface ITDirectoryObject;
+    interface ITILSConfig;
+    interface ITDirectory;
+
+    [
+        uuid(F1029E5B-CB5B-11D0-8D59-00C04FD91AC0),
+        helpstring("The Rendezvous Control Class")
+    ]
+    coclass Rendezvous
+    {
+        [default] interface ITRendezvous;
+    };
+
+    [
+        uuid(A2382C3C-A108-11d2-B117-006008B0E5D2),
+        dllname("rend.dll"),
+        helpstring("TAPI 3.0 Rendezvous Control Constants")
+    ]
+    module RendConstants
+    {
+        const long RENDBIND_AUTHENTICATE       = 0x00000001;
+        const long RENDBIND_DEFAULTDOMAINNAME  = 0x00000002;
+        const long RENDBIND_DEFAULTUSERNAME    = 0x00000004;
+        const long RENDBIND_DEFAULTPASSWORD    = 0x00000008;
+        // this is just the previous three |'ed together for convenience.
+        const long RENDBIND_DEFAULTCREDENTIALS = 0x0000000e;
+    };
+
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+// eof

@@ -1,0 +1,109 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: transportsettings.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+//cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+#ifndef _TRANSPORT_SETTINGS_IDL
+#define _TRANSPORT_SETTINGS_IDL
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "unknwn.idl";
+import "wtypes.idl";
+import "transportsettingcommon.h";
+
+
+typedef struct TRANSPORT_SETTING
+{
+    TRANSPORT_SETTING_ID SettingId;
+    ULONG *Length;	
+    [size_is(*Length)] BYTE *Value;
+} TRANSPORT_SETTING;
+
+[
+    local,
+    object,
+    uuid(5123e076-29e3-4bfd-84fe-0192d411e3e8),
+    pointer_default(unique)
+]
+
+interface ITransportSettingsInternal : IUnknown
+{
+
+        HRESULT 
+        ApplySetting(
+            [in, out] TRANSPORT_SETTING *Setting
+            );
+
+        HRESULT 
+        QuerySetting(
+            [in, out] TRANSPORT_SETTING *Setting
+            );
+};
+
+[
+    object,
+    uuid(5e7abb2c-f2c1-4a61-bd35-deb7a08ab0f1),
+    pointer_default(unique)
+]
+interface INetworkTransportSettings : IUnknown
+{
+    HRESULT
+    ApplySetting
+    (
+        [in]                            const TRANSPORT_SETTING_ID *SettingId,
+        [in]                            ULONG                      LengthIn,
+        [in, unique, size_is(LengthIn)] const BYTE                 *ValueIn,
+        [out]                           ULONG                      *LengthOut,
+        [out, size_is(, *LengthOut)]    BYTE                       **ValueOut
+    );
+ 
+    HRESULT
+    QuerySetting
+    (
+        [in]                            const TRANSPORT_SETTING_ID *SettingId,
+        [in]                            ULONG                      LengthIn,
+        [in, unique, size_is(LengthIn)] const BYTE                 *ValueIn,
+        [out]                           ULONG                      *LengthOut,
+        [out, size_is(, *LengthOut)]    BYTE                       **ValueOut
+    );
+};
+
+[
+    object,
+    uuid(79eb1402-0ab8-49c0-9e14-a1ae4ba93058),
+    pointer_default(unique)
+]
+interface INotificationTransportSync : IUnknown
+{
+    HRESULT 
+    CompleteDelivery();
+
+    HRESULT 
+    Flush();
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#endif // _TRANSPORT_SETTINGS_IDL
+//cpp_quote("#endif // (NTDDI >= NTDDI_WIN8)")

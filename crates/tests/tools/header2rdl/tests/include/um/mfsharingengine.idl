@@ -1,0 +1,328 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+import "MFMediaEngine.idl";
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+/// <summary>
+///     Structure describing a media device
+/// </summary>
+typedef struct DEVICE_INFO
+{
+    BSTR pFriendlyDeviceName;
+    BSTR pUniqueDeviceName;
+    BSTR pManufacturerName;
+    BSTR pModelName;
+    BSTR pIconURL;
+}   DEVICE_INFO;
+
+/// <summary>
+///     Events fired by the <video>/<audio>/<img> elements
+///     Extends MF_MEDIA_ENGINE_EVENT
+/// </summary>
+typedef enum MF_SHARING_ENGINE_EVENT
+{
+    MF_SHARING_ENGINE_EVENT_DISCONNECT = 2000,
+    MF_SHARING_ENGINE_EVENT_LOCALRENDERINGSTARTED = 2001,
+    MF_SHARING_ENGINE_EVENT_LOCALRENDERINGENDED = 2002,
+    MF_SHARING_ENGINE_EVENT_STOPPED = 2003,
+    MF_SHARING_ENGINE_EVENT_ERROR = 2501,
+} MF_SHARING_ENGINE_EVENT;
+
+/// <summary>
+///     Events fired by the <video>/<audio> elements
+///     Extends MF_MEDIA_ENGINE_EVENT
+/// </summary>
+typedef enum MF_MEDIA_SHARING_ENGINE_EVENT
+{
+    MF_MEDIA_SHARING_ENGINE_EVENT_DISCONNECT = 2000,
+} MF_MEDIA_SHARING_ENGINE_EVENT;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFSharingEngineClassFactory Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(2BA61F92-8305-413B-9733-FAF15F259384),
+    pointer_default(unique),
+    local
+]
+interface IMFSharingEngineClassFactory : IUnknown
+{
+    HRESULT CreateInstance( 
+        [in, annotation("_In_")] DWORD dwFlags,             // see MF_MEDIA_ENGINE_CREATEFLAGS
+        [in, annotation("_In_opt_")] IMFAttributes* pAttr,
+        [out, annotation("_COM_Outptr_")] IUnknown** ppEngine   // implements either IMFMediaEngineEx, IMFMediaSharingEngine, 
+                                                            // or IMFImageSharingEngine based on flags passed to IPlayToConnectionClassFactory
+        );
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFMediaSharingEngine Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(8D3CE1BF-2367-40E0-9EEE-40D377CC1B46),
+    helpstring("IMFMediaSharingEngine Interface"),
+    pointer_default(unique),
+    local
+]
+interface IMFMediaSharingEngine : IMFMediaEngine
+{
+    HRESULT GetDevice( [out, annotation("_Out_")] DEVICE_INFO* pDevice );
+}
+
+//
+// MFMediaSharingEngine creation attributes
+//
+
+// MF_MEDIA_SHARING_ENGINE_DEVICE_NAME
+// Data type: STRING
+// {771E05D1-862F-4299-95AC-AE81FD14F3E7}
+cpp_quote("EXTERN_GUID(MF_MEDIA_SHARING_ENGINE_DEVICE_NAME,")
+cpp_quote("0x771e05d1, 0x862f, 0x4299, 0x95, 0xac, 0xae, 0x81, 0xfd, 0x14, 0xf3, 0xe7);")
+
+// MF_MEDIA_SHARING_ENGINE_DEVICE
+// Data type: IUnknown
+// {B461C58A-7A08-4B98-99A8-70FD5F3BADFD}
+cpp_quote("EXTERN_GUID(MF_MEDIA_SHARING_ENGINE_DEVICE,")
+cpp_quote("0xb461c58a, 0x7a08, 0x4b98, 0x99, 0xa8, 0x70, 0xfd, 0x5f, 0x3b, 0xad, 0xfd);")
+
+// MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME
+// Data type: DOUBLE
+// {6F3497F5-D528-4A4F-8DD7-DB36657EC4C9}
+cpp_quote("DEFINE_GUID(MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME, ")
+cpp_quote("0x6f3497f5, 0xd528, 0x4a4f, 0x8d, 0xd7, 0xdb, 0x36, 0x65, 0x7e, 0xc4, 0xc9);")
+
+// MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN
+// Data type: UINT32
+// {C112D94D-6B9C-48f8-B6F9-7950FF9AB71E}
+cpp_quote("DEFINE_GUID(MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN, ")
+cpp_quote("0xc112d94d, 0x6b9c, 0x48f8, 0xb6, 0xf9, 0x79, 0x50, 0xff, 0x9a, 0xb7, 0x1e);")
+
+// MF_PREFERRED_SOURCE_URI
+// Data type: PCWSTR
+// {5FC85488-436A-4DB8-90AF-4DB402AE5C57}
+cpp_quote("DEFINE_GUID(MF_PREFERRED_SOURCE_URI, ")
+cpp_quote("0x5fc85488, 0x436a, 0x4db8, 0x90, 0xaf, 0x4d, 0xb4, 0x2, 0xae, 0x5c, 0x57);")
+
+// MF_SHARING_ENGINE_SHAREDRENDERER
+// Data type: IUnknown
+// {EFA446A0-73E7-404E-8AE2-FEF60AF5A32B}
+cpp_quote("DEFINE_GUID(MF_SHARING_ENGINE_SHAREDRENDERER, ")
+cpp_quote("0xefa446a0, 0x73e7, 0x404e, 0x8a, 0xe2, 0xfe, 0xf6, 0x0a, 0xf5, 0xa3, 0x2b);")
+
+// MF_SHARING_ENGINE_CALLBACK
+// Data type: IUnknown
+// {57dc1e95-d252-43fa-9bbc-180070eefe6d}
+cpp_quote("DEFINE_GUID(MF_SHARING_ENGINE_CALLBACK, ")
+cpp_quote("0x57dc1e95, 0xd252, 0x43fa, 0x9b, 0xbc, 0x18, 0x0, 0x70, 0xee, 0xfe, 0x6d);")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFMediaSharingEngineClassFactory Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(524D2BC4-B2B1-4FE5-8FAC-FA4E4512B4E0),
+    helpstring("IMFMediaSharingEngineClassFactory Interface"),
+    pointer_default(unique),
+    local
+]
+interface IMFMediaSharingEngineClassFactory : IUnknown
+{
+    HRESULT CreateInstance( 
+        [in, annotation("_In_")] DWORD dwFlags,
+        [in, annotation("_In_")] IMFAttributes* pAttr,
+        [out, annotation("_Outptr_")] IMFMediaSharingEngine** ppEngine
+        );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFMediaSharingEngineClassFactory
+// Data type: GUID
+// CLSID for creating the Media Sharing Engine
+//
+// {F8E307FB-6D45-4AD3-9993-66CD5A529659}
+cpp_quote( "EXTERN_GUID(CLSID_MFMediaSharingEngineClassFactory, 0xf8e307fb, 0x6d45, 0x4ad3, 0x99, 0x93, 0x66, 0xcd, 0x5a, 0x52, 0x96, 0x59);" )
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFImageSharingEngine Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(CFA0AE8E-7E1C-44D2-AE68-FC4C148A6354),
+    helpstring("IMFImageSharingEngine Interface"),
+    pointer_default(unique),
+    local
+]
+interface IMFImageSharingEngine : IUnknown
+{
+    HRESULT SetSource( [in, annotation("_In_")] IUnknown *pStream );
+
+    HRESULT GetDevice( [out, annotation("_Out_")] DEVICE_INFO* pDevice );
+    
+    HRESULT Shutdown( );
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFImageSharingEngineClassFactory Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(1FC55727-A7FB-4FC8-83AE-8AF024990AF1),
+    helpstring("IMFImageSharingEngineClassFactory Interface"),
+    pointer_default(unique),
+    local
+]
+interface IMFImageSharingEngineClassFactory : IUnknown
+{
+    HRESULT CreateInstanceFromUDN( 
+        [in, annotation("_In_")] BSTR pUniqueDeviceName, 
+        [out, annotation("_Outptr_")] IMFImageSharingEngine** ppEngine 
+        );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFImageSharingEngineClassFactory
+// Data type: GUID
+// CLSID for creating the Image Sharing Engine
+//
+// {B22C3339-87F3-4059-A0C5-037AA9707EAF}
+cpp_quote( "EXTERN_GUID(CLSID_MFImageSharingEngineClassFactory, 0xb22c3339, 0x87f3, 0x4059, 0xa0, 0xc5, 0x3, 0x7a, 0xa9, 0x70, 0x7e, 0xaf);" )
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// PLAYTO_SOURCE_CREATEFLAGS
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum PLAYTO_SOURCE_CREATEFLAGS
+{
+    PLAYTO_SOURCE_NONE      = 0x0,
+    PLAYTO_SOURCE_IMAGE     = 0x1,
+    PLAYTO_SOURCE_AUDIO     = 0x2,
+    PLAYTO_SOURCE_VIDEO     = 0x4,
+#if (WINVER >= _WIN32_WINNT_WINBLUE)
+    PLAYTO_SOURCE_PROTECTED = 0x8,
+#endif // (WINVER >= _WIN32_WINNT_WINBLUE)
+} PLAYTO_SOURCE_CREATEFLAGS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(PLAYTO_SOURCE_CREATEFLAGS)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IPlayToControl Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(607574EB-F4B6-45C1-B08C-CB715122901D),
+    pointer_default(unique),
+]
+interface IPlayToControl : IUnknown
+{
+    HRESULT Connect(
+        [in] IMFSharingEngineClassFactory* pFactory
+        );
+    
+    HRESULT Disconnect();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IPlayToControlWithCapabilities Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(AA9DD80F-C50A-4220-91C1-332287F82A34),
+    pointer_default(unique),
+]
+interface IPlayToControlWithCapabilities : IPlayToControl
+{
+    HRESULT GetCapabilities(
+        [out] PLAYTO_SOURCE_CREATEFLAGS* pCapabilities
+        );
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IPlayToSourceClassFactory Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(842B32A3-9B9B-4D1C-B3F3-49193248A554),
+    pointer_default(unique),
+    local
+]
+interface IPlayToSourceClassFactory : IUnknown
+{
+    HRESULT CreateInstance(
+        [in, annotation("_In_")] DWORD dwFlags,                             // see PLAYTO_SOURCE_CREATEFLAGS
+        [in, annotation("_In_")] IPlayToControl* pControl,                  // element which controls the media
+        [out, annotation("_Outptr_")] IInspectable** ppSource               // implements Windows.Media.PlayTo.PlayToSource
+        );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_PlayToSourceClassFactory
+// Data type: GUID
+// CLSID for creating a PlayToSource object
+//
+// {DA17539A-3DC3-42C1-A749-A183B51F085E}
+cpp_quote( "EXTERN_GUID(CLSID_PlayToSourceClassFactory, 0xDA17539A, 0x3DC3, 0x42C1, 0xA7, 0x49, 0xA1, 0x83, 0xB5, 0x1F, 0x08, 0x5E);" )
+
+/////////////////////////////////////////////////////////////////////////////
+// GUID_PlayToService
+// Data type: GUID
+// GUID identifying the PlayToService. This is used when trying to access PlayTo interfaces through the IServiceProvider interface
+//
+// {f6a8ff9d-9e14-41c9-bf0f-120a2b3ce120}
+cpp_quote( "EXTERN_GUID(GUID_PlayToService, 0xf6a8ff9d, 0x9e14, 0x41c9, 0xbf, 0x0f, 0x12, 0x0a, 0x2b, 0x3c, 0xe1, 0x20);" )
+
+/////////////////////////////////////////////////////////////////////////////
+// GUID_NativeDeviceService
+// Data type: GUID
+// GUID identifying the NativeDeviceService. If the user has a pointer to just an IBasicDevice, it can be QI'd for IServiceProvider.
+// IServiceProvider->QueryService() can be used with GUID_NativeDeviceService to get native interfaces for the device. 
+// For example: You can retrieve a IUPnPDevice pointer as follows: pBasicDevice->QueryService( GUID_NativeDeviceService, IID_IUPnPDevice, (void **)&spUPnPDevice );
+//
+// {ef71e53c-52f4-43c5-b86a-ad6cb216a61e}
+cpp_quote( "EXTERN_GUID(GUID_NativeDeviceService, 0xef71e53c, 0x52f4, 0x43c5, 0xb8, 0x6a, 0xad, 0x6c, 0xb2, 0x16, 0xa6, 0x1e);" )
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN8) ")

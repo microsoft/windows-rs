@@ -1,0 +1,273 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("/* Copyright (c) Microsoft Corporation. All rights reserved.*/")
+
+///////////////////////////////////////////////////////////////////////////
+// msp.idl : IDL source for Media Service Provider interface
+/////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef __MEDIA_STREAM_PROVIDER_IDL__
+#define __MEDIA_STREAM_PROVIDER_IDL__
+
+import "tapi3if.idl";
+
+/////////////////////////////////////////////////////////////////////////////
+// Forward declarations
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Type definitions
+/////////////////////////////////////////////////////////////////////////////
+
+typedef long * MSP_HANDLE;
+
+typedef enum
+{
+    ADDRESS_TERMINAL_AVAILABLE,   // new terminal arrived via PNP
+    //    ITTerminal *
+
+    ADDRESS_TERMINAL_UNAVAILABLE, // terminal gone via PNP
+    //    ITTerminal *
+
+} MSP_ADDRESS_EVENT;
+
+typedef enum
+{
+    // In each case the MSP fills in as much as much info as it can. Terminals
+    // or error codes may not be available, in which case the MSP fills in zero.
+    // The bare-bones info needed is indicated here.
+
+    CALL_NEW_STREAM, // - a new stream is created by the call. The app can
+    // choose to select a terminal or delete the stream from the call.
+    //    ITStream * 
+
+    CALL_STREAM_FAIL, // - setup of the stream failed or the stream fails to start.
+    //    ITStream * 
+    //    Error code
+
+    CALL_TERMINAL_FAIL, // - The terminal failed to connect.    
+    //    ITTerminal *
+    //    Error code
+
+    CALL_STREAM_NOT_USED, // - The stream is not used in the call (the remote
+    // party rejected it).
+    //    ITStream *
+
+    CALL_STREAM_ACTIVE, // - The app needs this event to decide when a
+    // stream can be used to send and receive data. 
+    // It is fired when the streams enter running state 
+    // (the timing of which is determined by the TSP).
+    //    ITStream *
+
+    CALL_STREAM_INACTIVE // - No more data can be sent to or received from
+    // this stream. This happens when a send stream
+    // has sent all its data, or when a receive stream
+    // stops receiving data.
+    //    ITStream *
+
+} MSP_CALL_EVENT;
+
+typedef enum
+{
+    CALL_CAUSE_UNKNOWN,
+
+    CALL_CAUSE_BAD_DEVICE,
+    // a bad device caused failure, for either STREAM_FAIL or TERMINAL_FAIL.
+
+    CALL_CAUSE_CONNECT_FAIL,
+    // either connecting the stream failed or connecting the terminal failed.
+    // Note, if a terminal can not be connected to a stream, the app will get
+    // a TERMINAL_FAIL event with CMC_CONNECT_FAIL. If this stream failed
+    // because the terminal is the only one to use, the app will also get a
+    // STREAM_FAIL event with CMC_CONNECT_FAIL.
+
+    CALL_CAUSE_LOCAL_REQUEST,
+    // the event is the result of the app’s calling a method on the stream.
+
+    CALL_CAUSE_REMOTE_REQUEST,
+    // the event is the result of the remote endpoint’s request.
+
+    CALL_CAUSE_MEDIA_TIMEOUT,
+    // the media that carries the stream is temporarily not available.
+
+    CALL_CAUSE_MEDIA_RECOVERED,
+    // the media goes back to normal from a temporary deny of service.
+
+	CALL_CAUSE_QUALITY_OF_SERVICE
+	// the event is because qos does/doesn't allow the media to send.
+
+} MSP_CALL_EVENT_CAUSE;
+
+typedef enum
+{
+    ME_ADDRESS_EVENT,
+    ME_CALL_EVENT,
+    ME_TSP_DATA,
+    ME_PRIVATE_EVENT,
+    ME_ASR_TERMINAL_EVENT,
+    ME_TTS_TERMINAL_EVENT,
+    ME_FILE_TERMINAL_EVENT,
+    ME_TONE_TERMINAL_EVENT
+} MSP_EVENT;
+
+
+typedef struct
+{
+    DWORD               dwSize;         // total size
+    MSP_EVENT           Event;          // event type
+    MSP_HANDLE          hCall;          // may be NULL
+
+    [switch_type(MSP_EVENT), switch_is((MSP_EVENT)Event)]
+    union
+    {
+        [case(ME_ADDRESS_EVENT)] 
+        struct
+        {
+            MSP_ADDRESS_EVENT   Type;
+            ITTerminal        * pTerminal;
+
+        } MSP_ADDRESS_EVENT_INFO;
+
+        [case(ME_CALL_EVENT)] 
+        struct 
+        {
+            MSP_CALL_EVENT         Type;
+            MSP_CALL_EVENT_CAUSE   Cause;
+            ITStream             * pStream;
+            ITTerminal           * pTerminal;
+            HRESULT                hrError;
+
+        } MSP_CALL_EVENT_INFO;
+
+        [case(ME_TSP_DATA)] 
+        struct
+        {
+            DWORD               dwBufferSize;
+            BYTE                pBuffer[1];
+
+        } MSP_TSP_DATA;
+
+        [case(ME_PRIVATE_EVENT)]
+        struct
+        {
+            IDispatch         * pEvent;
+            long                lEventCode;
+
+        } MSP_PRIVATE_EVENT_INFO;
+
+        [case(ME_FILE_TERMINAL_EVENT)]
+        struct
+        {
+            ITTerminal                      * pParentFileTerminal;
+            ITFileTrack                     * pFileTrack;
+            TERMINAL_MEDIA_STATE              TerminalMediaState;
+            FT_STATE_EVENT_CAUSE              ftecEventCause;
+            HRESULT                           hrErrorCode;
+        } MSP_FILE_TERMINAL_EVENT_INFO;
+
+        [case(ME_ASR_TERMINAL_EVENT)]
+        struct
+        {
+            ITTerminal                      * pASRTerminal;
+            HRESULT                           hrErrorCode;
+        } MSP_ASR_TERMINAL_EVENT_INFO;
+
+        [case(ME_TTS_TERMINAL_EVENT)]
+        struct
+        {
+            ITTerminal                      * pTTSTerminal;
+            HRESULT                           hrErrorCode;
+        } MSP_TTS_TERMINAL_EVENT_INFO;
+
+        [case(ME_TONE_TERMINAL_EVENT)]
+        struct
+        {
+            ITTerminal                      * pToneTerminal;
+            HRESULT                           hrErrorCode;
+        } MSP_TONE_TERMINAL_EVENT_INFO;
+    };
+
+} MSP_EVENT_INFO;
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Interface definitions
+/////////////////////////////////////////////////////////////////////////////
+
+[
+    uuid(6E0887BE-BA1A-492e-BD10-4020EC5E33E0),
+    helpstring("ITPluggableTerminalEventSink"),
+    pointer_default(unique)
+]
+interface ITPluggableTerminalEventSink : IUnknown
+{
+    HRESULT FireEvent(
+        [in] const MSP_EVENT_INFO *pMspEventInfo
+        );
+}
+
+[
+    uuid(F7115709-A216-4957-A759-060AB32A90D1),
+    helpstring("ITPluggableTerminalEventSinkRegistration"),
+    pointer_default(unique)
+]
+interface ITPluggableTerminalEventSinkRegistration : IUnknown
+{
+    HRESULT RegisterSink(
+        [in] ITPluggableTerminalEventSink* pEventSink
+        );
+
+    HRESULT UnregisterSink(
+        );
+}
+
+[
+    uuid(EE3BD600-3868-11D2-A045-00C04FB6809F),
+    helpstring("ITMSPAddress Interface"),
+    pointer_default(unique)
+]
+interface ITMSPAddress : IUnknown
+{
+    HRESULT Initialize(
+        [in] MSP_HANDLE hEvent
+        );
+
+    HRESULT Shutdown();
+
+    HRESULT CreateMSPCall(
+        [in] MSP_HANDLE hCall,
+        [in] DWORD dwReserved,
+        [in] DWORD dwMediaType,
+        [in] IUnknown * pOuterUnknown,
+        [out] IUnknown ** ppStreamControl
+        );
+
+    HRESULT ShutdownMSPCall(
+        [in] IUnknown * pStreamControl
+        );
+
+    HRESULT ReceiveTSPData(
+        [in] IUnknown * pMSPCall,
+        [in, size_is(dwSize)] BYTE * pBuffer,
+        [in] DWORD dwSize
+        );
+
+    HRESULT GetEvent(
+        [in,out] DWORD * pdwSize,
+        [in, out, size_is(*pdwSize)] byte * pEventBuffer
+        );
+
+}
+
+
+
+#endif // __MEDIA_STREAM_PROVIDER_IDL__
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

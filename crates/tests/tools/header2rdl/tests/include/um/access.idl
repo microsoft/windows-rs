@@ -1,0 +1,168 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			access.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a8c-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IAccessor : IUnknown {
+
+typedef DWORD DBACCESSORFLAGS;
+
+enum DBACCESSORFLAGSENUM {
+	DBACCESSOR_INVALID			= 0x000,
+	DBACCESSOR_PASSBYREF        = 0x001,
+	DBACCESSOR_ROWDATA          = 0x002,
+	DBACCESSOR_PARAMETERDATA    = 0x004,
+	DBACCESSOR_OPTIMIZED        = 0x008,
+	DBACCESSOR_INHERITED        = 0x010,
+};
+
+typedef DWORD DBBINDSTATUS;
+
+enum DBBINDSTATUSENUM {
+	DBBINDSTATUS_OK						= 0,
+	DBBINDSTATUS_BADORDINAL				= 1,
+	DBBINDSTATUS_UNSUPPORTEDCONVERSION	= 2,
+	DBBINDSTATUS_BADBINDINFO			= 3,
+	DBBINDSTATUS_BADSTORAGEFLAGS		= 4,
+	DBBINDSTATUS_NOINTERFACE			= 5,
+	DBBINDSTATUS_MULTIPLESTORAGE		= 6,
+};
+
+	[local]
+	HRESULT AddRefAccessor(
+		[in] HACCESSOR hAccessor,
+		[in, out, unique, annotation("_Out_opt_")] DBREFCOUNT * pcRefCount
+	);
+
+	[call_as(AddRefAccessor)]
+	HRESULT RemoteAddRefAccessor(
+		[in] HACCESSOR hAccessor,
+		[in, out, unique] DBREFCOUNT * pcRefCount,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT CreateAccessor(
+		[in] DBACCESSORFLAGS dwAccessorFlags,
+		[in] DBCOUNTITEM cBindings,
+		[in, size_is(cBindings), annotation("_In_reads_(cBindings)")] const DBBINDING rgBindings[],
+		[in] DBLENGTH cbRowSize,
+		[out, annotation("_Out_")] HACCESSOR * phAccessor,
+		[out, size_is(cBindings), annotation("_Out_writes_opt_(cBindings)")] DBBINDSTATUS rgStatus[]
+	);
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+#pragma warning( disable: 26020 )
+
+#ifndef NO_REMOTE   
+
+	[call_as(CreateAccessor)]
+	HRESULT RemoteCreateAccessor(
+		[in] DBACCESSORFLAGS dwAccessorFlags,
+		[in] DBCOUNTITEM cBindings,
+		[in, unique, size_is((ULONG)cBindings)] DBBINDING *rgBindings,
+		[in] DBLENGTH cbRowSize,
+		[out] HACCESSOR * phAccessor,
+		[in, out, unique, size_is((ULONG)cBindings)] DBBINDSTATUS *rgStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+
+	[local]
+	HRESULT GetBindings(
+		[in] HACCESSOR hAccessor,
+		[out, annotation("_Out_")] DBACCESSORFLAGS * pdwAccessorFlags,
+		[in, out, annotation("_Out_opt_")] DBCOUNTITEM * pcBindings,
+		[out, size_is(,(ULONG)*pcBindings),annotation("_Outptr_result_buffer_maybenull_(*pcBindings)")] DBBINDING ** prgBindings
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(GetBindings)]
+	HRESULT RemoteGetBindings(
+		[in] HACCESSOR hAccessor,
+		[out] DBACCESSORFLAGS * pdwAccessorFlags,
+		[in, out] DBCOUNTITEM * pcBindings,
+		[out, size_is(,(ULONG)*pcBindings)] DBBINDING ** prgBindings,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+#ifndef NO_REMOTE   
+
+	[call_as(CreateAccessor)]
+	HRESULT RemoteCreateAccessor(
+		[in] DBACCESSORFLAGS dwAccessorFlags,
+		[in] DBCOUNTITEM cBindings,
+		[in, unique, size_is(cBindings)] DBBINDING *rgBindings,
+		[in] DBLENGTH cbRowSize,
+		[out] HACCESSOR * phAccessor,
+		[in, out, unique, size_is(cBindings)] DBBINDSTATUS *rgStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+
+	[local]
+	HRESULT GetBindings(
+		[in] HACCESSOR hAccessor,
+		[out, annotation("_Out_")] DBACCESSORFLAGS * pdwAccessorFlags,
+		[in, out, annotation("_Out_opt_")] DBCOUNTITEM * pcBindings,
+		[out, size_is(,*pcBindings), annotation("_Outptr_result_buffer_maybenull_(*pcBindings)")] DBBINDING ** prgBindings
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(GetBindings)]
+	HRESULT RemoteGetBindings(
+		[in] HACCESSOR hAccessor,
+		[out] DBACCESSORFLAGS * pdwAccessorFlags,
+		[in, out] DBCOUNTITEM * pcBindings,
+		[out, size_is(,*pcBindings)] DBBINDING ** prgBindings,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+#endif
+
+#endif 
+
+	[local]
+	HRESULT ReleaseAccessor(
+		[in] HACCESSOR hAccessor,
+		[in, out, unique, annotation("_Out_opt_")] DBREFCOUNT * pcRefCount
+	);
+
+	[call_as(ReleaseAccessor)]
+	HRESULT RemoteReleaseAccessor(
+		[in] HACCESSOR hAccessor,
+		[in, out, unique] DBREFCOUNT * pcRefCount,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

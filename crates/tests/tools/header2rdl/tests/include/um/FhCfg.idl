@@ -1,0 +1,238 @@
+cpp_quote("/*******************************************************************************/" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    Copyright (C) 2010 Microsoft Corporation.  All rights reserved.          */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    IDL source for File History Configuration Manager COM API.               */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*******************************************************************************/" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "ocidl.idl";
+import "oaidl.idl";
+import "shobjidl_core.idl";
+
+cpp_quote("#if NTDDI_VERSION >= NTDDI_WIN8")
+
+typedef enum _FH_TARGET_PROPERTY_TYPE {
+    FH_TARGET_NAME,
+    FH_TARGET_URL,
+    FH_TARGET_DRIVE_TYPE,
+    MAX_TARGET_PROPERTY
+} FH_TARGET_PROPERTY_TYPE, *PFH_TARGET_PROPERTY_TYPE;
+
+typedef enum _FH_TARGET_DRIVE_TYPES {
+    FH_DRIVE_UNKNOWN = 0,
+    FH_DRIVE_REMOVABLE = 2,
+    FH_DRIVE_FIXED = 3,
+    FH_DRIVE_REMOTE = 4
+} FH_TARGET_DRIVE_TYPES;
+
+cpp_quote("#pragma deprecated(IFhTarget)")
+[
+    object,
+    uuid(D87965FD-2BAD-4657-BD3B-9567EB300CED)
+]
+interface IFhTarget : IUnknown
+{
+    HRESULT GetStringProperty(
+        [in] FH_TARGET_PROPERTY_TYPE PropertyType,
+        [out] BSTR* PropertyValue
+        );
+
+    HRESULT GetNumericalProperty(
+        [in] FH_TARGET_PROPERTY_TYPE PropertyType,
+        [out] ULONGLONG* PropertyValue
+        );
+};
+
+cpp_quote("#pragma deprecated(IFhScopeIterator)")
+[
+    object,
+    uuid(3197ABCE-532A-44C6-8615-F3666566A720)
+]
+interface IFhScopeIterator : IUnknown
+{
+    HRESULT MoveToNextItem(void);
+
+    HRESULT GetItem(
+        [out] BSTR* Item
+        );
+};
+
+typedef enum _FH_PROTECTED_ITEM_CATEGORY {
+    FH_FOLDER,
+    FH_LIBRARY,
+    MAX_PROTECTED_ITEM_CATEGORY
+} FH_PROTECTED_ITEM_CATEGORY, *PFH_PROTECTED_ITEM_CATEGORY;
+
+typedef enum _FH_LOCAL_POLICY_TYPE {
+    FH_FREQUENCY,
+    FH_RETENTION_TYPE,
+    FH_RETENTION_AGE,
+    MAX_LOCAL_POLICY
+} FH_LOCAL_POLICY_TYPE, *PFH_LOCAL_POLICY_TYPE;
+
+typedef enum _FH_RETENTION_TYPES {
+    FH_RETENTION_DISABLED,
+    FH_RETENTION_UNLIMITED,
+    FH_RETENTION_AGE_BASED,
+    MAX_RETENTION_TYPE
+} FH_RETENTION_TYPES;
+
+typedef enum _FH_BACKUP_STATUS {
+    FH_STATUS_DISABLED,
+    FH_STATUS_DISABLED_BY_GP,
+    FH_STATUS_ENABLED,
+    FH_STATUS_REHYDRATING,
+    MAX_BACKUP_STATUS
+} FH_BACKUP_STATUS;
+
+typedef enum _FH_DEVICE_VALIDATION_RESULT {
+    FH_ACCESS_DENIED,
+    FH_INVALID_DRIVE_TYPE,
+    FH_READ_ONLY_PERMISSION,
+    FH_CURRENT_DEFAULT,
+    FH_NAMESPACE_EXISTS,
+    FH_TARGET_PART_OF_LIBRARY,
+    FH_VALID_TARGET,
+    MAX_VALIDATION_RESULT
+} FH_DEVICE_VALIDATION_RESULT, *PFH_DEVICE_VALIDATION_RESULT;
+
+cpp_quote("#pragma deprecated(IFhConfigMgr)")
+[
+    object,
+    uuid(6A5FEA5B-BF8F-4EE5-B8C3-44D8A0D7331C),
+    pointer_default(unique)
+]
+interface IFhConfigMgr : IUnknown
+{
+    HRESULT LoadConfiguration(void);
+
+    HRESULT CreateDefaultConfiguration(
+        [in] BOOL OverwriteIfExists
+        );
+
+    HRESULT SaveConfiguration(void);
+
+    HRESULT AddRemoveExcludeRule(
+        [in] BOOL Add,
+        [in] FH_PROTECTED_ITEM_CATEGORY Category,
+        [in] BSTR Item
+        );
+
+    HRESULT GetIncludeExcludeRules(
+        [in] BOOL Include,
+        [in] FH_PROTECTED_ITEM_CATEGORY Category,
+        [out] IFhScopeIterator** Iterator
+        ); 
+
+    HRESULT GetLocalPolicy(
+        [in] FH_LOCAL_POLICY_TYPE LocalPolicyType,
+        [out] ULONGLONG* PolicyValue
+        );
+
+    HRESULT SetLocalPolicy(
+        [in] FH_LOCAL_POLICY_TYPE LocalPolicyType,
+        [in] ULONGLONG PolicyValue
+        );
+
+    HRESULT GetBackupStatus(
+        [out] FH_BACKUP_STATUS* BackupStatus
+        );
+
+    HRESULT SetBackupStatus(
+        [in] FH_BACKUP_STATUS BackupStatus
+        );
+
+    HRESULT GetDefaultTarget(
+        [out] IFhTarget** DefaultTarget
+        );
+
+    HRESULT ValidateTarget(
+        [in] BSTR TargetUrl,
+        [out] PFH_DEVICE_VALIDATION_RESULT ValidationResult
+        ); 
+
+    HRESULT ProvisionAndSetNewTarget(
+        [in] BSTR TargetUrl,
+        [in] BSTR TargetName
+        ); 
+
+    HRESULT ChangeDefaultTargetRecommendation(
+        [in] BOOL Recommend
+        );
+
+    HRESULT QueryProtectionStatus(
+        [out] DWORD* ProtectionState,
+        [out] BSTR* ProtectedUntilTime
+        ); 
+};
+
+cpp_quote("#pragma deprecated(IFhReassociation)")
+[
+    object,
+    uuid(6544A28A-F68D-47ac-91EF-16B2B36AA3EE),
+    pointer_default(unique)
+]
+interface IFhReassociation : IUnknown
+{
+    HRESULT ValidateTarget(
+        [in] BSTR TargetUrl,
+        [out] PFH_DEVICE_VALIDATION_RESULT ValidationResult
+        );
+
+    HRESULT ScanTargetForConfigurations(
+        [in] BSTR TargetUrl
+        );
+
+    HRESULT GetConfigurationDetails(
+        [in] DWORD Index,
+        [out] BSTR* UserName,
+        [out] BSTR* PcName,
+        [out] FILETIME* BackupTime
+        );
+    
+    HRESULT SelectConfiguration(
+        [in] DWORD Index
+        );
+
+    HRESULT PerformReassociation(
+        [in] BOOL OverwriteIfExists
+        );
+};
+
+[
+    uuid(A99C8501-F546-4871-96FD-6B0D9427A19B),
+    version(1.0)
+]
+library FhConfigMgrLib
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(ED43BB3C-09E9-498a-9DF6-2177244C6DB4)
+    ]
+    coclass FhConfigMgr
+    {
+        [default] interface IFhConfigMgr;
+    };
+
+    [
+        uuid(4D728E35-16FA-4320-9E8B-BFD7100A8846)
+    ]
+    coclass FhReassociation
+    {
+        [default] interface IFhReassociation;
+    };
+};
+
+cpp_quote("#endif // if NTDDI_VERSION >= NTDDI_WIN8")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

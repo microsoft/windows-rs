@@ -1,0 +1,163 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: netprov.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+import "unknwn.idl";
+import "wtypes.idl";
+import "prsht.idl";
+import "msxml.idl";
+#endif
+
+//
+// Reserved GUIDs for our use
+//
+//
+// c96fbd50-24dd-11d8-89fb-00904b2ea9c6     IID_IProvisioningDomain
+// c96fbd51-24dd-11d8-89fb-00904b2ea9c6     IID_IProvisioningProfileWireless
+// c96fbd52-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd53-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd54-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd55-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd56-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd57-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd58-24dd-11d8-89fb-00904b2ea9c6
+// c96fbd59-24dd-11d8-89fb-00904b2ea9c6
+//
+
+interface IProvisioningDomain;
+interface IProvisioningProfileWireless;
+
+//+---------------------------------------------------------------------------
+//
+//
+[
+    object,
+    uuid(c96fbd50-24dd-11d8-89fb-00904b2ea9c6),
+    pointer_default(unique)
+]
+interface IProvisioningDomain : IUnknown
+{
+    HRESULT Add(
+        [in, string]    LPCWSTR             pszwPathToFolder
+        );
+
+    HRESULT Query(
+        [in, string]    LPCWSTR             pszwDomain,
+        [in, string]    LPCWSTR             pszwLanguage,
+        [in, string]    LPCWSTR             pszwXPathQuery,
+        [out]           IXMLDOMNodeList**   Nodes
+        );
+};
+
+//+---------------------------------------------------------------------------
+// 
+//
+cpp_quote("//")
+cpp_quote("// WZC Wireless CreateProfile private error codes (returned in *pulStatus)")
+cpp_quote("// WZC_PROFILE_SUCCESS is applicable only if the HRESULT returned is also")
+cpp_quote("// S_OK")
+cpp_quote("//")
+
+cpp_quote("#define     WZC_PROFILE_SUCCESS                                         0")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_NO_VERSION                            1")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_BAD_VERSION                           2")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION                   3")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND                        4")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_BAD_SSID                              5")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_CONNECTION_TYPE                       6")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_AUTHENTICATION                        7")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_ENCRYPTION                            8")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_KEY_PROVIDED_AUTOMATICALLY            9")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_1X_ENABLED                            10")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_EAP_METHOD                            11")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_BAD_KEY_INDEX                         12")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_KEY_INDEX_RANGE                       13")
+cpp_quote("#define     WZC_PROFILE_XML_ERROR_BAD_NETWORK_KEY                       14")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_INVALID_AUTH_FOR_CONNECTION_TYPE   15")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_INVALID_ENCRYPTION_FOR_AUTHMODE    16")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_KEY_REQUIRED                       17")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_REQUIRED                 18")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_KEY_INDEX_NOT_APPLICABLE           19")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED                     20")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_1X_NOT_ALLOWED_KEY_REQUIRED        21")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_1X_NOT_ENABLED_KEY_PROVIDED        22")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_REQUIRED                23")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_EAP_METHOD_NOT_APPLICABLE          24")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_WPA_NOT_SUPPORTED                  25")
+cpp_quote("#define     WZC_PROFILE_CONFIG_ERROR_WPA_ENCRYPTION_NOT_SUPPORTED       26")
+cpp_quote("#define     WZC_PROFILE_SET_ERROR_DUPLICATE_NETWORK                     27")
+cpp_quote("#define     WZC_PROFILE_SET_ERROR_MEMORY_ALLOCATION                     28")
+cpp_quote("#define     WZC_PROFILE_SET_ERROR_READING_1X_CONFIG                     29")
+cpp_quote("#define     WZC_PROFILE_SET_ERROR_WRITING_1X_CONFIG                     30")
+cpp_quote("#define     WZC_PROFILE_SET_ERROR_WRITING_WZC_CFG                       31")
+cpp_quote("#define     WZC_PROFILE_API_ERROR_NOT_SUPPORTED                         32")
+cpp_quote("#define     WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_XML                    33")
+cpp_quote("#define     WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA                 34")
+cpp_quote("#define     WZC_PROFILE_API_ERROR_XML_VALIDATION_FAILED                 35")
+cpp_quote("#define     WZC_PROFILE_API_ERROR_INTERNAL                              36")
+
+[
+    object,
+    uuid(c96fbd51-24dd-11d8-89fb-00904b2ea9c6),
+    pointer_default(unique)
+]
+interface IProvisioningProfileWireless : IUnknown
+{
+    HRESULT CreateProfile(
+        [in]    BSTR             bstrXMLWirelessConfigProfile,
+        [in]    BSTR             bstrXMLConnectionConfigProfile,
+        [in]    GUID*            pAdapterInstanceGuid,
+        [out]   ULONG*           pulStatus
+        );
+};
+
+//+---------------------------------------------------------------------------
+// 
+//
+// 
+[
+    uuid(789ed9b3-4873-49b9-87e0-55f51fcd5420),
+    version(1.0),
+    helpstring("NETPROV 1.0 Type Library")
+]
+library NETPROVLib
+{
+    importlib("stdole2.tlb");
+    
+    [
+        uuid(2aa2b5fe-b846-4d07-810c-b21ee45320e3),
+        helpstring("NetProvisioning Class")
+    ]
+    coclass NetProvisioning
+    {
+        [default] interface IProvisioningDomain;
+                  interface IProvisioningProfileWireless;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

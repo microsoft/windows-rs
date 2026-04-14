@@ -1,0 +1,445 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "oaidl.idl";
+
+interface IWTSPlugin;
+interface IWTSListener;
+interface IWTSListenerCallback;
+interface IWTSVirtualChannelCallback;
+interface IWTSVirtualChannelManager;
+interface IWTSVirtualChannel;
+
+
+cpp_quote("#define  WTS_PROPERTY_DEFAULT_CONFIG  L\"DefaultConfig\"") 
+
+cpp_quote("#define E_MAPPEDRENDERER_SHUTDOWN    HRESULT_FROM_WIN32(ERROR_INVALID_STATE)")
+
+cpp_quote("#define E_DUPLICATE_WINDOW_HINT      HRESULT_FROM_WIN32(ERROR_ALREADY_EXISTS)")
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSPlugin
+//
+//  Implementation:     Plugin side (user)
+//
+//  Description:
+//      Root interface implemented by the plugin for receiving notification
+//      from the TS client. This is the default interface the COM object
+//      should implement.
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSPlugin = {0xA1230201, 0x1439, 0x4e62, { 0xa4, 0x14, 0x19, 0x0d, 0x0a, 0xc3, 0xd4, 0x0e}};")
+[
+    object,
+    uuid(A1230201-1439-4e62-a414-190d0ac3d40e),
+    oleautomation,
+    helpstring("interface IWTSPlugin")
+]
+interface IWTSPlugin : IUnknown
+{
+    /*
+     *  Called immediately after instantiating the COM class
+     */
+    [helpstring("Initialize")]
+    HRESULT
+    Initialize(
+        [in] IWTSVirtualChannelManager *pChannelMgr
+        );
+
+    /*
+     *  Called when the TS client is connected to the TS server
+     */
+    [helpstring("Connected")]
+    HRESULT
+    Connected();
+
+    /*
+     *  Called when the TS client is disconnected to the TS server
+     *  Might be followed by another Connected() call
+     */
+    [helpstring("Disconnected")]
+    HRESULT
+    Disconnected(
+        DWORD dwDisconnectCode
+        );
+
+    /*
+     *  The last method called by the TS client before 
+     *  terminating the object
+     */
+    [helpstring("Terminated")]
+    HRESULT
+    Terminated();
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSListener
+//
+//  Implementation:     Client side (system)
+//
+//  Description:
+//      With this interface the plugin can acquire configuration data for
+//  for a listener. It is returned by 
+//  IWTSVirtualChannelManager::CreateListener
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSListener = {0xA1230206, 0x9a39, 0x4d58, {0x86, 0x74, 0xcd, 0xb4, 0xdf, 0xf4, 0xe7, 0x3b}};")
+[
+    object,
+    uuid(A1230206-9a39-4d58-8674-cdb4dff4e73b),
+    oleautomation,
+    helpstring("interface IWTSListener")
+]
+interface IWTSListener : IUnknown
+{
+    [helpstring("GetConfiguration")]
+    HRESULT
+    GetConfiguration(
+        [out] IPropertyBag ** ppPropertyBag
+        ); 
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSListenerCallback
+//
+//  Implementation:     Plugin side (user)
+//
+//  Description:
+//      With this interface the plugin will receive notifications for
+//      Incomming connected channels. Implemented by the client side
+//      Set in IWTSVirtualChannelManager::CreateListener() method.
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSListenerCallback = {0xA1230203, 0xd6a7, 0x11d8, {0xb9, 0xfd, 0x00, 0x0b, 0xdb, 0xd1, 0xf1, 0x98}};")
+[
+    object,
+    uuid(A1230203-d6a7-11d8-b9fd-000bdbd1f198),
+    oleautomation,
+    helpstring("interface IWTSListenerCallback")
+
+]
+interface IWTSListenerCallback : IUnknown
+{
+    /*
+     *  Called whenever a request for new channel connection
+     *  from the server is received.
+     */
+    [helpstring("OnNewChannelConnection")]
+    HRESULT
+    OnNewChannelConnection (
+        [in]            IWTSVirtualChannel   *pChannel,
+        [in,ptr]        BSTR                data,           // optional data passed as part of the connect method
+        [out]           BOOL                *pbAccept,      // the callee should return TRUE if connection is accepted
+        [out]           IWTSVirtualChannelCallback **ppCallback
+                                                            // connection related events
+        );
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSVirtualChannelCallback
+//
+//  Implementation:     Plugin side (user)
+//
+//  Description:
+//      This interface receives data and close notifications for a specific
+//      channel. Implemented by the plugin. Set in 
+//      IWTSLisneterCallback::OnNewChannelConnection() method
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSVirtualChannelCallback = {0xA1230204, 0xd6a7, 0x11d8, {0xb9, 0xfd, 0x00, 0x0b, 0xdb, 0xd1, 0xf1, 0x98}};")
+[
+    object,
+    uuid(A1230204-d6a7-11d8-b9fd-000bdbd1f198),
+    oleautomation,
+    helpstring("interface IWTSVirtualChannelCallback")
+
+]
+interface IWTSVirtualChannelCallback : IUnknown
+{
+    /*
+     *  Called whenever a full message from the server is received
+     *  The message is fully reassembled and has the exact size
+     *  as the Write() call on the server
+     */
+    [helpstring("OnDataReceived")]
+    HRESULT
+    OnDataReceived(
+        [in]            ULONG               cbSize,             // size of data in bytes
+        [in, size_is(cbSize)] BYTE          *pBuffer            // data buffer
+        );
+
+    /*
+     *  The channel is disconnected, all Write() calls will fail
+     *  no more incomming data is expected. 
+     */
+    [helpstring("OnClose")]
+    HRESULT
+    OnClose();
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSVirtualChannelManager
+//
+//  Implementation:     Client side (system)
+//
+//  Description:
+//      This interface is used by the plugin as a class factory for
+//      listener objects. Implemented by the client, supplied in
+//      IWTSPlugin::Initialize() method.
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSVirtualChannelManager = {0xA1230205,0xd6a7,0x11d8,{0xb9,0xfd,0x00,0x0b,0xdb,0xd1,0xf1,0x98}};")
+cpp_quote("#define  TS_VC_LISTENER_STATIC_CHANNEL   0x00000001")
+[
+    object,
+    uuid(A1230205-d6a7-11d8-b9fd-000bdbd1f198),
+    oleautomation,
+    helpstring("interface IWTSVirtualChannelManager")
+]
+interface IWTSVirtualChannelManager : IUnknown
+{
+    /*
+     *  The plugin requests to create a listener object
+     *  with specific name
+     */
+    [helpstring("CreateListener")]
+    HRESULT
+    CreateListener(
+        [in, string]    const char          *pszChannelName,
+        [in]            ULONG               uFlags,             // TS_VC_LISTENER_STATIC_XXX flags
+        [in]            IWTSListenerCallback *pListenerCallback,
+        [out]           IWTSListener        **ppListener        // optional
+        );
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSVirtualChannel
+//
+//  Implementation:     Client side (system)
+//
+//  Description:
+//      This interface is used by the plugin to send data and closing specific
+//      channel. Implemented by the TS client side. 
+//      Supplied in IWTSLisneterCallback::OnNewChannelConnection()
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSVirtualChannel = { 0xA1230207, 0xd6a7, 0x11d8, { 0xb9, 0xfd, 0x00, 0x0b, 0xdb, 0xd1, 0xf1, 0x98} };")
+[
+    object,
+    uuid(A1230207-d6a7-11d8-b9fd-000bdbd1f198),
+    oleautomation,
+    helpstring("interface IWTSVirtualChannel")
+]
+interface IWTSVirtualChannel : IUnknown
+{
+    /*
+     *  The plugin requests to send data with specific size
+     */
+    [helpstring("Write")]
+    HRESULT Write(
+        [in]            ULONG               cbSize,
+        [in, size_is(cbSize)] BYTE          *pBuffer,
+        [in]            IUnknown            *pReserved          // must be NULL
+        );
+
+    /*
+     *  The plugin requests to close the channel
+     *  This will result in TSVirtualChannelCallback::OnClose() call.
+     *  All I/O will cease.
+     */
+    [helpstring("Close")]
+    HRESULT
+    Close ();
+
+};
+
+//
+// Use this service GUID to retrieve RDCLIENT_BITMAP_RENDER_SERVICE through
+// IWTSPluginServiceProvider::GetService
+//
+cpp_quote( "EXTERN_GUID( RDCLIENT_BITMAP_RENDER_SERVICE, 0xe4cc08cb, 0x942e, 0x4b19, 0x85, 0x4, 0xbd, 0x5a, 0x89, 0xa7, 0x47, 0xf5);" )
+
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSPluginServiceProvider
+//
+//  Implementation:     Client Side (System)
+//
+//  Description:
+//      The plugin service provider providers a way for Dynamic Virtual Channel
+//      plugins to query various Remote Desktop Client services. Plugins can
+//      query for the service provider interface from IWTSVirtualChannelManager
+//      object passed in during IWTSPlugin::Initialize call
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSPluginServiceProvider = { 0xd3e07363, 0x87c, 0x476c, { 0x86, 0xa7, 0xdb, 0xb1, 0x5f, 0x46, 0xdd, 0xb4 } };")
+[
+    object,
+    uuid(D3E07363-087C-476C-86A7-DBB15F46DDB4),
+    oleautomation,
+    helpstring("interface IWTSPluginServiceProvider")
+]
+interface IWTSPluginServiceProvider : IUnknown
+{
+    /*
+     *  ServiceId - GUID for the service being requested
+     *  ppunkObject - Returned Service Object
+     */
+    [helpstring("GetService")]
+    HRESULT
+    GetService(
+        [in]    GUID      ServiceId,
+        [out]   IUnknown  **ppunkObject
+        );        
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSBitmapRenderer
+//
+//  Implementation:     Client Side (System)
+//
+//  Description:
+//       This interface is returned to the dynamic virtual channel plugins once
+//       a mapping has been successfully created using IWTSBitmapRenderService. 
+//       The plugin can use this interface to render the bitmaps at the location
+//       associated with the mapping. The mapping must to removed using 
+//       IWTSBitmapRenderer::RemoveMapping once the plugin has completed
+//       rendering to it to avoid a mispainted visual element.
+//       
+// =========================================================================
+//
+typedef struct __BITMAP_RENDERER_STATISTICS
+{
+    DWORD dwFramesDelivered;
+    DWORD dwFramesDropped;
+} BITMAP_RENDERER_STATISTICS, *PBITMAP_RENDERER_STATISTICS;
+
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSBitmapRenderer = { 0x5b7acc97, 0xf3c9, 0x46f7, { 0x8c, 0x5b, 0xfa, 0x68, 0x5d, 0x34, 0x41, 0xb1 } };")
+[
+    object,
+    uuid(5B7ACC97-F3C9-46F7-8C5B-FA685D3441B1),
+    oleautomation,
+    helpstring("interface IWTSBitmapRenderer")
+]
+interface IWTSBitmapRenderer : IUnknown
+{
+    [helpstring("Render")]
+    HRESULT
+    Render(
+        [in]  GUID   imageFormat,
+        [in]  DWORD  dwWidth,
+        [in]  DWORD  dwHeight,
+        [in]  LONG   cbStride,
+        [in]  DWORD  cbImageBuffer,
+        [in, size_is(cbImageBuffer)]  BYTE*  pImageBuffer
+        );
+
+    [helpstring("GetRendererStatistics")]
+    HRESULT
+    GetRendererStatistics(
+        [out] BITMAP_RENDERER_STATISTICS* pStatistics
+        );
+
+    [helpstring("RemoveMapping")]
+    HRESULT
+    RemoveMapping();
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSBitmapRendererCallback
+//
+//  Implementation:     Client Side (Plugin)
+//
+//  Description:
+//       A dynamic virtual channel plugin using the IWTSBitmapRenderService
+//       can provide this callback interface to get notified of the render
+//       target size change. The image passed in IWTSBitmapRenderer::Render
+//       must conform to this size. The Remote Desktop Client doesn't perform
+//       any stretching operations on the passed in image. 
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSBitmapRendererCallback = { 0xd782928e, 0xfe4e, 0x4e77, { 0xae, 0x90, 0x9c, 0xd0, 0xb3, 0xe3, 0xb3, 0x53 } };")
+[
+    object,
+    uuid(D782928E-FE4E-4E77-AE90-9CD0B3E3B353),
+    oleautomation,
+    helpstring("interface IWTSBitmapRendererCallback")
+]
+interface IWTSBitmapRendererCallback : IUnknown
+{
+
+    [helpstring("OnTargetSizeChanged")]     
+    HRESULT
+    OnTargetSizeChanged (
+        [in]    RECT    rcNewSize
+        );     
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWTSBitmapRenderService
+//
+//  Implementation:     Client Side (System)
+//
+//  Description:
+//       A dynamic virtual channel can use this service to create a visual 
+//       mapping on the client corresponding to a mapped window on the server
+//       (using WTSSetRenderHint). The returned IWTSBitmapRenderer can be used
+//       to pass the bitmaps to render on the target and the IWTSBitmapRendererCallback
+//       interface can be used to get notified of the changes to size of the 
+//       render target
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWTSBitmapRenderService = { 0xea326091, 0x5fe, 0x40c1, { 0xb4, 0x9c, 0x3d, 0x2e, 0xf4, 0x62, 0x6a, 0xe } };")
+[
+    object,
+    uuid(EA326091-05FE-40C1-B49C-3D2EF4626A0E),
+    oleautomation,
+    helpstring("interface IWTSBitmapRenderService")
+]
+interface IWTSBitmapRenderService : IUnknown
+{
+    [helpstring("GetMappedRenderer")]
+    HRESULT
+    GetMappedRenderer(
+        [in]    UINT64 mappingId,
+        [in]    IWTSBitmapRendererCallback *pMappedRendererCallback,
+        [out]   IWTSBitmapRenderer  **ppMappedRenderer
+        );
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,1776 @@
+cpp_quote("#include <winapifamily.h>")
+//**@@@*@@@****************************************************
+//
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//**@@@*@@@****************************************************
+import "oaidl.idl";
+import "ocidl.idl";
+import "propidl.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#define E_NOTFOUND HRESULT_FROM_WIN32(ERROR_NOT_FOUND)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("//")
+cpp_quote("//   Flag for clients of IControlChangeNotify::OnNotify to allow those clients to identify hardware initiated notifications")
+cpp_quote("//")
+cpp_quote("#define DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT 'draH'")
+
+cpp_quote("/* E2C2E9DE-09B1-4B04-84E5-07931225EE04 */")
+cpp_quote("DEFINE_GUID(EVENTCONTEXT_VOLUMESLIDER, 0xE2C2E9DE,0x09B1,0x4B04,0x84, 0xE5, 0x07, 0x93, 0x12, 0x25, 0xEE, 0x04);")
+
+// The preprocessor directives here ensure that KSDATAFORMAT is defined in the correct way
+// Constraint is that ks.h cannot be included in the idl file. The directives below ensure that
+cpp_quote("#define _IKsControl_")
+cpp_quote("#include \"ks.h\"")
+cpp_quote("#include \"ksmedia.h\"")
+cpp_quote("#ifndef _KS_")
+typedef struct {
+    ULONG   FormatSize;
+    ULONG   Flags;
+    ULONG   SampleSize;
+    ULONG   Reserved;
+    GUID    MajorFormat;
+    GUID    SubFormat;
+    GUID    Specifier;
+} KSDATAFORMAT, *PKSDATAFORMAT;
+
+typedef struct {
+    union {
+        struct {
+            GUID    Set;
+            ULONG   Id;
+            ULONG   Flags;
+        };
+        LONGLONG    Alignment;
+    };
+} KSIDENTIFIER, *PKSIDENTIFIER;
+
+typedef KSIDENTIFIER KSPROPERTY, *PKSPROPERTY, KSMETHOD, *PKSMETHOD, KSEVENT, *PKSEVENT;
+
+typedef enum
+{
+    eConnTypeUnknown,
+    eConnType3Point5mm,
+    eConnTypeQuarter,
+    eConnTypeAtapiInternal,
+    eConnTypeRCA,
+    eConnTypeOptical,
+    eConnTypeOtherDigital,
+    eConnTypeOtherAnalog,
+    eConnTypeMultichannelAnalogDIN,
+    eConnTypeXlrProfessional,
+    eConnTypeRJ11Modem,
+    eConnTypeCombination
+} EPcxConnectionType;
+
+#define eGeoLocReserved5 eGeoLocNotApplicable
+typedef enum
+{
+    eGeoLocRear = 0x1,
+    eGeoLocFront,
+    eGeoLocLeft,
+    eGeoLocRight,
+    eGeoLocTop,
+    eGeoLocBottom,
+    eGeoLocRearPanel,
+    eGeoLocRiser,
+    eGeoLocInsideMobileLid,
+    eGeoLocDrivebay,
+    eGeoLocHDMI,
+    eGeoLocOutsideMobileLid,
+    eGeoLocATAPI,
+    eGeoLocNotApplicable,
+    eGeoLocReserved6,
+} EPcxGeoLocation;
+
+typedef enum
+{
+    eGenLocPrimaryBox = 0,
+    eGenLocInternal,
+    eGenLocSeparate,
+    eGenLocOther
+} EPcxGenLocation;
+
+typedef enum
+{
+    ePortConnJack = 0,
+    ePortConnIntegratedDevice,
+    ePortConnBothIntegratedAndJack,
+    ePortConnUnknown
+} EPxcPortConnection;
+
+typedef struct 
+{
+    DWORD                 ChannelMapping;
+    COLORREF              Color;   // use RGB() macro to generate these
+    EPcxConnectionType    ConnectionType;
+    EPcxGeoLocation       GeoLocation;
+    EPcxGenLocation       GenLocation;
+    EPxcPortConnection    PortConnection;
+    BOOL                  IsConnected;
+} KSJACK_DESCRIPTION, *PKSJACK_DESCRIPTION;
+
+typedef struct _LUID 
+{  
+    DWORD LowPart;  
+    LONG HighPart;
+} LUID,  *PLUID;
+typedef enum 
+{
+    KSJACK_SINK_CONNECTIONTYPE_HDMI = 0,            // HDMI
+    KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT,         // DisplayPort
+} KSJACK_SINK_CONNECTIONTYPE;
+#define MAX_SINK_DESCRIPTION_NAME_LENGTH 32
+typedef struct _tagKSJACK_SINK_INFORMATION
+{
+  KSJACK_SINK_CONNECTIONTYPE ConnType;              // Connection Type
+  WORD  ManufacturerId;                             // Sink manufacturer ID
+  WORD  ProductId;                                  // Sink product ID
+  WORD  AudioLatency;                               // Sink audio latency
+  BOOL  HDCPCapable;                                // HDCP Support
+  BOOL  AICapable;                                  // ACP Packet, ISRC1, and ISRC2 Support
+  UCHAR SinkDescriptionLength;                      // Monitor/Sink name length
+  WCHAR SinkDescription[MAX_SINK_DESCRIPTION_NAME_LENGTH];   // Monitor/Sink name
+  LUID  PortId;                                     // Video port identifier
+}  KSJACK_SINK_INFORMATION;
+
+typedef struct _tagKSJACK_DESCRIPTION2
+{
+  DWORD              DeviceStateInfo;  // Top 16 bits: Report current device state, active, streaming, idle, or hardware not ready
+                                       // Bottom 16 bits: detailed reason to further explain state in top 16 bits
+  DWORD              JackCapabilities; // Report jack capabilities such as jack presence detection capability 
+                                       // or dynamic format changing capability         
+} KSJACK_DESCRIPTION2, *PKSJACK_DESCRIPTION2;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_NI) ")
+typedef struct _tagKSJACK_DESCRIPTION3
+{
+  ULONG              ConfigId; // Driver defined bitmask or enum describing the current configuration, changing this value causes
+                               // audioendpointbuilder to refresh the cache to ensure that the published endpoint matches the current config.
+} KSJACK_DESCRIPTION3, *PKSJACK_DESCRIPTION3;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_NI) ")
+cpp_quote("#endif")
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// forwards
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+interface IDeviceTopology;
+interface IPart;
+interface IConnector;
+interface ISubunit;
+interface IControlInterface;
+interface IPartsList;
+interface IControlChangeNotify;
+interface IControlChangeDelegate;
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// connector data flow
+typedef enum {
+    In,
+    Out
+} DataFlow;
+
+typedef enum {
+    Connector,
+    Subunit
+} PartType;
+
+typedef enum {
+    Unknown_Connector,
+    Physical_Internal,   // Tangible connector inside the device or PC. i.e. you have to open the case (of the PC or device) to see it
+    Physical_External,   // Tangible connector external to the device of PC, i.e. a jack
+    Software_IO,         // Connector that you can send/receive data to/from
+    Software_Fixed,      // Connector that is for topology parsing only.  Is involved in a permanent connection to another Fixed connector.
+    Network              // A connector over IP
+} ConnectorType;
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// interface declarations
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// Activatable interfaces
+
+// ----------------------------------------------------------------------
+// IKsControl
+//
+// Abstract:
+//      Provides direct access to KS properties on a KSFilter.
+//
+// Activatable on:
+//      IMMDevice (representing a KsFilter)
+//
+// See MSDN documentation for more info.
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(28F54685-06FD-11D2-B27A-00A0C9223196),
+    nonextensible,
+    helpstring("IKsControl Interface"),
+    pointer_default(unique)
+]
+interface IKsControl : IUnknown
+{
+    HRESULT KsProperty([in] PKSPROPERTY Property, [in] ULONG PropertyLength, [in,out] void* PropertyData, [in] ULONG DataLength, [out] ULONG* BytesReturned);
+    HRESULT KsMethod([in] PKSMETHOD Method, [in] ULONG MethodLength, [in, out] void* MethodData, [in] ULONG DataLength, [out] ULONG* BytesReturned);
+    HRESULT KsEvent([in] PKSEVENT Event, [in] ULONG EventLength, [in, out] void* EventData, [in] ULONG DataLength, [out] ULONG* BytesReturned);
+};
+
+
+// ----------------------------------------------------------------------
+// IAudioVolumeLevel
+//
+// Abstract:
+//      Provides access to a hardware volume control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(7FB7B48F-531D-44A2-BCB3-5AD5A134B3DC),
+    nonextensible,
+    helpstring("IAudioVolumeLevel Interface"),
+    pointer_default(unique)
+]
+interface IAudioVolumeLevel : IPerChannelDbLevel
+{
+};
+
+// ----------------------------------------------------------------------
+// IAudioChannelConfig
+//
+// Abstract:
+//      Provides access to a hardware channel configuration control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(BB11C46F-EC28-493C-B88A-5DB88062CE98),
+    nonextensible,
+    helpstring("IAudioChannelConfig Interface"),
+    pointer_default(unique)
+]
+interface IAudioChannelConfig : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the current speaker configuration for an audio Adapter
+    //
+    // Parameters:
+    //
+    //      dwConfig - [in] A mask of 0 or more speaker position constants
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method SetChannelConfig")] HRESULT SetChannelConfig([in] DWORD dwConfig, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the current speaker configuration for an audio Adapter
+    //
+    // Parameters:
+    //
+    //      pdwConfig - [out] A mask of 0 or more speaker position constants
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetChannelConfig")] HRESULT GetChannelConfig([out, retval] DWORD* pdwConfig);
+};
+
+// ----------------------------------------------------------------------
+// IAudioLoudness
+//
+// Abstract:
+//      Provides access to a hardware "Loudness" compensation control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(7D8B1437-DD53-4350-9C1B-1EE2890BD938),
+    nonextensible,
+    helpstring("IAudioLoudness Interface"),
+    pointer_default(unique)
+]
+interface IAudioLoudness : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current state (enabled or disabled) of a Loudness control
+    //
+    // Parameters:
+    //
+    //      pbEnabled - [out] The current state of the Loudness control.  TRUE if enabled, FALSE if not enabled.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetEnabled")]
+    HRESULT GetEnabled([out, annotation("_Out_")] BOOL* pbEnabled);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the current state (enabled or disabled) of a Loudness control
+    //
+    // Parameters:
+    //
+    //      bEnable - [in] The desired state of the Loudness control.  TRUE if enabled, FALSE if not enabled.
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method SetEnabled")]
+    HRESULT SetEnabled([in, annotation("_In_")] BOOL bEnable, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+};
+
+// ----------------------------------------------------------------------
+// IAudioInputSelector
+//
+// Abstract:
+//      Provides access to a hardware MUX control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(4F03DC02-5E6E-4653-8F72-A030C123D598),
+    nonextensible,
+    helpstring("IAudioInputSelector Interface"),
+    pointer_default(unique)
+]
+interface IAudioInputSelector : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the current value of an Input Selector, in terms of which adjacent part
+    //  in the topology graph is set to feed the subunit that this interface is on
+    //
+    // Parameters:
+    //
+    //      pnIdSelected - [out] The local id of the adjacent part which is selected
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetSelection")]
+    HRESULT GetSelection([out, annotation("_Out_")] UINT* pnIdSelected);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the current value of an Input Selector, in terms of which adjacent part
+    //  in the topology graph is set to feed the subunit that this interface is on
+    //
+    // Parameters:
+    //
+    //      nIdSelect - [in] The local id of the adjacent part to be selected
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method SetSelection")]
+    HRESULT SetSelection([in, annotation("_In_")] UINT nIdSelect, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+};
+
+// ----------------------------------------------------------------------
+// IAudioOutputSelector
+//
+// Abstract:
+//      Provides access to a hardware DEMUX control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(BB515F69-94A7-429e-8B9C-271B3F11A3AB),
+    nonextensible,
+    helpstring("IAudioOutputSelector Interface"),
+    pointer_default(unique)
+]
+interface IAudioOutputSelector : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the current value of an Output Selector, in terms of which adjacent part in the
+    //  topology graph is set to receive a signal from the subunit that this interface is on
+    //
+    // Parameters:
+    //
+    //      pnIdSelected - [out] The local id of the adjacent part which is selected
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetSelection")]
+    HRESULT GetSelection([out, annotation("_Out_")] UINT* pnIdSelected);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the current value of an Output Selector, in terms of which adjacent part in the
+    //  topology graph will be set to receive a signal from the subunit that this interface is on
+    //
+    // Parameters:
+    //
+    //      nIdSelect - [in] The local id of the adjacent part to be selected
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method SetSelection")]
+    HRESULT SetSelection([in, annotation("_In_")] UINT nIdSelect, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+};
+
+// ----------------------------------------------------------------------
+// IAudioMute 
+//
+// Abstract:
+//      Provides access to a hardware MUTE control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(DF45AEEA-B74A-4B6B-AFAD-2366B6AA012E),
+    nonextensible,
+    helpstring("IAudioMute Interface"),
+    pointer_default(unique)
+]
+interface IAudioMute : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the mute state
+    //
+    // Parameters:
+    //
+    //      bMuted   - [in] The desired mute state.  TRUE for mute, FALSE for unmute.
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method SetMute")]
+    HRESULT SetMute([in, annotation("_In_")] BOOL bMuted, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the mute state
+    //
+    // Parameters:
+    //
+    //      pbMuted  - [out] The current mute state.  TRUE if muted, FALSE if unmuted.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetMute")]
+    HRESULT GetMute([out, annotation("_Out_")] BOOL* pbMuted);
+};
+
+// ----------------------------------------------------------------------
+// IPerChannelDbLevel
+//
+// Abstract:
+//      Base interface for volume and other dB valued per-channel controls
+//
+// Activatable on:
+//      Nothing.  Base class only.
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(C2F8E001-F205-4BC9-99BC-C13B1E048CCB),
+    nonextensible,
+    helpstring("IPerChannelDbLevel Interface"),
+    pointer_default(unique)
+]
+interface IPerChannelDbLevel : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of channels
+    //
+    // Parameters:
+    //
+    //      cChannels - [out] The number of channels
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetChannelCount")]
+    HRESULT GetChannelCount([out, annotation("_Out_")] UINT* pcChannels);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the lowest and highest values supported
+    //
+    // Parameters:
+    //
+    //      pfMinLevelDB - [out] The minimum level in dB.  Negative values represent attenuation; positive values represent amplification.
+    //      pfMaxLevelDB - [out] The maximum level in dB.  Negative values represent attenuation; positive values represent amplification.
+    //      pfStepping - [out] The granularity of steps in terms of dB.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetLevelRange")]
+    HRESULT GetLevelRange([in, annotation("_In_")] UINT nChannel, [out, annotation("_Out_")] float* pfMinLevelDB, [out, annotation("_Out_")] float* pfMaxLevelDB, [out, annotation("_Out_")] float* pfStepping);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the level of the specified channel
+    //
+    // Parameters:
+    //
+    //      nChannel - [in] The channel to set the level on, in the range [0, ChannelsCount - 1]
+    //      pfLevelDB - [out] The level in dB.  Negative values represent attenuation; positive values represent amplification.
+    //
+    // Remarks:
+    //      Note that most hardware only supports attenuation. (i.e. negative values for pfLevelDB)
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(3), helpstring("method GetLevel")]
+    HRESULT GetLevel([in, annotation("_In_")] UINT nChannel, [out, annotation("_Out_")] float* pfLevelDB);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the level of the specified channel
+    //
+    // Parameters:
+    //
+    //      nChannel - [in] The channel to set the level on, in the range [0, ChannelsCount - 1]
+    //      fLevelDB - [in] The desired level in dB.  Negative values represent attenuation; positive values represent amplification.
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Remarks:
+    //      Note that most hardware only supports attenuation. (i.e. negative values for fLevelDB)
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(4), helpstring("method SetLevel")]
+    HRESULT SetLevel([in, annotation("_In_")] UINT nChannel, [in, annotation("_In_")] float fLevelDB, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the level of all channels to a single value
+    //
+    // Parameters:
+    //
+    //      fLevelDB - [in] The desired level in dB.  Negative values represent attenuation; positive values represent amplification.
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Remarks:
+    //      Note that most hardware only supports attenuation. (i.e. negative values for fLevelDB)
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(5), helpstring("method SetLevelUniform")]
+    HRESULT SetLevelUniform([in, annotation("_In_")] float fLevelDB, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the level for all channels
+    //
+    // Parameters:
+    //
+    //      aLevelDB - [in] An array of the desired levels in dB.  Negative values represent attenuation; positive values represent amplification.
+    //      cChannels  - [in] Number of elements in aLevelDB.  This number must match the channel count returned by GetChannelCount()
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Remarks:
+    //      Note that most hardware only supports attenuation. (i.e. negative values for fLevelDB)
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(6), helpstring("method SetLevelAllChannels")]
+    HRESULT SetLevelAllChannels([in,size_is(cChannels), annotation("_In_reads_(cChannels)")] float aLevelsDB[], [in, annotation("_In_")] ULONG cChannels, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+};
+
+
+// ----------------------------------------------------------------------
+// IAudioBass
+//
+// Abstract:
+//      Provides access to a hardware Bass level control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(A2B1A1D9-4DB3-425D-A2B2-BD335CB3E2E5),
+    nonextensible,
+    helpstring("IAudioBass Interface"),
+    pointer_default(unique)
+]
+interface IAudioBass : IPerChannelDbLevel{
+};
+
+// ----------------------------------------------------------------------
+// IAudioMidrange
+//
+// Abstract:
+//      Provides access to a hardware Midrange level control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(5E54B6D7-B44B-40D9-9A9E-E691D9CE6EDF),
+    nonextensible,
+    helpstring("IAudioMidrange Interface"),
+    pointer_default(unique)
+]
+interface IAudioMidrange : IPerChannelDbLevel{
+};
+
+// ----------------------------------------------------------------------
+// IAudioTreble
+//
+// Abstract:
+//      Provides access to a hardware Treble level control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(0A717812-694E-4907-B74B-BAFA5CFDCA7B),
+    nonextensible,
+    helpstring("IAudioTreble Interface"),
+    pointer_default(unique)
+]
+interface IAudioTreble : IPerChannelDbLevel{
+};
+
+// ----------------------------------------------------------------------
+// IAudioAutoGainControl
+//
+// Abstract:
+//      Provides access to a hardware AGC control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(85401FD4-6DE4-4b9d-9869-2D6753A82F3C),
+    nonextensible,
+    helpstring("IAudioAutoGainControl Interface"),
+    pointer_default(unique)
+]
+interface IAudioAutoGainControl : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the state of the AGC control (enabled or disabled)
+    //
+    // Parameters:
+    //
+    //      pbEnabled - [out] The state of the AGC control.  TRUE for enabled, FALSE for disabled.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetEnabled")]
+    HRESULT GetEnabled([out, annotation("_Out_")] BOOL* pbEnabled);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the state of the AGC control (enabled or disabled)
+    //
+    // Parameters:
+    //
+    //      bEnabled - [in] The desired state of the AGC control.  TRUE for enabled, FALSE for disabled.
+    //      pguidEventContext - [in] User supplied data.  This value is sent to clients that register for notifications through IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method SetEnabled")]
+    HRESULT SetEnabled([in, annotation("_In_")] BOOL bEnable, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+};
+
+
+// ----------------------------------------------------------------------
+// IAudioPeakMeter
+//
+// Abstract:
+//      Provides access to a hardware Peak Meter control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(DD79923C-0599-45e0-B8B6-C8DF7DB6E796),
+    nonextensible,
+    helpstring("IAudioPeakMeter Interface"),
+    pointer_default(unique)
+]
+interface IAudioPeakMeter : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of channels
+    //
+    // Parameters:
+    //
+    //      cChannels - [out] The number of channels
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetChannelCount")]
+    HRESULT GetChannelCount([out, annotation("_Out_")] UINT* pcChannels);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the value of a peak meter control
+    //
+    // Parameters:
+    //
+    //      nChannel - [in] The channel whose value is to be retrieved, in the range [0, ChannelsCount - 1]
+    //      pfLevel - [out] The current value, in the range [0.0f, 1.0f]
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetLevel")]
+    HRESULT GetLevel([in, annotation("_In_")] UINT nChannel, [out, annotation("_Out_")] float* pfLevel);
+};
+
+
+// ----------------------------------------------------------------------
+// IDeviceSpecificProperty
+//
+// Abstract:
+//      Provides access to a vendor specific control.
+//
+// Activatable on:
+//      IPart interface on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(3B22BCBF-2586-4af0-8583-205D391B807C),
+    nonextensible,
+    helpstring("IDeviceSpecificProperty Interface"),
+    pointer_default(unique)
+]
+interface IDeviceSpecificProperty : IUnknown
+{
+    [id(1), helpstring("method GetDataType")] HRESULT GetType([out, annotation("_Out_")] VARTYPE* pVType);
+    [id(2), helpstring("method GetValue")] HRESULT GetValue([out, annotation("_Out_")] void* pvValue, [in, out, annotation("_Inout_")] DWORD* pcbValue);
+    [id(3), helpstring("method SetValue")] HRESULT SetValue([in, annotation("_In_")] void* pvValue, [in] DWORD cbValue, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+    [id(4), helpstring("method GetRange")] HRESULT Get4BRange([out, annotation("_Out_")] LONG* plMin, [out, annotation("_Out_")] LONG* plMax, [out, annotation("_Out_")] LONG* plStepping);
+};
+
+// ----------------------------------------------------------------------
+// IKsFormatSupport
+//
+// Abstract:
+//      Used to query for format support on a "host pin connector"
+//
+// Activatable on:
+//      IPart interface (on a connector) on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(3CB4A69D-BB6F-4D2B-95B7-452D2C155DB5),
+    nonextensible,
+    helpstring("IKsFormatSupport Interface"),
+    pointer_default(unique)
+]
+interface IKsFormatSupport : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Indicates whether the connector supports the supplied format.
+    //
+    // Parameters:
+    //
+    //      pKsFormat - [in] The requested format.  
+    //              To check for basic support, pass a pointer to a KSDATAFORMAT.  
+    //              For more extensive checking pass a pointer to a derived structure 
+    //              such as KSDATAFORMAT_WAVEFORMATEX.
+    //      cbKsFormat - [in] The size of the requested format.
+    //      pbSupported - [out] TRUE if the format is supported, FALSE if not.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method IsFormatSupported")]
+    HRESULT IsFormatSupported([in,size_is(cbFormat)] PKSDATAFORMAT pKsFormat, [in, annotation("_In_")] DWORD cbFormat, [out, annotation("_Out_")]BOOL* pbSupported);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the devices preferred format
+    //
+    // Parameters:
+    //
+    //      ppKsFormat  - [out] The address of a pointer that receives a newly allocated KSDATAFORMAT structure.  The caller must free the returned buffer using CoTaskMemFree
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetDevicePreferredFormat")]
+    HRESULT GetDevicePreferredFormat([out] PKSDATAFORMAT* ppKsFormat);
+};
+
+// ----------------------------------------------------------------------
+// IKsJackDescription
+//
+// Abstract:
+//      Provides access to jack description info if supported by hardware
+//
+// Activatable on:
+//      IPart interface (bridge pin connector) on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(4509F757-2D46-4637-8E62-CE7DB944F57B),
+    nonextensible,
+    helpstring("IKsJackDescription Interface"),
+    pointer_default(unique)
+]
+interface IKsJackDescription : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the number of Jacks on this connector.
+    //
+    // Parameters:
+    //
+    //      pcJacks - [out] Number of Jacks on this connector
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetJackCount")]
+    HRESULT GetJackCount([out, annotation("_Out_")] UINT* pcJacks);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the description of the specified Jack
+    //
+    // Parameters:
+    //
+    //      nJack        - [in]  The index of the jack for which to get information.  nJack must be less than the count returned from GetJackCount
+    //      pDescription - [out] Pointer to a caller-allocated buffer into which the method writes a structure of type KSJACK_DESCRIPTION that contains information about the jack.  
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetJackDescription")]
+    HRESULT GetJackDescription([in] UINT nJack, [out, annotation("_Out_")] KSJACK_DESCRIPTION* pDescription);
+};
+
+// ----------------------------------------------------------------------
+// IID_IKSJackDescription2
+//
+// Abstract:
+//      Provides access to jack KSJACK_DESCRIPTION2 supported by hardware
+//
+// Activatable on:
+//      IPart interface (bridge pin connector) on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(478F3A9B-E0C9-4827-9228-6F5505FFE76A),
+    nonextensible,
+    helpstring("IKsJackDescription2 Interface"),
+    pointer_default(unique)
+]
+interface IKsJackDescription2 : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the number of Jacks on this connector.
+    //
+    // Parameters:
+    //
+    //      pcJacks - [out] Number of Jacks on this connector
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetJackCount")]
+    HRESULT GetJackCount([out, annotation("_Out_")] UINT* pcJacks);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the description of the specified Jack
+    //
+    // Parameters:
+    //
+    //      nJack        - [in]  The index of the jack for which to get information.  
+    //                           nJack must be less than the count returned from GetJackCount
+    //      pDescription - [out] Pointer to a caller-allocated buffer into which the method writes 
+    //                           a structure of type KSJACK_DESCRIPTION2 that contains information about the jack.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetJackDescription2")]
+    HRESULT GetJackDescription2([in] UINT nJack, [out, annotation("_Out_")] KSJACK_DESCRIPTION2* pDescription2);
+};
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_NI) ")
+// ----------------------------------------------------------------------
+// IID_IKSJackDescription3
+//
+// Abstract:
+//      Provides access to jack KSJACK_DESCRIPTION3 supported by hardware
+//
+// Activatable on:
+//      IPart interface (bridge pin connector) on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(E3F6778B-6660-4CC8-A291-ECC4192D9967),
+    nonextensible,
+    helpstring("IKsJackDescription3 Interface"),
+    pointer_default(unique)
+]
+interface IKsJackDescription3 : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the number of Jacks on this connector.
+    //
+    // Parameters:
+    //
+    //      pcJacks - [out] Number of Jacks on this connector
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetJackCount")]
+    HRESULT GetJackCount([out, annotation("_Out_")] UINT* pcJacks);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the description of the specified Jack
+    //
+    // Parameters:
+    //
+    //      nJack        - [in]  The index of the jack for which to get information.  
+    //                           nJack must be less than the count returned from GetJackCount
+    //      pDescription - [out] Pointer to a caller-allocated buffer into which the method writes 
+    //                           a structure of type KSJACK_DESCRIPTION3 that contains information about the jack.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetJackDescription3")]
+    HRESULT GetJackDescription3([in] UINT nJack, [out, annotation("_Out_")] KSJACK_DESCRIPTION3* pDescription3);
+};
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_NI) ")
+
+// ----------------------------------------------------------------------
+// IKsJackSinkInformation
+//
+// Abstract:
+//      Provides access to jack sink information if supported by hardware
+//
+// Activatable on:
+//      IPart interface (bridge pin connector) on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(D9BD72ED-290F-4581-9FF3-61027A8FE532),
+    nonextensible,
+    helpstring("IKsJackSinkInformation Interface"),
+    pointer_default(unique)
+]
+interface IKsJackSinkInformation : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the sink information of the specified Jack
+    //
+    // Parameters:
+    //
+    //      pJackSinkInformation - [out] The address of a pointer to memory for receiving sink information
+    //                      
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetJackSinkInformation")]
+    HRESULT GetJackSinkInformation([out, annotation("_Out_")] KSJACK_SINK_INFORMATION* pJackSinkInformation);
+};
+// ----------------------------------------------------------------------
+// IKsJackContainerId
+//
+// Abstract:
+//      Provides access to jack container ID if supported by hardware
+//
+// Activatable on:
+//      IPart interface (bridge pin connector) on an KS Filter devicetopology object
+//
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(C99AF463-D629-4EC4-8C00-E54D68154248),
+    nonextensible,
+    helpstring("IKsJackContainerId Interface"),
+    pointer_default(unique)
+]
+interface IKsJackContainerId : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the container ID of the specified Jack
+    //
+    // Parameters:
+    //
+    //      pJackContainerId - [out] The address of a buffer for receiving the container ID
+    //                      
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetJackContainerId")]
+    HRESULT GetJackContainerId([out, annotation("_Out_")] GUID* pJackContainerId);
+};
+// ----------------------------------------------------------------------
+// Non-Activatable interfaces
+
+[
+    local,
+    uuid(6DAA848C-5EB0-45CC-AEA5-998A2CDA1FFB),
+    helpstring("IPartsList Interface"),
+    pointer_default(unique)
+]
+interface IPartsList : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of Parts in this PartsList
+    //
+    // Parameters:
+    //
+    //      pCount - [out] The number of Parts in this PartsList
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetCount")]
+    HRESULT GetCount([out, annotation("_Out_")] UINT* pCount);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets a Part at the specified index from the PartsList
+    //
+    // Parameters:
+    //
+    //      nIndex - [in] The index of the Part to retrieve, in the range [0, PartCount - 1]
+    //      ppPart - [out] The part at the specified index.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetPart")]
+    HRESULT GetPart([in, annotation("_In_")] UINT nIndex, [out, annotation("_Out_")] IPart** ppPart);
+};
+
+[
+    local,
+    uuid(AE2DE0E4-5BCA-4F2D-AA46-5D13F8FDB3A9),
+    helpstring("IPart Interface"),
+    pointer_default(unique)
+]
+interface IPart : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the name of this Part.
+    //
+    // Parameters:
+    //
+    //      ppwstrName - [out] The name of this Part
+    //
+    // Remarks:
+    //      The returned string must be freed by the caller using CoTaskMemFree.
+    //
+    // Return values:
+    //      S_OK if successful
+    //      E_NOTFOUND if the part does not have a name
+    //
+    [id(1), helpstring("method GetName")]
+    HRESULT GetName([out,annotation("_Outptr_")] LPWSTR* ppwstrName);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the local ID of this Part
+    //
+    // Parameters:
+    //
+    //      pnId - [out] The local ID of this Part.  This ID is only valid in the context of the parent DeviceTopology object.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetLocalId")]
+    HRESULT GetLocalId([out, annotation("_Out_")] UINT* pnId);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the global ID of this Part
+    //
+    // Parameters:
+    //
+    //      ppwstrId - [out] The global ID of this Part.  This ID is globally unique and can be used to get an interface to a Part on any DeviceTopology object.
+    //
+    // Remarks:
+    //      The returned string must be freed by the caller using CoTaskMemFree.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(3), helpstring("method GetGlobalId")]
+    HRESULT GetGlobalId([out,annotation("_Outptr_")] LPWSTR* ppwstrGlobalId);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the type of this Part (Connector or Subunit)
+    //
+    // Parameters:
+    //
+    //      pPartType - [out] The type of this Part (Connector or Subunit)
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(4), helpstring("method GetPartType")]
+    HRESULT GetPartType([out, annotation("_Out_")] PartType* pPartType);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the SubType of this Connector
+    //
+    // Parameters:
+    //
+    //      pSubType - [out] The SubType of this part
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(5), helpstring("method GetSubType")]
+    HRESULT GetSubType([out] GUID* pSubType);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of ControlInterfaces on this Part
+    //
+    // Parameters:
+    //
+    //      pCount - [out] The number of ControlInterfaces on this Part
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(6), helpstring("method GetControlInterfaceCount")]
+    HRESULT GetControlInterfaceCount([out, annotation("_Out_")] UINT* pCount);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets a ControlInterface at the specified index on this Part
+    //
+    // Parameters:
+    //
+    //      nIndex - [in] The index of the ControlInterface to retrieve, in the range [0, ControlInterfaceCount - 1]
+    //      ppInterfaceDesc - [out] The ControlInterface at the specified index.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(7), helpstring("method GetControlInterface")]
+    HRESULT GetControlInterface([in, annotation("_In_")] UINT nIndex, [out, annotation("_Out_")] IControlInterface** ppInterfaceDesc);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves a list of Parts that are linked to this Part "upstream" in the Topology graph.
+    //
+    // Parameters:
+    //
+    //      ppParts - [out] Pointer to a buffer that receives a pointer to a PartsList containing all upstream Parts linked to this Part
+    //
+    // Return values:
+    //      S_OK if successful
+    //      E_NOTFOUND if there are no incoming parts
+    //
+    [id(8), helpstring("method EnumPartsIncoming")]
+    HRESULT EnumPartsIncoming([out, annotation("_Out_")] IPartsList** ppParts);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves a list of Parts that are linked to this Part "downstream" in the Topology graph.
+    //
+    // Parameters:
+    //
+    //      ppParts - [out] Pointer to a buffer that receives a pointer to a PartsList containing all downstream Parts linked to this Part
+    //
+    // Return values:
+    //      S_OK if successful
+    //      E_NOTFOUND if there are no outgoing parts
+    //
+    [id(9), helpstring("method EnumPartsOutgoing")]
+    HRESULT EnumPartsOutgoing([out, annotation("_Out_")] IPartsList** ppParts);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves a pointer to the parent DeviceTopology object
+    //
+    // Parameters:
+    //
+    //      ppTopology - [out] Pointer to a buffer that receives a pointer to the parent DeviceTopology object
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(10), helpstring("method GetTopologyObject")]
+    HRESULT GetTopologyObject([out, annotation("_Out_")]IDeviceTopology** ppTopology);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Activates an interface of the specified IID on this Part
+    //
+    // Parameters:
+    //
+    //      pSink - [in] A pointer to an callback interface.  When the state of the Control Interface changes, this interface will be called.  This parameter may be NULL.
+    //      dwClsContext - [in] Values taken from the CLSCTX enumeration
+    //      refiid - [in] Identifier of the interface desired
+    //      ppvObject - [out] Pointer to a buffer that receives a pointer to the activated interface object.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(11), helpstring("method Activate")]
+
+    HRESULT Activate([in, annotation("_In_")] DWORD dwClsContext, [in, annotation("_In_")] REFIID refiid, [out,iid_is(refiid), annotation("_Out_opt_")] void** ppvObject);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Registers the supplied client to be notified when a value on the specified control interface
+    //  is set.
+    //
+    // Parameters:
+    //
+    //      riid - [in] The interface to be notified about
+    //      pNotify - [in] The interface to be called when the specified interface values change
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(12), helpstring("method RegisterControlChangeCallback")]
+
+    HRESULT RegisterControlChangeCallback([in, annotation("_In_")] REFGUID riid, [in, annotation("_In_")] IControlChangeNotify* pNotify);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Unregisters a notification client on this part
+    //
+    // Parameters:
+    //
+    //      pNotify - [in] The interface to unregister.  This interface must have been registered previously in a call to IPart::RegisterControlChangeCallback
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(13), helpstring("method UnregisterControlChangeCallback")]
+
+    HRESULT UnregisterControlChangeCallback([in, annotation("_In_")] IControlChangeNotify* pNotify);
+};
+
+// ----------------------------------------------------------------------
+[
+    local,
+    uuid(9c2c4058-23f5-41de-877a-df3af236a09e),
+    helpstring("IConnector Interface"),
+    pointer_default(unique)
+]
+interface IConnector : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the ConnectorType of this Connector
+    //
+    // Parameters:
+    //
+    //      pType - [out] The ConnectorType of this Connector
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetType")]
+    HRESULT GetType([out, annotation("_Out_")] ConnectorType* pType);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the DataFlow direction of this Connector
+    //
+    // Parameters:
+    //
+    //      pFlow - [out] The DataFlow direction of this Connector.  This direction is relative to the DeviceTopology object
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetDataFlow")]
+    HRESULT GetDataFlow([out, annotation("_Out_")] DataFlow* pFlow);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Connects this Connector to a Connector on another DeviceTopology object
+    //
+    // Parameters:
+    //
+    //      pConnectTo - [in] The Connector to connect to.  This method establishes a bi-directional connection, that is it is not necessary to call ConnectTo on both Connectors involved.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(3), helpstring("method ConnectTo")]
+    HRESULT ConnectTo([in, annotation("_In_")] IConnector* pConnectTo);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Disconnects this Connector for any Connectors to which it is connected.  This method only works
+    //  if the connection is Read/Write, ie. was established using IConnector::ConnectTo()
+    //
+    // Parameters:
+    //
+    //      none
+    //
+    // Remarks:
+    //      It is not necessary to call Disconnect on the Connector to which this Connector is connected
+    //      
+    // Return values:
+    //      S_OK if successful
+    //
+    // Remarks:
+    //      Please note: This function is a "finalizer".  As such, this
+    //      function has no valid failure modes.
+    //
+
+    [id(4), helpstring("method Disconnect")]
+    HRESULT Disconnect();
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Indicates if this Connector is involved in a Connection
+    //
+    // Parameters:
+    //
+    //      pbConnected - [out] TRUE if this Connector is connected.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(5), helpstring("method IsConnected")]
+    HRESULT IsConnected([out, annotation("_Out_")] BOOL* pbConnected);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves a pointer to the Connector (if any) that this Connector is connected to
+    //
+    // Parameters:
+    //
+    //      ppConTo - [out] A pointer to a buffer that receives a pointer to the Connector to which this Connector is connected, or NULL if a connection does not exist
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(6), helpstring("method GetConnectedTo")]
+    HRESULT GetConnectedTo([out, annotation("_Out_")] IConnector** ppConTo);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the global ID of the Connector (if any) that this Connector is connected to
+    //
+    // Parameters:
+    //
+    //      ppwstrConnectorId - [out] The global ID of the Connector (if any) that this Connector is connected to
+    //
+    // Remarks:
+    //      The returned string must be freed by the caller using CoTaskMemFree.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(7), helpstring("method GetConnectorIdConnectedTo")]
+    HRESULT GetConnectorIdConnectedTo([out,annotation("_Outptr_")] LPWSTR* ppwstrConnectorId);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the global ID of the Device (if any) that this Connector is connected to.  It is functionally
+    //  equivalent to calling GetConnectedTo to get a connected IConnector, IPart::GetTopologyObject with that connector
+    //  to get an IDeviceTopology object, and then calling IDeviceTopology::GetDeviceId on that topology object.  This
+    //  method is generally far more efficient, though, as it doesn't actually load the device or activate IDeviceTopology 
+    //  on it.
+    //
+    // Parameters:
+    //
+    //      ppwstrDeviceId - [out] The global ID of the Connector (if any) that this Connector is connected to
+    //
+    // Remarks:
+    //      The returned string must be freed by the caller using CoTaskMemFree.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(8), helpstring("method GetDeviceIdConnectedTo")]
+    HRESULT GetDeviceIdConnectedTo([out,annotation("_Outptr_")] LPWSTR* ppwstrDeviceId);
+};
+
+// ----------------------------------------------------------------------
+[
+    local,
+    uuid(82149A85-DBA6-4487-86BB-EA8F7FEFCC71),
+    helpstring("ISubunit Interface"),
+    pointer_default(unique)
+]
+interface ISubunit : IUnknown
+{
+};
+
+//
+[
+    local,
+    uuid(45d37c3f-5140-444a-ae24-400789f3cbf3),
+    helpstring("IControlInterface Interface"),
+    pointer_default(unique)
+]
+interface IControlInterface : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the name of this ControlInterface
+    //
+    // Parameters:
+    //
+    //      ppwstrName - [out] The name of this ControlInterface
+    //
+    // Remarks:
+    //      The returned string must be freed by the caller using CoTaskMemFree.
+    //
+    // Return values:
+    //      S_OK if successful
+    //      E_NOTFOUND if the control interface does not have a name
+    //
+    [id(1), helpstring("method GetName")]
+    HRESULT GetName([out,annotation("_Outptr_")] LPWSTR* ppwstrName);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the interface identifier of this ControlInterface
+    //
+    // Parameters:
+    //
+    //      pIID - [out] The interface identifier of this ControlInterface
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetIID")]
+    HRESULT GetIID([out, annotation("_Out_")] GUID* pIID);
+};
+
+// ----------------------------------------------------------------------
+
+// A deviceTopology client can implement IControlChangeNotify and pass 
+// this interface in a call to IPart::Activate. 
+// DeviceTopology will call the clients IControlChangeNotify::OnNotify 
+// method when the state of the activated control changes.
+[
+    object,
+    local,
+    uuid(A09513ED-C709-4d21-BD7B-5F34C47F3947),
+    nonextensible,
+    helpstring("IControlChangeNotify Interface"),
+    pointer_default(unique)
+]
+interface IControlChangeNotify : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when a property is changed on a Part
+    //
+    // Parameters:
+    //
+    //      dwSenderProcessID - [in] The ID of the process that originated the notification.
+    //                              A value of 0 indicates that the notification originated in
+    //                              hardware.
+    //      pguidEventContext -    [in] User supplied data.  This value is sent to clients that register for notifications through
+    //      IControlChangeNotify.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    // Remarks:
+    //      Please note: The caller of this function ignores all return
+    //      codes from the OnNotify method.
+    //
+    [id(1), helpstring("method Notify")]
+    HRESULT OnNotify([in, annotation("_In_")] DWORD dwSenderProcessId, [in, unique, annotation("_In_opt_")] LPCGUID pguidEventContext);
+};
+
+// ----------------------------------------------------------------------
+[
+    object,
+    local,
+    uuid(2A07407E-6497-4A18-9787-32F79BD0D98F),
+    nonextensible,
+    helpstring("IDeviceTopology Interface"),
+    pointer_default(unique)
+]
+interface IDeviceTopology : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of Connectors in this Topology object
+    //
+    // Parameters:
+    //
+    //      pCount - [out] The number of Connectors in this Topology object
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(1), helpstring("method GetConnectorCount")]
+    HRESULT GetConnectorCount([out, annotation("_Out_")] UINT* pCount);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets a Connector at the specified index
+    //
+    // Parameters:
+    //
+    //      nIndex - [in] The index of the Connector to retrieve, in the range [0, ConnectorCount - 1]
+    //      ppPart - [out] The Connector at the specified index.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(2), helpstring("method GetConnector")]
+    HRESULT GetConnector([in, annotation("_In_")] UINT nIndex, [out, annotation("_Out_")] IConnector** ppConnector);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the number of Subunits in this Topology object
+    //
+    // Parameters:
+    //
+    //      pCount - [out] The number of Subunits in this Topology object
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(3), helpstring("method GetSubunitCount")]
+    HRESULT GetSubunitCount([out, annotation("_Out_")] UINT* pCount);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets a Subunit at the specified index
+    //
+    // Parameters:
+    //
+    //      nIndex - [in] The index of the Subunit to retrieve, in the range [0, SubunitCount - 1]
+    //      ppPart - [out] The Subunit at the specified index.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(4), helpstring("method GetSubunit")]
+    HRESULT GetSubunit([in, annotation("_In_")] UINT nIndex, [out, annotation("_Outptr_")] ISubunit** ppSubunit);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the Part with the specified local ID
+    //
+    // Parameters:
+    //
+    //      nId - [in] The local ID of the desired Part
+    //      ppPart - [out] A pointer to a buffer that receives a pointer to the desired Part
+    //
+    // Return values:
+    //      S_OK if successful.  E_NOTFOUND if no Part exists with the specified ID.
+    //
+    [id(5), helpstring("method GetPartById")]
+    HRESULT GetPartById([in, annotation("_In_")] UINT nId, [out, annotation("_Outptr_")] IPart** ppPart);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets the ID of the IMMDevice interface on which this DeviceTopology object was activated
+    //
+    // Parameters:
+    //
+    //      ppDeviceId - [out] The FunctionInstance ID on which this DeviceTopology object was activated
+    //
+    // Remarks:
+    //      The returned string must be freed by the caller using CoTaskMemFree.
+    //
+    // Return values:
+    //      S_OK if successful
+    //
+    [id(6), helpstring("method GetDeviceId")]
+    HRESULT GetDeviceId([out,annotation("_Outptr_")] LPWSTR* ppwstrDeviceId);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets a path between two specified Parts if a path exists
+    //
+    // Parameters:
+    //
+    //      pIPartFrom - [in] The upstream Part
+    //      pIPartTo - [in] The downstream Part
+    //      ppParts - [out] A pointer to a buffer that receives a pointer to a PartsList containing a path from pIPartFrom to pIPartTo
+    //
+    // Remarks:
+    //      The returned list is sorted in reverse order, i.e. the first Part in the list is pIPartsTo and the last Part is pIPartFrom.
+    //
+    // Return values:
+    //      S_OK if successful.  E_NOTFOUND if no path exists.
+    //
+    [id(7), helpstring("method GetSignalPath")]
+    HRESULT GetSignalPath([in, annotation("_In_")] IPart* pIPartFrom, [in, annotation("_In_")] IPart* pIPartTo, [in, annotation("_In_")] BOOL bRejectMixedPaths, [out, annotation("_Outptr_")] IPartsList** ppParts);
+};
+
+
+// ----------------------------------------------------------------------
+// Type Library
+[
+    uuid(51B9A01D-8181-4363-B59C-E678F476DD0E),
+    version(1.0),
+    helpstring("Microsoft DeviceTopology 1.0 Type Library")
+]
+library DevTopologyLib
+{
+    importlib("stdole2.tlb");
+    [
+        uuid(1DF639D0-5EC1-47AA-9379-828DC1AA8C59),
+        helpstring("DeviceTopology Class")
+    ]
+    coclass DeviceTopology
+    {
+        interface IDeviceTopology;
+    };
+
+    interface IPartsList;
+
+    // device control interfaces
+    interface IAudioVolumeLevel;
+    interface IAudioLoudness;
+    interface IAudioSpeakerMap;
+    interface IAudioInputSelector;
+    interface IAudioMute;
+    interface IAudioBass;
+    interface IAudioMidrange;
+    interface IAudioTreble;
+    interface IAudioAutoGainControl;
+    interface IAudioOutputSelector;
+    interface IAudioPeakMeter;
+    interface IDeviceSpecificProperty;
+    interface IKsFormatSupport;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

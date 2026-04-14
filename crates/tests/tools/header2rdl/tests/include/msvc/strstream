@@ -1,0 +1,627 @@
+// strstream standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _STRSTREAM_
+#define _STRSTREAM_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <istream>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_STL_DISABLE_DEPRECATED_WARNING
+_EXPORT_STD class _CXX17_DEPRECATE_STRSTREAM strstreambuf : public streambuf {
+    // stream buffer associated with static or allocated character array
+public:
+    using _Mysb = streambuf;
+    enum { // constants for bits in stream state
+        _Allocated = 1, // set if character array storage has been allocated
+        _Constant  = 2, // set if character array immutable
+        _Dynamic   = 4, // set if character array length grows on demand
+        _Frozen    = 8
+    }; // set if character array ownership given away
+    using _Strstate = int;
+
+    __CLR_OR_THIS_CALL strstreambuf() { // construct with empty character array
+        _Init(0);
+    }
+
+    explicit __CLR_OR_THIS_CALL strstreambuf(streamsize _Count) { // construct with suggested initial size
+        _Init(_Count);
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(
+        void*(__CLRCALL_OR_CDECL* _Allocfunc)(size_t), void(__CLRCALL_OR_CDECL* _Freefunc)(void*)) {
+        // construct with empty character array, allocation functions
+        _Init();
+        _Palloc = _Allocfunc;
+        _Pfree  = _Freefunc;
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(_In_opt_z_ char* _Getptr, streamsize _Count, _In_opt_z_ char* _Putptr = nullptr) {
+        // construct with [_Getptr, _Getptr + _Count), possibly mutable
+        _Init(_Count, _Getptr, _Putptr);
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(_In_z_ const char* _Getptr, streamsize _Count) {
+        // construct with [_Getptr, _Getptr + _Count), immutable
+        _Init(_Count, const_cast<char*>(_Getptr), nullptr, _Constant);
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(
+        _In_opt_z_ unsigned char* _Getptr, streamsize _Count, _In_opt_z_ unsigned char* _Putptr = nullptr) {
+        // construct with [_Getptr, _Getptr + _Count), possibly mutable
+        _Init(_Count, reinterpret_cast<char*>(_Getptr), reinterpret_cast<char*>(_Putptr));
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(_In_opt_z_ const unsigned char* _Getptr, streamsize _Count) {
+        // construct with [_Getptr, _Getptr + _Count), immutable
+        _Init(_Count, const_cast<char*>(reinterpret_cast<const char*>(_Getptr)), nullptr, _Constant);
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(strstreambuf&& _Right) {
+        _Init();
+        _Assign_rv(_STD move(_Right));
+    }
+
+    strstreambuf& __CLR_OR_THIS_CALL operator=(strstreambuf&& _Right) noexcept /* strengthened */ {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void __CLR_OR_THIS_CALL _Assign_rv(strstreambuf&& _Right) noexcept {
+        if (this != _STD addressof(_Right)) {
+            _Tidy();
+            this->swap(_Right);
+        }
+    }
+
+    void __CLR_OR_THIS_CALL swap(strstreambuf& _Right) noexcept { // non-Standard
+        if (this != _STD addressof(_Right)) {
+            _Mysb::swap(_Right);
+            _STD swap(_Minsize, _Right._Minsize);
+            _STD swap(_Pendsave, _Right._Pendsave);
+            _STD swap(_Seekhigh, _Right._Seekhigh);
+            _STD swap(_Strmode, _Right._Strmode);
+            _STD swap(_Palloc, _Right._Palloc);
+            _STD swap(_Pfree, _Right._Pfree);
+        }
+    }
+
+    __CLR_OR_THIS_CALL ~strstreambuf() noexcept override {
+        _Tidy();
+    }
+
+    void __CLR_OR_THIS_CALL freeze(bool _Freezeit = true) noexcept /* strengthened */ { // freeze or unfreeze writing
+        if (_Strmode & _Dynamic) {
+            if (_Freezeit && !(_Strmode & _Frozen)) { // disable writing
+                _Strmode |= _Frozen;
+                _Pendsave = epptr();
+                setp(pbase(), pptr(), eback());
+            } else if (!_Freezeit && (_Strmode & _Frozen)) { // re-enable writing
+                _Strmode &= ~_Frozen;
+                setp(pbase(), pptr(), _Pendsave);
+            }
+        }
+    }
+
+    _NODISCARD char* __CLR_OR_THIS_CALL str() noexcept /* strengthened */ {
+        // freeze and return pointer to character array
+        freeze();
+        return eback();
+    }
+
+    _NODISCARD streamsize __CLR_OR_THIS_CALL pcount() const noexcept /* strengthened */ {
+        return pptr() ? static_cast<streamsize>(pptr() - pbase()) : 0;
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(
+        _In_opt_z_ signed char* _Getptr, streamsize _Count, _In_opt_z_ signed char* _Putptr = nullptr) {
+        // construct with [_Getptr, _Getptr + _Count), possibly mutable
+        _Init(_Count, reinterpret_cast<char*>(_Getptr), reinterpret_cast<char*>(_Putptr));
+    }
+
+    __CLR_OR_THIS_CALL strstreambuf(const signed char* _Getptr, streamsize _Count) {
+        // construct with [_Getptr, _Getptr + _Count), immutable
+        _Init(_Count, const_cast<char*>(reinterpret_cast<const char*>(_Getptr)), nullptr, _Constant);
+    }
+
+    void clear() noexcept /* strengthened */ { // free any allocated storage
+        _Tidy();
+    }
+
+protected:
+    int __CLR_OR_THIS_CALL overflow(int _Meta = EOF) override { // try to extend write area
+        if (_Meta == EOF) {
+            return 0; // nothing to write
+        }
+
+        if (pptr() && pptr() < epptr()) {
+            return static_cast<unsigned char>(*_Pninc() = static_cast<char>(_Meta));
+        }
+
+        if (!(_Strmode & _Dynamic) || (_Strmode & (_Constant | _Frozen))) {
+            return EOF; // can't extend
+        }
+
+        // okay to extend
+        const size_t _Oldsize = gptr() ? static_cast<size_t>(epptr() - eback()) : 0;
+        size_t _Newsize;
+        if (_Oldsize < _MINSIZE) {
+            _Newsize = _MINSIZE;
+        } else if (_Oldsize < INT_MAX / 2) { // grow by 50 percent
+            _Newsize = _Oldsize << 1;
+        } else if (_Oldsize < INT_MAX) {
+            _Newsize = INT_MAX;
+        } else { // buffer can't grow, fail
+            return EOF;
+        }
+
+        const auto _Ptr = _Alloc(_Newsize);
+        if (!_Ptr) { // couldn't grow, return failure
+            return EOF;
+        }
+
+        _CSTD memcpy(_Ptr, eback(), _Oldsize); // copy existing
+        if (_Strmode & _Allocated) { // buffer to free
+            _Free(eback());
+        }
+
+        _Strmode |= _Allocated;
+        _Seekhigh                            = _Ptr + _Oldsize;
+        const ptrdiff_t _Old_get_offset      = gptr() - eback();
+        const ptrdiff_t _Old_put_base_offset = pbase() - eback();
+        const ptrdiff_t _Old_put_offset      = pptr() - eback();
+        setp(_Ptr + _Old_put_base_offset, _Ptr + _Old_put_offset, _Ptr + _Newsize);
+        setg(_Ptr, _Ptr + _Old_get_offset, _Ptr + _Old_get_offset + 1);
+        return static_cast<unsigned char>(*_Pninc() = static_cast<char>(_Meta));
+    }
+
+    int __CLR_OR_THIS_CALL pbackfail(int _Meta = EOF) override { // try to putback a character
+        const auto _Old_gptr = gptr();
+        if (_Old_gptr && eback() < _Old_gptr) { // if the input sequence has a putback position available
+            if (_Meta == EOF) {
+                _Meta = 0; // a value other than EOF
+            } else if (!(_Strmode & _Constant)) { // non-constant, overwrite no matter what
+                _Old_gptr[-1] = static_cast<char>(_Meta);
+            } else if (_Old_gptr[-1] != static_cast<char>(_Meta)) { // constant, unequal, can't put it back
+                return EOF;
+            }
+
+            gbump(-1);
+            return _Meta;
+        }
+
+        return EOF;
+    }
+
+    int __CLR_OR_THIS_CALL underflow() override { // read if read position available
+        const auto _Old_gptr = gptr();
+        if (!_Old_gptr) {
+            return EOF; // no read buffer
+        }
+
+        if (_Old_gptr < egptr()) { // If the input sequence has a read position available, the function signals success
+                                   // by returning static_cast<unsigned char>(*gnext)
+            return static_cast<unsigned char>(*_Old_gptr);
+        }
+
+        const auto _Old_pptr = pptr();
+        if (_Old_pptr && _Old_pptr > egptr()
+            && _Old_gptr
+                   < _Old_pptr) { // Otherwise, if the current write next pointer pnext is not a null pointer and is
+                                  // greater than the current read end pointer gend, makes a read position available by
+                                  // assigning to gend a value greater than gnext and no greater than pnext.
+            if (_Seekhigh < _Old_pptr) { // TRANSITION, ABI: appears unused, maintained for ABI compat
+                _Seekhigh = _Old_pptr;
+            }
+
+            setg(eback(), gptr(), _Old_pptr);
+            return static_cast<unsigned char>(*_Old_gptr);
+        }
+
+        return EOF;
+    }
+
+    streampos __CLR_OR_THIS_CALL seekoff(
+        streamoff _Off, ios_base::seekdir _Way, ios_base::openmode _Which = ios_base::in | ios_base::out) override {
+        // seek by specified offset
+        if (pptr() && _Seekhigh < pptr()) { // TRANSITION, ABI: appears unused, maintained for ABI compat
+            _Seekhigh = pptr(); // update high water mark
+        }
+
+        if ((_Which & ios_base::in && !gptr())
+            || (_Which & ios_base::out && !pptr())) { // N4950 [depr.strstreambuf.virtuals]/15:
+                                                      // For a sequence to be positioned, if its next pointer
+                                                      // is a null pointer, the positioning operation fails.
+            return pos_type{off_type{-1}};
+        }
+
+        const auto _Seeklow  = eback();
+        const auto _Seekdist = _Seekhigh - _Seeklow;
+
+        // N4950 [depr.strstreambuf.virtuals]/16 effectively says check that the result will be in range
+        // [_Seeklow, _Seekhigh]; but we want to calculate this without potential integer overflow
+        switch (_Way) {
+        case ios_base::beg:
+            // check that _Off is in acceptable range [0, _Seekdist]
+            if (static_cast<unsigned long long>(_Off)
+                > static_cast<unsigned long long>(_Seekdist)) { // negative wraparound to positive to save a compare
+                return pos_type{off_type{-1}};
+            }
+            break;
+        case ios_base::end:
+            // check that _Off is in acceptable range [-_Seekdist, 0]
+            // is: _Off + _Seekdist in range [0, _Seekdist]
+            if (static_cast<unsigned long long>(_Off) + _Seekdist > static_cast<unsigned long long>(_Seekdist)) {
+                return pos_type{off_type{-1}};
+            }
+
+            _Off += _Seekdist;
+            break;
+        case ios_base::cur:
+            {
+                constexpr auto _Both = ios_base::in | ios_base::out;
+                if ((_Which & _Both) == _Both) { // prohibited by N4950 [tab:depr.strstreambuf.seekoff.pos]
+                    return pos_type{off_type{-1}};
+                }
+
+                off_type _Oldoff;
+                off_type _Oldleft;
+                if (_Which & ios_base::in) {
+                    _Oldoff  = gptr() - eback();
+                    _Oldleft = _Seekhigh - gptr();
+                } else if (_Which & ios_base::out) {
+                    _Oldoff  = pptr() - pbase();
+                    _Oldleft = _Seekhigh - pptr();
+                } else {
+                    return pos_type{off_type{-1}};
+                }
+
+                if (_Off < -_Oldoff // runs off beginning
+                    || _Off > _Oldleft) { // runs off end
+                    return pos_type{off_type{-1}};
+                }
+
+                _Off += _Oldoff;
+            }
+
+            break;
+        default:
+            return pos_type{off_type{-1}};
+        }
+
+        if (_Which & ios_base::in) {
+            gbump(static_cast<int>(_Off - (gptr() - eback())));
+        }
+
+        if (_Which & ios_base::out) {
+            pbump(static_cast<int>(_Off - (pptr() - pbase())));
+        }
+
+        return pos_type{_Off};
+    }
+
+    pos_type __CLR_OR_THIS_CALL seekpos(
+        pos_type _Sp, ios_base::openmode _Which = ios_base::in | ios_base::out) override {
+        // seek to memorized position
+        if (pptr() && _Seekhigh < pptr()) { // TRANSITION, ABI: appears unused, maintained for ABI compat
+            _Seekhigh = pptr(); // update high water mark
+        }
+
+        if (((_Which & ios_base::in) && !gptr()) || ((_Which & ios_base::out) && !pptr())) {
+            return pos_type{off_type{-1}};
+        }
+
+        const auto _Off      = static_cast<off_type>(_Sp);
+        const auto _Seeklow  = eback();
+        const auto _Seekdist = _Seekhigh - _Seeklow;
+        if (_Off > _Seekdist) {
+            return pos_type{off_type{-1}};
+        }
+
+        if (_Which & ios_base::in) {
+            gbump(static_cast<int>(_Off - (gptr() - eback())));
+        }
+
+        if (_Which & ios_base::out) {
+            pbump(static_cast<int>(_Off - (pptr() - pbase())));
+        }
+
+        return pos_type{_Off};
+    }
+
+    void __CLR_OR_THIS_CALL _Init(
+        streamsize _Count = 0, char* _Gp = nullptr, char* _Pp = nullptr, _Strstate _Mode = 0) noexcept {
+        // initialize with possibly static buffer
+        streambuf::_Init();
+        _Minsize  = _MINSIZE;
+        _Pendsave = nullptr;
+        _Seekhigh = nullptr;
+        _Palloc   = nullptr;
+        _Pfree    = nullptr;
+        _Strmode  = _Mode;
+
+        if (_Gp) { // make static
+            size_t _Size;
+            if (_Count == 0) {
+                _Size = _CSTD strlen(_Gp);
+            } else if (static_cast<unsigned long long>(_Count) < static_cast<unsigned long long>(INT_MAX)) {
+                _Size = static_cast<size_t>(_Count);
+            } else {
+                _Size = INT_MAX;
+            }
+
+            _Seekhigh = _Gp + _Size;
+            if (_Pp) { // make writable too
+                setg(_Gp, _Gp, _Pp);
+                setp(_Pp, _Pp + _Size);
+            } else { // set read pointers only
+                setg(_Gp, _Gp, _Gp + _Size);
+            }
+        } else { // make dynamic
+            _Strmode |= _Dynamic;
+            if (_Count > INT_MAX) {
+                _Minsize = INT_MAX;
+            } else if (_Minsize < _Count) {
+                _Minsize = static_cast<int>(_Count);
+            }
+        }
+    }
+
+    void __CLR_OR_THIS_CALL _Tidy() noexcept { // free any allocated storage
+        if ((_Strmode & (_Allocated | _Frozen)) == _Allocated) {
+            _Free(eback());
+        }
+
+        _Seekhigh = nullptr;
+        _Strmode &= ~(_Allocated | _Frozen);
+    }
+
+private:
+    enum { // constant for default minimum buffer size
+        _MINSIZE = 32
+    };
+
+    char* _Alloc(const size_t _To_allocate) const {
+        if (_Palloc) {
+            return static_cast<char*>(_Palloc(_To_allocate));
+        }
+
+        return static_cast<char*>(_CSTD _malloc_dbg(_To_allocate, _CRT_BLOCK, __FILE__, __LINE__));
+    }
+
+    void _Free(char* _Ptr) const {
+        if (_Pfree) {
+            _Pfree(_Ptr);
+            return;
+        }
+
+        _CSTD free(_Ptr);
+    }
+
+    int _Minsize; // the minimum buffer size
+    char* _Pendsave; // the saved end pointer during freeze
+    char* _Seekhigh; // the high-water pointer in character array
+    _Strstate _Strmode; // the stream state
+    void*(__CLRCALL_OR_CDECL* _Palloc)(size_t); // the pointer to allocator function
+    void(__CLRCALL_OR_CDECL* _Pfree)(void*); // the pointer to free function
+};
+
+inline void swap(strstreambuf& _Left, strstreambuf& _Right) noexcept { // non-Standard
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD class _CXX17_DEPRECATE_STRSTREAM istrstream : public istream {
+    // input stream associated with a character array
+public:
+    using _Mybase = istream;
+    using _Mysb   = strstreambuf;
+
+    explicit __CLR_OR_THIS_CALL istrstream(const char* _Ptr) : _Mybase(&_Strbuffer), _Strbuffer(_Ptr, 0) {
+        // construct with NTBS
+    }
+
+    __CLR_OR_THIS_CALL istrstream(const char* _Ptr, streamsize _Count)
+        : _Mybase(&_Strbuffer), _Strbuffer(_Ptr, _Count) {
+        // construct with [_Ptr, _Ptr + _Count)
+    }
+
+    explicit __CLR_OR_THIS_CALL istrstream(char* _Ptr) : _Mybase(&_Strbuffer), _Strbuffer(_Ptr, 0) {
+        // construct with NTBS
+    }
+
+    __CLR_OR_THIS_CALL istrstream(char* _Ptr, int _Count) : _Mybase(&_Strbuffer), _Strbuffer(_Ptr, _Count) {
+        // construct with [_Ptr, _Ptr + _Count)
+    }
+
+    __CLR_OR_THIS_CALL istrstream(istrstream&& _Right) : _Mybase(&_Strbuffer) {
+        _Assign_rv(_STD move(_Right));
+    }
+
+    istrstream& __CLR_OR_THIS_CALL operator=(istrstream&& _Right) noexcept /* strengthened */ {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void __CLR_OR_THIS_CALL _Assign_rv(istrstream&& _Right) noexcept {
+        if (this != _STD addressof(_Right)) {
+            _Strbuffer.clear();
+            this->swap(_Right);
+        }
+    }
+
+    void __CLR_OR_THIS_CALL swap(istrstream& _Right) noexcept { // non-Standard
+        if (this != _STD addressof(_Right)) {
+            _Mybase::swap(_Right);
+            _Strbuffer.swap(_Right._Strbuffer);
+        }
+    }
+
+    __CLR_OR_THIS_CALL ~istrstream() noexcept override {}
+
+    _NODISCARD _Mysb* __CLR_OR_THIS_CALL rdbuf() const noexcept /* strengthened */ {
+        return const_cast<_Mysb*>(&_Strbuffer);
+    }
+
+    _NODISCARD char* __CLR_OR_THIS_CALL str() noexcept /* strengthened */ {
+        // freeze and return pointer to character array
+        return _Strbuffer.str();
+    }
+
+private:
+    _Mysb _Strbuffer; // the string buffer
+};
+
+inline void swap(istrstream& _Left, istrstream& _Right) noexcept { // non-Standard
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD class _CXX17_DEPRECATE_STRSTREAM ostrstream : public ostream {
+    // output stream associated with a character array
+public:
+    using _Mybase = ostream;
+    using _Mysb   = strstreambuf;
+
+    __CLR_OR_THIS_CALL ostrstream() : ostream(&_Strbuffer), _Strbuffer() {}
+
+    __CLR_OR_THIS_CALL ostrstream(char* _Ptr, streamsize _Count, ios_base::openmode _Mode = ios_base::out)
+        : ostream(&_Strbuffer),
+          _Strbuffer(_Ptr, _Count, _Ptr && (_Mode & ios_base::app) != 0 ? _Ptr + _CSTD strlen(_Ptr) : _Ptr) {
+        // construct with [_Ptr, _Ptr + _Count)
+    }
+
+    __CLR_OR_THIS_CALL ostrstream(ostrstream&& _Right) : _Mybase(&_Strbuffer) {
+        _Assign_rv(_STD move(_Right));
+    }
+
+    ostrstream& __CLR_OR_THIS_CALL operator=(ostrstream&& _Right) noexcept /* strengthened */ {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void __CLR_OR_THIS_CALL _Assign_rv(ostrstream&& _Right) noexcept {
+        if (this != _STD addressof(_Right)) {
+            _Strbuffer.clear();
+            this->swap(_Right);
+        }
+    }
+
+    void __CLR_OR_THIS_CALL swap(ostrstream& _Right) noexcept { // non-Standard
+        if (this != _STD addressof(_Right)) {
+            _Mybase::swap(_Right);
+            _Strbuffer.swap(_Right._Strbuffer);
+        }
+    }
+
+    __CLR_OR_THIS_CALL ~ostrstream() noexcept override {}
+
+    _NODISCARD _Mysb* __CLR_OR_THIS_CALL rdbuf() const noexcept /* strengthened */ {
+        return const_cast<_Mysb*>(&_Strbuffer);
+    }
+
+    void __CLR_OR_THIS_CALL freeze(bool _Freezeit = true) noexcept /* strengthened */ { // freeze or unfreeze writing
+        _Strbuffer.freeze(_Freezeit);
+    }
+
+    _NODISCARD char* __CLR_OR_THIS_CALL str() noexcept /* strengthened */ {
+        // freeze and return pointer to character array
+        return _Strbuffer.str();
+    }
+
+    _NODISCARD streamsize __CLR_OR_THIS_CALL pcount() const noexcept /* strengthened */ {
+        return _Strbuffer.pcount();
+    }
+
+private:
+    _Mysb _Strbuffer; // the string buffer
+};
+
+inline void swap(ostrstream& _Left, ostrstream& _Right) noexcept { // non-Standard
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD class _CXX17_DEPRECATE_STRSTREAM strstream : public iostream {
+    // input/output stream associated with character array buffer
+public:
+    using _Mybase = iostream;
+    using _Mysb   = strstreambuf;
+
+    using char_type = char;
+    using int_type  = int;
+    using pos_type  = streampos;
+    using off_type  = streamoff;
+
+    __CLR_OR_THIS_CALL strstream() : _Mybase(&_Strbuffer), _Strbuffer() {}
+
+    __CLR_OR_THIS_CALL strstream(char* _Ptr, streamsize _Count, ios_base::openmode _Mode = ios_base::in | ios_base::out)
+        : iostream(&_Strbuffer),
+          _Strbuffer(_Ptr, _Count, _Ptr && (_Mode & ios_base::app) != 0 ? _Ptr + _CSTD strlen(_Ptr) : _Ptr) {
+        // construct with [_Ptr, _Ptr + _Count)
+    }
+
+    __CLR_OR_THIS_CALL strstream(strstream&& _Right) : _Mybase(&_Strbuffer) {
+        _Assign_rv(_STD move(_Right));
+    }
+
+    strstream& __CLR_OR_THIS_CALL operator=(strstream&& _Right) noexcept /* strengthened */ {
+        _Assign_rv(_STD move(_Right));
+        return *this;
+    }
+
+    void __CLR_OR_THIS_CALL _Assign_rv(strstream&& _Right) noexcept {
+        if (this != _STD addressof(_Right)) {
+            _Strbuffer.clear();
+            this->swap(_Right);
+        }
+    }
+
+    void __CLR_OR_THIS_CALL swap(strstream& _Right) noexcept { // non-Standard
+        if (this != _STD addressof(_Right)) {
+            _Mybase::swap(_Right);
+            _Strbuffer.swap(_Right._Strbuffer);
+        }
+    }
+
+    __CLR_OR_THIS_CALL ~strstream() noexcept override {}
+
+    _NODISCARD _Mysb* __CLR_OR_THIS_CALL rdbuf() const noexcept /* strengthened */ {
+        return const_cast<_Mysb*>(&_Strbuffer);
+    }
+
+    void __CLR_OR_THIS_CALL freeze(bool _Freezeit = true) noexcept /* strengthened */ { // freeze or unfreeze writing
+        _Strbuffer.freeze(_Freezeit);
+    }
+
+    _NODISCARD char* __CLR_OR_THIS_CALL str() noexcept /* strengthened */ {
+        // freeze and return pointer to character array
+        return _Strbuffer.str();
+    }
+
+    _NODISCARD streamsize __CLR_OR_THIS_CALL pcount() const noexcept /* strengthened */ {
+        return _Strbuffer.pcount();
+    }
+
+private:
+    _Mysb _Strbuffer; // the string buffer
+};
+
+inline void swap(strstream& _Left, strstream& _Right) noexcept { // non-Standard
+    _Left.swap(_Right);
+}
+_STL_RESTORE_DEPRECATED_WARNING
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _STRSTREAM_

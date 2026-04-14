@@ -1,0 +1,94 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1999-2000.
+//
+//  File:       filtereg.idl
+//
+//  Contents:   Filter registration interface
+//
+//  History:    Jun-30-1999   cobir        Created
+//              Jul-09-2000   cobir        Added IFilterControl
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "filter.idl";
+
+
+// 9E175B8D-F52A-11D8-B9A5-505054503030
+cpp_quote("EXTERN_C const CLSID CLSID_FilterRegistration;")
+
+[
+    object,
+    uuid(c7310722-ac80-11d1-8df3-00c04fb6ef4f),
+    helpstring("ILoadFilter Interface"),
+    pointer_default(unique)
+]
+interface ILoadFilter : IUnknown
+{
+    typedef struct _FILTERED_DATA_SOURCES
+    {
+        WCHAR const * pwcsExtension; // file extension
+        WCHAR const * pwcsMime;       // mime type string
+        CLSID const * pClsid;
+        WCHAR const * pwcsOverride;
+
+    } FILTERED_DATA_SOURCES;
+
+
+    HRESULT LoadIFilter( [in, unique] LPCWSTR pwcsPath,
+                         [in, unique] FILTERED_DATA_SOURCES * pFilteredSources,
+                         [in, unique] IUnknown * pUnkOuter,
+                         [in] BOOL fUseDefault,   // use default filter when no filter is found
+                         [in, out, unique] CLSID * pFilterClsid,
+                         [in, out, unique] int * SearchDecSize,
+                         [in, out, unique, size_is(, *SearchDecSize + 1), length_is(, *SearchDecSize + 1)] WCHAR ** pwcsSearchDesc,
+                         [in, out, unique] IFilter **  ppIFilt );
+
+
+
+    HRESULT LoadIFilterFromStorage( [in] IStorage * pStg,
+                                    [in, unique] IUnknown * pUnkOuter,
+                                    [in, unique] LPCWSTR pwcsOverride,
+                                    [in] BOOL fUseDefault,
+                                    [in, out, unique] CLSID * pFilterClsid,
+                                    [in, out, unique] int * SearchDecSize,
+                                    [in, out, unique, size_is(, *SearchDecSize + 1), length_is(, *SearchDecSize + 1)] WCHAR ** pwcsSearchDesc,
+                                    [in, out, unique] IFilter ** ppIFilt );
+
+
+    HRESULT LoadIFilterFromStream( [in] IStream * pStm,
+                                   [in, unique] FILTERED_DATA_SOURCES *pFilteredSources,
+                                   [in, unique] IUnknown * pUnkOuter,
+                                   [in] BOOL fUseDefault,
+                                   [in, out, unique] CLSID * pFilterClsid,
+                                   [in, out, unique] int * SearchDecSize,
+                                   [in, out, unique, size_is(, *SearchDecSize + 1), length_is(, *SearchDecSize + 1)] WCHAR ** pwcsSearchDesc,
+                                   [in, out, unique] IFilter ** ppIFilt );
+};
+
+[
+    object,
+    uuid(40BDBD34-780B-48D3-9BB6-12EBD4AD2E75),
+    helpstring("ILoadFilterWithPrivateComActivation Interface"),
+    pointer_default(unique)
+]
+interface ILoadFilterWithPrivateComActivation : ILoadFilter
+{
+    HRESULT LoadIFilterWithPrivateComActivation(
+        [in, unique] FILTERED_DATA_SOURCES * filteredSources,
+        [in] BOOL useDefault,   // use default filter when no filter is found
+        [out] CLSID * filterClsid,
+        [out] BOOL *isFilterPrivateComActivated,
+        [in, out, unique] IFilter **  filterObj);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

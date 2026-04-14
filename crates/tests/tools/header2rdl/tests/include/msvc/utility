@@ -1,0 +1,997 @@
+// utility standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _UTILITY_
+#define _UTILITY_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <initializer_list>
+#include <type_traits>
+
+#if _HAS_CXX20
+#include <compare>
+#include <concepts>
+#endif // _HAS_CXX20
+
+#if _HAS_CXX23
+#include <cstdlib>
+#endif // _HAS_CXX23
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma push_macro("msvc")
+#pragma push_macro("intrinsic")
+#pragma push_macro("known_semantics")
+#pragma push_macro("lifetimebound")
+#undef msvc
+#undef intrinsic
+#undef known_semantics
+#undef lifetimebound
+
+_STD_BEGIN
+_EXPORT_STD template <class _Ty, _Ty... _Vals>
+struct integer_sequence { // sequence of integer parameters
+    static_assert(is_integral_v<_Ty>, "integer_sequence<T, I...> requires T to be an integral type.");
+
+    using value_type = _Ty;
+
+    _NODISCARD static constexpr size_t size() noexcept {
+        return sizeof...(_Vals);
+    }
+};
+
+_EXPORT_STD template <class _Ty, _Ty _Size>
+using make_integer_sequence = __make_integer_seq<integer_sequence, _Ty, _Size>;
+
+_EXPORT_STD template <size_t... _Vals>
+using index_sequence = integer_sequence<size_t, _Vals...>;
+
+_EXPORT_STD template <size_t _Size>
+using make_index_sequence = make_integer_sequence<size_t, _Size>;
+
+_EXPORT_STD template <class... _Types>
+using index_sequence_for = make_index_sequence<sizeof...(_Types)>;
+
+_EXPORT_STD template <class _Ty, class _Pr>
+_NODISCARD constexpr const _Ty&(max) (const _Ty& _Left _MSVC_LIFETIMEBOUND, const _Ty& _Right _MSVC_LIFETIMEBOUND,
+    _Pr _Pred) noexcept(noexcept(_Pred(_Left, _Right))) /* strengthened */ {
+    // return larger of _Left and _Right
+    return _Pred(_Left, _Right) ? _Right : _Left;
+}
+
+#pragma warning(push)
+#pragma warning(disable : 28285) // (syntax error in SAL annotation, occurs when _Ty is not an integral type)
+_EXPORT_STD template <class _Ty>
+_NODISCARD _Post_equal_to_(_Left < _Right ? _Right : _Left) constexpr const _Ty& //
+    (max) (const _Ty& _Left _MSVC_LIFETIMEBOUND, const _Ty& _Right _MSVC_LIFETIMEBOUND)
+        noexcept(noexcept(_Left < _Right)) /* strengthened */ {
+    // return larger of _Left and _Right
+    return _Left < _Right ? _Right : _Left;
+}
+#pragma warning(pop)
+
+_EXPORT_STD template <class _Ty, class _Pr>
+_NODISCARD constexpr _Ty(max)(initializer_list<_Ty>, _Pr); // implemented in <algorithm>
+
+_EXPORT_STD template <class _Ty>
+_NODISCARD constexpr _Ty(max)(initializer_list<_Ty>); // implemented in <algorithm>
+
+_EXPORT_STD template <class _Ty, class _Pr>
+_NODISCARD constexpr const _Ty&(min) (const _Ty& _Left _MSVC_LIFETIMEBOUND, const _Ty& _Right _MSVC_LIFETIMEBOUND,
+    _Pr _Pred) noexcept(noexcept(_Pred(_Right, _Left))) /* strengthened */ {
+    // return smaller of _Left and _Right
+    return _Pred(_Right, _Left) ? _Right : _Left;
+}
+
+#pragma warning(push)
+#pragma warning(disable : 28285) // (syntax error in SAL annotation, occurs when _Ty is not an integral type)
+_EXPORT_STD template <class _Ty>
+_NODISCARD _Post_equal_to_(_Right < _Left ? _Right : _Left) constexpr const _Ty& //
+    (min) (const _Ty& _Left _MSVC_LIFETIMEBOUND, const _Ty& _Right _MSVC_LIFETIMEBOUND)
+        noexcept(noexcept(_Right < _Left)) /* strengthened */ {
+    // return smaller of _Left and _Right
+    return _Right < _Left ? _Right : _Left;
+}
+#pragma warning(pop)
+
+_EXPORT_STD template <class _Ty, class _Pr>
+_NODISCARD constexpr _Ty(min)(initializer_list<_Ty>, _Pr); // implemented in <algorithm>
+
+_EXPORT_STD template <class _Ty>
+_NODISCARD constexpr _Ty(min)(initializer_list<_Ty>); // implemented in <algorithm>
+
+_EXPORT_STD template <class _Ty, size_t _Size, enable_if_t<_Is_swappable<_Ty>::value, int> /* = 0 */>
+_CONSTEXPR20 void swap(_Ty (&_Left)[_Size], _Ty (&_Right)[_Size]) noexcept(_Is_nothrow_swappable<_Ty>::value) {
+    if (&_Left == &_Right) {
+        return; // Handle self-swap as a no-op; see LWG-4165
+    }
+
+    if constexpr (_Is_trivially_swappable_v<_Ty>) {
+        if (!_STD _Is_constant_evaluated()) {
+            _STD _Swap_trivial_arrays(_Left, _Right);
+            return;
+        }
+    }
+
+    _Ty* _First1 = _Left;
+    _Ty* _Last1  = _First1 + _Size;
+    _Ty* _First2 = _Right;
+    for (; _First1 != _Last1; ++_First1, ++_First2) {
+        swap(*_First1, *_First2); // intentional ADL
+    }
+}
+
+#if _HAS_CXX17
+_EXPORT_STD template <class _Ty, enable_if_t<is_move_constructible_v<_Ty> && is_move_assignable_v<_Ty>, int> /* = 0 */>
+#else // ^^^ _HAS_CXX17 / !_HAS_CXX17 vvv
+template <class _Ty, int _Enabled /* = 0 */>
+#endif // ^^^ !_HAS_CXX17 ^^^
+_CONSTEXPR20 void swap(_Ty& _Left, _Ty& _Right)
+    noexcept(is_nothrow_move_constructible_v<_Ty> && is_nothrow_move_assignable_v<_Ty>) {
+    _Ty _Tmp = _STD move(_Left);
+    _Left    = _STD move(_Right);
+    _Right   = _STD move(_Tmp);
+}
+
+_EXPORT_STD struct piecewise_construct_t { // tag type for pair tuple arguments
+    explicit piecewise_construct_t() = default;
+};
+
+_EXPORT_STD _INLINE_VAR constexpr piecewise_construct_t piecewise_construct{};
+
+struct _Ignore { // struct that ignores assignments
+    template <class _Ty>
+    constexpr const _Ignore& operator=(const _Ty&) const noexcept {
+        // do nothing
+        return *this;
+    }
+};
+
+_EXPORT_STD _INLINE_VAR constexpr _Ignore ignore{};
+
+_EXPORT_STD template <class... _Types>
+class tuple;
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+struct pair;
+
+_EXPORT_STD template <class _Ty, size_t _Size>
+class array;
+
+_EXPORT_STD template <class _Tuple>
+struct tuple_size;
+
+_EXPORT_STD template <class _Ty>
+constexpr size_t tuple_size_v = tuple_size<_Ty>::value;
+
+_EXPORT_STD template <size_t _Index, class _Tuple>
+struct tuple_element;
+
+_EXPORT_STD template <size_t _Index, class _Tuple>
+using tuple_element_t = typename tuple_element<_Index, _Tuple>::type;
+
+template <size_t _Index, class... _Types>
+_NODISCARD constexpr auto&& _Tuple_get(tuple<_Types...>&& _Tuple) noexcept;
+
+_EXPORT_STD template <size_t _Index, class... _Types>
+_NODISCARD constexpr tuple_element_t<_Index, tuple<_Types...>>& get(tuple<_Types...>& _Tuple) noexcept;
+
+_EXPORT_STD template <size_t _Index, class... _Types>
+_NODISCARD constexpr const tuple_element_t<_Index, tuple<_Types...>>& get(const tuple<_Types...>& _Tuple) noexcept;
+
+_EXPORT_STD template <size_t _Index, class... _Types>
+_NODISCARD constexpr tuple_element_t<_Index, tuple<_Types...>>&& get(tuple<_Types...>&& _Tuple) noexcept;
+
+_EXPORT_STD template <size_t _Index, class... _Types>
+_NODISCARD constexpr const tuple_element_t<_Index, tuple<_Types...>>&& get(const tuple<_Types...>&& _Tuple) noexcept;
+
+_EXPORT_STD template <size_t _Idx, class _Ty, size_t _Size>
+_NODISCARD constexpr _Ty& get(array<_Ty, _Size>& _Arr) noexcept;
+
+_EXPORT_STD template <size_t _Idx, class _Ty, size_t _Size>
+_NODISCARD constexpr const _Ty& get(const array<_Ty, _Size>& _Arr) noexcept;
+
+_EXPORT_STD template <size_t _Idx, class _Ty, size_t _Size>
+_NODISCARD constexpr _Ty&& get(array<_Ty, _Size>&& _Arr) noexcept;
+
+_EXPORT_STD template <size_t _Idx, class _Ty, size_t _Size>
+_NODISCARD constexpr const _Ty&& get(const array<_Ty, _Size>&& _Arr) noexcept;
+
+#if _HAS_CXX20
+template <class _Ty1, class _Ty2>
+concept _Different_from = !same_as<remove_cvref_t<_Ty1>, remove_cvref_t<_Ty2>>;
+
+template <class>
+constexpr bool _Is_subrange_v = false;
+
+#if _HAS_CXX23
+template <class>
+constexpr bool _Tuple_like_non_subrange_impl = false;
+
+template <class... _Types>
+constexpr bool _Tuple_like_non_subrange_impl<tuple<_Types...>> = true;
+
+template <class _Ty1, class _Ty2>
+constexpr bool _Tuple_like_non_subrange_impl<pair<_Ty1, _Ty2>> = true;
+
+template <class _Ty, size_t _Size>
+constexpr bool _Tuple_like_non_subrange_impl<array<_Ty, _Size>> = true;
+
+template <class _Ty>
+concept _Tuple_like_non_subrange = _Tuple_like_non_subrange_impl<remove_cvref_t<_Ty>>;
+
+template <class _Ty>
+concept _Tuple_like = _Tuple_like_non_subrange<_Ty> || _Is_subrange_v<remove_cvref_t<_Ty>>;
+
+template <class _Ty>
+concept _Pair_like_non_subrange = _Tuple_like_non_subrange<_Ty> && tuple_size_v<remove_cvref_t<_Ty>> == 2;
+
+#ifdef __EDG__ // TRANSITION, VSO-1900279
+template <class _PairLike, class _Ty1, class _Ty2>
+concept _Can_construct_from_pair_like =
+    _Pair_like_non_subrange<_PairLike> && is_constructible_v<_Ty1, decltype(_STD get<0>(_STD declval<_PairLike>()))>
+    && is_constructible_v<_Ty2, decltype(_STD get<1>(_STD declval<_PairLike>()))>;
+#endif // ^^^ workaround ^^^
+#endif // _HAS_CXX23
+#endif // _HAS_CXX20
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+struct pair { // store a pair of values
+    using first_type  = _Ty1;
+    using second_type = _Ty2;
+
+    template <class _Uty1 = _Ty1, class _Uty2 = _Ty2,
+        enable_if_t<conjunction_v<is_default_constructible<_Uty1>, is_default_constructible<_Uty2>>, int> = 0>
+    constexpr explicit(
+        !conjunction_v<_Is_implicitly_default_constructible<_Uty1>, _Is_implicitly_default_constructible<_Uty2>>) pair()
+        noexcept(is_nothrow_default_constructible_v<_Uty1> && is_nothrow_default_constructible_v<_Uty2>) // strengthened
+        : first(), second() {}
+
+    template <class _Uty1 = _Ty1, class _Uty2 = _Ty2,
+        enable_if_t<conjunction_v<is_copy_constructible<_Uty1>, is_copy_constructible<_Uty2>>, int> = 0>
+    constexpr explicit(!conjunction_v<is_convertible<const _Uty1&, _Uty1>, is_convertible<const _Uty2&, _Uty2>>)
+        pair(const _Ty1& _Val1, const _Ty2& _Val2)
+            noexcept(is_nothrow_copy_constructible_v<_Uty1> && is_nothrow_copy_constructible_v<_Uty2>) // strengthened
+        : first(_Val1), second(_Val2) {}
+
+#if _HAS_CXX23
+    template <class _Other1 = _Ty1, class _Other2 = _Ty2,
+#else // ^^^ _HAS_CXX23 / !_HAS_CXX23 vvv
+    template <class _Other1, class _Other2,
+#endif // ^^^ !_HAS_CXX23 ^^^
+        enable_if_t<conjunction_v<is_constructible<_Ty1, _Other1>, is_constructible<_Ty2, _Other2>>, int> = 0>
+    constexpr explicit(!conjunction_v<is_convertible<_Other1, _Ty1>, is_convertible<_Other2, _Ty2>>)
+        pair(_Other1&& _Val1, _Other2&& _Val2) noexcept(
+            is_nothrow_constructible_v<_Ty1, _Other1> && is_nothrow_constructible_v<_Ty2, _Other2>) // strengthened
+        : first(_STD forward<_Other1>(_Val1)), second(_STD forward<_Other2>(_Val2)) {
+    }
+
+    pair(const pair&) = default;
+    pair(pair&&)      = default;
+
+#if _HAS_CXX23
+    template <class _Other1, class _Other2>
+        requires is_constructible_v<_Ty1, _Other1&> && is_constructible_v<_Ty2, _Other2&>
+    constexpr explicit(!conjunction_v<is_convertible<_Other1&, _Ty1>, is_convertible<_Other2&, _Ty2>>)
+        pair(pair<_Other1, _Other2>& _Right) noexcept(
+            is_nothrow_constructible_v<_Ty1, _Other1&> && is_nothrow_constructible_v<_Ty2, _Other2&>) // strengthened
+        : first(_Right.first), second(_Right.second) {}
+#endif // _HAS_CXX23
+
+    template <class _Other1, class _Other2,
+        enable_if_t<conjunction_v<is_constructible<_Ty1, const _Other1&>, is_constructible<_Ty2, const _Other2&>>,
+            int> = 0>
+    constexpr explicit(!conjunction_v<is_convertible<const _Other1&, _Ty1>, is_convertible<const _Other2&, _Ty2>>)
+        pair(const pair<_Other1, _Other2>& _Right)
+            noexcept(is_nothrow_constructible_v<_Ty1, const _Other1&>
+                     && is_nothrow_constructible_v<_Ty2, const _Other2&>) // strengthened
+        : first(_Right.first), second(_Right.second) {}
+
+    template <class _Other1, class _Other2,
+        enable_if_t<conjunction_v<is_constructible<_Ty1, _Other1>, is_constructible<_Ty2, _Other2>>, int> = 0>
+    constexpr explicit(!conjunction_v<is_convertible<_Other1, _Ty1>, is_convertible<_Other2, _Ty2>>)
+        pair(pair<_Other1, _Other2>&& _Right) noexcept(
+            is_nothrow_constructible_v<_Ty1, _Other1> && is_nothrow_constructible_v<_Ty2, _Other2>) // strengthened
+        : first(_STD forward<_Other1>(_Right.first)), second(_STD forward<_Other2>(_Right.second)) {}
+
+#if _HAS_CXX23
+    template <class _Other1, class _Other2>
+        requires is_constructible_v<_Ty1, const _Other1> && is_constructible_v<_Ty2, const _Other2>
+    constexpr explicit(!conjunction_v<is_convertible<const _Other1, _Ty1>, is_convertible<const _Other2, _Ty2>>)
+        pair(const pair<_Other1, _Other2>&& _Right)
+            noexcept(is_nothrow_constructible_v<_Ty1, const _Other1>
+                     && is_nothrow_constructible_v<_Ty2, const _Other2>) // strengthened
+        : first(_STD forward<const _Other1>(_Right.first)), second(_STD forward<const _Other2>(_Right.second)) {}
+
+#ifdef __EDG__ // TRANSITION, VSO-1900279
+    template <class _Other, enable_if_t<_Can_construct_from_pair_like<_Other, _Ty1, _Ty2>, int> = 0>
+#else // ^^^ workaround / no workaround vvv
+    template <_Pair_like_non_subrange _Other>
+        requires conjunction_v<is_constructible<_Ty1, decltype(_STD get<0>(_STD declval<_Other>()))>,
+                     is_constructible<_Ty2, decltype(_STD get<1>(_STD declval<_Other>()))>>
+#endif // ^^^ no workaround ^^^
+    constexpr explicit(!conjunction_v<is_convertible<decltype(_STD get<0>(_STD declval<_Other>())), _Ty1>,
+        is_convertible<decltype(_STD get<1>(_STD declval<_Other>())), _Ty2>>) pair(_Other&& _Right)
+        noexcept(is_nothrow_constructible_v<_Ty1, decltype(_STD get<0>(_STD declval<_Other>()))>
+                 && is_nothrow_constructible_v<_Ty2, decltype(_STD get<1>(_STD declval<_Other>()))>) // strengthened
+        : first(_STD get<0>(_STD forward<_Other>(_Right))), second(_STD get<1>(_STD forward<_Other>(_Right))) {
+    }
+#endif // _HAS_CXX23
+
+    template <class... _Types1, class... _Types2>
+    _CONSTEXPR20 pair(piecewise_construct_t, tuple<_Types1...> _Val1, tuple<_Types2...> _Val2)
+        : pair(_Val1, _Val2, index_sequence_for<_Types1...>{}, index_sequence_for<_Types2...>{}) {}
+
+    pair& operator=(const volatile pair&) = delete;
+
+    template <class _Myself = pair,
+        enable_if_t<conjunction_v<_Is_copy_assignable_no_precondition_check<typename _Myself::first_type>,
+                        _Is_copy_assignable_no_precondition_check<typename _Myself::second_type>>,
+            int>            = 0>
+    _CONSTEXPR20 pair& operator=(_Identity_t<const _Myself&> _Right)
+        noexcept(conjunction_v<is_nothrow_copy_assignable<_Ty1>, is_nothrow_copy_assignable<_Ty2>>) /* strengthened */ {
+        first  = _Right.first;
+        second = _Right.second;
+        return *this;
+    }
+
+#if _HAS_CXX23
+    template <class _Myself = pair>
+        requires _Is_copy_assignable_unchecked_v<const typename _Myself::first_type>
+              && _Is_copy_assignable_unchecked_v<const typename _Myself::second_type>
+    constexpr const pair& operator=(_Identity_t<const _Myself&> _Right) const
+        noexcept(conjunction_v<is_nothrow_copy_assignable<const _Ty1>,
+            is_nothrow_copy_assignable<const _Ty2>>) /* strengthened */ {
+        first  = _Right.first;
+        second = _Right.second;
+        return *this;
+    }
+#endif // _HAS_CXX23
+
+    template <class _Myself = pair,
+        enable_if_t<conjunction_v<_Is_move_assignable_no_precondition_check<typename _Myself::first_type>,
+                        _Is_move_assignable_no_precondition_check<typename _Myself::second_type>>,
+            int>            = 0>
+    _CONSTEXPR20 pair& operator=(_Identity_t<_Myself&&> _Right)
+        noexcept(conjunction_v<is_nothrow_move_assignable<_Ty1>, is_nothrow_move_assignable<_Ty2>>) /* strengthened */ {
+        first  = _STD forward<_Ty1>(_Right.first);
+        second = _STD forward<_Ty2>(_Right.second);
+        return *this;
+    }
+
+#if _HAS_CXX23
+    template <class _Myself = pair>
+        requires _Is_assignable_no_precondition_check<const typename _Myself::first_type&, _Ty1>::value
+              && _Is_assignable_no_precondition_check<const typename _Myself::second_type&, _Ty2>::value
+    constexpr const pair& operator=(_Identity_t<_Myself&&> _Right) const
+        noexcept(conjunction_v<is_nothrow_assignable<const _Ty1&, _Ty1>,
+            is_nothrow_assignable<const _Ty2&, _Ty2>>) /* strengthened */ {
+        first  = _STD forward<_Ty1>(_Right.first);
+        second = _STD forward<_Ty2>(_Right.second);
+        return *this;
+    }
+#endif // _HAS_CXX23
+
+    template <class _Other1, class _Other2,
+        enable_if_t<conjunction_v<negation<is_same<pair, pair<_Other1, _Other2>>>, is_assignable<_Ty1&, const _Other1&>,
+                        is_assignable<_Ty2&, const _Other2&>>,
+            int> = 0>
+    _CONSTEXPR20 pair& operator=(const pair<_Other1, _Other2>& _Right)
+        noexcept(is_nothrow_assignable_v<_Ty1&, const _Other1&>
+                 && is_nothrow_assignable_v<_Ty2&, const _Other2&>) /* strengthened */ {
+        first  = _Right.first;
+        second = _Right.second;
+        return *this;
+    }
+
+#if _HAS_CXX23
+    template <class _Other1, class _Other2>
+        requires (!is_same_v<pair, pair<_Other1, _Other2>>)
+              && is_assignable_v<const _Ty1&, const _Other1&> && is_assignable_v<const _Ty2&, const _Other2&>
+    constexpr const pair& operator=(const pair<_Other1, _Other2>& _Right) const
+        noexcept(is_nothrow_assignable_v<const _Ty1&, const _Other1&>
+                 && is_nothrow_assignable_v<const _Ty2&, const _Other2&>) /* strengthened */ {
+        first  = _Right.first;
+        second = _Right.second;
+        return *this;
+    }
+#endif // _HAS_CXX23
+
+    template <class _Other1, class _Other2,
+        enable_if_t<conjunction_v<negation<is_same<pair, pair<_Other1, _Other2>>>, is_assignable<_Ty1&, _Other1>,
+                        is_assignable<_Ty2&, _Other2>>,
+            int> = 0>
+    _CONSTEXPR20 pair& operator=(pair<_Other1, _Other2>&& _Right) noexcept(
+        is_nothrow_assignable_v<_Ty1&, _Other1> && is_nothrow_assignable_v<_Ty2&, _Other2>) /* strengthened */ {
+        first  = _STD forward<_Other1>(_Right.first);
+        second = _STD forward<_Other2>(_Right.second);
+        return *this;
+    }
+
+#if _HAS_CXX23
+    template <class _Other1, class _Other2>
+        requires (!is_same_v<pair, pair<_Other1, _Other2>>)
+              && is_assignable_v<const _Ty1&, _Other1> && is_assignable_v<const _Ty2&, _Other2>
+    constexpr const pair& operator=(pair<_Other1, _Other2>&& _Right) const
+        noexcept(is_nothrow_assignable_v<const _Ty1&, _Other1>
+                 && is_nothrow_assignable_v<const _Ty2&, _Other2>) /* strengthened */ {
+        first  = _STD forward<_Other1>(_Right.first);
+        second = _STD forward<_Other2>(_Right.second);
+        return *this;
+    }
+
+    template <_Pair_like_non_subrange _Other>
+        requires _Different_from<_Other, pair> && is_assignable_v<_Ty1&, decltype(_STD get<0>(_STD declval<_Other>()))>
+              && is_assignable_v<_Ty2&, decltype(_STD get<1>(_STD declval<_Other>()))>
+    constexpr pair& operator=(_Other&& _Right)
+        noexcept(is_nothrow_assignable_v<_Ty1&, decltype(_STD get<0>(_STD declval<_Other>()))>
+                 && is_nothrow_assignable_v<_Ty2&, decltype(_STD get<1>(_STD declval<_Other>()))>) /* strengthened */ {
+        first  = _STD get<0>(_STD forward<_Other>(_Right));
+        second = _STD get<1>(_STD forward<_Other>(_Right));
+        return *this;
+    }
+
+    template <_Pair_like_non_subrange _Other>
+        requires _Different_from<_Other, pair>
+              && is_assignable_v<const _Ty1&, decltype(_STD get<0>(_STD declval<_Other>()))>
+              && is_assignable_v<const _Ty2&, decltype(_STD get<1>(_STD declval<_Other>()))>
+    constexpr const pair& operator=(_Other&& _Right) const noexcept(
+        is_nothrow_assignable_v<const _Ty1&, decltype(_STD get<0>(_STD declval<_Other>()))>
+        && is_nothrow_assignable_v<const _Ty2&, decltype(_STD get<1>(_STD declval<_Other>()))>) /* strengthened */ {
+        first  = _STD get<0>(_STD forward<_Other>(_Right));
+        second = _STD get<1>(_STD forward<_Other>(_Right));
+        return *this;
+    }
+#endif // _HAS_CXX23
+
+    _CONSTEXPR20 void swap(pair& _Right)
+        noexcept(_Is_nothrow_swappable<_Ty1>::value && _Is_nothrow_swappable<_Ty2>::value) {
+        using _STD swap;
+        swap(first, _Right.first); // intentional ADL
+        swap(second, _Right.second); // intentional ADL
+    }
+
+#if _HAS_CXX23
+    template <int = 0> // see GH-3013
+    constexpr void swap(const pair& _Right) const
+        noexcept(is_nothrow_swappable_v<const _Ty1> && is_nothrow_swappable_v<const _Ty2>) {
+        using _STD swap;
+        swap(first, _Right.first); // intentional ADL
+        swap(second, _Right.second); // intentional ADL
+    }
+#endif // _HAS_CXX23
+
+    _Ty1 first; // the first stored value
+    _Ty2 second; // the second stored value
+
+private:
+    template <class _Tuple1, class _Tuple2, size_t... _Indices1, size_t... _Indices2>
+    constexpr pair(_Tuple1& _Val1, _Tuple2& _Val2, index_sequence<_Indices1...>, index_sequence<_Indices2...>)
+        : first(_STD _Tuple_get<_Indices1>(_STD move(_Val1))...),
+          second(_STD _Tuple_get<_Indices2>(_STD move(_Val2))...) {}
+};
+
+#if _HAS_CXX17
+template <class _Ty1, class _Ty2>
+pair(_Ty1, _Ty2) -> pair<_Ty1, _Ty2>;
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _Ty1, class _Ty2,
+    enable_if_t<_Is_swappable<_Ty1>::value && _Is_swappable<_Ty2>::value, int> = 0>
+_CONSTEXPR20 void swap(pair<_Ty1, _Ty2>& _Left, pair<_Ty1, _Ty2>& _Right) noexcept(noexcept(_Left.swap(_Right))) {
+    _Left.swap(_Right);
+}
+
+#if _HAS_CXX23
+_EXPORT_STD template <class _Ty1, class _Ty2>
+    requires is_swappable<const _Ty1>::value && is_swappable<const _Ty2>::value // TRANSITION, /permissive needs ::value
+constexpr void swap(const pair<_Ty1, _Ty2>& _Left, const pair<_Ty1, _Ty2>& _Right)
+    noexcept(noexcept(_Left.swap(_Right))) {
+    _Left.swap(_Right);
+}
+#endif // _HAS_CXX23
+
+_EXPORT_STD template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr bool operator==(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    return _Left.first == _Right.first && _Left.second == _Right.second;
+}
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr common_comparison_category_t<_Synth_three_way_result<_Ty1, _Uty1>,
+    _Synth_three_way_result<_Ty2, _Uty2>>
+    operator<=>(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    if (auto _Result = _Synth_three_way{}(_Left.first, _Right.first); _Result != 0) {
+        return _Result;
+    }
+    return _Synth_three_way{}(_Left.second, _Right.second);
+}
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr bool operator!=(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    return !(_Left == _Right);
+}
+
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr bool operator<(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    return _Left.first < _Right.first || (!(_Right.first < _Left.first) && _Left.second < _Right.second);
+}
+
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr bool operator>(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    return _Right < _Left;
+}
+
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr bool operator<=(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    return !(_Right < _Left);
+}
+
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+_NODISCARD constexpr bool operator>=(const pair<_Ty1, _Ty2>& _Left, const pair<_Uty1, _Uty2>& _Right) {
+    return !(_Left < _Right);
+}
+#endif // ^^^ !_HAS_CXX20 ^^^
+
+#if _HAS_CXX23
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2, template <class> class _TQual,
+    template <class> class _UQual>
+    requires requires {
+        typename pair<common_reference_t<_TQual<_Ty1>, _UQual<_Uty1>>, common_reference_t<_TQual<_Ty2>, _UQual<_Uty2>>>;
+    }
+struct basic_common_reference<pair<_Ty1, _Ty2>, pair<_Uty1, _Uty2>, _TQual, _UQual> {
+    using type = pair<common_reference_t<_TQual<_Ty1>, _UQual<_Uty1>>, common_reference_t<_TQual<_Ty2>, _UQual<_Uty2>>>;
+};
+
+template <class _Ty1, class _Ty2, class _Uty1, class _Uty2>
+    requires requires { typename pair<common_type_t<_Ty1, _Uty1>, common_type_t<_Ty2, _Uty2>>; }
+struct common_type<pair<_Ty1, _Ty2>, pair<_Uty1, _Uty2>> {
+    using type = pair<common_type_t<_Ty1, _Uty1>, common_type_t<_Ty2, _Uty2>>;
+};
+#endif // _HAS_CXX23
+
+template <class _Ty>
+struct _Unrefwrap_helper { // leave unchanged if not a reference_wrapper
+    using type = _Ty;
+};
+
+template <class _Ty>
+struct _Unrefwrap_helper<reference_wrapper<_Ty>> { // make a reference from a reference_wrapper
+    using type = _Ty&;
+};
+
+// decay, then unwrap a reference_wrapper
+template <class _Ty>
+using _Unrefwrap_t = typename _Unrefwrap_helper<decay_t<_Ty>>::type;
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr pair<_Unrefwrap_t<_Ty1>, _Unrefwrap_t<_Ty2>> make_pair(_Ty1&& _Val1, _Ty2&& _Val2)
+    noexcept(is_nothrow_constructible_v<_Unrefwrap_t<_Ty1>, _Ty1>
+             && is_nothrow_constructible_v<_Unrefwrap_t<_Ty2>, _Ty2>) /* strengthened */ {
+    // return pair composed from arguments
+    using _Mypair = pair<_Unrefwrap_t<_Ty1>, _Unrefwrap_t<_Ty2>>;
+    return _Mypair(_STD forward<_Ty1>(_Val1), _STD forward<_Ty2>(_Val2));
+}
+
+namespace _CXX20_DEPRECATE_REL_OPS rel_ops {
+    _EXPORT_STD template <class _Ty>
+    _CXX20_DEPRECATE_REL_OPS _NODISCARD bool operator!=(const _Ty& _Left, const _Ty& _Right) {
+        return !(_Left == _Right);
+    }
+
+    _EXPORT_STD template <class _Ty>
+    _CXX20_DEPRECATE_REL_OPS _NODISCARD bool operator>(const _Ty& _Left, const _Ty& _Right) {
+        return _Right < _Left;
+    }
+
+    _EXPORT_STD template <class _Ty>
+    _CXX20_DEPRECATE_REL_OPS _NODISCARD bool operator<=(const _Ty& _Left, const _Ty& _Right) {
+        return !(_Right < _Left);
+    }
+
+    _EXPORT_STD template <class _Ty>
+    _CXX20_DEPRECATE_REL_OPS _NODISCARD bool operator>=(const _Ty& _Left, const _Ty& _Right) {
+        return !(_Left < _Right);
+    }
+} // namespace _CXX20_DEPRECATE_REL_OPS rel_ops
+
+template <class _Tuple, class = void>
+struct _Tuple_size_sfinae {}; // selected when tuple_size<_Tuple>::value isn't well-formed
+
+template <class _Tuple>
+struct _Tuple_size_sfinae<_Tuple, void_t<decltype(tuple_size<_Tuple>::value)>>
+    : integral_constant<size_t, tuple_size<_Tuple>::value> {}; // selected when tuple_size<_Tuple>::value is well-formed
+
+template <class _Tuple>
+struct tuple_size<const _Tuple> : _Tuple_size_sfinae<_Tuple> {}; // ignore cv
+
+template <class _Tuple>
+struct _CXX20_DEPRECATE_VOLATILE tuple_size<volatile _Tuple> : _Tuple_size_sfinae<_Tuple> {}; // ignore cv
+
+template <class _Tuple>
+struct _CXX20_DEPRECATE_VOLATILE tuple_size<const volatile _Tuple> : _Tuple_size_sfinae<_Tuple> {}; // ignore cv
+
+template <size_t _Index, class _Tuple>
+struct _MSVC_KNOWN_SEMANTICS tuple_element<_Index, const _Tuple> : tuple_element<_Index, _Tuple> {
+    using _Mybase = tuple_element<_Index, _Tuple>;
+    using type    = add_const_t<typename _Mybase::type>;
+};
+
+template <size_t _Index, class _Tuple>
+struct _CXX20_DEPRECATE_VOLATILE _MSVC_KNOWN_SEMANTICS tuple_element<_Index, volatile _Tuple>
+    : tuple_element<_Index, _Tuple> {
+    using _Mybase = tuple_element<_Index, _Tuple>;
+    using type    = add_volatile_t<typename _Mybase::type>;
+};
+
+template <size_t _Index, class _Tuple>
+struct _CXX20_DEPRECATE_VOLATILE _MSVC_KNOWN_SEMANTICS tuple_element<_Index, const volatile _Tuple>
+    : tuple_element<_Index, _Tuple> {
+    using _Mybase = tuple_element<_Index, _Tuple>;
+    using type    = add_cv_t<typename _Mybase::type>;
+};
+
+template <class _Ty, size_t _Size>
+struct tuple_size<array<_Ty, _Size>> : integral_constant<size_t, _Size> {}; // size of array
+
+template <size_t _Idx, class _Ty, size_t _Size>
+struct _MSVC_KNOWN_SEMANTICS tuple_element<_Idx, array<_Ty, _Size>> {
+    static_assert(_Idx < _Size, "array index out of bounds");
+
+    using type = _Ty;
+};
+
+template <class... _Types>
+struct tuple_size<tuple<_Types...>> : integral_constant<size_t, sizeof...(_Types)> {}; // size of tuple
+
+template <size_t _Index>
+struct _MSVC_KNOWN_SEMANTICS tuple_element<_Index, tuple<>> { // enforce bounds checking
+    static_assert(_Always_false<integral_constant<size_t, _Index>>, "tuple index out of bounds");
+};
+
+template <class _This, class... _Rest>
+struct _MSVC_KNOWN_SEMANTICS tuple_element<0, tuple<_This, _Rest...>> { // select first element
+    using type = _This;
+    // MSVC assumes the meaning of _Ttype; remove or rename, but do not change semantics
+    using _Ttype = tuple<_This, _Rest...>;
+};
+
+template <size_t _Index, class _This, class... _Rest>
+struct _MSVC_KNOWN_SEMANTICS tuple_element<_Index, tuple<_This, _Rest...>>
+    : tuple_element<_Index - 1, tuple<_Rest...>> {}; // recursive tuple_element definition
+
+template <class _Ty1, class _Ty2>
+struct tuple_size<pair<_Ty1, _Ty2>> : integral_constant<size_t, 2> {}; // size of pair
+
+template <size_t _Idx, class _Ty1, class _Ty2>
+struct _MSVC_KNOWN_SEMANTICS tuple_element<_Idx, pair<_Ty1, _Ty2>> {
+    static_assert(_Idx < 2, "pair index out of bounds");
+
+    using type = conditional_t<_Idx == 0, _Ty1, _Ty2>;
+};
+
+_EXPORT_STD template <size_t _Idx, class _Ty1, class _Ty2>
+_NODISCARD constexpr tuple_element_t<_Idx, pair<_Ty1, _Ty2>>& get(pair<_Ty1, _Ty2>& _Pr) noexcept {
+    // get reference to element at _Idx in pair _Pr
+    if constexpr (_Idx == 0) {
+        return _Pr.first;
+    } else {
+        return _Pr.second;
+    }
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr _Ty1& get(pair<_Ty1, _Ty2>& _Pr) noexcept {
+    // get reference to element _Ty1 in pair _Pr
+    return _Pr.first;
+}
+
+_EXPORT_STD template <class _Ty2, class _Ty1>
+_NODISCARD constexpr _Ty2& get(pair<_Ty1, _Ty2>& _Pr) noexcept {
+    // get reference to element _Ty2 in pair _Pr
+    return _Pr.second;
+}
+
+_EXPORT_STD template <size_t _Idx, class _Ty1, class _Ty2>
+_NODISCARD constexpr const tuple_element_t<_Idx, pair<_Ty1, _Ty2>>& get(const pair<_Ty1, _Ty2>& _Pr) noexcept {
+    // get const reference to element at _Idx in pair _Pr
+    if constexpr (_Idx == 0) {
+        return _Pr.first;
+    } else {
+        return _Pr.second;
+    }
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr const _Ty1& get(const pair<_Ty1, _Ty2>& _Pr) noexcept {
+    // get const reference to element _Ty1 in pair _Pr
+    return _Pr.first;
+}
+
+_EXPORT_STD template <class _Ty2, class _Ty1>
+_NODISCARD constexpr const _Ty2& get(const pair<_Ty1, _Ty2>& _Pr) noexcept {
+    // get const reference to element _Ty2 in pair _Pr
+    return _Pr.second;
+}
+
+_EXPORT_STD template <size_t _Idx, class _Ty1, class _Ty2>
+_NODISCARD constexpr tuple_element_t<_Idx, pair<_Ty1, _Ty2>>&& get(pair<_Ty1, _Ty2>&& _Pr) noexcept {
+    // get rvalue reference to element at _Idx in pair _Pr
+    if constexpr (_Idx == 0) {
+        return _STD forward<_Ty1>(_Pr.first);
+    } else {
+        return _STD forward<_Ty2>(_Pr.second);
+    }
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr _Ty1&& get(pair<_Ty1, _Ty2>&& _Pr) noexcept {
+    // get rvalue reference to element _Ty1 in pair _Pr
+    return _STD forward<_Ty1>(_Pr.first);
+}
+
+_EXPORT_STD template <class _Ty2, class _Ty1>
+_NODISCARD constexpr _Ty2&& get(pair<_Ty1, _Ty2>&& _Pr) noexcept {
+    // get rvalue reference to element _Ty2 in pair _Pr
+    return _STD forward<_Ty2>(_Pr.second);
+}
+
+_EXPORT_STD template <size_t _Idx, class _Ty1, class _Ty2>
+_NODISCARD constexpr const tuple_element_t<_Idx, pair<_Ty1, _Ty2>>&& get(const pair<_Ty1, _Ty2>&& _Pr) noexcept {
+    // get const rvalue reference to element at _Idx in pair _Pr
+    if constexpr (_Idx == 0) {
+        return _STD forward<const _Ty1>(_Pr.first);
+    } else {
+        return _STD forward<const _Ty2>(_Pr.second);
+    }
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr const _Ty1&& get(const pair<_Ty1, _Ty2>&& _Pr) noexcept {
+    // get const rvalue reference to element _Ty1 in pair _Pr
+    return _STD forward<const _Ty1>(_Pr.first);
+}
+
+_EXPORT_STD template <class _Ty2, class _Ty1>
+_NODISCARD constexpr const _Ty2&& get(const pair<_Ty1, _Ty2>&& _Pr) noexcept {
+    // get const rvalue reference to element _Ty2 in pair _Pr
+    return _STD forward<const _Ty2>(_Pr.second);
+}
+
+_EXPORT_STD template <class _Ty, class _Other = _Ty>
+_CONSTEXPR20 _Ty exchange(_Ty& _Val, _Other&& _New_val)
+    noexcept(conjunction_v<is_nothrow_move_constructible<_Ty>, is_nothrow_assignable<_Ty&, _Other>>) {
+    // assign _New_val to _Val, return previous _Val
+    _Ty _Old_val = static_cast<_Ty&&>(_Val);
+    _Val         = static_cast<_Other&&>(_New_val);
+    return _Old_val;
+}
+
+_EXPORT_STD template <class _Ty>
+_NODISCARD _MSVC_INTRINSIC constexpr add_const_t<_Ty>& as_const(_Ty& _Val) noexcept { // view _Val through const lenses
+    return _Val;
+}
+
+_EXPORT_STD template <class _Ty>
+void as_const(const _Ty&&) = delete;
+
+#if _HAS_CXX17
+_EXPORT_STD struct in_place_t { // tag used to select a constructor which initializes a contained object in place
+    explicit in_place_t() = default;
+};
+_EXPORT_STD inline constexpr in_place_t in_place{};
+
+_EXPORT_STD template <class>
+struct in_place_type_t { // tag that selects a type to construct in place
+    explicit in_place_type_t() = default;
+};
+_EXPORT_STD template <class _Ty>
+constexpr in_place_type_t<_Ty> in_place_type{};
+
+_EXPORT_STD template <size_t>
+struct in_place_index_t { // tag that selects the index of a type to construct in place
+    explicit in_place_index_t() = default;
+};
+_EXPORT_STD template <size_t _Idx>
+constexpr in_place_index_t<_Idx> in_place_index{};
+#endif // _HAS_CXX17
+
+template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool _Cmp_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    _STL_INTERNAL_STATIC_ASSERT(_Is_nonbool_integral<_Ty1> && _Is_nonbool_integral<_Ty2>); // allows character types
+    if constexpr (is_signed_v<_Ty1> == is_signed_v<_Ty2>) {
+        return _Left == _Right;
+    } else if constexpr (is_signed_v<_Ty2>) {
+        return _Left == static_cast<make_unsigned_t<_Ty2>>(_Right) && _Right >= 0;
+    } else {
+        return static_cast<make_unsigned_t<_Ty1>>(_Left) == _Right && _Left >= 0;
+    }
+}
+
+template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool _Cmp_not_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    return !_STD _Cmp_equal(_Left, _Right);
+}
+
+template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool _Cmp_less(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    _STL_INTERNAL_STATIC_ASSERT(_Is_nonbool_integral<_Ty1> && _Is_nonbool_integral<_Ty2>); // allows character types
+    if constexpr (is_signed_v<_Ty1> == is_signed_v<_Ty2>) {
+        return _Left < _Right;
+    } else if constexpr (is_signed_v<_Ty2>) {
+        return _Right > 0 && _Left < static_cast<make_unsigned_t<_Ty2>>(_Right);
+    } else {
+        return _Left < 0 || static_cast<make_unsigned_t<_Ty1>>(_Left) < _Right;
+    }
+}
+
+template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool _Cmp_greater(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    return _STD _Cmp_less(_Right, _Left);
+}
+
+template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool _Cmp_less_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    return !_STD _Cmp_less(_Right, _Left);
+}
+
+template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool _Cmp_greater_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    return !_STD _Cmp_less(_Left, _Right);
+}
+
+template <class _Ty>
+_NODISCARD constexpr _Ty _Min_limit() noexcept { // same as (numeric_limits<_Ty>::min)(), less throughput cost
+    _STL_INTERNAL_STATIC_ASSERT(is_integral_v<_Ty>); // doesn't attempt to handle all types
+    if constexpr (is_signed_v<_Ty>) {
+        constexpr auto _Unsigned_max = static_cast<make_unsigned_t<_Ty>>(-1);
+        return static_cast<_Ty>((_Unsigned_max >> 1) + 1); // well-defined, N4950 [conv.integral]/3
+    } else {
+        return 0;
+    }
+}
+
+template <class _Ty>
+_NODISCARD constexpr _Ty _Max_limit() noexcept { // same as (numeric_limits<_Ty>::max)(), less throughput cost
+    _STL_INTERNAL_STATIC_ASSERT(is_integral_v<_Ty>); // doesn't attempt to handle all types
+    if constexpr (is_signed_v<_Ty>) {
+        constexpr auto _Unsigned_max = static_cast<make_unsigned_t<_Ty>>(-1);
+        return static_cast<_Ty>(_Unsigned_max >> 1);
+    } else {
+        return static_cast<_Ty>(-1);
+    }
+}
+
+template <class _Rx, class _Ty>
+_NODISCARD constexpr bool _In_range(const _Ty _Value) noexcept {
+    _STL_INTERNAL_STATIC_ASSERT(_Is_nonbool_integral<_Rx> && _Is_nonbool_integral<_Ty>); // allows character types
+
+    constexpr auto _Ty_min = _Min_limit<_Ty>();
+    constexpr auto _Rx_min = _Min_limit<_Rx>();
+
+    if constexpr (_STD _Cmp_less(_Ty_min, _Rx_min)) {
+        if (_Value < _Ty{_Rx_min}) {
+            return false;
+        }
+    }
+
+    constexpr auto _Ty_max = _Max_limit<_Ty>();
+    constexpr auto _Rx_max = _Max_limit<_Rx>();
+
+    if constexpr (_STD _Cmp_greater(_Ty_max, _Rx_max)) {
+        if (_Value > _Ty{_Rx_max}) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+#if _HAS_CXX20
+template <class _Ty>
+constexpr bool _Is_standard_integer = _Is_any_of_v<remove_cv_t<_Ty>, signed char, short, int, long, long long,
+    unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long>;
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool cmp_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    static_assert(_Is_standard_integer<_Ty1> && _Is_standard_integer<_Ty2>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _Cmp_equal(_Left, _Right);
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool cmp_not_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    static_assert(_Is_standard_integer<_Ty1> && _Is_standard_integer<_Ty2>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _Cmp_not_equal(_Left, _Right);
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool cmp_less(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    static_assert(_Is_standard_integer<_Ty1> && _Is_standard_integer<_Ty2>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _Cmp_less(_Left, _Right);
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool cmp_greater(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    static_assert(_Is_standard_integer<_Ty1> && _Is_standard_integer<_Ty2>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _Cmp_greater(_Left, _Right);
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool cmp_less_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    static_assert(_Is_standard_integer<_Ty1> && _Is_standard_integer<_Ty2>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _Cmp_less_equal(_Left, _Right);
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+_NODISCARD constexpr bool cmp_greater_equal(const _Ty1 _Left, const _Ty2 _Right) noexcept {
+    static_assert(_Is_standard_integer<_Ty1> && _Is_standard_integer<_Ty2>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _Cmp_greater_equal(_Left, _Right);
+}
+
+_EXPORT_STD template <class _Rx, class _Ty>
+_NODISCARD constexpr bool in_range(const _Ty _Value) noexcept {
+    static_assert(_Is_standard_integer<_Rx> && _Is_standard_integer<_Ty>,
+        "The integer comparison functions only accept standard and extended integer types.");
+    return _STD _In_range<_Rx>(_Value);
+}
+#endif // _HAS_CXX20
+
+#if _HAS_CXX23
+_EXPORT_STD template <class _Ty> // TRANSITION, VSO-2253317: should be _MSVC_INTRINSIC
+_NODISCARD constexpr underlying_type_t<_Ty> to_underlying(_Ty _Value) noexcept {
+    return static_cast<underlying_type_t<_Ty>>(_Value);
+}
+
+_EXPORT_STD [[noreturn]] __forceinline void unreachable() noexcept /* strengthened */ {
+    _STL_UNREACHABLE;
+#ifdef _DEBUG
+    _CSTD abort(); // likely to be called in debug mode, but can't be relied upon - already entered the UB territory
+#endif // defined(_DEBUG)
+}
+
+template <class _Ty, class _Uty,
+    class _Tmp = _Maybe_const<is_const_v<remove_reference_t<_Ty>>, remove_reference_t<_Uty>>>
+using _Forward_like_t = conditional_t<is_rvalue_reference_v<_Ty&&>, _Tmp&&, _Tmp&>;
+
+_EXPORT_STD template <class _Ty, class _Uty>
+_NODISCARD _MSVC_INTRINSIC constexpr _Forward_like_t<_Ty, _Uty> forward_like(_Uty&& _Ux) noexcept {
+    return static_cast<_Forward_like_t<_Ty, _Uty>>(_Ux);
+}
+#endif // _HAS_CXX23
+
+#if _HAS_TR1_NAMESPACE
+namespace _DEPRECATE_TR1_NAMESPACE tr1 {
+    using _STD get;
+    using _STD tuple_element;
+    using _STD tuple_size;
+} // namespace _DEPRECATE_TR1_NAMESPACE tr1
+#endif // _HAS_TR1_NAMESPACE
+
+_STD_END
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma pop_macro("lifetimebound")
+#pragma pop_macro("known_semantics")
+#pragma pop_macro("intrinsic")
+#pragma pop_macro("msvc")
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _UTILITY_

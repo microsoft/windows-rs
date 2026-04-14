@@ -1,0 +1,69 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			tblcrt.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+
+LOCAL_INTERFACE(0c733abc-2a1c-11ce-ade5-00aa0044773d)
+
+interface ITableCreation : ITableDefinition
+{
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+[local]
+	HRESULT GetTableDefinition(
+	[in, annotation("_In_")]								DBID*					pTableID,
+	[out, annotation("_Out_opt_")]								DBORDINAL*				pcColumnDescs,
+	[out, size_is(,(ULONG)*pcColumnDescs), annotation("_Out_writes_opt_(*pcColumnDescs)")] 
+		DBCOLUMNDESC*			prgColumnDescs[],
+	[out, annotation("_Out_opt_")]								ULONG*					pcPropertySets,
+	[out, size_is(,*pcPropertySets), annotation("_Out_writes_opt_(*pcPropertySets)")]	
+		DBPROPSET*				prgPropertySets[],
+	[out, annotation("_Out_opt_")]								ULONG*					pcConstraintDescs,
+	[out, size_is(,*pcConstraintDescs), annotation("_Out_writes_opt_(*pcConstraintDescs)")]	
+		DBCONSTRAINTDESC*		prgConstraintDescs[],
+	[out, annotation("_Outptr_opt_result_maybenull_")]OLECHAR**				ppwszStringBuffer
+	);
+	
+#else  //No casting by ULONG for 32-bit.
+
+[local]
+	HRESULT GetTableDefinition(
+	[in, annotation("_In_")]								DBID*					pTableID,
+	[out, annotation("_Out_opt_")]								DBORDINAL*				pcColumnDescs,
+	[out, size_is(,*pcColumnDescs), annotation("_Out_writes_opt_(*pcColumnDescs)")] 
+		DBCOLUMNDESC*			prgColumnDescs[],
+	[out, annotation("_Out_opt_")]								ULONG*					pcPropertySets,
+	[out, size_is(,*pcPropertySets), annotation("_Out_writes_opt_(*pcPropertySets)")]	
+		DBPROPSET*				prgPropertySets[],
+	[out, annotation("_Out_opt_")]								ULONG*					pcConstraintDescs,
+	[out, size_is(,*pcConstraintDescs), annotation("_Out_writes_opt_(*pcConstraintDescs)")]	
+		DBCONSTRAINTDESC*		prgConstraintDescs[],
+	[out, annotation("_Outptr_opt_result_maybenull_")]OLECHAR**				ppwszStringBuffer
+	);
+	
+#endif
+}
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

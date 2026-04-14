@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+    targetNamespace="http://schemas.microsoft.com/windows/2011/08/printing/driverevents"
+    version="4.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            The Windows Printer Driver Model Driver Event schema definition for driver events in the
+            Windows Printer Driver Model 4.0.
+
+            The version number of this schema is kept in sync with version number of the Windows
+            Print Driver Model which it was introduced in.
+
+            In this case this version of the schema was introduced in Windows Print Driver Model
+            version 4.0.
+
+            Copyright (c) Microsoft Corporation.  All rights reserved.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="DriverEvents">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                The root element in the Printer Driver Model Device Event schema.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DriverEvent" minOccurs="1" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">
+                            Describes a DriverEvent in the Printer Driver Model Device Event schema.
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Transport" minOccurs="1" maxOccurs="3">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        Indicates a built-in transport the DriverEvent is supported on.
+                                    </xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="USB"/>
+                                        <xs:enumeration value="SNMP"/>
+                                        <xs:enumeration value="WSD"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Query" type="xs:string" minOccurs="1" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        The Bidi query that will be issued to the device to evaluate the triggers for the device event.
+                                    </xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="Trigger" minOccurs="1" maxOccurs="unbounded">
+                                <xs:annotation>
+                                    <xs:documentation xml:lang="en">
+                                        The evaluation of the result using the specified comparison against the specified value will cause the specified standard message to be triggered.
+                                    </xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="StandardMessage" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation xml:lang="en">
+                                                    A parameter that will be substituted into the message at the substitution index specified.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="StringParameter" minOccurs="0" maxOccurs="unbounded" >
+                                                        <xs:annotation>
+                                                            <xs:documentation xml:lang="en">
+                                                                A parameter that will be substituted into the message at the substitution index specified.
+                                                            </xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:attribute name="index" type="xs:positiveInteger" use="required">
+                                                                <xs:annotation>
+                                                                    <xs:documentation xml:lang="en">
+                                                                        The index where this parameter is to be substituted into.
+                                                                    </xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="resourceId" type="xs:positiveInteger" use="required">
+                                                                <xs:annotation>
+                                                                    <xs:documentation xml:lang="en">
+                                                                        The resource id from the list specified in MS-PAN AsyncUI Default Resource File String Resources.
+                                                                    </xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="resourceId" type="xs:positiveInteger" use="required">
+                                                    <xs:annotation>
+                                                        <xs:documentation xml:lang="en">
+                                                            The resource id from the list specified in MS-PAN AsyncUI Default Resource File String Resources.
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="result" type="xs:string" use="required">
+                                        <xs:annotation>
+                                            <xs:documentation xml:lang="en">
+                                                The BiDi path to the element in the response to the query.
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="comparison" use="required">
+                                        <xs:annotation>
+                                            <xs:documentation xml:lang="en">
+                                                Indicates one of the supported comparison types.
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="EqualTo"/>
+                                                <xs:enumeration value="NotEqualTo"/>
+                                                <xs:enumeration value="GreaterThan"/>
+                                                <xs:enumeration value="LessThan"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                    <xs:attribute name="value" type="xs:string" use="required">
+                                    <xs:annotation>
+                                        <xs:documentation xml:lang="en">
+                                            The value, or a string representation of, that will be compared with the result.  This value will be converted to the appropriate BIDI_TYPE prior to comparison.
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="eventId" use="required">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="en">
+                                    A GUID for the event in registry format.
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="\{([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="schemaVersion" use="required">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                        The minimum Windows Printer Driver Model Device Event schema version required.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="4.0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

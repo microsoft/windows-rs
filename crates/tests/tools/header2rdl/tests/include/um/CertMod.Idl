@@ -1,0 +1,82 @@
+//+--------------------------------------------------------------------------
+//
+// Microsoft Windows
+// Copyright (C) Microsoft Corporation, 1996 - 1999
+//
+// File:        certmod.idl
+//
+// Contents:    IDL source for module management functions
+//
+//---------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+
+//+--------------------------------------------------------------------------
+// ICertManageModule::Configure()
+// Flags for configuration interface
+
+const LONG CMM_REFRESHONLY = 0x00000001;	// Non-interactive configure; just reload settings
+const LONG CMM_READONLY    = 0x00000002;        // show UI in read-only mode
+
+//+--------------------------------------------------------------------------
+// ICertManageModule::XetProperty()
+// Flags for get/set property interface
+
+// values are bstrs
+const WCHAR wszCMM_PROP_NAME[] = L"Name";
+const WCHAR wszCMM_PROP_DESCRIPTION[] = L"Description";
+const WCHAR wszCMM_PROP_COPYRIGHT[] = L"Copyright";
+const WCHAR wszCMM_PROP_FILEVER[] = L"File Version";
+const WCHAR wszCMM_PROP_PRODUCTVER[] = L"Product Version";
+
+// value is bstr sizeof(HWND)
+const WCHAR wszCMM_PROP_DISPLAY_HWND[] = L"HWND";		
+
+// values are longs
+const WCHAR wszCMM_PROP_ISMULTITHREADED[] = L"IsMultiThreaded";
+
+
+//+--------------------------------------------------------------------------
+// ICertManageModule class -- local COM interface
+//+--------------------------------------------------------------------------
+
+[
+    object,
+    uuid(e7d7ad42-bd3d-11d1-9a4d-00c04fc297eb),
+    dual,
+    helpstring("ICertManageModule Interface"),
+    pointer_default(unique)
+]
+
+interface ICertManageModule: IDispatch
+{
+    import "oaidl.idl";
+   
+    HRESULT GetProperty(
+	[in] BSTR const strConfig,
+        [in] BSTR strStorageLocation,
+        [in] BSTR strPropertyName,
+        [in] LONG Flags,
+        [out, retval] VARIANT* pvarProperty);
+
+    HRESULT SetProperty(
+	[in] BSTR const strConfig,
+        [in] BSTR strStorageLocation,
+        [in] BSTR strPropertyName,
+        [in] LONG Flags,
+        [in] VARIANT const *pvarProperty);
+
+    HRESULT Configure(
+	[in] BSTR const strConfig,
+        [in] BSTR strStorageLocation,
+        [in] LONG Flags);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

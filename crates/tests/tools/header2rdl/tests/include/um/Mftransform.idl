@@ -1,0 +1,1188 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+//------------------------------------------------------------------------------
+// File: MFTransform.idl
+//
+// Desc: Define the interfaces for Media Foundation Transforms.  This file will be
+//       processed by the MIDL tool to produce MFTransform.h and proxy-stub code.
+//
+// Copyright (c) 1999 - 2003, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+import "mfobjects.idl";
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+// Per-buffer flags that apply to input buffers
+enum _MFT_INPUT_DATA_BUFFER_FLAGS {
+    //
+    // Not carried over from DMO (IMediaObject), but should be
+    // reserved so no new MFT flag clashes with them:
+    //
+    // DMO_INPUT_DATA_BUFFER_SYNCPOINT       = 0x00000001,
+    // DMO_INPUT_DATA_BUFFER_TIME            = 0x00000002,
+    // DMO_INPUT_DATA_BUFFER_TIMELENGTH      = 0x00000004
+
+    MFT_INPUT_DATA_BUFFER_PLACEHOLDER        = 0xFFFFFFFF // right now there are no flags defined
+};
+
+// Per-buffer flags that apply to output buffers.
+enum _MFT_OUTPUT_DATA_BUFFER_FLAGS {
+    //
+    // Not carried over from DMO (IMediaObject), but should be
+    // reserved so no new MFT flag clashes with them:
+    //
+    // DMO_OUTPUT_DATA_BUFFER_SYNCPOINT        = 0x00000001,
+    // DMO_OUTPUT_DATA_BUFFER_TIME             = 0x00000002,
+    // DMO_OUTPUT_DATA_BUFFER_TIMELENGTH       = 0x00000004,
+
+    //
+    // This flag means the object can produce more samples without any more input.
+    //
+    MFT_OUTPUT_DATA_BUFFER_INCOMPLETE       = 0x01000000,
+
+    //
+    // New for MFT
+    //
+    MFT_OUTPUT_DATA_BUFFER_FORMAT_CHANGE    = 0x00000100,
+    MFT_OUTPUT_DATA_BUFFER_STREAM_END       = 0x00000200,
+    MFT_OUTPUT_DATA_BUFFER_NO_SAMPLE        = 0x00000300
+    
+};
+
+// Flags returned by GetInputStatusFlags()
+enum _MFT_INPUT_STATUS_FLAGS {
+    //
+    // Carried over from DMO (IMediaObject)
+    //
+
+    //
+    // ACCEPT_DATA indicates that the input stream is ready to accept
+    // new data via ProcessInput().
+    //
+    MFT_INPUT_STATUS_ACCEPT_DATA   = 0x00000001
+};
+
+// Flags returned by GetOutputStatusFlags()
+enum _MFT_OUTPUT_STATUS_FLAGS {
+    //
+    // New for MFT
+    //
+
+    //
+    // SAMPLE_READY indicates that a sample is available on at least one
+    // of the output streams, and a call to ProcessOutput will
+    // retrieve it.
+    //
+    MFT_OUTPUT_STATUS_SAMPLE_READY   = 0x00000001
+};
+
+// Flags returned by GetInputStreamInfo()
+enum _MFT_INPUT_STREAM_INFO_FLAGS {
+    //
+    // Carried over from DMO (IMediaObject)
+    //
+    MFT_INPUT_STREAM_WHOLE_SAMPLES              = 0x00000001,
+    MFT_INPUT_STREAM_SINGLE_SAMPLE_PER_BUFFER   = 0x00000002,
+    MFT_INPUT_STREAM_FIXED_SAMPLE_SIZE          = 0x00000004,
+    MFT_INPUT_STREAM_HOLDS_BUFFERS              = 0x00000008,
+
+    //
+    // New for MFT
+    //
+    MFT_INPUT_STREAM_DOES_NOT_ADDREF            = 0x00000100,
+    MFT_INPUT_STREAM_REMOVABLE                  = 0x00000200,
+    MFT_INPUT_STREAM_OPTIONAL                   = 0x00000400,
+    MFT_INPUT_STREAM_PROCESSES_IN_PLACE         = 0x00000800
+};
+
+// Flags returned by GetOutputStreamInfo()
+enum _MFT_OUTPUT_STREAM_INFO_FLAGS {
+    //
+    // Carried over from DMO (IMediaObject)
+    //
+    MFT_OUTPUT_STREAM_WHOLE_SAMPLES             = 0x00000001,
+    MFT_OUTPUT_STREAM_SINGLE_SAMPLE_PER_BUFFER  = 0x00000002,
+    MFT_OUTPUT_STREAM_FIXED_SAMPLE_SIZE         = 0x00000004,
+    MFT_OUTPUT_STREAM_DISCARDABLE               = 0x00000008,
+    MFT_OUTPUT_STREAM_OPTIONAL                  = 0x00000010,
+
+    //
+    // New for MFT
+    //
+    MFT_OUTPUT_STREAM_PROVIDES_SAMPLES          = 0x00000100,
+    MFT_OUTPUT_STREAM_CAN_PROVIDE_SAMPLES       = 0x00000200,
+    MFT_OUTPUT_STREAM_LAZY_READ                 = 0x00000400,
+    MFT_OUTPUT_STREAM_REMOVABLE                 = 0x00000800
+};
+
+//  SetType flags
+enum _MFT_SET_TYPE_FLAGS {
+    //
+    // Carried over from DMO (IMediaObject)
+    //
+    MFT_SET_TYPE_TEST_ONLY   = 0x00000001,// check but don't set
+
+    //
+    // not carried over from DMO - use NULL type to unset.
+    //
+    //MFT_SET_TYPE_CLEAR       = 0x00000002 // unset
+};
+
+//
+//  ProcessOutput() dwFlags (signals from caller to MFT)
+//
+enum _MFT_PROCESS_OUTPUT_FLAGS {
+    //
+    // Carried over from DMO (IMediaObject)
+    //
+    MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER   = 0x00000001, // discard this sample if pSample ptr is NULL.
+
+    // New flags for MFTs
+    MFT_PROCESS_OUTPUT_REGENERATE_LAST_OUTPUT   = 0x00000002
+};
+
+//
+// ProcessOutput() pdwStatus (output from MFT to caller)
+//
+enum _MFT_PROCESS_OUTPUT_STATUS {
+    //
+    // new for MFT
+    //
+    MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS               = 0x00000100 // Output flag
+};
+
+enum _MFT_DRAIN_TYPE {
+    MFT_DRAIN_PRODUCE_TAILS     = 0x00000000,
+    MFT_DRAIN_NO_TAILS          = 0x00000001
+};
+
+
+
+//
+// used by GetStreamLimits - the transform returns it in *pdwInputMaximum or *pdwOutputMaximum
+// to mean that the MFT has no theoretical stream limit.
+//
+cpp_quote( "#define MFT_STREAMS_UNLIMITED       0xFFFFFFFF" )
+
+//
+// Used by SetOutputBounds when the lower or upper limit are unbounded.
+//
+cpp_quote( "#define MFT_OUTPUT_BOUND_LOWER_UNBOUNDED MINLONGLONG" )
+cpp_quote( "#define MFT_OUTPUT_BOUND_UPPER_UNBOUNDED MAXLONGLONG" )
+
+
+typedef [v1_enum] enum _MFT_MESSAGE_TYPE {
+    //
+    // commands - must be acted on
+    //
+    MFT_MESSAGE_COMMAND_FLUSH           = 0x00000000,
+    MFT_MESSAGE_COMMAND_DRAIN           = 0x00000001,
+    MFT_MESSAGE_SET_D3D_MANAGER         = 0x00000002,
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    MFT_MESSAGE_DROP_SAMPLES            = 0x00000003,
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+#if (WINVER >= _WIN32_WINNT_WIN8)
+    MFT_MESSAGE_COMMAND_TICK            = 0x00000004,
+#endif // (WINVER >= _WIN32_WINNT_WIN8)
+    
+    //
+    // notifications - no action required; effect is transform-dependent
+    //
+    MFT_MESSAGE_NOTIFY_BEGIN_STREAMING  = 0x10000000,
+    MFT_MESSAGE_NOTIFY_END_STREAMING    = 0x10000001,
+    MFT_MESSAGE_NOTIFY_END_OF_STREAM    = 0x10000002,
+
+    //
+    // send by pipeline before processing the first sample
+    //
+    MFT_MESSAGE_NOTIFY_START_OF_STREAM    = 0x10000003,
+
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD)
+    MFT_MESSAGE_NOTIFY_RELEASE_RESOURCES   = 0x10000004,
+    MFT_MESSAGE_NOTIFY_REACQUIRE_RESOURCES = 0x10000005,
+    MFT_MESSAGE_NOTIFY_EVENT               = 0x10000006,
+    MFT_MESSAGE_COMMAND_SET_OUTPUT_STREAM_STATE = 0x10000007,
+    MFT_MESSAGE_COMMAND_FLUSH_OUTPUT_STREAM = 0x10000008,
+#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD)
+
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    //
+    // commands (applicable to async MFTs only) - must be acted on
+    //
+    MFT_MESSAGE_COMMAND_MARKER          = 0x20000000
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+
+} MFT_MESSAGE_TYPE;
+
+typedef struct _MFT_INPUT_STREAM_INFO {
+    LONGLONG    hnsMaxLatency;      // maximum time latency in 100ns increments
+    DWORD       dwFlags;            // MFT_INPUT_STREAM_INFO_FLAGS
+    DWORD       cbSize;             // size of each sample's buffer
+    DWORD       cbMaxLookahead;     // max total bytes held
+    DWORD       cbAlignment;        // buffer alignment requirement
+} MFT_INPUT_STREAM_INFO;
+
+typedef struct _MFT_OUTPUT_STREAM_INFO {
+    DWORD       dwFlags;            // MFT_INPUT_STREAM_INFO_FLAGS
+    DWORD       cbSize;             // size of each sample's buffer
+    DWORD       cbAlignment;        // buffer alignment requirement
+} MFT_OUTPUT_STREAM_INFO;
+
+//
+// Output buffer info structure: one of these must be passed in for each
+// output stream with every ProcessOutput() call
+// All [out] fields should be
+// assumed undefined if ProcessOutput() failed
+//
+typedef struct _MFT_OUTPUT_DATA_BUFFER {
+    DWORD       dwStreamID; // [in] which stream is this for
+    IMFSample * pSample;    // [in/out] can be NULL
+    DWORD       dwStatus;   // [out] MFT_OUTPUT_DATA_BUFFER_FLAGS (INCOMPLETE, etc.)
+    IMFCollection * pEvents; // [out] Can be NULL.  Zero or more events produced by the MFT
+} MFT_OUTPUT_DATA_BUFFER, *PMFT_OUTPUT_DATA_BUFFER;
+
+cpp_quote( "//" )
+cpp_quote( "// redefine all the method names to have MFT at the beginning so they don't class with DMO methods." )
+cpp_quote( "//" )
+cpp_quote( "#ifdef MFT_UNIQUE_METHOD_NAMES" )
+cpp_quote( "#define GetStreamLimits         MFTGetStreamLimits" )
+cpp_quote( "#define GetStreamCount          MFTGetStreamCount" )
+cpp_quote( "#define GetStreamIDs            MFTGetStreamIDs" )
+cpp_quote( "#define GetInputStreamInfo      MFTGetInputStreamInfo" )
+cpp_quote( "#define GetOutputStreamInfo     MFTGetOutputStreamInfo" )
+cpp_quote( "#define DeleteInputStream       MFTDeleteInputStream" )
+cpp_quote( "#define AddInputStreams         MFTAddInputStreams" )
+cpp_quote( "#define GetInputAvailableType   MFTGetInputAvailableType" )
+cpp_quote( "#define GetOutputAvailableType  MFTGetOutputAvailableType" )
+cpp_quote( "#define SetInputType            MFTSetInputType" )
+cpp_quote( "#define SetOutputType           MFTSetOutputType" )
+cpp_quote( "#define GetInputCurrentType     MFTGetInputCurrentType" )
+cpp_quote( "#define GetOutputCurrentType    MFTGetOutputCurrentType" )
+cpp_quote( "#define GetInputStatus          MFTGetInputStatus" )
+cpp_quote( "#define GetOutputStatus         MFTGetOutputStatus" )
+cpp_quote( "#define SetOutputBounds         MFTSetOutputBounds" )
+cpp_quote( "#define ProcessEvent            MFTProcessEvent" )
+cpp_quote( "#define ProcessMessage          MFTProcessMessage" )
+cpp_quote( "#define ProcessInput            MFTProcessInput" )
+cpp_quote( "#define ProcessOutput           MFTProcessOutput" )
+cpp_quote( "#endif" )
+
+//  Interface supported by media objects
+[
+    object,
+    uuid(bf94c121-5b05-4e6f-8000-ba598961414d)
+]
+interface IMFTransform : IUnknown
+{
+
+//
+// Stream enumeration
+//
+    HRESULT
+    GetStreamLimits( 
+        [out] DWORD *pdwInputMinimum,
+        [out] DWORD *pdwInputMaximum,
+        [out] DWORD *pdwOutputMinimum,
+        [out] DWORD *pdwOutputMaximum
+    );
+    
+    HRESULT 
+    GetStreamCount(
+        [out] DWORD *pcInputStreams,
+        [out] DWORD *pcOutputStreams
+    );
+
+    HRESULT
+    GetStreamIDs(
+        DWORD dwInputIDArraySize,
+        [out,size_is(dwInputIDArraySize)] DWORD *pdwInputIDs,
+        DWORD dwOutputIDArraySize,
+        [out,size_is(dwOutputIDArraySize)] DWORD *pdwOutputIDs
+    );
+    
+    HRESULT 
+    GetInputStreamInfo(
+        DWORD                     dwInputStreamID,
+        [out] MFT_INPUT_STREAM_INFO *   pStreamInfo
+    );
+    
+    HRESULT 
+    GetOutputStreamInfo(
+        DWORD                     dwOutputStreamID, 
+        [out] MFT_OUTPUT_STREAM_INFO *  pStreamInfo      
+    );
+
+    HRESULT
+    GetAttributes(
+        [out] IMFAttributes** pAttributes
+    );
+
+    HRESULT
+    GetInputStreamAttributes(
+        DWORD           dwInputStreamID,
+        [out] IMFAttributes** pAttributes
+    );
+
+    HRESULT
+    GetOutputStreamAttributes(
+        DWORD           dwOutputStreamID,
+        [out] IMFAttributes** pAttributes
+    );
+
+    HRESULT
+    DeleteInputStream( 
+        DWORD dwStreamID
+    );
+
+    HRESULT
+    AddInputStreams( 
+        DWORD   cStreams,
+        [in]  DWORD * adwStreamIDs
+    );
+
+
+//
+// Mediatypes
+//
+    //
+    // GetxxxAvailableType - iterate through media types supported by a stream.
+    //
+    HRESULT 
+    GetInputAvailableType(
+        DWORD             dwInputStreamID,
+        DWORD             dwTypeIndex, // 0-based
+        [out] IMFMediaType **   ppType
+    );
+    HRESULT 
+    GetOutputAvailableType(
+        DWORD             dwOutputStreamID,
+        DWORD             dwTypeIndex, // 0-based
+        [out] IMFMediaType **   ppType
+    );
+
+    //
+    // SetxxxType - tell the object the type of data it will work with.
+    //
+    HRESULT 
+    SetInputType(
+        DWORD               dwInputStreamID,
+        [in]  IMFMediaType *pType,
+        DWORD               dwFlags 
+    );
+    HRESULT 
+    SetOutputType(
+        DWORD               dwOutputStreamID,
+        [in]  IMFMediaType *pType,
+        DWORD               dwFlags 
+    );
+
+    //
+    // GetxxxCurrentType - get the current type set for the given stream index.
+    //
+    HRESULT 
+    GetInputCurrentType(
+        DWORD                   dwInputStreamID,
+        [out] IMFMediaType **   ppType
+    );
+    HRESULT 
+    GetOutputCurrentType(
+        DWORD                   dwOutputStreamID,
+        [out] IMFMediaType **   ppType
+    );
+
+//
+// Streaming / state methods
+//
+    // GetInputStatus - the only flag defined right now is MFT_INPUT_STATUS_ACCEPT_DATA.
+    HRESULT 
+    GetInputStatus(
+        DWORD           dwInputStreamID,
+        [out] DWORD *   pdwFlags // MFT_INPUT_STATUS_ACCEPT_DATA
+    );
+
+    // GetOutputStatus - the only flag defined right now is MFT_OUTPUT_STATUS_SAMPLE_READY.
+    HRESULT 
+    GetOutputStatus(
+        [out] DWORD *pdwFlags 
+    );
+
+    //
+    // SetOutputBounds - optional interface to tell transform the desired
+    // range of output times desired. Implementation is optional.
+    //
+    HRESULT
+    SetOutputBounds(
+        LONGLONG hnsLowerBound,
+        LONGLONG hnsUpperBound
+    );
+
+    HRESULT
+    ProcessEvent(
+        DWORD                   dwInputStreamID,
+        [in] IMFMediaEvent *    pEvent 
+    );
+
+    //
+    // ProcessMessage - used to send a notification or command to a transform
+    //
+    HRESULT
+    ProcessMessage(
+        MFT_MESSAGE_TYPE eMessage,
+        ULONG_PTR        ulParam
+    );
+        
+    //
+    // Pass one new buffer to an input stream
+    //
+    [local] HRESULT 
+    ProcessInput(
+        DWORD       dwInputStreamID,
+        IMFSample * pSample, 
+        DWORD       dwFlags 
+    );
+
+    //
+    // ProcessOutput() - generate output for current input buffers
+    //
+    // Output stream specific status information is returned in the
+    // dwStatus member of each buffer wrapper structure.
+    //
+    [local] HRESULT 
+    ProcessOutput(
+        DWORD                       dwFlags, // MFT_PROCESS_OUTPUT_FLAGS
+        DWORD                       cOutputBufferCount, // # returned by GetStreamCount()
+        [in,out,size_is(cOutputBufferCount)]
+            MFT_OUTPUT_DATA_BUFFER *pOutputSamples, // one per stream
+        [out] DWORD *               pdwStatus  // MFT_PROCESS_OUTPUT_XXX
+    );
+
+};
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+
+//
+// to be implemented if Devicesource needs to load device MFT, which is the
+// first component to process the samples from the source.It can also be used
+// to snoop on property commands flowing through the pipeline just before they
+// are sent to the source.
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+// Internal MF Interface to get/set media type from/to device directly
+//
+///////////////////////////////////////////////////////////////////////////////
+typedef enum _DeviceStreamState{
+    DeviceStreamState_Stop = 0,
+    DeviceStreamState_Pause,
+    DeviceStreamState_Run,
+    DeviceStreamState_Disabled
+}DeviceStreamState, *PDeviceStreamState;
+
+
+// MEDeviceStreamCreated
+// Type: UINT32
+// {0252a1cf-3540-43b4-9164-d72eb405fa40}
+/// <summary>
+// Custom event to indicate device stream has been created
+/// </summary>
+cpp_quote("EXTERN_GUID(MEDeviceStreamCreated, 0x0252a1cf, 0x3540, 0x43b4, 0x91, 0x64, 0xd7, 0x2e, 0xb4, 0x05, 0xfa, 0x40);")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+typedef struct _STREAM_MEDIUM
+{
+    GUID gidMedium;
+    UINT32 unMediumInstance;
+} STREAM_MEDIUM, *PSTREAM_MEDIUM;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+cpp_quote( "//" )
+cpp_quote( "// Define the MFT methods back so we don't accidentally hose the IMediaObject interface." )
+cpp_quote( "//" )
+cpp_quote( "#ifdef MFT_UNIQUE_METHOD_NAMES" )
+cpp_quote( "#undef GetStreamLimits        " )
+cpp_quote( "#undef GetStreamCount         " )
+cpp_quote( "#undef GetStreamIDs           " )
+cpp_quote( "#undef GetInputStreamInfo     " )
+cpp_quote( "#undef GetOutputStreamInfo    " )
+cpp_quote( "#undef DeleteInputStream      " )
+cpp_quote( "#undef AddInputStreams        " )
+cpp_quote( "#undef GetInputAvailableType  " )
+cpp_quote( "#undef GetOutputAvailableType " )
+cpp_quote( "#undef SetInputType           " )
+cpp_quote( "#undef SetOutputType          " )
+cpp_quote( "#undef GetInputCurrentType    " )
+cpp_quote( "#undef GetOutputCurrentType   " )
+cpp_quote( "#undef GetInputStatus         " )
+cpp_quote( "#undef GetOutputStatus        " )
+cpp_quote( "#undef SetOutputBounds        " )
+cpp_quote( "#undef ProcessMessage         " )
+cpp_quote( "#undef ProcessInput           " )
+cpp_quote( "#undef ProcessOutput          " )
+cpp_quote( "#endif" )
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//
+// GENERIC DMO PROPERTY KEYS
+//
+
+// All MFTs
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_CLSID = { { 0xc57a84c0, 0x1a80, 0x40a3, {0x97, 0xb5, 0x92, 0x72, 0xa4, 0x3, 0xc8, 0xae} }, 0x01 }; ")
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_CATEGORY = { { 0xc57a84c0, 0x1a80, 0x40a3, {0x97, 0xb5, 0x92, 0x72, 0xa4, 0x3, 0xc8, 0xae} }, 0x02 }; ")
+
+// ExAttribute-supported MFTs
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_EXATTRIBUTE_SUPPORTED = { { 0x456fe843, 0x3c87, 0x40c0, {0x94, 0x9d, 0x14, 0x9, 0xc9, 0x7d, 0xab, 0x2c} }, 0x01 }; ")
+
+// Audio Multichannel
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFPKEY_MULTICHANNEL_CHANNEL_MASK  = { { 0x58bdaf8c, 0x3224, 0x4692, { 0x86, 0xd0, 0x44, 0xd6, 0x5c, 0x5b, 0xf8, 0x2b } }, 0x01 }; ")
+
+///////////////////////////////////////////////////////////////////////////////
+// GENERIC MFT ATTRIBUTES
+
+// MF_SA_D3D_AWARE
+// Data type: UINT32
+// If present and set to a nonzero value, indicates that this transform is 
+// D3D-aware and can accept a D3D manager via the MFT_MESSAGE_SET_D3D_MANAGER
+// message.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D_AWARE = { 0xeaa35c29,  0x775e, 0x488e, { 0x9b, 0x61, 0xb3, 0x28, 0x3e, 0x49, 0x58, 0x3b } }; ")
+
+// MF_SA_REQUIRED_SAMPLE_COUNT
+// Data type: UINT32
+// If present, indicates the number of samples that an MFT requires to be 
+// allocated.  This value is used if the next node downstream has an 
+// IMFVideoSampleAllocator.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_REQUIRED_SAMPLE_COUNT = { 0x18802c61, 0x324b, 0x4952, { 0xab, 0xd0, 0x17, 0x6f, 0xf5, 0xc6, 0x96, 0xff } };" )
+
+// MFT_END_STREAMING_AWARE  {70FBC845-B07E-4089-B064-399DC6110F29}
+// Data type: BOOL
+// If MFT specifies this attribute, then async wrapper will forward
+// MFT_MESSAGE_NOTIFY_END_STREAMING to MFT
+cpp_quote(" EXTERN_C const DECLSPEC_SELECTANY GUID MFT_END_STREAMING_AWARE = { 0x70fbc845,  0xb07e, 0x4089, { 0xb0, 0x64, 0x39, 0x9d, 0xc6, 0x11, 0xf, 0x29 } }; ")
+
+
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS2)
+
+// MF_SA_AUDIO_ENDPOINT_AWARE  {C0381701-805C-42B2-AC8D-E2B4BF21F4F8}
+// Data type: BOOL
+// If present and set to a nonzero value, indicates that this decoder 
+// transform is audio endpoint device-aware and can accept the audio 
+// endpoint ID via the MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID attribute.
+cpp_quote(" EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_AUDIO_ENDPOINT_AWARE = { 0xc0381701, 0x805c, 0x42b2,{ 0xac, 0x8d, 0xe2, 0xb4, 0xbf, 0x21, 0xf4, 0xf8 } }; ")
+
+// MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID  {C7CCDD6E-5398-4695-8BE7-51B3E95111BD}
+// Data type: LPCWSTR
+// If set on the transform to a nonzero value, indicates that the data from 
+// this audio decoder transform will be rendered on the audio endpoint
+// device specified by the null-terminated wide-character string.
+cpp_quote(" EXTERN_C const DECLSPEC_SELECTANY GUID MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID = { 0xc7ccdd6e, 0x5398, 0x4695,{ 0x8b, 0xe7, 0x51, 0xb3, 0xe9, 0x51, 0x11, 0xbd } }; ")
+
+// MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT  {05987DF4-1270-4999-925F-8E939A7C0AF7}
+// Data type: IUnknown pointer
+// If present and set to a nonzero value, indicates that this audio decoder 
+// will expect metadata items collections to be activated using the specified
+// audio metadata client, specified by the ISpatialAudioMetadataClient interface.
+cpp_quote(" EXTERN_C const DECLSPEC_SELECTANY GUID MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT = { 0x5987df4, 0x1270, 0x4999,{ 0x92, 0x5f, 0x8e, 0x93, 0x9a, 0x7c, 0xa, 0xf7 } }; ")
+
+#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS2)
+
+// MFT_AUDIO_DECODER_AUDIO_ENDPOINT_FORMFACTOR
+// Data Type: UINT32 (treat as a value from the EndpointFormFactor enumeration in mmdeviceapi.h.)
+// This attribute is set on components via the attribute store obtained from IMFTransform::GetAttributes
+// The default value is UnknownFormFactor (10)
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_AUDIO_DECODER_AUDIO_ENDPOINT_FORMFACTOR = { 0x8d574310, 0x909a, 0x433a, { 0xac, 0xe7, 0xee, 0xe7, 0x47, 0x19, 0xf9, 0x01 } };" )
+
+// MFT_AUDIO_DECODER_AUDIO_ENDPOINT_IS_DIGITAL_STEREO_ONLY
+// Data type: UINT32 (treat as BOOL)
+// This attribute is set on components via the attribute store obtained from IMFTransform::GetAttributes
+// When the value is TRUE, it indicates that the audio renderer endpoint is a digital audio display device that only supports
+// uncompressed stereo signals.
+// The default value is FALSE.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_AUDIO_DECODER_AUDIO_ENDPOINT_IS_DIGITAL_STEREO_ONLY = { 0x26e5a90d, 0x4ad1, 0x4f8c, { 0xb8, 0xaf, 0xad, 0xf1, 0x4d, 0x21, 0x78, 0xf1 } };" )
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) ")
+
+[
+    object,
+    uuid(D818FBD8-FC46-42F2-87AC-1EA2D1F9BF32),
+    local
+]
+interface IMFDeviceTransform : IUnknown
+{
+    HRESULT InitializeTransform(
+        [in, annotation("_In_")] IMFAttributes* pAttributes
+        );
+
+    HRESULT GetInputAvailableType(
+        [in, annotation("_In_")] DWORD dwInputStreamID,
+        [in, annotation("_In_")] DWORD dwTypeIndex,
+        [out, annotation("_COM_Outptr_")] IMFMediaType** pMediaType
+        );
+
+    HRESULT GetInputCurrentType(
+        [in, annotation("_In_")] DWORD dwInputStreamID,
+        [out, annotation("_COM_Outptr_")] IMFMediaType** pMediaType
+        );
+
+    HRESULT GetInputStreamAttributes(
+        [in, annotation("_In_")] DWORD dwInputStreamID,
+        [out, annotation("_COM_Outptr_")] IMFAttributes** ppAttributes
+        );
+
+    HRESULT GetOutputAvailableType(
+        [in, annotation("_In_")] DWORD dwOutputStreamID,
+        [in, annotation("_In_")] DWORD dwTypeIndex,
+        [out, annotation("_COM_Outptr_")] IMFMediaType** pMediaType
+        );
+
+    HRESULT GetOutputCurrentType(
+        [in, annotation("_In_")] DWORD dwOutputStreamID,
+        [out, annotation("_COM_Outptr_")] IMFMediaType** pMediaType
+        );
+
+    HRESULT GetOutputStreamAttributes(
+        [in, annotation("_In_")] DWORD dwOutputStreamID,
+        [out, annotation("_COM_Outptr_")] IMFAttributes** ppAttributes
+        );
+
+    HRESULT GetStreamCount(
+        [out, annotation("_Out_")] DWORD* pcInputStreams,
+        [out, annotation("_Out_")] DWORD* pcOutputStreams
+        );
+
+    HRESULT GetStreamIDs(
+        [in, annotation("_In_")] DWORD dwInputIDArraySize,
+        [out, annotation("_Out_")] DWORD* pdwInputStreamIds,
+        [in, annotation("_In_")] DWORD dwOutputIDArraySize,
+        [out, annotation("_Out_")] DWORD* pdwOutputStreamIds
+        );
+
+    HRESULT ProcessEvent(
+        [in, annotation("_In_")] DWORD dwInputStreamID,
+        [in, annotation("_In_")] IMFMediaEvent* pEvent
+        );
+
+    HRESULT ProcessInput(
+        [in, annotation("_In_")] DWORD dwInputStreamID,
+        [in, annotation("_In_")] IMFSample* pSample,
+        [in, annotation("_In_")] DWORD dwFlags
+        );
+
+    HRESULT ProcessMessage(
+        [in, annotation("_In_")] MFT_MESSAGE_TYPE eMessage,
+        [in, annotation("_In_")] ULONG_PTR ulParam
+        );
+
+    HRESULT ProcessOutput(
+        [in, annotation("_In_")] DWORD dwFlags,
+        [in, annotation("_In_")] DWORD cOutputBufferCount,
+        [in, out, annotation("_Inout_"), size_is(cOutputBufferCount)] MFT_OUTPUT_DATA_BUFFER* pOutputSample,
+        [out, annotation("_Out_")] DWORD* pdwStatus
+        );
+
+    HRESULT SetInputStreamState(
+        [in, annotation("_In_")] DWORD dwStreamID,
+        [in, annotation("_In_")] IMFMediaType *pMediaType,
+        [in, annotation("_In_")] DeviceStreamState value,
+        [in, annotation("_In_")] DWORD dwFlags
+        );
+
+    HRESULT GetInputStreamState(
+        [in, annotation("_In_")] DWORD dwStreamID,
+        [out, annotation("_Out_")] DeviceStreamState *value
+        );
+
+    HRESULT SetOutputStreamState(
+        [in, annotation("_In_")] DWORD dwStreamID,
+        [in, annotation("_In_")] IMFMediaType *pMediaType,
+        [in, annotation("_In_")] DeviceStreamState value,
+        [in, annotation("_In_")] DWORD dwFlags
+        );
+
+    HRESULT GetOutputStreamState(
+        [in, annotation("_In_")] DWORD dwStreamID,
+        [out, annotation("_Out_")] DeviceStreamState *value
+        );
+
+    HRESULT GetInputStreamPreferredState(
+        [in, annotation("_In_")] DWORD dwStreamID,
+        [out, annotation("_Out_")] DeviceStreamState *value,
+        [out, annotation("_COM_Outptr_")] IMFMediaType** ppMediaType
+        );
+
+    HRESULT FlushInputStream(
+        [in, annotation("_In_")] DWORD dwStreamIndex,
+        [in, annotation("_In_")] DWORD dwFlags
+        );
+
+    HRESULT FlushOutputStream(
+        [in, annotation("_In_")] DWORD dwStreamIndex,
+        [in, annotation("_In_")] DWORD dwFlags
+        );
+};
+
+[
+    object,
+    uuid(F5980FED-B521-488F-909F-1A5FCECEDB14),
+    local
+]
+interface IMFDeviceTransform2 : IMFDeviceTransform
+{
+    HRESULT GetTransformAttributes(
+        [out, annotation("_COM_Outptr_")] IMFAttributes** ppAttributes
+    );
+};
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD ) ")
+
+cpp_quote("#if (NTDDI_VERSION >= _WIN32_WINNT_WIN10) ")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFDeviceTransformCallback Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// MF_DMFT_FRAME_BUFFER_INFO
+// Data type: BLOB
+// Always part of IMFDeviceTransformCallback::OnBufferSent pCallbackAttributes
+// 396CE1C9-67A9-454C-8797-95A45799D804
+cpp_quote( "EXTERN_GUID( MF_DMFT_FRAME_BUFFER_INFO,  0x396CE1C9, 0x67A9, 0x454C, 0x87, 0x97, 0x95, 0xA4, 0x57, 0x99, 0xD8, 0x04);" )
+
+[
+    object,
+    uuid(6D5CB646-29EC-41FB-8179-8C4C6D750811),
+    helpstring("IMFDeviceTransformCallback"),
+    local
+]
+interface IMFDeviceTransformCallback  : IUnknown
+{
+    // Provides information of buffers allocated and sent to driver
+    //
+    // PKSSTREAM_HEADER that is inside pInfo is meant only for READ-ONLY usage
+    // i.e., user shouldn't try to allocate/deallocate, open/close 
+    // anything within the header
+    //
+    HRESULT OnBufferSent(
+        [in, annotation("_In_")] IMFAttributes* pCallbackAttributes,
+        [in, annotation("_In_")] DWORD pinId
+    );
+};
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN10 ) ")
+
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+// MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE
+// Data type: UINT32
+// If present, indicates the number of samples that an MFT requires to be allocated 
+// for progressive content.  This value is used if the next node downstream has an 
+// IMFVideoSampleAllocator.
+// {B172D58E-FA77-4e48-8D2A-1DF2D850EAC2}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE = { 0xb172d58e, 0xfa77, 0x4e48, { 0x8d, 0x2a, 0x1d, 0xf2, 0xd8, 0x50, 0xea, 0xc2 } };" )
+
+// MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT
+// Data type: UINT32
+// If present, indicates the minimum number of samples that the MFT should allow 
+//      to be oustanding (i.e. provided to the pipeline via ProcessOutput()) at any given time.
+// This value is only applicable to MFTs that allocate output samples themselves and use 
+//      a circular allocator. Other MFTs can ignore this attribute.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT = { 0x851745d5, 0xc3d6, 0x476d, { 0x95, 0x27, 0x49, 0x8e, 0xf2, 0xd1, 0xd, 0x18 } };" )
+
+// MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE
+// Data type: UINT32
+// If present, indicates the minimum number of progressive samples that the MFT should allow 
+//      to be oustanding (i.e. provided to the pipeline via ProcessOutput()) at any given time.
+// This value is only applicable to MFTs that allocate output samples themselves and use 
+//      a circular allocator. Other MFTs can ignore this attribute.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE = { 0xf5523a5, 0x1cb2, 0x47c5, { 0xa5, 0x50, 0x2e, 0xeb, 0x84, 0xb4, 0xd1, 0x4a } };" )
+
+//
+// Attributes related to 3D video
+//
+
+//
+// MFT_SUPPORT_3DVIDEO
+// Data Type: UINT32; treat as Boolean
+// If TRUE, the transform understands 3D Video. Default is FALSE
+// This attribute should be exposed via attribute store obtained from IMFTransform::GetAttributes
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_SUPPORT_3DVIDEO = { 0x93f81b1, 0x4f2e, 0x4631, { 0x81, 0x68, 0x79, 0x34, 0x3, 0x2a, 0x1, 0xd3 } };" )
+
+// Enum that controls how components should deal with 3D video input that they receive
+// In case of transforms, only applies to those that advertise MFT_SUPPORT_3DVIDEO attribute
+typedef enum _MF3DVideoOutputType
+{
+    MF3DVideoOutputType_BaseView    = 0,
+    MF3DVideoOutputType_Stereo      = 1,
+} MF3DVideoOutputType;
+
+
+//
+// MF_ENABLE_3DVIDEO_OUTPUT
+// Data Type: UINT32; treat as one of MFVideoProcessor3DOutput
+// This attribute is SET on components via the attribute store obtained from IMFTransform::GetAttributes
+// If MF3DVideoOutputType_BaseView, component should output only the base view. This is the default.
+// If MF3DVideoOutputType_Stereo, component should output both left and right views in separate buffers
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_ENABLE_3DVIDEO_OUTPUT = { 0xbdad7bca, 0xe5f, 0x4b10, { 0xab, 0x16, 0x26, 0xde, 0x38, 0x1b, 0x62, 0x93 } };" )
+
+//
+// Attributes for D3D11 support
+//
+
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_BINDFLAGS =       { 0xeacf97ad, 0x065c, 0x4408, { 0xbe, 0xe3, 0xfd, 0xcb, 0xfd, 0x12, 0x8b, 0xe2 } };")
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_USAGE =           { 0xe85fe442, 0x2ca3, 0x486e, { 0xa9, 0xc7, 0x10, 0x9d, 0xda, 0x60, 0x98, 0x80 } };")
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_AWARE =           { 0x206b4fc8, 0xfcf9, 0x4c51, { 0xaf, 0xe3, 0x97, 0x64, 0x36, 0x9e, 0x33, 0xa0 } };")
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_SHARED =          { 0x7b8f32c3, 0x6d96, 0x4b89, { 0x92, 0x3, 0xdd, 0x38, 0xb6, 0x14, 0x14, 0xf3  } };")
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_SHARED_WITHOUT_MUTEX = { 0x39dbd44d, 0x2e44, 0x4931, { 0xa4, 0xc8, 0x35, 0x2d, 0x3d, 0xc4, 0x21, 0x15 } };")
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE = { 0xce06d49f, 0x613, 0x4b9d, { 0x86, 0xa6, 0xd8, 0xc4, 0xf9, 0xc1, 0x0, 0x75 } };")
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD)
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_HW_PROTECTED =    { 0x3a8ba9d9, 0x92ca, 0x4307, { 0xa3, 0x91, 0x69, 0x99, 0xdb, 0xf3, 0xb6, 0xce } };")
+#endif
+
+// MF_SA_BUFFERS_PER_SAMPLE
+// Data Type: UINT32
+// Specifies the # of buffers (of the same size, etc) that should be allocated for every sample.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_BUFFERS_PER_SAMPLE =    { 0x873c5171, 0x1e3d, 0x4e25, { 0x98, 0x8d, 0xb4, 0x33, 0xce, 0x04, 0x19, 0x83 } };")
+
+// MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES 
+// Data type: UINT32 
+// If present and set to a nonzero value, indicates to the decoder MFT that it should allocate its D3D
+// resources using the D3D11_RESOURCE_MISC_SHARED_DISPLAYABLE misc flag.
+// The Media Foundation pipeline will set this attribute if appropriate;
+// applications using this transform in a topology using the MF pipeline should
+// not set it directly.
+// {EEFACE6D-2EA9-4ADF-BBDF-7BBC482A1B6D} 
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES = { 0xeeface6d, 0x2ea9, 0x4adf, { 0xbb, 0xdf, 0x7b, 0xbc, 0x48, 0x2a, 0x1b, 0x6d } };" ) 
+
+// MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER
+// Data Type: UINT32 (treat as BOOL)
+// Specifies whether the codec should expose the types in native preferred order instead of reordering to expose NV12 (for example) first
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER =  { 0xef80833f, 0xf8fa, 0x44d9, { 0x80, 0xd8, 0x41, 0xed, 0x62, 0x32, 0x67, 0xc } };")
+
+
+// MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL {A24E30D7-DE25-4558-BBFB-71070A2D332E}
+// Data Type: UINT32 (treat as BOOL)
+// by default it's false
+// Specifies whether QM in video decoder mft should have the following two features for custom control externally by app or pipeline
+// 1. faster reaction time  
+// 2. drop non-reference frames only, don't drop reference frames and let pipeline or app drop decoded/raw reference frames if needed
+//
+// 
+cpp_quote("EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL =  { 0xa24e30d7, 0xde25, 0x4558, { 0xbb, 0xfb, 0x71, 0x7, 0xa, 0x2d, 0x33, 0x2e } };")
+
+
+
+// MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS
+// Data Type: UINT32 (treat as BOOL)
+// Specifies whether video decoder mft should have fast recovery from quality management with potential corruptions/artifacts (the attribute value equal to FALSE)
+// or should have slower recovery from quality management without any corruptions/artifacts (the attribute value equal to TRUE)
+// 
+cpp_quote("EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS =  { 0xd8980deb, 0xa48, 0x425f, { 0x86, 0x23, 0x61, 0x1d, 0xb4, 0x1d, 0x38, 0x10 } };")
+
+// MFT_DECODER_OPERATING_POINT
+// Data Type: UINT32
+// Specifies the operating point (spatial or temporal layer) that the decoder should emit frames up to.
+//  All lower operating points are included.  
+cpp_quote("EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_OPERATING_POINT = { 0xa1230334, 0x55d4, 0x4d97, { 0x82, 0xa7, 0x26, 0xd3, 0xe6, 0x45, 0x67, 0x25 } };")
+
+// MFT_DECODER_AUTOMATIC_SOFTWARE_FALLBACK
+// Data Type: UINT32 (treat as BOOL)
+// Specifies weather the decoder mft should automatically switch to software decoding when 
+//  hardware does not support the input bitstream.
+cpp_quote("EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_AUTOMATIC_SOFTWARE_FALLBACK = { 0x41f34f53, 0x1bf6, 0x49ed, { 0xb9, 0x5d, 0x2, 0xd2, 0xa1, 0xd7, 0x11, 0x5a } };")
+
+// MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT
+// Data Type: UINT32 (treat as BOOL)
+// Specifies whether (H.264) video REMUX mft should mark I pictures as clean point for better seek-ability with potential corruptions on seeks and non-conformant final MP4 files
+// Clean point picture should be compressed IDR pictures by defintion
+// Such an exercise is not recommended for MP4 file recording or remuxing, unless such an exercise is to produce some intermediate psedo MP4 files for video editing 
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT =  { 0x364e8f85, 0x3f2e, 0x436c, { 0xb2, 0xa2, 0x44, 0x40, 0xa0, 0x12, 0xa9, 0xe8} };")
+
+
+// MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT
+// Data Type: UINT64
+// Width and height for the final output resolution (after video processing).
+// Allows decoder to optimize the processing (e.g. disable loop filter if the output resolution is much smaller than content resolution)
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT =    { 0xdc2f8496, 0x15c4, 0x407a, { 0xb6, 0xf0, 0x1b, 0x66, 0xab, 0x5f, 0xbf, 0x53 } };")
+
+// MFT_ENCODER_SUPPORTS_CONFIG_EVENT
+// Data Type: UINT32 (treat as BOOL)
+// Advertised by encoder MFTs that support receiving MEEncodingParameters event while streaming (via IMFTransform::ProcessEvent)
+// {86A355AE-3A77-4EC4-9F31-01149A4E92DE}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_ENCODER_SUPPORTS_CONFIG_EVENT =  { 0x86a355ae, 0x3a77, 0x4ec4, { 0x9f, 0x31, 0x1, 0x14, 0x9a, 0x4e, 0x92, 0xde } };" )
+
+// MFT_ENUM_HARDWARE_VENDOR_ID_Attribute
+// Data Type: WSTR
+// For hardware MFTs, this attribute specifies the vendor ID of the hardware
+// that the HMFT is using for processing. This is only for reference and
+// is not used/verified by the topology
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_ENUM_HARDWARE_VENDOR_ID_Attribute =  { 0x3aecb0cc, 0x35b, 0x4bcc, { 0x81, 0x85, 0x2b, 0x8d, 0x55, 0x1e, 0xf3, 0xaf } };")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN8) ")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+// MF_TRANSFORM_ASYNC
+// Data type: UINT32
+// If present and set to a nonzero value, indicates that this MFT functions
+// as an asynchronous MFT.  Only callers that understand how to call
+// an asynchronous MFT can use this MFT; those callers need to set the
+// MF_TRANSFORM_ASYNC_UNLOCK before making any IMFTransform calls.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_TRANSFORM_ASYNC = { 0xf81a699a, 0x649a, 0x497d, { 0x8c, 0x73, 0x29, 0xf8, 0xfe, 0xd6, 0xad, 0x7a } };" )
+
+// MF_TRANSFORM_ASYNC_UNLOCK
+// Data type: UINT32
+// This attribute is set by the caller (not the MFT) on the MFT's attributes
+// store.  This is relevant only if the MFT has set the MF_TRANSFORM_ASYNC
+// attribute to a nonzero value.  Callers that plan to use such an MFT must
+// first set this attribute to 1; otherwise all IMFTransform calls will fail
+// with MF_E_TRANSFORM_ASYNC_LOCKED.
+// The Media Foundation pipeline will set this attribute if appropriate; 
+// applications using this transform in a topology using the MF pipeline should
+// not set it directly.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_TRANSFORM_ASYNC_UNLOCK = { 0xe5666d6b, 0x3422, 0x4eb6, { 0xa4, 0x21, 0xda, 0x7d, 0xb1, 0xf8, 0xe2, 0x7 } };" )
+
+
+// MF_TRANSFORM_FLAGS_Attribute
+// Data type: UINT32
+// This attribute is set on the attribute store of IMFActivate object 
+// that MFTEnumEx creates for every enumerated MFT.  
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_TRANSFORM_FLAGS_Attribute = { 0x9359bb7e, 0x6275, 0x46c4, { 0xa0, 0x25, 0x1c, 0x1, 0xe4, 0x5f, 0x1a, 0x86 } };" )
+
+// MF_TRANSFORM_CATEGORY_Attribute
+// Data type: GUID
+// MFTEnumEx stores this on the attribute store of IMFActivate object
+// that MFTEnumEx creates for every enumerated MFT.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MF_TRANSFORM_CATEGORY_Attribute = { 0xceabba49, 0x506d, 0x4757, { 0xa6, 0xff, 0x66, 0xc1, 0x84, 0x98, 0x7e, 0x4e } };" )
+
+// MFT_TRANSFORM_CLSID_Attribute
+// Data type: GUID
+// MFTEnumEx stores this in the attribute store of IMFActivate object
+// that MFTEnumEx creates for every enumerated MFT. CMFTransformActivate's 
+// ActivateObject function creates an instance of the CoClass with this 
+// CLSID that implements the MFT.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_TRANSFORM_CLSID_Attribute = { 0x6821c42b, 0x65a4, 0x4e82, { 0x99, 0xbc, 0x9a, 0x88, 0x20, 0x5e, 0xcd, 0xc } };" )
+
+// MFT_INPUT_TYPES_Attributes
+// Data type: BLOB
+// MFTEnumEx stores this in the attribute store of IMFActivate object
+// that MFTEnumEx creates for every enumerated MFT. This is a blob that contains
+// Major and Subtype GUID paris for each type supported by the input pins of 
+// the MFT.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_INPUT_TYPES_Attributes = { 0x4276c9b1, 0x759d, 0x4bf3, { 0x9c, 0xd0, 0xd, 0x72, 0x3d, 0x13, 0x8f, 0x96 } };" )
+
+// MFT_OUTPUT_TYPES_Attributes
+// Data type: BLOB
+// MFTEnumEx stores this in the attribute store of IMFActivate object
+// that MFTEnumEx creates for every enumerated MFT. This is a blob that contains
+// Major and Subtype GUID paris for each type supported by the output pins of 
+// the MFT.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_OUTPUT_TYPES_Attributes = { 0x8eae8cf3, 0xa44f, 0x4306, { 0xba, 0x5c, 0xbf, 0x5d, 0xda, 0x24, 0x28, 0x18 } };" )
+
+// MFT_ENUM_HARDWARE_URL_Attribute
+// Data type: WSTR
+// MFTEnumEx stores this on the attribute store of IMFActivate object
+// that MFTEnumEx creates for every enumerated MFT. Applications pass
+// this attribute to source resolver to create media source that
+// wraps a hardware. 
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_ENUM_HARDWARE_URL_Attribute = { 0x2fb866ac, 0xb078, 0x4942, { 0xab, 0x6c, 0x0, 0x3d, 0x5, 0xcd, 0xa6, 0x74 } };" )
+
+// MFT_FRIENDLY_NAME_Attribute
+// Data type: WSTR
+// MFTEnumEx stores this on the attribute store of IMFActivate object
+// that MFTEnumEx creates for every enumerated MFT. Applications 
+// use this attribute to display a readable name for the device
+// represented by the HW MFT.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_FRIENDLY_NAME_Attribute = { 0x314ffbae, 0x5b41, 0x4c95, { 0x9c, 0x19, 0x4e, 0x7d, 0x58, 0x6f, 0xac, 0xe3 } };" )
+
+// MFT_CONNECTED_STREAM_ATTRIBUTE
+// Data type: IUnknown
+// For hardware MFTs, this attribute on the output stream holds
+// the IMFAttributes from the input stream.  The MFT can query
+// this object for information it needs to perform medium negotiation
+// or other functions dependant on information from the downstream MFT
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_CONNECTED_STREAM_ATTRIBUTE  = { 0x71eeb820, 0xa59f, 0x4de2, {0xbc, 0xec, 0x38, 0xdb, 0x1d, 0xd6, 0x11, 0xa4} };" )
+// MFT_CONNECTED_TO_HW_STREAM
+// Data type: UINT32
+// When two hardware MFT streams get connected, this attribute would be set to TRUE.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_CONNECTED_TO_HW_STREAM = { 0x34e6e728, 0x6d6, 0x4491, { 0xa5, 0x53, 0x47, 0x95, 0x65, 0xd, 0xb9, 0x12 } };" )
+
+// MFT_PREFERRED_OUTPUTTYPE_Attribute
+// Data type: IUnknown, which should be IMFMediaType
+// Application uses this attribute to store 
+// the HW encoder MFT preferred output media type 
+// on the IMFActivate object that MFTEnumEx creates. 
+// When HW encoder is created, the media type will be 
+// set as its current output media type. 
+// {7E700499-396A-49ee-B1B4-F628021E8C9D}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_PREFERRED_OUTPUTTYPE_Attribute = { 0x7e700499, 0x396a, 0x49ee, { 0xb1, 0xb4, 0xf6, 0x28, 0x2, 0x1e, 0x8c, 0x9d } };" )
+
+// MFT_PROCESS_LOCAL_Attribute
+// Data type: UINT32, which should be a BOOL
+// This attribute is stored with a value of TRUE in the IActivate object for in-process registered MFTs
+// {543186E4-4649-4e65-B588-4AA352AFF379}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_PROCESS_LOCAL_Attribute = { 0x543186e4, 0x4649, 0x4e65, { 0xb5, 0x88, 0x4a, 0xa3, 0x52, 0xaf, 0xf3, 0x79 } };" )
+
+// MFT_PREFERRED_ENCODER_PROFILE
+// Data type: IUnknown
+// The IUnknown is a pointer to IMFAttributes interface.
+// This attribute store stores preferred encoder profile
+// settings.
+// {53004909-1EF5-46d7-A18E-5A75F8B5905F}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_PREFERRED_ENCODER_PROFILE = { 0x53004909, 0x1ef5, 0x46d7, { 0xa1, 0x8e, 0x5a, 0x75, 0xf8, 0xb5, 0x90, 0x5f } };" )
+
+// MFT_HW_TIMESTAMP_WITH_QPC_Attribute
+// Data type: BOOLEAN
+// When this attribute is TRUE, it indicates to a hardware MFT to timestamp outgoing samples with system time (QueryPerformanceCounter value)
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_HW_TIMESTAMP_WITH_QPC_Attribute = { 0x8d030fb8, 0xcc43, 0x4258, { 0xa2, 0x2e, 0x92, 0x10, 0xbe, 0xf8, 0x9b, 0xe4 } };" )
+
+// MFT_FIELDOFUSE_UNLOCK_Attribute
+// Data type: IUnknown
+// This attribute stores the interface to unlock the field-of-use MFTs.
+// {8EC2E9FD-9148-410d-831E-702439461A8E}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_FIELDOFUSE_UNLOCK_Attribute = { 0x8ec2e9fd, 0x9148, 0x410d, { 0x83, 0x1e, 0x70, 0x24, 0x39, 0x46, 0x1a, 0x8e } };" )
+
+// MFT_CODEC_MERIT_Attribute
+// Data type: UINT32
+// This attribute is attached to the MFT activator object and stores the merit if the MFT if it has one.
+// {88a7cb15-7b07-4a34-9128-e64c6703c4d3}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_CODEC_MERIT_Attribute = { 0x88a7cb15, 0x7b07, 0x4a34, { 0x91, 0x28, 0xe6, 0x4c, 0x67, 0x3, 0xc4, 0xd3 } };" )
+
+// MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE
+// Data type: UINT32
+// This attribute is attached to the MFT activator object and specifies if the MFT could be used in a transcode topology. If set to 1 then it 
+// should be used only in a transcode topology. If set to 0 then it could be used in transcode or playback topology. Currently this is used
+// only by devproxy based HW MFTs.
+// {111EA8CD-B62A-4bdb-89F6-67FFCDC2458B}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE = { 0x111ea8cd, 0xb62a, 0x4bdb, { 0x89, 0xf6, 0x67, 0xff, 0xcd, 0xc2, 0x45, 0x8b } };" )
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Media Foundation MFT Activate creation functions
+//
+///////////////////////////////////////////////////////////////////////////////
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote( "STDAPI" )
+cpp_quote( "MFCreateTransformActivate(" )
+cpp_quote( "    _Out_ IMFActivate** ppActivate" )
+cpp_quote( "    );" )
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Track Error Improvements
+//  TODO_WIN32_WINNT_REDSTONE
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) ")
+
+// MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE
+// Data type: MFAudioDecoderDegradationInfo
+// This attribute is used to get information about degradation info from MFT
+// {6C3386AD-EC20-430D-B2A5-505C7178D9C4}
+cpp_quote("EXTERN_GUID( MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE, 0x6c3386ad, 0xec20, 0x430d, 0xb2, 0xa5, 0x50, 0x5c, 0x71, 0x78, 0xd9, 0xc4);")
+
+typedef enum MFT_AUDIO_DECODER_DEGRADATION_REASON
+{
+    MFT_AUDIO_DECODER_DEGRADATION_REASON_NONE = 0,
+    MFT_AUDIO_DECODER_DEGRADATION_REASON_LICENSING_REQUIREMENT = 1
+} MFT_AUDIO_DECODER_DEGRADATION_REASON;
+
+typedef enum MFT_AUDIO_DECODER_DEGRADATION_TYPE
+{
+    MFT_AUDIO_DECODER_DEGRADATION_TYPE_NONE = 0,
+    MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX2CHANNEL = 1,
+    MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX6CHANNEL = 2,
+    MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX8CHANNEL = 3
+} MFT_AUDIO_DECODER_DEGRADATION_TYPE;
+
+typedef struct MFAudioDecoderDegradationInfo
+{
+    MFT_AUDIO_DECODER_DEGRADATION_REASON eDegradationReason;
+    MFT_AUDIO_DECODER_DEGRADATION_TYPE eType;
+} MFAudioDecoderDegradationInfo;
+
+typedef struct _MFT_STREAM_STATE_PARAM
+{
+    DWORD StreamId;
+    MF_STREAM_STATE State;
+} MFT_STREAM_STATE_PARAM, *PMFT_STREAM_STATE_PARAM;
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) ")
+#pragma endregion
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_VB) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+//
+// Attributes that can be used by an IMFInputTrustAuthority Decrypter.
+//
+// An implementation of a Content Decryption Module may include an implementation of 
+// IMFInputTrustAuthority. The IMFInputTrustAuthority object is accessed through 
+// IMFContentDecryptionModule::CreateTrustedInput.
+//
+
+// MFT_POLICY_SET_AWARE
+// Data type: UINT32 (treat as BOOL)
+// If nonzero, indicates that this IMFTransform wants to receive MEPolicySet completion notifications
+// {5A633B19-CC39-4FA8-8CA5-59981B7A0018}
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_POLICY_SET_AWARE = { 0x5a633b19, 0xcc39, 0x4fa8, { 0x8c, 0xa5, 0x59, 0x98, 0x1b, 0x7a, 0x0, 0x18 } };" )
+
+// MFT_USING_HARDWARE_DRM
+// Data type: UINT32 (treat as BOOL)
+// If an MFT decrypter specifies this attribute set to 1, then it is using HARDWARE DRM.
+// If an MFT decrypter specifies this attribute set to 0, then it is not using HARDWARE DRM.
+// If an MFT decrypter does not specify this attribute or specifies it with a different value,
+// then it does not (or is unable to) indicate whether it is using HARDWARE DRM or not.
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY GUID MFT_USING_HARDWARE_DRM = { 0x34faa77d, 0xd79e, 0x4957, { 0xb8, 0xce, 0x36, 0x2b, 0x26, 0x84, 0x99, 0x6c } }; " )
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_VB) ")

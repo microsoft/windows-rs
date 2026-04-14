@@ -1,0 +1,93 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "mfobjects.idl";
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+//////////////////////////////////////////////////////////////////////////////
+//
+//  MPEG-2 Media Sink
+//
+/// <summary>
+///     Initialize Media Foundation MPEG-2 sink
+/// </summary>
+//////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(0c012799-1b61-4c10-bda9-04445be5f561),
+    local
+]
+interface IMFDLNASinkInit : IUnknown
+{
+   /// <summary>
+   ///    Initialize the MPEG2 DLNA sink
+   /// </summary>
+   ///
+   /// <param name="pByteStream">
+   ///    Byte stream to write to.  Must be writable
+   /// </param>
+   ///
+   /// <param name="fPal">
+   ///    if TRUE video size and frame rate will be one of the accepted values for PAL
+   ///    if FALSE video size and frame frame will be one of the accepted values for NTSC
+   HRESULT Initialize( IMFByteStream *pByteStream, BOOL fPal );
+}
+
+//  Class ID for MPEG-2 media sink object
+//  fa5fe7c5-6a1d-4b11-b41f-f959d6c76500
+cpp_quote( "EXTERN_GUID( CLSID_MPEG2DLNASink, 0xfa5fe7c5, 0x6a1d, 0x4b11, 0xb4, 0x1f, 0xf9, 0x59, 0xd6, 0xc7, 0x65, 0x00 );" )
+
+
+//  Attribute to set realtime priority - UINT32 (BOOL)
+//  54f3e2ee-a2a2-497d-9834-973afde521eb
+cpp_quote( "EXTERN_GUID( MF_MP2DLNA_USE_MMCSS, 0x54f3e2ee, 0xa2a2, 0x497d, 0x98, 0x34, 0x97, 0x3a, 0xfd, 0xe5, 0x21, 0xeb );" )
+
+//  Target video bit rate - UINT32
+//  E88548DE-73B4-42d7-9C75-ADFA0A2A6E4C
+cpp_quote( "EXTERN_GUID( MF_MP2DLNA_VIDEO_BIT_RATE, 0xe88548de, 0x73b4, 0x42d7, 0x9c, 0x75, 0xad, 0xfa, 0xa, 0x2a, 0x6e, 0x4c );" )
+
+//  Target audio bit rate - UINT32
+//  2d1c070e-2b5f-4ab3-a7e6-8d943ba8d00a
+cpp_quote( "EXTERN_GUID( MF_MP2DLNA_AUDIO_BIT_RATE, 0x2d1c070e, 0x2b5f, 0x4ab3, 0xa7, 0xe6, 0x8d, 0x94, 0x3b, 0xa8, 0xd0, 0x0a);")
+
+
+//  Encode quality - 0 = fastest, 18 = highest quality - default 9
+//  b52379d7-1d46-4fb6-a317-a4a5f60959f8
+cpp_quote( "EXTERN_GUID( MF_MP2DLNA_ENCODE_QUALITY, 0xb52379d7, 0x1d46, 0x4fb6, 0xa3, 0x17, 0xa4, 0xa5, 0xf6, 0x09, 0x59, 0xf8);")
+
+//  Attribute to get stats - format MFMPEG2DLNASINKSTATS - type BLOB
+//  75e488a3-d5ad-4898-85e0-bcce24a722d7
+cpp_quote( "EXTERN_GUID( MF_MP2DLNA_STATISTICS, 0x75e488a3, 0xd5ad, 0x4898, 0x85, 0xe0, 0xbc, 0xce, 0x24, 0xa7, 0x22, 0xd7 );" )
+
+cpp_quote( "typedef struct _MFMPEG2DLNASINKSTATS         ")
+cpp_quote( "{                                            ")
+cpp_quote( "   DWORDLONG  cBytesWritten;                 ")
+cpp_quote( "   BOOL       fPAL;                          ")
+cpp_quote( "   DWORD      fccVideo;                      ")
+cpp_quote( "   DWORD      dwVideoWidth;                  ")
+cpp_quote( "   DWORD      dwVideoHeight;                 ")
+cpp_quote( "   DWORDLONG  cVideoFramesReceived;          ")
+cpp_quote( "   DWORDLONG  cVideoFramesEncoded;           ")
+cpp_quote( "   DWORDLONG  cVideoFramesSkipped;           ")
+cpp_quote( "   DWORDLONG  cBlackVideoFramesEncoded;      ")
+cpp_quote( "   DWORDLONG  cVideoFramesDuplicated;        ")
+cpp_quote( "   DWORD      cAudioSamplesPerSec;           ")
+cpp_quote( "   DWORD      cAudioChannels;                ")
+cpp_quote( "   DWORDLONG  cAudioBytesReceived;           ")
+cpp_quote( "   DWORDLONG  cAudioFramesEncoded;           ")
+cpp_quote( "} MFMPEG2DLNASINKSTATS;                      ")
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

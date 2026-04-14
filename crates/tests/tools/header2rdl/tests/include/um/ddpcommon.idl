@@ -1,0 +1,131 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+//      Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+import "oaidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// Dataport
+//
+
+//
+// DataPort job management status
+//
+typedef enum _DedupDataPortManagerOption
+{
+    DedupDataPortManagerOption_None = 0x00000000,
+    DedupDataPortManagerOption_AutoStart = 0x00000001,
+    DedupDataPortManagerOption_SkipReconciliation = 0x00000002
+} DedupDataPortManagerOption;
+
+//
+// Volume DataPort status
+//
+typedef enum _DedupDataPortVolumeStatus
+{
+    DedupDataPortVolumeStatus_Unknown = 0, // Invalid status
+    DedupDataPortVolumeStatus_NotEnabled = 1, // Deduplication not enabled on volume
+    DedupDataPortVolumeStatus_NotAvailable = 2, // DataPort job not running
+    DedupDataPortVolumeStatus_Initializing = 3, // DataPort Job initializing
+    DedupDataPortVolumeStatus_Ready = 4, // Ready to accept requests
+    DedupDataPortVolumeStatus_Maintenance = 5, // Reconciliation is running
+    DedupDataPortVolumeStatus_Shutdown = 6  // Job shutting down
+} DedupDataPortVolumeStatus;
+
+//
+// DataPort request status
+//
+typedef enum _DedupDataPortRequestStatus
+{
+    DedupDataPortRequestStatus_Unknown = 0, // Invalid status
+    DedupDataPortRequestStatus_Queued = 1, // Request queued
+    DedupDataPortRequestStatus_Processing = 2, // Running
+    DedupDataPortRequestStatus_Partial = 3, // Partial results available
+    DedupDataPortRequestStatus_Complete = 4, // Success
+    DedupDataPortRequestStatus_Failed = 5  // Failed
+} DedupDataPortRequestStatus;
+
+//
+// Chunk flags
+//
+typedef enum _DedupChunkFlags
+{
+    DedupChunkFlags_None = 0, // No flags
+    DedupChunkFlags_Compressed = 1  // Chunk is compressed
+} DedupChunkFlags;
+
+//
+// Dedup hash
+//
+typedef struct _DedupHash {
+    BYTE Hash[32]; // 32-byte chunk hash value
+} DedupHash;
+
+//
+// Dedup chunk info
+//
+typedef struct _DedupChunk
+{
+    DedupHash Hash;        // Uncompressed data hash
+    DedupChunkFlags Flags; // Chunk flags
+    DWORD LogicalSize;     // Uncompressed size; this field is optional
+    DWORD DataSize;        // Compressed size
+} DedupChunk;
+
+//
+// Dedup stream entry
+//
+typedef struct _DedupStreamEntry
+{
+    DedupHash Hash;    // Uncompressed data hash
+    DWORD LogicalSize; // Uncompressed size
+    DWORD64 Offset;    // Start offset in file
+} DedupStreamEntry;
+
+//
+// Dedup stream
+//
+typedef struct _DedupStream
+{
+    BSTR Path;        // File path
+    DWORD64 Offset;   // Start offset in file
+    DWORD64 Length;   // Stream length
+    DWORD ChunkCount; // Number of chunks
+} DedupStream;
+
+//
+// Chunking algorithm
+//
+typedef enum _DedupChunkingAlgorithm
+{
+    DedupChunkingAlgorithm_Unknonwn = 0, // Unknown
+    DedupChunkingAlgorithm_V1 = 1        // Deduplication V1 chunking algorithm
+} DedupChunkingAlgorithm;
+
+//
+// Hashing algorithm
+//
+typedef enum _DedupHashingAlgorithm
+{
+    DedupHashingAlgorithm_Unknonwn = 0, // Unknown
+    DedupHashingAlgorithm_V1 = 1        // Deduplication V1 hashing algorithm
+} DedupHashingAlgorithm;
+
+//
+// Compression algorithm
+//
+typedef enum _DedupCompressionAlgorithm
+{
+    DedupCompressionAlgorithm_Unknonwn = 0, // Unknown
+    DedupCompressionAlgorithm_Xpress = 1    // Xpress compression
+} DedupCompressionAlgorithm;
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

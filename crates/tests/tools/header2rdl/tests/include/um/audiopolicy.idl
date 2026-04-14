@@ -1,0 +1,730 @@
+cpp_quote("#include <winapifamily.h>")
+
+// AudioPolicy.idl : IDL source for IAudioPolicy and associated interfaces
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AudioPolicy.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "propidl.idl";
+
+import "AudioSessionTypes.h";
+import "AudioClient.idl";
+
+#pragma region Application and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef enum AudioSessionDisconnectReason
+{
+    DisconnectReasonDeviceRemoval,
+    DisconnectReasonServerShutdown,
+    DisconnectReasonFormatChanged,
+    DisconnectReasonSessionLogoff,
+    DisconnectReasonSessionDisconnected,
+    DisconnectReasonExclusiveModeOverride
+
+} AudioSessionDisconnectReason;
+
+/*++    IAudioSessionEvents - Interface that encapsulates AudioSession change
+*                      events.
+*--*/
+[
+    object,
+    pointer_default(unique),
+    uuid(24918ACC-64B3-37C1-8CA9-74A66E9957A8),
+    local
+]
+interface IAudioSessionEvents : IUnknown {
+    //
+    //  Application initiated events.
+    //
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when the display name of an AudioSession changes. 
+    //
+    // Parameters:
+    //
+    //  newDisplayName - [in] The new display name for the Audio Session.
+    //  EventContext - [in] Context passed to SetDisplayName routine.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnDisplayNameChanged([in, string, annotation("_In_")]LPCWSTR NewDisplayName, [in] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when the icon path of an AudioSession changes. 
+    //
+    // Parameters:
+    //
+    //  NewIconPath - [in] The new icon path for the Audio Session.
+    //  EventContext - [in] Context passed to SetIconPath routine.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnIconPathChanged([in, string, annotation("_In_")]LPCWSTR NewIconPath, [in] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when the simple volume of an AudioSession changes.
+    //
+    // Parameters:
+    //
+    //      newVolume - [in] The new volume for the AudioSession.
+    //      newMute - [in] The new mute state for the AudioSession.
+    //      EventContext - [in] Context passed to SetVolume routine.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnSimpleVolumeChanged([in, annotation("_In_")] float NewVolume, [in, annotation("_In_")] BOOL NewMute, [in] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when the channel volume of an AudioSession changes.
+    //
+    // Parameters:
+    //
+    //      ChannelCount - [in] The number of channels in the channel array.
+    //      NewChannelVolumeArray - [in] An array containing the new channel volumes.
+    //      ChangedChannel - [in] -1 if all channnels were changed, otherwise the channel volume which changed,
+    //                          0..ChannelCount-1
+    //      EventContext - [in] Context passed to SetVolume routine.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure (ignored)
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnChannelVolumeChanged([in, annotation("_In_")] DWORD ChannelCount, [in, size_is(ChannelCount), annotation("_In_reads_(ChannelCount)")]float NewChannelVolumeArray[*], [in, annotation("_In_")]DWORD ChangedChannel, [in] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called when the grouping param of an Audio Session changes.
+    //
+    // Parameters:
+    //      NewGroupingParam - [in] The new gropuing param for the Audio Session.
+    //      EventContext - [in] Context passed to SetGroupingParam routine.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnGroupingParamChanged([in, annotation("_In_")] LPCGUID NewGroupingParam, [in] LPCGUID EventContext);
+
+    //
+    //  System initiated events.
+    //
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Called when the state of an AudioSession changes.
+    //
+    // Parameters:
+    //
+    //      newState - [in] The new state for the AudioSession.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnStateChanged([in, annotation("_In_")] AudioSessionState NewState);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //      Called when the audio session has been disconnected.
+    //
+    // Parameters:
+    //      DisconnectReason - [in] The reason for the disconnection.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Please note: The caller of this function ignores all return
+    //  codes from this method.
+    //
+    HRESULT OnSessionDisconnected([in, annotation("_In_")] AudioSessionDisconnectReason DisconnectReason);
+};
+
+/*++    IAudioSessionControl - Client interface that allows control over a
+*                      AudioSession.
+*--*/
+[
+    object,
+    uuid(F4B1A599-7266-4319-A8CA-E70ACB11E8CD),
+    helpstring("AudioSession Control Interface"),
+    pointer_default(unique),
+    local
+]
+interface IAudioSessionControl : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the current AudioSession state.
+    //
+    // Parameters:
+    //
+    //  pRetVal - [out] The current AudioSession state, either
+    //                      AudioSessionStateActive or AudioSessionStateInactive
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    // Remarks:
+    //     
+    //  If an AudioSession has audio streams currently opened on the AudioSession,
+    //  the AudioSession is considered active, otherwise it is inactive.
+    //
+    HRESULT GetState([out, annotation("_Out_")] AudioSessionState* pRetVal);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets or retrieves the current display name of the AudioSession.
+    //
+    // Parameters:
+    //
+    //  Value - [in] A string containing the current display name for the AudioSession.
+    //
+    //  pRetVal - [out] A string containing the current display name for the
+    //                  AudioSession. Caller should free this with CoTaskMemFree.
+    //
+    //                  The DisplayName may be in the form of a shell resource spcification, in which case
+    //                  the volume UI will extract the display name for the current language from
+    //                  the specified path.
+    //
+    //              The shell resource specification is of the form:
+    //              <path(including %environmentvariable%)>\<dll name>,<resource ID>
+    //          So:"%windir%\system32\shell32.dll,-240" is an example.
+    // EventContext - [in] Context passed to OnDisplayNameChanged routine, GUID_NULL if NULL.
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    // Remarks:
+    //      The application hosting the session controls the display name, if the application has NOT set the display name,
+    //      then this will return an empty string ("").
+    //
+    //-------------------------------------------------------------------------
+    HRESULT GetDisplayName([out, string, annotation("_Out_")] LPWSTR* pRetVal);
+    HRESULT SetDisplayName([in, string, annotation("_In_")] LPCWSTR Value, [in, unique] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets or retrieves an icon resource associated with the session.
+    //
+    // Parameters:
+    //
+    //  Value - [in] A string containing a shell resource specification used to retrieve 
+    //                  the icon for the Audio Session.  The volume UI will pass this string 
+    //                  to the ExtractIcon(Ex) API to extract the icon that is displayed
+    //
+    //              The shell resource specification is of the form:
+    //              <path(including %environmentvariable%)>\<dll name>,<resource ID>
+    //          So:"%windir%\system32\shell32.dll,-240" is an example.
+    //
+    //  pRetVal - [out] A string containing the shell resource specification for the
+    //                  Audio Session. Caller should free this with CoTaskMemFree.
+    //  EventContext - [in] Context passed to OnIconPathChanged routine.
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    // Remarks:
+    //      The application hosting the session controls the icon path, if the application has NOT set the icon path,
+    //      then this will return an empty string ("").
+    //
+    //-------------------------------------------------------------------------
+    HRESULT GetIconPath([out, string, annotation("_Out_")] LPWSTR* pRetVal);
+    HRESULT SetIconPath([in, string, annotation("_In_")] LPCWSTR Value, [in, unique] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets or sets the current grouping param of the Audio Session.
+    //
+    // Parameters:
+    //
+    //  GroupingParam - [in] The GUID grouping param for the current Audio Session.
+    //  pRetVal - [out] The GUID grouping param for the current Audio Session.
+    //  EventContext - [in] Context passed to OnGroupingParamChanged routine.
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    // Remarks:
+    //  Normally the volume control application (sndvol.exe) will launch a separate slider
+    //  for each audio session.  If an application wishes to override this behavior, it can
+    //  set the session grouping param to an application defined GUID.  When the volume 
+    //  control application sees two sessions with the same session control, it will only 
+    //  display a single slider for those applications.
+    //
+    //  As an example, normally, if you launch two copies of sndrec32.exe, then you will see 
+    //  two volume control sliders in the windows volume control application.  If sndrec32.exe
+    //  sets the grouping param, then the volume control will only show one slider, even though
+    //  there are two sessions.
+    //
+    //  Please note that there are still two sessions, each with its own volume control, and those
+    //  volume controls may not have the same value.  If this is the case, then it is the responsibility
+    //  of the application to ensure that the volume control on each session has the same value.
+    //
+    //
+    //
+    HRESULT GetGroupingParam([out, annotation("_Out_")] GUID* pRetVal);
+    HRESULT SetGroupingParam([in, annotation("_In_")] LPCGUID Override, [in, unique] LPCGUID EventContext);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Add a notification callback to the list of AudioSession notification
+    //  callbacks.
+    //
+    // Parameters:
+    //
+    //  NewNotifications - [in] An object implementing the IAudioSessionEvents
+    //                  interface.
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT RegisterAudioSessionNotification([in, annotation("_In_")]IAudioSessionEvents *NewNotifications);
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Remove a notification callback to the list of AudioSession notification
+    //  callbacks.
+    //
+    // Parameters:
+    //
+    //  NewNotifications - [in] An object implementing the IAudioSessionEvents
+    //                  interface.
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    //  Remarks:
+    //      Please note: This function is a "finalizer".  As such,
+    //      assuming that the NewNotification parameter has been
+    //      previously registered for notification, this function has
+    //      no valid failure modes.
+    //
+    HRESULT UnregisterAudioSessionNotification([in, annotation("_In_")]IAudioSessionEvents *NewNotifications);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+/*++    IAudioSessionControl2 - Client interface that allows control over an
+*                      AudioSession.
+*--*/
+[
+object,
+uuid(bfb7ff88-7239-4fc9-8fa2-07c950be9c6d),
+helpstring("AudioSession Control Extended Interface"),
+pointer_default(unique),
+local
+]
+interface IAudioSessionControl2 : IAudioSessionControl
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the AudioSession ID.
+    //
+    // Parameters:
+    //
+    //  pRetVal - [out] A string containing the ID of the AudioSession.
+    //                  Freed with CoTaskMemFree
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    // Remarks:
+    //     
+    //  Each AudioSession has a unique identifier string associated with it.
+    //  This ID string represents the identifier of the AudioSession.  It is NOT unique across all instances - if there are two
+    //  instances of the application playing, they will both have the same session identifier.
+    //
+    HRESULT GetSessionIdentifier([out, string, annotation("_Out_")] LPWSTR* pRetVal);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the AudioSession instance ID.
+    //
+    // Parameters:
+    //
+    //  pRetVal - [out] A string containing the instance ID of the AudioSession.
+    //                  Freed with CoTaskMemFree
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    // Remarks:
+    //     
+    //  Each AudioSession has a unique identifier string associated with it.
+    //  This ID string represents the particular instance of the AudioSession.
+    //
+    //  The session instance identifier is unique across all instances, if there are two instances of the application playing,
+    //  they will have different instance identifiers.
+    //
+    HRESULT GetSessionInstanceIdentifier([out, string, annotation("_Out_")] LPWSTR* pRetVal);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Retrieves the AudioSession Process ID.
+    //
+    // Parameters:
+    //
+    //  pRetVal - [out] A string containing the ID of the AudioSession.
+    //                  Freed with CoTaskMemFree
+    //
+    // Return values:
+    //
+    //      S_OK        Success
+    //      AUDCLNT_E_NO_SINGLE_PROCESS Indicates that the session spans more than one process.
+    //      FAILURECODE Failure
+    //
+    // Remarks:
+    //     
+    //   
+    //
+    HRESULT GetProcessId([out, annotation("_Out_")] DWORD* pRetVal);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Determines if the specified session is the system sounds session
+    //
+    // Parameters:
+    //
+    //  None
+    //
+    // Return values:
+    //
+    //      S_OK        Success - The session is the system sounds session.
+    //      S_FALSE     Success - The session is NOT the system sounds session.
+    //      FAILURECODE Failure
+    //
+    HRESULT IsSystemSoundsSession();
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Allows client to set its ducking preference
+    //
+    // Parameters:
+    //      optOut - [in] indicates whether caller wants to opt out of 
+    //                     system auto-ducking    
+    //
+    // Remarks
+    //
+    //      An application should call this method in advance of receiving
+    //      a ducking notification (generally at stream create time).  This
+    //	   method can be called dynamically (i.e. over and over) as its
+    //      desire to opt in or opt out of ducking changes.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+	HRESULT SetDuckingPreference([in] BOOL optOut);
+
+} // IAudioSessionControl2
+
+
+/*++    IAudioSessionManager.
+ *
+ *          Provides support for accessing the session control and volume control for sessions in this process.
+ *
+ *--*/
+[
+    object,
+    uuid(BFA971F1-4D5E-40BB-935E-967039BFBEE4),
+    helpstring("Audio Session Manager Interface"),
+    pointer_default(unique),
+    local
+]
+interface IAudioSessionManager : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Return an audio session control for the current process.
+    //
+    // Parameters:
+    //      AudioSessionGuid - [in] Session ID for the session.
+    //      StreamFlags    - [in] combinarion of .AUDCLNT_STREAMFLAGS_XYZ flags
+    //      SessionControl   - [out] Returns a pointer to an audio session control for the current process.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT GetAudioSessionControl([in, annotation("_In_opt_")]LPCGUID AudioSessionGuid, [in, annotation("_In_")] DWORD StreamFlags, [out, annotation("_Outptr_")] IAudioSessionControl **SessionControl);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Return an audio volume control for the current process.
+    //
+    // Parameters:
+    //      AudioSessionGuid - [in] Session ID for the session.
+    //      StreamFlags    - [in] combinarion of .AUDCLNT_STREAMFLAGS_XYZ flags
+    //      AudioVolume   - [out] Returns a pointer to an audio volume control for a session in the current process.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT GetSimpleAudioVolume([in, annotation("_In_opt_")]LPCGUID AudioSessionGuid, [in, annotation("_In_")] DWORD StreamFlags, [out, annotation("_Outptr_")] ISimpleAudioVolume **AudioVolume);
+}
+
+
+/*++    IAudioVolumeDuckNotification - Notification on session changes.
+*
+*--*/
+[
+    object,
+    uuid(C3B284D4-6D39-4359-B3CF-B56DDB3BB39C),
+    helpstring("Audio Session Notification Interface"),
+    pointer_default(unique),
+    local
+]
+interface IAudioVolumeDuckNotification : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Notification of a pending system auto-duck 
+    //
+    // Parameters:
+    //      sessionID - [in] Session instance ID of the communications session 
+    //                        creating the auto-ducking event.
+    //      countCommunicationsSessions - [in] the number of active 
+    //                                         communications sessions (first
+    //                                         session is 1).
+    //      
+    //
+    // Remarks
+    //
+    //      If applications wish to opt out of ducking, they must call 
+    //      IAudioVolumeDuck::SetDuckingPreference()
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT OnVolumeDuckNotification([in] LPCWSTR sessionID, [in] UINT32 countCommunicationSessions);
+
+    // Description:
+    //
+    //      Notification of a pending system auto-unduck
+    //
+    // Parameters:
+    //      sessionID - [in] Session instance ID of the communications session 
+    //                        that is terminating.
+    //      countCommunicationsSessions - [in] the number of active 
+    //                                         communications sessions (last
+    //                                         session is 1).
+    //
+    // Remarks
+    //
+    //      This is simply a notification that 
+    //      the communications stream that initiated the ducking is terminating.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT OnVolumeUnduckNotification([in] LPCWSTR sessionID);
+}
+
+/*++    IAudioSessionNotification - Notification on session changes.
+*
+*--*/
+[
+    object,
+    uuid(641DD20B-4D41-49CC-ABA3-174B9477BB08),
+    helpstring("Audio Session Notification Interface"),
+    pointer_default(unique),
+    local
+]
+interface IAudioSessionNotification : IUnknown
+{
+    HRESULT OnSessionCreated([in] IAudioSessionControl *NewSession);
+}
+
+
+/*++    IAudioSessionEnumerator - Session enumeration.
+*
+*--*/
+[
+    object,
+    uuid(E2F5BB11-0570-40CA-ACDD-3AA01277DEE8),
+    helpstring("Audio Session Enumerator Interface"),
+    pointer_default(unique),
+    local
+]
+interface IAudioSessionEnumerator : IUnknown
+{
+    HRESULT GetCount([out] int *SessionCount);
+    HRESULT GetSession([in] int SessionCount, [out] IAudioSessionControl **Session);
+}
+
+
+/*++    IAudioSessionManager2 - Manage interface for all submixes - Supports
+*                      enumeration and notification of submixes.  Also
+*                      provides support for ducking notifications.
+*
+*--*/
+[
+    object,
+    uuid(77AA99A0-1BD6-484F-8BC7-2C654C9A9B6F),
+    helpstring("Audio Session Manager Extended Interface"),
+    pointer_default(unique),
+    local
+]
+interface IAudioSessionManager2 : IAudioSessionManager
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Return the audio session enumerator.
+    //
+    // Parameters:
+    //      SessionList - [out] An IAudioSessionEnumerator interface that
+    //                          can enumerate the audio sessions.  
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT GetSessionEnumerator([out, retval]IAudioSessionEnumerator **SessionEnum);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Add the specified process ID as a target for session
+    //      notifications.
+    //
+    // Parameters:
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT RegisterSessionNotification(IAudioSessionNotification *SessionNotification);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Remove the specified process ID as a target for session
+    //      notifications.
+    //
+    // Parameters:
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    //
+    HRESULT UnregisterSessionNotification(IAudioSessionNotification *SessionNotification);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Register for notification of a pending system auto-duck
+    //
+    // Parameters:
+    //      sessionID - [in] A filter.  Applications like media players
+    //                        that are interested in their sessions will
+    //                        pass their own session instance ID.  Other applications
+    //                        that want to see all the ducking notifications
+    //                        can pass NULL.
+    //      duckNotification - [in] Object which implements the
+    //                        IAudioVolumeDuckNotification interface
+    //                        which will receive new notifications. 
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    HRESULT RegisterDuckNotification([in, string] LPCWSTR sessionID, [in, annotation("_In_")]IAudioVolumeDuckNotification * duckNotification);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //      Unregisters for notification of a pending system auto-duck
+    //
+    // Parameters:
+    //      duckNotification - [in] Object which implements the
+    //                        IAudioVolumeDuckNotification interface
+    //                        previously registered, which will be
+    //                        no longer receive notifications.  Please
+    //                        note that after this routine returns, no
+    //                        all pending notifications will have been
+    //                        processed.
+    //
+    // Return values:
+    //      S_OK        Success
+    //      FAILURECODE Failure
+    HRESULT UnregisterDuckNotification([in, annotation("_In_")]IAudioVolumeDuckNotification * duckNotification);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

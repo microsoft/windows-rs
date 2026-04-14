@@ -1,0 +1,1376 @@
+/////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+// sdoias.idl : IDL source for IAS Server Data Object
+//
+// History:
+//             <long time ago>		Created
+//             <some time ago>      Changed many times
+//             04/2007              Added IAS_ATTRIBUTE_USER_TOKEN_SID and IAS_ATTRIBUTE_MACHINE_TOKEN_SID
+//
+//////////////////////////////////////////////////////////////////////////////
+#ifndef __SDOIAS_IDL__
+#define __SDOIAS_IDL__
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//////////////////////////////////////////////////////////////////////////////
+// Type Library
+//////////////////////////////////////////////////////////////////////////////
+[
+   uuid(81DDF732-4AA8-4a35-BDFF-8B42EFE7C624),
+   version(1.0),
+   helpstring("IAS SDO 1.0 Type Library")
+]
+library SDOIASLib
+{
+   importlib("stdole2.tlb");
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name:   ATTRIBUTEID
+   //
+   // What:   IAS Dictionary attribute IDs
+   //
+   // Purpose:   Defines the set of IDs for IAS dictionary attributes
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ATTRIBUTEID
+   {
+      ATTRIBUTE_UNDEFINED=0,
+      ATTRIBUTE_MIN_VALUE=1,
+      RADIUS_ATTRIBUTE_USER_NAME = ATTRIBUTE_MIN_VALUE,
+      RADIUS_ATTRIBUTE_USER_PASSWORD,
+      RADIUS_ATTRIBUTE_CHAP_PASSWORD,
+      RADIUS_ATTRIBUTE_NAS_IP_ADDRESS,
+      RADIUS_ATTRIBUTE_NAS_PORT,
+      RADIUS_ATTRIBUTE_SERVICE_TYPE,
+      RADIUS_ATTRIBUTE_FRAMED_PROTOCOL,
+      RADIUS_ATTRIBUTE_FRAMED_IP_ADDRESS,
+      RADIUS_ATTRIBUTE_FRAMED_IP_NETMASK,
+      RADIUS_ATTRIBUTE_FRAMED_ROUTING = 10,
+      RADIUS_ATTRIBUTE_FILTER_ID,
+      RADIUS_ATTRIBUTE_FRAMED_MTU,
+      RADIUS_ATTRIBUTE_FRAMED_COMPRESSION,
+      RADIUS_ATTRIBUTE_LOGIN_IP_HOST,
+      RADIUS_ATTRIBUTE_LOGIN_SERVICE,
+      RADIUS_ATTRIBUTE_LOGIN_TCP_PORT,
+      RADIUS_ATTRIBUTE_UNASSIGNED1,
+      RADIUS_ATTRIBUTE_REPLY_MESSAGE,
+      RADIUS_ATTRIBUTE_CALLBACK_NUMBER,
+      RADIUS_ATTRIBUTE_CALLBACK_ID = 20,
+      RADIUS_ATTRIBUTE_UNASSIGNED2,
+      RADIUS_ATTRIBUTE_FRAMED_ROUTE,
+      RADIUS_ATTRIBUTE_FRAMED_IPX_NETWORK,
+      RADIUS_ATTRIBUTE_STATE,
+      RADIUS_ATTRIBUTE_CLASS,
+      RADIUS_ATTRIBUTE_VENDOR_SPECIFIC,
+      RADIUS_ATTRIBUTE_SESSION_TIMEOUT,
+      RADIUS_ATTRIBUTE_IDLE_TIMEOUT,
+      RADIUS_ATTRIBUTE_TERMINATION_ACTION,
+      RADIUS_ATTRIBUTE_CALLED_STATION_ID = 30,
+      RADIUS_ATTRIBUTE_CALLING_STATION_ID,
+      RADIUS_ATTRIBUTE_NAS_IDENTIFIER,
+      RADIUS_ATTRIBUTE_PROXY_STATE,
+      RADIUS_ATTRIBUTE_LOGIN_LAT_SERVICE,
+      RADIUS_ATTRIBUTE_LOGIN_LAT_NODE,
+      RADIUS_ATTRIBUTE_LOGIN_LAT_GROUP,
+      RADIUS_ATTRIBUTE_FRAMED_APPLETALK_LINK,
+      RADIUS_ATTRIBUTE_FRAMED_APPLETALK_NET,
+      RADIUS_ATTRIBUTE_FRAMED_APPLETALK_ZONE,
+      RADIUS_ATTRIBUTE_ACCT_STATUS_TYPE = 40,
+      RADIUS_ATTRIBUTE_ACCT_DELAY_TIME,
+      RADIUS_ATTRIBUTE_ACCT_INPUT_OCTETS,
+      RADIUS_ATTRIBUTE_ACCT_OUTPUT_OCTETS,
+      RADIUS_ATTRIBUTE_ACCT_SESSION_ID,
+      RADIUS_ATTRIBUTE_ACCT_AUTHENTIC,
+      RADIUS_ATTRIBUTE_ACCT_SESSION_TIME,
+      RADIUS_ATTRIBUTE_ACCT_INPUT_PACKETS,
+      RADIUS_ATTRIBUTE_ACCT_OUTPUT_PACKETS,
+      RADIUS_ATTRIBUTE_ACCT_TERMINATE_CAUSE,
+      RADIUS_ATTRIBUTE_ACCT_MULTI_SSN_ID = 50,
+      RADIUS_ATTRIBUTE_ACCT_LINK_COUNT = 51,
+      RADIUS_ATTRIBUTE_CHAP_CHALLENGE = 60,
+      RADIUS_ATTRIBUTE_NAS_PORT_TYPE,
+      RADIUS_ATTRIBUTE_PORT_LIMIT,
+      RADIUS_ATTRIBUTE_LOGIN_LAT_PORT,
+      RADIUS_ATTRIBUTE_TUNNEL_TYPE,
+      RADIUS_ATTRIBUTE_TUNNEL_MEDIUM_TYPE,
+      RADIUS_ATTRIBUTE_TUNNEL_CLIENT_ENDPT,
+      RADIUS_ATTRIBUTE_TUNNEL_SERVER_ENDPT,
+      RADIUS_ATTRIBUTE_ACCT_TUNNEL_CONN,
+      RADIUS_ATTRIBUTE_TUNNEL_PASSWORD,
+      RADIUS_ATTRIBUTE_ARAP_PASSWORD = 70,
+      RADIUS_ATTRIBUTE_ARAP_FEATURES,
+      RADIUS_ATTRIBUTE_ARAP_ZONE_ACCESS,
+      RADIUS_ATTRIBUTE_ARAP_SECURITY,
+      RADIUS_ATTRIBUTE_ARAP_SECURITY_DATA,
+      RADIUS_ATTRIBUTE_PASSWORD_RETRY,
+      RADIUS_ATTRIBUTE_PROMPT = 76,
+      RADIUS_ATTRIBUTE_CONNECT_INFO,
+      RADIUS_ATTRIBUTE_CONFIGURATION_TOKEN,
+      RADIUS_ATTRIBUTE_EAP_MESSAGE,
+      RADIUS_ATTRIBUTE_SIGNATURE = 80,
+      RADIUS_ATTRIBUTE_TUNNEL_PVT_GROUP_ID,
+      RADIUS_ATTRIBUTE_TUNNEL_ASSIGNMENT_ID,
+      RADIUS_ATTRIBUTE_TUNNEL_PREFERENCE,
+      RADIUS_ATTRIBUTE_ARAP_CHALLENGE_RESPONSE,
+      RADIUS_ATTRIBUTE_ACCT_INTERIM_INTERVAL = 85,
+      RADIUS_ATTRIBUTE_NAS_IPv6_ADDRESS = 95,
+      RADIUS_ATTRIBUTE_FRAMED_INTERFACE_ID,
+      RADIUS_ATTRIBUTE_FRAMED_IPv6_PREFIX,
+      RADIUS_ATTRIBUTE_LOGIN_IPv6_HOST,
+      RADIUS_ATTRIBUTE_FRAMED_IPv6_ROUTE,
+      RADIUS_ATTRIBUTE_FRAMED_IPv6_POOL = 100,
+      // RADIUS_ATTRIBUTE_
+      // New RADIUS Attribute IDs Here...
+
+      IAS_ATTRIBUTE_SAVED_RADIUS_FRAMED_IP_ADDRESS = 0x1000,
+      IAS_ATTRIBUTE_SAVED_RADIUS_CALLBACK_NUMBER,
+      IAS_ATTRIBUTE_NP_CALLING_STATION_ID,
+      IAS_ATTRIBUTE_SAVED_NP_CALLING_STATION_ID,
+      IAS_ATTRIBUTE_SAVED_RADIUS_FRAMED_ROUTE,
+      IAS_ATTRIBUTE_IGNORE_USER_DIALIN_PROPERTIES,
+      IAS_ATTRIBUTE_NP_TIME_OF_DAY,
+      IAS_ATTRIBUTE_NP_CALLED_STATION_ID,
+      IAS_ATTRIBUTE_NP_ALLOWED_PORT_TYPES = 0x1008,
+      IAS_ATTRIBUTE_NP_AUTHENTICATION_TYPE,
+      IAS_ATTRIBUTE_NP_ALLOWED_EAP_TYPE,
+      IAS_ATTRIBUTE_SHARED_SECRET,
+      IAS_ATTRIBUTE_CLIENT_IP_ADDRESS,
+      IAS_ATTRIBUTE_CLIENT_PACKET_HEADER,
+      IAS_ATTRIBUTE_TOKEN_GROUPS,
+      IAS_ATTRIBUTE_ALLOW_DIALIN,
+      IAS_ATTRIBUTE_REQUEST_ID = 0x1010,
+      IAS_ATTRIBUTE_MANIPULATION_TARGET,
+      IAS_ATTRIBUTE_MANIPULATION_RULE,
+      IAS_ATTRIBUTE_ORIGINAL_USER_NAME,
+      IAS_ATTRIBUTE_CLIENT_VENDOR_TYPE,
+      IAS_ATTRIBUTE_CLIENT_UDP_PORT,
+      MS_ATTRIBUTE_CHAP_CHALLENGE,
+      MS_ATTRIBUTE_CHAP_RESPONSE,
+      MS_ATTRIBUTE_CHAP_DOMAIN = 0x1018,
+      MS_ATTRIBUTE_CHAP_ERROR,
+      MS_ATTRIBUTE_CHAP_CPW1 ,
+      MS_ATTRIBUTE_CHAP_CPW2,
+      MS_ATTRIBUTE_CHAP_LM_ENC_PW,
+      MS_ATTRIBUTE_CHAP_NT_ENC_PW,
+      MS_ATTRIBUTE_CHAP_MPPE_KEYS,
+      IAS_ATTRIBUTE_AUTHENTICATION_TYPE,
+      IAS_ATTRIBUTE_CLIENT_NAME = 0x1020,
+      IAS_ATTRIBUTE_NT4_ACCOUNT_NAME,
+      IAS_ATTRIBUTE_FULLY_QUALIFIED_USER_NAME,
+      IAS_ATTRIBUTE_NTGROUPS,
+      IAS_ATTRIBUTE_EAP_FRIENDLY_NAME,
+      IAS_ATTRIBUTE_AUTH_PROVIDER_TYPE,
+      MS_ATTRIBUTE_ACCT_AUTH_TYPE,
+      MS_ATTRIBUTE_ACCT_EAP_TYPE,
+      IAS_ATTRIBUTE_PACKET_TYPE = 0x1028,
+      IAS_ATTRIBUTE_AUTH_PROVIDER_NAME,
+      IAS_ATTRIBUTE_ACCT_PROVIDER_TYPE,
+      IAS_ATTRIBUTE_ACCT_PROVIDER_NAME,
+      MS_ATTRIBUTE_MPPE_SEND_KEY,
+      MS_ATTRIBUTE_MPPE_RECV_KEY,
+      IAS_ATTRIBUTE_REASON_CODE,
+      MS_ATTRIBUTE_FILTER,
+      MS_ATTRIBUTE_CHAP2_RESPONSE = 0x1030,
+      MS_ATTRIBUTE_CHAP2_SUCCESS,
+      MS_ATTRIBUTE_CHAP2_CPW,
+      MS_ATTRIBUTE_RAS_VENDOR,
+      MS_ATTRIBUTE_RAS_VERSION,
+      IAS_ATTRIBUTE_NP_NAME,
+      MS_ATTRIBUTE_PRIMARY_DNS_SERVER,
+      MS_ATTRIBUTE_SECONDARY_DNS_SERVER,
+      MS_ATTRIBUTE_PRIMARY_NBNS_SERVER = 0x1038,
+      MS_ATTRIBUTE_SECONDARY_NBNS_SERVER,
+      IAS_ATTRIBUTE_PROXY_POLICY_NAME,
+      IAS_ATTRIBUTE_PROVIDER_TYPE,
+      IAS_ATTRIBUTE_PROVIDER_NAME,
+      IAS_ATTRIBUTE_REMOTE_SERVER_ADDRESS,
+      IAS_ATTRIBUTE_GENERATE_CLASS_ATTRIBUTE,
+      MS_ATTRIBUTE_RAS_CLIENT_NAME,
+      MS_ATTRIBUTE_RAS_CLIENT_VERSION = 0x1040,
+      IAS_ATTRIBUTE_ALLOWED_CERTIFICATE_EKU,
+      IAS_ATTRIBUTE_EXTENSION_STATE,
+      IAS_ATTRIBUTE_GENERATE_SESSION_TIMEOUT,
+      IAS_ATTRIBUTE_SESSION_TIMEOUT,
+      MS_ATTRIBUTE_QUARANTINE_IPFILTER,
+      MS_ATTRIBUTE_QUARANTINE_SESSION_TIMEOUT,
+      MS_ATTRIBUTE_USER_SECURITY_IDENTITY,
+      IAS_ATTRIBUTE_REMOTE_RADIUS_TO_WINDOWS_USER_MAPPING = 0x1048,
+      IAS_ATTRIBUTE_PASSPORT_USER_MAPPING_UPN_SUFFIX,
+      IAS_ATTRIBUTE_TUNNEL_TAG,
+      IAS_ATTRIBUTE_NP_PEAPUPFRONT_ENABLED,
+      IAS_ATTRIBUTE_CERTIFICATE_EKU=8097,
+      IAS_ATTRIBUTE_EAP_CONFIG,
+      IAS_ATTRIBUTE_PEAP_EMBEDDED_EAP_TYPEID,
+      IAS_ATTRIBUTE_PEAP_FAST_ROAMED_SESSION=8100,
+      IAS_ATTRIBUTE_EAP_TYPEID,
+      MS_ATTRIBUTE_EAP_TLV,
+      IAS_ATTRIBUTE_REJECT_REASON_CODE,
+      IAS_ATTRIBUTE_PROXY_EAP_CONFIG,
+      IAS_ATTRIBUTE_EAP_SESSION,
+      IAS_ATTRIBUTE_IS_REPLAY,
+      IAS_ATTRIBUTE_CLEAR_TEXT_PASSWORD,
+      MS_ATTRIBUTE_IDENTITY_TYPE,
+      MS_ATTRIBUTE_SERVICE_CLASS,
+      MS_ATTRIBUTE_QUARANTINE_USER_CLASS=8110,
+      MS_ATTRIBUTE_QUARANTINE_STATE,
+      IAS_ATTRIBUTE_OVERRIDE_RAP_AUTH,
+      IAS_ATTRIBUTE_PEAP_CHANNEL_UP,
+      IAS_ATTRIBUTE_NAME_MAPPED,
+      IAS_ATTRIBUTE_POLICY_ENFORCED,
+      IAS_ATTRIBUTE_MACHINE_NTGROUPS,
+      IAS_ATTRIBUTE_USER_NTGROUPS,
+      IAS_ATTRIBUTE_MACHINE_TOKEN_GROUPS,
+      IAS_ATTRIBUTE_USER_TOKEN_GROUPS,
+      MS_ATTRIBUTE_QUARANTINE_GRACE_TIME=8120,
+      IAS_ATTRIBUTE_QUARANTINE_URL,
+      IAS_ATTRIBUTE_QUARANTINE_FIXUP_SERVERS,
+      MS_ATTRIBUTE_NOT_QUARANTINE_CAPABLE,
+      IAS_ATTRIBUTE_QUARANTINE_SYSTEM_HEALTH_RESULT,
+      IAS_ATTRIBUTE_QUARANTINE_SYSTEM_HEALTH_VALIDATORS,
+      IAS_ATTRIBUTE_MACHINE_NAME,
+      IAS_ATTRIBUTE_NT4_MACHINE_NAME,
+      IAS_ATTRIBUTE_QUARANTINE_SESSION_HANDLE,
+      IAS_ATTRIBUTE_FULLY_QUALIFIED_MACHINE_NAME,
+      IAS_ATTRIBUTE_QUARANTINE_FIXUP_SERVERS_CONFIGURATION=8130,
+      IAS_ATTRIBUTE_CLIENT_QUARANTINE_COMPATIBLE,
+      MS_ATTRIBUTE_NETWORK_ACCESS_SERVER_TYPE,
+      IAS_ATTRIBUTE_QUARANTINE_SESSION_ID,
+      MS_ATTRIBUTE_AFW_QUARANTINE_ZONE,
+      MS_ATTRIBUTE_AFW_PROTECTION_LEVEL,
+      IAS_ATTRIBUTE_QUARANTINE_UPDATE_NON_COMPLIANT,
+      IAS_ATTRIBUTE_REQUEST_START_TIME,
+      MS_ATTRIBUTE_MACHINE_NAME,
+      IAS_ATTRIBUTE_CLIENT_IPv6_ADDRESS,      
+      IAS_ATTRIBUTE_SAVED_RADIUS_FRAMED_INTERFACE_ID=8140,
+      IAS_ATTRIBUTE_SAVED_RADIUS_FRAMED_IPv6_PREFIX,
+      IAS_ATTRIBUTE_SAVED_RADIUS_FRAMED_IPv6_ROUTE,
+      MS_ATTRIBUTE_QUARANTINE_GRACE_TIME_CONFIGURATION,
+      MS_ATTRIBUTE_IPv6_FILTER = 8144,
+      MS_ATTRIBUTE_IPV4_REMEDIATION_SERVERS,
+      MS_ATTRIBUTE_IPV6_REMEDIATION_SERVERS,
+      IAS_ATTRIBUTE_PROXY_RETRY_COUNT,
+      IAS_ATTRIBUTE_MACHINE_INVENTORY,
+      IAS_ATTRIBUTE_ABSOLUTE_TIME,
+      MS_ATTRIBUTE_QUARANTINE_SOH=8150,
+      IAS_ATTRIBUTE_EAP_TYPES_CONFIGURED_IN_PROXYPOLICY,
+      MS_ATTRIBUTE_HCAP_LOCATION_GROUP_NAME,
+      MS_ATTRIBUTE_EXTENDED_QUARANTINE_STATE,
+      // BUGBUG: Remove before LH server RTM
+      IAS_ATTRIBUTE_SOH_CARRIER_EAPTLV,
+      MS_ATTRIBUTE_HCAP_USER_GROUPS=8155,
+      IAS_ATTRIBUTE_SAVED_MACHINE_HEALTHCHECK_ONLY,
+      IAS_ATTRIBUTE_POLICY_EVALUATED_SHV, // can have multiple instances of this attribute
+      MS_ATTRIBUTE_RAS_CORRELATION_ID,
+      MS_ATTRIBUTE_HCAP_USER_NAME,
+      IAS_ATTRIBUTE_NT4_HCAP_ACCOUNT_NAME=8160,
+      // SID for IAS_ATTRIBUTE_NT4_ACCOUNT_NAME (or IAS_ATTRIBUTE_NT4_HCAP_ACCOUNT_NAME) 
+      // regardless of whether the later is a user account or a machine account
+      IAS_ATTRIBUTE_USER_TOKEN_SID,          
+      // SID for IAS_ATTRIBUTE_NT4_MACHINE_NAME
+      IAS_ATTRIBUTE_MACHINE_TOKEN_SID,       
+      IAS_ATTRIBUTE_MACHINE_VALIDATED,
+      MS_ATTRIBUTE_USER_IPv4_ADDRESS,
+      MS_ATTRIBUTE_USER_IPv6_ADDRESS=8165,
+      MS_ATTRIBUTE_TSG_DEVICE_REDIRECTION,
+      IAS_ATTRIBUTE_ACCEPT_REASON_CODE,
+      IAS_ATTRIBUTE_LOGGING_RESULT,
+      IAS_ATTRIBUTE_SERVER_IP_ADDRESS, // the IP address of the NPS server which accepted the incoming request
+      IAS_ATTRIBUTE_SERVER_IPv6_ADDRESS, // the IP address of the NPS server which accepted the incoming request
+      IAS_ATTRIBUTE_RADIUS_USERNAME_ENCODING_ASCII,
+      MS_ATTRIBUTE_RAS_ROUTING_DOMAIN_ID=8172,
+      MS_ATTRIBUTE_AZURE_POLICY_ID=8173,
+      IAS_ATTRIBUTE_CERTIFICATE_THUMBPRINT = 8250,
+      // IAS_ATTRIBUTE_
+      // New IAS Attributes Here      
+
+      RAS_ATTRIBUTE_ENCRYPTION_TYPE = (0xFFFFFFFF-89),
+      RAS_ATTRIBUTE_ENCRYPTION_POLICY,
+      RAS_ATTRIBUTE_BAP_REQUIRED,
+      RAS_ATTRIBUTE_BAP_LINE_DOWN_TIME,
+      RAS_ATTRIBUTE_BAP_LINE_DOWN_LIMIT
+      // RAS_ATTRIBUTE_
+      // New RAS Attributes Here
+
+   }  ATTRIBUTEID;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: NEW_LOG_FILE_FREQUENCY
+   //
+   // What: IAS Accounting Request Handler Log Frequency Values
+   //
+   // Purpose: Defines the log frequency settings for the IAS accounting
+   //       request handler.
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _NEW_LOG_FILE_FREQUENCY
+   {
+      IAS_LOGGING_UNLIMITED_SIZE=0,
+      IAS_LOGGING_DAILY,
+      IAS_LOGGING_WEEKLY,
+      IAS_LOGGING_MONTHLY,
+      IAS_LOGGING_WHEN_FILE_SIZE_REACHES
+
+   }  NEW_LOG_FILE_FREQUENCY;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: AUTHENTICATION_TYPE
+   //
+   // What: IAS Authentication Type Values
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _AUTHENTICATION_TYPE
+   {
+      IAS_AUTH_INVALID,
+      IAS_AUTH_PAP,
+      IAS_AUTH_MD5CHAP,
+      IAS_AUTH_MSCHAP,
+      IAS_AUTH_MSCHAP2,
+      IAS_AUTH_EAP,
+      IAS_AUTH_ARAP,
+      IAS_AUTH_NONE,
+      IAS_AUTH_CUSTOM,
+      IAS_AUTH_MSCHAP_CPW,
+      IAS_AUTH_MSCHAP2_CPW,
+      IAS_AUTH_PEAP
+
+   }  AUTHENTICATION_TYPE;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: IDENTITY_TYPE
+   //
+   // What: IAS Identity type Values
+   //
+   // Purpose: Defines the different possible values for MS_ATTRIBUTE_IDENTITY_TYPE
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _IDENTITY_TYPE
+   {
+      IAS_IDENTITY_NO_DEFAULT = 0x01
+
+   } IDENTITY_TYPE;
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: ATTRIBUTESYNTAX
+   //
+   // What: Attribute SDO syntax types
+   //
+   // Purpose: Defines the set Attribute SDO syntaxes (attribute data types)
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ATTRIBUTESYNTAX
+   {
+      IAS_SYNTAX_BOOLEAN = 1,
+      IAS_SYNTAX_INTEGER,
+      IAS_SYNTAX_ENUMERATOR,
+      IAS_SYNTAX_INETADDR,
+      IAS_SYNTAX_STRING,
+      IAS_SYNTAX_OCTETSTRING,
+      IAS_SYNTAX_UTCTIME,
+      IAS_SYNTAX_PROVIDERSPECIFIC,
+      IAS_SYNTAX_UNSIGNEDINTEGER,
+      IAS_SYNTAX_INETADDR6
+
+   } ATTRIBUTESYNTAX;
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: Dictionary Attriubutes Restrictions
+   //
+   // What: IAS Dictionary Attribute IDs
+   //
+   // Purpose: Defines the restrictions for the dictionary attributes
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ATTRIBUTERESTRICTIONS
+   {
+      MULTIVALUED             = 0x01,
+      ALLOWEDINPROFILE        = 0x02,
+      ALLOWEDINCONDITION      = 0x04,
+      ALLOWEDINPROXYPROFILE   = 0x08,
+      ALLOWEDINPROXYCONDITION = 0x10,
+      ALLOWEDINVPNDIALUP = 0x20,
+      ALLOWEDIN8021X = 0x40
+   } ATTRIBUTERESTRICTIONS;
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: Dictionary Attriubutes Use
+   //
+   // What: IAS Dictionary Attribute Use cases
+   //
+   // Purpose: Defines the use cases for the dictionary attributes
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ATTRIBUTEFILTER
+   {
+      ATTRIBUTE_FILTER_NONE = 0x0,
+      ATTRIBUTE_FILTER_VPN_DIALUP = 0x1,
+      ATTRIBUTE_FILTER_IEEE_802_1x = 0x2
+   } ATTRIBUTEFILTER;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: Dictionary Attributes Info
+   //
+   // What: IAS Dictionary Attribute Info IDS
+   //
+   // Purpose: Defines the attribute info for the dictionary attributes
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ATTRIBUTEINFO
+   {
+      NAME = 1,
+      SYNTAX,
+      RESTRICTIONS,
+      DESCRIPTION,
+      VENDORID,
+      LDAPNAME,
+      VENDORTYPE
+   } ATTRIBUTEINFO;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: SDO Property Aliases
+   //
+   // What: SDO Property Enumerations
+   //
+   // Purpose: Property IDs used in conjunction with the ISdo and
+   //        ISdoDictionary interfaces.
+   //
+   //////////////////////////////////////////////////////////////////////////
+
+   //////////////////////////////////////////////////////////////////////////
+   //                 Common Properties
+   //////////////////////////////////////////////////////////////////////////
+
+   typedef [public] enum _IASCOMMONPROPERTIES
+   {
+      PROPERTY_SDO_RESERVED = 0,       //
+      PROPERTY_SDO_CLASS,              // SDO class name
+      PROPERTY_SDO_NAME,               // SDO name
+      PROPERTY_SDO_DESCRIPTION,        // SDO description
+      PROPERTY_SDO_ID,                 // SDO instance id
+      PROPERTY_SDO_DATASTORE_NAME,     // SDO name in data store
+      PROPERTY_SDO_TEMPLATE_GUID,      // SDO template GUID.
+      PROPERTY_SDO_OPAQUE,             // UI will save some info in this property.
+      // New Properties Here...
+
+      PROPERTY_SDO_START= 0x00000400   // 1024 stock object properties
+
+   }  IASCOMMONPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   //                User  Properties
+   /////////////////////////////////////////////////////////////////////////
+
+   typedef [public] enum _USERPROPERTIES
+   {
+      PROPERTY_USER_CALLING_STATION_ID = PROPERTY_SDO_START,
+      PROPERTY_USER_SAVED_CALLING_STATION_ID,
+      PROPERTY_USER_RADIUS_CALLBACK_NUMBER,
+      PROPERTY_USER_RADIUS_FRAMED_ROUTE,
+      PROPERTY_USER_RADIUS_FRAMED_IP_ADDRESS,
+      PROPERTY_USER_SAVED_RADIUS_CALLBACK_NUMBER,
+      PROPERTY_USER_SAVED_RADIUS_FRAMED_ROUTE,
+      PROPERTY_USER_SAVED_RADIUS_FRAMED_IP_ADDRESS,
+      PROPERTY_USER_ALLOW_DIALIN,
+      PROPERTY_USER_SERVICE_TYPE,
+      PROPERTY_USER_RADIUS_FRAMED_IPV6_ROUTE,
+      PROPERTY_USER_SAVED_RADIUS_FRAMED_IPV6_ROUTE,
+      PROPERTY_USER_RADIUS_FRAMED_INTERFACE_ID, // IPV6
+      PROPERTY_USER_SAVED_RADIUS_FRAMED_INTERFACE_ID, // IPV6
+      PROPERTY_USER_RADIUS_FRAMED_IPV6_PREFIX,
+      PROPERTY_USER_SAVED_RADIUS_FRAMED_IPV6_PREFIX
+      // New Properties Here...
+
+   }  USERPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   //                Dictionary  Properties
+   /////////////////////////////////////////////////////////////////////////
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _DICTIONARYPROPERTIES
+   {
+      PROPERTY_DICTIONARY_ATTRIBUTES_COLLECTION = PROPERTY_SDO_START,
+      PROPERTY_DICTIONARY_LOCATION
+
+   }  DICTIONARYPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ATTRIBUTEPROPERTIES
+   {
+      PROPERTY_ATTRIBUTE_ID = PROPERTY_SDO_START,
+      PROPERTY_ATTRIBUTE_VENDOR_ID,
+      PROPERTY_ATTRIBUTE_VENDOR_TYPE_ID,
+      PROPERTY_ATTRIBUTE_IS_ENUMERABLE,
+      PROPERTY_ATTRIBUTE_ENUM_NAMES,
+      PROPERTY_ATTRIBUTE_ENUM_VALUES,
+      PROPERTY_ATTRIBUTE_SYNTAX,
+      PROPERTY_ATTRIBUTE_ALLOW_MULTIPLE,
+      PROPERTY_ATTRIBUTE_ALLOW_LOG_ORDINAL,
+      PROPERTY_ATTRIBUTE_ALLOW_IN_PROFILE,
+      PROPERTY_ATTRIBUTE_ALLOW_IN_CONDITION,
+      PROPERTY_ATTRIBUTE_DISPLAY_NAME,
+      PROPERTY_ATTRIBUTE_VALUE,
+      PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_PROFILE,
+      PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_CONDITION,
+      PROPERTY_ATTRIBUTE_ALLOW_IN_VPNDIALUP,
+      PROPERTY_ATTRIBUTE_ALLOW_IN_8021X,
+      PROPERTY_ATTRIBUTE_ENUM_FILTERS
+      
+      // New Properties Here...
+
+   }  ATTRIBUTEPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   //                IAS Service Properties
+   /////////////////////////////////////////////////////////////////////////
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _IASPROPERTIES
+   {
+      PROPERTY_IAS_RADIUSSERVERGROUPS_COLLECTION = PROPERTY_SDO_START,
+      PROPERTY_IAS_POLICIES_COLLECTION,
+      PROPERTY_IAS_PROFILES_COLLECTION,
+      PROPERTY_IAS_PROTOCOLS_COLLECTION,
+      PROPERTY_IAS_AUDITORS_COLLECTION,
+      PROPERTY_IAS_REQUESTHANDLERS_COLLECTION,
+      PROPERTY_IAS_PROXYPOLICIES_COLLECTION,
+      PROPERTY_IAS_PROXYPROFILES_COLLECTION,
+      PROPERTY_IAS_REMEDIATIONSERVERGROUPS_COLLECTION,
+      PROPERTY_IAS_SHVTEMPLATES_COLLECTION
+
+      // New Properties Here...
+
+   }  IASPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   // Properties used by ias templates. Each property identify a top level
+   // collection under ias templates.
+   // Naming convention:
+   // PROPERTY_TEMPLATES_XXXX_TEMPLATES: identify collections of templates
+   //    of certain types.
+   // PROPERTY_TEMPLATES_XXXX_COLLECTION: identify collections of certain
+   //    SDO objects that are used by its parent templates.
+   // For example:
+   //    PROPERTY_TEMPLATES_POLICIES_TEMPLATES - it identify a collection
+   //       of policy templates. Each policy will have an inner profile SDO
+   //       object. This inner profile SDO object can be found in the 
+   //       collection identified by PROPERTY_TEMPLATES_PROFILES_COLLECTION.
+   //       This inner profile SDO object can be either a reference to a
+   //       profile template, or a standard profile SDO object.
+   //    PROPERTY_TEMPLATES_PROFILES_TEMPLATES - it identify a collection
+   //       of profile templates. When a particular profile template is
+   //       referred to by a policy template, we will make a copy of this
+   //       profile template in PROPERTY_TEMPLATES_PROFILES_COLLECTION. 
+   //       When we join the parent policy with its corresponding profile, 
+   //       we will use PROPERTY_TEMPLATES_POLICIES_TEMPLATES and 
+   //       PROPERTY_TEMPLATES_PROFILES_COLLECTION.
+   //
+   // If in the future, template APIs are published, a few of the property
+   // IDs should still remain private. See commented for inside 
+   // TEMPLATESPROPERTIES
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _TEMPLATESPROPERTIES
+   {
+      PROPERTY_TEMPLATES_POLICIES_TEMPLATES = PROPERTY_SDO_START,
+      PROPERTY_TEMPLATES_PROFILES_TEMPLATES,
+
+      // This property should not be published.
+      PROPERTY_TEMPLATES_PROFILES_COLLECTION,
+
+      PROPERTY_TEMPLATES_PROXYPOLICIES_TEMPLATES,
+      PROPERTY_TEMPLATES_PROXYPROFILES_TEMPLATES,
+
+      // This property should not be published.
+      PROPERTY_TEMPLATES_PROXYPROFILES_COLLECTION,
+
+      PROPERTY_TEMPLATES_REMEDIATIONSERVERGROUPS_TEMPLATES,
+      PROPERTY_TEMPLATES_SHVTEMPLATES_TEMPLATES,
+      PROPERTY_TEMPLATES_CLIENTS_TEMPLATES,
+      PROPERTY_TEMPLATES_RADIUSSERVERS_TEMPLATES,
+      PROPERTY_TEMPLATES_SHAREDSECRETS_TEMPLATES,
+      PROPERTY_TEMPLATES_IPFILTERS_TEMPLATES,
+
+      // New Properties Here...
+
+   }  TEMPLATESPROPERTIES;
+
+
+   typedef [public] enum _CLIENTPROPERTIES
+   {
+      PROPERTY_CLIENT_REQUIRE_SIGNATURE = PROPERTY_SDO_START,
+      PROPERTY_CLIENT_UNUSED,
+      PROPERTY_CLIENT_SHARED_SECRET,
+      PROPERTY_CLIENT_NAS_MANUFACTURER,
+      PROPERTY_CLIENT_ADDRESS,
+      PROPERTY_CLIENT_QUARANTINE_COMPATIBLE,
+      PROPERTY_CLIENT_ENABLED,
+      PROPERTY_CLIENT_SECRET_TEMPLATE_GUID
+      // New Properties Here...
+
+   }   CLIENTPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _VENDORPROPERTIES
+   {
+      PROPERTY_NAS_VENDOR_ID = PROPERTY_SDO_START
+      // New Properties Here...
+
+   }   VENDORPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _PROFILEPROPERTIES
+   {
+      PROPERTY_PROFILE_ATTRIBUTES_COLLECTION = PROPERTY_SDO_START,
+      PROPERTY_PROFILE_IPFILTER_TEMPLATE_GUID
+      // New Properties Here...
+
+   }   PROFILEPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _POLICYPROPERTIES
+   {
+      PROPERTY_POLICY_CONSTRAINT = PROPERTY_SDO_START,
+      PROPERTY_POLICY_MERIT,
+      PROPERTY_POLICY_UNUSED0,
+      PROPERTY_POLICY_UNUSED1,
+      PROPERTY_POLICY_PROFILE_NAME,
+      PROPERTY_POLICY_ACTION,
+      PROPERTY_POLICY_CONDITIONS_COLLECTION,
+      PROPERTY_POLICY_ENABLED,
+      PROPERTY_POLICY_SOURCETAG,
+      // New Properties Here...
+
+   }   POLICYPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _CONDITIONPROPERTIES
+   {
+      PROPERTY_CONDITION_TEXT = PROPERTY_SDO_START,
+      // New Properties Here...
+
+   }  CONDITIONPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _RADIUSSERVERGROUPPROPERTIES
+   {
+      PROPERTY_RADIUSSERVERGROUP_SERVERS_COLLECTION = PROPERTY_SDO_START,
+      // New Properties Here...
+
+   }  RADIUSSERVERGROUPPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _RADIUSSERVERPROPERTIES
+   {
+      PROPERTY_RADIUSSERVER_AUTH_PORT   = PROPERTY_SDO_START,
+      PROPERTY_RADIUSSERVER_AUTH_SECRET,
+      PROPERTY_RADIUSSERVER_ACCT_PORT,
+      PROPERTY_RADIUSSERVER_ACCT_SECRET,
+      PROPERTY_RADIUSSERVER_ADDRESS,
+      PROPERTY_RADIUSSERVER_FORWARD_ACCT_ONOFF,
+      PROPERTY_RADIUSSERVER_PRIORITY,
+      PROPERTY_RADIUSSERVER_WEIGHT,
+      PROPERTY_RADIUSSERVER_TIMEOUT,
+      PROPERTY_RADIUSSERVER_MAX_LOST,
+      PROPERTY_RADIUSSERVER_BLACKOUT,
+      PROPERTY_RADIUSSERVER_SEND_SIGNATURE,
+      PROPERTY_RADIUSSERVER_AUTH_SECRET_TEMPLATE_GUID,
+      PROPERTY_RADIUSSERVER_ACCT_SECRET_TEMPLATE_GUID
+      // New Properties Here...
+
+   }  RADIUSSERVERPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _REMEDIATIONSERVERGROUPPROPERTIES
+   {
+      PROPERTY_REMEDIATIONSERVERGROUP_SERVERS_COLLECTION = PROPERTY_SDO_START,
+      // New Properties Here...
+
+   }  REMEDIATIONSERVERGROUPPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _REMEDIATIONSERVERPROPERTIES
+   {
+      PROPERTY_REMEDIATIONSERVER_ADDRESS   = PROPERTY_SDO_START,
+      PROPERTY_REMEDIATIONSERVER_FRIENDLY_NAME,
+      // New Properties Here...
+
+   }  REMEDIATIONSERVERPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _SHVTEMPLATEPROPERTIES
+   {
+      PROPERTY_SHV_COMBINATION_TYPE = PROPERTY_SDO_START,
+      PROPERTY_SHV_LIST,
+      PROPERTY_SHVCONFIG_LIST
+      // New Properties Here...
+
+   }  SHVTEMPLATEPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _IPFILTERPROPERTIES
+   {
+      PROPERTY_IPFILTER_ATTRIBUTES_COLLECTION = PROPERTY_SDO_START
+      // New Properties Here...
+
+   }   IPFILTERPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _SHAREDSECRETPROPERTIES
+   {
+      PROPERTY_SHAREDSECRET_STRING = PROPERTY_SDO_START
+      // New Properties Here...
+
+   }   SHAREDSECRETPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   // Component Properties (components available from IAS service object)
+   /////////////////////////////////////////////////////////////////////////
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _IASCOMPONENTPROPERTIES
+   {
+      PROPERTY_COMPONENT_ID = PROPERTY_SDO_START,
+      PROPERTY_COMPONENT_PROG_ID,
+      // New Properties Here...
+
+      PROPERTY_COMPONENT_START
+
+   }  IASCOMPONENTPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _PROTOCOLPROPERTIES
+   {
+      PROPERTY_PROTOCOL_REQUEST_HANDLER = PROPERTY_COMPONENT_START,
+      // New Properties Here...
+
+      PROPERTY_PROTOCOL_START
+
+   }  PROTOCOLPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _RADIUSPROPERTIES
+   {
+      PROPERTY_RADIUS_ACCOUNTING_PORT = PROPERTY_PROTOCOL_START,
+      PROPERTY_RADIUS_AUTHENTICATION_PORT,
+      PROPERTY_RADIUS_CLIENTS_COLLECTION,
+      PROPERTY_RADIUS_VENDORS_COLLECTION
+      // New Properties Here...
+
+   }  RADIUSPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _NTEVENTLOGPROPERTIES
+   {
+      PROPERTY_EVENTLOG_LOG_APPLICATION_EVENTS = PROPERTY_COMPONENT_START,
+      PROPERTY_EVENTLOG_LOG_MALFORMED,
+      PROPERTY_EVENTLOG_LOG_DEBUG
+      // New Properties Here...
+
+   }  NTEVENTLOGPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _NAMESPROPERTIES
+   {
+      PROPERTY_NAMES_REALMS = PROPERTY_COMPONENT_START
+      // New Properties Here...
+
+   }  NAMESPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _NTSAMPROPERTIES
+   {
+      PROPERTY_NTSAM_ALLOW_LM_AUTHENTICATION = PROPERTY_COMPONENT_START
+      // New Properties Here...
+
+   }  NTSAMPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _ACCOUNTINGPROPERTIES
+   {
+      PROPERTY_ACCOUNTING_LOG_ACCOUNTING = PROPERTY_COMPONENT_START,
+      PROPERTY_ACCOUNTING_LOG_ACCOUNTING_INTERIM,
+      PROPERTY_ACCOUNTING_LOG_AUTHENTICATION,
+      PROPERTY_ACCOUNTING_LOG_OPEN_NEW_FREQUENCY,
+      PROPERTY_ACCOUNTING_LOG_OPEN_NEW_SIZE,
+      PROPERTY_ACCOUNTING_LOG_FILE_DIRECTORY,
+      PROPERTY_ACCOUNTING_LOG_IAS1_FORMAT,
+      PROPERTY_ACCOUNTING_LOG_ENABLE_LOGGING, // Obsolete
+      PROPERTY_ACCOUNTING_LOG_DELETE_IF_FULL,
+      PROPERTY_ACCOUNTING_SQL_MAX_SESSIONS,
+      PROPERTY_ACCOUNTING_LOG_AUTHENTICATION_INTERIM,
+      PROPERTY_ACCOUNTING_LOG_FILE_IS_BACKUP,
+      PROPERTY_ACCOUNTING_DISCARD_REQUEST_ON_FAILURE
+      // New Properties Here...
+
+   }  ACCOUNTINGPROPERTIES;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _NAPPROPERTIES
+   {
+      PROPERTY_NAP_POLICIES_COLLECTION = PROPERTY_COMPONENT_START,
+      PROPERTY_SHV_TEMPLATES_COLLECTION
+      // New Properties Here...
+
+   }  NAPPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _RADIUSPROXYPROPERTIES
+   {
+      PROPERTY_RADIUSPROXY_SERVERGROUPS = PROPERTY_COMPONENT_START
+      // New Properties Here...
+
+   }  RADIUSPROXYPROPERTIES;
+
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _REMEDIATIONSERVERSPROPERTIES
+   {
+      PROPERTY_REMEDIATIONSERVERS_SERVERGROUPS = PROPERTY_COMPONENT_START
+      // New Properties Here...
+
+   }  REMEDIATIONSERVERSPROPERTIES;
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: SHV COMBINATION TYPE
+   //
+   // What: Supported System health validator combination type
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _SHV_COMBINATION_TYPE
+   {
+      SHV_COMBINATION_TYPE_ALL_PASS = 0,
+      SHV_COMBINATION_TYPE_ALL_FAIL,
+      SHV_COMBINATION_TYPE_ONE_OR_MORE_PASS,
+      SHV_COMBINATION_TYPE_ONE_OR_MORE_FAIL,
+      SHV_COMBINATION_TYPE_ONE_OR_MORE_INFECTED,
+      SHV_COMBINATION_TYPE_ONE_OR_MORE_TRANSITIONAL,
+      SHV_COMBINATION_TYPE_ONE_OR_MORE_UNKNOWN,
+      
+      //
+      // New combination type here...
+
+      SHV_COMBINATION_TYPE_MAX
+
+   }  SHV_COMBINATION_TYPE;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: Service Type
+   //
+   // What: Supported Service Types
+   //
+   // Purpose: Defines the set of NT networking services supported by
+   //          the IAS subsystem. Used by the ISdoService interface.
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _SERVICE_TYPE
+   {
+      SERVICE_TYPE_IAS = 0,
+      SERVICE_TYPE_RAS,
+      SERVICE_TYPE_RAMGMTSVC,
+      //
+      // New service type here...
+
+      SERVICE_TYPE_MAX
+
+   }  SERVICE_TYPE;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: Machine Information
+   //
+   // What: Identifiers for Machine Information
+   //
+   // Purpose: Defines the set of machine information available via the
+   //          ISdoMachine interface.
+   //
+   //////////////////////////////////////////////////////////////////////////
+
+   /////////////////////////////////////////////////////////////////////////
+   // Operating System Types
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _IASOSTYPE
+   {
+      SYSTEM_TYPE_NT4_WORKSTATION,
+      SYSTEM_TYPE_NT5_WORKSTATION,
+      SYSTEM_TYPE_NT6_WORKSTATION,
+      SYSTEM_TYPE_NT6_1_WORKSTATION,
+      SYSTEM_TYPE_NT6_2_WORKSTATION,
+      SYSTEM_TYPE_NT6_3_WORKSTATION,
+      SYSTEM_TYPE_NT10_0_WORKSTATION,
+      SYSTEM_TYPE_NT4_SERVER,
+      SYSTEM_TYPE_NT5_SERVER,
+      SYSTEM_TYPE_NT6_SERVER,
+      SYSTEM_TYPE_NT6_1_SERVER,
+      SYSTEM_TYPE_NT6_2_SERVER,
+      SYSTEM_TYPE_NT6_3_SERVER,
+      SYSTEM_TYPE_NT10_0_SERVER
+   }  IASOSTYPE, *PIASOSTYPE;
+
+
+   /////////////////////////////////////////////////////////////////////////
+   // Domain Types
+   /////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _DOMAINTYPE
+   {
+      DOMAIN_TYPE_NONE, // Standalone
+      DOMAIN_TYPE_NT4,
+      DOMAIN_TYPE_NT5,
+      DOMAIN_TYPE_MIXED
+
+   }  IASDOMAINTYPE, *PIASDOMAINTYPE;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   //
+   // Name: IASDATASTORE
+   //
+   // What: Set of data stores available to SDO client applications
+   //
+   // Purpose: Defines the set of set of data store via the
+   //          ISdoMachine interface.
+   //
+   //////////////////////////////////////////////////////////////////////////
+   typedef [public] enum _IASDATASTORE
+   {
+      DATA_STORE_LOCAL,
+      DATA_STORE_DIRECTORY,
+
+   }  IASDATASTORE, *PIASDATASTORE;
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ISdoMachine - Used to retrieve information from a Machine SDO
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(479F6E75-49A2-11d2-8ECA-00C04FC2F519),
+      dual,
+      pointer_default(unique)
+   ]
+   interface ISdoMachine: IDispatch
+   {
+      [id(1)]
+      HRESULT Attach (
+               [in] BSTR bstrComputerName
+                  );
+
+      [id(2)]
+      HRESULT GetDictionarySDO (
+                [out, retval] IUnknown** ppDictionarySDO
+                         );
+
+      [id(3)]
+      HRESULT GetServiceSDO (
+                     [in] IASDATASTORE eDataStore,
+                     [in] BSTR         bstrServiceName,
+              [out, retval] IUnknown**   ppServiceSDO
+                       );
+
+      [id(4)]
+      HRESULT GetUserSDO (
+                  [in] IASDATASTORE eDataStore,
+                  [in] BSTR         bstrUserName,
+            [out, retval] IUnknown**   ppUserSDO
+                     );
+
+      [id(5)]
+      HRESULT GetOSType (
+           [out, retval] IASOSTYPE* eOSType
+                    );
+
+      [id(6)]
+      HRESULT GetDomainType(
+             [out, retval] IASDOMAINTYPE* eDomainType
+                      );
+
+      [id(7)]
+      HRESULT IsDirectoryAvailable(
+                  [out, retval] VARIANT_BOOL* boolDirectoryAvailable
+                           );
+
+      [id(8)]
+      HRESULT GetAttachedComputer(
+                  [out, retval] BSTR* bstrComputerName
+                           );
+
+      [id(9), hidden]
+      HRESULT GetSDOSchema(
+            [out, retval] IUnknown** ppSDOSchema
+                     );
+   };
+
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ISdoMachine2 - Extended interface to retrieve templates SDO
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(518E5FFE-D8CE-4f7e-A5DB-B40A35419D3B),
+      dual,
+      pointer_default(unique)
+   ]
+   interface ISdoMachine2 : ISdoMachine
+   {
+      [id(10)]
+      HRESULT GetTemplatesSDO([in] BSTR bstrServiceName, [out, retval] IUnknown** ppTemplatesSDO);
+
+     
+      // Method: ISdoMachine2::EnableTemplates
+      //
+      // Synopsis:
+      //    If the client is template aware, it MUST call this function to say so.
+      //    Calling this function will be able to tell SDO how to treate the editing
+      //    of template reference.
+      // 
+      //    The reason to have such an API:
+      //    In order to keep backward compatibility for third party tools that uses netsh
+      //    or SDO APIs, we need to make sure that when they use SDO APIs to manage
+      //    configurations, it will still work. However, if they change a template
+      //    reference through SDO API directly, we can't update the original template.
+      //    In this case, we will remove the template reference (i.e. the template GUID)
+      //    and convert it to a regular configuration element.
+      //
+      //    However, for UI, since it is tempalte aware, it will disable editing on
+      //    template reference in the configuration elements part.
+      [id(11)]
+      HRESULT EnableTemplates();
+
+
+      // Method: ISdoMachine2::SyncConfigAgainstTemplates
+      //
+      // Synopsis:
+      //    Update pCofnigRoot, for every template reference in pConfigRoot, update it
+      //    based on latest values in pTemplatesRoot.
+      //
+      //    SdoMachine can create pTemplatesRoot and pConfigRoot inside this function. However,
+      //    the caller of this function (currently NPS UI, in the future it can be some command line
+      //    tools) in general should have already had them already, so let the calelr pass them
+      //    in for efficiency.
+      //    
+      //    If *ppConfigRoot is NULL, the function will create a ConfigRoot pointer and pass it to caller.
+      //    
+      //    If *ppTemplatesRoot is NULL, the function will create a TemplatesRoot pointer and pass it to caller.
+      //    
+      //    If bForcedSync == FALSE, the function will check the timestamp of tempaltes file and 
+      //    the timestamp value stored in configuration file, and only sync the configuration when 
+      //    these timestamps are different. If bForcedSync == TRUE, the function will sync 
+      //    the configuraion without checking the timestamp.
+      //
+      [id(12)]
+      HRESULT SyncConfigAgainstTemplates(
+               [in] BSTR bstrServiceName,
+               [in, out] IUnknown** ppConfigRoot, 
+               [in, out] IUnknown** ppTemplatesRoot, 
+               [in] VARIANT_BOOL bForcedSync);
+
+
+      // Method: ISdoMachine2::ImportRemoteTemplates
+      //
+      // Synopsis:
+      //    Import templates from a remote machine to local machine. For templates with the same
+      //    GUIDs, update local ones. For templates that are in remote machine only, add them to
+      //    local machine.
+      //
+      //    SdoMachine can create pLocalTemplatesRoot inside this function. However,
+      //    the caller of this function (currently NPS UI, in the future it can be some command line
+      //    tools) in general should have already had them already, so let the calelr pass it
+      //    in for efficiency.
+      [id(13)]
+      HRESULT ImportRemoteTemplates(IUnknown* pLocalTemplatesRoot, BSTR bstrRemoteMachineName);
+
+
+      // Method: ISdoMachine2::Reload
+      //
+      // Synopsis:
+      //    Reload configuration/templates in the datastore layer.
+      // 
+      //    GetServiceSDO(), GetTemplatesSDO(), and GetSDOSchema() must be called after this function to 
+      //    reflect the changes in SDO layer. 
+      //
+      [id(14)]
+      HRESULT Reload();
+   };
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ISdoServiceControl - Used to control a Service SDO
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(479F6E74-49A2-11d2-8ECA-00C04FC2F519),
+      dual,
+      pointer_default(unique)
+   ]
+   interface ISdoServiceControl: IDispatch
+   {
+      [id(1)]
+      HRESULT StartService (void);
+
+      [id(2)]
+      HRESULT StopService (void);
+
+      [id(3)]
+      HRESULT GetServiceStatus ([out, retval] LONG* status);
+
+      [id(4)]
+      HRESULT ResetService (void);
+   };
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ISdo - Used to store, retrieve and update SDO information
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(56BC53DE-96DB-11D1-BF3F-000000000000),
+      dual,
+      pointer_default(unique)
+   ]
+   interface ISdo : IDispatch
+   {
+
+      [id(1), hidden]
+      HRESULT GetPropertyInfo ([in] LONG Id, [out, retval] IUnknown** ppPropertyInfo);
+
+      [id(2)]
+      HRESULT GetProperty ([in] LONG Id, [out, retval] VARIANT* pValue);
+
+      [id(3)]
+      HRESULT PutProperty ([in] LONG Id, [in] VARIANT* pValue);
+
+      [id(4)]
+      HRESULT ResetProperty ([in] LONG Id);
+
+      [id(5)]
+      HRESULT Apply (void);
+
+      [id(6)]
+      HRESULT Restore (void);
+
+      [propget, id(DISPID_NEWENUM)]
+      HRESULT _NewEnum ([out, retval] IUnknown** ppEnumVARIANT);  // Property enumerator
+   };
+
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ISdoCollection - Used to manipulate the contents of a collection
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(56BC53E2-96DB-11D1-BF3F-000000000000),
+      dual,
+      pointer_default(unique)
+   ]
+   interface ISdoCollection : IDispatch
+   {
+      [propget, id(1)]
+      HRESULT Count ([out, retval] long *pCount);
+
+      // Do not use this to add a template into configuration, or add a
+      // template to its parent template (e.g. add a profile template into
+      // policy template).
+      // Use ITemplateSdo::AddToCollection() instead.
+      [id(2)]
+      HRESULT Add ([in] BSTR bstrName, [in, out] IDispatch** ppItem);
+
+      [id(3)]
+      HRESULT Remove ([in] IDispatch* pItem);
+
+      [id(4)]
+      HRESULT RemoveAll (void);
+
+      [id(5)]
+      HRESULT Reload (void);
+
+      [id(6)]
+      HRESULT IsNameUnique([in] BSTR bstrName, [out, retval] VARIANT_BOOL* pBool);
+
+      [id(DISPID_VALUE)]
+      HRESULT Item ([in] VARIANT* Name, [out, retval] IDispatch** pItem);
+
+      [propget, id(DISPID_NEWENUM)]
+      HRESULT _NewEnum ([out, retval] IUnknown** ppEnumVARIANT);
+   };
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ITemplateSdo - Used to store, retrieve and update SDO template information
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(8AA85302-D2E2-4e20-8B1F-A571E437D6C9),
+      dual,
+      pointer_default(unique)
+   ]
+   interface ITemplateSdo: ISdo
+   {
+      // Method: ITemplateSdo::AddToCollection 
+      //
+      // Synopsis:
+      //    This function will be used to add "this" template (when it is top level),
+      //    into the actual configuration.
+      //    
+      // Arguments: 
+      //    [bstrName] - [in] 
+      //       The new name of the added element in the configuration. 
+      //       If it is NULL, it means use the name of "this" ITemmplateSdo object as
+      //       the name of the added element.
+      //   [pCollection] - [in]
+      //       The new element will be added into this collection. [pCollection]
+      //       has to be the collection of the same types as "this" ItemplateSdo.
+      //   [ppItem] - [out]
+      //       Point to the newly added SDO.
+      [id(9)]
+      HRESULT AddToCollection(
+                  [in] BSTR bstrName,
+                  [in] IDispatch* pCollection,
+                  [in, out] IDispatch** ppItem
+                  );
+
+      
+      // Method: ITemplateSdo::AddToSdo 
+      //
+      // Synopsis:
+      //    This function will be used to add "this" template (when it is non-top-level),
+      //    to its parent template object, or to its parent non-template SDO object.
+      //    It is an error if "this" template can only be a top level SDO object.
+      //    
+      // Arguments: 
+      //    [bstrName] - [in] 
+      //       The new name of the added child element in the parent object. 
+      //       If it is NULL, it means use the name of "this" ITemplateSdo object as
+      //       the name of the added child element.
+      //       For operations on certain types, e.g., add a profile template into a policy
+      //       template/SDO, the added profile's name should be the same as its parent
+      //       policy's name. In such cases, the [bstrName] parameter should be NULL.
+      //   [pSdoTarget] - [in]
+      //       The parent SDO/Template.
+      //   [ppItem] - [out]
+      //       Point to the newly added child SDO.
+      [id(10)]
+      HRESULT AddToSdo(
+                  [in] BSTR bstrName,
+                  [in] IDispatch* pSdoTarget,
+                  [in, out] IDispatch** ppItem
+                  );
+
+
+      // Method: ITemplateSdo::AddToSdoAsProperty 
+      //
+      // Synopsis:
+      //    This function will be used to add "this" template (when it is non-top-level),
+      //    as a single property, to its parent template object, or to its parent non-template 
+      //    SDO object. It will be used for referencing shared secret and IP filter templates,
+      //    as these templates are properties in SDO objects like client, remote
+      //    server and network policy profile.
+      //    
+      // Arguments: 
+      //   [pSdoTarget] - [in]
+      //       The parent SDO/Template.
+      //   [id] - [in]
+      //       The property id in the parent, into which "this" template needs to be copied.
+      [id(11)]
+      HRESULT AddToSdoAsProperty(                  
+                  [in] IDispatch* pSdoTarget,
+                  [in] LONG id
+                  );
+                  
+   };
+
+
+
+   //////////////////////////////////////////////////////////////////////////
+   // ISdoDictionaryOld - interface Used to access dictionary contents
+   //////////////////////////////////////////////////////////////////////////
+   [
+      object,
+      uuid(d432e5f4-53d8-11d2-9a3a-00c04fb998ac),
+      dual,
+      pointer_default(unique)
+   ]
+
+   interface ISdoDictionaryOld : IDispatch
+   {
+      [id(1)]
+      HRESULT EnumAttributes(
+                  [in, out] VARIANT* Id,
+                [out,retval] VARIANT* pValues
+               );
+
+      [id(2), hidden]
+      HRESULT GetAttributeInfo(
+                         [in] ATTRIBUTEID   Id,
+                         [in] VARIANT*      pInfoIDs,
+                   [out,retval] VARIANT*      pInfoValues
+                            );
+
+      [id(3)]
+      HRESULT EnumAttributeValues(
+                     [in]  ATTRIBUTEID   Id,
+                        [out] VARIANT*      pValueIds,
+                [out,retval] VARIANT*      pValuesDesc
+               );
+
+      [id(4)]
+      HRESULT CreateAttribute(
+                        [in] ATTRIBUTEID Id,
+                  [out,retval] IDispatch** ppAttributeObject
+               );
+
+      [id(5)]
+      HRESULT GetAttributeID(
+                     [in] BSTR         bstrAttributeName,
+               [out,retval] ATTRIBUTEID*   pId
+              );
+   };
+
+   ///////////////
+   // Machine SDO
+   ///////////////
+   [
+      uuid(E9218AE7-9E91-11D1-BF60-0080C7846BC0),
+   ]
+   coclass SdoMachine
+   {
+      [default] interface ISdoMachine;
+      // Do not add ISdoMachine2 here because we do not want to publish it.
+   };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#endif // __SDOIAS_IDL__

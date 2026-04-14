@@ -1,0 +1,418 @@
+//+----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchCrawlScopeManager.idl
+//
+//    Purpose:  Search Crawl Scope Manager Interface Description
+//
+//    History:  08/14/2005     louisg      Modified
+//
+//-----------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ISearchRoot - Information about a search root
+//
+//  The information about a search root applies to URL's that have the
+//  root URL as a prefix.  (Longest prefix dominates.)
+//
+[
+    object,
+    uuid(04C18CCF-1F57-4CBD-88CC-3900F5195CE3),
+    pointer_default(unique)
+]
+interface ISearchRoot : IUnknown
+{
+    //
+    // Queue a scheduled task
+    //
+    [propput]
+    HRESULT Schedule([in, string] LPCWSTR pszTaskArg);
+
+    [propget]
+    HRESULT Schedule([out, retval, string] LPWSTR *ppszTaskArg);
+
+    //
+    // Set Root URL
+    //
+    [propput]
+    HRESULT RootURL([in, string] LPCWSTR pszURL);
+
+    //
+    // Get Root URL
+    //
+    [propget]
+    HRESULT RootURL([out, retval, string] LPWSTR *ppszURL);
+
+
+    //
+    // TRUE for hierarchical trees like the file system
+    // FALSE for things like web pages
+    // This comes from the underlying protocol definition.
+    //
+    [propput]
+    HRESULT IsHierarchical([in] BOOL fIsHierarchical);
+
+    [propget]
+    HRESULT IsHierarchical([out, retval] BOOL *pfIsHierarchical);
+
+
+    //
+    // TRUE if provides notifications
+    //
+    // This is not protocol specific since for example file: could
+    // have a CDFS in its space.
+    //
+    [propput]
+    HRESULT ProvidesNotifications([in] BOOL fProvidesNotifications);
+
+    [propget]
+    HRESULT ProvidesNotifications([out, retval] BOOL *pfProvidesNotifications);
+
+
+    //
+    // UseNotificationsOnly - in other words, don't crawl this root
+    //
+    [propput]
+    HRESULT UseNotificationsOnly([in] BOOL fUseNotificationsOnly);
+
+    [propget]
+    HRESULT UseNotificationsOnly([out, retval] BOOL *pfUseNotificationsOnly);
+
+
+    //
+    // Methods below apply to start pages and primarily to non-hierarchical sources
+    //
+
+    //
+    // How deep to enumerate links when crawling
+    //
+    [propput]
+    HRESULT EnumerationDepth([in] DWORD dwDepth);
+
+    [propget]
+    HRESULT EnumerationDepth([out, retval] DWORD *pdwDepth);
+
+
+    //
+    // How many hosts away to crawl
+    //
+    [propput]
+    HRESULT HostDepth([in] DWORD dwDepth);
+
+    [propget]
+    HRESULT HostDepth([out, retval] DWORD *pdwDepth);
+
+
+    //
+    // FollowDirectories for Hierarchical stores
+    //
+    [propput]
+    HRESULT FollowDirectories([in] BOOL fFollowDirectories);
+
+    [propget]
+    HRESULT FollowDirectories([out, retval] BOOL *pfFollowDirectories);
+
+    //
+    // Authentication information for accessing URL from
+    // AUTHENTICATION_INFO defined in srchprth.idl
+    //
+    [propput]
+    HRESULT AuthenticationType([in] AUTH_TYPE authType);
+
+    [propget]
+    HRESULT AuthenticationType([out, retval] AUTH_TYPE *pAuthType);
+
+
+    [propput]
+    HRESULT User([in, string] LPCWSTR pszUser);
+
+    [propget]
+    HRESULT User([out, retval, string] LPWSTR *ppszUser);
+
+
+    [propput]
+    HRESULT Password([in, string] LPCWSTR pszPassword);
+
+    [propget]
+    HRESULT Password([out, retval, string] LPWSTR *ppszPassword);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  IEnumSearchRoots - Enumerate all the search roots
+//
+
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF52),
+    pointer_default(unique)
+]
+interface IEnumSearchRoots : IUnknown
+{
+    HRESULT Next([in] ULONG celt,
+                 [out, size_is(celt)] ISearchRoot **rgelt,
+                 [in, out, unique] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone([out, retval] IEnumSearchRoots **ppenum);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ISearchScopeRules - Define scope for crawling and indexing
+//
+
+typedef [v1_enum] enum _FOLLOW_FLAGS {
+    //
+    // Whether or not to index complex URLs (contains '?')
+    //
+    FF_INDEXCOMPLEXURLS = 0x00000001,
+
+    //
+    // Suppress indexing this URL (i.e., follow but do not index)
+    //
+    FF_SUPPRESSINDEXING = 0x00000002,
+
+} FOLLOW_FLAGS;
+
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF53),
+    pointer_default(unique)
+]
+interface ISearchScopeRule : IUnknown
+{
+    //
+    // Zero terminated pattern or URL
+    //
+    [propget]
+    HRESULT PatternOrURL([out, retval, string] LPWSTR *ppszPatternOrURL);
+
+    //
+    // Include or exclude rule
+    //
+    [propget]
+    HRESULT IsIncluded([out, retval] BOOL *pfIsIncluded);
+
+    //
+    // Is a default rule
+    //
+    [propget]
+    HRESULT IsDefault([out, retval] BOOL *pfIsDefault);
+
+    //
+    // Follow properties as described by FOLLOW_FLAGS
+    //
+    [propget]
+    HRESULT FollowFlags([out, retval] DWORD *pFollowFlags);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// IEnumSearchScopeRules -  Enumerate scope rules
+//
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF54),
+    pointer_default(unique)
+]
+interface IEnumSearchScopeRules : IUnknown
+{
+    HRESULT Next([in] ULONG celt,
+                 [out, size_is(celt)] ISearchScopeRule **pprgelt,
+                 [in, out, unique] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone([out, retval] IEnumSearchScopeRules **ppenum);
+};
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Reason for inclusion or exclusion of a given URL
+//
+
+typedef enum {
+    //
+    // By unknown scope - i.e., there is no scope that would include or
+    // exclude this URL so it is by default excluded
+    //
+    CLUSIONREASON_UNKNOWNSCOPE = 0,
+
+    //
+    // By default rule
+    //
+    CLUSIONREASON_DEFAULT = 1,
+
+    //
+    // By a user rule
+    //
+    CLUSIONREASON_USER = 2,
+
+    //
+    // By group policy
+    //
+    CLUSIONREASON_GROUPPOLICY = 3
+} CLUSION_REASON;
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ISearchCrawlScopeManager - manipulate crawlscopes and searchroots
+//
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF55),
+    pointer_default(unique)
+]
+interface ISearchCrawlScopeManager : IUnknown
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Roots
+    //
+    // A search root defines information about the root of some scope.
+    // It doesn't automatically include or exclude anything--it just
+    // defines the characteristic of the root.
+    //
+
+
+    //
+    // Add a default scope rule
+    //
+    HRESULT AddDefaultScopeRule([in, string] LPCWSTR pszURL,
+                                [in] BOOL fInclude,
+                                //
+                                // Follow properties as described by FOLLOW_FLAGS
+                                //
+                                [in] DWORD fFollowFlags);
+
+    //
+    // Add a new root. Overrides any existing root definition for URL
+    //
+    HRESULT AddRoot([in] ISearchRoot *pSearchRoot);
+
+    //
+    // Remove an existing root
+    //
+    HRESULT RemoveRoot([in] LPCWSTR pszURL);
+
+    //
+    // Enumerate over the registered roots
+    //
+    HRESULT EnumerateRoots([out, retval] IEnumSearchRoots **ppSearchRoots);
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Scope rules
+    //
+
+    HRESULT AddHierarchicalScope([in, string] LPCWSTR pszURL,
+                                 [in] BOOL fInclude, [in] BOOL fDefault,
+                                 [in] BOOL fOverrideChildren);
+
+
+    //
+    // Add a user scope rule
+    //
+    HRESULT  AddUserScopeRule([in, string] LPCWSTR pszURL,
+                              [in] BOOL fInclude,
+                              //
+                              // TRUE to override all children rules - this in effect removes all of them
+                              //
+                              [in] BOOL fOverrideChildren,
+                              //
+                              // Follow properties as described by FOLLOW_FLAGS
+                              //
+                              [in] DWORD fFollowFlags);
+
+    //
+    // Remove a scope rule - either user or default
+    //
+    HRESULT RemoveScopeRule([in, string] LPCWSTR pszRule);
+
+    //
+    // Enumerate over default scope rules
+    //
+    HRESULT EnumerateScopeRules([out, retval] IEnumSearchScopeRules **ppSearchScopeRules);
+
+    //
+    // TRUE if any parent is explicitly included/excluded
+    //
+    HRESULT HasParentScopeRule([in, string] LPCWSTR pszURL, [out, retval] BOOL *pfHasParentRule);
+
+    //
+    // TRUE if any child explicitly included/excluded
+    //
+    HRESULT HasChildScopeRule([in, string] LPCWSTR pszURL, [out, retval] BOOL *pfHasChildRule);
+
+    //
+    // TRUE if URL is included in crawl scope, FALSE if excluded - and the reason for either
+    //
+    HRESULT IncludedInCrawlScope([in, string] LPCWSTR pszURL, [out, retval] BOOL *pfIsIncluded);
+
+    HRESULT IncludedInCrawlScopeEx([in, string] LPCWSTR pszURL, [out] BOOL *pfIsIncluded, [out] CLUSION_REASON *pReason);
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Transactions
+    //
+
+    //
+    // Revert to default scopes only
+    //
+    HRESULT RevertToDefaultScopes();
+
+    //
+    // Save changes made
+    // This allows a series of changes to be saved or abandoned.  ScopeRules
+    // do not take effect until SaveAll is called to commit them.
+    //
+    HRESULT SaveAll();
+
+    // Get the version ID of the url's parent inclusion
+    // This ID will most likely change if a scope rule is removed and then added back
+    // returns S_FALSE in case no parent inclusion URL was found
+
+    HRESULT GetParentScopeVersionId([in, string] LPCWSTR pszURL, [out, retval] LONG *plScopeId);
+
+    //
+    // Removes a default scope rule
+    //
+
+    HRESULT RemoveDefaultScopeRule([in, string] LPCWSTR pszURL);
+};
+
+[
+    object,
+    uuid(6292F7AD-4E19-4717-A534-8FC22BCD5CCD),
+    pointer_default(unique)
+]
+interface ISearchCrawlScopeManager2 : ISearchCrawlScopeManager
+{
+    [local] HRESULT GetVersion([out] long **plVersion, [out] HANDLE *phFileMapping);
+    // this is a dummy function with no implementation. It's only needed because otherwise COM won't let remote clients call
+    // GetVersion because it's marked local. call_as tells COM to allow remote clients to call GetVersion because our custom proxy
+    // will forward the calls through RemoteGetVersion, but we don't actually implement it that way so RemoteGetVersion is a dummy.
+    [call_as(GetVersion)] HRESULT RemoteGetVersion([out] long *plVersion);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

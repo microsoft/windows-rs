@@ -1,0 +1,73 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+cpp_quote( "//=========================================================================" )
+cpp_quote( "//" )
+cpp_quote( "// Microsoft Windows Media Technologies" )
+cpp_quote( "// Copyright (C) Microsoft Corporation.  All Rights Reserved." )
+cpp_quote( "//" )
+cpp_quote( "//=========================================================================" )
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "mediaobj.idl";
+import "videoacc.idl"; // IAMVideoAccelerator
+
+cpp_quote( "EXTERN_GUID( IID_IWMPlayerTimestampHook,   0x28580dda, 0xd98e, 0x48d0, 0xb7, 0xae, 0x69, 0xe4, 0x73, 0xa0, 0x28, 0x25);" )
+cpp_quote( "EXTERN_GUID( IID_IWMCodecVideoAccelerator, 0x990641b0, 0x739f, 0x4e94, 0xa8, 0x08, 0x98, 0x88, 0xda, 0x8f, 0x75, 0xaf);" )
+cpp_quote( "EXTERN_GUID( IID_IWMCodecAMVideoAccelerator, 0xd98ee251, 0x34e0, 0x4a2d, 0x93, 0x12, 0x9b, 0x4c, 0x78, 0x8d, 0x9f, 0xa1);" )
+
+// Implemented by the player
+[
+    object,
+    uuid( 28580dda-d98e-48d0-b7ae-69e473a02825 ),
+    helpstring( "IWMPlayerTimestampHook Interface" ),
+    pointer_default(unique),
+    local
+]
+interface IWMPlayerTimestampHook : IUnknown
+{
+    HRESULT MapTimestamp( [in] REFERENCE_TIME rtIn,
+                          [out] REFERENCE_TIME* prtOut );
+};
+
+// Implemeted by video decoder DMOs for DXVA support
+[
+    object,
+    uuid( d98ee251-34e0-4a2d-9312-9b4c788d9fa1 ),
+    helpstring( "IWMCodecAMVideoAccelerator Interface" ),
+    pointer_default(unique),
+    local
+]
+interface IWMCodecAMVideoAccelerator : IUnknown
+{
+    HRESULT SetAcceleratorInterface ([in] IAMVideoAccelerator *pIAMVA); 
+    HRESULT NegotiateConnection( [in] DMO_MEDIA_TYPE *pMediaType );
+    HRESULT SetPlayerNotify( [in] IWMPlayerTimestampHook* pHook );
+};
+
+// Outdated version of IWMCodecAMVideoAccelerator
+[
+    object,
+    uuid( 990641b0-739f-4e94-a808-9888da8f75af ),
+    helpstring( "IWMCodecVideoAccelerator Interface" ),
+    pointer_default(unique),
+    local
+]
+interface IWMCodecVideoAccelerator : IUnknown
+{
+    HRESULT NegotiateConnection( [in] IAMVideoAccelerator *pIAMVA,
+                                 [in] DMO_MEDIA_TYPE *pMediaType );
+    HRESULT SetPlayerNotify( [in] IWMPlayerTimestampHook* pHook );
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

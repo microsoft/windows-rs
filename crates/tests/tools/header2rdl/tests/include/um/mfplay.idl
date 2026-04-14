@@ -1,0 +1,819 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "propsys.idl";
+import "mfidl.idl";
+import "evr.idl";
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+//////////////////////////////////////////////////////////////////////////////
+
+interface IMFPMediaPlayer;
+interface IMFPMediaItem;
+interface IMFPMediaPlayerCallback;
+
+interface IMFMediaEvent;
+interface IMFNetCredential;
+
+cpp_quote( "interface IMFMediaEvent;" )
+cpp_quote( "interface IMFNetCredential;" )
+
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+///     Options for creating the Media Player.
+/// </summary>
+
+typedef UINT32 MFP_CREATION_OPTIONS;
+
+typedef [v1_enum] enum _MFP_CREATION_OPTIONS
+{
+    /// <summary>
+    ///    Used to indicate that no options are specified.
+    /// </summary>
+    MFP_OPTION_NONE                                 = 0x00000000,
+
+    /// <summary>
+    ///     Allows the Media Player to call methods in the IMFPMediaPlayerCallback
+    ///     interface in any thread. If not present, the Media Player will call
+    ///     in the same thread in which it is created - in this case the application
+    ///     must maintain a window message pump in the thread.
+    /// </summary>
+    MFP_OPTION_FREE_THREADED_CALLBACK               = 0x00000001,
+
+    /// <summary>
+    ///     Disables MMCSS (Multimedia Class Scheduler Service).
+    /// </summary>
+    MFP_OPTION_NO_MMCSS                             = 0x00000002,
+
+    /// <summary>
+    ///     Disables any optimizing that may be done for the remote desktop case
+    /// </summary>
+    MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION       = 0x00000004,
+
+} _MFP_CREATION_OPTIONS;
+
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+///     State of the Media Player object.
+/// </summary>
+
+typedef [v1_enum] enum MFP_MEDIAPLAYER_STATE
+{
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAPLAYER_STATE_EMPTY             = 0x00000000,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAPLAYER_STATE_STOPPED           = 0x00000001,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAPLAYER_STATE_PLAYING           = 0x00000002,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAPLAYER_STATE_PAUSED            = 0x00000003,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAPLAYER_STATE_SHUTDOWN          = 0x00000004,
+
+} MFP_MEDIAPLAYER_STATE;
+
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+///     Characteristics of the Media Item object.
+/// </summary>
+
+typedef UINT32 MFP_MEDIAITEM_CHARACTERISTICS;
+
+typedef [v1_enum] enum _MFP_MEDIAITEM_CHARACTERISTICS
+{
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAITEM_IS_LIVE                          = 0x00000001,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAITEM_CAN_SEEK                         = 0x00000002,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAITEM_CAN_PAUSE                        = 0x00000004,
+
+    /// <summary>
+    /// </summary>
+    MFP_MEDIAITEM_HAS_SLOW_SEEK                    = 0x00000008,
+
+} _MFP_MEDIAITEM_CHARACTERISTICS;
+
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+///     Flags passed to the application in the
+///     MFP_ACQUIRE_USER_CREDENTIAL_EVENT callback.
+/// </summary>
+
+typedef UINT32 MFP_CREDENTIAL_FLAGS;
+
+typedef [v1_enum] enum _MFP_CREDENTIAL_FLAGS
+{
+    /// <summary>
+    ///     Passed in MFP_ACQUIRE_USER_CREDENTIAL_EVENT to indicate that
+    ///     the application must prompt the user for credentials.
+    /// </summary>
+    MFP_CREDENTIAL_PROMPT           = 0x00000001,
+
+    /// <summary>
+    ///     Passed in MFP_ACQUIRE_USER_CREDENTIAL_EVENT to indicate that
+    ///     the credential came from the persistent store. The application can
+    ///     modify this flag to indicate whether the credentials should be
+    ///     saved in the persistent store or not.
+    /// </summary>
+    MFP_CREDENTIAL_SAVE             = 0x00000002,
+
+    /// <summary>
+    ///     The application can set this flag before it returns from the
+    ///     MFP_ACQUIRE_USER_CREDENTIAL_EVENT callback to indicate that the
+    ///     credentials should not be cached in memory. If the application
+    ///     does not set this flag, credentials will be cached in memory
+    ///     for the lifetime of the Player object.
+    /// </summary>
+    MFP_CREDENTIAL_DO_NOT_CACHE     = 0x00000004,
+
+    /// <summary>
+    ///     Passed in MFP_ACQUIRE_USER_CREDENTIAL_EVENT to indicate that
+    ///     the credential will be used with a clear text authentication scheme.
+    ///     The application can modify this flag to indicate whether it allows
+    ///     the credential to be used with clear text authentication schemes.
+    /// </summary>
+    MFP_CREDENTIAL_CLEAR_TEXT       = 0x00000008,
+
+    /// <summary>
+    ///     Passed in the MFP_ACQUIRE_USER_CREDENTIAL_EVENT to indicate that
+    ///     the credential will be used with a network proxy.
+    /// </summary>
+    MFP_CREDENTIAL_PROXY            = 0x00000010,
+
+    /// <summary>
+    ///     Passed in MFP_ACQUIRE_USER_CREDENTIAL_EVENT to indicate that the
+    ///     authentication scheme supports authentication of the logged on
+    ///     user. The application can modify this flag to indicate whether
+    ///     it allows authentication of the logged on user or not.
+    /// </summary>
+    MFP_CREDENTIAL_LOGGED_ON_USER   = 0x00000020,
+
+} _MFP_CREDENTIAL_FLAGS;
+
+
+////////////////////////////////////////////////////////////////////////////
+/// <summary>
+///     Creates a MF Media Player.
+/// </summary>
+/// <param name="pwszURL">
+///     URL for immediate playback or setting on player.
+/// </param>
+/// <param name="fStartPlayback">
+///     Flag to indicate if it should start playing back.
+/// </param>
+/// <param name="creationOptions">
+///     Options to create the player.
+/// </param>
+/// <param name="pCallback">
+///     Callback for events.
+/// </param>
+/// <param name="hWnd">
+///     Video target window (endpoint)
+/// </param>
+/// <param name="ppMediaPlayer">
+///     Return Media Player interface.
+/// </param>
+
+cpp_quote( "STDAPI MFPCreateMediaPlayer(" )
+cpp_quote( "            _In_opt_  LPCWSTR pwszURL," )
+cpp_quote( "            _In_      BOOL fStartPlayback," )
+cpp_quote( "            _In_opt_  MFP_CREATION_OPTIONS creationOptions," )
+cpp_quote( "            _In_opt_  IMFPMediaPlayerCallback * pCallback," )
+cpp_quote( "            _In_opt_  HWND hWnd," )
+cpp_quote( "            _Out_opt_ IMFPMediaPlayer ** ppMediaPlayer );" )
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// </summary>
+[
+    local,
+    object,
+    uuid(A714590A-58AF-430a-85BF-44F5EC838D85),
+]
+interface IMFPMediaPlayer : IUnknown
+{
+    /// <summary>
+    /// </summary>
+    HRESULT Play();
+
+    /// <summary>
+    /// </summary>
+    HRESULT Pause();
+
+    /// <summary>
+    /// </summary>
+    HRESULT Stop();
+
+    /// <summary>
+    /// </summary>
+    HRESULT FrameStep();
+
+    //
+    // Position controls
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetPosition( [in, annotation("_In_")] REFGUID guidPositionType,
+                         [in, annotation("_In_")] const PROPVARIANT * pvPositionValue );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetPosition( [in, annotation("_In_")] REFGUID guidPositionType,
+                         [out, annotation("_Out_")] PROPVARIANT * pvPositionValue );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetDuration( [in, annotation("_In_")] REFGUID guidPositionType,
+                         [out, annotation("_Out_")] PROPVARIANT * pvDurationValue );
+    //
+    // Rate Control
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetRate( [in, annotation("_In_")] float flRate );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetRate( [out, annotation("_Out_")] float *pflRate );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetSupportedRates( [in, annotation("_In_")] BOOL fForwardDirection,
+                               [out, annotation("_Out_")] float *pflSlowestRate,
+                               [out, annotation("_Out_")] float *pflFastestRate );
+
+    //
+    // State
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetState( [out, annotation("_Out_")] MFP_MEDIAPLAYER_STATE * peState );
+
+    //
+    // Media Item Management
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT CreateMediaItemFromURL(
+                [in, annotation("_In_")] LPCWSTR pwszURL,
+                [in, annotation("_In_")] BOOL fSync,
+                [in, annotation("_In_")] DWORD_PTR dwUserData,
+                [out, annotation("_Out_opt_")] IMFPMediaItem ** ppMediaItem );
+
+    /// <summary>
+    /// </summary>
+    HRESULT CreateMediaItemFromObject(
+                [in, annotation("_In_")] IUnknown * pIUnknownObj,
+                [in, annotation("_In_")] BOOL fSync,
+                [in, annotation("_In_")] DWORD_PTR dwUserData,
+                [out, annotation("_Out_opt_")] IMFPMediaItem ** ppMediaItem );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetMediaItem( [in, annotation("_In_")] IMFPMediaItem * pIMFPMediaItem );
+
+    /// <summary>
+    /// Clears the media item from the player and goes to the empty state
+    /// </summary>
+    HRESULT ClearMediaItem();
+
+    /// <summary>
+    /// Fails if no media item is present
+    /// </summary>
+    HRESULT GetMediaItem( [out, annotation("_Out_")]IMFPMediaItem ** ppIMFPMediaItem );
+
+
+    //
+    // Audio controls
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetVolume( [out, annotation("_Out_")] float *pflVolume );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetVolume( [in, annotation("_In_")] float flVolume );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetBalance( [out, annotation("_Out_")] float *pflBalance );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetBalance( [in, annotation("_In_")] float flBalance );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetMute( [out, annotation("_Out_")] BOOL * pfMute );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetMute( [in, annotation("_In_")] BOOL fMute );
+
+    //
+    // Video controls
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetNativeVideoSize( [out, annotation("_Out_opt_")] SIZE *pszVideo,
+                                [out, annotation("_Out_opt_")] SIZE *pszARVideo );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetIdealVideoSize( [out, annotation("_Out_opt_")] SIZE *pszMin,
+                               [out, annotation("_Out_opt_")] SIZE *pszMax );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetVideoSourceRect( [in, annotation("_In_")] MFVideoNormalizedRect const *pnrcSource );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetVideoSourceRect( [out, annotation("_Out_")] MFVideoNormalizedRect *pnrcSource );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetAspectRatioMode( [in, annotation("_In_")] DWORD dwAspectRatioMode );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetAspectRatioMode( [out, annotation("_Out_")] DWORD *pdwAspectRatioMode );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetVideoWindow( [out, annotation("_Out_")] HWND *phwndVideo );
+
+    /// <summary>
+    /// </summary>
+    HRESULT UpdateVideo();
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetBorderColor( [in, annotation("_In_")] COLORREF Clr );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetBorderColor( [out, annotation("_Out_")] COLORREF *pClr );
+
+    //
+    // Effect Management
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT InsertEffect( [in, annotation("_In_")] IUnknown * pEffect, [in, annotation("_In_")] BOOL fOptional );
+
+    /// <summary>
+    /// </summary>
+    HRESULT RemoveEffect( [in, annotation("_In_")] IUnknown * pEffect );
+
+    /// <summary>
+    /// </summary>
+    HRESULT RemoveAllEffects();
+
+    //
+    // Shutdown
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT Shutdown();
+};
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Position types that MFPlay uses.
+// See IMFPMediaItem::GetStartStopPosition and IMFPMediaItem::SetStartStopPosition.
+//
+
+/// <summary>
+/// </summary>
+cpp_quote( "EXTERN_GUID( MFP_POSITIONTYPE_100NS, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 );" )  // GUID_NULL
+
+//////////////////////////////////////////////////////////////////////////////
+[
+    local,
+    object,
+    uuid(90EB3E6B-ECBF-45cc-B1DA-C6FE3EA70D57),
+]
+interface IMFPMediaItem : IUnknown
+{
+    //
+    // Player, URL, Object and User Data Methods
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetMediaPlayer( [out, annotation("_Out_")] IMFPMediaPlayer ** ppMediaPlayer );
+
+    /// <summary>
+    ///      Must use CoTaskMemFree
+    /// </summary>
+    HRESULT GetURL( [out, annotation("_Out_")] LPWSTR * ppwszURL );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetObject( [out, annotation("_Out_")] IUnknown ** ppIUnknown );
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetUserData( [out, annotation("_Out_")] DWORD_PTR * pdwUserData );
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetUserData( [in, annotation("_In_")] DWORD_PTR dwUserData );
+
+    //
+    // Set/Get Start/Stop Times
+    // Use VT_EMPTY to reset positions (with valid GUID)
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetStartStopPosition( [out, annotation("_Out_opt_")] GUID * pguidStartPositionType,
+                                  [out, annotation("_Out_opt_")] PROPVARIANT * pvStartValue,
+                                  [out, annotation("_Out_opt_")] GUID * pguidStopPositionType,
+                                  [out, annotation("_Out_opt_")] PROPVARIANT * pvStopValue  );
+
+
+    /// <summary>
+    /// </summary>
+    HRESULT SetStartStopPosition( [in, annotation("_In_opt_")] const GUID * pguidStartPositionType,
+                                  [in, annotation("_In_opt_")] const PROPVARIANT * pvStartValue,
+                                  [in, annotation("_In_opt_")] const GUID * pguidStopPositionType,
+                                  [in, annotation("_In_opt_")] const PROPVARIANT * pvStopValue  );
+
+    //
+    // Media Item Properties and Metadata
+    //
+
+    /// <summary>
+    /// </summary>
+    HRESULT HasVideo( [out, annotation("_Out_opt_")] BOOL * pfHasVideo,
+                      [out, annotation("_Out_opt_")] BOOL * pfSelected );
+
+
+    /// <summary>
+    /// </summary>
+    HRESULT HasAudio( [out, annotation("_Out_opt_")] BOOL * pfHasAudio,
+                      [out, annotation("_Out_opt_")] BOOL * pfSelected );
+
+
+    /// <summary>
+    /// </summary>
+    HRESULT IsProtected( [out, annotation("_Out_")] BOOL * pfProtected );
+
+
+    /// <summary>
+    ///      Does NOT return start/stop-time adjusted duration.
+    /// </summary>
+    HRESULT GetDuration( [in, annotation("_In_")] REFGUID guidPositionType,
+                         [out, annotation("_Out_")] PROPVARIANT * pvDurationValue );
+
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetNumberOfStreams( [out, annotation("_Out_")] DWORD * pdwStreamCount );
+
+
+    /// <summary>
+    /// </summary>
+    HRESULT GetStreamSelection( [in, annotation("_In_")] DWORD dwStreamIndex,
+                                [out, annotation("_Out_")] BOOL * pfEnabled );
+
+    /// <summary>
+    ///     SetStreamSelection will only take place in future "SetMediaItem" calls of the media item
+    /// </summary>
+    HRESULT SetStreamSelection( [in, annotation("_In_")] DWORD dwStreamIndex,
+                                [in, annotation("_In_")] BOOL fEnabled );
+
+
+    /// <summary>
+    ///     (e.g. MF_MT_FRAME_SIZE for video width and height. Will also return MF_SD_* attributes)
+    /// </summary>
+    HRESULT GetStreamAttribute( [in, annotation("_In_")] DWORD dwStreamIndex,
+                                [in, annotation("_In_")] REFGUID guidMFAttribute,
+                                [out, annotation("_Out_")] PROPVARIANT * pvValue );
+
+    /// <summary>
+    ///     Will return MF_PD_* attributes
+    /// </summary>
+    HRESULT GetPresentationAttribute( [in, annotation("_In_")] REFGUID guidMFAttribute,
+                                      [out, annotation("_Out_")] PROPVARIANT * pvValue );
+
+    /// <summary>
+    ///     Gets the media source characteristics.
+    /// </summary>
+    HRESULT GetCharacteristics( [out, annotation("_Out_")] MFP_MEDIAITEM_CHARACTERISTICS * pCharacteristics );
+
+    /// <summary>
+    ///     Attaches a media sink to a stream
+    /// </summary>
+    HRESULT SetStreamSink( [in, annotation("_In_")] DWORD dwStreamIndex,
+                           [in, annotation("_In_opt_")] IUnknown* pMediaSink );
+
+    /// <summary>
+    ///      Retrieves the read-only IProperyStore that contains the content properties
+    /// </summary>
+    HRESULT GetMetadata( [out, annotation("_Out_")] IPropertyStore** ppMetadataStore );
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+typedef enum MFP_EVENT_TYPE
+{
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_PLAY                                         = 0,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_PAUSE                                        = 1,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_STOP                                         = 2,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_POSITION_SET                                 = 3,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_RATE_SET                                     = 4,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_MEDIAITEM_CREATED                            = 5,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_MEDIAITEM_SET                                = 6,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_FRAME_STEP                                   = 7,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_MEDIAITEM_CLEARED                            = 8,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_MF                                           = 9,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_ERROR                                        = 10,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_PLAYBACK_ENDED                               = 11,
+
+    /// <summary>
+    /// </summary>
+    MFP_EVENT_TYPE_ACQUIRE_USER_CREDENTIAL                      = 12,
+}
+MFP_EVENT_TYPE;
+
+
+/// <summary>
+/// </summary>
+typedef struct MFP_EVENT_HEADER
+{
+    MFP_EVENT_TYPE eEventType;
+    HRESULT hrEvent;
+    IMFPMediaPlayer * pMediaPlayer;
+    MFP_MEDIAPLAYER_STATE eState;
+    IPropertyStore * pPropertyStore;
+} MFP_EVENT_HEADER;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_PLAY
+/// </summary>
+typedef struct MFP_PLAY_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_PLAY_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_PAUSE
+/// </summary>
+typedef struct MFP_PAUSE_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_PAUSE_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_STOP
+/// </summary>
+typedef struct MFP_STOP_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_STOP_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_POSITION_SET
+/// </summary>
+typedef struct MFP_POSITION_SET_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_POSITION_SET_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_RATE_SET
+/// </summary>
+typedef struct MFP_RATE_SET_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+    float flRate;
+} MFP_RATE_SET_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_MEDIAITEM_CREATED
+/// </summary>
+typedef struct MFP_MEDIAITEM_CREATED_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+    DWORD_PTR dwUserData;
+} MFP_MEDIAITEM_CREATED_EVENT;
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_MEDIAITEM_SET
+/// </summary>
+typedef struct MFP_MEDIAITEM_SET_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_MEDIAITEM_SET_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_FRAME_STEP
+/// </summary>
+typedef struct MFP_FRAME_STEP_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_FRAME_STEP_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_MEDIAITEM_CLEARED
+/// </summary>
+typedef struct MFP_MEDIAITEM_CLEARED_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_MEDIAITEM_CLEARED_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_MF_EVENT
+/// </summary>
+typedef struct MFP_MF_EVENT
+{
+    MFP_EVENT_HEADER header;
+    MediaEventType MFEventType;
+    IMFMediaEvent * pMFMediaEvent;
+    IMFPMediaItem * pMediaItem;
+} MFP_MF_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_ERROR_EVENT
+/// </summary>
+typedef struct MFP_ERROR_EVENT
+{
+    MFP_EVENT_HEADER header;
+} MFP_ERROR_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_PLAYBACK_ENDED
+/// </summary>
+typedef struct MFP_PLAYBACK_ENDED_EVENT
+{
+    MFP_EVENT_HEADER header;
+    IMFPMediaItem * pMediaItem;
+} MFP_PLAYBACK_ENDED_EVENT;
+
+
+/// <summary>
+///     Parameters of event MFP_EVENT_TYPE_ACQUIRE_USER_CREDENTIAL
+/// </summary>
+typedef struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT
+{
+    MFP_EVENT_HEADER header;
+    DWORD_PTR dwUserData;
+    BOOL fProceedWithAuthentication;
+    HRESULT hrAuthenticationStatus;
+    LPCWSTR pwszURL;
+    LPCWSTR pwszSite;
+    LPCWSTR pwszRealm;
+    LPCWSTR pwszPackage;
+    LONG nRetries;
+    MFP_CREDENTIAL_FLAGS flags;
+    IMFNetCredential * pCredential;
+} MFP_ACQUIRE_USER_CREDENTIAL_EVENT;
+
+/// <summary>
+/// The MFP_PKEY_StreamIndex PROPERTYKEY is used to obtain the stream index associated with an event
+/// </summary>
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFP_PKEY_StreamIndex = { { 0xa7cf9740, 0xe8d9, 0x4a87, { 0xbd, 0x8e, 0x29, 0x67, 0x0, 0x1f, 0xd3, 0xad } }, 0x00 }; ")
+
+
+/// <summary>
+/// The MFP_PKEY_StreamRenderingResult PROPERTYKEY is used to indicate which streams where succesfully rendered or not.
+/// </summary>
+cpp_quote( "EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MFP_PKEY_StreamRenderingResults = { { 0xa7cf9740, 0xe8d9, 0x4a87, { 0xbd, 0x8e, 0x29, 0x67, 0x0, 0x1f, 0xd3, 0xad } }, 0x01 }; ")
+
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+///     Macros to cast a pointer to a MFP_EVENT_HEADER structure into a pointer to a MFP_*_EVENT.
+///     If the event is not of the correct type, the macro returns a NULL pointer.
+/// </summary>
+
+cpp_quote( "#define __MFP_CAST_EVENT( pHdr, Tag )                                   ( ( (pHdr)->eEventType == MFP_EVENT_TYPE_##Tag ) ? (MFP_##Tag##_EVENT*)(pHdr) : NULL )" )
+
+cpp_quote( "#define MFP_GET_PLAY_EVENT( pHdr )                                      __MFP_CAST_EVENT( pHdr, PLAY )" )
+cpp_quote( "#define MFP_GET_PAUSE_EVENT( pHdr )                                     __MFP_CAST_EVENT( pHdr, PAUSE )" )
+cpp_quote( "#define MFP_GET_STOP_EVENT( pHdr )                                      __MFP_CAST_EVENT( pHdr, STOP )" )
+cpp_quote( "#define MFP_GET_POSITION_SET_EVENT( pHdr )                              __MFP_CAST_EVENT( pHdr, POSITION_SET )" )
+cpp_quote( "#define MFP_GET_RATE_SET_EVENT( pHdr )                                  __MFP_CAST_EVENT( pHdr, RATE_SET )" )
+cpp_quote( "#define MFP_GET_MEDIAITEM_CREATED_EVENT( pHdr )                         __MFP_CAST_EVENT( pHdr, MEDIAITEM_CREATED )" )
+cpp_quote( "#define MFP_GET_MEDIAITEM_SET_EVENT( pHdr )                             __MFP_CAST_EVENT( pHdr, MEDIAITEM_SET )" )
+cpp_quote( "#define MFP_GET_FRAME_STEP_EVENT( pHdr )                                __MFP_CAST_EVENT( pHdr, FRAME_STEP )" )
+cpp_quote( "#define MFP_GET_MEDIAITEM_CLEARED_EVENT( pHdr )                         __MFP_CAST_EVENT( pHdr, MEDIAITEM_CLEARED )" )
+cpp_quote( "#define MFP_GET_MF_EVENT( pHdr )                                        __MFP_CAST_EVENT( pHdr, MF )" )
+cpp_quote( "#define MFP_GET_ERROR_EVENT( pHdr )                                     __MFP_CAST_EVENT( pHdr, ERROR )" )
+cpp_quote( "#define MFP_GET_PLAYBACK_ENDED_EVENT( pHdr )                            __MFP_CAST_EVENT( pHdr, PLAYBACK_ENDED )" )
+cpp_quote( "#define MFP_GET_ACQUIRE_USER_CREDENTIAL_EVENT( pHdr )                   __MFP_CAST_EVENT( pHdr, ACQUIRE_USER_CREDENTIAL )" )
+
+//////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// </summary>
+[
+    local,
+    object,
+    uuid(766C8FFB-5FDB-4fea-A28D-B912996F51BD),
+]
+interface IMFPMediaPlayerCallback : IUnknown
+{
+    void OnMediaPlayerEvent( [in, annotation("_In_")] MFP_EVENT_HEADER * pEventHeader );
+};
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

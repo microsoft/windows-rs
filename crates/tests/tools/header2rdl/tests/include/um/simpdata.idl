@@ -1,0 +1,256 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:		simpledata.idl
+//
+// Contents:	OLEDBSimpleProvider interface 
+// 
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// simpdata.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1995-1996 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("// OLE DB Simple Provider Toolkit")
+cpp_quote("")
+cpp_quote("#ifndef SIMPDATA_H")
+cpp_quote("#define SIMPDATA_H")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "oaidl.idl";
+
+
+cpp_quote("")
+cpp_quote("#ifdef _WIN64")
+cpp_quote("")
+#if defined(_WIN64)
+typedef LONGLONG	 DBROWCOUNT;
+typedef LONGLONG	 DB_LORDINAL;
+#else 
+cpp_quote("typedef LONGLONG DBROWCOUNT;")
+cpp_quote("")
+cpp_quote("typedef LONGLONG DB_LORDINAL;")
+cpp_quote("")
+#endif
+cpp_quote("")
+cpp_quote("#else")
+cpp_quote("")
+#if defined(_WIN64)
+cpp_quote("typedef LONG DBROWCOUNT;")
+cpp_quote("")
+cpp_quote("typedef LONG DB_LORDINAL;")
+cpp_quote("")
+#else
+typedef LONG DBROWCOUNT;
+typedef LONG DB_LORDINAL;
+#endif	
+cpp_quote("#endif	// _WIN64")
+
+// We use signed integers for row and column numbers, starting with the value 1.
+// The value 0 refers to any "label" or "header" information, distinct from the
+// data.  The value -1 refers to any an unknown value, or all values, so, for
+// example, iRow = -1, iCol = 2 refers to all of column 2
+
+cpp_quote("#define OSP_IndexLabel      (0)")
+cpp_quote("#define OSP_IndexAll        (~0)")
+cpp_quote("#define OSP_IndexUnknown    (~0)")
+cpp_quote("")
+
+[
+        uuid(E0E270C2-C0BE-11d0-8FE4-00A0C90A6341),
+        helpstring("Microsoft OLE DB Simple Provider 1.5 Library"),
+        lcid(0x409),
+        version(1.5)
+]
+library MSDAOSP
+{
+//=--------------------------------------------------------------------------=
+// Standard imports
+//=--------------------------------------------------------------------------=
+importlib("STDOLE2.TLB");
+
+
+typedef enum OSPFORMAT
+{
+    OSPFORMAT_RAW = 0,     // set/get variant as is
+    OSPFORMAT_DEFAULT = 0, // default is RAW
+    OSPFORMAT_FORMATTED = 1,   // all variants converted to string representation
+    OSPFORMAT_HTML = 2      // variant converted to HTML string representation
+                            // (providers not required to implement this).
+} OSPFORMAT;
+
+typedef enum OSPRW
+{
+    // All cells are presumed to be readable.
+    OSPRW_DEFAULT = 1,
+    OSPRW_READONLY = 0,     // readonly
+    OSPRW_READWRITE = 1,    // readwrite
+    OSPRW_MIXED = 2         // mixed or unknown; most callers will treat
+                                     // as READWRITE "Lazy" provider should just
+                                     // return OSPRW_MIXED
+} OSPRW;
+
+typedef enum OSPFIND
+{
+    OSPFIND_DEFAULT = 0,
+    OSPFIND_UP = 1,             // scan backwards(decreasing row #s)
+    OSPFIND_CASESENSITIVE = 2,
+    OSPFIND_UPCASESENSITIVE = 3	// combine 1 and 2
+} OSPFIND;
+
+typedef enum OSPCOMP
+{
+                            // These values derived from bitmasks
+                            // i.e.       GT  LT  EQ    
+    OSPCOMP_EQ = 1,         // OSPCOMP_EQ          1 Equal
+    OSPCOMP_DEFAULT = 1,    // OSPCOMP_EQ is the default
+    OSPCOMP_LT = 2,         // OSPCOMP_LT      1   0 Less than
+    OSPCOMP_LE = 3,         // OSPCOMP_LE      1   1 Less than or equal
+    OSPCOMP_GE = 4,         // OSPCOMP_GT  1   0   0 Greater than or equal
+    OSPCOMP_GT = 5,         // OSPCOMP_GE  1   0   1 Greater than
+    OSPCOMP_NE = 6,         // OSPCOMP_NE  1   1   0 Not equal
+} OSPCOMP;
+
+typedef enum OSPXFER
+{
+    OSPXFER_COMPLETE = 0,
+    OSPXFER_ABORT = 1,
+    OSPXFER_ERROR = 2
+} OSPXFER;
+
+[
+        object,
+        uuid(E0E270C1-C0BE-11d0-8FE4-00A0C90A6341),
+        pointer_default(unique),
+        oleautomation,
+        version(1.4)
+]
+interface OLEDBSimpleProviderListener : IUnknown
+{
+      // As noted above; a -1 (STD_IndexAll) can be used in the row or column
+      // (or both).  For example, CellChanged(STD_IndexAll, OSP_IndexAll)
+      // implies that all rows and columns changed shape.
+  
+      HRESULT aboutToChangeCell([in] DBROWCOUNT iRow, [in] DB_LORDINAL iColumn);
+      HRESULT cellChanged([in] DBROWCOUNT iRow, [in] DB_LORDINAL iColumn);
+      HRESULT aboutToDeleteRows([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows);
+      HRESULT deletedRows([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows);
+      HRESULT aboutToInsertRows([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows);
+      HRESULT insertedRows([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows);
+      HRESULT rowsAvailable([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows);
+      HRESULT transferComplete([in] OSPXFER xfer);
+}
+
+[
+        object,
+        uuid(E0E270C0-C0BE-11d0-8FE4-00A0C90A6341),
+        pointer_default(unique),
+        oleautomation,
+        version(1.4)
+]
+interface OLEDBSimpleProvider : IUnknown
+{
+      // Info-retrieving functions:
+	  // ==========================
+	  //
+	  // Note that column names are retrieved using GetString or GetVariant
+	  // with iRow == OSP_IndexLabel.  RWStatus for a whole row or column
+          // can be made with iRow or iColumn == OSP_IndexAll.
+
+      HRESULT getRowCount([out,retval] DBROWCOUNT *pcRows);
+      HRESULT getColumnCount([out,retval] DB_LORDINAL *pcColumns);
+
+
+      HRESULT getRWStatus([in] DBROWCOUNT iRow, [in] DB_LORDINAL iColumn,
+			  [out, retval] OSPRW *prwStatus);
+
+      // Variant-oriented Get/Set:
+	  // =========================
+	  //
+	  // Note that use of VARIANT precludes references.
+
+      HRESULT getVariant([in] DBROWCOUNT iRow, [in] DB_LORDINAL iColumn,
+                         [in] OSPFORMAT format, [out, retval] VARIANT *pVar );
+      HRESULT setVariant([in] DBROWCOUNT iRow, [in] DB_LORDINAL iColumn,
+                         [in] OSPFORMAT format, [in] VARIANT Var );
+
+      // Locale information:
+	  // ===================
+	  //
+
+	  HRESULT getLocale([out,retval] BSTR *pbstrLocale);
+
+      // Deletion and Insertion:
+	  // =======================
+	  //
+      // For insertion, iRow or iColumn is index *before* which to insert; the
+      // first inserted row or column will end up with that index.
+      //
+      // In case of error, provider may choose to insert or delete only the
+      // first m of n rows or columns which client requested.  OUT parameter
+      // indicates how many rows or columns actually inserted or deleted.  In
+      // case of success, OUT parameter should be filled in with cRows.
+
+      HRESULT deleteRows([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows,
+			 [out, retval] DBROWCOUNT *pcRowsDeleted );
+      HRESULT insertRows([in] DBROWCOUNT iRow, [in] DBROWCOUNT cRows,
+			 [out, retval] DBROWCOUNT *pcRowsInserted );
+
+      // Find
+      // Find the first row in column iColumn that contains a value which
+      // matches val according to the compType.
+      // To continue searching past the found row, the caller should pass
+      // *piRowFound+1 as the next iRowStart, or *piRowFound-1 for backward
+      // searches (STDFIND_UP).
+
+      HRESULT find([in] DBROWCOUNT iRowStart, [in] DB_LORDINAL iColumn,
+                   [in] VARIANT val,
+			       [in] OSPFIND findFlags,
+                   [in] OSPCOMP compType,
+			       [out, retval] DBROWCOUNT *piRowFound );
+
+      // Establish or detach single event sink.
+
+      HRESULT addOLEDBSimpleProviderListener([in] OLEDBSimpleProviderListener *pospIListener);
+      HRESULT removeOLEDBSimpleProviderListener([in] OLEDBSimpleProviderListener *pospIListener);
+
+      // Asynch support
+
+      HRESULT isAsync([out, retval] bool *pbAsynch);
+
+      HRESULT getEstimatedRows([out, retval] DBROWCOUNT *piRows);
+
+      // Stops any asynchronous download that may be in progress.
+      HRESULT stopTransfer();
+}
+
+cpp_quote("typedef OLEDBSimpleProvider *LPOLEDBSimpleProvider;")
+
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif")
+

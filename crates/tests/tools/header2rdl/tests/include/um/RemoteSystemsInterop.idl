@@ -1,0 +1,40 @@
+/*  RemoteSystemsInterop.idl
+ *
+ *      COM API extension for Windows.System.RemoteSystems.RemoteSystem
+ *
+ *      Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "unknwn.idl";
+import "Inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_VB)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// ----------------------------------------------------------------------
+// ICorrelationVectorInformation
+//
+// Description
+//  Interface that allows callers to set or retrieve correlation vectors
+//  for remote operations perfomed on the current thread
+//
+// Implemented By
+//  Windows.System.RemoteSystems.RemoteSystem activation factory
+//
+[uuid(83C78B3C-D88B-4950-AA6E-22B8D22AABD3), object, local]
+interface ICorrelationVectorInformation : IInspectable
+{
+    [propget] HRESULT LastCorrelationVectorForThread([out, retval] HSTRING* cv);
+
+    [propget] HRESULT NextCorrelationVectorForThread([out, retval] HSTRING* cv);
+    [propput] HRESULT NextCorrelationVectorForThread([in] HSTRING cv);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_VB) */")

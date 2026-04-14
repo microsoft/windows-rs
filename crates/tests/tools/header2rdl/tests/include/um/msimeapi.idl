@@ -1,0 +1,61 @@
+/*----------------------------------------------------------------------------
+    %%File: MSIMEAPI.IDL
+
+    Copyright (c) Microsoft Corporation.  All Rights Reserved.
+
+    Version 15
+
+    Microsoft IME public interface definition.
+
+----------------------------------------------------------------------------*/
+
+cpp_quote("#pragma once")
+cpp_quote("")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//
+// IImePlugInDictDictionaryList
+//
+[
+    object,
+    uuid(98752974-b0a6-489b-8f6f-bff3769c8eeb),
+    helpstring("IImePlugInDictDictionaryList Interface"),
+    pointer_default(unique)
+]
+interface IImePlugInDictDictionaryList : IUnknown{
+    HRESULT GetDictionariesInUse(
+        [out] SAFEARRAY(BSTR) *prgDictionaryGUID,
+        [in, out] SAFEARRAY(DATE) *prgDateCreated,
+        [in, out] SAFEARRAY(BOOL) *prgfEncrypted
+    );
+    HRESULT DeleteDictionary(
+        [in] BSTR bstrDictionaryGUID
+    );
+};
+
+cpp_quote ("// {7BF0129B-5BEF-4DE4-9B0B-5EDB66AC2FA6}")
+cpp_quote ("DEFINE_GUID(CLSID_ImePlugInDictDictionaryList_CHS,")
+cpp_quote ("0x7bf0129b, 0x5bef, 0x4de4, 0x9b, 0x0b, 0x5e, 0xdb, 0x66, 0xac, 0x2f, 0xa6);")
+cpp_quote ("#define VIPROGID_ImePlugInDictDictionaryList_CHS OLESTR(\"ImePlugInDictDictionaryList2052\")")
+cpp_quote ("#define VDPROGID_ImePlugInDictDictionaryList_CHS OLESTR(\"ImePlugInDictDictionaryList2052.15\")")
+
+cpp_quote ("// {4FE2776B-B0F9-4396-B5FC-E9D4CF1EC195}")
+cpp_quote ("DEFINE_GUID(CLSID_ImePlugInDictDictionaryList_JPN,")
+cpp_quote ("0x4fe2776b, 0xb0f9, 0x4396, 0xb5, 0xfc, 0xe9, 0xd4, 0xcf, 0x1e, 0xc1, 0x95);")
+cpp_quote ("#define VIPROGID_ImePlugInDictDictionaryList_JPN OLESTR(\"ImePlugInDictDictionaryList1041\")")
+cpp_quote ("#define VDPROGID_ImePlugInDictDictionaryList_JPN OLESTR(\"ImePlugInDictDictionaryList1041.15\")")
+
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN8)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

@@ -1,0 +1,724 @@
+// ==++==
+// 
+//   Copyright (C) Microsoft Corporation. All rights reserved.
+// 
+// ==--==
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+cpp_quote("DEFINE_GUID(SID_3GPP_SUPSVCMODEL, 0xd7d08e07, 0xd767, 0x4478, 0xb1, 0x4a, 0xee, 0xcc, 0x87, 0xea, 0x12, 0xf7);")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+midl_pragma warning( disable: 2456 ) 
+
+import "RilAPITypes.idl";
+
+//
+// Forward declarations - major objects
+//
+interface IOemCellular;
+interface IOemCellularModem;
+interface IOemCan;
+interface IOemCanExtForIMS;
+interface IOemSlot;
+interface IOemUICCApp;
+interface IOemUICCAppEx;
+interface IOemUICCAppEx2;
+interface IOemUICC;
+interface IOem3GPPSupServices;
+interface IOemIMSStatusChange;
+
+//
+// State change interfaces unique to the OEM API
+//
+interface IOemCellularModemExistenceChange;
+interface IOemSlotChange;
+interface IOemCellularCanAvailabilityChange;
+interface IOemCanRegistrationStateChange;
+interface IOemSlotStateChange;
+interface IOemUiccChange;
+interface IOemUiccAppChange;
+
+//
+// State change interfaces shared with CellularAPI.idl
+//
+interface IPowerStateChange;
+
+//
+// Completion interfaces unique to the OEM API
+//
+
+//
+// Completion interfaces shared with CellularAPI.idl
+//
+interface IModemOpaqueCommandCompletion;
+interface IOpaqueModemNotifications;
+interface ISetRFStateCompletion;
+interface IGetRFStateCompletion;
+interface IGetRFStateExCompletion;
+interface ICanInfoCompletion;
+interface IPositionInfoCompletion;
+interface IPinLockStateCompletion;
+interface IGetRecordStatusCompletion;
+interface IReadRecordCompletion;
+interface IWriteRecordCompletion;
+interface IIMSICompletion;
+interface IGetSIDNIDCompletion;
+interface IGetNAICompletion;
+interface ISubscriberNumbersCompletion;
+interface IGetPLMNwAcT;
+interface ISetPLMNwAcT;
+interface IGetCallForwardingCompletion;
+interface ISimpleModemCompletion;
+interface ICallWaitingSettingsCompletion;
+
+//
+// Other classes that are unique to the OEM API
+//
+interface IOemRegistrationStatus;
+
+const int MAXLENGTH_NAI = 72;
+
+//
+// Data types shared with CellularAPI.idl
+enum MODEMPOWERSTATE
+{
+    MODEM_POWER_OFF                     = 0x0001,
+    MODEM_POWER_GOING_ON                = 0x0002,
+    MODEM_POWER_ON                      = 0x0003,
+    MODEM_POWER_GOING_OFF               = 0x0004,
+    MODEM_POWER_SHUTING_DOWN            = 0x0005
+} ;
+
+// BUGBUG: These should have been defined in RilAPITypes.idl or given a different name, since only idertifiers in the IHVRIL
+// interface should have names beginning with the prefix RIL
+typedef struct RILSIDNID RILSIDNID;
+typedef struct RILSIDNID *LPRILSIDNID;
+typedef struct RILNAI NAI;
+typedef struct RILNAI* LPRILNAI;
+
+enum RILNAIPARAMMASK {
+    RIL_PARAM_NAI_NAI = 0x00000001,
+    RIL_PARAM_NAI_ALL = 0x00000001
+} ;
+
+struct RILNAI {
+    DWORD cbSize;
+    DWORD dwParams;
+    WCHAR wszNAI[MAXLENGTH_NAI + 1];
+} ;
+
+enum RILSIDNIDPARAMMASK {
+    RIL_PARAM_SIDNID_SID = 0x00000001,
+    RIL_PARAM_SIDNID_NID = 0x00000002,
+    RIL_PARAM_SIDNID_ALL = 0x00000003
+} ;
+typedef enum RILSIDNIDPARAMMASK RILSIDNIDPARAMMASK;
+
+struct RILSIDNID {
+    DWORD cbSize;
+    DWORD dwParams;
+    DWORD dwSid;
+    DWORD dwNid;
+} ;
+
+enum UICCDATASTOREACCESSMODE
+{
+    UICCDATASTORE_PUBLIC     = 0x0001,
+    UICCDATASTORE_PRIVATE    = 0x0002
+} ;
+typedef enum UICCDATASTOREACCESSMODE UICCDATASTOREACCESSMODE;
+
+const int MAXLENGTH_UICCDATASTORE = 10;
+
+struct UICCDATASTOREENTRY
+{
+    DWORD position;
+    DWORD lengthIccId;
+    BYTE iccId[MAXLENGTH_ICCID];
+} ;
+
+struct UICCDATASTOREINFO
+{
+    DWORD dwCount;
+    struct UICCDATASTOREENTRY entries[MAXLENGTH_UICCDATASTORE];
+} ;
+
+typedef struct UICCDATASTOREINFO UICCDATASTOREINFO;
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Major Objects
+//
+
+// IOemCellular - external version of ICellular
+[object, oleautomation, uuid(17AE6DC1-3723-4085-99BA-7160CDB8BFC1)]
+interface IOemCellular : IUnknown
+{
+    [helpstring("Register to be informed of modems within the system")]
+    HRESULT RegisterForOemModemExistenceChanges([in] IOemCellularModemExistenceChange *pCallback);
+
+    [helpstring("Unregister for information about modems within the system")]
+    HRESULT UnregisterForOemModemExistenceChanges([in] IOemCellularModemExistenceChange *pCallback);
+
+    [helpstring("Close/clean up all objects (does not alter actual hardware state)")]
+    HRESULT Destroy();
+
+    [helpstring("Wait for the Destroy operation to finish")]
+    HRESULT WaitForDestroyCompletion();
+}
+
+// IOemCellular - external version of ICellularDatastrore
+[object, oleautomation, uuid(b470078a-2784-4d09-ad35-42b2290abc54)]
+interface IOemCellularDataStore : IUnknown
+{
+    //
+    // UICC data Store functionality
+    // Allows clients to store and retrive per UICC setting from the datastore
+    // setting related to up to 10 UICC will be stored
+    [helpstring("Set a Name-value pair for a card identified by IccID")]
+    HRESULT SetNamedValue([in] const BYTE *pIccId, [in] DWORD lengthIccId, [in] LPCWSTR pClientId, [in] LPCWSTR pPropertyName, [in] const BYTE *pPropertyValue, [in] DWORD lengthValue, [in] UICCDATASTOREACCESSMODE accessMode);
+
+    [helpstring("Get a Name-value pair for a card identified by IccID")]
+    HRESULT GetNamedValue([in] const BYTE *pIccId, [in] DWORD lengthIccId, [in] LPCWSTR pClientId, [in] LPCWSTR pPropertyName, [out] BYTE *pPropertyValue, [in, out] DWORD *pLengthValue, [in] UICCDATASTOREACCESSMODE accessMode);
+
+    [helpstring("Get a list with all IccIds stored in the data store and the corresponding position in usage history")]
+    HRESULT GetUiccDataStoreInfo([in, out] struct UICCDATASTOREINFO *pDatastoreInfo);
+}
+
+// IOemCellularModem - external version of ICellularModem
+[object, oleautomation, uuid(82F4E49E-1E6B-43C9-8769-FE3D437AE8A9)]
+interface IOemCellularModem : IUnknown
+{
+    //
+    // Can state changes - OEM version
+    //
+    [helpstring("Register for Can state changes on this modem")]
+    HRESULT RegisterForOemCanAvailabilityChanges([in] IOemCellularCanAvailabilityChange *pCallBack);
+
+    [helpstring("Unregister for Can state changes on this modem")]
+    HRESULT UnregisterForOemCanAvailabilityChanges([in] IOemCellularCanAvailabilityChange *pCallback); 
+
+    //
+    // Slot state changes - OEM version
+    //
+    [helpstring("Register for slot insertion/removal notifications.")]
+    HRESULT RegisterForOemSlotChanges([in] IOemSlotChange *pCallback);
+
+    [helpstring("Unregister for slot insertion/removal notifications.")]
+    HRESULT UnregisterForOemSlotChanges([in] IOemSlotChange *pCallback);
+
+    //
+    // Power state changes
+    //
+    [helpstring("Register for power state changes on this modem")]
+    HRESULT RegisterForPowerStateChanges([in] IPowerStateChange *pCallback, [in] INT_PTR context);
+
+    [helpstring("Unregister for power state changes on this modem")]
+    HRESULT UnregisterForPowerStateChanges([in] IPowerStateChange *pCallback); 
+
+    //
+    // DevSpecific and SAR related APIs
+    //
+    [helpstring ("Send an Opaque Command to the Modem")]
+    HRESULT SendModemOpaqueCommand([in] IModemOpaqueCommandCompletion *pCallback, [in,size_is(cbSize)] BYTE *pOpaquePayload, [in] DWORD cbSize, [in] INT_PTR context);
+
+    [helpstring("Register for Opaque Modem Notifications")]
+    HRESULT RegisterForOpaqueModemNotifications([in] IOpaqueModemNotifications *pCallback);
+    
+    [helpstring("UnRegister for Opaque Modem Notifications")]
+    HRESULT UnRegisterForOpaqueModemNotifications([in] IOpaqueModemNotifications *pCallback);
+
+    [helpstring ("Set the RF Power (Level) State for SAR")]
+    HRESULT SetRFState([in] ISetRFStateCompletion *pCallback, [in] DWORD dwRFPowerState, [in] INT_PTR context);
+
+    [helpstring ("Gets the RF Power(Level)State for SAR")]
+    HRESULT GetRFState([in] IGetRFStateCompletion *pCallback, [in] INT_PTR context);   
+}
+
+// IOemCellularModemEx - extended external version of ICellularModem
+[object, oleautomation, uuid(1902f624-534e-4624-a815-3546021f0854)]
+interface IOemCellularModemEx : IUnknown
+{
+    [helpstring ("Set the RF Power (Level) State for SAR")]
+    HRESULT SetRFState([in] ISetRFStateCompletion *pCallback, [in] LPRILRFSTATE lpRFState, [in] INT_PTR context);
+
+    [helpstring ("Gets the RF Power(Level)State for SAR")]
+    HRESULT GetRFState([in] IGetRFStateExCompletion *pCallback, [in] INT_PTR context);   
+
+}
+
+// IOemCan - external version of ICan
+[object, oleautomation, uuid(A3822E4E-FFB5-4E46-8980-0182B8454E2E)]
+interface IOemCan : IUnknown
+{
+    //
+    // Registration changes
+    //
+    [helpstring("Register for can registration status")]
+    HRESULT RegisterForOemCanRegistrationChanges([in] IOemCanRegistrationStateChange *pCallback);
+
+    [helpstring("UnRegister for can registration status")]
+    HRESULT UnregisterForOemCanRegistrationChanges([in] IOemCanRegistrationStateChange *pCallback);
+
+    //
+    // GetDeviceInfo
+    //
+    [helpstring("Get Can information such as radio serial number, revision number, etc.")]
+    HRESULT GetInfo([in] enum RILDEVICEINFORMATION deviceInfo, [in] ICanInfoCompletion *pCallback, [in] INT_PTR context); 
+
+    //
+    // GetPositionInfo
+    //
+    [helpstring("Get radio measurments used to determine position")]
+    HRESULT GetPositionInfo([in] IPositionInfoCompletion *pCallback, [in] INT_PTR context);
+
+    //
+    // IServiceProvider
+    //
+    [helpstring("Used to get a 3GPP or 3GPP2 call provider")]
+    HRESULT QueryService([in] REFGUID guidService, [in] REFIID riid, [out, iid_is(riid)] void **ppv);
+}
+
+// IOemCanExtForIMS - external version of ICan
+[object, oleautomation, uuid(C5310A1A-E885-4450-B823-84AD7FD15CBF)]
+interface IOemCanExtForIMS : IUnknown
+{
+    //
+    // (Un)Register for IMS status changes
+    //
+    [helpstring ("Register for IMS status changes. The callback is invoked at least once with current IMS status")]
+    HRESULT RegisterForOemIMSStatusChanges([in] IOemIMSStatusChange *pCallback);
+    
+    [helpstring ("Unregister for IMS status changes")]
+    HRESULT UnregisterForOemIMSStatusChanges([in] IOemIMSStatusChange *pCallback);    
+}
+
+// IOemSlot - external version of ISlot
+[object, oleautomation, uuid(DAE67DE6-0C18-4158-9323-CF7FB14EC216)]
+interface IOemSlot : IUnknown
+{
+    [helpstring("Register for state changes on this slot")]
+    HRESULT RegisterForOemSlotChanges([in] IOemSlotStateChange *pCallback);
+
+    [helpstring("Unregister for state changes on this slot")]
+    HRESULT UnregisterForOemSlotChanges([in] IOemSlotStateChange *pCallback);
+}
+
+// IOemUICC - external version of IUICC
+[object, oleautomation, uuid(FD5DBCF6-810D-4CE8-AC06-1B8628808950)]
+interface IOemUicc : IUnknown
+{
+    [helpstring("Register for changes on this UICC")]
+    HRESULT RegisterForOemUiccChanges([in] IOemUiccChange *pCallback);
+
+    [helpstring("Un-register for changes on this UICC")]
+    HRESULT UnregisterForOemUiccChanges([in] IOemUiccChange *pCallback);
+}
+
+// IOemUiccApp - external version of IUICCApp and ILine
+// Attempting to use an ILine method on a non-ILine will fail with E_INVALIDARG
+[object, oleautomation, uuid(2D00BFEE-AA9F-48FD-9D2B-E8D3D3EDDC60)]
+interface IOemUiccApp : IUnknown
+{
+    [helpstring("Gets the application ID for this UICC application")]
+    HRESULT GetAppId([out] BYTE *appId, [in, out] DWORD *length);
+
+    [helpstring("Gets the type of this UICC application")]
+    HRESULT GetType([out] RILUICCAPPTYPE *pType);
+
+    [helpstring("Get pin lock state of this UICC application")]
+    HRESULT GetPinLockState([in] IPinLockStateCompletion *pCallback, [in] INT_PTR context);
+
+    [helpstring("Read from a specific file on this application")]
+    HRESULT ReadRecord([in] IReadRecordCompletion *pCallback, [in] DWORD fileID, [in] DWORD recordIndex, [in] INT_PTR context);
+
+    [helpstring("Write to a specific file on this application")]
+    HRESULT WriteRecord([in] IWriteRecordCompletion *pCallback, [in] DWORD fileID, [in] DWORD recordIndex, [in] const BYTE *bData, [in] DWORD cbSize, [in] INT_PTR context);
+
+    [helpstring("Get record status for a specific file path on the UICC application")]
+    HRESULT GetRecordStatusOnFilePath([in] IGetRecordStatusCompletion *pCallback, [in, size_is(filePathLen)] const WORD *uiccFilePath, [in] DWORD filePathLen, [in] INT_PTR context);
+
+    [helpstring("Read from a specific file path on this application")]
+    HRESULT ReadRecordOnFilePath([in] IReadRecordCompletion *pCallback, [in, size_is(filePathLen)] const WORD *uiccFilePath, [in] DWORD filePathLen, [in] DWORD recordIndex, [in] INT_PTR context);
+
+    [helpstring("Write to a specific file path on this application")]
+    HRESULT WriteRecordOnFilePath([in] IWriteRecordCompletion *pCallback, [in, size_is(filePathLen)] const WORD *uiccFilePath, [in] DWORD filePathLen, [in] DWORD recordIndex, [in] const BYTE *bData, [in] DWORD cbSize, [in] INT_PTR context);
+
+    // need read/write binary
+
+    [helpstring("Get the IMSI from the application")]
+    HRESULT GetIMSI([in] IIMSICompletion *pCallback, [in] INT_PTR context);
+
+    [helpstring("Get the SID and NID for the application")]
+    HRESULT GetSIDNID([in] IGetSIDNIDCompletion *pCallback, [in] INT_PTR context);
+
+    [helpstring("Get the subscriber numbers")]
+    HRESULT GetSubscriberNumbers([in] ISubscriberNumbersCompletion *pCallback, [in] INT_PTR context);
+
+}
+
+// IOemUiccAppEx - external version of IUICCApp and ILine
+// implemented in Portico
+[object, oleautomation, uuid(0C50366C-D5ED-4F00-AA54-1537A63D8A01)]
+interface IOemUiccAppEx : IUnknown
+{
+    [helpstring("Get Prefered Operator List")]
+    HRESULT GetPreferredOperatorList([in] IGetPLMNwAcT * pResponseHandler);
+
+    [helpstring("Set Prefered Operator List")]
+    HRESULT SetPreferredOperatorList([in] ISetPLMNwAcT * pResponseHandler, [in,size_is(dwLength)] RILOPERATORNAMES * pOperatorList, [in] DWORD dwLength);
+}
+
+// IOemUiccAppEx2 - external version of IUICCApp and ILine
+[object, oleautomation, uuid(C9772450-A940-4E27-A3EA-AFCC5ECC7556)]
+interface IOemUiccAppEx2 : IUnknown
+{
+    [helpstring("Get NAI")]
+    HRESULT GetNAI([in] IGetNAICompletion *pCallback, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(138820C5-299D-4d1d-80B9-1664A17B1B41)]
+interface IOem3GPPSupServices : IUnknown
+{
+    [helpstring("Get call forwarding settings, infoClasses is a mask of RIL_INFOCLASS_ values")] 
+    HRESULT GetCallForwardingSettings([in] IGetCallForwardingCompletion *pCallback, [in] INT_PTR context, [in] RILCALLFORWARDINGSETTINGSREASON reason, [in] BOOL allClasses, [in] DWORD infoClasses);
+
+    [helpstring("Set callforwarding status")]
+    HRESULT SetCallForwardingStatus([in] ISimpleModemCompletion *pCallback, [in] INT_PTR context, [in] RILCALLFORWARDINGSETTINGSREASON dwReason, [in] BOOL fAllClasses, [in] DWORD dwInfoClasses, [in] RILSERVICESETTINGSSTATUS dwStatus);
+
+    [helpstring("Add a call forwarding rule")]            
+    HRESULT AddCallForwarding([in] ISimpleModemCompletion *pCallback, [in] INT_PTR context, [in] RILCALLFORWARDINGSETTINGSREASON dwReason, [in] const RILCALLFORWARDINGSETTINGS *lpSettings);
+    
+    [helpstring("Remove a call forwarding rule")]
+    HRESULT RemoveCallForwarding([in] ISimpleModemCompletion *pCallback, [in] INT_PTR context, [in] RILCALLFORWARDINGSETTINGSREASON dwReason, [in] DWORD dwInfoClasses);
+
+    [helpstring("Get callwaiting settings")]
+    HRESULT GetCallWaitingSettings([in] ICallWaitingSettingsCompletion *pCallback, [in] INT_PTR context, [in] BOOL fAllClasses, [in] DWORD dwInfoClasses);
+
+    [helpstring("Set callwaiting settings")]
+    HRESULT SetCallWaitingSettings([in] ISimpleModemCompletion *pCallback, [in] INT_PTR context, [in] BOOL fAllClasses, [in] DWORD dwInfoClasses, [in] RILSERVICESETTINGSSTATUS dwStatus );
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// State Change Interfaces
+//
+[object, oleautomation, uuid(A2CBC3C1-79D5-4F9D-A6F9-FDE497848EC1)]
+interface IOemCellularModemExistenceChange : IUnknown
+{
+    [helpstring("Called when a modem is added [becomes available]")]
+    HRESULT OnOemModemAdded([in] IOemCellularModem *pModem);
+
+    [helpstring("Called when a modem is removed [is no longer available]")]
+    HRESULT OnOemModemRemoved([in] IOemCellularModem *pModem);
+
+    [helpstring("Called when the initial list of modems is determined")]
+    HRESULT OnOemModemExistenceDone();
+}
+
+[object, oleautomation, uuid(CF34841C-A795-4EC6-B1BC-C3744A2D6DCA)]
+interface IOemCellularCanAvailabilityChange : IUnknown
+{
+    [helpstring("Called when a can is added")]
+    HRESULT OnOemCanAdded([in] IOemCan *pCan);
+    
+    [helpstring("Called when a Can is removed")]
+    HRESULT OnOemCanRemoved([in] IOemCan *pCan);
+
+    [helpstring("Called when the initial list of cans is determined.")]
+    HRESULT OnOemCanDone();
+}
+
+[object, oleautomation, uuid(20C4AF87-BC47-4150-BA97-4F53FFD95E48)]
+interface IOemSlotChange : IUnknown
+{
+    [helpstring("Called when a slot is added")]
+    HRESULT OnOemSlotAdded([in] IOemSlot *pSlot, [in] IOemCellularModem *pCellularModem);
+    
+    [helpstring("Called when a slot is removed")]
+    HRESULT OnOemSlotRemoved([in] IOemSlot *pSlot, [in] IOemCellularModem *pCellularModem);
+    
+    [helpstring("Called when the initial list of slots is determined.")]
+    HRESULT OnOemSlotExistenceDone([in] IOemCellularModem *pCellularModem);
+}
+
+[object, oleautomation, uuid(B8E5DF58-2329-400C-93C5-FFB951BF3415)]
+interface IOemCanRegistrationStateChange : IUnknown
+{
+    [helpstring("Notification for when registration status changes")]
+    HRESULT OnOemRegistrationStatusChanged([in, size_is(cStatus)] IOemRegistrationStatus **status, [in] DWORD cStatus);
+}
+
+[object, oleautomation, uuid(59BB79ED-5435-456C-A8D1-6680D56AAD1E)]
+interface IOemSlotStateChange : IUnknown
+{
+    [helpstring("Slot state changed")]
+    HRESULT OnOemSlotStateChanged([in] RILUICCSLOTSTATE currentSlotState, [in] IOemSlot *pSlot);
+
+    [helpstring("On UICC added")]
+    HRESULT OnOemUiccAdded([in] IOemUicc *pUicc, [in] IOemSlot *pSlot);
+
+    [helpstring("On UICC removed")]
+    HRESULT OnOemUiccRemoved([in] IOemUicc *pUicc, [in] IOemSlot *pSlot);
+
+    [helpstring("Done with the first snapshot")]
+    HRESULT OnOemFirstSnapshotDone([in] IOemSlot *pSlot);
+}
+
+[object, oleautomation, uuid(302739D6-299D-4B82-A12E-EF930FD8BD16)]
+interface IOemUiccChange : IUnknown
+{
+    [helpstring("Provide the UICC ICCID")]
+    HRESULT UiccIccId([in] BYTE *iccID, [in] DWORD length, [in] IOemUicc *pUicc);
+
+    [helpstring("New line got added on the UICC in the slot")]
+    HRESULT OnOemUiccAppAdded([in] IOemUiccApp *uiccApp, [in] IOemUicc* pUicc);
+
+    [helpstring("A existing line got removed from the UICC in the slot")]
+    HRESULT OnOemUiccAppRemoved([in] IOemUiccApp *uiccApp, [in] IOemUicc *pUicc);
+
+    [helpstring("Done with the first snapshot")]
+    HRESULT OnOemUiccAppFetchDone([in] IOemUicc *pUicc);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// Interfaces representing other objects that are different in CellularAPI_OEM
+[object, oleautomation, uuid(F8C3B6D1-4629-414B-8E38-DD396FEBE730)]
+interface IOemRegistrationStatus : IUnknown
+{
+    [propget, helpstring("Retrieves the active line.")]
+    HRESULT Subscription([out, retval] IOemUiccApp **ret);
+
+    [propget, helpstring("Retrieves the system type of the registered network")]
+    HRESULT SystemType([out, retval] enum RILSYSTEMTYPE *systemType);
+
+    [propget, helpstring("Retrieves the reject code as sent by the network. Is only valid till the time regstat doesn't return back to home or roaming.")]
+    HRESULT RejectReason([out, retval] DWORD *reason);
+
+    [propget, helpstring("Retrieves the operator name struct")]
+    HRESULT OperatorName([out, retval] struct RILOPERATORNAMES *name);
+
+    [propget, helpstring("Retrieves the actual registration state as reported by the modem")]
+    HRESULT RegistrationStatus([out, retval] enum RILREGSTAT *status);
+
+    [propget, helpstring("Retrieves the network code information for the operator")]
+    HRESULT NetworkCode([out, retval] struct RILNETWORKCODE *pNetworkCode);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// The following interfaces are shared by CellularAPI and CellularAPI_OEM
+
+[object, oleautomation, uuid(0e7d938e-d7fb-49a4-8cac-4db70d952c03)]
+interface IPowerStateChange : IUnknown
+{
+    HRESULT OnPowerStateChange([in] enum MODEMPOWERSTATE state, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(C9B4415B-0643-4855-BB04-A5354F038E62)]
+interface IModemOpaqueCommandCompletion : IUnknown
+{
+    [helpstring("Modem Opaque Command Completion")]
+    HRESULT OnModemOpaqueCommandCompletion([in] HRESULT result, [in,size_is(cbSize)] BYTE *pOpaqueResponse, [in] DWORD cbSize, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(85A26F4E-CD62-4B6E-90A1-0D5E2D6EE3FF)]
+interface IOpaqueModemNotifications : IUnknown
+{
+    [helpstring("Unsolicited Modem Opaque Notification")]
+    HRESULT OnOpaqueModemNotifications([in] DWORD dwCode, [in] BYTE* pOpaqueNotification, [in] DWORD cbSize);
+}
+
+[object, oleautomation, uuid(340B4A01-07CE-4334-B367-05C87085CBB0)]
+interface ISetRFStateCompletion : IUnknown
+{
+    HRESULT OnSetRFStateCompletion([in] HRESULT result, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(4255DD18-D829-4C04-849A-624727B990A2)]
+interface IGetRFStateCompletion : IUnknown
+{
+    HRESULT OnGetRFStateCompletion([in] HRESULT result, [in] DWORD *pRFState, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(74e511fd-f17b-48fc-bd56-93af42e71031)]
+interface IGetRFStateExCompletion : IUnknown
+{
+    HRESULT OnGetRFStateCompletion([in] HRESULT result, [in] LPRILRFSTATE lpRFState, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(b5bb6a5e-8d3f-4203-b58b-26c3d4e8eedc)]
+interface ICanInfoCompletion : IUnknown
+{
+    [helpstring ("On Can GetInfo completion")]
+    HRESULT OnGetInfoCompletion([in] HRESULT result, [in] const WCHAR *value, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(03569923-a28f-47bd-9315-38d8fb11717d)]
+interface IPositionInfoCompletion : IUnknown
+{
+    [helpstring ("On get position information")]
+    HRESULT OnGetPositionInfoCompletion([in] HRESULT result, [in] LPRILPOSITIONINFO lpPositionInfo, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(3b2481a7-aee9-462f-bd38-31f15c15ff88)]
+interface IPinLockStateCompletion : IUnknown
+{
+    [helpstring ("Completion of a GetPinLockState call")]
+    HRESULT OnGetPinLockStateCompletion([in] HRESULT result, [in] LPRILUICCLOCKSTATE pUICCLockState, [in] DWORD length, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(2d033fa3-ae5c-495c-bcf5-459ffa07036a)]
+interface IGetRecordStatusCompletion : IUnknown
+{
+    [helpstring ("On record status completion")]
+    HRESULT OnGetRecordStatusCompletion([in] HRESULT result, [in] LPRILUICCRECORDSTATUS recordStatus, [in] DWORD length, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(5a8c7c5f-aace-47b8-b38b-41785a9fc090)]
+interface IReadRecordCompletion : IUnknown
+{
+    [helpstring ("On read record completion")]
+    HRESULT OnReadRecordCompletion([in] HRESULT result, [in] BYTE *record, [in] DWORD cbSize, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(f9b2b7de-3ab4-4af8-bac0-fd9a83113242)]
+interface IWriteRecordCompletion : IUnknown
+{
+    [helpstring ("On write record completion")]
+    HRESULT OnWriteRecordCompletion([in] HRESULT result, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(A9342324-DA50-46B2-BA1C-2B1CB60C3817)]
+interface IIMSICompletion : IUnknown
+{
+    [helpstring ("On get IMSI completion")]
+    HRESULT OnGetIMSICompletion([in] HRESULT result, [in] const LPRILIMSI rilImsi, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(e7d5d35e-a770-4adc-8bb1-a677ea6e89ac)]
+interface IGetSIDNIDCompletion : IUnknown
+{
+    [helpstring ("On get SID NID completion")]
+    HRESULT OnGetSIDNIDCompletion([in] HRESULT result, [in] const LPRILSIDNID rilSidNid, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(4AFE7F70-7D1F-45D1-BC93-908161FEBC58)]
+interface IGetNAICompletion : IUnknown
+{
+    [helpstring ("On get NAI completion")]
+    HRESULT OnGetNAICompletion([in] HRESULT result, [in] const LPRILNAI rilNai, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(be6d7c2a-ba04-4fcc-a611-d33000643d4f)]
+interface ISubscriberNumbersCompletion : IUnknown
+{
+    [helpstring ("On get subscriber numbers")]
+    HRESULT OnGetSubscriberNumbersCompletion([in] HRESULT result, [in] LPRILUICCSUBSCRIBERNUMBERS pSubscriberNumbers, [in] DWORD length, [in] INT_PTR context);
+}
+
+[object,oleautomation, uuid(E9BEB716-6ADD-492B-BBEA-B2FE1068A86E)]
+interface IGetPLMNwAcT: IUnknown
+{
+    [helpstring("On get Prefered Operator List")]
+    HRESULT OnGetPreferredOperatorListCompletion([in] HRESULT result, [in,size_is(dwLength)] RILOPERATORNAMES * pOperatorList, [in] DWORD dwLength);
+
+}
+[object,oleautomation, uuid(4E331477-F454-4DE7-8B18-5130B891B012)]
+interface ISetPLMNwAcT: IUnknown
+{
+    [helpstring("On set Prefered Operator List")]
+    HRESULT OnSetPreferredOperatorListCompletion([in] HRESULT result);
+}
+
+[object, oleautomation, uuid(c329148f-3374-438b-8ed4-e1b9ab28eee3)]
+interface IGetCallForwardingCompletion : IUnknown
+{
+    HRESULT OnGetCallForwardingSettingsCompletion([in] HRESULT result, [in] INT_PTR context, [in] RILCALLFORWARDINGSETTINGS *settings, [in] DWORD cSettings);
+}
+
+[object, oleautomation, uuid(9A189741-DED1-4535-B116-B6D287BF70D2)]
+interface ISimpleModemCompletion : IUnknown
+{
+    [helpstring("Called when a simple async command is completed")]
+    HRESULT OnFinished(HRESULT result, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(f9581718-2283-4336-9397-1c6c067299d2)]
+interface ICallWaitingSettingsCompletion : IUnknown
+{
+    [helpstring("Called when getting CallWaitingSettings has completed")]
+    HRESULT OnCallWaitingSettingsCompletion([in] HRESULT hr, [in] DWORD dwInfoClasses, [in] INT_PTR context);
+}
+
+[object, oleautomation, uuid(7d034a18-baef-4f86-ad84-bb0bbfb9f834)]
+interface IOemIMSStatusChange : IUnknown
+{
+    [helpstring("Indicates that the IMS status has been changed")]
+    HRESULT OnOemIMSStatusChanged([in] LPRILIMSSTATUS rilIMSStatus, [in] IOemCanExtForIMS * pCan);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+[uuid(32A11B9F-9C1D-46C2-B66F-6C05211135E1), version(1.0)]
+library OemCellularIF
+{
+    importlib("stdole32.tlb");
+
+    interface ICanInfoCompletion;
+    interface IGetRecordStatusCompletion;
+    interface IGetRFStateCompletion;
+    interface IGetSIDNIDCompletion;
+    interface IGetNAICompletion;
+    interface IIMSICompletion;
+    interface IModemOpaqueCommandCompletion;
+    interface IOemCan;
+    interface IOemCanExtForIMS;
+    interface IOemCanRegistrationStateChange;
+    interface IOemCellular;
+    interface IOemCellularCanAvailabilityChange;
+    interface IOemCellularModem;
+    interface IOemCellularModemExistenceChange;
+    interface IOemRegistrationStatus;
+    interface IOemSlot;
+    interface IOemSlotChange;
+    interface IOemSlotStateChange;
+    interface IOemUICC;
+    interface IOemUICCApp;
+    interface IOemUICCAppEx;
+    interface IOemUICCAppEx2;
+    interface IOemUiccAppChange;
+    interface IOemUiccChange;
+    interface IOpaqueModemNotifications;
+    interface IPinLockStateCompletion;
+    interface IPositionInfoCompletion;
+    interface IPowerStateChange;
+    interface IReadRecordCompletion;
+    interface ISetRFStateCompletion;
+    interface ISubscriberNumbersCompletion;
+    interface IWriteRecordCompletion;
+    interface IGetPLMNwAcT;
+    interface ISetPLMNwAcT;
+    interface IOem3GPPSupServices;
+    interface IGetCallForwardingCompletion;
+    interface ISimpleModemCompletion;
+    interface ICallWaitingSettingsCompletion;
+    interface IOemIMSStatusChange;
+    
+    [uuid(9D27B916-4F17-4EE8-A71C-D84222993D64) ]
+    coclass OemCellular
+    {
+        [default] interface IOemCellular;
+        interface IOemCellular;
+    };
+
+}

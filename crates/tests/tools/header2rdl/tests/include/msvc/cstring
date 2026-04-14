@@ -1,0 +1,57 @@
+// cstring standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CSTRING_
+#define _CSTRING_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <string.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+#pragma warning(push)
+#pragma warning(disable : 4995) // name was marked as #pragma deprecated
+
+_EXPORT_STD using _CSTD size_t;
+_EXPORT_STD using _CSTD memchr;
+_EXPORT_STD using _CSTD memcmp;
+_EXPORT_STD using _CSTD memcpy;
+_EXPORT_STD using _CSTD memmove;
+_EXPORT_STD using _CSTD memset;
+_EXPORT_STD using _CSTD strcat;
+_EXPORT_STD using _CSTD strchr;
+_EXPORT_STD using _CSTD strcmp;
+_EXPORT_STD using _CSTD strcoll;
+_EXPORT_STD using _CSTD strcpy;
+_EXPORT_STD using _CSTD strcspn;
+_EXPORT_STD using _CSTD strerror;
+_EXPORT_STD using _CSTD strlen;
+_EXPORT_STD using _CSTD strncat;
+_EXPORT_STD using _CSTD strncmp;
+_EXPORT_STD using _CSTD strncpy;
+_EXPORT_STD using _CSTD strpbrk;
+_EXPORT_STD using _CSTD strrchr;
+_EXPORT_STD using _CSTD strspn;
+_EXPORT_STD using _CSTD strstr;
+_EXPORT_STD using _CSTD strtok;
+_EXPORT_STD using _CSTD strxfrm;
+
+#pragma warning(pop)
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CSTRING_

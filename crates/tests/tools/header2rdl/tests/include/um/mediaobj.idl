@@ -1,0 +1,430 @@
+//------------------------------------------------------------------------------
+// File: MediaObj.idl
+//
+// Desc: Define the interfaces for DirectX Media Objects.  This file will be
+//       processed by the MIDL tool to produce mediaobj.h and proxy-stub code.
+//
+// Copyright (c) 1999 - 2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+import "unknwn.idl";
+import "objidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+//  DMO_MEDIA_TYPE structure
+
+cpp_quote("#ifdef __strmif_h__")
+cpp_quote("typedef AM_MEDIA_TYPE DMO_MEDIA_TYPE;")
+cpp_quote("#else")
+typedef struct _DMOMediaType {
+    GUID     majortype;
+    GUID     subtype;
+    BOOL     bFixedSizeSamples;
+    BOOL     bTemporalCompression;
+    ULONG    lSampleSize;
+    GUID     formattype;
+    IUnknown *pUnk;
+    ULONG    cbFormat;
+    [size_is(cbFormat)] BYTE * pbFormat;
+} DMO_MEDIA_TYPE;
+typedef LONGLONG REFERENCE_TIME;
+cpp_quote("#endif")
+
+
+// Per-buffer flags that apply to input buffers
+enum _DMO_INPUT_DATA_BUFFER_FLAGS {
+    DMO_INPUT_DATA_BUFFERF_SYNCPOINT       = 0x00000001,
+    DMO_INPUT_DATA_BUFFERF_TIME            = 0x00000002,
+    DMO_INPUT_DATA_BUFFERF_TIMELENGTH      = 0x00000004,
+    DMO_INPUT_DATA_BUFFERF_DISCONTINUITY   = 0x00000008
+};
+
+// Per-buffer flags that apply to output buffers.
+enum _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT       = 0x00000001,
+    DMO_OUTPUT_DATA_BUFFERF_TIME            = 0x00000002,
+    DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH      = 0x00000004,
+    DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY   = 0x00000008,   
+
+    //
+    // This flag means the object could have generated more data for this
+    // output stream, even with no additional input from any input stream,
+    // but the output buffer did not have sufficient room.
+    //
+    DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE      = 0x01000000
+    
+};
+
+// Flags returned by GetInputStatus()
+enum _DMO_INPUT_STATUS_FLAGS {
+    //
+    // ACCEPT_DATA indicates that the input stream is ready to accept
+    // new data via ProcessInput().
+    //
+    DMO_INPUT_STATUSF_ACCEPT_DATA   = 0x00000001
+};
+
+// Flags returned by GetInputStreamInfo()
+enum _DMO_INPUT_STREAM_INFO_FLAGS {
+    DMO_INPUT_STREAMF_WHOLE_SAMPLES            = 0x00000001,
+    DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER = 0x00000002,
+    DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE        = 0x00000004,
+    DMO_INPUT_STREAMF_HOLDS_BUFFERS            = 0x00000008
+};
+
+// Flags returned by GetOutputStreamInfo()
+enum _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    DMO_OUTPUT_STREAMF_WHOLE_SAMPLES            = 0x00000001,
+    DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER = 0x00000002,
+    DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE        = 0x00000004,
+    DMO_OUTPUT_STREAMF_DISCARDABLE              = 0x00000008,
+    DMO_OUTPUT_STREAMF_OPTIONAL                 = 0x00000010
+};
+
+//  SetType flags
+enum _DMO_SET_TYPE_FLAGS {
+    DMO_SET_TYPEF_TEST_ONLY   = 0x00000001,// check but don't set
+    DMO_SET_TYPEF_CLEAR       = 0x00000002 // unset
+};
+
+//  Process Output Flags
+enum _DMO_PROCESS_OUTPUT_FLAGS {
+    DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER = 0x00000001 //  Discard
+};
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+// Buffer wrapper interface
+[
+    object,
+    uuid(59eff8b9-938c-4a26-82f2-95cb84cdc837),
+    local
+]
+interface IMediaBuffer : IUnknown
+{
+    HRESULT SetLength(
+       DWORD cbLength
+    );
+    HRESULT GetMaxLength(
+       [out, annotation("_Out_")] DWORD *pcbMaxLength
+    );
+    HRESULT GetBufferAndLength(
+       [out, annotation("_Outptr_opt_result_bytebuffer_(*pcbLength)")] BYTE **ppBuffer,  // not filled if NULL
+       [out, annotation("_Out_opt_")] DWORD *pcbLength // not filled if NULL
+    );
+}
+
+//
+// Output buffer info structure: one of these must be passed in for each
+// output stream with every ProcessOutput() call
+// All [out] fields should be
+// assumed undefined if ProcessOutput() failed
+//
+typedef struct _DMO_OUTPUT_DATA_BUFFER {
+
+    IMediaBuffer *pBuffer; // [in] can be NULL
+
+    // ProcessOutput() must set any appropriate flags and zero out the rest.
+    DWORD dwStatus; // [out] DMO_OUTPUT_DATA_BUFFERF_XXX (INCOMPLETE, etc.)
+
+    //
+    // Each of these is valid if the corresponding flag is set in dwStatus
+    //
+    REFERENCE_TIME rtTimestamp; // [out]
+    REFERENCE_TIME rtTimelength; // [out]
+} DMO_OUTPUT_DATA_BUFFER, *PDMO_OUTPUT_DATA_BUFFER;
+
+
+//  Interface supported by media objects
+[
+    object,
+    uuid(d8ad0f58-5494-4102-97c5-ec798e59bcf4),
+    local
+]
+interface IMediaObject : IUnknown
+{
+
+//
+// Stream enumeration
+//
+        HRESULT GetStreamCount(
+                [out, annotation("_Out_")] DWORD *pcInputStreams,
+                [out, annotation("_Out_")] DWORD *pcOutputStreams
+        );
+        HRESULT GetInputStreamInfo(
+                DWORD dwInputStreamIndex, // 0-based
+                [out, annotation("_Out_")] DWORD *pdwFlags // HOLDS_BUFFERS
+        );
+        HRESULT GetOutputStreamInfo(
+                DWORD dwOutputStreamIndex, // 0-based
+                [out, annotation("_Out_")] DWORD *pdwFlags      // Media object sets to 0
+        );
+
+//
+// Mediatypes
+//
+        //
+        // GetType - iterate through media types supported by a stream.
+        // Returns S_FALSE if the type index is out of range ("no more types").
+        //
+        HRESULT GetInputType(
+                DWORD dwInputStreamIndex,
+                DWORD dwTypeIndex, // 0-based
+                [out, annotation("_Out_opt_")] DMO_MEDIA_TYPE *pmt
+        );
+        HRESULT GetOutputType(
+                DWORD dwOutputStreamIndex,
+                DWORD dwTypeIndex, // 0-based
+                [out, annotation("_Out_opt_")] DMO_MEDIA_TYPE *pmt
+        );
+
+        //
+        // SetType - tell the object the type of data it will work with.
+        //
+        HRESULT SetInputType(
+                DWORD dwInputStreamIndex,
+                [in, annotation("_In_opt_")] const DMO_MEDIA_TYPE *pmt,
+                DWORD dwFlags // test only
+        );
+        HRESULT SetOutputType(
+                DWORD dwOutputStreamIndex,
+                [in, annotation("_In_opt_")]  const DMO_MEDIA_TYPE *pmt,
+                DWORD dwFlags // test only
+        );
+
+        //
+        // GetCurrentType - get the last mediatype supplied via SetType.
+        // Returns S_FALSE if SetType has not been called.
+        //
+        HRESULT GetInputCurrentType(
+                DWORD dwInputStreamIndex,
+                [out, annotation("_Out_")] DMO_MEDIA_TYPE *pmt
+        );
+        HRESULT GetOutputCurrentType(
+                DWORD dwOutputStreamIndex,
+                [out, annotation("_Out_")] DMO_MEDIA_TYPE *pmt
+        );
+
+//
+// SizeInfo
+//
+        //
+        // GetSizeInfo - Get buffer size requirementes of a stream.
+        //
+        // If buffer size depends on the media type used, the object should
+        // base its response on the most recent media type set for this stream.
+        // If no mediatype has been set, the object may return an error.
+        //
+        HRESULT GetInputSizeInfo(
+                DWORD dwInputStreamIndex,
+                [out, annotation("_Out_")] DWORD *pcbSize, // size of input 'quantum'
+                [out, annotation("_Out_")] DWORD *pcbMaxLookahead, // max total bytes held
+                [out, annotation("_Out_")] DWORD *pcbAlignment  // buffer alignment requirement
+        );
+        HRESULT GetOutputSizeInfo(
+                DWORD dwOutputStreamIndex,
+                [out, annotation("_Out_")] DWORD *pcbSize, // size of output 'quantum'
+                [out, annotation("_Out_")] DWORD *pcbAlignment  // buffer alignment requirement
+        );
+
+//
+// Latency methods
+//
+        HRESULT GetInputMaxLatency(
+                DWORD dwInputStreamIndex,
+                [out, annotation("_Out_")] REFERENCE_TIME *prtMaxLatency
+        );
+        HRESULT SetInputMaxLatency(
+                DWORD dwInputStreamIndex,
+                REFERENCE_TIME rtMaxLatency
+        );
+
+//
+// Streaming / state methods
+//
+        //
+        // Flush() - discard any buffered data.
+        //
+        HRESULT Flush();
+
+        //
+        // Send a discontinuity to an input stream.  The object will not
+        // accept any more data on this input stream until the discontinuity
+        // has been completely processed, which may involve multiple
+        // ProcessOutput() calls.
+        //
+        HRESULT Discontinuity(DWORD dwInputStreamIndex);
+
+        //
+        // If a streaming object needs to perform any time consuming
+        // initialization before it can stream data, it should do it inside
+        // AllocateStreamingResources() rather than during the first process
+        // call.
+        //
+        // This method is NOT guaranteed to be called before streaming
+        // starts.  If it is not called, the object should perform any
+        // required initialization during a process call.
+        //
+        HRESULT AllocateStreamingResources();
+
+        // Free anything allocated in AllocateStreamingResources().
+        HRESULT FreeStreamingResources();
+
+        // GetInputStatus - the only flag defined right now is ACCEPT_DATA.
+        HRESULT GetInputStatus(
+                DWORD dwInputStreamIndex,
+                [out, annotation("_Out_")] DWORD *dwFlags // ACCEPT_DATA
+        );
+
+        //
+        // Pass one new buffer to an input stream
+        //
+        HRESULT ProcessInput(
+                DWORD dwInputStreamIndex,
+                IMediaBuffer *pBuffer, // must not be NULL
+                DWORD dwFlags, // DMO_INPUT_DATA_BUFFERF_XXX (syncpoint, etc.)
+                REFERENCE_TIME rtTimestamp, // valid if flag set
+                REFERENCE_TIME rtTimelength // valid if flag set
+        );
+
+        //
+        // ProcessOutput() - generate output for current input buffers
+        //
+        // Output stream specific status information is returned in the
+        // dwStatus member of each buffer wrapper structure.
+        //
+        HRESULT ProcessOutput(
+                DWORD dwFlags, // DMO_PROCESS_OUTPUT_FLAGS
+                DWORD cOutputBufferCount, // # returned by GetStreamCount()
+        [in,out,size_is(cOutputBufferCount), annotation("_Out_writes_(cOutputBufferCount)")]
+                   DMO_OUTPUT_DATA_BUFFER *pOutputBuffers, // one per stream
+        [out, annotation("_Out_")] DWORD *pdwStatus  // TBD, must be set to 0
+    );
+
+        //  Locking - lock if bLock is TRUE, otherwise unlock
+        HRESULT Lock(LONG bLock);
+};
+
+
+//
+// Interface returned by the DMO enumeration API
+//
+[
+object,
+uuid(2c3cd98a-2bfa-4a53-9c27-5249ba64ba0f),
+local
+]
+interface IEnumDMO : IUnknown {
+    HRESULT Next(
+        DWORD cItemsToFetch,
+        [out, size_is(cItemsToFetch), length_is(*pcItemsFetched),
+         annotation("_Out_writes_to_(cItemsToFetch, *pcItemsFetched)")] CLSID *pCLSID,
+        [out, size_is(cItemsToFetch), length_is(*pcItemsFetched), string,
+         annotation("_Out_writes_to_(cItemsToFetch, *pcItemsFetched)")] LPWSTR *Names,
+        [out, annotation("_Out_")] DWORD *pcItemsFetched
+    );
+    HRESULT Skip(
+        DWORD cItemsToSkip
+    );
+    HRESULT Reset(void);
+    HRESULT Clone(
+        [out, annotation("_Out_")] IEnumDMO **ppEnum
+    );
+}
+
+
+// Flags for IMediaObjectInPlace::Process
+enum _DMO_INPLACE_PROCESS_FLAGS {
+    DMO_INPLACE_NORMAL = 0x00000000,
+    DMO_INPLACE_ZERO   = 0x00000001
+};
+
+[
+object,
+uuid(651b9ad0-0fc7-4aa9-9538-d89931010741),
+local
+]
+interface IMediaObjectInPlace : IUnknown {
+
+    // Proces - Given a buffer of size ulSize, put the output
+    // of the DMO into the same buffer.
+    HRESULT Process(
+        [in] ULONG ulSize,
+        [in,out,size_is(ulSize), annotation("_Out_writes_bytes_(ulSize)")] BYTE* pData,
+        [in] REFERENCE_TIME refTimeStart,
+        [in] DWORD dwFlags
+    );
+
+    // Create a copy of the In-Place Media Object. This allows
+    // for very fast initialization of a number of In-Place objects
+    // in a known state.
+    HRESULT Clone(
+            [out, annotation("_Out_")] IMediaObjectInPlace **ppMediaObject
+    );
+
+    // GetLatency - Returns a REFERENCE_TIME value
+    // (1 tick = 100ns) which corresponds to the latency time
+    // processing this effect will add to the graph. This assumes
+    // the effect cost per buffer is a constant.
+    HRESULT GetLatency(
+    	[out, annotation("_Out_")] REFERENCE_TIME *pLatencyTime
+    );
+}
+
+// Quality control status flags
+enum _DMO_QUALITY_STATUS_FLAGS {
+    DMO_QUALITY_STATUS_ENABLED = 0x00000001
+};
+
+[
+object,
+uuid(65abea96-cf36-453f-af8a-705e98f16260),
+local
+]
+interface IDMOQualityControl : IUnknown {
+    HRESULT SetNow(
+        [in] REFERENCE_TIME rtNow
+    );
+    HRESULT SetStatus(
+        [in] DWORD dwFlags
+    );
+    HRESULT GetStatus(
+        [out, annotation("_Out_")] DWORD *pdwFlags
+    );
+}
+
+// Flags for IVideoOutputOptimizations
+enum _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    DMO_VOSF_NEEDS_PREVIOUS_SAMPLE = 0x00000001
+};
+
+[
+object,
+uuid(be8f4f4e-5b16-4d29-b350-7f6b5d9298ac),
+local
+]
+interface IDMOVideoOutputOptimizations : IUnknown {
+    HRESULT QueryOperationModePreferences (
+        ULONG ulOutputStreamIndex,
+        [annotation("_Out_")] DWORD *pdwRequestedCapabilities
+    );
+    HRESULT SetOperationMode (
+        ULONG ulOutputStreamIndex,
+        DWORD dwEnabledFeatures
+    );
+    HRESULT GetCurrentOperationMode (
+        ULONG ulOutputStreamIndex,
+        [annotation("_Out_")] DWORD *pdwEnabledFeatures
+    );
+    HRESULT GetCurrentSampleRequirements (
+        ULONG ulOutputStreamIndex,
+        [annotation("_Out_")] DWORD *pdwRequestedFeatures
+    );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

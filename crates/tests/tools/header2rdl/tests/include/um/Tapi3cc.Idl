@@ -1,0 +1,819 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("/* Copyright (c) Microsoft Corporation. All rights reserved. */")
+
+// callcent.idl : IDL source for tapi3 Call centre support
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "tapi3if.idl";
+
+typedef enum AGENT_EVENT
+{
+	AE_NOT_READY,
+	AE_READY,
+	AE_BUSY_ACD,
+	AE_BUSY_INCOMING,
+	AE_BUSY_OUTGOING,
+	AE_UNKNOWN,
+
+} AGENT_EVENT;
+
+
+typedef enum AGENT_STATE
+{
+    AS_NOT_READY,
+    AS_READY,
+    AS_BUSY_ACD,
+    AS_BUSY_INCOMING,
+    AS_BUSY_OUTGOING,
+    AS_UNKNOWN
+
+}  AGENT_STATE;
+
+
+typedef enum AGENT_SESSION_EVENT
+{
+    ASE_NEW_SESSION,
+    ASE_NOT_READY,
+    ASE_READY,
+    ASE_BUSY,
+    ASE_WRAPUP, 
+    ASE_END
+
+} AGENT_SESSION_EVENT;
+
+
+typedef enum AGENT_SESSION_STATE
+{
+	ASST_NOT_READY,
+	ASST_READY,
+    ASST_BUSY_ON_CALL,
+    ASST_BUSY_WRAPUP,
+    ASST_SESSION_ENDED
+
+}  AGENT_SESSION_STATE;
+
+
+typedef enum AGENTHANDLER_EVENT
+{
+	AHE_NEW_AGENTHANDLER,
+	AHE_AGENTHANDLER_REMOVED
+
+} AGENTHANDLER_EVENT;
+
+
+typedef enum ACDGROUP_EVENT
+{
+	ACDGE_NEW_GROUP,
+	ACDGE_GROUP_REMOVED
+
+} ACDGROUP_EVENT;
+
+
+typedef enum ACDQUEUE_EVENT
+{
+    ACDQE_NEW_QUEUE,
+	ACDQE_QUEUE_REMOVED
+
+} ACDQUEUE_EVENT;
+
+
+
+// forward definitions
+interface IEnumAgentSession;
+interface IEnumAgent;
+interface IEnumQueue;
+interface IEnumACDGroup;
+interface IEnumAgentHandler;
+
+interface ITAgentHandler;
+interface ITAgent;
+interface ITAgentSession;
+interface ITACDGroup;
+interface ITQueue;
+interface ITAgentEvent;
+interface ITAgentSessionEvent;
+interface ITAgentHandlerEvent;
+interface ITACDGroupEvent;
+interface ITQueueEvent;
+
+
+
+
+// ITAgent
+[
+   uuid( 5770ECE5-4B27-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgent interface"),
+   dual
+]
+
+interface ITAgent : IDispatch
+{
+    [id(1), hidden, helpstring("method EnumerateAgentSessions")]
+    HRESULT EnumerateAgentSessions(
+            [out, retval] IEnumAgentSession ** ppEnumAgentSession
+            );
+
+    [id(2), helpstring("method CreateSession")]
+    HRESULT CreateSession(
+            [in] ITACDGroup * pACDGroup,
+            [in] ITAddress * pAddress,
+            [out,retval] ITAgentSession ** ppAgentSession
+            );
+    [id(3), helpstring("method CreateSessionWithPIN")]
+    HRESULT CreateSessionWithPIN(
+            [in] ITACDGroup * pACDGroup,
+            [in] ITAddress * pAddress,
+            [in] BSTR pPIN,
+            [out,retval] ITAgentSession ** ppAgentSession
+            );
+
+    [propget, id(4), helpstring("property ID")]
+    HRESULT ID( 
+            [out, retval] BSTR *  ppID 
+            );
+
+    [propget, id(5), helpstring("property User")]
+    HRESULT User( 
+            [out, retval] BSTR *  ppUser
+            );
+
+    [propput, id(6), helpstring("property State")]
+    HRESULT State(
+            [in] AGENT_STATE  AgentState
+            );
+
+    [propget, id(6), helpstring("property State")]
+    HRESULT State(
+            [out, retval] AGENT_STATE * pAgentState
+            );
+
+    [propput, id(7), helpstring("property MeasurementPeriod")]
+    HRESULT MeasurementPeriod(
+            [in] long lPeriod
+            );
+
+    [propget, id(7), helpstring("property MeasurementPeriod")]
+    HRESULT MeasurementPeriod(
+            [out, retval] long * plPeriod
+            );
+
+    [propget, id(8), helpstring("property OverallCallRate")]
+    HRESULT OverallCallRate(
+            [out, retval] CURRENCY * pcyCallrate
+            );
+
+    [propget, id(9), helpstring("property NumberOfACDCalls")]
+    HRESULT NumberOfACDCalls(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(10), helpstring("property NumberOfIncomingCalls")]
+    HRESULT NumberOfIncomingCalls(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(11), helpstring("property NumberOfOutgoingCalls")]
+    HRESULT NumberOfOutgoingCalls(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(12), helpstring("property TotalACDTalkTime")]
+    HRESULT TotalACDTalkTime(
+            [out, retval] long * plTalkTime
+            );
+
+    [propget, id(13), helpstring("property TotalACDCallTime")]
+    HRESULT TotalACDCallTime(
+            [out, retval] long * plCallTime
+            );
+
+    [propget, id(14), helpstring("property TotalWrapUpTime")]
+    HRESULT TotalWrapUpTime(
+            [out, retval] long * plWrapUpTime
+            );
+
+    [propget, id(15), helpstring("property AgentSessions")]
+    HRESULT AgentSessions( 
+            [out, retval] VARIANT * pVariant
+            );
+            
+}
+
+
+
+
+// ITAgentSession
+[
+   uuid( 5AFC3147-4BCC-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgentSession interface"),
+   dual                                                      
+]
+
+interface ITAgentSession : IDispatch
+{
+    [propget, id(1), helpstring("property Agent")]
+    HRESULT Agent(
+            [out, retval] ITAgent ** ppAgent
+            );
+
+    [propget, id(2), helpstring("property Address")]
+    HRESULT Address(
+            [out, retval] ITAddress ** ppAddress
+            );
+
+    [propget, id(3), helpstring("property ACDGroup")]
+    HRESULT ACDGroup(
+            [out, retval] ITACDGroup ** ppACDGroup
+            );
+    
+    [propput, id(4), helpstring("property State")]
+    HRESULT State(
+            [in] AGENT_SESSION_STATE  SessionState
+            );
+
+    [propget, id(4), helpstring("property State")]
+    HRESULT State(
+            [out, retval] AGENT_SESSION_STATE * pSessionState
+            );
+
+    [propget, id(5), helpstring("property SessionStartTime")]
+    HRESULT SessionStartTime(
+            [out, retval] DATE * pdateSessionStart
+            );
+
+    [propget, id(6), helpstring("property SessionDuration")]
+    HRESULT SessionDuration(
+            [out, retval] long * plDuration
+            );
+
+    [propget, id(7), helpstring("property NumberOfCalls")]
+    HRESULT NumberOfCalls(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(8), helpstring("property TotalTalkTime")]
+    HRESULT TotalTalkTime(
+            [out, retval] long * plTalkTime
+            );
+
+    [propget, id(9), helpstring("property AverageTalkTime")]
+    HRESULT AverageTalkTime(
+            [out, retval] long * plTalkTime
+            );
+
+    [propget, id(10), helpstring("property TotalCallTime")]
+    HRESULT TotalCallTime(
+            [out, retval] long * plCallTime
+            );
+
+    [propget, id(11), helpstring("property AverageCallTime")]
+    HRESULT AverageCallTime(
+            [out, retval] long * plCallTime
+            );
+
+    [propget, id(12), helpstring("property TotalWrapUpTime")]
+    HRESULT TotalWrapUpTime(
+            [out, retval] long * plWrapUpTime
+            );
+
+    [propget, id(13), helpstring("property AverageWrapUpTime")]
+    HRESULT AverageWrapUpTime(
+            [out, retval] long * plWrapUpTime
+            );
+
+    [propget, id(14), helpstring("property ACDCallRate")]
+    HRESULT ACDCallRate(
+            [out, retval] CURRENCY * pcyCallrate
+            );
+
+    [propget, id(15), helpstring("property LongestTimeToAnswer")]
+    HRESULT LongestTimeToAnswer(
+            [out, retval] long * plAnswerTime
+            );
+
+    [propget, id(16), helpstring("property AverageTimeToAnswer")]
+    HRESULT AverageTimeToAnswer(
+            [out, retval] long * plAnswerTime
+            );
+
+
+}
+
+
+
+// ITACDGroup
+[
+   uuid( 5AFC3148-4BCC-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITACDGroup interface"),
+   dual
+]
+
+interface ITACDGroup : IDispatch
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT Name( 
+            [out, retval] BSTR *  ppName
+            );
+
+    [id(2), hidden, helpstring("method EnumerateQueues")]
+    HRESULT EnumerateQueues(
+            [out, retval] IEnumQueue ** ppEnumQueue
+            );
+
+    [propget, id(3), helpstring("property Queues")]
+    HRESULT Queues( 
+            [out, retval] VARIANT * pVariant
+            );
+
+
+}
+
+
+/*
+// ITGroupSupervisor
+[
+   uuid( 587E8C24-9802-11d1-A0A4-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITGroupSupervisor interface"),
+   dual
+]
+
+interface ITGroupSupervisor : IDispatch
+{
+    [id(1), hidden, helpstring("method EnumerateAgentSessions")]
+    HRESULT EnumerateAgentSessions(
+            [out, retval] IEnumAgentSession ** ppEnumAgentSession
+            );
+
+    [id(2), hidden, helpstring("method EnumerateAgents")]
+    HRESULT EnumerateAgents(
+            [out, retval] IEnumAgent ** ppEnumAgent
+            );
+        
+    [id(3), helpstring("method RegisterAgentSessionEvents")]
+    HRESULT RegisterAgentSessionEvents(
+            [in] VARIANT_BOOL bNotify
+            );
+
+}
+*/
+
+
+// ITQueue
+[
+   uuid( 5AFC3149-4BCC-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITQueue interface"),
+   dual
+]
+
+interface ITQueue : IDispatch
+{
+    
+    [propput, id(1), helpstring("property MeasurementPeriod")]
+    HRESULT MeasurementPeriod(
+            [in] long lPeriod
+            );
+
+    [propget, id(1), helpstring("property MeasurementPeriod")]
+    HRESULT MeasurementPeriod(
+            [out, retval] long * plPeriod
+            );
+
+
+    [propget, id(2), helpstring("property TotalCallsQueued")]
+    HRESULT TotalCallsQueued(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(3), helpstring("property CurrentCallsQueued")]
+    HRESULT CurrentCallsQueued(
+            [out, retval] long * plCalls
+            );
+                      
+    [propget, id(4), helpstring("property TotalCallsAbandoned")]
+    HRESULT TotalCallsAbandoned(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(5), helpstring("property TotalCallsFlowedIn")]
+    HRESULT TotalCallsFlowedIn(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(6), helpstring("property TotalCallsFlowedOut")]
+    HRESULT TotalCallsFlowedOut(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(7), helpstring("property LongestEverWaitTime")]
+    HRESULT LongestEverWaitTime(
+            [out, retval] long * plWaitTime
+            );
+
+    [propget, id(8), helpstring("property CurrentLongestWaitTime")]
+    HRESULT CurrentLongestWaitTime(
+            [out, retval] long * plWaitTime
+            );
+
+    [propget, id(9), helpstring("property AverageWaitTime")]
+    HRESULT AverageWaitTime(
+            [out, retval] long * plWaitTime
+            );
+
+    [propget, id(10), helpstring("property FinalDisposition")]
+    HRESULT FinalDisposition(
+            [out, retval] long * plCalls
+            );
+
+    [propget, id(11), helpstring("property Name")]
+    HRESULT Name( 
+            [out, retval] BSTR *  ppName
+            );
+
+
+}
+
+
+
+
+// ITAgentEvent;
+[
+   uuid( 5AFC314A-4BCC-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgentEvent interface"),
+   dual
+]
+
+interface ITAgentEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Agent")]
+    HRESULT Agent(
+            [out, retval] ITAgent ** ppAgent
+            );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out, retval] AGENT_EVENT * pEvent
+            );
+
+
+}
+
+
+
+// ITAgentSessionEvent;
+[
+   uuid( 5AFC314B-4BCC-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgentSessionEvent interface"),
+   dual
+]
+
+interface ITAgentSessionEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Session")]
+    HRESULT Session(
+            [out, retval] ITAgentSession ** ppSession
+            );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out, retval] AGENT_SESSION_EVENT * pEvent
+            );
+
+
+}
+
+
+
+// ITACDGroupEvent;
+[
+   uuid( 297F3032-BD11-11d1-A0A7-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITACDGroupEvent interface"),
+   dual
+]
+
+interface ITACDGroupEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Group")]
+    HRESULT Group(
+            [out, retval] ITACDGroup ** ppGroup
+            );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out, retval] ACDGROUP_EVENT * pEvent
+            );                                                                                   
+
+
+}
+
+
+
+// ITQueueEvent;
+[
+   uuid( 297F3033-BD11-11d1-A0A7-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITQueueEvent interface"),
+   dual
+]
+
+interface ITQueueEvent : IDispatch
+{
+    [propget, id(1), helpstring("property Queue")]
+    HRESULT Queue(
+            [out, retval] ITQueue ** ppQueue
+            );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out, retval] ACDQUEUE_EVENT * pEvent
+            );
+
+
+}
+
+
+
+// ITAgentHandlerEvent;
+[
+   uuid( 297F3034-BD11-11d1-A0A7-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgentHandlerEvent interface"),
+   dual
+]
+
+interface ITAgentHandlerEvent : IDispatch
+{
+    [propget, id(1), helpstring("property AgentHandler")]
+    HRESULT AgentHandler(
+            [out, retval] ITAgentHandler ** ppAgentHandler
+            );
+
+    [propget, id(2), helpstring("property Event")]
+    HRESULT Event(
+            [out, retval] AGENTHANDLER_EVENT * pEvent
+            );
+
+
+}
+
+
+
+
+// ITTAPICallCenter
+[
+   uuid( 5AFC3154-4BCC-11d1-BF80-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITTAPICallCenter interface"),
+   dual
+]
+
+interface ITTAPICallCenter : IDispatch
+{
+    [id(IDISPTAPICALLCENTER | 1), hidden, helpstring("method EnumerateAgentHandlers")]
+    HRESULT EnumerateAgentHandlers(
+            [out, retval] IEnumAgentHandler ** ppEnumHandler
+            );
+
+    [propget, id(IDISPTAPICALLCENTER | 2), helpstring("property AgentHandlers")]
+    HRESULT AgentHandlers( 
+            [out, retval] VARIANT * pVariant
+            );
+
+}
+
+
+// ITAgentHandler
+[
+   uuid( 587E8C22-9802-11d1-A0A4-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgentHandler interface"),
+   dual
+]
+
+interface ITAgentHandler : IDispatch
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT Name( 
+            [out, retval] BSTR *  ppName
+            );
+    
+    [id(2), helpstring("property CreateAgent")]
+    HRESULT CreateAgent(
+            [out, retval] ITAgent ** ppAgent
+            );
+
+    [id(3), helpstring("property CreateAgentWithID")]
+    HRESULT CreateAgentWithID(
+            [in] BSTR pID,
+            [in] BSTR pPIN,
+            [out, retval] ITAgent ** ppAgent
+            );
+
+    [id(4), hidden, helpstring("method EnumerateACDGroups")]
+    HRESULT EnumerateACDGroups(
+            [out, retval] IEnumACDGroup** ppEnumACDGroup
+            );
+
+    [id(5), hidden, helpstring("method EnumerateUsableAddresses")]
+    HRESULT EnumerateUsableAddresses(
+            [out, retval] IEnumAddress ** ppEnumAddress
+            );
+
+    [propget, id(6), helpstring("property ACDGroups")]
+    HRESULT ACDGroups( 
+            [out, retval] VARIANT * pVariant
+            );
+
+    [propget, id(7), helpstring("property UsableAddresses")]
+    HRESULT UsableAddresses( 
+            [out, retval] VARIANT * pVariant
+            );
+
+}
+
+
+/*
+// ITAgentSupervisor
+[
+   uuid( 587E8C26-9802-11d1-A0A4-00805FC147D3 ),
+   helpstring("TAPI 3.0 ITAgentSupervisor interface"),
+   dual
+]
+
+interface ITAgentSupervisor : IDispatch
+{
+    [id(1), hidden, helpstring("method EnumerateQueues")]
+    HRESULT EnumerateQueues(
+            [out, retval] IEnumQueue ** ppEnumQueue
+            );
+
+    [id(2), hidden, helpstring("method EnumerateAgents")]
+    HRESULT EnumerateAgents(
+            [out, retval] IEnumAgent ** ppEnumAgent
+            );
+
+}
+*/
+
+
+
+
+// IEnumAgent
+[
+    uuid( 5AFC314D-4BCC-11d1-BF80-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumAgent interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumAgent : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITAgent ** ppElements,
+            [out] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumAgent ** ppEnum
+            );
+}
+
+
+
+// IEnumAgentSession
+[
+    uuid( 5AFC314E-4BCC-11d1-BF80-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumAgentSession interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumAgentSession : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITAgentSession ** ppElements,
+            [out] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumAgentSession ** ppEnum
+            );
+}
+
+
+
+// IEnumQueue;
+[
+    uuid( 5AFC3158-4BCC-11d1-BF80-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumQueue interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumQueue : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITQueue ** ppElements,
+            [out] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumQueue ** ppEnum
+            );
+}
+
+
+
+
+// IEnumACDGroup
+[
+    uuid( 5AFC3157-4BCC-11d1-BF80-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumACDGroup interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumACDGroup : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITACDGroup ** ppElements,
+            [out] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+                          
+    HRESULT Clone (
+            [out, retval] IEnumACDGroup ** ppEnum
+            );
+}
+
+
+
+// IEnumAgentHandler
+[
+    uuid( 587E8C28-9802-11d1-A0A4-00805FC147D3 ),
+    helpstring("TAPI 3.0 IEnumAgentHandler interface"),
+    hidden,
+    pointer_default(unique)
+]
+    
+interface IEnumAgentHandler : IUnknown
+{
+
+    HRESULT Next(
+            [in] ULONG celt,
+            [out] ITAgentHandler ** ppElements,
+            [out] ULONG * pceltFetched
+            );
+
+    HRESULT Reset( void );
+
+    HRESULT Skip (
+            [in] ULONG celt
+            );
+
+    HRESULT Clone (
+            [out, retval] IEnumAgentHandler ** ppEnum
+            );
+}
+
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

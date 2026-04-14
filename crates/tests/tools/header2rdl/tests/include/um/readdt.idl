@@ -1,0 +1,71 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			readdt.idl
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+#if( OLEDBVER >= 0x0200 )    
+    REMOTED_INTERFACE(0c733a6a-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733a6a-2a1c-11ce-ade5-00aa0044773d)
+#endif
+    
+interface IReadData : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	HRESULT ReadData(
+		[in] HCHAPTER hChapter,
+		[in] DBBKMARK cbBookmark,
+		[in, size_is((ULONG)cbBookmark)] const BYTE * pBookmark,
+		[in] DBROWOFFSET lRowsOffset,
+		[in] HACCESSOR hAccessor,
+		[in] DBROWCOUNT cRows,
+		[out] DBCOUNTITEM * pcRowsObtained,
+		[in, out] BYTE ** ppFixedData,
+		[in, out] DBLENGTH * pcbVariableTotal,
+		[in, out] BYTE ** ppVariableData
+	);
+
+#else  //No casting by ULONG for 32-bit.
+
+	HRESULT ReadData(
+		[in] HCHAPTER hChapter,
+		[in] DBBKMARK cbBookmark,
+		[in, size_is(cbBookmark)] const BYTE * pBookmark,
+		[in] DBROWOFFSET lRowsOffset,
+		[in] HACCESSOR hAccessor,
+		[in] DBROWCOUNT cRows,
+		[out] DBCOUNTITEM * pcRowsObtained,
+		[in, out] BYTE ** ppFixedData,
+		[in, out] DBLENGTH * pcbVariableTotal,
+		[in, out] BYTE ** ppVariableData
+	);
+	
+#endif
+
+	HRESULT ReleaseChapter(
+		[in] HCHAPTER hChapter
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

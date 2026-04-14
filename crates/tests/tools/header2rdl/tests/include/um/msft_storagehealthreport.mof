@@ -1,0 +1,41 @@
+[ClassVersion( "1.0" ),
+Abstract]
+class MSFT_StorageHealthReport
+{
+    [Read]
+    String StorageSubsystemUniqueId;
+    
+    [Read]
+    String ReportedObjectUniqueId;
+
+    [Read,
+    EmbeddedInstance("MSFT_HealthRecord")]
+    String Records[];
+};
+
+[ClassVersion("1.0"),
+Abstract]
+class MSFT_HealthRecord
+{
+    [Read]
+    String Name;
+
+    [Read]
+    UInt16 Units;
+};
+
+[ClassVersion("1.0"),
+Abstract]
+class MSFT_HealthRecordUInt64 : MSFT_HealthRecord
+{
+    [Read]
+    UInt64 Value;
+};
+
+[ClassVersion("1.0"),
+Abstract]
+class MSFT_HealthRecordReal64 : MSFT_HealthRecord
+{
+    [Read]
+    Real64 Value;
+};

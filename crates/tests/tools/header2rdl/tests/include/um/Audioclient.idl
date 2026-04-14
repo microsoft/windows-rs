@@ -1,0 +1,1873 @@
+cpp_quote("#include <winapifamily.h>")
+
+//
+// Copyright Microsoft Corporation, All Rights Reserved
+//
+// AudioClient.idl : AudioClient API interface definition
+//
+
+import "wtypes.idl";
+import "unknwn.idl";  // for IUnknown
+import "mmreg.h"; // for WAVEFORMATEX
+
+cpp_quote("#if 0")
+typedef [restricted, hidden] LONGLONG REFERENCE_TIME;
+cpp_quote("#else")
+
+cpp_quote("#ifndef _SkipIksIncludes_")
+cpp_quote("#define _IKsControl_")
+cpp_quote("#include <ks.h>")
+cpp_quote("#include <ksmedia.h>")
+cpp_quote("#endif")
+
+cpp_quote("#endif")
+
+
+import "AudioSessionTypes.h";
+
+#pragma region Application and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+//-------------------------------------------------------------------------
+// Description: AudioClient buffer flags
+//
+//     AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY - The data for this buffer is not correlated
+//                                              with the data from the previous buffer.
+//     AUDCLNT_BUFFERFLAGS_SILENT             - This data in this buffer should be treated as silence.
+//
+//     AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR    - The QPC based timestamp reading for this data
+//                                              buffer does not correlate with the data position.
+//
+enum _AUDCLNT_BUFFERFLAGS
+{
+    AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY  = 0x01,
+    AUDCLNT_BUFFERFLAGS_SILENT              = 0x02,
+    AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR     = 0x04
+};
+
+//-------------------------------------------------------------------------
+// Description: Flags describing the characteristics of an audio stream
+//
+//     AUDCLNT_STREAMOPTIONS_RAW - The audio stream is a 'raw' stream that bypasses
+//                                 all signal processing except for endpoint specific,
+//                                 always-on processing in the APO, driver and hardware
+//
+//     AUDCLNT_STREAMOPTIONS_MATCH_FORMAT - The client is requesting the audio engine to
+//                                 match the format proposed by the client. The audio engine
+//                                 may match this format only if the format can be accepted
+//                                 the audio driver and associated APOs. 
+//
+//     AUDCLNT_STREAMOPTIONS_AMBISONICS - The client is requesting the audio client to insert
+//                                  Ambisonics renderer and configure the pipeline to match Ambisonics format types
+//
+//     AUDCLNT_STREAMOPTIONS_POST_VOLUME_LOOPBACK - The client is requesting that the loopback stream capture
+//                                  the audio data after volume and/or mute processing has been applied.
+typedef [v1_enum] enum AUDCLNT_STREAMOPTIONS
+{
+    AUDCLNT_STREAMOPTIONS_NONE  = 0x00,
+    AUDCLNT_STREAMOPTIONS_RAW   = 0x01,
+    AUDCLNT_STREAMOPTIONS_MATCH_FORMAT   = 0x02,
+    AUDCLNT_STREAMOPTIONS_AMBISONICS = 0x04,
+#if(NTDDI_VERSION > NTDDI_WIN11_ZN)
+    AUDCLNT_STREAMOPTIONS_POST_VOLUME_LOOPBACK = 0x08,
+#endif
+} AUDCLNT_STREAMOPTIONS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(AUDCLNT_STREAMOPTIONS);")
+
+//-------------------------------------------------------------------------
+// Description: AudioClient properties structure that must precede
+//              other properties in IAudioClient::SetClientProperties
+//
+//     cbSize     - UINT32 size in bytes of this structure.
+//     bIsOffload - BOOL indicating whether or not to use offlod mode.
+//     eCategory  - AUDIO_STREAM_CATEGORY to be used.
+//     Options    - A bitfield describing the characteristics of the stream
+//
+cpp_quote("#if (NTDDI_VERSION < NTDDI_WINBLUE) ")
+cpp_quote("typedef struct AudioClientProperties")
+cpp_quote("{")
+cpp_quote("    UINT32                  cbSize;")
+cpp_quote("    BOOL                    bIsOffload;")
+cpp_quote("    AUDIO_STREAM_CATEGORY   eCategory;")
+cpp_quote("} AudioClientProperties;")
+cpp_quote("#else")
+typedef struct AudioClientProperties
+{
+    UINT32                  cbSize;
+    BOOL                    bIsOffload;
+    AUDIO_STREAM_CATEGORY   eCategory;
+    AUDCLNT_STREAMOPTIONS   Options;
+} AudioClientProperties;
+cpp_quote("#endif")
+
+//-----------------------------------------------------------------------------
+// Description: IAudioClient interface
+//
+[
+   object,
+   uuid(1CB9AD4C-DBFA-4c32-B178-C2F568A703B2),
+   pointer_default(unique),
+   local
+]
+interface IAudioClient : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Initializes the audio stream by creating a connection to the Windows Audio System (WAS)
+    //  using the specified format, the requested shared buffer duration and the desired audio session
+    //  category.
+    //
+    // Parameters:
+    //
+    //  ShareMode - [in] allows the application to determine how the WAS should create its connection point. The ShareMode must be one of the following:
+    //
+    //     AUDCLNT_SHAREMODE_SHARED - The device will be opened in shared mode and use the WAS format. pFormat must be non-NULL if this mode is
+    //     specified, otherwise the call will fail.
+    //
+    //     AUDCLNT_SHAREMODE_EXCLUSIVE - the WAS will attempt to prepare an exclusive mode connection to the audio device in the specified format.
+    //     No local stream APOs will be inserted by the WAS to aid in the creation of the connection point. pFormat must be non-NULL in this mode,
+    //     otherwise the call will fail.
+    //
+    //  StreamFlags - [in] optional flags that can be specified to control stream creation. Possible flags include: 
+    //
+    //     AUDCLNT_STREAMFLAGS_CROSSPROCESS - Treats a non-NULL audio session guid specified for this stream as a
+    //     cross-process session, for purposes of volume and policy control. Otherwise, the default is for audio 
+    //     sessions to be local to the current process.
+    //     
+    //     AUDCLNT_STREAMFLAGS_LOOPBACK - Initializes a renderer endpoint for a loopback audio application. 
+    //     In this mode, a capture stream will be opened on the specified renderer endpoint. Shared mode 
+    //     and a renderer endpoint is required. Otherwise this Initialize call will fail. On successful
+    //     initialization, a capture stream will be available from this IAudioClient object.
+    //
+    //     AUDCLNT_STREAMFLAGS_EVENTCALLBACK - specifies that a client will supply an event handle 
+    //     to be signaled for "pull model" render or capture.
+    //
+    //     For a complete list of flags, see AudioSessionTypes.h
+    //
+    //  hnsBufferDuration - [in] duration to use for the buffer that the audio application will
+    //     share with the WAS, in 100-nanosecond (hns) units. The minimum allowed duration for
+    //     this buffer is the WAS's processing period plus any latency introduced by the WAS stream,
+    //     so if a value lower than this is specified that minimum size will be used.
+    //
+    //     The application is guaranteed that the underlying buffer created in response to this duration
+    //     request will be at least this size, with any device latency added in. The exact shared
+    //     buffer size created can be retrieved after this method was successfully called by calling
+    //     the GetBufferSize() method.
+    //
+    //     Clients wishing to use a shared buffer that's exactly equal to the WAS's processing
+    //     quantum size should specify 0 for this argument and run their processing thread using
+    //     the period returned in the GetDevicePeriod() method. This would yield the lowest latency
+    //     and avoid any unnecessary buffering in the audio client.
+    //
+    //     Applications wishing to use a larger shared buffer, with the goal of either:
+    //     a) processing less often at the price of a higher latency or
+    //     b) running with minimum latency and highest periodicity but filling less of the shared
+    //     buffer per-pass (double-buffering, for instance),
+    //     can do this by passing in the desired value for this parameter, noting the minimum
+    //     size requirement.
+    //
+    //     If the time requested doesn't fall on a frame boundary, a duration of the next higher
+    //     frame size will be used. The client must call the GetBufferSize() method after
+    //     Initialize to find out the exact frame size of the shared buffer. This value will be
+    //     needed during streaming to compute render buffer request sizes.
+    //
+    //  hnsPeriodicity - [in] the length in 100-nanosecond (hns) units of a single packet.  A packet is
+    //     a single unit of transfer from the client to the KS endpoint.  A certain number of "frames" or
+    //     "samples" will be contained in a packet, based on the number of samples / second designated in 
+    //     pFormat.  In a similar manner to hnsBufferDuration, if the time requested doesn't fall on a frame
+    //     boundary, the duration will be rounded up to the next higher frame.  This value cannot be less
+    //     than the minimum periodicity reported by the GetDevicePeriod() method.  
+    //
+    //  pFormat - [in] pointer to the application's desired audio stream format.
+    //
+    //  AudioSessionGuid - [in] GUID that identifies this audio session. This GUID represents an audio policy
+    //     "class" and is used to indicate what type of audio this application should be associated
+    //     with. Typically, it's expected that the application would either use the default class
+    //     (by setting this pointer to NULL or the contents to GUID_NULL) or one of the pre-defined
+    //     Windows Audio Policy classes defined in the AudioPolicy.idl public header file.
+    //
+    // Return values:
+    //
+    //     S_OK             If successful, failure otherwise.
+    //     AUDCLNT_E_INITIALIZED, if already initialized.
+    //     AUDCLNT_E_WRONG_ENDPOINT_TYPE, if loopback flag was set but endpoint isn't a render endpoint.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device was removed.
+    //     AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL, if AUDCLNT_STREAMFLAGS_EVENTCALLBACK StreamFlag is 
+    //                                             supplied and share mode is AUDCLNT_SHAREMODE_EXCLUSIVE, 
+    //                                             hnsBufferDuration and hnsPeriodicity must be equal
+    //     AUDCLNT_E_CPUUSAGE_EXCEEDED, if there is not enough CPU to add this stream.
+    //
+    // Remarks:
+    //
+    //  The IAudioClient methods IsFormatSupported(), GetDevicePeriod() and GetMixFormat()
+    //  don't require that this method be called first. All other methods do.
+    //
+    //  Applications wishing to run in SharedMode should be prepared to be able to supply or accept
+    //  data in the format returned by IsFormatSupported before calling Initialize. Basically, the
+    //  format the application has to support is either the source format or a "closest match" format
+    //  returned by IsFormatSupported. The Assumption that the mix format returned by GetMixFormat
+    //  can be streamed is not always true. To stream the closest match to the mix format, call
+    //  first GetMixFormat followed by IsFormatSupported passing in the mix format. If streaming the
+    //  mix format is supported by the system effect, IsFormatSupported will return S_OK.
+    //
+    //  If AUDCLNT_STREAMFLAGS_EVENTCALLBACK is specified and the ShareMode is AUDCLNT_SHAREMODE_EXCLUSIVE,
+    //  hnsBufferDuration and hnsPeriodicity must be equal.  This causes an exclusive KSEndpoint to create
+    //  a double buffer pull model cycle.  The endpoint starts playing with two full buffers "A" and "B". 
+    //  When buffer "A" finishes playing, the client event handle is signaled, buffer "B" starts playing,
+    //  and the client fills buffer "A".  Buffers "A" and "B" are both of duration hnsBufferDuration and the
+    //  client thread will be woken up every hnsPeriodicity to fill.  This supports a very low latency pull
+    //  model render or capture cycle.  
+    //
+    //  If AUDCLNT_STREAMFLAGS_EVENTCALLBACK is specified and the ShareMode is AUDCLNT_SHAREMODE_SHARED,
+    //  hnsBufferDuration is the client's desired buffer size and hnsPeriodicity must be 0.  At the end of
+    //  each processing pass of the audio engine pump, the client's supplied event handle will be signaled.
+    //
+    //  In either case, specifying the AUDCLNT_STREAMFLAGS_EVENTCALLBACK stream flag requires that the client
+    //  supply an event handle using the SetEventHandle() method prior to calling Start().
+    //
+    //  An IAudioClient object supports exactly one WAS connection which lasts for the lifetime
+    //  of the IAudioClient object.
+    //
+    HRESULT Initialize(
+        [in, annotation("_In_")] AUDCLNT_SHAREMODE ShareMode,
+        [in, annotation("_In_")] DWORD StreamFlags,
+        [in, annotation("_In_")] REFERENCE_TIME hnsBufferDuration,
+        [in, annotation("_In_")] REFERENCE_TIME hnsPeriodicity,
+        [in, annotation("_In_")] const WAVEFORMATEX* pFormat,
+        [in, annotation("_In_opt_")] LPCGUID AudioSessionGuid );
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the maximum size of the shared buffer between the application and the WAS, in
+    //  frames. This size is determined by the hnsBufferDuration parameter passed to the Initialize
+    //  call. For render clients, this value determines the maximum amount of application data
+    //  that can be written and stored in the shared buffer at a time. For capture clients,
+    //  this determines the maximum amount of WAS capture data that can be stored for the application.
+    //
+    // Parameters:
+    //
+    //  pNumBufferFrames - [out] pointer for returning the size of the buffer shared between
+    //     application and WAS, in frames.
+    //
+    // Return Values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_NOT_INITIALIZED, if audio stream hasn't been successfully initialized.
+    //     E_POINTER, if pNumBufferFrames is NULL.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //
+    //  Render clients can use this value to compute the largest render buffer size that can be
+    //  requested from IAudioRenderClient::GetBuffer() during each processing pass. (For more
+    //  information, see the IAudioRenderClient section.)
+    //
+    HRESULT GetBufferSize([out, annotation("_Out_")] UINT32 *pNumBufferFrames);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  This method returns the maximum latency for the current stream and device and can be called
+    //  anytime after the stream has been initialized.
+    //
+    // Parameters:
+    //
+    //  phnsLatency - [out] pointer to stream latency in 100-nanosecond (hns) units.
+    //
+    // Return Values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_NOT_INITIALIZED if audio stream hasn't been successfully initialized.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //
+    //  This method returns the maximum latency for the current stream. This method can be called
+    //  once the AudioClient has been initialized.
+    //
+    //  The value will not change for the life of the object.
+    //
+    //  Render clients can use this value to compute a minimum amount of data to write during any
+    //  single processing pass to prevent glitching.
+    //
+    //  See the IAudioRenderClient section for more details.
+    //
+    HRESULT GetStreamLatency([out, annotation("_Out_")] REFERENCE_TIME * phnsLatency);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the number of frames queued up to play or captured in the buffer shared between
+    //  the WAS and the client.
+    //
+    // Parameters:
+    //
+    //  pNumPaddingFrames - [out] pointer for returning the number of frames currently queued
+    //     to play or capture.
+    //
+    // Return Values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_NOT_INITIALIZED if audio stream hasn't been successfully initialized.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed,
+    //
+    // Remarks:
+    //
+    //  Render applications can use this value to compute a minimum on the amount of free space
+    //  available in the render buffer to write into on the next processing pass. See the details
+    //  in the IAudioRenderClient section for how to compute this value.
+    //
+    //  For capture applications, individual reads of capture data are done based on packet sizes
+    //  (described in the IAudioCaptureClient section), but this value represent the total frame
+    //  count of all the capture packets ready to read.
+    //
+    //  Once the audio stream has been successfully initialized, this call should always succeed.
+    //
+    HRESULT GetCurrentPadding([out, annotation("_Out_")] UINT32 *pNumPaddingFrames);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Provides a way for the user to determine, prior to initialization, whether a given format
+    //  will be supported or not by the AudioClient API and if so, whether the format requires
+    //  exclusive mode.  This is a device method which doesn't require prior audio stream
+    //  initialization.
+    //
+    // Parameters:
+    //
+    //  ShareMode - [in] allows the application to determine how the WAS should create its connection point. The ShareMode must be one of the following:
+    //
+    //     AUDCLNT_SHAREMODE_SHARED - The device will be opened in shared mode.
+    //
+    //     AUDCLNT_SHAREMODE_EXCLUSIVE - the WAS will attempt to prepare an exclusive mode connection to the audio device in the specified format.
+    //     No local stream APOs will be inserted by the WAS to aid in the creation of the connection point.
+    //
+    //  pFormat - [in] Pointer to buffer containing the application's audio format.
+    //
+    //  ppClosestMatch - [out] Pointer to WAVEFORMATEX pointer containing the audio format
+    //      of the closest match in case the format requested cannot be supported natively.
+    //      The closest match is only returned if the SharedMode parameter is
+    //      AUDCLNT_SHAREMODE_SHARED and the return code is S_FALSE. No closest match can be
+    //      provided for AUDCLNT_SHAREMODE_EXCLUSIVE.
+    //
+    // Return Values:
+    //
+    //     S_OK                         if format is supported.
+    //     S_FALSE                      if input format is not supported but ppClosestMatch is.
+    //     E_POINTER                    if ppClosestMatch is NULL & AUDCLNT_SHAREMODE_SHARED.
+    //     AUDCLNT_E_UNSUPPORTED_FORMAT if the offload connector is used and input format is not a compressed format.
+    //     AUDCLNT_E_DEVICE_INVALIDATED if WAS device was removed.
+    //
+    // Remarks:
+    //
+    //  This method does not require that the Initialize method be called first.
+    //
+    HRESULT IsFormatSupported(
+        [in, annotation("_In_")] AUDCLNT_SHAREMODE ShareMode,
+        [in, annotation("_In_")] const WAVEFORMATEX * pFormat,
+        [out, annotation("_Out_opt_"), unique] WAVEFORMATEX ** ppClosestMatch);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the current format of the WAS for this device. This is a device method
+    //  which doesn't require prior audio stream initialization.
+    //
+    // Parameters:
+    //
+    //  ppDeviceFormat - [out] Address for returning a pointer to the current audio device format.
+    //     This is the format the WAS will use to communicate with the device and is determined
+    //     by the preferred device format set in the control panel. The memory returned should
+    //     be freed by the caller using CoTaskMemFree() on the returned memory pointer.
+    //
+    // Return Values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device was removed.
+    //
+    // Remarks:
+    //
+    //  This method may be called at any time and will always return the same format.
+    //
+    //  For all cases where the format type contains > 2 channels, the WAVEFORMATEXTENSIBLE type
+    //  will be used and the returned dwChannelMask field will be set correctly.
+    //
+    HRESULT GetMixFormat([out, annotation("_Out_")] WAVEFORMATEX ** ppDeviceFormat);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the periodicity of the WAS engine, in 100-nanosecond units.
+    //  See Remarks section for more details about this value. This is a device method
+    //  which doesn't require prior audio stream initialization.
+    //
+    // Parameters:
+    //
+    //  phnsDefaultDevicePeriod - [out] Returns pointer to duration of the WAS period, in
+    //  100-nanosecond units. This is a device method which doesn't require prior audio
+    //  stream initialization.
+    //
+    //  phnsMinDevicePeriod - [out] Returns pointer to duration of the minimum WAS period, 
+    //  in 100-nanosecond units.  This is the minimum periodicity (frames/ packet) that the 
+    //  driver supports.  This value is the minimum periodicity that is supported in the 
+    //  hnsPeriodicity parameter to the IAudioClient::Initialize() call.  
+    //
+    // Return Values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device was removed.
+    //
+    // Remarks:
+    //
+    //  This method may be called at any time and will always return the same value.
+    //
+    HRESULT GetDevicePeriod([out, annotation("_Out_opt_")] REFERENCE_TIME * phnsDefaultDevicePeriod,
+                                [out, annotation("_Out_opt_")] REFERENCE_TIME *phnsMinimumDevicePeriod);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Control method used to start running the audio stream. This causes the
+    //  AudioClient API to start streaming between the shared buffer and the WAS.
+    //  This also starts the underlying audio clock running from its current position.
+    //  If this is the first time this method was called on the stream, the AudioClient's
+    //  IAudioClock position will start from 0. Otherwise, the clock will start from its
+    //  last position.
+    //
+    // Parameters:
+    //
+    //  none
+    //
+    // Return values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_NOT_INITIALIZED if client hasn't been successfully initialized.
+    //     AUDCLNT_E_NOT_STOPPED if client hasn't been first stopped.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //     AUDCLNT_E_EVENTHANDLE_NOT_SET, if event callback stream flag is specified and the event
+    //                                    handle was not set with SetEventHandle
+    //
+    // Remarks:
+    //
+    //  To avoid a startup glitch for render clients, applications shouldn't call Start
+    //  until the AudioClient engine has been pre-filled with data using the
+    //  GetBuffer()/ReleaseBuffer() methods on the render interface.
+    //
+    HRESULT Start();
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Control method used to stop running the audio stream. This stops the data streaming
+    //  between the WAS and client connection. This also stops the underlying audio clock at
+    //  its current stream position. The stream position won't be reset until the Reset method
+    //  is called.
+    //
+    // Parameters:
+    //
+    //  none
+    //
+    // Return values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_NOT_INITIALIZED if client hasn't been successfully initialized.
+    //     S_FALSE if client is already stopped.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //
+    HRESULT Stop();
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Control method which resets a stopped audio stream by flushing all pending data and
+    //  resetting the audio clock stream position to 0. This method will fail if called on
+    //  a stream that is not stopped.
+    //
+    // Parameters:
+    //
+    //  none
+    //
+    // Return values:
+    //
+    //      S_OK if successful, failure otherwise.
+    //      AUDCLNT_E_NOT_INITIALIZED if audio stream hasn't been successfully initialized.
+    //      AUDCLNT_E_NOT_STOPPED if audio stream hasn't been stopped.
+    //      AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //
+    HRESULT Reset();
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Method through which an audio client supplies an event handle used 
+    //  to call back for a "pull model" buffer fill.  
+    //
+    // Parameters:
+    //
+    //  eventHandle - [in] event handle that will be signaled when a previous buffer has
+    //                     completed and that the audio client should fill the
+    //                     next buffer
+    //
+    // Return values:
+    //
+    //      S_OK if successful, failure otherwise.
+    //      AUDCLNT_E_NOT_INITIALIZED if audio stream hasn't been successfully initialized.
+    //      AUDCLNT_E_NOT_STOPPED if audio stream hasn't been stopped.
+    //      AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //      AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED, if Initialize was not called with the 
+    //                                          AUDCLNT_STREAMFLAGS_EVENTCALLBACK flag
+    //
+    // Remarks:
+    //
+    //      The event handle should be "auto reset" and the client is responsible for closing / freeing 
+    //      this event handle
+    //
+    HRESULT SetEventHandle([in] HANDLE eventHandle);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Method used to exposed additional services off the AudioClient API, including
+    //  services for render and capture, clock services, volume control and audio session control services.
+    //
+    // Parameters:
+    //
+    //     riid - [in] service interface id
+    //
+    //     ppv - [out] address for returning service interface pointer
+    //
+    // Return values:
+    //
+    //      S_OK if successful, failure otherwise.
+    //      AUDCLNT_E_NOT_INITIALIZED if audio stream hasn't been successfully initialized.
+    //      AUDCLNT_E_NOT_STOPPED if audio stream hasn't been stopped.
+    //      AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //      AUDCLNT_E_WRONG_ENDPOINT_TYPE if the service is recognized but not applicable to the audio endpoint type
+    //      E_INVALIDARG if the service is not supported by this audio stream based on how the stream was initialized
+    //      E_NOINTERFACE if the service is not implemented
+    //
+    // Remarks:
+    //
+    //  The services supported via the method include:
+    //
+    //  IAudioRenderClient
+    //  IAudioCaptureClient
+    //  IAudioClock
+    //  IAudioClockAdjustment
+    //  IAudioSessionControl
+    //  IAudioStreamVolume
+    //  ISimpleAudioVolume
+    //  IChannelAudioVolume
+    //  IAudioAmbisonicsControl
+    //  IAudioClientDuckingControl
+    //  IAudioEffectsManager
+    //  IAudioViewManagerService
+    //  IAcousticEchoCancellationControl
+    //
+    HRESULT GetService([in, annotation("_In_")] REFIID riid, [out, iid_is(riid), annotation("_Out_")] void **ppv);
+
+
+}
+
+//-----------------------------------------------------------------------------
+// Description: IAudioClient2 interface
+//
+[
+   object,
+   uuid(726778CD-F60A-4eda-82DE-E47610CD78AA),
+   pointer_default(unique),
+   local
+]
+interface IAudioClient2 : IAudioClient
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  This method is called to find out whether the endpoint a stream is created on
+    //  is capable of supporting offload
+    //
+    // Parameters:
+    //
+    //  Category         - [in] an AUDIO_STREAM_CATEGORY value
+    //                          specifies the category for the stream
+    //  pbOffloadCapable - [out] pointer to a boolean value
+    //                      TRUE: offload capable 
+    //                      FALSE: Not offload capable
+    //
+    // Return Values:
+    //
+    // Returns:     HRESULT code
+    //
+    // Remarks:
+    //
+    HRESULT IsOffloadCapable( [in, annotation("_In_")] AUDIO_STREAM_CATEGORY Category,
+                               [out, annotation("_Out_")] BOOL *pbOffloadCapable); 
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  This method is called to set an audio stream's properties.
+    //  
+    //
+    // Parameters:
+    //
+    //  Properties - [in] AudioClientProperties structure specifying the 
+    //                    stream properties to set.
+    //
+    // Return Values:
+    //
+    // Returns:     S_OK: if the mode setting was done successfully
+    //              AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE: if the endpoint does not support offloading
+    //              otherwise, return appropriate HRESULT failure code 
+    // Remarks:
+    //
+    HRESULT SetClientProperties([in, annotation("_In_")] const AudioClientProperties *pProperties);
+    //-------------------------------------------------------------------------    
+    // Description:    
+    //    
+    //  Returns the buffer size limits of the hardware audio engine, in 100-nanosecond units.    
+    //  See Remarks section for more details about this value. This is a device method    
+    //  which doesn't require prior audio stream initialization.    
+    //    
+    // Parameters:    
+    //    
+    //  pFormat -               [in] a pointer to the target format being queried for the buffer size limit    
+    //  bEventDriven -          [in] indicates whether or not the request is for the buffer limits of an 
+    //                          event driven stream or non-event driven stream.
+    //  phnsMinBufferDuration - [out] Returns pointer to minimum buffer (100-nanosecond units) that's 
+    //                          required for the underlying  audio engine to operate, at the given 
+    //                          format specified  in "pFormat" parameter, without frequent audio glitching.
+    //  phnsMaxBufferDuration - [out] Returns pointer to maximum buffer that the underlying hardware 
+    //                          audio engine can support for the given format specified  in "pFormat" 
+    //                          parameter 100-nanosecond units.
+    //    
+    //     S_OK if successful, failure otherwise.    
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if a device was removed.    
+    //    
+    // Remarks:    
+    //    
+    //  This method may be called at any time but depending on the resource usage situation, it  might not return the same value
+    HRESULT GetBufferSizeLimits (  [in, annotation("_In_")] const WAVEFORMATEX* pFormat,    
+                                   [in, annotation("_In_")] BOOL bEventDriven,
+                                   [out, annotation("_Out_")] REFERENCE_TIME * phnsMinBufferDuration,
+                                   [out, annotation("_Out_")] REFERENCE_TIME * phnsMaxBufferDuration);
+}
+
+cpp_quote("// AudioClient3ActivationParams is an optional activation parameter for IAudioClient3")
+cpp_quote("//")
+cpp_quote("// IAudioClient3 implementations log various things via ETW tracing")
+cpp_quote("// including a \"context\" identifier")
+cpp_quote("//")
+cpp_quote("// In situations where there are multiple active audio clients,")
+cpp_quote("// the \"tracing context\" identifier can ease correlation of which audio client instance belongs to which application context")
+cpp_quote("//")
+cpp_quote("// Sample app code:")
+cpp_quote("// PROPVARIANT var;")
+cpp_quote("// PropVariantInit(&var);")
+cpp_quote("// auto p = reinterpret_cast<AudioClient3ActivationParams *>CoTaskMemAlloc(sizeof(AudioClient3ActivationParams));")
+cpp_quote("// if (nullptr == p) { ... }")
+cpp_quote("// p->tracingContextId = /* app-specific context identifier */;")
+cpp_quote("// var.vt = VT_BLOB;")
+cpp_quote("// var.blob.cbSize = sizeof(*p);")
+cpp_quote("// var.blob.pBlobData = reinterpret_cast<BYTE *>(p);")
+cpp_quote("// hr = ActivateAudioInterfaceAsync(device, __uuidof(IAudioClient3), &var, ...);")
+cpp_quote("// ...")
+cpp_quote("// PropVariantClear(&var);")
+
+typedef struct AudioClient3ActivationParams
+{
+    GUID tracingContextId;
+} AudioClient3ActivationParams;
+
+//-----------------------------------------------------------------------------
+// Description: IAudioClient3 interface
+//
+[
+   object,
+   uuid(7ED4EE07-8E67-4CD4-8C1A-2B7A5987AD42),
+   pointer_default(unique),
+   local
+]
+interface IAudioClient3 : IAudioClient2
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  This method returns the range of periodicities supported by the engine for the specified format.
+    //  The periodicity of the engine is described as the rate at which the engine wakes an event driven audio client
+    //  for transferring audio data to/from the engine.
+    //  The values returned depends on the characteristics of the audio client as specified through a previous call to 
+    //  IAudioClient2::SetClientProperties
+    //
+    // Parameters:
+    //
+    //  pFormat                     -  [in]  The stream format
+    //  pDefaultPeriodInFrames -       [out] The default period with which the engine will wake the client for 
+    //                                       transferring audio samples
+    //  pFundamentalPeriodInFrames -   [out] The smallest period with which the engine will wake the client for 
+    //                                       transferring audio samples.
+    //                                       The client can choose a period that is an integer multiple 
+    //                                       of the fundamental period, subject to the min and max constraints below.
+    //  pMinPeriodInFrames -          [out] The lowest period with which the audio engine will wake the client for 
+    //                                      transferring audio samples.
+    //  pMaxPeriodInFrames -          [out] The highest period with which the audio engine will wake the client for 
+    //                                      transferring audio samples.
+    //
+    HRESULT GetSharedModeEnginePeriod( [in, annotation("_In_")] const WAVEFORMATEX* pFormat,
+                                       [out, annotation("_Out_")] UINT32 *pDefaultPeriodInFrames, 
+                                       [out, annotation("_Out_")] UINT32 *pFundamentalPeriodInFrames, 
+                                       [out, annotation("_Out_")] UINT32 *pMinPeriodInFrames, 
+                                       [out, annotation("_Out_")] UINT32 *pMaxPeriodInFrames); 
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  This method returns the current format and period of the audio engine.
+    //  This method may be used by clients that wish to snap to the current period of the audio engine.
+    //
+    // Parameters:
+    //
+    //  ppFormat - [out] The current device format that is being used by the audio engine
+    //  pCurrentPeriodInFrames - [out] The current period of the audio engine
+    //
+    // Remarks:
+    //  Note that this is an instantaneous value that may be outdated as soon as this call returns.
+    //
+    HRESULT GetCurrentSharedModeEnginePeriod([out, annotation("_Out_"), unique] WAVEFORMATEX ** ppFormat,
+                                             [out, annotation("_Out_")] UINT32 *pCurrentPeriodInFrames);
+    
+    //-------------------------------------------------------------------------    
+    // Description:    
+    //    
+    //  Initializes a shared stream with the specified period. When using this method, the app cannot specify a 
+    //  buffer size. The buffer size is computed based on the period requested by the app, and it is the app's responsibility
+    //  to ensure that audio samples are transferred in/out of the buffer in a timely manner.
+    //    
+    // Parameters:    
+    //    
+    //  StreamFlags -           [in] See IAudioClient::Initialize
+    //  pFormat -               [in] See IAudioClient::Initialize
+    //  PeriodInFrames -        [in] Period requested by the client. This value has to be an integer multiple of the 
+    //                               fundamental period returned in the call to GetSharedModeEnginePeriod. This value has
+    //                               to satisfy the minimum and maximum constraints on the period supported by the engine.
+    //  AudioSessionGuid -      [in] See IAudioClient::Initialize
+    //    
+    HRESULT InitializeSharedAudioStream (  [in, annotation("_In_")] DWORD StreamFlags,
+                                           [in, annotation("_In_")] UINT32 PeriodInFrames,
+                                           [in, annotation("_In_")] const WAVEFORMATEX* pFormat,
+                                           [in, annotation("_In_opt_")] LPCGUID AudioSessionGuid );
+}
+
+//-----------------------------------------------------------------------------
+// Description: IAudioRenderClient interface
+//
+[
+   object,
+   uuid(F294ACFC-3146-4483-A7BF-ADDCA7C260E2),
+   helpstring("IAudioRenderClient Interface"),
+   pointer_default(unique),
+   local
+]
+interface IAudioRenderClient : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns a pointer to the shared render buffer of the requested size for the
+    //  application to write its output data into for rendering to the WAS.
+    //
+    // Parameters:
+    //
+    //  NumFramesRequested - [in] Number of frames requested in the returned data pointer.
+    //
+    //  ppData - [out] If call was successful, this address contains a pointer to a data buffer of
+    //     requested size, which application can write into.
+    //
+    // Return Values:
+    //
+    //     S_OK if successful, error otherwise.
+    //     AUDCLNT_E_BUFFER_TOO_LARGE, if NumFramesRequested > (GetBufferSize() - GetCurrentPadding())
+    //     AUDCLNT_E_OUT_OF_ORDER, if called while a previous IAudioRenderClient::GetBuffer() is still
+    //     in effect.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed,
+    //     E_POINTER, if ppData is NULL.
+    //
+    // Remarks:
+    //
+    //  Maximum buffer size to request - The application shouldn't ask for a larger buffer than
+    //  the size currently available in the requested shared buffer region and if this value is
+    //  exceeded GetBuffer() will fail. The total available space at any given time can be
+    //  determined by calling the GetCurrentPadding() method and subtracting that frame count
+    //  size from the shared buffer size (returned in the GetBufferSize() method).
+    //
+    //  Minimum buffer size to request - As far as determining the minimum amount of data to write
+    //  per-processing pass, it is left up to the application to ensure that it writes enough data
+    //  to prevent glitching. However, the minimum recommended size for a buffer request to prevent
+    //  glitching is: latency + device period.
+    //
+    //  The client is required to serialize the GetBuffer()/ReleaseBuffer() sequence of calls. For
+    //  instance, consecutive calls to either GetBuffer() or ReleaseBuffer() aren't permitted and
+    //  will fail.
+    //
+    // 'pFormat' in the annotation below refers to the WAVEFORMATEX structure used to initialize IAudioClient.
+    //
+    HRESULT GetBuffer([in, annotation("_In_")] UINT32 NumFramesRequested, 
+                      [out, annotation("_Outptr_result_buffer_(_Inexpressible_(\"NumFramesRequested * pFormat->nBlockAlign\"))")] BYTE ** ppData);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Releases the render data buffer acquired in the GetBuffer call.
+    //
+    // Parameters:
+    //
+    //     NumFramesWritten - [in] Count of application frames written into the render buffer. Must be
+    //     less than or equal to the requested amount.
+    //
+    //     dwFlags - [in] this value is used to allow the application to flag the return buffer specially,
+    //     if necessary. The following flags are supported on render buffers:
+    //
+    //          AUDCLNT_BUFFERFLAGS_SILENT - buffer data should be treated as silence. This flag
+    //          frees a render client from needing to explicitly write silence data to the output
+    //          buffer. Note that a loopback client reading capture data from this render buffer
+    //          shouldn't be required to do any silence filling.
+    //
+    //     Otherwise, the dwFlags value must be set to 0.
+    //
+    //
+    // Return values:
+    //
+    //      S_OK if successful, error otherwise.
+    //      E_FAIL, if FramesWritten > count requested in previous GetBuffer() call.
+    //      E_INVALIDARG, if invalid flag was used.
+    //      AUDCLNT_E_OUT_OF_ORDER, if previous IAudioRenderClient streaming call wasn't GetBuffer().
+    //      AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //      Please note: This function is a "finalizer".  As such,
+    //      except for invalid argument errors as called out above,
+    //      this function has no valid failure modes.
+    //
+    //
+    HRESULT ReleaseBuffer([in, annotation("_In_")] UINT32 NumFramesWritten, [in, annotation("_In_")] DWORD dwFlags);
+}
+
+//-----------------------------------------------------------------------------
+// Description: IAudioCaptureClient interface
+//
+[
+   object,
+   uuid(C8ADBD64-E71E-48a0-A4DE-185C395CD317),
+   helpstring("IAudioCaptureClient Interface"),
+   pointer_default(unique),
+   local
+]
+interface IAudioCaptureClient : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  This method is called to retrieve a pointer to the next packet of data in the
+    //  shared capture buffer ready for the application to read. The method returns the
+    //  size of the packet, which the application must read it in its entirety (or not at all).
+    //
+    // Parameters:
+    //
+    //  ppBuffer - [out] address to return a pointer to a data buffer containing *pNumFramesToRead
+    //     frames of captured data for application to read.
+    //  pNumFramesToRead - [out] pointer to the count of frames in the returned data buffer.
+    //     The caller must read them all (or none, if it doesn't have room to read the complete
+    //     buffer).
+    //  pdwFlags - [out] pointer to bit flags providing additional information about the buffer.
+    //     Must be 0 or a combination of the following flags:
+    //          AUDCLNT_BUFFERFLAGS_TIMEVALID - buffer timestamp is valid.
+    //          AUDCLNT_BUFFERFLAGS_TIMEDISCONTINUITY - buffer timestamp is not correlated with
+    //          previous buffer's timestamp, possibly due to a glitch or state transition.
+    //          AUDCLNT_BUFFERFLAGS_DATADISCONTINUITY - buffer data is not correlated with previous
+    //          buffer's timestamp, possibly due to a glitch or state transition.
+    //  pu64DevicePosition - [out, unique] optional pointer to the device position at the moment of
+    //     capture for the data packet captured in ppData. Note this is a device position and not a
+    //     0-based stream position.
+    //  pu64QPCPosition - [out, unique] optional pointer to a system QueryPerformaceCounter time
+    //     correlated to the device time for the data packet.
+    //
+    // Return values:
+    //
+    //      S_OK if successful, error otherwise.
+    //      AUDCLNT_E_OUT_OF_ORDER, if called while a previous IAudioCaptureClient::GetBuffer()
+    //      is still in effect.
+    //      AUDCLNT_S_BUFFEREMPTY, if called when there's no available capture data. Note that
+    //      this is a success code that the content of pFrameCount will be 0 in this case.
+    //      AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //
+    //  To process capture data, the application should call this method to get the next buffer
+    //  and its size, from which it can proceed to read the data into the application buffer.
+    //  When the application is finished reading the buffer, it fills in the FramesRead value
+    //  and calls the ReleaseBuffer() method to signal that it's done.
+    //
+    //  The application is required to read the entire buffer or none of it, if it can't read
+    //  the complete buffer.
+    //
+    //  To process captured data, during each processing pass the application has the option of:
+    //  a) calling the GetBuffer()/ReleaseBuffer() sequence until GetBuffer() returns
+    //  AUDCNT_S_BUFFEREMPTY or
+    //  b) calling GetNextPacketSize() before each GetBuffer()/ReleaseBuffer() sequence until it
+    //  returns 0.
+    //
+    //  The data in the returned data pointer will be valid until the client calls the
+    //  ReleaseBuffer() method.
+    //
+    //  The client is required to serialize the GetBuffer()/ReleaseBuffer() sequence of calls.
+    //  For instance, consecutive calls to either GetBuffer() or ReleaseBuffer() aren't permitted
+    //  and will fail.
+    //
+    //  If an application needs to determine a stream time for a given sample time, it should
+    //  cache the timestamp of the first capture sample and subtract that value from the current
+    //  sample timestamp (taking care to account for the possible arithmetic wraparound).
+    //
+    // 'pFormat' in the annotation below refers to the WAVEFORMATEX structure used to initialize IAudioClient.
+    //
+
+    HRESULT GetBuffer(
+        [out, annotation("_Outptr_result_buffer_(_Inexpressible_(\"*pNumFramesToRead * pFormat->nBlockAlign\"))")] BYTE **ppData,
+        [out, annotation("_Out_")] UINT32 *pNumFramesToRead,
+        [out, annotation("_Out_")] DWORD *pdwFlags,
+        [out,unique, annotation("_Out_opt_")] UINT64 *pu64DevicePosition,
+        [out,unique, annotation("_Out_opt_")] UINT64 *pu64QPCPosition);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Call this method when done reading from the capture buffer returned in the GetBuffer() call.
+    //
+    // Parameters:
+    //
+    //
+    //  NumFramesRead - [in] frames read out of capture buffer. Must be equal to the total number of
+    //     frames in the previously returned buffer or 0.
+    //
+    // Return values:
+    //
+    //      S_OK if successful, error otherwise.
+    //      E_INVALIDARG, if NumFramesRead != [ value in buffer or 0 ].
+    //      AUDCLNT_E_OUT_OF_ORDER, if previous IAudioCaptureClient streaming call wasn't GetBuffer().
+    //      AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //
+    // Remarks:
+    //      Please note: This function is a "finalizer".  As such,
+    //      except for invalid argument errors as called out above,
+    //      this function has no valid failure modes.
+    //
+    //
+    HRESULT ReleaseBuffer( [in, annotation("_In_")] UINT32 NumFramesRead );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the number of frames in the next capture buffer packet. Capture applications must read in frames on a packet-by-packet basis.
+    //
+    // Parameters:
+    //
+    //  pNumFramesInNextPacket - [out] pointer for returning the number of frames in the next capture
+    //     packet. When all capture packets have been read this value will be 0.
+    //
+    // Return values:
+    //
+    //     S_OK if successful, failure otherwise.
+    //     AUDCLNT_E_DEVICE_INVALIDATED, if WAS device format was changed or device was removed.
+    //     E_POINTER, if pNumFramesInNextPacket is NULL.
+    //
+    // Remarks:
+    //
+    //  This method returns the size of the next capture packet. To determine the size of all
+    //  the captured data currently in the shared buffer (accounting for all current packets)
+    //  use the IAudioClient::GetCurrentPadding() method.
+    //
+    HRESULT GetNextPacketSize([out, annotation("_Out_")] UINT32 *pNumFramesInNextPacket);
+}
+
+//-------------------------------------------------------------------------
+// Description: IAudioClock characteristics (returned by IAudioClock::GetCharacteristics):
+//
+//     AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ - The clock exposed by this object runs at a fixed frequency.
+//
+cpp_quote("#define AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ  0x00000001")
+
+//-----------------------------------------------------------------------------
+// Description: IAudioClock interface
+//
+[
+    object,
+    uuid(CD63314F-3FBA-4a1b-812C-EF96358728E7),
+    pointer_default(unique),
+    local
+]
+
+interface IAudioClock : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the frequency for the clock
+    //
+    // Parameters:
+    //
+    //     pu64Frequency - [out] If S_OK, returns the clock frequency.
+    //
+    // See Also:
+    //
+    //  IAudioClock::GetPosition
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_POINTER, if pu64Frequency is NULL.
+    //
+    // Remarks:
+    //
+    //  Reports the average frequency in units of the clock position. For example, for an IAudioClock
+    //  object that is reporting the clock position in bytes, this method will return the average 
+    //  number of bytes per second consumed. See the description below for GetPosition, for how to
+    //  use this value to compute the clock position in seconds.
+    //
+    HRESULT GetFrequency([out, annotation("_Out_")] UINT64* pu64Frequency);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the current clock position
+    //
+    // Parameters:
+    //
+    //     pu64Position - [out] If S_OK, returns the clock position in ticks-per-second. To compute a time position from 
+    //     this value, the following formula must be used:
+    //  
+    //                 Clock Position (in seconds) = *pu64Position / *pu64Frequency
+    //
+    //             where *pu64Position is the value returned from this GetPosition call
+    //             and *pu64Frequency is the value returned from IAudioClock::GetFrequency (called at the same time). 
+    // 
+    //             NOTE: If the clock is fixed frequency (i.e. supports the AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ flag 
+    //             via the  GetCharacteristics call), the GetFrequency call need only be done once up front and the returned value
+    //             used for the life of the clock's position computations.
+    //
+    //     pu64QPCPosition - [out] If S_OK, returns the QueryPerformanceCounter position corresponding to the
+    //     position argument. This value may be NULL if a correlated system position isn't needed.
+    //
+    // See Also:
+    //
+    //  IAudioClock::GetFrequency
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_POINTER, if pu64Position is NULL.
+    //
+    // Remarks:
+    //
+    //  The unit of the clock position depends on the outcome of the
+    //  GetFrequency call. For example, if the frequency is average number of
+    //  bytes, then the clock position will be byte count.
+    //
+    HRESULT GetPosition([out, annotation("_Out_")] UINT64* pu64Position, [out,unique, annotation("_Out_opt_")] UINT64* pu64QPCPosition );
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the current clock position
+    //
+    // Parameters:
+    //
+    //     pdwCharacteristics - [out] If S_OK, returns a DWORD value containing 0 or any supported clock characteristics flags.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_POINTER, if pdwCharacteristics is NULL.
+    //
+    // Remarks:
+    //
+    //  Returns clock characteristics. Supported characteristics (see AUDIOCLOCK_CHARACTERISTIC flags description for more info):
+    //     
+    //      AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQUENCY - if set, the clock frequency need only be obtained once for use in 
+    //          clock position computations.
+    //
+    HRESULT GetCharacteristics([out, annotation("_Out_")] DWORD* pdwCharacteristics );
+
+}; // IAudioClock
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+//-----------------------------------------------------------------------------
+// Description: IAudioClock2 interface
+//
+[
+    object,
+    uuid(6f49ff73-6727-49ac-a008-d98cf5e70048),
+    pointer_default(unique),
+    local
+]
+
+interface IAudioClock2 : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Returns the current device position
+    //
+    // Parameters:
+    //
+    //     DevicePosition - [out] If S_OK, returns the device position in frames.
+    //
+    //     QPCPosition - [out] If S_OK, returns the QueryPerformanceCounter position corresponding to the
+    //     position argument. This value may be NULL if a correlated system position isn't needed.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_POINTER, if pu64Position is NULL.
+    //
+    // Remarks:
+    //
+    //    This method returns a "raw" position, directly from the hardware.  It is not capped or adjusted.  Special care
+    //    should be taken interpreting the position because the sampling rate of the device endpoint may be different from
+    //    the mix format used by the client
+    //
+    HRESULT GetDevicePosition([out, annotation("_Out_")] UINT64* DevicePosition, [out,unique, annotation("_Out_opt_")] UINT64* QPCPosition );
+}; // IAudioClock2
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+
+[
+    uuid(f6e4c0a0-46d9-4fb8-be21-57a3ef2b626c),
+    pointer_default(unique),
+    local
+]
+interface IAudioClockAdjustment : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the current sample rate
+    //
+    // Parameters:
+    //
+    //     flSampleRate - [in] Sets the new sample rate for the audio
+    //     stream.
+    //
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     E_INVALIDARG, if the IAudioClient wasn't initialized with
+    //                  the AUDCLNT_STREAMFLGS_RATEADJUST flag.
+    //
+    // Remarks:
+    //      The new sample rate adjustment will take place on the
+    //      processing pass that follows the call to SetSampleRate().
+    //
+    HRESULT SetSampleRate([in, annotation("_In_")] float flSampleRate);
+}; // IAudioClockAdjustment
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+//-----------------------------------------------------------------------------
+// Description: ISimpleAudioVolume interface
+//
+[
+    object,
+    uuid(87CE5498-68D6-44E5-9215-6DA47EF883D8),
+    pointer_default(unique),
+    local
+]
+interface ISimpleAudioVolume : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the master volume of the current audio client.
+    //
+    // Parameters:
+    //
+    //     fLevel - [in] New amplitude for the audio stream.
+    //     EventContext - [in] Context passed to notification routine, GUID_NULL if NULL.
+    //
+    // See Also:
+    //
+    //  ISimpleAudioVolume::GetMasterVolume
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //
+    //
+    HRESULT SetMasterVolume([in, annotation("_In_")] float fLevel, [in, unique] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the master volume of the current audio client.
+    //
+    // Parameters:
+    //
+    //     pfLevel - [out] New amplitude for the audio stream.
+    //
+    // See Also:
+    //
+    //  ISimpleAudioVolume::SetMasterVolume
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetMasterVolume([out, annotation("_Out_")] float *pfLevel);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the mute state of the current audio client.
+    //
+    // Parameters:
+    //
+    //     bMute - [in] New mute for the audio stream.
+    //     EventContext - [in] Context passed to notification routine, GUID_NULL if NULL.
+    //
+    // See Also:
+    //
+    //  ISimpleAudioVolume::SetMute
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetMute([in, annotation("_In_")] const BOOL bMute, [in, unique] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the mute state of the current audio client.
+    //
+    // Parameters:
+    //
+    //     bMute - [out] Current mute for the audio stream.
+    //
+    // See Also:
+    //
+    //  ISimpleAudioVolume::GetMute
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetMute([out, annotation("_Out_")] BOOL *pbMute);
+
+}
+
+typedef [v1_enum] enum AUDIO_DUCKING_OPTIONS
+{
+    AUDIO_DUCKING_OPTIONS_DEFAULT = 0x00,
+    AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS = 0x01
+} AUDIO_DUCKING_OPTIONS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(AUDIO_DUCKING_OPTIONS);")
+
+//-----------------------------------------------------------------------------
+// Description: IAudioClientDuckingControl interface
+// Use IAudioClient::GetService to obtain this interface.
+//
+[
+    object,
+    uuid(C789D381-A28C-4168-B28F-D3A837924DC3),
+    pointer_default(unique),
+    local
+]
+interface IAudioClientDuckingControl : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    // Set the AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS flag to disable any
+    // ducking that may be caused by the current stream.
+    // Specifying AUDIO_DUCKING_OPTIONS_DEFAULT lets Windows control if
+    // this stream should cause any other streams to be ducked.
+    //
+    // Return values:
+    //
+    // S_OK Successful completion.
+    //
+    //
+
+    HRESULT SetDuckingOptionsForCurrentStream([in] AUDIO_DUCKING_OPTIONS options);
+}
+
+//-----------------------------------------------------------------------------
+// Description: IAudioViewManagerService interface
+// Use IAudioClient::GetService to obtain this interface.
+//
+[
+    object,
+    uuid(A7A7EF10-1F49-45E0-AD35-612057CC8F74),
+    pointer_default(unique),
+    local
+]
+interface IAudioViewManagerService : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //     Associate the audio stream to a given HWND
+    //
+    // Parameters:
+    //
+    //     hwnd - [in] HWND to be associated with the audio stream
+    //
+    // 
+    HRESULT SetAudioStreamWindow([in] HWND hwnd);
+
+};
+
+typedef [v1_enum] enum AUDIO_EFFECT_STATE
+{
+    AUDIO_EFFECT_STATE_OFF = 0,
+    AUDIO_EFFECT_STATE_ON
+} AUDIO_EFFECT_STATE;
+
+typedef struct AUDIO_EFFECT
+{
+    GUID id;
+    BOOL canSetState;
+    AUDIO_EFFECT_STATE state;
+} AUDIO_EFFECT;
+
+[
+    object,
+    uuid(A5DED44F-3C5D-4B2B-BD1E-5DC1EE20BBF6),
+    pointer_default(unique),
+    local
+]
+interface IAudioEffectsChangedNotificationClient : IUnknown
+{
+    HRESULT OnAudioEffectsChanged();
+};
+
+//-----------------------------------------------------------------------------
+// Description: IAudioEffectsManager interface
+// Use IAudioClient::GetService to obtain this interface.
+//
+[
+    object,
+    uuid(4460B3AE-4B44-4527-8676-7548A8ACD260),
+    pointer_default(unique),
+    local
+]
+interface IAudioEffectsManager : IUnknown
+{
+    HRESULT RegisterAudioEffectsChangedNotificationCallback([in] IAudioEffectsChangedNotificationClient *client);
+
+    HRESULT UnregisterAudioEffectsChangedNotificationCallback([in] IAudioEffectsChangedNotificationClient *client);
+
+    HRESULT GetAudioEffects([out, size_is(,*numEffects), annotation("_Outptr_result_buffer_maybenull_(*numEffects)")] AUDIO_EFFECT **effects, [out] UINT32 *numEffects);
+
+    HRESULT SetAudioEffectState([in] GUID effectId, [in] AUDIO_EFFECT_STATE state);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//-----------------------------------------------------------------------------
+// Description: IStreamAudioVolume interface
+//
+[
+object,
+uuid(93014887-242D-4068-8A15-CF5E93B90FE3),
+pointer_default(unique),
+local
+]
+interface IAudioStreamVolume : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the channel count for the audio stream.
+    //
+    // Parameters:
+    //
+    //     pdwCount - [out] The current channel count.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetChannelCount([out, annotation("_Out_")] UINT32 *pdwCount);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the volume for a particular channel on the current stream.
+    //
+    // Parameters:
+    //
+    //     dwIndex - [in] The channel # to set
+    //     fLevel -  [in] The volume level for that channel
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetChannelVolume([in, annotation("_In_")] UINT32 dwIndex,[in, annotation("_In_")] const float fLevel);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the volume for a particular channel on the current stream.
+    //
+    // Parameters:
+    //
+    //     dwIndex - [in] The channel # to get
+    //     pfLevel -  [out] The volume level for that channel
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetChannelVolume([in, annotation("_In_")] UINT32 dwIndex,[out, annotation("_Out_")] float *pfLevel);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the volume for all audio channels.
+    //
+    // Parameters:
+    //
+    //     dwCount - [in] Number of entries in the pfVolumes array.  Must
+    //                      be the same as IStreamAudioVolume::GetChannelCount
+    //     pfVolumes - [in] Array of volumes.
+    //
+    // See Also:
+    //
+    //  IStreamAudioVolume::GetAllVolumes
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetAllVolumes([in, annotation("_In_")] UINT32 dwCount,[in, size_is(dwCount), annotation("_In_reads_(dwCount)")] const float *pfVolumes);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the volume for all audio channels.
+    //
+    // Parameters:
+    //
+    //     dwCount - [in] Number of entries in the pfVolumes array.  Must
+    //                      be the same as IStreamAudioVolume::GetChannelCount
+    //     pfVolumes - [out] Array of volumes filled in with the current channel volumes.
+    //
+    // See Also:
+    //
+    //  IStreamAudioVolume::SetAllVolumes
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetAllVolumes([in, annotation("_In_")] UINT32 dwCount,[out, size_is(dwCount), , annotation("_Out_writes_(dwCount)")] float *pfVolumes);
+}
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+//-------------------------------------------------------------------------
+// Description: Enumeration of ambisonics type 
+// 
+//      AMBISONICS_TYPE_FULL3D - Periphonics (Full 3D). 
+//                               Only option supported by AMBIX_BASIC format.
+//                                     
+typedef enum AMBISONICS_TYPE
+{ 
+    AMBISONICS_TYPE_FULL3D = 0 
+
+} AMBISONICS_TYPE;
+
+//------------------------------------------------------------------------- 
+// Description: Enumeration of ambisonics channel ordering 
+// 
+//      AMBISONICS_CHANNEL_ORDERING_ACN - Ambisonics channel number. 
+//                                        Only option supported by AMBIX_BASIC format.
+//  
+typedef enum AMBISONICS_CHANNEL_ORDERING
+{ 
+    AMBISONICS_CHANNEL_ORDERING_ACN = 0 
+
+} AMBISONICS_CHANNEL_ORDERING;
+ 
+//------------------------------------------------------------------------- 
+// Description: Enumeration of ambisonics normalization 
+// 
+//     AMBISONICS_NORMALIZATION_SN3D - Schmidt semi-normalized spherical harmonics. 
+//                                     Only option supported by AMBIX_BASIC format.          
+//     AMBISONICS_NORMALIZATION_N3D - Schmidt normalized spherical harmonics. 
+//                                    N3D is supported by core decoder. 
+// 
+typedef enum AMBISONICS_NORMALIZATION
+{     
+    AMBISONICS_NORMALIZATION_SN3D = 0,     
+    AMBISONICS_NORMALIZATION_N3D 
+
+} AMBISONICS_NORMALIZATION;
+ 
+cpp_quote("#define AMBISONICS_PARAM_VERSION_1 1")
+cpp_quote("// The AMBISONICS_PARAMS initialization structure should be completely filled out ")
+cpp_quote("// and then passed into the SetData API of IAmbisonicsControl Service on IAudioClient")
+cpp_quote("// unsigned int(32) size of AMBISONICS_PARAMS")
+cpp_quote("// unsigned int(32)  version of AMBISONICS_PARAMS struct")
+cpp_quote("// unsigned int(32) ambisonics_type is the enumeration of ambisonics types")
+cpp_quote("// unsigned int(32) ambisonics_channel_ordering is the enumeration of ambisonics channel ordering")
+cpp_quote("// unsigned int(32) ambisonics_normalization is the enumeration of ambisonics normaliztion")
+cpp_quote("// unsigned int(32) ambisonics_order")
+cpp_quote("// unsigned int(32) ambisonics_num_channels")
+cpp_quote("// unsigned int(32) ambisonics_channel_map is a sequence of 32-bit unsigned integers that maps audio channels in a given audio track to ambisonic components,")
+cpp_quote("// given the defined ambisonics_channel_ordering. The sequence of channel_map values should match the channel sequence within the given audio track.")
+ 
+typedef struct AMBISONICS_PARAMS
+{
+    UINT32                          u32Size;
+    UINT32                          u32Version;
+    AMBISONICS_TYPE                 u32Type;
+    AMBISONICS_CHANNEL_ORDERING     u32ChannelOrdering;     
+    AMBISONICS_NORMALIZATION        u32Normalization;     
+    UINT32                          u32Order;     
+    UINT32                          u32NumChannels;
+    [annotation("__field_ecount(u32NumChannels)")]     
+    [size_is(u32NumChannels)] UINT32 *pu32ChannelMap;
+} AMBISONICS_PARAMS;
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//-----------------------------------------------------------------------------
+// Description: IAudioAmbisonicsControl interface
+//
+[
+object,
+uuid(28724C91-DF35-4856-9F76-D6A26413F3DF),
+pointer_default(unique),
+]
+interface IAudioAmbisonicsControl : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets the Ambisonics Metadata for the audio stream.
+    //
+    // Parameters:
+    //
+    //     cbAmbisonicsParams - [in] complete size of the buffer point by AMBISONICS_PARAMS.
+    //     pAmbisonicsParams  - [in] buffer containing metadata.
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetData([in, size_is(cbAmbisonicsParams)] const AMBISONICS_PARAMS *pAmbisonicsParams, [in] UINT32 cbAmbisonicsParams);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Enables/Disables head tracking
+    //
+    // Parameters:
+    //
+    //     bEnableHeadTracking - [in] bool to decide whether the Audio Ambisonics renderer does head tracking. 
+    //                            Default value is set to TRUE  if endpoint like HMD is capable of head tracking otherwise FALSE
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetHeadTracking([in] BOOL bEnableHeadTracking);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Gets if head tracking is enabled or not
+    //
+    // Parameters:
+    //
+    //     pbEnableHeadTracking - [out] bool indicating if Audio Ambisonic renderer does head tracking. 
+    //                             Default value is set to TRUE if endpoint like HMD is capable of head tracking otherwise FALSE   
+    //
+    // Return values:
+    //
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetHeadTracking([out] BOOL *pbEnableHeadTracking);
+
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Sets rotation values in Quaternion
+    //  Quaternion represents orientation and rotation of objects in 3D
+    //  These Rotation values corresponds to head rotation/head tracking.
+    //  For e.g. a user panning 360 degree video to 90 degrees on the right will hear the audio as if the user's head is rotated to 90 degrees on the right.
+    //  This method will return error AUDCLNT_E_HEADTRACKING_ENABLED if the SetHeadTracking is set to TRUE (default is TRUE) i.e., the user will have to first call SetHeadTracking(FALSE) before using SetRotation.
+    //
+    // Parameters:
+    //
+    //    X - [in] X component of Quaternion
+    //    Y - [in] Y component of Quaternion
+    //    Z - [in] Z component of Quaternion
+    //    W - [in] W component of Quaternion
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetRotation([in] float X, [in] float Y, [in] float Z, [in] float W);
+}
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//-----------------------------------------------------------------------------
+// Description: IChannelAudioVolume interface
+//
+[
+    object,
+    uuid(1C158861-B533-4B30-B1CF-E853E51C59B8),
+    pointer_default(unique),
+    local
+]
+interface IChannelAudioVolume : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the channel count for the audio session associated with
+    //  this client.
+    //
+    // Parameters:
+    //
+    //     pdwCount - [out] The current channel count.
+    //
+    // See Also:
+    //
+    //  IChannelAudioVolume::GetChannelCount
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetChannelCount([out, annotation("_Out_")] UINT32 *pdwCount);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the volume for a particular channel on the audio session
+    //  associated with this client.
+    //
+    // Parameters:
+    //
+    //     dwIndex - [in] The channel # to set
+    //     fLevel -  [in] The volume level for that channel
+    //     EventContext - [in] Context passed to notification routine, GUID_NULL if NULL.
+    //
+    // See Also:
+    //
+    //  IChannelAudioVolume::GetChannelVolume
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetChannelVolume([in, annotation("_In_")] UINT32 dwIndex,[in, annotation("_In_")] const float fLevel, [in, unique] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the volume for a particular channel.
+    //
+    // Parameters:
+    //
+    //     dwIndex - [in] The channel # to get
+    //     pfLevel -  [out] The volume level for that channel
+    //
+    // See Also:
+    //
+    //  IChannelAudioVolume::GetChannelVolume
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetChannelVolume([in, annotation("_In_")] UINT32 dwIndex,[out, annotation("_Out_")] float *pfLevel);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Set the volume for all audio channels.
+    //
+    // Parameters:
+    //
+    //     dwCount - [in] Number of entries in the pfVolumes array.  Must be the same as IChannelAudioVolume::GetChannelCount
+    //     pfVolumes - [in] Array of volumes.
+    //     EventContext - [in] Context passed to notification routine, GUID_NULL if NULL.
+    //
+    // See Also:
+    //
+    //  IChannelAudioVolume::GetAllVolumes
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT SetAllVolumes([in, annotation("_In_")] UINT32 dwCount,[in, size_is(dwCount), annotation("_In_reads_(dwCount)")] const float *pfVolumes, [in, unique] LPCGUID EventContext);
+
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Get the volume for all audio channels.
+    //
+    // Parameters:
+    //
+    //     dwCount - [in] Number of entries in the pfVolumes array.  Must be the same as IChannelAudioVolume::GetChannelCount
+    //     pfVolumes - [out] Array of volumes filled in with the current channel volumes.
+    //
+    // See Also:
+    //
+    //  IChannelAudioVolume::SetAllVolumes
+    //
+    // Return values:
+    //
+    //     S_OK        Successful completion.
+    //     OTHER       Other error.
+    //
+    //
+    HRESULT GetAllVolumes([in, annotation("_In_")] UINT32 dwCount,[out, size_is(dwCount), , annotation("_Out_writes_(dwCount)")] float *pfVolumes);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application and Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+cpp_quote("#define AUDCLNT_ERR(n) MAKE_HRESULT(SEVERITY_ERROR, FACILITY_AUDCLNT, n)")
+cpp_quote("#define AUDCLNT_SUCCESS(n) MAKE_SCODE(SEVERITY_SUCCESS, FACILITY_AUDCLNT, n)")
+
+// error codes
+cpp_quote("#define AUDCLNT_E_NOT_INITIALIZED              AUDCLNT_ERR(0x001)")
+cpp_quote("#define AUDCLNT_E_ALREADY_INITIALIZED          AUDCLNT_ERR(0x002)")
+cpp_quote("#define AUDCLNT_E_WRONG_ENDPOINT_TYPE          AUDCLNT_ERR(0x003)")
+cpp_quote("#define AUDCLNT_E_DEVICE_INVALIDATED           AUDCLNT_ERR(0x004)")
+cpp_quote("#define AUDCLNT_E_NOT_STOPPED                  AUDCLNT_ERR(0x005)")
+cpp_quote("#define AUDCLNT_E_BUFFER_TOO_LARGE             AUDCLNT_ERR(0x006)")
+cpp_quote("#define AUDCLNT_E_OUT_OF_ORDER                 AUDCLNT_ERR(0x007)")
+cpp_quote("#define AUDCLNT_E_UNSUPPORTED_FORMAT           AUDCLNT_ERR(0x008)")
+cpp_quote("#define AUDCLNT_E_INVALID_SIZE                 AUDCLNT_ERR(0x009)")
+cpp_quote("#define AUDCLNT_E_DEVICE_IN_USE                AUDCLNT_ERR(0x00a)")
+cpp_quote("#define AUDCLNT_E_BUFFER_OPERATION_PENDING     AUDCLNT_ERR(0x00b)")
+cpp_quote("#define AUDCLNT_E_THREAD_NOT_REGISTERED        AUDCLNT_ERR(0x00c)")
+cpp_quote("#define AUDCLNT_E_EXCLUSIVE_MODE_NOT_ALLOWED   AUDCLNT_ERR(0x00e)")
+cpp_quote("#define AUDCLNT_E_ENDPOINT_CREATE_FAILED       AUDCLNT_ERR(0x00f)")
+cpp_quote("#define AUDCLNT_E_SERVICE_NOT_RUNNING          AUDCLNT_ERR(0x010)")
+cpp_quote("#define AUDCLNT_E_EVENTHANDLE_NOT_EXPECTED     AUDCLNT_ERR(0x011)")
+cpp_quote("#define AUDCLNT_E_EXCLUSIVE_MODE_ONLY          AUDCLNT_ERR(0x012)")
+cpp_quote("#define AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL AUDCLNT_ERR(0x013)")
+cpp_quote("#define AUDCLNT_E_EVENTHANDLE_NOT_SET          AUDCLNT_ERR(0x014)")
+cpp_quote("#define AUDCLNT_E_INCORRECT_BUFFER_SIZE        AUDCLNT_ERR(0x015)")
+cpp_quote("#define AUDCLNT_E_BUFFER_SIZE_ERROR            AUDCLNT_ERR(0x016)")
+cpp_quote("#define AUDCLNT_E_CPUUSAGE_EXCEEDED            AUDCLNT_ERR(0x017)")
+cpp_quote("#define AUDCLNT_E_BUFFER_ERROR                 AUDCLNT_ERR(0x018)")
+cpp_quote("#define AUDCLNT_E_BUFFER_SIZE_NOT_ALIGNED      AUDCLNT_ERR(0x019)")
+cpp_quote("#define AUDCLNT_E_INVALID_DEVICE_PERIOD        AUDCLNT_ERR(0x020)")
+cpp_quote("#define AUDCLNT_E_INVALID_STREAM_FLAG          AUDCLNT_ERR(0x021)")
+cpp_quote("#define AUDCLNT_E_ENDPOINT_OFFLOAD_NOT_CAPABLE AUDCLNT_ERR(0x022)")
+cpp_quote("#define AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES     AUDCLNT_ERR(0x023)")
+cpp_quote("#define AUDCLNT_E_OFFLOAD_MODE_ONLY            AUDCLNT_ERR(0x024)")
+cpp_quote("#define AUDCLNT_E_NONOFFLOAD_MODE_ONLY         AUDCLNT_ERR(0x025)")
+cpp_quote("#define AUDCLNT_E_RESOURCES_INVALIDATED        AUDCLNT_ERR(0x026)")
+cpp_quote("#define AUDCLNT_E_RAW_MODE_UNSUPPORTED         AUDCLNT_ERR(0x027)")
+cpp_quote("#define AUDCLNT_E_ENGINE_PERIODICITY_LOCKED    AUDCLNT_ERR(0x028)")
+cpp_quote("#define AUDCLNT_E_ENGINE_FORMAT_LOCKED         AUDCLNT_ERR(0x029)")
+cpp_quote("#define AUDCLNT_E_HEADTRACKING_ENABLED         AUDCLNT_ERR(0x030)")
+cpp_quote("#define AUDCLNT_E_HEADTRACKING_UNSUPPORTED     AUDCLNT_ERR(0x040)")
+cpp_quote("#define AUDCLNT_E_EFFECT_NOT_AVAILABLE         AUDCLNT_ERR(0x041)")
+cpp_quote("#define AUDCLNT_E_EFFECT_STATE_READ_ONLY       AUDCLNT_ERR(0x042)")
+cpp_quote("#define AUDCLNT_E_POST_VOLUME_LOOPBACK_UNSUPPORTED AUDCLNT_ERR(0x043)")
+cpp_quote("#define AUDCLNT_S_BUFFER_EMPTY                 AUDCLNT_SUCCESS(0x001)")
+cpp_quote("#define AUDCLNT_S_THREAD_ALREADY_REGISTERED    AUDCLNT_SUCCESS(0x002)")
+cpp_quote("#define AUDCLNT_S_POSITION_STALLED             AUDCLNT_SUCCESS(0x003)")
+
+// NOTE! error codes of 0x100 and above a reserved for SpatialAudioClient. AUDCLNT_ERR(0x100) to AUDCLNT_ERR(0x1FF)
+// NOTE! error codes of 0x200 and above a reserved for SpatialAudioMetadataClient. AUDCLNT_ERR(0x200) to AUDCLNT_ERR(0x2FF)
+
+//-----------------------------------------------------------------------------
+// Description: IAcousticEchoCancellationControl interface
+// Use IAudioClient::GetService to obtain this interface.
+//
+[
+    object,
+    uuid(f4ae25b5-aaa3-437d-b6b3-dbbe2d0e9549),
+    pointer_default(unique),
+    local
+]
+interface IAcousticEchoCancellationControl : IUnknown
+{
+    HRESULT SetEchoCancellationRenderEndpoint(LPCWSTR endpointId);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion

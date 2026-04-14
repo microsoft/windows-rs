@@ -1,0 +1,580 @@
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+
+#include <sdkddkver.h>
+
+import "oaidl.idl";
+import "inspectable.idl";
+import "Windows.Foundation.idl";
+import "eventtoken.idl";
+
+cpp_quote("#pragma region Application Family")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("// Win32 API definitions")
+cpp_quote("#include <evntcons.h>")
+cpp_quote("_Check_return_ STDAPI ProcessEvent(_In_ PEVENT_RECORD eventRecord);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */ ")
+cpp_quote("#pragma endregion")
+
+namespace Microsoft.Diagnostics.AppAnalysis
+{
+    interface IEtwEvent;
+    interface IEtwConsumer;
+    interface IEtwEventRecord;
+    interface IEtwProvider;
+    interface IEtwRule;
+    interface IRule;
+    interface IRuleTriggeredEventArgs;
+    interface IRuleTriggeredEventArgsFactory;
+    interface IResourceStringView;
+
+    runtimeclass RuleTriggeredEventArgs;
+    runtimeclass ResourceString;
+
+    runtimeclass EtwEventRecord;
+    runtimeclass EtwEvent;
+    runtimeclass EtwProvider;
+    runtimeclass EtwEventWatcher;
+    runtimeclass EtwRule;
+    runtimeclass EtwRuleSet;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // MeasurementUnit [ENUM]
+    [version(NTDDI_WIN10_RS1)]
+    typedef [v1_enum] enum MeasurementUnit
+    {
+        Milliseconds = 0,
+        Kilobytes,
+        Elements,
+        Percentage,
+    } MeasurementUnit;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // RuleType [ENUM]
+    [version(NTDDI_WIN10_RS1)]
+    [flags]
+    typedef [v1_enum] enum RuleCategories
+    {
+        None = 0,
+        Performance = 0x0001,
+        Accessibility = 0x0002,
+    } RuleCategories;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // ProviderType [ENUM]
+    [version(NTDDI_WIN10_RS1)]
+    typedef [v1_enum] enum ProviderType
+    {
+        Manifest = 0,
+        Kernel,
+    } ProviderType;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Measurement [STRUCT]
+    [version(NTDDI_WIN10_RS1)]
+    typedef struct Measurement
+    {
+        DOUBLE Value;
+        MeasurementUnit Unit;
+    } Measurement;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // TimelineInfo [STRUCT]
+    [version(NTDDI_WIN10_RS1)]
+    typedef struct TimelineInfo
+    {
+        INT64 Start;
+        INT64 Stop;
+    } TimelineInfo;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwEvent [INTERFACE]
+    //    The EtwEvent interface represents an event that an IEtwConsumer cares
+    //    about. It is a simple interface because it is used during event registration when
+    //    the event processor queries EtwConsumers about what events they are interested in
+    //    and it can be returned from an EtwEventRecord to get the information for that event.
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(07A0C227-BBEB-43FA-AF86-108114187CDC)] 
+    [exclusiveto(EtwEvent)]
+    interface IEtwEvent : IInspectable
+    {
+        [propget] HRESULT EventId(
+            [out, retval] UINT16* eventId
+            );
+
+        [propget] HRESULT EventVersion(
+            [out, retval] BYTE* eventVersion
+            );
+
+        [propget] HRESULT Provider(
+            [out, retval] EtwProvider** provider
+            );
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwEventFactory [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(80FDEE60-5888-47DB-92D3-E5BC3C9F57CF)]
+    [exclusiveto(EtwEvent)]
+    interface IEtwEventFactory : IInspectable
+    {
+        HRESULT CreateInstance(
+            [in] UINT16 eventId,
+            [in] BYTE eventVersion,
+            [in] EtwProvider* provider,
+            [out, retval] EtwEvent** instance
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwProvider [INTERFACE]
+    //   The IEtwProvider interface represents an ETW provider. When a consumer is queried 
+    //   for what providers it needs, the caller needs to know if the provider is a
+    //   sytem (classic) or manifest based provider. If a classic provider, the enable
+    //   flags will be non-zero and needed to determine which events should be enabled.
+    //   The flags are defined in evntrace.h
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(11624719-7C26-4BDE-A80F-441DF7670BB8)]
+    [exclusiveto(EtwProvider)]
+    interface IEtwProvider : IInspectable
+    {
+        [propget] HRESULT ID(
+            [out, retval] GUID* ID
+            );
+
+        [propget] HRESULT EnableFlags(
+            [out, retval] UINT32* enableFlags
+            );
+
+        [propget] HRESULT ProviderType(
+            [out, retval] ProviderType* providerType
+            );
+
+        [propget] HRESULT Manifest(
+            [out, retval] HSTRING* manifest
+            );
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwProviderStatics [INTERFACE]
+    //   We want to ensure correctness and not allow a third party rule to 
+    //   define a provider that has a mix of classic provider properties and manifest
+    //   provider properties.
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(598024F7-A743-4555-A1FD-5EB465308194)]
+    [exclusiveto(EtwProvider)]
+    interface IEtwProviderStatics : IInspectable
+    {
+        [overload("Create"), default_overload]
+        HRESULT Create(
+            [in] GUID providerId,
+            [in] HSTRING manifest,
+            [out, retval] EtwProvider** instance
+            );
+
+        [overload("Create")]
+        HRESULT CreateKernelProvider(
+            [in] GUID providerId,
+            [in] UINT32 enableFlags,
+            [out, retval] EtwProvider** instance
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwEventRecordCallback [DELEGATE]
+    //   The EtwEventCallback interfaces is a simple interface that any object
+    //   implemeting the IEtwConusmer interface returns to the EventProcessor when
+    //   queried for the handler for a specific ETW event. The consumer can decide 
+    //   to hand back a different handler per event, or hand back the same instance
+    //   and let the single instance decide how to handle all events
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(8929948F-2A94-4ED4-ABB6-92EF45E61B21)]
+    delegate HRESULT EtwEventRecordCallback([in] EtwEventRecord* eventrecord);
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwEventWatcher [INTERFACE]
+    //  
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(012A38E6-6B29-473E-A219-CAAE719E9996)]
+    [exclusiveto(EtwEventWatcher)]
+    interface IEtwEventWatcher : IInspectable
+    {
+        // Register an event with the watcher.
+        HRESULT RegisterEvent(
+            [in] EtwEvent* etwEvent,
+            [in] EtwEventRecordCallback* eventCallback
+            );
+
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwRule [INTERFACE]
+    //  
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(C2205647-2FD8-43E0-92CB-0ED1A0DB9E55)]
+    [exclusiveto(EtwRule)]
+    interface IEtwRule : IInspectable
+    {
+        // Gets the backing rule
+        [propget] HRESULT BackingRule(
+            [out, retval] IRule** backingRule
+            );
+
+        // Retrieves all the events that this EtwRule is registered for
+        [propget] HRESULT RegisteredEvents(
+            [out, retval] Windows.Foundation.Collections.IVectorView<EtwEvent*>** registeredEvents
+             );
+
+        // Calling Start() will cause the EtwRule to begin listening for events. 
+        HRESULT Start();
+        HRESULT Stop();
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwRuleFactory [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(363FA5D1-2E25-4CC0-8BCF-62ECD32ABF9A)]
+    [exclusiveto(EtwRule)]
+    interface IEtwRuleFactory : IInspectable
+    {
+        // Create an instance of the EtwRule. 
+        HRESULT CreateInstance(
+            [in] IRule* backingRule,
+            [in] EtwEventWatcher* watcher,
+            [out, retval] EtwRule** instance
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IResourceStringFactory [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(111BA2AD-ECE9-4FEE-8168-E94F290CC451)]
+    [exclusiveto(ResourceString)]
+    interface IResourceStringFactory : IInspectable
+    {
+        HRESULT CreateInstance(
+            [in] UINT32 identifier,
+            [out, retval] ResourceString** instance
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IResourceStringFactory [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(CD75217D-5BF1-4056-9253-71D9C57D2B06)]
+    [exclusiveto(ResourceString)]
+    interface IResourceString : IInspectable
+        requires Windows.Foundation.Collections.IVector<HSTRING>,
+                 Windows.Foundation.Collections.IIterable<HSTRING>
+    {
+        [propput] HRESULT Identifier(
+            [in] UINT32 identifer
+            );
+
+        [propget] HRESULT Identifier(
+            [out, retval] UINT32* identifer
+            );
+
+        HRESULT GetResourceStringView(
+            [out, retval] IResourceStringView** view
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IResourceStringView [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(E433A2D7-AAB7-4749-A66C-1530941AC47B)]
+    interface IResourceStringView : IInspectable
+        requires Windows.Foundation.Collections.IVectorView<HSTRING>,
+                 Windows.Foundation.Collections.IIterable<HSTRING>
+    {
+        [propget] HRESULT Identifier(
+            [out, retval] UINT32* identifer
+            );
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IRule [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(155EB649-1F41-465F-8C13-D49DFD8EB7D4)]
+    interface IRule : IInspectable
+    {
+        [propget] HRESULT Id(
+            [out, retval] HSTRING* id
+            );
+
+        [propget] HRESULT Title(
+            [out, retval] HSTRING* title
+            );
+
+        [propget] HRESULT Impact(
+            [out, retval] HSTRING* impact
+            );
+
+        [propget] HRESULT LinkTitle(
+            [out, retval] HSTRING* linkTitle
+            );
+
+        [propget] HRESULT LinkUri(
+            [out, retval] HSTRING* linkUri
+            );
+
+        [propget] HRESULT Categories(
+            [out, retval] RuleCategories* categories
+            );
+
+        HRESULT FormatString(
+            [in] IResourceStringView* resourceString,
+            [out, retval] HSTRING* result
+            );
+
+        [eventadd] HRESULT Triggered(
+            [in] Windows.Foundation.TypedEventHandler<IRule*, RuleTriggeredEventArgs*>* handler,
+            [out, retval] EventRegistrationToken* token
+            );
+
+        [eventremove] HRESULT Triggered(
+            [in] EventRegistrationToken token
+            );
+
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IEtwEventRecord [INTERFACE]
+    //   The IEtwEventRecord interface represents the EVENT_RECORD Win32 data
+    //   structure
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(79380594-6095-49C8-82E6-65DDC099DC59)]
+    [exclusiveto(EtwEventRecord)]
+    interface IEtwEventRecord : IInspectable
+    {
+        [propget] HRESULT Timestamp(
+            [out, retval] INT64* timestamp
+            );
+
+        [propget] HRESULT ThreadId(
+            [out, retval] UINT32* threadId
+            );
+
+        [propget] HRESULT EventId(
+            [out, retval] UINT16* eventId
+            );
+
+        [propget] HRESULT EventVersion(
+            [out, retval] BYTE* eventVersion
+            );
+
+        [propget] HRESULT ProviderId(
+            [out, retval] GUID* providerId
+            );
+
+        // The following methods get the property value from the ETW payload.
+        // For manifest providers, the names are declared in the manifest along
+        // with their data type.
+        HRESULT GetBooleanProperty(
+            [in] HSTRING propertyName,
+            [out, retval] boolean* value
+            );
+
+        HRESULT GetFloatProperty(
+            [in] HSTRING propertyName,
+            [out, retval] float* value
+            );
+
+        HRESULT GetDoubleProperty(
+            [in] HSTRING propertyName,
+            [out, retval] double* value
+            );
+
+        HRESULT GetInt32Property(
+            [in] HSTRING propertyName,
+            [out, retval] INT32* value
+            );
+
+        HRESULT GetUInt32Property(
+            [in] HSTRING propertyName,
+            [out, retval] UINT32* value
+            );
+
+        HRESULT GetInt64Property(
+            [in] HSTRING propertyName,
+            [out, retval] INT64* value
+            );
+
+        HRESULT GetUInt64Property(
+            [in] HSTRING propertyName,
+            [out, retval] UINT64* value
+            );
+
+        HRESULT GetUnicodeStringProperty(
+            [in] HSTRING propertyName,
+            [out, retval] HSTRING* value
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IRuleTriggeredEventArgs [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(E60D2D49-19D8-4614-A526-5BC97EFA72CB)]
+    [exclusiveto(RuleTriggeredEventArgs)]
+    interface IRuleTriggeredEventArgs : IInspectable
+    {
+        [propget] HRESULT TimelineStart(
+            [out, retval] INT64* timelineStart
+            );
+
+        [propget] HRESULT TimelineStop(
+            [out, retval] INT64* timelineStop
+            );
+
+        [propget] HRESULT FileName(
+            [out, retval] HSTRING* fileName
+            );
+
+        [propget] HRESULT LineNumber(
+            [out, retval] UINT32* lineNumber
+            );
+
+        [propget] HRESULT ColumnNumber(
+            [out, retval] UINT32* columnNumber
+            );
+
+        [propget] HRESULT ElementId(
+            [out, retval] UINT64* elementId
+            );
+
+        [propget] HRESULT MeasurementUnit(
+            [out, retval] MeasurementUnit* measurementUnit
+            );
+
+        [propget] HRESULT MeasurementValue(
+            [out, retval] double* measurementValue
+            );
+
+        [propget] HRESULT Description(
+            [out, retval] IResourceStringView** description
+            );
+
+        [propget] HRESULT Solution(
+            [out, retval] IResourceStringView** solution
+            );
+
+        [propget] HRESULT FileHash(
+            [out, retval] HSTRING* hash
+        );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // IRuleTriggeredEventArgsFactory [INTERFACE]
+    [version(NTDDI_WIN10_RS1)]
+    [uuid(B6090E2B-D71F-42EE-80DA-3393DA4038FD)]
+    [exclusiveto(RuleTriggeredEventArgs)]
+    interface IRuleTriggeredEventArgsFactory : IInspectable
+    {
+        // Create an instance of the RuleTriggeredEventArgs.
+        HRESULT CreateInstance(
+            [in] UINT64 elementId,
+            [in] TimelineInfo timelineInfo,
+            [in] Measurement measurement,
+            [in] ResourceString* description,
+            [in] ResourceString* solution,
+            [out, retval] RuleTriggeredEventArgs** instance
+            );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // RuleTriggeredEventArgs [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [activatable(IRuleTriggeredEventArgsFactory, NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    runtimeclass RuleTriggeredEventArgs
+    {
+        [default] interface IRuleTriggeredEventArgs;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwEventWatcher [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [activatable(NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    runtimeclass EtwEventWatcher
+    {
+        [default] interface IEtwEventWatcher;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwRuleSet [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [activatable(NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    runtimeclass EtwRuleSet
+    {
+        [default] interface Windows.Foundation.Collections.IVectorView<EtwRule*>;
+        interface Windows.Foundation.Collections.IIterable<EtwRule*>;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwEvent [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [activatable(IEtwEventFactory, NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    runtimeclass EtwEvent
+    {
+        [default] interface IEtwEvent;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwProvider [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [static(IEtwProviderStatics, NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    runtimeclass EtwProvider
+    {
+        [default] interface IEtwProvider;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwEventRecord [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    runtimeclass EtwEventRecord
+    {
+        [default] interface IEtwEventRecord;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // EtwRule [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    [activatable(IEtwRuleFactory, NTDDI_WIN10_RS1)]
+    runtimeclass EtwRule
+    {
+        [default] interface IEtwRule;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // ResourceString [RUNTIMECLASS]
+    [version(NTDDI_WIN10_RS1)]
+    [marshaling_behavior(agile)]
+    [activatable(IResourceStringFactory, NTDDI_WIN10_RS1)]
+    runtimeclass ResourceString
+    {
+        [default] interface IResourceString;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    // Collections
+    //
+    declare
+    {
+        interface Windows.Foundation.Collections.IVector<EtwProvider*>;
+        interface Windows.Foundation.Collections.IVectorView<EtwProvider*>;
+        interface Windows.Foundation.Collections.IVector<EtwEvent*>;
+        interface Windows.Foundation.Collections.IVectorView<EtwEvent*>;
+        interface Windows.Foundation.Collections.IIterable<EtwRule*>;
+        interface Windows.Foundation.Collections.IVector<EtwRule*>;
+        interface Windows.Foundation.Collections.IVectorView<EtwRule*>;
+        interface Windows.Foundation.TypedEventHandler<IRule*, RuleTriggeredEventArgs*>;
+    }
+} 

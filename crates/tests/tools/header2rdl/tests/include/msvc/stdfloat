@@ -1,0 +1,35 @@
+// stdfloat standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _STDFLOAT_
+#define _STDFLOAT_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#if !_HAS_CXX23
+_EMIT_STL_WARNING(STL4038, "The contents of <stdfloat> are available only with C++23 or later.");
+#else // ^^^ !_HAS_CXX23 / _HAS_CXX23 vvv
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// We don't support any optional extended floating-point types, but we do need to provide an empty `namespace std`.
+// We don't need to `export` it for modules, as the other headers will implicitly do so (N4950 [module.interface]/2.1).
+_STD_BEGIN
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // ^^^ _HAS_CXX23 ^^^
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _STDFLOAT_

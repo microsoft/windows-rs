@@ -1,0 +1,118 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			dbdsad.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+	REMOTED_INTERFACE(0c733a7a-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IDBDataSourceAdmin : IUnknown {
+
+	[local]
+	HRESULT CreateDataSource(
+		[in] ULONG cPropertySets,
+		[in, out, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] DBPROPSET rgPropertySets[],
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in, annotation("_In_")] REFIID riid,
+		[out, iid_is(riid), annotation("_Outptr_opt_")] IUnknown ** ppDBSession
+	);
+
+	[call_as(CreateDataSource)]
+	HRESULT RemoteCreateDataSource(
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[in] IUnknown * pUnkOuter,
+		[in] REFIID riid,
+		[in, out, unique, iid_is(riid)] IUnknown ** ppDBSession,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT DestroyDataSource(
+	);
+
+	[call_as(DestroyDataSource)]
+	HRESULT RemoteDestroyDataSource(
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetCreationProperties(
+		[in] ULONG cPropertyIDSets,
+		[in, size_is(cPropertyIDSets), annotation("_In_reads_opt_(cPropertyIDSets)")] const DBPROPIDSET rgPropertyIDSets[],
+		[out, annotation("_Out_")] ULONG * pcPropertyInfoSets,
+		[out, size_is(,*pcPropertyInfoSets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertyInfoSets)")] DBPROPINFOSET ** prgPropertyInfoSets,
+		[out, annotation("_Outptr_opt_result_maybenull_z_")] OLECHAR ** ppDescBuffer
+	);
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[call_as(GetCreationProperties)]
+	HRESULT RemoteGetCreationProperties(
+		[in] ULONG cPropertyIDSets,
+		[in, unique, size_is(cPropertyIDSets)] const DBPROPIDSET * rgPropertyIDSets,
+		[in, out] ULONG * pcPropertyInfoSets,
+		[out, size_is(,*pcPropertyInfoSets)] DBPROPINFOSET ** prgPropertyInfoSets,
+		[in, out] DBCOUNTITEM * pcOffsets,
+		[out, size_is(,(ULONG)*pcOffsets)] DBBYTEOFFSET ** prgDescOffsets,
+		[in, out] ULONG * pcbDescBuffer,
+		[in, out, unique, size_is(,*pcbDescBuffer)] OLECHAR ** ppDescBuffer,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#else  //No casting by ULONG for 32-bit.
+
+	[call_as(GetCreationProperties)]
+	HRESULT RemoteGetCreationProperties(
+		[in] ULONG cPropertyIDSets,
+		[in, unique, size_is(cPropertyIDSets)] const DBPROPIDSET * rgPropertyIDSets,
+		[in, out] ULONG * pcPropertyInfoSets,
+		[out, size_is(,*pcPropertyInfoSets)] DBPROPINFOSET ** prgPropertyInfoSets,
+		[in, out] DBCOUNTITEM * pcOffsets,
+		[out, size_is(,*pcOffsets)] DBBYTEOFFSET ** prgDescOffsets,
+		[in, out] ULONG * pcbDescBuffer,
+		[in, out, unique, size_is(,*pcbDescBuffer)] OLECHAR ** ppDescBuffer,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+	
+#endif
+
+	[local]
+	HRESULT ModifyDataSource(
+		[in] ULONG cPropertySets,
+		[in,out, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] DBPROPSET rgPropertySets[]
+	);
+
+	[call_as(ModifyDataSource)]
+	HRESULT RemoteModifyDataSource(
+		[in] ULONG cPropertySets,
+		[in, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

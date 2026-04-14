@@ -1,0 +1,3760 @@
+cpp_quote("#pragma once")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "oaidl.idl";
+import "SessdirPublicTypes.idl";
+
+typedef [v1_enum] enum _RD_ROLE
+{
+    ROLE_NONE    = 0x0, 
+    ROLE_RDCB    = 0x1, 
+    ROLE_RDSH    = 0x2,
+    ROLE_RDVH    = 0x4,
+    ROLE_RDLS    = 0x8,
+    ROLE_RDWA    = 0x10,
+    ROLE_RDGW    = 0x20
+} RD_ROLE;
+
+typedef [v1_enum] enum _RD_TARGET_SORT_BY
+{
+    TARGET_SORT_BY_NONE           = 0x0, 
+    TARGET_SORT_BY_NAME           = 0x1,     
+    TARGET_SORT_BY_TARGET_PROP    = 0x2
+} RD_TARGET_SORT_BY;
+
+typedef [v1_enum] enum _RD_ENV_SORT_BY
+{
+    ENV_SORT_BY_NONE           = 0x0, 
+    ENV_SORT_BY_NAME           = 0x1,     
+    ENV_SORT_BY_ENV_PROP       = 0x2
+} RD_ENV_SORT_BY;
+
+//
+// Deployment Settings stored in the database
+//
+cpp_quote("")
+cpp_quote("#define DEPLOYMENT_RDCMS_DB_VERSION     _T(\"RdcmsDbVersion\")")
+cpp_quote("")
+
+//
+// Define registry location for DB plugin GUIDs
+//
+cpp_quote("#define RD_SQL_PLUGIN_KEY               L\"SYSTEM\\\\CurrentControlSet\\\\services\\\\tssdis\\\\Parameters\" ")
+cpp_quote("#define RD_SQL_PLUGIN_CLSID             L\"DbPluginClsid\" ")
+cpp_quote("#define RD_SQL_OBJECT_FACTORY_CLSID     L\"DbObjectFactoryClsid\" ")
+
+//
+// Define DB specific error codes
+//
+cpp_quote("")
+cpp_quote("")
+cpp_quote("#define FACILITY_RDDB                        0x825")
+cpp_quote("#define MAKE_RDDB_ERR(x)                     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_RDDB, x)")
+cpp_quote("")
+cpp_quote("// ")
+cpp_quote("// User failed to logon to the DB.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_LOGIN_FAILED                  MAKE_RDDB_ERR(1)")
+
+cpp_quote("// ")
+cpp_quote("// DB operation failed due to violation of data integrity constraint.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_DATA_INTEGRITY_VIOLATION      MAKE_RDDB_ERR(2)")
+
+cpp_quote("// ")
+cpp_quote("// DB internal error.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_FATAL_ERR                     MAKE_RDDB_ERR(3)")
+
+cpp_quote("// ")
+cpp_quote("// DB is offline.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_DB_OFFLINE                    MAKE_RDDB_ERR(4)")
+
+cpp_quote("// ")
+cpp_quote("// Invalid argument was supplied.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_INVALID_ARG                   MAKE_RDDB_ERR(5)")
+
+cpp_quote("// ")
+cpp_quote("// This error is returned to RD Connection Broker runtime, ")
+cpp_quote("// when there is a synch conflict. ")
+cpp_quote("// RD Connection Broker is expected to re-read the record from the DB ")
+cpp_quote("// & call update with latest record. ")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_SYNCH_CONFLICT                MAKE_RDDB_ERR(6)")
+
+cpp_quote("// ")
+cpp_quote("// This VM is already assigned to a another user.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_VM_ALREADY_ASSIGNED           MAKE_RDDB_ERR(7)")
+
+cpp_quote("// ")
+cpp_quote("// This user has already been assigned another VM.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_USER_ALREADY_ASSIGNED         MAKE_RDDB_ERR(8)")
+
+cpp_quote("// ")
+cpp_quote("// This error is returned to RD Connection Broker runtime,")
+cpp_quote("// when the same user connects to the same farm more than once simultaneously.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_USER_CONN_PENDING             MAKE_RDDB_ERR(9)")
+
+cpp_quote("// ")
+cpp_quote("// Number of records in the DB exceeds the maximum limit allowed for.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_TOO_MANY_RECORDS              MAKE_RDDB_ERR(10)")
+
+cpp_quote("// ")
+cpp_quote("// No more resource availabe in Pool for connection.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_NO_RESOURCE_AVAILABLE         MAKE_RDDB_ERR(11)")
+
+cpp_quote("// ")
+cpp_quote("// Target endpoint is not running currently.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_TARGET_ENDPOINT_DOWN          MAKE_RDDB_ERR(12)")
+
+cpp_quote("// ")
+cpp_quote("// Generic database operation error.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_UNKNOWN_ERR                   MAKE_RDDB_ERR(13)")
+
+cpp_quote("// ")
+cpp_quote("// Value already exists.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_ALREADY_EXISTS                MAKE_RDDB_ERR(14)")
+
+cpp_quote("// ")
+cpp_quote("// Value mismatched.")
+cpp_quote("// ")
+cpp_quote("#define E_RDDB_KEYVALUE_MISMATCH             MAKE_RDDB_ERR(15)")
+
+
+//
+// Forward declarations
+//
+// Interfaces implemented by RdMs service
+interface IRdPropertyBag;
+interface IRdPool;
+interface IRdVmProvisioningInfo;
+interface IRdMasterVm;
+interface IRdVm;
+interface IRdVmTask;
+interface IRdPdAssignment;
+interface IRdNodeOwnership;
+interface IRdServer;
+interface IRdRoleRdcb;
+interface IRdRoleRdsh;
+interface IRdRoleRdvh;
+interface IRdRoleRdwa;
+interface IRdwaFarm;
+interface IRdwaVdir;
+interface IRdpFileInfo;
+interface IRdIcon;
+interface IRdRemoteApp;
+interface IRdRemoteDesktop;
+interface IRdFileTypeAssoc;
+interface IRdVmInfo;
+interface IRdMsDataHelper;
+
+// Broker interfaces
+interface IRdEnvironment;
+interface IRdTargetIp;
+interface IRdTarget;
+interface IRdSession;
+interface IRdUserConnection;
+interface IRdBrokerNotification;
+
+//
+// Interfaces implemented by plugin writers.
+interface IRdMsDb;
+
+
+// 
+// This interface allows enumeration of properties in a bag
+[
+    object,
+    uuid(84D46202-8559-11DF-95BD-59B5DFD72085),
+    helpstring("interface IRdPropertyBag"),
+    pointer_default(unique)
+]
+interface IRdPropertyBag : IPropertyBag
+{
+    [id(1), helpstring("method Reset")]
+    HRESULT 
+    Reset();                   
+
+    [id(2), helpstring("method GetNext")]
+    HRESULT 
+    GetNext(
+            [out] BSTR* pPropertyName,
+            [in] VARIANT* pValue,
+            [in] BOOL* isDone
+            );
+
+    [id(3), helpstring("method GetNumProperties")]
+    HRESULT 
+    GetNumProperties(
+            [in, out] DWORD* pdwNumProperties
+            );
+
+    [propget, id(4), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [out, retval] hyper* pSyncVersion
+            );
+
+    [propput, id(4), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [in] hyper syncVersion
+            );
+
+};
+
+
+[
+    object,
+    uuid(9A7434C0-69C0-11DF-82C7-4730E0D72085),
+    helpstring("interface IRdPool"),
+    pointer_default(unique)
+]
+interface IRdPool : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [in] BSTR name
+            );
+
+    [propget, id(2), helpstring("property DisplayName")]
+    HRESULT 
+    DisplayName(
+            [out, retval] BSTR* pDisplayName
+            );
+
+    [propput, id(2), helpstring("property DisplayName")]
+    HRESULT 
+    DisplayName(
+            [in] BSTR displayName
+            );
+
+    [propget, id(3), helpstring("property Description")]
+    HRESULT 
+    Description(
+            [out, retval] BSTR* pDescription
+            );
+
+    [propput, id(3), helpstring("property Description")]
+    HRESULT 
+    Description(
+            [in] BSTR description
+            );
+
+    [propget, id(4), helpstring("property Type")]
+    HRESULT 
+    Type(
+            [out, retval] DWORD* pType
+            );
+
+    [propput, id(4), helpstring("property Type")]
+    HRESULT 
+    Type(
+            [in] DWORD type
+            );
+
+    [propget, id(5), helpstring("property ResourcePluginName")]
+    HRESULT 
+    ResourcePluginName(
+            [out, retval] BSTR* pResourcePluginName
+            );
+
+    [propput, id(5), helpstring("property ResourcePluginName")]
+    HRESULT 
+    ResourcePluginName(
+            [in] BSTR resourcePluginName
+            );
+};
+
+[
+    object,
+    uuid(E26B20C4-6919-11DF-9CE3-A761DFD72085),
+    helpstring("interface IRdVmProvisioningInfo"),
+    pointer_default(unique)
+]
+interface IRdVmProvisioningInfo : IUnknown
+{
+    [propget, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(2), helpstring("property VmCount")]
+    HRESULT 
+    VmCount(
+            [out, retval] DWORD* pVmCount
+            );
+
+    [propput, id(2), helpstring("property VmCount")]
+    HRESULT 
+    VmCount(
+            [in] DWORD vmCount
+            );
+
+    [propget, id(3), helpstring("property VmDomainName")]
+    HRESULT 
+    VmDomainName(
+            [out, retval] BSTR* pVmDomainName
+            );
+
+    [propput, id(3), helpstring("property VmDomainName")]
+    HRESULT 
+    VmDomainName(
+            [in] BSTR vmDomainName
+            );
+
+    [propget, id(4), helpstring("property VmNamePattern")]
+    HRESULT 
+    VmNamePattern(
+            [out, retval] BSTR* pVmNamePattern
+            );
+
+    [propput, id(4), helpstring("property VmNamePattern")]
+    HRESULT 
+    VmNamePattern(
+            [in] BSTR vmNamePattern
+            );
+
+    [propget, id(5), helpstring("property VmProductKey")]
+    HRESULT 
+    VmProductKey(
+            [out, retval] BSTR* pVmProductKey
+            );
+
+    [propput, id(5), helpstring("property VmProductKey")]
+    HRESULT 
+    VmProductKey(
+            [in] BSTR vmProductKey
+            );
+
+    [propget, id(6), helpstring("property UnAttendXmlSnippet")]
+    HRESULT 
+    UnAttendXmlSnippet(
+            [out, retval] BSTR* pXml
+            );
+
+    [propput, id(6), helpstring("property UnAttendXmlSnippet")]
+    HRESULT 
+    UnAttendXmlSnippet(
+            [in] BSTR xml
+            );
+
+    [propget, id(7), helpstring("property UserGroup")]
+    HRESULT 
+    UserGroup(
+            [out, retval] BSTR* pUserGroup
+            );
+
+    [propput, id(7), helpstring("property UserGroup")]
+    HRESULT 
+    UserGroup(
+            [in] BSTR userGroup
+            );
+
+    [propget, id(8), helpstring("property IsUserGroupAdmin")]
+    HRESULT 
+    IsUserGroupAdmin(
+            [out, retval] BOOL* pIsAdmin
+            );
+
+    [propput, id(8), helpstring("property IsUserGroupAdmin")]
+    HRESULT 
+    IsUserGroupAdmin(
+            [in] BOOL isAdmin
+            );
+
+    [propget, id(9), helpstring("property JobId")]
+    HRESULT 
+    JobId(
+            [out, retval] DWORD* pJobId
+            );
+
+    [propput, id(9), helpstring("property JobId")]
+    HRESULT 
+    JobId(
+            [in] DWORD jobId
+            );
+
+    [propget, id(10), helpstring("property JobStatus")]
+    HRESULT 
+    JobStatus(
+            [out, retval] DWORD* pJobStatus
+            );
+
+    [propput, id(10), helpstring("property JobStatus")]
+    HRESULT 
+    JobStatus(
+            [in] DWORD jobStatus
+            );
+
+    [propget, id(11), helpstring("property IsSmbEnabled")]
+    HRESULT 
+    IsSmbEnabled(
+            [out, retval] BOOL* pIsSmbEnabled
+            );
+
+    [propput, id(11), helpstring("property IsSmbEnabled")]
+    HRESULT 
+    IsSmbEnabled(
+            [in] BOOL isSmbEnabled
+            );
+
+    [propget, id(12), helpstring("property SmbSharePath")]
+    HRESULT 
+    SmbSharePath(
+            [out, retval] BSTR* pSmbSharePath
+            );
+
+    [propput, id(12), helpstring("property SmbSharePath")]
+    HRESULT 
+    SmbSharePath(
+            [in] BSTR smbSharePath
+            );
+
+    [propget, id(13), helpstring("property LocalPathForVms")]
+    HRESULT 
+    LocalPathForVms(
+            [out, retval] BSTR* pLocalPathForVms
+            );
+
+    [propput, id(13), helpstring("property LocalPathForVms")]
+    HRESULT 
+    LocalPathForVms(
+            [in] BSTR localPathForVms
+            );
+
+    [propget, id(14), helpstring("property LocalPathForGoldVm")]
+    HRESULT 
+    LocalPathForGoldVm(
+            [out, retval] BSTR* pLocalPathForGoldVm
+            );
+
+    [propput, id(14), helpstring("property LocalPathForGoldVm")]
+    HRESULT 
+    LocalPathForGoldVm(
+            [in] BSTR localPathForGoldVm
+            );
+};
+
+[
+    object,
+    uuid(067F843C-69BF-11DF-B2CF-752EE0D72085),
+    helpstring("interface IRdMasterVm"),
+    pointer_default(unique)
+]
+interface IRdMasterVm : IUnknown
+{
+
+    [propget, id(1), helpstring("property MasterVmGUID")]
+    HRESULT 
+    MasterVmGUID(
+            [out, retval] BSTR* pMasterVmGUID
+            );
+
+    [propput, id(1), helpstring("property MasterVmGUID")]
+    HRESULT 
+    MasterVmGUID(
+            [in] BSTR MasterVmGUID
+            );    
+            
+    [propget, id(2), helpstring("property HostFqdnOfMasterVm")]
+    HRESULT 
+    HostFqdnOfMasterVm(
+            [out, retval] BSTR* pHostFqdnOfMasterVm
+            );
+
+    [propput, id(2), helpstring("property HostFqdnOfMasterVm")]
+    HRESULT 
+    HostFqdnOfMasterVm(
+            [in] BSTR hostFqdnOfMasterVm
+            );
+
+    [propget, id(3), helpstring("property OsVersion")]
+    HRESULT 
+    OsVersion(
+            [out, retval] DWORD* pOsVersion
+            );
+
+    [propput, id(3), helpstring("property OsVersion")]
+    HRESULT 
+    OsVersion(
+            [in] DWORD osVersion
+            );
+
+    [propget, id(4), helpstring("property RamSizeInMB")]
+    HRESULT 
+    RamSizeInMB(
+            [out, retval] DWORD* pRamSizeInMB
+            );
+
+    [propput, id(4), helpstring("property RamSizeInMB")]
+    HRESULT 
+    RamSizeInMB(
+            [in] DWORD ramSizeInMB
+            );
+
+    [propget, id(5), helpstring("property IsRemoteFxEnabled")]
+    HRESULT 
+    IsRemoteFxEnabled(
+            [out, retval] BOOL* pIsRemoteFxEnabled
+            );
+
+    [propput, id(5), helpstring("property IsRemoteFxEnabled")]
+    HRESULT 
+    IsRemoteFxEnabled(
+            [in] BOOL isRemoteFxEnabled
+            );
+
+    [propget, id(6), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(6), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+    
+};
+
+[
+    object,
+    uuid(2CB00AD2-69CE-11DF-BD2B-9540E0D72085),
+    helpstring("interface IRdVm"),
+    pointer_default(unique)
+]
+interface IRdVm : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [in] BSTR name
+            );
+            
+    [propget, id(2), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(2), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(3), helpstring("property HostName")]
+    HRESULT 
+    HostName(
+            [out, retval] BSTR* pHostName
+            );
+
+    [propput, id(3), helpstring("property HostName")]
+    HRESULT 
+    HostName(
+            [in] BSTR hostName
+            );
+
+    [propget, id(4), helpstring("property CreationStatus")]
+    HRESULT 
+    CreationStatus(
+            [out, retval] DWORD* pCreationStatus
+            );
+
+    [propput, id(4), helpstring("property CreationStatus")]
+    HRESULT 
+    CreationStatus(
+            [in] DWORD creationStatus
+            );
+};
+
+[
+    object,
+    uuid(5B66A2CE-C427-11DF-9A1A-ABF4DED72085),
+    helpstring("interface IRdVmTask"),
+    pointer_default(unique)
+]
+interface IRdVmTask : IUnknown
+{
+    [propget, id(1), helpstring("property TaskId")]
+    HRESULT 
+    TaskId(
+            [out, retval] BSTR* pTaskId
+            );
+
+    [propput, id(1), helpstring("property TaskId")]
+    HRESULT 
+    TaskId(
+            [in] BSTR taskId
+            ); 
+            
+    [propget, id(2), helpstring("property VmName")]
+    HRESULT 
+    VmName(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(2), helpstring("property VmName")]
+    HRESULT 
+    VmName(
+            [in] BSTR name
+            );
+            
+    [propget, id(3), helpstring("property TaskStartTime")]
+    HRESULT 
+    TaskStartTime(
+            [out, retval] SYSTEMTIME** ppTime
+            );
+
+    [propput, id(3), helpstring("property TaskStartTime")]
+    HRESULT 
+    TaskStartTime(
+            [in] SYSTEMTIME *pTime
+            );
+
+    [propget, id(4), helpstring("property TaskEndTime")]
+    HRESULT 
+    TaskEndTime(
+            [out, retval] SYSTEMTIME** ppTime
+            );
+
+    [propput, id(4), helpstring("property TaskEndTime")]
+    HRESULT 
+    TaskEndTime(
+            [in] SYSTEMTIME *pTime
+            );
+
+    [propget, id(5), helpstring("property TaskDeadline")]
+    HRESULT 
+    TaskDeadline(
+            [out, retval] SYSTEMTIME** ppTime
+            );
+
+    [propput, id(5), helpstring("property TaskDeadline")]
+    HRESULT 
+    TaskDeadline(
+            [in] SYSTEMTIME *pTime
+            ); 
+
+    [propget, id(6), helpstring("property TaskLabel")]
+    HRESULT 
+    TaskLabel(
+            [out, retval] BSTR* pTaskLabel
+            );
+
+    [propput, id(6), helpstring("property TaskLabel")]
+    HRESULT 
+    TaskLabel(
+            [in] BSTR taskLabel
+            );
+
+    [propget, id(7), helpstring("property TaskPlugin")]
+    HRESULT 
+    TaskPlugin(
+            [out, retval] BSTR* pTaskPlugin
+            );
+
+    [propput, id(7), helpstring("property TaskPlugin")]
+    HRESULT 
+    TaskPlugin(
+            [in] BSTR taskPlugin
+            );
+
+    [propget, id(8), helpstring("property TaskStatus")]
+    HRESULT 
+    TaskStatus(
+            [out, retval] DWORD* pTaskStatus
+            );
+
+    [propput, id(8), helpstring("property TaskStatus")]
+    HRESULT 
+    TaskStatus(
+            [in] DWORD taskStatus
+            );
+
+    [id(9), helpstring("property TaskContext")]
+    HRESULT 
+    get_TaskContext(
+            [out] DWORD* pContextLen,
+            [out, size_is(, *pContextLen), retval] BYTE** pContext
+            );
+
+    [id(10), helpstring("property TaskContext")]
+    HRESULT 
+    put_TaskContext(
+            [in] DWORD contextLen,
+            [in, size_is(contextLen)] BYTE* context
+            );
+};
+
+//
+// To be deprecated
+[
+    object,
+    uuid(C5C69DE2-46DA-4fc4-ABD3-9F13631553C9),
+    helpstring("interface IRdPdAssignment"),
+    pointer_default(unique)
+]
+interface IRdPdAssignment : IUnknown
+{
+    [propget, id(1), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [out, retval] BSTR* pUserSid
+            );
+
+    [propput, id(1), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [in] BSTR userSid
+            );
+
+    [propget, id(2), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(2), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(3), helpstring("property VmName")]
+    HRESULT 
+    VmName(
+            [out, retval] BSTR* pVmName
+            );
+
+    [propput, id(3), helpstring("property VmName")]
+    HRESULT 
+    VmName(
+            [in] BSTR vmName
+            );
+};
+
+[
+    object,
+    uuid(9efb0111-1e27-4069-9b97-289b9ff21592),
+    helpstring("interface IRdDesktopAssignment"),
+    pointer_default(unique)
+]
+interface IRdDesktopAssignment : IUnknown
+{
+    [propget, id(1), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [out, retval] BSTR* pUserSid
+            );
+
+    [propput, id(1), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [in] BSTR userSid
+            );
+
+    [propget, id(2), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(2), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(3), helpstring("property DesktopName")]
+    HRESULT 
+    DesktopName(
+            [out, retval] BSTR* pDesktopName
+            );
+
+    [propput, id(3), helpstring("property DesktopName")]
+    HRESULT 
+    DesktopName(
+            [in] BSTR DesktopName
+            );
+
+    [propget, id(4), helpstring("property UserName")]
+    HRESULT 
+    UserName(
+            [out, retval] BSTR* pUserName
+            );
+
+    [propget, id(5), helpstring("property UserDomainName")]
+    HRESULT 
+    UserDomainName(
+            [out, retval] BSTR* UserDomainName
+            );
+
+};
+
+
+[
+    object,
+    uuid(44338F1A-3F95-11E0-A792-F6E3DED72085),
+    helpstring("interface IRdNodeOwnership"),
+    pointer_default(unique)
+]
+interface IRdNodeOwnership : IUnknown
+{
+    [propget, id(1), helpstring("property NodeName")]
+    HRESULT 
+    NodeName(
+            [out, retval] BSTR* pNodeName
+            );
+
+    [propput, id(1), helpstring("property NodeName")]
+    HRESULT 
+    NodeName(
+            [in] BSTR nodeName
+            );
+
+    [propget, id(2), helpstring("property Status")]
+    HRESULT 
+    Status(
+            [out, retval] DWORD* pStatus
+            );
+
+    [propput, id(2), helpstring("property Status")]
+    HRESULT 
+    Status(
+            [in] DWORD status
+            );
+
+    [propget, id(3), helpstring("property LatestTimestamp")]
+    HRESULT 
+    LatestTimestamp(
+            [out, retval] SYSTEMTIME** ppTime
+            );
+
+    [propput, id(3), helpstring("property LatestTimestamp")]
+    HRESULT 
+    LatestTimestamp(
+            [in] SYSTEMTIME *pTime
+            );
+
+    [propget, id(4), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [out, retval] hyper* pSyncVersion
+            );
+
+    [propput, id(4), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [in] hyper syncVersion
+            );
+};
+
+[
+    object,
+    uuid(652B6900-82DE-11DF-8901-09B0DFD72085),
+    helpstring("interface IRdServer"),
+    pointer_default(unique)
+]
+interface IRdServer : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT
+        Name(
+        [out, retval] BSTR* pName
+        );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT
+        Name(
+        [in] BSTR Name
+        );
+
+    [propget, id(2), helpstring("property OsVersion")]
+    HRESULT
+        OsVersion(
+        [out, retval] BSTR* pOsVersion
+        );
+
+    [propput, id(2), helpstring("property OsVersion")]
+    HRESULT
+        OsVersion(
+        [in] BSTR osVersion
+        );
+
+    [propget, id(3), helpstring("property ClusterName")]
+    HRESULT
+        ClusterName(
+        [out, retval] BSTR* pClusterName
+        );
+
+    [propput, id(3), helpstring("property ClusterName")]
+    HRESULT
+        ClusterName(
+        [in] BSTR clusterName
+        );
+
+    [propget, id(4), helpstring("property InstalledRoles")]
+    HRESULT
+        InstalledRoles(
+        [out, retval] RD_ROLE* pInstalledRoles
+        );
+
+    [propput, id(4), helpstring("property InstalledRoles")]
+    HRESULT
+        InstalledRoles(
+        [in] RD_ROLE installedRoles
+        );
+};
+
+
+
+[
+    object,
+    uuid(F16E3162-8BB8-11DF-A3F3-A420E0D72085),
+    helpstring("interface IRdRoleRdcb"),
+    pointer_default(unique)
+]
+interface IRdRoleRdcb : IRdServer
+{
+    [propget, id(10), helpstring("property Cap")]
+    HRESULT 
+    Cap(
+            [out, retval] BSTR* pCap
+            );
+
+    [propput, id(10), helpstring("property Cap")]
+    HRESULT 
+    Cap(
+            [in] BSTR cap
+            );
+};
+
+[
+    object,
+    uuid(53498180-8BB8-11DF-B3EB-FF1FE0D72085),
+    helpstring("interface IRdRoleRdsh"),
+    pointer_default(unique)
+]
+interface IRdRoleRdsh : IRdServer
+{
+    [propget, id(10), helpstring("property BrokerCap")]
+    HRESULT 
+    BrokerCap(
+            [out, retval] BSTR* pBrokerCap
+            );
+
+    [propput, id(10), helpstring("property BrokerCap")]
+    HRESULT 
+    BrokerCap(
+            [in] BSTR brokerCap
+            );
+
+    [propget, id(11), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(11), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(12), helpstring("property ServerState")]
+    HRESULT 
+    ServerState(
+            [out, retval] TARGET_STATE* pState
+            );
+
+    [propput, id(12), helpstring("property ServerState")]
+    HRESULT 
+    ServerState(
+            [in] TARGET_STATE State
+            );
+};
+
+[
+    object,
+    uuid(8B2B0BF0-8BB8-11DF-BBAB-2420E0D72085),
+    helpstring("interface IRdRoleRdvh"),
+    pointer_default(unique)
+]
+interface IRdRoleRdvh : IRdServer
+{
+    [propget, id(10), helpstring("property BrokerCap")]
+    HRESULT 
+    BrokerCap(
+            [out, retval] BSTR* pBrokerCap
+            );
+
+    [propput, id(10), helpstring("property BrokerCap")]
+    HRESULT 
+    BrokerCap(
+            [in] BSTR brokerCap
+            );
+};
+
+[
+    object,
+    uuid(5B60F034-C50F-11DF-9E86-4B1AE0D72085),
+    helpstring("interface IRdRoleRdwa"),
+    pointer_default(unique)
+]
+interface IRdRoleRdwa : IRdServer
+{
+    [propget, id(10), helpstring("property FarmName")]
+    HRESULT 
+    FarmName(
+            [out, retval] BSTR* pFarmName
+            );
+
+    [propput, id(10), helpstring("property FarmName")]
+    HRESULT 
+    FarmName(
+            [in] BSTR farmName
+            );
+};
+
+[
+    object,
+    uuid(49C368CC-C5B7-11DF-9060-6F6FDFD72085),
+    helpstring("interface IRdwaFarm"),
+    pointer_default(unique)
+]
+interface IRdwaFarm : IUnknown
+{
+
+    [propget, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [in] BSTR name
+            );  
+
+    [id(2), helpstring("property Cert")]
+    HRESULT 
+    get_Cert(
+            [in, out] DWORD* pCertLen,
+            [out, size_is(*pCertLen), retval] BYTE** pCert
+            );
+
+    [id(3), helpstring("property Cert")]
+    HRESULT 
+    put_Cert(
+            [in] DWORD certLen,
+            [in, size_is(certLen)] BYTE* cert
+            ); 
+};
+
+[
+    object,
+    uuid(BEBECC4E-C688-11DF-A83D-2EF5DED72085),
+    helpstring("interface IRdwaVdir"),
+    pointer_default(unique)
+]
+interface IRdwaVdir : IUnknown
+{
+
+    [propget, id(1), helpstring("property FarmName")]
+    HRESULT 
+    FarmName(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property FarmName")]
+    HRESULT 
+    FarmName(
+            [in] BSTR name
+            );
+
+    [propget, id(2), helpstring("property RelativeUrl")]
+    HRESULT 
+    RelativeUrl(
+            [out, retval] BSTR* pUrl
+            );
+
+    [propput, id(2), helpstring("property RelativeUrl")]
+    HRESULT 
+    RelativeUrl(
+            [in] BSTR url
+            );
+
+    [propget, id(3), helpstring("property IsSslReqd")]
+    HRESULT 
+    IsSslReqd(
+            [out, retval] BOOL* pSslReqd
+            );
+
+    [propput, id(3), helpstring("property IsSslReqd")]
+    HRESULT 
+    IsSslReqd(
+            [in] BOOL sslReqd
+            );
+};
+
+[
+    object,
+    uuid(5F95344E-895F-11DF-8C37-5932E0D72085),
+    helpstring("interface IRdpFileInfo"),
+    pointer_default(unique)
+]
+interface IRdpFileInfo : IUnknown
+{
+    [propget, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(2), helpstring("property Port")]
+    HRESULT 
+    Port(
+            [out, retval] DWORD* pOsVersion
+            );
+
+    [propput, id(2), helpstring("property Port")]
+    HRESULT 
+    Port(
+            [in] DWORD osVersion
+            );
+
+    [propget, id(3), helpstring("property HasCert")]
+    HRESULT 
+    HasCert(
+            [out, retval] BOOL* pHasCert
+            );
+
+    [propput, id(3), helpstring("property HasCert")]
+    HRESULT 
+    HasCert(
+            [in] BOOL hasCert
+            );
+
+    [id(4), helpstring("property CertHash")]
+    HRESULT 
+    get_CertHash(
+            [in, out] DWORD* pCertHashLen,
+            [out, size_is(*pCertHashLen), retval] BYTE** pCertHash
+            );
+
+    [id(5), helpstring("property CertHash")]
+    HRESULT 
+    put_CertHash(
+            [in] DWORD certHashLen,
+            [in, size_is(certHashLen)] BYTE* certHash
+            );
+
+    [propget, id(6), helpstring("property ColorBitDepth")]
+    HRESULT 
+    ColorBitDepth(
+            [out, retval] DWORD* pColorBitDepth
+            );
+
+    [propput, id(6), helpstring("property ColorBitDepth")]
+    HRESULT 
+    ColorBitDepth(
+            [in] DWORD colorBitDepth
+            );
+
+    [propget, id(7), helpstring("property AllowFontSmoothing")]
+    HRESULT 
+    AllowFontSmoothing(
+            [out, retval] BOOL* pAllowFontSmoothing
+            );
+
+    [propput, id(7), helpstring("property AllowFontSmoothing")]
+    HRESULT 
+    AllowFontSmoothing(
+            [in] BOOL allowFontSmoothing
+            );
+
+    [propget, id(8), helpstring("property UseMultimon")]
+    HRESULT 
+    UseMultimon(
+            [out, retval] BOOL* pUseMultimon
+            );
+
+    [propput, id(8), helpstring("property UseMultimon")]
+    HRESULT 
+    UseMultimon(
+            [in] BOOL useMultimon
+            );
+
+    [propget, id(9), helpstring("property RedirectionOption")]
+    HRESULT 
+    RedirectionOption(
+            [out, retval] DWORD* pRedirectionOption
+            );
+
+    [propput, id(9), helpstring("property RedirectionOption")]
+    HRESULT 
+    RedirectionOption(
+            [in] DWORD redirectionOption
+            );
+
+    [propget, id(10), helpstring("property CustomRdpSettings")]
+    HRESULT 
+    CustomRdpSettings(
+            [out, retval] BSTR* pCustomRdpSettings
+            );
+
+    [propput, id(10), helpstring("property CustomRdpSettings")]
+    HRESULT 
+    CustomRdpSettings(
+            [in] BSTR customRdpSettings
+            ); 
+
+    [propget, id(11), helpstring("property DeploymentRdpSettings")]
+    HRESULT 
+    DeploymentRdpSettings(
+            [out, retval] BSTR* pDeploymentRdpSettings
+            );
+
+    [propput, id(11), helpstring("property DeploymentRdpSettings")]
+    HRESULT 
+    DeploymentRdpSettings(
+            [in] BSTR deploymentRdpSettings
+            );
+
+    [propget, id(12), helpstring("property WorkspaceId")]
+    HRESULT 
+    WorkspaceId(
+            [out, retval] BSTR* pWorkspaceId
+            );
+
+    [propput, id(12), helpstring("property WorkspaceId")]
+    HRESULT 
+    WorkspaceId(
+            [in] BSTR workspaceId
+            );    
+
+    [propget, id(13), helpstring("property WorkspaceDisplayName")]
+    HRESULT 
+    WorkspaceDisplayName(
+            [out, retval] BSTR* pWorkspaceDisplayName
+            );
+
+    [propput, id(13), helpstring("property WorkspaceDisplayName")]
+    HRESULT 
+    WorkspaceDisplayName(
+            [in] BSTR workspaceDisplayName
+            );                
+
+    [propget, id(14), helpstring("property RdgFqdn")]
+    HRESULT 
+    RdgFqdn(
+            [out, retval] BSTR* pRdgFqdn
+            );
+
+    [propput, id(14), helpstring("property RdgFqdn")]
+    HRESULT 
+    RdgFqdn(
+            [in] BSTR rdgFqdn
+            );    
+
+    [propget, id(15), helpstring("property RdgUsage")]
+    HRESULT 
+    RdgUsage(
+            [out, retval] DWORD* pRdgUsage
+            );
+
+    [propput, id(15), helpstring("property RdgUsage")]
+    HRESULT 
+    RdgUsage(
+            [in] DWORD rdgUsage
+            );  
+
+    [propget, id(16), helpstring("property RdgAuthMode")]
+    HRESULT 
+    RdgAuthMode(
+            [out, retval] DWORD* pRdgAuthMode
+            );
+
+    [propput, id(16), helpstring("property RdgAuthMode")]
+    HRESULT 
+    RdgAuthMode(
+            [in] DWORD rdgAuthMode
+            );
+
+    [propget, id(17), helpstring("property RdgUseCachedCreds")]
+    HRESULT 
+    RdgUseCachedCreds(
+            [out, retval] BOOL* pRdgUseCachedCreds
+            );
+
+    [propput, id(17), helpstring("property RdgUseCachedCreds")]
+    HRESULT 
+    RdgUseCachedCreds(
+            [in] BOOL rdgUseCachedCreds
+            );
+};
+
+
+[
+    object,
+    uuid(DEE0FC90-8961-11DF-A38B-1735E0D72085),
+    helpstring("interface IRdIcon"),
+    pointer_default(unique)
+]
+interface IRdIcon : IUnknown
+{
+
+    [propget, id(1), helpstring("property Path")]
+    HRESULT 
+    Path(
+            [out, retval] BSTR* pPath
+            );
+
+    [propput, id(1), helpstring("property Path")]
+    HRESULT 
+    Path(
+            [in] BSTR path
+            );
+
+    [id(2), helpstring("property Contents")]
+    HRESULT 
+    get_Contents(
+            [in, out] DWORD* pContentsLen,
+            [out, size_is(*pContentsLen), retval] BYTE** pContents
+            );
+
+    [id(3), helpstring("property Contents")]
+    HRESULT 
+    put_Contents(
+            [in] DWORD contentsLen,
+            [in, size_is(contentsLen)] BYTE* contents
+            );
+    
+    [propget, id(4), helpstring("property Index")]
+    HRESULT 
+    Index(
+           [out, retval] INT* pIndex
+           );
+
+    [propput, id(4), helpstring("property Index")]
+    HRESULT 
+    Index(
+           [in] INT index
+           );
+};
+
+[
+    object,
+    uuid(D87BA1E4-8960-11DF-BCC4-F633E0D72085),
+    helpstring("interface IRdRemoteApp"),
+    pointer_default(unique)
+]
+interface IRdRemoteApp : IUnknown
+{
+    [propget, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+            
+    [propget, id(2), helpstring("property Alias")]
+    HRESULT 
+    Alias(
+            [out, retval] BSTR* pAlias
+            );
+
+    [propput, id(2), helpstring("property Alias")]
+    HRESULT 
+    Alias(
+            [in] BSTR alias
+            );
+
+    [propget, id(3), helpstring("property DisplayName")]
+    HRESULT 
+    DisplayName(
+            [out, retval] BSTR* pDisplayName
+            );
+
+    [propput, id(3), helpstring("property DisplayName")]
+    HRESULT 
+    DisplayName(
+            [in] BSTR displayName
+            );            
+
+    [propget, id(4), helpstring("property VisibleInWA")]
+    HRESULT 
+    VisibleInWA(
+            [out, retval] BOOL* pVisibleInWA
+            );
+
+    [propput, id(4), helpstring("property VisibleInWA")]
+    HRESULT 
+    VisibleInWA(
+            [in] BOOL visibleInWA
+            );  
+
+    [propget, id(5), helpstring("property SecDesc")]
+    HRESULT 
+    SecDesc(
+            [out, retval] BSTR* pSecDesc
+            );
+
+    [propput, id(5), helpstring("property SecDesc")]
+    HRESULT 
+    SecDesc(
+            [in] BSTR secDesc
+            );  
+
+    [propget, id(6), helpstring("property AppPath")]
+    HRESULT 
+    AppPath(
+            [out, retval] BSTR* pAppPath
+            );
+
+    [propput, id(6), helpstring("property AppPath")]
+    HRESULT 
+    AppPath(
+            [in] BSTR appPath
+            );
+
+    [propget, id(7), helpstring("property VirtualPath")]
+    HRESULT 
+    VirtualPath(
+            [out, retval] BSTR* pVirtualPath
+            );
+
+    [propput, id(7), helpstring("property VirtualPath")]
+    HRESULT 
+    VirtualPath(
+            [in] BSTR virtualPath
+            );
+
+    [propget, id(8), helpstring("property CmdLineSetting")]
+    HRESULT 
+    CmdLineSetting(
+            [out, retval] DWORD* pCmdLineSetting
+            );
+
+    [propput, id(8), helpstring("property CmdLineSetting")]
+    HRESULT 
+    CmdLineSetting(
+            [in] DWORD cmdLineSetting
+            );
+
+    [propget, id(9), helpstring("property ReqdCmdLine")]
+    HRESULT 
+    ReqdCmdLine(
+            [out, retval] BSTR* pReqdCmdLine
+            );
+
+    [propput, id(9), helpstring("property ReqdCmdLine")]
+    HRESULT 
+    ReqdCmdLine(
+            [in] BSTR reqdCmdLine
+            );
+
+    [propget, id(10), helpstring("property Folder")]
+    HRESULT 
+    Folder(
+            [out, retval] BSTR* pFolder
+            );
+
+    [propput, id(10), helpstring("property Folder")]
+    HRESULT 
+    Folder(
+            [in] BSTR folder
+            );
+
+    [propget, id(11), helpstring("property Icon")]
+    HRESULT 
+    Icon(
+            [out, retval] IRdIcon** ppIcon
+            );
+
+    [propput, id(11), helpstring("property Icon")]
+    HRESULT 
+    Icon(
+            [in] IRdIcon* pIcon
+            );
+};
+
+
+[
+    object,
+    uuid(63B4B650-8962-11DF-B97A-CE35E0D72085),
+    helpstring("interface IRdRemoteDesktop"),
+    pointer_default(unique)
+]
+interface IRdRemoteDesktop : IUnknown
+{
+    [propget, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(1), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );    
+            
+    [propget, id(2), helpstring("property Alias")]
+    HRESULT 
+    Alias(
+            [out, retval] BSTR* pAlias
+            );
+
+    [propput, id(2), helpstring("property Alias")]
+    HRESULT 
+    Alias(
+            [in] BSTR alias
+            );
+
+    [propget, id(3), helpstring("property DisplayName")]
+    HRESULT 
+    DisplayName(
+            [out, retval] BSTR* pDisplayName
+            );
+
+    [propput, id(3), helpstring("property DisplayName")]
+    HRESULT 
+    DisplayName(
+            [in] BSTR displayName
+            );
+
+    [propget, id(4), helpstring("property VisibleInWA")]
+    HRESULT 
+    VisibleInWA(
+            [out, retval] BOOL* pVisibleInWA
+            );
+
+    [propput, id(4), helpstring("property VisibleInWA")]
+    HRESULT 
+    VisibleInWA(
+            [in] BOOL visibleInWA
+            );
+
+    [propget, id(5), helpstring("property Icon")]
+    HRESULT 
+    Icon(
+            [out, retval] IRdIcon** ppIcon
+            );
+
+    [propput, id(5), helpstring("property Icon")]
+    HRESULT 
+    Icon(
+            [in] IRdIcon* pIcon
+            );
+};
+
+
+[
+    object,
+    uuid(A9344740-8962-11DF-94FF-0F36E0D72085),
+    helpstring("interface IRdFileTypeAssoc"),
+    pointer_default(unique)
+]
+interface IRdFileTypeAssoc : IUnknown
+{
+    [propget, id(1), helpstring("property ExtensionName")]
+    HRESULT 
+    ExtensionName(
+            [out, retval] BSTR* pExtensionName
+            );
+
+    [propput, id(1), helpstring("property ExtensionName")]
+    HRESULT 
+    ExtensionName(
+            [in] BSTR extensionName
+            );
+            
+    [propget, id(2), helpstring("property RemoteAppAlias")]
+    HRESULT 
+    RemoteAppAlias(
+            [out, retval] BSTR* pAlias
+            );
+
+    [propput, id(2), helpstring("property RemoteAppAlias")]
+    HRESULT 
+    RemoteAppAlias(
+            [in] BSTR alias
+            );
+
+    [propget, id(3), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(3), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(4), helpstring("property IsPublished")]
+    HRESULT 
+    IsPublished(
+            [out, retval] BOOL* pIsPublished
+            );
+
+    [propput, id(4), helpstring("property IsPublished")]
+    HRESULT 
+    IsPublished(
+            [in] BOOL isPublished
+            );
+
+    [propget, id(5), helpstring("property ProgId")]
+    HRESULT 
+    ProgId(
+            [out, retval] BSTR* pProgId
+            );
+
+    [propput, id(5), helpstring("property ProgId")]
+    HRESULT 
+    ProgId(
+            [in] BSTR progId
+            );
+            
+    [propget, id(6), helpstring("property IsPrimaryHandler")]
+    HRESULT 
+    IsPrimaryHandler(
+            [out, retval] BOOL* pIsPrimaryHandler);
+
+    [propput, id(6), helpstring("property IsPrimaryHandler")]
+    HRESULT 
+    IsPrimaryHandler(
+            [in] BOOL isPrimaryHandler
+            );
+            
+    [propget, id(7), helpstring("property Icon")]
+    HRESULT 
+    Icon(
+            [out, retval] IRdIcon** ppIcon
+            );
+
+    [propput, id(7), helpstring("property Icon")]
+    HRESULT 
+    Icon(
+            [in] IRdIcon* pIcon
+            );
+};
+
+[
+    object,
+    uuid(fcfa7f43-a760-412f-9b8d-155156bd9eee),
+    helpstring("interface IRdVmInfo"),
+    pointer_default(unique)
+]
+interface IRdVmInfo : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [in] BSTR name
+            );
+            
+    [propget, id(2), helpstring("property HostName")]
+    HRESULT 
+    HostName(
+            [out, retval] BSTR* pHostName
+            );
+
+    [propput, id(2), helpstring("property HostName")]
+    HRESULT 
+    HostName(
+            [in] BSTR hostName
+            );
+    
+    [propget, id(3), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(3), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+    
+    [propget, id(4), helpstring("property State")]
+    HRESULT 
+    State(
+            [out, retval] DWORD* pState
+            );
+
+    [propput, id(4), helpstring("property State")]
+    HRESULT 
+    State(
+            [in] DWORD state
+            );
+
+    [propget, id(5), helpstring("property UserName")]
+    HRESULT 
+    UserName(
+            [out, retval] BSTR* pUserName
+            );
+
+    [propget, id(6), helpstring("property UserDomain")]
+    HRESULT 
+    UserDomain(
+            [out, retval] BSTR* pUserDomain
+            );
+
+    [propget, id(7), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [out, retval] BSTR* pUserSid
+            );              
+
+    [propput, id(7), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [in] BSTR userSid
+            );
+
+    [propget, id(8), helpstring("property CreationStatus")]
+    HRESULT 
+    CreationStatus(
+            [out, retval] DWORD* pCreationStatus
+            );
+
+    [propput, id(8), helpstring("property CreationStatus")]
+    HRESULT 
+    CreationStatus(
+            [in] DWORD creationStatus
+            );
+};
+
+[
+    object,
+    uuid(C676DB46-CB5D-11DF-84DC-9B8ADFD72085),
+    helpstring("interface IRdEnvironment"),
+    pointer_default(unique)
+]
+interface IRdEnvironment : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [in] BSTR name
+            );
+            
+    [propget, id(2), helpstring("property BrokerName")]
+    HRESULT 
+    BrokerName(
+            [out, retval] BSTR* pBrokerName
+            );
+
+    [propput, id(2), helpstring("property BrokerName")]
+    HRESULT 
+    BrokerName(
+            [in] BSTR brokerName
+            );
+
+    [propget, id(3), helpstring("property ResourcePluginName")]
+    HRESULT 
+    ResourcePluginName(
+            [out, retval] BSTR* pResourcePluginName
+            );
+
+    [propput, id(3), helpstring("property ResourcePluginName")]
+    HRESULT 
+    ResourcePluginName(
+            [in] BSTR resourcePluginName
+            );
+
+    [propget, id(4), helpstring("property PropertyBag")]
+    HRESULT 
+    PropertyBag(
+            [out, retval] IRdPropertyBag** ppRdPropertyBag
+            );
+
+    [propput, id(4), helpstring("property PropertyBag")]
+    HRESULT 
+    PropertyBag(
+            [in] IRdPropertyBag* pRdPropertyBag
+            );
+
+    [propget, id(5), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [out, retval] hyper* pSyncVersion
+            );
+
+    [propput, id(5), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [in] hyper syncVersion
+            );
+};
+
+[
+    object,
+    uuid(3A00D320-CB61-11DF-971C-918EDFD72085),
+    helpstring("interface IRdTargetIp"),
+    pointer_default(unique)
+]
+interface IRdTargetIp : IUnknown
+{            
+    [propget, id(1), helpstring("property IpAddress")]
+    HRESULT 
+    IpAddress(
+            [out, retval] BSTR* pIpAddress
+            );
+
+    [propput, id(1), helpstring("property IpAddress")]
+    HRESULT 
+    IpAddress(
+            [in] BSTR ipAddress
+            );
+
+    [propget, id(2), helpstring("property IpType")]
+    HRESULT 
+    IpType(
+            [out, retval] DWORD* pIpType
+            );
+
+    [propput, id(2), helpstring("property IpType")]
+    HRESULT 
+    IpType(
+            [in] DWORD ipType
+            );
+};
+
+[
+    object,
+    uuid(ECD3C6E6-CB62-11DF-A91E-BF90DFD72085),
+    helpstring("interface IRdTarget"),
+    pointer_default(unique)
+]
+interface IRdTarget : IUnknown
+{
+    [propget, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property Name")]
+    HRESULT 
+    Name(
+            [in] BSTR name
+            );
+            
+    [propget, id(2), helpstring("property EnvironmentName")]
+    HRESULT 
+    EnvironmentName(
+            [out, retval] BSTR* pEnvironmentName
+            );
+
+    [propput, id(2), helpstring("property EnvironmentName")]
+    HRESULT 
+    EnvironmentName(
+            [in] BSTR environmentName
+            );
+
+    [propget, id(3), helpstring("property ResourcePluginName")]
+    HRESULT 
+    ResourcePluginName(
+            [out, retval] BSTR* pResourcePluginName
+            );
+
+    [propput, id(3), helpstring("property ResourcePluginName")]
+    HRESULT 
+    ResourcePluginName(
+            [in] BSTR resourcePluginName
+            );
+
+    [propget, id(4), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [out, retval] BSTR* pPoolName
+            );
+
+    [propput, id(4), helpstring("property PoolName")]
+    HRESULT 
+    PoolName(
+            [in] BSTR poolName
+            );
+
+    [propget, id(5), helpstring("property Fqdn")]
+    HRESULT 
+    Fqdn(
+            [out, retval] BSTR* pFqdn
+            );
+
+    [propput, id(5), helpstring("property Fqdn")]
+    HRESULT 
+    Fqdn(
+            [in] BSTR fqdn
+            );
+
+    [propget, id(6), helpstring("property Netbios")]
+    HRESULT 
+    Netbios(
+            [out, retval] BSTR* pNetbios
+            );
+
+    [propput, id(6), helpstring("property Netbios")]
+    HRESULT 
+    Netbios(
+            [in] BSTR netbios
+            );  
+            
+    [propget, id(7), helpstring("property State")]
+    HRESULT 
+    State(
+            [out, retval] DWORD* pState
+            );
+
+    [propput, id(7), helpstring("property State")]
+    HRESULT 
+    State(
+            [in] DWORD state
+            );
+
+    [propget, id(8), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [out, retval] hyper* pSyncVersion
+            );
+
+    [propput, id(8), helpstring("property SyncVersion")]
+    HRESULT 
+    SyncVersion(
+            [in] hyper syncVersion
+            );
+
+    [propget, id(9), helpstring("property PropertyBag")]
+    HRESULT 
+    PropertyBag(
+            [out, retval] IRdPropertyBag** ppRdPropertyBag
+            );
+
+    [propput, id(9), helpstring("property PropertyBag")]
+    HRESULT 
+    PropertyBag(
+            [in] IRdPropertyBag* pRdPropertyBag
+            );
+
+    [id(10), helpstring("property IpAddresses")]
+    HRESULT 
+    get_IpAddresses(
+            [in, out] DWORD* pNumIps,
+            [out, size_is(*pNumIps)] IRdTargetIp** ppRdTargetIp[]
+            );
+
+    [id(11), helpstring("property IpAddresses")]
+    HRESULT 
+    put_IpAddresses(
+            [in] DWORD numIps,
+            [in, size_is(numIps)] IRdTargetIp* pRdTargetIp[]
+            );
+
+    [id(12), helpstring("method AddIpAddress")]
+    HRESULT 
+    AddIpAddress(
+            [in] IRdTargetIp* pRdTargetIp
+            );
+
+    [propget, id(13), helpstring("property NumSessions")]
+    HRESULT 
+    NumSessions(
+            [out, retval] DWORD* pNumSessions
+            );
+
+    [propput, id(13), helpstring("property NumSessions")]
+    HRESULT 
+    NumSessions(
+            [in] DWORD numSessions
+            );
+
+    [propget, id(14), helpstring("property NumPendingConnections")]
+    HRESULT 
+    NumPendingConnections(
+            [out, retval] DWORD* pNumPendingConnections
+            );
+
+    [propput, id(14), helpstring("property NumPendingConnections")]
+    HRESULT 
+    NumPendingConnections(
+            [in] DWORD numPendingConnections
+            );
+};
+
+[
+    object,
+    uuid(1F522F22-D176-11DF-96D1-2B4ADFD72085),
+    helpstring("interface IRdSession"),
+    pointer_default(unique)
+]
+interface IRdSession : IUnknown
+{
+    [propget, id(1), helpstring("property TargetName")]
+    HRESULT 
+    TargetName(
+            [out, retval] BSTR* pName
+            );
+
+    [propput, id(1), helpstring("property TargetName")]
+    HRESULT 
+    TargetName(
+            [in] BSTR name
+            );
+            
+    [propget, id(2), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [out, retval] BSTR* pUserSid
+            );
+
+    [propput, id(2), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [in] BSTR userSid
+            );
+
+    [propget, id(3), helpstring("property SessionId")]
+    HRESULT 
+    SessionId(
+            [out, retval] DWORD* pSessionId
+            );
+
+    [propput, id(3), helpstring("property SessionId")]
+    HRESULT 
+    SessionId(
+            [in] DWORD sessionId
+            );
+
+    [propget, id(4), helpstring("property CreateTime")]
+    HRESULT 
+    CreateTime(
+            [out, retval] hyper* pCreateTime
+            );
+
+    [propput, id(4), helpstring("property CreateTime")]
+    HRESULT 
+    CreateTime(
+            [in] hyper createTime
+            );
+
+    [propget, id(5), helpstring("property DisconnectTime")]
+    HRESULT 
+    DisconnectTime(
+            [out, retval] hyper* pDisconnectTime
+            );
+
+    [propput, id(5), helpstring("property DisconnectTime")]
+    HRESULT 
+    DisconnectTime(
+            [in] hyper disconnectTime
+            );
+
+    [propget, id(6), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [out, retval] BSTR* pInitialProgram
+            );
+
+    [propput, id(6), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [in] BSTR initialProgram
+            );
+
+    [propget, id(7), helpstring("property ProtocolType")]
+    HRESULT 
+    ProtocolType(
+            [out, retval] DWORD* pProtocolType
+            );
+
+    [propput, id(7), helpstring("property ProtocolType")]
+    HRESULT 
+    ProtocolType(
+            [in] DWORD protocolType
+            );
+
+    [propget, id(8), helpstring("property State")]
+    HRESULT 
+    State(
+            [out, retval] DWORD* pState
+            );
+
+    [propput, id(8), helpstring("property State")]
+    HRESULT 
+    State(
+            [in] DWORD state
+            ); 
+
+    [propget, id(9), helpstring("property UserName")]
+    HRESULT 
+    UserName(
+            [out, retval] BSTR* pUserName
+            );
+
+    [propput, id(9), helpstring("property UserName")]
+    HRESULT 
+    UserName(
+            [in] BSTR userName
+            );
+
+
+    [propget, id(10), helpstring("property UserDomain")]
+    HRESULT 
+    UserDomain(
+            [out, retval] BSTR* pUserDomain
+            );
+
+    [propput, id(10), helpstring("property UserDomain")]
+    HRESULT 
+    UserDomain(
+            [in] BSTR userDomain
+            );
+
+    [propget, id(11), helpstring("property ResolutionWidth")]
+    HRESULT 
+    ResolutionWidth(
+            [out, retval] DWORD* pResolutionWidth
+            );
+
+    [propput, id(11), helpstring("property ResolutionWidth")]
+    HRESULT 
+    ResolutionWidth(
+            [in] DWORD ResolutionWidth
+            );
+
+    [propget, id(12), helpstring("property ResolutionHeight")]
+    HRESULT 
+    ResolutionHeight(
+            [out, retval] DWORD* pResolutionHeight
+            );
+
+    [propput, id(12), helpstring("property ResolutionHeight")]
+    HRESULT 
+    ResolutionHeight(
+            [in] DWORD ResolutionHeight
+            );
+
+    [propget, id(13), helpstring("property ColorDepth")]
+    HRESULT 
+    ColorDepth(
+            [out, retval] DWORD* pColorDepth
+            );
+
+    [propput, id(13), helpstring("property ColorDepth")]
+    HRESULT 
+    ColorDepth(
+            [in] DWORD ColorDepth
+            );
+};
+
+[
+    object,
+    uuid(37A17B3A-DAF6-11DF-AFD1-EAF0DFD72085),
+    helpstring("interface IRdUserConnection"),
+    pointer_default(unique)
+]
+interface IRdUserConnection : IUnknown
+{
+    [propget, id(1), helpstring("property ConnectionId")]
+    HRESULT 
+    ConnectionId(
+            [out, retval] BSTR* pConnectionId
+            );
+
+    [propput, id(1), helpstring("property ConnectionId")]
+    HRESULT 
+    ConnectionId(
+            [in] BSTR connectionId
+            );
+            
+    [propget, id(2), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [out, retval] BSTR* pUserSid
+            );
+
+    [propput, id(2), helpstring("property UserSid")]
+    HRESULT 
+    UserSid(
+            [in] BSTR userSid
+            );
+
+    [propget, id(3), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [out, retval] BSTR* pInitialProgram
+            );
+
+    [propput, id(3), helpstring("property InitialProgram")]
+    HRESULT 
+    InitialProgram(
+            [in] BSTR initialProgram
+            );
+
+    [propget, id(4), helpstring("property LatestTimeStamp")]
+    HRESULT 
+    LatestTimeStamp(
+            [out, retval] SYSTEMTIME** ppTime
+            );
+
+    [propput, id(4), helpstring("property LatestTimeStamp")]
+    HRESULT 
+    LatestTimeStamp(
+            [in] SYSTEMTIME *pTime
+            );
+
+    [propget, id(5), helpstring("property PolicyEndPoint")]
+    HRESULT 
+    PolicyEndPoint(
+            [out, retval] BSTR* pPolicyEndPoint
+            );
+
+    [propput, id(5), helpstring("property PolicyEndPoint")]
+    HRESULT 
+    PolicyEndPoint(
+            [in] BSTR policyEndPoint
+            );
+
+    [propget, id(6), helpstring("property PolicyRpName")]
+    HRESULT 
+    PolicyRpName(
+            [out, retval] BSTR* pPolicyRpName
+            );
+
+    [propput, id(6), helpstring("property PolicyRpName")]
+    HRESULT 
+    PolicyRpName(
+            [in] BSTR policyRpName
+            );
+
+    [propget, id(7), helpstring("property PolicyTargetType")]
+    HRESULT 
+    PolicyTargetType(
+            [out, retval] DWORD* pPolicyTargetType
+            );
+
+    [propput, id(7), helpstring("property PolicyTargetType")]
+    HRESULT 
+    PolicyTargetType(
+            [in] DWORD policyTargetType
+            );
+
+    [propget, id(8), helpstring("property State")]
+    HRESULT 
+    State(
+            [out, retval] DWORD* pState
+            );
+
+    [propput, id(8), helpstring("property State")]
+    HRESULT 
+    State(
+            [in] DWORD state
+            );
+
+    [propget, id(9), helpstring("property FailureStage")]
+    HRESULT 
+    FailureStage(
+            [out, retval] DWORD* pFailureStage
+            );
+
+    [propput, id(9), helpstring("property FailureStage")]
+    HRESULT 
+    FailureStage(
+            [in] DWORD failureStage
+            );
+
+    [propget, id(10), helpstring("property IsDisconnSessionFound")]
+    HRESULT 
+    IsDisconnSessionFound(
+            [out, retval] BOOL* pIsDisconnSessionFound
+            );
+
+    [propput, id(10), helpstring("property IsDisconnSessionFound")]
+    HRESULT 
+    IsDisconnSessionFound(
+            [in] BOOL isDisconnSessionFound
+            );
+
+    [propget, id(11), helpstring("property IsFirstAssignment")]
+    HRESULT 
+    IsFirstAssignment(
+            [out, retval] BOOL* pIsFirstAssignment
+            );
+
+    [propput, id(11), helpstring("property IsFirstAssignment")]
+    HRESULT 
+    IsFirstAssignment(
+            [in] BOOL isFirstAssignment
+            );
+
+    [propget, id(12), helpstring("property ErrorMsgId")]
+    HRESULT 
+    ErrorMsgId(
+            [out, retval] DWORD* pErrorMsgId
+            );
+
+    [propput, id(12), helpstring("property ErrorMsgId")]
+    HRESULT 
+    ErrorMsgId(
+            [in] DWORD errorMsgId
+            );
+
+    [propget, id(13), helpstring("property Error")]
+    HRESULT 
+    Error(
+            [out, retval] hyper* pError
+            );
+
+    [propput, id(13), helpstring("property Error")]
+    HRESULT 
+    Error(
+            [in] hyper error
+            );
+
+    [propget, id(14), helpstring("property LbResultTargetName")]
+    HRESULT 
+    LbResultTargetName(
+            [out, retval] BSTR* pLbResultTargetName
+            );
+
+    [propput, id(14), helpstring("property LbResultTargetName")]
+    HRESULT 
+    LbResultTargetName(
+            [in] BSTR lbResultTargetName
+            );               
+
+    [propget, id(15), helpstring("property PlEnvName")]
+    HRESULT 
+    PlEnvName(
+            [out, retval] BSTR* pPlEnvName
+            );
+
+    [propput, id(15), helpstring("property PlEnvName")]
+    HRESULT 
+    PlEnvName(
+            [in] BSTR plEnvName
+            );
+
+    [propget, id(16), helpstring("property RedirTargetName")]
+    HRESULT 
+    RedirTargetName(
+            [out, retval] BSTR* pRedirTargetName
+            );
+
+    [propput, id(16), helpstring("property RedirTargetName")]
+    HRESULT 
+    RedirTargetName(
+            [in] BSTR redirTargetName
+            );
+
+    [propget, id(17), helpstring("property RedirDisconnSessionId")]
+    HRESULT 
+    RedirDisconnSessionId(
+            [out, retval] DWORD* pRedirDisconnSessionId
+            );
+
+    [propput, id(17), helpstring("property RedirDisconnSessionId")]
+    HRESULT 
+    RedirDisconnSessionId(
+            [in] DWORD redirDisconnSessionId
+            );
+
+    [propget, id(18), helpstring("property PropertyBag")]
+    HRESULT 
+    PropertyBag(
+            [out, retval] IRdPropertyBag** ppRdPropertyBag
+            );
+
+    [propput, id(18), helpstring("property PropertyBag")]
+    HRESULT 
+    PropertyBag(
+            [in] IRdPropertyBag* pRdPropertyBag
+            );
+
+    [propget, id(19), helpstring("property BrokerName")]
+    HRESULT 
+    BrokerName(
+            [out, retval] BSTR* pBrokerName
+            );
+
+    [propput, id(19), helpstring("property BrokerName")]
+    HRESULT 
+    BrokerName(
+            [in] BSTR brokerName
+            );
+
+    //
+    // Time (secs) since last time the User Connection was saved to the DB
+    [propget, id(20), helpstring("property DurationSinceLastUpdate")]
+    HRESULT 
+    DurationSinceLastUpdate(
+            [out, retval] DWORD* pDurationSinceLastUpdate
+            );
+
+    [propput, id(20), helpstring("property DurationSinceLastUpdate")]
+    HRESULT 
+    DurationSinceLastUpdate(
+            [in] DWORD durationSinceLastUpdate
+            );
+
+};
+
+[
+    object,
+    uuid(88F0B17E-609B-11E0-85DD-D9F1DFD72085),
+    helpstring("interface IRdBrokerNotification"),
+    pointer_default(unique)
+]
+interface IRdBrokerNotification : IUnknown
+{
+    [id(1), helpstring("property Data")]
+    HRESULT 
+    get_Data(
+            [in, out] DWORD* pDataLen,
+            [out, size_is(*pDataLen), retval] BYTE** pData
+            );
+
+    [id(2), helpstring("property Data")]
+    HRESULT 
+    put_Data(
+            [in] DWORD dataLen,
+            [in, size_is(dataLen)] BYTE* data
+            );
+    
+    [propget, id(3), helpstring("property Type")]
+    HRESULT 
+    Type(
+            [out, retval] DWORD* pType
+            );
+
+    [propput, id(3), helpstring("property Type")]
+    HRESULT 
+    Type(
+            [in] DWORD type
+            );
+};
+
+[
+    object,
+    uuid(F418D86C-691D-11DF-A19E-7E66DFD72085),
+    helpstring("interface IRdMsDataHelper"),
+    pointer_default(unique)
+]
+interface IRdMsDataHelper : IUnknown
+{
+    [id(1), helpstring("method CreatePool")]
+    HRESULT 
+    CreatePool(
+            [out] IRdPool** pRdPool
+            );
+            
+    [id(2), helpstring("method CreateVmProvisioningInfo")]
+    HRESULT 
+    CreateVmProvisioningInfo(
+            [out] IRdVmProvisioningInfo** pRdVmProvisioningInfo
+            );
+
+    [id(3), helpstring("method CreateMasterVm")]
+    HRESULT 
+    CreateMasterVm(
+            [out] IRdMasterVm** pRdMasterVm
+            );
+
+    [id(4), helpstring("method CreateVm")]
+    HRESULT 
+    CreateVm(
+            [out] IRdVm** pRdVm
+            );
+            
+    [id(5), helpstring("method CreatePersonalDesktopAssignment")]
+    HRESULT 
+    CreatePersonalDesktopAssignment(
+            [out] IRdPdAssignment** pRdPdAssignment
+            );
+
+    [id(6), helpstring("method CreateServer")]
+    HRESULT 
+    CreateServer(
+            [out] IRdServer ** pRdServer
+            );
+
+    [id(7), helpstring("method CreateRoleRdcb")]
+    HRESULT 
+    CreateRoleRdcb(
+            [out] IRdRoleRdcb** ppRdRoleRdcb
+            );
+
+    [id(8), helpstring("method CreateRoleRdsh")]
+    HRESULT 
+    CreateRoleRdsh(
+            [out] IRdRoleRdsh** ppRdRoleRdsh
+            );  
+
+    [id(9), helpstring("method CreateRoleRdvh")]
+    HRESULT 
+    CreateRoleRdvh(
+            [out] IRdRoleRdvh** ppRdRoleRdvh
+            ); 
+
+    [id(10), helpstring("method CreateRoleRdwa")]
+    HRESULT 
+    CreateRoleRdwa(
+            [out] IRdRoleRdwa** ppRdRoleRdwa
+            );
+
+    [id(11), helpstring("method CreatePropertyBag")]
+    HRESULT 
+    CreatePropertyBag(
+            [out] IRdPropertyBag** ppRdPropertyBag
+            );
+
+
+    [id(12), helpstring("method CreateRdpFile")]
+    HRESULT 
+    CreateRdpFileInfo(
+            [out] IRdpFileInfo** ppRdpFile
+            );
+
+    [id(13), helpstring("method CreateIcon")]
+    HRESULT 
+    CreateIcon(
+            [out] IRdIcon** ppRdIcon
+            );
+
+    [id(14), helpstring("method CreateRemoteApp")]
+    HRESULT 
+    CreateRemoteApp(
+            [out] IRdRemoteApp** ppRdRemoteApp
+            );
+
+    [id(15), helpstring("method CreateRemoteDesktop")]
+    HRESULT 
+    CreateRemoteDesktop(
+            [out] IRdRemoteDesktop** ppRdRemoteDesktop
+            );
+
+    [id(16), helpstring("method CreateFileTypeAssoc")]
+    HRESULT 
+    CreateFileTypeAssoc(
+            [out] IRdFileTypeAssoc** ppRdFTA
+            );
+            
+    [id(17), helpstring("method CreateVmTask")]
+    HRESULT 
+    CreateVmTask(
+            [out] IRdVmTask** ppRdVmTask
+            );
+
+    [id(18), helpstring("method CreateRdwaFarm")]
+    HRESULT 
+    CreateRdwaFarm(
+            [out] IRdwaFarm** ppRdwaFarm
+            );
+
+    [id(19), helpstring("method CreateRdwaVdir")]
+    HRESULT 
+    CreateRdwaVdir(
+            [out] IRdwaVdir** ppRdwaVdir
+            );
+
+    [id(20), helpstring("method CreateNodeOwnership")]
+    HRESULT 
+    CreateNodeOwnership(
+            [out] IRdNodeOwnership** ppRdNodeOwnership
+            );
+
+
+    [id(21), helpstring("method CreateEnvironment")]
+    HRESULT 
+    CreateEnvironment(
+            [out] IRdEnvironment** ppRdEnvironment
+            );
+
+    [id(22), helpstring("method CreateTarget")]
+    HRESULT 
+    CreateTarget(
+            [out] IRdTarget** ppRdTarget
+            );
+
+    [id(23), helpstring("method CreateTargetIpAddress")]
+    HRESULT 
+    CreateTargetIpAddress(
+            [out] IRdTargetIp** ppRdTargetIp
+            );
+    
+    [id(24), helpstring("method FreeTargetIpAddresses")]
+    HRESULT 
+    FreeTargetIpAddresses(
+            [in] DWORD numIps,
+            [in, size_is(numIps)] IRdTargetIp* pRdTargetIp[]
+            );
+
+    [id(25), helpstring("method CreateSession")]
+    HRESULT 
+    CreateSession(
+            [out] IRdSession** ppRdSession
+            );
+
+    [id(26), helpstring("method CreateUserConnection")]
+    HRESULT 
+    CreateUserConnection(
+            [out] IRdUserConnection** ppRdUserConnection
+            ); 
+
+    [id(27), helpstring("method CreateBrokerNotification")]
+    HRESULT 
+    CreateBrokerNotification(
+            [out] IRdBrokerNotification** ppRdBrokerNotification
+            );
+
+    [id(28), helpstring("method CreateVmInfo")]
+    HRESULT 
+    CreateVmInfo(
+            [out] IRdVmInfo** ppRdVmInfo
+            );
+
+    [id(29), helpstring("method CreateDesktopAssignment")]
+    HRESULT 
+    CreateDesktopAssignment(
+            [out] IRdDesktopAssignment** pRdPdAssignment
+            );
+};
+
+
+[
+    object,
+    uuid(6AA29A7C-6919-11DF-A9F9-EB60DFD72085),
+    helpstring("interface IRdMsDb"),
+    pointer_default(unique)
+]
+interface IRdMsDb : IUnknown
+{
+    [id(1), helpstring("method SetRdmsDataHelper")]
+    HRESULT 
+    SetRdmsDataHelper(
+            [in] IRdMsDataHelper* pRdmsDataHelper
+            );
+
+    [id(2), helpstring("method SaveVmProvisioningInfo")]
+    HRESULT 
+    SaveVmProvisioningInfo(
+            [in] IRdVmProvisioningInfo* pRdVmProvisioningInfo
+            );
+
+    [id(3), helpstring("method GetVmProvisioningInfo")]
+    HRESULT 
+    GetVmProvisioningInfo(
+            [in] BSTR poolName,
+            [out] IRdVmProvisioningInfo** ppRdVmProvisioningInfo
+            );
+
+    [id(4), helpstring("method SaveMasterVmInfo")]
+    HRESULT 
+    SaveMasterVmInfo(
+            [in] IRdMasterVm* pRdMasterVm
+            );
+
+    [id(5), helpstring("method GetMasterVmInfo")]
+    HRESULT 
+    GetMasterVmInfo(
+            [in] BSTR masterVmGuid,
+            [out] IRdMasterVm** ppRdMasterVm
+            );
+
+    [id(6), helpstring("method SavePool")]
+    HRESULT 
+    SavePool(
+            [in] IRdPool* pRdPool
+            );
+
+    [id(7), helpstring("method GetPool")]
+    HRESULT 
+    GetPool(
+            [in] BSTR poolName,
+            [out] IRdPool** ppRdPool
+            );
+
+    [id(8), helpstring("method EnumeratePools")]
+    HRESULT 
+    EnumeratePools(
+            [in] BSTR resourcePluginName,
+            [in, out] DWORD* pNumPools,
+            [out, size_is(*pNumPools)] IRdPool** ppRdPool[]
+            );
+
+    [id(9), helpstring("method DeletePool")]
+    HRESULT 
+    DeletePool(
+            [in] BSTR poolName
+            );
+
+    [id(10), helpstring("method SaveVm")]
+    HRESULT 
+    SaveVm(
+            [in] IRdVm* pRdVm
+            );
+
+    [id(11), helpstring("method BulkSaveVms")]
+    HRESULT 
+    BulkSaveVms(
+            [in] DWORD numVms,
+            [in, size_is(numVms)] IRdVm* pRdVm[]
+            );
+
+    [id(12), helpstring("method EnumerateVmsByPool")]
+    HRESULT 
+    EnumerateVms(
+            [in] IRdVm* pRdVmKey,                  // Name, PoolName, HostName (or any combination of these 3) can be the key for enumerating VMs
+            [in, out] DWORD* pNumVms,
+            [out, size_is(*pNumVms)] IRdVm** ppRdVm[]
+            );
+
+    [id(13), helpstring("method DeleteVm")]
+    HRESULT 
+    DeleteVm(
+            [in] BSTR vmName
+            );
+            
+    [id(14), helpstring("method ResolvePdAssignment")]
+    HRESULT 
+    ResolvePdAssignment(
+            [in] IRdPdAssignment* pRdPdAssignment,     // vmName would be written by this API
+            [in, out] BOOL* preExistingAssignment
+            );
+            
+    [id(15), helpstring("method SavePdAssignment")]
+    HRESULT 
+    SavePdAssignment(
+            [in] IRdPdAssignment* pRdPdAssignment     // poolName is optional
+            );
+            
+    [id(16), helpstring("method DeletePdAssignment")]
+    HRESULT 
+    DeletePdAssignment(
+            [in] IRdPdAssignment* pRdPdAssignment     // poolName is optional
+            );
+            
+    [id(17), helpstring("method EnumeratePdAssignment")]
+    HRESULT 
+    EnumeratePdAssignment(
+            [in, out] DWORD* pNumPdAssignments,
+            [out, size_is(*pNumPdAssignments)] IRdPdAssignment** ppRdPdAssignment[],
+            [in, optional] BSTR userSid
+            );
+
+    [id(18), helpstring("method SaveServer")]
+    HRESULT 
+    SaveServer(
+            [in] IRdServer* pRdServer
+            );
+
+    [id(19), helpstring("method GetServer")]
+    HRESULT 
+    GetServer(
+            [in] BSTR serverName,
+            [in] DWORD serverRoles,
+            [out] IRdServer** ppRdServer
+            );
+
+    [id(20), helpstring("method EnumerateServers")]
+    HRESULT 
+    EnumerateServers(  
+            [in, out] DWORD* pNumServers,
+            [in] DWORD serverRoles,
+            [out, size_is(*pNumServers)] IRdServer** ppRdServer[],
+            [in, optional] BSTR serverName
+            );
+
+    [id(21), helpstring("method DeleteServer")]
+    HRESULT 
+    DeleteServer(
+            [in] BSTR serverName
+            );
+            
+    [id(22), helpstring("method SaveRdshProperty")]
+    HRESULT 
+    SaveRdshProperty(
+            [in] BSTR serverName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );            
+
+    [id(23), helpstring("method BulkSaveRdshProperties")]
+    HRESULT 
+    BulkSaveRdshProperties(
+            [in] BSTR serverName,
+            [in] IRdPropertyBag* pPropertyBag
+            );
+
+    [id(24), helpstring("method GetRdshProperty")]
+    HRESULT 
+    GetRdshProperty(
+            [in] BSTR serverName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            ); 
+
+    [id(25), helpstring("method EnumerateRdshProperties")]
+    HRESULT 
+    EnumerateRdshProperties(
+            [in] BSTR serverName,
+            [out] IRdPropertyBag** ppPropertyBag
+            ); 
+
+    [id(26), helpstring("method DeleteRdshProperty")]
+    HRESULT 
+    DeleteRdshProperty(
+            [in, optional] BSTR serverName,
+            [in, optional] BSTR propertyName
+            );
+
+    [id(27), helpstring("method SavePoolProperty")]
+    HRESULT 
+    SavePoolProperty(
+            [in] BSTR poolName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );
+
+    [id(28), helpstring("method BulkSavePoolProperties")]
+    HRESULT 
+    BulkSavePoolProperties(
+            [in] BSTR poolName,
+            [in] IRdPropertyBag* pPropertyBag
+            );
+
+    [id(29), helpstring("method GetPoolProperty")]
+    HRESULT 
+    GetPoolProperty(
+            [in] BSTR poolName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );
+
+    [id(30), helpstring("method EnumeratePoolProperties")]
+    HRESULT 
+    EnumeratePoolProperties(
+            [in] BSTR poolName,
+            [out] IRdPropertyBag** ppPropertyBag
+            );
+
+    [id(31), helpstring("method DeletePoolProperty")]
+    HRESULT 
+    DeletePoolProperty(
+            [in, optional] BSTR poolName,
+            [in, optional] BSTR propertyName
+            );
+
+    [id(32), helpstring("method SaveRoleRdcb")]
+    HRESULT 
+    SaveRoleRdcb(
+            [in] IRdRoleRdcb* pRdRoleRdcb
+            );
+
+    [id(33), helpstring("method EnumerateRoleRdcb")]
+    HRESULT 
+    EnumerateRoleRdcb(  
+            [in, out] DWORD* pNumServers,
+            [out, size_is(*pNumServers)] IRdRoleRdcb** ppRdRoleRdcb[]
+            );
+
+    [id(34), helpstring("method DeleteRoleRdcb")]
+    HRESULT 
+    DeleteRoleRdcb(
+            [in] BSTR serverName
+            );
+
+    [id(35), helpstring("method SaveRoleRdsh")]
+    HRESULT 
+    SaveRoleRdsh(
+            [in] IRdRoleRdsh* pRdRoleRdsh
+            );
+
+    [id(36), helpstring("method EnumerateRoleRdsh")]
+    HRESULT 
+    EnumerateRoleRdsh(  
+            [in, out] DWORD* pNumServers,
+            [out, size_is(*pNumServers)] IRdRoleRdsh** ppRdRoleRdsh[]
+            );
+
+    [id(37), helpstring("method DeleteRoleRdsh")]
+    HRESULT 
+    DeleteRoleRdsh(
+            [in] BSTR serverName
+            );
+
+    [id(38), helpstring("method SaveRoleRdvh")]
+    HRESULT 
+    SaveRoleRdvh(
+            [in] IRdRoleRdvh* pRdRoleRdvh
+            );
+
+    [id(39), helpstring("method EnumerateRoleRdvh")]
+    HRESULT 
+    EnumerateRoleRdvh(  
+            [in, out] DWORD* pNumServers,
+            [out, size_is(*pNumServers)] IRdRoleRdvh** ppRdRoleRdvh[]
+            );
+
+    [id(40), helpstring("method DeleteRoleRdvh")]
+    HRESULT 
+    DeleteRoleRdvh(
+            [in] BSTR serverName
+            );
+
+    [id(41), helpstring("method SaveRoleRdwa")]
+    HRESULT 
+    SaveRoleRdwa(
+            [in] IRdRoleRdwa* pRdRoleRdwa
+            );
+
+    [id(42), helpstring("method EnumerateRoleRdwa")]
+    HRESULT 
+    EnumerateRoleRdwa(  
+            [in, out] DWORD* pNumServers,
+            [out, size_is(*pNumServers)] IRdRoleRdwa** ppRdRoleRdwa[]
+            );
+
+    [id(43), helpstring("method DeleteRoleRdwa")]
+    HRESULT 
+    DeleteRoleRdwa(
+            [in] BSTR serverName
+            );
+
+    [id(44), helpstring("method SaveRemoteApp")]
+    HRESULT 
+    SaveRemoteApp(
+            [in] IRdRemoteApp* pRemoteApp
+            );
+
+    [id(45), helpstring("method GetRemoteApp")]
+    HRESULT 
+    GetRemoteApp(
+            [in] BSTR appAlias,
+            [in] BSTR poolName,
+            [out] IRdRemoteApp** ppRdRemoteApp
+            );
+
+    [id(46), helpstring("method EnumerateRemoteApp")]
+    HRESULT 
+    EnumerateRemoteApps(
+            [in] BSTR poolName,
+            [in, out] DWORD* pNumRemoteApps,
+            [out, size_is(*pNumRemoteApps)] IRdRemoteApp** ppRdRemoteAppArr[]
+            );
+
+    [id(47), helpstring("method DeleteRemoteApp")]
+    HRESULT 
+    DeleteRemoteApp(
+            [in, optional] BSTR appAlias,
+            [in, optional] BSTR poolName
+            );
+
+    [id(48), helpstring("method SaveRemoteDesktop")]
+    HRESULT 
+    SaveRemoteDesktop(
+            [in] IRdRemoteDesktop* pRemoteDesktop
+            );
+
+    [id(49), helpstring("method GetRemoteDesktop")]
+    HRESULT 
+    GetRemoteDesktop(
+            [in] BSTR alias,
+            [in] BSTR poolName,
+            [out] IRdRemoteDesktop** ppRdRemoteDesktop
+            );
+
+    [id(50), helpstring("method EnumerateRemoteDesktopp")]
+    HRESULT 
+    EnumerateRemoteDesktops(
+            [in] BSTR poolName,
+            [in, out] DWORD* pNumRemoteDesktops,
+            [out, size_is(*pNumRemoteDesktops)] IRdRemoteDesktop** ppRdRemoteDesktopArr[]
+            );
+
+    [id(51), helpstring("method DeleteRemoteDesktop")]
+    HRESULT 
+    DeleteRemoteDesktop(
+            [in, optional] BSTR alias,
+            [in, optional] BSTR poolName
+            );
+
+    [id(52), helpstring("method SaveFTA")]
+    HRESULT 
+    SaveFTA(
+            [in] IRdFileTypeAssoc* pFTA
+            );
+
+    [id(53), helpstring("method EnumerateFTA")]
+    HRESULT 
+    EnumerateFTAs(
+            [in] BSTR appAlias,
+            [in] BSTR poolName,
+            [in, out] DWORD* pNumFTAs,
+            [out, size_is(*pNumFTAs)] IRdFileTypeAssoc** ppRdFTAArr[]
+            );
+
+    [id(54), helpstring("method DeleteFTA")]
+    HRESULT 
+    DeleteFTA(
+            [in, optional] BSTR appAlias,
+            [in, optional] BSTR poolName,
+            [in, optional] BSTR extensionName
+            );
+
+    [id(55), helpstring("method SaveRdpFileInfo")]
+    HRESULT 
+    SaveRdpFileInfo(
+            [in] IRdpFileInfo* pRdpFileInfo
+            );
+
+    [id(56), helpstring("method GetRdpFileInfo")]
+    HRESULT 
+    GetRdpFileInfo(
+            [in] BSTR poolName,
+            [out] IRdpFileInfo** ppRdpFileInfo
+            );
+
+    [id(57), helpstring("method EnumerateRdpFileInfo")]
+    HRESULT 
+    EnumerateRdpFileInfo(
+            [in, out] DWORD* pNumRdpFiles,
+            [out, size_is(*pNumRdpFiles)] IRdpFileInfo** ppRdpFileInfoArr[]
+            );
+
+    [id(58), helpstring("method SaveVmTask")]
+    HRESULT 
+    SaveVmTask(
+            [in] IRdVmTask* pRdVmTask,
+            [in] DWORD maxSchedulesPerVM
+            );
+
+    [id(59), helpstring("method GetVmTask")]
+    HRESULT 
+    GetVmTask(
+            [in] BSTR taskId,
+            [out] IRdVmTask** ppRdVmTask
+            );
+
+    [id(60), helpstring("method EnumerateVmTask")]
+    HRESULT 
+    EnumerateVmTask(
+            [in] IRdVm* pRdVmKey,                  // Name, PoolName, HostName (or any combination of these 3) can be the key for enumerating VmTask
+            [in, out] DWORD* pNumVmms,
+            [out, size_is(*pNumVmms)] IRdVmTask** ppRdVmTaskArr[],
+            [in, optional] BSTR taskId              // taskId can be an additional key
+            );   
+
+    [id(61), helpstring("method DeleteVmTask")]
+    HRESULT 
+    DeleteVmTask(
+            [in] BSTR taskId,
+            [in] BSTR vmName
+            );
+
+    [id(62), helpstring("method SaveRdwaFarm")]
+    HRESULT 
+    SaveRdwaFarm(
+            [in] IRdwaFarm* pRdwaFarm
+            );            
+    
+    [id(63), helpstring("method GetRdwaFarm")]
+    HRESULT 
+    GetRdwaFarm(
+            [in] BSTR farmName,
+            [out] IRdwaFarm** ppRdwaFarm
+            );
+
+    [id(64), helpstring("method DeleteRdwaFarm")]
+    HRESULT 
+    DeleteRdwaFarm(
+            [in] BSTR farmName
+            );
+
+    [id(65), helpstring("method SaveRdwaVdir")]
+    HRESULT 
+    SaveRdwaVdir(
+            [in] IRdwaVdir* pRdwaVdir
+            );
+
+    [id(66), helpstring("method EnumerateRdwaVdir")]
+    HRESULT 
+    EnumerateRdwaVdir(
+            [in] BSTR farmName,
+            [in] BSTR relativeUrl,
+            [in, out] DWORD* pNumVdirs,
+            [out, size_is(*pNumVdirs)] IRdwaVdir** ppRdwaVdir[]
+            );
+
+    [id(67), helpstring("method DeleteRdwaVdir")]
+    HRESULT 
+    DeleteRdwaVdir(
+            [in] BSTR farmName,
+            [in] BSTR relativeUrl
+            );
+
+    [id(68), helpstring("method SaveDeploymentSetting")]
+    HRESULT 
+    SaveDeploymentSetting(
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue,
+            [in] BOOL SaveEncryptedPswdInRegistry
+            );
+
+    [id(69), helpstring("method GetDeploymentSetting")]
+    HRESULT 
+    GetDeploymentSetting(
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );
+
+    [id(70), helpstring("method DeleteDeploymentSetting")]
+    HRESULT 
+    DeleteDeploymentSetting(
+            [in] BSTR propertyName
+            );
+
+    [id(71), helpstring("method BulkSaveNodeOwnership")]
+    HRESULT 
+    BulkSaveNodeOwnership(
+            [in] DWORD numRecords,
+            [in, size_is(numRecords)] IRdNodeOwnership* pRdNodeOwnershipArr[]
+            );
+
+    [id(72), helpstring("method EnumerateNodeOwnerships")]
+    HRESULT 
+    EnumerateNodeOwnerships(
+            [in] BSTR nodeName,
+            [in, out] DWORD* pNumRecords,
+            [out, size_is(*pNumRecords)] IRdNodeOwnership** ppRdNodeOwnershipArr[]
+            );
+
+    [id(73), helpstring("method DeleteNodeOwnership")]
+    HRESULT 
+    DeleteNodeOwnership(
+            [in] BSTR nodeName
+            );
+
+    // 
+    // To force add this env (w/o worrying about synch issues), set IRdEnvironment::SyncVersion to 0
+    [id(74), helpstring("method AddEnvironment")]
+    HRESULT 
+    SaveEnvironment(
+            [in] IRdEnvironment* pRdEnvironment
+            );
+    
+    [id(75), helpstring("method GetEnvironment")]
+    HRESULT 
+    GetEnvironment(
+            [in] BSTR environmentName,
+            [in] BSTR brokerName,
+            [in] BSTR resourcePluginName,
+            [out] IRdEnvironment** ppRdEnvironment
+            );
+
+    [id(76), helpstring("method GetEnvironment")]
+    HRESULT 
+    EnumerateEnvironment(
+            [in] BSTR resourcePluginName,
+            [in] RD_ENV_SORT_BY sortByFieldId,
+            [in] BSTR sortyByFieldName,                 // Used in case of ENV_SORT_BY_ENV_PROP, to sort by a specific env prop.
+            [in, out] DWORD* pNumEnvs,
+            [out, size_is(*pNumEnvs)] IRdEnvironment** ppRdEnvArr[]
+            );
+
+    [id(77), helpstring("method DeleteEnvironment")]
+    HRESULT 
+    DeleteEnvironment(
+            [in] BSTR environmentName,
+            [in] BSTR brokerName,
+            [in] BSTR resourcePluginName
+            );
+
+    [id(78), helpstring("method SaveEnvironmentProperty")]
+    HRESULT 
+    SaveEnvironmentProperty(
+            [in] BSTR environmentName,
+            [in] BSTR resourcePluginName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue,
+            [in] hyper syncVersion
+            );
+
+    [id(79), helpstring("method GetEnvironmentProperty")]
+    HRESULT 
+    GetEnvironmentProperty(
+            [in] BSTR environmentName,
+            [in] BSTR resourcePluginName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue,
+            [in, out] hyper* pSyncVersion
+            );
+
+    // 
+    // To force add this target (w/o worrying about synch issues), set IRdTarget::SyncVersion to 0
+    [id(80), helpstring("method SaveTarget")]
+    HRESULT 
+    SaveTarget(
+            [in] IRdTarget* pRdTarget
+            );
+   
+    [id(81), helpstring("method GetTarget")]
+    HRESULT 
+    GetTarget(
+            [in] BSTR targetName,
+            [in] BSTR resourcePluginName,
+            [in] BSTR poolName,
+            [out] IRdTarget** ppRdTarget
+            );
+
+    [id(82), helpstring("method EnumerateTarget")]
+    HRESULT 
+    EnumerateTarget(
+            [in] BSTR resourcePluginName,
+            [in] BSTR poolName,
+            [in] BSTR envName,
+            [in] RD_TARGET_SORT_BY sortByFieldId,
+            [in] BSTR sortyByFieldName,                 // Used in case of TARGET_SORT_BY_TARGET_PROP, to sort by a specific target prop.
+            [in, out] DWORD* pNumTargets,
+            [out, size_is(*pNumTargets)] IRdTarget** ppRdTargetArr[]
+            );
+
+    [id(83), helpstring("method DeleteTarget")]
+    HRESULT 
+    DeleteTarget(
+            [in] BSTR targetName,
+            [in] BSTR envName,
+            [in] BSTR brokerName,
+            [in] BSTR resourcePluginName
+            ); 
+
+    [id(84), helpstring("method SaveTargetProperty")]
+    HRESULT 
+    SaveTargetProperty(
+            [in] BSTR targetName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue,
+            [in] hyper syncVersion
+            );
+
+    [id(85), helpstring("method GetTargetProperty")]
+    HRESULT 
+    GetTargetProperty(
+            [in] BSTR targetName,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue,
+            [in, out] hyper* pSyncVersion
+            );
+
+    [id(86), helpstring("method SaveSession")]
+    HRESULT
+        SaveSession(
+        [in] IRdSession* pRdSession
+        );
+
+    [id(87), helpstring("method GetSession")]
+    HRESULT 
+    GetSession(
+            [in] BSTR targetName,
+            [in] DWORD sessionId,
+            [out] IRdSession** ppRdSession
+            );
+
+    [id(88), helpstring("method EnumerateSession")]
+    HRESULT 
+    EnumerateSession(
+            [in] BSTR resourcePluginName,
+            [in] BSTR targetName,
+            [in] BSTR userSid,
+            [in] BSTR userName,
+            [in] BSTR userDomain,
+            [in] BSTR poolName,
+            [in] BSTR initialProgram,
+            [in] DWORD* pSessionState,              // Optional parameter, use NULL if EnumerateByState is not intended
+            [in, out] DWORD* pNumSessions,
+            [out, size_is(*pNumSessions)] IRdSession** ppRdSessionArr[]
+            );
+
+    [id(89), helpstring("method DeleteSession")]
+    HRESULT 
+    DeleteSession(
+            [in] BSTR targetName,
+            [in] DWORD sessionId
+            );
+
+    //
+    // If bCheckPendingConnection is set & there is a pending connection in DB with 
+    // state < pendingConnectionMaxState, 
+    // this method will return  E_RDDB_USER_CONN_PENDING
+    [id(90), helpstring("method SaveUserConnection")]
+    HRESULT 
+    SaveUserConnection(
+            [in] IRdUserConnection* pRdUserConnection,
+            [in] BOOL bCheckPendingConnection,
+            [in] DWORD pendingConnectionMaxState
+            );
+   
+    [id(91), helpstring("method GetUserConnection")]
+    HRESULT
+        GetUserConnection(
+        [in] BSTR connectionId,
+        [in] BSTR cbName,
+        [out] IRdUserConnection** ppRdUserConnection
+        );
+
+    [id(92), helpstring("method EnumerateUserConnection")]
+    HRESULT 
+    EnumerateUserConnection(
+            [in] BSTR userSid,
+            [in] BSTR initialProgram,
+            [in] BSTR policyEndpoint,
+            [in] DWORD *pConnectionState,
+            [in] BSTR lbTargetName,
+            [in] BSTR cbName,
+            [in, out] DWORD* pNumConns,
+            [out, size_is(*pNumConns)] IRdUserConnection** ppRdConnArr[]
+            );
+
+    [id(93), helpstring("method DeleteUserConnection")]
+    HRESULT 
+    DeleteUserConnection(
+            [in] BSTR connectionId,
+            [in] BSTR userSid,
+            [in] BSTR initialProgram,
+            [in] BSTR policyEndpoint,
+            [in] DWORD *pConnectionState,
+            [in] BSTR lbTargetName,
+            [in] BSTR cbName
+            );
+
+    [id(94), helpstring("method SaveUserConnectionProperty")]
+    HRESULT 
+    SaveUserConnectionProperty(
+            [in] BSTR connectionId,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );
+
+    [id(95), helpstring("method GetUserConnectionProperty")]
+    HRESULT 
+    GetUserConnectionProperty(
+            [in] BSTR connectionId,
+            [in] BSTR propertyName,
+            [in] VARIANT* pVarValue
+            );
+
+    [id(96), helpstring("method SaveBrokerNotification")]
+    HRESULT 
+    SaveBrokerNotification(
+            [in] IRdBrokerNotification* pRdBrokerNotification
+            );
+   
+    //
+    // This method also timesout (deletes) old notifications. Timeout period = 2hrs.
+    [id(97), helpstring("method EnumerateBrokerNotifications")]
+    HRESULT 
+    EnumerateBrokerNotifications(     
+            [in, out] hyper* pLatestSyncVersion,
+            [in, out] DWORD* pNumNotifs,
+            [out, size_is(,*pNumNotifs)] IRdBrokerNotification*** ppRdBrokerNotifArr
+            );
+
+    [id(98), helpstring("method BulkSaveFilterPluginProperties")]
+    HRESULT 
+    BulkSaveFilterPluginProperties(
+            [in] BSTR fpName,
+            [in] IRdPropertyBag* pPropertyBag
+            );
+
+    [id(99), helpstring("method EnumerateFilterPluginProperties")]
+    HRESULT 
+    EnumerateFilterPluginProperties(
+            [in] BSTR fpName,
+            [out] IRdPropertyBag** ppPropertyBag
+            );
+            
+    [id(100), helpstring("method DeleteFilterPluginProperty")]
+    HRESULT 
+    DeleteFilterPluginProperty(
+            [in, optional] BSTR fpName,
+            [in, optional] BSTR propertyName
+            );
+
+    //
+    // Creates Rdcms Db & provisions dbLogin on the Db instance
+    [id(101), helpstring("method InstallRdcmsDatabase")]
+    HRESULT 
+    InstallRdcmsDatabase(
+            [in] BSTR dbName,                           // optional, if NULL, dbName would be set to Rdcms
+            [in] BSTR dbFilePath,
+            [in] BSTR connString,                       // optional, if NULL, local WID instance would be used
+            [in] BSTR dbLogin                           // optional, if NULL, no login would be provisioned @ the DB
+            );
+            
+    [id(102), helpstring("method UnInstallRdcmsDatabase")]
+    HRESULT 
+    UnInstallRdcmsDatabase(
+            [in] BSTR dbName,                           // optional, if NULL, Rdcms DB would be dropped
+            [in] BSTR connString                        // optional, if NULL, Rdcms DB @ local WID instance would be deleted
+            );
+
+    [id(103), helpstring("method IsRdcmsDatabaseInstalled")]
+    HRESULT 
+    IsRdcmsDatabaseInstalled(
+            [in] BSTR connString,                       // optional, if NULL, local WID instance would be used
+            [out] INT* pDbVersion
+            );
+
+    //
+    // This method pings the DB (used for remote SQL) to check for its reachability
+    [id(104), helpstring("method IsRdcmsDatabaseReachable")]
+    HRESULT 
+    IsRdcmsDatabaseReachable(
+        [out] DWORD* dwConnError
+        );
+
+    [id(105), helpstring("method MigrateRdcmsData")]
+    HRESULT 
+    MigrateRdcmsData(
+        [in] BSTR connStringToOldDb,
+        [in] BSTR connStringToNewDb
+        );
+
+    [id(106), helpstring("method IsDatabaseReachable")]
+    HRESULT
+    IsDatabaseReachable(
+        [in] BSTR connString
+        );
+
+    [id(107), helpstring("method EnumerateVmInfo")]
+    HRESULT 
+    EnumerateVmInfo(
+            [in] BSTR pluginName,
+            [in] BSTR poolName, // optional param: provide NULL to get all VMs, provide "" to get unassigned vms
+            [in] BSTR vmName,
+            [in, out] DWORD* pNumVms,
+            [out, size_is(*pNumVms)] IRdVmInfo** ppRdVmInfo[]
+            ); 
+ 
+    [id(108), helpstring("method GetVmTargetWithLBChecks")]
+    HRESULT
+    GetVmTargetWithLBChecks(
+        [in] BSTR resourcePluginName,
+        [in] BSTR poolName,
+        [in] BOOL bCheckTargetState,
+        [in] BOOL bCheckVmLastConnectionSucceeded,
+        [in] BOOL bCheckTargetPatchState,
+        [in] BOOL bRandomSelect,
+        [out] DWORD  *pNumTargets,
+        [out] LPTSTR *ppTargetName
+        );
+
+    [id(109), helpstring("method GetVmTargetByVmId")]
+    HRESULT
+    GetVmTargetByVmId(
+        [in] BSTR resourcePluginName,
+        [in] BSTR envName,
+        [in] ULONG vmId,
+        [out] DWORD  *pNumTargets,
+        [out] LPTSTR *ppTargetName
+        );
+
+    [id(110), helpstring("method AttachWidDatabase")]
+    HRESULT 
+    AttachWidDatabase(
+        [in] BSTR dbName,
+        [in] BSTR dbFilePath,
+        [in] BSTR dbLogin 
+        );
+
+    [id(111), helpstring("method DetachWidDatabase")]
+    HRESULT 
+    DetachWidDatabase(
+        [in] BSTR dbName 
+        );
+
+    [id(112), helpstring("method ResolveDesktopAssignmentEx")]
+    HRESULT 
+    ResolveDesktopAssignmentEx(
+            [in] IRdDesktopAssignment* pAssignment, 
+            [in] BOOL bAutoAssign,
+            [out] DWORD* pVmState,
+            [out] BOOL* pbPreExistingAssignment
+            );
+            
+    [id(113), helpstring("method SaveDesktopAssignment")]
+    HRESULT 
+    SaveDesktopAssignment(
+            [in] IRdDesktopAssignment* pAssignment 
+            );
+            
+    [id(114), helpstring("method DeleteDesktopAssignment")]
+    HRESULT 
+    DeleteDesktopAssignment(
+            [in] IRdDesktopAssignment* pAssignment
+            );
+
+    [id(115), helpstring("method EnumerateDesktopAssignment")]
+    HRESULT 
+    EnumerateDesktopAssignment(
+            [in, out] DWORD* pNumAssignments,
+            [out, size_is(*pNumAssignments)] IRdDesktopAssignment** pAssignment[], 
+            [in, optional] BSTR PoolName,
+            [in, optional] BSTR DesktopName,
+            [in, optional] BSTR UserSid
+            );
+
+    [id(116), helpstring("method GetServerCount")]
+    HRESULT 
+    GetServerCount(
+            [in] DWORD serverRoles,
+            [out] DWORD* pCount
+            );
+
+    [id(117), helpstring("method AcquireTargetLock")]
+    HRESULT 
+    AcquireTargetLock(
+            [in] BSTR targetName,
+            [in] DWORD dwTimeout,
+            [out] IUnknown** ppContext
+            );
+
+    [id(118), helpstring("method ReleaseTargetLock")]
+    HRESULT 
+    ReleaseTargetLock(
+            [in] IUnknown* pContext
+            );
+
+    [id(119), helpstring("method TestAndSetServerState")]
+    HRESULT 
+    TestAndSetServerState(
+        [in] BSTR PoolName,
+        [in] BSTR ServerFQDN,
+        [in] TARGET_STATE NewState,
+        [in] TARGET_STATE TestState,
+        [out] TARGET_STATE* pInitState
+        );
+
+    [id(120), helpstring("method GetServerState")]
+    HRESULT 
+    GetServerState(
+        [in] BSTR PoolName,
+        [in] BSTR ServerFQDN,
+        [out] TARGET_STATE* pState
+        );
+
+    [id(121), helpstring("method GetServerWaitingToStart")]
+    HRESULT 
+    GetResetServerWaitingToStart(
+        [in] DWORD numberServers,
+        [in, out] DWORD* pNumServers,
+        [out, size_is(*pNumServers)] IRdRoleRdsh** ppRdRoleRdsh[]
+        );
+
+    [id(122), helpstring("method SetServerWaitingToStart")]
+    HRESULT 
+    SetServerWaitingToStart(
+        [in] BSTR PoolName,
+        [in] BSTR serverName
+        );
+
+    [id(123), helpstring("method CollectionKeyValueCompareAndSet")]
+    HRESULT 
+    CollectionKeyValueCompareAndSet(
+        [in] BSTR PoolName,
+        [in] BSTR KeyName,
+        [in] BSTR NewKeyValue,
+        [in] BSTR Comparand,
+        [out] BSTR* pInitialValue,
+        [out] BOOL* pValueMatched
+        );
+
+    [id(124), helpstring("method CollectionKeyValueGet")]
+    HRESULT 
+    CollectionKeyValueGet(
+        [in] BSTR PoolName,
+        [in] BSTR KeyName,
+        [in] BSTR* pVarValue
+        );
+
+    [id(125), helpstring("method CollectionKeyValueDelete")]
+    HRESULT 
+    CollectionKeyValueDelete(
+        [in] BSTR PoolName,
+        [in] BSTR KeyName,
+        [out] DWORD* pNumDeleted
+        );
+
+    [id(126), helpstring("method SaveDbConnectionString")]
+    HRESULT
+    SaveDbConnectionString(
+        [in] BSTR pwszSbDbPasswordTag,
+        [in] BOOL isSecondaryConnectionString,
+        [in] BSTR pwszConnectionString,
+        [in] BOOL SaveEncryptedPswdInRegistry,
+        [out] BSTR* pqszConnectionStringWithoutPassword
+        );
+
+    [id(127), helpstring("method QueryDbConnectionString")]
+    HRESULT
+    QueryDbConnectionString(
+        [in] BSTR pwszDescription,
+        [in] BSTR pwszSbDbPasswordTag,
+        [in] BSTR pwszConnectionStringFromRegistry,
+        [out] BSTR* pwszConnectionStringWithPassword
+        );
+
+    [id(128), helpstring("method RemovePassword")]
+    HRESULT
+    RemovePassword(
+        [in] BSTR pwszSBDbConnString,
+        [out] BSTR* pwszConnectionStringWithoutPassword
+        );
+
+    [id(129), helpstring("method StartSQLPerfCounter")]
+    HRESULT 
+    StartSQLPerfCounter(
+        [in] DWORD instanceId,
+        [in] BSTR instanceName 
+        );
+
+    [id(130), helpstring("method StopSQLPerfCounter")]
+    HRESULT 
+    StopSQLPerfCounter();
+
+    [id(131), helpstring("method IsDbSchemaUpgradeRequired")]
+    HRESULT
+    IsDbSchemaUpgradeRequired(
+        [out] INT* pDbSchemaVersion,
+        [out] INT* pDbPluginVersion,
+        [out] BOOL* pbDbSchemaUpgradeRequired
+        );
+
+    [id(132), helpstring("method UpgradeDatabaseSchema")]
+    HRESULT
+    UpgradeDatabaseSchema(
+        [out] INT* pDbVersionAfterUpgrade
+    );
+
+   [id(133), helpstring("method CheckDBReachable")]
+   HRESULT
+   CheckDBReachable();
+
+};
+
+
+[
+    uuid(0010AF3C-F357-11DF-95E3-851CDFD72085),
+    version(1.0),
+    helpstring("RdCentralDb 1.0 Type Library")
+]
+library RdCentralDbLib
+{
+    importlib("stdole2.tlb");
+    
+    interface IRdPropertyBag;
+    interface IRdPool;
+    interface IRdVmProvisioningInfo;
+    interface IRdMasterVm;
+    interface IRdVm;
+    interface IRdVmTask;
+    interface IRdPdAssignment;
+    interface IRdNodeOwnership;
+    interface IRdServer;
+    interface IRdRoleRdcb;
+    interface IRdRoleRdsh;
+    interface IRdRoleRdvh;
+    interface IRdRoleRdwa;
+    interface IRdwaFarm;
+    interface IRdwaVdir;
+    interface IRdpFileInfo;
+    interface IRdIcon;
+    interface IRdRemoteApp;
+    interface IRdRemoteDesktop;
+    interface IRdFileTypeAssoc;
+    interface IRdVmInfo;
+    interface IRdMsDataHelper;
+
+    // Broker interfaces
+    interface IRdEnvironment;
+    interface IRdTargetIp;
+    interface IRdTarget;
+    interface IRdSession;
+    interface IRdUserConnection;
+    interface IRdBrokerNotification;
+    
+    //
+    // Interfaces implemented by plugin writers.
+    interface IRdMsDb;
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

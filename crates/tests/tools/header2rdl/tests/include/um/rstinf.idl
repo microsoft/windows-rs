@@ -1,0 +1,77 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstinf.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a55-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IRowsetInfo : IUnknown {
+
+	[local]
+	HRESULT GetProperties(
+		[in] const ULONG cPropertyIDSets,
+		[in, size_is(cPropertyIDSets), annotation("_In_reads_opt_(cPropertyIDSets)")] const DBPROPIDSET rgPropertyIDSets[],
+		[in, out, annotation("_Out_")] ULONG * pcPropertySets,
+		[out, size_is(,*pcPropertySets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertySets)")] DBPROPSET ** prgPropertySets
+	);
+
+	[call_as(GetProperties)]
+	HRESULT RemoteGetProperties(
+		[in] ULONG cPropertyIDSets,
+		[in, unique, size_is(cPropertyIDSets)] const DBPROPIDSET *rgPropertyIDSets,
+		[in, out] ULONG * pcPropertySets,
+		[out, size_is(,*pcPropertySets)] DBPROPSET ** prgPropertySets,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetReferencedRowset(
+		[in] DBORDINAL iOrdinal,
+		[in, annotation("_In_")] REFIID riid,
+		[out, iid_is(riid), annotation("_Outptr_result_maybenull_")] IUnknown ** ppReferencedRowset
+	);
+
+	[call_as(GetReferencedRowset)]
+	HRESULT RemoteGetReferencedRowset(
+		[in] DBORDINAL iOrdinal,
+		[in] REFIID riid,
+		[out, iid_is(riid)] IUnknown ** ppReferencedRowset,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT GetSpecification(
+		[in, annotation("_In_")] REFIID riid,
+		[out, iid_is(riid), annotation("_Outptr_result_maybenull_")] IUnknown ** ppSpecification
+	);
+
+	[call_as(GetSpecification)]
+	HRESULT RemoteGetSpecification(
+		[in] REFIID riid,
+		[out, iid_is(riid)] IUnknown ** ppSpecification,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

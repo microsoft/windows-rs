@@ -1,0 +1,115 @@
+//------------------------------------------------------------------------------
+// File: AuStream.idl
+//
+// Desc: Used by MIDL tool to generate austream.h
+//
+// Copyright (c) 1998-2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "mmstream.idl";
+
+cpp_quote("//")
+cpp_quote("//   The following declarations within the 'if 0' block are dummy typedefs used to make")
+cpp_quote("//   the ddstream.idl file build.  The actual definitions are contained in DDRAW.H")
+cpp_quote("//")
+cpp_quote("#if 0")
+typedef struct tWAVEFORMATEX WAVEFORMATEX;
+cpp_quote ("#endif")
+
+interface IAudioMediaStream;
+interface IAudioStreamSample;
+interface IMemoryData;
+interface IAudioData;
+
+//  IAudioMediaStream
+
+
+[
+object,
+local,
+uuid(f7537560-a3be-11d0-8212-00c04fc32c45),
+pointer_default(unique)
+]
+interface IAudioMediaStream : IMediaStream
+{
+
+    HRESULT GetFormat(
+        [out]  WAVEFORMATEX *pWaveFormatCurrent
+    );
+
+    HRESULT SetFormat(
+        [in] const WAVEFORMATEX *lpWaveFormat);
+
+    HRESULT CreateSample(
+        [in] IAudioData *pAudioData,
+        [in] DWORD dwFlags,
+        [out] IAudioStreamSample **ppSample
+    );
+}
+
+[
+object,
+local,
+uuid(345fee00-aba5-11d0-8212-00c04fc32c45),
+pointer_default(unique)
+]
+interface IAudioStreamSample : IStreamSample
+{
+    HRESULT GetAudioData(
+        [out] IAudioData **ppAudio
+    );
+}
+
+
+[
+object,
+local,
+uuid(327fc560-af60-11d0-8212-00c04fc32c45),
+pointer_default(unique)
+]
+interface IMemoryData : IUnknown
+{
+    HRESULT SetBuffer(
+        [in] DWORD cbSize,
+        [in] BYTE *pbData,
+        [in] DWORD dwFlags
+    );
+
+    HRESULT GetInfo(
+        [out] DWORD *pdwLength,
+        [out] BYTE **ppbData,
+        [out] DWORD *pcbActualData
+    );
+    HRESULT SetActual(
+        [in] DWORD cbDataValid
+    );
+}
+
+[
+object,
+local,
+uuid(54c719c0-af60-11d0-8212-00c04fc32c45),
+pointer_default(unique)
+]
+interface IAudioData : IMemoryData
+{
+    HRESULT GetFormat(
+        [out]  WAVEFORMATEX *pWaveFormatCurrent
+    );
+
+    HRESULT SetFormat(
+        [in] const WAVEFORMATEX *lpWaveFormat
+    );
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

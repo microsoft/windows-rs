@@ -1,0 +1,94 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstind.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+    LOCAL_INTERFACE(0c733a82-2a1c-11ce-ade5-00aa0044773d)
+
+    
+interface IRowsetIndex : IUnknown {
+
+typedef DWORD DBSEEK;
+
+enum DBSEEKENUM
+    {	DBSEEK_INVALID		= 0,
+	DBSEEK_FIRSTEQ		= 0x1,
+	DBSEEK_LASTEQ		= 0x2,
+	DBSEEK_AFTEREQ		= 0x4,
+	DBSEEK_AFTER		= 0x8,
+	DBSEEK_BEFOREEQ		= 0x10,
+	DBSEEK_BEFORE		= 0x20
+    };
+
+cpp_quote("#define	DBSEEK_GE	DBSEEK_AFTEREQ")
+cpp_quote("#define	DBSEEK_GT	DBSEEK_AFTER")
+cpp_quote("#define	DBSEEK_LE	DBSEEK_BEFOREEQ")
+cpp_quote("#define	DBSEEK_LT	DBSEEK_BEFORE")
+
+typedef DWORD DBRANGE;
+
+enum DBRANGEENUM {
+	DBRANGE_INCLUSIVESTART	= 0x00,
+	DBRANGE_INCLUSIVEEND	= 0x00,
+	DBRANGE_EXCLUSIVESTART	= 0x01,
+	DBRANGE_EXCLUSIVEEND	= 0x02,
+	DBRANGE_EXCLUDENULLS	= 0x04,
+	DBRANGE_PREFIX			= 0x08,
+	DBRANGE_MATCH			= 0x10,
+};
+
+cpp_quote("//@@@+ V2.0")
+cpp_quote("#if( OLEDBVER >= 0x0200 )")
+enum DBRANGEENUM20 {
+	DBRANGE_MATCH_N_SHIFT	= 0x18,
+	DBRANGE_MATCH_N_MASK	= 0xff,
+};
+cpp_quote("#endif // OLEDBVER >= 0x0200")
+cpp_quote("//@@@- V2.0")
+
+	HRESULT GetIndexInfo(
+		[in, out] DBORDINAL * pcKeyColumns,
+		[out, size_is(,*pcKeyColumns)] DBINDEXCOLUMNDESC ** prgIndexColumnDesc,
+		[in, out] ULONG * pcIndexPropertySets,
+		[out, size_is(,*pcIndexPropertySets)] DBPROPSET ** prgIndexPropertySets
+	);
+
+	HRESULT Seek(
+		[in] HACCESSOR hAccessor,
+		[in] DBORDINAL cKeyValues,
+		[in] void * pData,
+		[in] DBSEEK dwSeekOptions
+	);
+
+	HRESULT SetRange(
+		[in] HACCESSOR hAccessor,
+		[in] DBORDINAL cStartKeyColumns,
+		[in] void * pStartData,
+		[in] DBORDINAL cEndKeyColumns,
+		[in] void * pEndData,
+		[in] DBRANGE dwRangeOptions
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

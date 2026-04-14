@@ -1,0 +1,907 @@
+//////////////////////////////////////
+//        Imports
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+import "fsrm.idl";
+
+
+//////////////////////////////////////
+//        Forward declarations
+//
+
+interface IFsrmPropertyDefinition;
+interface IFsrmPropertyDefinition2;
+interface IFsrmPropertyDefinitionValue;
+interface IFsrmProperty;
+interface IFsrmRule;
+interface IFsrmClassificationRule;
+interface IFsrmPipelineModuleDefinition;
+interface IFsrmClassifierModuleDefinition;
+interface IFsrmStorageModuleDefinition;
+interface IFsrmClassificationManager;
+interface IFsrmClassificationManager2;
+interface IFsrmPropertyBag;
+interface IFsrmPipelineModuleImplementation;
+interface IFsrmClassifierModuleImplementation;
+interface IFsrmStorageModuleImplementation;
+interface IFsrmPipelineModuleConnector;
+
+
+//////////////////////////////////////
+//        Dispatch IDs
+//
+
+#define FSRM_PROPERTY(x) x | FSRM_DISPID_IS_PROPERTY
+
+// Dispatch ID base of classification interfaces
+const DISPID FSRM_DISPID_PROPERTY_DEFINITION            = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x100000;
+const DISPID FSRM_DISPID_PROPERTY_DEFINITION2           = FSRM_DISPID_PROPERTY_DEFINITION         | 0x010000;
+
+const DISPID FSRM_DISPID_PROPERTY                       = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x200000;
+
+const DISPID FSRM_DISPID_RULE                           = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x300000;
+const DISPID FSRM_DISPID_CLASSIFICATION_RULE            = FSRM_DISPID_RULE                        | 0x010000;
+const DISPID FSRM_DISPID_EXPIRATION_RULE                = FSRM_DISPID_RULE                        | 0x020000;
+
+const DISPID FSRM_DISPID_PIPELINE_MODULE_DEFINITION     = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x400000;
+const DISPID FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION   = FSRM_DISPID_PIPELINE_MODULE_DEFINITION  | 0x010000;
+const DISPID FSRM_DISPID_STORAGE_MODULE_DEFINITION      = FSRM_DISPID_PIPELINE_MODULE_DEFINITION  | 0x020000;
+
+const DISPID FSRM_DISPID_CLASSIFICATION_MANAGER         = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x500000;
+const DISPID FSRM_DISPID_CLASSIFICATION_MANAGER2        = FSRM_DISPID_CLASSIFICATION_MANAGER      | 0x010000;
+
+const DISPID FSRM_DISPID_CLASSIFICATION_EVENTS          = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x600000;
+
+const DISPID FSRM_DISPID_PROPERTY_DEFINITION_VALUE      = FSRM_DISPID_FEATURE_CLASSIFICATION      | 0x700000;
+
+// Dispatch ID base of pipeline interfaces
+const DISPID FSRM_DISPID_PROPERTY_BAG                       = FSRM_DISPID_FEATURE_PIPELINE                  | 0x100000;
+const DISPID FSRM_DISPID_PROPERTY_BAG2                      = FSRM_DISPID_PROPERTY_BAG                      | 0x010000;
+
+const DISPID FSRM_DISPID_PIPELINE_MODULE_IMPLEMENTATION     = FSRM_DISPID_FEATURE_PIPELINE                  | 0x200000;
+const DISPID FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION   = FSRM_DISPID_PIPELINE_MODULE_IMPLEMENTATION    | 0x010000;
+const DISPID FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION      = FSRM_DISPID_PIPELINE_MODULE_IMPLEMENTATION    | 0x020000;
+
+const DISPID FSRM_DISPID_PIPELINE_MODULE_CONNECTOR          = FSRM_DISPID_FEATURE_PIPELINE                  | 0x300000;
+
+
+
+//////////////////////////////////////
+//       Constants
+//
+
+const ULONG FsrmMaxNumberPropertyDefinitions = 100;
+
+
+//////////////////////////////////////
+//        Interfaces
+//
+
+[
+    object,
+    uuid(ede0150f-e9a3-419c-877c-01fe5d24c5d3),
+    dual,
+    helpstring("IFsrmPropertyDefinition Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPropertyDefinition : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x01)), helpstring("This property is the name of the property definition")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x01)), helpstring("This property is the name of the property definition")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x02)), helpstring("This property is the type of the property definition")]
+    HRESULT Type([out, retval] FsrmPropertyDefinitionType *type);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x02)), helpstring("This property is the type of the property definition")]
+    HRESULT Type([in] FsrmPropertyDefinitionType type);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x03)), helpstring("This property contains the possible values of the property definition")]
+    HRESULT PossibleValues([out, retval] SAFEARRAY(VARIANT) *possibleValues);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x03)), helpstring("This property contains the possible values of the property definition")]
+    HRESULT PossibleValues([in] SAFEARRAY(VARIANT) possibleValues);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x04)), helpstring("This property contains the descriptions of the possible values of the property definition")]
+    HRESULT ValueDescriptions([out, retval] SAFEARRAY(VARIANT) *valueDescriptions);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x04)), helpstring("This property contains the descriptions of the possible values of the property definition")]
+    HRESULT ValueDescriptions([in] SAFEARRAY(VARIANT) valueDescriptions);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x05)), helpstring("This property contains the parameters for the property definition")]
+    HRESULT Parameters([out, retval] SAFEARRAY(VARIANT) *parameters);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION | 0x05)), helpstring("This property contains the parameters for the property definition")]
+    HRESULT Parameters([in] SAFEARRAY(VARIANT) parameters);
+
+};
+
+
+[
+    object,
+    uuid(47782152-d16c-4229-b4e1-0ddfe308b9f6),
+    dual,
+    helpstring("IFsrmPropertyDefinition2 Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPropertyDefinition2 : IFsrmPropertyDefinition {
+
+    //
+    // Properties
+    //
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION2 | 0x01)), helpstring("This property contains the flags for the property definition")]
+    HRESULT PropertyDefinitionFlags([out, retval] long *propertyDefinitionFlags);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION2 | 0x02)), helpstring("This property is the display name of the property definition")]
+    HRESULT DisplayName([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION2 | 0x02)), helpstring("This property is the display name of the property definition")]
+    HRESULT DisplayName([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION2 | 0x03)), helpstring("This property contains the object types the property definition can apply to")]
+    HRESULT AppliesTo([out, retval] long *appliesTo);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION2 | 0x04)), helpstring("This property contains the possible value definitions of the property definition")]
+    HRESULT ValueDefinitions([out, retval] IFsrmCollection **valueDefinitions);
+};
+
+[
+    object,
+    uuid(E946D148-BD67-4178-8E22-1C44925ED710),
+    dual,
+    helpstring("IFsrmPropertyDefinitionValue Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPropertyDefinitionValue : IDispatch
+{
+    //
+    // Properties
+    //
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION_VALUE | 0x01)), helpstring("This property contains the name of the property definition value")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION_VALUE | 0x02)), helpstring("This property contains the display name of the property definition value")]
+    HRESULT DisplayName([out, retval] BSTR *displayName);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION_VALUE | 0x03)), helpstring("This property contains the description of the property definition value")]
+    HRESULT Description([out, retval] BSTR *description);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_DEFINITION_VALUE | 0x04)), helpstring("This property contains the unique ID of the property definition value")]
+    HRESULT UniqueID([out, retval] BSTR *uniqueID);
+};
+
+[
+    object,
+    uuid(4a73fee4-4102-4fcc-9ffb-38614f9ee768),
+    dual,
+    helpstring("IFsrmProperty Interface"),
+    pointer_default(unique)
+]
+interface IFsrmProperty : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY | 0x01)), helpstring("This property is the name of the property")]
+    HRESULT Name([out, retval] BSTR *name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY | 0x02)), helpstring("This property is the aggregated value of the property")]
+    HRESULT Value([out, retval] BSTR *value);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY | 0x03)), helpstring("This property contains the modules and rules that have set the value; entries are strings of the form MODULE,RULE")]
+    HRESULT Sources([out, retval] SAFEARRAY(VARIANT) *sources);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY | 0x04)), helpstring("This property contains the flags of the property")]
+    HRESULT PropertyFlags([out, retval] long *flags);
+
+};
+
+
+[
+    object,
+    uuid(cb0df960-16f5-4495-9079-3f9360d831df),
+    dual,
+    helpstring("IFsrmRule Interface"),
+    pointer_default(unique)
+]
+interface IFsrmRule : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x01)), helpstring("This property is the name of the rule")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x01)), helpstring("This property is the name of the rule")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x02)), helpstring("This property returns the type of the rule")]
+    HRESULT RuleType([out, retval] FsrmRuleType *ruleType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x03)), helpstring("This property is the name of the module definition on which the rule will run")]
+    HRESULT ModuleDefinitionName([out, retval] BSTR *moduleDefinitionName);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x03)), helpstring("This property is the name of the module definition on which the rule will run")]
+    HRESULT ModuleDefinitionName([in] BSTR moduleDefinitionName);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x04)), helpstring("This property contains the paths on which the rule will run")]
+    HRESULT NamespaceRoots([out, retval] SAFEARRAY(VARIANT) *namespaceRoots);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x04)), helpstring("This property contains the paths on which the rule will run")]
+    HRESULT NamespaceRoots([in] SAFEARRAY(VARIANT) namespaceRoots);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x05)), helpstring("This property contains the flags for the rules")]
+    HRESULT RuleFlags([out, retval] long *ruleFlags);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x05)), helpstring("This property contains the flags for the rules")]
+    HRESULT RuleFlags([in] long ruleFlags);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x06)), helpstring("This property contains the parameters for the rule")]
+    HRESULT Parameters([out, retval] SAFEARRAY(VARIANT) *parameters);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x06)), helpstring("This property contains the parameters for the rule")]
+    HRESULT Parameters([in] SAFEARRAY(VARIANT) parameters);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_RULE | 0x07)), helpstring("This property indicates the last time the rule was modified as a 64-bit FILETIME")]
+    HRESULT LastModified([out, retval] VARIANT *lastModified);
+
+};
+
+
+[
+    object,
+    uuid(afc052c2-5315-45ab-841b-c6db0e120148),
+    dual,
+    helpstring("IFsrmClassificationRule Interface"),
+    pointer_default(unique)
+]
+interface IFsrmClassificationRule : IFsrmRule
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_RULE | 0x01)), helpstring("This property indicates how often to execute the classification rule")]
+    HRESULT ExecutionOption([out, retval] FsrmExecutionOption *executionOption);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_RULE | 0x01)), helpstring("This property indicates how often to execute the classification rule")]
+    HRESULT ExecutionOption([in] FsrmExecutionOption executionOption);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_RULE | 0x02)), helpstring("This property is the property that this rule will potentially affect")]
+    HRESULT PropertyAffected([out, retval] BSTR *property);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_RULE | 0x02)), helpstring("This property is the property that this rule will potentially affect")]
+    HRESULT PropertyAffected([in] BSTR property);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_RULE | 0x03)), helpstring("This property is the value that this rule will set the property to, if explicitly defined")]
+    HRESULT Value([out, retval] BSTR *value);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_RULE | 0x03)), helpstring("This property is the value that this rule will set the property to, if explicitly defined")]
+    HRESULT Value([in] BSTR value);
+
+};
+
+
+[
+    object,
+    uuid(515c1277-2c81-440e-8fcf-367921ed4f59),
+    dual,
+    helpstring("IFsrmPipelineModuleDefinition Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPipelineModuleDefinition : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x01)), helpstring("This property is the string verison of the COM class ID of the module that is being defined")]
+    HRESULT ModuleClsid([out, retval] BSTR *moduleClsid);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x01)), helpstring("This property is the string verison of the COM class ID of the module that is being defined")]
+    HRESULT ModuleClsid([in] BSTR moduleClsid);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x02)), helpstring("This property is the name of the pipeline module definition")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x02)), helpstring("This property is the name of the pipeline module definition")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x03)), helpstring("This property is the company name of the pipeline module definition")]
+    HRESULT Company([out, retval] BSTR *company);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x03)), helpstring("This property is the company name of the pipeline module definition")]
+    HRESULT Company([in] BSTR company);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x04)), helpstring("This property is the version of the pipeline module definition")]
+    HRESULT Version([out, retval] BSTR *version);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x04)), helpstring("This property is the version of the pipeline module definition")]
+    HRESULT Version([in] BSTR version);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x05)), helpstring("This property is the type of the pipeline module")]
+    HRESULT ModuleType([out, retval] FsrmPipelineModuleType *moduleType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x06)), helpstring("This property determines if the module is enabled")]
+    HRESULT Enabled([out, retval] VARIANT_BOOL *enabled);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x06)), helpstring("This property determines if the module is enabled")]
+    HRESULT Enabled([in] VARIANT_BOOL enabled);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x07)), helpstring("This property determines if the module needs access to the content of the file")]
+    HRESULT NeedsFileContent([out, retval] VARIANT_BOOL *needsFileContent);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x07)), helpstring("This property determines if the module needs access to the content of the file")]
+    HRESULT NeedsFileContent([in] VARIANT_BOOL needsFileContent);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x08)), helpstring("This property is the account to use when running the classification module")]
+    HRESULT Account([out, retval] FsrmAccountType *retrievalAccount);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x08)), helpstring("This property is the account to use when running the classification module")]
+    HRESULT Account([in] FsrmAccountType retrievalAccount);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x09)), helpstring("This property is the list of file extensions this module supports")]
+    HRESULT SupportedExtensions([out, retval] SAFEARRAY(VARIANT) *supportedExtensions);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0x09)), helpstring("This property is the list of file extensions this module supports")]
+    HRESULT SupportedExtensions([in] SAFEARRAY(VARIANT) supportedExtensions);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0xA)), helpstring("This property contains the parameters for the pipeline module definition")]
+    HRESULT Parameters([out, retval] SAFEARRAY(VARIANT) *parameters);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_DEFINITION | 0xA)), helpstring("This property contains the parameters for the pipeline module definition")]
+    HRESULT Parameters([in] SAFEARRAY(VARIANT) parameters);
+
+};
+
+
+[
+    object,
+    uuid(bb36ea26-6318-4b8c-8592-f72dd602e7a5),
+    dual,
+    helpstring("IFsrmClassifierModuleDefinition Interface"),
+    pointer_default(unique)
+]
+interface IFsrmClassifierModuleDefinition : IFsrmPipelineModuleDefinition
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION | 0x01)), helpstring("This property contains the names of the properties potentially affected by this classifier")]
+    HRESULT PropertiesAffected([out, retval] SAFEARRAY(VARIANT) *propertiesAffected);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION | 0x01)), helpstring("This property contains the names of the properties potentially affected by this classifier")]
+    HRESULT PropertiesAffected([in] SAFEARRAY(VARIANT) propertiesAffected);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION | 0x02)), helpstring("This property contains the names of the properties potentially used by this classifier")]
+    HRESULT PropertiesUsed([out, retval] SAFEARRAY(VARIANT) *propertiesUsed);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION | 0x02)), helpstring("This property contains the names of the properties potentially used by this classifier")]
+    HRESULT PropertiesUsed([in] SAFEARRAY(VARIANT) propertiesUsed);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION | 0x03)), helpstring("This property determines if a rule using this classifier needs to provide an explicit value for the property being modified")]
+    HRESULT NeedsExplicitValue([out, retval] VARIANT_BOOL *needsExplicitValue);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_DEFINITION | 0x03)), helpstring("This property determines if a rule using this classifier needs to provide an explicit value for the property being modified")]
+    HRESULT NeedsExplicitValue([in] VARIANT_BOOL needsExplicitValue);
+
+};
+
+
+[
+    object,
+    uuid(15a81350-497d-4aba-80e9-d4dbcc5521fe),
+    dual,
+    helpstring("IFsrmStorageModuleDefinition Interface"),
+    pointer_default(unique)
+]
+interface IFsrmStorageModuleDefinition : IFsrmPipelineModuleDefinition
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_STORAGE_MODULE_DEFINITION | 0x01)), helpstring("This property is the bit field containing capabilities of the storage module")]
+    HRESULT Capabilities([out, retval] FsrmStorageModuleCaps *capabilities);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_STORAGE_MODULE_DEFINITION | 0x01)), helpstring("This property is the bit field containing capabilities of the storage module")]
+    HRESULT Capabilities([in] FsrmStorageModuleCaps capabilities);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_STORAGE_MODULE_DEFINITION | 0x02)), helpstring("This property is the type of storage for the storage module")]
+    HRESULT StorageType([out, retval] FsrmStorageModuleType *storageType);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_STORAGE_MODULE_DEFINITION | 0x02)), helpstring("This property is the type of storage for the storage module")]
+    HRESULT StorageType([in] FsrmStorageModuleType storageType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_STORAGE_MODULE_DEFINITION | 0x03)), helpstring("This property determines if the module updates the content of the file")]
+    HRESULT UpdatesFileContent([out, retval] VARIANT_BOOL *updatesFileContent);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_STORAGE_MODULE_DEFINITION | 0x03)), helpstring("This property determines if the module updates the content of the file")]
+    HRESULT UpdatesFileContent([in] VARIANT_BOOL updatesFileContent);
+
+};
+
+
+[
+    object,
+    uuid(d2dc89da-ee91-48a0-85d8-cc72a56f7d04),
+    dual,
+    helpstring("IFsrmClassificationManager Interface"),
+    pointer_default(unique)
+]
+interface IFsrmClassificationManager : IDispatch 
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x01)), helpstring("This property contains the formats in which to generate the classification reports")]
+    HRESULT ClassificationReportFormats([out, retval] SAFEARRAY(VARIANT) *formats);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x01)), helpstring("This property contains the formats in which to generate the classification reports")]
+    HRESULT ClassificationReportFormats([in] SAFEARRAY(VARIANT) formats);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x02)), helpstring("This property contains the types of logging that should be done for classificaiton")]
+    HRESULT Logging([out, retval] long *logging);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x02)), helpstring("This property contains the types of logging that should be done for classificaiton")]
+    HRESULT Logging([in] long logging);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x03)), helpstring("This property is the e-mail address to which to send the classification reports, if any")]
+    HRESULT ClassificationReportMailTo([out, retval] BSTR *mailTo);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x03)), helpstring("This property is the e-mail address to which to send the classification reports, if any")]
+    HRESULT ClassificationReportMailTo([in] BSTR mailTo);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x04)), helpstring("This property specifies whether report is enabled or not")]
+    HRESULT ClassificationReportEnabled([out, retval] VARIANT_BOOL *reportEnabled);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x04)), helpstring("This property specifies whether report is enabled or not")]
+    HRESULT ClassificationReportEnabled([in] VARIANT_BOOL reportEnabled);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x05)), helpstring("This property is the last classification report path without extension, if any")]
+    HRESULT ClassificationLastReportPathWithoutExtension([out, retval] BSTR *lastReportPath);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x06)), helpstring("This property is the last classification error, if any")]
+    HRESULT ClassificationLastError([out, retval] BSTR *lastError);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x07)), helpstring("This property is the classification running status")]
+    HRESULT ClassificationRunningStatus([out, retval] FsrmReportRunningStatus *runningStatus);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x01), helpstring("This method is used to enumerate property definitions")]
+    HRESULT EnumPropertyDefinitions(
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCollection **propertyDefinitions);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x02), helpstring("This method is used to create a new property definition")]
+    HRESULT CreatePropertyDefinition(
+                        [out, retval] IFsrmPropertyDefinition **propertyDefinition);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x03), helpstring("This method is used to get a property definition having a specific name")]
+    HRESULT GetPropertyDefinition(
+                        [in] BSTR propertyName,
+                        [out, retval] IFsrmPropertyDefinition **propertyDefinition);
+
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x04), helpstring("This method is used to enumerate rules of a specified type")]
+    HRESULT EnumRules(
+                        [in] FsrmRuleType ruleType,
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCollection **Rules);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x05), helpstring("This method is used to create a new rule of a specified type")]
+    HRESULT CreateRule(
+                        [in] FsrmRuleType ruleType,
+                        [out, retval] IFsrmRule **Rule);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x06), helpstring("This method is used to get a rule having a specific nameand a specified type")]
+    HRESULT GetRule(
+                        [in] BSTR ruleName,
+                        [in] FsrmRuleType ruleType,
+                        [out, retval] IFsrmRule **Rule);
+
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x07), helpstring("This method is used to enumerate module definitions of a specified type")]
+    HRESULT EnumModuleDefinitions(
+                        [in] FsrmPipelineModuleType moduleType,
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCollection **moduleDefinitions);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x08), helpstring("This method is used to create a new module definition of a specified type")]
+    HRESULT CreateModuleDefinition(
+                        [in] FsrmPipelineModuleType moduleType,
+                        [out, retval] IFsrmPipelineModuleDefinition**moduleDefinition);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x09), helpstring("This method is used to get a module definition having a specific name and a specified type")]
+    HRESULT GetModuleDefinition(
+                        [in] BSTR moduleName,
+                        [in] FsrmPipelineModuleType moduleType,
+                        [out, retval] IFsrmPipelineModuleDefinition**moduleDefinition);
+
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x0A), helpstring("This method is used to run the classification rules")]
+    HRESULT RunClassification(
+                        [in] FsrmReportGenerationContext context,
+                        [in] BSTR reserved);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x0B), helpstring("This method is used to wait for the specified period of time or until classification is finished running and return whether or not the job is still running")]
+    HRESULT WaitForClassificationCompletion(
+                        [in] long waitSeconds,
+                        [out, retval] VARIANT_BOOL *completed);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x0C), helpstring("This method cancels the currently running classification")]
+    HRESULT CancelClassification();
+
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x0D), helpstring("This method is used to enumerate all the properties of a file")]
+    HRESULT EnumFileProperties(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(FsrmGetFilePropertyOptions_None)] FsrmGetFilePropertyOptions options,
+                        [out, retval] IFsrmCollection **fileProperties);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x0E), helpstring("This method is used to get a specific property from a file")]
+    HRESULT GetFileProperty(
+                        [in] BSTR filePath,
+                        [in] BSTR propertyName,
+                        [in, defaultvalue(FsrmGetFilePropertyOptions_None)] FsrmGetFilePropertyOptions options,
+                        [out, retval] IFsrmProperty **property);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x0F), helpstring("This method is used to set a specific property from a file")]
+    HRESULT SetFileProperty(
+                        [in] BSTR filePath,
+                        [in] BSTR propertyName,
+                        [in] BSTR propertyValue);
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER | 0x10), helpstring("This method is used to clear the specified property from a file")]
+    HRESULT ClearFileProperty(
+                        [in] BSTR filePath,
+                        [in] BSTR property);
+
+};
+
+
+[
+    object,
+    uuid(0004c1c9-127e-4765-ba07-6a3147bca112),
+    dual,
+    helpstring("IFsrmClassificationManager2 Interface"),
+    pointer_default(unique)
+]
+interface IFsrmClassificationManager2 : IFsrmClassificationManager 
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_CLASSIFICATION_MANAGER2 | 0x01), helpstring("This method is used to perform bulk enumeration, setting, and clearing of file properties")]
+    HRESULT ClassifyFiles(
+                        [in] SAFEARRAY(VARIANT) filePaths,
+                        [in, unique] SAFEARRAY(VARIANT) propertyNames,
+                        [in, unique] SAFEARRAY(VARIANT) propertyValues,
+                        [in, defaultvalue(FsrmGetFilePropertyOptions_None)] FsrmGetFilePropertyOptions options);
+
+};
+
+
+//
+// Interfaces needed for pipeline module implementation
+//
+
+
+[
+    object,
+    uuid(774589d1-d300-4f7a-9a24-f7b766800250),
+    dual,
+    helpstring("IFsrmPropertyBag Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPropertyBag : IDispatch
+{
+
+    const long MessageSizeLimit = 4096;
+
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x01)), helpstring("This property is the name of the file")]
+    HRESULT Name([out, retval] BSTR *name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x02)), helpstring("This property is the relative path to the file")]
+    HRESULT RelativePath([out, retval] BSTR *path);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x03)), helpstring("This property is the name of the volume on which the file exists")]
+    HRESULT VolumeName([out, retval] BSTR *volumeName);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x04)), helpstring("This property is the relative path of the namespace root under which the file was scanned")]
+    HRESULT RelativeNamespaceRoot([out, retval] BSTR *relativeNamespaceRoot);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x05)), helpstring("This property is the index that the scanner uses to refer to the volume on which the file exists")]
+    HRESULT VolumeIndex([out, retval] unsigned long *volumeId);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x06)), helpstring("This property is the ID of the file")]
+    HRESULT FileId([out, retval] VARIANT *fileId);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x07)), helpstring("This property is the ID of the file's parent directory")]
+    HRESULT ParentDirectoryId([out, retval] VARIANT *parentDirectoryId);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x08)), helpstring("This property is the size of the file")]
+    HRESULT Size([out, retval] VARIANT *size);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x09)), helpstring("This property is the allocated size of the file")]
+    HRESULT SizeAllocated([out, retval] VARIANT *sizeAllocated);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x0A)), helpstring("This property is the creation time of the file as a 64-bit FILETIME")]
+    HRESULT CreationTime([out, retval] VARIANT *creationTime);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x0B)), helpstring("This property is the last access time of the file as a 64-bit FILETIME")]
+    HRESULT LastAccessTime([out, retval] VARIANT *lastAccessTime);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x0C)), helpstring("This property is the last modification time of the file as a 64-bit FILETIME")]
+    HRESULT LastModificationTime([out, retval] VARIANT *lastModificationTime);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x0D)), helpstring("This property is the attributes of the file")]
+    HRESULT Attributes([out, retval] unsigned long *attributes);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x0E)), helpstring("This property is the SID of the file owner")]
+    HRESULT OwnerSid([out, retval] BSTR *ownerSid);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x0F)), helpstring("This property contains a list of the names of the file metadata properties")]
+    HRESULT FilePropertyNames([out, retval] SAFEARRAY(VARIANT) *filePropertyNames);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x10)), helpstring("This property contains a list of all messages concerning classification of the file that were added")]
+    HRESULT Messages([out, retval] SAFEARRAY(VARIANT) *messages);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PROPERTY_BAG | 0x11)), helpstring("This property is a set of flags for the property bag")]
+    HRESULT PropertyBagFlags([out, retval] unsigned long *flags);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_PROPERTY_BAG | 0x01), helpstring("This method is used to get a file metadata property by name")]
+    HRESULT GetFileProperty(
+                        [in] BSTR name,
+                        [out, retval] IFsrmProperty **fileProperty);
+
+    [id(FSRM_DISPID_PROPERTY_BAG | 0x02), helpstring("This method is used to set a file metadata property")]
+    HRESULT SetFileProperty(
+                        [in] BSTR name,
+                        [in] BSTR value);
+
+    [id(FSRM_DISPID_PROPERTY_BAG | 0x03), helpstring("This method is used to add a message about the file")]
+    HRESULT AddMessage([in] BSTR message);
+
+    [id(FSRM_DISPID_PROPERTY_BAG | 0x04), helpstring("Gets a file stream interface to access the file content")]
+    HRESULT GetFileStreamInterface(
+                        [in] FsrmFileStreamingMode          accessMode,
+                        [in] FsrmFileStreamingInterfaceType interfaceType,
+                        [out, retval] VARIANT *             pStreamInterface
+                        );
+
+};
+
+
+[
+    object,
+    uuid(0e46bdbd-2402-4fed-9c30-9266e6eb2cc9),
+    dual,
+    helpstring("IFsrmPropertyBag2 Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPropertyBag2 : IFsrmPropertyBag
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_PROPERTY_BAG2 | 0x01), helpstring("Gets the value of the specified field from the property bag")]
+    HRESULT GetFieldValue(
+                        [in] FsrmPropertyBagField   field,
+                        [out, retval] VARIANT *     value
+                        );
+
+    [id(FSRM_DISPID_PROPERTY_BAG2 | 0x02), helpstring("Gets the set of untrusted in-file properties")]
+    HRESULT GetUntrustedInFileProperties(
+                        [out, retval] IFsrmCollection ** props
+                        );
+                        
+};
+
+
+[
+    object,
+    uuid(b7907906-2b02-4cb5-84a9-fdf54613d6cd),
+    dual,
+    helpstring("IFsrmPipelineModuleImplementation Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPipelineModuleImplementation : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_PIPELINE_MODULE_IMPLEMENTATION | 0x01), helpstring("This method is used to initialize the pipeline module")]
+    HRESULT OnLoad(
+                        [in] IFsrmPipelineModuleDefinition *moduleDefinition,
+                        [out] IFsrmPipelineModuleConnector **moduleConnector);
+
+    [id(FSRM_DISPID_PIPELINE_MODULE_IMPLEMENTATION | 0x02), helpstring("This method is used to tell the module to perform any cleanup tasks")]
+    HRESULT OnUnload();
+
+};
+
+
+[
+    object,
+    uuid(4c968fc6-6edb-4051-9c18-73b7291ae106),
+    dual,
+    helpstring("IFsrmClassifierModuleImplementation Interface"),
+    pointer_default(unique)
+]
+interface IFsrmClassifierModuleImplementation : IFsrmPipelineModuleImplementation
+{
+    cpp_quote("#define FsrmNeverModified  ((ULONGLONG) 0x0000000000000000ui64)")
+    cpp_quote("#define FsrmAlwaysModified ((ULONGLONG) 0xFFFFFFFFFFFFFFFFui64)")
+
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION | 0x01)), helpstring("This property contains the last time the classifier's internal rules were modified as a 64-bit FILETIME")]
+    HRESULT LastModified([out, retval] VARIANT *lastModified);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION | 0x01), helpstring("This method is used to tell the classifier the collection of rules and relevant property definitions it should expect to process")]
+    HRESULT UseRulesAndDefinitions(
+                        [in] IFsrmCollection *rules,
+                        [in] IFsrmCollection *propertyDefinitions);
+
+    [id(FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION | 0x02), helpstring("This method is used to tell the classifier to prepare for processing a file with the specified property bag")]
+    HRESULT OnBeginFile([in] IFsrmPropertyBag *propertyBag,
+			[in] SAFEARRAY(VARIANT) arrayRuleIds);
+
+    [id(FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION | 0x03), helpstring("This method is used to ask the classifier whether the specified property value applies to the file")]
+    HRESULT DoesPropertyValueApply(
+                        [in] BSTR property,
+                        [in] BSTR value,
+                        [out] VARIANT_BOOL *applyValue,
+                        [in] FSRM_OBJECT_ID idRule,
+                        [in] FSRM_OBJECT_ID idPropDef);
+
+    [id(FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION | 0x04), helpstring("This method is used to ask the classifier what value should be applied for the specified property of the file")]
+    HRESULT GetPropertyValueToApply(
+                        [in] BSTR property,
+                        [out] BSTR *value,
+                        [in] FSRM_OBJECT_ID idRule,
+                        [in] FSRM_OBJECT_ID idPropDef);
+
+    [id(FSRM_DISPID_CLASSIFIER_MODULE_IMPLEMENTATION | 0x05), helpstring("This method is used to tell the classifier to perform any cleanup after processing a file")]
+    HRESULT OnEndFile();
+
+};
+
+
+[
+    object,
+    uuid(0af4a0da-895a-4e50-8712-a96724bcec64),
+    dual,
+    helpstring("IFsrmStorageModuleImplementation Interface"),
+    pointer_default(unique)
+]
+interface IFsrmStorageModuleImplementation : IFsrmPipelineModuleImplementation
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION | 0x01), helpstring("This method is used to tell the storage module the collection property definitions FSRM recognizes")]
+    HRESULT UseDefinitions([in] IFsrmCollection *propertyDefinitions);
+
+    [id(FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION | 0x02), helpstring("This method is used to tell the storage module to load all properties")]
+    HRESULT LoadProperties([in] IFsrmPropertyBag *propertyBag);
+
+    [id(FSRM_DISPID_STORAGE_MODULE_IMPLEMENTATION | 0x03), helpstring("This method is used to tell the storage module to save all properties")]
+    HRESULT SaveProperties([in] IFsrmPropertyBag *propertyBag);
+
+};
+
+
+[
+    object,
+    uuid(c16014f3-9aa1-46b3-b0a7-ab146eb205f2),
+    dual,
+    helpstring("IFsrmPipelineModuleConnector Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPipelineModuleConnector : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_CONNECTOR | 0x01)), helpstring("Get the module implementation")]
+    HRESULT ModuleImplementation([out, retval] IFsrmPipelineModuleImplementation **pipelineModuleImplementation);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_CONNECTOR | 0x02)), helpstring("Get the module name")]
+    HRESULT ModuleName([out, retval] BSTR *userName);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_CONNECTOR | 0x03)), helpstring("Get the module hosting process user account")]
+    HRESULT HostingUserAccount([out, retval] BSTR *userAccount);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_PIPELINE_MODULE_CONNECTOR | 0x04)), helpstring("Get the module hosting process PID")]
+    HRESULT HostingProcessPid([out, retval] long *pid);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_PIPELINE_MODULE_CONNECTOR | 0x01), helpstring("This method is used to bind the pipeline module implementation")]
+    HRESULT Bind(
+                        [in] IFsrmPipelineModuleDefinition *moduleDefinition,
+                        [in] IFsrmPipelineModuleImplementation *moduleImplementation);
+
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

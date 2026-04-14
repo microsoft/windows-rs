@@ -1,0 +1,80 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdshpcm.idl
+//
+//    Abstract:
+//        declarations of interfaces that are exposed by hardware providers to
+//        the common layer, but not exposed through the common layer.
+//
+//        IVdsOwnershipChangeQuery is also implemented by service and exposed
+//        to software providers.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IVdsHwProviderPrivate;
+interface IVdsHwProviderPrivateMpio;
+
+//
+// IVdsHwProviderPrivate:
+// Implemented by: provider object
+// Implemented where: hardware providers
+// Accessed by: common layer
+//
+[
+    object,
+    uuid(98f17bf3-9f33-4f12-8714-8b4075092c2e),
+    pointer_default(unique)
+]
+
+interface IVdsHwProviderPrivate : IUnknown
+{
+    // QueryIfOwnLun:
+    //   This method tells the service if the provider owns the disk. The
+    //   service passes in the disk's device interface. If the method
+    //   returns S_OK, the provider owns this disk; otherwise, it returns
+    //   S_FALSE. The provider pass back the disk id to the service.
+    [helpstring("method QueryIfOwnLun")]
+    HRESULT QueryIfCreatedLun(
+                [in,string] LPWSTR pwszDevicePath,
+                [in] VDS_LUN_INFORMATION *pVdsLunInformation,
+                [out] VDS_OBJECT_ID *pLunId
+            );
+
+}
+
+
+//
+// IVdsHwProviderPrivateMpio:
+//   This interface is to add the ability to set HBA port status in a provider
+//   for a class implementing the IVdsHwProviderPrivate interface.  This is
+//   needed to support MPIO.
+// Implemented by: provider object
+// Implemented where: non-iSCSI hardware providers supporting MPIO
+// Accessed by: common layer
+//
+[
+    object,
+    uuid(310a7715-ac2b-4c6f-9827-3d742f351676),
+    pointer_default(unique)
+]
+
+interface IVdsHwProviderPrivateMpio : IUnknown
+{
+    [helpstring("method SetAllPathStatusesFromHbaPort")]
+    HRESULT SetAllPathStatusesFromHbaPort(
+                [in] VDS_HBAPORT_PROP hbaPortProp,
+                [in] VDS_PATH_STATUS status
+            );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

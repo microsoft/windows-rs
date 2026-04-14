@@ -1,0 +1,54 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			cmdpre.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a26-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface ICommandPrepare : IUnknown {
+
+	[local]
+	HRESULT Prepare(
+		[in] ULONG cExpectedRuns
+	);
+
+	[call_as(Prepare)]
+	HRESULT RemotePrepare(
+		[in] ULONG cExpectedRuns,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT Unprepare(
+	);
+
+	[call_as(Unprepare)]
+	HRESULT RemoteUnprepare(
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

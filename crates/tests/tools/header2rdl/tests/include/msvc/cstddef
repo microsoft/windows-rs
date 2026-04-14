@@ -1,0 +1,115 @@
+// cstddef standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CSTDDEF_
+#define _CSTDDEF_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <stddef.h>
+#include <xtr1common>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma push_macro("msvc")
+#pragma push_macro("intrinsic")
+#undef msvc
+#undef intrinsic
+
+_STD_BEGIN
+_EXPORT_STD using _CSTD ptrdiff_t;
+_EXPORT_STD using _CSTD size_t;
+_EXPORT_STD using max_align_t = double; // most aligned type
+_EXPORT_STD using nullptr_t   = decltype(nullptr);
+
+#ifdef __cpp_lib_byte
+_EXPORT_STD enum class byte : unsigned char {};
+
+_EXPORT_STD template <class _IntType, enable_if_t<is_integral_v<_IntType>, int> = 0>
+_NODISCARD constexpr byte operator<<(const byte _Arg, const _IntType _Shift) noexcept {
+    // every static_cast is intentional
+    return static_cast<byte>(static_cast<unsigned char>(static_cast<unsigned int>(_Arg) << _Shift));
+}
+
+_EXPORT_STD template <class _IntType, enable_if_t<is_integral_v<_IntType>, int> = 0>
+_NODISCARD constexpr byte operator>>(const byte _Arg, const _IntType _Shift) noexcept {
+    // every static_cast is intentional
+    return static_cast<byte>(static_cast<unsigned char>(static_cast<unsigned int>(_Arg) >> _Shift));
+}
+
+_EXPORT_STD _NODISCARD constexpr byte operator|(const byte _Left, const byte _Right) noexcept {
+    // every static_cast is intentional
+    return static_cast<byte>(
+        static_cast<unsigned char>(static_cast<unsigned int>(_Left) | static_cast<unsigned int>(_Right)));
+}
+
+_EXPORT_STD _NODISCARD constexpr byte operator&(const byte _Left, const byte _Right) noexcept {
+    // every static_cast is intentional
+    return static_cast<byte>(
+        static_cast<unsigned char>(static_cast<unsigned int>(_Left) & static_cast<unsigned int>(_Right)));
+}
+
+_EXPORT_STD _NODISCARD constexpr byte operator^(const byte _Left, const byte _Right) noexcept {
+    // every static_cast is intentional
+    return static_cast<byte>(
+        static_cast<unsigned char>(static_cast<unsigned int>(_Left) ^ static_cast<unsigned int>(_Right)));
+}
+
+_EXPORT_STD _NODISCARD constexpr byte operator~(const byte _Arg) noexcept {
+    // every static_cast is intentional
+    return static_cast<byte>(static_cast<unsigned char>(~static_cast<unsigned int>(_Arg)));
+}
+
+_EXPORT_STD template <class _IntType, enable_if_t<is_integral_v<_IntType>, int> = 0>
+constexpr byte& operator<<=(byte& _Arg, const _IntType _Shift) noexcept {
+    return _Arg = _Arg << _Shift;
+}
+
+_EXPORT_STD template <class _IntType, enable_if_t<is_integral_v<_IntType>, int> = 0>
+constexpr byte& operator>>=(byte& _Arg, const _IntType _Shift) noexcept {
+    return _Arg = _Arg >> _Shift;
+}
+
+_EXPORT_STD constexpr byte& operator|=(byte& _Left, const byte _Right) noexcept {
+    return _Left = _Left | _Right;
+}
+
+_EXPORT_STD constexpr byte& operator&=(byte& _Left, const byte _Right) noexcept {
+    return _Left = _Left & _Right;
+}
+
+_EXPORT_STD constexpr byte& operator^=(byte& _Left, const byte _Right) noexcept {
+    return _Left = _Left ^ _Right;
+}
+
+_EXPORT_STD template <class _IntType, enable_if_t<is_integral_v<_IntType>, int> = 0>
+_NODISCARD _MSVC_INTRINSIC constexpr _IntType to_integer(const byte _Arg) noexcept {
+    return static_cast<_IntType>(_Arg);
+}
+#endif // defined(__cpp_lib_byte)
+
+_STD_END
+
+_EXTERN_CXX_WORKAROUND
+using _STD max_align_t; // intentional, for historical reasons
+_END_EXTERN_CXX_WORKAROUND
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma pop_macro("intrinsic")
+#pragma pop_macro("msvc")
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CSTDDEF_

@@ -1,0 +1,2186 @@
+/*
+   Copyright (c) Microsoft Corporation
+
+   SYNOPSIS
+
+     Defines data types used by the management portion of the FWP API.
+*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or AppRuntime Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME)")
+
+import "fwptypes.idl";
+import "iketypes.idl";
+import "ipsectypes.idl";
+
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+
+//
+// Need a cleaner way to import DL_ADDRESS_TYPE into this space.
+//
+
+cpp_quote("#ifndef _DEFINE_DL_ADDRESS_TYPE_")
+cpp_quote("#define _DEFINE_DL_ADDRESS_TYPE_")
+//
+// DL_ADDRESS_TYPE
+//
+// Define datalink layer address types.
+//
+
+typedef [v1_enum] enum {
+    DlUnicast,
+    DlMulticast,
+    DlBroadcast
+} DL_ADDRESS_TYPE, *PDL_ADDRESS_TYPE;
+
+cpp_quote("#endif")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Common data types.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+// Used when dispatching change notifications to subscribers.
+typedef [v1_enum] enum FWPM_CHANGE_TYPE_
+{
+   FWPM_CHANGE_ADD = 1,
+   FWPM_CHANGE_DELETE,
+   FWPM_CHANGE_TYPE_MAX
+} FWPM_CHANGE_TYPE;
+
+// Flags used to indicate which notifications a subscriber wishes to receive.
+cpp_quote("#define FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD    (0x00000001)")
+cpp_quote("#define FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE (0x00000002)")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing the engine.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Service state.
+typedef enum FWPM_SERVICE_STATE_
+{
+   FWPM_SERVICE_STOPPED,
+   FWPM_SERVICE_START_PENDING,
+   FWPM_SERVICE_STOP_PENDING,
+   FWPM_SERVICE_RUNNING,
+   FWPM_SERVICE_STATE_MAX
+} FWPM_SERVICE_STATE;
+
+// Keywords used for finer control of net event collection.
+cpp_quote("#define FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST      (0x00000001)")
+cpp_quote("#define FWPM_NET_EVENT_KEYWORD_INBOUND_BCAST      (0x00000002)")
+cpp_quote("#define FWPM_NET_EVENT_KEYWORD_CAPABILITY_DROP    (0x00000004)")
+cpp_quote("#define FWPM_NET_EVENT_KEYWORD_CAPABILITY_ALLOW   (0x00000008)")
+cpp_quote("#define FWPM_NET_EVENT_KEYWORD_CLASSIFY_ALLOW     (0x00000010)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("#define FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP (0x00000020)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+
+cpp_quote("#define FWPM_ENGINE_OPTION_PACKET_QUEUE_NONE (0x00000000)")
+cpp_quote("#define FWPM_ENGINE_OPTION_PACKET_QUEUE_INBOUND (0x00000001)")
+cpp_quote("#define FWPM_ENGINE_OPTION_PACKET_QUEUE_FORWARD (0x00000002)")
+cpp_quote("#define FWPM_ENGINE_OPTION_PACKET_BATCH_INBOUND (0x00000004)")
+
+
+// Configurable options for the filter engine.
+typedef enum FWPM_ENGINE_OPTION_
+{
+   // FWP_UINT32 - if non-zero, FWPM_NET_EVENT0s will be collected.
+   FWPM_ENGINE_COLLECT_NET_EVENTS,
+   // FWP_UINT32 - enables collection of FWPM_NET_EVENT0s with any of the given
+   // keywords.
+   FWPM_ENGINE_NET_EVENT_MATCH_ANY_KEYWORDS,
+   // FWP_UINT32 - enables name caching
+   FWPM_ENGINE_NAME_CACHE,
+   // FWP_UINT32 - if non-zero ipsec connections are tracked Returns enabled if
+   // the operational log is enabled.
+   FWPM_ENGINE_MONITOR_IPSEC_CONNECTIONS,
+   // FWP_UINT32 - flags
+   FWPM_ENGINE_PACKET_QUEUING,
+   // FWP_UINT32 - transactions lasting longer than this time will trigger a
+   // watchdog event
+   FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC,
+   // Not a valid option -- used for parameter validation only.
+   FWPM_ENGINE_OPTION_MAX
+} FWPM_ENGINE_OPTION;
+
+// When this flag is set, any objects added during the session are
+// automatically deleted when the session ends.
+cpp_quote("#define FWPM_SESSION_FLAG_DYNAMIC (0x00000001)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Reserved for system use
+cpp_quote("#define FWPM_SESSION_FLAG_RESERVED (0x10000000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Stores the state associated with a client session.
+typedef struct FWPM_SESSION0_
+{
+   // Information supplied when creating a session.
+
+   // Uniquely identifies the session. If the GUID is zero-initialized in the
+   // call to Add, BFE will generate one.
+   GUID sessionKey;
+   // Allows sessions to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Time in msec that client will wait to begin a transaction. If zero, a
+   // default timeout will be used.
+   UINT32 txnWaitTimeoutInMSec;
+
+   // Additional information returned when getting/enumerating sessions.
+
+   // Process ID of the client.
+   DWORD processId;
+   // SID of the client.
+   [unique] SID* sid;
+   // Username of the client.
+   [string, unique] wchar_t* username;
+   // TRUE if this is a kernel-mode client.
+   BOOL kernelMode;
+} FWPM_SESSION0;
+
+// Used for enumerating sessions. Currently, there is no way to limit the
+// enumeration -- all sessions are returned.
+typedef struct FWPM_SESSION_ENUM_TEMPLATE0_
+{
+   // Reserved for system use.
+   UINT64 reserved;
+} FWPM_SESSION_ENUM_TEMPLATE0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing providers.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Object is persistent, i.e., it survives across BFE stop/start.
+cpp_quote("#define FWPM_PROVIDER_FLAG_PERSISTENT  (0x00000001)")
+// Provider's filters were disabled at BFE start because the associated Windows
+// service wasn't set to auto start. This flag is ignored when adding new
+// providers.
+cpp_quote("#define FWPM_PROVIDER_FLAG_DISABLED    (0x00000010)")
+
+// Stores the state associated with a policy provider.
+typedef struct FWPM_PROVIDER0_
+{
+   // Uniquely identifies the provider. If the GUID is zero-initialized in the
+   // call to Add, BFE will generate one.
+   GUID providerKey;
+   // Allows providers to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Optional name of the Windows service hosting the provider. This allows
+   // BFE to detect that a provider has been disabled.
+   [string, unique] wchar_t* serviceName;
+} FWPM_PROVIDER0;
+
+// Used for enumerating providers. Currently, there is no way to limit the
+// enumeration -- all providers are returned.
+typedef struct FWPM_PROVIDER_ENUM_TEMPLATE0_
+{
+   // Reserved for system use.
+   UINT64 reserved;
+} FWPM_PROVIDER_ENUM_TEMPLATE0;
+
+// Change notification dispatched to subscribers.
+typedef struct FWPM_PROVIDER_CHANGE0_
+{
+   // Type of change.
+   FWPM_CHANGE_TYPE changeType;
+   // GUID of the provider that changed.
+   GUID providerKey;
+} FWPM_PROVIDER_CHANGE0;
+
+// Used to subscribe for change notifications.
+typedef struct FWPM_PROVIDER_SUBSCRIPTION0_
+{
+   // Information supplied when subscribing.
+
+   // Notifications are only dispatched for objects that match the template. If
+   // the template is NULL, it matches all objects.
+   [unique] FWPM_PROVIDER_ENUM_TEMPLATE0* enumTemplate;
+   // Flags -- see FWPM_SUBSCRIPTION_FLAG_XXX above.
+   UINT32 flags;
+
+   // Additional information returned when getting subscriptions.
+
+   // Owning session.
+   GUID sessionKey;
+} FWPM_PROVIDER_SUBSCRIPTION0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing provider contexts.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Object is persistent, i.e., it survives across BFE stop/start.
+cpp_quote("#define FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT  (0x00000001)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#define FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL  (0x00000002)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+typedef struct FWPM_CLASSIFY_OPTION0_
+{
+   FWP_CLASSIFY_OPTION_TYPE type;
+   FWP_VALUE0 value;
+} FWPM_CLASSIFY_OPTION0;
+
+typedef struct FWPM_CLASSIFY_OPTIONS0_
+{
+   UINT32 numOptions;
+   [size_is(numOptions), ref] FWPM_CLASSIFY_OPTION0* options;
+} FWPM_CLASSIFY_OPTIONS0;
+
+typedef struct FWPM_NETWORK_CONNECTION_POLICY_SETTING0_
+{
+    FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE type;
+    FWP_VALUE0 value;
+} FWPM_NETWORK_CONNECTION_POLICY_SETTING0;
+
+typedef struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0_
+{
+    UINT32 numSettings;
+    [size_is(numSettings), ref] FWPM_NETWORK_CONNECTION_POLICY_SETTING0* settings;
+} FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0;
+
+// Types of provider contexts that may be stored in BFE.
+// FWPM_NETWORK_CONNECTION_POLICY_CONTEXT was added in NTDDI_WIN10_NI, but cpp_quote doesn't
+// work in the middle of structs.
+typedef [v1_enum] enum FWPM_PROVIDER_CONTEXT_TYPE_
+{
+   FWPM_IPSEC_KEYING_CONTEXT,
+   FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT,
+   FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT,
+   FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT,
+   FWPM_IPSEC_AUTHIP_QM_TUNNEL_CONTEXT,
+   FWPM_IPSEC_IKE_MM_CONTEXT,
+   FWPM_IPSEC_AUTHIP_MM_CONTEXT,
+   FWPM_CLASSIFY_OPTIONS_CONTEXT,
+   FWPM_GENERAL_CONTEXT,
+   FWPM_IPSEC_IKEV2_QM_TUNNEL_CONTEXT,
+   FWPM_IPSEC_IKEV2_MM_CONTEXT,
+   FWPM_IPSEC_DOSP_CONTEXT,
+   FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT,
+   FWPM_NETWORK_CONNECTION_POLICY_CONTEXT,
+   FWPM_PROVIDER_CONTEXT_TYPE_MAX
+} FWPM_PROVIDER_CONTEXT_TYPE;
+
+// Stores the state associated with a provider context.
+typedef struct FWPM_PROVIDER_CONTEXT0_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the provider context. If the GUID is zero-initialized
+   // in the call to Add, BFE will generate one.
+   GUID providerContextKey;
+   // Allows provider contexts to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Tagged union containing the provider-specific data.
+   FWPM_PROVIDER_CONTEXT_TYPE type;
+   [switch_type(FWPM_PROVIDER_CONTEXT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_IPSEC_KEYING_CONTEXT)]
+         [unique] IPSEC_KEYING_POLICY0* keyingPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY0* ikeQmTransportPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY0* ikeQmTunnelPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY0* authipQmTransportPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY0* authipQmTunnelPolicy;
+      [case(FWPM_IPSEC_IKE_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY0* ikeMmPolicy;
+      [case(FWPM_IPSEC_AUTHIP_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY0* authIpMmPolicy;
+      [case(FWPM_GENERAL_CONTEXT)]
+         [unique] FWP_BYTE_BLOB* dataBuffer;
+      [case(FWPM_CLASSIFY_OPTIONS_CONTEXT)]
+         [unique] FWPM_CLASSIFY_OPTIONS0* classifyOptions;
+      [default];
+   };
+   // Additional information returned when getting/enumerating objects.
+
+   // LUID identifying the context. This is the context value stored in the
+   // FWPS_FILTER for filters that reference a provider context.
+   UINT64 providerContextId;
+} FWPM_PROVIDER_CONTEXT0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type that stores the state associated with a provider context.
+typedef struct FWPM_PROVIDER_CONTEXT1_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the provider context. If the GUID is zero-initialized
+   // in the call to Add, BFE will generate one.
+   GUID providerContextKey;
+   // Allows provider contexts to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Tagged union containing the provider-specific data.
+   FWPM_PROVIDER_CONTEXT_TYPE type;
+   [switch_type(FWPM_PROVIDER_CONTEXT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_IPSEC_KEYING_CONTEXT)]
+         [unique] IPSEC_KEYING_POLICY0* keyingPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY1* ikeQmTransportPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY1* ikeQmTunnelPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY1* authipQmTransportPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY1* authipQmTunnelPolicy;
+      [case(FWPM_IPSEC_IKE_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY1* ikeMmPolicy;
+      [case(FWPM_IPSEC_AUTHIP_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY1* authIpMmPolicy;
+      [case(FWPM_GENERAL_CONTEXT)]
+         [unique] FWP_BYTE_BLOB* dataBuffer;
+      [case(FWPM_CLASSIFY_OPTIONS_CONTEXT)]
+         [unique] FWPM_CLASSIFY_OPTIONS0* classifyOptions;
+      [case(FWPM_IPSEC_IKEV2_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY1* ikeV2QmTunnelPolicy;
+      [case(FWPM_IPSEC_IKEV2_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY1* ikeV2MmPolicy;
+      [case(FWPM_IPSEC_DOSP_CONTEXT)]
+         [unique] IPSEC_DOSP_OPTIONS0* idpOptions;
+   };
+   // Additional information returned when getting/enumerating objects.
+
+   // LUID identifying the context. This is the context value stored in the
+   // FWPS_FILTER for filters that reference a provider context.
+   UINT64 providerContextId;
+} FWPM_PROVIDER_CONTEXT1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-2 of type that stores the state associated with a provider context.
+typedef struct FWPM_PROVIDER_CONTEXT2_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the provider context. If the GUID is zero-initialized
+   // in the call to Add, BFE will generate one.
+   GUID providerContextKey;
+   // Allows provider contexts to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Tagged union containing the provider-specific data.
+   FWPM_PROVIDER_CONTEXT_TYPE type;
+   [switch_type(FWPM_PROVIDER_CONTEXT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_IPSEC_KEYING_CONTEXT)]
+         [unique] IPSEC_KEYING_POLICY1* keyingPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY2* ikeQmTransportPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY2* ikeQmTunnelPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY2* authipQmTransportPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY2* authipQmTunnelPolicy;
+      [case(FWPM_IPSEC_IKE_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY2* ikeMmPolicy;
+      [case(FWPM_IPSEC_AUTHIP_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY2* authIpMmPolicy;
+      [case(FWPM_GENERAL_CONTEXT)]
+         [unique] FWP_BYTE_BLOB* dataBuffer;
+      [case(FWPM_CLASSIFY_OPTIONS_CONTEXT)]
+         [unique] FWPM_CLASSIFY_OPTIONS0* classifyOptions;
+      [case(FWPM_IPSEC_IKEV2_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY2* ikeV2QmTunnelPolicy;
+      [case(FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY2* ikeV2QmTransportPolicy;
+      [case(FWPM_IPSEC_IKEV2_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY2* ikeV2MmPolicy;
+      [case(FWPM_IPSEC_DOSP_CONTEXT)]
+         [unique] IPSEC_DOSP_OPTIONS0* idpOptions;
+   };
+   // Additional information returned when getting/enumerating objects.
+
+   // LUID identifying the context. This is the context value stored in the
+   // FWPS_FILTER for filters that reference a provider context.
+   UINT64 providerContextId;
+} FWPM_PROVIDER_CONTEXT2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+// Version-3 of type that stores the state associated with a provider context.
+typedef struct FWPM_PROVIDER_CONTEXT3_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the provider context. If the GUID is zero-initialized
+   // in the call to Add, BFE will generate one.
+   GUID providerContextKey;
+   // Allows provider contexts to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Tagged union containing the provider-specific data.
+   FWPM_PROVIDER_CONTEXT_TYPE type;
+
+   [switch_type(FWPM_PROVIDER_CONTEXT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_IPSEC_KEYING_CONTEXT)]
+         [unique] IPSEC_KEYING_POLICY1* keyingPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY2* ikeQmTransportPolicy;
+      [case(FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY3* ikeQmTunnelPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY2* authipQmTransportPolicy;
+      [case(FWPM_IPSEC_AUTHIP_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY3* authipQmTunnelPolicy;
+      [case(FWPM_IPSEC_IKE_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY2* ikeMmPolicy;
+      [case(FWPM_IPSEC_AUTHIP_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY2* authIpMmPolicy;
+      [case(FWPM_GENERAL_CONTEXT)]
+         [unique] FWP_BYTE_BLOB* dataBuffer;
+      [case(FWPM_CLASSIFY_OPTIONS_CONTEXT)]
+         [unique] FWPM_CLASSIFY_OPTIONS0* classifyOptions;
+      [case(FWPM_IPSEC_IKEV2_QM_TUNNEL_CONTEXT)]
+         [unique] IPSEC_TUNNEL_POLICY3* ikeV2QmTunnelPolicy;
+      [case(FWPM_IPSEC_IKEV2_QM_TRANSPORT_CONTEXT)]
+         [unique] IPSEC_TRANSPORT_POLICY2* ikeV2QmTransportPolicy;
+      [case(FWPM_IPSEC_IKEV2_MM_CONTEXT)]
+         [unique] IKEEXT_POLICY2* ikeV2MmPolicy;
+      [case(FWPM_IPSEC_DOSP_CONTEXT)]
+         [unique] IPSEC_DOSP_OPTIONS0* idpOptions;
+      [case(FWPM_NETWORK_CONNECTION_POLICY_CONTEXT)]
+         [unique] FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0* networkConnectionPolicy;
+   };
+   // Additional information returned when getting/enumerating objects.
+
+   // LUID identifying the context. This is the context value stored in the
+   // FWPS_FILTER for filters that reference a provider context.
+   UINT64 providerContextId;
+} FWPM_PROVIDER_CONTEXT3;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+
+
+// Used for enumerating provider contexts.
+typedef struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0_
+{
+   // If non-null, only objects associated with the specified provider will be
+   // returned.
+   [unique] GUID* providerKey;
+   // Only return provider contexts of the specified type.
+   FWPM_PROVIDER_CONTEXT_TYPE providerContextType;
+} FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0;
+
+// Change notification dispatched to subscribers.
+typedef struct FWPM_PROVIDER_CONTEXT_CHANGE0_
+{
+   // Type of change.
+   FWPM_CHANGE_TYPE changeType;
+   // GUID of the provider context that changed.
+   GUID providerContextKey;
+   // LUID of the provider context that changed.
+   UINT64 providerContextId;
+} FWPM_PROVIDER_CONTEXT_CHANGE0;
+
+// Used to subscribe for change notifications.
+typedef struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0_
+{
+   // Information supplied when subscribing.
+
+   // Notifications are only dispatched for objects that match the template. If
+   // the template is NULL, it matches all objects.
+   [unique] FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0* enumTemplate;
+   // Flags -- see FWPM_SUBSCRIPTION_FLAG_XXX above.
+   UINT32 flags;
+
+   // Additional information returned when getting subscriptions.
+
+   // Owning session.
+   GUID sessionKey;
+} FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing sublayers.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Object is persistent, i.e., it survives across BFE stop/start.
+cpp_quote("#define FWPM_SUBLAYER_FLAG_PERSISTENT       (0x00000001)")
+
+// Stores the state associated with a sublayer.
+typedef struct FWPM_SUBLAYER0_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the sublayer. If the GUID is zero-initialized in the
+   // call to Add, BFE will generate one.
+   GUID subLayerKey;
+   // Allows sublayers to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Weight of the sublayer. Higher weighted sublayers are invoked first.
+   UINT16 weight;
+} FWPM_SUBLAYER0;
+
+// Used for enumerating sublayers.
+typedef struct FWPM_SUBLAYER_ENUM_TEMPLATE0_
+{
+   // If non-null, only objects associated with the specified provider will be
+   // returned.
+   [unique] GUID* providerKey;
+} FWPM_SUBLAYER_ENUM_TEMPLATE0;
+
+// Change notification dispatched to subscribers.
+typedef struct FWPM_SUBLAYER_CHANGE0_
+{
+   // Type of change.
+   FWPM_CHANGE_TYPE changeType;
+   // GUID of the sublayer that changed.
+   GUID subLayerKey;
+} FWPM_SUBLAYER_CHANGE0;
+
+// Used to subscribe for change notifications.
+typedef struct FWPM_SUBLAYER_SUBSCRIPTION0_
+{
+   // Information supplied when subscribing.
+
+   // Notifications are only dispatched for objects that match the template. If
+   // the template is NULL, it matches all objects.
+   [unique] FWPM_SUBLAYER_ENUM_TEMPLATE0* enumTemplate;
+   // Flags -- see FWPM_SUBSCRIPTION_FLAG_XXX above.
+   UINT32 flags;
+
+   // Additional information returned when getting subscriptions.
+
+   // Owning session.
+   GUID sessionKey;
+} FWPM_SUBLAYER_SUBSCRIPTION0;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing layers.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+//////////
+// Flags specifying layer characteristics.
+//////////
+
+// The layer is classified in kernel-mode.
+cpp_quote("#define FWPM_LAYER_FLAG_KERNEL           (0x00000001)")
+// The layer is built-in and can't be deleted.
+cpp_quote("#define FWPM_LAYER_FLAG_BUILTIN          (0x00000002)")
+// The layer is optimized for classification as opposed to enumeration.
+cpp_quote("#define FWPM_LAYER_FLAG_CLASSIFY_MOSTLY  (0x00000004)")
+// The layer is buffered.
+cpp_quote("#define FWPM_LAYER_FLAG_BUFFERED         (0x00000008)")
+
+// Provides additional information about how the field's data should be
+// interpreted.
+typedef [v1_enum] enum FWPM_FIELD_TYPE_
+{
+   // Value contains plain old data.
+   FWPM_FIELD_RAW_DATA,
+   // Value contains an IP address.
+   FWPM_FIELD_IP_ADDRESS,
+   // Value contains flags.
+   FWPM_FIELD_FLAGS,
+   FWPM_FIELD_TYPE_MAX
+} FWPM_FIELD_TYPE;
+
+// Schema information for a field.
+typedef struct FWPM_FIELD0_
+{
+   // Uniquely identifies the field.
+   [ref] GUID* fieldKey;
+   // Determines how dataType is interpreted.
+   FWPM_FIELD_TYPE type;
+   // Data type passed to classify.
+   FWP_DATA_TYPE dataType;
+} FWPM_FIELD0;
+
+// Schema information for a layer.
+typedef struct FWPM_LAYER0_
+{
+   // Uniquely identifies the layer.
+   GUID layerKey;
+   // Allows layers to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Number of fields in the layer.
+   UINT32 numFields;
+   // Schema information for the layer's fields.
+   [size_is(numFields), ref] FWPM_FIELD0* field;
+   // Sub-layer used when a filter is added with a null sublayer.
+   GUID defaultSubLayerKey;
+   // LUID identifying the layer.
+   UINT16 layerId;
+} FWPM_LAYER0;
+
+// Used for enumerating layers. Currently, there is no way to limit the
+// enumeration -- all layers are returned.
+typedef struct FWPM_LAYER_ENUM_TEMPLATE0_
+{
+   // Reserved for system use.
+   UINT64 reserved;
+} FWPM_LAYER_ENUM_TEMPLATE0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing callouts.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Object is persistent, i.e., it survives across BFE stop/start.
+cpp_quote("#define FWPM_CALLOUT_FLAG_PERSISTENT             (0x00010000)")
+// The callout needs access to the provider context stored in the filter
+// invoking the callout. If this flag is set, the provider context will be
+// copied from the FWPM_FILTER to the FWPS_FILTER struct.
+cpp_quote("#define FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT  (0x00020000)")
+// Callout is currently registered in kernel.  This flag must not be set when
+// adding new callouts. It is only used when querying the state of existing
+// callouts.
+cpp_quote("#define FWPM_CALLOUT_FLAG_REGISTERED             (0x00040000)")
+
+// Stores the state associated with a callout.
+typedef struct FWPM_CALLOUT0_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the session. If the GUID is zero-initialized in the
+   // call to Add, BFE will generate one.
+   GUID calloutKey;
+   // Allows callouts to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // Only filters in this layer are allowed to invoke the callout.
+   GUID applicableLayer;
+
+   // Additional information returned when getting/enumerating objects.
+
+   // LUID identifying the callout. This is the calloutId stored in the
+   // FWPS_ACTION0 for filters that invoke a callout.
+   UINT32 calloutId;
+} FWPM_CALLOUT0;
+
+// Used for enumerating callouts.
+typedef struct FWPM_CALLOUT_ENUM_TEMPLATE0_
+{
+   // If non-null, only objects associated with the specified provider will be
+   // returned.
+   [unique] GUID* providerKey;
+   // Only return callouts from the specified layer.
+   GUID layerKey;
+} FWPM_CALLOUT_ENUM_TEMPLATE0;
+
+// Change notification dispatched to subscribers.
+typedef struct FWPM_CALLOUT_CHANGE0_
+{
+   // Type of change.
+   FWPM_CHANGE_TYPE changeType;
+   // GUID of the callout that changed.
+   GUID calloutKey;
+   // LUID of the callout that changed.
+   UINT32 calloutId;
+} FWPM_CALLOUT_CHANGE0;
+
+// Used to subscribe for change notifications.
+typedef struct FWPM_CALLOUT_SUBSCRIPTION0_
+{
+   // Information supplied when subscribing.
+
+   // Notifications are only dispatched for objects that match the template. If
+   // the template is NULL, it matches all objects.
+   [unique] FWPM_CALLOUT_ENUM_TEMPLATE0* enumTemplate;
+   // Flags -- see FWPM_SUBSCRIPTION_FLAG_XXX above.
+   UINT32 flags;
+
+   // Additional information returned when getting subscriptions.
+
+   // Owning session.
+   GUID sessionKey;
+} FWPM_CALLOUT_SUBSCRIPTION0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for managing filters.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// The macro is repeated here, so that MIDL has access.
+#define FWP_ACTION_FLAG_CALLOUT         (0x00004000)
+
+// Action taken if all the filter conditions are true.
+typedef struct FWPM_ACTION0_
+{
+   // Action type.
+   FWP_ACTION_TYPE type;
+   // If the action invokes a callout, calloutKey must contain the GUID for a
+   // valid callout in the layer. Otherwise, the filterType may contain an
+   // arbitrary GUID chosen by the policy provider.
+   [switch_is(type & FWP_ACTION_FLAG_CALLOUT)]
+   union
+   {
+       [case(0)]
+       GUID filterType;
+       [case(FWP_ACTION_FLAG_CALLOUT)]
+       GUID calloutKey;
+   };
+
+} FWPM_ACTION0;
+
+// Expresses a filter condition that must be true for the action to be taken.
+typedef struct FWPM_FILTER_CONDITION0_
+{
+   // GUID of the field to be tested.
+   GUID fieldKey;
+   // Type of match to be performed.
+   FWP_MATCH_TYPE matchType;
+   // Value to match the field against.
+   FWP_CONDITION_VALUE0 conditionValue;
+} FWPM_FILTER_CONDITION0;
+
+//////////
+// Flags specificying filter characteristics.
+//////////
+
+// Default.
+cpp_quote("#define FWPM_FILTER_FLAG_NONE (0x00000000)")
+// Filter is persistent, i.e., it survives across BFE stop/start.
+cpp_quote("#define FWPM_FILTER_FLAG_PERSISTENT (0x00000001)")
+// Filter is enforced at boot-time, even before BFE starts.
+cpp_quote("#define FWPM_FILTER_FLAG_BOOTTIME (0x00000002)")
+// The filter references a provider context.
+cpp_quote("#define FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT  (0x00000004)")
+// Macro is also needed by MIDL.
+#define FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT  (0x00000004)
+// Clear action right
+cpp_quote("#define FWPM_FILTER_FLAG_CLEAR_ACTION_RIGHT (0x00000008)")
+// If the callout isn't registered, the filter is treated as a permit filter.
+// Only allowed if the action type is FWP_ACTION_CALLOUT_TERMINATING or
+// FWP_ACTION_CALLOUT_UNKNOWN.
+cpp_quote("#define FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED (0x00000010)")
+// Persistent filter was disabled at BFE start because the associated Windows
+// service wasn't set to auto start.
+cpp_quote("#define FWPM_FILTER_FLAG_DISABLED (0x00000020)")
+// BFE has indexed the filter for fast run-time lookup.
+cpp_quote("#define FWPM_FILTER_FLAG_INDEXED (0x00000040)")
+// The filter references a provider context for IPsec security realm Id
+cpp_quote("#define FWPM_FILTER_FLAG_HAS_SECURITY_REALM_PROVIDER_CONTEXT (0x00000080)")
+// The filter is exclusive to system OS only
+cpp_quote("#define FWPM_FILTER_FLAG_SYSTEMOS_ONLY (0x00000100)")
+// The filter is exclusive to Xbox game OS only
+cpp_quote("#define FWPM_FILTER_FLAG_GAMEOS_ONLY (0x00000200)")
+// The filter is in silent mode
+cpp_quote("#define FWPM_FILTER_FLAG_SILENT_MODE (0x00000400)")
+// (used for s2s IPsec tunnel policies)
+// Do not initiate IPsec acquire, if packet matches a IPsec policy from a filter with this flag
+cpp_quote("#define FWPM_FILTER_FLAG_IPSEC_NO_ACQUIRE_INITIATE   (0x00000800)")
+// The flag is reserved
+cpp_quote("#define FWPM_FILTER_FLAG_RESERVED0   (0x00001000)")
+// The flag is reserved
+cpp_quote("#define FWPM_FILTER_FLAG_RESERVED1   (0x00002000)")
+// The flag is reserved
+cpp_quote("#define FWPM_FILTER_FLAG_RESERVED2   (0x00004000)")
+
+
+
+
+// Stores the state associated with a filter.
+typedef struct FWPM_FILTER0_
+{
+   // Information supplied when adding objects.
+
+   // Uniquely identifies the filter. If the GUID is zero-initialized in the
+   // call to Add, BFE will generate one.
+   GUID filterKey;
+   // Allows filters to be annotated in a human-readable form.
+   FWPM_DISPLAY_DATA0 displayData;
+   // Flags
+   UINT32 flags;
+   // Optional GUID of the policy provider that manages this object.
+   [unique] GUID* providerKey;
+   // Optional provider-specific data; allows providers to store additional
+   // context info with the object.
+   FWP_BYTE_BLOB providerData;
+   // GUID of the layer where the filter resides.
+   GUID layerKey;
+   // GUID of the sublayer where the filter resides. If this is set to
+   // IID_NULL, the filter is added to the default sublayer.
+   GUID subLayerKey;
+   // Weight of the filter. This must be either of type FWP_UINT64 or
+   // FWP_EMPTY. If empty, BFE will automatically assign a weight based on the
+   // filter conditions.
+   FWP_VALUE0 weight;
+   // Array of filter conditions. All must be true for the action to be
+   // performed. In other words, the conditions are AND'ed together. If no
+   // conditions are specified, the action is always performed.
+   UINT32 numFilterConditions;
+   [size_is(numFilterConditions), unique]
+      FWPM_FILTER_CONDITION0* filterCondition;
+   // Action performed if all the filter conditions are true.
+   FWPM_ACTION0 action;
+   // If FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT is not set, the rawContext is
+   // placed 'as is' in the context field of the corresonding FWPS_FILTER.
+   // Otherwise, the LUID of the provider context specified by the
+   // providerContextKey is used.
+   [switch_is(flags & FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT)]
+   union
+   {
+      [case(0)]
+         UINT64 rawContext;
+      [case(FWPM_FILTER_FLAG_HAS_PROVIDER_CONTEXT)]
+         GUID providerContextKey;
+   };
+   // Reserved for system use.
+   [unique] GUID* reserved;
+
+   // Additional information returned when getting/enumerating objects.
+
+   // LUID identifying the filter. This is also the LUID of the corresponding
+   // FWPS_FILTER.
+   UINT64 filterId;
+   // Weight assigned to the FWPS_FILTER filter.
+   FWP_VALUE0 effectiveWeight;
+} FWPM_FILTER0;
+
+// Used for enumerating filters.
+typedef struct FWPM_FILTER_ENUM_TEMPLATE0_
+{
+   // If non-null, only objects associated with the specified provider will be
+   // returned.
+   [unique] GUID* providerKey;
+   // Layer whose fields are to be enumerated.
+   GUID layerKey;
+   // Determines how the filter conditions are interpreted.
+   FWP_FILTER_ENUM_TYPE enumType;
+   // Flags
+   UINT32 flags;
+   // If non-null, only enumerate filters whose provider context matches the
+   // template.
+   [unique] FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0* providerContextTemplate;
+   // Number of filter conditions. If zero, then all filters match.
+   UINT32 numFilterConditions;
+   // Array of filter conditions.
+   [size_is(numFilterConditions), unique]
+      FWPM_FILTER_CONDITION0* filterCondition;
+   // Only filters whose action type contains at least one of the bits in
+   // actionMask will be returned. To ignore the filter's action type when
+   // enumerating, set this to 0xFFFFFFFF. To enumerate just callouts, set this
+   // to FWP_ACTION_FLAG_CALLOUT.
+   UINT32 actionMask;
+   // If non-null, only filters invoking the specified callout will be
+   // returned. If this field is non-null, FWP_ACTION_FLAG_CALLOUT must be set
+   // in the actionMask.
+   [unique] GUID* calloutKey;
+} FWPM_FILTER_ENUM_TEMPLATE0;
+
+// Change notification dispatched to subscribers.
+typedef struct FWPM_FILTER_CHANGE0_
+{
+   // Type of change.
+   FWPM_CHANGE_TYPE changeType;
+   // GUID of the filter that changed.
+   GUID filterKey;
+   // LUID of the filter that changed.
+   UINT64 filterId;
+} FWPM_FILTER_CHANGE0;
+
+// Used to subscribe for change notifications.
+typedef struct FWPM_FILTER_SUBSCRIPTION0_
+{
+   // Information supplied when subscribing.
+
+   // Notifications are only dispatched for objects that match the template. If
+   // the template is NULL, it matches all objects.
+   [unique] FWPM_FILTER_ENUM_TEMPLATE0* enumTemplate;
+   // Flags -- see FWPM_SUBSCRIPTION_FLAG_XXX above.
+   UINT32 flags;
+
+   // Additional information returned when getting subscriptions.
+
+   // Owning session.
+   GUID sessionKey;
+} FWPM_FILTER_SUBSCRIPTION0;
+
+
+typedef struct FWPM_LAYER_STATISTICS0_
+{
+   // layerId for the statistics
+   GUID layerId;
+   // number of classifications that returned permit
+   UINT32 classifyPermitCount;
+   // number of classifications that returned block
+   UINT32 classifyBlockCount;
+   // number of classifications that returned block via veto
+   UINT32 classifyVetoCount;
+   // number of cache entries
+   UINT32 numCacheEntries;
+} FWPM_LAYER_STATISTICS0;
+
+typedef struct FWPM_LAYER_STATISTICS1_
+{
+   // layerId for the statistics
+   GUID layerId;
+   // number of classifications that returned permit
+   UINT32 classifyPermitCount;
+   // number of classifications that returned block
+   UINT32 classifyBlockCount;
+   // number of classifications that returned block via veto
+   UINT32 classifyVetoCount;
+   // number of cache entries
+   UINT32 numCacheEntries;
+   // number of filters
+   UINT32 filterCount;
+   // size of filters
+   UINT32 totalFilterSize;
+} FWPM_LAYER_STATISTICS1;
+
+typedef struct FWPM_STATISTICS0_
+{
+   UINT32 numLayerStatistics;
+   [size_is(numLayerStatistics), ref] FWPM_LAYER_STATISTICS0* layerStatistics;
+   UINT32 inboundAllowedConnectionsV4;
+   UINT32 inboundBlockedConnectionsV4;
+   UINT32 outboundAllowedConnectionsV4;
+   UINT32 outboundBlockedConnectionsV4;
+   UINT32 inboundAllowedConnectionsV6;
+   UINT32 inboundBlockedConnectionsV6;
+   UINT32 outboundAllowedConnectionsV6;
+   UINT32 outboundBlockedConnectionsV6;
+   UINT32 inboundActiveConnectionsV4;
+   UINT32 outboundActiveConnectionsV4;
+   UINT32 inboundActiveConnectionsV6;
+   UINT32 outboundActiveConnectionsV6;
+   UINT64 reauthDirInbound;
+   UINT64 reauthDirOutbound;
+   UINT64 reauthFamilyV4;
+   UINT64 reauthFamilyV6;
+   UINT64 reauthProtoOther;
+   UINT64 reauthProtoIPv4;
+   UINT64 reauthProtoIPv6;
+   UINT64 reauthProtoICMP;
+   UINT64 reauthProtoICMP6;
+   UINT64 reauthProtoUDP;
+   UINT64 reauthProtoTCP;
+   UINT64 reauthReasonPolicyChange;
+   UINT64 reauthReasonNewArrivalInterface;
+   UINT64 reauthReasonNewNextHopInterface;
+   UINT64 reauthReasonProfileCrossing;
+   UINT64 reauthReasonClassifyCompletion;
+   UINT64 reauthReasonIPSecPropertiesChanged;
+   UINT64 reauthReasonMidStreamInspection;
+   UINT64 reauthReasonSocketPropertyChanged;
+   UINT64 reauthReasonNewInboundMCastBCastPacket;
+   UINT64 reauthReasonEDPPolicyChanged;
+   UINT64 reauthReasonProxyHandleChanged;
+} FWPM_STATISTICS0;
+
+typedef struct FWPM_STATISTICS1_
+{
+   UINT32 numLayerStatistics;
+   [size_is(numLayerStatistics), ref] FWPM_LAYER_STATISTICS1* layerStatistics;
+   UINT32 inboundAllowedConnectionsV4;
+   UINT32 inboundBlockedConnectionsV4;
+   UINT32 outboundAllowedConnectionsV4;
+   UINT32 outboundBlockedConnectionsV4;
+   UINT32 inboundAllowedConnectionsV6;
+   UINT32 inboundBlockedConnectionsV6;
+   UINT32 outboundAllowedConnectionsV6;
+   UINT32 outboundBlockedConnectionsV6;
+   UINT32 inboundActiveConnectionsV4;
+   UINT32 outboundActiveConnectionsV4;
+   UINT32 inboundActiveConnectionsV6;
+   UINT32 outboundActiveConnectionsV6;
+   UINT64 reauthDirInbound;
+   UINT64 reauthDirOutbound;
+   UINT64 reauthFamilyV4;
+   UINT64 reauthFamilyV6;
+   UINT64 reauthProtoOther;
+   UINT64 reauthProtoIPv4;
+   UINT64 reauthProtoIPv6;
+   UINT64 reauthProtoICMP;
+   UINT64 reauthProtoICMP6;
+   UINT64 reauthProtoUDP;
+   UINT64 reauthProtoTCP;
+   UINT64 reauthReasonPolicyChange;
+   UINT64 reauthReasonNewArrivalInterface;
+   UINT64 reauthReasonNewNextHopInterface;
+   UINT64 reauthReasonProfileCrossing;
+   UINT64 reauthReasonClassifyCompletion;
+   UINT64 reauthReasonIPSecPropertiesChanged;
+   UINT64 reauthReasonMidStreamInspection;
+   UINT64 reauthReasonSocketPropertyChanged;
+   UINT64 reauthReasonNewInboundMCastBCastPacket;
+   UINT64 reauthReasonEDPPolicyChanged;
+   UINT64 reauthReasonProxyHandleChanged;
+} FWPM_STATISTICS1;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for diagnostics.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Flags indicating which fields are set.
+cpp_quote("#define FWPM_NET_EVENT_FLAG_IP_PROTOCOL_SET (0x00000001)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_LOCAL_ADDR_SET  (0x00000002)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_REMOTE_ADDR_SET (0x00000004)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_LOCAL_PORT_SET  (0x00000008)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_REMOTE_PORT_SET (0x00000010)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_APP_ID_SET      (0x00000020)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_USER_ID_SET     (0x00000040)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_SCOPE_ID_SET    (0x00000080)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_IP_VERSION_SET  (0x00000100)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_REAUTH_REASON_SET (0x00000200)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_PACKAGE_ID_SET  (0x00000400)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_ENTERPRISE_ID_SET (0x00000800)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_POLICY_FLAGS_SET (0x00001000)")
+cpp_quote("#define FWPM_NET_EVENT_FLAG_EFFECTIVE_NAME_SET (0x00002000)")
+
+// Fields common to all events.
+typedef struct FWPM_NET_EVENT_HEADER0_
+{
+   // Contains the time the event occurred, in 100-nanosecond intervals since
+   // midnight, January 1, 1601. Do not set this when firing events. It's only
+   // used when enum'ing events.
+   FILETIME timeStamp;
+   // Flags indicating which fields are set. Unused fields must be
+   // zero-initialized.
+   UINT32 flags;
+   // 5-tuple of the network traffic.
+   FWP_IP_VERSION ipVersion;
+   UINT8 ipProtocol;
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 localAddrV6;
+   };
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 remoteAddrV6;
+   };
+   UINT16 localPort;
+   UINT16 remotePort;
+   // IPv6 scope ID.
+   UINT32 scopeId;
+   // Local application and user corresponding to the traffic.
+   FWP_BYTE_BLOB appId;
+   [unique] SID* userId;
+} FWPM_NET_EVENT_HEADER0;
+
+// The original comment above on the previous structure is overtaken by events.
+//
+// It's because the original structure doesn't cover all events that we're having
+// to revise it.  Ideally, instead of "ipVersion", we could have done the
+// discrimination of types with an "address family" field instead, and that could
+// include other addressing schemes such as Ethernet, 802.11, etc.
+//
+// Because new fields can only be added *at the end* of the structure, any new
+// discriminator comes too late to usefully influence the serialization
+// process... since you need to see the discriminator before you can see the fields
+// that it discriminates.
+//
+typedef struct FWPM_NET_EVENT_HEADER1_
+{
+   // Contains the time the event occurred, in 100-nanosecond intervals since
+   // midnight, January 1, 1601. Do not set this when firing events. It's only
+   // used when enum'ing events.
+   FILETIME timeStamp;
+   // Flags indicating which fields are set. Unused fields must be
+   // zero-initialized.
+   UINT32 flags;
+   // 5-tuple of the network traffic.
+   FWP_IP_VERSION ipVersion;
+   UINT8 ipProtocol;
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 localAddrV6;
+      [case(FWP_IP_VERSION_NONE)];
+   };
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 remoteAddrV6;
+      [case(FWP_IP_VERSION_NONE)];
+   };
+   UINT16 localPort;
+   UINT16 remotePort;
+   // IPv6 scope ID.
+   UINT32 scopeId;
+   // Local application and user corresponding to the traffic.
+   FWP_BYTE_BLOB appId;
+   [unique] SID* userId;
+   // additional V1 stuff goes here...
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_NONE)]
+      struct
+      {
+         FWP_AF reserved1;
+         [switch_type(FWP_AF), switch_is(reserved1)]
+         union
+         {
+            [case(FWP_AF_ETHER)]
+            struct
+            {
+               FWP_BYTE_ARRAY6 reserved2;
+               FWP_BYTE_ARRAY6 reserved3;
+               UINT32 reserved4;
+               UINT32 reserved5;
+               UINT16 reserved6;
+               UINT32 reserved7;
+               UINT32 reserved8;
+               UINT16 reserved9;
+               UINT64 reserved10;
+            };
+         };
+      };
+      [case(FWP_IP_VERSION_V4, FWP_IP_VERSION_V6)];
+   };
+} FWPM_NET_EVENT_HEADER1;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+typedef struct FWPM_NET_EVENT_HEADER2_
+{
+   // Contains the time the event occurred, in 100-nanosecond intervals since
+   // midnight, January 1, 1601. Do not set this when firing events. It's only
+   // used when enum'ing events.
+   FILETIME timeStamp;
+   // Flags indicating which fields are set. Unused fields must be
+   // zero-initialized.
+   UINT32 flags;
+   // 5-tuple of the network traffic.
+   FWP_IP_VERSION ipVersion;
+   UINT8 ipProtocol;
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 localAddrV6;
+      [case(FWP_IP_VERSION_NONE)];
+   };
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 remoteAddrV6;
+      [case(FWP_IP_VERSION_NONE)];
+   };
+   UINT16 localPort;
+   UINT16 remotePort;
+   // IPv6 scope ID.
+   UINT32 scopeId;
+   // Local application and user corresponding to the traffic.
+   FWP_BYTE_BLOB appId;
+   [unique] SID* userId;
+   FWP_AF addressFamily;
+   [unique] SID* packageSid;
+} FWPM_NET_EVENT_HEADER2;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+typedef struct FWPM_NET_EVENT_HEADER3_
+{
+   // Contains the time the event occurred, in 100-nanosecond intervals since
+   // midnight, January 1, 1601. Do not set this when firing events. It's only
+   // used when enum'ing events.
+   FILETIME timeStamp;
+   // Flags indicating which fields are set. Unused fields must be
+   // zero-initialized.
+   UINT32 flags;
+   // 5-tuple of the network traffic.
+   FWP_IP_VERSION ipVersion;
+   UINT8 ipProtocol;
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 localAddrV6;
+      [case(FWP_IP_VERSION_NONE)];
+   };
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteAddrV4;
+      [case(FWP_IP_VERSION_V6)]
+         FWP_BYTE_ARRAY16 remoteAddrV6;
+      [case(FWP_IP_VERSION_NONE)];
+   };
+   UINT16 localPort;
+   UINT16 remotePort;
+   // IPv6 scope ID.
+   UINT32 scopeId;
+   // Local application and user corresponding to the traffic.
+   FWP_BYTE_BLOB appId;
+   [unique] SID* userId;
+   FWP_AF addressFamily;
+   [unique] SID* packageSid;
+   [string, unique] wchar_t* enterpriseId;
+   UINT64 policyFlags;
+   FWP_BYTE_BLOB effectiveName;
+} FWPM_NET_EVENT_HEADER3;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+// NOTE: If FWPM_NET_EVENT_TYPE is being updated, you MUST update FWPM_NET_EVENT_INTERNAL_TYPE in fwpptypes.idl
+// so that the first part of the _INTERNAL_ struct exactly matches the current FWPM_NET_EVENT_TYPE
+//
+// Types of network events fired by WFP/IPsec.
+typedef [v1_enum] enum FWPM_NET_EVENT_TYPE_
+{
+   // An error occurred during IKE/AuthIP main-mode SA establishment.
+   FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE,
+   // An error occurred during IKE/AuthIP quick-mode SA establishment.
+   FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE,
+   // An error occurred during AuthIP extended-mode SA establishment.
+   FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE,
+   // Filter engine classify returned drop
+   FWPM_NET_EVENT_TYPE_CLASSIFY_DROP,
+   // IPsec kernel drop
+   FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP,
+   // IPsec DoS Protection drop
+   FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP,
+   // Filter engine classify allow
+   FWPM_NET_EVENT_TYPE_CLASSIFY_ALLOW,
+   // IPsec DoS Protection drop
+   FWPM_NET_EVENT_TYPE_CAPABILITY_DROP,
+   // IPsec DoS Protection drop
+   FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW,
+   // Filter engine classify at MAC related later returned drop
+   FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC,
+   //Low Power Mode Packet arrival event
+   FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL,
+   // Not a valid event type -- used for parameter validation only.
+   FWPM_NET_EVENT_TYPE_MAX
+} FWPM_NET_EVENT_TYPE;
+
+// Length in bytes of the SHA thumbprint of an IKE/Authip certificate
+#define IKEEXT_CERT_HASH_LEN 20
+cpp_quote("#define IKEEXT_CERT_HASH_LEN 20")
+
+// Flag indicating that the IKE MM failure event is a benign/expected failure
+cpp_quote("#define FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_BENIGN (0x00000001)")
+// Flag indicating that multiple IKE MM failure events have been reported that
+// should be correlated using the mmId field.
+cpp_quote("#define FWPM_NET_EVENT_IKEEXT_MM_FAILURE_FLAG_MULTIPLE (0x00000002)")
+
+// Event-specific data for FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // Flags for the failure event
+   UINT32 flags;
+   // IKE or Authip
+   IKEEXT_KEY_MODULE_TYPE keyingModuleType;
+   // Main mode state
+   IKEEXT_MM_SA_STATE mmState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE mmAuthMethod;
+   // Hash (SHA thumbprint) of the end certificate corresponding to failures
+   // that happen during building or validating certificate chains.
+   UINT8 endCertHash[IKEEXT_CERT_HASH_LEN];
+   // LUID for the MM SA
+   UINT64 mmId;
+   // Main mode filter ID
+   UINT64 mmFilterId;
+} FWPM_NET_EVENT_IKEEXT_MM_FAILURE0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of event specific data for FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // Flags for the failure event
+   UINT32 flags;
+   // IKE or Authip
+   IKEEXT_KEY_MODULE_TYPE keyingModuleType;
+   // Main mode state
+   IKEEXT_MM_SA_STATE mmState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE mmAuthMethod;
+   // Hash (SHA thumbprint) of the end certificate corresponding to failures
+   // that happen during building or validating certificate chains.
+   UINT8 endCertHash[IKEEXT_CERT_HASH_LEN];
+   // LUID for the MM SA
+   UINT64 mmId;
+   // Main mode filter ID
+   UINT64 mmFilterId;
+   // Name of local security principal that was authenticated, if available.
+   // If not available, an empty string will be stored.
+   [string, ref] wchar_t* localPrincipalNameForAuth;
+   // Name of remote security principal that was authenticated, if available.
+   // If not available, an empty string will be stored.
+   [string, ref] wchar_t* remotePrincipalNameForAuth;
+   // Array of group SIDs corresponding to the local security principal that
+   // was authenticated, if available.
+   UINT32 numLocalPrincipalGroupSids;
+   [size_is(numLocalPrincipalGroupSids), string, unique]
+      LPWSTR* localPrincipalGroupSids;
+   // Array of group SIDs corresponding to the remote security principal that
+   // was authenticated, if available.
+   UINT32 numRemotePrincipalGroupSids;
+   [size_is(numRemotePrincipalGroupSids), string, unique]
+      LPWSTR* remotePrincipalGroupSids;
+} FWPM_NET_EVENT_IKEEXT_MM_FAILURE1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+// Version-2 of event specific data for FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // Flags for the failure event
+   UINT32 flags;
+   // IKE or Authip
+   IKEEXT_KEY_MODULE_TYPE keyingModuleType;
+   // Main mode state
+   IKEEXT_MM_SA_STATE mmState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE mmAuthMethod;
+   // Hash (SHA thumbprint) of the end certificate corresponding to failures
+   // that happen during building or validating certificate chains.
+   UINT8 endCertHash[IKEEXT_CERT_HASH_LEN];
+   // LUID for the MM SA
+   UINT64 mmId;
+   // Main mode filter ID
+   UINT64 mmFilterId;
+   // Name of local security principal that was authenticated, if available.
+   // If not available, an empty string will be stored.
+   [string, ref] wchar_t* localPrincipalNameForAuth;
+   // Name of remote security principal that was authenticated, if available.
+   // If not available, an empty string will be stored.
+   [string, ref] wchar_t* remotePrincipalNameForAuth;
+   // Array of group SIDs corresponding to the local security principal that
+   // was authenticated, if available.
+   UINT32 numLocalPrincipalGroupSids;
+   [size_is(numLocalPrincipalGroupSids), string, unique]
+      LPWSTR* localPrincipalGroupSids;
+   // Array of group SIDs corresponding to the remote security principal that
+   // was authenticated, if available.
+   UINT32 numRemotePrincipalGroupSids;
+   [size_is(numRemotePrincipalGroupSids), string, unique]
+      LPWSTR* remotePrincipalGroupSids;
+   //Provider Context GUID
+   GUID *providerContextKey;
+} FWPM_NET_EVENT_IKEEXT_MM_FAILURE2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+// Event-specific data for FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // IKE or Authip
+   IKEEXT_KEY_MODULE_TYPE keyingModuleType;
+   // Quick mode state
+   IKEEXT_QM_SA_STATE qmState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Tunnel or transport mode
+   IPSEC_TRAFFIC_TYPE saTrafficType;
+   [switch_type(IPSEC_TRAFFIC_TYPE), switch_is(saTrafficType)]
+   union
+   {
+      [case (IPSEC_TRAFFIC_TYPE_TRANSPORT)];
+      [case (IPSEC_TRAFFIC_TYPE_TUNNEL)]
+         // Must be of type FWP_V4_ADDR_MASK or FWP_V6_ADDR_MASK.
+         FWP_CONDITION_VALUE0 localSubNet;
+   };
+   [switch_type(IPSEC_TRAFFIC_TYPE), switch_is(saTrafficType)]
+   union
+   {
+      [case (IPSEC_TRAFFIC_TYPE_TRANSPORT)];
+      [case (IPSEC_TRAFFIC_TYPE_TUNNEL)]
+         // Must be of type FWP_V4_ADDR_MASK or FWP_V6_ADDR_MASK.
+         FWP_CONDITION_VALUE0 remoteSubNet;
+   };
+   // Quick mode filter ID
+   UINT64 qmFilterId;
+} FWPM_NET_EVENT_IKEEXT_QM_FAILURE0;
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+// Version-1 Event-specific data for FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // IKE or Authip
+   IKEEXT_KEY_MODULE_TYPE keyingModuleType;
+   // Quick mode state
+   IKEEXT_QM_SA_STATE qmState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Tunnel or transport mode
+   IPSEC_TRAFFIC_TYPE saTrafficType;
+   [switch_type(IPSEC_TRAFFIC_TYPE), switch_is(saTrafficType)]
+   union
+   {
+      [case (IPSEC_TRAFFIC_TYPE_TRANSPORT)];
+      [case (IPSEC_TRAFFIC_TYPE_TUNNEL)]
+         // Must be of type FWP_V4_ADDR_MASK or FWP_V6_ADDR_MASK.
+         FWP_CONDITION_VALUE0 localSubNet;
+   };
+   [switch_type(IPSEC_TRAFFIC_TYPE), switch_is(saTrafficType)]
+   union
+   {
+      [case (IPSEC_TRAFFIC_TYPE_TRANSPORT)];
+      [case (IPSEC_TRAFFIC_TYPE_TUNNEL)]
+         // Must be of type FWP_V4_ADDR_MASK or FWP_V6_ADDR_MASK.
+         FWP_CONDITION_VALUE0 remoteSubNet;
+   };
+   // Quick mode filter ID
+   UINT64 qmFilterId;
+   UINT64 mmSaLuid;
+   GUID mmProviderContextKey;
+} FWPM_NET_EVENT_IKEEXT_QM_FAILURE1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+// Flag indicating that multiple IKE EM failure events have been reported that
+// should be correlated using the mmId field.
+cpp_quote("#define FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE (0x00000001)")
+// Flag indicating that the IKE EM failure event is a benign/expected failure
+cpp_quote("#define FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN (0x00000002)")
+
+// Event-specific data for FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // Flags for the failure event
+   UINT32 flags;
+   // Extended mode state
+   IKEEXT_EM_SA_STATE emState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE emAuthMethod;
+   // Hash (SHA thumbprint) of the end certificate corresponding to failures
+   // that happen during building or validating certificate chains.
+   UINT8 endCertHash[IKEEXT_CERT_HASH_LEN];
+   // LUID for the MM SA corresponding to this EM failure
+   UINT64 mmId;
+   // Quick mode filter ID associated with this EM failure
+   UINT64 qmFilterId;
+} FWPM_NET_EVENT_IKEEXT_EM_FAILURE0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of event specific data for FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE.
+typedef struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1_
+{
+   // Windows error code for the failure
+   UINT32 failureErrorCode;
+   // Point of failure
+   IPSEC_FAILURE_POINT failurePoint;
+   // Flags for the failure event
+   UINT32 flags;
+   // Extended mode state
+   IKEEXT_EM_SA_STATE emState;
+   // Initiator or Responder
+   IKEEXT_SA_ROLE saRole;
+   // Authentication method
+   IKEEXT_AUTHENTICATION_METHOD_TYPE emAuthMethod;
+   // Hash (SHA thumbprint) of the end certificate corresponding to failures
+   // that happen during building or validating certificate chains.
+   UINT8 endCertHash[IKEEXT_CERT_HASH_LEN];
+   // LUID for the MM SA corresponding to this EM failure
+   UINT64 mmId;
+   // Quick mode filter ID associated with this EM failure
+   UINT64 qmFilterId;
+   // Name of local security principal that was authenticated, if available.
+   // If not available, an empty string will be stored.
+   [string, ref] wchar_t* localPrincipalNameForAuth;
+   // Name of remote security principal that was authenticated, if available.
+   // If not available, an empty string will be stored.
+   [string, ref] wchar_t* remotePrincipalNameForAuth;
+   // Array of group SIDs corresponding to the local security principal that
+   // was authenticated, if available.
+   UINT32 numLocalPrincipalGroupSids;
+   [size_is(numLocalPrincipalGroupSids), string, unique]
+      LPWSTR* localPrincipalGroupSids;
+   // Array of group SIDs corresponding to the remote security principal that
+   // was authenticated, if available.
+   UINT32 numRemotePrincipalGroupSids;
+   [size_is(numRemotePrincipalGroupSids), string, unique]
+      LPWSTR* remotePrincipalGroupSids;
+   // Tunnel or transport mode
+   IPSEC_TRAFFIC_TYPE saTrafficType;
+} FWPM_NET_EVENT_IKEEXT_EM_FAILURE1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Event-specific data for FWP_NET_EVENT_TYPE_CLASSIFY_DROP.
+typedef struct FWPM_NET_EVENT_CLASSIFY_DROP0_
+{
+  UINT64 filterId;
+  UINT16 layerId;
+} FWPM_NET_EVENT_CLASSIFY_DROP0;
+
+typedef struct FWPM_NET_EVENT_CLASSIFY_DROP1_
+{
+  UINT64 filterId;
+  UINT16 layerId;
+  UINT32 reauthReason;
+  UINT32 originalProfile;
+  UINT32 currentProfile;
+  UINT32 msFwpDirection;
+  BOOL isLoopback;
+} FWPM_NET_EVENT_CLASSIFY_DROP1;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+typedef struct FWPM_NET_EVENT_CLASSIFY_DROP2_
+{
+  UINT64 filterId;
+  UINT16 layerId;
+  UINT32 reauthReason;
+  UINT32 originalProfile;
+  UINT32 currentProfile;
+  UINT32 msFwpDirection;
+  BOOL isLoopback;
+  FWP_BYTE_BLOB vSwitchId;
+  UINT32 vSwitchSourcePort;
+  UINT32 vSwitchDestinationPort;
+} FWPM_NET_EVENT_CLASSIFY_DROP2;
+
+typedef struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0_
+{
+  FWP_BYTE_ARRAY6 localMacAddr;
+  FWP_BYTE_ARRAY6 remoteMacAddr;
+  UINT32 mediaType;
+  UINT32 ifType;
+  UINT16 etherType;
+  UINT32 ndisPortNumber;
+  UINT32 reserved;
+  UINT16 vlanTag;
+  UINT64 ifLuid;
+  UINT64 filterId;
+  UINT16 layerId;
+  UINT32 reauthReason;
+  UINT32 originalProfile;
+  UINT32 currentProfile;
+  UINT32 msFwpDirection;
+  BOOL isLoopback;
+  FWP_BYTE_BLOB vSwitchId;
+  UINT32 vSwitchSourcePort;
+  UINT32 vSwitchDestinationPort;
+} FWPM_NET_EVENT_CLASSIFY_DROP_MAC0;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+//Event-specific data for the classify allow
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+typedef struct FWPM_NET_EVENT_CLASSIFY_ALLOW0
+{
+  UINT64 filterId;
+  UINT16 layerId;
+  UINT32 reauthReason;
+  UINT32 originalProfile;
+  UINT32 currentProfile;
+  UINT32 msFwpDirection;
+  BOOL isLoopback;
+} FWPM_NET_EVENT_CLASSIFY_ALLOW0;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Event-specific data for FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP.
+typedef struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0_
+{
+   // NTSTATUS error code for the failure
+   INT32 failureStatus;
+   // Is dropped packet inbound or outbound
+   FWP_DIRECTION direction;
+   // SPI on the IPSec (ESP/AH) header of the packet. Will be 0 for clear text
+   // packets.
+   IPSEC_SA_SPI spi;
+   // FilterId corresponding to the IPsec callout filter. This will be
+   // available only if the packet was dropped by the IPsec callout.
+   UINT64 filterId;
+   // LayerId corresponding to the IPsec callout filter. This will be available
+   // only if the packet was dropped by the IPsec callout.
+   UINT16 layerId;
+} FWPM_NET_EVENT_IPSEC_KERNEL_DROP0;
+
+
+// Event-specific data for FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP.
+typedef struct FWPM_NET_EVENT_IPSEC_DOSP_DROP0_
+{
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // IP address of the internet host
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 publicHostV4Addr;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 publicHostV6Addr[16];
+   };
+   // IP address of the corpnet host
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+   union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 internalHostV4Addr;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 internalHostV6Addr[16];
+   };
+   // NTSTATUS error code for the failure
+   INT32 failureStatus;
+   // Is dropped packet inbound or outbound
+   FWP_DIRECTION direction;
+} FWPM_NET_EVENT_IPSEC_DOSP_DROP0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Event specific data for FWPM_NET_EVENT_TYPE_CAPABILITY_DROP
+typedef enum FWPM_APPC_NETWORK_CAPABILITY_TYPE_
+{
+    FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT,
+    FWPM_APPC_NETWORK_CAPABILITY_INTERNET_CLIENT_SERVER,
+    FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK,
+} FWPM_APPC_NETWORK_CAPABILITY_TYPE;
+
+typedef struct FWPM_NET_EVENT_CAPABILITY_DROP0_
+{
+  FWPM_APPC_NETWORK_CAPABILITY_TYPE networkCapabilityId;
+  UINT64 filterId;
+  BOOL isLoopback;
+} FWPM_NET_EVENT_CAPABILITY_DROP0;
+
+typedef struct FWPM_NET_EVENT_CAPABILITY_ALLOW0_
+{
+  FWPM_APPC_NETWORK_CAPABILITY_TYPE networkCapabilityId;
+  UINT64 filterId;
+  BOOL isLoopback;
+} FWPM_NET_EVENT_CAPABILITY_ALLOW0;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)") // NTDDI_WIN10_RS5
+typedef struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0_
+{
+   IPSEC_SA_SPI spi;
+} FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS5)") // NTDDI_WIN10_RS5
+
+// Consolidated event struct for all event types.
+typedef struct FWPM_NET_EVENT0_
+{
+   // Common data.
+   FWPM_NET_EVENT_HEADER0 header;
+   // Type of event.
+   FWPM_NET_EVENT_TYPE type;
+   // Event-specific data.
+   [switch_type(FWPM_NET_EVENT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_MM_FAILURE0* ikeMmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_QM_FAILURE0* ikeQmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_EM_FAILURE0* ikeEmFailure;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP0* classifyDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_DOSP_DROP0* idpDrop;
+   };
+} FWPM_NET_EVENT0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of consolidated event struct for all event types.
+typedef struct FWPM_NET_EVENT1_
+{
+   // Common data.
+   FWPM_NET_EVENT_HEADER1 header;
+   // Type of event.
+   FWPM_NET_EVENT_TYPE type;
+   // Event-specific data.
+   [switch_type(FWPM_NET_EVENT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_MM_FAILURE1* ikeMmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_QM_FAILURE0* ikeQmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP1* classifyDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_DOSP_DROP0* idpDrop;
+   };
+} FWPM_NET_EVENT1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-1 of consolidated event struct for all event types.
+typedef struct FWPM_NET_EVENT2_
+{
+   // Common data.
+   FWPM_NET_EVENT_HEADER2 header;
+   // Type of event.
+   FWPM_NET_EVENT_TYPE type;
+   // Event-specific data.
+   [switch_type(FWPM_NET_EVENT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_MM_FAILURE1* ikeMmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_QM_FAILURE0* ikeQmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP2* classifyDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_DOSP_DROP0* idpDrop;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_ALLOW0* classifyAllow;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_DROP)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_DROP0* capabilityDrop;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_ALLOW0* capabilityAllow;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP_MAC0* classifyDropMac;
+   };
+} FWPM_NET_EVENT2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+// Version-3 of consolidated event struct for all event types.
+typedef struct FWPM_NET_EVENT3_
+{
+   // Common data.
+   FWPM_NET_EVENT_HEADER3 header;
+   // Type of event.
+   FWPM_NET_EVENT_TYPE type;
+   // Event-specific data.
+   [switch_type(FWPM_NET_EVENT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_MM_FAILURE1* ikeMmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_QM_FAILURE0* ikeQmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP2* classifyDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_DOSP_DROP0* idpDrop;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_ALLOW0* classifyAllow;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_DROP)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_DROP0* capabilityDrop;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_ALLOW0* capabilityAllow;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP_MAC0* classifyDropMac;
+   };
+} FWPM_NET_EVENT3;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+// Version-4 of consolidated event struct for all event types.
+typedef struct FWPM_NET_EVENT4_
+{
+   // Common data.
+   FWPM_NET_EVENT_HEADER3 header;
+   // Type of event.
+   FWPM_NET_EVENT_TYPE type;
+   // Event-specific data.
+   [switch_type(FWPM_NET_EVENT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_MM_FAILURE2* ikeMmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_QM_FAILURE1* ikeQmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP2* classifyDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_DOSP_DROP0* idpDrop;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_ALLOW0* classifyAllow;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_DROP)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_DROP0* capabilityDrop;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_ALLOW0* capabilityAllow;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP_MAC0* classifyDropMac;
+   };
+} FWPM_NET_EVENT4;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)") //NTDDI_WIN10_RS5
+// NOTE: If FWPM_NET_EVENT is being updated, you MUST update FWPM_NET_EVENT_INTERNAL in fwpptypes.idl
+// so that the first part of the _INTERNAL struct exactly matches the current FWPM_NET_EVENT
+// Version-4 of consolidated event struct for all event types.
+typedef struct FWPM_NET_EVENT5_
+{
+   // Common data.
+   FWPM_NET_EVENT_HEADER3 header;
+   // Type of event.
+   FWPM_NET_EVENT_TYPE type;
+   // Event-specific data.
+   [switch_type(FWPM_NET_EVENT_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_MM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_MM_FAILURE2* ikeMmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_QM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_QM_FAILURE1* ikeQmFailure;
+      [case(FWPM_NET_EVENT_TYPE_IKEEXT_EM_FAILURE)]
+         [unique] FWPM_NET_EVENT_IKEEXT_EM_FAILURE1* ikeEmFailure;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP2* classifyDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_KERNEL_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_KERNEL_DROP0* ipsecDrop;
+      [case(FWPM_NET_EVENT_TYPE_IPSEC_DOSP_DROP)]
+         [unique] FWPM_NET_EVENT_IPSEC_DOSP_DROP0* idpDrop;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_ALLOW0* classifyAllow;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_DROP)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_DROP0* capabilityDrop;
+      [case(FWPM_NET_EVENT_TYPE_CAPABILITY_ALLOW)]
+         [unique] FWPM_NET_EVENT_CAPABILITY_ALLOW0* capabilityAllow;
+      [case(FWPM_NET_EVENT_TYPE_CLASSIFY_DROP_MAC)]
+         [unique] FWPM_NET_EVENT_CLASSIFY_DROP_MAC0* classifyDropMac;
+      [case(FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL)]
+         [unique] FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0* lpmPacketArrival;
+   };
+} FWPM_NET_EVENT5;
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS5)") //NTDDI_WIN10_RS5
+
+// Template for filtering events. Supported filter conditions are:
+//    FWPM_CONDITION_IP_PROTOCOL
+//    FWPM_CONDITION_IP_LOCAL_ADDRESS
+//    FWPM_CONDITION_IP_REMOTE_ADDRESS
+//    FWPM_CONDITION_IP_LOCAL_PORT
+//    FWPM_CONDITION_IP_REMOTE_PORT
+//    FWPM_CONDITION_ALE_APP_ID
+typedef struct FWPM_NET_EVENT_ENUM_TEMPLATE0_
+{
+   // Start/end time of the time period of interest.
+   FILETIME startTime;
+   FILETIME endTime;
+   // Number of filter conditions. If zero, then all events match.
+   UINT32 numFilterConditions;
+   // Array of filter conditions.
+   [size_is(numFilterConditions), unique]
+      FWPM_FILTER_CONDITION0* filterCondition;
+} FWPM_NET_EVENT_ENUM_TEMPLATE0;
+
+// Used to subscribe for net event notifications.
+typedef struct FWPM_NET_EVENT_SUBSCRIPTION0_
+{
+   // Information supplied when subscribing.
+
+   // Notifications are only dispatched for objects that match the template. If
+   // the template is NULL, it matches all objects.
+   [unique] FWPM_NET_EVENT_ENUM_TEMPLATE0* enumTemplate;
+   // Flags -- unused.
+   UINT32 flags;
+
+   // Additional information returned when getting subscriptions.
+
+   // Owning session.
+   GUID sessionKey;
+} FWPM_NET_EVENT_SUBSCRIPTION0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for tracking system ports.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Different types of system ports.
+typedef [v1_enum] enum FWPM_SYSTEM_PORT_TYPE_
+{
+   FWPM_SYSTEM_PORT_RPC_EPMAP,
+   FWPM_SYSTEM_PORT_TEREDO,
+   FWPM_SYSTEM_PORT_IPHTTPS_IN,
+   FWPM_SYSTEM_PORT_IPHTTPS_OUT,
+   FWPM_SYSTEM_PORT_TYPE_MAX
+} FWPM_SYSTEM_PORT_TYPE;
+
+// Stores all the system ports of a specified type.
+typedef struct FWPM_SYSTEM_PORTS_BY_TYPE0_
+{
+   // Type of port.
+   FWPM_SYSTEM_PORT_TYPE type;
+   // Number of ports of the specified type.
+   UINT32 numPorts;
+   // Array of IP port numbers for the specified type.
+   [size_is(numPorts), unique] UINT16* ports;
+} FWPM_SYSTEM_PORTS_BY_TYPE0;
+
+// Stores all the system ports of all types.
+typedef struct FWPM_SYSTEM_PORTS0_
+{
+   // Number of types in the array.
+   UINT32 numTypes;
+   // Array of system port types.
+   [size_is(numTypes), unique] FWPM_SYSTEM_PORTS_BY_TYPE0* types;
+} FWPM_SYSTEM_PORTS0;
+
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for Tracking Connection Objects (objects coorelating SAs into a
+// single entity).
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Different types of system ports.
+typedef struct FWPM_CONNECTION0_ {
+  UINT64                 connectionId;
+
+  FWP_IP_VERSION         ipVersion;
+
+  [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+  union {
+      [case(FWP_IP_VERSION_V4)]
+      UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+      UINT8  localV6Address[16];
+  } ;
+  [switch_type(FWP_IP_VERSION), switch_is(ipVersion)]
+  union {
+      [case(FWP_IP_VERSION_V4)]
+      UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+      UINT8  remoteV6Address[16];
+  } ;
+
+  [unique] GUID * providerKey;
+  IPSEC_TRAFFIC_TYPE   ipsecTrafficModeType;
+
+  IKEEXT_KEY_MODULE_TYPE keyModuleType;
+  IKEEXT_PROPOSAL0 mmCrypto;
+
+  IKEEXT_CREDENTIAL2 mmPeer;
+  IKEEXT_CREDENTIAL2 emPeer;
+
+  UINT64 bytesTransferredIn;
+  UINT64 bytesTransferredOut;
+  UINT64 bytesTransferredTotal;
+
+  FILETIME startSysTime;
+
+} FWPM_CONNECTION0;
+
+cpp_quote("#define FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED (0x00000001)")
+
+typedef struct FWPM_CONNECTION_ENUM_TEMPLATE0_ {
+    UINT64 connectionId;
+    UINT32 flags;
+} FWPM_CONNECTION_ENUM_TEMPLATE0;
+
+typedef struct FWPM_CONNECTION_SUBSCRIPTION0_ {
+  [unique] FWPM_CONNECTION_ENUM_TEMPLATE0         *enumTemplate;
+  UINT32       flags;        // reserved flags
+  GUID         sessionKey;
+} FWPM_CONNECTION_SUBSCRIPTION0;
+
+typedef [v1_enum] enum FWPM_CONNECTION_EVENT_TYPE_ {
+  FWPM_CONNECTION_EVENT_ADD,
+  FWPM_CONNECTION_EVENT_DELETE,
+  FWPM_CONNECTION_EVENT_MAX
+} FWPM_CONNECTION_EVENT_TYPE;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for Tracking vSwitch events.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum FWPM_VSWITCH_EVENT_TYPE_
+{
+   // Filter engine is not enabled on all vSwitch instances. As a result
+   // the filter(s) being added may not be fully enforced.
+   FWPM_VSWITCH_EVENT_FILTER_ADD_TO_INCOMPLETE_LAYER,
+   // Filter(s) are being added to the vSwitch filter engine that's not in
+   // its required position. As a result the filter(s) could be bypassed.
+   FWPM_VSWITCH_EVENT_FILTER_ENGINE_NOT_IN_REQUIRED_POSITION,
+   // Filter engine is being enabled for the vSwitch instance.
+   FWPM_VSWITCH_EVENT_ENABLED_FOR_INSPECTION,
+   // Filter engine is being disabled for the vSwitch instance.
+   FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION,
+   // vSwitch filter engine is being reordered and may not reside in the
+   // required position to correctly enforce committed filters.
+   FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER,
+   FWPM_VSWITCH_EVENT_MAX
+}  FWPM_VSWITCH_EVENT_TYPE;
+
+typedef struct FWPM_VSWITCH_EVENT0_
+{
+   FWPM_VSWITCH_EVENT_TYPE eventType;
+   [string, unique] wchar_t* vSwitchId;
+   [switch_is(eventType), switch_type(FWPM_VSWITCH_EVENT_TYPE)]
+   union
+   {
+      [case(FWPM_VSWITCH_EVENT_FILTER_ADD_TO_INCOMPLETE_LAYER,
+            FWPM_VSWITCH_EVENT_ENABLED_FOR_INSPECTION,
+            FWPM_VSWITCH_EVENT_DISABLED_FOR_INSPECTION)];
+      [case(FWPM_VSWITCH_EVENT_FILTER_ENGINE_NOT_IN_REQUIRED_POSITION)]
+         struct
+         {
+            ULONG numvSwitchFilterExtensions;
+            [size_is(numvSwitchFilterExtensions), string, ref] LPWSTR* vSwitchFilterExtensions;
+         } positionInfo;
+      [case(FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER)]
+         struct
+         {
+            BOOL inRequiredPosition;
+            ULONG numvSwitchFilterExtensions;
+            [size_is(numvSwitchFilterExtensions), string, unique] LPWSTR* vSwitchFilterExtensions;
+         } reorderInfo;
+   };
+} FWPM_VSWITCH_EVENT0;
+
+typedef struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0_
+{
+  UINT32 flags;
+  GUID sessionKey;
+} FWPM_VSWITCH_EVENT_SUBSCRIPTION0;
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME) */")
+#pragma endregion
+

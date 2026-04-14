@@ -1,0 +1,690 @@
+//////////////////////////////////////
+//        Imports
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+import "fsrmenums.idl";
+
+
+//////////////////////////////////////
+//        Forward declarations
+//
+
+interface IFsrmObject;
+
+interface IFsrmCollection;
+interface IFsrmMutableCollection;
+interface IFsrmCommittableCollection;
+
+interface IFsrmAction;
+interface IFsrmActionEmail;
+interface IFsrmActionReport;
+interface IFsrmActionEventLog;
+interface IFsrmActionCommand;
+
+interface IFsrmSetting;
+
+interface IFsrmPathMapper;
+
+interface IFsrmExportImport;
+
+
+//////////////////////////////////////
+//        Dispatch IDs
+//
+
+//
+// Dispatch ID bit pattern:
+//  3         2         1         0
+// 10987654321098765432109876543210
+// RRRRFFFFIIIIIIIIIIIIIIIIMMMMMMMM
+//
+// R = Reserved / Not Used (4 bits)
+// F = Feature (4 bits)
+// I = Interface (16 bits)
+// M = Method (8 bits)
+//
+// Interface bits are divided into four 4-bit sections:
+//  3         2         1         0
+// 10987654321098765432109876543210
+//         AAAABBBBCCCCDDDD
+//
+// A = Base interface
+// B = Derived interface of A
+// C = Derived interface of B
+// D = Derived interface of C
+//
+// If a derived interface is meant to extend a previous interface (e.g.,
+// IFsrmActionEmail2 from IFsrmActionEmail) rather than be a subtype of an
+// interface, then its dispatch ID base may use the same section (B, C, or D)
+// as that of the interface it is derived from.
+//
+// Method bits can indicate certain attributes of the method:
+//  3         2         1         0
+// 10987654321098765432109876543210
+//                         PNNNNNNN
+//
+// P = Is method a property accessor?
+// N = Method number
+//
+
+// Bitmasks of FSRM-defined DISPID fields
+const DISPID FSRM_DISPID_FEATURE_MASK       = 0x0F000000;
+
+const DISPID FSRM_DISPID_INTERFACE_A_MASK   = 0x00F00000;
+const DISPID FSRM_DISPID_INTERFACE_B_MASK   = 0x000F0000;
+const DISPID FSRM_DISPID_INTERFACE_C_MASK   = 0x0000F000;
+const DISPID FSRM_DISPID_INTERFACE_D_MASK   = 0x00000F00;
+const DISPID FSRM_DISPID_INTERFACE_MASK     = FSRM_DISPID_INTERFACE_A_MASK |
+                                              FSRM_DISPID_INTERFACE_B_MASK |
+                                              FSRM_DISPID_INTERFACE_C_MASK |
+                                              FSRM_DISPID_INTERFACE_D_MASK;
+
+const DISPID FSRM_DISPID_IS_PROPERTY        = 0x00000080;
+const DISPID FSRM_DISPID_METHOD_NUM_MASK    = 0x0000007F;
+const DISPID FSRM_DISPID_METHOD_MASK        = FSRM_DISPID_IS_PROPERTY |
+                                              FSRM_DISPID_METHOD_NUM_MASK;
+
+#define FSRM_PROPERTY(x) x | FSRM_DISPID_IS_PROPERTY
+
+// Dispatch ID base of features
+const DISPID FSRM_DISPID_FEATURE_GENERAL        = 0x01000000;
+const DISPID FSRM_DISPID_FEATURE_QUOTA          = 0x02000000;
+const DISPID FSRM_DISPID_FEATURE_FILESCREEN     = 0x03000000;
+const DISPID FSRM_DISPID_FEATURE_REPORTS        = 0x04000000;
+const DISPID FSRM_DISPID_FEATURE_CLASSIFICATION = 0x05000000;
+const DISPID FSRM_DISPID_FEATURE_PIPELINE       = 0x06000000;
+
+// Dispatch ID base of general interfaces
+const DISPID FSRM_DISPID_OBJECT                 = FSRM_DISPID_FEATURE_GENERAL       | 0x100000;
+
+const DISPID FSRM_DISPID_COLLECTION             = FSRM_DISPID_FEATURE_GENERAL       | 0x200000;
+const DISPID FSRM_DISPID_COLLECTION_MUTABLE     = FSRM_DISPID_COLLECTION            | 0x010000;
+const DISPID FSRM_DISPID_COLLECTION_COMMITTABLE = FSRM_DISPID_COLLECTION_MUTABLE    | 0x001000;
+
+const DISPID FSRM_DISPID_ACTION                 = FSRM_DISPID_FEATURE_GENERAL       | 0x300000;
+const DISPID FSRM_DISPID_ACTION_EMAIL           = FSRM_DISPID_ACTION                | 0x010000;
+const DISPID FSRM_DISPID_ACTION_REPORT          = FSRM_DISPID_ACTION                | 0x020000;
+const DISPID FSRM_DISPID_ACTION_EVENTLOG        = FSRM_DISPID_ACTION                | 0x030000;
+const DISPID FSRM_DISPID_ACTION_COMMAND         = FSRM_DISPID_ACTION                | 0x040000;
+const DISPID FSRM_DISPID_ACTION_EMAIL2          = FSRM_DISPID_ACTION                | 0x050000;
+
+const DISPID FSRM_DISPID_SETTING                = FSRM_DISPID_FEATURE_GENERAL       | 0x400000;
+
+const DISPID FSRM_DISPID_PATHMAPPER             = FSRM_DISPID_FEATURE_GENERAL       | 0x500000;
+
+const DISPID FSRM_DISPID_EXPORTIMPORT           = FSRM_DISPID_FEATURE_GENERAL       | 0x600000;
+
+const DISPID FSRM_DISPID_DERIVEDOBJECTSRESULT   = FSRM_DISPID_FEATURE_GENERAL       | 0x700000;
+
+const DISPID FSRM_DISPID_ADR                    = FSRM_DISPID_FEATURE_GENERAL       | 0x800000;
+
+
+
+//////////////////////////////////////
+//        Interfaces
+//
+
+[
+    object,
+    uuid(22bcef93-4a3f-4183-89f9-2f8b8a628aee),
+    dual,
+    hidden,
+    nonextensible,
+    helpstring("IFsrmObject Interface"),
+    pointer_default(unique)
+]
+interface IFsrmObject : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_OBJECT | 0x01)), helpstring("This property is the globally unique identifier for the object")]
+    HRESULT Id([out, retval] FSRM_OBJECT_ID *id);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_OBJECT | 0x02)), helpstring("This property is the description of the object")]
+    HRESULT Description([out, retval] BSTR *description);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_OBJECT | 0x02)), helpstring("This property is the description of the object")]
+    HRESULT Description([in] BSTR description);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_OBJECT | 0x01), helpstring("This method is used to delete the object.  Commit is required to finalize the delete.")]
+    HRESULT Delete();
+
+    [id(FSRM_DISPID_OBJECT | 0x02), helpstring("This method is used to commit the new, modified, or deleted object")]
+    HRESULT Commit();
+
+};
+
+
+[
+    object,
+    uuid(f76fbf3b-8ddd-4b42-b05a-cb1c3ff1fee8),
+    dual,
+    hidden,
+    nonextensible,
+    helpstring("IFsrmCollection Interface"),
+    pointer_default(unique)
+]
+interface IFsrmCollection : IDispatch
+{
+
+    // Properties
+
+    [propget, id(DISPID_NEWENUM), helpstring("property _NewEnum"), restricted]
+    HRESULT _NewEnum([out, retval] IUnknown **unknown);
+
+
+    [propget, id(DISPID_VALUE), helpstring("This property is the accessor to collection entries by index")]
+    HRESULT Item(
+                        [in] long index,
+                        [out, retval] VARIANT *item);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_COLLECTION | 0x01)), helpstring("This property returns the number of entries in the collection.  If the collection is still in the Fetching state, the returned value is the current count and can be expected to increase on a subsequent call.")]
+    HRESULT Count([out, retval] long *count);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_COLLECTION | 0x02)), helpstring("This property reveals the state of the collection; whether it is being retrieved, being committed, or complete (stable).")]
+    HRESULT State([out, retval] FsrmCollectionState *state);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_COLLECTION | 0x01), helpstring("This method will cause the current collection enumeration or commit operation, if any, to be cancelled.")]
+    HRESULT Cancel();
+
+    [id(FSRM_DISPID_COLLECTION | 0x02), helpstring("This method is used to wait for the specified period of time or until all objects in the collection are read and return whether or not the collection is complete")]
+    HRESULT WaitForCompletion(
+                        [in] long waitSeconds,
+                        [out, retval] VARIANT_BOOL *completed);
+
+    [id(FSRM_DISPID_COLLECTION | 0x03), helpstring("This method returns from the collection the object at the entry at the specified index")]
+    HRESULT GetById(
+                        [in] FSRM_OBJECT_ID id,
+                        [out, retval] VARIANT *entry);
+
+};
+
+
+[
+    object,
+    uuid(1bb617b8-3886-49dc-af82-a6c90fa35dda),
+    dual,
+    hidden,
+    nonextensible,
+    helpstring("IFsrmMutableCollection Interface"),
+    pointer_default(unique)
+]
+interface IFsrmMutableCollection : IFsrmCollection
+{
+
+    // Methods
+    
+    [id(FSRM_DISPID_COLLECTION_MUTABLE | 0x01), helpstring("This method inserts into the collection")]
+    HRESULT Add([in] VARIANT item);
+
+    [id(FSRM_DISPID_COLLECTION_MUTABLE | 0x02), helpstring("This method removes from the collection the entry at the specified index")]
+    HRESULT Remove([in] long index);
+
+    [id(FSRM_DISPID_COLLECTION_MUTABLE | 0x03), helpstring("This method removes from the collection the entry with the specified ID")]
+    HRESULT RemoveById([in] FSRM_OBJECT_ID id);
+
+    [id(FSRM_DISPID_COLLECTION_MUTABLE | 0x04), helpstring("This method creates a shallow copy of the collection.  The method can be called only when the collection is in the Complete state.")]
+    HRESULT Clone([out, retval] IFsrmMutableCollection **collection);
+
+};
+
+
+[
+    object,
+    uuid(96deb3b5-8b91-4a2a-9d93-80a35d8aa847),
+    dual,
+    hidden,
+    nonextensible,
+    helpstring("IFsrmCommittableCollection Interface"),
+    pointer_default(unique)
+]
+interface IFsrmCommittableCollection : IFsrmMutableCollection
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_COLLECTION_COMMITTABLE | 0x01), helpstring("This method commits all the changes made to the object entries contained in the collection.  All objects in the collection must be in a consistent state: all new, existing, or marked for deletion.  The return value is a collection of HRESULT values.")]
+    HRESULT Commit(
+                        [in] FsrmCommitOptions options,
+                        [out, retval] IFsrmCollection **results);
+
+};
+
+
+[
+    object,
+    uuid(6cd6408a-ae60-463b-9ef1-e117534d69dc),
+    dual,
+    helpstring("IFsrmAction Interface"),
+    pointer_default(unique)
+]
+interface IFsrmAction : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION | 0x01)), helpstring("This property returns a globally unique identifier for the object")]
+    HRESULT Id([out, retval] FSRM_OBJECT_ID *id);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION | 0x02)), helpstring("This property returns the type of the notification")]
+    HRESULT ActionType([out, retval] FsrmActionType *actionType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION | 0x03)), helpstring("property RunLimitInterval")]
+    HRESULT RunLimitInterval([out, retval] long *minutes);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION | 0x03)), helpstring("property RunLimitInterval")]
+    HRESULT RunLimitInterval([in] long minutes);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_ACTION | 0x01), helpstring("This method removes the action.")]
+    HRESULT Delete();
+
+};
+
+
+[
+    object,
+    uuid(d646567d-26ae-4caa-9f84-4e0aad207fca),
+    dual,
+    helpstring("IFsrmActionEmail Interface"),
+    pointer_default(unique)
+]
+interface IFsrmActionEmail : IFsrmAction
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x01)), helpstring("property MailFrom")]
+    HRESULT MailFrom([out, retval] BSTR *mailFrom);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x01)), helpstring("property MailFrom")]
+    HRESULT MailFrom([in] BSTR mailFrom);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x02)), helpstring("property MailReplyTo")]
+    HRESULT MailReplyTo([out, retval] BSTR *mailReplyTo);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x02)), helpstring("property MailReplyTo")]
+    HRESULT MailReplyTo([in] BSTR mailReplyTo);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x03)), helpstring("property MailTo")]
+    HRESULT MailTo([out, retval] BSTR *mailTo);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x03)), helpstring("property MailTo")]
+    HRESULT MailTo([in] BSTR mailTo);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x04)), helpstring("property MailCc")]
+    HRESULT MailCc([out, retval] BSTR *mailCc);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x04)), helpstring("property MailCc")]
+    HRESULT MailCc([in] BSTR mailCc);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x05)), helpstring("property MailBcc")]
+    HRESULT MailBcc([out, retval] BSTR *mailBcc);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x05)), helpstring("property MailBcc")]
+    HRESULT MailBcc([in] BSTR mailBcc);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x06)), helpstring("property MailSubject")]
+    HRESULT MailSubject([out, retval] BSTR *mailSubject);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x06)), helpstring("property MailSubject")]
+    HRESULT MailSubject([in] BSTR mailSubject);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x07)), helpstring("property MessageText")]
+    HRESULT MessageText([out, retval] BSTR *messageText);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL | 0x07)), helpstring("property MessageText")]
+    HRESULT MessageText([in] BSTR messageText);
+
+};
+
+
+[
+    object,
+    uuid(8276702f-2532-4839-89bf-4872609a2ea4),
+    dual,
+    helpstring("IFsrmActionEmail2 Interface"),
+    pointer_default(unique)
+]
+interface IFsrmActionEmail2 : IFsrmActionEmail
+{
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL2 | 0x01)), helpstring("property AttachmentFileListSize")]
+    HRESULT AttachmentFileListSize([out, retval] long *attachmentFileListSize);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EMAIL2 | 0x01)), helpstring("property AttachmentFileListSize")]
+    HRESULT AttachmentFileListSize([in] long attachmentFileListSize);
+};
+
+
+[
+    object,
+    uuid(2dbe63c4-b340-48a0-a5b0-158e07fc567e),
+    dual,
+    helpstring("IFsrmActionReport Interface"),
+    pointer_default(unique)
+]
+interface IFsrmActionReport : IFsrmAction
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_REPORT | 0x01)), helpstring("property ReportType")]
+    HRESULT ReportTypes([out, retval] SAFEARRAY(VARIANT) *reportTypes);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_REPORT | 0x01)), helpstring("property ReportType ")]
+    HRESULT ReportTypes([in] SAFEARRAY(VARIANT) reportTypes);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_REPORT | 0x02)), helpstring("property MailTo")]
+    HRESULT MailTo([out, retval] BSTR *mailTo);
+ 
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_REPORT | 0x02)), helpstring("property MailTo")]
+    HRESULT MailTo([in] BSTR mailTo);
+
+};
+
+
+[
+    object,
+    uuid(4c8f96c3-5d94-4f37-a4f4-f56ab463546f),
+    dual,
+    helpstring("IFsrmActionEventLog Interface"),
+    pointer_default(unique)
+]
+interface IFsrmActionEventLog : IFsrmAction
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EVENTLOG | 0x01)), helpstring("property EventlogLevel")]
+    HRESULT EventType([out, retval] FsrmEventType *eventType);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EVENTLOG | 0x01)), helpstring("property EventlogLevel")]
+    HRESULT EventType([in] FsrmEventType eventType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EVENTLOG | 0x02)), helpstring("property MessageText")]
+    HRESULT MessageText([out, retval] BSTR *messageText);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_EVENTLOG | 0x02)), helpstring("property MessageText")]
+    HRESULT MessageText([in] BSTR messageText);
+
+};
+
+
+[
+    object,
+    uuid(12937789-e247-4917-9c20-f3ee9c7ee783),
+    dual,
+    helpstring("IFsrmActionCommand Interface"),
+    pointer_default(unique)
+]
+interface IFsrmActionCommand : IFsrmAction
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x01)), helpstring("property ExecutablePath")]
+    HRESULT ExecutablePath([out, retval] BSTR *executablePath);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x01)), helpstring("property ExecutablePath")]
+    HRESULT ExecutablePath([in] BSTR executablePath);
+
+    
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x02)), helpstring("property Arguments")]
+    HRESULT Arguments([out, retval] BSTR *arguments);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x02)), helpstring("property Arguments")]
+    HRESULT Arguments([in] BSTR arguments);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x03)), helpstring("property Account")]
+    HRESULT Account([out, retval] FsrmAccountType *account);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x03)), helpstring("property Account")]
+    HRESULT Account([in] FsrmAccountType account);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x04)), helpstring("property WorkingDirectory")]
+    HRESULT WorkingDirectory([out, retval] BSTR *workingDirectory);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x04)), helpstring("property WorkingDirectory")]
+    HRESULT WorkingDirectory([in] BSTR workingDirectory);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x05)), helpstring("property MonitorCommand")]
+    HRESULT MonitorCommand([out, retval] VARIANT_BOOL *monitorCommand);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x05)), helpstring("property MonitorCommand")]
+    HRESULT MonitorCommand([in] VARIANT_BOOL monitorCommand);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x06)), helpstring("property KillTimeOut")]
+    HRESULT KillTimeOut([out, retval] long *minutes);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x06)), helpstring("property KillTimeOut")]
+    HRESULT KillTimeOut([in] long minutes);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x07)), helpstring("property LogResult")]
+    HRESULT LogResult([out, retval] VARIANT_BOOL *logResults);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_ACTION_COMMAND | 0x07)), helpstring("property LogResult")]
+    HRESULT LogResult([in] VARIANT_BOOL logResults);
+
+};
+
+
+[
+    object,
+    uuid(f411d4fd-14be-4260-8c40-03b7c95e608a),
+    dual,
+    helpstring("IFsrmSetting Interface"),
+    pointer_default(unique)
+]
+interface IFsrmSetting : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x01)), helpstring("This property is the name of the SMTP server")]
+    HRESULT SmtpServer([out,retval] BSTR *smtpServer);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x01)), helpstring("This property is the name of the SMTP server")]
+    HRESULT SmtpServer([in] BSTR smtpServer);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x02)), helpstring("This property is the default FROM field for e-mail")]
+    HRESULT MailFrom([out,retval] BSTR *mailFrom);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x02)), helpstring("This property is the default FROM field for e-mail")]
+    HRESULT MailFrom([in] BSTR mailFrom);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x03)), helpstring("This property is the default administrators e-mail recipient list")]
+    HRESULT AdminEmail([out,retval] BSTR *adminEmail);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x03)), helpstring("This property is the default administrators e-mail recipient list")]
+    HRESULT AdminEmail([in] BSTR adminEmail);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x04)), helpstring("property DisableCommandLine")]
+    HRESULT DisableCommandLine([out,retval] VARIANT_BOOL *disableCommandLine);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x04)), helpstring("property DisableCommandLine")]
+    HRESULT DisableCommandLine([in] VARIANT_BOOL disableCommandLine);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x05)), helpstring("property EnableScreeningAudit")]
+    HRESULT EnableScreeningAudit([out,retval] VARIANT_BOOL *enableScreeningAudit);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_SETTING | 0x05)), helpstring("property EnableScreeningAudit")]
+    HRESULT EnableScreeningAudit([in] VARIANT_BOOL enableScreeningAudit);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_SETTING | 0x01), helpstring("This method is used to test the email settings.")]
+    HRESULT EmailTest([in] BSTR mailTo);
+
+    [id(FSRM_DISPID_SETTING | 0x02), helpstring("This method is to set the default throttling delay between quota and screening notifications of the same type.")]
+    HRESULT SetActionRunLimitInterval(
+                        [in] FsrmActionType actionType,
+                        [in] long delayTimeMinutes);
+
+    [id(FSRM_DISPID_SETTING | 0x03), helpstring("This method is to get the default throttling delay between quota and screening notifications of the same type.")]
+    HRESULT GetActionRunLimitInterval(
+                        [in] FsrmActionType actionType,
+                        [out, retval] long *delayTimeMinutes);
+
+};
+
+
+[
+    object,
+    uuid(6f4dbfff-6920-4821-a6c3-b7e94c1fd60c),
+    dual,
+    helpstring("IFsrmPathMapper Interface"),
+    pointer_default(unique)
+]
+interface IFsrmPathMapper : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_PATHMAPPER | 0x01), helpstring("This method is used to get an array of DFS and share paths pointing to a given local path")]
+    HRESULT GetSharePathsForLocalPath(
+                        [in] BSTR localPath,
+                        [out, retval] SAFEARRAY(VARIANT) *sharePaths);
+
+};
+
+
+[
+    object,
+    uuid(efcb0ab1-16c4-4a79-812c-725614c3306b),
+    dual,
+    helpstring("IFsrmImportExport Interface"),
+    pointer_default(unique)
+]
+interface IFsrmExportImport : IDispatch
+{
+
+    // Methods
+                        
+    [id(FSRM_DISPID_EXPORTIMPORT | 0x01), helpstring("This method is used to export file groups to a file.")]
+    HRESULT ExportFileGroups(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(NULL)] VARIANT* fileGroupNamesSafeArray,
+                        [in, defaultvalue(L"")] BSTR remoteHost);
+
+    [id(FSRM_DISPID_EXPORTIMPORT | 0x02), helpstring("This method is used to import file groups from a file.  The resulting collection, or individual objects contain therein, must be committed to finalize the import")]
+    HRESULT ImportFileGroups(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(NULL)] VARIANT* fileGroupNamesSafeArray,
+                        [in, defaultvalue(L"")] BSTR remoteHost,
+                        [out, retval] IFsrmCommittableCollection **fileGroups);
+
+    [id(FSRM_DISPID_EXPORTIMPORT | 0x03), helpstring("This method is used to export file screen templates to a file")]
+    HRESULT ExportFileScreenTemplates(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(NULL)] VARIANT* templateNamesSafeArray,
+                        [in, defaultvalue(L"")] BSTR remoteHost);
+
+    [id(FSRM_DISPID_EXPORTIMPORT | 0x04), helpstring("This method is used to import file screen templates from a file.  The resulting collection, or individual objects contain therein, must be committed to finalize the import")]
+    HRESULT ImportFileScreenTemplates(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(NULL)] VARIANT* templateNamesSafeArray,
+                        [in, defaultvalue(L"")] BSTR remoteHost,
+                        [out, retval] IFsrmCommittableCollection **templates);
+
+    [id(FSRM_DISPID_EXPORTIMPORT | 0x05), helpstring("This method is used to export quota templates to a file")]
+    HRESULT ExportQuotaTemplates(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(NULL)] VARIANT* templateNamesSafeArray,
+                        [in, defaultvalue(L"")] BSTR remoteHost);
+
+    [id(FSRM_DISPID_EXPORTIMPORT | 0x06), helpstring("This method is used to import quota templates from a file.  The resulting collection, or individual objects contain therein, must be committed to finalize the import")]
+    HRESULT ImportQuotaTemplates(
+                        [in] BSTR filePath,
+                        [in, defaultvalue(NULL)] VARIANT* templateNamesSafeArray,
+                        [in, defaultvalue(L"")] BSTR remoteHost,
+                        [out, retval] IFsrmCommittableCollection **templates);
+};
+
+
+[
+    object,
+    uuid(39322a2d-38ee-4d0d-8095-421a80849a82),
+    dual,
+    helpstring("IFsrmDerivedObjectsResult Interface"),
+    pointer_default(unique)
+]
+interface IFsrmDerivedObjectsResult : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_DERIVEDOBJECTSRESULT | 0x01)), helpstring("This read-only property is the collection of derived objects that were updated")]
+    HRESULT DerivedObjects([out, retval] IFsrmCollection **derivedObjects);
+    
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_DERIVEDOBJECTSRESULT | 0x02)), helpstring("This read-only property is the collection of results from committing the derived objects")]
+    HRESULT Results([out, retval] IFsrmCollection **results);
+    
+};
+
+
+[
+    object,
+    uuid(40002314-590B-45A5-8E1B-8C05DA527E52),
+    dual,
+    oleautomation,
+    helpstring("IFsrmAccessDeniedRemediationClient Interface"),
+    pointer_default(unique)
+]
+interface IFsrmAccessDeniedRemediationClient : IDispatch
+{
+    [id(FSRM_DISPID_ADR | 0x01), helpstring("Displays the Access Denied Remediation client UX")]
+    HRESULT Show(
+        [in]                    ULONG_PTR           parentWnd,
+        [in]                    BSTR                accessPath,
+        [in]                    AdrClientErrorType  errorType,
+        [in]                    long                flags,
+        [in,defaultvalue(L"")]  BSTR                windowTitle,
+        [in,defaultvalue(L"")]  BSTR                windowMessage,
+        [out,retval]            long                *result
+        );
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

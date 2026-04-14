@@ -1,0 +1,3349 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+----------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      Defines the public interfaces for XPS Object model.
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "msopc.idl";
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// Forward declarations
+interface IXpsOMPackage;
+interface IXpsOMPart;
+interface IXpsOMShareable;
+interface IXpsOMVisual;
+interface IXpsOMBrush;
+interface IXpsOMTileBrush;
+interface IXpsOMResource;
+interface IXpsOMCanvas;
+interface IXpsOMColorProfileResource;
+interface IXpsOMColorProfileResourceCollection;
+interface IXpsOMDashCollection;
+interface IXpsOMFontResource;
+interface IXpsOMFontResourceCollection;
+interface IXpsOMGeometry;
+interface IXpsOMGeometryFigure;
+interface IXpsOMGeometryFigureCollection;
+interface IXpsOMGlyphs;
+interface IXpsOMGradientBrush;
+interface IXpsOMGradientStop;
+interface IXpsOMGradientStopCollection;
+interface IXpsOMImageBrush;
+interface IXpsOMImageResource;
+interface IXpsOMImageResourceCollection;
+interface IXpsOMLinearGradientBrush;
+interface IXpsOMMatrixTransform;
+interface IXpsOMPartResources;
+interface IXpsOMPath;
+interface IXpsOMPartUriCollection;
+interface IXpsOMRadialGradientBrush;
+interface IXpsOMRemoteDictionaryResource;
+interface IXpsOMRemoteDictionaryResourceCollection;
+interface IXpsOMDictionary;
+interface IXpsOMShareable;
+interface IXpsOMSolidColorBrush;
+interface IXpsOMTileBrush;
+interface IXpsOMVisualBrush;
+interface IXpsOMVisualCollection;
+interface IXpsOMPageReference;
+interface IXpsOMDocumentSequence;
+interface IXpsOMSignatureBlockResource;
+interface IXpsOMSignatureBlockResourceCollection;
+interface IXpsOMNameCollection;
+interface IXpsOMDocument;
+interface IXpsOMPage;
+interface IXpsOMPackageWriter;
+interface IXpsOMPackageTarget;
+
+//
+// XPS OM enumerations and structures
+//
+typedef [v1_enum] enum
+{
+    XPS_TILE_MODE_NONE = 1,
+    XPS_TILE_MODE_TILE,
+    XPS_TILE_MODE_FLIPX,
+    XPS_TILE_MODE_FLIPY,
+    XPS_TILE_MODE_FLIPXY
+} XPS_TILE_MODE;
+
+typedef [v1_enum] enum
+{
+    XPS_COLOR_INTERPOLATION_SCRGBLINEAR = 1,
+    XPS_COLOR_INTERPOLATION_SRGBLINEAR
+} XPS_COLOR_INTERPOLATION;
+
+typedef [v1_enum] enum
+{
+    XPS_SPREAD_METHOD_PAD = 1,
+    XPS_SPREAD_METHOD_REFLECT,
+    XPS_SPREAD_METHOD_REPEAT
+} XPS_SPREAD_METHOD;
+
+typedef [v1_enum] enum
+{
+    XPS_STYLE_SIMULATION_NONE = 1,
+    XPS_STYLE_SIMULATION_ITALIC,
+    XPS_STYLE_SIMULATION_BOLD,
+    XPS_STYLE_SIMULATION_BOLDITALIC
+} XPS_STYLE_SIMULATION;
+
+typedef [v1_enum] enum
+{
+    XPS_LINE_CAP_FLAT = 1,
+    XPS_LINE_CAP_ROUND,
+    XPS_LINE_CAP_SQUARE,
+    XPS_LINE_CAP_TRIANGLE
+} XPS_LINE_CAP;
+
+typedef [v1_enum] enum
+{
+    XPS_DASH_CAP_FLAT = 1,
+    XPS_DASH_CAP_ROUND,
+    XPS_DASH_CAP_SQUARE,
+    XPS_DASH_CAP_TRIANGLE
+} XPS_DASH_CAP;
+
+typedef [v1_enum] enum
+{
+    XPS_LINE_JOIN_MITER = 1,
+    XPS_LINE_JOIN_BEVEL,
+    XPS_LINE_JOIN_ROUND
+} XPS_LINE_JOIN;
+
+typedef [v1_enum] enum
+{
+    XPS_IMAGE_TYPE_JPEG = 1,
+    XPS_IMAGE_TYPE_PNG,
+    XPS_IMAGE_TYPE_TIFF,
+    XPS_IMAGE_TYPE_WDP,
+    XPS_IMAGE_TYPE_JXR
+} XPS_IMAGE_TYPE;
+
+typedef [v1_enum] enum
+{
+    XPS_COLOR_TYPE_SRGB = 1,
+    XPS_COLOR_TYPE_SCRGB,
+    XPS_COLOR_TYPE_CONTEXT
+} XPS_COLOR_TYPE;
+
+typedef [v1_enum] enum
+{
+    XPS_FILL_RULE_EVENODD = 1,
+    XPS_FILL_RULE_NONZERO
+} XPS_FILL_RULE;
+
+typedef [v1_enum] enum
+{
+    XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE = 1,
+    XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE,
+    XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE,
+    XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE,
+    XPS_SEGMENT_TYPE_BEZIER,
+    XPS_SEGMENT_TYPE_LINE,
+    XPS_SEGMENT_TYPE_QUADRATIC_BEZIER
+} XPS_SEGMENT_TYPE;
+
+typedef [v1_enum] enum
+{
+    XPS_SEGMENT_STROKE_PATTERN_ALL = 1,
+    XPS_SEGMENT_STROKE_PATTERN_NONE,
+    XPS_SEGMENT_STROKE_PATTERN_MIXED
+} XPS_SEGMENT_STROKE_PATTERN;
+
+typedef [v1_enum] enum
+{
+    XPS_FONT_EMBEDDING_NORMAL = 1,
+    XPS_FONT_EMBEDDING_OBFUSCATED,
+    XPS_FONT_EMBEDDING_RESTRICTED,
+    XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED
+} XPS_FONT_EMBEDDING;
+
+typedef [v1_enum] enum
+{
+    XPS_OBJECT_TYPE_CANVAS = 1,
+    XPS_OBJECT_TYPE_GLYPHS,
+    XPS_OBJECT_TYPE_PATH,
+    XPS_OBJECT_TYPE_MATRIX_TRANSFORM,
+    XPS_OBJECT_TYPE_GEOMETRY,
+    XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH,
+    XPS_OBJECT_TYPE_IMAGE_BRUSH,
+    XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH,
+    XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH,
+    XPS_OBJECT_TYPE_VISUAL_BRUSH
+} XPS_OBJECT_TYPE;
+
+typedef [v1_enum] enum
+{
+    XPS_THUMBNAIL_SIZE_VERYSMALL = 1,
+    XPS_THUMBNAIL_SIZE_SMALL,
+    XPS_THUMBNAIL_SIZE_MEDIUM,
+    XPS_THUMBNAIL_SIZE_LARGE
+} XPS_THUMBNAIL_SIZE;
+
+typedef [v1_enum] enum
+{
+    XPS_INTERLEAVING_OFF = 1,
+    XPS_INTERLEAVING_ON,
+} XPS_INTERLEAVING;
+
+//
+// Structures
+//
+typedef struct
+{
+    FLOAT x;
+    FLOAT y;
+} XPS_POINT;
+
+typedef struct
+{
+    FLOAT width;
+    FLOAT height;
+} XPS_SIZE;
+
+typedef struct
+{
+    FLOAT x;
+    FLOAT y;
+    FLOAT width;
+    FLOAT height;
+} XPS_RECT;
+
+typedef struct
+{
+    FLOAT length;
+    FLOAT gap;
+} XPS_DASH;
+
+typedef struct
+{
+    LONG  index;
+    FLOAT advanceWidth;
+    FLOAT horizontalOffset;
+    FLOAT verticalOffset;
+} XPS_GLYPH_INDEX;
+
+typedef struct
+{
+    UINT32   unicodeStringStart;
+    UINT16  unicodeStringLength;
+    UINT32   glyphIndicesStart;
+    UINT16  glyphIndicesLength;
+} XPS_GLYPH_MAPPING;
+
+typedef struct
+{
+    FLOAT m11, m12, m21, m22, m31, m32;
+} XPS_MATRIX;
+
+typedef union switch (XPS_COLOR_TYPE colorType) value
+{
+    case XPS_COLOR_TYPE_SRGB:
+        struct {
+            UINT8 alpha, red, green, blue;
+        } sRGB;
+    case XPS_COLOR_TYPE_SCRGB:
+        struct {
+            FLOAT alpha, red, green, blue;
+        } scRGB;
+    case XPS_COLOR_TYPE_CONTEXT:
+        struct {
+            UINT8 channelCount;
+            FLOAT channels[9];
+        } context;
+} XPS_COLOR;
+
+
+//
+// Interfaces
+//
+[
+    object,
+    uuid(7137398F-2FC1-454D-8C6A-2C3115A16ECE)
+]
+interface IXpsOMShareable : IUnknown
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IUnknown        **owner
+    );
+
+    HRESULT GetType
+    (
+        [out, retval] XPS_OBJECT_TYPE  *type
+    );
+}
+
+[
+    object,
+    uuid(BC3E7333-FB0B-4af3-A819-0B4EAAD0D2FD)
+]
+interface IXpsOMVisual : IXpsOMShareable
+{
+    HRESULT GetTransform
+    (
+        [out, retval] IXpsOMMatrixTransform **matrixTransform
+    );
+
+    HRESULT GetTransformLocal
+    (
+        [out, retval] IXpsOMMatrixTransform **matrixTransform
+    );
+
+    HRESULT SetTransformLocal
+    (
+        [in] IXpsOMMatrixTransform  *matrixTransform
+    );
+
+    HRESULT GetTransformLookup
+    (
+        [out, string, retval] LPWSTR *key
+    );
+
+    HRESULT SetTransformLookup
+    (
+        [in, string] LPCWSTR key
+    );
+
+    HRESULT GetClipGeometry
+    (
+        [out, retval] IXpsOMGeometry **clipGeometry
+    );
+
+    HRESULT GetClipGeometryLocal
+    (
+        [out, retval] IXpsOMGeometry **clipGeometry
+    );
+
+    HRESULT SetClipGeometryLocal
+    (
+        [in] IXpsOMGeometry *clipGeometry
+    );
+
+    HRESULT GetClipGeometryLookup
+    (
+        [out, string, retval]  LPWSTR *key
+    );
+
+    HRESULT SetClipGeometryLookup
+    (
+        [in, string] LPCWSTR key
+    );
+
+    HRESULT GetOpacity
+    (
+        [out, retval] FLOAT *opacity
+    );
+
+    HRESULT SetOpacity
+    (
+        [in] FLOAT opacity
+    );
+
+    HRESULT GetOpacityMaskBrush
+    (
+        [out, retval] IXpsOMBrush **opacityMaskBrush
+    );
+
+    HRESULT GetOpacityMaskBrushLocal
+    (
+        [out, retval] IXpsOMBrush **opacityMaskBrush
+    );
+
+    HRESULT SetOpacityMaskBrushLocal
+    (
+        [in] IXpsOMBrush *opacityMaskBrush
+    );
+
+    HRESULT GetOpacityMaskBrushLookup
+    (
+        [out, string, retval]  LPWSTR *key
+    );
+
+    HRESULT SetOpacityMaskBrushLookup
+    (
+        [in, string] LPCWSTR key
+    );
+
+    HRESULT GetName
+    (
+        [out, string, retval] LPWSTR *name
+    );
+
+    HRESULT SetName
+    (
+        [in, string] LPCWSTR name
+    );
+
+    HRESULT GetIsHyperlinkTarget
+    (
+        [out, retval] BOOL *isHyperlink
+    );
+
+    HRESULT SetIsHyperlinkTarget
+    (
+        [in] BOOL isHyperlink
+    );
+
+    HRESULT GetHyperlinkNavigateUri
+    (
+        [out, retval] IUri **hyperlinkUri
+    );
+
+    HRESULT SetHyperlinkNavigateUri
+    (
+        [in] IUri *hyperlinkUri
+    );
+
+    HRESULT GetLanguage
+    (
+        [out, string, retval] LPWSTR *language
+    );
+
+    HRESULT SetLanguage
+    (
+        [in, string] LPCWSTR language
+    );
+}
+
+[
+object,
+uuid(74eb2f0b-a91e-4486-afac-0fabeca3dfc6)
+]
+interface IXpsOMPart : IUnknown
+{
+    HRESULT GetPartName
+    (
+        [out, retval] IOpcPartUri **partUri
+    );
+
+    HRESULT SetPartName
+    (
+        [in] IOpcPartUri  *partUri
+    );
+}
+
+[
+object,
+uuid(A5AB8616-5B16-4B9F-9629-89B323ED7909)
+]
+interface IXpsOMGlyphsEditor : IUnknown
+{
+    HRESULT ApplyEdits
+    (
+    );
+
+    HRESULT GetUnicodeString
+    (
+        [out, string, retval] LPWSTR *unicodeString
+    );
+
+    HRESULT SetUnicodeString
+    (
+        [in, string] LPCWSTR unicodeString
+    );
+
+    HRESULT GetGlyphIndexCount
+    (
+        [out, retval] UINT32 *indexCount
+    );
+
+    HRESULT GetGlyphIndices
+    (
+        [in, out]   UINT32             *indexCount,
+        [out]       XPS_GLYPH_INDEX    *glyphIndices
+    );
+
+    HRESULT SetGlyphIndices
+    (
+        [in]       UINT32               indexCount,
+        [in] const XPS_GLYPH_INDEX    *glyphIndices
+    );
+
+    HRESULT GetGlyphMappingCount
+    (
+        [out, retval] UINT32         *glyphMappingCount
+    );
+
+    HRESULT GetGlyphMappings
+    (
+        [in,out]    UINT32              *glyphMappingCount,
+        [out]       XPS_GLYPH_MAPPING  *glyphMappings
+    );
+
+    HRESULT SetGlyphMappings
+    (
+        [in]        UINT32               glyphMappingCount,
+        [in] const  XPS_GLYPH_MAPPING  *glyphMappings
+    );
+
+    HRESULT GetProhibitedCaretStopCount
+    (
+        [out, retval]  UINT32              *prohibitedCaretStopCount
+    );
+
+    HRESULT GetProhibitedCaretStops
+    (
+        [in,out]    UINT32              *count,
+        [out]       UINT32              *prohibitedCaretStops
+    );
+
+    HRESULT SetProhibitedCaretStops
+    (
+        [in]           UINT32               count,
+        [in] const     UINT32              *prohibitedCaretStops
+    );
+
+    HRESULT GetBidiLevel
+    (
+        [out, retval]  UINT32              *bidiLevel
+    );
+
+    HRESULT SetBidiLevel
+    (
+        [in]   UINT32  bidiLevel
+    );
+
+    HRESULT GetIsSideways
+    (
+        [out, retval] BOOL *isSideways
+    );
+
+    HRESULT SetIsSideways
+    (
+        [in] BOOL isSideways
+    );
+
+    HRESULT GetDeviceFontName
+    (
+        [out, string, retval]  LPWSTR                 *deviceFontName
+    );
+
+    HRESULT SetDeviceFontName
+    (
+        [in, string]           LPCWSTR                 deviceFontName
+    );
+
+}
+
+[
+object,
+uuid(819B3199-0A5A-4B64-BEC7-A9E17E780DE2)
+]
+interface IXpsOMGlyphs : IXpsOMVisual
+{
+    HRESULT GetUnicodeString
+    (
+        [out, string, retval]  LPWSTR                 *unicodeString
+    );
+
+    HRESULT GetGlyphIndexCount
+    (
+        [out, retval]          UINT32                  *indexCount
+    );
+
+    HRESULT GetGlyphIndices
+    (
+        [in, out]              UINT32                  *indexCount,
+        [in,out]               XPS_GLYPH_INDEX        *glyphIndices
+    );
+
+    HRESULT GetGlyphMappingCount
+    (
+        [out, retval]          UINT32                  *glyphMappingCount
+    );
+
+    HRESULT GetGlyphMappings
+    (
+        [in,out]               UINT32                  *glyphMappingCount,
+        [in,out]               XPS_GLYPH_MAPPING      *glyphMappings
+    );
+
+    HRESULT GetProhibitedCaretStopCount
+    (
+        [out, retval]          UINT32                  *prohibitedCaretStopCount
+    );
+
+    HRESULT GetProhibitedCaretStops
+    (
+        [in,out]               UINT32                  *prohibitedCaretStopCount,
+        [out]                  UINT32                  *prohibitedCaretStops
+    );
+
+    HRESULT GetBidiLevel
+    (
+        [out, retval]          UINT32                  *bidiLevel
+    );
+
+    HRESULT GetIsSideways
+    (
+        [out, retval]          BOOL                   *isSideways
+    );
+
+    HRESULT GetDeviceFontName
+    (
+        [out, string, retval]  LPWSTR                 *deviceFontName
+    );
+
+    HRESULT GetStyleSimulations
+    (
+        [out, retval]          XPS_STYLE_SIMULATION   *styleSimulations
+    );
+
+    HRESULT SetStyleSimulations
+    (
+        [in]                   XPS_STYLE_SIMULATION    styleSimulations
+    );
+
+    HRESULT GetOrigin
+    (
+        [out, retval]          XPS_POINT              *origin
+    );
+
+    HRESULT SetOrigin
+    (
+        [in] const             XPS_POINT              *origin
+    );
+
+    HRESULT GetFontRenderingEmSize
+    (
+        [out, retval]          FLOAT                  *fontRenderingEmSize
+    );
+
+    HRESULT SetFontRenderingEmSize
+    (
+        [in]                   FLOAT                   fontRenderingEmSize
+    );
+
+    HRESULT GetFontResource
+    (
+        [out, retval]          IXpsOMFontResource    **fontResource
+    );
+
+    HRESULT SetFontResource
+    (
+        [in]                   IXpsOMFontResource     *fontResource
+    );
+
+    HRESULT GetFontFaceIndex
+    (
+        [out, retval]          SHORT                  *fontFaceIndex
+    );
+
+    HRESULT SetFontFaceIndex
+    (
+        [in]                   SHORT                   fontFaceIndex
+    );
+
+    HRESULT GetFillBrush
+    (
+        [out, retval]          IXpsOMBrush           **fillBrush
+    );
+
+    HRESULT GetFillBrushLocal
+    (
+        [out, retval]          IXpsOMBrush           **fillBrush
+    );
+
+    HRESULT SetFillBrushLocal
+    (
+        [in]                   IXpsOMBrush            *fillBrush
+    );
+
+    HRESULT GetFillBrushLookup
+    (
+        [out, string, retval]  LPWSTR                 *key
+    );
+
+    HRESULT SetFillBrushLookup
+    (
+        [in, string]           LPCWSTR                 key
+    );
+
+    HRESULT GetGlyphsEditor
+    (
+        [out, retval]          IXpsOMGlyphsEditor    **editor
+    );
+
+    HRESULT Clone
+    (
+        [out, retval]          IXpsOMGlyphs          **glyphs
+    );
+}
+
+[
+    object,
+    uuid(081613F4-74EB-48F2-83B3-37A9CE2D7DC6)
+]
+interface IXpsOMDashCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval]  UINT32      *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]           UINT32       index,
+        [out, retval]  XPS_DASH   *dash
+    );
+
+    HRESULT InsertAt
+    (
+        [in]           UINT32       index,
+        [in] const     XPS_DASH   *dash
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]           UINT32       index
+    );
+
+    HRESULT SetAt
+    (
+        [in]           UINT32       index,
+        [in] const     XPS_DASH   *dash
+    );
+
+    HRESULT Append
+    (
+        [in] const     XPS_DASH   *dash
+    );
+}
+
+[
+    object,
+    uuid(B77330FF-BB37-4501-A93E-F1B1E50BFC46)
+]
+interface IXpsOMMatrixTransform : IXpsOMShareable
+{
+    HRESULT GetMatrix
+    (
+        [out, retval] XPS_MATRIX             *matrix
+    );
+
+    HRESULT SetMatrix
+    (
+        [in]    const XPS_MATRIX             *matrix
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMMatrixTransform **matrixTransform
+    );
+}
+
+
+[
+    object,
+    uuid(64FCF3D7-4D58-44BA-AD73-A13AF6492072)
+]
+interface IXpsOMGeometry : IXpsOMShareable
+{
+    HRESULT GetFigures
+    (
+        [out, retval] IXpsOMGeometryFigureCollection **figures
+     );
+
+    HRESULT GetFillRule
+    (
+        [out, retval]          XPS_FILL_RULE          *fillRule
+    );
+
+    HRESULT SetFillRule
+    (
+        [in]                   XPS_FILL_RULE           fillRule
+    );
+
+    HRESULT GetTransform
+    (
+        [out, retval]          IXpsOMMatrixTransform **transform
+    );
+
+    HRESULT GetTransformLocal
+    (
+        [out, retval]          IXpsOMMatrixTransform **transform
+    );
+
+    HRESULT SetTransformLocal
+    (
+        [in]                   IXpsOMMatrixTransform  *transform
+    );
+
+    HRESULT GetTransformLookup
+    (
+        [out, string, retval]  LPWSTR                 *lookup
+    );
+
+    HRESULT SetTransformLookup
+    (
+        [in, string]           LPCWSTR                 lookup
+    );
+
+    HRESULT Clone(
+        [out, retval]          IXpsOMGeometry        **geometry
+    );
+
+}
+
+[
+    object,
+    uuid(D410DC83-908C-443E-8947-B1795D3C165A)
+]
+interface IXpsOMGeometryFigure : IUnknown
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMGeometry **owner
+    );
+
+    HRESULT GetSegmentData
+    (
+        [in, out] UINT32 *dataCount,
+        [in, out] FLOAT *segmentData
+    );
+
+    HRESULT GetSegmentTypes
+    (
+        [in, out] UINT32            *segmentCount,
+        [in, out] XPS_SEGMENT_TYPE *segmentTypes
+    );
+
+    HRESULT GetSegmentStrokes
+    (
+        [in, out] UINT32            *segmentCount,
+        [in, out] BOOL             *segmentStrokes
+    );
+
+    HRESULT SetSegments
+    (
+        [in]       UINT32             segmentCount,
+        [in]       UINT32             segmentDataCount,
+        [in] const XPS_SEGMENT_TYPE *segmentTypes,
+        [in] const FLOAT            *segmentData,
+        [in] const BOOL             *segmentStrokes
+    );
+
+    HRESULT GetStartPoint
+    (
+        [out, retval] XPS_POINT *startPoint
+    );
+
+    HRESULT SetStartPoint
+    (
+        [in]    const XPS_POINT *startPoint
+    );
+
+    HRESULT GetIsClosed
+    (
+        [out, retval] BOOL *isClosed
+    );
+
+    HRESULT SetIsClosed
+    (
+        [in]          BOOL  isClosed
+    );
+
+    HRESULT GetIsFilled
+    (
+        [out, retval] BOOL *isFilled
+    );
+
+    HRESULT SetIsFilled
+    (
+        [in]          BOOL  isFilled
+    );
+
+    HRESULT GetSegmentCount
+    (
+        [out, retval] UINT32 *segmentCount
+    );
+
+    HRESULT GetSegmentDataCount
+    (
+        [out, retval] UINT32 *segmentDataCount
+    );
+
+    HRESULT GetSegmentStrokePattern
+    (
+        [out, retval] XPS_SEGMENT_STROKE_PATTERN *segmentStrokePattern
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMGeometryFigure **geometryFigure
+    );
+}
+
+[
+    object,
+    uuid(FD48C3F3-A58E-4B5A-8826-1DE54ABE72B2)
+]
+interface IXpsOMGeometryFigureCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval]  UINT32                 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]           UINT32                  index,
+        [out, retval]  IXpsOMGeometryFigure **geometryFigure
+    );
+
+    HRESULT InsertAt
+    (
+        [in]           UINT32                  index,
+        [in]           IXpsOMGeometryFigure  *geometryFigure
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]           UINT32                  index
+    );
+
+    HRESULT SetAt
+    (
+        [in]           UINT32                  index,
+        [in]           IXpsOMGeometryFigure  *geometryFigure
+    );
+
+    HRESULT Append
+    (
+        [in]           IXpsOMGeometryFigure  *geometryFigure
+    );
+}
+
+[
+    object,
+    uuid(37D38BB6-3EE9-4110-9312-14B194163337)
+]
+interface IXpsOMPath : IXpsOMVisual
+{
+    HRESULT GetGeometry
+    (
+        [out, retval] IXpsOMGeometry  **geometry
+    );
+
+    HRESULT GetGeometryLocal
+    (
+        [out, retval] IXpsOMGeometry  **geometry
+    );
+
+    HRESULT SetGeometryLocal
+    (
+        [in]          IXpsOMGeometry   *geometry
+    );
+
+    HRESULT GetGeometryLookup
+    (
+        [out, string, retval] LPWSTR   *lookup
+    );
+
+    HRESULT SetGeometryLookup
+    (
+        [in, string] LPCWSTR lookup
+    );
+
+    HRESULT GetAccessibilityShortDescription
+    (
+        [out, string, retval] LPWSTR  *shortDescription
+    );
+
+    HRESULT SetAccessibilityShortDescription
+    (
+        [in, string] LPCWSTR           shortDescription
+    );
+
+    HRESULT GetAccessibilityLongDescription
+    (
+        [out, string, retval] LPWSTR  *longDescription
+    );
+
+    HRESULT SetAccessibilityLongDescription
+    (
+        [in, string] LPCWSTR longDescription
+    );
+
+    HRESULT GetSnapsToPixels
+    (
+        [out, retval] BOOL *snapsToPixels
+    );
+
+    HRESULT SetSnapsToPixels
+    (
+        [in] BOOL snapsToPixels
+    );
+
+    HRESULT GetStrokeBrush
+    (
+        [out, retval] IXpsOMBrush **brush
+    );
+
+    HRESULT GetStrokeBrushLocal
+    (
+        [out, retval] IXpsOMBrush **brush
+    );
+
+    HRESULT SetStrokeBrushLocal
+    (
+        [in] IXpsOMBrush *brush
+    );
+
+    HRESULT GetStrokeBrushLookup
+    (
+        [out, string, retval] LPWSTR *lookup
+    );
+
+    HRESULT SetStrokeBrushLookup
+    (
+        [in, string] LPCWSTR lookup
+    );
+
+    HRESULT GetStrokeDashes
+    (
+        [out, retval] IXpsOMDashCollection **strokeDashes
+    );
+
+    HRESULT GetStrokeDashCap
+    (
+        [out, retval] XPS_DASH_CAP *strokeDashCap
+    );
+
+    HRESULT SetStrokeDashCap
+    (
+        [in] XPS_DASH_CAP strokeDashCap
+    );
+
+    HRESULT GetStrokeDashOffset
+    (
+        [out, retval] FLOAT *strokeDashOffset
+    );
+
+    HRESULT SetStrokeDashOffset
+    (
+        [in] FLOAT strokeDashOffset
+    );
+
+    HRESULT GetStrokeStartLineCap
+    (
+        [out, retval] XPS_LINE_CAP *strokeStartLineCap
+    );
+
+    HRESULT SetStrokeStartLineCap
+    (
+        [in] XPS_LINE_CAP strokeStartLineCap
+    );
+
+    HRESULT GetStrokeEndLineCap
+    (
+        [out, retval] XPS_LINE_CAP *strokeEndLineCap
+    );
+
+    HRESULT SetStrokeEndLineCap
+    (
+        [in] XPS_LINE_CAP strokeEndLineCap
+    );
+
+    HRESULT GetStrokeLineJoin
+    (
+        [out, retval] XPS_LINE_JOIN *strokeLineJoin
+    );
+
+    HRESULT SetStrokeLineJoin
+    (
+        [in] XPS_LINE_JOIN strokeLineJoin
+    );
+
+    HRESULT GetStrokeMiterLimit
+    (
+        [out, retval] FLOAT *strokeMiterLimit
+    );
+
+    HRESULT SetStrokeMiterLimit
+    (
+        [in] FLOAT strokeMiterLimit
+    );
+
+    HRESULT GetStrokeThickness
+    (
+        [out, retval] FLOAT *strokeThickness
+    );
+
+    HRESULT SetStrokeThickness
+    (
+        [in] FLOAT strokeThickness
+    );
+
+    HRESULT GetFillBrush
+    (
+        [out, retval] IXpsOMBrush **brush
+    );
+
+    HRESULT GetFillBrushLocal
+    (
+        [out, retval] IXpsOMBrush **brush
+    );
+
+    HRESULT SetFillBrushLocal
+    (
+        [in] IXpsOMBrush *brush
+    );
+
+    HRESULT GetFillBrushLookup
+    (
+        [out, string, retval] LPWSTR *lookup
+    );
+
+    HRESULT SetFillBrushLookup
+    (
+        [in, string] LPCWSTR lookup
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMPath **path
+    );
+}
+
+[
+    object,
+    uuid(56A3F80C-EA4C-4187-A57B-A2A473B2B42B)
+]
+interface IXpsOMBrush : IXpsOMShareable
+{
+    HRESULT GetOpacity
+    (
+        [out, retval] FLOAT *opacity
+    );
+
+    HRESULT SetOpacity
+    (
+        [in] FLOAT opacity
+    );
+}
+
+[
+    object,
+    uuid(C9174C3A-3CD3-4319-BDA4-11A39392CEEF)
+]
+interface IXpsOMGradientStopCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32                index,
+        [out, retval] IXpsOMGradientStop **stop
+    );
+
+    HRESULT InsertAt
+    (
+        [in] UINT32               index,
+        [in] IXpsOMGradientStop *stop
+    );
+
+    HRESULT RemoveAt
+    (
+        [in] UINT32 index
+    );
+
+    HRESULT SetAt
+    (
+        [in] UINT32               index,
+        [in] IXpsOMGradientStop *stop
+    );
+
+    HRESULT Append
+    (
+        [in] IXpsOMGradientStop *stop
+    );
+}
+
+[
+    object,
+    uuid(A06F9F05-3BE9-4763-98A8-094FC672E488)
+]
+interface IXpsOMSolidColorBrush : IXpsOMBrush
+{
+    HRESULT GetColor
+    (
+        [out] XPS_COLOR                            *color,
+        [out, retval] IXpsOMColorProfileResource **colorProfile
+    );
+
+    HRESULT SetColor
+    (
+        [in] const XPS_COLOR            *color,
+        [in] IXpsOMColorProfileResource *colorProfile
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMSolidColorBrush **solidColorBrush
+    );
+}
+
+[
+    object,
+    uuid(0FC2328D-D722-4A54-B2EC-BE90218A789E)
+]
+interface IXpsOMTileBrush : IXpsOMBrush
+{
+    HRESULT GetTransform
+    (
+        [out, retval] IXpsOMMatrixTransform **transform
+    );
+
+    HRESULT GetTransformLocal
+    (
+        [out, retval] IXpsOMMatrixTransform **transform
+    );
+
+    HRESULT SetTransformLocal
+    (
+        [in] IXpsOMMatrixTransform *transform
+    );
+
+    HRESULT GetTransformLookup
+    (
+        [out, string, retval]  LPWSTR *key
+    );
+
+    HRESULT SetTransformLookup
+    (
+        [in, string] LPCWSTR key
+    );
+
+    HRESULT GetViewbox
+    (
+        [out, retval] XPS_RECT *viewbox
+    );
+
+    HRESULT SetViewbox
+    (
+        [in] const XPS_RECT     *viewbox
+    );
+
+    HRESULT GetViewport
+    (
+        [out, retval] XPS_RECT *viewport
+    );
+
+    HRESULT SetViewport
+    (
+        [in] const XPS_RECT *viewport
+    );
+
+    HRESULT GetTileMode
+    (
+        [out, retval] XPS_TILE_MODE *tileMode
+    );
+
+    HRESULT SetTileMode
+    (
+        [in] XPS_TILE_MODE tileMode
+    );
+}
+
+[
+    object,
+    uuid(97E294AF-5B37-46B4-8057-874D2F64119B)
+]
+interface IXpsOMVisualBrush : IXpsOMTileBrush
+{
+    HRESULT GetVisual
+    (
+         [out, retval] IXpsOMVisual **visual
+    );
+
+    HRESULT GetVisualLocal
+    (
+         [out, retval] IXpsOMVisual **visual
+    );
+
+    HRESULT SetVisualLocal
+    (
+         [in] IXpsOMVisual *visual
+    );
+
+    HRESULT GetVisualLookup
+    (
+         [out, string, retval] LPWSTR *lookup
+    );
+
+    HRESULT SetVisualLookup
+    (
+         [in, string] LPCWSTR lookup
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMVisualBrush **visualBrush
+    );
+}
+
+[
+    object,
+    uuid(3DF0B466-D382-49EF-8550-DD94C80242E4)
+]
+interface IXpsOMImageBrush : IXpsOMTileBrush
+{
+    HRESULT GetImageResource
+    (
+        [out, retval] IXpsOMImageResource        **imageResource
+    );
+
+    HRESULT SetImageResource
+    (
+        [in]          IXpsOMImageResource         *imageResource
+    );
+
+    HRESULT GetColorProfileResource
+    (
+        [out, retval] IXpsOMColorProfileResource **colorProfileResource
+    );
+
+    HRESULT SetColorProfileResource
+    (
+        [in]          IXpsOMColorProfileResource *colorProfileResource
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMImageBrush           **imageBrush
+    );
+
+}
+
+[
+    object,
+    uuid(5CF4F5CC-3969-49B5-A70A-5550B618FE49)
+]
+interface IXpsOMGradientStop : IUnknown
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMGradientBrush **owner
+    );
+
+    HRESULT GetOffset
+    (
+        [out, retval] FLOAT *offset
+    );
+
+    HRESULT SetOffset
+    (
+        [in]          FLOAT  offset
+    );
+
+    HRESULT GetColor
+    (
+        [out]              XPS_COLOR                   *color,
+        [out, retval]      IXpsOMColorProfileResource **colorProfile
+    );
+
+    HRESULT SetColor
+    (
+        [in] const XPS_COLOR                   *color,
+        [in]       IXpsOMColorProfileResource  *colorProfile
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMGradientStop         **gradientStop
+    );
+}
+
+[
+    object,
+    uuid(EDB59622-61A2-42C3-BACE-ACF2286C06BF)
+]
+interface IXpsOMGradientBrush : IXpsOMBrush
+{
+    HRESULT GetGradientStops
+    (
+        [out, retval]          IXpsOMGradientStopCollection **gradientStops
+    );
+
+    HRESULT GetTransform
+    (
+        [out, retval]          IXpsOMMatrixTransform  **transform
+    );
+
+    HRESULT GetTransformLocal
+    (
+        [out, retval]          IXpsOMMatrixTransform  **transform
+    );
+
+    HRESULT SetTransformLocal
+    (
+        [in]                   IXpsOMMatrixTransform   *transform
+    );
+
+    HRESULT GetTransformLookup
+    (
+        [out, string, retval]  LPWSTR                  *key
+    );
+
+    HRESULT SetTransformLookup
+    (
+        [in, string]           LPCWSTR                  key
+    );
+
+    HRESULT GetSpreadMethod
+    (
+        [out, retval]          XPS_SPREAD_METHOD       *spreadMethod
+    );
+
+    HRESULT SetSpreadMethod
+    (
+        [in]                   XPS_SPREAD_METHOD        spreadMethod
+    );
+
+    HRESULT GetColorInterpolationMode
+    (
+        [out, retval]          XPS_COLOR_INTERPOLATION *colorInterpolationMode
+    );
+
+    HRESULT SetColorInterpolationMode
+    (
+        [in]                   XPS_COLOR_INTERPOLATION  colorInterpolationMode
+    );
+}
+
+[
+    object,
+    uuid(005E279F-C30D-40FF-93EC-1950D3C528DB)
+]
+interface IXpsOMLinearGradientBrush : IXpsOMGradientBrush
+{
+    HRESULT GetStartPoint
+    (
+        [out, retval] XPS_POINT                  *startPoint
+    );
+
+    HRESULT SetStartPoint
+    (
+        [in]    const XPS_POINT                  *startPoint
+    );
+
+    HRESULT GetEndPoint
+    (
+        [out, retval] XPS_POINT                  *endPoint
+    );
+
+    HRESULT SetEndPoint
+    (
+       [in]    const XPS_POINT                  *endPoint
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMLinearGradientBrush **linearGradientBrush
+    );
+}
+
+[
+    object,
+    uuid(75F207E5-08BF-413C-96B1-B82B4064176B)
+]
+interface IXpsOMRadialGradientBrush : IXpsOMGradientBrush
+{
+    HRESULT GetCenter
+    (
+        [out, retval] XPS_POINT                  *center
+    );
+
+    HRESULT SetCenter
+    (
+        [in]    const XPS_POINT                  *center
+    );
+
+    HRESULT GetRadiiSizes
+    (
+        [out, retval] XPS_SIZE                   *radiiSizes
+    );
+
+    HRESULT SetRadiiSizes
+    (
+        [in]    const XPS_SIZE                   *radiiSizes
+    );
+
+    HRESULT GetGradientOrigin
+    (
+        [out, retval] XPS_POINT                  *origin
+    );
+
+    HRESULT SetGradientOrigin
+    (
+        [in]    const XPS_POINT                  *origin
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMRadialGradientBrush **radialGradientBrush
+    );
+}
+
+[
+    object,
+    uuid(da2ac0a2-73a2-4975-ad14-74097c3ff3a5)
+]
+interface IXpsOMResource : IXpsOMPart
+{
+}
+
+[
+    object,
+    uuid(f4cf7729-4864-4275-99b3-a8717163ecaf)
+]
+interface IXpsOMPartResources : IUnknown
+{
+    HRESULT GetFontResources
+    (
+        [out, retval] IXpsOMFontResourceCollection           **fontResources
+    );
+
+    HRESULT GetImageResources
+    (
+        [out, retval] IXpsOMImageResourceCollection          **imageResources
+    );
+
+    HRESULT GetColorProfileResources
+    (
+        [out, retval] IXpsOMColorProfileResourceCollection   **colorProfileResources
+    );
+
+    HRESULT GetRemoteDictionaryResources
+    (
+        [out, retval] IXpsOMRemoteDictionaryResourceCollection **dictionaryResources
+    );
+}
+
+[
+    object,
+    uuid(897C86B8-8EAF-4AE3-BDDE-56419FCF4236)
+]
+interface IXpsOMDictionary : IUnknown
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IUnknown **owner
+    );
+
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]            UINT32            index,
+        [out, string]   LPWSTR           *key,
+        [out, retval]   IXpsOMShareable **entry
+    );
+
+    HRESULT GetByKey
+    (
+        [in, string] LPCWSTR            key,
+        [in] IXpsOMShareable           *beforeEntry,
+        [out, retval] IXpsOMShareable **entry
+    );
+
+    HRESULT GetIndex
+    (
+        [in]          IXpsOMShareable *entry,
+        [out, retval] UINT32           *index
+    );
+
+    HRESULT Append
+    (
+        [in, string] LPCWSTR          key,
+        [in]         IXpsOMShareable *entry
+    );
+
+    HRESULT InsertAt
+    (
+        [in]         UINT32             index,
+        [in, string] LPCWSTR           key,
+        [in]         IXpsOMShareable  *entry
+    );
+
+    HRESULT RemoveAt
+    (
+        [in] UINT32 index
+    );
+
+    HRESULT SetAt
+    (
+        [in]         UINT32            index,
+        [in, string] LPCWSTR          key,
+        [in]         IXpsOMShareable *entry
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMDictionary **dictionary
+    );
+
+}
+
+[
+object,
+uuid(a8c45708-47d9-4af4-8d20-33b48c9b8485)
+]
+interface IXpsOMFontResource : IXpsOMResource
+{
+    HRESULT GetStream
+    (
+        [out, retval] IStream **readerStream
+    );
+
+    HRESULT SetContent
+    (
+        [in] IStream            *sourceStream,
+        [in] XPS_FONT_EMBEDDING embeddingOption,
+        [in] IOpcPartUri        *partName
+    );
+
+    HRESULT GetEmbeddingOption
+    (
+        [out, retval] XPS_FONT_EMBEDDING *embeddingOption
+    );
+}
+
+[
+object,
+uuid(70B4A6BB-88D4-4FA8-AAF9-6D9C596FDBAD)
+]
+interface IXpsOMFontResourceCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32                index,
+        [out, retval] IXpsOMFontResource **value
+    );
+
+    HRESULT SetAt
+    (
+        [in] UINT32               index,
+        [in] IXpsOMFontResource *value
+    );
+
+    HRESULT InsertAt
+    (
+        [in] UINT32              index,
+        [in] IXpsOMFontResource *value
+    );
+
+    HRESULT Append
+    (
+        [in] IXpsOMFontResource *value
+    );
+
+    HRESULT RemoveAt
+    (
+        [in] UINT32 index
+    );
+
+    HRESULT GetByPartName
+    (
+        [in]          IOpcPartUri           *partName,
+        [out, retval] IXpsOMFontResource   **part
+    );
+}
+
+[
+    object,
+    uuid(3db8417d-ae50-485e-9a44-d7758f78a23f)
+]
+interface IXpsOMImageResource : IXpsOMResource
+{
+    HRESULT GetStream(
+        [out, retval] IStream               **readerStream
+    );
+
+    HRESULT SetContent(
+        [in]         IStream                *sourceStream,
+        [in]         XPS_IMAGE_TYPE         imageType,
+        [in]         IOpcPartUri            *partName
+    );
+
+    HRESULT GetImageType(
+        [out, retval] XPS_IMAGE_TYPE        *imageType
+    );
+}
+
+[
+    object,
+    uuid(7A4A1A71-9CDE-4B71-B33F-62DE843EABFE)
+]
+interface IXpsOMImageResourceCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt(
+        [in]          UINT32                 index,
+        [out, retval] IXpsOMImageResource **object
+    );
+
+    HRESULT InsertAt(
+        [in]          UINT32               index,
+        [in]          IXpsOMImageResource *object
+    );
+
+    HRESULT RemoveAt(
+        [in]          UINT32    index
+    );
+
+    HRESULT SetAt(
+        [in]          UINT32                index,
+        [in]          IXpsOMImageResource *object
+    );
+
+    HRESULT Append(
+        [in]          IXpsOMImageResource *object
+    );
+
+    HRESULT GetByPartName
+    (
+        [in]          IOpcPartUri         *partName,
+        [out, retval] IXpsOMImageResource **part
+    );
+}
+
+[
+    object,
+    uuid(67bd7d69-1eef-4bb1-b5e7-6f4f87be8abe)
+]
+interface IXpsOMColorProfileResource : IXpsOMResource
+{
+    HRESULT GetStream
+    (
+        [out, retval] IStream           **stream
+    );
+
+    HRESULT SetContent
+    (
+        [in]         IStream                *sourceStream,
+        [in]         IOpcPartUri            *partName
+    );
+}
+
+[
+    object,
+    uuid(12759630-5FBA-4283-8F7D-CCA849809EDB)
+]
+interface IXpsOMColorProfileResourceCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32                     *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32                        index,
+        [out, retval] IXpsOMColorProfileResource **object
+    );
+
+    HRESULT InsertAt
+    (
+        [in]          UINT32                        index,
+        [in]          IXpsOMColorProfileResource  *object
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]          UINT32    index
+    );
+
+    HRESULT SetAt
+    (
+        [in]          UINT32                       index,
+        [in]          IXpsOMColorProfileResource *object
+    );
+
+    HRESULT Append
+    (
+        [in]          IXpsOMColorProfileResource   *object
+    );
+
+    HRESULT GetByPartName
+    (
+        [in]          IOpcPartUri                 *partName,
+        [out, retval] IXpsOMColorProfileResource **part
+    );
+}
+
+[
+    object,
+    uuid(e7ff32d2-34aa-499b-bbe9-9cd4ee6c59f7)
+]
+interface IXpsOMPrintTicketResource : IXpsOMResource
+{
+    HRESULT GetStream
+    (
+        [out, retval] IStream           **stream
+    );
+
+    HRESULT SetContent
+    (
+        [in]         IStream                *sourceStream,
+        [in]         IOpcPartUri            *partName
+    );
+}
+
+[
+    object,
+    uuid(c9bd7cd4-e16a-4bf8-8c84-c950af7a3061)
+]
+interface IXpsOMRemoteDictionaryResource : IXpsOMResource
+{
+    HRESULT GetDictionary
+    (
+        [out, retval]     IXpsOMDictionary    **dictionary
+    );
+
+    HRESULT SetDictionary
+    (
+        [in]              IXpsOMDictionary    *dictionary
+    );
+}
+
+[
+    object,
+    uuid(5C38DB61-7FEC-464A-87BD-41E3BEF018BE)
+]
+interface IXpsOMRemoteDictionaryResourceCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32     *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32                            index,
+        [out, retval] IXpsOMRemoteDictionaryResource **object
+    );
+
+    HRESULT InsertAt
+    (
+        [in]          UINT32                            index,
+        [in]          IXpsOMRemoteDictionaryResource   *object
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]          UINT32    index
+    );
+
+    HRESULT SetAt
+    (
+        [in]          UINT32                           index,
+        [in]          IXpsOMRemoteDictionaryResource *object
+    );
+    HRESULT Append
+    (
+        [in]          IXpsOMRemoteDictionaryResource *object
+    );
+
+    HRESULT GetByPartName
+    (
+        [in]          IOpcPartUri                     *partName,
+        [out, retval] IXpsOMRemoteDictionaryResource **remoteDictionaryResource
+    );
+}
+
+[
+    object,
+    uuid(AB8F5D8E-351B-4D33-AAED-FA56F0022931)
+]
+interface IXpsOMSignatureBlockResourceCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32                         index,
+        [out, retval] IXpsOMSignatureBlockResource **signatureBlockResource
+    );
+
+    HRESULT InsertAt
+    (
+        [in]          UINT32                         index,
+        [in]          IXpsOMSignatureBlockResource *signatureBlockResource
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]          UINT32    index
+    );
+
+    HRESULT SetAt
+    (
+        [in]          UINT32                         index,
+        [in]          IXpsOMSignatureBlockResource *signatureBlockResource
+    );
+
+    HRESULT Append
+    (
+        [in]          IXpsOMSignatureBlockResource *signatureBlockResource
+    );
+
+    HRESULT GetByPartName
+    (
+        [in]          IOpcPartUri                   *partName,
+        [out, retval] IXpsOMSignatureBlockResource  **signatureBlockResource
+    );
+}
+
+[
+    object,
+    uuid(85febc8a-6b63-48a9-af07-7064e4ecff30)
+]
+interface IXpsOMDocumentStructureResource : IXpsOMResource
+{
+    HRESULT GetOwner
+    (
+        [out, retval]    IXpsOMDocument **owner
+    );
+
+    HRESULT GetStream
+    (
+        [out, retval]    IStream   **stream
+    );
+
+    HRESULT SetContent
+    (
+
+        [in]         IStream         *sourceStream,
+        [in]         IOpcPartUri     *partName
+    );
+}
+
+[
+    object,
+    uuid(c2b3ca09-0473-4282-87ae-1780863223f0)
+]
+interface IXpsOMStoryFragmentsResource : IXpsOMResource
+{
+    HRESULT GetOwner
+    (
+        [out, retval]      IXpsOMPageReference **owner
+    );
+
+    HRESULT GetStream
+    (
+        [out, retval]     IStream **stream
+    );
+
+    HRESULT SetContent
+    (
+        [in]         IStream                *sourceStream,
+        [in]         IOpcPartUri            *partName
+    );
+}
+
+[
+    object,
+    uuid(4776ad35-2e04-4357-8743-ebf6c171a905),
+    helpstring("Specify the XpsDigitalSignatureBlockResource information"),
+    pointer_default(ref)
+]
+interface IXpsOMSignatureBlockResource : IXpsOMResource
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMDocument  **owner
+    );
+
+    HRESULT GetStream
+    (
+        [out, retval] IStream         **stream
+    );
+
+    HRESULT SetContent
+    (
+        [in]         IStream                *sourceStream,
+        [in]         IOpcPartUri            *partName
+    );
+}
+
+[
+    object,
+    uuid(94D8ABDE-AB91-46A8-82B7-F5B05EF01A96),
+    helpstring("Specify the VisualCollection information"),
+    pointer_default(ref)
+]
+interface IXpsOMVisualCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32         index,
+        [out, retval] IXpsOMVisual **object
+    );
+
+    HRESULT InsertAt
+    (
+        [in]          UINT32         index,
+        [in]          IXpsOMVisual *object
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]          UINT32    index
+    );
+
+    HRESULT SetAt
+    (
+        [in]          UINT32         index,
+        [in]          IXpsOMVisual *object
+    );
+
+    HRESULT Append
+    (
+        [in]          IXpsOMVisual *object
+    );
+}
+
+[
+    object,
+    uuid(221D1452-331E-47c6-87E9-6CCEFB9B5BA3),
+    helpstring("Specify the Canvas information"),
+    pointer_default(ref)
+]
+interface IXpsOMCanvas : IXpsOMVisual
+{
+    [
+        helpstring("Get the collection of XpsVisuals")
+    ]
+    HRESULT GetVisuals
+    (
+        [out, retval] IXpsOMVisualCollection **visuals
+    );
+
+    HRESULT GetUseAliasedEdgeMode
+    (
+        [out, retval] BOOL *useAliasedEdgeMode
+    );
+
+    HRESULT SetUseAliasedEdgeMode
+    (
+        [in] BOOL useAliasedEdgeMode
+    );
+
+    HRESULT GetAccessibilityShortDescription
+    (
+       [out, string, retval] LPWSTR *shortDescription
+    );
+
+    HRESULT SetAccessibilityShortDescription
+    (
+       [in, string] LPCWSTR shortDescription
+    );
+
+    HRESULT GetAccessibilityLongDescription
+    (
+       [out, string, retval] LPWSTR *longDescription
+    );
+
+    HRESULT SetAccessibilityLongDescription
+    (
+       [in, string] LPCWSTR longDescription
+    );
+
+    HRESULT GetDictionary
+    (
+        [out, retval] IXpsOMDictionary **resourceDictionary
+    );
+
+    HRESULT GetDictionaryLocal
+    (
+        [out, retval] IXpsOMDictionary **resourceDictionary
+    );
+
+    HRESULT SetDictionaryLocal
+    (
+        [in] IXpsOMDictionary *resourceDictionary
+    );
+
+    HRESULT GetDictionaryResource
+    (
+        [out, retval] IXpsOMRemoteDictionaryResource **remoteDictionaryResource
+    );
+
+    HRESULT SetDictionaryResource
+    (
+        [in] IXpsOMRemoteDictionaryResource *remoteDictionaryResource
+    );
+
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMCanvas **canvas
+    );
+
+}
+
+
+[
+    object,
+    uuid(d3e18888-f120-4fee-8c68-35296eae91d4),
+    helpstring("Specify the Fixed Page information"),
+    pointer_default(ref)
+]
+interface IXpsOMPage : IXpsOMPart
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMPageReference **pageReference
+    );
+
+    HRESULT GetVisuals
+    (
+        [out, retval] IXpsOMVisualCollection **visuals
+    );
+
+    HRESULT GetPageDimensions
+    (
+        [out, retval] XPS_SIZE *pageDimensions
+    );
+
+    HRESULT SetPageDimensions
+    (
+        [in] const XPS_SIZE *pageDimensions
+    );
+
+    HRESULT GetContentBox
+    (
+        [out, retval] XPS_RECT *contentBox
+    );
+
+    HRESULT SetContentBox
+    (
+        [in] const XPS_RECT *contentBox
+    );
+
+    HRESULT GetBleedBox
+    (
+        [out, retval] XPS_RECT *bleedBox
+    );
+
+    HRESULT SetBleedBox
+    (
+        [in] const XPS_RECT *bleedBox
+    );
+
+    HRESULT GetLanguage
+    (
+       [out, string, retval] LPWSTR *language
+    );
+
+    HRESULT SetLanguage
+    (
+        [in, string] LPCWSTR language
+    );
+
+    HRESULT GetName
+    (
+       [out, string, retval] LPWSTR *name
+    );
+
+    HRESULT SetName
+    (
+        [in, string] LPCWSTR name
+    );
+
+    HRESULT GetIsHyperlinkTarget
+    (
+        [out, retval] BOOL *isHyperlinkTarget
+    );
+
+    HRESULT SetIsHyperlinkTarget
+    (
+        [in] BOOL isHyperlinkTarget
+    );
+
+    HRESULT GetDictionary
+    (
+        [out, retval] IXpsOMDictionary **resourceDictionary
+    );
+
+    HRESULT GetDictionaryLocal
+    (
+        [out, retval] IXpsOMDictionary **resourceDictionary
+    );
+
+    HRESULT SetDictionaryLocal
+    (
+        [in] IXpsOMDictionary *resourceDictionary
+    );
+
+    HRESULT GetDictionaryResource
+    (
+        [out, retval] IXpsOMRemoteDictionaryResource **remoteDictionaryResource
+    );
+
+    HRESULT SetDictionaryResource
+    (
+        [in] IXpsOMRemoteDictionaryResource *remoteDictionaryResource
+    );
+
+    HRESULT Write
+    (
+        [in] ISequentialStream      *stream,
+        [in] BOOL                   optimizeMarkupSize
+    );
+
+    HRESULT GenerateUnusedLookupKey
+    (
+        [in]                  XPS_OBJECT_TYPE type,
+        [out, string, retval] LPWSTR         *key
+    );
+
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMPage **page
+    );
+
+
+}
+
+
+[
+    object,
+    uuid(ED360180-6F92-4998-890D-2F208531A0A0),
+    helpstring("Specify the FixedPageReference information"),
+    pointer_default(ref)
+]
+interface IXpsOMPageReference : IUnknown
+{
+    [
+        helpstring("Get the owning XpsOMDocument")
+    ]
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMDocument **document
+    );
+
+    [
+        helpstring("Get the XpsPage referred by XpsPageReference object")
+    ]
+    HRESULT GetPage
+    (
+        [out, retval] IXpsOMPage **page
+    );
+
+    [
+        helpstring("Sets the XpsPage in XpsPageReference object")
+    ]
+    HRESULT SetPage
+    (
+        [in] IXpsOMPage *page
+    );
+
+    HRESULT DiscardPage
+    (
+    );
+
+    HRESULT IsPageLoaded
+    (
+        [out, retval] BOOL *isPageLoaded
+    );
+
+    HRESULT GetAdvisoryPageDimensions
+    (
+        [out, retval] XPS_SIZE *pageDimensions
+    );
+
+    HRESULT SetAdvisoryPageDimensions
+    (
+        [in] const XPS_SIZE *pageDimensions
+    );
+
+    HRESULT GetStoryFragmentsResource
+    (
+        [out, retval] IXpsOMStoryFragmentsResource **storyFragmentsResource
+    );
+
+    HRESULT SetStoryFragmentsResource
+    (
+        [in] IXpsOMStoryFragmentsResource *storyFragmentsResource
+    );
+
+    HRESULT GetPrintTicketResource
+    (
+        [out, retval] IXpsOMPrintTicketResource **printTicketResource
+    );
+
+    HRESULT SetPrintTicketResource
+    (
+        [in] IXpsOMPrintTicketResource *printTicketResource
+    );
+
+    HRESULT GetThumbnailResource
+    (
+        [out, retval] IXpsOMImageResource **imageResource
+    );
+
+    HRESULT SetThumbnailResource
+    (
+        [in] IXpsOMImageResource *imageResource
+    );
+
+    HRESULT CollectLinkTargets
+    (
+        [out, retval] IXpsOMNameCollection **linkTargets
+    );
+
+    HRESULT CollectPartResources
+    (
+        [out, retval] IXpsOMPartResources **partResources
+    );
+
+    HRESULT HasRestrictedFonts
+    (
+        [out, retval] BOOL *restrictedFonts
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMPageReference **pageReference
+    );
+
+}
+
+[
+    object,
+    uuid(CA16BA4D-E7B9-45C5-958B-F98022473745),
+    helpstring("Specify the PageReferenceCollection information"),
+    pointer_default(ref)
+]
+interface IXpsOMPageReferenceCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32                index,
+        [out, retval] IXpsOMPageReference  **pageReference
+    );
+
+    HRESULT InsertAt
+    (
+        [in] UINT32                index,
+        [in] IXpsOMPageReference  *pageReference
+    );
+
+    HRESULT RemoveAt
+    (
+        [in] UINT32  index
+    );
+
+    HRESULT SetAt
+    (
+        [in] UINT32               index,
+        [in] IXpsOMPageReference *pageReference
+    );
+
+    HRESULT Append
+    (
+        [in] IXpsOMPageReference *pageReference
+    );
+}
+
+[
+    object,
+    uuid(2C2C94CB-AC5F-4254-8EE9-23948309D9F0),
+    helpstring("Specify the FixedDocument information"),
+    pointer_default(ref)
+]
+interface IXpsOMDocument : IXpsOMPart
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMDocumentSequence **documentSequence
+    );
+
+    HRESULT GetPageReferences
+    (
+        [out, retval] IXpsOMPageReferenceCollection **pageReferences
+    );
+
+    HRESULT GetPrintTicketResource
+    (
+        [out, retval] IXpsOMPrintTicketResource **printTicketResource
+    );
+
+    HRESULT SetPrintTicketResource
+    (
+        [in] IXpsOMPrintTicketResource *printTicketResource
+    );
+
+    HRESULT GetDocumentStructureResource
+    (
+        [out, retval] IXpsOMDocumentStructureResource **documentStructureResource
+    );
+
+    HRESULT SetDocumentStructureResource
+    (
+        [in] IXpsOMDocumentStructureResource *documentStructureResource
+    );
+
+    HRESULT GetSignatureBlockResources
+    (
+        [out, retval] IXpsOMSignatureBlockResourceCollection **signatureBlockResources
+    );
+
+    HRESULT Clone
+    (
+        [out, retval] IXpsOMDocument **document
+    );
+}
+
+[
+    object,
+    uuid(D1C87F0D-E947-4754-8A25-971478F7E83E),
+    helpstring("Specify the DocumentCollection information"),
+    pointer_default(ref)
+]
+interface IXpsOMDocumentCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32             index,
+        [out, retval] IXpsOMDocument  **document
+    );
+
+    HRESULT InsertAt
+    (
+        [in]          UINT32           index,
+        [in]          IXpsOMDocument *document
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]          UINT32      index
+    );
+
+    HRESULT SetAt
+    (
+        [in]          UINT32           index,
+        [in]          IXpsOMDocument  *document
+    );
+
+    HRESULT Append
+    (
+        [in]          IXpsOMDocument *document
+    );
+}
+
+
+[
+    object,
+    uuid(56492EB4-D8D5-425e-8256-4C2B64AD0264),
+    helpstring("Specify the FixedDocumentSequence information"),
+    pointer_default(ref)
+]
+interface IXpsOMDocumentSequence : IXpsOMPart
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMPackage **package
+    );
+
+    [
+        helpstring("Get the DocumentCollection")
+    ]
+    HRESULT GetDocuments
+    (
+        [out, retval] IXpsOMDocumentCollection **documents
+    );
+
+    HRESULT GetPrintTicketResource
+    (
+        [out, retval] IXpsOMPrintTicketResource **printTicketResource
+    );
+
+    HRESULT SetPrintTicketResource
+    (
+        [in] IXpsOMPrintTicketResource *printTicketResource
+    );
+
+}
+
+[
+    object,
+    uuid(3340FE8F-4027-4aa1-8F5F-D35AE45FE597),
+    helpstring("Specify the IXpsOMCoreProperties information"),
+    pointer_default(ref)
+]
+interface IXpsOMCoreProperties : IXpsOMPart
+{
+    HRESULT GetOwner
+    (
+        [out, retval] IXpsOMPackage **package
+    );
+
+    HRESULT GetCategory
+    (
+        [out, string, retval]   LPWSTR                 *category
+    );
+
+    HRESULT SetCategory
+    (
+        [in, string]            LPCWSTR                 category
+    );
+
+    HRESULT GetContentStatus
+    (
+        [out, string, retval]   LPWSTR                 *contentStatus
+    );
+
+    HRESULT SetContentStatus
+    (
+        [in, string]            LPCWSTR                 contentStatus
+    );
+
+    HRESULT GetContentType
+    (
+        [out, string, retval]   LPWSTR                 *contentType
+    );
+
+    HRESULT SetContentType
+    (
+        [in, string]            LPCWSTR                 contentType
+    );
+
+    HRESULT GetCreated
+    (
+        [out, retval]           SYSTEMTIME              *created
+    );
+
+    HRESULT SetCreated
+    (
+        [in]                    const SYSTEMTIME        *created
+    );
+
+    HRESULT GetCreator
+    (
+        [out, string, retval]   LPWSTR                  *creator
+    );
+
+    HRESULT SetCreator
+    (
+        [in, string]            LPCWSTR                 creator
+    );
+
+    HRESULT GetDescription
+    (
+        [out, string, retval]   LPWSTR                 *description
+    );
+
+    HRESULT SetDescription
+    (
+        [in, string]            LPCWSTR                 description
+    );
+
+    HRESULT GetIdentifier
+    (
+        [out, string, retval]   LPWSTR                 *identifier
+    );
+
+    HRESULT SetIdentifier
+    (
+        [in, string]            LPCWSTR                 identifier
+    );
+
+    HRESULT GetKeywords
+    (
+        [out, string, retval]   LPWSTR                 *keywords
+    );
+
+    HRESULT SetKeywords
+    (
+        [in, string]            LPCWSTR                 keywords
+    );
+
+    HRESULT GetLanguage
+    (
+        [out, string, retval]   LPWSTR                 *language
+    );
+
+    HRESULT SetLanguage
+    (
+        [in, string]            LPCWSTR                 language
+    );
+
+    HRESULT GetLastModifiedBy
+    (
+        [out, string, retval]   LPWSTR                 *lastModifiedBy
+    );
+
+    HRESULT SetLastModifiedBy
+    (
+        [in, string]            LPCWSTR                 lastModifiedBy
+    );
+
+    HRESULT GetLastPrinted
+    (
+        [out, retval]           SYSTEMTIME             *lastPrinted
+    );
+
+    HRESULT SetLastPrinted
+    (
+        [in]                    const SYSTEMTIME       *lastPrinted
+    );
+
+    HRESULT GetModified
+    (
+        [out, retval]           SYSTEMTIME             *modified
+    );
+
+    HRESULT SetModified
+    (
+        [in]                    const SYSTEMTIME       *modified
+    );
+
+    HRESULT GetRevision
+    (
+        [out, string, retval]   LPWSTR                 *revision
+    );
+
+    HRESULT SetRevision
+    (
+        [in, string]            LPCWSTR                 revision
+    );
+
+    HRESULT GetSubject
+    (
+        [out, string, retval]   LPWSTR                 *subject
+    );
+
+    HRESULT SetSubject
+    (
+        [in, string]            LPCWSTR                subject
+    );
+
+    HRESULT GetTitle
+    (
+        [out, string, retval]   LPWSTR                 *title
+    );
+
+    HRESULT SetTitle
+    (
+        [in, string]            LPCWSTR                title
+    );
+
+    HRESULT GetVersion
+    (
+        [out, string, retval]   LPWSTR                 *version
+    );
+
+    HRESULT SetVersion
+    (
+        [in, string]            LPCWSTR                version
+    );
+
+    HRESULT Clone
+    (
+        [out, retval]           IXpsOMCoreProperties    **coreProperties
+    );
+}
+
+[
+    object,
+    uuid(18C3DF65-81E1-4674-91DC-FC452F5A416F),
+    helpstring("Specify the root of Xps Tree "),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMPackage : IUnknown
+{
+    [
+        helpstring("Get the sequence of Fixed Documents from the package root")
+    ]
+    HRESULT GetDocumentSequence
+    (
+        [out, retval] IXpsOMDocumentSequence **documentSequence
+    );
+
+    HRESULT SetDocumentSequence
+    (
+        [in] IXpsOMDocumentSequence *documentSequence
+    );
+
+    HRESULT GetCoreProperties
+    (
+        [out, retval] IXpsOMCoreProperties **coreProperties
+    );
+
+    HRESULT SetCoreProperties
+    (
+        [in] IXpsOMCoreProperties *coreProperties
+    );
+
+    HRESULT GetDiscardControlPartName
+    (
+        [out, retval] IOpcPartUri **discardControlPartUri
+    );
+
+    HRESULT SetDiscardControlPartName
+    (
+        [in] IOpcPartUri *discardControlPartUri
+    );
+
+    HRESULT GetThumbnailResource
+    (
+        [out, retval] IXpsOMImageResource **imageResource
+    );
+
+    HRESULT SetThumbnailResource
+    (
+        [in] IXpsOMImageResource *imageResource
+    );
+
+    HRESULT
+    WriteToFile
+    (
+        [in, string]    LPCWSTR                 fileName,
+        [in, unique]    LPSECURITY_ATTRIBUTES   securityAttributes,
+        [in]            DWORD                   flagsAndAttributes,
+        [in]            BOOL                    optimizeMarkupSize
+    );
+
+    HRESULT
+    WriteToStream
+    (
+        [in] ISequentialStream      *stream,
+        [in] BOOL                   optimizeMarkupSize
+    );
+}
+
+[
+    object,
+    uuid(f9b2a685-a50d-4fc2-b764-b56e093ea0ca),
+    helpstring("Methods to create Xps Objects "),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMObjectFactory : IUnknown
+{
+    HRESULT CreatePackage
+    (
+        [out, retval] IXpsOMPackage **package
+    );
+
+    HRESULT CreatePackageFromFile
+    (
+        [in, string]    LPCWSTR         filename,
+        [in]            BOOL            reuseObjects,
+        [out, retval]   IXpsOMPackage   **package
+    );
+
+    HRESULT CreatePackageFromStream
+    (
+        [in]            IStream         *stream,
+        [in]            BOOL            reuseObjects,
+        [out, retval]   IXpsOMPackage   **package
+    );
+
+    HRESULT CreateStoryFragmentsResource
+    (
+        [in]            IStream                       *acquiredStream,
+        [in]            IOpcPartUri                   *partUri,
+        [out, retval]   IXpsOMStoryFragmentsResource **storyFragmentsResource
+    );
+
+    HRESULT CreateDocumentStructureResource
+    (
+        [in]            IStream                          *acquiredStream,
+        [in]            IOpcPartUri                      *partUri,
+        [out, retval]   IXpsOMDocumentStructureResource **documentStructureResource
+    );
+
+    HRESULT CreateSignatureBlockResource
+    (
+        [in]            IStream                            *acquiredStream,
+        [in]            IOpcPartUri                        *partUri,
+        [out, retval]   IXpsOMSignatureBlockResource      **signatureBlockResource
+    );
+
+    HRESULT CreateRemoteDictionaryResource
+    (
+        [in]            IXpsOMDictionary                *dictionary,
+        [in]            IOpcPartUri                     *partUri,
+        [out, retval]   IXpsOMRemoteDictionaryResource  **remoteDictionaryResource
+    );
+
+    HRESULT CreateRemoteDictionaryResourceFromStream
+    (
+        [in]            IStream                         *dictionaryMarkupStream,
+        [in]            IOpcPartUri                     *dictionaryPartUri,
+        [in]            IXpsOMPartResources             *resources,
+        [out, retval]   IXpsOMRemoteDictionaryResource  **dictionaryResource
+    );
+
+    HRESULT CreatePartResources
+    (
+        [out, retval] IXpsOMPartResources **partResources
+    );
+
+    HRESULT CreateDocumentSequence
+    (
+        [in]          IOpcPartUri             *partUri,
+        [out, retval] IXpsOMDocumentSequence  **documentSequence
+    );
+
+    HRESULT CreateDocument
+    (
+        [in]          IOpcPartUri              *partUri,
+        [out, retval] IXpsOMDocument           **document
+    );
+
+    HRESULT CreatePageReference
+    (
+        [in]            const XPS_SIZE              *advisoryPageDimensions,
+        [out, retval]   IXpsOMPageReference         **pageReference
+    );
+
+    HRESULT CreatePage
+    (
+        [in]            const XPS_SIZE             *pageDimensions,
+        [in, string]    LPCWSTR                    language,
+        [in]            IOpcPartUri                *partUri,
+        [out, retval]   IXpsOMPage                 **page
+    );
+
+    HRESULT CreatePageFromStream
+    (
+        [in]            IStream                  *pageMarkupStream,
+        [in]            IOpcPartUri              *partUri,
+        [in]            IXpsOMPartResources      *resources,
+        [in]            BOOL                     reuseObjects,
+        [out, retval]   IXpsOMPage               **page
+    );
+
+    HRESULT CreateCanvas
+    (
+        [out, retval] IXpsOMCanvas **canvas
+    );
+
+    HRESULT CreateGlyphs
+    (
+        [in]            IXpsOMFontResource   *fontResource,
+        [out, retval]   IXpsOMGlyphs        **glyphs
+    );
+
+    HRESULT CreatePath
+    (
+        [out, retval] IXpsOMPath            **path
+    );
+
+    HRESULT CreateGeometry
+    (
+        [out, retval] IXpsOMGeometry **geometry
+    );
+
+    HRESULT CreateGeometryFigure
+    (
+        [in] const XPS_POINT                *startPoint,
+        [out, retval] IXpsOMGeometryFigure **figure
+    );
+
+    HRESULT CreateMatrixTransform
+    (
+        [in]  const   XPS_MATRIX             *matrix,
+        [out, retval] IXpsOMMatrixTransform **transform
+    );
+
+    HRESULT CreateSolidColorBrush
+    (
+        [in] const    XPS_COLOR                   *color,
+        [in]          IXpsOMColorProfileResource  *colorProfile,
+        [out, retval] IXpsOMSolidColorBrush      **solidColorBrush
+    );
+
+    HRESULT CreateColorProfileResource
+    (
+        [in]            IStream                     *acquiredStream,
+        [in]            IOpcPartUri                 *partUri,
+        [out, retval]   IXpsOMColorProfileResource **colorProfileResource
+    );
+
+    HRESULT CreateImageBrush
+    (
+        [in]          IXpsOMImageResource  *image,
+        [in] const    XPS_RECT             *viewBox,
+        [in] const    XPS_RECT             *viewPort,
+        [out, retval] IXpsOMImageBrush    **imageBrush
+    );
+
+    HRESULT CreateVisualBrush
+    (
+        [in] const      XPS_RECT           *viewBox,
+        [in] const      XPS_RECT           *viewPort,
+        [out, retval]   IXpsOMVisualBrush **visualBrush
+    );
+
+    HRESULT CreateImageResource
+    (
+        [in]            IStream                *acquiredStream,
+        [in]            XPS_IMAGE_TYPE          contentType,
+        [in]            IOpcPartUri            *partUri,
+        [out, retval]   IXpsOMImageResource   **imageResource
+    );
+
+    HRESULT CreatePrintTicketResource
+    (
+        [in]            IStream                    *acquiredStream,
+        [in]            IOpcPartUri                *partUri,
+        [out, retval]   IXpsOMPrintTicketResource **printTicketResource
+    );
+
+    HRESULT CreateFontResource
+    (
+        [in]          IStream                  *acquiredStream,
+        [in]          XPS_FONT_EMBEDDING        fontEmbedding,
+        [in]          IOpcPartUri              *partUri,
+        [in]          BOOL                      isObfSourceStream,
+        [out, retval] IXpsOMFontResource      **fontResource
+    );
+
+    HRESULT CreateGradientStop
+    (
+        [in]          const XPS_COLOR                *color,
+        [in]          IXpsOMColorProfileResource     *colorProfile,
+        [in]          FLOAT                           offset,
+        [out, retval] IXpsOMGradientStop            **gradientStop
+    );
+
+    HRESULT CreateLinearGradientBrush
+    (
+        [in]          IXpsOMGradientStop         *gradStop1,
+        [in]          IXpsOMGradientStop         *gradStop2,
+        [in]          const XPS_POINT            *startPoint,
+        [in]          const XPS_POINT            *endPoint,
+        [out, retval] IXpsOMLinearGradientBrush **linearGradientBrush
+    );
+
+    HRESULT CreateRadialGradientBrush
+    (
+        [in]          IXpsOMGradientStop         *gradStop1,
+        [in]          IXpsOMGradientStop         *gradStop2,
+        [in]          const XPS_POINT            *centerPoint,
+        [in]          const XPS_POINT            *gradientOrigin,
+        [in]          const XPS_SIZE             *radiiSizes,
+        [out, retval] IXpsOMRadialGradientBrush **radialGradientBrush
+    );
+
+    HRESULT CreateCoreProperties
+    (
+        [in]          IOpcPartUri              *partUri,
+        [out, retval] IXpsOMCoreProperties    **coreProperties
+    );
+
+    HRESULT CreateDictionary
+    (
+        [out, retval] IXpsOMDictionary **dictionary
+    );
+
+    HRESULT CreatePartUriCollection
+    (
+        [out, retval] IXpsOMPartUriCollection **partUriCollection
+    );
+
+    HRESULT CreatePackageWriterOnFile
+    (
+        [in, string]    LPCWSTR                     fileName,
+        [in, unique]    LPSECURITY_ATTRIBUTES       securityAttributes,
+        [in]            DWORD                       flagsAndAttributes,
+        [in]            BOOL                        optimizeMarkupSize,
+        [in]            XPS_INTERLEAVING            interleaving,
+        [in]            IOpcPartUri                 *documentSequencePartName,
+        [in]            IXpsOMCoreProperties        *coreProperties,
+        [in]            IXpsOMImageResource         *packageThumbnail,
+        [in]            IXpsOMPrintTicketResource   *documentSequencePrintTicket,
+        [in]            IOpcPartUri                 *discardControlPartName,
+        [out, retval]   IXpsOMPackageWriter         **packageWriter
+    );
+
+    HRESULT CreatePackageWriterOnStream
+    (
+        [in]            ISequentialStream           *outputStream,
+        [in]            BOOL                        optimizeMarkupSize,
+        [in]            XPS_INTERLEAVING            interleaving,
+        [in]            IOpcPartUri                 *documentSequencePartName,
+        [in]            IXpsOMCoreProperties        *coreProperties,
+        [in]            IXpsOMImageResource         *packageThumbnail,
+        [in]            IXpsOMPrintTicketResource   *documentSequencePrintTicket,
+        [in]            IOpcPartUri                 *discardControlPartName,
+        [out, retval]   IXpsOMPackageWriter         **packageWriter
+    );
+
+    HRESULT CreatePartUri
+    (
+        [in, string]    LPCWSTR                     uri,
+        [out, retval]   IOpcPartUri                 **partUri
+    );
+
+    HRESULT CreateReadOnlyStreamOnFile(
+        [in, string]    LPCWSTR                 filename,
+        [out, retval]   IStream **              stream
+      );
+}
+
+[
+object,
+uuid(4BDDF8EC-C915-421B-A166-D173D25653D2)
+]
+interface IXpsOMNameCollection : IUnknown
+{
+    HRESULT
+    GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT
+    GetAt
+    (
+        [in]                  UINT32     index,
+        [out, string, retval] LPWSTR   *name
+    );
+}
+
+[
+    object,
+    uuid(57C650D4-067C-4893-8C33-F62A0633730F)
+]
+interface IXpsOMPartUriCollection : IUnknown
+{
+    HRESULT GetCount
+    (
+        [out, retval] UINT32 *count
+    );
+
+    HRESULT GetAt
+    (
+        [in]          UINT32        index,
+        [out, retval] IOpcPartUri **partUri
+    );
+
+    HRESULT InsertAt
+    (
+        [in]           UINT32       index,
+        [in]           IOpcPartUri *partUri
+    );
+
+    HRESULT RemoveAt
+    (
+        [in]           UINT32       index
+    );
+
+    HRESULT SetAt
+    (
+        [in]           UINT32       index,
+        [in]           IOpcPartUri *partUri
+    );
+
+    HRESULT Append
+    (
+        [in]           IOpcPartUri *partUri
+    );
+}
+
+
+[
+    object,
+    uuid(4E2AA182-A443-42c6-B41B-4F8E9DE73FF9)
+]
+interface IXpsOMPackageWriter : IUnknown
+{
+    HRESULT
+    StartNewDocument
+    (
+        [in] IOpcPartUri                                *documentPartName,
+        [in] IXpsOMPrintTicketResource                  *documentPrintTicket,
+        [in] IXpsOMDocumentStructureResource            *documentStructure,
+        [in] IXpsOMSignatureBlockResourceCollection     *signatureBlockResources,
+        [in] IXpsOMPartUriCollection                    *restrictedFonts
+    );
+
+    HRESULT
+    AddPage
+    (
+        [in] IXpsOMPage                      *page,
+        [in] const XPS_SIZE                  *advisoryPageDimensions,
+        [in] IXpsOMPartUriCollection         *discardableResourceParts,
+        [in] IXpsOMStoryFragmentsResource    *storyFragments,
+        [in] IXpsOMPrintTicketResource       *pagePrintTicket,
+        [in] IXpsOMImageResource             *pageThumbnail
+    );
+
+    HRESULT
+    AddResource
+    (
+        [in] IXpsOMResource              *resource
+    );
+
+    HRESULT
+    Close
+    (
+    );
+
+    HRESULT
+    IsClosed
+    (
+        [out, retval] BOOL                  *isClosed
+    );
+};
+
+[
+    object,
+    uuid(219A9DB0-4959-47D0-8034-B1CE84F41A4D),
+    helpstring("XPS OM Package Target object.  Receives XPS content for a package target.")
+]
+interface IXpsOMPackageTarget : IUnknown
+{
+    HRESULT
+    CreateXpsOMPackageWriter(
+        [in]    IOpcPartUri*                documentSequencePartName,
+        [in]    IXpsOMPrintTicketResource*  documentSequencePrintTicket,
+        [in]    IOpcPartUri*                discardControlPartName,
+        [out]   IXpsOMPackageWriter**       packageWriter
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(15B873D5-1971-41E8-83A3-6578403064C7),
+    local
+]
+interface IXpsOMThumbnailGenerator : IUnknown
+{
+    HRESULT
+    GenerateThumbnail
+    (
+        [in]            IXpsOMPage          *page,
+        [in]            XPS_IMAGE_TYPE      thumbnailType,
+        [in]            XPS_THUMBNAIL_SIZE  thumbnailSize,
+        [in]            IOpcPartUri         *imageResourcePartName,
+        [out, retval]   IXpsOMImageResource **imageResource
+    );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+[
+    uuid(B47491A0-CF33-4FE4-9A48-B0ACDAE207E8)
+]
+library MSXPS
+{
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    uuid(E974D26D-3D9B-4D47-88CC-3872F2DC3585)
+]
+coclass XpsOMObjectFactory
+{
+    interface IXpsOMObjectFactory;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(7E4A23E2-B969-4761-BE35-1A8CED58E323)
+]
+coclass XpsOMThumbnailGenerator
+{
+    interface IXpsOMThumbnailGenerator;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+}; // library MSXPS
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// Invalid: XPS_E_INVALID_
+//
+cpp_quote("#define XPS_E_INVALID_LANGUAGE                           MAKE_HRESULT(1, FACILITY_XPS, 0x000) ")//M2.59, 12.5, 2.76
+cpp_quote("#define XPS_E_INVALID_NAME                               MAKE_HRESULT(1, FACILITY_XPS, 0x001) ")
+cpp_quote("#define XPS_E_INVALID_RESOURCE_KEY                       MAKE_HRESULT(1, FACILITY_XPS, 0x002) ")
+cpp_quote("#define XPS_E_INVALID_PAGE_SIZE                          MAKE_HRESULT(1, FACILITY_XPS, 0x003) ")
+cpp_quote("#define XPS_E_INVALID_BLEED_BOX                          MAKE_HRESULT(1, FACILITY_XPS, 0x004) ")
+cpp_quote("#define XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE               MAKE_HRESULT(1, FACILITY_XPS, 0x005) ")
+cpp_quote("#define XPS_E_INVALID_LOOKUP_TYPE                        MAKE_HRESULT(1, FACILITY_XPS, 0x006) ")
+cpp_quote("#define XPS_E_INVALID_FLOAT                              MAKE_HRESULT(1, FACILITY_XPS, 0x007) ")
+cpp_quote("#define XPS_E_UNEXPECTED_CONTENT_TYPE                    MAKE_HRESULT(1, FACILITY_XPS, 0x008) ") //M2.2, 3.2
+cpp_quote("#define XPS_E_INVALID_FONT_URI                           MAKE_HRESULT(1, FACILITY_XPS, 0x00a) ") //M2.38, M2.6, M2.39
+cpp_quote("#define XPS_E_INVALID_CONTENT_BOX                        MAKE_HRESULT(1, FACILITY_XPS, 0x00b) ") //M3.11, S3.3
+cpp_quote("#define XPS_E_INVALID_MARKUP                             MAKE_HRESULT(1, FACILITY_XPS, 0x00c) ")
+cpp_quote("#define XPS_E_INVALID_XML_ENCODING                       MAKE_HRESULT(1, FACILITY_XPS, 0x00d) ") //M2.70
+cpp_quote("#define XPS_E_INVALID_CONTENT_TYPE                       MAKE_HRESULT(1, FACILITY_XPS, 0x00e) ")
+cpp_quote("#define XPS_E_INVALID_OBFUSCATED_FONT_URI                MAKE_HRESULT(1, FACILITY_XPS, 0x00f) ") //M2.54
+cpp_quote("#define XPS_E_UNEXPECTED_RELATIONSHIP_TYPE               MAKE_HRESULT(1, FACILITY_XPS, 0x010) ")
+cpp_quote("#define XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP    MAKE_HRESULT(1, FACILITY_XPS, 0x011) ")
+
+
+
+//
+// Missing: XPS_E_MISSING_ /_UNAVAILABLE_
+//
+cpp_quote("#define XPS_E_MISSING_NAME                               MAKE_HRESULT(1, FACILITY_XPS, 0x100) ")
+cpp_quote("#define XPS_E_MISSING_LOOKUP                             MAKE_HRESULT(1, FACILITY_XPS, 0x101) ") //M2.8
+cpp_quote("#define XPS_E_MISSING_GLYPHS                             MAKE_HRESULT(1, FACILITY_XPS, 0x102) ")
+cpp_quote("#define XPS_E_MISSING_SEGMENT_DATA                       MAKE_HRESULT(1, FACILITY_XPS, 0x103) ")
+cpp_quote("#define XPS_E_MISSING_COLORPROFILE                       MAKE_HRESULT(1, FACILITY_XPS, 0x104) ")
+cpp_quote("#define XPS_E_MISSING_RELATIONSHIP_TARGET                MAKE_HRESULT(1, FACILITY_XPS, 0x105) ") //M2.3, 2.14
+cpp_quote("#define XPS_E_MISSING_RESOURCE_RELATIONSHIP              MAKE_HRESULT(1, FACILITY_XPS, 0x106) ") //M2.10
+cpp_quote("#define XPS_E_MISSING_FONTURI                            MAKE_HRESULT(1, FACILITY_XPS, 0x107) ") //M2.6
+cpp_quote("#define XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP      MAKE_HRESULT(1, FACILITY_XPS, 0x108) ") //M2.13
+cpp_quote("#define XPS_E_MISSING_DOCUMENT                           MAKE_HRESULT(1, FACILITY_XPS, 0x109) ") //M2.4
+cpp_quote("#define XPS_E_MISSING_REFERRED_DOCUMENT                  MAKE_HRESULT(1, FACILITY_XPS, 0x10a) ") //M2.4
+cpp_quote("#define XPS_E_MISSING_REFERRED_PAGE                      MAKE_HRESULT(1, FACILITY_XPS, 0x10b) ") //M2.5
+cpp_quote("#define XPS_E_MISSING_PAGE_IN_DOCUMENT                   MAKE_HRESULT(1, FACILITY_XPS, 0x10c) ") //M2.5
+cpp_quote("#define XPS_E_MISSING_PAGE_IN_PAGEREFERENCE              MAKE_HRESULT(1, FACILITY_XPS, 0x10d) ")
+cpp_quote("#define XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH                MAKE_HRESULT(1, FACILITY_XPS, 0x10e) ") //M2.7, 6.3
+cpp_quote("#define XPS_E_MISSING_RESOURCE_KEY                       MAKE_HRESULT(1, FACILITY_XPS, 0x10f) ") //M3.20, M4.1,M4.2, M5.3, M6.1, M6.2, M6.4, M6.5, M6.6
+cpp_quote("#define XPS_E_MISSING_PART_REFERENCE                     MAKE_HRESULT(1, FACILITY_XPS, 0x110) ")
+cpp_quote("#define XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP       MAKE_HRESULT(1, FACILITY_XPS, 0x111) ")
+cpp_quote("#define XPS_E_MISSING_DISCARDCONTROL                     MAKE_HRESULT(1, FACILITY_XPS, 0x112) ")
+cpp_quote("#define XPS_E_MISSING_PART_STREAM                        MAKE_HRESULT(1, FACILITY_XPS, 0x113) ")
+cpp_quote("#define XPS_E_UNAVAILABLE_PACKAGE                        MAKE_HRESULT(1, FACILITY_XPS, 0x114) ")
+
+
+//
+// Multiple: XPS_E_MULTIPLE_ /_DUPLICATE_
+//
+cpp_quote("#define XPS_E_DUPLICATE_RESOURCE_KEYS                    MAKE_HRESULT(1, FACILITY_XPS, 0x200) ")
+cpp_quote("#define XPS_E_MULTIPLE_RESOURCES                         MAKE_HRESULT(1, FACILITY_XPS, 0x201) ")
+cpp_quote("#define XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS    MAKE_HRESULT(1, FACILITY_XPS, 0x202) ") //M2.13
+cpp_quote("#define XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE                MAKE_HRESULT(1, FACILITY_XPS, 0x203) ") //M2.36
+cpp_quote("#define XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE             MAKE_HRESULT(1, FACILITY_XPS, 0x204) ") //M2.36
+cpp_quote("#define XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE              MAKE_HRESULT(1, FACILITY_XPS, 0x205) ") //M2.59
+cpp_quote("#define XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT          MAKE_HRESULT(1, FACILITY_XPS, 0x206) ") //M2.59
+cpp_quote("#define XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE  MAKE_HRESULT(1, FACILITY_XPS, 0x207) ") //M2.59, 12.5
+cpp_quote("#define XPS_E_MULTIPLE_REFERENCES_TO_PART                MAKE_HRESULT(1, FACILITY_XPS, 0x208) ")
+cpp_quote("#define XPS_E_DUPLICATE_NAMES                            MAKE_HRESULT(1, FACILITY_XPS, 0x209) ")
+
+
+//
+// Glyphs, Fonts related errors.
+//
+cpp_quote("#define XPS_E_STRING_TOO_LONG                            MAKE_HRESULT(1, FACILITY_XPS, 0x300) ")
+cpp_quote("#define XPS_E_TOO_MANY_INDICES                           MAKE_HRESULT(1, FACILITY_XPS, 0x301) ")
+cpp_quote("#define XPS_E_MAPPING_OUT_OF_ORDER                       MAKE_HRESULT(1, FACILITY_XPS, 0x302) ")
+cpp_quote("#define XPS_E_MAPPING_OUTSIDE_STRING                     MAKE_HRESULT(1, FACILITY_XPS, 0x303) ")
+cpp_quote("#define XPS_E_MAPPING_OUTSIDE_INDICES                    MAKE_HRESULT(1, FACILITY_XPS, 0x304) ")
+cpp_quote("#define XPS_E_CARET_OUTSIDE_STRING                       MAKE_HRESULT(1, FACILITY_XPS, 0x305) ")
+cpp_quote("#define XPS_E_CARET_OUT_OF_ORDER                         MAKE_HRESULT(1, FACILITY_XPS, 0x306) ")
+cpp_quote("#define XPS_E_ODD_BIDILEVEL                              MAKE_HRESULT(1, FACILITY_XPS, 0x307) ") // M5.15
+cpp_quote("#define XPS_E_ONE_TO_ONE_MAPPING_EXPECTED                MAKE_HRESULT(1, FACILITY_XPS, 0x308) ")
+cpp_quote("#define XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED             MAKE_HRESULT(1, FACILITY_XPS, 0x309) ")
+cpp_quote("#define XPS_E_NEGATIVE_FLOAT                             MAKE_HRESULT(1, FACILITY_XPS, 0x30a) ")
+
+
+//
+// Resource Dictionary Related errors.
+//
+cpp_quote("#define XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT         MAKE_HRESULT(1, FACILITY_XPS, 0x400) ") //M3.20, M4.1,M4.2, M5.3, M6.1, M6.2, M6.4, M6.5, M6.6
+cpp_quote("#define XPS_E_DICTIONARY_ITEM_NAMED                      MAKE_HRESULT(1, FACILITY_XPS, 0x401) ") //M9.10
+cpp_quote("#define XPS_E_NESTED_REMOTE_DICTIONARY                   MAKE_HRESULT(1, FACILITY_XPS, 0x402) ") //M7.5
+
+
+//
+// Miscellaneous errors.
+//
+cpp_quote("#define XPS_E_INDEX_OUT_OF_RANGE                         MAKE_HRESULT(1, FACILITY_XPS, 0x500) ")
+cpp_quote("#define XPS_E_VISUAL_CIRCULAR_REF                        MAKE_HRESULT(1, FACILITY_XPS, 0x501) ")
+cpp_quote("#define XPS_E_NO_CUSTOM_OBJECTS                          MAKE_HRESULT(1, FACILITY_XPS, 0x502) ")
+cpp_quote("#define XPS_E_ALREADY_OWNED                              MAKE_HRESULT(1, FACILITY_XPS, 0x503) ")
+cpp_quote("#define XPS_E_RESOURCE_NOT_OWNED                         MAKE_HRESULT(1, FACILITY_XPS, 0x504) ")
+cpp_quote("#define XPS_E_UNEXPECTED_COLORPROFILE                    MAKE_HRESULT(1, FACILITY_XPS, 0x505) ")
+cpp_quote("#define XPS_E_COLOR_COMPONENT_OUT_OF_RANGE               MAKE_HRESULT(1, FACILITY_XPS, 0x506) ")
+cpp_quote("#define XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT    MAKE_HRESULT(1, FACILITY_XPS, 0x507) ") //M4.3
+cpp_quote("#define XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT       MAKE_HRESULT(1, FACILITY_XPS, 0x508) ") //M7.6
+cpp_quote("#define XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC      MAKE_HRESULT(1, FACILITY_XPS, 0x509) ") //M3.9, M3.10
+cpp_quote("#define XPS_E_RELATIONSHIP_EXTERNAL                      MAKE_HRESULT(1, FACILITY_XPS, 0x50a) ") //M2.1
+cpp_quote("#define XPS_E_NOT_ENOUGH_GRADIENT_STOPS                  MAKE_HRESULT(1, FACILITY_XPS, 0x50b) ") //M2.1
+cpp_quote("#define XPS_E_PACKAGE_WRITER_NOT_CLOSED                  MAKE_HRESULT(1, FACILITY_XPS, 0x50c) ") 
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+

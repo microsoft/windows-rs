@@ -1,0 +1,415 @@
+// stacktrace standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _STACKTRACE_
+#define _STACKTRACE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#if !_HAS_CXX23
+_EMIT_STL_WARNING(STL4038, "The contents of <stacktrace> are available only with C++23 or later.");
+#else // ^^^ !_HAS_CXX23 / _HAS_CXX23 vvv
+
+#include <__msvc_formatter.hpp>
+#include <cstdint>
+#include <string>
+#include <type_traits>
+#include <vector>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// The separately compiled part of the <stacktrace> implementation calls a function pointer of _Stacktrace_string_fill
+// type to allocate a buffer for string output. The called function does the buffer allocation and calls a function
+// pointer of _Stacktrace_string_fill_callback type to fill the buffer. This is needed to type-erase <string> or
+// <ostream>, and makes it possible to keep the separately compiled implementation in the import library.
+//
+// Additionally, _Stacktrace_string_fill can be called with a null _Callback argument to determine the already reserved
+// string buffer for cases when the size is not known before an attempt to fill it -- this potentially avoids both an
+// extra fill attempt and an extra allocation if the reserved size is enough.
+
+extern "C" {
+using _Stacktrace_string_fill_callback = size_t(__stdcall*)(char* _Data, size_t _Size, void* _Context) _NOEXCEPT_FNPTR;
+
+using _Stacktrace_string_fill = size_t(__stdcall*)(
+    size_t _Size, void* _String, void* _Context, _Stacktrace_string_fill_callback _Callback);
+
+_NODISCARD unsigned short __stdcall __std_stacktrace_capture(unsigned long _Frames_to_skip,
+    unsigned long _Frames_to_capture, void** _Back_trace, unsigned long* _Back_trace_hash) noexcept;
+
+// Some of these functions may throw
+// (they would propagate bad_alloc potentially thrown from string::resize_and_overwrite)
+
+void __stdcall __std_stacktrace_address_to_string(const void* _Address, void* _Str, _Stacktrace_string_fill _Fill)
+    noexcept(false);
+
+void __stdcall __std_stacktrace_description(const void* _Address, void* _Str, _Stacktrace_string_fill _Fill)
+    noexcept(false);
+
+void __stdcall __std_stacktrace_source_file(const void* _Address, void* _Str, _Stacktrace_string_fill _Fill)
+    noexcept(false);
+
+_NODISCARD unsigned int __stdcall __std_stacktrace_source_line(const void* _Address) noexcept;
+
+void __stdcall __std_stacktrace_to_string(
+    const void* const* _Addresses, size_t _Size, void* _Str, _Stacktrace_string_fill _Fill) noexcept(false);
+} // extern "C"
+
+_STD_BEGIN
+inline size_t __stdcall _Stacktrace_string_fill_impl(
+    const size_t _Size, void* const _String, void* const _Context, const _Stacktrace_string_fill_callback _Callback) {
+    if (_Callback) {
+        static_cast<string*>(_String)->resize_and_overwrite(_Size,
+            [_Callback, _Context](char* _Data, size_t _Size) noexcept { return _Callback(_Data, _Size, _Context); });
+        return static_cast<string*>(_String)->size();
+    } else {
+        return static_cast<string*>(_String)->capacity();
+    }
+}
+
+_EXPORT_STD class stacktrace_entry {
+public:
+    using native_handle_type = void*;
+
+    constexpr stacktrace_entry() noexcept                                   = default;
+    constexpr stacktrace_entry(const stacktrace_entry&) noexcept            = default;
+    constexpr stacktrace_entry& operator=(const stacktrace_entry&) noexcept = default;
+
+    ~stacktrace_entry() = default;
+
+    _NODISCARD constexpr native_handle_type native_handle() const noexcept {
+        return _Address;
+    }
+
+    _NODISCARD constexpr explicit operator bool() const noexcept {
+        return _Address != nullptr;
+    }
+
+    _NODISCARD string description() const {
+        string _Result;
+        __std_stacktrace_description(_Address, &_Result, _Stacktrace_string_fill_impl);
+        return _Result;
+    }
+
+    _NODISCARD string source_file() const {
+        string _Result;
+        __std_stacktrace_source_file(_Address, &_Result, _Stacktrace_string_fill_impl);
+        return _Result;
+    }
+
+    _NODISCARD uint_least32_t source_line() const noexcept /* strengthened */ {
+        return __std_stacktrace_source_line(_Address);
+    }
+
+    _NODISCARD friend constexpr bool operator==(const stacktrace_entry&, const stacktrace_entry&) noexcept = default;
+
+    _NODISCARD friend constexpr strong_ordering operator<=>(
+        const stacktrace_entry&, const stacktrace_entry&) noexcept = default;
+
+private:
+    void* _Address = nullptr;
+};
+
+_EXPORT_STD template <class _Alloc>
+class basic_stacktrace {
+private:
+    using _Frames_t = vector<stacktrace_entry, _Alloc>;
+
+public:
+    using value_type             = stacktrace_entry;
+    using const_reference        = const value_type&;
+    using reference              = value_type&;
+    using const_iterator         = _Frames_t::const_iterator;
+    using iterator               = const_iterator;
+    using reverse_iterator       = _STD reverse_iterator<iterator>;
+    using const_reverse_iterator = _STD reverse_iterator<const_iterator>;
+    using difference_type        = _Frames_t::difference_type;
+    using size_type              = _Frames_t::size_type;
+    using allocator_type         = _Alloc;
+
+    // __declspec(noinline) to make the same behavior for debug and release.
+    // We force the current function to be always noinline and add its frame to skipped.
+
+    _NODISCARD __declspec(noinline) static basic_stacktrace current(
+        const allocator_type& _Al = allocator_type()) noexcept {
+        _TRY_BEGIN
+        basic_stacktrace _Result{_Internal_t{}, _Max_frames, _Al};
+        const unsigned short _Actual_size = __std_stacktrace_capture(
+            1, static_cast<unsigned long>(_Max_frames), _Result._To_voidptr_array(), &_Result._Hash);
+        _Result._Frames.resize(_Actual_size);
+        return _Result;
+        _CATCH_ALL
+        return basic_stacktrace{_Al};
+        _CATCH_END
+    }
+
+    _NODISCARD __declspec(noinline) static basic_stacktrace current(
+        const size_type _Skip, const allocator_type& _Al = allocator_type()) noexcept {
+        _TRY_BEGIN
+        basic_stacktrace _Result{_Internal_t{}, _Max_frames, _Al};
+        const unsigned short _Actual_size = __std_stacktrace_capture(
+            _Adjust_skip(_Skip), static_cast<unsigned long>(_Max_frames), _Result._To_voidptr_array(), &_Result._Hash);
+        _Result._Frames.resize(_Actual_size);
+        return _Result;
+        _CATCH_ALL
+        return basic_stacktrace{_Al};
+        _CATCH_END
+    }
+
+    _NODISCARD __declspec(noinline) static basic_stacktrace current(
+        const size_type _Skip, size_type _Max_depth, const allocator_type& _Al = allocator_type()) noexcept {
+        _TRY_BEGIN
+        if (_Max_depth > _Max_frames) {
+            _Max_depth = _Max_frames;
+        }
+
+        basic_stacktrace _Result{_Internal_t{}, _Max_depth, _Al};
+
+        const unsigned short _Actual_size = __std_stacktrace_capture(
+            _Adjust_skip(_Skip), static_cast<unsigned long>(_Max_depth), _Result._To_voidptr_array(), &_Result._Hash);
+        _Result._Frames.resize(_Actual_size);
+        return _Result;
+        _CATCH_ALL
+        return basic_stacktrace{_Al};
+        _CATCH_END
+    }
+
+    basic_stacktrace() noexcept(is_nothrow_default_constructible_v<allocator_type>) = default;
+    explicit basic_stacktrace(const allocator_type& _Al) noexcept : _Frames(_Al) {}
+
+    basic_stacktrace(const basic_stacktrace&)     = default;
+    basic_stacktrace(basic_stacktrace&&) noexcept = default;
+    basic_stacktrace(const basic_stacktrace& _Other, const allocator_type& _Al)
+        : _Frames(_Other._Frames, _Al), _Hash(_Other._Hash) {}
+
+    basic_stacktrace(basic_stacktrace&& _Other, const allocator_type& _Al)
+        : _Frames(_STD move(_Other._Frames), _Al), _Hash(_Other._Hash) {}
+
+    basic_stacktrace& operator=(const basic_stacktrace&)                 = default;
+    basic_stacktrace& operator=(basic_stacktrace&&) noexcept(_Noex_move) = default;
+
+    ~basic_stacktrace() = default;
+
+    _NODISCARD allocator_type get_allocator() const noexcept {
+        return _Frames.get_allocator();
+    }
+
+    _NODISCARD const_iterator begin() const noexcept {
+        return _Frames.cbegin();
+    }
+
+    _NODISCARD const_iterator end() const noexcept {
+        return _Frames.cend();
+    }
+
+    _NODISCARD const_reverse_iterator rbegin() const noexcept {
+        return _Frames.crbegin();
+    }
+
+    _NODISCARD const_reverse_iterator rend() const noexcept {
+        return _Frames.crend();
+    }
+
+    _NODISCARD const_iterator cbegin() const noexcept {
+        return _Frames.cbegin();
+    }
+
+    _NODISCARD const_iterator cend() const noexcept {
+        return _Frames.cend();
+    }
+
+    _NODISCARD const_reverse_iterator crbegin() const noexcept {
+        return _Frames.crbegin();
+    }
+
+    _NODISCARD const_reverse_iterator crend() const noexcept {
+        return _Frames.crend();
+    }
+
+    _NODISCARD_EMPTY_MEMBER_NO_CLEAR bool empty() const noexcept {
+        return _Frames.empty();
+    }
+
+    _NODISCARD size_type size() const noexcept {
+        return _Frames.size();
+    }
+
+    _NODISCARD size_type max_size() const noexcept {
+        return _Frames.max_size();
+    }
+
+    _NODISCARD const_reference operator[](const size_type _Sx) const noexcept /* strengthened */ {
+        return _Frames[_Sx];
+    }
+
+    _NODISCARD const_reference at(const size_type _Sx) const {
+        return _Frames.at(_Sx);
+    }
+
+    template <class _Al2>
+    _NODISCARD friend bool operator==(const basic_stacktrace& _Lhs, const basic_stacktrace<_Al2>& _Rhs) noexcept {
+        return _Lhs._Hash == _Rhs._Hash && _STD equal(_Lhs.begin(), _Lhs.end(), _Rhs.begin(), _Rhs.end());
+    }
+
+    template <class _Al2>
+    _NODISCARD friend strong_ordering operator<=>(
+        const basic_stacktrace& _Lhs, const basic_stacktrace<_Al2>& _Rhs) noexcept {
+        const auto _Result = _Lhs._Frames.size() <=> _Rhs._Frames.size();
+        if (_Result != strong_ordering::equal) {
+            return _Result;
+        }
+
+        return _STD lexicographical_compare_three_way(_Lhs.begin(), _Lhs.end(), _Rhs.begin(), _Rhs.end());
+    }
+
+    void swap(basic_stacktrace& _Other) noexcept(allocator_traits<_Alloc>::propagate_on_container_swap::value
+                                                 || allocator_traits<_Alloc>::is_always_equal::value) {
+        _Frames.swap(_Other._Frames);
+        _STD swap(_Hash, _Other._Hash);
+    }
+
+    _NODISCARD unsigned long _Get_hash() const noexcept {
+        return _Hash;
+    }
+
+    _STL_INTERNAL_STATIC_ASSERT(sizeof(void*) == sizeof(stacktrace_entry));
+    _STL_INTERNAL_STATIC_ASSERT(alignof(void*) == alignof(stacktrace_entry));
+
+    _NODISCARD const void* const* _To_voidptr_array() const noexcept {
+        return reinterpret_cast<const void* const*>(_Frames.data());
+    }
+
+    _NODISCARD void** _To_voidptr_array() noexcept {
+        return reinterpret_cast<void**>(_Frames.data());
+    }
+
+private:
+    static constexpr size_t _Max_frames = 0xFFFF;
+
+    static constexpr bool _Noex_move = allocator_traits<_Alloc>::propagate_on_container_move_assignment::value
+                                    || allocator_traits<_Alloc>::is_always_equal::value;
+
+    struct _Internal_t {
+        explicit _Internal_t() noexcept = default;
+    };
+
+    basic_stacktrace(_Internal_t, size_type _Max_depth, const allocator_type& _Al) : _Frames(_Max_depth, _Al) {}
+
+    _NODISCARD static unsigned long _Adjust_skip(size_t _Skip) noexcept {
+        return _Skip < ULONG_MAX - 1 ? static_cast<unsigned long>(_Skip + 1) : ULONG_MAX;
+    }
+
+    _Frames_t _Frames;
+    unsigned long _Hash = 0;
+};
+
+_EXPORT_STD using stacktrace = basic_stacktrace<allocator<stacktrace_entry>>;
+
+_EXPORT_STD template <class _Alloc>
+void swap(basic_stacktrace<_Alloc>& _Ax, basic_stacktrace<_Alloc>& _Bx) noexcept(noexcept(_Ax.swap(_Bx))) {
+    _Ax.swap(_Bx);
+}
+
+_EXPORT_STD _NODISCARD inline string to_string(const stacktrace_entry& _Fx) {
+    string _Result;
+    __std_stacktrace_address_to_string(_Fx.native_handle(), &_Result, _Stacktrace_string_fill_impl);
+    return _Result;
+}
+
+_EXPORT_STD template <class _Alloc>
+_NODISCARD string to_string(const basic_stacktrace<_Alloc>& _St) {
+    string _Result;
+    __std_stacktrace_to_string(_St._To_voidptr_array(), _St.size(), &_Result, _Stacktrace_string_fill_impl);
+    return _Result;
+}
+
+_EXPORT_STD template <int = 0>
+ostream& operator<<(ostream& _Os, const stacktrace_entry& _Fx) {
+    return _Os << _STD to_string(_Fx);
+}
+
+_EXPORT_STD template <class _Alloc>
+ostream& operator<<(ostream& _Os, const basic_stacktrace<_Alloc>& _St) {
+    return _Os << _STD to_string(_St);
+}
+
+template <>
+struct formatter<stacktrace_entry> {
+    template <class _ParseContext = basic_format_parse_context<char>> // improves throughput, see GH-5003
+    constexpr _ParseContext::iterator parse(type_identity_t<_ParseContext&> _Parse_ctx) {
+        return _Impl._Parse(_Parse_ctx);
+    }
+
+    template <class _FormatContext>
+    _FormatContext::iterator format(const stacktrace_entry& _Val, _FormatContext& _Format_ctx) const {
+        const auto _Str = _STD to_string(_Val);
+        return _Impl._Format(_Format_ctx, static_cast<int>(_Str.size()), _Fmt_align::_Left,
+            [&](_FormatContext::iterator _Out) { return _RANGES copy(_Str, _STD move(_Out)).out; });
+    }
+
+private:
+    _Fill_align_and_width_formatter<char> _Impl;
+};
+
+template <>
+inline constexpr bool enable_nonlocking_formatter_optimization<stacktrace_entry> = true;
+
+template <class _Alloc>
+struct formatter<basic_stacktrace<_Alloc>> {
+    template <class _ParseContext = basic_format_parse_context<char>> // improves throughput, see GH-5003
+    constexpr _ParseContext::iterator parse(type_identity_t<_ParseContext&> _Parse_ctx) {
+        const auto _First = _Parse_ctx.begin();
+        if (_First != _Parse_ctx.end() && *_First != '}') {
+            _Throw_format_error("For formatter<basic_stacktrace<Allocator>>, format-spec must be empty.");
+        }
+
+        return _First;
+    }
+
+    template <class _FormatContext>
+    _FormatContext::iterator format(const basic_stacktrace<_Alloc>& _Val, _FormatContext& _Format_ctx) const {
+        return _RANGES copy(_STD to_string(_Val), _Format_ctx.out()).out;
+    }
+};
+
+template <class _Alloc>
+constexpr bool enable_nonlocking_formatter_optimization<basic_stacktrace<_Alloc>> = true;
+
+namespace pmr {
+    _EXPORT_STD using stacktrace = basic_stacktrace<polymorphic_allocator<stacktrace_entry>>;
+}
+
+template <>
+struct hash<stacktrace_entry> {
+    // This is a C++23 feature, so argument_type and result_type are omitted.
+
+    _NODISCARD _STATIC_CALL_OPERATOR size_t operator()(const stacktrace_entry& _Val) _CONST_CALL_OPERATOR noexcept {
+        return _Hash_representation(_Val.native_handle());
+    }
+};
+
+template <class _Alloc>
+struct hash<basic_stacktrace<_Alloc>> {
+    // This is a C++23 feature, so argument_type and result_type are omitted.
+
+    _NODISCARD _STATIC_CALL_OPERATOR size_t operator()(
+        const basic_stacktrace<_Alloc>& _Val) _CONST_CALL_OPERATOR noexcept {
+        return _Val._Get_hash();
+    }
+};
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // ^^^ _HAS_CXX23 ^^^
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _STACKTRACE_

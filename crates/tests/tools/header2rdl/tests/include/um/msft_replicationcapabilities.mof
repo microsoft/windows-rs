@@ -1,0 +1,265 @@
+[ClassVersion( "1.0" ),
+Description(
+    "Represents the replication capabilities of a storage subsystem."
+    )]
+class MSFT_ReplicationCapabilities : MSFT_StorageObject {
+
+    [Description(
+        "Enumeration indicating the supported object types associated with these replication capabilities."),
+        ValueMap { "2", "3", "4", "..", "0x8000", "0x8001", "0x8002" },
+        Values { "VirtualDisk", "Volume", "ReplicaPeer", "Partition", "ReplicationGroup", "StorageSubSystem" }]
+    UInt16 SupportedObjectTypes[];
+
+    [Description ( 
+          "Enumeration indicating the supported "
+          "SyncType/Mode/Local-or-Remote combinations." ), 
+       ValueMap { "2", "3", "4", "5", "6", "7", "8", "9", "10", 
+          "11", "12", "13", "14", "15", "16", "17", "18", "19",
+          "20", "21", "22", "23", "24", "25",
+          "..", "0x8000.." }, 
+       Values { "Synchronous Mirror Local", 
+          "Asynchronous Mirror Local", 
+          "Synchronous Mirror Remote", 
+          "Asynchronous Mirror Remote", 
+          "Synchronous Snapshot Local", 
+          "Asynchronous Snapshot Local", 
+          "Synchronous Snapshot Remote", 
+          "Asynchronous Snapshot Remote", 
+          "Synchronous Clone Local", 
+          "Asynchronous Clone Local", 
+          "Synchronous Clone Remote", 
+          "Asynchronous Clone Remote", 
+          "Synchronous TokenizedClone Local", 
+          "Asynchronous TokenizedClone Local", 
+          "Synchronous TokenizedClone Remote", 
+          "Asynchronous TokenizedClone Remote", 
+          "Adaptive Mirror Local", 
+          "Adaptive Mirror Remote", 
+          "Adaptive Snapshot Local", 
+          "Adaptive Snapshot Remote", 
+          "Adaptive Clone Local", 
+          "Adaptive Clone Remote", 
+          "Adaptive TokenizedClone Local", 
+          "Adaptive TokenizedClone Remote", 
+          "DMTF Reserved", 
+          "Vendor Specific" }]
+   UInt16 SupportedReplicationTypes[];
+   
+   [Description(
+        "An array of supported features of partition objects for replication."),
+        ValueMap { "2", "3", "..", "0x8000.."},
+        Values { "Supports GUID Partition Table", "Supports MBR Partition", "DMTF Reserved", "Vendor Specific"}]
+    UInt16 SupportedReplicatedPartitionFeatures[];
+    
+    [Description(
+        "An array of supported features of partition objects for replication."),
+        ValueMap { "2", "3", "4", "5", "6", "..", "0x8000.."},
+        Values { "Supports GUID Partition Table", "Supports MBR Partition", "Supports NTFS File System", 
+                 "Supports ReFS File System", "Supports Cluster Shared Volume", "DMTF Reserved", "Vendor Specific"}]
+    UInt16 SupportedLogVolumeFeatures[];
+    
+    [Description(
+        "Minimum log size in bytes supported for replication.")]
+    UInt64 SupportedMinimumLogSize;
+    
+    [Description(
+        "Maximum log size in bytes supported for replication.")]
+    UInt64 SupportedMaximumLogSize;
+
+    [Description(
+        "Default value for recovery point"
+        )]    
+    UInt32 DefaultRecoveryPointObjective;
+    
+
+    [Description(
+        "Indicates if Replication Groups is supported"
+        )]    
+    Boolean SupportsReplicationGroup;
+
+    [Description(
+        "Indicates if empty Replicaiotn Groups are allowed"
+        )]    
+    Boolean SupportsEmptyReplicationGroup;
+
+    [Description(
+        "Indicates if this is a fully discovered model"
+        )]    
+    Boolean SupportsFullDiscovery;
+
+    [Description(
+        "Indicates if CreateReplicationShip operation is supported"
+        )]    
+    Boolean SupportsCreateReplicationRelationshipMethod;
+
+    [Description ( 
+          "Enumeration indicating what operations will be executed "
+          "as asynchronous jobs. If an operation is included in "
+          "both this and SupportedSynchronousActions properties "
+          "then the underlying implementation is indicating that it "
+          "may or may not create a job.\n"
+          "Note: the following methods are not supported "
+          "asynchronously, hence the gap between 11 and 19: \n"
+          "\t - CreateGroup \n"
+          "\t - DeleteGroup \n"
+          "\t - AddMembers \n"
+          "\t - RemoveMembers \n"
+          "\t - AddReplicationEntity \n"
+          "\t - AddServiceAccessPoint \n"
+          "\t - AddSharedSecret." ), 
+       ValueMap { "2", "3", "4", "5", "6", "7", "8", "9", "10", 
+          "11", "19", "20", "21", "22", "23", "24", "25", "26", 
+          "27", "28", "29", "30", "31", "..", "0x8000.." }, 
+       Values { "CreateElementReplica", "CreateGroupReplica", 
+          "CreateSynchronizationAspect", 
+          "ModifyReplicaSynchronization", 
+          "ModifyListSynchronization", "ModifySettingsDefineState", 
+          "GetAvailableTargetElements", "GetPeerSystems", 
+          "GetReplicationRelationships", "GetServiceAccessPoints", 
+          "CreateListReplica", "CreateGroupReplicaFromElements", 
+          "GetReplicationRelationshipInstances", 
+          "ModifyListSettingsDefineState", 
+          "CreateRemoteReplicationCollection", 
+          "AddToRemoteReplicationCollection", 
+          "RemoveFromRemoteReplicationCollection", 
+          "GetSynchronizationAspects", 
+          "GetSynchronizationAspectInstances", 
+          "CreateGroupReplicaFromElementSynchronizations", 
+          "AddElementsToGroupSynchronized", "ConfirmTargetData", 
+          "CreateListSynchronizationAspect", "DMTF Reserved", 
+          "Vendor Specific" }, 
+       ModelCorrespondence { 
+          "CIM_ReplicationServiceCapabilities.SupportedSynchronousActions" }]
+   Uint16 SupportedAsynchronousActions[];
+
+      [Description ( 
+          "Enumeration indicating what operations will be executed "
+          "synchronously -- without the creation of a job. If an "
+          "operation is included in both this property and "
+          "SupportedAsynchronousActions then the underlying "
+          "implementation is indicating that it may or may not "
+          "create a job.\n"
+          "Note: the following methods are not supported "
+          "asynchronously: \n"
+          "\t - CreateGroup \n"
+          "\t - DeleteGroup \n"
+          "\t - AddMembers \n"
+          "\t - RemoveMembers \n"
+          "\t - AddReplicationEntity \n"
+          "\t - AddServiceAccessPoint \n"
+          "\t - AddSharedSecret." ), 
+       ValueMap { "2", "3", "4", "5", "6", "7", "8", "9", "10", 
+          "11", "12", "13", "14", "15", "16", "17", "18", "19", 
+          "20", "21", "22", "23", "24", "25", "26", "27", "28", 
+          "29", "30", "31", "..", "0x8000.." }, 
+       Values { "CreateElementReplica", "CreateGroupReplica", 
+          "CreateSynchronizationAspect", 
+          "ModifyReplicaSynchronization", 
+          "ModifyListSynchronization", "ModifySettingsDefineState", 
+          "GetAvailableTargetElements", "GetPeerSystems", 
+          "GetReplicationRelationships", "GetServiceAccessPoints", 
+          "CreateGroup", "DeleteGroup", "AddMembers", 
+          "RemoveMembers", "AddReplicationEntity", 
+          "AddServiceAccessPoint", "AddSharedSecret", 
+          "CreateListReplica", "CreateGroupReplicaFromElements", 
+          "GetReplicationRelationshipInstances", 
+          "ModifyListSettingsDefineState", 
+          "CreateRemoteReplicationCollection", 
+          "AddToRemoteReplicationCollection", 
+          "RemoveFromRemoteReplicationCollection", 
+          "GetSynchronizationAspects", 
+          "GetSynchronizationAspectInstances", 
+          "CreateGroupReplicaFromElementSynchronizations", 
+          "AddElementsToGroupSynchronized", "ConfirmTargetData", 
+          "CreateListSynchronizationAspect", "DMTF Reserved", 
+          "Vendor Specific" }, 
+       ModelCorrespondence { 
+          "CIM_ReplicationServiceCapabilities.SupportedAsynchronousActions" }]
+   Uint16 SupportedSynchronousActions[];
+
+
+   UInt32 GetSupportedOperations(
+         [IN, ModelCorrespondence { 
+             "MSFT_ReplicationCapabilities.SupportedReplicationTypes" }]
+      UInt16 ReplicationType, 
+
+         [Out]
+      UInt16 SupportedOperations[],
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+
+
+       UInt32 GetSupportedGroupOperations(
+         [IN, ModelCorrespondence { 
+             "MSFT_ReplicationCapabilities.SupportedReplicationTypes" }]
+       UInt16 ReplicationType, 
+
+         [Out]
+        UInt16 SupportedGroupOperations[],
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+
+
+    UInt32 GetSupportedFeatures(
+         [IN, ModelCorrespondence { 
+             "MSFT_ReplicationCapabilities.SupportedReplicationTypes" }]
+    UInt16 ReplicationType,
+
+         [Out]
+      UInt16 Features[],
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+
+      UInt32 GetSupportedGroupFeatures(
+         [IN, ModelCorrespondence { 
+             "CIM_ReplicationServiceCapabilities.SupportedReplicationTypes" }]
+      UInt16 ReplicationType, 
+
+         [Out]
+      UInt16 GroupFeatures[],
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+
+      UInt32 GetSupportedCopyStates(
+         [IN, ModelCorrespondence { 
+             "MSFT_ReplicationCapabilities.SupportedReplicationTypes" }]
+      UInt16 ReplicationType, 
+
+         [Out]
+      UInt16 SupportedCopyStates[],
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+
+      UInt32 GetSupportedGroupCopyStates(
+         [IN, ModelCorrespondence { 
+             "MSFT_ReplicationCapabilities.SupportedReplicationTypes" }]
+      UInt16 ReplicationType, 
+
+         [Out]
+      UInt16 SupportedCopyStates[],
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+
+   UInt32 GetRecoveryPointData(
+         [IN, ModelCorrespondence { 
+             "MSFT_ReplicationCapabilities.SupportedReplicationTypes" }]
+      UInt16 ReplicationType, 
+
+      [IN ( false ), Out]
+      UInt32 DefaultRecoveryPoint,
+
+      [IN ( false ), Out]
+      Uint32 RecoveryPointValues[], 
+
+      [IN ( false ), Out]
+      UInt16 RecoveryPointIndicator,
+      
+      [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+      String ExtendedStatus);
+};

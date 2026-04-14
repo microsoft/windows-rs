@@ -1,0 +1,139 @@
+// xlocmes internal header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _XLOCMES_
+#define _XLOCMES_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xiosbase>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD struct messages_base // base class for messages
+    : locale::facet // TRANSITION, ABI, shouldn't be derived from locale::facet
+{
+    using catalog = int;
+
+    messages_base() noexcept // strengthened
+        : messages_base(0) {}
+    explicit messages_base(size_t _Refs) noexcept : locale::facet(_Refs) {}
+};
+
+_EXPORT_STD template <class _Elem>
+class messages : public messages_base { // facet for obtaining messages from a catalog
+public:
+    static_assert(!_ENFORCE_FACET_SPECIALIZATIONS || _Is_any_of_v<_Elem, char, wchar_t>, _FACET_SPECIALIZATION_MESSAGE);
+
+    using char_type   = _Elem;
+    using string_type = basic_string<_Elem, char_traits<_Elem>, allocator<_Elem>>;
+
+    catalog open(const string& _Catname, const locale& _Loc) const { // open catalog
+        return do_open(_Catname, _Loc);
+    }
+
+    string_type get(catalog _Catval, int _Set, int _Message,
+        const string_type& _Dflt) const { // get message from set in catalog
+        return do_get(_Catval, _Set, _Message, _Dflt);
+    }
+
+    void close(catalog _Catval) const { // close catalog
+        do_close(_Catval);
+    }
+
+    __PURE_APPDOMAIN_GLOBAL _CRTIMP2_PURE_IMPORT static locale::id id; // unique facet id
+
+    explicit messages(size_t _Refs = 0) : messages_base(_Refs) { // construct from current locale
+        _BEGIN_LOCINFO(_Lobj)
+        _Init(_Lobj);
+        _END_LOCINFO()
+    }
+
+    messages(const _Locinfo& _Lobj, size_t _Refs = 0) : messages_base(_Refs) {
+        _Init(_Lobj);
+    }
+
+    static size_t _Getcat(const locale::facet** _Ppf = nullptr, const locale* _Ploc = nullptr) {
+        // return locale category mask and construct standard facet
+        if (_Ppf && !*_Ppf) {
+            *_Ppf = new messages<_Elem>(_Locinfo(_Ploc->_C_str()));
+        }
+
+        return _X_MESSAGES;
+    }
+
+protected:
+    messages(const char* _Locname, size_t _Refs = 0) : messages_base(_Refs) {
+        _BEGIN_LOCINFO(_Lobj(_Locname))
+        _Init(_Lobj);
+        _END_LOCINFO()
+    }
+
+    __CLR_OR_THIS_CALL ~messages() noexcept override {}
+
+    void _Init(const _Locinfo&) {} // initialize from _Locinfo object (do nothing)
+
+    virtual catalog __CLR_OR_THIS_CALL do_open(const string&, const locale&) const { // open catalog (do nothing)
+        return -1;
+    }
+
+    virtual string_type __CLR_OR_THIS_CALL do_get(catalog, int, int,
+        const string_type& _Dflt) const { // get message from set in catalog (return default)
+        return _Dflt;
+    }
+
+    virtual void __CLR_OR_THIS_CALL do_close(catalog) const {} // close catalog (do nothing)
+};
+
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdllimport-static-field-def"
+#endif // defined(__clang__)
+
+template <class _Elem>
+__PURE_APPDOMAIN_GLOBAL locale::id messages<_Elem>::id;
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif // defined(__clang__)
+
+_EXPORT_STD template <class _Elem>
+class messages_byname : public messages<_Elem> { // messages for named locale
+public:
+    static_assert(!_ENFORCE_FACET_SPECIALIZATIONS || _Is_any_of_v<_Elem, char, wchar_t>, _FACET_SPECIALIZATION_MESSAGE);
+
+    explicit messages_byname(const char* _Locname, size_t _Refs = 0)
+        : messages<_Elem>(_Locname, _Refs) {} // construct for named locale
+
+    explicit messages_byname(const string& _Str, size_t _Refs = 0)
+        : messages<_Elem>(_Str.c_str(), _Refs) {} // construct for named locale
+
+protected:
+    __CLR_OR_THIS_CALL ~messages_byname() noexcept override {}
+};
+
+#if defined(_DLL_CPPLIB)
+
+#if !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+template __PURE_APPDOMAIN_GLOBAL locale::id messages<char>::id;
+template __PURE_APPDOMAIN_GLOBAL locale::id messages<wchar_t>::id;
+#endif // !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+
+#ifdef __FORCE_INSTANCE
+template __PURE_APPDOMAIN_GLOBAL locale::id messages<unsigned short>::id;
+#endif // defined(__FORCE_INSTANCE)
+#endif // defined(_DLL_CPPLIB)
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _XLOCMES_

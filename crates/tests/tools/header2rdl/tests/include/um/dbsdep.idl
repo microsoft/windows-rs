@@ -1,0 +1,117 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			dbsdep.idl
+//
+// Contents: 		OLE/DB structure definititions -- deprecated
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(0c733aad-2a1c-11ce-ade5-00aa0044773d),
+    pointer_default(unique)
+]
+
+interface DBStructureDefinitionsDep {
+
+cpp_quote("#ifndef UNALIGNED")
+cpp_quote("#if defined(_MIPS_) || defined(_ALPHA_) || defined(_PPC_)")
+cpp_quote("#define UNALIGNED __unaligned")
+cpp_quote("#else")
+cpp_quote("#define UNALIGNED")
+cpp_quote("#endif")
+cpp_quote("#endif //UNALIGNED")
+
+cpp_quote("#undef OLEDBDECLSPEC")
+cpp_quote("#if _MSC_VER >= 1100")
+cpp_quote("#define OLEDBDECLSPEC __declspec(selectany)")
+cpp_quote("#else")
+cpp_quote("#define OLEDBDECLSPEC ")
+cpp_quote("#endif //_MSC_VER")
+
+cpp_quote("#ifdef DBINITCONSTANTS")
+
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_CHECK_OPTION               = {0xc8b5220b,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_CONSTRAINT_CHECK_DEFERRED  = {0xc8b521f0,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_DROP_CASCADE               = {0xc8b521f3,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_UNIQUE                     = {0xc8b521f5,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_ON_COMMIT_PRESERVE_ROWS    = {0xc8b52230,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_PRIMARY                    = {0xc8b521fc,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_CLUSTERED                  = {0xc8b521ff,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_NONCLUSTERED               = {0xc8b52200,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_BTREE                      = {0xc8b52201,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_HASH                       = {0xc8b52202,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_FILLFACTOR                 = {0xc8b52203,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_INITIALSIZE                = {0xc8b52204,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_DISALLOWNULL               = {0xc8b52205,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_IGNORENULL                 = {0xc8b52206,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_IGNOREANYNULL              = {0xc8b52207,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_SORTBOOKMARKS              = {0xc8b52208,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_AUTOMATICUPDATE            = {0xc8b52209,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+cpp_quote("extern const OLEDBDECLSPEC GUID DB_PROPERTY_EXPLICITUPDATE             = {0xc8b5220a,0x5cf3,0x11ce,{0xad,0xe5,0x00,0xaa,0x00,0x44,0x77,0x3d}};")
+
+cpp_quote("#else // !DBINITCONSTANTS")
+
+cpp_quote("extern const GUID DB_PROPERTY_CHECK_OPTION;")
+cpp_quote("extern const GUID DB_PROPERTY_CONSTRAINT_CHECK_DEFERRED;")
+cpp_quote("extern const GUID DB_PROPERTY_DROP_CASCADE;")
+cpp_quote("extern const GUID DB_PROPERTY_ON_COMMIT_PRESERVE_ROWS;")
+cpp_quote("extern const GUID DB_PROPERTY_UNIQUE;")
+cpp_quote("extern const GUID DB_PROPERTY_PRIMARY;")
+cpp_quote("extern const GUID DB_PROPERTY_CLUSTERED;")
+cpp_quote("extern const GUID DB_PROPERTY_NONCLUSTERED;")
+cpp_quote("extern const GUID DB_PROPERTY_BTREE;")
+cpp_quote("extern const GUID DB_PROPERTY_HASH;")
+cpp_quote("extern const GUID DB_PROPERTY_FILLFACTOR;")
+cpp_quote("extern const GUID DB_PROPERTY_INITIALSIZE;")
+cpp_quote("extern const GUID DB_PROPERTY_DISALLOWNULL;")
+cpp_quote("extern const GUID DB_PROPERTY_IGNORENULL;")
+cpp_quote("extern const GUID DB_PROPERTY_IGNOREANYNULL;")
+cpp_quote("extern const GUID DB_PROPERTY_SORTBOOKMARKS;")
+cpp_quote("extern const GUID DB_PROPERTY_AUTOMATICUPDATE;")
+cpp_quote("extern const GUID DB_PROPERTY_EXPLICITUPDATE;")
+
+cpp_quote("#endif // DBINITCONSTANTS")
+
+enum DBPROPENUM25_DEPRECATED {
+	DBPROP_ICommandCost                          = 0x0000008dL,
+	DBPROP_ICommandTree                          = 0x0000008eL,
+	DBPROP_ICommandValidate                      = 0x0000008fL,
+	DBPROP_IDBSchemaCommand                      = 0x00000090L,		
+	DBPROP_IProvideMoniker                       = 0x0000007dL,
+	DBPROP_IQuery                                = 0x00000092L,
+	DBPROP_IReadData                             = 0x00000093L,
+	DBPROP_IRowsetAsynch                         = 0x00000094L,
+	DBPROP_IRowsetCopyRows                       = 0x00000095L,
+	DBPROP_IRowsetKeys                           = 0x00000097L,
+	DBPROP_IRowsetNewRowAfter                    = 0x00000098L,
+	DBPROP_IRowsetNextRowset                     = 0x00000099L,	
+	DBPROP_IRowsetWatchAll                       = 0x0000009bL,
+	DBPROP_IRowsetWatchNotify                    = 0x0000009cL,
+	DBPROP_IRowsetWatchRegion                    = 0x0000009dL,
+	DBPROP_IRowsetWithParameters                 = 0x0000009eL,
+};
+
+enum DBREASONENUM25 {
+	DBREASON_ROWSET_ROWSADDED = DBREASON_ROW_ASYNCHINSERT + 1,
+    DBREASON_ROWSET_POPULATIONCOMPLETE,
+    DBREASON_ROWSET_POPULATIONSTOPPED,
+};
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

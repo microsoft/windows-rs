@@ -1,0 +1,825 @@
+// numeric standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _NUMERIC_
+#define _NUMERIC_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xutility>
+
+#if _HAS_CXX17
+#include <__msvc_bit_utils.hpp>
+#endif // _HAS_CXX17
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+_STD_BEGIN
+_EXPORT_STD template <class _InIt, class _Ty, class _Fn>
+_NODISCARD _CONSTEXPR20 _Ty accumulate(const _InIt _First, const _InIt _Last, _Ty _Val, _Fn _Reduce_op) {
+    // return noncommutative and nonassociative reduction of _Val and all in [_First, _Last), using _Reduce_op
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    for (; _UFirst != _ULast; ++_UFirst) {
+#if _HAS_CXX20
+        _Val = _Reduce_op(_STD move(_Val), *_UFirst);
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+        _Val = _Reduce_op(_Val, *_UFirst);
+#endif // ^^^ !_HAS_CXX20 ^^^
+    }
+    return _Val;
+}
+
+_EXPORT_STD template <class _InIt, class _Ty>
+_NODISCARD _CONSTEXPR20 _Ty accumulate(const _InIt _First, const _InIt _Last, _Ty _Val) {
+    // return noncommutative and nonassociative reduction of _Val and all in [_First, _Last)
+    return _STD accumulate(_First, _Last, _Val, plus<>{});
+}
+
+#if _HAS_CXX17
+#if _STD_VECTORIZE_WITH_FLOAT_CONTROL
+template <class _InIt, class _Ty, class _BinOp>
+constexpr bool _Plus_on_arithmetic_ranges_reduction_v =
+    conjunction_v<is_arithmetic<_Ty>, is_arithmetic<remove_pointer_t<_InIt>>, is_same<plus<>, _BinOp>>;
+
+#pragma float_control(precise, off, push)
+template <class _InIt, class _Ty>
+_Ty _Reduce_plus_arithmetic_ranges(_InIt _First, const _InIt _Last, _Ty _Val) {
+    // return reduction, plus arithmetic on contiguous ranges case
+#pragma loop(ivdep)
+    for (; _First != _Last; ++_First) {
+        _Val += *_First;
+    }
+
+    return _Val;
+}
+#pragma float_control(pop)
+#endif // ^^^ _STD_VECTORIZE_WITH_FLOAT_CONTROL ^^^
+
+_EXPORT_STD template <class _InIt, class _Ty, class _BinOp>
+_NODISCARD _CONSTEXPR20 _Ty reduce(const _InIt _First, const _InIt _Last, _Ty _Val, _BinOp _Reduce_op) {
+    // return commutative and associative reduction of _Val and [_First, _Last), using _Reduce_op
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+#if _STD_VECTORIZE_WITH_FLOAT_CONTROL
+    if constexpr (_Plus_on_arithmetic_ranges_reduction_v<_Unwrapped_t<const _InIt&>, _Ty, _BinOp>) {
+#if _HAS_CXX20
+        if (!_STD is_constant_evaluated())
+#endif // _HAS_CXX20
+        {
+            return _STD _Reduce_plus_arithmetic_ranges(_UFirst, _ULast, _Val);
+        }
+    }
+#endif // ^^^ _STD_VECTORIZE_WITH_FLOAT_CONTROL ^^^
+
+    for (; _UFirst != _ULast; ++_UFirst) {
+        _Val = _Reduce_op(_STD move(_Val), *_UFirst); // Requirement missing from N4950
+    }
+
+    return _Val;
+}
+
+_EXPORT_STD template <class _InIt, class _Ty>
+_NODISCARD _CONSTEXPR20 _Ty reduce(const _InIt _First, const _InIt _Last, _Ty _Val) {
+    // return commutative and associative reduction of _Val and [_First, _Last)
+    return _STD reduce(_First, _Last, _STD move(_Val), plus{});
+}
+
+_EXPORT_STD template <class _InIt>
+_NODISCARD _CONSTEXPR20 _Iter_value_t<_InIt> reduce(const _InIt _First, const _InIt _Last) {
+    // return commutative and associative reduction of
+    // iterator_traits<_InIt>::value_type{} and [_First, _Last)
+    return _STD reduce(_First, _Last, _Iter_value_t<_InIt>{}, plus{});
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt, class _Ty, class _BinOp, _Enable_if_execution_policy_t<_ExPo> = 0>
+_NODISCARD _Ty reduce(_ExPo&& _Exec, _FwdIt _First, _FwdIt _Last, _Ty _Val, _BinOp _Reduce_op) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt, class _Ty, _Enable_if_execution_policy_t<_ExPo> = 0>
+_NODISCARD _Ty reduce(_ExPo&& _Exec, const _FwdIt _First, const _FwdIt _Last, _Ty _Val) noexcept /* terminates */ {
+    // return commutative and associative reduction of _Val and [_First, _Last)
+    return _STD reduce(_STD forward<_ExPo>(_Exec), _First, _Last, _STD move(_Val), plus{});
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt, _Enable_if_execution_policy_t<_ExPo> = 0>
+_NODISCARD _Iter_value_t<_FwdIt> reduce(_ExPo&& _Exec, const _FwdIt _First, const _FwdIt _Last) noexcept
+/* terminates */ {
+    // return commutative and associative reduction of
+    // iterator_traits<_FwdIt>::value_type{} and [_First, _Last)
+    return _STD reduce(_STD forward<_ExPo>(_Exec), _First, _Last, _Iter_value_t<_FwdIt>{}, plus{});
+}
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _InIt1, class _InIt2, class _Ty, class _BinOp1, class _BinOp2>
+_NODISCARD _CONSTEXPR20 _Ty inner_product(
+    _InIt1 _First1, _InIt1 _Last1, _InIt2 _First2, _Ty _Val, _BinOp1 _Reduce_op, _BinOp2 _Transform_op) {
+    // return noncommutative and nonassociative transform-reduction of sequences, using
+    // _Reduce_op and _Transform_op
+    _STD _Adl_verify_range(_First1, _Last1);
+    auto _UFirst1      = _STD _Get_unwrapped(_First1);
+    const auto _ULast1 = _STD _Get_unwrapped(_Last1);
+    auto _UFirst2      = _STD _Get_unwrapped_n(_First2, _STD _Idl_distance<_InIt1>(_UFirst1, _ULast1));
+    for (; _UFirst1 != _ULast1; ++_UFirst1, (void) ++_UFirst2) {
+#if _HAS_CXX20
+        _Val = _Reduce_op(_STD move(_Val), _Transform_op(*_UFirst1, *_UFirst2)); // Requirement missing from N4950
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+        _Val = _Reduce_op(_Val, _Transform_op(*_UFirst1, *_UFirst2)); // Requirement missing from N4950
+#endif // ^^^ !_HAS_CXX20 ^^^
+    }
+
+    return _Val;
+}
+
+_EXPORT_STD template <class _InIt1, class _InIt2, class _Ty>
+_NODISCARD _CONSTEXPR20 _Ty inner_product(const _InIt1 _First1, const _InIt1 _Last1, const _InIt2 _First2, _Ty _Val) {
+    // return noncommutative and nonassociative transform-reduction of sequences
+    return _STD inner_product(_First1, _Last1, _First2, _STD move(_Val), plus<>{}, multiplies<>{});
+}
+
+#if _HAS_CXX17
+#if _STD_VECTORIZE_WITH_FLOAT_CONTROL
+template <class _InIt1, class _InIt2, class _Ty, class _BinOp1, class _BinOp2>
+constexpr bool _Default_ops_transform_reduce_v =
+    conjunction_v<is_arithmetic<_Ty>, is_arithmetic<remove_pointer_t<_InIt1>>, is_arithmetic<remove_pointer_t<_InIt2>>,
+        is_same<plus<>, _BinOp1>, is_same<multiplies<>, _BinOp2>>;
+
+#pragma float_control(precise, off, push)
+template <class _InIt1, class _InIt2, class _Ty>
+_Ty _Transform_reduce_arithmetic_defaults(_InIt1 _First1, const _InIt1 _Last1, _InIt2 _First2, _Ty _Val) {
+    // return transform-reduction, default ops on contiguous arithmetic ranges case
+#pragma loop(ivdep)
+    for (; _First1 != _Last1; ++_First1, (void) ++_First2) {
+        _Val += *_First1 * *_First2;
+    }
+
+    return _Val;
+}
+#pragma float_control(pop)
+#endif // ^^^ _STD_VECTORIZE_WITH_FLOAT_CONTROL ^^^
+
+_EXPORT_STD template <class _InIt1, class _InIt2, class _Ty, class _BinOp1, class _BinOp2>
+_NODISCARD _CONSTEXPR20 _Ty transform_reduce(
+    _InIt1 _First1, _InIt1 _Last1, _InIt2 _First2, _Ty _Val, _BinOp1 _Reduce_op, _BinOp2 _Transform_op) {
+    // return commutative and associative transform-reduction of sequences, using
+    // _Reduce_op and _Transform_op
+    _STD _Adl_verify_range(_First1, _Last1);
+    auto _UFirst1      = _STD _Get_unwrapped(_First1);
+    const auto _ULast1 = _STD _Get_unwrapped(_Last1);
+    auto _UFirst2      = _STD _Get_unwrapped_n(_First2, _STD _Idl_distance<_InIt1>(_UFirst1, _ULast1));
+#if _STD_VECTORIZE_WITH_FLOAT_CONTROL
+    if constexpr (_Default_ops_transform_reduce_v<_Unwrapped_t<const _InIt1&>, _Unwrapped_t<const _InIt2&>, _Ty,
+                      _BinOp1, _BinOp2>) {
+#if _HAS_CXX20
+        // TRANSITION, DevCom-878972
+        if (!_STD is_constant_evaluated())
+#endif // _HAS_CXX20
+        {
+            return _STD _Transform_reduce_arithmetic_defaults(_UFirst1, _ULast1, _UFirst2, _STD move(_Val));
+        }
+    }
+#endif // ^^^ _STD_VECTORIZE_WITH_FLOAT_CONTROL ^^^
+
+    for (; _UFirst1 != _ULast1; ++_UFirst1, (void) ++_UFirst2) {
+        _Val = _Reduce_op(_STD move(_Val), _Transform_op(*_UFirst1, *_UFirst2)); // Requirement missing from N4950
+    }
+    return _Val;
+}
+
+_EXPORT_STD template <class _InIt1, class _InIt2, class _Ty>
+_NODISCARD _CONSTEXPR20 _Ty transform_reduce(_InIt1 _First1, _InIt1 _Last1, _InIt2 _First2, _Ty _Val) {
+    // return commutative and associative transform-reduction of sequences
+    return _STD transform_reduce(_First1, _Last1, _First2, _STD move(_Val), plus{}, multiplies{});
+}
+
+_EXPORT_STD template <class _InIt, class _Ty, class _BinOp, class _UnaryOp>
+_NODISCARD _CONSTEXPR20 _Ty transform_reduce(
+    const _InIt _First, const _InIt _Last, _Ty _Val, _BinOp _Reduce_op, _UnaryOp _Transform_op) {
+    // return commutative and associative reduction of transformed sequence, using
+    // _Reduce_op and _Transform_op
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    for (; _UFirst != _ULast; ++_UFirst) {
+        _Val = _Reduce_op(_STD move(_Val), _Transform_op(*_UFirst)); // Requirement missing from N4950
+    }
+
+    return _Val;
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _Ty, class _BinOp1, class _BinOp2,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_NODISCARD _Ty transform_reduce(_ExPo&& _Exec, _FwdIt1 _First1, _FwdIt1 _Last1, _FwdIt2 _First2, _Ty _Val,
+    _BinOp1 _Reduce_op, _BinOp2 _Transform_op) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _Ty, _Enable_if_execution_policy_t<_ExPo> = 0>
+_NODISCARD _Ty transform_reduce(_ExPo&& _Exec, _FwdIt1 _First1, _FwdIt1 _Last1, _FwdIt2 _First2, _Ty _Val) noexcept
+/* terminates */ {
+    // return commutative and associative transform-reduction of sequences
+    return _STD transform_reduce(
+        _STD forward<_ExPo>(_Exec), _First1, _Last1, _First2, _STD move(_Val), plus{}, multiplies{});
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt, class _Ty, class _BinOp, class _UnaryOp,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_NODISCARD _Ty transform_reduce(_ExPo&& _Exec, _FwdIt _First1, _FwdIt _Last1, _Ty _Val, _BinOp _Reduce_op,
+    _UnaryOp _Transform_op) noexcept; // terminates
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _BinOp>
+_CONSTEXPR20 _OutIt partial_sum(const _InIt _First, const _InIt _Last, _OutIt _Dest, _BinOp _Reduce_op) {
+    // compute partial noncommutative and nonassociative reductions into _Dest, using _Reduce_op
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+
+    if (_UFirst != _ULast) {
+        _Iter_value_t<_InIt> _Val(*_UFirst);
+        for (;;) {
+            *_UDest = _Val;
+            ++_UDest;
+            ++_UFirst;
+            if (_UFirst == _ULast) {
+                break;
+            }
+#if _HAS_CXX20
+            _Val = _Reduce_op(_STD move(_Val), *_UFirst);
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+            _Val = _Reduce_op(_Val, *_UFirst);
+#endif // ^^^ !_HAS_CXX20 ^^^
+        }
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt>
+_CONSTEXPR20 _OutIt partial_sum(_InIt _First, _InIt _Last, _OutIt _Dest) {
+    // compute partial noncommutative and nonassociative reductions into _Dest
+    return _STD partial_sum(_First, _Last, _Dest, plus<>{});
+}
+
+#if _HAS_CXX17
+_EXPORT_STD template <class _InIt, class _OutIt, class _Ty, class _BinOp>
+_CONSTEXPR20 _OutIt exclusive_scan(const _InIt _First, const _InIt _Last, _OutIt _Dest, _Ty _Val, _BinOp _Reduce_op) {
+    // set each value in [_Dest, _Dest + (_Last - _First)) to the associative reduction of predecessors and _Val
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    if (_UFirst != _ULast) {
+        for (;;) {
+            _Ty _Tmp = _Reduce_op(_Val, *_UFirst); // temp to enable _First == _Dest, also requirement missing
+            *_UDest  = _Val;
+            ++_UDest;
+            ++_UFirst;
+            if (_UFirst == _ULast) {
+                break;
+            }
+
+            _Val = _STD move(_Tmp); // Requirement missing from N4950
+        }
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _Ty>
+_CONSTEXPR20 _OutIt exclusive_scan(const _InIt _First, const _InIt _Last, const _OutIt _Dest, _Ty _Val) {
+    // set each value in [_Dest, _Dest + (_Last - _First)) to the associative reduction of predecessors and _Val
+    return _STD exclusive_scan(_First, _Last, _Dest, _STD move(_Val), plus{});
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _Ty, class _BinOp,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 exclusive_scan(_ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _FwdIt2 _Dest, _Ty _Val,
+    _BinOp _Reduce_op) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _Ty, _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 exclusive_scan(_ExPo&& _Exec, const _FwdIt1 _First, const _FwdIt1 _Last, const _FwdIt2 _Dest, _Ty _Val) noexcept
+/* terminates */ {
+    // set each value in [_Dest, _Dest + (_Last - _First)) to the associative reduction of predecessors and _Val
+    return _STD exclusive_scan(_STD forward<_ExPo>(_Exec), _First, _Last, _Dest, _STD move(_Val), plus{});
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _Ty, class _BinOp>
+_CONSTEXPR20 _OutIt inclusive_scan(const _InIt _First, const _InIt _Last, _OutIt _Dest, _BinOp _Reduce_op, _Ty _Val) {
+    // compute partial noncommutative and associative reductions including _Val into _Dest, using _Reduce_op
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    for (; _UFirst != _ULast; ++_UFirst) {
+        _Val    = _Reduce_op(_STD move(_Val), *_UFirst); // Requirement missing from N4950
+        *_UDest = _Val;
+        ++_UDest;
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _BinOp>
+_CONSTEXPR20 _OutIt inclusive_scan(const _InIt _First, const _InIt _Last, _OutIt _Dest, _BinOp _Reduce_op) {
+    // compute partial noncommutative and associative reductions into _Dest, using _Reduce_op
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    if (_UFirst != _ULast) {
+        _Iter_value_t<_InIt> _Val(*_UFirst); // Requirement missing from N4950
+        for (;;) {
+            *_UDest = _Val;
+            ++_UDest;
+            ++_UFirst;
+            if (_UFirst == _ULast) {
+                break;
+            }
+
+            _Val = _Reduce_op(_STD move(_Val), *_UFirst); // Requirement missing from N4950
+        }
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt>
+_CONSTEXPR20 _OutIt inclusive_scan(const _InIt _First, const _InIt _Last, const _OutIt _Dest) {
+    // compute partial noncommutative and associative reductions into _Dest
+    return _STD inclusive_scan(_First, _Last, _Dest, plus{});
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _BinOp, class _Ty,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 inclusive_scan(
+    _ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _FwdIt2 _Dest, _BinOp _Reduce_op, _Ty _Val) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _BinOp, _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 inclusive_scan(
+    _ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _FwdIt2 _Dest, _BinOp _Reduce_op) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 inclusive_scan(_ExPo&& _Exec, const _FwdIt1 _First, const _FwdIt1 _Last, const _FwdIt2 _Dest) noexcept
+/* terminates */ {
+    // compute partial noncommutative and associative reductions into _Dest
+    return _STD inclusive_scan(_STD forward<_ExPo>(_Exec), _First, _Last, _Dest, plus{});
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _Ty, class _BinOp, class _UnaryOp>
+_CONSTEXPR20 _OutIt transform_exclusive_scan(
+    const _InIt _First, const _InIt _Last, _OutIt _Dest, _Ty _Val, _BinOp _Reduce_op, _UnaryOp _Transform_op) {
+    // set each value in [_Dest, _Dest + (_Last - _First)) to the associative reduction of transformed predecessors
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    if (_UFirst != _ULast) {
+        for (;;) {
+            _Ty _Tmp = _Reduce_op(_Val, _Transform_op(*_UFirst)); // temp to enable _First == _Dest
+            *_UDest  = _Val;
+            ++_UDest;
+            ++_UFirst;
+            if (_UFirst == _ULast) {
+                break;
+            }
+
+            _Val = _STD move(_Tmp); // Requirement missing from N4950
+        }
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _OutIt, class _Ty, class _BinOp, class _UnaryOp,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_OutIt transform_exclusive_scan(_ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _OutIt _Dest, _Ty _Val, _BinOp _Reduce_op,
+    _UnaryOp _Transform_op) noexcept; // terminates
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _Ty, class _BinOp, class _UnaryOp>
+_CONSTEXPR20 _OutIt transform_inclusive_scan(
+    const _InIt _First, const _InIt _Last, _OutIt _Dest, _BinOp _Reduce_op, _UnaryOp _Transform_op, _Ty _Val) {
+    // compute partial noncommutative and associative transformed reductions including _Val into _Dest
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    for (; _UFirst != _ULast; ++_UFirst) {
+        _Val    = _Reduce_op(_STD move(_Val), _Transform_op(*_UFirst)); // Requirement missing from N4950
+        *_UDest = _Val;
+        ++_UDest;
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _BinOp, class _UnaryOp>
+_CONSTEXPR20 _OutIt transform_inclusive_scan(
+    const _InIt _First, const _InIt _Last, _OutIt _Dest, _BinOp _Reduce_op, _UnaryOp _Transform_op) {
+    // compute partial noncommutative and associative transformed reductions into _Dest
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    if (_UFirst != _ULast) {
+        auto _Val = _Transform_op(*_UFirst); // Requirement missing from N4950, also type to use unclear
+        for (;;) {
+            *_UDest = _Val;
+            ++_UDest;
+            ++_UFirst;
+            if (_UFirst == _ULast) {
+                break;
+            }
+
+            _Val = _Reduce_op(_STD move(_Val), _Transform_op(*_UFirst)); // Requirement missing from N4950
+        }
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _Ty, class _BinOp, class _UnaryOp,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 transform_inclusive_scan(_ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _FwdIt2 _Dest, _BinOp _Reduce_op,
+    _UnaryOp _Transform_op, _Ty _Val) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _BinOp, class _UnaryOp,
+    _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 transform_inclusive_scan(_ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _FwdIt2 _Dest, _BinOp _Reduce_op,
+    _UnaryOp _Transform_op) noexcept; // terminates
+#endif // _HAS_CXX17
+
+template <class _TyDest, class _TySrc, class _BinOp>
+void _Adjacent_difference_no_overlap(
+    _TyDest* const _RESTRICT _Dest, _TySrc* const _RESTRICT _Src, const ptrdiff_t _Count, _BinOp _Func) {
+    _Dest[0] = _Src[0];
+    for (ptrdiff_t _Ix = 1; _Ix != _Count; ++_Ix) {
+#if _HAS_CXX20
+        _TySrc _Tmp = _Src[_Ix - 1];
+        _Dest[_Ix]  = _Func(_Src[_Ix], _STD move(_Tmp));
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+        _Dest[_Ix] = _Func(_Src[_Ix], _Src[_Ix - 1]);
+#endif // ^^^ !_HAS_CXX20 ^^^
+    }
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt, class _BinOp>
+_CONSTEXPR20 _OutIt adjacent_difference(const _InIt _First, const _InIt _Last, _OutIt _Dest, _BinOp _Func) {
+    // compute adjacent differences into _Dest
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+    auto _UDest       = _STD _Get_unwrapped_n(_Dest, _STD _Idl_distance<_InIt>(_UFirst, _ULast));
+    if (_UFirst != _ULast) {
+        if constexpr (_Iterators_are_contiguous<decltype(_UFirst), decltype(_UDest)> && !_Iterator_is_volatile<_InIt>
+                      && is_trivially_copyable_v<_Iter_value_t<_InIt>>) {
+#if _HAS_CXX20
+            if (!_STD is_constant_evaluated())
+#endif
+            {
+                // Go with pointers and without loop-carried dependency to enable vectorization
+                const auto _First_ptr = _STD _To_address(_UFirst);
+                const auto _Last_ptr  = _STD _To_address(_ULast);
+                const auto _Dest_ptr  = _STD _To_address(_UDest);
+                const auto _Count     = _Last_ptr - _First_ptr;
+
+                // Need to perform aliasing analysis.
+                // The vectorizer is generally able to do that on its own, and would guard the vectorized code with
+                // that, but when we eliminate the loop-carried dependency we change the semantics of the unvectorized
+                // code too. So we need to perform this check manually, and after that we can tell the compiler that
+                // there's no aliasing, to avoid it checking for that again.
+                if (reinterpret_cast<uintptr_t>(_Dest_ptr + _Count) <= reinterpret_cast<uintptr_t>(_First_ptr)
+                    || reinterpret_cast<uintptr_t>(_Last_ptr) <= reinterpret_cast<uintptr_t>(_Dest_ptr)) {
+                    _STD _Adjacent_difference_no_overlap(_Dest_ptr, _First_ptr, _Count, _STD _Pass_fn(_Func));
+                    _STD _Seek_wrapped(_Dest, _UDest + _Count);
+                    return _Dest;
+                }
+            }
+        }
+
+        _Iter_value_t<_InIt> _Val(*_UFirst);
+        *_UDest = _Val;
+        while (++_UFirst != _ULast) { // compute another difference
+            _Iter_value_t<_InIt> _Tmp(*_UFirst);
+#if _HAS_CXX20
+            *++_UDest = _Func(_Tmp, _STD move(_Val));
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+            *++_UDest = _Func(_Tmp, _Val);
+#endif // ^^^ !_HAS_CXX20 ^^^
+            _Val = _STD move(_Tmp);
+        }
+
+        ++_UDest;
+    }
+
+    _STD _Seek_wrapped(_Dest, _UDest);
+    return _Dest;
+}
+
+_EXPORT_STD template <class _InIt, class _OutIt>
+_CONSTEXPR20 _OutIt adjacent_difference(const _InIt _First, const _InIt _Last, const _OutIt _Dest) {
+    // compute adjacent differences into _Dest
+    return _STD adjacent_difference(_First, _Last, _Dest, minus<>{});
+}
+
+#if _HAS_CXX17
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, class _BinOp, _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 adjacent_difference(
+    _ExPo&& _Exec, _FwdIt1 _First, _FwdIt1 _Last, _FwdIt2 _Dest, _BinOp _Diff_op) noexcept; // terminates
+
+_EXPORT_STD template <class _ExPo, class _FwdIt1, class _FwdIt2, _Enable_if_execution_policy_t<_ExPo> = 0>
+_FwdIt2 adjacent_difference(_ExPo&& _Exec, const _FwdIt1 _First, const _FwdIt1 _Last, const _FwdIt2 _Dest) noexcept
+/* terminates */ {
+    // compute adjacent differences into _Dest
+    return _STD adjacent_difference(_STD forward<_ExPo>(_Exec), _First, _Last, _Dest, minus{});
+}
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _FwdIt, class _Ty>
+_CONSTEXPR20 void iota(_FwdIt _First, _FwdIt _Last, _Ty _Val) {
+    // compute increasing sequence into [_First, _Last)
+    _STD _Adl_verify_range(_First, _Last);
+    auto _UFirst      = _STD _Get_unwrapped(_First);
+    const auto _ULast = _STD _Get_unwrapped(_Last);
+
+    if constexpr (_Iterator_is_contiguous<decltype(_UFirst)> && is_integral_v<_Ty> && sizeof(_Ty) >= 4) {
+        // TRANSITION, DevCom-10593477: help the compiler vectorize
+        const auto _Ptr  = _To_address(_UFirst);
+        const auto _Size = static_cast<size_t>(_ULast - _UFirst);
+
+        if (_STD _In_range<_Ty>(_Size)) {
+            const auto _Size_typed = static_cast<_Ty>(_Size);
+            for (_Ty _Ix = 0; _Ix != _Size_typed; ++_Ix) {
+                _Ptr[_Ix] = _Val + _Ix;
+            }
+
+            return;
+        }
+    }
+
+    for (; _UFirst != _ULast; ++_UFirst, (void) ++_Val) {
+        *_UFirst = _Val;
+    }
+}
+
+#if _HAS_CXX23
+namespace ranges {
+    _EXPORT_STD template <class _Out, class _Ty>
+    using iota_result = out_value_result<_Out, _Ty>;
+
+    class _Iota_fn {
+    public:
+        template <input_or_output_iterator _It, sentinel_for<_It> _Se, weakly_incrementable _Ty>
+            requires indirectly_writable<_It, const _Ty&>
+        _STATIC_CALL_OPERATOR constexpr iota_result<_It, _Ty> operator()(
+            _It _First, _Se _Last, _Ty _Val) _CONST_CALL_OPERATOR {
+            _STD _Adl_verify_range(_First, _Last);
+            _STD _Seek_wrapped(_First, _Iota_impl(_RANGES _Unwrap_iter<_Se>(_STD move(_First)),
+                                           _RANGES _Unwrap_sent<_It>(_STD move(_Last)), _Val));
+            return {_STD move(_First), _STD move(_Val)};
+        }
+
+        template <weakly_incrementable _Ty, output_range<const _Ty&> _Rng>
+        _STATIC_CALL_OPERATOR constexpr iota_result<borrowed_iterator_t<_Rng>, _Ty> operator()(
+            _Rng&& _Range, _Ty _Val) _CONST_CALL_OPERATOR {
+            auto _First = _RANGES begin(_Range);
+            _STD _Seek_wrapped(
+                _First, _Iota_impl(_RANGES _Unwrap_range_iter<_Rng>(_STD move(_First)), _Uend(_Range), _Val));
+            return {_STD move(_First), _STD move(_Val)};
+        }
+
+    private:
+        template <class _It, class _Se, class _Ty>
+        _NODISCARD static constexpr _It _Iota_impl(_It _First, const _Se _Last, _Ty& _Val) {
+            _STL_INTERNAL_STATIC_ASSERT(sentinel_for<_Se, _It>);
+            _STL_INTERNAL_STATIC_ASSERT(weakly_incrementable<_Ty>);
+            _STL_INTERNAL_STATIC_ASSERT(indirectly_writable<_It, const _Ty&>);
+
+            if constexpr (_Iterator_is_contiguous<_It> && sized_sentinel_for<_Se, _It> && is_integral_v<_Ty>
+                          && sizeof(_Ty) >= 4) {
+                // TRANSITION, DevCom-10593477: help the compiler vectorize
+                const auto _Ptr  = _To_address(_First);
+                const auto _Size = static_cast<size_t>(_Last - _First);
+
+                if (_STD _In_range<_Ty>(_Size)) {
+                    const auto _Size_typed = static_cast<_Ty>(_Size);
+                    for (_Ty _Ix = 0; _Ix != _Size_typed; ++_Ix) {
+                        const _Ty _Const_val = _Val + _Ix;
+                        _Ptr[_Ix]            = _Const_val;
+                    }
+
+                    _Val += _Size_typed;
+                    return _First + _Size;
+                }
+            }
+
+            const _Ty& _Const_val = _Val;
+            for (; _First != _Last; ++_First, (void) ++_Val) {
+                *_First = _Const_val;
+            }
+            return _First;
+        }
+    };
+
+    _EXPORT_STD inline constexpr _Iota_fn iota;
+} // namespace ranges
+#endif // _HAS_CXX23
+
+#if _HAS_CXX17
+template <class _Integral>
+_NODISCARD constexpr auto _Abs_u(const _Integral _Val) noexcept {
+    // computes absolute value of _Val (converting to an unsigned integer type if necessary to avoid overflow
+    // representing the negation of the minimum value)
+    static_assert(is_integral_v<_Integral>);
+
+    if constexpr (is_signed_v<_Integral>) {
+        using _Unsigned = make_unsigned_t<_Integral>;
+        if (_Val < 0) {
+            // note static_cast to _Unsigned such that _Integral == short returns unsigned short rather than int
+            return static_cast<_Unsigned>(_Unsigned{0} - static_cast<_Unsigned>(_Val));
+        }
+
+        return static_cast<_Unsigned>(_Val);
+    } else {
+        return _Val;
+    }
+}
+
+_EXPORT_STD template <class _Mt, class _Nt>
+_NODISCARD constexpr common_type_t<_Mt, _Nt> gcd(const _Mt _Mx, const _Nt _Nx) noexcept /* strengthened */ {
+    // calculate greatest common divisor
+    static_assert(_Is_nonbool_integral<_Mt> && _Is_nonbool_integral<_Nt>, "GCD requires nonbool integral types");
+
+    using _Common          = common_type_t<_Mt, _Nt>;
+    using _Common_unsigned = make_unsigned_t<_Common>;
+
+    if constexpr (is_signed_v<_Common>) {
+#ifndef _DEBUG
+        if (_STD _Is_constant_evaluated())
+#endif // ^^^ !defined(_DEBUG) ^^^
+        {
+            constexpr auto _Min_common = _STD _Min_limit<_Common>();
+            _STL_VERIFY(_Mx != _Min_common && _Nx != _Min_common,
+                "Preconditions: |m| and |n| are representable as a value of common_type_t<M, N>. "
+                "(N4981 [numeric.ops.gcd]/2, N4981 [numeric.ops.lcm]/2)");
+        }
+    }
+
+    return _Select_countr_zero_impl<_Common_unsigned>([=](auto _Countr_zero_impl) {
+        _Common_unsigned _Mx_magnitude = _Abs_u(_Mx);
+        _Common_unsigned _Nx_magnitude = _Abs_u(_Nx);
+        if (_Mx_magnitude == 0U) {
+            return static_cast<_Common>(_Nx_magnitude);
+        }
+
+        if (_Nx_magnitude == 0U) {
+            return static_cast<_Common>(_Mx_magnitude);
+        }
+
+        const auto _Mx_trailing_zeroes  = static_cast<unsigned long>(_Countr_zero_impl(_Mx_magnitude));
+        auto _Nx_trailing_zeroes        = static_cast<unsigned long>(_Countr_zero_impl(_Nx_magnitude));
+        const auto _Common_factors_of_2 = (_STD min)(_Mx_trailing_zeroes, _Nx_trailing_zeroes);
+        _Mx_magnitude >>= _Mx_trailing_zeroes;
+        for (;;) {
+            _Nx_magnitude >>= _Nx_trailing_zeroes;
+            if (_Mx_magnitude > _Nx_magnitude) {
+                _Common_unsigned _Temp = _Mx_magnitude;
+                _Mx_magnitude          = _Nx_magnitude;
+                _Nx_magnitude          = _Temp;
+            }
+
+            _Nx_magnitude -= _Mx_magnitude;
+            if (_Nx_magnitude == 0U) {
+                return static_cast<_Common>(_Mx_magnitude << _Common_factors_of_2);
+            }
+
+            _Nx_trailing_zeroes = static_cast<unsigned long>(_Countr_zero_impl(_Nx_magnitude));
+        }
+    });
+}
+
+_EXPORT_STD template <class _Mt, class _Nt>
+_NODISCARD constexpr common_type_t<_Mt, _Nt> lcm(const _Mt _Mx, const _Nt _Nx) noexcept /* strengthened */ {
+    // calculate least common multiple
+    static_assert(_Is_nonbool_integral<_Mt> && _Is_nonbool_integral<_Nt>, "LCM requires nonbool integral types");
+    using _Common                        = common_type_t<_Mt, _Nt>;
+    using _Common_unsigned               = make_unsigned_t<_Common>;
+    const _Common_unsigned _Mx_magnitude = _Abs_u(_Mx);
+    const _Common_unsigned _Nx_magnitude = _Abs_u(_Nx);
+    if (_Mx_magnitude == 0 || _Nx_magnitude == 0) {
+        return 0;
+    }
+
+#ifndef _DEBUG
+    if (!_STD _Is_constant_evaluated()) {
+        return static_cast<_Common>((_Mx_magnitude / _STD gcd(_Mx_magnitude, _Nx_magnitude)) * _Nx_magnitude);
+    }
+#endif // ^^^ !defined(_DEBUG) ^^^
+
+    _Common_unsigned _Result = 0;
+    _Common_unsigned _Tmp    = static_cast<_Common_unsigned>(_Mx_magnitude / _STD gcd(_Mx_magnitude, _Nx_magnitude));
+    const bool _Overflow     = _Mul_overflow(_Tmp, _Nx_magnitude, _Result) || !_In_range<_Common>(_Result);
+
+    _STL_VERIFY(!_Overflow, "Preconditions: The least common multiple of |m| and |n| is representable as a value of "
+                            "type common_type_t<M, N>. (N4981 [numeric.ops.lcm]/2)");
+
+    return static_cast<_Common>(_Result);
+}
+#endif // _HAS_CXX17
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Ty>
+    requires is_arithmetic_v<_Ty> && (!is_same_v<remove_cv_t<_Ty>, bool>)
+_NODISCARD constexpr _Ty midpoint(const _Ty _Val1, const _Ty _Val2) noexcept {
+    if constexpr (is_floating_point_v<_Ty>) {
+        if (_STD is_constant_evaluated()) {
+            if (_Is_nan(_Val1)) {
+                return _Val1;
+            }
+
+            if (_Is_nan(_Val2)) {
+                return _Val2;
+            }
+        } else {
+            if (_Is_nan(_Val1) || _Is_nan(_Val2)) {
+                // raise FE_INVALID if at least one of _Val1 and _Val2 is signaling NaN
+                return _Val1 + _Val2;
+            }
+        }
+
+        constexpr _Ty _High_limit = _Floating_type_traits<remove_cv_t<_Ty>>::_Maximum_value / 2;
+        const auto _Val1_a        = _Float_abs(_Val1);
+        const auto _Val2_a        = _Float_abs(_Val2);
+        if (_Val1_a <= _High_limit && _Val2_a <= _High_limit) {
+            // _Val1 and _Val2 are small enough that _Val1 + _Val2 won't overflow
+
+            // For the division to be inexact, the result of the addition must produce a value with the smallest
+            // effective exponent and the low order bit in the mantissa set. For an addition to be inexact in this
+            // condition, the difference between the inputs would have to be smaller than one ULP, but that is
+            // impossible.
+            //
+            // For example, with doubles, the sum/difference of the inputs would have to be finer than 2^-1074, for it
+            // to round (via whatever mode) to the value with a least significant 1 bit and p-1022, but the inputs can't
+            // be finer than 2^-1074 and addition/subtraction can't create smaller steps.
+
+            return (_Val1 + _Val2) / 2;
+        }
+
+        // Here at least one of {_Val1, _Val2} has large magnitude.
+        // Therefore, if one of the values is too small to divide by 2 exactly, the small magnitude is much less than
+        // one ULP of the result, so we can add it directly without the potentially inexact division by 2.
+
+        // In the default rounding mode this less than one ULP difference will always be rounded away, so under
+        // /fp:fast we could avoid these tests if we had some means of detecting it in the caller.
+        constexpr _Ty _Low_limit = _Floating_type_traits<remove_cv_t<_Ty>>::_Minimum_value * 2;
+        if (_Val1_a < _Low_limit) {
+            return _Val1 + _Val2 / 2;
+        }
+
+        if (_Val2_a < _Low_limit) {
+            // division of _Val2 by 2 would be inexact, etc.
+            return _Val1 / 2 + _Val2;
+        }
+
+        return _Val1 / 2 + _Val2 / 2;
+    } else {
+        using _Unsigned    = make_unsigned_t<_Ty>;
+        const auto _Val1_u = static_cast<_Unsigned>(_Val1);
+        const auto _Val2_u = static_cast<_Unsigned>(_Val2);
+        if (_Val1 > _Val2) {
+            return static_cast<_Ty>(_Val1 - static_cast<_Ty>(static_cast<_Unsigned>(_Val1_u - _Val2_u) / 2));
+        } else {
+            return static_cast<_Ty>(_Val1 + static_cast<_Ty>(static_cast<_Unsigned>(_Val2_u - _Val1_u) / 2));
+        }
+    }
+}
+
+_EXPORT_STD template <class _Ty>
+    requires is_object_v<_Ty>
+_NODISCARD constexpr _Ty* midpoint(_Ty* const _Val1, _Ty* const _Val2) noexcept /* strengthened */ {
+    if (_Val1 > _Val2) {
+        return _Val1 - ((_Val1 - _Val2) >> 1); // shift for codegen
+    } else {
+        return _Val1 + ((_Val2 - _Val1) >> 1); // shift for codegen
+    }
+}
+#endif // _HAS_CXX20
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _NUMERIC_

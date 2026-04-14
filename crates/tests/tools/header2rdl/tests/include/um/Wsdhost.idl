@@ -1,0 +1,175 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  Component: WSDAPI - Microsoft Web Services for Devices API
+// 
+//  File: wsdhost.idl
+//
+//  Abstract: Host/Device interface definitions and typedefs for WSDAPI
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "wsdxmldom.h";
+import "wsdtypes.h";
+
+//
+// Dependencies
+//
+interface IWSDAddress;
+interface IWSDXMLContext;
+
+//
+// Forward Declarations
+//
+interface IWSDDeviceHost;
+interface IWSDDeviceHostNotify;
+interface IWSDServiceMessaging;
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDeviceHost(")
+cpp_quote("    _In_ LPCWSTR pszLocalId,")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _Outptr_ IWSDDeviceHost** ppDeviceHost);")
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDeviceHostAdvanced(")
+cpp_quote("    _In_ LPCWSTR pszLocalId,")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _In_reads_opt_(dwHostAddressCount) IWSDAddress** ppHostAddresses,")
+cpp_quote("    DWORD dwHostAddressCount,")
+cpp_quote("    _Outptr_ IWSDDeviceHost** ppDeviceHost);")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDCreateDeviceHost2(")
+cpp_quote("    _In_ LPCWSTR pszLocalId,")
+cpp_quote("    IWSDXMLContext* pContext,")
+cpp_quote("    _In_reads_opt_(dwConfigParamCount) WSD_CONFIG_PARAM* pConfigParams,")
+cpp_quote("    DWORD dwConfigParamCount,")
+cpp_quote("    _Outptr_ IWSDDeviceHost** ppDeviceHost);")
+cpp_quote("#endif")
+    
+//+-------------------------------------------------------------------------
+//  IWSDDeviceHost Interface
+//  Description: Host-side representation of devices
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(917fe891-3d13-4138-9809-934c8abeb12c),
+    helpstring("IWSDDeviceHost Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDDeviceHost : IUnknown
+{
+    HRESULT Init(
+        [in, annotation("_In_")] LPCWSTR pszLocalId,
+        [in, optional, annotation("_In_opt_")] IWSDXMLContext* pContext,
+        [in, optional, annotation("_In_reads_opt_(dwHostAddressCount)")] IWSDAddress** ppHostAddresses,
+        [in, optional, annotation("_In_opt_")] DWORD dwHostAddressCount);
+
+    HRESULT Start(
+        [in] ULONGLONG ullInstanceId,
+        [in] const WSD_URI_LIST* pScopeList,
+        [in, optional, annotation("_In_opt_")] IWSDDeviceHostNotify* pNotificationSink);
+    
+    HRESULT Stop();
+
+    HRESULT Terminate();
+
+    HRESULT RegisterPortType(
+        [in] const WSD_PORT_TYPE* pPortType);
+
+    HRESULT SetMetadata(
+        [in] const WSD_THIS_MODEL_METADATA* pThisModelMetadata,
+        [in] const WSD_THIS_DEVICE_METADATA* pThisDeviceMetadata,
+        [in, optional, annotation("_In_opt_")] const WSD_HOST_METADATA* pHostMetadata,
+        [in, optional, annotation("_In_opt_")] const WSD_METADATA_SECTION_LIST* pCustomMetadata);
+
+    HRESULT RegisterService(
+        [in, annotation("_In_")] LPCWSTR pszServiceId,
+        [in] IUnknown* pService);
+    
+    HRESULT RetireService(
+        [in, annotation("_In_")] LPCWSTR pszServiceId);
+
+    HRESULT AddDynamicService(
+        [in, annotation("_In_")] LPCWSTR pszServiceId,
+        [in, optional, annotation("_In_opt_")] LPCWSTR pszEndpointAddress,
+        [in, optional, annotation("_In_opt_")] const WSD_PORT_TYPE* pPortType,
+        [in, optional, annotation("_In_opt_")] const WSDXML_NAME* pPortName,
+        [in, optional, annotation("_In_opt_")] const WSDXML_ELEMENT* pAny,
+        [in, optional, annotation("_In_opt_")] IUnknown* pService);
+    
+    HRESULT RemoveDynamicService(
+        [in, annotation("_In_")] LPCWSTR pszServiceId);
+
+    HRESULT SetServiceDiscoverable(
+        [in, annotation("_In_")] LPCWSTR pszServiceId,
+        [in] BOOL fDiscoverable);
+
+    HRESULT SignalEvent(
+        [in, annotation("_In_")] LPCWSTR pszServiceId,
+        [in, annotation("_In_opt_")] const void* pBody,
+        [in] const WSD_OPERATION* pOperation);
+};
+
+//+-------------------------------------------------------------------------
+//  IWSDDeviceHostNotify Interface
+//  Description: Provides device-related notifications for devices
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(b5bee9f9-eeda-41fe-96f7-f45e14990fb0),
+    helpstring("IWSDDeviceHostNotify Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface IWSDDeviceHostNotify : IUnknown
+{
+midl_pragma warning(disable:2495)
+    HRESULT GetService(
+        [in, annotation("_In_")] LPCWSTR pszServiceId,
+        [out, annotation("_Outptr_")] IUnknown** ppService);
+midl_pragma warning(disable:2495)
+};
+
+//+-------------------------------------------------------------------------
+//  IWSDServiceMessaging Interface
+//  Description: Provides response channels for dispatched service messages.
+//               This interface is used only by generated stubs.
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(94974cf4-0cab-460d-a3f6-7a0ad623c0e6),
+    helpstring("IWSDServiceMessaging Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDServiceMessaging : IUnknown
+{
+    HRESULT SendResponse(
+        [in, annotation("_In_opt_")] void* pBody,
+        [in] WSD_OPERATION* pOperation,
+        [in] IWSDMessageParameters* pMessageParameters);
+    
+    HRESULT FaultRequest(
+        [in] WSD_SOAP_HEADER* pRequestHeader,
+        [in] IWSDMessageParameters* pMessageParameters,
+        [in,optional, annotation("_In_opt_")] WSD_SOAP_FAULT* pFault);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

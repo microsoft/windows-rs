@@ -1,0 +1,2185 @@
+//------------------------------------------------------------------------------
+// File: BDAIface.idl
+//
+// Desc: This file defines the Ring 3 BDA interfaces that are common to
+//       all BDA network and device types.
+//
+//       The interfaces specific to a particular Network Type or filter
+//       implementation are defined in a separate include file for that
+//       Network Type or filter implementation.
+//
+// Copyright (c) 1999 - 2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------
+// IUnknown import idl
+//---------------------------------------------------------------------
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "strmif.idl";
+import "BdaTypes.h";
+#endif
+
+#include "bdaiface_enums.h"
+
+//---------------------------------------------------------------------
+//
+//  IBDA_NetworkProvider interface
+//
+//  Implemented by a BDA Network Provider
+//
+//      Used by a BDA device filter to register itself with
+//      a Network Provider and query information about the
+//      the current tuning request.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(fd501041-8ebe-11ce-8183-00aa00577da2),
+    pointer_default(unique)
+]
+
+interface IBDA_NetworkProvider : IUnknown
+{
+
+    HRESULT
+    PutSignalSource (
+        [in] ULONG          ulSignalSource
+        );
+
+
+    HRESULT
+    GetSignalSource (
+        [in, out] ULONG *   pulSignalSource
+        );
+
+    HRESULT
+    GetNetworkType (
+        [in, out] GUID *    pguidNetworkType
+        );
+
+    HRESULT
+    PutTuningSpace (
+        [in] REFGUID        guidTuningSpace
+        );
+
+    HRESULT
+    GetTuningSpace (
+        [in, out] GUID *    pguidTuingSpace
+        );
+
+    HRESULT
+    RegisterDeviceFilter (
+        [in]  IUnknown *    pUnkFilterControl,
+        [in, out] ULONG *   ppvRegisitrationContext
+        );
+
+    HRESULT
+    UnRegisterDeviceFilter (
+        [in] ULONG          pvRegistrationContext
+        );
+
+}
+
+//---------------------------------------------------------------------
+//
+//  IBDA_EthernetFilter interface
+//
+//  Implemented by a BDA Network Provider
+//
+//      Used by an Ethernet Network Data Sink filter (eg. IPSink) to
+//      request that the Network Provider make its best effort to tune
+//      to the stream(s) on which a list of Ethernet multicast addresses
+//      may be transmitted.
+//
+//      Addresses in the address list are byte aligned in Network order.
+//      UlcbAddresses will always be an integer multiple of the
+//      size of an ethernet address.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(71985F43-1CA1-11d3-9CC8-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_EthernetFilter : IUnknown
+{
+    HRESULT
+    GetMulticastListSize (
+        [in, out] ULONG *                   pulcbAddresses
+        );
+
+    HRESULT
+    PutMulticastList (
+        [in] ULONG                          ulcbAddresses,
+        [in, size_is(ulcbAddresses)] BYTE   pAddressList []
+        );
+
+    HRESULT
+    GetMulticastList (
+        [in, out] ULONG *                       pulcbAddresses,
+        [in, out, size_is(*pulcbAddresses)] BYTE    pAddressList []
+        );
+
+    HRESULT
+    PutMulticastMode (
+        [in] ULONG      ulModeMask
+        );
+
+    HRESULT
+    GetMulticastMode (
+        [out] ULONG *   pulModeMask
+        );
+
+}
+
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_IPV4Filter interface
+//
+//  Implemented by a BDA Network Provider
+//
+//      Used by an IPv4 Network Data Sink filter to request
+//      that the Network Provider make its best effort to tune
+//      to the stream(s) on which a list of IPv4 multicast addresses
+//      may be transmitted.
+//
+//      Addresses in the address list are byte aligned in Network order.
+//      UlcbAddresses will always be an integer multiple of the
+//      size of an IPv4 address.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(71985F44-1CA1-11d3-9CC8-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_IPV4Filter : IUnknown
+{
+
+    HRESULT
+    GetMulticastListSize (
+        [in, out] ULONG *                   pulcbAddresses
+        );
+
+    HRESULT
+    PutMulticastList (
+        [in] ULONG                          ulcbAddresses,
+        [in, size_is(ulcbAddresses)] BYTE   pAddressList []
+        );
+
+    HRESULT
+    GetMulticastList (
+        [in, out] ULONG *                       pulcbAddresses,
+        [out, size_is(*pulcbAddresses)] BYTE    pAddressList []
+        );
+
+    HRESULT
+    PutMulticastMode (
+        [in] ULONG  ulModeMask
+        );
+
+    HRESULT
+    GetMulticastMode (
+        [out] ULONG* pulModeMask
+        );
+}
+
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_IPV6Filter interface
+//
+//  Implemented by a BDA Network Provider
+//
+//      Used by an IPv6 Network Data Sink filter to request
+//      that the Network Provider make its best effort to tune
+//      to the stream(s) on which a list of IPv6 multicast addresses
+//      may be transmitted.
+//
+//      Addresses in the address list are byte aligned in Network order.
+//      UlcbAddresses will always be an integer multiple of the
+//      size of an IPv6 address.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(E1785A74-2A23-4fb3-9245-A8F88017EF33),
+    pointer_default(unique)
+]
+
+interface IBDA_IPV6Filter : IUnknown
+{
+
+    HRESULT
+    GetMulticastListSize (
+        [in, out] ULONG *                   pulcbAddresses
+        );
+
+    HRESULT
+    PutMulticastList (
+        [in] ULONG                          ulcbAddresses,
+        [in, size_is(ulcbAddresses)] BYTE   pAddressList []
+        );
+
+    HRESULT
+    GetMulticastList (
+        [in, out] ULONG *                       pulcbAddresses,
+        [out, size_is(*pulcbAddresses)] BYTE    pAddressList []
+        );
+
+    HRESULT
+    PutMulticastMode (
+        [in] ULONG  ulModeMask
+        );
+
+    HRESULT
+    GetMulticastMode (
+        [out] ULONG* pulModeMask
+        );
+}
+
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_DeviceControl interface
+//
+//  Implemented by a BDA Device Filter
+//
+//      Used by the Network Provider to commit a series of changes
+//      on a BDA device filter.  The device filter validates and
+//      accumulates all changes requested after StartChanges().  It
+//      effects the accumulated list of changes when CommitChanges() is
+//      called.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(FD0A5AF3-B41D-11d2-9C95-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_DeviceControl : IUnknown
+{
+    HRESULT
+    StartChanges (
+        void
+        );
+
+    HRESULT
+    CheckChanges (
+        void
+        );
+
+    HRESULT
+    CommitChanges (
+        void
+        );
+
+    HRESULT
+    GetChangeState (
+        [in, out] ULONG *   pState
+        );
+
+}
+
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_PinControl interface
+//
+//  Implemented by a BDA Device Filter's Pin
+//
+//      Used by the Network Provider to determine the BDA PinID and
+//      PinType on a BDA Filter's Pin
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(0DED49D5-A8B7-4d5d-97A1-12B0C195874D),
+    pointer_default(unique)
+]
+
+interface IBDA_PinControl : IUnknown
+{
+    HRESULT
+    GetPinID (
+        [in, out] ULONG *   pulPinID
+        );
+
+    HRESULT
+    GetPinType (
+        [in, out] ULONG *   pulPinType
+        );
+
+    HRESULT
+    RegistrationContext (
+        [in, out] ULONG *   pulRegistrationCtx
+        );
+}
+
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_SignalProperties interface
+//
+//  Implemented by a BDA Device Filter
+//
+//      BDA Signal Properties is used by a Network Provider to inform
+//      a BDA Device Filter about the current tuning request.  The
+//      Network Provider will call the Put functions when the BDA
+//      device is first registered with the Network Provider and whenever
+//      the current tuning request is modified.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(D2F1644B-B409-11d2-BC69-00A0C9EE9E16),
+    pointer_default(unique)
+]
+
+interface IBDA_SignalProperties : IUnknown
+{
+    HRESULT
+    PutNetworkType (
+        [in] REFGUID        guidNetworkType
+        );
+
+    HRESULT
+    GetNetworkType (
+        [in, out] GUID *    pguidNetworkType
+        );
+
+    HRESULT
+    PutSignalSource (
+        [in] ULONG          ulSignalSource
+        );
+
+    HRESULT
+    GetSignalSource (
+        [in, out] ULONG *   pulSignalSource
+        );
+
+    HRESULT
+    PutTuningSpace (
+        [in] REFGUID        guidTuningSpace
+        );
+
+    HRESULT
+    GetTuningSpace (
+        [in, out] GUID *    pguidTuingSpace
+        );
+}
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_SignalStatistics interface
+//
+//  Implemented by a BDA Control Node
+//
+//      A BDA Control Node may return these properties to describe
+//      the condition of a signal that is being received.
+//
+//
+//
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(1347D106-CF3A-428a-A5CB-AC0D9A2A4338),
+    pointer_default(unique)
+]
+
+interface IBDA_SignalStatistics : IUnknown
+{
+    HRESULT
+    put_SignalStrength (
+        [in] LONG           lDbStrength
+        );
+
+    HRESULT
+    get_SignalStrength (
+        [in, out] LONG *    plDbStrength
+        );
+
+    HRESULT
+    put_SignalQuality (
+        [in] LONG           lPercentQuality
+        );
+
+    HRESULT
+    get_SignalQuality (
+        [in, out] LONG *    plPercentQuality
+        );
+
+    HRESULT
+    put_SignalPresent (
+        [in] BOOLEAN        fPresent
+        );
+
+    HRESULT
+    get_SignalPresent (
+        [in, out] BOOLEAN * pfPresent
+        );
+
+    HRESULT
+    put_SignalLocked (
+        [in] BOOLEAN        fLocked
+        );
+
+    HRESULT
+    get_SignalLocked (
+        [in, out] BOOLEAN * pfLocked
+        );
+
+    HRESULT
+    put_SampleTime (
+        [in] LONG           lmsSampleTime
+        );
+
+    HRESULT
+    get_SampleTime (
+        [in, out] LONG *    plmsSampleTime
+        );
+}
+
+
+//---------------------------------------------------------------------
+//
+//  IBDA_Topology interface
+//
+//  Implemented by a BDA Device Filter
+//
+//      Used by the Network Provider to query a BDA Device Filter's
+//      possible topologies (template topology) and to configure
+//      the device with an appropriate topology for the current
+//      tuning request.  It is also used to get an IUnknown to
+//      a control node which may be used to set specific tuning
+//      information.
+//
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(79B56888-7FEA-4690-B45D-38FD3C7849BE),
+    pointer_default(unique)
+]
+
+interface IBDA_Topology : IUnknown
+{
+    HRESULT
+    GetNodeTypes (
+        [in, out] ULONG *                           pulcNodeTypes,
+        [in]  ULONG                                 ulcNodeTypesMax,
+        [in, out, size_is (ulcNodeTypesMax)] ULONG  rgulNodeTypes[]
+        );
+
+    HRESULT
+    GetNodeDescriptors (
+        [in, out] ULONG *   ulcNodeDescriptors,
+        [in]  ULONG         ulcNodeDescriptorsMax,
+        [in, out, size_is (ulcNodeDescriptorsMax)] BDANODE_DESCRIPTOR   rgNodeDescriptors[]
+        );
+
+    HRESULT
+    GetNodeInterfaces (
+        [in]  ULONG                                     ulNodeType,
+        [in, out] ULONG *                               pulcInterfaces,
+        [in]  ULONG                                     ulcInterfacesMax,
+        [in, out, size_is (ulcInterfacesMax)] GUID      rgguidInterfaces[]
+        );
+
+    HRESULT
+    GetPinTypes (
+        [in, out] ULONG *                           pulcPinTypes,
+        [in]  ULONG                                 ulcPinTypesMax,
+        [in, out, size_is (ulcPinTypesMax)] ULONG   rgulPinTypes[]
+        );
+
+    HRESULT
+    GetTemplateConnections (
+        [in, out] ULONG *                       pulcConnections,
+        [in]  ULONG                             ulcConnectionsMax,
+        [in, out, size_is (ulcConnectionsMax)] BDA_TEMPLATE_CONNECTION    rgConnections[]
+        );
+
+    HRESULT
+    CreatePin (
+        [in]  ULONG         ulPinType,
+        [in, out] ULONG *   pulPinId
+        );
+
+    HRESULT
+    DeletePin (
+        [in] ULONG      ulPinId
+        );
+
+    HRESULT
+    SetMediaType (
+        [in]  ULONG             ulPinId,
+        [in]  AM_MEDIA_TYPE *   pMediaType
+        );
+
+    HRESULT
+    SetMedium (
+        [in] ULONG          ulPinId,
+        [in] REGPINMEDIUM * pMedium
+        );
+
+    HRESULT
+    CreateTopology (
+        [in] ULONG ulInputPinId,
+        [in] ULONG ulOutputPinId
+        );
+
+    HRESULT
+    GetControlNode (
+        [in] ULONG              ulInputPinId,
+        [in] ULONG              ulOutputPinId,
+        [in] ULONG              ulNodeType,
+        [in, out] IUnknown **   ppControlNode
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_VoidTransform interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(71985F46-1CA1-11d3-9CC8-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_VoidTransform : IUnknown
+{
+    HRESULT
+    Start (
+        void
+        );
+
+    HRESULT
+    Stop (
+        void
+        );
+
+}
+
+//---------------------------------------------------------------------
+// IBDA_NullTransform interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(DDF15B0D-BD25-11d2-9CA0-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_NullTransform : IUnknown
+{
+    HRESULT
+    Start (
+        void
+        );
+
+    HRESULT
+    Stop (
+        void
+        );
+
+}
+
+//---------------------------------------------------------------------
+// IBDA_FrequencyFilter interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(71985F47-1CA1-11d3-9CC8-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_FrequencyFilter : IUnknown
+{
+    HRESULT
+    put_Autotune (
+        [in] ULONG                  ulTransponder
+        );
+
+    HRESULT
+    get_Autotune (
+        [in, out] ULONG *           pulTransponder
+        );
+
+    HRESULT
+    put_Frequency (
+        [in] ULONG                  ulFrequency
+        );
+
+    HRESULT
+    get_Frequency (
+        [in, out] ULONG *           pulFrequency
+        );
+
+    HRESULT
+    put_Polarity (
+        [in] Polarisation           Polarity
+        );
+
+    HRESULT
+    get_Polarity (
+        [in, out] Polarisation *    pPolarity
+        );
+
+    HRESULT
+    put_Range (
+        [in] ULONG                  ulRange
+        );
+
+    HRESULT
+    get_Range (
+        [in, out] ULONG *           pulRange
+        );
+
+    HRESULT
+    put_Bandwidth (
+        [in] ULONG                  ulBandwidth
+        );
+
+    HRESULT
+    get_Bandwidth (
+        [in, out] ULONG *           pulBandwidth
+        );
+
+    HRESULT
+    put_FrequencyMultiplier (
+        [in] ULONG                  ulMultiplier
+        );
+
+    HRESULT
+    get_FrequencyMultiplier (
+        [in, out] ULONG *           pulMultiplier
+        );
+}
+
+
+//---------------------------------------------------------------------
+// IBDA_LNBInfo interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(992CF102-49F9-4719-A664-C4F23E2408F4),
+    pointer_default(unique)
+]
+
+interface IBDA_LNBInfo : IUnknown
+{
+    HRESULT
+    put_LocalOscilatorFrequencyLowBand (
+        [in] ULONG          ulLOFLow
+        );
+
+    HRESULT
+    get_LocalOscilatorFrequencyLowBand (
+        [in, out] ULONG *   pulLOFLow
+        );
+
+    HRESULT
+    put_LocalOscilatorFrequencyHighBand (
+        [in] ULONG          ulLOFHigh
+        );
+
+    HRESULT
+    get_LocalOscilatorFrequencyHighBand (
+        [in, out] ULONG *   pulLOFHigh
+        );
+
+    HRESULT
+    put_HighLowSwitchFrequency (
+        [in] ULONG          ulSwitchFrequency
+        );
+
+    HRESULT
+    get_HighLowSwitchFrequency (
+        [in, out] ULONG *   pulSwitchFrequency
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_DiseqCommand interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(F84E2AB0-3C6B-45e3-A0FC-8669D4B81F11),
+    pointer_default(unique)
+]
+
+interface IBDA_DiseqCommand : IUnknown
+{
+    HRESULT
+    put_EnableDiseqCommands (
+        [in] BOOLEAN       bEnable
+        );
+
+    HRESULT
+    put_DiseqLNBSource (
+        [in] ULONG       ulLNBSource
+        );
+
+    HRESULT
+    put_DiseqUseToneBurst (
+        [in] BOOLEAN       bUseToneBurst
+        );
+
+    HRESULT
+    put_DiseqRepeats (
+        [in] ULONG       ulRepeats
+        );
+
+    HRESULT
+    put_DiseqSendCommand (
+        [in] ULONG       ulRequestId,
+        [in] ULONG       ulcbCommandLen,
+        [in, size_is(ulcbCommandLen)] BYTE *pbCommand
+        );
+
+    HRESULT
+    get_DiseqResponse (
+        [in] ULONG              ulRequestId,
+        [in, out] ULONG*        pulcbResponseLen,
+        [in, out, size_is(*pulcbResponseLen)] BYTE pbResponse[]
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_AutoDemodulate interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(DDF15B12-BD25-11d2-9CA0-00C04F7971E0),
+    pointer_default(unique)
+]
+
+interface IBDA_AutoDemodulate : IUnknown
+{
+    HRESULT
+    put_AutoDemodulate (
+        void
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_AutoDemodulateEx interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(34518D13-1182-48e6-B28F-B24987787326),
+    pointer_default(unique)
+]
+
+interface IBDA_AutoDemodulateEx : IBDA_AutoDemodulate
+{
+    HRESULT
+    get_SupportedDeviceNodeTypes(
+        [in] ULONG ulcDeviceNodeTypesMax,
+        [out] ULONG *pulcDeviceNodeTypes,
+        [in, out] GUID *pguidDeviceNodeTypes
+        );
+
+    HRESULT
+    get_SupportedVideoFormats(
+        [out] ULONG /* AMTunerModeType */ *pulAMTunerModeType,
+        [out] ULONG /* AnalogVideoStandard */ *pulAnalogVideoStandard
+        );
+
+    HRESULT
+    get_AuxInputCount(
+        [in, out] ULONG *pulCompositeCount,
+        [in, out] ULONG *pulSvideoCount
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_DigitalDemodulator interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(EF30F379-985B-4d10-B640-A79D5E04E1E0),
+    pointer_default(unique)
+]
+
+interface IBDA_DigitalDemodulator : IUnknown
+{
+    HRESULT
+    put_ModulationType (
+        [in] ModulationType *   pModulationType
+        );
+
+    HRESULT
+    get_ModulationType (
+        [in, out] ModulationType *  pModulationType
+        );
+
+    HRESULT
+    put_InnerFECMethod (
+        [in] FECMethod *    pFECMethod
+        );
+
+    HRESULT
+    get_InnerFECMethod (
+        [in, out] FECMethod *   pFECMethod
+        );
+
+    HRESULT
+    put_InnerFECRate (
+        [in] BinaryConvolutionCodeRate *    pFECRate
+        );
+
+    HRESULT
+    get_InnerFECRate (
+        [in, out] BinaryConvolutionCodeRate *   pFECRate
+        );
+
+    HRESULT
+    put_OuterFECMethod (
+        [in] FECMethod *    pFECMethod
+        );
+
+    HRESULT
+    get_OuterFECMethod (
+        [in, out] FECMethod *   pFECMethod
+        );
+
+    HRESULT
+    put_OuterFECRate (
+        [in] BinaryConvolutionCodeRate *    pFECRate
+        );
+
+    HRESULT
+    get_OuterFECRate (
+        [in, out] BinaryConvolutionCodeRate *   pFECRate
+        );
+
+    HRESULT
+    put_SymbolRate (
+        [in] ULONG *    pSymbolRate
+        );
+
+    HRESULT
+    get_SymbolRate (
+        [in, out] ULONG *   pSymbolRate
+        );
+
+    HRESULT
+    put_SpectralInversion (
+        [in] SpectralInversion *    pSpectralInversion
+        );
+
+    HRESULT
+    get_SpectralInversion (
+        [in, out] SpectralInversion *   pSpectralInversion
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_DigitalDemodulator2 interface
+//---------------------------------------------------------------------
+
+[
+    object,
+    uuid(525ED3EE-5CF3-4e1e-9A06-5368A84F9A6E),
+    pointer_default(unique)
+]
+interface IBDA_DigitalDemodulator2 : IBDA_DigitalDemodulator
+{
+    HRESULT
+    put_GuardInterval (
+        [in] GuardInterval *    pGuardInterval
+        );
+
+    HRESULT
+    get_GuardInterval (
+        [in, out] GuardInterval *   pGuardInterval
+        );
+
+    HRESULT
+    put_TransmissionMode (
+        [in] TransmissionMode *    pTransmissionMode
+        );
+
+    HRESULT
+    get_TransmissionMode (
+        [in, out] TransmissionMode *   pTransmissionMode
+        );
+
+    HRESULT
+    put_RollOff (
+        [in] RollOff * pRollOff
+        );
+
+    HRESULT
+    get_RollOff (
+        [in, out] RollOff * pRollOff
+        );
+
+    HRESULT
+    put_Pilot (
+        [in] Pilot * pPilot
+        );
+
+    HRESULT
+    get_Pilot (
+        [in, out] Pilot * pPilot
+        );
+}
+
+//---------------------------------------------------------------------
+// IBDA_DigitalDemodulator3 interface
+//---------------------------------------------------------------------
+
+[
+    object,
+    uuid(13F19604-7D32-4359-93A2-A05205D90AC9),
+    pointer_default(unique)
+]
+interface IBDA_DigitalDemodulator3 : IBDA_DigitalDemodulator2
+{
+    HRESULT
+    put_SignalTimeouts (
+        [in] BDA_SIGNAL_TIMEOUTS *    pSignalTimeouts
+        );
+
+    HRESULT
+    get_SignalTimeouts (
+        [in, out] BDA_SIGNAL_TIMEOUTS *   pSignalTimeouts
+        );
+
+    HRESULT
+    put_PLPNumber (
+        [in] ULONG *    pPLPNumber
+        );
+
+    HRESULT
+    get_PLPNumber (
+        [in, out] ULONG *   pPLPNumber
+        );
+}
+
+typedef enum
+{
+    KSPROPERTY_IPSINK_MULTICASTLIST,
+    KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION,
+    KSPROPERTY_IPSINK_ADAPTER_ADDRESS
+
+} KSPROPERTY_IPSINK;
+
+
+
+//---------------------------------------------------------------------
+// ICCSubStreamFiltering interface
+//
+// Sets the filtering on the closed captioning (CC) pins
+// of the VBICodec filter.
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(4B2BD7EA-8347-467b-8DBF-62F784929CC3),
+    helpstring("ICCSubStreamFiltering Interface"),
+    pointer_default(unique)
+]
+interface ICCSubStreamFiltering : IUnknown
+{
+    [propget, helpstring("property SubstreamTypes")] HRESULT SubstreamTypes( [out, retval] long* pTypes );
+    [propput, helpstring("property SubstreamTypes")] HRESULT SubstreamTypes( [in] long Types );
+};
+
+//---------------------------------------------------------------------
+// IBDA_IPSinkControl interface  (mutlimedia\filters.ks\ipsink)
+// IBDA_IPSinkInfo    interface
+//
+//  IBDA_IPSinkControl is no longer being supported for Ring3 clients.
+//  Use the BDA_IPSinkInfo interface instead.
+//---------------------------------------------------------------------
+
+[
+    object,
+    uuid(3F4DC8E2-4050-11d3-8F4B-00C04F7971E2),
+    pointer_default(unique),
+    helpstring("Not supported - Use IBDA_IPSinkInfo instead")
+]
+interface IBDA_IPSinkControl : IUnknown
+{
+    HRESULT GetMulticastList (
+        [in, out] unsigned long *pulcbSize,
+        [in, out] BYTE **pbBuffer
+        );
+
+
+    HRESULT GetAdapterIPAddress (
+        [in,out] unsigned long *pulcbSize,
+        [in,out] BYTE **pbBuffer
+        );
+
+}
+
+[
+    object,
+    uuid(A750108F-492E-4d51-95F7-649B23FF7AD7),
+    pointer_default(unique)
+]
+interface IBDA_IPSinkInfo : IUnknown
+{
+    HRESULT get_MulticastList (                                             // returns  N 6-byte 802.3 IP addreses.
+        [in, out] ULONG *                       pulcbAddresses,     // 6*N
+        [out, size_is(*pulcbAddresses)] BYTE    **ppbAddressList    // Allocated by caller, must deallocate in callee with CoTaskMemFree()
+        );
+
+    HRESULT get_AdapterIPAddress (
+        [out] BSTR *pbstrBuffer
+        );
+
+    HRESULT get_AdapterDescription (
+        [out] BSTR *pbstrBuffer
+        );
+}
+//
+//  mpeg-2 demultiplexer-specific interfaces follow
+//
+
+//---------------------------------------------------------------------
+// IEnumPIDMap interface
+//---------------------------------------------------------------------
+
+#ifdef REMOVE_THESE
+typedef enum {
+    MEDIA_TRANSPORT_PACKET,         //  complete TS packet e.g. pass-through mode
+    MEDIA_ELEMENTARY_STREAM,        //  PES payloads; audio/video only
+    MEDIA_MPEG2_PSI,                //  PAT, PMT, CAT, Private
+    MEDIA_TRANSPORT_PAYLOAD         //  gathered TS packet payloads (PES packets, etc...)
+} MEDIA_SAMPLE_CONTENT ;
+
+typedef struct {
+    ULONG                   ulPID ;
+    MEDIA_SAMPLE_CONTENT    MediaSampleContent ;
+} PID_MAP ;
+#endif // REMOVE_THESE
+
+[
+    object,
+    uuid (afb6c2a2-2c41-11d3-8a60-0000f81e0e4a),
+    pointer_default(unique)
+]
+interface IEnumPIDMap : IUnknown
+{
+    HRESULT
+    Next (
+        [in]                            ULONG       cRequest,
+        [in, out, size_is (cRequest)]   PID_MAP *   pPIDMap,
+        [out]                           ULONG *     pcReceived
+        ) ;
+
+    HRESULT
+    Skip (
+        [in]    ULONG   cRecords
+        ) ;
+
+    HRESULT
+    Reset (
+        ) ;
+
+    HRESULT
+    Clone (
+        [out]   IEnumPIDMap **  ppIEnumPIDMap
+        ) ;
+} ;
+
+//---------------------------------------------------------------------
+// IMPEG2PIDMap interface
+//---------------------------------------------------------------------
+
+[
+    object,
+    uuid (afb6c2a1-2c41-11d3-8a60-0000f81e0e4a),
+    pointer_default(unique)
+]
+interface IMPEG2PIDMap : IUnknown
+{
+    HRESULT
+    MapPID (
+        [in]    ULONG                   culPID,
+        [in]    ULONG *                 pulPID,
+        [in]    MEDIA_SAMPLE_CONTENT    MediaSampleContent
+        ) ;
+
+    HRESULT
+    UnmapPID (
+        [in]    ULONG   culPID,
+        [in]    ULONG * pulPID
+        ) ;
+
+    HRESULT
+    EnumPIDMap (
+        [out]   IEnumPIDMap ** pIEnumPIDMap
+        ) ;
+} ;
+
+//---------------------------------------------------------------------
+// IFrequencyMap interface
+// Currently implemented on the TIF. The interface can be QIed on the NP
+//---------------------------------------------------------------------
+
+
+    [
+         object,
+     uuid(06FB45C1-693C-4ea7-B79F-7A6A54D8DEF2),
+     helpstring("IFrequencyMap Interface"),
+     pointer_default(unique),
+             hidden, restricted
+    ]
+
+    interface IFrequencyMap : IUnknown
+    {
+    [helpstring("method get_FrequencyMapping")]
+    HRESULT
+    get_FrequencyMapping(
+         [out] ULONG* ulCount,
+         [out, size_is(1, *ulCount)] ULONG** ppulList
+         );
+    [helpstring("method put_FrequencyMapping")]
+    HRESULT
+    put_FrequencyMapping(
+         [in] ULONG ulCount,
+         [in, size_is(ulCount)] ULONG pList[]
+         );
+    [helpstring("method get_CountryCode")]
+    HRESULT
+    get_CountryCode(
+        [out] ULONG *pulCountryCode
+        );
+    [helpstring("method put_CountryCode")]
+    HRESULT
+    put_CountryCode(
+        [in] ULONG ulCountryCode
+        );
+
+    [helpstring("method get_DefaultFrequencyMapping")]
+    HRESULT
+    get_DefaultFrequencyMapping(
+        [in] ULONG ulCountryCode,
+        [out] ULONG* pulCount,
+        [out, size_is(1, *pulCount)] ULONG** ppulList
+        );
+
+
+    [helpstring("method get_CountryCodeList")]
+    HRESULT
+    get_CountryCodeList(
+        [out] ULONG* pulCount,
+        [out, size_is(1, *pulCount)] ULONG** ppulList
+        );
+    };
+
+//---------------------------------------------------------------------
+// IBDA_EasMessage interface
+// Currently implemented on the TIF and registered as a service by TIF.
+//---------------------------------------------------------------------
+
+    [
+         object,
+     uuid(D806973D-3EBE-46de-8FBB-6358FE784208),
+     helpstring("IBDA_EasMessage Interface"),
+     pointer_default(unique),
+             hidden, restricted
+    ]
+
+    interface IBDA_EasMessage : IUnknown
+    {
+    [helpstring("method get_EasMessage")]
+    HRESULT
+    get_EasMessage(
+         [in] ULONG ulEventID,
+         [in, out] IUnknown **   ppEASObject
+         );
+    };
+
+cpp_quote("#define SID_BDA_EasMessage __uuidof(IBDA_EasMessage)")
+
+//---------------------------------------------------------------------
+// IBDA_TransportStreamInfo interface
+// Currently implemented on the TIF and registered as a service by TIF.
+//---------------------------------------------------------------------
+
+    [
+         object,
+     uuid(8E882535-5F86-47AB-86CF-C281A72A0549),
+     helpstring("IBDA_TransportStreamInfo Interface"),
+     pointer_default(unique),
+             hidden, restricted
+    ]
+
+    interface IBDA_TransportStreamInfo : IUnknown
+    {
+    [helpstring("method get_PatTableTickCount")]
+    HRESULT
+    get_PatTableTickCount(
+         [out] ULONG *   pPatTickCount
+         );
+    };
+
+cpp_quote("#define SID_BDA_TransportStreamInfo __uuidof(IBDA_TransportStreamInfo)")
+
+//---------------------------------------------------------------------
+// IBDA_ConditionalAccess interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(CD51F1E0-7BE9-4123-8482-A2A796C0A6B0),
+    helpstring("IBDA_ConditionalAccess Interface"),
+    pointer_default(unique)
+]
+
+interface IBDA_ConditionalAccess : IUnknown
+{
+    [helpstring("method get_SmartCardStatus")]
+    HRESULT
+    get_SmartCardStatus(
+        [out] SmartCardStatusType* pCardStatus,
+        [out] SmartCardAssociationType *pCardAssociation,
+        [out] BSTR *pbstrCardError,
+        [out] VARIANT_BOOL *pfOOBLocked
+        );
+
+    [helpstring("method get_SmartCardInfo")]
+    HRESULT
+    get_SmartCardInfo(
+        [out] BSTR *pbstrCardName,
+        [out] BSTR *pbstrCardManufacturer,
+        [out] VARIANT_BOOL *pfDaylightSavings,
+        [out] BYTE *pbyRatingRegion,
+        [out] LONG *plTimeZoneOffsetMinutes,
+        [out] BSTR *pbstrLanguage,
+        [out] EALocationCodeType  *pEALocationCode
+        );
+
+    [helpstring("method get_SmartCardApplications")]
+    HRESULT
+    get_SmartCardApplications(
+        [in, out] ULONG *                           pulcApplications,
+        [in]  ULONG                                 ulcApplicationsMax,
+        [in, out, size_is (ulcApplicationsMax)] SmartCardApplication rgApplications[]
+        );
+
+    [helpstring("method get_Entitlement")]
+    HRESULT
+    get_Entitlement(
+        [in] USHORT usVirtualChannel,
+        [out] EntitlementType *pEntitlement
+        );
+
+    [helpstring("method TuneByChannel")]
+    HRESULT
+    TuneByChannel(
+        [in] USHORT usVirtualChannel
+        );
+
+    [helpstring("method SetProgram")]
+    HRESULT
+    SetProgram(
+        [in] USHORT usProgramNumber
+        );
+
+    [helpstring("method AddProgram")]
+    HRESULT
+    AddProgram(
+        [in] USHORT usProgramNumber
+        );
+
+    [helpstring("method RemoveProgram")]
+    HRESULT
+    RemoveProgram(
+        [in] USHORT usProgramNumber
+        );
+
+    [helpstring("method GetModuleUI")]
+    HRESULT
+    GetModuleUI(
+        [in] BYTE byDialogNumber,
+        [out] BSTR *pbstrURL
+        );
+
+    [helpstring("method InformUIClosed")]
+    HRESULT
+    InformUIClosed(
+        [in] BYTE byDialogNumber,
+        [in] UICloseReasonType CloseReason
+        );
+
+}
+
+cpp_quote("#define SID_BDA_ConditionalAccess __uuidof(IBDA_ConditionalAccess)")
+
+//---------------------------------------------------------------------
+// IBDA_DiagnosticProperties interface
+//---------------------------------------------------------------------
+
+    [
+        object,
+        uuid(20e80cb5-c543-4c1b-8eb3-49e719eee7d4),
+        helpstring("IBDA_DiagnosticProperties Interface"),
+        pointer_default(unique),
+    ]
+
+    interface IBDA_DiagnosticProperties : IPropertyBag
+    {
+    };
+
+cpp_quote("#define SID_BDA_DiagnosticProperties __uuidof(IBDA_DiagnosticProperties)")
+
+//---------------------------------------------------------------------
+// IBDA_DRM interface
+//---------------------------------------------------------------------
+
+    [
+        object,
+        uuid(F98D88B0-1992-4cd6-A6D9-B9AFAB99330D),
+        helpstring("IBDA_DRM Interface"),
+        pointer_default(unique),
+    ]
+
+    interface IBDA_DRM : IUnknown
+    {
+        // Get the DRM pairing status
+        HRESULT GetDRMPairingStatus([out] DWORD* pdwStatus,    // Bit array indicating the status of DRM pairing
+                                    [out] HRESULT* phError); // Error code returned
+        // Request a DRM pairing
+        HRESULT PerformDRMPairing(BOOL fSync);
+    };
+
+cpp_quote("#define SID_BDA_DRM __uuidof(IBDA_DRM)")
+
+//---------------------------------------------------------------------
+// IBDA_NameValueService interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(7F0B3150-7B81-4ad4-98E3-7E9097094301),
+    helpstring("IBDA_NameValueService Interface"),
+    pointer_default(unique)
+]
+interface IBDA_NameValueService : IUnknown
+{
+
+    [helpstring("method GetNameByIndex")]
+    HRESULT
+    GetValueNameByIndex(
+        [in] ULONG ulIndex,
+        [out] BSTR *pbstrName
+        );
+
+    [helpstring("method GetValue")]
+    HRESULT
+    GetValue(
+        [in]  BSTR bstrName,
+        [in]  BSTR bstrLanguage,
+        [out] BSTR *pbstrValue
+        );
+
+    [helpstring("method SetValue")]
+    HRESULT
+    SetValue(
+        [in] ULONG ulDialogRequest,
+        [in] BSTR bstrLanguage,
+        [in] BSTR bstrName,
+        [in] BSTR bstrValue,
+        [in] ULONG ulReserved
+        );
+
+};
+
+
+cpp_quote("#define SID_BDA_NameValueService __uuidof(IBDA_NameValueService)")
+
+
+//---------------------------------------------------------------------
+// IBDA_ConditionalAccessEx interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(497C3418-23CB-44ba-BB62-769F506FCEA7),
+    helpstring("IBDA_ConditionalAccessEx Interface"),
+    pointer_default(unique)
+]
+
+interface IBDA_ConditionalAccessEx : IUnknown
+{
+    [helpstring("method CheckEntitlementToken")]
+    HRESULT
+    CheckEntitlementToken(
+        [in] ULONG ulDialogRequest,
+        [in] BSTR bstrLanguage,
+        [in] BDA_CONDITIONALACCESS_REQUESTTYPE RequestType,
+        [in] ULONG ulcbEntitlementTokenLen,
+        [in, size_is(ulcbEntitlementTokenLen)] BYTE *pbEntitlementToken,
+        [out] ULONG *pulDescrambleStatus
+        );
+
+    [helpstring("method SetCaptureToken")]
+    HRESULT
+    SetCaptureToken(
+        [in] ULONG ulcbCaptureTokenLen,
+        [in, size_is(ulcbCaptureTokenLen)] BYTE *pbCaptureToken
+        );
+
+    [helpstring("method OpenBroadcastMmi")]
+    HRESULT
+    OpenBroadcastMmi(
+        [in] ULONG ulDialogRequest,
+        [in] BSTR bstrLanguage,
+        [in] ULONG EventId
+        );
+
+    [helpstring("method CloseMmiDialog")]
+    HRESULT
+    CloseMmiDialog(
+        [in] ULONG ulDialogRequest,
+        [in] BSTR bstrLanguage,
+        [in] ULONG ulDialogNumber,
+        [in] BDA_CONDITIONALACCESS_MMICLOSEREASON ReasonCode,
+        [out] ULONG *pulSessionResult
+        );
+
+
+    [helpstring("method CreateDialogRequestNumber")]
+    HRESULT
+    CreateDialogRequestNumber(
+        [out] ULONG *pulDialogRequestNumber
+        );
+};
+
+cpp_quote("#define SID_BDA_ConditionalAccessEx __uuidof(IBDA_ConditionalAccessEx)")
+
+//---------------------------------------------------------------------
+// IBDA_ISDBConditionalAccess interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(5E68C627-16C2-4e6c-B1E2-D00170CDAA0F),
+    helpstring("IBDA_ISDBConditionalAccess Interface"),
+    pointer_default(unique)
+]
+
+interface IBDA_ISDBConditionalAccess : IUnknown
+{
+    [helpstring("method SetIsdbCasRequest")]
+    HRESULT
+    SetIsdbCasRequest(
+        [in] ULONG ulRequestId,
+        [in] ULONG ulcbRequestBufferLen,
+        [in, size_is(ulcbRequestBufferLen)] BYTE *pbRequestBuffer
+    );
+};
+
+cpp_quote("#define SID_BDA_ISDBConditionalAccess __uuidof(IBDA_ISDBConditionalAccess)")
+
+//---------------------------------------------------------------------
+// IBDA_EventingService interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(207C413F-00DC-4c61-BAD6-6FEE1FF07064),
+    helpstring("IBDA_EventingService Interface"),
+    pointer_default(unique)
+]
+interface IBDA_EventingService : IUnknown
+{
+    [helpstring("method CompleteEvent")]
+    HRESULT
+    CompleteEvent (
+    [in] ULONG ulEventID,
+    [in] ULONG ulEventResult
+    );
+
+}
+
+cpp_quote("#define SID_BDA_EventingService __uuidof(IBDA_EventingService)")
+
+//---------------------------------------------------------------------
+// IBDA_AUX interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(7DEf4C09-6E66-4567-A819-F0E17F4A81AB),
+    helpstring("IBDA_AUX Interface"),
+    pointer_default(unique)
+]
+interface IBDA_AUX : IUnknown
+{
+
+    [helpstring("method QueryCapabilities")]
+    HRESULT 
+    QueryCapabilities(
+        [out] DWORD *pdwNumAuxInputsBSTR
+        );
+
+    [helpstring("method EnumCapability")]
+    HRESULT
+    EnumCapability( 
+        [in] DWORD dwIndex,
+        [out] DWORD *dwInputID,
+        [out] GUID *pConnectorType,
+        [out] DWORD *ConnTypeNum,
+        [out] DWORD *NumVideoStds,
+        [out] ULONGLONG *AnalogStds
+        );
+};
+
+cpp_quote("DEFINE_GUID(PBDA_AUX_CONNECTOR_TYPE_SVideo, 0xa0e905f4,0x24c9,0x4a54, 0xb7, 0x61, 0x21, 0x33, 0x55, 0xef, 0xc1, 0x3A);")
+cpp_quote("DEFINE_GUID(PBDA_AUX_CONNECTOR_TYPE_Composite, 0xf6298b4c,0xc725,0x4d42, 0x84, 0x9b, 0x41, 0x0b, 0xbb, 0x14, 0xea, 0x62);")
+
+cpp_quote("#define SID_BDA_AUX __uuidof(IBDA_AUX)")
+cpp_quote("DEFINE_GUID(CLSID_PBDA_AUX_DATA_TYPE, /* fd456373-3323-4090-adca-8ed45f55cf10 */")
+cpp_quote("0xfd456373, 0x3323, 0x4090, 0xad, 0xca, 0x8e, 0xd4, 0x5f, 0x55, 0xcf, 0x10);")
+
+//---------------------------------------------------------------------
+// IBDA_Encoder interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(3a8bad59-59fe-4559-a0ba-396cfaa98ae3),
+    helpstring("IBDA_ Encoder Interface"),
+    pointer_default(unique)
+]
+interface IBDA_Encoder : IUnknown
+{
+
+    [helpstring("method QueryCapabilities")]
+    HRESULT 
+    QueryCapabilities(
+        [out] DWORD *NumAudioFmts,
+        [out] DWORD *NumVideoFmts
+        );
+
+    [helpstring("method EnumAudioCapability")]
+    HRESULT
+    EnumAudioCapability( 
+        [in] DWORD FmtIndex,
+        [out] DWORD *MethodID,
+        [out] DWORD *AlgorithmType,
+        [out] DWORD *SamplingRate,
+        [out] DWORD *BitDepth,
+        [out] DWORD *NumChannels
+        );
+
+    [helpstring("method EnumVideoCapability")]
+    HRESULT
+    EnumVideoCapability( 
+        [in] DWORD FmtIndex,
+        [out] DWORD *MethodID,
+        [out] DWORD *AlgorithmType,
+        [out] DWORD *VerticalSize,
+        [out] DWORD *HorizontalSize,
+        [out] DWORD *AspectRatio,
+        [out] DWORD *FrameRateCode,
+        [out] DWORD *ProgressiveSequence
+        );
+
+    [helpstring("method SetParameters")]
+    HRESULT
+    SetParameters(
+        [in] DWORD AudioBitrateMode,
+        [in] DWORD AudioBitrate,
+        [in] DWORD AudioMethodID,
+        [in] DWORD AudioProgram,
+        [in] DWORD VideoBitrateMode,
+        [in] DWORD VideoBitrate,
+        [in] DWORD VideoMethodID
+        );
+
+    [helpstring("method GetState")]
+    HRESULT
+    GetState(
+        [out] DWORD *AudioBitrateMax,
+        [out] DWORD *AudioBitrateMin,
+        [out] DWORD *AudioBitrateMode,
+        [out] DWORD *AudioBitrateStepping,
+        [out] DWORD *AudioBitrate,
+        [out] DWORD *AudioMethodID,
+        [out] DWORD *AvailableAudioPrograms,
+        [out] DWORD *AudioProgram,
+        [out] DWORD *VideoBitrateMax,
+        [out] DWORD *VideoBitrateMin,
+        [out] DWORD *VideoBitrateMode,
+        [out] DWORD *VideoBitrate,
+        [out] DWORD *VideoBitrateStepping,
+        [out] DWORD *VideoMethodID,
+        [out] DWORD *SignalSourceID,
+        [out] ULONGLONG *SignalFormat,
+        [out] BOOL *SignalLock,
+        [out] LONG *SignalLevel,
+        [out] DWORD *SignalToNoiseRatio);
+
+};
+
+
+cpp_quote("#define SID_BDA_Encoder __uuidof(IBDA_Encoder)")
+cpp_quote("DEFINE_GUID(CLSID_PBDA_Encoder_DATA_TYPE, /* 728fd6bc-5546-4716-b103-f899f5a1fa68 */")
+cpp_quote("0x728fd6bc, 0x5546, 0x4716, 0xb1, 0x03, 0xf8, 0x99, 0xf5, 0xa1, 0xfa, 0x68);")
+cpp_quote("#define PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII    0x00000000")
+cpp_quote("#define PBDA_Encoder_Audio_AlgorithmType_AC3             0x00000001")
+cpp_quote("#define PBDA_Encoder_Video_MPEG2PartII                   0x00000000")
+cpp_quote("#define PBDA_Encoder_Video_MPEG4Part10                   0x00000001")
+cpp_quote("#define PBDA_Encoder_Video_AVC                           0x00000001")
+cpp_quote("#define PBDA_Encoder_Video_H264                          0x00000001")
+cpp_quote("#define PBDA_Encoder_BitrateMode_Constant                0x00000001")
+cpp_quote("#define PBDA_Encoder_BitrateMode_Variable                0x00000002")
+cpp_quote("#define PBDA_Encoder_BitrateMode_Average                 0x00000003")
+
+//---------------------------------------------------------------------
+// IBDA_FDC interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(138adc7e-58ae-437f-b0b4-c9fe19d5b4ac),
+    helpstring("IBDA_ FDC Interface"),
+    pointer_default(unique)
+]
+interface IBDA_FDC : IUnknown
+{
+
+    [helpstring("method GetStatus")]
+    HRESULT 
+    GetStatus(
+        [out] DWORD *CurrentBitrate,
+        [out] BOOL *CarrierLock,
+        [out] DWORD *CurrentFrequency,
+        [out] BOOL *CurrentSpectrumInversion,
+        [out] BSTR *CurrentPIDList,
+        [out] BSTR *CurrentTIDList,
+        [out] BOOL *Overflow
+        );
+
+    [helpstring("method RequestTables")]
+    HRESULT
+    RequestTables(
+        [in] BSTR TableIDs
+        );
+
+    [helpstring("method AddPid")]
+    HRESULT
+    AddPid(
+        [in] BSTR PidsToAdd,
+        [out] DWORD *RemainingFilterEntries
+        );
+
+    [helpstring("method RemovePid")]
+    HRESULT
+    RemovePid(
+        [in] BSTR PidsToRemove
+        );
+
+    [helpstring("method AddTid")]
+    HRESULT
+    AddTid(
+        [in] BSTR TidsToAdd,
+        [out] BSTR *CurrentTidList
+        );
+
+    [helpstring("method RemoveTid")]
+    HRESULT
+    RemoveTid(
+        [in] BSTR TidsToRemove
+        );
+
+    [helpstring("method GetTableSection")]
+    HRESULT 
+    GetTableSection( 
+        [out] DWORD *Pid, 
+        [in] DWORD MaxBufferSize, 
+        [out] DWORD *ActualSize, 
+        [out] BYTE *SecBuffer 
+    );
+
+cpp_quote("#define SID_BDA_FDC __uuidof(IBDA_FDC")
+cpp_quote("DEFINE_GUID(CLSID_PBDA_FDC_DATA_TYPE, /* E7DBF9A0-22AB-4047-8E67-EF9AD504E729 */")
+cpp_quote("0xe7dbf9a0, 0x22ab, 0x4047, 0x8e, 0x67, 0xef, 0x9a, 0xd5, 0x4, 0xe7, 0x29);")
+
+};
+
+
+
+//---------------------------------------------------------------------
+// IBDA_GuideDataDeliveryService interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(C0AFCB73-23E7-4bc6-BAFA-FDC167B4719F),
+    helpstring("IBDA_ GuideDataDeliveryService Interface"),
+    pointer_default(unique)
+]
+interface IBDA_GuideDataDeliveryService: IUnknown
+{
+    [helpstring("method GetGuideDataType")]
+    HRESULT
+    GetGuideDataType(
+        [out] GUID *pguidDataType
+    );
+
+    [helpstring("method GetGuideData")]
+    HRESULT
+    GetGuideData(
+        [in, out]  ULONG *pulcbBufferLen,
+        [out] BYTE *pbBuffer,
+        [out] ULONG *pulGuideDataPercentageProgress
+    );
+
+    [helpstring("method RequestGuideDataUpdate")]
+    HRESULT
+    RequestGuideDataUpdate ();
+
+    [helpstring("method GetTuneXmlFromServiceIdx ")]
+    HRESULT
+    GetTuneXmlFromServiceIdx(
+        [in]  ULONG64 ul64ServiceIdx,
+        [out] BSTR *pbstrTuneXml
+    );
+
+    [helpstring("method GetServices")]
+    HRESULT
+    GetServices(
+        [in, out]  ULONG *pulcbBufferLen,
+        [out] BYTE *pbBuffer
+    );
+
+    [helpstring("method GetServiceInfoFromTuneXml")]
+    HRESULT
+    GetServiceInfoFromTuneXml(
+        [in]  BSTR bstrTuneXml,
+        [out] BSTR *pbstrServiceDescription
+    );
+}
+cpp_quote("#define SID_BDA_GuideDataDeliveryService  __uuidof(IBDA_GuideDataDeliveryService)")
+cpp_quote("DEFINE_GUID(CLSID_PBDA_GDDS_DATA_TYPE, /* C80C0DF3-6052-4c16-9F56-C44C21F73C45 */")
+cpp_quote("0xC80C0DF3, 0x6052, 0x4c16, 0x9F, 0x56, 0xC4, 0x4C, 0x21, 0xF7, 0x3C, 0x45);")
+
+//---------------------------------------------------------------------
+// IBDA_DRMService interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(BFF6B5BB-B0AE-484c-9DCA-73528FB0B46E),
+    helpstring("IBDA_DRMService Interface"),
+    pointer_default(unique)
+]
+interface IBDA_DRMService: IUnknown
+{
+    [helpstring("method SetDRM")]
+    HRESULT SetDRM(
+        [in] GUID *puuidNewDrm
+       );
+
+    [helpstring("method GetDRMStatus")]
+    HRESULT GetDRMStatus(
+        [out] BSTR* pbstrDrmUuidList,
+        [out] GUID* DrmUuid
+       );
+
+}
+
+cpp_quote("#define SID_BDA_DRMService __uuidof(IBDA_DRMService)")
+
+//---------------------------------------------------------------------
+// IBDA_WMDRMSession interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(4BE6FA3D-07CD-4139-8B80-8C18BA3AEC88),
+    helpstring("IBDA_WMDRMSession Interface"),
+    pointer_default(unique)
+]
+interface IBDA_WMDRMSession: IUnknown
+{
+
+    [helpstring("method GetStatus")]
+    HRESULT GetStatus (
+        [out] ULONG* MaxCaptureToken,
+        [out] ULONG* MaxStreamingPid,
+        [out] ULONG* MaxLicense,
+        [out] ULONG* MinSecurityLevel,
+        [out] ULONG* RevInfoSequenceNumber,
+        [out] ULONGLONG* RevInfoIssuedTime,
+        [out] ULONG* RevInfoTTL,
+        [out] ULONG* RevListVersion,
+        [out] ULONG* ulState
+        );
+
+    [helpstring("method SetRevInfo ")]
+    HRESULT SetRevInfo (
+        [in] ULONG ulRevInfoLen,
+        [in, size_is(ulRevInfoLen)] BYTE* pbRevInfo
+        );
+
+    [helpstring("method SetCrl ")]
+    HRESULT SetCrl (
+        [in] ULONG ulCrlLen,
+        [in, size_is(ulCrlLen)] BYTE* pbCrlLen
+        );
+
+    [helpstring("method TransactMessage")]
+    HRESULT TransactMessage (
+        [in] ULONG ulcbRequest,
+        [in, size_is(ulcbRequest)] BYTE* pbRequest,
+        [in, out] ULONG* pulcbResponse,
+        [in, out] BYTE* pbResponse
+        );
+
+    [helpstring("method GetLicense")]
+    HRESULT GetLicense (
+        [in] GUID* uuidKey,
+        [in, out] ULONG* pulPackageLen,
+        [in, out] BYTE* pbPackage
+        );
+
+    [helpstring("method ReissueLicense")]
+    HRESULT ReissueLicense(
+        [in] GUID* uuidKey
+       );
+
+    [helpstring("method RenewLicense")]
+    HRESULT RenewLicense(
+        [in] ULONG ulInXmrLicenseLen,
+        [in, size_is(ulInXmrLicenseLen)] BYTE* pbInXmrLicense,
+        [in] ULONG ulEntitlementTokenLen,
+        [in, size_is(ulEntitlementTokenLen)] BYTE* pbEntitlementToken,
+        [out] ULONG* pulDescrambleStatus,
+        [in, out] ULONG* pulOutXmrLicenseLen,
+        [in, out] BYTE* pbOutXmrLicense
+        );
+
+    [helpstring("method GetKeyInfo")]
+    HRESULT GetKeyInfo(
+        [in, out] ULONG* pulKeyInfoLen,
+        [in, out] BYTE* pbKeyInfo
+        );
+
+}
+
+cpp_quote("#define SID_BDA_WMDRMSession __uuidof(IBDA_WMDRMSession)")
+
+
+//---------------------------------------------------------------------
+// IBDA_WMDRMTuner interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(86D979CF-A8A7-4f94-B5FB-14C0ACA68FE6),
+    helpstring("IBDA_WMDRMTuner Interface"),
+    pointer_default(unique)
+]
+interface IBDA_WMDRMTuner: IUnknown
+{
+    [helpstring("method PurchaseEntitlement ")]
+    HRESULT PurchaseEntitlement (
+        [in] ULONG ulDialogRequest,
+        [in] BSTR bstrLanguage,
+        [in] ULONG ulPurchaseTokenLen,
+        [in, size_is(ulPurchaseTokenLen)] BYTE* pbPurchaseToken,
+        [out] ULONG* pulDescrambleStatus,
+        [in, out] ULONG* pulCaptureTokenLen,
+        [in, out] BYTE* pbCaptureToken
+        );
+
+    [helpstring("method CancelCaptureToken ")]
+    HRESULT CancelCaptureToken (
+        [in] ULONG ulCaptureTokenLen,
+        [in, size_is(ulCaptureTokenLen)] BYTE* pbCaptureToken
+        );
+
+    [helpstring("method SetPidProtection")]
+    HRESULT SetPidProtection (
+        [in] ULONG ulPid,
+        [in] GUID* uuidKey
+        );
+
+    [helpstring("method GetPidProtection ")]
+    HRESULT GetPidProtection (
+        [in]  ULONG pulPid,
+        [out] GUID* uuidKey
+        );
+
+    [helpstring("method SetSyncValue ")]
+    HRESULT SetSyncValue (
+        [in] ULONG ulSyncValue
+        );
+
+    [helpstring("method GetStartCodeProfile ")]
+    HRESULT GetStartCodeProfile (
+        [in, out] ULONG* pulStartCodeProfileLen,
+        [in, out] BYTE* pbStartCodeProfile
+        );
+
+}
+
+cpp_quote("#define SID_BDA_WMDRMTuner __uuidof(IBDA_WMDRMTuner)")
+
+
+//---------------------------------------------------------------------
+// IBDA_DRIDRMService interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(1F9BC2A5-44A3-4c52-AAB1-0BBCE5A1381D),
+    helpstring("IBDA_DRIDRMService Interface"),
+    pointer_default(unique)
+]
+interface IBDA_DRIDRMService: IUnknown
+{
+    [helpstring("method SetDRM")]
+    HRESULT SetDRM(
+        [in] BSTR bstrNewDrm
+       );
+
+    [helpstring("method GetDRMStatus")]
+    HRESULT GetDRMStatus(
+        [out] BSTR* pbstrDrmUuidList,
+        [out] GUID* DrmUuid
+       );
+
+    [helpstring("method GetPairingStatus")]
+    HRESULT GetPairingStatus(
+        [in, out] BDA_DrmPairingError* penumPairingStatus
+       );
+}
+
+cpp_quote("#define SID_BDA_DRIDRMService __uuidof(IBDA_DRIDRMService)")
+
+
+//---------------------------------------------------------------------
+// IBDA_DRIWMDRMSession interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(05C690F8-56DB-4bb2-B053-79C12098BB26),
+    helpstring("IBDA_DRIWMDRMSession Interface"),
+    pointer_default(unique)
+]
+interface IBDA_DRIWMDRMSession: IUnknown
+{
+    [helpstring("method AcknowledgeLicense")]
+    HRESULT AcknowledgeLicense (
+        [in] HRESULT hrLicenseAck
+        );
+
+    [helpstring("method ProcessLicenseChallenge")]
+    HRESULT ProcessLicenseChallenge (
+        [in] DWORD dwcbLicenseMessage,
+        [in, size_is(dwcbLicenseMessage)] BYTE* pbLicenseMessage,
+        [in, out] DWORD* pdwcbLicenseResponse,
+        [in, out, size_is(* pdwcbLicenseResponse)] BYTE** ppbLicenseResponse
+        );
+
+    [helpstring("method ProcessRegistrationChallenge")]
+    HRESULT ProcessRegistrationChallenge (
+        [in] DWORD dwcbRegistrationMessage,
+        [in, size_is(dwcbRegistrationMessage)] BYTE* pbRegistrationMessage,
+        [in, out] DWORD* pdwcbRegistrationResponse,
+        [in, out] BYTE** ppbRegistrationResponse
+        );
+
+    [helpstring("method SetRevInfo ")]
+    HRESULT SetRevInfo (
+        [in] DWORD dwRevInfoLen,
+        [in, size_is(dwRevInfoLen)] BYTE* pbRevInfo,
+        [in, out] DWORD* pdwResponse
+        );
+
+    [helpstring("method SetCrl ")]
+    HRESULT SetCrl (
+        [in] DWORD dwCrlLen,
+        [in, size_is(dwCrlLen)] BYTE* pbCrlLen,
+        [in, out] DWORD* pdwResponse
+        );
+
+    [helpstring("method GetHMSAssociationData ")]
+    HRESULT GetHMSAssociationData ( );
+
+    [helpstring("method GetLastCardeaError ")]
+    HRESULT GetLastCardeaError (
+        [in, out] DWORD* pdwError
+        );
+}
+
+cpp_quote("#define SID_BDA_DRIWMDRMSession __uuidof(IBDA_DRIWMDRMSession)")
+
+
+
+//---------------------------------------------------------------------
+// IBDA_MUX interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(942AAFEC-4C05-4c74-B8EB-8706C2A4943F),
+    helpstring("IBDA_MUX Interface"),
+    pointer_default(unique)
+]
+interface IBDA_MUX: IUnknown
+{
+    [helpstring("method SetPidList")]
+    HRESULT SetPidList(
+        [in] ULONG ulPidListCount,
+        [in, size_is(ulPidListCount)] BDA_MUX_PIDLISTITEM* pbPidListBuffer
+       );
+
+    [helpstring("method GetPidList")]
+    HRESULT GetPidList(
+        [in, out] ULONG* pulPidListCount,
+        [in, out] BDA_MUX_PIDLISTITEM* pbPidListBuffer
+       );
+}
+
+cpp_quote("#define SID_BDA_MUX __uuidof(IBDA_MUX)")
+
+
+
+//---------------------------------------------------------------------
+// IBDA_TransportStreamSelector interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(1DCFAFE9-B45E-41b3-BB2A-561EB129AE98),
+    helpstring("IBDA_TransportStreamSelector Interface"),
+    pointer_default(unique)
+]
+
+interface IBDA_TransportStreamSelector : IUnknown
+{
+    [helpstring("method SetTSID")]
+    HRESULT
+    SetTSID (
+        [in] USHORT usTSID
+        );
+
+    [helpstring("method GetTSInformation")]
+    HRESULT
+    GetTSInformation (
+        [in, out] ULONG* pulTSInformationBufferLen,
+        [out, size_is(*pulTSInformationBufferLen)] BYTE* pbTSInformationBuffer // BDA_TS_SELECTORINFO
+        );
+}
+
+cpp_quote("#define SID_BDA_TransportStreamSelector __uuidof(IBDA_TransportStreamSelector)")
+
+
+//---------------------------------------------------------------------
+// IBDA_UserActivityService interface
+//---------------------------------------------------------------------
+[
+    object,
+    uuid(53B14189-E478-4b7a-A1FF-506DB4B99DFE),
+    helpstring("IBDA_UserActivityService Interface"),
+    pointer_default(unique)
+]
+interface IBDA_UserActivityService: IUnknown
+{
+    [helpstring("method SetCurrentTunerUseReason")]
+    HRESULT SetCurrentTunerUseReason(
+        [in] DWORD dwUseReason
+       );
+
+    [helpstring("method GetUserActivityInterval")]
+    HRESULT GetUserActivityInterval(
+        [out] DWORD* pdwActivityInterval
+       );
+ 
+    [helpstring("method UserActivityDetected")]
+    HRESULT UserActivityDetected( );
+}
+
+cpp_quote("#define SID_BDA_UserActivityService __uuidof(IBDA_UserActivityService)")
+
+///////////////////////////////////////////////////////////////////////////////////////
+// Eventing System interfaces
+// See also tuner.idl
+///////////////////////////////////////////////////////////////////////////////////////
+
+//
+// Generic and specific events that could return
+// in OnESEventReceived
+//
+[
+	object,
+	uuid(1F0E5357-AF43-44e6-8547-654C645145D2),
+	helpstring("IESEvent Interface"),
+	pointer_default(unique)
+]
+interface IESEvent : IUnknown
+{
+	// Get current information of the event
+	HRESULT GetEventId ([out, retval] DWORD* pdwEventId);
+	HRESULT GetEventType ([out, retval] GUID* pguidEventType);
+
+	// Set the completion status of the event if the callee processes the event.
+	HRESULT SetCompletionStatus ([in]DWORD dwResult);
+
+	// Get the data in byte array.
+	// use NULL pbData to determine data length
+	// Get the data in byte array.
+	HRESULT GetData ([out, retval] SAFEARRAY(BYTE)* pbData);
+
+	// Get the data in unicode string format.
+	HRESULT GetStringData ([out, retval] BSTR* pbstrData);
+};
+
+[
+	object,
+	uuid(ABD414BF-CFE5-4e5e-AF5B-4B4E49C5BFEB),
+	helpstring("Eventing out-going client interface"),
+	pointer_default(unique)
+]
+interface IESEvents : IUnknown
+{
+	HRESULT OnESEventReceived([in] GUID guidEventType, [in] IESEvent* pESEvent);
+};
+
+[
+    object,
+    hidden,
+    nonextensible,
+    uuid(3B21263F-26E8-489d-AAC4-924F7EFD9511),
+    helpstring("Broadcast Event Service Firing/Reflecting Interface"),
+    pointer_default(unique)
+]
+interface IBroadcastEvent : IUnknown
+{
+    HRESULT Fire([in] GUID EventID);
+};
+
+[
+    object,
+    hidden,
+    nonextensible,
+    uuid(3d9e3887-1929-423f-8021-43682de95448),
+    helpstring("Enhanced Broadcast Event Service Firing/Reflecting Interface"),
+    pointer_default(unique)
+]
+interface IBroadcastEventEx : IBroadcastEvent
+{
+    HRESULT FireEx([in] GUID EventID, [in] ULONG Param1, [in] ULONG Param2, [in] ULONG Param3, [in] ULONG Param4);
+};
+
+cpp_quote ("DEFINE_GUID(CLSID_BroadcastEventService, 0x0B3FFB92, 0x0919, 0x4934, 0x9D, 0x5B, 0x61, 0x9C, 0x71, 0x9D, 0x02, 0x02);")
+cpp_quote("#define SID_SBroadcastEventService CLSID_BroadcastEventService")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

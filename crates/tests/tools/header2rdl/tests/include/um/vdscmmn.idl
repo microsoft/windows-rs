@@ -1,0 +1,1322 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdscmmn.idl
+//
+//    Abstract:
+//        declarations of interfaces and types common to the common layer,
+//        software providers, and hardware providers.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "vdserr.h";
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+interface IEnumVdsObject;
+interface IVdsAsync;
+interface IVdsAdviseSink;
+interface IVdsProvider;
+interface IVdsProviderSupport;
+
+//
+// All possible object status
+//
+#define STATUS_UNKNOWN          0
+#define STATUS_ONLINE           1
+#define STATUS_NOT_READY        2
+#define STATUS_NO_MEDIA         3
+#define STATUS_OFFLINE          4
+#define STATUS_FAILED           5
+#define STATUS_MISSING          6
+#define STATUS_STANDBY          7
+#define STATUS_REMOVED          8
+#define STATUS_PARTIALLY_MANAGED 9
+
+//
+// Object IDs
+//
+typedef GUID        VDS_OBJECT_ID;
+
+//
+// Object types
+//
+typedef enum _VDS_OBJECT_TYPE
+{
+    // values >=0 and <10 are exposed to the service, client, and provider.
+    // values >=10 and <30 are reserved for software providers.
+    // values >=30 and <60 are reserved for hardware providers.
+    // values >=90 are reserved by the VDS service and not exposed to providers.
+    // values >=100 are used internally by the VDS service and not exposed to
+    //  clients and providers.
+    // values >=200 are reserved for virtual disk storage providers.
+
+    VDS_OT_UNKNOWN      = 0,
+    VDS_OT_PROVIDER     = 1,
+
+    VDS_OT_PACK         = 10,
+    VDS_OT_VOLUME       = 11,
+    VDS_OT_VOLUME_PLEX  = 12,
+    VDS_OT_DISK         = 13,
+
+    VDS_OT_SUB_SYSTEM   = 30,
+    VDS_OT_CONTROLLER   = 31,
+    VDS_OT_DRIVE        = 32,
+    VDS_OT_LUN          = 33,
+    VDS_OT_LUN_PLEX     = 34,
+    VDS_OT_PORT         = 35,
+    VDS_OT_PORTAL       = 36,
+    VDS_OT_TARGET       = 37,
+    VDS_OT_PORTAL_GROUP = 38,
+    VDS_OT_STORAGE_POOL = 39,
+
+    VDS_OT_HBAPORT      = 90,
+    VDS_OT_INIT_ADAPTER = 91,
+    VDS_OT_INIT_PORTAL  = 92,
+
+    VDS_OT_ASYNC        = 100,
+    VDS_OT_ENUM         = 101,
+
+    VDS_OT_VDISK        = 200,
+    VDS_OT_OPEN_VDISK   = 201,
+} VDS_OBJECT_TYPE;
+    // Partitions and extents are not COM objects.
+
+//
+// Provider Types
+//
+typedef enum _VDS_PROVIDER_TYPE
+{
+    VDS_PT_UNKNOWN = 0,
+    VDS_PT_SOFTWARE = 1,
+    VDS_PT_HARDWARE = 2,
+    VDS_PT_VIRTUALDISK = 3,
+    VDS_PT_MAX = 4
+} VDS_PROVIDER_TYPE;
+
+//
+// Provider Flags
+//
+typedef enum _VDS_PROVIDER_FLAG
+{
+    //
+    // This flag is set by dynamic providers. Applications can tell from
+    // this flag if a disk is dynamic or not.
+    //
+
+    VDS_PF_DYNAMIC                          = 0x00000001,
+
+    //
+    // The hardware provider manages an in-box hardware controller,
+    // instead of a external RAID cabinet.
+    //
+
+    VDS_PF_INTERNAL_HARDWARE_PROVIDER       = 0x00000002,
+
+    //
+    // This flag is for basic provider which does not really have the
+    // concept of pack. We fake a pack for each basic disk. The pack
+    // contains only one disk.
+    //
+
+    VDS_PF_ONE_DISK_ONLY_PER_PACK           = 0x00000004,
+
+    //
+    // This flag is for downrev provider. On a downrev machine, multiple
+    // disk groups(pack) are not supported. Only one pack can be online
+    // at a time.
+    //
+
+    VDS_PF_ONE_PACK_ONLINE_ONLY             = 0x00000008,
+
+    //
+    // All volumes managed by this provider must have contiguous space.
+    // This flag currently applies to basic provider only. We may remove
+    // it if we think it's enough to have VDS_PF_DYNAMIC flag.
+    //
+
+    VDS_PF_VOLUME_SPACE_MUST_BE_CONTIGUOUS  = 0x00000010,
+
+    //
+    // These three are internal flags that will be translated to
+    // VDS_SVF_SUPPORT_DYNAMIC, VDS_SVF_SUPPORT_FAULT_TOLERANT
+    // VDS_SVF_SUPPORT_DYNAMIC_1394 by the service.
+    //
+
+    VDS_PF_SUPPORT_DYNAMIC                  = 0x80000000,
+    VDS_PF_SUPPORT_FAULT_TOLERANT           = 0x40000000,   // Indicates that both mirrors and RAID5 are supported.
+    VDS_PF_SUPPORT_DYNAMIC_1394             = 0x20000000,
+
+
+    //
+    // Added for Windows 7. Client SKUs support mirrors but not RAID5.
+    // No change to server SKUs, both mirrors and RAID5 are supported.
+	// These are for the dynamic provider only.
+    //
+
+    VDS_PF_SUPPORT_MIRROR                   = 0x00000020,
+    VDS_PF_SUPPORT_RAID5                    = 0x00000040
+
+} VDS_PROVIDER_FLAG;
+
+//
+// Recover Actions
+//
+typedef enum _VDS_RECOVER_ACTION
+{
+    VDS_RA_UNKNOWN          = 0,
+    VDS_RA_REFRESH          = 1,
+    VDS_RA_RESTART          = 2
+
+} VDS_RECOVER_ACTION;
+
+//
+// Notification Target Types
+//
+typedef enum _VDS_NOTIFICATION_TARGET_TYPE
+{
+    VDS_NTT_UNKNOWN         = 0,
+
+    VDS_NTT_PACK            = VDS_OT_PACK,
+    VDS_NTT_VOLUME          = VDS_OT_VOLUME,
+    VDS_NTT_DISK            = VDS_OT_DISK,
+    VDS_NTT_PARTITION       = 60,
+
+    VDS_NTT_DRIVE_LETTER    = 61,
+    VDS_NTT_FILE_SYSTEM     = 62,
+    VDS_NTT_MOUNT_POINT     = 63,
+
+    VDS_NTT_SUB_SYSTEM      = VDS_OT_SUB_SYSTEM,
+    VDS_NTT_CONTROLLER      = VDS_OT_CONTROLLER,
+    VDS_NTT_DRIVE           = VDS_OT_DRIVE,
+    VDS_NTT_LUN             = VDS_OT_LUN,
+    VDS_NTT_PORT            = VDS_OT_PORT,
+    VDS_NTT_PORTAL          = VDS_OT_PORTAL,
+    VDS_NTT_TARGET          = VDS_OT_TARGET,
+    VDS_NTT_PORTAL_GROUP    = VDS_OT_PORTAL_GROUP,
+
+    VDS_NTT_SERVICE         = 200
+
+} VDS_NOTIFICATION_TARGET_TYPE;
+
+//
+// Event types
+//     software providers notifications range from 1 to 100.
+//     hardware provider notifications range from 101 to 200.
+//     service notifications range from 201 to 300.
+//     common notifications range from 301 to 400.
+//
+
+//
+// pack notifications
+//
+const ULONG VDS_NF_PACK_ARRIVE              = 1;
+        // When a pack is created
+const ULONG VDS_NF_PACK_DEPART              = 2;
+        // When a pack is deleted
+const ULONG VDS_NF_PACK_MODIFY              = 3;
+        // When a pack is modified(including online, offline)
+
+//
+// volume notifications
+//
+const ULONG VDS_NF_VOLUME_ARRIVE            = 4;
+        // When a volume is created or discovered.
+const ULONG VDS_NF_VOLUME_DEPART            = 5;
+        // When a volume is deleted or disappears.
+const ULONG VDS_NF_VOLUME_MODIFY            = 6;
+        // When something changed in the volume's VDS_VOLUME_PROP structure.
+const ULONG VDS_NF_VOLUME_REBUILDING_PROGRESS = 7;
+        // When a volume is in rebuilding process.
+
+
+//
+// disk notifications
+//
+const ULONG VDS_NF_DISK_ARRIVE              = 8;
+        // When a spindle is plugged in, or a RAID controller surfaced a LUN
+        // that is local to the host.
+const ULONG VDS_NF_DISK_DEPART              = 9;
+        // When a spindle is unplugged, or a RAID controller unbound a LUN
+        // that was local to the host.
+const ULONG VDS_NF_DISK_MODIFY              = 10;
+        // When something changed in the disk's VDS_DISK_PROP structure.
+
+//
+// partition notifications
+//
+const ULONG VDS_NF_PARTITION_ARRIVE         = 11;
+        // When a partition is created. If the partition is also a volume,
+        // a volume arrival notification will also be sent.
+const ULONG VDS_NF_PARTITION_DEPART         = 12;
+        // When a partition is deleted. If the partition is also a volume,
+        // a volume removal notification will also be sent.
+const ULONG VDS_NF_PARTITION_MODIFY         = 13;
+        // When a partition is changed. If the partition is also a volume,
+        // and if the partition attributes change, a volume change notification
+        // will also be sent.
+
+//
+// subsystem notifications
+//
+
+const ULONG     VDS_NF_SUB_SYSTEM_ARRIVE      = 101;
+        // When a new subsystem is discovered.
+const ULONG     VDS_NF_SUB_SYSTEM_DEPART      = 102;
+        // When a subsystem is disconnected.
+// NOTE: more subystem notifications continue below starting at 151
+
+//
+// controller notifications
+//
+const ULONG     VDS_NF_CONTROLLER_ARRIVE      = 103;  // ONLINE
+        // When a controller goes online.
+const ULONG     VDS_NF_CONTROLLER_DEPART      = 104;  // OFFLINE
+        // When a controller goes offline.
+
+//
+// drive notifications
+//
+const ULONG     VDS_NF_DRIVE_ARRIVE           = 105;
+        // When a spindle is plugged in behind a RAID controller.
+const ULONG     VDS_NF_DRIVE_DEPART           = 106;
+        // When a spindle is unplugged behind a RAID controller.
+const ULONG     VDS_NF_DRIVE_MODIFY           = 107;
+        // When something changed in the spindle's VDS_DRIVE_PROP structure.
+
+//
+// LUN notifications
+//     The three LUN notifications will be sent only when the LUN is not
+//     local to the machine. Otherwise, disk notifications will be sent.
+//
+const ULONG     VDS_NF_LUN_ARRIVE             = 108;
+        // When a LUN is created.
+const ULONG     VDS_NF_LUN_DEPART             = 109;
+        // When a LUN is deleted.
+const ULONG     VDS_NF_LUN_MODIFY             = 110;
+        // When something changed in the LUN's VDS_LUN_PROP structure.
+    // TODO: add VDS_NF_LUN_REBUILDING_PROGRESS?
+
+//
+// controller port notifications
+//
+const ULONG     VDS_NF_PORT_ARRIVE            = 121;  // ONLINE
+        // When a controller port goes online.
+const ULONG     VDS_NF_PORT_DEPART            = 122;  // OFFLINE
+        // When a controller port goes offline.
+
+//
+// portal notifications
+//
+const ULONG     VDS_NF_PORTAL_ARRIVE          = 123;
+        // When an iSCSI portal is created.
+const ULONG     VDS_NF_PORTAL_DEPART          = 124;
+        // When an iSCSI portal is removed.
+const ULONG     VDS_NF_PORTAL_MODIFY          = 125;
+        // When something changed in the iSCSI portal's VDS_ISCSI_PORTAL_PROP structure.
+
+//
+// target notifications
+//
+const ULONG     VDS_NF_TARGET_ARRIVE          = 126;
+        // When an iSCSI target is created.
+const ULONG     VDS_NF_TARGET_DEPART          = 127;
+        // When an iSCSI target is deleted.
+const ULONG     VDS_NF_TARGET_MODIFY          = 128;
+        // When something changed in the iSCSI portal's VDS_ISCSI_TARGET_PROP structure.
+
+//
+// portal group notifications
+//
+const ULONG     VDS_NF_PORTAL_GROUP_ARRIVE    = 129;
+        // When an iSCSI portal group is created.
+const ULONG     VDS_NF_PORTAL_GROUP_DEPART    = 130;
+        // When an iSCSI portal group is deleted.
+const ULONG     VDS_NF_PORTAL_GROUP_MODIFY    = 131;
+        // When something changed in the iSCSI portal group's VDS_ISCSI_PORTALGROUP_PROP structure.
+
+//
+// more subsystem notifications
+//
+const ULONG     VDS_NF_SUB_SYSTEM_MODIFY      = 151;
+        // When something changed in the subsystem's VDS_SUB_SYSTEM_PROP structure.
+
+//
+// drive letter notifications
+//
+const ULONG       VDS_NF_DRIVE_LETTER_FREE      = 201;
+        // When a drive letter is freed.
+const ULONG       VDS_NF_DRIVE_LETTER_ASSIGN    = 202;
+        // When a drive letter is assigned.
+
+//
+// file system notifications
+//
+const ULONG       VDS_NF_FILE_SYSTEM_MODIFY     = 203;
+        // When a volume gets a new label, or file system is extended or shrunk.
+        // Note, this does not include change of file system comression flags.
+const ULONG       VDS_NF_FILE_SYSTEM_FORMAT_PROGRESS = 204;
+        // When a file system is being formated.
+// NOTE: more file system notifications continue below starting at 206
+
+//
+// mount point notification
+//
+const ULONG       VDS_NF_MOUNT_POINTS_CHANGE    = 205;
+
+//
+// more file system notifications
+//
+const ULONG       VDS_NF_FILE_SYSTEM_SHRINKING_PROGRESS  = 206;
+        // When a file system is in the process of shrinking
+
+//
+// common notifications
+//
+const ULONG     VDS_NF_SERVICE_OUT_OF_SYNC      = 301;
+
+//
+// Windows 7 notifications
+//
+
+//
+// controller notifications
+//
+const ULONG     VDS_NF_CONTROLLER_MODIFY      = 350;
+        // When something changed in controller's properties.
+const ULONG     VDS_NF_CONTROLLER_REMOVED     = 351;
+        // When a controller is removed.
+
+//
+// controller port notifications
+//
+const ULONG     VDS_NF_PORT_MODIFY            = 352;
+        // When something changed in controller port's properties.
+const ULONG     VDS_NF_PORT_REMOVED           = 353;
+        // When a controller port is removed.
+
+
+//
+// drive notifications
+//
+const ULONG     VDS_NF_DRIVE_REMOVED           = 354;
+        // When a drive is removed.
+
+//
+// Notification Structs
+//
+
+typedef struct _VDS_PACK_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       packId;
+
+} VDS_PACK_NOTIFICATION;
+
+typedef struct _VDS_DISK_NOTIFICATION
+{
+    ULONG               ulEvent;  // arrival, departure, modified.
+    VDS_OBJECT_ID       diskId;
+
+} VDS_DISK_NOTIFICATION;
+
+typedef struct _VDS_VOLUME_NOTIFICATION
+{
+    ULONG               ulEvent;
+                    // created, deleted, modified, resyncing progress
+    VDS_OBJECT_ID       volumeId;
+    VDS_OBJECT_ID       plexId;
+                    // This is for resyncing and rebuilding only.
+                    // resyncing can happen on more than one plex at
+                    // different pace.
+    ULONG               ulPercentCompleted;
+
+} VDS_VOLUME_NOTIFICATION;
+
+typedef struct _VDS_PARTITION_NOTIFICATION
+{
+    ULONG               ulEvent;
+                    // created, deleted, modified, resyncing progress
+    VDS_OBJECT_ID       diskId;
+    ULONGLONG           ullOffset;
+
+} VDS_PARTITION_NOTIFICATION;
+
+typedef struct _VDS_SERVICE_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_RECOVER_ACTION  action;
+
+} VDS_SERVICE_NOTIFICATION;
+
+typedef struct _VDS_DRIVE_LETTER_NOTIFICATION
+{
+    ULONG               ulEvent;  // freed, used
+    WCHAR               wcLetter;
+    VDS_OBJECT_ID       volumeId;
+
+} VDS_DRIVE_LETTER_NOTIFICATION;
+
+typedef struct _VDS_FILE_SYSTEM_NOTIFICATION
+{
+    ULONG               ulEvent;  // created, format progress
+    VDS_OBJECT_ID       volumeId;
+    DWORD               dwPercentCompleted;
+
+} VDS_FILE_SYSTEM_NOTIFICATION;
+
+typedef struct _VDS_MOUNT_POINT_NOTIFICATION
+{
+    ULONG               ulEvent;  // mount points changed
+    VDS_OBJECT_ID       volumeId;
+
+} VDS_MOUNT_POINT_NOTIFICATION;
+
+typedef struct _VDS_SUB_SYSTEM_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       subSystemId;
+
+} VDS_SUB_SYSTEM_NOTIFICATION;
+
+typedef struct _VDS_CONTROLLER_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       controllerId;
+
+} VDS_CONTROLLER_NOTIFICATION;
+
+typedef struct _VDS_DRIVE_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       driveId;
+
+} VDS_DRIVE_NOTIFICATION;
+
+typedef struct _VDS_LUN_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       LunId;
+
+} VDS_LUN_NOTIFICATION;
+
+typedef struct _VDS_PORT_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       portId;
+
+} VDS_PORT_NOTIFICATION;
+
+typedef struct _VDS_PORTAL_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       portalId;
+
+} VDS_PORTAL_NOTIFICATION;
+
+typedef struct _VDS_TARGET_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       targetId;
+
+} VDS_TARGET_NOTIFICATION;
+
+typedef struct _VDS_PORTAL_GROUP_NOTIFICATION
+{
+    ULONG               ulEvent;
+    VDS_OBJECT_ID       portalGroupId;
+
+} VDS_PORTAL_GROUP_NOTIFICATION;
+
+typedef struct _VDS_NOTIFICATION
+{
+    VDS_NOTIFICATION_TARGET_TYPE    objectType;
+    [switch_is(objectType)] union
+    {
+    [case(VDS_NTT_PACK)]
+        VDS_PACK_NOTIFICATION           Pack;
+    [case(VDS_NTT_DISK)]
+        VDS_DISK_NOTIFICATION           Disk;
+    [case(VDS_NTT_VOLUME)]
+        VDS_VOLUME_NOTIFICATION         Volume;
+    [case(VDS_NTT_PARTITION)]
+        VDS_PARTITION_NOTIFICATION      Partition;
+
+    [case(VDS_NTT_DRIVE_LETTER)]
+        VDS_DRIVE_LETTER_NOTIFICATION   Letter;
+    [case(VDS_NTT_FILE_SYSTEM)]
+        VDS_FILE_SYSTEM_NOTIFICATION    FileSystem;
+    [case(VDS_NTT_MOUNT_POINT)]
+        VDS_MOUNT_POINT_NOTIFICATION    MountPoint;
+
+    [case(VDS_NTT_SUB_SYSTEM)]
+        VDS_SUB_SYSTEM_NOTIFICATION     SubSystem;
+    [case(VDS_NTT_CONTROLLER)]
+        VDS_CONTROLLER_NOTIFICATION     Controller;
+    [case(VDS_NTT_DRIVE)]
+        VDS_DRIVE_NOTIFICATION          Drive;
+    [case(VDS_NTT_LUN)]
+        VDS_LUN_NOTIFICATION            Lun;
+    [case(VDS_NTT_PORT)]
+        VDS_PORT_NOTIFICATION           Port;
+    [case(VDS_NTT_PORTAL)]
+        VDS_PORTAL_NOTIFICATION         Portal;
+    [case(VDS_NTT_TARGET)]
+        VDS_TARGET_NOTIFICATION         Target;
+    [case(VDS_NTT_PORTAL_GROUP)]
+        VDS_PORTAL_GROUP_NOTIFICATION   PortalGroup;
+
+    [case(VDS_NTT_SERVICE)]
+        VDS_SERVICE_NOTIFICATION        Service;
+
+    [default];
+    };
+} VDS_NOTIFICATION;
+
+//
+// Async Output Type
+//
+typedef enum _VDS_ASYNC_OUTPUT_TYPE
+{
+    VDS_ASYNCOUT_UNKNOWN            = 0,
+    VDS_ASYNCOUT_CREATEVOLUME       = 1,
+    VDS_ASYNCOUT_EXTENDVOLUME       = 2,
+    VDS_ASYNCOUT_SHRINKVOLUME       = 3,
+    VDS_ASYNCOUT_ADDVOLUMEPLEX      = 4,
+    VDS_ASYNCOUT_BREAKVOLUMEPLEX    = 5,
+    VDS_ASYNCOUT_REMOVEVOLUMEPLEX   = 6,
+    VDS_ASYNCOUT_REPAIRVOLUMEPLEX   = 7,
+    VDS_ASYNCOUT_RECOVERPACK        = 8,
+    VDS_ASYNCOUT_REPLACEDISK        = 9,
+    VDS_ASYNCOUT_CREATEPARTITION    = 10,
+    VDS_ASYNCOUT_CLEAN              = 11,
+    VDS_ASYNCOUT_CREATELUN          = 50,
+//    VDS_ASYNCOUT_BREAKLUNPLEX       = 51, // ** DEPRECATED **
+    VDS_ASYNCOUT_ADDLUNPLEX         = 52,
+    VDS_ASYNCOUT_REMOVELUNPLEX      = 53,
+    VDS_ASYNCOUT_EXTENDLUN          = 54,
+    VDS_ASYNCOUT_SHRINKLUN          = 55,
+    VDS_ASYNCOUT_RECOVERLUN         = 56,
+
+    // iSCSI related asyncs
+    VDS_ASYNCOUT_LOGINTOTARGET      = 60,
+    VDS_ASYNCOUT_LOGOUTFROMTARGET   = 61,
+    VDS_ASYNCOUT_CREATETARGET       = 62,
+    VDS_ASYNCOUT_CREATEPORTALGROUP  = 63,
+    VDS_ASYNCOUT_DELETETARGET       = 64,
+    VDS_ASYNCOUT_ADDPORTAL          = 65,
+    VDS_ASYNCOUT_REMOVEPORTAL       = 66,
+    VDS_ASYNCOUT_DELETEPORTALGROUP  = 67,
+
+    VDS_ASYNCOUT_FORMAT             = 101,
+
+    //
+    // Virtual disk related output.
+    //
+    VDS_ASYNCOUT_CREATE_VDISK       = 200,
+    VDS_ASYNCOUT_ATTACH_VDISK       = 201,
+    VDS_ASYNCOUT_COMPACT_VDISK      = 202,
+    VDS_ASYNCOUT_MERGE_VDISK        = 203,
+    VDS_ASYNCOUT_EXPAND_VDISK       = 204
+} VDS_ASYNC_OUTPUT_TYPE;
+
+typedef struct _VDS_ASYNC_OUTPUT
+{
+    VDS_ASYNC_OUTPUT_TYPE type;
+
+    [switch_is(type)] union
+    {
+        // CreatePartition() or CreatePartitionEx() return value.
+        [case(VDS_ASYNCOUT_CREATEPARTITION)]
+        struct _cp
+        {
+            ULONGLONG ullOffset;    // acual offset of the create partition
+            VDS_OBJECT_ID volumeId; // ID of the associated volume if the
+                                    // partition is a volume.
+        } cp;
+
+        // CreateVolume() return value
+        [case(VDS_ASYNCOUT_CREATEVOLUME)]
+        struct _cv
+        {
+            IUnknown *pVolumeUnk;
+
+        } cv;
+
+        // BreakPlex() return value
+        [case(VDS_ASYNCOUT_BREAKVOLUMEPLEX)]
+        struct _bvp
+        {
+            IUnknown *pVolumeUnk;
+
+        } bvp;
+
+        // Shrink() return value
+        [case(VDS_ASYNCOUT_SHRINKVOLUME)]
+        struct _sv
+        {
+            ULONGLONG    ullReclaimedBytes;    // actual number of reclaimed bytes
+        } sv;
+
+
+        [case(VDS_ASYNCOUT_CREATELUN)]
+        struct _cl
+        {
+            IUnknown *pLunUnk;
+
+        } cl;
+
+/** DEPRECATED **
+*        [case(VDS_ASYNCOUT_BREAKLUNPLEX)]
+*        struct _blp
+*        {
+*            IUnknown *pLunUnk;
+*
+*        } blp;
+*/
+
+        // CreateTarget() return value
+        [case(VDS_ASYNCOUT_CREATETARGET)]
+        struct _ct
+        {
+            IUnknown *pTargetUnk;
+
+        } ct;
+
+        // CreatePortalGroup() return value
+        [case(VDS_ASYNCOUT_CREATEPORTALGROUP)]
+        struct _cpg
+        {
+            IUnknown *pPortalGroupUnk;
+
+        } cpg;
+
+        [case(VDS_ASYNCOUT_CREATE_VDISK)]
+        struct _cvd
+        {
+            IUnknown *pVDiskUnk;
+
+        } cvd;
+
+        [default];
+    };
+
+} VDS_ASYNC_OUTPUT;
+
+
+//
+// iSCSI Portal Group Tags
+//
+typedef USHORT  VDS_ISCSI_PORTALGROUP_TAG;
+
+
+//
+// IP address type
+//
+typedef enum VDS_IPADDRESS_TYPE
+{
+    VDS_IPT_TEXT    = 0,
+    VDS_IPT_IPV4    = 1,
+    VDS_IPT_IPV6    = 2,
+    VDS_IPT_EMPTY   = 3
+} VDS_IPADDRESS_TYPE;
+
+
+//
+// Object Health
+//
+typedef enum _VDS_HEALTH
+{
+    VDS_H_UNKNOWN                   = 0,
+    VDS_H_HEALTHY                   = 1,
+    VDS_H_REBUILDING                = 2,
+    VDS_H_STALE                     = 3,
+    VDS_H_FAILING                   = 4,
+    VDS_H_FAILING_REDUNDANCY        = 5,
+    VDS_H_FAILED_REDUNDANCY         = 6,
+    VDS_H_FAILED_REDUNDANCY_FAILING = 7,
+    VDS_H_FAILED                    = 8,
+    VDS_H_REPLACED                  = 9,
+    VDS_H_PENDING_FAILURE           = 10,
+    VDS_H_DEGRADED                  = 11
+
+} VDS_HEALTH;
+
+//
+// Object TransitionState (configuration stability)
+//
+typedef enum _VDS_TRANSITION_STATE
+{
+    VDS_TS_UNKNOWN				= 0,
+    VDS_TS_STABLE				= 1,
+    VDS_TS_EXTENDING			= 2,
+    VDS_TS_SHRINKING			= 3,
+    VDS_TS_RECONFIGING			= 4,    // Volume is changing location on disk.
+    VDS_TS_RESTRIPING			= 5
+
+} VDS_TRANSITION_STATE;
+
+//
+// File System Types
+// NOTE: IVdsAdvancedDisk::FormatPartition() method in the software provider
+//       interface references this type, although this method is implemented
+//       only by the service.
+//
+typedef enum _VDS_FILE_SYSTEM_TYPE
+{
+    VDS_FST_UNKNOWN = 0,
+    VDS_FST_RAW,
+    VDS_FST_FAT,
+    VDS_FST_FAT32,
+    VDS_FST_NTFS,
+    VDS_FST_CDFS,
+    VDS_FST_UDF,
+    VDS_FST_EXFAT,
+    VDS_FST_CSVFS,
+    VDS_FST_REFS
+
+} VDS_FILE_SYSTEM_TYPE;
+
+//
+// --- HBA port related enums ---
+//
+
+//
+// Types
+//
+typedef enum _VDS_HBAPORT_TYPE
+{
+    // These types correspond to the definitions in the HBA API
+    VDS_HPT_UNKNOWN         = 1,    // Unknown
+    VDS_HPT_OTHER           = 2,    // Other
+    VDS_HPT_NOTPRESENT      = 3,    // Not present
+    VDS_HPT_NPORT           = 5,    // Fabric
+    VDS_HPT_NLPORT          = 6,    // Public Loop
+    VDS_HPT_FLPORT          = 7,    // Fabric on a Loop
+    VDS_HPT_FPORT           = 8,    // Fabric Port
+    VDS_HPT_EPORT           = 9,    // Fabric Expansion Port
+    VDS_HPT_GPORT           = 10,   // Generic Fabric Port
+    VDS_HPT_LPORT           = 20,   // Private Loop
+    VDS_HPT_PTP             = 21    // Point to Point
+
+} VDS_HBAPORT_TYPE;
+
+//
+// Status
+//
+typedef enum _VDS_HBAPORT_STATUS
+{
+    // These states correspond to the definitions in the HBA API
+    VDS_HPS_UNKNOWN         = 1,    // Unknown
+    VDS_HPS_ONLINE          = 2,    // Operational
+    VDS_HPS_OFFLINE         = 3,    // User Offline
+    VDS_HPS_BYPASSED        = 4,    // Bypassed
+    VDS_HPS_DIAGNOSTICS     = 5,    // In Diagnostics Mode
+    VDS_HPS_LINKDOWN        = 6,    // Link Down
+    VDS_HPS_ERROR           = 7,    // Port Error
+    VDS_HPS_LOOPBACK        = 8     // Loopback
+
+} VDS_HBAPORT_STATUS;
+
+//
+// Flags
+//
+typedef enum _VDS_HBAPORT_SPEED_FLAG
+{
+    // These flags correspond to the definitions in the HBA API
+    VDS_HSF_UNKNOWN         = 0x0,      // Unknown - transceiver incapable of reporting
+    VDS_HSF_1GBIT           = 0x1,      // 1 GBit/sec
+    VDS_HSF_2GBIT           = 0x2,      // 2 GBit/sec
+    VDS_HSF_10GBIT          = 0x4,      // 10 GBit/sec
+    VDS_HSF_4GBIT           = 0x8,      // 4 GBit/sec
+    VDS_HSF_NOT_NEGOTIATED  = (1 << 15) // Speed not established
+
+} VDS_HBAPORT_SPEED_FLAG;
+
+
+//
+// --- MPIO related enums ---
+//
+
+//
+// Path Status
+//
+typedef enum _VDS_PATH_STATUS
+{
+    VDS_MPS_UNKNOWN     = STATUS_UNKNOWN,
+    VDS_MPS_ONLINE      = STATUS_ONLINE,
+    VDS_MPS_FAILED      = STATUS_FAILED,
+    VDS_MPS_STANDBY     = STATUS_STANDBY
+
+} VDS_PATH_STATUS;
+
+
+//
+// Load balance policy
+//
+typedef enum _VDS_LOADBALANCE_POLICY_ENUM
+{
+    VDS_LBP_UNKNOWN                 = 0,
+    VDS_LBP_FAILOVER                = 1,
+    VDS_LBP_ROUND_ROBIN             = 2,
+    VDS_LBP_ROUND_ROBIN_WITH_SUBSET = 3,
+    VDS_LBP_DYN_LEAST_QUEUE_DEPTH   = 4,
+    VDS_LBP_WEIGHTED_PATHS          = 5,
+    VDS_LBP_LEAST_BLOCKS            = 6,
+    VDS_LBP_VENDOR_SPECIFIC         = 7
+
+} VDS_LOADBALANCE_POLICY_ENUM;
+
+
+//
+// Load Balance Policy Support Flags
+//
+typedef enum _VDS_PROVIDER_LBSUPPORT_FLAG
+{
+    VDS_LBF_FAILOVER                = 0x01,
+    VDS_LBF_ROUND_ROBIN             = 0x02,
+    VDS_LBF_ROUND_ROBIN_WITH_SUBSET = 0x04,
+    VDS_LBF_DYN_LEAST_QUEUE_DEPTH   = 0x08,
+    VDS_LBF_WEIGHTED_PATHS          = 0x10,
+    VDS_LBF_LEAST_BLOCKS            = 0x20,
+    VDS_LBF_VENDOR_SPECIFIC         = 0x40
+
+} VDS_PROVIDER_LBSUPPORT_FLAG;
+
+
+//
+// --- Provider related enums ---
+//
+
+//
+// Version Support Flags
+//
+typedef enum _VDS_VERSION_SUPPORT_FLAG
+{
+    VDS_VSF_1_0 = 0x01,
+    VDS_VSF_1_1 = 0x02,
+    VDS_VSF_2_0 = 0x04,
+    VDS_VSF_2_1 = 0x08,
+    VDS_VSF_3_0 = 0x10
+
+} VDS_VERSION_SUPPORT_FLAG;
+
+
+//
+// --- HwProvider related enums ---
+//
+
+//
+// Types
+//
+typedef enum _VDS_HWPROVIDER_TYPE
+{
+    VDS_HWT_UNKNOWN         = 0,
+    VDS_HWT_PCI_RAID        = 1,
+    VDS_HWT_FIBRE_CHANNEL   = 2,
+    VDS_HWT_ISCSI           = 3,
+    VDS_HWT_SAS             = 4,
+    VDS_HWT_HYBRID          = 5
+} VDS_HWPROVIDER_TYPE;
+
+
+//
+// --- iSCSI related enums ---
+//
+
+//
+// Login Types
+//
+typedef enum _VDS_ISCSI_LOGIN_TYPE
+{
+    VDS_ILT_MANUAL      = 0,
+    VDS_ILT_PERSISTENT  = 1,
+    VDS_ILT_BOOT        = 2
+} VDS_ISCSI_LOGIN_TYPE;
+
+
+//
+// Authorization Types
+//
+typedef enum _VDS_ISCSI_AUTH_TYPE
+{
+    VDS_IAT_NONE        = 0,
+    VDS_IAT_CHAP        = 1,
+    VDS_IAT_MUTUAL_CHAP = 2
+} VDS_ISCSI_AUTH_TYPE;
+
+
+//
+// IPSEC Flags
+//
+typedef enum _VDS_ISCSI_IPSEC_FLAG
+{
+    // These flags correspond to the definitions in the iSNS portal security bitmap
+    VDS_IIF_VALID                       = 0x01,
+    VDS_IIF_IKE                         = 0x02,
+    VDS_IIF_MAIN_MODE                   = 0x04,
+    VDS_IIF_AGGRESSIVE_MODE             = 0x08,
+    VDS_IIF_PFS_ENABLE                  = 0x10,
+    VDS_IIF_TRANSPORT_MODE_PREFERRED    = 0x20,
+    VDS_IIF_TUNNEL_MODE_PREFERRED       = 0x40
+} VDS_ISCSI_IPSEC_FLAG;
+
+
+//
+// Login Flags
+//
+typedef enum _VDS_ISCSI_LOGIN_FLAG
+{
+    VDS_ILF_REQUIRE_IPSEC       = 0x1,
+    VDS_ILF_MULTIPATH_ENABLED   = 0x2
+} VDS_ISCSI_LOGIN_FLAG;
+
+
+//
+// --- Miscellaneous Structures ---
+//
+
+//
+// Path IDs
+//
+typedef struct _VDS_PATH_ID
+{
+    ULONGLONG ullSourceId;
+    ULONGLONG ullPathId;
+} VDS_PATH_ID;
+
+
+//
+// World Wide Name
+//
+typedef struct _VDS_WWN
+{
+    // This structure corresponds to the HBA_WWN structure in the HBA API
+    UCHAR rguchWwn[8];
+} VDS_WWN;
+
+
+//
+// IP Address
+//
+typedef struct _VDS_IPADDRESS
+{
+    VDS_IPADDRESS_TYPE  type;
+    ULONG               ipv4Address;
+    UCHAR               ipv6Address[16];
+    ULONG               ulIpv6FlowInfo;
+    ULONG               ulIpv6ScopeId;
+    WCHAR               wszTextAddress[256 + 1];
+    ULONG               ulPort;
+} VDS_IPADDRESS;
+
+//
+// IPSEC Key
+//
+typedef struct _VDS_ISCSI_IPSEC_KEY
+{
+    [size_is(ulKeySize)] UCHAR* pKey;
+    ULONG                       ulKeySize;
+} VDS_ISCSI_IPSEC_KEY;
+
+
+//
+// CHAP Shared Secret
+//
+typedef struct _VDS_ISCSI_SHARED_SECRET
+{
+    [size_is(ulSharedSecretSize)] UCHAR*    pSharedSecret;
+    ULONG                                   ulSharedSecretSize;
+} VDS_ISCSI_SHARED_SECRET;
+
+
+//
+// --- VDS Object Properties ---
+//
+
+//
+// HBA port properties
+//
+typedef struct _VDS_HBAPORT_PROP
+{
+    VDS_OBJECT_ID           id;
+    VDS_WWN                 wwnNode;
+    VDS_WWN                 wwnPort;
+
+    VDS_HBAPORT_TYPE        type;
+    VDS_HBAPORT_STATUS      status;
+    ULONG                   ulPortSpeed;
+    ULONG                   ulSupportedPortSpeed;
+
+} VDS_HBAPORT_PROP;
+
+
+//
+// Initiator adapter properties
+//
+typedef struct _VDS_ISCSI_INITIATOR_ADAPTER_PROP
+{
+    VDS_OBJECT_ID   id;
+    [string] LPWSTR pwszName;
+} VDS_ISCSI_INITIATOR_ADAPTER_PROP;
+
+
+//
+// Initiator portal properties
+//
+typedef struct _VDS_ISCSI_INITIATOR_PORTAL_PROP
+{
+    VDS_OBJECT_ID   id;
+    VDS_IPADDRESS   address;
+    ULONG           ulPortIndex;
+} VDS_ISCSI_INITIATOR_PORTAL_PROP;
+
+
+//
+// Provider properties
+//
+typedef struct _VDS_PROVIDER_PROP
+{
+    VDS_OBJECT_ID       id;
+    [string] LPWSTR     pwszName;
+    GUID                guidVersionId;
+    [string] LPWSTR     pwszVersion;
+    VDS_PROVIDER_TYPE   type;
+    ULONG               ulFlags;
+    ULONG               ulStripeSizeFlags;
+        // This is for software provider only.
+        // The Microsoft dynamic provider supports only 64k as a stripe size.
+        // The Microsoft basic provider should set this to 0 - it does not support stripes.
+    SHORT               sRebuildPriority;
+        // This field is not used by microsoft providers.
+
+} VDS_PROVIDER_PROP;
+
+//
+// --- MPIO related Structures ---
+//
+
+//
+// Path Information
+//
+typedef struct _VDS_PATH_INFO
+{
+    VDS_PATH_ID             pathId;
+    VDS_HWPROVIDER_TYPE     type;
+    VDS_PATH_STATUS         status;
+
+    // subsystem-side endpoint of the path
+    [switch_is(type)] union
+    {
+    [case(VDS_HWT_FIBRE_CHANNEL,VDS_HWT_SAS)]
+        VDS_OBJECT_ID       controllerPortId;
+    [case(VDS_HWT_ISCSI)]
+        VDS_OBJECT_ID       targetPortalId;
+    [default];
+    };
+
+    // local server-side endpoint of the path
+    [switch_is(type)] union
+    {
+    [case(VDS_HWT_FIBRE_CHANNEL,VDS_HWT_SAS)]
+        VDS_OBJECT_ID       hbaPortId;
+    [case(VDS_HWT_ISCSI)]
+        VDS_OBJECT_ID       initiatorAdapterId;
+    [default];
+    };
+
+    // additional information about the local server-side endpoint of the path
+    [switch_is(type)] union
+    {
+    [case(VDS_HWT_FIBRE_CHANNEL,VDS_HWT_SAS)]
+        VDS_HBAPORT_PROP*   pHbaPortProp;
+    [case(VDS_HWT_ISCSI)]
+        VDS_IPADDRESS*      pInitiatorPortalIpAddr;
+    [default];
+    };
+
+} VDS_PATH_INFO;
+
+
+//
+// Path Policy
+//
+typedef struct _VDS_PATH_POLICY
+{
+    VDS_PATH_ID     pathId;
+    BOOL            bPrimaryPath;
+    ULONG           ulWeight;   // only relevant for VDS_LBP_WEIGHTED_PATHS
+
+} VDS_PATH_POLICY;
+
+
+//
+// LUN info data
+//
+
+import "vdslun.idl";
+
+//
+// --- Interface definitions ---
+//
+
+//
+// IEnumVdsObject:
+//   This is an interface pointer to a generic VDS objects collection. Object
+//   can be providers, packs, volumes, disks, SubSystems, Controllers and
+//   spindles. But different types of objects do not mix in a collection.
+// Implemented by: enum object
+//
+[
+    object,
+    uuid(118610b7-8d94-4030-b5b8-500889788e4e),
+    pointer_default(unique)
+]
+
+interface IEnumVdsObject : IUnknown
+{
+    [helpstring("method Next")]
+    HRESULT Next(
+                [in]  ULONG celt,
+                [out, size_is(celt), length_is(*pcFetched)]
+                      IUnknown **ppObjectArray,
+                [out] ULONG *pcFetched
+            );
+
+    [helpstring("method Skip")]
+    HRESULT Skip(
+                [in] ULONG celt
+            );
+
+    [helpstring("method Reset")]
+    HRESULT Reset(
+                void
+            );
+
+    [helpstring("method Clone")]
+    HRESULT Clone(
+                [out] IEnumVdsObject **ppEnum
+            );
+}
+
+//
+// IVdsAsync:
+// Implemented by: async object
+//
+[
+    object,
+    uuid(d5d23b6d-5a55-4492-9889-397a3c2d2dbc),
+    pointer_default(unique)
+]
+
+interface IVdsAsync : IUnknown
+{
+    [helpstring("method Cancel")]
+    HRESULT Cancel(
+                void
+            );
+
+    // Wait:
+    //   If the asynchronous operation needs to return a result, it is
+    //   returned through VDS_ASYNC_OUTPUT. Otherwise, the second argument
+    //   is ignored.
+    [helpstring("method Wait")]
+    HRESULT Wait(
+                [out] HRESULT *pHrResult,
+                [out] VDS_ASYNC_OUTPUT *pAsyncOut
+            );
+
+    //QueryStatus:
+    //  The argument reflects the progress of the operation Format.
+    //  For CreateVolume, CreateLun, etc. the value is set to -1 to
+    //  mean nothing. We want it so that simple programs/scripts that
+    //  do not want to handle notification can still get progress info.
+    [helpstring("method QueryStatus")]
+    HRESULT QueryStatus(
+                [out] HRESULT *pHrResult,
+                [out] ULONG *pulPercentCompleted
+            );
+}
+
+//
+// IVdsAdviseSink:
+//   Applications register this interface with the service in order to receive
+//   notifications from it. The service registers this interface with the
+//   providers in order to receive notifications from them, which it can also
+//   pass to the applications.
+// Implemented by: callback object
+// Implemented where: application, common layer
+//
+[
+    object,
+    uuid(8326cd1d-cf59-4936-b786-5efc08798e25),
+    pointer_default(unique)
+]
+
+interface IVdsAdviseSink : IUnknown
+{
+    [helpstring("method OnNotify")]
+    HRESULT OnNotify(
+                [in, range(1, 100)] LONG lNumberOfNotifications,
+                [in, size_is(lNumberOfNotifications)]
+                     VDS_NOTIFICATION *pNotificationArray
+            );
+}
+
+//
+// IVdsProvider:
+// Implemented by: provider object
+// Implemented where: providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(10c5e575-7984-4e81-a56b-431f5f92ae42),
+    pointer_default(unique)
+]
+
+interface IVdsProvider : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_PROVIDER_PROP *pProviderProp
+            );
+}
+
+//
+// IVdsProviderSupport:
+// Implemented by: provider object
+// Implemented where: providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(1732be13-e8f9-4a03-bfbc-5f616aa66ce1),
+    pointer_default(unique)
+]
+
+interface IVdsProviderSupport : IUnknown
+{
+    [helpstring("method GetVersionSupport")]
+    HRESULT GetVersionSupport(
+                [out] ULONG *ulVersionSupport
+            );
+
+}
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

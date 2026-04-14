@@ -1,0 +1,531 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+// Module Name:
+//
+//      Mpeg2Structs.idl
+//
+// Abstract:
+//
+//      Definitions for the common structures used in Mpeg2Data
+//
+// Notes:
+//
+//      This IDL file is not built independently, but is included and built
+//      in the master IDL file Mpeg2Data.idl
+//
+/////////////////////////////////////////////////////////////////////////////
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+// Include Files
+#include "Mpeg2Bits.h"
+
+#pragma pack(push)
+#pragma pack(1)
+
+//
+// Basic Type Aliases
+//
+
+typedef WORD PID;  // program id
+typedef BYTE TID;  // table id
+typedef WORD TEID; // table extension id
+typedef UINT ClientKey;
+
+
+
+//
+// MPEG-2 Current/Next bit field
+//
+
+typedef enum
+{
+    MPEG_SECTION_IS_NEXT = 0,
+    MPEG_SECTION_IS_CURRENT = 1
+} MPEG_CURRENT_NEXT_BIT;
+
+
+//
+// MPEG-2 TID Extension structure
+//
+
+typedef struct
+{
+    WORD   wTidExt;
+    WORD   wCount;
+} TID_EXTENSION, *PTID_EXTENSION;
+
+
+
+//
+// MPEG-2 packet "small" header structure
+//
+
+typedef struct
+{
+    TID     TableId;
+    union
+    {
+        MPEG_HEADER_BITS_MIDL S;
+        WORD                  W;
+    }       Header;
+    BYTE    SectionData[1];     // Array size is Header.S.SectionLength
+} SECTION, *PSECTION;
+
+
+
+//
+// MPEG-2 packet "long" header structure
+//
+
+typedef struct
+{
+    TID     TableId;
+    union
+    {
+        MPEG_HEADER_BITS_MIDL S;
+        WORD                  W;
+    }       Header;
+    TEID    TableIdExtension;
+    union
+    {
+        MPEG_HEADER_VERSION_BITS_MIDL S;
+        BYTE                          B;
+    }       Version;
+    BYTE    SectionNumber;
+    BYTE    LastSectionNumber;
+    BYTE    RemainingData[1];   // Array size is Header.S.SectionLength - 5
+} LONG_SECTION, *PLONG_SECTION;
+
+
+
+//
+// DSM-CC packet header structure
+//
+
+typedef struct
+{
+    TID     TableId;
+    union
+    {
+        MPEG_HEADER_BITS_MIDL S;
+        WORD                  W;
+    }       Header;
+    TEID    TableIdExtension;
+    union
+    {
+        MPEG_HEADER_VERSION_BITS_MIDL S;
+        BYTE                          B;
+    }       Version;
+    BYTE    SectionNumber;
+    BYTE    LastSectionNumber;
+    BYTE    ProtocolDiscriminator;
+    BYTE    DsmccType;
+    WORD    MessageId;
+    DWORD   TransactionId;
+    BYTE    Reserved;
+    BYTE    AdaptationLength;
+    WORD    MessageLength;
+    BYTE    RemainingData[1];
+} DSMCC_SECTION, *PDSMCC_SECTION;
+
+
+
+//
+// MPEG-2 request/response packets structures
+//
+
+typedef struct
+{
+    DWORD    dwLength;
+    PSECTION pSection;
+} MPEG_RQST_PACKET, *PMPEG_RQST_PACKET;
+
+typedef struct
+{
+    WORD              wPacketCount;
+    [size_is(wPacketCount)] PMPEG_RQST_PACKET PacketList[];
+} MPEG_PACKET_LIST, *PMPEG_PACKET_LIST;
+
+
+
+//
+// DSM-CC request filter options
+//
+
+typedef struct
+{
+    BOOL  fSpecifyProtocol;       // If true, Protocol should be set to desired value
+    BYTE  Protocol;
+    BOOL  fSpecifyType;           // If true, Type should be set to desired value
+    BYTE  Type;
+    BOOL  fSpecifyMessageId;      // If true, MessageId should be set to desired value
+    WORD  MessageId;
+    BOOL  fSpecifyTransactionId;  // If true, TransactionId (or DownloadId for DDB msgs) should be set to desired value
+    BOOL  fUseTrxIdMessageIdMask; // If false, TransactionId is filtered as is.
+                                  // If true, TransactionId is masked to look
+                                  // for any version of message with associated
+                                  // message identifier. See DVB - Data
+                                  // Broadcasting Guidlines 4.6.5. (Assignment
+                                  // and use of transactionId values).
+    DWORD TransactionId;
+    BOOL  fSpecifyModuleVersion;  // If true, ModuleVersion should be set to the desired value
+    BYTE  ModuleVersion;
+    BOOL  fSpecifyBlockNumber;    // If true, BlockNumber should be set to desired value
+    WORD  BlockNumber;
+    BOOL  fGetModuleCall;         // If true, NumberOfBlocksInModule should be set
+    WORD  NumberOfBlocksInModule; 
+} DSMCC_FILTER_OPTIONS;
+// 45 BYTES
+
+
+
+//
+// ATSC request filter options
+//
+ 
+typedef struct
+{
+    BOOL  fSpecifyEtmId;          // If true, EtmId should be set to desired value
+    DWORD EtmId;
+} ATSC_FILTER_OPTIONS;
+// 8 BYTES
+ 
+
+
+//
+// DVB/ISDB EIT request filter options
+//
+ 
+typedef struct
+{
+    BOOL fSpecifySegment;        // If true, bSegment should be set to desired value
+    BYTE bSegment;
+} DVB_EIT_FILTER_OPTIONS;
+// 5 BYTES
+
+
+
+//
+// MPEG-2 request filter structure
+//
+
+typedef struct
+{
+    BYTE  bVersionNumber;           // Must be set to 1 or more to match filter definition
+    WORD  wFilterSize;              // Size of total filter structure. Version 1 filter is 73 bytes.
+    BOOL  fUseRawFilteringBits;     // If true, Filter and Mask fields should be set to desired value, all other
+                                    // fields with be ignored.
+    BYTE  Filter[16];               // Bits with values to compare against for a match.
+    BYTE  Mask[16];                 // Bits set to 0 are bits that are compared to those in the filter, those
+                                    // bits set to 1 are ignored.
+    BOOL  fSpecifyTableIdExtension; // If true, TableIdExtension should be set to desired value (false = don't care)
+    WORD  TableIdExtension;
+    BOOL  fSpecifyVersion;          // If true, Version should be set to desired value (false = don't care)
+    BYTE  Version;
+    BOOL  fSpecifySectionNumber;    // If true, SectionNumber should be set to desired value (false = don't care)
+    BYTE  SectionNumber;
+    BOOL  fSpecifyCurrentNext;      // If true, fNext should be set to desired value (false = don't care)
+    BOOL  fNext;                    // If true, next table is queried. Else, current
+    BOOL  fSpecifyDsmccOptions;     // If true, Dsmcc should be set with desired filter options
+    DSMCC_FILTER_OPTIONS Dsmcc;
+    BOOL  fSpecifyAtscOptions;      // If true, Atsc should be set with desired filter options
+    ATSC_FILTER_OPTIONS Atsc;
+} MPEG2_FILTER, *PMPEG2_FILTER;
+// 124 BYTES
+
+typedef struct
+{
+    union
+    {
+        struct
+        {
+            BYTE  bVersionNumber;
+            WORD  wFilterSize;
+            BOOL  fUseRawFilteringBits;
+
+            BYTE  Filter[16];
+            BYTE  Mask[16];
+
+            BOOL  fSpecifyTableIdExtension;
+            WORD  TableIdExtension;
+            BOOL  fSpecifyVersion;
+            BYTE  Version;
+            BOOL  fSpecifySectionNumber;
+            BYTE  SectionNumber;
+            BOOL  fSpecifyCurrentNext; 
+            BOOL  fNext;
+            BOOL  fSpecifyDsmccOptions;
+            DSMCC_FILTER_OPTIONS Dsmcc;
+            BOOL  fSpecifyAtscOptions;
+            ATSC_FILTER_OPTIONS Atsc;
+        };
+        BYTE bVersion1Bytes[124];
+    };
+    // Version 1 - 124 bytes
+
+    BOOL  fSpecifyDvbEitOptions;    // Set true for DVB/ISDB EIT. The table is handled segment basis.
+                                    // If true, DvbEit should be set with desired filter options
+    DVB_EIT_FILTER_OPTIONS DvbEit;
+    // Version 2 - 133 bytes
+} MPEG2_FILTER2, *PMPEG2_FILTER2;
+
+cpp_quote("#define MPEG2_FILTER_VERSION_1_SIZE  124")
+cpp_quote("#define MPEG2_FILTER_VERSION_2_SIZE  133")
+
+
+//
+// Mpeg-2 Stream buffer structure
+//
+
+typedef struct
+{
+    HRESULT hr;
+    DWORD   dwDataBufferSize;
+    DWORD   dwSizeOfDataRead;
+    [size_is(dwDataBufferSize)] BYTE *  pDataBuffer;
+} MPEG_STREAM_BUFFER, *PMPEG_STREAM_BUFFER;
+
+
+        
+//
+// MPEG-2 Time and Date structures
+//
+
+typedef struct
+{
+    BYTE Hours;     // Legal Range: 0 to 23
+    BYTE Minutes;   // Legal Range: 0 to 59
+    BYTE Seconds;   // Legal Range: 0 to 59
+} MPEG_TIME;
+
+typedef MPEG_TIME MPEG_DURATION;
+
+typedef struct
+{
+    BYTE Date;      // Legal Range: 1 to 31
+    BYTE Month;     // Legal Range: 1 to 12
+    WORD Year;      // Legal Range: 1900 to 2100 
+} MPEG_DATE;
+
+typedef struct
+{
+    MPEG_DATE D;
+    MPEG_TIME T;
+} MPEG_DATE_AND_TIME;
+
+
+
+//
+// MPEG-2 API Context structures
+//
+
+typedef enum
+{
+    MPEG_CONTEXT_BCS_DEMUX,
+    MPEG_CONTEXT_WINSOCK
+} MPEG_CONTEXT_TYPE;
+
+typedef struct
+{
+    DWORD AVMGraphId;
+} MPEG_BCS_DEMUX;
+
+typedef struct
+{
+    DWORD AVMGraphId;
+} MPEG_WINSOCK;
+
+typedef struct
+{
+    MPEG_CONTEXT_TYPE Type;
+    union
+    {
+        MPEG_BCS_DEMUX      Demux;
+        MPEG_WINSOCK        Winsock;
+    } U;
+} MPEG_CONTEXT, *PMPEG_CONTEXT;
+
+
+
+//
+// MPEG-2 Service Request and Responses
+//
+
+typedef enum
+{
+    MPEG_RQST_UNKNOWN = 0, 
+    MPEG_RQST_GET_SECTION,
+    MPEG_RQST_GET_SECTION_ASYNC,
+    MPEG_RQST_GET_TABLE,
+    MPEG_RQST_GET_TABLE_ASYNC,
+    MPEG_RQST_GET_SECTIONS_STREAM,
+    MPEG_RQST_GET_PES_STREAM,
+    MPEG_RQST_GET_TS_STREAM,
+    MPEG_RQST_START_MPE_STREAM,
+} MPEG_REQUEST_TYPE;
+
+typedef struct
+{
+    MPEG_REQUEST_TYPE       Type;
+    MPEG_CONTEXT            Context;
+    PID                     Pid;
+    TID                     TableId;
+    MPEG2_FILTER            Filter;
+    DWORD                   Flags;
+} MPEG_SERVICE_REQUEST, *PMPEG_SERVICE_REQUEST;
+
+typedef struct
+{
+    DWORD                   IPAddress;
+    WORD                    Port;
+} MPEG_SERVICE_RESPONSE, *PMPEG_SERVICE_RESPONSE;
+
+
+
+//
+// DSM-CC & MPE Query Results
+//
+
+typedef struct _DSMCC_ELEMENT
+{
+    PID                     pid;
+    BYTE                    bComponentTag;
+    DWORD                   dwCarouselId;
+    DWORD                   dwTransactionId;
+    struct _DSMCC_ELEMENT * pNext;
+} DSMCC_ELEMENT, *PDSMCC_ELEMENT;
+
+typedef struct _MPE_ELEMENT
+{
+    PID                     pid;
+    BYTE                    bComponentTag;
+    struct _MPE_ELEMENT *   pNext;
+} MPE_ELEMENT, *PMPE_ELEMENT;
+
+
+
+//
+// MPEG-2 Stream Filtering Structure
+//
+
+typedef struct _MPEG_STREAM_FILTER 
+{
+    WORD   wPidValue;               // PID value
+    DWORD  dwFilterSize;            // size of filter in bits
+    BOOL   fCrcEnabled;             // enable/disable CRC check 
+    BYTE   rgchFilter[16];          // filter data
+    BYTE   rgchMask[16];            // filter mask
+} MPEG_STREAM_FILTER;
+
+    // This indicates whether the target machine is big endian or little endian
+cpp_quote("#undef BIG_ENDIAN_MACHINE")
+cpp_quote("#define LITTLE_ENDIAN_MACHINE")
+cpp_quote("")
+
+    // Memory byte swap macros to preparse MPEG packets
+cpp_quote("#define XCHG(x)             MAKEWORD(HIBYTE(x), LOBYTE(x))")
+cpp_quote("#define DXCHG(x)            MAKELONG(XCHG(HIWORD(x)), XCHG(LOWORD(x)))")
+cpp_quote("")
+
+    // Only swap bytes from network order on little endian machines
+cpp_quote("#undef SWAPBYTES")
+cpp_quote("#undef SWAPWORDS")
+cpp_quote("")
+
+cpp_quote("#ifdef LITTLE_ENDIAN_MACHINE")
+cpp_quote("#define SWAPBYTES(w)        ((w) = XCHG(w))")
+cpp_quote("#define SWAPWORDS(d)        ((d) = DXCHG(d))")
+cpp_quote("#endif")
+cpp_quote("")
+
+cpp_quote("#ifdef BIG_ENDIAN_MACHINE")
+cpp_quote("#define SWAPBYTES(w)        (w)")
+cpp_quote("#define SWAPWORDS(d)        (d)")
+cpp_quote("#endif")
+cpp_quote("")
+
+    // Swap the header bytes of an MPEG-2 section
+cpp_quote("#define SWAP_MPEG_SECTION_HEADER_BYTES(_pSection)                                   \\")
+cpp_quote("    {                                                                       \\")
+cpp_quote("        if (_pSection)                                                      \\")
+cpp_quote("        {                                                                   \\")
+cpp_quote("            SWAPBYTES((_pSection)->Header.W);                                 \\")
+cpp_quote("                                                                            \\")
+cpp_quote("            if (reinterpret_cast<PMPEG_HEADER_BITS>(&((reinterpret_cast<PLONG_SECTION>(_pSection)->Header.W)))->SectionSyntaxIndicator || \\")
+cpp_quote("                    (_pSection)->TableId == 0x00 ||                           \\") // pmt tsid is same size/location as table id extension
+cpp_quote("                    (_pSection)->TableId == 0x3A ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3B ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3C ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3D ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3E)                             \\")
+cpp_quote("            {                                                               \\")
+cpp_quote("                SWAPBYTES(reinterpret_cast<PLONG_SECTION>(_pSection)->TableIdExtension);    \\")
+cpp_quote("            }                                                               \\")
+cpp_quote("        }                                                                   \\")
+cpp_quote("    }")
+cpp_quote("")
+cpp_quote("#define SWAP_MPEG_HEADER_BYTES(_pSection)                                   \\")
+cpp_quote("    {                                                                       \\")
+cpp_quote("        if (_pSection)                                                      \\")
+cpp_quote("        {                                                                   \\")
+cpp_quote("            SWAP_MPEG_SECTION_HEADER_BYTES(_pSection)                       \\")
+cpp_quote("            if ((_pSection)->TableId == 0x3B ||                             \\")
+cpp_quote("                (_pSection)->TableId == 0x3C)                               \\")
+cpp_quote("            {                                                               \\")
+cpp_quote("                SWAPBYTES(reinterpret_cast<PDSMCC_SECTION>(_pSection)->MessageId);          \\")
+cpp_quote("                SWAPWORDS(reinterpret_cast<PDSMCC_SECTION>(_pSection)->TransactionId);      \\")
+cpp_quote("                SWAPBYTES(reinterpret_cast<PDSMCC_SECTION>(_pSection)->MessageLength);      \\")
+cpp_quote("            }                                                               \\")
+cpp_quote("        }                                                                   \\")
+cpp_quote("    }")
+cpp_quote("")
+
+    // Unswap the header bytes of an MPEG-2 section
+cpp_quote("#define UNSWAP_MPEG_HEADER_BYTES(_pSection)                                 \\")
+cpp_quote("    {                                                                       \\")
+cpp_quote("        if (_pSection)                                                      \\")
+cpp_quote("        {                                                                   \\")
+cpp_quote("            if ((_pSection)->TableId == 0x3B ||                             \\")
+cpp_quote("                (_pSection)->TableId == 0x3C)                               \\")
+cpp_quote("            {                                                               \\")
+cpp_quote("                SWAPBYTES((reinterpret_cast<PDSMCC_SECTION>(_pSection))->MessageId);          \\")
+cpp_quote("                SWAPWORDS((reinterpret_cast<PDSMCC_SECTION>(_pSection))->TransactionId);      \\")
+cpp_quote("                SWAPBYTES((reinterpret_cast<PDSMCC_SECTION>(_pSection))->MessageLength);      \\")
+cpp_quote("            }                                                                                 \\")
+cpp_quote("            UNSWAP_MPEG_SECTION_HEADER_BYTES(_pSection)                       \\")
+cpp_quote("        }                                                                     \\")
+cpp_quote("    }")
+cpp_quote("")
+cpp_quote("#define UNSWAP_MPEG_SECTION_HEADER_BYTES(_pSection)                         \\")
+cpp_quote("    {                                                                       \\")
+cpp_quote("        if (_pSection)                                                      \\")
+cpp_quote("        {                                                                   \\")
+cpp_quote("            if (reinterpret_cast<PMPEG_HEADER_BITS>(&((reinterpret_cast<PLONG_SECTION>(_pSection)->Header.W)))->SectionSyntaxIndicator || \\")
+cpp_quote("                    (_pSection)->TableId == 0x00 ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3A ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3B ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3C ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3D ||                           \\")
+cpp_quote("                    (_pSection)->TableId == 0x3E)                             \\")
+cpp_quote("            {                                                                 \\")
+cpp_quote("                SWAPBYTES(reinterpret_cast<PLONG_SECTION>(_pSection)->TableIdExtension);    \\")
+cpp_quote("            }                                                                               \\")
+cpp_quote("            SWAPBYTES(reinterpret_cast<PLONG_SECTION>(_pSection)->Header.W);                \\")
+cpp_quote("        }                                                                                   \\")
+cpp_quote("    }")
+cpp_quote("")
+
+#pragma pack(pop)
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

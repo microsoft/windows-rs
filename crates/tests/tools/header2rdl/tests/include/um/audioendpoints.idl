@@ -1,0 +1,70 @@
+//**@@@*@@@****************************************************
+//
+// Microsoft Windows 
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//**@@@*@@@****************************************************
+
+//
+// FileName:    AudioEndpoints.idl
+//
+// Abstract:    Audio Endpoint related interfaces
+//
+// Author:      Soccerl
+//
+// Created:     2009/02/02
+// --------------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+cpp_quote("#define   ENDPOINT_FORMAT_RESET_MIX_ONLY     0x00000001")
+
+// ----------------------------------------------------------------------
+// IAudioEndpointFormatControl
+//
+// Description:
+//
+//  Interface for resetting the current audio endpoint device format. 
+//  This setting is exposed to the user through the "Sounds" control panel 
+//  and can be read from the endpoint propertystore using
+//  PKEY_AudioEngine_DeviceFormat
+//
+[
+    object,
+    local,
+    uuid(784CFD40-9F89-456E-A1A6-873B006A664E),
+    nonextensible,
+    helpstring("IAudioEndpointFormat interface"),
+    pointer_default(unique)
+]
+interface IAudioEndpointFormatControl : IUnknown
+{
+    //-------------------------------------------------------------------------
+    // Description:
+    //
+    //  Resets the format to the default setting provided by the device manufacturer.
+    //
+    // Parameters:
+    //
+    //  ResetFlags - [in] Allows the application to specify which formats are reset.  If
+    //                  no flags are set, then this method reevaluates both the endpoint's 
+    //                  device format and mix format and sets them to their default values.
+    //
+    //      ENDPOINT_FORMAT_RESET_MIX_ONLY - Only reset the mix format.  The endpoint's device
+    //          format will not be reset if this flag is set.
+    //
+    // Return values:
+    //      S_OK if successful
+    //      <other error>
+    //
+    [helpstring("method ResetToDefault")] 
+    HRESULT ResetToDefault([in, annotation("_In_")] DWORD ResetFlags);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

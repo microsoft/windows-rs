@@ -1,0 +1,99 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+#pragma once
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "inspectable.idl";
+import "weakreference.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)") //TODO_NTDDI_WIN10_TH2
+
+    // Implemented by the application
+    // When used with custom drying, InkPresenter calls back on this interface
+    // to request that the application commit its DComposition device when it
+    // can safely do so
+    [object, uuid(fabea3fc-b108-45b6-a9fc-8d08fa9f85cf)]
+    interface IInkCommitRequestHandler : IUnknown
+    {
+        HRESULT OnCommitRequested();
+    }
+
+    // Used to integrate an InkPresenter instance into the application's
+    // DComposition visual tree
+    [object, uuid(73f3c0d9-2e8b-48f3-895e-20cbd27b723b)]
+    interface IInkPresenterDesktop : IUnknown
+    {
+        // Used to define the area to be ink-enabled
+        HRESULT SetRootVisual(
+                        // IDCompositionVisual to be ink-enabled
+                        [in] IUnknown *rootVisual,
+                        // IDCompositionDevice3, required only for custom drying
+                        [in, unique] IUnknown *device);
+
+        // Used in Custom Dry mode to aid in synchronizing ink transition from
+        // InkPresenter's ink layer to the application's dry ink layer
+        HRESULT SetCommitRequestHandler([in] IInkCommitRequestHandler *handler);
+
+        // Get / set the size of the ink-enabled area
+        HRESULT GetSize([out] float *width, [out] float *height);
+        HRESULT SetSize([in] float width, [in] float height);
+
+        // Informs InkPresenter of a high contrast mode change, triggering
+        // ink to be re-rendered to respect the current mode
+        HRESULT OnHighContrastChanged();
+    }
+
+    // Implemented by the application
+    // Provided to a call to IInkDesktopHost::QueueWorkItem to be invoked
+    // on the ink host thread
+    [object, uuid(ccda0a9a-1b78-4632-bb96-97800662e26c)]
+    interface IInkHostWorkItem : IUnknown
+    {
+        HRESULT Invoke();
+    }
+
+    // Used to host InkPresenter from a desktop application
+    [object, uuid(4ce7d875-a981-4140-a1ff-ad93258e8d59)]
+    interface IInkDesktopHost : IUnknown
+    {
+        // Queues up a work item to be invoked on the ink host thread
+        // Caller is responsible for synchronizing work item with main thread if desired
+        HRESULT QueueWorkItem([in] IInkHostWorkItem *workItem);
+
+        // Creates an instance of InkPresenter
+        HRESULT CreateInkPresenter([in] REFIID riid,
+                                   [out, iid_is(riid)] void **ppv);
+
+        // Creates an instance of InkPresenter and defines the ink-enabled area
+        // through a DComposition visual and a size
+        // This is equivalent to the following sequence of calls:
+        //  1. CreateInkPresenter
+        //  2. IInkPresenterDesktop->SetRootVisual
+        //  3. IInkPresenterDesktop->SetSize
+        HRESULT CreateAndInitializeInkPresenter(
+                        // IDCompositionVisual to be ink-enabled
+                        [in] IUnknown *rootVisual,
+                        // Size of ink-enabled area
+                        [in] float width, [in] float height,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] void **ppv);
+    }
+
+    [uuid(2aef0967-c833-4f38-91f3-16e67d55d717)]
+    library InkDesktopHostLib
+    {
+        [uuid(062584a6-f830-4bdc-a4d2-0a10ab062b1d)]
+        coclass InkDesktopHost
+        {
+            [default] interface IInkDesktopHost;
+        }
+    };
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WINTHRESHOLD") //TODO_NTDDI_WIN10_TH2
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

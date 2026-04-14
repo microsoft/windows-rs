@@ -1,0 +1,39 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+namespace Windows
+{
+    namespace Foundation
+    {
+        [contractversion(4)]
+        apicontract FoundationContract{};
+
+        [contractversion(19)]
+        apicontract UniversalApiContract{};
+    }
+
+    namespace UI.WebUI.Core
+    {
+        [contractversion(1)]
+        apicontract WebUICommandBarContract{};
+    }
+    namespace ApplicationModel.Calls
+    {
+        [contractversion(7)]
+        apicontract CallsPhoneContract{};
+    }
+
+    namespace Phone
+    {
+        [contractversion(1)]
+        apicontract PhoneContract{};
+
+        [contractversion(1)]
+        apicontract PhoneInternalContract{};
+    }
+
+    namespace Networking.Sockets
+    {
+        [contractversion(3)]
+        apicontract ControlChannelTriggerContract{};
+    }
+}

@@ -1,0 +1,84 @@
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("#pragma once")
+
+#ifndef DO_NO_IMPORTS
+import "inspectable.idl";
+#endif
+
+cpp_quote("#ifdef __cplusplus")
+
+// C++ definition of async status uses enum class syntax, 
+// namespace qualified. However, to compile proxies, the C 
+// compiler needs to see this as a normal C-style enum. Similarly,
+// the IDL compiler needs to see a definition that it understands.
+cpp_quote("namespace ABI { namespace Windows { namespace Foundation {")
+cpp_quote("enum class AsyncStatus {")
+cpp_quote("  Started = 0,")
+cpp_quote("  Completed, ")
+cpp_quote("  Canceled, ")
+cpp_quote("  Error,")
+cpp_quote("};")
+cpp_quote("} } } // ABI::Windows:::Foundation")
+
+// For compatibility with IDL generated code, the type name must 
+// also appear in the global namespace.
+cpp_quote("using ABI::Windows::Foundation::AsyncStatus;")
+
+// Promotes the new namespace qualified definition into the global 
+// namespace, consistent with COM IDL enum definitions. Since some of 
+// these values may collide with other Windows headers, use the 
+// _HIDE_GLOBAL_ASYNC_STATUS define to disable this mapping.
+cpp_quote("#if !defined(_HIDE_GLOBAL_ASYNC_STATUS) && !defined(__cplusplus_winrt)")
+cpp_quote("static const ABI::Windows::Foundation::AsyncStatus Started = AsyncStatus::Started;")
+cpp_quote("static const ABI::Windows::Foundation::AsyncStatus Completed = AsyncStatus::Completed;")
+cpp_quote("static const ABI::Windows::Foundation::AsyncStatus Canceled = AsyncStatus::Canceled;")
+cpp_quote("static const ABI::Windows::Foundation::AsyncStatus Error = AsyncStatus::Error;")
+cpp_quote("#endif // _HIDE_GLOBAL_ASYNC_STATUS")
+
+cpp_quote("#else")
+// C-style definition, IDL definition: plain enum in global namespace
+typedef [v1_enum] enum AsyncStatus
+{
+    Started = 0,
+    Completed, 
+    Canceled, 
+    Error,
+} AsyncStatus;
+cpp_quote("#endif // __cplusplus")
+
+// IAsyncInfo
+// C++, C & IDL definition, global namespace
+[
+    object,
+    uuid(00000036-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IAsyncInfo : IInspectable
+{
+    // Properties
+    [propget] HRESULT Id([out, retval] unsigned __int32 *id);
+
+    // provide a C++ overload for async status that doesn't rely on 
+    // the global definition of asyncstatus to support _HIDE_GLOBAL_ASYNC_STATUS
+    [propget] HRESULT Status([out, retval] AsyncStatus *status);
+
+    [propget] HRESULT ErrorCode([out,retval] HRESULT *errorCode);
+    
+    // Methods
+    HRESULT Cancel();
+    HRESULT Close();
+}
+
+// C++ definition, namespace qualified. Bring the global name into the
+// ABI::Windows::Foundation namespace. This allows clients to write
+// ABI::Windows::Foundation::IAsyncInfo or ::IAsyncInfo or IAsyncInfo
+// interchangeably.
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("namespace ABI { namespace Windows { namespace Foundation {")
+cpp_quote("using ::IAsyncInfo;")
+cpp_quote("} } } // ABI::Windows:::Foundation")
+cpp_quote("#endif // __cplusplus")

@@ -1,0 +1,106 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ),
+Description( "Provides extra status information about an extrinsic method's invocation" )]
+class MSFT_StorageExtendedStatus : CIM_Error
+{
+};
+
+
+[ClassVersion ( "1.0" ),
+Description(
+    "Soft error can be returned by intrinsic methods (EnumerateInstances, GetInstance, etc.) "
+    "to help distinguish between a query with no results (no error) and a query that failed "
+    "for a specific reason."
+    )]
+class MSFT_SoftError : CIM_Error
+{
+    [Description(
+        "This error is of the type 'Software Error'."
+        ), ValueMap { "4" }, Values { "Software Error" } ]
+    UInt16 ErrorType = 4;
+
+    [Description(
+        "Corresponds to the SMP's StorageProvider.Name field."
+        )]
+    String OwningEntity;
+
+    String MessageID;
+
+    [Description(
+        "This field is the message displayed to the user. %1 should be replaced with the "
+        "corresponding storage provider's Name field. %2 should be replaced with the error message."
+        )]
+    String Message = "%1: %2";
+
+    [Description(
+        "This error is informative only."
+        ), ValueMap { "2" }, Values { "Information" } ]
+    UInt16 PerceivedSeverity = 2;
+
+    [Description(
+        "This field should contain the CIM Object Path to the SMP storage provider object."
+        )]
+    String ErrorSource;
+
+    [Description(
+        "ErrorSourceFormat should be the CIM Object Path."
+        ), ValueMap { "2" }, Values { "CIMObjectPath" } ]
+    UInt16 ErrorSourceFormat = 2;
+};
+
+
+[ClassVersion ( "1.0" )]
+class MSFT_SoftError_EmptyCache : MSFT_SoftError
+{
+    [Description(
+        "This field denotes the specific error code used for 'Cache out of date'."
+        )]
+    String MessageID = "40003";
+
+    [Description(
+        "This field is the message displayed to the user. %1 should be replaced with the "
+        "corresponding storage provider's Name field. %2 can be replaced with extra error "
+        "information."
+        )]
+    String Message = "%1: The storage management provider's cache is empty.%2";
+};
+
+
+[ClassVersion ( "1.0" )]
+class MSFT_SoftError_NotAuthenticated : MSFT_SoftError
+{
+    [Description(
+        "This field denotes the specific error code used for 'Access Denied'."
+        )]
+    String MessageID = "40001";
+
+    [Description(
+        "This field is the message displayed to the user. %1 should be replaced with the "
+        "corresponding storage provider's Name field. %2 should be replaced with the subsystem "
+        "FriendlyName. %3 can be replaced with extra error information."
+        )]
+    String Message = "%1: The storage management provider has not been authenticated with the "
+                     "storage subsystem \"%2\". Extra configuration may be required.%3";
+};
+
+[ClassVersion ( "1.0" )]
+class MSFT_SoftError_NotInCache : MSFT_SoftError
+{
+    [Description(
+        "This field denotes the specific error code used for 'Not in Cache'."
+        )]
+    String MessageID = "40006";
+
+    [Description(
+        "This field is the message displayed to the user. %1 should be replaced with the "
+        "corresponding storage provider's Name field. %2 can be replaced with extra error "
+        "information."
+        )]
+    String Message = "%1: The storage management provider's cache does not contain the "
+                     "requested object or object type.%2";
+};

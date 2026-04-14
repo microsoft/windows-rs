@@ -1,0 +1,282 @@
+//****************************************************************************
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       syncmgr.idl
+//
+//  Contents:   Interfaces for Synchronization Manager
+//
+//****************************************************************************
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "objidl.idl";
+import "oleidl.idl";
+import "shobjidl_core.idl";  // IShellItem
+import "ocidl.idl";     // IObjectWithSite
+import "comcat.idl";    // IEnumGUID
+#endif
+
+cpp_quote("#define SYNCMGRITEMID        GUID")
+cpp_quote("#define REFSYNCMGRITEMID     REFGUID")
+cpp_quote("#define SYNCMGRERRORID       GUID")
+cpp_quote("#define REFSYNCMGRERRORID    REFGUID")
+cpp_quote("")
+
+// Success codes specific to SyncMgr interfaces
+cpp_quote("#define S_SYNCMGR_MISSINGITEMS       MAKE_SCODE(SEVERITY_SUCCESS,FACILITY_ITF,0x0201)")
+cpp_quote("#define S_SYNCMGR_RETRYSYNC          MAKE_SCODE(SEVERITY_SUCCESS,FACILITY_ITF,0x0202)")
+cpp_quote("#define S_SYNCMGR_CANCELITEM         MAKE_SCODE(SEVERITY_SUCCESS,FACILITY_ITF,0x0203)")
+cpp_quote("#define S_SYNCMGR_CANCELALL          MAKE_SCODE(SEVERITY_SUCCESS,FACILITY_ITF,0x0204)")
+
+// success codes that may be returned in ShowPropertiesCompleted.
+cpp_quote("#define S_SYNCMGR_ITEMDELETED        MAKE_SCODE(SEVERITY_SUCCESS,FACILITY_ITF,0x0210)")
+cpp_quote("#define S_SYNCMGR_ENUMITEMS          MAKE_SCODE(SEVERITY_SUCCESS,FACILITY_ITF,0x0211)")
+
+
+
+[
+    object,
+    uuid(6295DF41-35EE-11d1-8707-00C04FD93327)  // IID_ISyncMgrSynchronizeCallback
+]
+interface ISyncMgrSynchronizeCallback : IUnknown
+{
+    typedef [unique] ISyncMgrSynchronizeCallback *LPSYNCMGRSYNCHRONIZECALLBACK;
+
+    // SYNCMGRPROGRESSITEM.mask
+    cpp_quote("#define   SYNCMGRPROGRESSITEM_STATUSTEXT         0x0001")
+    cpp_quote("#define   SYNCMGRPROGRESSITEM_STATUSTYPE         0x0002")
+    cpp_quote("#define   SYNCMGRPROGRESSITEM_PROGVALUE          0x0004")
+    cpp_quote("#define   SYNCMGRPROGRESSITEM_MAXVALUE           0x0008")
+
+    typedef [v1_enum] enum _tagSYNCMGRSTATUS {
+        SYNCMGRSTATUS_STOPPED           =   0x0000,
+        SYNCMGRSTATUS_SKIPPED           =   0x0001,
+        SYNCMGRSTATUS_PENDING           =   0x0002,
+        SYNCMGRSTATUS_UPDATING          =   0x0003,
+        SYNCMGRSTATUS_SUCCEEDED         =   0x0004,
+        SYNCMGRSTATUS_FAILED            =   0x0005,
+        SYNCMGRSTATUS_PAUSED            =   0x0006,
+        SYNCMGRSTATUS_RESUMING          =   0x0007,
+        SYNCMGRSTATUS_UPDATING_INDETERMINATE = 0x0008,  // for marquee progress
+
+        SYNCMGRSTATUS_DELETED           =   0x0100, // send to indicate to item that the item has been deleted.
+                                                    // This flag is deprecated.
+    } SYNCMGRSTATUS;
+
+    typedef struct _tagSYNCMGRPROGRESSITEM {
+        DWORD   cbSize;
+        UINT    mask;
+        LPCWSTR lpcStatusText;
+        DWORD   dwStatusType;   // SYNCMGRSTATUS
+        int     iProgValue;
+        int     iMaxValue;
+    } SYNCMGRPROGRESSITEM, *LPSYNCMGRPROGRESSITEM;
+
+    typedef [v1_enum] enum _tagSYNCMGRLOGLEVEL {
+        SYNCMGRLOGLEVEL_INFORMATION             =   0x0001,
+        SYNCMGRLOGLEVEL_WARNING                 =   0x0002,
+        SYNCMGRLOGLEVEL_ERROR                   =   0x0003,
+        SYNCMGRLOGLEVEL_LOGLEVELMAX             =   0x0003
+    } SYNCMGRLOGLEVEL;
+
+
+    // SYNCMGRLOGERRORINFO.mask
+    cpp_quote("#define   SYNCMGRLOGERROR_ERRORFLAGS                     0x0001")
+    cpp_quote("#define   SYNCMGRLOGERROR_ERRORID                        0x0002")
+    cpp_quote("#define   SYNCMGRLOGERROR_ITEMID                         0x0004")
+
+    typedef [v1_enum] enum _tagSYNCMGRERRORFLAGS {   // flags that apply to the error.
+        SYNCMGRERRORFLAG_ENABLEJUMPTEXT     =   0x01,// ShowErrors should be called on this item.
+    } SYNCMGRERRORFLAGS;
+
+    typedef struct _tagSYNCMGRLOGERRORINFO {
+        DWORD   cbSize;
+        DWORD   mask;
+        DWORD   dwSyncMgrErrorFlags;
+        GUID    ErrorID;
+        GUID    ItemID;
+    } SYNCMGRLOGERRORINFO, *LPSYNCMGRLOGERRORINFO;
+
+    HRESULT ShowPropertiesCompleted([in] HRESULT hr);
+    HRESULT PrepareForSyncCompleted([in] HRESULT hr);
+    HRESULT SynchronizeCompleted([in] HRESULT hr);
+    HRESULT ShowErrorCompleted([in] HRESULT hr, [in] ULONG cItems, [in,unique,size_is(cItems)] const GUID *pItemIDs);
+    HRESULT EnableModeless([in] BOOL fEnable);
+    HRESULT Progress([in] REFGUID ItemID, [in,unique] const SYNCMGRPROGRESSITEM *pSyncProgressItem);
+    HRESULT LogError([in] DWORD dwErrorLevel, [in] LPCWSTR pszErrorText, [in,unique] const SYNCMGRLOGERRORINFO *pSyncLogError);
+    HRESULT DeleteLogError([in] REFGUID ErrorID, [in] DWORD dwReserved);
+    HRESULT EstablishConnection([in,unique] LPCWSTR pwszConnection, [in] DWORD dwReserved);
+}
+
+
+[
+    object,
+    uuid(6295DF2A-35EE-11d1-8707-00C04FD93327), // IID_ISyncMgrEnumItems
+    pointer_default(unique)
+]
+interface ISyncMgrEnumItems : IUnknown
+{
+    typedef [unique] ISyncMgrEnumItems *LPSYNCMGRENUMITEMS;
+
+    typedef [v1_enum] enum _tagSYNCMGRITEMFLAGS {   // flags for this SyncMgr Item
+        SYNCMGRITEM_HASPROPERTIES       =   0x0001, // have a properties dialog for this item
+        SYNCMGRITEM_TEMPORARY           =   0x0002, // remove any stored preferences for this item
+        SYNCMGRITEM_ROAMINGUSER         =   0x0004, // This item should roam with the User
+        SYNCMGRITEM_LASTUPDATETIME      =   0x0008, // Indicates lastUpdateTime Field is valid
+        SYNCMGRITEM_MAYDELETEITEM       =   0x0010, // Deprecated Option.
+        SYNCMGRITEM_HIDDEN              =   0x0020, // Suggests the Item should not be displayed by default
+    } SYNCMGRITEMFLAGS;
+    cpp_quote("#define SYNCMGRITEM_ITEMFLAGMASK  0x007F")
+
+    const USHORT MAX_SYNCMGRITEMNAME = 128;
+
+    typedef struct _tagSYNCMGRITEM {
+        DWORD       cbSize;
+        DWORD       dwFlags;
+        GUID        ItemID;
+        DWORD       dwItemState;
+        HICON       hIcon;
+        WCHAR       wszItemName[MAX_SYNCMGRITEMNAME];
+        FILETIME    ftLastUpdate;
+    } SYNCMGRITEM, *LPSYNCMGRITEM;
+
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        SYNCMGRITEM *rgelt,
+        [out] ULONG *pceltFetched);
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] ISyncMgrEnumItems **ppenum);
+}
+
+
+[
+    object,
+    uuid(6295DF40-35EE-11d1-8707-00C04FD93327)  // IID_ISyncMgrSynchronize
+]
+interface ISyncMgrSynchronize : IUnknown
+{
+    typedef [unique] ISyncMgrSynchronize *LPSYNCMGROnSynchronize;
+
+    typedef [v1_enum] enum _tagSYNCMGRFLAG {      // flags for Synchronization Event
+        SYNCMGRFLAG_CONNECT             =       0x0001, // Sync was invoked by a network connect
+        SYNCMGRFLAG_PENDINGDISCONNECT   =       0x0002, // Sync was invoked by a pending network disconnect
+        SYNCMGRFLAG_MANUAL              =       0x0003, // Sync was invoked manually
+        SYNCMGRFLAG_IDLE                =       0x0004, // Sync was invoked by an idle event
+        SYNCMGRFLAG_INVOKE              =       0x0005, // Sync was programmatically invoked by handler
+        SYNCMGRFLAG_SCHEDULED           =       0x0006, // Sync was invoked by a scheduled update
+        SYNCMGRFLAG_EVENTMASK           =       0x00FF,
+
+        SYNCMGRFLAG_SETTINGS            =       0x0100, // Sync was invoked for configuration only
+        SYNCMGRFLAG_MAYBOTHERUSER       =       0x0200, // Interaction with the user is permitted
+    } SYNCMGRFLAG;
+
+    typedef [v1_enum] enum _tagSYNCMGRHANDLERFLAGS {    // flags that apply to this handler.
+        SYNCMGRHANDLER_HASPROPERTIES                = 0x0001, // have a properties dialog for this handler
+        SYNCMGRHANDLER_MAYESTABLISHCONNECTION       = 0x0002, // may call callback EstablishConnection method
+        SYNCMGRHANDLER_ALWAYSLISTHANDLER            = 0x0004, // Show Handler in Choice even if not items
+        SYNCMGRHANDLER_HIDDEN                       = 0x0008, // don't display handler (or item) in UI
+    } SYNCMGRHANDLERFLAGS;
+    cpp_quote("#define SYNCMGRHANDLERFLAG_MASK 0x000f")
+
+    const USHORT MAX_SYNCMGRHANDLERNAME = 32;
+
+    typedef struct _tagSYNCMGRHANDLERINFO {
+       DWORD    cbSize;
+       HICON    hIcon;
+       DWORD    SyncMgrHandlerFlags;
+       WCHAR    wszHandlerName[MAX_SYNCMGRHANDLERNAME];
+    } SYNCMGRHANDLERINFO, *LPSYNCMGRHANDLERINFO;
+
+    typedef [v1_enum] enum _tagSYNCMGRITEMSTATE {
+        SYNCMGRITEMSTATE_UNCHECKED      =   0x0000,
+        SYNCMGRITEMSTATE_CHECKED        =   0x0001,
+    } SYNCMGRITEMSTATE;
+
+    HRESULT Initialize(
+        [in] DWORD dwReserved,
+        [in] DWORD dwSyncMgrFlags,
+        [in] DWORD cbCookie,
+        [in, unique, size_is(cbCookie)] BYTE const*lpCookie);
+    HRESULT GetHandlerInfo([out] SYNCMGRHANDLERINFO **ppSyncMgrHandlerInfo);
+    HRESULT EnumSyncMgrItems([out] ISyncMgrEnumItems **ppSyncMgrEnumItems);
+    HRESULT GetItemObject([in] REFGUID ItemID, [in] REFIID riid, [out, iid_is(riid)] void** ppv);
+    //The method can have the follow interfaces requested.
+    // IID_IPropertyStore
+
+    HRESULT ShowProperties([in] HWND hWndParent, [in] REFGUID ItemID);
+    HRESULT SetProgressCallback([in,unique] ISyncMgrSynchronizeCallback *lpCallBack);
+    HRESULT PrepareForSync(
+        [in] ULONG cbNumItems,
+        [in, size_is(cbNumItems)] GUID* pItemIDs,
+        [in] HWND hWndParent,
+        [in] DWORD dwReserved);
+    HRESULT Synchronize([in] HWND hWndParent);
+    HRESULT SetItemStatus([in] REFGUID pItemID, [in] DWORD dwSyncMgrStatus);
+    HRESULT ShowError([in] HWND hWndParent, [in] REFGUID ErrorID);
+}
+
+
+
+
+[
+    object,
+    uuid(6295DF2C-35EE-11d1-8707-00C04FD93327), // IID_ISyncMgrSynchronizeInvoke
+    pointer_default(unique)
+]
+interface ISyncMgrSynchronizeInvoke : IUnknown
+{
+    typedef [unique] ISyncMgrSynchronizeInvoke *LPSYNCMGRSYNCHRONIZEINVOKE;
+
+    typedef [v1_enum] enum _tagSYNCMGRINVOKEFLAGS { // flags for how SyncMgr should be invoked.
+        SYNCMGRINVOKE_STARTSYNC         =   0x02,   // Immediately start the sync without displaying choices
+        SYNCMGRINVOKE_MINIMIZED         =   0x04,   // Dialog should be minimized by default
+    } SYNCMGRINVOKEFLAGS;
+
+    HRESULT UpdateItems([in] DWORD dwInvokeFlags, [in] REFCLSID clsid, [in] DWORD cbCookie, [in, unique, size_is(cbCookie)] const BYTE *pCookie);
+    HRESULT UpdateAll();
+}
+
+
+[
+    object,
+    uuid(6295DF42-35EE-11d1-8707-00C04FD93327), // IID_ISyncMgrRegister
+    pointer_default(unique)
+]
+interface ISyncMgrRegister : IUnknown
+{
+    typedef [unique] ISyncMgrRegister *LPSYNCMGRREGISTER;
+
+    typedef [v1_enum] enum _tagSYNCMGRREGISTERFLAGS {
+        SYNCMGRREGISTERFLAG_CONNECT             = 0x0001, // Register to receive Connect Events
+        SYNCMGRREGISTERFLAG_PENDINGDISCONNECT   = 0x0002, // Register to receive PendingDisconnect Events
+        SYNCMGRREGISTERFLAG_IDLE                = 0x0004, // Register to receive Idle Events
+    } SYNCMGRREGISTERFLAGS;
+    cpp_quote("#define SYNCMGRREGISTERFLAGS_MASK  0x07")
+
+    HRESULT RegisterSyncMgrHandler([in] REFCLSID clsidHandler, [in,unique] LPCWSTR pwszDescription, [in] DWORD dwSyncMgrRegisterFlags);
+    HRESULT UnregisterSyncMgrHandler([in] REFCLSID clsidHandler, [in] DWORD dwReserved);
+    HRESULT GetHandlerRegistrationInfo([in] REFCLSID clsidHandler, [in,out] LPDWORD pdwSyncMgrRegisterFlags);
+}
+
+
+[
+    uuid(6e586f48-379c-459c-9beb-624a7e8316eb), // LIBID_SyncObjects (not registered)
+    helpstring("Microsoft Legacy Sync Objects"),
+    lcid(0x0000),
+    version(1.0)
+]
+library SyncObjects
+{
+    [uuid(6295DF27-35EE-11d1-8707-00C04FD93327)] coclass SyncMgr { interface ISyncMgrSynchronizeInvoke; };
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

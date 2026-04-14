@@ -1,0 +1,1122 @@
+cpp_quote("#include <winapifamily.h>")
+
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+import "mfobjects.idl";
+import "mfidl.idl";
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#ifndef _MFVideoNormalizedRect_")
+cpp_quote("#define _MFVideoNormalizedRect_")
+typedef struct MFVideoNormalizedRect
+{
+    float left;
+    float top;
+    float right;
+    float bottom;
+} MFVideoNormalizedRect;
+cpp_quote("#endif")
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF_CAPTURE_ENGINE_DEVICE_TYPE Enumeration
+//
+/////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Defines a capture device type
+/// </summary>
+typedef enum MF_CAPTURE_ENGINE_DEVICE_TYPE
+{
+    /// <summary>
+    /// Audio device which is a microphone
+    /// </summary>
+    MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO = 0x00000000,
+    /// <summary>
+    /// Video device which is a webcam
+    /// </summary>
+    MF_CAPTURE_ENGINE_DEVICE_TYPE_VIDEO =  0x00000001
+}MF_CAPTURE_ENGINE_DEVICE_TYPE;
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF_CAPTURE_ENGINE_SINK_TYPE Enumeration
+//
+/////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Defines the capture sink type
+/// </summary>
+typedef enum MF_CAPTURE_ENGINE_SINK_TYPE
+{
+    /// <summary>
+    /// Record sink, used for outputting compressed data
+    /// </summary>
+    MF_CAPTURE_ENGINE_SINK_TYPE_RECORD  =  0x00000000,
+    /// <summary>
+    /// Record sink, used for outputting uncompressed data or rendering video
+    /// </summary>
+    MF_CAPTURE_ENGINE_SINK_TYPE_PREVIEW =  0x00000001,
+    /// <summary>
+    /// Photo sink, used for retrieving a single photograph
+    /// </summary>
+    MF_CAPTURE_ENGINE_SINK_TYPE_PHOTO   =  0x00000002
+}MF_CAPTURE_ENGINE_SINK_TYPE;
+
+
+enum
+{
+    MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW   = 0xFFFFFFFA,    //The preferred stream for previewing video
+    MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_RECORD   = 0xFFFFFFF9,    //The preferred stream for recording video
+    MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_PHOTO   = 0xFFFFFFF8,//The first independent photo stream if present, or else the same stream chosen by MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW 
+    MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_AUDIO   = 0xFFFFFFF7,//The first available audio stream
+#if(NTDDI_VERSION > NTDDI_WIN10_FE)
+    MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_METADATA = 0xFFFFFFF6,//The first available metadata stream
+#endif
+    MF_CAPTURE_ENGINE_MEDIASOURCE          = 0xFFFFFFFF,
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF_CAPTURE_ENGINE_STREAM_CATEGORY Enumeration
+//
+/////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Defines the source stream category
+/// </summary>
+typedef enum MF_CAPTURE_ENGINE_STREAM_CATEGORY
+{
+    /// <summary>
+    /// Video Preview stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_PREVIEW  =  0x00000000,
+    /// <summary>
+    /// Video Capture Stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_CAPTURE =  0x00000001,
+    /// <summary>
+    /// Independent photo stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_INDEPENDENT   =  0x00000002,
+    /// <summary>
+    /// Dependent photo stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_DEPENDENT   =  0x00000003,
+    /// <summary>
+    /// Audio stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_AUDIO   =  0x00000004,
+     /// <summary>
+    /// Unsupported stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_UNSUPPORTED   =  0x00000005,
+#if(NTDDI_VERSION > NTDDI_WIN10_FE)
+    /// <summary>
+    /// Video Metadata stream
+    /// </summary>
+    MF_CAPTURE_ENGINE_STREAM_CATEGORY_METADATA   =  0x00000006
+#endif
+}MF_CAPTURE_ENGINE_STREAM_CATEGORY;
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE Enumeration
+//
+/////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Defines the media capture categories.
+/// </summary>
+typedef enum MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE
+{
+    /// <summary>
+    /// Default capture category
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_OTHER = 0,
+    /// <summary>
+    /// Communications capture category
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_COMMUNICATIONS = 1,
+    /// <summary>
+    /// General media capture category
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_MEDIA = 2,
+    /// <summary>
+    /// Game Chat capture category
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_GAMECHAT = 3,
+    /// <summary>
+    /// Speech capture category
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_SPEECH = 4,
+#if NTDDI_VERSION >= NTDDI_WIN10_FE
+    /// <summary>
+    /// Capture Audio located in the 'far field' for the purpose of speech recognition
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_FARFIELDSPEECH = 5,
+    /// <summary>
+    /// Consistent speech processing for the captured Audio. Used for Machine Learning
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_UNIFORMSPEECH = 6,
+    /// <summary>
+    /// Capture Audio with the intent of enabling dictation or typing by voice
+    /// </summary>
+    MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_VOICETYPING = 7,
+#endif 
+}MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE;
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE Enumeration
+//
+/////////////////////////////////////////////////////////////////////////////
+/// <summary>
+/// Defines the capture audio processing mode.
+/// </summary>
+typedef enum MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE
+{
+    /// <summary>
+    /// Normal audio signal processing.
+    /// </summary>
+    MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT = 0,
+    /// <summary>
+    /// Minimal audio signal processing.
+    /// </summary>
+    MF_CAPTURE_ENGINE_AUDIO_PROCESSING_RAW = 1,
+}MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// GUIDs to go with IMFCaptureEngineOnEventCallback. These are extended types on IMFMediaEvent
+//
+///////////////////////////////////////////////////////////////////////////////
+// 219992bc-cf92-4531-a1ae-96e1e886c8f1
+// MF_CAPTURE_ENGINE_INITIALIZED
+// Signals capture engine was initialized in response to IMFCaptureEngine::Initialize
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_INITIALIZED, 0x219992bc, 0xcf92, 0x4531, 0xa1, 0xae, 0x96, 0xe1, 0xe8, 0x86, 0xc8, 0xf1 );" )
+
+// a416df21-f9d3-4a74-991b-b817298952c4
+// MF_CAPTURE_ENGINE_PREVIEW_STARTED
+// Signals capture engine preview started in response to IMFCaptureEngine::StartPreview
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_PREVIEW_STARTED, 0xa416df21, 0xf9d3, 0x4a74, 0x99, 0x1b, 0xb8, 0x17, 0x29, 0x89, 0x52, 0xc4 );" )
+
+// 13d5143c-1edd-4e50-a2ef-350a47678060
+// MF_CAPTURE_ENGINE_PREVIEW_STOPPED
+// Signals capture engine preview stopped in response to IMFCaptureEngine::StopPreview
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_PREVIEW_STOPPED, 0x13d5143c, 0x1edd, 0x4e50,0xa2, 0xef, 0x35, 0x0a, 0x47, 0x67, 0x80, 0x60 );" )
+
+// ac2b027b-ddf9-48a0-89be-38ab35ef45c0
+// MF_CAPTURE_ENGINE_RECORD_STARTED
+// Signals capture engine record started in response to IMFCaptureEngine::StartRecord
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_RECORD_STARTED, 0xac2b027b, 0xddf9, 0x48a0,0x89, 0xbe, 0x38, 0xab, 0x35, 0xef, 0x45, 0xc0 );" )
+
+// 55e5200a-f98f-4c0d-a9ec-9eb25ed3d773
+// MF_CAPTURE_ENGINE_RECORD_STOPPED
+// Signals capture engine record stopped in response to IMFCaptureEngine::StopRecord
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_RECORD_STOPPED, 0x55e5200a, 0xf98f, 0x4c0d, 0xa9, 0xec, 0x9e, 0xb2, 0x5e, 0xd3, 0xd7, 0x73 );" )
+
+// 3c50c445-7304-48eb-865d-bba19ba3af5c
+// MF_CAPTURE_ENGINE_PHOTO_TAKEN
+// Signals a photo was taken by capture engine in response to IMFCaptureEngine::TakePhoto
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_PHOTO_TAKEN, 0x3c50c445, 0x7304, 0x48eb,0x86, 0x5d, 0xbb, 0xa1, 0x9b, 0xa3, 0xaf, 0x5c );" )
+
+// e7e75e4c-039c-4410-815b-8741307b63aa
+// MF_CAPTURE_SOURCE_CURRENT_DEVICE_MEDIA_TYPE_SET
+// Signals capture engine succeeded in configuring the device set by the user in IMFCaptureSource::SetCurrentDeviceMediaType
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_SOURCE_CURRENT_DEVICE_MEDIA_TYPE_SET, 0xe7e75e4c, 0x039c, 0x4410, 0x81, 0x5b, 0x87, 0x41, 0x30, 0x7b, 0x63, 0xaa );" )
+
+// 46b89fc6-33cc-4399-9dad-784de77d587c
+// MF_CAPTURE_ENGINE_ERROR
+// Signals an error in capture engine
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_ERROR, 0x46b89fc6, 0x33cc, 0x4399,0x9d, 0xad, 0x78, 0x4d, 0xe7, 0x7d, 0x58, 0x7c );" )
+
+// AA8DC7B5-A048-4e13-8EBE-F23C46C830C1
+// MF_CAPTURE_ENGINE_EFFECT_ADDED
+// Signals an error in capture engine
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_EFFECT_ADDED, 0xaa8dc7b5, 0xa048, 0x4e13, 0x8e, 0xbe, 0xf2, 0x3c, 0x46, 0xc8, 0x30, 0xc1 );" )
+
+// C6E8DB07-FB09-4a48-89C6-BF92A04222C9
+// MF_CAPTURE_ENGINE_EFFECT_REMOVED
+// Signals an error in capture engine
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_EFFECT_REMOVED, 0xc6e8db07, 0xfb09, 0x4a48, 0x89, 0xc6, 0xbf, 0x92, 0xa0, 0x42, 0x22, 0xc9);" )
+
+// FDED7521-8ED8-431a-A96B-F3E2565E981C
+// MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED
+// Signals an error in capture engine
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED, 0xfded7521, 0x8ed8, 0x431a, 0xa9, 0x6b, 0xf3, 0xe2, 0x56, 0x5e, 0x98, 0x1c);" )
+
+
+// 7BFCE257-12B1-4409-8C34-D445DAAB7578
+// MF_CAPTURE_SINK_PREPARED
+// Signals that the capture sink is prepared to accept GetService calls
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_SINK_PREPARED, 0x7BFCE257, 0x12B1, 0x4409, 0x8C, 0x34, 0xD4, 0x45, 0xDA, 0xAB, 0x75, 0x78);" )
+
+// caaad994-83ec-45e9-a30a-1f20aadb9831
+// MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET
+// Signals that the output type has been set on captureengine in response to IMFCaptureSink2::SetOutputType
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET, 0xcaaad994, 0x83ec, 0x45e9,0xa3, 0x0a, 0x1f, 0x20, 0xaa, 0xdb, 0x98, 0x31);")
+
+// MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED
+// Signals that video capture is being blocked by the driver.
+cpp_quote("EXTERN_GUID(MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED, 0xA4209417, 0x8D39, 0x46F3, 0xB7, 0x59, 0x59, 0x12, 0x52, 0x8F, 0x42, 0x07);")
+
+// MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED
+// Signals that video capture is restored after being blocked.
+cpp_quote("EXTERN_GUID(MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED, 0x9BE9EEF0, 0xCDAF, 0x4717, 0x85, 0x64, 0x83, 0x4A, 0xAE, 0x66, 0x41, 0x5C);")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Capture Engine Attributes
+//
+///////////////////////////////////////////////////////////////////////////////
+// MF_CAPTURE_ENGINE_D3D_MANAGER
+// Data type: IUnknown
+// This attribute enables video sample allocation using DX11 surfaces,
+// and enables hardware acceleration within the Source Reader.
+// This should be set to the IUnknown interface of an
+// object that implements the IDirect3DDeviceManager11 interface.
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_D3D_MANAGER, 0x76e25e7b, 0xd595, 0x4283, 0x96, 0x2c, 0xc5, 0x94, 0xaf, 0xd7, 0x8d, 0xdf);" )
+
+// MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES
+// Data type: UINT32
+// This attribute dictates the maximum number of unprocessed samples that can be buffered for processing in the record sink video path.
+// Once the record has buffered MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES number of unprocessed samples, it drops the frame rate by dropping samples
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES, 0xb467f705, 0x7913, 0x4894, 0x9d, 0x42, 0xa2, 0x15, 0xfe, 0xa2, 0x3d, 0xa9);" )
+
+// MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES
+// Data type: UINT32
+// This attribute dictates the maximum number of unprocessed samples that can be buffered for processing in the record sink audio path.
+// Once the record has buffered MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES number of unprocessed samples, it drops the frame rate by dropping samples
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES, 0x1cddb141, 0xa7f4, 0x4d58, 0x98, 0x96, 0x4d, 0x15, 0xa5, 0x3c, 0x4e, 0xfe);" )
+
+// MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_PROCESSED_SAMPLES
+// Data type: UINT32
+// This attribute dictates the maximum number of processed samples that can be buffered in the record sink video path.
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_PROCESSED_SAMPLES, 0xe7b4a49e, 0x382c, 0x4aef, 0xa9, 0x46, 0xae, 0xd5, 0x49, 0xb, 0x71, 0x11);" )
+
+// MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_PROCESSED_SAMPLES
+// Data type: UINT32
+// This attribute dictates the maximum number of processed samples that can be buffered in the record sink audio path.
+// {9896E12A-F707-4500-B6BD-DB8EB810B50F}
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_PROCESSED_SAMPLES, 0x9896e12a, 0xf707, 0x4500, 0xb6, 0xbd, 0xdb, 0x8e, 0xb8, 0x10, 0xb5, 0xf);" )
+
+// {1C8077DA-8466-4dc4-8B8E-276B3F85923B}
+// MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY
+// Data type: UINT32
+// Set this attribute for Capture Engine to use the devices accordingly
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY, 0x1c8077da, 0x8466, 0x4dc4, 0x8b, 0x8e, 0x27, 0x6b, 0x3f, 0x85, 0x92, 0x3b);" )
+
+// {7E025171-CF32-4f2e-8F19-410577B73A66}
+// MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY
+// Data type: UINT32
+// Set this attribute for Capture Engine to use the devices accordingly
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY, 0x7e025171, 0xcf32, 0x4f2e, 0x8f, 0x19, 0x41, 0x5, 0x77, 0xb7, 0x3a, 0x66);" )
+
+// {b7c42a6b-3207-4495-b4e7-81f9c35d5991}
+// MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS
+// Data type: UINT32
+// Set this attribute for capture engine to enable source reader and sink writer hardware transforms
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS, 0xb7c42a6b, 0x3207,  0x4495, 0xb4, 0xe7, 0x81, 0xf9, 0xc3, 0x5d, 0x59, 0x91);")
+
+// {f9818862-179d-433f-a32f-74cbcf74466d}
+// MF_CAPTURE_ENGINE_DISABLE_DXVA
+// Data type: UINT32
+// Set this attribute for capture engine to disable DXVA 
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_DISABLE_DXVA, 0xf9818862,  0x179d, 0x433f, 0xa3, 0x2f, 0x74, 0xcb, 0xcf, 0x74, 0x46, 0x6d);")
+
+// {bc6989d2-0fc1-46e1-a74f-efd36bc788de}
+// MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG
+// Data type: IPropertyStore* stored as IUnknown*
+// Set this attribute for capture engine to configure the media source
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG, 0xbc6989d2, 0x0fc1, 0x46e1, 0xa7, 0x4f, 0xef, 0xd3, 0x6b, 0xc7, 0x88, 0xde);")
+
+// {2b8ad2e8-7acb-4321-a606-325c4249f4fc}
+// MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute
+// Data type:  IMFFieldOfUseMFTUnlock* stored as IUnknown*
+// This attribute is used to unlock decoder MFTs with field of use restrictions
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute, 0x2b8ad2e8, 0x7acb, 0x4321, 0xa6, 0x06, 0x32, 0x5c, 0x42, 0x49, 0xf4, 0xfc);")
+
+// {54c63a00-78d5-422f-aa3e-5e99ac649269}
+// MF_CAPTURE_ENGINE_ENCODER_MFT_FIELDOFUSE_UNLOCK_Attribute
+// Data type:  IMFFieldOfUseMFTUnlock* stored as IUnknown*
+// This attribute is used to unlock encoder MFTs with field of use restrictions
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_ENCODER_MFT_FIELDOFUSE_UNLOCK_Attribute, 0x54c63a00, 0x78d5, 0x422f, 0xaa, 0x3e, 0x5e, 0x99, 0xac, 0x64, 0x92, 0x69);")
+
+// {4C808E9D-AAED-4713-90FB-CB24064AB8DA}
+// MF_CAPTURE_ENGINE_ENABLE_CAMERA_STREAMSTATE_NOTIFICATION
+// Data type:  UINT32 - 0/not present - do not eanble notification.  Non-zero, enable notification.
+// Indicates whether stream state notification should be enabled or not.
+cpp_quote("EXTERN_GUID(MF_CAPTURE_ENGINE_ENABLE_CAMERA_STREAMSTATE_NOTIFICATION, 0x4C808E9D, 0xAAED, 0x4713, 0x90, 0xFB, 0xCB, 0x24, 0x06, 0x4A, 0xB8, 0xDA);")    
+
+// {8e3f5bd5-dbbf-42f0-8542-d07a3971762a}
+// MF_CAPTURE_ENGINE_MEDIA_CATEGORY
+// Data type:  UINT32 - values come from the MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE enumeration.
+// Attribute that dictates the media capture category used by the capture engine.
+cpp_quote("EXTERN_GUID(MF_CAPTURE_ENGINE_MEDIA_CATEGORY, 0x8e3f5bd5, 0xdbbf, 0x42f0, 0x85, 0x42, 0xd0, 0x7a, 0x39, 0x71, 0x76, 0x2a);")
+
+// {10f1be5e-7e11-410b-973d-f4b6109000fe}
+// MF_CAPTURE_ENGINE_AUDIO_PROCESSING
+// Data type:  UINT32 - values come from the MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE enumeration.
+// Attribute that defines the audio processing mode to be used during capture.
+cpp_quote("EXTERN_GUID(MF_CAPTURE_ENGINE_AUDIO_PROCESSING, 0x10f1be5e, 0x7e11, 0x410b, 0x97, 0x3d, 0xf4, 0xb6, 0x10, 0x90, 0x0, 0xfe);")
+
+    
+///////////////////////////////////////////////////////////////////////////////
+//
+// Capture Engine Event Attributes
+//
+///////////////////////////////////////////////////////////////////////////////
+// MF_CAPTURE_ENGINE_EVENT_GENERATOR_GUID
+// Data type: GUID
+// This attribute provids information about which capture engine component generated the event
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_EVENT_GENERATOR_GUID, 0xabfa8ad5, 0xfc6d, 0x4911, 0x87, 0xe0, 0x96, 0x19, 0x45, 0xf8, 0xf7, 0xce);" )
+
+// MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX
+// Data type: DWORD
+// This attribute provids information about the component stream index with which the event is associated
+cpp_quote( "EXTERN_GUID( MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX, 0x82697f44, 0xb1cf, 0x42eb, 0x97, 0x53, 0xf8, 0x6d, 0x64, 0x9c, 0x88, 0x65);" )
+
+// {03160B7E-1C6F-4DB2-AD56-A7C430F82392}
+// MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE
+// Data Type:  GUID.  
+// The GUID represents the GUID of the selected profile ID.  If this attribute is not set,
+// CaptureEngine will internally use the KSCAMERAPROFILE_Legacy.  If this attribute is set to
+// GUID_NULL, it will inform the camera driver that the application is profile aware and should
+// provide the full range of media types.
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE, 0x03160B7E, 0x1C6F, 0x4DB2, 0xAD, 0x56, 0xA7, 0xC4, 0x30, 0xF8, 0x23, 0x92);")
+
+// {3CE88613-2214-46C3-B417-82F8A313C9C3}
+// MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX
+// Data Type:  UINT32.  
+// The UINT32 representing the index of the profile.  If this index is not present, the selected
+// profile index is assumed to be 0.
+cpp_quote( "EXTERN_GUID(MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX, 0x3CE88613, 0x2214, 0x46C3, 0xB4, 0x17, 0x82, 0xF8, 0xA3, 0x13, 0xC9, 0xC3);")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCaptureEngineOnEventCallback Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(aeda51c0-9025-4983-9012-de597b88b089),
+    local
+]
+/// <summary>
+/// This interface is used as the callback mechanism for the
+/// Capture Engine. The application
+/// passes in an instance of an object that implements this
+/// callback interface as a param to IMFCaptureEngine::Intialize
+/// </summary>
+interface IMFCaptureEngineOnEventCallback:IUnknown
+{
+    /// <summary>
+    /// Callback function that completes an asynchronous call on the capture engine
+    /// </summary>
+    /// <param name="IMFMediaEvent">
+    /// Pointer to IMFMediaEvent interface
+    /// </param>
+    HRESULT OnEvent( [in, annotation("_In_")] IMFMediaEvent* pEvent);
+};
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCaptureEngineOnSampleCallback Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(52150b82-ab39-4467-980f-e48bf0822ecd),
+    local
+]
+/// <summary>
+/// This interface is used as the callback mechanism for returning
+/// samples from the Capture Engine. The application
+/// passes in an instance of an object that implements this
+/// callback interface as an attribute by configuring one
+/// of the Capture Engine's sinks. This callback is used to
+/// return samples from a single stream
+/// </summary>
+interface IMFCaptureEngineOnSampleCallback: IUnknown //To send compressed/uncompressed samples back to app
+{
+    /// <summary>
+    /// Callback function that completes an asynchronous request for the
+    /// next available sample.
+    /// </summary>
+    /// <param name="pSample">
+    /// Contains the next sample for the stream. It is possible for
+    /// this parameter to be NULL, so the application should
+    /// explicitly check for NULL before dereferencing the sample.
+    /// </param>
+    HRESULT OnSample( [in, annotation("_In_opt_")] IMFSample* pSample);
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCaptureSink Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(72d6135b-35e9-412c-b926-fd5265f2a885),
+    helpstring("IMFCaptureSink Interface"),
+    local
+
+]
+/// <summary>
+/// This interface is used to configure a sink
+/// within the Capture Engine. The app obtains a
+/// pointer to this interface using IMFCaptureEngine::GetSink
+/// </summary>
+interface IMFCaptureSink: IUnknown
+{
+    /// <summary>
+    /// Method to get the current output media type on the sink
+    /// </summary>
+    /// <param name="ppMediaType">
+    /// Receives a pointer to the current output media type of the sink
+    /// </param>
+    HRESULT GetOutputMediaType( [in, annotation("_In_")] DWORD dwSinkStreamIndex, [out, annotation("_Out_opt_")] IMFMediaType **ppMediaType);
+
+    /// <summary>
+    /// Allows access to an interface from IMFCaptureSink
+    /// </summary>
+    /// <param name="dwSinkStreamIndex">
+    /// The zero based stream index of sink
+    /// </param>
+    /// <param name="rguid">
+    /// Specifies the service guid. Can be GUID_NULL.
+    /// </param>
+    /// <param name="riid">
+    /// Specifies the interface identifier
+    /// </param>     
+    /// <param name="ppUnknown">
+    /// Receives a pointer to the interface requested
+    /// </param>
+    HRESULT GetService(  [in, annotation("_In_")] DWORD dwSinkStreamIndex,  [in, annotation("_In_")] REFGUID rguidService,  [in, annotation("_In_")] REFIID riid, [out, annotation("_Out_opt_")] IUnknown **ppUnknown);
+
+    /// <summary>
+    /// Allows application to choose which source read stream is used as input into this sink
+    /// </summary>   
+    /// <param name="dwSourceStreamIndex">
+    /// The zero based source stream index
+    /// </param>
+    /// <param name="pMediaType">
+    /// Desired output media type 
+    /// </param>
+    /// <param name="pAttributes">
+    /// A pointer to the IMFAttributes interface of an attribute store
+    /// </param>
+    /// <param name="pdwSinkStreamIndex">
+    /// Sink stream index
+    /// </param>    
+    HRESULT AddStream( [in, annotation("_In_")] DWORD dwSourceStreamIndex, [in,  annotation("_In_")] IMFMediaType *pMediaType, [in, annotation("_In_opt_")]  IMFAttributes *pAttributes, [out, annotation("_Out_opt_")] DWORD *pdwSinkStreamIndex );
+
+
+    /// <summary>
+    /// Prepares the sink. At this time the topology of the sink is built, after which GetService can be used to configure individual components
+    /// </summary>   
+    /// <remarks>
+    /// This method is optional and only required if the user wants to configure the encoder, XVP etc before actually calling StartPreview/StartRecord/TakePhoto
+    /// </remarks>
+    HRESULT Prepare();
+
+    /// <summary>
+    /// Allows application to remove all streams
+    /// </summary>   
+    HRESULT RemoveAllStreams();
+
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCaptureRecordSink Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(3323b55a-f92a-4fe2-8edc-e9bfc0634d77),
+    helpstring("IMFCaptureRecordSink Interface"),
+    local
+]
+/// <summary>
+/// This interface is used to set the output of the record sink
+/// The output can be set to a file, a bytestream or a callback
+/// </summary>
+interface IMFCaptureRecordSink: IMFCaptureSink
+{
+    /// <summary>
+    /// Allows an app to the set output of the record sink to an IMFBytestream
+    /// </summary>
+    /// <param name = "pByteStream">
+    /// Pointer to an IMFByestream
+    /// </param>
+    /// <param name = "guidContainerType">
+    /// Container type GUID
+    /// </param>
+    HRESULT SetOutputByteStream([in, annotation("_In_")] IMFByteStream *pByteStream, [in, annotation("_In_")] REFGUID guidContainerType );
+
+    /// <summary>
+    /// Allows an app to the set output file name to store a muxed stream
+    /// </summary>
+    /// <param name = "fileName">
+    /// File name for storing output
+    /// </param>
+    HRESULT SetOutputFileName([in, annotation("_In_")] LPCWSTR fileName);
+
+    /// <summary>
+    /// Allows an app to retrieve samples via a callback
+    /// </summary>   
+    /// <param name="dwSinkStreamIndex">
+    /// The zero based stream index for sink
+    /// </param>
+    /// <param name="pCallback">
+    /// Pointer to IMFCaptureEngineOnSamplecallback interface
+    /// </param>
+    HRESULT SetSampleCallback([in, annotation("_In_")] DWORD dwStreamSinkIndex, [in, annotation("_In_")]IMFCaptureEngineOnSampleCallback *pCallback);
+
+    /// <summary>
+    /// Allows an app to set a custom sink for the record path
+    /// </summary>   
+    /// </param>
+    /// <param name="pMediaSink">
+    /// Pointer to IUnknown(IMFMediaSink) interface
+    /// </param>
+    HRESULT SetCustomSink([in, annotation("_In_")] IMFMediaSink *pMediaSink);
+
+    /// <summary>
+    /// Allows the application to get the current rotation value on the video stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    /// Index of the stream to query.  Must be a video stream.
+    /// </param>
+    /// <param name="pdwRotationValue">
+    /// The degree by which the video is rotated.  Valid values are 0, 90, 180, or 270.
+    /// </param>
+    HRESULT GetRotation([in, annotation("_In_")] DWORD dwStreamIndex, [out, annotation("_Out_")] DWORD* pdwRotationValue);
+
+    /// <summary>
+    /// Allows the application to rotate the preview video stream 0, 90, 180 or 270 degrees.
+    /// 0 degrees restores the video to non-rotated state.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    /// Index of the stream to rotate.  Must be a video stream.
+    /// </param>
+    /// <param name="dwRotationValue">
+    /// The degree by which the video is rotated.  Valid values are 0, 90, 180, or 270.
+    /// </param>
+    HRESULT SetRotation([in, annotation("_In_")] DWORD dwStreamIndex, [in, annotation("_In_")] DWORD dwRotationValue);
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCapturePreviewSink Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(77346cfd-5b49-4d73-ace0-5b52a859f2e0),
+    helpstring("IMFCapturePreviewSink Interface"),
+    local
+]
+/// <summary>
+/// This interface is used to set the output of the preview sink
+/// The output can be set a handle for rendering or a callback
+/// </summary>
+interface IMFCapturePreviewSink: IMFCaptureSink
+{
+    /// <summary>
+    /// Allows an app to render samples
+    /// </summary>
+    /// <param name="handle">
+    /// HWND
+    /// </param>
+    HRESULT SetRenderHandle([in, annotation("_In_")] HANDLE handle);
+
+    /// <summary>
+    /// Allows an app to render samples
+    /// </summary>
+    /// <param name="pSurface">
+    /// IUnknown(IDCompositionVisual)
+    /// </param>
+    HRESULT SetRenderSurface([in, annotation("_In_")] IUnknown* pSurface);
+
+    /// <summary>
+    /// Updates the video frame.
+    /// </summary>
+    /// <param name= "pSrc">
+    /// MFVideoNormalizedRect
+    /// </param>
+    /// <param name= "pDst">
+    /// RECT
+    /// </param>
+    /// <param name= "pBorderClr">
+    /// COLORREF
+    /// </param>
+    HRESULT UpdateVideo([in, annotation("_In_opt_")] const MFVideoNormalizedRect* pSrc,
+        [in, annotation("_In_opt_")] const RECT* pDst,
+        [in, annotation("_In_opt_")] const COLORREF* pBorderClr);
+
+    /// <summary>
+    /// Allows an app to retrieve samples via a callback
+    /// </summary>  
+    /// <param name="dwSinkStreamIndex">
+    /// The zero based stream index for sink
+    /// </param>
+    /// <param name="pCallback">
+    /// Pointer to IMFCaptureEngineOnSamplecallback interface
+    /// </param>
+    HRESULT SetSampleCallback( [in, annotation("_In_")] DWORD dwStreamSinkIndex, [in, annotation("_In_")] IMFCaptureEngineOnSampleCallback *pCallback);
+
+    /// <summary>
+    /// Method to query for the current preview output's mirroring state
+    /// </summary>
+    /// <param name="pfMirrorState">
+    /// Receives the boolean flag indicating the current mirror state (true=on, false=off).
+    /// </param>
+    HRESULT GetMirrorState([out, annotation("_Out_")]BOOL *pfMirrorState);
+
+    /// <summary>
+    /// Method to set the current preview output's mirroring state
+    /// </summary>
+    /// <param name="fMirrorState">
+    /// Boolean flag indicating the current mirror state (true=on, false=off).
+    /// </param>
+    HRESULT SetMirrorState([in, annotation("_In_")]BOOL fMirrorState);
+
+    /// <summary>
+    /// Allows the application to get the current rotation value on the video stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    /// Index of the stream to query.  Must be a video stream.
+    /// </param>
+    /// <param name="pdwRotationValue">
+    /// The degree by which the video is rotated.  Valid values are 0, 90, 180, or 270.
+    /// </param>
+    HRESULT GetRotation([in, annotation("_In_")] DWORD dwStreamIndex, [out, annotation("_Out_")] DWORD* pdwRotationValue);
+
+    /// <summary>
+    /// Allows the application to rotate the preview video stream 0, 90, 180 or 270 degrees.
+    /// 0 degrees restores the video to non-rotated state.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    /// Index of the stream to rotate.  Must be a video stream.
+    /// </param>
+    /// <param name="dwRotationValue">
+    /// The degree by which the video is rotated.  Valid values are 0, 90, 180, or 270.
+    /// </param>
+    HRESULT SetRotation([in, annotation("_In_")] DWORD dwStreamIndex, [in, annotation("_In_")] DWORD dwRotationValue);
+
+    /// <summary>
+    /// Allows an app to set a custom sink for the preview path
+    /// </summary>   
+    /// </param>
+    /// <param name="pMediaSink">
+    /// Pointer to IUnknown(IMFMediaSink) interface
+    /// </param>
+    HRESULT SetCustomSink([in, annotation("_In_")] IMFMediaSink *pMediaSink);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCapturePhotoSink Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(d2d43cc8-48bb-4aa7-95db-10c06977e777),
+    helpstring("IMFCapturePhotoSink Interface"),
+    local
+]
+/// <summary>
+/// This interface is used to set the output of the photo sink
+/// The output can be set to a file or a callback
+/// </summary>
+interface IMFCapturePhotoSink: IMFCaptureSink
+{
+    /// <summary>
+    /// Allows an app to the set output file name to store an image
+    /// </summary>
+    /// <param name = "fileName">
+    /// File name for storing output
+    /// </param>
+    HRESULT SetOutputFileName([in, annotation("_In_")] LPCWSTR fileName);
+
+    /// <summary>
+    /// Allows an app to retrieve a sample via a callback
+    /// </summary>
+    /// <param name="pCallback">
+    /// Pointer to IMFCaptureEngineOnSamplecallback interface
+    /// </param>
+    HRESULT SetSampleCallback([in, annotation("_In_")] IMFCaptureEngineOnSampleCallback *pCallback);
+
+    /// <summary>
+    /// Allows an app to the set output of the photo sink to an IMFBytestream
+    /// </summary>
+    /// <param name = "pByteStream">
+    /// Pointer to an IMFByestream
+    /// </param>
+    HRESULT SetOutputByteStream([in, annotation("_In_")] IMFByteStream *pByteStream);
+  
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCaptureSource Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(439a42a8-0d2c-4505-be83-f79b2a05d5c4),
+    helpstring("IMFCaptureSource Interface"),
+    local
+
+]
+/// <summary>
+/// This interface is used to configure the capture source which is a wrapper over the source reader
+/// </summary>
+interface IMFCaptureSource: IUnknown
+{
+    /// <summary>
+    /// Allows an app to get the current capture device's IMFMediaSource object pointer 
+    /// </summary>
+    /// <param name = "mfCaptureEngineDeviceType">
+    /// Device type from MF_CAPTURE_ENGINE_DEVICE_TYPE enumeration
+    /// </param>
+    /// <param name = "ppMediaSource">
+    /// Receives a pointer to IMFMediaSource that represents a device
+    /// </param>
+    HRESULT GetCaptureDeviceSource([in, annotation("_In_")] MF_CAPTURE_ENGINE_DEVICE_TYPE mfCaptureEngineDeviceType, [out, annotation("_Out_opt_")] IMFMediaSource **ppMediaSource);
+
+    /// <summary>
+    /// Allows an app to get the current capture device's IMFActivate object pointer
+    /// </summary>
+    /// <param name = "mfCaptureEngineDeviceType">
+    /// Device type from MF_CAPTURE_ENGINE_DEVICE_TYPE enumeration
+    /// </param>
+    /// <param name = "ppActivate">
+    /// Receives a pointer to IMFActivate that represents a device
+    /// </param>
+    HRESULT GetCaptureDeviceActivate([in, annotation("_In_")] MF_CAPTURE_ENGINE_DEVICE_TYPE mfCaptureEngineDeviceType, [out, annotation("_Out_opt_")] IMFActivate **ppActivate);
+
+    /// <summary>
+    /// Allows access to an interface from IMFCaptureSource
+    /// </summary>
+    /// <param name="rguid">
+    /// Specifies the service guid. Can be GUID_NULL.
+    /// </param>    
+    /// <param name="riid">
+    /// Specifies the interface identifier
+    /// </param>    
+    /// <param name="ppUnknown">
+    /// Receives a pointer to the interface requested
+    /// </param>
+    HRESULT GetService ( [in, annotation("_In_")] REFIID rguidService, [in, annotation("_In_")] REFIID riid, [out, annotation("_Out_opt_")] IUnknown **ppUnknown);
+
+    /// <summary>
+    /// Allows an app to add an effect to the device stream
+    /// </summary>  
+    /// <param name="dwSourceStreamIndex">
+    /// Zero based stream index of source
+    /// </param>
+    /// <param name="pUnknown">
+    /// Pointer to IUnknown, can be an IMFTransform or IMFActivate
+    /// </param>
+    HRESULT AddEffect( [in, annotation("_In_")] DWORD dwSourceStreamIndex, [in, annotation("_In_")] IUnknown *pUnknown);
+
+    /// <summary>
+    /// Allows an app to remove an effect to the device stream
+    /// </summary>
+    /// <param name="dwSourceStreamIndex">
+    /// Zero based stream index of source
+    /// </param>
+    /// <param name="pUnknown">
+    /// Pointer to IUnknown, can be an IMFTransform or IMFActivate
+    /// </param>
+    HRESULT RemoveEffect( [in, annotation("_In_")] DWORD dwSourceStreamIndex, [in, annotation("_In_")]IUnknown *pUnknown);
+
+    /// <summary>
+    /// Allows an app to remove all effects from to the device stream
+    /// </summary>  
+    /// <param name="dwSourceStreamIndex">
+    /// Zero based stream index of source
+    /// </param>
+    HRESULT RemoveAllEffects( [in, annotation("_In_")] DWORD dwSourceStreamIndex);
+
+    /// <summary>
+    /// Gets an available media type for a stream from the device
+    /// </summary>
+    /// <param name="dwSourceStreamIndex">
+    /// Zero based stream index of source
+    /// </param>
+    /// <param name="dwMediaTypeIndex">
+    /// Index of the media type to retrieve. Media types are indexed from zero.
+    /// </param>
+    /// <param name="ppMediaType">
+    /// Receives a pointer to IMFMediaType. App should release this.
+    /// </param>
+    HRESULT GetAvailableDeviceMediaType(  [in, annotation("_In_")] DWORD dwSourceStreamIndex, [in, annotation("_In_")] DWORD dwMediaTypeIndex, [out, annotation("_Out_opt_")] IMFMediaType **ppMediaType);
+
+    /// <summary>
+    /// Sets a media type for an stream from the device
+    /// </summary>  
+    /// <param name="dwSourceStreamIndex">
+    /// Zero based stream index of source
+    /// </param>
+    /// <param name="pMediaType">
+    /// Pointer to IMFMediaType.
+    /// </param>
+    HRESULT SetCurrentDeviceMediaType( [in, annotation("_In_")] DWORD dwSourceStreamIndex, [in, annotation("_In_")] IMFMediaType *pMediaType);
+
+    /// <summary>
+    /// Gets the currently set media type for a stream from the device
+    /// </summary>
+    /// <param name="dwSourceStreamIndex">
+    /// Zero based stream index of source
+    /// </param>
+    /// <param name="dwMediaTypeIndex">
+    /// Index of the media type to retrieve. Media types are indexed from zero.
+    /// </param>
+    /// <param name="ppMediaType">
+    /// Receives a pointer to IMFMediaType. App should release this.
+    /// </param>
+    HRESULT GetCurrentDeviceMediaType( [in, annotation("_In_")] DWORD dwSourceStreamIndex, [out, annotation("_Out_")] IMFMediaType **ppMediaType);
+
+    /// <summary>
+    /// Gets the number of streams that is available on the source (includes audio and video streams)
+    /// </summary>  
+    /// <param name="pdwStreamCount">
+    /// Receives the number of streams available
+    /// </param>
+    HRESULT GetDeviceStreamCount( [out, annotation("_Out_")] DWORD *pdwStreamCount);
+
+     /// <summary>
+    /// Gets the stream category for a given source stream index
+    /// </summary>  
+    /// <param name="dwSourceStreamIndex">
+    /// Source stream index
+    /// </param>
+    /// <param name="pStreamCategory">
+    /// Receives a value from the MF_CAPTURE_ENGINE_STREAM_CATEGORY enumeration
+    /// </param>
+    HRESULT GetDeviceStreamCategory( [in, annotation("_In_")] DWORD dwSourceStreamIndex, [out, annotation("_Out_")] MF_CAPTURE_ENGINE_STREAM_CATEGORY *pStreamCategory);
+
+    /// <summary>
+    /// Method to query for the current preview output's mirroring state
+    /// </summary>
+    /// <param name="pfMirrorState">
+    /// Receives the boolean flag indicating the current mirror state (true=on, false=off).
+    /// </param>
+    HRESULT GetMirrorState([in, annotation("_In_")] DWORD dwStreamIndex, [out, annotation("_Out_")]BOOL *pfMirrorState);
+
+    /// <summary>
+    /// Method to set the current preview output's mirroring state
+    /// </summary>
+    /// <param name="fMirrorState">
+    /// Boolean flag indicating the current mirror state (true=on, false=off).
+    /// </param>
+    HRESULT SetMirrorState([in, annotation("_In_")] DWORD dwStreamIndex, [in, annotation("_In_")]BOOL fMirrorState);
+
+    /// <summary>
+    /// Translates a friendly stream name to an actual device stream index
+    /// </summary>
+    /// <param name="uifriendlyName">
+    /// can be one of  MF_CAPTURE_ENGINE_FIRST_SOURCE_AUDIO_STREAM, MF_CAPTURE_ENGINE_FIRST_SOURCE_VIDEO_STREAM , MF_CAPTURE_ENGINE_FIRST_SOURCE_PHOTO_STREAM
+    /// MF_CAPTURE_ENGINE_PREFERRED_SOURCE_VIDEO_STREAM_FOR_RECORD, MF_CAPTURE_ENGINE_PREFERRED_SOURCE_VIDEO_STREAM_FOR_PREVIEW, MF_CAPTURE_ENGINE_FIRST_SOURCE_INDEPENDENT_PHOTO_STREAM
+    /// </param>
+    /// <param name="pdwActualStreamIndex>
+    /// Receives the value of the stream index that corresponds to the friendly name
+    /// </param>    
+    HRESULT GetStreamIndexFromFriendlyName([in, annotation("_In_")]UINT32 uifriendlyName, [out, annotation("_Out_")]DWORD *pdwActualStreamIndex);
+};
+
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFCaptureEngine
+// Data type: GUID
+// CLSID for creating CaptureEngine
+//
+// {efce38d3-8914-4674-a7df-ae1b3d654b8a}
+cpp_quote( "EXTERN_GUID(CLSID_MFCaptureEngine, 0xefce38d3, 0x8914, 0x4674,0xa7, 0xdf, 0xae, 0x1b, 0x3d, 0x65, 0x4b, 0x8a);" )
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFCaptureEngine Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(a6bba433-176b-48b2-b375-53aa03473207),
+    helpstring("IMFCaptureEngine Interface"),
+    local
+]
+/// <summary>
+/// This interface is used to control the Capture Engine
+/// </summary>
+interface IMFCaptureEngine: IUnknown
+{
+    /// <summary>
+    /// Initializes the the capture engine. App should listen for MF_CAPTURE_ENGINE_INITIALIZED via IMFCaptureEngineOnEventCallback
+    /// </summary>
+    /// <param name ="pEventCallback">
+    /// A pointer to IMFCaptureEngineOnEventCallback interface
+    /// </param>
+    /// <param name ="pAttributes">
+    /// A pointer to IMFAttributes interface
+    /// </param>
+    /// </param>
+    /// <param name ="pAudioSource">
+    /// A pointer to IMFMediaSource or IMFActivate interface that represents an audio device
+    /// </param>
+    /// </param>
+    /// <param name ="pVideoSource">
+    /// A pointer to IMFAttributes or IMFActivate interface that represetns a video device
+    /// </param>
+    HRESULT Initialize([in, annotation("_In_")] IMFCaptureEngineOnEventCallback* pEventCallback, [in, annotation("_In_opt_")] IMFAttributes *pAttributes, [in, annotation("_In_opt_")] IUnknown* pAudioSource, [in, annotation("_In_opt_")] IUnknown* pVideoSource);
+
+    /// <summary>
+    /// Asynchronous method to start preview. App should listen for MF_CAPTURE_ENGINE_PREVIEW_STARTED via IMFCaptureEngineOnEventCallback
+    /// </summary>
+    HRESULT StartPreview();
+
+    /// <summary>
+    /// Asynchronous method to stop preview. App should listen for MF_CAPTURE_ENGINE_PREVIEW_STOPPED via IMFCaptureEngineOnEventCallback
+    /// </summary>
+    HRESULT StopPreview ();
+
+    /// <summary>
+    /// Asynchronous method to start recording. App should listen for MF_CAPTURE_ENGINE_RECORD_STARTED via IMFCaptureEngineOnEventCallback
+    /// </summary>
+    HRESULT StartRecord();
+
+    /// <summary>
+    /// Asynchronous method to stop recording. App should listen for MF_CAPTURE_ENGINE_RECORD_STOPPED via IMFCaptureEngineOnEventCallback
+    /// </summary>
+    /// </param>
+    /// <param name="bFinalize">
+    /// Specifies if the output file should be finalized. If this is false then the output file wont be able to play back
+    /// </param>
+    /// <param name="bFlushUnprocessedSamples">
+    /// Specifies if the unprocessed samples waiting to be encoded should be flushed
+    /// </param>
+
+    HRESULT StopRecord([in, annotation("_In_")] BOOL bFinalize, [in, annotation("_In_")] BOOL bFlushUnprocessedSamples);
+
+    /// <summary>
+    /// Asynchronous method to take a photo. App should listen for MF_CAPTURE_ENGINE_PHOTO_TAKEN via IMFCaptureEngineOnEventCallback
+    /// </summary>
+    HRESULT TakePhoto ();
+
+    /// <summary>
+    /// Method to obtain access to an IMFCaptureSink
+    /// </summary>
+    /// <param name="mfCaptureEngineSinkType">
+    /// Specifies the capture sink type from the MF_CAPTURE_ENGINE_SINK_TYPE enumeration
+    /// </param>
+    /// <param name="ppSink">
+    /// Receives a pointer to IMFCaptureSink interface
+    /// </param>
+    HRESULT GetSink([in, annotation("_In_")]MF_CAPTURE_ENGINE_SINK_TYPE mfCaptureEngineSinkType, [out, annotation("_Out_")]IMFCaptureSink **ppSink);
+
+    /// <summary>
+    /// Method to obtain access to IMFCaptureSource
+    /// </summary>
+    /// <param name="ppSource">
+    /// Receives a pointer to IMFCaptureSource interface
+    /// </param>
+    HRESULT GetSource([out, annotation("_Out_")] IMFCaptureSource **ppSource);
+ 
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Class Factory for MF Capture Engine
+//
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFCaptureEngineClassFactory
+// Data type: GUID
+// CLSID for creating the MFCaptureEngine Class Factory. This object can be used to create initialized Capture Engine Objects
+// {efce38d3-8914-4674-a7df-ae1b3d654b8a }
+cpp_quote( "EXTERN_GUID(CLSID_MFCaptureEngineClassFactory, 0xefce38d3, 0x8914, 0x4674,0xa7, 0xdf, 0xae, 0x1b, 0x3d, 0x65, 0x4b, 0x8a);" )
+
+[
+    object,
+    uuid(8f02d140-56fc-4302-a705-3a97c78be779),
+    local
+]
+interface IMFCaptureEngineClassFactory : IUnknown
+{
+    HRESULT CreateInstance(
+                [in, annotation("_In_")] REFCLSID clsid,               
+                [in, annotation("_In_")] REFIID riid,
+                [out, iid_is(riid), annotation("_Out_")] LPVOID *ppvObject );
+    
+};
+
+//Attribute that indicates the original device timestamp on the sample, of type MFTTIME
+cpp_quote( "EXTERN_GUID(MFSampleExtension_DeviceReferenceSystemTime, 0x6523775a, 0xba2d, 0x405f,0xb2, 0xc5, 0x01, 0xff, 0x88, 0xe2, 0xe8, 0xf6);")
+
+///////////////////////////////////////////////////////////////////////////////
+// IMFCaptureEngineOnSampleCallback2Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(e37ceed7-340f-4514-9f4d-9c2ae026100b),
+    local
+]
+/// <summary>
+///     This interface is used to communicate format change events inband with sample callback
+/// </summary>
+interface IMFCaptureEngineOnSampleCallback2: IMFCaptureEngineOnSampleCallback 
+{
+    HRESULT OnSynchronizedEvent( [in, annotation("_In_")] IMFMediaEvent* pEvent);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// IMFCaptureSink2 Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(f9e4219e-6197-4b5e-b888-bee310ab2c59),
+    helpstring("IMFCaptureSink2 Interface"),
+    local
+]
+/// <summary>
+///     This interface is used to set the output of the record sink or preview sink after record or preview has started
+/// </summary>
+interface IMFCaptureSink2: IMFCaptureSink
+{
+     HRESULT SetOutputMediaType([in, annotation("_In_")] DWORD dwStreamIndex, [in, annotation("_In_")] IMFMediaType *pMediaType, [in, annotation("_In_opt_")] IMFAttributes *pEncodingAttributes);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+

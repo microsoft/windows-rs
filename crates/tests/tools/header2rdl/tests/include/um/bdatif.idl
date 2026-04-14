@@ -1,0 +1,736 @@
+//---------------------------------------------------------------------
+//
+//  Copyright (c) 1999-2002 Microsoft Corporation
+//
+//  BDATIF.idl
+//
+//---------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1999-2002.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#pragma warning(disable:4201)    /* Nameless struct/union */")
+cpp_quote("#endif")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+
+//---------------------------------------------------------------------
+// IUnknown import idl
+//---------------------------------------------------------------------
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "strmif.idl";
+import "tuner.idl";
+import "bdaiface.idl";
+import "dvbsiparser.idl";
+#endif
+
+
+interface IMPEG2_TIF_CONTROL;
+interface IMPEG2PIDMap;
+
+
+
+
+//******************************************************************************
+//
+//  IBDA_TIF_REGISTRATION interface
+//
+//  Implemented by the Microsoft ATSC/DVB BDA Network Provider
+//
+//      Used by a transport information filter (TIF) to Register with the NP 
+//	AND obtain an Interface to the Demux to set/ Remove PIDs.The TIF here passes 
+//      IUNKNOWN of the pin it is connecting to and obtains the IMPEG2PIDMAP interface
+//      implemented by the NP to Map/ UnMap pids.
+//
+
+[
+    object,
+    uuid(DFEF4A68-EE61-415f-9CCB-CD95F2F98A3A),
+    helpstring("BDA Network Provider Registration Inteface for DVB/ATSC Transport Information Filters"),
+    pointer_default(unique)
+]
+interface IBDA_TIF_REGISTRATION : IUnknown
+{
+
+    [helpstring("Used to register a transport analyzer with the Network Provider")]
+    HRESULT
+    RegisterTIFEx (
+        [in]  IPin *    pTIFInputPin,
+        [in, out] ULONG *   ppvRegistrationContext,
+        [in, out] IUnknown **    ppMpeg2DataControl
+        );
+
+    [helpstring("Used to unregister TIF with the Network Provider")]
+    HRESULT
+    UnregisterTIF (
+        [in] ULONG          pvRegistrationContext
+        );
+}
+
+
+//******************************************************************************
+//
+//  IMPEG2_TIF_CONTROL interface
+//
+//  Implemented by the Microsoft ATSC/DVB BDA Network Provider
+//
+//      Used by a transport information filter (TIF) to request table
+//      sections carried on specific PIDs within the transport stream.
+//      The Network Provider Filter will, in turn, do the necessary
+//      control on the Demux Filter. All sections are delivered as comlete
+//      mpeg2 table sections via the TIF's connection to the Demux Filter.
+//
+[
+    object,
+    uuid(F9BAC2F9-4149-4916-B2EF-FAA202326862),
+    helpstring("BDA Network Provider Inteface for DVB/ATSC Transport Information Filters"),
+    pointer_default(unique)
+]
+interface IMPEG2_TIF_CONTROL : IUnknown
+{
+
+    [helpstring("Used to register a transport analyzer with the Network Provider")]
+    HRESULT
+    RegisterTIF (
+        [in]  IUnknown *    pUnkTIF,
+        [in, out] ULONG *   ppvRegistrationContext
+	);
+
+    [helpstring("Used to unregister TIF with the Network Provider")]
+    HRESULT
+    UnregisterTIF (
+        [in] ULONG          pvRegistrationContext
+        );
+
+    [helpstring("Used to add PSI/SI MPEG2 packet IDs to the TIF's data stream")]
+    HRESULT
+    AddPIDs (
+        [in] ULONG      ulcPIDs,
+        [in] ULONG *    pulPIDs
+        );
+
+    [helpstring("Used to remove PSI/SI MPEG2 packet IDs from the TIF's data stream")]
+    HRESULT
+    DeletePIDs (
+        [in] ULONG      ulcPIDs,
+        [in] ULONG *    pulPIDs
+        );
+
+    [helpstring("Returns the number of MPEG2 Packet IDs being filtered into the TIF's input data.")]
+    HRESULT
+    GetPIDCount (
+        [out] ULONG *   pulcPIDs
+        );
+
+    [helpstring("Returns the the list of MPEG2 Packet IDs being filtered into the TIF's input data.")]
+    HRESULT
+    GetPIDs (
+        [out] ULONG *   pulcPIDs,
+        [out] ULONG *   pulPIDs
+        );
+
+}
+
+
+//******************************************************************************
+//
+//  ITuneRequestInfo interface
+//
+//  Implemented by a BDA transport information filter (TIF)
+//
+//      Used by the BDA Network Provider to obtain network specific
+//      information about locating transport streams and aquiring
+//      services.
+//
+//
+//      GetLocatorData -
+//
+//      GetComponentData -
+//
+//      CreateComponentList -
+//
+//      GetNextService -
+//
+//      GetPreviouService -
+//
+//      GetNextLocator -
+//
+//      GetPreviousLocator -
+//
+[
+    object,
+    uuid(A3B152DF-7A90-4218-AC54-9830BEE8C0B6),
+    helpstring("Interface provided by the Mpeg2 Transport Information Filter to supply tuning details."),
+    pointer_default(unique)
+]
+interface ITuneRequestInfo : IUnknown
+{
+
+    [helpstring("TIF fills in channel/program locator information for the given tune request.")]
+    HRESULT
+    GetLocatorData (
+        [in]  ITuneRequest *Request
+        );
+
+    [helpstring("TIF fills in all network specific component data for the existing component list on the given tune request.")]
+    HRESULT
+    GetComponentData (
+        [in]  ITuneRequest *CurrentRequest
+        );
+
+    [helpstring("TIF creates a complete component list and fills in all network specific component data on the given tune request")]
+    HRESULT
+    CreateComponentList (
+        [in]  ITuneRequest *CurrentRequest
+        );
+
+    [helpstring("TIF creates a new TuneRequest with channel/program locator information for the next service.")]
+    HRESULT
+    GetNextProgram (
+        [in]  ITuneRequest *CurrentRequest,
+        [out, retval] ITuneRequest **TuneRequest
+        );
+
+    [helpstring("TIF creates a new TuneRequest with channel/program locator information for the previous service.")]
+    HRESULT
+    GetPreviousProgram (
+        [in]  ITuneRequest *CurrentRequest,
+        [out, retval] ITuneRequest **TuneRequest
+        );
+
+    [helpstring("TIF creates a new TuneRequest with locator information for the next transport stream.")]
+    HRESULT
+    GetNextLocator (
+        [in]  ITuneRequest *CurrentRequest,
+        [out, retval] ITuneRequest **TuneRequest
+        );
+
+    [helpstring("TIF creates a new TuneRequest with locator information for the previous transport stream.")]
+    HRESULT
+    GetPreviousLocator (
+        [in]  ITuneRequest *CurrentRequest,
+        [out, retval] ITuneRequest **TuneRequest
+        );
+}
+
+[
+    object,
+    uuid(EE957C52-B0D0-4e78-8DD1-B87A08BFD893),
+    helpstring("Interface provided by the Mpeg2 Transport Information Filter to supply tuning details."),
+    pointer_default(unique)
+]
+interface ITuneRequestInfoEx : ITuneRequestInfo
+{
+    [helpstring("TIF creates a complete component list and fills in all network specific component data on the given tune request")]
+    HRESULT
+    CreateComponentListEx (
+        [in]  ITuneRequest *CurrentRequest,
+        [out] IUnknown **ppCurPMT
+        );
+}
+
+//******************************************************************************
+//
+// ISIInbandEPGEvent
+//
+[
+    object,
+    uuid(7E47913A-5A89-423d-9A2B-E15168858934),
+    helpstring("Consumers of EIT data events must implement this callback interface."),
+    pointer_default(unique)
+]
+interface ISIInbandEPGEvent : IUnknown
+{
+    HRESULT SIObjectEvent([in] IDVB_EIT2* pIDVB_EIT, [in]DWORD dwTable_ID, [in]DWORD dwService_ID );
+}
+
+//******************************************************************************
+//
+// ISIInbandEPG
+//
+[
+    object,
+    uuid(F90AD9D0-B854-4b68-9CC1-B2CC96119D85),
+    helpstring("ISIInbandEPG"),
+    pointer_default(unique)
+]
+interface ISIInbandEPG : IUnknown
+{
+    HRESULT StartSIEPGScan();
+	HRESULT StopSIEPGScan();
+	HRESULT IsSIEPGScanRunning([out, retval] BOOL *bRunning);
+}
+
+//******************************************************************************
+//
+//  IGuideDataEvent
+//
+//  This is the guide data event notification callback interface.  The
+//  callback interface is registered on a transport analyzer's
+//  IConnectionPoint by the event consumer.
+//
+//  The event consumer MUST NOT BLOCK THE CALLING THREAD.
+//
+//  If the consumer requires additional information about the event, it
+//  should queue the event to a separate thread.    
+//
+// {EFDA0C80-F395-42c3-9B3C-56B37DEC7BB7}
+//
+[
+    object,
+    uuid(EFDA0C80-F395-42c3-9B3C-56B37DEC7BB7),
+    helpstring("Consumers of a guide data events must implement this callback interface."),
+    pointer_default(unique)
+]
+interface IGuideDataEvent : IUnknown
+{
+    //  Indicates that a complete set of guide data has been acquire from
+    //  the current transport stream.
+    //
+    //  MANDATORY - If a transport analyzer supports IGuideDataEvent then
+    //              it must supply this event.
+    //
+    HRESULT GuideDataAcquired(
+        );
+        
+    //  Indicates that information about one or more programs changed.
+    //
+    //  If varProgramDescriptionID is NULL then the consumer
+    //  must get properties for all programs to determine which ones
+    //  changed.
+    //
+    //  MANDATORY - If a transport analyzer supports IGuideDataEvent then
+    //              it must supply this event.
+    //
+    HRESULT ProgramChanged(
+        [in] VARIANT    varProgramDescriptionID
+        );
+        
+    //  Indicates that information about one or more services changed.
+    //
+    //  If varServiceDescriptionID is NULL then the consumer
+    //  must get properties for all services to determine which ones
+    //  changed.
+    //
+    //  MANDATORY - If a transport analyzer supports IGuideDataEvent then
+    //              it must supply this event.
+    //
+    HRESULT ServiceChanged(
+        [in] VARIANT    varServiceDescriptionID
+        );
+        
+    //  Indicates that information about one or more schedule entries
+    //  changed.
+    //
+    //  If varScheduleEntryDescriptionID is NULL then the consumer
+    //  must get properties for all schedule entries to determine which ones
+    //  changed.
+    //
+    //  MANDATORY - If a transport analyzer supports IGuideDataEvent then
+    //              it must supply this event.
+    //
+    HRESULT ScheduleEntryChanged(
+        [in] VARIANT    varScheduleEntryDescriptionID
+        );
+        
+    //  Indicates that the program with the given Description.ID
+    //  has been deleted.
+    //  
+    //
+    //  Optional - Transport analyzer may supply this event.  Consumer
+    //             may return E_NOTIMPL.   
+    //
+    HRESULT ProgramDeleted(
+        [in] VARIANT    varProgramDescriptionID
+        );
+        
+    //  Indicates that the service with the given Description.ID
+    //  has been deleted.
+    //  
+    //
+    //  Optional - Transport analyzer may supply this event.  Consumer
+    //             may return E_NOTIMPL.   
+    //
+    HRESULT ServiceDeleted(
+        [in] VARIANT    varServiceDescriptionID
+        );
+        
+        
+    //  Indicates that the schedule entry with the given Description.ID
+    //  has been deleted.
+    //  
+    //
+    //  Optional - Transport analyzer may supply this event.  Consumer
+    //             may return E_NOTIMPL.   
+    //
+    HRESULT ScheduleDeleted(
+        [in] VARIANT    varScheduleEntryDescriptionID
+        );
+}
+    
+
+//******************************************************************************
+//
+//  IGuideDataPropery
+//
+// {88EC5E58-BB73-41d6-99CE-66C524B8B591}
+//
+[
+    object,
+    uuid(88EC5E58-BB73-41d6-99CE-66C524B8B591),
+    helpstring("Interface provided by a transport analyzer to represent a guide data property."),
+    pointer_default(unique)
+]
+interface IGuideDataProperty : IUnknown
+{
+    [propget] HRESULT Name([out] BSTR *pbstrName);
+    [propget] HRESULT Language([out] long *idLang);
+    [propget] HRESULT Value([out] VARIANT *pvar);
+}
+
+
+//******************************************************************************
+//
+//  IEnumGuideDataProperties
+//
+// {AE44423B-4571-475c-AD2C-F40A771D80EF}
+//
+[
+    object,
+    uuid(AE44423B-4571-475c-AD2C-F40A771D80EF),
+    helpstring("Interface provided by a transport analyzer to enumerate guide data properties."),
+    pointer_default(unique)
+]
+interface IEnumGuideDataProperties : IUnknown
+{
+    HRESULT Next([in] unsigned long celt, [out] IGuideDataProperty **ppprop, [out] unsigned long *pcelt);
+    HRESULT Skip([in] unsigned long celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumGuideDataProperties **ppenum);
+}
+
+
+//******************************************************************************
+//
+//  IEnumTuneRequests
+//
+// {1993299C-CED6-4788-87A3-420067DCE0C7}
+//
+[
+    object,
+    uuid(1993299C-CED6-4788-87A3-420067DCE0C7),
+    helpstring("Interface provided by a transport analyzer to enumerate service tune requests ."),
+    pointer_default(unique)
+]
+interface IEnumTuneRequests : IUnknown
+{
+    HRESULT Next([in] unsigned long celt, [out] ITuneRequest **ppprop, [out] unsigned long *pcelt);
+    HRESULT Skip([in] unsigned long celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumTuneRequests **ppenum);
+}
+
+
+//******************************************************************************
+//
+//  IGuideData
+//
+// {61571138-5B01-43cd-AEAF-60B784A0BF93}
+//
+[
+    object,
+    uuid(61571138-5B01-43cd-AEAF-60B784A0BF93),
+    helpstring("Interface provided by a transport analyzer to supply guide data information."),
+    pointer_default(unique)
+]
+interface IGuideData : IUnknown
+{
+    //-------------------------------------------------------------------------
+    //
+    //  GetServices
+    //      Returns an enumeration of tune requests for all services whose
+	//		information is found in the current transport stream.
+    //
+    //  Parameters
+    //
+    //      IEnumTuneRequests **
+    //          Location in which a reference to the resulting
+    //          IEnumTuneRequests is placed.  The caller must release
+    //          this reference when finished with it.
+    //
+    //  Comments
+    //      This call is used to enumerate all services whose information
+	//		can be found in the service descriptor table. Each tune request
+	//		in the IEnumTuneRequest * contains the tune request including the
+	//		locator data for the service.
+    // 
+    [helpstring("Returns an enumeration of services whose information is found in the given transport stream")]
+    HRESULT
+    GetServices (
+        [out, retval]  IEnumTuneRequests **      ppEnumTuneRequests
+        );
+
+
+    //-------------------------------------------------------------------------
+    //
+    //  GetServiceProperties
+    //      Returns an enumeration of all guide data properties for
+    //      the service with the given Description.ID.
+    //
+    //  Parameters
+    //      ITuneRequest *  
+    //          Pointer to a tune request that contains information needed
+    //          to indentify the requested transport stream.
+    //          A NULL ITuneRequest * indicates that information about the
+    //          current transport stream is requested.
+    //
+    //      IEnumGuideDataProperties **
+    //          Location in which a reference to the resulting
+    //          IEnumGuideDataProperties is placed.  The caller must release
+    //          this reference when finished with it.
+    //
+    //  Required Properties
+    //      The following properties MUST be included in the returned
+    //      property enumeration.
+    //
+    //      Description.ID
+    //          Uniquely identifies a service.
+    //
+    //      Description.Name
+    //          The default name to use for this service in the channel lineup.
+    //
+    //      Description.Version
+    //          Identifies the current version of the properties associated
+    //          with this service.
+    //
+    //      Provider.Name
+    //          Name of the service provider (e.g. "KCTS")
+    //
+    //      Provider.NetworkName
+    //          Name of the network on which the service is provided.
+    //          (e.g. "PBS")
+    //
+    //      Service.TuneRequest
+    //          Contains a tune request in the variant
+    //
+    // 
+    [helpstring("Returns an enumeration of all guide data properties for the service specified by a tune request.")]
+    HRESULT
+    GetServiceProperties (
+        [in]           ITuneRequest *               pTuneRequest,
+        [out, retval]  IEnumGuideDataProperties **  ppEnumProperties
+        );
+
+    //-------------------------------------------------------------------------
+    //
+    //  GetProgramIDs
+    //      Returns an enumeration of the unique identifiers (Description.ID)
+    //      of programs with description contained in all transport
+    //      streams
+    //
+    //  Parameters
+    //
+    //      IEnumVARIANT **
+    //          Location in which a reference to the resulting
+    //          IEnumVARIANT is placed.  The caller must release
+    //          this reference when finished with it.
+    //
+    //  Comments
+    //      This call is used to get a list of programs that have
+    //      guide data properties in all transport streams.
+    //      Each variant returned in the IEnumVARIANT * contains the
+    //      unique Description.ID property for a program.
+    //      Note that more than on transport stream may contain properties
+    //      for the same program.  In this case the properties should be
+    //      merged. 
+    // 
+    [helpstring("Returns an enumeration of the Description.ID property for all programs on the given transport stream.")]
+    HRESULT
+    GetGuideProgramIDs (
+        [out, retval]  IEnumVARIANT **      pEnumPrograms
+        );
+
+    //-------------------------------------------------------------------------
+    //
+    //  GetProgramProperties
+    //      Returns an enumeration of all guide data properties for
+    //      the program with the given Description.ID.
+    //
+    //  Parameters
+    //      varProgramDescriptionID 
+    //          Variant containing the unique identifier for the program
+    //          for which properties are requested.
+    //
+    //      IEnumGuideDataProperties **
+    //          Location in which a reference to the resulting
+    //          IEnumGuideDataProperties is placed.  The caller must release
+    //          this reference when finished with it.
+    //
+    //  Required Properties
+    //      The following properties MUST be included in the returned
+    //      property enumeration.
+    //
+    //      Description.ID
+    //          Uniquely identifies a program.
+    //
+    //      Description.Version
+    //          Identifies the current version of the properties associated
+    //          with this program.
+    //
+    //      Description.Title
+    //          Human readable title of the program (e.g. "")
+    //
+    //      Description.Long
+    //          A description of the program.
+    // 
+    [helpstring("Returns an enumeration of all guide data properties for the program with the given Description.ID.")]
+    HRESULT
+    GetProgramProperties (
+        [in]           VARIANT                      varProgramDescriptionID,
+        [out, retval]  IEnumGuideDataProperties **  ppEnumProperties
+        );
+
+    //-------------------------------------------------------------------------
+    //
+    //  GetScheduleIDs
+    //      Returns an enumeration of the unique identifiers (Description.ID)
+    //      transport of schedule entries with description contained in the
+    //      given transport stream.
+    //
+    //  Parameters
+    //
+    //      IEnumVARIANT **
+    //          Location in which a reference to the resulting
+    //          IEnumVARIANT is placed.  The caller must release
+    //          this reference when finished with it.
+    //
+    //  Comments
+    //      This call is used to get a list of schedule entries that have
+    //      guide data properties in all transport streams.
+    //      Each variant returned in the IEnumVARIANT * contains the
+    //      unique Description.ID property for a schedule entry.
+    //      Note that more than on transport stream may contain properties
+    //      for the same schedule entry.  In this case the properties
+    //      should be merged. 
+    // 
+    [helpstring("Returns an enumeration of the Description.ID property for all schedule entries in the transport stream specified by a tune request.")]
+    HRESULT
+    GetScheduleEntryIDs (
+        [out, retval]  IEnumVARIANT **      pEnumScheduleEntries
+        );
+
+    //-------------------------------------------------------------------------
+    //
+    //  GetScheduleEntryProperties
+    //      Returns an enumeration of all guide data properties for
+    //      the schedule entry with the given Description.ID.
+    //
+    //  Parameters
+    //      varScheduleEntryDescriptionID 
+    //          Variant containing the unique identifier for the schedule
+    //          entry for which properties are requested.
+    //
+    //      IEnumGuideDataProperties **
+    //          Location in which a reference to the resulting
+    //          IEnumGuideDataProperties is placed.  The caller must release
+    //          this reference when finished with it.
+    //
+    //  Required Properties
+    //      The following properties MUST be included in the returned
+    //      property enumeration.
+    //
+    //      Description.ID
+    //          Uniquely identifies a schedule entry.
+    //
+    //      Description.Version
+    //          Identifies the current version of the properties associated
+    //          with this program.
+    //
+    //      Time.Start
+    //          The starting time and date of this schedule entry.
+    //
+    //      Time.End
+    //          The ending time and date of this schedule entry.
+    //
+    //      Schedule.Program
+    //          The Description.ID of the program that will play at the
+    //          time specified by this schedule entry.
+    //
+    //      Schedule.Service
+    //          The Description.ID of the Service that carries the
+    //          program that will play at the time specified by this
+    //          schedule entry.
+    // 
+    [helpstring("Returns an enumeration of all guide data properties for the schedule entry with the given Description.ID.")]
+    HRESULT
+    GetScheduleEntryProperties (
+        [in]           VARIANT                      varScheduleEntryDescriptionID,
+        [out, retval]  IEnumGuideDataProperties **  ppEnumProperties
+        );
+
+}
+
+
+//******************************************************************************
+//
+//  IGuideDataLoader
+//
+// All Guide Data Loaders MUST implement this interface.  It is how they are
+// provided with the IGuideData interface that they will use.
+//
+// {4764ff7c-fa95-4525-af4d-d32236db9e38}
+[
+	object,
+	uuid(4764ff7c-fa95-4525-af4d-d32236db9e38),
+	helpstring("IGuideDataLoader Interface"),
+	pointer_default(unique)
+]
+interface IGuideDataLoader : IUnknown
+{
+    HRESULT Init([in] IGuideData *pGuideStore);
+    HRESULT Terminate();
+};
+
+[
+	uuid(8224A083-7F8C-432D-B83E-3C5E9BDE3528),
+	version(1.0),
+	helpstring("psisload 1.0 Type Library")
+]
+library PSISLOADLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(14EB8748-1753-4393-95AE-4F7E7A87AAD6),
+		helpstring("TIFLoad Class")
+	]
+	coclass TIFLoad
+	{
+		interface IGuideDataLoader;
+        interface IGuideDataEvent;
+        interface ISIInbandEPG;
+        interface ISIInbandEPGEvent;
+	};
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#pragma warning(default:4201)    /* Nameless struct/union */")
+cpp_quote("#endif")
+

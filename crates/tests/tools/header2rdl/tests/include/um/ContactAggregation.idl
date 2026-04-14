@@ -1,0 +1,316 @@
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//
+// Use of this source code is subject to the terms of the Microsoft
+// premium shared source license agreement under which you licensed
+// this source code. If you did not accept the terms of the license
+// agreement, you are not authorized to use this source code.
+// For the terms of the license, please see the license agreement
+// signed by you and Microsoft.
+// THE SOURCE CODE IS PROVIDED "AS IS", WITH NO WARRANTIES OR INDEMNITIES.
+//
+// ***********************************************************************
+
+import "ocidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if NTDDI_VERSION >= NTDDI_WIN10_RS1")
+
+interface IContactAggregationManager;
+
+interface IContactAggregationContact;
+interface IContactAggregationContactCollection;
+
+interface IContactAggregationAggregate;
+interface IContactAggregationAggregateCollection;
+
+interface IContactAggregationGroup;
+interface IContactAggregationGroupCollection;
+
+interface IContactAggregationLink;
+interface IContactAggregationLinkCollection;
+
+interface IContactAggregationServerPerson;
+interface IContactAggregationServerPersonCollection;
+
+typedef [v1_enum]
+enum CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS
+{
+    CA_CREATE_LOCAL = 0,
+    CA_CREATE_EXTERNAL = 1
+} CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS;
+
+typedef [v1_enum]
+enum CONTACT_AGGREGATION_COLLECTION_OPTIONS
+{
+    CACO_DEFAULT = 0,
+    CACO_INCLUDE_EXTERNAL = 1,
+    CACO_EXTERNAL_ONLY = 2
+} CONTACT_AGGREGATION_COLLECTION_OPTIONS;
+
+typedef struct _CONTACT_AGGREGATION_BLOB {
+    DWORD  dwCount;
+    [size_is(dwCount)] BYTE*  lpb;
+} CONTACT_AGGREGATION_BLOB, *PCONTACT_AGGREGATION_BLOB;
+
+
+cpp_quote("DEFINE_GUID(CLSID_ContactAggregationManager, 0x96c8ad95, 0xc199, 0x44de, 0xb3, 0x4e, 0xac, 0x33, 0xc4, 0x42, 0xdf, 0x39);")
+
+
+cpp_quote("#pragma deprecated(IContactAggregationManager)")
+[
+    object,
+    uuid(1D865989-4B1F-4B60-8F34-C2AD468B2B50)
+]
+interface IContactAggregationManager : IUnknown
+{
+    HRESULT GetVersionInfo([out] long *plMajorVersion, [out] long *plMinorVersion);
+
+    HRESULT CreateOrOpenGroup(
+        [in] LPCWSTR pGroupName,
+        [in] CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS options,
+        [out] BOOL *pCreatedGroup,
+        [out, retval] IContactAggregationGroup **ppGroup);
+    HRESULT CreateExternalContact([out, retval] IContactAggregationContact **ppItem);
+    HRESULT CreateServerPerson([out] IContactAggregationServerPerson **ppServerPerson);
+    HRESULT CreateServerContactLink([out] IContactAggregationLink **ppServerContactLink);
+    HRESULT Flush();
+    HRESULT OpenAggregateContact([in] LPCWSTR pItemId, [out] IContactAggregationAggregate **ppItem);
+    HRESULT OpenContact([in] LPCWSTR pItemId, [out] IContactAggregationContact **ppItem);
+    HRESULT OpenServerContactLink([in] LPCWSTR pItemId, [out] IContactAggregationLink **ppItem);
+    HRESULT OpenServerPerson([in] LPCWSTR pItemId, [out] IContactAggregationServerPerson **ppItem);
+
+    [propget] HRESULT Contacts([in] CONTACT_AGGREGATION_COLLECTION_OPTIONS options, [out, retval] IContactAggregationContactCollection **ppItems);
+    [propget] HRESULT AggregateContacts([in] CONTACT_AGGREGATION_COLLECTION_OPTIONS options, [out] IContactAggregationAggregateCollection **ppAggregates);
+    [propget] HRESULT Groups([in] CONTACT_AGGREGATION_COLLECTION_OPTIONS options, [out] IContactAggregationGroupCollection **ppGroups);
+    [propget] HRESULT ServerPersons([out] IContactAggregationServerPersonCollection **ppServerPersonCollection);
+    [propget] HRESULT ServerContactLinks([in] LPCWSTR pPersonItemId, [out] IContactAggregationLinkCollection **ppServerContactLinkCollection);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationContact)")
+[
+    object,
+    uuid(1EB22E86-4C86-41F0-9F9F-C251E9FDA6C3)
+]
+interface IContactAggregationContact : IUnknown
+{
+    HRESULT Delete();
+    HRESULT Save();
+
+    HRESULT MoveToAggregate([in] LPCWSTR pAggregateId);
+    HRESULT Unlink();
+
+    [propget] HRESULT AccountId([out, retval] LPWSTR *ppAccountId);
+    [propput] HRESULT AccountId([in] LPCWSTR pAccountId);
+    [propget] HRESULT AggregateId([out] LPWSTR *ppAggregateId);
+    [propget] HRESULT Id([out, retval] LPWSTR *ppItemId);
+    [propget] HRESULT IsMe([out, retval] BOOL *pIsMe);
+    [propget] HRESULT IsExternal([out, retval] BOOL *pIsExternal);
+    [propget] HRESULT NetworkSourceId([out, retval] ULONG *pNetworkSourceId);
+    [propput] HRESULT NetworkSourceId([in] ULONG networkSourceId);
+    [propget] HRESULT NetworkSourceIdString([out, retval] LPWSTR *ppNetworkSourceId);
+    [propput] HRESULT NetworkSourceIdString([in] LPCWSTR pNetworkSourceId);
+    [propget] HRESULT RemoteObjectId([out, retval] CONTACT_AGGREGATION_BLOB **ppRemoteObjectId);
+    [propput] HRESULT RemoteObjectId([in] const CONTACT_AGGREGATION_BLOB *pRemoteObjectId);
+    [propget] HRESULT SyncIdentityHash([out, retval] CONTACT_AGGREGATION_BLOB **ppSyncIdentityHash);
+    [propput] HRESULT SyncIdentityHash([in] const CONTACT_AGGREGATION_BLOB *pSyncIdentityHash);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationContactCollection)")
+[
+    object,
+    uuid(826E66FA-81DE-43CA-A6FB-8C785CD996C6)
+]
+interface IContactAggregationContactCollection : IUnknown
+{
+    HRESULT FindFirst([out, retval] IContactAggregationContact **ppItem);
+    HRESULT FindNext([out, retval] IContactAggregationContact **ppItem); 
+
+    HRESULT FindFirstByIdentityHash([in] LPCWSTR pSourceType, [in] LPCWSTR pAccountId, [in] const CONTACT_AGGREGATION_BLOB *pIdentityHash, [out, retval] IContactAggregationContact **ppItem);
+
+    [propget] HRESULT Count([out, retval] int *pCount);
+
+    HRESULT FindFirstByRemoteId([in] LPCWSTR pSourceType, [in] LPCWSTR pAccountId, [in] const CONTACT_AGGREGATION_BLOB *pRemoteObjectId, [out, retval] IContactAggregationContact **ppItem);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationAggregate)")
+[
+    object,
+    uuid(7ED1C814-CD30-43C8-9B8D-2E489E53D54B)
+]
+interface IContactAggregationAggregate : IUnknown
+{
+    HRESULT Save();
+
+    HRESULT GetComponentItems([out] IContactAggregationContactCollection **pComponentItems);
+    HRESULT Link([in] LPCWSTR pAggregateId);
+
+    [propget] HRESULT Groups([in] CONTACT_AGGREGATION_COLLECTION_OPTIONS options, [out] IContactAggregationGroupCollection **ppGroups);
+
+    [propget] HRESULT AntiLink([out, retval] LPWSTR *ppAntiLink);
+    [propput] HRESULT AntiLink([in] LPCWSTR pAntiLink);
+    [propget] HRESULT FavoriteOrder([out, retval] ULONG *pFavoriteOrder);
+    [propput] HRESULT FavoriteOrder([in] ULONG favoriteOrder);
+    [propget] HRESULT Id([out, retval] LPWSTR *ppItemId);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationAggregateCollection)")
+[
+    object,
+    uuid(2359F3A6-3A68-40AF-98DB-0F9EB143C3BB)
+]
+interface IContactAggregationAggregateCollection : IUnknown
+{
+    HRESULT FindFirst([out, retval] IContactAggregationAggregate **ppAggregate);
+    HRESULT FindFirstByAntiLinkId([in] LPCWSTR pAntiLinkId, [out, retval] IContactAggregationAggregate **ppAggregate);
+    HRESULT FindNext([out, retval] IContactAggregationAggregate **ppAggregate);
+
+    [propget] HRESULT Count([out, retval] int *pCount);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationGroup)")
+[
+    object,
+    uuid(C93C545F-1284-499B-96AF-07372AF473E0)
+]
+interface IContactAggregationGroup : IUnknown
+{
+    HRESULT Delete();
+    HRESULT Save();
+
+    HRESULT Add([in] LPCWSTR pAggregateId);
+    HRESULT Remove([in] LPCWSTR pAggregateId);
+
+    [propget] HRESULT Members([out, retval] IContactAggregationAggregateCollection **ppAggregateContactCollection);
+
+    [propget] HRESULT GlobalObjectId([out, retval] GUID *pGlobalObjectId);
+    [propput] HRESULT GlobalObjectId([in] const GUID *pGlobalObjectId);
+    [propget] HRESULT Id([out, retval] LPWSTR *ppItemId);
+    [propget] HRESULT Name([out, retval] LPWSTR *ppName);
+    [propput] HRESULT Name([in] LPCWSTR pName);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationGroupCollection)")
+[
+    object,
+    uuid(20A19A9C-D2F3-4B83-9143-BEFFD2CC226D)
+]
+interface IContactAggregationGroupCollection : IUnknown
+{
+    HRESULT FindFirst([out, retval] IContactAggregationGroup **ppGroup);
+    HRESULT FindFirstByGlobalObjectId([in] const GUID *pGlobalObjectId, [out, retval] IContactAggregationGroup **ppGroup);
+    HRESULT FindNext([out, retval] IContactAggregationGroup **ppGroup);
+
+    [propget] HRESULT Count([out, retval] UINT *pCount);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationLink)")
+[
+    object,
+    uuid(B6813323-A183-4654-8627-79B30DE3A0EC)
+]
+interface IContactAggregationLink : IUnknown
+{
+    HRESULT Delete();
+    HRESULT Save();
+
+    [propget] HRESULT AccountId([out, retval] LPWSTR *ppAccountId);
+    [propput] HRESULT AccountId([in] LPCWSTR pAccountId);
+    [propget] HRESULT Id([out, retval] LPWSTR *ppItemId);
+    [propget] HRESULT IsLinkResolved([out, retval] BOOL *pIsLinkResolved);
+    [propput] HRESULT IsLinkResolved([in] BOOL isLinkResolved);
+    [propget] HRESULT NetworkSourceIdString([out, retval] LPWSTR *ppNetworkSourceId);
+    [propput] HRESULT NetworkSourceIdString([in] LPCWSTR pNetworkSourceId);
+    [propget] HRESULT RemoteObjectId([out, retval] CONTACT_AGGREGATION_BLOB **ppRemoteObjectId);
+    [propput] HRESULT RemoteObjectId([in] const CONTACT_AGGREGATION_BLOB *pRemoteObjectId);
+    [propget] HRESULT ServerPerson([out, retval] LPWSTR *ppServerPersonId);
+    [propput] HRESULT ServerPerson([in] LPCWSTR pServerPersonId);
+    [propget] HRESULT ServerPersonBaseline([out, retval] LPWSTR *ppServerPersonId);
+    [propput] HRESULT ServerPersonBaseline([in] LPCWSTR pServerPersonId); 
+    [propget] HRESULT SyncIdentityHash([out, retval] CONTACT_AGGREGATION_BLOB **ppSyncIdentityHash);
+    [propput] HRESULT SyncIdentityHash([in] const CONTACT_AGGREGATION_BLOB *pSyncIdentityHash);
+};
+    
+
+cpp_quote("#pragma deprecated(IContactAggregationLinkCollection)")
+[
+    object,
+    uuid(F8BC0E93-FB55-4F28-B9FA-B1C274153292)
+]
+interface IContactAggregationLinkCollection : IUnknown
+{
+    HRESULT FindFirst([out, retval] IContactAggregationLink **ppServerContactLink);
+    HRESULT FindFirstByRemoteId([in] LPCWSTR pSourceType, [in] LPCWSTR pAccountId, [in] const CONTACT_AGGREGATION_BLOB *pRemoteId, [out, retval] IContactAggregationLink **ppServerContactLink);
+    HRESULT FindNext([out, retval] IContactAggregationLink **ppServerContactLink);
+
+    [propget] HRESULT Count([out, retval] UINT *pCount);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationServerPerson)")
+[
+    object,
+    uuid(7FDC3D4B-1B82-4334-85C5-25184EE5A5F2)
+]
+interface IContactAggregationServerPerson : IUnknown
+{
+    HRESULT Delete();
+    HRESULT Save();
+
+    [propget] HRESULT AggregateId([out, retval] LPWSTR *ppAggregateId);
+    [propput] HRESULT AggregateId([in] LPCWSTR pAggregateId);
+    [propget] HRESULT AntiLink([out, retval] LPWSTR *ppAntiLink);
+    [propput] HRESULT AntiLink([in] LPCWSTR pAntiLink);
+    [propget] HRESULT AntiLinkBaseline([out, retval] LPWSTR *ppAntiLink);
+    [propput] HRESULT AntiLinkBaseline([in] LPCWSTR pAntiLink);
+    [propget] HRESULT FavoriteOrder([out, retval] ULONG *pFavoriteOrder);
+    [propput] HRESULT FavoriteOrder([in] ULONG favoriteOrder);
+    [propget] HRESULT FavoriteOrderBaseline([out, retval] ULONG *pFavoriteOrder);
+    [propput] HRESULT FavoriteOrderBaseline([in] ULONG favoriteOrder);
+    [propget] HRESULT Groups([out, retval] CONTACT_AGGREGATION_BLOB **pGroups);
+    [propput] HRESULT Groups([in] const CONTACT_AGGREGATION_BLOB *pGroups);
+    [propget] HRESULT GroupsBaseline([out, retval] CONTACT_AGGREGATION_BLOB **ppGroups);
+    [propput] HRESULT GroupsBaseline([in] const CONTACT_AGGREGATION_BLOB *pGroups);
+    [propget] HRESULT Id([out, retval] LPWSTR *ppId);
+    [propget] HRESULT IsTombstone([out, retval] BOOL *pIsTombstone);
+    [propput] HRESULT IsTombstone([in] BOOL isTombstone);
+    [propget] HRESULT LinkedAggregateId([out, retval] LPWSTR *ppLinkedAggregateId);
+    [propput] HRESULT LinkedAggregateId([in] LPCWSTR pLinkedAggregateId);
+    [propget] HRESULT ObjectId([out, retval] LPWSTR *ppObjectId);
+    [propput] HRESULT ObjectId([in] LPCWSTR pObjectId);
+};
+
+
+cpp_quote("#pragma deprecated(IContactAggregationServerPersonCollection)")
+[
+    object,
+    uuid(4F730A4A-6604-47B6-A987-669ECF1E5751)
+]
+interface IContactAggregationServerPersonCollection : IUnknown
+{
+    HRESULT FindFirst([out, retval] IContactAggregationServerPerson **ppServerPerson);
+    HRESULT FindFirstByServerId([in] LPCWSTR pServerId, [out, retval] IContactAggregationServerPerson **ppServerPerson);
+    HRESULT FindFirstByAggregateId([in] LPCWSTR pAggregateId, [out, retval] IContactAggregationServerPerson **ppServerPerson);
+    HRESULT FindFirstByLinkedAggregateId([in] LPCWSTR pAggregateId, [out, retval] IContactAggregationServerPerson **ppServerPerson);
+    HRESULT FindNext([out, retval] IContactAggregationServerPerson **ppServerPerson);
+
+    [propget] HRESULT Count([out, retval] UINT *pCount);
+};
+
+cpp_quote("#endif /* NTDDI_VERSION >=NTDDI_WIN10_RS1 */")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,30 @@
+//  SystemMediaTransportControlInterop.idl
+//
+//	IDL defines for COM APIs to support interop with Windows.Media.SystemMediaTransportControls
+//
+//	Copyright (c) Microsoft Corporation. All rights reserved
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "inspectable.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+[
+    uuid(ddb0472d-c911-4a1f-86d9-dc3d71a95f5a),
+]
+interface ISystemMediaTransportControlsInterop : IInspectable
+{
+    HRESULT GetForWindow(
+        [in] HWND appWindow,
+        [in] REFIID riid,
+        [out, retval, iid_is(riid)] void **mediaTransportControl);
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

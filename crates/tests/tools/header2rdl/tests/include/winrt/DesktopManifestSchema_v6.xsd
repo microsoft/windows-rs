@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop8="http://schemas.microsoft.com/appx/manifest/desktop/windows10/8"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="Service" type="CT_Service"/>
+        <xs:element name="MutablePackageDirectories" type="CT_MutablePackageDirectories"/>
+        <xs:element name="CustomInstall" type="CT_CustomInstall"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Desktop6" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_Service">
+    <xs:all minOccurs="0">
+      <xs:element name="Dependencies" type="CT_Dependencies" minOccurs="0"/>
+      <xs:element name="TriggerEvents" type="CT_TriggerEvents" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="Name" type="ST_ServiceName" use="required"/>
+    <xs:attribute name="StartupType" type="ST_StartupType" use="required"/>
+    <xs:attribute name="StartAccount" type="ST_StartAccount" use="required"/>
+    <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ServiceName">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="[^/\\\x01-\x1f]+"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_Dependencies">
+    <xs:sequence minOccurs="1" maxOccurs="10000">
+      <xs:element name="DependentService" type="CT_DependentService"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DependentService">
+    <xs:attribute name="Name" type="ST_ServiceName" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_StartAccount">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="localSystem"/>
+      <xs:enumeration value="localService"/>
+      <xs:enumeration value="networkService"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_StartupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="manual"/>
+      <xs:enumeration value="disabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_TriggerEvents">
+    <xs:choice minOccurs="0" maxOccurs="20000">
+      <xs:element name="TriggerCustom" type="CT_TriggerCustom" />
+      <xs:element ref="desktop10:PredefinedTriggerEvents" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_TriggerCustom">
+    <xs:choice minOccurs="1" maxOccurs="10000">
+      <xs:element name="StringData" type="CT_StringData"/>
+      <xs:element name="BinaryData" type="CT_BinaryData"/>
+      <xs:element name="LevelData" type="CT_ValueByte"/>
+      <xs:element name="KeywordAnyData" type="CT_ValueDword64"/>
+      <xs:element name="KeywordAllData" type="CT_ValueDword64"/>
+    </xs:choice>
+    <xs:attribute name="Action" type="ST_ActionTrigger" use="required"/>
+    <xs:attribute name="Subtype" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_StringData">
+    <xs:sequence minOccurs="1" maxOccurs="10000">
+      <xs:element name="DataItem">
+        <xs:complexType>
+          <xs:attribute name="Value" type="t:ST_NonEmptyString" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_BinaryData">
+    <xs:attribute name="File" type="t:ST_FileName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ValueByte">
+   <xs:attribute name="Value" type="xs:unsignedByte" use="required"/>
+  </xs:complexType>
+  
+  <xs:complexType name="CT_ValueDword64">
+   <xs:attribute name="Value" type="xs:unsignedLong" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ActionTrigger">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ActionStart"/>
+      <xs:enumeration value="ActionStop"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_MutablePackageDirectories">
+    <xs:sequence minOccurs="1">
+      <xs:element name="MutablePackageDirectory" maxOccurs="1" >
+        <xs:complexType>
+            <xs:attribute name="Target" type="t:ST_FileNameSegment" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="RegistryWriteVirtualization" type="ST_VirtualizationState" />
+  <xs:element name="FileSystemWriteVirtualization" type="ST_VirtualizationState" />
+
+  <xs:simpleType name="ST_VirtualizationState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="disabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_CustomInstall">
+    <xs:all>
+
+      <xs:element name="InstallActions" minOccurs="0" maxOccurs="1" >
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="100">
+            <xs:element name="InstallAction" minOccurs="0" type="CT_CustomInstallAction" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="RepairActions" minOccurs="0" maxOccurs="1" >
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="100">
+            <xs:element name="RepairAction" minOccurs="0" type="CT_CustomInstallAction" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="UninstallActions" minOccurs="0" maxOccurs="1" >
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="100">
+            <xs:element name="UninstallAction" minOccurs="0" type="CT_CustomInstallAction" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+    </xs:all>
+    <xs:attribute name="Folder" type="t:ST_FileName" use="required" />
+    <xs:attribute ref="desktop8:RunAsUser" use="optional"/>
+  </xs:complexType>
+
+   <xs:complexType name="CT_CustomInstallAction">
+     <xs:attribute name="File" type="t:ST_FileName" use="required"/>
+     <xs:attribute name="Name" type="t:ST_NonEmptyString" use="required"/>
+     <xs:attribute name="Arguments" type="t:ST_NonEmptyString" />
+   </xs:complexType>
+
+</xs:schema>
+

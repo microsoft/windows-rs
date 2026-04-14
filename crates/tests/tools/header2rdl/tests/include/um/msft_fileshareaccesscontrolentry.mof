@@ -1,0 +1,32 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+[ClassVersion( "1.0" ), Abstract,
+Description(
+    "A file share access control entry object models the subsystem's concept of an "
+    "access control entry for a file share."
+    )]
+class MSFT_FileShareAccessControlEntry
+{
+    [Read, Description(
+        "The name of the account to which the access right is granted."
+        )]
+    String AccountName;
+
+    [Read, Description(
+        "Denotes the access type ( Allow, Deny )."
+        ),
+       ValueMap {"0", "1"},
+        Values { "Allow", "Deny"}]
+    UInt16 AccessControlType;
+
+    [Read, Description(
+        "Denotes the access right."
+        ),
+       ValueMap {"0", "1", "2", "3"},
+       Values { "Full", "Modify", "Read", "Custom"}]
+    UInt16 AccessRight;
+
+};

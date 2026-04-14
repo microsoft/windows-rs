@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+           xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:rescap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3"
+           xmlns:desktop2="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+           xmlns:desktop3="http://schemas.microsoft.com/appx/manifest/desktop/windows10/3"
+           xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"
+           xmlns:desktop7="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:previewappcompat="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport"
+           xmlns:previewappcompat3="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport/3"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport/3"/>
+
+  <xs:attribute name="Scale" type="t:ST_Scale_All"/>
+  <xs:attribute name="DXFeatureLevel" type="t:ST_DXFeatureLevel"/>
+
+  <xs:element name="SupportedUsers" type="t:ST_SupportedUsers"/>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VisualElements" type="CT_VisualElements" substitutionGroup="f:VisualElementsChoice">
+    <xs:unique name="InitialRotationPreference_Name">
+      <xs:selector xpath="uap:InitialRotationPreference/uap:Rotation"/>
+      <xs:field xpath="@Preference"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_VisualElements">
+    <xs:all>
+      <xs:element name="DefaultTile" type="CT_DefaultTile" minOccurs="0"/>
+      <xs:element name="LockScreen" type="t:CT_LockScreen" minOccurs="0"/>
+      <xs:element name="SplashScreen" type="CT_SplashScreen" minOccurs="0"/>
+      <xs:element name="InitialRotationPreference" type="CT_InitialRotationPreference" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Description" type="t:ST_Description" use="required"/>
+    <xs:attribute name="BackgroundColor" type="t:ST_Color" use="required"/>
+    <xs:attribute name="Square150x150Logo" type="t:ST_ImageFile" use="required"/>
+    <xs:attribute name="Square44x44Logo" type="t:ST_ImageFile" use="required"/>
+    <xs:attribute name="AppListEntry" type="t:ST_AppListEntry" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DefaultTile">
+    <xs:all>
+      <xs:element name="TileUpdate" type="t:CT_TileUpdate" minOccurs="0"/>
+      <xs:element name="ShowNameOnTiles" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ShowOn" maxOccurs="4">
+              <xs:complexType>
+                <xs:attribute name="Tile" type="t:ST_ShowNameSize" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="ShowOn_Tile">
+          <xs:selector xpath="uap:ShowOn"/>
+          <xs:field xpath="@Tile"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element ref="HoloContentChoice" minOccurs="0"/>
+      <xs:element ref="uap5:MixedRealityModel" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="Wide310x150Logo" type="t:ST_ImageFile" use="optional"/>
+    <xs:attribute name="Square310x310Logo" type="t:ST_ImageFile" use="optional"/>
+    <xs:attribute name="Square71x71Logo" type="t:ST_ImageFile" use="optional"/>
+    <xs:attribute name="ShortName" type="t:ST_ShortDisplayName" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SplashScreen">
+    <xs:complexContent>
+      <xs:extension base="t:CT_SplashScreen">
+        <xs:attributeGroup ref="uap5:SplashScreenAttributes"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="HoloContentChoice" abstract="true"/>
+
+  <xs:complexType name="CT_InitialRotationPreference">
+    <xs:sequence>
+      <xs:element name="Rotation" maxOccurs="4" type="t:CT_Rotation"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="ApplicationContentUriRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Rule" maxOccurs="100">
+          <xs:complexType>
+            <xs:attribute name="Type" type="t:ST_RuleType" use="required"/>
+            <xs:attribute name="Match" type="t:ST_URI" use="required"/>
+            <xs:attribute name="WindowsRuntimeAccess" type="t:ST_ApplicationContentUriRunTimeAccess_Uap" use="optional"/>
+            <xs:attributeGroup ref="uap5:ContentUriRuleAttributes"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element ref="FileTypeAssociationChoice"/>
+        <xs:element ref="ProtocolChoice"/>
+        <xs:element ref="AppServiceChoice"/>
+        <xs:element name="AutoPlayContent" type="CT_AutoPlayContent"/>
+        <xs:element name="AutoPlayDevice" type="CT_AutoPlayDevice"/>
+        <xs:element name="ShareTarget" type="CT_ShareTarget"/>
+        <xs:element name="FileOpenPicker" type="CT_FilePicker"/>
+        <xs:element name="FileSavePicker" type="CT_FilePicker"/>
+        <xs:element name="AppointmentsProvider" type="CT_AppointmentsProvider"/>
+        <xs:element name="WebAccountProvider" type="CT_WebAccountProvider"/>
+        <xs:element name="DialProtocol" type="CT_DialProtocol"/>
+        <xs:element name="MediaPlayback" type="CT_MediaPlayback"/>
+        <xs:element name="VoipCall" type="CT_VoipCall"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Uap" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+    <xs:unique name="AppointmentsProvider_Verb">
+      <xs:selector xpath="uap:AppointmentsProvider/uap:AppointmentsProviderLaunchActions/uap:LaunchAction"/>
+      <xs:field xpath="@Verb"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:element name="FileTypeAssociationChoice" abstract="true"/>
+  <xs:element name="FileTypeAssociation" substitutionGroup="FileTypeAssociationChoice" type="CT_FileTypeAssociation"/>
+
+  <xs:element name="ProtocolChoice" abstract="true"/>
+  <xs:element name="Protocol" substitutionGroup="ProtocolChoice" type="CT_Protocol"/>
+
+  <xs:element name="AppServiceChoice" abstract="true"/>
+  <xs:element name="AppService" substitutionGroup="AppServiceChoice" type="CT_AppService"/>
+  
+  <xs:complexType name="CT_FileTypeAssociation">
+    <xs:all>
+      <xs:element name="DisplayName" type="t:ST_DisplayName" minOccurs="0"/>
+      <xs:element name="Logo" type="t:ST_ImageFile" minOccurs="0"/>
+      <xs:element ref="previewappcompat3:Logo" minOccurs="0"/>
+      <xs:element ref="desktop7:Logo" minOccurs="0"/>
+      <xs:element name="InfoTip" type="t:ST_FTAInfoTip" minOccurs="0"/>
+      <xs:element name="EditFlags" minOccurs="0">
+        <xs:complexType>
+          <xs:attribute name="OpenIsSafe" type="xs:boolean" use="optional"/>
+          <xs:attribute name="AlwaysUnsafe" type="xs:boolean" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SupportedFileTypes" type="CT_FTASupportedFileTypes"/>
+      <xs:element ref="FileTypeAssociationSupportedVerbsChoice" minOccurs="0"/>
+      <xs:element ref="uap4:KindMap" minOccurs="0"/>
+      <xs:element ref="rescap3:MigrationProgIds" minOccurs="0"/>
+      <xs:element ref="desktop2:ThumbnailHandler" minOccurs="0"/>
+      <xs:element ref="desktop2:DesktopPreviewHandler" minOccurs="0"/>
+      <xs:element ref="desktop2:DesktopPropertyHandler" minOccurs="0"/>
+      <xs:element ref="desktop2:OleClass" minOccurs="0"/>
+      <xs:element ref="desktop3:PropertyLists" minOccurs="0"/>
+      <xs:element ref="previewappcompat:ProgId" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="desktop7:ProgId" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="desktop10:IconHandler" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+    <xs:attribute name="Name" type="t:ST_FTAName" use="required"/>
+    <xs:attribute name="DesiredView" type="t:ST_DesiredView" use="optional"/>
+    <xs:attribute ref="desktop2:UseUrl" use="optional"/>
+    <xs:attribute ref="desktop2:AllowSilentDefaultTakeOver" use="optional"/>
+    <xs:attribute ref="desktop5:ThumbnailTypeOverlay" use="optional"/>
+    <xs:attribute ref="uap8:Launch" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="FileTypeAssociationSupportedVerbsChoice" abstract="true"/>
+
+  <xs:complexType name="CT_FTASupportedFileTypes">
+    <xs:choice minOccurs="1" maxOccurs="1000">
+      <xs:element name="FileType">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="t:ST_FileType">
+              <xs:attribute name="ContentType" type="t:ST_ContentType" use="optional"/>
+              <xs:attributeGroup ref="uap4:ShellNewAttributes"/>
+              <xs:attributeGroup ref="uap10:FileTypeAttributes_2019"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="uap10:FileType"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Protocol">
+    <xs:all>
+      <xs:element name="Logo" type="t:ST_ImageFile" minOccurs="0"/>
+      <xs:element name="DisplayName" type="t:ST_DisplayName" minOccurs="0"/>
+      <xs:element ref="rescap3:MigrationProgIds" minOccurs="0"/>
+      <xs:element ref="previewappcompat:ProgId" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="desktop7:ProgId" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+    <xs:attribute name="Name" type="t:ST_Protocol_2010_v2" use="required"/>
+    <xs:attribute name="DesiredView" type="t:ST_DesiredView" use="optional"/>
+    <xs:attribute name="ReturnResults" type="t:ST_ProtocolReturnResults" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DialProtocol">
+    <xs:attribute name="Name" type="t:ST_DialProtocol" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AutoPlayContent">
+    <xs:sequence>
+      <xs:element name="LaunchAction" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Verb" type="t:ST_AutoPlayVerb" use="required"/>
+          <xs:attribute name="ActionDisplayName" type="t:ST_DisplayName" use="required"/>
+          <xs:attribute name="ContentEvent" type="t:ST_AutoPlayEvent" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AutoPlayDevice">
+    <xs:sequence>
+      <xs:element name="LaunchAction" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Verb" type="t:ST_AutoPlayVerb" use="required"/>
+          <xs:attribute name="ActionDisplayName" type="t:ST_DisplayName" use="required"/>
+          <xs:attribute name="DeviceEvent" type="t:ST_AutoPlayEvent" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ShareTarget">
+    <xs:sequence>
+      <xs:element name="SupportedFileTypes" type="CT_CharmsSupportedFileTypes" minOccurs="0"/>
+      <xs:element name="DataFormat" type="t:ST_DataFormat" minOccurs="0" maxOccurs="10000"/>
+    </xs:sequence>
+    <xs:attribute name="Description" type="t:ST_ShareTargetDescription" use="optional"/>
+    <xs:attribute ref="uap10:DisplayName" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_FilePicker">
+    <xs:sequence>
+      <xs:element name="SupportedFileTypes" type="CT_CharmsSupportedFileTypes"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CharmsSupportedFileTypes">
+    <xs:choice>
+      <xs:element name="FileType" minOccurs="1" maxOccurs="10000" type="t:ST_FileType"/>
+      <xs:element name="SupportsAnyFileType" minOccurs="1" maxOccurs="1"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AppointmentsProvider">
+    <xs:all>
+      <xs:element name="AppointmentsProviderLaunchActions" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="LaunchAction" minOccurs="0" maxOccurs="10"/>
+          </xs:sequence>
+          <xs:attribute name="DesiredView" type="t:ST_DesiredView" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:element name="LaunchAction">
+    <xs:complexType>
+      <xs:attribute name="Verb" type="t:ST_AppointmentsProviderLaunchActionVerbs_Uap" use="required"/>
+      <xs:attribute name="DesiredView" type="t:ST_DesiredView" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_WebAccountProvider">
+    <xs:sequence>
+      <xs:element name="ManagedUrls" type="CT_ManagedUrls" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="Url" type="t:ST_WebAccountProviderUrl" use="required"/>
+    <xs:attribute name="BackgroundEntryPoint" type="t:ST_EntryPoint" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ManagedUrls">
+    <xs:sequence>
+      <xs:element name="Url" type="t:ST_WebAccountProviderUrl"  minOccurs="1" maxOccurs="200"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AppService">
+    <xs:attribute name="Name" type="t:ST_AppServiceName" use="required"/>
+    <xs:attribute name="ServerName" type="t:ST_AsciiWindowsId" use="optional"/>
+    <xs:attribute ref="uap4:SupportsMultipleInstances" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_MediaPlayback">
+    <xs:sequence>
+      <xs:element name="Codec" minOccurs="1" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="Name" type="t:ST_NonEmptyString" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_VoipCall">
+    <xs:all>
+      <xs:element name="VoipCallUpgrade" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:attribute name="SeamlessCallUpgrade" type="xs:boolean" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VoipDialPhoneNumber" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:element name="Task" substitutionGroup="f:BackgroundTaskChoice">
+    <xs:complexType>
+      <xs:attribute name="Type" type="t:ST_BackgroundTasks_Uap" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

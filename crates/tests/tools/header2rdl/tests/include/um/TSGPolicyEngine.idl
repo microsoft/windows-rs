@@ -1,0 +1,232 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef enum
+{
+    /* The follow is the list of Authentication schemes for Authenticating
+     * to the AA edge. The first three use username/password for credentials,
+     * and AA_AUTH_SC uses a pin.  AA_LOGGEDON_CREDS uses the credentials
+     * with which the user logged onto windows (local logged on session). 
+     * These creds will be passed to the proxy via NTLM.
+     */
+    AA_AUTH_MIN = 0,
+    AA_AUTH_BASIC,
+    AA_AUTH_NTLM,
+    AA_AUTH_SC,
+    AA_AUTH_LOGGEDONCREDENTIALS,
+    AA_AUTH_NEGOTIATE,
+    AA_AUTH_ANY,
+    AA_AUTH_COOKIE,
+    AA_AUTH_DIGEST,
+    AA_AUTH_ORGID,
+    AA_AUTH_CONID,      // auth by reverse connect ID
+    AA_AUTH_SSPI_NTLM,  // SSPI Auth for HTML5 client
+    AA_AUTH_MAX,
+} AAAuthSchemes;
+
+typedef enum
+{
+    AA_MAIN_SESSION_CREATION,
+    AA_SUB_SESSION_CREATION,
+    AA_SUB_SESSION_CLOSED,
+    AA_MAIN_SESSION_CLOSED
+} AAAccountingDataType;
+
+typedef struct
+{
+    BSTR userName;
+    BSTR clientName;
+    AAAuthSchemes authType;
+    BSTR resourceName;
+    int  portNumber;
+    BSTR protocolName;
+    int  numberOfBytesReceived;
+    int  numberOfBytesTransfered;
+    BSTR reasonForDisconnect;
+    GUID mainSessionId;
+    int  subSessionId;
+} AAAccountingData;
+
+/**
+  * Action to be taken on session timeout
+  */
+typedef enum
+{
+    SESSION_TIMEOUT_ACTION_DISCONNECT,
+    SESSION_TIMEOUT_ACTION_SILENT_REAUTH
+} SESSION_TIMEOUT_ACTION_TYPE;
+
+typedef enum
+{
+    EnableAllRedirections = 0,
+    DisableAllRedirections,
+    DriveRedirectionDisabled,
+    PrinterRedirectionDisabled,
+    PortRedirectionDisabled,
+    ClipboardRedirectionDisabled,
+    PnpRedirectionDisabled,
+    AllowOnlySDRServers
+} PolicyAttributeType;
+
+cpp_quote( "#define MAX_POLICY_ATTRIBUTES 20" )
+
+#define MAX_POLICY_ATTRIBUTES 20
+typedef DWORD PolicyAttributes[MAX_POLICY_ATTRIBUTES];
+
+typedef enum {
+    AA_UNTRUSTED = 0,
+    AA_TRUSTEDUSER_UNTRUSTEDCLIENT,
+    AA_TRUSTEDUSER_TRUSTEDCLIENT
+} AATrustClassID;
+
+
+// This interface method is a callback from the policy engine, for a 
+// AuthorizeConnection request
+[
+    object,
+    uuid(c27ece33-7781-4318-98ef-1cf2da7b7005),
+    helpstring("interface ITSGAuthorizeConnectionSink")
+]
+interface ITSGAuthorizeConnectionSink : IUnknown
+{
+    // Called to indicate the result of AuthorizeTunnel
+    // 
+    // hrIn -- indicates the return value of AuthorizeTunnel. If the tunnel
+    //     is not authorized, the value should be S_OK and the TrustClass
+    //     should equal Untrusted. FAILED(hrIn) also means authorization is
+    //     not granted.
+    // 
+    // mainSessionId -- mainSessionId value passed to AuthorizeTunnel() method
+    //
+    // cbSoHResponse -- the size of the statement of health response. Must be 
+    //     zero if SoHResponse is NULL.
+    //
+    // pbSoHResponse -- the response from IAS. If IAS does not return an 
+    //     SoHResponse, this should be NULL.
+    //
+    // idleTimeout -- client's idle timeout value
+    // 
+    // sessionTimeout -- client's session timeout value
+    //
+    // sessionTimeoutAction -- Action to be taken on session timeout
+    //    it could be either disconnect or silent reauth
+    //
+    // trustClass -- this is the trust class into which this tunnel should be
+    //     assigned. We predefine 3 trust classes (see AATrustClassIDs).
+    //
+    // redirectionFlags -- the flags for redirection
+    //
+    //
+    [helpstring("Callback function on connection authorized")]
+    HRESULT
+    OnConnectionAuthorized([in]                         HRESULT hrIn,
+                           [in]                         GUID    mainSessionId,
+                           [in]                         ULONG   cbSoHResponse,
+                           [in, size_is(cbSoHResponse)] BYTE*   pbSoHResponse,
+                           [in]                         ULONG   idleTimeout,
+                           [in]                         ULONG   sessionTimeout,
+                           [in]                         SESSION_TIMEOUT_ACTION_TYPE sessionTimeoutAction,
+                           [in]                         AATrustClassID trustClass,
+                           [in]                         PolicyAttributes policyAttributes);
+};
+
+
+// This interface is a callback from the policy engine, for a 
+// AuthorizeResource request
+[
+    object,
+    uuid(feddfcd4-fa12-4435-ae55-7ad1a9779af7),
+    helpstring("interface ITSGAuthorizeResourceSink")
+]
+interface ITSGAuthorizeResourceSink : IUnknown
+{
+    // Called to indicate the result of AuthorizeResource
+    // 
+    // hrIn -- indicates the return value of AuthorizeResource.
+    // 
+    // mainSessionId -- mainSessionId value passed to AuthorizeResource() method
+    //
+    // subSessionId -- subSessionId value passeed to AuthorizeResource() method
+    //
+    // allowedResourceNames -- Array of resource names to which user is allowed access
+    //
+    // numAllowedResourceNames -- Number of above resources
+    //
+    // failedResourceNames -- Array of resource names to which user is NOT allowed access
+    // 
+    // numFailedResourceNames -- Number of above resources
+    //
+    [helpstring("Callback function on channel authorized")]
+    HRESULT
+    OnChannelAuthorized([in]                                   HRESULT hrIn,
+                        [in]                                   GUID mainSessionId,
+                        [in]                                   int subSessionId,
+                        [in, size_is(numAllowedResourceNames)] BSTR* allowedResourceNames,
+                        [in]                                   ULONG numAllowedResourceNames,
+                        [in, size_is(numFailedResourceNames)]  BSTR* failedResourceNames,
+                        [in]                                   ULONG numFailedResourceNames);
+};
+
+[
+    object,
+    uuid(8bc24f08-6223-42f4-a5b4-8e37cd135bbd),
+    helpstring("interface ITSGPolicyEngine")
+]
+interface ITSGPolicyEngine : IUnknown
+{
+    HRESULT
+    AuthorizeConnection([in]                          GUID           mainSessionId,
+                        [in]                          BSTR           username,
+                        [in]                          AAAuthSchemes  authType,
+                        [in]                          BSTR           clientMachineIP,
+                        [in]                          BSTR           clientMachineName,
+                        [in, size_is(numSOHBytes)]    BYTE*          sohData,
+                        [in]                          ULONG          numSOHBytes,
+                        [in, size_is(numCookieBytes)] BYTE*          cookieData,
+                        [in]                          ULONG          numCookieBytes,
+                        [in]                          HANDLE_PTR     userToken,
+                        [in]                          ITSGAuthorizeConnectionSink* pSink);
+
+    HRESULT
+    AuthorizeResource([in]                                    GUID   mainSessionId,
+                      [in]                                    int    subSessionId,
+                      [in]                                    BSTR   username,
+                      [in, size_is(numResources)]             BSTR*  resourceNames,
+                      [in]                                    ULONG  numResources,
+                      [in, size_is(numAlternateResourceName)] BSTR*  alternateResourceNames,
+                      [in]                                    ULONG  numAlternateResourceName,
+                      [in]                                    ULONG  portNumber,
+                      [in]                                    BSTR   operation,
+                      [in, size_is(numBytesInCookie)]         BYTE*  cookie,
+                      [in]                                    ULONG  numBytesInCookie,
+                      [in]                                    ITSGAuthorizeResourceSink* pSink);
+                                           
+                                           
+    HRESULT 
+    Refresh();
+    
+    HRESULT
+    IsQuarantineEnabled([out] BOOL *quarantineEnabled);
+};
+
+[
+    object,
+    uuid(4ce2a0c9-e874-4f1a-86f4-06bbb9115338),
+    helpstring("interface ITSGAccountingEngine")
+]
+interface ITSGAccountingEngine : IUnknown
+{
+    HRESULT 
+    DoAccounting([in] AAAccountingDataType accountingDataType,
+                 [in] AAAccountingData     accountingData);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

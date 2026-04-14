@@ -1,0 +1,193 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2008
+//
+//    Abstract:
+//        Declarations of interfaces and types implemented by virtual disk
+//        provider.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7)")
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+interface IVdsVdProvider;
+interface IVdsVDisk;
+interface IVdsOpenVDisk;
+
+typedef struct _VDS_CREATE_VDISK_PARAMETERS
+{    
+    GUID UniqueId;   
+    ULONGLONG MaximumSize;    
+    ULONG BlockSizeInBytes;
+    ULONG SectorSizeInBytes;
+    [string] LPWSTR pParentPath;
+    [string] LPWSTR pSourcePath;        
+} VDS_CREATE_VDISK_PARAMETERS, *PVDS_CREATE_VDISK_PARAMETERS;
+
+[
+    object,
+    uuid(b481498c-8354-45f9-84a0-0bdd2832a91f),
+    pointer_default(unique)
+]
+interface IVdsVdProvider : IUnknown
+{    
+    [helpstring("method QueryVDisks")]
+    HRESULT QueryVDisks(
+        [out] IEnumVdsObject** ppEnum
+    );
+
+    [helpstring("method CreateVDisk")]
+    HRESULT CreateVDisk(
+        [in] PVIRTUAL_STORAGE_TYPE VirtualDeviceType,
+        [in, string] LPWSTR pPath,        
+        [in, string, unique] LPWSTR pStringSecurityDescriptor,
+        [in] CREATE_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG ProviderSpecificFlags,
+        [in] ULONG Reserved,
+        [in] PVDS_CREATE_VDISK_PARAMETERS pCreateDiskParameters,
+        [in, out, unique] IVdsAsync** ppAsync
+    );    
+
+    [helpstring("method AddVDisk")]
+    HRESULT AddVDisk(
+        [in] PVIRTUAL_STORAGE_TYPE VirtualDeviceType,
+        [in, string] LPWSTR pPath,        
+        [in, out, unique] IVdsVDisk** ppVDisk
+    );    
+
+    HRESULT GetDiskFromVDisk(
+        [in] IVdsVDisk* pVDisk,
+        [out] IVdsDisk** ppDisk
+    );
+    
+    HRESULT GetVDiskFromDisk(
+        [in] IVdsDisk* pDisk,
+        [out] IVdsVDisk** ppVDisk
+    );    
+}
+
+
+typedef enum _VDS_VDISK_STATE {    
+    VDS_VST_UNKNOWN = 0,    
+    VDS_VST_ADDED,        
+    VDS_VST_OPEN,    
+    VDS_VST_ATTACH_PENDING,    
+    VDS_VST_ATTACHED_NOT_OPEN,
+    VDS_VST_ATTACHED,
+    VDS_VST_DETACH_PENDING,    
+    VDS_VST_COMPACTING,
+    VDS_VST_MERGING,
+    VDS_VST_EXPANDING,
+    VDS_VST_DELETED,
+    VDS_VST_MAX
+} VDS_VDISK_STATE;
+
+
+typedef struct _VDS_VDISK_PROPERTIES
+{    
+    VDS_OBJECT_ID Id;
+    VDS_VDISK_STATE State;    
+    VIRTUAL_STORAGE_TYPE  VirtualDeviceType;
+    ULONGLONG VirtualSize;
+    ULONGLONG PhysicalSize;
+    [string] LPWSTR pPath;
+    [string] LPWSTR pDeviceName;
+    DEPENDENT_DISK_FLAG DiskFlag;    
+    BOOL bIsChild;
+    [string] LPWSTR pParentPath;
+} VDS_VDISK_PROPERTIES, *PVDS_VDISK_PROPERTIES;
+
+
+[
+    object,
+    uuid(1e062b84-e5e6-4b4b-8a25-67b81e8f13e8),
+    pointer_default(unique)
+]
+interface IVdsVDisk : IUnknown
+{    
+    HRESULT Open(        
+        [in] VIRTUAL_DISK_ACCESS_MASK AccessMask,
+        [in] OPEN_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG ReadWriteDepth,
+        [out] IVdsOpenVDisk** ppOpenVDisk 
+    );    
+    
+    HRESULT GetProperties(
+        [out] PVDS_VDISK_PROPERTIES pDiskProperties
+    );
+    
+    HRESULT GetHostVolume(
+        [out] IVdsVolume** ppVolume
+    );
+
+    HRESULT GetDeviceName(
+            [out, string] LPWSTR *ppDeviceName);
+
+}
+
+[
+    object,
+    uuid(75c8f324-f715-4fe3-a28e-f9011b61a4a1),
+    pointer_default(unique)
+]
+interface IVdsOpenVDisk : IUnknown
+{    
+    HRESULT Attach(
+        [in, unique] LPWSTR pStringSecurityDescriptor,
+        [in] ATTACH_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG ProviderSpecificFlags,
+        [in] ULONG TimeoutInMs,
+        [out] IVdsAsync** ppAsync
+    );
+
+    HRESULT Detach(
+        [in] DETACH_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG ProviderSpecificFlags
+    );
+
+    HRESULT DetachAndDelete(
+        [in] DETACH_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG ProviderSpecificFlags
+    );
+
+    HRESULT Compact(
+        [in] COMPACT_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG Reserved,
+        [out] IVdsAsync** ppAsync
+    );
+
+    HRESULT Merge(
+        [in] MERGE_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONG MergeDepth,
+        [out] IVdsAsync** ppAsync
+    );        
+
+    HRESULT Expand(
+        [in] EXPAND_VIRTUAL_DISK_FLAG Flags,
+        [in] ULONGLONG NewSize,
+        [out] IVdsAsync** ppAsync
+    );
+}
+
+const ULONG VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL = 0x00000001;
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+cpp_quote("#endif // _WIN32_WINNT_WIN7")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

@@ -1,0 +1,363 @@
+/* 
+
+   CallObjects: A  Suite of Interfaces for Manipulating CallFrames as Objects
+
+   Copyright (c) Microsoft Corporation. All rights reserved.
+
+*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "oaidl.idl";
+
+interface ICallInterceptor;
+interface ICallUnmarshal;
+interface ICallFrame;
+interface ICallFrameEvents;
+interface ICallFrameWalker;
+interface IInterfaceRelated;
+
+
+[uuid(D573B4B0-894E-11d2-B8B6-00C04FB9618A), object, pointer_default(unique), local]
+interface ICallFrame : IUnknown
+{
+	
+	typedef struct
+	{
+		ULONG     iMethod;               
+		BOOL      fHasInValues;          
+		BOOL      fHasInOutValues;       
+		BOOL      fHasOutValues;
+		BOOL      fDerivesFromIDispatch;
+		LONG      cInInterfacesMax;
+		LONG      cInOutInterfacesMax; 
+		LONG      cOutInterfacesMax;
+		LONG      cTopLevelInInterfaces; 
+		IID       iid;
+		ULONG     cMethod;
+		ULONG     cParams;
+	} CALLFRAMEINFO;
+
+	typedef struct
+	{
+		BOOLEAN    fIn;
+		BOOLEAN    fOut;   
+		ULONG      stackOffset;
+		ULONG      cbParam;        
+	} CALLFRAMEPARAMINFO;
+
+	HRESULT GetInfo 
+	(
+		[out]  CALLFRAMEINFO* pInfo
+	);
+  
+	HRESULT GetIIDAndMethod 
+	(
+		[out]       IID* pIID,
+		[out]       ULONG* piMethod
+	);
+
+	HRESULT GetNames 
+	(
+		[out,annotation("_Outptr_result_maybenull_")]    LPWSTR* pwszInterface,
+		[out,annotation("_Outptr_result_maybenull_")]    LPWSTR* pwszMethod
+	);
+
+	PVOID GetStackLocation ();
+
+	void SetStackLocation 
+	(
+		[in]     PVOID pvStack
+	);
+
+	void SetReturnValue 
+	(
+		[in]     HRESULT hr
+	);
+
+	HRESULT GetReturnValue ();
+
+	HRESULT GetParamInfo 
+	(
+		[in]     ULONG iparam,              
+		[out]    CALLFRAMEPARAMINFO* pInfo  
+	);
+
+	HRESULT SetParam 
+	(
+		[in]     ULONG iparam,
+		[in]     VARIANT* pvar
+	);
+
+	HRESULT GetParam 
+	(
+		[in]     ULONG iparam,
+		[out]    VARIANT* pvar
+	);
+
+	typedef enum
+	{
+		CALLFRAME_COPY_NESTED    = 1,
+		CALLFRAME_COPY_INDEPENDENT = 2
+	}  CALLFRAME_COPY;
+	
+
+	HRESULT Copy 
+	(
+		[in]     CALLFRAME_COPY copyControl,
+		[in]     ICallFrameWalker* pWalker,
+		[out]    ICallFrame** ppFrame
+	);
+
+	HRESULT Free
+	(
+		[in]     ICallFrame* pframeArgsDest,
+		[in]     ICallFrameWalker* pWalkerDestFree,
+		[in]     ICallFrameWalker* pWalkerCopy,
+		[in]     DWORD freeFlags,		
+		[in]     ICallFrameWalker* pWalkerFree,
+		[in]     DWORD nullFlags		
+	);
+
+	enum CALLFRAME_FREE 
+	{
+		CALLFRAME_FREE_NONE      = 0,
+		CALLFRAME_FREE_IN        = 1,
+		CALLFRAME_FREE_INOUT     = 2,
+		CALLFRAME_FREE_OUT       = 4,
+		CALLFRAME_FREE_TOP_INOUT = 8,
+		CALLFRAME_FREE_TOP_OUT   = 16,
+		CALLFRAME_FREE_ALL       = 31,
+	};
+
+	enum CALLFRAME_NULL 
+	{
+		CALLFRAME_NULL_NONE  = 0,
+		CALLFRAME_NULL_INOUT = 2,
+		CALLFRAME_NULL_OUT   = 4,
+		CALLFRAME_NULL_ALL   = 6,
+	};
+
+	HRESULT  FreeParam
+	(
+		[in]  ULONG iparam,   
+		[in]  DWORD freeFlags,
+		[in]  ICallFrameWalker* pWalkerFree, 
+		[in]  DWORD nullFlags
+	);
+
+	HRESULT  WalkFrame
+	(
+		[in]  DWORD walkWhat,
+		[in]  ICallFrameWalker* pWalker
+	);
+
+	enum CALLFRAME_WALK
+	{
+		CALLFRAME_WALK_IN    = 1,
+		CALLFRAME_WALK_INOUT = 2,
+		CALLFRAME_WALK_OUT   = 4,
+	};
+	
+	typedef struct
+	{
+		BOOLEAN              fIn;
+		DWORD                dwDestContext;
+		LPVOID               pvDestContext;
+		IUnknown*            punkReserved;
+		GUID                 guidTransferSyntax; 
+	} CALLFRAME_MARSHALCONTEXT;
+	
+	HRESULT GetMarshalSizeMax
+	(
+		[in]  CALLFRAME_MARSHALCONTEXT* pmshlContext, 
+		[in]  MSHLFLAGS mshlflags,  
+		[out] ULONG* pcbBufferNeeded
+	);
+
+	HRESULT Marshal
+	(
+		[in]                    CALLFRAME_MARSHALCONTEXT* pmshlContext,
+		[in]                    MSHLFLAGS mshlflags,
+		[in,size_is(cbBuffer)]  PVOID     pBuffer,  
+		[in]                    ULONG     cbBuffer, 
+		[out]                   ULONG*    pcbBufferUsed,
+		[out]                   RPCOLEDATAREP* pdataRep,
+		[out]                   ULONG*    prpcFlags
+	);
+
+	HRESULT Unmarshal
+	(
+		[in,size_is(cbBuffer)] PVOID pBuffer,
+		[in]                   ULONG cbBuffer,
+		[in]                   RPCOLEDATAREP dataRep,
+		[in]                   CALLFRAME_MARSHALCONTEXT* pcontext,
+		[out]                  ULONG* pcbUnmarshalled
+	);
+
+	HRESULT ReleaseMarshalData 
+	(
+		[in,size_is(cbBuffer)] PVOID         pBuffer,      
+		[in]                   ULONG         cbBuffer,     
+		[in]                   ULONG         ibFirstRelease,
+		[in]                   RPCOLEDATAREP dataRep,
+		[in]                   CALLFRAME_MARSHALCONTEXT* pcontext
+	);
+
+	HRESULT Invoke
+	(
+		[in]   void* pvReceiver,
+		...
+	);
+	
+};
+
+[uuid(D573B4B1-894E-11d2-B8B6-00C04FB9618A), object, pointer_default(unique), local]
+interface ICallIndirect : IUnknown
+{
+	
+	HRESULT CallIndirect
+	(
+		[out]  HRESULT* phrReturn, 
+		[in]   ULONG iMethod,
+		[in]   void* pvArgs, 
+		[out]  ULONG* cbArgs
+	);
+
+
+	HRESULT GetMethodInfo
+	(
+		[in]   ULONG iMethod,      
+		[out]  CALLFRAMEINFO* pInfo,
+		[out,annotation("_Outptr_result_maybenull_")]  LPWSTR* pwszMethod
+	);
+
+
+	HRESULT GetStackSize
+	(
+		[in]    ULONG iMethod,
+		[out]   ULONG* cbArgs 
+	);
+
+
+	HRESULT GetIID 
+	(
+		[out,annotation("_Out_opt_")]  IID* piid,
+		[out,annotation("_Out_opt_")]  BOOL* pfDerivesFromIDispatch,
+		[out,annotation("_Out_opt_")]  ULONG* pcMethod,
+		[out,annotation("_Outptr_result_maybenull_")]  LPWSTR* pwszInterface
+	);
+
+};
+
+[uuid(60C7CA75-896D-11d2-B8B6-00C04FB9618A), object, pointer_default(unique), local]
+interface ICallInterceptor : ICallIndirect
+{
+	HRESULT RegisterSink
+	(
+		[in]         ICallFrameEvents* psink
+	);
+
+	HRESULT GetRegisteredSink
+	(
+		[out]        ICallFrameEvents** ppsink
+	);
+};
+
+[uuid(FD5E0843-FC91-11d0-97D7-00C04FB9618A), object, pointer_default(unique), local]
+interface ICallFrameEvents : IUnknown
+{
+	HRESULT OnCall
+	(
+		[in]      ICallFrame* pFrame    /* A call frame bound to the just-received invocation */
+	);
+};
+
+
+[uuid(5333B003-2E42-11d2-B89D-00C04FB9618A), object, pointer_default(unique), local]
+interface ICallUnmarshal : IUnknown
+{
+	HRESULT Unmarshal
+	(
+		[in]  ULONG iMethod,       
+		[in,size_is(cbBuffer)] PVOID pBuffer,
+		[in]  ULONG cbBuffer,
+		[in]  BOOL  fForceBufferCopy,
+		[in]  RPCOLEDATAREP dataRep,
+		[in]  CALLFRAME_MARSHALCONTEXT *pcontext, 
+		[out] ULONG* pcbUnmarshalled, 
+		[out]  ICallFrame** ppFrame
+	);
+
+	HRESULT ReleaseMarshalData
+	(
+		[in]  ULONG iMethod,   
+		[in,size_is(cbBuffer)] PVOID pBuffer,
+		[in]  ULONG cbBuffer,
+		[in]  ULONG ibFirstRelease, 
+		[in]  RPCOLEDATAREP dataRep,
+		[in]  CALLFRAME_MARSHALCONTEXT* pcontext
+	);
+};
+
+
+[uuid(08B23919-392D-11d2-B8A4-00C04FB9618A), object, pointer_default(unique), local]
+interface ICallFrameWalker : IUnknown
+{
+
+	HRESULT OnWalkInterface
+	(
+		[in]        REFIID iid,
+		[in]        PVOID* ppvInterface,
+		[in]        BOOL fIn, 
+		[in]        BOOL fOut 
+	);
+
+};
+
+[uuid(D1FB5A79-7706-11d1-ADBA-00C04FC2ADC0), object, pointer_default(unique), local]
+interface IInterfaceRelated : IUnknown
+{   
+	HRESULT SetIID
+	(
+		[in]    REFIID iid
+	);
+
+	HRESULT GetIID
+	(
+		[out]    IID* piid
+	);
+};
+
+cpp_quote("#define CALLFRAME_E_ALREADYINVOKED  _HRESULT_TYPEDEF_(  0x8004d090 )")
+cpp_quote("#define CALLFRAME_E_COULDNTMAKECALL _HRESULT_TYPEDEF_(  0x8004d091 )")
+
+
+[uuid(15B51D8B-9BF6-11d1-B888-00C04FB9618A), local] 
+interface ICallFrameAPIs {
+
+	HRESULT __stdcall CoGetInterceptor
+	(
+		[in]   REFIID iidIntercepted,
+		[in]   IUnknown* punkOuter, 
+		[in]   REFIID iid,
+		[out]  void** ppv
+	);
+
+
+	HRESULT __stdcall CoGetInterceptorFromTypeInfo
+	(
+		[in]   REFIID iidIntercepted,
+		[in]   IUnknown* punkOuter,
+		[in]   ITypeInfo* typeInfo,
+		[in]   REFIID iid,        
+		[out]  void** ppv         
+	);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

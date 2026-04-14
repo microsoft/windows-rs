@@ -1,0 +1,67 @@
+cpp_quote("/*******************************************************************************/" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*    Copyright (c) Microsoft Corporation.  All rights reserved.               */" )
+cpp_quote("/*                                                                             */" )
+           /*    WBEMADS.IDL                                                              */
+           /*                                                                             */
+cpp_quote("/*    IDL source for WMI ADSI extension                                        */" )
+cpp_quote("/*                                                                             */" )
+cpp_quote("/*******************************************************************************/" )
+
+// This file will be processed by the MIDL tool to
+// produce the type library (WMIExtension.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or WinMgmt Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "wbemdisp.idl";
+
+[
+	uuid(e503d000-5c7f-11d2-8b74-00104b2afb41),
+	version(1.0),
+	helpstring("WMI Extension to DS 1.0 Type Library")
+]
+library WMIEXTENSIONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	interface IWMIExtension;
+
+	[
+		uuid(f0975afe-5c7f-11d2-8b74-00104b2afb41),
+		helpstring("WMI DS Extension class")
+	]
+	coclass WMIExtension
+	{
+		[default] interface IWMIExtension;
+	};
+};
+
+[
+	object,
+	uuid(adc1f06e-5c7e-11d2-8b74-00104b2afb41),
+	dual,
+	helpstring("WMI extension to the DS Interface"),
+	pointer_default(unique)
+]
+interface IWMIExtension : IDispatch
+{
+	[id(1), propget, helpstring("Path to matching WMI object")] 
+	HRESULT WMIObjectPath([out, retval] BSTR *strWMIObjectPath);
+
+	[id(2), helpstring("Retrieves the matching WMI object")] 
+	HRESULT GetWMIObject([out, retval] ISWbemObject **objWMIObject);
+	
+	[id(3), helpstring("Retrieves the matching WMI services pointer")] 
+	HRESULT GetWMIServices([out, retval] ISWbemServices **objWMIServices);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_WINMGMT) */")
+#pragma endregion
+

@@ -1,0 +1,39 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract,
+Description ( "Represents a unit of adding storage in a data center." )]
+class MSFT_StorageScaleUnit : MSFT_StorageFaultDomain {
+
+
+    //
+    // Method: Maintenance
+    //
+
+    UInt32 Maintenance(
+
+        [In]
+        Boolean ValidateMaintenanceMode,
+
+        [In]
+        Boolean EnableMaintenanceMode,
+
+        [In]
+        UInt32 Timeout,
+
+        [In]
+        String Model,
+
+        [In]
+        String Manufacturer,
+
+        [In]
+        Boolean IgnoreDetachedVirtualDisks,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};

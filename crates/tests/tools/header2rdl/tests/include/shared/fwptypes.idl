@@ -1,0 +1,587 @@
+/*
+   Copyright (c) Microsoft Corporation
+
+   SYNOPSIS
+
+     Defines common data types shared across the FWP/IPsec API.
+*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or AppRuntime Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME)")
+
+
+import "wtypes.idl";
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+// The system LUID struct isn't defined in wtypes, so we repeat it here just
+// for the MIDL compiler.
+cpp_quote("#ifdef __midl")
+typedef struct _LUID {
+    DWORD LowPart;
+    LONG HighPart;
+} LUID, *PLUID;
+cpp_quote("#endif")
+
+// Direction of network traffic.
+typedef [v1_enum] enum FWP_DIRECTION_
+{
+   FWP_DIRECTION_OUTBOUND,
+   FWP_DIRECTION_INBOUND,
+   FWP_DIRECTION_MAX
+} FWP_DIRECTION;
+
+// IP version.
+typedef [v1_enum] enum FWP_IP_VERSION_
+{
+   FWP_IP_VERSION_V4,
+   FWP_IP_VERSION_V6,
+   FWP_IP_VERSION_NONE,
+   FWP_IP_VERSION_MAX,
+} FWP_IP_VERSION;
+
+// This is the hindsight catch-all for all net events that aren't either IPv4 or IPv6.
+typedef [v1_enum] enum FWP_NE_FAMILY_
+{
+   FWP_AF_INET = FWP_IP_VERSION_V4,
+   FWP_AF_INET6 = FWP_IP_VERSION_V6,
+   FWP_AF_ETHER = FWP_IP_VERSION_NONE,
+   FWP_AF_NONE,
+} FWP_AF;
+
+typedef [v1_enum] enum FWP_ETHER_ENCAP_METHOD_
+{
+   FWP_ETHER_ENCAP_METHOD_ETHER_V2 = 0,
+   FWP_ETHER_ENCAP_METHOD_SNAP = 1,
+   FWP_ETHER_ENCAP_METHOD_SNAP_W_OUI_ZERO = 3,
+} FWP_ETHER_ENCAP_METHOD;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building data values to be filtered.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Data types that can be stored in an FWP_VALUE or an FWP_CONDITION_VALUE
+// struct. Not all data types are valid for each struct; see the tagged union
+// in each struct to determine which are allowed.
+typedef [v1_enum] enum FWP_DATA_TYPE_
+{
+   FWP_EMPTY,
+   FWP_UINT8,
+   FWP_UINT16,
+   FWP_UINT32,
+   FWP_UINT64,
+   FWP_INT8,
+   FWP_INT16,
+   FWP_INT32,
+   FWP_INT64,
+   FWP_FLOAT,
+   FWP_DOUBLE,
+   FWP_BYTE_ARRAY16_TYPE,
+   FWP_BYTE_BLOB_TYPE,
+   FWP_SID,
+   FWP_SECURITY_DESCRIPTOR_TYPE,
+   FWP_TOKEN_INFORMATION_TYPE,
+   FWP_TOKEN_ACCESS_INFORMATION_TYPE,
+   FWP_UNICODE_STRING_TYPE,
+   FWP_BYTE_ARRAY6_TYPE,
+   FWP_SINGLE_DATA_TYPE_MAX = 0xFF,
+   FWP_V4_ADDR_MASK,
+   FWP_V6_ADDR_MASK,
+   FWP_RANGE_TYPE,
+   FWP_DATA_TYPE_MAX
+} FWP_DATA_TYPE;
+
+cpp_quote("#define FWP_BYTEMAP_ARRAY64_SIZE 8")
+
+// Stores an array of exactly 6 bytes -- useful for Ethernet/802.11 addresses.
+typedef struct FWP_BYTE_ARRAY6_
+{
+   UINT8 byteArray6[6];
+} FWP_BYTE_ARRAY6;
+
+#define FWP_BYTE_ARRAY6_SIZE	6
+cpp_quote("#define FWP_BYTE_ARRAY6_SIZE 6")
+
+// Stores an array of exactly 16 bytes -- useful for IPv6 addresses.
+typedef struct FWP_BYTE_ARRAY16_
+{
+   UINT8 byteArray16[16];
+} FWP_BYTE_ARRAY16;
+
+// Stores an array containing a variable number of bytes.
+typedef struct FWP_BYTE_BLOB_
+{
+   UINT32 size;
+   [size_is(size), unique] UINT8* data;
+} FWP_BYTE_BLOB;
+
+// Stores the user/group and restricted sids for user-mode classification
+typedef struct FWP_TOKEN_INFORMATION_
+{
+   ULONG sidCount;
+   [size_is(sidCount)] PSID_AND_ATTRIBUTES sids;
+   ULONG restrictedSidCount;
+   [size_is(restrictedSidCount)] PSID_AND_ATTRIBUTES restrictedSids;
+} FWP_TOKEN_INFORMATION;
+
+// Generic data value. This is primarily used to supply incoming values to the
+// filter engine.
+typedef struct FWP_VALUE0_
+{
+   FWP_DATA_TYPE type;
+   [switch_type(FWP_DATA_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWP_EMPTY)]
+         ;
+      [case(FWP_UINT8)]
+         UINT8 uint8;
+      [case(FWP_UINT16)]
+         UINT16 uint16;
+      [case(FWP_UINT32)]
+         UINT32 uint32;
+      [case(FWP_UINT64)]
+         [unique] UINT64* uint64;
+      [case(FWP_INT8)]
+         INT8 int8;
+      [case(FWP_INT16)]
+         INT16 int16;
+      [case(FWP_INT32)]
+         INT32 int32;
+      [case(FWP_INT64)]
+         [unique] INT64* int64;
+      [case(FWP_FLOAT)]
+         float float32;
+      [case(FWP_DOUBLE)]
+         [unique] double* double64;
+      [case(FWP_BYTE_ARRAY16_TYPE)]
+         [unique] FWP_BYTE_ARRAY16* byteArray16;
+      [case(FWP_BYTE_BLOB_TYPE)]
+         [unique] FWP_BYTE_BLOB* byteBlob;
+      [case(FWP_SID)]
+         [unique] SID* sid;
+      [case(FWP_SECURITY_DESCRIPTOR_TYPE)]
+         [unique] FWP_BYTE_BLOB* sd;
+      [case(FWP_TOKEN_INFORMATION_TYPE)]
+         [unique] FWP_TOKEN_INFORMATION* tokenInformation;
+      [case(FWP_TOKEN_ACCESS_INFORMATION_TYPE)]
+         [unique] FWP_BYTE_BLOB* tokenAccessInformation;
+      [case(FWP_UNICODE_STRING_TYPE)]
+         [string] LPWSTR unicodeString;
+      [case(FWP_BYTE_ARRAY6_TYPE)]
+         [unique] FWP_BYTE_ARRAY6* byteArray6;
+   };
+} FWP_VALUE0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building conditions.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Different match types allowed in conditions. Not all match types are
+// supported by all data types.
+typedef [v1_enum] enum FWP_MATCH_TYPE_
+{
+   FWP_MATCH_EQUAL,
+   FWP_MATCH_GREATER,
+   FWP_MATCH_LESS,
+   FWP_MATCH_GREATER_OR_EQUAL,
+   FWP_MATCH_LESS_OR_EQUAL,
+   FWP_MATCH_RANGE,
+   FWP_MATCH_FLAGS_ALL_SET,
+   FWP_MATCH_FLAGS_ANY_SET,
+   FWP_MATCH_FLAGS_NONE_SET,
+   FWP_MATCH_EQUAL_CASE_INSENSITIVE,
+   FWP_MATCH_NOT_EQUAL,
+   FWP_MATCH_PREFIX,
+   FWP_MATCH_NOT_PREFIX,
+   FWP_MATCH_TYPE_MAX
+} FWP_MATCH_TYPE;
+
+// IPv4 address and mask in host order.
+typedef struct FWP_V4_ADDR_AND_MASK_
+{
+   UINT32 addr;
+   UINT32 mask;
+} FWP_V4_ADDR_AND_MASK;
+
+// Length in bytes of an IPv6 address.
+#define FWP_V6_ADDR_SIZE (16)
+cpp_quote("#define FWP_V6_ADDR_SIZE (16)")
+
+// IPv6 address and mask. The mask is specified by the width in bits. For
+// example, a prefixLength of 16 specifies a mask consisting of 16 1's followed
+// by 112 0's.
+typedef struct FWP_V6_ADDR_AND_MASK_
+{
+   UINT8 addr[FWP_V6_ADDR_SIZE];
+   UINT8 prefixLength;
+} FWP_V6_ADDR_AND_MASK;
+
+// A range of values. valueLow and valueHigh must be the same data type with
+// valueHigh >= valueLow. Ranges are always inclusive. Thus, if a value equals
+// valueLow or valueHigh, it is contained in the range.
+typedef struct FWP_RANGE0_
+{
+   FWP_VALUE0 valueLow;
+   FWP_VALUE0 valueHigh;
+} FWP_RANGE0;
+
+// Access control rights for matching security descriptors in Application
+// Level Enforcement (ALE) layers.
+cpp_quote("#define FWP_ACTRL_MATCH_FILTER (0x00000001)")
+cpp_quote("")
+
+// Values that conditions can use when testing for matches. The
+// FWP_CONDITION_VALUE's data type must be compatible with the type of the
+// FWP_VALUE to which it's being compared. However, this doesn't mean they
+// necessarily need to be the same. For example, an FWP_V4_ADDR_MASK can be
+// compared to an FWP_UINT32 containing an IPv4 address.
+typedef struct FWP_CONDITION_VALUE0_
+{
+   FWP_DATA_TYPE type;
+   [switch_type(FWP_DATA_TYPE), switch_is(type)]
+   union
+   {
+      [case(FWP_EMPTY)]
+         ;
+      [case(FWP_UINT8)]
+         UINT8 uint8;
+      [case(FWP_UINT16)]
+         UINT16 uint16;
+      [case(FWP_UINT32)]
+         UINT32 uint32;
+      [case(FWP_UINT64)]
+         [unique] UINT64* uint64;
+      [case(FWP_INT8)]
+         INT8 int8;
+      [case(FWP_INT16)]
+         INT16 int16;
+      [case(FWP_INT32)]
+         INT32 int32;
+      [case(FWP_INT64)]
+         [unique] INT64* int64;
+      [case(FWP_FLOAT)]
+         float float32;
+      [case(FWP_DOUBLE)]
+         [unique] double* double64;
+      [case(FWP_BYTE_ARRAY16_TYPE)]
+         [unique] FWP_BYTE_ARRAY16* byteArray16;
+      [case(FWP_BYTE_BLOB_TYPE)]
+         [unique] FWP_BYTE_BLOB* byteBlob;
+      [case(FWP_SID)]
+         [unique] SID* sid;
+      [case(FWP_SECURITY_DESCRIPTOR_TYPE)]
+         [unique] FWP_BYTE_BLOB* sd;
+      [case(FWP_TOKEN_INFORMATION_TYPE)]
+         [unique] FWP_TOKEN_INFORMATION* tokenInformation;
+      [case(FWP_TOKEN_ACCESS_INFORMATION_TYPE)]
+         [unique] FWP_BYTE_BLOB* tokenAccessInformation;
+      [case(FWP_UNICODE_STRING_TYPE)]
+         [string] LPWSTR unicodeString;
+      [case(FWP_BYTE_ARRAY6_TYPE)]
+         [unique] FWP_BYTE_ARRAY6* byteArray6;
+      [case(FWP_V4_ADDR_MASK)]
+         [unique] FWP_V4_ADDR_AND_MASK* v4AddrMask;
+      [case(FWP_V6_ADDR_MASK)]
+         [unique] FWP_V6_ADDR_AND_MASK* v6AddrMask;
+      [case(FWP_RANGE_TYPE)]
+         [unique] FWP_RANGE0* rangeValue;
+   };
+} FWP_CONDITION_VALUE0;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for Network Connection Policy options.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE_
+{
+    FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS,
+    FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE,
+    FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP,
+    FWP_NETWORK_CONNECTION_POLICY_MAX,
+} FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for classify options.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum FWP_CLASSIFY_OPTION_TYPE_
+{
+   FWP_CLASSIFY_OPTION_MULTICAST_STATE,
+   FWP_CLASSIFY_OPTION_LOOSE_SOURCE_MAPPING,
+   FWP_CLASSIFY_OPTION_UNICAST_LIFETIME,
+   FWP_CLASSIFY_OPTION_MCAST_BCAST_LIFETIME,
+   FWP_CLASSIFY_OPTION_SECURE_SOCKET_SECURITY_FLAGS,
+   FWP_CLASSIFY_OPTION_SECURE_SOCKET_AUTHIP_MM_POLICY_KEY,
+   FWP_CLASSIFY_OPTION_SECURE_SOCKET_AUTHIP_QM_POLICY_KEY,   
+   FWP_CLASSIFY_OPTION_LOCAL_ONLY_MAPPING,
+   FWP_CLASSIFY_OPTION_MAX,
+} FWP_CLASSIFY_OPTION_TYPE;
+
+// Valid values for different classify options.
+cpp_quote("#define FWP_OPTION_VALUE_ALLOW_MULTICAST_STATE (0x00000000)")
+cpp_quote("#define FWP_OPTION_VALUE_DENY_MULTICAST_STATE  (0x00000001)")
+cpp_quote("#define FWP_OPTION_VALUE_ALLOW_GLOBAL_MULTICAST_STATE (0x00000002)")
+
+cpp_quote("#define FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE (0x00000000)")
+cpp_quote("#define FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE  (0x00000001)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#define FWP_OPTION_VALUE_DISABLE_LOCAL_ONLY_MAPPING (0x00000000)")
+cpp_quote("#define FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING  (0x00000001)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Types for vSwitch filtering.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef [v1_enum] enum FWP_VSWITCH_NETWORK_TYPE_
+{
+    FWP_VSWITCH_NETWORK_TYPE_UNKNOWN,
+    FWP_VSWITCH_NETWORK_TYPE_PRIVATE,
+    FWP_VSWITCH_NETWORK_TYPE_INTERNAL,
+    FWP_VSWITCH_NETWORK_TYPE_EXTERNAL
+} FWP_VSWITCH_NETWORK_TYPE;
+
+cpp_quote("#endif")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building actions.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+//////////
+// Flags specifying characteristics of a given action type. These should
+// generally not be used directly. Use one of the action types below instead.
+//////////
+
+// The action terminates classification, i.e., it returns block or permit.
+cpp_quote("#define FWP_ACTION_FLAG_TERMINATING     (0x00001000)")
+// The action doesn't terminate classification, i.e., it never returns block or
+// permit.
+cpp_quote("#define FWP_ACTION_FLAG_NON_TERMINATING (0x00002000)")
+// The action invokes a callout.
+cpp_quote("#define FWP_ACTION_FLAG_CALLOUT         (0x00004000)")
+
+//////////
+// Actions that can be set in the FWPM_ACTION0.type or FWPS_ACTION.type fields.
+//////////
+
+typedef UINT32 FWP_ACTION_TYPE;
+
+// Block the traffic.
+cpp_quote("#define FWP_ACTION_BLOCK  (0x00000001 | FWP_ACTION_FLAG_TERMINATING)")
+
+// Permit the traffic.
+cpp_quote("#define FWP_ACTION_PERMIT (0x00000002 | FWP_ACTION_FLAG_TERMINATING)")
+
+// Invoke a callout that always returns block or permit.
+cpp_quote("#define FWP_ACTION_CALLOUT_TERMINATING (0x00000003 | FWP_ACTION_FLAG_CALLOUT | FWP_ACTION_FLAG_TERMINATING)")
+
+// Invoke a callout that never returns block or permit.
+cpp_quote("#define FWP_ACTION_CALLOUT_INSPECTION (0x00000004 | FWP_ACTION_FLAG_CALLOUT | FWP_ACTION_FLAG_NON_TERMINATING)")
+
+// Invoke a callout that may return block or permit.
+cpp_quote("#define FWP_ACTION_CALLOUT_UNKNOWN (0x00000005 | FWP_ACTION_FLAG_CALLOUT)")
+
+//////////
+// Additional actions that may be returned by callouts. They can not be set in
+// an FWPM_ACTION0 or FWPS_ACTION struct.
+//////////
+
+cpp_quote("#define FWP_ACTION_CONTINUE (0x00000006 | FWP_ACTION_FLAG_NON_TERMINATING)")
+
+//////////
+// Additional actions that may be returned by classify. These are only used to
+// indicate the outcome of a classify. They can not be set in an FWPM_ACTION0
+// or FWPS_ACTION struct or returned by a callout from its classify function.
+//////////
+
+// No matching filter generated a terminating action (i.e., block or permit).
+cpp_quote("#define FWP_ACTION_NONE (0x00000007)")
+
+// No filter matched.
+cpp_quote("#define FWP_ACTION_NONE_NO_MATCH (0x00000008)")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for flags that can be filtered against on certain layers.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#define FWP_CONDITION_FLAG_IS_LOOPBACK              (0x00000001)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_IPSEC_SECURED         (0x00000002)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_REAUTHORIZE           (0x00000004)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_WILDCARD_BIND         (0x00000008)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_RAW_ENDPOINT          (0x00000010)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_FRAGMENT              (0x00000020)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_FRAGMENT_GROUP        (0x00000040)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_IPSEC_NATT_RECLASSIFY (0x00000080)")
+cpp_quote("#define FWP_CONDITION_FLAG_REQUIRES_ALE_CLASSIFY    (0x00000100)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_IMPLICIT_BIND         (0x00000200)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN6SP1)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_REASSEMBLED           (0x00000400)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_NAME_APP_SPECIFIED    (0x00004000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_PROMISCUOUS           (0x00008000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_AUTH_FW               (0x00010000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_RECLASSIFY            (0x00020000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_OUTBOUND_PASS_THRU    (0x00040000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_INBOUND_PASS_THRU     (0x00080000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_CONNECTION_REDIRECTED (0x00100000)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_PROXY_CONNECTION      (0x00200000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK (0x00400000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_NON_APPCONTAINER_LOOPBACK   (0x00800000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_RESERVED                    (0x01000000)")
+cpp_quote("#define FWP_CONDITION_FLAG_IS_HONORING_POLICY_AUTHORIZE   (0x02000000)")
+cpp_quote("#endif")
+
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_POLICY_CHANGE             (0x00000001)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_NEW_ARRIVAL_INTERFACE     (0x00000002)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_NEW_NEXTHOP_INTERFACE     (0x00000004)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_PROFILE_CROSSING          (0x00000008)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_CLASSIFY_COMPLETION       (0x00000010)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_IPSEC_PROPERTIES_CHANGED  (0x00000020)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_MID_STREAM_INSPECTION     (0x00000040)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_SOCKET_PROPERTY_CHANGED   (0x00000080)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_NEW_INBOUND_MCAST_BCAST_PACKET   (0x00000100)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_EDP_POLICY_CHANGED        (0x00000200)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_PROXY_HANDLE_CHANGED                       (0x00004000)")
+cpp_quote("#define FWP_CONDITION_REAUTHORIZE_REASON_CHECK_OFFLOAD                              (0x00010000)")
+
+cpp_quote("#define FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC      (0x00000001)")
+cpp_quote("#define FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC      (0x00000002)")
+cpp_quote("#define FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC       (0x00000004)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#define FWP_CONDITION_L2_IS_NATIVE_ETHERNET	   (0x00000001)")
+cpp_quote("#define FWP_CONDITION_L2_IS_WIFI	               (0x00000002)")
+cpp_quote("#define FWP_CONDITION_L2_IS_MOBILE_BROADBAND	   (0x00000004)")
+cpp_quote("#define FWP_CONDITION_L2_IS_WIFI_DIRECT_DATA	   (0x00000008)")
+cpp_quote("#define FWP_CONDITION_L2_IS_VM2VM	           (0x00000010)")
+cpp_quote("#define FWP_CONDITION_L2_IS_MALFORMED_PACKET	   (0x00000020)")
+cpp_quote("#define FWP_CONDITION_L2_IS_IP_FRAGMENT_GROUP   (0x00000040)")
+cpp_quote("#define FWP_CONDITION_L2_IF_CONNECTOR_PRESENT   (0x00000080)")
+
+cpp_quote("#endif")
+
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for enumerating filters.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Specifies how the filter enum conditions should be interpreted.
+typedef [v1_enum] enum FWP_FILTER_ENUM_TYPE_
+{
+   // Return only filters that fully contain the enum conditions.
+   FWP_FILTER_ENUM_FULLY_CONTAINED,
+   // Return filters that overlap with the enum conditions, including filters
+   // that are fully contained.
+   FWP_FILTER_ENUM_OVERLAPPING,
+   FWP_FILTER_ENUM_TYPE_MAX
+} FWP_FILTER_ENUM_TYPE;
+
+//////////
+// Flags controlling how filters matching an enum are returned.
+//////////
+
+// Only return the terminating filter with the highest weight.
+cpp_quote("#define FWP_FILTER_ENUM_FLAG_BEST_TERMINATING_MATCH (0x00000001)")
+// Return all matching filters sorted by weight (highest to lowest).
+cpp_quote("#define FWP_FILTER_ENUM_FLAG_SORTED                 (0x00000002)")
+// Return only boot-time filters.
+cpp_quote("#define FWP_FILTER_ENUM_FLAG_BOOTTIME_ONLY          (0x00000004)")
+// Include boot-time filters; ignored if the BOOTTIME_ONLY flag is set.
+cpp_quote("#define FWP_FILTER_ENUM_FLAG_INCLUDE_BOOTTIME       (0x00000008)")
+// Include disabled filters; ignored if the BOOTTIME_ONLY flag is set.
+cpp_quote("#define FWP_FILTER_ENUM_FLAG_INCLUDE_DISABLED       (0x00000010)")
+
+// Valid enum flags. If no flags are set, all matching filters will be returned
+// in an unspecified order.
+cpp_quote("#define FWP_FILTER_ENUM_VALID_FLAGS (FWP_FILTER_ENUM_FLAG_BEST_TERMINATING_MATCH | FWP_FILTER_ENUM_FLAG_SORTED)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#define FWP_FILTER_ENUM_FLAG_RESERVED1              (0x00000020)")
+cpp_quote("#endif")
+
+cpp_quote("#define FWP_CALLOUT_FLAG_CONDITIONAL_ON_FLOW        	(0x00000001)")
+// Flags that the callout doesn't mind not being called in the presence
+// of various offloads
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_OFFLOAD          		(0x00000002)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Enable add notification after transaction has committed
+cpp_quote("#define FWP_CALLOUT_FLAG_ENABLE_COMMIT_ADD_NOTIFY    (0x00000004)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_MID_STREAM_INSPECTION (0x00000008)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_RECLASSIFY            (0x00000010)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#define FWP_CALLOUT_FLAG_RESERVED1                   (0x00000020)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_RSC                   (0x00000040)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY     (0x00000080)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_USO                   (0x00000100)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_VB)")
+cpp_quote("#define FWP_CALLOUT_FLAG_ALLOW_URO                   (0x00000200)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+cpp_quote("#define FWP_CALLOUT_FLAG_RESERVED2                   (0x00000400)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Stores an optional friendly name and description for an object. In order to
+// support MUI, both strings may contain indirect strings (see
+// SHLoadIndirectString for details).
+
+typedef struct FWPM_DISPLAY_DATA0_
+{
+   [string, unique] wchar_t* name;
+   [string, unique] wchar_t* description;
+} FWPM_DISPLAY_DATA0;
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Type containing information specific to virtual interface tunneling. 
+// Currently this is only supported by IKEv2.
+typedef struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0_
+{
+    // ID/Handle to Virtual-IF tunnel state.
+    UINT64 virtualIfTunnelId;
+    // ID/Handle to Virtual-IF traffic selector(s).
+    UINT64 trafficSelectorId;
+} IPSEC_VIRTUAL_IF_TUNNEL_INFO0;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME) */")
+#pragma endregion
+

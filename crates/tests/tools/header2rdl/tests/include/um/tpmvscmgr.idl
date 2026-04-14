@@ -1,0 +1,227 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: tpmvscmgr.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "TpmVscAttestation.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+typedef [v1_enum] enum
+{
+    TPMVSCMGR_STATUS_VTPMSMARTCARD_INITIALIZING, // Initializing the Virtual Smart Card component...
+    TPMVSCMGR_STATUS_VTPMSMARTCARD_CREATING, // Creating the Virtual Smart Card component...
+    TPMVSCMGR_STATUS_VTPMSMARTCARD_DESTROYING, // Destroying the Virtual Smart Card component...
+
+    TPMVSCMGR_STATUS_VGIDSSIMULATOR_INITIALIZING, // Initializing the Virtual Smart Card Simulator...
+    TPMVSCMGR_STATUS_VGIDSSIMULATOR_CREATING, // Creating the Virtual Smart Card Simulator...
+    TPMVSCMGR_STATUS_VGIDSSIMULATOR_DESTROYING, // Destroying the Virtual Smart Card Simulator...
+
+    TPMVSCMGR_STATUS_VREADER_INITIALIZING, // Initializing the Virtual Smart Card Reader...
+    TPMVSCMGR_STATUS_VREADER_CREATING, // Creating the Virtual Smart Card Reader...
+    TPMVSCMGR_STATUS_VREADER_DESTROYING, // Destroying the Virtual Smart Card Reader...
+
+    TPMVSCMGR_STATUS_GENERATE_WAITING, // Waiting for TPM Smart Card Device...
+    TPMVSCMGR_STATUS_GENERATE_AUTHENTICATING, // Authenticating to the TPM Smart Card...
+    TPMVSCMGR_STATUS_GENERATE_RUNNING, // Generating filesystem on the TPM Smart Card...
+
+    TPMVSCMGR_STATUS_CARD_CREATED, // TPM Smart Card created.
+    TPMVSCMGR_STATUS_CARD_DESTROYED, // TPM Smart Card destroyed.
+} TPMVSCMGR_STATUS;
+
+typedef [v1_enum] enum
+{
+    TPMVSCMGR_ERROR_IMPERSONATION, // Failed to impersonate the caller
+    TPMVSCMGR_ERROR_PIN_COMPLEXITY, // Ensure that your PIN/PUK meets the length or complexity requirements of your organization.
+    TPMVSCMGR_ERROR_READER_COUNT_LIMIT, // The limit on the number of Smart Card Readers has been reached.
+    TPMVSCMGR_ERROR_TERMINAL_SERVICES_SESSION, // TPM Virtual Smart Card management cannot be used within a Terminal Services session.
+
+    TPMVSCMGR_ERROR_VTPMSMARTCARD_INITIALIZE, // Failed to initialize the Virtual Smart Card component.
+    TPMVSCMGR_ERROR_VTPMSMARTCARD_CREATE, // Failed to create the Virtual Smart Card component.
+    TPMVSCMGR_ERROR_VTPMSMARTCARD_DESTROY, // Failed to destroy the Virtual Smart Card.
+
+    TPMVSCMGR_ERROR_VGIDSSIMULATOR_INITIALIZE, // Failed to initialize the Virtual Smart Card Simulator.
+    TPMVSCMGR_ERROR_VGIDSSIMULATOR_CREATE, // Failed to create the Virtual Smart Card Simulator.
+    TPMVSCMGR_ERROR_VGIDSSIMULATOR_DESTROY, // Failed to destroy the Virtual Smart Card Simulator.
+    TPMVSCMGR_ERROR_VGIDSSIMULATOR_WRITE_PROPERTY, // Failed to configure the Virtual Smart Card Simulator.
+    TPMVSCMGR_ERROR_VGIDSSIMULATOR_READ_PROPERTY, // Failed to find the specified Virtual Smart Card Simulator.
+
+    TPMVSCMGR_ERROR_VREADER_INITIALIZE, // Failed to initialize the Virtual Smart Card Reader.
+    TPMVSCMGR_ERROR_VREADER_CREATE, // Failed to create the Virtual Smart Card Reader.
+    TPMVSCMGR_ERROR_VREADER_DESTROY, // Failed to destroy the Virtual Smart Card Reader.
+
+    TPMVSCMGR_ERROR_GENERATE_LOCATE_READER, // Failed to connect to the TPM Smart Card.
+    TPMVSCMGR_ERROR_GENERATE_FILESYSTEM, // Failed to generate the filesystem on the TPM Smart Card.
+
+    TPMVSCMGR_ERROR_CARD_CREATE, // Unable to create TPM Smart Card.
+    TPMVSCMGR_ERROR_CARD_DESTROY, // Unable to destroy TPM Smart Card.
+} TPMVSCMGR_ERROR;
+
+[
+    object,
+    uuid(1A1BB35F-ABB8-451C-A1AE-33D98F1BEF4A),
+    pointer_default(unique)
+]
+interface ITpmVirtualSmartCardManagerStatusCallback : IUnknown
+{
+    HRESULT
+    ReportProgress(
+        [in] TPMVSCMGR_STATUS Status
+    );
+
+    HRESULT
+    ReportError(
+        [in] TPMVSCMGR_ERROR Error
+    );
+};
+
+cpp_quote("//")
+cpp_quote("// TPM Virtual Smart Card Default Admin Key Algorithm ID")
+cpp_quote("// 0x82 = 0x02 (3-key triple DES) |")
+cpp_quote("//        0x80 (ISO/IEC 9797 padding method 2) |")
+cpp_quote("//        0x00 (CBC mode)")
+cpp_quote("//")
+
+const BYTE TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID = 0x82;
+
+[
+    object,
+    uuid(112B1DFF-D9DC-41F7-869F-D67FEE7CB591),
+    pointer_default(unique)
+]
+interface ITpmVirtualSmartCardManager : IUnknown
+{
+    HRESULT
+    CreateVirtualSmartCard(
+        [in, string] LPCWSTR pszFriendlyName,
+        [in] BYTE bAdminAlgId,
+        [in, size_is(cbAdminKey)] const BYTE* pbAdminKey,
+        [in] DWORD cbAdminKey,
+        [in, unique, size_is(cbAdminKcv)] const BYTE* pbAdminKcv, // optional
+        [in] DWORD cbAdminKcv,
+        [in, unique, size_is(cbPuk)] const BYTE* pbPuk, // optional
+        [in] DWORD cbPuk,
+        [in, size_is(cbPin)] const BYTE* pbPin,
+        [in] DWORD cbPin,
+        [in] BOOL fGenerate,
+        [in, unique] ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, // optional
+        [out, string] LPWSTR* ppszInstanceId,
+        [out] BOOL* pfNeedReboot
+    );
+
+    HRESULT
+    DestroyVirtualSmartCard(
+        [in, string] LPCWSTR pszInstanceId,
+        [in, unique] ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, // optional
+        [out] BOOL* pfNeedReboot
+    );
+};
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(FDF8A2B9-02DE-47F4-BC26-AA85AB5E5267),
+    pointer_default(unique)
+]
+interface ITpmVirtualSmartCardManager2 : ITpmVirtualSmartCardManager
+{
+    HRESULT
+    CreateVirtualSmartCardWithPinPolicy(
+        [in, string] LPCWSTR pszFriendlyName,
+        [in] BYTE bAdminAlgId,
+        [in, size_is(cbAdminKey)] const BYTE* pbAdminKey,
+        [in] DWORD cbAdminKey,
+        [in, unique, size_is(cbAdminKcv)] const BYTE* pbAdminKcv, // optional
+        [in] DWORD cbAdminKcv,
+        [in, unique, size_is(cbPuk)] const BYTE* pbPuk, // optional
+        [in] DWORD cbPuk,
+        [in, size_is(cbPin)] const BYTE* pbPin,
+        [in] DWORD cbPin,
+        [in, unique, size_is(cbPinPolicy)] const BYTE* pbPinPolicy, // optional
+        [in] DWORD cbPinPolicy,
+        [in] BOOL fGenerate,
+        [in, unique] ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, // optional
+        [out, string] LPWSTR* ppszInstanceId,
+        [out] BOOL* pfNeedReboot
+    );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+[
+    object,
+    uuid(3C745A97-F375-4150-BE17-5950F694C699),
+    pointer_default(unique)
+]
+interface ITpmVirtualSmartCardManager3 : ITpmVirtualSmartCardManager2
+{
+    HRESULT
+    CreateVirtualSmartCardWithAttestation(
+        [in, string] LPCWSTR pszFriendlyName,
+        [in] BYTE bAdminAlgId,
+        [in, size_is(cbAdminKey)] const BYTE* pbAdminKey,
+        [in] DWORD cbAdminKey,
+        [in, unique, size_is(cbAdminKcv)] const BYTE* pbAdminKcv, // optional
+        [in] DWORD cbAdminKcv,
+        [in, unique, size_is(cbPuk)] const BYTE* pbPuk, // optional
+        [in] DWORD cbPuk,
+        [in, size_is(cbPin)] const BYTE* pbPin,
+        [in] DWORD cbPin,
+        [in, unique, size_is(cbPinPolicy)] const BYTE* pbPinPolicy, // optional
+        [in] DWORD cbPinPolicy,
+        [in] TPMVSC_ATTESTATION_TYPE attestationType,
+        [in] BOOL fGenerate,
+        [in, unique] ITpmVirtualSmartCardManagerStatusCallback* pStatusCallback, // optional
+        [out, string] LPWSTR* ppszInstanceId
+    );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+[
+    uuid(1C60A923-2D86-46AA-928A-E7F3E37577AF)
+]
+library TpmVirtualSmartCardManagers
+{
+    [
+        uuid(16A18E86-7F6E-4C20-AD89-4FFC0DB7A96A)
+    ]
+    coclass TpmVirtualSmartCardManager
+    {
+        [default] interface ITpmVirtualSmartCardManager;
+        interface ITpmVirtualSmartCardManager2;
+        interface ITpmVirtualSmartCardManager3;
+    }
+
+    [
+        uuid(152EA2A8-70DC-4C59-8B2A-32AA3CA0DCAC)
+    ]
+    coclass RemoteTpmVirtualSmartCardManager
+    {
+        [default] interface ITpmVirtualSmartCardManager;
+        interface ITpmVirtualSmartCardManager2;
+        interface ITpmVirtualSmartCardManager3;
+    }
+};
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

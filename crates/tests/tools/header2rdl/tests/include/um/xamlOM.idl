@@ -1,0 +1,401 @@
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+
+cpp_quote("#pragma region Application Family")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include <sdkddkver.h>
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "inspectable.idl";
+import "dxgi1_2.idl";
+
+cpp_quote("// Win32 API definitions")
+cpp_quote("#define E_NOTFOUND HRESULT_FROM_WIN32(ERROR_NOT_FOUND)")
+cpp_quote("#define E_UNKNOWNTYPE MAKE_HRESULT(SEVERITY_ERROR, FACILITY_XAML, 40L)")
+cpp_quote("_Check_return_ HRESULT InitializeXamlDiagnostic(_In_ LPCWSTR endPointName, _In_ DWORD pid, _In_ LPCWSTR wszDllXamlDiagnostics, _In_ LPCWSTR wszTAPDllName,  _In_ CLSID tapClsid);")
+cpp_quote("_Check_return_ HRESULT InitializeXamlDiagnosticsEx(_In_ LPCWSTR endPointName, _In_ DWORD pid, _In_ LPCWSTR wszDllXamlDiagnostics, _In_ LPCWSTR wszTAPDllName, _In_ CLSID tapClsid, _In_ LPCWSTR wszInitializationData);")
+
+
+// Typedefs.
+
+typedef unsigned hyper InstanceHandle;
+
+typedef enum VisualMutationType
+{
+    Add = 0,
+    Remove
+} VisualMutationType;
+
+typedef enum BaseValueSource
+{
+    BaseValueSourceUnknown = 0,
+    BaseValueSourceDefault,
+    BaseValueSourceBuiltInStyle,
+    BaseValueSourceStyle,
+    BaseValueSourceLocal,
+    Inherited,
+    DefaultStyleTrigger,
+    TemplateTrigger,
+    StyleTrigger,
+    ImplicitStyleReference,
+    ParentTemplate,
+    ParentTemplateTrigger,
+    Animation,
+    Coercion,
+    BaseValueSourceVisualState
+} BaseValueSource;
+
+// Structs.
+
+typedef struct SourceInfo
+{
+    BSTR FileName;
+    unsigned int LineNumber;
+    unsigned int ColumnNumber;
+    unsigned int CharPosition;
+    BSTR Hash;
+} SourceInfo;
+
+typedef struct ParentChildRelation
+{
+    InstanceHandle Parent;
+    InstanceHandle Child;
+    unsigned int ChildIndex;
+} ParentChildRelation;
+
+typedef struct VisualElement
+{
+    InstanceHandle Handle;
+    SourceInfo SrcInfo;
+    BSTR Type;
+    BSTR Name;
+    unsigned int NumChildren;
+} VisualElement;
+
+typedef struct PropertyChainSource
+{
+    InstanceHandle Handle;
+    BSTR TargetType;
+    BSTR Name;
+    BaseValueSource Source;
+    SourceInfo SrcInfo;
+} PropertyChainSource;
+
+typedef enum MetadataBit
+{
+    None = 0x0,
+    IsValueHandle = 0x1,
+    IsPropertyReadOnly = 0x2,
+    IsValueCollection = 0x4,
+    IsValueCollectionReadOnly = 0x8,
+    IsValueBindingExpression = 0x10,
+    IsValueNull = 0x20,
+    IsValueHandleAndEvaluatedValue=0x40
+} MetadataBit;
+
+typedef struct PropertyChainValue
+{
+    unsigned int Index;
+    BSTR Type;
+    BSTR DeclaringType;
+    BSTR ValueType; // Type of the current value.
+    BSTR ItemType; // Collection item type or null for non-collections.
+    BSTR Value;
+    BOOL Overridden;
+    hyper MetadataBits; // Bit field of booleans indexed by MetadataBit.
+    BSTR PropertyName;
+    unsigned int PropertyChainIndex;
+} PropertyChainValue;
+
+typedef struct EnumType
+{
+    BSTR Name;
+    SAFEARRAY(int) ValueInts;
+    SAFEARRAY(BSTR) ValueStrings;
+} EnumType;
+
+typedef struct CollectionElementValue
+{
+    unsigned int Index; // Collection index where the element was found.
+    BSTR ValueType; // Type of the element object.
+    BSTR Value; // Value of the element.
+    hyper MetadataBits; // Bit field of booleans indexed by MetadataBit.
+} CollectionElementValue;
+
+typedef enum RenderTargetBitmapOptions
+{
+    RenderTarget = 0,
+    RenderTargetAndChildren
+} RenderTargetBitmapOptions;
+
+typedef struct BitmapDescription
+{
+    unsigned int Width;
+    unsigned int Height;
+    DXGI_FORMAT Format;
+    DXGI_ALPHA_MODE AlphaMode;
+} BitmapDescription;
+
+typedef enum ResourceType
+{
+    ResourceTypeStatic = 0,
+    ResourceTypeTheme
+} ResourceType;
+
+typedef enum VisualElementState
+{
+    ErrorResolved = 0,
+    ErrorResourceNotFound, // Could not resolve resource
+    ErrorInvalidResource,  // Resource found, but does not match property
+} VisualElementState;
+
+
+// Interfaces.
+
+[
+    object,
+    uuid(AA7A8931-80E4-4FEC-8F3B-553F87B4966E),
+    pointer_default(unique)
+]
+interface IVisualTreeServiceCallback : IUnknown
+{
+    HRESULT OnVisualTreeChange(
+        [in] ParentChildRelation relation,
+        [in] VisualElement element,
+        [in] VisualMutationType mutationType);
+};
+
+[
+    object,
+    uuid(BAD9EB88-AE77-4397-B948-5FA2DB0A19EA),
+    pointer_default(unique)
+]
+interface IVisualTreeServiceCallback2 : IVisualTreeServiceCallback
+{
+    HRESULT OnElementStateChanged(
+        [in] InstanceHandle element,
+        [in] VisualElementState elementState,
+        [in] LPCWSTR context);
+};
+
+[
+    object,
+    uuid(A593B11A-D17F-48BB-8F66-83910731C8A5),
+    pointer_default(unique)
+]
+interface IVisualTreeService : IUnknown
+{
+    // Mutation events. If the callback also implements IVisualTreeServiceCallback2,
+    // then multiple window support is enabled. When the callback implements IVisualTreeServiceCallback2,
+    // all methods must be dispatched onto the correct thread if they require access to the UI thread.
+    HRESULT AdviseVisualTreeChange(
+        [in] IVisualTreeServiceCallback *pCallback);
+    HRESULT UnadviseVisualTreeChange(
+        [in] IVisualTreeServiceCallback *pCallback);
+
+    // Get all available enums.
+    HRESULT GetEnums(
+        [out] unsigned int* pCount, 
+        [out, size_is(, *pCount)] EnumType** ppEnums);
+
+    // Instance creation.
+    HRESULT CreateInstance(
+        [in] BSTR typeName, 
+        [in] BSTR value, 
+        [out, retval] InstanceHandle* pInstanceHandle);
+
+    // Property get/set.
+    HRESULT GetPropertyValuesChain(
+        [in] InstanceHandle instanceHandle, 
+        [out] unsigned int* pSourceCount, 
+        [out, size_is(, *pSourceCount)] PropertyChainSource** ppPropertySources, 
+        [out] unsigned int* pPropertyCount, 
+        [out, size_is(, *pPropertyCount)] PropertyChainValue** ppPropertyValues);
+    HRESULT SetProperty(
+        [in] InstanceHandle instanceHandle, 
+        [in] InstanceHandle value, 
+        [in] unsigned int propertyIndex);
+    HRESULT ClearProperty(
+        [in] InstanceHandle instanceHandle,
+        [in] unsigned int propertyIndex);
+
+    // Collections.
+    HRESULT GetCollectionCount(
+        [in] InstanceHandle instanceHandle, 
+        [out] unsigned int* pCollectionSize);
+    HRESULT GetCollectionElements(
+        [in] InstanceHandle instanceHandle, 
+        [in] unsigned int startIndex, 
+        [in, out] unsigned int* pElementCount, 
+        [out, size_is(, *pElementCount)] CollectionElementValue** ppElementValues);
+    HRESULT AddChild(
+        [in] InstanceHandle parent, 
+        [in] InstanceHandle child, 
+        [in] unsigned int index);
+    HRESULT RemoveChild(
+        [in] InstanceHandle parent, 
+        [in] unsigned int index);
+    HRESULT ClearChildren(
+        [in] InstanceHandle parent);
+};
+
+[
+    object,
+    uuid(18C9E2B6-3F43-4116-9F2B-FF935D7770D2),
+    pointer_default(unique)
+]
+interface IXamlDiagnostics : IUnknown
+{
+    HRESULT GetDispatcher(
+        [out, retval] IInspectable** ppDispatcher);
+    HRESULT GetUiLayer(
+        [out, retval] IInspectable** ppLayer);
+    HRESULT GetApplication(
+        [out, retval] IInspectable** ppApplication);
+
+    HRESULT GetIInspectableFromHandle(
+        [in] InstanceHandle instanceHandle, 
+        [out, retval] IInspectable** ppInstance);
+    HRESULT GetHandleFromIInspectable(
+        [in] IInspectable* pInstance, 
+        [out, retval] InstanceHandle* pHandle);
+    HRESULT HitTest(
+        [in] RECT rect, 
+        [out] unsigned int* pCount, 
+        [out, size_is(, *pCount)] InstanceHandle** ppInstanceHandles);
+    HRESULT RegisterInstance(
+        [in] IInspectable* pInstance, 
+        [out, retval] InstanceHandle *pInstanceHandle);
+    HRESULT GetInitializationData(
+        [out, retval] BSTR* pInitializationData);
+};
+
+[
+    object,
+    uuid(d1a34ef2-cad8-4635-a3d2-fcda8d3f3caf),
+    pointer_default(unique)
+]
+interface IBitmapData : IUnknown
+{
+    //
+    // Copies up to maxBytesToCopy bytes from the given offset in the bitmap data into the
+    // caller's buffer at pvBytes, and returns the number of bytes copied.
+    //
+    HRESULT CopyBytesTo(
+        [in] unsigned int sourceOffsetInBytes, 
+        [in] unsigned int maxBytesToCopy, 
+        [out, size_is(maxBytesToCopy)] byte* pvBytes,
+        [out] unsigned int* numberOfBytesCopied);
+
+     //
+     // Gets the stride of the data. This is the length in bytes of each row of the bitmap.
+     //
+     HRESULT GetStride(
+        [out] unsigned int* pStride);
+
+     //
+     // Gets a BitmapDescription describing the bitmap data stored in the IBitmapData.
+     //
+     HRESULT GetBitmapDescription(
+        [out] BitmapDescription* pBitmapDescription);
+
+     //
+     // Gets a BitmapDescription describing the original format of the bitmap data stored
+     // in the IBitmapData. This will have the same value as the BitmapDescription
+     // returned by GetBitmapDescription(...) unless the bitmap data was format converted 
+     // or scaled. Format conversion and scaling will occur as necessary to meet the contract
+     // of the method that returned the IBitmapData.
+     // 
+     HRESULT GetSourceBitmapDescription(
+        [out] BitmapDescription* pBitmapDescription);
+};
+
+[
+    object,
+    uuid(130F5136-EC43-4F61-89C7-9801A36D2E95),
+    pointer_default(unique)
+]
+interface IVisualTreeService2 : IVisualTreeService
+{
+    //Edit&Continue.
+    HRESULT GetPropertyIndex(
+        [in] InstanceHandle object,
+        [in] LPCWSTR propertyName,
+        [out] unsigned int* pPropertyIndex);
+
+    HRESULT GetProperty(
+        [in] InstanceHandle object,
+        [in] unsigned int propertyIndex,
+        [out] InstanceHandle* pValue);
+
+    HRESULT ReplaceResource(
+        [in] InstanceHandle resourceDictionary,
+        [in] InstanceHandle key,
+        [in] InstanceHandle newValue);
+
+    //
+    // Returns an image that represents the object described by handle, or
+    // returns an error if the object does not have or can not provide
+    // such an image. 
+    //
+    // The maxPixelWidth and maxPixelHeight parameters allow the caller to 
+    // specify bounds on the size of the image that is returned. If the image 
+    // would be larger than the maxPixelWidth or maxPixelHeight, the image
+    // will be uniformly scaled such that the returned image has a width of
+    // maxPixelWidth and/or height of maxPixelHeight.
+    //
+    // The returned image will have
+    //   Format:    DXGI_FORMAT_B8G8R8A8_UNORM format
+    //   AlphaMode: DXGI_ALPHA_MODE_PREMULTIPLIED
+    //
+    // On success:
+    //    returns S_OK and the pointer at ppBitmapData will be set to
+    //    an IBitmapData containing an image.
+    // 
+    // On error, the pointer at ppBitmapData will be set to NULL and one of the
+    // following error values will be returned:
+    //   E_FAIL        - the image could not be acquired or converted.
+    //   E_INVALIDARG - the handle does not refer to an object that can
+    //                   return an image, the options value is invalid, or
+    //                   ppBitmapData is NULL.
+    //
+    HRESULT RenderTargetBitmap(
+        [in] InstanceHandle handle,
+        [in] RenderTargetBitmapOptions options,
+        [in] unsigned int maxPixelWidth,
+        [in] unsigned int maxPixelHeight,
+        [out] IBitmapData** ppBitmapData);
+};
+
+[
+    object,
+    uuid(0E79C6E0-85A0-4BE8-B41A-655CF1FD19BD),
+    pointer_default(unique)
+]
+interface IVisualTreeService3 : IVisualTreeService2
+{
+    HRESULT ResolveResource(
+        [in] InstanceHandle resourceContext,
+        [in] LPCWSTR resourceName,
+        [in] ResourceType resourceType,
+        [in] unsigned int propertyIndex);
+
+    HRESULT GetDictionaryItem(
+        [in] InstanceHandle dictionaryHandle,
+        [in] LPCWSTR resourceName,
+        [in] BOOL resourceIsImplicitStyle,
+        [out] InstanceHandle* resourceHandle);
+
+    HRESULT AddDictionaryItem(
+        [in] InstanceHandle dictionaryHandle,
+        [in] InstanceHandle resourceKey,
+        [in] InstanceHandle resourceHandle);
+
+    HRESULT RemoveDictionaryItem(
+        [in] InstanceHandle dictionaryHandle,
+        [in] InstanceHandle resourceKey);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */ ")
+cpp_quote("#pragma endregion")

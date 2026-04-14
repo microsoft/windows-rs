@@ -1,0 +1,61 @@
+//------------------------------------------------------------------------------
+// File: RegBag.idl
+//
+// Desc: IDL source for RegBag.dll.
+//
+// Copyright (c) 1999 - 2000, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1999-2000.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#pragma once")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+#ifndef DO_NO_IMPORTS
+import "objidl.idl";
+import "oaidl.idl";
+import "ocidl.idl";
+#endif
+
+//*****************************************************************************
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Custom Factory interface
+//  since com doesn't support ctors or initialization parameters on std factory interface
+//  we have a custom creation interface
+//
+///////////////////////////////////////////////////////////////////////////////
+//*****************************************************************************
+///////////////////////////////////////////////////////////////////////////////////////
+[object, 
+	hidden, restricted,
+	uuid(8A674B48-1F63-11d3-B64C-00C04F79498E),
+	helpstring("Create property bag backed by registry"),
+	pointer_default(unique),
+	local
+]
+interface ICreatePropBagOnRegKey : IUnknown {
+	// NOTE: it is up to the caller to set the correct registry access based on the interface
+	// and methods the caller intends to use
+	// IPropertyBag2::GetPropertyInfo and CountProperties require both KEY_QUERY_VALUE and KEY_ENUMERATE_SUBKEYS
+	// IPropertyBagXXX::Read requires KEY_READ
+	// IPropertyBagXXX::Write requires KEY_WRITE
+	// also, you must CoTaskMemFree the name string from GetPropertyInfo
+	// if you write a value of VT_EMPTY or VT_NULL the property will be removed from the bag and the corresponding
+	// registry info will be deleted.
+	HRESULT Create([in] HKEY hkey, [in] LPCOLESTR subkey, [in] DWORD ulOptions, [in] DWORD samDesired, REFIID iid, [out] LPVOID *ppBag);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

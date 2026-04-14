@@ -1,0 +1,83 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstupd.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+    LOCAL_INTERFACE(0c733a6d-2a1c-11ce-ade5-00aa0044773d)
+
+    
+interface IRowsetUpdate : IRowsetChange {
+
+typedef DWORD DBPENDINGSTATUS;
+
+// ORable values
+enum DBPENDINGSTATUSENUM {
+	DBPENDINGSTATUS_NEW			= 0x01,
+	DBPENDINGSTATUS_CHANGED		= 0x02,
+	DBPENDINGSTATUS_DELETED		= 0x04,
+	DBPENDINGSTATUS_UNCHANGED	= 0x08,
+	DBPENDINGSTATUS_INVALIDROW	= 0x10,
+};
+
+	HRESULT GetOriginalData(
+		[in] HROW hRow,
+		[in] HACCESSOR hAccessor,
+		[out] void * pData
+	);
+
+	HRESULT GetPendingRows(
+		[in] HCHAPTER hReserved,
+		[in] DBPENDINGSTATUS dwRowStatus,
+		[in, out] DBCOUNTITEM * pcPendingRows,
+		[out, size_is(,*pcPendingRows)] HROW ** prgPendingRows,
+		[out, size_is(,*pcPendingRows)] DBPENDINGSTATUS ** prgPendingStatus
+	);
+
+	HRESULT GetRowStatus(
+		[in] HCHAPTER hReserved,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows)] const HROW rghRows[],
+		[out, size_is(cRows)] DBPENDINGSTATUS rgPendingStatus[]
+	);
+
+	HRESULT Undo(
+		[in] HCHAPTER hReserved,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows)] const HROW rghRows[],
+		[in, out] DBCOUNTITEM * pcRowsUndone,
+		[out, size_is(,*pcRowsUndone)] HROW ** prgRowsUndone,
+		[out, size_is(,*pcRowsUndone)] DBROWSTATUS ** prgRowStatus
+	);
+
+	HRESULT Update(
+		[in] HCHAPTER hReserved,
+		[in] DBCOUNTITEM cRows,
+		[in, size_is(cRows)] const HROW rghRows[],
+		[in, out] DBCOUNTITEM * pcRows,
+		[out, size_is(,*pcRows)] HROW ** prgRows,
+		[out, size_is(,*pcRows)] DBROWSTATUS ** prgRowStatus
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

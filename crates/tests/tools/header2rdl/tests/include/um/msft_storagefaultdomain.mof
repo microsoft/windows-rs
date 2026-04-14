@@ -1,0 +1,80 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract,
+Description( "Common base class for all storage fault domain objects" )]
+class MSFT_StorageFaultDomain : MSFT_StorageObject {
+
+    [Read, Description(
+        "A user-friendly string representing the name of the fault domain object."
+        )]
+    String FriendlyName;
+
+    [Read, Description(
+        "A user settable description of the fault domain object."
+        )]
+    String Description;
+
+    [Read, Description(
+        "This field represents the name of the company responsible for the hardware backing the "
+        "fault domain oject. For physical disk it must match the disk's SCSI inquiry data."
+        )]
+    String Manufacturer;
+
+    [Read, Description(
+        "This field represents the model number of the hardware. For physical disk "
+        "it must match the disk's SCSI inquiry data."
+        )]
+    String Model;
+
+    [Read, Description(
+        "This field represents the serial number of the hardware. For physical disk "
+        "it must match the disk's SCSI inquiry data."
+        )]
+    String SerialNumber;
+
+    [Read, Description(
+        "This field is a free-form string indicating where the hardware is located."
+        )]
+    String PhysicalLocation;
+
+    [Read,
+        ValueMap { "0", "1", "2", "5" },
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+    [Read,
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "..",
+            "0xD004", "0xD005", "0xD006", "0xD007", "0xD008",
+            "0xD015", "0xD016", "0xD017",
+            "0xD018.."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved",
+            // 0xD004 - 0xD017
+            "Failed Media", "Split", "Stale Metadata", "IO Error", "Unrecognized Metadata",
+            "Removing From Pool", "In Maintenance Mode", "Updating Firmware",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 OperationalStatus[];
+
+    [Read]
+    String OperationalDetails[];
+
+};

@@ -1,0 +1,1413 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a StorageJob and objects affected by the job's operation. Instances of "
+    "this association should only exist once the storage job has been completed, and should "
+    "remain for a period of time (recommended 24-hours) after."
+    )]
+class MSFT_StorageJobToAffectedStorageObject {
+    [Key] MSFT_StorageJob           REF StorageJob;
+    [Key] MSFT_StorageObject        REF AffectedStorageObject;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageProvider and StorageSubSystem"
+    )]
+class MSFT_StorageProviderToStorageSubSystem {
+    [Key] MSFT_StorageProvider      REF StorageProvider;
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and OffloadDataTransferSettings"
+    )]
+class MSFT_StorageSubSystemToOffloadDataTransferSetting {
+    [Key] MSFT_StorageSubSystem                 REF StorageSubSystem;
+    [Key] MSFT_OffloadDataTransferSetting       REF OffloadDataTransferSetting;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and StorageFaultDomain"
+    )]
+class MSFT_StorageSubSystemToStorageFaultDomain {
+    [Key] MSFT_StorageSubSystem      REF StorageSubSystem;
+    [Key] MSFT_StorageFaultDomain    REF StorageFaultDomain;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a StorageFaultDomain object and "
+    "its ancestor or descendent StorageFaultDomain objects."
+    )]
+class MSFT_StorageFaultDomainToStorageFaultDomain {
+    [Key] MSFT_StorageFaultDomain    REF SourceStorageFaultDomain;
+    [Key] MSFT_StorageFaultDomain    REF TargetStorageFaultDomain;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and StorageNode"
+    )]
+class MSFT_StorageSubSystemToStorageNode {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_StorageNode          REF StorageNode;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and StoragePool"
+    )]
+class MSFT_StorageSubSystemToStoragePool {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_StoragePool          REF StoragePool;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and PhysicalDisk. This association should include "
+    "all physical disks that the subsystem is aware of."
+    )]
+class MSFT_StorageSubSystemToPhysicalDisk {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_PhysicalDisk         REF PhysicalDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and VirtualDisk"
+    )]
+class MSFT_StorageSubSystemToVirtualDisk {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and TargetPort"
+    )]
+class MSFT_StorageSubSystemToTargetPort {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_TargetPort           REF TargetPort;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubsystem and TargetPortal"
+    )]
+class MSFT_StorageSubSystemToTargetPortal {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_TargetPortal         REF TargetPortal;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and InitiatorId"
+    )]
+class MSFT_StorageSubSystemToInitiatorId {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_InitiatorId          REF InitiatorId;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and MaskingSet"
+    )]
+class MSFT_StorageSubSystemToMaskingSet {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_MaskingSet           REF MaskingSet;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between MaskingSet and TargetPort"
+    )]
+class MSFT_MaskingSetToTargetPort {
+    [Key] MSFT_MaskingSet           REF MaskingSet;
+    [Key] MSFT_TargetPort           REF TargetPort;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between MaskingSet and InitiatorId"
+    )]
+class MSFT_MaskingSetToInitiatorId {
+    [Key] MSFT_MaskingSet           REF MaskingSet;
+    [Key] MSFT_InitiatorId          REF InitiatorId;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between MaskingSet and VirtualDisk"
+    )]
+class MSFT_MaskingSetToVirtualDisk {
+    [Key] MSFT_MaskingSet           REF MaskingSet;
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between InitiatorId and VirtualDisk"
+    )]
+class MSFT_InitiatorIdToVirtualDisk {
+    [Key] MSFT_InitiatorId          REF InitiatorId;
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between TargetPort and TargetPortal"
+    )]
+class MSFT_TargetPortToTargetPortal
+{
+    [Key] MSFT_TargetPort           REF TargetPort;
+    [Key] MSFT_TargetPortal         REF TargetPortal;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between TargetPort and VirtualDisk"
+    )]
+class MSFT_TargetPortToVirtualDisk {
+    [Key] MSFT_TargetPort           REF TargetPort;
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StoragePool and ResiliencySetting"
+    )]
+class MSFT_StoragePoolToResiliencySetting {
+    [Key] MSFT_StoragePool          REF StoragePool;
+    [Key] MSFT_ResiliencySetting    REF ResiliencySetting;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StoragePool and VirtualDisk. This association should only exist for "
+    "concrete pools."
+    )]
+class MSFT_StoragePoolToVirtualDisk {
+    [Key] MSFT_StoragePool          REF StoragePool;
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+};
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StoragePool and Volume. This association should only exist for "
+    "concrete pools."
+    )]
+class MSFT_StoragePoolToVolume {
+    [Key] MSFT_StoragePool          REF StoragePool;
+    [Key] MSFT_Volume               REF Volume;
+};
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageNode and StoragePool."
+    )]
+class MSFT_StorageNodeToStoragePool {
+    [Key] MSFT_StorageNode          REF StorageNode;
+    [Key] MSFT_StoragePool          REF StoragePool;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageNode and PhysicalDisk."
+    )]
+class MSFT_StorageNodeToPhysicalDisk {
+    [Key] MSFT_StorageNode          REF StorageNode;
+    [Key] MSFT_PhysicalDisk         REF PhysicalDisk;
+
+    [Read, Description(
+        "Denotes the operational status of the PhysicalDisk."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "..",
+            "0xD004", "0xD005", "0xD006", "0xD007", "0xD008",
+            "0xD015", "0xD016", "0xD017",
+            "0xD018.."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved",
+            // 0xD004 - 0xD017
+            "Failed Media", "Split", "Stale Metadata", "IO Error", "Unrecognized Metadata",
+            "Removing from pool", "In Maintenance Mode", "Updating firmware",
+            // ..
+            "Microsoft Reserved"
+            }]
+    UInt16 OperationalStatus[];
+
+    [Read, Required, Description(
+        "Denotes the health status of the PhysicalDisk on this StorageNode."
+        ),
+        ValueMap { "0", "1", "2", "5" },
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+    [Read, Description(
+        "The operating system's number for the disk on this StorageNode. Disk 0 is typically the boot device. Disk "
+        "numbers may not necessarily remain the same across reboot, and are not necessarily the same on different nodes."
+        )]
+    UInt32 DiskNumber;
+
+    [Read, Description(
+        "Indicates whether the physical disk is physically connected to this storage node."
+        )]
+    Boolean IsPhysicallyConnected;
+
+    [Read, Description(
+        "Indicates whether the physical disk uses MPIO."
+        )]
+    Boolean IsMpioEnabled;
+
+    [Read, Description( "The MPIO load balance policy being used by the disk." ),
+        ValueMap { "0", "1", "2", "3", "4", "5", "6", "7" },
+        Values { "Unknown", "Fail Over", "Round Robin", 
+                 "Round Robin with Subset", "Least Queue Depth", 
+                 "Weighted Paths", "Least Blocks", "Vendor Specific" }]
+    UInt16 LoadBalancePolicy;
+
+    [Description( "Collection of MPIO path IDs, reported by the MPIO DSM, when applicable."
+        )]
+    String PathId[];    
+
+    [Read, Description( "The current state of MPIO paths between the node and physical disk." ),
+        ValueMap { "0", "1", "2", "3" },
+        Values { "Unavailable", "Active/Unoptimized", "Standby",
+                 "Active/Optimized" }]
+    UInt16 PathState[];
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageNode and VirtualDisk."
+    )]
+class MSFT_StorageNodeToVirtualDisk {
+    [Key] MSFT_StorageNode          REF StorageNode;
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageNode and Disk."
+    )]
+class MSFT_StorageNodeToDisk {
+    [Key] MSFT_StorageNode          REF StorageNode;
+    [Key] MSFT_Disk                 REF Disk;
+
+    [Read, Required, Description(
+        "The operating system's number for the disk. Disk 0 is typically the boot device. Disk "
+        "numbers may not necessarily remain the same across reboots."
+        )]
+    UInt32 DiskNumber;
+
+    [Read, Required, Description( 
+        "An array of values that denote the current operational status of the volume.\n" 
+        "0 - 'Unknown': The operational status is unknown.\n" 
+        "1 - 'Other': A vendor-specific OperationalStatus has been specified by setting the OtherOperationalStatusDescription property.\n" 
+        "2 - 'OK': The disk is responding to commands and is in a normal operating state.\n" 
+        "3 - 'Degraded': The disk is responding to commands, but is not running in an optimal operating state.\n" 
+        "4 - 'Stressed': The disk is functioning, but needs attention. For example, the disk might be overloaded or overheated.\n" 
+        "5 - 'Predictive Failure': The disk is functioning, but a failure is likely to occur in the near future.\n" 
+        "6 - 'Error': An error has occurred.\n" 
+        "7 - 'Non-Recoverable Error': A non-recoverable error has occurred.\n" 
+        "8 - 'Starting': The disk is in the process of starting.\n" 
+        "9 - 'Stopping': The disk is in the process of stopping.\n" 
+        "10 - 'Stopped': The disk was stopped or shut down in a clean and orderly fashion.\n" 
+        "11 - 'In Service': The disk is being configured, maintained, cleaned, or otherwise administered.\n" 
+        "12 - 'No Contact': The storage provider has knowledge of the disk, but has never been able to establish communication with it.\n" 
+        "13 - 'Lost Communication': The storage provider has knowledge of the disk and has contacted it successfully in the past, but the disk is currently unreachable.\n" 
+        "14 - 'Aborted': Similar to Stopped, except that the disk stopped abruptly and may require configuration or maintenance.\n" 
+        "15 - 'Dormant': The disk is reachable, but it is inactive.\n" 
+        "16 - 'Supporting Entity in Error': This status value does not necessarily indicate trouble with the disk, but it does indicate that another device or connection that the disk depends on may need attention.\n" 
+        "17 - 'Completed': The disk has completed an operation. This status value should be combined with OK, Error, or Degraded, depending on the outcome of the operation.\n" 
+        "0xD010 - 'Online': In Windows-based storage subsystems, this indicates that the object is online.\n" 
+        "0xD011 - 'Not Ready': In Windows-based storage subsystems, this indicates that the object is not ready.\n" 
+        "0xD012 - 'No Media': In Windows-based storage subsystems, this indicates that the object has no media present.\n" 
+        "0xD013 - 'Offline': In Windows-based storage subsystems, this indicates that the object is offline.\n" 
+        "0xD014 - 'Failed': In Windows-based storage subsystems, this indicates that the object is in a failed state."
+        ), 
+        ValueMap { 
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
+            "10", "11", "12", "13", "14", "15", "16", "17", 
+            "..", 
+            "0xD010", "0xD011", "0xD012", "0xD013", "0xD014" 
+            }, 
+        Values { 
+            // 0 - 4 
+            "Unknown", "Other", "OK", "Degraded", "Stressed", 
+            // 5 - 9 
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping", 
+            // 10 - 14 
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted", 
+            // 15 - 19 
+            "Dormant", "Supporting Entity in Error", "Completed", 
+            // .. 
+            "Vendor Specific", 
+            // 0xD010- 0xD014 
+            "Online", "Not Ready", "No Media", "Offline", "Failed" 
+        }] 
+    UInt16 OperationalStatus[];
+
+    [Read, Required, Description( 
+        "The health status of the Volume.\n" 
+        "0 - 'Healthy': The disk is functioning normally.\n" 
+        "1 - 'Warning': The disk is still functioning, but has detected errors or issues that require administrator intervention.\n" 
+        "2 - 'Unhealthy': The volume is not functioning, due to errors or failures. The volume needs immediate attention from an administrator." ), 
+        ValueMap { "0", "1", "2" }, 
+        Values { "Healthy", "Warning", "Unhealthy" }] 
+    UInt16 HealthStatus;
+
+    [Read]
+    Boolean IsOffline;
+
+    [Read, Description(
+        "If IsOffline is TRUE, this property informs the user of the specific reason for the "
+        "disk being offline. \n"
+        "1 - 'Policy': The user requested the disk to be offline. \n"
+        "2 - 'Redundant Path': The disk is used for multi-path I/O. \n"
+        "3 - 'Snapshot': The disk is a snapshot disk. \n"
+        "4 - 'Collision': There was a signature or identifier collision with another disk. \n"
+        "5 - 'Resource Exhaustion': There were insufficient resources to bring the disk online. \n"
+        "6 - 'Critical Write Failures': There were critical write failures on the disk. \n"
+        "7 - 'Data Integrity Scan Required': A data integrity scan is required."
+        ),
+        ValueMap { "1", "2", "3", "4", "5", "6", "7" },
+        Values { "Policy", "Redundant Path", "Snapshot", "Collision", "Resource Exhaustion", 
+                 "Critical Write Failures", "Data Integrity Scan Required" }]
+    UInt16 OfflineReason;
+
+    [Read]
+    Boolean IsReadOnly;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageNode and Volume."
+    )]
+class MSFT_StorageNodeToVolume {
+    [Key] MSFT_StorageNode     REF StorageNode;
+    [Key] MSFT_Volume          REF Volume;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StoragePool and PhysicalDisk. Primordial storage pools should retain "
+    "their association to all physical disks that originated from that pool. This means that "
+    "if a physical disk has been added to a concrete pool, the disk should have an association "
+    "with both its concrete and primordial pools."
+    )]
+class MSFT_StoragePoolToPhysicalDisk {
+    [Key] MSFT_StoragePool          REF StoragePool;
+    [Key] MSFT_PhysicalDisk         REF PhysicalDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between VirtualDisk and PhysicalDisk. A virtual disk and a physical disk are "
+    "associated when the virtual disk has data residing on the physical disk."
+    )]
+class MSFT_VirtualDiskToPhysicalDisk {
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+    [Key] MSFT_PhysicalDisk         REF PhysicalDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between VirtualDisk and StorageFaultDomain."
+    )]
+class MSFT_VirtualDiskToStorageFaultDomain {
+    [Key] MSFT_VirtualDisk          REF VirtualDisk;
+    [Key] MSFT_StorageFaultDomain   REF StorageFaultDomain;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between VirtualDisk and VirtualDisk Snapshots / Clones"
+    )]
+class MSFT_VirtualDiskToVirtualDisk {
+
+    [Key] MSFT_VirtualDisk          REF SourceVirtualDisk;
+    [Key] MSFT_VirtualDisk          REF TargetVirtualDisk;
+
+    [Read, Description(
+        "The point in time that the virtual disks were synchronized."
+        )]
+    DateTime SyncTime;
+
+    [Read, Description(
+        "Boolean indicating whether synchronization is maintained."
+        )]
+    Boolean SyncMaintained;
+
+    [Read, Description(
+        "CopyState describes the state of the association with respect to replication "
+        "activity. Values are: \n"
+        "2 - 'Initialized': The link to enable replication is established and source/replica "
+        "elements are associated, but the copy operation has not started. \n"
+        "3 - 'Unsynchronized': Not all the source element data has been copied to the target "
+        "element. \n"
+        "4 - 'Synchronized': For the Mirror, Snapshot, or Clone replication, the target "
+        "represents a copy of the source. \n"
+        "5 - 'Broken': The relationship is non-functional due to errors in the source, the "
+        "target, the path between the two or space constraints. \n"
+        "6 - 'Fractured': Target is split from the source. \n"
+        "7 - 'Split': The target element was gracefully (or systematically) split from its "
+        "source element -- consistency is guaranteed. \n"
+        "8 - 'Inactive': Copy operation has stopped, writes to source element will not be "
+        "sent to target element. \n"
+        "9 - 'Suspended': Data flow between the source and target elements has stopped. "
+        "Writes to source element are held until the association is resumed. \n"
+        "10 - 'Failedover': Reads and writes to/from the target element. Source element is "
+        "not reachable. \n"
+        "11 - 'Prepared': Initialization completed and the copy operation started; "
+        "however, the data flow has not started. \n"
+        "12 - 'Aborted': The copy operation is aborted with the Abort operation. Use the "
+        "Resync Replica operation to restart the copy operation. \n"
+        "13 - 'Skewed': The target has been modified and is no longer synchronized with the "
+        "source element or the point-in-time view. \n"
+        "14 - 'Mixed': Applies to the CopyState of GroupSynchronized. It indicates the "
+        "StorageSynchronized associations of the elements in the groups have different "
+        "CopyState values."),
+        ValueMap {
+            "2", "3", "4",
+            "5", "6", "7",
+            "8", "9", "10",
+            "11", "12", "13",
+            "14", "15",
+            "..", "0x8000.."
+            },
+        Values {
+            "Initialized", "Unsynchronized", "Synchronized",
+            "Broken", "Fractured", "Split",
+            "Inactive", "Suspended", "Failedover",
+            "Prepared", "Aborted", "Skewed",
+            "Mixed", "Not Applicable",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyState;
+
+    [Read, Description(
+        "RequestedCopyState is an integer enumeration that indicates the last requested or "
+        "desired state for the association. The actual state of the association is "
+        "represented by CopyState. Note that when CopyState reaches the requested state, "
+        "this property will be set to 'Not Applicable."
+        )]
+    UInt16 RequestedCopyState = 15;
+
+    [Read, Description(
+        "SyncType describes the intended outcome of the replication. "
+        "Values are: \n"
+        "6 - 'Mirror': create and maintain a copy of the source. \n"
+        "7 - 'Snapshot': create a point-in-time, virtual copy of the source. \n"
+        "8 - 'Clone': create a point-in-time, full copy the source."),
+        ValueMap {
+            "..", "6", "7", "8", "..", "0x8000.."
+            },
+        Values {
+            "Microsoft Reserved", "Mirror", "Snapshot", "Clone",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 SyncType;
+
+    [Read, Description(
+        "Mode describes whether the target elements will be updated synchronously or "
+        "asynchronously. If NULL, implementation decides the mode."), 
+        ValueMap {
+            "0", "2", "3", "..", "32768..65535"
+            },
+        Values {
+            "Unknown", "Synchronous", "Asynchronous",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 SyncMode;
+
+    [Read, Description(
+        "ProgressStatus describes the status of the association with respect to Replication "
+        "activity. Values are: \n"
+        "2 - 'Completed': The request is completed. Copy operation is idle. \n"
+        "3 - 'Dormant': Indicates that the copy operation is inactive suspended or quiesced. \n"
+        "4 - 'Initializing': In the process of establishing source/replica association and the "
+        "copy operation has not started. \n"
+        "5 - 'Preparing': preparation-in-progress. \n"
+        "6 - 'Synchronizing': sync-in-progress. \n"
+        "7 - 'Resyncing': resync-in-progress. \n"
+        "8 - 'Restoring': restore-in-progress. \n"
+        "9 - 'Fracturing': fracture-in-progress. \n" 
+        "10 - 'Splitting': split-in-progress. \n"
+        "11 - 'Failing over': in the process of switching source and target. \n"
+        "12 - 'Failing back': Undoing the result of failover. \n"
+        "13 - 'Detaching': detach-in-progress. \n"
+        "14 - 'Aborting': abort-in-progress. \n"
+        "15 - 'Mixed': Applies to groups with element pairs with different statuses. Generally, "
+        "the individual statuses need to be examined. \n"
+        "16 - 'Suspending': The copy operation is in the process of being suspended. \n"
+        "17 - 'Requires fracture': The requested operation has completed, however, the "
+        "synchronization relationship needs to be fractured before further copy operations can "
+        "be issued. \n"
+        "18 - 'Requires resync': The requested operation has completed, however, the "
+        "synchronization relationship needs to be resynced before further copy operations can "
+        "be issued. \n"
+        "19 - 'Requires activate': The requested operation has completed, however, the "
+        "synchronization relationship needs to be activated before further copy operations can "
+        "be issued. \n"
+        "20 - 'Pending': The flow of data has stopped momentarily due to limited bandwidth or "
+        "busy system."),
+        ValueMap {
+            "0", "2", "3",
+            "4", "5", "6", 
+            "7", "8", "9", 
+            "10", "11", "12",
+            "13", "14", "15",
+            "16", "17", "18",
+            "19", "20", "21",
+            "..", "0x8000.."
+            },
+        Values {
+            "Unknown", "Completed", "Dormant",
+            "Initializing", "Preparing", "Synchronizing",
+            "Resyncing", "Restoring", "Fracturing",
+            "Splitting", "Failing over", "Failing back",
+            "Aborting", "Mixed", "Not Applicable",
+            "Suspending", "Requires fracture", "Requires resync",
+            "Requires activate", "Pending", "Detaching",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 ProgressStatus;
+
+    [Read, Description(
+        "Specifies the percent of the work completed to reach synchronization. Must be set to "
+        "NULL if implementation is not capable of providing this information."
+        )]
+    UInt16 PercentSynced;
+
+    [Read, Description(
+        "CopyType describes the Replication Policy. Values are: \n"
+        "2 - 'Async': create and maintain an asynchronous copy of the source. \n"
+        "3 - 'Sync': create and maintain a synchronized copy of the source. \n"
+        "4 - 'UnSyncAssoc': create an unsynchronized copy and maintain an association to the "
+        "source. \n"
+        "5 - 'UnSyncUnAssoc': create an unsynchronized copy with a temporary association that "
+        "is deleted upon completion of the copy operation."
+        ),
+        ValueMap {
+            "2", "3", "4", "5", "..", "0x8000.."
+            },
+        Values {
+            "Async", "Sync", "UnSyncAssoc", "UnSyncUnAssoc",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyType;
+
+    [Read, Description(
+        "ReplicaType provides information on how the Replica is being maintained. Values are: \n"
+        "2 - 'Full Copy': This indicates that a full copy of the source object is (or will be) "
+        "generated . \n"
+        "3 - 'Before Delta': This indicates that the source object will be maintained as a "
+        "delta data from the replica. \n"
+        "4 - 'After Delta': This indicates that the replica will be maintained as delta data "
+        "from the source object. \n"
+        "5 - 'Log': This indicates that the replica object is being maintained as a log of "
+        "changes to the source. \n"
+        "0 - 'Not Specified': The method of maintaining the copy is not specified." ),
+    ValueMap {
+        "0", "2", "3", "4", "5", "..", "0x8000.."
+        },
+    Values {
+        "Not Specified", "Full Copy", "Before Delta",
+        "After Delta", "Log", "Microsoft Reserved", "Vendor Specific"
+        }]
+    UInt16 ReplicaType;
+
+    [Read, Description(
+        "SyncState describes the state of the association with respect to Replication activity. "
+        "Values are: \n"
+        "2 - 'Initialized': The link to enable replication is established and source/replica "
+        "elements are associated, but the Copy engine has not started. \n"
+        "3 - 'PrepareInProgress': Preparation for Replication is in progress and the Copy "
+        "engine has started. \n"
+        "4 - 'Prepared': All necessary preparation has completed. \n"
+        "5 - 'ResyncInProgress': Synchronization or Resynchronization is in progress. This may "
+        "be the initial 'copy' or subsequent changes being copied. \n"
+        "6 - 'Synchronized': An Async or Sync replication is currently synchronized. When this "
+        "value is set, SyncMaintained will be true. \n"
+        "7 - 'FractureInProgress': An operation to fracture an Async or Sync replication is in "
+        "progress. \n"
+
+        "8 - 'QuiesceInProgress': A quiesce operation is in progress. \n"
+        "9 - 'Quiesced': The replication has been quiesced and is ready for a change. \n"
+        "10 - 'RestoreInProgress': An operation is in progress to copy the Synced object to the "
+        "System object. \n"
+        "11 - 'Idle': The 'normal' state for an UnSyncAssoc replica. \n"
+        "12 - 'Broken': The relationship is non-functional due to errors in the source, the "
+        "target, the path between the two or space constraints. \n"
+        "13 - 'Fractured': An Async or Sync replication is fractured. \n"
+        "14 - 'Frozen': All blocks copied from source to an UnSyncAssoc replica and the copy "
+        "engine is stopped. \n"
+        "15 - 'CopyInProgress': A deferred background copy operation is in progress to copy the "
+        "source to the replica target for an UnSyncAssoc association. \n"
+        ),
+        ValueMap {
+            "2", "3", "4", "5", "6", "7", "8", "9", "10",
+            "11", "12", "13", "14", "15", "..", "0x8000.."
+            },
+        Values {
+            "Initialized", "PrepareInProgress", "Prepared",
+            "ResyncInProgress", "Synchronized",
+            "Fracture In Progress", "QuiesceInProgress", "Quiesced",
+            "Restore In Progresss", "Idle", "Broken", "Fractured",
+            "Frozen", "Copy In Progress", "Microsoft Reserved",
+            "Vendor Specific"
+            }]
+    UInt16 SyncState;
+
+    [Read, Description(
+        "CopyPriority allows the priority of background copy engine I/O to be managed relative "
+        "to host I/O operations during a sequential background copy operation. Values are: \n"
+        "1 - 'Low': copy engine I/O lower priority than host I/O. \n"
+        "2 - 'Same': copy engine I/O has the same priority as host I/O. \n"
+        "3 - 'High': copy engine I/O has higher priority than host I/O."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "..", "0x8000.."
+            },
+        Values {
+            "Not Managed", "Low", "Same", "High", "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyPriority;
+
+    [Read, Description(
+        "CopyMethodology specifies what copy methodology the copy engine uses to create and/or "
+        "maintain the target element. Values are: \n"
+        "0 - 'Not Specified': The method of maintaining the copy is not specified. \n"
+        "3 - 'Full Copy': This indicates that a full copy of the source object is (or will be) "
+        "generated . \n"
+        "4 - 'Incremental-Copy': Only changed data from source element is copied to target "
+        "element. \n"
+        "5 - 'Differential-Copy': Only the new writes to the source element are copied to the "
+        "target element. \n"
+        "6 - 'Copy-On-Write': Affected data is copied on the first write to the source or to "
+        "the target elements. \n"
+        "7 - 'Copy-On-Access': Affected data is copied on the first access to the source "
+        "element. \n"
+        "8 - 'Delta-Update': Difference based replication where after the initial copy, only "
+        "updates to source are copied to target. \n"
+        "9 - 'Snap-And-Clone': The service creates a snapshot of the source element first, "
+        "then uses the snapshot as the source of the copy operation to the target element."
+        ),
+        ValueMap {
+            "0", "1", "2",
+            "3", "4", "5",
+            "6", "7", "8",
+            "9",
+            "..", "0x8000.."
+            },
+        Values {
+            "Not Specified", "Other", "Implementation decides",
+            "Full Copy", "Incremental-Copy", "Differential-Copy",
+            "Copy-On-Write", "Copy-On-Access", "Delta-Update",
+            "Snap-And-Clone",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyMethodology;
+};
+
+[ClassVersion ( "1.0" ), Association, Abstract]
+class MSFT_PhysicalDiskToStorageReliabilityCounter {
+    [Key] MSFT_PhysicalDisk         REF PhysicalDisk;
+    [Key] MSFT_StorageReliabilityCounter REF StorageReliabilityCounter;
+};
+
+[ClassVersion ( "1.0" ), Association, Abstract]
+class MSFT_VirtualDiskToStorageTier {
+    [Key] MSFT_VirtualDisk      REF VirtualDisk;
+    [Key] MSFT_StorageTier     REF StorageTier;
+};
+
+
+[ClassVersion ( "1.0" ), Association, Abstract]
+class MSFT_StoragePoolToStorageTier {
+    [Key] MSFT_StoragePool      REF StoragePool;
+    [Key] MSFT_StorageTier     REF StorageTier;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and StorageEnclosure"
+    )]
+class MSFT_StorageSubSystemToStorageEnclosure {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_StorageEnclosure       REF StorageEnclosure;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageNode and StorageEnclosure"
+    )]
+class MSFT_StorageNodeToStorageEnclosure {
+    [Key] MSFT_StorageNode               REF StorageNode;
+    [Key] MSFT_StorageEnclosure          REF StorageEnclosure;
+
+    [Description(
+        "The device number for the enclosure on this storage node."
+        )]
+    UInt32 EnclosureNumber;
+
+    [Read, Description(
+        "Indicates whether the storage enclosure is physically connected to this storage node."
+        )]
+    Boolean IsPhysicallyConnected;
+
+    [Description(
+        "Denotes the current health status of the enclosure."
+        ),
+        ValueMap { "0", "1", "2", "5" }, 
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+    [Read]
+    UInt16 SlotOperationalStatus[];
+
+    [Description(
+        "An array containing the operational status of each "
+        "power supply of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            }, 
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 PowerSupplyOperationalStatus[];
+
+    [Description(
+        "An array containing the operational status of each "
+        "fan of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            }, 
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 FanOperationalStatus[];
+
+    [Description(
+        "An array containing the operational status of each "
+        "temperature sensor of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            }, 
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 TemperatureSensorOperationalStatus[];
+
+    [Description(
+        "An array containing the operational status of each "
+        "voltage sensor of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            }, 
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 VoltageSensorOperationalStatus[];
+
+    [Description(
+        "An array containing the operational status of each "
+        "current sensor of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            }, 
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 CurrentSensorOperationalStatus[];
+
+    [Description(
+        "An array containing the operational status of each "
+        "controller of the enclosure. \n"
+        "0 - 'Unknown' \n"
+        "2 - 'OK': The element is present and working with no issues detected. \n"
+        "3 - 'Degraded': The element detected one or more non-critical issues. \n"
+        "6 - 'Error': The element detected one or more critical issues. \n"
+        "7 - 'Non-Recoverable Error': The element detected one or more non-recoverable issues. \n"
+        "0xD009 - 'Not Installed': The element is not present. \n"
+        "0xD00A - 'Not Available': The element is present but has problems. \n"
+        "0xD00B - 'No Access Allowed': No access is allowed to the element. \n"
+        "0xD00C - 'Not Reported' "
+        ),
+        ValueMap {
+            "0", "2", "3", "6", "7",
+            "0xD009", "0xD00A", "0xD00B", "0xD00C"
+            }, 
+        Values {
+            // 0 - 7
+            "Unknown", "OK", "Degraded", "Error", "Non-Recoverable Error",
+            // 0xD009 - 0xD00C
+            "Not Installed", "Not Available", "No Access Allowed", "Not Reported" }]
+    UInt16 IOControllerOperationalStatus[];
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageEnclosure and PhysicalDisk"
+    )]
+class MSFT_StorageEnclosureToPhysicalDisk {
+    [Key] MSFT_StorageEnclosure          REF StorageEnclosure;
+    [Key] MSFT_PhysicalDisk                REF PhysicalDisk;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a subsystem and replication capabilities"
+    )]
+class MSFT_StorageSubSystemToReplicationCapabilities {
+    [Key] MSFT_StorageSubSystem        REF StorageSubSystem;
+    [Key] MSFT_ReplicationCapabilities REF ReplicationCapabilities;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a subsystem and replication group"
+    )]
+class MSFT_StorageSubSystemToReplicationGroup {
+    [Key] MSFT_StorageSubSystem    REF StorageSubSystem;
+    [Key] MSFT_ReplicationGroup    REF ReplicationGroup;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a subsystem and replica peer"
+    )]
+class MSFT_StorageSubSystemToReplicaPeer {
+    [Key] MSFT_StorageSubSystem    REF StorageSubSystem;
+    [Key] MSFT_ReplicaPeer         REF ReplicaPeer;
+};
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a replication group and its virtual disks"
+    )]
+class MSFT_ReplicationGroupToVirtualDisk {
+    [Key] MSFT_ReplicationGroup   REF ReplicationGroup;
+    [Key] MSFT_VirtualDisk        REF VirtualDisk;
+};
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "Synchronized status of a storage object and its Snapshots / Clones / Mirrors."
+    )]
+class MSFT_Synchronized{
+    
+    [Read, Description(
+        "The point in time that the virtual disks were synchronized."
+        )]
+    DateTime SyncTime;
+
+    [Read, Description(
+        "Boolean indicating whether synchronization is maintained."
+        )]
+    Boolean SyncMaintained;
+
+    [Read, Description(
+        "CopyState describes the state of the association with respect to replication "
+        "activity. Values are: \n"
+        "2 - 'Initialized': The link to enable replication is established and source/replica "
+        "elements are associated, but the copy operation has not started. \n"
+        "3 - 'Unsynchronized': Not all the source element data has been copied to the target "
+        "element. \n"
+        "4 - 'Synchronized': For the Mirror, Snapshot, or Clone replication, the target "
+        "represents a copy of the source. \n"
+        "5 - 'Broken': The relationship is non-functional due to errors in the source, the "
+        "target, the path between the two or space constraints. \n"
+        "6 - 'Fractured': Target is split from the source. \n"
+        "7 - 'Split': The target element was gracefully (or systematically) split from its "
+        "source element -- consistency is guaranteed. \n"
+        "8 - 'Inactive': Copy operation has stopped, writes to source element will not be "
+        "sent to target element. \n"
+        "9 - 'Suspended': Data flow between the source and target elements has stopped. "
+        "Writes to source element are held until the association is resumed. \n"
+        "10 - 'Failedover': Reads and writes to/from the target element. Source element is "
+        "not reachable. \n"
+        "11 - 'Prepared': Initialization completed and the copy operation started; "
+        "however, the data flow has not started. \n"
+        "12 - 'Aborted': The copy operation is aborted with the Abort operation. Use the "
+        "Resync Replica operation to restart the copy operation. \n"
+        "13 - 'Skewed': The target has been modified and is no longer synchronized with the "
+        "source element or the point-in-time view. \n"
+        "14 - 'Mixed': Applies to the CopyState of GroupSynchronized. It indicates the "
+        "StorageSynchronized associations of the elements in the groups have different "
+        "CopyState values."),
+        ValueMap {
+            "2", "3", "4",
+            "5", "6", "7",
+            "8", "9", "10",
+            "11", "12", "13",
+            "14", "15",
+            "..", "0x8000.."
+            },
+        Values {
+            "Initialized", "Unsynchronized", "Synchronized",
+            "Broken", "Fractured", "Split",
+            "Inactive", "Suspended", "Failedover",
+            "Prepared", "Aborted", "Skewed",
+            "Mixed", "Not Applicable",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyState;
+
+    [Read, Description(
+        "RequestedCopyState is an integer enumeration that indicates the last requested or "
+        "desired state for the association. The actual state of the association is "
+        "represented by CopyState. Note that when CopyState reaches the requested state, "
+        "this property will be set to 'Not Applicable."
+        )]
+    UInt16 RequestedCopyState = 15;
+
+    [Read, Description(
+        "SyncType describes the intended outcome of the replication. "
+        "Values are: \n"
+        "6 - 'Mirror': create and maintain a copy of the source. \n"
+        "7 - 'Snapshot': create a point-in-time, virtual copy of the source. \n"
+        "8 - 'Clone': create a point-in-time, full copy the source."),
+        ValueMap {
+            "..", "6", "7", "8", "..", "0x8000.."
+            },
+        Values {
+            "Microsoft Reserved", "Mirror", "Snapshot", "Clone",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 SyncType;
+
+    [Read, Description(
+        "Mode describes whether the target elements will be updated synchronously or "
+        "asynchronously. If NULL, implementation decides the mode."), 
+        ValueMap {
+            "0", "2", "3", "..", "32768..65535"
+            },
+        Values {
+            "Unknown", "Synchronous", "Asynchronous",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 SyncMode;
+
+    [Read, Description(
+        "ProgressStatus describes the status of the association with respect to Replication "
+        "activity. Values are: \n"
+        "2 - 'Completed': The request is completed. Copy operation is idle. \n"
+        "3 - 'Dormant': Indicates that the copy operation is inactive suspended or quiesced. \n"
+        "4 - 'Initializing': In the process of establishing source/replica association and the "
+        "copy operation has not started. \n"
+        "5 - 'Preparing': preparation-in-progress. \n"
+        "6 - 'Synchronizing': sync-in-progress. \n"
+        "7 - 'Resyncing': resync-in-progress. \n"
+        "8 - 'Restoring': restore-in-progress. \n"
+        "9 - 'Fracturing': fracture-in-progress. \n"
+        "10 - 'Splitting': split-in-progress. \n"
+        "11 - 'Failing over': in the process of switching source and target. \n"
+        "12 - 'Failing back': Undoing the result of failover. \n"
+        "13 - 'Detaching': detach-in-progress. \n"
+        "14 - 'Aborting': abort-in-progress. \n"
+        "15 - 'Mixed': Applies to groups with element pairs with different statuses. Generally, "
+        "the individual statuses need to be examined. \n"
+        "16 - 'Suspending': The copy operation is in the process of being suspended. \n"
+        "17 - 'Requires fracture': The requested operation has completed, however, the "
+        "synchronization relationship needs to be fractured before further copy operations can "
+        "be issued. \n"
+        "18 - 'Requires resync': The requested operation has completed, however, the "
+        "synchronization relationship needs to be resynced before further copy operations can "
+        "be issued. \n"
+        "19 - 'Requires activate': The requested operation has completed, however, the "
+        "synchronization relationship needs to be activated before further copy operations can "
+        "be issued. \n"
+        "20 - 'Pending': The flow of data has stopped momentarily due to limited bandwidth or "
+        "busy system."),
+        ValueMap {
+            "0", "2", "3",
+            "4", "5", "6", 
+            "7", "8", "9", 
+            "10", "11", "12",
+            "13", "14", "15",
+            "16", "17", "18",
+            "19", "20", "21",
+            "..", "0x8000.."
+            },
+        Values {
+            "Unknown", "Completed", "Dormant",
+            "Initializing", "Preparing", "Synchronizing",
+            "Resyncing", "Restoring", "Fracturing",
+            "Splitting", "Failing over", "Failing back",
+            "Aborting", "Mixed", "Not Applicable",
+            "Suspending", "Requires fracture", "Requires resync",
+            "Requires activate", "Pending", "Detaching",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 ProgressStatus;
+
+    [Read, Description(
+        "Specifies the percent of the work completed to reach synchronization. Must be set to "
+        "NULL if implementation is not capable of providing this information."
+        )]
+    UInt16 PercentSynced;
+
+    [Read, Description(
+        "CopyType describes the Replication Policy. Values are: \n"
+        "2 - 'Async': create and maintain an asynchronous copy of the source. \n"
+        "3 - 'Sync': create and maintain a synchronized copy of the source. \n"
+        "4 - 'UnSyncAssoc': create an unsynchronized copy and maintain an association to the "
+        "source. \n"
+        "5 - 'UnSyncUnAssoc': create an unsynchronized copy with a temporary association that "
+        "is deleted upon completion of the copy operation."
+        ),
+        ValueMap {
+            "2", "3", "4", "5", "..", "0x8000.."
+            },
+        Values {
+            "Async", "Sync", "UnSyncAssoc", "UnSyncUnAssoc",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyType;
+
+    [Read, Description(
+        "ReplicaType provides information on how the Replica is being maintained. Values are: \n"
+        "2 - 'Full Copy': This indicates that a full copy of the source object is (or will be) "
+        "generated . \n"
+        "3 - 'Before Delta': This indicates that the source object will be maintained as a "
+        "delta data from the replica. \n"
+        "4 - 'After Delta': This indicates that the replica will be maintained as delta data "
+        "from the source object. \n"
+        "5 - 'Log': This indicates that the replica object is being maintained as a log of "
+        "changes to the source. \n"
+        "0 - 'Not Specified': The method of maintaining the copy is not specified." ),
+    ValueMap {
+        "0", "2", "3", "4", "5", "..", "0x8000.."
+        },
+    Values {
+        "Not Specified", "Full Copy", "Before Delta",
+        "After Delta", "Log", "Microsoft Reserved", "Vendor Specific"
+        }]
+    UInt16 ReplicaType;
+
+    [Read, Description(
+        "SyncState describes the state of the association with respect to Replication activity. "
+        "Values are: \n"
+        "2 - 'Initialized': The link to enable replication is established and source/replica "
+        "elements are associated, but the Copy engine has not started. \n"
+        "3 - 'PrepareInProgress': Preparation for Replication is in progress and the Copy "
+        "engine has started. \n"
+        "4 - 'Prepared': All necessary preparation has completed. \n"
+        "5 - 'ResyncInProgress': Synchronization or Resynchronization is in progress. This may "
+        "be the initial 'copy' or subsequent changes being copied. \n"
+        "6 - 'Synchronized': An Async or Sync replication is currently synchronized. When this "
+        "value is set, SyncMaintained will be true. \n"
+        "7 - 'FractureInProgress': An operation to fracture an Async or Sync replication is in "
+        "progress. \n"
+
+        "8 - 'QuiesceInProgress': A quiesce operation is in progress. \n"
+        "9 - 'Quiesced': The replication has been quiesced and is ready for a change. \n"
+        "10 - 'RestoreInProgress': An operation is in progress to copy the Synced object to the "
+        "System object. \n"
+        "11 - 'Idle': The 'normal' state for an UnSyncAssoc replica. \n"
+        "12 - 'Broken': The relationship is non-functional due to errors in the source, the "
+        "target, the path between the two or space constraints. \n"
+        "13 - 'Fractured': An Async or Sync replication is fractured. \n"
+        "14 - 'Frozen': All blocks copied from source to an UnSyncAssoc replica and the copy "
+        "engine is stopped. \n"
+        "15 - 'CopyInProgress': A deferred background copy operation is in progress to copy the "
+        "source to the replica target for an UnSyncAssoc association. \n"
+        ),
+        ValueMap {
+            "2", "3", "4", "5", "6", "7", "8", "9", "10",
+            "11", "12", "13", "14", "15", "..", "0x8000.."
+            },
+        Values {
+            "Initialized", "PrepareInProgress", "Prepared",
+            "ResyncInProgress", "Synchronized",
+            "Fracture In Progress", "QuiesceInProgress", "Quiesced",
+            "Restore In Progresss", "Idle", "Broken", "Fractured",
+            "Frozen", "Copy In Progress", "Microsoft Reserved",
+            "Vendor Specific"
+            }]
+    UInt16 SyncState;
+
+    [Read, Description(
+        "CopyPriority allows the priority of background copy engine I/O to be managed relative "
+        "to host I/O operations during a sequential background copy operation. Values are: \n"
+        "1 - 'Low': copy engine I/O lower priority than host I/O. \n"
+        "2 - 'Same': copy engine I/O has the same priority as host I/O. \n"
+        "3 - 'High': copy engine I/O has higher priority than host I/O."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "..", "0x8000.."
+            },
+        Values {
+            "Not Managed", "Low", "Same", "High", "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyPriority;
+
+    [Read, Description(
+        "CopyMethodology specifies what copy methodology the copy engine uses to create and/or "
+        "maintain the target element. Values are: \n"
+        "0 - 'Not Specified': The method of maintaining the copy is not specified. \n"
+        "3 - 'Full Copy': This indicates that a full copy of the source object is (or will be) "
+        "generated. \n"
+        "4 - 'Incremental-Copy': Only changed data from source element is copied to target "
+        "element. \n"
+        "5 - 'Differential-Copy': Only the new writes to the source element are copied to the "
+        "target element. \n"
+        "6 - 'Copy-On-Write': Affected data is copied on the first write to the source or to "
+        "the target elements. \n"
+        "7 - 'Copy-On-Access': Affected data is copied on the first access to the source "
+        "element. \n"
+        "8 - 'Delta-Update': Difference based replication where after the initial copy, only "
+        "updates to source are copied to target. \n"
+        "9 - 'Snap-And-Clone': The service creates a snapshot of the source element first, "
+        "then uses the snapshot as the source of the copy operation to the target element."
+        ),
+        ValueMap {
+            "0", "1", "2",
+            "3", "4", "5",
+            "6", "7", "8",
+            "9",
+            "..", "0x8000.."
+            },
+        Values {
+            "Not Specified", "Other", "Implementation decides",
+            "Full Copy", "Incremental-Copy", "Differential-Copy",
+            "Copy-On-Write", "Copy-On-Access", "Delta-Update",
+            "Snap-And-Clone",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 CopyMethodology;
+
+    [Read, Description(
+        "Recovery Point Objective indicates the maximum interval in which "
+        "data might be lost. For synchronous copy operations, RPO is 0. For "
+        "asynchronous copy operations RPO represents the interval since the "
+        "most recent transmission of data to the target element."
+        )]
+    UInt16 RecoveryPointObjective[];
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between replicated groups"
+    )]
+class MSFT_ReplicationGroupToReplicaPeer : MSFT_Synchronized {
+    [Key] MSFT_ReplicationGroup REF ReplicationGroup;
+    [Key] MSFT_ReplicaPeer      REF ReplicaPeer;
+};
+
+
+[ClassVersion( "1.0" ), Association, Description(
+    "Association between replicated partitions"
+    )]
+class MSFT_PartitionToReplicaPeer : MSFT_Synchronized  {
+    [Key] MSFT_Partition        REF Partition;
+    [Key] MSFT_ReplicaPeer      REF ReplicaPeer;
+};
+
+
+[ClassVersion( "1.0" ), Association, Description(
+    "Association between ReplicationGroup and Partition"
+    )]
+class MSFT_ReplicationGroupToPartition {
+    [Key] MSFT_ReplicationGroup  REF ReplicationGroup;
+    [Key] MSFT_Partition         REF Partition;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between replicated virtual disks"
+    )]
+class MSFT_VirtualDiskToReplicaPeer : MSFT_Synchronized {
+    [Key] MSFT_VirtualDisk   REF VirtualDisk;
+    [Key] MSFT_ReplicaPeer   REF ReplicaPeer;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a subsystem and its file server"
+    )]
+class MSFT_StorageSubSystemToFileServer {
+    [Key] MSFT_StorageSubSystem      REF StorageSubSystem;
+    [Key] MSFT_FileServer            REF FileServer;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a subsystem and its file shares"
+    )]
+class MSFT_StorageSubSystemToFileShare {
+    [Key] MSFT_StorageSubSystem      REF StorageSubSystem;
+    [Key] MSFT_FileShare             REF FileShare;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between FileServer and its FileShares"
+    )]
+class MSFT_FileServerToFileShare {
+    [Key] MSFT_FileServer           REF FileServer;
+    [Key] MSFT_FileShare            REF FileShare;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between FileServer and eligible Volumes for file shares"
+    )]
+class MSFT_FileServerToVolume {
+    [Key] MSFT_FileServer           REF FileServer;
+    [Key] MSFT_Volume               REF Volume;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between a volume and its file shares"
+    )]
+class MSFT_VolumeToFileShare {
+    [Key] MSFT_Volume               REF Volume;
+    [Key] MSFT_FileShare            REF FileShare;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and Volume"
+    )]
+class MSFT_StorageSubSystemToVolume {
+    [Key] MSFT_StorageSubSystem  REF StorageSubSystem;
+    [Key] MSFT_Volume            REF Volume;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and Partition"
+    )]
+class MSFT_StorageSubSystemToPartition {
+    [Key] MSFT_StorageSubSystem  REF StorageSubSystem;
+    [Key] MSFT_Partition         REF Partition;
+};
+
+
+[ClassVersion( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and Disk"
+    )]
+class MSFT_StorageSubSystemToDisk {
+    [Key] MSFT_StorageSubSystem  REF StorageSubSystem;
+    [Key] MSFT_Disk              REF Disk;
+};
+
+
+[ClassVersion ( "1.0" ), Association, Abstract, Description(
+    "Association between Disk and Partition"
+    )]
+class MSFT_DiskToPartition {
+    [Key] MSFT_Disk                 REF Disk;
+    [Key] MSFT_Partition            REF Partition;
+};
+
+
+[ClassVersion ( "1.0" ), Association, Abstract]
+class MSFT_DiskToStorageReliabilityCounter {
+    [Key] MSFT_Disk                      REF Disk;
+    [Key] MSFT_StorageReliabilityCounter REF StorageReliabilityCounter;
+};
+
+
+[ClassVersion ( "1.0" ), Association, Abstract, Description(
+    "Association between Partition and Volume"
+    )]
+class MSFT_PartitionToVolume {
+    [Key] MSFT_Partition            REF Partition;
+    [Key] MSFT_Volume               REF Volume;
+};
+
+
+[ClassVersion ( "1.0" ), Association, Abstract, Description(
+    "Association between StorageSubSystem and StorageHealth"
+    )]
+class MSFT_StorageSubSystemToStorageHealth {
+    [Key] MSFT_StorageSubSystem     REF StorageSubSystem;
+    [Key] MSFT_StorageHealth        REF StorageHealth;
+};
+

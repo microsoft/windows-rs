@@ -1,0 +1,350 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Description(
+    "This class is a representation of a particular Storage Management Provider (SMP) software "
+    "package which is used to manage a storage subsystem."
+    )]
+class MSFT_StorageProvider : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "Denotes whether the provider is a stand-alone SMP provider or an SMIS provider that "
+        "uses the SMIS proxy SMP."
+        ),
+        ValueMap { "1" },
+        Values { "SMP" }]
+    UInt16 Type = 1;
+
+    [Read, Required, Description(
+        "A user-friendly name of the storage provider."
+        )]
+    String Name;
+
+    [Read, Required, Description(
+        "A string indicating the manufacturer of the SMP software."
+        )]
+    String Manufacturer;
+
+    [Read, Required, Description(
+        "A version string used by the SMP manufacturer to differentiate between software versions."
+        )]
+    String Version;
+
+    [Read,
+        ValueMap { "0", "2", "3" },
+        Values { "Unknown", "Disabled", "Manual-Discovery" }]
+    UInt16 RemoteSubsystemCacheMode;
+
+    [Read, Description(
+        "Denotes whether this provider supports remote registration and management."
+        )]
+    Boolean SupportsSubsystemRegistration;
+
+    [Read, Description(
+        "Denotes the caching modes this provider supports. The modes "
+        "are 'Disabled' and 'Manual-Discovery'."
+        ),
+        ValueMap { "0", "2", "3" },
+        Values { "Unknown", "Disabled", "Manual-Discovery" }]
+    UInt16 SupportedRemoteSubsystemCacheModes[];
+
+
+    [Required, Description(
+        "This method is used when a user wants to explicitly discover or re-enumerate objects "
+        "owned by the storage provider. A call to this method could result in a full or partial "
+        "cache invalidation and over-the-wire calls to the storage subsystem(s) in order to "
+        "discover new or updated objects. As this is a time consuming task, it should be used "
+        "sparingly by the user.\n"
+        "The scope of the discovery operation is controlled by the DiscoveryLevel and RootObject "
+        "parameters. DiscoveryLevel controls the depth of the object discovery. RootObject "
+        "defines the starting point from which discovery will happen."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "4096",
+            "40001", "40002",
+            "46000", "46001", "46002", "46003"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            "Method Parameters Checked - Job Started",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            "The storage provider does not support a required profile.",
+            "The storage provider does not support a required association." }]
+    UInt32 Discover(
+
+        [In, Required, Description(
+            "This field denotes the level (or depth) of discovery that should be performed. "
+            "This parameter can only be specified if the root object is a storage provider, "
+            "storage subsystem, or NULL. When specified, the storage provider will discover "
+            "objects starting from Level 0 and continuing until the specified level is reached. "
+            "Associations between objects (within the discovered levels) will also be discovered. "
+            "The discovery levels are defined as follows: \n"
+            "0 - 'Level 0': The storage provider and storage subsystem objects will be "
+            "discovered. \n"
+            "1 - 'Level 1': Storage pools, resiliency settings, target ports, target portals, "
+            "and initiator ids will be discovered.\n"
+            "2 - 'Level 2': Virtual disks and masking sets will be discovered.\n"
+            "3 - 'Level 3': Physical disks will be discovered."
+            ),
+            ValueMap { "0", "1", "2", "3" },
+            Values {
+                "Level 0", "Level 1", "Level 2", "Level 3"
+                }]
+        UInt16 DiscoveryLevel,
+
+        [In, Description(
+            "If this parameter is set, discovery will begin from this object. When "
+            "DiscoveryLevel is NULL, well-defined actions will be taken depending on the type "
+            "of object specified by RootObject: \n"
+            "Storage subsystem: All associated objects will be discovered. \n"
+            "Storage pool: The pool, along with any associated resiliency settings, virtual "
+            "disks, and physical disks will be discovered. \n"
+            "Masking set: The masking set, along with any associated target ports, initiator "
+            "ids, and virtual disks will be discovered. \n"
+            "For all other objects: Only that object will be discovered / refreshed."
+            )]
+        MSFT_StorageObject REF RootObject,
+
+        [Out, Description(
+            "This parameter returns a reference to the storage job used to track the long "
+            "running operation."
+            )]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+
+    //
+    // Method: GetSecurityDescriptor
+    //
+
+    [Description(
+        "This method returns the security descriptor that controls access to this specific "
+        "object instance."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 GetSecurityDescriptor(
+
+        [Out, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the access "
+            "control list of the object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetSecurityDescriptor
+    //
+
+    [Description(
+        "This method allows a user with sufficient privileges to set the security descriptor "
+        "that control access to this specific object instance. If the call is not made in the "
+        "context of a user specified in the security descriptor's access control list, this "
+        "method will fail with 40001 - 'Access Denied'. If an empty security descriptor is "
+        "passed to this function, the behavior is left to the specific implementation so long "
+        "as there is some user context (typically domain administrators) that can access and "
+        "administer the object."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+         Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 SetSecurityDescriptor(
+
+        [In, Required, Description(
+            "A Security Descriptor Definition Language (SDDL) formed string describing the "
+            "desired access control list for this object."
+            )]
+        String SecurityDescriptor,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: RegisterSubsystem
+    //
+
+    [Description(
+        "This method registers a subsystem to be managed by this provider. Note that "
+        "the subsystem must be compatible with the provider software."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6",
+            "40001", "40002",
+            "46000", "46001", "46004", "46006"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter", "In Use",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            "Cannot register/unregister the storage subsystem on local host.",
+            "This subsystem is already registered." }]
+    UInt32 RegisterSubsystem(
+
+        [In, Required]
+        String ComputerName,
+
+        [In]
+        String Credential,
+
+        [Out, EmbeddedInstance("MSFT_StorageSubSystem")]
+        String RegisteredSubsystem,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: UnregisterSubsystem
+    //
+
+    [Description(
+        "This method unregisters a subsystem. The provider will no longer manage this "
+        "subsystem."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001", "46004", "46005", "46007"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            "Cannot register/unregister the storage subsystem on local host.",
+            "The storage subsystem is not registered.",
+            "This subsystem is already registered with another user's credentials. Use the -Force flag to remove the existing registration and add a new one anyway." }]
+    UInt32 UnregisterSubsystem(
+
+        [In, EmbeddedInstance("MSFT_StorageSubSystem")]
+        String Subsystem,
+
+        [In]
+        String StorageSubSystemUniqueId,
+
+        [In]
+        Boolean Force,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+
+    //
+    // Method: SetAttributes
+    //
+
+    [Description(
+        "This method sets the attributes of the provider."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem." }]
+    UInt32 SetAttributes(
+
+        [In, Description(
+            "If set to 3, caching for all the registered remote subsystem is enabled. "
+            "If set to 2, caching for all the registered remote subsystem is disabled. "
+            "This API only effects the remote subsystem registered and local Subsystem requests "
+            "are not cached and reported live always."
+            ),
+            ValueMap { "2", "3" },
+            Values { "Disabled", "Manual-Discovery" }]
+        UInt16 RemoteSubsystemCacheMode,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};

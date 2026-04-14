@@ -1,0 +1,317 @@
+// ios standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _IOS_
+#define _IOS_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xlocnum>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits>
+class basic_ios : public ios_base { // base class for basic_istream/basic_ostream
+public:
+    using _Myos       = basic_ostream<_Elem, _Traits>;
+    using _Mysb       = basic_streambuf<_Elem, _Traits>;
+    using _Ctype      = ctype<_Elem>;
+    using char_type   = _Elem;
+    using traits_type = _Traits;
+    using int_type    = typename _Traits::int_type;
+    using pos_type    = typename _Traits::pos_type;
+    using off_type    = typename _Traits::off_type;
+
+    explicit __CLR_OR_THIS_CALL basic_ios(_Mysb* _Strbuf) {
+        init(_Strbuf);
+    }
+
+    __CLR_OR_THIS_CALL ~basic_ios() noexcept override {}
+
+    void __CLR_OR_THIS_CALL clear(iostate _State = goodbit, bool _Reraise = false) {
+        // set state, possibly reraise exception
+        ios_base::clear(_State | (_Mystrbuf ? ios_base::goodbit : ios_base::badbit), _Reraise);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void __CLR_OR_THIS_CALL clear(io_state _State) { // set state to _State
+        clear(static_cast<iostate>(_State));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    void __CLR_OR_THIS_CALL setstate(iostate _State, bool _Reraise = false) {
+        // merge _State into state, possibly reraise exception
+        clear(rdstate() | _State, _Reraise);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void __CLR_OR_THIS_CALL setstate(io_state _State) { // merge _State into state
+        setstate(static_cast<iostate>(_State));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    basic_ios& __CLR_OR_THIS_CALL copyfmt(const basic_ios& _Right) { // copy format parameters
+        _Tiestr = _Right.tie();
+        _Fillch = _Right.fill();
+        ios_base::copyfmt(_Right);
+        return *this;
+    }
+
+    _Myos* __CLR_OR_THIS_CALL tie() const noexcept /* strengthened */ {
+        return _Tiestr;
+    }
+
+    _Myos* __CLR_OR_THIS_CALL tie(_Myos* _Newtie) noexcept /* strengthened */ { // set tie pointer
+        _Myos* _Oldtie = _Tiestr;
+        _Tiestr        = _Newtie;
+        return _Oldtie;
+    }
+
+    _NODISCARD _Mysb* __CLR_OR_THIS_CALL rdbuf() const noexcept /* strengthened */ {
+        return _Mystrbuf;
+    }
+
+    _Mysb* __CLR_OR_THIS_CALL rdbuf(_Mysb* _Strbuf) { // set stream buffer pointer
+        _Mysb* _Oldstrbuf = _Mystrbuf;
+        _Mystrbuf         = _Strbuf;
+        clear();
+        return _Oldstrbuf;
+    }
+
+    locale __CLR_OR_THIS_CALL imbue(const locale& _Loc) { // set locale to argument
+        locale _Oldlocale = ios_base::imbue(_Loc);
+        const auto _Rdbuf = rdbuf();
+        if (_Rdbuf) {
+            _Rdbuf->pubimbue(_Loc);
+        }
+
+        return _Oldlocale;
+    }
+
+    _Elem __CLR_OR_THIS_CALL fill() const noexcept /* strengthened */ {
+        return _Fillch;
+    }
+
+    _Elem __CLR_OR_THIS_CALL fill(_Elem _Newfill) noexcept /* strengthened */ { // set fill character
+        _Elem _Oldfill = _Fillch;
+        _Fillch        = _Newfill;
+        return _Oldfill;
+    }
+
+    char __CLR_OR_THIS_CALL narrow(_Elem _Ch, char _Dflt = '\0') const { // convert _Ch to byte using imbued locale
+        return _STD use_facet<_Ctype>(getloc()).narrow(_Ch, _Dflt);
+    }
+
+    _Elem __CLR_OR_THIS_CALL widen(char _Byte) const { // convert _Byte to character using imbued locale
+        return _STD use_facet<_Ctype>(getloc()).widen(_Byte);
+    }
+
+    void __CLR_OR_THIS_CALL move(basic_ios& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Mystrbuf = nullptr;
+            _Tiestr   = nullptr;
+            this->swap(_Right);
+        }
+    }
+
+    void __CLR_OR_THIS_CALL move(basic_ios&& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Mystrbuf = nullptr;
+            _Tiestr   = nullptr;
+            this->swap(_Right);
+        }
+    }
+
+    void __CLR_OR_THIS_CALL swap(basic_ios& _Right) noexcept { // swap all but rdbuf() with right
+        ios_base::swap(_Right);
+        _STD swap(_Fillch, _Right._Fillch);
+        _STD swap(_Tiestr, _Right._Tiestr);
+    }
+
+    void __CLR_OR_THIS_CALL set_rdbuf(_Mysb* _Strbuf) noexcept /* strengthened */ {
+        // set stream buffer pointer without changing state
+        _Mystrbuf = _Strbuf;
+    }
+
+protected:
+    void __CLR_OR_THIS_CALL init(_Mysb* _Strbuf = nullptr, bool _Isstd = false) {
+        // initialize with stream buffer pointer
+        _Init(); // initialize ios_base
+        _Mystrbuf = _Strbuf;
+        _Tiestr   = nullptr;
+        _Fillch   = widen(' ');
+
+        if (!_Mystrbuf) {
+            setstate(badbit);
+        }
+
+        if (_Isstd) {
+            _Addstd(this); // special handling for standard streams
+        }
+    }
+
+    __CLR_OR_THIS_CALL basic_ios() {}
+
+private:
+    _Mysb* _Mystrbuf{}; // pointer to stream buffer
+    _Myos* _Tiestr{}; // pointer to tied output stream
+    _Elem _Fillch{}; // the fill character
+
+public:
+    __CLR_OR_THIS_CALL basic_ios(const basic_ios&)            = delete;
+    basic_ios& __CLR_OR_THIS_CALL operator=(const basic_ios&) = delete;
+};
+
+#if defined(_DLL_CPPLIB)
+
+#if !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+template class _CRTIMP2_PURE_IMPORT basic_ios<char, char_traits<char>>;
+template class _CRTIMP2_PURE_IMPORT basic_ios<wchar_t, char_traits<wchar_t>>;
+#endif // !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+
+#ifdef __FORCE_INSTANCE
+template class _CRTIMP2_PURE_IMPORT basic_ios<unsigned short, char_traits<unsigned short>>;
+#endif // defined(__FORCE_INSTANCE)
+#endif // defined(_DLL_CPPLIB)
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL boolalpha(ios_base& _Iosbase) { // set boolalpha
+    _Iosbase.setf(ios_base::boolalpha);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL dec(ios_base& _Iosbase) { // set basefield to dec
+    _Iosbase.setf(ios_base::dec, ios_base::basefield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL defaultfloat(ios_base& _Iosbase) { // clear floatfield
+    _Iosbase.unsetf(ios_base::floatfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL fixed(ios_base& _Iosbase) { // set floatfield to fixed
+    _Iosbase.setf(ios_base::fixed, ios_base::floatfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL hex(ios_base& _Iosbase) { // set basefield to hex
+    _Iosbase.setf(ios_base::hex, ios_base::basefield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL hexfloat(ios_base& _Iosbase) { // set floatfield to (scientific | fixed)
+    _Iosbase.setf(ios_base::scientific | ios_base::fixed, ios_base::floatfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL internal(ios_base& _Iosbase) { // set adjustfield to internal
+    _Iosbase.setf(ios_base::internal, ios_base::adjustfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL left(ios_base& _Iosbase) { // set adjustfield to left
+    _Iosbase.setf(ios_base::left, ios_base::adjustfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL noboolalpha(ios_base& _Iosbase) { // clear boolalpha
+    _Iosbase.unsetf(ios_base::boolalpha);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL noshowbase(ios_base& _Iosbase) { // clear showbase
+    _Iosbase.unsetf(ios_base::showbase);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL noshowpoint(ios_base& _Iosbase) { // clear showpoint
+    _Iosbase.unsetf(ios_base::showpoint);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL noshowpos(ios_base& _Iosbase) { // clear showpos
+    _Iosbase.unsetf(ios_base::showpos);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL noskipws(ios_base& _Iosbase) { // clear skipws
+    _Iosbase.unsetf(ios_base::skipws);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL nounitbuf(ios_base& _Iosbase) { // clear unitbuf
+    _Iosbase.unsetf(ios_base::unitbuf);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL nouppercase(ios_base& _Iosbase) { // clear uppercase
+    _Iosbase.unsetf(ios_base::uppercase);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL oct(ios_base& _Iosbase) { // set oct in basefield
+    _Iosbase.setf(ios_base::oct, ios_base::basefield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL right(ios_base& _Iosbase) { // set right in adjustfield
+    _Iosbase.setf(ios_base::right, ios_base::adjustfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL scientific(ios_base& _Iosbase) { // set scientific in floatfield
+    _Iosbase.setf(ios_base::scientific, ios_base::floatfield);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL showbase(ios_base& _Iosbase) { // set showbase
+    _Iosbase.setf(ios_base::showbase);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL showpoint(ios_base& _Iosbase) { // set showpoint
+    _Iosbase.setf(ios_base::showpoint);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL showpos(ios_base& _Iosbase) { // set showpos
+    _Iosbase.setf(ios_base::showpos);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL skipws(ios_base& _Iosbase) { // set skipws
+    _Iosbase.setf(ios_base::skipws);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL unitbuf(ios_base& _Iosbase) { // set unitbuf
+    _Iosbase.setf(ios_base::unitbuf);
+    return _Iosbase;
+}
+
+_EXPORT_STD inline ios_base& __CLRCALL_OR_CDECL uppercase(ios_base& _Iosbase) { // set uppercase
+    _Iosbase.setf(ios_base::uppercase);
+    return _Iosbase;
+}
+
+#if _HAS_TR1_NAMESPACE
+namespace _DEPRECATE_TR1_NAMESPACE tr1 {
+    using _STD hexfloat;
+}
+#endif // _HAS_TR1_NAMESPACE
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _IOS_

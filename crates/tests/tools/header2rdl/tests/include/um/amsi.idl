@@ -1,0 +1,355 @@
+/*******************************************************
+ *                                                     *
+ *     Copyright (C) Microsoft. All rights reserved.   *
+ *                                                     *
+ *******************************************************/
+
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef [v1_enum] enum AMSI_RESULT
+{
+    // No detection found. Result likely not going to change after future definition update.
+    // a.k.a. known good
+    AMSI_RESULT_CLEAN        = 0,
+
+    // No detection found. Result might change after future definition update.
+    AMSI_RESULT_NOT_DETECTED = 1,
+
+    // Certain policy set by administrator blocked this content on this machine.
+    AMSI_RESULT_BLOCKED_BY_ADMIN_START = 0x4000,
+    AMSI_RESULT_BLOCKED_BY_ADMIN_END   = 0x4fff,
+
+    // Detection found. It is recommended to abort executing the content if it is executable, e.g. a script.
+    // Return result of 1 - 32767 is estimated risk level that an antimalware provider might indicate.
+    // The large the result, the riskier to continue.
+    // Any return result equal to or larger than 32768 is consider malware and should be blocked.
+    // These values are provider specific, and may indicate malware family or ID.
+    // An application should use AmsiResultIsMalware() to determine whether the content should be blocked.
+    AMSI_RESULT_DETECTED     = 32768,
+
+} AMSI_RESULT;
+
+cpp_quote("#define AmsiResultIsMalware(r) ((r) >= AMSI_RESULT_DETECTED)")
+cpp_quote("#define AmsiResultIsBlockedByAdmin(r) ((r) >= AMSI_RESULT_BLOCKED_BY_ADMIN_START) && (r) <= AMSI_RESULT_BLOCKED_BY_ADMIN_END")
+
+typedef [v1_enum] enum AMSI_ATTRIBUTE
+{
+    // Name/version/GUID string of the calling application.
+    AMSI_ATTRIBUTE_APP_NAME     = 0,
+
+    // LPWSTR, filename, URL, script unique id etc.
+    AMSI_ATTRIBUTE_CONTENT_NAME = 1,
+
+    // ULONGLONG, size of the input. Mandatory.
+    AMSI_ATTRIBUTE_CONTENT_SIZE = 2,
+
+    // PVOID, memory address if content is fully loaded in memory. Mandatory unless
+    // Read() is implemented instead to support on-demand content retrieval.
+    AMSI_ATTRIBUTE_CONTENT_ADDRESS = 3,
+
+    // PVOID, session is used to associate different scan calls, e.g. if the contents
+    // to be scanned belong to the sample original script. Return nullptr if content
+    // is self-contained. Mandatory.
+    AMSI_ATTRIBUTE_SESSION = 4,
+
+    // ULONGLONG, size of the Microsoft Edge redirect chain. Optional.
+    AMSI_ATTRIBUTE_REDIRECT_CHAIN_SIZE = 5,
+
+    // PVOID, memory address of the Microsoft Edge redirect chain. Optional.
+    AMSI_ATTRIBUTE_REDIRECT_CHAIN_ADDRESS = 6,
+
+    // "All Attribute" buffer is provided by Microsoft Edge to pass future attributes without
+    // requiring adding new attributes to the amsi interface. It is a multi-string with the following
+    // format:
+    //   L"Attribute1\0Value1\0Attribute2\0Value2\0...AttributeN\0ValueN\0\0"
+
+    // ULONGLONG, size of the "All Attribute" Microsoft Edge buffer. Optional.
+    AMSI_ATTRIBUTE_ALL_SIZE = 7,
+
+    // PVOID, memory address of the "All Attribute" Microsoft Edge buffer. Optional.
+    AMSI_ATTRIBUTE_ALL_ADDRESS = 8,
+
+    // ULONG
+    AMSI_ATTRIBUTE_QUIET = 9, // deprecated, do not use
+
+} AMSI_ATTRIBUTE;
+
+typedef [v1_enum] enum AMSI_UAC_REQUEST_TYPE
+{
+    // Request to launch an EXE elevated.
+    AMSI_UAC_REQUEST_TYPE_EXE = 0,
+
+    // Request to launch an COM server Outofproc elevated.
+    AMSI_UAC_REQUEST_TYPE_COM = 1,
+
+    // Request to launch an MSI elevated.
+    AMSI_UAC_REQUEST_TYPE_MSI = 2,
+
+    // Request to launch an ActiveX installation elevated.
+    AMSI_UAC_REQUEST_TYPE_AX  = 3,
+
+    // Request to launch a Packaged App elevated.
+    AMSI_UAC_REQUEST_TYPE_PACKAGED_APP  = 4,
+
+    AMSI_UAC_REQUEST_TYPE_MAX = 5
+
+} AMSI_UAC_REQUEST_TYPE;
+
+typedef [v1_enum] enum AMSI_UAC_TRUST_STATE
+{
+    // UAC determined the binary to be from a trusted publisher.
+    AMSI_UAC_TRUST_STATE_TRUSTED   = 0,
+
+    // UAC determined the binary to be from a untrusted publisher.
+    AMSI_UAC_TRUST_STATE_UNTRUSTED = 1,
+
+    // UAC determined the binary to be from a publisher blacklisted by the admin.
+    AMSI_UAC_TRUST_STATE_BLOCKED   = 2,
+
+    AMSI_UAC_TRUST_STATE_MAX       = 3
+
+} AMSI_UAC_TRUST_STATE;
+
+typedef [v1_enum] enum AMSI_UAC_MSI_ACTION
+{
+    // MSI actions that can be elevated.
+
+    AMSI_UAC_MSI_ACTION_INSTALL            = 0,
+    AMSI_UAC_MSI_ACTION_UNINSTALL          = 1,
+    AMSI_UAC_MSI_ACTION_UPDATE             = 2,
+    AMSI_UAC_MSI_ACTION_MAINTENANCE        = 3,
+    AMSI_UAC_MSI_ACTION_MAX                = 4
+} AMSI_UAC_MSI_ACTION;
+
+typedef struct AMSI_UAC_REQUEST_EXE_INFO
+{
+    ULONG            ulLength;
+    [string] LPWSTR  lpwszApplicationName;
+    [string] LPWSTR  lpwszCommandLine;
+
+    // Points to an extension dll to be loaded by the EXE (for eg. mmc.exe), which requires
+    // a separate reputation check.
+    [string] LPWSTR  lpwszDLLParameter;
+} AMSI_UAC_REQUEST_EXE_INFO, *LPAMSI_UAC_REQUEST_EXE_INFO;
+
+typedef struct AMSI_UAC_REQUEST_COM_INFO
+{
+    ULONG            ulLength;
+    [string] LPWSTR  lpwszServerBinary;
+    [string] LPWSTR  lpwszRequestor;
+    GUID             Clsid;
+} AMSI_UAC_REQUEST_COM_INFO, *LPAMSI_UAC_REQUEST_COM_INFO;
+
+typedef struct AMSI_UAC_REQUEST_MSI_INFO
+{
+    ULONG                                     ulLength;
+    AMSI_UAC_MSI_ACTION                       MsiAction;
+
+    [string] LPWSTR                           lpwszProductName;
+    [string] LPWSTR                           lpwszVersion;
+    [string] LPWSTR                           lpwszLanguage;
+    [string] LPWSTR                           lpwszManufacturer;
+    [string] LPWSTR                           lpwszPackagePath;
+    [string] LPWSTR                           lpwszPackageSource;
+
+    ULONG                                     ulUpdates;
+    [string, size_is(ulUpdates, )] LPWSTR*    ppwszUpdates;
+    [string, size_is(ulUpdates, )] LPWSTR*    ppwszUpdateSources;
+} AMSI_UAC_REQUEST_MSI_INFO, *LPAMSI_UAC_REQUEST_MSI_INFO;
+
+typedef struct AMSI_UAC_REQUEST_AX_INFO
+{
+    ULONG            ulLength;
+    [string] LPWSTR  lpwszLocalInstallPath;
+    [string] LPWSTR  lpwszSourceURL;
+} AMSI_UAC_REQUEST_AX_INFO, *LPAMSI_UAC_REQUEST_AX_INFO;
+
+typedef struct AMSI_UAC_REQUEST_PACKAGED_APP_INFO
+{
+    ULONG            ulLength;
+    [string] LPWSTR  lpwszApplicationName;
+    [string] LPWSTR  lpwszCommandLine;
+    [string] LPWSTR  lpPackageFamilyName;
+    [string] LPWSTR  lpApplicationId;
+} AMSI_UAC_REQUEST_PACKAGED_APP_INFO, *LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO;
+
+typedef struct AMSI_UAC_REQUEST_CONTEXT
+{
+    ULONG                  ulLength;
+
+    // Contains a ProcessID for AMSI_UAC_REQUEST_TYPE_EXE and 
+    // AMSI_UAC_REQUEST_TYPE_PACKAGED_APP elevation requests, contains 0 otherwise.
+    ULONG                  ulRequestorProcessId;
+    
+    AMSI_UAC_TRUST_STATE   UACTrustState;
+
+    AMSI_UAC_REQUEST_TYPE  Type;
+
+    [switch_is(Type)]
+        union {
+            [case(AMSI_UAC_REQUEST_TYPE_EXE)] AMSI_UAC_REQUEST_EXE_INFO                      ExeInfo;
+            [case(AMSI_UAC_REQUEST_TYPE_COM)] AMSI_UAC_REQUEST_COM_INFO                      ComInfo;
+            [case(AMSI_UAC_REQUEST_TYPE_MSI)] AMSI_UAC_REQUEST_MSI_INFO                      MsiInfo;
+            [case(AMSI_UAC_REQUEST_TYPE_AX)]  AMSI_UAC_REQUEST_AX_INFO                       ActiveXInfo;
+            [case(AMSI_UAC_REQUEST_TYPE_PACKAGED_APP)]  AMSI_UAC_REQUEST_PACKAGED_APP_INFO   PackagedAppInfo;
+        }RequestType;
+
+    // Contains a non-zero value if this is a Auto-Elevate request.
+    BOOL   bAutoElevateRequest;
+} AMSI_UAC_REQUEST_CONTEXT, *LPAMSI_UAC_REQUEST_CONTEXT;
+
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(3e47f2e5-81d4-4d3b-897f-545096770373)
+]
+interface IAmsiStream : IUnknown
+{
+    HRESULT GetAttribute(
+                [in]                        AMSI_ATTRIBUTE  attribute,
+                [in, range(0, 1024*1024)]   ULONG           dataSize,
+                [out, size_is(dataSize), length_is(*retData)] unsigned char* data,
+                [out]                       ULONG*          retData);
+
+    HRESULT Read(
+                [in]                        ULONGLONG       position,
+                [in, range(0, 1024*1024)]   ULONG           size,
+                [out, size_is(size), length_is(*readSize)] unsigned char* buffer,
+                [out]                       ULONG*          readSize);
+}
+
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(b2cabfe3-fe04-42b1-a5df-08d483d4d125)
+]
+interface IAntimalwareProvider : IUnknown
+{
+    HRESULT Scan(
+                [in]  IAmsiStream*      stream,
+                [out] AMSI_RESULT*      result);
+
+    void CloseSession([in] ULONGLONG session);
+
+    HRESULT DisplayName([out, string, annotation("_Out_")] LPWSTR* displayName);
+}
+
+[
+    object,
+    pointer_default(unique),
+    uuid(b2cabfe4-fe04-42b1-a5df-08d483d4d125)
+]
+interface IAntimalwareUacProvider : IUnknown
+{
+    HRESULT UacScan(
+                [in]  LPAMSI_UAC_REQUEST_CONTEXT    context,
+                [out] AMSI_RESULT*                  result);
+
+    HRESULT DisplayName([out, string] LPWSTR* displayName);
+}
+
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(7c1e6570-3f73-4e0f-8ad4-98b94cd3290f)
+]
+interface IAntimalwareProvider2 : IAntimalwareProvider
+{
+    HRESULT Notify(
+        [in] PVOID buffer,
+        [in] ULONG length,
+        [in] LPCWSTR contentName,
+        [in] LPCWSTR appName,
+        [out] AMSI_RESULT *pResult);
+}
+
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(82d29c2e-f062-44e6-b5c9-3d9a2f24a2df)
+]
+interface IAntimalware : IUnknown
+{
+    HRESULT Scan(
+                [in]   IAmsiStream*           stream,
+                [out]  AMSI_RESULT*           result,
+                [out]  IAntimalwareProvider** provider);
+
+    void CloseSession([in] ULONGLONG session);
+}
+
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(301035b5-2d42-4f56-8c65-2dcaa7fb3cdc)
+]
+interface IAntimalware2 : IAntimalware
+{
+    HRESULT Notify(
+        [in] PVOID buffer,
+        [in] ULONG length,
+        [in] LPCWSTR contentName,
+        [in] LPCWSTR appName,
+        [out] AMSI_RESULT *pResult);
+}
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("class DECLSPEC_UUID(\"fdb00e52-a214-4aa1-8fba-4357bb0072ec\") CAntimalware;")
+cpp_quote("#endif")
+cpp_quote("EXTERN_C const CLSID CLSID_Antimalware;")
+cpp_quote("")
+cpp_quote("DECLARE_HANDLE(HAMSICONTEXT);")
+cpp_quote("DECLARE_HANDLE(HAMSISESSION);")
+cpp_quote("")
+cpp_quote("STDAPI AmsiInitialize(")
+cpp_quote("    _In_  LPCWSTR appName,")
+cpp_quote("    _Outptr_ HAMSICONTEXT* amsiContext);")
+cpp_quote("")
+cpp_quote("STDAPI_(VOID) AmsiUninitialize(")
+cpp_quote("    _In_  HAMSICONTEXT amsiContext);")
+cpp_quote("")
+cpp_quote("STDAPI AmsiOpenSession(")
+cpp_quote("    _In_  HAMSICONTEXT amsiContext,")
+cpp_quote("    _Out_ HAMSISESSION* amsiSession);")
+cpp_quote("")
+cpp_quote("STDAPI_(VOID) AmsiCloseSession(")
+cpp_quote("    _In_  HAMSICONTEXT amsiContext,")
+cpp_quote("    _In_  HAMSISESSION amsiSession);")
+cpp_quote("")
+cpp_quote("STDAPI AmsiScanBuffer(")
+cpp_quote("    _In_  HAMSICONTEXT amsiContext,")
+cpp_quote("    _In_reads_bytes_(length) PVOID buffer,")
+cpp_quote("    _In_  ULONG length,")
+cpp_quote("    _In_opt_  LPCWSTR contentName,")
+cpp_quote("    _In_opt_  HAMSISESSION amsiSession,")
+cpp_quote("    _Out_ AMSI_RESULT* result);")
+cpp_quote("")
+cpp_quote("STDAPI AmsiNotifyOperation(")
+cpp_quote("    _In_  HAMSICONTEXT amsiContext,")
+cpp_quote("    _In_reads_bytes_(length) PVOID buffer,")
+cpp_quote("    _In_  ULONG length,")
+cpp_quote("    _In_opt_  LPCWSTR contentName,")
+cpp_quote("    _Out_ AMSI_RESULT* result);")
+cpp_quote("")
+cpp_quote("STDAPI AmsiScanString(")
+cpp_quote("    _In_  HAMSICONTEXT amsiContext,")
+cpp_quote("    _In_  LPCWSTR string,")
+cpp_quote("    _In_opt_  LPCWSTR contentName,")
+cpp_quote("    _In_opt_  HAMSISESSION amsiSession,")
+cpp_quote("    _Out_ AMSI_RESULT* result);")
+cpp_quote("")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

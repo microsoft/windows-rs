@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schemas.microsoft.com/win/2004/08/events/eventquery" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/win/2004/08/events/eventquery" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="QueryType">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="Select">
+				<xs:complexType mixed="true">
+					<xs:attribute name="Path" type="xs:anyURI" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Suppress">
+				<xs:complexType mixed="true">
+					<xs:attribute name="Path" type="xs:anyURI" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="Id" type="xs:long" use="optional"/>
+		<xs:attribute name="Path" type="xs:anyURI" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="QueryListType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="Query" type="QueryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="QueryList" type="QueryListType"/>
+</xs:schema>

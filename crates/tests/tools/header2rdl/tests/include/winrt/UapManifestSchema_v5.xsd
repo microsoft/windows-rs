@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+           xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+           xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:wincap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3"
+           xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:iot2="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="UserActivity" type="CT_UserActivity"/>
+        <xs:element name="MediaSource" type="CT_MediaSource"/>
+        <xs:element name="VideoRendererEffect" type="CT_VideoRendererEffect"/>
+        <xs:element name="OutOfProcessServer" type="CT_OutOfProcessServer"/>
+        <xs:element name="StartupTask" type="CT_StartupTask"/>
+        <xs:element name="AppExecutionAlias" type="CT_AppExecutionAlias"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Uap5" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_UserActivity">
+    <xs:attribute name="ActivitySourceHost" type="t:ST_DomainName"/>
+  </xs:complexType>
+
+  <xs:attributeGroup name="SplashScreenAttributes">
+    <xs:attribute name="Optional" type="xs:boolean" form="qualified" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="ContentUriRuleAttributes">
+    <xs:attribute name="ServiceWorker" type="xs:boolean" form="qualified" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:element name="MixedRealityModel">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="uap6:SpatialBoundingBox" minOccurs="0" maxOccurs="1"/>
+      </xs:all>
+      <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Host">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_DomainNameWithStarSubDomain" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_MediaSource">
+    <xs:all minOccurs="0">
+      <xs:element name="SupportedFileTypes">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1000">
+            <xs:element name="FileType" type="t:ST_FileType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SupportedContentTypes">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1000">
+            <xs:element name="ContentType">
+              <xs:complexType>
+                <xs:attribute name="SubType" type="t:ST_ContentType" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+    <xs:attribute name="Description" type="t:ST_Description"/>
+    <xs:attribute name="AppServiceName" type="t:ST_AppServiceName" use="optional"/>
+    <xs:attributeGroup ref="wincap3:InprocMediaCodecAttributes"/>
+  </xs:complexType>
+  
+  <xs:complexType name="CT_VideoRendererEffect">
+    <xs:all minOccurs="0">
+      <xs:element name="VideoRendererExtensionProfiles">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1000">
+            <xs:element name="VideoRendererExtensionProfile">
+              <xs:complexType>
+                <xs:attribute name="Profile" type="t:ST_NonEmptyString" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InputTypes">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="1000">
+            <xs:element name="InputType">
+              <xs:complexType>
+                <xs:attribute name="SubType" type="t:ST_MediaCodecSubType" use="required" />
+                <xs:attribute name="MkvCodecId" type="t:ST_NonEmptyString" use="optional" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+    <xs:attribute name="Description" type="t:ST_Description"/>
+    <xs:attributeGroup ref="wincap3:InprocMediaCodecAttributes"/>
+  </xs:complexType>
+  
+  <xs:attribute name="MkvCodecId" type="t:ST_NonEmptyString"/>
+
+  <xs:complexType name="CT_OutOfProcessServer">
+    <xs:sequence>
+      <xs:element name="Path" type="t:ST_ExecutableAnyCase"/>
+      <xs:element name="Arguments" type="t:ST_NonEmptyString" minOccurs="0"/>
+      <xs:element name="Instancing" type="t:ST_Instancing"/>
+      <xs:element name="ActivatableClass" type="CT_OutOfProcessActivatableClass" maxOccurs="65535"/>
+    </xs:sequence>
+    <xs:attribute name="ServerName" type="t:ST_AsciiWindowsId" use="required"/>
+    <xs:attribute name="RunFullTrust" type="xs:boolean"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_OutOfProcessActivatableClass">
+    <xs:sequence>
+      <xs:element name="ActivatableClassAttribute" type="t:CT_ActivatableClassAttribute" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="ActivatableClassId" type="t:ST_ActivatableClassId" use="required"/>
+  </xs:complexType>
+
+  <xs:attributeGroup name="OutOfProcessServerFullTrustAttributes">
+    <xs:attribute name="RunFullTrust" type="xs:boolean" form="qualified"/>
+    <xs:attribute name="IdentityType" type="ST_IdentityType" form="qualified"/>
+  </xs:attributeGroup>
+
+  <xs:simpleType name="ST_IdentityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="activateAsPackage"/>
+      <xs:enumeration value="activateAsActivator"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_StartupTask">
+    <xs:attribute name="TaskId" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="Enabled" type="xs:boolean" use="optional"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="optional"/>
+    <xs:attribute ref="uap11:UserConfigurable" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AppExecutionAlias">
+    <xs:sequence minOccurs="0" maxOccurs="1000">
+      <xs:element name="ExecutionAlias" minOccurs="0">
+        <xs:complexType>
+          <xs:choice minOccurs="0">
+            <xs:element ref="desktop10:SupportedProtocols" />
+          </xs:choice> 
+          <xs:attribute name="Alias" type="t:ST_ExecutableNoPath" use="required"/>
+          <xs:attribute ref="uap8:AllowOverride" use="optional"/>
+          <xs:attribute ref="desktop10:UseDesktopChangeRouter" use="optional"/>
+          <xs:attribute ref="desktop10:DropTarget" use="optional"/>
+          <xs:attribute ref="desktop10:UseUrl" use="optional"/>
+          <xs:attribute ref="desktop10:EnvironmentPath" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="uap8:ExecutionAlias" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute ref="desktop4:Subsystem" use="optional"/>
+    <xs:attribute ref="iot2:Subsystem" use="optional"/>
+    <xs:attribute ref="uap10:Subsystem" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="DriverDependency">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1000">
+        <xs:element name="DriverConstraint">
+          <xs:complexType>
+            <xs:attribute name="Name" type="t:ST_NonEmptyString" use="required"/>
+            <xs:attribute name="MinVersion" type="t:ST_VersionQuadNoneZero"/>
+            <xs:attribute name="MinDate" type="t:ST_Date"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="DriverConstraint_Name">
+      <xs:selector xpath="uap5:DriverConstraint"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+</xs:schema>
+
+

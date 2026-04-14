@@ -1,0 +1,417 @@
+//////////////////////////////////////
+//        Imports
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+import "fsrmenums.idl";
+import "fsrm.idl";
+
+
+//////////////////////////////////////
+//        Forward declarations
+//
+
+interface IFsrmFileGroup;
+interface IFsrmFileGroupImported;
+interface IFsrmFileGroupManager;
+
+// Shared by IFsrmFileScreen and IFsrmFileScreenTemplate
+interface IFsrmFileScreenBase;
+
+interface IFsrmFileScreen;
+interface IFsrmFileScreenException;
+interface IFsrmFileScreenManager;
+
+interface IFsrmFileScreenTemplate;
+interface IFsrmFileScreenTemplateImported;
+interface IFsrmFileScreenTemplateManager;
+
+
+//////////////////////////////////////
+//        Dispatch IDs
+//
+
+#define FSRM_PROPERTY(x) x | FSRM_DISPID_IS_PROPERTY
+
+// Dispatch ID base of file screen interfaces
+const DISPID FSRM_DISPID_FILEGROUP                      = FSRM_DISPID_FEATURE_FILESCREEN    | 0x100000;
+const DISPID FSRM_DISPID_FILEGROUP_IMPORTED             = FSRM_DISPID_FILEGROUP             | 0x010000;
+
+const DISPID FSRM_DISPID_FILEGROUP_MANAGER              = FSRM_DISPID_FEATURE_FILESCREEN    | 0x200000;
+
+const DISPID FSRM_DISPID_FILESCREEN_BASE                = FSRM_DISPID_FEATURE_FILESCREEN    | 0x300000;
+const DISPID FSRM_DISPID_FILESCREEN                     = FSRM_DISPID_FILESCREEN_BASE       | 0x010000;
+const DISPID FSRM_DISPID_FILESCREEN_TEMPLATE            = FSRM_DISPID_FILESCREEN_BASE       | 0x020000;
+const DISPID FSRM_DISPID_FILESCREEN_TEMPLATE_IMPORTED   = FSRM_DISPID_FILESCREEN_TEMPLATE   | 0x001000;
+
+const DISPID FSRM_DISPID_FILESCREEN_EXCEPTION           = FSRM_DISPID_FEATURE_FILESCREEN    | 0x400000;
+
+const DISPID FSRM_DISPID_FILESCREEN_MANAGER             = FSRM_DISPID_FEATURE_FILESCREEN    | 0x500000;
+
+const DISPID FSRM_DISPID_FILESCREEN_TEMPLATE_MANAGER    = FSRM_DISPID_FEATURE_FILESCREEN    | 0x600000;
+
+
+//////////////////////////////////////
+//        Interfaces
+//
+[
+    object,
+    uuid(8dd04909-0e34-4d55-afaa-89e1f1a1bbb9),
+    dual,
+    helpstring("IFsrmFileGroup Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileGroup : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP | 0x01)), helpstring("This property is the file group name")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP | 0x01)), helpstring("This property is the file group name")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP | 0x02)), helpstring("This property is the Members list for the file group")]
+    HRESULT Members([out, retval] IFsrmMutableCollection **members);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP | 0x02)), helpstring("This property is the Members list for the file group")]
+    HRESULT Members([in] IFsrmMutableCollection *members);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP | 0x03)), helpstring("This property is the NonMembers list for the file group")]
+    HRESULT NonMembers([out, retval] IFsrmMutableCollection **nonMembers);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP | 0x03)), helpstring("This property is the NonMembers list for the file group")]
+    HRESULT NonMembers([in] IFsrmMutableCollection *nonMembers);
+
+};
+
+
+[
+    object,
+    uuid(ad55f10b-5f11-4be7-94ef-d9ee2e470ded),
+    dual,
+    helpstring("IFsrmFileGroupImported Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileGroupImported : IFsrmFileGroup
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP_IMPORTED | 0x01)), helpstring("property OverwriteOnCommit")]
+    HRESULT OverwriteOnCommit([out, retval] VARIANT_BOOL *overwrite);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILEGROUP_IMPORTED | 0x01)), helpstring("property OverwriteOnCommit")]
+    HRESULT OverwriteOnCommit([in] VARIANT_BOOL overwrite);
+
+};
+
+
+[
+    object,
+    uuid(426677d5-018c-485c-8a51-20b86d00bdc4),
+    dual,
+    helpstring("IFsrmFileGroupManager Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileGroupManager : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_FILEGROUP_MANAGER | 0x01), helpstring("This method is used to create a file group")]
+    HRESULT CreateFileGroup([out, retval] IFsrmFileGroup **fileGroup);
+
+    [id(FSRM_DISPID_FILEGROUP_MANAGER | 0x02), helpstring("This method is used to get a file group with a specific name")]
+    HRESULT GetFileGroup(
+                        [in] BSTR name,
+                        [out, retval] IFsrmFileGroup **fileGroup);
+
+    [id(FSRM_DISPID_FILEGROUP_MANAGER | 0x03), helpstring("This method is used to enumerate all file groups")]
+    HRESULT EnumFileGroups(
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **fileGroups);
+
+    [id(FSRM_DISPID_FILEGROUP_MANAGER | 0x04), helpstring("This method is used to copy the properties of this template from the input string")]
+    HRESULT ExportFileGroups(
+                        [in, defaultvalue(NULL)] VARIANT* fileGroupNamesArray,
+                        [out, retval] BSTR *serializedFileGroups);
+
+    [id(FSRM_DISPID_FILEGROUP_MANAGER | 0x05), helpstring("This method is used to import templates from the file groups string representation.  The resulting collection, or individual objects contain therein, must be committed to finalize the import")]
+    HRESULT ImportFileGroups(
+                        [in] BSTR serializedFileGroups,
+                        [in, defaultvalue(NULL)] VARIANT* fileGroupNamesArray,
+                        [out, retval] IFsrmCommittableCollection **fileGroups);
+
+};
+
+
+[
+    object,
+    uuid(f3637e80-5b22-4a2b-a637-bbb642b41cfc),
+    dual,
+    helpstring("IFsrmFileScreenBase Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreenBase : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_BASE | 0x01)), helpstring("This property is the file groups that this file screen blocks")]
+    HRESULT BlockedFileGroups([out, retval] IFsrmMutableCollection **blockList);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_BASE | 0x01)), helpstring("This property is the file groups that this file screen blocks")]
+    HRESULT BlockedFileGroups([in] IFsrmMutableCollection *blockList);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_BASE | 0x02)), helpstring("This property is the bit field containing flags defined in FsrmFileScreenFlags")]
+    HRESULT FileScreenFlags([out, retval] long *fileScreenFlags);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_BASE | 0x02)), helpstring("This property is the bit field containing flags defined in FsrmFileScreenFlags")]
+    HRESULT FileScreenFlags([in] long fileScreenFlags);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_FILESCREEN_BASE | 0x01), helpstring("This method is used to create an action of the specified type")]
+    HRESULT CreateAction(
+                        [in] FsrmActionType actionType,
+                        [out, retval] IFsrmAction **action);
+
+    [id(FSRM_DISPID_FILESCREEN_BASE | 0x02), helpstring("This method is used to enumerate all actions")]
+    HRESULT EnumActions([out, retval] IFsrmCollection **actions);
+
+};
+
+
+[
+    object,
+    uuid(5f6325d3-ce88-4733-84c1-2d6aefc5ea07),
+    dual,
+    helpstring("IFsrmFileScreen Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreen : IFsrmFileScreenBase
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN | 0x01)), helpstring("This read-only property is the path of the file screen")]
+    HRESULT Path([out, retval] BSTR *path);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN | 0x02)), helpstring("This read-only property is name of the template that this object originated from")]
+    HRESULT SourceTemplateName([out, retval] BSTR *fileScreenTemplateName);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN | 0x03)), helpstring("This read-only property is whether the file screen currently matches the template it orignated from")]
+    HRESULT MatchesSourceTemplate([out, retval] VARIANT_BOOL *matches);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN | 0x04)), helpstring("This read-only property is the SID of the user whose files will be screened")]
+    HRESULT UserSid([out, retval] BSTR *userSid);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN | 0x05)), helpstring("This read-only property is the account name of the user whose files will be screened")]
+    HRESULT UserAccount([out, retval] BSTR *userAccount);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_FILESCREEN | 0x01), helpstring("This method is used to copy the properties of this file screen from the specified data screen template")]
+    HRESULT ApplyTemplate([in] BSTR fileScreenTemplateName);
+
+};
+
+
+[
+    object,
+    uuid(bee7ce02-df77-4515-9389-78f01c5afc1a),
+    dual,
+    helpstring("IFsrmFileScreenException Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreenException : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_EXCEPTION | 0x01)), helpstring("This read-only property is the path of the file screen")]
+    HRESULT Path([out, retval] BSTR *path);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_EXCEPTION | 0x02)), helpstring("This property is the file groups that this file screen exception allows")]
+    HRESULT AllowedFileGroups([out, retval] IFsrmMutableCollection **allowList);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_EXCEPTION | 0x02)), helpstring("This property is the file groups that this file screen exception allows")]
+    HRESULT AllowedFileGroups([in] IFsrmMutableCollection *allowList);
+
+};
+
+
+[
+    object,
+    uuid(ff4fa04e-5a94-4bda-a3a0-d5b4d3c52eba),
+    dual,
+    helpstring("IFsrmFileScreenManager Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreenManager : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_MANAGER | 0x01)), helpstring("This method is used enumerate the runtime expanded variables available for screening notifications")]
+    HRESULT ActionVariables([out, retval] SAFEARRAY(VARIANT) *variables);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_MANAGER | 0x02)), helpstring("This method is used enumerate the descriptions of the runtime expanded variables available for screening notifications")]
+    HRESULT ActionVariableDescriptions([out, retval] SAFEARRAY(VARIANT) *descriptions);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x01), helpstring("This method is used to create a file screen")]
+    HRESULT CreateFileScreen(
+                        [in] BSTR path,
+                        [out, retval] IFsrmFileScreen **fileScreen);
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x02), helpstring("This method is used to get a file screen for a specific path")]
+    HRESULT GetFileScreen(
+                        [in] BSTR path,
+                        [out, retval] IFsrmFileScreen **fileScreen);
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x03), helpstring("This method is used to enumerate file screens")]
+    HRESULT EnumFileScreens(
+                        [in, defaultvalue(L"")] BSTR path,  // supports wildcards
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **fileScreens);
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x04), helpstring("This method is used to create a file screen exception")]
+    HRESULT CreateFileScreenException(
+                        [in] BSTR path,
+                        [out, retval] IFsrmFileScreenException **fileScreenException);
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x05), helpstring("This method is used to get a file screen exception for a specific path")]
+    HRESULT GetFileScreenException(
+                        [in] BSTR path,
+                        [out, retval] IFsrmFileScreenException **fileScreenException);
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x06), helpstring("This method is used to enumerate file screen exceptions")]
+    HRESULT EnumFileScreenExceptions(
+                        [in, defaultvalue(L"")] BSTR path,  // supports wildcards
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **fileScreenExceptions);
+
+    [id(FSRM_DISPID_FILESCREEN_MANAGER | 0x07), helpstring("This method is used to create an empty file screen or file screen exception collection")]
+    HRESULT CreateFileScreenCollection([out, retval] IFsrmCommittableCollection **collection);
+
+};
+
+
+[
+    object,
+    uuid(205bebf8-dd93-452a-95a6-32b566b35828),
+    dual,
+    helpstring("IFsrmFileScreenTemplate Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreenTemplate : IFsrmFileScreenBase
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_TEMPLATE | 0x01)), helpstring("property TemplateName")]
+    HRESULT Name([out, retval] BSTR *name);
+    
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_TEMPLATE | 0x01)), helpstring("property TemplateName")]
+    HRESULT Name([in] BSTR name);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE | 0x01), helpstring("This method is used to copy the properties of this template from the specified template")]
+    HRESULT CopyTemplate([in] BSTR fileScreenTemplateName);
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE | 0x02), helpstring("This method is used to apply the template changes to derived file screens and commit both the derived file screens and template changes.  The resulting collection of derived file screens will be in Committing or Complete state depending on the synchronizaton option chosen.  The collection of HRESULTs can be used to monitor the progress of the asynchronous commit operation and should be inspected for the error state of the individual object commit.")]
+    HRESULT CommitAndUpdateDerived(
+                        [in] FsrmCommitOptions commitOptions,
+                        [in] FsrmTemplateApplyOptions applyOptions,
+                        [out, retval] IFsrmDerivedObjectsResult **derivedObjectsResult);
+
+};
+
+
+[
+    object,
+    uuid(e1010359-3e5d-4ecd-9fe4-ef48622fdf30),
+    dual,
+    helpstring("IFsrmFileScreenTemplateImported Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreenTemplateImported : IFsrmFileScreenTemplate
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_TEMPLATE_IMPORTED | 0x01)), helpstring("property OverwriteOnCommit")]
+    HRESULT OverwriteOnCommit([out, retval] VARIANT_BOOL *overwrite);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_FILESCREEN_TEMPLATE_IMPORTED | 0x01)), helpstring("property OverwriteOnCommit")]
+    HRESULT OverwriteOnCommit([in] VARIANT_BOOL overwrite);
+
+};
+
+
+[
+    object,
+    uuid(cfe36cba-1949-4e74-a14f-f1d580ceaf13),
+    dual,
+    helpstring("IFsrmFileScreenTemplateManager Interface"),
+    pointer_default(unique)
+]
+interface IFsrmFileScreenTemplateManager : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE_MANAGER | 0x01), helpstring("This method is used to create a new data screen template")]
+    HRESULT CreateTemplate([out, retval] IFsrmFileScreenTemplate **fileScreenTemplate);
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE_MANAGER | 0x02), helpstring("This method is used to get a data screen template by name")]
+    HRESULT GetTemplate(
+                        [in] BSTR name,
+                        [out, retval] IFsrmFileScreenTemplate **fileScreenTemplate);
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE_MANAGER | 0x03), helpstring("This method is used to enumerate all data screen templates")]
+    HRESULT EnumTemplates(
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **fileScreenTemplates);
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE_MANAGER | 0x04), helpstring("This method is used to copy the properties of this template from the input string")]
+    HRESULT ExportTemplates(
+                        [in, defaultvalue(NULL)] VARIANT* fileScreenTemplateNamesArray,
+                        [out, retval] BSTR *serializedFileScreenTemplates);
+
+    [id(FSRM_DISPID_FILESCREEN_TEMPLATE_MANAGER | 0x05), helpstring("This method is used to import templates from the templates string representation.  The resulting collection, or individual objects contain therein, must be committed to finalize the import")]
+    HRESULT ImportTemplates(
+                        [in] BSTR serializedFileScreenTemplates,
+                        [in, defaultvalue(NULL)] VARIANT* fileScreenTemplateNamesArray,
+                        [out, retval] IFsrmCommittableCollection **fileScreenTemplates);
+
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

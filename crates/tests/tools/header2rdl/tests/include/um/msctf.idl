@@ -1,0 +1,2891 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2001.
+//
+//  File: msctf.idl
+//
+//  Contents: Text Framework declarations.
+//
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// msctf.h")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// Text Framework declarations.")
+cpp_quote("")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1995-2001 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#ifndef MSCTF_DEFINED")
+cpp_quote("#define MSCTF_DEFINED")
+cpp_quote("")
+cpp_quote("#include <windows.h>")
+cpp_quote("")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("extern \"C\" {")
+cpp_quote("#endif /* __cplusplus */")
+cpp_quote("")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// error codes
+//
+cpp_quote("#define TF_E_LOCKED          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0500)")
+cpp_quote("#define TF_E_STACKFULL       MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0501)")
+cpp_quote("#define TF_E_NOTOWNEDRANGE   MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0502)")
+cpp_quote("#define TF_E_NOPROVIDER      MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0503)")
+cpp_quote("#define TF_E_DISCONNECTED    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0504)")
+cpp_quote("#define TF_E_INVALIDVIEW     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0505)")
+cpp_quote("#define TF_E_ALREADY_EXISTS  MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0506)")
+cpp_quote("#define TF_E_RANGE_NOT_COVERED MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0507)")
+cpp_quote("#define TF_E_COMPOSITION_REJECTED MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0508)")
+cpp_quote("#define TF_E_EMPTYCONTEXT    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0509)")
+
+// the following must match their TS_E_ counter parts!
+cpp_quote("#define TF_E_INVALIDPOS      MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0200)")
+cpp_quote("#define TF_E_NOLOCK          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0201)")
+cpp_quote("#define TF_E_NOOBJECT        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0202)")
+cpp_quote("#define TF_E_NOSERVICE       MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0203)")
+cpp_quote("#define TF_E_NOINTERFACE     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0204)")
+cpp_quote("#define TF_E_NOSELECTION     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0205)")
+cpp_quote("#define TF_E_NOLAYOUT        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0206)")
+cpp_quote("#define TF_E_INVALIDPOINT    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0207)")
+cpp_quote("#define TF_E_SYNCHRONOUS     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0208)")
+cpp_quote("#define TF_E_READONLY        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0209)")
+cpp_quote("#define TF_E_FORMAT          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x020a)")
+
+// TF_S_ASYNC is only used as an [out] param for RequestEditSession
+cpp_quote("#define TF_S_ASYNC           MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_ITF, 0x0300)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+//  flags for ITfReverseConversionMgr::GetReverseConversion
+//
+cpp_quote("#define TF_RCM_COMLESS                          0x00000001")
+cpp_quote("#define TF_RCM_VKEY                             0x00000002")
+cpp_quote("#define TF_RCM_HINT_READING_LENGTH              0x00000004")
+cpp_quote("#define TF_RCM_HINT_COLLISION                   0x00000008")
+
+cpp_quote("HRESULT WINAPI TF_CreateThreadMgr(ITfThreadMgr **pptim);")
+cpp_quote("HRESULT WINAPI TF_GetThreadMgr(ITfThreadMgr **pptim);")
+cpp_quote("HRESULT WINAPI TF_CreateInputProcessorProfiles(ITfInputProcessorProfiles **ppipr);")
+cpp_quote("HRESULT WINAPI TF_CreateDisplayAttributeMgr(ITfDisplayAttributeMgr **ppdam);")
+cpp_quote("HRESULT WINAPI TF_CreateLangBarMgr(ITfLangBarMgr **pppbm);")
+cpp_quote("HRESULT WINAPI TF_CreateLangBarItemMgr(ITfLangBarItemMgr **pplbim);")
+cpp_quote("HRESULT WINAPI TF_CreateCategoryMgr(ITfCategoryMgr **ppcat);")
+cpp_quote("")
+
+cpp_quote("EXTERN_C const GUID GUID_PROP_TEXTOWNER;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_ATTRIBUTE;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_LANGID;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_READING;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_COMPOSING;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_TKB_ALTERNATES;")
+cpp_quote("EXTERN_C const GUID GUID_PROP_URL;")
+cpp_quote("")
+
+//  Values for the GUID_PROP_TKB_ALTERNATES property
+cpp_quote("#define TKB_ALTERNATES_STANDARD               0x00000001") 
+cpp_quote("#define TKB_ALTERNATES_FOR_AUTOCORRECTION     0x00000002")
+cpp_quote("#define TKB_ALTERNATES_FOR_PREDICTION         0x00000003")
+cpp_quote("#define TKB_ALTERNATES_AUTOCORRECTION_APPLIED 0x00000004")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("EXTERN_C const CLSID CLSID_TF_ThreadMgr;")
+cpp_quote("EXTERN_C const CLSID CLSID_TF_InputProcessorProfiles;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("EXTERN_C const CLSID CLSID_TF_LangBarMgr;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("EXTERN_C const CLSID CLSID_TF_DisplayAttributeMgr;")
+cpp_quote("EXTERN_C const CLSID CLSID_TF_CategoryMgr;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("EXTERN_C const CLSID CLSID_TF_LangBarItemMgr;")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("EXTERN_C const GUID GUID_SYSTEM_FUNCTIONPROVIDER;")
+cpp_quote("EXTERN_C const GUID GUID_APP_FUNCTIONPROVIDER;")
+cpp_quote("")
+
+cpp_quote("")
+
+//
+// GUIDs for system predefined compartment
+//
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_KEYBOARD_DISABLED;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_KEYBOARD_OPENCLOSE;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_HANDWRITING_OPENCLOSE;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SPEECH_DISABLED;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SPEECH_OPENCLOSE;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_SPEECH_GLOBALSTATE;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_PERSISTMENUENABLED;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_EMPTYCONTEXT;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_TIPUISTATUS;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_TRANSITORYEXTENSION;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT;")
+cpp_quote("EXTERN_C const GUID GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED;")
+cpp_quote("")
+
+//
+// Conversion Mode Bias Compartment
+//
+cpp_quote("EXTERN_C const GUID GUID_PROP_MODEBIAS;")
+cpp_quote("")
+
+//
+// GUIDs for system predefined conversion mode bias
+//
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_NONE;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_URLHISTORY;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_FILENAME;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_READING;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_DATETIME;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_NAME;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_CONVERSATION;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_NUMERIC;")
+//
+// These are FE language specific mode bias.
+//
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_HIRAGANA;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_KATAKANA;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_HANGUL;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_CHINESE;")
+
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_HALFWIDTHKATAKANA;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_FULLWIDTHALPHANUMERIC;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_HALFWIDTHALPHANUMERIC;")
+cpp_quote("EXTERN_C const GUID GUID_MODEBIAS_FULLWIDTHHANGUL;")
+
+//
+// GUID_TFCAT_CATEGORY_OF_TIP categrorize the types of tips.
+//   by default, this category contains the following guids.
+//                           GUID_TFCAT_TIP_KEYBOARD
+//                           GUID_TFCAT_TIP_SPEECH
+//                           GUID_TFCAT_TIP_HANDWRITING
+//
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_CATEGORY_OF_TIP;")
+
+//
+// GUIDs for the Tips category. Each category contains Tips classes.
+//
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIP_KEYBOARD;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIP_SPEECH;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIP_HANDWRITING;")
+
+//
+// GUIDs for the tip capability category. Each category contains Property GUID.
+//
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_SECUREMODE;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_UIELEMENTENABLED;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_COMLESS;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_WOW16;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT;")
+cpp_quote("")
+
+//
+// GUIDs for the property category. Each category contains Property GUID.
+//
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_PROP_AUDIODATA;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_PROP_INKDATA;")
+cpp_quote("")
+
+//
+// GUIDs for the property style.
+//
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_PROPSTYLE_CUSTOM;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_PROPSTYLE_STATIC;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_PROPSTYLE_STATICCOMPACT;")
+cpp_quote("")
+
+//
+// GUIDs for the display attribute provider category.
+//
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER;")
+cpp_quote("EXTERN_C const GUID GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY;")
+cpp_quote("")
+
+cpp_quote("#define TF_INVALID_GUIDATOM ((TfGuidAtom)0)")
+cpp_quote("#define TF_CLIENTID_NULL    ((TfClientId)0)")
+
+cpp_quote("")
+
+//
+//  flags for ITfThreadMgrEx::ActivateEx.
+//
+cpp_quote("#define TF_TMAE_NOACTIVATETIP              0x00000001")
+cpp_quote("#define TF_TMAE_SECUREMODE                 0x00000002")
+cpp_quote("#define TF_TMAE_UIELEMENTENABLEDONLY       0x00000004")
+cpp_quote("#define TF_TMAE_COMLESS                    0x00000008")
+cpp_quote("#define TF_TMAE_WOW16                      0x00000010")
+cpp_quote("#define TF_TMAE_NOACTIVATEKEYBOARDLAYOUT   0x00000020")
+cpp_quote("#define TF_TMAE_CONSOLE                    0x00000040")
+cpp_quote("")
+//
+//  flags for ITfThreadMgrEx::GetActiveFlags
+//
+cpp_quote("#define TF_TMF_NOACTIVATETIP          TF_TMAE_NOACTIVATETIP")
+cpp_quote("#define TF_TMF_SECUREMODE             TF_TMAE_SECUREMODE")
+cpp_quote("#define TF_TMF_UIELEMENTENABLEDONLY   TF_TMAE_UIELEMENTENABLEDONLY")
+cpp_quote("#define TF_TMF_COMLESS                TF_TMAE_COMLESS")
+cpp_quote("#define TF_TMF_WOW16                  TF_TMAE_WOW16")
+cpp_quote("#define TF_TMF_CONSOLE                TF_TMAE_CONSOLE")
+cpp_quote("#define TF_TMF_IMMERSIVEMODE          0x40000000")
+cpp_quote("#define TF_TMF_ACTIVATED              0x80000000")
+cpp_quote("")
+
+cpp_quote("#define TF_MOD_ALT                         0x0001")
+cpp_quote("#define TF_MOD_CONTROL                     0x0002")
+cpp_quote("#define TF_MOD_SHIFT                       0x0004")
+cpp_quote("#define TF_MOD_RALT                        0x0008")
+cpp_quote("#define TF_MOD_RCONTROL                    0x0010")
+cpp_quote("#define TF_MOD_RSHIFT                      0x0020")
+cpp_quote("#define TF_MOD_LALT                        0x0040")
+cpp_quote("#define TF_MOD_LCONTROL                    0x0080")
+cpp_quote("#define TF_MOD_LSHIFT                      0x0100")
+cpp_quote("#define TF_MOD_ON_KEYUP                    0x0200")
+cpp_quote("#define TF_MOD_IGNORE_ALL_MODIFIER         0x0400")
+cpp_quote("")
+
+//
+// flags for GUID_COMPARTMENT_TIPUISTATUS
+//
+cpp_quote("#define TF_US_HIDETIPUI         0x00000001")
+cpp_quote("")
+//
+//  flags for GUID GUID_COMPARTMENT_SPEECH_DISABLED
+//
+cpp_quote("#define TF_DISABLE_SPEECH         0x00000001")
+cpp_quote("#define TF_DISABLE_DICTATION      0x00000002")
+cpp_quote("#define TF_DISABLE_COMMANDING     0x00000004")
+cpp_quote("")
+
+cpp_quote("#define TF_PROCESS_ATOM             TEXT(\"_CTF_PROCESS_ATOM_\")")
+cpp_quote("#define TF_ENABLE_PROCESS_ATOM      TEXT(\"_CTF_ENABLE_PROCESS_ATOM_\")")
+
+cpp_quote("#define TF_INVALID_UIELEMENTID    DWORD(-1)")
+
+//
+//  flags for ITfCandidateListUIElement:GetUpdatedFlags()
+//
+cpp_quote("#define TF_CLUIE_DOCUMENTMGR      0x00000001")
+cpp_quote("#define TF_CLUIE_COUNT            0x00000002")
+cpp_quote("#define TF_CLUIE_SELECTION        0x00000004")
+cpp_quote("#define TF_CLUIE_STRING           0x00000008")
+cpp_quote("#define TF_CLUIE_PAGEINDEX        0x00000010")
+cpp_quote("#define TF_CLUIE_CURRENTPAGE      0x00000020")
+
+//
+//  flags for ITfReadingInformationUIElement:GetUpdatedFlags()
+//
+cpp_quote("#define TF_RIUIE_CONTEXT                 0x00000001")
+cpp_quote("#define TF_RIUIE_STRING                  0x00000002")
+cpp_quote("#define TF_RIUIE_MAXREADINGSTRINGLENGTH  0x00000004")
+cpp_quote("#define TF_RIUIE_ERRORINDEX              0x00000008")
+cpp_quote("#define TF_RIUIE_VERTICALORDER           0x00000010")
+
+cpp_quote("#define TF_CONVERSIONMODE_ALPHANUMERIC        0x0000")
+cpp_quote("#define TF_CONVERSIONMODE_NATIVE              0x0001")
+cpp_quote("#define TF_CONVERSIONMODE_KATAKANA            0x0002")
+cpp_quote("#define TF_CONVERSIONMODE_FULLSHAPE           0x0008")
+cpp_quote("#define TF_CONVERSIONMODE_ROMAN               0x0010")
+cpp_quote("#define TF_CONVERSIONMODE_CHARCODE            0x0020")
+cpp_quote("#define TF_CONVERSIONMODE_SOFTKEYBOARD        0x0080")
+cpp_quote("#define TF_CONVERSIONMODE_NOCONVERSION        0x0100")
+cpp_quote("#define TF_CONVERSIONMODE_EUDC                0x0200")
+cpp_quote("#define TF_CONVERSIONMODE_SYMBOL              0x0400")
+cpp_quote("#define TF_CONVERSIONMODE_FIXED               0x0800")
+cpp_quote("#define TF_SENTENCEMODE_NONE                  0x0000")
+cpp_quote("#define TF_SENTENCEMODE_PLAURALCLAUSE         0x0001")
+cpp_quote("#define TF_SENTENCEMODE_SINGLECONVERT         0x0002")
+cpp_quote("#define TF_SENTENCEMODE_AUTOMATIC             0x0004")
+cpp_quote("#define TF_SENTENCEMODE_PHRASEPREDICT         0x0008")
+cpp_quote("#define TF_SENTENCEMODE_CONVERSATION          0x0010")
+cpp_quote("")
+
+//
+// values for GUID_COMPARTMENT_TRANSITORYEXTENSION
+//
+cpp_quote("#define TF_TRANSITORYEXTENSION_NONE           0x0000")
+cpp_quote("#define TF_TRANSITORYEXTENSION_FLOATING       0x0001")
+cpp_quote("#define TF_TRANSITORYEXTENSION_ATSELECTION    0x0002")
+cpp_quote("")
+
+//
+// value for dwProfileType of ITfInputProcessorProfileMgr interface.
+//
+cpp_quote("#define TF_PROFILETYPE_INPUTPROCESSOR         0x0001")
+cpp_quote("#define TF_PROFILETYPE_KEYBOARDLAYOUT         0x0002")
+
+//
+// value for dwFlags of ITfInputProcessorProfileMgr::ReleaseInputProcessor
+//
+cpp_quote("#define TF_RIP_FLAG_FREEUNUSEDLIBRARIES         0x00000001")
+
+//
+// value for dwFlags of TF_INPUTPROCESSORPROFILE
+//
+cpp_quote("#define TF_IPP_FLAG_ACTIVE                      0x00000001")
+cpp_quote("#define TF_IPP_FLAG_ENABLED                     0x00000002")
+cpp_quote("#define TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR 0x00000004")
+
+cpp_quote("#define TF_IPP_CAPS_DISABLEONTRANSITORY         0x00000001")
+cpp_quote("#define TF_IPP_CAPS_SECUREMODESUPPORT           0x00000002")
+cpp_quote("#define TF_IPP_CAPS_UIELEMENTENABLED            0x00000004")
+cpp_quote("#define TF_IPP_CAPS_COMLESSSUPPORT              0x00000008")
+cpp_quote("#define TF_IPP_CAPS_WOW16SUPPORT                0x00000010")
+cpp_quote("#define TF_IPP_CAPS_IMMERSIVESUPPORT            0x00010000")
+cpp_quote("#define TF_IPP_CAPS_SYSTRAYSUPPORT              0x00020000")
+
+cpp_quote("#define TF_IPPMF_FORPROCESS                     0x10000000")
+cpp_quote("#define TF_IPPMF_FORSESSION                     0x20000000")
+cpp_quote("#define TF_IPPMF_FORSYSTEMALL                   0x40000000")
+cpp_quote("#define TF_IPPMF_ENABLEPROFILE                  0x00000001")
+cpp_quote("#define TF_IPPMF_DISABLEPROFILE                 0x00000002")
+cpp_quote("#define TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE   0x00000004")
+
+cpp_quote("#define TF_RP_HIDDENINSETTINGUI                 0x00000002")
+cpp_quote("#define TF_RP_LOCALPROCESS                      0x00000004")
+cpp_quote("#define TF_RP_LOCALTHREAD                       0x00000008")
+cpp_quote("#define TF_RP_SUBITEMINSETTINGUI                0x00000010")
+
+cpp_quote("#define TF_URP_ALLPROFILES                      0x00000002")
+cpp_quote("#define TF_URP_LOCALPROCESS                     0x00000004")
+cpp_quote("#define TF_URP_LOCALTHREAD                      0x00000008")
+
+
+//
+// value for dwFlags of ITfInputProcessorProfileSink
+//
+cpp_quote("#define TF_IPSINK_FLAG_ACTIVE                   0x0001")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("}")
+cpp_quote("#endif  /* __cplusplus */")
+
+import "oaidl.idl";
+import "comcat.idl";
+import "textstor.idl";
+import "ctfutb.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("")
+cpp_quote("#if 0")
+typedef [uuid(4f5d560f-5ab5-4dde-8c4d-404592857ab0)] UINT_PTR   HKL;
+cpp_quote("#endif")
+cpp_quote("")
+
+interface ITfThreadMgrEventSink;
+interface ITfTextInputProcessor;
+
+interface ITfRange;
+interface ITfRangeACP;
+interface ITfDocumentMgr;
+interface ITfContext;
+interface ITfEditSession;
+interface ITfProperty;
+interface ITfPersistentPropertyLoaderACP;
+interface IEnumTfProperties;
+interface ITfKeyEventSink;
+interface IEnumTfTextDeltas;
+interface ITfFunctionProvider;
+interface IEnumTfFunctionProviders;
+interface IEnumTfDocumentMgrs;
+interface IEnumTfContexts;
+interface ITfSource;
+interface ITfCompartmentMgr;
+interface ITfRangeBackup;
+interface IEnumTfRanges;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface ITfMouseSink;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface ITfReadOnlyProperty;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IEnumTfLanguageProfiles;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface ITfUIElement;
+interface IEnumTfUIElements;
+interface IEnumTfInputProcessorProfiles;
+
+typedef [uuid(7213778c-7bb0-4270-b050-6189ee594e97)]  DWORD TfEditCookie;
+
+const TfEditCookie TF_INVALID_EDIT_COOKIE = 0;
+
+typedef [uuid(88a9c478-f3ec-4763-8345-cd9250443f8d)] DWORD TfGuidAtom;
+
+typedef [uuid(de403c21-89fd-4f85-8b87-64584d063fbc)] DWORD TfClientId;
+
+typedef [uuid(e26d9e1d-691e-4f29-90d7-338dcf1f8cef)] struct TF_PERSISTENT_PROPERTY_HEADER_ACP
+{
+    GUID guidType;      // property type
+    LONG ichStart;      // range information of this property data
+    LONG cch;           // range information of this property data
+    ULONG cb;           // the data size of pStream in BYTE count
+    DWORD dwPrivate;    // private data
+    CLSID clsidTIP;     // the original owner of the property data
+} TF_PERSISTENT_PROPERTY_HEADER_ACP;
+
+typedef [uuid(e1b5808d-1e46-4c19-84dc-68c5f5978cc8)] struct TF_LANGUAGEPROFILE
+{
+    CLSID clsid;        // CLSID of tip
+    LANGID langid;      // language id
+    GUID catid;         // category of tip
+    BOOL fActive;       // activated profile
+    GUID guidProfile;   // profile description
+} TF_LANGUAGEPROFILE;
+
+
+typedef [uuid(5a886226-ae9a-489b-b991-2b1e25ee59a9)]  enum { TF_ANCHOR_START = 0, TF_ANCHOR_END = 1 } TfAnchor;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfThreadMgr
+//
+[
+  object,
+  uuid(aa80e801-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfThreadMgr : IUnknown
+{
+    HRESULT Activate([out] TfClientId *ptid);
+
+    HRESULT Deactivate();
+
+    HRESULT CreateDocumentMgr([out] ITfDocumentMgr **ppdim);
+
+    HRESULT EnumDocumentMgrs([out] IEnumTfDocumentMgrs **ppEnum);
+
+    HRESULT GetFocus([out] ITfDocumentMgr **ppdimFocus);
+
+    HRESULT SetFocus([in] ITfDocumentMgr *pdimFocus);
+
+    HRESULT AssociateFocus([in] HWND hwnd,
+                           [in, unique] ITfDocumentMgr *pdimNew,
+                           [out] ITfDocumentMgr **ppdimPrev);
+
+    HRESULT IsThreadFocus([out] BOOL *pfThreadFocus);
+
+    HRESULT GetFunctionProvider([in] REFCLSID clsid,
+                                [out] ITfFunctionProvider **ppFuncProv);
+
+    HRESULT EnumFunctionProviders([out] IEnumTfFunctionProviders **ppEnum);
+
+    HRESULT GetGlobalCompartment([out] ITfCompartmentMgr **ppCompMgr);
+};
+
+//
+// ITfThreadMgrEx
+//
+[
+  object,
+  uuid(3e90ade3-7594-4cb0-bb58-69628f5f458c),
+  pointer_default(unique)
+]
+interface ITfThreadMgrEx : ITfThreadMgr
+{
+    HRESULT ActivateEx([out] TfClientId *ptid, [in] DWORD dwFlags);
+    HRESULT GetActiveFlags([out] DWORD *lpdwFlags);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfThreadMgr2
+//
+[
+  object,
+  uuid(0ab198ef-6477-4ee8-8812-6780edb82d5e),
+  pointer_default(unique)
+]
+interface ITfThreadMgr2 : IUnknown
+{
+    HRESULT Activate([out] TfClientId *ptid);
+
+    HRESULT Deactivate();
+
+    HRESULT CreateDocumentMgr([out] ITfDocumentMgr **ppdim);
+
+    HRESULT EnumDocumentMgrs([out] IEnumTfDocumentMgrs **ppEnum);
+
+    HRESULT GetFocus([out] ITfDocumentMgr **ppdimFocus);
+
+    HRESULT SetFocus([in] ITfDocumentMgr *pdimFocus);
+
+    HRESULT IsThreadFocus([out] BOOL *pfThreadFocus);
+
+    HRESULT GetFunctionProvider([in] REFCLSID clsid,
+                                [out] ITfFunctionProvider **ppFuncProv);
+
+    HRESULT EnumFunctionProviders([out] IEnumTfFunctionProviders **ppEnum);
+
+    HRESULT GetGlobalCompartment([out] ITfCompartmentMgr **ppCompMgr);
+
+    HRESULT ActivateEx([out] TfClientId *ptid, [in] DWORD dwFlags);
+
+    HRESULT GetActiveFlags([out] DWORD *lpdwFlags);
+
+    HRESULT SuspendKeystrokeHandling();
+    
+    HRESULT ResumeKeystrokeHandling();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfThreadMgrEventSink
+//
+[
+  object,
+  uuid(aa80e80e-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfThreadMgrEventSink : IUnknown
+{
+    HRESULT OnInitDocumentMgr([in] ITfDocumentMgr *pdim);
+
+    HRESULT OnUninitDocumentMgr([in] ITfDocumentMgr *pdim);
+
+    HRESULT OnSetFocus([in] ITfDocumentMgr *pdimFocus, [in] ITfDocumentMgr *pdimPrevFocus);
+
+    HRESULT OnPushContext([in] ITfContext *pic);
+
+    HRESULT OnPopContext([in] ITfContext *pic);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfConfigureSystemKeystrokeFeed
+//
+[
+  object,
+  local,
+  uuid(0d2c969a-bc9c-437c-84ee-951c49b1a764),
+  pointer_default(unique)
+]
+interface ITfConfigureSystemKeystrokeFeed : IUnknown
+{
+    HRESULT DisableSystemKeystrokeFeed();
+
+    HRESULT EnableSystemKeystrokeFeed();
+};
+
+//
+// IEnumTfDocumentMgrs
+//
+[
+  object,
+  uuid(aa80e808-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface IEnumTfDocumentMgrs : IUnknown
+{
+    HRESULT Clone([out] IEnumTfDocumentMgrs **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfDocumentMgr **rgDocumentMgr,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+//
+// ITfDocumentMgr
+//
+[
+    object,
+    uuid(aa80e7f4-2021-11d2-93e0-0060b067b86e),
+    pointer_default(unique)
+]
+interface ITfDocumentMgr : IUnknown
+{
+    HRESULT CreateContext([in] TfClientId tidOwner,
+                          [in] DWORD dwFlags,
+                          [in, unique] IUnknown *punk,
+                          [out] ITfContext **ppic,
+                          [out] TfEditCookie *pecTextStore);
+
+    HRESULT Push([in] ITfContext *pic);
+
+    const DWORD TF_POPF_ALL = 0x0001;
+
+    HRESULT Pop([in] DWORD dwFlags);
+
+    HRESULT GetTop([out] ITfContext **ppic);
+
+    HRESULT GetBase([out] ITfContext **ppic);
+
+    HRESULT EnumContexts([out] IEnumTfContexts **ppEnum);
+};
+
+//
+// IEnumTfContexts
+//
+[
+  object,
+  uuid(8f1a7ea6-1654-4502-a86e-b2902344d507),
+  pointer_default(unique)
+]
+interface IEnumTfContexts : IUnknown
+{
+    HRESULT Clone([out] IEnumTfContexts **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfContext **rgContext,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+
+//
+// ITfCompositionView
+//
+[
+    object,
+    uuid(D7540241-F9A1-4364-BEFC-DBCD2C4395B7),
+    pointer_default(unique)
+]
+interface ITfCompositionView : IUnknown
+{
+    HRESULT GetOwnerClsid([out] CLSID *pclsid);
+
+    HRESULT GetRange([out] ITfRange **ppRange);
+};
+
+//
+// IEnumITfCompositionView
+//
+[
+    object,
+    uuid(5EFD22BA-7838-46CB-88E2-CADB14124F8F),
+    pointer_default(unique)
+]
+interface IEnumITfCompositionView : IUnknown
+{
+    HRESULT Clone([out] IEnumITfCompositionView **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfCompositionView **rgCompositionView,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+//
+// ITfComposition
+//
+[
+    object,
+    uuid(20168D64-5A8F-4A5A-B7BD-CFA29F4D0FD9),
+    pointer_default(unique)
+]
+interface ITfComposition : IUnknown
+{
+    HRESULT GetRange([out] ITfRange **ppRange);
+
+    HRESULT ShiftStart([in] TfEditCookie ecWrite,
+                       [in] ITfRange *pNewStart);
+
+    HRESULT ShiftEnd([in] TfEditCookie ecWrite,
+                     [in] ITfRange *pNewEnd);
+
+    HRESULT EndComposition([in] TfEditCookie ecWrite);
+};
+
+//
+// ITfCompositionSink
+//
+[
+    object,
+    uuid(A781718C-579A-4B15-A280-32B8577ACC5E),
+    pointer_default(unique)
+]
+interface ITfCompositionSink : IUnknown
+{
+    HRESULT OnCompositionTerminated([in] TfEditCookie ecWrite, [in] ITfComposition *pComposition);
+};
+
+//
+// ITfContextComposition
+//
+[
+    object,
+    uuid(D40C8AAE-AC92-4FC7-9A11-0EE0E23AA39B),
+    pointer_default(unique)
+]
+interface ITfContextComposition : IUnknown
+{
+    HRESULT StartComposition([in] TfEditCookie ecWrite,
+                             [in] ITfRange *pCompositionRange,
+                             [in] ITfCompositionSink *pSink,
+                             [out] ITfComposition **ppComposition);
+
+    HRESULT EnumCompositions([out] IEnumITfCompositionView **ppEnum);
+
+    HRESULT FindComposition([in] TfEditCookie ecRead,
+                            [in] ITfRange *pTestRange,
+                            [out] IEnumITfCompositionView **ppEnum);
+
+    HRESULT TakeOwnership([in] TfEditCookie ecWrite,
+                          [in] ITfCompositionView *pComposition,
+                          [in] ITfCompositionSink *pSink,
+                          [out] ITfComposition **ppComposition);
+};
+
+//
+// ITfContextOwnerCompositionServices
+//
+[
+    object,
+    uuid(86462810-593B-4916-9764-19C08E9CE110),
+    pointer_default(unique)
+]
+interface ITfContextOwnerCompositionServices : ITfContextComposition
+{
+    HRESULT TerminateComposition([in] ITfCompositionView *pComposition);
+};
+
+//
+// ITfContextOwnerCompositionSink
+//
+[
+    object,
+    uuid(5F20AA40-B57A-4F34-96AB-3576F377CC79),
+    pointer_default(unique)
+]
+interface ITfContextOwnerCompositionSink : IUnknown
+{
+    HRESULT OnStartComposition([in] ITfCompositionView *pComposition,
+                               [out] BOOL *pfOk);
+
+    HRESULT OnUpdateComposition([in] ITfCompositionView *pComposition,
+                                [in] ITfRange *pRangeNew);
+
+    HRESULT OnEndComposition([in] ITfCompositionView *pComposition);
+};
+
+//
+// ITfContextView
+//
+[
+    object,
+    uuid(2433bf8e-0f9b-435c-ba2c-180611978c30),
+    pointer_default(unique)
+]
+interface ITfContextView : IUnknown
+{
+    HRESULT GetRangeFromPoint([in] TfEditCookie ec,
+                              [in] const POINT *ppt,
+                              [in] DWORD dwFlags,
+                              [out] ITfRange **ppRange);
+
+    HRESULT GetTextExt([in] TfEditCookie ec,
+                       [in] ITfRange *pRange,
+                       [out] RECT *prc,
+                       [out] BOOL *pfClipped);
+
+    HRESULT GetScreenExt([out] RECT *prc);
+
+    HRESULT GetWnd([out] HWND *phwnd);
+};
+
+//
+// IEnumTfContextView
+//
+[
+    object,
+    uuid(F0C0F8DD-CF38-44E1-BB0F-68CF0D551C78),
+    pointer_default(unique)
+]
+interface IEnumTfContextViews : IUnknown
+{
+    HRESULT Clone([out] IEnumTfContextViews **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfContextView **rgViews,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+//
+// ITfContext
+//
+[
+    object,
+    uuid(aa80e7fd-2021-11d2-93e0-0060b067b86e),
+    pointer_default(unique)
+]
+interface ITfContext : IUnknown
+{
+    const DWORD TF_ES_ASYNCDONTCARE   = 0x0;
+    const DWORD TF_ES_SYNC            = 0x1;
+    const DWORD TF_ES_READ            = 0x2;
+    const DWORD TF_ES_READWRITE       = 0x6;
+    const DWORD TF_ES_ASYNC           = 0x8;
+
+    HRESULT RequestEditSession([in] TfClientId tid,
+                               [in] ITfEditSession *pes,
+                               [in] DWORD dwFlags,
+                               [out] HRESULT *phrSession);
+
+    HRESULT InWriteSession([in] TfClientId tid,
+                           [out] BOOL *pfWriteSession);
+
+    typedef [uuid(1690be9b-d3e9-49f6-8d8b-51b905af4c43)] enum { TF_AE_NONE = 0, TF_AE_START = 1, TF_AE_END = 2 } TfActiveSelEnd;
+
+    typedef [uuid(36ae42a4-6989-4bdc-b48a-6137b7bf2e42)] struct TF_SELECTIONSTYLE
+    {
+        TfActiveSelEnd ase;
+        BOOL fInterimChar;
+    } TF_SELECTIONSTYLE;
+
+    typedef [uuid(75eb22f2-b0bf-46a8-8006-975a3b6efcf1)] struct TF_SELECTION
+    {
+        ITfRange *range;
+        TF_SELECTIONSTYLE style;
+    } TF_SELECTION;
+
+    const ULONG TF_DEFAULT_SELECTION = TS_DEFAULT_SELECTION;
+
+    HRESULT GetSelection([in] TfEditCookie ec,
+                         [in] ULONG ulIndex,
+                         [in] ULONG ulCount,
+                         [out, size_is(ulCount), length_is(*pcFetched)] TF_SELECTION *pSelection,
+                         [out] ULONG *pcFetched);
+
+    HRESULT SetSelection([in] TfEditCookie ec, 
+                         [in] ULONG ulCount,
+                         [in, size_is(ulCount)] const TF_SELECTION *pSelection);
+
+    HRESULT GetStart([in] TfEditCookie ec,
+                     [out] ITfRange **ppStart);
+
+    HRESULT GetEnd([in] TfEditCookie ec,
+                   [out] ITfRange **ppEnd);
+
+    // bit values for TF_STATUS's dwDynamicFlags field
+    const DWORD TF_SD_READONLY             = TS_SD_READONLY;                // if set, document is read only; writes will fail
+    const DWORD TF_SD_LOADING              = TS_SD_LOADING;                 // if set, document is loading, expect additional inserts
+    // bit values for TF_STATUS's dwStaticFlags field
+    const DWORD TF_SS_DISJOINTSEL          = TS_SS_DISJOINTSEL;             // if set, the document supports multiple selections
+    const DWORD TF_SS_REGIONS              = TS_SS_REGIONS;                 // if clear, the document will never contain multiple regions
+    const DWORD TF_SS_TRANSITORY           = TS_SS_TRANSITORY;              // if set, the document is expected to have a short lifespan
+    const DWORD TF_SS_TKBAUTOCORRECTENABLE = TS_SS_TKBAUTOCORRECTENABLE;    // if set, the document owner supports auto-correction provided by the Windows touch keyboard
+    const DWORD TF_SS_TKBPREDICTIONENABLE  = TS_SS_TKBPREDICTIONENABLE;     // if set, the document owner supports predictions provided by the Windows touch keyboard
+
+    typedef [uuid(bc7d979a-846a-444d-afef-0a9bfa82b961)] TS_STATUS TF_STATUS;
+
+    HRESULT GetActiveView([out] ITfContextView **ppView);
+
+    HRESULT EnumViews([out] IEnumTfContextViews **ppEnum);
+    
+    HRESULT GetStatus([out] TF_STATUS *pdcs);
+
+    HRESULT GetProperty([in] REFGUID guidProp,
+                        [out] ITfProperty **ppProp);
+
+    HRESULT GetAppProperty([in] REFGUID guidProp,
+                           [out] ITfReadOnlyProperty **ppProp);
+
+    HRESULT TrackProperties([in, size_is(cProp)] const GUID **prgProp,
+                            [in] ULONG cProp,
+                            [in, size_is(cAppProp)] const GUID **prgAppProp,
+                            [in] ULONG cAppProp,   
+                            [out] ITfReadOnlyProperty **ppProperty);
+
+    HRESULT EnumProperties([out] IEnumTfProperties **ppEnum);
+
+    HRESULT GetDocumentMgr([out] ITfDocumentMgr **ppDm);
+
+    HRESULT CreateRangeBackup([in] TfEditCookie ec,
+                              [in] ITfRange *pRange,
+                              [out] ITfRangeBackup **ppBackup);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(0fab9bdb-d250-4169-84e5-6be118fdd7a8),
+    pointer_default(unique)
+]
+interface ITfQueryEmbedded : IUnknown
+{
+    HRESULT QueryInsertEmbedded([in] const GUID *pguidService,
+                                [in] const FORMATETC *pFormatEtc,
+                                [out] BOOL *pfInsertable);
+};
+
+//
+// ITfInsertAtSelection
+//
+[
+    object,
+    uuid(55ce16ba-3014-41c1-9ceb-fade1446ac6c),
+    pointer_default(unique)
+]
+interface ITfInsertAtSelection : IUnknown
+{
+    const DWORD TF_IAS_NOQUERY   = 0x1; // ppRange will be NULL at exit.
+    const DWORD TF_IAS_QUERYONLY = 0x2; // Don't do the actual insert, caller only interested in ppRange.  Exclusive with TF_IAS_NOQUERY.
+    const DWORD TF_IAS_NO_DEFAULT_COMPOSITION = 0x80000000; // caller takes responsibility for starting a composition over the range
+
+    HRESULT InsertTextAtSelection([in] TfEditCookie ec,
+                                  [in] DWORD dwFlags,
+                                  [in, size_is(cch)] const WCHAR *pchText,
+                                  [in] LONG cch,
+                                  [out] ITfRange **ppRange);
+
+    HRESULT InsertEmbeddedAtSelection([in] TfEditCookie ec,
+                                      [in] DWORD dwFlags,
+                                      [in] IDataObject *pDataObject,
+                                      [out] ITfRange **ppRange);
+};
+
+//
+// ITfCleanupContextSink
+//
+[
+  object,
+  uuid(01689689-7acb-4e9b-ab7c-7ea46b12b522),
+  pointer_default(unique)
+]
+interface ITfCleanupContextSink : IUnknown
+{
+    HRESULT OnCleanupContext([in] TfEditCookie ecWrite, [in] ITfContext *pic);
+};
+
+//
+// ITfCleanupContextDurationSink
+//
+[
+  object,
+  uuid(45c35144-154e-4797-bed8-d33ae7bf8794),
+  pointer_default(unique)
+]
+interface ITfCleanupContextDurationSink : IUnknown
+{
+    HRESULT OnStartCleanupContext();
+
+    HRESULT OnEndCleanupContext();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfReadOnlyProperty
+//
+[
+  object,
+  uuid(17d49a3d-f8b8-4b2f-b254-52319dd64c53),
+  pointer_default(unique)
+]
+interface ITfReadOnlyProperty : IUnknown
+{
+    HRESULT GetType([out] GUID *pguid);
+
+    HRESULT EnumRanges([in] TfEditCookie ec,
+                       [out] IEnumTfRanges **ppEnum,
+                       [in] ITfRange *pTargetRange);
+
+    HRESULT GetValue([in] TfEditCookie ec,
+                     [in] ITfRange *pRange,
+                     [out] VARIANT *pvarValue);
+
+    HRESULT GetContext([out] ITfContext **ppContext);
+};
+
+typedef [uuid(d678c645-eb6a-45c9-b4ee-0f3e3a991348)] struct TF_PROPERTYVAL
+{
+    GUID guidId;
+    VARIANT varValue;
+} TF_PROPERTYVAL;
+
+//
+// IEnumTfPropertyValue
+//
+[
+  object,
+  uuid(8ed8981b-7c10-4d7d-9fb3-ab72e9c75f72),
+  pointer_default(unique)
+]
+interface IEnumTfPropertyValue : IUnknown
+{
+    HRESULT Clone([out] IEnumTfPropertyValue **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] TF_PROPERTYVAL *rgValues,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfMouseTracker
+//
+[
+    object,
+    uuid(09d146cd-a544-4132-925b-7afa8ef322d0),
+    pointer_default(unique)
+]
+interface ITfMouseTracker : IUnknown
+{
+    HRESULT AdviseMouseSink([in] ITfRange *range,
+                            [in] ITfMouseSink *pSink,
+                            [out] DWORD *pdwCookie);
+
+    HRESULT UnadviseMouseSink([in] DWORD dwCookie);
+};
+
+//
+// ITfMouseTracker
+//
+[
+    object,
+    uuid(3bdd78e2-c16e-47fd-b883-ce6facc1a208),
+    pointer_default(unique)
+]
+interface ITfMouseTrackerACP : IUnknown
+{
+    HRESULT AdviseMouseSink([in] ITfRangeACP *range,
+                            [in] ITfMouseSink *pSink,
+                            [out] DWORD *pdwCookie);
+
+    HRESULT UnadviseMouseSink([in] DWORD dwCookie);
+};
+
+//
+// ITfMouseSink
+//
+[
+    object,
+    local,
+    uuid(a1adaaa2-3a24-449d-ac96-5183e7f5c217),
+    pointer_default(unique)
+]
+interface ITfMouseSink : IUnknown
+{
+    HRESULT OnMouseEvent([in] ULONG uEdge,
+                         [in] ULONG uQuadrant,
+                         [in] DWORD dwBtnStatus,
+                         [out] BOOL *pfEaten);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfEditRecord
+//
+[
+  object,
+  uuid(42d4d099-7c1a-4a89-b836-6c6f22160df0),
+  pointer_default(unique)
+]
+interface ITfEditRecord : IUnknown
+{
+    const DWORD TF_GTP_INCL_TEXT = 0x1;
+
+    HRESULT GetSelectionStatus([out] BOOL *pfChanged);
+
+    HRESULT GetTextAndPropertyUpdates([in] DWORD dwFlags,
+                                      [in, size_is(cProperties)] const GUID **prgProperties,
+                                      [in] ULONG cProperties,
+                                      [out] IEnumTfRanges **ppEnum);
+};
+
+//
+// ITfTextEditSink
+//
+[
+  object,
+  uuid(8127d409-ccd3-4683-967a-b43d5b482bf7),
+  pointer_default(unique)
+]
+interface ITfTextEditSink : IUnknown
+{
+    HRESULT OnEndEdit([in] ITfContext *pic, [in] TfEditCookie ecReadOnly, [in] ITfEditRecord *pEditRecord);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfTextLayoutSink
+//
+[
+  object,
+  uuid(2af2d06a-dd5b-4927-a0b4-54f19c91fade),
+  pointer_default(unique)
+]
+interface ITfTextLayoutSink : IUnknown
+{
+    typedef [uuid(603553cf-9edd-4cc1-9ecc-069e4a427734)] enum { TF_LC_CREATE = 0, TF_LC_CHANGE = 1, TF_LC_DESTROY = 2, } TfLayoutCode;
+
+    HRESULT OnLayoutChange([in] ITfContext *pic, [in] TfLayoutCode lcode, [in] ITfContextView *pView);
+};
+
+//
+// ITfStatusSink
+//
+[
+  object,
+  uuid(6b7d8d73-b267-4f69-b32e-1ca321ce4f45),
+  pointer_default(unique)
+]
+interface ITfStatusSink : IUnknown
+{
+    HRESULT OnStatusChange([in] ITfContext *pic, [in] DWORD dwFlags);
+};
+
+//
+// ITfEditTransactionSink
+//
+[
+  object,
+  uuid(708fbf70-b520-416b-b06c-2c41ab44f8ba),
+  pointer_default(unique)
+]
+interface ITfEditTransactionSink : IUnknown
+{
+    HRESULT OnStartEditTransaction([in] ITfContext *pic);
+
+    HRESULT OnEndEditTransaction([in] ITfContext *pic);
+};
+
+//
+// ITfContextOwner
+//
+[
+  object,
+  uuid(aa80e80c-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfContextOwner : IUnknown
+{
+    HRESULT GetACPFromPoint([in] const POINT *ptScreen,
+                            [in] DWORD dwFlags,
+                            [out] LONG *pacp);
+
+    HRESULT GetTextExt([in] LONG acpStart,
+                       [in] LONG acpEnd,
+                       [out] RECT *prc,
+                       [out] BOOL *pfClipped);
+
+    HRESULT GetScreenExt([out] RECT *prc);
+
+    HRESULT GetStatus([out] TF_STATUS *pdcs);
+
+    HRESULT GetWnd([out] HWND *phwnd);
+
+    HRESULT GetAttribute([in] REFGUID rguidAttribute, [out] VARIANT *pvarValue);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfContextOwnerServices
+//
+[
+  object,
+  uuid(b23eb630-3e1c-11d3-a745-0050040ab407),
+  pointer_default(unique)
+]
+interface ITfContextOwnerServices : IUnknown
+{
+    HRESULT OnLayoutChange();
+
+    HRESULT OnStatusChange([in] DWORD dwFlags);
+
+    HRESULT OnAttributeChange([in] REFGUID rguidAttribute);
+
+    HRESULT Serialize([in] ITfProperty *pProp,
+                      [in] ITfRange *pRange,
+                      [out] TF_PERSISTENT_PROPERTY_HEADER_ACP *pHdr,
+                      [in] IStream *pStream);
+
+    HRESULT Unserialize([in] ITfProperty *pProp,
+                        [in] const TF_PERSISTENT_PROPERTY_HEADER_ACP *pHdr,
+                        [in] IStream *pStream,
+                        [in] ITfPersistentPropertyLoaderACP *pLoader);
+
+    HRESULT ForceLoadProperty([in] ITfProperty *pProp);
+
+    HRESULT CreateRange([in] LONG acpStart,
+                        [in] LONG acpEnd,
+                        [out] ITfRangeACP **ppRange);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfContextKeyEventSink
+//
+[
+  object,
+  local,
+  uuid(0552ba5d-c835-4934-bf50-846aaa67432f),
+  pointer_default(unique)
+]
+interface ITfContextKeyEventSink : IUnknown
+{
+    HRESULT OnKeyDown([in] WPARAM wParam,
+                      [in] LPARAM lParam,
+                      [out] BOOL *pfEaten);
+
+    HRESULT OnKeyUp([in] WPARAM wParam,
+                    [in] LPARAM lParam,
+                    [out] BOOL *pfEaten);
+
+    HRESULT OnTestKeyDown([in] WPARAM wParam,
+                          [in] LPARAM lParam,
+                          [out] BOOL *pfEaten);
+
+    HRESULT OnTestKeyUp([in] WPARAM wParam,
+                        [in] LPARAM lParam,
+                        [out] BOOL *pfEaten);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfEditSession
+//
+[
+  object,
+  uuid(aa80e803-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfEditSession : IUnknown
+{
+    HRESULT DoEditSession([in] TfEditCookie ec);
+}
+
+//
+// ITfRange
+//
+[
+  object,
+  uuid(aa80e7ff-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfRange : IUnknown
+{
+    const WCHAR TF_CHAR_EMBEDDED     = TS_CHAR_EMBEDDED; // unicode 2.1 object replacement character
+
+    typedef [uuid(cf610f06-2882-46f6-abe5-298568b664c4)] enum { TF_GRAVITY_BACKWARD = 0, TF_GRAVITY_FORWARD = 1 } TfGravity;
+
+    typedef [uuid(1e512533-bbdc-4530-9a8e-a1dc0af67468)] enum { TF_SD_BACKWARD = 0, TF_SD_FORWARD = 1 } TfShiftDir;
+
+    const DWORD TF_HF_OBJECT         = 1; // halt shift for TF_CHAR_EMBEDDED
+
+    const DWORD TF_TF_MOVESTART      = 1; // update start anchor
+    const DWORD TF_TF_IGNOREEND      = 2; // ignore the end anchor
+
+    const DWORD TF_ST_CORRECTION     = 1; // the replacement is a transform of existing content (correction), not new content
+
+    const DWORD TF_IE_CORRECTION     = 1;
+
+    typedef [uuid(49930d51-7d93-448c-a48c-fea5dac192b1)] struct  TF_HALTCOND
+    {
+        ITfRange *pHaltRange; // halt shift if anchor encountered
+        TfAnchor aHaltPos;    // ignored if pHaltRange == NULL
+        DWORD dwFlags;        // TF_HF_*
+    } TF_HALTCOND;
+
+    HRESULT GetText([in] TfEditCookie ec,
+                    [in] DWORD dwFlags,
+                    [out, size_is(cchMax), length_is(*pcch)] WCHAR *pchText,
+                    [in] ULONG cchMax,
+                    [out] ULONG *pcch);
+
+    HRESULT SetText([in] TfEditCookie ec,
+                    [in] DWORD dwFlags,
+                    [in, size_is(cch), unique] const WCHAR *pchText,
+                    [in] LONG cch);
+
+    HRESULT GetFormattedText([in] TfEditCookie ec,
+                             [out] IDataObject **ppDataObject);
+
+    HRESULT GetEmbedded([in] TfEditCookie ec,
+                        [in] REFGUID rguidService,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] IUnknown **ppunk);
+
+    HRESULT InsertEmbedded([in] TfEditCookie ec,
+                           [in] DWORD dwFlags,
+                           [in] IDataObject *pDataObject);
+
+    HRESULT ShiftStart([in] TfEditCookie ec,
+                       [in] LONG cchReq,
+                       [out] LONG *pcch,
+                       [in, unique] const TF_HALTCOND *pHalt);
+
+    HRESULT ShiftEnd([in] TfEditCookie ec,
+                     [in] LONG cchReq,
+                     [out] LONG *pcch,
+                     [in, unique] const TF_HALTCOND *pHalt);
+
+    HRESULT ShiftStartToRange([in] TfEditCookie ec,
+                              [in] ITfRange *pRange,
+                              [in] TfAnchor aPos);
+
+    HRESULT ShiftEndToRange([in] TfEditCookie ec,
+                            [in] ITfRange *pRange,
+                            [in] TfAnchor aPos);
+
+    HRESULT ShiftStartRegion([in] TfEditCookie ec,
+                             [in] TfShiftDir dir,
+                             [out] BOOL *pfNoRegion);
+
+    HRESULT ShiftEndRegion([in] TfEditCookie ec,
+                           [in] TfShiftDir dir,
+                           [out] BOOL *pfNoRegion);
+
+    HRESULT IsEmpty([in] TfEditCookie ec,
+                    [out] BOOL *pfEmpty);
+
+    HRESULT Collapse([in] TfEditCookie ec,
+                     [in] TfAnchor aPos);
+
+    HRESULT IsEqualStart([in] TfEditCookie ec,
+                         [in] ITfRange *pWith,
+                         [in] TfAnchor aPos,
+                         [out] BOOL *pfEqual);
+
+    HRESULT IsEqualEnd([in] TfEditCookie ec,
+                       [in] ITfRange *pWith,
+                       [in] TfAnchor aPos,
+                       [out] BOOL *pfEqual);
+
+    HRESULT CompareStart([in] TfEditCookie ec,
+                         [in] ITfRange *pWith,
+                         [in] TfAnchor aPos,
+                         [out] LONG *plResult);
+
+    HRESULT CompareEnd([in] TfEditCookie ec,
+                       [in] ITfRange *pWith,
+                       [in] TfAnchor aPos,
+                       [out] LONG *plResult);
+
+    HRESULT AdjustForInsert([in] TfEditCookie ec,
+                            [in] ULONG cchInsert,
+                            [out] BOOL *pfInsertOk);
+
+    HRESULT GetGravity([out] TfGravity *pgStart,
+                       [out] TfGravity *pgEnd);
+
+    HRESULT SetGravity([in] TfEditCookie ec,
+                       [in] TfGravity gStart,
+                       [in] TfGravity gEnd);
+
+    HRESULT Clone([out] ITfRange **ppClone);
+
+    HRESULT GetContext([out] ITfContext **ppContext);
+};
+
+//
+// ITfRangeACP
+//
+[
+  object,
+  uuid(057a6296-029b-4154-b79a-0d461d4ea94c),
+  pointer_default(unique)
+]
+interface ITfRangeACP : ITfRange
+{
+    HRESULT GetExtent([out] LONG *pacpAnchor,
+                      [out] LONG *pcch);
+
+    HRESULT SetExtent([in] LONG acpAnchor,
+                      [in] LONG cch);
+}
+
+//
+// ITextStoreACPServices
+//
+[
+  object,
+  uuid(aa80e901-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITextStoreACPServices : IUnknown
+{
+    HRESULT Serialize([in] ITfProperty *pProp, 
+                      [in] ITfRange *pRange, 
+                      [out] TF_PERSISTENT_PROPERTY_HEADER_ACP *pHdr, 
+                      [in] IStream *pStream);
+
+    HRESULT Unserialize([in] ITfProperty *pProp, 
+                        [in] const TF_PERSISTENT_PROPERTY_HEADER_ACP *pHdr, 
+                        [in] IStream *pStream, 
+                        [in] ITfPersistentPropertyLoaderACP *pLoader);
+
+    HRESULT ForceLoadProperty([in] ITfProperty *pProp);
+
+    HRESULT CreateRange([in] LONG acpStart, 
+                        [in] LONG acpEnd, 
+                        [out] ITfRangeACP **ppRange);
+};
+
+//
+// ITfRangeBackup
+//
+[
+  object,
+  uuid(463a506d-6992-49d2-9b88-93d55e70bb16),
+  pointer_default(unique)
+]
+interface ITfRangeBackup : IUnknown
+{
+    HRESULT Restore([in] TfEditCookie ec,
+                    [in] ITfRange *pRange);
+};
+
+
+//
+// ITfPropertyStore
+//
+[
+    object,
+    uuid(6834b120-88cb-11d2-bf45-00105a2799b5),
+    pointer_default(unique)
+]
+interface ITfPropertyStore : IUnknown
+{
+    // OnTextUpdated flags
+    const DWORD TF_TU_CORRECTION = 0x1;
+
+    HRESULT GetType([out] GUID *pguid);
+
+    HRESULT GetDataType([out] DWORD *pdwReserved);
+
+    HRESULT GetData([out] VARIANT *pvarValue);
+
+    HRESULT OnTextUpdated([in] DWORD dwFlags,
+                          [in] ITfRange *pRangeNew,
+                          [out] BOOL *pfAccept);
+
+    HRESULT Shrink([in] ITfRange *pRangeNew,
+                   [out] BOOL *pfFree);
+
+    HRESULT Divide([in] ITfRange *pRangeThis,
+                   [in] ITfRange *pRangeNew,
+                   [out] ITfPropertyStore **ppPropStore);
+
+    HRESULT Clone([out] ITfPropertyStore **pPropStore);
+
+    HRESULT GetPropertyRangeCreator([out] CLSID *pclsid);
+
+    HRESULT Serialize([in] IStream *pStream,
+                      [out] ULONG *pcb);
+}
+
+//
+// IEnumTfRanges
+//
+[
+  object,
+  uuid(f99d3f40-8e32-11d2-bf46-00105a2799b5),
+  pointer_default(unique)
+]
+interface IEnumTfRanges : IUnknown
+{
+    HRESULT Clone([out] IEnumTfRanges **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfRange **ppRange,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip(ULONG ulCount);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfCreatePropertyStore
+//
+[
+  object,
+  uuid(2463fbf0-b0af-11d2-afc5-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfCreatePropertyStore : IUnknown
+{
+    HRESULT IsStoreSerializable([in] REFGUID guidProp,
+                                [in] ITfRange *pRange,
+                                [in] ITfPropertyStore *pPropStore,
+                                [out] BOOL *pfSerializable);
+
+    HRESULT CreatePropertyStore([in] REFGUID guidProp,
+                                [in] ITfRange *pRange,
+                                [in] ULONG cb,
+                                [in] IStream *pStream,
+                                [out] ITfPropertyStore **ppStore);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfPersistentPropertyLoaderACP
+//
+[
+  object,
+  uuid(4ef89150-0807-11d3-8df0-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfPersistentPropertyLoaderACP : IUnknown
+{
+    HRESULT LoadProperty([in] const TF_PERSISTENT_PROPERTY_HEADER_ACP *pHdr,
+                         [out] IStream **ppStream);
+}
+
+//
+// ITfProperty
+//
+[
+  object,
+  uuid(e2449660-9542-11d2-bf46-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfProperty : ITfReadOnlyProperty
+{
+    HRESULT FindRange([in] TfEditCookie ec,
+                      [in] ITfRange *pRange,
+                      [out] ITfRange **ppRange,
+                      [in] TfAnchor aPos);
+
+
+    HRESULT SetValueStore([in] TfEditCookie ec,
+                          [in] ITfRange *pRange,
+                          [in] ITfPropertyStore *pPropStore);
+
+    HRESULT SetValue([in] TfEditCookie ec,
+                     [in] ITfRange *pRange,
+                     [in] const VARIANT *pvarValue);
+
+    HRESULT Clear([in] TfEditCookie ec,
+                  [in] ITfRange *pRange);
+}
+
+//
+// IEnumTfProperties
+//
+[
+  object,
+  uuid(19188cb0-aca9-11d2-afc5-00105a2799b5),
+  pointer_default(unique)
+]
+interface IEnumTfProperties : IUnknown
+{
+    HRESULT Clone([out] IEnumTfProperties **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfProperty **ppProp,
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+//
+// ITfCompartment
+//
+[
+  object,
+  uuid(bb08f7a9-607a-4384-8623-056892b64371),
+  pointer_default(unique)
+]
+interface ITfCompartment : IUnknown
+{
+    HRESULT SetValue([in] TfClientId tid,
+                     [in] const VARIANT *pvarValue);
+
+    HRESULT GetValue([out] VARIANT *pvarValue);
+}
+
+//
+// ITfCompartmentEventSink
+//
+[
+  object,
+  uuid(743abd5f-f26d-48df-8cc5-238492419b64),
+  pointer_default(unique)
+]
+interface ITfCompartmentEventSink : IUnknown
+{
+    HRESULT OnChange([in] REFGUID rguid);
+}
+
+//
+// ITfCompartmentMgr
+//
+[
+  object,
+  uuid(7dcf57ac-18ad-438b-824d-979bffb74b7c),
+  pointer_default(unique)
+]
+interface ITfCompartmentMgr : IUnknown
+{
+    HRESULT GetCompartment([in] REFGUID rguid,
+                           [out] ITfCompartment **ppcomp);
+
+    HRESULT ClearCompartment([in] TfClientId tid, 
+                             [in] REFGUID rguid);
+
+    HRESULT EnumCompartments([out] IEnumGUID **ppEnum);
+}
+
+
+//
+// ITfFunction
+//
+[
+  object,
+  uuid(db593490-098f-11d3-8df0-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfFunction : IUnknown
+{
+    HRESULT GetDisplayName([out] BSTR *pbstrName);
+}
+
+//
+// ITfFunctionProvider
+//
+[
+  object,
+  uuid(101d6610-0990-11d3-8df0-00105a2799b5),
+  pointer_default(unique)
+]
+interface ITfFunctionProvider : IUnknown
+{
+    HRESULT GetType([out] GUID *pguid);
+
+    HRESULT GetDescription([out] BSTR *pbstrDesc);
+
+    HRESULT GetFunction([in] REFGUID rguid,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] IUnknown **ppunk);
+}
+
+
+//
+// IEnumTfFunctionProviders
+//
+[
+  object,
+  uuid(e4b24db0-0990-11d3-8df0-00105a2799b5),
+  pointer_default(unique)
+]
+interface IEnumTfFunctionProviders : IUnknown
+{
+    HRESULT Clone([out] IEnumTfFunctionProviders **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetch)] ITfFunctionProvider **ppCmdobj,
+                 [out] ULONG *pcFetch);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfInputProcessorProfiles
+//
+[
+  object,
+  uuid(1F02B6C5-7842-4EE6-8A0B-9A24183A95CA),
+  pointer_default(unique)
+]
+interface ITfInputProcessorProfiles : IUnknown
+{
+    HRESULT Register([in] REFCLSID rclsid);
+
+    HRESULT Unregister([in] REFCLSID rclsid);
+
+    HRESULT AddLanguageProfile([in] REFCLSID rclsid,
+                               [in] LANGID langid,
+                               [in] REFGUID guidProfile,
+                               [in, size_is(cchDesc)] const WCHAR *pchDesc,
+                               [in] ULONG cchDesc,
+                               [in, size_is(cchFile)] const WCHAR *pchIconFile,
+                               [in] ULONG cchFile,
+                               [in] ULONG uIconIndex);
+
+    HRESULT RemoveLanguageProfile([in] REFCLSID rclsid,
+                                  [in] LANGID langid,
+                                  [in] REFGUID guidProfile);
+
+    HRESULT EnumInputProcessorInfo([out] IEnumGUID **ppEnum);
+
+    HRESULT GetDefaultLanguageProfile([in] LANGID langid,
+                                      [in] REFGUID catid,
+                                      [out] CLSID *pclsid,
+                                      [out] GUID *pguidProfile);
+
+    HRESULT SetDefaultLanguageProfile([in] LANGID langid,
+                                      [in] REFCLSID rclsid,
+                                      [in] REFGUID guidProfiles);
+
+    HRESULT ActivateLanguageProfile([in] REFCLSID rclsid, 
+                                    [in] LANGID langid, 
+                                    [in] REFGUID guidProfiles);
+
+    HRESULT GetActiveLanguageProfile([in] REFCLSID rclsid, 
+                                     [out] LANGID *plangid, 
+                                     [out] GUID *pguidProfile);
+
+    HRESULT GetLanguageProfileDescription([in] REFCLSID rclsid, 
+                                          [in] LANGID langid, 
+                                          [in] REFGUID guidProfile,
+                                          [out] BSTR *pbstrProfile);
+
+    HRESULT GetCurrentLanguage([out] LANGID *plangid);
+
+    HRESULT ChangeCurrentLanguage([in] LANGID langid);
+
+    HRESULT GetLanguageList([out, size_is(,*pulCount)] LANGID **ppLangId,
+                            [out] ULONG *pulCount);
+
+    HRESULT EnumLanguageProfiles([in] LANGID langid, 
+                                 [out] IEnumTfLanguageProfiles **ppEnum);
+
+    HRESULT EnableLanguageProfile([in] REFCLSID rclsid,
+                                  [in] LANGID langid,
+                                  [in] REFGUID guidProfile,
+                                  [in] BOOL fEnable);
+
+    HRESULT IsEnabledLanguageProfile([in] REFCLSID rclsid,
+                                     [in] LANGID langid,
+                                     [in] REFGUID guidProfile,
+                                     [out] BOOL *pfEnable);
+
+    HRESULT EnableLanguageProfileByDefault([in] REFCLSID rclsid,
+                                           [in] LANGID langid,
+                                           [in] REFGUID guidProfile,
+                                           [in] BOOL fEnable);
+
+    HRESULT SubstituteKeyboardLayout([in] REFCLSID rclsid,
+                                     [in] LANGID langid,
+                                     [in] REFGUID guidProfile,
+                                     [in] HKL hKL);
+}
+
+//
+// ITfInputProcessorProfilesEx
+//
+// Implemented by Cicero
+//
+[
+  object,
+  uuid(892f230f-fe00-4a41-a98e-fcd6de0d35ef),
+  pointer_default(unique)
+]
+interface ITfInputProcessorProfilesEx : ITfInputProcessorProfiles
+{
+    HRESULT SetLanguageProfileDisplayName([in] REFCLSID rclsid,
+                                   [in] LANGID langid,
+                                   [in] REFGUID guidProfile,
+                                   [in, size_is(cchFile)] const WCHAR *pchFile,
+                                   [in] ULONG cchFile,
+                                   [in] ULONG uResId);
+};
+
+//
+// ITfInputProcessorProfileSubstituteLayout
+//
+// Implemented by Cicero
+//
+[
+  object,
+  uuid(4fd67194-1002-4513-bff2-c0ddf6258552),
+  pointer_default(unique)
+]
+interface ITfInputProcessorProfileSubstituteLayout : IUnknown
+{
+    HRESULT GetSubstituteKeyboardLayout([in] REFCLSID rclsid,
+                                        [in] LANGID langid,
+                                        [in] REFGUID guidProfile,
+                                        [out] HKL *phKL);
+};
+
+//
+// ITfActiveLanguageProfileNotifySink
+//
+[
+  object,
+  uuid(b246cb75-a93e-4652-bf8c-b3fe0cfd7e57),
+  pointer_default(unique)
+]
+interface ITfActiveLanguageProfileNotifySink : IUnknown
+{
+    HRESULT OnActivated([in] REFCLSID clsid,
+                        [in] REFGUID guidProfile,
+                        [in] BOOL fActivated);
+}
+
+//
+// IEnumTfLanguageProfiles
+//
+[
+  object,
+  uuid(3d61bf11-ac5f-42c8-a4cb-931bcc28c744),
+  pointer_default(unique)
+]
+interface IEnumTfLanguageProfiles : IUnknown
+{
+    HRESULT Clone([out] IEnumTfLanguageProfiles **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetch)] TF_LANGUAGEPROFILE *pProfile,
+                 [out] ULONG *pcFetch);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITfLanguageProfileNotifySink
+//
+[
+  object,
+  uuid(43c9fe15-f494-4c17-9de2-b8a4ac350aa8),
+  pointer_default(unique)
+]
+interface ITfLanguageProfileNotifySink : IUnknown
+{
+    HRESULT OnLanguageChange([in] LANGID langid,
+                             [out] BOOL *pfAccept);
+
+    HRESULT OnLanguageChanged();
+}
+
+typedef [uuid(44d2825a-10e5-43b2-877f-6cb2f43b7e7e)] struct TF_INPUTPROCESSORPROFILE
+{
+    DWORD dwProfileType;   // InputProcessor or HKL
+    LANGID langid;         // language id
+    CLSID clsid;           // CLSID of tip
+    GUID guidProfile;      // profile description
+    GUID catid;            // category of tip
+    HKL  hklSubstitute;    // substitute hkl
+    DWORD dwCaps;          // InputProcessor Capability
+    HKL hkl;               // hkl
+    DWORD dwFlags;         // Flags.
+} TF_INPUTPROCESSORPROFILE;
+
+//
+// ITfInputProcessorProfileMgr
+//
+[
+  object,
+  uuid(71c6e74c-0f28-11d8-a82a-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfInputProcessorProfileMgr : IUnknown
+{
+    HRESULT ActivateProfile([in] DWORD dwProfileType, 
+                            [in] LANGID langid, 
+                            [in] REFCLSID clsid, 
+                            [in] REFGUID guidProfile, 
+                            [in] HKL hkl,
+                            [in] DWORD dwFlags);
+
+    HRESULT DeactivateProfile([in] DWORD dwProfileType, 
+                              [in] LANGID langid, 
+                              [in] REFCLSID clsid, 
+                              [in] REFGUID guidProfile, 
+                              [in] HKL hkl,
+                              [in] DWORD dwFlags);
+
+    HRESULT GetProfile([in] DWORD dwProfileType, 
+                       [in] LANGID langid, 
+                       [in] REFCLSID clsid, 
+                       [in] REFGUID guidProfile, 
+                       [in] HKL hkl,
+                       [out] TF_INPUTPROCESSORPROFILE *pProfile);
+
+
+    HRESULT EnumProfiles([in] LANGID langid, [out] IEnumTfInputProcessorProfiles **ppEnum);
+
+    HRESULT ReleaseInputProcessor([in] REFCLSID rclsid,
+                                  [in] DWORD    dwFlags);
+
+    HRESULT RegisterProfile([in] REFCLSID rclsid,
+                            [in] LANGID langid,
+                            [in] REFGUID guidProfile,
+                            [in, size_is(cchDesc)] const WCHAR *pchDesc,
+                            [in] ULONG cchDesc,
+                            [in, size_is(cchFile)] const WCHAR *pchIconFile,
+                            [in] ULONG cchFile,
+                            [in] ULONG uIconIndex,
+                            [in] HKL hklsubstitute,
+                            [in] DWORD dwPreferredLayout,
+                            [in] BOOL bEnabledByDefault,
+                            [in] DWORD dwFlags);
+ 
+
+    HRESULT UnregisterProfile([in] REFCLSID rclsid,
+                              [in] LANGID langid,
+                              [in] REFGUID guidProfile,
+                              [in] DWORD dwFlags);
+
+    HRESULT GetActiveProfile([in] REFGUID catid,
+                             [out] TF_INPUTPROCESSORPROFILE *pProfile);
+}
+
+
+//
+// IEnumTfInputProcessorProfiles
+//
+[
+  object,
+  uuid(71c6e74d-0f28-11d8-a82a-00065b84435c),
+  pointer_default(unique)
+]
+interface IEnumTfInputProcessorProfiles : IUnknown
+{
+    HRESULT Clone([out] IEnumTfInputProcessorProfiles **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount,
+                 [out, size_is(ulCount), length_is(*pcFetch)] TF_INPUTPROCESSORPROFILE *pProfile,
+                 [out] ULONG *pcFetch);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+//
+// ITfInputProcessorProfileActivationSink
+//
+[
+  object,
+  uuid(71c6e74e-0f28-11d8-a82a-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfInputProcessorProfileActivationSink : IUnknown
+{
+    HRESULT OnActivated([in] DWORD    dwProfileType,
+                        [in] LANGID   langid,
+                        [in] REFCLSID clsid,
+                        [in] REFGUID  catid,
+                        [in] REFGUID  guidProfile,
+                        [in] HKL      hkl,
+                        [in] DWORD    dwFlags);
+}
+
+
+typedef [uuid(77c12f95-b783-450d-879f-1cd2362c6521)] struct TF_PRESERVEDKEY
+{
+    UINT uVKey;
+    UINT uModifiers;
+} TF_PRESERVEDKEY;
+
+//
+// ITfKeystrokeMgr
+//
+[
+  object,
+  local,
+  uuid(aa80e7f0-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfKeystrokeMgr : IUnknown
+{
+    HRESULT AdviseKeyEventSink([in] TfClientId tid,
+                               [in] ITfKeyEventSink *pSink,
+                               [in] BOOL fForeground);
+
+    HRESULT UnadviseKeyEventSink([in] TfClientId tid);
+
+    HRESULT GetForeground([out] CLSID *pclsid);
+
+    HRESULT TestKeyDown([in] WPARAM wParam,
+                        [in] LPARAM lParam,
+                        [out] BOOL *pfEaten);
+
+    HRESULT TestKeyUp([in] WPARAM wParam,
+                      [in] LPARAM lParam,
+                      [out] BOOL *pfEaten);
+
+    HRESULT KeyDown([in] WPARAM wParam,
+                    [in] LPARAM lParam,
+                    [out] BOOL *pfEaten);
+
+    HRESULT KeyUp([in] WPARAM wParam,
+                  [in] LPARAM lParam,
+                  [out] BOOL *pfEaten);
+
+    HRESULT GetPreservedKey([in] ITfContext *pic,
+                            [in] const TF_PRESERVEDKEY *pprekey,
+                            [out] GUID *pguid);
+
+    HRESULT IsPreservedKey([in] REFGUID rguid,
+                           [in] const TF_PRESERVEDKEY *pprekey,
+                           [out] BOOL *pfRegistered);
+
+    HRESULT PreserveKey([in] TfClientId tid,
+                        [in] REFGUID rguid,
+                        [in] const TF_PRESERVEDKEY *prekey,
+                        [in, size_is(cchDesc)] const WCHAR *pchDesc,
+                        [in] ULONG cchDesc);
+
+    HRESULT UnpreserveKey([in] REFGUID rguid, 
+                          [in] const TF_PRESERVEDKEY *pprekey);
+
+    HRESULT SetPreservedKeyDescription([in] REFGUID rguid,
+                                       [in, size_is(cchDesc)] const WCHAR *pchDesc,
+                                       [in] ULONG cchDesc);
+
+    HRESULT GetPreservedKeyDescription([in] REFGUID rguid,
+                                       [out] BSTR *pbstrDesc);
+
+    HRESULT SimulatePreservedKey([in] ITfContext *pic,
+                                 [in] REFGUID rguid,
+                                 [out] BOOL *pfEaten);
+};
+
+//
+// ITfKeyEventSink
+//
+[
+  object,
+  local,
+  uuid(aa80e7f5-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfKeyEventSink : IUnknown
+{
+    HRESULT OnSetFocus([in] BOOL fForeground);
+
+    HRESULT OnTestKeyDown([in] ITfContext *pic,
+                          [in] WPARAM wParam,
+                          [in] LPARAM lParam,
+                          [out] BOOL *pfEaten);
+
+    HRESULT OnTestKeyUp([in] ITfContext *pic,
+                        [in] WPARAM wParam,
+                        [in] LPARAM lParam,
+                        [out] BOOL *pfEaten);
+
+    HRESULT OnKeyDown([in] ITfContext *pic,
+                      [in] WPARAM wParam,
+                      [in] LPARAM lParam,
+                      [out] BOOL *pfEaten);
+
+    HRESULT OnKeyUp([in] ITfContext *pic,
+                    [in] WPARAM wParam,
+                    [in] LPARAM lParam,
+                    [out] BOOL *pfEaten);
+
+    HRESULT OnPreservedKey([in] ITfContext *pic,
+                           [in] REFGUID rguid,
+                           [out] BOOL *pfEaten);
+};
+
+//
+// ITfKeyTraceEventSink
+//
+[
+  object,
+  local,
+  uuid(1cd4c13b-1c36-4191-a70a-7f3e611f367d),
+  pointer_default(unique)
+]
+interface ITfKeyTraceEventSink : IUnknown
+{
+    HRESULT OnKeyTraceDown([in] WPARAM wParam,
+                           [in] LPARAM lParam);
+
+    HRESULT OnKeyTraceUp([in] WPARAM wParam,
+                         [in] LPARAM lParam);
+};
+
+//
+// ITfPreservedKeyNotifySink
+//
+[
+  object,
+  uuid(6f77c993-d2b1-446e-853e-5912efc8a286),
+  pointer_default(unique)
+]
+interface ITfPreservedKeyNotifySink : IUnknown
+{
+    HRESULT OnUpdated([in] const TF_PRESERVEDKEY *pprekey);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfMessagePump
+//
+[
+  object,
+  local,
+  uuid(8f1b8ad8-0b6b-4874-90c5-bd76011e8f7c),
+  pointer_default(unique)
+]
+interface ITfMessagePump : IUnknown
+{
+    HRESULT PeekMessageA([out] LPMSG pMsg,
+                         [in] HWND hwnd,
+                         [in] UINT wMsgFilterMin,
+                         [in] UINT wMsgFilterMax,
+                         [in] UINT wRemoveMsg,
+                         [out] BOOL *pfResult);
+
+    HRESULT GetMessageA([out] LPMSG pMsg,
+                        [in] HWND hwnd,
+                        [in] UINT wMsgFilterMin,
+                        [in] UINT wMsgFilterMax,
+                        [out] BOOL *pfResult);
+
+    HRESULT PeekMessageW([out] LPMSG pMsg,
+                         [in] HWND hwnd,
+                         [in] UINT wMsgFilterMin,
+                         [in] UINT wMsgFilterMax,
+                         [in] UINT wRemoveMsg,
+                         [out] BOOL *pfResult);
+
+    HRESULT GetMessageW([out] LPMSG pMsg,
+                        [in] HWND hwnd,
+                        [in] UINT wMsgFilterMin,
+                        [in] UINT wMsgFilterMax,
+                        [out] BOOL *pfResult);
+};
+
+//
+// ITfUIFocusSink
+//
+[
+  object,
+  local,
+  uuid(c0f1db0c-3a20-405c-a303-96b6010a885f),
+  pointer_default(unique)
+]
+interface ITfThreadFocusSink : IUnknown
+{
+    HRESULT OnSetThreadFocus();
+
+    HRESULT OnKillThreadFocus();
+};
+
+//
+// ITfTextInputProcessor
+//
+[
+  object,
+  local,
+  uuid(aa80e7f7-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITfTextInputProcessor : IUnknown
+{
+    HRESULT Activate([in] ITfThreadMgr *ptim,
+                     [in] TfClientId tid);
+
+    HRESULT Deactivate();
+};
+
+//
+// ITfTextInputProcessorEx
+//
+[
+  object,
+  local,
+  uuid(6e4e2102-f9cd-433d-b496-303ce03a6507),
+  pointer_default(unique)
+]
+interface ITfTextInputProcessorEx : ITfTextInputProcessor
+{
+    HRESULT ActivateEx([in] ITfThreadMgr *ptim,
+                       [in] TfClientId tid, 
+                       [in] DWORD dwFlags);
+};
+
+//
+// ITfClientId
+//
+[
+  object,
+  local,
+  uuid(d60a7b49-1b9f-4be2-b702-47e9dc05dec3),
+  pointer_default(unique)
+]
+interface ITfClientId : IUnknown
+{
+    HRESULT GetClientId([in] REFCLSID rclsid,
+                        [out] TfClientId *ptid);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+typedef [uuid(c4cc07f1-80cc-4a7b-bc54-98512782cbe3)] enum {
+            TF_LS_NONE     = 0,
+            TF_LS_SOLID    = 1,
+            TF_LS_DOT      = 2,
+            TF_LS_DASH     = 3,
+            TF_LS_SQUIGGLE = 4
+} TF_DA_LINESTYLE;
+
+typedef [uuid(d9b92e21-084a-401b-9c64-1e6dad91a1ab)] enum {
+            TF_CT_NONE     = 0,
+            TF_CT_SYSCOLOR = 1,
+            TF_CT_COLORREF = 2
+} TF_DA_COLORTYPE;
+
+typedef [uuid(90d0cb5e-6520-4a0f-b47c-c39bd955f0d6)] struct TF_DA_COLOR
+{
+    TF_DA_COLORTYPE type;
+    [switch_type(TF_DA_COLORTYPE), switch_is(type)] union {
+        [case(TF_CT_SYSCOLOR)] int      nIndex;
+        [case(TF_CT_COLORREF)] COLORREF cr;
+    };
+} TF_DA_COLOR;
+
+typedef [uuid(33d2fe4b-6c24-4f67-8d75-3bc1819e4126)] enum {
+    TF_ATTR_INPUT                 =  0,
+    TF_ATTR_TARGET_CONVERTED      =  1,
+    TF_ATTR_CONVERTED             =  2,
+    TF_ATTR_TARGET_NOTCONVERTED   =  3,
+    TF_ATTR_INPUT_ERROR           =  4,
+    TF_ATTR_FIXEDCONVERTED        =  5,
+    TF_ATTR_OTHER                 =  -1
+} TF_DA_ATTR_INFO;
+
+typedef [uuid(1bf1c305-419b-4182-a4d2-9bfadc3f021f)] struct TF_DISPLAYATTRIBUTE
+{
+    TF_DA_COLOR     crText;
+    TF_DA_COLOR     crBk;
+    TF_DA_LINESTYLE lsStyle;
+    BOOL            fBoldLine;
+    TF_DA_COLOR     crLine;
+    TF_DA_ATTR_INFO  bAttr;     
+
+} TF_DISPLAYATTRIBUTE;
+
+
+//
+// ITfDisplayAttributeInfo
+//
+[
+  object,
+  uuid(70528852-2f26-4aea-8c96-215150578932),
+  pointer_default(unique)
+]
+interface ITfDisplayAttributeInfo : IUnknown
+{
+    HRESULT GetGUID([out] GUID *pguid);
+
+    HRESULT GetDescription([out] BSTR *pbstrDesc);
+
+    HRESULT GetAttributeInfo([out] TF_DISPLAYATTRIBUTE *pda);
+
+    HRESULT SetAttributeInfo([in] const TF_DISPLAYATTRIBUTE *pda);
+
+    HRESULT Reset();
+}
+
+//
+// IEnumTfDisplayAttributeInfo interface
+//
+[
+  object,
+  uuid(7cef04d7-cb75-4e80-a7ab-5f5bc7d332de),
+  pointer_default(unique)
+]
+interface IEnumTfDisplayAttributeInfo : IUnknown
+{
+    HRESULT Clone([out] IEnumTfDisplayAttributeInfo **ppEnum);
+
+    HRESULT Next([in] ULONG ulCount, 
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfDisplayAttributeInfo **rgInfo, 
+                 [out] ULONG *pcFetched);
+
+    HRESULT Reset();
+
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+//
+// ITfDisplayAttributeProvider interface
+//
+[
+  object,
+  uuid(fee47777-163c-4769-996a-6e9c50ad8f54),
+  pointer_default(unique)
+]
+interface ITfDisplayAttributeProvider : IUnknown
+{
+    HRESULT EnumDisplayAttributeInfo([out] IEnumTfDisplayAttributeInfo **ppEnum);
+
+    HRESULT GetDisplayAttributeInfo([in] REFGUID guid,
+                                    [out] ITfDisplayAttributeInfo **ppInfo);
+}
+    
+
+// 
+// ITfDisplayAttributeMgr interface
+// 
+[
+  object,
+  local,
+  uuid(8ded7393-5db1-475c-9e71-a39111b0ff67),
+  pointer_default(unique)
+]
+interface ITfDisplayAttributeMgr : IUnknown
+{
+    HRESULT OnUpdateInfo();
+
+    HRESULT EnumDisplayAttributeInfo([out] IEnumTfDisplayAttributeInfo **ppEnum);
+
+    HRESULT GetDisplayAttributeInfo([in] REFGUID guid, 
+                                    [out] ITfDisplayAttributeInfo **ppInfo,
+                                    [out] CLSID *pclsidOwner);
+
+}
+
+//
+// ITfDisplayAttributeNotifySink interface
+// 
+[
+  object,
+  uuid(ad56f402-e162-4f25-908f-7d577cf9bda9),
+  pointer_default(unique)
+]
+interface ITfDisplayAttributeNotifySink : IUnknown
+{
+    HRESULT OnUpdateInfo();
+}
+
+// 
+// ITfCategoryMgr interface
+// 
+[
+  object,
+  local,
+  uuid(c3acefb5-f69d-4905-938f-fcadcf4be830),
+  pointer_default(unique)
+]
+interface ITfCategoryMgr : IUnknown
+{
+    HRESULT RegisterCategory([in] REFCLSID rclsid,
+                             [in] REFGUID rcatid,
+                             [in] REFGUID rguid);
+
+    HRESULT UnregisterCategory([in] REFCLSID rclsid,
+                               [in] REFGUID rcatid,
+                               [in] REFGUID rguid);
+
+    HRESULT EnumCategoriesInItem([in] REFGUID rguid,
+                                 [out] IEnumGUID **ppEnum);
+
+    HRESULT EnumItemsInCategory([in] REFGUID rcatid,
+                                [out] IEnumGUID **ppEnum);
+
+    HRESULT FindClosestCategory([in] REFGUID rguid,
+                                [out] GUID *pcatid,
+                                [in, size_is(ulCount)] const GUID **ppcatidList,
+                                [in] ULONG ulCount);
+
+    HRESULT RegisterGUIDDescription([in] REFCLSID rclsid,
+                                    [in] REFGUID rguid,
+                                    [in, size_is(cch)] const WCHAR *pchDesc,
+                                    [in] ULONG cch);
+
+    HRESULT UnregisterGUIDDescription([in] REFCLSID rclsid,
+                                      [in] REFGUID rguid);
+
+    HRESULT GetGUIDDescription([in] REFGUID rguid,
+                               [out] BSTR *pbstrDesc);
+
+    HRESULT RegisterGUIDDWORD([in] REFCLSID rclsid,
+                              [in] REFGUID rguid,
+                              [in] DWORD dw);
+
+    HRESULT UnregisterGUIDDWORD([in] REFCLSID rclsid,
+                                [in] REFGUID rguid);
+
+    HRESULT GetGUIDDWORD([in] REFGUID rguid,
+                         [out] DWORD *pdw);
+
+    HRESULT RegisterGUID([in] REFGUID rguid,
+                         [out] TfGuidAtom *pguidatom);
+
+    HRESULT GetGUID([in] TfGuidAtom guidatom,
+                    [out] GUID *pguid);
+
+    HRESULT IsEqualTfGuidAtom([in] TfGuidAtom guidatom,
+                              [in] REFGUID rguid,
+                              [out] BOOL *pfEqual);
+}
+
+// value guarenteed never to be returned by ITfSource/Single::AdviseSink
+const DWORD TF_INVALID_COOKIE = 0xffffffff;
+
+// 
+// ITfSource
+// 
+[
+  object,
+  uuid(4ea48a35-60ae-446f-8fd6-e6a8d82459f7),
+  pointer_default(unique)
+]
+interface ITfSource : IUnknown
+{
+    HRESULT AdviseSink([in] REFIID riid,
+                       [in, iid_is(riid)] IUnknown *punk,
+                       [out] DWORD *pdwCookie);
+
+    HRESULT UnadviseSink([in] DWORD dwCookie);
+};
+
+// 
+// ITfSourceSingle
+// 
+[
+  object,
+  uuid(73131f9c-56a9-49dd-b0ee-d046633f7528),
+  pointer_default(unique)
+]
+interface ITfSourceSingle : IUnknown
+{
+    HRESULT AdviseSingleSink([in] TfClientId tid,
+                             [in] REFIID riid,
+                             [in, iid_is(riid)] IUnknown *punk);
+
+    HRESULT UnadviseSingleSink([in] TfClientId tid,
+                               [in] REFIID riid);
+};
+
+//
+// ITfUIElementMgr
+//
+[
+  object,
+  local,
+  uuid(ea1ea135-19df-11d7-a6d2-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfUIElementMgr : IUnknown
+{
+    HRESULT BeginUIElement([in] ITfUIElement *pElement, [in, out] BOOL *pbShow, [out] DWORD *pdwUIElementId);
+    HRESULT UpdateUIElement([in] DWORD dwUIElementId);
+    HRESULT EndUIElement([in] DWORD dwUIElementId);
+    HRESULT GetUIElement([in] DWORD dwUIELementId, [out] ITfUIElement **ppElement);
+    HRESULT EnumUIElements([out] IEnumTfUIElements **ppEnum);
+};
+
+//
+// IEnumTfUIElements
+//
+[
+  object,
+  local,
+  uuid(887aa91e-acba-4931-84da-3c5208cf543f),
+  pointer_default(unique)
+]
+interface IEnumTfUIElements : IUnknown
+{
+    HRESULT Clone([out] IEnumTfUIElements **ppEnum);
+    HRESULT Next([in] ULONG ulCount, 
+                 [out, size_is(ulCount), length_is(*pcFetched)] ITfUIElement **ppElement,
+                 [out] ULONG *pcFetched);
+    HRESULT Reset();
+    HRESULT Skip([in] ULONG ulCount);
+}
+
+
+//
+// ITfUIElementSink
+//
+[
+  object,
+  local,
+  uuid(ea1ea136-19df-11d7-a6d2-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfUIElementSink : IUnknown
+{
+    HRESULT BeginUIElement([in] DWORD dwUIElementId, [in, out] BOOL *pbShow);
+    HRESULT UpdateUIElement([in] DWORD dwUIElementId);
+    HRESULT EndUIElement([in] DWORD dwUIElementId);
+};
+
+//
+// ITfUIElement
+//
+[
+  object,
+  local,
+  uuid(ea1ea137-19df-11d7-a6d2-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfUIElement : IUnknown
+{
+    HRESULT GetDescription([out] BSTR *pbstrDescription);
+    HRESULT GetGUID([out] GUID *pguid);
+    HRESULT Show([in] BOOL bShow);
+    HRESULT IsShown([out] BOOL *pbShow);
+};
+
+//
+// ITfCandidateListUIElement
+//
+[
+  object,
+  local,
+  uuid(ea1ea138-19df-11d7-a6d2-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfCandidateListUIElement : ITfUIElement
+{
+    HRESULT GetUpdatedFlags([out] DWORD *pdwFlags);
+    HRESULT GetDocumentMgr([out] ITfDocumentMgr **ppdim);
+    HRESULT GetCount([out] UINT *puCount);
+    HRESULT GetSelection([out] UINT *puIndex);
+    HRESULT GetString([in] UINT uIndex, [out] BSTR *pstr);
+    HRESULT GetPageIndex([out, size_is(uSize), length_is(*puPageCnt)] UINT *pIndex,
+                         [in] UINT uSize,
+                         [out] UINT *puPageCnt);
+    HRESULT SetPageIndex([in, size_is(uPageCnt)] UINT *pIndex,
+                         [in] UINT uPageCnt);
+    HRESULT GetCurrentPage([out] UINT *puPage);
+                          
+};
+
+//
+// ITfCandidateListUIElementBehavior
+//
+[
+  object,
+  local,
+  uuid(85fad185-58ce-497a-9460-355366b64b9a),
+  pointer_default(unique)
+]
+interface ITfCandidateListUIElementBehavior : ITfCandidateListUIElement
+{
+    HRESULT SetSelection([in] UINT nIndex);
+    HRESULT Finalize();
+    HRESULT Abort();
+};
+
+
+// ITfReadingInformationUIElement
+//
+[
+  object,
+  local,
+  uuid(ea1ea139-19df-11d7-a6d2-00065b84435c),
+  pointer_default(unique)
+]
+interface ITfReadingInformationUIElement : ITfUIElement
+{
+    HRESULT GetUpdatedFlags([out] DWORD *pdwFlags);
+    HRESULT GetContext([out] ITfContext **ppic);
+    HRESULT GetString([out] BSTR *pstr);
+    HRESULT GetMaxReadingStringLength([out] UINT *pcchMax);
+    HRESULT GetErrorIndex([out] UINT *pErrorIndex);
+    HRESULT IsVerticalOrderPreferred([out] BOOL *pfVertical);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITfTransitoryExtensionUIElement
+//
+[
+  object,
+  local,
+  uuid(858f956a-972f-42a2-a2f2-0321e1abe209),
+  pointer_default(unique)
+]
+interface ITfTransitoryExtensionUIElement : ITfUIElement
+{
+    HRESULT GetDocumentMgr([out] ITfDocumentMgr **ppdim);
+};
+
+// ITfTransitoryExtensionSink
+//
+[
+  object,
+  local,
+  uuid(a615096f-1c57-4813-8a15-55ee6e5a839c),
+  pointer_default(unique)
+]
+interface ITfTransitoryExtensionSink : IUnknown
+{
+    HRESULT OnTransitoryExtensionUpdated([in] ITfContext *pic, 
+                                         [in] TfEditCookie ecReadOnly,
+                                         [in] ITfRange *pResultRange, 
+                                         [in] ITfRange *pCompositionRange, 
+                                         [out] BOOL *pfDeleteResultRange);
+}
+
+//
+// ITfToolTipUIElement
+//
+[
+  object,
+  local,
+  uuid(52b18b5c-555d-46b2-b00a-fa680144fbdb),
+  pointer_default(unique)
+]
+interface ITfToolTipUIElement : ITfUIElement
+{
+    HRESULT GetString([out] BSTR *pstr);
+};
+
+//
+// ITfReverseConversionList
+//
+[
+  object,
+  uuid(151d69f0-86f4-4674-b721-56911e797f47),
+  pointer_default(unique)
+]
+interface ITfReverseConversionList : IUnknown
+{
+    HRESULT GetLength([out] UINT *puIndex);
+
+    HRESULT GetString([in] UINT uIndex, 
+                      [out] BSTR *pbstr);
+}
+
+//
+// ITfReverseConversion
+//
+[
+  object,
+  uuid(a415e162-157d-417d-8a8c-0ab26c7d2781),
+  pointer_default(unique)
+]
+interface ITfReverseConversion : IUnknown
+{
+    HRESULT DoReverseConversion([in]  LPCWSTR lpstr,
+                                [out] ITfReverseConversionList **ppList);
+}
+
+//
+// ITfReverseConversionMgr
+//
+[
+  object,
+  uuid(b643c236-c493-41b6-abb3-692412775cc4),
+  pointer_default(unique)
+]
+interface ITfReverseConversionMgr : IUnknown
+{
+    HRESULT GetReverseConversion([in] LANGID langid,
+                                 [in] REFGUID guidProfile,
+                                 [in] DWORD dwflag,
+                                 [out] ITfReverseConversion **ppReverseConversion);
+}
+
+// -------------------------------------------------------------------------=
+// 
+//   Predefine GUIDPROFILE
+//
+// -------------------------------------------------------------------------=
+
+cpp_quote("")
+cpp_quote("DEFINE_GUID( TF_PROFILE_NEWPHONETIC, 0xB2F9C502, 0x1742, 0x11D4, 0x97, 0x90, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft New Phonetic IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_PHONETIC,    0x761309DE, 0x317A, 0x11D4, 0x9B, 0x5D, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft Phonetic IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_NEWCHANGJIE, 0xF3BA907A, 0x6C7E, 0x11D4, 0x97, 0xFA, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft New ChangJie IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_CHANGJIE,    0x4BDF9F03, 0xC7D3, 0x11D4, 0xB2, 0xAB, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft ChangJie IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_NEWQUICK,    0x0B883BA0, 0xC1C7, 0x11D4, 0x87, 0xF9, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft New Quick IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_QUICK,       0x6024B45F, 0x5C54, 0x11D4, 0xB9, 0x21, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft Quick IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_CANTONESE,   0x0AEC109C, 0x7E96, 0x11D4, 0xB2, 0xEF, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft Hong Kong Cantonese IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_PINYIN,      0xF3BA9077, 0x6C7E, 0x11D4, 0x97, 0xFA, 0x00, 0x80, 0xC8, 0x82, 0x68, 0x7E);")  //  Microsoft Pinyin IME 5.0
+cpp_quote("DEFINE_GUID( TF_PROFILE_SIMPLEFAST,  0xFA550B04, 0x5AD7, 0x411F, 0xA5, 0xAC, 0xCA, 0x03, 0x8E, 0xC5, 0x15, 0xD7);")  //  Microsoft Simple Fast IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_WUBI,        0x82590C13, 0xF4DD, 0x44F4, 0xBA, 0x1D, 0x86, 0x67, 0x24, 0x6F, 0xDF, 0x8E);")  //  Microsoft Wubi IME
+cpp_quote("DEFINE_GUID( TF_PROFILE_DAYI,        0x037B2C25, 0x480C, 0x4D7F, 0xB0, 0x27, 0xD6, 0xCA, 0x6B, 0x69, 0x78, 0x8A);")  //  TableDrivenTIP (CHT DaYi)
+cpp_quote("DEFINE_GUID( TF_PROFILE_ARRAY,       0xD38EFF65, 0xAA46, 0x4FD5, 0x91, 0xA7, 0x67, 0x84, 0x5F, 0xB0, 0x2F, 0x5B);")  //  TableDrivenTIP (CHT Array)
+cpp_quote("DEFINE_GUID( TF_PROFILE_YI,          0x409C8376, 0x007B, 0x4357, 0xAE, 0x8E, 0x26, 0x31, 0x6E, 0xE3, 0xFB, 0x0D);")  //  TableDrivenTIP (Yi)
+cpp_quote("DEFINE_GUID( TF_PROFILE_TIGRINYA,    0x3CAB88B7, 0xCC3E, 0x46A6, 0x97, 0x65, 0xB7, 0x72, 0xAD, 0x77, 0x61, 0xFF);")  //  TableDrivenTIP (Tigrinya)
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // MSCTF_DEFINED")

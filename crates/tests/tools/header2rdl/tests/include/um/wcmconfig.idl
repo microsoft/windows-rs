@@ -1,0 +1,738 @@
+/***********************************************************************************
+*                                                                                  *
+* Copyright (c) 1999 - 2002, Microsoft Corporation.  All rights reserved.          *
+*                                                                                  *
+* File       - WcmConfig.idl                                                       *
+*                                                                                  *
+* Purpose    - SMI COM interface definitions                                       *
+*                                                                                  *
+* History    -      Date    Alias       Comment                                    *
+*               01/28/2003  shangwu     Created                                    *
+*               11/10/2004  shangwu     Split into public and private interfaces   *
+************************************************************************************/
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "Objidl.idl";
+
+#include "guids.h"
+
+#define _MIDL_DEFINES       // To enable MIDL defines in the following header
+
+cpp_quote("#include <winapifamily.h>")
+
+//_____________________________________________________________________________
+//
+// Forward declarations
+//_____________________________________________________________________________
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface ISettingsIdentity;
+interface ISettingsEngine;
+interface ISettingsItem;
+interface ISettingsNamespace;
+interface ISettingsResult;      // Error related interface
+interface IItemEnumerator;
+interface ITargetInfo;          // Offline target related interface
+interface ISettingsContext;
+
+//_____________________________________________________________________________
+//
+// Enum types
+//_____________________________________________________________________________
+
+//
+// TargetMode - enumeration options for the current target mode
+//
+typedef enum
+{
+    OfflineMode         = 1,   // disallow use of settings api and
+                               // do not use live environment settings
+    OnlineMode          = 2,   // allow use of settings api and combine
+                               // environment with target mappings
+} WcmTargetMode;
+
+//
+// NamespaceEnumerationFlags - enumeration options for available namespace
+//                             These are bit flags that can be OR combined.
+//
+typedef enum
+{
+    SharedEnumeration         = 1,   // namespace installed as shared
+    UserEnumeration           = 2,   // namespace installed as user
+    AllEnumeration            = SharedEnumeration | 
+                                UserEnumeration,
+} WcmNamespaceEnumerationFlags;
+
+//
+// DataType - Data type of a configuration item
+//
+typedef enum
+{
+    dataTypeByte      = 1,
+    dataTypeSByte     = 2,
+    dataTypeUInt16    = 3,
+    dataTypeInt16     = 4,
+    dataTypeUInt32    = 5,
+    dataTypeInt32     = 6,
+    dataTypeUInt64    = 7,
+    dataTypeInt64     = 8,
+    dataTypeBoolean   = 11,
+    dataTypeString    = 12,
+    dataTypeFlagArray = 0x8000
+} WcmDataType;
+
+//
+// SettingType - Setting type of a configuration item
+//
+typedef enum
+{
+    settingTypeScalar   = 1,
+    settingTypeComplex  = 2,
+    settingTypeList     = 3
+} WcmSettingType;
+
+//
+// RestrictionFacets - restriction facet flags
+//
+typedef enum
+{
+        restrictionFacetMaxLength    = 0x1, 
+        restrictionFacetEnumeration  = 0x2,
+        restrictionFacetMaxInclusive = 0x4,
+        restrictionFacetMinInclusive = 0x8,
+
+} WcmRestrictionFacets;
+
+//
+// UserStaus - Different status of user
+//
+typedef enum
+{
+    UnknownStatus      = 0,  // User status is not known
+    UserRegistered     = 1,  // User is registered with SMI
+    UserUnregistered   = 2,  // User is not registered with SMI
+    UserLoaded         = 3,  // User hive is loaded
+    UserUnloaded       = 4,  // User hive is not yet loaded
+} WcmUserStatus;
+
+//
+// NamespaceAccess - Namespace access options
+//
+typedef enum
+{
+    ReadOnlyAccess         = 1,  // settings are readonly
+    ReadWriteAccess        = 2,  // settings are readable, writable & commitable
+} WcmNamespaceAccess;
+
+//_____________________________________________________________________________
+//
+// IItemEnumerator interface
+//_____________________________________________________________________________
+//
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_IItemEnumerator),
+    helpstring("IItemEnumerator Interface"),
+]
+interface IItemEnumerator : IUnknown
+{
+    [helpstring("Returns the current item")]
+    HRESULT Current(
+        [out, retval] VARIANT*  Item);
+
+    //
+    // MoveNext - Move to next item if available.
+    // Return - S_OK means the next item is available.
+    //          S_FALSE means there is no more item and the enumeration
+    //          has come to an end.
+    //
+    [helpstring("Moves to the next item")]
+    HRESULT MoveNext(
+        [out, retval] BOOL* ItemValid);
+
+    [helpstring("Resets the enumerator and make it not positioned")]
+    HRESULT Reset();
+};
+
+//_____________________________________________________________________________
+//
+// ISettingsIdentity - Settings identity, minimum required attributes are name, 
+//                     version, language.
+//_____________________________________________________________________________
+//
+
+cpp_quote("#define WCM_SETTINGS_ID_NAME                L\"name\"")
+cpp_quote("#define WCM_SETTINGS_ID_VERSION             L\"version\"")
+cpp_quote("#define WCM_SETTINGS_ID_LANGUAGE            L\"language\"")
+cpp_quote("#define WCM_SETTINGS_ID_ARCHITECTURE        L\"architecture\"")
+cpp_quote("#define WCM_SETTINGS_ID_TOKEN               L\"token\"")
+cpp_quote("#define WCM_SETTINGS_ID_URI                 L\"uri\"")
+cpp_quote("#define WCM_SETTINGS_ID_VERSION_SCOPE       L\"versionScope\"")
+
+cpp_quote("#define WCM_SETTINGS_ID_FLAG_REFERENCE     0x00000000")
+cpp_quote("#define WCM_SETTINGS_ID_FLAG_DEFINITION    0x00000001")
+
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ISettingsIdentity),
+    helpstring("ISettingsIdentity Interface")
+]
+interface ISettingsIdentity : IUnknown
+{
+    [helpstring("Get settings identity attributes")]
+    HRESULT GetAttribute(
+        [in]  void*                 Reserved, 
+        [in, string] const WCHAR*   Name,
+        [out, retval] BSTR*         Value);
+
+    [helpstring("Set settings identity attributes")]
+    HRESULT SetAttribute(
+        [in]  void*                 Reserved, 
+        [in, string] const WCHAR*   Name,
+        [in, string] const WCHAR*   Value);
+
+    [helpstring("Get settings identity flags")]
+    HRESULT GetFlags(
+        [out, retval] DWORD*    Flags);
+
+    [helpstring("Set settings identity flags")]
+    HRESULT SetFlags(
+        [in] DWORD Flags);
+};
+
+//_____________________________________________________________________________
+//
+// ITargetInfo - Define offline target information specially file and
+//               registry locations.
+//_____________________________________________________________________________
+//
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ITargetInfo),
+    helpstring("ITargetInfo Interface")
+]
+interface ITargetInfo : IUnknown
+{
+    [helpstring("Gets the current target mode")]
+    HRESULT GetTargetMode(
+        [out, retval] WcmTargetMode* TargetMode);
+
+    [helpstring("Sets the current target mode")]
+    HRESULT SetTargetMode(
+        [in] WcmTargetMode         TargetMode);
+
+    [helpstring("Gets the current temporary store location")]
+    HRESULT GetTemporaryStoreLocation(
+        [out, retval] BSTR*        TemporaryStoreLocation);
+
+    [helpstring("Sets the current temporary store location")]
+    HRESULT SetTemporaryStoreLocation(
+        [in, string] const WCHAR*  TemporaryStoreLocation);
+
+    [helpstring("Gets a unique id associated with current target")]
+    HRESULT GetTargetID(
+        [out, retval] BSTR*        TargetID);
+
+    [helpstring("Sets a unique id associated with current target")]
+    HRESULT SetTargetID(
+        [in] GUID                  TargetID);
+
+    [helpstring("Gets processor architecture associated with current target")]
+    HRESULT GetTargetProcessorArchitecture(
+        [out, retval] BSTR*        ProcessorArchitecture);
+
+    [helpstring("Sets processor architecture associated with current target")]
+    HRESULT SetTargetProcessorArchitecture(
+        [in, string] const WCHAR*  ProcessorArchitecture);
+
+    [helpstring("Gets a property value for offline installation location")]
+    HRESULT GetProperty(
+        [in]          BOOL         Offline,
+        [in, string]  const WCHAR* Property,
+        [out, retval] BSTR*        Value);
+
+    [helpstring("Sets a property value for offline installation location")]
+    HRESULT SetProperty(
+        [in]         BOOL          Offline,
+        [in, string] const WCHAR*  Property,
+        [in, string] const WCHAR*  Value);
+
+    [helpstring("Enumerator for offline properties")]
+    HRESULT GetEnumerator(
+        [out, retval] IItemEnumerator** Enumerator);
+
+    [helpstring("Expands a location string to indicate the offline installation location")]
+    HRESULT ExpandTarget(
+        [in]          BOOL            Offline,
+        [in, string]  const WCHAR*    Location,
+        [out, retval] BSTR*           ExpandedLocation);
+
+    [helpstring("Expands a location string to indicate the offline installation location")]
+    HRESULT ExpandTargetPath(
+        [in]          BOOL            Offline,
+        [in, string]  const WCHAR*    Location,
+        [out, retval] BSTR*           ExpandedLocation);
+
+    [helpstring("Sets the module path for offline installation location")]
+    HRESULT SetModulePath(
+        [in, string] const WCHAR*     Module,
+        [in, string] const WCHAR*     Path);
+
+    [helpstring("Loads the module from offline installation location")]
+    HRESULT LoadModule(
+        [in, string]  const WCHAR*    Module,
+        [out, retval] HMODULE*        ModuleHandle);
+
+    [helpstring("Sets a opaque context object for wow64 redirection")]
+    HRESULT SetWow64Context(
+        [in, string] const WCHAR*     InstallerModule,
+        [in] BYTE*                    Wow64Context);
+
+    [helpstring("Translate paths for wow64 redirection")]
+    HRESULT TranslateWow64(
+        [in, string]  const WCHAR*     ClientArchitecture,
+        [in, string]  const WCHAR*     Value,
+        [out, retval] BSTR*            TranslatedValue);
+        
+    [helpstring("Set schema hive location")]
+    HRESULT SetSchemaHiveLocation(
+        [in] LPCWSTR pwzHiveDir
+        );
+        
+    [helpstring("Get schema hive location")]
+    HRESULT GetSchemaHiveLocation(
+        [out, retval] BSTR *pHiveLocation
+        );
+        
+    [helpstring("Set the name of the mount location of the schema hive")]
+    HRESULT SetSchemaHiveMountName(
+        [in] LPCWSTR pwzMountName
+        );
+          
+    [helpstring("Get the name of the mount location of the schema hive")]
+    HRESULT GetSchemaHiveMountName(
+        [out, retval] BSTR *pMountName
+        );
+};
+
+//_____________________________________________________________________________
+//
+// ISettingsEngine - Namespace enumeration, access and management APIs
+//_____________________________________________________________________________
+//
+
+cpp_quote("#define LINK_STORE_TO_ENGINE_INSTANCE    0x00000001")
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ISettingsEngine),
+    helpstring("ISettingsEngine Interface")
+]
+interface ISettingsEngine : IUnknown
+{
+    [helpstring("Returns the dictionary of installed namespaces")]
+    HRESULT GetNamespaces(
+        [in]          WcmNamespaceEnumerationFlags   Flags,
+        [in] void*                                   Reserved,
+        [out, retval] IItemEnumerator**              Namespaces);
+
+    [helpstring("Opens an existing namespace")]
+    HRESULT GetNamespace(
+        [in]          ISettingsIdentity*    SettingsID,
+        [in]          WcmNamespaceAccess    Access,
+        [in]  void*                         Reserved,
+        [out, retval] ISettingsNamespace**  NamespaceItem);
+
+    [helpstring("Get a message to describe an HRESULT code")]
+    HRESULT GetErrorDescription(
+        [in] LONG               HResult,
+        [out, retval] BSTR*     Message);
+
+    //
+    // Create other objects
+    //
+    [helpstring("Creates an empty settings identity")]
+    HRESULT CreateSettingsIdentity(
+        [out, retval] ISettingsIdentity**  SettingsID);
+
+    [helpstring("Get the status of the schema store")]
+    HRESULT GetStoreStatus(
+        [in]    void*            Reserved,
+        [out]   WcmUserStatus*   Status);
+
+    [helpstring("Initialize and load the schema store")]
+    HRESULT LoadStore(                           
+        [in] DWORD     Flags);
+
+    [helpstring("Unload the schema store and free resources")]
+    HRESULT UnloadStore(                     
+        [in] void*     Reserved);  
+
+    [helpstring("Registers a namespace from stream, and upgrades setting values from older version")]
+    HRESULT RegisterNamespace(
+        [in]            ISettingsIdentity*  SettingsID,
+        [in]            IStream*            Stream,
+        [in]            BOOL                PushSettings,
+        [out, retval]   VARIANT*            Results);
+
+    [helpstring("Unregisters an existing namespace")]
+    HRESULT UnregisterNamespace(
+        [in]         ISettingsIdentity*     SettingsID,
+        [in]         BOOL                   RemoveSettings);
+
+    //
+    // Support for offline and other scenarios
+    //
+
+    [helpstring("Creates an empty target")]
+    HRESULT CreateTargetInfo(
+        [out, retval] ITargetInfo**  Target);
+
+    [helpstring("Gets the current offline target for engine")]
+    HRESULT GetTargetInfo(
+        [out, retval] ITargetInfo**   Target);
+
+    [helpstring("Sets the current offline target for engine")]
+    HRESULT SetTargetInfo(
+        [in] ITargetInfo*   Target);
+
+    [helpstring("Creates an settings context")]
+    HRESULT CreateSettingsContext(
+        [in]          DWORD                Flags,
+        [in]          void*                Reserved,
+        [out, retval] ISettingsContext**   SettingsContext);
+
+    [helpstring("Sets the current settings context for engine")]
+    HRESULT SetSettingsContext(
+        [in] ISettingsContext*   SettingsContext);
+    
+    [helpstring("Applies the context to this engine")]
+    HRESULT ApplySettingsContext(
+        [in]  ISettingsContext  *SettingsContext,
+        [out, size_is(,*pcIdentities)][annotation("_Outptr_result_buffer_(*pcIdentities)")] LPWSTR           **pppwzIdentities,
+        [out, retval] SIZE_T            *pcIdentities);
+
+    [helpstring("Gets the current settings context for engine")]
+    HRESULT GetSettingsContext(
+        [out, retval] ISettingsContext**   SettingsContext);
+
+};
+
+//_____________________________________________________________________________
+//
+// ISettingsItem - Generic item class for navigating namespace virtual doc.
+//                  This class describe the common functionality of config
+//                  item - like get/put value of the item, enumerating 
+//                  attributes associted with config item, getting or enumerating
+//                  child items, add child items etc.
+//_____________________________________________________________________________
+//
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ISettingsItem),
+    helpstring("ISettingsItem Interface")
+]
+interface ISettingsItem : IUnknown
+{
+    [helpstring("Gets the name of the current item")]
+    HRESULT GetName(
+        [out, retval] BSTR*     Name);
+
+    [helpstring("Gets the current value from this item")]
+    HRESULT GetValue(
+        [out, retval] VARIANT*  Value);
+
+    [helpstring("Sets the current value in this item")]
+    HRESULT SetValue(
+        [in] const VARIANT*     Value);
+
+    //
+    // Type Information
+    //
+    
+    [helpstring("Gets the type information for this item")]
+    HRESULT GetSettingType(
+        [out, retval] WcmSettingType* Type);
+
+    [helpstring("Gets the type information for this item")]
+    HRESULT GetDataType(
+        [out, retval] WcmDataType* Type);
+
+    //
+    // GetValueRaw - Gets the value from the current item as
+    //               a byte array. The caller must release the
+    //               returned data by calling CoTaskMemFree.
+    //
+    HRESULT GetValueRaw(
+        [out, size_is(,*DataSize)] BYTE**   Data,
+        [out, retval]              ULONG*   DataSize);
+
+    //
+    // SetValueRaw - Sets the value of the current item.
+    //               The value is given as a byte array.
+    //
+    HRESULT SetValueRaw(
+        [in]                    LONG        DataType,
+        [in, size_is(DataSize)] const BYTE* Data,
+        [in]                    ULONG       DataSize);
+
+    //
+    // Child access api
+    //
+
+    [helpstring("Reports whether the current item has any child item")]
+    HRESULT HasChild(
+        [out, retval] BOOL* ItemHasChild);
+
+    [helpstring("Gets the dictionary of children")]
+    HRESULT Children(
+        [out, retval] IItemEnumerator**  Children);
+
+    [helpstring("Gets an existing child")]
+    HRESULT GetChild(
+        [in, string] const WCHAR*        Name,
+        [out, retval] ISettingsItem**    Child);
+
+    [helpstring("Gets a setting object specified by path")]
+    HRESULT GetSettingByPath(
+        [in, string] const WCHAR*        Path,
+        [out, retval] ISettingsItem**    Setting);
+
+    [helpstring("Creates a setting object specified by path")]
+    HRESULT CreateSettingByPath(
+        [in, string] const WCHAR*        Path,
+        [out, retval] ISettingsItem**    Setting);
+
+    [helpstring("Removes a setting object specified by path")]
+    HRESULT RemoveSettingByPath(
+        [in, string] const WCHAR*        Path);
+
+    //
+    // List api
+
+    [helpstring("Gets the list information for this item")]
+    HRESULT GetListKeyInformation(
+        [out] BSTR*                      KeyName,
+        [out, retval] WcmDataType*       DataType);
+
+    [helpstring("Creates a new list element")]
+    HRESULT CreateListElement(
+        [in] const VARIANT*              KeyData,
+        [out, retval] ISettingsItem**    Child);
+
+    [helpstring("Removes an existing list element")]
+    HRESULT RemoveListElement(
+        [in, string] LPCWSTR             ElementName);
+
+    //
+    // Attribute access API
+    //
+
+    [helpstring("Gets the dictionary of attributes")]
+    HRESULT Attributes(
+        [out, retval] IItemEnumerator**  Attributes);
+
+    [helpstring("Gets value from an attribute")]
+    HRESULT GetAttribute(
+        [in, string]  const WCHAR*  Name,
+        [out, retval] VARIANT*      Value);
+
+    [helpstring("Get the full path of the current item")]
+    HRESULT GetPath(
+        [out, retval] BSTR*     Path);
+
+    [helpstring("Get the restrictions defined on this item")]
+    HRESULT GetRestrictionFacets(
+        [out, retval] WcmRestrictionFacets* RestrictionFacets);
+
+    [helpstring("Get the information for a given restriction")]
+    HRESULT GetRestriction(
+        [in] WcmRestrictionFacets RestrictionFacet,
+        [out, retval] VARIANT *FacetData);
+
+    [helpstring("Get the value of the key for this list item")]
+    HRESULT GetKeyValue(
+        [out, retval] VARIANT *Value);
+};
+
+//_____________________________________________________________________________
+//
+// ISettingsNamespace interface
+//_____________________________________________________________________________
+//
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ISettingsNamespace),
+    helpstring("ISettingsNamespace Interface")
+]
+interface ISettingsNamespace : IUnknown
+{
+    [helpstring("Gets the identity of this namespace")]
+    HRESULT GetIdentity(
+        [out, retval] ISettingsIdentity**  SettingsID);
+
+    [helpstring("Gets the settings enumerator of this namespace")]
+    HRESULT Settings(
+        [out, retval] IItemEnumerator**  Settings);
+
+    //
+    // Methods
+    //
+    [helpstring("Makes changes to be persistent and visible to next client")]
+    HRESULT Save(
+        [in]          BOOL               PushSettings,
+        [out, retval] ISettingsResult**  Result);
+
+    [helpstring("Gets a setting object specified by path")]
+    HRESULT GetSettingByPath(
+        [in, string] const WCHAR*        Path,
+        [out, retval] ISettingsItem**    Setting);
+
+    [helpstring("Creates a setting object specified by path")]
+    HRESULT CreateSettingByPath(
+        [in, string] const WCHAR*        Path,
+        [out, retval] ISettingsItem**    Setting);
+
+    [helpstring("Removes a setting object specified by path")]
+    HRESULT RemoveSettingByPath(
+        [in, string] const WCHAR*        Path);
+
+    [helpstring("Gets value from an attribute")]
+    HRESULT GetAttribute(
+        [in, string]  const WCHAR*  Name,
+        [out, retval] VARIANT*      Value);
+};
+
+
+//_____________________________________________________________________________
+//
+// ISettingsResult interface
+//_____________________________________________________________________________
+//
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ISettingsResult),
+    helpstring("ISettingsResult Interface")
+]
+interface ISettingsResult : IUnknown
+{
+    [helpstring("Returns the description of the error")]
+    HRESULT GetDescription([out,retval] BSTR* description);
+
+    [helpstring("Returns the HRESULT error code for the error")]
+    HRESULT GetErrorCode([out,retval] HRESULT * hrOut);
+
+    [helpstring("Returns the description of the context surrounding the error")]
+    HRESULT GetContextDescription([out,retval] BSTR * description);
+
+    [helpstring("Returns the line on which the error occurred")]
+    HRESULT GetLine([out,retval] DWORD * dwLine);
+
+    [helpstring("Returns the column on which the error occurred")]
+    HRESULT GetColumn([out,retval] DWORD * dwColumn);
+
+    [helpstring("Returns the file or path where the error occured")]
+    HRESULT GetSource([out,retval] BSTR * file);
+};
+
+//_____________________________________________________________________________
+//
+// ISettingsContext interface
+//_____________________________________________________________________________
+//
+
+cpp_quote("#define LIMITED_VALIDATION_MODE    0x00000001")
+
+
+[
+    local,
+    object, nonextensible, pointer_default(unique),
+    uuid(UUID_ISettingsContext),
+    helpstring("ISettingsContext Interface"),
+]
+interface ISettingsContext : IUnknown
+{
+    [helpstring("Serializes the data in this context into the provided stream")]
+    HRESULT Serialize(
+        [in] IStream *pStream,
+        [in] ITargetInfo *pTarget);
+
+    [helpstring("Deserializes the data in the provided stream into this context")]
+    HRESULT Deserialize(
+        [in] IStream *pStream,
+        [in] ITargetInfo *pTarget,
+        [out, size_is(,*pcResultCount)] ISettingsResult ***pppResults,
+        [out, retval] SIZE_T *pcResultCount);
+
+    [helpstring("Sets a user defined piece of data")]
+    HRESULT SetUserData([in] void *pUserData);
+
+    [helpstring("Gets a user defined piece of data")]
+    HRESULT GetUserData([out, retval] void **pUserData);
+
+    [helpstring("Gets the namespaces that exist in the context")]
+    HRESULT GetNamespaces([out, retval] IItemEnumerator **ppNamespaceIds);
+
+    [helpstring("Gets the setting changes from the context for the given namespace")]
+    HRESULT GetStoredSettings(
+        [in]  ISettingsIdentity *pIdentity,
+        [out] IItemEnumerator  **ppAddedSettings,
+        [out] IItemEnumerator  **ppModifiedSettings,
+        [out] IItemEnumerator  **ppDeletedSettings);
+
+    [helpstring("Reverts the setting in the namespace")]
+    HRESULT RevertSetting(
+        [in] ISettingsIdentity *pIdentity,
+        [in] LPCWSTR pwzSetting);
+
+};
+
+//_____________________________________________________________________________
+//
+// Type library and CoClass definitions for dispatch api
+//_____________________________________________________________________________
+//
+
+#ifndef MAKE_VERSION
+#define MAKE_VERSION(a,b) a##.##b
+#endif
+
+[
+    uuid(UUID_LibraryWcm),
+    helpfile("WcmConfig.HLP"),
+    helpstring("Settings Management Infrastructure Library"),
+    lcid(0), //lcid(0x0409),
+    version( MAKE_VERSION(WCMTYPELIB_MAJOR_VERSION, WCMTYPELIB_MINOR_VERSION) )
+]
+library Wcm
+{
+    importlib("stdole32.tlb");
+
+    [
+        uuid(UUID_ClassSettingsEngine),
+        helpstring("SMI engine class")
+    ]
+    coclass SettingsEngine
+    {
+        [default] interface     ISettingsEngine;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

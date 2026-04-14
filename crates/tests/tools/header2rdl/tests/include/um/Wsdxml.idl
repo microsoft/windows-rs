@@ -1,0 +1,216 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  Component: WSDAPI - Microsoft Web Services for Devices API
+// 
+//  File: wsdxml.idl
+//
+//  Abstract: Context interface definitions and typedefs for WSDAPI
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//
+// Forward definitions
+//
+interface IWSDXMLContext;
+
+typedef struct _WSDXML_NAMESPACE WSDXML_NAMESPACE;
+typedef struct _WSDXML_NAME WSDXML_NAME;
+typedef struct _WSDXML_TYPE WSDXML_TYPE;
+typedef struct _WSDXML_PREFIX_MAPPING WSDXML_PREFIX_MAPPING;
+typedef struct _WSDXML_ATTRIBUTE WSDXML_ATTRIBUTE;
+typedef struct _WSDXML_NODE WSDXML_NODE;
+typedef struct _WSDXML_ELEMENT WSDXML_ELEMENT;
+typedef struct _WSDXML_TEXT WSDXML_TEXT;
+typedef struct _WSDXML_ELEMENT_LIST WSDXML_ELEMENT_LIST;
+
+typedef const WSDXML_NAMESPACE* PCWSDXML_NAMESPACE;
+typedef const WSDXML_TYPE* PCWSDXML_TYPE;
+
+typedef struct _WSD_DATETIME
+{
+    BOOL    isPositive;     // isPositive refers only to year.
+                            // Everything else is always treated as
+                            // positive.
+    ULONG   year;
+    UCHAR   month;
+    UCHAR   day;
+    UCHAR   hour;
+    UCHAR   minute;
+    UCHAR   second;
+    UINT    millisecond;
+
+    BOOL    TZIsLocal;      // Following data is meaningless if
+                            // TZIsLocal == TRUE
+    BOOL    TZIsPositive;
+    UCHAR   TZHour;
+    UCHAR   TZMinute;
+} WSD_DATETIME;
+
+typedef struct _WSD_DURATION
+{
+    //
+    // Values are ULONG here because it is valid to have a duration
+    // of the format "P987654321D", indicating 987654321 days.
+    //
+    BOOL    isPositive;
+    ULONG   year;
+    ULONG   month;
+    ULONG   day;
+    ULONG   hour;
+    ULONG   minute;
+    ULONG   second;
+    ULONG   millisecond;
+} WSD_DURATION;
+
+enum
+{   
+    OpNone,
+    OpEndOfTable,
+    OpBeginElement_,
+    OpBeginAnyElement,
+    OpEndElement,
+    OpElement_,
+    OpAnyElement,
+    OpAnyElements,
+    OpAnyText,
+    OpAttribute_,
+    OpBeginChoice,
+    OpEndChoice,
+    OpBeginSequence,
+    OpEndSequence,
+    OpBeginAll,
+    OpEndAll,
+    OpAnything,
+    OpAnyNumber,
+    OpOneOrMore,
+    OpOptional,
+    OpFormatBool_,
+    OpFormatInt8_,
+    OpFormatInt16_,
+    OpFormatInt32_,
+    OpFormatInt64_,
+    OpFormatUInt8_,
+    OpFormatUInt16_,
+    OpFormatUInt32_,
+    OpFormatUInt64_,
+    OpFormatUnicodeString_,
+    OpFormatDom_,
+    OpFormatStruct_,
+    OpFormatUri_,
+    OpFormatUuidUri_,
+    OpFormatName_,
+    OpFormatListInsertTail_,
+    OpFormatType_,
+    OpFormatDynamicType_,
+    OpFormatLookupType_,
+    OpFormatDuration_,
+    OpFormatDateTime_,
+    OpFormatFloat_,
+    OpFormatDouble_,
+    OpProcess_,
+    OpQualifiedAttribute_,
+    OpFormatXMLDeclaration_,
+    OpFormatMax
+};
+
+cpp_quote("#define OFFSET(type,field) ((DWORD_PTR)(&((type*)0)->field))")
+cpp_quote("#define BYTE0(n) (BYTE)((((DWORD)n)>>0)&0xFF)")
+cpp_quote("#define BYTE1(n) (BYTE)((((DWORD)n)>>8)&0xFF)")
+cpp_quote("#define BYTE2(n) (BYTE)((((DWORD)n)>>16)&0xFF)")
+cpp_quote("#define BYTE3(n) (BYTE)((((DWORD)n)>>24)&0xFF)")
+cpp_quote("#define BYTES(n) BYTE0(n), BYTE1(n), BYTE2(n), BYTE3(n)")
+
+cpp_quote("#define OpBeginElement(name)                    OpBeginElement_,        BYTES(name)")
+cpp_quote("#define OpElement(name)                         OpElement_,             BYTES(name)")
+cpp_quote("#define OpAttribute(name)                       OpAttribute_,           BYTES(name)")
+cpp_quote("#define OpFormatBool(type,field,isptr)          OpFormatBool_,          BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatInt8(type,field,isptr)          OpFormatInt8_,          BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatInt16(type,field,isptr)         OpFormatInt16_,         BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatInt32(type,field,isptr)         OpFormatInt32_,         BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatInt64(type,field,isptr)         OpFormatInt64_,         BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatUInt8(type,field,isptr)         OpFormatUInt8_,         BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatUInt16(type,field,isptr)        OpFormatUInt16_,        BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatUInt32(type,field,isptr)        OpFormatUInt32_,        BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatUInt64(type,field,isptr)        OpFormatUInt64_,        BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatUnicodeString(type,field)       OpFormatUnicodeString_, BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatDom(type,field)                 OpFormatDom_,           BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatStruct(sType,type,field)        OpFormatStruct_,        BYTES(sizeof(sType)),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatPointerToStruct(sType)          OpFormatStruct_,        BYTES(sizeof(sType)),BYTES(0)")
+cpp_quote("#define OpFormatUri(type,field)                 OpFormatUri_,           BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatUuidUri(type,field,isptr)       OpFormatUuidUri_,       BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatName(type,field)                OpFormatName_,          BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatListInsertTail(s,type,field)    OpFormatListInsertTail_,BYTES(sizeof(s)),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatType(table,type,field)          OpFormatType_,          BYTES(table),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatDynamicType(name,type,field)    OpFormatDynamicType_,   BYTES(name),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatLookupType(uriField,type,field) OpFormatLookupType_, BYTES(OFFSET(type,uriField)),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatDuration(type,field)            OpFormatDuration_,      BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatDateTime(type,field)            OpFormatDateTime_,      BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatFloat(type,field,isptr)         OpFormatFloat_,         BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpFormatDouble(type,field,isptr)        OpFormatDouble_,        BYTES(isptr),BYTES(OFFSET(type,field))")
+cpp_quote("#define OpProcess(type,field)                   OpProcess_,             BYTES(OFFSET(type,field))")
+cpp_quote("#define OpQualifiedAttribute(name)              OpQualifiedAttribute_,  BYTES(name)")
+cpp_quote("#define OpFormatXMLDeclaration(type,field)      OpFormatXMLDeclaration_,BYTES(OFFSET(type,field))")
+
+cpp_quote("#define WSDXML_TYPE_ENCODING(typeIndex,layerNumber) ((((DWORD)layerNumber) << 28) | typeIndex)")
+cpp_quote("#define WSDXML_NAMESPACE_ENCODING(namespaceIndex,layerNumber) ((((WORD)layerNumber) << 12) | namespaceIndex)")
+cpp_quote("#define WSDXML_NAME_ENCODING(nameIndex,nameSpaceEncoding) ((((DWORD)nameSpaceEncoding) << 16) | nameIndex)")
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDXMLGetNameFromBuiltinNamespace(")
+cpp_quote("    _In_ LPCWSTR pszNamespace,")
+cpp_quote("    _In_ LPCWSTR pszName,")
+cpp_quote("    _Outptr_ WSDXML_NAME** ppName);")
+
+cpp_quote("HRESULT WINAPI")
+cpp_quote("WSDXMLCreateContext(")
+cpp_quote("    _Outptr_ IWSDXMLContext** ppContext);")
+   
+//+-------------------------------------------------------------------------
+//  IWSDXMLContext Interface
+//  Description: Interface for namespaces and types used in a WSDAPI stack
+//--------------------------------------------------------------------------
+[
+    object,
+    uuid(75d8f3ee-3e5a-43b4-a15a-bcf6887460c0),
+    helpstring("IWSDXMLContext Interface"),
+    pointer_default(unique),
+    restricted,
+    local
+]
+interface IWSDXMLContext : IUnknown
+{
+    HRESULT AddNamespace(
+        [in, annotation("_In_")] LPCWSTR pszUri,
+        [in, annotation("_In_")] LPCWSTR pszSuggestedPrefix,
+        [out, annotation("_Outptr_opt_")] WSDXML_NAMESPACE** ppNamespace); // Note: Deallocate with WSDFreeLinkedMemory
+
+    HRESULT AddNameToNamespace(
+        [in, annotation("_In_")] LPCWSTR pszUri,
+        [in, annotation("_In_")] LPCWSTR pszName,
+        [out, annotation("_Outptr_opt_")] WSDXML_NAME** ppName); // Note: Deallocate with WSDFreeLinkedMemory
+
+    HRESULT SetNamespaces(
+        [in, size_is(wNamespacesCount), annotation("_In_reads_(wNamespacesCount)")] const PCWSDXML_NAMESPACE* pNamespaces,
+        [in] WORD wNamespacesCount,
+        [in] BYTE bLayerNumber);
+
+    HRESULT SetTypes(
+        [in, size_is(dwTypesCount), annotation("_In_reads_(dwTypesCount)")] const PCWSDXML_TYPE* pTypes,
+        [in] DWORD dwTypesCount,
+        [in] BYTE bLayerNumber);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

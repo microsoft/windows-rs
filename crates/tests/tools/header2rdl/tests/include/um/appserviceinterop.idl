@@ -1,0 +1,47 @@
+/*  AppContractsInterop.idl
+ *
+ *      COM API extension for Windows.ApplicationModel.AppService
+ *
+ *      Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS2)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[object, pointer_default(unique), uuid(65219584-F9CB-4AE3-81F9-A28A6CA450D9)]
+interface IAppServiceConnectionExtendedExecution : IUnknown
+{
+    HRESULT OpenForExtendedExecutionAsync(
+        [in] REFIID riid,
+        [out, iid_is(riid)] void** operation);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS2)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_VB)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[object, pointer_default(unique), uuid(152B8A3B-B9B9-4685-B56E-974847BC7545)]
+interface ICorrelationVectorSource : IUnknown
+{
+    [propget] HRESULT CorrelationVector([out, retval] HSTRING* cv);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_VB)")

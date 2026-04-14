@@ -1,0 +1,18 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+import "oaidl.idl";
+import "wtypes.idl";
+
+[
+    object,
+    uuid(6ecda518-2010-4437-8bc3-46e752b7b172),
+    pointer_default(unique)
+]
+interface ICcgDomainAuthCredentials : IUnknown
+{
+    HRESULT GetPasswordCredentials([in] LPCWSTR pluginInput, [out] LPWSTR* domainName, [out] LPWSTR* username, [out] LPWSTR* password);
+}

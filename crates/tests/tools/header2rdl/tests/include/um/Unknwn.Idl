@@ -1,0 +1,28 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: unknwn.idl
+//
+//  Contents: IUnknown interface definition
+//
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "wtypes.idl";
+#endif
+
+#define BUILDING_UNKNWN_IDL
+#include "unknwnbase.idl"

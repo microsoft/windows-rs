@@ -1,0 +1,76 @@
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= NTDDI_WINTHRESHOLD )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+    import "oaidl.idl";
+#endif
+
+typedef enum tagUpdateImpactLevel
+{
+    UpdateImpactLevel_None,
+    UpdateImpactLevel_Low,
+    UpdateImpactLevel_Medium,
+    UpdateImpactLevel_High
+} UpdateImpactLevel;
+
+typedef enum tagUpdateAssessmentStatus
+{
+    UpdateAssessmentStatus_Latest,
+    UpdateAssessmentStatus_NotLatestSoftRestriction,
+    UpdateAssessmentStatus_NotLatestHardRestriction,
+    UpdateAssessmentStatus_NotLatestEndOfSupport,
+    UpdateAssessmentStatus_NotLatestServicingTrain,
+    UpdateAssessmentStatus_NotLatestDeferredFeature,
+    UpdateAssessmentStatus_NotLatestDeferredQuality,
+    UpdateAssessmentStatus_NotLatestPausedFeature,
+    UpdateAssessmentStatus_NotLatestPausedQuality,
+    UpdateAssessmentStatus_NotLatestManaged,
+    UpdateAssessmentStatus_NotLatestUnknown,
+    UpdateAssessmentStatus_NotLatestTargetedVersion
+} UpdateAssessmentStatus;
+
+typedef struct tagUpdateAssessment
+{
+    UpdateAssessmentStatus  status;
+    UpdateImpactLevel       impact;
+    DWORD                   daysOutOfDate;
+} UpdateAssessment;
+
+typedef struct tagOSUpdateAssessment
+{
+    BOOL                    isEndOfSupport;
+    UpdateAssessment        assessmentForCurrent;
+    UpdateAssessment        assessmentForUpToDate;
+    UpdateAssessmentStatus  securityStatus;
+    FILETIME                assessmentTime;
+    FILETIME                releaseInfoTime;
+    LPWSTR                  currentOSBuild;
+    FILETIME                currentOSReleaseTime;
+    LPWSTR                  upToDateOSBuild;
+    FILETIME                upToDateOSReleaseTime;
+} OSUpdateAssessment;
+
+typedef struct tagCloudCampaignSpec
+{
+    LPWSTR                name;
+    LPWSTR                tool;
+} CloudCampaignAssessment;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

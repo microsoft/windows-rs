@@ -1,0 +1,192 @@
+//+----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchAPI.idl
+//
+//    Purpose:  Search API Interface Description
+//
+//    History:  07/06/2005     louisg      Modified
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//+----------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//    Copyright (c) 2005 Microsoft Corporation.")
+cpp_quote("//    Search API Interface")
+cpp_quote("//")
+cpp_quote("//-----------------------------------------------------------------------------")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// Definition of IUnknown and various COM definitions
+//
+import "unknwn.idl";
+import "objidl.idl";
+import "ocidl.idl";
+import "propidl.idl";
+
+//
+// In order to generate a single interface stub file, the different interface
+// sections are #included.  They have dependencies on one another, so need
+// to be #included in a specific order
+//
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Common typedefs and other goodies
+//
+
+typedef LONG ITEMID;
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Protocol Handlers
+//
+
+import "filter.idl";
+import "filtereg.idl";
+
+#include "urlaccsdk.idl"
+#include "urlacc.idl"
+#include "srchprth.idl"
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Interface to crawl scope manager
+//
+
+#include "SearchCrawlScopeManager.idl"
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Notifications API and callback interfaces
+//
+
+#include "SearchNotifications.idl"
+#include "srchntfyinlinesite.idl"
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Administer an individual catalog
+//
+
+#include "SearchCatalog.idl"
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Query manager API
+//
+
+#include "SearchQuery.idl"
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Administer service
+//
+
+#include "SearchAdmin.idl"
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Word breakers, normalization, etc
+// Note that these are implemented by tquery.dll.
+//
+
+#include "SearchLanguageSupport.idl"
+
+
+//
+// AQS/NQS.
+// Note that these are implemented by StructuredQuery.dll.
+//
+import "StructuredQuery.idl";
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// SearchAPI library definition
+//
+
+[
+   uuid(00000000-0000-0000-0000-000000000000),
+   version(1.0),
+]
+library SearchAPILib
+{
+   importlib("stdole32.tlb");
+
+   // Interface definitions
+
+   [public] interface ISearchCatalogManager;
+
+   [public] interface ISearchCatalogManager2;
+
+   [public] interface ISearchCatalogManager3;
+
+   [public] interface ISearchQueryHelper;
+
+   [public] interface ISearchItemsChangedSink;
+
+   [public] interface ISearchCrawlScopeManager;
+
+   [public] interface IEnumSearchScopeRules;
+
+   [public] interface ISearchManager2;
+
+   // Class definitions
+
+   [
+      uuid(7D096C5F-AC08-4f1f-BEB7-5C22C517CE39),
+      helpstring("ISearchManager Implementation Class")
+   ]
+   coclass CSearchManager
+   {
+      [default] interface ISearchManager;
+   };
+
+   [
+       uuid(30766BD2-EA1C-4F28-BF27-0B44E2F68DB7),
+       helpstring("ISearchRoot Implementation Class")
+   ]
+   coclass CSearchRoot
+   {
+       [default] interface ISearchRoot;
+   };
+
+   [
+      uuid(E63DE750-3BD7-4BE5-9C84-6B4281988C44),
+      helpstring("ISearchScopeRule Implementation Class")
+   ]
+   coclass CSearchScopeRule
+   {
+      [default] interface ISearchScopeRule;
+   };
+   
+   // CLSID_FilterRegistration
+   [ 
+      uuid(9E175B8D-F52A-11D8-B9A5-505054503030) 
+   ] 
+   coclass FilterRegistration 
+   { 
+      [default] interface ILoadFilter; 
+      interface ILoadFilterWithPrivateComActivation;
+   };
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

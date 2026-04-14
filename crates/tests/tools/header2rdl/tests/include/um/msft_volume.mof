@@ -1,0 +1,501 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+// NOTE: WMI has a known issue where adding parameters (though optional) to
+// existing methods in a *provider* MOF can mess up WMI repository, if the
+// change is serviced downlevel.  And that could break unrelated things. For
+// example, adding an optional boolean param to Format method broke WSP_VOLUME
+// association schemas and we couldn't find WSP_PARTITION object from WSP_VOLUME
+// object.  Rebooting the machine won't address the issue.  If we ever hit this
+// again, uninstall and reinstall the MOF to recover the machine.
+//
+// C:\Windows\System32\wbem> mofcomp.exe mispace_uninstall.mof
+// C:\Windows\System32\wbem> mofcomp.exe mispace.mof
+//
+// NOTE: The above issue won't show up in build to build upgrades as the WMI
+// repository is fully rebuilt.
+
+
+[ClassVersion ( "1.0" ),
+Description ( "Represents a volume on the system." )]
+class MSFT_Volume : MSFT_StorageObject {
+
+    [Read, Description(
+        "Drive letter assigned to the volume."
+        )]
+    Char16 DriveLetter;
+
+    [Read, Required, Description(
+        "Guid path of the volume."
+        )]
+    String Path;
+
+    [Read, Required, Description(
+        "The health status of the Volume.\n"
+        "0 - 'Healthy': The volume is functioning normally.\n"
+        "1 - 'Warning': The volume is still functioning, but has detected errors or issues that require administrator intervention.\n"
+        "2 - 'Unhealthy': The volume is not functioning, due to errors or failures. The volume needs immediate attention from an administrator." ),
+        ValueMap { "0", "1", "2" },
+        Values { "Healthy", "Warning", "Unhealthy" }]
+    UInt16 HealthStatus;
+
+    [Read, Required, Description(
+        "An array of values that denote the current operational status of the volume.\n"
+        "0 - 'Unknown': The operational status is unknown.\n"
+        "1 - 'Other': A vendor-specific OperationalStatus has been specified by setting the OtherOperationalStatusDescription property.\n"
+        "2 - 'OK': The volume is responding to commands and is in a normal operating state.\n"
+        "3 - 'Degraded': The volume is responding to commands, but is not running in an optimal operating state.\n"
+        "4 - 'Stressed': The volume is functioning, but needs attention. For example, the volume might be overloaded or overheated.\n"
+        "5 - 'Predictive Failure': The volume is functioning, but a failure is likely to occur in the near future.\n"
+        "6 - 'Error': An error has occurred.\n"
+        "7 - 'Non-Recoverable Error': A non-recoverable error has occurred.\n"
+        "8 - 'Starting': The volume is in the process of starting.\n"
+        "9 - 'Stopping': The volume is in the process of stopping.\n"
+        "10 - 'Stopped': The volume was stopped or shut down in a clean and orderly fashion.\n"
+        "11 - 'In Service': The volume is being configured, maintained, cleaned, or otherwise administered.\n"
+        "12 - 'No Contact': The storage provider has knowledge of the volume, but has never been able to establish communication with it.\n"
+        "13 - 'Lost Communication': The storage provider has knowledge of the volume and has contacted it successfully in the past, but the volume is currently unreachable.\n"
+        "14 - 'Aborted': Similar to Stopped, except that the volume stopped abruptly and may require configuration or maintenance.\n"
+        "15 - 'Dormant': The volume is reachable, but it is inactive.\n"
+        "16 - 'Supporting Entity in Error': This status value does not necessarily indicate trouble with the volume, but it does indicate that another device or connection that the volume depends on may need attention.\n"
+        "17 - 'Completed': The volume has completed an operation. This status value should be combined with OK, Error, or Degraded, depending on the outcome of the operation.\n"
+        "0xD00D - 'Scan Needed': In Windows-based storage subsystems, this indicates a scan is needed but not repair.\n"
+        "0xD00E - 'Spot Fix Needed': In Windows-based storage subsystems, this indicates limited repair is needed.\n"
+        "0xD00F - 'Full Repair Needed': In Windows-based storage subsystems, this indicates full repair is needed."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17",
+            "..",
+            "0xD00D", "0xD00E", "0xD00F"
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed",
+            // ..
+            "Vendor Specific",
+            // 0xD00D- 0xD00F
+            "Scan Needed", "Spot Fix Needed", "Full Repair Needed"
+        }]
+    UInt16 OperationalStatus[];
+
+    [Read, Description(
+        "File system on the volume."
+        )]
+    String FileSystem;
+
+    [Description(
+        "File system label of the volume."
+        )]
+    String FileSystemLabel;
+
+    [Read, Description(
+        "The underlying file system type of the volume."
+        ),
+        ValueMap { "0", "1", "2", "3", "4", "5", "6", "7",
+                   "8", "9", "10", "11", "12", "13", "14", "15", "16",
+                   "0x8000", "0x8001" },
+        Values { "Unknown", "Threshold", "UFS", "HFS", "FAT", "FAT16", "FAT32", "NTFS4",
+                 "NTFS5", "XFS", "AFS", "EXT2", "EXT3", "ReiserFS", "NTFS", "ReFS", "exFAT"
+                 "CSVFS_NTFS", "CSVFS_ReFS" }]
+    UInt16 FileSystemType;
+
+    [Read, Description(
+        "Total size of the volume"
+        ), Units("Bytes")]
+    UInt64 Size;
+
+    [Read, Description(
+        "Available space on the volume"
+        ), Units("Bytes")]
+    UInt64 SizeRemaining;
+
+    [Read, Description(
+        "Denotes the type of the volume."
+        ),
+        ValueMap { "0", "1", "2", "3", "4", "5", "6" },
+        Values { "Unknown", "Invalid Root Path", "Removable", "Fixed", "Remote", "CD-ROM", "RAM Disk" }]
+    UInt32 DriveType;
+
+    [Description ("Indicates the deduplication mode of the volume."),
+        ValueMap {"0", "1", "2", "3", "4"},
+        Values { "Disabled", "GeneralPurpose", "HyperV", "Backup", "NotAvailable" }
+    ]
+    UInt32 DedupMode;
+
+    [Description ("Indicates the ReFS deduplication mode of the volume."),
+        ValueMap {"0", "1", "2", "3", "4"},
+        Values { "Disabled", "Dedup", "DedupAndCompress", "Compress", "NotAvailable" }
+    ]
+    UInt32 ReFSDedupMode;
+
+    [Read, Description ("The allocation unit size of the volume."),
+        Units("Bytes")]
+    UInt32 AllocationUnitSize;
+
+
+    //
+    // Method: DeleteObject
+    //
+
+    UInt32 DeleteObject(
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: Format
+    //
+
+    UInt32 Format(
+        [In]
+        String FileSystem,
+
+        [In]
+        String FileSystemLabel,
+
+        [In, Units("Bytes")]
+        UInt32 AllocationUnitSize,
+
+        [In]
+        Boolean Full,
+
+        [In]
+        Boolean Force,
+
+        [In]
+        Boolean Compress,
+
+        [In]
+        Boolean ShortFileNameSupport,
+
+        [In]
+        Boolean SetIntegrityStreams,
+
+        [In]
+        Boolean UseLargeFRS,
+
+        [In]
+        Boolean DisableHeatGathering,
+
+        [In]
+        Boolean IsDAX,
+
+        [In]
+        Boolean NoTrim,
+
+        [In]
+        Boolean SHA256Checksums,
+
+        [Out, EmbeddedInstance("MSFT_Volume")]
+        String FormattedVolume,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: Format2
+    //
+
+    UInt32 Format2(
+        [In]
+        String FileSystem,
+
+        [In]
+        String FileSystemLabel,
+
+        [In, Units("Bytes")]
+        UInt32 AllocationUnitSize,
+
+        [In]
+        Boolean Full,
+
+        [In]
+        Boolean Force,
+
+        [In]
+        Boolean Compress,
+
+        [In]
+        Boolean ShortFileNameSupport,
+
+        [In]
+        Boolean SetIntegrityStreams,
+
+        [In]
+        Boolean UseLargeFRS,
+
+        [In]
+        Boolean DisableHeatGathering,
+
+        [In]
+        Boolean IsDAX,
+
+        [In]
+        Boolean NoTrim,
+
+        [In]
+        Boolean SHA256Checksums,
+
+        [In]
+        Boolean DevDrive,
+
+        [Out, EmbeddedInstance("MSFT_Volume")]
+        String FormattedVolume,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: Repair
+    //
+
+    UInt32 Repair(
+        [In]
+        Boolean OfflineScanAndFix,
+
+        [In]
+        Boolean Scan,
+
+        [In]
+        Boolean SpotFix,
+
+        [In]
+        UInt32 DetectLeaks,
+
+        [In]
+        String ScratchFile,
+
+        [In]
+        UInt32 Threads,
+
+        [In]
+        Boolean Triage,
+
+        [In]
+        UInt64 DirectoryIds[],
+
+        [In]
+        Uint32 Salvage,
+
+        [In]
+        String ScratchDir,
+
+        [In]
+        String TargetFile,
+
+        [In]
+        String TargetDir,
+
+        [Out]
+        UInt32 Output,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: Optimize
+    //
+
+    UInt32 Optimize(
+        [In]
+        Boolean ReTrim,
+
+        [In]
+        Boolean Analyze,
+
+        [In]
+        Boolean Defrag,
+
+        [In]
+        Boolean SlabConsolidate,
+
+        [In]
+        Boolean TierOptimize,
+
+        [In]
+        Boolean NormalPriority,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetFileSystemLabel
+    //
+
+    UInt32 SetFileSystemLabel(
+        [In]
+        String FileSystemLabel,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetSupportedFileSystems
+    //
+
+    UInt32 GetSupportedFileSystems(
+        [Out]
+        String SupportedFileSystems[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetSupportedClusterSizes
+    //
+
+    UInt32 GetSupportedClusterSizes(
+        [In]
+        String FileSystem,
+
+        [Out]
+        UInt32 SupportedClusterSizes[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetCorruptionCount
+    //
+
+    UInt32 GetCorruptionCount(
+
+        [Out]
+        UInt32 CorruptionCount,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetAttributes
+    //
+
+    UInt32 GetAttributes (
+        [Out]
+        Boolean VolumeScrubEnabled
+        );
+
+    //
+    // Method: SetAttributes
+    //
+
+    UInt32 SetAttributes (
+        [In]
+        Boolean EnableVolumeScrub,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: Flush
+    //
+
+    UInt32 Flush();
+
+    //
+    // Method: Resize
+    //
+
+    UInt32 Resize(
+
+        [In]
+        UInt64 Size,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: Diagnose
+    //
+
+    UInt32 Diagnose(
+
+        [Out, EmbeddedInstance("MSFT_StorageDiagnoseResult")]
+        String DiagnoseResults[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: SetDedupMode
+    //
+
+    UInt32 SetDedupMode(
+
+        [In]
+        UInt32 DedupMode,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: GetDedupProperties
+    //
+
+    UInt32 GetDedupProperties(
+
+        [Out, EmbeddedInstance("MSFT_DedupProperties")]
+        String DedupProperties,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: GetActions
+    //
+
+    UInt32 GetActions(
+
+        [Out, EmbeddedInstance("MSFT_HealthAction")]
+        String ActionResults[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};
+
+[ClassVersion( "1.0" )]
+class MSFT_Volume_Repair_AsyncOutput : MSFT_StorageJobOutParams
+{
+    UInt32 Output;
+};

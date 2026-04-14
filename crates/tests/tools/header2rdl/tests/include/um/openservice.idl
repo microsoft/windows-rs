@@ -1,0 +1,302 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation.  All Rights Reserved.
+//
+//  File:       openservice.idl
+//
+//----------------------------------------------------------------------------
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// openservice.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "objidl.idl";
+import "oleidl.idl";
+import "mshtml.idl";
+import "exdisp.idl";
+
+typedef enum OpenServiceErrors
+{
+    OS_E_NOTFOUND = 0x80030002,
+    OS_E_NOTSUPPORTED = 0x80004021,
+    OS_E_CANCELLED = 0x80002ef1,
+    OS_E_GPDISABLED = 0xc00d0bdc,
+} OpenServiceErrors;
+
+typedef enum OpenServiceActivityContentType
+{
+    ActivityContentNone = -1,
+    ActivityContentDocument,
+    ActivityContentSelection,
+    ActivityContentLink,
+    ActivityContentCount
+} OpenServiceActivityContentType;
+
+[
+    object,
+    uuid(75cb4db9-6da0-4da3-83ce-422b6a433346),
+    pointer_default(unique),
+]
+interface IOpenServiceActivityInput : IUnknown
+{
+    HRESULT GetVariable(
+        [in] LPCWSTR pwzVariableName,
+        [in, unique] LPCWSTR pwzVariableType,
+        [out] BSTR *pbstrVariableContent);
+
+    HRESULT HasVariable(
+        [in] LPCWSTR pwzVariableName,
+        [in, unique] LPCWSTR pwzVariableType,
+        [out] BOOL *pfHasVariable);
+
+    HRESULT GetType(
+        [out] OpenServiceActivityContentType *pType);
+}
+
+[
+    object,
+    uuid(e289deab-f709-49a9-b99e-282364074571),
+    pointer_default(unique),
+]
+interface IOpenServiceActivityOutputContext : IUnknown
+{
+    HRESULT Navigate(
+        [in] LPCWSTR pwzUri,
+        [in, unique] LPCWSTR pwzMethod,
+        [in, unique] LPCWSTR pwzHeaders,
+        [in, unique] IStream *pPostData);
+
+    HRESULT CanNavigate(
+        [in] LPCWSTR pwzUri,
+        [in, unique] LPCWSTR pwzMethod,
+        [in, unique] LPCWSTR pwzHeaders,
+        [in, unique] IStream *pPostData,
+        [out] BOOL   *pfCanNavigate);
+}
+
+[
+    object,
+    uuid(C2952ED1-6A89-4606-925F-1ED8B4BE0630),
+    pointer_default(unique),
+]
+interface IOpenService : IUnknown
+{
+    HRESULT IsDefault(
+        [out] BOOL *pfIsDefault);
+
+    HRESULT SetDefault(
+        [in] BOOL fDefault, 
+        [in] HWND hwnd);
+
+    HRESULT GetID(
+        [out] BSTR *pbstrID);
+}
+
+[
+    object,
+    uuid(5664125f-4e10-4e90-98e4-e4513d955a14),
+    pointer_default(unique),
+]
+interface IOpenServiceManager : IUnknown
+{
+    HRESULT InstallService(
+        [in] LPCWSTR pwzServiceUrl,
+        [out] IOpenService **ppService);
+
+    HRESULT UninstallService(
+        [in] IOpenService *pService);
+
+    HRESULT GetServiceByID(
+        [in] LPCWSTR pwzID,
+        [out] IOpenService **ppService);
+}
+
+[
+    uuid(41a67fbc-3179-4fdf-9e9a-1b62b908bfec),
+]
+library IEOpenServiceObjects
+{
+    //CLSID_OpenServiceManager
+    [ uuid(098870b6-39ea-480b-b8b5-dd0167c4db59) ] coclass OpenServiceManager { interface IOpenServiceManager; }
+
+    //CLSID_OpenServiceActivityManager
+    [ uuid(c5efd803-50f8-43cd-9ab8-aafc1394c9e0) ] coclass OpenServiceActivityManager { interface IOpenServiceActivityManager; }
+}
+
+[
+    object,
+    uuid(13645c88-221a-4905-8ed1-4f5112cfc108),
+    pointer_default(unique),
+]
+interface IOpenServiceActivity : IOpenService
+{
+    HRESULT Execute(
+        [in] IOpenServiceActivityInput *pInput, 
+        [in] IOpenServiceActivityOutputContext *pOutput);
+
+    HRESULT CanExecute(
+        [in] IOpenServiceActivityInput *pInput, 
+        [in] IOpenServiceActivityOutputContext *pOutput, 
+        [out] BOOL *pfCanExecute);
+
+    HRESULT CanExecuteType(
+        [in] OpenServiceActivityContentType type, 
+        [out] BOOL *pfCanExecute);
+
+    HRESULT Preview(
+        [in] IOpenServiceActivityInput *pInput, 
+        [in] IOpenServiceActivityOutputContext *pOutput);
+
+    HRESULT CanPreview(
+        [in] IOpenServiceActivityInput *pInput, 
+        [in] IOpenServiceActivityOutputContext *pOutput, 
+        [out] BOOL *pfCanPreview);
+
+    HRESULT CanPreviewType(
+        [in] OpenServiceActivityContentType type, 
+        [out] BOOL *pfCanPreview);
+
+    HRESULT GetStatusText(
+        [in] IOpenServiceActivityInput *pInput,
+        [out] BSTR *pbstrStatusText);
+
+    HRESULT GetHomepageUrl(
+        [out] BSTR *pbstrHomepageUrl);
+
+    HRESULT GetDisplayName(
+        [out] BSTR *pbstrDisplayName);
+
+    HRESULT GetDescription(
+        [out] BSTR *pbstrDescription);
+
+    HRESULT GetCategoryName(
+        [out] BSTR *pbstrCategoryName);
+
+    HRESULT GetIconPath(
+        [out] BSTR *pbstrIconPath);
+
+    HRESULT GetIcon(
+        [in] BOOL fSmallIcon,
+        [out] HICON *phIcon);
+
+    HRESULT GetDescriptionFilePath(
+        [out] BSTR *pbstrXmlPath);
+
+    HRESULT GetDownloadUrl(
+        [out] BSTR *pbstrXmlUri);
+
+    HRESULT GetInstallUrl(
+        [out] BSTR *pbstrInstallUri);
+
+    HRESULT IsEnabled(
+        [out] BOOL *pfIsEnabled);
+
+    HRESULT SetEnabled(
+        [in] BOOL fEnable);
+}
+
+[
+    object,
+    uuid(a436d7d2-17c3-4ef4-a1e8-5c86faff26c0),
+    pointer_default(unique),
+]
+interface IEnumOpenServiceActivity : IUnknown
+{
+    typedef IOpenServiceActivity* EnumActivityType;
+
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        EnumActivityType *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumOpenServiceActivity **ppenum);
+}
+
+[
+    object,
+    uuid(850AF9D6-7309-40b5-BDB8-786C106B2153),
+    pointer_default(unique),
+]
+interface IOpenServiceActivityCategory : IUnknown
+{
+    HRESULT HasDefaultActivity(
+        [out] BOOL* pfHasDefaultActivity);
+
+    HRESULT GetDefaultActivity(
+        [out] IOpenServiceActivity** ppDefaultActivity);
+
+    HRESULT SetDefaultActivity(
+        [in] IOpenServiceActivity* pActivity,
+        [in] HWND hwnd);
+
+    HRESULT GetName([out] BSTR* pbstrName);
+
+    HRESULT GetActivityEnumerator(
+        [in] IOpenServiceActivityInput* pInput,
+        [in] IOpenServiceActivityOutputContext* pOutput,
+        [out] IEnumOpenServiceActivity** ppEnumActivity);
+}
+
+[
+    object,
+    uuid(33627a56-8c9a-4430-8fd1-b5f5c771afb6),
+    pointer_default(unique),
+]
+interface IEnumOpenServiceActivityCategory : IUnknown
+{
+    typedef IOpenServiceActivityCategory* EnumActivityVerbType;
+
+    HRESULT Next(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        EnumActivityVerbType *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumOpenServiceActivityCategory** ppenum);
+}
+
+[
+    object,
+    uuid(8a2d0a9d-e920-4bdc-a291-d30f650bc4f1),
+    pointer_default(unique),
+]
+interface IOpenServiceActivityManager : IUnknown
+{
+    HRESULT GetCategoryEnumerator(
+        [in] OpenServiceActivityContentType eType,
+        [out] IEnumOpenServiceActivityCategory **ppEnum);
+
+    HRESULT GetActivityByID(
+        [in] LPCWSTR pwzActivityID,
+        [out] IOpenServiceActivity **ppActivity);
+
+    HRESULT GetActivityByHomepageAndCategory(
+        [in] LPCWSTR pwzHomepage,
+        [in] LPCWSTR pwzCategory,
+        [out] IOpenServiceActivity **ppActivity);
+
+    HRESULT GetVersionCookie(
+        [out] DWORD *pdwVersionCookie);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

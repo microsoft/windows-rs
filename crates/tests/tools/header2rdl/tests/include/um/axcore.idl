@@ -1,0 +1,1350 @@
+//------------------------------------------------------------------------------
+// File: AXCore.idl
+//
+// Desc: Core streaming interfaces.  Other ActiveMovie-only interfaces
+//       are in AXExtend.idl.
+//
+// Copyright (c) 1992-2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+// include unknwn.idl and objidl.idl first
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#define CHARS_IN_GUID 39  // 128 bits, plus { - } punctuation and terminal null
+                          // chars NOT BYTES in the standard representation
+                          // e.g. {D3588AB0-0781-11ce-B03A-0020AF0BA770} + null
+
+cpp_quote("#define CHARS_IN_GUID     39")
+
+
+// Define for 'local' so that proxy-stubs can be generated for testing
+#ifndef AM_LOCAL
+#define AM_LOCAL local,
+#define AM_ANNOTATION(_x_) ,annotation(_x_)
+#endif
+
+//=====================================================================
+//=====================================================================
+// media types & formats
+//=====================================================================
+//=====================================================================
+
+// There is a high-level media type (audio, compressed video,
+// mpeg video, midi). Within each type, there is a subtype (cinepak, pcm)
+// and a length+untyped data block defining the format in a
+// type-specific manner. EG for video/cinepak, the data block would be
+// a bitmapinfo.
+// The contents of the format block are defined by the formattype GUID.
+// For example, FORMAT_VideoInfo, FORMAT_WaveFormatEx. In the future, this
+// may be a pointer to an object supporting property style interfaces
+// in which case the GUID may be something like FORMAT_IUnknown. When
+// you are passed a media type you should check the format type, if
+// it isn't a type you recognize, then don't touch the format block
+
+typedef struct _AMMediaType {
+    GUID     majortype;
+    GUID     subtype;
+    BOOL     bFixedSizeSamples;
+    BOOL     bTemporalCompression;
+    ULONG    lSampleSize;
+    GUID     formattype;
+    IUnknown *pUnk;
+    ULONG    cbFormat;
+    [size_is(cbFormat)] BYTE * pbFormat;
+} AM_MEDIA_TYPE;
+
+//=====================================================================
+//=====================================================================
+// pin information
+//=====================================================================
+//=====================================================================
+
+// is this an input or output pin
+typedef enum _PinDirection {
+    PINDIR_INPUT,
+    PINDIR_OUTPUT
+} PIN_DIRECTION;
+
+// other types that need defining
+#define MAX_PIN_NAME     128
+cpp_quote("#define MAX_PIN_NAME     128")
+cpp_quote("#define MAX_FILTER_NAME  128")
+#define MAX_FILTER_NAME  128
+
+
+//=====================================================================
+//=====================================================================
+// time information
+//
+// This represents a time (either reference or stream) in 100ns units.
+// The class library contains a CRefTime helper class
+// that supports simple comparison and arithmetic operations
+//=====================================================================
+//=====================================================================
+
+typedef LONGLONG REFERENCE_TIME;
+typedef double REFTIME;
+
+// Win32 HANDLEs have to be cast to these as the MIDL compiler doesn't
+// like the HANDLE type or in fact anything remotely associated with
+// them. If this ever gets ported to a MAC environment then these will
+// have to become an alertable synchronisation object that it supports
+
+typedef DWORD_PTR HSEMAPHORE;
+typedef DWORD_PTR HEVENT;
+
+//=====================================================================
+//=====================================================================
+// Allocator properties
+//
+// Used to describe the actual properties of an allocator,
+// and used to request properties from an allocator or from an upstream
+// filter that could create an allocator. See IMemAllocator and
+// IMemInputPin.
+//=====================================================================
+//=====================================================================
+typedef struct _AllocatorProperties {
+        long cBuffers;  // count of buffers at this allocator
+        long cbBuffer;  // size of each buffer, excluding any prefix
+
+        // alignment of the buffer - buffer start will be aligned on a multiple of
+        // this amount
+        long cbAlign;
+
+        // prefix amount. Each buffer is immediately preceeded by cbPrefix bytes.
+        // note that GetPointer points to the beginning of the buffer proper.
+        // the prefix is aligned, i.e. (GetPointer() - cbPrefix) is aligned on cbAlign.
+        long cbPrefix;
+} ALLOCATOR_PROPERTIES;
+
+
+
+
+
+// forward declarations (in alphabetical order - we were getting duplicates)
+interface IAMovieSetup;
+interface IEnumFilters;
+interface IEnumMediaTypes;
+interface IEnumPins;
+interface IBaseFilter;
+interface IFilterGraph;
+interface IMediaFilter;
+interface IMediaSample;
+interface IMemAllocator;
+interface IMemAllocatorCallbackTemp;
+interface IMemAllocatorNotifyCallbackTemp;
+interface IMemInputPin;
+interface IPin;
+interface IReferenceClock;
+
+
+
+//=====================================================================
+//=====================================================================
+// Defines IPin interface
+//
+// interface representing a single, unidirection connection point on a
+// filter. A Pin will connect to exactly one other pin on another filter.
+// This interface represents the interface other objects can call on
+// this pin. The interface between the filter and the pin is private to
+// the implementation of a specific filter.
+//
+// During the connection process, one pin will be instructed to take
+// the lead: the connect interface on this pin will be calling, passing
+// the IPin* for the other pin. This connecting pin will call the
+// ReceiveConnection member function on the other pin, as well as presumably
+// other format-enumeration and queryinterface calls to establish whether
+// the connection is possible.
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a86891-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IPin : IUnknown {
+
+    // initiate a connection to another pin. calls ReceiveConnection on the
+    // other pin. Verifies that the connection is possible and may reject
+    // it.
+    // The mediatype parameter is optional. If it is not null, the pin must
+    // connect using that media type if possible. The subtype and/or format
+    // type can be GUID_NULL, meaning that the pin can fill them in as desired.
+    // This allows an application to partially specify the media type to be
+    // used for the connection, insisting on eg YUV 422 but leaving details
+    // (such as the image size) to be negotiated between the pins.
+    HRESULT Connect(
+        [in] IPin * pReceivePin,        // connect yourself to this pin
+        [in AM_ANNOTATION("_In_opt_")] const AM_MEDIA_TYPE * pmt  // (optional) connect using this type
+    );
+
+    // called by a connecting pin to make a connection
+    HRESULT ReceiveConnection(
+        [in] IPin * pConnector,
+        [in] const AM_MEDIA_TYPE *pmt   // this is the media type we will exchange
+    );
+
+    // break a connection - no params since there is only one connection
+    // possible on this pin
+    HRESULT Disconnect(void);
+
+    // Find the pin this pin is connected to (if any)
+    // The pointer returned is AddRef()d
+    // Fails if the pin is not connected
+    HRESULT ConnectedTo(
+        [out AM_ANNOTATION("_Out_")] IPin **pPin
+    );
+
+    // Return the media type of a connection if the pin is connected
+    HRESULT ConnectionMediaType(
+        [out AM_ANNOTATION("_Out_")] AM_MEDIA_TYPE *pmt
+    );
+
+    // get information about the pin itself
+    typedef struct _PinInfo {
+        IBaseFilter *pFilter;   // the filter this pin is on
+        PIN_DIRECTION dir;  // am I an input or output pin?
+        WCHAR achName[MAX_PIN_NAME];    // the name of this pin within this filter
+    } PIN_INFO;
+
+    HRESULT QueryPinInfo(
+        [out AM_ANNOTATION("_Out_")] PIN_INFO * pInfo
+    );
+
+    // We often want to know the direction.  Rather than use the
+    // relatively expensive QueryPinInfo, use this
+    HRESULT QueryDirection(
+        [out AM_ANNOTATION("_Out_")] PIN_DIRECTION *pPinDir
+    );
+
+    // Get an identifier for the pin (allows connections to be saved).
+    // The storage will be allocated by the filter using CoTaskMemAlloc
+    // The caller should free it using CoTaskMemFree
+    HRESULT QueryId(
+        [out AM_ANNOTATION("_Out_")] LPWSTR * Id
+    );
+
+    // will the pin accept the format type, S_OK yes, S_FALSE no
+    HRESULT QueryAccept(
+        [in] const AM_MEDIA_TYPE *pmt
+    );
+
+    // return an enumerator for this pin's preferred media types
+    HRESULT EnumMediaTypes(
+        [out AM_ANNOTATION("_Out_")] IEnumMediaTypes **ppEnum
+    );
+
+    // return an array of IPin* - the pins that this pin internally connects to
+    // All pins put in the array must be AddReffed (but no others)
+    // Errors: "Can't say" - FAIL; not enough slots - return S_FALSE
+    // Default: return E_NOTIMPL
+    // The filter graph will interpret E_NOTIMPL as any input pin connects to
+    // all visible output pins and vise versa.
+    // apPin can be NULL if nPin==0 (not otherwise).
+    HRESULT QueryInternalConnections(
+        [out AM_ANNOTATION("_Out_writes_to_opt_(*nPin, *nPin)")] IPin* *apPin,     // array of IPin*
+        [in, out] ULONG *nPin   // on input, the number of slots
+                                // on output  the number of pins
+    );
+
+    // notify the pin that no more data is expected until a new run
+    // command is issued. End of stream should be queued and delivered after
+    // all queued data is delivered. Pass through if there is no queued data.
+    // Flush should flush any queued EOS.
+    // returns S_OK unless there is some error.
+    // input pins only: output pins will normally return E_UNEXPECTED.
+    HRESULT EndOfStream(void);
+
+    // Flush
+
+    // Enter flush state: do the following steps (in order)
+    // -- prevent any more Receives succeeding (set a flushing flag)
+    // -- discard any queued data
+    // -- free anyone blocked on Receive in your filter
+    // -- pass BeginFlush to any downstream pins
+    HRESULT BeginFlush(void);
+
+    // End flush state: do the following steps in order
+    // -- ensure no more data will be pushed by your filter
+    //    (sync with thread if you have one, stop it pushing and
+    //     discard any queued data)
+    // -- re-enable Receive (clear internal flushing flag)
+    // -- pass EndFlush to any downstream pins
+    HRESULT EndFlush(void);
+
+    // informational: all data arriving after this call is part of a segment
+    // from StartTime to StopTime, played at rate. This allows filters that
+    // process buffers containing more than one sample to clip the rendering
+    // to within the start and stop times.
+    //
+    // A source pin will call a destination pin on this method after completing
+    // delivery of any previous data, and before any Receive calls for the
+    // new data
+    HRESULT NewSegment(
+                [in] REFERENCE_TIME tStart,
+                [in] REFERENCE_TIME tStop,
+                [in] double dRate);
+}
+
+typedef IPin *PPIN;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IEnumPins interface
+//
+// interface returned from IBaseFilter::EnumPins(). based on IEnumXXXX
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a86892-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IEnumPins : IUnknown {
+
+    HRESULT Next(
+        [in] ULONG cPins,                       // place this many pins...
+        [out, size_is(cPins) AM_ANNOTATION("_Out_writes_to_(cPins, *pcFetched)")] IPin ** ppPins,   // ...in this array
+        [out AM_ANNOTATION("_Out_opt_")] ULONG * pcFetched                 // actual count passed
+    );
+
+    HRESULT Skip(
+        [in] ULONG cPins);
+
+    HRESULT Reset(void);
+
+    HRESULT Clone(
+        [out AM_ANNOTATION("_Out_")] IEnumPins **ppEnum
+    );
+}
+
+typedef IEnumPins *PENUMPINS;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IEnumMediaTypes interface
+//
+// Enumerates the preferred formats for a pin
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+uuid(89c31040-846b-11ce-97d3-00aa0055595a),
+pointer_default(unique)
+]
+interface IEnumMediaTypes : IUnknown {
+
+    // to call this member function pass in the address of a pointer to a
+    // media type. The interface will allocate the necessary AM_MEDIA_TYPE
+    // structures and initialise them with the variable format block
+
+    HRESULT Next(
+        [in] ULONG cMediaTypes,             // place this many types...
+        [out, size_is(cMediaTypes) AM_ANNOTATION("_Out_writes_to_(cMediaTypes, *pcFetched)")]
+             AM_MEDIA_TYPE ** ppMediaTypes, // ...in this array
+        [out AM_ANNOTATION("_Out_opt_")] ULONG * pcFetched             // actual count passed
+    );
+
+    HRESULT Skip(
+        [in] ULONG cMediaTypes);
+
+    HRESULT Reset(void);
+
+    HRESULT Clone(
+        [out AM_ANNOTATION("_Out_")] IEnumMediaTypes **ppEnum
+    );
+}
+
+typedef IEnumMediaTypes *PENUMMEDIATYPES;
+
+
+
+//========================================================================
+//========================================================================
+// Defines IFilterGraph interface
+//
+// abstraction representing a graph of filters
+// This allows filters to be joined into a graph and operated as a unit.
+//========================================================================
+//========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a8689f-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IFilterGraph : IUnknown {
+
+    //==========================================================================
+    // Low level filter functions
+    //==========================================================================
+
+        // Add a filter to the graph and name it with *pName.
+        // If the name is not unique, The request will fail.
+        // The Filter graph will call the JoinFilterGraph
+        // member function of the filter to inform it.
+        // This must be called before attempting Connect, ConnectDirect or Render
+        // for pins of the filter.
+
+        HRESULT AddFilter
+            ( [in] IBaseFilter * pFilter,
+              [in, string] LPCWSTR pName
+            );
+
+
+        // Remove a filter from the graph. The filter graph implementation
+        // will inform the filter that it is being removed.
+
+        HRESULT RemoveFilter
+            ( [in] IBaseFilter * pFilter
+            );
+
+
+        // Set *ppEnum to be an enumerator for all filters in the graph.
+
+        HRESULT EnumFilters
+            ( [out AM_ANNOTATION("_Out_")] IEnumFilters **ppEnum
+            );
+
+
+        // Set *ppFilter to be the filter which was added with the name *pName
+        // Will fail and set *ppFilter to NULL if the name is not in this graph.
+
+        HRESULT FindFilterByName
+            ( [in, string] LPCWSTR pName,
+              [out AM_ANNOTATION("_Out_")] IBaseFilter ** ppFilter
+            );
+
+    //==========================================================================
+    // Low level connection functions
+    //==========================================================================
+
+        // Connect these two pins directly (i.e. without intervening filters)
+        // the media type is optional, and may be partially specified (that is
+        // the subtype and/or format type may be GUID_NULL). See IPin::Connect
+        // for details of the media type parameter.
+        HRESULT ConnectDirect
+            ( [in] IPin * ppinOut,              // the output pin
+              [in] IPin * ppinIn,               // the input pin
+              [in, unique AM_ANNOTATION("_In_opt_")] const AM_MEDIA_TYPE* pmt     // optional mediatype
+            );
+
+        // Break the connection that this pin has and reconnect it to the
+        // same other pin.
+
+        HRESULT Reconnect
+            ( [in] IPin * ppin        // the pin to disconnect and reconnect
+            );
+
+
+
+        // Disconnect this pin, if connected.  Successful no-op if not connected.
+
+        HRESULT Disconnect
+            ( [in] IPin * ppin
+            );
+
+    //==========================================================================
+    // intelligent connectivity - now in IGraphBuilder, axextend.idl
+    //==========================================================================
+
+    //==========================================================================
+    // Whole graph functions
+    //==========================================================================
+
+    // Once a graph is built, it can behave as a (composite) filter.
+    // To control this filter, QueryInterface for IMediaFilter.
+
+    // The filtergraph will by default ensure that the graph has a sync source
+    // when it is made to Run.  SetSyncSource(NULL) will prevent that and allow
+    // all the filters to run unsynchronised until further notice.
+    // SetDefaultSyncSource will set the default sync source (the same as would
+    // have been set by default on the first call to Run).
+    HRESULT SetDefaultSyncSource(void);
+
+}
+
+typedef IFilterGraph *PFILTERGRAPH;
+
+
+
+//==========================================================================
+//==========================================================================
+// Defines IEnumFilters interface
+//
+// enumerator interface returned from IFilterGraph::EnumFilters().
+// based on IEnum pseudo-template
+//==========================================================================
+//==========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a86893-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IEnumFilters : IUnknown {
+
+    HRESULT Next
+        ( [in]  ULONG cFilters,           // place this many filters...
+          [out AM_ANNOTATION("_Out_writes_to_(cFilters, *pcFetched)")] IBaseFilter ** ppFilter,  // ...in this array of IBaseFilter*
+          [out AM_ANNOTATION("_Out_opt_")] ULONG * pcFetched         // actual count passed returned here
+        );
+
+
+    HRESULT Skip
+        ( [in] ULONG cFilters
+        );
+
+
+    HRESULT Reset(void);
+
+
+    HRESULT Clone
+        ( [out AM_ANNOTATION("_Out_")] IEnumFilters **ppEnum
+        );
+}
+
+typedef IEnumFilters *PENUMFILTERS;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IMediaFilter interface
+//
+// multimedia components that provide time-based data will expose this.
+// this interface abstracts an object that processes time-based data streams
+// and represents a multimedia device (possibly implemented in software).
+// it controls the active/running state of the object and its synchronization
+// to other objects in the system.
+//
+// derived from IPersist so that all filter-type objects in a graph
+// can have their class id serialised.
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a86899-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IMediaFilter : IPersist {
+
+    // tell the filter to transition to the new state. The state transition
+    // may not be instantaneous (external mechanical activity may be involved,
+    // for example). The state functions may return before the state
+    // transition has completed
+
+    // these functions will return S_OK if the transition is complete, S_FALSE if
+    // the transition is not complete but no error has occurred, or some error value
+    // if the transition failed.
+    HRESULT Stop(void);
+    HRESULT Pause(void);
+
+    // in order to synchronise independent streams, you must pass a time
+    // value with the Run command. This is the difference between stream
+    // time and reference time. That is, it is the amount to be added to
+    // the IMediaSample timestamp to get the time at which that sample
+    // should be rendered according to the reference clock.
+    // If we are starting at the beginning of the stream, it will thus be
+    // simply the time at which the first sample should appear. If we are
+    // restarting from Paused mode in midstream, then it will be the total
+    // time we have been paused added to the initial start time.
+
+    // the filtergraph will provide this information to its filters. If you
+    // are an app calling the filtergraph, it's ok to pass a start time of
+    // 0, in which case the filter graph will calculate a soon-as-possible
+    // time. FilterGraphs will accept 0 meaning ASAP; most filters will not.
+
+    HRESULT Run(REFERENCE_TIME tStart);
+
+
+    // possible states that the filter could be in
+    typedef enum _FilterState {
+        State_Stopped,            // not in use
+        State_Paused,             // holding resources, ready to go
+        State_Running             // actively processing media stream
+    } FILTER_STATE;
+
+    // find out what state the filter is in.
+    // If timeout is 0, will return immediately - if a state transition is
+    // not complete, it will return the state being transitioned into, and
+    // the return code will be VFW_S_STATE_INTERMEDIATE.  if no state
+    // transition is in progress the state will be returned and the return
+    // code will be S_OK.
+    //
+    // If timeout is non-zero, GetState will not return until the state
+    // transition is complete, or the timeout expires.
+    // The timeout is in milliseconds.
+    // You can also pass in INFINITE as a special value for the timeout, in
+    // which case it will block indefinitely waiting for the state transition
+    // to complete. If the timeout expires, the state returned is the
+    // state we are trying to reach, and the return code will be
+    // VFW_S_STATE_INTERMEDIATE. If no state transition is in progress
+    // the routine returns immediately with return code S_OK.
+
+    //
+    // return State is State_Running, State_Paused or State_Stopped.
+    // return code is S_OK, or VFW_S_STATE_INTERMEDIATE if state
+    // transition is not complete or an error value if the method failed.
+    HRESULT GetState(
+                [in] DWORD dwMilliSecsTimeout,
+                [out AM_ANNOTATION("_Out_")] FILTER_STATE *State);
+
+
+    // tell the filter the reference clock to which it should synchronize
+    // activity. This is most important to rendering filters and may not
+    // be of any interest to other filters.
+    HRESULT SetSyncSource(
+        [in AM_ANNOTATION("_In_opt_")] IReferenceClock * pClock);
+
+    // get the reference clock currently in use (it may be NULL)
+    HRESULT GetSyncSource(
+        [out AM_ANNOTATION("_Outptr_result_maybenull_")] IReferenceClock ** pClock);
+}
+
+typedef IMediaFilter *PMEDIAFILTER;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IBaseFilter interface
+//
+// all multimedia components will expose this interface
+// this interface abstracts an object that has typed input and output
+// connections and can be dynamically aggregated.
+//
+// IMediaFilter supports synchronisation and activity state: IBaseFilter
+// is derived from that since all filters need to support IMediaFilter,
+// whereas a few objects (plug-in control distributors for example) will
+// support IMediaFilter but not IBaseFilter.
+//
+// IMediaFilter is itself derived from IPersist so that every filter
+//supports GetClassID()
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a86895-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IBaseFilter : IMediaFilter {
+
+    // enumerate all the pins available on this filter
+    // allows enumeration of all pins only.
+    //
+    HRESULT EnumPins(
+        [out AM_ANNOTATION("_Out_")] IEnumPins ** ppEnum     // enum interface returned here
+    );
+
+    // Convert the external identifier of a pin to an IPin *
+    // This pin id is quite different from the pin Name in CreatePin.
+    // In CreatePin the Name is invented by the caller.  In FindPin the Id
+    // must have come from a previous call to IPin::QueryId.  Whether or not
+    // this operation would cause a pin to be created depends on the filter
+    // design, but if called twice with the same id it should certainly
+    // return the same pin both times.
+    HRESULT FindPin(
+        [in, string] LPCWSTR Id,
+        [out AM_ANNOTATION("_Out_")] IPin ** ppPin
+    );
+
+    // find out information about this filter
+    typedef struct _FilterInfo {
+    WCHAR achName[MAX_FILTER_NAME]; // maybe null if not part of graph
+        IFilterGraph * pGraph;                   // null if not part of graph
+    } FILTER_INFO;
+
+    HRESULT QueryFilterInfo(
+        [out AM_ANNOTATION("_Out_")] FILTER_INFO * pInfo
+    );
+
+    // notify a filter that it has joined a filter graph. It is permitted to
+    // refuse. The filter should addref and store this interface for later use
+    // since it may need to notify events to this interface. A null pointer indicates
+    // that the filter is no longer part of a graph.
+    HRESULT JoinFilterGraph(
+        [in AM_ANNOTATION("_In_opt_")] IFilterGraph * pGraph,
+        [in, string AM_ANNOTATION("_In_opt_")] LPCWSTR pName
+    );
+
+    // return a Vendor information string. Optional - may return E_NOTIMPL.
+    // memory returned should be freed using CoTaskMemFree
+    HRESULT QueryVendorInfo(
+        [out, string AM_ANNOTATION("_Out_")] LPWSTR* pVendorInfo
+    );
+}
+
+typedef IBaseFilter *PFILTER;
+
+
+//=====================================================================
+//=====================================================================
+// sync and state management
+//=====================================================================
+//=====================================================================
+
+
+//=====================================================================
+//=====================================================================
+// Defines IReferenceClock interface
+//=====================================================================
+//=====================================================================
+
+[
+        AM_LOCAL
+        object,
+        uuid(56a86897-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IReferenceClock : IUnknown {
+
+    // get the time now
+    HRESULT GetTime(
+        [out AM_ANNOTATION("_Out_")] REFERENCE_TIME *pTime
+    );
+
+    // ask for an async notification that a time has elapsed
+    HRESULT AdviseTime(
+        [in] REFERENCE_TIME baseTime,       // base reference time
+        [in] REFERENCE_TIME streamTime,     // stream offset time
+        [in] HEVENT hEvent,                     // advise via this event
+        [out AM_ANNOTATION("_Out_")] DWORD_PTR * pdwAdviseCookie   // where your cookie goes
+    );
+
+    // ask for an async periodic notification that a time has elapsed
+    HRESULT AdvisePeriodic(
+        [in] REFERENCE_TIME startTime,      // starting at this time
+        [in] REFERENCE_TIME periodTime,     // time between notifications
+        [in] HSEMAPHORE hSemaphore,         // advise via a semaphore
+        [out AM_ANNOTATION("_Out_")] DWORD_PTR * pdwAdviseCookie       // where your cookie goes
+    );
+
+    // cancel a request for notification
+    HRESULT Unadvise(
+        [in] DWORD_PTR dwAdviseCookie);
+}
+
+typedef IReferenceClock *PREFERENCECLOCK;
+
+//=====================================================================
+//=====================================================================
+// Defines IReferenceClockTimerControl interface
+//=====================================================================
+//=====================================================================
+
+[
+        local,
+        object,
+        uuid(ebec459c-2eca-4d42-a8af-30df557614b8),
+        pointer_default(unique)
+]
+interface IReferenceClockTimerControl : IUnknown {
+
+    // Setting a default of 0 disables the default of 1ms
+    HRESULT SetDefaultTimerResolution(
+        REFERENCE_TIME timerResolution // in 100ns
+    );
+    HRESULT GetDefaultTimerResolution(
+        [annotation("_Out_")] REFERENCE_TIME* pTimerResolution // in 100ns
+    );
+}
+
+//=====================================================================
+//=====================================================================
+// Defines IReferenceClock2 interface
+//=====================================================================
+//=====================================================================
+
+[
+        AM_LOCAL
+        object,
+        uuid(36b73885-c2c8-11cf-8b46-00805f6cef60),
+        pointer_default(unique)
+]
+interface IReferenceClock2 : IReferenceClock {
+}
+
+typedef IReferenceClock2 *PREFERENCECLOCK2;
+
+
+//=====================================================================
+//=====================================================================
+// Data transport interfaces
+//=====================================================================
+//=====================================================================
+
+
+//=====================================================================
+//=====================================================================
+// Defines IMediaSample interface
+//=====================================================================
+//=====================================================================
+
+[
+        local,
+        object,
+        uuid(56a8689a-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IMediaSample : IUnknown {
+
+    // get me a read/write pointer to this buffer's memory. I will actually
+    // want to use sizeUsed bytes.
+    HRESULT GetPointer([out, annotation("_Outptr_result_buffer_to_(_Inexpressible_(this->GetSize()), _Inexpressible_(this->GetActualDataLength()))")] BYTE ** ppBuffer);
+
+    // return the size in bytes of the buffer data area
+    long GetSize(void);
+
+    // get the stream time at which this sample should start and finish.
+    HRESULT GetTime(
+        [out, annotation("_Out_")] REFERENCE_TIME * pTimeStart,  // put time here
+        [out, annotation("_Out_")] REFERENCE_TIME * pTimeEnd
+    );
+
+    // Set the stream time at which this sample should start and finish.
+    // pTimeStart==pTimeEnd==NULL will invalidate the time stamps in
+    // this sample
+    HRESULT SetTime(
+        [in, annotation("_In_opt_")] REFERENCE_TIME * pTimeStart,   // put time here
+        [in, annotation("_In_opt_")] REFERENCE_TIME * pTimeEnd
+    );
+
+    // sync-point property. If true, then the beginning of this
+    // sample is a sync-point. (note that if AM_MEDIA_TYPE.bTemporalCompression
+    // is false then all samples are sync points). A filter can start
+    // a stream at any sync point.  S_FALSE if not sync-point, S_OK if true.
+
+    HRESULT IsSyncPoint(void);
+    HRESULT SetSyncPoint(BOOL bIsSyncPoint);
+
+    // preroll property.  If true, this sample is for preroll only and
+    // shouldn't be displayed.
+    HRESULT IsPreroll(void);
+    HRESULT SetPreroll(BOOL bIsPreroll);
+
+    long GetActualDataLength(void);
+    HRESULT SetActualDataLength(long);
+
+    // these allow for limited format changes in band - if no format change
+    // has been made when you receive a sample GetMediaType will return S_FALSE
+
+    HRESULT GetMediaType([out, annotation("_Out_")] AM_MEDIA_TYPE **ppMediaType);
+    HRESULT SetMediaType([in, annotation("_In_")] AM_MEDIA_TYPE *pMediaType);
+
+    // returns S_OK if there is a discontinuity in the data (this frame is
+    // not a continuation of the previous stream of data
+    // - there has been a seek or some dropped samples).
+    HRESULT IsDiscontinuity(void);
+    // set the discontinuity property - TRUE if this sample is not a
+    // continuation, but a new sample after a seek or a dropped sample.
+    HRESULT SetDiscontinuity(BOOL bDiscontinuity);
+
+    // get the media times for this sample
+    HRESULT GetMediaTime(
+        [out, annotation("_Out_")] LONGLONG * pTimeStart,
+        [out, annotation("_Out_")] LONGLONG * pTimeEnd
+    );
+
+    // Set the media times for this sample
+    // pTimeStart==pTimeEnd==NULL will invalidate the media time stamps in
+    // this sample
+    HRESULT SetMediaTime(
+        [in, annotation("_In_opt_")] LONGLONG * pTimeStart,
+        [in, annotation("_In_opt_")] LONGLONG * pTimeEnd
+    );
+}
+
+typedef IMediaSample *PMEDIASAMPLE;
+
+//  Values for dwFlags for AM_SAMPLE_PROPERTIES
+enum tagAM_SAMPLE_PROPERTY_FLAGS
+     { AM_SAMPLE_SPLICEPOINT        = 0x01,   /* Is this a splice point
+                                                 IE can it be decoded
+                                                 without reference to
+                                                 previous data */
+       AM_SAMPLE_PREROLL            = 0x02,   /* Is this a preroll sample */
+       AM_SAMPLE_DATADISCONTINUITY  = 0x04,   /* Set if start of new segment */
+       AM_SAMPLE_TYPECHANGED        = 0x08,   /* Has the type changed */
+       AM_SAMPLE_TIMEVALID          = 0x10,   /* Set if time is valid */
+       AM_SAMPLE_TIMEDISCONTINUITY  = 0x40,   /* time gap in data starts after
+                                                 this sample - pbBuffer can
+                                                 be NULL
+                                              */
+       AM_SAMPLE_FLUSH_ON_PAUSE     = 0x80,   /*  For live data - discard
+                                                  in paused state
+                                              */
+       AM_SAMPLE_STOPVALID          = 0x100,  /*  Stop time is valid */
+       AM_SAMPLE_ENDOFSTREAM        = 0x200,  /*  End of stream after
+                                                  this data
+                                                  This is reserved for
+                                                  kernel streaming and is
+                                                  not currently used by
+                                                  ActiveMovie
+                                              */
+       AM_STREAM_MEDIA              = 0,      /*  Normal data stream id */
+       AM_STREAM_CONTROL            = 1       /*  Control stream id */
+                                              /*  > 7FFFFFFF is application
+                                                  defined stream
+                                              */
+     };
+
+//  Media sample generic properties structure
+typedef struct tagAM_SAMPLE2_PROPERTIES {
+    DWORD    cbData;         //  Length of generic data for extensiblity
+                             //  Number of bytes INCLUDING this field
+    DWORD    dwTypeSpecificFlags; // Type specific flag data
+    DWORD    dwSampleFlags;  //  Flags bits defined by  AM_SAMPLE_xxx flags
+                             //  All undefined bits RESERVED (set to 0,
+                             //  leave on copy)
+    LONG     lActual;        //  Length of data in buffer
+    REFERENCE_TIME tStart;   //  Start time if valid
+    REFERENCE_TIME tStop;    //  Stop time if valid
+    DWORD    dwStreamId;     //  Stream 0 is normal media transport
+                             //  Stream 1 is control
+    AM_MEDIA_TYPE *pMediaType; // Copy of media type - INVALID after Release()
+    BYTE    *pbBuffer;       //  Pointer to buffer - INVALID after Release()
+    LONG     cbBuffer;       //  Length of buffer
+} AM_SAMPLE2_PROPERTIES;
+
+//=====================================================================
+//=====================================================================
+// Defines IMediaSample2 interface
+//=====================================================================
+//=====================================================================
+
+[
+        local,
+        object,
+        uuid(36b73884-c2c8-11cf-8b46-00805f6cef60),
+        pointer_default(unique)
+]
+interface IMediaSample2 : IMediaSample {
+
+    //  Get sample properties
+    //
+    //      cbProperties - length of generic data to retrieve
+    //      pbProperties - pointer to generic data buffer - can
+    //                     be NULL if cbProperties is NULL
+    //                     data conforms to AM_SAMPLE_PROPERTIES
+    //
+    HRESULT GetProperties(
+        [in] DWORD cbProperties,
+        [out, size_is(cbProperties), annotation("_Out_writes_bytes_(cbProperties)")] BYTE * pbProperties
+    );
+    //  Set sample properties
+    //
+    //      cbProperties - length of generic data to set
+    //      pbProperties - pointer to generic data buffer - can
+    //                      be NULL if cbProperties is NULL
+    //                      data conforms to AM_SAMPLE_PROPERTIES
+    //
+    //
+    HRESULT SetProperties(
+        [in] DWORD cbProperties,
+        [in, size_is(cbProperties), annotation("_In_reads_bytes_(cbProperties)")] const BYTE * pbProperties
+    );
+
+
+    // //  Get the clock associated with the sample
+    // HRESULT GetClock(
+    //     [out] IReferenceClock2 **ppClock
+    // );
+
+    // //  Get a pointer to the object containing the data
+    // //
+    // //  riid      - IID of interface required on object
+    // //  ppvobject - Pointer to object containing the data
+    // //
+    // //  Returns
+    // //      S_OK - Got the object
+    // //      E_NOINTERFACE - object does not support this interface
+    // //                      if IUnknown is not supported
+    // //                      there is no backing object
+    // //      E_NOTIMPL     - samples don't have backing objects
+    // //
+    // //
+    // HRESULT GetBackingObject(
+    //     [in]  REFIID riid,
+    //     [out] void **ppvObject
+    // );
+}
+
+typedef IMediaSample2 *PMEDIASAMPLE2;
+
+[
+        object,
+        uuid(68961E68-832B-41ea-BC91-63593F3E70E3),
+        pointer_default(unique)
+]
+interface IMediaSample2Config : IUnknown
+{
+    HRESULT GetSurface( 
+        [out] IUnknown **ppDirect3DSurface9
+    );
+};
+
+// flags for dwFlags in IMemAllocator::GetBuffer
+// AM_GBF_PREVFRAMESKIPPED is only significant when asking for a buffer from the
+// video renderer.  It should be TRUE if and only if the previous frame
+// was skipped.  It affects quality management.
+// AM_GBF_NOTASYNCPOINT indicates to the downstream filter (most likely the
+// video renderer) that you are not going to fill this buffer with a sync point
+// (keyframe) so now would be a bad time to return a buffer with a dynamic
+// format change, because you will be unable to switch to the new format without
+// waiting for the next sync point, causing some frames to be dropped.
+#define AM_GBF_PREVFRAMESKIPPED 1
+#define AM_GBF_NOTASYNCPOINT    2
+cpp_quote("#define AM_GBF_PREVFRAMESKIPPED 1")
+cpp_quote("#define AM_GBF_NOTASYNCPOINT 2")
+
+// This may not be supported by allocators
+cpp_quote("#define AM_GBF_NOWAIT 4")
+
+// This flag is supported by the VMR's surface allocator
+// When set the DDraw surface used for the media sample
+// is returned is an un-locked state.  Calls the GetPointer on
+// the returned media sample will fail and return a NULL pointer
+//
+cpp_quote("#define AM_GBF_NODDSURFACELOCK 8")
+
+//=====================================================================
+//=====================================================================
+// Defines IMemAllocator interface
+//
+// an allocator of IMediaSample blocks to be used for data transfer between
+// pins. Can be provided by input, output or a third party. Release
+// the IMediaSample object obtained back to the pool by calling
+// IMediaSample::Release.
+//=====================================================================
+//=====================================================================
+
+[
+        local,
+        object,
+        uuid(56a8689c-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IMemAllocator : IUnknown {
+
+    // negotiate buffer sizes, buffer count and alignment. pRequest is filled
+    // in by the caller with the requested values. pActual will be returned
+    // by the allocator with the closest that the allocator can come to this.
+    // Cannot be called unless the allocator is decommitted.
+    // Calls to GetBuffer need not succeed until Commit is called.
+    HRESULT SetProperties(
+        [in, annotation("_In_")] ALLOCATOR_PROPERTIES* pRequest,
+        [out, annotation("_Out_")] ALLOCATOR_PROPERTIES* pActual);
+
+    // return the properties actually being used on this allocator
+    HRESULT GetProperties(
+        [out, annotation("_Out_")] ALLOCATOR_PROPERTIES* pProps);
+
+
+    // commit the memory for the agreed buffers
+    HRESULT Commit(void);
+
+    // release the memory for the agreed buffers. Any threads waiting in
+    // GetBuffer will return with an error. GetBuffer calls will always fail
+    // if called before Commit or after Decommit.
+    HRESULT Decommit(void);
+
+    // get container for a sample. Blocking, synchronous call to get the
+    // next free buffer (as represented by an IMediaSample interface).
+    // on return, the time etc properties will be invalid, but the buffer
+    // pointer and size will be correct.
+    // Will only succeed if memory is committed. If GetBuffer is blocked
+    // waiting for a buffer and Decommit is called on another thread,
+    // GetBuffer will return with an error.
+    HRESULT GetBuffer(
+        [out, annotation("_Out_")] IMediaSample **ppBuffer,
+        [in,unique, annotation("_In_opt_")] REFERENCE_TIME * pStartTime,
+        [in,unique, annotation("_In_opt_")] REFERENCE_TIME * pEndTime,
+        [in] DWORD dwFlags
+    );
+
+    // put a buffer back on the allocators free list.
+    // this is typically called by the Release() method of the media
+    // sample when the reference count goes to 0
+    //
+    HRESULT ReleaseBuffer(
+        [in] IMediaSample *pBuffer
+    );
+}
+
+typedef IMemAllocator *PMEMALLOCATOR;
+
+//=====================================================================
+//=====================================================================
+// Defines IMemAllocatorCallbackTemp interface
+//
+// If the allocator supports IMemAllocator2 then callbacks are
+// available
+//
+//=====================================================================
+//=====================================================================
+[
+        local,
+        object,
+        uuid(379a0cf0-c1de-11d2-abf5-00a0c905f375),
+        pointer_default(unique)
+]
+interface IMemAllocatorCallbackTemp : IMemAllocator {
+
+    //  Set notification interface.  pNotify can be NULL
+    HRESULT SetNotify(
+        [in] IMemAllocatorNotifyCallbackTemp *pNotify);
+
+    //  Get current stats
+    HRESULT GetFreeCount(
+        [out, annotation("_Out_")] LONG *plBuffersFree);
+}
+
+//=====================================================================
+//=====================================================================
+// Defines IMemAllocatorNotify interface
+//
+//=====================================================================
+//=====================================================================
+[
+        local,
+        object,
+        uuid(92980b30-c1de-11d2-abf5-00a0c905f375),
+        pointer_default(unique)
+]
+interface IMemAllocatorNotifyCallbackTemp : IUnknown {
+
+    //  Called whenever ReleaseBuffer is called in the allocator
+    //  Note the caller may have acquired locks and this call may
+    //  occur in any context so generally the implementor of this
+    //  call will just set an event or post a message for another
+    //  thread to take action.
+    HRESULT NotifyRelease();
+}
+
+//=====================================================================
+//=====================================================================
+// Defines IMemInputPin interface
+//
+// basic shared memory transport interface.
+//=====================================================================
+//=====================================================================
+
+[
+        local,
+        object,
+        uuid(56a8689d-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IMemInputPin : IUnknown {
+
+    // return the allocator interface that this input pin
+    // would like the output pin to use
+    HRESULT GetAllocator(
+                [out, annotation("_Out_")] IMemAllocator ** ppAllocator);
+
+    // tell the input pin which allocator the output pin is actually
+    // going to use.
+    // If the readonly flag is set, then all samples from this allocator are
+    // to be treated as read-only, and should be copied before being modified.
+    HRESULT NotifyAllocator(
+                [in] IMemAllocator * pAllocator,
+                [in] BOOL bReadOnly
+                );
+
+    // this method is optional (can return E_NOTIMPL). Output pins are not obliged to call
+    // this method, nor are they obliged to fulfil the request. Input pins making such a
+    // request should check the allocator in NotifyAllocator to see if it meets their needs. If
+    // not, the input pin is responsible for any necessary data copy.
+    // Zero values will be treated as don't care: so a pin can return an alignment value
+    // and leave the other values 0.
+    HRESULT GetAllocatorRequirements( [out, annotation("_Out_")] ALLOCATOR_PROPERTIES*pProps);
+
+    // here's the next block of data from the stream. AddRef it if
+    // you need to hold it beyond the end of the Receive call.
+    // call pSample->Release when done with it.
+    //
+    // This is a blocking synchronous call.  Usually no blocking
+    // will occur but if a filter cannot process the sample immediately
+    // it may use the caller's thread to wait until it can.
+    HRESULT Receive(
+                [in] IMediaSample * pSample);
+
+    // Same as Receive but with multiple samples.  Useful for
+    // fragmented streams
+    HRESULT ReceiveMultiple(
+                [in, size_is(nSamples), annotation("_In_reads_(nSamples)")] IMediaSample **pSamples,
+                [in] long nSamples,
+                [out, annotation("_Out_")] long *nSamplesProcessed);
+
+    // See if Receive might block
+    // Returns S_OK if it can block, S_FALSE if it can't or some
+    // failure code (assume it can in this case)
+    HRESULT ReceiveCanBlock();
+}
+
+typedef IMemInputPin *PMEMINPUTPIN;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IAMovieSetup interface
+//
+// exported by filter to allow it to be self-registering
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+uuid(a3d8cec0-7e5a-11cf-bbc5-00805f6cef20),
+pointer_default(unique)
+]
+interface IAMovieSetup : IUnknown {
+
+    // methods to register and unregister filter, etc.
+
+    HRESULT Register( );
+    HRESULT Unregister( );
+}
+
+typedef IAMovieSetup *PAMOVIESETUP;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IMediaSeeking interface
+//
+// Controls seeking (time, bytes, frames, fields and samples)
+//=====================================================================
+//=====================================================================
+
+typedef enum AM_SEEKING_SeekingFlags
+{
+    AM_SEEKING_NoPositioning        = 0x00,     // No change
+    AM_SEEKING_AbsolutePositioning  = 0x01,     // Position is supplied and is absolute
+    AM_SEEKING_RelativePositioning  = 0x02,     // Position is supplied and is relative
+    AM_SEEKING_IncrementalPositioning   = 0x03, // (Stop) position relative to current
+                                                // Useful for seeking when paused (use +1)
+    AM_SEEKING_PositioningBitsMask  = 0x03,     // Useful mask
+    AM_SEEKING_SeekToKeyFrame       = 0x04,     // Just seek to key frame (performance gain)
+    AM_SEEKING_ReturnTime           = 0x08,     // Plug the media time equivalents back into the supplied LONGLONGs
+
+    AM_SEEKING_Segment              = 0x10,     // At end just do EC_ENDOFSEGMENT,
+                                                // don't do EndOfStream
+    AM_SEEKING_NoFlush              = 0x20      // Don't flush
+} AM_SEEKING_SEEKING_FLAGS;
+
+typedef enum AM_SEEKING_SeekingCapabilities
+{
+    AM_SEEKING_CanSeekAbsolute     = 0x001,
+    AM_SEEKING_CanSeekForwards     = 0x002,
+    AM_SEEKING_CanSeekBackwards    = 0x004,
+    AM_SEEKING_CanGetCurrentPos    = 0x008,
+    AM_SEEKING_CanGetStopPos       = 0x010,
+    AM_SEEKING_CanGetDuration      = 0x020,
+    AM_SEEKING_CanPlayBackwards    = 0x040,
+    AM_SEEKING_CanDoSegments       = 0x080,
+    AM_SEEKING_Source              = 0x100  // Doesn't pass thru used to
+                                            // count segment ends
+} AM_SEEKING_SEEKING_CAPABILITIES;
+
+[
+        AM_LOCAL
+        object,
+        uuid(36b73880-c2c8-11cf-8b46-00805f6cef60),
+        pointer_default(unique)
+]
+interface IMediaSeeking : IUnknown {
+
+    // Returns the capability flags
+    HRESULT GetCapabilities( [out AM_ANNOTATION("_Out_")] DWORD * pCapabilities );
+
+    // And's the capabilities flag with the capabilities requested.
+    // Returns S_OK if all are present, S_FALSE if some are present, E_FAIL if none.
+    // *pCababilities is always updated with the result of the 'and'ing and can be
+    // checked in the case of an S_FALSE return code.
+    HRESULT CheckCapabilities( [in,out] DWORD * pCapabilities );
+
+    // returns S_OK if mode is supported, S_FALSE otherwise
+    HRESULT IsFormatSupported([in] const GUID * pFormat);
+    HRESULT QueryPreferredFormat([out AM_ANNOTATION("_Out_")] GUID * pFormat);
+
+    HRESULT GetTimeFormat([out AM_ANNOTATION("_Out_")] GUID *pFormat);
+    // Returns S_OK if *pFormat is the current time format, otherwise S_FALSE
+    // This may be used instead of the above and will save the copying of the GUID
+    HRESULT IsUsingTimeFormat([in] const GUID * pFormat);
+
+    // (may return VFE_E_WRONG_STATE if graph is stopped)
+    HRESULT SetTimeFormat([in] const GUID * pFormat);
+
+    // return current properties
+    HRESULT GetDuration([out AM_ANNOTATION("_Out_")] LONGLONG *pDuration);
+    HRESULT GetStopPosition([out AM_ANNOTATION("_Out_")] LONGLONG *pStop);
+    HRESULT GetCurrentPosition([out AM_ANNOTATION("_Out_")] LONGLONG *pCurrent);
+
+    // Convert time from one format to another.
+    // We must be able to convert between all of the formats that we say we support.
+    // (However, we can use intermediate formats (e.g. MEDIA_TIME).)
+    // If a pointer to a format is null, it implies the currently selected format.
+    HRESULT ConvertTimeFormat([out AM_ANNOTATION("_Out_")] LONGLONG * pTarget, 
+                              [in AM_ANNOTATION("_In_opt_")] const GUID * pTargetFormat,
+                              [in]  LONGLONG    Source, 
+                              [in AM_ANNOTATION("_In_opt_")] const GUID * pSourceFormat );
+
+
+    // Set current and end positions in one operation
+    // Either pointer may be null, implying no change
+    HRESULT SetPositions( [in,out AM_ANNOTATION("_Inout_opt_")] LONGLONG * pCurrent, [in] DWORD dwCurrentFlags
+            , [in,out AM_ANNOTATION("_Inout_opt_")] LONGLONG * pStop, [in] DWORD dwStopFlags );
+
+    // Get CurrentPosition & StopTime
+    // Either pointer may be null, implying not interested
+    HRESULT GetPositions( [out AM_ANNOTATION("_Out_opt_")] LONGLONG * pCurrent,
+                          [out AM_ANNOTATION("_Out_opt_")] LONGLONG * pStop );
+
+    // Get earliest / latest times to which we can currently seek "efficiently".
+    // This method is intended to help with graphs where the source filter has
+    // a very high latency.  Seeking within the returned limits should just
+    // result in a re-pushing of already cached data.  Seeking beyond these
+    // limits may result in extended delays while the data is fetched (e.g.
+    // across a slow network).
+    // (NULL pointer is OK, means caller isn't interested.)
+    HRESULT GetAvailable( [out AM_ANNOTATION("_Out_opt_")] LONGLONG * pEarliest, [out AM_ANNOTATION("_Out_opt_")] LONGLONG * pLatest );
+
+    // Rate stuff
+    HRESULT SetRate([in]  double dRate);
+    HRESULT GetRate([out AM_ANNOTATION("_Out_")] double * pdRate);
+
+    // Preroll
+    HRESULT GetPreroll([out AM_ANNOTATION("_Out_")] LONGLONG * pllPreroll);
+}
+
+typedef IMediaSeeking *PMEDIASEEKING;
+
+//  Flags for IMediaEventEx
+cpp_quote("enum tagAM_MEDIAEVENT_FLAGS")
+cpp_quote("{")
+cpp_quote("    AM_MEDIAEVENT_NONOTIFY = 0x01")
+cpp_quote("};")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

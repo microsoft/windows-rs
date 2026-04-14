@@ -1,0 +1,50 @@
+/*  PrintPreview.idl
+ *
+ *	IDL defines for public Print Preview COM APIs.
+ *
+ *	Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "dxgi.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+typedef [v1_enum] enum PageCountType
+{
+    FinalPageCount = 0,
+    IntermediatePageCount,
+} PageCountType;
+
+
+[
+    uuid(1a6dd0ad-1e2a-4e99-a5ba-91f17818290e),
+    helpstring("Print Preview IPrintPreviewDxgiPackageTarget interface.")
+]
+interface IPrintPreviewDxgiPackageTarget : IUnknown
+{
+    HRESULT SetJobPageCount(
+            [in] PageCountType countType,
+            [in] UINT32 count);
+
+    HRESULT DrawPage(
+            [in] UINT32 jobPageNumber,
+            [in] IDXGISurface* pageImage,
+            [in] FLOAT dpiX,
+            [in] FLOAT dpiY);
+
+    HRESULT InvalidatePreview();
+}
+
+cpp_quote("#define ID_PREVIEWPACKAGETARGET_DXGI __uuidof(IPrintPreviewDxgiPackageTarget)")
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+

@@ -1,0 +1,148 @@
+//-----------------------------------------------------------------------------
+//
+// @copyright   (C) COPYRIGHT MICROSOFT CORPORATION
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "wtypes.idl";
+import "propsys.idl";
+import "PortableDeviceConnectImports.idl";
+
+interface IEnumPortableDeviceConnectors;
+interface IPortableDeviceConnector;
+interface IConnectionRequestCallback;
+interface IConnectionStateCallback;
+
+//---------------------------------------------------------
+// Property keys supported by the MTP Bluetooth Enumerator
+//---------------------------------------------------------
+cpp_quote("")
+cpp_quote("// Property set by the MTP Bluetooth Enumerator indicate whether the device is connected")
+cpp_quote("// DEVPKEY_MTPBTH_IsConnected, DEVPROP_TYPE_BOOLEAN")
+cpp_quote("// ")
+cpp_quote("// {ea1237fa-589d-4472-84e4-0abe36fd62ef}.2")
+cpp_quote("DEFINE_DEVPROPKEY(DEVPKEY_MTPBTH_IsConnected,            0xea1237fa, 0x589d, 0x4472, 0x84, 0xe4, 0x0a, 0xbe, 0x36, 0xfd, 0x62, 0xef, 2);")
+cpp_quote("")
+
+//---------------------------------------------------------
+// This interface is used to enumerate available portable
+// device connectors.
+//---------------------------------------------------------
+[
+    object,
+    uuid(bfdef549-9247-454f-bd82-06fe80853faa),
+    helpstring("IEnumPortableDeviceConnectors Interface"),
+    pointer_default(unique)
+]
+interface IEnumPortableDeviceConnectors : IUnknown
+{
+    HRESULT Next(
+      [in]              UINT32                          cRequested,
+      [out, size_is(cRequested), length_is(*pcFetched)]
+                        IPortableDeviceConnector**      pConnectors,
+      [in, out, unique] UINT32*                         pcFetched);
+
+    HRESULT Skip(
+      [in]              UINT32                          cConnectors);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+      [out]             IEnumPortableDeviceConnectors** ppEnum);
+};
+
+//---------------------------------------------------------
+// This interface is used by applications to communicate to
+// portable device connectors. 
+//---------------------------------------------------------
+[
+    object,
+    uuid(625e2df8-6392-4cf0-9ad1-3cfa5f17775c),
+    helpstring("IPortableDeviceConnector Interface"),
+    pointer_default(unique)
+]
+interface IPortableDeviceConnector : IUnknown
+{
+    // Sends an asynchronous connection request to the device.
+    HRESULT Connect(
+        [in]    IConnectionRequestCallback*  pCallback);    
+
+    // Sends an asynchronous disconnect request to the device.
+    HRESULT Disconnect(
+        [in]    IConnectionRequestCallback*  pCallback);    
+
+    // Cancels a pending Connect or Disconnect request.
+    HRESULT Cancel(
+        [in]    IConnectionRequestCallback*  pCallback);    
+
+    // Reads a device property synchronously.
+    // The caller is responsible for calling CoTaskMemFree on *ppData when done.
+    HRESULT GetProperty(
+        [in]                        const DEVPROPKEY*   pPropertyKey,
+        [out]                       DEVPROPTYPE*        pPropertyType,
+        [out, size_is(, *pcbData)]  BYTE**              ppData,
+        [out]                       UINT32*             pcbData);   
+
+    // Writes a device property synchronously.
+    // The caller is responsible for elevating to get the necessary privileges.
+    HRESULT SetProperty(
+        [in]                    const DEVPROPKEY*   pPropertyKey,
+        [in]                    DEVPROPTYPE         PropertyType,
+        [in, size_is(cbData)]   const BYTE*         pData,
+        [in]                    UINT32              cbData);
+
+    // Retrieves the connector's PnP device ID
+    // Caller is responsible for calling CoTaskMemAlloc on ppwszPnPID when done.
+    HRESULT GetPnPID(
+        [out]   LPWSTR*                     ppwszPnPID);
+};
+
+//---------------------------------------------------------
+// Callback interface for implemented by clients for
+// retrieving results of an asynchronous portable device
+// connect request
+//---------------------------------------------------------
+[
+    object,
+    uuid(272c9ae0-7161-4ae0-91bd-9f448ee9c427),
+    helpstring("IConnectionRequestCallback Interface"),
+    pointer_default(unique)
+]
+interface IConnectionRequestCallback : IUnknown
+{
+    // Returns the status of a completed request
+    HRESULT OnComplete(
+       [in]     HRESULT                  hrStatus);
+};
+
+//---------------------------------------------------------
+// Type library definition
+//---------------------------------------------------------
+[
+    uuid(8fe73967-aae2-4d77-9921-0c4962631056),
+    version(1.0),
+    helpstring("PortableDeviceConnectApiLib 1.0 Type Library")
+]
+library PortableDeviceConnectApiLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [
+        uuid(a1570149-e645-4f43-8b0d-409b061db2fc),
+        helpstring("EnumBthMtpConnectors Class")
+    ]
+    coclass EnumBthMtpConnectors
+    {
+        [default] interface IEnumPortableDeviceConnectors;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

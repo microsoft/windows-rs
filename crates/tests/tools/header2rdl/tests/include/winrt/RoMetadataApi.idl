@@ -1,0 +1,1007 @@
+// ==++==
+//
+//   Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+// ==--==
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: RoMetadataApi.idl
+//
+//  Contents: Declarations of types and interfaces of Windows metadata API
+//
+//--------------------------------------------------------------------------
+
+import "unknwn.idl";
+import "oaidl.idl";
+
+cpp_quote("// Declare type representations for C and IDL only")
+cpp_quote("#if !defined(__cplusplus)")
+
+// The following declarations of types and interfaces must be kept in-sync with the corresponding declarations in cor.h
+
+typedef __int3264 HCORENUM;
+
+typedef unsigned char COR_SIGNATURE;
+typedef COR_SIGNATURE * PCOR_SIGNATURE;
+typedef const COR_SIGNATURE * PCCOR_SIGNATURE;
+
+typedef const char * MDUTF8CSTR;
+
+typedef char const * UVCP_CONSTANT;
+
+// Generic token
+typedef ULONG32 mdToken;
+
+// Token  definitions
+typedef mdToken mdModule;               // Module token (roughly, a scope)
+typedef mdToken mdTypeRef;              // TypeRef reference (this or other scope)
+typedef mdToken mdTypeDef;              // TypeDef in this scope
+typedef mdToken mdFieldDef;             // Field in this scope
+typedef mdToken mdMethodDef;            // Method in this scope
+typedef mdToken mdParamDef;             // param token
+typedef mdToken mdInterfaceImpl;        // interface implementation token
+
+typedef mdToken mdMemberRef;            // MemberRef (this or other scope)
+typedef mdToken mdCustomAttribute;      // attribute token
+typedef mdToken mdPermission;           // DeclSecurity
+
+typedef mdToken mdSignature;            // Signature object
+typedef mdToken mdEvent;                // event token
+typedef mdToken mdProperty;             // property token
+
+typedef mdToken mdModuleRef;            // Module reference (for the imported modules)
+
+// Assembly tokens.
+typedef mdToken mdAssembly;             // Assembly token.
+typedef mdToken mdAssemblyRef;          // AssemblyRef token.
+typedef mdToken mdFile;                 // File token.
+typedef mdToken mdExportedType;         // ExportedType token.
+typedef mdToken mdManifestResource;     // ManifestResource token.
+
+typedef mdToken mdTypeSpec;             // TypeSpec object
+
+typedef mdToken mdGenericParam;         // formal parameter to generic type or method
+typedef mdToken mdMethodSpec;           // instantiation of a generic method
+typedef mdToken mdGenericParamConstraint; // constraint on a formal generic parameter
+
+typedef mdToken mdString;               // User literal string token.
+
+typedef struct COR_FIELD_OFFSET
+{
+    mdFieldDef  ridOfField;
+    ULONG32     ulOffset;
+} COR_FIELD_OFFSET;
+
+typedef struct OSINFO
+{
+    DWORD dwOSPlatformId;
+    DWORD dwOSMajorVersion;
+    DWORD dwOSMinorVersion;
+} OSINFO;
+
+typedef struct ASSEMBLYMETADATA
+{
+    USHORT   usMajorVersion;
+    USHORT   usMinorVersion;
+    USHORT   usBuildNumber;
+    USHORT   usRevisionNumber;
+    [string, size_is(cbLocale)]
+    LPWSTR   szLocale;
+    ULONG    cbLocale;      // [IN/OUT] Size of the buffer in wide chars/Actual size.
+    [size_is(ulProcessor)]
+    DWORD *  rProcessor;
+    ULONG    ulProcessor;   // [IN/OUT] Size of the Processor ID array/Actual # of entries filled in.
+    [size_is(ulOS)]
+    OSINFO * rOS;
+    ULONG    ulOS;          // [IN/OUT]Size of the OSINFO array/Actual # of entries filled in.
+} ASSEMBLYMETADATA;
+
+
+
+[
+    local, 
+    uuid(809C652E-7396-11D2-9771-00A0C9B4D50C)
+]
+interface IMetaDataDispenser : IUnknown
+{
+    HRESULT DefineScope(
+        [in] REFCLSID    rclsid,                            // What version to create.
+        [in] DWORD       dwCreateFlags,                     // Flags on the create.
+        [in] REFIID      riid,                              // The interface desired.
+        [out, iid_is(riid)]                     
+             IUnknown ** ppIUnk);                           // Return interface on success.
+
+    HRESULT OpenScope(
+        [in, string]                            
+             LPCWSTR     szScope,                           // The scope to open.
+        [in] DWORD       dwOpenFlags,                       // Open mode flags.
+        [in] REFIID      riid,                              // The interface desired.
+        [out, iid_is(riid)] 
+             IUnknown ** ppIUnk);                           // Return interface on success.
+
+    HRESULT OpenScopeOnMemory(
+        [in, size_is(cbData)] 
+             const BYTE * pData,                            // Location of scope data.
+        [in] ULONG        cbData,                           // Size of the data pointed to by pData.
+        [in] DWORD        dwOpenFlags,                      // Open mode flags.
+        [in] REFIID       riid,                             // The interface desired.
+        [out, iid_is(riid)] 
+             IUnknown **  ppIUnk);                          // Return interface on success.
+} // IMetaDataDispenser
+
+[
+    local, 
+    uuid(31BCFCE2-DAFB-11D2-9F81-00C04F79A0A3)
+]
+interface IMetaDataDispenserEx : IMetaDataDispenser
+{
+    HRESULT SetOption(
+        [in] REFGUID         optionId,                      // GUID for the option to be set.
+        [in] const VARIANT * pValue);                       // Value to which the option is to be set.
+
+    HRESULT GetOption(
+        [in]  REFGUID   optionId,                           // GUID for the option to be set.
+        [out] VARIANT * pValue);                            // Value to which the option is currently set.
+
+    HRESULT OpenScopeOnITypeInfo(
+        [in] ITypeInfo * pITI,                              // ITypeInfo to open.
+        [in] DWORD       dwOpenFlags,                       // Open mode flags.
+        [in] REFIID      riid,                              // The interface desired.
+        [out, iid_is(riid)] 
+             IUnknown ** ppIUnk);                           // Return interface on success.
+
+    HRESULT GetCORSystemDirectory(
+        [out, string, size_is(cchBuffer), annotation("_Out_writes_to_opt_(cchBuffer, *pchBuffer)")]
+              LPWSTR  szBuffer,                             // Buffer for the directory name
+        [in]  DWORD   cchBuffer,                            // Size of the buffer
+        [out] DWORD * pchBuffer);                           // Number of characters returned
+
+    HRESULT FindAssembly(
+        [in, string, unique] LPCWSTR szAppBase,             // optional - can be NULL
+        [in, string, unique] 
+                     LPCWSTR szPrivateBin,                  // optional - can be NULL
+        [in, string, unique]
+                     LPCWSTR szGlobalBin,                   // optional - can be NULL
+        [in, string, unique] 
+                     LPCWSTR szAssemblyName,                // required - this is the assembly you are requesting
+        [out, string, size_is(cchName), length_is(*pchName)]
+                     LPWSTR  szName,                        // buffer - to hold name 
+        [in]         ULONG   cchName,                       // the name buffer's size
+        [out]        ULONG * pchName);                      // the number of characters returend in the buffer
+    
+    HRESULT FindAssemblyModule(
+        [in, string, unique] LPCWSTR szAppBase,             // optional - can be NULL
+        [in, string, unique] 
+                     LPCWSTR szPrivateBin,                  // optional - can be NULL
+        [in, string, unique] 
+                     LPCWSTR szGlobalBin,                   // optional - can be NULL
+        [in, string] LPCWSTR szAssemblyName,                // required - this is the assembly you are requesting
+        [in, string] LPCWSTR szModuleName,                  // required - the name of the module
+        [out, string, size_is(cchName), length_is(*pcName), annotation("_Out_writes_to_opt_(cchName, *pcName)")]
+                     LPWSTR  szName,                        // buffer - to hold name 
+        [in]         ULONG   cchName,                       // the name buffer's size
+        [out]        ULONG * pcName);                       // the number of characters returend in the buffer
+} // IMetaDataDispenserEx
+
+
+[
+    local, 
+    uuid(EE62470B-E94B-424E-9B7C-2F00C9249F93)
+]
+interface IMetaDataAssemblyImport : IUnknown
+{
+    HRESULT GetAssemblyProps(
+        [in]  mdAssembly         mda,                       // The Assembly for which to get the properties.
+        [out, size_is(, *pcbPublicKey)]
+              const BYTE **      ppbPublicKey,              // Pointer to the public key.
+        [out] ULONG *            pcbPublicKey,              // Count of bytes in the public key.
+        [out] ULONG *            pulHashAlgId,              // Hash Algorithm.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR             szName,                    // Buffer to fill with assembly's simply name.
+        [in]  ULONG              cchName,                   // Size of buffer in wide chars.
+        [out] ULONG *            pchName,                   // Actual # of wide chars in name.
+        [out] 
+              ASSEMBLYMETADATA * pMetaData,                 // Assembly MetaData.
+        [out] DWORD *            pdwAssemblyFlags);         // Flags.
+    
+    HRESULT GetAssemblyRefProps(
+        [in]  mdAssemblyRef      mdar,                      // The AssemblyRef for which to get the properties.
+        [out, size_is(, *pcbPublicKeyOrToken)]
+              const BYTE **      ppbPublicKeyOrToken,       // Pointer to the public key or token.
+        [out] ULONG *            pcbPublicKeyOrToken,       // Count of bytes in the public key or token.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR             szName,                    // Buffer to fill with name.
+        [in]  ULONG              cchName,                   // Size of buffer in wide chars.
+        [out] ULONG *            pchName,                   // Actual # of wide chars in name.
+        [out] 
+              ASSEMBLYMETADATA * pMetaData,                 // Assembly MetaData.
+        [out, size_is(, *pcbHashValue)]
+              const BYTE **      ppbHashValue,              // Hash blob.
+        [out] ULONG *            pcbHashValue,              // Count of bytes in the hash blob.
+        [out] DWORD *            pdwAssemblyRefFlags);      // Flags.
+
+    HRESULT GetFileProps(
+        [in]  mdFile        mdf,                            // The File for which to get the properties.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR        szName,                         // Buffer to fill with name.
+        [in]  ULONG         cchName,                        // Size of buffer in wide chars.
+        [out] ULONG *       pchName,                        // Actual # of wide chars in name.
+        [out, size_is(, *pcbHashValue)]
+              const BYTE ** ppbHashValue,                   // Pointer to the Hash Value Blob.
+        [out] ULONG *       pcbHashValue,                   // Count of bytes in the Hash Value Blob.
+        [out] DWORD *       pdwFileFlags);                  // Flags.
+    
+    HRESULT GetExportedTypeProps(
+        [in]  mdExportedType mdct,                          // The ExportedType for which to get the properties.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR         szName,                        // Buffer to fill with name.
+        [in]  ULONG          cchName,                       // Size of buffer in wide chars.
+        [out] ULONG *        pchName,                       // Actual # of wide chars in name.
+        [out] mdToken *      ptkImplementation,             // mdFile or mdAssemblyRef or mdExportedType.
+        [out] mdTypeDef *    ptkTypeDef,                    // TypeDef token within the file.
+        [out] DWORD *        pdwExportedTypeFlags);         // Flags.
+    
+    HRESULT GetManifestResourceProps(
+        [in]  mdManifestResource  mdmr,                     // The ManifestResource for which to get the properties.
+        [out, string, size_is(cchName), length_is(pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR              szName,                   // Buffer to fill with name.
+        [in]  ULONG               cchName,                  // Size of buffer in wide chars.
+        [out] ULONG *             pchName,                  // Actual # of wide chars in name.
+        [out] mdToken *           ptkImplementation,        // mdFile or mdAssemblyRef that provides the ManifestResource.
+        [out] DWORD *             pdwOffset,                // Offset to the beginning of the resource within the file.
+        [out] DWORD *             pdwResourceFlags);        // Flags.
+    
+    HRESULT EnumAssemblyRefs(
+        [in, out] HCORENUM *    phEnum,                     // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTokens)]          
+                  mdAssemblyRef rAssemblyRefs[],            // Put AssemblyRefs here.
+        [in]      ULONG         cMax,                       // Max AssemblyRefs to put.
+        [out]     ULONG *       pcTokens);                  // Put # put here.
+    
+    HRESULT EnumFiles(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdFile     rFiles[],                      // Put Files here.
+        [in]      ULONG      cMax,                          // Max Files to put.
+        [out]     ULONG *    pcTokens);                     // Put # put here.
+    
+    HRESULT EnumExportedTypes(
+        [in, out] HCORENUM *     phEnum,                    // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdExportedType rExportedTypes[],          // Put ExportedTypes here.
+        [in]      ULONG          cMax,                      // Max ExportedTypes to put.
+        [out]     ULONG *        pcTokens);                 // Put # put here.
+    
+    HRESULT EnumManifestResources(
+        [in, out] HCORENUM *         phEnum,                // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdManifestResource rManifestResources[],  // Put ManifestResources here.
+        [in]      ULONG              cMax,                  // Max Resources to put.
+        [out]     ULONG *            pcTokens);             // Put # put here.
+    
+    HRESULT GetAssemblyFromScope(
+        [out] mdAssembly * ptkAssembly);                    // Put token here.
+    
+    HRESULT FindExportedTypeByName(
+        [in, string]
+              LPCWSTR          szName,                      // Name of the ExportedType.
+        [in]  mdToken          mdtExportedType,             // ExportedType for the enclosing class.
+        [out] mdExportedType * ptkExportedType);            // Put the ExportedType token here.
+    
+    HRESULT FindManifestResourceByName(
+        [in, string]
+              LPCWSTR              szName,                  // Name of the ManifestResource.
+        [out] mdManifestResource * ptkManifestResource);    // Put the ManifestResource token here.
+    
+    void CloseEnum(
+        [in] HCORENUM hEnum);                               // Enum to be closed.
+    
+    HRESULT FindAssembliesByName(
+        [in, string, unique]
+              LPCWSTR    szAppBase,                         // optional - can be NULL
+        [in, string, unique]
+              LPCWSTR    szPrivateBin,                      // optional - can be NULL
+        [in, string]
+              LPCWSTR    szAssemblyName,                    // required - this is the assembly you are requesting
+        [out, size_is(cMax), length_is(*pcAssemblies)]
+              IUnknown * ppIUnk[],                          // put IMetaDataAssemblyImport pointers here
+        [in]  ULONG      cMax,                              // The max number to put
+        [out] ULONG *    pcAssemblies);                     // The number of assemblies returned.
+} // IMetaDataAssemblyImport
+
+[
+    local, 
+    uuid(7DAC8207-D3AE-4C75-9B67-92801A497D44)
+]
+interface IMetaDataImport : IUnknown
+{
+    void CloseEnum(
+        [in] HCORENUM hEnum);                               // Enum to be closed.
+    
+    HRESULT CountEnum(
+        [in]          HCORENUM hEnum,                       // Pointer to the enum.
+        [out, retval] ULONG *  pulCount);                   // The number of elements enumerated
+    
+    HRESULT ResetEnum(
+        [in] HCORENUM hEnum,                                // Pointer to the enum.
+        [in] ULONG    ulPos);                               // The new position at which to place the enumerator.
+    
+    HRESULT EnumTypeDefs(
+        [in, out]     HCORENUM * phEnum,                    // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTypeDefs)]        
+                      mdTypeDef  rgTypeDefs[],              // The array used to store the TypeDef tokens
+        [in]          ULONG      cMax,                      // The maximum size of the rTypeDefs array
+        [out, retval] ULONG *    pcTypeDefs);               /// The number of TypeDef tokens returned in rTypeDefs
+    
+    HRESULT EnumInterfaceImpls(
+        [in, out]     HCORENUM *      phEnum,               // Pointer to the enum.
+        [in]          mdTypeDef       td,                   // The token of the TypeDef whose MethodDef tokens representing interface implementations are to be enumerated.
+        [out, size_is(cMax), length_is(*pcImpls)]           
+                      mdInterfaceImpl rImpls[],             // The array used to store the MethodDef tokens.
+        [in]          ULONG           cMax,                 // The maximum size of the rImpls array.
+        [out, retval] ULONG*          pcImpls);             // The actual number of tokens returned in rImpls.
+
+    HRESULT EnumTypeRefs(
+        [in, out]     HCORENUM * phEnum,                    // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTypeRefs)] 
+                      mdTypeRef  rgTypeRefs[],              // The array used to store the TypeRef tokens.
+        [in]          ULONG      cMax,                      // The maximum size of the rTypeRefs array.
+        [out, retval] ULONG *    pcTypeRefs);               // A pointer to the number of TypeRef tokens returned in rTypeRefs.
+     
+    HRESULT FindTypeDefByName(
+        [in, string]  LPCWSTR     szTypeDef,                // Name of the Type.
+        [in]          mdToken     tkEnclosingClass,         // TypeDef/TypeRef for Enclosing class.
+        [out, retval] mdTypeDef * ptkTypeDef);              // Put the TypeDef token here.
+
+    HRESULT GetScopeProps(
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")] 
+                        LPWSTR  szName,                     // Put the name here.
+        [in]            ULONG   cchName,                    // Size of name buffer in wide chars.
+        [out]           ULONG * pchName,                    // Put size of name (wide chars) here.
+        [out, unique] GUID *  pmvid);                       // Put MVID here.
+    
+    HRESULT GetModuleFromScope(
+        [out] mdModule * ptkModule);                        // Put mdModule token here.
+    
+    HRESULT GetTypeDefProps(
+        [in]  mdTypeDef tkTypeDef,                          // TypeDef token for inquiry.
+        [out, string, size_is(cchTypeDef), length_is(*pchTypeDef), annotation("_Out_writes_to_opt_(cchTypeDef, pchTypeDef)")] 
+              LPWSTR    szTypeDef,                          // Put name here.
+        [in]  ULONG     cchTypeDef,                         // size of name buffer in wide chars.
+        [out] ULONG *   pchTypeDef,                         // put size of name (wide chars) here.
+        [out] DWORD *   pdwTypeDefFlags,                    // Put flags here.
+        [out] mdToken * ptkExtends);                        // Put base class TypeDef/TypeRef here.
+
+    HRESULT GetInterfaceImplProps(
+        [in]  mdInterfaceImpl tkInterfaceImpl,              // InterfaceImpl token.
+        [out] mdTypeDef *     ptkClass,                     // Put implementing class token here.
+        [out] mdToken *       ptkIface);                    // Put implemented interface token here.
+    
+    HRESULT GetTypeRefProps(
+        [in]  mdTypeRef tkTypeRef,                          // TypeRef token.
+        [out] mdToken * ptkResolutionScope,                 // Resolution scope, ModuleRef or AssemblyRef.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")] 
+              LPWSTR    szName,                             // Name of the TypeRef.
+        [in]  ULONG     cchName,                            // Size of buffer.
+        [out] ULONG *   pchName);                           // Size of Name.
+    
+    HRESULT ResolveTypeRef(
+        [in]          mdTypeRef   tkTypeRef,                // The TypeRef metadata token to return the referenced type information for.
+        [in]          REFIID      riid,                     // The IID of the interface to return in ppIScope. Typically, this would be IID_IMetaDataImport.
+        [out, iid_is(riid)] 
+                      IUnknown ** ppIScope,                 // An interface to the module scope in which the referenced type is defined.
+        [out, retval] mdTypeDef * ptkTypeDef);              // A pointer to a TypeDef token that represents the referenced type.
+    
+    HRESULT EnumMembers(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [in]      mdTypeDef  tkTypeDef,                     // TypeDef to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdToken    rgMembers[],                   // Put MemberDefs here.
+        [in]      ULONG      cMax,                          // Max MemberDefs to put.
+        [out]     ULONG *    pcTokens);                     // Put # put here.
+
+    HRESULT EnumMembersWithName(
+        [in, out]    HCORENUM * phEnum,                     // Pointer to the enum.
+        [in]         mdTypeDef  tkTypeDef,                  // TypeDef to scope the enumeration.
+        [in, string] LPCWSTR    szName,                     // Limit results to those with this name.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                     mdToken    rgMembers[],                // Put MemberDefs here.
+        [in]         ULONG      cMax,                       // Max MemberDefs to put.
+        [out]        ULONG *    pcTokens);                  // Put # put here.
+
+    HRESULT EnumMethods(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [in]      mdTypeDef  tkTypeDef,                     // TypeDef to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                mdMethodDef  rgMethods[],                   // Put MethodDefs here.
+        [in]    ULONG        cMax,                          // Max MethodDefs to put.
+        [out]   ULONG *      pcTokens);                     // Put # put here.
+    
+    HRESULT EnumMethodsWithName(
+        [in, out]    HCORENUM *  phEnum,                    // Pointer to the enum.
+        [in]         mdTypeDef   tkTypeDef,                 // TypeDef to scope the enumeration.
+        [in, string] LPCWSTR     szName,                    // Limit results to those with this name.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                     mdMethodDef rgMethods[],               // Put MethodDefs here.
+        [in]         ULONG       cMax,                      // Max MethodDefs to put.
+        [out]        ULONG * pcTokens);                     // Put # put here.
+
+    HRESULT EnumFields(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [in]      mdTypeDef  tkTypeDef,                     // TypeDef to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdFieldDef rgFields[],                    // Put FieldDefs here.
+        [in]      ULONG      cMax,                          // Max FieldDefs to put.
+        [out]     ULONG *    pcTokens);                     // Put # put here.
+
+    HRESULT EnumFieldsWithName(
+        [in, out]    HCORENUM * phEnum,                     // Pointer to the enum.
+        [in]         mdTypeDef  tkTypeDef,                  // TypeDef to scope the enumeration.
+        [in, string] LPCWSTR    szName,                     // Limit results to those with this name.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                     mdFieldDef rFields[],                  // Put FieldDefs here.
+        [in]         ULONG      cMax,                       // Max FieldDefs to put.
+        [out]        ULONG *    pcTokens);                  // Put # put here.
+    
+    HRESULT EnumParams( 
+        [in, out] HCORENUM *  phEnum,                       // Pointer to the enum.
+        [in]      mdMethodDef tkMethodDef,                  // MethodDef to scope the enumeration. 
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdParamDef  rParams[],                    // Put ParamDefs here.
+        [in]      ULONG       cMax,                         // Max ParamDefs to put.
+        [out]     ULONG *     pcTokens);                    // Put # put here.
+    
+    HRESULT EnumMemberRefs(
+        [in, out] HCORENUM *  phEnum,                       // Pointer to the enum.
+        [in]      mdToken     tkParent,                     // Parent token to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcTokens)] 
+                  mdMemberRef rgMemberRefs[],               // Put MemberRefs here.
+        [in]      ULONG       cMax,                         // Max MemberRefs to put.
+        [out]     ULONG *     pcTokens);                    // Put # put here.
+    
+    HRESULT EnumMethodImpls(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [in]      mdTypeDef  tkTypeDef,                     // TypeDef to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcTokens)] 
+                  mdToken    rMethodBody[],                 // Put Method Body tokens here.
+        [out, size_is(cMax), length_is(*pcTokens)] 
+                  mdToken    rMethodDecl[],                 // Put Method Declaration tokens here.
+        [in]      ULONG      cMax,                          // Max tokens to put.
+        [out]     ULONG *    pcTokens);                     // Put # put here.
+    
+    HRESULT EnumPermissionSets(
+        [in, out] HCORENUM *   phEnum,                      // Pointer to the enum.
+        [in]      mdToken      tk,                          // if !NIL, token to scope the enumeration.
+        [in]      DWORD        dwActions,                   // if !0, return only these actions.
+        [out, size_is(cMax), length_is(*pcTokens)] 
+                  mdPermission rPermission[],               // Put Permissions here.
+        [in]      ULONG        cMax,                        // Max Permissions to put. 
+        [out]     ULONG *      pcTokens);                   // Put # put here.
+    
+    HRESULT FindMember(
+        [in]         mdTypeDef       tkTypeDef,             // given typedef
+        [in, string] LPCWSTR         szName,                // member name 
+        [in, size_is(cbSigBlob)] 
+                     PCCOR_SIGNATURE pvSigBlob,             // point to a blob value of CLR signature 
+        [in]         ULONG           cbSigBlob,             // count of bytes in the signature blob
+        [out]        mdToken *       pmb);                  // matching memberdef 
+
+    HRESULT FindMethod(
+        [in]         mdTypeDef       tkTypeDef,             // given typedef
+        [in, string] LPCWSTR         szName,                // member name 
+        [in, size_is(cbSigBlob)] 
+                     PCCOR_SIGNATURE pvSigBlob,             // point to a blob value of CLR signature 
+        [in]         ULONG           cbSigBlob,             // count of bytes in the signature blob
+        [out]        mdMethodDef *   ptkMethodDef);         // matching memberdef 
+    
+    HRESULT FindField(
+        [in]         mdTypeDef       tkTypeDef,             // given typedef
+        [in, string] LPCWSTR         szName,                // member name 
+        [in, size_is(cbSigBlob)] 
+                     PCCOR_SIGNATURE pvSigBlob,             // point to a blob value of CLR signature 
+        [in]         ULONG           cbSigBlob,             // count of bytes in the signature blob
+        [out]        mdFieldDef *    ptkFieldDef);          // matching memberdef 
+    
+    HRESULT FindMemberRef(
+        [in]         mdTypeRef       tkTypeRef,             // given typeRef
+        [in, string] LPCWSTR         szName,                // member name 
+        [in, size_is(cbSigBlob)] 
+                     PCCOR_SIGNATURE pvSigBlob,             // point to a blob value of CLR signature 
+        [in]         ULONG           cbSigBlob,             // count of bytes in the signature blob
+        [out]        mdMemberRef *   pMemberRef);           // matching memberref 
+    
+    HRESULT GetMethodProps( 
+        [in]  mdMethodDef       tkMethodDef,                // The method for which to get props.
+        [out] mdTypeDef *       ptkClass,                   // Put method's class here. 
+        [out, string, size_is(cchMethod), length_is(*pchMethod), annotation("_Out_writes_to_opt_(cchMethod, *pchMethod)")]
+              LPWSTR            szMethod,                   // Put method's name here.
+        [in]  ULONG             cchMethod,                  // Size of szMethod buffer in wide chars.
+        [out] ULONG *           pchMethod,                  // Put actual size here 
+        [out] DWORD *           pdwAttr,                    // Put flags here.
+        [out, size_is(, *pcbSigBlob)]
+              PCCOR_SIGNATURE * ppvSigBlob,                 // point to the blob value of meta data
+        [out] ULONG *           pcbSigBlob,                 // actual size of signature blob
+        [out] ULONG *           pulCodeRVA,                 // codeRVA
+        [out] DWORD *           pdwImplFlags);              // Impl. Flags
+
+    HRESULT GetMemberRefProps(
+        [in]  mdMemberRef       tkMemberRef,                // given memberref 
+        [out] mdToken *         ptk,                        // Put classref or classdef here. 
+        [out, string, size_is(cchMember), length_is(*pchMember), annotation("_Out_writes_to_opt_(cchMember, *pchMember)")]
+              LPWSTR            szMember,                   // buffer to fill for member's name
+        [in]  ULONG             cchMember,                  // the count of char of szMember
+        [out] ULONG *           pchMember,                  // actual count of char in member name
+        [out, size_is(, *pcbSigBlob)]
+              PCCOR_SIGNATURE * ppvSigBlob,                 // point to meta data blob value
+        [out] ULONG *           pcbSigBlob);                // actual size of signature blob
+    
+    HRESULT EnumProperties(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [in]      mdTypeDef  tkTypDef,                      // TypeDef to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcProperties)]
+                  mdProperty rgProperties[],                // Put Properties here.
+        [in]      ULONG      cMax,                          // Max properties to put.
+        [out]     ULONG *    pcProperties);                 // Put # put here.
+    
+    HRESULT EnumEvents(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [in]      mdTypeDef  tkTypDef,                      // TypeDef to scope the enumeration.
+        [out, size_is(cMax), length_is(*pcEvents)]
+                  mdEvent    rgEvents[],                    // Put events here.
+        [in]      ULONG      cMax,                          // Max events to put.
+        [out]     ULONG *    pcEvents);                     // Put # put here.
+    
+    HRESULT GetEventProps(
+        [in]  mdEvent       tkEvent,                        // event token 
+        [out] mdTypeDef *   ptkClass,                       // typedef containing the event declarion.
+        [out, string, size_is(cchEvent), length_is(*pchEvent)]
+              LPWSTR        szEvent,                        // Event name 
+        [in]  ULONG         cchEvent,                       // the count of wchar of szEvent
+        [out] ULONG *       pchEvent,                       // actual count of wchar for event's name 
+        [out] DWORD *       pdwEventFlags,                  // Event flags.
+        [out] mdToken *     ptkEventType,                   // EventType class
+        [out] mdMethodDef * ptkAddOn,                       // AddOn method of the event
+        [out] mdMethodDef * ptkRemoveOn,                    // RemoveOn method of the event
+        [out] mdMethodDef * tkkFire,                        // Fire method of the event
+        [out, size_is(cMax), length_is(*pcOtherMethod)]
+              mdMethodDef   rgOtherMethod[],                // other method of the event
+        [in]  ULONG         cMax,                           // size of rmdOtherMethod
+        [out] ULONG *       pcOtherMethod);                 // total number of other method of this event 
+
+    HRESULT EnumMethodSemantics(
+        [in, out] HCORENUM *  phEnum,                       // Pointer to the enum.
+        [in]      mdMethodDef tkMethodDef,                  // MethodDef to scope the enumeration. 
+        [out, size_is(cMax), length_is(*pcEventProp)]
+                  mdToken     rgEventProp[],                // Put Event/Property here.
+        [in]      ULONG       cMax,                         // Max properties to put.
+        [out]     ULONG *     pcEventProp);                 // Put # put here.
+    
+    HRESULT GetMethodSemantics(
+        [in]  mdMethodDef tkMethodDef,                      // method token
+        [in]  mdToken     tkEventProp,                      // event/property token.
+        [out] DWORD *     pdwSemanticsFlags);               // the role flags for the method/propevent pair 
+    
+    HRESULT GetClassLayout( 
+        [in]  mdTypeDef        tkTypeDef,                   // give typedef
+        [out] DWORD *          pdwPackSize,                 // 1, 2, 4, 8, or 16
+        [out, size_is(cMax), length_is(*pcFieldOffset)]
+              COR_FIELD_OFFSET rgFieldOffset[],             // field offset array 
+        [in]  ULONG            cMax,                        // size of the array
+        [out] ULONG *          pcFieldOffset,               // needed array size
+        [out] ULONG *          pulClassSize);               // the size of the class
+    
+    HRESULT GetFieldMarshal(
+        [in]  mdToken           tk,                         // given a field's memberdef
+        [out, size_is(, *pcbNativeType)]
+              PCCOR_SIGNATURE * ppvNativeType,              // native type of this field
+        [out] ULONG *           pcbNativeType);             // the count of bytes of *ppvNativeType
+    
+    HRESULT GetRVA(
+        [in]  mdToken tk,                                   // Member for which to set offset
+        [out] ULONG * pulCodeRVA,                           // The offset
+        [out] DWORD * pdwImplFlags);                        // the implementation flags 
+
+    HRESULT GetPermissionSetProps(
+        [in]  mdPermission  tk,                             // the permission token.
+        [out] DWORD *       pdwAction,                      // CorDeclSecurity.
+        [out, size_is(, *pcbPermission)]
+              BYTE const ** ppvPermission,                  // permission blob.
+        [out] ULONG *       pcbPermission);                 // count of bytes of pvPermission.
+    
+    HRESULT GetSigFromToken(
+        [in]  mdSignature       tkSignature,                // Signature token.
+        [out, size_is(, *pcbSig)]
+              PCCOR_SIGNATURE * ppvSig,                     // return pointer to token.
+        [out] ULONG *           pcbSig);                    // return size of signature.
+    
+    HRESULT GetModuleRefProps(
+        [in]  mdModuleRef tkModuleRef,                      // moduleref token.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR      szName,                           // buffer to fill with the moduleref name.
+        [in]  ULONG       cchName,                          // size of szName in wide characters.
+        [out] ULONG *     pchName);                         // actual count of characters in the name.
+    
+    HRESULT EnumModuleRefs(
+        [in, out] HCORENUM *  phEnum,                       // pointer to the enum.
+        [out, size_is(cMax), length_is(*pcModuleRefs)]
+                  mdModuleRef rgModuleRefs[],               // put modulerefs here.
+        [in]      ULONG       cMax,                         // max memberrefs to put.
+        [out]     ULONG *     pcModuleRefs);                // put # put here.
+    
+    HRESULT GetTypeSpecFromToken(
+        [in]  mdTypeSpec        tkTypeSpec,                 // TypeSpec token.
+        [out, size_is(, *pcbSig)]
+              PCCOR_SIGNATURE * ppvSig,                     // return pointer to TypeSpec signature
+        [out] ULONG *           pcbSig);                    // return size of signature.
+    
+    HRESULT GetNameFromToken(
+        [in]          mdToken      tk,                      // Token to get name from.  Must have a name.
+        [out, string] MDUTF8CSTR * pszUtf8NamePtr);         // Return pointer to UTF8 name in heap.
+    
+    HRESULT EnumUnresolvedMethods(
+        [in, out] HCORENUM * phEnum,                        // Pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTokens)]
+                  mdToken    rgMethods[],                   // Put MemberDefs here.
+        [in]      ULONG      cMax,                          // Max MemberDefs to put.
+        [out]     ULONG *    pcTokens);                     // Put # put here.
+    
+    HRESULT GetUserString(
+        [in]  mdString    tkString,                         // String token.
+        [out, string, size_is(cchString), length_is(*pchString), annotation("_Out_writes_to_opt_(cchString, *pchString)")]
+              LPWSTR      szString,                         // Copy of string.
+        [in]  ULONG       cchString,                        // Max chars of room in szString.
+        [out] ULONG *     pchString);                       // How many chars in actual string.
+    
+    HRESULT GetPinvokeMap(
+        [in]  mdToken       tk,                             // FieldDef or MethodDef.
+        [out] DWORD *       pdwMappingFlags,                // Flags used for mapping.
+        [out, string, size_is(cchImportName), length_is(*pchImportName), annotation("_Out_writes_to_opt_(cchImportName, *pchImportName)")]
+              LPWSTR        szImportName,                   // Import name.
+        [in]  ULONG         cchImportName,                  // Size of the name buffer.
+        [out] ULONG *       pchImportName,                  // Actual number of characters stored.
+        [out] mdModuleRef * ptkImportDLL);                  // ModuleRef token for the target DLL.
+    
+    HRESULT EnumSignatures(
+        [in, out] HCORENUM *  phEnum,                       // pointer to the enum.
+        [out, size_is(cMax), length_is(*pcSignatures)]
+                  mdSignature rgSignatures[],               // put signatures here.
+        [in]      ULONG       cMax,                         // max signatures to put.
+        [out]     ULONG *     pcSignatures);                // put # put here.
+    
+    HRESULT EnumTypeSpecs(
+        [in, out] HCORENUM * phEnum,                        // pointer to the enum.
+        [out, size_is(cMax), length_is(*pcTypeSpecs)]
+                  mdTypeSpec rgTypeSpecs[],                 // put TypeSpecs here.
+        [in]      ULONG      cMax,                          // max TypeSpecs to put.
+        [out]     ULONG *    pcTypeSpecs);                  // put # put here.
+    
+    HRESULT EnumUserStrings(
+        [in, out] HCORENUM * phEnum,                        // pointer to the enum.
+        [out, size_is(cMax), length_is(*pcStrings)]
+                  mdString   rgStrings[],                   // put Strings here.
+        [in]      ULONG      cMax,                          // max Strings to put.
+        [out]     ULONG *    pcStrings);                    // put # put here.
+    
+    HRESULT GetParamForMethodIndex(
+        [in]  mdMethodDef  tkMethodDef,                     // Method token.
+        [in]  ULONG        ulParamSeq,                      // Parameter sequence.
+        [out] mdParamDef * ptkParamDef);                    // Put Param token here.
+
+    HRESULT EnumCustomAttributes(
+        [in, out] HCORENUM *        phEnum,                 // COR enumerator.
+        [in]      mdToken           tk,                     // Token to scope the enumeration, 0 for all.
+        [in]      mdToken           tkType,                 // Type of interest, 0 for all.
+        [out, size_is(cMax), length_is(*pcCustomAttributes)]
+                  mdCustomAttribute rgCustomAttributes[],   // Put custom attribute tokens here.
+        [in]      ULONG             cMax,                   // Size of rCustomAttributes.
+        [out]     ULONG *           pcCustomAttributes);    // Put count of token values here.
+
+    HRESULT GetCustomAttributeProps(
+        [in]  mdCustomAttribute cv,                         // CustomAttribute token.
+        [out, unique] mdToken *         ptkObj,             // Put object token here.
+        [out, unique] mdToken *         ptkType,            // Put AttrType token here.
+        [out, size_is(, *pcbBlob), unique]
+              BYTE const **     ppBlob,                     // Put pointer to data here.
+        [out, unique] ULONG *           pcbBlob);           // Put size of date here.
+
+    HRESULT FindTypeRef(
+        [in]         mdToken     tkResolutionScope,         // ModuleRef, AssemblyRef or TypeRef.
+        [in, string] LPCWSTR     szName,                    // TypeRef Name.
+        [out]        mdTypeRef * tkTypeRef);                // matching TypeRef.
+
+    HRESULT GetMemberProps(
+        [in]  mdToken           tkMember,                   // The member for which to get props.
+        [out] mdTypeDef *       ptkTypeDef,                 // Put member's class here. 
+        [out, string, size_is(cchMember), length_is(*pchMember), annotation("_Out_writes_to_opt_(cchMember, *pchMember)")]
+              LPWSTR            szMember,                   // Put member's name here.
+        [in]  ULONG             cchMember,                  // Size of szMember buffer in wide chars.
+        [out] ULONG *           pchMember,                  // Put actual size here 
+        [out] DWORD *           pdwAttr,                    // Put flags here.
+        [out, size_is(, *pcbSigBlob)]
+              PCCOR_SIGNATURE * ppvSigBlob,                 // point to the blob value of meta data
+        [out] ULONG *           pcbSigBlob,                 // actual size of signature blob
+        [out] ULONG *           pulCodeRVA,                 // codeRVA
+        [out] DWORD *           pdwImplFlags,               // Impl. Flags
+        [out] DWORD *           pdwCPlusTypeFlag,           // flag for value type. selected ELEMENT_TYPE_*
+        [out, size_is(, *pcchValue)]
+              UVCP_CONSTANT *   ppValue,                    // constant value 
+        [out] ULONG *           pcchValue);                 // size of constant string in chars, 0 for non-strings.
+
+    HRESULT GetFieldProps(
+        [in]  mdFieldDef        tkFieldDef,                 // The field for which to get props.
+        [out] mdTypeDef *       ptkTypeDef,                 // Put field's class here.
+        [out, string, size_is(cchField), length_is(*pchField), annotation("_Out_writes_to_opt_(cchField, *pchField)")]
+              LPWSTR            szField,                    // Put field's name here.
+        [in]  ULONG             cchField,                   // Size of szField buffer in wide chars.
+        [out] ULONG *           pchField,                   // Put actual size here 
+        [out] DWORD *           pdwAttr,                    // Put flags here.
+        [out, size_is(, *pcbSigBlob)]
+              PCCOR_SIGNATURE * ppvSigBlob,                 // point to the blob value of meta data
+        [out] ULONG *           pcbSigBlob,                 // actual size of signature blob
+        [out] DWORD *           pdwCPlusTypeFlag,           // flag for value type. selected ELEMENT_TYPE_*
+        [out, size_is(, *pcchValue)]
+              UVCP_CONSTANT *   ppValue,                    // constant value 
+        [out] ULONG *           pcchValue);                 // size of constant string in chars, 0 for non-strings.
+
+    HRESULT GetPropertyProps(
+        [in]  mdProperty        prop,                       // property token
+        [out] mdTypeDef *       ptkTypeDef,                 // typedef containing the property declarion. 
+        [out, string, size_is(cchProperty), length_is(*pchProperty)]
+              LPWSTR            szProperty,                 // Property name
+        [in]  ULONG             cchProperty,                // the count of wchar of szProperty
+        [out] ULONG *           pchProperty,                // actual count of wchar for property name
+        [out] DWORD *           pdwPropFlags,               // property flags.
+        [out, size_is(, *pcbSigBlob)]
+              PCCOR_SIGNATURE * ppvSigBlob,                 // property type. pointing to meta data internal blob 
+        [out] ULONG *           pcbSigBlob,                 // count of bytes in *ppvSig
+        [out] DWORD *           pdwCPlusTypeFlag,           // flag for value type. selected ELEMENT_TYPE_*
+        [out, size_is(, *pcchDefaultValue)] 
+              UVCP_CONSTANT *   ppDefaultValue,             // constant value 
+        [out] ULONG *           pcchDefaultValue,           // size of constant string in chars, 0 for non-strings.
+        [out] mdMethodDef *     ptkSetter,                  // setter method of the property
+        [out] mdMethodDef *     ptkGetter,                  // getter method of the property
+        [out, size_is(cMax), length_is(*pcOtherMethod)]
+              mdMethodDef       rgOtherMethod[],            // other method of the property
+        [in]  ULONG             cMax,                       // size of rmdOtherMethod
+        [out] ULONG *           pcOtherMethod);             // total number of other method of this property
+
+    HRESULT GetParamProps(
+        [in]  mdParamDef      tkParamDef,                   // The Parameter.
+        [out] mdMethodDef *   ptkMethodDef,                 // Parent Method token.
+        [out] ULONG *         pulSequence,                  // Parameter sequence.
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR          szName,                       // Put name here.
+        [in]  ULONG           cchName,                      // Size of name buffer.
+        [out] ULONG *         pchName,                      // Put actual size of name here.
+        [out] DWORD *         pdwAttr,                      // Put flags here.
+        [out] DWORD *         pdwCPlusTypeFlag,             // Flag for value type. selected ELEMENT_TYPE_*.
+        [out, size_is(, *pcchValue)]
+              UVCP_CONSTANT * ppValue,                      // Constant value.
+        [out] ULONG *         pcchValue);                   // size of constant string in chars, 0 for non-strings.
+                
+    HRESULT GetCustomAttributeByName(
+        [in]         mdToken       tkObj,                   // Object with Custom Attribute.
+        [in, string] LPCWSTR       szName,                  // Name of desired Custom Attribute.
+        [out, size_is(, *pcbData)]
+                     BYTE const ** ppData,                  // Put pointer to data here.
+        [out]        ULONG *       pcbData);                // Put size of data here.
+
+    BOOL IsValidToken(
+        [in] mdToken tk);                                   // Given token.
+
+    HRESULT GetNestedClassProps(
+        [in]  mdTypeDef   tdNestedClass,                    // NestedClass token.
+        [out] mdTypeDef * ptdEnclosingClass);               // EnclosingClass token.
+
+    HRESULT GetNativeCallConvFromSig(
+        [in, size_is(cbSig)]
+              BYTE const * pvSig,                           // Pointer to signature.
+        [in]  ULONG        cbSig,                           // Count of signature bytes.
+        [out] ULONG *      pCallConv);                      // Put calling conv here (see CorPinvokemap).
+
+    HRESULT IsGlobal(
+        [in]  mdToken tk,                                   // Type, Field, or Method token.
+        [out] int *   pbIsGlobal);                          // Put 1 if global, 0 otherwise.
+} // IMetaDataImport
+
+[
+    local, 
+    uuid(FCE5EFA0-8BBA-4f8E-A036-8F2022B08466)
+]
+interface IMetaDataImport2 : IMetaDataImport
+{
+    HRESULT EnumGenericParams(
+        [in, out]
+              HCORENUM *     phEnum,                        // Pointer to the enum.
+        [in]  mdToken        tk,                            // TypeDef or MethodDef whose generic parameters are requested
+        [out, size_is(cMax), length_is(*pcGenericParams)]
+              mdGenericParam rGenericParams[],              // Put GenericParams here.
+        [in]  ULONG          cMax,                          // Max GenericParams to put.
+        [out] ULONG *        pcGenericParams);              // Put # put here.
+    
+    HRESULT GetGenericParamProps(
+        [in] mdGenericParam gp,                             // GenericParam
+        [out] ULONG *       pulParamSeq,                    // Index of the type parameter
+        [out] DWORD *       pdwParamFlags,                  // Flags, for future use (e.g. variance)
+        [out] mdToken *     ptOwner,                        // Owner (TypeDef or MethodDef)
+        [out] DWORD *       reserved,                       // For future use (e.g. non-type parameters)
+        [out, string, size_is(cchName), length_is(*pchName), annotation("_Out_writes_to_opt_(cchName, *pchName)")]
+              LPWSTR        wzname,                         // Put name here
+        [in]  ULONG         cchName,                        // Size of buffer
+        [out] ULONG *       pchName);                       // Put size of name (wide chars) here.
+    
+    HRESULT GetMethodSpecProps(
+        [in]  mdMethodSpec      mi,                         // The method instantiation
+        [out] mdToken *         tkParent,                   // MethodDef or MemberRef
+        [out, size_is(, *pcbSigBlob)]
+              PCCOR_SIGNATURE * ppvSigBlob,                 // point to the blob value of meta data
+        [out] ULONG *           pcbSigBlob);                // actual size of signature blob
+
+    HRESULT EnumGenericParamConstraints(
+        [in, out]
+              HCORENUM *               phEnum,              // Pointer to the enum.
+        [in]  mdGenericParam           tk,                  // GenericParam whose constraints are requested
+        [out, size_is(cMax), length_is(*pcGenericParamConstraints)]
+              mdGenericParamConstraint rGenericParamConstraints[],  // Put GenericParamConstraints here. 
+        [in]  ULONG                    cMax,                // Max GenericParamConstraints to put.
+        [out] ULONG *                  pcGenericParamConstraints);  // Put # put here.
+
+    HRESULT GetGenericParamConstraintProps(
+        [in]  mdGenericParamConstraint gpc,                 // GenericParamConstraint
+        [out] mdGenericParam *         ptGenericParam,      // GenericParam that is constrained
+        [out] mdToken *                ptkConstraintType);  // TypeDef/Ref/Spec constraint
+    
+    HRESULT GetPEKind(
+        [out] DWORD * pdwPEKind,                            // The kind of PE (0 - not a PE)
+        [out] DWORD * pdwMAchine);                          // Machine as defined in NT header
+    
+    HRESULT GetVersionString(
+        [out, string, size_is(ccBufSize), length_is(*pccBufSize), annotation("_Out_writes_to_opt_(cchBufSize, pccBufSize)")]
+              LPWSTR  pwzBuf,                               // Put version string here.
+        [in]  DWORD   ccBufSize,                            // size of the buffer, in wide chars
+        [out] DWORD * pccBufSize);                          // Size of the version string, wide chars, including terminating nul.
+    
+    HRESULT EnumMethodSpecs(
+        [in, out]
+              HCORENUM *   phEnum,                          // Pointer to the enum.
+        [in]  mdToken      tk,                              // MethodDef or MemberRef whose MethodSpecs are requested
+        [out, size_is(cMax), length_is(*pcMethodSpecs)]
+              mdMethodSpec rMethodSpecs[],                  // Put MethodSpecs here.
+        [in]  ULONG        cMax,                            // Max tokens to put.
+        [out] ULONG *      pcMethodSpecs);                  // Put actual count here.
+} // IMetaDataImport2
+
+[
+    local, 
+    uuid(D8F579AB-402D-4B8E-82D9-5D63B1065C68)
+]
+interface IMetaDataTables : IUnknown
+{
+    HRESULT GetStringHeapSize(
+        [out] ULONG * pcbStrings);                          // Size of the string heap.
+
+    HRESULT GetBlobHeapSize(
+        [out] ULONG * pcbBlobs);                            // Size of the Blob heap.
+
+    HRESULT GetGuidHeapSize(
+        [out] ULONG * pcbGuids);                            // Size of the Guid heap.
+
+    HRESULT GetUserStringHeapSize(
+        [out] ULONG * pcbUserStrings);                      // Size of the User String heap.
+
+    HRESULT GetNumTables(
+        [out] ULONG * pcTables);                            // Count of tables.
+
+    HRESULT GetTableIndex(
+        [in]  ULONG   token,                                // Token for which to get table index.
+        [out] ULONG * pixTbl);                              // Put table index here.
+
+    HRESULT GetTableInfo(
+        [in]  ULONG    ixTbl,                               // Which table.
+        [out] ULONG *  pcbRow,                              // Size of a row, bytes.
+        [out] ULONG *  pcRows,                              // Number of rows.
+        [out] ULONG *  pcCols,                              // Number of columns in each row.
+        [out] ULONG *  piKey,                               // Key column, or -1 if none.
+        [out, string] 
+              LPCSTR * ppName);                             // Name of the table.
+
+    HRESULT GetColumnInfo(
+        [in]  ULONG   ixTbl,                                // Which Table
+        [in]  ULONG   ixCol,                                // Which Column in the table
+        [out] ULONG * poCol,                                // Offset of the column in the row.
+        [out] ULONG * pcbCol,                               // Size of a column, bytes.
+        [out] ULONG * pType,                                // Type of the column.
+        [out, string] 
+              LPCSTR * ppName);                             // Name of the Column.
+
+    HRESULT GetCodedTokenInfo(
+        [in]  ULONG          ixCdTkn,                       // Which kind of coded token.
+        [out] ULONG *        pcTokens,                      // Count of tokens.
+        [out, size_is(, *pcTokens)]
+              const ULONG ** ppTokens,                      // List of tokens.
+        [out, string]
+              LPCSTR *       ppName);                       // Name of the CodedToken.
+
+    HRESULT GetRow(
+        [in]  ULONG        ixTbl,                           // Which table.
+        [in]  ULONG        rid,                             // Which row.
+        [out] const BYTE * ppRow);                          // Put pointer to row here.
+
+    HRESULT GetColumn(
+        [in]  ULONG   ixTbl,                                // Which table.
+        [in]  ULONG   ixCol,                                // Which column.
+        [in]  ULONG   rid,                                  // Which row.
+        [out] ULONG * pVal);                                // Put the column contents here.
+
+    HRESULT GetString(
+        [in] ULONG    ixString,                             // Value from a string column.
+        [out, string] 
+             LPCSTR * ppString);                            // Put a pointer to the string here.
+
+    HRESULT GetBlob(
+        [in]  ULONG         ixBlob,                         // Value from a blob column.
+        [out] ULONG *       pcbData,                        // Put size of the blob here.
+        [out, size_is(, *pcbData)]
+              const BYTE ** ppData);                        // Put a pointer to the blob here.
+
+    HRESULT GetGuid(
+        [in] ULONG          ixGuid,                         // Value from a guid column.
+        [out] const GUID ** ppGUID);                        // Put a pointer to the GUID here.
+
+    HRESULT GetUserString(
+        [in]  ULONG         ixUserString,                   // Value from a UserString column.
+        [out] ULONG *       pcbData,                        // Put size of the UserString here.
+        [out, size_is(, *pcbData)]
+              const BYTE ** ppData);                        // Put a pointer to the UserString here.
+
+    HRESULT GetNextString(
+        [in]  ULONG   ixString,                             // Value from a string column.
+        [out] ULONG * pNext);                               // Put the index of the next string here.
+
+    HRESULT GetNextBlob(
+        [in]  ULONG   ixBlob,                               // Value from a blob column.
+        [out] ULONG * pNext);                               // Put the index of the next blob here.
+
+    HRESULT GetNextGuid(
+        [in]  ULONG   ixGuid,                               // Value from a guid column.
+        [out] ULONG * pNext);                               // Put the index of the next guid here.
+
+    HRESULT GetNextUserString(
+        [in]  ULONG   ixUserString,                         // Value from a UserString column.
+        [out] ULONG * pNext);                               // Put the index of the next user string here.
+} // IMetaDataTables
+
+[
+    local, 
+    uuid(BADB5F70-58DA-43a9-A1C6-D74819F19B15)
+]
+interface IMetaDataTables2 : IMetaDataTables
+{
+    HRESULT GetMetaDataStorage(
+        [out, size_is(, *pcbMd)]                
+              const BYTE ** ppvMd,                          // put pointer to MD section here (aka, 'BSJB').
+        [out] ULONG *       pcbMd);                         // put size of the stream here.
+
+    HRESULT GetMetaDataStreamInfo(
+        [in]  ULONG         ix,                             // Stream ordinal desired.
+        [out, string]
+              LPCSTR *      ppchName,                       // put pointer to stream name here.
+        [out, size_is(, *pcb)]
+              const BYTE ** ppv,                            // put pointer to MD stream here.
+        [out] ULONG *       pcb);                           // put size of the stream here.
+} // IMetaDataTables2
+
+cpp_quote("#else")
+cpp_quote("")
+
+cpp_quote("} /* extern \"C\" */")
+
+cpp_quote("/* Include cor.h for C++ uses */")
+cpp_quote("#include <cor.h>")
+cpp_quote("#include <corhdr.h>")
+
+cpp_quote("extern \"C\" {")
+cpp_quote("#endif")

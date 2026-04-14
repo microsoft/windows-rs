@@ -1,0 +1,3874 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: msxml6.idl
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1997-2006.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+#include "msxml6did.h"
+#include <idispids.h>
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "wtypes.idl";
+import "objidl.idl";
+import "oaidl.idl";
+#endif
+
+cpp_quote("#if !defined(_W64)")
+cpp_quote("#if !defined(__midl) && (defined(_X86_) || defined(_M_IX86)) && _MSC_VER >= 1300")
+cpp_quote("#define _W64 __w64")
+cpp_quote("#else")
+cpp_quote("#define _W64")
+cpp_quote("#endif")
+cpp_quote("#endif")
+cpp_quote("#if defined(_WIN64)")
+cpp_quote("    typedef unsigned __int64 ULONG_PTR, *PULONG_PTR;")
+cpp_quote("#else")
+cpp_quote("    typedef _W64 unsigned long ULONG_PTR, *PULONG_PTR;")
+cpp_quote("#endif")
+
+
+cpp_quote("#ifdef __ISAXXMLReader_INTERFACE_DEFINED__")
+cpp_quote("#undef __MSXML2_LIBRARY_DEFINED__")
+cpp_quote("#endif")
+
+cpp_quote("#ifdef __USE_MSXML6_NAMESPACE__")
+cpp_quote("namespace MSXML6 {")
+cpp_quote("#endif")
+
+// XMLDOM
+interface IXMLDOMImplementation;
+interface IXMLDOMNode;
+interface IXMLDOMDocumentFragment;
+interface IXMLDOMDocument;
+interface IXMLDOMDocument2;
+interface IXMLDOMDocument3;
+interface IXMLDOMNodeList;
+interface IXMLDOMNamedNodeMap;
+interface IXMLDOMCharacterData;
+interface IXMLDOMAttribute;
+interface IXMLDOMElement;
+interface IXMLDOMText;
+interface IXMLDOMComment;
+interface IXMLDOMProcessingInstruction;
+interface IXMLDOMCDATASection;
+interface IXMLDOMDocumentType;
+interface IXMLDOMNotation;
+interface IXMLDOMEntity;
+interface IXMLDOMEntityReference;
+interface IXMLDOMParseError;
+interface IXMLDOMParseError2;
+interface IXMLDOMParseErrorCollection;
+interface IXMLDOMSchemaCollection;
+interface IXTLRuntime;
+interface IXSLTemplate;
+interface IXSLProcessor;
+
+// SAX
+interface ISAXXMLReader;
+interface ISAXXMLFilter;
+interface ISAXLocator;
+interface ISAXEntityResolver;
+interface ISAXContentHandler;
+interface ISAXDTDHandler;
+interface ISAXErrorHandler;
+interface ISAXLexicalHandler;
+interface ISAXDeclHandler;
+interface ISAXAttributes;
+
+interface IVBSAXXMLReader;
+interface IVBSAXXMLFilter;
+interface IVBSAXLocator;
+interface IVBSAXEntityResolver;
+interface IVBSAXContentHandler;
+interface IVBSAXDTDHandler;
+interface IVBSAXErrorHandler;
+interface IVBSAXLexicalHandler;
+interface IVBSAXDeclHandler;
+interface IVBSAXAttributes;
+
+interface IMXWriter;
+interface IMXAttributes;
+interface IMXReaderControl;
+interface IMXSchemaDeclHandler;
+interface IMXXMLFilter;
+
+// SOM
+interface IXMLDOMSchemaCollection2;
+interface ISchemaStringCollection;
+interface ISchemaItemCollection;
+interface ISchemaItem;
+interface ISchema;
+interface ISchemaParticle;
+interface ISchemaAttribute;
+interface ISchemaElement;
+interface ISchemaType;
+interface ISchemaComplexType;
+interface ISchemaAttributeGroup;
+interface ISchemaModelGroup;
+interface ISchemaAny;
+interface ISchemaIdentityConstraint;
+interface ISchemaNotation;
+
+// IE4 msxml.h also defines __msxml_h__.  The only way to tell the difference between IE4 msxml.h and IE5 msxml.h is the
+// via the obsolete interface __IXMLElementNotificationSink_INTERFACE_DEFINED__ defined by IE4
+//
+// When WINAPI_FAMILY is set to WINAPI_FAMILY_APP msxml.h does not include the definition for DOMNodeType but does define __msxml_h__.  Apps
+// should not include msxml.h directly but may pick it up indirectly through another header.  To guard against this, define DOMNodeType
+// in that scenario as well.
+cpp_quote("#if !defined(__msxml_h__) || defined(__IXMLElementNotificationSink_INTERFACE_DEFINED__) || (WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP))")
+
+typedef [
+helpstring("Constants that define a node's type")
+] enum tagDOMNodeType
+{
+    NODE_INVALID, // = 0
+    NODE_ELEMENT, // = 1
+    NODE_ATTRIBUTE, // = 2
+    NODE_TEXT, // = 3
+    NODE_CDATA_SECTION, // = 4
+    NODE_ENTITY_REFERENCE, // = 5
+    NODE_ENTITY, // = 6
+    NODE_PROCESSING_INSTRUCTION, // = 7
+    NODE_COMMENT, // = 8
+    NODE_DOCUMENT, // = 9
+    NODE_DOCUMENT_TYPE, // = 10
+    NODE_DOCUMENT_FRAGMENT, // = 11
+    NODE_NOTATION // = 12
+} DOMNodeType;
+
+cpp_quote("#endif /* !defined(__msxml_h__) || defined(__IXMLElementNotificationSink_INTERFACE_DEFINED__) || (WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)) */")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+/// This is needed to avoid having the (SAX) ParseURL method
+/// become the ParseURLA method.
+cpp_quote("#undef ParseURL")
+
+[
+    local, object,
+    uuid(2933BF80-7B36-11d2-B20E-00C04F983E60), // IID_INode
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("Core DOM node interface"),
+    pointer_default(unique)
+]
+interface IXMLDOMNode : IDispatch
+{
+    // readonly attribute  wstring              nodeName;
+    [propget, id(DISPID_DOM_NODE_NODENAME),
+     helpstring("name of the node")]
+    HRESULT nodeName(
+        [out, retval] BSTR * name);
+
+    //          attribute  wstring              nodeValue;
+    [propget, id(DISPID_DOM_NODE_NODEVALUE),
+     helpstring("value stored in the node")]
+    HRESULT nodeValue(
+        [out, retval] VARIANT * value);
+
+    [propput, id(DISPID_DOM_NODE_NODEVALUE),
+     helpstring("value stored in the node")]
+    HRESULT nodeValue(
+        [in] VARIANT value);
+
+    // readonly attribute  unsigned short       nodeType;
+    [propget, id(DISPID_DOM_NODE_NODETYPE),
+     helpstring("the node's type")]
+    HRESULT nodeType(
+        [out, retval] DOMNodeType * type);
+
+    // readonly attribute  Node                 parentNode;
+    [propget, id(DISPID_DOM_NODE_PARENTNODE),
+     helpstring("parent of the node")]
+    HRESULT parentNode(
+        [out, retval] IXMLDOMNode ** parent);
+
+    // readonly attribute  NodeList             childNodes;
+    [propget, id(DISPID_DOM_NODE_CHILDNODES),
+     helpstring("the collection of the node's children")]
+    HRESULT childNodes(
+        [out, retval] IXMLDOMNodeList ** childList);
+
+    // readonly attribute  Node                 firstChild;
+    [propget,id(DISPID_DOM_NODE_FIRSTCHILD),
+     helpstring("first child of the node")]
+    HRESULT firstChild(
+        [out, retval] IXMLDOMNode ** firstChild);
+
+    // readonly attribute  Node                 lastChild;
+    [propget,id(DISPID_DOM_NODE_LASTCHILD),
+     helpstring("last child of the node")]
+    HRESULT lastChild(
+        [out, retval] IXMLDOMNode ** lastChild);
+
+    // readonly attribute  Node                 previousSibling;
+    [propget,id(DISPID_DOM_NODE_PREVIOUSSIBLING),
+     helpstring("left sibling of the node")]
+    HRESULT previousSibling(
+        [out, retval] IXMLDOMNode ** previousSibling);
+
+    // readonly attribute  Node                 nextSibling;
+    [propget,id(DISPID_DOM_NODE_NEXTSIBLING),
+     helpstring("right sibling of the node")]
+    HRESULT nextSibling(
+        [out, retval] IXMLDOMNode ** nextSibling);
+
+    // readonly attribute  NamedNodeMap         attributes;
+    [propget, id(DISPID_DOM_NODE_ATTRIBUTES),
+     helpstring("the collection of the node's attributes")]
+    HRESULT attributes(
+        [out, retval] IXMLDOMNamedNodeMap ** attributeMap);
+
+
+    // Node                      insertBefore(in Node newChild,
+    //                                        in Node refChild)
+    //                                        raises(DOMException);
+    [id(DISPID_DOM_NODE_INSERTBEFORE),
+     helpstring("insert a child node")]
+    HRESULT insertBefore(
+        [in] IXMLDOMNode * newChild,
+        [in] VARIANT refChild,
+        [out, retval] IXMLDOMNode ** outNewChild);
+
+    // Node                      replaceChild(in Node newChild,
+    //                                        in Node oldChild)
+    //                                        raises(DOMException);
+    [id(DISPID_DOM_NODE_REPLACECHILD),
+     helpstring("replace a child node")]
+    HRESULT replaceChild(
+        [in] IXMLDOMNode * newChild,
+        [in] IXMLDOMNode * oldChild,
+        [out, retval] IXMLDOMNode ** outOldChild);
+
+    // Node                      removeChild(in Node childNode)
+    //                                       raises(DOMException);
+    [id(DISPID_DOM_NODE_REMOVECHILD),
+     helpstring("remove a child node")]
+    HRESULT removeChild(
+        [in] IXMLDOMNode * childNode,
+        [out, retval] IXMLDOMNode ** oldChild);
+
+    // Node                      appendChild(in Node newChild);
+    [id(DISPID_DOM_NODE_APPENDCHILD),
+     helpstring("append a child node")]
+    HRESULT appendChild(
+        [in] IXMLDOMNode * newChild,
+        [out, retval] IXMLDOMNode ** outNewChild);
+
+    // boolean                   hasChildNodes();
+    [id(DISPID_DOM_NODE_HASCHILDNODES),
+     helpstring("")]
+    HRESULT hasChildNodes(
+        [out, retval] VARIANT_BOOL * hasChild);
+
+    // readonly attribute  Node                 ownerDocument;
+    [propget, id(DISPID_DOM_NODE_OWNERDOC),
+     helpstring("document that contains the node")]
+    HRESULT ownerDocument(
+        [out, retval] IXMLDOMDocument ** XMLDOMDocument);
+
+    // Node                      cloneNode(in boolean deep);
+    [id(DISPID_DOM_NODE_CLONENODE),
+     helpstring("")]
+    HRESULT cloneNode(
+        [in] VARIANT_BOOL deep,
+        [out, retval] IXMLDOMNode ** cloneRoot);
+
+    [propget, id(DISPID_XMLDOM_NODE_STRINGTYPE),
+     helpstring("the type of node in string form")]
+    HRESULT nodeTypeString(
+        [retval, out] BSTR * nodeType);
+
+    [propget, id(DISPID_XMLDOM_NODE_TEXT),
+     helpstring("text content of the node and subtree")]
+    HRESULT text(
+        [retval, out] BSTR * text);
+
+    [propput, id(DISPID_XMLDOM_NODE_TEXT),
+     helpstring("text content of the node and subtree")]
+    HRESULT text(
+        [in] BSTR text);
+
+    [propget, id(DISPID_XMLDOM_NODE_SPECIFIED),
+     helpstring("indicates whether node is a default value")]
+    HRESULT specified(
+        [out, retval] VARIANT_BOOL * isSpecified);
+
+    // DTD Navigation.
+    [propget, id(DISPID_XMLDOM_NODE_DEFINITION),
+     helpstring("pointer to the definition of the node in the DTD or schema")]
+    HRESULT definition(
+        [retval,out] IXMLDOMNode ** definitionNode);
+
+    [propget, id(DISPID_XMLDOM_NODE_NODETYPEDVALUE),
+     helpstring("get the strongly typed value of the node")]
+    HRESULT nodeTypedValue(
+        [retval, out] VARIANT * typedValue);
+
+    [propput, id(DISPID_XMLDOM_NODE_NODETYPEDVALUE),
+     helpstring("get the strongly typed value of the node")]
+    HRESULT nodeTypedValue(
+        [in] VARIANT typedValue);
+
+    [propget, id(DISPID_XMLDOM_NODE_DATATYPE),
+     helpstring("the data type of the node")]
+    HRESULT dataType(
+        [retval, out] VARIANT * dataTypeName); // BSTR or VT_NULL
+
+    [propput, id(DISPID_XMLDOM_NODE_DATATYPE),
+     helpstring("the data type of the node")]
+    HRESULT dataType(
+        [in] BSTR dataTypeName);
+
+    [propget, id(DISPID_XMLDOM_NODE_XML),
+     helpstring("return the XML source for the node and each of its descendants")]
+    HRESULT xml(
+        [retval, out] BSTR * xmlString);
+
+    [id(DISPID_XMLDOM_NODE_TRANSFORMNODE),
+     helpstring("apply the stylesheet to the subtree")]
+    HRESULT transformNode(
+        [in] IXMLDOMNode * stylesheet,
+        [retval, out] BSTR * xmlString);
+
+    [id(DISPID_XMLDOM_NODE_SELECTNODES),
+     helpstring("execute query on the subtree")]
+    HRESULT selectNodes(
+        [in] BSTR queryString,
+        [retval, out] IXMLDOMNodeList** resultList);
+
+    [id(DISPID_XMLDOM_NODE_SELECTSINGLENODE),
+     helpstring("execute query on the subtree")]
+    HRESULT selectSingleNode(
+        [in] BSTR queryString,
+        [retval, out] IXMLDOMNode** resultNode);
+
+    [propget,id(DISPID_XMLDOM_NODE_PARSED),
+     helpstring("has sub-tree been completely parsed")]
+    HRESULT parsed(
+        [retval, out] VARIANT_BOOL * isParsed);
+
+    [propget, id(DISPID_XMLDOM_NODE_NAMESPACE),
+     helpstring("the URI for the namespace applying to the node")]
+    HRESULT namespaceURI(
+        [retval, out] BSTR * namespaceURI);
+
+    [propget, id(DISPID_XMLDOM_NODE_PREFIX),
+     helpstring("the prefix for the namespace applying to the node")]
+    HRESULT prefix(
+        [retval, out] BSTR * prefixString);
+
+    [propget, id(DISPID_XMLDOM_NODE_BASENAME),
+     helpstring("the base name of the node (nodename with the prefix stripped off)")]
+    HRESULT baseName(
+        [retval, out] BSTR * nameString);
+
+    [id(DISPID_XMLDOM_NODE_TRANSFORMNODETOOBJECT),
+     helpstring("apply the stylesheet to the subtree, returning the result through a document or a stream")]
+    HRESULT transformNodeToObject(
+        [in] IXMLDOMNode * stylesheet,
+        [in] VARIANT outputObject);
+
+};
+
+[
+    local, object,
+    uuid(2933BF81-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMDocument
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique),
+    hidden
+]
+interface IXMLDOMDocument : IXMLDOMNode
+{
+    // readonly attribute  DocumentType         doctype;
+    [propget, id(DISPID_DOM_DOCUMENT_DOCTYPE),
+     helpstring("node corresponding to the DOCTYPE")]
+    HRESULT doctype(
+        [out, retval] IXMLDOMDocumentType ** documentType);
+
+    // readonly attribute  DOMImplementation    implementation;
+    [propget, id(DISPID_DOM_DOCUMENT_IMPLEMENTATION),
+     helpstring("info on this DOM implementation")]
+    HRESULT implementation(
+        [out, retval] IXMLDOMImplementation ** impl);
+
+    // attribute  Element              documentElement;
+    [propget, id(DISPID_DOM_DOCUMENT_DOCUMENTELEMENT),
+     helpstring("the root of the tree")]
+    HRESULT documentElement(
+        [out, retval] IXMLDOMElement ** DOMElement);
+
+    [propputref, id(DISPID_DOM_DOCUMENT_DOCUMENTELEMENT),
+     helpstring("the root of the tree")]
+    HRESULT documentElement(
+        [in] IXMLDOMElement * DOMElement);
+
+    // Element                   createElement(in wstring tagName);
+    [id(DISPID_DOM_DOCUMENT_CREATEELEMENT),
+     helpstring("create an Element node")]
+    HRESULT createElement(
+        [in] BSTR tagName,
+        [out, retval] IXMLDOMElement ** element);
+
+    // DocumentFragment          createDocumentFragment();
+    [id(DISPID_DOM_DOCUMENT_CREATEDOCUMENTFRAGMENT),
+     helpstring("create a DocumentFragment node")]
+    HRESULT createDocumentFragment(
+        [out, retval] IXMLDOMDocumentFragment ** docFrag );
+
+    // Text                      createTextNode(in wstring data);
+    [id(DISPID_DOM_DOCUMENT_CREATETEXTNODE),
+     helpstring("create a text node")]
+    HRESULT createTextNode(
+        [in] BSTR data,
+        [out, retval] IXMLDOMText ** text);
+
+    // Comment                   createComment(in wstring data);
+    [id(DISPID_DOM_DOCUMENT_CREATECOMMENT),
+     helpstring("create a comment node")]
+    HRESULT createComment(
+        [in] BSTR data,
+        [out, retval] IXMLDOMComment ** comment);
+
+    // CDATASection              createCDATASection(in wstring data);
+    [id(DISPID_DOM_DOCUMENT_CREATECDATASECTION),
+     helpstring("create a CDATA section node")]
+    HRESULT createCDATASection(
+        [in] BSTR data,
+        [out, retval] IXMLDOMCDATASection ** cdata);
+
+    // ProcessingInstruction     createProcessingInstruction(in wstring target,
+    //                                                       in wstring data);
+    [id(DISPID_DOM_DOCUMENT_CREATEPROCESSINGINSTRUCTION),
+     helpstring("create a processing instruction node")]
+    HRESULT createProcessingInstruction(
+        [in] BSTR target,
+        [in] BSTR data,
+        [out, retval] IXMLDOMProcessingInstruction ** pi);
+
+    // Attribute                 createAttribute(in wstring name);
+    [id(DISPID_DOM_DOCUMENT_CREATEATTRIBUTE),
+     helpstring("create an attribute node")]
+    HRESULT createAttribute(
+        [in] BSTR name,
+        [out, retval] IXMLDOMAttribute ** attribute);
+
+    // EntityReference           createEntityReference(in wstring name);
+    [id(DISPID_DOM_DOCUMENT_CREATEENTITYREFERENCE),
+     helpstring("create an entity reference node")]
+    HRESULT createEntityReference(
+        [in] BSTR name,
+        [out, retval] IXMLDOMEntityReference ** entityRef);
+
+    // NodeList                  getElementsByTagName(in wstring tagname);
+    [id(DISPID_DOM_DOCUMENT_GETELEMENTSBYTAGNAME),
+     helpstring("build a list of elements by name")]
+    HRESULT getElementsByTagName(
+        [in] BSTR tagName,
+        [out, retval] IXMLDOMNodeList ** resultList);
+
+    [id(DISPID_XMLDOM_DOCUMENT_CREATENODE),
+     helpstring("create a node of the specified node type and name")]
+    HRESULT createNode(
+        [in] VARIANT Type,
+        [in] BSTR name,
+        [in] BSTR namespaceURI,
+        [retval, out] IXMLDOMNode ** node);
+
+    [id(DISPID_XMLDOM_DOCUMENT_NODEFROMID),
+     helpstring("retrieve node from it's ID")]
+    HRESULT nodeFromID(
+        [in] BSTR idString,
+        [retval, out] IXMLDOMNode ** node);
+
+    [id(DISPID_XMLDOM_DOCUMENT_LOAD),
+     helpstring("load document from the specified XML source")]
+    HRESULT load(
+        [in] VARIANT xmlSource,
+        [out, retval] VARIANT_BOOL * isSuccessful);
+
+    [propget, id(DISPID_READYSTATE),
+     helpstring("get the state of the XML document")]
+    HRESULT readyState(
+        [retval, out] long * value);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT_PARSEERROR),
+     helpstring("get the last parser error")]
+    HRESULT parseError(
+        [retval, out] IXMLDOMParseError ** errorObj);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT_URL),
+     helpstring("get the URL for the loaded XML document")]
+    HRESULT url(
+        [retval, out] BSTR * urlString);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT_ASYNC),
+     helpstring("flag for asynchronous download")]
+    HRESULT async(
+        [retval, out] VARIANT_BOOL * isAsync);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_ASYNC),
+     helpstring("flag for asynchronous download")]
+    HRESULT async(
+        [in] VARIANT_BOOL isAsync);
+
+    [id(DISPID_XMLDOM_DOCUMENT_ABORT),
+     helpstring("abort an asynchronous download")]
+    HRESULT abort();
+
+    [id(DISPID_XMLDOM_DOCUMENT_LOADXML),
+     helpstring("load the document from a string")]
+    HRESULT loadXML(
+        [in] BSTR bstrXML,
+        [out, retval] VARIANT_BOOL * isSuccessful);
+
+    [id(DISPID_XMLDOM_DOCUMENT_SAVE),
+     helpstring("save the document to a specified destination")]
+    HRESULT save(
+        [in] VARIANT destination);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT_VALIDATE),
+     helpstring("indicates whether the parser performs validation")]
+    HRESULT validateOnParse(
+        [retval, out] VARIANT_BOOL * isValidating);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_VALIDATE),
+     helpstring("indicates whether the parser performs validation")]
+    HRESULT validateOnParse(
+        [in] VARIANT_BOOL isValidating);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT_RESOLVENAMESPACE),
+     helpstring("indicates whether the parser resolves references to external DTD/Entities/Schema")]
+    HRESULT resolveExternals(
+        [retval,out] VARIANT_BOOL * isResolving);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_RESOLVENAMESPACE),
+     helpstring("indicates whether the parser resolves references to external DTD/Entities/Schema")]
+    HRESULT resolveExternals(
+        [in] VARIANT_BOOL isResolving);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT_PRESERVEWHITESPACE),
+     helpstring("indicates whether the parser preserves whitespace")]
+    HRESULT preserveWhiteSpace(
+        [retval,out] VARIANT_BOOL * isPreserving);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_PRESERVEWHITESPACE),
+     helpstring("indicates whether the parser preserves whitespace")]
+    HRESULT preserveWhiteSpace(
+        [in] VARIANT_BOOL isPreserving);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_ONREADYSTATECHANGE),
+     helpstring("register a readystatechange event handler")]
+    HRESULT onreadystatechange(
+        [in] VARIANT readystatechangeSink);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_ONDATAAVAILABLE),
+     helpstring("register an ondataavailable event handler")]
+    HRESULT ondataavailable(
+        [in] VARIANT ondataavailableSink);
+
+    [propput, id(DISPID_XMLDOM_DOCUMENT_ONTRANSFORMNODE),
+     helpstring("register an ontransformnode event handler")]
+    HRESULT ontransformnode(
+        [in] VARIANT ontransformnodeSink);
+};
+
+[
+    local, object,
+    uuid(2933BF95-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMDocument2
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMDocument2 : IXMLDOMDocument
+{
+    [propget, id(DISPID_XMLDOM_DOCUMENT2_NAMESPACES),
+     helpstring("A collection of all namespaces for this document")]
+    HRESULT namespaces(
+        [out,retval] IXMLDOMSchemaCollection ** namespaceCollection);
+
+    [propget, id(DISPID_XMLDOM_DOCUMENT2_SCHEMAS),
+     helpstring("The associated schema cache")]
+    HRESULT schemas(
+        [out,retval] VARIANT * otherCollection);
+
+    [propputref, id(DISPID_XMLDOM_DOCUMENT2_SCHEMAS),
+     helpstring("The associated schema cache")]
+    HRESULT schemas(
+        [in] VARIANT otherCollection);
+
+    [id(DISPID_XMLDOM_DOCUMENT2_VALIDATE),
+        helpstring("perform runtime validation on the currently loaded XML document")]
+    HRESULT validate(
+        [retval, out] IXMLDOMParseError ** errorObj);
+
+    [id(DISPID_XMLDOM_DOCUMENT2_SETPROPERTY),
+        helpstring("set the value of the named property")]
+    HRESULT setProperty(
+        [in] BSTR name,
+        [in] VARIANT value);
+
+    [id(DISPID_XMLDOM_DOCUMENT2_GETPROPERTY),
+        helpstring("get the value of the named property")]
+    HRESULT getProperty(
+        [in] BSTR name,
+        [out,retval] VARIANT * value);
+};
+
+[
+    local, object,
+    uuid(2933BF96-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMDocument3
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMDocument3 : IXMLDOMDocument2
+{
+    [id(DISPID_XMLDOM_DOCUMENT3_VALIDATENODE),
+        helpstring("perform runtime validation on the currently loaded XML document node")]
+    HRESULT validateNode(
+        [in] IXMLDOMNode* node,
+        [out, retval] IXMLDOMParseError ** errorObj);
+
+    [id(DISPID_XMLDOM_DOCUMENT3_IMPORTNODE),
+        helpstring("clone node such that clones ownerDocument is this document")]
+    HRESULT importNode(
+        [in] IXMLDOMNode* node,
+        [in] VARIANT_BOOL deep,
+        [out, retval] IXMLDOMNode** clone);
+};
+
+[
+    local, object,
+    uuid(373984c8-b845-449b-91e7-45ac83036ade),
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schemas Collection"),
+    pointer_default(unique)
+]
+interface IXMLDOMSchemaCollection : IDispatch
+{
+    [id(DISPID_XMLDOM_SCHEMACOLLECTION_ADD),
+     helpstring("add a new schema")]
+    HRESULT add(
+        [in] BSTR namespaceURI,
+        [in] VARIANT var);
+
+    [id(DISPID_XMLDOM_SCHEMACOLLECTION_GET),
+     helpstring("lookup schema by namespaceURI")]
+    HRESULT get(
+        [in] BSTR namespaceURI,
+        [out,retval] IXMLDOMNode ** schemaNode);
+
+    [id(DISPID_XMLDOM_SCHEMACOLLECTION_REMOVE),
+     helpstring("remove schema by namespaceURI")]
+    HRESULT remove(
+        [in] BSTR namespaceURI);
+
+    [id(DISPID_XMLDOM_SCHEMACOLLECTION_LENGTH),
+     helpstring("number of schemas in collection"), propget]
+    HRESULT length(
+        [out, retval] long * length);
+
+    [propget, id(DISPID_VALUE),
+     helpstring("Get namespaceURI for schema by index")]
+    HRESULT namespaceURI(
+        [in] long index,
+        [out, retval] BSTR * length);
+
+    [id(DISPID_XMLDOM_SCHEMACOLLECTION_ADDCOLLECTION),
+     helpstring("copy & merge other collection into this one")]
+    HRESULT addCollection(
+        [in] IXMLDOMSchemaCollection * otherCollection);
+
+    [propget, restricted, hidden,
+     id(DISPID_NEWENUM)]
+    HRESULT _newEnum(
+        [retval, out] IUnknown ** ppUnk);
+};
+
+[
+    local, object,
+    uuid(2933BF82-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMNodeList
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMNodeList : IDispatch
+{
+    // Node                      item(in unsigned long index);
+    [propget, id(DISPID_VALUE),
+     helpstring("collection of nodes")]
+    HRESULT item(
+        [in] long index,
+        [out, retval] IXMLDOMNode ** listItem);
+
+    // readonly attribute  unsigned long        length;
+    [propget, id(DISPID_DOM_NODELIST_LENGTH),
+     helpstring("number of nodes in the collection")]
+    HRESULT length(
+        [out, retval] long * listLength);
+
+    [id(DISPID_XMLDOM_NODELIST_NEXTNODE),
+     helpstring("get next node from iterator")]
+    HRESULT nextNode(
+        [out, retval] IXMLDOMNode ** nextItem);
+
+    [id(DISPID_XMLDOM_NODELIST_RESET),
+     helpstring("reset the position of iterator")]
+    HRESULT reset();
+
+    [propget, restricted, hidden,
+     id(DISPID_NEWENUM)]
+    HRESULT _newEnum(
+        [retval, out] IUnknown ** ppUnk);
+};
+
+
+[
+    local, object,
+    uuid(AA634FC7-5888-44a7-A257-3A47150D3A0E), // IID_IXMLDOMSelection
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMSelection : IXMLDOMNodeList
+{
+    [propget, id(DISPID_XMLDOM_SELECTION_EXPR),
+     helpstring("selection expression")]
+    HRESULT expr(
+        [out, retval] BSTR * expression);
+
+    [propput, id(DISPID_XMLDOM_SELECTION_EXPR),
+     helpstring("selection expression")]
+    HRESULT expr(
+        [in] BSTR expression);
+
+    [propget, id(DISPID_XMLDOM_SELECTION_CONTEXT),
+     helpstring("nodes to apply selection expression to")]
+    HRESULT context(
+        [out, retval] IXMLDOMNode ** ppNode);
+
+    [propputref, id(DISPID_XMLDOM_SELECTION_CONTEXT),
+     helpstring("nodes to apply selection expression to")]
+    HRESULT context(
+        [in] IXMLDOMNode * pNode);
+
+    [id(DISPID_XMLDOM_SELECTION_PEEKNODE),
+     helpstring("gets the next node without advancing the list position")]
+    HRESULT peekNode(
+        [out, retval] IXMLDOMNode ** ppNode);
+
+    [id(DISPID_XMLDOM_SELECTION_MATCHES),
+     helpstring("checks to see if the node matches the pattern")]
+    HRESULT matches(
+        [in] IXMLDOMNode * pNode,
+        [out, retval] IXMLDOMNode ** ppNode);
+
+    [id(DISPID_XMLDOM_SELECTION_REMOVENEXT),
+     helpstring("removes the next node")]
+    HRESULT removeNext(
+        [out, retval] IXMLDOMNode ** ppNode);
+
+    [id(DISPID_XMLDOM_SELECTION_REMOVEALL),
+     helpstring("removes all the nodes that match the selection")]
+    HRESULT removeAll();
+
+    [id(DISPID_XMLDOM_SELECTION_CLONE),
+     helpstring("clone this object with the same position and context")]
+    HRESULT clone(
+        [out, retval] IXMLDOMSelection ** ppNode);
+
+    [id(DISPID_XMLDOM_SELECTION_GETPROPERTY),
+        helpstring("get the value of the named property")]
+    HRESULT getProperty(
+        [in] BSTR name,
+        [out,retval] VARIANT * value);
+
+    [id(DISPID_XMLDOM_SELECTION_SETPROPERTY),
+        helpstring("set the value of the named property")]
+    HRESULT setProperty(
+        [in] BSTR name,
+        [in] VARIANT value);
+};
+
+
+[
+    local, object,
+    uuid(2933BF83-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMNamedNodeMap
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMNamedNodeMap : IDispatch
+{
+    // Node                      getNamedItem(in wstring name);
+    [id(DISPID_DOM_NAMEDNODEMAP_GETNAMEDITEM),
+     helpstring("lookup item by name")]
+    HRESULT getNamedItem(
+        [in] BSTR name,
+        [out, retval] IXMLDOMNode ** namedItem);
+
+    // void                      setNamedItem(in Node arg);
+    [id(DISPID_DOM_NAMEDNODEMAP_SETNAMEDITEM),
+     helpstring("set item by name")]
+    HRESULT setNamedItem(
+        [in] IXMLDOMNode * newItem,
+        [out, retval] IXMLDOMNode ** nameItem);
+
+    // Node                      removeNamedItem(in wstring name);
+    [id(DISPID_DOM_NAMEDNODEMAP_REMOVENAMEDITEM),
+     helpstring("remove item by name")]
+    HRESULT removeNamedItem(
+        [in] BSTR name,
+        [out, retval] IXMLDOMNode ** namedItem);
+
+    // Node                      item(in unsigned long index);
+    [propget, id(DISPID_VALUE),
+     helpstring("collection of nodes")]
+    HRESULT item(
+        [in] long index,
+        [out, retval] IXMLDOMNode ** listItem);
+
+    // readonly attribute  unsigned long        length;
+    [propget, id(DISPID_DOM_NODELIST_LENGTH),
+     helpstring("number of nodes in the collection")]
+    HRESULT length(
+        [out, retval] long * listLength);
+
+    // Node                      getQualifiedItem(in wstring name,in Node namespace);
+    [id(DISPID_XMLDOM_NAMEDNODEMAP_GETQUALIFIEDITEM),
+     helpstring("lookup the item by name and namespace")]
+    HRESULT getQualifiedItem(
+        [in] BSTR baseName,
+        [in] BSTR namespaceURI,
+        [out, retval] IXMLDOMNode ** qualifiedItem);
+
+    // Node                      removeQualifiedItem(in wstring name,in Node namespace);
+    [id(DISPID_XMLDOM_NAMEDNODEMAP_REMOVEQUALIFIEDITEM),
+     helpstring("remove the item by name and namespace")]
+    HRESULT removeQualifiedItem(
+        [in] BSTR baseName,
+        [in] BSTR namespaceURI,
+        [out, retval] IXMLDOMNode ** qualifiedItem);
+
+    [id(DISPID_XMLDOM_NAMEDNODEMAP_NEXTNODE),
+     helpstring("get next node from iterator")]
+    HRESULT nextNode(
+        [out, retval] IXMLDOMNode ** nextItem);
+
+    [id(DISPID_XMLDOM_NAMEDNODEMAP_RESET),
+     helpstring("reset the position of iterator")]
+    HRESULT reset();
+
+    [propget, restricted, hidden,
+     id(DISPID_NEWENUM)]
+    HRESULT _newEnum(
+        [retval, out] IUnknown ** ppUnk);
+};
+
+
+[
+    local, object,
+    uuid(3efaa413-272f-11d2-836f-0000f87a7782), // IID_IXMLDOMDocumentFragment
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMDocumentFragment : IXMLDOMNode
+{
+};
+
+
+[
+    local, object,
+    uuid(2933BF84-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMCharacterData
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMCharacterData : IXMLDOMNode
+{
+    //          attribute  wstring              data;
+    [propget, id(DISPID_DOM_DATA_DATA),
+     helpstring("value of the node")]
+    HRESULT data(
+        [out, retval] BSTR * data);
+
+    [propput, id(DISPID_DOM_DATA_DATA),
+     helpstring("value of the node")]
+    HRESULT data(
+        [in] BSTR data);
+
+    // readonly attribute  unsigned long        length;
+    [propget, id(DISPID_DOM_DATA_LENGTH),
+     helpstring("number of characters in value")]
+    HRESULT length(
+        [out, retval] long * dataLength);
+
+    // wstring                   substring(in unsigned long offset,
+    //                                     in unsigned long count)
+    //                                     raises(DOMException);
+    [id(DISPID_DOM_DATA_SUBSTRING),
+     helpstring("retrieve substring of value")]
+    HRESULT substringData(
+        [in] long offset,
+        [in] long count,
+        [out, retval] BSTR * data);
+
+    // void                      append(in wstring arg);
+    [id(DISPID_DOM_DATA_APPEND),
+     helpstring("append string to value")]
+    HRESULT appendData(
+        [in] BSTR data);
+
+    // void                      insert(in unsigned long offset,
+    //                                  in wstring arg)
+    //                                  raises(DOMException);
+    [id(DISPID_DOM_DATA_INSERT),
+     helpstring("insert string into value")]
+    HRESULT insertData(
+        [in] long offset,
+        [in] BSTR data);
+
+    // void                      delete(in unsigned long offset,
+    //                                  in unsigned long count)
+    //                                  raises(DOMException);
+    [id(DISPID_DOM_DATA_DELETE),
+     helpstring("delete string within the value")]
+    HRESULT deleteData(
+        [in] long offset,
+        [in] long count);
+
+    // void                      replace(in unsigned long offset,
+    //                                   in unsigned long count,
+    //                                   in wstring arg)
+    //                                   raises(DOMException);
+    [id(DISPID_DOM_DATA_REPLACE),
+     helpstring("replace string within the value")]
+    HRESULT replaceData(
+        [in] long offset,
+        [in] long count,
+        [in] BSTR data);
+};
+
+
+[
+    local, object,
+    uuid(2933BF85-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMAttribute
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMAttribute : IXMLDOMNode
+{
+    // wstring                   name;
+    [propget, id(DISPID_DOM_ATTRIBUTE_GETNAME),
+     helpstring("get name of the attribute")]
+    HRESULT name(
+        [out, retval] BSTR * attributeName);
+
+    //         attribute  boolean              specified;
+    // ! This is defined as an extended property on IXMLDOMNode
+
+    // attribute wstring                   value;
+    [propget, id(DISPID_DOM_ATTRIBUTE_VALUE),
+     helpstring("string value of the attribute")]
+    HRESULT value(
+        [out, retval] VARIANT * attributeValue);
+
+    [propput, id(DISPID_DOM_ATTRIBUTE_VALUE),
+     helpstring("string value of the attribute")]
+    HRESULT value(
+        [in] VARIANT attributeValue);
+};
+
+
+[
+    local, object,
+    uuid(2933BF86-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMElement
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMElement : IXMLDOMNode
+{
+    // readonly attribute wstring                   tagName;
+    [propget, id(DISPID_DOM_ELEMENT_GETTAGNAME),
+     helpstring("get the tagName of the element")]
+    HRESULT tagName(
+        [out, retval] BSTR * tagName);
+
+    // wstring                   getAttribute(in wstring name);
+    [id(DISPID_DOM_ELEMENT_GETATTRIBUTE),
+     helpstring("look up the string value of an attribute by name")]
+    HRESULT getAttribute(
+        [in] BSTR name,
+        [out, retval] VARIANT * value);
+
+    // void                      setAttribute(in string name,
+    //                                        in string value);
+    [id(DISPID_DOM_ELEMENT_SETATTRIBUTE),
+     helpstring("set the string value of an attribute by name")]
+    HRESULT setAttribute(
+        [in] BSTR name,
+        [in] VARIANT value);
+
+    // void                      removeAttribute(in wstring name);
+    [id(DISPID_DOM_ELEMENT_REMOVEATTRIBUTE),
+     helpstring("remove an attribute by name")]
+    HRESULT removeAttribute(
+        [in] BSTR name);
+
+    // Attribute                 getAttributeNode(in wstring name);
+    [id(DISPID_DOM_ELEMENT_GETATTRIBUTENODE),
+     helpstring("look up the attribute node by name")]
+    HRESULT getAttributeNode(
+        [in] BSTR name,
+        [out, retval] IXMLDOMAttribute ** attributeNode);
+
+    // void                      setAttributeNode(in Attribute newAttr);
+    [id(DISPID_DOM_ELEMENT_SETATTRIBUTENODE),
+     helpstring("set the specified attribute on the element")]
+    HRESULT setAttributeNode(
+        [in] IXMLDOMAttribute * DOMAttribute,
+        [out, retval] IXMLDOMAttribute ** attributeNode);
+
+    // void                      removeAttributeNode(in Attribute oldAttr);
+    [id(DISPID_DOM_ELEMENT_REMOVEATTRIBUTENODE),
+     helpstring("remove the specified attribute")]
+    HRESULT removeAttributeNode(
+        [in] IXMLDOMAttribute * DOMAttribute,
+        [out, retval] IXMLDOMAttribute ** attributeNode);
+
+    // NodeList                  getElementsByTagName(in wstring tagname);
+    [id(DISPID_DOM_ELEMENT_GETELEMENTSBYTAGNAME),
+     helpstring("build a list of elements by name")]
+    HRESULT getElementsByTagName(
+        [in] BSTR tagName,
+        [out, retval] IXMLDOMNodeList ** resultList);
+
+    // void                      normalize();
+    [id(DISPID_DOM_ELEMENT_NORMALIZE),
+     helpstring("collapse all adjacent text nodes in sub-tree")]
+    HRESULT normalize();
+};
+
+
+[
+    local, object,
+    uuid(2933BF87-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMText
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMText : IXMLDOMCharacterData
+{
+    // Text                      splitText(in unsigned long offset);
+    [id(DISPID_DOM_TEXT_SPLITTEXT),
+     helpstring("split the text node into two text nodes at the position specified")]
+    HRESULT splitText(
+        [in] long offset,
+        [out, retval] IXMLDOMText ** rightHandTextNode);
+};
+
+
+[
+    local, object,
+    uuid(2933BF88-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMComment
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMComment : IXMLDOMCharacterData
+{
+};
+
+
+[
+    local, object,
+    uuid(2933BF89-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMProcessingInstruction
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMProcessingInstruction : IXMLDOMNode
+{
+    //         read-only attribute  wstring              target;
+    [propget, id(DISPID_DOM_PI_TARGET),
+     helpstring("the target")]
+    HRESULT target(
+        [out, retval] BSTR * name);
+
+    //         attribute  wstring              data;
+    [propget, id(DISPID_DOM_PI_DATA),
+     helpstring("the data")]
+    HRESULT data(
+        [out, retval] BSTR * value);
+
+    [propput, id(DISPID_DOM_PI_DATA),
+     helpstring("the data")]
+    HRESULT data(
+        [in] BSTR value);
+};
+
+
+[
+    local, object,
+    uuid(2933BF8A-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMCDATASection
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMCDATASection : IXMLDOMText
+{
+};
+
+
+[
+    local, object,
+    uuid(2933BF8B-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMDocumentType
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMDocumentType : IXMLDOMNode
+{
+    //          readonly attribute  wstring              name;
+    [propget, id(DISPID_DOM_DOCUMENTTYPE_NAME),
+     helpstring("name of the document type (root of the tree)")]
+    HRESULT name(
+        [out, retval] BSTR * rootName);
+
+    // readonly attribute  NamedNodeMap         entities;
+    [propget, id(DISPID_DOM_DOCUMENTTYPE_ENTITIES),
+     helpstring("a list of entities in the document")]
+    HRESULT entities(
+        [out, retval] IXMLDOMNamedNodeMap ** entityMap);
+
+    // readonly attribute  NamedNodeMap         notations;
+    [propget, id(DISPID_DOM_DOCUMENTTYPE_NOTATIONS),
+     helpstring("a list of notations in the document")]
+    HRESULT notations(
+        [out, retval] IXMLDOMNamedNodeMap ** notationMap);
+};
+
+
+[
+    local, object,
+    uuid(2933BF8C-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMNotation
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMNotation : IXMLDOMNode
+{
+    //         attribute  wstring              publicId;
+    [propget, id(DISPID_DOM_NOTATION_PUBLICID),
+     helpstring("the public ID")]
+    HRESULT publicId(
+        [out, retval] VARIANT * publicID);
+
+    //         attribute  wstring              systemId;
+    [propget, id(DISPID_DOM_NOTATION_SYSTEMID),
+     helpstring("the system ID")]
+    HRESULT systemId(
+        [out, retval] VARIANT * systemID);
+};
+
+
+[
+    local, object,
+    uuid(2933BF8D-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMEntity
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMEntity : IXMLDOMNode
+{
+    //         attribute  wstring              publicId;
+    [propget, id(DISPID_DOM_ENTITY_PUBLICID),
+     helpstring("the public ID")]
+    HRESULT publicId(
+        [out, retval] VARIANT * publicID);
+
+    //         attribute  wstring              systemId;
+    [propget, id(DISPID_DOM_ENTITY_SYSTEMID),
+     helpstring("the system ID")]
+    HRESULT systemId(
+        [out, retval] VARIANT * systemID);
+
+    //         attribute  wstring              notationName;
+    [propget, id(DISPID_DOM_ENTITY_NOTATIONNAME),
+     helpstring("the name of the notation")]
+    HRESULT notationName(
+        [out, retval] BSTR * name);
+};
+
+
+[
+    local, object,
+    uuid(2933BF8E-7B36-11d2-B20E-00C04F983E60), // IID_IXMLDOMEntityReference
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IXMLDOMEntityReference : IXMLDOMNode
+{
+};
+
+[
+    local, object,
+    nonextensible,
+    pointer_default(unique),
+    odl,
+    oleautomation,
+    dual,
+    uuid(2933BF8F-7B36-11d2-B20E-00C04F983E60) // IID_IXMLDOMImplementation
+]
+interface IXMLDOMImplementation : IDispatch
+{
+    //  boolean                   hasFeature(in wstring feature,
+    //                                   in wstring version);
+    [id(DISPID_DOM_IMPLEMENTATION_HASFEATURE)]
+    HRESULT hasFeature(
+        [in] BSTR feature,
+        [in] BSTR version,
+        [out, retval] VARIANT_BOOL * hasFeature);
+};
+
+
+[
+    local, object,
+    uuid(3efaa425-272f-11d2-836f-0000f87a7782), // IID_IXTLRuntime
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XTL runtime object"),
+    pointer_default(unique)
+]
+interface IXTLRuntime : IXMLDOMNode
+{
+    [id(DISPID_XTLRUNTIME_UNIQUEID),
+     helpstring("")]
+    HRESULT uniqueID(
+        [in]IXMLDOMNode *pNode,
+        [out,retval]long *pID);
+
+    [id(DISPID_XTLRUNTIME_DEPTH),
+     helpstring("")]
+    HRESULT depth(
+        [in] IXMLDOMNode *pNode,
+        [out,retval]long * pDepth);
+
+    [id(DISPID_XTLRUNTIME_CHILDNUMBER),
+     helpstring("")]
+    HRESULT childNumber(
+        [in]IXMLDOMNode *pNode,
+        [out,retval] long *pNumber);
+
+    [id(DISPID_XTLRUNTIME_ANCESTORCHILDNUMBER),
+     helpstring("")]
+    HRESULT ancestorChildNumber(
+        [in]BSTR bstrNodeName,
+        [in]IXMLDOMNode *pNode,
+        [out,retval]long *pNumber);
+
+    [id(DISPID_XTLRUNTIME_ABSOLUTECHILDNUMBER),
+     helpstring("")]
+    HRESULT absoluteChildNumber(
+        [in]IXMLDOMNode *pNode,
+        [out,retval]long *pNumber);
+
+    [id(DISPID_XTLRUNTIME_FORMATINDEX),
+     helpstring("")]
+    HRESULT formatIndex(
+        [in] long lIndex,
+        [in] BSTR bstrFormat,
+        [out, retval]BSTR *pbstrFormattedString);
+
+    [id(DISPID_XTLRUNTIME_FORMATNUMBER),
+     helpstring("")]
+    HRESULT formatNumber(
+        [in] double dblNumber,
+        [in] BSTR bstrFormat,
+        [out, retval]BSTR *pbstrFormattedString);
+
+    [id(DISPID_XTLRUNTIME_FORMATDATE),
+     helpstring("")]
+    HRESULT formatDate(
+        [in] VARIANT varDate,
+        [in] BSTR bstrFormat,
+        [in,optional] VARIANT varDestLocale,
+        [out, retval]BSTR *pbstrFormattedString);
+
+    [id(DISPID_XTLRUNTIME_FORMATTIME),
+     helpstring("")]
+    HRESULT formatTime(
+        [in] VARIANT varTime,
+        [in] BSTR bstrFormat,
+        [in,optional] VARIANT varDestLocale,
+        [out, retval]BSTR *pbstrFormattedString);
+};
+
+[
+    local, object,
+    uuid(3efaa426-272f-11d2-836f-0000f87a7782), // IID_IXMLDOMParseError
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("structure for reporting parser errors"),
+    pointer_default(unique)
+]
+interface IXMLDOMParseError : IDispatch
+{
+    [propget, id(DISPID_VALUE),
+     helpstring("the error code")]
+    HRESULT errorCode(
+        [retval, out] long * errorCode);
+
+    [propget, id(DISPID_DOM_ERROR_URL),
+     helpstring("the URL of the XML document containing the error")]
+    HRESULT url(
+        [retval, out] BSTR * urlString);
+
+    [propget, id(DISPID_DOM_ERROR_REASON),
+     helpstring("the cause of the error")]
+    HRESULT reason(
+        [retval, out] BSTR * reasonString);
+
+    [propget, id(DISPID_DOM_ERROR_SRCTEXT),
+     helpstring("the data where the error occurred")]
+    HRESULT srcText(
+        [retval, out] BSTR * sourceString);
+
+    [propget, id(DISPID_DOM_ERROR_LINE),
+     helpstring("the line number in the XML document where the error occurred")]
+    HRESULT line(
+        [retval, out] long * lineNumber);
+
+    [propget, id(DISPID_DOM_ERROR_LINEPOS),
+     helpstring("the character position in the line containing the error")]
+    HRESULT linepos(
+        [retval, out] long * linePosition);
+
+    [propget, id(DISPID_DOM_ERROR_FILEPOS),
+     helpstring("the absolute file position in the XML document containing the error")]
+    HRESULT filepos(
+        [retval, out] long * filePosition);
+};
+
+[
+    local, object,
+    uuid(3efaa428-272f-11d2-836f-0000f87a7782), // IID_IXMLDOMParseError2
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("structure for reporting parser errors"),
+    pointer_default(unique)
+]
+interface IXMLDOMParseError2 : IXMLDOMParseError
+{
+    [propget, id(DISPID_DOM_ERROR2_ERRORXPATH)]
+    HRESULT errorXPath(
+        [out, retval] BSTR * xpathexpr);
+
+    [propget, id(DISPID_DOM_ERROR2_ALLERRORS)]
+    HRESULT allErrors(
+        [out, retval] IXMLDOMParseErrorCollection ** allErrors);
+
+    [id(DISPID_DOM_ERROR2_ERRORPARAMETERS)]
+    HRESULT errorParameters(
+        [in] long index,
+        [out,retval] BSTR* param);
+
+    [propget, id(DISPID_DOM_ERROR2_ERRORPARAMETERSCOUNT)]
+    HRESULT errorParametersCount(
+        [out,retval] long* count);
+};
+
+
+[
+    local, object,
+    uuid(3efaa429-272f-11d2-836f-0000f87a7782), // IID_IXMLDOMParseErrorCollection
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("structure for reporting parser errors"),
+    pointer_default(unique)
+]
+interface IXMLDOMParseErrorCollection : IDispatch
+{
+    [id(DISPID_VALUE), propget]                       HRESULT item([in]long index, [out,retval]IXMLDOMParseError2 ** error);
+    [id(DISPID_DOM_ERRORCOLLECTION_LENGTH), propget]  HRESULT length([out,retval]long * length);
+    [id(DISPID_DOM_ERRORCOLLECTION_NEXT), propget]    HRESULT next([out, retval] IXMLDOMParseError2 ** error);
+    [id(DISPID_DOM_ERRORCOLLECTION_RESET)]            HRESULT reset();
+    [id(DISPID_NEWENUM), hidden, restricted, propget] HRESULT _newEnum([out,retval]IUnknown ** ppunk);
+};
+
+// DOM event interface
+[
+    hidden,
+    uuid(3efaa427-272f-11d2-836f-0000f87a7782) // IID_IXMLDOMEvent
+]
+dispinterface XMLDOMDocumentEvents
+{
+    properties:
+    methods:
+    [id (DISPID_XMLDOMEVENT_ONDATAAVAILABLE)]
+    HRESULT ondataavailable(void);
+
+    [id (DISPID_XMLDOMEVENT_ONREADYSTATECHANGE)]
+    HRESULT onreadystatechange(void);
+};
+
+
+[
+    local, object,
+    uuid(2933BF92-7B36-11d2-B20E-00C04F983E60), // IXSLProcessor
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("IXSLProcessor Interface"),
+    pointer_default(unique)
+]
+interface IXSLProcessor : IDispatch
+{
+    [propput, id(DISPID_XMLDOM_PROCESSOR_INPUT), helpstring("XML input tree to transform")]
+    HRESULT input([in] VARIANT var);
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_INPUT), helpstring("XML input tree to transform")]
+    HRESULT input([out,retval] VARIANT * pVar);
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_XSLTEMPLATE), helpstring("template object used to create this processor object")]
+    HRESULT ownerTemplate([out,retval] IXSLTemplate** ppTemplate);
+
+    [id(DISPID_XMLDOM_PROCESSOR_SETSTARTMODE), helpstring("set XSL mode and it's namespace")]
+    HRESULT setStartMode([in] BSTR mode,
+                         [in, defaultvalue(NULL)] BSTR namespaceURI);
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_STARTMODE), helpstring("starting XSL mode")]
+    HRESULT startMode([out, retval] BSTR * mode);
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_STARTMODEURI), helpstring("namespace of starting XSL mode")]
+    HRESULT startModeURI([out, retval] BSTR * namespaceURI);
+
+    [propput, id(DISPID_XMLDOM_PROCESSOR_OUTPUT), helpstring("custom stream object for transform output")]
+    HRESULT output([in] VARIANT output);
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_OUTPUT), helpstring("transform output")]
+    HRESULT output([out, retval] VARIANT* pOutput);
+
+    [id(DISPID_XMLDOM_PROCESSOR_TRANSFORM), helpstring("start/resume the XSL transformation process")]
+    HRESULT transform([out,retval] VARIANT_BOOL* pDone);
+
+    [id(DISPID_XMLDOM_PROCESSOR_RESET), helpstring("reset state of processor and abort current transform")]
+    HRESULT reset();
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_READYSTATE), helpstring("current state of the processor")]
+    HRESULT readyState([out, retval] long* pReadyState);
+
+    [id(DISPID_XMLDOM_PROCESSOR_ADDPARAMETER), helpstring("set <xsl:param> values")]
+    HRESULT addParameter([in] BSTR baseName,
+                     [in] VARIANT parameter,
+                     [in, defaultvalue(NULL)] BSTR namespaceURI);
+
+    [id(DISPID_XMLDOM_PROCESSOR_ADDOBJECT), helpstring("pass object to stylesheet")]
+    HRESULT addObject([in] IDispatch* obj,
+                  [in] BSTR namespaceURI);
+
+    [propget, id(DISPID_XMLDOM_PROCESSOR_STYLESHEET), helpstring("current stylesheet being used")]
+    HRESULT stylesheet([out,retval] IXMLDOMNode** stylesheet);
+};
+
+
+[
+    local, object,
+    uuid(2933BF93-7B36-11d2-B20E-00C04F983E60), // IID_IXSLTemplate
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("IXSLTemplate Interface"),
+    pointer_default(unique)
+]
+interface IXSLTemplate : IDispatch
+{
+    [propputref, id(DISPID_XMLDOM_TEMPLATE_STYLESHEET), helpstring("stylesheet to use with processors")]
+    HRESULT stylesheet([in] IXMLDOMNode* stylesheet);
+
+    [propget, id(DISPID_XMLDOM_TEMPLATE_STYLESHEET), helpstring("stylesheet to use with processors")]
+    HRESULT stylesheet([out, retval] IXMLDOMNode** stylesheet);
+
+    [id(DISPID_XMLDOM_TEMPLATE_CREATEPROCESSOR), helpstring("create a new processor object")]
+    HRESULT createProcessor([out, retval] IXSLProcessor** ppProcessor);
+};
+
+[
+
+    object,
+    uuid(ED8C108D-4349-11D2-91A4-00C04F7969E8),
+    odl,
+    dual,
+    oleautomation,
+    helpstring("IXMLHTTPRequest Interface"),
+    pointer_default(unique)
+]
+interface IXMLHTTPRequest : IDispatch
+{
+    [id(1), helpstring("Open HTTP connection")] HRESULT open([in] BSTR bstrMethod, [in] BSTR bstrUrl, [in,optional] VARIANT varAsync, [in,optional] VARIANT bstrUser, [in,optional] VARIANT bstrPassword);
+    [id(2), helpstring("Add HTTP request header")] HRESULT setRequestHeader([in] BSTR bstrHeader, [in] BSTR bstrValue);
+    [id(3), helpstring("Get HTTP response header")] HRESULT getResponseHeader([in] BSTR bstrHeader, [out, retval] BSTR * pbstrValue);
+    [id(4), helpstring("Get all HTTP response headers")] HRESULT getAllResponseHeaders([out, retval] BSTR * pbstrHeaders);
+    [id(5), helpstring("Send HTTP request")] HRESULT send([in, optional] VARIANT varBody);
+    [id(6), helpstring("Abort HTTP request")] HRESULT abort();
+    [propget, id(7),  helpstring("Get HTTP status code")] HRESULT status([out, retval] long * plStatus);
+    [propget, id(8),  helpstring("Get HTTP status text")] HRESULT statusText([out, retval] BSTR * pbstrStatus);
+    [propget, id(9),  helpstring("Get response body")] HRESULT responseXML([out, retval] IDispatch ** ppBody);
+    [propget, id(10),  helpstring("Get response body")] HRESULT responseText([out, retval] BSTR * pbstrBody);
+    [propget, id(11), helpstring("Get response body")] HRESULT responseBody([out, retval] VARIANT * pvarBody);
+    [propget, id(12), helpstring("Get response body")] HRESULT responseStream([out, retval] VARIANT * pvarBody);
+    [propget, id(13), helpstring("Get ready state")] HRESULT readyState([out, retval] long * plState);
+    [propput, id(14), helpstring("Register a complete event handler")] HRESULT onreadystatechange([in] IDispatch * pReadyStateSink);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+
+cpp_quote("#if !defined(__msxml_sxh_enums__)")
+cpp_quote("#define __msxml_sxh_enums__")
+typedef [
+    helpstring("Options for ServerXMLHTTPRequest Option property")
+]
+enum _SERVERXMLHTTP_OPTION
+{
+    SXH_OPTION_URL = -1,
+    SXH_OPTION_URL_CODEPAGE,
+    SXH_OPTION_ESCAPE_PERCENT_IN_URL,
+    SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS,
+    SXH_OPTION_SELECT_CLIENT_SSL_CERT
+} SERVERXMLHTTP_OPTION;
+
+typedef [
+    helpstring("Flags for SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS option")
+]
+enum _SXH_SERVER_CERT_OPTION
+{
+    SXH_SERVER_CERT_IGNORE_UNKNOWN_CA        = 0x00000100,
+    SXH_SERVER_CERT_IGNORE_WRONG_USAGE       = 0x00000200,
+    SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID   = 0x00001000,
+    SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID = 0x00002000,
+    SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS = (SXH_SERVER_CERT_IGNORE_UNKNOWN_CA |
+                                                SXH_SERVER_CERT_IGNORE_WRONG_USAGE |
+                                                SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID |
+                                                SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID)
+} SXH_SERVER_CERT_OPTION;
+
+typedef [
+    helpstring("Settings for setProxy")
+]
+enum _SXH_PROXY_SETTING
+{
+    SXH_PROXY_SET_DEFAULT   = 0x00000000,
+    SXH_PROXY_SET_PRECONFIG = 0x00000000,
+    SXH_PROXY_SET_DIRECT    = 0x00000001,
+    SXH_PROXY_SET_PROXY     = 0x00000002
+} SXH_PROXY_SETTING;
+cpp_quote("#endif // !defined(__msxml_sxh_enums__)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(2e9196bf-13ba-4dd4-91ca-6c571f281495),
+    odl,
+    dual,
+    oleautomation,
+    helpstring("IServerXMLHTTPRequest Interface"),
+    pointer_default(unique)
+]
+interface IServerXMLHTTPRequest : IXMLHTTPRequest
+{
+    [id(15), helpstring("Specify timeout settings (in milliseconds)")]
+    HRESULT setTimeouts([in] long resolveTimeout, [in] long connectTimeout, [in] long sendTimeout, [in] long receiveTimeout);
+
+    [id(16), helpstring("Wait for asynchronous send to complete, with optional timeout (in seconds)")]
+    HRESULT waitForResponse([in, optional] VARIANT timeoutInSeconds, [out, retval] VARIANT_BOOL * isSuccessful);
+
+    [id(17), helpstring("Get an option value")]
+    HRESULT getOption([in] SERVERXMLHTTP_OPTION option, [out, retval] VARIANT * value);
+
+    [id(18), helpstring("Set an option value")]
+    HRESULT setOption([in] SERVERXMLHTTP_OPTION option, [in] VARIANT value);
+};
+
+[
+    object,
+    uuid(2e01311b-c322-4b0a-bd77-b90cfdc8dce7),
+    odl,
+    dual,
+    oleautomation,
+    helpstring("IServerXMLHTTPRequest2 Interface"),
+    pointer_default(unique)
+]
+interface IServerXMLHTTPRequest2 : IServerXMLHTTPRequest
+{
+    [id(19), helpstring("Specify proxy configuration")]
+    HRESULT setProxy(
+                [in] SXH_PROXY_SETTING proxySetting,
+                [in, optional] VARIANT varProxyServer,
+                [in, optional] VARIANT varBypassList);
+
+    [id(20), helpstring("Specify proxy authentication credentials")]
+    HRESULT setProxyCredentials(
+                [in] BSTR bstrUserName,
+                [in] BSTR bstrPassword);
+};
+
+//+-----------------------------------------------------------------------------
+//
+// SAX interfaces
+//
+//------------------------------------------------------------------------------
+
+[
+    hidden,
+    object,
+    local,
+    uuid(a4f96ed0-f829-476e-81c0-cdc7bd2a0802), // IID_ISAXXMLReader
+    helpstring("ISAXXMLReader interface"),
+    pointer_default(unique)
+]
+interface ISAXXMLReader : IUnknown
+{
+    HRESULT getFeature(
+        [in] const wchar_t * pwchName,
+        [out, retval] VARIANT_BOOL * pvfValue);
+    HRESULT putFeature(
+        [in] const wchar_t * pwchName,
+        [in] VARIANT_BOOL vfValue);
+
+    HRESULT getProperty(
+        [in] const wchar_t * pwchName,
+        [out, retval] VARIANT * pvarValue);
+    HRESULT putProperty(
+        [in] const wchar_t * pwchName,
+        [in] VARIANT varValue);
+
+    HRESULT getEntityResolver(
+        [out, retval] ISAXEntityResolver ** ppResolver);
+    HRESULT putEntityResolver(
+        [in] ISAXEntityResolver * pResolver);
+
+    HRESULT getContentHandler(
+        [out, retval] ISAXContentHandler ** ppHandler);
+    HRESULT putContentHandler(
+        [in] ISAXContentHandler * pHandler);
+
+    HRESULT getDTDHandler(
+        [out, retval] ISAXDTDHandler ** ppHandler);
+    HRESULT putDTDHandler(
+        [in] ISAXDTDHandler * pHandler);
+
+    HRESULT getErrorHandler(
+        [out, retval] ISAXErrorHandler ** ppHandler);
+    HRESULT putErrorHandler(
+        [in] ISAXErrorHandler * pHandler);
+
+    HRESULT getBaseURL(
+        [out, retval] const wchar_t ** ppwchBaseUrl);
+    HRESULT putBaseURL(
+        [in] const wchar_t * pwchBaseUrl);
+
+    HRESULT getSecureBaseURL(
+        [out, retval] const wchar_t ** ppwchSecureBaseUrl);
+    HRESULT putSecureBaseURL(
+        [in] const wchar_t * pwchSecureBaseUrl);
+
+    HRESULT parse(
+        [in, optional] VARIANT varInput);
+    HRESULT parseURL(
+        [in] const wchar_t * pwchUrl);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(70409222-ca09-4475-acb8-40312fe8d145), // IID_ISAXXMLFilter
+    helpstring("ISAXXMLFilter interface"),
+    pointer_default(unique)
+]
+interface ISAXXMLFilter : ISAXXMLReader
+{
+    HRESULT getParent(
+        [out, retval] ISAXXMLReader ** ppReader);
+    HRESULT putParent(
+        [in] ISAXXMLReader * pReader);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(9b7e472a-0de4-4640-bff3-84d38a051c31), // IID_ISAXLocator
+    helpstring("ISAXLocator interface"),
+    pointer_default(unique)
+]
+interface ISAXLocator : IUnknown
+{
+    HRESULT getColumnNumber(
+        [out, retval] int * pnColumn);
+
+    HRESULT getLineNumber(
+        [out, retval] int * pnLine);
+
+    HRESULT getPublicId(
+        [out, retval] const wchar_t ** ppwchPublicId);
+
+    HRESULT getSystemId(
+        [out, retval] const wchar_t ** ppwchSystemId);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(99bca7bd-e8c4-4d5f-a0cf-6d907901ff07), // IID_ISAXEntityResolver
+    helpstring("ISAXEntityResolver interface"),
+    pointer_default(unique)
+]
+interface ISAXEntityResolver : IUnknown
+{
+    HRESULT resolveEntity(
+        [in] const wchar_t * pwchPublicId,
+        [in] const wchar_t * pwchSystemId,
+        [out, retval] VARIANT * pvarInput);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(1545cdfa-9e4e-4497-a8a4-2bf7d0112c44), // IID_ISAXContentHandler
+    helpstring("ISAXContentHandler interface"),
+    pointer_default(unique)
+]
+interface ISAXContentHandler : IUnknown
+{
+    HRESULT putDocumentLocator(
+        [in] ISAXLocator * pLocator);
+
+    HRESULT startDocument();
+
+    HRESULT endDocument();
+
+    HRESULT startPrefixMapping(
+        [in] const wchar_t * pwchPrefix,
+        [in] int cchPrefix,
+        [in] const wchar_t * pwchUri,
+        [in] int cchUri);
+
+    HRESULT endPrefixMapping(
+        [in] const wchar_t * pwchPrefix,
+        [in] int cchPrefix);
+
+    HRESULT startElement(
+        [in] const wchar_t * pwchNamespaceUri,
+        [in] int cchNamespaceUri,
+        [in] const wchar_t * pwchLocalName,
+        [in] int cchLocalName,
+        [in] const wchar_t * pwchQName,
+        [in] int cchQName,
+        [in] ISAXAttributes * pAttributes);
+
+    HRESULT endElement(
+        [in] const wchar_t * pwchNamespaceUri,
+        [in] int cchNamespaceUri,
+        [in] const wchar_t * pwchLocalName,
+        [in] int cchLocalName,
+        [in] const wchar_t * pwchQName,
+        [in] int cchQName);
+
+    HRESULT characters(
+        [in] const wchar_t * pwchChars,
+        [in] int cchChars);
+
+    HRESULT ignorableWhitespace(
+        [in] const wchar_t * pwchChars,
+        [in] int cchChars);
+
+    HRESULT processingInstruction(
+        [in] const wchar_t * pwchTarget,
+        [in] int cchTarget,
+        [in] const wchar_t * pwchData,
+        [in] int cchData);
+
+    HRESULT skippedEntity(
+        [in] const wchar_t * pwchName,
+        [in] int cchName);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(e15c1baf-afb3-4d60-8c36-19a8c45defed), // IID_ISAXDTDHandler
+    helpstring("ISAXDTDHandler interface"),
+    pointer_default(unique)
+]
+interface ISAXDTDHandler : IUnknown
+{
+    HRESULT notationDecl(
+        [in] const wchar_t * pwchName,
+        [in] int cchName,
+        [in] const wchar_t * pwchPublicId,
+        [in] int cchPublicId,
+        [in] const wchar_t * pwchSystemId,
+        [in] int cchSystemId);
+
+    HRESULT unparsedEntityDecl(
+        [in] const wchar_t * pwchName,
+        [in] int cchName,
+        [in] const wchar_t * pwchPublicId,
+        [in] int cchPublicId,
+        [in] const wchar_t * pwchSystemId,
+        [in] int cchSystemId,
+        [in] const wchar_t * pwchNotationName,
+        [in] int cchNotationName);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(a60511c4-ccf5-479e-98a3-dc8dc545b7d0), // IID_ISAXErrorHandler
+    helpstring("ISAXErrorHandler interface"),
+    pointer_default(unique)
+]
+interface ISAXErrorHandler : IUnknown
+{
+    HRESULT error(
+        [in] ISAXLocator * pLocator,
+        [in] const wchar_t * pwchErrorMessage,
+        [in] HRESULT hrErrorCode);
+
+    HRESULT fatalError(
+        [in] ISAXLocator * pLocator,
+        [in] const wchar_t * pwchErrorMessage,
+        [in] HRESULT hrErrorCode);
+
+    HRESULT ignorableWarning(
+        [in] ISAXLocator * pLocator,
+        [in] const wchar_t * pwchErrorMessage,
+        [in] HRESULT hrErrorCode);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(7f85d5f5-47a8-4497-bda5-84ba04819ea6), // IID_ISAXLexicalHandler
+    helpstring("ISAXLexicalHandler interface"),
+    pointer_default(unique)
+]
+interface ISAXLexicalHandler : IUnknown
+{
+    HRESULT startDTD(
+        [in] const wchar_t * pwchName,
+        [in] int cchName,
+        [in] const wchar_t * pwchPublicId,
+        [in] int cchPublicId,
+        [in] const wchar_t * pwchSystemId,
+        [in] int cchSystemId);
+
+    HRESULT endDTD();
+
+    HRESULT startEntity(
+        [in] const wchar_t * pwchName,
+        [in] int cchName);
+
+    HRESULT endEntity(
+        [in] const wchar_t * pwchName,
+        [in] int cchName);
+
+    HRESULT startCDATA();
+
+    HRESULT endCDATA();
+
+    HRESULT comment(
+        [in] const wchar_t * pwchChars,
+        [in] int cchChars);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(862629ac-771a-47b2-8337-4e6843c1be90), // IID_ISAXDeclHandler
+    helpstring("ISAXDeclHandler interface"),
+    pointer_default(unique)
+]
+interface ISAXDeclHandler : IUnknown
+{
+    HRESULT elementDecl(
+        [in] const wchar_t * pwchName,
+        [in] int cchName,
+        [in] const wchar_t * pwchModel,
+        [in] int cchModel);
+
+    HRESULT attributeDecl(
+        [in] const wchar_t * pwchElementName,
+        [in] int cchElementName,
+        [in] const wchar_t * pwchAttributeName,
+        [in] int cchAttributeName,
+        [in] const wchar_t * pwchType,
+        [in] int cchType,
+        [in] const wchar_t * pwchValueDefault,
+        [in] int cchValueDefault,
+        [in] const wchar_t * pwchValue,
+        [in] int cchValue);
+
+    HRESULT internalEntityDecl(
+        [in] const wchar_t * pwchName,
+        [in] int cchName,
+        [in] const wchar_t * pwchValue,
+        [in] int cchValue);
+
+    HRESULT externalEntityDecl(
+        [in] const wchar_t * pwchName,
+        [in] int cchName,
+        [in] const wchar_t * pwchPublicId,
+        [in] int cchPublicId,
+        [in] const wchar_t * pwchSystemId,
+        [in] int cchSystemId);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(f078abe1-45d2-4832-91ea-4466ce2f25c9), // IID_ISAXAttributes
+    helpstring("ISAXAttributes interface"),
+    pointer_default(unique)
+]
+interface ISAXAttributes : IUnknown
+{
+    HRESULT getLength(
+        [out, retval] int * pnLength);
+
+    HRESULT getURI(
+        [in] int nIndex,
+        [out] const wchar_t ** ppwchUri,
+        [out] int * pcchUri);
+
+    HRESULT getLocalName(
+        [in] int nIndex,
+        [out] const wchar_t ** ppwchLocalName,
+        [out] int * pcchLocalName);
+
+    HRESULT getQName(
+        [in] int nIndex,
+        [out] const wchar_t ** ppwchQName,
+        [out] int * pcchQName);
+
+    HRESULT getName(
+        [in] int nIndex,
+        [out] const wchar_t ** ppwchUri,
+        [out] int * pcchUri,
+        [out] const wchar_t ** ppwchLocalName,
+        [out] int * pcchLocalName,
+        [out] const wchar_t ** ppwchQName,
+        [out] int * pcchQName);
+
+    HRESULT getIndexFromName(
+        [in] const wchar_t * pwchUri,
+        [in] int cchUri,
+        [in] const wchar_t * pwchLocalName,
+        [in] int cchLocalName,
+        [out, retval] int * pnIndex);
+
+    HRESULT getIndexFromQName(
+        [in] const wchar_t * pwchQName,
+        [in] int cchQName,
+        [out, retval] int * pnIndex);
+
+    HRESULT getType(
+        [in] int nIndex,
+        [out] const wchar_t ** ppwchType,
+        [out] int * pcchType);
+
+    HRESULT getTypeFromName(
+        [in] const wchar_t * pwchUri,
+        [in] int cchUri,
+        [in] const wchar_t * pwchLocalName,
+        [in] int cchLocalName,
+        [out] const wchar_t ** ppwchType,
+        [out] int * pcchType);
+
+    HRESULT getTypeFromQName(
+        [in] const wchar_t * pwchQName,
+        [in] int cchQName,
+        [out] const wchar_t ** ppwchType,
+        [out] int * pcchType);
+
+    HRESULT getValue(
+        [in] int nIndex,
+        [out] const wchar_t ** ppwchValue,
+        [out] int * pcchValue);
+
+    HRESULT getValueFromName(
+        [in] const wchar_t * pwchUri,
+        [in] int cchUri,
+        [in] const wchar_t * pwchLocalName,
+        [in] int cchLocalName,
+        [out] const wchar_t ** ppwchValue,
+        [out] int * pcchValue);
+
+    HRESULT getValueFromQName(
+        [in] const wchar_t * pwchQName,
+        [in] int cchQName,
+        [out] const wchar_t ** ppwchValue,
+        [out] int * pcchValue);
+};
+
+//+-----------------------------------------------------------------------------
+//
+// SAX dispatch interfaces
+//
+//------------------------------------------------------------------------------
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(8c033caa-6cd6-4f73-b728-4531af74945f), // IID_IVBSAXXMLReader
+    helpstring("IVBSAXXMLReader interface"),
+    pointer_default(unique)
+]
+interface IVBSAXXMLReader : IDispatch
+{
+    [id(DISPID_SAX_XMLREADER_GETFEATURE), helpstring("Look up the value of a feature.")]
+    HRESULT getFeature(
+        [in] BSTR strName,
+        [out, retval] VARIANT_BOOL * fValue);
+    [id(DISPID_SAX_XMLREADER_PUTFEATURE), helpstring("Set the state of a feature.")]
+    HRESULT putFeature(
+        [in] BSTR strName,
+        [in] VARIANT_BOOL fValue);
+
+    [id(DISPID_SAX_XMLREADER_GETPROPERTY), helpstring("Look up the value of a property.")]
+    HRESULT getProperty(
+        [in] BSTR strName,
+        [out, retval] VARIANT * varValue);
+    [id(DISPID_SAX_XMLREADER_PUTPROPERTY), helpstring("Set the value of a property.")]
+    HRESULT putProperty(
+        [in] BSTR strName,
+        [in] VARIANT varValue);
+
+    [propget, id(DISPID_SAX_XMLREADER_ENTITYRESOLVER), helpstring("Allow an application to register an entity resolver or look up the current entity resolver.")]
+    HRESULT entityResolver(
+        [out, retval] IVBSAXEntityResolver ** oResolver);
+    [propputref, id(DISPID_SAX_XMLREADER_ENTITYRESOLVER), helpstring("Allow an application to register an entity resolver or look up the current entity resolver.")]
+    HRESULT entityResolver(
+        [in] IVBSAXEntityResolver * oResolver);
+
+    [propget, id(DISPID_SAX_XMLREADER_CONTENTHANDLER), helpstring("Allow an application to register a content event handler or look up the current content event handler.")]
+    HRESULT contentHandler(
+        [out, retval] IVBSAXContentHandler ** oHandler);
+    [propputref, id(DISPID_SAX_XMLREADER_CONTENTHANDLER), helpstring("Allow an application to register a content event handler or look up the current content event handler")]
+    HRESULT contentHandler(
+        [in] IVBSAXContentHandler * oHandler);
+
+    [propget, id(DISPID_SAX_XMLREADER_DTDHANDLER), helpstring("Allow an application to register a DTD event handler or look up the current DTD event handler.")]
+    HRESULT dtdHandler(
+        [out, retval] IVBSAXDTDHandler ** oHandler);
+    [propputref, id(DISPID_SAX_XMLREADER_DTDHANDLER), helpstring("Allow an application to register a DTD event handler or look up the current DTD event handler.")]
+    HRESULT dtdHandler(
+        [in] IVBSAXDTDHandler * oHandler);
+
+    [propget, id(DISPID_SAX_XMLREADER_ERRORHANDLER), helpstring("Allow an application to register an error event handler or look up the current error event handler.")]
+    HRESULT errorHandler(
+        [out, retval] IVBSAXErrorHandler ** oHandler);
+    [propputref, id(DISPID_SAX_XMLREADER_ERRORHANDLER), helpstring("Allow an application to register an error event handler or look up the current error event handler.")]
+    HRESULT errorHandler(
+        [in] IVBSAXErrorHandler * oHandler);
+
+    [propget, id(DISPID_SAX_XMLREADER_BASEURL), helpstring("Set or get the base URL for the document.")]
+    HRESULT baseURL(
+        [out, retval] BSTR * strBaseURL);
+    [propput, id(DISPID_SAX_XMLREADER_BASEURL), helpstring("Set or get the base URL for the document.")]
+    HRESULT baseURL(
+        [in] BSTR strBaseURL);
+
+    [propget, id(DISPID_SAX_XMLREADER_SECUREBASEURL), helpstring("Set or get the secure base URL for the document.")]
+    HRESULT secureBaseURL(
+        [out, retval] BSTR * strSecureBaseURL);
+    [propput, id(DISPID_SAX_XMLREADER_SECUREBASEURL), helpstring("Set or get the secure base URL for the document.")]
+    HRESULT secureBaseURL(
+        [in] BSTR strSecureBaseURL);
+
+    [id(DISPID_SAX_XMLREADER_PARSE), helpstring("Parse an XML document.")]
+    HRESULT parse(
+        [in, optional] VARIANT varInput);
+    [id(DISPID_SAX_XMLREADER_PARSEURL), helpstring("Parse an XML document from a system identifier (URI).")]
+    HRESULT parseURL(
+        [in] BSTR strURL);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(1299eb1b-5b88-433e-82de-82ca75ad4e04), // IID_IVBSAXXMLFilter
+    helpstring("IVBSAXXMLFilter interface"),
+    pointer_default(unique)
+]
+interface IVBSAXXMLFilter : IDispatch
+{
+    [propget, id(DISPID_SAX_XMLFILTER_PARENT), helpstring("Set or get the parent reader")]
+    HRESULT parent(
+        [out, retval] IVBSAXXMLReader ** oReader);
+    [propputref, id(DISPID_SAX_XMLFILTER_PARENT), helpstring("Set or get the parent reader")]
+    HRESULT parent(
+        [in] IVBSAXXMLReader * oReader);
+
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(796e7ac5-5aa2-4eff-acad-3faaf01a3288), // IID_IVBSAXLocator
+    helpstring("IVBSAXLocator interface"),
+    pointer_default(unique)
+]
+interface IVBSAXLocator : IDispatch
+{
+    [propget, id(DISPID_SAX_LOCATOR_COLUMNNUMBER), helpstring("Get the column number where the current document event ends.")]
+    HRESULT columnNumber(
+        [out, retval] int * nColumn);
+
+    [propget, id(DISPID_SAX_LOCATOR_LINENUMBER), helpstring("Get the line number where the current document event ends.")]
+    HRESULT lineNumber(
+        [out, retval] int * nLine);
+
+    [propget, id(DISPID_SAX_LOCATOR_PUBLICID), helpstring("Get the public identifier for the current document event.")]
+    HRESULT publicId(
+        [out, retval] BSTR * strPublicId);
+
+    [propget, id(DISPID_SAX_LOCATOR_SYSTEMID), helpstring("Get the system identifier for the current document event.")]
+    HRESULT systemId(
+        [out, retval] BSTR * strSystemId);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(0c05d096-f45b-4aca-ad1a-aa0bc25518dc), // IID_IVBSAXEntityResolver
+    helpstring("IVBSAXEntityResolver interface"),
+    pointer_default(unique)
+]
+interface IVBSAXEntityResolver : IDispatch
+{
+    [id(DISPID_SAX_ENTITYRESOLVER_RESOLVEENTITY), helpstring("Allow the application to resolve external entities.")]
+    HRESULT resolveEntity(
+        [in, out] BSTR * strPublicId,
+        [in, out] BSTR * strSystemId,
+        [out, retval] VARIANT * varInput);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(2ed7290a-4dd5-4b46-bb26-4e4155e77faa), // IID_IVBSAXContentHandler
+    helpstring("IVBSAXContentHandler interface"),
+    pointer_default(unique)
+]
+interface IVBSAXContentHandler : IDispatch
+{
+    [propputref, id(DISPID_SAX_CONTENTHANDLER_DOCUMENTLOCATOR), helpstring("Receive an object for locating the origin of SAX document events.")]
+    HRESULT documentLocator(
+        [in] IVBSAXLocator * oLocator);
+
+    [id(DISPID_SAX_CONTENTHANDLER_STARTDOCUMENT), helpstring("Receive notification of the beginning of a document.")]
+    HRESULT startDocument();
+
+    [id(DISPID_SAX_CONTENTHANDLER_ENDDOCUMENT), helpstring("Receive notification of the end of a document.")]
+    HRESULT endDocument();
+
+    [id(DISPID_SAX_CONTENTHANDLER_STARTPREFIXMAPPING), helpstring("Begin the scope of a prefix-URI Namespace mapping.")]
+    HRESULT startPrefixMapping(
+        [in, out] BSTR * strPrefix,
+        [in, out] BSTR * strURI);
+
+    [id(DISPID_SAX_CONTENTHANDLER_ENDPREFIXMAPPING), helpstring("End the scope of a prefix-URI mapping.")]
+    HRESULT endPrefixMapping(
+        [in, out] BSTR * strPrefix);
+
+    [id(DISPID_SAX_CONTENTHANDLER_STARTELEMENT), helpstring("Receive notification of the beginning of an element.")]
+    HRESULT startElement(
+        [in, out] BSTR * strNamespaceURI,
+        [in, out] BSTR * strLocalName,
+        [in, out] BSTR * strQName,
+        [in] IVBSAXAttributes * oAttributes);
+
+    [id(DISPID_SAX_CONTENTHANDLER_ENDELEMENT), helpstring("Receive notification of the end of an element.")]
+    HRESULT endElement(
+        [in, out] BSTR * strNamespaceURI,
+        [in, out] BSTR * strLocalName,
+        [in, out] BSTR * strQName);
+
+    [id(DISPID_SAX_CONTENTHANDLER_CHARACTERS), helpstring("Receive notification of character data.")]
+    HRESULT characters(
+        [in, out] BSTR * strChars);
+
+    [id(DISPID_SAX_CONTENTHANDLER_IGNORABLEWHITESPACE), helpstring("Receive notification of ignorable whitespace in element content.")]
+    HRESULT ignorableWhitespace(
+        [in, out] BSTR * strChars);
+
+    [id(DISPID_SAX_CONTENTHANDLER_PROCESSINGINSTRUCTION), helpstring("Receive notification of a processing instruction.")]
+    HRESULT processingInstruction(
+        [in, out] BSTR * strTarget,
+        [in, out] BSTR * strData);
+
+    [id(DISPID_SAX_CONTENTHANDLER_SKIPPEDENTITY), helpstring("Receive notification of a skipped entity.")]
+    HRESULT skippedEntity(
+        [in, out] BSTR * strName);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(24fb3297-302d-4620-ba39-3a732d850558), // IID_IVBSAXDTDHandler
+    helpstring("IVBSAXDTDHandler interface"),
+    pointer_default(unique)
+]
+interface IVBSAXDTDHandler : IDispatch
+{
+    [id(DISPID_SAX_DTDHANDLER_NOTATIONDECL), helpstring("Receive notification of a notation declaration event.")]
+    HRESULT notationDecl(
+        [in, out] BSTR * strName,
+        [in, out] BSTR * strPublicId,
+        [in, out] BSTR * strSystemId);
+
+    [id(DISPID_SAX_DTDHANDLER_UNPARSEDENTITYDECL), helpstring("Receive notification of an unparsed entity declaration event.")]
+    HRESULT unparsedEntityDecl(
+        [in, out] BSTR * strName,
+        [in, out] BSTR * strPublicId,
+        [in, out] BSTR * strSystemId,
+        [in, out] BSTR * strNotationName);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(d963d3fe-173c-4862-9095-b92f66995f52), // IID_IVBSAXErrorHandler
+    helpstring("IVBSAXErrorHandler interface"),
+    pointer_default(unique)
+]
+interface IVBSAXErrorHandler : IDispatch
+{
+    [id(DISPID_SAX_ERRORHANDLER_ERROR), helpstring("Receive notification of a recoverable error.")]
+    HRESULT error(
+        [in] IVBSAXLocator * oLocator,
+        [in, out] BSTR * strErrorMessage,
+        [in] long nErrorCode);
+
+    [id(DISPID_SAX_ERRORHANDLER_FATALERROR), helpstring("Receive notification of a non-recoverable error.")]
+    HRESULT fatalError(
+        [in] IVBSAXLocator * oLocator,
+        [in, out] BSTR * strErrorMessage,
+        [in] long nErrorCode);
+
+    [id(DISPID_SAX_ERRORHANDLER_IGNORABLEWARNING), helpstring("Receive notification of an ignorable warning.")]
+    HRESULT ignorableWarning(
+        [in] IVBSAXLocator * oLocator,
+        [in, out] BSTR * strErrorMessage,
+        [in] long nErrorCode);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(032aac35-8c0e-4d9d-979f-e3b702935576), // IID_IVBSAXLexicalHandler
+    helpstring("IVBSAXLexicalHandler interface"),
+    pointer_default(unique)
+]
+interface IVBSAXLexicalHandler : IDispatch
+{
+    [id(DISPID_SAX_LEXICALHANDLER_STARTDTD), helpstring("Report the start of DTD declarations, if any.")]
+    HRESULT startDTD(
+        [in, out] BSTR * strName,
+        [in, out] BSTR * strPublicId,
+        [in, out] BSTR * strSystemId);
+    [id(DISPID_SAX_LEXICALHANDLER_ENDDTD), helpstring("Report the end of DTD declarations.")]
+    HRESULT endDTD();
+
+    [id(DISPID_SAX_LEXICALHANDLER_STARTENTITY), helpstring("Report the beginning of some internal and external XML entities.")]
+    HRESULT startEntity(
+        [in, out] BSTR * strName);
+    [id(DISPID_SAX_LEXICALHANDLER_ENDENTITY), helpstring("Report the end of an entity.")]
+    HRESULT endEntity(
+        [in, out] BSTR * strName);
+
+    [id(DISPID_SAX_LEXICALHANDLER_STARTCDATA), helpstring("Report the start of a CDATA section.")]
+    HRESULT startCDATA();
+    [id(DISPID_SAX_LEXICALHANDLER_ENDCDATA), helpstring("Report the end of a CDATA section.")]
+    HRESULT endCDATA();
+
+    [id(DISPID_SAX_LEXICALHANDLER_COMMENT), helpstring("Report an XML comment anywhere in the document.")]
+    HRESULT comment(
+        [in, out] BSTR * strChars);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(e8917260-7579-4be1-b5dd-7afbfa6f077b), // IID_IVBSAXDeclHandler
+    helpstring("IVBSAXDeclHandler interface"),
+    pointer_default(unique)
+]
+interface IVBSAXDeclHandler : IDispatch
+{
+    [id(DISPID_SAX_DECLHANDLER_ELEMENTDECL), helpstring("Report an element type declaration.")]
+    HRESULT elementDecl(
+        [in, out] BSTR * strName,
+        [in, out] BSTR * strModel);
+
+    [id(DISPID_SAX_DECLHANDLER_ATTRIBUTEDECL), helpstring("Report an attribute type declaration.")]
+    HRESULT attributeDecl(
+        [in, out] BSTR * strElementName,
+        [in, out] BSTR * strAttributeName,
+        [in, out] BSTR * strType,
+        [in, out] BSTR * strValueDefault,
+        [in, out] BSTR * strValue);
+
+    [id(DISPID_SAX_DECLHANDLER_INTERNALENTITYDECL), helpstring("Report an internal entity declaration.")]
+    HRESULT internalEntityDecl(
+        [in, out] BSTR * strName,
+        [in, out] BSTR * strValue);
+
+    [id(DISPID_SAX_DECLHANDLER_EXTERNALENTITYDECL), helpstring("Report a parsed external entity declaration.")]
+    HRESULT externalEntityDecl(
+        [in, out] BSTR * strName,
+        [in, out] BSTR * strPublicId,
+        [in, out] BSTR * strSystemId);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(10dc0586-132b-4cac-8bb3-db00ac8b7ee0), // IID_IVBSAXAttributes
+    helpstring("IVBSAXAttributes interface"),
+    pointer_default(unique)
+]
+interface IVBSAXAttributes : IDispatch
+{
+    [propget, id(DISPID_SAX_ATTRIBUTES_LENGTH), helpstring("Get the number of attributes in the list.")]
+    HRESULT length(
+        [out, retval] int * nLength);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETURI), helpstring("Look up an attribute's Namespace URI by index.")]
+    HRESULT getURI(
+        [in] int nIndex,
+        [out, retval] BSTR * strURI);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETLOCALNAME), helpstring("Look up an attribute's local name by index.")]
+    HRESULT getLocalName(
+        [in] int nIndex,
+        [out, retval] BSTR * strLocalName);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETQNAME), helpstring("Look up an attribute's XML 1.0 qualified name by index.")]
+    HRESULT getQName(
+        [in] int nIndex,
+        [out, retval] BSTR * strQName);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETINDEXFROMNAME), helpstring("Look up the index of an attribute by Namespace name.")]
+    HRESULT getIndexFromName(
+        [in] BSTR strURI,
+        [in] BSTR strLocalName,
+        [out, retval] int * nIndex);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETINDEXFROMQNAME), helpstring("Look up the index of an attribute by XML 1.0 qualified name.")]
+    HRESULT getIndexFromQName(
+        [in] BSTR strQName,
+        [out, retval] int * nIndex);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETTYPE), helpstring("Look up an attribute's type by index.")]
+    HRESULT getType(
+        [in] int nIndex,
+        [out, retval] BSTR * strType);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETTYPEFROMNAME), helpstring("Look up an attribute's type by Namespace name.")]
+    HRESULT getTypeFromName(
+        [in] BSTR strURI,
+        [in] BSTR strLocalName,
+        [out, retval] BSTR * strType);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETTYPEFROMQNAME), helpstring("Look up an attribute's type by XML 1.0 qualified name.")]
+    HRESULT getTypeFromQName(
+        [in] BSTR strQName,
+        [out, retval] BSTR * strType);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETVALUE), helpstring("Look up an attribute's value by index.")]
+    HRESULT getValue(
+        [in] int nIndex,
+        [out, retval] BSTR * strValue);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETVALUEFROMNAME), helpstring("Look up an attribute's value by Namespace name.")]
+    HRESULT getValueFromName(
+        [in] BSTR strURI,
+        [in] BSTR strLocalName,
+        [out, retval] BSTR * strValue);
+
+    [id(DISPID_SAX_ATTRIBUTES_GETVALUEFROMQNAME), helpstring("Look up an attribute's value by XML 1.0 qualified name.")]
+    HRESULT getValueFromQName(
+        [in] BSTR strQName,
+        [out, retval] BSTR * strValue);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(4d7ff4ba-1565-4ea8-94e1-6e724a46f98d), // IID_IMXWriter
+    helpstring("IMXWriter interface"),
+    pointer_default(unique)
+]
+interface IMXWriter :  IDispatch
+{
+    [propput, id(DISPID_MX_WRITER_OUTPUT), helpstring("Set or get the output.")]
+    HRESULT output (
+        [in] VARIANT varDestination);
+    [propget, id(DISPID_MX_WRITER_OUTPUT), helpstring("Set or get the output.")]
+    HRESULT output (
+        [out, retval] VARIANT * varDestination);
+
+    [propput, id(DISPID_MX_WRITER_ENCODING), helpstring("Set or get the output encoding.")]
+    HRESULT encoding (
+        [in] BSTR strEncoding);
+    [propget, id(DISPID_MX_WRITER_ENCODING), helpstring("Set or get the output encoding.")]
+    HRESULT encoding (
+        [out, retval] BSTR * strEncoding);
+
+    [propput, id(DISPID_MX_WRITER_BYTEORDERMARK), helpstring("Determine whether or not to write the byte order mark")]
+    HRESULT byteOrderMark (
+        [in] VARIANT_BOOL fWriteByteOrderMark);
+    [propget, id(DISPID_MX_WRITER_BYTEORDERMARK), helpstring("Determine whether or not to write the byte order mark")]
+    HRESULT byteOrderMark (
+        [out, retval] VARIANT_BOOL * fWriteByteOrderMark);
+
+    [propput, id(DISPID_MX_WRITER_INDENT), helpstring("Enable or disable auto indent mode.")]
+    HRESULT indent (
+        [in] VARIANT_BOOL fIndentMode);
+    [propget, id(DISPID_MX_WRITER_INDENT), helpstring("Enable or disable auto indent mode.")]
+    HRESULT indent (
+        [out, retval] VARIANT_BOOL * fIndentMode);
+
+    [propput, id(DISPID_MX_WRITER_STANDALONE), helpstring("Set or get the standalone document declaration.")]
+    HRESULT standalone (
+        [in] VARIANT_BOOL fValue);
+    [propget, id(DISPID_MX_WRITER_STANDALONE), helpstring("Set or get the standalone document declaration.")]
+    HRESULT standalone (
+        [out, retval] VARIANT_BOOL * fValue);
+
+    [propput, id(DISPID_MX_WRITER_OMITXMLDECLARATION), helpstring("Determine whether or not to omit the XML declaration.")]
+    HRESULT omitXMLDeclaration (
+        [in] VARIANT_BOOL fValue);
+    [propget, id(DISPID_MX_WRITER_OMITXMLDECLARATION), helpstring("Determine whether or not to omit the XML declaration.")]
+    HRESULT omitXMLDeclaration (
+        [out, retval] VARIANT_BOOL * fValue);
+
+    [propput, id(DISPID_MX_WRITER_VERSION), helpstring("Set or get the xml version info.")]
+    HRESULT version (
+        [in] BSTR strVersion);
+    [propget, id(DISPID_MX_WRITER_VERSION), helpstring("Set or get the xml version info.")]
+    HRESULT version (
+        [out, retval] BSTR * strVersion);
+
+    [propput, id(DISPID_MX_WRITER_DISABLEOUTPUTESCAPING), helpstring("When enabled, the writer no longer escapes out its input when writing it out.")]
+    HRESULT disableOutputEscaping(
+        [in] VARIANT_BOOL fValue);
+    [propget, id(DISPID_MX_WRITER_DISABLEOUTPUTESCAPING), helpstring("When enabled, the writer no longer escapes out its input when writing it out.")]
+    HRESULT disableOutputEscaping(
+        [out, retval] VARIANT_BOOL * fValue);
+
+    [id(DISPID_MX_WRITER_FLUSH), helpstring("Flushes all writer buffers forcing the writer to write to the underlying output object")]
+    HRESULT flush();
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(f10d27cc-3ec0-415c-8ed8-77ab1c5e7262), // IID_IMXAttributes
+    helpstring("IMXAttributes interface"),
+    pointer_default(unique)
+]
+interface IMXAttributes : IDispatch
+{
+    [id(DISPID_MX_ATTRIBUTES_ADDATTRIBUTE), helpstring("Add an attribute to the end of the list.")]
+    HRESULT addAttribute(
+        [in] BSTR strURI,
+        [in] BSTR strLocalName,
+        [in] BSTR strQName,
+        [in] BSTR strType,
+        [in] BSTR strValue);
+
+    [id(DISPID_MX_ATTRIBUTES_ADDATTRIBUTEFROMINDEX), helpstring("Add an attribute, whose value is equal to the indexed attribute in the input attributes object, to the end of the list.")]
+    HRESULT addAttributeFromIndex(
+        [in] VARIANT varAtts,
+        [in] int nIndex);
+
+    [id(DISPID_MX_ATTRIBUTES_CLEAR), helpstring("Clear the attribute list for reuse.")]
+    HRESULT clear();
+
+    [id(DISPID_MX_ATTRIBUTES_REMOVEATTRIBUTE), helpstring("Remove an attribute from the list.")]
+    HRESULT removeAttribute(
+        [in] int nIndex);
+
+    [id(DISPID_MX_ATTRIBUTES_SETATTRIBUTE), helpstring("Set an attribute in the list.")]
+    HRESULT setAttribute(
+        [in] int nIndex,
+        [in] BSTR strURI,
+        [in] BSTR strLocalName,
+        [in] BSTR strQName,
+        [in] BSTR strType,
+        [in] BSTR strValue);
+
+    [id(DISPID_MX_ATTRIBUTES_SETATTRIBUTES), helpstring("Copy an entire Attributes object.")]
+    HRESULT setAttributes(
+        [in] VARIANT varAtts);
+
+    [id(DISPID_MX_ATTRIBUTES_SETLOCALNAME), helpstring("Set the local name of a specific attribute.")]
+    HRESULT setLocalName(
+        [in] int nIndex,
+        [in] BSTR strLocalName);
+
+    [id(DISPID_MX_ATTRIBUTES_SETQNAME), helpstring("Set the qualified name of a specific attribute.")]
+    HRESULT setQName(
+        [in] int nIndex,
+        [in] BSTR strQName);
+
+    [id(DISPID_MX_ATTRIBUTES_SETTYPE), helpstring("Set the type of a specific attribute.")]
+    HRESULT setType(
+        [in] int nIndex,
+        [in] BSTR strType);
+
+    [id(DISPID_MX_ATTRIBUTES_SETURI), helpstring("Set the Namespace URI of a specific attribute.")]
+    HRESULT setURI(
+        [in] int nIndex,
+        [in] BSTR strURI);
+
+    [id(DISPID_MX_ATTRIBUTES_SETVALUE), helpstring("Set the value of a specific attribute.")]
+    HRESULT setValue(
+        [in] int nIndex,
+        [in] BSTR strValue);
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(808f4e35-8d5a-4fbe-8466-33a41279ed30), // IID_IMXReaderControl
+    helpstring("IMXReaderControl interface"),
+    pointer_default(unique)
+]
+interface IMXReaderControl : IDispatch
+{
+    [id(DISPID_MX_READER_CONTROL_ABORT), helpstring("Abort the reader")]
+    HRESULT abort();
+
+    [id(DISPID_MX_READER_CONTROL_RESUME), helpstring("Resume the reader")]
+    HRESULT resume();
+
+    [id(DISPID_MX_READER_CONTROL_SUSPEND), helpstring("Suspend the reader")]
+    HRESULT suspend();
+};
+
+[
+    object,
+    local,
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    uuid(fa4bb38c-faf9-4cca-9302-d1dd0fe520db), // IID_IMXSchemaDeclHandler
+    helpstring("IMXSchemaDeclHandler interface"),
+    pointer_default(unique)
+]
+interface IMXSchemaDeclHandler : IDispatch
+{
+    [id(DISPID_MX_SCHEMADECLHANDLER_SCHEMAELEMENTDECL), helpstring("Access schema element declaration")]
+    HRESULT schemaElementDecl(
+        [in] ISchemaElement * oSchemaElement);
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Namespace Manager
+[
+    local, object,
+    uuid(c90352f4-643c-4fbc-bb23-e996eb2d51fd), // IID_IMXNamespacePrefixes
+    helpstring("IMXNamespacePrefixes interface"),
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IMXNamespacePrefixes : IDispatch
+{
+    [propget, id(DISPID_VALUE)]                       HRESULT item([in]long index, [out,retval]BSTR* prefix);
+    [propget, id(DISPID_MX_NSMGR_LENGTH)]             HRESULT length([out,retval]long* length);
+    [propget, restricted, hidden, id(DISPID_NEWENUM)] HRESULT _newEnum([out,retval]IUnknown** ppUnk);
+};
+
+[
+    local, object,
+    uuid(c90352f5-643c-4fbc-bb23-e996eb2d51fd), // IID_IVBMXNamespaceManager
+    helpstring("IVBMXNamespaceManager interface"),
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IVBMXNamespaceManager : IDispatch
+{
+    [propput, id(DISPID_MX_NSMGR_ALLOWOVERRIDE)]
+    HRESULT allowOverride([in] VARIANT_BOOL fOverride);
+
+    [propget, id(DISPID_MX_NSMGR_ALLOWOVERRIDE)]
+    HRESULT allowOverride([out,retval] VARIANT_BOOL* fOverride);
+
+    [id(DISPID_MX_NSMGR_RESET)]
+    HRESULT reset();
+
+    [id(DISPID_MX_NSMGR_PUSHCONTEXT)]
+    HRESULT pushContext();
+
+    [id(DISPID_MX_NSMGR_PUSHNODECONTEXT)]
+    HRESULT pushNodeContext(
+                    [in] IXMLDOMNode* contextNode,
+                    [in, defaultvalue(-1)] VARIANT_BOOL fDeep);
+
+    [id(DISPID_MX_NSMGR_POPCONTEXT)]
+    HRESULT popContext();
+
+    [id(DISPID_MX_NSMGR_DECLAREPREFIX)]
+    HRESULT declarePrefix(
+                    [in] BSTR prefix,
+                    [in] BSTR namespaceURI);
+
+    [id(DISPID_MX_NSMGR_GETDECLAREDPREFIXES)]
+    HRESULT getDeclaredPrefixes(
+                    [out, retval] IMXNamespacePrefixes** prefixes);
+
+    [id(DISPID_MX_NSMGR_GETPREFIXES)]
+    HRESULT getPrefixes(
+                    [in] BSTR namespaceURI,
+                    [out, retval] IMXNamespacePrefixes** prefixes);
+
+    [id(DISPID_MX_NSMGR_GETURI)]
+    HRESULT getURI(
+                    [in] BSTR prefix,
+                    [out, retval] VARIANT* uri);
+
+    [id(DISPID_MX_NSMGR_GETURIFROMNODE)]
+    HRESULT getURIFromNode(
+                    [in] BSTR strPrefix,
+                    [in] IXMLDOMNode* contextNode,
+                    [out, retval] VARIANT* uri);
+};
+
+[
+    hidden,
+    object,
+    local,
+    uuid(c90352f6-643c-4fbc-bb23-e996eb2d51fd), // IID_IMXNamespaceManager
+    helpstring("IMXNamespaceManager interface"),
+    pointer_default(unique)
+]
+interface IMXNamespaceManager : IUnknown
+{
+    HRESULT putAllowOverride([in] VARIANT_BOOL fOverride);
+
+    HRESULT getAllowOverride([out,retval] VARIANT_BOOL* fOverride);
+
+    HRESULT reset();
+
+    HRESULT pushContext();
+
+    HRESULT pushNodeContext(
+                    [in] IXMLDOMNode* contextNode,
+                    [in] VARIANT_BOOL fDeep);
+
+    HRESULT popContext();
+
+    HRESULT declarePrefix(
+                    [in] LPCWSTR prefix,
+                    [in] LPCWSTR namespaceURI);
+
+    HRESULT getDeclaredPrefix(
+                    [in] long nIndex,
+                    [in, out, annotation("_Out_writes_to_(*pcchPrefix, *pcchPrefix)")] wchar_t* pwchPrefix,
+                    [in, out, annotation("_Inout_")] int* pcchPrefix);
+
+    HRESULT getPrefix(
+                    [in] LPCWSTR pwszNamespaceURI,
+                    [in] long nIndex,
+                    [in, out, annotation("_Out_writes_to_(*pcchPrefix, *pcchPrefix)")] wchar_t* pwchPrefix,
+                    [in, out, annotation("_Inout_")] int* pcchPrefix);
+
+    HRESULT getURI(
+                    [in] LPCWSTR pwchPrefix,
+                    [in] IXMLDOMNode* pContextNode,
+                    [in, out, annotation("_Out_writes_to_(*pcchUri, *pcchUri)")] wchar_t* pwchUri,
+                    [in, out, annotation("_Inout_")] int* pcchUri);
+};
+
+[
+    local, object,
+    uuid(c90352f7-643c-4fbc-bb23-e996eb2d51fd), // IID_IMXXMLFilter
+    helpstring("IMXXMLFilter interface"),
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IMXXMLFilter : IDispatch
+{
+    [id(DISPID_MXXML_FILTER_GETFEATURE)]    HRESULT getFeature( [in] BSTR strName, [out, retval] VARIANT_BOOL * fValue);
+    [id(DISPID_MXXML_FILTER_PUTFEATURE)]    HRESULT putFeature( [in] BSTR strName, [in] VARIANT_BOOL fValue);
+
+    [id(DISPID_MXXML_FILTER_GETPROPERTY)]   HRESULT getProperty( [in] BSTR strName, [out, retval] VARIANT * varValue);
+    [id(DISPID_MXXML_FILTER_PUTPROPERTY)]   HRESULT putProperty( [in] BSTR strName, [in] VARIANT varValue);
+
+    [id(DISPID_MXXML_FILTER_ENTITYRESOLVER), propget]    HRESULT entityResolver( [out, retval] IUnknown ** oResolver);
+    [id(DISPID_MXXML_FILTER_ENTITYRESOLVER), propputref] HRESULT entityResolver( [in] IUnknown * oResolver);
+    [id(DISPID_MXXML_FILTER_CONTENTHANDLER), propget]    HRESULT contentHandler( [out, retval] IUnknown ** oHandler);
+    [id(DISPID_MXXML_FILTER_CONTENTHANDLER), propputref] HRESULT contentHandler( [in] IUnknown * oHandler);
+    [id(DISPID_MXXML_FILTER_DTDHANDLER), propget]        HRESULT dtdHandler( [out, retval] IUnknown ** oHandler);
+    [id(DISPID_MXXML_FILTER_DTDHANDLER), propputref]     HRESULT dtdHandler( [in] IUnknown * oHandler);
+    [id(DISPID_MXXML_FILTER_ERRORHANDLER), propget]      HRESULT errorHandler( [out, retval] IUnknown ** oHandler);
+    [id(DISPID_MXXML_FILTER_ERRORHANDLER), propputref]   HRESULT errorHandler( [in] IUnknown * oHandler);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Schema Object Model
+cpp_quote("#if !defined(__msxml_som_enums__)")
+cpp_quote("#define __msxml_som_enums__")
+typedef [
+    helpstring("Schema Object Model Item Types")
+]
+enum _SOMITEMTYPE
+{
+    SOMITEM_SCHEMA                      = 0x1000,
+    SOMITEM_ATTRIBUTE                   = 0x1001,
+    SOMITEM_ATTRIBUTEGROUP              = 0x1002,
+    SOMITEM_NOTATION                    = 0x1003,
+    SOMITEM_ANNOTATION                  = 0x1004,
+
+    SOMITEM_IDENTITYCONSTRAINT          = 0x1100, // identity constraints
+    SOMITEM_KEY                         = 0x1101,
+    SOMITEM_KEYREF                      = 0x1102,
+    SOMITEM_UNIQUE                      = 0x1103,
+
+    SOMITEM_ANYTYPE                     = 0x2000, // Types
+    SOMITEM_DATATYPE                    = 0x2100,
+    SOMITEM_DATATYPE_ANYTYPE            = 0x2101,
+    SOMITEM_DATATYPE_ANYURI             = 0x2102,
+    SOMITEM_DATATYPE_BASE64BINARY       = 0x2103,
+    SOMITEM_DATATYPE_BOOLEAN            = 0x2104,
+    SOMITEM_DATATYPE_BYTE               = 0x2105,
+    SOMITEM_DATATYPE_DATE               = 0x2106,
+    SOMITEM_DATATYPE_DATETIME           = 0x2107,
+    SOMITEM_DATATYPE_DAY                = 0x2108,
+    SOMITEM_DATATYPE_DECIMAL            = 0x2109,
+    SOMITEM_DATATYPE_DOUBLE             = 0x210A,
+    SOMITEM_DATATYPE_DURATION           = 0x210B,
+    SOMITEM_DATATYPE_ENTITIES           = 0x210C,
+    SOMITEM_DATATYPE_ENTITY             = 0x210D,
+    SOMITEM_DATATYPE_FLOAT              = 0x210E,
+    SOMITEM_DATATYPE_HEXBINARY          = 0x210F,
+    SOMITEM_DATATYPE_ID                 = 0x2110,
+    SOMITEM_DATATYPE_IDREF              = 0x2111,
+    SOMITEM_DATATYPE_IDREFS             = 0x2112,
+    SOMITEM_DATATYPE_INT                = 0x2113,
+    SOMITEM_DATATYPE_INTEGER            = 0x2114,
+    SOMITEM_DATATYPE_LANGUAGE           = 0x2115,
+    SOMITEM_DATATYPE_LONG               = 0x2116,
+    SOMITEM_DATATYPE_MONTH              = 0x2117,
+    SOMITEM_DATATYPE_MONTHDAY           = 0x2118,
+    SOMITEM_DATATYPE_NAME               = 0x2119,
+    SOMITEM_DATATYPE_NCNAME             = 0x211A,
+    SOMITEM_DATATYPE_NEGATIVEINTEGER    = 0x211B,
+    SOMITEM_DATATYPE_NMTOKEN            = 0x211C,
+    SOMITEM_DATATYPE_NMTOKENS           = 0x211D,
+    SOMITEM_DATATYPE_NONNEGATIVEINTEGER = 0x211E,
+    SOMITEM_DATATYPE_NONPOSITIVEINTEGER = 0x211F,
+    SOMITEM_DATATYPE_NORMALIZEDSTRING   = 0x2120,
+    SOMITEM_DATATYPE_NOTATION           = 0x2121,
+    SOMITEM_DATATYPE_POSITIVEINTEGER    = 0x2122,
+    SOMITEM_DATATYPE_QNAME              = 0x2123,
+    SOMITEM_DATATYPE_SHORT              = 0x2124,
+    SOMITEM_DATATYPE_STRING             = 0x2125,
+    SOMITEM_DATATYPE_TIME               = 0x2126,
+    SOMITEM_DATATYPE_TOKEN              = 0x2127,
+    SOMITEM_DATATYPE_UNSIGNEDBYTE       = 0x2128,
+    SOMITEM_DATATYPE_UNSIGNEDINT        = 0x2129,
+    SOMITEM_DATATYPE_UNSIGNEDLONG       = 0x212A,
+    SOMITEM_DATATYPE_UNSIGNEDSHORT      = 0x212B,
+    SOMITEM_DATATYPE_YEAR               = 0x212C,
+    SOMITEM_DATATYPE_YEARMONTH          = 0x212D,
+    SOMITEM_DATATYPE_ANYSIMPLETYPE      = 0x21FF,
+
+    SOMITEM_SIMPLETYPE                  = 0x2200,
+    SOMITEM_COMPLEXTYPE                 = 0x2400,
+
+    SOMITEM_PARTICLE                    = 0x4000, // particles
+    SOMITEM_ANY                         = 0x4001,
+    SOMITEM_ANYATTRIBUTE                = 0x4002,
+    SOMITEM_ELEMENT                     = 0x4003,
+
+    SOMITEM_GROUP                       = 0x4100, // groups : particles
+    SOMITEM_ALL                         = 0x4101,
+    SOMITEM_CHOICE                      = 0x4102,
+    SOMITEM_SEQUENCE                    = 0x4103,
+    SOMITEM_EMPTYPARTICLE               = 0x4104,
+
+    SOMITEM_NULL                        = 0x0800, // null items
+    SOMITEM_NULL_TYPE                   = 0x2800,
+    SOMITEM_NULL_ANY                    = 0x4801,
+    SOMITEM_NULL_ANYATTRIBUTE           = 0x4802,
+    SOMITEM_NULL_ELEMENT                = 0x4803,
+} SOMITEMTYPE;
+
+typedef [
+    helpstring("Schema Object Model Attribute Uses")
+]
+enum _SCHEMAUSE
+{
+    SCHEMAUSE_OPTIONAL,    // 0
+    SCHEMAUSE_PROHIBITED,  // 1
+    SCHEMAUSE_REQUIRED,    // 2
+} SCHEMAUSE;
+
+typedef [
+    helpstring("Schema Object Model Filters")
+] enum _SCHEMADERIVATIONMETHOD
+{
+    SCHEMADERIVATIONMETHOD_EMPTY        = 0x0000,
+    SCHEMADERIVATIONMETHOD_SUBSTITUTION = 0x0001,
+    SCHEMADERIVATIONMETHOD_EXTENSION    = 0x0002,
+    SCHEMADERIVATIONMETHOD_RESTRICTION  = 0x0004,
+    SCHEMADERIVATIONMETHOD_LIST         = 0x0008,
+    SCHEMADERIVATIONMETHOD_UNION        = 0x0010,
+    SCHEMADERIVATIONMETHOD_ALL          = 0x00FF,
+    SCHEMADERIVATIONMETHOD_NONE         = 0x0100,
+} SCHEMADERIVATIONMETHOD;
+
+typedef [
+    helpstring("Schema Object Model Content Types")
+] enum _SCHEMACONTENTTYPE
+{
+    SCHEMACONTENTTYPE_EMPTY,
+    SCHEMACONTENTTYPE_TEXTONLY,
+    SCHEMACONTENTTYPE_ELEMENTONLY,
+    SCHEMACONTENTTYPE_MIXED,
+} SCHEMACONTENTTYPE;
+
+typedef [
+    helpstring("Schema Object Model Process Contents")
+] enum _SCHEMAPROCESSCONTENTS
+{
+    SCHEMAPROCESSCONTENTS_NONE,
+    SCHEMAPROCESSCONTENTS_SKIP,
+    SCHEMAPROCESSCONTENTS_LAX,
+    SCHEMAPROCESSCONTENTS_STRICT,
+} SCHEMAPROCESSCONTENTS;
+
+typedef [
+    helpstring("Schema Object Model Whitespace facet values")
+] enum _SCHEMAWHITESPACE
+{
+    SCHEMAWHITESPACE_NONE       = -1,
+    SCHEMAWHITESPACE_PRESERVE   =  0,
+    SCHEMAWHITESPACE_REPLACE    =  1,
+    SCHEMAWHITESPACE_COLLAPSE   =  2,
+} SCHEMAWHITESPACE;
+
+
+typedef [
+    helpstring("Schema Object Model Type variety values")
+] enum _SCHEMATYPEVARIETY
+{
+    SCHEMATYPEVARIETY_NONE      = -1,
+    SCHEMATYPEVARIETY_ATOMIC    =  0,
+    SCHEMATYPEVARIETY_LIST      =  1,
+    SCHEMATYPEVARIETY_UNION     =  2,
+}SCHEMATYPEVARIETY;
+cpp_quote("#endif // !defined(__msxml_som_enums__)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    local, object,
+    uuid(50ea08b0-dd1b-4664-9a50-c2f40f4bd79a), // IID_IXMLDOMSchemaCollection2
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schemas Collection 2"),
+    pointer_default(unique)
+]
+interface IXMLDOMSchemaCollection2 : IXMLDOMSchemaCollection
+{
+    [id(DISPID_SOM_VALIDATE)]       HRESULT validate();
+    [id(DISPID_SOM_VALIDATEONLOAD), propput] HRESULT validateOnLoad([in]VARIANT_BOOL validateOnLoad);
+    [id(DISPID_SOM_VALIDATEONLOAD), propget] HRESULT validateOnLoad([out,retval]VARIANT_BOOL* validateOnLoad);
+    [id(DISPID_SOM_GETSCHEMA)]      HRESULT getSchema([in]BSTR namespaceURI, [out,retval]ISchema** schema);
+    [id(DISPID_SOM_GETDECLARATION)] HRESULT getDeclaration([in]IXMLDOMNode* node, [out,retval]ISchemaItem** item);
+};
+
+[
+    local, object,
+    uuid(50ea08b1-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaStringCollection
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema String Collection"),
+    pointer_default(unique)
+]
+interface ISchemaStringCollection : IDispatch
+{
+    [id(DISPID_VALUE), propget]                       HRESULT item([in]long index, [out,retval]BSTR* bstr);
+    [id(DISPID_SOM_LENGTH), propget]                  HRESULT length([out,retval]long* length);
+    [id(DISPID_NEWENUM), hidden, restricted, propget] HRESULT _newEnum([out,retval]IUnknown** ppunk);
+};
+
+[
+    local, object,
+    uuid(50ea08b2-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaItemCollection
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Item Collection"),
+    pointer_default(unique)
+]
+interface ISchemaItemCollection : IDispatch
+{
+    [id(DISPID_VALUE), propget]                       HRESULT item([in]long index, [out,retval]ISchemaItem** item);
+    [id(DISPID_SOM_ITEMBYNAME)]                       HRESULT itemByName([in]BSTR name, [out,retval]ISchemaItem** item);
+    [id(DISPID_SOM_ITEMBYQNAME)]                      HRESULT itemByQName([in]BSTR name, [in]BSTR namespaceURI, [out,retval]ISchemaItem** item);
+    [id(DISPID_SOM_LENGTH), propget]                  HRESULT length([out,retval]long* length);
+    [id(DISPID_NEWENUM), hidden, restricted, propget] HRESULT _newEnum([out,retval]IUnknown** ppunk);
+};
+
+[
+    local, object,
+    uuid(50ea08b3-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaItem
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Item"),
+    pointer_default(unique)
+]
+interface ISchemaItem : IDispatch
+{
+    [id(DISPID_SOM_NAME), propget]           HRESULT name([out,retval]BSTR* name);
+    [id(DISPID_SOM_NAMESPACEURI), propget]   HRESULT namespaceURI([out,retval]BSTR* namespaceURI);
+    [id(DISPID_SOM_SCHEMA), propget]         HRESULT schema([out,retval]ISchema** schema);
+    [id(DISPID_SOM_ID), propget]             HRESULT id([out,retval]BSTR* id);
+    [id(DISPID_SOM_ITEMTYPE), propget]       HRESULT itemType([out,retval]SOMITEMTYPE* itemType);
+    [id(DISPID_SOM_UNHANDLEDATTRS), propget] HRESULT unhandledAttributes([out,retval]IVBSAXAttributes** attributes);
+    [id(DISPID_SOM_WRITEANNOTATION)]         HRESULT writeAnnotation([in]IUnknown* annotationSink, [out,retval]VARIANT_BOOL* isWritten);
+};
+
+[
+    local, object,
+    uuid(50ea08b4-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchema
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema"),
+    pointer_default(unique)
+]
+interface ISchema : ISchemaItem
+{
+    [id(DISPID_SOM_TARGETNAMESPACE), propget] HRESULT targetNamespace([out,retval]BSTR* targetNamespace);
+    [id(DISPID_SOM_VERSION), propget]         HRESULT version([out,retval]BSTR* version);
+    [id(DISPID_SOM_TYPES), propget]           HRESULT types([out,retval]ISchemaItemCollection** types);
+    [id(DISPID_SOM_ELEMENTS), propget]        HRESULT elements([out,retval]ISchemaItemCollection** elements);
+    [id(DISPID_SOM_ATTRIBUTES), propget]      HRESULT attributes([out,retval]ISchemaItemCollection** attributes);
+    [id(DISPID_SOM_ATTRIBUTEGROUPS), propget] HRESULT attributeGroups([out,retval]ISchemaItemCollection** attributeGroups);
+    [id(DISPID_SOM_MODELGROUPS), propget]     HRESULT modelGroups([out,retval]ISchemaItemCollection** modelGroups);
+    [id(DISPID_SOM_NOTATIONS), propget]       HRESULT notations([out,retval]ISchemaItemCollection** notations);
+    [id(DISPID_SOM_SCHEMALOCATIONS), propget] HRESULT schemaLocations([out,retval]ISchemaStringCollection** schemaLocations);
+};
+
+[
+    local, object,
+    uuid(50ea08b5-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaParticle
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Particle"),
+    pointer_default(unique)
+]
+interface ISchemaParticle : ISchemaItem
+{
+    [id(DISPID_SOM_MINOCCURS), propget] HRESULT minOccurs([out,retval]VARIANT* minOccurs);
+    [id(DISPID_SOM_MAXOCCURS), propget] HRESULT maxOccurs([out,retval]VARIANT* maxOccurs);
+};
+
+[
+    local, object,
+    uuid(50ea08b6-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaAttribute
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Attribute"),
+    pointer_default(unique)
+]
+interface ISchemaAttribute : ISchemaItem
+{
+    [id(DISPID_SOM_TYPE), propget]         HRESULT type([out,retval]ISchemaType** type);
+    [id(DISPID_SOM_SCOPE), propget]        HRESULT scope([out,retval]ISchemaComplexType** scope);
+    [id(DISPID_SOM_DEFAULTVALUE), propget] HRESULT defaultValue([out,retval]BSTR* defaultValue);
+    [id(DISPID_SOM_FIXEDVALUE), propget]   HRESULT fixedValue([out,retval]BSTR* fixedValue);
+    [id(DISPID_SOM_USE), propget]          HRESULT use([out,retval]SCHEMAUSE* use);
+    [id(DISPID_SOM_ISREFERENCE), propget]  HRESULT isReference([out,retval]VARIANT_BOOL* reference);
+};
+
+[
+    local, object,
+    uuid(50ea08b7-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaElement
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Element"),
+    pointer_default(unique)
+]
+interface ISchemaElement : ISchemaParticle
+{
+    [id(DISPID_SOM_TYPE), propget]              HRESULT type([out,retval]ISchemaType** type);
+    [id(DISPID_SOM_SCOPE), propget]             HRESULT scope([out,retval]ISchemaComplexType** scope);
+    [id(DISPID_SOM_DEFAULTVALUE), propget]      HRESULT defaultValue([out,retval]BSTR* defaultValue);
+    [id(DISPID_SOM_FIXEDVALUE), propget]        HRESULT fixedValue([out,retval]BSTR* fixedValue);
+    [id(DISPID_SOM_ISNILLABLE), propget]        HRESULT isNillable([out,retval]VARIANT_BOOL* nillable);
+    [id(DISPID_SOM_IDCONSTRAINTS), propget]     HRESULT identityConstraints([out,retval]ISchemaItemCollection** constraints);
+    [id(DISPID_SOM_SUBSTITUTIONGROUP), propget] HRESULT substitutionGroup([out,retval]ISchemaElement** element);
+    [id(DISPID_SOM_EXCLUSIONS), propget]        HRESULT substitutionGroupExclusions([out,retval]SCHEMADERIVATIONMETHOD* exclusions);
+    [id(DISPID_SOM_DISALLOWED), propget]        HRESULT disallowedSubstitutions([out,retval]SCHEMADERIVATIONMETHOD* disallowed);
+    [id(DISPID_SOM_ISABSTRACT), propget]        HRESULT isAbstract([out,retval]VARIANT_BOOL* abstract);
+    [id(DISPID_SOM_ISREFERENCE), propget]       HRESULT isReference([out,retval]VARIANT_BOOL* reference);
+};
+
+[
+    local, object,
+    uuid(50ea08b8-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaType
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Type"),
+    pointer_default(unique)
+]
+interface ISchemaType : ISchemaItem
+{
+    [id(DISPID_SOM_BASETYPES), propget]      HRESULT baseTypes([out,retval]ISchemaItemCollection** baseTypes);
+    [id(DISPID_SOM_FINAL), propget]          HRESULT final([out,retval]SCHEMADERIVATIONMETHOD* final);
+    [id(DISPID_SOM_VARIETY), propget]        HRESULT variety([out,retval]SCHEMATYPEVARIETY* variety);
+    [id(DISPID_SOM_DERIVEDBY), propget]      HRESULT derivedBy([out,retval]SCHEMADERIVATIONMETHOD* derivedBy);
+    [id(DISPID_SOM_ISVALID)]                 HRESULT isValid([in]BSTR data, [out,retval]VARIANT_BOOL* valid);
+    // Facets
+    [id(DISPID_SOM_MINEXCLUSIVE), propget]   HRESULT minExclusive([out,retval]BSTR* minExclusive);
+    [id(DISPID_SOM_MININCLUSIVE), propget]   HRESULT minInclusive([out,retval]BSTR* minInclusive);
+    [id(DISPID_SOM_MAXEXCLUSIVE), propget]   HRESULT maxExclusive([out,retval]BSTR* maxExclusive);
+    [id(DISPID_SOM_MAXINCLUSIVE), propget]   HRESULT maxInclusive([out,retval]BSTR* maxInclusive);
+    [id(DISPID_SOM_TOTALDIGITS), propget]    HRESULT totalDigits([out,retval]VARIANT* totalDigits);
+    [id(DISPID_SOM_FRACTIONDIGITS), propget] HRESULT fractionDigits([out,retval]VARIANT* fractionDigits);
+    [id(DISPID_SOM_LENGTH), propget]         HRESULT length([out,retval]VARIANT* length);
+    [id(DISPID_SOM_MINLENGTH), propget]      HRESULT minLength([out,retval]VARIANT* minLength);
+    [id(DISPID_SOM_MAXLENGTH), propget]      HRESULT maxLength([out,retval]VARIANT* maxLength);
+    [id(DISPID_SOM_ENUMERATION), propget]    HRESULT enumeration([out,retval]ISchemaStringCollection** enumeration);
+    [id(DISPID_SOM_WHITESPACE), propget]     HRESULT whitespace([out,retval]SCHEMAWHITESPACE* whitespace);
+    [id(DISPID_SOM_PATTERNS), propget]       HRESULT patterns([out,retval]ISchemaStringCollection** patterns);
+};
+
+[
+    local, object,
+    uuid(50ea08b9-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaComplexType
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Complex Type"),
+    pointer_default(unique)
+]
+interface ISchemaComplexType : ISchemaType
+{
+    [id(DISPID_SOM_ISABSTRACT), propget]   HRESULT isAbstract([out,retval]VARIANT_BOOL* abstract);
+    [id(DISPID_SOM_ANYATTRIBUTE), propget] HRESULT anyAttribute([out,retval]ISchemaAny** anyAttribute);
+    [id(DISPID_SOM_ATTRIBUTES), propget]   HRESULT attributes([out,retval]ISchemaItemCollection** attributes);
+    [id(DISPID_SOM_CONTENTTYPE), propget]  HRESULT contentType([out,retval]SCHEMACONTENTTYPE* contentType);
+    [id(DISPID_SOM_CONTENTMODEL), propget] HRESULT contentModel([out,retval]ISchemaModelGroup** contentModel);
+    [id(DISPID_SOM_PROHIBITED), propget]   HRESULT prohibitedSubstitutions([out,retval]SCHEMADERIVATIONMETHOD* prohibited);
+};
+
+[
+    local, object,
+    uuid(50ea08ba-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaAttributeGroup
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Attribute Group"),
+    pointer_default(unique)
+]
+interface ISchemaAttributeGroup : ISchemaItem
+{
+    [id(DISPID_SOM_ANYATTRIBUTE), propget]    HRESULT anyAttribute([out,retval]ISchemaAny** anyAttribute);
+    [id(DISPID_SOM_ATTRIBUTES), propget]      HRESULT attributes([out,retval]ISchemaItemCollection** attributes);
+};
+
+[
+    local, object,
+    uuid(50ea08bb-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaModelGroup
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Type"),
+    pointer_default(unique)
+]
+interface ISchemaModelGroup : ISchemaParticle
+{
+    [id(DISPID_SOM_PARTICLES), propget] HRESULT particles([out,retval]ISchemaItemCollection** particles);
+};
+
+[
+    local, object,
+    uuid(50ea08bc-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaAny
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Any"),
+    pointer_default(unique)
+]
+interface ISchemaAny : ISchemaParticle
+{
+    [id(DISPID_SOM_NAMESPACES), propget]      HRESULT namespaces([out,retval]ISchemaStringCollection** namespaces);
+    [id(DISPID_SOM_PROCESSCONTENTS), propget] HRESULT processContents([out,retval]SCHEMAPROCESSCONTENTS* processContents);
+};
+
+[
+    local, object,
+    uuid(50ea08bd-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaIdentityConstraint
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Any"),
+    pointer_default(unique)
+]
+interface ISchemaIdentityConstraint : ISchemaItem
+{
+    [id(DISPID_SOM_SELECTOR), propget]      HRESULT selector([out,retval]BSTR* selector);
+    [id(DISPID_SOM_FIELDS), propget]        HRESULT fields([out,retval]ISchemaStringCollection** fields);
+    [id(DISPID_SOM_REFERENCEDKEY), propget] HRESULT referencedKey([out,retval]ISchemaIdentityConstraint** key);
+};
+
+[
+    local, object,
+    uuid(50ea08be-dd1b-4664-9a50-c2f40f4bd79a), // IID_ISchemaNotation
+    odl,
+    dual,
+    oleautomation,
+    nonextensible,
+    helpstring("XML Schema Notation"),
+    pointer_default(unique)
+]
+interface ISchemaNotation : ISchemaItem
+{
+    [id(DISPID_SOM_SYSTEMIDENTIFIER), propget] HRESULT systemIdentifier([out,retval]BSTR* uri);
+    [id(DISPID_SOM_PUBLICIDENTIFIER), propget] HRESULT publicIdentifier([out,retval]BSTR* uri);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+[
+    uuid(f5078f18-c551-11d3-89b9-0000f81fe221),
+    version(6.0),
+    helpstring("Microsoft XML, v6.0"),
+    lcid(0x0000)
+]
+
+library MSXML2
+{
+
+importlib("stdole32.tlb");
+importlib("stdole2.tlb");
+
+// Any interfaces not mentioned explicitly in a coclass must be
+// listed here in order to appear in the type library.
+
+interface IXMLDOMNotation;
+interface IXMLDOMEntity;
+interface IXMLDOMParseError2;
+interface IXMLDOMParseErrorCollection;
+interface IXTLRuntime;
+interface ISAXXMLFilter;
+interface IVBSAXXMLFilter;
+interface IMXReaderControl;
+interface IMXSchemaDeclHandler;
+interface ISchemaElement;
+interface ISchemaParticle;
+interface ISchemaType;
+interface ISchemaComplexType;
+interface ISchemaAny;
+interface ISchemaModelGroup;
+interface IMXXMLFilter;
+interface ISchemaAttribute;
+interface ISchemaAttributeGroup;
+interface ISchemaIdentityConstraint;
+interface ISchemaNotation;
+interface IXMLDOMSelection;
+dispinterface XMLDOMDocumentEvents;
+
+// Any types not mentioned explicitly in an interface method must be
+// listed here in order to appear in the type library.
+[hidden]
+typedef struct __msxml6_ReferenceRemainingTypes__
+{
+    enum tagDOMNodeType __tagDomNodeType__;
+    DOMNodeType __domNodeType__;
+    enum _SERVERXMLHTTP_OPTION __serverXmlHttpOptionEnum__;
+    SERVERXMLHTTP_OPTION __serverXmlHttpOption__;
+    enum _SXH_SERVER_CERT_OPTION __serverCertOptionEnum__;
+    SXH_SERVER_CERT_OPTION __serverCertOption__;
+    enum _SXH_PROXY_SETTING __proxySettingEnum__;
+    SXH_PROXY_SETTING __proxySetting__;
+    enum _SOMITEMTYPE __somItemTypeEnum__;
+    SOMITEMTYPE __somItemType__;
+    enum _SCHEMAUSE __schemaUseEnum__;
+    SCHEMAUSE __schemaUse__;
+    enum _SCHEMADERIVATIONMETHOD __schemaDerivationMethodEnum__;
+    SCHEMADERIVATIONMETHOD __schemaDerivationMethod__;
+    enum _SCHEMACONTENTTYPE __schemaContentTypeEnum__;
+    SCHEMACONTENTTYPE __schemaContentType__;
+    enum _SCHEMAPROCESSCONTENTS __schemaProcessContentsEnum__;
+    SCHEMAPROCESSCONTENTS __schemaProcessContents__;
+    enum _SCHEMAWHITESPACE __schemaWhitespaceEnum__;
+    SCHEMAWHITESPACE __schemaWhitespace__;
+    enum _SCHEMATYPEVARIETY __schemaTypeVarietyEnum__;
+    SCHEMATYPEVARIETY __schemaTypeVariety__;
+} __msxml6_ReferenceRemainingTypes__;
+
+
+//+-------------------------------------------------------------------------
+//
+//  CoClasses
+//
+//--------------------------------------------------------------------------
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// DOM Document rental-model co-Class
+[
+    uuid(88d96a05-f192-11d4-a65f-0040963251e5), // CLSID_DOMDocument60
+    helpstring("W3C-DOM XML Document 6.0 (Apartment)")
+]
+coclass DOMDocument60
+{
+    [default] interface IXMLDOMDocument3;
+    [default, source] dispinterface XMLDOMDocumentEvents;
+};
+
+// DOM Document free-threaded co-Class
+[
+    uuid(88d96a06-f192-11d4-a65f-0040963251e5), // CLSID_FreeThreadedDOMDocument60
+    helpstring("W3C-DOM XML Document 6.0 (Free threaded)")
+]
+coclass FreeThreadedDOMDocument60
+{
+    [default] interface IXMLDOMDocument3;
+    [default, source] dispinterface XMLDOMDocumentEvents;
+};
+
+// XML Schema Cache
+[
+    uuid(88d96a07-f192-11d4-a65f-0040963251e5), // CLSID_XMLSchemaCache60
+    helpstring("XML Schema Cache 6.0")
+]
+coclass XMLSchemaCache60
+{
+    [default] interface IXMLDOMSchemaCollection2;
+};
+
+// XSLTemplate
+[
+    uuid(88d96a08-f192-11d4-a65f-0040963251e5), // CLSID_XSLTemplate60 (Progid=Msxml2.XSLTemplate.6.0)
+    helpstring("XSL Stylesheet Cache 6.0")
+]
+coclass XSLTemplate60
+{
+    [default] interface IXSLTemplate;
+};
+
+// XML HTTP Request Class
+[
+    uuid(88d96a0a-f192-11d4-a65f-0040963251e5), // CLSID_XMLHTTP60
+    helpstring("XML HTTP Request class 6.0")
+]
+coclass XMLHTTP60
+{
+    [default] interface IXMLHTTPRequest;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    uuid(88d96a09-f192-11d4-a65f-0040963251e5), // CLSID_FreeThreadedXMLHTTP60
+    helpstring("Free Threaded XML HTTP Request class 6.0")
+]
+coclass FreeThreadedXMLHTTP60
+{
+    interface IXMLHTTPRequest2;
+};
+cpp_quote("#define CLSID_XmlHttpRequest CLSID_FreeThreadedXMLHTTP60")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// Server XML HTTP Request Class
+[
+    uuid(88d96a0b-f192-11d4-a65f-0040963251e5), // CLSID_ServerXMLHTTP60
+    helpstring("Server XML HTTP Request 6.0 ")
+]
+coclass ServerXMLHTTP60
+{
+    [default] interface IServerXMLHTTPRequest2;
+}
+
+// SAXXMLReader co-class
+[
+    uuid(88d96a0c-f192-11d4-a65f-0040963251e5), // CLSID_SAXXMLReader60
+    helpstring("SAX XML Reader 6.0")
+]
+coclass SAXXMLReader60
+{
+    [default] interface IVBSAXXMLReader;
+    interface ISAXXMLReader;
+};
+
+// MXXMLWriter co-class
+[
+    uuid(88d96a0f-f192-11d4-a65f-0040963251e5), // CLSID_MXXMLWriter60
+    helpstring("Microsoft XML Writer 6.0")
+]
+coclass MXXMLWriter60
+{
+    [default] interface IMXWriter;
+
+    interface ISAXContentHandler;
+    interface ISAXDeclHandler;
+    interface ISAXDTDHandler;
+    interface ISAXErrorHandler;
+    interface ISAXLexicalHandler;
+
+    interface IVBSAXContentHandler;
+    interface IVBSAXDeclHandler;
+    interface IVBSAXDTDHandler;
+    interface IVBSAXErrorHandler;
+    interface IVBSAXLexicalHandler;
+};
+
+// MXHTMLWriter co-class
+[
+    uuid(88d96a10-f192-11d4-a65f-0040963251e5), // CLSID_MXHTMLWriter60
+    helpstring("Microsoft HTML Writer 6.0")
+]
+coclass MXHTMLWriter60
+{
+    [default] interface IMXWriter;
+
+    interface ISAXContentHandler;
+    interface ISAXDeclHandler;
+    interface ISAXDTDHandler;
+    interface ISAXErrorHandler;
+    interface ISAXLexicalHandler;
+
+    interface IVBSAXContentHandler;
+    interface IVBSAXDeclHandler;
+    interface IVBSAXDTDHandler;
+    interface IVBSAXErrorHandler;
+    interface IVBSAXLexicalHandler;
+};
+
+// SAXAttributes co-class
+[
+    uuid(88d96a0e-f192-11d4-a65f-0040963251e5), // CLSID_SAXAttributes60
+    helpstring("SAX Attributes 6.0")
+]
+coclass SAXAttributes60
+{
+    [default] interface IMXAttributes;
+    interface IVBSAXAttributes;
+    interface ISAXAttributes;
+};
+
+// MXNamespaceManager co-class
+[
+    uuid(88d96a11-f192-11d4-a65f-0040963251e5), // CLSID_MXNamespaceManager60
+    helpstring("MX Namespace Manager 6.0")
+]
+coclass MXNamespaceManager60
+{
+    [default] interface IVBMXNamespaceManager;
+    interface IMXNamespaceManager;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+}
+
+cpp_quote("//----------------------------")
+cpp_quote("// MSXML SPECIFIC ERROR CODES ")
+cpp_quote("//----------------------------")
+cpp_quote("#define E_XML_NOTWF                0xC00CE223L  // Validate failed because the document is not well formed.")
+cpp_quote("#define E_XML_NODTD                0xC00CE224L  // The node is neither Valid nor Invalid because no DTD/Schema declaration was found.")
+cpp_quote("#define E_XML_INVALID              0xC00CE225L  // Validate failed because of a DTD/Schema violation.")
+cpp_quote("#define E_XML_BUFFERTOOSMALL       0xC00CE226L  // Buffer passed in is too small to receive the data.")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#if !defined(__msxml_xhr_enums)")
+cpp_quote("#define __msxml_xhr_enums")
+typedef [
+    helpstring("Options for XHR cookie states, same as InternetCookieState enum in wininet")
+]
+[v1_enum] enum _XHR_COOKIE_STATE
+{
+    XHR_COOKIE_STATE_UNKNOWN   = 0x0,
+    XHR_COOKIE_STATE_ACCEPT    = 0x1,
+    XHR_COOKIE_STATE_PROMPT    = 0x2,
+    XHR_COOKIE_STATE_LEASH     = 0x3,
+    XHR_COOKIE_STATE_DOWNGRADE = 0x4,
+    XHR_COOKIE_STATE_REJECT    = 0x5,
+} XHR_COOKIE_STATE;
+
+typedef [
+    helpstring("Options for XHR cookie flags, same as INTERNET_COOKIE_* flags in wininet")
+]
+[v1_enum] enum _XHR_COOKIE_FLAG
+{
+    XHR_COOKIE_IS_SECURE       = 0x01,
+    XHR_COOKIE_IS_SESSION      = 0x02,
+    XHR_COOKIE_THIRD_PARTY     = 0x10,
+    XHR_COOKIE_PROMPT_REQUIRED = 0x20,
+    XHR_COOKIE_EVALUATE_P3P    = 0x40,
+    XHR_COOKIE_APPLY_P3P       = 0x80,
+    XHR_COOKIE_P3P_ENABLED     = 0x100,
+    XHR_COOKIE_IS_RESTRICTED   = 0x200,
+    XHR_COOKIE_IE6             = 0x400,
+    XHR_COOKIE_IS_LEGACY       = 0x800,
+    XHR_COOKIE_NON_SCRIPT      = 0x00001000,
+    XHR_COOKIE_HTTPONLY        = 0x00002000,
+} XHR_COOKIE_FLAG;
+
+typedef [
+    helpstring("Options for XHR cred prompting")
+]
+[v1_enum] enum _XHR_CRED_PROMPT
+{
+    XHR_CRED_PROMPT_ALL             = 0x0,
+    XHR_CRED_PROMPT_NONE            = 0x1,
+    XHR_CRED_PROMPT_PROXY           = 0x2,
+} XHR_CRED_PROMPT;
+
+typedef [
+    helpstring("Options for XHR authetication")
+]
+[v1_enum] enum _XHR_AUTH
+{
+    XHR_AUTH_ALL    = 0x0,
+    XHR_AUTH_NONE   = 0x1,
+    XHR_AUTH_PROXY  = 0x2,
+} XHR_AUTH;
+
+typedef [
+    helpstring("Options for XHR properties")
+]
+[v1_enum] enum _XHR_PROPERTY
+{
+    XHR_PROP_NO_CRED_PROMPT             = 0x0,
+    XHR_PROP_NO_AUTH                    = 0x1,
+    XHR_PROP_TIMEOUT                    = 0x2,
+    XHR_PROP_NO_DEFAULT_HEADERS         = 0x3,
+    XHR_PROP_REPORT_REDIRECT_STATUS     = 0x4,
+    XHR_PROP_NO_CACHE                   = 0x5,
+    XHR_PROP_EXTENDED_ERROR             = 0x6,
+    XHR_PROP_QUERY_STRING_UTF8          = 0x7,
+    XHR_PROP_IGNORE_CERT_ERRORS         = 0x8,
+    XHR_PROP_ONDATA_THRESHOLD           = 0x9,
+    XHR_PROP_SET_ENTERPRISEID           = 0xA,
+    XHR_PROP_MAX_CONNECTIONS            = 0xB
+} XHR_PROPERTY;
+
+cpp_quote("#define XHR_PROP_ONDATA_ALWAYS 0x0")
+cpp_quote("#define XHR_PROP_ONDATA_NEVER 0xFFFFFFFFFFFFFFFF")
+
+typedef [
+    helpstring("Flags for XHR_PROP_IGNORE_CERT_ERRORS")
+]
+[v1_enum] enum _XHR_CERT_IGNORE_FLAG
+{
+    XHR_CERT_IGNORE_REVOCATION_FAILED   = 0x00000080ul, // SECURITY_FLAG_IGNORE_REVOCATION
+    XHR_CERT_IGNORE_UNKNOWN_CA          = 0x00000100ul, // SECURITY_FLAG_IGNORE_UNKNOWN_CA
+    XHR_CERT_IGNORE_CERT_CN_INVALID     = 0x00001000ul, // INTERNET_FLAG_IGNORE_CERT_CN_INVALID
+    XHR_CERT_IGNORE_CERT_DATE_INVALID   = 0x00002000ul, // INTERNET_FLAG_IGNORE_CERT_DATE_INVALID
+    XHR_CERT_IGNORE_ALL_SERVER_ERRORS   = (XHR_CERT_IGNORE_REVOCATION_FAILED |
+                                           XHR_CERT_IGNORE_UNKNOWN_CA |
+                                           XHR_CERT_IGNORE_CERT_CN_INVALID |
+                                           XHR_CERT_IGNORE_CERT_DATE_INVALID)
+} XHR_CERT_IGNORE_FLAG;
+
+typedef [
+    helpstring("Flags for OnServerCertificateReceived dwCertErrors")
+]
+[v1_enum] enum _XHR_CERT_ERROR_FLAG
+{
+    XHR_CERT_ERROR_REVOCATION_FAILED    = 0x00800000ul, // DLG_FLAGS_SEC_CERT_REV_FAILED
+    XHR_CERT_ERROR_UNKNOWN_CA           = 0x01000000ul, // DLG_FLAGS_INVALID_CA
+    XHR_CERT_ERROR_CERT_CN_INVALID      = 0x02000000ul, // DLG_FLAGS_SEC_CERT_CN_INVALID
+    XHR_CERT_ERROR_CERT_DATE_INVALID    = 0x04000000ul, // DLG_FLAGS_SEC_CERT_DATE_INVALID
+    XHR_CERT_ERROR_ALL_SERVER_ERRORS    = (XHR_CERT_ERROR_REVOCATION_FAILED |
+                                           XHR_CERT_ERROR_UNKNOWN_CA |
+                                           XHR_CERT_ERROR_CERT_CN_INVALID |
+                                           XHR_CERT_ERROR_CERT_DATE_INVALID)
+} XHR_CERT_ERROR_FLAG;
+cpp_quote("#endif // !defined(__msxml_xhr_enums)")
+
+typedef struct tagXHR_COOKIE
+{
+    [ref, string]       WCHAR       *pwszUrl;
+    [ref, string]       WCHAR       *pwszName;
+    [unique, string]    WCHAR       *pwszValue;
+    [unique, string]    WCHAR       *pwszP3PPolicy;
+                        FILETIME    ftExpires;
+                        DWORD       dwFlags;
+} XHR_COOKIE;
+
+interface IXMLHTTPRequest2;
+
+[
+    object,
+    uuid(A44A9299-E321-40DE-8866-341B41669162),
+    helpstring("IXMLHTTPRequest2Callback Interface"),
+    pointer_default(ref)
+]
+interface IXMLHTTPRequest2Callback : IUnknown
+{
+    HRESULT OnRedirect
+    (
+        [in] IXMLHTTPRequest2 *pXHR,
+        [in, string] const WCHAR* pwszRedirectUrl
+    );
+
+    HRESULT OnHeadersAvailable
+    (
+        [in] IXMLHTTPRequest2 *pXHR,
+        [in] DWORD dwStatus,
+        [in, string] const WCHAR *pwszStatus
+    );
+
+    HRESULT OnDataAvailable
+    (
+        [in] IXMLHTTPRequest2 *pXHR,
+        [in] ISequentialStream *pResponseStream
+    );
+
+    HRESULT OnResponseReceived
+    (
+        [in] IXMLHTTPRequest2 *pXHR,
+        [in] ISequentialStream *pResponseStream
+    );
+
+    HRESULT OnError
+    (
+        [in] IXMLHTTPRequest2 *pXHR,
+        [in] HRESULT hrError
+    );
+};
+
+[
+    object,
+    uuid(E5D37DC0-552A-4D52-9CC0-A14D546FBD04),
+    helpstring("IXMLHTTPRequest2 Interface")
+]
+interface IXMLHTTPRequest2 : IUnknown
+{
+    HRESULT Open
+    (
+        [in, string, ref] const WCHAR *pwszMethod,
+        [in, string, ref] const WCHAR *pwszUrl,
+        [in] IXMLHTTPRequest2Callback *pStatusCallback,
+        [in, string, unique] const WCHAR *pwszUserName,
+        [in, string, unique] const WCHAR *pwszPassword,
+        [in, string, unique] const WCHAR *pwszProxyUserName,
+        [in, string, unique] const WCHAR *pwszProxyPassword
+    );
+
+    HRESULT Send
+    (
+        [in, unique] ISequentialStream *pBody,
+        [in] ULONGLONG cbBody
+    );
+
+    HRESULT Abort();
+
+    HRESULT SetCookie
+    (
+        [in, ref] const XHR_COOKIE *pCookie,
+        [out] DWORD *pdwCookieState
+    );
+
+    HRESULT SetCustomResponseStream
+    (
+        [in] ISequentialStream *pSequentialStream
+    );
+
+    HRESULT SetProperty
+    (
+        [in] XHR_PROPERTY eProperty,
+        [in] ULONGLONG ullValue
+    );
+
+    HRESULT SetRequestHeader
+    (
+        [in, string, ref] const WCHAR *pwszHeader,
+        [in, string, unique] const WCHAR *pwszValue
+    );
+
+    HRESULT GetAllResponseHeaders
+    (
+        [out, string] WCHAR **ppwszHeaders
+    );
+
+    HRESULT GetCookie
+    (
+        [in, ref, string] const WCHAR      *pwszUrl,
+        [in, unique, string] const WCHAR      *pwszName,
+        [in] DWORD dwFlags,
+        [out] ULONG *pcCookies,
+        [out, size_is(,*pcCookies)] XHR_COOKIE **ppCookies
+    );
+
+    HRESULT GetResponseHeader
+    (
+        [in, string, ref] const WCHAR *pwszHeader,
+        [out, string] WCHAR **ppwszValue
+    );
+};
+
+typedef struct tagXHR_CERT
+{
+                            DWORD   cbCert;
+    [ref, size_is(cbCert)]  BYTE    *pbCert;
+}
+XHR_CERT;
+
+interface IXMLHTTPRequest3;
+
+[
+    object,
+    uuid(b9e57830-8c6c-4a6f-9c13-47772bb047bb),
+    helpstring("IXMLHttpRequest3Callback Interface")
+]
+interface IXMLHTTPRequest3Callback : IXMLHTTPRequest2Callback
+{
+    HRESULT OnServerCertificateReceived
+    (
+        [in] IXMLHTTPRequest3 *pXHR,
+        [in] DWORD dwCertificateErrors,
+        [in] DWORD cServerCertificateChain,
+        [in, unique, size_is(cServerCertificateChain)] const XHR_CERT *rgServerCertificateChain
+    );
+
+    HRESULT OnClientCertificateRequested
+    (
+        [in] IXMLHTTPRequest3 *pXHR,
+        [in] DWORD cIssuerList,
+        [in, string, unique, size_is(cIssuerList)] const WCHAR **rgpwszIssuerList
+    );
+};
+
+[
+    object,
+    uuid(a1c9feee-0617-4f23-9d58-8961ea43567c),
+    helpstring("IXMLHttpRequest3 Interface")
+]
+interface IXMLHTTPRequest3 : IXMLHTTPRequest2
+{
+    HRESULT SetClientCertificate
+    (
+        [in] DWORD cbClientCertificateHash,
+        [in, unique, size_is(cbClientCertificateHash)] const BYTE *pbClientCertificateHash,
+        [in, string, unique] const WCHAR *pwszPin
+    );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+
+cpp_quote("#ifdef __USE_MSXML6_NAMESPACE__")
+cpp_quote("}")
+cpp_quote("#endif")
+

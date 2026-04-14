@@ -1,0 +1,192 @@
+//+--------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation
+//  All rights reserved
+//
+//  Module Name:
+//
+//     DocumentTarget.idl
+//
+//  Abstract:
+//
+//     IDL defines for document package target interfaces.
+//
+//
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    object,
+    uuid(1b8efec4-3019-4c27-964e-367202156906),
+    helpstring("Document Target IPrintDocumentPackageTarget interface: allows user to enumerate supported package target types
+                and create one with type ID. It also supports tracking package printing progess and cancelling")
+]
+interface IPrintDocumentPackageTarget : IUnknown
+{
+    [helpstring("This method is called for enumerating supported target types. The first GUID is preferred type by target.")]
+    HRESULT GetPackageTargetTypes(
+        [out]                          UINT32*      targetCount,
+        [out, size_is(, *targetCount)] GUID**       targetTypes
+        );
+
+    [helpstring("This method is called for createing a target instance.")]
+    HRESULT GetPackageTarget(
+        [in]                REFGUID guidTargetType,
+        [in]                REFIID  riid,
+        [out, iid_is(riid)] void**  ppvTarget
+        );
+
+    HRESULT Cancel();
+}
+
+[
+    object,
+    uuid(c560298a-535c-48f9-866a-632540660cb4),
+    helpstring("Document Target IPrintDocumentPackageTarget2 interface: allows users to see if the target printer is an Ipp Printer,
+     and returns IppPrinterDevice if the target is an Ipp Printer.")
+]
+interface IPrintDocumentPackageTarget2 : IUnknown
+{
+    [helpstring("This method returns true if the printer is an IppPrinter")]
+    HRESULT GetIsTargetIppPrinter(
+        [out]              BOOL*   isIppPrinter
+        );
+
+    [helpstring("This method returns IppPrinterDevice for the target printer.")]
+    HRESULT GetTargetIppPrintDevice(
+        [in]                REFIID  riid,
+        [out, iid_is(riid)] void**  ppvTarget
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+typedef [v1_enum] enum PrintDocumentPackageCompletion
+{
+    PrintDocumentPackageCompletion_InProgress = 0,
+    PrintDocumentPackageCompletion_Completed,
+    PrintDocumentPackageCompletion_Canceled,
+    PrintDocumentPackageCompletion_Failed
+} PrintDocumentPackageCompletion;
+
+typedef struct
+{
+    UINT32                          JobId;
+    INT32                           CurrentDocument;
+    INT32                           CurrentPage;
+    INT32                           CurrentPageTotal;
+    PrintDocumentPackageCompletion  Completion;
+    HRESULT                         PackageStatus;
+} PrintDocumentPackageStatus;
+
+[
+    object,
+    uuid(ed90c8ad-5c34-4d05-a1ec-0e8a9b3ad7af),
+    dual,
+    nonextensible
+]
+/// Com event implemented by clients, who want to listen print job progress.
+interface IPrintDocumentPackageStatusEvent : IDispatch
+{
+    [id(1), helpstring("This method is called for updating package status when the progressive print job event signals or job completes.")]
+    HRESULT PackageStatusUpdated(
+        [in] PrintDocumentPackageStatus*        packageStatus
+        );
+};
+
+[
+    object,
+    uuid(d2959bf7-b31b-4a3d-9600-712eb1335ba4),
+    helpstring("Document Target IPrintDocumentPackageTargetFactory interface for starting your print job on IPrintDocumentPackageTarget.")
+]
+interface IPrintDocumentPackageTargetFactory : IUnknown
+{
+    [helpstring("This method is the entry point for creating IPrintDocumentPackageTarget.")]
+    HRESULT CreateDocumentPackageTargetForPrintJob(
+        [in, string]                LPCWSTR                        printerName,
+        [in, string]                LPCWSTR                        jobName,
+        // application must set seek pointer to original before specifying the job output stream.
+        [in]                        IStream*                       jobOutputStream,
+        [in]                        IStream*                       jobPrintTicketStream,
+        [out]                       IPrintDocumentPackageTarget**  docPackageTarget
+    );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+[
+    uuid(410d76f7-8bb5-4a7d-9d37-9c71b1b14d14),
+    version(1.0),
+    helpstring("Document Target Interface Library")
+]
+
+library PrintDocumentTargetLib
+{
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface IPrintDocumentPackageTarget;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+enum PrintDocumentPackageCompletion;
+interface IPrintDocumentPackageStatusEvent;
+interface IPrintDocumentPackageTargetFactory;
+
+[
+    uuid(4842669e-9947-46ea-8ba2-d8cce432c2ca),
+    noncreatable
+]
+/// Declare a coclass for IPrintDocumentPackageTarget so that we can associate IPrintDocumentPackageTargetEvent with it.
+coclass PrintDocumentPackageTarget
+{
+    [default] interface IPrintDocumentPackageTarget;
+    [source]  dispinterface IPrintDocumentPackageStatusEvent;
+};
+
+[
+    uuid(348ef17d-6c81-4982-92b4-ee188a43867a)
+]
+coclass PrintDocumentPackageTargetFactory
+{
+    [default] interface IPrintDocumentPackageTargetFactory;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+};
+
+cpp_quote("DEFINE_GUID(ID_DOCUMENTPACKAGETARGET_MSXPS,   0x9cae40a8, 0xded1, 0x41c9, 0xa9, 0xfd, 0xd7, 0x35, 0xef, 0x33, 0xae, 0xda);")
+cpp_quote("DEFINE_GUID(ID_DOCUMENTPACKAGETARGET_OPENXPS, 0x0056bb72, 0x8c9c, 0x4612, 0xbd, 0x0f, 0x93, 0x01, 0x2a, 0x87, 0x09, 0x9d);")
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+cpp_quote("DEFINE_GUID(ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D, 0x63dbd720, 0x8b14, 0x4577, 0xb0, 0x74, 0x7b, 0xb1, 0x1b, 0x59, 0x6d, 0x28);")
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")

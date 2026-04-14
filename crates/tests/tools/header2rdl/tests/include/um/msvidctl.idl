@@ -1,0 +1,929 @@
+// MSVidCtl.idl : IDL source for MSVidCtl.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MSVidCtl.tlb) and marshalling code.
+
+
+// Copyright (c) Microsoft Corporation 1998-2000
+//
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1999-2000.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#pragma once")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+#include <olectl.h>
+#ifndef DO_NO_IMPORTS
+#ifndef TUNING_MODEL_ONLY
+import "mshtml.idl";
+import "segment.idl";
+#endif
+#endif
+
+#ifndef TUNING_MODEL_ONLY
+typedef enum MSViddispidList {
+dispidInputs,
+dispidOutputs,
+dispid_Inputs,
+dispid_Outputs,
+dispidVideoRenderers,
+dispidAudioRenderers,
+dispidFeatures,
+dispidInput,
+dispidOutput,
+dispidVideoRenderer,
+dispidAudioRenderer,
+dispidSelectedFeatures,
+dispidView,  // total graph control
+dispidBuild,
+dispidPause,
+dispidRun,
+dispidStop,
+dispidDecompose,
+dispidDisplaySize,
+dispidMaintainAspectRatio,
+dispidColorKey,
+dispidStateChange,
+dispidgetState,
+dispidunbind,
+dispidbind,
+dispidDisableVideo,
+dispidDisableAudio,
+dispidViewNext,
+dispidServiceP
+} MSViddispidList;
+
+typedef enum DisplaySizeList {
+    dslDefaultSize,
+	dslSourceSize = 0,   // synonym
+	dslHalfSourceSize,
+	dslDoubleSourceSize,
+	dslFullScreen,
+	dslHalfScreen,
+	dslQuarterScreen,
+	dslSixteenthScreen
+} DisplaySizeList;	
+
+typedef enum MSVidCtlStateList {
+    STATE_UNBUILT =-1,
+    STATE_STOP,
+    STATE_PAUSE,
+    STATE_PLAY,
+
+} MSVidCtlStateList;
+
+//*****************************************************************************
+///////////////////////////////////////////////////////////////////////////////
+//
+//  the full Viewer control
+//
+///////////////////////////////////////////////////////////////////////////////
+//*****************************************************************************
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+                object,
+                uuid(B0EDF162-910A-11D2-B632-00C04F79498E),
+                dual,
+                proxy,
+                hidden,
+                nonextensible,
+                helpstring("MS Video Control Interface"),
+                pointer_default(unique)
+        ]
+        interface IMSVidCtl : IDispatch
+        {
+                // stock props
+                [propget, id(DISPID_AUTOSIZE)]
+					HRESULT AutoSize([out,retval]VARIANT_BOOL* pbool);
+                [propput, id(DISPID_AUTOSIZE)]
+					HRESULT AutoSize([in]VARIANT_BOOL vbool);
+                [propget, id(DISPID_BACKCOLOR)]
+					HRESULT BackColor([out,retval]OLE_COLOR* backcolor);
+                [propput, id(DISPID_BACKCOLOR)]
+					HRESULT BackColor([in]OLE_COLOR backcolor);
+                [propget, id(DISPID_ENABLED)]
+					HRESULT Enabled([out,retval]VARIANT_BOOL* pbool);
+                [propput, id(DISPID_ENABLED)]
+					HRESULT Enabled([in]VARIANT_BOOL vbool);
+                [propget, id(DISPID_TABSTOP)]
+					HRESULT TabStop([out, retval]VARIANT_BOOL* pbool);
+                [propput, id(DISPID_TABSTOP)]
+					HRESULT TabStop([in]VARIANT_BOOL vbool);
+                [propget, id(DISPID_HWND)]
+					HRESULT Window([out, retval]HWND* phwnd);
+                [id(DISPID_REFRESH)]
+					HRESULT Refresh();
+				// pseudo video renderer properties/methods that require access to ole container 
+				[propget, id(dispidDisplaySize)] 
+					HRESULT DisplaySize([out,retval]DisplaySizeList *CurrentValue);
+				[propput, id(dispidDisplaySize)] 
+					HRESULT DisplaySize([in]DisplaySizeList NewValue);
+				[propget, id(dispidMaintainAspectRatio)] 
+					HRESULT MaintainAspectRatio([out,retval]VARIANT_BOOL *CurrentValue);
+				[propput, id(dispidMaintainAspectRatio)]
+					HRESULT MaintainAspectRatio([in]VARIANT_BOOL NewValue);
+
+				// non-stock visual propertiies that require coordination/implementation with
+				// core ctl drawing/painting function
+				[propget, id(dispidColorKey)] 
+					HRESULT ColorKey([out,retval]OLE_COLOR *CurrentValue);
+				[propput, id(dispidColorKey)]
+					HRESULT ColorKey([in]OLE_COLOR NewValue);
+
+
+
+                // availablee collection
+                [propget, id(dispidInputs), helpstring("Available Input Devices")] HRESULT InputsAvailable([in] BSTR CategoryGuid, [out, retval] IMSVidInputDevices * *pVal);
+                [propget, id(dispidOutputs), helpstring("Available Output Devices")] HRESULT OutputsAvailable([in] BSTR CategoryGuid, [out, retval] IMSVidOutputDevices * *pVal);
+                [propget, id(dispid_Inputs), hidden, restricted, helpstring("Available Input Devices")] HRESULT _InputsAvailable([in] LPCGUID CategoryGuid, [out, retval] IMSVidInputDevices * *pVal);
+                [propget, id(dispid_Outputs), hidden, restricted, helpstring("Available Output Devices")] HRESULT _OutputsAvailable([in] LPCGUID CategoryGuid, [out, retval] IMSVidOutputDevices * *pVal);
+                [propget, id(dispidVideoRenderers), helpstring("Available Video Renderers")] HRESULT VideoRenderersAvailable([out, retval] IMSVidVideoRendererDevices * *pVal);
+                [propget, id(dispidAudioRenderers), helpstring("Available Audio Renderers")] HRESULT AudioRenderersAvailable([out, retval] IMSVidAudioRendererDevices * *pVal);
+                [propget, id(dispidFeatures), helpstring("Available Features")] HRESULT FeaturesAvailable([out, retval] IMSVidFeatures * *pVal);
+                // current selections
+                [propget, id(dispidInput), helpstring("Currently Selected Input Device")] HRESULT InputActive([out, retval] IMSVidInputDevice **pVal);
+                [propput, id(dispidInput), helpstring("Currently Selected Input Device")] HRESULT InputActive([in] IMSVidInputDevice *pVal);
+                [propget, id(dispidOutput), helpstring("Currently Selected Output Devices")] HRESULT OutputsActive([out, retval] IMSVidOutputDevices **pVal);
+                [propput, id(dispidOutput), helpstring("Currently Selected Output Devices")] HRESULT OutputsActive([in] IMSVidOutputDevices *pVal);
+                [propget, id(dispidVideoRenderer), helpstring("Currently Selected Video Renderer")] HRESULT VideoRendererActive([out, retval] IMSVidVideoRenderer **pVal);
+                [propput, id(dispidVideoRenderer), helpstring("Currently Selected Video Renderer")] HRESULT VideoRendererActive([in] IMSVidVideoRenderer *pVal);
+                [propget, id(dispidAudioRenderer), helpstring("Currently Selected Audio Renderer")] HRESULT AudioRendererActive([out, retval] IMSVidAudioRenderer **pVal);
+                [propput, id(dispidAudioRenderer), helpstring("Currently Selected Audio Renderer")] HRESULT AudioRendererActive([in] IMSVidAudioRenderer *pVal);
+                [propget, id(dispidSelectedFeatures), helpstring("Currently Selected Features")] HRESULT FeaturesActive([out, retval] IMSVidFeatures **pVal);
+                [propput, id(dispidSelectedFeatures), helpstring("Currently Selected Features")] HRESULT FeaturesActive([in] IMSVidFeatures *pVal);
+                [propget, id(dispidgetState), helpstring("Check the current MSVidCtl state.")] HRESULT State([out, retval]MSVidCtlStateList* lState);
+                // methods
+                
+                [id(dispidView), helpstring("Find an input device for viewing the specified item. This may be a string(VT_BSTR) or an object(VT_UNKNOWN).")] HRESULT View([in] VARIANT* v);
+                [id(dispidBuild), helpstring("Compose the graph")] HRESULT Build();
+                [id(dispidPause), helpstring("Stop the graph")] HRESULT Pause();
+                [id(dispidRun), helpstring("Compose the graph if necessary and start it running")] HRESULT Run();
+                [id(dispidStop), helpstring("Stop the graph")] HRESULT Stop();
+                [id(dispidDecompose), helpstring("Disassemble the graph(Inverse of Build)")] HRESULT Decompose();
+                [id(dispidDisableVideo), helpstring("set active video renderer to nothing")] HRESULT DisableVideo();
+                [id(dispidDisableAudio), helpstring("set active Audio renderer to nothing")] HRESULT DisableAudio();
+                [id(dispidViewNext), helpstring("Find another input device for viewing the specified item. Works like View except skips current input")] HRESULT ViewNext([in] VARIANT* v);
+        };
+
+ ///Added for the mseventbinder
+	[
+        object,
+        dual,
+        oleautomation,
+        proxy,
+        hidden,
+        nonextensible,
+        pointer_default(unique),		
+		uuid(C3A9F406-2222-436D-86D5-BA3229279EFB),
+        helpstring("IMSEventBinder Interface"),
+	]
+	interface IMSEventBinder : IDispatch {
+		[id(dispidbind), helpstring("method Bind")] HRESULT Bind([in]LPDISPATCH pEventObject, [in]BSTR EventName, [in]BSTR EventHandler, [out, retval] LONG * CancelID);
+		[id(dispidunbind), helpstring("method Unbind")] HRESULT Unbind([in]DWORD CancelCookie);
+	};
+
+
+
+#endif // TUNING_MODEL_ONLY
+
+//*****************************************************************************
+//*****************************************************************************
+//////////////////////////////////////////////////////////////////////////////////////
+// Type Library for MS Video Control
+//////////////////////////////////////////////////////////////////////////////////////
+//*****************************************************************************
+//*****************************************************************************
+
+
+[
+        uuid(B0EDF154-910A-11D2-B632-00C04F79498E),
+        version(1.0),
+        helpstring("MS Video Control 1.0 Type Library")
+]
+library MSVidCtlLib
+{
+        importlib("stdole2.tlb");
+
+
+#ifndef TUNING_MODEL_ONLY
+///////////////////////////////////////////////////////////////////////////////////////
+// event interfaces
+///////////////////////////////////////////////////////////////////////////////////////
+
+  [
+                uuid(B0EDF164-910A-11D2-B632-00C04F79498E),
+                helpstring("MS Video Control Events Interface")
+        ]
+        dispinterface _IMSVidCtlEvents
+        {
+        properties:
+                //  Event interface has no properties
+		methods:
+            [id(DISPID_CLICK)] void Click();
+            [id(DISPID_DBLCLICK)] void DblClick();
+            [id(DISPID_KEYDOWN)] void KeyDown(short* KeyCode, short Shift);
+            [id(DISPID_KEYPRESS)] void KeyPress(short* KeyAscii);
+            [id(DISPID_KEYUP)] void KeyUp(short* KeyCode, short Shift);
+            [id(DISPID_MOUSEDOWN)] void MouseDown(short Button, short Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+            [id(DISPID_MOUSEMOVE)] void MouseMove(short Button, short Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+            [id(DISPID_MOUSEUP)] void MouseUp(short Button, short Shift, OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y);
+            [id(DISPID_ERROREVENT)] void Error(short Number, BSTR* Description, long Scode, BSTR Source, BSTR HelpFile, long HelpContext, boolean* CancelDisplay);
+            [id(dispidStateChange)] void StateChange(MSVidCtlStateList PrevState, MSVidCtlStateList CurrState);
+        };
+      
+//*****************************************************************************
+///////////////////////////////////////////////////////////////////////////////////////
+// device classes
+///////////////////////////////////////////////////////////////////////////////////////
+//*****************************************************************************
+
+// inputs
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(1C15D484-911D-11d2-B632-00C04F79498E),
+                helpstring("MS Video Control Analog TV Tuner Device Class")
+        ]
+        coclass MSVidAnalogTunerDevice
+        {
+                [default] interface IMSVidAnalogTuner2;
+                interface IMSVidAnalogTuner;
+                [default, source] interface IMSVidAnalogTunerEvent;
+                interface IMSVidGraphSegment;
+        };
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(A2E3074E-6C3D-11d3-B653-00C04F79498E),
+                helpstring("MS Video Control BDA Tuner Device Class")
+        ]
+        coclass MSVidBDATunerDevice
+        {
+                [default] interface IMSVidTuner;
+                [default, source] interface IMSVidTunerEvent;
+                interface IMSVidGraphSegment;
+        };
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(37B0353C-A4C8-11d2-B634-00C04F79498E),
+                helpstring("MS Video Control File Playback Device Class")
+        ]
+        coclass MSVidFilePlaybackDevice
+        {
+                [default] interface IMSVidFilePlayback2;
+                interface IMSVidFilePlayback;
+                [default, source] interface IMSVidFilePlaybackEvent;
+                interface IMSVidGraphSegment;
+        };
+
+
+        [
+            uuid(011B3619-FE63-4814-8A84-15A194CE9CE3),
+            helpstring("MSVidWebDVD Class") 
+        ]
+        coclass MSVidWebDVD
+        {
+            [default] interface IMSVidWebDVD;
+            [default, source] interface IMSVidWebDVDEvent;
+            interface IMSVidGraphSegment;
+        };
+
+        [
+            uuid(FA7C375B-66A7-4280-879D-FD459C84BB02),
+            helpstring("MSVidWebDVDAdm Class")
+        ]
+        coclass MSVidWebDVDAdm
+        {
+            [default] interface IMSVidWebDVDAdm;
+        };
+
+// rendererers
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+            uuid(37B03543-A4C8-11d2-B634-00C04F79498E),
+            helpstring("MS Video Control Video Renderer(DX7/8) Class")
+        ]
+        coclass MSVidVideoRenderer
+        {
+            [default] interface IMSVidVideoRenderer2;
+            interface IMSVidVideoRenderer;
+            [default, source] interface IMSVidVideoRendererEvent;
+            //[default, source] interface IMSVidVideoRendererEvent2;
+            interface IMSVidGraphSegment;
+        };
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+            uuid(24DC3975-09BF-4231-8655-3EE71F43837D),
+            helpstring("MS Video Control Video Renderer 9(DX9) Class")
+        ]
+        coclass MSVidVMR9
+        {
+            [default] interface IMSVidVMR9;
+            //[default, source] interface IMSVidVMR9Event;
+            interface IMSVidGraphSegment;
+        };
+
+        [
+            uuid(C45268A2-FA81-4e19-B1E3-72EDBD60AEDA),
+            helpstring("MS Video Control Enhanced Video Renderer(DX10) Class")
+        ]
+        coclass MSVidEVR
+        {
+            [default] interface IMSVidEVR;
+            [default, source] interface IMSVidEVREvent;
+            interface IMSVidGraphSegment;
+        };
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+            uuid(37B03544-A4C8-11d2-B634-00C04F79498E),
+            helpstring("MS Video Control Audio Renderer Class")
+        ]
+        coclass MSVidAudioRenderer
+        {
+            [default] interface IMSVidAudioRenderer;
+            [default, source] interface IMSVidAudioRendererEvent;
+            interface IMSVidGraphSegment;
+        };
+// Outputs
+        [
+            uuid(4A5869CF-929D-4040-AE03-FCAFC5B9CD42),
+            helpstring("MS Video Control Stream Buffer Engine Sink Class")
+        ]
+        coclass MSVidGenericSink
+        {
+            [default] interface IMSVidGenericSink2;
+            interface IMSVidGenericSink;
+            interface IMSVidGraphSegment;
+            [default, source] interface IMSVidDeviceEvent;
+        };
+
+// Stream Buffer Sink and Source and Playback
+///////////////////////////////////////////////////////////////////////////////////////
+        [
+            uuid(9E77AAC4-35E5-42a1-BDC2-8F3FF399847C),
+            helpstring("MS Video Control Stream Buffer Engine Sink Class")
+        ]
+        coclass MSVidStreamBufferSink
+        {
+            [default] interface IMSVidStreamBufferSink3;
+            interface IMSVidStreamBufferSink2;
+            interface IMSVidStreamBufferSink;
+            [default, source] interface IMSVidStreamBufferSinkEvent4;
+            [source] interface IMSVidStreamBufferSinkEvent3;
+            [source] interface IMSVidStreamBufferSinkEvent2;
+            [source] interface IMSVidStreamBufferSinkEvent;
+            interface IMSVidGraphSegment;
+        };
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(AD8E510D-217F-409b-8076-29C5E73B98E8),
+                helpstring("MS Video Control Stream Buffer Engine Playback Device Class")
+        ]
+        coclass MSVidStreamBufferSource
+        {
+                interface IMSVidStreamBufferSource;
+                [default] interface IMSVidStreamBufferSource2;
+                [source] interface IMSVidStreamBufferSourceEvent;
+                [source] interface IMSVidStreamBufferSourceEvent2;
+                [default, source] interface IMSVidStreamBufferSourceEvent3;
+                interface IMSVidGraphSegment;
+        };
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(FD351EA1-4173-4af4-821D-80D4AE979048),
+                helpstring("MS Video Control Stream Buffer Engine V2 Playback Device Class")
+        ]
+        coclass MSVidStreamBufferV2Source
+        {
+                interface IMSVidStreamBufferSource;
+                [default] interface IMSVidStreamBufferSource2;
+                [default, source] interface IMSVidStreamBufferV2SourceEvent;
+                interface IMSVidGraphSegment;
+        };
+
+// features
+
+        [
+                uuid(BB530C63-D9DF-4b49-9439-63453962E598),
+                helpstring("MS Video Control Encoder")
+        ]
+        coclass MSVidEncoder
+        {
+            interface IMSVidEncoder;
+        };
+
+        [
+                uuid(5740A302-EF0B-45ce-BF3B-4470A14A8980),
+                helpstring("MS Video Control iTV Capture")
+        ]
+        coclass MSVidITVCapture
+        {
+                interface IMSVidGraphSegment;
+                interface IMSVidFeature;
+        };
+
+        [
+                uuid(9E797ED0-5253-4243-A9B7-BD06C58F8EF3),
+                helpstring("MS Video Control iTV Playback")
+        ]
+        coclass MSVidITVPlayback
+        {
+                interface IMSVidGraphSegment;
+                interface IMSVidFeature;
+        };
+
+        [
+                uuid(/*0149EEDF-D08F-4142-8D73-D23903D21E90*/86151827-E47B-45ee-8421-D10E6E690979),
+                helpstring("MS Video Control Closed Captions Analysis")
+        ]
+        coclass MSVidCCA
+        {
+                interface IMSVidGraphSegment;
+                interface IMSVidFeature;
+        };
+
+        [
+            uuid(7F9CB14D-48E4-43b6-9346-1AEBC39C64D3),
+            helpstring("MS Video Control Standard Closed Captioning")
+        ]
+        coclass MSVidClosedCaptioning
+        {
+            [default] interface IMSVidClosedCaptioning3;
+            interface IMSVidClosedCaptioning2;
+            interface IMSVidClosedCaptioning;
+        };
+        [
+            uuid(92ED88BF-879E-448f-B6B6-A385BCEB846D),
+            helpstring("MS Video Control CCSI Closed Captioning")
+        ]
+        coclass MSVidClosedCaptioningSI
+        {
+            [default] interface IMSVidClosedCaptioning3;
+            interface IMSVidClosedCaptioning2;
+            interface IMSVidClosedCaptioning;
+        };
+
+
+        //This is deprecated starting with Fiji and Windows7.
+        [
+                uuid(334125C0-77E5-11d3-B653-00C04F79498E),
+                helpstring("MS Video Control Standard Data Services for Broadcast IP through NDIS stack")
+        ]
+        coclass MSVidDataServices
+        {
+                interface IMSVidDataServices;
+        };
+
+        //This is deprecated starting with Fiji and Windows7.
+        [
+                uuid(0149EEDF-D08F-4142-8D73-D23903D21E90),
+                helpstring("MS Video Control Encoder")
+        ]
+        coclass MSVidXDS
+        {
+                interface IMSVidXDS;
+                [source] interface IMSVidXDSEvent;
+        };
+
+        //This is deprecated starting with Fiji and Windows7.
+        [
+                uuid(C5702CD6-9B79-11d3-B654-00C04F79498E),
+                helpstring("MS Video Control Custom Composition for Analog Capture to Data Services")
+        ]
+        coclass MSVidAnalogCaptureToDataServices
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        //This is deprecated starting with Fiji and Windows7.
+        [
+                uuid(38F03426-E83B-4e68-B65B-DCAE73304838),
+                helpstring("MS Video Control Custom Composition for Data Services to Stream Buffer Sink")
+        ]
+        coclass MSVidDataServicesToStreamBufferSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        //This is deprecated starting with Fiji and Windows7.
+        [
+                uuid(0429EC6E-1144-4bed-B88B-2FB9899A4A3D),
+                helpstring("MS Video Control Custom Composition for DataServices To XDS")
+        ]
+        coclass MSVidDataServicesToXDS
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        //This is deprecated starting with Fiji and Windows7.
+        [
+                uuid(3540D440-5B1D-49cb-821A-E84B8CF065A7),
+                helpstring("MS Video Control Custom Composition for TV Tuner to XDS")
+        ]
+        coclass MSVidAnalogCaptureToXDS
+        {
+                interface IMSVidCompositionSegment;
+        };
+///////////////////////////////////////////////////////////////////////////////////////
+// control classes
+///////////////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(B0EDF163-910A-11D2-B632-00C04F79498E),
+				control,
+                helpstring("MS Video Control Class")
+        ]
+        coclass MSVidCtl
+        {
+                [default] interface IMSVidCtl;
+                [default, source] dispinterface _IMSVidCtlEvents;
+				interface IMSVidGraphSegmentContainer;
+        };
+
+///////////////////////////////////////////////////////////////////////////////////////
+// device collections
+///////////////////////////////////////////////////////////////////////////////////////
+        [
+                uuid(C5702CCC-9B79-11d3-B654-00C04F79498E),
+                helpstring("MS Video Control Input Device Collection Class")
+        ]
+        coclass MSVidInputDevices
+        {
+                [default] interface IMSVidInputDevices;
+        };
+
+        [
+                uuid(C5702CCD-9B79-11d3-B654-00C04F79498E),
+                helpstring("MS Video Control Output Device Collection Class")
+        ]
+        coclass MSVidOutputDevices
+        {
+                [default] interface IMSVidOutputDevices;
+        };
+
+        [
+                uuid(C5702CCE-9B79-11d3-B654-00C04F79498E),
+                helpstring("MS Video Control Video Renderer Device Collection Class")
+        ]
+        coclass MSVidVideoRendererDevices
+        {
+                [default] interface IMSVidVideoRendererDevices;
+        };
+
+        [
+                uuid(C5702CCF-9B79-11d3-B654-00C04F79498E),
+                helpstring("MS Video Control Audio Renderer Device Collection Class")
+        ]
+        coclass MSVidAudioRendererDevices
+        {
+                [default] interface IMSVidAudioRendererDevices;
+        };
+
+        [
+                uuid(C5702CD0-9B79-11d3-B654-00C04F79498E),
+                helpstring("MS Video Control Feature Collection Class")
+        ]
+        coclass MSVidFeatures
+        {
+                [default] interface IMSVidFeatures;
+        };
+
+///////////////////////////////////////////////////////////////////////////////////////
+// composites
+///////////////////////////////////////////////////////////////////////////////////////
+
+        [
+                uuid(2764BCE5-CC39-11D2-B639-00C04F79498E),
+                helpstring("MS Video Control Generic Composition Class")
+        ]
+        coclass MSVidGenericComposite
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(E18AF75A-08AF-11d3-B64A-00C04F79498E),
+                helpstring("MS Video Control Custom Composition for Analog Capture to Overlay Mixer")
+        ]
+        coclass MSVidAnalogCaptureToOverlayMixer
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(267db0b3-55e3-4902-949b-df8f5cec0191),
+                helpstring("MS Video Control Custom Composition for WebDVD to Overlay Mixer")
+        ]
+        coclass MSVidWebDVDToVideoRenderer
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(8D04238E-9FD1-41c6-8DE3-9E1EE309E935),
+                helpstring("MS Video Control Custom Composition for WebDVD to Audio Renderer")
+        ]
+        coclass MSVidWebDVDToAudioRenderer
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(6AD28EE1-5002-4e71-AAF7-BD077907B1A4),
+                helpstring("MS Video Control Custom Composition for Mpeg2 Decoder to Closed Captioning")
+        ]
+        coclass MSVidMPEG2DecoderToClosedCaptioning
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(9F50E8B1-9530-4ddc-825E-1AF81D47AED6),
+                helpstring("MS Video Control Custom Composition for Analog Capture to Stream Buffer Sink")
+        ]
+        coclass MSVidAnalogCaptureToStreamBufferSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(ABE40035-27C3-4a2f-8153-6624471608AF),
+                helpstring("MS Video Control Custom Composition for Digital Capture to Stream Buffer Sink")
+        ]
+        coclass MSVidDigitalCaptureToStreamBufferSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(92B94828-1AF7-4e6e-9EBF-770657F77AF5),
+                helpstring("MS Video Control Custom Composition for iTV to Stream Buffer Sink")
+        ]
+        coclass MSVidITVToStreamBufferSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(3EF76D68-8661-4843-8B8F-C37163D8C9CE),
+                helpstring("MS Video Control Custom Composition for CCA to Stream Buffer Sink")
+        ]
+        coclass MSVidCCAToStreamBufferSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(A0B9B497-AFBC-45ad-A8A6-9B077C40D4F2),
+                helpstring("MS Video Control Custom Composition for Encoder to Stream Buffer Sink")
+        ]
+        coclass MSVidEncoderToStreamBufferSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(B401C5EB-8457-427f-84EA-A4D2363364B0),
+                helpstring("MS Video Control Custom Composition for File Playback to Video Renderer")
+        ]
+        coclass MSVidFilePlaybackToVideoRenderer
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(CC23F537-18D4-4ece-93BD-207A84726979),
+                helpstring("MS Video Control Custom Composition for File Playback to Audio Renderer")
+        ]
+        coclass MSVidFilePlaybackToAudioRenderer
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(28953661-0231-41db-8986-21FF4388EE9B),
+                helpstring("MS Video Control Custom Composition for TV Tuner to Encoder")
+        ]
+        coclass MSVidAnalogTVToEncoder
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(3C4708DC-B181-46a8-8DA8-4AB0371758CD),
+                helpstring("MS Video Control Custom Composition for SBE Source to Video renderer")
+        ]
+        coclass MSVidStreamBufferSourceToVideoRenderer
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(942B7909-A28E-49a1-A207-34EBCBCB4B3B),
+                helpstring("MS Video Control Custom Composition for TV Tuner to CCA")
+        ]
+        coclass MSVidAnalogCaptureToCCA
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(73D14237-B9DB-4efa-A6DD-84350421FB2F),
+                helpstring("MS Video Control Custom Composition for Digital Capture to CCA")
+        ]
+        coclass MSVidDigitalCaptureToCCA
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(5D8E73F7-4989-4ac8-8A98-39BA0D325302),
+                helpstring("MS Video Control Custom Composition for Digital Capture to ITV")
+        ]
+        coclass MSVidDigitalCaptureToITV
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(2291478C-5EE3-4bef-AB5D-B5FF2CF58352),
+                helpstring("MS Video Control Custom Composition for Stream Buffer Source to ITV")
+        ]
+        coclass MSVidSBESourceToITV
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(9193A8F9-0CBA-400e-AA97-EB4709164576),
+                helpstring("MS Video Control Custom Composition for Stream Buffer Source to CC")
+        ]
+        coclass MSVidSBESourceToCC
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(991DA7E5-953F-435B-BE5E-B92A05EDFC42),
+                helpstring("MS Video Control Stream Buffer Source to Generic Sink Composition Class")
+        ]
+        coclass MSVidSBESourceToGenericSink
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(C4BF2784-AE00-41ba-9828-9C953BD3C54A),
+                helpstring("MS Video Control Custom Composition for CC to Video Renderer")
+        ]
+        coclass MSVidCCToVMR
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+        [
+                uuid(D76334CA-D89E-4baf-86AB-DDB59372AFC2),
+                helpstring("MS Video Control Custom Composition for CC to Audio Renderer")
+        ]
+        coclass MSVidCCToAR
+        {
+                interface IMSVidCompositionSegment;
+        };
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// Miscellaneous
+///////////////////////////////////////////////////////////////////////////////////////
+
+        // Events
+	    [
+		    uuid(577FAA18-4518-445E-8F70-1473F8CF4BA4),
+		    helpstring("MSEventBinder Class")
+	    ]
+	    coclass MSEventBinder
+	    {
+	        [default] interface IMSEventBinder;
+	    };
+
+        [
+            uuid(CAAFDD83-CEFC-4e3d-BA03-175F17A24F91),
+            helpstring("MSVidStreamBufferRecordingControl")
+        ]
+        coclass MSVidStreamBufferRecordingControl
+        {
+            [default] interface IMSVidStreamBufferRecordingControl;
+        };
+        // vidrect class
+        [
+            hidden, restricted,
+            uuid(CB4276E6-7D5F-4cf1-9727-629C5E6DB6AE),
+            helpstring("Automation compliant scalable rectangle Class")
+        ]
+        coclass MSVidRect
+        {
+            [default] interface IMSVidRect;
+        };
+
+	// NOTE: there is no object factory for the following classes.  
+    // the implementation for the underlying code is a c++ abstract base class.  
+    // this coclass is only provided here to force vb to expose the base interface 
+    // to enable polymorphic access to derived objects
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(6E40476F-9C49-4c3e-8BB9-8587958EFF74),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidDevice
+    {
+         [default] interface IMSVidDevice;
+    };
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(30997F7D-B3B5-4A1C-983A-1FE8098CB77D),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidDevice2
+    {
+         [default] interface IMSVidDevice2;
+    };
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(AC1972F2-138A-4ca3-90DA-AE51112EDA28),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidInputDevice
+    {
+        [default] interface IMSVidInputDevice;
+    };
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(95F4820B-BB3A-4e2d-BC64-5B817BC2C30E),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidVideoInputDevice
+    {
+        [default] interface IMSVidVideoInputDevice;
+    };
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(1990D634-1A5E-4071-A34A-53AAFFCE9F36),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidVideoPlaybackDevice
+    {
+        [default] interface IMSVidPlayback;
+    };
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(7748530B-C08A-47ea-B24C-BE8695FF405F),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidFeature
+    {
+        [default] interface IMSVidFeature;
+    };
+    [
+        noncreatable,
+		hidden, restricted,
+        uuid(87EB890D-03AD-4e9d-9866-376E5EC572ED),
+        helpstring("dummy class to expose base interface to VB")
+    ]
+    coclass MSVidOutput
+    {
+        [default] interface IMSVidOutputDevice;
+    };
+
+
+#endif //TUNING_MODEL_ONLY 
+
+	cpp_quote ("//cf9a88f4-abcf-4ed8-9b74-7db33445459e")
+	cpp_quote ("DEFINE_GUID(SID_MSVidCtl_CurrentAudioEndpoint, 0xcf9a88f4, 0xabcf, 0x4ed8, 0x9b, 0x74, 0x7d, 0xb3, 0x34, 0x45, 0x45, 0x9e);")
+};
+
+// end of file msvidctl.idl
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

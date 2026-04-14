@@ -1,0 +1,30 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: oaidl.acf
+//
+//----------------------------------------------------------------------------
+
+interface IOleAutomationTypes {
+//  typedef [allocate(dont_free)] LPTYPEATTR;
+//  typedef [allocate(dont_free)] LPFUNCDESC;
+//  typedef [allocate(dont_free)] LPVARDESC;
+}
+
+
+interface ITypeInfo {
+    [nocode] LocalGetIDsOfNames();
+    [nocode] LocalInvoke();
+    [nocode] LocalAddressOfMember();
+    [nocode] LocalReleaseTypeAttr();
+    [nocode] LocalReleaseFuncDesc();
+    [nocode] LocalReleaseVarDesc();
+}
+
+interface ITypeLib {
+//  typedef [allocate(dont_free)] LPTLIBATTR;
+    [nocode] LocalReleaseTLibAttr();
+}
+

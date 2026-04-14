@@ -1,0 +1,45 @@
+//****************************************************************************
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       DefaultBrowserSyncSettings.idl
+//
+//  Contents:   Interface for determining default browser setting sync state
+//
+//****************************************************************************
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+import "oleidl.idl";
+
+[
+    object,
+    uuid(7A27FAAD-5AE6-4255-9030-C530936292E3),
+    pointer_default(unique),
+    local,
+]
+interface IDefaultBrowserSyncSettings : IUnknown
+{
+    // Returns TRUE if and only if Default browser Setting Sync is enabled. Checks Group Policy as well as user preference.
+    // Returns FALSE if an error is encountered or Browser Setting Sync is disabled.
+    BOOL IsEnabled();
+}
+
+[
+    uuid(7D598D2D-DAEF-4A18-8B4A-4E314DCE21DC),
+]
+library BrowserSyncSettings
+{
+    // CLSID_DefaultBrowserSyncSettings
+    [ uuid(3AC83423-3112-4AA6-9B5B-1FEB23D0C5F9) ] coclass DefaultBrowserSyncSettings { interface IDefaultBrowserSyncSettings; }
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")

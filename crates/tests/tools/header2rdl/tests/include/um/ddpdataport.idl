@@ -1,0 +1,183 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+//      Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "ddpcommon.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// DataPort interface
+//
+[uuid(7963d734-40a9-4ea3-bbf6-5a89d26f7ae8), object, version(1.0)]
+interface IDedupDataPort : IUnknown
+{
+    // Get DataPort status
+    HRESULT GetStatus(
+        [out] DedupDataPortVolumeStatus* pStatus, // volume status
+        [out, optional] DWORD* pDataHeadroomMb    // amount of data in MB that can be ingested before maintenance
+        );
+
+    // Lookup chunks
+    HRESULT LookupChunks(
+        [in] DWORD Count,                        // chunk count
+        [in, size_is(Count)] DedupHash* pHashes, // chunk hashes
+        [out] GUID* pRequestId                   // request id
+        );
+
+    // Insert chunks
+    HRESULT InsertChunks(
+        [in] DWORD ChunkCount,                                   // chunk count
+        [in, size_is(ChunkCount)] DedupChunk* pChunkMetadata,    // chunk metadata
+        [in] DWORD DataByteCount,                                // data byte count
+        [in, size_is(DataByteCount)] BYTE* pChunkData,           // chunk data
+        [out] GUID* pRequestId                                   // request id
+        );
+
+    // Insert chunks using IStream for chunk data
+    HRESULT InsertChunksWithStream(
+        [in] DWORD ChunkCount,                                   // chunk count
+        [in, size_is(ChunkCount)] DedupChunk* pChunkMetadata,    // chunk metadata
+        [in] DWORD DataByteCount,                                // data byte count
+        [in] IStream* pChunkDataStream,                          // chunk data stream
+        [out] GUID* pRequestId                                   // request id
+        );
+
+    // Commit streams
+    HRESULT CommitStreams(
+        [in] DWORD StreamCount,                               // stream count
+        [in, size_is(StreamCount)] DedupStream* pStreams,     // streams
+        [in] DWORD EntryCount,                                // stream entry count
+        [in, size_is(EntryCount)] DedupStreamEntry* pEntries, // stream entries
+        [out] GUID* pRequestId                                // request id
+        );
+
+    // Commit streams using IStream for stream entries
+    HRESULT CommitStreamsWithStream(
+        [in] DWORD StreamCount,                           // stream count
+        [in, size_is(StreamCount)] DedupStream* pStreams, // streams
+        [in] DWORD EntryCount,                            // stream entry count
+        [in] IStream* pEntriesStream,                     // stream entries stream
+        [out] GUID* pRequestId                            // request id
+        );
+
+    // Get streams
+    HRESULT GetStreams(
+        [in] DWORD StreamCount,                        // stream count
+        [in, size_is(StreamCount)] BSTR* pStreamPaths, // stream paths
+        [out] GUID* pRequestId                         // request id
+        );
+
+    // Get streams results
+    HRESULT GetStreamsResults(
+        [in] GUID RequestId,                                         // request id of the GetStreams request
+        [in] DWORD MaxWaitMs,                                        // max milliseconds to wait
+        [in] DWORD StreamEntryIndex,                                 // index of first stream entry
+        [out] DWORD* pStreamCount,                                   // stream count
+        [out, size_is(, *pStreamCount)] DedupStream** ppStreams,     // streams
+        [out] DWORD* pEntryCount,                                    // stream entry count
+        [out, size_is(, *pEntryCount)] DedupStreamEntry** ppEntries, // stream entries
+        [out] DedupDataPortRequestStatus* pStatus,                   // request status
+        [out, size_is(, *pStreamCount)] HRESULT** ppItemResults      // item results
+        );
+
+    // Get chunks
+    HRESULT GetChunks(
+        [in] DWORD Count,                        // chunk count
+        [in, size_is(Count)] DedupHash* pHashes, // chunk hashes
+        [out] GUID* pRequestId                   // request id
+        );
+
+    // Get chunks results
+    HRESULT GetChunksResults(
+        [in] GUID RequestId,                                         // request id of the GetChunks request
+        [in] DWORD MaxWaitMs,                                        // max milliseconds to wait
+        [in] DWORD ChunkIndex,                                       // index of first chunk
+        [out] DWORD* pChunkCount,                                    // chunk count
+        [out, size_is(, *pChunkCount)] DedupChunk** ppChunkMetadata, // chunk metadata
+        [out] DWORD* pDataByteCount,                                 // data byte count
+        [out, size_is(, *pDataByteCount)] BYTE** ppChunkData,        // chunk data
+        [out] DedupDataPortRequestStatus* pStatus,                   // request status
+        [out, size_is(, *pChunkCount)] HRESULT** ppItemResults       // item results
+        );
+
+    // Get request status
+    HRESULT GetRequestStatus(
+        [in] GUID RequestId,                      // request id
+        [out] DedupDataPortRequestStatus* pStatus // request status
+        );
+
+    // Get request results
+    HRESULT GetRequestResults(
+        [in] GUID RequestId,                                   // request id
+        [in] DWORD MaxWaitMs,                                  // max milliseconds to wait
+        [out] HRESULT* pBatchResult,                           // overall result
+        [out] DWORD* pBatchCount,                              // batch count
+        [out] DedupDataPortRequestStatus* pStatus,             // request status
+        [out, size_is(, *pBatchCount)] HRESULT** ppItemResults // item results
+        );
+};
+
+//
+// DataPort factory interface
+//
+[uuid(44677452-b90a-445e-8192-cdcfe81511fb), object, version(1.0)]
+interface IDedupDataPortManager : IUnknown
+{
+    // Get dedup configuration
+    HRESULT GetConfiguration(
+        [out] DWORD* pMinChunkSize,                             // minimum chunk size
+        [out] DWORD* pMaxChunkSize,                             // maximum chunk size
+        [out] DedupChunkingAlgorithm* pChunkingAlgorithm,       // chunking algorithm
+        [out] DedupHashingAlgorithm* pHashingAlgorithm,         // chunk hash algorithm
+        [out] DedupCompressionAlgorithm* pCompressionAlgorithm  // chunk compression algorithm
+        );
+
+    // Get volume DataPort status
+    HRESULT GetVolumeStatus(
+        [in] DWORD Options,                       // DedupDataPortManagerOption option mask
+        [in] BSTR Path,                           // volume path
+        [out] DedupDataPortVolumeStatus* pStatus  // volume status
+        );
+
+    // Get volume DataPort interface
+    // Until the volume is enabled for Dedup and the DataPort job for the volume is fully initialized,
+    // the method may return one of the following errors.
+    //   DDP_E_VOLUME_DISABLED
+    //   DDP_E_DATAPORT_NOT_READY
+    // Use GetVolumeStatus to detect the current status of DataPort for the volume
+    HRESULT GetVolumeDataPort(
+        [in] DWORD Options,                       // DedupDataPortManagerOption option mask
+        [in] BSTR Path,                           // volume path
+        [out] IDedupDataPort** ppDataPort         // DataPort interface for the volume
+        );
+}
+
+[
+    uuid(3bf36995-d074-4e1b-843d-bfafe3006a69),
+    version(1.0),
+]
+library DedupDataPort
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    interface IDedupDataPort;
+    interface IDedupDataPortManager;
+
+    [uuid(8f107207-1829-48b2-a64b-e61f8e0d9acb)]
+    coclass DedupDataPort
+    {
+        [default] interface IDedupDataPortManager;
+    };
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

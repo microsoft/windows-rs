@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="AllowExecution" type="xs:boolean"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="BarcodeScannerProvider" type="CT_BarcodeScannerProvider"/>
+        <xs:element name="LocalExperiencePack" type="CT_LocalExperiencePack"/>
+        <xs:element name="LoaderSearchPathOverride" type="CT_LoaderSearchPathOverride"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Uap6" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_BarcodeScannerProvider">
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+    <xs:attribute name="SupportsVideoPreview" type="xs:boolean"/>
+  </xs:complexType>
+  
+  <xs:complexType name="CT_LocalExperiencePack">
+    <xs:attribute name="Language" type="xs:language" use="required"/>
+  </xs:complexType>
+  
+  <xs:element name="SpatialBoundingBox">
+    <xs:complexType>
+      <xs:attribute name="Center" type="ST_Vector3" use="required"/>
+      <xs:attribute name="Extents" type="ST_Vector3PositiveOrAuto" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="ST_Vector3">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="\-?[0-9]*\.?[0-9]+,\-?[0-9]*\.?[0-9]+,\-?[0-9]*\.?[0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Vector3PositiveOrAuto">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:pattern value="([1-9]+(\.[0-9]+)?|[0-9]*\.[0-9]*[1-9]),([1-9]+(\.[0-9]+)?|[0-9]*\.[0-9]*[1-9]),([1-9]+(\.[0-9]+)?|[0-9]*\.[0-9]*[1-9])"/>
+      <xs:pattern value="Auto"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="CodecMimeType" type="t:ST_NonEmptyString"/>
+
+  <xs:complexType name="CT_LoaderSearchPathOverride">
+    <xs:sequence minOccurs="0" maxOccurs="5">
+      <xs:element name="LoaderSearchPathEntry">
+        <xs:complexType>
+          <xs:attribute name="FolderPath" type="ST_FileNameOrEmpty" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_EmptyString">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameOrEmpty">
+    <xs:union memberTypes="ST_EmptyString t:ST_FileName"/>
+  </xs:simpleType>
+
+  <xs:attribute name="Optional" type="xs:boolean"/>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap_6" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
+

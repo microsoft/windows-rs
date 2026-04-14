@@ -1,0 +1,614 @@
+// generator standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _GENERATOR_
+#define _GENERATOR_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#if !_HAS_CXX23
+_EMIT_STL_WARNING(STL4038, "The contents of <generator> are available only with C++23 or later.");
+#else // ^^^ !_HAS_CXX23 / _HAS_CXX23 vvv
+
+#include <coroutine>
+#include <exception>
+#include <xmemory>
+#ifdef __cpp_lib_byte
+#include <xpolymorphic_allocator.h>
+#endif // defined(__cpp_lib_byte)
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma push_macro("empty_bases")
+#undef empty_bases
+
+_STD_BEGIN
+
+struct alignas(__STDCPP_DEFAULT_NEW_ALIGNMENT__) _Aligned_block {
+    unsigned char _Pad[__STDCPP_DEFAULT_NEW_ALIGNMENT__];
+};
+
+template <class _Alloc>
+constexpr bool _Stateless_allocator = default_initializable<_Alloc> && allocator_traits<_Alloc>::is_always_equal::value;
+
+_EXPORT_STD template <class _Rty, class _Vty = void, class _Alloc = void>
+class generator;
+
+namespace _Gen_detail {
+    template <class _Alloc>
+    concept _Valid_allocator = same_as<_Alloc, void> || is_pointer_v<typename allocator_traits<_Alloc>::pointer>;
+
+    template <class _Alloc>
+    _NODISCARD _Alloc* _Get_allocator_address(void* const _Ptr, const size_t _Size) noexcept {
+        _STL_INTERNAL_STATIC_ASSERT(!_Stateless_allocator<_Alloc>);
+        const auto _Al_address =
+            (reinterpret_cast<uintptr_t>(_Ptr) + _Size + alignof(_Alloc) - 1) & ~(alignof(_Alloc) - 1);
+        return reinterpret_cast<_Alloc*>(_Al_address);
+    }
+
+    template <class _Proto_allocator>
+    class _Promise_allocator { // statically specified allocator type
+    private:
+        using _Alloc           = _Rebind_alloc_t<_Proto_allocator, _Aligned_block>;
+        using _Alloc_size_type = allocator_traits<_Alloc>::size_type;
+
+        _NODISCARD static size_t _Allocation_block_size(const size_t _Size) noexcept {
+            // Compute the number of _Aligned_blocks needed to store a coroutine
+            // frame of _Size bytes and, if necessary, an _Alloc.
+            if constexpr (_Stateless_allocator<_Alloc>) {
+                // allocator is stateless, we need not store it
+                return (_Size + sizeof(_Aligned_block) - 1) / sizeof(_Aligned_block);
+            } else {
+                // allocator is stateful, we need storage for it
+                constexpr size_t _Align = (_STD max)(alignof(_Alloc), sizeof(_Aligned_block));
+                return (_Size + sizeof(_Alloc) + _Align - 1) / sizeof(_Aligned_block);
+            }
+        }
+
+        _NODISCARD_RAW_PTR_ALLOC static void* _Allocate(_Alloc _Al, const size_t _Size) {
+            // memory layout:
+            // |--- coroutine frame --|- alignment padding -|---- _Alloc -----|
+            // |--- always present ---|----------- stateful only -------------|
+            // all rounded up to an integral number of _Aligned_blocks
+
+            const size_t _Size_in_blocks = _Allocation_block_size(_Size);
+            void* const _Ptr             = _Al.allocate(_Convert_size<_Alloc_size_type>(_Size_in_blocks));
+
+            if constexpr (!_Stateless_allocator<_Alloc>) {
+                // store only stateful allocators
+                const auto _Al_address = _Get_allocator_address<_Alloc>(_Ptr, _Size);
+                _STD construct_at(_Al_address, _STD move(_Al));
+            }
+
+            return _Ptr;
+        }
+
+        _NODISCARD static _Alloc _Get_allocator(
+            [[maybe_unused]] void* const _Ptr, [[maybe_unused]] const size_t _Size) noexcept {
+            // recreate or retrieve a copy of the allocator used to allocate _Ptr
+            if constexpr (_Stateless_allocator<_Alloc>) {
+                return _Alloc{};
+            } else {
+                const auto _Al_address = _Get_allocator_address<_Alloc>(_Ptr, _Size);
+                return *_Al_address;
+            }
+        }
+
+    public:
+        _NODISCARD_RAW_PTR_ALLOC static void* operator new(const size_t _Size)
+            requires default_initializable<_Alloc>
+        {
+            return _Allocate(_Alloc{}, _Size);
+        }
+
+        template <class _Alloc2, class... _Args>
+        _NODISCARD_RAW_PTR_ALLOC static void* operator new(
+            const size_t _Size, allocator_arg_t, const _Alloc2& _Al, const _Args&...) {
+            static_assert(convertible_to<const _Alloc2&, _Proto_allocator>,
+                "Allocator argument must be convertible to the allocator type (N5001 [coro.generator.promise]/18)");
+            return _Allocate(static_cast<_Alloc>(static_cast<_Proto_allocator>(_Al)), _Size);
+        }
+
+        template <class _This, class _Alloc2, class... _Args>
+        _NODISCARD_RAW_PTR_ALLOC static void* operator new(
+            const size_t _Size, const _This&, allocator_arg_t, const _Alloc2& _Al, const _Args&...) {
+            static_assert(convertible_to<const _Alloc2&, _Proto_allocator>,
+                "Allocator argument must be convertible to the allocator type (N5001 [coro.generator.promise]/18)");
+            return _Allocate(static_cast<_Alloc>(static_cast<_Proto_allocator>(_Al)), _Size);
+        }
+
+        static void operator delete(void* const _Ptr, const size_t _Size) noexcept {
+            _Alloc _Al                   = _Get_allocator(_Ptr, _Size);
+            const size_t _Size_in_blocks = _Allocation_block_size(_Size);
+            _Al.deallocate(static_cast<_Aligned_block*>(_Ptr), static_cast<_Alloc_size_type>(_Size_in_blocks));
+        }
+    };
+
+    template <>
+    class _Promise_allocator<void> { // type-erased allocator
+    private:
+        using _Dealloc_fn = void(__stdcall*)(void*, size_t) _NOEXCEPT_FNPTR;
+
+        template <class _Alloc>
+        _NODISCARD static size_t _Allocation_block_size(const size_t _Size) noexcept {
+            size_t _Bytes = _Size + sizeof(_Dealloc_fn);
+            if constexpr (_Stateless_allocator<_Alloc>) {
+                _Bytes += sizeof(_Aligned_block) - 1;
+            } else {
+                constexpr size_t _Align = (_STD max)(alignof(_Alloc), sizeof(_Aligned_block));
+                _Bytes += sizeof(_Alloc) + _Align - 1;
+            }
+            return _Bytes / sizeof(_Aligned_block);
+        }
+
+        template <class _Alloc>
+        static void __stdcall _Dealloc_stateless(void* const _Ptr, const size_t _Size) noexcept {
+            _STL_INTERNAL_STATIC_ASSERT(_Stateless_allocator<_Alloc>);
+            _Alloc _Al{};
+            const size_t _Size_in_blocks = _Allocation_block_size<_Alloc>(_Size);
+            const auto _Alloc_size       = static_cast<allocator_traits<_Alloc>::size_type>(_Size_in_blocks);
+            _Al.deallocate(static_cast<_Aligned_block*>(_Ptr), _Alloc_size);
+        }
+
+        template <class _Alloc>
+        static void __stdcall _Dealloc_stateful(void* const _Ptr, const size_t _Size) noexcept {
+            _STL_INTERNAL_STATIC_ASSERT(!_Stateless_allocator<_Alloc>);
+            const auto _Al_address = _Get_allocator_address<_Alloc>(_Ptr, _Size + sizeof(_Dealloc_fn));
+            auto& _Stored_al       = *_Al_address;
+            _Alloc _Al{_STD move(_Stored_al)};
+            _Stored_al.~_Alloc();
+
+            const size_t _Size_in_blocks = _Allocation_block_size<_Alloc>(_Size);
+            const auto _Alloc_size       = static_cast<allocator_traits<_Alloc>::size_type>(_Size_in_blocks);
+            _Al.deallocate(static_cast<_Aligned_block*>(_Ptr), _Alloc_size);
+        }
+
+        static void __stdcall _Dealloc_default(void* const _Ptr, const size_t _Size) noexcept {
+            ::operator delete(_Ptr, _Size + sizeof(_Dealloc_fn));
+        }
+
+        template <class _ProtoAlloc>
+        _NODISCARD_RAW_PTR_ALLOC static void* _Allocate(const _ProtoAlloc& _Proto, const size_t _Size) {
+            // memory layout:
+            // |--- coroutine frame (_Size bytes) ---|--- _Dealloc_fn ---|-- alignment padding --|--- _Alloc ---|
+            // |-------------------- always present -----(not aligned)---|------------ stateful only -----------|
+            // all rounded up to an integral number of _Aligned_blocks
+
+            using _Alloc           = _Rebind_alloc_t<_ProtoAlloc, _Aligned_block>;
+            using _Alloc_size_type = allocator_traits<_Alloc>::size_type;
+
+            _Alloc _Al{_Proto};
+            const size_t _Size_in_blocks = _Allocation_block_size<_Alloc>(_Size);
+            const auto _Alloc_size       = _Convert_size<_Alloc_size_type>(_Size_in_blocks);
+            void* const _Ptr             = _Al.allocate(_Alloc_size);
+
+            if constexpr (_Stateless_allocator<_Alloc>) {
+                // don't store stateless allocator
+                const _Dealloc_fn _Dealloc = _Dealloc_stateless<_Alloc>;
+                _CSTD memcpy(static_cast<char*>(_Ptr) + _Size, &_Dealloc, sizeof(_Dealloc_fn));
+                return _Ptr;
+            } else {
+                // store stateful allocator
+                const _Dealloc_fn _Dealloc = _Dealloc_stateful<_Alloc>;
+                _CSTD memcpy(static_cast<char*>(_Ptr) + _Size, &_Dealloc, sizeof(_Dealloc_fn));
+
+                const auto _Al_address = _Get_allocator_address<_Alloc>(_Ptr, _Size + sizeof(_Dealloc_fn));
+                _STD construct_at(_Al_address, _STD move(_Al));
+                return _Ptr;
+            }
+        }
+
+    public:
+        _NODISCARD_RAW_PTR_ALLOC static void* operator new(const size_t _Size) {
+            void* const _Ptr           = ::operator new(_Size + sizeof(_Dealloc_fn));
+            const _Dealloc_fn _Dealloc = _Dealloc_default;
+            _CSTD memcpy(static_cast<char*>(_Ptr) + _Size, &_Dealloc, sizeof(_Dealloc_fn));
+            return _Ptr;
+        }
+
+        template <class _Alloc, class... _Args>
+        _NODISCARD_RAW_PTR_ALLOC static void* operator new(
+            const size_t _Size, allocator_arg_t, const _Alloc& _Al, const _Args&...) {
+            static_assert(_Valid_allocator<_Alloc>, "generator allocators must use raw pointers "
+                                                    "(N4988 [coro.generator.class]/1.1)");
+            return _Allocate(_Al, _Size);
+        }
+
+        template <class _This, class _Alloc, class... _Args>
+        _NODISCARD_RAW_PTR_ALLOC static void* operator new(
+            const size_t _Size, const _This&, allocator_arg_t, const _Alloc& _Al, const _Args&...) {
+            static_assert(_Valid_allocator<_Alloc>, "generator allocators must use raw pointers "
+                                                    "(N4988 [coro.generator.class]/1.1)");
+            return _Allocate(_Al, _Size);
+        }
+
+        static void operator delete(void* const _Ptr, const size_t _Size) noexcept {
+            _Dealloc_fn _Dealloc;
+            _CSTD memcpy(&_Dealloc, static_cast<const char*>(_Ptr) + _Size, sizeof(_Dealloc_fn));
+            _Dealloc(_Ptr, _Size);
+        }
+    };
+
+    template <class _Rty, class _Vty>
+    using _Value_t = conditional_t<is_void_v<_Vty>, remove_cvref_t<_Rty>, _Vty>;
+    template <class _Rty, class _Vty>
+    using _Reference_t = conditional_t<is_void_v<_Vty>, _Rty&&, _Rty>;
+    template <class _Ref>
+    using _Yield_t = conditional_t<is_reference_v<_Ref>, _Ref, const _Ref&>;
+
+    template <class, class>
+    struct _Iter_provider {
+        class _Iterator;
+    };
+
+    template <class _Yielded>
+    class _Promise_base {
+    public:
+        _STL_INTERNAL_STATIC_ASSERT(is_reference_v<_Yielded>);
+
+#ifndef _PREFAST_ // TRANSITION, VSO-1662733
+        _NODISCARD
+#endif // ^^^ no workaround ^^^
+        suspend_always initial_suspend() const noexcept {
+            return {};
+        }
+
+        _NODISCARD auto final_suspend() noexcept {
+            return _Final_awaiter{};
+        }
+
+        _NODISCARD suspend_always yield_value(_Yielded _Val) noexcept {
+            _Ptr = _STD addressof(_Val);
+            return {};
+        }
+
+        _NODISCARD auto yield_value(const remove_reference_t<_Yielded>& _Val)
+            noexcept(is_nothrow_constructible_v<remove_cvref_t<_Yielded>,
+                const remove_reference_t<_Yielded>&>) /* strengthened */
+            requires is_rvalue_reference_v<_Yielded>
+                  && constructible_from<remove_cvref_t<_Yielded>, const remove_reference_t<_Yielded>&>
+        {
+            return _Element_awaiter{_Val};
+        }
+
+        template <class _Rty, class _Vty, class _Alloc, class _Unused>
+            requires same_as<_Yield_t<_Reference_t<_Rty, _Vty>>, _Yielded>
+        _NODISCARD auto yield_value(_RANGES elements_of<generator<_Rty, _Vty, _Alloc>&&, _Unused> _Elem) noexcept {
+            using _Nested_awaitable = _Nested_awaitable_provider<_Rty, _Vty, _Alloc>::_Awaitable;
+            return _Nested_awaitable{_STD move(_Elem.range)};
+        }
+
+        template <class _Rty, class _Vty, class _Alloc, class _Unused>
+            requires same_as<_Yield_t<_Reference_t<_Rty, _Vty>>, _Yielded>
+        _NODISCARD auto yield_value(_RANGES elements_of<generator<_Rty, _Vty, _Alloc>&, _Unused> _Elem) noexcept {
+            using _Nested_awaitable = _Nested_awaitable_provider<_Rty, _Vty, _Alloc>::_Awaitable;
+            return _Nested_awaitable{_STD move(_Elem.range)};
+        }
+
+        template <_RANGES input_range _Rng, class _Alloc>
+            requires convertible_to<_RANGES range_reference_t<_Rng>, _Yielded>
+        _NODISCARD auto yield_value(_RANGES elements_of<_Rng, _Alloc> _Elem) {
+            using _Nested_awaitable = _Nested_awaitable_provider<_Yielded, void, _Alloc>::_Awaitable;
+
+            auto _Lambda = [](allocator_arg_t, _Alloc, _RANGES iterator_t<_Rng> _It,
+                               const _RANGES sentinel_t<_Rng> _Se) -> generator<_Yielded, void, _Alloc> {
+                for (; _It != _Se; ++_It) {
+                    co_yield static_cast<_Yielded>(*_It);
+                }
+            };
+            return _Nested_awaitable{
+                _Lambda(allocator_arg, _Elem.allocator, _RANGES begin(_Elem.range), _RANGES end(_Elem.range))};
+        }
+
+        void await_transform() = delete;
+
+        void return_void() const noexcept {}
+
+        void unhandled_exception() {
+            if (const auto _Info = _Try_get_nest_info()) {
+                _Info->_Except = _STD current_exception();
+            } else {
+                _RERAISE;
+            }
+        }
+
+    private:
+        struct _Element_awaiter {
+            remove_cvref_t<_Yielded> _Val;
+
+            explicit _Element_awaiter(const remove_reference_t<_Yielded>& _Val_)
+                noexcept(is_nothrow_constructible_v<remove_cvref_t<_Yielded>, const remove_reference_t<_Yielded>&>)
+                : _Val(_Val_) {}
+
+            _NODISCARD constexpr bool await_ready() const noexcept {
+                return false;
+            }
+
+            template <class _CoroPromise>
+            constexpr void await_suspend(coroutine_handle<_CoroPromise> _Handle) noexcept {
+#ifdef __cpp_lib_is_pointer_interconvertible // TRANSITION, LLVM-48860
+                _STL_INTERNAL_STATIC_ASSERT(is_pointer_interconvertible_base_of_v<_Promise_base, _CoroPromise>);
+#endif // ^^^ no workaround ^^^
+
+                _Promise_base& _Current = _Handle.promise();
+                _Current._Ptr           = _STD addressof(_Val);
+            }
+
+            constexpr void await_resume() const noexcept {}
+        };
+
+        // generator's stack of nested coroutines is realized as a linked list of promises. The "root" promise is the
+        // original that existed before any nested yields. The "top" promise is the one currently being iterated over.
+        // Iterators hold handles for the root's coroutine and the root promise holds a link to the top promise so
+        // iterators can resume it to generate the next element when incremented. Each promise keeps a link to the root
+        // so they can update the top link as promises are pushed and popped. It looks a bit like:
+        //
+        //    +--------------------------- Top ---------------------------+
+        //    v                                                           |
+        // +=====+             +=====+             +=====+             +=====+
+        // |     |-- Parent -->|     |-- Parent -->|     |-- Parent -->|     |
+        // +=====+             +=====+             +=====+             +=====+
+        //    |                   |                   |                   ^
+        //    +------- Root ------+------- Root ------+------- Root ------+
+        //
+        // The parent and root links are actually stored out-of-line in a _Nest_info. Since a promise is either a root
+        // or is nested, the single promise member _Data can be used to store either a top link or a pointer to a
+        // _Nest_info.
+
+        struct _Nest_info {
+            exception_ptr _Except;
+            coroutine_handle<_Promise_base> _Parent;
+            coroutine_handle<_Promise_base> _Root;
+        };
+
+        struct _Final_awaiter {
+            _NODISCARD bool await_ready() const noexcept {
+                return false;
+            }
+
+            template <class _CoroPromise>
+            _NODISCARD coroutine_handle<> await_suspend(coroutine_handle<_CoroPromise> _Handle) const noexcept {
+                // Resume _Handle's parent coroutine, if any.
+#ifdef __cpp_lib_is_pointer_interconvertible // TRANSITION, LLVM-48860
+                _STL_INTERNAL_STATIC_ASSERT(is_pointer_interconvertible_base_of_v<_Promise_base, _CoroPromise>);
+#endif // ^^^ no workaround ^^^
+
+                if (const auto _Info = _Handle.promise()._Try_get_nest_info()) {
+                    coroutine_handle<_Promise_base> _Cont = _Info->_Parent;
+                    _Info->_Root.promise()._Set_top(_Cont);
+                    return _Cont;
+                }
+
+                return _STD noop_coroutine();
+            }
+
+            void await_resume() const noexcept {}
+        };
+
+        template <class _Rty, class _Vty, class _Alloc>
+        struct _Nested_awaitable_provider {
+            struct _Awaitable {
+                _STL_INTERNAL_STATIC_ASSERT(same_as<_Yield_t<_Reference_t<_Rty, _Vty>>, _Yielded>);
+
+                _Nest_info _Nested;
+                generator<_Rty, _Vty, _Alloc> _Gen;
+
+                explicit _Awaitable(generator<_Rty, _Vty, _Alloc>&& _Gen_) noexcept : _Gen(_STD move(_Gen_)) {}
+
+                _NODISCARD bool await_ready() const noexcept {
+                    return !_Gen._Coro;
+                }
+
+                template <class _CoroPromise>
+                _NODISCARD coroutine_handle<_Promise_base> await_suspend(
+                    coroutine_handle<_CoroPromise> _Current) noexcept {
+                    // Push _Gen's coroutine onto the coroutine stack that _Current is at the top of.
+#ifdef __cpp_lib_is_pointer_interconvertible // TRANSITION, LLVM-48860
+                    _STL_INTERNAL_STATIC_ASSERT(is_pointer_interconvertible_base_of_v<_Promise_base, _CoroPromise>);
+#endif // ^^^ no workaround ^^^
+                    auto _Target    = coroutine_handle<_Promise_base>::from_address(_Gen._Coro.address());
+                    _Nested._Parent = coroutine_handle<_Promise_base>::from_address(_Current.address());
+                    if (const auto _Parent_nest_info = _Nested._Parent.promise()._Try_get_nest_info()) {
+                        _Nested._Root = _Parent_nest_info->_Root;
+                    } else {
+                        _Nested._Root = _Nested._Parent;
+                    }
+                    _Nested._Root.promise()._Set_top(_Target);
+                    _Target.promise()._Set_nest_info(_STD addressof(_Nested));
+                    return _Target;
+                }
+
+                void await_resume() {
+                    if (_Nested._Except) {
+                        _STD rethrow_exception(_STD move(_Nested._Except));
+                    }
+                }
+            };
+        };
+
+        _NODISCARD _Nest_info* _Try_get_nest_info() const noexcept {
+            if ((_Data & 1U) != 0) {
+                return reinterpret_cast<_Nest_info*>(_Data ^ 1U);
+            }
+
+            return nullptr;
+        }
+
+        _NODISCARD coroutine_handle<_Promise_base> _Get_top() const noexcept {
+            _STL_INTERNAL_CHECK((_Data & 1U) == 0);
+            return coroutine_handle<_Promise_base>::from_address(reinterpret_cast<void*>(_Data));
+        }
+
+        void _Set_nest_info(_Nest_info* _Info) noexcept {
+            _Data = reinterpret_cast<uintptr_t>(_Info) | 1U;
+        }
+
+        void _Set_top(coroutine_handle<_Promise_base> _Top) noexcept {
+            _Data = reinterpret_cast<uintptr_t>(_Top.address());
+        }
+
+        template <class, class>
+        friend struct _Iter_provider;
+
+        // Least significant bit of `_Data` indicates stored information:
+        // LSB 0: `_Data` is a top coroutine handle,
+        // LSB 1: `_Data ^ 1U` is a pointer to an object of type `_Nest_info`.
+        uintptr_t _Data = reinterpret_cast<uintptr_t>(coroutine_handle<_Promise_base>::from_promise(*this).address());
+        add_pointer_t<_Yielded> _Ptr = nullptr;
+    };
+
+    struct _Secret_tag {
+        explicit _Secret_tag() = default;
+    };
+
+    template <class _Value, class _Ref>
+    class _Iter_provider<_Value, _Ref>::_Iterator {
+    public:
+        using value_type      = _Value;
+        using difference_type = ptrdiff_t;
+
+        _Iterator(_Iterator&& _That) noexcept : _Coro{_STD exchange(_That._Coro, {})} {}
+
+        _Iterator& operator=(_Iterator&& _That) noexcept {
+            _Coro = _STD exchange(_That._Coro, {});
+            return *this;
+        }
+
+        _NODISCARD _Ref operator*() const
+            noexcept(noexcept(static_cast<_Ref>(*_Coro.promise()._Get_top().promise()._Ptr))) /* strengthened */ {
+#if _ITERATOR_DEBUG_LEVEL != 0
+            _STL_VERIFY(!_Coro.done(), "Can't dereference generator end iterator");
+#endif
+            return static_cast<_Ref>(*_Coro.promise()._Get_top().promise()._Ptr);
+        }
+
+        _Iterator& operator++() {
+#if _ITERATOR_DEBUG_LEVEL != 0
+            _STL_VERIFY(!_Coro.done(), "Can't increment generator end iterator");
+#endif
+            _Coro.promise()._Get_top().resume();
+            return *this;
+        }
+
+        void operator++(int) {
+            ++*this;
+        }
+
+        _NODISCARD friend bool operator==(const _Iterator& _It, default_sentinel_t) noexcept /* strengthened */ {
+            return _It._Coro.done();
+        }
+
+    private:
+        template <class, class, class>
+        friend class _STD generator;
+
+        explicit _Iterator(_Secret_tag, coroutine_handle<_Promise_base<_Yield_t<_Ref>>> _Coro_) noexcept
+            : _Coro{_Coro_} {}
+
+        coroutine_handle<_Promise_base<_Yield_t<_Ref>>> _Coro;
+    };
+} // namespace _Gen_detail
+
+_EXPORT_STD template <class _Rty, class _Vty, class _Alloc>
+class generator : public _RANGES view_interface<generator<_Rty, _Vty, _Alloc>> {
+private:
+    static_assert(_Gen_detail::_Valid_allocator<_Alloc>,
+        "generator allocators must use raw pointers (N4988 [coro.generator.class]/1.1)");
+
+    using _Value = _Gen_detail::_Value_t<_Rty, _Vty>;
+    static_assert(same_as<remove_cvref_t<_Value>, _Value> && is_object_v<_Value>,
+        "generator's value type must be a cv-unqualified object type (N4988 [coro.generator.class]/1.2)");
+
+    using _Ref = _Gen_detail::_Reference_t<_Rty, _Vty>;
+    static_assert(
+        is_reference_v<_Ref> || (is_object_v<_Ref> && same_as<remove_cv_t<_Ref>, _Ref> && copy_constructible<_Ref>),
+        "generator's selected reference type must be an actual reference type or a cv-unqualified copy-constructible "
+        "object type (N4988 [coro.generator.class]/1.3)");
+
+    using _RRef = conditional_t<is_reference_v<_Ref>, remove_reference_t<_Ref>&&, _Ref>;
+
+    static_assert(common_reference_with<_Ref&&, _Value&> && common_reference_with<_Ref&&, _RRef&&>
+                      && common_reference_with<_RRef&&, const _Value&>,
+        "generator's iterator type must model indirectly_readable, but that's impossible with the selected value and "
+        "reference types (N4988 [coro.generator.class]/1.4)");
+
+public:
+    using yielded = _Gen_detail::_Yield_t<_Ref>;
+
+    friend _Gen_detail::_Promise_base<yielded>;
+
+    struct __declspec(empty_bases) promise_type : _Gen_detail::_Promise_allocator<_Alloc>,
+                                                  _Gen_detail::_Promise_base<yielded> {
+        _NODISCARD generator get_return_object() noexcept {
+            return generator{_Gen_detail::_Secret_tag{}, coroutine_handle<promise_type>::from_promise(*this)};
+        }
+    };
+    _STL_INTERNAL_STATIC_ASSERT(is_standard_layout_v<promise_type>);
+#ifdef __cpp_lib_is_pointer_interconvertible // TRANSITION, LLVM-48860
+    _STL_INTERNAL_STATIC_ASSERT(
+        is_pointer_interconvertible_base_of_v<_Gen_detail::_Promise_base<yielded>, promise_type>);
+#endif // ^^^ no workaround ^^^
+
+    generator(generator&& _That) noexcept : _Coro(_STD exchange(_That._Coro, {})) {}
+
+    ~generator() {
+        if (_Coro) {
+            _Coro.destroy();
+        }
+    }
+
+    generator& operator=(generator _That) noexcept {
+        _STD swap(_Coro, _That._Coro);
+        return *this;
+    }
+
+    _NODISCARD _Gen_detail::_Iter_provider<_Value, _Ref>::_Iterator begin() {
+        // Pre: _Coro is suspended at its initial suspend point
+#if _ITERATOR_DEBUG_LEVEL != 0
+        _STL_VERIFY(_Coro, "Can't call begin on moved-from generator");
+#endif
+        _Coro.resume();
+        return typename _Gen_detail::_Iter_provider<_Value, _Ref>::_Iterator{_Gen_detail::_Secret_tag{},
+            coroutine_handle<_Gen_detail::_Promise_base<yielded>>::from_address(_Coro.address())};
+    }
+
+    _NODISCARD default_sentinel_t end() const noexcept {
+        return default_sentinel;
+    }
+
+private:
+    coroutine_handle<promise_type> _Coro = nullptr;
+    // The stack of coroutine handles depicted in the Standard is realized by a linked structure of promises and
+    // awaitable objects, so all necessary storage is allocated in coroutine frames. See the description in the body of
+    // _Gen_detail::_Promise_base.
+
+    explicit generator(_Gen_detail::_Secret_tag, coroutine_handle<promise_type> _Coro_) noexcept : _Coro(_Coro_) {}
+};
+
+#ifdef __cpp_lib_byte
+namespace pmr {
+    _EXPORT_STD template <class _Rty, class _Vty = void>
+    using generator = _STD generator<_Rty, _Vty, polymorphic_allocator<>>;
+} // namespace pmr
+#endif // defined(__cpp_lib_byte)
+_STD_END
+
+// TRANSITION, non-_Ugly attribute tokens
+#pragma pop_macro("empty_bases")
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // ^^^ _HAS_CXX23 ^^^
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _GENERATOR_

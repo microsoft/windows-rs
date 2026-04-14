@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+           xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"
+           xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+           xmlns:uap7="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop2="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap_3" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="AppExtensionHost" type="CT_AppExtensionHost"/>
+        <xs:element name="AppExtension" type="CT_AppExtension"/>
+        <xs:element name="AppUriHandler" type="CT_AppUriHandler"/>
+        <xs:element name="AppointmentDataProvider" type="CT_UserDataProvider"/>
+        <xs:element name="EmailDataProvider" type="CT_UserDataProvider"/>
+        <xs:element name="ContactDataProvider" type="CT_UserDataProvider"/>
+        <xs:element name="AppExecutionAlias" type="CT_AppExecutionAlias"/>
+        <xs:element name="AppService" type="CT_AppService"/>
+        <xs:element name="Protocol" type="CT_Protocol"/>
+        <xs:element name="FileTypeAssociation" type="CT_FileTypeAssociation"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Uap3" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="CT_AppExecutionAlias">
+    <xs:sequence>
+      <xs:element ref="ExecutionAliasChoice" minOccurs="0" maxOccurs="100"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <xs:element name="ExecutionAliasChoice" abstract="true"/>
+  
+  <xs:complexType name="CT_AppExtensionHost">
+    <xs:sequence>
+      <xs:element name="Name" type="t:ST_AppServiceNameLonger" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AppExtension">
+    <xs:sequence>
+      <xs:element name="Properties" minOccurs="0" maxOccurs="1">
+        <!-- Under this node, an extension developers can provide custom data to pass to a Host,
+             so we are relaxing schema validations to allow custom data -->
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Name" type="t:ST_AppServiceNameLonger" use="required"/>
+    <xs:attribute name="Id" type="t:ST_AppServiceName" use="required"/>
+    <xs:attribute name="PublicFolder" type="t:ST_FileName" use="optional"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="Description" type="t:ST_Description" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_AppUriHandler">
+    <xs:sequence>
+      <xs:element name="Host" minOccurs="0" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Name" type="t:ST_DomainName" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="uap5:Host" minOccurs="0" maxOccurs="1000" />
+    </xs:sequence>
+    <xs:attribute ref="desktop2:Parameters" use="optional"/>
+    <xs:attribute ref="uap7:Name" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_UserDataProvider">
+    <xs:attribute name="ServerName" type="t:ST_NonEmptyString" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="VisualElements" type="CT_VisualElements" substitutionGroup="f:VisualElementsChoice">
+    <xs:unique name="InitialRotationPreference_Name">
+      <xs:selector xpath="uap:InitialRotationPreference/uap:Rotation"/>
+      <xs:field xpath="@Preference"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_VisualElements">
+    <xs:complexContent>
+      <xs:extension base="uap:CT_VisualElements">
+        <xs:attribute name="VisualGroup" type="t:ST_NonPathDisplayName" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="MainPackageDependency" substitutionGroup="f:MainPackageDependencyChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_PackageName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FileTypeAssociation" type="CT_FileTypeAssociation" substitutionGroup="uap:FileTypeAssociationChoice"/>
+  <xs:complexType name="CT_FileTypeAssociation">
+    <xs:complexContent>
+      <xs:extension base="uap:CT_FileTypeAssociation">
+        <xs:attribute name="Parameters" type="t:ST_Parameters" use="optional"/>
+        <xs:attribute name="MultiSelectModel" type ="ST_MultiSelectModel" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="Protocol" substitutionGroup="uap:ProtocolChoice" type="CT_Protocol"/>
+  <xs:complexType name="CT_Protocol">
+    <xs:complexContent>
+      <xs:extension base="uap:CT_Protocol">
+        <xs:attribute name="Parameters" type="t:ST_Parameters" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="Verb" substitutionGroup="uap2:VerbChoice" type="CT_Verb"/>
+  <xs:complexType name="CT_Verb">
+    <xs:simpleContent>
+      <xs:extension base="uap2:CT_Verb">
+        <xs:attribute name="Parameters" type="t:ST_Parameters" use="optional"/>
+        <xs:attribute name="MultiSelectModel" type ="ST_MultiSelectModel" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_MultiSelectModel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Player"/>
+      <xs:enumeration value="Document"/>
+      <xs:enumeration value="Single"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="AppService" substitutionGroup="uap:AppServiceChoice" type="CT_AppService"/>
+  <xs:complexType name="CT_AppService">
+    <xs:complexContent>
+      <xs:extension base="uap:CT_AppService">
+        <xs:attribute name="SupportsRemoteSystems" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+
+

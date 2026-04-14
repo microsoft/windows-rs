@@ -1,0 +1,169 @@
+#pragma region Application Family
+
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+import "ocidl.idl";
+import "objidl.idl";
+import "Oleidl.idl";
+
+[
+object,
+uuid(D3E9E342-5DEB-43B6-849E-6913B85D503A),
+]
+interface IEditionUpgradeHelper : IUnknown
+{
+    HRESULT
+    CanUpgrade(
+        [out]                   BOOL*                       isAllowed
+    );
+
+    HRESULT
+    UpdateOperatingSystem(
+        [in, string]            LPCWSTR                     contentId
+    );
+
+    HRESULT
+    ShowProductKeyUI(
+        void
+    );
+
+    HRESULT
+    GetOsProductContentId(
+        [out, string]          LPWSTR*                      contentId
+    );
+
+    HRESULT
+    GetGenuineLocalStatus(
+        [out]                   BOOL*                       isGenuine
+    );
+};
+
+[
+ object,
+ uuid(F342D19E-CC22-4648-BB5D-03CCF75B47C5)
+]
+interface IWindowsLockModeHelper: IUnknown
+{
+
+    HRESULT
+    GetSMode(
+        [out]                   BOOL*                       isSmode
+    );
+
+};
+
+
+[
+    object,
+	uuid(FF19CBCF-9455-4937-B872-6B7929A460AF),
+    dual,
+	nonextensible,
+    oleautomation,
+	helpstring("IEditionUpgradeBroker Interface"),
+	pointer_default(unique)
+]
+interface IEditionUpgradeBroker: IUnknown
+{
+    HRESULT
+    InitializeParentWindow(
+        [in]                    OLE_HANDLE                  parentHandle
+    );
+
+    HRESULT
+    UpdateOperatingSystem(
+        [in, string]            BSTR                        parameter
+    );
+
+    HRESULT
+    ShowProductKeyUI(
+        void
+    );
+
+    HRESULT
+    CanUpgrade(
+        void
+    );
+
+};
+
+[
+object,
+dual,
+oleautomation,
+nonextensible,
+uuid(B524F93F-80D5-4EC7-AE9E-D66E93ADE1FA)
+]
+interface IContainerActivationHelper: IUnknown
+{
+    HRESULT
+    CanActivateClientVM(
+        [out, retval]                   VARIANT_BOOL*                       isAllowed
+    );
+};
+
+[
+object,
+dual,
+oleautomation,
+nonextensible,
+uuid(C39948F0-6142-44FD-98CA-E1681A8D68B5)
+]
+interface IClipServiceNotificationHelper: IUnknown
+{
+    HRESULT
+    ShowToast(
+        [in, string]                    BSTR                                titleText,
+        [in, string]                    BSTR                                bodyText,
+        [in, string]                    BSTR                                packageName,
+        [in, string]                    BSTR                                appId,
+        [in, string]                    BSTR                                launchCommand
+    );
+};
+
+[
+object,
+dual,
+oleautomation,
+nonextensible,
+uuid(3D5E3D21-BD41-4C2A-A669-B17CE87FB50B)
+]
+interface IFClipNotificationHelper: IUnknown
+{
+    HRESULT
+    ShowSystemDialog(
+        [in, string]                    BSTR                                titleText,
+        [in, string]                    BSTR                                bodyText
+    );
+};
+
+[
+uuid(09C6A793-92DC-4D27-A11D-3921C9314DED),
+version(2.0),
+]
+library EditionUpgradeHelperLib
+{
+    [
+    uuid(01776DF3-B9AF-4E50-9B1C-56E93116D704),
+    ]
+    coclass EditionUpgradeHelper
+    {
+        [default] interface IEditionUpgradeHelper;
+        interface IWindowsLockModeHelper;
+    }
+
+    [
+        uuid(C4270827-4F39-45DF-9288-12FF6B85A921),
+        version(2.0),
+    ]
+    coclass EditionUpgradeBroker
+    {
+        [default] interface IEditionUpgradeBroker;
+        interface IContainerActivationHelper;
+        interface IClipServiceNotificationHelper;
+        interface IFClipNotificationHelper;
+    }
+
+};
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+

@@ -1,0 +1,42 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstnra.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+    LOCAL_INTERFACE(0c733a71-2a1c-11ce-ade5-00aa0044773d)
+
+    
+interface IRowsetNewRowAfter : IUnknown {
+
+	HRESULT SetNewDataAfter(
+		[in] HCHAPTER hChapter,
+		[in] ULONG cbbmPrevious,
+		[in, size_is(cbbmPrevious)] const BYTE * pbmPrevious,
+		[in] HACCESSOR hAccessor,
+		[in] BYTE * pData,
+		[out] HROW * phRow
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,52 @@
+//
+// Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+import "Windows.Foundation.idl";
+
+namespace Windows.Foundation.Metadata
+{
+    [attributeusage(target_runtimeclass, target_interface, target_struct, target_enum, target_delegate)]
+    [attributename("webhosthidden")]
+    [version(0x06020000)]
+    attribute WebHostHiddenAttribute
+    {
+    }
+
+    [attributeusage(target_runtimeclass)]
+    [attributename("allowforweb")]
+    [version(0x06040000)]
+    attribute AllowForWebAttribute
+    {
+    }
+
+    [attributeusage(target_parameter, target_property)]
+    [attributename("variant")]
+    [version(0x06020000)]
+    attribute VariantAttribute
+    {
+    }
+
+    [attributeusage(target_all)]
+    [attributename("hasvariant")]
+    [version(0x06020000)]
+    attribute HasVariantAttribute
+    {
+    }
+
+    [attributeusage(target_runtimeclass, target_struct)]
+    [attributename("createfromstring")]
+    [version(0x0A000002)]
+    [webhosthidden]
+    attribute CreateFromStringAttribute
+    {
+        HSTRING MethodName;
+    }
+
+    [attributeusage(target_method, target_property)]
+    [attributename("noexcept")]
+    [version(0x06020000)]
+    attribute NoExceptionAttribute
+    {
+    }
+}

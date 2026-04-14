@@ -1,0 +1,149 @@
+<schema xmlns='http://www.w3.org/2001/XMLSchema'
+        targetNamespace='http://schemas.microsoft.com/windows/2005/03/printing/bidi'
+        xmlns:bidi='http://schemas.microsoft.com/windows/2005/03/printing/bidi'>
+
+    <annotation>
+        <documentation>
+           WS-Print Printing Bidi Extension XML Schema for WS-Print versions v1.0, v1.1, v1.2
+
+            Copyright (c) Microsoft Corporation.  All rights reserved.
+        </documentation>
+    </annotation>
+    <element name='Definition'>
+        <complexType>
+            <sequence>
+                <element name='Schema' minOccurs='0'>
+                    <complexType>
+                        <sequence maxOccurs='unbounded'>
+                            <choice>
+                                <element name='Property'    type='bidi:PROPERTY'/>
+                                <element name='Parameter'   type='bidi:PARAMETER'/>
+                            </choice>
+                        </sequence>
+                    </complexType>
+                </element>
+                <element name='PortStatus' minOccurs='0'>
+                    <complexType>
+                        <sequence>
+                            <element name='Status' maxOccurs='unbounded'>
+                                <complexType>
+                                    <sequence>
+                                        <element name='Keyword' type='bidi:string64'/>
+                                        <choice>
+                                            <element name='Code' type='int'/>
+                                            <element name='ResourceIdOffset' type='int'/>
+                                            <element name='Text' type='bidi:string512'/>
+                                        </choice>
+                                        <element name='Severity' type='bidi:string64'/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name='PROPERTY'>
+        <sequence maxOccurs='unbounded'>
+            <choice>
+                <element name='Property' type='bidi:PROPERTY'/>
+                <element name='Parameter' type='bidi:PARAMETER'/>
+                <element name='Value'>
+                    <complexType mixed='true'>
+                        <attribute name='name'              type='bidi:string64'    use='required'/>
+                        <attribute name='query'             type='bidi:string256'   use='required'/>
+                        <attribute name='filter'            type='bidi:string512'   use='required'/>
+                        <attribute name='type'              type='bidi:BIDI_TYPE'   use='required'/>
+                        <attribute name='accessType'        type='bidi:ACCESS_TYPE' use='optional'/>
+                        <attribute name='optional'          type='boolean'          use='optional'/>
+                        <attribute name='drvPrinterEvent'   type='boolean'          use='optional'/>
+                        <attribute name='xmllang'           type='boolean'          use='optional'/>
+                        <attribute name='v11'               type='boolean'          use='optional'/>
+                        <attribute name='wsPrintVersion'    type='string'           use='optional'/>  
+                    </complexType>
+                </element>
+                <element name='Const'>
+                    <complexType mixed='true'>
+                        <attribute name='name'              type='bidi:string64'    use='required'/>
+                        <attribute name='type'              type='bidi:BIDI_TYPE'   use='required'/>
+                    </complexType>
+                </element>
+                <element name='Installed'>
+                    <complexType>
+                        <attribute name='name'              type='bidi:string64'    use='required'/>
+                        <attribute name='query'             type='bidi:string256'   use='required'/>
+                        <attribute name='filter'            type='bidi:string512'   use='required'/>
+                        <attribute name='drvPrinterEvent'   type='boolean'          use='optional'/>
+                        <attribute name='v11'               type='boolean'          use='optional'/>
+                        <attribute name='wsPrintVersion'    type='string'           use='optional'/>
+                    </complexType>
+                </element>
+                <element name='List'>
+                    <complexType>
+                        <attribute name='name'              type='bidi:string64'    use='required'/>
+                        <attribute name='query'             type='bidi:string256'   use='required'/>
+                        <attribute name='filter'            type='bidi:string512'   use='required'/>
+                        <attribute name='drvPrinterEvent'   type='boolean'          use='optional'/>
+                        <attribute name='v11'               type='boolean'          use='optional'/>
+                        <attribute name='wsPrintVersion'    type='string'           use='optional'/>
+                    </complexType>
+                </element>
+                <element name='BuiltIn' type='bidi:BUILT_IN'/>
+            </choice>
+        </sequence>
+        <attribute name='name' type='bidi:string64' use='required'/>
+    </complexType>
+    <complexType name='PARAMETER'>
+        <complexContent>
+            <extension base='bidi:PROPERTY'>
+                <attribute name='parameter' type='bidi:string64'  use='required'/>
+                <attribute name='query'     type='bidi:string256' use='required'/>
+                <attribute name='filter'    type='bidi:string512' use='required'/>
+            </extension>
+        </complexContent>
+    </complexType>
+
+  <simpleType name="ACCESS_TYPE">
+    <restriction base="string">
+      <enumeration value="Get"/>
+      <enumeration value="Set"/>
+      <enumeration value="GetSet"/>
+    </restriction>
+  </simpleType>
+
+
+  <simpleType name='BIDI_TYPE'>
+        <restriction base='string'>
+            <enumeration value='BIDI_INT'/>
+            <enumeration value='BIDI_ENUM'/>
+            <enumeration value='BIDI_STRING'/>
+            <enumeration value='BIDI_TEXT'/>
+            <enumeration value='BIDI_FLOAT'/>
+            <enumeration value='BIDI_BOOL'/>
+            <enumeration value='BIDI_BLOB'/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name='string64'>
+        <restriction base='string'>
+            <maxLength value='64'/>
+            <pattern value='\w+'/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name='string256'>
+        <restriction base='string'>
+            <maxLength value='256'/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name='string512'>
+        <restriction base='string'>
+            <maxLength value='512'/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="BUILT_IN" abstract="true"/>
+
+</schema>

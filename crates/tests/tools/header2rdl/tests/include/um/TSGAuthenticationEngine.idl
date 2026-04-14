@@ -1,0 +1,77 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// This interface method is a callback from the policy engine, for a 
+// AuthorizeConnection request
+[
+    object,
+    uuid(2c3e2e73-a782-47f9-8dfb-77ee1ed27a03),
+    helpstring("interface ITSGAuthenticateUserSink")
+]
+interface ITSGAuthenticateUserSink : IUnknown
+{
+    //
+    // Called by the authentication engine on a successful authentication
+    //
+    [helpstring("Callback function on user authenticated")]
+    HRESULT OnUserAuthenticated(
+        [in] BSTR        userName,                 // Name of the user
+        [in] BSTR        userDomain,               // Domain of the user
+        [in] ULONG_PTR   context,                  // Context information
+        [in, optional] HANDLE_PTR  userToken);               // Optional - user token.
+
+    //
+    // Called by the authentication engine on a failed authentication
+    //
+    [helpstring("Callback function on user authentication failed")]
+    HRESULT OnUserAuthenticationFailed(
+        [in] ULONG_PTR context,                  // Context information
+        [in] HRESULT   genericErrorCode,         // Windows defined error code
+        [in] HRESULT   specificErrorCode);       // Authentication plugin specific 
+
+    //
+    // TSG triggers a silent re-auth
+    //
+    [helpstring("Authentication engine calls this method to initiate silent re-auth")]
+    HRESULT ReauthenticateUser(
+        [in] ULONG_PTR context);                 // Context information
+
+    //
+    // Disconnect the current user
+    //
+    [helpstring("Authentication engine calls this method to disconnect the current user")]
+    HRESULT DisconnectUser(				
+        [in] ULONG_PTR context);                 // Context information
+};
+
+[
+    object,
+    uuid(9ee3e5bf-04ab-4691-998c-d7f622321a56),
+    helpstring("interface ITSGAuthenticationEngine")
+]
+interface ITSGAuthenticationEngine : IUnknown
+{
+    [helpstring("TSG calls this method on the authentication engine to authenticate the user")]
+    HRESULT AuthenticateUser(
+        [in] GUID                     mainSessionId,  // A unique identifier to distinguish the connection
+        [in] BYTE                    *cookieData,     // UAG cookie
+        [in] ULONG                    numCookieBytes, // Number of cookie byte
+        [in] ULONG_PTR                context,        // Some context to call back on
+        [in] ITSGAuthenticateUserSink *pSink);         // Sink object
+                                           
+    [helpstring("TSG calls this method to cancel an ongoing authentication")]
+    HRESULT CancelAuthentication(
+        [in] GUID                     mainSessionId,  // A unique identifier to distinguish the connection
+        [in] ULONG_PTR                context);  // Some context to call back on
+
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

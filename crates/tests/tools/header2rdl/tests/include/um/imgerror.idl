@@ -1,0 +1,132 @@
+//+--------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      Contains the definition of the IImgErrorInfo interface used to describe
+//      extra error state. This inherits from the COM IErrorInfo interface.
+//
+//  Notes:
+//      IImgErrorInfo stores its state in an ImgErrorInfo structure that can
+//      be detached from the class implementation. IImgErrorInfo is NOT thread
+//      safe.
+//
+//  History:
+//     2003/10/20-mlawrenc
+//         Created - removed from imgdata.idl to provide better sanitization
+//                   from the rest of the imgdata interface, also in prepartaion
+//                   of moving to Musl.
+//
+//----------------------------------------------------------------------------
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+//
+// Interfaces used for extended error information.
+//
+interface IImgErrorInfo;
+interface IImgCreateErrorInfo;
+
+typedef struct
+{
+    //
+    // IErrorInfo fields
+    //
+    BSTR                            description;
+    GUID                            guid;
+    DWORD                           helpContext;
+    BSTR                            helpFile;
+    BSTR                            source;
+
+    //
+    // IImgErrorInfo fields
+    //
+    BSTR                            devDescription;
+    GUID                            errorID;
+    ULONG                           cUserParameters;
+    [size_is(cUserParameters)]      BSTR    *aUserParameters;
+    BSTR                            userFallback;
+    DWORD                           exceptionID;
+
+} ImgErrorInfo;
+
+[
+    object,
+    uuid(2bce4ece-d30e-445a-9423-6829be945ad8),
+    local,
+    helpstring("Extended error information class, this is used to allow our exceptions to chain correctly across DLL/Machine boundaries."),
+    pointer_default(ref)
+]
+interface IImgErrorInfo : IErrorInfo
+{
+    HRESULT
+    GetDeveloperDescription(
+        [out, annotation("_Out_")]  BSTR            *pbstrDevDescription
+        );
+
+    HRESULT
+    GetUserErrorId(
+        [out, annotation("_Out_")]  GUID            *pErrorId
+        );
+
+    HRESULT
+    GetUserParameterCount(
+        [out, annotation("_Out_")]  ULONG           *pcUserParams
+        );
+
+    HRESULT
+    GetUserParameter(
+        [in,  annotation("_In_")]   ULONG           cParam,
+        [out, annotation("_Out_")]  BSTR            *pbstrParam
+        );
+
+    HRESULT
+    GetUserFallback(
+        [out, annotation("_Out_")]  BSTR            *pbstrFallback
+        );
+
+    HRESULT
+    GetExceptionId(
+        [out, annotation("_Out_")]  DWORD           *pExceptionId
+        );
+
+    HRESULT
+    DetachErrorInfo(
+        [out, annotation("_Out_")]  ImgErrorInfo    *pErrorInfo
+        );
+}
+
+[
+    object,
+    uuid(1c55a64c-07cd-4fb5-90f7-b753d91f0c9e),
+    local,
+    helpstring("Class that can be used to create extended error information."),
+    pointer_default(ref)
+]
+interface IImgCreateErrorInfo : ICreateErrorInfo
+{
+    HRESULT
+    AttachToErrorInfo(
+        [in, out, annotation("_Inout_")] ImgErrorInfo *pErrorInfo
+        );
+}
+
+
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

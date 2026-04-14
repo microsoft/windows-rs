@@ -1,0 +1,152 @@
+// Copyright (C) Microsoft Corporation. All rights reserved.
+
+cpp_quote("//")
+cpp_quote("// Copyright (C) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+import "oaidl.idl";
+import "wtypes.idl";
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IMediaRadioManager;
+interface IRadioInstanceCollection;
+interface IRadioInstance;
+interface IMediaRadioManagerNotifySink;
+
+typedef enum _DEVICE_RADIO_STATE
+{
+    DRS_RADIO_ON = 0,
+    DRS_SW_RADIO_OFF = 1,
+    DRS_HW_RADIO_OFF = 2,
+    DRS_SW_HW_RADIO_OFF = 3,
+    DRS_HW_RADIO_ON_UNCONTROLLABLE = 4,
+    DRS_RADIO_INVALID = 5,
+    DRS_HW_RADIO_OFF_UNCONTROLLABLE = 6,
+    DRS_RADIO_MAX = DRS_HW_RADIO_OFF_UNCONTROLLABLE
+} DEVICE_RADIO_STATE;
+
+typedef enum _SYSTEM_RADIO_STATE
+{
+    SRS_RADIO_ENABLED = 0,
+    SRS_RADIO_DISABLED = 1,
+} SYSTEM_RADIO_STATE;
+
+//+--------------------------------------------------------------------------------
+// IMediaRadioManager -- Represents high level radio operations on each radio type.
+// The object implementing this interface will implement a Connection point (IConnectionPoint)
+// for IMediaRadioManagerNotifySink.
+// Each IMediaRadioManager object controls several or no IRadioInstance objects.
+[
+    local,
+    object,
+    uuid(6CFDCAB5-FC47-42A5-9241-074B58830E73),
+    pointer_default(unique)
+]
+interface IMediaRadioManager : IUnknown
+{
+    HRESULT GetRadioInstances(
+        [out] IRadioInstanceCollection **ppCollection
+        );
+
+    HRESULT OnSystemRadioStateChange(
+        [in] SYSTEM_RADIO_STATE sysRadioState,
+        [in] UINT32 uTimeoutSec
+        );
+
+};
+
+//+---------------------------------------------------------------------------
+// IRadioInstanceCollection -- a flat list of radio instances
+//
+[
+    local,
+    object,
+    uuid(E5791FAE-5665-4E0C-95BE-5FDE31644185),
+    pointer_default(unique)
+]
+interface IRadioInstanceCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out] UINT32 *pcInstance
+        );
+
+    HRESULT GetAt(
+        [in] UINT32 uIndex,
+        [out] IRadioInstance **ppRadioInstance
+        );
+};
+
+//+---------------------------------------------------------------------------
+// IRadioInstance -- Interface to control specific radio instance
+//
+[
+    local,
+    object,
+    uuid(70AA1C9E-F2B4-4C61-86D3-6B9FB75FD1A2),
+    pointer_default(unique)
+]
+interface IRadioInstance : IUnknown
+{
+    HRESULT GetRadioManagerSignature(
+        [out] GUID *pguidSignature
+        );
+
+    HRESULT GetInstanceSignature(
+        [out, string] BSTR *pbstrId
+        );
+
+    HRESULT GetFriendlyName(
+        [in] LCID lcid,
+        [out, string] BSTR *pbstrName
+        );
+
+    HRESULT GetRadioState(
+        [out] DEVICE_RADIO_STATE *pRadioState
+        );
+
+    HRESULT SetRadioState(
+        [in] DEVICE_RADIO_STATE radioState,
+        [in] UINT32 uTimeoutSec
+        );
+
+    BOOL IsMultiComm();
+
+    BOOL IsAssociatingDevice();
+}
+
+//+---------------------------------------------------------------------------
+// IMediaRadioManagerNotifySink -- notify instance add/remove and radio state change event
+//
+[
+    local,
+    object,
+    uuid(89D81F5F-C147-49ED-A11C-77B20C31E7C9),
+    pointer_default(unique)
+]
+interface IMediaRadioManagerNotifySink : IUnknown
+{
+    HRESULT OnInstanceAdd(
+        [in] IRadioInstance *pRadioInstance
+        );
+
+    HRESULT OnInstanceRemove(
+        [in, string] BSTR bstrRadioInstanceId
+        );
+
+    HRESULT OnInstanceRadioChange(
+        [in, string] BSTR bstrRadioInstanceId,
+        [in] DEVICE_RADIO_STATE radioState
+        );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN8)")
+

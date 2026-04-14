@@ -1,0 +1,439 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface IJsDebug;
+interface IJsDebugProcess;
+interface IJsDebugStackWalker;
+interface IJsDebugDataTarget;
+interface IJsDebugEventCallback;
+interface IJsDebugFrame;
+interface IJsDebugProperty;
+interface IJsEnumDebugProperty;
+interface IJsDebugBreakPoint;
+
+cpp_quote("#define FACILITY_JsDEBUG 0xdc7")
+
+cpp_quote("// The Js runtime and the Js diag do not match.")
+cpp_quote("#define E_JsDEBUG_MISMATCHED_RUNTIME      MAKE_HRESULT(1, FACILITY_JsDEBUG, 0x1)")
+cpp_quote("// Thread is not known to have any JS code, and will have no frames.")
+cpp_quote("#define E_JsDEBUG_UNKNOWN_THREAD          MAKE_HRESULT(1, FACILITY_JsDEBUG, 0x2)")
+cpp_quote("// Frame is outside of the interpreter. For example, portions of the Js dll which are")
+cpp_quote("// logically not part of the interpreter.")
+cpp_quote("#define E_JsDEBUG_OUTSIDE_OF_VM   MAKE_HRESULT(1, FACILITY_JsDEBUG, 0x4)")
+cpp_quote("// Specified memory address could not be written/read from")
+cpp_quote("#define E_JsDEBUG_INVALID_MEMORY_ADDRESS  MAKE_HRESULT(1, FACILITY_JsDEBUG, 0x5)")
+cpp_quote("// No source location found to bind the breakpoint")
+cpp_quote("#define E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND  MAKE_HRESULT(1, FACILITY_JsDEBUG, 0x6)")
+cpp_quote("// Runtime not in debug mode")
+cpp_quote("#define E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE MAKE_HRESULT(1, FACILITY_JsDEBUG, 0x7)")
+#ifndef MIDL_PASS
+#define CONST const
+#else
+#define CONST
+#endif
+
+// Entry point interface into the Js debugging API.
+[
+    local, object, uuid(BE0E89DA-2AC5-4C04-AC5E-59956AAE3613), pointer_default(unique)
+]
+interface IJsDebug: IUnknown
+{
+    // Factory method used to create a new virtual process object.
+    //
+    // ProcessId: Process Id to attach the debugger to.
+    // RuntimeJsBaseAddress: The base address at which the Js runtime has loaded into the
+    //   target process.
+    // pDataTarget: Debugger supplied interface to query for state of the process.
+    // ppProcess: New debug process object
+    //
+    // Error conditions:
+    // E_JsDEBUG_MISMATCHED_RUNTIME if Jscript9diag and Jscript9 do not match.
+    HRESULT OpenVirtualProcess(
+        [in] DWORD processId,
+        [in] UINT64 runtimeJsBaseAddress,
+        [in] IJsDebugDataTarget* pDataTarget,
+        [out] IJsDebugProcess** ppProcess
+        );
+};
+
+// Provides routines for inspecting/controlling the target process
+[
+    local, object, uuid(3D587168-6A2D-4041-BD3B-0DE674502862), pointer_default(unique)
+]
+interface IJsDebugProcess: IUnknown
+{
+    // Factory method for stack walker. This may fail with
+    // E_JsDEBUG_UNKNOWN_THREAD if the thread does not have javascript on it
+    // This method may only be called while the target process is stopped.
+    HRESULT CreateStackWalker(
+        [in] DWORD threadId,
+        [out] IJsDebugStackWalker** ppStackWalker);
+
+    // Sets the breakpoint at the specified document position
+    // documentId: Pointer to IDebugDocumentText
+    // characterOffset: Character offset from the beginning of the file.
+    // characterCount: Length of the document text within which the breakpoint should be inserted
+    // ppDebugbreakPoint: Object representing the breakpoint that got created.
+    HRESULT CreateBreakPoint(
+        [in] UINT64 documentId, 
+        [in] DWORD characterOffset,
+        [in] DWORD characterCount,
+        [in] BOOL isEnabled,
+        [out] IJsDebugBreakPoint** ppDebugBreakPoint);
+
+    // Puts the script engine in break mode causing it to 
+    // break on the next script instruction.
+    HRESULT PerformAsyncBreak(
+        [in] DWORD threadId);
+
+    // Gets a code address close to external projection function call.
+    HRESULT GetExternalStepAddress(
+        [out] UINT64 *pCodeAddress);
+};
+
+// Stack walker for a particular thread. Stack walkers can only be created
+// while the target is stopped, and are invalid once the target process has been
+// continued again.
+[
+    local, object, uuid(DB24B094-73C4-456C-A4EC-E90EA00BDFE3), pointer_default(unique)
+]
+interface IJsDebugStackWalker: IUnknown
+{
+    // Gets the next frame
+    // Error conditions:
+    // E_JsDEBUG_OUTSIDE_OF_VM : When there are no more stack frames to be enumerated
+    HRESULT GetNext(
+        [out] IJsDebugFrame** ppFrame);
+};
+
+// Object represeting a stack frame
+[
+    local, object, uuid(C9196637-AB9D-44B2-BAD2-13B95B3F390E), pointer_default(unique)
+]
+interface IJsDebugFrame: IUnknown
+{
+    // Returns the absolute address range of the logical javascript stack frame.  (This is useful for piecing together interleaved stack
+    // traces gathered from multiple runtimes. ) The start of a stack range is the bottom most stack pointer of the frame, and
+    // the end of a stack range is the top most stack pointer of the frame.
+    // The start > end as the stack grows from high to low address. The start, end stack pointers can encompass
+    // multiple physical machine stack frames (for interpreted javascript runtime frames)
+    HRESULT GetStackRange(
+        [out] UINT64 *pStart,
+        [out] UINT64 *pEnd);
+
+    // Get the user-friendly name of stack frame.
+    HRESULT GetName(
+        [out] BSTR* pName);
+
+    // Returns the current position of this stack frame within the user-level document.
+    // pDocumentId: Unique ID for a source document (pointer to the IDebugDocumentText)
+    // pCharacterOffset: The zero-based character offset from the start of the script.
+    // pStatementCharCount: the length of current statement, which starts at *pCharacterOffset, in characters.
+    HRESULT GetDocumentPositionWithId(
+        [out] UINT64* pDocumentId,
+        [out] DWORD* pCharacterOffset,
+        [out] DWORD* pStatementCharCount);
+
+    // Returns the current position of this stack frame within the user-level document.
+    // pDocumentName: For static scripts, a URL to document. For dynamic scripts, a buffer is returned.
+    // pLine: 1-based line position within the document
+    // pColumn: 1-based line position within the document
+    HRESULT GetDocumentPositionWithName(
+        [out] BSTR* pDocumentName,
+        [out] DWORD* pLine,
+        [out] DWORD* pColumn);
+    
+    // Returns a property browser for this stack frame.
+    HRESULT GetDebugProperty(
+        [out] IJsDebugProperty**  ppDebugProperty);
+
+    // Returns the return address pushed at the 'start' (see GetStackRange) of the frame
+    HRESULT GetReturnAddress(
+        [out] UINT64 *pReturnAddress);
+
+    // Evaluate an expression in the context of this stack frame. Returns:
+    //  S_OK: Evaluation succeeds, *ppDebugProperty contains evaluation result.
+    //  S_FALSE: Evaluation throws an error (or possibly involved evaluation operation not supported), *pError contains error message.
+    HRESULT Evaluate(
+        [in] LPCOLESTR pExpressionText,
+        [out] IJsDebugProperty** ppDebugProperty,
+        [out] BSTR* pError);
+};
+
+typedef enum JS_PROPERTY_MEMBERS
+{
+    JS_PROPERTY_MEMBERS_ALL     = 0,
+    JS_PROPERTY_MEMBERS_ARGUMENTS   = 1,
+} JS_PROPERTY_MEMBERS;
+
+[v1_enum]
+typedef enum JS_PROPERTY_ATTRIBUTES
+{
+    JS_PROPERTY_ATTRIBUTE_NONE       = 0,
+
+    JS_PROPERTY_HAS_CHILDREN         = 0x1,
+    JS_PROPERTY_FAKE                 = 0x2,
+    JS_PROPERTY_METHOD               = 0x4,
+    JS_PROPERTY_READONLY             = 0x8,
+    JS_PROPERTY_NATIVE_WINRT_POINTER = 0x10,
+    JS_PROPERTY_FRAME_INTRYBLOCK     = 0x20, // this frame is in a try block
+    JS_PROPERTY_FRAME_INCATCHBLOCK   = 0x40, // this frame is in a catch block
+    JS_PROPERTY_FRAME_INFINALLYBLOCK = 0x80, // this frame is in a finally block
+} JS_PROPERTY_ATTRIBUTES;
+
+typedef struct tagJsDebugPropertyInfo
+{
+    BSTR    name;
+    BSTR    type;
+    BSTR    value;
+    BSTR    fullName;
+    JS_PROPERTY_ATTRIBUTES   attr; 
+} JsDebugPropertyInfo;
+
+// IJsDebugProperty
+[
+    local, object, uuid(F8FFCF2B-3AA4-4320-85C3-52A312BA9633), pointer_default(unique)
+]
+interface IJsDebugProperty : IUnknown
+{
+    // Get Information for this object
+    HRESULT GetPropertyInfo(
+        [in] UINT nRadix,
+        [out] JsDebugPropertyInfo* pPropertyInfo);
+
+    // Get members
+    HRESULT GetMembers(
+        [in] JS_PROPERTY_MEMBERS members,
+        [out] IJsEnumDebugProperty** ppEnum);
+};
+
+// IJsEnumDebugProperty
+[
+    local, object, uuid(4092432F-2F0F-4FE1-B638-5B74A52CDCBE), pointer_default(unique)
+]
+interface IJsEnumDebugProperty : IUnknown
+{
+    // Read properties
+    HRESULT Next(
+        [in] ULONG count,
+        [out, size_is(count), length_is(*pActualCount)] IJsDebugProperty** ppDebugProperty,
+        [out] ULONG* pActualCount);
+
+    // Get total count of properties
+    HRESULT GetCount(
+        [out] ULONG* pCount);
+};
+
+// Interface representing a breakpoint
+[
+    local, object, uuid(DF6773E3-ED8D-488B-8A3E-5812577D1542), pointer_default(unique)
+]
+interface IJsDebugBreakPoint: IUnknown
+{
+    // Determines if the breakpoint is enabled.
+    // Returns E_UNEXPECTED if called on a deleted breakpoint.
+    HRESULT IsEnabled([out] BOOL* pIsEnabled);
+
+    // Enables the breakpoint
+    // Returns E_UNEXPECTED if called on a deleted breakpoint.
+    // Returns S_FALSE if called on an already enabled breapoint.
+    HRESULT Enable();
+
+    // Disables the breakpoint
+    // Returns E_UNEXPECTED if called on a deleted breakpoint.
+    // Returns S_FALSE if called on an already disabled breapoint.
+    HRESULT Disable();
+    
+    // Deletes the breakpoint
+    // Returns S_FALSE if called on a deleted breakpoint.
+    HRESULT Delete();
+
+    // Returns the position of the statement where the breakpoint was bound.
+    // pDocumentId: Unique ID for a source document (pointer to the IDebugDocumentText)
+    // pCharacterOffset: The zero-based character offset from the start of the script.
+    // pStatementCharCount: the length of current statement, which starts at *pCharacterOffset, in characters.
+    HRESULT GetDocumentPosition(
+        [out] UINT64* pDocumentId,
+        [out] DWORD* pCharacterOffset,
+        [out] DWORD* pStatementCharCount);
+}
+
+// Represents a stack frame.
+// Used by IJsStackFrameEnumerator.
+typedef struct
+{
+    UINT64 InstructionOffset;
+    UINT64 ReturnOffset;
+    UINT64 FrameOffset;
+    UINT64 StackOffset;
+} JS_NATIVE_FRAME;
+
+// Implemented by debugger to provide stack unwinding support to jscript9diag.
+[
+    local, object, uuid(5E7DA34B-FB51-4791-ABE7-CB5BDF419755), pointer_default(unique)
+]
+interface IEnumJsStackFrames: IUnknown
+{
+    // Retrieves next cFrameCount frames into array provided by the caller.
+    HRESULT Next(
+        [in] ULONG cFrameCount,
+        [out, size_is(cFrameCount), length_is(*pcFetched)] JS_NATIVE_FRAME* pFrames,
+        [out] ULONG * pcFetched);
+
+    // Reset to position before 1st element.
+    HRESULT Reset(void);
+}
+
+[v1_enum]
+typedef enum JsDebugReadMemoryFlags
+{
+    // Indicates that the caller wants the default behavior for ReadMemory.
+    None = 0x0,
+    // Indicates that the caller wants the read operation to succeed if only part of
+    // the memory read succeeded. If this is set, an E_JsDEBUG_INVALID_MEMORY_ADDRESS error
+    // will only be raised if 'Address' is invalid. If this flag is clear, a
+    // E_JsDEBUG_INVALID_MEMORY_ADDRESS error will be raised if any portion of the requested
+    // memory was unreadable.
+    JsDebugAllowPartialRead = 0x1
+} JsDebugReadMemoryFlags;
+
+
+[
+    local, object, uuid(53B28977-53A1-48E5-9000-5D0DFA893931), pointer_default(unique)
+]
+interface IJsDebugDataTarget: IUnknown
+{
+    // Read the memory of the target process.
+    // Address         : [In] The base address from which to read the target process's
+    // memory.
+    // Flags           : [In] Flags controlling the behavior of ReadMemory
+    // pBuffer         : [In,Out] A buffer that receives the contents from the address
+    // space of the target process. On failure, the content of this buffer is
+    // unspecified.
+    // Size            : [In] The number of bytes to be read from the process.
+    // pBytesRead      : [Out] Indicates the number of bytes read from the
+    // target process. If JsDebugAllowPartialRead is clear, on success this
+    // value will always be exactly equal to the input size. If
+    // JsDebugAllowPartialRead is specified, on success, this value will be
+    // greater than zero.
+    // Return value    : S_OK is returned on success, and failure codes are used for any
+    // error. E_JsDEBUG_INVALID_MEMORY_ADDRESS indicates that the address is not valid. See
+    // 'JsDebugAllowPartialRead' documentation for more information.
+    HRESULT ReadMemory(
+        [in] UINT64 address,
+        [in] JsDebugReadMemoryFlags flags,
+        [out, size_is(size), length_is(*pBytesRead)] BYTE* pBuffer,
+        [in] DWORD size,
+        [out] DWORD* pBytesRead);
+
+    // Writes memory to the target process. Before data transfer occurs, the system
+    // verifies that all data in the base address and memory of the specified size is
+    // accessible for write access, and if it is not accessible, the function raises an
+    // E_JsDEBUG_INVALID_MEMORY_ADDRESS error.
+    // address         : [In] The base address from which to write the target process's memory.
+    // pMemory        : [In] Data to be written in the address space of the specified process.
+    HRESULT WriteMemory(
+        [in] UINT64 address,
+        [in, size_is(size)] CONST BYTE* pMemory,
+        [in] DWORD size);
+
+
+    // Reserves and/or commits a region of memory within the virtual address space of the
+    // target process. The function initializes the memory it allocates to zero, unless
+    // MEM_RESET is used. For additional information, see the VirtualAlloc Win32 API in
+    // MSDN.
+    // address         : [In] Address within the target process where the memory should
+    // be committed or reserved. This value is typically zero, in which case the system
+    // chooses an address.
+    // size            : [In] The size of the region of memory to allocate, in bytes. The
+    // system will automatically round up to the next page boundary.
+    // allocationType  : [In] Indicates the type of allocation to perform. This is
+    // typically MEM_COMMIT | MEM_RESERVE (0x3000) which reserves and commits an
+    // allocation in one step.
+    // pageProtection  : [In] The memory protection for the region of pages to be
+    // allocated. If the pages are being committed, you can specify any one of the memory
+    // protection constants (ex: PAGE_READWRITE, PAGE_EXECUTE).
+    // pAllocatedAddress: [Out] Base address of the allocated region of pages.
+    HRESULT AllocateVirtualMemory(
+        [in] UINT64 address,
+        [in] DWORD size,
+        [in] DWORD allocationType,
+        [in] DWORD pageProtection,
+        [out] UINT64* pAllocatedAddress);
+
+    // Releases and/or decommits a region of memory within the virtual address space of
+    // the target process. For additional information, see the VirtualFree Win32 API in
+    // MSDN.
+    // address         : [In] Address within the target process where the memory should
+    // be freed.
+    // size            : [In] Number of bytes to decommit. To release a region of memory,
+    // this value must be zero.
+    // freeType        : [In] Indicates the type of free operation to perform. This is
+    // typically MEM_RELEASE (0x8000), which releases the specified region of pages.
+    // After the operation, the pages are in the free state. MEM_DECOMMIT (0x4000) can be
+    // used instead to decommit the pages without releasing them.
+    HRESULT FreeVirtualMemory(
+        [in] UINT64 address,
+        [in] DWORD size,
+        [in] DWORD freeType);
+
+
+    // Retrieves the value in the debuggee thread's thread local storage (TLS) slot for
+    // the specified TLS index. Each thread of a process has its own slot for each TLS
+    // index.
+    // threadId        : [In] Thread running in the target process to read from
+    // tlsIndex        : [In] The TLS index that was allocated when the target process
+    // called the TlsAlloc function.
+    // pValue          : [Out] The pointer-sized value which was stored in the thread's
+    // TLS slot. If the target thread is 32-bit, the upper 32-bits of this value will be
+    // zero.
+    HRESULT GetTlsValue(
+        [in] DWORD threadId,
+        [in] UINT32 tlsIndex,
+        [out] UINT64* pValue
+        );
+
+    // Reads a BSTR from the debug target
+    // E_JsDEBUG_INVALID_MEMORY_ADDRESS indicates that the address is not valid.
+    HRESULT ReadBSTR( 
+        [in] UINT64 address,
+        [out] BSTR* pString
+        );
+    
+    // Read at most maxCharacters from the target.  
+    // characerSize: size of each character in the string
+    // maxCharacters should be reasonable. Any request for more than 128MB of memory will fail.  If the string is larger than
+    // maxCharacters, the result string will be truncated after maxCharacters.
+    // Returns S_FALSE if truncated
+    // E_JsDEBUG_INVALID_MEMORY_ADDRESS indicates that the address is not valid.
+    HRESULT ReadNullTerminatedString(
+        [in] UINT64 address,
+        [in] UINT16 characterSize,
+        [in] UINT32 maxCharacters,
+        [out] BSTR* pString
+        );
+
+    // Creates enumerator for stack frames
+    HRESULT CreateStackFrameEnumerator(
+        [in] DWORD threadId,
+        [out] IEnumJsStackFrames** ppEnumerator);
+
+    // Retrieves context for given thread.
+    // Used by JS on x86/amd64 to get initial top frame base offset.
+    HRESULT GetThreadContext(
+        [in] DWORD threadId,
+        // This is same as the ContextFlags field of CONTEXT (see winnt.h, search for CONTEXT_ALL).
+        [in] ULONG32 contextFlags, 
+        // The size of the buffer specified by pContext.
+        [in] ULONG32 contextSize,
+        // Receives platform-specific CONTEXT structure into buffer specified by pContext.
+        [out, size_is(contextSize)] void* pContext);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

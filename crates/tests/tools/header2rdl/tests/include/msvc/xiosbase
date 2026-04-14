@@ -1,0 +1,483 @@
+// xiosbase internal header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _XIOSBASE_
+#define _XIOSBASE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <share.h>
+#include <system_error>
+#include <xlocale>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+template <class _Dummy>
+class _Iosb { // define templatized bitmask/enumerated types, instantiate on demand
+public:
+    enum _Fmtflags { // constants for formatting options
+        _Fmtmask = 0xffff,
+        _Fmtzero = 0
+    };
+
+    static constexpr int skipws     = 0x0001;
+    static constexpr int unitbuf    = 0x0002;
+    static constexpr int uppercase  = 0x0004;
+    static constexpr int showbase   = 0x0008;
+    static constexpr int showpoint  = 0x0010;
+    static constexpr int showpos    = 0x0020;
+    static constexpr int left       = 0x0040;
+    static constexpr int right      = 0x0080;
+    static constexpr int internal   = 0x0100;
+    static constexpr int dec        = 0x0200;
+    static constexpr int oct        = 0x0400;
+    static constexpr int hex        = 0x0800;
+    static constexpr int scientific = 0x1000;
+    static constexpr int fixed      = 0x2000;
+
+    static constexpr int boolalpha   = 0x4000;
+    static constexpr int adjustfield = left | right | internal;
+    static constexpr int basefield   = dec | oct | hex;
+    static constexpr int floatfield  = scientific | fixed;
+
+    enum _Iostate { // constants for stream states
+        _Statmask = 0x17
+    };
+
+    static constexpr int goodbit = 0x0;
+    static constexpr int eofbit  = 0x1;
+    static constexpr int failbit = 0x2;
+    static constexpr int badbit  = 0x4;
+
+    static constexpr int in         = 0x01;
+    static constexpr int out        = 0x02;
+    static constexpr int ate        = 0x04;
+    static constexpr int app        = 0x08;
+    static constexpr int trunc      = 0x10;
+    static constexpr int binary     = 0x20;
+    static constexpr int _Nocreate  = 0x40;
+    static constexpr int _Noreplace = 0x80;
+#if _HAS_CXX23
+    static constexpr int noreplace = _Noreplace;
+#endif
+
+    static constexpr int beg = 0;
+    static constexpr int cur = 1;
+    static constexpr int end = 2;
+
+    static constexpr int _Default_open_prot = _SH_DENYNO; // constant for default file opening protection
+
+    // TRANSITION, ABI: These enums don't appear in the STL DLL's export surface, but MaxMPDCompat
+    // in the MSVC-internal build detects that they appear in the CompatibilityData baseline.
+    enum _Dummy_enum { _Dummy_enum_val = 1 };
+    enum _Openmode { _Openmask = 0xff };
+    enum _Seekdir { _Seekbeg, _Seekcur, _Seekend };
+    enum { _Openprot = _SH_DENYNO };
+};
+
+_EXPORT_STD extern "C++" class _CRTIMP2_PURE_IMPORT ios_base : public _Iosb<int> { // base class for ios
+public:
+    using fmtflags = int;
+    using iostate  = int;
+    using openmode = int;
+    using seekdir  = int;
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    using streamoff = _STD streamoff;
+    using streampos = _STD streampos;
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    enum event { // constants for ios events
+        erase_event,
+        imbue_event,
+        copyfmt_event
+    };
+
+    using event_callback = void(__CLRCALL_OR_CDECL*)(event, ios_base&, int);
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    using io_state  = unsigned int;
+    using open_mode = unsigned int;
+    using seek_dir  = unsigned int;
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    class _NODISCARD failure : public system_error { // base of all iostreams exceptions
+    public:
+        explicit failure(const string& _Message, const error_code& _Errcode = _STD make_error_code(io_errc::stream))
+            : system_error(_Errcode, _Message) {} // construct with message
+
+        explicit failure(const char* _Message, const error_code& _Errcode = _STD make_error_code(io_errc::stream))
+            : system_error(_Errcode, _Message) {} // construct with message
+
+#if !_HAS_EXCEPTIONS
+    protected:
+        void _Doraise() const override { // report the exception
+            _RAISE(*this);
+        }
+#endif // !_HAS_EXCEPTIONS
+    };
+
+    class _CRTIMP2_PURE_IMPORT Init { // controller for standard-stream initialization
+    public:
+        __CLR_OR_THIS_CALL Init() { // initialize standard streams on first construction
+            _Init_ctor(this);
+        }
+
+        __CLR_OR_THIS_CALL ~Init() noexcept { // flush standard streams on last destruction
+            _Init_dtor(this);
+        }
+
+    private:
+        static void __cdecl _Init_ctor(Init*);
+        static void __cdecl _Init_dtor(Init*);
+
+        __PURE_APPDOMAIN_GLOBAL static int _Init_cnt; // net ctor count
+
+        static int& __cdecl _Init_cnt_func();
+    };
+
+    explicit __CLR_OR_THIS_CALL operator bool() const noexcept /* strengthened */ {
+        return !fail();
+    }
+
+    _NODISCARD bool __CLR_OR_THIS_CALL operator!() const noexcept /* strengthened */ {
+        return fail();
+    }
+
+    void __CLR_OR_THIS_CALL clear(iostate _State, bool _Reraise) { // set state, possibly reraise exception
+        _State &= _Statmask;
+        _Mystate             = _State;
+        const auto _Filtered = _State & _Except;
+        if (_Filtered) {
+            if (_Reraise) {
+                _RERAISE;
+            }
+
+            const char* _Msg;
+            if (_Filtered & ios_base::badbit) {
+                _Msg = "ios_base::badbit set";
+            } else if (_Filtered & ios_base::failbit) {
+                _Msg = "ios_base::failbit set";
+            } else {
+                _Msg = "ios_base::eofbit set";
+            }
+
+            _THROW(failure(_Msg));
+        }
+    }
+
+    void __CLR_OR_THIS_CALL clear(iostate _State = goodbit) { // set state to argument
+        clear(_State, false);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void __CLR_OR_THIS_CALL clear(io_state _State) { // set state to argument, old-style
+        clear(static_cast<iostate>(_State));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    _NODISCARD iostate __CLR_OR_THIS_CALL rdstate() const noexcept /* strengthened */ {
+        return _Mystate;
+    }
+
+    void __CLR_OR_THIS_CALL setstate(
+        iostate _State, bool _Exreraise) { // merge in state argument, possibly reraise exception
+        clear(rdstate() | _State, _Exreraise);
+    }
+
+    void __CLR_OR_THIS_CALL setstate(iostate _State) { // merge in state argument
+        clear(rdstate() | _State, false);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void __CLR_OR_THIS_CALL setstate(io_state _State) { // merge in state argument, old style
+        setstate(static_cast<iostate>(_State));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    _NODISCARD bool __CLR_OR_THIS_CALL good() const noexcept /* strengthened */ {
+        return rdstate() == ios_base::goodbit;
+    }
+
+    _NODISCARD bool __CLR_OR_THIS_CALL eof() const noexcept /* strengthened */ {
+        return rdstate() & ios_base::eofbit;
+    }
+
+    _NODISCARD bool __CLR_OR_THIS_CALL fail() const noexcept /* strengthened */ {
+        return rdstate() & (ios_base::badbit | ios_base::failbit);
+    }
+
+    _NODISCARD bool __CLR_OR_THIS_CALL bad() const noexcept /* strengthened */ {
+        return rdstate() & ios_base::badbit;
+    }
+
+    _NODISCARD iostate __CLR_OR_THIS_CALL exceptions() const noexcept /* strengthened */ {
+        return _Except;
+    }
+
+    void __CLR_OR_THIS_CALL exceptions(iostate _Newexcept) { // set exception mask to argument
+        _Except = _Newexcept & _Statmask;
+        clear(rdstate());
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void __CLR_OR_THIS_CALL exceptions(io_state _State) { // set exception mask to argument, old style
+        exceptions(static_cast<iostate>(_State));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    _NODISCARD fmtflags __CLR_OR_THIS_CALL flags() const noexcept /* strengthened */ {
+        return _Fmtfl;
+    }
+
+    fmtflags __CLR_OR_THIS_CALL flags(fmtflags _Newfmtflags) noexcept /* strengthened */ {
+        // set format flags to argument
+        const fmtflags _Oldfmtflags = _Fmtfl;
+        _Fmtfl                      = _Newfmtflags & _Fmtmask;
+        return _Oldfmtflags;
+    }
+
+    fmtflags __CLR_OR_THIS_CALL setf(fmtflags _Newfmtflags) noexcept /* strengthened */ {
+        // merge in format flags argument
+        const ios_base::fmtflags _Oldfmtflags = _Fmtfl;
+        _Fmtfl |= _Newfmtflags & _Fmtmask;
+        return _Oldfmtflags;
+    }
+
+    fmtflags __CLR_OR_THIS_CALL setf(fmtflags _Newfmtflags, fmtflags _Mask) noexcept /* strengthened */ {
+        // merge in format flags argument under mask argument
+        const ios_base::fmtflags _Oldfmtflags = _Fmtfl;
+        _Fmtfl                                = (_Oldfmtflags & ~_Mask) | (_Newfmtflags & _Mask & _Fmtmask);
+        return _Oldfmtflags;
+    }
+
+    void __CLR_OR_THIS_CALL unsetf(fmtflags _Mask) noexcept /* strengthened */ {
+        // clear format flags under mask argument
+        _Fmtfl &= ~_Mask;
+    }
+
+    _NODISCARD streamsize __CLR_OR_THIS_CALL precision() const noexcept /* strengthened */ {
+        return _Prec;
+    }
+
+    streamsize __CLR_OR_THIS_CALL precision(streamsize _Newprecision) noexcept /* strengthened */ {
+        // set precision to argument
+        const streamsize _Oldprecision = _Prec;
+        _Prec                          = _Newprecision;
+        return _Oldprecision;
+    }
+
+    _NODISCARD streamsize __CLR_OR_THIS_CALL width() const noexcept /* strengthened */ {
+        return _Wide;
+    }
+
+    streamsize __CLR_OR_THIS_CALL width(streamsize _Newwidth) noexcept /* strengthened */ {
+        // set width to argument
+        const streamsize _Oldwidth = _Wide;
+        _Wide                      = _Newwidth;
+        return _Oldwidth;
+    }
+
+    _NODISCARD locale __CLR_OR_THIS_CALL getloc() const noexcept /* strengthened */ { // get locale
+        return *_Ploc;
+    }
+
+    locale __CLR_OR_THIS_CALL imbue(const locale& _Loc) { // set locale to argument
+        locale _Oldlocale = *_Ploc;
+        *_Ploc            = _Loc;
+        _Callfns(imbue_event);
+        return _Oldlocale;
+    }
+
+    _NODISCARD static int __CLRCALL_OR_CDECL xalloc() { // allocate new iword/pword index
+        _BEGIN_LOCK(_LOCK_STREAM) // lock thread to ensure atomicity
+        return _Index++;
+        _END_LOCK()
+    }
+
+    _NODISCARD long& __CLR_OR_THIS_CALL iword(int _Idx) {
+        return _Findarr(_Idx)._Lo;
+    }
+
+    _NODISCARD void*& __CLR_OR_THIS_CALL pword(int _Idx) {
+        return _Findarr(_Idx)._Vp;
+    }
+
+    void __CLR_OR_THIS_CALL register_callback(event_callback _Pfn, int _Idx) {
+        // register event handler
+        _Calls = new _Fnarray(_Idx, _Pfn, _Calls);
+    }
+
+    ios_base& __CLR_OR_THIS_CALL copyfmt(const ios_base& _Other) { // copy format stuff
+        if (this != _STD addressof(_Other)) { // copy all but _Mystate
+            _Tidy();
+            *_Ploc          = *_Other._Ploc;
+            _Fmtfl          = _Other._Fmtfl;
+            _Prec           = _Other._Prec;
+            _Wide           = _Other._Wide;
+            _Iosarray* _Ptr = _Other._Arr;
+
+            for (_Arr = nullptr; _Ptr; _Ptr = _Ptr->_Next) {
+                if (_Ptr->_Lo != 0 || _Ptr->_Vp) { // copy over nonzero array values
+                    iword(_Ptr->_Index) = _Ptr->_Lo;
+                    pword(_Ptr->_Index) = _Ptr->_Vp;
+                }
+            }
+
+            for (_Fnarray* _Pfa = _Other._Calls; _Pfa; _Pfa = _Pfa->_Next) {
+                register_callback(_Pfa->_Pfn, _Pfa->_Index);
+            }
+
+            _Callfns(copyfmt_event); // call callbacks
+            exceptions(_Other._Except); // cause any throw at end
+        }
+        return *this;
+    }
+
+    static bool __CLRCALL_OR_CDECL sync_with_stdio(bool _Newsync = true) {
+        // set C/C++ synchronization flag from argument
+        _BEGIN_LOCK(_LOCK_STREAM) // lock thread to ensure atomicity
+        const bool _Oldsync = _Sync;
+        _Sync               = _Newsync;
+        return _Oldsync;
+        _END_LOCK()
+    }
+
+    void __CLR_OR_THIS_CALL swap(ios_base& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _STD swap(_Mystate, _Right._Mystate);
+            _STD swap(_Except, _Right._Except);
+            _STD swap(_Fmtfl, _Right._Fmtfl);
+            _STD swap(_Prec, _Right._Prec);
+            _STD swap(_Wide, _Right._Wide);
+
+            _STD swap(_Arr, _Right._Arr);
+            _STD swap(_Calls, _Right._Calls);
+            _STD swap(_Ploc, _Right._Ploc);
+        }
+    }
+
+    virtual __CLR_OR_THIS_CALL ~ios_base() noexcept {
+        _Ios_base_dtor(this);
+    }
+
+    static void __CLRCALL_PURE_OR_CDECL _Addstd(ios_base*); // add standard stream
+
+    size_t _Stdstr{0}; // if > 0 index of standard stream to suppress destruction
+
+protected:
+    __CLR_OR_THIS_CALL ios_base() {}
+
+    void __CLR_OR_THIS_CALL _Init() { // initialize a new ios_base
+        _Ploc   = nullptr;
+        _Stdstr = 0;
+        _Except = goodbit;
+        _Fmtfl  = skipws | dec;
+        _Prec   = 6;
+        _Wide   = 0;
+        _Arr    = nullptr;
+        _Calls  = nullptr;
+        clear(goodbit);
+        _Ploc = new locale;
+    }
+
+private:
+    struct _Iosarray : _Crt_new_delete { // list element for open-ended sparse array of longs/pointers
+    public:
+        __CLR_OR_THIS_CALL _Iosarray(int _Idx, _Iosarray* _Link)
+            : _Next(_Link), _Index(_Idx), _Lo(0), _Vp(nullptr) {} // construct node for index _Idx and link it in
+
+        _Iosarray* _Next; // pointer to next node
+        int _Index; // index of this node
+        long _Lo; // stored long value
+        void* _Vp; // stored pointer value
+    };
+
+    struct _Fnarray : _Crt_new_delete { // list element for open-ended sparse array of event handlers
+        __CLR_OR_THIS_CALL _Fnarray(int _Idx, event_callback _Pnew, _Fnarray* _Link)
+            : _Next(_Link), _Index(_Idx), _Pfn(_Pnew) {} // construct node for index _Idx and link it in
+
+        _Fnarray* _Next; // pointer to next node
+        int _Index; // index of this node
+        event_callback _Pfn; // pointer to event handler
+    };
+
+    void __CLR_OR_THIS_CALL _Callfns(event _Ev) { // call all event handlers, reporting event
+        for (_Fnarray* _Pfa = _Calls; _Pfa; _Pfa = _Pfa->_Next) {
+            (*_Pfa->_Pfn)(_Ev, *this, _Pfa->_Index);
+        }
+    }
+
+    _Iosarray& __CLR_OR_THIS_CALL _Findarr(int _Idx) { // locate or make a variable array element
+        _Iosarray* _Ptr1;
+        _Iosarray* _Ptr2;
+
+        for (_Ptr1 = _Arr, _Ptr2 = nullptr; _Ptr1; _Ptr1 = _Ptr1->_Next) {
+            if (_Ptr1->_Index == _Idx) {
+                return *_Ptr1; // found element, return it
+            } else if (!_Ptr2 && _Ptr1->_Lo == 0 && !_Ptr1->_Vp) {
+                _Ptr2 = _Ptr1; // found recycling candidate
+            }
+        }
+
+        if (_Ptr2) { // recycle existing element
+            _Ptr2->_Index = _Idx;
+            return *_Ptr2;
+        }
+
+        _Arr = new _Iosarray(_Idx, _Arr); // make a new element
+        return *_Arr;
+    }
+
+    void __CLR_OR_THIS_CALL _Tidy() noexcept { // discard storage for an ios_base
+        _Callfns(erase_event);
+        _Iosarray* _Ptr1;
+        _Iosarray* _Ptr2;
+
+        for (_Ptr1 = _Arr; _Ptr1; _Ptr1 = _Ptr2) { // delete array element
+            _Ptr2 = _Ptr1->_Next;
+            delete _Ptr1;
+        }
+        _Arr = nullptr;
+
+        _Fnarray* _Pfa1;
+        _Fnarray* _Pfa2;
+        for (_Pfa1 = _Calls; _Pfa1; _Pfa1 = _Pfa2) { // delete callback element
+            _Pfa2 = _Pfa1->_Next;
+            delete _Pfa1;
+        }
+        _Calls = nullptr;
+    }
+
+    iostate _Mystate{}; // stream state
+    iostate _Except{}; // exception mask
+    fmtflags _Fmtfl{}; // format flags
+    streamsize _Prec{}; // field precision
+    streamsize _Wide{}; // field width
+    _Iosarray* _Arr{nullptr}; // pointer to first node of long/pointer array
+    _Fnarray* _Calls{nullptr}; // pointer to first node of call list
+    locale* _Ploc{nullptr}; // pointer to locale
+
+    __PURE_APPDOMAIN_GLOBAL static int _Index;
+    __PURE_APPDOMAIN_GLOBAL static bool _Sync;
+
+    static void __CLRCALL_PURE_OR_CDECL _Ios_base_dtor(ios_base*);
+
+public:
+    ios_base(const ios_base&)            = delete;
+    ios_base& operator=(const ios_base&) = delete;
+};
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _XIOSBASE_

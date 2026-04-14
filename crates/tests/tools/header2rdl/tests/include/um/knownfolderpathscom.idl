@@ -1,0 +1,59 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+[
+    object,
+    uuid(F12EF0B5-BEFB-46C9-9EE5-8A0681F13F8C),
+    pointer_default(unique)
+]
+interface IUserDataPathsInterop : IUnknown
+{
+    [propget] HRESULT AdminTools([out, string, retval] LPWSTR* value);
+    [propget] HRESULT CDBurning([out, string, retval] LPWSTR* value);
+    [propget] HRESULT NetworkShortcuts([out, string, retval] LPWSTR* value);
+    [propget] HRESULT Programs([out, string, retval] LPWSTR* value);
+    [propget] HRESULT SendTo([out, string, retval] LPWSTR* value);
+    [propget] HRESULT StartMenu([out, string, retval] LPWSTR* value);
+    [propget] HRESULT Startup([out, string, retval] LPWSTR* value);
+}
+
+[
+    object,
+    uuid(864D0B26-3A37-4251-9A02-B231198DE060),
+    pointer_default(unique)
+]
+interface ISystemDataPathsInterop : IUnknown
+{
+    [propget] HRESULT CommonAdminTools([out, string, retval] LPWSTR* value);
+    [propget] HRESULT CommonOemLinks([out, string, retval] LPWSTR* value);
+    [propget] HRESULT CommonPrograms([out, string, retval] LPWSTR* value);
+    [propget] HRESULT CommonStartMenu([out, string, retval] LPWSTR* value);
+    [propget] HRESULT CommonStartup([out, string, retval] LPWSTR* value);
+    [propget] HRESULT CommonTemplates([out, string, retval] LPWSTR* value);
+    [propget] HRESULT LocalizedResources([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFiles([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesCommon([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesCommonHost([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesCommonX64([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesCommonX86([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesCommonArm([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesHost([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesX64([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesX86([out, string, retval] LPWSTR* value);
+    [propget] HRESULT ProgramFilesArm([out, string, retval] LPWSTR* value);
+    [propget] HRESULT Resource([out, string, retval] LPWSTR* value);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

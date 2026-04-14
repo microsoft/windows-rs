@@ -1,0 +1,67 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "tspubplugincom.idl";
+
+#define MAX_FILE_ASSOC_EXTENSION_SIZE                                  256
+#define MAX_ENDPOINT_SIZE                                              256
+
+[
+    object,
+    uuid(FA4CE418-AAD7-4ec6-BAD1-0A321BA465D5),
+    helpstring("ItsPubPlugin2 Interface"),
+    pointer_default(unique)
+]
+interface ItsPubPlugin2 : ItsPubPlugin{
+    typedef struct {
+        WCHAR extName[MAX_FILE_ASSOC_EXTENSION_SIZE];
+        boolean primaryHandler;
+        unsigned long pceIconSize;
+        [size_is(pceIconSize)] byte *iconContents;
+    } pluginResource2FileAssociation;
+
+    typedef [string] WCHAR* pluginFolderName;
+
+    typedef struct {
+        pluginResource resourceV1;
+        unsigned long pceFileAssocListSize;
+        [size_is(pceFileAssocListSize)] pluginResource2FileAssociation * fileAssocList;
+        [string, unique] WCHAR *securityDescriptor;
+        unsigned long pceFolderListSize;
+        [size_is(pceFolderListSize)] pluginFolderName * folderList;
+    } pluginResource2;
+
+    HRESULT GetResource2List([in] LPCWSTR userID, [out] LONG *pceAppListSize, [out] pluginResource2 ** resourceList);
+    HRESULT GetResource2([in] LPCWSTR alias, LONG flags, [out] pluginResource2 * resource);
+
+    typedef enum _TSPUB_PLUGIN_PD_RESOLUTION_TYPE
+    {
+        TSPUB_PLUGIN_PD_QUERY_OR_CREATE = 0,
+        TSPUB_PLUGIN_PD_QUERY_EXISTING = 1
+    } TSPUB_PLUGIN_PD_RESOLUTION_TYPE;
+
+    typedef enum _TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE
+    {
+        TSPUB_PLUGIN_PD_ASSIGNMENT_NEW = 0,
+        TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING = 1
+    } TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE;
+
+    HRESULT ResolvePersonalDesktop(
+        [in, string] const wchar_t *userId,
+        [in, string] const wchar_t *poolId,
+        [in] TSPUB_PLUGIN_PD_RESOLUTION_TYPE ePdResolutionType,
+        [out] TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE *pPdAssignmentType,
+        [out, string] wchar_t endPointName[MAX_ENDPOINT_SIZE]);
+
+    HRESULT DeletePersonalDesktopAssignment(
+        [in, string] const wchar_t *userId,
+        [in, string] const wchar_t *poolId,
+        [in, string] const wchar_t *endpointName);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

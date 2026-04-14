@@ -1,0 +1,254 @@
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "propsys.idl";
+import "FunctionDiscoveryAPI.idl";
+
+interface IFunctionDiscoveryProviderFactory;
+interface IFunctionDiscoveryProviderQuery;
+interface IProviderQueryConstraintCollection;
+interface IProviderPropertyConstraintCollection;
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  The following interfaces are implemented by discovery providers only.
+//  Only the IFunctionDiscoveryProvider interface is required.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(dcde394f-1478-4813-a402-f6fb10657222),
+    helpstring("IFunctionDiscoveryProvider Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface IFunctionDiscoveryProvider : IUnknown
+{
+    HRESULT Initialize(
+        [in] IFunctionDiscoveryProviderFactory * pIFunctionDiscoveryProviderFactory,
+        [in] IFunctionDiscoveryNotification * pIFunctionDiscoveryNotification,
+        [in] LCID lcidUserDefault,
+        [out] DWORD * pdwStgAccessCapabilities );  // if -1 - InstancePropertyStoreValidateAccess will be used for each FI
+    HRESULT Query(
+        [in] IFunctionDiscoveryProviderQuery * pIFunctionDiscoveryProviderQuery,
+        [out] IFunctionInstanceCollection ** ppIFunctionInstanceCollection );
+    HRESULT EndQuery();
+    HRESULT InstancePropertyStoreValidateAccess(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] const DWORD dwStgAccess );
+    HRESULT InstancePropertyStoreOpen(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] const DWORD dwStgAccess,
+        [out] IPropertyStore ** ppIPropertyStore );
+    HRESULT InstancePropertyStoreFlush(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext );
+    HRESULT InstanceQueryService(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] REFGUID guidService,
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown ** ppIUnknown );
+    HRESULT InstanceReleased(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext );
+};
+
+
+// Providers that want to directly impement a property store may do so by implementing this interface.
+// All calls to the API-exposed property store will go directly to the provider.
+//
+// If a provider does not implement this interface, then the provider must provide a property store
+// at CreatingInstance time or as a last resort in response to InstanceOpenPropertyStore.
+[
+    object,
+    uuid(cf986ea6-3b5f-4c5f-b88a-2f8b20ceef17),
+    helpstring("IProviderProperties Interface"),
+    pointer_default(unique)
+]
+interface IProviderProperties : IUnknown
+{
+    HRESULT GetCount(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [out] DWORD * pdwCount );
+    HRESULT GetAt(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] DWORD dwIndex,
+        [out] PROPERTYKEY * pKey );
+    HRESULT GetValue(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] REFPROPERTYKEY Key,
+        [out] PROPVARIANT * ppropVar );
+    HRESULT SetValue(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] REFPROPERTYKEY Key,
+        [in] const PROPVARIANT * ppropVar );
+}
+
+// Providers that want to impement Function Instance Add and Remove (IFunctionDiscovery::AddInstance/RemoveInstance)
+// may do so by implementing this interface.
+[
+    object,
+    uuid(CD1B9A04-206C-4a05-A0C8-1635A21A2B7C),
+    helpstring("IProviderPublishing Interface"),
+    pointer_default(unique)
+]
+interface IProviderPublishing : IUnknown
+{
+    HRESULT CreateInstance(
+        [in] SystemVisibilityFlags enumVisibilityFlags,
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in, string] const WCHAR * pszProviderInstanceIdentity,
+        [out] IFunctionInstance ** ppIFunctionInstance );
+    HRESULT RemoveInstance(
+        [in] SystemVisibilityFlags enumVisibilityFlags,
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in, string] const WCHAR * pszProviderInstanceIdentity );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  The following interfaces are used by discovery providers only.
+//  The will be passed to the provider by Function Discovery or
+//  accessible from FD interfaces passed to the provider.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(86443ff0-1ad5-4e68-a45a-40c2c329de3b),
+    helpstring("IFunctionDiscoveryProviderFactory Interface"),
+    pointer_default(unique)
+]
+interface IFunctionDiscoveryProviderFactory : IUnknown
+{
+    // Property Store is CoCreateable so this is redundant if inproc but for providers that are out of proc 
+    // this should be used to ensure the Property Store lives in the client process
+    HRESULT CreatePropertyStore(
+        [out] IPropertyStore ** ppIPropertyStore );
+    HRESULT CreateInstance(
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in, string] const WCHAR * pszProviderInstanceIdentity,
+        [in] INT_PTR iProviderInstanceContext,
+        [in] IPropertyStore * pIPropertyStore,  // Can be NULL
+        // Pointer to yourself (the provider), because the Factory can not own the refcount to the provider it would create a cicular refcounting issue.
+        [in] IFunctionDiscoveryProvider * pIFunctionDiscoveryProvider,  
+        [out] IFunctionInstance ** ppIFunctionInstance );
+    // Function Instance Collection is CoCreateable so this is redundant if inproc but for providers that are out of proc 
+    // this should be used to ensure the Property Store lives in the client process
+    HRESULT CreateFunctionInstanceCollection(
+        [out] IFunctionInstanceCollection ** ppIFunctionInstanceCollection );
+
+};
+
+[
+    object,
+    uuid(6876ea98-baec-46db-bc20-75a76e267a3a),
+    helpstring("IFunctionDiscoveryProviderQuery Interface"),
+    pointer_default(unique)
+]
+interface IFunctionDiscoveryProviderQuery : IUnknown
+{
+    HRESULT IsInstanceQuery(
+        [out] BOOL *pisInstanceQuery,
+        [out, string] WCHAR ** ppszConstraintValue );
+    HRESULT IsSubcategoryQuery(
+        [out] BOOL *pisSubcategoryQuery,
+        [out, string] WCHAR ** ppszConstraintValue );
+    HRESULT GetQueryConstraints(
+        [out] IProviderQueryConstraintCollection ** ppIProviderQueryConstraints );
+    HRESULT GetPropertyConstraints(
+        [out] IProviderPropertyConstraintCollection ** ppIProviderPropertyConstraints );
+};
+
+[
+    object,
+    uuid(9c243e11-3261-4bcd-b922-84a873d460ae),
+    helpstring("IProviderQueryConstraintCollection Interface"),
+    pointer_default(unique)
+]
+interface IProviderQueryConstraintCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out] DWORD * pdwCount );
+    HRESULT Get(
+        [in, string] const WCHAR * pszConstraintName,
+        [out, string] WCHAR ** ppszConstraintValue );
+    HRESULT Item(
+        [in] DWORD dwIndex,
+        [out, string] WCHAR ** ppszConstraintName,
+        [out, string] WCHAR ** ppszConstraintValue );
+    HRESULT Next(
+        [out, string] WCHAR ** ppszConstraintName,
+        [out, string] WCHAR ** ppszConstraintValue );
+    HRESULT Skip( );
+    HRESULT Reset( );
+};
+
+[
+    object,
+    uuid(f4fae42f-5778-4a13-8540-b5fd8c1398dd),
+    helpstring("IProviderPropertyConstraintCollection Interface"),
+    pointer_default(unique)
+]
+interface IProviderPropertyConstraintCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out] DWORD * pdwCount );
+    HRESULT Get(
+        [in] REFPROPERTYKEY Key,
+        [out] PROPVARIANT * pPropVar,
+        [out] DWORD * pdwPropertyConstraint );
+    HRESULT Item(
+        [in] DWORD dwIndex,
+        [out] PROPERTYKEY *pKey,
+        [out] PROPVARIANT * pPropVar,
+        [out] DWORD * pdwPropertyConstraint );
+    HRESULT Next (
+        [out] PROPERTYKEY *pKey,
+        [out] PROPVARIANT * pPropVar,
+        [out] DWORD * pdwPropertyConstraint );
+    HRESULT Skip( );
+    HRESULT Reset( );
+};
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  The following interface is implemented by Service Provider objects.
+//  Note: Providers can also be Service Providers.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(4c81ed02-1b04-43f2-a451-69966cbcd1c2),
+    helpstring("IFunctionDiscoveryServiceProvider Interface"),
+    pointer_default(unique),
+]
+interface IFunctionDiscoveryServiceProvider : IUnknown
+{
+    HRESULT Initialize(
+        [in] IFunctionInstance * pIFunctionInstance,
+        [in] REFIID riid,
+        [out, iid_is(riid), retval] void ** ppv );
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

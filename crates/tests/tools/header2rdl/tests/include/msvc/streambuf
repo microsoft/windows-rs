@@ -1,0 +1,419 @@
+// streambuf standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _STREAMBUF_
+#define _STREAMBUF_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xiosbase>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD extern "C++" template <class _Elem, class _Traits>
+class basic_streambuf { // control read/write buffers
+protected:
+    __CLR_OR_THIS_CALL basic_streambuf() : _Plocale(new locale) {
+        _Init();
+    }
+
+    __CLR_OR_THIS_CALL basic_streambuf(_Uninitialized) noexcept {}
+
+    __CLR_OR_THIS_CALL basic_streambuf(const basic_streambuf& _Right) : _Plocale(new locale{_Right.getloc()}) {
+        _Init();
+        setp(_Right.pbase(), _Right.pptr(), _Right.epptr());
+        setg(_Right.eback(), _Right.gptr(), _Right.egptr());
+    }
+
+    basic_streambuf& __CLR_OR_THIS_CALL operator=(const basic_streambuf& _Right) {
+        if (this != _STD addressof(_Right)) {
+            setp(_Right.pbase(), _Right.pptr(), _Right.epptr());
+            setg(_Right.eback(), _Right.gptr(), _Right.egptr());
+            pubimbue(_Right.getloc());
+        }
+        return *this;
+    }
+
+    void __CLR_OR_THIS_CALL swap(basic_streambuf& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Elem* _Pfirst0 = pbase();
+            _Elem* _Pnext0  = pptr();
+            _Elem* _Pend    = epptr();
+            _Elem* _Gfirst0 = eback();
+            _Elem* _Gnext0  = gptr();
+            _Elem* _Gend    = egptr();
+
+            setp(_Right.pbase(), _Right.pptr(), _Right.epptr());
+            _Right.setp(_Pfirst0, _Pnext0, _Pend);
+
+            setg(_Right.eback(), _Right.gptr(), _Right.egptr());
+            _Right.setg(_Gfirst0, _Gnext0, _Gend);
+
+            _STD swap(_Plocale, _Right._Plocale);
+        }
+    }
+
+public:
+    using char_type   = _Elem;
+    using traits_type = _Traits;
+
+    virtual __CLR_OR_THIS_CALL ~basic_streambuf() noexcept {
+        delete _Plocale;
+    }
+
+    using int_type = typename _Traits::int_type;
+    using pos_type = typename _Traits::pos_type;
+    using off_type = typename _Traits::off_type;
+
+    pos_type __CLR_OR_THIS_CALL pubseekoff(off_type _Off, ios_base::seekdir _Way,
+        ios_base::openmode _Mode = ios_base::in | ios_base::out) { // change position by _Off, according to _Way, _Mode
+        return seekoff(_Off, _Way, _Mode);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    pos_type __CLR_OR_THIS_CALL pubseekoff(off_type _Off, ios_base::seek_dir _Way,
+        ios_base::open_mode _Mode) { // change position by _Off, according to _Way, _Mode (old style)
+        return pubseekoff(_Off, static_cast<ios_base::seekdir>(_Way), static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    pos_type __CLR_OR_THIS_CALL pubseekpos(pos_type _Pos,
+        ios_base::openmode _Mode = ios_base::in | ios_base::out) { // change position to _Pos, according to _Mode
+        return seekpos(_Pos, _Mode);
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    pos_type __CLR_OR_THIS_CALL pubseekpos(pos_type _Pos,
+        ios_base::open_mode _Mode) { // change position to _Pos, according to _Mode (old style)
+        return seekpos(_Pos, static_cast<ios_base::openmode>(_Mode));
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    basic_streambuf* __CLR_OR_THIS_CALL pubsetbuf(_Elem* _Buffer,
+        streamsize _Count) { // offer _Buffer to external agent
+        return setbuf(_Buffer, _Count);
+    }
+
+    locale __CLR_OR_THIS_CALL pubimbue(const locale& _Newlocale) { // set locale to argument
+        locale _Oldlocale = *_Plocale;
+        imbue(_Newlocale);
+        *_Plocale = _Newlocale;
+        return _Oldlocale;
+    }
+
+    locale __CLR_OR_THIS_CALL getloc() const noexcept /* strengthened */ { // get locale
+        return *_Plocale;
+    }
+
+    streamsize __CLR_OR_THIS_CALL in_avail() {
+        streamsize _Res = _Gnavail();
+        return 0 < _Res ? _Res : showmanyc();
+    }
+
+    int __CLR_OR_THIS_CALL pubsync() { // synchronize with external agent
+        return sync();
+    }
+
+    int_type __CLR_OR_THIS_CALL sbumpc() { // get a character and point past it
+        return 0 < _Gnavail() ? _Traits::to_int_type(*_Gninc()) : uflow();
+    }
+
+    int_type __CLR_OR_THIS_CALL sgetc() { // get a character and don't point past it
+        return 0 < _Gnavail() ? _Traits::to_int_type(*gptr()) : underflow();
+    }
+
+    streamsize __CLR_OR_THIS_CALL sgetn(_Elem* _Ptr,
+        streamsize _Count) { // get up to _Count characters into array beginning at _Ptr
+        return xsgetn(_Ptr, _Count);
+    }
+
+    int_type __CLR_OR_THIS_CALL snextc() { // point to next character and return it
+        return 1 < _Gnavail()                                 ? _Traits::to_int_type(*_Gnpreinc())
+             : _Traits::eq_int_type(_Traits::eof(), sbumpc()) ? _Traits::eof()
+                                                              : sgetc();
+    }
+
+    int_type __CLR_OR_THIS_CALL sputbackc(_Elem _Ch) { // put back _Ch
+        if (gptr() && eback() < gptr() && _Traits::eq(_Ch, gptr()[-1])) {
+            return _Traits::to_int_type(*_Gndec());
+        }
+
+        return pbackfail(_Traits::to_int_type(_Ch));
+    }
+
+#if _HAS_OLD_IOSTREAMS_MEMBERS
+    void __CLR_OR_THIS_CALL stossc() { // point past a character
+        if (0 < _Gnavail()) {
+            _Gninc();
+        } else {
+            uflow();
+        }
+    }
+#endif // _HAS_OLD_IOSTREAMS_MEMBERS
+
+    int_type __CLR_OR_THIS_CALL sungetc() { // back up one position
+        return gptr() && eback() < gptr() ? _Traits::to_int_type(*_Gndec()) : pbackfail();
+    }
+
+    int_type __CLR_OR_THIS_CALL sputc(_Elem _Ch) { // put a character
+        return 0 < _Pnavail() ? _Traits::to_int_type(*_Pninc() = _Ch) : overflow(_Traits::to_int_type(_Ch));
+    }
+
+    streamsize __CLR_OR_THIS_CALL sputn(const _Elem* _Ptr,
+        streamsize _Count) { // put _Count characters from array beginning at _Ptr
+        return xsputn(_Ptr, _Count);
+    }
+
+    virtual void __CLR_OR_THIS_CALL _Lock() {} // set the thread lock (overridden by basic_filebuf)
+
+    virtual void __CLR_OR_THIS_CALL _Unlock() {} // clear the thread lock (overridden by basic_filebuf)
+
+protected:
+    _Elem* __CLR_OR_THIS_CALL eback() const noexcept /* strengthened */ {
+        return *_IGfirst;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL gptr() const noexcept /* strengthened */ {
+        return *_IGnext;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL pbase() const noexcept /* strengthened */ {
+        return *_IPfirst;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL pptr() const noexcept /* strengthened */ {
+        return *_IPnext;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL egptr() const noexcept /* strengthened */ {
+        return *_IGnext + *_IGcount;
+    }
+
+    void __CLR_OR_THIS_CALL gbump(int _Off) noexcept /* strengthened */ {
+        // alter current position in read buffer by _Off
+        *_IGcount -= _Off;
+        *_IGnext += _Off;
+    }
+
+    void __CLR_OR_THIS_CALL setg(_Elem* _First, _Elem* _Next, _Elem* _Last) noexcept /* strengthened */ {
+        // set pointers for read buffer
+        *_IGfirst = _First;
+        *_IGnext  = _Next;
+        *_IGcount = static_cast<int>(_Last - _Next);
+    }
+
+    _Elem* __CLR_OR_THIS_CALL epptr() const noexcept /* strengthened */ {
+        return *_IPnext + *_IPcount;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL _Gndec() noexcept { // decrement current position in read buffer
+        ++*_IGcount;
+        return --*_IGnext;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL _Gninc() noexcept { // increment current position in read buffer
+        --*_IGcount;
+        return (*_IGnext)++;
+    }
+
+    _Elem* __CLR_OR_THIS_CALL _Gnpreinc() noexcept { // preincrement current position in read buffer
+        --*_IGcount;
+        return ++(*_IGnext);
+    }
+
+    streamsize __CLR_OR_THIS_CALL _Gnavail() const noexcept { // count number of available elements in read buffer
+        return *_IGnext ? *_IGcount : 0;
+    }
+
+    void __CLR_OR_THIS_CALL pbump(int _Off) noexcept /* strengthened */ {
+        // alter current position in write buffer by _Off
+        *_IPcount -= _Off;
+        *_IPnext += _Off;
+    }
+
+    void __CLR_OR_THIS_CALL setp(_Elem* _First, _Elem* _Last) noexcept /* strengthened */ {
+        // set pointers for write buffer
+        *_IPfirst = _First;
+        *_IPnext  = _First;
+        *_IPcount = static_cast<int>(_Last - _First);
+    }
+
+    void __CLR_OR_THIS_CALL setp(_Elem* _First, _Elem* _Next, _Elem* _Last) noexcept /* strengthened */ {
+        // set pointers for write buffer, extended version
+        *_IPfirst = _First;
+        *_IPnext  = _Next;
+        *_IPcount = static_cast<int>(_Last - _Next);
+    }
+
+    _Elem* __CLR_OR_THIS_CALL _Pninc() noexcept { // increment current position in write buffer
+        --*_IPcount;
+        return (*_IPnext)++;
+    }
+
+    streamsize __CLR_OR_THIS_CALL _Pnavail() const noexcept { // count number of available positions in write buffer
+        return *_IPnext ? *_IPcount : 0;
+    }
+
+    void __CLR_OR_THIS_CALL _Init() noexcept { // initialize buffer parameters for no buffers
+        _IGfirst = &_Gfirst;
+        _IPfirst = &_Pfirst;
+        _IGnext  = &_Gnext;
+        _IPnext  = &_Pnext;
+        _IGcount = &_Gcount;
+        _IPcount = &_Pcount;
+        setp(nullptr, nullptr);
+        setg(nullptr, nullptr, nullptr);
+    }
+
+    void __CLR_OR_THIS_CALL _Init(_Elem** _Gf, _Elem** _Gn, int* _Gc, _Elem** _Pf, _Elem** _Pn, int* _Pc) noexcept {
+        // initialize buffer parameters as specified
+        _IGfirst = _Gf;
+        _IPfirst = _Pf;
+        _IGnext  = _Gn;
+        _IPnext  = _Pn;
+        _IGcount = _Gc;
+        _IPcount = _Pc;
+    }
+
+    virtual int_type __CLR_OR_THIS_CALL overflow(int_type = _Traits::eof()) { // put a character to stream (always fail)
+        return _Traits::eof();
+    }
+
+    virtual int_type __CLR_OR_THIS_CALL pbackfail(int_type = _Traits::eof()) {
+        // put a character back to stream (always fail)
+        return _Traits::eof();
+    }
+
+    virtual streamsize __CLR_OR_THIS_CALL showmanyc() {
+        return 0;
+    }
+
+    virtual int_type __CLR_OR_THIS_CALL underflow() { // get a character from stream, but don't point past it
+        return _Traits::eof();
+    }
+
+    virtual int_type __CLR_OR_THIS_CALL uflow() { // get a character from stream, point past it
+        return _Traits::eq_int_type(_Traits::eof(), underflow()) ? _Traits::eof() : _Traits::to_int_type(*_Gninc());
+    }
+
+    virtual streamsize __CLR_OR_THIS_CALL xsgetn(_Elem* _Ptr, streamsize _Count) { // get _Count characters from stream
+        const streamsize _Start_count = _Count;
+
+        while (0 < _Count) {
+            streamsize _Size = _Gnavail();
+            if (0 < _Size) { // copy from read buffer
+                if (_Count < _Size) {
+                    _Size = _Count;
+                }
+
+                _Traits::copy(_Ptr, gptr(), static_cast<size_t>(_Size));
+                _Ptr += _Size;
+                _Count -= _Size;
+                gbump(static_cast<int>(_Size));
+            } else {
+                const int_type _Meta = uflow();
+                if (_Traits::eq_int_type(_Traits::eof(), _Meta)) {
+                    break; // end of file, quit
+                }
+
+                // get a single character
+                *_Ptr++ = _Traits::to_char_type(_Meta);
+                --_Count;
+            }
+        }
+
+        return _Start_count - _Count;
+    }
+
+    virtual streamsize __CLR_OR_THIS_CALL xsputn(const _Elem* _Ptr, streamsize _Count) {
+        // put _Count characters to stream
+        const streamsize _Start_count = _Count;
+        while (0 < _Count) {
+            streamsize _Size = _Pnavail();
+            if (0 < _Size) { // copy to write buffer
+                if (_Count < _Size) {
+                    _Size = _Count;
+                }
+
+                _Traits::copy(pptr(), _Ptr, static_cast<size_t>(_Size));
+                _Ptr += _Size;
+                _Count -= _Size;
+                pbump(static_cast<int>(_Size));
+            } else if (_Traits::eq_int_type(_Traits::eof(), overflow(_Traits::to_int_type(*_Ptr)))) {
+                break; // single character put failed, quit
+            } else { // count character successfully put
+                ++_Ptr;
+                --_Count;
+            }
+        }
+
+        return _Start_count - _Count;
+    }
+
+    virtual pos_type __CLR_OR_THIS_CALL seekoff(
+        off_type, ios_base::seekdir, ios_base::openmode = ios_base::in | ios_base::out) {
+        // change position by offset, according to way and mode
+        return pos_type{off_type{-1}};
+    }
+
+    virtual pos_type __CLR_OR_THIS_CALL seekpos(pos_type, ios_base::openmode = ios_base::in | ios_base::out) {
+        // change to specified position, according to mode
+        return pos_type{off_type{-1}};
+    }
+
+    virtual basic_streambuf* __CLR_OR_THIS_CALL setbuf(_Elem*, streamsize) {
+        // offer buffer to external agent (do nothing)
+        return this;
+    }
+
+    virtual int __CLR_OR_THIS_CALL sync() { // synchronize with external agent (do nothing)
+        return 0;
+    }
+
+    virtual void __CLR_OR_THIS_CALL imbue(const locale&) {} // set locale to argument (do nothing)
+
+private:
+    _Elem* _Gfirst{}; // beginning of read buffer
+    _Elem* _Pfirst{}; // beginning of write buffer
+    _Elem** _IGfirst{}; // pointer to beginning of read buffer
+    _Elem** _IPfirst{}; // pointer to beginning of write buffer
+    _Elem* _Gnext{}; // current position in read buffer
+    _Elem* _Pnext{}; // current position in write buffer
+    _Elem** _IGnext{}; // pointer to current position in read buffer
+    _Elem** _IPnext{}; // pointer to current position in write buffer
+
+    int _Gcount{}; // length of read buffer
+    int _Pcount{}; // length of write buffer
+    int* _IGcount{}; // pointer to length of read buffer
+    int* _IPcount{}; // pointer to length of write buffer
+
+protected:
+    locale* _Plocale{}; // pointer to imbued locale object
+};
+
+#if defined(_DLL_CPPLIB)
+
+#if !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+template class _CRTIMP2_PURE_IMPORT basic_streambuf<char, char_traits<char>>;
+template class _CRTIMP2_PURE_IMPORT basic_streambuf<wchar_t, char_traits<wchar_t>>;
+#endif // !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+
+#ifdef __FORCE_INSTANCE
+template class _CRTIMP2_PURE_IMPORT basic_streambuf<unsigned short, char_traits<unsigned short>>;
+#endif // defined(__FORCE_INSTANCE)
+#endif // defined(_DLL_CPPLIB)
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _STREAMBUF_

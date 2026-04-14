@@ -1,0 +1,69 @@
+// Copyright (c) Microsoft Corporation. All Rights Reserved.
+cpp_quote("// Copyright (c) Microsoft Corporation. All Rights Reserved.")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#ifndef MIN_SPELLING_NTDDI")
+cpp_quote("#define MIN_SPELLING_NTDDI NTDDI_WIN8")
+cpp_quote("#endif")
+
+cpp_quote("#if NTDDI_VERSION >= MIN_SPELLING_NTDDI")
+
+import "SpellCheck.idl";
+
+// This interface represents a spell check provider (someone who provides a spell checker to be used in the system)
+// Should be implemented by spell checking providers - it is NOT used by clients, but by the system
+[
+    object,
+    uuid(73E976E0-8ED4-4EB1-80D7-1BE0A16B0C38),
+    pointer_default(unique)
+]
+interface ISpellCheckProvider : IUnknown
+{
+    [propget] HRESULT LanguageTag([out, retval] LPWSTR* value);
+    HRESULT Check([in] LPCWSTR text, [out, retval] IEnumSpellingError** value);
+    HRESULT Suggest([in] LPCWSTR word, [out, retval] IEnumString** value);
+    HRESULT GetOptionValue([in] LPCWSTR optionId, [out, retval] BYTE* value);
+    HRESULT SetOptionValue([in] LPCWSTR optionId, [in] BYTE value);
+    [propget] HRESULT OptionIds([out, retval] IEnumString** value);
+    [propget] HRESULT Id([out, retval] LPWSTR* value);
+    [propget] HRESULT LocalizedName([out, retval] LPWSTR* value);
+    HRESULT GetOptionDescription([in] LPCWSTR optionId, [out, retval] IOptionDescription** value);
+    HRESULT InitializeWordlist([in] WORDLIST_TYPE wordlistType, [in] IEnumString* words);
+}
+
+// This interface represents extended functionality that a spell check provider  (someone who provides a spell checker to be used in the system)
+// A provider may optionally implement on the same object that implements ISpellCheckProvider - it is NOT used by clients, but by the system
+// When the provider engine has the option of doing a more thorough but slower checking, this interface should be implemented
+// If this interface is not implemented, all client calls to ISpellChecker::ComprehensiveCheck or ISpellChecker::Check will both be served by ISpellCheckProvider::Check
+[
+    object,
+    uuid(0C58F8DE-8E94-479E-9717-70C42C4AD2C3),
+    pointer_default(unique)
+]
+interface IComprehensiveSpellCheckProvider : IUnknown
+{
+    HRESULT ComprehensiveCheck([in] LPCWSTR text, [out, retval] IEnumSpellingError** value);
+}
+
+// This interface should be implemented by spell checking providers - it is NOT used by clients, but by the system
+// It creates a provider for a given language and gives information about which providers a given spell checking engine supports
+[
+    object,
+    uuid(9F671E11-77D6-4C92-AEFB-615215E3A4BE),
+    pointer_default(unique)
+]
+interface ISpellCheckProviderFactory : IUnknown
+{
+    [propget] HRESULT SupportedLanguages([out, retval] IEnumString** value);
+    HRESULT IsSupported([in] LPCWSTR languageTag, [out, retval] BOOL* value);
+    HRESULT CreateSpellCheckProvider([in] LPCWSTR languageTag, [out, retval] ISpellCheckProvider** value);
+}
+
+cpp_quote("#endif // (NTDDI >= MIN_SPELLING_NTDDI)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

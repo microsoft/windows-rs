@@ -1,0 +1,258 @@
+/*=========================================================================*//**
+    Copyright (c) Microsoft Corporation.  All rights reserved.
+*//*==========================================================================*/
+
+cpp_quote("#include <winapifamily.h>")
+
+import "objidl.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface IXblIdpAuthTokenResult;
+
+typedef enum _XBL_IDP_AUTH_TOKEN_STATUS
+{
+    XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS = 0,
+    XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS,
+    XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET,
+    XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED,
+    XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO,
+    XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT,
+    XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT,
+    XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET,
+
+    XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN = 0xffffffff,
+
+} XBL_IDP_AUTH_TOKEN_STATUS;
+
+[
+    object,
+    uuid(eb5ddb08-8bbf-449b-ac21-b02ddeb3b136),
+    pointer_default(unique)
+]
+interface IXblIdpAuthManager : IUnknown
+{
+    // Called by Xbox IDP to set the MSA account and XUID for the NT USER
+    HRESULT SetGamerAccount(
+        [in, string, unique] LPCWSTR msaAccountId,
+        [in, string, unique] LPCWSTR xuid
+        );
+
+    // Called by Xbox IDP to get the MSA account for the NT USER. Returns AM_E_NO_GAMER_ACCOUNT if
+    // an account was not previously set.
+    HRESULT GetGamerAccount(
+        [out, string] LPWSTR* msaAccountId,
+        [out, string] LPWSTR* xuid
+        );
+
+    // Called by the Xbox IDP to declare that a view has been initialized for the specified app
+    HRESULT SetAppViewInitialized(
+        // app ID
+        [in, string] LPCWSTR appSid,
+        // the real or pairwise MSA account ID, as it will be seen by the specified app
+        [in, string] LPCWSTR msaAccountId
+        );
+
+    // Called by the Xbox IDP to look up the configured environment
+    HRESULT GetEnvironment(
+        [out, string] LPWSTR* environment
+        );
+
+    // Called by the Xbox IDP to look up the configured sandbox
+    HRESULT GetSandbox(
+        [out, string] LPWSTR* sandbox
+        );
+
+    // Retrieve an X Token from XSTS for the specified account / caller and generate a signature. The target and
+    // signing policy are determined based on the URI.
+    HRESULT GetTokenAndSignatureWithTokenResult(
+        // MSA account ID to use instead of the default gamer account. This allows the IDP to get tokens while
+        // configuring the gamer account.
+        [in, string, unique] LPCWSTR msaAccountId,
+        // app SID to use instead of the calling app. When provided, the caller must be trusted.
+        [in, string] LPCWSTR appSid,
+        // the MSA target used when requesting the RPS ticket that the returned X token is based on. For first
+        // party apps, this will be "user.auth.xboxlive.com". For third party apps, this will be a list of
+        // offers like "xboxlive.signin"
+        [in, string] LPCWSTR msaTarget,
+        // the MSA policy used when requesting the RPS ticket that the returned X token is based on. For first
+        // party apps, this will be "MBI_SSL". For third party apps, this will be "DELEGATION".
+        [in, string] LPCWSTR msaPolicy,
+        // HTTP method that will be used for this request
+        [in, string] LPCWSTR httpMethod,
+        // URI the X token will be used against. This URI is used to lookup token information and the path portion
+        // is used for signature generation.
+        [in, string] LPCWSTR uri,
+        // headers as a single string with CR/LF separating them, consistent with e.g. WinHttpAddRequestHeaders
+        [in, string, unique] LPCWSTR headers,
+        // optional body
+        [in, unique, size_is(bodySize)] BYTE* body,
+        [in] DWORD bodySize,
+        // if TRUE, ignore any cached token and force a new one to be retreived from XSTS
+        [in] BOOL forceRefresh,
+        // Complete result object. Except in exceptional cases, this method will succeed with error details
+        // embedded in the result object.
+        [out] IXblIdpAuthTokenResult** result
+        );
+};
+
+[
+    object,
+    uuid(bf8c0950-8389-43dd-9a76-a19728ec5dc5),
+    pointer_default(unique)
+]
+interface IXblIdpAuthManager2 : IUnknown
+{
+    // Retrieve an X Token from XSTS and generate a signature. The XBL target and signing policy are determined based on the
+    // URI. Since there is no user for this token, the MSA target/policy/app must not require consent.
+    HRESULT GetUserlessTokenAndSignatureWithTokenResult(
+        // app SID to use instead of the calling app. When provided, the caller must be trusted.
+        [in, string] LPCWSTR appSid,
+        // the MSA target used when requesting the RPS ticket that the returned X token is based on. For first
+        // party apps, this will be "user.auth.xboxlive.com". For third party apps, this will be a list of
+        // offers like "xboxlive.signin"
+        [in, string] LPCWSTR msaTarget,
+        // the MSA policy used when requesting the RPS ticket that the returned X token is based on. For first
+        // party apps, this will be "MBI_SSL". For third party apps, this will be "DELEGATION".
+        [in, string] LPCWSTR msaPolicy,
+        // HTTP method that will be used for this request
+        [in, string] LPCWSTR httpMethod,
+        // URI the X token will be used against. This URI is used to lookup token information and the path portion
+        // is used for signature generation.
+        [in, string] LPCWSTR uri,
+        // headers as a single string with CR/LF separating them, consistent with e.g. WinHttpAddRequestHeaders
+        [in, string, unique] LPCWSTR headers,
+        // optional body
+        [in, unique, size_is(bodySize)] BYTE* body,
+        [in] DWORD bodySize,
+        // if TRUE, ignore any cached token and force a new one to be retreived from XSTS
+        [in] BOOL forceRefresh,
+        // Complete result object. Except in exceptional cases, this method will succeed with error details
+        // embedded in the result object.
+        [out] IXblIdpAuthTokenResult** result
+        );
+};
+
+[
+    object,
+    uuid (46ce0225-f267-4d68-b299-b2762552dec1),
+    pointer_default(unique)
+]
+interface IXblIdpAuthTokenResult : IUnknown
+{
+    // Status. The value of this property determines which of the following properties are present.
+    HRESULT GetStatus([out] XBL_IDP_AUTH_TOKEN_STATUS *status);
+
+    // Traditional HRESULT. This could be an XBL veto, MSA error/success, or AuthManager error.
+    // Other errors (e.g. E_OUTOFMEMORY) will be returned from the API directly, and an instance
+    // of this inteface will not be provided.
+    HRESULT GetErrorCode([out] HRESULT *errorCode);
+
+    //
+    // Token properties
+    //
+
+    // X token. caller must add "Authorization: <token>" to header list.
+    HRESULT GetToken([out, retval, string] LPWSTR *token);
+
+    // Signature or empty string. If not empty, caller must add "Signature: <signature>" to header list.
+    HRESULT GetSignature([out, retval, string] LPWSTR *signature);
+
+    // Sandbox. Only supplied when a token is retrieved or an Xbox veto occurs.
+    HRESULT GetSandbox([out, retval, string] LPWSTR *sandbox);
+
+    // Environment. Only supplied when a token is retrieved or an Xbox veto occurs.
+    HRESULT GetEnvironment([out, retval, string] LPWSTR *environment);
+
+    //
+    // User properties
+    //
+
+    // The MSA AccountId used to make the request. When a device or title veto occurs, this property
+    // will be empty.
+    HRESULT GetMsaAccountId([out, retval, string] LPWSTR *msaAccountId);
+
+    // Xuid. Only supplied with as successful result.
+    HRESULT GetXuid([out, retval, string] LPWSTR *xuid);
+
+    // Gamertag. Only supplied with as successful result.
+    HRESULT GetGamertag([out, retval, string] LPWSTR *gamertag);
+
+    // Age group. Only supplied with as successful result.
+    HRESULT GetAgeGroup([out, retval, string] LPWSTR *ageGroup);
+
+    // String list of integer privileges separated by commas. Empty if the token was not retrieved.
+    HRESULT GetPrivileges([out, retval, string] LPWSTR *privileges);
+
+    //
+    // MSA interrupt-related data. These properties are used by the Xbox IDP to make a request to
+    // the MSA IDP for the ticket XblAuthManager requires.
+    //
+
+    HRESULT GetMsaTarget([out, retval, string] LPWSTR *msaTarget);
+    HRESULT GetMsaPolicy([out, retval, string] LPWSTR *msaPolicy);
+    HRESULT GetMsaAppId([out, retval, string] LPWSTR *msaAppId);
+
+    //
+    // Xbox veto related data. These may or may not be returned by the server.
+    //
+
+    HRESULT GetRedirect([out, retval, string] LPWSTR *redirect);
+    HRESULT GetMessage([out, retval, string] LPWSTR *message);
+    HRESULT GetHelpId([out, retval, string] LPWSTR *helpId);
+
+    // Display Claim data. These may or may not be returned depending upon the relying party.
+    // All are formatted the same as privileges
+    HRESULT GetEnforcementBans([out, retval, string] LPWSTR* enforcementBans);
+    HRESULT GetRestrictions([out, retval, string] LPWSTR* restrictions);
+    HRESULT GetTitleRestrictions([out, retval, string] LPWSTR* titleRestrictions);
+};
+
+[
+    object,
+    uuid (75d760b0-60b9-412d-994f-26b2cd5f7812),
+    pointer_default(unique)
+]
+interface IXblIdpAuthTokenResult2 : IUnknown
+{
+    // Modern Gamertag. Only supplied with as successful result.
+    HRESULT GetModernGamertag([out, retval, string] LPWSTR *value);
+
+    // Modern Gamertag Suffix. Only supplied with as successful result.
+    HRESULT GetModernGamertagSuffix([out, retval, string] LPWSTR *value);
+
+    // Unique Modern Gamertag. Only supplied with as successful result.
+    HRESULT GetUniqueModernGamertag([out, retval, string] LPWSTR *value);
+};
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("")
+cpp_quote("class DECLSPEC_UUID(\"ce23534b-56d8-4978-86a2-7ee570640468\")")
+cpp_quote("XblIdpAuthManager;")
+cpp_quote("#endif")
+[
+    uuid(ce23534b-56d8-4978-86a2-7ee570640468)
+]
+coclass XblIdpAuthManager
+{
+    [default] interface IXblIdpAuthManager;
+    interface IXblIdpAuthManager2;
+}
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("")
+cpp_quote("class DECLSPEC_UUID(\"9f493441-744a-410c-ae2b-9a22f7c7731f\")")
+cpp_quote("XblIdpAuthTokenResult;")
+cpp_quote("#endif")
+[
+    uuid(9f493441-744a-410c-ae2b-9a22f7c7731f)
+]
+coclass XblIdpAuthTokenResult
+{
+    [default] interface IXblIdpAuthTokenResult;
+    interface IXblIdpAuthTokenResult2;
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

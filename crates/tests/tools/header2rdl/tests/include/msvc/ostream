@@ -1,0 +1,346 @@
+// ostream standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _OSTREAM_
+#define _OSTREAM_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <__msvc_ostream.hpp>
+
+#if _HAS_CXX23
+#include <__msvc_filebuf.hpp>
+#include <__msvc_print.hpp>
+#include <format>
+#endif // ^^^ _HAS_CXX23 ^^^
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+#if _HAS_CXX20
+#ifdef _CPPRTTI
+_EXPORT_STD template <class _Elem, class _Traits>
+basic_ostream<_Elem, _Traits>& emit_on_flush(basic_ostream<_Elem, _Traits>& _Ostr) {
+    const auto _Sync_buf_ptr = dynamic_cast<_Basic_syncbuf_impl<_Elem, _Traits>*>(_Ostr.rdbuf());
+    if (_Sync_buf_ptr) {
+        _Sync_buf_ptr->set_emit_on_sync(true);
+    }
+    return _Ostr;
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+basic_ostream<_Elem, _Traits>& noemit_on_flush(basic_ostream<_Elem, _Traits>& _Ostr) {
+    const auto _Sync_buf_ptr = dynamic_cast<_Basic_syncbuf_impl<_Elem, _Traits>*>(_Ostr.rdbuf());
+    if (_Sync_buf_ptr) {
+        _Sync_buf_ptr->set_emit_on_sync(false);
+    }
+    return _Ostr;
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+basic_ostream<_Elem, _Traits>& flush_emit(basic_ostream<_Elem, _Traits>& _Ostr) {
+    _Ostr.flush();
+    const auto _Sync_buf_ptr = dynamic_cast<_Basic_syncbuf_impl<_Elem, _Traits>*>(_Ostr.rdbuf());
+    if (_Sync_buf_ptr) {
+        ios_base::iostate _State = ios_base::goodbit;
+        const typename basic_ostream<_Elem, _Traits>::sentry _Ok(_Ostr);
+        if (!_Ok) {
+            _State |= ios_base::badbit;
+        } else {
+            _TRY_IO_BEGIN
+            const bool _Emit_failed = !_Sync_buf_ptr->_Do_emit();
+            if (_Emit_failed) {
+                _State |= ios_base::badbit;
+            }
+            _CATCH_IO_(ios_base, _Ostr)
+        }
+        _Ostr.setstate(_State);
+    }
+    return _Ostr;
+}
+#else // ^^^ defined(_CPPRTTI) / !defined(_CPPRTTI) vvv
+_EXPORT_STD template <class _Elem, class _Traits>
+basic_ostream<_Elem, _Traits>& emit_on_flush(basic_ostream<_Elem, _Traits>&) = delete; // requires /GR option
+_EXPORT_STD template <class _Elem, class _Traits>
+basic_ostream<_Elem, _Traits>& noemit_on_flush(basic_ostream<_Elem, _Traits>&) = delete; // requires /GR option
+_EXPORT_STD template <class _Elem, class _Traits>
+basic_ostream<_Elem, _Traits>& flush_emit(basic_ostream<_Elem, _Traits>&) = delete; // requires /GR option
+#endif // ^^^ !defined(_CPPRTTI) ^^^
+#endif // ^^^ _HAS_CXX20 ^^^
+
+#if _HAS_CXX23
+#ifdef _CPPRTTI
+template <int = 0>
+ios_base::iostate _Print_noformat_nonunicode(ostream& _Ostr, const string_view _Str) {
+    // *LOCKED*
+    //
+    // This function is called from a context in which an ostream::sentry has been
+    // constructed.
+    ios_base::iostate _State = ios_base::goodbit;
+
+    _TRY_IO_BEGIN
+    const auto _Characters_written       = _Ostr.rdbuf()->sputn(_Str.data(), static_cast<streamsize>(_Str.size()));
+    const bool _Was_insertion_successful = static_cast<size_t>(_Characters_written) == _Str.size();
+    if (!_Was_insertion_successful) {
+        _State |= ios_base::badbit;
+    }
+    _CATCH_IO_(ios_base, _Ostr)
+
+    return _State;
+}
+
+template <int = 0>
+ios_base::iostate _Print_newline_only_nonunicode(ostream& _Ostr) {
+    // *LOCKED*
+    //
+    // This function is called from a context in which an ostream::sentry has been
+    // constructed.
+    ios_base::iostate _State = ios_base::goodbit;
+
+    _TRY_IO_BEGIN
+    const bool _Was_insertion_successful = _Ostr.rdbuf()->sputc('\n') == '\n';
+    if (!_Was_insertion_successful) {
+        _State |= ios_base::badbit;
+    }
+    _CATCH_IO_(ios_base, _Ostr)
+
+    return _State;
+}
+
+template <int = 0>
+void _Vprint_nonunicode_impl(
+    const _Add_newline _Add_nl, ostream& _Ostr, const string_view _Fmt_str, const format_args _Fmt_args) {
+    const ostream::sentry _Ok(_Ostr);
+    ios_base::iostate _State = ios_base::goodbit;
+
+    if (!_Ok) {
+        _State |= ios_base::badbit;
+    } else {
+        // This is intentionally kept outside of the try/catch block in _Print_noformat_nonunicode()
+        // (see N4950 [ostream.formatted.print]/3.2).
+        string _Output_str = _STD vformat(_Ostr.getloc(), _Fmt_str, _Fmt_args);
+        if (_Add_nl == _Add_newline::_Yes) {
+            _Output_str.push_back('\n');
+        }
+
+        _State |= _STD _Print_noformat_nonunicode(_Ostr, _Output_str);
+    }
+
+    _Ostr.setstate(_State);
+}
+
+template <class _UnicodeConsoleFn, class _FallbackFn, class _Filebuf_type = filebuf>
+ios_base::iostate _Do_on_maybe_unicode_console(
+    ostream& _Ostr, _UnicodeConsoleFn _Unicode_console_func, _FallbackFn _Fallback_func) {
+    // *LOCKED*
+    //
+    // This function is called from a context in which an ostream::sentry has been
+    // constructed.
+    ios_base::iostate _State = ios_base::goodbit;
+
+    // The std::ostream& overload of vprint_unicode() expects you to determine whether the stream refers
+    // to a unicode console or not based solely on the std::ostream& provided. That class simply doesn't
+    // provide enough information to know this in every case. The best we can do (without breaking ABI)
+    // is check if the underlying std::streambuf object of the std::ostream& actually refers to a std::filebuf
+    // object. This requires the use of a dynamic_cast. (This is also why the std::ostream& overloads of
+    // std::print() et al. are deleted when RTTI is disabled.)
+    streambuf* const _Streambuf = _Ostr.rdbuf();
+    const auto _Filebuf         = dynamic_cast<_Filebuf_type*>(_Streambuf);
+
+    // If we got nullptr, then it probably isn't being used for a unicode console...
+    if (_Filebuf == nullptr) {
+        _State |= _Fallback_func();
+        return _State;
+    }
+
+    FILE* const _File_stream = _Filebuf->_Myfile;
+    const __std_unicode_console_retrieval_result _Unicode_console_retrieval_result{
+        __std_get_unicode_console_handle_from_file_stream(_File_stream)};
+
+    // See the documentation for __std_unicode_console_retrieval_result to understand why we do this.
+    bool _Is_unicode_console;
+
+#pragma warning(push)
+#pragma warning(disable : 4061) // enumerator not explicitly handled by switch label
+    switch (_Unicode_console_retrieval_result._Error) {
+    case __std_win_error::_Success:
+        _Is_unicode_console = true;
+        break;
+
+    case __std_win_error::_File_not_found:
+        _Is_unicode_console = false;
+        break;
+
+    case __std_win_error::_Not_supported:
+        return _State;
+
+    default:
+        return ios_base::failbit;
+    }
+#pragma warning(pop)
+
+    if (_Is_unicode_console) {
+        _TRY_IO_BEGIN
+        const bool _Was_flush_successful = _Ostr.rdbuf()->pubsync() != -1;
+        if (!_Was_flush_successful) {
+            _State |= ios_base::badbit;
+            return _State;
+        }
+
+        const __std_win_error _Unicode_console_print_result =
+            _Unicode_console_func(_Unicode_console_retrieval_result._Console_handle);
+        if (_Unicode_console_print_result != __std_win_error::_Success) {
+            _State |= ios_base::badbit;
+        }
+        _CATCH_IO_(ios_base, _Ostr)
+    } else {
+        _State |= _Fallback_func();
+    }
+
+    return _State;
+}
+
+template <int = 0>
+ios_base::iostate _Print_noformat_unicode(ostream& _Ostr, const string_view _Str) {
+    const auto _Unicode_console = [&](const __std_unicode_console_handle _Console_handle) {
+        return __std_print_to_unicode_console(_Console_handle, _Str.data(), _Str.size());
+    };
+
+    const auto _Fallback = [&] { return _STD _Print_noformat_nonunicode(_Ostr, _Str); };
+
+    return _STD _Do_on_maybe_unicode_console(_Ostr, _Unicode_console, _Fallback);
+}
+
+template <int = 0>
+ios_base::iostate _Print_newline_only_unicode(ostream& _Ostr) {
+    const auto _Unicode_console = [](const __std_unicode_console_handle _Console_handle) {
+        return __std_print_newline_only_to_unicode_console(_Console_handle);
+    };
+
+    const auto _Fallback = [&] { return _STD _Print_newline_only_nonunicode(_Ostr); };
+
+    return _STD _Do_on_maybe_unicode_console(_Ostr, _Unicode_console, _Fallback);
+}
+
+template <int = 0>
+void _Vprint_unicode_impl(
+    const _Add_newline _Add_nl, ostream& _Ostr, const string_view _Fmt_str, const format_args _Fmt_args) {
+    const ostream::sentry _Ok(_Ostr);
+    ios_base::iostate _State = ios_base::goodbit;
+
+    if (!_Ok) {
+        _State |= ios_base::badbit;
+    } else {
+        // This is intentionally kept outside of the try/catch block in _Print_noformat_unicode()
+        // (see N4950 [ostream.formatted.print]/3.2).
+        string _Output_str = _STD vformat(_Ostr.getloc(), _Fmt_str, _Fmt_args);
+        if (_Add_nl == _Add_newline::_Yes) {
+            _Output_str.push_back('\n');
+        }
+
+        _State |= _STD _Print_noformat_unicode(_Ostr, _Output_str);
+    }
+
+    _Ostr.setstate(_State);
+}
+
+template <int = 0>
+void _Print_noformat(ostream& _Ostr, const string_view _Str) {
+    const ostream::sentry _Ok(_Ostr);
+    ios_base::iostate _State = ios_base::goodbit;
+
+    if (!_Ok) {
+        _State |= ios_base::badbit;
+    } else {
+        if constexpr (_STD _Is_ordinary_literal_encoding_utf8()) {
+            _State |= _STD _Print_noformat_unicode(_Ostr, _Str);
+        } else {
+            _State |= _STD _Print_noformat_nonunicode(_Ostr, _Str);
+        }
+    }
+
+    _Ostr.setstate(_State);
+}
+
+template <class... _Types>
+void _Print_impl(const _Add_newline _Add_nl, ostream& _Ostr, const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    constexpr bool _Has_format_args = sizeof...(_Types) > 0;
+
+    // This is intentionally kept outside of the try/catch block in _Print_noformat_*()
+    // (see N4950 [ostream.formatted.print]/3.2).
+
+    if constexpr (_Has_format_args) {
+        if constexpr (_STD _Is_ordinary_literal_encoding_utf8()) {
+            _STD _Vprint_unicode_impl(_Add_nl, _Ostr, _Fmt.get(), _STD make_format_args(_Args...));
+        } else {
+            _STD _Vprint_nonunicode_impl(_Add_nl, _Ostr, _Fmt.get(), _STD make_format_args(_Args...));
+        }
+    } else {
+        const string _Unescaped_str{_Unescape_braces(_Add_nl, _Fmt.get())};
+        _STD _Print_noformat(_Ostr, _Unescaped_str);
+    }
+}
+
+_EXPORT_STD template <class... _Types>
+void print(ostream& _Ostr, const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    _STD _Print_impl(_Add_newline::_Nope, _Ostr, _Fmt, _STD forward<_Types>(_Args)...);
+}
+
+_EXPORT_STD template <class... _Types>
+void println(ostream& _Ostr, const format_string<_Types...> _Fmt, _Types&&... _Args) {
+    _STD _Print_impl(_Add_newline::_Yes, _Ostr, _Fmt, _STD forward<_Types>(_Args)...);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void println(ostream& _Ostr) {
+    const ostream::sentry _Ok(_Ostr);
+    ios_base::iostate _State = ios_base::goodbit;
+
+    if (!_Ok) {
+        _State |= ios_base::badbit;
+    } else {
+        if constexpr (_STD _Is_ordinary_literal_encoding_utf8()) {
+            _State |= _STD _Print_newline_only_unicode(_Ostr);
+        } else {
+            _State |= _STD _Print_newline_only_nonunicode(_Ostr);
+        }
+    }
+
+    _Ostr.setstate(_State);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_unicode(ostream& _Ostr, const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD _Vprint_unicode_impl(_Add_newline::_Nope, _Ostr, _Fmt_str, _Fmt_args);
+}
+
+_EXPORT_STD template <int = 0> // improves throughput, see GH-2329
+void vprint_nonunicode(ostream& _Ostr, const string_view _Fmt_str, const format_args _Fmt_args) {
+    _STD _Vprint_nonunicode_impl(_Add_newline::_Nope, _Ostr, _Fmt_str, _Fmt_args);
+}
+#else // ^^^ defined(_CPPRTTI) / !defined(_CPPRTTI) vvv
+_EXPORT_STD template <class... _Types>
+void print(ostream&, format_string<_Types...>, _Types&&...) = delete; // requires /GR option
+
+_EXPORT_STD template <class... _Types>
+void println(ostream&, format_string<_Types...>, _Types&&...) = delete; // requires /GR option
+
+_EXPORT_STD void vprint_unicode(ostream&, string_view, format_args)    = delete; // requires /GR option
+_EXPORT_STD void vprint_nonunicode(ostream&, string_view, format_args) = delete; // requires /GR option
+#endif // ^^^ !defined(_CPPRTTI) ^^^
+#endif // ^^^ _HAS_CXX23 ^^^
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _OSTREAM_

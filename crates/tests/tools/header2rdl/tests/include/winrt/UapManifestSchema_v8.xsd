@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="PosPaymentConnector" type="CT_PosPaymentConnector"/>
+        <xs:element name="DataProtection" type="CT_DataProtection"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Uap8" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_PosPaymentConnector">
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="ActiveCodePage" type="ST_ActiveCodePage" />
+
+  <xs:simpleType name="ST_ActiveCodePage">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UTF-8"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="Tools">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Tool" minOccurs="0" maxOccurs="1000">
+          <xs:complexType>
+            <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+            <xs:attribute name="Route" type="t:ST_NonEmptyString" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Workspaces">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Workspace" minOccurs="0" maxOccurs="1000">
+          <xs:complexType>
+            <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+            <xs:attribute name="Route" type="t:ST_NonEmptyString" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attribute name="Launch" type="ST_Launch"/>
+
+  <xs:simpleType name="ST_Launch">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="file"/>
+      <xs:enumeration value="placeholderFile"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_DataProtection">
+    <xs:attribute name="UserDataAvailability" type="ST_UserDataAvailability" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_UserDataAvailability">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="always"/>
+      <xs:enumeration value="afterFirstUnlock"/>
+      <xs:enumeration value="whileUnlocked"/>
+      <xs:enumeration value="applicationManaged"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="AllowOverride" type="xs:boolean"/>
+  
+  <xs:element name="ExecutionAlias" substitutionGroup="uap3:ExecutionAliasChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element ref="desktop10:SupportedProtocols" />
+      </xs:choice>
+      <xs:attribute name="Alias" type="t:ST_ExecutableNoPath" use="required"/>
+      <xs:attribute ref="AllowOverride" use="optional"/>
+      <xs:attribute ref="desktop10:UseDesktopChangeRouter" use="optional"/>
+      <xs:attribute ref="desktop10:DropTarget" use="optional"/>
+      <xs:attribute ref="desktop10:UseUrl" use="optional"/>
+      <xs:attribute ref="desktop10:EnvironmentPath" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

@@ -1,0 +1,2423 @@
+//------------------------------------------------------------------------------
+// File: DVDIf.idl
+//
+// Desc: DirectShow interfaces to control playback of a DVD filter graph.
+//
+// Copyright (c) 1992-2002, Microsoft Corporation. All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+// forward declarations - these are the interfaces declared in this file
+
+import "unknwn.idl";
+import "objidl.idl";
+
+
+// Define for 'local' so that proxy-stubs can be generated for testing
+#ifndef AM_LOCAL
+#define AM_LOCAL local,
+#define AM_ANNOTATION(_x_) ,annotation(_x_)
+#endif
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#include <ddraw.h>")
+
+interface IDvdControl;
+interface IDvdInfo;
+interface IDirectDraw;
+interface IDirectDrawSurface;
+interface IDvdGraphBuilder ;
+interface IDDrawExclModeVideo;
+interface IDDrawExclModeVideoCallback;
+interface IDvdCmd;
+interface IDvdState;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//==========================================================================
+//==========================================================================
+//
+// typedefs used by IDvdControl and IDvdInfo interfaces.
+//
+//==========================================================================
+//==========================================================================
+
+typedef enum tagDVD_DOMAIN {
+    // The DVD_DOMAIN is used to indicate the stat of a DVD player.
+    DVD_DOMAIN_FirstPlay=1,       // doing default initialization of a dvd disc
+    DVD_DOMAIN_VideoManagerMenu,  // displaying menus for whole disc
+    DVD_DOMAIN_VideoTitleSetMenu, // displaying menus for current title set
+    DVD_DOMAIN_Title,             // displaying current title
+    DVD_DOMAIN_Stop               // player is in stopped state
+} DVD_DOMAIN;
+
+typedef enum tagDVD_MENU_ID {
+    DVD_MENU_Title = 2,     // to choose a title from any VTS in a DVD-Video volume
+    DVD_MENU_Root = 3,      // main menu for a specific VTS 
+    DVD_MENU_Subpicture =4, // to choose subpicture stream in a VTS
+    DVD_MENU_Audio = 5,     // to choose audio stream in a VTS
+    DVD_MENU_Angle = 6,     // to choose angle num in a VTS
+    DVD_MENU_Chapter = 7    // to choose a chapter in a VTS
+    // the Root menu always provides a means of getting to to Subpicture, Audio, 
+    // Angle and Chapter menus if they exist.
+} DVD_MENU_ID;
+
+typedef enum tagDVD_DISC_SIDE {
+    DVD_SIDE_A = 1,
+    DVD_SIDE_B = 2
+} DVD_DISC_SIDE;
+
+
+typedef enum tagDVD_PREFERRED_DISPLAY_MODE
+{
+    // DVD_PREFERRED_DISPLAY_MODE is used to indicate the user's
+    // preferred window aspect ratio and preferred method of converion of
+    // 16*9 content to a 4*3 window aspect ratio.  Pan-scan and letterboxing are
+    // the two conversion methods.  This enum is used to indicate only a preference of 
+    // conversion mechinism since some content can only be converted using one 
+    // of these methods.  4*3 content is converted to a 16*9 window always by using
+    // "reverse" letterboxing where black bars are added to the right and left 
+    // sides of the display instead of the top and bottom of the display as in the 16*9
+    // to 4*3 conversion useing letterboxing.
+    DISPLAY_CONTENT_DEFAULT = 0,    // default to content
+    DISPLAY_16x9 = 1,               // 16x9 display
+    DISPLAY_4x3_PANSCAN_PREFERRED = 2,   // 4x3 display with pan-scan preferrence
+    DISPLAY_4x3_LETTERBOX_PREFERRED = 3   // 4x3 display with letterbox preferrence
+
+} DVD_PREFERRED_DISPLAY_MODE;
+
+typedef WORD DVD_REGISTER;
+typedef DVD_REGISTER    GPRMARRAY[16]; // DVD-Video 1.0 has 16 16-bit General Parameter Registers
+typedef DVD_REGISTER    SPRMARRAY[24]; // DVD-Video 1.0 has 24 16-bit System Parameter Registers
+
+
+
+// these are only for IDVDInfo1 compatibility and require the DVD-Video 1.0 specification
+// Please use the IDVDInfo2's DVD_Title/MenuAttributes, DVD_VideoAttributes, DVD_AudioAttributes, and DVD_SubpictureAttributes
+typedef struct tagDVD_ATR 
+{
+    //
+    // Refer to the DVD-Video 1.0 spec to parse these structures.
+    //
+    ULONG    ulCAT;     // VMG_CAT if this is for a volume; or VTS_CAT 
+                        //      if this is for a Video Title Set (VTS)
+    BYTE    pbATRI[768];// All stream attributes for menu and title from bytes
+                        //      256 to 1023 of VMGI or VTSI.
+} DVD_ATR;
+typedef BYTE DVD_VideoATR[2];   // video stream attributes.
+typedef BYTE DVD_AudioATR[8];   // audio stream attributes.
+typedef BYTE DVD_SubpictureATR[6]; // subpicture stream attributes.
+
+// DVD1.0 Timecode is BCD encoded in this format: 0xHhMmSsFf, where
+//      H is tens of hours
+//      h is hours
+//      M is tens of minutes
+//      m is minutes
+//      S is tens of seconds
+//      s is seconds
+//      F is tens of frames
+//      f is frames
+// Note that you must know the frame rate to interperate the frame count as time.
+typedef enum tagDVD_FRAMERATE
+{
+    DVD_FPS_25 =1, // 25 frames per second
+    DVD_FPS_30NonDrop = 3 // exactly 30 frames per second
+} DVD_FRAMERATE;
+
+cpp_quote("typedef struct tagDVD_TIMECODE")
+cpp_quote("{")
+cpp_quote("   ULONG Hours1    :4; // Hours")
+cpp_quote("   ULONG Hours10  :4; // Tens of Hours ")
+cpp_quote("")
+cpp_quote("   ULONG Minutes1  :4; // Minutes ")
+cpp_quote("   ULONG Minutes10:4; // Tens of Minutes ")
+cpp_quote("")
+cpp_quote("   ULONG Seconds1  :4; // Seconds ")
+cpp_quote("   ULONG Seconds10:4; // Tens of Seconds ")
+cpp_quote("")
+cpp_quote("   ULONG Frames1   :4; // Frames ")
+cpp_quote("   ULONG Frames10 :2; // Tens of Frames ")
+cpp_quote("")
+cpp_quote("   ULONG FrameRateCode: 2; // use DVD_FRAMERATE to indicate frames/sec and drop/non-drop")
+cpp_quote("} DVD_TIMECODE;")
+
+
+typedef enum tagDVD_NavCmdType {
+    DVD_NavCmdType_Pre=1,
+    DVD_NavCmdType_Post=2,
+    DVD_NavCmdType_Cell=3,
+    DVD_NavCmdType_Button=4
+} DVD_NavCmdType;
+
+//
+//  Newer IDVD2 methods can use the HMSF format instead
+// Call SetOption( DVD_HMSF_TimeCodeEvents, TRUE) to return EC_DVD_CURRENT_HMSF_TIME
+// instead of EC_DVD_CURRENT_TIME events
+//
+typedef enum tagDVD_TIMECODE_FLAGS
+{
+    DVD_TC_FLAG_25fps         = 0x00000001, // 25 frames per second
+    DVD_TC_FLAG_30fps         = 0x00000002, // 30 frames per second
+    DVD_TC_FLAG_DropFrame     = 0x00000004, // 29.97 instead of 30 fps
+    DVD_TC_FLAG_Interpolated  = 0x00000008, // timecode may be inaccurate
+    // remainder of bits are reserved and should not be read
+} DVD_TIMECODE_FLAGS;
+
+// this can be cast to/from a ULONG
+typedef struct tagDVD_HMSF_TIMECODE
+{
+    BYTE    bHours;
+    BYTE    bMinutes;
+    BYTE    bSeconds;
+    BYTE    bFrames;
+} DVD_HMSF_TIMECODE;
+
+typedef struct tagDVD_PLAYBACK_LOCATION2 
+{
+    //
+    // TitleNum & ChapterNum or TitleNum & TimeCode are sufficient to save 
+    // playback location for One_Sequential_PGC_Titles.
+    //
+    ULONG   TitleNum;   // title number for whole disc (TTN not VTS_TTN)
+    ULONG   ChapterNum; // part-of-title number with title. 0xffffffff if not Once_Sequential_PGC_Title
+    DVD_HMSF_TIMECODE   TimeCode;   // use DVD_TIMECODE for current playback time.
+    ULONG   TimeCodeFlags;  // union of DVD_TIMECODE_EVENT_FLAGS
+
+} DVD_PLAYBACK_LOCATION2;
+
+typedef struct tagDVD_PLAYBACK_LOCATION 
+{
+    //
+    // TitleNum & ChapterNum or TitleNum & TimeCode are sufficient to save 
+    // playback location for One_Sequential_PGC_Titles.
+    //
+    ULONG   TitleNum;   // title number for whole disc (TTN not VTS_TTN)
+    ULONG   ChapterNum; // part-of-title number with title. 0xffffffff if not Once_Sequential_PGC_Title
+    ULONG   TimeCode;   // use DVD_TIMECODE for current playback time. 0xffffffff if not Once_Sequential_PGC_Title
+
+} DVD_PLAYBACK_LOCATION;
+
+typedef DWORD VALID_UOP_SOMTHING_OR_OTHER;
+
+typedef enum {
+                                                            //
+                                                            // Annex J User Functions ---
+                                                            //
+    UOP_FLAG_Play_Title_Or_AtTime           = 0x00000001,   // Title_Or_Time_Play
+    UOP_FLAG_Play_Chapter                   = 0x00000002,   // Chapter_Search_Or_Play
+    UOP_FLAG_Play_Title                     = 0x00000004,   // Title_Play
+    UOP_FLAG_Stop                           = 0x00000008,   // Stop
+    UOP_FLAG_ReturnFromSubMenu              = 0x00000010,   // GoUp
+    UOP_FLAG_Play_Chapter_Or_AtTime         = 0x00000020,   // Time_Or_Chapter_Search
+    UOP_FLAG_PlayPrev_Or_Replay_Chapter     = 0x00000040,   // Prev_Or_Top_PG_Search
+    UOP_FLAG_PlayNext_Chapter               = 0x00000080,   // Next_PG_Search
+    UOP_FLAG_Play_Forwards                  = 0x00000100,   // Forward_Scan
+    UOP_FLAG_Play_Backwards                 = 0x00000200,   // Backward_Scan
+    UOP_FLAG_ShowMenu_Title                 = 0x00000400,   // Title_Menu_Call
+    UOP_FLAG_ShowMenu_Root                  = 0x00000800,   // Root_Menu_Call
+    UOP_FLAG_ShowMenu_SubPic                = 0x00001000,   // SubPic_Menu_Call
+    UOP_FLAG_ShowMenu_Audio                 = 0x00002000,   // Audio_Menu_Call
+    UOP_FLAG_ShowMenu_Angle                 = 0x00004000,   // Angle_Menu_Call
+    UOP_FLAG_ShowMenu_Chapter               = 0x00008000,   // Chapter_Menu_Call
+    UOP_FLAG_Resume                         = 0x00010000,   // Resume
+    UOP_FLAG_Select_Or_Activate_Button      = 0x00020000,   // Button_Select_Or_Activate
+    UOP_FLAG_Still_Off                      = 0x00040000,   // Still_Off
+    UOP_FLAG_Pause_On                       = 0x00080000,   // Pause_On
+    UOP_FLAG_Select_Audio_Stream            = 0x00100000,   // Audio_Stream_Change
+    UOP_FLAG_Select_SubPic_Stream           = 0x00200000,   // SubPic_Stream_Change
+    UOP_FLAG_Select_Angle                   = 0x00400000,   // Angle_Change
+    UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode = 0x00800000, // Karaoke_Audio_Pres_Mode_Change
+    UOP_FLAG_Select_Video_Mode_Preference           = 0x01000000  // Video_Pres_Mode_Change
+} VALID_UOP_FLAG ;
+
+typedef enum {
+    DVD_CMD_FLAG_None               = 0x00000000,
+    DVD_CMD_FLAG_Flush              = 0x00000001,
+    DVD_CMD_FLAG_SendEvents         = 0x00000002,
+    DVD_CMD_FLAG_Block              = 0x00000004,    // block end
+    DVD_CMD_FLAG_StartWhenRendered  = 0x00000008,    // command "start" when the first frame is rendered
+    DVD_CMD_FLAG_EndAfterRendered   = 0x00000010,    // command "ends" after the last frame is rendered
+} DVD_CMD_FLAGS;
+
+
+// For IDVDControl2::SetOption flags
+typedef enum {
+    DVD_ResetOnStop               = 1,  // default TRUE
+    DVD_NotifyParentalLevelChange = 2,  // default FALSE
+    DVD_HMSF_TimeCodeEvents       = 3,  // default FALSE (send DVD_CURRENT_TIME events)
+    DVD_AudioDuringFFwdRew        = 4,  // default FALSE (or by reg)
+    DVD_EnableNonblockingAPIs     = 5,  // default FALSE
+    DVD_CacheSizeInMB             = 6,  // default FALSE (or by reg)
+    DVD_EnablePortableBookmarks   = 7,  // default FALSE
+    DVD_EnableExtendedCopyProtectErrors = 8,  // default FALSE
+    DVD_NotifyPositionChange      = 9,  // default FALSE
+    DVD_IncreaseOutputControl     = 10,  // default FALSE
+    DVD_EnableStreaming           = 11, // default TRUE
+    DVD_EnableESOutput 	          = 12, // default FALSE
+    DVD_EnableTitleLength         = 13, // default FALSE, report title length in VideoAttributes
+    DVD_DisableStillThrottle      = 14, // default FALSE, disable app throttling during still menus
+    DVD_EnableLoggingEvents       = 15,  // default FALSE
+    DVD_MaxReadBurstInKB          = 16,
+    DVD_ReadBurstPeriodInMS       = 17,
+    DVD_RestartDisc               = 18,
+    DVD_EnableCC                  = 19,
+} DVD_OPTION_FLAG;
+
+typedef enum {
+    DVD_Relative_Upper   = 1,
+    DVD_Relative_Lower   = 2,
+    DVD_Relative_Left    = 3,
+    DVD_Relative_Right   = 4
+} DVD_RELATIVE_BUTTON;
+
+// Parental Level Information
+typedef enum tagDVD_PARENTAL_LEVEL
+{
+    DVD_PARENTAL_LEVEL_8 = 0x8000,
+    DVD_PARENTAL_LEVEL_7 = 0x4000,
+    DVD_PARENTAL_LEVEL_6 = 0x2000,
+    DVD_PARENTAL_LEVEL_5 = 0x1000,
+    DVD_PARENTAL_LEVEL_4 = 0x0800,
+    DVD_PARENTAL_LEVEL_3 = 0x0400,
+    DVD_PARENTAL_LEVEL_2 = 0x0200,
+    DVD_PARENTAL_LEVEL_1 = 0x0100
+} DVD_PARENTAL_LEVEL;
+
+
+typedef enum tagDVD_AUDIO_LANG_EXT
+{
+    DVD_AUD_EXT_NotSpecified        =0,
+    DVD_AUD_EXT_Captions            =1,
+    DVD_AUD_EXT_VisuallyImpaired    =2,
+    DVD_AUD_EXT_DirectorComments1   =3,
+    DVD_AUD_EXT_DirectorComments2   =4,
+} DVD_AUDIO_LANG_EXT;
+
+typedef enum tagDVD_SUBPICTURE_LANG_EXT
+{
+    DVD_SP_EXT_NotSpecified     =0,
+    DVD_SP_EXT_Caption_Normal   =1,
+    DVD_SP_EXT_Caption_Big      =2,
+    DVD_SP_EXT_Caption_Children =3,
+    DVD_SP_EXT_CC_Normal        =5,
+    DVD_SP_EXT_CC_Big           =6,
+    DVD_SP_EXT_CC_Children      =7,
+    DVD_SP_EXT_Forced           =9,
+    DVD_SP_EXT_DirectorComments_Normal      =13,
+    DVD_SP_EXT_DirectorComments_Big         =14,
+    DVD_SP_EXT_DirectorComments_Children    =15,
+} DVD_SUBPICTURE_LANG_EXT;
+
+typedef enum tagDVD_AUDIO_APPMODE
+{
+    DVD_AudioMode_None     = 0, // no special mode
+    DVD_AudioMode_Karaoke  = 1,
+    DVD_AudioMode_Surround = 2, 
+    DVD_AudioMode_Other    = 3, 
+} DVD_AUDIO_APPMODE;
+
+typedef enum tagDVD_AUDIO_FORMAT
+{
+    DVD_AudioFormat_AC3       = 0,
+    DVD_AudioFormat_MPEG1     = 1,
+    DVD_AudioFormat_MPEG1_DRC = 2,    // MPEG1 with dynamic range control
+    DVD_AudioFormat_MPEG2     = 3,
+    DVD_AudioFormat_MPEG2_DRC = 4,    // MPEG2 with dynamic range control
+    DVD_AudioFormat_LPCM      = 5,
+    DVD_AudioFormat_DTS       = 6,
+    DVD_AudioFormat_SDDS      = 7,
+    DVD_AudioFormat_Other     = 8
+} DVD_AUDIO_FORMAT;
+
+// flags for SelectKaraokeAudioPresentationMode
+typedef enum tagDVD_KARAOKE_DOWNMIX
+{
+    DVD_Mix_0to0 = 0x0001,  // unused - reserved for future use
+    DVD_Mix_1to0 = 0x0002,  // unused - reserved for future use
+    DVD_Mix_2to0 = 0x0004,
+    DVD_Mix_3to0 = 0x0008,
+    DVD_Mix_4to0 = 0x0010,
+    DVD_Mix_Lto0 = 0x0020,  // mix auxillary L to channel 0 (left speaker)
+    DVD_Mix_Rto0 = 0x0040,  // mix auxillary R to channel 0 (left speaker)
+
+    DVD_Mix_0to1 = 0x0100,  // unused - reserved for future use
+    DVD_Mix_1to1 = 0x0200,  // unused - reserved for future use
+    DVD_Mix_2to1 = 0x0400,
+    DVD_Mix_3to1 = 0x0800,
+    DVD_Mix_4to1 = 0x1000,
+    DVD_Mix_Lto1 = 0x2000,  // mix auxillary L to channel 1 (right speaker)
+    DVD_Mix_Rto1 = 0x4000,  // mix auxillary R to channel 1 (right speaker)
+} DVD_KARAOKE_DOWNMIX;
+
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+typedef struct tagDVD_AudioAttributes
+{
+    DVD_AUDIO_APPMODE   AppMode;
+    BYTE                AppModeData;            
+    DVD_AUDIO_FORMAT    AudioFormat;            // Use GetKaraokeAttributes()
+    LCID                Language;               // 0 if no language is present
+    DVD_AUDIO_LANG_EXT  LanguageExtension;      // (captions, if for children etc)
+    BOOL                fHasMultichannelInfo;   // multichannel attributes are present (Use GetMultiChannelAudioAttributes())
+    DWORD               dwFrequency;            // in hertz (48k, 96k)
+    BYTE                bQuantization;          // resolution (16, 20, 24 bits etc), 0 is unknown
+    BYTE                bNumberOfChannels;      // 5.1 AC3 has 6 channels
+    DWORD               dwReserved[2];
+} DVD_AudioAttributes;
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+typedef struct tagDVD_MUA_MixingInfo
+{   
+    // surround sound mixing information applied when:
+    // AppMode = DVD_AudioMode_Surround
+    // AudioFormat = DVD_AudioFormat_LPCM,
+    // fHasMultichannelInfo=1 modes are all on
+    //
+    BOOL    fMixTo0;
+    BOOL    fMixTo1;
+
+    //
+    BOOL    fMix0InPhase;
+    BOOL    fMix1InPhase;
+
+    DWORD   dwSpeakerPosition;  // see ksmedia.h: SPEAKER_FRONT_LEFT, SPEAKER_FRONT_RIGHT, etc
+} DVD_MUA_MixingInfo;
+
+//  The alpha coeff is used to mix to ACH0 and beta is used to mix to ACH1
+//
+//  In general:
+//      ACH0 = coeff[0].alpha * value[0] + coeff[1].alpha * value[1] + ... 
+//      ACH1 = coeff[0].beta * value[0]  + coeff[1].beta * value[1] + ... 
+typedef struct tagDVD_MUA_Coeff
+{
+    double   log2_alpha; // actual coeff = 2^alpha
+    double   log2_beta;  // actual coeff = 2^beta
+} DVD_MUA_Coeff;
+
+typedef struct tagDVD_MultichannelAudioAttributes
+{
+    // actual Data for each data stream
+    DVD_MUA_MixingInfo  Info[8];
+    DVD_MUA_Coeff       Coeff[8];
+} DVD_MultichannelAudioAttributes;
+
+// bitwise OR of these flags descript the contents of each channel
+typedef enum tagDVD_KARAOKE_CONTENTS
+{
+    DVD_Karaoke_GuideVocal1  = 0x0001,
+    DVD_Karaoke_GuideVocal2  = 0x0002,
+    DVD_Karaoke_GuideMelody1 = 0x0004,
+    DVD_Karaoke_GuideMelody2 = 0x0008,
+    DVD_Karaoke_GuideMelodyA = 0x0010,
+    DVD_Karaoke_GuideMelodyB = 0x0020,
+    DVD_Karaoke_SoundEffectA = 0x0040,
+    DVD_Karaoke_SoundEffectB = 0x0080
+} DVD_KARAOKE_CONTENTS;
+
+typedef enum tagDVD_KARAOKE_ASSIGNMENT
+{
+    DVD_Assignment_reserved0   = 0,
+    DVD_Assignment_reserved1   = 1,
+    DVD_Assignment_LR    = 2,   // left right
+    DVD_Assignment_LRM   = 3,   // left right middle
+    DVD_Assignment_LR1   = 4,   // left right audio1
+    DVD_Assignment_LRM1  = 5,   // left right middle audio1
+    DVD_Assignment_LR12  = 6,   // left right audio1 audio2
+    DVD_Assignment_LRM12 = 7        // left right middle audio1 audio2
+} DVD_KARAOKE_ASSIGNMENT;
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+typedef struct tagDVD_KaraokeAttributes
+{
+    BYTE            bVersion;
+    BOOL            fMasterOfCeremoniesInGuideVocal1;
+    BOOL            fDuet;  // false = solo
+    DVD_KARAOKE_ASSIGNMENT  ChannelAssignment;
+    WORD            wChannelContents[8];        // logical OR of DVD_KARAOKE_CONTENTS  
+} DVD_KaraokeAttributes;
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+typedef enum tagDVD_VIDEO_COMPRESSION
+{
+    DVD_VideoCompression_Other  = 0,
+    DVD_VideoCompression_MPEG1  = 1,
+    DVD_VideoCompression_MPEG2  = 2,
+} DVD_VIDEO_COMPRESSION;
+
+typedef struct tagDVD_VideoAttributes
+{
+    BOOL        fPanscanPermitted;      // if a 4x3 display, can be shown as PanScan
+    BOOL        fLetterboxPermitted;    // if a 4x3 display, can be shown as Letterbox
+    ULONG       ulAspectX;              // 4x3 or 16x9
+    ULONG       ulAspectY;
+    ULONG       ulFrameRate;            // 50hz or 60hz
+    ULONG       ulFrameHeight;          // 525 (60hz) or 625 (50hz)
+    DVD_VIDEO_COMPRESSION   Compression;// MPEG1 or MPEG2
+
+    BOOL        fLine21Field1InGOP;     // true if there is user data in field 1 of GOP of video stream
+    BOOL        fLine21Field2InGOP;     // true if there is user data in field 1 of GOP of video stream
+
+    ULONG       ulSourceResolutionX;    // X source resolution (352,704, or 720)
+    ULONG       ulSourceResolutionY;    // Y source resolution (240,480, 288 or 576)
+
+    BOOL        fIsSourceLetterboxed;   // subpictures and highlights (e.g. subtitles or menu buttons) are only
+                                        // displayed in the active video area and cannot be displayed in the top/bottom 'black' bars
+    BOOL        fIsFilmMode;          // for 625/50hz systems, is film mode (true) or camera mode (false) 
+} DVD_VideoAttributes;
+
+typedef enum tagDVD_SUBPICTURE_TYPE
+{
+    DVD_SPType_NotSpecified = 0,
+    DVD_SPType_Language     = 1,
+    DVD_SPType_Other        = 2,
+} DVD_SUBPICTURE_TYPE;
+
+typedef enum tagDVD_SUBPICTURE_CODING
+{
+    DVD_SPCoding_RunLength    = 0,
+    DVD_SPCoding_Extended     = 1,
+    DVD_SPCoding_Other        = 2,
+} DVD_SUBPICTURE_CODING;
+
+typedef struct tagDVD_SubpictureAttributes
+{
+    DVD_SUBPICTURE_TYPE     Type;
+    DVD_SUBPICTURE_CODING   CodingMode;
+    LCID                    Language;
+    DVD_SUBPICTURE_LANG_EXT LanguageExtension;
+} DVD_SubpictureAttributes;
+
+typedef enum tagDVD_TITLE_APPMODE
+{
+    DVD_AppMode_Not_Specified = 0, // no special mode
+    DVD_AppMode_Karaoke  = 1,
+    DVD_AppMode_Other    = 3, 
+} DVD_TITLE_APPMODE;
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+typedef struct tagDVD_TitleMainAttributes 
+{
+    // for Titles
+    union {
+    DVD_TITLE_APPMODE           AppMode;
+    DVD_HMSF_TIMECODE           TitleLength;
+    };
+
+    // Attributes about the 'main' video of the menu or title
+    DVD_VideoAttributes         VideoAttributes;
+
+    ULONG                       ulNumberOfAudioStreams;
+    DVD_AudioAttributes         AudioAttributes[8];
+    // present if the multichannel bit is set in the corresponding stream's audio attributes
+    DVD_MultichannelAudioAttributes     MultichannelAudioAttributes[8];
+
+    ULONG                       ulNumberOfSubpictureStreams;
+    DVD_SubpictureAttributes    SubpictureAttributes[32];
+} DVD_TitleAttributes;
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+
+typedef struct tagDVD_MenuAttributes 
+{
+    // for VMG only 
+    BOOL                        fCompatibleRegion[8];  // indeces 0..7 correspond to regions 1..8
+
+    // Attributes about the main menu (VMGM or VTSM)
+    DVD_VideoAttributes         VideoAttributes;
+
+    BOOL                        fAudioPresent;
+    DVD_AudioAttributes         AudioAttributes;
+
+    BOOL                        fSubpicturePresent;
+    DVD_SubpictureAttributes    SubpictureAttributes;
+} DVD_MenuAttributes;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//==========================================================================
+//==========================================================================
+// IDvdControl interface -- Basic DVD-Video playback control.
+// This modeled after the app control of a player specified in Annex J 
+// of the DVD Video spec.  IDvdInfo can be used to get information useful
+// in using IDvdControl
+//==========================================================================
+//==========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(A70EFE61-E2A3-11d0-A9BE-00AA0061BE93),
+pointer_default(unique)
+]
+
+interface IDvdControl : IUnknown {
+    import "unknwn.idl";
+    
+    // TitlePlay 
+    // Start playing the specified title number. 
+    // Title numbers range between 1 and 99.
+    HRESULT TitlePlay
+    ( [in]  ULONG   ulTitle
+    );
+
+    // ChapterPlay
+    // Start playing at the specified chapter (or part-of-title) 
+    // within the specified title.  Chapters range from 1 to 999.
+    HRESULT ChapterPlay
+    ( [in]  ULONG   ulTitle, 
+      [in]  ULONG   ulChapter
+    );
+
+    // TimePlay
+    // Start playing at the specified time within the specified title.
+    // NOTE: the actual start time will be the closest sync point before
+    // or equal to the specified frame number.
+    HRESULT TimePlay
+    ( [in]  ULONG   ulTitle,
+      [in]  ULONG   bcdTime  // use DVD_TIMECODE.  Framerate code is ignored.
+    );
+
+    // StopForResume
+    // Stop playback after saving resume information.  DVD Navigator transfers to the DVD "Stop State" and 
+    // (same as DVD_DOMAIN_Stop), but filter graph remains in DirectShow's Run state.
+    HRESULT StopForResume();     
+
+    // GoUp
+    // Start playback of the program chain currently authored as the "GoUp_PGCN".
+    HRESULT GoUp();     
+
+    // TimeSearch
+    // Start playing at the specified time within the current title.
+    // NOTE: the actual start time will be the closest sync point before
+    // or equal to the specified frame number.
+    HRESULT TimeSearch
+    ( [in]  ULONG   bcdTime  // use DVD_TIMECODE.  Framerate code is ignored.
+    );      
+
+    // ChapterSearch
+    // Start playing at the specified chapter (or part-of-title) within
+    // the current title.
+    HRESULT ChapterSearch
+    ( [in]  ULONG   ulChapter
+    );      
+
+    // PrevPGSearch
+    // Start playing at the beginning of the previous DVD "program".
+    // For One-Sequential_PGC_Titles (which includes most titles) a program 
+    // is equivalent to a chapter, otherwise a program is part of a chapter. 
+    HRESULT PrevPGSearch();     
+
+    // TopPGSearch
+    // Start playing from the beginning of they current program.
+    HRESULT TopPGSearch();      
+
+    // NextPGSearch
+    // Start playing from the beginning of the next program.
+    HRESULT NextPGSearch();     
+
+    // ForwardScan
+    // Set forward play at the specified speed.  
+    //      dwSpeed == 1 is normal play
+    //      dwSpeed  < 1 is slow play
+    //      dwSpeed  > 1 is fast play
+    // For dwSpeed != 1, audio and subpicture is muted.
+    HRESULT ForwardScan
+    ( [in]  double  dwSpeed
+    );      
+
+    // BackwardScan
+    // Set reverse play at the specified speed.  
+    //      dwSpeed == 1 is normal play speed in reverse
+    //      dwSpeed  < 1 is slow play in reverse
+    //      dwSpeed  > 1 is fast play in reverse
+    // For reverse play, audio and subpicture are always muted.
+    HRESULT BackwardScan
+    ( [in]  double  dwSpeed
+    );      
+
+    // MenuCall
+    // Start playback of the Menu specified by an enum DVD_MENU_ID.
+    HRESULT MenuCall
+    ( [in]  DVD_MENU_ID   MenuID  
+    );      
+
+    // Resume
+    // Returns to title playback in DVD_DOMAIN_Title. This is typically
+    // done after MenuCall which puts the DVD Navigator in 
+    // DVD_DOMAIN_VideoTitleSetMenu or DVD_DOMAIN_VideoManagerMenu.
+    HRESULT Resume();       
+
+    // UpperButtonSelect
+    // Selects the button above the current button.
+    // "Selecting" a DVD button simply highlights the button but does
+    // not "Activate" the button.  Selecting is the Windows equivalent 
+    // to tabbing to a button but not pressing the space bar or enter key.
+    // Activating is the Windows equivalent of pressing the space bar or
+    // enter key after tabbing to a button.
+    HRESULT UpperButtonSelect();        
+
+    // LowerButtonSelect
+    // Selects the button below the current button.
+    HRESULT LowerButtonSelect();        
+
+    // LeftButtonSelect
+    // Selects the button to the left of the current button.
+    HRESULT LeftButtonSelect();     
+
+    // RightButtonSelect
+    // Selects the button to the right of the current button.
+    HRESULT RightButtonSelect();        
+
+    // ButtonActivate
+    // Activates current button.
+    HRESULT ButtonActivate();       
+
+    // ButtonSelectAndActivate
+    // Selects and then activates the button specified by the user.  
+    // ulButton is intended to be a number entered by a user corresponding
+    // to button numbers currently displayed on screen.  
+    // Button numbers range from 1 to 36.
+    HRESULT ButtonSelectAndActivate
+    ( [in]  ULONG   ulButton
+    );      
+
+    // StillOff
+    // Releases any current still if there are no available buttons.
+    // This includes VOBU stills, Cell stills, and PGC stills, whether the 
+    // still is infinite.  When buttons are available, stills are released by
+    // activating a button.  Note this does not release a Pause.
+    HRESULT StillOff();     
+
+    // PauseOn
+    // Freezes playback and any internal timers. This is similar to
+    // IMediaControl::Pause()
+    HRESULT PauseOn();      
+
+    // PauseOff
+    // Releases a Pause.  
+    HRESULT PauseOff();     
+
+    // MenuLanguageSelect
+    // Selects the default language for menus.  Languages are specified with
+    // Windows standard LCIDs.  LCIDs can be created from ISO-639 codes with
+    // MAKELCID( MAKELANGID(wISO639LangID ,SUBLANG_DEFAULT ), SORT_DEFAULT )
+    // MenuLanguageSelect may only called from the DVD Stop state (DVD_DOMAIN_Stop).
+    HRESULT MenuLanguageSelect
+    ( [in]  LCID    Language
+    );      
+
+    // AudioStreamChange
+    // Changes the current audio stream.
+    HRESULT AudioStreamChange
+    ( [in]  ULONG   ulAudio
+    );      
+
+    // SubpictureStreamChange
+    // Changes the current subpicture stream number to nSubpic, and toggles 
+    // its display.
+    HRESULT SubpictureStreamChange
+    ( [in]  ULONG   ulSubPicture,
+      [in]  BOOL    bDisplay
+    );      
+
+    // AngleChange
+    // Changes the current angle number.
+    HRESULT AngleChange
+    ( [in]  ULONG   ulAngle
+    );      
+
+    // ParentalLevelSelect
+    // Selects the current player parental level between 1 and 8.  The
+    // defined parental levels are listed below :
+    //
+    //      Level   Rating  
+    //      -----   ------  
+    //
+    //      1       G       
+    //      3       PG      
+    //      4       PG13    
+    //      6       R       
+    //      7       NC17    
+    // Higher levels can play lower level content; lower levels cannot play 
+    // higher level content.  The DVD Navigator provides no restriction on
+    // setting the parental level.  DVD player application may enforce 
+    // restriction on parental level setting, such as password protection for 
+    // raising the current parental level.  Parental Management is disabled in
+    // the Navigator by default.
+    //
+    //      Note : To disable parental management, pass 0xffffffff for ulParentalLevel
+    //                 If parental management is disabled, then the player will play the
+    //                 first PGC in a parental block regardless of parental IDs.
+    //
+    HRESULT ParentalLevelSelect
+    ( [in]  ULONG   ulParentalLevel  
+    );      
+
+    // ParentalCountrySelect
+    // Sets the country/region in which to interpret the the Parental Level.
+    // The country/region specified using the Alpha-2 code of the ISO-3166 standard,
+    // with the addition of 'ZZ' 
+    HRESULT ParentalCountrySelect
+    ( [in]  WORD    wCountry
+    );      
+
+    // KaraokeAudioPresentationModeChange
+    // Sets the Karaoke audio mode.  
+    // NOTE: This and all other Karoke support is currently not implemented.
+    HRESULT KaraokeAudioPresentationModeChange
+    ( [in] ULONG    ulMode
+    );      
+
+    // VideoModePreferrence
+    // The user can specify the preferred display mode that should
+    // be used to display content. The parameter is a ULONG that has
+    // one of the values defined in DVD_PREFERRED_DISPLAY_MODE
+    HRESULT VideoModePreferrence
+    ( [in]  ULONG    ulPreferredDisplayMode
+    );
+    
+    // SetRoot
+    // Sets the root directory containing the DVD-Video volume. 
+    // Can only be called from the DVD Stop State (DVD_DOMAIN_Stop).
+    // If the root directory is not successfully set before 
+    // IMediaControl::Play is called, the first drive starting from c:
+    // containing a VIDEO_TS directory in the top level directory
+    // will be used as the root.
+    HRESULT SetRoot
+    ( [in]  LPCWSTR     pszPath
+    );        
+
+    // MouseActivate
+    // This is typically called in response to a mouse click.
+    // The specified point within the display window is to see if it is
+    // within a current DVD button's highlight rect.  If it is, that 
+    // button is first selected, then activated.  
+    // NOTE: DVD Buttons do not all necessarily have highlight rects,
+    // button rects can overlap, and button rects do not always
+    // correspond to the visual representation of DVD buttons.
+    HRESULT MouseActivate       // typically called after a mouse click
+    ( [in]  POINT       point
+    );
+
+    // MouseSelect
+    // This is typically called in response to a mouse move within the 
+    // display window.
+    // The specified point within the display window is to see if it is
+    // within a current DVD button's highlight rect.  If it is, that 
+    // button is selected.
+    // NOTE: DVD Buttons do not all necessarily have highlight rects,
+    // button rects can overlap, and button rects do not always
+    // correspond to the visual representation of DVD buttons.
+    HRESULT MouseSelect         // typically called after a mouse move
+    ( [in]  POINT       point
+    );
+    
+    // ChapterPlayAutoStop
+    // Start playing at the specified chapter within the specified title
+    // and play the number of chapters specified by the third parameter.
+    // Chapters range from 1 to 999.
+    HRESULT ChapterPlayAutoStop
+    ( [in] ULONG ulTitle,           // title number
+      [in] ULONG ulChapter,         // chapter number to start playback
+      [in] ULONG ulChaptersToPlay   // number of chapters to play from the start chapter
+    );
+}
+
+
+
+//==========================================================================
+//==========================================================================
+// IDvdInfo interface -- allow an app to query for attributes of available 
+// DVD titles and DVD player status.  Also allow for control of a DVD 
+// player beyond Annex J in the DVD spec.
+//==========================================================================
+//==========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(A70EFE60-E2A3-11d0-A9BE-00AA0061BE93),
+pointer_default(unique)
+]
+
+interface IDvdInfo : IUnknown {
+    import "unknwn.idl";
+
+    // GetCurrentDomain
+    // Returns the current DVD Domain of the DVD player.
+    HRESULT GetCurrentDomain
+    ( [out] DVD_DOMAIN *pDomain 
+    );
+
+    // GetCurrentLocation
+    // Returns information sufficient to restart playback of a video
+    // from the current playback location in titles that don't explicitly
+    // disable seeking to the current location.
+    HRESULT GetCurrentLocation
+    ( [out AM_ANNOTATION("_Out_")] DVD_PLAYBACK_LOCATION *pLocation
+    );
+
+    // GetTotalTitleTime
+    // Return the total playback time for the current title.  Only works
+    // for One_Sequential_PGC_Titles.
+    HRESULT GetTotalTitleTime
+    ( [out AM_ANNOTATION("_Out_")] ULONG * pulTotalTime // use DVD_TIMECODE.
+    );
+
+    // GetCurrentButton
+    // Indicates the number of currently available buttons and the current
+    // selected button number. If buttons are not present it returns 0 for
+    // both pulButtonsAvailable and pulCurrentButton
+    HRESULT GetCurrentButton
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulButtonsAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentButton
+    );
+
+    // GetCurrentAngle
+    // Indicates the number of currently available angles and the current
+    // selected angle number.  If *pnAnglesAvailable==1, then the current
+    // video is not multiangle.
+    HRESULT GetCurrentAngle
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulAnglesAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentAngle
+    );
+
+    // GetCurrentAudio
+    // Indicates the number of currently available audio streams and 
+    // the current selected audio stream number.
+    // This only work when in DVD_DOMAIN_Title.
+    HRESULT GetCurrentAudio
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulStreamsAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentStream
+    );
+
+    // GetCurrentSubpicture
+    // Indicates the number of currently available subpicture streams,
+    // the current selected subpicture stream number, and if the 
+    // subpicture display is currently disabled.  Subpicture streams 
+    // authored as Forcedly Activated stream will be displayed even if
+    // subpicture display has been disabled by the app with 
+    // IDVDControl::SubpictureChangeStream.
+    // This only work when in DVD_DOMAIN_Title.
+    HRESULT GetCurrentSubpicture
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulStreamsAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentStream,
+      [out AM_ANNOTATION("_Out_")] BOOL *     pIsDisabled
+    );
+
+    // GetCurrentUOPS
+    // Indicates which IDVDControl methods are currently valid.  DVD titles
+    // can enable or disable individual user operations at almost any point 
+    // during playback.
+    HRESULT GetCurrentUOPS  
+    ( [out AM_ANNOTATION("_Out_")] VALID_UOP_SOMTHING_OR_OTHER *    pUOP
+    );
+
+    // GetAllSPRMs
+    // Returns the current contents of all System Parameter Registers.
+    // See DVD-Video spec for use of individual registers.
+    HRESULT GetAllSPRMs
+    ( [out AM_ANNOTATION("_Out_")] SPRMARRAY * pRegisterArray
+    );
+
+    // GetAllGPRMs
+    // Returns the current contents of all General Parameter Registers.
+    // Use of GPRMs is title specific. 
+    HRESULT GetAllGPRMs
+    ( [out AM_ANNOTATION("_Out_")] GPRMARRAY * pRegisterArray
+    );
+
+    // GetAudioLanguage
+    // Returns the language of the specified stream within the current
+    // title.  Does not return languages for menus.  Sets *pLanguage=0 if
+    // if the stream does not include language.
+    // Use GetLocaleInfo(*pLanguage, LOCALE_SENGLANGUAGE, pszString, cbSize)
+    // to create a human readable string name from the result LCID.
+    HRESULT GetAudioLanguage
+    ( [in]  ULONG        ulStream, 
+      [out AM_ANNOTATION("_Out_")] LCID *       pLanguage
+    );
+
+    // GetSubpictureLanguage
+    // Returns the language of the specified stream within the current
+    // title.  Does not return languages for menus.  Sets *pLanguage=0 if
+    // if the stream does not include language.
+    // Use GetLocaleInfo(*pLanguage, LOCALE_SENGLANGUAGE, pszString, cbSize)
+    // to create a human readable string name from the result LCID.
+    HRESULT GetSubpictureLanguage
+    ( [in]  ULONG        ulStream, 
+      [out AM_ANNOTATION("_Out_")] LCID *       pLanguage
+    );
+
+    // GetTitleAttributes
+    // Returns attributes of all video, audio, and subpicture 
+    // streams for the specified title including menus.  
+    // If nTitle == 0xffffffff, attributes for the current title are returned.
+    HRESULT GetTitleAttributes
+    ( [in]  ULONG       ulTitle, // requested title number
+      [out AM_ANNOTATION("_Out_")] DVD_ATR *   pATR 
+    );
+
+    // GetVMGAttributes
+    // Returns attributes of all video, audio, and subpicture 
+    // streams for Video Manager Menus.  Some menus, such as the DVD_MENU_Title
+    // are in a separate group of streams called the VMG (Video Manager) and
+    // are not associated with any particular title number.
+    HRESULT GetVMGAttributes
+    ( [out AM_ANNOTATION("_Out_")] DVD_ATR *   pATR 
+    );
+
+    // GetCurrentVideoAttributes
+    // Returns the video attributes for the current title or menu.
+    HRESULT GetCurrentVideoAttributes
+    ( [out AM_ANNOTATION("_Out_")] DVD_VideoATR *pATR 
+    );
+
+    // GetCurrentAudioAttributes
+    // Returns the video attributes for the stream in the current 
+    // title or menu.
+    HRESULT GetCurrentAudioAttributes
+    ( [out AM_ANNOTATION("_Out_")] DVD_AudioATR *pATR 
+    );
+
+    // GetCurrentSubpictureAttributes
+    // Returns the video attributes for the stream in the current 
+    // title or menu.
+    HRESULT GetCurrentSubpictureAttributes
+    ( [out AM_ANNOTATION("_Out_")] DVD_SubpictureATR *pATR 
+    );
+
+
+    // GetCurrentVolumeInfo
+    // Returns current DVD volume info.
+    HRESULT GetCurrentVolumeInfo
+    ( [out AM_ANNOTATION("_Out_")] ULONG *pulNumOfVol,   // number of volumes (disc sides?) in a volume set
+      [out AM_ANNOTATION("_Out_")] ULONG *pulThisVolNum, // volume number for this root directory
+      [out AM_ANNOTATION("_Out_")] DVD_DISC_SIDE *pSide, // current disc side
+      [out AM_ANNOTATION("_Out_")] ULONG *pulNumOfTitles // number of titles available in this volume
+    );
+
+
+    // GetDVDTextInfo
+    // Returns the TXTDT_MG structure, which can contain text descriptions for title
+    // name, volume name, producer name, vocalist name, etc. in various languages.
+    // refer to Section 4.1.6 and Annex A of the DVD-Video spec.
+    // If the buffer size passed in is insufficient (for example if cbBufSize==0),
+    // then E_OUTOFMEMORY is returned, and *pcbActualSize is set to the required size.
+    HRESULT GetDVDTextInfo
+    ( [out, size_is(ulBufSize) AM_ANNOTATION("_Out_writes_bytes_to_(ulBufSize, *pulActualSize)")] BYTE *pTextManager, 
+      [in]  ULONG ulBufSize,        // buffer size passed in
+      [out AM_ANNOTATION("_Out_")] ULONG *pulActualSize    // amount of actual data return
+    );
+
+    //  GetPlayerParentalLevel
+    //  Returns the current parental level and the current country/region code
+    //  that has been set in the system registers in player. 
+    //  See Table 3.3.4-1 of the DVD-Video spec for the defined parental levels.
+    //  Valid Parental Levels = 1..8 if parental management is enabled
+    //  0xffffffff if parental management is disabled
+    //  See ISO3166 : Alpha-2 Code for the country/region codes.
+    HRESULT GetPlayerParentalLevel
+    ( [out AM_ANNOTATION("_Out_")] ULONG *pulParentalLevel,    // current parental level
+      [out AM_ANNOTATION("_Out_")] ULONG *pulCountryCode       // current country/region code
+    );
+    
+    //  GetNumberOfChapters
+    //  Returns the number of chapters that are defined for a
+    //  given title.
+    HRESULT GetNumberOfChapters
+    ( [in]  ULONG ulTitle,              // Title for which number of chapters is requested
+      [out AM_ANNOTATION("_Out_")] ULONG *pulNumberOfChapters    // Number of chapters for the specified title
+    );
+
+    // GetTitleParentalLevels
+    // Returns the parental levels that are defined for a
+    // particular title. pParentalLevels will be combination
+    // of DVD_PARENTAL_LEVEL_8, DVD_PARENTAL_LEVEL_6, or 
+    // DVD_PARENTAL_LEVEL_1 "OR"ed together
+    HRESULT GetTitleParentalLevels
+    ( [in] ULONG ulTitle,           // Title for which parental levels are requested
+      [out AM_ANNOTATION("_Out_")] ULONG *pulParentalLevels  // Parental levels defined for the title "OR"ed together
+    );
+
+    // GetRoot
+    // Returns the root directory that is set in the player. If a valid root
+    // has been found, it returns the root string. Otherwise, it returns 0 for
+    // pcbActualSize indicating that a valid root directory has not been found
+    // or initialized.
+    //
+    // !!! used to return LPTSTR. interface was changed to return
+    // LPSTR (ansi) for compatibility. COM APIs should pass with
+    // UNICODE strings only.
+    // 
+    HRESULT GetRoot
+    ( [out, size_is(ulBufSize) AM_ANNOTATION("_Out_writes_to_(ulBufSize, *pulActualSize)")] LPSTR pRoot,    // pointer to buffer to get root string
+      [in]  ULONG ulBufSize,                    // size of buffer passed in
+      [out AM_ANNOTATION("_Out_")] ULONG *pulActualSize                // size of actual data returned
+    );
+}
+
+
+//==========================================================================
+//==========================================================================
+// IDvdCmd interface -- the IDVDControl2 command sequencing object.
+//
+// For the IDVDControl2 interface, the application can track the status of
+// commands that have been issued to the navigator.  Each command is identified
+// by an IDvdCmd object.  The IDvdCmd object stores the results of the command
+// at both the start (when the command has begun processing) and the end after
+// it has completed.  It also allows the app to synchronize with the processing
+// of the command.
+//
+//  The command object also allows the app to uniquely identify and correlate
+// completion events (if it prefers to process events in a message loop instead
+// of creating another process).
+//
+//     Allows the app to track the status of an issued command to the nav.
+//==========================================================================
+//==========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(5a4a97e4-94ee-4a55-9751-74b5643aa27d),
+pointer_default(unique)
+]
+
+interface IDvdCmd : IUnknown {
+    import "unknwn.idl";
+
+    //
+    // WaitForStart
+    //
+    // Blocks the application until the command has begun.
+    //
+    HRESULT WaitForStart();
+
+    //
+    // WaitForEnd
+    //
+    // Blocks until the command has completed or has been cancelled.
+    HRESULT WaitForEnd();
+}
+
+//==========================================================================
+//==========================================================================
+// IDvdState interface -- the State state object.
+//
+// Whenever the application wishes to save or restore a location on the disc,
+// it needs to store the DVD state into an object.
+// The State object supports the IPersistStream  
+//
+//==========================================================================
+//==========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(86303d6d-1c4a-4087-ab42-f711167048ef),
+pointer_default(unique)
+]
+
+interface IDvdState : IUnknown
+{
+    //
+    // GetDiscID
+    //
+    // Returns the disc ID from which the bookmark was made.
+    //
+    HRESULT GetDiscID
+    ( [out AM_ANNOTATION("_Out_")] ULONGLONG* pullUniqueID ); // 64-bit unique id for the disc
+
+    //
+    // GetParentalLevel
+    //
+    // Returns the state's parental level
+    //
+    HRESULT GetParentalLevel
+    ( [out AM_ANNOTATION("_Out_")] ULONG* pulParentalLevel );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//==========================================================================
+//==========================================================================
+// IDvdControl2 interface -- Basic DVD-Video playback control.
+// This is modeled after the app control of a player specified in Annex J 
+// of the DVD Video spec.  IDvdInfo2 can be used to get information useful
+// in using IDvdControl2
+//==========================================================================
+//==========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(33BC7430-EEC0-11D2-8201-00A0C9D74842),
+pointer_default(unique)
+]
+
+interface IDvdControl2 : IUnknown {
+    import "unknwn.idl";
+    
+    // PlayTitle
+    //
+    // Start playing from the beginning of the specified title number.
+    // Annex J: Title_Play
+    // Title numbers range between 1 and 99.
+    HRESULT PlayTitle
+    ( [in]  ULONG   ulTitle,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+    // PlayChapterInTitle
+    //
+    // Start playing from the beginning of the given chapter (or part-of-title) number
+    // within the specified title number.
+    // Annex J: PTT_Play
+    // Title numbers range between 1 and 99.
+    // Chapters range from 1 to 999.
+    HRESULT PlayChapterInTitle
+    ( [in]  ULONG   ulTitle, 
+      [in]  ULONG   ulChapter,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+    // PlayAtTimeInTitle
+    //
+    // Start playing from the specified time within the specified title number.
+    // NOTE: the actual start time will be the closest sync point before
+    // or equal to the specified frame number.
+    // Annex J: Time_Play
+    // Title numbers range between 1 and 99.
+    HRESULT PlayAtTimeInTitle
+    ( [in]  ULONG   ulTitle,
+      [in]  DVD_HMSF_TIMECODE*   pStartTime,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+    // Stop
+    // Stop playback by transferring DVD Navigator to the DVD "Stop State" (same 
+    // as DVD_DOMAIN_Stop), but filter graph remains in DirectShow's Run state.
+    // Annex J: Stop
+    HRESULT Stop();
+
+    // ReturnFromSubmenu
+    //
+    // Stop playback of current program chain (PGC) and start playing the PGC 
+    // specified by "GoUp_PGCN".in the PGCI.
+    // If the GoUp_PGCN value is 0xFFFF the Resume() operation is carried out.
+    // Annex J: GoUp
+    HRESULT ReturnFromSubmenu(
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd );
+
+    // PlayAtTime
+    // Start playing at the specified time within the current title.
+    // NOTE: the actual start time will be the closest sync point before
+    // or equal to the specified frame number.
+    // Annex J: Time_Search
+    // The time is in BCD format, passed in as a ULONG.
+    HRESULT PlayAtTime
+    ( [in]  DVD_HMSF_TIMECODE* pTime,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+    // PlayChapter
+    // Start playing at the specified chapter (or part-of-title) within
+    // the current title.
+    // Annex J: PTT_Search
+    // Chapters range from 1 to 999.
+    HRESULT PlayChapter
+    ( [in]  ULONG   ulChapter,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+    // PlayPrevChapter
+    // Start playing at the beginning of the previous DVD "program".
+    // For One-Sequential_PGC_Titles (which includes most titles) a program 
+    // is equivalent to a chapter, otherwise a program is part of a chapter. 
+    // Annex J: PrevPG_Search
+    HRESULT PlayPrevChapter(
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd );
+
+    // ReplayChapter
+    // Start playing from the beginning of they current program.
+    // Annex J: TopPG_Search
+    HRESULT ReplayChapter(
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd );
+
+    // PlayNextChapter
+    // Start playing from the beginning of the next program.
+    // Annex J: NextPG_Search
+    HRESULT PlayNextChapter(
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd );
+
+    // PlayForwards
+    // Set forward play at the specified speed.  
+    // Annex J: Forward_Scan
+    //      dSpeed == 1 is normal play
+    //      dSpeed  < 1 is slow play
+    //      dSpeed  > 1 is fast play
+    // For dSpeed != 1, audio and subpicture is muted.
+    HRESULT PlayForwards
+    ( [in]  double  dSpeed,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd
+    );
+
+    // PlayBackwards
+    // Set reverse play at the specified speed.  
+    // Annex J: Backward_Scan
+    //      dSpeed == 1 is normal play speed in reverse
+    //      dSpeed  < 1 is slow play in reverse
+    //      dSpeed  > 1 is fast play in reverse
+    // For reverse play, audio and subpicture are always muted.
+    HRESULT PlayBackwards
+    ( [in]  double  dSpeed,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd
+    );
+
+    // ShowMenu
+    // Start playback of the Menu specified by an enum DVD_MENU_ID.
+    // Annex J: Menu_Call
+    HRESULT ShowMenu
+    ( [in]  DVD_MENU_ID   MenuID,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd  
+    );
+
+    // Resume
+    // Returns to title playback in DVD_DOMAIN_Title. This is typically
+    // done after MenuCall which puts the DVD Navigator in 
+    // DVD_DOMAIN_VideoTitleSetMenu or DVD_DOMAIN_VideoManagerMenu.
+    // Annex J: Resume
+    HRESULT Resume(
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd );
+
+    // SelectRelativeButton
+    // Moves the selection highlight above, below, to the left of, or to the right of the
+    // currently selected.
+    // "Selecting" a DVD button simply highlights the button but does
+    // not "Activate" the button.  Selecting is the Windows equivalent 
+    // to tabbing to a button but not pressing the space bar or enter key.
+    // Activating is the Windows equivalent of pressing the space bar or
+    // enter key after tabbing to a button.
+    // Annex J: Upper_button_Select, Lower_button_Select, Left_button_Select, Right_button_Select
+    HRESULT SelectRelativeButton( DVD_RELATIVE_BUTTON buttonDir );
+
+    // ActivateButton
+    // Activates current button.
+    // Annex J: Button_Activate
+    HRESULT ActivateButton();
+
+    // SelectButton
+    // Selects a specific button (with the index from 1 to 36).
+    // ulButton is intended to be a number entered by a user corresponding
+    // to button numbers currently displayed on screen.  
+    // Button numbers range from 1 to 36.
+    HRESULT SelectButton
+    ( [in]  ULONG   ulButton
+    );
+
+    // SelectAndActivateButton
+    // Selects and then activates the button specified by the user.  
+    // ulButton is intended to be a number entered by a user corresponding
+    // to button numbers currently displayed on screen.  
+    // Annex J: Button_Select_And_Activate
+    // Button numbers range from 1 to 36.
+    HRESULT SelectAndActivateButton
+    ( [in]  ULONG   ulButton
+    );
+
+    // StillOff
+    // Releases any current still if there are no available buttons.
+    // This includes VOBU stills, Cell stills, and PGC stills, whether the 
+    // still is infinite.  When buttons are available, stills are released by
+    // activating a button.  Note this does not release a Pause.
+    // Annex J: Still_Off
+    HRESULT StillOff();
+
+    // Pause
+    // Freezes / unfreezes playback and any internal timers. This is similar to
+    // IMediaControl::Pause(), but not the same in effect as IMediaControl::Pause
+    // puts the filter (all filters, if done to the graph) in paused state.
+    // Annex J: Pause_On and Pause_Off
+    // bState is TRUE or FALSE to indicate whether to do Puase_on/Pause_Off according
+    // to Annex J terminology.
+    HRESULT Pause
+    ( [in]  BOOL   bState
+    );
+
+    // SelectAudioStream
+    // Changes the current audio stream to ulAudio.
+    // Annex J: Audio_Stream_Change
+    // Audio stream number ranges between 0 and 7 or DEFAULT_AUDIO_STREAM (15 - default based on default language & language extension)
+    HRESULT SelectAudioStream
+    ( [in]  ULONG   ulAudio,
+      [in]  DWORD dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+
+    );
+
+    // SelectSubpictureStream
+    // Changes the current subpicture stream number to ulSubPicture
+    // Annex J: Sub-picture_Stream_Change (first param)
+    // Subpicture stream number should be between 0 and 31 or 63.
+    HRESULT SelectSubpictureStream
+    ( [in]  ULONG   ulSubPicture,
+      [in]  DWORD dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+
+    );
+
+    // SetSubpictureState
+    // Turns on/off current subpicture stream display.
+    // Annex J: Sub-picture_Stream_Change (second param)
+    // Subpicture state is On or Off (TRUE or FALSE)
+    HRESULT SetSubpictureState
+    ( [in]  BOOL    bState,
+      [in]  DWORD dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd
+    );
+
+    // SelectAngle
+    // Changes the current angle number.
+    // Annex J: Angle_Change
+    // Angle number is between 1 and 9.
+    HRESULT SelectAngle
+    ( [in]  ULONG   ulAngle,
+      [in]  DWORD dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd
+    );
+
+    // SelectParentalLevel
+    // Selects the current player parental level.  
+    // Annex J: Parental_Level_Select
+    // Parental level ranges between 1 and 8.
+    // The defined parental levels are listed below :
+    //
+    //      Level   Rating  
+    //      -----   ------  
+    //      1       G       
+    //      3       PG      
+    //      4       PG13    
+    //      6       R       
+    //      7       NC17    
+    // Higher levels can play lower level content; lower levels cannot play 
+    // higher level content.  The DVD Navigator provides no restriction on
+    // setting the parental level.  DVD player application may enforce 
+    // restriction on parental level setting, such as password protection for 
+    // raising the current parental level.  Parental Management is disabled in
+    // the Navigator by default.
+    //
+    // Note : To disable parental management, pass 0xffffffff for ulParentalLevel
+    //        If parental management is disabled, then the player will play the
+    //        first PGC in a parental block regardless of parental IDs.
+    //
+    HRESULT SelectParentalLevel
+    ( [in]  ULONG   ulParentalLevel  
+    );
+
+    // SelectParentalCountry
+    // Sets the country/region in which to interpret the Parental Level.
+    // Annex J: Parental_Country_Select
+    // The country/region specified using the Alpha-2 code of the ISO-3166 standard,
+    HRESULT SelectParentalCountry
+    ( [in]  BYTE    bCountry[2]
+    );
+
+    // SelectKaraokeAudioPresentationMode
+    // Sets the Karaoke audio mode.  
+    // Annex J: Karaoke_Audio_Presentation_Mode_Change
+    // NOTE: This and all other Karoke support is currently not implemented.
+    // Mode represents the audio mixing mode for Karaoke (same info as SPRM11).
+    // Use a bitwise OR of the bits in DVD_KARAOKE_DOWNMIX
+    HRESULT SelectKaraokeAudioPresentationMode
+    ( [in] ULONG    ulMode
+    );
+
+    // SelectVideoModePreference
+    // The user can specify the (initial) preferred display mode (aspect ratio) 
+    // (wide / letterbox / pan-scan) that should be used to display content
+    // (16 : 9).
+    // Annex J: Video_Presentation_Mode_Change
+    // The parameter is a ULONG that has one of the values defined in 
+    // DVD_PREFERRED_DISPLAY_MODE
+    HRESULT SelectVideoModePreference
+    ( [in]  ULONG    ulPreferredDisplayMode
+    );
+    
+    // SetDVDDirectory
+    // Sets the root directory containing the DVD-Video volume. 
+    // Can only be called from the DVD Stop State (DVD_DOMAIN_Stop).
+    // If the root directory is not successfully set before 
+    // IMediaControl::Play is called, the first drive starting from c:
+    // containing a VIDEO_TS directory in the top level directory
+    // will be used as the root.
+    HRESULT SetDVDDirectory
+    ( [in]  LPCWSTR     pszwPath
+    );
+
+    // ActivateAtPosition
+    // This is typically called in response to a mouse click.
+    // The specified point within the display window is to see if it is
+    // within a current DVD button's highlight rect.  If it is, that 
+    // button is first selected, then activated.  
+    // NOTE: DVD Buttons do not all necessarily have highlight rects,
+    // button rects can overlap, and button rects do not always
+    // correspond to the visual representation of DVD buttons.
+    HRESULT ActivateAtPosition    // typically called after a mouse click
+    ( [in]  POINT       point
+    );
+
+    // SelectAtPosition
+    // This is typically called in response to a mouse move within the 
+    // display window.
+    // The specified point within the display window is to see if it is
+    // within a current DVD button's highlight rect.  If it is, that 
+    // button is selected.
+    // NOTE: DVD Buttons do not all necessarily have highlight rects,
+    // button rects can overlap, and button rects do not always
+    // correspond to the visual representation of DVD buttons.
+    HRESULT SelectAtPosition    // typically called after a mouse move
+    ( [in]  POINT       point
+    );
+    
+    // PlayChaptersAutoStop
+    // Start playing at the specified chapter within the specified title
+    // and play the number of chapters specified by the third parameter.
+    // Then the playback stops by sending an event EC_DVD_CHAPTER_AUTOSTOP.
+    // Title ranges from 1 to 99.
+    // Chapter (and number of chapters to play) ranges from 1 to 999.
+    HRESULT PlayChaptersAutoStop
+    ( [in] ULONG ulTitle,           // title number
+      [in] ULONG ulChapter,         // chapter number to start playback
+      [in] ULONG ulChaptersToPlay,   // number of chapters to play from the start chapter
+      [in] DWORD dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+     // AcceptParentalLevelChange
+    //
+    // Application's way of informing the Navigator that the required parental 
+    // level change indicated through a previous event was accepted or rejected 
+    // by the app (and unblock the Navigator).
+    //
+    // FALSE - reject the disc's request to change the current parental level.
+    // TRUE  - change the parental level as required by the disc.
+    HRESULT AcceptParentalLevelChange
+    ( [in] BOOL bAccept
+    );
+
+    // SetOption(flag, true/false )
+    // Flags:
+    //
+    // DVD_ResetOnStop
+    //      Disable reset of the Navigator's internal state on the 
+    //      subsequent IMediaControl::Stop() call(s).
+    //
+    //      FALSE - Navigator does not reset its state on the subsequent Stop calls 
+    //              (play from the current location on next Run call).
+    //      TRUE  - (default) Navigator resets its state on the subsequent Stop call 
+    //              (play from the first play PGC on the Run call after the Stop).
+    //
+    // DVD_NotifyParentalLevelChange
+    //
+    //      Allows the application to indicate to the Navigator that it wants to control 
+    //      parent level change (e.g., through a dialog box) and indicate the acceptance
+    //      or rejection of the new parental level to the Navigator through 
+    //      AcceptParentalLevelChange().
+    //
+    //      FALSE - disable (default).  Always reject request by the disc to change parental level.
+    //      TRUE  - enable.  Navigator will send the app a 'EC_DVD_PARENTAL_LEVEL_CHANGE' event
+    //              and block until AcceptParentalLevelChange() is called by the app.
+    //
+    // DVD_HMSF_TimeCodeEvents
+    //
+    //      Lets the application specify to the Navigator if it wants to get the new time
+    //      event EC_DVD_CURRENT_HMSF_TIME with the HMSF format rather than the older 
+    //      EC_DVD_CURRENT_TIME events.
+    //
+    //      FALSE - disable (default).  Older EC_DVD_CURRENT_TIME events are returned.
+    //      TRUE  - enable.  Navigator will send the app EC_DVD_CURRENT_HMSF_TIME events.
+
+    HRESULT SetOption
+    ( [in] DVD_OPTION_FLAG flag,
+      [in] BOOL fState
+    );
+
+    // SetState
+    //
+    // The navigator will use the location information in the given state object to restore
+    // the navigator's position to a specific location on the disc.
+    // A valid state object is returned by either calling GetState(), or by using
+    // "CoCreateInstance( CLSID_DVDState, NULL, CLSCTX_INPROC_SERVER, IID_IDvdState, (void **) ppState )"
+    // to create a state object, followed by pState->IPersist::Load() to read it from memory or disk. 
+    //
+    HRESULT SetState
+    ( [in] IDvdState* pState,
+      [in]  DWORD     dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd
+
+    );
+
+    // PlayPeriodInTitleAutoStop
+    //
+    // Start playing from the specified time within the specified title number until the specified end time.
+    // NOTE: the actual start and end times will be the closest sync points before
+    // or equal to the specified frame number.
+    // Annex J: Time_Play for a limited range
+    // Title numbers range between 1 and 99.
+    HRESULT PlayPeriodInTitleAutoStop
+    ( [in]  ULONG   ulTitle,
+      [in]  DVD_HMSF_TIMECODE*   pStartTime,
+      [in]  DVD_HMSF_TIMECODE*   pEndTime,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd 
+    );
+
+    // SetGPRM
+    // Sets the current contents of a DVD General Parameter Register.
+    // Use of GPRMs is title specific.
+
+    HRESULT SetGPRM
+    ( [in] ULONG  ulIndex,
+      [in] WORD   wValue,
+      [in]  DWORD   dwFlags,  
+      [out AM_ANNOTATION("_Out_")] IDvdCmd** ppCmd
+    );
+
+    // SelectDefaultMenuLanguage
+    // Selects the default language for menus.  
+    // Languages are specified with Windows standard LCIDs.  LCIDs can be created 
+    // from ISO-639 codes with
+    // MAKELCID( MAKELANGID(wISO639LangID ,SUBLANG_DEFAULT ), SORT_DEFAULT ).
+    // SelectMenuLanguage may only called from the DVD Stop state (DVD_DOMAIN_Stop).
+    // Annex J: Menu_Language_Select
+    //
+    // NOT TRUE ANYMORE:
+    // NOTE: MAKELANGID seems to have a bug so 'jp' may have to be used 
+    // instead of 'ja' for the ISO639 code for Japanese.
+    HRESULT SelectDefaultMenuLanguage
+    ( [in]  LCID    Language
+    );
+
+    // SelectDefaultAudioLanguage 
+    // Selects the default audio language.  
+    // Languages are specified with Windows standard LCIDs.
+    HRESULT SelectDefaultAudioLanguage
+    ( [in]  LCID    Language,
+      [in] DVD_AUDIO_LANG_EXT   audioExtension
+    );
+
+    // SelectDefaultSubpictureLanguage 
+    // Selects the default subpicture language.  
+    // Languages are specified with Windows standard LCIDs.
+    HRESULT SelectDefaultSubpictureLanguage
+    ( [in] LCID    Language,
+      [in] DVD_SUBPICTURE_LANG_EXT  subpictureExtension
+    );
+}
+
+
+//==========================================================================
+//==========================================================================
+// IDvdInfo2 interface -- allows an app to query for attributes of available 
+// DVD titles and DVD player status.  Also allows for control of a DVD 
+// player beyond Annex J in the DVD spec.
+//==========================================================================
+//==========================================================================
+
+enum DVD_TextStringType {
+    // disc structure (0x00..0x0f)
+    DVD_Struct_Volume               = 0x01, 
+    DVD_Struct_Title                = 0x02, 
+    DVD_Struct_ParentalID           = 0x03,
+    DVD_Struct_PartOfTitle          = 0x04,
+    DVD_Struct_Cell                 = 0x05,
+    // stream (0x10..0x1f)
+    DVD_Stream_Audio                = 0x10,
+    DVD_Stream_Subpicture           = 0x11,
+    DVD_Stream_Angle                = 0x12,
+    // channel in stream (0x20..0x2f)
+    DVD_Channel_Audio               = 0x20,
+
+    // Application information
+    // General (0x30..0x37)
+    DVD_General_Name                = 0x30,
+    DVD_General_Comments            = 0x31,
+
+    // Title (0x38..0x3f)
+    DVD_Title_Series                = 0x38,
+    DVD_Title_Movie                 = 0x39,
+    DVD_Title_Video                 = 0x3a,
+    DVD_Title_Album                 = 0x3b,
+    DVD_Title_Song                  = 0x3c,
+    DVD_Title_Other                 = 0x3f,
+
+    // Title (sub) (0x40..0x47)
+    DVD_Title_Sub_Series            = 0x40,
+    DVD_Title_Sub_Movie             = 0x41,
+    DVD_Title_Sub_Video             = 0x42,
+    DVD_Title_Sub_Album             = 0x43,
+    DVD_Title_Sub_Song              = 0x44,
+    DVD_Title_Sub_Other             = 0x47,
+
+    // Title (original) (0x48..0x4f)
+    DVD_Title_Orig_Series           = 0x48,
+    DVD_Title_Orig_Movie            = 0x49,
+    DVD_Title_Orig_Video            = 0x4a,
+    DVD_Title_Orig_Album            = 0x4b,
+    DVD_Title_Orig_Song             = 0x4c,
+    DVD_Title_Orig_Other            = 0x4f,
+
+    // Other info (0x50..0x57)
+    DVD_Other_Scene                 = 0x50,
+    DVD_Other_Cut                   = 0x51,
+    DVD_Other_Take                  = 0x52,
+
+    // Language     0x58..0x5b
+    // Work         0x5c..0x6b
+    // Character    0x6c..0x8f
+    // Data         0x90..0x93
+    // Karaoke      0x94..0x9b
+    // Category     0x9c..0x9f
+    // Lyrics       0xa0..0xa3
+    // Document     0xa4..0xa7
+    // Others       0xa8..0xab
+    // Reserved     0xac..0xaf
+    // Admin        0xb0..0xb7
+    // more admin   0xb8..0xc0
+    // Reserved     0xd0..0xdf
+    // vendor       0xe0..0xef
+    // extension    0xf0..0xf7
+    // reserved     0xf8..0xff
+};
+
+enum DVD_TextCharSet {
+    DVD_CharSet_Unicode                       = 0,
+    DVD_CharSet_ISO646                        = 1,
+    DVD_CharSet_JIS_Roman_Kanji               = 2,
+    DVD_CharSet_ISO8859_1                     = 3,
+    DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana = 4
+};
+
+cpp_quote ("#define DVD_TITLE_MENU				0x000")
+cpp_quote ("#define DVD_STREAM_DATA_CURRENT     0x800")
+cpp_quote ("#define DVD_STREAM_DATA_VMGM        0x400")
+cpp_quote ("#define DVD_STREAM_DATA_VTSM        0x401")
+cpp_quote ("#define DVD_DEFAULT_AUDIO_STREAM	0x0f")
+
+// DVD Decoder Caps data
+typedef struct tagDVD_DECODER_CAPS
+{
+    DWORD   dwSize ;            // size of this struct
+    DWORD   dwAudioCaps ;       // bits indicating audio support (AC3, DTS, SDDS, LPCM etc.) of decoder
+    double  dFwdMaxRateVideo ;  // max data rate for video going forward
+    double  dFwdMaxRateAudio ;  // ...  ..   ..  ... audio  ...    ...
+    double  dFwdMaxRateSP ;     // ...  ..   ..  ...   SP   ...    ...
+    double  dBwdMaxRateVideo ;  // if smooth reverse is not available, this will be set to 0
+    double  dBwdMaxRateAudio ;  //   -- ditto --
+    double  dBwdMaxRateSP ;     //   -- ditto --
+    DWORD   dwRes1 ;            // reserved for future expansion
+    DWORD   dwRes2 ;            //   -- ditto --
+    DWORD   dwRes3 ;            //   -- ditto --
+    DWORD   dwRes4 ;            //   -- ditto --
+} DVD_DECODER_CAPS ;
+
+// Bits for decoder's audio format support
+cpp_quote ("#define DVD_AUDIO_CAPS_AC3		0x00000001")
+cpp_quote ("#define DVD_AUDIO_CAPS_MPEG2	0x00000002")
+cpp_quote ("#define DVD_AUDIO_CAPS_LPCM		0x00000004")
+cpp_quote ("#define DVD_AUDIO_CAPS_DTS		0x00000008")
+cpp_quote ("#define DVD_AUDIO_CAPS_SDDS		0x00000010")
+
+
+[
+local,
+object,
+uuid(34151510-EEC0-11D2-8201-00A0C9D74842),
+pointer_default(unique)
+]
+
+interface IDvdInfo2 : IUnknown {
+    import "unknwn.idl";
+
+    // GetCurrentDomain
+    // Returns the current DVD Domain of the DVD player.
+    HRESULT GetCurrentDomain
+    ( [out AM_ANNOTATION("_Out_")] DVD_DOMAIN *pDomain 
+    );
+
+    // GetCurrentLocation
+    // Returns information sufficient to restart playback of a video
+    // from the current playback location in titles that don't explicitly
+    // disable seeking to the current location.
+    HRESULT GetCurrentLocation
+    ( [out AM_ANNOTATION("_Out_")] DVD_PLAYBACK_LOCATION2 *pLocation
+    );
+
+    // GetTotalTitleTime
+    // Returns the total playback time for the current title.  Only works
+    // for One_Sequential_PGC_Titles.
+    // THIS SHOULD CHANGE, RIGHT?
+    HRESULT GetTotalTitleTime
+    ( [out AM_ANNOTATION("_Out_")] DVD_HMSF_TIMECODE* pTotalTime,
+      [out AM_ANNOTATION("_Out_")] ULONG* ulTimeCodeFlags  // union of DVD_TIMECODE_FLAGS
+    );
+
+    // GetCurrentButton
+    // Indicates the number of currently available buttons and the current
+    // selected button number. If buttons are not present it returns 0 for
+    // both pulButtonsAvailable and pulCurrentButton
+    HRESULT GetCurrentButton
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulButtonsAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentButton
+    );
+
+    // GetCurrentAngle
+    // Indicates the number of currently available angles and the current
+    // selected angle number.  If *pulAnglesAvailable is returned as 1 then 
+    // the current content is not multiangle.
+    HRESULT GetCurrentAngle
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulAnglesAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentAngle
+    );
+
+    // GetCurrentAudio
+    // Indicates the number of currently available audio streams and 
+    // the currently selected audio stream number.
+    // This only works inside the Title domain.
+    HRESULT GetCurrentAudio
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulStreamsAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentStream
+    );
+
+    // GetCurrentSubpicture
+    // Indicates the number of currently available subpicture streams,
+    // the currently selected subpicture stream number, and if the 
+    // subpicture display is currently disabled.  Subpicture streams 
+    // authored as "Forcedly Activated" stream will be displayed even if
+    // subpicture display has been disabled by the app with 
+    // IDVDControl::SetSubpictureState.
+    // This only works inside the Title domain.
+    HRESULT GetCurrentSubpicture
+    ( [out AM_ANNOTATION("_Out_")] ULONG *    pulStreamsAvailable,
+      [out AM_ANNOTATION("_Out_")] ULONG *    pulCurrentStream,
+      [out AM_ANNOTATION("_Out_")] BOOL *     pbIsDisabled
+    );
+
+    // GetCurrentUOPS
+    // Indicates which IDVDControl methods (Annex J user operations) are 
+    // currently valid.  DVD titles can enable or disable individual user 
+    // operations at almost any point during playback.
+    HRESULT GetCurrentUOPS  
+    ( [out AM_ANNOTATION("_Out_")] ULONG *   pulUOPs
+    );
+
+    // GetAllSPRMs
+    // Returns the current contents of all DVD System Parameter Registers.
+    // See DVD-Video spec for use of individual registers.
+    // WE SHOULD DOC THE SPRMs RATHER THAN ASKING TO REFER TO DVD SPEC.
+    HRESULT GetAllSPRMs
+    ( [out AM_ANNOTATION("_Out_")] SPRMARRAY * pRegisterArray
+    );
+
+    // GetAllGPRMs
+    // Returns the current contents of all DVD General Parameter Registers.
+    // Use of GPRMs is title specific.
+    // WE SHOULD DOC THE GPRMs RATHER THAN ASKING TO REFER TO DVD SPEC.
+    HRESULT GetAllGPRMs
+    ( [out AM_ANNOTATION("_Out_")] GPRMARRAY * pRegisterArray
+    );
+
+    // GetAudioLanguage
+    // Returns the language of the specified stream within the current title.
+    // Does not return languages for menus.  Returns *pLanguage as 0 if the
+    // stream does not include language.
+    // Use Win32 API GetLocaleInfo(*pLanguage, LOCALE_SENGLANGUAGE, pszString, cbSize)
+    // to create a human readable string name from the returned LCID.
+    HRESULT GetAudioLanguage
+    ( [in]  ULONG        ulStream, 
+      [out AM_ANNOTATION("_Out_")] LCID *       pLanguage
+    );
+
+    // GetSubpictureLanguage
+    // Returns the language of the specified stream within the current title.
+    // Does not return languages for menus.  Returns *pLanguage=0 as 0 if the
+    // stream does not include language.
+    // Use Win32 API GetLocaleInfo(*pLanguage, LOCALE_SENGLANGUAGE, pszString, cbSize)
+    // to create a human readable string name from the returned LCID.
+    HRESULT GetSubpictureLanguage
+    ( [in]  ULONG        ulStream, 
+      [out AM_ANNOTATION("_Out_")] LCID *       pLanguage
+    );
+
+    // GetTitleAttributes
+    // Returns attributes of all video, audio, and subpicture streams for the 
+    // specified title including menus.  
+    // If 0xffffffff is specified as ulTitle, attributes for the current title 
+    // are returned.
+    HRESULT GetTitleAttributes
+    ( [in]  ULONG       ulTitle, // requested title number
+      [out AM_ANNOTATION("_Out_")] DVD_MenuAttributes *   pMenu,
+      [out AM_ANNOTATION("_Out_")] DVD_TitleAttributes *   pTitle       
+    );
+
+    // GetVMGAttributes
+    // Returns attributes of all video, audio, and subpicture 
+    // streams for Video Manager Menus.  This method suppliments GetTitleAttributes()
+    // for some menus, such as the Title menu, which are in a separate group of 
+    // streams called the VMG (Video Manager) and are not associated with any 
+    // particular title number.
+    HRESULT GetVMGAttributes
+    ( [out AM_ANNOTATION("_Out_")] DVD_MenuAttributes*   pATR 
+    );
+
+    // GetCurrentVideoAttributes
+    // Returns the video attributes for the current title or menu.
+    //
+    HRESULT GetCurrentVideoAttributes
+    ( [out AM_ANNOTATION("_Out_")] DVD_VideoAttributes *   pATR       
+    );
+
+    // GetAudioAttributes
+    // Returns the audio attributes for the specified stream in the current title 
+    // or menu.
+    HRESULT GetAudioAttributes
+    ( [in]  ULONG ulStream,
+      [out AM_ANNOTATION("_Out_")] DVD_AudioAttributes *pATR 
+    );
+
+    // GetKaraokeChannelContents
+    // Returns the karaoke contents of each channel of the specified stream in the current title 
+    // or menu.
+    HRESULT GetKaraokeAttributes
+    ( [in]  ULONG ulStream,
+      [out AM_ANNOTATION("_Out_")] DVD_KaraokeAttributes* pAttributes
+    );
+
+    // GetSubpictureAttributes
+    // Returns the subpicture attributes for the specified stream in the current
+    // title or menu.
+    HRESULT GetSubpictureAttributes
+    ( [in]  ULONG ulStream,
+      [out AM_ANNOTATION("_Out_")] DVD_SubpictureAttributes *pATR 
+    );
+
+    // GetDVDVolumeInfo
+    // Returns current DVD volume information.
+    HRESULT GetDVDVolumeInfo
+    ( [out AM_ANNOTATION("_Out_")] ULONG *pulNumOfVolumes,  // number of volumes (disc sides?) in a volume set
+      [out AM_ANNOTATION("_Out_")] ULONG *pulVolume,        // volume number for current DVD directory
+      [out AM_ANNOTATION("_Out_")] DVD_DISC_SIDE *pSide,    // current disc side
+      [out AM_ANNOTATION("_Out_")] ULONG *pulNumOfTitles    // number of titles available in this volume
+    );
+
+    // GetDVDTextNumberOfLanguages
+    // Returns the number of text languages for the current DVD directory.
+    // Should return some error code if no root directory is found.
+    HRESULT GetDVDTextNumberOfLanguages
+    ( [out AM_ANNOTATION("_Out_")] ULONG * pulNumOfLangs
+    );
+    
+    // GetDVDTextLanguageInfo
+    // Returns the text languages information (number of strings, language code, 
+    // char set) for the specified language index.
+    // Should return some error code if an invalid text index is specified.
+    HRESULT GetDVDTextLanguageInfo
+    ( [in] ULONG ulLangIndex,
+      [out AM_ANNOTATION("_Out_")] ULONG* pulNumOfStrings, 
+      [out AM_ANNOTATION("_Out_")] LCID* pLangCode, 
+      [out AM_ANNOTATION("_Out_")] enum DVD_TextCharSet * pbCharacterSet
+    );
+
+    // GetDVDTextStringAsNative
+    // Returns the text string as an array of bytes for the specified language 
+    // index.and string index.
+    // Should return some error code if an invalid text or string index is specified.
+    // It also just returns the length of the string if pchBuffer is specified as NULL.
+    HRESULT GetDVDTextStringAsNative
+    ( [in] ULONG ulLangIndex, 
+      [in] ULONG ulStringIndex, 
+      [out AM_ANNOTATION("_Out_")] BYTE* pbBuffer, 
+      [in] ULONG ulMaxBufferSize, 
+      [out AM_ANNOTATION("_Out_")] ULONG* pulActualSize, 
+      [out AM_ANNOTATION("_Out_")] enum DVD_TextStringType* pType
+    );
+
+    // GetDVDTextStringAsUnicode
+    // Returns the text string in Unicode for the specified language index.and string index.
+    // Should return some error code if an invalid text or string index is specified.
+    // It also just returns the length of the string if pchBuffer is specified as NULL.
+    HRESULT GetDVDTextStringAsUnicode
+    ( [in] ULONG ulLangIndex, 
+      [in] ULONG ulStringIndex, 
+      [out AM_ANNOTATION("_Out_")] WCHAR* pchwBuffer, 
+      [in] ULONG ulMaxBufferSize, 
+      [out AM_ANNOTATION("_Out_")] ULONG* pulActualSize, 
+      [out AM_ANNOTATION("_Out_")] enum DVD_TextStringType* pType
+    );
+
+    // GetPlayerParentalLevel
+    // Returns the current parental level and the current country/region code that has 
+    // been set in the system registers in player.
+    // See Table 3.3.4-1 of the DVD-Video spec for the defined parental levels.
+    // Valid Parental Levels range from 1 to 8 if parental management is enabled.
+    // Returns 0xffffffff if parental management is disabled
+    // See ISO3166 : Alpha-2 Code for the country/region codes.
+    HRESULT GetPlayerParentalLevel
+    ( [out AM_ANNOTATION("_Out_")] ULONG *pulParentalLevel,    // current parental level
+      [out AM_ANNOTATION("_Out_")] BYTE pbCountryCode[2]       // current country/region code
+    );
+    
+    //  GetNumberOfChapters
+    //  Returns the number of chapters that are defined for a
+    //  given title.
+    HRESULT GetNumberOfChapters
+    ( [in]  ULONG ulTitle,           // Title for which number of chapters is requested
+      [out AM_ANNOTATION("_Out_")] ULONG *pulNumOfChapters  // Number of chapters for the specified title
+    );
+
+    // GetTitleParentalLevels
+    // Returns the parental levels that are defined for a particular title. 
+    // pulParentalLevels will be combination of DVD_PARENTAL_LEVEL_8, 
+    // DVD_PARENTAL_LEVEL_6, or DVD_PARENTAL_LEVEL_1 OR-ed together
+    HRESULT GetTitleParentalLevels
+    ( [in]  ULONG ulTitle,            // Title for which parental levels are requested
+      [out AM_ANNOTATION("_Out_")] ULONG *pulParentalLevels  // Parental levels defined for the title "OR"ed together
+    );
+
+    // GetDVDDirectory
+    // Returns the root directory that is set in the player. If a valid root
+    // has been found, it returns the root string. Otherwise, it returns 0 for
+    // pcbActualSize indicating that a valid root directory has not been found
+    // or initialized.
+    //
+    // !!! used to return LPTSTR. interface was changed to return
+    // LPSTR (ansi) for compatibility. COM APIs should pass with
+    // UNICODE strings only.
+    // 
+    HRESULT GetDVDDirectory
+    ( [out, size_is(ulMaxSize) AM_ANNOTATION("_Out_writes_to_(ulMaxSize, *pulActualSize)")] LPWSTR pszwPath, // pointer to buffer to get root string
+      [in]  ULONG ulMaxSize,                     // size of buffer in WCHARs passed in
+      [out AM_ANNOTATION("_Out_")] ULONG *pulActualSize                 // size of actual data returned (in WCHARs)
+    );
+
+    
+    // IsAudioStreamEnabled
+    //
+    // Determines if the specified audio stream is enabled/disabled in the current PGC.
+    //
+    // ulStreamNum - audio stream number to test
+    // pbEnabled   - where to place the result
+    HRESULT IsAudioStreamEnabled
+    ( [in] ULONG ulStreamNum,   // stream number to test
+      [out AM_ANNOTATION("_Out_")] BOOL *pbEnabled     // returned state
+    );
+
+    // GetDiscID
+    //
+    // If pszwPath is specified as NULL, DVD Navigator will use the current path
+    // that would be returned by GetDVDDirectory() at this point.
+    //
+    // Returns a 64-bit identification number for the specified DVD disc.
+    HRESULT GetDiscID
+    ( [in] LPCWSTR pszwPath,         // root path (should we rather use const WCHAR*?)
+      [out AM_ANNOTATION("_Out_")] ULONGLONG* pullDiscID  // 64-bit unique id for the disc
+    ) ;
+
+    // GetState
+    //
+    // The navigator will create a new state object and save the current location into it.
+    // The state object can be used to restore the navigator the saved location at a later time.
+    // A new IDvdState object is created (with a single AddRef) and returned in *pStateData.
+    // The object must be Released() when the application is finished with it.
+    //
+    HRESULT GetState
+    ( [out AM_ANNOTATION("_Out_")] IDvdState **pStateData // returned object
+    );
+
+    //
+    // GetMenuLanguages
+    //
+    // Navigator gets all of the menu languages for the VMGM and VTSM domains.
+    //
+    HRESULT GetMenuLanguages
+    ( [out AM_ANNOTATION("_Out_")] LCID *pLanguages,                     // data buffer (NULL returns #languages) 
+      [in]  ULONG ulMaxLanguages,                  // maxiumum number of languages to retrieve
+      [out AM_ANNOTATION("_Out_")] ULONG *pulActualLanguages              // actual number of languages retrieved
+    );
+
+    //
+    // GetButtonAtPosition
+    //
+    // This is typically called in response to a mouse move within the 
+    // display window.
+    // It returns the button located at the specified point within the display window.
+    // If no button is present at that position, then VFW_E_DVD_NO_BUTTON is returned.
+    // Button indices start at 1. 
+    //
+    // NOTE: DVD Buttons do not all necessarily have highlight rects,
+    // button rects can overlap, and button rects do not always
+    // correspond to the visual representation of DVD buttons.
+    HRESULT GetButtonAtPosition    // typically called after a mouse move
+    ( [in]  POINT       point,
+      [out AM_ANNOTATION("_Out_")] ULONG *pulButtonIndex
+    );
+
+    //
+    // GetCmdFromEvent
+    //
+    // This method maps an EC_DVD_CMD_BEGIN/COMPLETE/CANCEL event's lParam1 into an AddRef'd
+    // IDvdCmd pointer.  You must Release the returned pointer.  NULL is returned if the function
+    // fails.
+    //
+    HRESULT GetCmdFromEvent
+    ( [in]  LONG_PTR    lParam1,
+      [out AM_ANNOTATION("_Out_")] IDvdCmd **pCmdObj
+    );
+
+    // GetDefaultMenuLanguage
+    // Returns the default language for menus.
+    HRESULT GetDefaultMenuLanguage
+    ( [out AM_ANNOTATION("_Out_")] LCID *       pLanguage
+    );
+
+    // GetDefaultAudioLanguage 
+    // Gets the default audio language.  
+    // Languages are specified with Windows standard LCIDs.
+    HRESULT GetDefaultAudioLanguage
+    ( [out AM_ANNOTATION("_Out_")] LCID*    pLanguage,
+      [out AM_ANNOTATION("_Out_")] DVD_AUDIO_LANG_EXT*   pAudioExtension
+    );
+
+    // GetDefaultSubpictureLanguage 
+    // Gets the default subpicture language.  
+    // Languages are specified with Windows standard LCIDs.
+    HRESULT GetDefaultSubpictureLanguage
+    ( [out AM_ANNOTATION("_Out_")] LCID*    pLanguage,
+      [out AM_ANNOTATION("_Out_")] DVD_SUBPICTURE_LANG_EXT*  pSubpictureExtension
+    );
+
+    //
+    // GetDecoderCaps:
+    // Retrieves the DVD decoder's details about max data rate for video, audio
+    // and subpicture (going backward and forward) as well as support for various
+    // types of audio (AC3, MPEG2, DTS, SDDS, LPCM).
+    //
+    HRESULT GetDecoderCaps
+    ( [out AM_ANNOTATION("_Out_")] DVD_DECODER_CAPS *pCaps
+    ) ;
+
+    //
+    // GetButtonRect:
+    // Retrieves the coordinates for a given button number
+    //
+    HRESULT GetButtonRect
+    ( [in] ULONG  ulButton,
+      [out AM_ANNOTATION("_Out_")] RECT *pRect
+    ) ;
+
+    // IsSubpictureStreamEnabled
+    //
+    // Determines if the specified subpicture stream is enabled/disabled in the current PGC.
+    //
+    // ulStreamNum - Subpicture stream number to test
+    // pbEnabled   - where to place the result
+    HRESULT IsSubpictureStreamEnabled
+    ( [in] ULONG ulStreamNum,   // stream number to test
+      [out AM_ANNOTATION("_Out_")] BOOL *pbEnabled     // returned state
+    );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//==========================================================================
+//==========================================================================
+//
+// typedefs used by IDvdGraphBuilder interface.
+//
+//==========================================================================
+//==========================================================================
+
+typedef enum _AM_DVD_GRAPH_FLAGS {
+    AM_DVD_HWDEC_PREFER =  0x01,   // default 
+    AM_DVD_HWDEC_ONLY   =  0x02,
+    AM_DVD_SWDEC_PREFER =  0x04,
+    AM_DVD_SWDEC_ONLY   =  0x08,
+    AM_DVD_NOVPE        = 0x100,
+    AM_DVD_DO_NOT_CLEAR = 0x200,    // do not clear graph before building
+    AM_DVD_VMR9_ONLY    =0x0800,    // only use VMR9 (otherwise fail) for rendering
+    AM_DVD_EVR_ONLY     =0x1000,   // only use EVR (otherwise fail) for rendering
+    AM_DVD_EVR_QOS      =0x2000,   // Enabled EVR Dynamic QoS
+    AM_DVD_ADAPT_GRAPH  =0x4000,   // Adapt graph building to machine capbilities
+
+    AM_DVD_MASK         =0xffff,   // only lower WORD is used/allowed
+} AM_DVD_GRAPH_FLAGS ;
+
+typedef enum _AM_DVD_STREAM_FLAGS {
+    AM_DVD_STREAM_VIDEO  = 0x01,
+    AM_DVD_STREAM_AUDIO  = 0x02,
+    AM_DVD_STREAM_SUBPIC = 0x04
+} AM_DVD_STREAM_FLAGS ;
+
+typedef struct {
+    HRESULT hrVPEStatus ;         // VPE mixing error code (0 => success)
+    BOOL    bDvdVolInvalid ;      // Is specified DVD volume invalid?
+    BOOL    bDvdVolUnknown ;      // Is DVD volume to be played not specified/not found?
+    BOOL    bNoLine21In ;         // video decoder doesn't produce line21 (CC) data
+    BOOL    bNoLine21Out ;        // can't show decoded line21 data as CC on video
+    int     iNumStreams ;         // number of DVD streams to render
+    int     iNumStreamsFailed ;   // number of streams failed to render
+    DWORD   dwFailedStreamsFlag ; // combination of flags to indicate failed streams
+} AM_DVD_RENDERSTATUS ;
+
+
+// 
+// IDvdGraphBuilder interface to build a filter graph for DVD-Video playback.
+//
+
+[
+    object,
+    local,
+    uuid(FCC152B6-F372-11d0-8E00-00C04FD7C08B),
+    pointer_default(unique)
+]
+interface IDvdGraphBuilder : IUnknown {
+
+    // Returns the IGraphBuilder interface for the filtergraph used by the
+    // CDvdGraphBuilder object.
+    // Remember to *ppGB->Release() when you're done with it
+    HRESULT GetFiltergraph
+    ( [out, annotation("_Out_")] IGraphBuilder **ppGB
+    ) ;
+
+    // Gets specific interface pointers in the DVD-Video playback graph to 
+    // make DVD-Video playback development easier.
+    // It helps get the following interfaces to control playback/show CC/
+    // position window/control volume etc:
+    // - IDvdControl, IDvdInfo
+    // - IAMLine21Decoder
+    // - IVideoWindow, IBasicVideo
+    // - IBasicAudio
+    // This method will return 
+    // a) E_INVALIDARG if ppvIF is invalid
+    // b) E_NOINTERFACE if riid is an IID we don't know about
+    // c) VFW_E_DVD_GRAPHNOTREADY if the graph has not been built through 
+    //    RenderDvdVideoVolume() yet.
+    // Remember to *ppvIF->Release() when you're done with it
+    HRESULT GetDvdInterface
+    ( [in] REFIID riid,    // IID of the interface required
+      [out, annotation("_Out_")] void **ppvIF   // returns pointer to the required interface
+    ) ;
+
+    // Builds a filter graph according to user specs for playing back a
+    // DVD-Video volume.
+    // This method returns S_FALSE if
+    // 1.  the graph has been either built, but either
+    //     a) VPE mixing doesn't work (app didn't use AM_DVD_NOVPE flag)
+    //     b) video decoder doesn't produce line21 data
+    //     c) line21 data couldn't be rendered (decoding/mixing problem)
+    //     d) the call specified an invalid volume path or DVD Nav couldn't
+    //        locate any DVD-Video volume to be played.
+    // 2.  some streams didn't render (completely), but the others have
+    //     been rendered so that the volume can be partially played back.
+    // The status is indicated through the fields of the pStatus (out)
+    // parameter.
+    // About 1(a), the app will have enough info to tell the user that the
+    // video won't be visible unless a TV is connected to the NTSC out 
+    // port of the DVD decoder (presumably HW in this case).
+    // For case 1(b) & (c), the app "can" put up a warning/informative message
+    // that closed captioning is not available because of the decoder.
+    // 1(d) helps an app to ask the user to insert a DVD-Video disc if none 
+    // is specified/available in the drive when playback is started.
+    // This method builds the graph even if 
+    // - an invalid DVD-Video volume is specified
+    // - the caller uses lpwszPathName = NULL to make the DVD Nav to locate
+    //   the default volume to be played back, but DVD Nav doesn't find a 
+    //   default DVD-Video volume to be played back.
+    // An app can later specify the volume using IDvdControl::SetRoot() 
+    // method.
+    // #2 will help the app indicate to the user that some of the streams
+    // can't be played.
+    // 
+    // The graph is built using filters based on the dwFlags value (to use 
+    // HW decoders or SW decoders or a mix of them).
+    // The dwFlags value is one of the values in AM_DVD_GRAPH_FLAGS enum
+    // type.  The default value is AM_DVD_HWDEC_PREFER. None of the 
+    // AM_DVD_HWDEC_xxx or AM_DVD_SWDEC_xxx flags can be mixed. However
+    // AM_DVD_NOVPE can be OR-ed with any of the AM_DVD_HWDEC_xxx flags.
+    //
+    // The method returns S_OK if the playback graph is built successfully
+    // with all the streams completely rendered and a valid DVD-Video volume 
+    // is specified or a default one has been located.
+    //
+    // If the dwFlags specify conflicting options, E_INVALIDARG is returned.
+    // If the graph building fails, the method returns one of the following 
+    // error codes:
+    //    VFW_E_DVD_RENDERFAIL, VFW_E_DVD_DECNOTENOUGH
+    //
+    HRESULT RenderDvdVideoVolume
+    ( [in] LPCWSTR lpcwszPathName,  // Can be NULL too
+      [in] DWORD dwFlags,           // 0 is the default (use max HW)
+      [out, annotation("_Out_")] AM_DVD_RENDERSTATUS *pStatus // returns indications of ANY failure
+    ) ;
+}
+
+
+//
+//  DDraw Exclusive Mode Video standard COM interface for Overlay Mixer
+//
+[
+    object,
+    local,
+    uuid(153ACC21-D83B-11d1-82BF-00A0C9696C8F),
+    pointer_default(unique)
+]
+interface IDDrawExclModeVideo : IUnknown {
+    // set a ddraw object to be used by the overlay mixer. If even one of the pins
+    // of the ovmixer is connected, then it won't start using the new ddraw obect
+    // immediately but just cache it. It will start using it the next time, all its
+    // pins are disconnected.
+    HRESULT SetDDrawObject([in] IDirectDraw *pDDrawObject);
+
+    // gets the ddraw object currently being used by the overlay mixer. If the app has not
+    // set any ddraw object and the ovmixer has not yet allocated one, then *ppDDrawObject
+    // will be set to NULL and *pbUsingExternal will be set TO FALSE. Otherwise *pbUsingExternal
+    // will be set to TRUE if the ovmixer is currently USING an app given ddraw object and FALSE
+    // othewise
+    HRESULT GetDDrawObject([out, annotation("_Out_")] IDirectDraw **ppDDrawObject, 
+                           [out, annotation("_Out_")] BOOL *pbUsingExternal);
+
+    // set a primary surface to be used by the overlay mixer. If even one of the pins
+    // of the ovmixer is connected, then it won't start using the new primary surface
+    // immediately but just cache it. It will start using it the next time, all its
+    // pins are disconnected.
+    // Also when the ovmixer does start using an app given primary surface, it will delete
+    // its output pin (and not draw its own colorkey) since the app is expected to do the
+    // window management and drawing colorkey etc on the primary surface
+    // This function makes sure that the surface provided exposes IDirectDrawSurface3, and 
+    // is consistent with the ddraw object provided. 
+    HRESULT SetDDrawSurface([in] IDirectDrawSurface *pDDrawSurface);
+
+    // gets the ddraw surface currently being used by the overlay mixer. If the app has not
+    // set any ddraw surface and the ovmixer has not yet allocated one, then *ppDDrawSurface
+    // will be set to NULL and *pbUsingExternal will be set to FALSE. Otherwise *pbUsingExternal
+    // will be set to TRUE if the ovmixer is curretnly USING an app given ddraw surface and FALSE
+    // otherwise
+    HRESULT GetDDrawSurface([out, annotation("_Out_")] IDirectDrawSurface **ppDDrawSurface, 
+                            [out, annotation("_Out_")] BOOL *pbUsingExternal);
+
+    // set draw paramters on the ovmixer (src and dest rect). Note that if the mode
+    // of the ovmixer is set to LETTER_BOX, then the ovmixer might show the video in
+    // only a subrect of *prcTarget (see IMixerPinConfig for details).
+    HRESULT SetDrawParameters([in] const RECT * prcSource, 
+                              [in] const RECT * prcTarget);
+
+    // gets the current video size and picture aspect ratio of the primary stream of the overlay mixer
+    // The app should look for the evene EC_VIDEO_SIZE_AR_CHANGED and on its receipt
+    // call this function again
+    HRESULT GetNativeVideoProps([out, annotation("_Out_")] DWORD *pdwVideoWidth, 
+                                [out, annotation("_Out_")] DWORD *pdwVideoHeight, 
+                                [out, annotation("_Out_")] DWORD *pdwPictAspectRatioX, 
+                                [out, annotation("_Out_")] DWORD *pdwPictAspectRatioY);
+
+    // Set the callback interface - the callback interface will be defined in a later release
+    // Currently returns E_NOTIMPL
+    HRESULT SetCallbackInterface([in] IDDrawExclModeVideoCallback *pCallback, 
+                                 [in] DWORD dwFlags);
+}
+
+
+//
+//  DDraw Exclusive Mode Video callbacks
+//
+
+//  enum for flags 
+enum _AM_OVERLAY_NOTIFY_FLAGS {
+    AM_OVERLAY_NOTIFY_VISIBLE_CHANGE = 0x00000001,
+    AM_OVERLAY_NOTIFY_SOURCE_CHANGE  = 0x00000002,
+    AM_OVERLAY_NOTIFY_DEST_CHANGE    = 0x00000004
+};
+[
+    object,
+    local,
+    uuid(913c24a0-20ab-11d2-9038-00a0c9697298),
+    pointer_default(unique)
+]
+interface IDDrawExclModeVideoCallback : IUnknown {
+
+    //  Called once before UpdateOverlay is called with bBefore == TRUE
+    //  and once after it is called with bBefore == FALSE and otherwise
+    //  identical parameters
+    HRESULT OnUpdateOverlay(
+                            [in] BOOL bBefore, // After UpdateOverlayCalled?
+                            [in] DWORD dwFlags,// _AM_OVERLAY_NOTIFY enum
+                            [in] BOOL bOldVisible,
+                            [in] const RECT *prcOldSrc,
+                            [in] const RECT *prcOldDest,
+                            [in] BOOL bNewVisible,
+                            [in] const RECT *prcNewSrc,
+                            [in] const RECT *prcNewDest);
+
+     //  Called when the surface color key is changed
+     HRESULT OnUpdateColorKey(
+                              [in] const COLORKEY *pKey,
+                              [in] DWORD dwColor);
+
+     //  Called when the video size or aspect ratio changes
+     HRESULT OnUpdateSize( [in] DWORD dwWidth,     // Movie pixel width
+                           [in] DWORD dwHeight,    // Movie pixel height
+                           [in] DWORD dwARWidth,   // Aspect ratio horizontal
+                           [in] DWORD dwARHeight); // Aspect ratio vertical
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

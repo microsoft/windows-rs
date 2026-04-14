@@ -1,0 +1,1700 @@
+// cmath standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CMATH_
+#define _CMATH_
+#include <yvals.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <cstdlib>
+#include <xtr1common>
+
+#if !defined(__clang__) && !defined(__CUDACC__) && !defined(_M_CEE) // TRANSITION, VSO-1663104
+#define _HAS_CMATH_INTRINSICS 1
+#else // ^^^ intrinsics available / intrinsics unavailable vvv
+#define _HAS_CMATH_INTRINSICS 0
+#endif // ^^^ intrinsics unavailable ^^^
+
+#if _HAS_CMATH_INTRINSICS
+#include _STL_INTRIN_HEADER
+#endif // _HAS_CMATH_INTRINSICS
+
+#if _HAS_CXX20
+#include <type_traits>
+#endif // _HAS_CXX20
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_EXTERN_CXX_WORKAROUND
+_NODISCARD _Check_return_ inline float acos(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD acosf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float acosh(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD acoshf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float asin(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD asinf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float asinh(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD asinhf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float atan(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD atanf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float atanh(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD atanhf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float atan2(_In_ float _Yx, _In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD atan2f(_Yx, _Xx);
+}
+
+_NODISCARD _Check_return_ inline float cbrt(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD cbrtf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float ceil(_In_ float _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __ceilf(_Xx);
+#elif defined(__clang__)
+    return __builtin_ceilf(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD ceilf(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline float copysign(_In_ float _Number, _In_ float _Sign) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __copysignf(_Number, _Sign);
+#elif defined(__clang__)
+    return __builtin_copysignf(_Number, _Sign);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD copysignf(_Number, _Sign);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline float cos(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD cosf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float cosh(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD coshf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float erf(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD erff(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float erfc(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD erfcf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float exp(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD expf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float exp2(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD exp2f(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float expm1(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD expm1f(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float fabs(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD fabsf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float fdim(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD fdimf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float floor(_In_ float _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __floorf(_Xx);
+#elif defined(__clang__)
+    return __builtin_floorf(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD floorf(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline float fma(_In_ float _Xx, _In_ float _Yx, _In_ float _Zx) noexcept /* strengthened */ {
+    return _CSTD fmaf(_Xx, _Yx, _Zx);
+}
+
+_NODISCARD _Check_return_ inline float fmax(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD fmaxf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float fmin(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD fminf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float fmod(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD fmodf(_Xx, _Yx);
+}
+
+inline float frexp(_In_ float _Xx, _Out_ int* _Yx) noexcept /* strengthened */ {
+    return _CSTD frexpf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float hypot(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD hypotf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline int ilogb(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD ilogbf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float ldexp(_In_ float _Xx, _In_ int _Yx) noexcept /* strengthened */ {
+    return _CSTD ldexpf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float lgamma(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD lgammaf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long long llrint(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD llrintf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long long llround(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD llroundf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float log(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD logf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float log10(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD log10f(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float log1p(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD log1pf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float log2(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD log2f(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float logb(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD logbf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long lrint(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD lrintf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long lround(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD lroundf(_Xx);
+}
+
+inline float modf(_In_ float _Xx, _Out_ float* _Yx) noexcept /* strengthened */ {
+    return _CSTD modff(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float nearbyint(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD nearbyintf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float nextafter(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD nextafterf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float nexttoward(_In_ float _Xx, _In_ long double _Yx) noexcept /* strengthened */ {
+    return _CSTD nexttowardf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float pow(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD powf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float remainder(_In_ float _Xx, _In_ float _Yx) noexcept /* strengthened */ {
+    return _CSTD remainderf(_Xx, _Yx);
+}
+
+inline float remquo(_In_ float _Xx, _In_ float _Yx, _Out_ int* _Zx) noexcept /* strengthened */ {
+    return _CSTD remquof(_Xx, _Yx, _Zx);
+}
+
+_NODISCARD _Check_return_ inline float rint(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD rintf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float round(_In_ float _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __roundf(_Xx);
+#elif defined(__clang__)
+    return __builtin_roundf(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD roundf(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline float scalbln(_In_ float _Xx, _In_ long _Yx) noexcept /* strengthened */ {
+    return _CSTD scalblnf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float scalbn(_In_ float _Xx, _In_ int _Yx) noexcept /* strengthened */ {
+    return _CSTD scalbnf(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline float sin(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD sinf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float sinh(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD sinhf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float sqrt(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD sqrtf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float tan(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD tanf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float tanh(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD tanhf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float tgamma(_In_ float _Xx) noexcept /* strengthened */ {
+    return _CSTD tgammaf(_Xx);
+}
+
+_NODISCARD _Check_return_ inline float trunc(_In_ float _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __truncf(_Xx);
+#elif defined(__clang__)
+    return __builtin_truncf(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD truncf(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline long double acos(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD acosl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double acosh(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD acoshl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double asin(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD asinl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double asinh(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD asinhl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double atan(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD atanl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double atanh(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD atanhl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double atan2(_In_ long double _Yx, _In_ long double _Xx) noexcept
+/* strengthened */ {
+    return _CSTD atan2l(_Yx, _Xx);
+}
+
+_NODISCARD _Check_return_ inline long double cbrt(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD cbrtl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double ceil(_In_ long double _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __ceil(static_cast<double>(_Xx));
+#elif defined(__clang__)
+    return __builtin_ceill(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD ceill(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline long double copysign(_In_ long double _Number, _In_ long double _Sign) noexcept
+/* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __copysign(static_cast<double>(_Number), static_cast<double>(_Sign));
+#elif defined(__clang__)
+    return __builtin_copysignl(_Number, _Sign);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD copysignl(_Number, _Sign);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline long double cos(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD cosl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double cosh(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD coshl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double erf(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD erfl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double erfc(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD erfcl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double exp(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD expl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double exp2(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD exp2l(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double expm1(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD expm1l(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double fabs(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD fabsl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double fdim(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD fdiml(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double floor(_In_ long double _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __floor(static_cast<double>(_Xx));
+#elif defined(__clang__)
+    return __builtin_floorl(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD floorl(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline long double fma(
+    _In_ long double _Xx, _In_ long double _Yx, _In_ long double _Zx) noexcept /* strengthened */ {
+    return _CSTD fmal(_Xx, _Yx, _Zx);
+}
+
+_NODISCARD _Check_return_ inline long double fmax(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD fmaxl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double fmin(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD fminl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double fmod(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD fmodl(_Xx, _Yx);
+}
+
+inline long double frexp(_In_ long double _Xx, _Out_ int* _Yx) noexcept /* strengthened */ {
+    return _CSTD frexpl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double hypot(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD hypotl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline int ilogb(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD ilogbl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double ldexp(_In_ long double _Xx, _In_ int _Yx) noexcept /* strengthened */ {
+    return _CSTD ldexpl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double lgamma(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD lgammal(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long long llrint(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD llrintl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long long llround(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD llroundl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double log(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD logl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double log10(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD log10l(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double log1p(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD log1pl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double log2(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD log2l(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double logb(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD logbl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long lrint(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD lrintl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long lround(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD lroundl(_Xx);
+}
+
+inline long double modf(_In_ long double _Xx, _Out_ long double* _Yx) noexcept /* strengthened */ {
+    return _CSTD modfl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double nearbyint(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD nearbyintl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double nextafter(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD nextafterl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double nexttoward(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD nexttowardl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double pow(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD powl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double remainder(_In_ long double _Xx, _In_ long double _Yx) noexcept
+/* strengthened */ {
+    return _CSTD remainderl(_Xx, _Yx);
+}
+
+inline long double remquo(_In_ long double _Xx, _In_ long double _Yx, _Out_ int* _Zx) noexcept /* strengthened */ {
+    return _CSTD remquol(_Xx, _Yx, _Zx);
+}
+
+_NODISCARD _Check_return_ inline long double rint(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD rintl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double round(_In_ long double _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __round(static_cast<double>(_Xx));
+#elif defined(__clang__)
+    return __builtin_roundl(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD roundl(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+
+_NODISCARD _Check_return_ inline long double scalbln(_In_ long double _Xx, _In_ long _Yx) noexcept /* strengthened */ {
+    return _CSTD scalblnl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double scalbn(_In_ long double _Xx, _In_ int _Yx) noexcept /* strengthened */ {
+    return _CSTD scalbnl(_Xx, _Yx);
+}
+
+_NODISCARD _Check_return_ inline long double sin(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD sinl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double sinh(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD sinhl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double sqrt(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD sqrtl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double tan(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD tanl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double tanh(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD tanhl(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double tgamma(_In_ long double _Xx) noexcept /* strengthened */ {
+    return _CSTD tgammal(_Xx);
+}
+
+_NODISCARD _Check_return_ inline long double trunc(_In_ long double _Xx) noexcept /* strengthened */ {
+#if _HAS_CMATH_INTRINSICS
+    return __trunc(static_cast<double>(_Xx));
+#elif defined(__clang__)
+    return __builtin_truncl(_Xx);
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+    return _CSTD truncl(_Xx);
+#endif // ^^^ intrinsics unavailable ^^^
+}
+_END_EXTERN_CXX_WORKAROUND
+
+_STD_BEGIN
+template <class _Ty1, class _Ty2>
+using _Common_float_type_t = conditional_t<is_same_v<_Ty1, long double> || is_same_v<_Ty2, long double>, long double,
+    conditional_t<is_same_v<_Ty1, float> && is_same_v<_Ty2, float>, float,
+        double>>; // find type for two-argument math function
+_STD_END
+
+_EXTERN_CXX_WORKAROUND
+template <class _Ty, _STD enable_if_t<_STD is_integral_v<_Ty>, int> = 0>
+double frexp(_Ty _Value, _Out_ int* const _Exp) noexcept /* strengthened */ {
+    return _CSTD frexp(static_cast<double>(_Value), _Exp);
+}
+
+template <class _Ty1, class _Ty2, class _Ty3,
+    _STD enable_if_t<_STD is_arithmetic_v<_Ty1> && _STD is_arithmetic_v<_Ty2> && _STD is_arithmetic_v<_Ty3>, int> = 0>
+_NODISCARD _STD _Common_float_type_t<_Ty1, _STD _Common_float_type_t<_Ty2, _Ty3>> fma(
+    _Ty1 _Left, _Ty2 _Middle, _Ty3 _Right) noexcept /* strengthened */ {
+    using _Common = _STD _Common_float_type_t<_Ty1, _STD _Common_float_type_t<_Ty2, _Ty3>>;
+    if constexpr (_STD is_same_v<_Common, float>) {
+        return _CSTD fmaf(static_cast<_Common>(_Left), static_cast<_Common>(_Middle), static_cast<_Common>(_Right));
+    } else if constexpr (_STD is_same_v<_Common, double>) {
+        return _CSTD fma(static_cast<_Common>(_Left), static_cast<_Common>(_Middle), static_cast<_Common>(_Right));
+    } else {
+        return _CSTD fmal(static_cast<_Common>(_Left), static_cast<_Common>(_Middle), static_cast<_Common>(_Right));
+    }
+}
+
+template <class _Ty1, class _Ty2, _STD enable_if_t<_STD is_arithmetic_v<_Ty1> && _STD is_arithmetic_v<_Ty2>, int> = 0>
+_STD _Common_float_type_t<_Ty1, _Ty2> remquo(_Ty1 _Left, _Ty2 _Right, int* _Pquo) noexcept /* strengthened */ {
+    using _Common = _STD _Common_float_type_t<_Ty1, _Ty2>;
+    if constexpr (_STD is_same_v<_Common, float>) {
+        return _CSTD remquof(static_cast<_Common>(_Left), static_cast<_Common>(_Right), _Pquo);
+    } else if constexpr (_STD is_same_v<_Common, double>) {
+        return _CSTD remquo(static_cast<_Common>(_Left), static_cast<_Common>(_Right), _Pquo);
+    } else {
+        return _CSTD remquol(static_cast<_Common>(_Left), static_cast<_Common>(_Right), _Pquo);
+    }
+}
+
+#ifdef __clang__
+// Clang provides efficient builtins; see GH-4609.
+// TRANSITION, the UCRT's function templates should take advantage of these builtins.
+// As a workaround, we can provide additional overloads that will be
+// preferred by overload resolution when the types exactly match.
+
+#define _CLANG_BUILTIN1_ARG(NAME, ARG)                                                           \
+    _NODISCARD _Check_return_ _CONSTEXPR23 bool NAME(_In_ ARG _Xx) noexcept /* strengthened */ { \
+        return __builtin_##NAME(_Xx);                                                            \
+    }
+
+// Updated by P0533R9 "constexpr For <cmath> And <cstdlib>".
+// TRANSITION, Clang 20: The builtins were made constexpr by LLVM-94118.
+#define _CLANG_BUILTIN2_ARG(NAME, ARG)                                                                   \
+    _NODISCARD _Check_return_ inline bool NAME(_In_ ARG _Xx, _In_ ARG _Yx) noexcept /* strengthened */ { \
+        return __builtin_##NAME(_Xx, _Yx);                                                               \
+    }
+
+#define _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, ARG)                                                         \
+    template <class _Ty, _STD enable_if_t<_STD is_arithmetic_v<_Ty>, int> = 0>                           \
+    _NODISCARD _Check_return_ inline bool NAME(_In_ ARG _Xx, _In_ _Ty _Yx) noexcept /* strengthened */ { \
+        return __builtin_##NAME(static_cast<double>(_Xx), static_cast<double>(_Yx));                     \
+    }
+
+#ifdef __cpp_char8_t
+#define _CLANG_BUILTIN2_ARG_TEMPLATED_CHAR8_T(NAME)                                                          \
+    template <class _Ty, _STD enable_if_t<_STD is_arithmetic_v<_Ty>, int> = 0>                               \
+    _NODISCARD _Check_return_ inline bool NAME(_In_ char8_t _Xx, _In_ _Ty _Yx) noexcept /* strengthened */ { \
+        return __builtin_##NAME(static_cast<double>(_Xx), static_cast<double>(_Yx));                         \
+    }
+#else // ^^^ defined(__cpp_char8_t) / !defined(__cpp_char8_t) vvv
+#define _CLANG_BUILTIN2_ARG_TEMPLATED_CHAR8_T(NAME)
+#endif // ^^^ !defined(__cpp_char8_t) ^^^
+
+#ifdef _NATIVE_WCHAR_T_DEFINED
+#define _CLANG_BUILTIN2_ARG_TEMPLATED_WCHAR_T(NAME)                                                          \
+    template <class _Ty, _STD enable_if_t<_STD is_arithmetic_v<_Ty>, int> = 0>                               \
+    _NODISCARD _Check_return_ inline bool NAME(_In_ wchar_t _Xx, _In_ _Ty _Yx) noexcept /* strengthened */ { \
+        return __builtin_##NAME(static_cast<double>(_Xx), static_cast<double>(_Yx));                         \
+    }
+#else // ^^^ defined(_NATIVE_WCHAR_T_DEFINED) / !defined(_NATIVE_WCHAR_T_DEFINED) vvv
+#define _CLANG_BUILTIN2_ARG_TEMPLATED_WCHAR_T(NAME)
+#endif // ^^^ !defined(_NATIVE_WCHAR_T_DEFINED) ^^^
+
+#define _CLANG_BUILTIN2_TEMPLATED(NAME)                     \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, float)              \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, double)             \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, long double)        \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, signed char)        \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, short)              \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, int)                \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, long)               \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, long long)          \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, unsigned char)      \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, unsigned short)     \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, unsigned int)       \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, unsigned long)      \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, unsigned long long) \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, bool)               \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, char)               \
+    _CLANG_BUILTIN2_ARG_TEMPLATED_CHAR8_T(NAME)             \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, char16_t)           \
+    _CLANG_BUILTIN2_ARG_TEMPLATED(NAME, char32_t)           \
+    _CLANG_BUILTIN2_ARG_TEMPLATED_WCHAR_T(NAME)
+
+#define _CLANG_BUILTIN1(NAME)         \
+    _CLANG_BUILTIN1_ARG(NAME, float)  \
+    _CLANG_BUILTIN1_ARG(NAME, double) \
+    _CLANG_BUILTIN1_ARG(NAME, long double)
+
+#define _CLANG_BUILTIN2(NAME)         \
+    _CLANG_BUILTIN2_ARG(NAME, float)  \
+    _CLANG_BUILTIN2_ARG(NAME, double) \
+    _CLANG_BUILTIN2_ARG(NAME, long double)
+
+_STL_DISABLE_CLANG_WARNING_NAN_INF_DISABLED
+_CLANG_BUILTIN1(isfinite)
+_CLANG_BUILTIN1(isinf)
+_CLANG_BUILTIN1(isnan)
+_STL_RESTORE_CLANG_WARNING_NAN_INF_DISABLED
+_CLANG_BUILTIN1(isnormal)
+
+_CLANG_BUILTIN2(isgreater)
+_CLANG_BUILTIN2(isgreaterequal)
+_CLANG_BUILTIN2(isless)
+_CLANG_BUILTIN2(islessequal)
+_CLANG_BUILTIN2(islessgreater)
+_STL_DISABLE_CLANG_WARNING_NAN_INF_DISABLED
+_CLANG_BUILTIN2(isunordered)
+_STL_RESTORE_CLANG_WARNING_NAN_INF_DISABLED
+
+_CLANG_BUILTIN2_TEMPLATED(isgreater)
+_CLANG_BUILTIN2_TEMPLATED(isgreaterequal)
+_CLANG_BUILTIN2_TEMPLATED(isless)
+_CLANG_BUILTIN2_TEMPLATED(islessequal)
+_CLANG_BUILTIN2_TEMPLATED(islessgreater)
+_STL_DISABLE_CLANG_WARNING_NAN_INF_DISABLED
+_CLANG_BUILTIN2_TEMPLATED(isunordered)
+_STL_RESTORE_CLANG_WARNING_NAN_INF_DISABLED
+
+#undef _CLANG_BUILTIN1_ARG
+#undef _CLANG_BUILTIN2_ARG
+#undef _CLANG_BUILTIN1
+#undef _CLANG_BUILTIN2
+#undef _CLANG_BUILTIN2_ARG_TEMPLATED
+#undef _CLANG_BUILTIN2_ARG_TEMPLATED_CHAR8_T
+#undef _CLANG_BUILTIN2_ARG_TEMPLATED_WCHAR_T
+#undef _CLANG_BUILTIN2_TEMPLATED
+#endif // ^^^ defined(__clang__) ^^^
+
+// TRANSITION, DevCom-10294165, should be provided by UCRT
+template <class _Ty, _STD enable_if_t<_STD is_integral_v<_Ty>, int> = 0>
+_NODISCARD _Check_return_ _CONSTEXPR23 int fpclassify(_In_ const _Ty _Ix) noexcept /* strengthened */ {
+    return _Ix == 0 ? FP_ZERO : FP_NORMAL;
+}
+
+// TRANSITION, DevCom-10294165, should be provided by UCRT
+template <class _Ty, _STD enable_if_t<_STD is_integral_v<_Ty>, int> = 0>
+_NODISCARD _Check_return_ _CONSTEXPR23 bool signbit(_In_ const _Ty _Ix) noexcept /* strengthened */ {
+    if constexpr (static_cast<_Ty>(-1) < _Ty{}) {
+        return _Ix < 0;
+    } else {
+        return false;
+    }
+}
+
+// TRANSITION, DevCom-10294165, additional overloads are not templated to avoid ambiguity with the overload in UCRT
+#define _GENERIC_MATH_ISNORMAL(TYPE)                                                                        \
+    _NODISCARD _Check_return_ _CONSTEXPR23 bool isnormal(_In_ const TYPE _Ix) noexcept /* strengthened */ { \
+        return _Ix != 0;                                                                                    \
+    }
+
+_GENERIC_MATH_ISNORMAL(signed char)
+_GENERIC_MATH_ISNORMAL(unsigned char)
+_GENERIC_MATH_ISNORMAL(short)
+_GENERIC_MATH_ISNORMAL(unsigned short)
+_GENERIC_MATH_ISNORMAL(int)
+_GENERIC_MATH_ISNORMAL(unsigned int)
+_GENERIC_MATH_ISNORMAL(long)
+_GENERIC_MATH_ISNORMAL(unsigned long)
+_GENERIC_MATH_ISNORMAL(long long)
+_GENERIC_MATH_ISNORMAL(unsigned long long)
+_GENERIC_MATH_ISNORMAL(bool)
+_GENERIC_MATH_ISNORMAL(char)
+#ifdef __cpp_char8_t
+_GENERIC_MATH_ISNORMAL(char8_t)
+#endif // defined(__cpp_char8_t)
+_GENERIC_MATH_ISNORMAL(char16_t)
+_GENERIC_MATH_ISNORMAL(char32_t)
+#ifdef _NATIVE_WCHAR_T_DEFINED
+_GENERIC_MATH_ISNORMAL(wchar_t)
+#endif // defined(_NATIVE_WCHAR_T_DEFINED)
+#undef _GENERIC_MATH_ISNORMAL
+
+#define _GENERIC_MATH1_BASE(NAME, RET, FUN)                                  \
+    template <class _Ty, _STD enable_if_t<_STD is_integral_v<_Ty>, int> = 0> \
+    _NODISCARD RET NAME(_Ty _Left) noexcept /* strengthened */ {             \
+        return FUN(static_cast<double>(_Left));                              \
+    }
+
+#define _GENERIC_MATH1R(FUN, RET) _GENERIC_MATH1_BASE(FUN, RET, _CSTD FUN)
+#define _GENERIC_MATH1(FUN)       _GENERIC_MATH1R(FUN, double)
+
+#if _HAS_CMATH_INTRINSICS
+#define _GENERIC_MATH1I(FUN, CLANG_INTRIN, MSVC_INTRIN) _GENERIC_MATH1_BASE(FUN, double, MSVC_INTRIN)
+#elif defined(__clang__)
+#define _GENERIC_MATH1I(FUN, CLANG_INTRIN, MSVC_INTRIN) _GENERIC_MATH1_BASE(FUN, double, CLANG_INTRIN)
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+#define _GENERIC_MATH1I(FUN, CLANG_INTRIN, MSVC_INTRIN) _GENERIC_MATH1_BASE(FUN, double, _CSTD FUN)
+#endif // ^^^ intrinsics unavailable ^^^
+
+#define _GENERIC_MATH1X(FUN, ARG2)                                             \
+    template <class _Ty, _STD enable_if_t<_STD is_integral_v<_Ty>, int> = 0>   \
+    _NODISCARD double FUN(_Ty _Left, ARG2 _Arg2) noexcept /* strengthened */ { \
+        return _CSTD FUN(static_cast<double>(_Left), _Arg2);                   \
+    }
+
+// When the arguments are both floats or both long doubles, overload resolution prefers the
+// non-template overloads to the templates generated from this macro. The templates generated from
+// this macro are only selected by overload resolution when both arguments have integral type, or
+// when the types of the two arguments differ, in which case _Common_float_type_t is either double
+// or long double. Note that double and long double have the same underlying representation on our
+// supported platforms.
+#define _GENERIC_MATH2_BASE(NAME, FUN)                                                                           \
+    template <class _Ty1, class _Ty2,                                                                            \
+        _STD enable_if_t<_STD is_arithmetic_v<_Ty1> && _STD is_arithmetic_v<_Ty2>, int> = 0>                     \
+    _NODISCARD _STD _Common_float_type_t<_Ty1, _Ty2> NAME(_Ty1 _Left, _Ty2 _Right) noexcept /* strengthened */ { \
+        return FUN(static_cast<double>(_Left), static_cast<double>(_Right));                                     \
+    }
+
+#define _GENERIC_MATH2(FUN) _GENERIC_MATH2_BASE(FUN, _CSTD FUN)
+
+#if _HAS_CMATH_INTRINSICS
+#define _GENERIC_MATH2I(FUN, CLANG_INTRIN, MSVC_INTRIN) _GENERIC_MATH2_BASE(FUN, MSVC_INTRIN)
+#elif defined(__clang__)
+#define _GENERIC_MATH2I(FUN, CLANG_INTRIN, MSVC_INTRIN) _GENERIC_MATH2_BASE(FUN, CLANG_INTRIN)
+#else // ^^^ defined(__clang__) / intrinsics unavailable vvv
+#define _GENERIC_MATH2I(FUN, CLANG_INTRIN, MSVC_INTRIN) _GENERIC_MATH2_BASE(FUN, _CSTD FUN)
+#endif // ^^^ intrinsics unavailable ^^^
+
+// TRANSITION, DevCom-10294165, additional overloads are not templated to avoid ambiguity with the overload in UCRT
+#define _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, TYPE)                                \
+    _NODISCARD _Check_return_ _CONSTEXPR23 bool FUN(_In_ TYPE) noexcept /* strengthened */ { \
+        return RETV;                                                                         \
+    }
+
+#ifdef __cpp_char8_t
+#define _GENERIC_MATH_CLASSIFY1_RETV_CHAR8_T(FUN, RETV) _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, char8_t)
+#else // ^^^ defined(__cpp_char8_t) / !defined(__cpp_char8_t) vvv
+#define _GENERIC_MATH_CLASSIFY1_RETV_CHAR8_T(FUN, RETV)
+#endif // ^^^ !defined(__cpp_char8_t) ^^^
+
+#ifdef _NATIVE_WCHAR_T_DEFINED
+#define _GENERIC_MATH_CLASSIFY1_RETV_WCHAR_T(FUN, RETV) _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, wchar_t)
+#else // ^^^ defined(_NATIVE_WCHAR_T_DEFINED) / !defined(_NATIVE_WCHAR_T_DEFINED) vvv
+#define _GENERIC_MATH_CLASSIFY1_RETV_WCHAR_T(FUN, RETV)
+#endif // ^^^ !defined(_NATIVE_WCHAR_T_DEFINED) ^^^
+
+#define _GENERIC_MATH_CLASSIFY1_RETV(FUN, RETV)                         \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, signed char)        \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, unsigned char)      \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, short)              \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, unsigned short)     \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, int)                \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, unsigned int)       \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, long)               \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, unsigned long)      \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, long long)          \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, unsigned long long) \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, bool)               \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, char)               \
+    _GENERIC_MATH_CLASSIFY1_RETV_CHAR8_T(FUN, RETV)                     \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, char16_t)           \
+    _GENERIC_MATH_CLASSIFY1_RETV_INTEGER(FUN, RETV, char32_t)           \
+    _GENERIC_MATH_CLASSIFY1_RETV_WCHAR_T(FUN, RETV)
+
+// The following order matches N4950 [cmath.syn].
+_GENERIC_MATH1(acos)
+_GENERIC_MATH1(asin)
+_GENERIC_MATH1(atan)
+_GENERIC_MATH2(atan2)
+_GENERIC_MATH1(cos)
+_GENERIC_MATH1(sin)
+_GENERIC_MATH1(tan)
+_GENERIC_MATH1(acosh)
+_GENERIC_MATH1(asinh)
+_GENERIC_MATH1(atanh)
+_GENERIC_MATH1(cosh)
+_GENERIC_MATH1(sinh)
+_GENERIC_MATH1(tanh)
+_GENERIC_MATH1(exp)
+_GENERIC_MATH1(exp2)
+_GENERIC_MATH1(expm1)
+// frexp() is hand-crafted
+_GENERIC_MATH1R(ilogb, int)
+_GENERIC_MATH1X(ldexp, int)
+_GENERIC_MATH1(log)
+_GENERIC_MATH1(log10)
+_GENERIC_MATH1(log1p)
+_GENERIC_MATH1(log2)
+_GENERIC_MATH1(logb)
+// No modf(), types must match
+_GENERIC_MATH1X(scalbn, int)
+_GENERIC_MATH1X(scalbln, long)
+_GENERIC_MATH1(cbrt)
+// abs() has integer overloads
+_GENERIC_MATH1(fabs)
+_GENERIC_MATH2(hypot)
+// 3-arg hypot() is hand-crafted
+_GENERIC_MATH2(pow)
+_GENERIC_MATH1(sqrt)
+_GENERIC_MATH1(erf)
+_GENERIC_MATH1(erfc)
+_GENERIC_MATH1(lgamma)
+_GENERIC_MATH1(tgamma)
+_GENERIC_MATH1I(ceil, __builtin_ceil, __ceil)
+_GENERIC_MATH1I(floor, __builtin_floor, __floor)
+_GENERIC_MATH1(nearbyint)
+_GENERIC_MATH1(rint)
+_GENERIC_MATH1R(lrint, long)
+_GENERIC_MATH1R(llrint, long long)
+_GENERIC_MATH1I(round, __builtin_round, __round)
+_GENERIC_MATH1R(lround, long)
+_GENERIC_MATH1R(llround, long long)
+_GENERIC_MATH1I(trunc, __builtin_trunc, __trunc)
+_GENERIC_MATH2(fmod)
+_GENERIC_MATH2(remainder)
+// remquo() is hand-crafted
+_GENERIC_MATH2I(copysign, __builtin_copysign, __copysign)
+// nan(const char*) is exempt
+_GENERIC_MATH2(nextafter)
+_GENERIC_MATH1X(nexttoward, long double)
+_GENERIC_MATH2(fdim)
+_GENERIC_MATH2(fmax)
+_GENERIC_MATH2(fmin)
+// fma() is hand-crafted
+// lerp() is hand-crafted
+// fpclassify() is hand-crafted
+_GENERIC_MATH_CLASSIFY1_RETV(isfinite, true)
+_GENERIC_MATH_CLASSIFY1_RETV(isinf, false)
+_GENERIC_MATH_CLASSIFY1_RETV(isnan, false)
+// isnormal() is half-hand-crafted
+// signbit() is hand-crafted
+
+#undef _GENERIC_MATH1_BASE
+#undef _GENERIC_MATH1R
+#undef _GENERIC_MATH1
+#undef _GENERIC_MATH1I
+#undef _GENERIC_MATH1X
+#undef _GENERIC_MATH2_BASE
+#undef _GENERIC_MATH2
+#undef _GENERIC_MATH2I
+#undef _GENERIC_MATH_CLASSIFY1_RETV_INTEGER
+#undef _GENERIC_MATH_CLASSIFY1_RETV_WCHAR_T
+#undef _GENERIC_MATH_CLASSIFY1_RETV_CHAR8_T
+#undef _GENERIC_MATH_CLASSIFY1_RETV
+#undef _HAS_CMATH_INTRINSICS
+_END_EXTERN_CXX_WORKAROUND
+
+_STD_BEGIN
+_EXPORT_STD using _CSTD abs;
+_EXPORT_STD using _CSTD acos;
+_EXPORT_STD using _CSTD asin;
+_EXPORT_STD using _CSTD atan;
+_EXPORT_STD using _CSTD atan2;
+_EXPORT_STD using _CSTD ceil;
+_EXPORT_STD using _CSTD cos;
+_EXPORT_STD using _CSTD cosh;
+_EXPORT_STD using _CSTD exp;
+_EXPORT_STD using _CSTD fabs;
+_EXPORT_STD using _CSTD floor;
+_EXPORT_STD using _CSTD fmod;
+_EXPORT_STD using _CSTD frexp;
+_EXPORT_STD using _CSTD ldexp;
+_EXPORT_STD using _CSTD log;
+_EXPORT_STD using _CSTD log10;
+_EXPORT_STD using _CSTD modf;
+_EXPORT_STD using _CSTD pow;
+_EXPORT_STD using _CSTD sin;
+_EXPORT_STD using _CSTD sinh;
+_EXPORT_STD using _CSTD sqrt;
+_EXPORT_STD using _CSTD tan;
+_EXPORT_STD using _CSTD tanh;
+
+_EXPORT_STD using _CSTD acosf;
+_EXPORT_STD using _CSTD asinf;
+_EXPORT_STD using _CSTD atanf;
+_EXPORT_STD using _CSTD atan2f;
+_EXPORT_STD using _CSTD ceilf;
+_EXPORT_STD using _CSTD cosf;
+_EXPORT_STD using _CSTD coshf;
+_EXPORT_STD using _CSTD expf;
+_EXPORT_STD using _CSTD fabsf;
+_EXPORT_STD using _CSTD floorf;
+_EXPORT_STD using _CSTD fmodf;
+_EXPORT_STD using _CSTD frexpf;
+_EXPORT_STD using _CSTD ldexpf;
+_EXPORT_STD using _CSTD logf;
+_EXPORT_STD using _CSTD log10f;
+_EXPORT_STD using _CSTD modff;
+_EXPORT_STD using _CSTD powf;
+_EXPORT_STD using _CSTD sinf;
+_EXPORT_STD using _CSTD sinhf;
+_EXPORT_STD using _CSTD sqrtf;
+_EXPORT_STD using _CSTD tanf;
+_EXPORT_STD using _CSTD tanhf;
+
+_EXPORT_STD using _CSTD acosl;
+_EXPORT_STD using _CSTD asinl;
+_EXPORT_STD using _CSTD atanl;
+_EXPORT_STD using _CSTD atan2l;
+_EXPORT_STD using _CSTD ceill;
+_EXPORT_STD using _CSTD cosl;
+_EXPORT_STD using _CSTD coshl;
+_EXPORT_STD using _CSTD expl;
+_EXPORT_STD using _CSTD fabsl;
+_EXPORT_STD using _CSTD floorl;
+_EXPORT_STD using _CSTD fmodl;
+_EXPORT_STD using _CSTD frexpl;
+_EXPORT_STD using _CSTD ldexpl;
+_EXPORT_STD using _CSTD logl;
+_EXPORT_STD using _CSTD log10l;
+_EXPORT_STD using _CSTD modfl;
+_EXPORT_STD using _CSTD powl;
+_EXPORT_STD using _CSTD sinl;
+_EXPORT_STD using _CSTD sinhl;
+_EXPORT_STD using _CSTD sqrtl;
+_EXPORT_STD using _CSTD tanl;
+_EXPORT_STD using _CSTD tanhl;
+
+_EXPORT_STD using _CSTD float_t;
+_EXPORT_STD using _CSTD double_t;
+
+_EXPORT_STD using _CSTD acosh;
+_EXPORT_STD using _CSTD asinh;
+_EXPORT_STD using _CSTD atanh;
+_EXPORT_STD using _CSTD cbrt;
+_EXPORT_STD using _CSTD erf;
+_EXPORT_STD using _CSTD erfc;
+_EXPORT_STD using _CSTD expm1;
+_EXPORT_STD using _CSTD exp2;
+
+inline namespace _Binary_hypot {
+    _EXPORT_STD using _CSTD hypot;
+} // namespace _Binary_hypot
+
+_EXPORT_STD using _CSTD ilogb;
+_EXPORT_STD using _CSTD lgamma;
+_EXPORT_STD using _CSTD log1p;
+_EXPORT_STD using _CSTD log2;
+_EXPORT_STD using _CSTD logb;
+_EXPORT_STD using _CSTD llrint;
+_EXPORT_STD using _CSTD lrint;
+_EXPORT_STD using _CSTD nearbyint;
+_EXPORT_STD using _CSTD rint;
+_EXPORT_STD using _CSTD llround;
+_EXPORT_STD using _CSTD lround;
+_EXPORT_STD using _CSTD fdim;
+_EXPORT_STD using _CSTD fma;
+_EXPORT_STD using _CSTD fmax;
+_EXPORT_STD using _CSTD fmin;
+_EXPORT_STD using _CSTD round;
+_EXPORT_STD using _CSTD trunc;
+_EXPORT_STD using _CSTD remainder;
+_EXPORT_STD using _CSTD remquo;
+_EXPORT_STD using _CSTD copysign;
+_EXPORT_STD using _CSTD nan;
+_EXPORT_STD using _CSTD nextafter;
+_EXPORT_STD using _CSTD scalbn;
+_EXPORT_STD using _CSTD scalbln;
+_EXPORT_STD using _CSTD nexttoward;
+_EXPORT_STD using _CSTD tgamma;
+
+_EXPORT_STD using _CSTD acoshf;
+_EXPORT_STD using _CSTD asinhf;
+_EXPORT_STD using _CSTD atanhf;
+_EXPORT_STD using _CSTD cbrtf;
+_EXPORT_STD using _CSTD erff;
+_EXPORT_STD using _CSTD erfcf;
+_EXPORT_STD using _CSTD expm1f;
+_EXPORT_STD using _CSTD exp2f;
+_EXPORT_STD using _CSTD hypotf;
+_EXPORT_STD using _CSTD ilogbf;
+_EXPORT_STD using _CSTD lgammaf;
+_EXPORT_STD using _CSTD log1pf;
+_EXPORT_STD using _CSTD log2f;
+_EXPORT_STD using _CSTD logbf;
+_EXPORT_STD using _CSTD llrintf;
+_EXPORT_STD using _CSTD lrintf;
+_EXPORT_STD using _CSTD nearbyintf;
+_EXPORT_STD using _CSTD rintf;
+_EXPORT_STD using _CSTD llroundf;
+_EXPORT_STD using _CSTD lroundf;
+_EXPORT_STD using _CSTD fdimf;
+_EXPORT_STD using _CSTD fmaf;
+_EXPORT_STD using _CSTD fmaxf;
+_EXPORT_STD using _CSTD fminf;
+_EXPORT_STD using _CSTD roundf;
+_EXPORT_STD using _CSTD truncf;
+_EXPORT_STD using _CSTD remainderf;
+_EXPORT_STD using _CSTD remquof;
+_EXPORT_STD using _CSTD copysignf;
+_EXPORT_STD using _CSTD nanf;
+_EXPORT_STD using _CSTD nextafterf;
+_EXPORT_STD using _CSTD scalbnf;
+_EXPORT_STD using _CSTD scalblnf;
+_EXPORT_STD using _CSTD nexttowardf;
+_EXPORT_STD using _CSTD tgammaf;
+
+_EXPORT_STD using _CSTD acoshl;
+_EXPORT_STD using _CSTD asinhl;
+_EXPORT_STD using _CSTD atanhl;
+_EXPORT_STD using _CSTD cbrtl;
+_EXPORT_STD using _CSTD erfl;
+_EXPORT_STD using _CSTD erfcl;
+_EXPORT_STD using _CSTD expm1l;
+_EXPORT_STD using _CSTD exp2l;
+_EXPORT_STD using _CSTD hypotl;
+_EXPORT_STD using _CSTD ilogbl;
+_EXPORT_STD using _CSTD lgammal;
+_EXPORT_STD using _CSTD log1pl;
+_EXPORT_STD using _CSTD log2l;
+_EXPORT_STD using _CSTD logbl;
+_EXPORT_STD using _CSTD llrintl;
+_EXPORT_STD using _CSTD lrintl;
+_EXPORT_STD using _CSTD nearbyintl;
+_EXPORT_STD using _CSTD rintl;
+_EXPORT_STD using _CSTD llroundl;
+_EXPORT_STD using _CSTD lroundl;
+_EXPORT_STD using _CSTD fdiml;
+_EXPORT_STD using _CSTD fmal;
+_EXPORT_STD using _CSTD fmaxl;
+_EXPORT_STD using _CSTD fminl;
+_EXPORT_STD using _CSTD roundl;
+_EXPORT_STD using _CSTD truncl;
+_EXPORT_STD using _CSTD remainderl;
+_EXPORT_STD using _CSTD remquol;
+_EXPORT_STD using _CSTD copysignl;
+_EXPORT_STD using _CSTD nanl;
+_EXPORT_STD using _CSTD nextafterl;
+_EXPORT_STD using _CSTD scalbnl;
+_EXPORT_STD using _CSTD scalblnl;
+_EXPORT_STD using _CSTD nexttowardl;
+_EXPORT_STD using _CSTD tgammal;
+
+_EXPORT_STD using _CSTD fpclassify;
+_EXPORT_STD using _CSTD signbit;
+_EXPORT_STD using _CSTD isfinite;
+_EXPORT_STD using _CSTD isinf;
+_EXPORT_STD using _CSTD isnan;
+_EXPORT_STD using _CSTD isnormal;
+_EXPORT_STD using _CSTD isgreater;
+_EXPORT_STD using _CSTD isgreaterequal;
+_EXPORT_STD using _CSTD isless;
+_EXPORT_STD using _CSTD islessequal;
+_EXPORT_STD using _CSTD islessgreater;
+_EXPORT_STD using _CSTD isunordered;
+_STD_END
+
+#if _HAS_CXX17
+extern "C" {
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_assoc_laguerre(unsigned int, unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_assoc_laguerref(unsigned int, unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_assoc_legendre(unsigned int, unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_assoc_legendref(unsigned int, unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_beta(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_betaf(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_comp_ellint_1(double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_comp_ellint_1f(float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_comp_ellint_2(double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_comp_ellint_2f(float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_comp_ellint_3(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_comp_ellint_3f(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_cyl_bessel_i(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_cyl_bessel_if(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_cyl_bessel_j(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_cyl_bessel_jf(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_cyl_bessel_k(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_cyl_bessel_kf(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_cyl_neumann(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_cyl_neumannf(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_ellint_1(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_ellint_1f(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_ellint_2(double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_ellint_2f(float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_ellint_3(double, double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_ellint_3f(float, float, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_expint(double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_expintf(float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_hermite(unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_hermitef(unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_laguerre(unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_laguerref(unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_legendre(unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_legendref(unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_riemann_zeta(double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_riemann_zetaf(float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_sph_bessel(unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_sph_besself(unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_sph_legendre(unsigned int, unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_sph_legendref(unsigned int, unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_sph_neumann(unsigned int, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_sph_neumannf(unsigned int, float) noexcept;
+_NODISCARD _CRT_SATELLITE_2 double __stdcall __std_smf_hypot3(double, double, double) noexcept;
+_NODISCARD _CRT_SATELLITE_2 float __stdcall __std_smf_hypot3f(float, float, float) noexcept;
+} // extern "C"
+
+_STD_BEGIN
+_EXPORT_STD _NODISCARD inline double assoc_laguerre(
+    const unsigned int _Degree, const unsigned int _Order, const double _Value) noexcept /* strengthened */ {
+    return __std_smf_assoc_laguerre(_Degree, _Order, _Value);
+}
+
+_EXPORT_STD _NODISCARD inline float assoc_laguerref(
+    const unsigned int _Degree, const unsigned int _Order, const float _Value) noexcept /* strengthened */ {
+    return __std_smf_assoc_laguerref(_Degree, _Order, _Value);
+}
+
+_EXPORT_STD _NODISCARD inline long double assoc_laguerrel(
+    const unsigned int _Degree, const unsigned int _Order, const long double _Value) noexcept /* strengthened */ {
+    return __std_smf_assoc_laguerre(_Degree, _Order, static_cast<double>(_Value));
+}
+
+_EXPORT_STD _NODISCARD inline double assoc_legendre(
+    const unsigned int _Degree, const unsigned int _Order, const double _Value) noexcept /* strengthened */ {
+    return __std_smf_assoc_legendre(_Degree, _Order, _Value);
+}
+
+_EXPORT_STD _NODISCARD inline float assoc_legendref(
+    const unsigned int _Degree, const unsigned int _Order, const float _Value) noexcept /* strengthened */ {
+    return __std_smf_assoc_legendref(_Degree, _Order, _Value);
+}
+
+_EXPORT_STD _NODISCARD inline long double assoc_legendrel(
+    const unsigned int _Degree, const unsigned int _Order, const long double _Value) noexcept /* strengthened */ {
+    return __std_smf_assoc_legendre(_Degree, _Order, static_cast<double>(_Value));
+}
+
+_EXPORT_STD _NODISCARD inline double beta(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_beta(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float betaf(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_betaf(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double betal(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_beta(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double comp_ellint_1(const double _Arg) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_1(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline float comp_ellint_1f(const float _Arg) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_1f(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline long double comp_ellint_1l(const long double _Arg) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_1(static_cast<double>(_Arg));
+}
+
+_EXPORT_STD _NODISCARD inline double comp_ellint_2(const double _Arg) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_2(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline float comp_ellint_2f(const float _Arg) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_2f(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline long double comp_ellint_2l(const long double _Arg) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_2(static_cast<double>(_Arg));
+}
+
+_EXPORT_STD _NODISCARD inline double comp_ellint_3(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_3(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float comp_ellint_3f(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_comp_ellint_3f(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double comp_ellint_3l(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_comp_ellint_3(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double cyl_bessel_i(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_bessel_i(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float cyl_bessel_if(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_bessel_if(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double cyl_bessel_il(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_cyl_bessel_i(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double cyl_bessel_j(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_bessel_j(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float cyl_bessel_jf(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_bessel_jf(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double cyl_bessel_jl(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_cyl_bessel_j(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double cyl_bessel_k(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_bessel_k(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float cyl_bessel_kf(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_bessel_kf(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double cyl_bessel_kl(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_cyl_bessel_k(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double cyl_neumann(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_neumann(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float cyl_neumannf(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_cyl_neumannf(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double cyl_neumannl(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_cyl_neumann(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double ellint_1(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_ellint_1(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float ellint_1f(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_ellint_1f(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double ellint_1l(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_ellint_1(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double ellint_2(const double _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_ellint_2(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float ellint_2f(const float _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_ellint_2f(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double ellint_2l(const long double _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_ellint_2(static_cast<double>(_Arg1), static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double ellint_3(const double _Arg1, const double _Arg2, const double _Arg3) noexcept
+/* strengthened */ {
+    return __std_smf_ellint_3(_Arg1, _Arg2, _Arg3);
+}
+
+_EXPORT_STD _NODISCARD inline float ellint_3f(const float _Arg1, const float _Arg2, const float _Arg3) noexcept
+/* strengthened */ {
+    return __std_smf_ellint_3f(_Arg1, _Arg2, _Arg3);
+}
+
+_EXPORT_STD _NODISCARD inline long double ellint_3l(
+    const long double _Arg1, const long double _Arg2, const long double _Arg3) noexcept /* strengthened */ {
+    return __std_smf_ellint_3(static_cast<double>(_Arg1), static_cast<double>(_Arg2), static_cast<double>(_Arg3));
+}
+
+_EXPORT_STD _NODISCARD inline double expint(const double _Arg) noexcept /* strengthened */ {
+    return __std_smf_expint(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline float expintf(const float _Arg) noexcept /* strengthened */ {
+    return __std_smf_expintf(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline long double expintl(const long double _Arg) noexcept /* strengthened */ {
+    return __std_smf_expint(static_cast<double>(_Arg));
+}
+
+_EXPORT_STD _NODISCARD inline double hermite(const unsigned int _Arg1, const double _Arg2) noexcept /* strengthened */ {
+    return __std_smf_hermite(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float hermitef(const unsigned int _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_hermitef(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double hermitel(const unsigned int _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_hermite(_Arg1, static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double laguerre(const unsigned int _Arg1, const double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_laguerre(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float laguerref(const unsigned int _Arg1, const float _Arg2) noexcept /* strengthened */ {
+    return __std_smf_laguerref(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double laguerrel(const unsigned int _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_laguerre(_Arg1, static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double legendre(const unsigned int _Degree, const double _Value) noexcept
+/* strengthened */ {
+    return __std_smf_legendre(_Degree, _Value);
+}
+
+_EXPORT_STD _NODISCARD inline float legendref(const unsigned int _Degree, const float _Value) noexcept
+/* strengthened */ {
+    return __std_smf_legendref(_Degree, _Value);
+}
+
+_EXPORT_STD _NODISCARD inline long double legendrel(const unsigned int _Degree, const long double _Value) noexcept
+/* strengthened */ {
+    return __std_smf_legendre(_Degree, static_cast<double>(_Value));
+}
+
+_EXPORT_STD _NODISCARD inline double riemann_zeta(const double _Arg) noexcept /* strengthened */ {
+    return __std_smf_riemann_zeta(_Arg);
+}
+_EXPORT_STD _NODISCARD inline float riemann_zetaf(const float _Arg) noexcept /* strengthened */ {
+    return __std_smf_riemann_zetaf(_Arg);
+}
+
+_EXPORT_STD _NODISCARD inline long double riemann_zetal(const long double _Arg) noexcept /* strengthened */ {
+    return __std_smf_riemann_zeta(static_cast<double>(_Arg));
+}
+
+_EXPORT_STD _NODISCARD inline double sph_bessel(const unsigned int _Arg1, const double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_sph_bessel(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float sph_besself(const unsigned int _Arg1, const float _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_sph_besself(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double sph_bessell(const unsigned int _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_sph_bessel(_Arg1, static_cast<double>(_Arg2));
+}
+
+_EXPORT_STD _NODISCARD inline double sph_legendre(
+    const unsigned int _Arg1, const unsigned int _Arg2, const double _Theta) noexcept
+/* strengthened */ {
+    return __std_smf_sph_legendre(_Arg1, _Arg2, _Theta);
+}
+
+_EXPORT_STD _NODISCARD inline float sph_legendref(
+    const unsigned int _Arg1, const unsigned int _Arg2, const float _Theta) noexcept
+/* strengthened */ {
+    return __std_smf_sph_legendref(_Arg1, _Arg2, _Theta);
+}
+
+_EXPORT_STD _NODISCARD inline long double sph_legendrel(
+    const unsigned int _Arg1, const unsigned int _Arg2, const long double _Theta) noexcept /* strengthened */ {
+    return __std_smf_sph_legendre(_Arg1, _Arg2, static_cast<double>(_Theta));
+}
+
+_EXPORT_STD _NODISCARD inline double sph_neumann(const unsigned int _Arg1, const double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_sph_neumann(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline float sph_neumannf(const unsigned int _Arg1, const float _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_sph_neumannf(_Arg1, _Arg2);
+}
+
+_EXPORT_STD _NODISCARD inline long double sph_neumannl(const unsigned int _Arg1, const long double _Arg2) noexcept
+/* strengthened */ {
+    return __std_smf_sph_neumann(_Arg1, static_cast<double>(_Arg2));
+}
+
+#define _GENERIC_MATH_SPECIAL1(NAME)                                                  \
+    _EXPORT_STD template <class _Ty, enable_if_t<is_arithmetic_v<_Ty>, int> = 0>      \
+    _NODISCARD auto NAME(const _Ty _Arg) noexcept /* strengthened */ {                \
+        using _Common = conditional_t<is_integral_v<_Ty>, double, _Ty>;               \
+        if constexpr (is_same_v<_Common, float>) {                                    \
+            return __std_smf_##NAME##f(_Arg);                                         \
+        } else {                                                                      \
+            return static_cast<_Common>(__std_smf_##NAME(static_cast<double>(_Arg))); \
+        }                                                                             \
+    }
+
+#define _GENERIC_MATH_SPECIAL2(NAME)                                                                               \
+    _EXPORT_STD template <class _Ty1, class _Ty2,                                                                  \
+        enable_if_t<is_arithmetic_v<_Ty1> && is_arithmetic_v<_Ty2>, int> = 0>                                      \
+    _NODISCARD auto NAME(const _Ty1 _Arg1, const _Ty2 _Arg2) noexcept /* strengthened */ {                         \
+        using _Common = _Common_float_type_t<_Ty1, _Ty2>;                                                          \
+        if constexpr (is_same_v<_Common, float>) {                                                                 \
+            return __std_smf_##NAME##f(_Arg1, _Arg2);                                                              \
+        } else {                                                                                                   \
+            return static_cast<_Common>(__std_smf_##NAME(static_cast<double>(_Arg1), static_cast<double>(_Arg2))); \
+        }                                                                                                          \
+    }
+
+#define _GENERIC_MATH_SPECIAL3(NAME)                                                                                   \
+    _EXPORT_STD template <class _Ty1, class _Ty2, class _Ty3,                                                          \
+        enable_if_t<is_arithmetic_v<_Ty1> && is_arithmetic_v<_Ty2> && is_arithmetic_v<_Ty3>, int> = 0>                 \
+    _NODISCARD auto NAME(const _Ty1 _Arg1, const _Ty2 _Arg2, const _Ty3 _Arg3) noexcept /* strengthened */ {           \
+        using _Common = _Common_float_type_t<_Ty1, _Common_float_type_t<_Ty2, _Ty3>>;                                  \
+        if constexpr (is_same_v<_Common, float>) {                                                                     \
+            return __std_smf_##NAME##f(_Arg1, _Arg2, _Arg3);                                                           \
+        } else {                                                                                                       \
+            return static_cast<_Common>(                                                                               \
+                __std_smf_##NAME(static_cast<double>(_Arg1), static_cast<double>(_Arg2), static_cast<double>(_Arg3))); \
+        }                                                                                                              \
+    }
+
+#define _GENERIC_MATH_SPECIAL_UINT1(NAME)                                                         \
+    _EXPORT_STD template <class _Ty, enable_if_t<is_arithmetic_v<_Ty>, int> = 0>                  \
+    _NODISCARD auto NAME(const unsigned int _Arg1, const _Ty _Arg2) noexcept /* strengthened */ { \
+        using _Common = conditional_t<is_integral_v<_Ty>, double, _Ty>;                           \
+        if constexpr (is_same_v<_Common, float>) {                                                \
+            return __std_smf_##NAME##f(_Arg1, _Arg2);                                             \
+        } else {                                                                                  \
+            return static_cast<_Common>(__std_smf_##NAME(_Arg1, static_cast<double>(_Arg2)));     \
+        }                                                                                         \
+    }
+
+#define _GENERIC_MATH_SPECIAL_UINT2(NAME)                                                                  \
+    _EXPORT_STD template <class _Ty, enable_if_t<is_arithmetic_v<_Ty>, int> = 0>                           \
+    _NODISCARD auto NAME(                                                                                  \
+        const unsigned int _Arg1, const unsigned int _Arg2, const _Ty _Arg3) noexcept /* strengthened */ { \
+        using _Common = conditional_t<is_integral_v<_Ty>, double, _Ty>;                                    \
+        if constexpr (is_same_v<_Common, float>) {                                                         \
+            return __std_smf_##NAME##f(_Arg1, _Arg2, _Arg3);                                               \
+        } else {                                                                                           \
+            return static_cast<_Common>(__std_smf_##NAME(_Arg1, _Arg2, static_cast<double>(_Arg3)));       \
+        }                                                                                                  \
+    }
+
+// per LWG-3234 and LWG-3693
+_GENERIC_MATH_SPECIAL_UINT2(assoc_laguerre)
+_GENERIC_MATH_SPECIAL_UINT2(assoc_legendre)
+_GENERIC_MATH_SPECIAL2(beta)
+_GENERIC_MATH_SPECIAL1(comp_ellint_1)
+_GENERIC_MATH_SPECIAL1(comp_ellint_2)
+_GENERIC_MATH_SPECIAL2(comp_ellint_3)
+_GENERIC_MATH_SPECIAL2(cyl_bessel_i)
+_GENERIC_MATH_SPECIAL2(cyl_bessel_j)
+_GENERIC_MATH_SPECIAL2(cyl_bessel_k)
+_GENERIC_MATH_SPECIAL2(cyl_neumann)
+_GENERIC_MATH_SPECIAL2(ellint_1)
+_GENERIC_MATH_SPECIAL2(ellint_2)
+_GENERIC_MATH_SPECIAL3(ellint_3)
+_GENERIC_MATH_SPECIAL1(expint)
+_GENERIC_MATH_SPECIAL_UINT1(hermite)
+_GENERIC_MATH_SPECIAL_UINT1(laguerre)
+_GENERIC_MATH_SPECIAL_UINT1(legendre)
+_GENERIC_MATH_SPECIAL1(riemann_zeta)
+_GENERIC_MATH_SPECIAL_UINT1(sph_bessel)
+_GENERIC_MATH_SPECIAL_UINT2(sph_legendre)
+_GENERIC_MATH_SPECIAL_UINT1(sph_neumann)
+
+#undef _GENERIC_MATH_SPECIAL1
+#undef _GENERIC_MATH_SPECIAL2
+#undef _GENERIC_MATH_SPECIAL3
+#undef _GENERIC_MATH_SPECIAL_UINT1
+#undef _GENERIC_MATH_SPECIAL_UINT2
+
+_EXPORT_STD _NODISCARD inline double hypot(const double _Dx, const double _Dy, const double _Dz) noexcept
+/* strengthened */ {
+    return __std_smf_hypot3(_Dx, _Dy, _Dz);
+}
+
+_EXPORT_STD _NODISCARD inline float hypot(const float _Dx, const float _Dy, const float _Dz) noexcept
+/* strengthened */ {
+    return __std_smf_hypot3f(_Dx, _Dy, _Dz);
+}
+
+_EXPORT_STD _NODISCARD inline long double hypot(
+    const long double _Dx, const long double _Dy, const long double _Dz) noexcept /* strengthened */ {
+    return __std_smf_hypot3(static_cast<double>(_Dx), static_cast<double>(_Dy), static_cast<double>(_Dz));
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2, class _Ty3,
+    enable_if_t<is_arithmetic_v<_Ty1> && is_arithmetic_v<_Ty2> && is_arithmetic_v<_Ty3>, int> = 0>
+_NODISCARD auto hypot(const _Ty1 _Dx, const _Ty2 _Dy, const _Ty3 _Dz) noexcept /* strengthened */ {
+    // N4950 [cmath.syn]/3 "Sufficient additional overloads"
+    // Note that this template is selected by overload resolution only when at least one
+    // argument is double/long double/integral but not all three are double or long double.
+    using _Common      = _Common_float_type_t<_Ty1, _Common_float_type_t<_Ty2, _Ty3>>; // TRANSITION, fold expressions
+    const auto _Result = __std_smf_hypot3(static_cast<double>(_Dx), static_cast<double>(_Dy), static_cast<double>(_Dz));
+    return static_cast<_Common>(_Result);
+}
+
+#if _HAS_CXX20
+template <class _Ty>
+_NODISCARD constexpr _Ty _Linear_for_lerp(const _Ty _ArgA, const _Ty _ArgB, const _Ty _ArgT) noexcept {
+    if (_STD is_constant_evaluated()) {
+        auto _Smaller     = _ArgT;
+        auto _Larger      = _ArgB - _ArgA;
+        auto _Abs_smaller = _Float_abs(_Smaller);
+        auto _Abs_larger  = _Float_abs(_Larger);
+        if (_Abs_larger < _Abs_smaller) {
+            _Ty _Tmp = _Smaller;
+            _Smaller = _Larger;
+            _Larger  = _Tmp;
+
+            _Tmp         = _Abs_smaller;
+            _Abs_smaller = _Abs_larger;
+            _Abs_larger  = _Tmp;
+        }
+
+        if (_Abs_smaller > 1) {
+            // _Larger is too large to be subnormal, so scaling by 0.5 is exact, and the product _Smaller * _Larger is
+            // large enough that if _ArgA is subnormal, it will be too small to contribute anyway and this way can
+            // sometimes avoid overflow problems.
+            return 2 * (_Ty{0.5} * _ArgA + _Smaller * (_Ty{0.5} * _Larger));
+        } else {
+            return _ArgA + _Smaller * _Larger;
+        }
+    }
+
+    return _STD fma(_ArgT, _ArgB - _ArgA, _ArgA);
+}
+
+template <class _Ty>
+_NODISCARD constexpr _Ty _Common_lerp(const _Ty _ArgA, const _Ty _ArgB, const _Ty _ArgT) noexcept {
+    // on a line intersecting {(0.0, _ArgA), (1.0, _ArgB)}, return the Y value for X == _ArgT
+
+    const bool _T_is_finite = _Is_finite(_ArgT);
+    if (_T_is_finite && _Is_finite(_ArgA) && _Is_finite(_ArgB)) {
+        // 99% case, put it first; this block comes from P0811R3
+        if ((_ArgA <= 0 && _ArgB >= 0) || (_ArgA >= 0 && _ArgB <= 0)) {
+            // exact, monotonic, bounded, determinate, and (for _ArgA == _ArgB == 0) consistent:
+            return _ArgT * _ArgB + (1 - _ArgT) * _ArgA;
+        }
+
+        if (_ArgT == 1) {
+            // exact
+            return _ArgB;
+        }
+
+        // exact at _ArgT == 0, monotonic except near _ArgT == 1, bounded, determinate, and consistent:
+        const auto _Candidate = _Linear_for_lerp(_ArgA, _ArgB, _ArgT);
+        // monotonic near _ArgT == 1:
+        if ((_ArgT > 1) == (_ArgB > _ArgA)) {
+            if (_ArgB > _Candidate) {
+                return _ArgB;
+            }
+        } else {
+            if (_Candidate > _ArgB) {
+                return _ArgB;
+            }
+        }
+
+        return _Candidate;
+    }
+
+    if (_STD is_constant_evaluated()) {
+        if (_Is_nan(_ArgA)) {
+            return _ArgA;
+        }
+
+        if (_Is_nan(_ArgB)) {
+            return _ArgB;
+        }
+
+        if (_Is_nan(_ArgT)) {
+            return _ArgT;
+        }
+    } else {
+        // raise FE_INVALID if at least one of _ArgA, _ArgB, and _ArgT is signaling NaN
+        if (_Is_nan(_ArgA) || _Is_nan(_ArgB)) {
+            return (_ArgA + _ArgB) + _ArgT;
+        }
+
+        if (_Is_nan(_ArgT)) {
+            return _ArgT + _ArgT;
+        }
+    }
+
+    if (_T_is_finite) {
+        // _ArgT is finite, _ArgA and/or _ArgB is infinity
+        if (_ArgT < 0) {
+            // if _ArgT < 0:     return infinity in the "direction" of _ArgA if that exists, NaN otherwise
+            return _ArgA - _ArgB;
+        } else if (_ArgT <= 1) {
+            // if _ArgT == 0:    return _ArgA (infinity) if _ArgB is finite, NaN otherwise
+            // if 0 < _ArgT < 1: return infinity "between" _ArgA and _ArgB if that exists, NaN otherwise
+            // if _ArgT == 1:    return _ArgB (infinity) if _ArgA is finite, NaN otherwise
+            return _ArgT * _ArgB + (1 - _ArgT) * _ArgA;
+        } else {
+            // if _ArgT > 1:     return infinity in the "direction" of _ArgB if that exists, NaN otherwise
+            return _ArgB - _ArgA;
+        }
+    } else {
+        // _ArgT is an infinity; return infinity in the "direction" of _ArgA and _ArgB if that exists, NaN otherwise
+        return _ArgT * (_ArgB - _ArgA);
+    }
+}
+
+_EXPORT_STD _NODISCARD constexpr inline float lerp(const float _ArgA, const float _ArgB, const float _ArgT) noexcept {
+    return _Common_lerp(_ArgA, _ArgB, _ArgT);
+}
+
+_EXPORT_STD _NODISCARD constexpr inline double lerp(
+    const double _ArgA, const double _ArgB, const double _ArgT) noexcept {
+    return _Common_lerp(_ArgA, _ArgB, _ArgT);
+}
+
+_EXPORT_STD _NODISCARD constexpr inline long double lerp(
+    const long double _ArgA, const long double _ArgB, const long double _ArgT) noexcept {
+    return _Common_lerp(_ArgA, _ArgB, _ArgT);
+}
+
+_EXPORT_STD template <class _Ty1, class _Ty2, class _Ty3>
+    requires is_arithmetic_v<_Ty1> && is_arithmetic_v<_Ty2> && is_arithmetic_v<_Ty3>
+_NODISCARD constexpr auto lerp(const _Ty1 _ArgA, const _Ty2 _ArgB, const _Ty3 _ArgT) noexcept {
+    using _Tgt = conditional_t<_Is_any_of_v<long double, _Ty1, _Ty2, _Ty3>, long double, double>;
+    return _Common_lerp(static_cast<_Tgt>(_ArgA), static_cast<_Tgt>(_ArgB), static_cast<_Tgt>(_ArgT));
+}
+#endif // _HAS_CXX20
+_STD_END
+#endif // _HAS_CXX17
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CMATH_

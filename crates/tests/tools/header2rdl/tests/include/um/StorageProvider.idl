@@ -1,0 +1,42 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "propsys.idl";
+
+[
+    object,
+    uuid(301DFBE5-524C-4B0F-8B2D-21C40B3A2988),
+    pointer_default(unique)
+]
+interface IStorageProviderPropertyHandler : IUnknown
+{
+    HRESULT RetrieveProperties([in, size_is(propertiesToRetrieveCount)] const PROPERTYKEY* propertiesToRetrieve,
+                               [in] ULONG propertiesToRetrieveCount,
+                               [out] IPropertyStore** retrievedProperties);
+    HRESULT SaveProperties([in] IPropertyStore* propertiesToSave);
+}
+
+[
+    object,
+    uuid(162C6FB5-44D3-435B-903D-E613FA093FB5),
+    pointer_default(unique)
+]
+interface IStorageProviderHandler : IUnknown
+{
+    HRESULT GetPropertyHandlerFromPath([in] LPCWSTR path, [out] IStorageProviderPropertyHandler** propertyHandler);
+    HRESULT GetPropertyHandlerFromUri([in] LPCWSTR uri, [out] IStorageProviderPropertyHandler** propertyHandler);
+    HRESULT GetPropertyHandlerFromFileId([in] LPCWSTR fileId, [out] IStorageProviderPropertyHandler** propertyHandler);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

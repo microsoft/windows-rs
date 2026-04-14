@@ -1,0 +1,1132 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vds.idl
+//
+//    Abstract:
+//        declarations of interfaces and types of Virtual Disk Service.
+//
+//    Note:
+//        if a type is an aggregation of types defined by software provider,
+//        hardware provider, or the common layer, they are listed in this
+//        order: common to all, software provider specific, hardware provider
+//        specific, common layer specific.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+--------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) 2008 Microsoft Corporation.")
+cpp_quote("//")
+cpp_quote("//---------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "vdssys.idl";
+
+//
+// Includes
+//
+#include "vdscmmn.idl"
+#include "vdssp.idl"
+#include "vdshp.idl"
+#include "vdsvd.idl"
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+#define DRIVE_LETTER_PROP
+#define MAX_PATH                260
+
+interface IVdsServiceLoader;
+interface IVdsService;
+interface IVdsServiceUninstallDisk;
+interface IVdsServiceHba;
+interface IVdsServiceIscsi;
+interface IVdsServiceInitialization;
+interface IVdsHbaPort;
+interface IVdsIscsiInitiatorAdapter;
+interface IVdsIscsiInitiatorPortal;
+interface IVdsDiskPartitionMF;
+interface IVdsDiskPartitionMF2;
+interface IVdsVolumeMF;
+interface IVdsVolumeMF2;
+interface IVdsVolumeMF3;
+interface IVdsVolumeShrink;
+interface IVdsSubSystemImportTarget;
+interface IVdsIscsiPortalLocal;
+interface IVdsServiceSAN;
+interface IVdsServiceSw;
+
+cpp_quote("// {9C38ED61-D565-4728-AEEE-C80952F0ECDE}")
+cpp_quote("DEFINE_GUID(CLSID_VdsLoader, ")
+cpp_quote(" 0X9C38ED61,0xD565,0x4728,0xAE,0xEE,0xC8,0x09,0x52,0xF0,0xEC,0xDE);")
+cpp_quote("")
+cpp_quote("// {7D1933CB-86F6-4A98-8628-01BE94C9A575}")
+cpp_quote("DEFINE_GUID(CLSID_VdsService, ")
+cpp_quote(" 0x7D1933CB,0x86F6,0x4A98,0x86,0x28,0x01,0xBE,0x94,0xC9,0xA5,0x75);")
+cpp_quote("")
+
+const LONG MAX_FS_NAME_SIZE = 8;   // size of file system type as used in VDS_FILE_SYSTEM_TYPE_PROP: NTFS, FAT32...
+const LONG MAX_FS_FORMAT_SUPPORT_NAME_SIZE = 32;   // size of file system type as used in VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP: NTFS, FAT32...
+const LONG MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE = 32;
+
+//
+// Service Flags
+//
+typedef enum _VDS_SERVICE_FLAG
+{
+    VDS_SVF_SUPPORT_DYNAMIC             = 0x00000001,   // Dynamic is not supported on all SKUs. Laptops did not support dynamic until Vista.
+    VDS_SVF_SUPPORT_FAULT_TOLERANT      = 0x00000002,   // SKU supports both mirrors and RAID5 (server SKUs).
+    VDS_SVF_SUPPORT_GPT                 = 0x00000004,   // GPT disks are supported.
+    VDS_SVF_SUPPORT_DYNAMIC_1394        = 0x00000008,   // 1394 dynamic disks are supported.
+    VDS_SVF_CLUSTER_SERVICE_CONFIGURED  = 0x00000010,   // Server is part of a cluster configuration.
+    VDS_SVF_AUTO_MOUNT_OFF              = 0x00000020,   // NoAutoMount is enabled.
+    VDS_SVF_OS_UNINSTALL_VALID          = 0x00000040,
+    VDS_SVF_EFI                         = 0x00000080,   // Server boots EFI (from GPT disk).
+    VDS_SVF_SUPPORT_MIRROR              = 0x00000100L,  // Added for Windows7 - SKU supports mirrors (Windows7 client and server SKUs).
+    VDS_SVF_SUPPORT_RAID5               = 0x00000200L,  // Added for Windows7 - SKU supports RAID5 (server SKUs).
+    VDS_SVF_SUPPORT_REFS                = 0x00000400L   // Added for Windows8 - SKU supports ReFS (server SKUs).
+
+} VDS_SERVICE_FLAG;
+
+//
+// Service Properties
+//
+typedef struct _VDS_SERVICE_PROP
+{
+    [string] LPWSTR     pwszVersion;
+    ULONG               ulFlags;
+
+} VDS_SERVICE_PROP;
+
+//
+// SAN Policy flags
+//
+
+typedef enum _VDS_SAN_POLICY
+{
+    VDS_SP_UNKNOWN          = 0x0,  //
+    VDS_SP_ONLINE           = 0x1,  // All newly discovered disks are brought ONLINE and made WRITABLE
+    VDS_SP_OFFLINE_SHARED   = 0x2,  // All newly discovered disks not residing on a shared bus are
+                                    // brought ONLINE and made WRITABLE.
+    VDS_SP_OFFLINE          = 0x3,  // All newly discovered disks remain OFFLINE and READ-ONLY.
+    VDS_SP_OFFLINE_INTERNAL = 0x4,  // All newly discovered internal disks remain OFFLINE and READ-ONLY.
+    VDS_SP_MAX              = 0x5, 
+
+} VDS_SAN_POLICY;
+
+//
+// Reparse Point Properties
+//
+typedef struct VDS_REPARSE_POINT_PROP
+{
+    VDS_OBJECT_ID       SourceVolumeId;
+    [string] LPWSTR     pwszPath;
+
+} VDS_REPARSE_POINT_PROP, *PVDS_REPARSE_POINT_PROP;
+
+//
+// Drive Letter Flags
+//
+typedef enum _VDS_DRIVE_LETTER_FLAG
+{
+    VDS_DLF_NON_PERSISTENT      = 0x1
+
+} VDS_DRIVE_LETTER_FLAG;
+
+//
+// Drive Letter Properties
+//
+typedef struct _VDS_DRIVE_LETTER_PROP
+{
+    WCHAR               wcLetter;
+    VDS_OBJECT_ID       volumeId;
+    ULONG               ulFlags;     // pending removal
+    BOOL                bUsed;
+
+} VDS_DRIVE_LETTER_PROP, *PVDS_DRIVE_LETTER_PROP;
+
+
+//
+// File System Type Flags
+//
+typedef enum _VDS_FILE_SYSTEM_FLAG
+{
+    VDS_FSF_SUPPORT_FORMAT          = 0x1,
+                            // A UI's drop down list should only have
+                            // those file systems that support format.
+    VDS_FSF_SUPPORT_QUICK_FORMAT    = 0x2,
+    VDS_FSF_SUPPORT_COMPRESS        = 0x4,
+    VDS_FSF_SUPPORT_SPECIFY_LABEL   = 0x8,
+    VDS_FSF_SUPPORT_MOUNT_POINT     = 0x10,
+    VDS_FSF_SUPPORT_REMOVABLE_MEDIA = 0x20,
+    VDS_FSF_SUPPORT_EXTEND          = 0x40,
+
+    VDS_FSF_ALLOCATION_UNIT_512     = 0x10000,
+    VDS_FSF_ALLOCATION_UNIT_1K      = 0x20000,
+    VDS_FSF_ALLOCATION_UNIT_2K      = 0x40000,
+    VDS_FSF_ALLOCATION_UNIT_4K      = 0x80000,
+    VDS_FSF_ALLOCATION_UNIT_8K      = 0x100000,
+    VDS_FSF_ALLOCATION_UNIT_16K     = 0x200000,
+    VDS_FSF_ALLOCATION_UNIT_32K     = 0x400000,
+    VDS_FSF_ALLOCATION_UNIT_64K     = 0x800000,
+    VDS_FSF_ALLOCATION_UNIT_128K    = 0x1000000,
+    VDS_FSF_ALLOCATION_UNIT_256K    = 0x2000000
+
+} VDS_FILE_SYSTEM_FLAG;
+
+//
+// File System Type Properties
+//
+typedef struct _VDS_FILE_SYSTEM_TYPE_PROP
+{
+    VDS_FILE_SYSTEM_TYPE type;   // FAT, FAT32, NTFS, ...
+    WCHAR               wszName[MAX_FS_NAME_SIZE];
+    ULONG               ulFlags;
+    ULONG               ulCompressionFlags;
+                        // legal alloc unit sizes valid for compression
+    ULONG               ulMaxLableLength;
+    [string] LPWSTR     pwszIllegalLabelCharSet;
+
+} VDS_FILE_SYSTEM_TYPE_PROP, *PVDS_FILE_SYSTEM_TYPE_PROP;
+
+//
+// File System Format Support Flags
+//
+typedef enum _VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG
+{
+    VDS_FSS_DEFAULT = 0x1,
+    VDS_FSS_PREVIOUS_REVISION = 0x2,
+    VDS_FSS_RECOMMENDED = 0x4
+
+} VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG;
+
+//
+// File System Format Support Properties
+//
+typedef struct _VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP
+{
+    ULONG               ulFlags;
+    USHORT              usRevision;
+    ULONG               ulDefaultUnitAllocationSize;
+    ULONG               rgulAllowedUnitAllocationSizes[MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE];
+    WCHAR               wszName[MAX_FS_FORMAT_SUPPORT_NAME_SIZE];
+
+} VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, *PVDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP;
+
+//
+// File System Flags
+//
+typedef enum _VDS_FILE_SYSTEM_PROP_FLAG
+{
+    VDS_FPF_COMPRESSED      = 0x1
+
+} VDS_FILE_SYSTEM_PROP_FLAG;
+
+
+//
+// File System Option Flags
+//
+typedef enum _VDS_FORMAT_OPTION_FLAGS
+{
+    VDS_FSOF_NONE               = 0x00000000,
+    VDS_FSOF_FORCE              = 0x00000001,
+    VDS_FSOF_QUICK              = 0x00000002,
+    VDS_FSOF_COMPRESSION        = 0x00000004,
+    VDS_FSOF_DUPLICATE_METADATA = 0x00000008
+
+} VDS_FORMAT_OPTION_FLAGS;
+
+//
+// File System Properties
+//
+typedef struct _VDS_FILE_SYSTEM_PROP
+{
+    VDS_FILE_SYSTEM_TYPE type;
+        // It is recommended that GetFileSystemTypeName be used instead of this
+        // type field so that unknown file systems types can be retrieved too.
+    VDS_OBJECT_ID       volumeId;
+    ULONG               ulFlags;
+        // When this flag is set/cleared, there is no notification sent.
+        // This is indeed a flag for the root directory of the volume.
+        // There is no notification sent on the volume by PnP if it changed.
+    ULONGLONG           ullTotalAllocationUnits;
+    ULONGLONG           ullAvailableAllocationUnits;
+    ULONG               ulAllocationUnitSize;
+    [string] LPWSTR     pwszLabel;
+
+} VDS_FILE_SYSTEM_PROP, *PVDS_FILE_SYSTEM_PROP;
+
+//
+// Types for Provider queries
+//
+typedef enum _VDS_QUERY_PROVIDER_FLAG
+{
+    VDS_QUERY_SOFTWARE_PROVIDERS = 0x1,
+    VDS_QUERY_HARDWARE_PROVIDERS = 0x2,
+    VDS_QUERY_VIRTUALDISK_PROVIDERS = 0x4
+} VDS_QUERY_PROVIDER_FLAG;
+
+//
+// IVdsServiceLoader:
+// Implemented by: service loader object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(e0393303-90d4-4a97-ab71-e9b671ee2729),
+    pointer_default(unique)
+]
+
+interface IVdsServiceLoader : IUnknown
+{
+    [helpstring("method LoadService")]
+    HRESULT LoadService(
+                [in,unique,string] LPWSTR       pwszMachineName,
+                [out] IVdsService               **ppService
+            );
+}
+
+//
+// IVdsService:
+// Implemented by: service object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0818a8ef-9ba9-40d8-a6f9-e22833cc771e),
+    pointer_default(unique)
+]
+
+interface IVdsService : IUnknown
+{
+    // IsServiceReady:
+    //   This method returns S_OK when it is fully initialized. Otherwise,
+    //   it returns S_FALSE. Before the service initialization completes,
+    //   an application should not call any other method other than
+    //   GetProperties(). If the service failed to initialize, it returns
+    //   VDS_E_INITIALIZATION_FAILED.
+    [helpstring("method IsServiceReady")]
+    HRESULT IsServiceReady(
+            );
+
+    // WaitForServiceReady:
+    //   Before the service is ready, call to any method except If this
+    //   method returns S_OK, the service
+    //   successfully initialized; it returns VDS_E_INITIALIZED_FAILED if the
+    //   service failed to initialize successfully.
+    [helpstring("method WaitForServiceReady")]
+    HRESULT WaitForServiceReady(
+            );
+
+    // GetProperties:
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_SERVICE_PROP *pServiceProp
+            );
+
+    [helpstring("method QueryProviders")]
+    HRESULT QueryProviders(
+                [in] DWORD masks,
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryMaskedDisks")]
+    HRESULT QueryMaskedDisks(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryUnallocatedDisks")]
+    HRESULT QueryUnallocatedDisks(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    // GetObject:
+    //   This method provides a way to go from id to object pointer. Object
+    //   type can be provider, pack, volume, disk, storage system, controller.
+    //   Although there seems to be no need for a controller or storage system
+    //   object to have a persistent ID, it is good to have a transient ID
+    //   which lasts a VDS session.
+    //   Notifications will contain object id instead of object pointer.
+    //   An application needs to convert from id to pointer.
+    [helpstring("method GetObject")]
+    HRESULT GetObject(
+                [in] VDS_OBJECT_ID ObjectId,
+                [in] VDS_OBJECT_TYPE type,
+                [out] IUnknown **ppObjectUnk
+            );
+
+    [helpstring("method QueryDriveLetters")]
+    HRESULT QueryDriveLetters(
+                [in] WCHAR wcFirstLetter,
+                [in] DWORD count,
+                [out, size_is(count)]
+                     VDS_DRIVE_LETTER_PROP *pDriveLetterPropArray
+            );
+
+    // It is recommended that IVdsVolumeMF2::QueryFileSystemFormatSupport() be
+    // called to retrieve the supported file systems for particular volumes
+    // rather than calling QueryFileSystemTypes(), which may not apply to all
+    // volumes.
+    [helpstring("method QueryFileSystemTypes")]
+    HRESULT QueryFileSystemTypes(
+                [out, size_is(,*plNumberOfFileSystems)]
+                      VDS_FILE_SYSTEM_TYPE_PROP **ppFileSystemTypeProps,
+                [out] LONG *plNumberOfFileSystems
+            );
+
+    // Reenumerate
+    //   Discover new disks, removed disks. It returns immediately
+    //   After the request is sent. To rescan disks inside a RAID
+    //   box, use Reinventory on IVdsSubSystem.
+    [helpstring("method Reenumerate")]
+    HRESULT Reenumerate(
+                void
+            );
+
+    // Refresh
+    //   Refresh disk ownership and disk layout.
+    // NOTE: Sync disk layout to whatever the disk driver has. Does not
+    //   force the driver to read layout from disk.
+    [helpstring("method Refresh")]
+    HRESULT Refresh(
+                void
+            );
+
+    // CleanupObsoleteMountPoints:
+    //   This method scrubs the registry with IOCTL_MOUNTMGR_SCRUB_REGISTRY,
+    //   and remove any mount points pointing to volumes that no longer exist.
+    //
+    [helpstring("method CleanupObsoleteMountPoints")]
+    HRESULT CleanupObsoleteMountPoints(
+                void
+            );
+
+    // Advise:
+    //   Applications register for notifications with the service object. The
+    //   service receives notifications from software providers and hardware
+    //   providers and forwards notifications to applications.
+    [helpstring("method Advise")]
+    HRESULT Advise(
+                [in] IVdsAdviseSink *pSink,
+                [out] DWORD *pdwCookie
+            );
+
+    [helpstring("method Unadvise")]
+    HRESULT Unadvise(
+                [in] DWORD dwCookie
+            );
+
+    [helpstring("method Reboot")]
+    HRESULT Reboot(
+            );
+
+    [helpstring("method SetFlags")]
+    HRESULT SetFlags(
+                [in] ULONG ulFlags
+            );
+
+    [helpstring("method ClearFlags")]
+    HRESULT ClearFlags(
+                [in] ULONG ulFlags
+            );
+}
+
+//
+// IVdsServiceUninstallDisk:
+// Implemented by: service object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(B6B22DA8-F903-4be7-B492-C09D875AC9DA),
+    pointer_default(unique)
+]
+
+interface IVdsServiceUninstallDisk : IUnknown
+{
+    [helpstring("method GetDiskIdFromLunInfo")]
+    HRESULT GetDiskIdFromLunInfo(
+                [in] VDS_LUN_INFORMATION    *pLunInfo,
+                [out] VDS_OBJECT_ID         *pDiskId
+            );
+
+    [helpstring("method UninstallDisks")]
+    HRESULT UninstallDisks(
+                [in, size_is(ulCount)]
+                    VDS_OBJECT_ID   *pDiskIdArray,
+                [in] ULONG          ulCount,
+                [in] BOOLEAN        bForce,
+                [out] BOOLEAN       *pbReboot,
+                [out, size_is(ulCount)]
+                    HRESULT         *pResults
+            );
+}
+
+//
+// IVdsServiceHba:
+//   This interface is to add the ability to enumerate HBA ports for a class
+//   implementing the IVdsService interface.
+// Implemented by: service object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0ac13689-3134-47c6-a17c-4669216801be),
+    pointer_default(unique)
+]
+
+interface IVdsServiceHba : IUnknown
+{
+    [helpstring("method QueryHbaPorts")]
+    HRESULT QueryHbaPorts(
+                [out] IEnumVdsObject **ppEnum
+            );
+}
+
+//
+// IVdsServiceIscsi:
+//   This interface is to add the ability to interface with the local iSCSI
+//   initiator service for a class implementing the IVdsService interface.
+// Implemented by: service object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(14fbe036-3ed7-4e10-90e9-a5ff991aff01),
+    pointer_default(unique)
+]
+
+interface IVdsServiceIscsi : IUnknown
+{
+    [helpstring("method GetInitiatorName")]
+    HRESULT GetInitiatorName(
+                [out, string] LPWSTR *ppwszIscsiName
+            );
+
+    [helpstring("method QueryInitiatorAdapters")]
+    HRESULT QueryInitiatorAdapters(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method SetIpsecGroupPresharedKey")]
+    HRESULT SetIpsecGroupPresharedKey(
+                [in,unique] VDS_ISCSI_IPSEC_KEY *pIpsecKey
+            );
+
+    [helpstring("method SetAllIpsecTunnelAddresses")]
+    HRESULT SetAllIpsecTunnelAddresses(
+                [in] VDS_IPADDRESS *pTunnelAddress,
+                [in] VDS_IPADDRESS *pDestinationAddress
+            );
+
+    [helpstring("method SetAllIpsecSecurity")]
+    HRESULT SetAllIpsecSecurity(
+                [in] VDS_OBJECT_ID targetPortalId,
+                [in] ULONGLONG ullSecurityFlags,
+                [in,unique] VDS_ISCSI_IPSEC_KEY *pIpsecKey
+            );
+
+    [helpstring("method SetInitiatorSharedSecret")]
+    HRESULT SetInitiatorSharedSecret(
+                [in,unique] VDS_ISCSI_SHARED_SECRET *pInitiatorSharedSecret,
+                [in] VDS_OBJECT_ID targetId
+            );
+
+    [helpstring("method RememberTargetSharedSecret")]
+    HRESULT RememberTargetSharedSecret(
+                [in] VDS_OBJECT_ID targetId,
+                [in,unique] VDS_ISCSI_SHARED_SECRET *pTargetSharedSecret
+            );
+}
+
+//
+// IVdsServiceInitialization:
+//   This interface is used by service loader object to start initialization
+//   of a service object. It is not to be used by any application.
+
+[
+    object,
+    uuid(4afc3636-db01-4052-80c3-03bbcb8d3c69),
+    pointer_default(unique)
+]
+
+interface IVdsServiceInitialization : IUnknown
+{
+    // Initialize:
+    //   If the name passed in is NULL, the service should launch regular
+    //   providers; otherwise, it launches downrev providers and ask them
+    //   to connect to a remote downrev machine.
+    [helpstring("method Initialize")]
+    HRESULT Initialize(
+                [in,unique,string] LPWSTR      pwszMachineName
+            );
+}
+
+//
+// IVdsHbaPort:
+// Implemented by: hbaport object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(2abd757f-2851-4997-9a13-47d2a885d6ca),
+    pointer_default(unique)
+]
+
+interface IVdsHbaPort : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_HBAPORT_PROP *pHbaPortProp
+            );
+
+    [helpstring("method SetAllPathStatuses")]
+    HRESULT SetAllPathStatuses(
+                [in] VDS_PATH_STATUS status
+            );
+
+}
+
+//
+// IVdsIscsiInitiatorAdapter:
+// Implemented by: iSCSI initiator adapter object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(b07fedd4-1682-4440-9189-a39b55194dc5),
+    pointer_default(unique)
+]
+
+interface IVdsIscsiInitiatorAdapter : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_ISCSI_INITIATOR_ADAPTER_PROP *pInitiatorAdapterProp
+            );
+
+    [helpstring("method QueryInitiatorPortals")]
+    HRESULT QueryInitiatorPortals(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method LoginToTarget")]
+    HRESULT LoginToTarget(
+                [in] VDS_ISCSI_LOGIN_TYPE loginType,
+                [in] VDS_OBJECT_ID targetId,
+                [in] VDS_OBJECT_ID targetPortalId,
+                [in] VDS_OBJECT_ID initiatorPortalId,
+                [in] ULONG ulLoginFlags,
+                [in] BOOL bHeaderDigest,
+                [in] BOOL bDataDigest,
+                [in] VDS_ISCSI_AUTH_TYPE authType,
+                [out] IVdsAsync **ppAsync
+            );
+
+    [helpstring("method LogoutFromTarget")]
+    HRESULT LogoutFromTarget(
+                [in] VDS_OBJECT_ID targetId,
+                [out] IVdsAsync **ppAsync
+            );
+}
+
+//
+// IVdsIscsiInitiatorPortal:
+// Implemented by: iSCSI initiator portal object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(38a0a9ab-7cc8-4693-ac07-1f28bd03c3da),
+    pointer_default(unique)
+]
+
+interface IVdsIscsiInitiatorPortal : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_ISCSI_INITIATOR_PORTAL_PROP *pInitiatorPortalProp
+            );
+
+    [helpstring("method GetInitiatorAdapter")]
+    HRESULT GetInitiatorAdapter(
+                [out] IVdsIscsiInitiatorAdapter **ppInitiatorAdapter
+            );
+
+    [helpstring("method SetIpsecTunnelAddress")]
+    HRESULT SetIpsecTunnelAddress(
+                [in] VDS_IPADDRESS *pTunnelAddress,
+                [in] VDS_IPADDRESS *pDestinationAddress
+            );
+
+    [helpstring("method GetIpsecSecurity")]
+    HRESULT GetIpsecSecurity(
+                [in] VDS_OBJECT_ID targetPortalId,
+                [out] ULONGLONG *pullSecurityFlags
+            );
+
+    [helpstring("method SetIpsecSecurity")]
+    HRESULT SetIpsecSecurity(
+                [in] VDS_OBJECT_ID targetPortalId,
+                [in] ULONGLONG ullSecurityFlags,
+                [in,unique] VDS_ISCSI_IPSEC_KEY *pIpsecKey
+            );
+}
+
+// IVdsDiskPartitionMF:
+//   The common layer adds this interface for each disk object. It provides
+//   additional partition file system management functions.
+// Implemented by: disk object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(538684e0-ba3d-4bc0-aca9-164aff85c2a9),
+    pointer_default(unique)
+]
+
+interface IVdsDiskPartitionMF : IUnknown
+{
+    // GetPartitionFileSystemLabel:
+    //   Retrieve information for the file system on the partition.
+    [helpstring("method GetPartitionFileSystemProperties")]
+    HRESULT GetPartitionFileSystemProperties(
+                [in] ULONGLONG ullOffset,
+                [out] VDS_FILE_SYSTEM_PROP *pFileSystemProp
+            );
+
+    // GetPartitionFileSystemTypeName:
+    //   Retrieve the name of the file system type returned by the partition
+    //   file system attibutes.
+    [helpstring("method GetPartitionFileSystemTypeName")]
+    HRESULT GetPartitionFileSystemTypeName(
+                [in] ULONGLONG ullOffset,
+                [out, string] LPWSTR *ppwszFileSystemTypeName
+            );
+
+    // QueryPartitionFileSystemFormatSupport:
+    //   Retrieve the file systems that are supported for formatting the
+    //   partition.
+    [helpstring("method QueryPartitionFileSystemFormatSupport")]
+    HRESULT QueryPartitionFileSystemFormatSupport(
+                [in] ULONGLONG ullOffset,
+                [out, size_is(,*plNumberOfFileSystems)]
+                      VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP **ppFileSystemSupportProps,
+                [out] LONG *plNumberOfFileSystems
+            );
+
+    // FormatPartitionEx:
+    //   Format the partition using the desired settings.  Defaults are used
+    //   for file system type and allocation unit size if NULL and 0 are used,
+    //   respectively.
+    [helpstring("method FormatPartitionEx")]
+    HRESULT FormatPartitionEx(
+                [in] ULONGLONG ullOffset,
+                [in, unique, string] LPWSTR pwszFileSystemTypeName,
+                [in] USHORT usFileSystemRevision,
+                [in] ULONG ulDesiredUnitAllocationSize,
+                [in, unique, string] LPWSTR pwszLabel,
+                [in] BOOL bForce,
+                [in] BOOL bQuickFormat,
+                [in] BOOL bEnableCompression,
+                [out] IVdsAsync **ppAsync
+            );
+
+}
+
+// IVdsVolumeMF:
+//   The common layer adds this interface for each volume object. It provides
+//   access path and file system management functions.
+// Implemented by: volume object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(ee2d5ded-6236-4169-931d-b9778ce03dc6),
+    pointer_default(unique)
+]
+
+interface IVdsVolumeMF : IUnknown
+{
+    // GetFileSystemProperties:
+    //   Retrieve information for the file system on the volume.
+    [helpstring("method queryFileSystemProperties")]
+    HRESULT GetFileSystemProperties(
+                [out] VDS_FILE_SYSTEM_PROP *pFileSystemProp
+            );
+
+    [helpstring("method Format")]
+    HRESULT Format(
+                [in] VDS_FILE_SYSTEM_TYPE type,
+                [in, string] LPWSTR pwszLabel,
+                [in] DWORD dwUnitAllocationSize,
+                [in] BOOL bForce,
+                [in] BOOL bQuickFormat,
+                [in] BOOL bEnableCompression,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // AddAccessPath:
+    //   Add both drive letter and mount paths. Drive letter must be in the
+    //   form of "D:\", "C:\". Trailing backslash is required.
+    [helpstring("method AddAccessPath")]
+    HRESULT AddAccessPath(
+                [in, max_is(MAX_PATH-1), string] LPWSTR pwszPath
+            );
+
+    // QueryAccessPaths:
+    //   Retrieves all access paths, including drive letter. The drive letter
+    //   is returned as the first access path in pwszPathArray.
+    [helpstring("method QueryAccessPaths")]
+    HRESULT QueryAccessPaths(
+                [out, string, size_is(,*plNumberOfAccessPaths)]
+                      LPWSTR **pwszPathArray,
+                [out] LONG *plNumberOfAccessPaths
+            );
+
+    // QueryReparsePoints:
+    //   Retrieves reparse points to a volume. Each reparse point is
+    //   represented as a tuple of source volume id and path on the volume.
+    //   Unlike QueryAccessPaths(), this method does not return redundant
+    //   access paths.
+    [helpstring("method QueryReparsePoints")]
+    HRESULT QueryReparsePoints(
+                [out, size_is(,*plNumberOfReparsePointProps)]
+                    VDS_REPARSE_POINT_PROP **ppReparsePointProps,
+                [out] LONG *plNumberOfReparsePointProps
+            );
+
+    [helpstring("method DeleteAccessPath")]
+    HRESULT DeleteAccessPath(
+                [in, max_is(MAX_PATH-1), string] LPWSTR pwszPath,
+                [in] BOOL bForce
+            );
+
+    [helpstring("method Mount")]
+    HRESULT Mount(
+                void
+            );
+
+    [helpstring("method Dismount")]
+    HRESULT Dismount(
+                [in] BOOL bForce,
+                [in] BOOL bPermanent
+            );
+
+    // SetFlags:
+    //   Only VDS_FPF_COMPRESSED can be set.
+    [helpstring("method SetFileSystemFlags")]
+    HRESULT SetFileSystemFlags(
+                [in] ULONG  ulFlags
+            );
+
+    // ClearFlags:
+    //   Only VDS_FPF_COMPRESSED can be cleared.
+    [helpstring("method ClearFileSystemFlags")]
+    HRESULT ClearFileSystemFlags(
+                [in] ULONG ulFlags
+            );
+
+}
+
+// IVdsVolumeMF2:
+//   The common layer adds this interface for each volume object. It provides
+//   additional file system management functions.
+// Implemented by: volume object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(4dbcee9a-6343-4651-b85f-5e75d74d983c),
+    pointer_default(unique)
+]
+
+interface IVdsVolumeMF2 : IUnknown
+{
+    // GetFileSystemTypeName:
+    //   Retrieve the name of the file system type returned by the volume file
+    //   system attibutes.
+    [helpstring("method GetFileSystemTypeName")]
+    HRESULT GetFileSystemTypeName(
+                [out, string] LPWSTR *ppwszFileSystemTypeName
+            );
+
+    // QueryFileSystemFormatSupport:
+    //   Retrieve the file systems that are supported for formatting the
+    //   volume.
+    [helpstring("method QueryFileSystemFormatSupport")]
+    HRESULT QueryFileSystemFormatSupport(
+                [out, size_is(,*plNumberOfFileSystems)]
+                      VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP **ppFileSystemSupportProps,
+                [out] LONG *plNumberOfFileSystems
+            );
+
+    // FormatEx:
+    //   Format the volume using the desired settings.  Defaults are used for
+    //   file system type and allocation unit size if NULL and 0 are used,
+    //   respectively.
+    [helpstring("method FormatEx")]
+    HRESULT FormatEx(
+                [in, unique, string] LPWSTR pwszFileSystemTypeName,
+                [in] USHORT usFileSystemRevision,
+                [in] ULONG ulDesiredUnitAllocationSize,
+                [in, unique, string] LPWSTR pwszLabel,
+                [in] BOOL bForce,
+                [in] BOOL bQuickFormat,
+                [in] BOOL bEnableCompression,
+                [out] IVdsAsync **ppAsync
+            );
+
+}
+
+// IVdsVolumeShrink:
+//   The common layer adds this interface for each volume object. It provides
+//   volume shrink functionality.
+// Implemented by: volume object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(d68168c9-82a2-4f85-b6e9-74707c49a58f),
+    pointer_default(unique)
+]
+
+interface IVdsVolumeShrink : IUnknown
+{
+    //
+    // QueryMaxReclaimableBytes
+    //   This method will return the maximum number of bytes which can be
+    //   salvaged from the current volume.
+    //
+    [helpstring("method QueryMaxReclaimableBytes")]
+    HRESULT QueryMaxReclaimableBytes(
+        [out]   ULONGLONG   *pullMaxNumberOfReclaimableBytes
+    );
+
+    // Shrink:
+    //   This method shrinks the volume and all plexes and return the
+    //   released extents.
+    //
+    //   The file system will be shrunk first. In order to shrink a volume,
+    //   the file system must support shrink.
+    //
+    [helpstring("method Shrink")]
+    HRESULT Shrink(
+        [in]    ULONGLONG   ullDesiredNumberOfReclaimableBytes,
+        [in]    ULONGLONG   ullMinNumberOfReclaimableBytes,
+        [out]   IVdsAsync   **ppAsync
+    );
+}
+
+//
+// IVdsSubSystemImportTarget:
+//
+// Implemented by: subsystem object
+// Implemented where: common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(83bfb87f-43fb-4903-baa6-127f01029eec),
+    pointer_default(unique)
+]
+
+interface IVdsSubSystemImportTarget : IUnknown
+{
+    [helpstring("method GetImportTarget")]
+    HRESULT GetImportTarget(
+                [out,string] LPWSTR *ppwszIscsiName
+            );
+
+    [helpstring("method SetImportTarget")]
+    HRESULT SetImportTarget(
+                [in,unique,string] LPWSTR pwszIscsiName
+            );
+
+}
+
+//
+// IVdsIscsiPortalLocal:
+//
+// Implemented by: iSCSI target portal object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(ad837c28-52c1-421d-bf04-fae7da665396),
+    pointer_default(unique)
+]
+interface IVdsIscsiPortalLocal : IUnknown
+{
+    [helpstring("method SetIpsecSecurityLocal")]
+    HRESULT SetIpsecSecurityLocal(
+                [in] ULONGLONG ullSecurityFlags,
+                [in,unique] VDS_ISCSI_IPSEC_KEY *pIpsecKey
+            );
+
+}
+
+//
+// IVdsServiceSAN:
+//
+//  Provides disk online/offline management functions.
+//  Implemented by: Service object
+//  Implemented where: common layer
+//  Accessed by: applications
+[
+    object,
+    uuid(FC5D23E8-A88B-41a5-8DE0-2D2F73C5A630),
+    pointer_default(unique)
+]
+interface IVdsServiceSAN : IUnknown
+{
+    [helpstring("method GetSANPolicy")]
+    HRESULT GetSANPolicy(
+                [out] VDS_SAN_POLICY *pSanPolicy
+            );
+
+    [helpstring("method SetSANPolicy")]
+    HRESULT SetSANPolicy(
+                [in] VDS_SAN_POLICY SanPolicy
+            );
+
+}
+
+
+// IVdsVolumeMF3:
+//   The common layer adds this interface for each volume object. I
+// Implemented by: volume object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(6788FAF9-214E-4b85-BA59-266953616E09),
+    pointer_default(unique)
+]
+
+interface IVdsVolumeMF3 : IUnknown
+{
+    //
+    // QueryVolumeGuidPathnames:
+    //   Retrieve the list of volume GUID pathnames.
+    //
+
+    [helpstring("method QueryVolumeGuidPathnames")]
+    HRESULT QueryVolumeGuidPathnames(
+                [out, string, size_is(,*pulNumberOfPaths)] LPWSTR **pwszPathArray,
+                [out] ULONG *pulNumberOfPaths
+            );
+
+
+    //
+    // FormatEx2:
+    //   Format the volume using the desired settings.  Defaults are used for
+    //   file system type and allocation unit size if NULL and 0 are used,
+    //   respectively. Added a flag for duplicating UDF meta data. Changed flags
+    //   to a bitmap.
+    //
+
+    [helpstring("method FormatEx2")]
+    HRESULT FormatEx2(
+                [in, unique, string] LPWSTR pwszFileSystemTypeName,
+                [in] USHORT usFileSystemRevision,
+                [in] ULONG ulDesiredUnitAllocationSize,
+                [in, unique, string] LPWSTR pwszLabel,
+                [in] DWORD Options,
+                [out] IVdsAsync **ppAsync
+            );
+
+    //
+    // OfflineVolume:
+    //   Offline the volume by calling IOCTL_VOLUME_OFFLINE control code.
+    //   If the volume is already offline it does not do anything, simply
+    //   returns S_OK.
+
+    [helpstring("method OfflineVolume")]
+     HRESULT OfflineVolume(
+                 void
+     );
+
+}
+// IVdsDiskPartitionMF2:
+//   The common layer adds this interface for each disk object. It provides
+//   additional partition file system management functions.
+// Implemented by: disk object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(9CBE50CA-F2D2-4bf4-ACE1-96896B729625),
+    pointer_default(unique)
+]
+
+interface IVdsDiskPartitionMF2 : IUnknown
+{
+    //
+    // FormatPartitionEx2:
+    //   Format the partition using the desired settings.  Defaults are used
+    //   for file system type and allocation unit size if NULL and 0 are used,
+    //   respectively. Added a flag for duplicating UDF meta data. Changed flags
+    //   to a bitmap.
+    //
+
+    [helpstring("method FormatPartitionEx2")]
+    HRESULT FormatPartitionEx2(
+                [in] ULONGLONG ullOffset,
+                [in, unique, string] LPWSTR pwszFileSystemTypeName,
+                [in] USHORT usFileSystemRevision,
+                [in] ULONG ulDesiredUnitAllocationSize,
+                [in, unique, string] LPWSTR pwszLabel,
+                [in] DWORD Options,
+                [out] IVdsAsync **ppAsync
+            );
+
+}
+
+
+// IVdsServiceSw:
+//   Provides a means to lookup disks by the unique PNPDeviceID string
+// Implemented by: service object
+// Implemented where: common layer
+// Accessed by: applications
+[
+    object,
+    uuid(15fc031c-0652-4306-b2c3-f558b8f837e2),
+    pointer_default(unique)
+]
+
+interface IVdsServiceSw : IUnknown
+{
+    [helpstring("method GetDiskObject")]
+    HRESULT GetDiskObject(
+        [in, string] LPCWSTR pwszDeviceID,
+        [out] IUnknown** ppDiskUnk
+        );
+}
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

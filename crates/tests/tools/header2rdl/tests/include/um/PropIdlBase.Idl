@@ -1,0 +1,634 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: propidl.idl
+//
+//----------------------------------------------------------------------------
+
+#ifndef BUILDING_PROPIDL_IDL
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820)    /* padding added after data member */")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)    /* Nameless struct/union */")
+cpp_quote("#pragma warning(disable:4237)    /* obsolete member named 'bool' */")
+cpp_quote("#endif")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "objidl.idl";
+import "oaidl.idl";
+import "wtypes.idl";
+#endif
+#endif
+
+cpp_quote("#ifndef _PROPIDLBASE_")
+
+/****************************************************************************
+ *  Property Storage Interfaces
+ ****************************************************************************/
+
+#pragma region Application Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+interface IPropertyStorage;
+interface IEnumSTATPROPSTG;
+interface IEnumSTATPROPSETSTG;
+
+
+
+typedef struct tagVersionedStream {
+    GUID guidVersion;
+    IStream *pStream;
+} VERSIONEDSTREAM, *LPVERSIONEDSTREAM;
+
+cpp_quote("")
+cpp_quote("// Flags for IPropertySetStorage::Create")
+const DWORD PROPSETFLAG_DEFAULT = 0;
+const DWORD PROPSETFLAG_NONSIMPLE = 1;
+const DWORD PROPSETFLAG_ANSI = 2;
+cpp_quote("//   (This flag is only supported on StgCreatePropStg & StgOpenPropStg")
+const DWORD PROPSETFLAG_UNBUFFERED = 4;
+cpp_quote("//   (This flag causes a version-1 property set to be created")
+const DWORD PROPSETFLAG_CASE_SENSITIVE = 8;
+
+cpp_quote("")
+cpp_quote("// Flags for the reserved PID_BEHAVIOR property")
+const DWORD PROPSET_BEHAVIOR_CASE_SENSITIVE = 1;
+
+cpp_quote("#ifdef MIDL_PASS")
+cpp_quote("// This is the PROPVARIANT definition for marshaling.")
+typedef struct tag_inner_PROPVARIANT PROPVARIANT;
+cpp_quote("#else")
+cpp_quote("// This is the standard C layout of the PROPVARIANT.")
+cpp_quote("typedef struct tagPROPVARIANT PROPVARIANT;")
+cpp_quote("#endif")
+
+
+#define TYPEDEF_CA(type, name) \
+    typedef struct tag##name\
+    {\
+        ULONG   cElems;\
+        [size_is( cElems )]\
+        type *  pElems;\
+    } name
+
+
+TYPEDEF_CA(CHAR,                CAC);
+TYPEDEF_CA(UCHAR,               CAUB);
+TYPEDEF_CA(SHORT,               CAI);
+TYPEDEF_CA(USHORT,              CAUI);
+TYPEDEF_CA(LONG,                CAL);
+TYPEDEF_CA(ULONG,               CAUL);
+TYPEDEF_CA(FLOAT,               CAFLT);
+TYPEDEF_CA(DOUBLE,              CADBL);
+TYPEDEF_CA(CY,                  CACY);
+TYPEDEF_CA(DATE,                CADATE);
+TYPEDEF_CA(BSTR,                CABSTR);
+TYPEDEF_CA(BSTRBLOB,            CABSTRBLOB);
+TYPEDEF_CA(VARIANT_BOOL,        CABOOL);
+TYPEDEF_CA(SCODE,               CASCODE);
+TYPEDEF_CA(PROPVARIANT,         CAPROPVARIANT);
+TYPEDEF_CA(LARGE_INTEGER,       CAH);
+TYPEDEF_CA(ULARGE_INTEGER,      CAUH);
+TYPEDEF_CA(LPSTR,               CALPSTR);
+TYPEDEF_CA(LPWSTR,              CALPWSTR);
+TYPEDEF_CA(FILETIME,            CAFILETIME);
+TYPEDEF_CA(CLIPDATA,            CACLIPDATA);
+TYPEDEF_CA(CLSID,               CACLSID);
+
+
+//
+// The new PROPVARIANT.  Apr 16 1998
+//   The goal was to add all the OleAut union arms that the OleAut VARIANT
+// supports without breaking wire compatibility with the old PROPVARIANT.
+//   Adding IDispatch* and safe ARRAYs required the creation of propidl.idl
+// since the use of OAIDL types in PROPVARIANT means it can no longer reside
+// in objidl.idl.
+//   Adding DECIMAL is the tricky part.  OleAut VARIANTs have an extra outer
+// union for DECIMAL.  (Go look at the VARIANT definition in oaidl).  Adding
+// an outer union in the IDL description would break wire compatibility with
+// the old PROPVARIANT.  The solution has two parts:
+// 1) If the union contained DECIMAL data (don't worry how it got there, eg.
+//  someone cast a pointer) how do we get it across the wire successfully?
+//  The types of the padding were changed so they matche the first part of a
+// DECIMAL.  Add a case for VT_DECIMAL to marshal the second half.
+// 2) Provide an outer union, with devVal field name for the C/C++ programmer.
+// Rename the old PROPVARIANT as tag_inner_PROPVARIANT and added some
+// cpp_quote's that glue an outer union, named tagPROPVARIANT, around it.
+// There are also some cpp_quote games played with the typedef LPPROPVARIANT
+// and PROPVARIANT types.
+
+cpp_quote("#ifdef MIDL_PASS")
+cpp_quote("// This is the PROPVARIANT padding layout for marshaling.")
+typedef BYTE PROPVAR_PAD1;
+typedef BYTE PROPVAR_PAD2;
+typedef ULONG PROPVAR_PAD3;
+cpp_quote("#else")
+
+cpp_quote("// This is the standard C layout of the structure.")
+cpp_quote("typedef WORD PROPVAR_PAD1;")
+cpp_quote("typedef WORD PROPVAR_PAD2;")
+cpp_quote("typedef WORD PROPVAR_PAD3;")
+cpp_quote("#define tag_inner_PROPVARIANT")
+cpp_quote("#endif")
+
+cpp_quote("")
+cpp_quote("#if !defined(_MSC_EXTENSIONS)")
+cpp_quote("")
+cpp_quote("struct tagPROPVARIANT;")
+cpp_quote("")
+cpp_quote("#else")
+
+cpp_quote("#ifndef MIDL_PASS")
+cpp_quote("struct tagPROPVARIANT {")
+cpp_quote("  union {")
+cpp_quote("#endif")
+struct tag_inner_PROPVARIANT
+{
+    VARTYPE vt;
+    PROPVAR_PAD1   wReserved1;
+    PROPVAR_PAD2   wReserved2;
+    PROPVAR_PAD3   wReserved3;
+    [switch_is((unsigned short) vt)] union
+    {
+        //
+        // Basic Types.
+        //
+        [case (VT_EMPTY, VT_NULL)]  ;
+        [case (VT_I1)]              CHAR             cVal;      // New
+        [case (VT_UI1)]             UCHAR            bVal;
+        [case (VT_I2)]              SHORT            iVal;
+        [case (VT_UI2)]             USHORT           uiVal;
+        [case (VT_I4)]              LONG             lVal;
+        [case (VT_UI4)]             ULONG            ulVal;
+        [case (VT_INT)]             INT              intVal;    // New
+        [case (VT_UINT)]            UINT             uintVal;   // New
+        [case (VT_DECIMAL, VT_I8)]  LARGE_INTEGER    hVal;      // Decimal
+        [case (VT_UI8)]             ULARGE_INTEGER   uhVal;
+        [case (VT_R4)]              FLOAT            fltVal;
+        [case (VT_R8)]              DOUBLE           dblVal;
+        [case (VT_BOOL)]            VARIANT_BOOL     boolVal;
+        [case (VT_ILLEGAL)]         VARIANT_BOOL     /*bool*/__OBSOLETE__VARIANT_BOOL;      // obsolete
+        [case (VT_ERROR)]           SCODE            scode;
+        [case (VT_CY)]              CY               cyVal;
+        [case (VT_DATE)]            DATE             date;
+        [case (VT_FILETIME)]        FILETIME         filetime;
+        [case (VT_CLSID)]           CLSID *          puuid;
+        [case (VT_CF)]              CLIPDATA *       pclipdata;
+        [case (VT_BSTR)]            BSTR             bstrVal;
+        [case (VT_BSTR_BLOB)]       BSTRBLOB         bstrblobVal; // System use only
+        [case (VT_BLOB, VT_BLOB_OBJECT)] BLOB        blob;
+        [case (VT_LPSTR)]           LPSTR            pszVal;
+        [case (VT_LPWSTR)]          LPWSTR           pwszVal;
+        [case (VT_UNKNOWN)]         IUnknown *       punkVal;    // New
+        [case (VT_DISPATCH)]        IDispatch *      pdispVal;   // New
+        [case (VT_STREAM, VT_STREAMED_OBJECT)] IStream*  pStream;
+        [case (VT_STORAGE, VT_STORED_OBJECT)]  IStorage* pStorage;
+        [case (VT_VERSIONED_STREAM)]  LPVERSIONEDSTREAM  pVersionedStream;
+
+        //
+        // Arrays of types  (only the old VARIANT types)
+        //
+        [case (VT_ARRAY|VT_I1,
+               VT_ARRAY|VT_UI1,
+               VT_ARRAY|VT_I2,
+               VT_ARRAY|VT_UI2,
+               VT_ARRAY|VT_I4,
+               VT_ARRAY|VT_UI4,
+               VT_ARRAY|VT_INT,
+               VT_ARRAY|VT_UINT,
+               VT_ARRAY|VT_R4,
+               VT_ARRAY|VT_R8,
+               VT_ARRAY|VT_CY,
+               VT_ARRAY|VT_DATE,
+               VT_ARRAY|VT_BSTR,
+               VT_ARRAY|VT_BOOL,
+               VT_ARRAY|VT_DECIMAL,
+               VT_ARRAY|VT_DISPATCH,
+               VT_ARRAY|VT_UNKNOWN,
+               VT_ARRAY|VT_ERROR,
+               VT_ARRAY|VT_VARIANT)]   LPSAFEARRAY      parray;     // New
+
+        //
+        // Vectors of types
+        //
+        [case (VT_VECTOR|VT_I1)]       CAC           cac;       // new
+        [case (VT_VECTOR|VT_UI1)]      CAUB          caub;
+        [case (VT_VECTOR|VT_I2)]       CAI           cai;
+        [case (VT_VECTOR|VT_UI2)]      CAUI          caui;
+        [case (VT_VECTOR|VT_I4)]       CAL           cal;
+        [case (VT_VECTOR|VT_UI4)]      CAUL          caul;
+        [case (VT_VECTOR|VT_I8)]       CAH           cah;
+        [case (VT_VECTOR|VT_UI8)]      CAUH          cauh;
+        [case (VT_VECTOR|VT_R4)]       CAFLT         caflt;
+        [case (VT_VECTOR|VT_R8)]       CADBL         cadbl;
+        [case (VT_VECTOR|VT_BOOL)]     CABOOL        cabool;
+        [case (VT_VECTOR|VT_ERROR)]    CASCODE       cascode;
+        [case (VT_VECTOR|VT_CY)]       CACY          cacy;
+        [case (VT_VECTOR|VT_DATE)]     CADATE        cadate;
+        [case (VT_VECTOR|VT_FILETIME)] CAFILETIME    cafiletime;
+        [case (VT_VECTOR|VT_CLSID)]    CACLSID       cauuid;
+        [case (VT_VECTOR|VT_CF)]       CACLIPDATA    caclipdata;
+        [case (VT_VECTOR|VT_BSTR)]     CABSTR        cabstr;
+        [case (VT_VECTOR|VT_BSTR_BLOB)]CABSTRBLOB    cabstrblob; // System use only
+        [case (VT_VECTOR|VT_LPSTR)]    CALPSTR       calpstr;
+        [case (VT_VECTOR|VT_LPWSTR)]   CALPWSTR      calpwstr;
+        [case (VT_VECTOR|VT_VARIANT)]  CAPROPVARIANT capropvar;
+
+        //
+        // ByRefs of types.
+        //
+        [case (VT_BYREF|VT_I1)]       CHAR*           pcVal;       // New
+        [case (VT_BYREF|VT_UI1)]      UCHAR*          pbVal;       // New
+        [case (VT_BYREF|VT_I2)]       SHORT*          piVal;       // New
+        [case (VT_BYREF|VT_UI2)]      USHORT*         puiVal;      // New
+        [case (VT_BYREF|VT_I4)]       LONG*           plVal;       // New
+        [case (VT_BYREF|VT_UI4)]      ULONG*          pulVal;      // New
+        [case (VT_BYREF|VT_INT)]      INT*            pintVal;     // New
+        [case (VT_BYREF|VT_UINT)]     UINT*           puintVal;    // New
+        [case (VT_BYREF|VT_R4)]       FLOAT*          pfltVal;     // New
+        [case (VT_BYREF|VT_R8)]       DOUBLE*         pdblVal;     // New
+        [case (VT_BYREF|VT_BOOL)]     VARIANT_BOOL*   pboolVal;    // New
+        [case (VT_BYREF|VT_DECIMAL)]  DECIMAL*        pdecVal;     // New
+        [case (VT_BYREF|VT_ERROR)]    SCODE*          pscode;      // New
+        [case (VT_BYREF|VT_CY)]       CY*             pcyVal;      // New
+        [case (VT_BYREF|VT_DATE)]     DATE*           pdate;       // New
+        [case (VT_BYREF|VT_BSTR)]     BSTR*           pbstrVal;    // New
+        [case (VT_BYREF|VT_UNKNOWN)]  IUnknown **     ppunkVal;    // New
+        [case (VT_BYREF|VT_DISPATCH)] IDispatch **    ppdispVal;   // New
+        [case (VT_BYREF|VT_ARRAY)]    LPSAFEARRAY*    pparray;     // New
+        [case (VT_BYREF|VT_VARIANT)]  PROPVARIANT*    pvarVal;     // New
+    };
+};
+cpp_quote("#ifndef MIDL_PASS")
+cpp_quote("    DECIMAL decVal;")
+cpp_quote("  };")
+cpp_quote("};")
+cpp_quote("#endif")
+
+cpp_quote("")
+cpp_quote("#endif /* _MSC_EXTENSIONS */")
+cpp_quote("")
+
+cpp_quote("#ifdef MIDL_PASS")
+cpp_quote("// This is the LPPROPVARIANT definition for marshaling.")
+typedef struct tag_inner_PROPVARIANT * LPPROPVARIANT;
+typedef const PROPVARIANT * REFPROPVARIANT;
+cpp_quote("#else")
+cpp_quote("")
+cpp_quote("// This is the standard C layout of the PROPVARIANT.")
+cpp_quote("typedef struct tagPROPVARIANT * LPPROPVARIANT;")
+cpp_quote("")
+cpp_quote("#ifndef _REFPROPVARIANT_DEFINED")
+cpp_quote("#define _REFPROPVARIANT_DEFINED")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#define REFPROPVARIANT const PROPVARIANT &")
+cpp_quote("#else")
+cpp_quote("#define REFPROPVARIANT const PROPVARIANT * __MIDL_CONST")
+cpp_quote("#endif")
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#endif // MIDL_PASS")
+cpp_quote("")
+
+cpp_quote("// Reserved global Property IDs")
+const PROPID PID_DICTIONARY         = 0x00000000;
+const PROPID PID_CODEPAGE           = 0x00000001;
+const PROPID PID_FIRST_USABLE       = 0x00000002;
+const PROPID PID_FIRST_NAME_DEFAULT = 0x00000fff;
+const PROPID PID_LOCALE             = 0x80000000;
+const PROPID PID_MODIFY_TIME        = 0x80000001;
+const PROPID PID_SECURITY           = 0x80000002;
+const PROPID PID_BEHAVIOR           = 0x80000003;
+const PROPID PID_ILLEGAL            = 0xffffffff;
+cpp_quote("// Range which is read-only to downlevel implementations")
+const PROPID PID_MIN_READONLY       = 0x80000000;
+const PROPID PID_MAX_READONLY       = 0xbfffffff;
+
+const ULONG PRSPEC_INVALID = 0xffffffff;
+const ULONG PRSPEC_LPWSTR = 0;
+const ULONG PRSPEC_PROPID = 1;
+
+typedef struct tagPROPSPEC
+{
+
+    ULONG   ulKind;
+    [switch_is(ulKind)] union
+    {
+        [case(PRSPEC_PROPID)]
+            PROPID      propid;
+        [case(PRSPEC_LPWSTR)]
+            LPOLESTR    lpwstr;
+        [default] ;
+    } DUMMYUNIONNAME;
+
+} PROPSPEC;
+
+typedef struct tagSTATPROPSTG
+{
+
+    LPOLESTR    lpwstrName;
+    PROPID      propid;
+    VARTYPE     vt;
+
+} STATPROPSTG;
+
+cpp_quote("// Macros for parsing the OS Version of the Property Set Header")
+cpp_quote("#define PROPSETHDR_OSVER_KIND(dwOSVer)      HIWORD( (dwOSVer) )")
+cpp_quote("#define PROPSETHDR_OSVER_MAJOR(dwOSVer)     LOBYTE(LOWORD( (dwOSVer) ))")
+cpp_quote("#define PROPSETHDR_OSVER_MINOR(dwOSVer)     HIBYTE(LOWORD( (dwOSVer) ))")
+cpp_quote("#define PROPSETHDR_OSVERSION_UNKNOWN        0xFFFFFFFF")
+
+
+typedef struct tagSTATPROPSETSTG
+{
+
+    FMTID       fmtid;
+    CLSID       clsid;
+    DWORD       grfFlags;
+    FILETIME    mtime;
+    FILETIME    ctime;
+    FILETIME    atime;
+    DWORD       dwOSVersion;
+
+} STATPROPSETSTG;
+
+[
+    object,
+    uuid(00000138-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IPropertyStorage : IUnknown
+{
+    // When this IDL file is used for "IProp.dll" (the
+    // standalone property set DLL), we must have local
+    // and remotable routines (call_as routines are used
+    // to remove BSTRs, which are not remotable with some
+    // RPC run-times).
+    //
+    // For the remotable routines, we must use pointer
+    // parameters (e.g. "*rgspec" rather than "rgspec[]")
+    // so that the MIDL 2.0 compiler will generate an
+    // interpereted proxy/stub, rather than inline.
+
+#ifdef IPROPERTY_DLL
+    [local]
+#endif
+    HRESULT ReadMultiple(
+        [in]    ULONG                   cpspec,
+        [in, size_is(cpspec)]
+                const PROPSPEC          rgpspec[],
+        [out, size_is(cpspec)]
+                PROPVARIANT             rgpropvar[]
+        );
+
+#ifdef IPROPERTY_DLL
+    [call_as(ReadMultiple)]
+    HRESULT RemoteReadMultiple(
+        [out]   BOOL                    *pfBstrPresent,
+        [in]    ULONG                   cpspec,
+        [in, size_is(cpspec)]
+                const PROPSPEC          *rgpspec,
+        [out, size_is(cpspec)]
+                PROPVARIANT             *rgpropvar
+        );
+#endif
+
+#ifdef IPROPERTY_DLL
+    [local]
+#endif
+    HRESULT WriteMultiple(
+        [in]    ULONG                   cpspec,
+        [in, size_is(cpspec)]
+                const PROPSPEC          rgpspec[],
+        [in, size_is(cpspec)]
+                const PROPVARIANT       rgpropvar[],
+        [in]    PROPID                  propidNameFirst
+        );
+
+#ifdef IPROPERTY_DLL
+    [call_as(WriteMultiple)]
+    HRESULT RemoteWriteMultiple(
+        [in]    BOOL                    fBstrPresent,
+        [in]    ULONG                   cpspec,
+        [in, size_is(cpspec)]
+                const PROPSPEC          *rgpspec,
+        [in, size_is(cpspec)]
+                const PROPVARIANT       *rgpropvar,
+        [in]    PROPID                  propidNameFirst
+        );
+#endif
+
+#ifdef IPROPERTY_DLL
+    [local]
+#endif
+    HRESULT DeleteMultiple(
+        [in]    ULONG                   cpspec,
+        [in, size_is(cpspec)]
+                const PROPSPEC          rgpspec[]
+        );
+
+#ifdef IPROPERTY_DLL
+    [call_as(DeleteMultiple)]
+    HRESULT RemoteDeleteMultiple(
+        [in]    ULONG                   cpspec,
+        [in, size_is(cpspec)]
+                const PROPSPEC          *rgpspec
+        );
+#endif
+
+    HRESULT ReadPropertyNames(
+        [in]    ULONG                   cpropid,
+        [in, size_is(cpropid)]
+                const PROPID            rgpropid[],
+        [out, size_is(cpropid)]
+                LPOLESTR                rglpwstrName[]
+        );
+
+    HRESULT WritePropertyNames(
+        [in]    ULONG                   cpropid,
+        [in, size_is(cpropid)]
+                const PROPID            rgpropid[],
+        [in, size_is(cpropid)]
+                const LPOLESTR          rglpwstrName[]
+        );
+
+    HRESULT DeletePropertyNames(
+        [in]    ULONG                   cpropid,
+        [in, size_is(cpropid)]
+                const PROPID            rgpropid[]
+        );
+
+    HRESULT Commit(
+        [in]    DWORD                   grfCommitFlags
+        );
+
+    HRESULT Revert();
+
+    HRESULT Enum(
+        [out]   IEnumSTATPROPSTG **     ppenum
+        );
+
+    HRESULT SetTimes(
+        [in]    FILETIME const *        pctime,
+        [in]    FILETIME const *        patime,
+        [in]    FILETIME const *        pmtime
+        );
+
+    HRESULT SetClass(
+        [in]    REFCLSID                clsid
+        );
+
+    HRESULT Stat(
+        [out]   STATPROPSETSTG *        pstatpsstg
+        );
+}
+
+[
+    object,
+    uuid(0000013A-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IPropertySetStorage : IUnknown
+{
+
+    typedef [unique] IPropertySetStorage * LPPROPERTYSETSTORAGE;
+
+    HRESULT Create(
+        [in]    REFFMTID                rfmtid,
+        [in, unique]
+                const CLSID *           pclsid,
+        [in]    DWORD                   grfFlags,
+        [in]    DWORD                   grfMode,
+        [out]   IPropertyStorage **     ppprstg
+        );
+
+    HRESULT Open(
+        [in]    REFFMTID                rfmtid,
+        [in]    DWORD                   grfMode,
+        [out]   IPropertyStorage **     ppprstg
+        );
+
+    HRESULT Delete(
+        [in]    REFFMTID                rfmtid
+        );
+
+    HRESULT Enum(
+        [out]   IEnumSTATPROPSETSTG **  ppenum
+        );
+
+}
+
+
+[
+    object,
+    uuid(00000139-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IEnumSTATPROPSTG : IUnknown
+{
+
+    typedef [unique] IEnumSTATPROPSTG * LPENUMSTATPROPSTG;
+
+    [local]
+    HRESULT Next(
+        [in]    ULONG                   celt,
+        [out, size_is(celt), length_is(*pceltFetched), annotation("_Out_writes_to_(celt, *pceltFetched)")]
+                STATPROPSTG *           rgelt,
+        [out, annotation("_Out_opt_ _Deref_out_range_(0, celt)")]
+                ULONG *                 pceltFetched
+        );
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in]    ULONG                   celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+                STATPROPSTG *           rgelt,
+        [out]   ULONG *                 pceltFetched
+        );
+
+    HRESULT Skip(
+        [in]    ULONG                   celt
+        );
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out]   IEnumSTATPROPSTG **     ppenum
+        );
+}
+
+
+[
+    object,
+    uuid(0000013B-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IEnumSTATPROPSETSTG : IUnknown
+{
+
+    typedef [unique] IEnumSTATPROPSETSTG * LPENUMSTATPROPSETSTG;
+
+    [local]
+    HRESULT Next(
+        [in]    ULONG                   celt,
+        [out, size_is(celt), length_is(*pceltFetched), annotation("_Out_writes_to_(celt, *pceltFetched)")]
+                STATPROPSETSTG *        rgelt,
+        [out, annotation("_Out_opt_ _Deref_out_range_(0, celt)")]
+                ULONG *                 pceltFetched
+        );
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in]    ULONG                   celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+                STATPROPSETSTG *        rgelt,
+        [out]   ULONG *                 pceltFetched
+        );
+
+    HRESULT Skip(
+        [in]    ULONG                   celt
+        );
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out]   IEnumSTATPROPSETSTG **  ppenum
+        );
+}
+
+typedef [unique] IPropertyStorage * LPPROPERTYSTORAGE;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+cpp_quote("")
+
+cpp_quote("#define _PROPIDLBASE_")
+cpp_quote("#endif") //_PROPIDLBASE_
+
+#ifndef BUILDING_PROPIDL_IDL
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)    /* Nameless struct/union */")
+cpp_quote("#pragma warning(default:4237)    /* keywords bool, true, false, etc.. */")
+cpp_quote("#endif")
+#endif

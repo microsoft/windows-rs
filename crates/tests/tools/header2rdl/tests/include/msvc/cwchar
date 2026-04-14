@@ -1,0 +1,106 @@
+// cwchar standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CWCHAR_
+#define _CWCHAR_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <cstdio> // TRANSITION, VSO-661721
+#include <wchar.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_EXTERN_CXX_WORKAROUND
+using _Mbstatet = mbstate_t;
+_END_EXTERN_CXX_WORKAROUND
+
+_STD_BEGIN
+#pragma warning(push)
+#pragma warning(disable : 4995) // name was marked as #pragma deprecated
+
+using _CSTD _Mbstatet;
+
+_EXPORT_STD using _CSTD mbstate_t;
+_EXPORT_STD using _CSTD size_t;
+_EXPORT_STD using _CSTD tm;
+_EXPORT_STD using _CSTD wint_t;
+
+_EXPORT_STD using _CSTD btowc;
+_EXPORT_STD using _CSTD fgetwc;
+_EXPORT_STD using _CSTD fgetws;
+_EXPORT_STD using _CSTD fputwc;
+_EXPORT_STD using _CSTD fputws;
+_EXPORT_STD using _CSTD fwide;
+_EXPORT_STD using _CSTD fwprintf;
+_EXPORT_STD using _CSTD fwscanf;
+_EXPORT_STD using _CSTD getwc;
+_EXPORT_STD using _CSTD getwchar;
+_EXPORT_STD using _CSTD mbrlen;
+_EXPORT_STD using _CSTD mbrtowc;
+_EXPORT_STD using _CSTD mbsrtowcs;
+_EXPORT_STD using _CSTD mbsinit;
+_EXPORT_STD using _CSTD putwc;
+_EXPORT_STD using _CSTD putwchar;
+_EXPORT_STD using _CSTD swprintf;
+_EXPORT_STD using _CSTD swscanf;
+_EXPORT_STD using _CSTD ungetwc;
+_EXPORT_STD using _CSTD vfwprintf;
+_EXPORT_STD using _CSTD vswprintf;
+_EXPORT_STD using _CSTD vwprintf;
+_EXPORT_STD using _CSTD wcrtomb;
+_EXPORT_STD using _CSTD wprintf;
+_EXPORT_STD using _CSTD wscanf;
+_EXPORT_STD using _CSTD wcsrtombs;
+_EXPORT_STD using _CSTD wcstol;
+_EXPORT_STD using _CSTD wcscat;
+_EXPORT_STD using _CSTD wcschr;
+_EXPORT_STD using _CSTD wcscmp;
+_EXPORT_STD using _CSTD wcscoll;
+_EXPORT_STD using _CSTD wcscpy;
+_EXPORT_STD using _CSTD wcscspn;
+_EXPORT_STD using _CSTD wcslen;
+_EXPORT_STD using _CSTD wcsncat;
+_EXPORT_STD using _CSTD wcsncmp;
+_EXPORT_STD using _CSTD wcsncpy;
+_EXPORT_STD using _CSTD wcspbrk;
+_EXPORT_STD using _CSTD wcsrchr;
+_EXPORT_STD using _CSTD wcsspn;
+_EXPORT_STD using _CSTD wcstod;
+_EXPORT_STD using _CSTD wcstoul;
+_EXPORT_STD using _CSTD wcsstr;
+_EXPORT_STD using _CSTD wcstok;
+_EXPORT_STD using _CSTD wcsxfrm;
+_EXPORT_STD using _CSTD wctob;
+_EXPORT_STD using _CSTD wmemchr;
+_EXPORT_STD using _CSTD wmemcmp;
+_EXPORT_STD using _CSTD wmemcpy;
+_EXPORT_STD using _CSTD wmemmove;
+_EXPORT_STD using _CSTD wmemset;
+_EXPORT_STD using _CSTD wcsftime;
+
+_EXPORT_STD using _CSTD vfwscanf;
+_EXPORT_STD using _CSTD vswscanf;
+_EXPORT_STD using _CSTD vwscanf;
+_EXPORT_STD using _CSTD wcstof;
+_EXPORT_STD using _CSTD wcstold;
+_EXPORT_STD using _CSTD wcstoll;
+_EXPORT_STD using _CSTD wcstoull;
+
+#pragma warning(pop)
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CWCHAR_

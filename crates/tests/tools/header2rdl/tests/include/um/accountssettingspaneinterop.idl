@@ -1,0 +1,42 @@
+/*  AccountsSettingsPaneInterop.idl
+ *
+ *	IDL defines for COM APIs to support interop with Windows.UI.ApplicationSettings.AccountsSettingsPane
+ *
+ *	Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "inspectable.idl";
+import "asyncinfo.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS1)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(D3EE12AD-3865-4362-9746-B75A682DF0E6),
+]
+interface IAccountsSettingsPaneInterop : IInspectable
+{
+    HRESULT GetForWindow(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** accountsSettingsPane);
+
+    HRESULT ShowManageAccountsForWindowAsync(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncAction);
+
+    HRESULT ShowAddAccountForWindowAsync(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncAction);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10)")

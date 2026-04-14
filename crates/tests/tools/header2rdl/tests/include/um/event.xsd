@@ -1,0 +1,204 @@
+<xs:schema targetNamespace="http://schemas.microsoft.com/win/2004/08/events/event" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:evt="http://schemas.microsoft.com/win/2004/08/events/event">
+	<xs:simpleType name="GUIDType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DataType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="Name" type="xs:string" use="optional"/>
+				<xs:attribute name="Type" type="xs:QName" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="HexInt32Type">
+		<xs:annotation>
+			<xs:documentation> Hex 1-8 digits in size</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="0[xX][0-9A-Fa-f]{1,8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HexInt64Type">
+		<xs:annotation>
+			<xs:documentation> Hex 1-16 digits in size</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="0[xX][0-9A-Fa-f]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ComplexDataType">
+		<xs:sequence>
+			<xs:element name="Data" type="evt:DataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="SystemPropertiesType">
+		<xs:sequence>
+			<xs:element name="Provider">
+				<xs:complexType>
+					<xs:attribute name="Name" type="xs:anyURI" use="optional"/>
+					<xs:attribute name="Guid" type="evt:GUIDType" use="optional"/>
+					<xs:attribute name="EventSourceName" type="xs:string" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EventID">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:unsignedShort">
+							<xs:attribute name="Qualifiers" type="xs:unsignedShort" use="optional"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Version" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="Level" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="Task" type="xs:unsignedShort" minOccurs="0"/>
+			<xs:element name="Opcode" type="xs:unsignedByte" minOccurs="0"/>
+			<xs:element name="Keywords" type="evt:HexInt64Type" minOccurs="0"/>
+			<xs:element name="TimeCreated" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="SystemTime" type="xs:dateTime" use="optional"/>
+					<xs:attribute name="RawTime" type="xs:unsignedLong" use="optional"/>
+				</xs:complexType>
+                <xs:key name="uniqueAtt">
+                    <xs:selector xpath="."/>
+                    <xs:field xpath="@SystemTime|@RawTime"/>
+                </xs:key>
+			</xs:element>
+			<xs:element name="EventRecordID" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:unsignedLong"/>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Correlation" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="ActivityID" type="evt:GUIDType" use="optional"/>
+					<xs:attribute name="RelatedActivityID" type="evt:GUIDType" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Execution" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="ProcessID" type="xs:unsignedInt" use="required"/>
+					<xs:attribute name="ThreadID" type="xs:unsignedInt" use="required"/>
+					<xs:attribute name="ProcessorID" type="xs:unsignedByte" use="optional"/>
+					<xs:attribute name="SessionID" type="xs:unsignedInt" use="optional"/>
+					<xs:attribute name="KernelTime" type="xs:unsignedInt" use="optional"/>
+					<xs:attribute name="UserTime" type="xs:unsignedInt" use="optional"/>
+					<xs:attribute name="ProcessorTime" type="xs:unsignedInt" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Channel" type="xs:anyURI" minOccurs="0"/>
+			<xs:element name="Computer" type="xs:string"/>
+			<xs:element name="Security" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="UserID" type="xs:string" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##other" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="EventDataType">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Data" type="evt:DataType"/>
+				<xs:element name="ComplexData" type="evt:ComplexDataType"/>
+			</xs:choice>
+			<xs:element name="Binary" type="xs:hexBinary" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Classic eventlog binary data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="UserDataType">
+		<xs:sequence>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##other" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="DebugDataType">
+		<xs:sequence>
+			<xs:element name="SequenceNumber" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="FlagsName" type="xs:string" minOccurs="0"/>
+			<xs:element name="LevelName" type="xs:string" minOccurs="0"/>
+			<xs:element name="Component" type="xs:string"/>
+			<xs:element name="SubComponent" type="xs:string" minOccurs="0"/>
+			<xs:element name="FileLine" type="xs:string" minOccurs="0"/>
+			<xs:element name="Function" type="xs:string" minOccurs="0"/>
+			<xs:element name="Message" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##other" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="ProcessingErrorDataType">
+		<xs:sequence>
+			<xs:element name="ErrorCode" type="xs:unsignedInt"/>
+			<xs:element name="DataItemName" type="xs:string"/>
+			<xs:element name="EventPayload" type="xs:hexBinary"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##other" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="RenderingInfoType">
+		<xs:sequence>
+			<xs:element name="Message" type="xs:string" minOccurs="0"/>
+			<xs:element name="Level" type="xs:string" minOccurs="0"/>
+			<xs:element name="Opcode" type="xs:string" minOccurs="0"/>
+			<xs:element name="Task" type="xs:string" minOccurs="0"/>
+			<xs:element name="Channel" type="xs:string" minOccurs="0"/>
+			<xs:element name="Provider" type="xs:string" minOccurs="0"/>
+			<xs:element name="Keywords" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Keyword" type="xs:string" minOccurs="0" maxOccurs="64"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Culture" type="xs:language" use="required"/>
+		<xs:anyAttribute namespace="##other" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="EventType">
+		<xs:sequence>
+			<xs:element name="System" type="evt:SystemPropertiesType"/>
+			<xs:choice>
+				<xs:element name="EventData" type="evt:EventDataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Generic event</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UserData" type="evt:UserDataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Custom event</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DebugData" type="evt:DebugDataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>WPP debug event</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="BinaryEventData" type="xs:hexBinary" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Non schematized event</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ProcessingErrorData" type="evt:ProcessingErrorDataType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Instrumentation event</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="RenderingInfo" type="evt:RenderingInfoType" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##other" processContents="lax"/>
+	</xs:complexType>
+	<xs:element name="Event" type="evt:EventType"/>
+</xs:schema>

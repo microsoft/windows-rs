@@ -1,0 +1,1099 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Public Interfaces for the DX9 Video Mixing Renderer DShow filter
+//
+// Copyright (c) 1999 - 2002, Microsoft Corporation.  All rights reserved.
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+
+
+cpp_quote("#if 0")
+// This is temporary work around to persuade
+// MIDL to allow forward declarations.
+typedef DWORD           IDirect3DDevice9;
+typedef DWORD           IDirect3DSurface9;
+typedef DWORD           D3DFORMAT;
+typedef DWORD           D3DCOLOR;
+typedef DWORD           D3DPOOL;
+typedef LONGLONG        REFERENCE_TIME;
+typedef DWORD*          HMONITOR;
+typedef struct {DWORD dw1; DWORD dw2;} AM_MEDIA_TYPE;
+cpp_quote ("#endif")
+
+
+// public interfaces supported by the VMR9
+
+interface IVMRSurface9;
+
+interface IVMRSurfaceAllocator9;
+interface IVMRSurfaceAllocatorEx9;
+interface IVMRSurfaceAllocatorNotify9;
+interface IVMRImagePresenter9;
+interface IVMRImagePresenterConfig9;
+interface IVMRMonitorConfig9;
+interface IVMRWindowlessControl9;
+
+interface IVMRMixerControl9;
+interface IVMRImageCompositor9;
+interface IVMRMixerBitmap9;
+
+
+interface IVMRFilterConfig9;
+interface IVMRAspectRatioControl9;
+interface IVMRVideoStreamControl9;
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Allocator Presenter interfaces
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+
+//=====================================================================
+//
+// IVMRImagePresenter9
+//
+//=====================================================================
+typedef enum {
+    VMR9Sample_SyncPoint       = 0x00000001,
+    VMR9Sample_Preroll         = 0x00000002,
+    VMR9Sample_Discontinuity   = 0x00000004,
+    VMR9Sample_TimeValid       = 0x00000008,
+    VMR9Sample_SrcDstRectsValid= 0x00000010
+} VMR9PresentationFlags;
+
+
+typedef struct _VMR9PresentationInfo {
+    DWORD                   dwFlags;
+    IDirect3DSurface9*      lpSurf;
+    REFERENCE_TIME          rtStart;
+    REFERENCE_TIME          rtEnd;
+    SIZE                    szAspectRatio;
+    RECT                    rcSrc;
+    RECT                    rcDst;
+    DWORD                   dwReserved1;
+    DWORD                   dwReserved2;
+} VMR9PresentationInfo;
+
+[
+    local,
+    object,
+    local,
+    uuid(69188c61-12a3-40f0-8ffc-342e7b433fd7),
+    helpstring("IVMRImagePresenter9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRImagePresenter9 : IUnknown
+{
+    HRESULT StartPresenting(
+        [in] DWORD_PTR dwUserID
+        );
+
+    HRESULT StopPresenting(
+        [in] DWORD_PTR dwUserID
+        );
+
+    HRESULT PresentImage(
+        [in] DWORD_PTR dwUserID,
+        [in] VMR9PresentationInfo* lpPresInfo
+        );
+};
+
+
+//=====================================================================
+//
+// IVMRSurfaceAllocator
+//
+//=====================================================================
+typedef enum {
+
+    //
+    // surface types/usage
+    //
+    VMR9AllocFlag_3DRenderTarget        = 0x0001,
+    VMR9AllocFlag_DXVATarget            = 0x0002,
+
+    //
+    // VMR9AllocFlag_TextureSurface can be combined with
+    // DXVATarget and 3DRenderTarget
+    //
+    VMR9AllocFlag_TextureSurface        = 0x0004,
+    VMR9AllocFlag_OffscreenSurface      = 0x0008,
+
+    //
+    // The following flag applies to YUV mixing mode only
+    // and indicates that VMR9's mixer can accept RGB formats
+    // as well as the specified YUV format.
+    // The allocator-present can switch between the two
+    // surface formats dynamically.
+    //
+    VMR9AllocFlag_RGBDynamicSwitch      = 0x0010,
+
+    VMR9AllocFlag_UsageReserved         = 0x00E0,
+    VMR9AllocFlag_UsageMask             = 0x00FF
+
+    // surface
+} VMR9SurfaceAllocationFlags;
+
+
+typedef struct _VMR9AllocationInfo {
+    DWORD                   dwFlags;    // see VMR9SurfaceAllocationFlags
+    DWORD                   dwWidth;
+    DWORD                   dwHeight;
+    D3DFORMAT               Format;     // 0 means use a format compatible with the display
+    D3DPOOL                 Pool;
+    DWORD                   MinBuffers;
+    SIZE                    szAspectRatio;
+    SIZE                    szNativeSize;
+} VMR9AllocationInfo;
+
+[
+    local,
+    object,
+    local,
+    uuid(8d5148ea-3f5d-46cf-9df1-d1b896eedb1f),
+    helpstring("IVMRSurfaceAllocator9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurfaceAllocator9 : IUnknown
+{
+    HRESULT InitializeDevice(
+        [in] DWORD_PTR dwUserID,
+        [in] VMR9AllocationInfo* lpAllocInfo,
+        [in, out] DWORD* lpNumBuffers
+        );
+
+    HRESULT TerminateDevice(
+        [in] DWORD_PTR dwID
+        );
+
+    HRESULT GetSurface(
+        [in] DWORD_PTR dwUserID,
+        [in] DWORD SurfaceIndex,
+        [in] DWORD SurfaceFlags,
+        [out] IDirect3DSurface9** lplpSurface
+        );
+
+    HRESULT AdviseNotify(
+        [in] IVMRSurfaceAllocatorNotify9* lpIVMRSurfAllocNotify
+        );
+};
+
+[
+    local,
+    object,
+    local,
+    uuid(6de9a68a-a928-4522-bf57-655ae3866456),
+    helpstring("IVMRSurfaceAllocatorEx9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurfaceAllocatorEx9 : IVMRSurfaceAllocator9
+{
+    HRESULT GetSurfaceEx(
+        [in] DWORD_PTR dwUserID,
+        [in] DWORD SurfaceIndex,
+        [in] DWORD SurfaceFlags,
+        [out] IDirect3DSurface9** lplpSurface,
+        [out] RECT* lprcDst
+        );
+}
+
+
+//=====================================================================
+//
+// IVMRSurfaceAllocatorNotify9
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(dca3f5df-bb3a-4d03-bd81-84614bfbfa0c),
+    helpstring("IVMRSurfaceAllocatorNotify9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurfaceAllocatorNotify9 : IUnknown
+{
+    HRESULT AdviseSurfaceAllocator(
+        [in] DWORD_PTR dwUserID,
+        [in] IVMRSurfaceAllocator9* lpIVRMSurfaceAllocator
+        );
+
+    HRESULT SetD3DDevice(
+        [in] IDirect3DDevice9* lpD3DDevice,
+        [in] HMONITOR hMonitor
+        );
+
+    HRESULT ChangeD3DDevice(
+        [in] IDirect3DDevice9* lpD3DDevice,
+        [in] HMONITOR hMonitor
+        );
+
+    HRESULT AllocateSurfaceHelper(
+        [in] VMR9AllocationInfo* lpAllocInfo,
+        [in, out] DWORD* lpNumBuffers,
+        [out] IDirect3DSurface9** lplpSurface
+        );
+
+    HRESULT NotifyEvent(
+        [in] LONG EventCode,
+        [in] LONG_PTR Param1,
+        [in] LONG_PTR Param2
+        );
+};
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Application control and configuration interfaces
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+//=====================================================================
+//
+// IVMRWindowlessControl9
+//
+//=====================================================================
+typedef enum {
+    VMR9ARMode_None,
+    VMR9ARMode_LetterBox
+} VMR9AspectRatioMode;
+
+[
+    local,
+    object,
+    local,
+    uuid(8f537d09-f85e-4414-b23b-502e54c79927),
+    helpstring("IVMRWindowlessControl Interface"),
+    pointer_default(unique)
+]
+interface IVMRWindowlessControl9 : IUnknown
+{
+    //
+    //////////////////////////////////////////////////////////
+    // Video size and position information
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT GetNativeVideoSize(
+        [out] LONG* lpWidth,
+        [out] LONG* lpHeight,
+        [out] LONG* lpARWidth,
+        [out] LONG* lpARHeight
+        );
+
+    HRESULT GetMinIdealVideoSize(
+        [out] LONG* lpWidth,
+        [out] LONG* lpHeight
+        );
+
+    HRESULT GetMaxIdealVideoSize(
+        [out] LONG* lpWidth,
+        [out] LONG* lpHeight
+        );
+
+    HRESULT SetVideoPosition(
+        [in] const LPRECT lpSRCRect,
+        [in] const LPRECT lpDSTRect
+        );
+
+    HRESULT GetVideoPosition(
+        [out] LPRECT lpSRCRect,
+        [out] LPRECT lpDSTRect
+        );
+
+    HRESULT GetAspectRatioMode(
+        [out] DWORD* lpAspectRatioMode
+        );
+
+    HRESULT SetAspectRatioMode(
+        [in] DWORD AspectRatioMode
+        );
+
+    //
+    //////////////////////////////////////////////////////////
+    // Display and clipping management
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT SetVideoClippingWindow(
+        [in] HWND hwnd
+        );
+
+    HRESULT RepaintVideo(
+        [in] HWND hwnd,
+        [in] HDC hdc
+        );
+
+    HRESULT DisplayModeChanged();
+
+
+    //
+    //////////////////////////////////////////////////////////
+    // GetCurrentImage
+    //
+    // Returns the current image being displayed.  This images
+    // is returned in the form of packed Windows DIB.
+    //
+    // GetCurrentImage can be called at any time, also
+    // the caller is responsible for free the returned memory
+    // by calling CoTaskMemFree.
+    //
+    // Excessive use of this function will degrade video
+    // playback performed.
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT GetCurrentImage(
+        [out] BYTE** lpDib
+        );
+
+    //
+    //////////////////////////////////////////////////////////
+    // Border Color control
+    //
+    // The border color is color used to fill any area of the
+    // the destination rectangle that does not contain video.
+    // It is typically used in two instances.  When the video
+    // straddles two monitors and when the VMR is trying
+    // to maintain the aspect ratio of the movies by letter
+    // boxing the video to fit within the specified destination
+    // rectangle. See SetAspectRatioMode above.
+    //////////////////////////////////////////////////////////
+    //
+    HRESULT SetBorderColor(
+        [in] COLORREF Clr
+        );
+
+    HRESULT GetBorderColor(
+        [out] COLORREF* lpClr
+        );
+};
+
+
+
+//=====================================================================
+//
+// IVMRMixerControl9
+//
+//=====================================================================
+
+typedef enum {
+    MixerPref9_NoDecimation             = 0x00000001, // No decimation - full size
+    MixerPref9_DecimateOutput           = 0x00000002, // decimate output by 2 in x & y
+    MixerPref9_ARAdjustXorY             = 0x00000004, // adjust the aspect ratio in x or y
+    MixerPref9_NonSquareMixing          = 0x00000008, // assume AP can handle non-square mixing, avoids intermediate scales
+    MixerPref9_DecimateMask             = 0x0000000F,
+
+    MixerPref9_BiLinearFiltering        = 0x00000010, // use bi-linear filtering
+    MixerPref9_PointFiltering           = 0x00000020, // use point filtering
+    MixerPref9_AnisotropicFiltering     = 0x00000040, //
+    MixerPref9_PyramidalQuadFiltering   = 0x00000080, // 4-sample tent
+    MixerPref9_GaussianQuadFiltering    = 0x00000100, // 4-sample gaussian
+    MixerPref9_FilteringReserved        = 0x00000E00, // bits reserved for future use.
+    MixerPref9_FilteringMask            = 0x00000FF0, // OR of all above flags
+
+    MixerPref9_RenderTargetRGB          = 0x00001000,
+    MixerPref9_RenderTargetYUV          = 0x00002000, // Uses DXVA to perform mixing
+    MixerPref9_RenderTargetReserved     = 0x000FC000, // bits reserved for future use.
+    MixerPref9_RenderTargetMask         = 0x000FF000, // OR of all above flags
+
+    //
+    // Dynamic changes that can be performed when the VMR's mixer is
+    // configured to use the YUV Render target (see MixerPref_RenderTargetYUV)
+    // These preferences can be applied while the graph is running and take effect
+    // when the next frame is composed by the mixer.
+    //
+    MixerPref9_DynamicSwitchToBOB       = 0x00100000,
+    MixerPref9_DynamicDecimateBy2       = 0x00200000,
+
+    MixerPref9_DynamicReserved          = 0x00C00000,
+    MixerPref9_DynamicMask              = 0x00F00000
+
+} VMR9MixerPrefs;
+
+
+//
+//  Normalized relative rectangle
+//  Coordinate ranges: x=[0...1) y=[0...1)
+//  Where the output window goes from 0,0 (closed inclusive lower bound)
+//  to 1,1 (open exclusive upper bound)
+//
+typedef struct _VMR9NormalizedRect
+{
+    float left;
+    float top;
+    float right;
+    float bottom;
+} VMR9NormalizedRect;
+
+
+
+typedef enum {
+    ProcAmpControl9_Brightness            = 0x00000001,
+    ProcAmpControl9_Contrast              = 0x00000002,
+    ProcAmpControl9_Hue                   = 0x00000004,
+    ProcAmpControl9_Saturation            = 0x00000008,
+    ProcAmpControl9_Mask                  = 0x0000000F
+} VMR9ProcAmpControlFlags;
+
+typedef struct _VMR9ProcAmpControl
+{
+    DWORD       dwSize;
+    DWORD       dwFlags;
+    float       Brightness;
+    float       Contrast;
+    float       Hue;
+    float       Saturation;
+} VMR9ProcAmpControl;
+
+typedef struct _VMR9ProcAmpControlRange
+{
+    DWORD                       dwSize;
+    VMR9ProcAmpControlFlags     dwProperty; // see VMR9ProcAmpControlFlags above
+    float                       MinValue;
+    float                       MaxValue;
+    float                       DefaultValue;
+    float                       StepSize;
+} VMR9ProcAmpControlRange;
+
+
+[
+    local,
+    object,
+    local,
+    uuid(1a777eaa-47c8-4930-b2c9-8fee1c1b0f3b),
+    helpstring("IVMRMixerControl9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRMixerControl9 : IUnknown
+{
+    HRESULT SetAlpha(
+        [in] DWORD dwStreamID,
+        [in] float Alpha // Source alpha premultication factor (global alpha for source)
+        );
+
+    HRESULT GetAlpha(
+        [in] DWORD dwStreamID,
+        [out] float* pAlpha
+        );
+
+    HRESULT SetZOrder(
+        [in] DWORD dwStreamID,
+        [in] DWORD dwZ
+        );
+
+    HRESULT GetZOrder(
+        [in] DWORD dwStreamID,
+        [out] DWORD* pZ
+        );
+
+    HRESULT SetOutputRect(
+        [in] DWORD dwStreamID,
+        [in] const VMR9NormalizedRect *pRect
+        );
+
+    HRESULT GetOutputRect(
+        [in] DWORD dwStreamID,
+        [out] VMR9NormalizedRect *pRect
+        );
+
+    HRESULT SetBackgroundClr(
+        [in] COLORREF ClrBkg
+        );
+
+    HRESULT GetBackgroundClr(
+        [in] COLORREF* lpClrBkg
+        );
+
+    HRESULT SetMixingPrefs(
+        [in] DWORD dwMixerPrefs  // a combination of VMRMixingPrefFlags
+        );
+
+    HRESULT GetMixingPrefs(
+        [out] DWORD* pdwMixerPrefs
+        );
+
+    HRESULT SetProcAmpControl(
+        [in] DWORD dwStreamID,
+        [in] VMR9ProcAmpControl* lpClrControl
+        );
+
+    HRESULT GetProcAmpControl(
+        [in] DWORD dwStreamID,
+        [in, out] VMR9ProcAmpControl* lpClrControl
+        );
+
+    HRESULT GetProcAmpControlRange(
+        [in] DWORD dwStreamID,
+        [in, out] VMR9ProcAmpControlRange* lpClrControl
+        );
+};
+
+
+//=====================================================================
+//
+// IVMRMixerBitmap9
+//
+//=====================================================================
+
+typedef struct _VMR9AlphaBitmap
+{
+    DWORD               dwFlags;        // flags word
+    HDC                 hdc;            // DC for the bitmap to copy
+    IDirect3DSurface9*  pDDS;           // D3D surface to copy
+    RECT                rSrc;           // rectangle to copy from the DC/DDS
+    VMR9NormalizedRect  rDest;          // output rectangle in composition space
+    FLOAT               fAlpha;         // opacity of the bitmap
+    COLORREF            clrSrcKey;      // src color key
+    DWORD               dwFilterMode;   // See "SetMixerPrefs"
+} VMR9AlphaBitmap;
+
+
+typedef enum {
+
+    // Disable the alpha bitmap for now
+    VMR9AlphaBitmap_Disable                     = 0x00000001,
+
+    // Take the bitmap from the HDC rather than the DirectDraw surface
+    VMR9AlphaBitmap_hDC                         = 0x00000002,
+
+    // Take the entire DDraw surface - rSrc is ignored
+    VMR9AlphaBitmap_EntireDDS                   = 0x00000004,
+
+    // Indicates that the clrTrans value is valid and should be
+    // used when blending
+    VMR9AlphaBitmap_SrcColorKey                 = 0x00000008,
+
+    // Indicates that the rSrc rectangle is valid and specifies a
+    // sub-rectangle of the of original app image to be blended.
+    // Use of this parameter enables "Image Strips"
+    VMR9AlphaBitmap_SrcRect                     = 0x00000010,
+
+    // Indicates that dwFilterMode parameter is valid and should be
+    // used to overide the default filtering method used by the VMR.
+    // MixerPref_PointFiltering is particulaly useful for images that
+    // contain text and do not need to be stretch prior to blending with
+    // the video content.
+    VMR9AlphaBitmap_FilterMode                  = 0x00000020
+} VMR9AlphaBitmapFlags;
+
+[
+    object,
+    local,
+    uuid(ced175e5-1935-4820-81bd-ff6ad00c9108),
+    helpstring("IVMRMixerBitmap Interface"),
+    pointer_default(unique)
+]
+interface IVMRMixerBitmap9 : IUnknown
+{
+    // Set bitmap, location to blend it, and blending value
+    HRESULT SetAlphaBitmap(
+        [in] const VMR9AlphaBitmap* pBmpParms
+        );
+
+    // Change bitmap location, size and blending value,
+    // graph must be running for change to take effect.
+    HRESULT UpdateAlphaBitmapParameters(
+        [in] const VMR9AlphaBitmap* pBmpParms
+        );
+
+    // Get bitmap, location to blend it, and blending value
+    HRESULT GetAlphaBitmapParameters(
+        [out] VMR9AlphaBitmap* pBmpParms
+        );
+};
+
+
+
+//=====================================================================
+//
+// IVMRSurface9
+//
+//=====================================================================
+[
+    local,
+    object,
+    local,
+    uuid(dfc581a1-6e1f-4c3a-8d0a-5e9792ea2afc),
+    helpstring("IVMRSurface Interface"),
+    pointer_default(unique)
+]
+interface IVMRSurface9 : IUnknown
+{
+    HRESULT IsSurfaceLocked();
+
+    HRESULT LockSurface(
+        [out] BYTE** lpSurface
+        );
+
+    HRESULT UnlockSurface();
+
+    HRESULT GetSurface(
+        [out] IDirect3DSurface9** lplpSurface
+        );
+};
+
+
+
+//=====================================================================
+//
+// IID_IVMRImagePresenterConfig9 - this interface allows applications
+// to configure the default Microsoft provided allocator-presenter
+// inorder to simplify the implementation of their own
+// allocator-presenter plug-in.
+//
+//=====================================================================
+typedef enum {
+    RenderPrefs9_DoNotRenderBorder           = 0x00000001, // app paints color keys
+    RenderPrefs9_Mask                        = 0x00000001, // OR of all above flags
+} VMR9RenderPrefs;
+[
+    local,
+    object,
+    local,
+    uuid(45c15cab-6e22-420a-8043-ae1f0ac02c7d),
+    helpstring("IVMRImagePresenterConfig9 Interface"),
+    pointer_default(unique)
+]
+
+interface IVMRImagePresenterConfig9 : IUnknown
+{
+
+    HRESULT SetRenderingPrefs(
+        [in] DWORD dwRenderFlags   // see VMRRenderPrefs for valid flags
+        );
+
+    HRESULT GetRenderingPrefs(
+        [out] DWORD* dwRenderFlags // see VMRRenderPrefs for valid flags
+        );
+
+}
+
+
+
+
+//=====================================================================
+//
+// IVMRVideoStreamControl9
+//
+//=====================================================================
+[
+    object,
+    local,
+    uuid(d0cfe38b-93e7-4772-8957-0400c49a4485),
+    helpstring("IVMRMixerStreamConfig Interface"),
+    pointer_default(unique)
+]
+interface IVMRVideoStreamControl9: IUnknown
+{
+
+    HRESULT SetStreamActiveState(
+            [in] BOOL fActive
+            );
+
+    HRESULT GetStreamActiveState(
+            [out] BOOL* lpfActive
+            );
+};
+
+
+typedef enum {
+    VMR9Mode_Windowed                        = 0x00000001,
+    VMR9Mode_Windowless                      = 0x00000002,
+    VMR9Mode_Renderless                      = 0x00000004,
+
+    // not a valid value to pass to SetRenderMode
+    VMR9Mode_Mask                            = 0x00000007, // OR of all above flags
+} VMR9Mode;
+
+[
+    object,
+    local,
+    uuid(5a804648-4f66-4867-9c43-4f5c822cf1b8),
+    helpstring("IVMRFilterConfig9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRFilterConfig9 : IUnknown
+{
+    HRESULT SetImageCompositor(
+            [in] IVMRImageCompositor9* lpVMRImgCompositor
+            );
+
+    HRESULT SetNumberOfStreams(
+            [in] DWORD dwMaxStreams
+            );
+
+    HRESULT GetNumberOfStreams(
+            [out] DWORD* pdwMaxStreams
+            );
+
+    HRESULT SetRenderingPrefs(
+            [in] DWORD dwRenderFlags  // a combination of VMR9RenderPrefs
+            );
+
+    HRESULT GetRenderingPrefs(
+            [out] DWORD* pdwRenderFlags
+            );
+
+    HRESULT SetRenderingMode(
+            [in] DWORD Mode  // a combination of VMRMode
+            );
+
+    HRESULT GetRenderingMode(
+            [out] DWORD* pMode
+            );
+}
+
+//=====================================================================
+//
+// IVMRAspectRatioControl9
+//
+//=====================================================================
+[
+    object,
+    local,
+    uuid(00d96c29-bbde-4efc-9901-bb5036392146),
+    helpstring("IVMRAspectRatioControl9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRAspectRatioControl9 : IUnknown
+{
+    HRESULT GetAspectRatioMode(
+        [out] LPDWORD lpdwARMode
+            );
+
+    HRESULT SetAspectRatioMode(
+        [in] DWORD dwARMode
+            );
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// VMR Multimon configuration interface
+//
+///////////////////////////////////////////////////////////////////////////////
+#define VMR9DEVICENAMELEN 32
+#define VMR9DEVICEDESCRIPTIONLEN  512
+
+typedef struct _VMR9MonitorInfo {
+    UINT        uDevID;
+    RECT        rcMonitor;
+    HMONITOR    hMon;
+    DWORD       dwFlags;    // described in MONITORINFOEX, currently only MONITORINFOF_PRIMARY
+    wchar_t     szDevice[VMR9DEVICENAMELEN];
+    wchar_t     szDescription[VMR9DEVICEDESCRIPTIONLEN];
+    LARGE_INTEGER liDriverVersion;
+    DWORD       dwVendorId;
+    DWORD       dwDeviceId;
+    DWORD       dwSubSysId;
+    DWORD       dwRevision;
+    //
+} VMR9MonitorInfo;
+
+[
+    object,
+    local,
+    uuid(46c2e457-8ba0-4eef-b80b-0680f0978749),
+    helpstring("IVMRMonitorConfig9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRMonitorConfig9 : IUnknown
+{
+    // Use this method on a Multi-Monitor system to specify to the
+    // mixer filter which Direct Draw driver should be used when connecting
+    // to an upstream decoder filter.
+    //
+    HRESULT SetMonitor(
+        [in] UINT uDev
+        );
+
+    // Use this method to determine the direct draw object that will be used when
+    // connecting the  mixer filter to an upstream decoder filter.
+    //
+    HRESULT GetMonitor(
+        [out] UINT *puDev
+        );
+
+    // Use this method on a multi-monitor system to specify to the
+    //  mixer filter the default Direct Draw device to use when
+    // connecting to an upstream filter.  The default direct draw device
+    // can be overriden for a particular connection by SetMonitor method
+    // described above.
+    //
+    HRESULT SetDefaultMonitor(
+        [in] UINT uDev
+        );
+
+    // Use this method on a multi-monitor system to determine which
+    // is the default direct draw device the overlay mixer filter
+    // will  use when connecting to an upstream filter.
+    //
+    HRESULT GetDefaultMonitor(
+        [out] UINT* puDev
+        );
+
+    // Use this method to get a list of Direct Draw device GUIDs and thier
+    // associated monitor information that the mixer can use when
+    // connecting to an upstream decoder filter.  Passing down a NULL pInfo
+    // parameter allows the app to determine the required array size (returned
+    // in pdwNumDevices).  Otherwise, dwNumDevices returns the actual
+    // number of devices retrieved.
+    //
+    HRESULT GetAvailableMonitors(
+        [out, size_is(dwMaxInfoArraySize)] VMR9MonitorInfo* pInfo,
+        [in] DWORD dwMaxInfoArraySize, // in array members
+        [out] DWORD* pdwNumDevices // actual number of devices retrieved
+        );
+};
+
+
+//=====================================================================
+//
+// IVMRDeinterlaceControl
+//
+// New interfaced introduced into the WindowsXP SP1 release of the VMR.
+// This interface allows applications to control the DX-VA deinterlacing
+// support provided by the VMR.
+//
+// The VMR needs to be set into "mixing" mode for this interface to work.
+//
+// SetDeinterlaceMode is only effective for new connections made to the
+// VMR.  It should be noted that the graphics device driver may refuse
+// to use the specified deinterlace mode, in which case 3 fallback
+// policies are offered by the VMR, these being:
+//
+//      1. Fallback to the next best mode offered by the driver.
+//      2. Fallback to the BOB deinterlace mode.
+//      3. Fallback to the WEAVE deinterlace mode (ie. turn deinterlacing off).
+//
+//=====================================================================
+
+typedef enum {
+    DeinterlacePref9_NextBest = 0x01,
+    DeinterlacePref9_BOB = 0x02,
+    DeinterlacePref9_Weave = 0x04,
+    DeinterlacePref9_Mask = 0x07
+} VMR9DeinterlacePrefs;
+
+typedef enum {
+
+    // the algorithm is unknown or proprietary
+    DeinterlaceTech9_Unknown                = 0x0000,
+
+    // the algorithm creates the missing lines by repeating
+    // the line either above or below it - this method will look very jaggy and
+    // isn't recommended
+    DeinterlaceTech9_BOBLineReplicate       = 0x0001,
+
+
+    // the algorithm creates the missing lines by vertically stretching each
+    // video field by a factor of two, for example by averaging two lines or
+    // using a [-1, 9, 9, -1]/16 filter across four lines.
+    // Slight vertical adjustments are made to ensure that the resulting image
+    // does not "bob" up and down.
+    DeinterlaceTech9_BOBVerticalStretch     = 0x0002,
+
+    // the pixels in the missing line are recreated by a median filtering operation
+    DeinterlaceTech9_MedianFiltering        = 0x0004,
+
+    // the pixels in the missing line are recreated by an edge filter.
+    // In this process, spatial directional filters are applied to determine
+    // the orientation of edges in the picture content, and missing
+    // pixels are created by filtering along (rather than across) the
+    // detected edges.
+    DeinterlaceTech9_EdgeFiltering          = 0x0010,
+
+    // the pixels in the missing line are recreated by switching on a field by
+    // field basis between using either spatial or temporal interpolation
+    // depending on the amount of motion.
+    DeinterlaceTech9_FieldAdaptive          = 0x0020,
+
+    // the pixels in the missing line are recreated by switching on a pixel by pixel
+    // basis between using either spatial or temporal interpolation depending on
+    // the amount of motion..
+    DeinterlaceTech9_PixelAdaptive          = 0x0040,
+
+    // Motion Vector Steering  identifies objects within a sequence of video
+    // fields.  The missing pixels are recreated after first aligning the
+    // movement axes of the individual objects in the scene to make them
+    // parallel with the time axis.
+    DeinterlaceTech9_MotionVectorSteered      = 0x0080
+
+} VMR9DeinterlaceTech;
+
+typedef struct _VMR9Frequency {
+    DWORD dwNumerator;
+    DWORD dwDenominator;
+} VMR9Frequency;
+
+typedef enum _VMR9_SampleFormat {
+    VMR9_SampleReserved      = 1,
+    VMR9_SampleProgressiveFrame = 2,
+    VMR9_SampleFieldInterleavedEvenFirst = 3,
+    VMR9_SampleFieldInterleavedOddFirst = 4,
+    VMR9_SampleFieldSingleEven = 5,
+    VMR9_SampleFieldSingleOdd = 6,
+} VMR9_SampleFormat;
+
+typedef struct _VMR9VideoDesc {
+    DWORD               dwSize;
+    DWORD               dwSampleWidth;
+    DWORD               dwSampleHeight;
+    VMR9_SampleFormat   SampleFormat;
+    DWORD               dwFourCC;
+    VMR9Frequency       InputSampleFreq;
+    VMR9Frequency       OutputFrameFreq;
+} VMR9VideoDesc;
+
+
+typedef struct _VMR9DeinterlaceCaps {
+    DWORD               dwSize;
+    DWORD               dwNumPreviousOutputFrames;
+    DWORD               dwNumForwardRefSamples;
+    DWORD               dwNumBackwardRefSamples;
+    VMR9DeinterlaceTech DeinterlaceTechnology;
+} VMR9DeinterlaceCaps;
+
+[
+    object,
+    local,
+    uuid(a215fb8d-13c2-4f7f-993c-003d6271a459),
+    helpstring("IVMRDeinterlaceControl9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRDeinterlaceControl9 : IUnknown
+{
+    //
+    // For the specified video description returns the
+    // number of deinterlacing modes available to the VMR.
+    // The deinterlacing modes are returned in descending
+    // quality order ie. the best quality mode is at
+    // lpdwNumDeinterlaceModes[0], the next best at
+    // lpdwNumDeinterlaceModes[1] and so on.
+    //
+    // To determine how big an array of guids to pass to the
+    // GetNumberOfDeinterlaceModes method call
+    // GetNumberOfDeinterlaceModes(lpVideoDescription, &dwNumModes, NULL);
+    //
+    HRESULT GetNumberOfDeinterlaceModes(
+        [in] VMR9VideoDesc* lpVideoDescription,
+        [in] [out] LPDWORD lpdwNumDeinterlaceModes,
+        [out] LPGUID lpDeinterlaceModes
+        );
+
+    //
+    // For the given video description get the capabilities of the
+    // specified de-interlace mode.
+    //
+    HRESULT GetDeinterlaceModeCaps(
+        [in] LPGUID lpDeinterlaceMode,
+        [in] VMR9VideoDesc* lpVideoDescription,
+        [out] VMR9DeinterlaceCaps* lpDeinterlaceCaps
+        );
+
+    //
+    // Get/Set the deinterlace mode that you would like the
+    // VMR to use when de-interlacing the specified stream.
+    // It should be noted that the VMR may not actually be able
+    // to use the requested deinterlace mode, in which case the
+    // the VMR will fall back to other de-interlace modes as specified
+    // by the de-interlace preferences (see SetDeinterlacePrefs below).
+    //
+    HRESULT GetDeinterlaceMode(
+        [in] DWORD dwStreamID,
+        [out] LPGUID lpDeinterlaceMode  // returns GUID_NULL if SetDeinterlaceMode
+        );                              // has not been called yet.
+
+    HRESULT SetDeinterlaceMode(
+        [in] DWORD dwStreamID,          // use 0xFFFFFFFF to set mode for all streams
+        [in] LPGUID lpDeinterlaceMode   // GUID_NULL == turn deinterlacing off
+        );
+
+
+    HRESULT GetDeinterlacePrefs(
+        [out] LPDWORD lpdwDeinterlacePrefs
+        );
+
+    HRESULT SetDeinterlacePrefs(
+        [in] DWORD dwDeinterlacePrefs
+        );
+
+    //
+    // Get the DeinterlaceMode currently in use for the specified
+    // video stream (ie. pin).  The returned GUID will be NULL if
+    // the de-interlacing h/w has not been created by the VMR at the
+    // time the function is called, or if the VMR determines that
+    // this stream should not or can be de-interlaced.
+    //
+    HRESULT GetActualDeinterlaceMode(
+        [in] DWORD dwStreamID,
+        [out] LPGUID lpDeinterlaceMode
+        );
+};
+
+
+//=====================================================================
+//
+// IVMRImageCompositor9
+//
+//=====================================================================
+
+typedef struct _VMR9VideoStreamInfo {
+    IDirect3DSurface9*          pddsVideoSurface;
+    DWORD                       dwWidth, dwHeight;
+    DWORD                       dwStrmID;
+    FLOAT                       fAlpha;
+    VMR9NormalizedRect          rNormal;
+    REFERENCE_TIME              rtStart;
+    REFERENCE_TIME              rtEnd;
+    VMR9_SampleFormat           SampleFormat;
+} VMR9VideoStreamInfo;
+[
+    local,
+    object,
+    local,
+    uuid(4a5c89eb-df51-4654-ac2a-e48e02bbabf6),
+    helpstring("IVMRImageCompositor9 Interface"),
+    pointer_default(unique)
+]
+interface IVMRImageCompositor9 : IUnknown
+{
+    HRESULT InitCompositionDevice(
+        [in] IUnknown* pD3DDevice
+        );
+
+    HRESULT TermCompositionDevice(
+        [in] IUnknown* pD3DDevice
+        );
+
+    HRESULT SetStreamMediaType(
+        [in] DWORD dwStrmID,
+        [in] AM_MEDIA_TYPE* pmt,
+        [in] BOOL fTexture
+        );
+
+    HRESULT CompositeImage(
+        [in] IUnknown* pD3DDevice,
+        [in] IDirect3DSurface9* pddsRenderTarget,
+        [in] AM_MEDIA_TYPE* pmtRenderTarget,
+        [in] REFERENCE_TIME rtStart,
+        [in] REFERENCE_TIME rtEnd,
+        [in] D3DCOLOR dwClrBkGnd,
+        [in] VMR9VideoStreamInfo* pVideoStreamInfo,
+        [in] UINT cStreams
+        );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

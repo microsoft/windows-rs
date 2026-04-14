@@ -1,0 +1,22 @@
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(3694dbf9-8f68-44be-8ff5-195c98ede8a6),
+]
+interface IUIViewSettingsInterop : IInspectable
+{
+    // Callers can request IUIViewSettings using riid/ppv
+    HRESULT GetForWindow([in] HWND hwnd, [in] REFIID riid, [out, retval, iid_is(riid)] void** ppv);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")

@@ -1,0 +1,32 @@
+import "oaidl.idl";
+import "Inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[uuid(1ADE314D-0E0A-40D9-824C-9A088A50059F), object, local]
+interface IUserActivityInterop : IInspectable
+{
+    HRESULT CreateSessionForWindow([in] HWND window, [in] REFIID iid, [out, iid_is(iid), retval] void** value);
+}
+
+[uuid(C15DF8BC-8844-487A-B85B-7578E0F61419), object, local]
+interface IUserActivitySourceHostInterop : IInspectable
+{
+    HRESULT SetActivitySourceHost([in] HSTRING activitySourceHost);
+}
+
+[uuid(DD69F876-9699-4715-9095-E37EA30DFA1B), object, local]
+interface IUserActivityRequestManagerInterop : IInspectable
+{
+    HRESULT GetForWindow([in] HWND window, [in] REFIID iid, [out, iid_is(iid), retval] void** value);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS4) */")

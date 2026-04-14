@@ -1,0 +1,289 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       U P N P H O S T . I D L
+//
+//  Contents:   Objects and interfaces for hosting UPnP Devices
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "ocidl.idl";
+#endif
+
+// Reserved GUIDS for our use
+//
+// 204810b3-73b2-11d4-bf42-00b0d0118b56   LIBID_UPnPHostLib
+// 204810b4-73b2-11d4-bf42-00b0d0118b56   IID_IUPnPEventSink
+// 204810b5-73b2-11d4-bf42-00b0d0118b56   IID_IUPnPEventSource
+// 204810b6-73b2-11d4-bf42-00b0d0118b56   IID_IUPnPRegistrar
+// 204810b7-73b2-11d4-bf42-00b0d0118b56   IID_IUPnPReregistrar
+// 204810b8-73b2-11d4-bf42-00b0d0118b56   IID_IUPnPDeviceProvider
+// 204810b9-73b2-11d4-bf42-00b0d0118b56   CLSID_UPnPRegistrar
+// 204810ba-73b2-11d4-bf42-00b0d0118b56   IID_IUPnPDeviceControl
+// 204810bb-73b2-11d4-bf42-00b0d0118b56...IID_IUPnPDeviceControlHttpHeaders
+// 204810bc-73b2-11d4-bf42-00b0d0118b56
+// 204810bd-73b2-11d4-bf42-00b0d0118b56
+// 204810be-73b2-11d4-bf42-00b0d0118b56
+// 204810bf-73b2-11d4-bf42-00b0d0118b56
+// 204810c0-73b2-11d4-bf42-00b0d0118b56
+// 204810c1-73b2-11d4-bf42-00b0d0118b56
+// 204810c2-73b2-11d4-bf42-00b0d0118b56
+// 204810c3-73b2-11d4-bf42-00b0d0118b56
+// 204810c4-73b2-11d4-bf42-00b0d0118b56
+// 204810c5-73b2-11d4-bf42-00b0d0118b56
+// 204810c6-73b2-11d4-bf42-00b0d0118b56
+// 204810c7-73b2-11d4-bf42-00b0d0118b56
+// 204810c8-73b2-11d4-bf42-00b0d0118b56
+// 204810c9-73b2-11d4-bf42-00b0d0118b56
+// 204810ca-73b2-11d4-bf42-00b0d0118b56
+// 204810cb-73b2-11d4-bf42-00b0d0118b56
+// 204810cc-73b2-11d4-bf42-00b0d0118b56
+// 204810cd-73b2-11d4-bf42-00b0d0118b56
+// ....
+// 20481499-73b2-11d4-bf42-00b0d0118b56
+// 2048149a-73b2-11d4-bf42-00b0d0118b56
+
+/////////////////////////////////////
+// Interface forward declarations
+
+interface IUPnPEventSink;
+interface IUPnPEventSource;
+interface IUPnPRegistrar;
+interface IUPnPReregistrar;
+interface IUPnPDeviceControl;
+interface IUPnPDeviceControlHttpHeaders;
+interface IUPnPDeviceProvider;
+interface IUPnPRemoteEndpointInfo;
+
+////////////////////////////////////
+// Error definitions
+cpp_quote("#define UPNP_E_REQUIRED_ELEMENT_ERROR        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA020)")
+cpp_quote("#define UPNP_E_DUPLICATE_NOT_ALLOWED         MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA021)")
+cpp_quote("#define UPNP_E_DUPLICATE_SERVICE_ID          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA022)")
+cpp_quote("#define UPNP_E_INVALID_DESCRIPTION           MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA023)")
+cpp_quote("#define UPNP_E_INVALID_SERVICE               MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA024)")
+cpp_quote("#define UPNP_E_INVALID_ICON                  MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA025)")
+cpp_quote("#define UPNP_E_INVALID_XML                   MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA026)")
+cpp_quote("#define UPNP_E_INVALID_ROOT_NAMESPACE        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA027)")
+cpp_quote("#define UPNP_E_SUFFIX_TOO_LONG               MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA028)")
+cpp_quote("#define UPNP_E_URLBASE_PRESENT               MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA029)")
+cpp_quote("#define UPNP_E_VALUE_TOO_LONG                MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA030)")
+cpp_quote("#define UPNP_E_DEVICE_RUNNING                MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA031)")
+cpp_quote("#define UPNP_E_DEVICE_NOTREGISTERED          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xA032)")
+
+
+cpp_quote("// Remote address value is a string")
+cpp_quote("#define REMOTE_ADDRESS_VALUE_NAME L\"RemoteAddress\"")
+cpp_quote("// Address family value is a DWORD")
+cpp_quote("#define ADDRESS_FAMILY_VALUE_NAME L\"AddressFamily\"")
+
+
+////////////////////////////////////
+// Interface definitions
+
+[
+    uuid(204810b4-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique)
+]
+interface IUPnPEventSink: IUnknown
+{
+    [helpstring("method OnStateChanged"), hidden]
+    HRESULT OnStateChanged(
+        [in] DWORD cChanges,
+        [in, size_is(cChanges)] DISPID rgdispidChanges[]);
+
+    [helpstring("method OnStateChangedSafe")]
+    HRESULT OnStateChangedSafe(
+        [in] VARIANT varsadispidChanges);
+}
+
+[
+    uuid(204810b5-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique)
+]
+interface IUPnPEventSource: IUnknown
+{
+    [helpstring("method Advise")]
+    HRESULT Advise(
+        [in] IUPnPEventSink * pesSubscriber);
+
+    [helpstring("method Unadvise")]
+    HRESULT Unadvise(
+        [in] IUPnPEventSink * pesSubscriber);
+}
+
+[
+    uuid(204810b6-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique)
+]
+interface IUPnPRegistrar : IUnknown
+{
+    HRESULT RegisterDevice(
+        [in] BSTR     bstrXMLDesc,
+        [in] BSTR     bstrProgIDDeviceControlClass,
+        [in] BSTR     bstrInitString,
+        [in] BSTR     bstrContainerId,
+        [in] BSTR     bstrResourcePath,
+        [in] long     nLifeTime,
+        [out, retval] BSTR * pbstrDeviceIdentifier);
+    HRESULT RegisterRunningDevice(
+        [in] BSTR     bstrXMLDesc,
+        [in] IUnknown * punkDeviceControl,
+        [in] BSTR     bstrInitString,
+        [in] BSTR     bstrResourcePath,
+        [in] long     nLifeTime,
+        [out, retval] BSTR * pbstrDeviceIdentifier);
+    HRESULT RegisterDeviceProvider(
+        [in] BSTR     bstrProviderName,
+        [in] BSTR     bstrProgIDProviderClass,
+        [in] BSTR     bstrInitString,
+        [in] BSTR     bstrContainerId);
+    HRESULT GetUniqueDeviceName(
+        [in]          BSTR   bstrDeviceIdentifier,
+        [in]          BSTR   bstrTemplateUDN,
+        [out, retval] BSTR * pbstrUDN);
+    HRESULT UnregisterDevice(
+        [in] BSTR     bstrDeviceIdentifier,
+        [in] BOOL     fPermanent);
+    HRESULT UnregisterDeviceProvider(
+        [in] BSTR     bstrProviderName);
+}
+
+[
+    uuid(204810b7-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique)
+]
+interface IUPnPReregistrar : IUnknown
+{
+    HRESULT ReregisterDevice(
+        [in] BSTR     bstrDeviceIdentifier,
+        [in] BSTR     bstrXMLDesc,
+        [in] BSTR     bstrProgIDDeviceControlClass,
+        [in] BSTR     bstrInitString,
+        [in] BSTR     bstrContainerId,
+        [in] BSTR     bstrResourcePath,
+        [in] long     nLifeTime);
+    HRESULT ReregisterRunningDevice(
+        [in] BSTR     bstrDeviceIdentifier,
+        [in] BSTR     bstrXMLDesc,
+        [in] IUnknown * punkDeviceControl,
+        [in] BSTR     bstrInitString,
+        [in] BSTR     bstrResourcePath,
+        [in] long     nLifeTime);
+}
+
+[
+    uuid(204810ba-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique),
+]
+interface IUPnPDeviceControl : IUnknown
+{
+   HRESULT Initialize(
+       [in] BSTR     bstrXMLDesc,
+       [in] BSTR     bstrDeviceIdentifier,
+       [in] BSTR     bstrInitString);
+   HRESULT GetServiceObject(
+       [in]          BSTR     bstrUDN,
+       [in]          BSTR     bstrServiceId,
+       [out, retval] IDispatch ** ppdispService);
+}
+
+[
+    uuid(204810bb-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique),
+]
+interface IUPnPDeviceControlHttpHeaders : IUnknown
+{
+   HRESULT GetAdditionalResponseHeaders(
+       [out,retval] BSTR*     bstrHttpResponseHeaders);
+}
+
+[
+    uuid(204810b8-73b2-11d4-bf42-00b0d0118b56),
+    pointer_default(unique),
+]
+interface IUPnPDeviceProvider : IUnknown
+{
+   HRESULT Start([in] BSTR   bstrInitString);
+   HRESULT Stop();
+}
+
+// IUPnPRemoteEndpointInfo
+[
+   uuid(c92eb863-0269-4aff-9c72-75321bba2952),
+   pointer_default(unique)
+]
+interface IUPnPRemoteEndpointInfo : IUnknown
+{
+    HRESULT GetDwordValue([in] BSTR bstrValueName, 
+                          [out] DWORD *pdwValue);
+
+    HRESULT GetStringValue([in] BSTR bstrValueName, 
+                           [out] BSTR *pbstrValue);
+
+    HRESULT GetGuidValue([in] BSTR bstrValueName, 
+                         [out] GUID *pguidValue);
+};
+
+////////////////////////////////////////
+// Type library
+
+#ifndef DO_NO_IMPORTS
+
+[
+    uuid(204810b3-73b2-11d4-bf42-00b0d0118b56),
+    version(1.0),
+    helpstring("UPnP 1.0 Type Library (Device Host)")
+]
+library UPnPHostLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    interface IUPnPEventSink;
+    interface IUPnPEventSource;
+    interface IUPnPRegistrar;
+    interface IUPnPReregistrar;
+    interface IUPnPDeviceControl;
+    interface IUPnPDeviceControlHttpHeaders;
+    interface IUPnPDeviceProvider;
+    interface IUPnPRemoteEndpointInfo;
+
+    [
+        uuid(204810b9-73b2-11d4-bf42-00b0d0118b56)
+    ]
+    coclass UPnPRegistrar
+    {
+        [default] interface IUnknown;
+    };
+
+    [
+        uuid(2e5e84e9-4049-4244-b728-2d24227157c7)
+    ]
+    coclass UPnPRemoteEndpointInfo
+    {
+        [default] interface IUnknown;
+    };
+};
+
+#endif // DO_NO_IMPORTS
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,1778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) Microsoft Corporation. All rights reserved.
+
+  Defines common types shared by multiple namespaces.  This schema is imported
+  into various product-specific schemas that define elements and attributes
+  based on types declared here.
+-->
+<xs:schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://schemas.microsoft.com/appx/manifest/types"
+    xmlns="http://schemas.microsoft.com/appx/manifest/types">
+
+  <xs:simpleType name="ST_NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32767"/>
+      <xs:pattern value="[^\s]|([^\s].*[^\s])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Description">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^\x01-\x1f]+"/>
+      <xs:maxLength value="2048"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ResourceReference">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="\bms-resource:.{1,256}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DisplayName">
+    <xs:union memberTypes="ST_ResourceReference">
+      <xs:simpleType>
+        <xs:restriction base="ST_NonEmptyString">
+          <xs:maxLength value="256"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_NonPathDisplayName">
+    <xs:union memberTypes="ST_ResourceReference">
+      <xs:simpleType>
+        <xs:restriction base="ST_NonEmptyString">
+          <xs:pattern value="[^\\]+"/>
+          <xs:maxLength value="256"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ShortDisplayName">
+    <xs:union memberTypes="ST_ResourceReference">
+      <xs:simpleType>
+        <xs:restriction base="ST_NonEmptyString">
+          <xs:maxLength value="40"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameCharSet">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^&lt;&gt;&quot;:%\|\?\*\x01-\x1f]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileName">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="([^/\\]*[^./\\]+)(\\[^/\\]*[^./\\]+)*"/>
+      <xs:pattern value="([^/\\]*[^./\\]+)(/[^/\\]*[^./\\]+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameSegment">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="[^/\\]*[^./\\]+"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileType">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="\.[^.\\]+"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameCharSet_2019">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^&lt;&gt;&quot;:%|?\x01-\x1f]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileType_2019">
+    <xs:restriction base="ST_FileNameCharSet_2019">
+      <xs:pattern value="(\*|.[^.\*]+)"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileTypeOrStar">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(\*|(\.[^.\\]+))"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+    <xs:simpleType name="ST_FileNameCharSetAndColon">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^&lt;&gt;&quot;%\|\?\*\x01-\x1f]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameFullPath">
+    <xs:restriction base="ST_FileNameCharSetAndColon">
+      <xs:pattern value="([^/\\]*[^./\\]+)(\\[^/\\]*[^./\\]+)*(\\?)"/>
+      <xs:pattern value="([^/\\]*[^./\\]+)(/[^/\\]*[^./\\]+)*(/?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Executable">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.(exe)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExecutableNoPath">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value="[^\\]+\.([Ee][Xx][Ee])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExecutableAnyCase">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.([Ee][Xx][Ee])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExecutableAnyCase_FullPath">
+    <xs:restriction base="ST_FileNameFullPath">
+      <xs:pattern value=".+\.([Ee][Xx][Ee])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DllFile">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.([Dd][Ll][Ll])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Dll_EXE_File">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.(([Dd][Ll][Ll])|([Ee][Xx][Ee]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ImageFile">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.((jpg)|(png)|(jpeg))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ImageLogo">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.(([Jj][Pp][Gg])|([Pp][Nn][Gg])|([Jj][Pp][Ee][Gg])|([Ii][Cc][Oo])|([Dd][Ll][Ll])|([Ee][Xx][Ee]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AsciiIdentifier">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-.A-Za-z0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AlphaNumericString">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[A-Za-z0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AlphaNumericString_WhitespaceAllowedWithin">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="([A-Za-z0-9][A-Za-z0-9\s]*[A-Za-z0-9])|[A-Za-z0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageName">
+    <xs:restriction base="ST_AsciiIdentifier">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ResourceId">
+    <xs:restriction base="ST_AsciiIdentifier">
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AsciiWindowsId">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="([A-Za-z][A-Za-z0-9]*)(\.[A-Za-z][A-Za-z0-9]*)*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationId">
+    <xs:restriction base="ST_AsciiWindowsId">
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ActivatableClassId">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="([^.]+)(\.[^.]+)*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_EntryPoint">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ServiceId">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-.a-z0-9]+"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ProgId">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[A-Za-z][A-Za-z0-9\.]*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileTypeAssociationSupportedVerbId">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="64"/>
+      <xs:pattern value="([A-Za-z0-9]*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationStartPageUri">
+    <xs:restriction base="ST_URI">
+      <xs:pattern value="[Hh][Tt][Tt][Pp]://.+" />
+      <xs:pattern value="[Hh][Tt][Tt][Pp][Ss]://.+" />
+      <xs:pattern value="[Mm][Ss]-[Aa][Pp][Pp][Xx]-[Ww][Ee][Bb]://.+" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationStartPage">
+    <xs:union memberTypes="ST_FileName ST_ApplicationStartPageUri"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DomainName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="([0-9a-zA-Z]+(-[0-9a-zA-Z]+)*\.)+[a-zA-Z]{1,63}"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DomainNameWithStarSubDomain">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="((\*\.)?[0-9a-zA-Z]+(-[0-9a-zA-Z]+)*\.)+[a-zA-Z]{1,63}"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_GUID">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_MediaCodecSubType">
+    <xs:restriction base="ST_NonEmptyString">
+      <!-- ST_GUID or 4 character code -->
+      <xs:pattern value="([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|([^\s]{1,4})"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Publisher_2010">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(CN|L|O|OU|E|C|S|STREET|T|G|I|SN|DC|SERIALNUMBER|(OID\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))+))=(([^,+=&quot;&lt;&gt;#;])+|&quot;.*&quot;)(, ((CN|L|O|OU|E|C|S|STREET|T|G|I|SN|DC|SERIALNUMBER|(OID\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))+))=(([^,+=&quot;&lt;&gt;#;])+|&quot;.*&quot;)))*"/>
+      <xs:maxLength value="8192"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Publisher_2010_v2">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(CN|L|O|OU|E|C|S|STREET|T|G|I|SN|DC|SERIALNUMBER|Description|PostalCode|POBox|Phone|X21Address|dnQualifier|(OID\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))+))=(([^,+=&quot;&lt;&gt;#;])+|&quot;.*&quot;)(, ((CN|L|O|OU|E|C|S|STREET|T|G|I|SN|DC|SERIALNUMBER|Description|PostalCode|POBox|Phone|X21Address|dnQualifier|(OID\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))+))=(([^,+=&quot;&lt;&gt;#;])+|&quot;.*&quot;)))*"/>
+      <xs:maxLength value="8192"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_VersionDuoOrTrio">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_VersionQuad">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_VersionQuadNoneZero">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){3}"/>
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){2}"/>
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))(\.([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))"/>
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){2}(\.([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Date">
+    <xs:restriction base="xs:date">
+      <xs:pattern value=".{10}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_URI">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="2084"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Architecture">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="x86"/>
+      <xs:enumeration value="x64"/>
+      <xs:enumeration value="arm"/>
+      <xs:enumeration value="arm64"/>
+      <xs:enumeration value="neutral"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Architecture_v2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="x86"/>
+      <xs:enumeration value="x64"/>
+      <xs:enumeration value="arm"/>
+      <xs:enumeration value="arm64"/>
+      <xs:enumeration value="x86a64"/>
+      <xs:enumeration value="neutral"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ArchitectureNonNeutral">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="x86"/>
+      <xs:enumeration value="x64"/>
+      <xs:enumeration value="arm"/>
+      <xs:enumeration value="arm64"/>
+      <xs:enumeration value="x86a64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ArchitectureUnrestricted">
+    <xs:restriction base="ST_AsciiIdentifier">
+      <xs:maxLength value="7"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_2010">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="internetClient"/>
+      <xs:enumeration value="internetClientServer"/>
+      <xs:enumeration value="privateNetworkClientServer"/>
+      <xs:enumeration value="documentsLibrary"/>
+      <xs:enumeration value="picturesLibrary"/>
+      <xs:enumeration value="videosLibrary"/>
+      <xs:enumeration value="musicLibrary"/>
+      <xs:enumeration value="enterpriseAuthentication"/>
+      <xs:enumeration value="sharedUserCertificates"/>
+      <xs:enumeration value="removableStorage"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_2014">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="appointments"/>
+      <xs:enumeration value="contacts"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Foundation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="internetClient"/>
+      <xs:enumeration value="internetClientServer"/>
+      <xs:enumeration value="privateNetworkClientServer"/>
+      <xs:enumeration value="allJoyn"/>
+      <xs:enumeration value="codeGeneration"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="documentsLibrary"/>
+      <xs:enumeration value="picturesLibrary"/>
+      <xs:enumeration value="videosLibrary"/>
+      <xs:enumeration value="musicLibrary"/>
+      <xs:enumeration value="enterpriseAuthentication"/>
+      <xs:enumeration value="sharedUserCertificates"/>
+      <xs:enumeration value="userAccountInformation"/>
+      <xs:enumeration value="removableStorage"/>
+      <xs:enumeration value="appointments"/>
+      <xs:enumeration value="contacts"/>
+      <xs:enumeration value="phoneCall"/>
+      <xs:enumeration value="blockedChatMessages"/>
+      <xs:enumeration value="objects3D"/>
+      <xs:enumeration value="voipCall"/>
+      <xs:enumeration value="chat"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="phoneCallHistoryPublic"/>
+      <xs:enumeration value="spatialPerception"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_3">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="backgroundMediaPlayback"/>
+      <xs:enumeration value="userNotificationListener"/>
+      <xs:enumeration value="remoteSystem"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_4">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="offlineMapsManagement"/>
+      <xs:enumeration value="userDataTasks"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_6">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="graphicsCapture"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_7">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="globalMediaControl"/>
+      <xs:enumeration value="gazeInput"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_11">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="graphicsCaptureProgrammatic"/>
+      <xs:enumeration value="graphicsCaptureWithoutBorder"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Uap_15a">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="humanPresence"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Mobile">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="recordedCallsFolder"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Iot">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="systemManagement"/>
+      <xs:enumeration value="lowLevelDevices"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_Windows_Restricted_Party">
+    <xs:annotation>
+      <xs:documentation>Windows and Restricted capabilities should be camel cased strings upto 128 characters in length. Legacy capabilities will continue to begin with ID_CAP_*</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z][-_.A-Za-z0-9]+"/>
+      <xs:minLength value="3"/>
+      <xs:maxLength value="128"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DeviceCapability">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-.A-Za-z0-9]+"/>
+      <xs:pattern value="[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_SystemAI">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="systemAIModels"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Capability_SystemAI_2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="backgroundAITasks"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DeviceFunction">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="100"/>
+      <xs:pattern value="name:\S+"/>
+      <xs:pattern value="classId:[0-9a-fA-F]{2} (([0-9a-fA-F]{2} ([0-9a-fA-F]{2}|\*))|\* \*)"/>
+      <xs:pattern value="winUsbId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      <xs:pattern value="serviceId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      <xs:pattern value="serviceId:[0-9a-fA-F]{1,8}"/>
+      <xs:pattern value="usage:[0-9a-fA-F]{4} ([0-9a-fA-F]{4}|\*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DeviceFunction_Foundation">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="100"/>
+      <xs:pattern value="name:\S+"/>
+      <xs:pattern value="classId:[0-9a-fA-F]{2} (([0-9a-fA-F]{2} ([0-9a-fA-F]{2}|\*))|\* \*)"/>
+      <xs:pattern value="winUsbId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      <xs:pattern value="serviceId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      <xs:pattern value="serviceId:[0-9a-fA-F]{1,8}"/>
+      <xs:pattern value="usage:[0-9a-fA-F]{4} ([0-9a-fA-F]{4}|\*)"/>
+      <xs:pattern value="interfaceId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DeviceId">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="any"/>
+      <xs:pattern value="vidpid:[0-9a-fA-F]{4} [0-9a-fA-F]{4}( (usb|bluetooth))?"/>
+      <xs:pattern value="model:[^;]{1,512};.{1,512}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Scale_2013">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value="100"/>
+      <xs:enumeration value="120"/>
+      <xs:enumeration value="140"/>
+      <xs:enumeration value="150"/>
+      <xs:enumeration value="160"/>
+      <xs:enumeration value="180"/>
+      <xs:enumeration value="225"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Scale_2013_v2">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value="100"/>
+      <xs:enumeration value="120"/>
+      <xs:enumeration value="140"/>
+      <xs:enumeration value="160"/>
+      <xs:enumeration value="180"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Scale_2014">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value="200"/>
+      <xs:enumeration value="220"/>
+      <xs:enumeration value="240"/>
+      <xs:enumeration value="300"/>
+      <xs:enumeration value="400"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Scale_Uap">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value="100"/>
+      <xs:enumeration value="125"/>
+      <xs:enumeration value="150"/>
+      <xs:enumeration value="200"/>
+      <xs:enumeration value="250"/>
+      <xs:enumeration value="300"/>
+      <xs:enumeration value="400"/>
+      <xs:enumeration value="500"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Scale_All">
+    <xs:union memberTypes="ST_Scale_2013 ST_Scale_2013_v2 ST_Scale_2014 ST_Scale_Uap"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DXFeatureLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dx9"/>
+      <xs:enumeration value="dx10"/>
+      <xs:enumeration value="dx11"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_MinDeviceMemory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="512MB"/>
+      <xs:enumeration value="1GB"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AppListEntry">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageExtensionCategory_2010">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.activatableClass.inProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.outOfProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.proxyStub"/>
+      <xs:enumeration value="windows.gameExplorer"/>
+      <xs:enumeration value="windows.certificates"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageExtensionCategory_2010_v2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.activatableClass.inProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.outOfProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.proxyStub"/>
+      <xs:enumeration value="windows.certificates"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageExtensionCategory_Com">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.comInterface"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageExtensionCategory_Foundation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.activatableClass.inProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.outOfProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.proxyStub"/>
+      <xs:enumeration value="windows.certificates"/>
+      <xs:enumeration value="windows.publisherCacheFolders"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_2010">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.fileTypeAssociation"/>
+      <xs:enumeration value="windows.protocol"/>
+      <xs:enumeration value="windows.autoPlayContent"/>
+      <xs:enumeration value="windows.autoPlayDevice"/>
+      <xs:enumeration value="windows.shareTarget"/>
+      <xs:enumeration value="windows.search"/>
+      <xs:enumeration value="windows.fileOpenPicker"/>
+      <xs:enumeration value="windows.fileSavePicker"/>
+      <xs:enumeration value="windows.cachedFileUpdater"/>
+      <xs:enumeration value="windows.contactPicker"/>
+      <xs:enumeration value="windows.backgroundTasks"/>
+      <xs:enumeration value="windows.cameraSettings"/>
+      <xs:enumeration value="windows.accountPictureProvider"/>
+      <xs:enumeration value="windows.printTaskSettings"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_2013">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.lockScreenCall"/>
+      <xs:enumeration value="windows.contact"/>
+      <xs:enumeration value="windows.appointmentsProvider"/>
+      <xs:enumeration value="windows.alarm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_2014">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.preInstalledConfigTask"/>
+      <xs:enumeration value="windows.updateTask"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Foundation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.backgroundTasks"/>
+      <xs:enumeration value="windows.preInstalledConfigTask"/>
+      <xs:enumeration value="windows.updateTask"/>
+      <xs:enumeration value="windows.restrictedLaunch"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationContentUriRunTimeAccess_Uap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allowForWebOnly"/>
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Uap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.fileTypeAssociation"/>
+      <xs:enumeration value="windows.protocol"/>
+      <xs:enumeration value="windows.autoPlayContent"/>
+      <xs:enumeration value="windows.autoPlayDevice"/>
+      <xs:enumeration value="windows.shareTarget"/>
+      <xs:enumeration value="windows.search"/>
+      <xs:enumeration value="windows.fileOpenPicker"/>
+      <xs:enumeration value="windows.fileSavePicker"/>
+      <xs:enumeration value="windows.cachedFileUpdater"/>
+      <xs:enumeration value="windows.cameraSettings"/>
+      <xs:enumeration value="windows.accountPictureProvider"/>
+      <xs:enumeration value="windows.printTaskSettings"/>
+      <xs:enumeration value="windows.lockScreenCall"/>
+      <xs:enumeration value="windows.appointmentsProvider"/>
+      <xs:enumeration value="windows.alarm"/>
+      <xs:enumeration value="windows.webAccountProvider"/>
+      <xs:enumeration value="windows.dialProtocol"/>
+      <xs:enumeration value="windows.appService"/>
+      <xs:enumeration value="windows.mediaPlayback"/>
+      <xs:enumeration value="windows.print3DWorkflow"/>
+      <xs:enumeration value="windows.lockScreen"/>
+      <xs:enumeration value="windows.aboveLockScreen"/>
+      <xs:enumeration value="windows.personalAssistantLaunch"/>
+      <xs:enumeration value="windows.voipCall"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Uap2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.webAccountProvider"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Uap3">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.appExtensionHost"/>
+      <xs:enumeration value="windows.appExtension"/>
+      <xs:enumeration value="windows.appUriHandler"/>
+      <xs:enumeration value="windows.appointmentDataProvider"/>
+      <xs:enumeration value="windows.emailDataProvider"/>
+      <xs:enumeration value="windows.contactDataProvider"/>
+      <xs:enumeration value="windows.appExecutionAlias"/>
+      <xs:enumeration value="windows.appService"/>
+      <xs:enumeration value="windows.protocol"/>
+      <xs:enumeration value="windows.fileTypeAssociation"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Uap4">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.sharedFonts"/>
+      <xs:enumeration value="windows.userDataTaskDataProvider"/>
+      <xs:enumeration value="windows.mediaCodec"/>
+      <xs:enumeration value="windows.contactPanel"/>
+      <xs:enumeration value="windows.loopbackAccessRules"/>
+      <xs:enumeration value="windows.devicePortalProvider"/>
+      <xs:enumeration value="windows.printWorkflowBackgroundTask"/>
+      <xs:enumeration value="windows.printWorkflowForegroundTask"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Uap5">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.userActivity"/>
+      <xs:enumeration value="windows.mediaSource"/>
+      <xs:enumeration value="windows.videoRendererEffect"/>
+      <xs:enumeration value="windows.activatableClass.outOfProcessServer"/>
+      <xs:enumeration value="windows.startupTask"/>
+      <xs:enumeration value="windows.appExecutionAlias"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap6">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.barcodeScannerProvider"/>
+      <xs:enumeration value="windows.localExperiencePack"/>
+      <xs:enumeration value="windows.barcodeScannerPreviewProvider"/>
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.loaderSearchPathOverride"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap7">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.sharedFonts"/>
+      <xs:enumeration value="windows.enterpriseDataProtection"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap8">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.posPaymentConnector"/>
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.dataProtection"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap10">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.protocol"/>
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.hostRuntime"/>
+      <xs:enumeration value="windows.installedLocationVirtualization"/>
+      <xs:enumeration value="windows.mediaContentDecryptionModule"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap12">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.printSupportSettingsUI"/>
+        <xs:enumeration value="windows.printSupportExtension"/>
+        <xs:enumeration value="windows.printSupportWorkflow"/>
+        <xs:enumeration value="windows.printSupportJobUI"/>
+        <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap13">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.phoneCallActivation"/>
+        <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Uap17">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.packageExtensionHost"/>
+      <xs:enumeration value="windows.packageExtension"/>
+      <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Com">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.comServer"/>
+      <xs:enumeration value="windows.comInterface"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Preview_Com">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.comServer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Com4">
+    <xs:restriction base="xs:string">
+      <!-- Package and Application Extensions -->
+      <xs:enumeration value="windows.comServer"/>
+      <xs:enumeration value="windows.comInterface"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Deployment">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.deploymentExtensionHandler"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Deployment3">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.deploymentStateHandler"/>
+      <xs:enumeration value="windows.packagingExtension"/>
+      <xs:enumeration value="windows.sipExtension"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Mobile">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.aowApp"/>
+      <xs:enumeration value="windows.mobileMultiScreenProperties"/>
+      <xs:enumeration value="windows.communicationBlockingProvider"/>
+      <xs:enumeration value="windows.phoneCallOriginProvider"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Desktop">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.fullTrustProcess"/>
+      <xs:enumeration value="windows.startupTask"/>
+      <xs:enumeration value="windows.toastNotificationActivation"/>
+      <xs:enumeration value="windows.searchProtocolHandler"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Desktop2">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.appPrinter"/>
+      <xs:enumeration value="windows.searchFilterHandler"/>
+      <xs:enumeration value="windows.searchPropertyHandler"/>
+      <xs:enumeration value="windows.mailProvider"/>
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.firewallRules"/>
+      <xs:enumeration value="windows.desktopEventLogging"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Desktop3">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.cloudFiles"/>
+      <xs:enumeration value="windows.autoPlayHandler"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Desktop4">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.fileExplorerContextMenus"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Desktop6">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.service"/>
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.mutablePackageDirectories"/>
+      <xs:enumeration value="windows.customInstall"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Desktop7">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.approvedShellExtension"/>
+        <xs:enumeration value="windows.controlPanelItem"/>
+        <xs:enumeration value="windows.service"/>
+        <xs:enumeration value="windows.mailProvider"/>
+        <xs:enumeration value="windows.shortcut"/>
+        <xs:enumeration value="windows.applicationRegistration"/>
+        <xs:enumeration value="windows.desktopAppMigration"/>
+        <xs:enumeration value="windows.systemFileAssociation"/>
+        <!-- Package and Application Extensions -->
+        <xs:enumeration value="windows.shadowCopyExcludeFiles"/>
+        <xs:enumeration value="windows.errorReporting"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Desktop8">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.mutablePackageDirectories"/>
+      <xs:enumeration value="windows.userMutablePackageDirectories"/>
+      <xs:enumeration value="windows.eventTracing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Desktop9">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.fileExplorerClassicContextMenuHandler"/>
+      <xs:enumeration value="windows.fileExplorerClassicDragDropContextMenuHandler"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Desktop10">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.folder"/>
+      <xs:enumeration value="windows.dataShortcuts"/>
+      <xs:enumeration value="windows.customDesktopEventLog"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_PreviewAppCompat2">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.mailProvider"/>
+      <xs:enumeration value="windows.shortcut"/>
+      <xs:enumeration value="windows.applicationRegistration"/>
+      <xs:enumeration value="windows.desktopAppMigration"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_PreviewAppCompat3">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.systemFileAssociation"/>
+        <!-- Package Extensions -->
+        <xs:enumeration value="windows.errorReporting"/>
+        <xs:enumeration value="windows.eventTracing"/>
+        <xs:enumeration value="windows.userMutablePackageDirectories"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_CloudFiles">
+    <xs:restriction base="xs:string">
+      <!-- Application Extensions -->
+      <xs:enumeration value="windows.cloudFiles"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_PrintSupport">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.printSupportSettingsUI"/>
+        <xs:enumeration value="windows.printSupportExtension"/>
+        <xs:enumeration value="windows.printSupportWorkflow"/>
+        <xs:enumeration value="windows.printSupportJobUI"/>
+        <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_PrintSupport2">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.printSupportVirtualPrinterWorkflow"/>
+        <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_PrintSupport3">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.printSupportEnterpriseManagementUI"/>
+        <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Restricted">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.settingsApp"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Restricted2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.userDataAccountsProvider"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Restricted3">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.lockScreenComponent"/>
+      <xs:enumeration value="windows.desktopAppMigration"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageExtensionCategory_Restricted4">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.primaryInteropAssemblies"/>
+      <xs:enumeration value="windows.classicAppCompatKeys"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory_Windows_Restricted_Party2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.internal.filePickerExperience"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Windows_Restricted_Party3">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="windows\.internal\.[0-9a-z][0-9a-zA-Z]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BackgroundTasks_2010">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="audio"/>
+      <xs:enumeration value="controlChannel"/>
+      <xs:enumeration value="systemEvent"/>
+      <xs:enumeration value="timer"/>
+      <xs:enumeration value="pushNotification"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BackgroundTasks_2013">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="location"/>
+      <xs:enumeration value="deviceUse"/>
+      <xs:enumeration value="deviceServicing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BackgroundTasks_2014">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="chatMessageNotification"/>
+      <xs:enumeration value="rfcommConnection"/>
+      <xs:enumeration value="deviceConnectionChange"/>
+      <xs:enumeration value="bluetoothSignalStrength"/>
+      <xs:enumeration value="gattCharacteristicNotification"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BackgroundTasks_Foundation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="general"/>
+      <xs:enumeration value="audio"/>
+      <xs:enumeration value="controlChannel"/>
+      <xs:enumeration value="systemEvent"/>
+      <xs:enumeration value="timer"/>
+      <xs:enumeration value="pushNotification"/>
+      <xs:enumeration value="location"/>
+      <xs:enumeration value="deviceUse"/>
+      <xs:enumeration value="deviceServicing"/>
+      <xs:enumeration value="deviceConnectionChange"/>
+      <xs:enumeration value="bluetooth"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BackgroundTasks_Uap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="chatMessageNotification"/>
+      <xs:enumeration value="vpnClient"/>
+      <xs:enumeration value="phoneCall"/>
+      <xs:enumeration value="mediaProcessing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BackgroundTasks_Iot">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="startup"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Subsystem">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="console"/>
+      <xs:enumeration value="windows"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_SupportedUsers">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="single"/>
+      <xs:enumeration value="multiple"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_SettingsAppCategories">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="system"/>
+      <xs:enumeration value="devices"/>
+      <xs:enumeration value="networking"/>
+      <xs:enumeration value="personalization"/>
+      <xs:enumeration value="accounts"/>
+      <xs:enumeration value="privacy"/>
+      <xs:enumeration value="extras"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_SettingsPageUri">
+    <xs:restriction base="xs:anyURI">
+      <xs:pattern value="ms-settings:.*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Parameters">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="((?!\%[Ii].*\%[Ii]).)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- VISUAL ELEMENTS SCHEMA TYPES -->
+  <xs:simpleType name="ST_ShowName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allLogos"/>
+      <xs:enumeration value="noLogos"/>
+      <xs:enumeration value="logoOnly"/>
+      <xs:enumeration value="wideLogoOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_LockScreenNotification">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="badge"/>
+      <xs:enumeration value="badgeAndTileText"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ForegroundText">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="light"/>
+      <xs:enumeration value="dark"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_RotationPreference">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="portrait"/>
+      <xs:enumeration value="landscape"/>
+      <xs:enumeration value="portraitFlipped"/>
+      <xs:enumeration value="landscapeFlipped"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Color">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="#[\da-fA-F]{6}"/>
+      <xs:pattern value="aliceBlue|antiqueWhite|aqua|aquamarine|azure|beige|bisque|black|blanchedAlmond|blue|blueViolet|brown|burlyWood"/>
+      <xs:pattern value="cadetBlue|chartreuse|chocolate|coral|cornflowerBlue|cornsilk|crimson|cyan|darkBlue|darkCyan|darkGoldenrod|darkGray"/>
+      <xs:pattern value="darkGreen|darkKhaki|darkMagenta|darkOliveGreen|darkOrange|darkOrchid|darkRed|darkSalmon|darkSeaGreen|darkSlateBlue"/>
+      <xs:pattern value="darkSlateGray|darkTurquoise|darkViolet|deepPink|deepSkyBlue|dimGray|dodgerBlue|firebrick|floralWhite|forestGreen"/>
+      <xs:pattern value="fuchsia|gainsboro|ghostWhite|gold|goldenrod|gray|green|greenYellow|honeydew|hotPink|indianRed|indigo|ivory"/>
+      <xs:pattern value="khaki|lavender|lavenderBlush|lawnGreen|lemonChiffon|lightBlue|lightCoral|lightCyan|lightGoldenrodYellow|lightGreen"/>
+      <xs:pattern value="lightGray|lightPink|lightSalmon|lightSeaGreen|lightSkyBlue|lightSlateGray|lightSteelBlue|lightYellow|lime|limeGreen"/>
+      <xs:pattern value="linen|magenta|maroon|mediumAquamarine|mediumBlue|mediumOrchid|mediumPurple|mediumSeaGreen|mediumSlateBlue|mediumSpringGreen"/>
+      <xs:pattern value="mediumTurquoise|mediumVioletRed|midnightBlue|mintCream|mistyRose|moccasin|navajoWhite|navy|oldLace|olive|oliveDrab"/>
+      <xs:pattern value="orange|orangeRed|orchid|paleGoldenrod|paleGreen|paleTurquoise|paleVioletRed|papayaWhip|peachPuff|peru|pink|plum"/>
+      <xs:pattern value="powderBlue|purple|red|rosyBrown|royalBlue|saddleBrown|salmon|sandyBrown|seaGreen|seaShell|sienna|silver|skyBlue"/>
+      <xs:pattern value="slateBlue|slateGray|snow|springGreen|steelBlue|tan|teal|thistle|tomato|transparent|turquoise|violet|wheat|white"/>
+      <xs:pattern value="whiteSmoke|yellow|yellowGreen"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ShowNameSize">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="square150x150Logo"/>
+      <xs:enumeration value="wide310x150Logo"/>
+      <xs:enumeration value="square310x310Logo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DefaultSize">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="square150x150Logo"/>
+      <xs:enumeration value="wide310x150Logo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_DefaultTile">
+    <xs:attribute name="WideLogo" type="ST_ImageFile" use="optional"/>
+    <xs:attribute name="ShortName" type="ST_ShortDisplayName" use="optional"/>
+    <xs:attribute name="ShowName" type="ST_ShowName" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_LockScreen">
+    <xs:attribute name="Notification" type="ST_LockScreenNotification" use="required"/>
+    <xs:attribute name="BadgeLogo" type="ST_ImageFile" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SplashScreen">
+    <xs:attribute name="BackgroundColor" type="ST_Color" use="optional"/>
+    <xs:attribute name="Image" type="ST_ImageFile" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Rotation">
+    <xs:attribute name="Preference" type="ST_RotationPreference" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_Recurrence">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="halfHour"/>
+      <xs:enumeration value="hour"/>
+      <xs:enumeration value="sixHours"/>
+      <xs:enumeration value="twelveHours"/>
+      <xs:enumeration value="daily"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name ="CT_TileUpdate">
+    <xs:attribute name="Recurrence" type="ST_Recurrence" use="required"/>
+    <xs:attribute name="UriTemplate" type="ST_URI" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ApplicationViewWidth">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="width320"/>
+      <xs:enumeration value="width500"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_ApplicationView">
+    <xs:attribute name="MinWidth" type="ST_ApplicationViewWidth" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_DesiredView">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="useLess"/>
+      <xs:enumeration value="useHalf"/>
+      <xs:enumeration value="useMore"/>
+      <xs:enumeration value="useMinimum"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- APPLICATION CONTENT URI RULES SCHEMA TYPES -->
+  <xs:simpleType name="ST_RuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="include"/>
+      <xs:enumeration value="exclude"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attributeGroup name="ExtensionBaseAttributes">
+    <xs:attribute name="Executable" type="ST_ExecutableAnyCase" use="optional"/>
+    <xs:attribute name="EntryPoint" type="ST_EntryPoint" use="optional"/>
+    <xs:attribute name="RuntimeType" type="ST_ActivatableClassId" use="optional"/>
+    <xs:attribute name="StartPage" type="ST_FileName" use="optional"/>
+    <xs:attribute name="ResourceGroup" type="ST_AsciiWindowsId" use="optional"/>
+  </xs:attributeGroup>
+
+  <!-- FILE TYPE ASSOCIATION EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_ContentTypeCharSet">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[!#$%&amp;'*+-.^_`|~0-9a-z/]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ContentType">
+    <xs:restriction base="ST_ContentTypeCharSet">
+      <xs:pattern value="[^/]{1,127}/[^/]{1,127}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FTAName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-_.a-z0-9]+"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FTAInfoTip">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- PROTOCOL EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_Protocol_2010">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-a-z0-9]*"/>
+      <xs:minLength value="3"/>
+      <xs:maxLength value="39"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Protocol_2010_v2">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[a-z][-a-z0-9\.\+]*"/>
+      <xs:minLength value="2"/>
+      <xs:maxLength value="39"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Protocol_2019">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="2048"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DialProtocol">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[A-Za-z][-A-Za-z0-9\.\+]*"/>
+      <xs:minLength value="4"/>
+      <xs:maxLength value="39"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ProtocolReturnResults">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="always"/>
+      <xs:enumeration value="optional"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- AUTOPLAY EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_AutoPlayVerb">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-. A-Za-z0-9]+"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AutoPlayEvent">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^\\].*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CHARMS EXTENSIONS SCHEMA TYPES -->
+  <xs:simpleType name="ST_DataFormat">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ShareTargetDescription">
+    <xs:restriction base="ST_Description">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ACTIVATABLE CLASS EXTENSIONS SCHEMA TYPES -->
+  <xs:simpleType name="ST_ThreadingModel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="both"/>
+      <xs:enumeration value="STA"/>
+      <xs:enumeration value="MTA"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Instancing">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="singleInstance"/>
+      <xs:enumeration value="multipleInstances"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_InterfaceName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[_.A-Za-z0-9]+"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_InterfaceName_Foundation">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[_.A-Za-z0-9`&lt;&gt;]+"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ActivatableClassAttributeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="string"/>
+      <xs:enumeration value="integer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ActivatableClassAttributeValue">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_ActivatableClassAttribute">
+    <xs:attribute name="Name" type="ST_AsciiWindowsId" use="required"/>
+    <xs:attribute name="Type" type="ST_ActivatableClassAttributeType" use="required"/>
+    <xs:attribute name="Value" type="ST_ActivatableClassAttributeValue" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Interface">
+    <xs:attribute name="Name" type="ST_InterfaceName" use="required"/>
+    <xs:attribute name="InterfaceId" type="ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Interface_Foundation">
+    <xs:attribute name="Name" type="ST_InterfaceName_Foundation" use="required"/>
+    <xs:attribute name="InterfaceId" type="ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <!-- CompatMode and Scope -->
+  <xs:simpleType name="ST_CompatMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="classic"/>
+      <xs:enumeration value="modern"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Scope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="machine"/>
+      <xs:enumeration value="user"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Com simple types -->
+  <xs:simpleType name="ST_VersionCom">
+      <xs:restriction base="xs:string">
+          <xs:pattern value="(0|[1-9a-fA-F][0-9a-fA-F]{0,3})\.(0|[1-9a-fA-F][0-9a-fA-F]{0,3})"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PermissionsCom">
+      <xs:restriction base="xs:string">
+          <xs:pattern value="(O:[A-Z0-9\-]*)?(G:[A-Z0-9\-]*)?(D:[PARI]*(\([A-Z0-9\-;]*\))*)?(S:[PARI]*(\([A-Z0-9\-;]*\))*)?"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_HexadecimalCom">
+      <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9a-fA-F]{1,4}"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ThreadingModelCom">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="Both"/>
+          <xs:enumeration value="STA"/>
+          <xs:enumeration value="MTA"/>
+          <xs:enumeration value="MainSTA"/>
+          <xs:enumeration value="Neutral"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AspectTypeCom">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="Content"/>
+          <xs:enumeration value="Thumbnail"/>
+          <xs:enumeration value="Icon"/>
+          <xs:enumeration value="DocPrint"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DataFormatDirectionCom">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="Get"/>
+          <xs:enumeration value="Set"/>
+          <xs:enumeration value="GetAndSet"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_SystemSurrogateCom">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="PreviewHost"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_VerbIndexCom">
+      <xs:restriction base="xs:int">
+          <xs:minInclusive value="-6"/>
+          <xs:maxInclusive value="1000"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AspectCom">
+      <xs:restriction base="xs:int">
+          <xs:minInclusive value="-1"/>
+          <xs:maxInclusive value="15"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_MediumCom">
+      <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="127"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_OleMiscCom">
+      <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="4194303"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AppendMenuCom">
+      <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="2431"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_OleVerbCom">
+      <xs:restriction base="xs:int">
+          <xs:minInclusive value="0"/>
+          <xs:maxInclusive value="3"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_LibFlagCom">
+      <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9a-fA-F]"/>
+      </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CLASSIC APP COMPAT KEYS SCHEMA TYPES -->
+  <xs:simpleType name="ST_RegistryPath">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[hH][kK][eE][yY]_[cC][uU][rR][rR][eE][nN][tT]_[uU][sS][eE][rR]\\.+"/>
+      <xs:pattern value="[hH][kK][eE][yY]_[lL][oO][cC][aA][lL]_[mM][aA][cC][hH][iI][nN][eE]\\[sS][oO][fF][tT][wW][aA][rR][eE]\\.+"/>
+      <xs:pattern value="[hH][kK][eE][yY]_[uU][sS][eE][rR][sS]\\[sS][oO][fF][tT][wW][aA][rR][eE]\\.+"/>
+      <xs:pattern value="[hH][kK][eE][yY]_[cC][uU][rR][rR][eE][nN][tT]_[cC][oO][nN][fF][iI][gG]\\[sS][oO][fF][tT][wW][aA][rR][eE]\\.+"/>
+      <xs:pattern value="[hH][kK][cC][uU]\\.+"/>
+      <xs:pattern value="[hH][kK][lL][mM]\\[sS][oO][fF][tT][wW][aA][rR][eE]\\.+"/>
+      <xs:pattern value="[hH][kK][uU]\\[sS][oO][fF][tT][wW][aA][rR][eE]\\.+"/>
+      <xs:pattern value="[hH][kK][cC][cC]\\[sS][oO][fF][tT][wW][aA][rR][eE]\\.+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REG_SZ"/>
+      <xs:enumeration value="REG_BINARY"/>
+      <xs:enumeration value="REG_DWORD"/>
+      <xs:enumeration value="REG_QWORD"/>
+      <xs:enumeration value="REG_MULTI_SZ"/>
+      <xs:enumeration value="REG_EXPAND_SZ"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CERTIFICATES EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_CertificateStoreName">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_CertificateContent">
+    <xs:attribute name="StoreName" type="ST_CertificateStoreName" use="required"/>
+    <xs:attribute name="Content" type="ST_FileName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CertificateTrustFlags">
+    <xs:attribute name="ExclusiveTrust" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CertificateSelectionCriteria">
+    <xs:attribute name="HardwareOnly" type="xs:boolean" use="optional"/>
+    <xs:attribute name="AutoSelect" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <!-- PEOPLE PROVIDER EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_ContactLaunchActionVerbs">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="call"/>
+      <xs:enumeration value="map"/>
+      <xs:enumeration value="message"/>
+      <xs:enumeration value="post"/>
+      <xs:enumeration value="videoCall"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CALENDAR PROVIDER EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_AppointmentsProviderLaunchActionVerbs_2013">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="addAppointment"/>
+      <xs:enumeration value="removeAppointment"/>
+      <xs:enumeration value="replaceAppointment"/>
+      <xs:enumeration value="showTimeFrame"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AppointmentsProviderLaunchActionVerbs_2014">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="showAppointmentDetails"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AppointmentsProviderLaunchActionVerbs_Uap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="addAppointment"/>
+      <xs:enumeration value="removeAppointment"/>
+      <xs:enumeration value="replaceAppointment"/>
+      <xs:enumeration value="showTimeFrame"/>
+      <xs:enumeration value="showAppointmentDetails"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- WEB ACCOUNT PROVIDER EXTENSION SCHEMA TYPES -->
+  <xs:simpleType name="ST_WebAccountProviderUrl">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(https:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- BACKGROUND APPLICATION CONTRACT (APP SERVICE) TYPES -->
+  <xs:simpleType name="ST_AppServiceName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-+A-Za-z0-9][-+.A-Za-z0-9]+"/>
+      <xs:minLength value="2"/>
+      <xs:maxLength value="39"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- In 19H1 was needed update the max length for AppExentesion Name-->
+  <!-- This is the same type of ST_AppServiceName but with maxLength equals to 255 -->
+  <xs:simpleType name="ST_AppServiceNameLonger">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-+A-Za-z0-9][-+.A-Za-z0-9]+"/>
+      <xs:minLength value="2"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- BUNDLE SCHEMA TYPES -->
+  <xs:simpleType name="ST_PackageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="application" />
+      <xs:enumeration value="resource" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Mutable directory target type enforces that the directory must be of form $(string)\subpath -->
+  <!-- where string is semantically validated and interpreted by calling code, and subpath is a directory subpath  -->
+  <xs:simpleType name="ST_MutableDirectoryTarget">
+    <xs:restriction base="ST_FileNameCharSetAndColon">
+      <xs:pattern value="\$\(([\.\w])*\)(\\[^/\\]*[^./\\]+)+(\\?)"/>
+      <xs:pattern value="\$\(([\.\w])*\)(/[^/\\]*[^./\\]+)+(/?)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_HexInt8">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_HexInt32">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,8}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_HexInt64">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[xX][0-9A-Fa-f]{1,16}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_UInt8">
+    <xs:union memberTypes="xs:unsignedByte ST_HexInt8"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_UInt32">
+    <xs:union memberTypes="xs:unsignedInt ST_HexInt32"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_UInt64">
+    <xs:union memberTypes="xs:unsignedLong ST_HexInt64"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_RuntimeBehavior_2022">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windowsApp"/>
+      <xs:enumeration value="packagedClassicApp"/>
+      <xs:enumeration value="win32App"/>
+      <xs:enumeration value="appSilo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_BaseNamedObjectsIsolation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="package"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AppLifecycleBehavior">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="systemManaged"></xs:enumeration>
+      <xs:enumeration value="unmanaged"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_UpdateWhileInUse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="defer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_PackageDependencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="install"/>
+      <xs:enumeration value="installAndRuntime"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

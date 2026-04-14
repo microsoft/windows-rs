@@ -1,0 +1,39 @@
+/*  Print3DManagerInterop.idl
+ *
+ *	IDL defines for COM APIs to support interop with Windows.Graphics.Printing3D.Print3DManager
+ *
+ *	Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "inspectable.idl";
+import "asyncinfo.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(9CA31010-1484-4587-B26B-DDDF9F9CAECD),
+]
+interface IPrinting3DManagerInterop : IInspectable
+{
+    HRESULT GetForWindow(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** printManager);
+
+    HRESULT ShowPrintUIForWindowAsync(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+

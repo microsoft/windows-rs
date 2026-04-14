@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Iot" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Task" substitutionGroup="f:BackgroundTaskChoice">
+    <xs:complexType>
+      <xs:attribute name="Type" type="t:ST_BackgroundTasks_Iot" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

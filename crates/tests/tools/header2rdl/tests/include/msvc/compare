@@ -1,0 +1,851 @@
+// compare standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _COMPARE_
+#define _COMPARE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#if !_HAS_CXX20
+_EMIT_STL_WARNING(STL4038, "The contents of <compare> are available only with C++20 or later.");
+#else // ^^^ !_HAS_CXX20 / _HAS_CXX20 vvv
+#include <concepts>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+void _Literal_zero_is_expected();
+
+struct _Literal_zero {
+    template <class _Ty>
+        requires is_same_v<_Ty, int>
+    consteval _Literal_zero(_Ty _Zero) noexcept {
+        // Can't use _STL_VERIFY because this is a core header
+        if (_Zero != 0) {
+            _Literal_zero_is_expected();
+        }
+    }
+};
+
+using _Compare_t = signed char;
+
+// These "pretty" enumerator names are safe since they reuse names of user-facing entities.
+enum class _Compare_eq : _Compare_t { equal = 0, equivalent = equal };
+enum class _Compare_ord : _Compare_t { less = -1, greater = 1 };
+enum class _Compare_ncmp : _Compare_t { unordered = -128 };
+
+_EXPORT_STD struct partial_ordering {
+    static const partial_ordering less;
+    static const partial_ordering equivalent;
+    static const partial_ordering greater;
+    static const partial_ordering unordered;
+
+    _NODISCARD friend constexpr bool operator==(const partial_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value == 0;
+    }
+
+    _NODISCARD friend constexpr bool operator==(partial_ordering, partial_ordering) noexcept = default;
+
+    _NODISCARD friend constexpr bool operator<(const partial_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value == static_cast<_Compare_t>(_Compare_ord::less);
+    }
+
+    _NODISCARD friend constexpr bool operator>(const partial_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value > 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<=(const partial_ordering _Val, _Literal_zero) noexcept {
+        // The stored value is either less (0xff), equivalent (0x00), greater (0x01), or unordered (0x80).
+        // Subtracting from 0 produces either 0x01, 0x00, 0xff, or 0x80. The result is greater than or equal to 0
+        // if and only if the initial value was less or equivalent, for which we want to return true.
+        return static_cast<signed char>(0 - static_cast<unsigned int>(_Val._Value)) >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>=(const partial_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<(_Literal_zero, const partial_ordering _Val) noexcept {
+        return _Val > 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>(_Literal_zero, const partial_ordering _Val) noexcept {
+        return _Val < 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<=(_Literal_zero, const partial_ordering _Val) noexcept {
+        return _Val >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>=(_Literal_zero, const partial_ordering _Val) noexcept {
+        return _Val <= 0;
+    }
+
+    _NODISCARD friend constexpr partial_ordering operator<=>(const partial_ordering _Val, _Literal_zero) noexcept {
+        return _Val;
+    }
+
+    _NODISCARD friend constexpr partial_ordering operator<=>(_Literal_zero, const partial_ordering _Val) noexcept {
+        // The stored value is either less (0xff), equivalent (0x00), greater (0x01), or unordered (0x80).
+        // Subtracting from 0 produces either 0x01, 0x00, 0xff, or 0x80. Note that the effect is to
+        // exchange less for greater (and vice versa), while leaving equivalent and unordered unchanged.
+        return {static_cast<_Compare_t>(0 - static_cast<unsigned int>(_Val._Value))};
+    }
+
+    _Compare_t _Value;
+};
+
+inline constexpr partial_ordering partial_ordering::less{static_cast<_Compare_t>(_Compare_ord::less)};
+inline constexpr partial_ordering partial_ordering::equivalent{static_cast<_Compare_t>(_Compare_eq::equivalent)};
+inline constexpr partial_ordering partial_ordering::greater{static_cast<_Compare_t>(_Compare_ord::greater)};
+inline constexpr partial_ordering partial_ordering::unordered{static_cast<_Compare_t>(_Compare_ncmp::unordered)};
+
+_EXPORT_STD struct weak_ordering {
+    static const weak_ordering less;
+    static const weak_ordering equivalent;
+    static const weak_ordering greater;
+
+    constexpr operator partial_ordering() const noexcept {
+        return {static_cast<_Compare_t>(_Value)};
+    }
+
+    _NODISCARD friend constexpr bool operator==(const weak_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value == 0;
+    }
+
+    _NODISCARD friend constexpr bool operator==(weak_ordering, weak_ordering) noexcept = default;
+
+    _NODISCARD friend constexpr bool operator<(const weak_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value < 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>(const weak_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value > 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<=(const weak_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value <= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>=(const weak_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<(_Literal_zero, const weak_ordering _Val) noexcept {
+        return _Val > 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>(_Literal_zero, const weak_ordering _Val) noexcept {
+        return _Val < 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<=(_Literal_zero, const weak_ordering _Val) noexcept {
+        return _Val >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>=(_Literal_zero, const weak_ordering _Val) noexcept {
+        return _Val <= 0;
+    }
+
+    _NODISCARD friend constexpr weak_ordering operator<=>(const weak_ordering _Val, _Literal_zero) noexcept {
+        return _Val;
+    }
+
+    _NODISCARD friend constexpr weak_ordering operator<=>(_Literal_zero, const weak_ordering _Val) noexcept {
+        return {static_cast<_Compare_t>(-_Val._Value)};
+    }
+
+    _Compare_t _Value;
+};
+
+inline constexpr weak_ordering weak_ordering::less{static_cast<_Compare_t>(_Compare_ord::less)};
+inline constexpr weak_ordering weak_ordering::equivalent{static_cast<_Compare_t>(_Compare_eq::equivalent)};
+inline constexpr weak_ordering weak_ordering::greater{static_cast<_Compare_t>(_Compare_ord::greater)};
+
+_EXPORT_STD struct strong_ordering {
+    static const strong_ordering less;
+    static const strong_ordering equal;
+    static const strong_ordering equivalent;
+    static const strong_ordering greater;
+
+    constexpr operator partial_ordering() const noexcept {
+        return {static_cast<_Compare_t>(_Value)};
+    }
+
+    constexpr operator weak_ordering() const noexcept {
+        return {static_cast<_Compare_t>(_Value)};
+    }
+
+    _NODISCARD friend constexpr bool operator==(const strong_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value == 0;
+    }
+
+    _NODISCARD friend constexpr bool operator==(strong_ordering, strong_ordering) noexcept = default;
+
+    _NODISCARD friend constexpr bool operator<(const strong_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value < 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>(const strong_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value > 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<=(const strong_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value <= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>=(const strong_ordering _Val, _Literal_zero) noexcept {
+        return _Val._Value >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<(_Literal_zero, const strong_ordering _Val) noexcept {
+        return _Val > 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>(_Literal_zero, const strong_ordering _Val) noexcept {
+        return _Val < 0;
+    }
+
+    _NODISCARD friend constexpr bool operator<=(_Literal_zero, const strong_ordering _Val) noexcept {
+        return _Val >= 0;
+    }
+
+    _NODISCARD friend constexpr bool operator>=(_Literal_zero, const strong_ordering _Val) noexcept {
+        return _Val <= 0;
+    }
+
+    _NODISCARD friend constexpr strong_ordering operator<=>(const strong_ordering _Val, _Literal_zero) noexcept {
+        return _Val;
+    }
+
+    _NODISCARD friend constexpr strong_ordering operator<=>(_Literal_zero, const strong_ordering _Val) noexcept {
+        return {static_cast<_Compare_t>(-_Val._Value)};
+    }
+
+    _Compare_t _Value;
+};
+
+inline constexpr strong_ordering strong_ordering::less{static_cast<_Compare_t>(_Compare_ord::less)};
+inline constexpr strong_ordering strong_ordering::equal{static_cast<_Compare_t>(_Compare_eq::equal)};
+inline constexpr strong_ordering strong_ordering::equivalent{static_cast<_Compare_t>(_Compare_eq::equivalent)};
+inline constexpr strong_ordering strong_ordering::greater{static_cast<_Compare_t>(_Compare_ord::greater)};
+
+_EXPORT_STD _NODISCARD constexpr bool is_eq(const partial_ordering _Comp) noexcept {
+    return _Comp == 0;
+}
+
+_EXPORT_STD _NODISCARD constexpr bool is_neq(const partial_ordering _Comp) noexcept {
+    return _Comp != 0;
+}
+
+_EXPORT_STD _NODISCARD constexpr bool is_lt(const partial_ordering _Comp) noexcept {
+    return _Comp < 0;
+}
+
+_EXPORT_STD _NODISCARD constexpr bool is_lteq(const partial_ordering _Comp) noexcept {
+    return _Comp <= 0;
+}
+
+_EXPORT_STD _NODISCARD constexpr bool is_gt(const partial_ordering _Comp) noexcept {
+    return _Comp > 0;
+}
+
+_EXPORT_STD _NODISCARD constexpr bool is_gteq(const partial_ordering _Comp) noexcept {
+    return _Comp >= 0;
+}
+
+enum _Comparison_category : unsigned char {
+    _Comparison_category_none    = 1,
+    _Comparison_category_partial = 2,
+    _Comparison_category_weak    = 4,
+    _Comparison_category_strong  = 0,
+};
+
+template <class... _Types>
+constexpr unsigned char _Classify_category =
+    _Comparison_category{(_Classify_category<_Types> | ... | _Comparison_category_strong)};
+template <class _Ty>
+constexpr unsigned char _Classify_category<_Ty> = _Comparison_category_none;
+template <>
+inline constexpr unsigned char _Classify_category<partial_ordering> = _Comparison_category_partial;
+template <>
+inline constexpr unsigned char _Classify_category<weak_ordering> = _Comparison_category_weak;
+template <>
+inline constexpr unsigned char _Classify_category<strong_ordering> = _Comparison_category_strong;
+
+_EXPORT_STD template <class... _Types>
+using common_comparison_category_t =
+    conditional_t<((_Classify_category<_Types...> & _Comparison_category_none) != 0), void,
+        conditional_t<((_Classify_category<_Types...> & _Comparison_category_partial) != 0), partial_ordering,
+            conditional_t<((_Classify_category<_Types...> & _Comparison_category_weak) != 0), weak_ordering,
+                strong_ordering>>>;
+
+_EXPORT_STD template <class... _Types>
+struct common_comparison_category {
+    using type = common_comparison_category_t<_Types...>;
+};
+
+template <class _Ty, class _Cat>
+concept _Compares_as = same_as<common_comparison_category_t<_Ty, _Cat>, _Cat>;
+
+_EXPORT_STD template <class _Ty, class _Cat = partial_ordering>
+concept three_way_comparable = _Half_equality_comparable<_Ty, _Ty> && _Half_ordered<_Ty, _Ty>
+                            && requires(const remove_reference_t<_Ty>& __a, const remove_reference_t<_Ty>& __b) {
+                                   { __a <=> __b } -> _Compares_as<_Cat>;
+                               };
+
+_EXPORT_STD template <class _Ty1, class _Ty2, class _Cat = partial_ordering>
+concept three_way_comparable_with =
+    three_way_comparable<_Ty1, _Cat> && three_way_comparable<_Ty2, _Cat>
+#if _HAS_CXX23
+    && _Comparison_common_type_with<_Ty1, _Ty2>
+#else // ^^^ _HAS_CXX23 / !_HAS_CXX23 vvv
+    && common_reference_with<const remove_reference_t<_Ty1>&, const remove_reference_t<_Ty2>&>
+#endif // ^^^ !_HAS_CXX23 ^^^
+    && three_way_comparable<common_reference_t<const remove_reference_t<_Ty1>&, const remove_reference_t<_Ty2>&>, _Cat>
+    && _Weakly_equality_comparable_with<_Ty1, _Ty2> && _Partially_ordered_with<_Ty1, _Ty2>
+    && requires(const remove_reference_t<_Ty1>& __t, const remove_reference_t<_Ty2>& __u) {
+           { __t <=> __u } -> _Compares_as<_Cat>;
+           { __u <=> __t } -> _Compares_as<_Cat>;
+       };
+
+_EXPORT_STD template <class _Ty1, class _Ty2 = _Ty1>
+using compare_three_way_result_t =
+    decltype(_STD declval<const remove_reference_t<_Ty1>&>() <=> _STD declval<const remove_reference_t<_Ty2>&>());
+
+_EXPORT_STD template <class _Ty1, class _Ty2 = _Ty1>
+struct compare_three_way_result {};
+
+template <class _Ty1, class _Ty2>
+    requires requires { typename compare_three_way_result_t<_Ty1, _Ty2>; }
+struct compare_three_way_result<_Ty1, _Ty2> {
+    using type = compare_three_way_result_t<_Ty1, _Ty2>;
+};
+
+_EXPORT_STD struct compare_three_way {
+    template <class _Ty1, class _Ty2>
+        requires three_way_comparable_with<_Ty1, _Ty2>
+    _NODISCARD constexpr auto operator()(_Ty1&& _Left, _Ty2&& _Right) const
+        noexcept(noexcept(_STD forward<_Ty1>(_Left) <=> _STD forward<_Ty2>(_Right))) /* strengthened */ {
+        return _STD forward<_Ty1>(_Left) <=> _STD forward<_Ty2>(_Right);
+    }
+
+    using is_transparent = int;
+};
+
+struct _Synth_three_way {
+    template <class _Ty1, class _Ty2>
+    _NODISCARD _STATIC_CALL_OPERATOR constexpr auto operator()(
+        const _Ty1& _Left, const _Ty2& _Right) _CONST_CALL_OPERATOR
+        requires requires {
+            { _Left < _Right } -> _Boolean_testable;
+            { _Right < _Left } -> _Boolean_testable;
+        }
+    {
+        if constexpr (three_way_comparable_with<_Ty1, _Ty2>) {
+            return _Left <=> _Right;
+        } else {
+            if (_Left < _Right) {
+                return weak_ordering::less;
+            } else if (_Right < _Left) {
+                return weak_ordering::greater;
+            } else {
+                return weak_ordering::equivalent;
+            }
+        }
+    }
+};
+
+template <class _Ty1, class _Ty2 = _Ty1>
+using _Synth_three_way_result = decltype(_Synth_three_way{}(_STD declval<_Ty1&>(), _STD declval<_Ty2&>()));
+
+// Note: The following CPOs are passing arguments as lvalues; see GH-1374.
+
+namespace _Strong_order {
+#if defined(__clang__) || defined(__EDG__) // TRANSITION, VSO-1681199
+    void strong_order() = delete; // Block unqualified name lookup
+#else // ^^^ no workaround / workaround vvv
+    void strong_order();
+#endif // ^^^ workaround ^^^
+
+    template <class _Ty1, class _Ty2>
+    concept _Has_ADL = requires(_Ty1& _Left, _Ty2& _Right) {
+        static_cast<strong_ordering>(strong_order(_Left, _Right)); // intentional ADL
+    };
+
+    template <class _Ty1, class _Ty2>
+    concept _Can_compare_three_way =
+        requires(_Ty1& _Left, _Ty2& _Right) { static_cast<strong_ordering>(compare_three_way{}(_Left, _Right)); };
+
+    class _Cpo {
+    private:
+        enum class _St { _None, _Adl, _Floating, _Three };
+
+        template <class _Ty1, class _Ty2>
+        _NODISCARD static consteval _Choice_t<_St> _Choose() noexcept {
+            if constexpr (!same_as<decay_t<_Ty1>, decay_t<_Ty2>>) {
+                return {_St::_None};
+            } else if constexpr (_Has_ADL<_Ty1, _Ty2>) {
+                return {_St::_Adl, noexcept(static_cast<strong_ordering>(
+                                       strong_order(_STD declval<_Ty1&>(), _STD declval<_Ty2&>())))}; // intentional ADL
+            } else if constexpr (floating_point<decay_t<_Ty1>>) {
+                return {_St::_Floating, true};
+            } else if constexpr (_Can_compare_three_way<_Ty1, _Ty2>) {
+                return {_St::_Three, noexcept(static_cast<strong_ordering>(
+                                         compare_three_way{}(_STD declval<_Ty1&>(), _STD declval<_Ty2&>())))};
+            } else {
+                return {_St::_None};
+            }
+        }
+
+        template <class _Ty1, class _Ty2>
+        static constexpr _Choice_t<_St> _Choice = _Choose<_Ty1, _Ty2>();
+
+    public:
+        template <class _Ty1, class _Ty2>
+            requires (_Choice<_Ty1&, _Ty2&>._Strategy != _St::_None)
+        _NODISCARD _STATIC_CALL_OPERATOR constexpr strong_ordering operator()(
+            _Ty1&& _Left, _Ty2&& _Right) _CONST_CALL_OPERATOR noexcept(_Choice<_Ty1&, _Ty2&>._No_throw) {
+            constexpr _St _Strat = _Choice<_Ty1&, _Ty2&>._Strategy;
+            if constexpr (_Strat == _St::_Adl) {
+                return static_cast<strong_ordering>(strong_order(_Left, _Right)); // intentional ADL
+            } else if constexpr (_Strat == _St::_Floating) {
+                using _Floating_type = decay_t<_Ty1>;
+                using _Traits        = _Floating_type_traits<_Floating_type>;
+                using _Uint_type     = _Traits::_Uint_type;
+                using _Sint_type     = make_signed_t<_Uint_type>;
+
+                const auto _Left_uint  = _Bit_cast<_Uint_type>(_Left);
+                const auto _Right_uint = _Bit_cast<_Uint_type>(_Right);
+
+                // 1. Ultra-fast path: equal representations are equal.
+                if (_Left_uint == _Right_uint) {
+                    return strong_ordering::equal;
+                }
+
+                // 2. Examine the sign bits.
+                const _Uint_type _Left_shifted_sign  = _Left_uint & _Traits::_Shifted_sign_mask;
+                const _Uint_type _Right_shifted_sign = _Right_uint & _Traits::_Shifted_sign_mask;
+
+                // 3. Interpret floating-point bit patterns as sign magnitude representations of integers,
+                //    and then transform them into ones' complement representation.
+                // (Ones' complement representations of positive zero and negative zero are different.)
+                const _Uint_type _Left_sign  = _Left_shifted_sign >> _Traits::_Sign_shift;
+                const _Uint_type _Right_sign = _Right_shifted_sign >> _Traits::_Sign_shift;
+
+                const _Uint_type _Left_xor  = _Left_shifted_sign - _Left_sign;
+                const _Uint_type _Right_xor = _Right_shifted_sign - _Right_sign;
+
+                const _Uint_type _Left_ones_complement_uint  = _Left_uint ^ _Left_xor;
+                const _Uint_type _Right_ones_complement_uint = _Right_uint ^ _Right_xor;
+
+                const auto _Left_ones_complement  = static_cast<_Sint_type>(_Left_ones_complement_uint);
+                const auto _Right_ones_complement = static_cast<_Sint_type>(_Right_ones_complement_uint);
+
+                // 4. Perform the final comparison.
+                return _Left_ones_complement <=> _Right_ones_complement;
+            } else if constexpr (_Strat == _St::_Three) {
+                return static_cast<strong_ordering>(compare_three_way{}(_Left, _Right));
+            } else {
+                _STL_INTERNAL_STATIC_ASSERT(false); // unexpected strategy
+            }
+        }
+    };
+} // namespace _Strong_order
+
+inline namespace _Cpos {
+    _EXPORT_STD inline constexpr _Strong_order::_Cpo strong_order;
+}
+
+namespace _Weak_order {
+#if defined(__clang__) || defined(__EDG__) // TRANSITION, VSO-1681199
+    void weak_order() = delete; // Block unqualified name lookup
+#else // ^^^ no workaround / workaround vvv
+    void weak_order();
+#endif // ^^^ workaround ^^^
+
+    template <class _Ty1, class _Ty2>
+    concept _Has_ADL = requires(_Ty1& _Left, _Ty2& _Right) {
+        static_cast<weak_ordering>(weak_order(_Left, _Right)); // intentional ADL
+    };
+
+    template <class _Ty1, class _Ty2>
+    concept _Can_compare_three_way =
+        requires(_Ty1& _Left, _Ty2& _Right) { static_cast<weak_ordering>(compare_three_way{}(_Left, _Right)); };
+
+    // Throughput optimization: attempting to use _STD strong_order will always select ADL strong_order here.
+#if defined(__clang__) || defined(__EDG__) // TRANSITION, VSO-1681199
+    void strong_order() = delete; // Block unqualified name lookup
+#else // ^^^ no workaround / workaround vvv
+    void strong_order();
+#endif // ^^^ workaround ^^^
+
+    class _Cpo {
+    private:
+        enum class _St { _None, _Adl, _Floating, _Three, _Strong };
+
+        template <class _Ty1, class _Ty2>
+        _NODISCARD static consteval _Choice_t<_St> _Choose() noexcept {
+            if constexpr (!same_as<decay_t<_Ty1>, decay_t<_Ty2>>) {
+                return {_St::_None};
+            } else if constexpr (_Has_ADL<_Ty1, _Ty2>) {
+                return {_St::_Adl, noexcept(static_cast<weak_ordering>(
+                                       weak_order(_STD declval<_Ty1&>(), _STD declval<_Ty2&>())))}; // intentional ADL
+            } else if constexpr (floating_point<decay_t<_Ty1>>) {
+                return {_St::_Floating, true};
+            } else if constexpr (_Can_compare_three_way<_Ty1, _Ty2>) {
+                return {_St::_Three, noexcept(static_cast<weak_ordering>(
+                                         compare_three_way{}(_STD declval<_Ty1&>(), _STD declval<_Ty2&>())))};
+            } else if constexpr (_Strong_order::_Has_ADL<_Ty1, _Ty2>) {
+                // throughput optimization (see above):
+                return {_St::_Strong, noexcept(static_cast<weak_ordering>(static_cast<strong_ordering>(strong_order(
+                                          _STD declval<_Ty1&>(), _STD declval<_Ty2&>()))))}; // intentional ADL
+            } else {
+                return {_St::_None};
+            }
+        }
+
+        template <class _Ty1, class _Ty2>
+        static constexpr _Choice_t<_St> _Choice = _Choose<_Ty1, _Ty2>();
+
+    public:
+        template <class _Ty1, class _Ty2>
+            requires (_Choice<_Ty1&, _Ty2&>._Strategy != _St::_None)
+        _NODISCARD _STATIC_CALL_OPERATOR constexpr weak_ordering operator()(
+            _Ty1&& _Left, _Ty2&& _Right) _CONST_CALL_OPERATOR noexcept(_Choice<_Ty1&, _Ty2&>._No_throw) {
+            constexpr _St _Strat = _Choice<_Ty1&, _Ty2&>._Strategy;
+            if constexpr (_Strat == _St::_Adl) {
+                return static_cast<weak_ordering>(weak_order(_Left, _Right)); // intentional ADL
+            } else if constexpr (_Strat == _St::_Floating) {
+                using _Floating_type = decay_t<_Ty1>;
+                using _Traits        = _Floating_type_traits<_Floating_type>;
+                using _Uint_type     = _Traits::_Uint_type;
+                using _Sint_type     = make_signed_t<_Uint_type>;
+
+                auto _Left_uint  = _Bit_cast<_Uint_type>(_Left);
+                auto _Right_uint = _Bit_cast<_Uint_type>(_Right);
+
+                // 1. Ultra-fast path: equal representations are equivalent.
+                if (_Left_uint == _Right_uint) {
+                    return weak_ordering::equivalent;
+                }
+
+                // 2. Examine the sign bits.
+                const _Uint_type _Left_shifted_sign  = _Left_uint & _Traits::_Shifted_sign_mask;
+                const _Uint_type _Right_shifted_sign = _Right_uint & _Traits::_Shifted_sign_mask;
+
+                // 3. Fold all NaN values together.
+                // (The fact that _Infinity_plus_one represents a signaling NaN is irrelevant here.)
+                constexpr _Uint_type _Infinity_plus_one = _Traits::_Shifted_exponent_mask + 1;
+
+                const _Uint_type _Left_magnitude  = _Left_uint & ~_Traits::_Shifted_sign_mask;
+                const _Uint_type _Right_magnitude = _Right_uint & ~_Traits::_Shifted_sign_mask;
+
+                if (_Left_magnitude > _Infinity_plus_one) {
+                    _Left_uint = _Left_shifted_sign | _Infinity_plus_one;
+                }
+
+                if (_Right_magnitude > _Infinity_plus_one) {
+                    _Right_uint = _Right_shifted_sign | _Infinity_plus_one;
+                }
+
+                // 4. Interpret floating-point bit patterns as sign magnitude representations of integers,
+                //    and then transform them into two's complement representation.
+                // (Two's complement representations of positive zero and negative zero are the same.)
+                const _Uint_type _Left_sign  = _Left_shifted_sign >> _Traits::_Sign_shift;
+                const _Uint_type _Right_sign = _Right_shifted_sign >> _Traits::_Sign_shift;
+
+                const _Uint_type _Left_xor  = _Left_shifted_sign - _Left_sign;
+                const _Uint_type _Right_xor = _Right_shifted_sign - _Right_sign;
+
+                const _Uint_type _Left_twos_complement_uint  = (_Left_uint ^ _Left_xor) + _Left_sign;
+                const _Uint_type _Right_twos_complement_uint = (_Right_uint ^ _Right_xor) + _Right_sign;
+
+                const auto _Left_twos_complement  = static_cast<_Sint_type>(_Left_twos_complement_uint);
+                const auto _Right_twos_complement = static_cast<_Sint_type>(_Right_twos_complement_uint);
+
+                // 5. Perform the final comparison.
+                return static_cast<weak_ordering>(_Left_twos_complement <=> _Right_twos_complement);
+            } else if constexpr (_Strat == _St::_Three) {
+                return static_cast<weak_ordering>(compare_three_way{}(_Left, _Right));
+            } else if constexpr (_Strat == _St::_Strong) {
+                // throughput optimization (see above):
+                return static_cast<weak_ordering>(
+                    static_cast<strong_ordering>(strong_order(_Left, _Right))); // intentional ADL
+            } else {
+                _STL_INTERNAL_STATIC_ASSERT(false); // unexpected strategy
+            }
+        }
+    };
+} // namespace _Weak_order
+
+inline namespace _Cpos {
+    _EXPORT_STD inline constexpr _Weak_order::_Cpo weak_order;
+}
+
+namespace _Partial_order {
+#if defined(__clang__) || defined(__EDG__) // TRANSITION, VSO-1681199
+    void partial_order() = delete; // Block unqualified name lookup
+#else // ^^^ no workaround / workaround vvv
+    void partial_order();
+#endif // ^^^ workaround ^^^
+
+    template <class _Ty1, class _Ty2>
+    concept _Has_ADL = requires(_Ty1& _Left, _Ty2& _Right) {
+        static_cast<partial_ordering>(partial_order(_Left, _Right)); // intentional ADL
+    };
+
+    template <class _Ty1, class _Ty2>
+    concept _Can_compare_three_way =
+        requires(_Ty1& _Left, _Ty2& _Right) { static_cast<partial_ordering>(compare_three_way{}(_Left, _Right)); };
+
+    // Throughput optimization: attempting to use _STD weak_order
+    // will attempt to select ADL weak_order, followed by ADL strong_order, here.
+#if defined(__clang__) || defined(__EDG__) // TRANSITION, VSO-1681199
+    void weak_order()   = delete; // Block unqualified name lookup
+    void strong_order() = delete; // Block unqualified name lookup
+#else // ^^^ no workaround / workaround vvv
+    void weak_order();
+    void strong_order();
+#endif // ^^^ workaround ^^^
+
+    class _Cpo {
+    private:
+        enum class _St { _None, _Adl, _Three, _Weak, _Strong };
+
+        template <class _Ty1, class _Ty2>
+        _NODISCARD static consteval _Choice_t<_St> _Choose() noexcept {
+            if constexpr (!same_as<decay_t<_Ty1>, decay_t<_Ty2>>) {
+                return {_St::_None};
+            } else if constexpr (_Has_ADL<_Ty1, _Ty2>) {
+                return {_St::_Adl, noexcept(static_cast<partial_ordering>(partial_order(
+                                       _STD declval<_Ty1&>(), _STD declval<_Ty2&>())))}; // intentional ADL
+            } else if constexpr (_Can_compare_three_way<_Ty1, _Ty2>) {
+                return {_St::_Three, noexcept(static_cast<partial_ordering>(
+                                         compare_three_way{}(_STD declval<_Ty1&>(), _STD declval<_Ty2&>())))};
+            } else if constexpr (_Weak_order::_Has_ADL<_Ty1, _Ty2>) {
+                // throughput optimization (see above):
+                return {_St::_Weak, noexcept(static_cast<partial_ordering>(static_cast<weak_ordering>(
+                                        weak_order(_STD declval<_Ty1&>(), _STD declval<_Ty2&>()))))}; // intentional ADL
+            } else if constexpr (_Strong_order::_Has_ADL<_Ty1, _Ty2>) {
+                // throughput optimization (see above):
+                return {_St::_Strong, noexcept(static_cast<partial_ordering>(static_cast<strong_ordering>(strong_order(
+                                          _STD declval<_Ty1&>(), _STD declval<_Ty2&>()))))}; // intentional ADL
+            } else {
+                return {_St::_None};
+            }
+        }
+
+        template <class _Ty1, class _Ty2>
+        static constexpr _Choice_t<_St> _Choice = _Choose<_Ty1, _Ty2>();
+
+    public:
+        template <class _Ty1, class _Ty2>
+            requires (_Choice<_Ty1&, _Ty2&>._Strategy != _St::_None)
+        _NODISCARD _STATIC_CALL_OPERATOR constexpr partial_ordering operator()(
+            _Ty1&& _Left, _Ty2&& _Right) _CONST_CALL_OPERATOR noexcept(_Choice<_Ty1&, _Ty2&>._No_throw) {
+            constexpr _St _Strat = _Choice<_Ty1&, _Ty2&>._Strategy;
+            if constexpr (_Strat == _St::_Adl) {
+                return static_cast<partial_ordering>(/* ADL */ partial_order(_Left, _Right));
+            } else if constexpr (_Strat == _St::_Three) {
+                return static_cast<partial_ordering>(compare_three_way{}(_Left, _Right));
+            } else if constexpr (_Strat == _St::_Weak) {
+                // throughput optimization (see above):
+                return static_cast<partial_ordering>(
+                    static_cast<weak_ordering>(weak_order(_Left, _Right))); // intentional ADL
+            } else if constexpr (_Strat == _St::_Strong) {
+                // throughput optimization (see above):
+                return static_cast<partial_ordering>(
+                    static_cast<strong_ordering>(strong_order(_Left, _Right))); // intentional ADL
+            } else {
+                _STL_INTERNAL_STATIC_ASSERT(false); // unexpected strategy
+            }
+        }
+    };
+} // namespace _Partial_order
+
+inline namespace _Cpos {
+    _EXPORT_STD inline constexpr _Partial_order::_Cpo partial_order;
+}
+
+template <class _Ty1, class _Ty2>
+concept _Can_fallback_eq_lt = requires(_Ty1& _Left, _Ty2& _Right) {
+    { _Left == _Right } -> _Boolean_testable;
+    { _Left < _Right } -> _Boolean_testable;
+};
+
+template <class _Ty1, class _Ty2>
+concept _Can_strong_order = requires(_Ty1& _Left, _Ty2& _Right) { _STD strong_order(_Left, _Right); };
+
+namespace _Compare_strong_order_fallback {
+    class _Cpo {
+    private:
+        enum class _St { _None, _Strong, _Fallback };
+
+        template <class _Ty1, class _Ty2>
+        _NODISCARD static consteval _Choice_t<_St> _Choose() noexcept {
+            if constexpr (!same_as<decay_t<_Ty1>, decay_t<_Ty2>>) {
+                return {_St::_None};
+            } else if constexpr (_Can_strong_order<_Ty1, _Ty2>) {
+                return {_St::_Strong, noexcept(_STD strong_order(_STD declval<_Ty1&>(), _STD declval<_Ty2&>()))};
+            } else if constexpr (_Can_fallback_eq_lt<_Ty1, _Ty2>) {
+                return {_St::_Fallback,
+                    noexcept(_STD declval<_Ty1&>() == _STD declval<_Ty2&>()  ? strong_ordering::equal
+                             : _STD declval<_Ty1&>() < _STD declval<_Ty2&>() ? strong_ordering::less
+                                                                             : strong_ordering::greater)};
+            } else {
+                return {_St::_None};
+            }
+        }
+
+        template <class _Ty1, class _Ty2>
+        static constexpr _Choice_t<_St> _Choice = _Choose<_Ty1, _Ty2>();
+
+    public:
+        template <class _Ty1, class _Ty2>
+            requires (_Choice<_Ty1&, _Ty2&>._Strategy != _St::_None)
+        _NODISCARD _STATIC_CALL_OPERATOR constexpr strong_ordering operator()(
+            _Ty1&& _Left, _Ty2&& _Right) _CONST_CALL_OPERATOR noexcept(_Choice<_Ty1&, _Ty2&>._No_throw) {
+            constexpr _St _Strat = _Choice<_Ty1&, _Ty2&>._Strategy;
+            if constexpr (_Strat == _St::_Strong) {
+                return _STD strong_order(_Left, _Right);
+            } else if constexpr (_Strat == _St::_Fallback) {
+                return _Left == _Right ? strong_ordering::equal
+                     : _Left < _Right  ? strong_ordering::less
+                                       : strong_ordering::greater;
+            } else {
+                _STL_INTERNAL_STATIC_ASSERT(false); // unexpected strategy
+            }
+        }
+    };
+} // namespace _Compare_strong_order_fallback
+
+inline namespace _Cpos {
+    _EXPORT_STD inline constexpr _Compare_strong_order_fallback::_Cpo compare_strong_order_fallback;
+}
+
+template <class _Ty1, class _Ty2>
+concept _Can_weak_order = requires(_Ty1& _Left, _Ty2& _Right) { _STD weak_order(_Left, _Right); };
+
+namespace _Compare_weak_order_fallback {
+    class _Cpo {
+    private:
+        enum class _St { _None, _Weak, _Fallback };
+
+        template <class _Ty1, class _Ty2>
+        _NODISCARD static consteval _Choice_t<_St> _Choose() noexcept {
+            if constexpr (!same_as<decay_t<_Ty1>, decay_t<_Ty2>>) {
+                return {_St::_None};
+            } else if constexpr (_Can_weak_order<_Ty1, _Ty2>) {
+                return {_St::_Weak, noexcept(_STD weak_order(_STD declval<_Ty1&>(), _STD declval<_Ty2&>()))};
+            } else if constexpr (_Can_fallback_eq_lt<_Ty1, _Ty2>) {
+                return {
+                    _St::_Fallback, noexcept(_STD declval<_Ty1&>() == _STD declval<_Ty2&>()  ? weak_ordering::equivalent
+                                             : _STD declval<_Ty1&>() < _STD declval<_Ty2&>() ? weak_ordering::less
+                                                                                             : weak_ordering::greater)};
+            } else {
+                return {_St::_None};
+            }
+        }
+
+        template <class _Ty1, class _Ty2>
+        static constexpr _Choice_t<_St> _Choice = _Choose<_Ty1, _Ty2>();
+
+    public:
+        template <class _Ty1, class _Ty2>
+            requires (_Choice<_Ty1&, _Ty2&>._Strategy != _St::_None)
+        _NODISCARD _STATIC_CALL_OPERATOR constexpr weak_ordering operator()(
+            _Ty1&& _Left, _Ty2&& _Right) _CONST_CALL_OPERATOR noexcept(_Choice<_Ty1&, _Ty2&>._No_throw) {
+            constexpr _St _Strat = _Choice<_Ty1&, _Ty2&>._Strategy;
+            if constexpr (_Strat == _St::_Weak) {
+                return _STD weak_order(_Left, _Right);
+            } else if constexpr (_Strat == _St::_Fallback) {
+                return _Left == _Right ? weak_ordering::equivalent
+                     : _Left < _Right  ? weak_ordering::less
+                                       : weak_ordering::greater;
+            } else {
+                _STL_INTERNAL_STATIC_ASSERT(false); // unexpected strategy
+            }
+        }
+    };
+} // namespace _Compare_weak_order_fallback
+
+inline namespace _Cpos {
+    _EXPORT_STD inline constexpr _Compare_weak_order_fallback::_Cpo compare_weak_order_fallback;
+}
+
+template <class _Ty1, class _Ty2>
+concept _Can_partial_order = requires(_Ty1& _Left, _Ty2& _Right) { _STD partial_order(_Left, _Right); };
+
+namespace _Compare_partial_order_fallback {
+    template <class _Ty1, class _Ty2>
+    concept _Can_fallback_eq_lt_twice = requires(_Ty1& _Left, _Ty2& _Right) {
+        { _Left == _Right } -> _Boolean_testable;
+        { _Left < _Right } -> _Boolean_testable;
+        { _Right < _Left } -> _Boolean_testable;
+    };
+
+    class _Cpo {
+    private:
+        enum class _St { _None, _Partial, _Fallback };
+
+        template <class _Ty1, class _Ty2>
+        _NODISCARD static consteval _Choice_t<_St> _Choose() noexcept {
+            if constexpr (!same_as<decay_t<_Ty1>, decay_t<_Ty2>>) {
+                return {_St::_None};
+            } else if constexpr (_Can_partial_order<_Ty1, _Ty2>) {
+                return {_St::_Partial, noexcept(_STD partial_order(_STD declval<_Ty1&>(), _STD declval<_Ty2&>()))};
+            } else if constexpr (_Can_fallback_eq_lt_twice<_Ty1, _Ty2>) {
+                return {_St::_Fallback,
+                    noexcept(_STD declval<_Ty1&>() == _STD declval<_Ty2&>()  ? partial_ordering::equivalent
+                             : _STD declval<_Ty1&>() < _STD declval<_Ty2&>() ? partial_ordering::less
+                             : _STD declval<_Ty2&>() < _STD declval<_Ty1&>() ? partial_ordering::greater
+                                                                             : partial_ordering::unordered)};
+            } else {
+                return {_St::_None};
+            }
+        }
+
+        template <class _Ty1, class _Ty2>
+        static constexpr _Choice_t<_St> _Choice = _Choose<_Ty1, _Ty2>();
+
+    public:
+        template <class _Ty1, class _Ty2>
+            requires (_Choice<_Ty1&, _Ty2&>._Strategy != _St::_None)
+        _NODISCARD _STATIC_CALL_OPERATOR constexpr partial_ordering operator()(
+            _Ty1&& _Left, _Ty2&& _Right) _CONST_CALL_OPERATOR noexcept(_Choice<_Ty1&, _Ty2&>._No_throw) {
+            constexpr _St _Strat = _Choice<_Ty1&, _Ty2&>._Strategy;
+            if constexpr (_Strat == _St::_Partial) {
+                return _STD partial_order(_Left, _Right);
+            } else if constexpr (_Strat == _St::_Fallback) {
+                return _Left == _Right ? partial_ordering::equivalent
+                     : _Left < _Right  ? partial_ordering::less
+                     : _Right < _Left  ? partial_ordering::greater
+                                       : partial_ordering::unordered;
+            } else {
+                _STL_INTERNAL_STATIC_ASSERT(false); // unexpected strategy
+            }
+        }
+    };
+} // namespace _Compare_partial_order_fallback
+
+inline namespace _Cpos {
+    _EXPORT_STD inline constexpr _Compare_partial_order_fallback::_Cpo compare_partial_order_fallback;
+}
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _HAS_CXX20
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _COMPARE_

@@ -1,0 +1,223 @@
+/*++
+
+Copyright (C) 2004 Microsoft Corporation
+
+Module Name:
+
+wsbapp.idl
+
+Abstract:
+
+This file contains the definition of the COM interfaces used by the Windows Server Backup (WSB) 
+engine to invoke application during backup/restore. These needs to be implemented by application
+in an out-of-proc COM server.
+
+--*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// maximum number of volumes we'll get in any Interface that expects a list of volumes
+#define MAX_VOLUMES 1000
+
+
+// maximum number of components we will get in the restore API that expects a list of components
+#define MAX_COMPONENTS 10000
+
+//
+// Forward declarations
+// 
+
+interface IWsbApplicationAsync;
+
+//
+// Interface IWsbApplicationlicationBackupSupport contains methods for application specific backup tasks
+//
+
+[
+    object,
+    uuid(1EFF3510-4A27-46ad-B9E0-08332F0F4F6D),
+    helpstring("IWsbApplicationBackupSupport Interface"),
+    pointer_default(unique)
+]
+interface IWsbApplicationBackupSupport : IUnknown
+{
+    // CheckConsistency: Method to check consistency of components on the snapshot volumes. This method is
+    // called to check the consistency of the component after taking the snapshot of the volumes to be backed up.
+    //
+    // Arguments:
+    //    IN wszWriterMetadata - writer metadata XML
+    //    IN wszComponentName - component Name (as in writermetadata)
+    //    IN wszComponentLogicalPath - component Logical Path (as in writermetadata)
+    //    IN cVolumes - count of volumes (for volume map)
+    //    IN rgwszSourceVolumePath - array of volume GUID paths (backward slash terminated)
+    //    IN rgwszSnapshotVolumePath - array of snapshot volume paths corresponding to 
+    //                                 source volumes. The consistency check is done on these volumes
+    //    OUT ppAsync - Pointer to the async interface for the client to query the operation. 
+    //                  Can be NULL if consistency check is a no-op
+    //
+    // Return Values:
+    //    S_OK - Consistency check on the component was successful
+    //    S_FALSE - Consistency check is not required (No-op)
+    //    WSBAPP_E_COMPONENT_CONSISTENCY_CHECK_FAILED - Consistency check operation failed
+    //    hr - system error codes for operation failure
+    HRESULT
+       CheckConsistency(
+            [in, unique, string] LPWSTR wszWriterMetadata,
+            [in, unique, string] LPWSTR wszComponentName,
+            [in, unique, string] LPWSTR wszComponentLogicalPath,
+            [range(0,  MAX_VOLUMES)][in] DWORD cVolumes,
+            [in, unique, string, size_is(cVolumes)] LPWSTR *rgwszSourceVolumePath,
+            [in, unique, string, size_is(cVolumes)] LPWSTR *rgwszSnapshotVolumePath,
+            [out] IWsbApplicationAsync **ppAsync
+            );
+}
+
+//
+// Interface IWsbApplicationRestoreSupport contains methods for application specific restore tasks. 
+// The methods in this interface are called while restoring the application from backup.
+//
+
+[
+    object,
+    uuid(8D3BDB38-4EE8-4718-85F9-C7DBC4AB77AA),
+    helpstring("IWsbApplicationBackupSupport Interface"),
+    pointer_default(unique)
+]
+interface IWsbApplicationRestoreSupport : IUnknown
+{
+    // PreRestore: Method to perform Application specific prerestore tasks. 
+    //
+    // Arguments:
+    //    IN wszWriterMetadata - Writer metadata XML
+    //    IN wszComponentName - component Name (as in writermetadata)
+    //    IN wszComponentLogicalPath - component Logical Path (as in writermetadata)
+    //    IN bNoRollForward - boolean to indicate previous point in time recovery is underway. No application
+    //                        rollforward will be done. The previous logs for the application will be deleted
+    //                        prior to restore
+    // 
+    // Return Values:
+    //    S_OK - PreRestore steps for the component were successful
+    //    WSBAPP_E_COMPONENT_PRE_RESTORE_FAILED - Failure in preRestore operation
+    HRESULT
+       PreRestore(
+            [in, unique, string] LPWSTR wszWriterMetadata,
+            [in, unique, string] LPWSTR wszComponentName,
+            [in, unique, string] LPWSTR wszComponentLogicalPath,
+            [in] BOOLEAN bNoRollForward
+            );
+
+    // PostRestore: Method to perform Application specific postrestore tasks. 
+    //
+    // Arguments:
+    //    IN wszWriterMetadata - Writer metadata XML
+    //    IN wszComponentName - component Name (as in writermetadata)
+    //    IN wszComponentLogicalPath - component Logical Path (as in writermetadata)
+    //    IN BOOLEAN bNoRollForward
+    //
+    // Return Values:
+    //    S_OK - PostRestore steps for the component were successful
+    //    WSBAPP_E_COMPONENT_POST_RESTORE_FAILED - Failure in post restore operation
+    HRESULT
+       PostRestore(
+            [in, unique, string] LPWSTR wszWriterMetadata,
+            [in, unique, string] LPWSTR wszComponentName,
+            [in, unique, string] LPWSTR wszComponentLogicalPath,
+            [in] BOOLEAN bNoRollForward
+            );
+
+    // OrderComponents: Method to get the order in which the Application components should be
+    //
+    // restored
+    //
+    // Arguments:
+    //  IN cComponents - count of components
+    //  IN rgComponentName - array of component Name (as in writermetadata)
+    //  IN rgComponentLogicalPath - array of component logical paths (as in writermetadata)
+    //  OUT prgComponentName - array of components name in restore order
+    //  OUT prgComponentLogicalPath - array of component logical paths in restore order
+    //
+    // Return Values
+    //
+    //    S_OK - Component restore order specified
+    //    S_FALSE - No specific restore order required (prgComponentName and prgComponentLogicalPath) are NULL
+    //    hr - Failure
+
+    HRESULT 
+       OrderComponents(
+            [range(0,  MAX_COMPONENTS)][in] DWORD cComponents,
+            [in, string, size_is(cComponents)] LPWSTR *rgComponentName,
+            [in, string, size_is(cComponents)] LPWSTR *rgComponentLogicalPaths,
+            [out, string, size_is(, cComponents)] LPWSTR **prgComponentName,
+            [out, string, size_is(, cComponents)] LPWSTR **prgComponentLogicalPath
+            );
+
+    // IsRollForwardSupported: Method to get the information that application supports RollForward recovery
+    //
+    // Arguments:
+    //  IN pbRollForwardSupported - Info whether RollForward recovery is supported
+    //
+    // Return Values:
+    //  
+    //  S_OK
+
+    HRESULT 
+       IsRollForwardSupported(
+           [out] BOOLEAN *pbRollForwardSupported
+           );
+}
+
+//
+// Interface IWsbApplicationAsync is the interface that the client can call to
+// query the progress of consistency check operation.
+//
+
+[
+    object,
+    uuid(0843F6F7-895C-44a6-B0C2-05A5022AA3A1),
+    helpstring("IWsbApplicationAsync Interface"),
+    pointer_default(unique)
+]
+interface IWsbApplicationAsync : IUnknown
+{
+    // QueryStatus: Method to get the status of the pending WsbApplication async operation
+    //
+    // Arguments:
+    //  OUT phrResult - Status of current WsbApplication operation. The possible values are
+    //      S_OK - Async operation has finished successfully
+    //      WSBAPP_ASYNC_IN_PROGRESS - Async operation still in progress
+    //      hr - Failure from the async operation
+    //
+    // Return Values:
+    //
+    //  S_OK - Query status for the async operation was successful  
+    //  hr - Failure
+    //  
+
+    HRESULT 
+        QueryStatus(
+            [out] HRESULT *phrResult
+            );
+
+    // Abort: Method to abort the  current async operation
+    //
+    // Arguments:
+    //  None
+    //
+    // Return Values:
+    //
+    //  S_OK
+    HRESULT 
+        Abort();
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

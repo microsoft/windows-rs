@@ -1,0 +1,201 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2000.
+//
+//  File: InputScope.idl
+//
+//  Contents: InputScope declarations.
+//
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// InputScope.h")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("// InputScope declarations.")
+cpp_quote("")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 1995-2003 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR TFPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE TFPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#ifndef INPUTSCOPE_DEFINED")
+cpp_quote("#define INPUTSCOPE_DEFINED")
+cpp_quote("")
+cpp_quote("#include <windows.h>")
+cpp_quote("")
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("extern \"C\" {")
+cpp_quote("#endif /* __cplusplus */")
+cpp_quote("")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+typedef enum 
+{
+    // common input scopes
+    IS_DEFAULT                        = 0,
+    IS_URL                            = 1,
+    IS_FILE_FULLFILEPATH              = 2,
+    IS_FILE_FILENAME                  = 3,
+    IS_EMAIL_USERNAME                 = 4,
+    IS_EMAIL_SMTPEMAILADDRESS         = 5,
+    IS_LOGINNAME                      = 6,
+    IS_PERSONALNAME_FULLNAME          = 7,
+    IS_PERSONALNAME_PREFIX            = 8,
+    IS_PERSONALNAME_GIVENNAME         = 9,
+    IS_PERSONALNAME_MIDDLENAME        = 10,
+    IS_PERSONALNAME_SURNAME           = 11,
+    IS_PERSONALNAME_SUFFIX            = 12,
+    IS_ADDRESS_FULLPOSTALADDRESS      = 13,
+    IS_ADDRESS_POSTALCODE             = 14,
+    IS_ADDRESS_STREET                 = 15,
+    IS_ADDRESS_STATEORPROVINCE        = 16,
+    IS_ADDRESS_CITY                   = 17,
+    IS_ADDRESS_COUNTRYNAME            = 18,
+    IS_ADDRESS_COUNTRYSHORTNAME       = 19,
+    IS_CURRENCY_AMOUNTANDSYMBOL       = 20,
+    IS_CURRENCY_AMOUNT                = 21,
+    IS_DATE_FULLDATE                  = 22,
+    IS_DATE_MONTH                     = 23,
+    IS_DATE_DAY                       = 24,
+    IS_DATE_YEAR                      = 25,
+    IS_DATE_MONTHNAME                 = 26,
+    IS_DATE_DAYNAME                   = 27,
+    IS_DIGITS                         = 28,
+    IS_NUMBER                         = 29,
+    IS_ONECHAR                        = 30,
+    IS_PASSWORD                       = 31,
+    IS_TELEPHONE_FULLTELEPHONENUMBER  = 32,
+    IS_TELEPHONE_COUNTRYCODE          = 33,
+    IS_TELEPHONE_AREACODE             = 34,
+    IS_TELEPHONE_LOCALNUMBER          = 35,
+    IS_TIME_FULLTIME                  = 36,
+    IS_TIME_HOUR                      = 37,
+    IS_TIME_MINORSEC                  = 38,
+    IS_NUMBER_FULLWIDTH               = 39,
+    IS_ALPHANUMERIC_HALFWIDTH         = 40,
+    IS_ALPHANUMERIC_FULLWIDTH         = 41,
+    IS_CURRENCY_CHINESE               = 42,
+    IS_BOPOMOFO                       = 43,
+    IS_HIRAGANA                       = 44,
+    IS_KATAKANA_HALFWIDTH             = 45,
+    IS_KATAKANA_FULLWIDTH             = 46,
+    IS_HANJA                          = 47,
+    IS_HANGUL_HALFWIDTH               = 48,
+    IS_HANGUL_FULLWIDTH               = 49,
+    IS_SEARCH                         = 50,
+    IS_FORMULA                        = 51,
+    IS_SEARCH_INCREMENTAL             = 52,
+    IS_CHINESE_HALFWIDTH              = 53,
+    IS_CHINESE_FULLWIDTH              = 54,
+    IS_NATIVE_SCRIPT                  = 55,
+    IS_YOMI                           = 56,
+    IS_TEXT                           = 57,
+    IS_CHAT                           = 58,
+    IS_NAME_OR_PHONENUMBER            = 59,
+    IS_EMAILNAME_OR_ADDRESS           = 60,
+    IS_PRIVATE                        = 61,
+    IS_MAPS                           = 62,
+    IS_NUMERIC_PASSWORD               = 63,
+    IS_NUMERIC_PIN                    = 64,
+    IS_ALPHANUMERIC_PIN               = 65,
+    IS_ALPHANUMERIC_PIN_SET           = 66,
+    IS_FORMULA_NUMBER                 = 67,
+    IS_CHAT_WITHOUT_EMOJI             = 68,
+
+    // special input scopes for ITfInputScope
+    IS_PHRASELIST                     = -1,
+    IS_REGULAREXPRESSION              = -2,
+    IS_SRGS                           = -3,
+    IS_XML                            = -4,
+    IS_ENUMSTRING                     = -5,
+} InputScope;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+cpp_quote("#pragma endregion")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#pragma region Desktop Family")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// MSCTF entry
+//
+cpp_quote("HRESULT WINAPI SetInputScope(HWND hwnd, InputScope inputscope);")
+cpp_quote("HRESULT WINAPI SetInputScopes(HWND hwnd, const InputScope *pInputScopes, UINT cInputScopes, _In_reads_(cPhrases) PWSTR *ppszPhraseList, UINT cPhrases, _In_opt_ PWSTR pszRegExp, _In_opt_ PWSTR pszSRGS);")
+cpp_quote("HRESULT WINAPI SetInputScopeXML(HWND hwnd, _In_opt_ PWSTR pszXML);")
+cpp_quote("HRESULT WINAPI SetInputScopes2(HWND hwnd, const InputScope *pInputScopes, UINT cInputScopes, IEnumString *pEnumString, _In_opt_ PWSTR pszRegExp, _In_opt_ PWSTR pszSRGS);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+cpp_quote("#pragma endregion")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#pragma region Application Family")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("DEFINE_GUID(IID_ITfInputScope, 0xfde1eaee, 0x6924, 0x4cdf, 0x91, 0xe7, 0xda, 0x38, 0xcf, 0xf5, 0x55, 0x9d);")
+cpp_quote("DEFINE_GUID(IID_ITfInputScope2, 0x5731eaa0, 0x6bc2, 0x4681, 0xa5, 0x32, 0x92, 0xfb, 0xb7, 0x4d, 0x7c, 0x41);")
+cpp_quote("DEFINE_GUID(GUID_PROP_INPUTSCOPE, 0x1713dd5a, 0x68e7, 0x4a5b, 0x9a, 0xf6, 0x59, 0x2a, 0x59, 0x5c, 0x77, 0x8d);")
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("}")
+cpp_quote("#endif  /* __cplusplus */")
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+//
+// ITfInputScope
+//
+[
+  object,
+  uuid(fde1eaee-6924-4cdf-91e7-da38cff5559d),
+  pointer_default(unique)
+]
+interface ITfInputScope : IUnknown
+{
+    HRESULT GetInputScopes([out, size_is(, *pcCount)] InputScope **pprgInputScopes,
+                           [out] UINT *pcCount);
+
+    HRESULT GetPhrase([out, size_is(, *pcCount)] BSTR **ppbstrPhrases,
+                      [out] UINT *pcCount);
+
+    HRESULT GetRegularExpression([out] BSTR *pbstrRegExp);
+
+    HRESULT GetSRGS([out] BSTR *pbstrSRGS);
+
+    HRESULT GetXML([out] BSTR *pbstrXML);
+};
+
+//
+// ITfInputScope2
+//
+[
+  object,
+  uuid(5731eaa0-6bc2-4681-a532-92fbb74d7c41),
+  pointer_default(unique)
+]
+interface ITfInputScope2 : ITfInputScope
+{
+    HRESULT EnumWordList([out] IEnumString **ppEnumString);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // INPUTSCOPE_DEFINED")

@@ -1,0 +1,133 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			dbinfo.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments:
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+	REMOTED_INTERFACE(0c733a89-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IDBInfo : IUnknown {
+
+typedef	DWORD DBLITERAL;
+
+enum DBLITERALENUM {
+	DBLITERAL_INVALID				=0,
+	DBLITERAL_BINARY_LITERAL		=1,
+	DBLITERAL_CATALOG_NAME			=2,
+	DBLITERAL_CATALOG_SEPARATOR		=3,
+	DBLITERAL_CHAR_LITERAL			=4,
+	DBLITERAL_COLUMN_ALIAS			=5,
+	DBLITERAL_COLUMN_NAME			=6,
+	DBLITERAL_CORRELATION_NAME		=7,
+	DBLITERAL_CURSOR_NAME			=8,
+	DBLITERAL_ESCAPE_PERCENT		=9,
+	DBLITERAL_ESCAPE_UNDERSCORE		=10,
+	DBLITERAL_INDEX_NAME			=11,
+	DBLITERAL_LIKE_PERCENT			=12,
+	DBLITERAL_LIKE_UNDERSCORE		=13,
+	DBLITERAL_PROCEDURE_NAME		=14,
+	DBLITERAL_QUOTE					=15,
+	DBLITERAL_SCHEMA_NAME			=16,
+	DBLITERAL_TABLE_NAME			=17,
+	DBLITERAL_TEXT_COMMAND			=18,
+	DBLITERAL_USER_NAME				=19,
+	DBLITERAL_VIEW_NAME				=20,
+};
+
+cpp_quote("//@@@+ V2.0")
+cpp_quote("#if( OLEDBVER >= 0x0200 )")
+cpp_quote("#define DBLITERAL_QUOTE_PREFIX DBLITERAL_QUOTE")
+enum DBLITERALENUM20 {
+	DBLITERAL_CUBE_NAME				=21,
+	DBLITERAL_DIMENSION_NAME		=22,
+	DBLITERAL_HIERARCHY_NAME		=23,
+	DBLITERAL_LEVEL_NAME			=24,
+	DBLITERAL_MEMBER_NAME			=25,
+	DBLITERAL_PROPERTY_NAME			=26,
+	DBLITERAL_SCHEMA_SEPARATOR		=27,
+	DBLITERAL_QUOTE_SUFFIX			=28,
+
+};
+cpp_quote("#endif // OLEDBVER >= 0x0200")
+cpp_quote("//@@@- V2.0")
+
+cpp_quote("//@@@+ V2.1")
+cpp_quote("#if( OLEDBVER >= 0x0210 )")
+cpp_quote("#define DBLITERAL_ESCAPE_PERCENT_PREFIX DBLITERAL_ESCAPE_PERCENT")
+cpp_quote("#define DBLITERAL_ESCAPE_UNDERSCORE_PREFIX DBLITERAL_ESCAPE_UNDERSCORE")
+enum DBLITERALENUM21 {
+	DBLITERAL_ESCAPE_PERCENT_SUFFIX		= 29,
+	DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX	=30,
+};
+cpp_quote("#endif // OLEDBVER >= 0x0210")
+cpp_quote("//@@@- V2.1")
+
+
+
+typedef	struct tagDBLITERALINFO	{
+	LPOLESTR pwszLiteralValue;
+	LPOLESTR pwszInvalidChars;
+	LPOLESTR pwszInvalidStartingChars;
+	DBLITERAL lt;
+	BOOL fSupported;
+	ULONG cchMaxLen;
+} DBLITERALINFO;
+
+	[local]
+	HRESULT	GetKeywords(
+		[out, annotation("_Outptr_")] LPOLESTR * ppwszKeywords
+	);
+
+	[call_as(GetKeywords)]
+	HRESULT RemoteGetKeywords(
+		[in, out, unique] LPOLESTR * ppwszKeywords,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+	[local]
+	HRESULT	GetLiteralInfo(
+		[in] ULONG cLiterals,
+		[in, size_is(cLiterals), annotation("_In_reads_opt_(cLiterals)")] const DBLITERAL rgLiterals[],
+		[in, out,annotation("_Out_")] ULONG	* pcLiteralInfo,
+		[out, size_is(,*pcLiteralInfo), annotation("_Outptr_result_buffer_(*pcLiteralInfo)")] DBLITERALINFO ** prgLiteralInfo,
+		[out, annotation("_Outptr_result_z_")] OLECHAR ** ppCharBuffer
+	);
+
+	[call_as(GetLiteralInfo)]
+	HRESULT	RemoteGetLiteralInfo(
+		[in] ULONG cLiterals,
+		[in, unique, size_is(cLiterals)] const DBLITERAL *rgLiterals,
+		[in, out] ULONG	* pcLiteralInfo,
+		[out, size_is(,*pcLiteralInfo)] DBLITERALINFO ** prgLiteralInfo,
+		[out, size_is(,*pcLiteralInfo)] DB_UPARAMS ** prgLVOffsets,
+		[out, size_is(,*pcLiteralInfo)] DB_UPARAMS ** prgICOffsets,
+		[out, size_is(,*pcLiteralInfo)] DB_UPARAMS ** prgISCOffsets,
+		[in, out] ULONG * pcbCharBuffer,
+		[in, out, unique, size_is(,*pcbCharBuffer)] OLECHAR ** ppCharBuffer,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

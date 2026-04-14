@@ -1,0 +1,50 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+import "oaidl.idl";
+import "shtypes.idl";
+import "shobjidl_core.idl";
+
+typedef[v1_enum] enum ThumbnailStreamCacheOptions
+{
+    ExtractIfNotCached = 0x00000000,    
+    ReturnOnlyIfCached = 0x00000001,    
+    ResizeThumbnail    = 0x00000002,    // resize to match the requested size
+    AllowSmallerSize   = 0x00000004,    // can return a cached thumbnail that is smaller than the requested size.
+} ThumbnailStreamCacheOptions;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(ThumbnailStreamCacheOptions)")
+
+[
+    object,
+    uuid(90E11430-9569-41D8-AE75-6D4D2AE7CCA0),
+]
+interface IThumbnailStreamCache : IUnknown
+{
+    HRESULT GetThumbnailStream(
+        [in] LPCWSTR path,
+        [in] ULONGLONG cacheId,
+        [in] ThumbnailStreamCacheOptions options,
+        [in] UINT requestedThumbnailSize,
+        [out] SIZE* thumbnailSize,
+        [out] IStream** thumbnailStream);
+
+    HRESULT SetThumbnailStream(
+        [in] LPCWSTR path,
+        [in] ULONGLONG cacheId,
+        [in] SIZE thumbnailSize,
+        [in] IStream* thumbnailStream);
+}
+
+
+[uuid(9D49A788-67A0-4E64-A49F-C092298FCAAE)]
+library ThumbnailStreamCacheLib
+{
+    // Thumbnail Stream Cache
+    [uuid(CBE0FED3-4B91-4E90-8354-8A8C84EC6872)] coclass ThumbnailStreamCache { interface IThumbnailStreamCache; }
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

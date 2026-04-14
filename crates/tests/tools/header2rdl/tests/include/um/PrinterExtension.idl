@@ -1,0 +1,1267 @@
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+
+#define DO_NO_IMPORTS
+import "oaidl.idl";
+
+#include "PrinterExtensionDispId.h"
+
+#define PRINTSCHEMA_KEYWORDS_NAMESPACE_URI  "http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords"
+cpp_quote("#define PRINTSCHEMA_KEYWORDS_NAMESPACE_URI  \"http://schemas.microsoft.com/windows/2003/08/printing/printschemakeywords\"")
+
+#define PRINTSCHEMA_KEYWORDSV11_NAMESPACE_URI  "http://schemas.microsoft.com/windows/2013/05/printing/printschemakeywordsv11"
+cpp_quote("#define PRINTSCHEMA_KEYWORDSV11_NAMESPACE_URI  L\"http://schemas.microsoft.com/windows/2013/05/printing/printschemakeywordsv11\"")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    object,
+    uuid(724c1646-e64b-4bbf-8eb4-d45e4fd580da),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaElement : IDispatch
+{
+    [ propget, id(DISPID_PRINTSCHEMA_ELEMENT_XMLNODE) ]
+    HRESULT XmlNode(
+        [out, retval]   IUnknown **  ppXmlNode
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_ELEMENT_NAME) ]
+    HRESULT Name(
+        [out, retval]   BSTR *          pbstrName
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_ELEMENT_NAMESPACEURI) ]
+    HRESULT NamespaceUri(
+        [out, retval]   BSTR *          pbstrNamespaceUri
+        );
+}
+
+[
+    object,
+    uuid(af45af49-d6aa-407d-bf87-3912236e9d94),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaDisplayableElement : IPrintSchemaElement
+{
+    [ propget, id(DISPID_PRINTSCHEMA_DISPLAYABLEELEMENT_DISPLAYNAME) ]
+    HRESULT DisplayName(
+        [out, retval]   BSTR *  pbstrDisplayName
+        );
+}
+
+typedef [v1_enum] enum tagPrintSchemaConstrainedSetting
+{
+    PrintSchemaConstrainedSetting_None,
+    PrintSchemaConstrainedSetting_PrintTicket,
+    PrintSchemaConstrainedSetting_Admin,
+    PrintSchemaConstrainedSetting_Device,
+} PrintSchemaConstrainedSetting;
+
+[
+    object,
+    uuid(66bb2f51-5844-4997-8d70-4b7cc221cf92),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaOption : IPrintSchemaDisplayableElement
+{
+    [ propget, id(DISPID_PRINTSCHEMA_OPTION_SELECTED) ]
+    HRESULT Selected(
+        [out, retval]   BOOL *          pbIsSelected
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_OPTION_CONSTRAINED) ]
+    HRESULT Constrained(
+        [out, retval]   PrintSchemaConstrainedSetting *  pSetting
+        );
+
+    [ id(DISPID_PRINTSCHEMA_OPTION_GETPROPERTYVALUE) ]
+    HRESULT GetPropertyValue(
+        [in]            BSTR            bstrName,
+        [in, defaultvalue(PRINTSCHEMA_KEYWORDS_NAMESPACE_URI)]
+                        BSTR            bstrNamespaceUri,
+        [out, retval]   IUnknown **  ppXmlValueNode
+        );
+}
+
+[
+    object,
+    uuid(68746729-f493-4830-a10f-69028774605d),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaPageMediaSizeOption : IPrintSchemaOption
+{
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEMEDIASIZEOPTION_WIDTH) ]
+    HRESULT WidthInMicrons(
+        [out, retval]   ULONG * pulWidth
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEMEDIASIZEOPTION_HEIGHT) ]
+    HRESULT HeightInMicrons(
+        [out, retval]   ULONG * pulHeight
+        );
+}
+
+[
+    object,
+    uuid(1f6342f2-d848-42e3-8995-c10a9ef9a3ba),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaNUpOption : IPrintSchemaOption
+{
+    [ propget, id(DISPID_PRINTSCHEMA_NUPOPTION_PAGESPERSHEET) ]
+    HRESULT PagesPerSheet(
+        [out, retval]   ULONG * pulPagesPerSheet
+        );
+}
+
+typedef [v1_enum] enum tagPrintSchemaSelectionType
+{
+    PrintSchemaSelectionType_PickOne,
+    PrintSchemaSelectionType_PickMany,
+} PrintSchemaSelectionType;
+
+[
+    object,
+    uuid(baecb0bd-a946-4771-bc30-e8b24f8d45c1),
+    dual,
+    nonextensible,
+    pointer_default(unique),
+    custom(B64784EB-D8D4-4d9b-9ACD-0E30806426F7, "")
+]
+interface IPrintSchemaOptionCollection  : IDispatch
+{
+    [ propget, id(DISPID_PRINTSCHEMA_OPTIONCOLLECTION_COUNT) ]
+    HRESULT Count(
+        [out, retval]  ULONG *                  pulCount
+        );
+
+    [ id(DISPID_PRINTSCHEMA_OPTIONCOLLECTION_GETAT) ]
+    HRESULT GetAt(
+        [in]           ULONG                    ulIndex,
+        [out, retval]  IPrintSchemaOption **    ppOption
+        );
+
+    [ propget, restricted, id(DISPID_NEWENUM) ]
+    HRESULT _NewEnum (
+        [out, retval]   IUnknown **             ppUnk
+        );
+}
+
+[
+    object,
+    uuid(ef189461-5d62-4626-8e57-ff83583c4826),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaFeature : IPrintSchemaDisplayableElement
+{
+    [ propget, id(DISPID_PRINTSCHEMA_FEATURE_SELECTEDOPTION) ]
+    HRESULT SelectedOption(
+        [out, retval]   IPrintSchemaOption **   ppOption
+        );
+
+    [ propput, id(DISPID_PRINTSCHEMA_FEATURE_SELECTEDOPTION) ]
+    HRESULT SelectedOption(
+        [in]    IPrintSchemaOption *            pOption
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_FEATURE_SELECTIONTYPE) ]
+    HRESULT SelectionType(
+        [out, retval]   PrintSchemaSelectionType *  pSelectionType
+        );
+
+    [ id(DISPID_PRINTSCHEMA_FEATURE_GETOPTION) ]
+    HRESULT GetOption(
+        [in]            BSTR                    bstrName,
+        [in, defaultvalue(PRINTSCHEMA_KEYWORDS_NAMESPACE_URI)]
+                        BSTR                    bstrNamespaceUri,
+        [out, retval]   IPrintSchemaOption **   ppOption
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_FEATURE_DISPLAYUI) ]
+    HRESULT DisplayUI(
+        [out, retval]   BOOL *  pbShow
+        );
+}
+
+[
+    object,
+    uuid(7c85bf5e-dc7c-4f61-839b-4107e1c9b68e),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaPageImageableSize : IPrintSchemaElement
+{
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_IMAGEABLE_WIDTH) ]
+    HRESULT ImageableSizeWidthInMicrons(
+        [out, retval]   ULONG *  pulImageableSizeWidth
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_IMAGEABLE_HEIGHT) ]
+    HRESULT ImageableSizeHeightInMicrons(
+        [out, retval]   ULONG *  pulImageableSizeHeight
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_ORIGIN_WIDTH) ]
+    HRESULT OriginWidthInMicrons(
+        [out, retval]   ULONG *  pulOriginWidth
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_ORIGIN_HEIGHT) ]
+    HRESULT OriginHeightInMicrons(
+        [out, retval]   ULONG *  pulOriginHeight
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_EXTENT_WIDTH) ]
+    HRESULT ExtentWidthInMicrons(
+        [out, retval]   ULONG *  pulExtentWidth
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_EXTENT_HEIGHT) ]
+    HRESULT ExtentHeightInMicrons(
+        [out, retval]   ULONG *  pulExtentHeight
+        );
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+typedef [v1_enum] enum tagPrintSchemaParameterDataType
+{
+    PrintSchemaParameterDataType_Integer,
+    PrintSchemaParameterDataType_NumericString,
+    PrintSchemaParameterDataType_String,
+} PrintSchemaParameterDataType;
+
+[
+    object,
+    uuid(b5ade81e-0e61-4fe1-81c6-c333e4ffe0f1),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaParameterDefinition : IPrintSchemaDisplayableElement
+{
+    [ propget, id(DISPID_PRINTSCHEMA_PARAMETERDEFINITION_USERINPUTREQUIRED) ]
+    HRESULT UserInputRequired(
+        [out, retval]   BOOL *          pbIsRequired
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PARAMETERDEFINITION_UNITTYPE) ]
+    HRESULT UnitType(
+        [out, retval]   BSTR *          pbstrUnitType
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PARAMETERDEFINITION_DATATYPE) ]
+    HRESULT DataType(
+        [out, retval]   PrintSchemaParameterDataType *  pDataType
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PARAMETERDEFINITION_RANGEMIN) ]
+    HRESULT RangeMin(
+        [out, retval]   INT *  pRangeMin
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_PARAMETERDEFINITION_RANGEMAX) ]
+    HRESULT RangeMax(
+        [out, retval]   INT *  pRangeMax
+        );
+}
+
+[
+    object,
+    uuid(52027082-0b74-4648-9564-828cc6cb656c),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaParameterInitializer : IPrintSchemaElement
+{
+    [ propget, id(DISPID_PRINTSCHEMA_PARAMETERINITIALIZER_VALUE) ]
+    HRESULT Value(
+        [out, retval]   VARIANT     *pVar
+        );
+
+    [ propput, id(DISPID_PRINTSCHEMA_PARAMETERINITIALIZER_VALUE) ]
+    HRESULT Value(
+        [in]            VARIANT     *pVar
+        );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(5a577640-501d-4927-bcd0-5ef57a7ed175),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaCapabilities : IPrintSchemaElement
+{
+    [ id(DISPID_PRINTSCHEMA_CAPABILITIES_GETFEATURE_KEYNAME) ]
+    HRESULT GetFeatureByKeyName(
+        [in]           BSTR                    bstrKeyName,
+        [out, retval]  IPrintSchemaFeature **  ppFeature
+        );
+
+    [ id(DISPID_PRINTSCHEMA_CAPABILITIES_GETFEATURE) ]
+    HRESULT GetFeature(
+        [in]           BSTR                             bstrName,
+        [in, defaultvalue(PRINTSCHEMA_KEYWORDS_NAMESPACE_URI)]
+                       BSTR                             bstrNamespaceUri,
+        [out, retval]  IPrintSchemaFeature **           ppFeature
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_CAPABILITIES_PAGEIMAGEABLESIZE) ]
+    HRESULT PageImageableSize(
+        [out, retval]   IPrintSchemaPageImageableSize ** ppPageImageableSize
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_CAPABILITIES_JOBCOPIESMINVALUE) ]
+    HRESULT JobCopiesAllDocumentsMinValue(
+        [out, retval]   ULONG *                         pulJobCopiesAllDocumentsMinValue
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_CAPABILITIES_JOBCOPIESMAXVALUE) ]
+    HRESULT JobCopiesAllDocumentsMaxValue(
+        [out, retval]   ULONG *                         pulJobCopiesAllDocumentsMaxValue
+        );
+
+    [ id(DISPID_PRINTSCHEMA_CAPABILITIES_GETSELECTEDOPTION) ]
+    HRESULT GetSelectedOptionInPrintTicket(
+        [in]           IPrintSchemaFeature *            pFeature,
+        [out, retval]  IPrintSchemaOption  **           ppOption
+        );
+
+    [ id(DISPID_PRINTSCHEMA_CAPABILITIES_GETOPTIONS) ]
+    HRESULT GetOptions(
+        [in]           IPrintSchemaFeature *            pFeature,
+        [out, retval]  IPrintSchemaOptionCollection **  ppOptionCollection
+        );
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(b58845f4-9970-4d87-a636-169fb82ed642),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaCapabilities2 : IPrintSchemaCapabilities
+{
+    [ id(DISPID_PRINTSCHEMA_CAPABILITIES_GETPARAMETERDEFINITION) ]
+    HRESULT GetParameterDefinition(
+        [in]            BSTR                    bstrName,
+        [in, defaultvalue(PRINTSCHEMA_KEYWORDS_NAMESPACE_URI)]
+                        BSTR                    bstrNamespaceUri,
+        [out, retval]   IPrintSchemaParameterDefinition **  ppParameterDefinition
+        );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(143c8dcb-d37f-47f7-88e8-6b1d21f2c5f7),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaAsyncOperation : IDispatch
+{
+    [ id(DISPID_PRINTSCHEMA_ASYNCOPERATION_START) ]
+    HRESULT Start();
+
+    [ id(DISPID_PRINTSCHEMA_ASYNCOPERATION_CANCEL) ]
+    HRESULT Cancel();
+}
+
+[
+    object,
+    uuid(e480b861-4708-4e6d-a5b4-a2b4eeb9baa4),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaTicket : IPrintSchemaElement
+{
+    [ id(DISPID_PRINTSCHEMA_TICKET_GETFEATURE_KEYNAME) ]
+    HRESULT GetFeatureByKeyName(
+        [in]           BSTR                     bstrKeyName,
+        [out, retval]  IPrintSchemaFeature **   ppFeature
+        );
+
+    [ id(DISPID_PRINTSCHEMA_TICKET_GETFEATURE) ]
+    HRESULT GetFeature(
+        [in]            BSTR                    bstrName,
+        [in, defaultvalue(PRINTSCHEMA_KEYWORDS_NAMESPACE_URI)]
+                        BSTR                    bstrNamespaceUri,
+        [out, retval]   IPrintSchemaFeature **  ppFeature
+        );
+
+    [ id(DISPID_PRINTSCHEMA_TICKET_VALIDATEASYNC) ]
+    HRESULT ValidateAsync(
+        [out]   IPrintSchemaAsyncOperation **   ppAsyncOperation
+        );
+
+
+    [ id(DISPID_PRINTSCHEMA_TICKET_COMMITASYNC) ]
+    HRESULT CommitAsync(
+        [in]    IPrintSchemaTicket *            pPrintTicketCommit,
+        [out]   IPrintSchemaAsyncOperation **   ppAsyncOperation
+        );
+
+    [ id(DISPID_PRINTSCHEMA_TICKET_NOTIFYXMLCHANGED) ]
+    HRESULT NotifyXmlChanged();
+
+    [ id(DISPID_PRINTSCHEMA_TICKET_GETCAPABILITIES) ]
+    HRESULT GetCapabilities(
+        [out, retval]   IPrintSchemaCapabilities **  ppCapabilities
+        );
+
+    [ propget, id(DISPID_PRINTSCHEMA_TICKET_JOBCOPIESALLDOCUMENTS) ]
+    HRESULT JobCopiesAllDocuments(
+        [out, retval]   ULONG *                 pulJobCopiesAllDocuments
+        );
+
+    [ propput, id(DISPID_PRINTSCHEMA_TICKET_JOBCOPIESALLDOCUMENTS) ]
+    HRESULT JobCopiesAllDocuments(
+        [in]    ULONG                           ulJobCopiesAllDocuments
+        );
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(2ec1f844-766a-47a1-91f4-2eeb6190f80c),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaTicket2 : IPrintSchemaTicket
+{
+    [ id(DISPID_PRINTSCHEMA_TICKET_GETPARAMETERINITIALIZER) ]
+    HRESULT GetParameterInitializer(
+        [in]            BSTR                    bstrName,
+        [in, defaultvalue(PRINTSCHEMA_KEYWORDS_NAMESPACE_URI)]
+                        BSTR                    bstrNamespaceUri,
+        [out, retval]   IPrintSchemaParameterInitializer **  ppParameterInitializer
+        );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(23adbb16-0133-4906-b29a-1dce1d026379),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintSchemaAsyncOperationEvent : IDispatch
+{
+    [ id(DISPID_PRINTSCHEMA_ASYNCOPERATIONEVENT_COMPLETED) ]
+    HRESULT Completed(
+        [in] IPrintSchemaTicket *  pTicket,
+        [in] HRESULT               hrOperation
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(2072838a-316f-467a-a949-27f68c44a854),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterScriptableSequentialStream : IDispatch
+{
+    [ id(DISPID_PRINTERSCRIPTABLESEQUENTIALSTREAM_READ) ]
+    HRESULT Read(
+        [in]            LONG          cbRead,
+        [out, retval]   IDispatch **  ppArray
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLESEQUENTIALSTREAM_WRITE) ]
+    HRESULT Write(
+        [in]            IDispatch *   pArray,
+        [out, retval]   LONG *        pcbWritten
+        );
+}
+
+[
+    object,
+    uuid(7edf9a92-4750-41a5-a17f-879a6f4f7dcb),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterScriptableStream : IPrinterScriptableSequentialStream
+{
+    [ id(DISPID_PRINTERSCRIPTABLESTREAM_COMMIT) ]
+    HRESULT Commit();
+
+    [ id(DISPID_PRINTERSCRIPTABLESTREAM_SEEK) ]
+    HRESULT Seek(
+        [in]            LONG         lOffset,
+        [in]            STREAM_SEEK  streamSeek,
+        [out, retval]   LONG *       plPosition
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLESTREAM_SETSIZE) ]
+    HRESULT SetSize(
+        [in]            LONG         lSize
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    object,
+    uuid(fea77364-df95-4a23-a905-019b79a8e481),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterPropertyBag : IDispatch
+{
+    [ id(DISPID_PRINTERPROPERTYBAG_GETBOOL) ]
+    HRESULT GetBool(
+        [in]            BSTR        bstrName,
+        [out, retval]   BOOL *      pbValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_SETBOOL) ]
+    HRESULT SetBool(
+        [in]            BSTR        bstrName,
+        [in]            BOOL        bValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_GETINT32) ]
+    HRESULT GetInt32(
+        [in]            BSTR        bstrName,
+        [out, retval]   LONG *      pnValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_SETINT32) ]
+    HRESULT SetInt32(
+        [in]            BSTR        bstrName,
+        [in]            LONG        nValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_GETSTRING) ]
+    HRESULT GetString(
+        [in]            BSTR        bstrName,
+        [out, retval]   BSTR *      pbstrValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_SETSTRING) ]
+    HRESULT SetString(
+        [in]            BSTR        bstrName,
+        [in]            BSTR        bstrValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_GETBYTES) ]
+    HRESULT GetBytes(
+        [in]        BSTR            bstrName,
+        [out]       DWORD *         pcbValue,
+        [out, size_is(,*pcbValue)]
+                    BYTE **         ppValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_SETBYTES) ]
+    HRESULT SetBytes(
+        [in]        BSTR            bstrName,
+        [in]        DWORD           cbValue,
+        [in, size_is(cbValue)]
+                    BYTE *          pValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_GETREADSTREAM) ]
+    HRESULT GetReadStream(
+        [in]             BSTR       bstrName,
+        [out, retval]    IStream ** ppValue
+        );
+
+    [ id(DISPID_PRINTERPROPERTYBAG_GETWRITESTREAM) ]
+    HRESULT GetWriteStream(
+        [in]             BSTR       bstrName,
+        [out, retval]    IStream ** ppValue
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(91c7765f-ed57-49ad-8b01-dc24816a5294),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterScriptablePropertyBag : IDispatch
+{
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETBOOL) ]
+    HRESULT GetBool(
+        [in]            BSTR            bstrName,
+        [out, retval]   BOOL *          pbValue
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETBOOL) ]
+    HRESULT SetBool(
+        [in]            BSTR            bstrName,
+        [in]            BOOL            bValue
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETINT32) ]
+    HRESULT GetInt32(
+        [in]            BSTR            bstrName,
+        [out, retval]   LONG *          pnValue
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETINT32) ]
+    HRESULT SetInt32(
+        [in]            BSTR            bstrName,
+        [in]            LONG            nValue
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETSTRING) ]
+    HRESULT GetString(
+        [in]            BSTR            bstrName,
+        [out, retval]   BSTR *          pbstrValue
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETSTRING) ]
+    HRESULT SetString(
+        [in]            BSTR            bstrName,
+        [in]            BSTR            bstrValue
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETBYTES) ]
+    HRESULT GetBytes(
+        [in]            BSTR            bstrName,
+        [out, retval]   IDispatch **    ppArray
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETBYTES) ]
+    HRESULT SetBytes(
+        [in]            BSTR            bstrName,
+        [in]            IDispatch *     pArray
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETREADSTREAM) ]
+    HRESULT GetReadStream(
+        [in]            BSTR                        bstrName,
+        [out, retval]   IPrinterScriptableStream ** ppStream
+        );
+
+    [ id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETWRITESTREAM) ]
+    HRESULT GetWriteStream(
+        [in]            BSTR                        bstrName,
+        [out, retval]   IPrinterScriptableStream ** ppStream
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+[
+    object,
+    uuid(2A1C53C4-8638-4B3E-B518-2773C94556A3),
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterScriptablePropertyBag2 : IPrinterScriptablePropertyBag
+{
+    [id(DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETSTREAMASXML)]
+    HRESULT GetReadStreamAsXML(
+        [in]                         BSTR            bstrName,
+        [out, retval]   IUnknown **  ppXmlNode
+        );
+}
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WINTHRESHOLD) */")
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+[
+    object,
+    uuid(3580a828-07fe-4b94-ac1a-757d9d2d3056),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterQueue : IDispatch
+{
+    [ propget, id(DISPID_PRINTERQUEUE_HANDLE) ]
+    HRESULT Handle(
+        [out, retval]   HANDLE *                phPrinter
+        );
+
+    [ propget, id(DISPID_PRINTERQUEUE_NAME) ]
+    HRESULT Name(
+        [out, retval]   BSTR *                  pbstrName
+        );
+
+    [ id(DISPID_PRINTERQUEUE_SENDBIDIQUERY) ]
+    HRESULT SendBidiQuery (
+        [in]            BSTR                    bstrBidiQuery
+        );
+
+    [ id(DISPID_PRINTERQUEUE_GETPROPERTIES) ]
+    HRESULT GetProperties(
+        [out, retval]   IPrinterPropertyBag **  ppPropertyBag
+        );
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+typedef [v1_enum] enum tagPrintJobStatus
+{
+    PrintJobStatus_Paused               = 0x1,
+    PrintJobStatus_Error                = 0x2,
+    PrintJobStatus_Deleting             = 0x4,
+    PrintJobStatus_Spooling             = 0x8,
+    PrintJobStatus_Printing             = 0x10,
+    PrintJobStatus_Offline              = 0x20,
+    PrintJobStatus_PaperOut             = 0x40,
+    PrintJobStatus_Printed              = 0x80,
+    PrintJobStatus_Deleted              = 0x100,
+    PrintJobStatus_BlockedDeviceQueue   = 0x200,
+    PrintJobStatus_UserIntervention     = 0x400,
+    PrintJobStatus_Restarted            = 0x800,
+    PrintJobStatus_Complete             = 0x1000,
+    PrintJobStatus_Retained             = 0x2000,
+} PrintJobStatus;
+
+
+[
+    object,
+    uuid(b771dab8-1282-41b7-858c-f206e4d20577),
+    local,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintJob : IUnknown
+{
+    [ propget ]
+    HRESULT Name(
+        [out, retval]    BSTR *      pbstrName
+        );
+
+    [ propget ]
+    HRESULT Id(
+        [out, retval]    ULONG *      pulID
+        );
+
+    [ propget ]
+    HRESULT PrintedPages(
+        [out, retval]    ULONG *      pulPages
+        );
+
+    [ propget ]
+    HRESULT TotalPages(
+        [out, retval]    ULONG *      pulPages
+        );
+
+    [ propget ]
+    HRESULT Status(
+       [out, retval]    PrintJobStatus *    pStatus
+       );
+
+    [ propget ]
+    HRESULT SubmissionTime(
+        [out, retval]   DATE *       pSubmissionTime
+        );
+
+    HRESULT RequestCancel();
+}
+
+[
+    object,
+    uuid(72b82a24-a598-4e87-895f-cdb23a49e9dc),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrintJobCollection : IDispatch
+{
+    [ propget, id(DISPID_PRINTJOBCOLLECTION_COUNT) ]
+    HRESULT Count(
+        [out, retval]  ULONG *                  pulCount
+        );
+
+    [ id(DISPID_PRINTJOBCOLLECTION_GETAT) ]
+    HRESULT GetAt(
+        [in]           ULONG                    ulIndex,
+        [out, retval]  IPrintJob **             ppJob
+        );
+
+    [ propget, restricted, id(DISPID_NEWENUM) ]
+    HRESULT _NewEnum (
+        [out, retval]   IUnknown **             ppUnk
+        );
+}
+
+[
+    object,
+    uuid(c5b6042b-fd21-404a-a0ef-e2fbb52b9080),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterQueueViewEvent : IDispatch
+{
+    [ id(DISPID_PRINTERQUEUEVIEW_EVENT_ONCHANGED) ]
+    HRESULT OnChanged(
+        [in] IPrintJobCollection *      pCollection,
+        [in] ULONG  ulViewOffset,
+        [in] ULONG  ulViewSize,
+        [in] ULONG  ulCountJobsInPrintQueue
+    );
+}
+
+[
+    object,
+    uuid(476e2969-3b2b-4b3f-8277-cff6056042aa),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterQueueView : IDispatch
+{
+    [ id(DISPID_PRINTERQUEUEVIEW_SETVIEWRANGE) ]
+    HRESULT SetViewRange(
+        [in] ULONG ulViewOffset,
+        [in] ULONG ulViewSize
+    );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(214685F6-7B78-4681-87E0-495F739273D1),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterQueueEvent : IDispatch
+{
+    [ id(DISPID_PRINTERQUEUEEVENT_ONBIDIRESPONSERECEIVED) ]
+    HRESULT OnBidiResponseReceived(
+        [in]    BSTR    bstrResponse,
+        [in]    HRESULT hrStatus
+        );
+}
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(c52d32dd-f2b4-4052-8502-ec4305ecb71f),
+    local,
+    oleautomation,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterBidiSetRequestCallback : IUnknown
+{
+    HRESULT Completed(
+        [in] BSTR    bstrResponse,
+        [in] HRESULT hrStatus
+        );
+}
+
+[
+    object,
+    uuid(108d6a23-6a4b-4552-9448-68b427186acd),
+    local,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterExtensionAsyncOperation : IUnknown
+{
+    HRESULT Cancel();
+}
+
+[
+    object,
+    uuid(8cd444e8-c9bb-49b3-8e38-e03209416131),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterQueue2 : IPrinterQueue
+{
+    [ id(DISPID_PRINTERQUEUE_SENDBIDISETREQUESTASYNC)]
+    HRESULT SendBidiSetRequestAsync(
+        [in] BSTR bstrBidiRequest,
+        [in] IPrinterBidiSetRequestCallback * pCallback,
+        [out, retval] IPrinterExtensionAsyncOperation ** ppAsyncOperation
+        );
+
+    [ id(DISPID_PRINTERQUEUE_GETPRINTERQUEUEVIEW) ]
+    HRESULT GetPrinterQueueView(
+        [in] ULONG ulViewOffset,
+        [in] ULONG ulViewSize,
+        [out, retval] IPrinterQueueView  ** ppJobView
+        );
+}
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINBLUE)")
+
+[
+    object,
+    uuid(39843bf2-c4d2-41fd-b4b2-aedbee5e1900),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique)
+]
+interface IPrinterExtensionContext: IDispatch
+{
+    [ propget, id(DISPID_PRINTEREXTENSION_CONTEXT_PRINTERQUEUE) ]
+    HRESULT PrinterQueue (
+        [out, retval]   IPrinterQueue **        ppQueue
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_CONTEXT_PRINTSCHEMATICKET) ]
+    HRESULT PrintSchemaTicket (
+        [out, retval]   IPrintSchemaTicket **   ppTicket
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_CONTEXT_DRIVERPROPERTIES) ]
+    HRESULT DriverProperties(
+        [out, retval]   IPrinterPropertyBag **  ppPropertyBag
+    );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_CONTEXT_USERPROPERTIES) ]
+    HRESULT UserProperties(
+        [out, retval]   IPrinterPropertyBag **  ppPropertyBag
+        );
+};
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    object,
+    uuid(39843bf3-c4d2-41fd-b4b2-aedbee5e1900),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique),
+]
+interface IPrinterExtensionRequest : IDispatch
+{
+    [ id(DISPID_PRINTEREXTENSION_REQUEST_CANCEL) ]
+    HRESULT Cancel(
+        [in]    HRESULT    hrStatus,
+        [in]    BSTR       bstrLogMessage
+        );
+
+    [ id(DISPID_PRINTEREXTENSION_REQUEST_COMPLETE) ]
+    HRESULT Complete();
+};
+
+[
+    object,
+    uuid(39843bf4-c4d2-41fd-b4b2-aedbee5e1900),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(unique),
+]
+interface IPrinterExtensionEventArgs : IPrinterExtensionContext
+{
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_BIDINOTIFICATION) ]
+    HRESULT BidiNotification(
+        [out, retval]   BSTR *                      pbstrBidiNotification
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_REASONID) ]
+    HRESULT ReasonId(
+        [out, retval]   GUID *                      pReasonId
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_REQUEST) ]
+    HRESULT Request(
+        [out, retval]   IPrinterExtensionRequest ** ppRequest
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_SOURCEAPPLICATION) ]
+    HRESULT SourceApplication(
+        [out, retval]   BSTR *                      pbstrApplication
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_DETAILEDREASONID) ]
+    HRESULT DetailedReasonId(
+        [out, retval]   GUID *                      pDetailedReasonId
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_WINDOWMODAL) ]
+    HRESULT WindowModal(
+        [out, retval]   BOOL *                      pbModal
+        );
+
+    [ propget, id(DISPID_PRINTEREXTENSION_EVENTARGS_WINDOWPARENT) ]
+    HRESULT WindowParent  (
+        [out, retval]   HANDLE *                    phwndParent
+        );
+}
+
+[
+    object,
+    uuid(fb476970-9bab-4861-811e-3e98b0c5addf),
+    dual,
+    nonextensible,
+    pointer_default(unique),
+    custom(B64784EB-D8D4-4d9b-9ACD-0E30806426F7, "")
+]
+interface IPrinterExtensionContextCollection  : IDispatch
+{
+    [ propget, id(DISPID_PRINTEREXTENSION_CONTEXTCOLLECTION_COUNT) ]
+    HRESULT Count(
+        [out, retval]   ULONG *                     pulCount
+        );
+
+    [ id(DISPID_PRINTEREXTENSION_CONTEXTCOLLECTION_GETAT) ]
+    HRESULT GetAt(
+        [in]            ULONG                       ulIndex,
+        [out, retval]   IPrinterExtensionContext ** ppContext
+        );
+
+    [ propget, restricted, id(DISPID_NEWENUM) ]
+    HRESULT _NewEnum(
+        [out, retval]   IUnknown **                 ppUnk
+        );
+}
+
+[
+    object,
+    uuid(C093CB63-5EF5-4585-AF8E-4D5637487B57),
+    local,
+    dual,
+    nonextensible,
+    pointer_default(ref)
+]
+interface IPrinterExtensionEvent : IDispatch
+{
+    [ id(DISPID_PRINTEREXTENSION_EVENT_ONDRIVEREVENT) ]
+    HRESULT OnDriverEvent(
+        [in]    IPrinterExtensionEventArgs *            pEventArgs
+        );
+
+    [ id(DISPID_PRINTEREXTENSION_EVENT_ONPRINTERQUEUESENUMERATED) ]
+    HRESULT OnPrinterQueuesEnumerated(
+        [in]    IPrinterExtensionContextCollection *    pContextCollection
+        );
+}
+
+[
+    object,
+    uuid(93C6EB8C-B001-4355-9629-8E8A1B3F8E77),
+    pointer_default(ref)
+]
+interface IPrinterExtensionManager : IUnknown
+{
+    HRESULT EnableEvents(
+        [in]    GUID    printerDriverId
+        );
+
+    HRESULT DisableEvents();
+}
+
+[
+    object,
+    uuid(066ACBCA-8881-49C9-BB98-FAE16B4889E1),
+    dual,
+    nonextensible,
+    pointer_default(ref)
+]
+interface IPrinterScriptContext : IDispatch
+{
+    [ propget, id(DISPID_PRINTERSCRIPTCONTEXT_DRIVERPROPERTIES) ]
+    HRESULT DriverProperties(
+        [out,retval] IPrinterScriptablePropertyBag ** ppPropertyBag
+        );
+
+    [ propget, id(DISPID_PRINTERSCRIPTCONTEXT_QUEUEPROPERTIES) ]
+    HRESULT QueueProperties(
+        [out,retval] IPrinterScriptablePropertyBag ** ppPropertyBag
+        );
+
+    [ propget, id(DISPID_PRINTERSCRIPTCONTEXT_USERPROPERTIES) ]
+    HRESULT UserProperties(
+        [out,retval] IPrinterScriptablePropertyBag ** ppPropertyBag
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+[
+    uuid(91CE54EE-C67C-4B46-A4FF-99416F27A8BF),
+    version(1.0),
+    helpstring("Printer Extension 1.0 Type Library")
+]
+library PrinterExtensionLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface IPrintSchemaElement;
+interface IPrintSchemaDisplayableElement;
+interface IPrintSchemaOption;
+interface IPrintSchemaPageMediaSizeOption;
+interface IPrintSchemaNUpOption;
+interface IPrintSchemaOptionCollection;
+interface IPrintSchemaFeature;
+interface IPrintSchemaPageImageableSize;
+interface IPrintSchemaParameterDefinition;
+interface IPrintSchemaParameterInitializer;
+interface IPrintSchemaTicket;
+interface IPrintSchemaTicket2;
+interface IPrintSchemaCapabilities;
+interface IPrintSchemaCapabilities2;
+interface IPrintSchemaAsyncOperation;
+interface IPrintSchemaAsyncOperationEvent;
+
+interface IPrinterBidiSetRequestCallback;
+interface IPrinterPropertyBag;
+interface IPrinterQueue;
+interface IPrinterQueue2;
+interface IPrinterQueueEvent;
+interface IPrinterQueueView;
+interface IPrinterQueueViewEvent;
+
+interface IPrinterExtensionContext;
+
+[
+    uuid(EB54C230-798C-4C9E-B461-29FAD04039B1),
+    noncreatable
+]
+coclass PrinterQueue
+{
+    [default] dispinterface  IPrinterQueue;
+    dispinterface IPrinterQueue2;
+    [source]  dispinterface  IPrinterQueueEvent;
+};
+
+[
+    uuid(EB54C231-798C-4C9E-B461-29FAD04039B1),
+    noncreatable
+]
+coclass PrinterQueueView
+{
+    [default] dispinterface  IPrinterQueueView;
+    [source]  dispinterface  IPrinterQueueViewEvent;
+};
+
+[
+    uuid(43b2f83d-10f2-48ab-831b-55fdbdbd34a4),
+    noncreatable
+]
+coclass PrintSchemaAsyncOperation
+{
+    [default] dispinterface IPrintSchemaAsyncOperation;
+    [source]  dispinterface IPrintSchemaAsyncOperationEvent;
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IPrinterExtensionAsyncOperation;
+interface IPrinterExtensionContextCollection;
+interface IPrinterExtensionRequest;
+interface IPrinterExtensionEventArgs;
+interface IPrinterExtensionEvent;
+interface IPrinterExtensionManager;
+
+interface IPrinterScriptContext;
+interface IPrinterScriptablePropertyBag;
+interface IPrinterScriptablePropertyBag2;
+interface IPrinterScriptableSequentialStream;
+interface IPrinterScriptableStream;
+
+[
+    uuid(331B60DA-9E90-4DD0-9C84-EAC4E659B61F),
+]
+coclass PrinterExtensionManager
+{
+    [default] interface      IPrinterExtensionManager;
+    [source]  dispinterface  IPrinterExtensionEvent;
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+};  // end library
+
+cpp_quote("DEFINE_GUID(PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS, 0x5d5a1704, 0xdfd1, 0x4181, 0x8e, 0xee, 0x81, 0x5c, 0x86, 0xed, 0xad, 0x31);")
+
+cpp_quote("DEFINE_GUID(PRINTER_EXTENSION_REASON_PRINT_PREFERENCES, 0xec8f261f, 0x267c, 0x469f, 0xb5, 0xd6, 0x39, 0x33, 0x02, 0x3c, 0x29, 0xcc);")
+cpp_quote("DEFINE_GUID(PRINTER_EXTENSION_REASON_DRIVER_EVENT,      0x23bb1328, 0x63de, 0x4293, 0x91, 0x5b, 0xa6, 0xa2, 0x3d, 0x92, 0x9a, 0xcb);")
+cpp_quote("DEFINE_GUID(FMTID_PrinterPropertyBag,                   0x75f9adca, 0x097d, 0x45c3, 0xa6, 0xe4, 0xba, 0xb2, 0x9e, 0x27, 0x6f, 0x3e);")
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")

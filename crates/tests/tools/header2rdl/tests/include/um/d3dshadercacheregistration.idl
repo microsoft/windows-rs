@@ -1,0 +1,195 @@
+/*-------------------------------------------------------------------------------------
+ *
+ * Copyright (c) Microsoft Corporation
+ * Licensed under the MIT license
+ *
+ *-------------------------------------------------------------------------------------*/
+#pragma once
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("DEFINE_GUID(CLSID_D3DShaderCacheInstallerFactory,    0x16195a0b, 0x607c, 0x41f1, 0xbf, 0x03, 0xc7, 0x69, 0x4d, 0x60, 0xa8, 0xd4);")
+
+typedef enum D3D_SHADER_CACHE_APP_REGISTRATION_SCOPE
+{ 
+    D3D_SHADER_CACHE_APP_REGISTRATION_SCOPE_USER, 
+    D3D_SHADER_CACHE_APP_REGISTRATION_SCOPE_SYSTEM
+} D3D_SHADER_CACHE_APP_REGISTRATION_SCOPE;
+
+interface ID3DShaderCacheInstaller;
+
+// This interface is implemented by the game installer
+[uuid(a16ee930-d9f6-4222-a514-244473e5d266), object, local, pointer_default(unique)]
+interface ID3DShaderCacheInstallerClient
+{
+  HRESULT GetInstallerName(
+      [annotation("_Inout_")] SIZE_T* pNameLength,
+      [annotation("_Out_writes_opt_(*pNameLength)")] wchar_t* pName);
+
+  D3D_SHADER_CACHE_APP_REGISTRATION_SCOPE GetInstallerScope();
+
+  HRESULT HandleDriverUpdate(
+      [annotation("_In_")] ID3DShaderCacheInstaller* pInstaller);
+};
+
+typedef struct D3D_SHADER_CACHE_PSDB_PROPERTIES
+{
+    const wchar_t* pAdapterFamily;
+    const wchar_t* pPsdbPath;
+} D3D_SHADER_CACHE_PSDB_PROPERTIES;
+
+[uuid(eed1bf00-f5c7-4cf7-885c-d0f9c0cb4828), object, local, pointer_default(unique)]
+interface ID3DShaderCacheComponent : IUnknown
+{
+    HRESULT GetComponentName(
+        [annotation("_Out_")] const wchar_t** pName);
+
+    HRESULT GetStateObjectDatabasePath(
+        [annotation("_Out_")] const wchar_t** pPath);
+
+    HRESULT GetPrecompiledCachePath(
+        [annotation("_In_")] const wchar_t* pAdapterFamily,
+        [annotation("_Inout_")] const wchar_t** pPath);
+
+    UINT GetPrecompiledShaderDatabaseCount();
+
+    HRESULT GetPrecompiledShaderDatabases(
+        UINT ArraySize,
+        [annotation("_Out_writes_(ArraySize)")] D3D_SHADER_CACHE_PSDB_PROPERTIES * pPSDBs);
+};
+
+typedef enum D3D_SHADER_CACHE_TARGET_FLAGS
+{
+    D3D_SHADER_CACHE_TARGET_FLAG_NONE = 0,
+}D3D_SHADER_CACHE_TARGET_FLAGS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS( D3D_SHADER_CACHE_TARGET_FLAGS )")
+
+typedef union D3D_VERSION_NUMBER
+{
+    UINT64 Version;
+    UINT16 VersionParts[4];
+} D3D_VERSION_NUMBER;
+
+typedef struct D3D_SHADER_CACHE_COMPILER_PROPERTIES
+{
+    wchar_t szAdapterFamily[128];
+    UINT64 MinimumABISupportVersion;
+    UINT64 MaximumABISupportVersion;
+    D3D_VERSION_NUMBER CompilerVersion;
+    D3D_VERSION_NUMBER ApplicationProfileVersion;
+} D3D_SHADER_CACHE_COMPILER_PROPERTIES;
+
+typedef struct D3D_SHADER_CACHE_APPLICATION_DESC
+{
+    const wchar_t* pExeFilename;
+    const wchar_t* pName;
+    D3D_VERSION_NUMBER Version;
+    const wchar_t* pEngineName;
+    D3D_VERSION_NUMBER EngineVersion;
+} D3D_SHADER_CACHE_APPLICATION_DESC;
+
+[uuid(fc688ee2-1b35-4913-93be-1ca3fa7df39e), object, local, pointer_default(unique)]
+interface ID3DShaderCacheApplication : IUnknown
+{
+  HRESULT GetExePath(
+      [annotation("_Out_")] const wchar_t** pExePath);
+
+  HRESULT GetDesc(
+      [annotation("_Out_")] D3D_SHADER_CACHE_APPLICATION_DESC* pApplicationDesc);
+
+  HRESULT RegisterComponent(
+      [annotation("_In_")] const wchar_t* pName,
+      [annotation("_In_")] const wchar_t* pStateObjectDBPath,
+      [annotation("_In_")] UINT NumPSDB,
+      [annotation("_In_reads_(NumPSDB)")] const D3D_SHADER_CACHE_PSDB_PROPERTIES* pPSDBs,
+      [in] REFIID riid,
+      [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvComponent);
+
+  HRESULT RemoveComponent(
+      [annotation("_In_")] ID3DShaderCacheComponent* pComponent);
+
+  UINT GetComponentCount();
+
+  HRESULT GetComponent(
+      [annotation("_In_")] UINT index,
+      [in] REFIID riid,
+      [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvComponent);
+
+  UINT GetPrecompileTargetCount(D3D_SHADER_CACHE_TARGET_FLAGS flags);
+
+  HRESULT GetPrecompileTargets(
+      [annotation("_In_")] UINT ArraySize,
+      [annotation("_In_reads_(ArraySize)")] D3D_SHADER_CACHE_COMPILER_PROPERTIES* pArray,
+      D3D_SHADER_CACHE_TARGET_FLAGS flags);
+
+  HRESULT GetInstallerName(
+      [annotation("_Out_")] const wchar_t** pInstallerName);
+};
+
+typedef struct SC_HANDLE__ *SC_HANDLE;
+[uuid(bbe30de1-6318-4526-ae17-776693191bb4), object, local, pointer_default(unique)]
+interface ID3DShaderCacheInstaller : IUnknown
+{
+  HRESULT RegisterDriverUpdateListener();
+  HRESULT UnregisterDriverUpdateListener();
+
+  HRESULT RegisterServiceDriverUpdateTrigger(SC_HANDLE hServiceHandle);
+  HRESULT UnregisterServiceDriverUpdateTrigger(SC_HANDLE hServiceHandle);
+
+  HRESULT RegisterApplication(
+      [annotation("_In_")] const wchar_t* pExePath,
+      [annotation("_In_")] const D3D_SHADER_CACHE_APPLICATION_DESC* pApplicationDesc,
+      [in] REFIID riid,
+      [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvApp); // Expected: ID3DShaderCacheApplication
+
+  HRESULT RemoveApplication(
+      [annotation("_In_")] ID3DShaderCacheApplication* pApplication); // Expected: ID3DShaderCacheApplication
+
+  UINT GetApplicationCount();
+
+  HRESULT GetApplication(
+      [annotation("_In_")] UINT index,
+      [in] REFIID riid,
+      [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvApp); // Expected: ID3DShaderCacheApplication
+
+  HRESULT ClearAllState();
+
+  UINT GetMaxPrecompileTargetCount();
+
+  HRESULT GetPrecompileTargets(
+      [annotation("_In_opt_")] const D3D_SHADER_CACHE_APPLICATION_DESC* pApplicationDesc,
+      [annotation("_Inout_")] UINT* pArraySize,
+      [annotation("_Out_writes_(*pArraySize)")] D3D_SHADER_CACHE_COMPILER_PROPERTIES* pArray,
+      D3D_SHADER_CACHE_TARGET_FLAGS flags);
+};
+
+[uuid(90432322-32f5-487f-9264-e9390fa58b2a), object, local, pointer_default(unique)]
+interface ID3DShaderCacheExplorer : IUnknown
+{
+    HRESULT GetApplicationFromExePath(
+        [annotation("_In_")] const wchar_t* pFullExePath,
+        [in] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvApp); // Expected: ID3DShaderCacheApplication
+};
+
+[uuid(09b2dfe4-840f-401a-804c-0dd8aadc9e9f), object, local, pointer_default(unique)]
+interface ID3DShaderCacheInstallerFactory : IUnknown
+{
+    HRESULT CreateInstaller(
+        [annotation("_In_")] ID3DShaderCacheInstallerClient* pClient,
+        [in] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvInstaller);
+
+    HRESULT CreateExplorer(
+        [in] IUnknown* pUnknown,                                             // Expected: ID3D12Device, IDXCoreAdapter, IDXGIAdapter
+        [in] REFIID riid,
+        [out, iid_is(riid), annotation("_COM_Outptr_")] void** ppvExplorer); // Expected: ID3DShaderCacheExplorer
+};
+
+
+cpp_quote( "DEFINE_GUID(IID_ID3DShaderCacheInstallerClient,0xa16ee930,0xd9f6,0x4222,0xa5,0x14,0x24,0x44,0x73,0xe5,0xd2,0x66);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DShaderCacheComponent,0xeed1bf00,0xf5c7,0x4cf7,0x88,0x5c,0xd0,0xf9,0xc0,0xcb,0x48,0x28);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DShaderCacheApplication,0xfc688ee2,0x1b35,0x4913,0x93,0xbe,0x1c,0xa3,0xfa,0x7d,0xf3,0x9e);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DShaderCacheInstaller,0xbbe30de1,0x6318,0x4526,0xae,0x17,0x77,0x66,0x93,0x19,0x1b,0xb4);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DShaderCacheExplorer,0x90432322,0x32f5,0x487f,0x92,0x64,0xe9,0x39,0x0f,0xa5,0x8b,0x2a);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DShaderCacheInstallerFactory,0x09b2dfe4,0x840f,0x401a,0x80,0x4c,0x0d,0xd8,0xaa,0xdc,0x9e,0x9f);" )

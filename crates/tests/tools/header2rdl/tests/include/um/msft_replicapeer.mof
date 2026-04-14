@@ -1,0 +1,52 @@
+[ClassVersion( "1.0" ), Abstract,
+Description(
+    "An enumerable object that represents an object in a target subsystem "
+    "for which there is a replication relationship."
+    )]
+class MSFT_ReplicaPeer : MSFT_StorageObject{
+
+    [Read, Description(
+        "The object type of this replica peer."),
+        ValueMap { "4", "5", "..", "0x8000", "0x8001", "0x8002" }, 
+        Values { "VirtualDisk", "Volume", "Partition", "ReplicationGroup", "StorageSubSystem" }]
+    UInt16 PeerObjectType;
+
+    [Read,  Description(
+        "The ObjectId of the replica peer within the replica's storage subsystem."
+        )]
+    String PeerObjectId;
+
+    [Read, Description(
+        "The name of the replica peer within the replica's storage subsystem."
+        )]
+    String PeerObjectName;
+
+    [Read, Required, Description(
+        "The UniqueId of the replica peer within the replica's storage subsystem."
+        )]
+    String PeerUniqueId;
+
+    [Read, Required, Description(
+        "The subsystem name of the replica peer within the replica's storage subsystem."
+        )]
+    String PeerSubsystemName;
+
+    [Read, Description(
+        "If the SMP is of type 2 - 'SMI-S', this field contains the protocol, computer host name, "
+        "and port of the SMI-S server. This field will be NULL otherwise."
+        )]
+    String PeerProviderURI;
+
+    [Read, Description(
+        "Indicates if the ReplicaPeer is primary i.e: If the ReplicaPeer is a System Element "
+        "and not a Synced Element")]
+    Boolean IsPrimary;
+
+    [Write, Description ( 
+          "Populated when \"Type\" has the value of "
+          "\"EmbeddedInstance\"."),
+       EmbeddedInstance ( "MSFT_StorageObject" ),
+        ModelCorrespondence { 
+             "MSFT_ReplicaPeer.PeerObjectType" } ]
+      string PeerObject;
+};

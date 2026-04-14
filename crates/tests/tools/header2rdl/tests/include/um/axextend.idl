@@ -1,0 +1,5107 @@
+//------------------------------------------------------------------------------
+// File: AXExtend.idl
+//
+// Desc: Extended streaming interface definitions for the ActiveMovie
+//       streaming and synchronization architecture.  Core streaming
+//       interfaces are in AXCore.idl, and control interfaces for the
+//       type library are in Control.odl.
+//
+// Copyright (c) 1992 - 2000, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// include after unknwn.idl, objidl.idl and axcore.idl
+#include "icodecapi.idl"
+
+// Define for 'local' so that proxy-stubs can be generated for testing
+#ifndef AM_LOCAL
+#define AM_LOCAL local,
+#define AM_ANNOTATION(_x_) ,annotation(_x_)
+#endif
+
+// forward declarations - these are the interfaces declared in this file
+
+interface IEnumRegFilters;
+interface IFileSourceFilter;
+interface IFileSinkFilter;
+interface IFileSinkFilter2;
+interface IGraphBuilder;
+interface ICaptureGraphBuilder;
+interface ICaptureGraphBuilder2;
+interface IAMCopyCaptureFileProgress;
+interface IFilterMapper;
+interface IFilterMapper2;
+interface IMediaEventSink;
+interface IOverlay;
+interface IOverlayNotify;
+interface IOverlayNotify2;
+interface IQualityControl;
+interface ISeekingPassThru;
+interface IAMStreamConfig;
+interface IAMDevMemoryAllocator;
+interface IAMDevMemoryControl;
+interface IConfigInterleaving;
+interface IConfigAviMux;
+interface IAMVideoCompression;
+interface IAMVfwCaptureDialogs;
+interface IAMVfwCompressDialogs;
+interface IAMDroppedFrames;
+interface IAMAudioInputMixer;
+interface IAMBufferNegotiation;
+interface IAMAnalogVideoDecoder;
+interface IAMVideoProcAmp;
+interface IAMAnalogVideoEncoder;
+interface IAMCameraControl;
+interface IAMCrossbar;
+interface IAMTVTuner;
+interface IKsPropertySet;
+interface IAMPhysicalPinInfo;
+interface IAMExtDevice;
+interface IAMExtTransport;
+interface IAMTimecodeReader;
+interface IAMTimecodeGenerator;
+interface IAMTimecodeDisplay;
+interface IDrawVideoImage;
+interface IDecimateVideoImage;
+interface IAMVideoDecimationProperties;
+interface IAMPushSource;
+interface IAMAudioRendererStats;
+interface IAMLatency;
+interface IAMGraphStreams;
+interface IAMOverlayFX;
+interface IAMOpenProgress;
+interface IMpeg2Demultiplexer ;
+interface IMPEG2StreamIdMap ;
+interface IEnumStreamIdMap ;
+interface IAMClockSlave ;
+interface IEncoderAPI;
+interface IVideoEncoder;
+interface IAMGraphBuilderCallback;
+interface IAMCertifiedOutputProtection;
+
+//==========================================================================
+//==========================================================================
+// IEnumRegFilters interface -- enumerates registered filters.
+// enumerator interface returned from IFilterMapper::gFilters().
+// based on IEnum pseudo-template
+//==========================================================================
+//==========================================================================
+
+typedef struct REGFILTER {
+    CLSID Clsid;             // class id of the filter
+    LPWSTR Name;             // name of filter
+} REGFILTER;
+
+[
+AM_LOCAL
+object,
+uuid(56a868a4-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+
+// The point of the mapper is to avoid loading filters.  By looking in the
+// registry we can reduce the number of filters which must be loaded and tried.
+// This enumerator returns descriptors of filters (including the GUIDs that
+// CoCreateInstance can instantiate).  The filters themselves are not loaded.
+
+interface IEnumRegFilters : IUnknown {
+    import "unknwn.idl";
+
+    // The caller must use CoTaskMemFree to free each REGFILTER* returned
+    // in the array.
+    HRESULT Next
+        ( [in]  ULONG cFilters,           // place this many filters...
+          [out AM_ANNOTATION("_Out_writes_to_(cFilters, *pcFetched)")] REGFILTER ** apRegFilter, // ...in this array of REGFILTER*
+          [out AM_ANNOTATION("_Inout_opt_")] ULONG * pcFetched         // actual count passed returned here
+        );
+
+    // I can't think why anyone would want to skip, so it's not implemented.
+    // (anyone who thinks they know what they would be skipping over is probably
+    // missing some piece of the jigsaw). This ALWAYS returns E_NOTIMPL.
+
+    HRESULT Skip(
+        [in] ULONG cFilters
+    );
+
+    HRESULT Reset(void);
+
+    // No cloning either - also ALWAYS returns E_NOTIMPL.
+
+    HRESULT Clone(
+        [out AM_ANNOTATION("_Out_")] IEnumRegFilters **ppEnum
+    );
+}
+
+
+typedef IEnumRegFilters *PENUMREGFILTERS;
+
+//========================================================================
+//========================================================================
+// abstraction representing the registered information about filters.
+// This allows properties of filters to be looked up without loading them.
+//========================================================================
+//========================================================================
+
+[
+AM_LOCAL
+object,
+uuid(56a868a3-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IFilterMapper : IUnknown {
+    import "unknwn.idl";
+
+    //==========================================================================
+    // Registration functions.
+    // A filter should be registered before any other use.
+    // The registration can be NON_VOLATILE (i.e. permanent, do once ever)
+    // or VOLATILE (once per boot of the system).
+    // UnregisterFilter (obviously) removes the registration.
+    // The action of any of the other calls on unregistered filters is undefined.
+    // it will either work or you'll get an error, but I'm not saying which.
+    //==========================================================================
+
+    // Four predefined values controling the order in which filters are tried
+    // for intelligent graph building.  Intermediate values are legal.
+    // Any value <=MERIT_DO_NOT_USE will mean that the filter will never
+    // be tried by the filtergrah to automatically complete a connection.
+
+    enum { MERIT_PREFERRED     = 0x800000,
+           MERIT_NORMAL        = 0x600000,
+           MERIT_UNLIKELY      = 0x400000,
+           MERIT_DO_NOT_USE    = 0x200000,
+           MERIT_SW_COMPRESSOR = 0x100000,
+           MERIT_HW_COMPRESSOR = 0x100050
+         };
+
+    // Register a filter
+
+    HRESULT RegisterFilter
+        ( [in] CLSID   clsid,    // GUID of the filter
+          [in] LPCWSTR Name,     // Descriptive name for the filter
+          [in] DWORD   dwMerit   // DO_NOT_USE, UNLIKELY, NORMAL or PREFERRED.
+        );
+
+
+    // Register an identifiable instance of a filter.  This deals with cases
+    // such as two similar sound cards which are driven by the same driver,
+    // but we want to choose which oif these cards the sound will come out of.
+    // This is not needed if there is only one instance of the filter
+    // (e.g. there is only one sound card in the machine) or if all instances
+    // of the filter are equivalent.
+
+    // The filter itself must have already been registered   // ??? Is that true?
+    HRESULT RegisterFilterInstance
+        ( [in]  CLSID  clsid,      // GUID of the filter
+          [in]  LPCWSTR Name,      // Descriptive name of instance.
+          [out AM_ANNOTATION("_Out_")] CLSID *MRId        // Returned Media Resource Id.  A
+                                   // locally unique id for this instance
+                                   // of this filter
+        );
+
+
+    HRESULT RegisterPin
+        ( [in] CLSID   Filter,           // GUID of filter
+          [in] LPCWSTR Name,             // Name of the pin
+          [in] BOOL    bRendered,        // The filter renders this input
+          [in] BOOL    bOutput,          // TRUE if this is an Output pin
+          [in] BOOL    bZero,            // TRUE if OK for zero instances of pin
+                                         // In this case you will have to Create
+                                         // a pin to have even one instance
+          [in] BOOL    bMany,            // TRUE if OK for many instances of pin
+          [in] CLSID   ConnectsToFilter, // Filter it connects to if it has
+                                         // subterranean connection, else NULL
+          [in] LPCWSTR ConnectsToPin     // Name of pin it connects to
+                                         // NULL for output pins
+        );
+
+    HRESULT RegisterPinType
+        ( [in] CLSID   clsFilter,        // GUID of filter
+          [in] LPCWSTR strName,          // Descriptive name of the pin
+          [in] CLSID   clsMajorType,     // Major type of the data stream
+          [in] CLSID   clsSubType        // Sub type of the data stream
+        );
+
+
+    HRESULT UnregisterFilter
+        ( [in] CLSID  Filter             // GUID of filter
+        );
+
+
+    HRESULT UnregisterFilterInstance
+        ( [in] CLSID  MRId               // Media Resource Id of this instance
+        );
+
+
+    HRESULT UnregisterPin
+        ( [in] CLSID   Filter,           // GUID of filter
+          [in] LPCWSTR Name              // Name of the pin
+        );
+
+
+    // Set *ppEnum to be an enumerator for filters matching the requirements.
+
+    HRESULT EnumMatchingFilters
+       ( [out AM_ANNOTATION("_Out_")] IEnumRegFilters **ppEnum  // enumerator returned
+       , [in]  DWORD dwMerit             // at least this merit needed
+       , [in]  BOOL  bInputNeeded        // need at least one input pin
+       , [in]  CLSID clsInMaj            // input major type
+       , [in]  CLSID clsInSub            // input sub type
+       , [in]  BOOL  bRender             // must the input be rendered?
+       , [in]  BOOL  bOututNeeded        // need at least one output pin
+       , [in]  CLSID clsOutMaj           // output major type
+       , [in]  CLSID clsOutSub           // output sub type
+       );
+
+}
+
+// structure used to identify media types a pin handles. Used for
+// registration through IFilterMapper and IFilterMapper2
+//
+typedef struct REGPINTYPES
+{
+    const CLSID * clsMajorType;
+    const CLSID * clsMinorType;
+} REGPINTYPES;
+
+// describes pin for filter registration. Used for registration
+// through IFilterMapper and IFilterMapper2
+//
+typedef struct REGFILTERPINS
+{
+    LPWSTR           strName;
+
+    // The filter renders this input
+    BOOL             bRendered;
+
+    // This is an Output pin
+    BOOL             bOutput;
+
+    // OK to have zero instances of pin In this case you will have to
+    // Create a pin to have even one instance
+    BOOL             bZero;
+
+    // OK to create many instance of  pin
+    BOOL             bMany;
+
+    const CLSID *    clsConnectsToFilter;
+    const WCHAR *    strConnectsToPin;
+
+    UINT             nMediaTypes;
+    const REGPINTYPES * lpMediaType;
+} REGFILTERPINS;
+
+// mediums (as defined in the Windows NT DDK) for registration with
+// IFilterMapper2
+//
+typedef struct REGPINMEDIUM
+{
+    CLSID clsMedium;
+    DWORD dw1;
+    DWORD dw2;
+} REGPINMEDIUM;
+
+// flags for dwFlags in REFILTERPINS2
+enum
+{
+    // OK to have zero instances of pin In this case you will have to
+    // Create a pin to have even one instance
+    REG_PINFLAG_B_ZERO = 0x1,
+
+    // The filter renders this input
+    REG_PINFLAG_B_RENDERER = 0x2,
+
+    // OK to create many instance of  pin
+    REG_PINFLAG_B_MANY = 0x4,
+
+    // This is an Output pin
+    REG_PINFLAG_B_OUTPUT = 0x8
+};
+
+
+// describes pin for filter registration through IFilterMapper2
+typedef struct REGFILTERPINS2
+{
+    // combination of REG_PINFLAG flags
+    DWORD dwFlags;
+
+    // number of instances of the pin if known
+    UINT             cInstances;
+
+    UINT             nMediaTypes;
+    [size_is(nMediaTypes)] const REGPINTYPES * lpMediaType;
+
+    UINT             nMediums;
+    [size_is(nMediums)] const REGPINMEDIUM *lpMedium;
+
+    // pin category (for Kernel Streaming pins) as defined in the
+    // Windows NT DDK
+    const CLSID      *clsPinCategory;
+
+} REGFILTERPINS2;
+
+// describes filter for registration through IFilterMapper2
+typedef struct REGFILTER2
+{
+    DWORD dwVersion;            // 1 or 2
+    DWORD dwMerit;
+
+    /* unnamed union */
+    [switch_is(dwVersion)] [switch_type(DWORD)] union
+    {
+        [case(1)]
+
+            struct
+            {
+                ULONG cPins;
+                [size_is(cPins)] const REGFILTERPINS *rgPins;
+            } DUMMYSTRUCTNAME;
+
+        [case(2)]
+
+            struct
+            {
+                ULONG cPins2;
+                [size_is(cPins2)] const REGFILTERPINS2 *rgPins2;
+            } DUMMYSTRUCTNAME2;
+    } DUMMYUNIONNAME;
+
+} REGFILTER2;
+
+
+
+[
+AM_LOCAL
+object,
+uuid(b79bb0b0-33c1-11d1-abe1-00a0c905f375),
+pointer_default(unique)
+]
+interface IFilterMapper2 : IUnknown {
+    import "unknwn.idl";
+
+    // create or rename ActiveMovie category
+    HRESULT CreateCategory
+        ( [in] REFCLSID clsidCategory,
+          [in] DWORD dwCategoryMerit,
+          [in] LPCWSTR Description
+          );
+
+    HRESULT UnregisterFilter
+        ( [in] const CLSID *pclsidCategory,
+          [in] LPCOLESTR szInstance,
+          [in] REFCLSID Filter // GUID of filter
+        );
+
+    // Register a filter, pins, and media types under a category.
+    HRESULT RegisterFilter
+        ( [in] REFCLSID clsidFilter,     // GUID of the filter
+          [in] LPCWSTR Name,             // Descriptive name for the filter
+
+          // ppMoniker can be null. or *ppMoniker can contain the
+          // moniker where this filter data will be written;
+          // *ppMoniker will be set to null on return. or *ppMoniker
+          // can be null in which case the moniker will be returned
+          // with refcount.
+          [in, out AM_ANNOTATION("_Inout_opt_")] IMoniker **ppMoniker,
+
+          // can be null
+          [in] const CLSID *pclsidCategory,
+
+          // cannot be null
+          [in AM_ANNOTATION("_In_")] LPCOLESTR szInstance,
+
+          // rest of filter and pin registration
+          [in] const REGFILTER2 *prf2
+        );
+
+    // Set *ppEnum to be an enumerator for filters matching the
+    // requirements.
+    HRESULT EnumMatchingFilters
+       ( [out AM_ANNOTATION("_Out_")] IEnumMoniker **ppEnum           // enumerator returned
+       , [in]  DWORD dwFlags                   // 0
+       , [in]  BOOL bExactMatch                // don't match wildcards
+       , [in]  DWORD dwMerit                   // at least this merit needed
+       , [in]  BOOL  bInputNeeded              // need at least one input pin
+       , [in]  DWORD cInputTypes               // Number of input types to match
+                                               // Any match is OK
+       , [size_is(cInputTypes*2) AM_ANNOTATION("_In_reads_opt_(cInputTypes * 2)")]  const GUID *pInputTypes // input major+subtype pair array
+       , [in AM_ANNOTATION("_In_opt_")]  const REGPINMEDIUM *pMedIn      // input medium
+       , [in AM_ANNOTATION("_In_opt_")]  const CLSID *pPinCategoryIn     // input pin category
+       , [in]  BOOL  bRender                   // must the input be rendered?
+       , [in]  BOOL  bOutputNeeded             // need at least one output pin
+       , [in]  DWORD cOutputTypes              // Number of output types to match
+                                               // Any match is OK
+       , [size_is(cOutputTypes*2) AM_ANNOTATION("_In_reads_opt_(cOutputTypes * 2)")]  const GUID *pOutputTypes // output major+subtype pair array
+       , [in AM_ANNOTATION("_In_opt_")]  const REGPINMEDIUM *pMedOut     // output medium
+       , [in AM_ANNOTATION("_In_opt_")]  const CLSID *pPinCategoryOut    // output pin category
+       );
+}
+
+[
+AM_LOCAL
+object,
+uuid(b79bb0b1-33c1-11d1-abe1-00a0c905f375),
+pointer_default(unique)
+]
+interface IFilterMapper3 : IFilterMapper2 {
+    // new interface to allow creating filters using the mapper's devenum instance
+    // primarily needed for out-of-proc access to a graph
+    HRESULT GetICreateDevEnum( [out AM_ANNOTATION("_Out_")] ICreateDevEnum **ppEnum );
+}
+
+//========================================================================
+//========================================================================
+// Defines IQualityControl interface
+//
+// Defines quality messages and allows a quality manager to install itself
+// as the sink for quality messages.
+//========================================================================
+//========================================================================
+
+typedef enum tagQualityMessageType {
+    Famine,
+    Flood
+} QualityMessageType;
+
+typedef struct tagQuality {
+    QualityMessageType Type;
+    long                Proportion;   // milli-units.  1000 = no change
+                            // for Flood:
+                            // What proportion of the media samples currently
+                            // coming through are required in the future.
+                            // 800 means please drop another 20%
+                            // For Famine:
+                            // How much to "keep in" e.g. 800 means send me
+                            // 20% less e.g. by dropping 20% of the samples.
+                            // 1100 would mean "I'm coping, send me more".
+    REFERENCE_TIME       Late;
+                            // How much you need to catch up by
+    REFERENCE_TIME       TimeStamp;
+                            // The stream time when this was generated (probably
+                            // corresponds to the start time on some sample).
+} Quality;
+
+typedef IQualityControl *PQUALITYCONTROL;
+
+
+[
+AM_LOCAL
+object,
+uuid(56a868a5-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IQualityControl : IUnknown {
+
+    // Notify the recipient that a quality change is requested.
+    // pSelf is the IBaseFilter* of the sender.
+    // this is sent from a filter
+    // to (the quality manager or) an upstream peer.
+    HRESULT Notify
+        ( [in] IBaseFilter * pSelf,
+          [in] Quality q
+        );
+
+    // Notify the recipient that future quality messages are to be sent
+    // to iqc.  If piqc is NULL then quality messages are to default back to
+    // the upstream peer.
+    // This is sent from the quality manager to a filter.
+    // The recipient should hold piqc as a WEAK reference,
+    // i.e. do not AddRef it, do not Release it.
+    HRESULT SetSink
+        ( [in] IQualityControl * piqc
+        );
+}
+
+//=====================================================================
+//=====================================================================
+// Definitions required for overlay transport
+//=====================================================================
+//=====================================================================
+
+
+// Used to communicate the colour that the IOverlay client wants the window
+// painted in so that it can draw directly to the correct clipping region
+// A colour key can be described in two alternate ways, the first is by a
+// range of one or more (system) palette indices. The second is by defining
+// a colour cube with two RGB values, any of which would be acceptable.
+//
+// The CK values are consistent with GDI PALETTEINDEX and PALETTERGB macros
+
+
+enum { CK_NOCOLORKEY = 0x0,     // No color key is required
+       CK_INDEX       = 0x1,    // Index into the current system palette
+       CK_RGB         = 0x2 };  // Color key is an RGB value (or range)
+
+typedef struct tagCOLORKEY {
+
+    DWORD    KeyType;           // Explains meaning of the structure
+    DWORD    PaletteIndex;      // Palette index if available
+    COLORREF LowColorValue;     // Low colour space RGB value
+    COLORREF HighColorValue;    // Defines the high RGB value
+
+} COLORKEY;
+
+// When a filter sets up an advise link it can ask that only certain types
+// of notifications be sent, for example just palette changes. While this
+// doesn't mean that the other notification call backs won't ever be called
+// the IOverlay implementation may use this as an efficiency optimisation
+
+enum { ADVISE_NONE = 0x0,               // No notifications required
+       ADVISE_CLIPPING = 0x1,           // Synchronous clip information
+       ADVISE_PALETTE = 0x2,            // Palette change notifications
+       ADVISE_COLORKEY = 0x4,           // Called when colour key changes
+       ADVISE_POSITION = 0x8,           // Likewise when window moves etc
+       ADVISE_DISPLAY_CHANGE = 0x10     // Called on WM_DISPLAYCHANGE
+     };
+
+const DWORD ADVISE_ALL = ADVISE_CLIPPING |
+                         ADVISE_PALETTE |
+                         ADVISE_COLORKEY |
+                         ADVISE_POSITION;
+
+const DWORD ADVISE_ALL2 = ADVISE_ALL |
+                          ADVISE_DISPLAY_CHANGE;
+
+// This isn't defined when you run IDL
+
+cpp_quote("#ifndef _WINGDI_")
+
+typedef struct _RGNDATAHEADER {
+    DWORD dwSize;
+    DWORD iType;
+    DWORD nCount;
+    DWORD nRgnSize;
+    RECT  rcBound;
+} RGNDATAHEADER;
+
+typedef struct _RGNDATA {
+    RGNDATAHEADER rdh;
+    char Buffer[1];
+} RGNDATA;
+
+cpp_quote("#endif")
+
+
+//=====================================================================
+//=====================================================================
+// Defines IOverlayNotify interface
+//
+// This interface gives asynchronous notifications of changes to the
+// rendering window - such as changes to the exposed window area
+//=====================================================================
+//=====================================================================
+
+[
+AM_LOCAL
+object,
+local,
+uuid(56a868a0-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IOverlayNotify : IUnknown {
+
+    // IOverlayNotify methods
+
+    // This notifies the filter of palette changes, the filter should copy
+    // the array of RGBQUADs if it needs to use them after returning. This
+    // is not called when the palette is actually changed in the display
+    // but at a short time after (in sync with WM_PALETTECHANGED messages)
+
+    HRESULT OnPaletteChange(
+        [in] DWORD dwColors,                // Number of colours present
+        [in] const PALETTEENTRY *pPalette); // Array of palette colours
+
+    // This provides synchronous clip changes so that the client is called
+    // before the window is moved to freeze the video, and then when the
+    // window has stabilised it is called again to start playback again.
+    // If the window rect is all zero then the window is invisible, the
+    // filter must take a copy of the information if it wants to keep it
+
+    HRESULT OnClipChange(
+        [in] const RECT *pSourceRect,       // Region of video to use
+        [in] const RECT *pDestinationRect,  // Where video goes
+        [in] const RGNDATA *pRgnData);      // Defines clipping information
+
+    HRESULT OnColorKeyChange([in] const COLORKEY *pColorKey);
+
+    // The calls to OnClipChange happen in sync with the window. So it is
+    // called with an empty clip list before the window moves to freeze
+    // the video, and then when the window has stabilised it is called
+    // again with the new clip list. The OnPositionChange callback is for
+    // overlay cards that don't want the expense of synchronous clipping
+    // updates and just want to know when the source or destination video
+    // positions change. They will NOT be called in sync with the window
+    // but at some point after the window has changed (basicly in time
+    // with WM_SIZE etc messages received). This is therefore suitable
+    // for overlay cards that don't inlay their data to the frame buffer
+    // NOTE the destination is NOT clipped to the visible display area
+
+    HRESULT OnPositionChange([in] const RECT *pSourceRect,
+                             [in] const RECT *pDestinationRect);
+}
+
+typedef IOverlayNotify *POVERLAYNOTIFY;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IOverlayNotify2 interface
+//
+// This interface gives asynchronous notifications of changes to the
+// rendering window - such as changes to the exposed window area
+// This is optionally supported by the advise sink for the purposes
+// of accepting OnDisplayChange notification.
+//=====================================================================
+//=====================================================================
+
+cpp_quote("#if !defined(HMONITOR_DECLARED) && !defined(HMONITOR) && (WINVER < 0x0500)")
+cpp_quote("#define HMONITOR_DECLARED")
+cpp_quote("#if 0")
+typedef HANDLE HMONITOR;
+cpp_quote("#endif")
+cpp_quote("DECLARE_HANDLE(HMONITOR);")
+cpp_quote("#endif")
+
+[
+object,
+local,
+uuid(680EFA10-D535-11D1-87C8-00A0C9223196),
+pointer_default(unique)
+]
+interface IOverlayNotify2 : IOverlayNotify {
+
+    // IOverlayNotify2 methods
+
+    HRESULT OnDisplayChange(    // ADVISE_DISPLAY_CHANGE
+        HMONITOR hMonitor);
+}
+
+typedef IOverlayNotify2 *POVERLAYNOTIFY2;
+
+
+//=====================================================================
+//=====================================================================
+// Defines IOverlay interface
+//
+// This interface provides information so that a filter can write direct to
+// the frame buffer while placing the video in the correct window position
+//=====================================================================
+//=====================================================================
+
+[
+object,
+local,
+uuid(56a868a1-0ad4-11ce-b03a-0020af0ba770),
+pointer_default(unique)
+]
+interface IOverlay : IUnknown {
+
+    // IOverlay methods
+
+    HRESULT GetPalette(
+        [out, annotation("_Inout_")] DWORD *pdwColors,              // Number of colours present
+        [out, size_is(,*pdwColors), annotation("_Outptr_result_buffer_to_(*pdwColors, *pdwColors)")] PALETTEENTRY **ppPalette);     // Where to put palette data
+
+    HRESULT SetPalette(
+        [in] DWORD dwColors,                 // Number of colours present
+        [in, size_is(dwColors), annotation("_In_reads_(dwColors)")] PALETTEENTRY *pPalette);        // Colours to use for palette
+
+    // If you change the colour key through SetColorKey then all the advise
+    // links will receive an OnColorKeyChange callback with the new colour
+
+    HRESULT GetDefaultColorKey([out, annotation("_Out_")] COLORKEY *pColorKey);
+    HRESULT GetColorKey([out, annotation("_Out_")] COLORKEY *pColorKey);
+    HRESULT SetColorKey([in,out] COLORKEY *pColorKey);
+    HRESULT GetWindowHandle([out, annotation("_Out_")] HWND *pHwnd);
+
+    // The IOverlay implementation allocates the memory for the clipping
+    // rectangles as it can be variable in length. The filter calling
+    // this method should free the memory when it is finished with it
+
+    HRESULT GetClipList([out, annotation("_Out_")] RECT *pSourceRect,
+                        [out, annotation("_Out_")] RECT *pDestinationRect,
+                        [out, annotation("_Out_")] RGNDATA **ppRgnData);
+
+    // Returns the current video source and destination
+
+    HRESULT GetVideoPosition([out, annotation("_Out_")] RECT *pSourceRect,
+                             [out, annotation("_Out_")] RECT *pDestinationRect);
+
+    HRESULT Advise(
+        [in] IOverlayNotify *pOverlayNotify, // Notification interface
+        [in] DWORD dwInterests);             // Callbacks interested in
+
+    HRESULT Unadvise();                      // Stop the callbacks now
+}
+
+typedef IOverlay *POVERLAY;
+
+
+//=====================================================================
+//=====================================================================
+// control related interfaces (others are defined in control.odl)
+//=====================================================================
+//=====================================================================
+
+
+//=====================================================================
+//=====================================================================
+// Defines IMediaEventSink interface
+//
+// Exposed by filtergraph. Called by filters to notify events. Will be
+// passed on to application by the IMediaControl event methods.
+//=====================================================================
+//=====================================================================
+
+[
+        local,
+        object,
+        uuid(56a868a2-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IMediaEventSink : IUnknown {
+
+    // notify an event. will be queued, but not delivered to
+    // the application on this thread.
+    HRESULT Notify(
+        [in] long EventCode,
+        [in] LONG_PTR EventParam1,
+        [in] LONG_PTR EventParam2
+    );
+}
+
+typedef IMediaEventSink *PMEDIAEVENTSINK;
+
+//=====================================================================
+//=====================================================================
+// Defines IFileSourceFilter interface
+//
+// Exposed by source filters to set the file name and media type.
+//=====================================================================
+//=====================================================================
+
+[
+        AM_LOCAL
+        object,
+        uuid(56a868a6-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IFileSourceFilter : IUnknown {
+
+    // Load a file and assign it the given media type
+    HRESULT Load(
+        [in] LPCOLESTR pszFileName,     // Pointer to absolute path of file to open
+        [in, unique AM_ANNOTATION("_In_opt_")] const AM_MEDIA_TYPE *pmt   // Media type of file - can be NULL
+    );
+    // Get the currently loaded file name
+    HRESULT GetCurFile(
+        [out AM_ANNOTATION("_Out_")] LPOLESTR *ppszFileName,   // Pointer to the path for the current file
+        [out AM_ANNOTATION("_Out_opt_")] AM_MEDIA_TYPE *pmt        // Pointer to the media type
+    );
+}
+
+typedef IFileSourceFilter *PFILTERFILESOURCE;
+
+//=====================================================================
+//=====================================================================
+// Defines IFileSinkFilter interface
+//
+// Exposed by renderers to set the output file name.
+//=====================================================================
+//=====================================================================
+
+[
+        AM_LOCAL
+        object,
+        uuid(a2104830-7c70-11cf-8bce-00aa00a3f1a6),
+        pointer_default(unique)
+]
+interface IFileSinkFilter : IUnknown {
+
+    // Output to this file. default is to open the existing file
+    HRESULT SetFileName(
+        [in] LPCOLESTR pszFileName,     // Pointer to absolute path of output file
+        [in, unique AM_ANNOTATION("_In_opt_")] const AM_MEDIA_TYPE *pmt   // Media type of file - can be NULL
+    );
+    // Get the current file name
+    HRESULT GetCurFile(
+        [out AM_ANNOTATION("_Out_")] LPOLESTR *ppszFileName,   // Pointer to the path for the current file
+        [out AM_ANNOTATION("_Out_")] AM_MEDIA_TYPE *pmt        // Pointer to the media type
+    );
+}
+
+typedef IFileSinkFilter *PFILTERFILESINK;
+
+[
+        AM_LOCAL
+        object,
+        uuid(00855B90-CE1B-11d0-BD4F-00A0C911CE86),
+        pointer_default(unique)
+]
+interface IFileSinkFilter2 : IFileSinkFilter {
+
+    HRESULT SetMode(
+        [in] DWORD dwFlags              // AM_FILESINK_FLAGS
+    );
+
+    HRESULT GetMode(
+        [out AM_ANNOTATION("_Out_")] DWORD *pdwFlags           // AM_FILESINK_FLAGS
+    );
+}
+
+typedef IFileSinkFilter2 *PFILESINKFILTER2;
+
+typedef enum AM_FILESINK_FLAGS {
+
+    // create a new file
+    AM_FILE_OVERWRITE = 0x00000001,
+
+} AM_FILESINK_FLAGS;
+
+
+//
+// Intelligent connectivity for filters - an interface supported by
+// filter graphs (since it is an extension to IFilterGraph) that supports
+// building of graphs by automatic selection and connection of appropriate
+// filters
+
+[
+    AM_LOCAL
+    object,
+    uuid(56a868a9-0ad4-11ce-b03a-0020af0ba770),
+    pointer_default(unique)
+]
+interface IGraphBuilder : IFilterGraph {
+    // Connect these two pins directly or indirectly, using transform filters
+    // if necessary.
+
+    HRESULT Connect
+        ( [in] IPin * ppinOut,    // the output pin
+          [in] IPin * ppinIn      // the input pin
+        );
+
+
+    // Connect this output pin directly or indirectly, using transform filters
+    // if necessary to something that will render it.
+
+    HRESULT Render
+        ( [in] IPin * ppinOut     // the output pin
+        );
+
+
+    // Build a filter graph that will render this file using this play list.
+    // If lpwstrPlayList is NULL then it will use the default play list
+    // which will typically render the whole file.
+
+    HRESULT RenderFile
+        ( [in] LPCWSTR lpcwstrFile,
+          [in, unique AM_ANNOTATION("_In_opt_")] LPCWSTR lpcwstrPlayList
+        );
+
+
+    // Add to the filter graph a source filter for this file.  This would
+    // be the same source filter that would be added by calling Render.
+    // This call gives you more control over building
+    // the rest of the graph, e.g. AddFilter(<a renderer of your choice>)
+    // and then Connect the two.
+    // The IBaseFilter* interface exposed by the source filter is returned
+    // in ppFilter, addrefed already for you
+    // The filter will be known by the name lpcwstrFIlterName
+    // nn this filter graph,
+    HRESULT AddSourceFilter
+        ( [in]      LPCWSTR lpcwstrFileName,
+          [in, unique AM_ANNOTATION("_In_opt_")]      LPCWSTR lpcwstrFilterName,
+          [out AM_ANNOTATION("_Out_")]     IBaseFilter* *ppFilter
+        );
+
+
+    // If this call is made then trace information will be written to the
+    // file showing the actions taken in attempting to perform an operation.
+    HRESULT SetLogFile
+        ( [in]      DWORD_PTR hFile  // open file handle e.g. from CreateFile
+        );
+
+
+    // Request that the graph builder should return as soon as possible from
+    // its current task.
+    // Note that it is possible fot the following to occur in the following
+    // sequence:
+    //     Operation begins; Abort is requested; Operation completes normally.
+    // This would be normal whenever the quickest way to finish an operation
+    // was to simply continue to the end.
+    HRESULT Abort();
+
+    // Return S_OK if the curent operation is to continue,
+    // return S_FALSE if the current operation is to be aborted.
+    // This method can be called as a callback from a filter which is doing
+    // some operation at the request of the graph.
+    HRESULT ShouldOperationContinue();
+
+}
+
+
+//
+// New capture graph builder
+
+[
+    AM_LOCAL
+    object,
+    uuid(bf87b6e0-8c27-11d0-b3f0-00aa003761c5),
+    pointer_default(unique)
+]
+interface ICaptureGraphBuilder : IUnknown {
+
+    // Use this filtergraph
+    HRESULT SetFiltergraph(
+    [in] IGraphBuilder *pfg);
+
+    // what filtergraph are you using?
+    // *ppfg->Release() when you're done with it
+    HRESULT GetFiltergraph(
+    [out AM_ANNOTATION("_Out_")] IGraphBuilder **ppfg);
+
+    // creates a rendering section in the filtergraph consisting of a MUX
+    // of some filetype, and a file writer (and connects them together)
+    // *ppf->Release() when you're done with it
+    // *ppSink->Release() when you're done with it
+    HRESULT SetOutputFileName(
+    [in] const GUID *pType, // type of file to write, eg. MEDIASUBTYPE_Avi
+    [in] LPCOLESTR lpstrFile,   // filename given to file writer
+    [out AM_ANNOTATION("_Out_")] IBaseFilter **ppf,    // returns pointer to the MUX
+        [out AM_ANNOTATION("_Out_")] IFileSinkFilter **ppSink);// queried from file writer
+
+    // Looks for an interface on the filter and on the output pin of the given
+    // category.  (Categories: CAPTURE/PREVIEW/VIDEOPORT/VBI etc. or
+    // NULL for "don't care".
+    // It will also look upstream and downstream of
+    // the pin for the interface, to find interfaces on renderers, MUXES, TV
+    // Tuners, etc.
+    // Call *ppint->Release() when you're done with it
+    [local] HRESULT FindInterface(
+    [in, unique AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // can be NULL for all pins
+    [in] IBaseFilter *pf,
+    [in] REFIID riid,
+    [out AM_ANNOTATION("_Out_")] void **ppint);
+    [call_as(FindInterface)] HRESULT RemoteFindInterface(
+    [in, unique AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // can be NULL for all pins
+    [in] IBaseFilter *pf,
+    [in] REFIID riid,
+    [out AM_ANNOTATION("_Out_")] IUnknown **ppint);
+
+    // Connects the pin of the given category of the source filter to the
+    // rendering filter, optionally through another filter (compressor?)
+    // For a non-NULL category, it will instantiate and connect additional
+    // required filters upstream too, like TV Tuners and Crossbars.
+    // If there is only one output pin on the source, use a NULL
+    // category.  You can also have pSource be a pin
+    HRESULT RenderStream(
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // can be NULL if only one output pin
+    [in] IUnknown *pSource,     // filter or pin
+    [in] IBaseFilter *pfCompressor,
+    [in] IBaseFilter *pfRenderer);  // can be NULL
+
+    // Sends IAMStreamControl messages to the pin of the desired category, eg.
+    // "capture" or "preview"
+    // REFERENCE_TIME=NULL means NOW
+    // REFERENCE_TIME=MAX_TIME means never, or cancel previous request
+    // NULL controls all capture filters in the graph - you will get one
+    //     notification for each filter with a pin of that category found
+    // returns S_FALSE if stop will be signalled before last sample is
+    //     rendered.
+    // return a FAILURE code if the filter does not support IAMStreamControl
+    HRESULT ControlStream(
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pCategory,
+    [in] IBaseFilter *pFilter,
+    [in] REFERENCE_TIME *pstart,
+    [in] REFERENCE_TIME *pstop,
+    [in] WORD wStartCookie,     // high word reserved
+    [in] WORD wStopCookie);     // high word reserved
+
+    // creates a pre-allocated file of a given size in bytes
+    HRESULT AllocCapFile(
+    [in] LPCOLESTR lpstr,
+    [in] DWORDLONG dwlSize);
+
+    // Copies the valid file data out of the old, possibly huge old capture
+    //   file into a shorter new file.
+    // Return S_FALSE from your progress function to abort capture, S_OK to
+    //   continue
+    HRESULT CopyCaptureFile(
+    [in AM_ANNOTATION("_In_")] LPOLESTR lpwstrOld,
+    [in AM_ANNOTATION("_In_")] LPOLESTR lpwstrNew,
+    [in] int fAllowEscAbort,    // pressing ESC will abort?
+    [in] IAMCopyCaptureFileProgress *pCallback);    // implement this to
+                            // get progress
+}
+
+
+//
+// Capture graph builder "CopyCapturedFile" progress callback
+
+[
+    AM_LOCAL
+    object,
+    uuid(670d1d20-a068-11d0-b3f0-00aa003761c5),
+    pointer_default(unique)
+]
+interface IAMCopyCaptureFileProgress : IUnknown {
+
+    // If you support this interface somewhere, this function will be called
+    // periodically while ICaptureGraphBuilder::CopyCaptureFile is executing
+    // to let you know the progress
+    //
+    // Return S_OK from this function to continue.  Return S_FALSE to abort the
+    // copy
+    HRESULT Progress(
+    [in] int iProgress);        // a number between 0 and 100 (%)
+}
+
+
+//
+// Capture graph builder that can deal with a single filter having more than
+// one pin of each category... some new devices can capture both audio and
+// video, for example
+//
+
+[
+    AM_LOCAL
+    object,
+    uuid(93E5A4E0-2D50-11d2-ABFA-00A0C9C6E38D),
+    pointer_default(unique)
+]
+interface ICaptureGraphBuilder2 : IUnknown {
+
+    // Use this filtergraph
+    HRESULT SetFiltergraph(
+    [in] IGraphBuilder *pfg);
+
+    // what filtergraph are you using?
+    // *ppfg->Release() when you're done with it
+    HRESULT GetFiltergraph(
+    [out AM_ANNOTATION("_Out_")] IGraphBuilder **ppfg);
+
+    // creates a rendering section in the filtergraph consisting of a MUX
+    // of some filetype, and a file writer (and connects them together)
+    // *ppf->Release() when you're done with it
+    // *ppSink->Release() when you're done with it
+    HRESULT SetOutputFileName(
+    [in] const GUID *pType,     // GUID of MUX filter to use
+    [in] LPCOLESTR lpstrFile,   // filename given to file writer
+    [out AM_ANNOTATION("_Outptr_")] IBaseFilter **ppf,    // returns pointer to the MUX
+        [out AM_ANNOTATION("_Outptr_opt_")] IFileSinkFilter **ppSink);// queried from file writer
+
+    // Looks for an interface on the filter and on the output pin of the given
+    // category and type.  (Categories: CAPTURE/PREVIEW/VIDEOPORT/VBI etc. or
+    // NULL for "don't care".  Type:  MAJORTYPE_Video/Audio etc or NULL)
+    // !!! Will some filters have >1 capture pin?  ie RGB and MPEG?
+    // It will also look upstream and downstream of
+    // the pin for the interface, to find interfaces on renderers, MUXES, TV
+    // Tuners, etc.
+    // Call *ppint->Release() when you're done with it
+    [local] HRESULT FindInterface(
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // can be NULL for all pins
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pType,     // Audio/Video/??? or NULL (don't care)
+    [in] IBaseFilter *pf,
+    [in] REFIID riid,
+    [out AM_ANNOTATION("_Out_")] void **ppint);
+    [call_as(FindInterface)] HRESULT RemoteFindInterface(
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // can be NULL for all pins
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pType,     // Audio/Video/??? or NULL (don't care)
+    [in] IBaseFilter *pf,
+    [in] REFIID riid,
+    [out AM_ANNOTATION("_Out_")] IUnknown **ppint);
+
+    // Connects the pin of the given category and type of the source filter to
+    // the rendering filter, optionally through another filter (compressor?)
+    // (Type is a Majortype, like Video or Audio)
+    // For a non-NULL category, it will instantiate and connect additional
+    // required filters upstream too, like TV Tuners and Crossbars.
+    // If there is only one output pin on the source, use a NULL category
+    // and type.  You can also have pSource be a pin
+    HRESULT RenderStream(
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // can be NULL if only one output pin
+    [in] const GUID *pType,     // Major type (Video/Audio/etc)
+    [in] IUnknown *pSource,     // filter or pin
+    [in] IBaseFilter *pfCompressor,
+    [in] IBaseFilter *pfRenderer);  // can be NULL
+
+    // Sends IAMStreamControl messages to the pin of the desired category,
+    // (eg. "capture" or "preview") and of the desired type (eg. VIDEO or AUDIO)
+    // A category MUST be given.  If a filter is given, a type must be too.
+    // REFERENCE_TIME=NULL means NOW
+    // REFERENCE_TIME=MAX_TIME means never, or cancel previous request
+    // NULL controls all capture filters in the graph - you will get one
+    //     notification for each filter with a pin of that category found
+    // returns S_FALSE if stop will be signalled before last sample is
+    //     rendered.
+    // return a FAILURE code if the filter does not support IAMStreamControl
+    HRESULT ControlStream(
+    [in] const GUID *pCategory,
+    [in] const GUID *pType,     // Major type (Video/Audio/etc)
+    [in] IBaseFilter *pFilter,
+    [in AM_ANNOTATION("_In_opt_")] REFERENCE_TIME *pstart,
+    [in AM_ANNOTATION("_In_opt_")] REFERENCE_TIME *pstop,
+    [in] WORD wStartCookie,     // high word reserved
+    [in] WORD wStopCookie);     // high word reserved
+
+    // creates a pre-allocated file of a given size in bytes
+    HRESULT AllocCapFile(
+    [in] LPCOLESTR lpstr,
+    [in] DWORDLONG dwlSize);
+
+    // Copies the valid file data out of the old, possibly huge old capture
+    //   file into a shorter new file.
+    // Return S_FALSE from your progress function to abort capture, S_OK to
+    //   continue
+    HRESULT CopyCaptureFile(
+    [in AM_ANNOTATION("_In_")] LPOLESTR lpwstrOld,
+    [in AM_ANNOTATION("_In_")] LPOLESTR lpwstrNew,
+    [in] int fAllowEscAbort,    // pressing ESC will abort?
+    [in] IAMCopyCaptureFileProgress *pCallback);    // implement this to
+                            // get progress
+    // Helper fn to find a certain pin on a filter.
+    HRESULT FindPin(
+    [in] IUnknown *pSource,
+    [in] PIN_DIRECTION pindir,  // input or output?
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pCategory, // what category? (or NULL)
+    [in AM_ANNOTATION("_In_opt_")] const GUID *pType,     // what Major type (or NULL)
+    [in] BOOL fUnconnected,     // must it be unconnected?
+    [in] int num,           // which pin matching this? (0 based)
+    [out AM_ANNOTATION("_Out_")] IPin **ppPin);
+}
+
+enum _AM_RENSDEREXFLAGS {
+    AM_RENDEREX_RENDERTOEXISTINGRENDERERS = 0x01 // Dont add any renderers
+};
+
+//
+// IFilterGraph2
+//
+// New methods on for IFilterGraph and IGraphBuilder will have to go here.
+//
+
+[
+    AM_LOCAL
+    object,
+    uuid(36b73882-c2c8-11cf-8b46-00805f6cef60),
+    pointer_default(unique)
+]
+interface IFilterGraph2: IGraphBuilder {
+
+    // Add a Moniker source moniker
+    HRESULT AddSourceFilterForMoniker(
+          [in] IMoniker *pMoniker,
+          [in] IBindCtx *pCtx,
+          [in, unique] LPCWSTR lpcwstrFilterName,
+          [out AM_ANNOTATION("_Out_")] IBaseFilter **ppFilter
+    );
+
+    // Specify the type for a reconnect
+    // This is better than Reconnect as sometime the parties to a
+    // reconnection can't remember what type they'd agreed (!)
+    HRESULT ReconnectEx
+        ( [in] IPin * ppin,             // the pin to disconnect and reconnect
+          [in, unique AM_ANNOTATION("_In_opt_")] const AM_MEDIA_TYPE *pmt // the type to reconnect with - can be NULL
+        );
+
+    // Render a pin without adding any new renderers
+    HRESULT RenderEx( [in] IPin *pPinOut,         // Pin to render
+                      [in] DWORD dwFlags,         // flags
+                      [in, out AM_ANNOTATION("_Reserved_")] DWORD *pvContext   // Unused - set to NULL
+                    );
+
+#if 0
+    // Method looks for a filter which supports the specified interface.  If such
+    // a filter exists, an AddRef()'ed pointer to the requested interface is placed
+    // in *ppInterface.
+    //
+    // *ppInterface will be NULL on return if such a filter could not be found, and
+    // the method will return E_NOINTERFACE.
+    //
+    // pdwIndex is an internal index that is used for obtaining subsequent interfaces.
+    // *pdwIndex should be initialized to zero.  It is set on return to a value that
+    // allows the implementation of FindFilterInterface to search for further interfaces
+    // if called again.  If no more such interfaces exist, the method will return E_NOINTERFACE.
+    //
+    // If pdwIndex is NULL, FindFilterInterface returns an interface only if there is just
+    // a single filter in the graph that supports the interface.  Otherwise it returns
+    // E_NOINTERFACE.
+    //
+    HRESULT FindFilterInterface( [in] REFIID iid, [out AM_ANNOTATION("_Out_")] void ** ppInterface, [in,out] LPDWORD pdwIndex );
+
+    // Tries to obtain the interface from the filter graph itself.  If this fails,
+    // it attempts to find the unique filter that supports the interface.
+    // On failure the method will return E_NOINTERFACE.  On success, it returns
+    // S_OK and an AddRef()'ed pointer to the requested interface in *ppInterface.
+    //
+    HRESULT FindInterface( [in] REFIID iid, [out AM_ANNOTATION("_Out_")] void ** ppInterface );
+
+#endif
+}
+
+//
+// IFilterGraph3
+//
+
+[
+    AM_LOCAL
+    object,
+    uuid(aaf38154-b80b-422f-91e6-b66467509a07),
+    pointer_default(unique)
+]
+interface IFilterGraph3 : IFilterGraph2 {
+
+    //
+    // SetSyncSourceEx()
+    //
+    //      SetSyncSourceEx() allows applications to use two different clocks in
+    // the same filter graph.  pClockForMostOfFilterGraph is used by every filter
+    // in the filter graph except for pFilter.  pFilter uses pClockForFilter.
+    //
+    HRESULT SetSyncSourceEx(
+        [in AM_ANNOTATION("_In_")] IReferenceClock *pClockForMostOfFilterGraph,
+        [in AM_ANNOTATION("_In_")] IReferenceClock *pClockForFilter,
+        [in AM_ANNOTATION("_In_")] IBaseFilter *pFilter);
+}
+
+//
+// StreamBuilder
+// aka Graph building with constraints
+// aka convergent graphs
+// aka Closed captioning
+
+[
+    object,
+    local,
+    uuid(56a868bf-0ad4-11ce-b03a-0020af0ba770),
+    pointer_default(unique)
+]
+interface IStreamBuilder : IUnknown {
+
+    // Connect this output pin directly or indirectly, using transform filters
+    // if necessary to thing(s) that will render it, within this graph
+    // Move from Initial state to Rendered state.
+
+    HRESULT Render
+        ( [in] IPin * ppinOut,         // the output pin
+          [in] IGraphBuilder * pGraph  // the graph
+        );
+
+    // Undo what you did in Render.  Return to Initial state.
+    HRESULT Backout
+        ( [in] IPin * ppinOut,         // the output pin
+          [in] IGraphBuilder * pGraph  // the graph
+        );
+}
+
+
+// async reader interface - supported by file source filters. Allows
+// multiple overlapped reads from different positions
+
+
+[
+        AM_LOCAL
+        object,
+        uuid(56a868aa-0ad4-11ce-b03a-0020af0ba770),
+        pointer_default(unique)
+]
+interface IAsyncReader : IUnknown
+{
+    // pass in your preferred allocator and your preferred properties.
+    // method returns the actual allocator to be used. Call GetProperties
+    // on returned allocator to learn alignment and prefix etc chosen.
+    // this allocator will be not be committed and decommitted by
+    // the async reader, only by the consumer.
+    // Must call this before calling Request.
+    HRESULT RequestAllocator(
+                [in]  IMemAllocator* pPreferred,
+                [in AM_ANNOTATION("_In_")]  ALLOCATOR_PROPERTIES* pProps,
+                [out AM_ANNOTATION("_Out_")] IMemAllocator ** ppActual);
+
+    // queue a request for data.
+    // media sample start and stop times contain the requested absolute
+    // byte position (start inclusive, stop exclusive).
+    // may fail if sample not obtained from agreed allocator.
+    // may fail if start/stop position does not match agreed alignment.
+    // samples allocated from source pin's allocator may fail
+    // GetPointer until after returning from WaitForNext.
+    // Stop position must be aligned - this means it may exceed duration.
+    // on completion, stop position will be corrected to unaligned
+    // actual data.
+    HRESULT Request(
+                [in] IMediaSample* pSample,
+                [in] DWORD_PTR dwUser);         // user context
+
+    // block until the next sample is completed or the timeout occurs.
+    // timeout (millisecs) may be 0 or INFINITE. Samples may not
+    // be delivered in order. If there is a read error of any sort, a
+    // notification will already have been sent by the source filter,
+    // and HRESULT will be an error.
+    // If ppSample is not null, then a Request completed with the result
+    // code returned.
+    HRESULT WaitForNext(
+                [in]  DWORD dwTimeout,
+                [out AM_ANNOTATION("_Out_opt_")] IMediaSample** ppSample,  // completed sample
+                [out AM_ANNOTATION("_Out_")] DWORD_PTR * pdwUser);     // user context
+
+    // sync read of data. Sample passed in must have been acquired from
+    // the agreed allocator. Start and stop position must be aligned.
+    // equivalent to a Request/WaitForNext pair, but may avoid the
+    // need for a thread on the source filter.
+    HRESULT SyncReadAligned(
+                [in] IMediaSample* pSample);
+
+
+    // sync read. works in stopped state as well as run state.
+    // need not be aligned. Will fail if read is beyond actual total
+    // length.
+    HRESULT SyncRead(
+                [in]  LONGLONG llPosition,  // absolute file position
+                [in]  LONG lLength,     // nr bytes required
+                [out, size_is(lLength) AM_ANNOTATION("_Out_writes_bytes_(lLength)")]
+              BYTE* pBuffer);       // write data here
+
+    // return total length of stream, and currently available length.
+    // reads for beyond the available length but within the total length will
+    // normally succeed but may block for a long period.
+    HRESULT Length(
+                [out AM_ANNOTATION("_Out_")] LONGLONG* pTotal,
+                [out AM_ANNOTATION("_Out_")] LONGLONG* pAvailable);
+
+    // cause all outstanding reads to return, possibly with a failure code
+    //(VFW_E_TIMEOUT) indicating they were cancelled.
+    // Between BeginFlush and EndFlush calls, Request calls will fail and
+    // WaitForNext calls will always complete immediately.
+    HRESULT BeginFlush(void);
+    HRESULT EndFlush(void);
+}
+
+
+// interface provided by the filtergraph itself to let other objects
+// (especially plug-in distributors, but also apps like graphedt) know
+// when the graph has changed.
+[
+    AM_LOCAL
+    object,
+    uuid(56a868ab-0ad4-11ce-b03a-0020af0ba770),
+    pointer_default(unique)
+]
+interface IGraphVersion : IUnknown
+{
+    // returns the current graph version number
+    // this is incremented every time there is a change in the
+    // set of filters in the graph or in their connections
+    //
+    // if this is changed since your last enumeration, then re-enumerate
+    // the graph
+    HRESULT QueryVersion([AM_ANNOTATION("_Out_")] LONG* pVersion);
+}
+
+
+
+
+//
+// interface describing an object that uses resources.
+//
+// implement if: you request resources using IResourceManager. You will
+// need to pass your implementation of this pointer as an in param.
+//
+// use if: you are a resource manager who implements IResourceManager
+[
+    local,
+    object,
+    uuid(56a868ad-0ad4-11ce-b03a-0020af0ba770),
+    pointer_default(unique)
+]
+interface IResourceConsumer : IUnknown
+{
+    // you may acquire the resource specified.
+    // return values:
+    //      S_OK    -- I have successfully acquired it
+    //      S_FALSE -- I will acquire it and call NotifyAcquire afterwards
+    //      VFW_S_NOT_NEEDED: I no longer need the resource
+    //      FAILED(hr)-I tried to acquire it and failed.
+
+    HRESULT
+    AcquireResource(
+        [in] LONG idResource);
+
+
+
+    // Please release the resource.
+    // return values:
+    //      S_OK    -- I have released it (and want it again when available)
+    //      S_FALSE -- I will call NotifyRelease when I have released it
+    //      other   something went wrong.
+    HRESULT
+    ReleaseResource(
+        [in] LONG idResource);
+}
+
+
+
+// interface describing a resource manager that will resolve contention for
+// named resources.
+//
+// implement if: you are a resource manager. The filtergraph will be a resource
+// manager, internally delegating to the system wide resource manager
+// (when there is one)
+//
+// use if: you need resources that are limited. Use the resource manager to
+// resolve contention by registering the resource with this interface,
+// and requesting it from this interface whenever needed.
+//
+// or use if: you detect focus changes which should affect resource usage.
+// Notifying change of focus to the resource manager will cause the resource
+// manager to switch contended resources to the objects that have the user's
+// focus
+[
+    local,
+    object,
+    uuid(56a868ac-0ad4-11ce-b03a-0020af0ba770),
+    pointer_default(unique)
+]
+interface IResourceManager : IUnknown
+{
+    // tell the manager how many there are of a resource.
+    // ok if already registered. will take new count. if new count
+    // is lower, will de-allocate resources to new count.
+    //
+    // You get back a token that will be used in further calls.
+    //
+    // Passing a count of 0 will eliminate this resource. There is currently
+    // no defined way to find the id without knowing the count.
+    //
+    HRESULT
+    Register(
+        [in] LPCWSTR pName,         // this named resource
+        [in] LONG   cResource,      // has this many instances
+        [out, annotation("_Out_")] LONG* plToken         // token placed here on return
+        );
+
+    HRESULT
+    RegisterGroup(
+        [in] LPCWSTR pName,         // this named resource group
+        [in] LONG cResource,        // has this many resources
+        [in, size_is(cResource), annotation("_In_reads_(cResource)")]
+             LONG* palTokens,      // these are the contained resources
+        [out, annotation("_Out_")] LONG* plToken        // group resource id put here on return
+        );
+
+    // request the use of a given, registered resource.
+    // possible return values:
+    //      S_OK == yes you can use it now
+    //      S_FALSE == you will be called back when the resource is available
+    //      other - there is an error.
+    //
+    // The priority of this request should be affected by the associated
+    // focus object -- that is, when SetFocus is called for that focus
+    // object (or a 'related' object) then my request should be put through.
+    //
+    // A filter should pass the filter's IUnknown here. The filtergraph
+    // will match filters to the filtergraph, and will attempt to trace
+    // filters to common source filters when checking focus objects.
+    // The Focus object must be valid for the entire lifetime of the request
+    // -- until you call CancelRequest or NotifyRelease(id, p, FALSE)
+    HRESULT
+    RequestResource(
+        [in] LONG idResource,
+        [in] IUnknown* pFocusObject,
+        [in] IResourceConsumer* pConsumer
+        );
+
+
+    // notify the resource manager that an acquisition attempt completed.
+    // Call this method after an AcquireResource method returned
+    // S_FALSE to indicate asynchronous acquisition.
+    // HR should be S_OK if the resource was successfully acquired, or a
+    // failure code if the resource could not be acquired.
+    HRESULT
+    NotifyAcquire(
+        [in] LONG idResource,
+        [in] IResourceConsumer* pConsumer,
+        [in] HRESULT hr);
+
+    // Notify the resource manager that you have released a resource. Call
+    // this in response to a ReleaseResource method, or when you have finished
+    // with the resource. bStillWant should be TRUE if you still want the
+    // resource when it is next available, or FALSE if you no longer want
+    // the resource.
+    HRESULT
+    NotifyRelease(
+        [in] LONG idResource,
+        [in] IResourceConsumer* pConsumer,
+        [in] BOOL bStillWant);
+
+    // I don't currently have the resource, and I no longer need it.
+    HRESULT
+    CancelRequest(
+        [in] LONG idResource,
+        [in] IResourceConsumer* pConsumer);
+
+    // Notify the resource manager that a given object has been given the
+    // user's focus. In ActiveMovie, this will normally be a video renderer
+    // whose window has received the focus. The filter graph will switch
+    // contended resources to (in order):
+    //      requests made with this same focus object
+    //      requests whose focus object shares a common source with this
+    //      requests whose focus object shares a common filter graph
+    // After calling this, you *must* call ReleaseFocus before the IUnknown
+    // becomes invalid, unless you can guarantee that another SetFocus
+    // of a different object is done in the meantime. No addref is held.
+    //
+    // The resource manager will hold this pointer until replaced or cancelled,
+    // and will use it to resolve resource contention. It will call
+    // QueryInterface for IBaseFilter at least and if found will call methods on
+    // that interface.
+    HRESULT
+    SetFocus(
+        [in] IUnknown* pFocusObject);
+
+    // Sets the focus to NULL if the current focus object is still
+    // pFocusObject. Call this when
+    // the focus object is about to be destroyed to ensure that no-one is
+    // still referencing the object.
+    HRESULT
+    ReleaseFocus(
+        [in] IUnknown* pFocusObject);
+
+
+
+// !!! still need
+//      -- app override (some form of SetPriority)
+//      -- enumeration and description of resources
+
+}
+
+
+//
+// Interface representing an object that can be notified about state
+// and other changes within a filter graph. The filtergraph will call plug-in
+// distributors that expose this optional interface so that they can
+// respond to appropriate changes.
+//
+// Implement if: you are a plug-in distributor (your class id is found
+// under HKCR\Interface\<IID>\Distributor= for some interface).
+//
+// Use if: you are the filtergraph.
+[
+    AM_LOCAL
+    object,
+    uuid(56a868af-0ad4-11ce-b03a-0020af0ba770),
+    pointer_default(unique)
+]
+interface IDistributorNotify : IUnknown
+{
+    // called when graph is entering stop state. Called before
+    // filters are stopped.
+    HRESULT Stop(void);
+
+    // called when graph is entering paused state, before filters are
+    // notified
+    HRESULT Pause(void);
+
+    // called when graph is entering running state, before filters are
+    // notified. tStart is the stream-time offset parameter that will be
+    // given to each filter's IBaseFilter::Run method.
+    HRESULT Run(REFERENCE_TIME tStart);
+
+    // called when the graph's clock is changing, with the new clock. Addref
+    // the clock if you hold it beyond this method. Called before
+    // the filters are notified.
+    HRESULT SetSyncSource(
+        [in] IReferenceClock * pClock);
+
+    // called when the set of filters or their connections has changed.
+    // Called on every AddFilter, RemoveFilter or ConnectDirect (or anything
+    // that will lead to one of these).
+    // You don't need to rebuild your list of interesting filters at this point
+    // but you should release any refcounts you hold on any filters that
+    // have been removed.
+    HRESULT NotifyGraphChange(void);
+}
+
+typedef enum AM_STREAM_INFO_FLAGS {
+    AM_STREAM_INFO_START_DEFINED = 0x00000001,
+    AM_STREAM_INFO_STOP_DEFINED  = 0x00000002,
+    AM_STREAM_INFO_DISCARDING    = 0x00000004,
+    AM_STREAM_INFO_STOP_SEND_EXTRA = 0x00000010
+} AM_STREAM_INFO_FLAGS;
+
+//  Stream information
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+typedef struct AM_STREAM_INFO {
+    REFERENCE_TIME tStart;
+    REFERENCE_TIME tStop;
+    DWORD dwStartCookie;
+    DWORD dwStopCookie;
+    DWORD dwFlags;
+} AM_STREAM_INFO;
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+//
+// IAMStreamControl
+//
+
+[
+    AM_LOCAL
+    object,
+    uuid(36b73881-c2c8-11cf-8b46-00805f6cef60),
+    pointer_default(unique)
+]
+interface IAMStreamControl : IUnknown
+{
+    // The REFERENCE_TIME pointers may be null, which
+    // indicates immediately.  If the pointer is non-NULL
+    // and dwCookie is non-zero, then pins should send
+    // EC_STREAM_CONTROL_STOPPED / EC_STREAM_CONTROL_STARTED
+    // with an IPin pointer and the cookie, thus allowing
+    // apps to tie the events back to their requests.
+    // If either dwCookies is zero, or the pointer is null,
+    // then no event is sent.
+
+    // If you have a capture pin hooked up to a MUX input pin and they
+    // both support IAMStreamControl, you'll want the MUX to signal the
+    // stop so you know the last frame was written out.  In order for the
+    // MUX to know it's finished, the capture pin will have to send one
+    // extra sample after it was supposed to stop, so the MUX can trigger
+    // off that.  So you would set bSendExtra to TRUE for the capture pin
+    // Leave it FALSE in all other cases.
+
+    HRESULT StartAt( [in AM_ANNOTATION("_In_opt_")] const REFERENCE_TIME * ptStart,
+                     [in] DWORD dwCookie );
+    HRESULT StopAt(  [in AM_ANNOTATION("_In_opt_")] const REFERENCE_TIME * ptStop,
+                     [in] BOOL bSendExtra,
+                     [in] DWORD dwCookie );
+    HRESULT GetInfo( [out AM_ANNOTATION("_Out_")] AM_STREAM_INFO *pInfo);
+}
+
+
+
+//
+// ISeekingPassThru
+//
+
+[
+    AM_LOCAL
+    object,
+    uuid(36b73883-c2c8-11cf-8b46-00805f6cef60),
+    pointer_default(unique)
+]
+interface ISeekingPassThru : IUnknown
+{
+    HRESULT Init(  [in] BOOL bSupportRendering,
+                   [in] IPin *pPin);
+}
+
+
+
+//
+// IAMStreamConfig - pin interface
+//
+
+// A capture filter or compression filter's output pin
+// supports this interface - no matter what data type you produce.
+
+// This interface can be used to set the output format of a pin (as an
+// alternative to connecting the pin using a specific media type).
+// After setting an output format, the pin will use that format
+// the next time it connects to somebody, so you can just Render that
+// pin and get a desired format without using Connect(CMediaType)
+// Your pin should do that by ONLY OFFERING the media type set in SetFormat
+// in its enumeration of media types, and no others.  This will ensure that
+// that format is indeed used for connection (or at least offer it first).
+// An application interested in enumerating accepted mediatypes may have to
+// do so BEFORE calling SetFormat.
+
+// But this interface's GetStreamCaps function can get more information
+// about accepted media types than the traditional way of enumerating a pin's
+// media types, so it should typically be used instead.
+// GetStreamCaps gets information about the kinds of formats allowed... how
+// it can stretch and crop, and the frame rate and data rates allowed (for
+// video)
+
+// VIDEO EXAMPLE
+//
+// GetStreamCaps returns a whole array of {MediaType, Capabilities}.
+// Let's say your capture card supports JPEG anywhere between 160x120 and
+// 320x240, and also the size 640x480.  Also, say it supports RGB24 at
+// resolutions between 160x120 and 320x240 but only multiples of 8.  You would
+// expose these properties by offering a media type of 320 x 240 JPEG
+// (if that is your default or preferred size) coupled with
+// capabilities saying minimum 160x120 and maximum 320x240 with granularity of
+// 1.  The next pair you expose is a media type of 640x480 JPEG coupled with
+// capabilities of min 640x480 max 640x480.  The third pair is media type
+// 320x240 RGB24 with capabilities min 160x120 max 320x240 granularity 8.
+// In this way you can expose almost every quirk your card might have.
+// An application interested in knowing what compression formats you provide
+// can get all the pairs and make a list of all the unique sub types of the
+// media types.
+//
+// If a filter's output pin is connected with a media type that has rcSource
+// and rcTarget not empty, it means the filter is being asked to stretch the
+// rcSource sub-rectangle of its InputSize (the format of the input pin for
+// a compressor, and the largest bitmap a capture filter can generate with
+// every pixel unique) into the rcTarget sub-rectangle of its output format.
+// For instance, if a video compressor has as input 160x120 RGB, and as output
+// 320x240 MPEG with an rcSource of (10,10,20,20) and rcTarget of (0,0,100,100)
+// this means the compressor is being asked to take a 10x10 piece of the 160x120
+// RGB bitmap, and make it fill the top 100x100 area of a 320x240 bitmap,
+// leaving the rest of the 320x240 bitmap untouched.
+// A filter does not have to support this and can fail to connect with a
+// media type where rcSource and rcTarget are not empty.
+//
+// Your output pin is connected to the next filter with a certain media
+// type (either directly or using the media type passed by SetFormat),
+// and you need to look at the AvgBytesPerSecond field of the format
+// of that mediatype to see what data rate you are being asked to compress
+// the video to, and use that data rate.  Using the number of frames per
+// second in AvgTimePerFrame, you can figure out how many bytes each frame
+// is supposed to be.  You can make it smaller, but NEVER EVER make a bigger
+// data rate.  For a video compressor, your input pin's media type tells you
+// the frame rate (use that AvgTimePerFrame).  For a capture filter, the
+// output media type tells you, so use that AvgTimePerFrame.
+//
+// The cropping rectangle described below is the same as the rcSrc of the
+// output pin's media type.
+//
+// The output rectangle described below is the same of the width and height
+// of the BITMAPINFOHEADER of the media type of the output pin's media type
+
+
+// AUDIO EXAMPLE
+//
+// This API can return an array of pairs of (media type, capabilities).
+// This can be used to expose all kinds of wierd capabilities.  Let's say you
+// do any PCM frequency from 11,025 to 44,100 at 8 or 16 bit mono or
+// stereo, and you also do 48,000 16bit stereo as a special combination.
+// You would expose 3 pairs.  The first pair would have Min Freq of 11025 and
+// Max Freq of 44100, with MaxChannels=2 and MinBits=8 and MaxBits=8 for the
+// capabilites structure, and a media type of anything you like, maybe
+// 22kHz, 8bit stereo as a default.
+// The 2nd pair would be the same except for MinBits=16 and MaxBits=16 in
+// the capabilities structure and the media type could be something like
+// 44kHz, 16bit stereo as a default (the media type in the pair should always
+// be something legal as described by the capabilities structure... the
+// structure tells you how you can change the media type to produce other
+// legal media types... for instance changing 44kHz to 29010Hz would be legal,
+// but changing bits from 16 to 14 would not be.)
+// The 3rd pair would be MinFreq=48000 MaxFreq=48000 MaxChannels=2
+// MinBits=16 and MaxBits=16, and the media type would be 48kHz 16bit stereo.
+// You can also use the Granularity elements of the structure (like the example
+// for video) if you support values that multiples of n, eg.  you could say
+// minimum bits per sample 8, max 16, and granularity 8 to describe doing
+// either 8 or 16 bit all in one structure
+//
+// If you support non-PCM formats, the media type returned in GetStreamCaps
+// can show which non-PCM formats you support (with a default sample rate,
+// bit rate and channels) and the capabilities structure going with that
+// media type can describe which other sample rates, bit rates and channels
+// you support.
+
+[
+    AM_LOCAL
+    object,
+    uuid(C6E13340-30AC-11d0-A18C-00A0C9118956),
+    pointer_default(unique)
+]
+interface IAMStreamConfig : IUnknown
+{
+
+    // this is the structure returned by a VIDEO filter
+    //
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+    typedef struct _VIDEO_STREAM_CONFIG_CAPS {
+
+    GUID        guid;   // will be MEDIATYPE_Video
+
+    // the logical or of all the AnalogVideoStandard's supported
+    // typically zero if not supported
+    ULONG       VideoStandard;
+
+    // the inherent size of the incoming signal... taken from the input
+    // pin for a compressor, or the largest size a capture filter can
+    // digitize the signal with every pixel still unique
+        SIZE        InputSize;
+
+    // The input of a compressor filter may have to be connected for these
+    // to be known
+
+    // smallest rcSrc cropping rect allowed
+        SIZE        MinCroppingSize;
+    // largest rcSrc cropping rect allowed
+        SIZE        MaxCroppingSize;
+    // granularity of cropping size - eg only widths a multiple of 4 allowed
+        int         CropGranularityX;
+        int         CropGranularityY;
+    // alignment of cropping rect - eg rect must start on multiple of 4
+    int     CropAlignX;
+    int     CropAlignY;
+
+    // The input of a compressor filter may have to be connected for these
+    // to be known
+
+    // smallest bitmap this pin can produce
+        SIZE        MinOutputSize;
+    // largest bitmap this pin can produce
+        SIZE        MaxOutputSize;
+    // granularity of output bitmap size
+        int         OutputGranularityX;
+        int         OutputGranularityY;
+    // !!! what about alignment of rcTarget inside BIH if different?
+
+    // how well can you stretch in the x direction?  0==not at all
+    // 1=pixel doubling 2=interpolation(2 taps) 3=better interpolation
+    // etc.
+    int     StretchTapsX;
+    int     StretchTapsY;
+    // how well can you shrink in the x direction?  0==not at all
+    // 1=pixel doubling 2=interpolation(2 taps) 3=better interpolation
+    // etc.
+    int     ShrinkTapsX;
+    int     ShrinkTapsY;
+
+    // CAPTURE filter only - what frame rates are allowed?
+        LONGLONG    MinFrameInterval;
+        LONGLONG    MaxFrameInterval;
+
+    // what data rates can this pin produce?
+        LONG        MinBitsPerSecond;
+        LONG        MaxBitsPerSecond;
+    } VIDEO_STREAM_CONFIG_CAPS;
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+
+    // this is the structure returned by an AUDIO filter
+    //
+    typedef struct _AUDIO_STREAM_CONFIG_CAPS {
+
+    GUID       guid;    // will be MEDIATYPE_Audio
+    ULONG      MinimumChannels;
+    ULONG      MaximumChannels;
+    ULONG      ChannelsGranularity;
+    ULONG      MinimumBitsPerSample;
+    ULONG      MaximumBitsPerSample;
+    ULONG      BitsPerSampleGranularity;
+    ULONG      MinimumSampleFrequency;
+    ULONG      MaximumSampleFrequency;
+    ULONG      SampleFrequencyGranularity;
+    } AUDIO_STREAM_CONFIG_CAPS;
+
+    // - only allowed when pin is not streaming, else the call will FAIL
+    // - If your output pin is not yet connected, and you can
+    //   connect your output pin with this media type, you should
+    //   succeed the call, and start offering it first (enumerate as format#0)
+    //   from GetMediaType so that this format will be used to connect with
+    //   when you do connect to somebody
+    // - if your output pin is already connected, and you can provide this
+    //   type, reconnect your pin.  If the other pin can't accept it, FAIL
+    //   this call and leave your connection alone.
+    HRESULT SetFormat(
+            [in] AM_MEDIA_TYPE *pmt);
+
+    // the format it's connected with, or will connect with
+    // the application is responsible for calling DeleteMediaType(*ppmt);
+    HRESULT GetFormat(
+            [out AM_ANNOTATION("_Out_")] AM_MEDIA_TYPE **ppmt);
+
+    // how many different Stream Caps structures are there?
+    // also, how big is the stream caps structure?
+    HRESULT GetNumberOfCapabilities(
+            [out AM_ANNOTATION("_Out_")] int *piCount,
+        [out AM_ANNOTATION("_Out_")] int *piSize); // pSCC of GetStreamCaps needs to be this big
+
+    // - gets one of the pairs of {Mediatype, Caps}
+    // - return S_FALSE if iIndex is too high
+    // - the application is responsible for calling DeleteMediaType(*ppmt);
+    // - the first thing pSCC points to is a GUID saying MEDIATYPE_Video
+    //   or MEDIATYPE_Audio, so you can tell if you have a pointer to a
+    //   VIDEO_STREAM_CONFIG_CAPS or an AUDIO_STREAM_CONFIG_CAPS structure
+    //   There could potentially be many more possibilities other than video
+    //   or audio.
+    HRESULT GetStreamCaps(
+        [in]  int iIndex,   // 0 to #caps-1
+        [out AM_ANNOTATION("_Out_")] AM_MEDIA_TYPE **ppmt,
+            [out AM_ANNOTATION("_Out_")] BYTE *pSCC);
+
+}
+
+
+
+// Interface to control interleaving of different streams in one file
+[
+AM_LOCAL
+object,
+uuid(BEE3D220-157B-11d0-BD23-00A0C911CE86),
+pointer_default(unique)
+]
+interface IConfigInterleaving : IUnknown
+{
+    import "unknwn.idl";
+
+    typedef enum InterleavingMode
+    {
+        // uninterleaved - samples written out in the order they
+        // arrive.
+        INTERLEAVE_NONE,
+
+        // approximate interleaving with less overhead for video
+        // capture
+        INTERLEAVE_CAPTURE,
+
+        // full, precise interleaving. slower.
+        INTERLEAVE_FULL,
+
+        // samples written out in the order they arrive. writes are
+        // buffered
+        INTERLEAVE_NONE_BUFFERED
+
+    } InterleavingMode;
+
+    HRESULT put_Mode(
+        [in] InterleavingMode mode
+        );
+
+    HRESULT get_Mode(
+        [out AM_ANNOTATION("_Out_")] InterleavingMode *pMode
+        );
+
+    HRESULT put_Interleaving(
+        [in] const REFERENCE_TIME *prtInterleave,
+        [in] const REFERENCE_TIME *prtPreroll
+        );
+
+    HRESULT get_Interleaving(
+        [out AM_ANNOTATION("_Out_")] REFERENCE_TIME *prtInterleave,
+        [out AM_ANNOTATION("_Out_")] REFERENCE_TIME *prtPreroll
+        );
+}
+
+// Interface to control the AVI mux
+[
+AM_LOCAL
+object,
+uuid(5ACD6AA0-F482-11ce-8B67-00AA00A3F1A6),
+pointer_default(unique)
+]
+interface IConfigAviMux : IUnknown
+{
+    import "unknwn.idl";
+
+    // control whether the AVI mux adjusts the frame rate or audio
+    // sampling rate for drift when the file is closed. -1 to disables
+    // this behavior.
+    HRESULT SetMasterStream([in] LONG iStream);
+    HRESULT GetMasterStream([out AM_ANNOTATION("_Out_")] LONG *pStream);
+
+    // control whether the AVI mux writes out an idx1 index chunk for
+    // compatibility with older AVI players.
+    HRESULT SetOutputCompatibilityIndex([in] BOOL fOldIndex);
+    HRESULT GetOutputCompatibilityIndex([out AM_ANNOTATION("_Out_")] BOOL *pfOldIndex);
+}
+
+    //---------------------------------------------------------------------
+    //  CompressionCaps enum
+    //---------------------------------------------------------------------
+
+    // This tells you which features of IAMVideoCompression are supported
+
+    // CanCrunch means that it can compress video to a specified data rate
+    // If so, then the output pin's media type will contain that data rate
+    // in the format's AvgBytesPerSecond field, and that should be used.
+
+    typedef enum CompressionCaps
+    {
+        CompressionCaps_CanQuality =  0x01,
+        CompressionCaps_CanCrunch =   0x02,
+        CompressionCaps_CanKeyFrame = 0x04,
+        CompressionCaps_CanBFrame =   0x08,
+        CompressionCaps_CanWindow =   0x10
+    } CompressionCaps;
+
+
+
+    //---------------------------------------------------------------------
+    // IAMVideoCompression interface
+    //
+    // Control compression parameters - pin interface
+    //---------------------------------------------------------------------
+
+    // This interface is implemented by the output pin of a video capture
+    // filter or video compressor that provides video data
+
+    // You use this interface to control how video is compressed... how
+    // many keyframes, etc., and to find information like capabilities and
+    // the description of this compressor
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E13343-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMVideoCompression : IUnknown
+    {
+    // - Only valid if GetInfo's pCapabilities sets
+    //   CompressionCaps_CanKeyFrame
+        // - KeyFrameRate < 0 means use the compressor default
+    // - KeyFrames == 0 means only the first frame is a key
+        HRESULT put_KeyFrameRate (
+                    [in] long KeyFrameRate);
+
+        HRESULT get_KeyFrameRate (
+                    [out AM_ANNOTATION("_Out_")] long * pKeyFrameRate);
+
+    // - Only valid if GetInfo's pCapabilities sets
+    //   CompressionCaps_CanBFrame
+    // - If keyframes are every 10, and there are 3 P Frames per key,
+    //   they will be spaced evenly between the key frames and the other
+    //   6 frames will be B frames
+    // - PFramesPerKeyFrame < 0 means use the compressor default
+        HRESULT put_PFramesPerKeyFrame (
+                    [in] long PFramesPerKeyFrame);
+
+        HRESULT get_PFramesPerKeyFrame (
+                    [out AM_ANNOTATION("_Out_")] long * pPFramesPerKeyFrame);
+
+    // - Only valid if GetInfo's pCapabilities sets
+    //   CompressionCaps_CanQuality
+    // - Controls image quality
+    // - If you are compressing to a fixed data rate, a high quality
+    //   means try and use all of the data rate, and a low quality means
+    //   feel free to use much lower than the data rate if you want to.
+        // - Quality < 0 means use the compressor default
+        HRESULT put_Quality (
+                    [in] double Quality);
+
+        HRESULT get_Quality (
+                    [out AM_ANNOTATION("_Out_")] double * pQuality);
+
+    // If you have set a data rate of 100K/sec on a 10fps movie, that
+    // will normally mean each frame must be <=10K.  But a window size
+    // means every consecutive n frames must average to the data rate,
+    // but an individual frame (if n > 1) is allowed to exceed the
+    // frame size suggested by the data rate
+        HRESULT put_WindowSize (
+                    [in] DWORDLONG WindowSize);
+
+        HRESULT get_WindowSize (
+                    [out AM_ANNOTATION("_Out_")] DWORDLONG * pWindowSize);
+
+    // - pszVersion might be "Version 2.1.0"
+    // - pszDescription might be "Danny's awesome video compressor"
+    // - pcbVersion and pcbDescription will be filled in with the
+    //   required length if they are too short
+    // - *pCapabilities is a logical OR of some CompressionCaps flags
+        HRESULT GetInfo(
+                    [out, size_is(*pcbVersion) AM_ANNOTATION("_Out_writes_bytes_opt_(*pcbVersion)")] LPWSTR pszVersion,
+                    [in,out AM_ANNOTATION("_Inout_opt_")] int *pcbVersion,
+                    [out, size_is(*pcbDescription) AM_ANNOTATION("_Out_writes_bytes_opt_(*pcbDescription)")] LPWSTR pszDescription,
+                    [in,out AM_ANNOTATION("_Inout_opt_")] int *pcbDescription,
+                    [out AM_ANNOTATION("_Out_opt_")] long *pDefaultKeyFrameRate,
+                    [out AM_ANNOTATION("_Out_opt_")] long *pDefaultPFramesPerKey,
+                    [out AM_ANNOTATION("_Out_opt_")] double *pDefaultQuality,
+                    [out AM_ANNOTATION("_Out_opt_")] long *pCapabilities  //CompressionCaps
+        );
+
+    // - this means when this frame number comes along after the graph
+    //   is running, make it a keyframe even if you weren't going to
+        HRESULT OverrideKeyFrame(
+                    [in]  long FrameNumber
+        );
+
+    // - Only valid if GetInfo's pCapabilities sets
+    //   CompressionCaps_CanCrunch
+    // - this means when this frame number comes along after the graph
+    //   is running, make it this many bytes big instead of whatever size
+    //   you were going to make it.
+        HRESULT OverrideFrameSize(
+                    [in]  long FrameNumber,
+                    [in]  long Size
+        );
+
+    }
+
+    //---------------------------------------------------------------------
+    //  VfwCaptureDialogs enum
+    //---------------------------------------------------------------------
+
+    typedef enum VfwCaptureDialogs
+    {
+         VfwCaptureDialog_Source = 0x01,
+         VfwCaptureDialog_Format = 0x02,
+         VfwCaptureDialog_Display = 0x04
+    } VfwCaptureDialogs;
+
+
+    //---------------------------------------------------------------------
+    //  VfwCompressDialogs enum
+    //---------------------------------------------------------------------
+
+    typedef enum VfwCompressDialogs
+    {
+         VfwCompressDialog_Config = 0x01,
+         VfwCompressDialog_About =  0x02,
+         // returns S_OK if the dialog exists and can be shown, else S_FALSE
+         VfwCompressDialog_QueryConfig = 0x04,
+         VfwCompressDialog_QueryAbout =  0x08
+    } VfwCompressDialogs;
+
+
+    //---------------------------------------------------------------------
+    // IAMVfwCaptureDialogs - filter interface
+    //
+    // Show a VfW capture driver dialog - SOURCE, FORMAT, or DISPLAY
+    //---------------------------------------------------------------------
+
+    // This interface is supported only by Microsoft's Video For Windows
+    // capture driver Capture Filter.  It allows an application to bring up
+    // one of the 3 driver dialogs that VfW capture drivers have.
+
+    [
+        object,
+        local,
+        uuid(D8D715A0-6E5E-11D0-B3F0-00AA003761C5),
+        pointer_default(unique)
+    ]
+    interface IAMVfwCaptureDialogs : IUnknown
+    {
+        HRESULT HasDialog(
+                    [in]  int iDialog   // VfwCaptureDialogs enum
+        );
+
+        HRESULT ShowDialog(
+                    [in]  int iDialog,  // VfwCaptureDialogs enum
+            [in]  HWND hwnd
+        );
+
+        HRESULT SendDriverMessage(
+                    [in]  int iDialog,  // VfwCaptureDialogs enum
+                    [in]  int uMsg,
+                    [in]  long dw1,
+                    [in]  long dw2
+        );
+
+        // - iDialog can be one of the VfwCaptureDialogs enums
+        // - HasDialog returns S_OK if it has the dialog, else S_FALSE
+    // - ShowDialog can only be called when not streaming or when another
+    //   dialog is not already up
+    // - SendDriverMessage can send a private message to the capture driver.
+    //   USE IT AT YOUR OWN RISK!
+    }
+
+    //---------------------------------------------------------------------
+    // IAMVfwCompressDialogs - filter interface
+    //
+    // Show a VfW codec driver dialog - CONFIG or ABOUT
+    //---------------------------------------------------------------------
+
+    // This interface is supported only by Microsoft's ICM Compressor filter
+    // (Co).  It allows an application to bring up either the Configure or
+    // About dialogs for the ICM codec that it is currently using.
+
+    [
+        object,
+        local,
+        uuid(D8D715A3-6E5E-11D0-B3F0-00AA003761C5),
+        pointer_default(unique)
+    ]
+    interface IAMVfwCompressDialogs : IUnknown
+    {
+
+        // Bring up a dialog for this codec
+        HRESULT ShowDialog(
+            [in]  int iDialog,   // VfwCompressDialogs enum
+            [in]  HWND hwnd
+        );
+
+        // Calls ICGetState and gives you the result
+        HRESULT GetState(
+            [out, size_is(*pcbState), annotation("_Out_writes_bytes_to_(*pcbState, *pcbState)")] LPVOID pState,
+            [in, out, annotation("_Inout_")]  int *pcbState
+        );
+
+        // Calls ICSetState
+        HRESULT SetState(
+            [in, size_is(cbState), annotation("_In_reads_bytes_(cbState)")] LPVOID pState,
+            [in]  int cbState
+        );
+
+        // Send a codec specific message
+        HRESULT SendDriverMessage(
+            [in]  int uMsg,
+            [in]  long dw1,
+            [in]  long dw2
+        );
+
+        // - iDialog can be one of the VfwCaptureDialogs enums
+    // - ShowDialog can only be called when not streaming or when no other
+    //   dialog is up already
+    // - an application can call GetState after ShowDialog(CONFIG) to
+    //   see how the compressor was configured and next time the graph
+    //   is used, it can call SetState with the data it saved to return
+    //   the codec to the state configured by the dialog box from last time
+    // - GetState with a NULL pointer returns the size needed
+    // - SendDriverMessage can send a private message to the codec.
+    //   USE IT AT YOUR OWN RISK!
+    }
+
+
+    //---------------------------------------------------------------------
+    // IAMDroppedFrames interface
+    //
+    // Report status of capture - pin interface
+    //---------------------------------------------------------------------
+
+    // A capture filter's video output pin supports this.  It reports
+    // how many frames were not sent (dropped), etc.
+
+    // Every time your filter goes from STOPPED-->PAUSED, you reset all your
+    // counts to zero.
+
+    // An app may call this all the time while you are capturing to see how
+    // capturing is going.  MAKE SURE you always return as current information
+    // as possible while you are running.
+
+    // When your capture filter starts running, it starts by sending frame 0,
+    // then 1, 2, 3, etc.  The time stamp of each frame sent should correspond
+    // to the graph clock's time when the image was digitized.  The end time
+    // is the start time plus the duration of the video frame.
+    // You should also set the MediaTime of each sample (SetMediaTime) as well.
+    // This should be the frame number ie (0,1) (1,2) (2,3).
+    // If a frame is dropped, a downstream filter will be able to tell easily
+    // not by looking for gaps in the regular time stamps, but by noticing a
+    // frame number is missing (eg.  (1,2) (2,3) (4,5) (5,6) means frame 3
+    // was dropped.
+
+    // Using the info provided by this interface, an application can figure out
+    // the number of frames dropped, the frame rate achieved (the length of
+    // time the graph was running divided by the number of frames not dropped),
+    // and the data rate acheived (the length of time the graph was running
+    // divided by the average frame size).
+
+    // If your filter is running, then paused, and then run again, you need
+    // to continue to deliver frames as if it was never paused.  The first
+    // frame after the second RUN cannot be time stamped earlier than the last
+    // frame sent before the pause.
+
+    // Your filter must always increment the MediaTime of each sample sent.
+    // Never send the same frame # twice, and never go back in time.  The
+    // regular time stamp of a sample can also never go back in time.
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E13344-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMDroppedFrames : IUnknown
+    {
+        // Get the number of dropped frames
+        HRESULT GetNumDropped(
+                    [out AM_ANNOTATION("_Out_")]  long * plDropped
+
+        );
+
+        //Get the number of non-dropped frames
+        HRESULT GetNumNotDropped(
+                    [out AM_ANNOTATION("_Out_")]  long * plNotDropped
+
+        );
+
+    // - plArray points to an array of lSize longs.  The filter will
+    //   fill it with the frame number of the first lSize frames dropped.
+    //   A filter may not have bothered to remember as many as you asked
+    //   for, so it will set *plNumCopied to the number of frames it filled
+    //   in.
+        HRESULT GetDroppedInfo(
+                    [in]   long lSize,
+                    [out AM_ANNOTATION("_Out_")]  long * plArray,
+                    [out AM_ANNOTATION("_Out_")]  long *  plNumCopied
+        );
+
+    // - This is the average size of the frames it didn't drop (in bytes)
+        HRESULT GetAverageFrameSize(
+                    [out AM_ANNOTATION("_Out_")]  long * plAverageSize
+
+        );
+
+    }
+
+
+
+    cpp_quote("#define AMF_AUTOMATICGAIN -1.0")
+
+    //---------------------------------------------------------------------
+    // IAMAudioInputMixer interface
+    //
+    // Sets the recording levels, pan and EQ for the audio card inputs
+    //---------------------------------------------------------------------
+
+    // This interface is implemented by each input pin of an audio capture
+    // filter, to tell it what level, panning, and EQ to use for each input.
+    // The name of each pin will reflect the type of input, eg. "Line input 1"
+    // or "Mic".  An application uses the pin names to decide how it wants to
+    // set the recording levels
+
+    // This interface can also be supported by the audio capture filter itself
+    // to control to overall record level and panning after the mix
+
+    [
+        AM_LOCAL
+        object,
+        uuid(54C39221-8380-11d0-B3F0-00AA003761C5),
+        pointer_default(unique)
+    ]
+    interface IAMAudioInputMixer : IUnknown
+    {
+    // This interface is only supported by the input pins, not the filter
+    // If disabled, this channel will not be mixed in as part of the
+    // recorded signal.
+        HRESULT put_Enable (
+            [in] BOOL fEnable); // TRUE=enable FALSE=disable
+
+    //Is this channel enabled?
+        HRESULT get_Enable (
+            [out AM_ANNOTATION("_Out_")] BOOL *pfEnable);
+
+    // When set to mono mode, making a stereo recording of this channel
+    // will have both channels contain the same data... a mixture of the
+    // left and right signals
+        HRESULT put_Mono (
+            [in] BOOL fMono);   // TRUE=mono FALSE=multi channel
+
+        //all channels combined into a mono signal?
+        HRESULT get_Mono (
+            [out AM_ANNOTATION("_Out_")] BOOL *pfMono);
+
+    // !!! WILL CARDS BE ABLE TO BOOST THE GAIN?
+        //Set the record level for this channel
+        HRESULT put_MixLevel (
+                    [in] double Level); // 0 = off, 1 = full (unity?) volume
+                    // AMF_AUTOMATICGAIN, if supported,
+                    // means automatic
+
+        //Get the record level for this channel
+        HRESULT get_MixLevel (
+                    [out AM_ANNOTATION("_Out_")] double *pLevel);
+
+    // For instance, when panned full left, and you make a stereo recording
+    // of this channel, you will record a silent right channel.
+        HRESULT put_Pan (
+                    [in] double Pan);   // -1 = full left, 0 = centre, 1 = right
+
+        //Get the pan for this channel
+        HRESULT get_Pan (
+                    [out AM_ANNOTATION("_Out_")] double *pPan);
+
+    // Boosts the bass of low volume signals before they are recorded
+    // to compensate for the fact that your ear has trouble hearing quiet
+    // bass sounds
+        HRESULT put_Loudness (
+            [in] BOOL fLoudness);// TRUE=on FALSE=off
+
+        HRESULT get_Loudness (
+            [out AM_ANNOTATION("_Out_")] BOOL *pfLoudness);
+
+    // boosts or cuts the treble of the signal before it's recorded by
+    // a certain amount of dB
+        HRESULT put_Treble (
+                    [in] double Treble); // gain in dB (-ve = attenuate)
+
+        //Get the treble EQ for this channel
+        HRESULT get_Treble (
+                    [out AM_ANNOTATION("_Out_")] double *pTreble);
+
+    // This is the maximum value allowed in put_Treble.  ie 6.0 means
+    // any value between -6.0 and 6.0 is allowed
+        HRESULT get_TrebleRange (
+                    [out AM_ANNOTATION("_Out_")] double *pRange); // largest value allowed
+
+    // boosts or cuts the bass of the signal before it's recorded by
+    // a certain amount of dB
+        HRESULT put_Bass (
+                    [in] double Bass); // gain in dB (-ve = attenuate)
+
+        // Get the bass EQ for this channel
+        HRESULT get_Bass (
+                    [out AM_ANNOTATION("_Out_")] double *pBass);
+
+    // This is the maximum value allowed in put_Bass.  ie 6.0 means
+    // any value between -6.0 and 6.0 is allowed
+        HRESULT get_BassRange (
+                    [out AM_ANNOTATION("_Out_")] double *pRange); // largest value allowed
+
+    }
+
+
+    //---------------------------------------------------------------------
+    // IAMBufferNegotiation interface
+    //
+    // Tells a pin what kinds of buffers to use when connected
+    //---------------------------------------------------------------------
+
+    // This interface can be implemented by any pin that will connect to
+    // another pin using IMemInputPin.  All capture filters should support
+    // this interface.
+
+    // SuggestAllocatorProperties is a way for an application to get
+    // in on the buffer negotiation process for a pin.  This pin will use
+    // the numbers given to it by the application as its request to the
+    // allocator.  An application can use a negative number for any element
+    // in the ALLOCATOR_PROPERTIES to mean "don't care".  An application must
+    // call this function before the pin is connected, or it will be too late
+    // To ensure that an application gets what it wants, it would be wise to
+    // call this method on both pins being connected together, so the other
+    // pin doesn't overrule the application's request.
+
+    // GetAllocatorProperties can only be called after a pin is connected and
+    // it returns the properties of the current allocator being used
+
+    [
+        AM_LOCAL
+        object,
+        uuid(56ED71A0-AF5F-11D0-B3F0-00AA003761C5),
+        pointer_default(unique)
+    ]
+    interface IAMBufferNegotiation : IUnknown
+    {
+        HRESULT SuggestAllocatorProperties (
+            [in] const ALLOCATOR_PROPERTIES *pprop);
+
+        HRESULT GetAllocatorProperties (
+            [out AM_ANNOTATION("_Out_")] ALLOCATOR_PROPERTIES *pprop);
+
+    }
+
+
+#include <axextendenums.h>
+
+    cpp_quote("#define AnalogVideo_NTSC_Mask  0x00000007")
+    cpp_quote("#define AnalogVideo_PAL_Mask   0x00100FF0")
+    cpp_quote("#define AnalogVideo_SECAM_Mask 0x000FF000")
+
+
+    //---------------------------------------------------------------------
+    // VideoCopyProtectionType enum
+    //---------------------------------------------------------------------
+
+    typedef enum VideoCopyProtectionType
+    {
+        VideoCopyProtectionMacrovisionBasic,
+        VideoCopyProtectionMacrovisionCBI
+    } VideoCopyProtectionType;
+
+    //---------------------------------------------------------------------
+    // PhysicalConnectorType enum
+    //---------------------------------------------------------------------
+
+    typedef enum tagPhysicalConnectorType
+    {
+        PhysConn_Video_Tuner = 1,
+        PhysConn_Video_Composite,
+        PhysConn_Video_SVideo,
+        PhysConn_Video_RGB,
+        PhysConn_Video_YRYBY,
+        PhysConn_Video_SerialDigital,
+        PhysConn_Video_ParallelDigital,
+        PhysConn_Video_SCSI,
+        PhysConn_Video_AUX,
+        PhysConn_Video_1394,
+        PhysConn_Video_USB,
+        PhysConn_Video_VideoDecoder,
+        PhysConn_Video_VideoEncoder,
+        PhysConn_Video_SCART,
+        PhysConn_Video_Black,
+
+
+        PhysConn_Audio_Tuner = 0x1000,
+        PhysConn_Audio_Line,
+        PhysConn_Audio_Mic,
+        PhysConn_Audio_AESDigital,
+        PhysConn_Audio_SPDIFDigital,
+        PhysConn_Audio_SCSI,
+        PhysConn_Audio_AUX,
+        PhysConn_Audio_1394,
+        PhysConn_Audio_USB,
+        PhysConn_Audio_AudioDecoder,
+    } PhysicalConnectorType;
+
+    //---------------------------------------------------------------------
+    // IAMAnalogVideoDecoder interface
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E13350-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMAnalogVideoDecoder : IUnknown
+    {
+
+         //Gets the supported analog video standards (NTSC/M, PAL/B, SECAM/K1...
+        HRESULT get_AvailableTVFormats(
+                    [out AM_ANNOTATION("_Out_")] long *lAnalogVideoStandard
+                    );
+
+        //Sets or gets the current analog video standard (NTSC/M, PAL/B, SECAM/K1, ...
+        HRESULT put_TVFormat(
+                    [in] long lAnalogVideoStandard
+                    );
+
+        // Sets or gets the current analog video standard (NTSC/M, PAL/B, SECAM/K1, ...
+        HRESULT get_TVFormat(
+                    [out AM_ANNOTATION("_Out_")] long * plAnalogVideoStandard
+                    );
+
+        // True if horizontal sync is locked
+        HRESULT get_HorizontalLocked (
+                    [out AM_ANNOTATION("_Out_")] long * plLocked);
+
+        // True if connected to a VCR (changes PLL timing)
+        HRESULT put_VCRHorizontalLocking (
+                    [in] long lVCRHorizontalLocking);
+
+        HRESULT get_VCRHorizontalLocking (
+                    [out AM_ANNOTATION("_Out_")] long * plVCRHorizontalLocking);
+
+        // Returns the number of lines in the video signal")]
+        HRESULT get_NumberOfLines (
+                    [out AM_ANNOTATION("_Out_")] long *plNumberOfLines);
+
+        // Enables or disables the output bus
+        HRESULT put_OutputEnable (
+                    [in] long lOutputEnable);
+
+        HRESULT get_OutputEnable (
+                    [out AM_ANNOTATION("_Out_")] long *plOutputEnable);
+
+    }
+
+
+    //---------------------------------------------------------------------
+    // VideoProcAmp Property enum
+    //---------------------------------------------------------------------
+
+    typedef enum tagVideoProcAmpProperty
+    {
+        VideoProcAmp_Brightness,
+        VideoProcAmp_Contrast,
+        VideoProcAmp_Hue,
+        VideoProcAmp_Saturation,
+        VideoProcAmp_Sharpness,
+        VideoProcAmp_Gamma,
+        VideoProcAmp_ColorEnable,
+        VideoProcAmp_WhiteBalance,
+        VideoProcAmp_BacklightCompensation,
+        VideoProcAmp_Gain
+    } VideoProcAmpProperty;
+
+    //---------------------------------------------------------------------
+    // VideoProcAmp Flags enum
+    //---------------------------------------------------------------------
+
+    typedef enum tagVideoProcAmpFlags
+    {
+        VideoProcAmp_Flags_Auto   = 0x0001,
+        VideoProcAmp_Flags_Manual = 0x0002
+    } VideoProcAmpFlags;
+
+    //---------------------------------------------------------------------
+    // IAMVideoProcAmp interface
+    //
+    // Adjusts video quality in either the analog or digital domain.
+    //
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E13360-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMVideoProcAmp : IUnknown
+    {
+        // Returns min, max, step size, and default values
+        HRESULT GetRange(
+            [in] long Property,         // Which property to query
+            [out AM_ANNOTATION("_Out_")] long * pMin,          // Range minimum
+            [out AM_ANNOTATION("_Out_")] long * pMax,          // Range maxumum
+            [out AM_ANNOTATION("_Out_")] long * pSteppingDelta,// Step size
+            [out AM_ANNOTATION("_Out_")] long * pDefault,      // Default value
+            [out AM_ANNOTATION("_Out_")] long * pCapsFlags     // VideoProcAmpFlags
+
+        );
+
+        // Set a VideoProcAmp property
+        HRESULT Set(
+            [in]  long Property,        // VideoProcAmpProperty
+            [in]  long lValue,          // Value to set
+            [in]  long Flags            // VideoProcAmp_Flags_*
+
+        );
+
+        // Get a VideoProcAmp property
+        HRESULT Get(
+            [in]  long Property,        // VideoProcAmpProperty
+            [out AM_ANNOTATION("_Out_")] long * lValue,        // Current value
+            [out AM_ANNOTATION("_Out_")] long * Flags          // VideoProcAmp_Flags_*
+        );
+    }
+
+
+    //---------------------------------------------------------------------
+    // CameraControl Property enum
+    //---------------------------------------------------------------------
+
+    typedef enum tagCameraControlProperty
+    {
+        CameraControl_Pan,
+        CameraControl_Tilt,
+        CameraControl_Roll,
+        CameraControl_Zoom,
+        CameraControl_Exposure,
+        CameraControl_Iris,
+        CameraControl_Focus
+    } CameraControlProperty;
+
+    //---------------------------------------------------------------------
+    // CameraControl Flags enum
+    //---------------------------------------------------------------------
+
+    typedef enum tagCameraControlFlags
+    {
+        CameraControl_Flags_Auto     = 0x0001,
+        CameraControl_Flags_Manual   = 0x0002
+    } CameraControlFlags;
+
+    //---------------------------------------------------------------------
+    // IAMCameraControl interface
+    //
+    // Control of local or remote cameras
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E13370-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMCameraControl : IUnknown
+    {
+        // Returns min, max, step size, and default values
+        HRESULT GetRange(
+            [in] long Property,         // Which property to query
+            [out AM_ANNOTATION("_Out_")] long * pMin,          // Range minimum
+            [out AM_ANNOTATION("_Out_")] long * pMax,          // Range maxumum
+            [out AM_ANNOTATION("_Out_")] long * pSteppingDelta,// Step size
+            [out AM_ANNOTATION("_Out_")] long * pDefault,      // Default value
+            [out AM_ANNOTATION("_Out_")] long * pCapsFlags     // CamaeraControlFlags
+
+        );
+
+        // Set a CameraControl property
+        HRESULT Set(
+            [in]  long Property,        // CameraControlProperty
+            [in]  long lValue,          // Value to set
+            [in]  long Flags            // CameraControl_Flags_*
+
+        );
+
+        // Get a CameraControl property
+        HRESULT Get(
+            [in]  long Property,        // CameraControlProperty
+            [out AM_ANNOTATION("_Out_")] long * lValue,        // Current value
+            [out AM_ANNOTATION("_Out_")] long * Flags          // CameraControl_Flags_*
+        );
+    }
+
+    //---------------------------------------------------------------------
+    // VideoControl Flags enum
+    //---------------------------------------------------------------------
+
+    typedef enum tagVideoControlFlags
+    {
+        VideoControlFlag_FlipHorizontal        = 0x0001,
+        VideoControlFlag_FlipVertical          = 0x0002,
+        VideoControlFlag_ExternalTriggerEnable = 0x0004,
+        VideoControlFlag_Trigger               = 0x0008
+
+    } VideoControlFlags;
+
+    //---------------------------------------------------------------------
+    // IAMVideoControl interface
+    //
+    // Control of horizontal & vertical flip, external trigger,
+    // and listing available frame rates
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(6a2e0670-28e4-11d0-a18c-00a0c9118956),
+        pointer_default(unique)
+    ]
+    interface IAMVideoControl : IUnknown
+    {
+        // What can the underlying hardware do?
+        HRESULT GetCaps(
+            [in]  IPin * pPin,          // the pin to query or control
+            [out AM_ANNOTATION("_Out_")] long * pCapsFlags     // VideoControlFlag_*
+
+        );
+
+        // Set the mode of operation
+        HRESULT SetMode(
+            [in]  IPin * pPin,          // the pin to query or control
+            [in]  long Mode             // VideoControlFlag_*
+
+        );
+
+        // Get the mode of operation
+        HRESULT GetMode(
+            [in]  IPin * pPin,          // the pin to query or control
+            [out AM_ANNOTATION("_Out_")] long * Mode           // VideoControlFlag_*
+        );
+
+        // Get actual frame rate info for USB and 1394
+        // This is only available when streaming
+        HRESULT GetCurrentActualFrameRate(
+            [in]  IPin * pPin,                  // the pin to query or control
+            [out AM_ANNOTATION("_Out_")] LONGLONG * ActualFrameRate    // 100 nS units
+        );
+
+        // Get max available frame rate info for USB and 1394
+        // Returns the max frame rate currently available based on bus bandwidth usage
+        HRESULT GetMaxAvailableFrameRate(
+            [in]  IPin * pPin,          // the pin to query or control
+            [in]  long iIndex,          // 0 to IAMStreamConfig->GetNumberOfCapabilities-1
+            [in]  SIZE Dimensions,      // width and height
+            [out AM_ANNOTATION("_Out_")] LONGLONG * MaxAvailableFrameRate  // 100 nS units
+        );
+
+        // Get List of available frame rates
+        HRESULT GetFrameRateList(
+            [in]  IPin * pPin,           // the pin to query or control
+            [in]  long iIndex,           // 0 to IAMStreamConfig->GetNumberOfCapabilities-1
+            [in]  SIZE Dimensions,       // width and height
+            [out AM_ANNOTATION("_Out_")] long * ListSize,       // Number of elements in the list
+            [out AM_ANNOTATION("_Out_")] LONGLONG ** FrameRates // Array of framerates in 100 nS units
+                                         // or NULL to just get ListSize
+        );
+
+    }
+
+
+    //---------------------------------------------------------------------
+    // IAMCrossbar interface
+    //
+    // Controls a routing matrix for analog or digital video or audio
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E13380-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMCrossbar : IUnknown
+    {
+
+        // How many pins are there?
+        HRESULT get_PinCounts(
+                [out AM_ANNOTATION("_Out_")] long * OutputPinCount,        // count of output pins
+                [out AM_ANNOTATION("_Out_")] long * InputPinCount);        // count of input pins
+
+        // True if routing is possible
+        HRESULT CanRoute (
+                [in]  long OutputPinIndex,          // the output pin
+                [in]  long InputPinIndex);          // the input pin
+
+        // Routes an input pin to an output pin
+        HRESULT Route (
+                [in]  long OutputPinIndex,          // the output pin
+                [in]  long InputPinIndex);          // the input pin
+
+        // Returns the input pin connected to a given output pin
+        HRESULT get_IsRoutedTo (
+                [in]  long OutputPinIndex,          // the output pin
+                [out AM_ANNOTATION("_Out_")] long * InputPinIndex);        // the connected input pin
+
+        // Returns a pin which is related to a given pin
+        // (ie. this audio pin is related to a video pin)
+        HRESULT get_CrossbarPinInfo (
+                [in] BOOL IsInputPin,               // TRUE for input pins
+                [in] long PinIndex,                 // a pin
+                [out AM_ANNOTATION("_Out_")] long * PinIndexRelated,       // Index of related pin
+                [out AM_ANNOTATION("_Out_")] long * PhysicalType);         // Physical type of pin
+
+    }
+
+
+    //---------------------------------------------------------------------
+    // IAMTuner interface
+    //
+    // base tuner device
+    //---------------------------------------------------------------------
+
+    // predefined subchannel values
+    typedef enum tagAMTunerSubChannel
+    {
+        AMTUNER_SUBCHAN_NO_TUNE     = -2,   // don't tune
+        AMTUNER_SUBCHAN_DEFAULT     = -1    // use default sub chan
+    } AMTunerSubChannel;
+
+    // predefined signal strength values
+    typedef enum tagAMTunerSignalStrength
+    {
+        AMTUNER_HASNOSIGNALSTRENGTH = -1,   // cannot indicate signal strength
+        AMTUNER_NOSIGNAL            = 0,    // no signal available
+        AMTUNER_SIGNALPRESENT       = 1     // signal present
+    } AMTunerSignalStrength;
+
+    // specifies the mode of operation of the tuner
+    typedef enum tagAMTunerModeType
+    {
+        AMTUNER_MODE_DEFAULT    = 0x0000,   // default tuner mode
+        AMTUNER_MODE_TV         = 0x0001,   // tv
+        AMTUNER_MODE_FM_RADIO   = 0x0002,   // fm radio
+        AMTUNER_MODE_AM_RADIO   = 0x0004,   // am radio
+        AMTUNER_MODE_DSS        = 0x0008,   // dss
+    } AMTunerModeType;
+
+    // Events reported by IAMTunerNotification
+    typedef enum tagAMTunerEventType{
+        AMTUNER_EVENT_CHANGED   = 0x0001,   // status changed
+    } AMTunerEventType;
+
+    interface IAMTunerNotification;
+
+    [
+        AM_LOCAL
+        object,
+        uuid(211A8761-03AC-11d1-8D13-00AA00BD8339),
+        pointer_default(unique)
+    ]
+    interface IAMTuner : IUnknown
+    {
+        // Sets and gets the Channel
+        HRESULT put_Channel(
+            [in] long lChannel,
+            [in] long lVideoSubChannel,
+            [in] long lAudioSubChannel
+            );
+        HRESULT get_Channel(
+            [out AM_ANNOTATION("_Out_")] long *plChannel,
+            [out AM_ANNOTATION("_Out_")] long *plVideoSubChannel,
+            [out AM_ANNOTATION("_Out_")] long *plAudioSubChannel
+            );
+
+        // Gets the minimum and maximum channel available
+        HRESULT ChannelMinMax(
+            [out AM_ANNOTATION("_Out_")] long *lChannelMin,
+            [out AM_ANNOTATION("_Out_")] long *lChannelMax
+            );
+
+        // CountryCode is the same as the international
+        // long distance telephone dialing prefix
+
+        HRESULT put_CountryCode(
+            [in] long lCountryCode
+            );
+        HRESULT get_CountryCode(
+            [out AM_ANNOTATION("_Out_")] long *plCountryCode
+            );
+
+        HRESULT put_TuningSpace(
+            [in] long lTuningSpace
+            );
+        HRESULT get_TuningSpace(
+            [out AM_ANNOTATION("_Out_")] long *plTuningSpace
+            );
+
+        [local] HRESULT Logon(
+            [in] HANDLE hCurrentUser
+            );
+        HRESULT Logout();
+
+        // Signal status for current channel
+        // signal strength == TUNER_NOSIGNAL, or strength value
+        HRESULT SignalPresent(
+            [out AM_ANNOTATION("_Out_")] long * plSignalStrength   // AMTunerSignalStrength
+            );
+
+        // allow multifunction tuner to be switch between modes
+        HRESULT put_Mode(
+            [in] AMTunerModeType lMode      // AMTunerModeType
+            );
+        HRESULT get_Mode(
+            [out AM_ANNOTATION("_Out_")] AMTunerModeType *plMode   // AMTunerModeType
+            );
+
+        // retrieve a bitmask of the possible modes
+        HRESULT GetAvailableModes(
+            [out AM_ANNOTATION("_Out_")] long *plModes             // AMTunerModeType
+            );
+
+        // allow IAMTuner clients to receive event notification
+        HRESULT RegisterNotificationCallBack(
+            [in] IAMTunerNotification *pNotify,
+            [in] long lEvents       // bitmask from AMTunerEventType enumeration
+            );
+        HRESULT UnRegisterNotificationCallBack(
+            [in] IAMTunerNotification *pNotify
+            );
+    }
+
+    //---------------------------------------------------------------------
+    // IAMTunerNotification interface
+    //
+    // Provided to IAMTuner if notification callbacks are desired
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(211A8760-03AC-11d1-8D13-00AA00BD8339),
+        pointer_default(unique)
+    ]
+    interface IAMTunerNotification : IUnknown
+    {
+        HRESULT OnEvent([in] AMTunerEventType Event);
+    }
+
+
+    //---------------------------------------------------------------------
+    // IAMTVTuner interface
+    //
+    // Controls an analog TV tuner device
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(211A8766-03AC-11d1-8D13-00AA00BD8339),
+        pointer_default(unique)
+    ]
+    interface IAMTVTuner : IAMTuner
+    {
+        // Gets the supported analog video standards (NTSC/M, PAL/B, SECAM/K1, ...
+        HRESULT get_AvailableTVFormats(
+            [out AM_ANNOTATION("_Out_")] long *lAnalogVideoStandard
+            );
+
+        // Gets the current analog video standard (NTSC/M, PAL/B, SECAM/K1, ...)
+        HRESULT get_TVFormat(
+            [out AM_ANNOTATION("_Out_")] long * plAnalogVideoStandard
+            );
+
+        // Scans for a signal on a given channel
+        // NOTE: this is equivalent to put_Channel(), SignalStrength()
+        HRESULT AutoTune(
+            [in] long lChannel,
+            [out AM_ANNOTATION("_Out_")] long * plFoundSignal
+            );
+
+        // Saves the fine tuning information for all channels")]
+        HRESULT StoreAutoTune();
+
+        // The number of TV sources plugged into the tuner
+        HRESULT get_NumInputConnections(
+            [out AM_ANNOTATION("_Out_")] long * plNumInputConnections
+            );
+
+        // Sets or gets the tuner input type (Cable or Antenna)
+        HRESULT put_InputType(
+            [in] long lIndex,
+            [in] TunerInputType InputType
+            );
+        HRESULT get_InputType(
+            [in] long lIndex,
+            [out AM_ANNOTATION("_Out_")] TunerInputType * pInputType
+            );
+
+        // Sets or gets the tuner input
+        HRESULT put_ConnectInput(
+            [in] long lIndex
+            );
+        HRESULT get_ConnectInput(
+            [out AM_ANNOTATION("_Out_")] long *plIndex
+            );
+
+        // Gets the video and audio carrier frequencies
+        HRESULT get_VideoFrequency(
+            [out AM_ANNOTATION("_Out_")] long *lFreq
+            );
+        HRESULT get_AudioFrequency(
+            [out AM_ANNOTATION("_Out_")] long *lFreq
+            );
+    }
+
+
+    //---------------------------------------------------------------------
+    // IBPCSatelliteTuner interface
+    //
+    // An interface supporting Satellite tuning-related functions
+    //---------------------------------------------------------------------
+    [
+        object,
+        local,
+        uuid(211A8765-03AC-11d1-8D13-00AA00BD8339),
+        pointer_default(unique)
+    ]
+    interface IBPCSatelliteTuner : IAMTuner
+    {
+        HRESULT get_DefaultSubChannelTypes(
+            [out, annotation("_Out_")] long *plDefaultVideoType, // Provider-specific service type
+            [out, annotation("_Out_")] long *plDefaultAudioType  // Provider-specific service type
+            );
+
+        HRESULT put_DefaultSubChannelTypes(
+            [in] long lDefaultVideoType,    // Provider-specific service type
+            [in] long lDefaultAudioType     // Provider-specific service type
+            );
+
+        HRESULT IsTapingPermitted();        // S_OK yes, S_FALSE no
+    }
+
+
+
+    //---------------------------------------------------------------------
+    // IAMTVAudio interface
+    //
+    // TV Audio control
+    //---------------------------------------------------------------------
+
+    typedef enum tagTVAudioMode
+    {
+        AMTVAUDIO_MODE_MONO         = 0x0001,       // Mono
+        AMTVAUDIO_MODE_STEREO       = 0x0002,       // Stereo
+        AMTVAUDIO_MODE_LANG_A       = 0x0010,       // Primary language
+        AMTVAUDIO_MODE_LANG_B       = 0x0020,       // 2nd avail language
+        AMTVAUDIO_MODE_LANG_C       = 0x0040,       // 3rd avail language
+        AMTVAUDIO_PRESET_STEREO     = 0x0200,       // is present, stereo
+        AMTVAUDIO_PRESET_LANG_A     = 0x1000,       // if present, Language A
+        AMTVAUDIO_PRESET_LANG_B     = 0x2000,       // if present, Language B
+        AMTVAUDIO_PRESET_LANG_C     = 0x4000,       // if present, Language C
+    } TVAudioMode;
+
+    // Events reported by IAMTVAudioNotification
+    typedef enum tagAMTVAudioEventType
+    {
+        AMTVAUDIO_EVENT_CHANGED     = 0x0001,       // mode changed
+    } AMTVAudioEventType;
+
+    interface IAMTVAudioNotification;
+
+    [
+        AM_LOCAL
+        object,
+        local,
+        uuid(83EC1C30-23D1-11d1-99E6-00A0C9560266),
+        pointer_default(unique)
+    ]
+    interface IAMTVAudio : IUnknown
+    {
+        // retrieve a bitmask of the formats available in the hardware
+        HRESULT GetHardwareSupportedTVAudioModes(
+            [out AM_ANNOTATION("_Out_")] long *plModes             // TVAudioMode
+            );
+
+        // retrieve a bitmask of the possible modes
+        HRESULT GetAvailableTVAudioModes(
+            [out AM_ANNOTATION("_Out_")] long *plModes             // TVAudioMode
+            );
+
+        HRESULT get_TVAudioMode(
+            [out AM_ANNOTATION("_Out_")] long *plMode              // TVAudioMode
+            );
+        HRESULT put_TVAudioMode(
+            [in] long lMode                 // TVAudioMode
+            );
+
+        // allow IAMTVAudio clients to receive event notification
+        HRESULT RegisterNotificationCallBack(
+            [in] IAMTunerNotification *pNotify,
+            [in] long lEvents       // bitmask from AMTVAudioEventType enumeration
+            );
+        HRESULT UnRegisterNotificationCallBack(
+            IAMTunerNotification *pNotify
+            );
+    }
+
+    //---------------------------------------------------------------------
+    // IAMTVAudioNotification interface
+    //
+    // Provided to IAMTVAudio clients if notification callbacks are desired
+    //---------------------------------------------------------------------
+
+    [
+        object,
+        local,
+        uuid(83EC1C33-23D1-11d1-99E6-00A0C9560266),
+        pointer_default(unique)
+    ]
+    interface IAMTVAudioNotification : IUnknown
+    {
+        HRESULT OnEvent([in] AMTVAudioEventType Event);
+    }
+
+
+
+
+    //---------------------------------------------------------------------
+    // IAMAnalogVideoEncoder interface
+    //---------------------------------------------------------------------
+
+    [
+        AM_LOCAL
+        object,
+        uuid(C6E133B0-30AC-11d0-A18C-00A0C9118956),
+        pointer_default(unique)
+    ]
+    interface IAMAnalogVideoEncoder : IUnknown
+    {
+        // Gets the supported analog video standards (NTSC/M, PAL/B, SECAM/K1, ...)
+        HRESULT get_AvailableTVFormats(
+                    [out AM_ANNOTATION("_Out_")] long *lAnalogVideoStandard
+                    );
+
+        // Sets or gets the current analog video standard (NTSC/M, PAL/B, SECAM/K1, ...)
+        HRESULT put_TVFormat(
+                    [in] long lAnalogVideoStandard
+                    );
+
+        HRESULT get_TVFormat(
+                    [out AM_ANNOTATION("_Out_")] long * plAnalogVideoStandard
+                    );
+
+        // Sets or gets the copy protection
+        HRESULT put_CopyProtection (
+                    [in]  long lVideoCopyProtection); // VideoCopyProtectionType
+
+        HRESULT get_CopyProtection (
+                    [out AM_ANNOTATION("_Out_")] long *lVideoCopyProtection); // VideoCopyProtectionType
+
+
+        // Enables and disables close captioning
+        HRESULT put_CCEnable (
+                    [in] long lCCEnable);
+
+        HRESULT get_CCEnable (
+                    [out AM_ANNOTATION("_Out_")] long *lCCEnable);
+
+    }
+
+    // used by IKsPropertySet set AMPROPSETID_Pin
+    typedef enum AMPROPERTY_PIN {
+        AMPROPERTY_PIN_CATEGORY,
+        AMPROPERTY_PIN_MEDIUM
+    } AMPROPERTY_PIN;
+
+    //---------------------------------------------------------------------
+    // IKsPropertySet interface
+    //
+    // Sets or gets a property identified by a property set GUID and a
+    // property ID.
+    //
+    // Return codes for all 3 methods:
+    //    E_PROP_SET_UNSUPPORTED  the property set is not supported
+    //    E_PROP_ID_UNSUPPORTED   the property ID is not supported
+    //                                for the specified property set
+    //---------------------------------------------------------------------
+
+cpp_quote("#ifndef _IKsPropertySet_")
+cpp_quote("#define _IKsPropertySet_")
+
+    //---------------------------------------------------------------------
+    // #defines for IKsPropertySet::QuerySupported return result in pTypeSupport
+    //---------------------------------------------------------------------
+
+cpp_quote("#define KSPROPERTY_SUPPORT_GET  1")
+cpp_quote("#define KSPROPERTY_SUPPORT_SET  2")
+
+
+    [
+        AM_LOCAL
+        object,
+        uuid(31EFAC30-515C-11d0-A9AA-00AA0061BE93),
+        pointer_default(unique)
+    ]
+    interface IKsPropertySet : IUnknown
+    {
+        [local] HRESULT Set(
+                    [in]    REFGUID     guidPropSet,
+                    [in]    DWORD       dwPropID,
+                    [in, size_is(cbInstanceData) AM_ANNOTATION("_In_reads_bytes_(cbInstanceData)")] LPVOID pInstanceData,
+                    [in]    DWORD       cbInstanceData,
+                    [in, size_is(cbPropData) AM_ANNOTATION("_In_reads_bytes_(cbPropData)")] LPVOID pPropData,
+                    [in]    DWORD       cbPropData);
+
+        [call_as(Set)] HRESULT RemoteSet(
+                    [in]    REFGUID     guidPropSet,
+                    [in]    DWORD       dwPropID,
+                    [in, size_is(cbInstanceData)] byte * pInstanceData,
+                    [in]    DWORD       cbInstanceData,
+                    [in, size_is(cbPropData)] byte * pPropData,
+                    [in]    DWORD       cbPropData);
+
+        // To get a property, the caller allocates a buffer which the called
+        // function fills in.  To determine necessary buffer size, call Get with
+        // pPropData=NULL and cbPropData=0.
+        [local] HRESULT Get(
+                    [in]    REFGUID     guidPropSet,
+                    [in]    DWORD       dwPropID,
+                    [in, size_is(cbInstanceData) AM_ANNOTATION("_In_reads_bytes_(cbInstanceData)")] LPVOID pInstanceData,
+                    [in]    DWORD       cbInstanceData,
+                    [out, size_is(cbPropData) AM_ANNOTATION("_Out_writes_bytes_to_(cbPropData, *pcbReturned)")] LPVOID pPropData,
+                    [in]    DWORD       cbPropData,
+                    [out AM_ANNOTATION("_Out_")]   DWORD *     pcbReturned);
+
+        [call_as(Get)] HRESULT RemoteGet(
+                    [in]    REFGUID     guidPropSet,
+                    [in]    DWORD       dwPropID,
+                    [in, size_is(cbInstanceData)] byte * pInstanceData,
+                    [in]    DWORD       cbInstanceData,
+                    [out, size_is(cbPropData)] byte * pPropData,
+                    [in]    DWORD       cbPropData,
+                    [out AM_ANNOTATION("_Out_")]   DWORD *     pcbReturned);
+        // QuerySupported must either return E_NOTIMPL or correctly indicate
+        // if getting or setting the property set and property is supported.
+        // S_OK indicates the property set and property ID combination is
+        HRESULT QuerySupported(
+                    [in]    REFGUID     guidPropSet,
+                    [in]    DWORD       dwPropID,
+                    [out AM_ANNOTATION("_Out_")]   DWORD       *pTypeSupport);
+    }
+cpp_quote("#endif // _IKsPropertySet_")
+
+[
+AM_LOCAL
+object,
+uuid(6025A880-C0D5-11d0-BD4E-00A0C911CE86),
+pointer_default(unique)
+]
+interface IMediaPropertyBag : IPropertyBag
+{
+    import "ocidl.idl";
+
+    typedef IMediaPropertyBag *LPMEDIAPROPERTYBAG;
+
+    // return the i'th element in the property bag
+    HRESULT EnumProperty(
+        [in]  ULONG iProperty,
+        [in, out] VARIANT * pvarPropertyName,
+        [in, out] VARIANT * pvarPropertyValue
+        );
+
+}
+
+
+[
+AM_LOCAL
+object,
+uuid(5738E040-B67F-11d0-BD4D-00A0C911CE86),
+pointer_default(unique)
+]
+interface IPersistMediaPropertyBag : IPersist
+{
+    import "ocidl.idl";
+    import "unknwn.idl";
+
+    HRESULT InitNew(
+        void
+        );
+
+    HRESULT Load(
+        [in] IMediaPropertyBag * pPropBag,
+        [in] IErrorLog * pErrorLog
+        );
+
+    HRESULT Save(
+        [in] IMediaPropertyBag * pPropBag,
+        [in] BOOL fClearDirty,
+        [in] BOOL fSaveAllProperties
+        );
+
+
+    typedef IPersistMediaPropertyBag * LPPERSISTMEDIAPROPERTYBAG;
+}
+
+
+   //---------------------------------------------------------------------
+   //
+   // Defines IAMPhysicalPinInfo Interface
+   //
+   // Returns an enum and string that describes an input pin's physical type.
+   //
+   // Implement if: you have physical input pins such as video or audio (like
+   // on a video capture card or a VCR)
+   //
+   // Use if: you want to communicate to a user available physical input pins
+   // and allow them to select the active one if there is more than one
+   //---------------------------------------------------------------------
+
+
+[
+     AM_LOCAL
+     object,
+     uuid(F938C991-3029-11cf-8C44-00AA006B6814),
+     pointer_default(unique)
+ ]
+interface IAMPhysicalPinInfo : IUnknown {
+
+    // Returns VFW_E_NO_ACCEPTABLE_TYPES if not a physical pin
+    HRESULT GetPhysicalType(
+        [out AM_ANNOTATION("_Out_")] long *pType,          // the enum representing the Physical Type
+        [out AM_ANNOTATION("_Out_")] LPOLESTR *ppszType        // a friendly name
+    );
+}
+typedef IAMPhysicalPinInfo *PAMPHYSICALPININFO;
+
+   //---------------------------------------------------------------------
+   // Defines IAMExtDevice Interface
+   //
+   // Base interface for external professional devices
+   //
+   // Implement if: the filter controls an external device such as a VCR,
+   // timecode reader/generator, etc.  The intent is to build a object from
+   // this implementation plus another that specifically describes the device,
+   // such as IAMExtTransport.
+   //
+   // Use if: you want to control and external device such as a VCR
+   //
+   // See edevdefs.h for the enumerated parameter list
+   //---------------------------------------------------------------------
+ [
+     AM_LOCAL
+     object,
+     uuid(B5730A90-1A2C-11cf-8C23-00AA006B6814),
+     pointer_default(unique)
+ ]
+ interface IAMExtDevice : IUnknown
+ {
+    // General device capabilities property.  See edevdefs.h for supported
+    // values
+    HRESULT GetCapability(
+        [in] long Capability,       // identify the property
+        [out AM_ANNOTATION("_Out_")] long *pValue,         // return value
+        [out AM_ANNOTATION("_Out_")] double *pdblValue     // return value
+    );
+
+    // Get external device identification string.  Usually the model #
+    // of the device
+    HRESULT get_ExternalDeviceID(
+        [out AM_ANNOTATION("_Out_")] LPOLESTR *ppszData        // ID string
+    );
+
+    HRESULT get_ExternalDeviceVersion(
+        [out AM_ANNOTATION("_Out_")] LPOLESTR *ppszData        // revision string
+    );
+
+    // Controls the external device's power mode
+    HRESULT put_DevicePower([in] long PowerMode
+    );
+    HRESULT get_DevicePower([out AM_ANNOTATION("_Out_")] long *pPowerMode
+    );
+
+    // Some devices need to be reset in some way, i.e., rewinding a VCR
+    // to the beginning of the tape and resetting the counter to zero.
+    HRESULT Calibrate(
+        [in] HEVENT hEvent,
+        [in] long Mode,
+        [out AM_ANNOTATION("_Out_")] long *pStatus     // OATRUE is active, OAFALSE is inactive
+    );
+
+    // Selects the device's communications port, i.e.,COM1, IEEE1394, etc.
+    // See edevdefs.h for enums
+    HRESULT put_DevicePort([in] long DevicePort
+    );
+    HRESULT get_DevicePort([out AM_ANNOTATION("_Out_")] long *pDevicePort
+    );
+
+}
+typedef IAMExtDevice *PEXTDEVICE;
+
+   //---------------------------------------------------------------------
+   // Defines IAMExtTransport Interface
+   //
+   // Contains properties and methods that control behavior of an external
+   // transport device such as a VTR
+   //
+   // Implement if: you control such a device.  Intended to be agregated
+   // with IAMExtDevice.
+   //
+   // Use if: you want to control such a device
+   //
+   // See edevdefs.h for the parameter lists
+   //---------------------------------------------------------------------
+[
+     AM_LOCAL
+     object,
+     uuid(A03CD5F0-3045-11cf-8C44-00AA006B6814),
+     pointer_default(unique)
+ ]
+interface IAMExtTransport : IUnknown {
+
+    // General transport capabilities property.  See edevdefs.h for enums
+    HRESULT GetCapability(
+        [in] long Capability,       // identify the property
+        [out AM_ANNOTATION("_Out_")] long *pValue,         // return value
+        [out AM_ANNOTATION("_Out_")] double *pdblValue     // return value
+    );
+
+    // For disc-based devices: spinning, or not spinning.
+    // For tape-based device: threaded, unthreaded or ejected
+    HRESULT put_MediaState([in] long State
+    );
+    HRESULT get_MediaState([out AM_ANNOTATION("_Out_")] long *pState   // see edevdefs.h
+    );
+
+    // Determines state of unit's front panel
+    HRESULT put_LocalControl([in] long State
+    );
+    HRESULT get_LocalControl([out AM_ANNOTATION("_Out_")] long *pState // OATRUE or OAFALSE
+    );
+
+    // Transport status such as Play, Stop, etc.  More extensive
+    // than AM states.
+    HRESULT GetStatus(
+        [in] long StatusItem,   // see edevdefs.h
+        [out AM_ANNOTATION("_Out_")] long *pValue
+    );
+
+
+    // Parameters such as recording speed, servo reference, ballistics, etc.
+    [local] HRESULT GetTransportBasicParameters(
+        [in] long Param,
+        [in, out AM_ANNOTATION("_Inout_")] long *pValue,
+        [in, out AM_ANNOTATION("_Inout_")] LPOLESTR *ppszData
+    );
+
+    HRESULT SetTransportBasicParameters(
+        [in] long Param,
+        [in] long Value,
+        [in] LPCOLESTR pszData
+    );
+
+    // Parameters such as video output mode
+    HRESULT GetTransportVideoParameters(
+        [in] long Param,
+        [out AM_ANNOTATION("_Out_")] long *pValue
+    );
+
+    HRESULT SetTransportVideoParameters(
+        [in] long Param,
+        [in] long Value
+    );
+
+    // Parameters such as audio channel enable
+    HRESULT GetTransportAudioParameters(
+        [in] long Param,
+        [out AM_ANNOTATION("_Out_")] long *pValue
+    );
+
+    HRESULT SetTransportAudioParameters(
+        [in] long Param,
+        [in] long Value
+    );
+
+    // Mode is  the movement of the transport, i.e., Play, Stop,
+    // Record, Edit, etc.
+    HRESULT put_Mode([in] long Mode
+    );
+    HRESULT get_Mode([out AM_ANNOTATION("_Out_")] long *pMode
+    );
+
+    // Rate is for variable speed control of the the device.  This
+    // can be linked to IMediaControl::Rate() in the implementation
+    // if desired.
+    HRESULT put_Rate([in] double dblRate
+    );
+    HRESULT get_Rate([out AM_ANNOTATION("_Out_")] double *pdblRate
+    );
+
+    // This is a lengthy method, that is, it is in effect until canceled or complete and
+    // requires housekeeping by the filter.  It puts transport in play mode and maintains
+    // fixed relationship between master time reference and transport position.
+    HRESULT GetChase(
+        [out AM_ANNOTATION("_Out_")] long *pEnabled,   // OATRUE | OAFALSE
+        [out AM_ANNOTATION("_Out_")] long *pOffset,    // offset in current time format
+        [out AM_ANNOTATION("_Out_")] HEVENT *phEvent   // completion notification
+    );
+    HRESULT SetChase(
+        [in] long Enable,       // OATRUE | OAFALSE
+        [in] long Offset,       // offset in current time format
+        [in] HEVENT hEvent      // completion notification
+    );
+
+    // Also a lengthy method: temporarily change transport speed (for synchronizing).
+    HRESULT GetBump(
+        [out AM_ANNOTATION("_Out_")] long *pSpeed,
+        [out AM_ANNOTATION("_Out_")] long *pDuration   // in current time format
+    );
+    HRESULT SetBump(
+        [in] long Speed,
+        [in] long Duration  // in current time format
+    );
+
+    // Enable/Disable transport anti-headclog control.
+    HRESULT get_AntiClogControl([out AM_ANNOTATION("_Out_")] long *pEnabled    // OATRUE | OAFALSE
+    );
+    HRESULT put_AntiClogControl([in] long Enable    // OATRUE | OAFALSE
+    );
+
+    // The following group of properties describes edit events.  An edit event can be a
+    // standard insert or assemble edit or a memorized position called a bookmark.
+    // A NOTE ABOUT EVENTS: as with all lengthy commands, event objects must be created to
+    // signal completion or error.
+
+    // Intended usage: an edit event is prepared for use by:
+    // 1. Registering an edit property set and getting an EditID
+    // 2. Setting the necessary edit properties
+    // 3. Setting the edit property set active
+
+    // Please see edevdefs.h for properties and values
+
+    // The reference clock's advance is the mechanism that puts an edit in motion (see
+    // ED_EDIT_REC_INPOINT).
+
+    // Property set methods
+    HRESULT GetEditPropertySet(
+        [in] long EditID,
+        [out AM_ANNOTATION("_Out_")] long *pState  // ED_SET_ACTIVE | ED_SET_INACTIVE | ED_SET_INVALID
+                            // | ED_SET_EXECUTING
+    );
+
+    HRESULT SetEditPropertySet(
+        [in, out] long *pEditID,
+        [in] long State     // ED_SET_REGISTER | ED_SET_DELETE | ED_SET_ACTIVE |
+    );                      // ED_SET_INACTIVE
+
+    // the following properties define an edit event such as a bookmark, seek point, or
+    //  actual edit
+    HRESULT GetEditProperty(
+        [in] long EditID,
+        [in] long Param,
+        [out AM_ANNOTATION("_Out_")] long *pValue
+    );
+    HRESULT SetEditProperty(
+        [in] long EditID,
+        [in] long Param,
+        [in] long Value
+    );
+
+    // Activates a capable transport's edit control (typically used for "on the fly" editing).
+    HRESULT get_EditStart([out AM_ANNOTATION("_Out_")] long *pValue    // OATRUE or OAFALSE
+    );
+    HRESULT put_EditStart([in] long Value           // OATRUE or OAFALSE
+    );
+}
+typedef IAMExtTransport *PIAMEXTTRANSPORT;
+
+   //---------------------------------------------------------------------
+   // Defines IAMTimecodeReader Interface
+   //
+   // Contains properties and methods that define behavior of a
+   // SMPTE/MIDI Timecode Reader.  It is expected that this interface
+   // will be combined (aggregated) with IAMExtTransport to "build" a pro
+   // VCR.
+   //
+   // Implement if: you control such a device
+   //
+   // Use if: you want to control such a device
+   //
+   // See edevdefs.h for the parameter lists
+   //=====================================================================
+
+
+// timecode structures
+cpp_quote("#if 0")
+cpp_quote("/* the following is what MIDL knows how to remote */")
+typedef struct tagTIMECODE {
+        WORD    wFrameRate; // will be replaced by AM defs, but see ED_FORMAT_SMPTE for now
+        WORD    wFrameFract;    // fractional frame.  full scale is always 0x1000
+        DWORD   dwFrames;
+}TIMECODE;
+cpp_quote("#else /* 0 */")
+cpp_quote("#ifndef TIMECODE_DEFINED")
+cpp_quote("#define TIMECODE_DEFINED")
+cpp_quote("typedef union _timecode {")
+cpp_quote("   struct {")
+cpp_quote("  WORD   wFrameRate;")
+cpp_quote("  WORD   wFrameFract;")
+cpp_quote("  DWORD  dwFrames;")
+cpp_quote("  } DUMMYSTRUCTNAME;")
+cpp_quote("   DWORDLONG  qw;")
+cpp_quote("   } TIMECODE;")
+cpp_quote("")
+typedef struct tagTIMECODE_SAMPLE {
+    LONGLONG    qwTick;     // ActiveMovie 100ns timestamp
+    TIMECODE    timecode;   // timecode
+    DWORD       dwUser;     // timecode user data (aka user bits)
+    DWORD       dwFlags;       // timecode flags - see below
+} TIMECODE_SAMPLE;
+
+cpp_quote("#endif /* TIMECODE_DEFINED */")
+cpp_quote("#endif /* 0 */")
+
+typedef TIMECODE *PTIMECODE;
+typedef TIMECODE_SAMPLE *PTIMECODE_SAMPLE;
+
+[
+     AM_LOCAL
+     object,
+     uuid(9B496CE1-811B-11cf-8C77-00AA006B6814),
+     pointer_default(unique)
+]
+interface IAMTimecodeReader : IUnknown
+{
+    // Timecode Reader Mode - gets/sets the following properties
+    // ED_TCR_SOURCE - timecode gen (readback), LTC, VITC, or Control Track
+    HRESULT GetTCRMode(
+        [in] long Param,
+        [out AM_ANNOTATION("_Out_")] long *pValue);
+    HRESULT SetTCRMode(
+        [in] long Param,
+        [in] long Value);
+
+    // Select which line of the vertical interval timecode will be read from (if VITC).
+    // To read VITC on specific multiple lines, the caller would make successive calls to
+    // put_VITCLine(), once for each line desired.
+    HRESULT put_VITCLine(
+        [in] long Line );   // valid lines are 11-20, 0 means autoselect,
+                            // hi bit set means add to list of lines (for
+                            // readers that test across multiple lines)
+    HRESULT get_VITCLine(
+        [out AM_ANNOTATION("_Out_")] long *pLine ); // hi bit set means multiple lines are used,
+                            // and successive calls will cycle through the
+                            // line numbers (like an enumerator, only simpler)
+
+    // GetTimecode can be used to obtain the most recent timecode value available in the
+    // stream. The client can use this to monitor the timecode, parse duplicates and
+    // discontinuities. The source filter supplying the timecode or possibly a down stream
+    // filter might want to parse for discontinuities or errors since you have to look at
+    // every sample to do this properly.
+    //
+
+    HRESULT GetTimecode(
+      [out AM_ANNOTATION("_Out_")] PTIMECODE_SAMPLE pTimecodeSample) ;
+
+}
+typedef IAMTimecodeReader *PIAMTIMECODEREADER;
+
+   //---------------------------------------------------------------------
+   //=====================================================================
+   // Defines IAMTimecodeGenerator Interface
+   //
+   // Contains properties and methods that define behavior of an external
+   // SMPTE/MIDI Timecode Generator.  It is expected that this interface
+   // will be combined (aggregated) with IAMExtTransport to "build" a pro
+   // VCR.
+   //
+   // Implement if: you control such a device
+   //
+   // Use if: you want to control such a device
+   //
+   // See edevdefs.h for the parameter lists
+    //---------------------------------------------------------------------
+[
+     AM_LOCAL
+     object,
+     uuid(9B496CE0-811B-11cf-8C77-00AA006B6814),
+     pointer_default(unique)
+ ]
+interface IAMTimecodeGenerator : IUnknown {
+
+    // Timecode Generator Mode - gets/sets the following properties (see
+    // vcrdefss.h for detailed values):
+    // ED_TCG_TIMECODE_TYPE - LTC, VITC, or MIDI
+    // ED_TCG_FRAMERATE - 24, 25, 30 drop or 30 nondrop
+    // ED_TCG_SYNC_SOURCE - what is driving the bitclock
+    // ED_TCG_REFERENCE_SOURCE - what is driving the count value
+    HRESULT GetTCGMode(
+        [in] long Param,
+        [out AM_ANNOTATION("_Out_")] long *pValue);
+
+    HRESULT SetTCGMode(
+        [in] long Param,
+        [in] long Value);
+
+    // Select into which line(s) of the vertical interval timecode will be inserted (if VITC).
+    // Hi bit set means add this line to any previously set lines.
+    // To generate VITC on specific multiple lines, the caller would make successive calls to
+    // put_VITCLine(), once for each line desired.
+    HRESULT put_VITCLine(
+        [in] long Line      // valid lines are 11-20, 0 means autoselect(this setting
+    );                      // is for TC readers that decode from multiple lines)
+    HRESULT get_VITCLine(
+        [out AM_ANNOTATION("_Out_")] long *pLine
+    );
+
+    // Sets timecode and/or userbit value.  If generator is running, takes effect
+    // immediately.  If caller wants to set only timecode, set userbit value to -1L (and
+    // same for setting userbits only)
+    //
+
+    HRESULT SetTimecode(
+      [in] PTIMECODE_SAMPLE pTimecodeSample) ;
+
+
+    // GetTimecode can be used to obtain the most recent timecode value available in the
+    // stream. The client can use this to monitor the timecode and verify the generator is
+    // working properly
+    //
+
+    HRESULT GetTimecode(
+      [out AM_ANNOTATION("_Out_")] PTIMECODE_SAMPLE pTimecodeSample) ;
+
+}
+typedef IAMTimecodeGenerator *PIAMTIMECODEGENERATOR;
+
+    //---------------------------------------------------------------------
+   // Defines IAMTimecodeDisplay Interface
+   //
+   // Contains properties and methods that define behavior of an external
+   // SMPTE/MIDI Timecode Display device (aka "character generator" for
+   // making "burn-ins" or "window dubs"). It is expected that this interface
+   // will be combined (aggregated) with IAMExtTransport and the timecode
+   // interfaces to "build" a pro VCR.
+   //
+   // Implement if: you control such a device
+   //
+   // Use if: you want to control such a device
+   //
+   // See edevdefs.h for the parameter lists
+    //---------------------------------------------------------------------
+[
+     AM_LOCAL
+     object,
+     uuid(9B496CE2-811B-11cf-8C77-00AA006B6814),
+     pointer_default(unique)
+ ]
+interface IAMTimecodeDisplay : IUnknown
+{
+    // Enable/disable external device's timecode reader's character generator output.  Some
+    // readers have this feature - this is not intended for rendering inside the PC!
+    HRESULT GetTCDisplayEnable(
+        [out AM_ANNOTATION("_Out_")] long *pState);    // OATRUE | OAFALSE
+    HRESULT SetTCDisplayEnable(
+        [in] long State);       // OATRUE | OAFALSE
+                                // Timecode reader's character generator output
+                                //  characteristics (size, position, intensity, etc.).
+    HRESULT GetTCDisplay(
+        [in] long Param,
+        [out AM_ANNOTATION("_Out_")] long *pValue);
+    HRESULT SetTCDisplay(
+        [in] long Param,
+        [in] long Value);
+
+    /* Allowable params and values (see edevdefs.h for details):
+        ED_TCD_SOURCE
+            ED_TCR | ED_TCG
+        ED_TCD_SIZE
+            ED_SMALL | ED_MED | ED_LARGE
+        ED_TCD_POSITION
+            ED_TOP | ED_MIDDLE | ED_BOTTOM or'd  with
+            ED_LEFT | ED_CENTER | ED_RIGHT
+        ED_TCD_INTENSITY
+            ED_HIGH | ED_LOW
+        ED_TCD_TRANSPARENCY // set from 0 to 4, 0 being completely opaque
+        ED_TCD_INVERT       // white on black or black on white
+            OATRUE | OAFALSE
+        ED_TCD_BORDER       // white border for black chars, black border for white letters
+            OATRUE | OAFALSE
+    */
+}
+typedef IAMTimecodeDisplay *PIAMTIMECODEDISPLAY;
+
+
+[
+    AM_LOCAL
+    object,
+    uuid(c6545bf0-e76b-11d0-bd52-00a0c911ce86),
+    pointer_default(unique)
+]
+interface IAMDevMemoryAllocator : IUnknown
+{
+    HRESULT GetInfo(
+        [out AM_ANNOTATION("_Out_")] DWORD *pdwcbTotalFree,
+        [out AM_ANNOTATION("_Out_")] DWORD *pdwcbLargestFree,
+        [out AM_ANNOTATION("_Out_")] DWORD *pdwcbTotalMemory,
+        [out AM_ANNOTATION("_Out_")] DWORD *pdwcbMinimumChunk);
+
+    HRESULT CheckMemory(
+        [in] const BYTE *pBuffer);
+
+    HRESULT Alloc(
+        [out AM_ANNOTATION("_Outptr_result_bytebuffer_(*pdwcbBuffer)")] BYTE **ppBuffer,
+        [in, out AM_ANNOTATION("_Inout_")] DWORD *pdwcbBuffer);
+
+    HRESULT Free(
+        [in] BYTE *pBuffer);
+
+    HRESULT GetDevMemoryObject(
+        [out AM_ANNOTATION("_Out_")] IUnknown **ppUnkInnner,
+        [in] IUnknown *pUnkOuter);
+}
+typedef IAMDevMemoryAllocator *PAMDEVMEMORYALLOCATOR;
+
+
+[
+    AM_LOCAL
+    object,
+    uuid(c6545bf1-e76b-11d0-bd52-00a0c911ce86),
+    pointer_default(unique)
+]
+interface IAMDevMemoryControl : IUnknown
+{
+    HRESULT QueryWriteSync();
+
+    HRESULT WriteSync();
+
+    HRESULT GetDevId(
+        [out AM_ANNOTATION("_Out_")] DWORD *pdwDevId);
+
+}
+typedef IAMDevMemoryControl *PAMDEVMEMORYCONTROL;
+
+//  Flags for IAMStreamSelection::Info
+enum _AMSTREAMSELECTINFOFLAGS {
+    AMSTREAMSELECTINFO_ENABLED   = 0x01,  // Enable - off for disable
+    AMSTREAMSELECTINFO_EXCLUSIVE = 0x02   // Turns off the others in the group
+                                          // when enabling this one
+};
+//  Flags for IAMStreamSelection::Enable
+enum _AMSTREAMSELECTENABLEFLAGS {
+    //  Currently valid values are :
+    //  0 - disable all streams in the group containing this stream
+    //  ..._ENABLE - enable only this stream with in the given group
+    //               and disable all others
+    //  ..._ENABLEALL - send out all streams
+    AMSTREAMSELECTENABLE_ENABLE    = 0x01,  // Enable
+    AMSTREAMSELECTENABLE_ENABLEALL = 0x02   // Enable all streams in the group
+                                            // containing this stream
+};
+
+//  Control which logical streams are played and find out information about
+//  them
+//  Normally supported by a filter
+[
+    AM_LOCAL
+    object,
+    uuid(c1960960-17f5-11d1-abe1-00a0c905f375),
+    pointer_default(unique)
+]
+interface IAMStreamSelect : IUnknown
+{
+    //  Returns total count of streams
+    HRESULT Count(
+        [out AM_ANNOTATION("_Out_")] DWORD *pcStreams);      // Count of logical streams
+
+    //  Return info for a given stream - S_FALSE if iIndex out of range
+    //  The first steam in each group is the default
+    HRESULT Info(
+        [in] long lIndex,              // 0-based index
+        [out AM_ANNOTATION("_Out_opt_")] AM_MEDIA_TYPE **ppmt,   // Media type - optional
+                                      // Use DeleteMediaType to free
+        [out AM_ANNOTATION("_Out_opt_")] DWORD *pdwFlags,        // flags - optional
+        [out AM_ANNOTATION("_Out_opt_")] LCID  *plcid,           // LCID (returns 0 if none) - optional
+        [out AM_ANNOTATION("_Out_opt_")] DWORD *pdwGroup,        // Logical group - optional
+        [out AM_ANNOTATION("_Out_opt_")] LPWSTR *ppszName,       // Name - optional - free with CoTaskMemFree
+                                      // optional
+        [out AM_ANNOTATION("_Out_opt_")] IUnknown **ppObject,    // Associated object - optional
+                                      // Object may change if Enable is
+                                      // called on this interface
+                                      // - returns NULL if no associated object
+                                      // Returns pin or filter for DShow
+        [out AM_ANNOTATION("_Out_opt_")] IUnknown **ppUnk);      // Stream specific interface
+
+    //  Enable or disable a given stream
+    HRESULT Enable(
+        [in]  long lIndex,
+        [in]  DWORD dwFlags);
+}
+typedef IAMStreamSelect *PAMSTREAMSELECT;
+
+enum _AMRESCTL_RESERVEFLAGS
+{
+    AMRESCTL_RESERVEFLAGS_RESERVE     = 0x00,  // Increment reserve count
+    AMRESCTL_RESERVEFLAGS_UNRESERVE   = 0x01   // Decrement reserve count
+};
+
+//  Reserve resources now so that playback can be subsequently
+//  guaranteed
+//
+//  Normally supported by a filter
+//
+[
+    AM_LOCAL
+    object,
+    uuid(8389d2d0-77d7-11d1-abe6-00a0c905f375),
+    pointer_default(unique),
+    local
+]
+interface IAMResourceControl : IUnknown
+{
+    //  The reserve count is incremented/decremented if and only if
+    //  S_OK is returned
+    //  Unreserve once for every Reserve call
+    HRESULT Reserve(
+        [in] DWORD dwFlags,          //  From _AMRESCTL_RESERVEFLAGS enum
+        [in AM_ANNOTATION("_Reserved_")] PVOID pvReserved        //  Must be NULL
+    );
+}
+
+
+//  Set clock adjustments - supported by some clocks
+[
+    AM_LOCAL
+    object,
+    uuid(4d5466b0-a49c-11d1-abe8-00a0c905f375),
+    pointer_default(unique),
+    local
+]
+interface IAMClockAdjust : IUnknown
+{
+    //  Set the following delta to clock times
+    //  The clock will add adjust its times by the given delta
+    HRESULT SetClockDelta(
+        [in] REFERENCE_TIME rtDelta
+    );
+};
+
+//  Filter miscellaneous status flags
+
+enum _AM_FILTER_MISC_FLAGS {
+    AM_FILTER_MISC_FLAGS_IS_RENDERER = 0x00000001, /* Will deliver EC_COMPLETE
+                                                     at end of media */
+    AM_FILTER_MISC_FLAGS_IS_SOURCE   = 0x00000002  /*  Filter sources data */
+};
+
+[
+    AM_LOCAL
+    object,
+    uuid(2dd74950-a890-11d1-abe8-00a0c905f375),
+    pointer_default(unique),
+    local
+]
+interface IAMFilterMiscFlags : IUnknown
+{
+    //  Get miscellaneous property flags
+    ULONG GetMiscFlags(void);
+};
+
+
+// Video Image drawing interface
+[
+    AM_LOCAL
+    object,
+    local,
+    uuid(48efb120-ab49-11d2-aed2-00a0c995e8d5),
+    pointer_default(unique),
+]
+interface IDrawVideoImage : IUnknown
+{
+    HRESULT DrawVideoImageBegin();
+
+    HRESULT DrawVideoImageEnd();
+
+    HRESULT DrawVideoImageDraw(
+        [in] HDC hdc,
+        [in AM_ANNOTATION("_In_")] LPRECT lprcSrc,
+        [in AM_ANNOTATION("_In_")] LPRECT lprcDst
+    );
+}
+
+//
+// Video Image decimation interface
+//
+// The aim of this interface is to enable a video renderer filter to
+// control the decimation properties of a video decoder connected to
+// the video renderer
+//
+// This interface should only be supported by decoders that are capable of
+// decimating their output image by an arbitary amount.
+//
+//
+[
+    object,
+    local,
+    uuid(2e5ea3e0-e924-11d2-b6da-00a0c995e8df),
+    pointer_default(unique),
+]
+interface IDecimateVideoImage : IUnknown
+{
+    //
+    // Informs the decoder that it should decimate its output
+    // image to the specified width and height.  If the decoder can
+    // decimate to this size it should return S_OK.
+    // If the decoder can't perform the requested decimation
+    // or wants to stop performing the decimation that it is
+    // currently doing it should return E_FAIL.
+    //
+    HRESULT SetDecimationImageSize(
+        [in] long lWidth,
+        [in] long lHeight);
+
+    //
+    // Informs the decoder that it should stop decimating its output image
+    // and resume normal output.
+    //
+    HRESULT ResetDecimationImageSize();
+}
+
+typedef enum _DECIMATION_USAGE {
+    DECIMATION_LEGACY,              // decimate at ovly then video port then crop
+    DECIMATION_USE_DECODER_ONLY,    // decimate image at the decoder only
+    DECIMATION_USE_VIDEOPORT_ONLY,  // decimate at the video port only
+    DECIMATION_USE_OVERLAY_ONLY,    // decimate at the overlay only
+    DECIMATION_DEFAULT              // decimate at decoder then ovly the vide port then crop
+} DECIMATION_USAGE;
+
+[
+    object,
+    local,
+    uuid(60d32930-13da-11d3-9ec6-c4fcaef5c7be),
+    pointer_default(unique),
+]
+interface IAMVideoDecimationProperties: IUnknown
+{
+    //
+    // Queries the current usage of the above IDecimateVideoImage
+    // interface.
+    //
+    HRESULT QueryDecimationUsage(
+        [out AM_ANNOTATION("_Out_")] DECIMATION_USAGE* lpUsage);       // from DECIMATION_USAGE enum
+
+    //
+    // Sets the current usage of the above IDecimateVideoImage
+    // interface.
+    //
+    HRESULT SetDecimationUsage(
+        [in] DECIMATION_USAGE Usage);           // from DECIMATION_USAGE enum
+}
+
+//---------------------------------------------------------------------
+//
+// IVideoFrameStep interface
+//
+//---------------------------------------------------------------------
+
+[
+    AM_LOCAL
+    object,
+    uuid(e46a9787-2b71-444d-a4b5-1fab7b708d6a),
+    pointer_default(unique),
+]
+interface IVideoFrameStep : IUnknown
+{
+    //
+    //  Stop(), Pause(), Run() all cancel Step as does any seeking
+    //  request.
+    //
+    //  The Step() and CancelStep() methods of this interface
+    //  Cancel any previous step.
+    //
+    //  When stepping is complete EC_STEP_COMPLETE is signalled.
+    //
+    //  When the filter graph gets EC_STEP_COMPLETE it automatically
+    //  sets the filter graph into paused state and forwards the
+    //  notification to the application
+    //
+    //  Returns S_OK if stepping initiated.
+    //
+    //  dwFrames
+    //    1 means step 1 frame forward
+    //    0 is invalid
+    //    n (n > 1) means skip n - 1 frames and show the nth
+    //
+    //  pStepObject
+    //    NULL - default step object (filter) picked
+    //    non-NULL - use this object for stepping
+    //
+    HRESULT Step(DWORD dwFrames, [unique AM_ANNOTATION("_In_opt_")] IUnknown *pStepObject);
+
+    //  Can step?
+    //  Returns S_OK if it can, S_FALSE if it can't or error code.
+    //  bMultiple - if TRUE return whether can step n > 1
+    HRESULT CanStep(long bMultiple, [unique AM_ANNOTATION("_In_opt_")] IUnknown *pStepObject);
+
+    //  Cancel stepping
+    HRESULT CancelStep();
+}
+
+
+
+
+//---------------------------------------------------------------------
+//
+// IAMPushSource interface
+//
+// Provides a means for source filters to describe information about the
+// data that they source, such as whether the data is live or not, and
+// what type of clock was used for timestamps. This information may be
+// needed by other clocks in the graph in order to provide accurate
+// synchronization. Also provides a way to specify an offset value for
+// the filter to use when timestamping the streams it sources. Provides
+// support for the IAMLatency interface as well.
+//
+//---------------------------------------------------------------------
+
+enum _AM_PUSHSOURCE_FLAGS {
+
+    //
+    // The default assumption is that the data is from a live source,
+    // time stamped with the graph clock, and the source does not
+    // attempt to rate match the data it delivers.
+    // The following flags can be used to override this assumption.
+    //
+
+    // capability flags
+    AM_PUSHSOURCECAPS_INTERNAL_RM        = 0x00000001,  // source provides internal support for rate matching
+    AM_PUSHSOURCECAPS_NOT_LIVE           = 0x00000002,  // don't treat source data as live
+    AM_PUSHSOURCECAPS_PRIVATE_CLOCK      = 0x00000004,  // source data timestamped with clock not
+                                                        // exposed to the graph
+
+    // request flags, set by user via SetPushSourceFlags method
+    AM_PUSHSOURCEREQS_USE_STREAM_CLOCK   = 0x00010000,  // source was requested to timestamp
+                                                        // using a clock that isn't the graph clock
+
+    AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN    = 0x00020000,  // source requests reference clock chaining
+};
+
+//
+// Used to set a source filter to run in a "live" mode.
+//
+[
+    AM_LOCAL
+    object,
+    uuid(F185FE76-E64E-11d2-B76E-00C04FB6BD3D),
+    pointer_default(unique)
+]
+interface IAMPushSource : IAMLatency
+{
+    // used to discover push source's capabilities.
+    // may be any combination of the AM_PUSHSOURCE_FLAGS flags.
+    HRESULT GetPushSourceFlags (
+        [out AM_ANNOTATION("_Out_")] ULONG *pFlags
+    );
+
+    // used to set request flags for a push source.
+    // may be a combination of the AM_PUSHSOURCE_REQS_xxx flags.
+    HRESULT SetPushSourceFlags (
+        [in]  ULONG Flags
+    );
+
+    // specify an offset for push source time stamps
+    HRESULT SetStreamOffset (
+        [in]  REFERENCE_TIME  rtOffset
+    );
+
+    // retrieve the offset this push source is using
+    HRESULT GetStreamOffset (
+        [out AM_ANNOTATION("_Out_")] REFERENCE_TIME  *prtOffset
+    );
+
+    // retrieve the maximum stream offset this push source thinks it can support
+    HRESULT GetMaxStreamOffset (
+        [out AM_ANNOTATION("_Out_")] REFERENCE_TIME  *prtMaxOffset
+    );
+
+    // allows the filter graph to tell a push source the maximum latency allowed on the graph
+    // this allows pins like the video capture preview pin to be more efficient with the amount
+    // of buffering required to support the maximum graph latency
+    HRESULT SetMaxStreamOffset (
+        [in] REFERENCE_TIME  rtMaxOffset
+    );
+};
+
+
+// ------------------------------------------------------------------------
+//
+// IAMDeviceRemoval interface
+//
+// Implemented by filters to request and receive WM_DEVICECHANGE
+// notifications
+//
+// ------------------------------------------------------------------------
+
+[
+        AM_LOCAL
+        object,
+        uuid(f90a6130-b658-11d2-ae49-0000f8754b99),
+        pointer_default(unique)
+]
+interface IAMDeviceRemoval : IUnknown
+{
+
+    HRESULT DeviceInfo(
+        [out AM_ANNOTATION("_Out_")] CLSID *pclsidInterfaceClass,
+        [out AM_ANNOTATION("_Out_")] LPWSTR *pwszSymbolicLink);
+
+    HRESULT Reassociate();
+
+    HRESULT Disassociate();
+}
+
+//
+// for DV
+//
+typedef struct DVINFO {
+    //for 1st 5/6 DIF seq.
+    DWORD dwDVAAuxSrc;
+    DWORD dwDVAAuxCtl;
+    //for 2nd  5/6 DIF seq.
+    DWORD dwDVAAuxSrc1;
+    DWORD dwDVAAuxCtl1;
+    //for video information
+    DWORD dwDVVAuxSrc;
+    DWORD dwDVVAuxCtl;
+    DWORD dwDVReserved[2];
+
+} DVINFO, *PDVINFO;
+
+// ------------------------------------------------------------------------
+//
+// IDVEnc interface
+//
+// Implemented by DV encoder filters to set Encoder format
+//
+// ------------------------------------------------------------------------
+enum _DVENCODERRESOLUTION {         //resolution
+    DVENCODERRESOLUTION_720x480     =   2012,
+    DVENCODERRESOLUTION_360x240     =   2013,
+    DVENCODERRESOLUTION_180x120     =   2014,
+    DVENCODERRESOLUTION_88x60       =   2015
+};
+enum _DVENCODERVIDEOFORMAT {        //PAL/ntsc
+    DVENCODERVIDEOFORMAT_NTSC       =   2000,
+    DVENCODERVIDEOFORMAT_PAL            =   2001
+};
+enum _DVENCODERFORMAT {     // dvsd/dvhd/dvsl
+    DVENCODERFORMAT_DVSD        =   2007,
+    DVENCODERFORMAT_DVHD        =   2008,
+    DVENCODERFORMAT_DVSL        =   2009
+};
+[
+        AM_LOCAL
+        object,
+        uuid(d18e17a0-aacb-11d0-afb0-00aa00b67a42),
+        pointer_default(unique)
+]
+interface IDVEnc : IUnknown
+{
+
+    HRESULT get_IFormatResolution (
+        [out AM_ANNOTATION("_Out_")] int *VideoFormat, //pal or ntsc
+        [out AM_ANNOTATION("_Out_")] int *DVFormat,        //dvsd dvhd dvsl
+        [out AM_ANNOTATION("_Out_")] int *Resolution,      //720, 360, 180,88
+        [in]  BYTE fDVInfo,     //TRUE: DVINFO structure exist, FALSE: Do not care DVINFO
+        [out AM_ANNOTATION("_Out_")] DVINFO *sDVInfo       //NULL if fDVInfo=FALSE,
+    );
+
+   HRESULT put_IFormatResolution (
+        [in] int VideoFormat,
+        [in] int DVFormat,
+        [in] int Resolution,
+        [in] BYTE fDVInfo,      //TRUE: DVINFO structure exist, FALSE: Do not care DVINFO
+        [in AM_ANNOTATION("_In_")] DVINFO *sDVInfo        //NULL if fDVInfo=FALSE,
+    );
+
+}
+
+// ------------------------------------------------------------------------
+//
+// IDVDec interface
+//
+// Implemented by DV decoder filters to set decoder size
+//
+// ------------------------------------------------------------------------
+enum _DVDECODERRESOLUTION {
+    DVDECODERRESOLUTION_720x480     =   1000,
+    DVDECODERRESOLUTION_360x240     =   1001,
+    DVDECODERRESOLUTION_180x120     =   1002,
+    DVDECODERRESOLUTION_88x60       =   1003
+};
+enum _DVRESOLUTION {
+    DVRESOLUTION_FULL       =   1000,
+    DVRESOLUTION_HALF       =   1001,
+    DVRESOLUTION_QUARTER        =   1002,
+    DVRESOLUTION_DC         =   1003
+};
+[
+        AM_LOCAL
+        object,
+        uuid(b8e8bd60-0bfe-11d0-af91-00aa00b67a42),
+        pointer_default(unique)
+]
+interface IIPDVDec : IUnknown
+{
+    HRESULT get_IPDisplay (
+            [out AM_ANNOTATION("_Out_")] int *displayPix       // The display pixels arrage
+                 );
+
+    HRESULT put_IPDisplay (
+             [in] int displayPix            // Change to this display pixel arrage
+                 ) ;
+}
+
+//------------------------------------------------------------------------
+//
+// IDVRGB219 interface
+//
+// Implemented by both the DV encoder and decoder filters
+// Used for enabling the 219 mode in which the Range of RGB24 either received
+// by the encoder or produced by the decoder becomes (16,16,16)--(235,235,235)
+// instead of (0,0,0)--(255,255,255).
+// The interface's method has no effect in case of any other color space than
+// RGB 24
+//
+//------------------------------------------------------------------------
+
+[
+        AM_LOCAL
+        object,
+        uuid(58473A19-2BC8-4663-8012-25F81BABDDD1),
+        pointer_default(unique)
+]
+interface IDVRGB219 : IUnknown
+{
+    HRESULT SetRGB219 ([in] BOOL bState);   // State = True   Turn 219 mode on else turn it off.
+}
+
+
+// ------------------------------------------------------------------------
+//
+// IDVSplitter interface
+//
+// Implemented by DV splitter filters
+//
+// ------------------------------------------------------------------------
+[
+    AM_LOCAL
+    object,
+    uuid(92a3a302-da7c-4a1f-ba7e-1802bb5d2d02)
+]
+interface IDVSplitter : IUnknown
+{
+    HRESULT DiscardAlternateVideoFrames(
+            [in] int nDiscard
+                 ) ;
+}
+
+//  Audio Renderer statistics params for IAMAudioRendererStats interface
+enum _AM_AUDIO_RENDERER_STAT_PARAM {
+    AM_AUDREND_STAT_PARAM_BREAK_COUNT = 1,     // audio breaks
+    AM_AUDREND_STAT_PARAM_SLAVE_MODE,          // current clock mode, see AM_AUDREND_SLAVE_MODEs
+    AM_AUDREND_STAT_PARAM_SILENCE_DUR,         // silence inserted due to gaps (ms)
+    AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR,     // duration of the last buffer received
+    AM_AUDREND_STAT_PARAM_DISCONTINUITIES,     // discontinuities seen since running
+    AM_AUDREND_STAT_PARAM_SLAVE_RATE,          // what rate are we currently slaving at? S_FALSE if not slaving
+    AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR, // for waveOut slaving - data dropped or added to stay in-sync
+                                               //       dwParam1 - dropped duration(ms)
+                                               //       dwParam2 - paused duration(ms)
+    AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR,  // highest & lowest clock differences seen
+                                               //       dwParam1 - high err
+                                               //       dwParam2 - low err
+    AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR, // last high and low errs seen
+                                               //       dwParam1 - last high err
+                                               //       dwParam2 - last low err
+    AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR,    // error between primary/secondary clocks
+    AM_AUDREND_STAT_PARAM_BUFFERFULLNESS,      // percent audio buffer fullness
+    AM_AUDREND_STAT_PARAM_JITTER               // input buffer jitter
+};
+
+//---------------------------------------------------------------------
+//
+// IAMAudioRendererStats interface
+//
+// Interface to get at statistical information that is optionally stored
+// in an audio renderer filter. Supported on the filter interface (although
+// this might be better for ksproxy if we define it as a pin interface?)
+//
+//---------------------------------------------------------------------
+
+[
+    AM_LOCAL
+    object,
+    uuid(22320CB2-D41A-11d2-BF7C-D7CB9DF0BF93),
+    pointer_default(unique)
+]
+interface IAMAudioRendererStats : IUnknown
+{
+    // Get value corresponding to the passed in parameter id
+    HRESULT GetStatParam(
+        [in]   DWORD     dwParam,
+        [out AM_ANNOTATION("_Out_")]  DWORD     *pdwParam1,
+        [out AM_ANNOTATION("_Out_")]  DWORD     *pdwParam2
+    );
+}
+
+//---------------------------------------------------------------------
+//
+// IAMLatency interface
+//
+// Allows a filter to report the expected latency associated with a data
+// stream flowing from its input to output pin. Supported on output pins.
+//
+//---------------------------------------------------------------------
+
+[
+    AM_LOCAL
+    object,
+    uuid(62EA93BA-EC62-11d2-B770-00C04FB6BD3D),
+    pointer_default(unique)
+]
+interface IAMLatency : IUnknown
+{
+    HRESULT GetLatency(
+        [in AM_ANNOTATION("_Out_")]   REFERENCE_TIME  *prtLatency
+    );
+}
+
+
+enum _AM_INTF_SEARCH_FLAGS {
+    AM_INTF_SEARCH_INPUT_PIN  = 0x00000001,   // search input pins
+    AM_INTF_SEARCH_OUTPUT_PIN = 0x00000002,   // search output pins
+    AM_INTF_SEARCH_FILTER     = 0x00000004    // search filters
+};
+
+//---------------------------------------------------------------------
+//
+// IAMGraphStreams interface
+//
+// Interface used to control or search over connected streams of data
+// flow within a filter graph.
+//
+//---------------------------------------------------------------------
+
+[
+    AM_LOCAL
+    object,
+    uuid(632105FA-072E-11d3-8AF9-00C04FB6BD3D),
+    pointer_default(unique)
+]
+interface IAMGraphStreams : IUnknown
+{
+    // Search upstream from the current pin, for the specified interface.
+    // dwFlags can be any combination of the AM_INTF_SEARCH_FLAGS, and allows
+    // control over what objects to search. A value of 0 means to search all.
+    HRESULT FindUpstreamInterface(
+        [in]                IPin *pPin,
+        [in]                REFIID riid,
+        [out, iid_is(riid) AM_ANNOTATION("_Out_")] void **ppvInterface,
+        [in]                DWORD dwFlags );
+
+    // Enable or disable the graph's setting of a timestamp offset
+    // on push sources.
+    HRESULT SyncUsingStreamOffset( [in] BOOL bUseStreamOffset );
+
+    // allow an app to set the maximum offset used on push source filters
+    HRESULT SetMaxGraphLatency( [in] REFERENCE_TIME rtMaxGraphLatency );
+}
+
+
+//
+// IAMOverlayFX
+//
+// This interface is exposed by the overlay mixer filter and allows
+// an application to apply various "effects" to the overlay surface
+// used by the overlay mixer.
+//
+// The effects that can be applied are described by the AMOVERLAYFX
+// enumeration.
+//
+enum AMOVERLAYFX {
+    // Normal (ie. top down, left to right) video
+    AMOVERFX_NOFX =             0x00000000,
+
+    // Mirror the overlay across the vertical axis
+    AMOVERFX_MIRRORLEFTRIGHT =  0x00000002,
+
+     // Mirror the overlay across the horizontal axis
+    AMOVERFX_MIRRORUPDOWN =     0x00000004,
+
+    // Deinterlace the overlay, if possible
+    AMOVERFX_DEINTERLACE =      0x00000008
+};
+
+[
+    AM_LOCAL
+    object,
+    uuid(62fae250-7e65-4460-bfc9-6398b322073c),
+    pointer_default(unique)
+]
+interface IAMOverlayFX : IUnknown
+{
+    // Use this method to determine what overlay effects are currently available
+    // for the overlay surface used by the overlay mixer filter.
+    //
+    HRESULT QueryOverlayFXCaps(
+        [out AM_ANNOTATION("_Out_")] DWORD *lpdwOverlayFXCaps
+        );
+
+    // Use this method to apply a new overlay effect to the overlay surface
+    // used by the overlay mixer filter.  This method can be called while the
+    // filter graph is running, the effect is applied immediately
+    //
+    HRESULT SetOverlayFX(
+        [in] DWORD dwOverlayFX
+        );
+
+    // Use this method to determine what effect (if any) is currently being
+    // applied to the overlay surface by the overlay mixer filter.
+    //
+    HRESULT GetOverlayFX(
+        [out AM_ANNOTATION("_Out_")] DWORD *lpdwOverlayFX
+        );
+}
+
+
+
+// IAMOpenProgress interface provides information about current progress through
+// a download
+
+[
+AM_LOCAL
+object,
+uuid(8E1C39A1-DE53-11cf-AA63-0080C744528D),
+pointer_default(unique)
+]
+
+interface IAMOpenProgress : IUnknown
+{
+    // QueryProgress can be used to query the source filter which supports this interface
+    // for progress information during a renderfile operation.
+    HRESULT QueryProgress(
+          [out AM_ANNOTATION("_Out_")] LONGLONG* pllTotal,
+          [out AM_ANNOTATION("_Out_")] LONGLONG* pllCurrent
+         );
+
+    // AbortOperation can be used to request an abort of RenderFile operation
+    // causing it to stop downloading. This methods instructs the exporter of
+    // the IAMOpenProgress interface to hold up their internal abort flag until
+    // further notice.
+    HRESULT AbortOperation(
+        );
+}
+
+
+/*++
+    IMpeg2Demultiplexer
+
+    This interface is implemented by the MPEG-2 Demultiplexer filter,
+    irrespective of program vs. transport stream splitting functionality.
+--*/
+[
+    object,
+    local,
+    uuid (436eee9c-264f-4242-90e1-4e330c107512),
+    pointer_default(unique)
+]
+interface IMpeg2Demultiplexer : IUnknown
+{
+    /*++
+        ------------------------------------------------------------------------
+        purpose:    Creates an output pin of the specified media type.
+
+        pMediaType      media type specifier for the new pin
+        pszPinName      pin name; cannot be a duplicate of an existing pin
+        ppIPin          IPin interface pointer to the newly created pin
+    --*/
+    HRESULT
+    CreateOutputPin (
+        [in]    AM_MEDIA_TYPE * pMediaType,
+        [in, annotation("_In_")]    LPWSTR          pszPinName,
+        [out, annotation("_Out_")]   IPin **         ppIPin
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        purpose:    Updates the media type of the specified output pin.  If no
+                      connection exists, the media type is updated always.  If
+                      the pin is connected, the success/failure of the call will
+                      depend on downstream input pin's accetance/rejection of
+                      the specified media type, and subsequent success/failure
+                      of a reconnect.
+
+        pszPinName      pin name
+        pMediaType      new media type specifier
+    --*/
+    HRESULT
+    SetOutputPinMediaType (
+        [in, annotation("_In_")]    LPWSTR          pszPinName,
+        [in, annotation("_In_")]    AM_MEDIA_TYPE * pMediaType
+        ) ;
+
+    /*++
+        ------------------------------------------------------------------------
+        purpose:    Deletes the specified output pin.
+
+        pszPinName      pin name
+    --*/
+    HRESULT
+    DeleteOutputPin (
+        [in, annotation("_In_")]    LPWSTR  pszPinName
+        ) ;
+} ;
+
+
+//---------------------------------------------------------------------
+// IEnumStreamIdMap interface
+//---------------------------------------------------------------------
+
+cpp_quote("#define MPEG2_PROGRAM_STREAM_MAP                 0x00000000")
+cpp_quote("#define MPEG2_PROGRAM_ELEMENTARY_STREAM          0x00000001")
+cpp_quote("#define MPEG2_PROGRAM_DIRECTORY_PES_PACKET       0x00000002")
+cpp_quote("#define MPEG2_PROGRAM_PACK_HEADER                0x00000003")
+cpp_quote("#define MPEG2_PROGRAM_PES_STREAM                 0x00000004")
+cpp_quote("#define MPEG2_PROGRAM_SYSTEM_HEADER              0x00000005")
+
+cpp_quote("#define SUBSTREAM_FILTER_VAL_NONE                0x10000000")
+
+typedef struct STREAM_ID_MAP {
+    ULONG   stream_id ;                     //  mpeg-2 stream_id
+    DWORD   dwMediaSampleContent ;          //  #define'd above
+    ULONG   ulSubstreamFilterValue ;        //  filtering value
+    int     iDataOffset ;                   //  offset to elementary stream
+} STREAM_ID_MAP ;
+
+/*++
+    Enumerates the StreamIds mapped on a pin
+--*/
+[
+    object,
+    local,
+    uuid (945C1566-6202-46fc-96C7-D87F289C6534),
+    pointer_default(unique)
+]
+interface IEnumStreamIdMap : IUnknown
+{
+    HRESULT
+    Next (
+        [in]                            ULONG           cRequest,
+        [in, out, size_is (cRequest), annotation("_Out_writes_to_(cRequest, *pcReceived)")]   STREAM_ID_MAP * pStreamIdMap,
+        [out, annotation("_Out_opt_")]                           ULONG *         pcReceived
+        ) ;
+
+    HRESULT
+    Skip (
+        [in]    ULONG   cRecords
+        ) ;
+
+    HRESULT
+    Reset (
+        ) ;
+
+    HRESULT
+    Clone (
+        [out, annotation("_Out_")]   IEnumStreamIdMap **  ppIEnumStreamIdMap
+        ) ;
+} ;
+
+/*++
+    Implemented on the output pin.
+
+    Provides the ability to map/unmap a stream_id to/from an output pin.
+--*/
+[
+    object,
+    local,
+    uuid (D0E04C47-25B8-4369-925A-362A01D95444),
+    pointer_default(unique)
+]
+interface IMPEG2StreamIdMap : IUnknown
+{
+    HRESULT
+    MapStreamId (
+        [in]    ULONG   ulStreamId,                 //  mpeg-2 stream_id
+        [in]    DWORD   MediaSampleContent,         //  #define'd above IEnumStreamIdMap
+        [in]    ULONG   ulSubstreamFilterValue,     //  filter value
+        [in]    int     iDataOffset                 //  elementary stream offset
+        ) ;
+
+    HRESULT
+    UnmapStreamId (
+        [in]    ULONG   culStreamId,                //  number of stream_id's in pulStreamId
+        [in, annotation("_In_reads_(culStreamId)")]    ULONG * pulStreamId                 //  array of stream_id's to unmap
+        ) ;
+
+    HRESULT
+    EnumStreamIdMap (
+        [out, annotation("_Out_")]   IEnumStreamIdMap ** ppIEnumStreamIdMap
+        ) ;
+} ;
+
+
+//  Register a service provider with the filter graph
+[
+        object,
+        local,
+        uuid(7B3A2F01-0751-48DD-B556-004785171C54),
+        pointer_default(unique)
+]
+interface IRegisterServiceProvider : IUnknown
+{
+        // registers one service into it's internal table.. Object is refcounted.
+        //   register a NULL value to remove the service
+        HRESULT RegisterService([in] REFGUID guidService, [in] IUnknown *pUnkObject);
+};
+
+
+
+//---------------------------------------------------------------------
+//
+// IAMClockSlave interface
+//
+// When the audio renderer is slaving to a separate graph clock this
+// interface provides a way for an app to specify how closely in sync
+// the slaving renderer should try to stay to the graph clock. Note that
+// using a larger tolerance for a video & audio playback graph will likely
+// result in looser a/v sync, so it recommended not to change this setting
+// except under special circumstances.
+//
+//---------------------------------------------------------------------
+
+//
+// Used to set/get the error tolerance used by a slaving audio renderer
+//
+[
+    AM_LOCAL
+    object,
+    uuid(9FD52741-176D-4b36-8F51-CA8F933223BE),
+    pointer_default(unique)
+]
+interface IAMClockSlave : IUnknown
+{
+    // set millisecond value to use for slaving tolerance
+    // the allowed range is 1 to 1000ms
+    HRESULT SetErrorTolerance (
+        [in]  DWORD dwTolerance
+    );
+
+    // get millisecond value currently being used for slaving tolerance
+    HRESULT GetErrorTolerance (
+        [out AM_ANNOTATION("_Out_")]  DWORD *pdwTolerance
+    );
+};
+
+
+
+//---------------------------------------------------------------------
+//
+// IAMGraphBuilderCallback interface
+//
+// Interface which gives the app a chance to configure filters
+// before a connection is attempted.
+//
+// If this interface is supported by the site passed in to the graph
+// via IObjectWithSite::SetSite, the graph will call back with each
+// filter it creates as part of the Render or Connect process. Does
+// not call back for source filters. Filter may be discarded and not
+// used in graph or may be connected and disconnected more than once
+//
+// The callback occurs with the graph lock held, so do not call into
+// the graph again and do not wait on other threads calling into the
+// graph.
+//
+//---------------------------------------------------------------------
+
+[
+    object,
+    uuid(4995f511-9ddb-4f12-bd3b-f04611807b79),
+    local,
+    pointer_default(unique)
+]
+interface IAMGraphBuilderCallback : IUnknown
+{
+    // graph builder selected a filter to create and attempt to
+    // connect. failure indicates filter should be rejected.
+    HRESULT SelectedFilter(
+        [in] IMoniker *pMon
+        );
+
+    // app configures filter during this call. failure indicates
+    // filter should be rejected.
+    HRESULT CreatedFilter(
+        [in] IBaseFilter *pFil
+        );
+};
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#ifndef _IAMFilterGraphCallback_")
+cpp_quote("#define _IAMFilterGraphCallback_")
+cpp_quote("// Note: Because this interface was not defined as a proper interface it is")
+cpp_quote("//       supported under C++ only. Methods aren't stdcall.")
+cpp_quote("EXTERN_GUID(IID_IAMFilterGraphCallback,0x56a868fd,0x0ad4,0x11ce,0xb0,0xa3,0x0,0x20,0xaf,0x0b,0xa7,0x70);")
+cpp_quote("interface IAMFilterGraphCallback : public IUnknown")
+cpp_quote("{")
+cpp_quote("    // S_OK means rendering complete, S_FALSE means retry now.")
+cpp_quote("    virtual HRESULT UnableToRender(IPin *pPin) = 0;")
+cpp_quote(" ")
+cpp_quote("};")
+cpp_quote("#endif // _IAMFilterGraphCallback_")
+cpp_quote("#endif")
+
+//------------------------------------------------------------------------------
+// File: EncAPI.idl
+//
+// Desc: Encoder (and future decoder) interface definitions.
+//
+// Copyright (c) 1992 - 2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+[
+        object,
+        local,
+        uuid(a8809222-07bb-48ea-951c-33158100625b),
+        pointer_default(unique)
+]
+interface IGetCapabilitiesKey : IUnknown
+{
+        HRESULT GetCapabilitiesKey( [out, annotation("_Out_")] HKEY* pHKey );
+};
+
+// -----------------------------------------------------------------------------------------
+// From this point on, this is retained for backwards compatiblity only
+// Do not use this for future encoders
+// -----------------------------------------------------------------------------------------
+[
+    AM_LOCAL
+    object,
+    uuid(70423839-6ACC-4b23-B079-21DBF08156A5),
+    pointer_default(unique)
+]
+interface IEncoderAPI : IUnknown
+{
+    HRESULT IsSupported ( [in] const GUID *Api );
+    HRESULT IsAvailable ( [in] const GUID *Api );
+    HRESULT GetParameterRange ( [in] const GUID *Api,
+        [out AM_ANNOTATION("_Out_")] VARIANT *ValueMin, [out AM_ANNOTATION("_Out_")] VARIANT *ValueMax,
+        [out AM_ANNOTATION("_Out_")] VARIANT *SteppingDelta );
+    HRESULT GetParameterValues ( [in] const GUID *Api,
+        [out, size_is(,*ValuesCount) AM_ANNOTATION("_Outptr_result_buffer_all_(*ValuesCount)")] VARIANT **Values,
+        [out AM_ANNOTATION("_Out_")] ULONG *ValuesCount );
+    HRESULT GetDefaultValue ( [in] const GUID *Api, [out AM_ANNOTATION("_Out_")] VARIANT *Value );
+    HRESULT GetValue ( [in] const GUID *Api, [out AM_ANNOTATION("_Out_")] VARIANT *Value );
+    HRESULT SetValue ( [in] const GUID *Api, [in AM_ANNOTATION("_In_")] VARIANT *Value );
+}
+
+[
+    AM_LOCAL
+    object,
+    uuid(02997C3B-8E1B-460e-9270-545E0DE9563E),
+    pointer_default(unique)
+]
+interface IVideoEncoder : IEncoderAPI
+{
+}
+//---------------------------------------------------------------------
+//
+// Old Encoder API Interfaces
+//
+//---------------------------------------------------------------------
+
+cpp_quote ("#ifndef __ENCODER_API_DEFINES__")
+cpp_quote ("#define __ENCODER_API_DEFINES__")
+
+typedef enum VIDEOENCODER_BITRATE_MODE {
+
+    //
+    // Bit rate used for encoding is constant
+    //
+    ConstantBitRate = 0,
+
+    //
+    // Bit rate used for encoding is variable with the specified bitrate used
+    // as a guaranteed average over a specified window.  The default window
+    // size is considered to be 5 minutes.
+    //
+    VariableBitRateAverage,
+
+    //
+    // Bit rate used for encoding is variable with the specified bitrate used
+    // as a peak rate over a specified window.  The default window size
+    // is considered to be 500ms (classically one GOP).
+    //
+    VariableBitRatePeak
+
+} VIDEOENCODER_BITRATE_MODE;
+
+cpp_quote ("#endif // __ENCODER_API_DEFINES__")
+
+cpp_quote("#define AM_GETDECODERCAP_QUERY_VMR_SUPPORT   0x00000001")
+cpp_quote("#define      VMR_NOTSUPPORTED                0x00000000")
+cpp_quote("#define      VMR_SUPPORTED                   0x00000001")
+
+cpp_quote("#define AM_QUERY_DECODER_VMR_SUPPORT         0x00000001")
+cpp_quote("#define AM_QUERY_DECODER_DXVA_1_SUPPORT      0x00000002")
+
+cpp_quote("#define AM_QUERY_DECODER_DVD_SUPPORT         0x00000003")
+cpp_quote("#define AM_QUERY_DECODER_ATSC_SD_SUPPORT     0x00000004")
+cpp_quote("#define AM_QUERY_DECODER_ATSC_HD_SUPPORT     0x00000005")
+cpp_quote("#define AM_GETDECODERCAP_QUERY_VMR9_SUPPORT  0x00000006")
+cpp_quote("#define AM_GETDECODERCAP_QUERY_EVR_SUPPORT   0x00000007")
+
+cpp_quote("#define      DECODER_CAP_NOTSUPPORTED        0x00000000")
+cpp_quote("#define      DECODER_CAP_SUPPORTED           0x00000001")
+
+[
+        object,
+        local,
+        uuid(c0dff467-d499-4986-972b-e1d9090fa941),
+        pointer_default(unique)
+]
+interface IAMDecoderCaps : IUnknown
+{
+        HRESULT GetDecoderCaps([in] DWORD dwCapIndex, [out, annotation("_Out_")] DWORD* lpdwCap);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAMCertifiedOutputProtection
+//
+///////////////////////////////////////////////////////////////////////////////
+typedef struct _AMCOPPSignature {
+    BYTE        Signature[256];
+} AMCOPPSignature;
+
+typedef struct _AMCOPPCommand {
+    GUID    macKDI;             //   16 bytes
+    GUID    guidCommandID;      //   16 bytes
+    DWORD   dwSequence;         //    4 bytes
+    DWORD   cbSizeData;         //    4 bytes
+    BYTE    CommandData[4056];  // 4056 bytes (4056+4+4+16+16 = 4096)
+}  AMCOPPCommand, *LPAMCOPPCommand;
+
+typedef struct _AMCOPPStatusInput {
+    GUID    rApp;               //   16 bytes
+    GUID    guidStatusRequestID;//   16 bytes
+    DWORD   dwSequence;         //    4 bytes
+    DWORD   cbSizeData;         //    4 bytes
+    BYTE    StatusData[4056];   // 4056 bytes (4056+4+4+16+16 = 4096)
+} AMCOPPStatusInput, *LPAMCOPPStatusInput;
+
+typedef struct _AMCOPPStatusOutput {
+    GUID    macKDI;             //   16 bytes
+    DWORD   cbSizeData;         //    4 bytes
+    BYTE    COPPStatus[4076];   // 4076 bytes (4076+16+4 = 4096)
+} AMCOPPStatusOutput, *LPAMCOPPStatusOutput;
+
+
+[
+        object,
+        local,
+        uuid(6feded3e-0ff1-4901-a2f1-43f7012c8515),
+        pointer_default(unique)
+]
+interface IAMCertifiedOutputProtection : IUnknown
+{
+    HRESULT KeyExchange (
+        [out, annotation("_Out_")]   GUID*  pRandom,             // 128-bit random number generated by Graphics Driver
+        [out, annotation("_Outptr_result_bytebuffer_(*pdwLengthCertGH)")]   BYTE** VarLenCertGH,        // Graphics Hardware certificate, memory released by CoTaskMemFree
+        [out, annotation("_Out_")]   DWORD* pdwLengthCertGH);    // Length of Graphics Hardware certificate
+
+    HRESULT SessionSequenceStart(
+        [in]    AMCOPPSignature*pSig);      // Concatenation of 128-bit random data security session key,
+                                            // 128-bit random data integrity session key, 32-bit random
+                                            // starting status sequence number and 32-bit random starting
+                                            // command sequence number encrypted with the public key of
+                                            // the graphic hardware. This value is 2048 bits long.
+
+    HRESULT ProtectionCommand(
+        [in]    const AMCOPPCommand* cmd);  // Encrypted command
+
+    HRESULT ProtectionStatus(
+        [in]    const AMCOPPStatusInput* pStatusInput,  // Encrypted Status request
+        [out, annotation("_Out_")]   AMCOPPStatusOutput* pStatusOutput);     // Encrypted Status results
+};
+
+//  Can be implemented by implementors of IAsyncReader on a Filter's output pin
+//  fRaw = TRUE means sample timestamp = byte position
+//  fRaw = FALSE (default) means sample timestamp = 10000000 * (byte position)
+[
+        object,
+        local,
+        uuid(cf7b26fc-9a00-485b-8147-3e789d5e8f67),
+        pointer_default(unique)
+]
+interface IAMAsyncReaderTimestampScaling : IUnknown
+{
+    HRESULT GetTimestampMode([annotation("_Out_")] BOOL *pfRaw);
+    HRESULT SetTimestampMode(BOOL fRaw);
+};
+
+//
+//  Control DirectShow plugins
+//
+
+//
+//  This interface is implemented by filter monikers
+//  Objects are controlled by CLSID for regular filter and DMOs
+//  and by DLL name for legacy ACM and ICM codecs
+//
+//  This interface is implemented by the CLSID_DirectShowPluginControl
+//  COM object
+//
+
+[
+    object,
+    local,
+    uuid(0e26a181-f40c-4635-8786-976284b52981),
+    pointer_default(unique)
+]
+interface IAMPluginControl : IUnknown
+{
+   HRESULT GetPreferredClsid(
+               [annotation("_In_")] REFGUID subType,
+               [annotation("_Out_")] CLSID *clsid
+               );
+   HRESULT GetPreferredClsidByIndex(
+               DWORD index,
+               [annotation("_Out_")] GUID *subType,
+               [annotation("_Out_")] CLSID *clsid
+               );
+   HRESULT SetPreferredClsid(
+               [annotation("_In_")] REFGUID subType,
+               [annotation("_In_opt_")] const CLSID *clsid
+               );
+   HRESULT IsDisabled(
+               REFCLSID clsid
+               );
+   HRESULT GetDisabledByIndex(
+               DWORD index,
+               [annotation("_Out_")] CLSID *clsid
+               );
+   HRESULT SetDisabled(
+               REFCLSID clsid,
+               BOOL disabled
+               );
+   HRESULT IsLegacyDisabled(
+               LPCWSTR dllName
+               );
+}
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

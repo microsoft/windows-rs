@@ -1,0 +1,448 @@
+/*********************************************************************
+*
+*   Windows Remote Desktop Services
+*   	Graphics virtual channel interface definition
+*
+*   Copyright (c) Microsoft Corporation. All rights reserved. 
+*
+**********************************************************************/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "unknwn.idl";
+import "oaidl.idl";
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+//
+// =========================================================================
+//
+//  Interface:          IWRdsGraphicsChannelEvents
+//
+//  Implementation:     Server Side
+//
+//  Description:
+// 		Interface used for receiving notifications from graphics channel
+//  objects.
+//
+//
+// =========================================================================
+//
+
+const ULONG WRdsGraphicsChannels_Bandwidth_Unavailable = (ULONG)(-1);
+const ULONG WRdsGraphicsChannels_LossyChannelMaxMessageSize = 988;
+const ULONG WRdsGraphicsChannels_RTT_Unavailable = (ULONG)(-1);
+
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWRdsGraphicsChannelEvents = {0x67f2368c, 0xd674, 0x4fae, {0x66, 0xa5, 0xd2, 0x06, 0x28, 0xa6, 0x40, 0xd2}};")
+[
+    object,
+    uuid(67f2368c-d674-4fae-66a5-d20628a640d2),
+    pointer_default(unique)
+]
+interface IWRdsGraphicsChannelEvents : IUnknown
+{
+    //
+    //  Called whenever a full message from the server is received
+    //  The message is fully reassembled and has the exact size
+    //  as the Write() call on the server
+    //
+    HRESULT OnDataReceived(
+        [in] ULONG cbSize,   // size of data in bytes
+        [in] BYTE  *pBuffer  // data buffer
+        );
+        
+    //
+    //  The channel is disconnected, all Write() calls will fail
+    //  no more incomming data is expected. 
+    //
+    HRESULT OnClose();
+
+    //
+    //  Notifies channel callback implementing object of the channel being open.
+    //  After this callback data can flow in both directions.
+    //
+    //    OpenResult     - HRESULT of the channel creation, pChannel is non-null if this value is S_OK
+    //    pOpenContext   - passed in OpenChannel
+    //
+    //
+    HRESULT OnChannelOpened(
+        [in] HRESULT   OpenResult,
+        [in] IUnknown* pOpenContext 
+        );
+
+    //
+    //  Notification that a Write performed on the IWRdsGraphicsChannel interface
+    //  has been sent to the lower layer and the buffer is safe for reuse. 
+    //
+    //    pWriteContext - the parameter passed to IWRdsGraphicsChannel::Write
+    //    bCancelled - TRUE if the connection was dropped
+    //    pBuffer/cbBuffer - the same parameters a they were specified in the "Write" 
+    //
+    //        
+   	HRESULT OnDataSent(
+        [in] IUnknown    *pWriteContext,
+        [in] BOOL        bCancelled,
+        [in] BYTE        *pBuffer,
+        [in] ULONG       cbBuffer 
+        );
+        
+    //
+    //    Notifies the consumer about current network conditions.
+    //
+    //    bandwidth -The current expected bandwidth in bytes/sec that the consumer can expect to send data at.
+    //
+    //                           0xffffffff if bandwidth statistics are not available. 
+    //
+    //    RTT - The RTT of the link on which we are operating.
+    //                      
+    //                          0xffffffff if latency statistics are not available
+    //
+    //    dwCurrentSendByteIndex - the byte index of the last byte that was sent from this channel at this time.
+    //                             begins at zero in increases for lifetime of connection, rounds back to zero 
+    //                             on overflow.
+    //
+    //
+    //    Comments:
+    //           The goal of this API is for all generic consumers to have estimate of bandwidth and queue depth to make encoding decisions.
+    //
+    //           The API provides a mechanism for consumers to know their queue depth and drain rate, in order to estimate their ideal send time.
+    //
+    //           The bandwidth estimates  and queue depth are for this particular virtual channel consumer. Competing flows either at transport or
+    //           virtual circuit layer effect the bandwidth estimate. For eg. If another VC takes up n% of the available transport bandwidth, then the 
+    //           consumer will receive (100-n)% of available link bandwidth as its bandwidth share.
+    //
+    //           The API is not guarenteed to be called as the bandwidth estimates are not always available 
+    //           and consumer cannot take dependency on being called with the API.
+    //
+    //           Eg. of use - The graphics encoder is expected to derive an ideal send time for its next encoded frame based on how long it expects
+    //                        the already queued data to go out on the network.  (t0+ EncoderQueueSize / Bandwidth). The graphics encoder knows its queue
+    //                        size based on the data that it has sent on the channel, and the last byte that got sent as part of this API callback.
+    //                        (dwCurrentSentByteIndex)
+    //
+    //
+    //
+
+    HRESULT OnMetricsUpdate(
+        [in] DWORD  bandwidth,
+        [in] DWORD  RTT,
+        [in] UINT64 lastSentByteIndex
+        );
+};
+
+//
+// =========================================================================
+//
+//  Interface:          IWRdsGraphicsChannel
+//
+//  Implementation:     Server Side
+//
+//  Description:
+//      Interface used by the graphics channel conumser for sending and
+//      receiving data.
+// =========================================================================
+//
+
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWRdsGraphicsChannel = {0x684b7a0b, 0xedff, 0x43ad, {0xd5, 0xa2, 0x4a, 0x8d, 0x53, 0x88, 0xf4, 0x01}};")
+[
+    object,
+    uuid(684b7a0b-edff-43ad-d5a2-4a8d5388f401),
+    pointer_default(unique)
+]
+interface IWRdsGraphicsChannel : IUnknown
+{
+    //
+    // Method use to send data on the virtual channel. The interface implementation will take
+    // ownership of the buffer. The buffer is returned to the interface consumer through the 
+    // OnDataSent callback.
+    // 
+    //
+
+    HRESULT Write(
+        [in] ULONG    cbSize,         // Size of the buffer
+        [in] BYTE     *pBuffer,       // Pointer to the payload
+        [in] IUnknown *pContext       // Consumer provider pointer.  Implementer should return 
+                                      // this in the OnDataSent callaback.
+        );
+        
+    //
+    //  The consumer requests to close the channel
+    //  This will result in IRDPCoreVirtualChannelEvents::OnClose() call.
+    //  The implementer should complete all the sends requests indicating 
+    //  that the channel was closed (see the bCancelled parameter in OnDataSent).
+    //  All I/O will cease. 
+    //
+    HRESULT Close();
+
+    //
+    //  Used to bind the callback interface to the virtual channel
+    //  Essentially the user says - I am ready, i.e: binds server side
+    //  The channel is completly bound when OnChannelOpened is received
+    //  on the IRDPCoreVirtualChannelEvents. After OnChannelOpened data is 
+    //  ready to flow in both directions
+    //
+    //    pVirtualChannelCallback - passed in by caller to bind the callback to this VirtualChannel
+    //    pOpenContext - caller provided context passed back to caller in OnChannelOpened
+    //
+    //
+    HRESULT Open(
+        [in] IWRdsGraphicsChannelEvents *pChannelEvents,
+        [in] IUnknown                  *pOpenContext 
+        );
+};
+
+typedef enum {
+    WRdsGraphicsChannelType_GuaranteedDelivery = 0,
+    WRdsGraphicsChannelType_BestEffortDelivery = 1
+} WRdsGraphicsChannelType;
+
+
+//
+// =========================================================================
+//
+//  Interface:          IWRdsGraphicsChannelManager
+//
+//  Implementation:     Server Side
+//
+//  Description:
+//      This interface is used by the RemoteFX graphics services API to 
+//      create the virtual channels necessary for remoting graphics data
+//
+// =========================================================================
+//
+cpp_quote("EXTERN_C __declspec(selectany) const IID IID_IWRdsGraphicsChannelManager = {0x0fd57159, 0xe83e, 0x476a, {0xa8, 0xb9, 0x4a, 0x79, 0x76, 0xe7, 0x1e, 0x18}};")
+[
+    object,
+    uuid(0fd57159-e83e-476a-a8b9-4a7976e71e18),
+    pointer_default(unique)
+]
+interface IWRdsGraphicsChannelManager : IUnknown
+{
+    //
+    //    pszEndpointName - name of the channel
+    //    ppVirtualChannel - Channel object instance
+    //
+    //
+    HRESULT 
+    CreateChannel(
+        [in] const char                     *pszChannelName,
+        [in] WRdsGraphicsChannelType        channelType,
+        [out, retval] IWRdsGraphicsChannel **ppVirtualChannel
+        );
+};
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+//
+// The following section describes some RDP protocol specific types.
+// These structs are used by downlevel code and it is not associated with 
+// a specific Windows version so it is not guarded by NTDDI_VERSION macros
+//
+
+cpp_quote("#if defined(_WIN64)")
+cpp_quote("#define RFX_GFX_UNALIGNED __unaligned")
+cpp_quote("#elif defined(_ARM_)")
+cpp_quote("#define RFX_GFX_UNALIGNED __unaligned")
+cpp_quote("#else")
+cpp_quote("#define RFX_GFX_UNALIGNED")
+cpp_quote("#endif")
+
+//
+// This section contains the identifiers for the messages exchanged on
+// the desktop information channel. Messages with uMSGType values not specified
+// by this header should be ignored by the client implementation code.
+// 
+cpp_quote("#define RFX_RDP_MSG_PREFIX          0x00")
+cpp_quote("#define RFX_GFX_MSG_PREFIX          0x30")
+cpp_quote("#define RFX_GFX_MSG_PREFIX_MASK     0x30")
+
+cpp_quote("#define RFX_GFX_MSG_MAKE_16BIT_CODE(B0, B1)  ((B1) << 8 | (B0))")
+
+// RDP payload messages (prefix is 0x00)
+cpp_quote("#define RFX_GFX_MSG_TYPE_MOUSE_POINTER_SHAPE            RFX_GFX_MSG_MAKE_16BIT_CODE(0x8B, 0x00)")
+cpp_quote("#define RFX_GFX_MSG_TYPE_MOUSE_POINTER_POSITION         RFX_GFX_MSG_MAKE_16BIT_CODE(0x88, 0x00)")
+cpp_quote("#define RFX_GFX_MSG_TYPE_MOUSE_POINTER_CACHED           RFX_GFX_MSG_MAKE_16BIT_CODE(0x8A, 0x00)")
+
+// Desktop config msg
+cpp_quote("#define RFX_GFX_MSG_TYPE_CLIENT_DESKTOP_INFO_REQUEST    RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x1)")
+cpp_quote("#define RFX_GFX_MSG_TYPE_CLIENT_DESKTOP_INFO_RESPONSE   RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x2)")
+
+cpp_quote("#define RFX_GFX_MSG_TYPE_DESKTOP_CONFIG_CHANGE_NOTIFY   RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x3)")
+cpp_quote("#define RFX_GFX_MSG_TYPE_DESKTOP_CONFIG_CHANGE_CONFIRM  RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x4)")
+
+cpp_quote("#define RFX_GFX_MSG_TYPE_DESKTOP_SIZE_CHANGE_NOTIFY     RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x5)")
+
+cpp_quote("#define RFX_GFX_MSG_TYPE_DISCONNECT_NOTIFY              RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x6)")
+cpp_quote("#define RFX_GFX_MSG_TYPE_DESKTOP_RESEND_REQUEST         RFX_GFX_MSG_MAKE_16BIT_CODE(RFX_GFX_MSG_PREFIX, 0x7)")
+
+cpp_quote("#pragma pack(push, rfx_gfx_msg, 1)")
+
+
+//
+//  Rect definition - used to describe coordinates in virtual desktop space
+// 
+typedef struct tagRFX_GFX_RECT
+{
+    INT32  left;
+    INT32  top;
+    INT32  right;
+    INT32  bottom;
+} RFX_GFX_RECT;
+cpp_quote("typedef RFX_GFX_RECT RFX_GFX_UNALIGNED *PRFX_GFX_RECT;")
+
+
+//
+//  Channel message header. Describes the message type and - optionally the size.
+//  Since this is a message based protocol the size of the payload is not
+//  always described by the header's cbSize but instead the size has to be 
+//  determined by decoding the message type. In those cases cbSize will
+//  be set to 0.
+//
+typedef struct tagRFX_GFX_MSG_HEADER
+{  
+    UINT16  uMSGType;    // One of the RFX_GFX_MSG_TYPE values
+    UINT16  cbSize;      // Optional - set to 0 for fixed size messages
+} RFX_GFX_MSG_HEADER;
+cpp_quote("typedef RFX_GFX_MSG_HEADER RFX_GFX_UNALIGNED *PRFX_GFX_MSG_HEADER;")
+
+
+//
+// Monitor info packet
+//
+typedef struct tagRFX_GFX_MONITOR_INFO
+{
+    INT32  left;
+    INT32  top;
+    INT32  right;
+    INT32  bottom;
+
+    UINT32 physicalWidth;
+    UINT32 physicalHeight;
+    UINT32 orientation;
+
+    BOOL   primary;
+    
+} RFX_GFX_MONITOR_INFO;
+cpp_quote("typedef RFX_GFX_MONITOR_INFO RFX_GFX_UNALIGNED *PRFX_GFX_MONITOR_INFO;")
+
+
+//
+// Message used by the server to query the monitor/desktop configuration
+// from the client.
+//
+typedef struct tagRFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST
+{    
+    RFX_GFX_MSG_HEADER     channelHdr;
+} RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST;
+
+cpp_quote("typedef RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST RFX_GFX_UNALIGNED *PRFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST;")
+
+//
+//  Reply in response to the RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST.
+//  The client must return at least one monitor. And at least one monitor 
+//  should have the primary flag set to TRUE.
+//  The clientUniqueId represents the clientId as described by [MS-RDPBCGR] 
+//  (see clientDigProductId field in the TS_UD_CS_CORE data block).
+const int RFX_GFX_MAX_SUPPORTED_MONITORS = 16;
+const int RFX_CLIENT_ID_LENGTH = 32;
+
+typedef struct tagRFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE
+{    
+    RFX_GFX_MSG_HEADER     channelHdr;
+    UINT32                 reserved;     // Reserved for future use - must be set to 0.
+    UINT32                 monitorCount; 
+    RFX_GFX_MONITOR_INFO   MonitorData[RFX_GFX_MAX_SUPPORTED_MONITORS];
+    WCHAR                  clientUniqueId[RFX_CLIENT_ID_LENGTH];
+} RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE;
+cpp_quote("typedef RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE RFX_GFX_UNALIGNED *PRFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE;")
+
+
+// 
+// Once the server receives the desktop info from the client it will try to
+// configure the session with the number of monitors requested by the client.
+//
+// However the session configuration might not match the client's request.
+// This message is used by the server to notify the client of what the
+// resulting desktop configuration.
+// 
+// The client should reply with a RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM.
+//
+typedef struct tagRFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY
+{
+    RFX_GFX_MSG_HEADER      channelHdr;
+    ULONG                   ulWidth;
+    ULONG                   ulHeight;
+    ULONG                   ulBpp;
+    ULONG                   Reserved;
+} RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY;
+cpp_quote("typedef RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY RFX_GFX_UNALIGNED *PRFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY;")
+
+//
+// Sent by the client to inform the server that the new desktop configuration
+// was applied by the client successfuly.
+//
+typedef struct tagRFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM
+{    
+    RFX_GFX_MSG_HEADER channelHdr;
+} RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM;
+cpp_quote("typedef RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM RFX_GFX_UNALIGNED *PRFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM;")
+
+//
+// Notifies input components of desktop size changes.
+// Carries the same width/height as RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY
+//
+typedef struct tagRFX_GFX_MSG_DESKTOP_INPUT_RESET
+{
+    RFX_GFX_MSG_HEADER channelHdr;
+    UINT32 ulWidth;
+    UINT32 ulHeight;
+} RFX_GFX_MSG_DESKTOP_INPUT_RESET;
+cpp_quote("typedef RFX_GFX_MSG_DESKTOP_INPUT_RESET RFX_GFX_UNALIGNED *PRFX_GFX_MSG_DESKTOP_INPUT_RESET;")
+
+//
+// Message used by the server to notify the client of an error that caused
+// the graphics stream to be stopped.
+// 
+typedef struct tagRFX_GFX_MSG_DISCONNECT_NOTIFY
+{
+    RFX_GFX_MSG_HEADER channelHdr;
+    ULONG              DisconnectReason;
+} RFX_GFX_MSG_DISCONNECT_NOTIFY;
+cpp_quote("typedef RFX_GFX_MSG_DISCONNECT_NOTIFY RFX_GFX_UNALIGNED *PRFX_GFX_MSG_DISCONNECT_NOTIFY;")
+
+//
+// Message used by the client to notify the server that a portion of the desktop
+// should be re-sent to the client.  This can be used for instance in cases 
+// the client encounters a temporary rendering error (like a DX device being lost).
+//
+typedef struct tagRFX_GFX_MSG_DESKTOP_RESEND_REQUEST
+{    
+    RFX_GFX_MSG_HEADER channelHdr;
+    RFX_GFX_RECT       RedrawRect;
+} RFX_GFX_MSG_DESKTOP_RESEND_REQUEST;
+cpp_quote("typedef RFX_GFX_MSG_DESKTOP_RESEND_REQUEST RFX_GFX_UNALIGNED *PRFX_GFX_MSG_DESKTOP_RESEND_REQUEST;")
+
+
+//
+//  This packet is used to cary the payload of RDP format PDUs exchanged on the
+//  desktop information channel.  Such messages include mouse pointer information
+// as described in the protocol document [MS-RDPBCGR].
+//
+typedef struct tagRFX_GFX_MSG_RDP_DATA
+{
+    RFX_GFX_MSG_HEADER channelHdr;
+    UINT8              rdpData[1];
+} RFX_GFX_MSG_RDP_DATA;
+cpp_quote("typedef RFX_GFX_MSG_RDP_DATA RFX_GFX_UNALIGNED *PRFX_GFX_MSG_RDP_DATA;")
+
+cpp_quote("#pragma pack(pop, rfx_gfx_msg)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+
+
+
+#pragma endregion
+

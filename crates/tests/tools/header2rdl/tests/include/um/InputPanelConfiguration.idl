@@ -1,0 +1,63 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// Desktop Clients that are interested in leveraging the modern invocation
+// and dismissal semantics of the Touch Keyboard and Handwriting Input Panel
+// can opt in to the Modern Focus tracking mechanism by implementing the 
+// following interface.
+[
+    uuid(41C81592-514C-48BD-A22E-E6AF638521A6),
+    pointer_default(unique),
+    helpstring("IInputPanelConfiguration")
+]
+interface IInputPanelConfiguration : IUnknown
+{
+    // This method allows a client process to opt-in to the Modern
+    // Focus tracking mechanism controlling the invocation/dismissal
+    // semantics of the touch keyboard.
+    [helpstring("method EnableFocusTracking")] HRESULT EnableFocusTracking();
+};
+
+[
+    uuid(A213F136-3B45-4362-A332-EFB6547CD432),
+    pointer_default(unique),
+    helpstring("IInputPanelInvocationConfiguration")
+]
+interface IInputPanelInvocationConfiguration : IUnknown
+{
+    // Modern clients can request that the Touch Keyboard and Handwriting Input Panel
+    // check to see that a user tapped in the edit control with focus before invoking.
+    [helpstring("method RequireTouchInEditControl")] HRESULT RequireTouchInEditControl();
+};
+
+[
+    uuid(82E4F0B2-5440-42E4-8ED9-A915D1216C79),
+    version(1.0),
+    helpstring("Microsoft InputPanelConfiguration TypeLibrary, version 1")
+]
+library InputPanelConfigurationLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+    [
+        uuid(2853ADD3-F096-4C63-A78F-7FA3EA837FB7),
+        helpstring("Input Panel Configuration Class")
+    ] 
+    coclass InputPanelConfiguration
+    {
+        [default] interface IInputPanelConfiguration;
+        interface IInputPanelInvocationConfiguration;
+    };
+};
+
+cpp_quote("#endif // NTDDI_VERSION >= NTDDI_WIN8")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

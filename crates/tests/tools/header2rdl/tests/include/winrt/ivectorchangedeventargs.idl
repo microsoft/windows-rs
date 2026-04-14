@@ -1,0 +1,41 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  WindowsRuntimeAPISet
+
+import "oaidl.idl";
+import "inspectable.idl";
+import "asyncinfo.idl";
+import "eventtoken.idl";
+#include <sdkddkver.h>
+import "windowscontracts.idl";
+
+namespace Windows.Foundation.Collections
+{
+    [version(NTDDI_WIN8)]
+    [contract(Windows.Foundation.FoundationContract, 1)]
+    typedef enum CollectionChange 
+    {
+        Reset,          // Much of the Vector has changed.
+        ItemInserted,   // An item added to the Vector.
+                        // NewIndex contains the index of the item that was added.
+        ItemRemoved,    // An item deleted from the Vector.
+                        // NewIndex contains the index of the item that was deleted
+        ItemChanged,    // An item changed in the Vector.
+                        // NewIndex contains the index of the item that was changed.
+    } CollectionChange;
+
+    [
+        object,
+        uuid(575933df-34fe-4480-af15-07691f3d5d9b),
+        pointer_default(unique),
+        version(NTDDI_WIN8)
+    ]
+    [contract(Windows.Foundation.FoundationContract, 1)]
+    interface IVectorChangedEventArgs : IInspectable
+    {
+        [propget] HRESULT CollectionChange ([out, retval] CollectionChange * value);
+        [propget] HRESULT Index ([out, retval] unsigned* value);
+    };
+
+
+}

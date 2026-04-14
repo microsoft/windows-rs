@@ -1,0 +1,5078 @@
+//=======================================================================
+//
+//  (C) Copyright 2003-2011 Microsoft Corporation.  All Rights Reserved.
+//
+//  File: wuapi.idl
+//
+//  Contents:   Windows Update Services Client Interfaces.
+//
+//=======================================================================
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// wuapi.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 2003-2011 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#pragma comment(lib, \"wuguid.lib\")")
+cpp_quote("")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("// Windows Update Services Client Interfaces.")
+cpp_quote("// --------------------------------------------------------------------------------")
+cpp_quote("// GUIDS")
+cpp_quote("// --------------------------------------------------------------------------------")
+cpp_quote("// {B596CC9F-56E5-419E-A622-E01BB457431E}")
+cpp_quote("DEFINE_GUID(LIBID_WUApiLib,0xB596CC9F,0x56E5,0x419E,0xA6,0x22,0xE0,0x1B,0xB4,0x57,0x43,0x1E);")
+cpp_quote("")
+cpp_quote("// {A976C28D-75A1-42AA-94AE-8AF8B872089A}")
+cpp_quote("DEFINE_GUID(IID_IUpdateLockdown,0xa976c28d,0x75a1,0x42aa,0x94,0xae,0x8a,0xf8,0xb8,0x72,0x08,0x9a);")
+cpp_quote("")
+cpp_quote("// {EFF90582-2DDC-480F-A06D-60F3FBC362C3}")
+cpp_quote("DEFINE_GUID(IID_IStringCollection,0xeff90582,0x2ddc,0x480f,0xa0,0x6d,0x60,0xf3,0xfb,0xc3,0x62,0xc3);")
+cpp_quote("")
+cpp_quote("// {174C81FE-AECD-4DAE-B8A0-2C6318DD86A8}")
+cpp_quote("DEFINE_GUID(IID_IWebProxy,0x174c81fe,0xaecd,0x4dae,0xb8,0xa0,0x2c,0x63,0x18,0xdd,0x86,0xa8);")
+cpp_quote("")
+cpp_quote("// {ADE87BF7-7B56-4275-8FAB-B9B0E591844B}")
+cpp_quote("DEFINE_GUID(IID_ISystemInformation,0xade87bf7,0x7b56,0x4275,0x8f,0xab,0xb9,0xb0,0xe5,0x91,0x84,0x4b);")
+cpp_quote("")
+cpp_quote("// {85713FA1-7796-4FA2-BE3B-E2D6124DD373}")
+cpp_quote("DEFINE_GUID(IID_IWindowsUpdateAgentInfo,0x85713FA1,0x7796,0x4FA2,0xBE,0x3B,0xE2,0xD6,0x12,0x4D,0xD3,0x73);")
+cpp_quote("")
+cpp_quote("// {E7A4D634-7942-4DD9-A111-82228BA33901}")
+cpp_quote("DEFINE_GUID(IID_IAutomaticUpdatesResults,0xe7a4d634,0x7942,0x4DD9,0xA1,0x11,0x82,0x22,0x8b,0xa3,0x39,0x1);")
+cpp_quote("")
+cpp_quote("// {2EE48F22-AF3C-405F-8970-F71BE12EE9A2}")
+cpp_quote("DEFINE_GUID(IID_IAutomaticUpdatesSettings,0x2ee48f22,0xaf3c,0x405f,0x89,0x70,0xf7,0x1b,0xe1,0x2e,0xe9,0xa2);")
+cpp_quote("")
+cpp_quote("// {6ABC136A-C3CA-4384-8171-CB2B1E59B8DC}")
+cpp_quote("DEFINE_GUID(IID_IAutomaticUpdatesSettings2,0x6abc136a,0xc3ca,0x4384,0x81,0x71,0xcb,0x2b,0x1e,0x59,0xb8,0xdc);")
+cpp_quote("")
+cpp_quote("// {B587F5C3-F57E-485F-BBF5-0D181C5CD0DC}")
+cpp_quote("DEFINE_GUID(IID_IAutomaticUpdatesSettings3,0xb587f5c3,0xf57e,0x485f,0xbb,0xf5,0x0d,0x18,0x1c,0x5c,0xd0,0xdc);")
+cpp_quote("")
+cpp_quote("// {673425BF-C082-4C7C-BDFD-569464B8E0CE}")
+cpp_quote("DEFINE_GUID(IID_IAutomaticUpdates,0x673425bf,0xc082,0x4c7c,0xbd,0xfd,0x56,0x94,0x64,0xb8,0xe0,0xce);")
+cpp_quote("")
+cpp_quote("// {4A2F5C31-CFD9-410E-B7FB-29A653973A0F}")
+cpp_quote("DEFINE_GUID(IID_IAutomaticUpdates2,0x4A2f5C31,0xCFD9,0x410E,0xB7,0xFB,0x29,0xA6,0x53,0x97,0x3A,0xF);")
+cpp_quote("")
+cpp_quote("// {46297823-9940-4C09-AED9-CD3EA6D05968}")
+cpp_quote("DEFINE_GUID(IID_IUpdateIdentity,0x46297823,0x9940,0x4c09,0xae,0xd9,0xcd,0x3e,0xa6,0xd0,0x59,0x68);")
+cpp_quote("")
+cpp_quote("// {7C907864-346C-4AEB-8F3F-57DA289F969F}")
+cpp_quote("DEFINE_GUID(IID_IImageInformation,0x7c907864,0x346c,0x4aeb,0x8f,0x3f,0x57,0xda,0x28,0x9f,0x96,0x9f);")
+cpp_quote("")
+cpp_quote("// {81DDC1B8-9D35-47A6-B471-5B80F519223B}")
+cpp_quote("DEFINE_GUID(IID_ICategory,0x81ddc1b8,0x9d35,0x47a6,0xb4,0x71,0x5b,0x80,0xf5,0x19,0x22,0x3b);")
+cpp_quote("")
+cpp_quote("// {3A56BFB8-576C-43F7-9335-FE4838FD7E37}")
+cpp_quote("DEFINE_GUID(IID_ICategoryCollection,0x3a56bfb8,0x576c,0x43f7,0x93,0x35,0xfe,0x48,0x38,0xfd,0x7e,0x37);")
+cpp_quote("")
+cpp_quote("// {D9A59339-E245-4DBD-9686-4D5763E39624}")
+cpp_quote("DEFINE_GUID(IID_IInstallationBehavior,0xd9a59339,0xe245,0x4dbd,0x96,0x86,0x4d,0x57,0x63,0xe3,0x96,0x24);")
+cpp_quote("")
+cpp_quote("// {54A2CB2D-9A0C-48B6-8A50-9ABB69EE2D02}")
+cpp_quote("DEFINE_GUID(IID_IUpdateDownloadContent,0x54a2cb2d,0x9a0c,0x48b6,0x8a,0x50,0x9a,0xbb,0x69,0xee,0x2d,0x02);")
+cpp_quote("")
+cpp_quote("// {C97AD11B-F257-420B-9D9F-377F733F6F68}")
+cpp_quote("DEFINE_GUID(IID_IUpdateDownloadContent2,0xc97ad11b,0xf257,0x420b,0x9d,0x9f,0x37,0x7f,0x73,0x3f,0x6f,0x68);")
+cpp_quote("")
+cpp_quote("// {BC5513C8-B3B8-4BF7-A4D4-361C0D8C88BA}")
+cpp_quote("DEFINE_GUID(IID_IUpdateDownloadContentCollection,0xbc5513c8,0xb3b8,0x4bf7,0xa4,0xd4,0x36,0x1c,0x0d,0x8c,0x88,0xba);")
+cpp_quote("")
+cpp_quote("// {6A92B07A-D821-4682-B423-5C805022CC4D}")
+cpp_quote("DEFINE_GUID(IID_IUpdate,0x6a92b07a,0xd821,0x4682,0xb4,0x23,0x5c,0x80,0x50,0x22,0xcc,0x4d);")
+cpp_quote("")
+cpp_quote("// {144fe9b0-d23d-4a8b-8634-fb4457533b7a}")
+cpp_quote("DEFINE_GUID(IID_IUpdate2,0x144fe9b0,0xd23d,0x4a8b,0x86,0x34,0xfb,0x44,0x57,0x53,0x3b,0x7a);")
+cpp_quote("")
+cpp_quote("// {112EDA6B-95B3-476F-9D90-AEE82C6B8181}")
+cpp_quote("DEFINE_GUID(IID_IUpdate3,0x112EDA6B,0x95B3,0x476F,0x9D,0x90,0xAE,0xE8,0x2C,0x6B,0x81,0x81);")
+cpp_quote("")
+cpp_quote("// {27E94B0D-5139-49A2-9A61-93522DC54652}")
+cpp_quote("DEFINE_GUID(IID_IUpdate4,0x27e94b0d,0x5139,0x49a2,0x9a, 0x61, 0x93, 0x52, 0x2d, 0xc5, 0x46, 0x52);")
+cpp_quote("")
+cpp_quote("// {C1C2F21A-D2F4-4902-B5C6-8A081C19A890}")
+cpp_quote("DEFINE_GUID(IID_IUpdate5,0xc1c2f21a,0xd2f4,0x4902,0xb5, 0xc6, 0x8a, 0x08, 0x1c, 0x19, 0xa8, 0x90);")
+cpp_quote("")
+cpp_quote("// {769355A3-C5A0-497C-A606-560A36D2121C}")
+cpp_quote("DEFINE_GUID(IID_IUpdateEx,0x769355a3,0xc5a0,0x497c,0xa6,0x06,0x56,0x0a,0x36,0xd2,0x12,0x1c);")
+cpp_quote("")
+cpp_quote("// {B383CD1A-5CE9-4504-9F63-764B1236F191}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdate,0xb383cd1a,0x5ce9,0x4504,0x9f,0x63,0x76,0x4b,0x12,0x36,0xf1,0x91);")
+cpp_quote("")
+cpp_quote("// {615c4269-7a48-43bd-96b7-bf6ca27d6c3e}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdate2,0x615c4269,0x7a48,0x43bd,0x96,0xb7,0xbf,0x6c,0xa2,0x7d,0x6c,0x3e);")
+cpp_quote("")
+cpp_quote("// {49EBD502-4A96-41BD-9E3E-4C5057F4250C}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdate3,0x49EBD502,0x4A96,0x41BD,0x9E,0x3E,0x4C,0x50,0x57,0xF4,0x25,0x0C);")
+cpp_quote("")
+cpp_quote("// {004C6A2B-0C19-4c69-9F5C-A269B2560DB9}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdate4,0x004C6A2B,0x0C19,0x4c69,0x9F,0x5C,0xA2,0x69,0xB2,0x56,0x0D,0xB9);")
+cpp_quote("")
+cpp_quote("// {70CF5C82-8642-42bb-9DBC-0CFD263C6C4F}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdate5,0x70CF5C82,0x8642,0x42bb,0x9d,0xbc,0x0c,0xfd,0x26,0x3c,0x6c,0x4f);")
+cpp_quote("")
+cpp_quote("// {0D521700-A372-4bef-828B-3D00C10ADEBD}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdateEntryCollection,0x0D521700,0xA372,0x4bef,0x82,0x8B,0x3D,0x00,0xC1,0x0A,0xDE,0xBD);")
+cpp_quote("")
+cpp_quote("// {ED8BFE40-A60B-42ea-9652-817DFCFA23EC}")
+cpp_quote("DEFINE_GUID(IID_IWindowsDriverUpdateEntry,0xED8BFE40,0xA60B,0x42ea,0x96,0x52,0x81,0x7D,0xFC,0xFA,0x23,0xEC);")
+cpp_quote("")
+cpp_quote("// {07F7438C-7709-4CA5-B518-91279288134E}")
+cpp_quote("DEFINE_GUID(IID_IUpdateCollection,0x07f7438c,0x7709,0x4ca5,0xb5,0x18,0x91,0x27,0x92,0x88,0x13,0x4e);")
+cpp_quote("")
+cpp_quote("// {A376DD5E-09D4-427F-AF7C-FED5B6E1C1D6}")
+cpp_quote("DEFINE_GUID(IID_IUpdateException,0xa376dd5e,0x09d4,0x427f,0xaf,0x7c,0xfe,0xd5,0xb6,0xe1,0xc1,0xd6);")
+cpp_quote("")
+cpp_quote("// {A37D00F5-7BB0-4953-B414-F9E98326F2E8}")
+cpp_quote("DEFINE_GUID(IID_IInvalidProductLicenseException,0xa37d00f5,0x7bb0,0x4953,0xb4,0x14,0xf9,0xe9,0x83,0x26,0xf2,0xe8);")
+cpp_quote("")
+cpp_quote("// {A37D00F5-7BB0-4953-B414-F9E98326F2E8}")
+cpp_quote("DEFINE_GUID(IID_IUpdateExceptionCollection,0x503626a3,0x8e14,0x4729,0x93,0x55,0x0f,0xe6,0x64,0xbd,0x23,0x21);")
+cpp_quote("")
+cpp_quote("// {D40CFF62-E08C-4498-941A-01E25F0FD33C}")
+cpp_quote("DEFINE_GUID(IID_ISearchResult,0xd40cff62,0xe08c,0x4498,0x94,0x1a,0x01,0xe2,0x5f,0x0f,0xd3,0x3c);")
+cpp_quote("")
+cpp_quote("// {7366EA16-7A1A-4EA2-B042-973D3E9CD99B}")
+cpp_quote("DEFINE_GUID(IID_ISearchJob,0x7366ea16,0x7a1a,0x4ea2,0xb0,0x42,0x97,0x3d,0x3e,0x9c,0xd9,0x9b);")
+cpp_quote("")
+cpp_quote("// {A700A634-2850-4C47-938A-9E4B6E5AF9A6}")
+cpp_quote("DEFINE_GUID(IID_ISearchCompletedCallbackArgs,0xa700a634,0x2850,0x4c47,0x93,0x8a,0x9e,0x4b,0x6e,0x5a,0xf9,0xa6);")
+cpp_quote("")
+cpp_quote("// {88AEE058-D4B0-4725-A2F1-814A67AE964C}")
+cpp_quote("DEFINE_GUID(IID_ISearchCompletedCallback,0x88aee058,0xd4b0,0x4725,0xa2,0xf1,0x81,0x4a,0x67,0xae,0x96,0x4c);")
+cpp_quote("")
+cpp_quote("// {BE56A644-AF0E-4E0E-A311-C1D8E695CBFF}")
+cpp_quote("DEFINE_GUID(IID_IUpdateHistoryEntry,0xbe56a644,0xaf0e,0x4e0e,0xa3,0x11,0xc1,0xd8,0xe6,0x95,0xcb,0xff);")
+cpp_quote("")
+cpp_quote("// {C2BFB780-4539-4132-AB8C-0A8772013AB6}")
+cpp_quote("DEFINE_GUID(IID_IUpdateHistoryEntry2,0xc2bfb780,0x4539,0x4132,0xab,0x8c,0x0a,0x87,0x72,0x01,0x3a,0xb6);")
+cpp_quote("")
+cpp_quote("// {A7F04F3C-A290-435B-AADF-A116C3357A5C}")
+cpp_quote("DEFINE_GUID(IID_IUpdateHistoryEntryCollection,0xa7f04f3c,0xa290,0x435b,0xaa,0xdf,0xa1,0x16,0xc3,0x35,0x7a,0x5c);")
+cpp_quote("")
+cpp_quote("// {8F45ABF1-F9AE-4B95-A933-F0F66E5056EA}")
+cpp_quote("DEFINE_GUID(IID_IUpdateSearcher,0x8f45abf1,0xf9ae,0x4b95,0xa9,0x33,0xf0,0xf6,0x6e,0x50,0x56,0xea);")
+cpp_quote("")
+cpp_quote("// {4CBDCB2D-1589-4BEB-BD1C-3E582FF0ADD0}")
+cpp_quote("DEFINE_GUID(IID_IUpdateSearcher2,0x4cbdcb2d,0x1589,0x4beb,0xbd,0x1c,0x3e,0x58,0x2f,0xf0,0xad,0xd0);")
+cpp_quote("")
+cpp_quote("// {04C6895D-EAF2-4034-97F3-311DE9BE413A}")
+cpp_quote("DEFINE_GUID(IID_IUpdateSearcher3,0x4c6895d,0xeaf2,0x4034,0x97,0xf3,0x31,0x1d,0xe9,0xbe,0x41,0x3a);")
+cpp_quote("")
+cpp_quote("// {BF99AF76-B575-42AD-8AA4-33CBB5477AF1}")
+cpp_quote("DEFINE_GUID(IID_IUpdateDownloadResult,0xbf99af76,0xb575,0x42ad,0x8a,0xa4,0x33,0xcb,0xb5,0x47,0x7a,0xf1);")
+cpp_quote("")
+cpp_quote("// {DAA4FDD0-4727-4DBE-A1E7-745DCA317144}")
+cpp_quote("DEFINE_GUID(IID_IDownloadResult,0xdaa4fdd0,0x4727,0x4dbe,0xa1,0xe7,0x74,0x5d,0xca,0x31,0x71,0x44);")
+cpp_quote("")
+cpp_quote("// {D31A5BAC-F719-4178-9DBB-5E2CB47FD18A}")
+cpp_quote("DEFINE_GUID(IID_IDownloadProgress,0xd31a5bac,0xf719,0x4178,0x9d,0xbb,0x5e,0x2c,0xb4,0x7f,0xd1,0x8a);")
+cpp_quote("")
+cpp_quote("// {C574DE85-7358-43F6-AAE8-8697E62D8BA7}")
+cpp_quote("DEFINE_GUID(IID_IDownloadJob,0xc574de85,0x7358,0x43f6,0xaa,0xe8,0x86,0x97,0xe6,0x2d,0x8b,0xa7);")
+cpp_quote("")
+cpp_quote("// {FA565B23-498C-47A0-979D-E7D5B1813360}")
+cpp_quote("DEFINE_GUID(IID_IDownloadCompletedCallbackArgs,0xfa565b23,0x498c,0x47a0,0x97,0x9d,0xe7,0xd5,0xb1,0x81,0x33,0x60);")
+cpp_quote("")
+cpp_quote("// {77254866-9F5B-4C8E-B9E2-C77A8530D64B}")
+cpp_quote("DEFINE_GUID(IID_IDownloadCompletedCallback,0x77254866,0x9f5b,0x4c8e,0xb9,0xe2,0xc7,0x7a,0x85,0x30,0xd6,0x4b);")
+cpp_quote("")
+cpp_quote("// {324FF2C6-4981-4B04-9412-57481745AB24}")
+cpp_quote("DEFINE_GUID(IID_IDownloadProgressChangedCallbackArgs,0x324ff2c6,0x4981,0x4b04,0x94,0x12,0x57,0x48,0x17,0x45,0xab,0x24);")
+cpp_quote("")
+cpp_quote("// {8C3F1CDD-6173-4591-AEBD-A56A53CA77C1}")
+cpp_quote("DEFINE_GUID(IID_IDownloadProgressChangedCallback,0x8c3f1cdd,0x6173,0x4591,0xae,0xbd,0xa5,0x6a,0x53,0xca,0x77,0xc1);")
+cpp_quote("")
+cpp_quote("// {68F1C6F9-7ECC-4666-A464-247FE12496C3}")
+cpp_quote("DEFINE_GUID(IID_IUpdateDownloader,0x68f1c6f9,0x7ecc,0x4666,0xa4,0x64,0x24,0x7f,0xe1,0x24,0x96,0xc3);")
+cpp_quote("")
+cpp_quote("// {94726306-F12A-482A-A774-FB4F870D98C0}")
+cpp_quote("DEFINE_GUID(IID_IUpdateDownloaderEx,0x94726306,0xf12a,0x482a,0xa7,0x74,0xfb,0x4f,0x87,0x0d,0x98,0xc0);")
+cpp_quote("")
+cpp_quote("// {D940F0F8-3CBB-4FD0-993F-471E7F2328AD}")
+cpp_quote("DEFINE_GUID(IID_IUpdateInstallationResult,0xd940f0f8,0x3cbb,0x4fd0,0x99,0x3f,0x47,0x1e,0x7f,0x23,0x28,0xad);")
+cpp_quote("")
+cpp_quote("// {A43C56D6-7451-48D4-AF96-B6CD2D0D9B7A}")
+cpp_quote("DEFINE_GUID(IID_IInstallationResult,0xa43c56d6,0x7451,0x48d4,0xaf,0x96,0xb6,0xcd,0x2d,0x0d,0x9b,0x7a);")
+cpp_quote("")
+cpp_quote("// {345C8244-43A3-4E32-A368-65F073B76F36}")
+cpp_quote("DEFINE_GUID(IID_IInstallationProgress,0x345c8244,0x43a3,0x4e32,0xa3,0x68,0x65,0xf0,0x73,0xb7,0x6f,0x36);")
+cpp_quote("")
+cpp_quote("// {5C209F0B-BAD5-432A-9556-4699BED2638A}")
+cpp_quote("DEFINE_GUID(IID_IInstallationJob,0x5c209f0b,0xbad5,0x432a,0x95,0x56,0x46,0x99,0xbe,0xd2,0x63,0x8a);")
+cpp_quote("")
+cpp_quote("// {250E2106-8EFB-4705-9653-EF13C581B6A1}")
+cpp_quote("DEFINE_GUID(IID_IInstallationCompletedCallbackArgs,0x250e2106,0x8efb,0x4705,0x96,0x53,0xef,0x13,0xc5,0x81,0xb6,0xa1);")
+cpp_quote("")
+cpp_quote("// {45F4F6F3-D602-4F98-9A8A-3EFA152AD2D3}")
+cpp_quote("DEFINE_GUID(IID_IInstallationCompletedCallback,0x45f4f6f3,0xd602,0x4f98,0x9a,0x8a,0x3e,0xfa,0x15,0x2a,0xd2,0xd3);")
+cpp_quote("")
+cpp_quote("// {E4F14E1E-689D-4218-A0B9-BC189C484A01}")
+cpp_quote("DEFINE_GUID(IID_IInstallationProgressChangedCallbackArgs,0xe4f14e1e,0x689d,0x4218,0xa0,0xb9,0xbc,0x18,0x9c,0x48,0x4a,0x01);")
+cpp_quote("")
+cpp_quote("// {E01402D5-F8DA-43BA-A012-38894BD048F1}")
+cpp_quote("DEFINE_GUID(IID_IInstallationProgressChangedCallback,0xe01402d5,0xf8da,0x43ba,0xa0,0x12,0x38,0x89,0x4b,0xd0,0x48,0xf1);")
+cpp_quote("")
+cpp_quote("// {7B929C68-CCDC-4226-96B1-8724600B54C2}")
+cpp_quote("DEFINE_GUID(IID_IUpdateInstaller,0x7b929c68,0xccdc,0x4226,0x96,0xb1,0x87,0x24,0x60,0x0b,0x54,0xc2);")
+cpp_quote("")
+cpp_quote("// {3442d4fe-224d-4cee-98cf-30e0c4d229e6}")
+cpp_quote("DEFINE_GUID(IID_IUpdateInstaller2,0x3442d4fe,0x224d,0x4cee,0x98,0xcf,0x30,0xe0,0xc4,0xd2,0x29,0xe6);")
+cpp_quote("")
+cpp_quote("// {16d11c35-099a-48d0-8338-5fae64047f8e}")
+cpp_quote("DEFINE_GUID(IID_IUpdateInstaller3,0x16d11c35,0x099a,0x48d0,0x83,0x38,0x5f,0xae,0x64,0x04,0x7f,0x8e);")
+cpp_quote("")
+cpp_quote("// {EF8208EA-2304-492D-9109-23813B0958E1}")
+cpp_quote("DEFINE_GUID(IID_IUpdateInstaller4, 0xef8208ea, 0x2304, 0x492d, 0x91, 0x9, 0x23, 0x81, 0x3b, 0x9, 0x58, 0xe1);")
+cpp_quote("")
+cpp_quote("// {816858A4-260D-4260-933A-2585F1ABC76B}")
+cpp_quote("DEFINE_GUID(IID_IUpdateSession,0x816858a4,0x260d,0x4260,0x93,0x3a,0x25,0x85,0xf1,0xab,0xc7,0x6b);")
+cpp_quote("")
+cpp_quote("// {91CAF7B0-EB23-49ED-9937-C52D817F46F7}")
+cpp_quote("DEFINE_GUID(IID_IUpdateSession2,0x91caf7b0,0xeb23,0x49ed,0x99,0x37,0xc5,0x2d,0x81,0x7f,0x46,0xf7);")
+cpp_quote("")
+cpp_quote("// {918EFD1E-B5D8-4c90-8540-AEB9BDC56F9D}")
+cpp_quote("DEFINE_GUID(IID_IUpdateSession3,0x918efd1e,0xb5d8,0x4c90,0x85,0x40,0xae,0xb9,0xbd,0xc5,0x6f,0x9d);")
+cpp_quote("")
+cpp_quote("// {76B3B17E-AED6-4DA5-85F0-83587F81ABE3}")
+cpp_quote("DEFINE_GUID(IID_IUpdateService,0x76b3b17e,0xaed6,0x4da5,0x85,0xf0,0x83,0x58,0x7f,0x81,0xab,0xe3);")
+cpp_quote("")
+cpp_quote("// {1518B460-6518-4172-940F-C75883B24CEB}")
+cpp_quote("DEFINE_GUID(IID_IUpdateService2,0x1518b460,0x6518,0x4172,0x94,0x0f,0xc7,0x58,0x83,0xb2,0x4c,0xeb);")
+cpp_quote("")
+cpp_quote("// {9B0353AA-0E52-44FF-B8B0-1F7FA0437F88}")
+cpp_quote("DEFINE_GUID(IID_IUpdateServiceCollection,0x9b0353aa,0x0e52,0x44ff,0xb8,0xb0,0x1f,0x7f,0xa0,0x43,0x7f,0x88);")
+cpp_quote("")
+cpp_quote("// {DDE02280-12B3-4E0B-937B-6747F6ACB286}")
+cpp_quote("DEFINE_GUID(IID_IUpdateServiceRegistration,0xdde02280,0x12b3,0x4e0b,0x93,0x7b,0x67,0x47,0xf6,0xac,0xb2,0x86);")
+cpp_quote("")
+cpp_quote("// {23857E3C-02BA-44A3-9423-B1C900805F37}")
+cpp_quote("DEFINE_GUID(IID_IUpdateServiceManager,0x23857E3C,0x02BA,0x44A3,0x94,0x23,0xB1,0xC9,0x00,0x80,0x5F,0x37);")
+cpp_quote("")
+cpp_quote("// {0BB8531D-7E8D-424F-986C-A0B8F60A3E7B}")
+cpp_quote("DEFINE_GUID(IID_IUpdateServiceManager2,0x0BB8531D,0x7E8D,0x424F,0x98,0x6C,0xA0,0xB8,0xF6,0x0A,0x3E,0x7B);")
+cpp_quote("")
+cpp_quote("// {925CBC18-A2EA-4648-BF1C-EC8BADCFE20A}")
+cpp_quote("DEFINE_GUID(IID_IInstallationAgent,0x925CBC18,0xA2EA,0x4648,0xBF,0x1C,0xEC,0x8B,0xAD,0xCF,0xE2,0x0A);")
+cpp_quote("")
+cpp_quote("// {72C97D74-7C3B-40AE-B77D-ABDB22EBA6FB}")
+cpp_quote("DEFINE_GUID(CLSID_StringCollection,0x72C97D74,0x7C3B,0x40AE,0xB7,0x7D,0xAB,0xDB,0x22,0xEB,0xA6,0xFB);")
+cpp_quote("")
+cpp_quote("// {B699E5E8-67FF-4177-88B0-3684A3388BFB}")
+cpp_quote("DEFINE_GUID(CLSID_UpdateSearcher,0xB699E5E8,0x67FF,0x4177,0x88,0xB0,0x36,0x84,0xA3,0x38,0x8B,0xFB);")
+cpp_quote("")
+cpp_quote("// {650503cf-9108-4ddc-a2ce-6c2341e1c582}")
+cpp_quote("DEFINE_GUID(CLSID_WebProxy,0x650503cf,0x9108,0x4ddc,0xa2,0xce,0x6c,0x23,0x41,0xe1,0xc5,0x82);")
+cpp_quote("")
+cpp_quote("// {C01B9BA0-BEA7-41BA-B604-D0A36F469133}")
+cpp_quote("DEFINE_GUID(CLSID_SystemInformation,0xC01B9BA0,0xBEA7,0x41BA,0xB6,0x04,0xD0,0xA3,0x6F,0x46,0x91,0x33);")
+cpp_quote("")
+cpp_quote("// {C2E88C2F-6F5B-4AAA-894B-55C847AD3A2D}")
+cpp_quote("DEFINE_GUID(CLSID_WindowsUpdateAgentInfo,0xC2E88C2F,0x6F5B,0x4AAA,0x89,0x4B,0x55,0xC8,0x47,0xAD,0x3A,0x2D);")
+cpp_quote("")
+cpp_quote("// {BFE18E9C-6D87-4450-B37C-E02F0B373803}")
+cpp_quote("DEFINE_GUID(CLSID_AutomaticUpdates,0xBFE18E9C,0x6D87,0x4450,0xB3,0x7C,0xE0,0x2F,0x0B,0x37,0x38,0x03);")
+cpp_quote("")
+cpp_quote("// {13639463-00DB-4646-803D-528026140D88}")
+cpp_quote("DEFINE_GUID(CLSID_UpdateCollection,0x13639463,0x00DB,0x4646,0x80,0x3D,0x52,0x80,0x26,0x14,0x0D,0x88);")
+cpp_quote("")
+cpp_quote("// {5BAF654A-5A07-4264-A255-9FF54C7151E7}")
+cpp_quote("DEFINE_GUID(CLSID_UpdateDownloader,0x5BAF654A,0x5A07,0x4264,0xA2,0x55,0x9F,0xF5,0x4C,0x71,0x51,0xE7);")
+cpp_quote("")
+cpp_quote("// {D2E0FE7F-D23E-48E1-93C0-6FA8CC346474}")
+cpp_quote("DEFINE_GUID(CLSID_UpdateInstaller,0xD2E0FE7F,0xD23E,0x48E1,0x93,0xC0,0x6F,0xA8,0xCC,0x34,0x64,0x74);")
+cpp_quote("")
+cpp_quote("// {4CB43D7F-7EEE-4906-8698-60DA1C38F2FE}")
+cpp_quote("DEFINE_GUID(CLSID_UpdateSession,0x4CB43D7F,0x7EEE,0x4906,0x86,0x98,0x60,0xDA,0x1C,0x38,0xF2,0xFE);")
+cpp_quote("")
+cpp_quote("// {F8D253D9-89A4-4DAA-87B6-1168369F0B21}")
+cpp_quote("DEFINE_GUID(CLSID_UpdateServiceManager,0xF8D253D9,0x89A4,0x4DAA,0x87,0xB6,0x11,0x68,0x36,0x9F,0x0B,0x21);")
+cpp_quote("")
+cpp_quote("// {317E92FC-1679-46FD-A0B5-F08914DD8623}")
+cpp_quote("DEFINE_GUID(CLSID_InstallationAgent,0x317E92FC,0x1679,0x46FD,0xA0,0xB5,0xF0,0x89,0x14,0xDD,0x86,0x23);")
+cpp_quote("")
+
+
+
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+#endif
+
+[
+    helpstring(
+        "Defines possible ways in which elevated users will be notified about "
+        "Automatic Updates events."),
+    v1_enum
+]
+typedef [public] enum tagAutomaticUpdatesNotificationLevel
+{
+    [helpstring("Not configured")]             aunlNotConfigured            = 0,
+    [helpstring("Disabled")]                   aunlDisabled                 = 1,
+    [helpstring("Notify before download")]     aunlNotifyBeforeDownload     = 2,
+    [helpstring("Notify before installation")] aunlNotifyBeforeInstallation = 3,
+    [helpstring("Scheduled installation")]     aunlScheduledInstallation    = 4,
+} AutomaticUpdatesNotificationLevel;
+
+[
+    helpstring(
+        "Defines possible day(s) of week when Automatic Updates may "
+        "(un)install updates."),
+    v1_enum
+]
+typedef [public] enum tagAutomaticUpdatesScheduledInstallationDay
+{
+    [helpstring("Every Day")]       ausidEveryDay       = 0,
+    [helpstring("Every Sunday")]    ausidEverySunday    = 1,
+    [helpstring("Every Monday")]    ausidEveryMonday    = 2,
+    [helpstring("Every Tuesday")]   ausidEveryTuesday   = 3,
+    [helpstring("Every Wednesday")] ausidEveryWednesday = 4,
+    [helpstring("Every Thursday")]  ausidEveryThursday  = 5,
+    [helpstring("Every Friday")]    ausidEveryFriday    = 6,
+    [helpstring("Every Saturday")]  ausidEverySaturday  = 7,
+} AutomaticUpdatesScheduledInstallationDay;
+
+[
+    helpstring("Defines the possible phases during a download operation."),
+    v1_enum
+]
+typedef [public] enum tagDownloadPhase
+{
+    [helpstring("Initializing")]    dphInitializing     = 1,
+    [helpstring("Downloading")]     dphDownloading      = 2,
+    [helpstring("Verifying")]       dphVerifying        = 3,
+} DownloadPhase;
+
+[
+    helpstring("Defines possible priorities for a download operation."),
+    v1_enum
+]
+typedef [public] enum tagDownloadPriority
+{
+    [helpstring("Low")]       dpLow       = 1,
+    [helpstring("Normal")]    dpNormal    = 2,
+    [helpstring("High")]      dpHigh      = 3,
+    [helpstring("ExtraHigh")] dpExtraHigh = 4,
+} DownloadPriority;
+
+[
+    helpstring("Defines possible auto selection modes of update."),
+    v1_enum
+]
+typedef [public] enum tagAutoSelectionMode
+{
+    [helpstring("Let windows update decide")]   asLetWindowsUpdateDecide    = 0,
+    [helpstring("Auto select if downloaded")]   asAutoSelectIfDownloaded    = 1,
+    [helpstring("Never auto select")]           asNeverAutoSelect           = 2,
+    [helpstring("Always auto select")]          asAlwaysAutoSelect          = 3,
+} AutoSelectionMode;
+
+[
+    helpstring("Defines possible auto download modes of update."),
+    v1_enum
+]
+typedef [public] enum tagAutoDownloadMode
+{
+    [helpstring("Let windows update decide")]   adLetWindowsUpdateDecide = 0,
+    [helpstring("Never auto download")]         adNeverAutoDownload      = 1,
+    [helpstring("Always auto download")]        adAlwaysAutoDownload     = 2,
+} AutoDownloadMode;
+
+[
+    helpstring(
+        "Defines possible levels of impact that may be caused by (un)installing"
+        " an Update."),
+    v1_enum
+]
+typedef [public] enum tagInstallationImpact
+{
+    [helpstring("Normal")]                      iiNormal                    = 0,
+    [helpstring("Minor")]                       iiMinor                     = 1,
+    [helpstring("Requires exclusive handling")] iiRequiresExclusiveHandling = 2,
+} InstallationImpact;
+
+[
+    helpstring(
+        "Defines possible reboot behaviors exhibited by an Update during "
+        "(un)installation."),
+    v1_enum
+]
+typedef [public] enum tagInstallationRebootBehavior
+{
+    [helpstring("Never reboots")]           irbNeverReboots         = 0,
+    [helpstring("Always requires reboot")]  irbAlwaysRequiresReboot = 1,
+    [helpstring("Can request reboot")]      irbCanRequestReboot     = 2,
+} InstallationRebootBehavior;
+
+[
+    helpstring(
+        "Defines possible results of a download, (un)install, or verification "
+        "operation on an update."),
+    v1_enum
+]
+typedef [public] enum tagOperationResultCode
+{   /* In the order of significance */
+    [helpstring("Not started")]             orcNotStarted           = 0,
+    [helpstring("In progress")]             orcInProgress           = 1,
+    [helpstring("Succeeded")]               orcSucceeded            = 2,
+    [helpstring("Succeeded with errors")]   orcSucceededWithErrors  = 3,
+    [helpstring("Failed")]                  orcFailed               = 4,
+    [helpstring("Aborted")]                 orcAborted              = 5,
+} OperationResultCode;
+
+[
+    helpstring(
+        "Defines possible server selections the Searcher can search against."),
+    v1_enum
+]
+typedef [public] enum tagServerSelection
+{
+    [helpstring("Default")]         ssDefault       = 0,
+    [helpstring("Managed server")]  ssManagedServer = 1,
+    [helpstring("Windows Update")]  ssWindowsUpdate = 2,
+    [helpstring("Others")]          ssOthers        = 3,
+} ServerSelection;
+
+[
+    helpstring("Defines possible types of an update."),
+    v1_enum
+]
+typedef [public] enum tagUpdateType
+{
+    [helpstring("Software")]        utSoftware  = 1,
+    [helpstring("Driver")]          utDriver    = 2,
+} UpdateType;
+
+[
+    helpstring(
+        "Defines operations that can be attempted on an Update."),
+    v1_enum
+]
+typedef [public] enum tagUpdateOperation
+{
+    [helpstring("Installation")]    uoInstallation = 1,
+    [helpstring("Uninstallation")]  uoUninstallation = 2,
+} UpdateOperation;
+
+[
+    helpstring("Defines actions an Update can be explicitly deployed for."),
+    v1_enum
+]
+typedef [public] enum tagDeploymentAction
+{
+    [helpstring("None")]                    daNone = 0,
+    [helpstring("Installation")]            daInstallation = 1,
+    [helpstring("Uninstallation")]          daUninstallation = 2,
+    [helpstring("Detection")]               daDetection = 3,
+    [helpstring("OptionalInstallation")]    daOptionalInstallation = 4,
+} DeploymentAction;
+
+[
+    helpstring("Defines contexts under which an UpdateException can be raised."),
+    v1_enum
+]
+typedef [public] enum tagUpdateExceptionContext
+{
+    [helpstring("General")]             uecGeneral          = 1,
+    [helpstring("WindowsDriver")]       uecWindowsDriver    = 2,
+    [helpstring("WindowsInstaller")]    uecWindowsInstaller = 3,
+    [helpstring("SearchIncomplete")]    uecSearchIncomplete = 4,
+} UpdateExceptionContext;
+
+[
+    helpstring("Defines types of users whose permissions can be checked "
+               "via IAutomaticUpdatesSettings2.CheckPermission."),
+    v1_enum
+]
+typedef [public] enum tagAutomaticUpdatesUserType
+{
+    [helpstring("The current user")]                            auutCurrentUser = 1,
+    [helpstring("An administrative account calling locally")]   auutLocalAdministrator = 2,
+} AutomaticUpdatesUserType;
+
+[
+    helpstring("Defines operations against which users' permissions can "
+               "be checked via IAutomaticUpdatesSettings2::CheckPermission()."),
+    v1_enum
+]
+typedef [public] enum tagAutomaticUpdatesPermissionType
+{
+    [helpstring("Set AU notification level")]               auptSetNotificationLevel = 1,
+    [helpstring("Set AU notification level to Disabled")]   auptDisableAutomaticUpdates = 2,
+    [helpstring("Set AU setting for recommended updates")]  auptSetIncludeRecommendedUpdates = 3,
+    [helpstring("Set AU setting for featured updates")]  auptSetFeaturedUpdatesEnabled = 4,
+    [helpstring("Set AU setting to increase priviliges for non administrator")]  auptSetNonAdministratorsElevated = 5,
+} AutomaticUpdatesPermissionType;
+
+[
+    helpstring("Defines possible states of service registration."),
+    v1_enum
+]
+typedef [public] enum tagUpdateServiceRegistrationState
+{
+    [helpstring("Not registered")]       usrsNotRegistered = 1,
+    [helpstring("Registration pending")] usrsRegistrationPending = 2,
+    [helpstring("Registered")]           usrsRegistered = 3,
+} UpdateServiceRegistrationState;
+
+[
+    helpstring("Defines possible search scopes for a search call. The scope may indicate user updates"
+    "for the calling user updates for all users, machine updates or a combination of these."),
+    v1_enum
+]
+typedef [public] enum tagSearchScope
+{
+    [helpstring("Default search scope")]    searchScopeDefault = 0,
+    [helpstring("Machine updates only")]    searchScopeMachineOnly = 1,
+    [helpstring("Per-user updates applicable to the calling user only")] searchScopeCurrentUserOnly = 2,
+    [helpstring("Machine updates and per-user updates applicable to the calling user")] searchScopeMachineAndCurrentUser = 3,
+    [helpstring("Machine updates and per-user updates applicable to any user")] searchScopeMachineAndAllUsers = 4,
+    [helpstring("Per-user updates applicable to any user")] searchScopeAllUsers = 5
+}SearchScope;
+
+[
+    helpstring("Defines possible download types for a download call via IUpdateDownloaderEx"),
+    v1_enum
+]
+typedef [public] enum tagDownloadType
+{
+    [helpstring("Full download")]                 downloadTypeFull = 0,
+    [helpstring("Update bootstrapper download")]  downloadTypeUpdateBootstrapper = 1
+} DownloadType;
+
+// Deprecated. Use UpdateLockdownOption.uloForWebsiteAccess instead.
+const LONG UPDATE_LOCKDOWN_WEBSITE_ACCESS = 0x00000001;
+
+//Forward declarations
+interface ICategoryCollection;
+interface IUpdateCollection;
+interface IUpdate;
+interface IUpdateServiceManager2;
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateLockdown Interface"),
+    object,
+    oleautomation,
+    nonextensible,
+    uuid(a976c28d-75a1-42aa-94ae-8af8b872089a),
+    pointer_default(unique)
+]
+interface IUpdateLockdown : IUnknown
+{
+//methods:
+    [
+        id(0x60010001),
+        helpstring("Restricts access to functionality the object provides.")
+    ]
+    HRESULT LockDown(
+                [in] LONG flags);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IStringCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(eff90582-2ddc-480f-a06d-60f3fbc362c3),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IStringCollection : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] BSTR* retval);
+    [
+        id(DISPID_VALUE),
+        propput,
+        helpstring("Sets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [in] BSTR value);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a boolean value indicating whether the collection is "
+            "read-only.")
+    ]
+    HRESULT ReadOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+//methods:
+    [
+        id(0x60020003),
+        helpstring("Adds an item to the collection.")
+    ]
+    HRESULT Add(
+                [in] BSTR value,
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020004),
+        helpstring("Removes all elements from the collection.")
+    ]
+    HRESULT Clear( );
+
+    [
+        id(0x60020005),
+        helpstring("Creates a deep read-writable copy of the collection.")
+    ]
+    HRESULT Copy(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x60020006),
+        helpstring(
+            "Inserts an item to the collection at the specified position.")
+    ]
+    HRESULT Insert(
+                [in] LONG index,
+                [in] BSTR value);
+
+    [
+        id(0x60020007),
+        helpstring(
+            "Removes the item at the specified index from the collection.")
+    ]
+    HRESULT RemoveAt(
+                [in] LONG index);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWebProxy Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(174c81fe-aecd-4dae-b8a0-2c6318dd86a8),
+    pointer_default(unique),
+]
+interface IWebProxy : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the address of the proxy server.")
+    ]
+    HRESULT Address(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60020001),
+        propput,
+        helpstring("Sets the address of the proxy server.")
+    ]
+    HRESULT Address(
+                [in] BSTR value);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a collection of addresses that do not use the proxy server.")
+    ]
+    HRESULT BypassList(
+                [out, retval] IStringCollection** retval);
+    [
+        id(0x60020002),
+        propput,
+        helpstring(
+            "Sets a collection of addresses that do not use the proxy server.")
+    ]
+    HRESULT BypassList(
+                [in] IStringCollection* value);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets a value indicating whether to bypass the proxy server for "
+            "local addresses.")
+    ]
+    HRESULT BypassProxyOnLocal(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020003),
+        propput,
+        helpstring(
+            "Sets a value indicating whether to bypass the proxy server for "
+            "local addresses.")
+    ]
+    HRESULT BypassProxyOnLocal(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Gets a boolean value indicating whether the WebProxy object is "
+            "read-only.")
+    ]
+    HRESULT ReadOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring(
+            "Gets the user name to submit to the proxy server for "
+            "authentication.")
+    ]
+    HRESULT UserName(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60020005),
+        propput,
+        helpstring(
+            "Sets the user name to submit to the proxy server for authentication.")
+    ]
+    HRESULT UserName(
+                [in] BSTR value);
+
+//methods:
+    [
+        id(0x60020006),
+        helpstring(
+            "Sets the password to submit to the proxy server for "
+            "authentication.")
+    ]
+    HRESULT SetPassword(
+                [in] BSTR value);
+
+    [
+        id(0x60020007),
+        helpstring(
+            "Launches the Credentials UI to prompt user for password for proxy "
+            "authentication.")
+    ]
+    HRESULT PromptForCredentials(
+                [in, unique] IUnknown* parentWindow,
+                [in] BSTR title);
+
+    [
+        id(0x60020008),
+        restricted,
+        helpstring(
+            "Launches the Credentials UI to prompt user for password for proxy "
+            "authentication.")
+    ]
+    HRESULT PromptForCredentialsFromHwnd(
+                [in, unique] HWND parentWindow,
+                [in] BSTR title);
+
+//properties:
+    [
+        id(0x60020009),
+        propget,
+        helpstring("Indicates whether to automatically detect proxy settings.")
+    ]
+    HRESULT AutoDetect(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020009),
+        propput,
+        helpstring("Specifies whether to automatically detect proxy settings.")
+    ]
+    HRESULT AutoDetect(
+                [in] VARIANT_BOOL value);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ISystemInformation Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(ade87bf7-7b56-4275-8fab-b9b0e591844b),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface ISystemInformation : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the hyperlink to the support information on the OEM "
+            "hardware.")
+    ]
+    HRESULT OemHardwareSupportLink(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a value indicating whether a system reboot is required to "
+            "complete (un)installation of one or more Updates.")
+    ]
+    HRESULT RebootRequired(
+                [out, retval] VARIANT_BOOL* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsUpdateAgentInfo Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(85713fa1-7796-4fa2-be3b-e2d6124dd373),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IWindowsUpdateAgentInfo : IDispatch
+{
+//methods:
+    [
+        id(0x60020001),
+        helpstring(
+           "Get Windows Update Agent Info.")
+    ]
+    HRESULT GetInfo(
+               [in] VARIANT varInfoIdentifier,
+               [out, retval] VARIANT* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IAutomaticUpdatesResults Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(E7A4D634-7942-4DD9-A111-82228BA33901),
+    pointer_default(unique)
+]
+interface IAutomaticUpdatesResults : IDispatch
+{
+//properties:
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Returns the date and time of the last successful search for updates.")
+    ]
+    HRESULT LastSearchSuccessDate(
+                [out, retval] VARIANT* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Returns the date and time of the last successful installation of updates.")
+    ]
+    HRESULT LastInstallationSuccessDate(
+                [out, retval] VARIANT* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IAutomaticUpdatesSettings Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(2ee48f22-af3c-405f-8970-f71be12ee9a2),
+    pointer_default(unique)
+]
+interface IAutomaticUpdatesSettings : IDispatch
+{
+//properties:
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Indicates how elevated users will be notified about Automatic "
+            "Updates events.")
+    ]
+    HRESULT NotificationLevel(
+                [out, retval] AutomaticUpdatesNotificationLevel* retval);
+    [
+        id(0x60020001),
+        propput,
+        helpstring(
+            "Specifies how elevated users will be notified about Automatic "
+            "Updates events.")
+    ]
+    HRESULT NotificationLevel(
+                [in] AutomaticUpdatesNotificationLevel value);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Indicates whether the settings are read-only.")
+    ]
+    HRESULT ReadOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Indicates whether the Automatic Updates service is required by "
+            "Group Policy.")
+    ]
+    HRESULT Required(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Indicates which day(s) of week Automatic Updates may (un)install "
+            "updates.")
+    ]
+    HRESULT ScheduledInstallationDay(
+                [out, retval] AutomaticUpdatesScheduledInstallationDay* retval);
+    [
+        id(0x60020004),
+        propput,
+        helpstring(
+            "Specifies which day(s) of week Automatic Updates may (un)install "
+            "updates.")
+    ]
+    HRESULT ScheduledInstallationDay(
+                [in] AutomaticUpdatesScheduledInstallationDay value);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring(
+            "Indicates the time when Automatic Updates may (un)install "
+            "updates.")
+    ]
+    HRESULT ScheduledInstallationTime(
+                [out, retval] LONG* retval);
+    [
+        id(0x60020005),
+        propput,
+        helpstring(
+            "Specifies the time when Automatic Updates may (un)install "
+            "updates.")
+    ]
+    HRESULT ScheduledInstallationTime(
+                [in] LONG value);
+
+//methods:
+    [
+        id(0x60020006),
+        helpstring("Gets the up-to-date settings.")
+    ]
+    HRESULT Refresh();
+
+    [
+        id(0x60020007),
+        helpstring("Applies the settings.")
+    ]
+    HRESULT Save();
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IAutomaticUpdatesSettings2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(6abc136a-c3ca-4384-8171-cb2b1e59b8dc),
+    pointer_default(unique)
+]
+interface IAutomaticUpdatesSettings2 : IAutomaticUpdatesSettings
+{
+//properties:
+
+    [
+        id(0x60030001),
+        propget,
+        helpstring(
+            "Indicates whether to include recommended updates.")
+    ]
+    HRESULT IncludeRecommendedUpdates(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60030001),
+        propput,
+        helpstring(
+            "Specifies whether to include recommended updates.")
+    ]
+    HRESULT IncludeRecommendedUpdates(
+                [in] VARIANT_BOOL value);
+
+//methods:
+    [
+        id(0x60030002),
+        helpstring(
+            "Determines whether a class of users has permission to perform "
+            "the specified action.")
+    ]
+    HRESULT CheckPermission(
+            [in] AutomaticUpdatesUserType userType,
+            [in] AutomaticUpdatesPermissionType permissionType,
+            [out, retval] VARIANT_BOOL* userHasPermission);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IAutomaticUpdatesSettings3 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(b587f5c3-f57e-485f-bbf5-0d181c5cd0dc),
+    pointer_default(unique)
+]
+interface IAutomaticUpdatesSettings3 : IAutomaticUpdatesSettings2
+{
+    //properties:
+    [
+        id(0x60040001),
+        propget,
+        helpstring(
+            "Reports whether non-administrators can perform some update-related actions without administrator approval.")
+    ]
+    HRESULT NonAdministratorsElevated(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60040001),
+        propput,
+        helpstring(
+            "Controls whether non-administrators can perform some update-related actions without administrator approval.")
+    ]
+    HRESULT NonAdministratorsElevated(
+                [in] VARIANT_BOOL value);
+    [
+        id(0x60040002),
+        propget,
+        helpstring(
+            "Reports whether to display notifications for featured updates.")
+    ]
+    HRESULT FeaturedUpdatesEnabled(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60040002),
+        propput,
+        helpstring(
+            "Controls whether to display notifications for featured updates.")
+    ]
+    HRESULT FeaturedUpdatesEnabled(
+                [in] VARIANT_BOOL value);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IAutomaticUpdates Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(673425bf-c082-4c7c-bdfd-569464b8e0ce),
+    pointer_default(unique)
+]
+interface IAutomaticUpdates : IDispatch
+{
+//methods:
+    [
+        id(0x60020001),
+        helpstring("Triggers automatic updating now if it is not yet started.")
+    ]
+    HRESULT DetectNow();
+
+    [
+        id(0x60020002),
+        helpstring("Pauses automatic updating.")
+    ]
+    HRESULT Pause();
+
+    [
+        id(0x60020003),
+        helpstring("Resumes automatic updating if paused.")
+    ]
+    HRESULT Resume();
+
+    [
+        id(0x60020004),
+        helpstring(
+            "Display a dialog box showing settings for Automatic Updates.")
+    ]
+    HRESULT ShowSettingsDialog();
+
+//properties:
+    [
+        id(0x60020005),
+        propget,
+        helpstring("Returns the settings to configure Automatic Updates.")
+    ]
+    HRESULT Settings(
+                [out, retval] IAutomaticUpdatesSettings** retval);
+
+    [
+        id(0x60020006),
+        propget,
+        helpstring(
+            "Indicates whether all the components that Automatic Updates "
+            "requires are up and running.")
+    ]
+    HRESULT ServiceEnabled(
+                [out, retval] VARIANT_BOOL* retval);
+
+//methods:
+    [
+        id(0x60020007),
+        helpstring(
+            "Enables all the components that Automatic Updates requires.")
+    ]
+    HRESULT EnableService();
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IAutomaticUpdates2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(4A2F5C31-CFD9-410E-B7FB-29A653973A0F),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IAutomaticUpdates2 : IAutomaticUpdates
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring(
+            "Gets an IAutomaticUpdatesResults interface for querying "
+            "results of past Automatic Updates operations.")
+    ]
+    HRESULT Results(
+                [out, retval] IAutomaticUpdatesResults** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateIdentity Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(46297823-9940-4c09-aed9-cd3ea6d05968),
+    pointer_default(unique)
+]
+interface IUpdateIdentity : IDispatch
+{
+//properties:
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Gets the revision number of the Update.")
+    ]
+    HRESULT RevisionNumber(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets a string identifying the Update in a globally-unique manner.")
+    ]
+    HRESULT UpdateID(
+                [out, retval] BSTR* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IImageInformation Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(7c907864-346c-4aeb-8f3f-57da289f969f),
+    pointer_default(unique),
+]
+interface IImageInformation : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the ATL text of the image.")
+    ]
+    HRESULT AltText(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Gets the height of the image, in pixels.")
+    ]
+    HRESULT Height(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Gets the source location of the image.")
+    ]
+    HRESULT Source(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring("Gets the width of the image, in pixels.")
+    ]
+    HRESULT Width(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ICategory Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(81ddc1b8-9d35-47a6-b471-5b80f519223b),
+    pointer_default(unique),
+]
+interface ICategory : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets the localized name of the Category.")
+    ]
+    HRESULT Name(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the category ID of the Category.")
+    ]
+    HRESULT CategoryID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Gets the children of the Category.")
+    ]
+    HRESULT Children(
+                [out, retval] ICategoryCollection** retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Gets the description of the Category.")
+    ]
+    HRESULT Description(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Gets information on the image associated with the Category.")
+    ]
+    HRESULT Image(
+                [out, retval] IImageInformation** retval);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring(
+            "Gets the recommended display order of the Category among its "
+            "siblings.")
+    ]
+    HRESULT Order(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020006),
+        propget,
+        helpstring("Gets the parent of the Category.")
+    ]
+    HRESULT Parent(
+                [out, retval] ICategory** retval);
+
+    [
+        id(0x60020007),
+        propget,
+        helpstring("Gets the type of the Category.")
+    ]
+    HRESULT Type(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020008),
+        propget,
+        helpstring("Gets the updates which immediately belong to the Category.")
+    ]
+    HRESULT Updates(
+                [out, retval] IUpdateCollection** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ICategoryCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(3a56bfb8-576c-43f7-9335-fe4838fd7e37),
+    pointer_default(unique),
+]
+interface ICategoryCollection : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] ICategory** retval);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationBehavior Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(d9a59339-e245-4dbd-9686-4d5763e39624),
+    pointer_default(unique),
+]
+interface IInstallationBehavior : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets a value indicating whether (un)installation of the Update can request user input.")
+    ]
+    HRESULT CanRequestUserInput(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Gets a value assessing how (un)installation of the Update will impact the target computer.")
+    ]
+    HRESULT Impact(
+                [out, retval] InstallationImpact* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Gets a value specifying the reboot behavior exhibited by (un)installing the Update.")
+    ]
+    HRESULT RebootBehavior(
+                [out, retval] InstallationRebootBehavior* retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring("Gets a value indicating whether (un)installation of the Update requires network connectivity.")
+    ]
+    HRESULT RequiresNetworkConnectivity(
+                [out, retval] VARIANT_BOOL* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateDownloadContent Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(54a2cb2d-9a0c-48b6-8a50-9abb69ee2d02),
+    pointer_default(unique),
+]
+interface IUpdateDownloadContent : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the location of the download content on the hosting server.")
+    ]
+    HRESULT DownloadUrl(
+                [out, retval] BSTR* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateDownloadContent2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(c97ad11b-f257-420b-9d9f-377f733f6f68),
+    pointer_default(unique),
+]
+interface IUpdateDownloadContent2 : IUpdateDownloadContent
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Returns whether this forms part of the delta compressed download content.")
+    ]
+    HRESULT IsDeltaCompressedContent(
+                [out, retval] VARIANT_BOOL* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateDownloadContentCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(bc5513c8-b3b8-4bf7-a4d4-361c0d8c88ba),
+    pointer_default(unique),
+]
+interface IUpdateDownloadContentCollection : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] IUpdateDownloadContent** retval);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdate Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(6a92b07a-d821-4682-b423-5c805022cc4d),
+    pointer_default(unique),
+]
+interface IUpdate : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets the localized title of the Update.")
+    ]
+    HRESULT Title(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets a value indicating whether the Update is flagged to be "
+            "automatically selected by applications such as Windows Update.")
+    ]
+    HRESULT AutoSelectOnWebSites(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets information on the ordered list of bundled updates of the "
+            "Update.")
+    ]
+    HRESULT BundledUpdates(
+                [out, retval] IUpdateCollection** retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Indicates whether the source media of the Update is potentially "
+            "required for (un)installation.")
+    ]
+    HRESULT CanRequireSource(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring("Gets the categories that the update belongs to.")
+    ]
+    HRESULT Categories(
+                [out, retval] ICategoryCollection** retval);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring("Gets the date by which the Update must be installed.")
+    ]
+    HRESULT Deadline(
+                [out, retval] VARIANT* retval);
+
+    [
+        id(0x60020006),
+        propget,
+        helpstring(
+            "Indicates whether delta-compressed content is available on the "
+            "server for the Update.")
+    ]
+    HRESULT DeltaCompressedContentAvailable(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020007),
+        propget,
+        helpstring(
+            "Indicates whether to prefer delta-compressed content when "
+            "downloading and/or (un)installing the Update, if such content is "
+            "available.")
+    ]
+    HRESULT DeltaCompressedContentPreferred(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020008),
+        propget,
+        helpstring("Gets the localized description of the Update.")
+    ]
+    HRESULT Description(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020009),
+        propget,
+        helpstring(
+            "Indicates whether the license terms associated with "
+            "the Update have been accepted for the target computer.")
+    ]
+    HRESULT EulaAccepted(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x6002000a),
+        propget,
+        helpstring(
+            "Gets the full, localized text of the license terms "
+            "associated with the Update.")
+    ]
+    HRESULT EulaText(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000b),
+        propget,
+        helpstring("Gets a value specifying the install handler of the Update.")
+    ]
+    HRESULT HandlerID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000c),
+        propget,
+        helpstring("Gets the globally-unique identity of the Update.")
+    ]
+    HRESULT Identity(
+                [out, retval] IUpdateIdentity** retval);
+
+    [
+        id(0x6002000d),
+        propget,
+        helpstring(
+            "Gets information on the image associated with the Update.")
+    ]
+    HRESULT Image(
+                [out, retval] IImageInformation** retval);
+
+    [
+        id(0x6002000e),
+        propget,
+        helpstring(
+            "Gets the installation options of the Update.")
+    ]
+    HRESULT InstallationBehavior(
+                [out, retval] IInstallationBehavior** retval);
+
+    [
+        id(0x6002000f),
+        propget,
+        helpstring(
+            "Gets a value indicating whether the Update is a beta release.")
+    ]
+    HRESULT IsBeta(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020010),
+        propget,
+        helpstring(
+            "Indicates whether all of the Update's content is cached on the "
+            "target computer.")
+    ]
+    HRESULT IsDownloaded(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020011),
+        propget,
+        helpstring(
+            "Indicates whether the Update has been hidden by the user for "
+            "installation.")
+    ]
+    HRESULT IsHidden(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020011),
+        propput,
+        helpstring(
+            "(Un)marks the update as \"hidden\" on the target computer.")
+    ]
+    HRESULT IsHidden(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x60020012),
+        propget,
+        helpstring(
+            "Indicates whether the Update was installed on the target "
+            "computer when the search was performed.")
+    ]
+    HRESULT IsInstalled(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020013),
+        propget,
+        helpstring(
+            "Gets a value indicating whether installation of the Update is "
+            "mandatory.")
+    ]
+    HRESULT IsMandatory(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020014),
+        propget,
+        helpstring(
+            "Indicates whether the caller can uninstall the Update, if "
+            "installed, from the target computer.")
+    ]
+    HRESULT IsUninstallable(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020015),
+        propget,
+        helpstring("Gets the languages that the Update supports.")
+    ]
+    HRESULT Languages(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x60020016),
+        propget,
+        helpstring("Gets the published date of the Update.")
+    ]
+    HRESULT LastDeploymentChangeTime(
+                [out, retval] DATE* retval);
+
+    [
+        id(0x60020017),
+        propget,
+        helpstring("Gets the maximum download size of the Update.")
+    ]
+    HRESULT MaxDownloadSize(
+                [out, retval] DECIMAL* retval);
+
+    [
+        id(0x60020018),
+        propget,
+        helpstring("Gets the minimum download size of the Update.")
+    ]
+    HRESULT MinDownloadSize(
+                [out, retval] DECIMAL* retval);
+
+    [
+        id(0x60020019),
+        propget,
+        helpstring(
+            "Gets language-specific strings specifying the hyperlinks to more "
+            "info on the Update.")
+    ]
+    HRESULT MoreInfoUrls(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x6002001a),
+        propget,
+        helpstring(
+            "Gets the Microsoft Security Response Center severity rating of the"
+            " Update.")
+    ]
+    HRESULT MsrcSeverity(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002001b),
+        propget,
+        helpstring(
+            "Gets the recommended CPU speed, in megahertz, for installing the "
+            "Update.")
+    ]
+    HRESULT RecommendedCpuSpeed(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x6002001c),
+        propget,
+        helpstring(
+            "Gets the recommended hard disk free space, in megabytes, for "
+            "installing the Update.")
+    ]
+    HRESULT RecommendedHardDiskSpace(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x6002001d),
+        propget,
+        helpstring(
+            "Gets the recommended physical memory size, in megabytes, for "
+            "installing the Update.")
+    ]
+    HRESULT RecommendedMemory(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x6002001e),
+        propget,
+        helpstring("Gets the localized release notes of the Update.")
+    ]
+    HRESULT ReleaseNotes(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002001f),
+        propget,
+        helpstring(
+            "Gets the security bulletin IDs associated with the Update.")
+    ]
+    HRESULT SecurityBulletinIDs(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x60020021),
+        propget,
+        helpstring(
+            "Gets a collection of update IDs specifying the Updates that the "
+            "Update supersedes.")
+    ]
+    HRESULT SupersededUpdateIDs(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x60020022),
+        propget,
+        helpstring(
+            "Gets the language-specific hyperlink to the support information on"
+            " the Update.")
+    ]
+    HRESULT SupportUrl(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020023),
+        propget,
+        helpstring("Gets the type of the Update.")
+    ]
+    HRESULT Type(
+                [out, retval] UpdateType* retval);
+
+    [
+        id(0x60020024),
+        propget,
+        helpstring("Gets the uninstallation notes of the Update.")
+    ]
+    HRESULT UninstallationNotes(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020025),
+        propget,
+        helpstring("Gets the uninstallation options of the Update.")
+    ]
+    HRESULT UninstallationBehavior(
+                [out, retval] IInstallationBehavior** retval);
+
+    [
+        id(0x60020026),
+        propget,
+        helpstring("Gets the uninstallation steps of the Update.")
+    ]
+    HRESULT UninstallationSteps(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x60020028),
+        propget,
+        helpstring(
+            "Gets the knowledge base article IDs associated with the Update.")
+    ]
+    HRESULT KBArticleIDs(
+                [out, retval] IStringCollection** retval);
+
+//methods:
+    [
+        id(0x60020027),
+        helpstring(
+            "Accepts the license terms associated with the "
+            "Update.")
+    ]
+    HRESULT AcceptEula();
+
+//properties:
+    [
+        id(0x60020029),
+        propget,
+        helpstring("Indicates the action an Update is deployed for.")
+    ]
+    HRESULT DeploymentAction(
+                [out, retval] DeploymentAction* retval);
+
+//methods:
+    [
+        id(0x6002002a),
+        helpstring("Copies the contents of the Update into a specified path.")
+    ]
+    HRESULT CopyFromCache(
+                [in, ref] BSTR path,
+                [in] VARIANT_BOOL toExtractCabFiles);
+
+//properties:
+    [
+        id(0x6002002b),
+        propget,
+        helpstring("Indicates the suggested download priority of the Update.")
+    ]
+    HRESULT DownloadPriority(
+                [out, retval] DownloadPriority* retval);
+
+    [
+        id(0x6002002c),
+        propget,
+        helpstring(
+            "Gets file information on the immediate download contents of the "
+            "Update.")
+    ]
+    HRESULT DownloadContents(
+                [out, retval] IUpdateDownloadContentCollection** retval);
+}
+
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+   helpstring("IWindowsDriverUpdate Interface"),
+   object,
+   oleautomation,
+   dual,
+   nonextensible,
+   uuid(b383cd1a-5ce9-4504-9f63-764b1236f191),
+   pointer_default(unique),
+]
+interface IWindowsDriverUpdate : IUpdate
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring(
+            "Specifes the class of the WindowsDriverUpdate.")
+    ]
+    HRESULT DriverClass(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030002),
+        propget,
+        helpstring(
+            "Specifies the hardware ID or compatible ID that the "
+            "WindowsDriverUpdate must match to be installable.")
+    ]
+    HRESULT DriverHardwareID(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60030003),
+        propget,
+        helpstring(
+            "Specifies the language-invariant name of the manufacturer "
+            "of the WindowsDriverUpdate.")
+    ]
+    HRESULT DriverManufacturer(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030004),
+        propget,
+        helpstring(
+            "Specifies the language-invariant model name of the device for "
+            "which the WindowsDriverUpdate is intended.")
+    ]
+    HRESULT DriverModel(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030005),
+        propget,
+        helpstring(
+            "Specifies the language-invariant name of the provider of the"
+            "WindowsDriverUpdate.")
+    ]
+    HRESULT DriverProvider(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030006),
+        propget,
+        helpstring(
+            "Specifies the driver version date of the WindowsDriverUpdate.")
+    ]
+    HRESULT DriverVerDate(
+                [out, retval] DATE* retval);
+
+    [
+        id(0x60030007),
+        propget,
+        helpstring(
+            "Returns the problem number of the matching device for the "
+            "WindowsDriverUpdate.")
+    ]
+    HRESULT DeviceProblemNumber(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60030008),
+        propget,
+        helpstring(
+            "Returns the status of the matching device for the "
+            "WindowsDriverUpdate.")
+    ]
+    HRESULT DeviceStatus(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdate2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(144fe9b0-d23d-4a8b-8634-fb4457533b7a),
+    pointer_default(unique),
+]
+interface IUpdate2 : IUpdate
+{
+// properties
+
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Gets a value indicating whether the computer still needs to be "
+            "rebooted after (un)installing this update.")
+    ]
+    HRESULT RebootRequired(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60030003),
+        propget,
+        helpstring("Indicates whether the update is present on the machine.")
+    ]
+    HRESULT IsPresent([out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60030004),
+        propget,
+        helpstring(
+            "Gets the CVE IDs associated with the Update.")
+    ]
+    HRESULT CveIDs(
+                [out, retval] IStringCollection** retval);
+
+// methods
+
+    [
+        id(0x60030002),
+        helpstring("Copies externally provided update binaries to install cache.")
+    ]
+    HRESULT CopyToCache(
+                [in] IStringCollection* pFiles );
+
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdate3 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(112EDA6B-95B3-476F-9D90-AEE82C6B8181),
+    pointer_default(unique),
+]
+interface IUpdate3 : IUpdate2
+{
+// properties
+
+    [
+        id(0x60040001),
+        propget,
+        helpstring("Gets a value indicating whether this update is intended only "
+            "for discovery by end users browsing manually for updates.")
+    ]
+    HRESULT BrowseOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+}
+
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdate4 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(27e94b0d-5139-49a2-9a61-93522dc54652),
+    pointer_default(unique),
+]
+interface IUpdate4 : IUpdate3
+{
+// properties
+
+    [
+        id(0x60050001),
+        propget,
+        helpstring("Indicates whether this is a per-user update")
+    ]
+    HRESULT PerUser( [out, retval] VARIANT_BOOL* retval);
+
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdate5 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(C1C2F21A-D2F4-4902-B5C6-8A081C19A890),
+    pointer_default(unique),
+]
+interface IUpdate5 : IUpdate4
+{
+// properties
+
+    [
+        id(0x60060001),
+        propget,
+        helpstring("Gets a value indicating the auto selection mode of update in control panel of Windows Update.")
+    ]
+    HRESULT AutoSelection(
+                [out, retval] AutoSelectionMode* retval);
+
+    [
+        id(0x60060002),
+        propget,
+        helpstring("Gets a value indicating the auto download mode of update.")
+    ]
+    HRESULT AutoDownload(
+                [out, retval] AutoDownloadMode* retval);
+
+}
+
+cpp_quote("__declspec(selectany) extern LPCWSTR c_szUpdatePropertyName_ContainsUpdateBootstrapper = L\"ContainsUpdateBootstrapper\";")
+cpp_quote("__declspec(selectany) extern LPCWSTR c_szUpdatePropertyName_DoesUpdateRequireReboot = L\"DoesUpdateRequireReboot\";")
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateEx Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(769355A3-C5A0-497C-A606-560A36D2121C),
+    pointer_default(unique),
+]
+interface IUpdateEx : IUpdate5
+{
+// properties
+
+    [
+        id(0x60080001),
+        propget,
+        helpstring("Queries for a static attribute value")
+    ]
+    HRESULT ExtendedStaticProperty(
+                [in] BSTR propertyName,
+                [out, retval] VARIANT* retval);
+
+// methods
+
+    [
+        id(0x60080002),
+        helpstring("Evaluates a dynamic property value")
+    ]
+    HRESULT EvaluateExtendedDynamicProperty(
+                [in] BSTR propertyName,
+                [out, retval] VARIANT* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsDriverUpdate2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(615c4269-7a48-43bd-96b7-bf6ca27d6c3e),
+    pointer_default(unique),
+]
+interface IWindowsDriverUpdate2 : IWindowsDriverUpdate
+{
+// properties
+
+    [
+        id(0x60040001),
+        propget,
+        helpstring("Gets a value indicating whether the computer still needs to be "
+            "rebooted after (un)installing this update.")
+    ]
+    HRESULT RebootRequired(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60040003),
+        propget,
+        helpstring("Indicates whether the update is present on the machine.")
+    ]
+    HRESULT IsPresent([out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60040004),
+        propget,
+        helpstring(
+            "Gets the CVE IDs associated with the Update.")
+    ]
+    HRESULT CveIDs(
+                [out, retval] IStringCollection** retval);
+// methods
+
+    [
+        id(0x60040002),
+        helpstring("Copies externally provided update binaries to install cache.")
+    ]
+    HRESULT CopyToCache(
+                [in] IStringCollection* pFiles );
+
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsDriverUpdate3 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(49EBD502-4A96-41BD-9E3E-4C5057F4250C),
+    pointer_default(unique),
+]
+interface IWindowsDriverUpdate3 : IWindowsDriverUpdate2
+{
+// properties
+
+    [
+        id(0x60050001),
+        propget,
+        helpstring("Gets a value indicating whether this update is intended only "
+            "for discovery by end users browsing manually for updates.")
+    ]
+    HRESULT BrowseOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsDriverUpdateEntry Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(ED8BFE40-A60B-42ea-9652-817DFCFA23EC),
+    pointer_default(unique),
+]
+interface IWindowsDriverUpdateEntry : IDispatch
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring(
+            "Specifes the class of the WindowsDriverUpdate.")
+    ]
+    HRESULT DriverClass(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030002),
+        propget,
+        helpstring(
+            "Specifies the hardware ID or compatible ID that the "
+            "WindowsDriverUpdate must match to be installable.")
+    ]
+    HRESULT DriverHardwareID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030003),
+        propget,
+        helpstring(
+            "Specifies the language-invariant name of the manufacturer "
+            "of the WindowsDriverUpdate.")
+    ]
+    HRESULT DriverManufacturer(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030004),
+        propget,
+        helpstring(
+            "Specifies the language-invariant model name of the device for "
+            "which the WindowsDriverUpdate is intended.")
+    ]
+    HRESULT DriverModel(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030005),
+        propget,
+        helpstring(
+            "Specifies the language-invariant name of the provider of the "
+            "WindowsDriverUpdate.")
+    ]
+    HRESULT DriverProvider(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60030006),
+        propget,
+        helpstring(
+            "Specifies the driver version date of the WindowsDriverUpdate.")
+    ]
+    HRESULT DriverVerDate(
+                [out, retval] DATE* retval);
+
+    [
+        id(0x60030007),
+        propget,
+        helpstring(
+            "Returns the problem number of the matching device for the "
+            "WindowsDriverUpdate.")
+    ]
+    HRESULT DeviceProblemNumber(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60030008),
+        propget,
+        helpstring(
+            "Returns the status of the matching device for the "
+            "WindowsDriverUpdate.")
+    ]
+    HRESULT DeviceStatus(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsDriverUpdateEntryCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(0D521700-A372-4bef-828B-3D00C10ADEBD),
+    pointer_default(unique),
+]
+
+interface IWindowsDriverUpdateEntryCollection : IDispatch
+{
+// properties
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] IWindowsDriverUpdateEntry ** retval);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+}
+
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsDriverUpdate4 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(004C6A2B-0C19-4c69-9F5C-A269B2560DB9),
+    pointer_default(unique),
+]
+interface IWindowsDriverUpdate4 : IWindowsDriverUpdate3
+{
+// properties
+
+    [
+        id(0x60060001),
+        propget,
+        helpstring("Gets the driver update entries that are applicable for the "
+          "update.")
+    ]
+    HRESULT WindowsDriverUpdateEntries(
+                [out, retval] IWindowsDriverUpdateEntryCollection** retval);
+
+    [
+        id(0x60060002),
+        propget,
+        helpstring("Indicates whether this update is a per-user update ")
+    ]
+    HRESULT PerUser(
+                [out, retval] VARIANT_BOOL* retval);
+
+
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IWindowsDriverUpdate5 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(70CF5C82-8642-42bb-9DBC-0CFD263C6C4F),
+    pointer_default(unique),
+]
+interface IWindowsDriverUpdate5 : IWindowsDriverUpdate4
+{
+// properties
+
+    [
+        id(0x60070001),
+        propget,
+        helpstring("Gets a value indicating the auto selection mode of update in control panel of Windows Update.")
+    ]
+    HRESULT AutoSelection(
+                [out, retval] AutoSelectionMode* retval);
+
+    [
+        id(0x60070002),
+        propget,
+        helpstring("Gets a value indicating the auto download mode of update.")
+    ]
+    HRESULT AutoDownload(
+                [out, retval] AutoDownloadMode* retval);
+
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(07f7438c-7709-4ca5-b518-91279288134e),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateCollection : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] IUpdate** retval);
+    [
+        id(DISPID_VALUE),
+        propput,
+        helpstring("Sets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [in] IUpdate* value);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a boolean value indicating whether the collection is "
+            "read-only.")
+    ]
+    HRESULT ReadOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+//methods:
+    [
+        id(0x60020003),
+        helpstring("Adds an item to the collection.")
+    ]
+    HRESULT Add(
+                [in] IUpdate* value,
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020004),
+        helpstring("Removes all elements from the collection.")
+    ]
+    HRESULT Clear( );
+
+    [
+        id(0x60020005),
+        helpstring("Creates a shallow read-writable copy of the collection.")
+    ]
+    HRESULT Copy(
+                [out, retval] IUpdateCollection** retval);
+
+    [
+        id(0x60020006),
+        helpstring(
+            "Inserts an item to the collection at the specified position.")
+    ]
+    HRESULT Insert(
+                [in] LONG index,
+                [in] IUpdate* value);
+
+    [
+        id(0x60020007),
+        helpstring(
+            "Removes the item at the specified index from the collection.")
+    ]
+    HRESULT RemoveAt(
+                [in] LONG index);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateException Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(a376dd5e-09d4-427f-af7c-fed5b6e1c1d6),
+    pointer_default(unique),
+]
+interface IUpdateException : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets a message that describes the current exception.")
+    ]
+    HRESULT Message(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets HRESULT, a coded numerical value that is assigned to a "
+            "specific exception.")
+    ]
+    HRESULT HResult(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a numerical value that indicates the context of the current "
+            "exception.")
+    ]
+    HRESULT Context(
+                [out, retval] UpdateExceptionContext* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInvalidProductLicenseException Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(a37d00f5-7bb0-4953-b414-f9e98326f2e8),
+    pointer_default(unique),
+]
+interface IInvalidProductLicenseException : IUpdateException
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Gets the language-invariant name of the product")
+    ]
+    HRESULT Product(
+                [out, retval] BSTR* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateExceptionCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(503626a3-8e14-4729-9355-0fe664bd2321),
+    pointer_default(unique),
+]
+interface IUpdateExceptionCollection : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] IUpdateException** retval);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ISearchResult Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(d40cff62-e08c-4498-941a-01e25f0fd33c),
+    pointer_default(unique),
+]
+interface ISearchResult : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets an OperationResultCode enumeration value specifying the "
+            "overall result of the search.")
+    ]
+    HRESULT ResultCode(
+                [out, retval] OperationResultCode* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets the root categories currently available on the target "
+            " computer.")
+    ]
+    HRESULT RootCategories(
+                [out, retval] ICategoryCollection** retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Gets a collection of Updates resulted from the search.")
+    ]
+    HRESULT Updates(
+                [out, retval] IUpdateCollection** retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring("Gets a collection of warnings resulted from the search.")
+    ]
+    HRESULT Warnings(
+                [out, retval] IUpdateExceptionCollection** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ISearchJob Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(7366ea16-7a1a-4ea2-b042-973d3e9cd99b),
+    pointer_default(unique),
+]
+interface ISearchJob : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the caller-specified state object passed to the "
+            "UpdateSearcher.BeginSearch method.")
+    ]
+    HRESULT AsyncState(
+                [out, retval] VARIANT* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a value indicating whether the call has been completely "
+            "processed.")
+    ]
+    HRESULT IsCompleted(
+                [out, retval] VARIANT_BOOL* retval);
+
+//methods:
+    [
+        id(0x60020003),
+        helpstring(
+            "Waits for asynchronous operation to complete and releases all "
+            "callbacks, if any.")
+    ]
+    HRESULT CleanUp();
+
+    [
+        id(0x60020004),
+        helpstring("Requests to abort the asynchronous search.")
+    ]
+    HRESULT RequestAbort();
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ISearchCompletedCallbackArgs Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(a700a634-2850-4c47-938a-9e4b6e5af9a6),
+    pointer_default(unique),
+]
+interface ISearchCompletedCallbackArgs : IDispatch
+{
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("ISearchCompletedCallback Interface"),
+    object,
+    oleautomation,
+    nonextensible,
+    uuid(88aee058-d4b0-4725-a2f1-814a67ae964c),
+    pointer_default(unique)
+]
+interface ISearchCompletedCallback : IUnknown
+{
+//methods:
+    [
+        id(0x60010001),
+        helpstring(
+            "Handles the notification about the completion of an asynchronous "
+            "search initiated by calling UpdateSearcher.BeginSearch.")
+    ]
+    HRESULT Invoke(
+                [in] ISearchJob* searchJob,
+                [in] ISearchCompletedCallbackArgs* callbackArgs);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateHistoryEntry Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(be56a644-af0e-4e0e-a311-c1d8e695cbff),
+    pointer_default(unique),
+]
+interface IUpdateHistoryEntry : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets an Operation enumeration value specifying the "
+            "the operation on the update.")
+    ]
+    HRESULT Operation(
+                [out, retval] enum tagUpdateOperation* retval );
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets an OperationResultCode enumeration value specifying the "
+            "result of the operation on the update.")
+    ]
+    HRESULT ResultCode(
+                [out, retval] OperationResultCode* retval );
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets the HRESULT value returned from the operation on the update.")
+    ]
+    HRESULT HResult(
+                [out, retval] LONG* retval );
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring("Gets the date and time when the update was applied.")
+    ]
+    HRESULT Date(
+                [out, retval] DATE* retval);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring(
+            "Gets the globally-unique identity of the update.")
+    ]
+    HRESULT UpdateIdentity(
+                [out, retval] IUpdateIdentity** retval);
+
+    [
+        id(0x60020006),
+        propget,
+        helpstring("Gets the title of the update.")
+    ]
+    HRESULT Title(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020007),
+        propget,
+        helpstring("Gets the description of the update.")
+    ]
+    HRESULT Description(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020008),
+        propget,
+        helpstring(
+            "Gets the unmapped result code returned from the operation on the "
+            "update.")
+    ]
+    HRESULT UnmappedResultCode(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020009),
+        propget,
+        helpstring(
+            "Gets the identifier of the client application that processed the "
+            "update.")
+    ]
+    HRESULT ClientApplicationID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000a),
+        propget,
+        helpstring("Gets the kind of service where the update came from.")
+    ]
+    HRESULT ServerSelection(
+                [out, retval] ServerSelection* retval );
+
+    [
+        id(0x6002000b),
+        propget,
+        helpstring(
+            "Gets the identifier of the service where the update came from.")
+    ]
+    HRESULT ServiceID(
+                [out, retval] BSTR* retval );
+
+    [
+        id(0x6002000c),
+        propget,
+        helpstring("Gets steps to uninstall update.")
+    ]
+    HRESULT UninstallationSteps(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x6002000d),
+        propget,
+        helpstring("Gets uninstallation notes.")
+    ]
+    HRESULT UninstallationNotes(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000e),
+        propget,
+        helpstring("Gets support URL.")
+    ]
+    HRESULT SupportUrl(
+                [out, retval] BSTR* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateHistoryEntry2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(c2bfb780-4539-4132-ab8c-0a8772013ab6),
+    pointer_default(unique),
+]
+interface IUpdateHistoryEntry2 : IUpdateHistoryEntry
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Gets the categories that the update belongs to.")
+    ]
+    HRESULT Categories(
+                [out, retval] ICategoryCollection** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateHistoryEntryCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(a7f04f3c-a290-435b-aadf-a116c3357a5c),
+    pointer_default(unique),
+]
+interface IUpdateHistoryEntryCollection : IDispatch
+{
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] IUpdateHistoryEntry** retval);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateSearcher Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(8f45abf1-f9ae-4b95-a933-f0f66e5056ea),
+    pointer_default(unique),
+]
+interface IUpdateSearcher : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Indicates whether future calls to BeginSearch and Search can "
+            "automatically upgrade the MSUS client as a side-effect.")
+    ]
+    HRESULT CanAutomaticallyUpgradeService(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020001),
+        propput,
+        helpstring(
+            "Specifies whether future calls to BeginSearch and Search can "
+            "automatically upgrade the MSUS client as a side-effect.")
+    ]
+    HRESULT CanAutomaticallyUpgradeService(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Gets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60020003),
+        propput,
+        helpstring("Sets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [in] BSTR value);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Indicates whether to include, in the search results, updates that "
+            "are superseded by any other updates in the results.")
+    ]
+    HRESULT IncludePotentiallySupersededUpdates(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020004),
+        propput,
+        helpstring(
+            "Specifies whether to include, in the search results, updates that "
+            "are superseded by any other updates in the results.")
+    ]
+    HRESULT IncludePotentiallySupersededUpdates(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x60020007),
+        propget,
+        helpstring("Gets the server specified.")
+    ]
+    HRESULT ServerSelection(
+                [out, retval] ServerSelection* retval);
+    [
+        id(0x60020007),
+        propput,
+        helpstring("Specifies which server to search against.")
+    ]
+    HRESULT ServerSelection(
+                [in] ServerSelection value);
+
+//methods:
+    [
+        id(0x60020008),
+        helpstring(
+            "Starts an asynchronous search using the currently configured "
+            "search options.")
+    ]
+    HRESULT BeginSearch(
+                [in] BSTR criteria,
+                [in] IUnknown* onCompleted,
+                [in] VARIANT state,
+                [out, retval] ISearchJob** retval);
+
+    [
+        id(0x60020009),
+        helpstring("Completes an asynchronous search.")
+    ]
+    HRESULT EndSearch(
+                [in] ISearchJob* searchJob,
+                [out, retval] ISearchResult** retval);
+
+    [
+        id(0x6002000a),
+        helpstring(
+            "Convert string into one that can be used as a literal value in a "
+            "search criteria string.")
+    ]
+    HRESULT EscapeString(
+                [in] BSTR unescaped,
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000b),
+        helpstring(
+            "Synchronously queries the target computer for the history of "
+            "update events.")
+    ]
+    HRESULT QueryHistory(
+                [in] LONG startIndex,
+                [in] LONG count,
+                [out, retval] IUpdateHistoryEntryCollection** retval);
+
+    [
+        id(0x6002000c),
+        helpstring(
+            "Perform a synchronous search using the currently configured "
+            "search options.")
+    ]
+    HRESULT Search(
+                [in] BSTR criteria,
+                [out, retval] ISearchResult** retval);
+
+//properties:
+    [
+        id(0x6002000d),
+        propget,
+        helpstring(
+            "Indicates whether the UpdateSearcher goes online when searching "
+            "for updates.")
+    ]
+    HRESULT Online(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x6002000d),
+        propput,
+        helpstring(
+            "Specifies whether the UpdateSearcher goes online when searching "
+            "for updates.")
+    ]
+    HRESULT Online(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x6002000e),
+        helpstring(
+            "Get number of update events on the target computer.")
+    ]
+    HRESULT GetTotalHistoryCount(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x6002000f),
+        propget,
+        helpstring("Gets the Non-Windows Update Service ID specified.")
+    ]
+    HRESULT ServiceID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000f),
+        propput,
+        helpstring("Specifies the Non-Windows Update Service ID to search against.")
+    ]
+    HRESULT ServiceID(
+                [in] BSTR value);
+};
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateSearcher2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(4cbdcb2d-1589-4beb-bd1c-3e582ff0add0),
+    pointer_default(unique)
+]
+interface IUpdateSearcher2 : IUpdateSearcher
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring(
+            "Gets whether to ignore download priority of updates when "
+            "computing potential supersedence.")
+    ]
+    HRESULT IgnoreDownloadPriority(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60030001),
+        propput,
+        helpstring(
+            "Specifies whether to ignore download priority of updates when "
+            "computing potential supersedence.")
+    ]
+    HRESULT IgnoreDownloadPriority(
+                [in] VARIANT_BOOL value);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateSearcher3 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(04C6895D-EAF2-4034-97F3-311DE9BE413A),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateSearcher3 : IUpdateSearcher2
+{
+//properties:
+    [
+        id(0x60040001),
+        propget,
+        helpstring(
+            "Gets a SearchScope enumeration value which indicates the scope of updates returned"
+            " by the search.")
+    ]
+    HRESULT SearchScope(
+                [out, retval] SearchScope* retval);
+
+    [
+        id(0x60040001),
+        propput,
+        helpstring("Specifies the scope of updates to be returned by the search.")
+    ]
+    HRESULT SearchScope(
+                [in] SearchScope value);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateDownloadResult Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(bf99af76-b575-42ad-8aa4-33cbb5477af1),
+    pointer_default(unique),
+]
+interface IUpdateDownloadResult : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the HRESULT value returned from the operation on the update.")
+    ]
+    HRESULT HResult(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets an OperationResultCode enumeration value specifying the "
+            "result of the operation on the update.")
+    ]
+    HRESULT ResultCode(
+                [out, retval] OperationResultCode* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadResult Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(daa4fdd0-4727-4dbe-a1e7-745dca317144),
+    pointer_default(unique),
+]
+interface IDownloadResult : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the HRESULT value returned from the download.")
+    ]
+    HRESULT HResult(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets an OperationResultCode enumeration value specifying the "
+            "overall result of the download.")
+    ]
+    HRESULT ResultCode(
+                [out, retval] OperationResultCode* retval);
+
+//methods:
+    [
+        id(0x60020003),
+        helpstring(
+            "Gets the result of the download on a specified update.")
+    ]
+    HRESULT GetUpdateResult(
+                [in] LONG updateIndex,
+                [out, retval] IUpdateDownloadResult** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadProgress Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(d31a5bac-f719-4178-9dbb-5e2cb47fd18a),
+    pointer_default(unique),
+]
+interface IDownloadProgress : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets a value specifying how much data has been transferred for "
+            "the content file(s) of the update being downloaded, in bytes.")
+    ]
+    HRESULT CurrentUpdateBytesDownloaded(
+                [out, retval] DECIMAL* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a value approximating how much data should be transferred "
+            "for the content file(s) of the update being downloaded, in bytes.")
+    ]
+    HRESULT CurrentUpdateBytesToDownload(
+                [out, retval] DECIMAL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets a zero-based index value into the updates specified in the "
+            "download for the one which content file(s) are being downloaded.")
+    ]
+    HRESULT CurrentUpdateIndex(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Gets a value estimating how far the download has progressed, in "
+            "percents.")
+    ]
+    HRESULT PercentComplete(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring(
+            "Gets a value specifying how much overall data has been "
+            "transferred by the download, in bytes.")
+    ]
+    HRESULT TotalBytesDownloaded(
+                [out, retval] DECIMAL* retval);
+
+    [
+        id(0x60020006),
+        propget,
+        helpstring(
+            "Gets a value approximating how much data should be transferred "
+            "over all updates by the download, in bytes.")
+    ]
+    HRESULT TotalBytesToDownload(
+                [out, retval] DECIMAL* retval);
+
+//methods:
+    [
+        id(0x60020007),
+        helpstring(
+            "Gets the result of the download on a specified update.")
+    ]
+    HRESULT GetUpdateResult(
+                [in] LONG updateIndex,
+                [out, retval] IUpdateDownloadResult** retval);
+
+
+//additional properties:
+    [
+        id(0x60020008),
+        propget,
+        helpstring(
+            "Gets a DownloadPhase enumeration value specifying the "
+            "current phase of the download in progress.")
+    ]
+    HRESULT CurrentUpdateDownloadPhase(
+                [out, retval] DownloadPhase* retval);
+
+    [
+        id(0x60020009),
+        propget,
+        helpstring(
+            "Gets a value estimating how far the download of the current"
+            " update has progressed, in percents.")
+    ]
+    HRESULT CurrentUpdatePercentComplete(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadJob Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(c574de85-7358-43f6-aae8-8697e62d8ba7),
+    pointer_default(unique),
+]
+interface IDownloadJob : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the caller-specified state object passed to the "
+            "UpdateDownloader.BeginDownload method.")
+    ]
+    HRESULT AsyncState(
+                [out, retval] VARIANT* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a value indicating whether the call has been completely "
+            "processed.")
+    ]
+    HRESULT IsCompleted(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets a read-only collection of the updates specified in the "
+            "download.")
+    ]
+    HRESULT Updates(
+                [out, retval] IUpdateCollection** retval);
+
+//methods:
+    [
+        id(0x60020004),
+        helpstring(
+            "Waits for asynchronous operation to complete and releases all "
+            "callbacks, if any.")
+    ]
+    HRESULT CleanUp();
+
+    [
+        id(0x60020005),
+        helpstring("Gets the current progress of the download.")
+    ]
+    HRESULT GetProgress(
+                [out, retval] IDownloadProgress** retval);
+
+    [
+        id(0x60020006),
+        helpstring("Requests to abort the asynchronous download.")
+    ]
+    HRESULT RequestAbort();
+}
+
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadCompletedCallbackArgs Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(fa565b23-498c-47a0-979d-e7d5b1813360),
+    pointer_default(unique),
+]
+interface IDownloadCompletedCallbackArgs : IDispatch
+{
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadCompletedCallback Interface"),
+    object,
+    oleautomation,
+    nonextensible,
+    uuid(77254866-9f5b-4c8e-b9e2-c77a8530d64b),
+    pointer_default(unique)
+]
+interface IDownloadCompletedCallback : IUnknown
+{
+//methods:
+    [
+        id(0x60010001),
+        helpstring(
+            "Handles the notification about the completion of an asynchronous "
+            "download initiated by calling UpdateDownloader.BeginDownload.")
+    ]
+    HRESULT Invoke(
+                [in] IDownloadJob* downloadJob,
+                [in] IDownloadCompletedCallbackArgs* callbackArgs);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadProgressChangedCallbackArgs Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(324ff2c6-4981-4b04-9412-57481745ab24),
+    pointer_default(unique),
+]
+interface IDownloadProgressChangedCallbackArgs : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the progress of the asynchronous download at the time the "
+            "callback was made.")
+    ]
+    HRESULT Progress(
+                [out, retval] IDownloadProgress** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IDownloadProgressChangedCallback Interface"),
+    object,
+    oleautomation,
+    nonextensible,
+    uuid(8c3f1cdd-6173-4591-aebd-a56a53ca77c1),
+    pointer_default(unique)
+]
+interface IDownloadProgressChangedCallback : IUnknown
+{
+//methods:
+    [
+        id(0x60010001),
+        helpstring(
+            "Handles the notification about the change of progress of an "
+            "asynchronous download initiated by calling "
+            "UpdateDownloader.BeginDownload.")
+    ]
+    HRESULT Invoke(
+                [in] IDownloadJob* downloadJob,
+                [in] IDownloadProgressChangedCallbackArgs* callbackArgs);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateDownloader Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(68f1c6f9-7ecc-4666-a464-247fe12496c3),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateDownloader : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60020001),
+        propput,
+        helpstring("Sets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [in] BSTR value);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Indicates whether to forcefully download the specified updates.")
+    ]
+    HRESULT IsForced(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020002),
+        propput,
+        helpstring(
+            "Specifies whether to forcefully download the specified updates.")
+    ]
+    HRESULT IsForced(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Gets the desired priority level of the download.")
+    ]
+    HRESULT Priority(
+                [out, retval] DownloadPriority* retval);
+    [
+        id(0x60020003),
+        propput,
+        helpstring("Specifies the desired priority level of the download.")
+    ]
+    HRESULT Priority(
+                [in] DownloadPriority value);
+
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Gets the updates to download.")
+    ]
+    HRESULT Updates(
+                [out, retval] IUpdateCollection** retval);
+    [
+        id(0x60020004),
+        propput,
+        helpstring("Specifies the updates to download.")
+    ]
+    HRESULT Updates(
+                [in] IUpdateCollection* value);
+
+//methods
+    [
+        id(0x60020005),
+        helpstring(
+            "Begins an asynchronous operation to download the content file(s) "
+            "associated with the updates.")
+    ]
+    HRESULT BeginDownload(
+                [in] IUnknown* onProgressChanged,
+                [in] IUnknown* onCompleted,
+                [in] VARIANT state,
+                [out, retval] IDownloadJob** retval);
+
+    [
+        id(0x60020006),
+        helpstring(
+            "Synchronously downloads the content file(s) of the update(s) "
+            "to the local cache on the target computer.")
+    ]
+    HRESULT Download(
+                [out, retval] IDownloadResult** retval);
+
+    [
+        id(0x60020007),
+        helpstring("Completes an asynchronous download.")
+    ]
+    HRESULT EndDownload(
+                [in] IDownloadJob* value,
+                [out, retval] IDownloadResult** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateDownloaderEx Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(94726306-f12a-482a-a774-fb4f870d98c0),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateDownloaderEx : IUpdateDownloader
+{
+// methods
+
+    [
+        id(0x60090001),
+        helpstring(
+            "Begins an asynchronous operation to download the content file(s) "
+            "associated with the updates.")
+    ]
+    HRESULT BeginDownload2(
+                [in] DownloadType downloadType,
+                [in] IUnknown* onProgressChanged,
+                [in] IUnknown* onCompleted,
+                [in] VARIANT state,
+                [out, retval] IDownloadJob** retval);
+
+    [
+        id(0x60090002),
+        helpstring(
+            "Synchronously downloads the content file(s) of the update(s) "
+            "to the local cache on the target computer.")
+    ]
+    HRESULT Download2(
+                [in] DownloadType downloadType,
+                [out, retval] IDownloadResult** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateInstallationResult Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(d940f0f8-3cbb-4fd0-993f-471e7f2328ad),
+    pointer_default(unique),
+]
+interface IUpdateInstallationResult : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the HRESULT value from the operation on the update.")
+    ]
+    HRESULT HResult(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Indicates whether system reboot is required on the target "
+            "computer to complete the installation on the Update.")
+    ]
+    HRESULT RebootRequired(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets an OperationResultCode enumeration value specifying the "
+            "result of the operation on the update.")
+    ]
+    HRESULT ResultCode(
+                [out, retval] OperationResultCode* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationResult Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(a43c56d6-7451-48d4-af96-b6cd2d0d9b7a),
+    pointer_default(unique),
+]
+interface IInstallationResult : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the HRESULT returned from the (un)installation.")
+    ]
+    HRESULT HResult(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Indicates whether a system reboot is required on the target "
+            "computer to complete the (un)installation.")
+    ]
+    HRESULT RebootRequired(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets an OperationResultCode enumeration value specifying the "
+            "overall result of the (un)installation.")
+    ]
+    HRESULT ResultCode(
+                [out, retval] OperationResultCode* retval);
+
+//methods:
+    [
+        id(0x60020004),
+        helpstring(
+            "Gets the result of the (un)installation on a specified update.")
+    ]
+    HRESULT GetUpdateResult(
+                [in] LONG updateIndex,
+                [out, retval] IUpdateInstallationResult** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationProgress Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(345c8244-43a3-4e32-a368-65f073b76f36),
+    pointer_default(unique),
+]
+interface IInstallationProgress : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets a zero-based index value into the updates specified in the "
+            "(un)installation for the one which content file(s) are being "
+            "(un)installed.")
+    ]
+    HRESULT CurrentUpdateIndex(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a value specifying how much the (un)installation has "
+            "completed upon the update being (un)installed, in percents.")
+    ]
+    HRESULT CurrentUpdatePercentComplete(
+                [out, retval] LONG* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets a value specifying how much overall the (un)installation has "
+            "completed, in percents.")
+    ]
+    HRESULT PercentComplete(
+                [out, retval] LONG* retval);
+
+//methods:
+    [
+        id(0x60020004),
+        helpstring(
+            "Gets the result of the (un)installation on a specified update.")
+    ]
+    HRESULT GetUpdateResult(
+                [in] LONG updateIndex,
+                [out, retval] IUpdateInstallationResult** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationJob Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(5c209f0b-bad5-432a-9556-4699bed2638a),
+    pointer_default(unique),
+]
+interface IInstallationJob : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the caller-specified state object passed to the "
+            "corresponding UpdateInstaller.BeginInstall or "
+            "UpdateInstaller.BeginUninstall methods.")
+    ]
+    HRESULT AsyncState(
+                [out, retval] VARIANT* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a value indicating whether the call has been completely "
+            "processed.")
+    ]
+    HRESULT IsCompleted(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets a read-only collection of the updates specified in the "
+            "(un)installation.")
+    ]
+    HRESULT Updates(
+                [out, retval] IUpdateCollection** retval);
+
+//methods:
+    [
+        id(0x60020004),
+        helpstring(
+            "Waits for asynchronous operation to complete and releases all "
+            "callbacks, if any.")
+    ]
+    HRESULT CleanUp();
+
+    [
+        id(0x60020005),
+        helpstring("Gets the current progress of the (un)installation.")
+    ]
+    HRESULT GetProgress(
+                [out, retval] IInstallationProgress** retval);
+
+    [
+        id(0x60020006),
+        helpstring("Requests to abort the asynchronous (un)installation.")
+    ]
+    HRESULT RequestAbort();
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationCompletedCallbackArgs Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(250e2106-8efb-4705-9653-ef13c581b6a1),
+    pointer_default(unique),
+]
+interface IInstallationCompletedCallbackArgs : IDispatch
+{
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationCompletedCallback Interface"),
+    object,
+    oleautomation,
+    nonextensible,
+    uuid(45f4f6f3-d602-4f98-9a8a-3efa152ad2d3),
+    pointer_default(unique)
+]
+interface IInstallationCompletedCallback : IUnknown
+{
+//methods:
+    [
+        id(0x60010001),
+        helpstring(
+            "Handles the notification about the completion of an asynchronous "
+            "(un)installation initiated by the corresponding "
+            "UpdateInstaller.BeginInstall or UpdateInstaller.BeginUninstall "
+            "call.")
+    ]
+    HRESULT Invoke(
+                [in] IInstallationJob* installationJob,
+                [in] IInstallationCompletedCallbackArgs* callbackArgs);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationProgressChangedCallbackArgs Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(e4f14e1e-689d-4218-a0b9-bc189c484a01),
+    pointer_default(unique),
+]
+interface IInstallationProgressChangedCallbackArgs : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring(
+            "Gets the progress of the asynchronous (un)installation at the "
+            "time the callback was made.")
+    ]
+    HRESULT Progress(
+                [out, retval] IInstallationProgress** retval);
+
+//methods:
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationProgressChangedCallback Interface"),
+    object,
+    oleautomation,
+    nonextensible,
+    uuid(e01402d5-f8da-43ba-a012-38894bd048f1),
+    pointer_default(unique)
+]
+interface IInstallationProgressChangedCallback : IUnknown
+{
+//methods:
+    [
+        id(0x60010001),
+        helpstring(
+            "Handles the notification about the change of progress of an "
+            "asynchronous (un)installation initiated by the corresponding "
+            "UpdateInstaller.BeginInstall or Update.BeginUninstall call.")
+    ]
+    HRESULT Invoke(
+                [in] IInstallationJob* installationJob,
+                [in] IInstallationProgressChangedCallbackArgs* callbackArgs);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateInstaller Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(7b929c68-ccdc-4226-96b1-8724600b54c2),
+    pointer_default(unique),
+]
+interface IUpdateInstaller : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60020001),
+        propput,
+        helpstring("Sets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [in] BSTR value);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Indicates whether to forcefully (un)install the specified updates.")
+    ]
+    HRESULT IsForced(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020002),
+        propput,
+        helpstring(
+            "Specifies whether to forcefully (un)install the specified updates.")
+    ]
+    HRESULT IsForced(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x60020003),
+        propget,
+        restricted, // Script caller can't read the type anyways
+        helpstring(
+            "Gets the window on top of which the wizard dialog box should "
+            "be shown.")
+    ]
+    HRESULT ParentHwnd(
+                [out, retval] HWND* retval);
+    [
+        id(0x60020003),
+        propput,
+        restricted, // Script caller can't read the type anyways
+        helpstring(
+            "Sets the window on top of which the wizard dialog box should "
+            "be shown.")
+    ]
+    HRESULT ParentHwnd(
+                [in, unique] HWND value);
+
+    [
+        id(0x60020004),
+        propput,
+        helpstring(
+            "Sets the web browser window on top of which the wizard dialog box "
+            "should be shown.")
+    ]
+    HRESULT ParentWindow(
+                [in, unique] IUnknown* value);
+    [
+        id(0x60020004),
+        propget,
+        helpstring(
+            "Gets the web browser window on top of which the wizard dialog box "
+            "should be shown.")
+    ]
+    HRESULT ParentWindow(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020005),
+        propget,
+        helpstring(
+            "Gets the updates to (un)install.")
+    ]
+    HRESULT Updates(
+                [out, retval] IUpdateCollection** retval);
+    [
+        id(0x60020005),
+        propput,
+        helpstring("Specifies the updates to (un)install.")
+    ]
+    HRESULT Updates(
+                [in] IUpdateCollection* value);
+
+//methods
+    [
+        id(0x60020006),
+        helpstring(
+            "Begins an asynchronous operation to install the updates.")
+    ]
+    HRESULT BeginInstall(
+                [in] IUnknown* onProgressChanged,
+                [in] IUnknown* onCompleted,
+                [in] VARIANT state,
+                [out, retval] IInstallationJob** retval);
+
+    [
+        id(0x60020007),
+        helpstring(
+            "Begins an asynchronous operation to uninstall the updates.")
+    ]
+    HRESULT BeginUninstall(
+                [in] IUnknown* onProgressChanged,
+                [in] IUnknown* onCompleted,
+                [in] VARIANT state,
+                [out, retval] IInstallationJob** retval);
+
+    [
+        id(0x60020008),
+        helpstring("Completes an asynchronous installation.")
+    ]
+    HRESULT EndInstall(
+                [in] IInstallationJob* value,
+                [out, retval] IInstallationResult** retval);
+
+    [
+        id(0x60020009),
+        helpstring("Completes an asynchronous uninstallation.")
+    ]
+    HRESULT EndUninstall(
+                [in] IInstallationJob* value,
+                [out, retval] IInstallationResult** retval);
+
+    [
+        id(0x6002000a),
+        helpstring("Synchronously installs updates onto the target computer.")
+    ]
+    HRESULT Install(
+                [out, retval] IInstallationResult** retval);
+
+    [
+        id(0x6002000b),
+        helpstring(
+            "Interactively guides the local user to go through the steps to "
+            "install updates.")
+    ]
+    HRESULT RunWizard(
+                [in, unique, defaultvalue("")] BSTR dialogTitle,
+                [out, retval] IInstallationResult** retval);
+
+    [
+        id(0x6002000c),
+        propget,
+        helpstring(
+            "Indicates whether (un)installation can be performed on the target "
+            "computer at this moment.")
+    ]
+    HRESULT IsBusy(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x6002000d),
+        helpstring(
+            "Synchronously uninstalls the updates from the target computer.")
+    ]
+    HRESULT Uninstall(
+                [out, retval] IInstallationResult** retval);
+
+//properties:
+    [
+        id(0x6002000e),
+        propget,
+        helpstring(
+            "Indicates whether to show source prompts to the user, when "
+            "needed, while installing updates.")
+    ]
+    HRESULT AllowSourcePrompts(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x6002000e),
+        propput,
+        helpstring(
+            "Specifies whether to show source prompts to the user, when "
+            "needed, while installing updates.")
+    ]
+    HRESULT AllowSourcePrompts(
+                [in] VARIANT_BOOL value);
+
+    [
+        id(0x6002000f),
+        propget,
+        helpstring(
+            "Gets a value indicating whether a system reboot is required "
+            "before (un)installing updates.")
+    ]
+    HRESULT RebootRequiredBeforeInstallation(
+                [out, retval] VARIANT_BOOL* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateInstaller2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(3442d4fe-224d-4cee-98cf-30e0c4d229e6),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateInstaller2 : IUpdateInstaller
+{
+// properties
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Returns whether no UI interaction will be forced.")
+    ]
+    HRESULT ForceQuiet( [out, retval] VARIANT_BOOL* retval );
+
+    [
+        id(0x60030001),
+        propput,
+        helpstring("Specifies that the installer will be forced to do an "
+                   "install without any user interaction.")
+    ]
+    HRESULT ForceQuiet( [in] VARIANT_BOOL value );
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateInstaller3 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(16d11c35-099a-48d0-8338-5fae64047f8e),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateInstaller3 : IUpdateInstaller2
+{
+// properties
+    [
+        id(0x60040001),
+        propget,
+        helpstring("Returns whether the update installer will attempt to close applications"
+                   " blocking immediate installation of updates")
+    ]
+    HRESULT AttemptCloseAppsIfNecessary( [out, retval] VARIANT_BOOL* retval );
+
+    [
+        id(0x60040001),
+        propput,
+        helpstring("Specifies whether the update installer will attempt to close applications"
+                   " blocking immediate installation of updates")
+    ]
+    HRESULT AttemptCloseAppsIfNecessary( [in] VARIANT_BOOL value );
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateInstaller4 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(EF8208EA-2304-492D-9109-23813B0958E1),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateInstaller4 : IUpdateInstaller3
+{
+    [
+        id(0x60040002),
+        helpstring("Commit or finalize previously staged or installed updates.")
+    ]
+    // dwFlags reserved for future use.
+    HRESULT Commit([in] DWORD dwFlags);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateSession Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(816858a4-260d-4260-933a-2585f1abc76b),
+    pointer_default(unique),
+]
+interface IUpdateSession : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60020001),
+        propput,
+        helpstring("Sets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [in] BSTR value);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring(
+            "Gets a boolean value indicating whether the UpdateSession object "
+            "is read-only.")
+    ]
+    HRESULT ReadOnly(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring(
+            "Gets the proxy settings required to reaching the server for "
+            "future operations in the UpdateSession.")
+    ]
+    HRESULT WebProxy(
+                [out, retval] IWebProxy** retval);
+    [
+        id(0x60020003),
+        propput,
+        helpstring(
+            "Sets the proxy settings required to reach the server for "
+            "future operations in the UpdateSession.")
+    ]
+    HRESULT WebProxy(
+                [in, unique] IWebProxy* value);
+
+//methods:
+    [
+        id(0x60020004),
+        helpstring("Creates an UpdateSearcher within the UpdateSession.")
+    ]
+    HRESULT CreateUpdateSearcher(
+                [out, retval] IUpdateSearcher** retval);
+
+    [
+        id(0x60020005),
+        helpstring("Creates an UpdateDownloader within the UpdateSession.")
+    ]
+    HRESULT CreateUpdateDownloader(
+                [out, retval] IUpdateDownloader** retval);
+
+    [
+        id(0x60020006),
+        helpstring("Creates an UpdateInstaller within the UpdateSession.")
+    ]
+    HRESULT CreateUpdateInstaller(
+                [out, retval] IUpdateInstaller** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateSession2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(91caf7b0-eb23-49ed-9937-c52d817f46f7),
+    pointer_default(unique),
+]
+interface IUpdateSession2 : IUpdateSession
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Gets the locale being used for update results.")
+    ]
+    HRESULT UserLocale(
+                [out, retval] LCID* retval);
+
+    [
+        id(0x60030001),
+        propput,
+        helpstring("Sets the locale to be used for update results.")
+    ]
+    HRESULT UserLocale(
+                [in] LCID lcid);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateSession3 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(918EFD1E-B5D8-4c90-8540-AEB9BDC56F9D),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateSession3 : IUpdateSession2
+{
+//methods:
+    [
+        id(0x60040001),
+        helpstring("Creates an UpdateServiceManager within the UpdateSession.")
+    ]
+    HRESULT CreateUpdateServiceManager(
+                [out, retval] IUpdateServiceManager2** retval);
+
+    [
+        id(0x60040002),
+        helpstring(
+            "Synchronously queries the target computer for the history of "
+            "update events given a query criteria.")
+    ]
+    HRESULT QueryHistory(
+                [in] BSTR criteria,
+                [in] LONG startIndex,
+                [in] LONG count,
+                [out, retval] IUpdateHistoryEntryCollection** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateService Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(76b3b17e-aed6-4da5-85f0-83587f81abe3),
+    pointer_default(unique)
+]
+interface IUpdateService : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Name of the Service.")
+    ]
+    HRESULT Name(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("SHA1 hash of the certificate used to sign contents.")
+    ]
+    HRESULT ContentValidationCert(
+                [out, retval] VARIANT* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Gets the date on which the Authorization Cab expires.")
+    ]
+    HRESULT ExpirationDate(
+                [out, retval] DATE* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Indicates whether the Service is a managed service.")
+    ]
+    HRESULT IsManaged(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020004),
+        propget,
+        helpstring("Indicates whether the Service is registered with Automatic Updates.")
+    ]
+    HRESULT IsRegisteredWithAU(
+                [out, retval] VARIANT_BOOL* retval);
+    [
+        id(0x60020005),
+        propget,
+        helpstring("Gets the date on which the Authorization Cab was issued.")
+    ]
+    HRESULT IssueDate(
+                [out, retval] DATE* retval);
+
+    [
+        id(0x60020006),
+        propget,
+        helpstring(
+            "Indicates whether the Service offers Windows updates.")
+    ]
+    HRESULT OffersWindowsUpdates(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020007),
+        propget,
+        helpstring("URLs for the redirector cab.")
+    ]
+    HRESULT RedirectUrls(
+                [out, retval] IStringCollection** retval);
+
+    [
+        id(0x60020008),
+        propget,
+        helpstring("Gets the identifier of the Service.")
+    ]
+    HRESULT ServiceID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000A),
+        propget,
+        helpstring(
+            "Indicates whether the service is registered as a scan package "
+            "service.")
+    ]
+    HRESULT IsScanPackageService(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x6002000B),
+        propget,
+        helpstring(
+            "Indicates whether the service can register with AU.")
+    ]
+    HRESULT CanRegisterWithAU(
+                [out, retval] VARIANT_BOOL* retval);
+
+
+    [
+        id(0x6002000C),
+        propget,
+        helpstring(
+            "Indicates the service URL.")
+    ]
+    HRESULT ServiceUrl(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x6002000D),
+        propget,
+        helpstring(
+            "Indicates the prefix for setup files.")
+    ]
+    HRESULT SetupPrefix(
+                [out, retval] BSTR* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateService2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(1518b460-6518-4172-940f-c75883b24ceb),
+    pointer_default(unique)
+]
+interface IUpdateService2 : IUpdateService
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring(
+            "Indicates whether the Service is in use by Automatic Updates.")
+    ]
+    HRESULT IsDefaultAUService(
+                [out, retval] VARIANT_BOOL* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateServiceCollection Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(9b0353aa-0e52-44ff-b8b0-1f7fa0437f88),
+    pointer_default(unique)
+]
+interface IUpdateServiceCollection : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring("Gets an element in the collection.")
+    ]
+    HRESULT Item(
+                [in] LONG index,
+                [out, retval] IUpdateService** retval);
+
+    [
+        id(DISPID_NEWENUM),
+        propget,
+        helpstring(
+            "Gets an IEnumVARIANT interface on an object that can be used to "
+            "enumerate the collection.")
+    ]
+    HRESULT _NewEnum(
+                [out, retval] IUnknown** retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the number of elements contained in the collection.")
+    ]
+    HRESULT Count(
+                [out, retval] LONG* retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateServiceRegistration Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(dde02280-12b3-4e0b-937b-6747f6acb286),
+    pointer_default(unique)
+]
+interface IUpdateServiceRegistration : IDispatch
+{
+//properties:
+    [
+        id(DISPID_VALUE),
+        propget,
+        helpstring(
+            "Gets the registration state of the Service.")
+    ]
+    HRESULT RegistrationState(
+                [out, retval] UpdateServiceRegistrationState* retval);
+
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the service ID associated with the registration.")
+    ]
+    HRESULT ServiceID(
+                [out, retval] BSTR* retval);
+
+    [
+        id(0x60020002),
+        propget,
+        helpstring("Whether the Service is pending registration with AU.")
+    ]
+    HRESULT IsPendingRegistrationWithAU(
+                [out, retval] VARIANT_BOOL* retval);
+
+    [
+        id(0x60020003),
+        propget,
+        helpstring("Information on the Service.")
+    ]
+    HRESULT Service(
+                [out, retval] IUpdateService2** retval);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateServiceManager Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(23857e3c-02ba-44a3-9423-b1c900805f37),
+    pointer_default(unique)
+]
+interface IUpdateServiceManager : IDispatch
+{
+//properties:
+    [
+        id(0x60020001),
+        propget,
+        helpstring("Gets the services registered with Windows Update Agent.")
+    ]
+    HRESULT Services(
+                [out, retval] IUpdateServiceCollection** retval);
+
+//methods:
+    [
+        id(0x60020002),
+        helpstring("Registers a service with Windows Update Agent.")
+    ]
+    HRESULT AddService(
+                [in]          BSTR serviceID,
+                [in]          BSTR authorizationCabPath,
+                [out, retval] IUpdateService** retval);
+
+    [
+        id(0x60020003),
+        helpstring("Registers the service with Automatic Updates.")
+    ]
+    HRESULT RegisterServiceWithAU(
+                [in]          BSTR serviceID);
+
+    [
+        id(0x60020004),
+        helpstring("Removes a service registration from Windows Update Agent.")
+    ]
+    HRESULT RemoveService(
+                [in]          BSTR serviceID);
+
+    [
+        id(0x60020005),
+        helpstring("Unregisters the service from Automatic Updates.")
+    ]
+    HRESULT UnregisterServiceWithAU(
+                [in]          BSTR serviceID);
+
+    [
+        id(0x60020006),
+        helpstring("Adds the scan package service.")
+    ]
+    HRESULT AddScanPackageService(
+                [in] BSTR serviceName,
+                [in] BSTR scanFileLocation,
+                [in, defaultvalue(0)] LONG flags,
+                [out, retval] IUpdateService **ppService);
+
+    [
+        id(0x60010007),
+        helpstring("Sets options for the functionality this object provides.")
+    ]
+    HRESULT SetOption (
+               [in] BSTR    optionName,
+               [in] VARIANT optionValue);
+}
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IUpdateServiceManager2 Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(0bb8531d-7e8d-424f-986c-a0b8f60a3e7b),
+    pointer_default(unique),
+    hidden  // already exposed by a class
+]
+interface IUpdateServiceManager2 : IUpdateServiceManager
+{
+//properties:
+    [
+        id(0x60030001),
+        propget,
+        helpstring("Gets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [out, retval] BSTR* retval);
+    [
+        id(0x60030001),
+        propput,
+        helpstring("Sets the identifier of the current client application.")
+    ]
+    HRESULT ClientApplicationID(
+                [in] BSTR value);
+
+//methods:
+    [
+        id(0x60030002),
+        helpstring("Look up an update service by its service ID.")
+    ]
+    HRESULT QueryServiceRegistration(
+                [in]          BSTR serviceID,
+                [out, retval] IUpdateServiceRegistration** retval);
+
+    [
+        id(0x60030003),
+        helpstring(
+            "Registers a service with Windows Update Agent without "
+            "specifying an authorization cabinet file.")
+    ]
+    HRESULT AddService2(
+                [in]          BSTR serviceID,
+                [in]          LONG flags,
+                [in]          BSTR authorizationCabPath,
+                [out, retval] IUpdateServiceRegistration** retval);
+}
+
+
+// This interface is registered by the WindowsUpdateClient-Aux manifest.
+[
+    helpstring("IInstallationAgent Interface"),
+    object,
+    oleautomation,
+    dual,
+    nonextensible,
+    uuid(925cbc18-a2ea-4648-bf1c-ec8badcfe20a),
+    pointer_default(unique)
+]
+interface IInstallationAgent : IDispatch
+{
+//methods
+    [
+        id(0x60020001),
+        helpstring("Records the specified result for the update.")
+    ]
+    HRESULT RecordInstallationResult(
+                [in]          BSTR installationResultCookie,
+                [in]          LONG hresult,
+                [in]          IStringCollection* extendedReportingData);
+}
+
+// This type library is registered by the WindowsUpdateClient-Aux manifest.
+// It is embedded as a resource in wuapi.dll.
+[
+    uuid(B596CC9F-56E5-419E-A622-E01BB457431E),
+    version(2.0),
+    helpstring("WUAPI 2.0 Type Library")
+]
+library WUApiLib
+{
+    importlib("stdole2.tlb");
+
+    [
+        helpstring(
+            "Defines the possible restrictions for IUpdateLockdown::LockDown() "
+            "to impose on an object"),
+        v1_enum
+    ]
+    typedef [public] enum tagUpdateLockdownOption
+    {
+        [helpstring("For website access")] uloForWebsiteAccess = 0x00000001,
+    } UpdateLockdownOption;
+
+    [
+        helpstring(
+            "Defines the possible options for "
+            "IUpdateServiceManager2::AddService2()"),
+        v1_enum
+    ]
+    typedef [public] enum tagAddServiceFlag
+    {
+        [helpstring("Allow deferred processing when not online")]
+        asfAllowPendingRegistration = 0x00000001,
+        [helpstring("Allow online processing")]
+        asfAllowOnlineRegistration  = 0x00000002,
+        [helpstring("Register service with AU")]
+        asfRegisterServiceWithAU    = 0x00000004,
+    } AddServiceFlag;
+
+    [
+        helpstring(
+            "Defines the possible service options when adding an update "
+            "service"),
+        v1_enum
+    ]
+    typedef [public] enum tagUpdateServiceOption
+    {
+        [helpstring("Non-volatile service")] usoNonVolatileService = 0x00000001,
+    } UpdateServiceOption;
+
+    // Interface declarations
+    interface IUpdateLockdown;
+    interface IInvalidProductLicenseException;
+    interface IAutomaticUpdatesSettings2;
+    interface IAutomaticUpdatesSettings3;
+    interface IUpdate2;
+    interface IUpdate3;
+    interface IWindowsDriverUpdateEntry;
+    interface IWindowsDriverUpdateEntryCollection;
+    interface IUpdate4;
+    interface IUpdate5;
+    interface IUpdateEx;
+    interface IWindowsDriverUpdate;
+    interface IWindowsDriverUpdate2;
+    interface IWindowsDriverUpdate3;
+    interface IWindowsDriverUpdate4;
+    interface IWindowsDriverUpdate5;
+    interface ISearchCompletedCallback;
+    interface IDownloadCompletedCallback;
+    interface IDownloadProgressChangedCallback;
+    interface IInstallationCompletedCallback;
+    interface IInstallationProgressChangedCallback;
+    interface IUpdateHistoryEntry2;
+    interface IUpdateDownloadContent2;
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("StringCollection Class"),
+        uuid(72C97D74-7C3B-40AE-B77D-ABDB22EBA6FB)
+    ]
+    coclass StringCollection
+    {
+        [default]   interface IStringCollection;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("UpdateSearcher Class"),
+        uuid(B699E5E8-67FF-4177-88B0-3684A3388BFB)
+    ]
+    coclass UpdateSearcher
+    {
+        [default]   interface IUpdateSearcher3;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("WebProxy Class"),
+        uuid(650503cf-9108-4ddc-a2ce-6c2341e1c582)
+    ]
+    coclass WebProxy
+    {
+        [default]   interface IWebProxy;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("SystemInformation Class"),
+        uuid(C01B9BA0-BEA7-41BA-B604-D0A36F469133)
+    ]
+    coclass SystemInformation
+    {
+        [default]   interface ISystemInformation;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("WindowsUpdateAgentInfo Class"),
+        uuid(C2E88C2F-6F5B-4AAA-894B-55C847AD3A2D)
+    ]
+    coclass WindowsUpdateAgentInfo
+    {
+        [default]   interface IWindowsUpdateAgentInfo;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("AutomaticUpdates Class"),
+        uuid(BFE18E9C-6D87-4450-B37C-E02F0B373803)
+    ]
+    coclass AutomaticUpdates
+    {
+        [default]   interface IAutomaticUpdates2;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("UpdateCollection Class"),
+        uuid(13639463-00DB-4646-803D-528026140D88)
+    ]
+    coclass UpdateCollection
+    {
+        [default]   interface IUpdateCollection;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("UpdateDownloader Class"),
+        uuid(5BAF654A-5A07-4264-A255-9FF54C7151E7)
+    ]
+    coclass UpdateDownloader
+    {
+        interface IUpdateDownloaderEx;
+        [default]   interface IUpdateDownloader;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("UpdateInstaller Class"),
+        uuid(D2E0FE7F-D23E-48E1-93C0-6FA8CC346474)
+    ]
+    coclass UpdateInstaller
+    {
+        interface IUpdateInstaller4;
+        [default]   interface IUpdateInstaller2;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("UpdateSession Class"),
+        uuid(4CB43D7F-7EEE-4906-8698-60DA1C38F2FE)
+    ]
+    coclass UpdateSession
+    {
+        [default]   interface IUpdateSession3;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("UpdateServiceManager Class"),
+        uuid(F8D253D9-89A4-4DAA-87B6-1168369F0B21)
+    ]
+    coclass UpdateServiceManager
+    {
+        [default]   interface IUpdateServiceManager2;
+    };
+
+    // This class is registered by the WindowsUpdateClient-Aux manifest.
+    [
+        helpstring("InstallationAgent Class"),
+        uuid(317E92FC-1679-46FD-A0B5-F08914DD8623)
+    ]
+    coclass InstallationAgent
+    {
+        [default]   interface IInstallationAgent;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

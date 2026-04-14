@@ -1,0 +1,73 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			mdfind.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+
+#if( OLEDBVER >= 0x0200 )
+    REMOTED_INTERFACE(a07cccd2-8148-11d0-87bb-00c04fc33942)
+#else
+    LOCAL_INTERFACE(a07cccd2-8148-11d0-87bb-00c04fc33942)
+#endif
+    
+interface IMDFind : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	HRESULT FindCell(
+		[in] DBORDINAL ulStartingOrdinal,
+		[in] DBCOUNTITEM cMembers,
+		[in, size_is((ULONG)cMembers)] LPCOLESTR * rgpwszMember,
+		[out] DBORDINAL * pulCellOrdinal
+	);
+
+	HRESULT FindTuple(
+		[in] ULONG ulAxisIdentifier,
+		[in] DBORDINAL ulStartingOrdinal,
+		[in] DBCOUNTITEM cMembers,
+		[in, size_is((ULONG)cMembers)] LPCOLESTR * rgpwszMember,
+		[out] ULONG * pulTupleOrdinal
+	);
+
+#else  //No casting by ULONG for 32-bit.
+
+	HRESULT FindCell(
+		[in] DBORDINAL ulStartingOrdinal,
+		[in] DBCOUNTITEM cMembers,
+		[in, size_is(cMembers)] LPCOLESTR * rgpwszMember,
+		[out] DBORDINAL * pulCellOrdinal
+	);
+
+	HRESULT FindTuple(
+		[in] ULONG ulAxisIdentifier,
+		[in] DBORDINAL ulStartingOrdinal,
+		[in] DBCOUNTITEM cMembers,
+		[in, size_is(cMembers)] LPCOLESTR * rgpwszMember,
+		[out] ULONG * pulTupleOrdinal
+	);
+	
+#endif
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

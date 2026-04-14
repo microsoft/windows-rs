@@ -1,0 +1,2192 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: objidl.idl
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_VISTA && !defined(_WIN32_WINNT))")
+cpp_quote("#define _WIN32_WINNT 0x0600")
+cpp_quote("#endif")
+
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_WS03 && !defined(_WIN32_WINNT))")
+cpp_quote("#define _WIN32_WINNT 0x0502")
+cpp_quote("#endif")
+
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_WINXP && !defined(_WIN32_WINNT))")
+cpp_quote("#define _WIN32_WINNT 0x0501")
+cpp_quote("#endif")
+
+cpp_quote("#if(NTDDI_VERSION >= NTDDI_WIN2K && !defined(_WIN32_WINNT))")
+cpp_quote("#define _WIN32_WINNT 0x0500")
+cpp_quote("#endif")
+
+#if OLE_OBJIDL_PROXY_STUB_BUILD
+#define DISABLE_CONSISTENCY_CHK ,disable_consistency_check
+#else
+#define DISABLE_CONSISTENCY_CHK 
+#endif
+
+#if (__midl >= 501)
+midl_pragma warning( disable: 2007 )   // file already imported
+midl_pragma warning( disable: 2209 )   // ignored redundantly specified attributes
+midl_pragma warning( disable: 2298 )   // version ignored for object interfaces
+#endif
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "wtypes.idl";
+#define DO_NO_IMPORTS
+#define OBJIDL_UNDEF_DO_NO_IMPORTS
+#endif
+
+#include "objidlbase.idl"
+#ifdef OBJIDL_UNDEF_DO_NO_IMPORTS
+#undef DO_NO_IMPORTS
+#endif
+
+interface IMoniker;
+interface IEnumMoniker;
+interface IRunningObjectTable;
+interface IStorage;
+interface IEnumSTATSTG;
+interface IAdviseSink;
+interface IBindCtx;
+interface IEnumMoniker;
+
+midl_pragma warning (disable: 2480)
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    local,
+    object,
+    uuid(0000001d-0000-0000-C000-000000000046)
+]
+
+interface IMallocSpy : IUnknown
+{
+
+    typedef [unique] IMallocSpy *LPMALLOCSPY;
+
+    SIZE_T PreAlloc
+    (
+        [in, annotation("_In_")] SIZE_T cbRequest
+    );
+
+    void  *PostAlloc
+    (
+        [in, annotation("_In_")] void *pActual
+    );
+
+    void  *PreFree
+    (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed
+    );
+
+    void  PostFree
+    (
+        [in, annotation("_In_")] BOOL  fSpyed
+    );
+
+    SIZE_T PreRealloc
+    (
+        [in, annotation("_In_")] void   *pRequest,
+        [in, annotation("_In_")] SIZE_T   cbRequest,
+        [out, annotation("_Outptr_")] void **ppNewRequest,
+        [in, annotation("_In_")] BOOL    fSpyed
+    );
+
+    void  *PostRealloc
+    (
+        [in, annotation("_In_")] void *pActual,
+        [in, annotation("_In_")] BOOL  fSpyed
+    );
+
+    void  *PreGetSize
+    (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed
+    );
+
+    SIZE_T PostGetSize
+    (
+        [in, annotation("_In_")] SIZE_T cbActual,
+        [in, annotation("_In_")] BOOL  fSpyed
+    );
+
+    void  *PreDidAlloc
+    (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed
+    );
+
+    int   PostDidAlloc
+    (
+        [in, annotation("_In_")] void *pRequest,
+        [in, annotation("_In_")] BOOL  fSpyed,
+        [in, annotation("_In_")] int   fActual
+    );
+
+    void  PreHeapMinimize(void);
+
+    void  PostHeapMinimize(void);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+/****************************************************************************
+ *  Binding Interfaces
+ ****************************************************************************/
+
+[
+    object,
+    uuid(0000000e-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IBindCtx : IUnknown
+{
+
+    typedef [unique] IBindCtx *LPBC;
+
+    typedef [unique] IBindCtx *LPBINDCTX;
+
+cpp_quote("#if defined(__cplusplus)")
+cpp_quote("    typedef _Struct_size_bytes_(cbStruct) struct tagBIND_OPTS {")
+cpp_quote("    DWORD           cbStruct;")
+cpp_quote("    DWORD           grfFlags;")
+cpp_quote("    DWORD           grfMode;")
+cpp_quote("    DWORD           dwTickCountDeadline;")
+cpp_quote("    } BIND_OPTS, * LPBIND_OPTS;")
+cpp_quote("#else")
+
+    typedef struct tagBIND_OPTS {
+    DWORD       cbStruct;       //  sizeof(BIND_OPTS)
+    DWORD       grfFlags;
+    DWORD       grfMode;
+    DWORD       dwTickCountDeadline;
+    } BIND_OPTS, * LPBIND_OPTS;
+
+cpp_quote("#endif")
+
+cpp_quote("#if defined(__cplusplus)")
+cpp_quote("    typedef struct tagBIND_OPTS2 : tagBIND_OPTS {")
+cpp_quote("    DWORD           dwTrackFlags;")
+cpp_quote("    DWORD           dwClassContext;")
+cpp_quote("    LCID            locale;")
+cpp_quote("    COSERVERINFO *  pServerInfo;")
+cpp_quote("    } BIND_OPTS2, * LPBIND_OPTS2;")
+cpp_quote("#else")
+
+midl_pragma warning (disable: 2480)
+    typedef struct tagBIND_OPTS2 {
+    DWORD           cbStruct;       //  sizeof(BIND_OPTS2)
+    DWORD           grfFlags;
+    DWORD           grfMode;
+    DWORD           dwTickCountDeadline;
+    DWORD           dwTrackFlags;
+    DWORD           dwClassContext;
+    LCID            locale;
+    COSERVERINFO *  pServerInfo;
+    } BIND_OPTS2, * LPBIND_OPTS2;
+
+
+cpp_quote("#endif")
+
+cpp_quote("#if defined(__cplusplus)")
+cpp_quote("    typedef struct tagBIND_OPTS3 : tagBIND_OPTS2 {")
+cpp_quote("   HWND           hwnd;")
+cpp_quote("    } BIND_OPTS3, * LPBIND_OPTS3;")
+cpp_quote("#else")
+
+    typedef struct tagBIND_OPTS3 {
+    DWORD           cbStruct;       //  sizeof(BIND_OPTS3)
+    DWORD           grfFlags;
+    DWORD           grfMode;
+    DWORD           dwTickCountDeadline;
+    DWORD           dwTrackFlags;
+    DWORD           dwClassContext;
+    LCID            locale;
+    COSERVERINFO *  pServerInfo;
+    HWND            hwnd;
+    } BIND_OPTS3, * LPBIND_OPTS3;
+
+cpp_quote("#endif")
+
+
+    typedef enum tagBIND_FLAGS
+    {
+        BIND_MAYBOTHERUSER = 1,
+        BIND_JUSTTESTEXISTENCE = 2
+    } BIND_FLAGS;
+
+    HRESULT RegisterObjectBound
+    (
+        [in, unique] IUnknown *punk
+    );
+
+    HRESULT RevokeObjectBound
+    (
+        [in, unique] IUnknown *punk
+    );
+
+    HRESULT ReleaseBoundObjects
+    (
+        void
+    );
+
+    [local]
+    HRESULT SetBindOptions
+    (
+        [in, annotation("_In_")] BIND_OPTS *pbindopts
+    );
+
+    [call_as(SetBindOptions)]
+    HRESULT RemoteSetBindOptions
+    (
+        [in] BIND_OPTS2 *pbindopts
+    );
+
+    [local]
+    HRESULT GetBindOptions
+    (
+        [in, out, annotation("_Inout_")] BIND_OPTS *pbindopts
+    );
+
+    [call_as(GetBindOptions)]
+    HRESULT RemoteGetBindOptions
+    (
+        [in, out] BIND_OPTS2 *pbindopts
+    );
+
+    HRESULT GetRunningObjectTable
+    (
+        [out] IRunningObjectTable **pprot
+    );
+
+    HRESULT RegisterObjectParam(
+        [in] LPOLESTR pszKey,
+        [in, unique] IUnknown *punk
+    );
+
+    HRESULT GetObjectParam(
+        [in] LPOLESTR pszKey,
+        [out] IUnknown **ppunk
+    );
+
+    HRESULT EnumObjectParam
+    (
+        [out] IEnumString **ppenum
+    );
+
+    HRESULT RevokeObjectParam
+    (
+        [in] LPOLESTR pszKey
+    );
+}
+
+[
+    object,
+    uuid(00000102-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IEnumMoniker : IUnknown
+{
+
+    typedef [unique] IEnumMoniker *LPENUMMONIKER;
+
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")]
+        IMoniker **rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)]
+        IMoniker **rgelt,
+        [out] ULONG *pceltFetched);
+
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumMoniker **ppenum);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(00000126-0000-0000-C000-000000000046)
+]
+interface IRunnableObject : IUnknown
+{
+
+    typedef [unique] IRunnableObject *LPRUNNABLEOBJECT;
+
+    HRESULT GetRunningClass(
+        [out] LPCLSID lpClsid);
+
+    HRESULT Run(
+        [in] LPBINDCTX pbc);
+
+    [local]
+    BOOL IsRunning();
+
+    [call_as(IsRunning)]
+    HRESULT RemoteIsRunning();
+
+    HRESULT LockRunning(
+        [in] BOOL fLock,
+        [in] BOOL fLastUnlockCloses);
+
+    HRESULT SetContainedObject(
+        [in] BOOL fContained);
+}
+
+[
+    object,
+    uuid(00000010-0000-0000-C000-000000000046)
+]
+
+interface IRunningObjectTable : IUnknown
+{
+
+    typedef [unique] IRunningObjectTable *LPRUNNINGOBJECTTABLE;
+
+    HRESULT Register
+    (
+        [in] DWORD grfFlags,
+        [in, unique] IUnknown *punkObject,
+        [in, unique] IMoniker *pmkObjectName,
+        [out] DWORD *pdwRegister
+    );
+
+    HRESULT Revoke
+    (
+        [in] DWORD dwRegister
+    );
+
+    HRESULT IsRunning
+    (
+        [in, unique] IMoniker *pmkObjectName
+    );
+
+    HRESULT GetObject
+    (
+        [in, unique] IMoniker *pmkObjectName,
+        [out] IUnknown **ppunkObject
+    );
+
+    HRESULT NoteChangeTime
+    (
+        [in] DWORD dwRegister,
+        [in] FILETIME *pfiletime
+    );
+
+    HRESULT GetTimeOfLastChange
+    (
+        [in, unique] IMoniker *pmkObjectName,
+        [out] FILETIME *pfiletime
+    );
+
+    HRESULT EnumRunning
+    (
+        [out] IEnumMoniker **ppenumMoniker
+    );
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(0000010c-0000-0000-C000-000000000046)
+]
+
+interface IPersist : IUnknown
+{
+
+    typedef [unique] IPersist *LPPERSIST;
+
+    HRESULT GetClassID
+    (
+        [out] CLSID *pClassID
+    );
+}
+
+[
+    object,
+    uuid(00000109-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IPersistStream : IPersist
+{
+
+    typedef [unique] IPersistStream *LPPERSISTSTREAM;
+
+    HRESULT IsDirty
+    (
+        void
+    );
+
+    HRESULT Load
+    (
+        [in, unique] IStream *pStm
+    );
+
+    HRESULT Save
+    (
+        [in, unique] IStream *pStm,
+        [in] BOOL fClearDirty
+    );
+
+    HRESULT GetSizeMax
+    (
+        [out] ULARGE_INTEGER *pcbSize
+    );
+
+}
+
+[
+    object,
+    uuid(0000000f-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IMoniker : IPersistStream
+{
+
+    typedef [unique] IMoniker *LPMONIKER;
+
+    // system moniker types; returned from IsSystemMoniker.
+    typedef enum tagMKSYS
+    {
+        MKSYS_NONE = 0,
+        MKSYS_GENERICCOMPOSITE = 1,
+        MKSYS_FILEMONIKER = 2,
+        MKSYS_ANTIMONIKER = 3,
+        MKSYS_ITEMMONIKER = 4,
+        MKSYS_POINTERMONIKER = 5,
+    //  MKSYS_URLMONIKER = 6,
+        MKSYS_CLASSMONIKER = 7,
+        MKSYS_OBJREFMONIKER = 8,
+        MKSYS_SESSIONMONIKER = 9,
+        MKSYS_LUAMONIKER = 10
+    }MKSYS;
+
+
+    typedef [v1_enum] enum tagMKREDUCE
+    {
+        MKRREDUCE_ONE           =   3<<16,
+
+        MKRREDUCE_TOUSER        =   2<<16,
+        MKRREDUCE_THROUGHUSER   =   1<<16,
+        MKRREDUCE_ALL           =   0
+    } MKRREDUCE;
+
+
+    [local]
+    HRESULT BindToObject(
+        [in, unique, annotation("_In_")] IBindCtx *pbc,
+        [in, unique, annotation("_In_opt_")] IMoniker *pmkToLeft,
+        [in, annotation("_In_")] REFIID riidResult,
+        [out, iid_is(riidResult), annotation("_Outptr_")] void **ppvResult);
+
+    [call_as(BindToObject)]
+    HRESULT RemoteBindToObject(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in] REFIID riidResult,
+        [out, iid_is(riidResult)] IUnknown **ppvResult);
+
+    [local]
+    HRESULT BindToStorage(
+        [in, unique, annotation("_In_")] IBindCtx *pbc,
+        [in, unique, annotation("_In_opt_")] IMoniker *pmkToLeft,
+        [in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), annotation("_Outptr_")] void **ppvObj);
+
+    [call_as(BindToStorage)]
+    HRESULT RemoteBindToStorage(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in] REFIID riid,
+        [out, iid_is(riid)] IUnknown **ppvObj);
+
+    HRESULT Reduce(
+        [in, unique] IBindCtx *pbc,
+        [in] DWORD dwReduceHowFar,
+        [in, out, unique] IMoniker **ppmkToLeft,
+        [out] IMoniker **ppmkReduced);
+
+    HRESULT ComposeWith(
+        [in, unique] IMoniker *pmkRight,
+        [in] BOOL fOnlyIfNotGeneric,
+        [out] IMoniker **ppmkComposite);
+
+    HRESULT Enum(
+        [in] BOOL fForward,
+        [out] IEnumMoniker **ppenumMoniker);
+
+    HRESULT IsEqual(
+        [in, unique] IMoniker *pmkOtherMoniker);
+
+    HRESULT Hash(
+        [out] DWORD *pdwHash);
+
+    HRESULT IsRunning(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in, unique] IMoniker *pmkNewlyRunning);
+
+    HRESULT GetTimeOfLastChange(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [out] FILETIME *pFileTime);
+
+    HRESULT Inverse(
+        [out] IMoniker **ppmk);
+
+    HRESULT CommonPrefixWith(
+        [in, unique] IMoniker *pmkOther,
+        [out] IMoniker **ppmkPrefix);
+
+    HRESULT RelativePathTo(
+        [in, unique] IMoniker *pmkOther,
+        [out] IMoniker **ppmkRelPath);
+
+    HRESULT GetDisplayName(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [out] LPOLESTR *ppszDisplayName);
+
+    HRESULT ParseDisplayName(
+        [in, unique] IBindCtx *pbc,
+        [in, unique] IMoniker *pmkToLeft,
+        [in] LPOLESTR pszDisplayName,
+        [out] ULONG *pchEaten,
+        [out] IMoniker **ppmkOut);
+
+    HRESULT IsSystemMoniker(
+        [out] DWORD *pdwMksys);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(f29f6bc0-5021-11ce-aa15-00006901293f),
+    pointer_default(unique)
+]
+
+interface IROTData : IUnknown
+{
+    HRESULT GetComparisonData(
+        [out, size_is(cbMax)] byte *pbData,
+        [in]  ULONG cbMax,
+        [out] ULONG *pcbData);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(0000000d-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IEnumSTATSTG : IUnknown
+{
+
+    typedef [unique] IEnumSTATSTG *LPENUMSTATSTG;
+
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")] STATSTG *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] STATSTG *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumSTATSTG **ppenum);
+}
+
+[
+    object,
+    uuid(0000000b-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IStorage : IUnknown
+{
+
+    typedef [unique] IStorage * LPSTORAGE;
+
+    typedef struct tagRemSNB
+    {
+        ULONG ulCntStr;
+        ULONG ulCntChar;
+        [size_is(ulCntChar)] OLECHAR rgString[];
+    } RemSNB;
+
+    typedef [unique] RemSNB * wireSNB;
+
+    midl_pragma warning(disable: 2525) // SAL annotation on typedef
+    typedef [wire_marshal(wireSNB), annotation("_Null_terminated_")] LPOLESTR *SNB;
+    midl_pragma warning(default: 2525)
+
+    HRESULT CreateStream(
+        [in, string] const OLECHAR *pwcsName,
+        [in] DWORD grfMode,
+        [in] DWORD reserved1,
+        [in] DWORD reserved2,
+        [out] IStream **ppstm);
+
+    [local]
+    HRESULT OpenStream(
+        [in, string, annotation("_In_z_")] const OLECHAR *pwcsName,
+        [in, unique, annotation("_Reserved_")] void *reserved1,
+        [in] DWORD grfMode,
+        [in] DWORD reserved2,
+        [out, annotation("_Outptr_")] IStream **ppstm);
+
+    [call_as(OpenStream)]
+    HRESULT RemoteOpenStream(
+        [in, string] const OLECHAR *pwcsName,
+        [in] ULONG cbReserved1,
+        [in, unique, size_is(cbReserved1)] byte *reserved1,
+        [in] DWORD grfMode,
+        [in] DWORD reserved2,
+        [out] IStream **ppstm);
+
+    HRESULT CreateStorage(
+        [in, string] const OLECHAR *pwcsName,
+        [in] DWORD grfMode,
+        [in] DWORD reserved1,
+        [in] DWORD reserved2,
+        [out] IStorage **ppstg);
+
+    HRESULT OpenStorage(
+        [in, unique, string] const OLECHAR *pwcsName,
+        [in, unique] IStorage *pstgPriority,
+        [in] DWORD grfMode,
+        [in, unique] SNB snbExclude,
+        [in] DWORD reserved,
+        [out] IStorage **ppstg);
+
+    [local]
+    HRESULT CopyTo(
+        [in] DWORD ciidExclude,
+        [in, unique, size_is(ciidExclude), annotation("_In_reads_opt_(ciidExclude)")] IID const *rgiidExclude,
+        [in, unique, annotation("_In_opt_")] SNB snbExclude,
+        [in, unique, annotation("_In_")] IStorage *pstgDest);
+
+    [call_as(CopyTo)]
+    HRESULT RemoteCopyTo(
+        [in] DWORD ciidExclude,
+        [in, unique, size_is(ciidExclude) DISABLE_CONSISTENCY_CHK] IID const *rgiidExclude,
+        [in, unique] SNB snbExclude,
+        [in, unique] IStorage *pstgDest);
+
+    HRESULT MoveElementTo(
+        [in, string] const OLECHAR * pwcsName,
+        [in, unique] IStorage *pstgDest,
+        [in, string] const OLECHAR *pwcsNewName,
+        [in] DWORD grfFlags);
+
+    HRESULT Commit(
+        [in] DWORD grfCommitFlags);
+
+    HRESULT Revert();
+
+    [local]
+    HRESULT EnumElements(
+        [in, annotation("_Reserved_")] DWORD reserved1,
+        [in, unique, size_is(1), annotation("_Reserved_")] void *reserved2,
+        [in, annotation("_Reserved_")] DWORD reserved3,
+        [out, annotation("_Outptr_")] IEnumSTATSTG **ppenum);
+
+    [call_as(EnumElements)]
+    HRESULT RemoteEnumElements(
+        [in] DWORD reserved1,
+        [in] ULONG cbReserved2,
+        [in, unique, size_is(cbReserved2)] byte *reserved2,
+        [in] DWORD reserved3,
+        [out] IEnumSTATSTG **ppenum);
+
+    HRESULT DestroyElement(
+        [in, string] const OLECHAR *pwcsName);
+
+    HRESULT RenameElement(
+        [in, string] const OLECHAR *pwcsOldName,
+        [in, string] const OLECHAR *pwcsNewName);
+
+    HRESULT SetElementTimes(
+        [in, unique, string] const OLECHAR *pwcsName,
+        [in, unique] FILETIME const *pctime,
+        [in, unique] FILETIME const *patime,
+        [in, unique] FILETIME const *pmtime);
+
+    HRESULT SetClass(
+        [in] REFCLSID clsid);
+
+    HRESULT SetStateBits(
+        [in] DWORD grfStateBits,
+        [in] DWORD grfMask);
+
+    HRESULT Stat(
+        [out] STATSTG *pstatstg,
+        [in] DWORD grfStatFlag);
+}
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(0000010b-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IPersistFile : IPersist
+{
+
+    typedef [unique] IPersistFile *LPPERSISTFILE;
+
+    HRESULT IsDirty
+    (
+        void
+    );
+
+    HRESULT Load
+    (
+        [in] LPCOLESTR pszFileName,
+        [in] DWORD dwMode
+    );
+
+    HRESULT Save
+    (
+        [in, unique] LPCOLESTR pszFileName,
+        [in] BOOL fRemember
+    );
+
+    HRESULT SaveCompleted
+    (
+        [in, unique] LPCOLESTR pszFileName
+    );
+
+    HRESULT GetCurFile
+    (
+        [out] LPOLESTR *ppszFileName
+    );
+}
+
+[
+    object,
+    uuid(0000010a-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IPersistStorage : IPersist
+{
+
+    typedef [unique] IPersistStorage *LPPERSISTSTORAGE;
+
+    HRESULT IsDirty
+    (
+        void
+    );
+
+    HRESULT InitNew
+    (
+        [in, unique] IStorage *pStg
+    );
+
+    HRESULT Load
+    (
+        [in, unique] IStorage *pStg
+    );
+
+    HRESULT Save
+    (
+        [in, unique] IStorage *pStgSave,
+        [in] BOOL fSameAsLoad
+    );
+
+    HRESULT SaveCompleted
+    (
+        [in, unique] IStorage *pStgNew
+    );
+
+    HRESULT HandsOffStorage
+    (
+        void
+    );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(0000000a-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface ILockBytes : IUnknown
+{
+
+    typedef [unique] ILockBytes *LPLOCKBYTES;
+
+    [local]
+    HRESULT ReadAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [out, size_is(cb), length_is(*pcbRead), annotation("_Out_writes_bytes_to_(cb, *pcbRead)")]
+        void *pv,
+        [in] ULONG cb,
+        [out, annotation("_Out_opt_")] ULONG *pcbRead);
+
+    [call_as(ReadAt)]
+    HRESULT _stdcall RemoteReadAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [out, size_is(cb), length_is(*pcbRead)]
+        byte *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbRead);
+
+    [local]
+    HRESULT WriteAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in] ULONG cb,
+        [out, annotation("_Out_opt_")] ULONG *pcbWritten);
+
+    [call_as(WriteAt)]
+    HRESULT RemoteWriteAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+
+    HRESULT Flush();
+
+    HRESULT SetSize(
+        [in] ULARGE_INTEGER cb);
+
+    HRESULT LockRegion(
+        [in] ULARGE_INTEGER libOffset,
+        [in] ULARGE_INTEGER cb,
+        [in] DWORD dwLockType);
+
+    HRESULT UnlockRegion(
+        [in] ULARGE_INTEGER libOffset,
+        [in] ULARGE_INTEGER cb,
+        [in] DWORD dwLockType);
+
+    HRESULT Stat(
+        [out] STATSTG *pstatstg,
+        [in] DWORD grfStatFlag);
+}
+
+[
+    object,
+    uuid(00000103-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IEnumFORMATETC : IUnknown
+{
+
+    typedef [unique] IEnumFORMATETC *LPENUMFORMATETC;
+
+
+midl_pragma warning( disable: 2480 )
+    typedef struct tagDVTARGETDEVICE {
+        DWORD tdSize;
+        WORD tdDriverNameOffset;
+        WORD tdDeviceNameOffset;
+        WORD tdPortNameOffset;
+        WORD tdExtDevmodeOffset;
+        [size_is(tdSize - sizeof(DWORD) - 4*sizeof(WORD))]
+        BYTE tdData[];
+    }DVTARGETDEVICE;
+midl_pragma warning( default: 2480 )
+
+
+    typedef CLIPFORMAT *LPCLIPFORMAT;
+
+    typedef struct tagFORMATETC {
+        CLIPFORMAT cfFormat;
+        [unique] DVTARGETDEVICE * ptd;
+        DWORD dwAspect;
+        LONG lindex;
+        DWORD tymed;
+    }FORMATETC, *LPFORMATETC;
+
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")] FORMATETC *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched )] FORMATETC *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumFORMATETC **ppenum);
+}
+
+[
+    object,
+    uuid(00000105-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IEnumSTATDATA : IUnknown
+{
+
+    typedef [unique] IEnumSTATDATA *LPENUMSTATDATA;
+
+    //Advise Flags
+    typedef enum tagADVF
+    {
+        ADVF_NODATA = 1,
+        ADVF_PRIMEFIRST = 2,
+        ADVF_ONLYONCE = 4,
+        ADVF_DATAONSTOP = 64,
+        ADVFCACHE_NOHANDLER = 8,
+        ADVFCACHE_FORCEBUILTIN = 16,
+        ADVFCACHE_ONSAVE = 32
+    } ADVF;
+
+
+    // Stats for data; used by several enumerations and by at least one
+    // implementation of IDataAdviseHolder; if a field is not used, it
+    // will be NULL.
+
+    typedef struct tagSTATDATA
+    {                              // field used by:
+        FORMATETC formatetc;       // EnumAdvise, EnumData (cache), EnumFormats
+        DWORD advf;                // EnumAdvise, EnumData (cache)
+        [unique] IAdviseSink * pAdvSink; // EnumAdvise
+        DWORD dwConnection;        // EnumAdvise
+    } STATDATA;
+    typedef STATDATA *LPSTATDATA;
+
+    [local]
+    HRESULT Next(
+        [in] ULONG celt,
+        [annotation("_Out_writes_to_(celt,*pceltFetched)")] STATDATA *rgelt,
+        [annotation("_Out_opt_")] ULONG *pceltFetched);
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] STATDATA *rgelt,
+        [out] ULONG *pceltFetched);
+
+    HRESULT Skip(
+        [in] ULONG celt);
+
+    HRESULT Reset();
+
+    HRESULT Clone(
+        [out] IEnumSTATDATA **ppenum);
+}
+
+[
+    object,
+    uuid(00000012-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IRootStorage : IUnknown
+{
+
+    typedef [unique] IRootStorage *LPROOTSTORAGE;
+
+    HRESULT SwitchToFile
+    (
+        [in] LPOLESTR pszFile
+    );
+}
+
+
+/****************************************************************************
+ *  Notification Interfaces
+ ****************************************************************************/
+
+[
+    object,
+    uuid(0000010f-0000-0000-C000-000000000046),
+#if (__midl >= 500)
+    async_uuid(00000150-0000-0000-C000-000000000046),
+#endif
+    pointer_default(unique)
+]
+
+interface IAdviseSink : IUnknown
+{
+
+    typedef IAdviseSink *LPADVISESINK;
+
+    typedef [v1_enum] enum tagTYMED {
+        TYMED_HGLOBAL = 1,
+        TYMED_FILE = 2,
+        TYMED_ISTREAM = 4,
+        TYMED_ISTORAGE = 8,
+        TYMED_GDI = 16,
+        TYMED_MFPICT = 32,
+        TYMED_ENHMF = 64,
+        TYMED_NULL = 0
+    } TYMED;
+
+    cpp_quote("#ifndef RC_INVOKED")
+    cpp_quote("#if _MSC_VER >= 1200")
+    cpp_quote("#pragma warning(push)")
+    cpp_quote("#endif")
+    cpp_quote("#pragma warning(disable:4200)")
+    cpp_quote("#endif")
+
+    typedef struct tagRemSTGMEDIUM {
+        DWORD tymed;
+        DWORD dwHandleType;
+        ULONG pData;
+        ULONG pUnkForRelease;
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+    } RemSTGMEDIUM;
+    cpp_quote("#ifndef RC_INVOKED")
+    cpp_quote("#if _MSC_VER >= 1200")
+    cpp_quote("#pragma warning(pop)")
+    cpp_quote("#else")
+    cpp_quote("#pragma warning(default:4200)")
+    cpp_quote("#endif")
+    cpp_quote("#endif")
+
+
+cpp_quote("#ifdef NONAMELESSUNION")
+cpp_quote("typedef struct tagSTGMEDIUM {")
+cpp_quote("    DWORD tymed;")
+cpp_quote("    union {")
+cpp_quote("        HBITMAP hBitmap;")
+cpp_quote("        HMETAFILEPICT hMetaFilePict;")
+cpp_quote("        HENHMETAFILE hEnhMetaFile;")
+cpp_quote("        HGLOBAL hGlobal;")
+cpp_quote("        LPOLESTR lpszFileName;")
+cpp_quote("        IStream *pstm;")
+cpp_quote("        IStorage *pstg;")
+cpp_quote("        } u;")
+cpp_quote("    IUnknown *pUnkForRelease;")
+cpp_quote("}uSTGMEDIUM;")
+cpp_quote("#else")
+
+    typedef struct tagSTGMEDIUM {
+    DWORD tymed;
+    [switch_type(DWORD), switch_is((DWORD) tymed)]
+        union
+        {
+        [case(TYMED_GDI)]
+            HBITMAP hBitmap;
+        [case(TYMED_MFPICT)]
+            HMETAFILEPICT hMetaFilePict;
+        [case(TYMED_ENHMF)]
+            HENHMETAFILE hEnhMetaFile;
+        [case(TYMED_HGLOBAL)]
+            HGLOBAL hGlobal;
+        [case(TYMED_FILE)]
+            LPOLESTR lpszFileName;
+        [case(TYMED_ISTREAM)]
+            IStream *pstm;
+        [case(TYMED_ISTORAGE)]
+            IStorage *pstg;
+        [default]
+                ;
+        } DUMMYUNIONNAME;
+        [unique] IUnknown *pUnkForRelease;
+    }uSTGMEDIUM;
+
+cpp_quote("#endif /* !NONAMELESSUNION */")
+
+
+//
+//  wireSTGMEDIUM
+//
+// These flags are #defined (not enumerated) in wingdi.
+// We need to repeat #defines to avoid conflict in the generated file.
+//
+
+/* Object Definitions for EnumObjects() */
+#define OBJ_PEN             1
+#define OBJ_BRUSH           2
+#define OBJ_DC              3
+#define OBJ_METADC          4
+#define OBJ_PAL             5
+#define OBJ_FONT            6
+#define OBJ_BITMAP          7
+#define OBJ_REGION          8
+#define OBJ_METAFILE        9
+#define OBJ_MEMDC           10
+#define OBJ_EXTPEN          11
+#define OBJ_ENHMETADC       12
+#define OBJ_ENHMETAFILE     13
+
+    typedef union _GDI_OBJECT switch( DWORD ObjectType ) u
+    {
+        case OBJ_BITMAP:    wireHBITMAP     hBitmap;
+        case OBJ_PAL:       wireHPALETTE    hPalette;
+        default:            wireHGLOBAL     hGeneric;
+    } GDI_OBJECT;
+
+    typedef struct _userSTGMEDIUM
+    {
+        union _STGMEDIUM_UNION switch( DWORD tymed ) u
+        {
+        case TYMED_NULL:        ;
+        case TYMED_MFPICT:      wireHMETAFILEPICT   hMetaFilePict;
+        case TYMED_ENHMF:       wireHENHMETAFILE    hHEnhMetaFile;
+        case TYMED_GDI:         GDI_OBJECT *        hGdiHandle;
+        case TYMED_HGLOBAL:     wireHGLOBAL         hGlobal;
+        case TYMED_FILE:        LPOLESTR            lpszFileName;
+        case TYMED_ISTREAM:     BYTE_BLOB *         pstm;
+        case TYMED_ISTORAGE:    BYTE_BLOB *         pstg;
+        } DUMMYUNIONNAME;
+        IUnknown *              pUnkForRelease;
+    } userSTGMEDIUM;
+
+    typedef [unique] userSTGMEDIUM  * wireSTGMEDIUM;
+    typedef [wire_marshal( wireSTGMEDIUM )] uSTGMEDIUM STGMEDIUM;
+
+    typedef [unique] userSTGMEDIUM  * wireASYNC_STGMEDIUM;
+    typedef [wire_marshal( wireASYNC_STGMEDIUM )] STGMEDIUM ASYNC_STGMEDIUM;
+
+    typedef STGMEDIUM *LPSTGMEDIUM;
+
+    typedef struct _userFLAG_STGMEDIUM
+    {
+        LONG                ContextFlags;
+        LONG                fPassOwnership;
+        userSTGMEDIUM       Stgmed;
+    } userFLAG_STGMEDIUM;
+
+    typedef [unique] userFLAG_STGMEDIUM  * wireFLAG_STGMEDIUM;
+
+    typedef [wire_marshal( wireFLAG_STGMEDIUM )]
+        struct _FLAG_STGMEDIUM
+        {
+                LONG                ContextFlags;
+                LONG                fPassOwnership;
+                STGMEDIUM           Stgmed;
+        } FLAG_STGMEDIUM;
+
+
+    [local]
+    void OnDataChange(
+        [in, unique, annotation("_In_")] FORMATETC *pFormatetc,
+        [in, unique, annotation("_In_")] STGMEDIUM *pStgmed);
+
+    [local]
+    void OnViewChange(
+        [in] DWORD dwAspect,
+        [in] LONG lindex);
+
+    [local]
+    void OnRename(
+        [in, annotation("_In_")] IMoniker *pmk);
+
+    [local]
+    void OnSave();
+
+    [local]
+    void OnClose();
+
+#if (__midl >= 500)
+// Currently used temporary definitons.
+
+    [call_as(OnDataChange)]
+    HRESULT  RemoteOnDataChange(
+        [in, unique] FORMATETC *pFormatetc,
+        [in, unique] ASYNC_STGMEDIUM *pStgmed);
+
+    [call_as(OnViewChange)]
+    HRESULT  RemoteOnViewChange(
+        [in] DWORD dwAspect,
+        [in] LONG lindex);
+
+    [call_as(OnRename)]
+    HRESULT  RemoteOnRename(
+        [in] IMoniker *pmk);
+
+    [call_as(OnSave)]
+    HRESULT  RemoteOnSave(
+        );
+#elif (__midl > 302)
+// Currently used temporary definitons.
+
+    [call_as(OnDataChange), async]
+    HRESULT  RemoteOnDataChange(
+        [in] IAsyncManager **ppIAM,
+        [in, unique] FORMATETC *pFormatetc,
+        [in, unique] ASYNC_STGMEDIUM *pStgmed);
+
+    [call_as(OnViewChange), async]
+    HRESULT  RemoteOnViewChange(
+        [in] IAsyncManager **ppIAM,
+        [in] DWORD dwAspect,
+        [in] LONG lindex);
+
+    [call_as(OnRename), async]
+    HRESULT  RemoteOnRename(
+        [in] IAsyncManager **ppIAM,
+        [in] IMoniker *pmk);
+
+    [call_as(OnSave), async]
+    HRESULT  RemoteOnSave(
+        [in] IAsyncManager **ppIAM
+        );
+#else
+// Old definitions kept for convenience.
+
+    [call_as(OnDataChange), async]
+    void RemoteOnDataChange(
+        [in, unique] FORMATETC *pFormatetc,
+        [in, unique] ASYNC_STGMEDIUM *pStgmed);
+
+    [call_as(OnViewChange), async]
+    void RemoteOnViewChange(
+        [in] DWORD dwAspect,
+        [in] LONG lindex);
+
+    [call_as(OnRename), async]
+    void RemoteOnRename(
+        [in] IMoniker *pmk);
+
+    [call_as(OnSave), async]
+    void RemoteOnSave();
+
+#endif  // MIDL > 302
+
+    [call_as(OnClose)]
+    HRESULT RemoteOnClose();
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(00000125-0000-0000-C000-000000000046),
+#if (__midl >= 500)
+    async_uuid(00000151-0000-0000-C000-000000000046),
+#endif
+    pointer_default(unique)
+]
+
+interface IAdviseSink2 : IAdviseSink
+{
+
+    typedef [unique] IAdviseSink2 *LPADVISESINK2;
+
+    [local]
+    void OnLinkSrcChange(
+        [in, unique, annotation("_In_")] IMoniker *pmk);
+
+#if (__midl >= 500)
+// Currently used temporary definiton
+
+    [call_as(OnLinkSrcChange)]
+    HRESULT RemoteOnLinkSrcChange(
+        [in, unique] IMoniker *pmk);
+#elif (__midl > 302)
+// Currently used temporary definiton
+
+    [call_as(OnLinkSrcChange), async]
+    HRESULT RemoteOnLinkSrcChange(
+        [in] IAsyncManager **ppIAM,
+        [in, unique] IMoniker *pmk);
+#else
+// Old one for convenience.
+    [call_as(OnLinkSrcChange), async]
+    void RemoteOnLinkSrcChange(
+        [in, unique] IMoniker *pmk);
+#endif
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(0000010e-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+
+interface IDataObject : IUnknown
+{
+
+    typedef [unique] IDataObject *LPDATAOBJECT;
+
+    //DATA format DIRection
+    typedef enum tagDATADIR
+    {
+        DATADIR_GET = 1,
+        DATADIR_SET = 2
+    } DATADIR;
+
+    [local]
+    HRESULT GetData(
+        [in, unique, annotation("_In_")] FORMATETC *pformatetcIn,
+        [out, annotation("_Out_")] STGMEDIUM *pmedium);
+
+    [call_as(GetData)]
+    HRESULT RemoteGetData(
+        [in, unique] FORMATETC *pformatetcIn,
+        [out] STGMEDIUM *pRemoteMedium);
+
+    [local]
+    HRESULT GetDataHere(
+        [in, unique, annotation("_In_")] FORMATETC *pformatetc,
+        [in, out, annotation("_Inout_")] STGMEDIUM *pmedium);
+
+    [call_as(GetDataHere)]
+    HRESULT RemoteGetDataHere(
+        [in, unique] FORMATETC *pformatetc,
+        [in, out] STGMEDIUM *pRemoteMedium);
+
+    HRESULT QueryGetData(
+        [in, unique] FORMATETC *pformatetc);
+
+
+    HRESULT GetCanonicalFormatEtc(
+        [in, unique] FORMATETC *pformatectIn,
+        [out] FORMATETC *pformatetcOut);
+
+    [local]
+    HRESULT SetData(
+        [in, unique, annotation("_In_")] FORMATETC *pformatetc,
+        [in, unique, annotation("_In_")] STGMEDIUM *pmedium,
+        [in] BOOL fRelease);
+
+    [call_as(SetData)]
+    HRESULT RemoteSetData(
+        [in, unique] FORMATETC *pformatetc,
+        [in, unique] FLAG_STGMEDIUM *pmedium,
+        [in] BOOL fRelease);
+
+    HRESULT EnumFormatEtc(
+        [in] DWORD dwDirection,
+        [out] IEnumFORMATETC **ppenumFormatEtc);
+
+    HRESULT DAdvise(
+        [in] FORMATETC *pformatetc,
+        [in] DWORD advf,
+        [in, unique] IAdviseSink *pAdvSink,
+        [out] DWORD *pdwConnection);
+
+    HRESULT DUnadvise(
+        [in] DWORD dwConnection);
+
+    HRESULT EnumDAdvise(
+        [out] IEnumSTATDATA **ppenumAdvise);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)")
+
+[
+    local,
+    object,
+    uuid(00000110-0000-0000-C000-000000000046)
+]
+
+interface IDataAdviseHolder : IUnknown
+{
+
+    typedef [unique] IDataAdviseHolder *LPDATAADVISEHOLDER;
+
+    HRESULT Advise
+    (
+        [in, unique, annotation("_In_opt_")] IDataObject *pDataObject,
+        [in, unique, annotation("_In_")] FORMATETC *pFetc,
+        [in, annotation("_In_")] DWORD advf,
+        [in, unique, annotation("_In_")] IAdviseSink *pAdvise,
+        [out, annotation("_Out_")] DWORD *pdwConnection
+    );
+
+    HRESULT Unadvise
+    (
+        [in, annotation("_In_")] DWORD dwConnection
+    );
+
+    HRESULT EnumAdvise
+    (
+        [out, annotation("_Outptr_")] IEnumSTATDATA **ppenumAdvise
+    );
+
+    HRESULT SendOnDataChange
+    (
+        [in, unique, annotation("_In_")] IDataObject *pDataObject,
+        [in, annotation("_Reserved_")] DWORD dwReserved,
+        [in, annotation("_In_")] DWORD advf
+    );
+
+}
+
+[
+    local,
+    object,
+    uuid(00000016-0000-0000-C000-000000000046)
+]
+
+interface IMessageFilter : IUnknown
+{
+
+    typedef [unique] IMessageFilter *LPMESSAGEFILTER;
+
+// call type used by IMessageFilter::HandleIncomingMessage
+typedef enum tagCALLTYPE
+{
+    CALLTYPE_TOPLEVEL = 1,      // toplevel call - no outgoing call
+    CALLTYPE_NESTED   = 2,      // callback on behalf of previous outgoing call - should always handle
+    CALLTYPE_ASYNC    = 3,      // aysnchronous call - can NOT be rejected
+    CALLTYPE_TOPLEVEL_CALLPENDING = 4,  // new toplevel call with new LID
+    CALLTYPE_ASYNC_CALLPENDING    = 5   // async call - can NOT be rejected
+} CALLTYPE;
+
+// status of server call - returned by IMessageFilter::HandleIncomingCall
+// and passed to  IMessageFilter::RetryRejectedCall
+typedef enum tagSERVERCALL
+{
+    SERVERCALL_ISHANDLED    = 0,
+    SERVERCALL_REJECTED     = 1,
+    SERVERCALL_RETRYLATER   = 2
+} SERVERCALL;
+
+// Pending type indicates the level of nesting
+typedef enum tagPENDINGTYPE
+{
+    PENDINGTYPE_TOPLEVEL = 1, // toplevel call
+    PENDINGTYPE_NESTED   = 2  // nested call
+} PENDINGTYPE;
+
+// return values of MessagePending
+typedef enum tagPENDINGMSG
+{
+    PENDINGMSG_CANCELCALL  = 0, // cancel the outgoing call
+    PENDINGMSG_WAITNOPROCESS  = 1, // wait for the return and don't dispatch the message
+    PENDINGMSG_WAITDEFPROCESS = 2  // wait and dispatch the message
+
+} PENDINGMSG;
+
+// additional interface information about the incoming call
+typedef struct tagINTERFACEINFO
+{
+    IUnknown    *pUnk;      // the pointer to the object
+    IID         iid;        // interface id
+    WORD        wMethod;    // interface method
+} INTERFACEINFO, *LPINTERFACEINFO;
+
+    DWORD HandleInComingCall
+    (
+        [in, annotation("_In_")] DWORD dwCallType,
+        [in, annotation("_In_")] HTASK htaskCaller,
+        [in, annotation("_In_")] DWORD dwTickCount,
+        [in, annotation("_In_opt_")] LPINTERFACEINFO lpInterfaceInfo
+    );
+
+    DWORD RetryRejectedCall
+    (
+        [in, annotation("_In_")] HTASK htaskCallee,
+        [in, annotation("_In_")] DWORD dwTickCount,
+        [in, annotation("_In_")] DWORD dwRejectType
+    );
+
+    DWORD MessagePending
+    (
+        [in, annotation("_In_")] HTASK htaskCallee,
+        [in, annotation("_In_")] DWORD dwTickCount,
+        [in, annotation("_In_")] DWORD dwPendingType
+    );
+}
+
+cpp_quote("")
+cpp_quote("// Well-known Property Set Format IDs")
+extern const FMTID FMTID_SummaryInformation;
+extern const FMTID FMTID_DocSummaryInformation;
+extern const FMTID FMTID_UserDefinedProperties;
+extern const FMTID FMTID_DiscardableInformation;
+extern const FMTID FMTID_ImageSummaryInformation;
+extern const FMTID FMTID_AudioSummaryInformation;
+extern const FMTID FMTID_VideoSummaryInformation;
+extern const FMTID FMTID_MediaFileSummaryInformation;
+
+
+/****************************************************************************
+ *  Connection Point Interfaces
+ ****************************************************************************/
+#ifdef __INCLUDE_CPIFS
+interface IConnectionPointContainer;
+interface IConnectionPoint;
+interface IEnumConnections;
+interface IEnumConnectionPoints;
+
+[
+    object,
+    uuid(B196B286-BAB4-101A-B69C-00AA00341D07),
+    pointer_default(unique)
+]
+interface IConnectionPoint : IUnknown
+{
+    typedef IConnectionPoint * PCONNECTIONPOINT;
+    typedef IConnectionPoint * LPCONNECTIONPOINT;
+
+    HRESULT GetConnectionInterface
+    (
+        [out]           IID * piid
+    );
+
+    HRESULT GetConnectionPointContainer
+    (
+        [out]           IConnectionPointContainer ** ppCPC
+    );
+
+    HRESULT Advise
+    (
+        [in]    IUnknown * pUnkSink,
+        [out]   DWORD *    pdwCookie
+    );
+
+    HRESULT Unadvise
+    (
+        [in]    DWORD dwCookie
+    );
+
+    HRESULT EnumConnections
+    (
+        [out]   IEnumConnections ** ppEnum
+    );
+}
+
+[
+    object,
+    uuid(B196B284-BAB4-101A-B69C-00AA00341D07),
+    pointer_default(unique)
+]
+interface IConnectionPointContainer : IUnknown
+{
+    typedef IConnectionPointContainer * PCONNECTIONPOINTCONTAINER;
+    typedef IConnectionPointContainer * LPCONNECTIONPOINTCONTAINER;
+
+    HRESULT EnumConnectionPoints
+    (
+        [out]   IEnumConnectionPoints ** ppEnum
+    );
+
+    HRESULT FindConnectionPoint
+    (
+        [in]    REFIID riid,
+        [out]   IConnectionPoint ** ppCP
+    );
+}
+
+
+[
+    object,
+    uuid(B196B287-BAB4-101A-B69C-00AA00341D07),
+    pointer_default(unique)
+]
+interface IEnumConnections : IUnknown
+{
+    typedef IEnumConnections * PENUMCONNECTIONS;
+    typedef IEnumConnections * LPENUMCONNECTIONS;
+
+    typedef struct tagCONNECTDATA
+    {
+        IUnknown *  pUnk;
+        DWORD       dwCookie;
+    } CONNECTDATA;
+
+    typedef struct tagCONNECTDATA * PCONNECTDATA;
+    typedef struct tagCONNECTDATA * LPCONNECTDATA;
+
+    [local]
+    HRESULT Next(
+        [in, annotation("_In_")]    ULONG           cConnections,
+        [annotation("_Out_writes_to_(cConnections, *lpcFetched)")]
+                                    CONNECTDATA *   rgcd,
+        [annotation("_Out_opt_")]   ULONG *         lpcFetched
+    );
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in]                            ULONG           cConnections,
+        [out,
+         size_is(cConnections),
+         length_is(*lpcFetched)]        CONNECTDATA *   rgcd,
+        [out]                           ULONG *         lpcFetched
+    );
+
+    HRESULT Skip
+    (
+        [in]    ULONG cConnections
+    );
+
+    HRESULT Reset
+    (
+        void
+    );
+
+    HRESULT Clone
+    (
+        [out]   IEnumConnections ** ppEnum
+    );
+}
+
+
+[
+    object,
+    uuid(B196B285-BAB4-101A-B69C-00AA00341D07),
+    pointer_default(unique)
+]
+interface IEnumConnectionPoints : IUnknown
+{
+    typedef IEnumConnectionPoints * PENUMCONNECTIONPOINTS;
+    typedef IEnumConnectionPoints * LPENUMCONNECTIONPOINTS;
+
+    [local]
+    HRESULT Next(
+        [in, annotation("_In_")]    ULONG               cConnections,
+        [annotation("_Out_writes_to_(cConnections,*lpcFetched)")]
+                                    IConnectionPoint ** rgpcn,
+        [annotation("_Out_opt_")]   ULONG *             lpcFetched
+    );
+
+    [call_as(Next)]
+    HRESULT RemoteNext(
+        [in]                        ULONG               cConnections,
+        [out,
+         size_is(cConnections),
+         length_is(*lpcFetched)]    IConnectionPoint ** rgpcn,
+        [out]                       ULONG *             lpcFetched
+    );
+
+    HRESULT Skip
+    (
+        [in]    ULONG   cConnections
+    );
+
+    HRESULT Reset
+    (
+        void
+    );
+
+    HRESULT Clone
+    (
+        [out]   IEnumConnectionPoints **    ppEnum
+    );
+}
+#endif // __INCLUDE_CPIFS
+[
+    object,
+    uuid(00000140-0000-0000-C000-000000000046)
+]
+
+interface IClassActivator : IUnknown
+{
+    HRESULT GetClassObject(
+        [in] REFCLSID rclsid,
+        [in] DWORD dwClassContext,
+        [in] LCID locale,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void **ppv);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(99caf010-415e-11cf-8814-00aa00b569f5),
+    pointer_default(unique)
+]
+
+interface IFillLockBytes: IUnknown
+{
+    [local]
+    HRESULT FillAppend
+    (
+        [in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in, annotation("_In_")] ULONG cb,
+        [out, annotation("_Out_")] ULONG *pcbWritten
+    );
+
+    [call_as(FillAppend)]
+    HRESULT _stdcall RemoteFillAppend(
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+
+    [local]
+    HRESULT FillAt
+    (
+        [in, annotation("_In_")] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb), annotation("_In_reads_bytes_(cb)")] void const *pv,
+        [in, annotation("_In_")] ULONG cb,
+        [out, annotation("_Out_")] ULONG *pcbWritten
+    );
+
+    [call_as(FillAt)]
+    HRESULT _stdcall RemoteFillAt(
+        [in] ULARGE_INTEGER ulOffset,
+        [in, size_is(cb)] byte const *pv,
+        [in] ULONG cb,
+        [out] ULONG *pcbWritten);
+
+    HRESULT SetFillSize
+    (
+        [in] ULARGE_INTEGER ulSize
+    );
+
+    HRESULT Terminate
+    (
+        [in] BOOL bCanceled
+    );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(a9d758a0-4617-11cf-95fc-00aa00680db4),
+    pointer_default(unique)
+]
+
+interface IProgressNotify: IUnknown
+{
+    HRESULT OnProgress
+    (
+        [in] DWORD dwProgressCurrent,
+        [in] DWORD dwProgressMaximum,
+        [in] BOOL  fAccurate,
+        [in] BOOL  fOwner
+    );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    local,
+    object,
+    uuid(0e6d4d90-6738-11cf-9608-00aa00680db4),
+    pointer_default(unique)
+]
+
+interface ILayoutStorage: IUnknown
+{
+        typedef struct tagStorageLayout
+        {
+            DWORD LayoutType;
+            OLECHAR *pwcsElementName;
+            LARGE_INTEGER cOffset;
+            LARGE_INTEGER cBytes;
+        } StorageLayout;
+
+        HRESULT __stdcall LayoutScript
+        (
+            [in, annotation("_In_reads_(nEntries)")] StorageLayout *pStorageLayout,
+            [in, annotation("_In_")] DWORD nEntries,
+            [in, annotation("_Reserved_")] DWORD glfInterleavedFlag
+        );
+        HRESULT __stdcall BeginMonitor(void);
+
+        HRESULT __stdcall EndMonitor(void);
+
+        HRESULT __stdcall ReLayoutDocfile
+        (
+            [in, annotation("__RPC__in")] OLECHAR *pwcsNewDfName
+        );
+
+        HRESULT __stdcall ReLayoutDocfileOnILockBytes
+        (
+            [in, annotation("_In_")] ILockBytes *pILockBytes
+        );
+
+
+}
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+ object,
+ uuid(30f3d47a-6447-11d1-8e3c-00c04fb9386d)
+]
+interface IBlockingLock: IUnknown
+{
+        HRESULT Lock([in] DWORD dwTimeout);
+
+        HRESULT Unlock(void);
+}
+
+
+[
+ object,
+ uuid(bc0bf6ae-8878-11d1-83e9-00c04fc2c6d4)
+]
+interface ITimeAndNoticeControl: IUnknown
+{
+        HRESULT SuppressChanges([in] DWORD res1,
+                                [in] DWORD res2);
+
+}
+
+
+
+[
+ object,
+ uuid(8d19c834-8879-11d1-83e9-00c04fc2c6d4)
+]
+interface IOplockStorage: IUnknown
+{
+        HRESULT CreateStorageEx([in] LPCWSTR pwcsName,
+                                [in] DWORD grfMode,
+                                [in] DWORD stgfmt,
+                                [in] DWORD grfAttrs,
+                                [in] REFIID riid,
+                                [out, iid_is(riid)] void**ppstgOpen);
+
+        HRESULT OpenStorageEx([in] LPCWSTR pwcsName,
+                              [in] DWORD grfMode,
+                              [in] DWORD stgfmt,
+                              [in] DWORD grfAttrs,
+                              [in] REFIID riid,
+                              [out, iid_is(riid)] void**ppstgOpen);
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    object,
+    uuid(0e6d4d92-6738-11cf-9608-00aa00680db4),
+    pointer_default(unique)
+]
+
+interface IDirectWriterLock : IUnknown
+{
+
+    HRESULT WaitForWriteAccess ([in] DWORD dwTimeout);
+
+    HRESULT ReleaseWriteAccess ();
+
+    HRESULT HaveWriteAccess ();
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Desktop Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+[
+ object,
+ uuid(00000026-0000-0000-C000-000000000046)
+]
+interface IUrlMon : IUnknown
+{
+    HRESULT AsyncGetClassBits(
+        [in]         REFCLSID   rclsid,
+        [in, unique] LPCWSTR    pszTYPE,
+        [in, unique] LPCWSTR    pszExt,
+        [in]         DWORD      dwFileVersionMS,
+        [in]         DWORD      dwFileVersionLS,
+        [in, unique] LPCWSTR    pszCodeBase,
+        [in]         IBindCtx * pbc,
+        [in]         DWORD      dwClassContext,
+        [in]         REFIID     riid,
+        [in]         DWORD      flags);
+}
+
+[
+local,
+object,
+uuid(00000145-0000-0000-C000-000000000046)
+]
+interface IForegroundTransfer : IUnknown
+{
+    HRESULT AllowForegroundTransfer(
+        [in, annotation("_Reserved_")] void *lpvReserved);
+}
+
+
+/****************************************************************************
+* Thumbnail generator interface
+****************************************************************************/
+
+[uuid(969dc708-5c76-11d1-8d86-0000f804b057),
+    object
+]
+interface IThumbnailExtractor : IUnknown
+{
+    HRESULT ExtractThumbnail (
+        [in] IStorage *pStg,
+        [in] ULONG ulLength,
+        [in] ULONG ulHeight,
+        [out] ULONG *pulOutputLength,
+        [out] ULONG *pulOutputHeight,
+        [out] HBITMAP *phOutputBitmap
+        );
+
+
+    HRESULT OnFileUpdated (
+        [in] IStorage *pStg
+        );
+}
+
+/****************************************************************************
+* Dummy Interface to force inclusion of HICON and HDC in proxy/stub code....
+****************************************************************************/
+
+[
+    object,
+    pointer_default(unique),
+    uuid(947990de-cc28-11d2-a0f7-00805f858fb1)
+]
+interface IDummyHICONIncluder : IUnknown
+{
+        HRESULT Dummy([in]HICON h1, [in] HDC h2);
+}
+
+
+/****************************************************************************
+ *                         Surrogate Types				                    *
+ ****************************************************************************/
+
+//
+// ApplicationType
+//
+typedef enum tagApplicationType 
+{ 
+	ServerApplication, 
+	LibraryApplication 
+} ApplicationType;
+
+//
+// ShutdownType
+//
+typedef enum tagShutdownType 
+{ 
+	IdleShutdown, 
+	ForcedShutdown
+} ShutdownType;
+
+
+/****************************************************************************
+ *                         Surrogate Services Interfaces                    *
+ ****************************************************************************/
+
+//
+// IProcessLock
+//
+[
+    object,
+	local,
+    uuid(000001d5-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IProcessLock : IUnknown
+{
+	ULONG AddRefOnProcess();
+	ULONG ReleaseRefOnProcess();
+}
+
+
+//
+// ISurrogateService
+//
+[
+    object,
+    local,
+    uuid(000001d4-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface ISurrogateService : IUnknown
+{
+        HRESULT Init( [in, annotation("_In_")] REFGUID rguidProcessID,
+                      [in, annotation("_In_")] IProcessLock* pProcessLock,
+                      [out, annotation("_Out_")] BOOL* pfApplicationAware );
+        HRESULT ApplicationLaunch( [in, annotation("_In_")] REFGUID rguidApplID, 
+                                   [in, annotation("_In_")] ApplicationType appType );
+        HRESULT ApplicationFree( [in, annotation("_In_")] REFGUID rguidApplID );
+        HRESULT CatalogRefresh( [in, annotation("_Reserved_")] ULONG ulReserved );
+        HRESULT ProcessShutdown( [in, annotation("_In_")] ShutdownType shutdownType );
+}
+
+
+cpp_quote( "#if  (_WIN32_WINNT >= 0x0501 )" )
+
+[
+    local,
+    object,
+    uuid(00000034-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IInitializeSpy : IUnknown
+{
+   typedef [unique] IInitializeSpy *LPINITIALIZESPY;
+
+   HRESULT PreInitialize(
+       [in, annotation("_In_")] DWORD dwCoInit, 
+       [in, annotation("_In_")] DWORD dwCurThreadAptRefs);
+   HRESULT PostInitialize(
+       [in, annotation("_In_")] HRESULT hrCoInit, 
+       [in, annotation("_In_")] DWORD dwCoInit, 
+       [in, annotation("_In_")] DWORD dwNewThreadAptRefs);
+   HRESULT PreUninitialize([in, annotation("_In_")] DWORD dwCurThreadAptRefs);
+   HRESULT PostUninitialize([in, annotation("_In_")] DWORD dwNewThreadAptRefs);
+};
+
+cpp_quote( "#endif" )
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)")
+
+[
+    local,
+    object,
+    uuid(A2F05A09-27A2-42B5-BC0E-AC163EF49D9B),
+    pointer_default(unique)
+]
+interface IApartmentShutdown : IUnknown
+{
+    void OnUninitialize(
+    [in, annotation("_In_")] UINT64 ui64ApartmentIdentifier);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")

@@ -1,0 +1,170 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "shtypes.idl";
+import "shobjidl_core.idl";
+
+typedef [v1_enum] enum WTS_FLAGS
+{
+    WTS_NONE                 = 0x00000000,
+    WTS_EXTRACT              = 0x00000000,  // Extract the thumbnail if it is not cached.
+    WTS_INCACHEONLY          = 0x00000001,  // Only return the thumbnail if it is cached.
+    WTS_FASTEXTRACT          = 0x00000002,  // If not cached, only extract the thumbnail if it is embedded in EXIF format, typically 160x120.
+    WTS_FORCEEXTRACTION      = 0x00000004,  // Ignore cache and extract thumbnail from source file.
+    WTS_SLOWRECLAIM          = 0x00000008,  // Thumbnail has an extended lifetime. Use for volumes that might go offline, like non-fixed disks.
+    WTS_EXTRACTDONOTCACHE    = 0x00000020,  // Extract but do not add to cache.
+    WTS_SCALETOREQUESTEDSIZE = 0x00000040,  // Windows 7 and later. If necessary, shrink the bitmap (preserving aspect ratio) so width and height fit the given size.
+    WTS_SKIPFASTEXTRACT      = 0x00000080,  // Windows 7 and later. Do not attempt to extract the thumbnail embedded in EXIF format.
+    WTS_EXTRACTINPROC        = 0x00000100,  // Windows 7 and later. Run the thumbnail extractor InProc. Use for debugging thumbnail extractors.
+    WTS_CROPTOSQUARE         = 0x00000200,  // Windows 8 and later. If necessary, crop the bitmap to a square.
+    WTS_INSTANCESURROGATE    = 0x00000400,  // Windows 8 and later. Create a surrogate for this instance of the cache, rather than using the shared dllhost surrogate
+    WTS_REQUIRESURROGATE     = 0x00000800,  // Windows 8 and later. Require extractions to take place in the surrogate
+    WTS_APPSTYLE             = 0x00002000,  // Windows 8 and later. Pass the App-style flag to IThumbnailSettings if the provider supports it.
+    WTS_WIDETHUMBNAILS       = 0x00004000,  // Windows 8 and later. Stretch and crop the bitmap to a .7 aspect ratio.
+    WTS_IDEALCACHESIZEONLY   = 0x00008000,  // Windows 8 and later. Return from the ideal cache snap size only. The returned image may still be larger but it will be pulled from the correct cache entry
+    WTS_SCALEUP              = 0x00010000,  // Windows 8 and later. If necessary, stretch the bitmap so width and height fit the given size.
+} WTS_FLAGS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(WTS_FLAGS)")
+
+typedef [v1_enum] enum WTS_CACHEFLAGS
+{
+    WTS_DEFAULT     = 0x00000000,
+    WTS_LOWQUALITY  = 0x00000001,
+    WTS_CACHED      = 0x00000002,
+} WTS_CACHEFLAGS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(WTS_CACHEFLAGS)")
+
+typedef [v1_enum] enum WTS_CONTEXTFLAGS
+{
+    WTSCF_DEFAULT       = 0x00000000,
+    WTSCF_APPSTYLE      = 0x00000001,
+    WTSCF_SQUARE        = 0x00000002,
+    WTSCF_WIDE          = 0x00000004,
+    WTSCF_FAST          = 0x00000008,
+} WTS_CONTEXTFLAGS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(WTS_CONTEXTFLAGS)")
+
+typedef [v1_enum] enum WTS_ALPHATYPE
+{
+    WTSAT_UNKNOWN = 0,
+    WTSAT_RGB = 1,
+    WTSAT_ARGB = 2,
+} WTS_ALPHATYPE;
+
+typedef struct WTS_THUMBNAILID
+{
+    BYTE rgbKey[16];
+} WTS_THUMBNAILID;
+
+// Custom error codes
+cpp_quote("#define WTS_E_FAILEDEXTRACTION                     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB200)")
+cpp_quote("#define WTS_E_EXTRACTIONTIMEDOUT                   MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB201)")
+cpp_quote("#define WTS_E_SURROGATEUNAVAILABLE                 MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB202)")
+cpp_quote("#define WTS_E_FASTEXTRACTIONNOTSUPPORTED           MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB203)")
+cpp_quote("#define WTS_E_DATAFILEUNAVAILABLE                  MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB204)")
+cpp_quote("#define WTS_E_EXTRACTIONPENDING                    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB205)")
+cpp_quote("#define WTS_E_EXTRACTIONBLOCKED                    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB206)")
+cpp_quote("#define WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0xB207)")
+
+// This interface is used as a thin wrapper around HBITMAP objects.  It allows an
+// HBITMAP to be ref-counted and protected from having its underlying data be changed
+[
+    uuid(091162a4-bc96-411f-aae8-c5122cd03363),
+    pointer_default(unique),
+]
+interface ISharedBitmap : IUnknown
+{
+    HRESULT GetSharedBitmap([out] HBITMAP *phbm);
+    HRESULT GetSize([out] SIZE *pSize);
+    HRESULT GetFormat([out] WTS_ALPHATYPE *pat);
+    HRESULT InitializeBitmap([in] HBITMAP hbm, [in] WTS_ALPHATYPE wtsAT);
+    HRESULT Detach([out] HBITMAP *phbm);
+}
+
+// Interface for the system thumbnail cache.  GetThumbnail is used to extract and return
+// thumbnails for IShellItems.  The cache behavior can be specified using one or more of
+// the WTS_FLAGS.  GetThumbnailID allows the caller to retrieve an image known to be in
+// the cache via its ID (which was returned by GetThumbnail).
+
+[
+    object,
+    uuid(F676C15D-596A-4ce2-8234-33996F445DB1),
+]
+interface IThumbnailCache : IUnknown
+{
+    [local]
+    HRESULT GetThumbnail([in]                                   IShellItem *pShellItem,
+                         [in]                                   UINT cxyRequestedThumbSize,
+                         [in]                                   WTS_FLAGS flags,
+                         [out, unique, annotation("_Out_opt_")] ISharedBitmap **ppvThumb,
+                         [out, unique, annotation("_Out_opt_")] WTS_CACHEFLAGS *pOutFlags,
+                         [out, unique, annotation("_Out_opt_")] WTS_THUMBNAILID *pThumbnailID);
+
+    [call_as(GetThumbnail)]
+    HRESULT RemoteGetThumbnail([in]  IShellItem *pShellItem,
+                               [in]  UINT cxyRequestedThumbSize,
+                               [in]  WTS_FLAGS flags,
+                               [out] ISharedBitmap **ppvThumb,
+                               [out] WTS_CACHEFLAGS *pOutFlags,
+                               [out] WTS_THUMBNAILID *pThumbnailID);
+
+    [local]
+    HRESULT GetThumbnailByID([in]                                   WTS_THUMBNAILID thumbnailID,
+                             [in]                                   UINT cxyRequestedThumbSize,
+                             [out, unique, annotation("_Out_opt_")] ISharedBitmap **ppvThumb,
+                             [out, unique, annotation("_Out_opt_")] WTS_CACHEFLAGS *pOutFlags);
+
+    [call_as(GetThumbnailByID)]
+    HRESULT RemoteGetThumbnailByID([in]  WTS_THUMBNAILID thumbnailID,
+                                   [in]  UINT cxyRequestedThumbSize,
+                                   [out] ISharedBitmap **ppvThumb,
+                                   [out] WTS_CACHEFLAGS *pOutFlags);
+}
+
+[
+    uuid(e357fccd-a995-4576-b01f-234630154e96),
+]
+interface IThumbnailProvider : IUnknown
+{
+    HRESULT GetThumbnail([in] UINT cx, [out] HBITMAP *phbmp, [out] WTS_ALPHATYPE *pdwAlpha);
+}
+
+[
+    uuid(F4376F00-BEF5-4d45-80F3-1E023BBF1209),
+]
+interface IThumbnailSettings : IUnknown
+{
+    HRESULT SetContext([in] WTS_CONTEXTFLAGS dwContext);
+}
+
+[
+    uuid(0f03f8fe-2b26-46f0-965a-212aa8d66b76),
+    object,
+    pointer_default(unique)
+]
+interface IThumbnailCachePrimer : IUnknown
+{
+    HRESULT PageInThumbnail([in] IShellItem *psi, [in] WTS_FLAGS wtsFlags, [in] UINT cxyRequestedThumbSize);
+}
+
+[
+    uuid(4c857096-0514-4d4d-abd5-dfaaa3c326d2)
+] 
+library ThumbCacheLib
+{
+    // Local Thumbnail Cache
+    [ uuid(50EF4544-AC9F-4A8E-B21B-8A26180DB13F) ] coclass LocalThumbnailCache { interface IThumbnailCache; }
+
+    // Shared Bitmap Object
+    [ uuid(4db26476-6787-4046-b836-e8412a9e8a27) ] coclass SharedBitmap { interface ISharedBitmap; }    
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

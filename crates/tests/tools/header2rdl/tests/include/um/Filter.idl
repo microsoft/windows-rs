@@ -1,0 +1,182 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-1998
+//
+//  File:       ifilt.idl
+//
+//  Contents:   IFilter interface definition
+//
+//  History:    12-Jul-93   AmyA        Created
+//
+//--------------------------------------------------------------------------
+
+import "unknwn.idl";
+import "objidl.idl";
+import "propidl.idl";
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1993-1998.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if !defined(_TAGFULLPROPSPEC_DEFINED_)")
+cpp_quote("#define _TAGFULLPROPSPEC_DEFINED_")
+typedef struct tagFULLPROPSPEC
+{
+    GUID         guidPropSet;
+    PROPSPEC psProperty;
+} FULLPROPSPEC;
+cpp_quote("#endif // #if !defined(_TAGFULLPROPSPEC_DEFINED_)")
+
+[
+    object,
+    uuid(89BCB740-6119-101A-BCB7-00DD010655AF),
+    pointer_default(unique)
+]
+
+interface IFilter : IUnknown
+{
+    cpp_quote("#ifndef _tagIFILTER_INIT_DEFINED")
+    typedef enum tagIFILTER_INIT
+    {
+        IFILTER_INIT_CANON_PARAGRAPHS        = 1,
+        IFILTER_INIT_HARD_LINE_BREAKS        = 2,
+        IFILTER_INIT_CANON_HYPHENS           = 4,
+        IFILTER_INIT_CANON_SPACES            = 8,
+
+        IFILTER_INIT_APPLY_INDEX_ATTRIBUTES  = 16,
+        IFILTER_INIT_APPLY_OTHER_ATTRIBUTES  = 32,
+        IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES  = 256,
+
+        IFILTER_INIT_INDEXING_ONLY           = 64,
+
+        IFILTER_INIT_SEARCH_LINKS            = 128,
+
+        IFILTER_INIT_FILTER_OWNED_VALUE_OK   = 512,
+        
+        IFILTER_INIT_FILTER_AGGRESSIVE_BREAK = 1024,
+        
+        IFILTER_INIT_DISABLE_EMBEDDED        = 2048,
+        
+        IFILTER_INIT_EMIT_FORMATTING         = 4096
+
+    } IFILTER_INIT;
+    cpp_quote("#define _tagIFILTER_INIT_DEFINED")
+    cpp_quote("#define _IFILTER_INIT_DEFINED")
+    cpp_quote("#endif")
+
+    cpp_quote("#ifndef _tagIFILTER_FLAGS_DEFINED")
+    typedef enum tagIFILTER_FLAGS
+    {
+        IFILTER_FLAGS_OLE_PROPERTIES        = 1
+    } IFILTER_FLAGS;
+    cpp_quote("#define _tagIFILTER_FLAGS_DEFINED")
+    cpp_quote("#define _IFILTER_FLAGS_DEFINED")
+    cpp_quote("#endif")
+
+    cpp_quote("#ifndef _tagCHUNKSTATE_DEFINED")
+    typedef enum tagCHUNKSTATE
+    {
+        CHUNK_TEXT               = 0x1,
+        CHUNK_VALUE              = 0x2,
+        CHUNK_FILTER_OWNED_VALUE = 0x4,
+        CHUNK_IMAGE              = 0x8
+
+    } CHUNKSTATE;
+    cpp_quote("#define _tagCHUNKSTATE_DEFINED")
+    cpp_quote("#define _CHUNKSTATE_DEFINED")
+    cpp_quote("#endif")
+
+    cpp_quote("#ifndef _tagCHUNK_BREAKTYPE_DEFINED")
+    typedef enum tagCHUNK_BREAKTYPE
+    {
+        CHUNK_NO_BREAK  = 0,
+        CHUNK_EOW       = 1,
+        CHUNK_EOS       = 2,
+        CHUNK_EOP       = 3,
+        CHUNK_EOC       = 4
+    } CHUNK_BREAKTYPE;
+    cpp_quote("#define _tagCHUNK_BREAKTYPE_DEFINED")
+    cpp_quote("#define _CHUNK_BREAKTYPE_DEFINED")
+    cpp_quote("#endif")
+
+    cpp_quote("#ifndef _tagFILTERREGION_DEFINED")
+    typedef struct tagFILTERREGION
+    {
+        ULONG idChunk;
+        ULONG cwcStart;
+        ULONG cwcExtent;
+    } FILTERREGION;
+    cpp_quote("#define _tagFILTERREGION_DEFINED")
+    cpp_quote("#define _FILTERREGION_DEFINED")
+    cpp_quote("#endif")
+
+    cpp_quote("#ifndef _tagSTAT_CHUNK_DEFINED")
+    typedef struct tagSTAT_CHUNK
+    {
+        ULONG           idChunk;
+        CHUNK_BREAKTYPE breakType;
+        CHUNKSTATE      flags;
+        LCID            locale;
+        FULLPROPSPEC    attribute;
+        ULONG           idChunkSource;
+        ULONG           cwcStartSource;
+        ULONG           cwcLenSource;
+    } STAT_CHUNK;
+
+    cpp_quote("#define _tagSTAT_CHUNK_DEFINED")
+    cpp_quote("#define _STAT_CHUNK_DEFINED")
+    cpp_quote("#endif")
+
+    SCODE Init([in] ULONG grfFlags,
+               [in] ULONG cAttributes,
+               [in, size_is(cAttributes), unique] FULLPROPSPEC const * aAttributes,
+               [out] ULONG * pFlags );
+
+    SCODE GetChunk([out] STAT_CHUNK * pStat );
+
+    SCODE GetText([in, out] ULONG * pcwcBuffer,
+                  [out, size_is(*pcwcBuffer)] WCHAR * awcBuffer );
+
+    SCODE GetValue([out] PROPVARIANT ** ppPropValue );
+
+    [local]
+    SCODE BindRegion([in] FILTERREGION origPos,
+                     [in] REFIID riid,
+                     [out] void ** ppunk );
+
+}
+
+[
+    object,
+    uuid(3d7df9a7-8da6-4fbf-a45b-7592f06d93a9),
+    pointer_default(unique)
+]
+interface IPixelFilter : IFilter
+{
+    typedef enum IMAGE_PIXELFORMAT
+    {
+        FILTER_PIXELFORMAT_BGRA8 = 0,
+        FILTER_PIXELFORMAT_PBGRA8 = 1,
+        FILTER_PIXELFORMAT_BGR8 = 2
+    } IMAGE_PIXELFORMAT;
+    typedef struct IMAGE_INFO
+    {
+        UINT Width;
+        UINT Height;
+        IMAGE_PIXELFORMAT Format;
+    } IMAGE_INFO;
+    HRESULT GetImageInfo([out] IMAGE_INFO* imageInfo);
+    HRESULT GetPixelsForImage([in] FLOAT scalingFactor, [in, unique] const RECT* sourceRect, [in] ULONG pixelBufferSize, [out, size_is(pixelBufferSize)] BYTE* pixelBuffer);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

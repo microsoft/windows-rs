@@ -1,0 +1,292 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "ResiliencySetting is a detailed description of the resiliency capabilities offered by "
+    "a storage pool. A storage pool can have one or more of these settings. It specifies a "
+    "series of properties with a minimum, maximum, and default value. The minimum and maximum "
+    "values may not reflect the current capabilities of the storage pool, but rather the ideal "
+    "range of capabilities offered by the subsystem. The default values will be used when "
+    "creating new virtual disks unless overridden."
+    )]
+class MSFT_ResiliencySetting : MSFT_StorageObject {
+
+    [Read, Required, Description(
+        "A system set, user-friendly, display-oriented string which describes the resiliency "
+        "setting."
+        )]
+    String Name;
+
+    [Read, Description(
+        "A system set description of the capabilities of the resiliency setting, including (but "
+        "not limited to) when a setting should be used, its strengths and drawbacks, performance "
+        "information, and any other information that the vendor feels is helpful to the user. "
+        )]
+    String Description;
+
+    [Read, Description(
+        "This field reports the minimum number of complete copies of data that will be "
+        "maintained by the storage pool."
+        ),
+        MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.NumberOfDataCopiesMax",
+            "MSFT_ResiliencySetting.NumberOfDataCopiesDefault"
+            }]
+    UInt16 NumberOfDataCopiesMin;
+
+    [Read, Description(
+        "This field reports the maximum number of complete copies of data that can be maintained "
+        "by the storage pool."
+        ),
+        MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.NumberOfDataCopiesMin",
+            "MSFT_ResiliencySetting.NumberOfDataCopiesDefault"
+            }]
+    UInt16 NumberOfDataCopiesMax;
+
+    [Read, Description(
+        "This field is a user-settable preference for the number of complete data copies to "
+        "maintain. Its value must be within the range defined by NumberofDataCopiesMin and "
+        "NumberOfDataCopiesMax (inclusive). For new concrete pools, the default should be "
+        "inherited from the corresponding primordial pool's capability. In the case of the "
+        "primordial pool, the initial value for this field is left to the Storage Management "
+        "Provider software."
+        ),
+        MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.NumberOfDataCopiesMin",
+            "MSFT_ResiliencySetting.NumberOfDataCopiesMax"
+            }]
+    UInt16 NumberOfDataCopiesDefault;
+
+    [Read, Description(
+        "This field reports the minimum number of tolerable physical disk failures that can "
+        "occur before data loss would occur."
+        ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.PhysicalDiskRedundancyMax",
+            "MSFT_ResiliencySetting.PhysicalDiskRedundancyDefault"
+            }]
+    UInt16 PhysicalDiskRedundancyMin;
+
+    [Read, Description(
+        "This field reports the maximum number of tolerable physical disk failures that could "
+        "occur before data loss would occur."
+        ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.PhysicalDiskRedundancyMin",
+            "MSFT_ResiliencySetting.PhysicalDiskRedundancyDefault"
+            }]
+    UInt16 PhysicalDiskRedundancyMax;
+
+    [Read, Description(
+        "This field is a user-settable preference for how many physical disk failures a virtual "
+        "disk should be able to withstand before data loss occurs."
+        ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.PhysicalDiskRedundancyMin",
+            "MSFT_ResiliencySetting.PhysicalDiskRedundancyMax"
+            }]
+    UInt16 PhysicalDiskRedundancyDefault;
+
+    [Read, Description(
+        "This field describes the minimum number of underlying physical disks across which data "
+        "can be striped in the common striping-based resiliency settings."
+        ), MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.NumberOfColumnsMax",
+            "MSFT_ResiliencySetting.NumberOfColumnsDefault"
+            }]
+    UInt16 NumberOfColumnsMin;
+
+    [Read, Description(
+        "This field describes the maximum number of underlying physical disks across which data "
+        "can be striped in the common striping-based resiliency settings."
+        ), MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.NumberOfColumnsMin",
+            "MSFT_ResiliencySetting.NumberOfColumnsDefault"
+            }]
+    UInt16 NumberOfColumnsMax;
+
+    [Read, Description(
+        "This field is a user-settable preference for the number of underlying physical disks "
+        "across which data should be striped."
+        ), MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.NumberOfColumnsMin",
+            "MSFT_ResiliencySetting.NumberOfColumnsMax"
+            }]
+    UInt16 NumberOfColumnsDefault;
+
+    [Read, Description(
+        "This field describes the minimum number of bytes that can form a strip in common "
+        "striping-based resiliency settings. The strip is defined as the size of the portion "
+        "of a stripe that lies on one physical disk."
+        ),
+        Units("Bytes"),
+        MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.InterleaveMax",
+            "MSFT_ResiliencySetting.InterleaveDefault"
+            }]
+    UInt64 InterleaveMin;
+
+    [Read, Description(
+        "This field describes the maximum number of bytes that can form a strip in common "
+        "striping-based resiliency settings. The strip is defined as the size of the portion "
+        "of a stripe that lies on one physical disk."
+        ),
+        Units("Bytes"),
+        MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.InterleaveMin",
+            "MSFT_ResiliencySetting.InterleaveDefault"
+            }]
+    UInt64 InterleaveMax;
+
+    [Read, Description(
+        "This field describes the desired number of bytes that will form a strip in common "
+        "striping-based resiliency settings. The strip is defined as the size of the portion "
+        "of a stripe that lies on one physical disk. Thus, Interleave * NumberOfColumns will "
+        "yield the total size of one stripe."
+        ),
+        Units("Bytes"),
+        MinValue( 1 ),
+        ModelCorrespondence {
+            "MSFT_ResiliencySetting.InterleaveMin",
+            "MSFT_ResiliencySetting.InterleaveMax"
+            }]
+    UInt64 InterleaveDefault;
+
+    [Read]
+    UInt16 NumberOfGroupsMin;
+
+    [Read]
+    UInt16 NumberOfGroupsMax;
+
+    [Read]
+    UInt16 NumberOfGroupsDefault;
+
+    [Read, Description(
+        "This field specifies whether a parity-based resiliency setting is using a rotated or "
+        "non-rotated parity layout. If the resiliency setting is not parity based, this field "
+        "must be set to NULL"
+        ),
+        ValueMap { "1", "2" },
+        Values { "Non-rotated Parity", "Rotated Parity" }]
+    UInt16 ParityLayout;
+
+    [Read]
+    Boolean RequestNoSinglePointOfFailure;
+
+
+    //
+    // Method: SetDefaults
+    //
+
+    [Description(
+        "This method allows a user to modify the default values for this resiliency setting."
+        "The updated values will take effect only for subsequent virtual disk creations and are "
+        "not retroactively applied."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5",
+            "40001", "40002",
+            "46000", "46001",
+            "48000", "48006", "48007",
+            "49002", "49003", "49005", "49006"
+            },
+        Values {
+            // 0 - 39999
+            "Success", "Not Supported", "Unspecified Error",
+            "Timeout", "Failed", "Invalid Parameter",
+            // 40000 - 40999
+            "Access denied",
+            "There are not enough resources to complete the operation.",
+            // 46000 - 46999
+            "Cannot connect to the storage provider.",
+            "The storage provider cannot connect to the storage subsystem.",
+            // 48000 - 48999
+            "This operation is not supported on primordial storage pools.",
+            "The storage pool could not complete the operation because its health or operational status does not permit it.",
+            "The storage pool could not complete the operation because its configuration is read-only.",
+            // 49000 - 49999
+            "The value for PhysicalDiskRedundancy is outside of the supported range of values.",
+            "The value for NumberOfDataCopies is outside of the supported range of values.",
+            "The value for Interleave is outside of the supported range of values.",
+            "The value for NumberOfColumns is outside of the supported range of values." }]
+    UInt32 SetDefaults(
+
+        [In, Description(
+            "The desired number of full data copies to maintain. This value must be between "
+            "NumberofDataCopiesMin and NumberofDataCopiesMax."
+            )]
+        UInt16 NumberOfDataCopiesDefault,
+
+        [In, Description(
+            "The desired level of physical disk failure tolerance. This value must be between "
+            "PhyscialDiskRedundancyMin and PhysicalDiskRedundancyMax."
+            )]
+        UInt16 PhysicalDiskRedundancyDefault,
+
+        [In, Description(
+            "Specifies the desired number of physical disks to stripe data across. This value "
+            "must be between NumberOfColumnsMin and NumberofColumnsMax."
+            )]
+        UInt16 NumberOfColumnsDefault,
+
+        [In, Description(
+            "If TRUE, this field instructs the storage provider (or subsystem) to automatically "
+            "pick what it determines to be the best number of columns for this resiliency "
+            "setting. If this field is TRUE, then the NumberOfColumnsDefault parameter must be NULL."
+            )]
+        Boolean AutoNumberOfColumns,
+
+        [In, Description(
+            "Specifies the desired size of a data strip on a single physical disk in a striping "
+            "based resiliency setting. This value must be between InterleaveMin and InterleaveMax. "
+            )]
+        UInt64 InterleaveDefault,
+
+        [Out, Description(
+            "ExtendedStatus allows the storage provider to return extended (implementation "
+            "specific) error information."
+            ),
+            EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetDefaults2
+    //
+
+    UInt32 SetDefaults2(
+
+        [In]
+        UInt16 NumberOfDataCopiesDefault,
+
+        [In]
+        UInt16 PhysicalDiskRedundancyDefault,
+
+        [In]
+        UInt16 NumberOfColumnsDefault,
+
+        [In]
+        Boolean AutoNumberOfColumns,
+
+        [In]
+        UInt64 InterleaveDefault,
+
+        [In]
+        UInt16 NumberOfGroupsDefault,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+};

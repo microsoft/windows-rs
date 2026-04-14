@@ -1,0 +1,29 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract, Description (
+    "This class exposes offload data transfer (ODX) settings for a subsystem."
+    )]
+class MSFT_OffloadDataTransferSetting : MSFT_StorageObject {
+
+    [Read, Description(
+        "Supports transfer of data using tokens across different subystems."
+        )]
+    Boolean SupportInterSubsystem;
+
+    [Read, Description(
+        "Maximum number of tokens avaiable per subsystem"
+        )]
+    UInt32 NumberOfTokensMax;
+
+    [Read, Description(
+        "Number of tokens in use for the subsystem."
+        )]
+    UInt32 NumberOfTokensInUse;
+
+    [Read]
+    UInt32 OptimalDataTokenSize;
+};

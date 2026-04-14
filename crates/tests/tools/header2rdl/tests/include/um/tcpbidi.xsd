@@ -1,0 +1,152 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bidi="http://schemas.microsoft.com/windows/2005/03/printing/bidi" targetNamespace="http://schemas.microsoft.com/windows/2005/03/printing/bidi">
+<annotation>
+    <documentation>
+        TCP/IP Printing Bidi Extension XML Schema for Print Class Driver v1.0
+
+        Copyright (c) Microsoft Corporation.  All rights reserved.
+    </documentation>
+</annotation>
+
+<element name="Schema">
+    <complexType>
+        <sequence minOccurs="1" maxOccurs="unbounded">
+            <element name="Property" type="bidi:PROPERTY"/>
+        </sequence>
+    </complexType>
+</element>
+
+<complexType name="PROPERTY">
+    <sequence minOccurs="1" maxOccurs="unbounded">
+        <choice>
+            <element name="Property"        type="bidi:PROPERTY"/>
+            <element name="IndexedProperty" type="bidi:INDEXED_PROPERTY"/>
+            <element name="Const"           type="bidi:CONST"/>
+            <element name="Value"           type="bidi:VALUE"/>
+            <element name="Installed"       type="bidi:INSTALLED"/>
+            <element name="BuiltIn"         type="bidi:BUILT_IN"/>
+            <element name="InputBin"        type="bidi:BIN"/>
+            <element name="OutputBin"       type="bidi:BIN"/>
+            <element name="Converter"       type="bidi:CONVERTER"/>
+        </choice>
+    </sequence>
+    <attribute name="name" type="bidi:PROPERTY_NAME" use="required"/>
+</complexType>
+
+<simpleType name='PROPERTY_NAME'>
+    <restriction base='string'>
+        <pattern value='\w+'/>
+    </restriction>
+</simpleType>
+
+<complexType name="INDEXED_PROPERTY">
+    <sequence minOccurs="1" maxOccurs="unbounded">
+        <choice>
+            <element name="IndexedProperty"    type="bidi:INDEXED_PROPERTY"/>
+            <element name="NonIndexedProperty" type="bidi:NON_INDEXED_PROPERTY"/>
+            <element name="Value"              type="bidi:VALUE"/>
+            <element name="BuiltIn"            type="bidi:BUILT_IN"/>
+            <element name="Converter"          type="bidi:CONVERTER"/>
+        </choice>
+    </sequence>
+    <attribute name="name" type="bidi:PROPERTY_NAME" use="required"/>
+</complexType>
+
+<complexType name="NON_INDEXED_PROPERTY">
+    <complexContent>
+        <extension base="bidi:INDEXED_PROPERTY"/>
+    </complexContent>
+</complexType>
+
+<simpleType name="BIDI_TYPE">
+    <restriction base="string">
+        <enumeration value="BIDI_INT"/>
+        <enumeration value="BIDI_ENUM"/>
+        <enumeration value="BIDI_STRING"/>
+        <enumeration value="BIDI_TEXT"/>
+        <enumeration value="BIDI_FLOAT"/>
+        <enumeration value="BIDI_BOOL"/>
+        <enumeration value="BIDI_BLOB"/>
+    </restriction>
+</simpleType>
+
+<simpleType name="OID">
+    <restriction base="string">
+        <pattern value="[0-9]+(\.[0-9]+)*"/>
+    </restriction>
+</simpleType>
+
+<complexType name="CONST">
+    <attribute name="name"              type="bidi:VALUE_NAME"   use="required"/>
+    <attribute name="type"              type="bidi:BIDI_TYPE"    use="required"/>
+    <attribute name="value"             type="string"            use="required"/>
+</complexType>
+
+<complexType name="VALUE">
+    <attribute name="name"              type="bidi:VALUE_NAME"   use="required"/>
+    <attribute name="type"              type="bidi:BIDI_TYPE"    use="required"/>
+    <attribute name="oid"               type="bidi:OID"          use="required"/>
+    <attribute name="deviceIndex"       type="boolean"           use="optional"/>
+    <attribute name="refreshInterval"   type="integer"           use="optional"/>
+    <attribute name="drvPrinterEvent"   type="boolean"           use="optional"/>
+</complexType>
+
+<complexType name="INSTALLED">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+        <element name="Lookup">
+            <complexType>
+                <attribute name="value" type="string" use="required"/>
+            </complexType>
+        </element>
+    </sequence>
+    <attribute name="name"              type="bidi:VALUE_NAME"   use="required"/>
+    <attribute name="oid"               type="bidi:OID"          use="required"/>
+    <attribute name="deviceIndex"       type="boolean"           use="optional"/>
+    <attribute name="refreshInterval"   type="integer"           use="optional"/>
+    <attribute name="drvPrinterEvent"   type="boolean"           use="optional"/>
+</complexType>
+
+<complexType name="CONVERTER">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+        <element name="Conversion">
+            <complexType>
+                <attribute name="mibValue" type="string" use="required"/>
+                <attribute name="bidiValue" type="string" use="required"/>
+            </complexType>
+        </element>
+    </sequence>
+    <attribute name="name"              type="bidi:VALUE_NAME"   use="required"/>
+    <attribute name="oid"               type="bidi:OID"          use="required"/>
+    <attribute name="deviceIndex"       type="boolean"           use="optional"/>
+    <attribute name="refreshInterval"   type="integer"           use="optional"/>
+    <attribute name="drvPrinterEvent"   type="boolean"           use="optional"/>
+    <attribute name="useFirstIndex"     type="boolean"           use="optional"/>
+</complexType>
+
+<complexType name="BIN">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+        <choice>
+            <element name="BinValue">
+                <complexType>
+                    <attribute name="name"              type="bidi:VALUE_NAME"   use="required"/>
+                    <attribute name="type"              type="bidi:BIDI_TYPE"    use="required"/>
+                    <attribute name="valueId"           type="positiveInteger"   use="required"/>
+                    <attribute name="drvPrinterEvent"   type="boolean"           use="optional"/>
+                </complexType>
+            </element>
+            <element name="BuiltIn" type="bidi:BUILT_IN"/>
+        </choice>
+    </sequence>
+    <attribute name="name"              type="bidi:PROPERTY_NAME"   use="required"/>
+    <attribute name="mibName"           type="string"               use="required"/>
+    <attribute name="refreshInterval"   type="integer"              use="optional"/>
+</complexType>
+
+<simpleType name='VALUE_NAME'>
+    <restriction base='string'>
+        <pattern value='\w+'/>
+    </restriction>
+</simpleType>
+
+<complexType name="BUILT_IN" abstract="true"/>
+
+</schema>

@@ -1,0 +1,22 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: ocidl.acf
+//
+//----------------------------------------------------------------------------
+
+interface IOleControlTypes
+{
+#if _MIDL_USER_MARSHAL_DISABLED
+    typedef [represent_as(HWND)]        UserHWND;
+    typedef [represent_as(HACCEL)]      UserHACCEL;
+    typedef [represent_as(HDC)]         UserHDC;
+    typedef [represent_as(HFONT)]       UserHFONT;
+    typedef [represent_as(MSG)]         UserMSG;
+    typedef [represent_as(BSTR)]        UserBSTR;
+    typedef [represent_as(VARIANT)]     UserVARIANT;
+    typedef [represent_as(EXCEPINFO)]   UserEXCEPINFO;
+#endif // _MIDL_USER_MARSHAL_DISABLED
+}

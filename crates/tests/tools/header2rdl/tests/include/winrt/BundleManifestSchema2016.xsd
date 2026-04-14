@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://schemas.microsoft.com/appx/2016/bundle"
+    xmlns="http://schemas.microsoft.com/appx/2016/bundle"
+    xmlns:b="http://schemas.microsoft.com/appx/2016/bundle"
+    xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+    xmlns:b4="http://schemas.microsoft.com/appx/2018/bundle"
+    xmlns:b5="http://schemas.microsoft.com/appx/2019/bundle">
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types" />
+  <xs:import namespace="http://schemas.microsoft.com/appx/2018/bundle" />
+  <xs:import namespace="http://schemas.microsoft.com/appx/2019/bundle" />
+
+  <xs:element name="Bundle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Identity" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:attribute name="Name" type="t:ST_PackageName" use="required" />
+            <xs:attribute name="Publisher" type="t:ST_Publisher_2010_v2" use="required" />
+            <xs:attribute name="Version" type="t:ST_VersionQuad" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Packages" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="10000">
+              <xs:element ref="Package"/>
+              <xs:element ref="b5:Package"/>
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OptionalBundle" minOccurs="0" maxOccurs="10000">
+          <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="10000">
+              <xs:element ref="Package"/>
+              <xs:element ref="b5:Package"/>
+            </xs:choice>
+            <xs:attribute name="Name" type="t:ST_PackageName" use="required" />
+            <xs:attribute name="Publisher" type="t:ST_Publisher_2010_v2" use="required" />
+            <xs:attribute name="Version" type="t:ST_VersionQuad" use="optional" />
+            <xs:attribute name="FileName" type="t:ST_FileName" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IgnorableNamespaces" type="t:ST_NonEmptyString" use="optional"/>
+      <xs:attribute name="SchemaVersion" type="t:ST_VersionDuoOrTrio" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Package">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Resources" type="CT_Resources" />
+        <xs:element ref="b4:Dependencies" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+      <xs:attribute name="Type" type="t:ST_PackageType" use="optional" default="resource" />
+      <xs:attribute name="Version" type="t:ST_VersionQuad" use="required" />
+      <xs:attribute name="Architecture" type="t:ST_ArchitectureUnrestricted" use="optional" default="neutral" />
+      <xs:attribute name="ResourceId" type="t:ST_ResourceId" use="optional" />
+      <xs:attribute name="FileName" type="t:ST_FileName" use="required" />
+      <xs:attribute name="Offset" type="xs:unsignedLong" use="optional" />
+      <xs:attribute name="Size" type="xs:unsignedLong" use="optional" />
+    </xs:complexType>
+    <xs:unique name="Unique_Language">
+      <xs:selector xpath="b:Resources/b:Resource"/>
+      <xs:field xpath="@Language"/>
+    </xs:unique>
+    <xs:unique name="Unique_Scale">
+      <xs:selector xpath="b:Resources/b:Resource"/>
+      <xs:field xpath="@Scale"/>
+    </xs:unique>
+    <xs:unique name="Unique_DXFeatureLevel">
+      <xs:selector xpath="b:Resources/b:Resource"/>
+      <xs:field xpath="@DXFeatureLevel"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_Resources">
+    <xs:sequence>
+      <xs:element name="Resource" maxOccurs="200">
+        <xs:complexType>
+          <xs:attribute name="Language" type="xs:language" use="optional"/>
+          <xs:attribute name="Scale" type="t:ST_Scale_All" use="optional"/>
+          <xs:attribute name="DXFeatureLevel" type="t:ST_DXFeatureLevel" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+

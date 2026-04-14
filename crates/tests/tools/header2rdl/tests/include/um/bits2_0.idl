@@ -1,0 +1,109 @@
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+
+//
+// if BG_FILE_RANGE.Length == BG_LENGTH_TO_EOF, the file range extends to the end of the file.
+//
+cpp_quote("#define BG_LENGTH_TO_EOF     (UINT64)(-1)")
+
+typedef struct _BG_FILE_RANGE
+{
+	UINT64	InitialOffset;
+	UINT64	Length;
+}
+BG_FILE_RANGE;
+
+cpp_quote("#define BG_COPY_FILE_OWNER   1")
+cpp_quote("#define BG_COPY_FILE_GROUP   2")
+cpp_quote("#define BG_COPY_FILE_DACL    4")
+cpp_quote("#define BG_COPY_FILE_SACL    8")
+cpp_quote("#define BG_COPY_FILE_ALL    15")
+
+[
+    uuid(443c8934-90ff-48ed-bcde-26f5c7450042),
+    helpstring("IBackgroundCopyJob3 Interface"),
+    odl
+]
+interface IBackgroundCopyJob3 : IBackgroundCopyJob2
+{
+	// Changes all remote names that match the prefix.
+	//
+	HRESULT 
+	ReplaceRemotePrefix(
+		[in]  LPCWSTR OldPrefix,
+		[in]  LPCWSTR NewPrefix
+		);
+
+	// Like AddFile, but only downloads specific ranges (subsets) of a file.
+	//
+	HRESULT 
+	AddFileWithRanges(
+        [in]  LPCWSTR RemoteUrl,
+        [in]  LPCWSTR LocalName,
+		[in] DWORD RangeCount,
+		[in, size_is(RangeCount)] BG_FILE_RANGE Ranges[]
+		);
+
+    HRESULT
+    SetFileACLFlags(
+        [in] DWORD Flags );
+
+    HRESULT
+    GetFileACLFlags(
+        [out,ref] DWORD* Flags );
+
+}
+
+[
+	uuid(83e81b93-0873-474d-8a8c-f2018b1a939c),
+	helpstring("IBackgroundCopyFile2"),
+	odl
+]
+interface IBackgroundCopyFile2 : IBackgroundCopyFile
+{
+	HRESULT
+	GetFileRanges(
+		[in, out, unique] DWORD * RangeCount,
+		[out, size_is( , *RangeCount)] BG_FILE_RANGE ** Ranges
+		);
+
+	HRESULT
+	SetRemoteName(
+		LPCWSTR Val
+		);
+}
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(2289a9af-dc96-486e-b268-89c9e3397c3d),
+    helpstring("Microsoft Background Copy Manager 2.0"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager2_0
+{
+    [
+        uuid(6d18ad12-bde3-4393-b311-099c346e6df9),
+        helpstring("Background copy manager 2.0")
+    ]
+    coclass BackgroundCopyManager2_0
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback;
+    interface IBackgroundCopyJob3;
+    interface IBackgroundCopyFile2;
+}
+
+cpp_quote("#include \"bits2_5.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

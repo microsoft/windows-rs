@@ -1,0 +1,354 @@
+cpp_quote("#include <winapifamily.h>")
+
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+import "mfobjects.idl";
+import "mfidl.idl";
+import "devpropdef.h";
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+/// DEVPROPKEY set on all virtual cameras created through
+/// MFCreateVirtuaCamera API.  This property will be set
+/// on the device interface.
+/// 
+/// Type:  DEVPROP_BOOLEAN
+/// 
+/// Remarks:  For all virtual cameras this property will 
+/// be set to DEVPROP_TRUE.  If this property is missing
+/// applications must assume the camera is a non-virtual
+/// camera.
+cpp_quote("// {6EDC630D-C2E3-43B7-B2D1-20525A1AF120}, 3")
+cpp_quote("DEFINE_DEVPROPKEY(DEVPKEY_DeviceInterface_IsVirtualCamera,                       0x6EDC630D, 0xC2E3, 0x43B7, 0xB2, 0xD1, 0x20, 0x52, 0x5A, 0x1A, 0xF1, 0x20, 3);    // DEVPROP_TYPE_BOOLEAN")
+
+/// DEVPROPKEY set on a camera interface property store 
+/// indicating the camera can enable MS Camera Effects. 
+/// 
+/// Type:  DEVPROP_BOOLEAN
+cpp_quote("/// {6EDC630D-C2E3-43B7-B2D1-20525A1AF120}, 4")
+cpp_quote("DEFINE_DEVPROPKEY(DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable,        0x6EDC630D, 0xC2E3, 0x43B7, 0xB2, 0xD1, 0x20, 0x52, 0x5A, 0x1A, 0xF1, 0x20, 4);    // DEVPROP_TYPE_BOOLEAN")
+
+/// DEVPROPKEY set on virtual cameras created through the
+/// MFCreateVirtualCamera that configures physical cameras
+/// through IMFVirtualCamera::AddSourceDeviceInfo() method.
+/// 
+/// Type:  DEVPROP_TYPE_STRING_LIST
+/// 
+/// Remarks:  Returns a MULTI_SZ string containing the
+/// symbolic link name of each physical camera associated
+/// with the virtual camera.
+cpp_quote("/// {6EDC630D-C2E3-43B7-B2D1-20525A1AF120}, 5")
+cpp_quote("DEFINE_DEVPROPKEY(DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras,        0x6EDC630D, 0xC2E3, 0x43B7, 0xB2, 0xD1, 0x20, 0x52, 0x5A, 0x1A, 0xF1, 0x20, 5);    // DEVPROP_TYPE_STRING_LIST")
+  
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+
+cpp_quote("#ifndef _DEVPROPDEF_H_")
+typedef void *DEVPROPKEY;
+typedef ULONG DEVPROPTYPE;
+cpp_quote("#endif")
+
+/// 28A5531A-57DD-4FD5-AAA7-385ABF57D785 
+///  
+/// Type:  UINT32 
+///  
+/// Attribute set during camera creation.  If set to non-zero 
+/// value camera effects will be enabled.  If the camera being 
+/// created does not have 
+/// DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable 
+/// property set to true, setting this attribute during camera 
+/// initialization will result in an MF_E_INVALIDREQUEST 
+/// failure. 
+cpp_quote("EXTERN_GUID(MF_DEVSOURCE_ATTRIBUTE_ENABLE_MS_CAMERA_EFFECTS,                     0x28A5531A, 0x57DD, 0x4FD5, 0xAA, 0xA7, 0x38, 0x5A, 0xBF, 0x57, 0xD7, 0x85);")
+
+/// {1BB79E7C-5D83-438C-94D8-E5F0DF6D3279} 
+///  
+/// Type:  IUnknown 
+///  
+/// IMFCollection object containing the IMFMediaSourceEx of the 
+/// various associated physical cameras for the virtual camera. 
+/// This attribute will be set on the IMFActivate's attribute 
+/// prior to calling IMFActivate::ActivateObject() method. 
+cpp_quote("EXTERN_GUID(MF_VIRTUALCAMERA_ASSOCIATED_CAMERA_SOURCES,                          0x1BB79E7C, 0x5D83, 0x438C, 0x94, 0xD8, 0xE5, 0xF0, 0xDF, 0x6D, 0x32, 0x79);")
+
+/// {F0273718-4A4D-4AC5-A15D-305EB5E90667} 
+///  
+/// Type:  UINT32 
+///  
+/// If present and non-zero, the virtual camera custom media 
+/// source is requesting the pipeline to provide the associated 
+/// physical camera sources.  If this attribute is not present 
+/// or set to 0, associated physical cameras will not be 
+/// provided through the 
+/// MF_VIRTUALCAMERA_ASSOCIATED_CAMERA_SOURCES attribute.
+cpp_quote("EXTERN_GUID(MF_VIRTUALCAMERA_PROVIDE_ASSOCIATED_CAMERA_SOURCES,                  0xF0273718, 0x4A4D, 0x4AC5, 0xA1, 0x5D, 0x30, 0x5E, 0xB5, 0xE9, 0x06, 0x67);")
+
+/// 658ABE51-8044-462E-97EA-E676FD72055F 
+/// MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME
+/// Configuration app's PFN that could be launched by the 
+/// Settings page to configure a virtual camera.
+///
+/// DataType:  String
+///
+/// The name must be a Package Family Name.
+cpp_quote("EXTERN_GUID(MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME,              0x658ABE51, 0x8044, 0x462E, 0x97, 0xEA, 0xE6, 0x76, 0xFD, 0x72, 0x05, 0x5F);")
+
+/// Virtual Camera operation extended media event type.
+/// {E52C4DFF-E46D-4D0B-BC75-DDD4C8723F96}
+cpp_quote("EXTERN_GUID(MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_INITIALIZE,                 0xE52C4DFF, 0xE46D, 0x4D0B, 0xBC, 0x75, 0xDD, 0xD4, 0xC8, 0x72, 0x3F, 0x96);")
+/// {B1EEB989-B456-4F4A-AE40-079C28E24AF8}
+cpp_quote("EXTERN_GUID(MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_START,                      0xB1EEB989, 0xB456, 0x4F4A, 0xAE, 0x40, 0x07, 0x9C, 0x28, 0xE2, 0x4A, 0xF8);")
+/// {B7FE7A61-FE91-415E-8608-D37DEDB1A58B}
+cpp_quote("EXTERN_GUID(MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP,                       0xB7FE7A61, 0xFE91, 0x415E, 0x86, 0x08, 0xD3, 0x7D, 0xED, 0xB1, 0xA5, 0x8B);")
+/// {A0EBABA7-A422-4E33-8401-B37D2800AA67}
+cpp_quote("EXTERN_GUID(MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE,               0xA0EBABA7, 0xA422, 0x4E33, 0x84, 0x01, 0xB3, 0x7D, 0x28, 0x00, 0xAA, 0x67);")
+/// {45A81B31-43F8-4E5D-8CE2-22DCE026996D}
+cpp_quote("EXTERN_GUID(MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN,                 0x45A81B31, 0x43F8, 0x4E5D, 0x8C, 0xE2, 0x22, 0xDC, 0xE0, 0x26, 0x99, 0x6D);")
+/// {6E59489C-47D3-4467-83EF-12D34E871665}
+cpp_quote("EXTERN_GUID(MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT,                      0x6E59489C, 0x47D3, 0x4467, 0x83, 0xEF, 0x12, 0xD3, 0x4E, 0x87, 0x16, 0x65);")
+
+
+typedef enum
+{
+    MFVirtualCameraType_SoftwareCameraSource,
+} MFVirtualCameraType, *PMFVirtualCameraType;
+
+typedef enum
+{
+    MFVirtualCameraLifetime_Session,
+    MFVirtualCameraLifetime_System,
+} MFVirtualCameraLifetime, *PMFVirtualCameraLifetime;
+
+typedef enum
+{
+    MFVirtualCameraAccess_CurrentUser,
+    MFVirtualCameraAccess_AllUsers,
+} MFVirtualCameraAccess, *PMFVirtualCameraAccess;
+
+[
+    object,
+    uuid(6338B23A-3042-49D2-A3EA-EC0FED815407),
+    helpstring("IMFCameraSyncObject Interface"),
+    local
+]
+interface IMFCameraSyncObject : IUnknown
+{
+    HRESULT WaitOnSignal(
+        [in, annotation("_In_")] DWORD timeOutInMs
+        );
+
+    void Shutdown(
+        );
+};
+
+[
+    object,
+    uuid(1C08A864-EF6C-4C75-AF59-5F2D68DA9563),
+    helpstring("IMFVirtualCamera Interface"),
+    local
+]
+interface IMFVirtualCamera : IMFAttributes
+{
+    HRESULT AddDeviceSourceInfo(
+        [in, annotation("_In_z_")] LPCWSTR DeviceSourceInfo
+        );
+
+    HRESULT AddProperty(
+        [in, annotation("_In_")] const DEVPROPKEY* pKey,
+        [in, annotation("_In_")] DEVPROPTYPE Type,
+        [in, annotation("_In_reads_bytes_(cbData)")] const BYTE* pbData, 
+        [in, annotation("_In_")] ULONG cbData
+        );
+
+    HRESULT AddRegistryEntry(
+        [in, annotation("_In_z_")] LPCWSTR EntryName, 
+        [in, annotation("_In_opt_z_")] LPCWSTR SubkeyPath, 
+        [in, annotation("_In_")] DWORD dwRegType, 
+        [in, annotation("_In_reads_bytes_(cbData)")] const BYTE* pbData, 
+        [in, annotation("_In_")] ULONG cbData
+        );
+
+    /// <summary>
+    ///     Start the virtual camera discoverability via the PnP enumeration.
+    /// </summary>
+    /// <param name="pCallback">
+    ///     Caller implemented IMFAsyncCallback that receives the state
+    ///     change for the virtual camera.
+    /// </param>
+    HRESULT Start(
+        [in, annotation("_In_opt_")] IMFAsyncCallback* pCallback
+        );
+
+    /// <summary>
+    ///     Stop the virtual camera discoverability via the PnP enumeration.
+    /// </summary>
+    /// <remarks>
+    ///     Stop does not remove the PnP device from the system.  It simply
+    ///     marks it as disabled (i.e., can still enumerate if the enumeration
+    ///     is specified for both enabled and disabled devices).  It also keeps
+    ///     the virtual camera configuration information.  Remove method will
+    ///     delete the PnP device node and delete all configuration information
+    ///     as well.
+    /// </remarks>
+    HRESULT Stop(
+        );
+
+    /// <summary>
+    ///     Remove the PnP device from the machine.
+    /// </summary>
+    /// <remarks>
+    ///     Remove will delete the virtual camera device node and all stored
+    ///     configuration information.
+    /// </remarks>
+    HRESULT Remove(
+        );
+
+    HRESULT GetMediaSource(
+        [out, annotation("_COM_Outptr_")] IMFMediaSource** ppMediaSource
+        );
+
+    /// <summary>
+    ///     Issue a GET/SET command to the virtual camera.  This wraps
+    ///     the IKsControl::KsProperty method.
+    /// </summary>
+    /// <param name="propertySet">
+    ///     Corresponds to KSPROPERTY.Set defined in ks.h.
+    /// </param>
+    /// <param name="propertyId">
+    ///     Corresponds to KSPROPERTY.Id defined in ks.h.
+    /// </param>
+    /// <param name="propertyFlags">
+    ///     Corresponds to KSPROPERTY.Flags defined in ks.h
+    ///     Only KSPROPERTY_TYPE_SET, KSPROPERTY_TYPE_GET,
+    ///     KSPROPERTY_TYPE_BASICSUPPORT and KSPROPERTY_TYPE_DEFAULTVALUES
+    ///     are supported.
+    /// </param>
+    /// <param name="propertyPayload">
+    ///     Additional payload that will be added to the
+    ///     end of the KSPROPERTY structure when sent to
+    ///     the virtual camera's IKsControl::KsProperty.
+    /// </param>
+    /// <param name="propertyPayloadLength">
+    ///     Size in bytes of propertyPayload.
+    /// </param>
+    /// <param name="data">
+    ///     The data payload issued to the virtual camera's
+    ///     IKsControl::KsProperty.
+    /// </param>
+    /// <param name="dataLength">
+    ///     Size in bytes of  data.
+    /// </param>
+    /// <param name="dataWritten">
+    ///     When KSPROPERTY_TYPE_GET, KSPROPERTY_TYPE_BASICSUPPORT or
+    ///     KSPROPERTY_TYPE_DEFAULTVALUES is specified, the size in bytes
+    ///     written into the data buffer (or if the data buffer is insufficient,
+    ///     the amount needed).
+    ///     For KSPROPERTY_TYPE_SET, this parameter is not used.
+    /// </param>
+    HRESULT SendCameraProperty(
+        [in, annotation("_In_")] REFGUID propertySet,
+        [in, annotation("_In_")] ULONG propertyId,
+        [in, annotation("_In_")] ULONG propertyFlags,
+        [in, annotation("_Inout_updates_bytes_opt_(propertyPayloadLength)")] void* propertyPayload, 
+        [in, annotation("_In_")] ULONG propertyPayloadLength,
+        [in, annotation("_Inout_updates_bytes_to_opt_(dataLength,*dataWritten)")] void* data, 
+        [in, annotation("_In_")] ULONG dataLength,
+        [out, annotation("_Out_")] ULONG* dataWritten
+        );
+
+    /// <summary>
+    ///     Create a sync object wrapping the KSEVENT event handle.
+    /// </summary>
+    /// <param name="kseventSet">
+    ///     Corresponds to KSEVENT.Set defined in ks.h.
+    /// </param>
+    /// <param name="kseventId">
+    ///     Corresponds to KSEVENT.Id defined in ks.h.
+    /// </param>
+    /// <param name="kseventFlags">
+    ///     Corresponds to KSEVENT.Flags defined in ks.h
+    ///     Only KSEVENT_TYPE_ENABLE & KSEVENT_TYPE_ONESHOT are supported.
+    /// </param>
+    /// <param name="eventHandle">
+    ///     NT event handle to signal when the KSEVENT is triggered by
+    ///     the camera driver.
+    /// </param>
+    HRESULT CreateSyncEvent(
+        [in, annotation("_In_")] REFGUID kseventSet,
+        [in, annotation("_In_")] ULONG kseventId,
+        [in, annotation("_In_")] ULONG kseventFlags,
+        [in, system_handle(sh_event), annotation("_In_")] HANDLE eventHandle,
+        [out, annotation("_COM_Outptr_")] IMFCameraSyncObject** cameraSyncObject
+        );
+
+    /// <summary>
+    ///     Create an sync object wrapping the KSEVENT semaphore handle.
+    /// </summary>
+    /// <param name="kseventSet">
+    ///     Corresponds to KSEVENT.Set defined in ks.h.
+    /// </param>
+    /// <param name="kseventId">
+    ///     Corresponds to KSEVENT.Id defined in ks.h.
+    /// </param>
+    /// <param name="kseventFlags">
+    ///     Corresponds to KSEVENT.Flags defined in ks.h
+    ///     Only KSEVENT_TYPE_ENABLE & KSEVENT_TYPE_ONESHOT are supported.
+    /// </param>
+    /// <param name="semaphoreHandle">
+    ///     NT semaphore handle to signal when the KSEVENT is triggered by
+    ///     the camera driver.
+    /// </param>
+    /// <param name="semaphoreAdjustment">
+    ///     Corresponds to the KSEVENTDATA.SemaphoreHandle.Adjustment
+    ///     defined in ks.h.
+    /// </param>
+    HRESULT CreateSyncSemaphore(
+        [in, annotation("_In_")] REFGUID kseventSet,
+        [in, annotation("_In_")] ULONG kseventId,
+        [in, annotation("_In_")] ULONG kseventFlags,
+        [in, system_handle(sh_semaphore), annotation("_In_")] HANDLE semaphoreHandle,
+        [in, annotation("_In_")] LONG semaphoreAdjustment,
+        [out, annotation("_COM_Outptr_")] IMFCameraSyncObject** cameraSyncObject
+        );
+
+    HRESULT Shutdown(
+        );
+};
+
+cpp_quote("")
+cpp_quote("STDAPI")
+cpp_quote("MFCreateVirtualCamera(")
+cpp_quote("    _In_ MFVirtualCameraType type,")
+cpp_quote("    _In_ MFVirtualCameraLifetime lifetime,")
+cpp_quote("    _In_ MFVirtualCameraAccess access,")
+cpp_quote("    _In_z_ LPCWSTR friendlyName,")
+cpp_quote("    _In_z_ LPCWSTR sourceId,")
+cpp_quote("    _In_reads_opt_(categoryCount) const GUID* categories,")
+cpp_quote("    _In_ ULONG categoryCount,")
+cpp_quote("    _COM_Outptr_ IMFVirtualCamera** virtualCamera")
+cpp_quote("    );")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("STDAPI")
+cpp_quote("MFIsVirtualCameraTypeSupported(")
+cpp_quote("    _In_ MFVirtualCameraType type,")
+cpp_quote("    _Out_ BOOL* supported")
+cpp_quote("    );")
+cpp_quote("")
+cpp_quote("#endif // (WINVER >= NTDDI_WIN10_CO)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+

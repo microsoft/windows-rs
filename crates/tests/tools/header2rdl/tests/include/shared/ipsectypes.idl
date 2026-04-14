@@ -1,0 +1,1573 @@
+/*
+   Copyright (c) Microsoft Corporation
+
+   SYNOPSIS
+
+     Defines data types used by IPsec.
+*/
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family or AppRuntime Package
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME)")
+
+
+import "fwptypes.idl";
+import "iketypes.idl";
+
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+typedef struct FWPM_FILTER0_ FWPM_FILTER0;
+typedef struct FWPM_DISPLAY_DATA0_ FWPM_DISPLAY_DATA0;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building IPsec policies.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Stores the lifetime in seconds/kilobytes/packets for an IPsec SA.
+typedef struct IPSEC_SA_LIFETIME0_
+{
+   UINT32 lifetimeSeconds;
+   UINT32 lifetimeKilobytes;
+   UINT32 lifetimePackets;
+} IPSEC_SA_LIFETIME0;
+
+// Indicates the type of an IPsec SA transform.
+typedef [v1_enum] enum IPSEC_TRANSFORM_TYPE_
+{
+    IPSEC_TRANSFORM_AH=1,
+    IPSEC_TRANSFORM_ESP_AUTH,
+    IPSEC_TRANSFORM_ESP_CIPHER,
+    IPSEC_TRANSFORM_ESP_AUTH_AND_CIPHER,
+    IPSEC_TRANSFORM_ESP_AUTH_FW,
+    IPSEC_TRANSFORM_TYPE_MAX
+} IPSEC_TRANSFORM_TYPE;
+
+// Indicates the type of hash algorithm used in an IPsec SA for data origin
+// authentication and integrity protection.
+typedef [v1_enum] enum IPSEC_AUTH_TYPE_
+{
+   IPSEC_AUTH_MD5,
+   IPSEC_AUTH_SHA_1,
+   IPSEC_AUTH_SHA_256,
+   IPSEC_AUTH_AES_128,
+   IPSEC_AUTH_AES_192,
+   IPSEC_AUTH_AES_256,
+   IPSEC_AUTH_MAX
+} IPSEC_AUTH_TYPE;
+
+// Type used to specify additional configuration information for an IPsec SA
+// hash algorithm.
+typedef UINT8 IPSEC_AUTH_CONFIG;
+
+// Various values allowed for this type.
+cpp_quote("#define IPSEC_AUTH_CONFIG_HMAC_MD5_96         (0)")
+cpp_quote("#define IPSEC_AUTH_CONFIG_HMAC_SHA_1_96       (1)")
+cpp_quote("#define IPSEC_AUTH_CONFIG_HMAC_SHA_256_128    (2)")
+cpp_quote("#define IPSEC_AUTH_CONFIG_GCM_AES_128         (3)")
+cpp_quote("#define IPSEC_AUTH_CONFIG_GCM_AES_192         (4)")
+cpp_quote("#define IPSEC_AUTH_CONFIG_GCM_AES_256         (5)")
+cpp_quote("#define IPSEC_AUTH_CONFIG_MAX                 (6)")
+
+// Type used to uniquely identify the hash algorithm used in an IPsec SA.
+typedef struct IPSEC_AUTH_TRANSFORM_ID0_
+{
+   // The type of the hash algorithm.
+   IPSEC_AUTH_TYPE authType;
+   // Additional configuration information for the hash algorithm.
+   IPSEC_AUTH_CONFIG authConfig;
+} IPSEC_AUTH_TRANSFORM_ID0;
+
+// Type used to store identifier of a pluggable crypto module.
+typedef GUID IPSEC_CRYPTO_MODULE_ID;
+
+// Type used to store hash specific information for an SA transform.
+typedef struct IPSEC_AUTH_TRANSFORM0_
+{
+   // The identifier of the hash algorithm.
+   IPSEC_AUTH_TRANSFORM_ID0 authTransformId;
+   // The idenitifier of the pluggable crypto module that should implement this
+   // hash transform.
+   [unique] IPSEC_CRYPTO_MODULE_ID* cryptoModuleId;
+} IPSEC_AUTH_TRANSFORM0;
+
+// Indicates the type of encryption algorithm used in an IPsec SA for data
+// privacy.
+typedef [v1_enum] enum IPSEC_CIPHER_TYPE_
+{
+   IPSEC_CIPHER_TYPE_DES=1,
+   IPSEC_CIPHER_TYPE_3DES,
+   IPSEC_CIPHER_TYPE_AES_128,
+   IPSEC_CIPHER_TYPE_AES_192,
+   IPSEC_CIPHER_TYPE_AES_256,
+   IPSEC_CIPHER_TYPE_MAX
+} IPSEC_CIPHER_TYPE;
+
+// Type used to specify additional configuration information for an IPsec SA
+// encryption algorithm.
+typedef UINT8 IPSEC_CIPHER_CONFIG;
+
+// Various values allowed for this type.
+cpp_quote("#define IPSEC_CIPHER_CONFIG_CBC_DES      (1)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_CBC_3DES     (2)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_CBC_AES_128  (3)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_CBC_AES_192  (4)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_CBC_AES_256  (5)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_GCM_AES_128  (6)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_GCM_AES_192  (7)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_GCM_AES_256  (8)")
+cpp_quote("#define IPSEC_CIPHER_CONFIG_MAX          (9)")
+
+// Type used to uniquely identify the encryption algorithm used in an IPsec SA.
+typedef struct IPSEC_CIPHER_TRANSFORM_ID0_
+{
+   // The type of the encryption algorithm.
+   IPSEC_CIPHER_TYPE cipherType;
+   // Additional configuration information for the encryption algorithm.
+   IPSEC_CIPHER_CONFIG cipherConfig;
+} IPSEC_CIPHER_TRANSFORM_ID0;
+
+// Type used to store encryption specific information for an SA transform.
+typedef struct IPSEC_CIPHER_TRANSFORM0_
+{
+   // The identifier of the encryption algorithm.
+   IPSEC_CIPHER_TRANSFORM_ID0 cipherTransformId;
+   // The idenitifier of the pluggable crypto module that should implement this
+   // encryption transform.
+   [unique] IPSEC_CRYPTO_MODULE_ID* cryptoModuleId;
+}  IPSEC_CIPHER_TRANSFORM0;
+
+// Type used to store hash and encryption specific information together for an
+// SA transform.
+typedef struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0_
+{
+   // Hash specific information
+   IPSEC_AUTH_TRANSFORM0 authTransform;
+   // encryption specific information
+   IPSEC_CIPHER_TRANSFORM0 cipherTransform;
+} IPSEC_AUTH_AND_CIPHER_TRANSFORM0;
+
+// Type used to store an SA transform.
+typedef struct IPSEC_SA_TRANSFORM0_
+{
+   // Type of the transform.
+   IPSEC_TRANSFORM_TYPE ipsecTransformType;
+   // Tagged union containing transform type specific data.
+   [switch_type(IPSEC_TRANSFORM_TYPE),
+      switch_is(ipsecTransformType)] union
+   {
+      [case(IPSEC_TRANSFORM_AH)]
+         [unique] IPSEC_AUTH_TRANSFORM0* ahTransform;
+      [case(IPSEC_TRANSFORM_ESP_AUTH)]
+         [unique] IPSEC_AUTH_TRANSFORM0* espAuthTransform;
+      [case(IPSEC_TRANSFORM_ESP_CIPHER)]
+         [unique] IPSEC_CIPHER_TRANSFORM0* espCipherTransform;
+      [case(IPSEC_TRANSFORM_ESP_AUTH_AND_CIPHER)]
+         [unique] IPSEC_AUTH_AND_CIPHER_TRANSFORM0* espAuthAndCipherTransform;
+      [case(IPSEC_TRANSFORM_ESP_AUTH_FW)]
+         [unique] IPSEC_AUTH_TRANSFORM0* espAuthFwTransform;
+
+   };
+} IPSEC_SA_TRANSFORM0;
+
+// Workaround for typo in older version of the header.
+cpp_quote("#define espAuthTranform espAuthTransform")
+
+// Type that specifies the Diffie Hellman algorithm that should be used for
+// Quick Mode PFS (Perfect Forward Secrecy).
+typedef [v1_enum] enum IPSEC_PFS_GROUP_
+{
+   // No PFS needed.
+   IPSEC_PFS_NONE = 0,
+   IPSEC_PFS_1,
+   IPSEC_PFS_2,
+   IPSEC_PFS_2048,
+   IPSEC_PFS_14 = IPSEC_PFS_2048,
+   IPSEC_PFS_ECP_256,
+   IPSEC_PFS_ECP_384,
+   // Use the same diffie hellman as the Main Mode that contains this quick
+   // mode.
+   IPSEC_PFS_MM,
+   IPSEC_PFS_24,
+   IPSEC_PFS_MAX
+} IPSEC_PFS_GROUP;
+
+// Type used to store an IPsec quick mode proposal. The proposal describes the
+// various parameters of the IPsec SA that is potentially generated from this
+// proposal.
+typedef struct IPSEC_PROPOSAL0_
+{
+   // Lifetime of the IPsec SA
+   IPSEC_SA_LIFETIME0 lifetime;
+   // Number of IPsec SA transforms
+   UINT32 numSaTransforms;
+   // Array of IPsec SA transforms
+   [size_is(numSaTransforms), ref] IPSEC_SA_TRANSFORM0* saTransforms;
+   // PFS group of the IPsec SA
+   IPSEC_PFS_GROUP pfsGroup;
+} IPSEC_PROPOSAL0;
+
+// Type used to specify the SA idle timeout in IPsec policy.
+typedef struct IPSEC_SA_IDLE_TIMEOUT0_
+{
+   // Timeout in seconds after which the IPsec SAs in the bundle should idle
+   // out.
+   UINT32 idleTimeoutSeconds;
+   // Timeout in seconds after which the IPsec SAs in the bundle should idle
+   // out, if the peer machine supports fail over (NLBS, cluster, etc).
+   UINT32 idleTimeoutSecondsFailOver;
+} IPSEC_SA_IDLE_TIMEOUT0;
+
+typedef struct IPSEC_TRAFFIC_SELECTOR0_
+{
+    UINT8 protocolId;
+    UINT16 portStart;
+    UINT16 portEnd;
+
+    // IP version
+    FWP_IP_VERSION ipVersion;
+    // Tagged union containing the starting address of the IPsec traffic selector
+    [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+    {
+        [case(FWP_IP_VERSION_V4)]
+        UINT32 startV4Address;
+        [case(FWP_IP_VERSION_V6)]
+        UINT8 startV6Address[16];
+    };
+    // Tagged union containing the ending address of the IPsec traffic selector
+    [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+    {
+        [case(FWP_IP_VERSION_V4)]
+        UINT32 endV4Address;
+        [case(FWP_IP_VERSION_V6)]
+        UINT8 endV6Address[16];
+    };
+}IPSEC_TRAFFIC_SELECTOR0;
+
+typedef struct IPSEC_TRAFFIC_SELECTOR_POLICY0_
+{
+   // Flags
+   UINT32 flags;
+   // Number of local traffic selectors
+   UINT32 numLocalTrafficSelectors;
+   // Array of traffic selectors
+   [size_is(numLocalTrafficSelectors), unique] IPSEC_TRAFFIC_SELECTOR0 * localTrafficSelectors;
+   // Number of remote traffic selectors
+   UINT32 numRemoteTrafficSelectors;
+   // Array of traffic selectors
+   [size_is(numRemoteTrafficSelectors), unique] IPSEC_TRAFFIC_SELECTOR0 * remoteTrafficSelectors;
+} IPSEC_TRAFFIC_SELECTOR_POLICY0;
+
+//////////
+// Flags specifying policy characteristics.
+//////////
+
+// Do negotiation discovery in secure ring.
+cpp_quote("#define IPSEC_POLICY_FLAG_ND_SECURE     (0x00000002)")
+// Do negotiation discovery on the perimeter network.
+cpp_quote("#define IPSEC_POLICY_FLAG_ND_BOUNDARY   (0x00000004)")
+// Clear the "DontFragment" bit on the outer IP header of an IPsec tunneled
+// packet. Applicable only to tunnel mode policy.
+cpp_quote("#define IPSEC_POLICY_FLAG_CLEAR_DF_ON_TUNNEL   (0x00000008)")
+
+// The 2 flags below are used to control the IPsec behavior for assuming default
+// encapsulation ports {4500, 4500} when matching an SA (negotiated using this
+// policy) with packets on outbound connections that don't have an associated
+// IPsec-NAT-shim context. Note that this rule comes into play only when a NAT
+// is detected. By default, if neither of the 2 flags are specified, IPsec is
+// most secure and assumes default ports only when local machine is behind NAT
+// and remote machine is not (which is the most common case).
+//
+// If this flag is specified, IPsec assumes default ports when either local
+// machine or remote machine is behind NAT, but not both. Behavior becomes less
+// secure but more flexible.
+cpp_quote("#define IPSEC_POLICY_FLAG_NAT_ENCAP_ALLOW_PEER_BEHIND_NAT   (0x00000010)")
+// If this flag is specified, IPsec assumes default ports when either local
+// machine or remote machine is behind NAT, or even when both are behind NATs.
+// Behavior becomes least secure but most flexible.
+cpp_quote("#define IPSEC_POLICY_FLAG_NAT_ENCAP_ALLOW_GENERAL_NAT_TRAVERSAL   (0x00000020)")
+
+// If this flag is specified, IKE will not send the ISAKMP attribute for 'seconds'
+// lifetime during quick mode negotiation. This flag is useful when
+// interoperating with 3rd party devices that dont support 'seconds' lifetime.
+cpp_quote("#define IPSEC_POLICY_FLAG_DONT_NEGOTIATE_SECOND_LIFETIME   (0x00000040)")
+// If this flag is specified, IKE will not send the ISAKMP attribute for 'byte'
+// lifetime during quick mode negotiation. This flag is useful when
+// interoperating with 3rd party devices that dont support 'byte' lifetime.
+cpp_quote("#define IPSEC_POLICY_FLAG_DONT_NEGOTIATE_BYTE_LIFETIME   (0x00000080)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Negotiate IPv6 inside IPv4 IPsec tunneling. Applicable only for tunnel mode
+// policy, and currently supported only by IKEv2.
+cpp_quote("#define IPSEC_POLICY_FLAG_ENABLE_V6_IN_V4_TUNNELING  (0x00000100)")
+// Enable calls to RAS VPN server for address assignment. Applicable only for
+// tunnel mode policy, and supported only by IKEv2.
+cpp_quote("#define IPSEC_POLICY_FLAG_ENABLE_SERVER_ADDR_ASSIGNMENT  (0x00000200)")
+// Allow outbound connections to go in clear-text. Applicable only for tunnel
+// mode policy on a tunnel gateway. Don't set this flag on a tunnel client.
+cpp_quote("#define IPSEC_POLICY_FLAG_TUNNEL_ALLOW_OUTBOUND_CLEAR_CONNECTION  (0x00000400)")
+// Allow traffic that is already IPsec related (ESP, or UDP 500/4500) to bypass
+// the tunnel . Applicable only for tunnel mode policy.
+cpp_quote("#define IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ALREADY_SECURE_CONNECTION (0x00000800)")
+// Allow ICMPv6 traffic to bypass the tunnel. Applicable only for tunnel mode
+// policy.
+cpp_quote("#define IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ICMPV6 (0x00001000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// If set, allows the local TIA to dictate key
+cpp_quote("#define IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_DICTATE_KEY (0x00002000)")
+// If set, allows the local TIA to receive key notifications
+cpp_quote("#define IPSEC_POLICY_FLAG_KEY_MANAGER_ALLOW_NOTIFY_KEY (0x00004000)")
+cpp_quote("#define IPSEC_POLICY_FLAG_RESERVED1 (0x00008000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+// site to site tunnel mode IPsec policy
+cpp_quote("#define IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL (0x00010000)")
+cpp_quote("#endif // (NTDDI_VERSION > NTDDI_WIN10_RS3)")
+
+cpp_quote("#define IPSEC_POLICY_FLAG_POINT_TO_SITE_TUNNEL (0x00020000)")
+
+cpp_quote("#define IPSEC_POLICY_FLAG_BANDWIDTH1 (0x10000000)")
+cpp_quote("#define IPSEC_POLICY_FLAG_BANDWIDTH2 (0x20000000)")
+cpp_quote("#define IPSEC_POLICY_FLAG_BANDWIDTH3 (0x40000000)")
+cpp_quote("#define IPSEC_POLICY_FLAG_BANDWIDTH4 (0x80000000)")
+
+// Type used to store transport mode quick mode negotiation policy
+typedef struct IPSEC_TRANSPORT_POLICY0_
+{
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Flags
+   UINT32 flags;
+   // Timeout in seconds, after which the IPsec SA should stop accepting
+   // packets coming in the clear. Used for negotiation discovery.
+   UINT32 ndAllowClearTimeoutSeconds;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY0* emPolicy;
+} IPSEC_TRANSPORT_POLICY0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type used to store transport mode quick mode negotiation policy
+typedef struct IPSEC_TRANSPORT_POLICY1_
+{
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Flags
+   UINT32 flags;
+   // Timeout in seconds, after which the IPsec SA should stop accepting
+   // packets coming in the clear. Used for negotiation discovery.
+   UINT32 ndAllowClearTimeoutSeconds;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY1* emPolicy;
+} IPSEC_TRANSPORT_POLICY1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-1 of type used to store transport mode quick mode negotiation policy
+typedef struct IPSEC_TRANSPORT_POLICY2_
+{
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Flags
+   UINT32 flags;
+   // Timeout in seconds, after which the IPsec SA should stop accepting
+   // packets coming in the clear. Used for negotiation discovery.
+   UINT32 ndAllowClearTimeoutSeconds;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY2* emPolicy;
+} IPSEC_TRANSPORT_POLICY2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+// Type used to store end points of a tunnel mode SA
+typedef struct IPSEC_TUNNEL_ENDPOINTS0_
+{
+   // IP version of the addresses
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   // Tagged union containing the remote tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+} IPSEC_TUNNEL_ENDPOINTS0;
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+typedef struct IPSEC_TUNNEL_ENDPOINT0_
+{
+   // IP version of the addresses
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 v4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 v6Address[16];
+   };
+} IPSEC_TUNNEL_ENDPOINT0;
+
+typedef struct IPSEC_TUNNEL_ENDPOINTS2_
+{
+   // IP version of the addresses
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   // Tagged union containing the remote tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+   // Optional LUID of the local interface corresponding to the local address
+   // specified above.
+   UINT64 localIfLuid;
+
+   // Allows configuration of multiple remote addresses and FQDN for asymmetric tunneling support
+   // If set, these settings obviate the remoteV4/V6 address fields above
+   [string, unique] wchar_t* remoteFqdn;
+   UINT32 numAddresses;
+   [size_is(numAddresses)] IPSEC_TUNNEL_ENDPOINT0* remoteAddresses;
+
+} IPSEC_TUNNEL_ENDPOINTS2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Type used to store end points of a tunnel mode SA
+typedef struct IPSEC_TUNNEL_ENDPOINTS1_
+{
+   // IP version of the addresses
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   // Tagged union containing the remote tunnel end point address.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+   // Optional LUID of the local interface corresponding to the local address
+   // specified above.
+   UINT64 localIfLuid;
+} IPSEC_TUNNEL_ENDPOINTS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Type used to store tunnel mode quick mode negotiation policy
+typedef struct IPSEC_TUNNEL_POLICY0_
+{
+   // Flags
+   UINT32 flags;
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Tunnel end points of the IPsec SA generated from this policy.
+   IPSEC_TUNNEL_ENDPOINTS0 tunnelEndpoints;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY0* emPolicy;
+} IPSEC_TUNNEL_POLICY0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type used to store tunnel mode quick mode negotiation policy
+typedef struct IPSEC_TUNNEL_POLICY1_
+{
+   // Flags
+   UINT32 flags;
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Tunnel end points of the IPsec SA generated from this policy.
+   IPSEC_TUNNEL_ENDPOINTS1 tunnelEndpoints;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY1* emPolicy;
+} IPSEC_TUNNEL_POLICY1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Version-1 of type used to store tunnel mode quick mode negotiation policy
+typedef struct IPSEC_TUNNEL_POLICY2_
+{
+   // Flags
+   UINT32 flags;
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Tunnel end points of the IPsec SA generated from this policy.
+   IPSEC_TUNNEL_ENDPOINTS2 tunnelEndpoints;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY2* emPolicy;
+   // If non-0, specifies the lifetime in seconds for SA initiated by traffic on the forward path
+   UINT32 fwdPathSaLifetime;
+} IPSEC_TUNNEL_POLICY2;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+// Version-3 of type used to store compartment Id for the tunnel policy
+typedef struct IPSEC_TUNNEL_POLICY3_
+{
+   // Flags
+   UINT32 flags;
+   // Number of quick mode proposals in the policy
+   UINT32 numIpsecProposals;
+   // Array of quick mode proposals.
+   [size_is(numIpsecProposals), ref] IPSEC_PROPOSAL0* ipsecProposals;
+   // Tunnel end points of the IPsec SA generated from this policy.
+   IPSEC_TUNNEL_ENDPOINTS2 tunnelEndpoints;
+   // The SA idle timeout
+   IPSEC_SA_IDLE_TIMEOUT0 saIdleTimeout;
+   // The Authip extended mode authentication policy
+   [unique] IKEEXT_EM_POLICY2* emPolicy;
+   // If non-0, specifies the lifetime in seconds for SA initiated by traffic on the forward path
+   UINT32 fwdPathSaLifetime;
+   // If non-0, specifies the Compartment Id for the Tunnel Policy
+   UINT32 compartmentId;
+   // Number of traffic selector policies
+   UINT32 numTrafficSelectorPolicy;
+   // Array of traffic selectors
+   [size_is(numTrafficSelectorPolicy), unique] IPSEC_TRAFFIC_SELECTOR_POLICY0 * trafficSelectorPolicies;
+} IPSEC_TUNNEL_POLICY3;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)")
+
+// Defines an unordered set of keying modules that will be tried for IPsec.
+typedef struct IPSEC_KEYING_POLICY0_
+{
+   // Array of allowed keying modules.
+   UINT32 numKeyMods;
+   [size_is(numKeyMods), ref] GUID* keyModKeys;
+} IPSEC_KEYING_POLICY0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+// Force the use of a Kerberos proxy server when acting as initiator.
+cpp_quote("#define IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH (0x00000001)")
+
+// Defines an unordered set of keying modules that will be tried for IPsec.
+typedef struct IPSEC_KEYING_POLICY1_
+{
+   // Array of allowed keying modules.
+   UINT32 numKeyMods;
+   [size_is(numKeyMods), ref] GUID* keyModKeys;
+   UINT32 flags;
+} IPSEC_KEYING_POLICY1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for retrieving IPsec statistics.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+typedef struct IPSEC_AGGREGATE_SA_STATISTICS0_
+{
+   UINT32 activeSas;
+   UINT32 pendingSaNegotiations;
+   UINT32 totalSasAdded;
+   UINT32 totalSasDeleted;
+   UINT32 successfulRekeys ;
+   UINT32 activeTunnels;
+   UINT32 offloadedSas;
+}  IPSEC_AGGREGATE_SA_STATISTICS0;
+
+typedef struct IPSEC_ESP_DROP_PACKET_STATISTICS0_
+{
+   UINT32 invalidSpisOnInbound;
+   UINT32 decryptionFailuresOnInbound;
+   UINT32 authenticationFailuresOnInbound;
+   UINT32 replayCheckFailuresOnInbound;
+   UINT32 saNotInitializedOnInbound;
+} IPSEC_ESP_DROP_PACKET_STATISTICS0;
+
+typedef struct IPSEC_AH_DROP_PACKET_STATISTICS0_
+{
+   UINT32 invalidSpisOnInbound;
+   UINT32 authenticationFailuresOnInbound;
+   UINT32 replayCheckFailuresOnInbound;
+   UINT32 saNotInitializedOnInbound;
+} IPSEC_AH_DROP_PACKET_STATISTICS0;
+
+typedef struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0_
+{
+   UINT32 invalidSpisOnInbound;
+   UINT32 decryptionFailuresOnInbound;
+   UINT32 authenticationFailuresOnInbound;
+   UINT32 udpEspValidationFailuresOnInbound;
+   UINT32 replayCheckFailuresOnInbound;
+   UINT32 invalidClearTextInbound;
+   UINT32 saNotInitializedOnInbound;
+   UINT32 receiveOverIncorrectSaInbound;
+   UINT32 secureReceivesNotMatchingFilters;
+}IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+typedef struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1_
+{
+   UINT32 invalidSpisOnInbound;
+   UINT32 decryptionFailuresOnInbound;
+   UINT32 authenticationFailuresOnInbound;
+   UINT32 udpEspValidationFailuresOnInbound;
+   UINT32 replayCheckFailuresOnInbound;
+   UINT32 invalidClearTextInbound;
+   UINT32 saNotInitializedOnInbound;
+   UINT32 receiveOverIncorrectSaInbound;
+   UINT32 secureReceivesNotMatchingFilters;
+   UINT32 totalDropPacketsInbound;
+}IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+typedef struct IPSEC_TRAFFIC_STATISTICS0_
+{
+   UINT64 encryptedByteCount;
+   UINT64 authenticatedAHByteCount;
+   UINT64 authenticatedESPByteCount;
+   UINT64 transportByteCount;
+   UINT64 tunnelByteCount;
+   UINT64 offloadByteCount;
+} IPSEC_TRAFFIC_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+typedef struct IPSEC_TRAFFIC_STATISTICS1_
+{
+   UINT64 encryptedByteCount;
+   UINT64 authenticatedAHByteCount;
+   UINT64 authenticatedESPByteCount;
+   UINT64 transportByteCount;
+   UINT64 tunnelByteCount;
+   UINT64 offloadByteCount;
+   UINT64 totalSuccessfulPackets;
+} IPSEC_TRAFFIC_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+typedef struct IPSEC_STATISTICS0_
+{
+   IPSEC_AGGREGATE_SA_STATISTICS0 aggregateSaStatistics;
+   IPSEC_ESP_DROP_PACKET_STATISTICS0 espDropPacketStatistics;
+   IPSEC_AH_DROP_PACKET_STATISTICS0 ahDropPacketStatistics;
+   IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 aggregateDropPacketStatistics;
+   IPSEC_TRAFFIC_STATISTICS0 inboundTrafficStatistics;
+   IPSEC_TRAFFIC_STATISTICS0 outboundTrafficStatistics;
+} IPSEC_STATISTICS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+typedef struct IPSEC_STATISTICS1_
+{
+   IPSEC_AGGREGATE_SA_STATISTICS0 aggregateSaStatistics;
+   IPSEC_ESP_DROP_PACKET_STATISTICS0 espDropPacketStatistics;
+   IPSEC_AH_DROP_PACKET_STATISTICS0 ahDropPacketStatistics;
+   IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 aggregateDropPacketStatistics;
+   IPSEC_TRAFFIC_STATISTICS1 inboundTrafficStatistics;
+   IPSEC_TRAFFIC_STATISTICS1 outboundTrafficStatistics;
+} IPSEC_STATISTICS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for building IPsec SA bundles.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Type used to store the SPI for an IPsec SA.
+typedef UINT32 IPSEC_SA_SPI;
+
+// Type used to store hash specific information for an IPsec SA.
+typedef struct IPSEC_SA_AUTH_INFORMATION0_
+{
+   // Hash algorithm specific details
+   IPSEC_AUTH_TRANSFORM0 authTransform;
+   // Key used for the hash algorithm.
+   FWP_BYTE_BLOB authKey;
+} IPSEC_SA_AUTH_INFORMATION0;
+
+// Type used to store encryption specific information for an IPsec SA.
+typedef struct IPSEC_SA_CIPHER_INFORMATION0_
+{
+   // Encryption algorithm specific details
+   IPSEC_CIPHER_TRANSFORM0 cipherTransform;
+   // Key used for the encryption algorithm.
+   FWP_BYTE_BLOB cipherKey;
+} IPSEC_SA_CIPHER_INFORMATION0;
+
+// Type used to store hash and encryption specific information for an IPsec SA.
+typedef struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0_
+{
+   // Encryption specific information
+   IPSEC_SA_CIPHER_INFORMATION0 saCipherInformation;
+   // Hash specific information
+   IPSEC_SA_AUTH_INFORMATION0 saAuthInformation;
+} IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0;
+
+// Type to store information about an IPsec SA
+typedef struct IPSEC_SA0_
+{
+   // SPI of the SA
+   IPSEC_SA_SPI spi;
+   // Transform type of the SA
+   IPSEC_TRANSFORM_TYPE saTransformType;
+   // Tagged union containing information about the SA transform.
+   [switch_type(IPSEC_TRANSFORM_TYPE), switch_is(saTransformType)] union
+   {
+      [case(IPSEC_TRANSFORM_AH)]
+         [unique] IPSEC_SA_AUTH_INFORMATION0* ahInformation;
+      [case(IPSEC_TRANSFORM_ESP_AUTH)]
+         [unique] IPSEC_SA_AUTH_INFORMATION0* espAuthInformation;
+      [case(IPSEC_TRANSFORM_ESP_CIPHER)]
+         [unique] IPSEC_SA_CIPHER_INFORMATION0* espCipherInformation;
+      [case(IPSEC_TRANSFORM_ESP_AUTH_AND_CIPHER)]
+         [unique] IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0* espAuthAndCipherInformation;
+      [case(IPSEC_TRANSFORM_ESP_AUTH_FW)]
+         [unique] IPSEC_SA_AUTH_INFORMATION0* espAuthFwInformation;
+   };
+} IPSEC_SA0;
+
+// Type used to store keying module specific information in the SA.
+typedef struct IPSEC_KEYMODULE_STATE0_
+{
+   // The identifier of the keying module.
+   GUID keyModuleKey;
+   // A byte blob containing opaques keying module specific information.
+   FWP_BYTE_BLOB stateBlob;
+} IPSEC_KEYMODULE_STATE0;
+
+// Type used to store handle to an access token.
+typedef UINT64 IPSEC_TOKEN_HANDLE;
+
+typedef [v1_enum] enum IPSEC_TOKEN_TYPE_
+{
+    IPSEC_TOKEN_TYPE_MACHINE,
+    IPSEC_TOKEN_TYPE_IMPERSONATION,
+    IPSEC_TOKEN_TYPE_MAX
+} IPSEC_TOKEN_TYPE;
+
+typedef [v1_enum] enum IPSEC_TOKEN_PRINCIPAL_
+{
+    IPSEC_TOKEN_PRINCIPAL_LOCAL,
+    IPSEC_TOKEN_PRINCIPAL_PEER,
+    IPSEC_TOKEN_PRINCIPAL_MAX
+} IPSEC_TOKEN_PRINCIPAL;
+
+typedef [v1_enum] enum IPSEC_TOKEN_MODE_
+{
+    IPSEC_TOKEN_MODE_MAIN,
+    IPSEC_TOKEN_MODE_EXTENDED,
+    IPSEC_TOKEN_MODE_MAX
+} IPSEC_TOKEN_MODE;
+
+// Type containing various pieces of IPsec-specific information for an access
+// token
+typedef struct IPSEC_TOKEN0_
+{
+    // Type of the token
+    IPSEC_TOKEN_TYPE type;
+    // Token principal
+    IPSEC_TOKEN_PRINCIPAL principal;
+    // Mode in which token was obtained
+    IPSEC_TOKEN_MODE mode;
+    // This can be the handle to an access token or the
+    // TOKEN_STATISTICS.ModifiedId of an access token depending on the context
+    // in which this type is being used.
+    IPSEC_TOKEN_HANDLE token;
+} IPSEC_TOKEN0;
+
+// Type containing various pieces of information corresponding to identities
+// that are authenticated by IPsec.
+typedef struct IPSEC_ID0_
+{
+   // Optional Main Mode target SPN
+   [string, unique] wchar_t* mmTargetName;
+   // Optional Extended Mode target SPN
+   [string, unique] wchar_t* emTargetName;
+
+   // Optional array of IPsec tokens
+   UINT32 numTokens;
+   [size_is(numTokens), unique] IPSEC_TOKEN0* tokens;
+
+   // Optional handle to explicit credentials
+   UINT64 explicitCredentials;
+
+   // Unused parameter, it should always be 0.
+   UINT64 logonId;
+
+} IPSEC_ID0;
+
+//////////
+// Flags specifying IPsec SA characteristics.
+//////////
+
+// Negotiation discovery is enabled in secure ring.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ND_SECURE (0x00000001)")
+// Negotiation discovery is enabled on the perimeter network.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ND_BOUNDARY (0x00000002)")
+// Peer is on a perimeter network and a NAT is in the way. Used with
+// negotiation discovery.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ND_PEER_NAT_BOUNDARY (0x00000004)")
+// Is a guarantee encryption SA
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_GUARANTEE_ENCRYPTION (0x00000008)")
+// Is SA to NLB server
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_NLB (0x00000010)")
+// Should SA bypass machine luid verification
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_NO_MACHINE_LUID_VERIFY (0x00000020)")
+// Should SA bypass impersonation luid verification
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_NO_IMPERSONATION_LUID_VERIFY (0x00000040)")
+// Should SA bypass explicit credential handle match
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_NO_EXPLICIT_CRED_MATCH (0x00000080)")
+// Let SA formed with peer name carry traffic that doesn't have a
+// peer target associated with it
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ALLOW_NULL_TARGET_NAME_MATCH (0x00000200)")
+// Clear the "DontFragment" bit on the outer IP header of an IPsec tunneled
+// packet. Applicable only to tunnel mode SAs.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_CLEAR_DF_ON_TUNNEL   (0x00000400)")
+// Specifies if it is ok to assume default encapsulation ports {4500, 4500} when
+// matching this SA with packets on outbound connections that don't have an
+// associated IPsec-NAT-shim context.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ASSUME_UDP_CONTEXT_OUTBOUND (0x00000800)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN6SP1)")
+// Peer has negotiation discovery enabled, and is on a perimeter network.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ND_PEER_BOUNDARY (0x00001000)")
+cpp_quote("#endif")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Suppress the duplicate SA deletion logic. This logic is performed by kernel
+// when an outbound SA is added, to prevent unnecessary duplicate SAs.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_SUPPRESS_DUPLICATE_DELETION (0x00002000)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_PEER_SUPPORTS_GUARANTEE_ENCRYPTION (0x00004000)")
+// Only allow inbound connections to use this SA
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_FORCE_INBOUND_CONNECTIONS (0x00008000)")
+// Only allow outbound connections to use this SA. Only valid for tunnel mode.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_FORCE_OUTBOUND_CONNECTIONS (0x00010000)")
+// SA is was originally initiated by forward path traffic. Only valid for tunnel
+// mode.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_FORWARD_PATH_INITIATOR (0x00020000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+// Allows (tunnel)SAs to idle based on inbound or outbound for asymmetric route support
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_ENABLE_OPTIONAL_ASYMMETRIC_IDLE (0x0040000)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS (0x00080000)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_LOCALLY_DICTATED_KEYS  (0x00100000)")
+// Flag indicating whether the SA's in this bundle have been offloaded
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_SA_OFFLOADED  (0x00200000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+// Flags indicating these are tunnel mode SAs associated to transport layer filters
+// based on tunnel EP and IP-in-IP protocol. In outbound path, IPsec does not
+// perform encapsulation as IP-in-IP packets are expected to be injected.
+// In inbound path however IPsec does decrypt (if needed) and decapsulation as well.
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_IP_IN_IP_PKT (0x00400000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_LOW_POWER_MODE_SUPPORT (0x00800000)")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)")
+
+// For IKEV2 Tunnel SAs, the top 4 bits are the tunnel bandwidth
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH1 (0x10000000)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH2 (0x20000000)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH3 (0x40000000)")
+cpp_quote("#define IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH4 (0x80000000)")
+
+// Type used to store information about an IPsec SA bundle.
+typedef struct IPSEC_SA_BUNDLE0_
+{
+   // Flags
+   UINT32 flags;
+   // Lifetime of all the SAs in the bundle. If any lifetime value (seconds,
+   // kilobytes, or packets) is specifed as 0, then the corresponding lifetime
+   // check will be disabled. Security note: specifying 0 for lifetimePackets
+   // has the adverse side-effect of also disabling IPsec replay checks for the
+   // SA bundle.
+   IPSEC_SA_LIFETIME0 lifetime;
+   // Timeout in seconds after which the SAs in the bundle will idle out.
+   // Specifying 0 will disable idle timeout of the SA bundle.
+   UINT32 idleTimeoutSeconds;
+   // Timeout in seconds, after which the IPsec SA should stop accepting
+   // packets coming in the clear. Used for negotiation discovery.
+   UINT32 ndAllowClearTimeoutSeconds;
+
+   // Optional IPsec identity info. Note in this context, if present, the
+   // ipsecId->tokens[i].token will be the handle to an access token.
+   // Also note: the targetNames in the ipsecId should only be trusted on the
+   // MM/EM initiator. On responder, they are used for SA lookups
+   // only, but have no associated identity guarantee
+   [unique] IPSEC_ID0* ipsecId;
+
+   // NAP peer credentials info
+   UINT32 napContext;
+   // In scenarios where multiple simultaneous SA bundles are established for
+   // the same traffic, the qmSaId is used by IPSec for choosing the SA to
+   // expire.  Note that for an IPsec SA pair, the qmSaId must be the same
+   // between initiator & responder machines and across inbound & outbound SA
+   // bundles, and for different IPsec SA pairs the qmSaIds must be different.
+   UINT32 qmSaId;
+   // Number of SAs in the bundle.
+   UINT32 numSAs;
+   // Array of IPSec SAs in the bundle.
+   [size_is(numSAs), unique] IPSEC_SA0* saList;
+   // Optional keying module specific information
+   [unique] IPSEC_KEYMODULE_STATE0* keyModuleState;
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // If IP version is V4, and peer is behind a NAT, this stores the the peer
+   // private address
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 peerV4PrivateAddress;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // LUID of the MM SA used to generate this QM SA.
+   UINT64 mmSaId;
+   // Specifies whether Quick Mode PFS (Pefect Forward Secrecy) was enabled for
+   // this SA, and if so, contains the Diffie Hellman group that was used for
+   // PFS.
+   IPSEC_PFS_GROUP pfsGroup;
+} IPSEC_SA_BUNDLE0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Type used to store information about an IPsec SA bundle.
+typedef struct IPSEC_SA_BUNDLE1_
+{
+   // Flags
+   UINT32 flags;
+   // Lifetime of all the SAs in the bundle. If any lifetime value (seconds,
+   // kilobytes, or packets) is specifed as 0, then the corresponding lifetime
+   // check will be disabled. Security note: specifying 0 for lifetimePackets
+   // has the adverse side-effect of also disabling IPsec replay checks for the
+   // SA bundle.
+   IPSEC_SA_LIFETIME0 lifetime;
+   // Timeout in seconds after which the SAs in the bundle will idle out.
+   // Specifying 0 will disable idle timeout of the SA bundle.
+   UINT32 idleTimeoutSeconds;
+   // Timeout in seconds, after which the IPsec SA should stop accepting
+   // packets coming in the clear. Used for negotiation discovery.
+   UINT32 ndAllowClearTimeoutSeconds;
+
+   // Optional IPsec identity info. Note in this context, if present, the
+   // ipsecId->tokens[i].token will be the handle to an access token.
+   // Also note: the targetNames in the ipsecId should only be trusted on the
+   // MM/EM initiator. On responder, they are used for SA lookups
+   // only, but have no associated identity guarantee
+   [unique] IPSEC_ID0* ipsecId;
+
+   // NAP peer credentials info
+   UINT32 napContext;
+   // In scenarios where multiple simultaneous SA bundles are established for
+   // the same traffic, the qmSaId is used by IPSec for choosing the SA to
+   // expire.  Note that for an IPsec SA pair, the qmSaId must be the same
+   // between initiator & responder machines and across inbound & outbound SA
+   // bundles, and for different IPsec SA pairs the qmSaIds must be different.
+   UINT32 qmSaId;
+   // Number of SAs in the bundle.
+   UINT32 numSAs;
+   // Array of IPSec SAs in the bundle.
+   [size_is(numSAs), unique] IPSEC_SA0* saList;
+   // Optional keying module specific information
+   [unique] IPSEC_KEYMODULE_STATE0* keyModuleState;
+   // IP version
+   FWP_IP_VERSION ipVersion;
+   // If IP version is V4, and peer is behind a NAT, this stores the the peer
+   // private address
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 peerV4PrivateAddress;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // LUID of the MM SA used to generate this QM SA.
+   UINT64 mmSaId;
+   // Specifies whether Quick Mode PFS (Pefect Forward Secrecy) was enabled for
+   // this SA, and if so, contains the Diffie Hellman group that was used for
+   // PFS.
+   IPSEC_PFS_GROUP pfsGroup;
+   // Opaque SA context used to correlate socket api queries with SA state lookups
+   GUID saLookupContext;
+   // LUID of the FWPS_LAYER_IPSEC_XX layer FWPS filter corresponding to this SA
+   // bundle. This is useful for enumeration purposes.
+   UINT64 qmFilterId;
+} IPSEC_SA_BUNDLE1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for describing IPsec traffic.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Type of IPsec traffic being described.
+typedef [v1_enum] enum IPSEC_TRAFFIC_TYPE_
+{
+   IPSEC_TRAFFIC_TYPE_TRANSPORT,
+   IPSEC_TRAFFIC_TYPE_TUNNEL,
+   IPSEC_TRAFFIC_TYPE_MAX
+} IPSEC_TRAFFIC_TYPE;
+
+// Type containing parameters used to describe IPsec traffic
+typedef struct IPSEC_TRAFFIC0_
+{
+   // IP version (version of outer header in tunnel mode)
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local address of the IPsec traffic
+   // In tunnel mode, this is the local tunnel endpoint
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   // Tagged union containing the remote address of the IPsec traffic
+   // In tunnel mode, this is the remote tunnel endpoint
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+   // type of traffic being described
+   IPSEC_TRAFFIC_TYPE trafficType;
+   // If traffic type is transport mode, this is the LUID of the FWPS transport
+   // layer filter corresponding to this traffic. If traffic type is tunnel
+   // mode, this is the LUID of the associated QM policy.
+   // In tunnel mode, this represents the QM traffic selectors for the tunnel
+   [switch_type(IPSEC_TRAFFIC_TYPE), switch_is(trafficType)] union
+   {
+      [case (IPSEC_TRAFFIC_TYPE_TRANSPORT)]
+         UINT64 ipsecFilterId;
+      [case (IPSEC_TRAFFIC_TYPE_TUNNEL)]
+         UINT64 tunnelPolicyId;
+   };
+   // The remote TCP/UDP port for this traffic. This is normally only specified
+   // in specific scenarios where the remote port condition in the transport
+   // layer filter is more generic than the actual remote port.
+   UINT16 remotePort;
+} IPSEC_TRAFFIC0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type containing parameters used to describe IPsec traffic
+typedef struct IPSEC_TRAFFIC1_
+{
+   // IP version (version of outer header in tunnel mode)
+   FWP_IP_VERSION ipVersion;
+   // Tagged union containing the local address of the IPsec traffic
+   // In tunnel mode, this is the local tunnel endpoint
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 localV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 localV6Address[16];
+   };
+   // Tagged union containing the remote address of the IPsec traffic
+   // In tunnel mode, this is the remote tunnel endpoint
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         UINT32 remoteV4Address;
+      [case(FWP_IP_VERSION_V6)]
+         UINT8 remoteV6Address[16];
+   };
+   // type of traffic being described
+   IPSEC_TRAFFIC_TYPE trafficType;
+   // If traffic type is transport mode, this is the LUID of the FWPS transport
+   // layer filter corresponding to this traffic. If traffic type is tunnel
+   // mode, this is the LUID of the associated QM policy.
+   // In tunnel mode, this represents the QM traffic selectors for the tunnel
+   [switch_type(IPSEC_TRAFFIC_TYPE), switch_is(trafficType)] union
+   {
+      [case (IPSEC_TRAFFIC_TYPE_TRANSPORT)]
+         UINT64 ipsecFilterId;
+      [case (IPSEC_TRAFFIC_TYPE_TUNNEL)]
+         UINT64 tunnelPolicyId;
+   };
+   // The remote TCP/UDP port for this traffic. This is normally only specified
+   // in specific scenarios where the remote port condition in the transport
+   // layer filter is more generic than the actual remote port.
+   UINT16 remotePort;
+   // The local TCP/UDP port for this traffic. This is normally only specified
+   // in specific scenarios where the local port condition in the transport
+   // layer filter is more generic than the actual remote port.
+   UINT16 localPort;
+   // The IP protocol for this traffic. This is normally only specified
+   // in specific scenarios where the IP protocol condition in the transport
+   // layer filter is more generic than the actual IP protocol.
+   UINT8 ipProtocol;
+   // The LUID of the local interface corresponding to the local address
+   // specified above.
+   UINT64 localIfLuid;
+   // The profile ID corresponding to the actual interface that the traffic is
+   // going out on or coming in from the wire.
+   UINT32 realIfProfileId;
+} IPSEC_TRAFFIC1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Type used to store the UDP encapsulation ports, if UDP-ESP encapsulation is
+// taking place.
+typedef struct IPSEC_V4_UDP_ENCAPSULATION0_
+{
+   // Local UDP encapsulation port
+   UINT16 localUdpEncapPort;
+   // Remote UDP encapsulation port
+   UINT16 remoteUdpEncapPort;
+} IPSEC_V4_UDP_ENCAPSULATION0;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Definitions for managing IPsec SAs.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// Information that must be supplied when requesting a SPI from the IPsec
+// driver, or specifying a SPI to IPsec driver.
+typedef struct IPSEC_GETSPI0_
+{
+   // Traffic description corresponding to the inbound SA.
+   IPSEC_TRAFFIC0 inboundIpsecTraffic;
+   FWP_IP_VERSION ipVersion;
+   // For IPv4 this specifies the NATT UDP encapsulation ports.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* inboundUdpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // Not used currently.
+   [unique] IPSEC_CRYPTO_MODULE_ID* rngCryptoModuleID;
+} IPSEC_GETSPI0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type containing information that must be supplied when
+// requesting a SPI from the IPsec driver.
+typedef struct IPSEC_GETSPI1_
+{
+   // Traffic description corresponding to the inbound SA.
+   IPSEC_TRAFFIC1 inboundIpsecTraffic;
+   FWP_IP_VERSION ipVersion;
+   // For IPv4 this specifies the NATT UDP encapsulation ports.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* inboundUdpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // Not used currently.
+   [unique] IPSEC_CRYPTO_MODULE_ID* rngCryptoModuleID;
+} IPSEC_GETSPI1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Public state associated with an IPsec security association.
+typedef struct IPSEC_SA_DETAILS0_
+{
+   // IP version (version of outer header in tunnel mode)
+   FWP_IP_VERSION ipVersion;
+   // Indicates direction of the Ipsec SA
+   FWP_DIRECTION saDirection;
+   // The traffic being secured by this IPsec SA.  For tunnel mode, this
+   // contains both the tunnel endpoints and QM traffic selectors
+   IPSEC_TRAFFIC0 traffic;
+   // various parameters of the SA.
+   IPSEC_SA_BUNDLE0 saBundle;
+   // If UDP-ESP encapsulation is enabled on the SA, this stores the UDP
+   // encapsulation ports.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* udpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // The transport layer filter corresponding to this IPsec SA.
+   [unique] FWPM_FILTER0* transportFilter;
+} IPSEC_SA_DETAILS0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of public state associated with an IPsec security association.
+typedef struct IPSEC_SA_DETAILS1_
+{
+   // IP version (version of outer header in tunnel mode)
+   FWP_IP_VERSION ipVersion;
+   // Indicates direction of the Ipsec SA
+   FWP_DIRECTION saDirection;
+   // The traffic being secured by this IPsec SA.  For tunnel mode, this
+   // contains both the tunnel endpoints and QM traffic selectors
+   IPSEC_TRAFFIC1 traffic;
+   // various parameters of the SA.
+   IPSEC_SA_BUNDLE1 saBundle;
+   // If UDP-ESP encapsulation is enabled on the SA, this stores the UDP
+   // encapsulation ports.
+   [switch_type(FWP_IP_VERSION), switch_is(ipVersion)] union
+   {
+      [case(FWP_IP_VERSION_V4)]
+         [unique] IPSEC_V4_UDP_ENCAPSULATION0* udpEncapsulation;
+      [case(FWP_IP_VERSION_V6)];
+   };
+   // The transport layer filter corresponding to this IPsec SA.
+   [unique] FWPM_FILTER0* transportFilter;
+   // The virtual interface tunnel info
+   IPSEC_VIRTUAL_IF_TUNNEL_INFO0 virtualIfTunnelInfo;
+} IPSEC_SA_DETAILS1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Encapsulates an inbound/outbound SA pair.
+typedef struct IPSEC_SA_CONTEXT0_
+{
+   // LUID identifying the SA context.
+   UINT64 saContextId;
+   // Inbound SA -- may be NULL.
+   [unique] IPSEC_SA_DETAILS0* inboundSa;
+   // Outbound SA -- may be NULL.
+   [unique] IPSEC_SA_DETAILS0* outboundSa;
+} IPSEC_SA_CONTEXT0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+// Version-1 of type that encapsulates an inbound/outbound SA pair.
+typedef struct IPSEC_SA_CONTEXT1_
+{
+   // LUID identifying the SA context.
+   UINT64 saContextId;
+   // Inbound SA -- may be NULL.
+   [unique] IPSEC_SA_DETAILS1* inboundSa;
+   // Outbound SA -- may be NULL.
+   [unique] IPSEC_SA_DETAILS1* outboundSa;
+} IPSEC_SA_CONTEXT1;
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+// Template used for enumerating IPsec SA contexts
+typedef struct IPSEC_SA_CONTEXT_ENUM_TEMPLATE0_
+{
+   // If not empty, only SA contexts containing an SA whose local address is on
+   // the specified subnet will be returned.  May be of type FWP_UINT32,
+   // FWP_BYTE_ARRAY16_TYPE, FWP_V4_ADDR_MASK, or FWP_V6_ADDR_MASK.
+   FWP_CONDITION_VALUE0 localSubNet;
+   // If not empty, only SA contexts containing an SA whose remote address is
+   // on the specified subnet will be returned.  May be of type FWP_UINT32,
+   // FWP_BYTE_ARRAY16_TYPE, FWP_V4_ADDR_MASK, or FWP_V6_ADDR_MASK.
+   FWP_CONDITION_VALUE0 remoteSubNet;
+} IPSEC_SA_CONTEXT_ENUM_TEMPLATE0;
+
+// Template used for enumerating IPsec SAs
+typedef struct IPSEC_SA_ENUM_TEMPLATE0_
+{
+   // Direction of the SA
+   FWP_DIRECTION saDirection;
+} IPSEC_SA_ENUM_TEMPLATE0;
+
+
+typedef struct IPSEC_SA_CONTEXT_SUBSCRIPTION0_ {
+  // enum template used to match SA contexts the caller
+  // is interested in getting notifications
+  IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 *enumTemplate;
+  UINT32       flags;        // reserved flags
+  //
+  GUID         sessionKey;
+} IPSEC_SA_CONTEXT_SUBSCRIPTION0;
+
+typedef enum IPSEC_SA_CONTEXT_EVENT_TYPE0_ {
+  IPSEC_SA_CONTEXT_EVENT_ADD = 1,
+  IPSEC_SA_CONTEXT_EVENT_DELETE,
+  IPSEC_SA_CONTEXT_EVENT_MAX
+} IPSEC_SA_CONTEXT_EVENT_TYPE0;
+
+typedef struct IPSEC_SA_CONTEXT_CHANGE0_
+{
+   // Type of change.
+   IPSEC_SA_CONTEXT_EVENT_TYPE0 changeType;
+   // LUID of the SA context that changed.
+   UINT64 saContextId;
+} IPSEC_SA_CONTEXT_CHANGE0;
+
+// Type used for indicating where an IPsec failure occured
+typedef [v1_enum] enum IPSEC_FAILURE_POINT_
+{
+   // No information available.
+   IPSEC_FAILURE_NONE,
+   // IPsec failure happened on local machine.
+   IPSEC_FAILURE_ME,
+   // IPsec failure happened on remote machine.
+   IPSEC_FAILURE_PEER,
+   // Invalid value, used for parameter validation.
+   IPSEC_FAILURE_POINT_MAX
+} IPSEC_FAILURE_POINT;
+
+// Type used for mobike additional address net events
+typedef struct IPSEC_ADDRESS_INFO0_
+{
+    // Local addresses to indicate to peer
+    UINT32 numV4Addresses;
+    [size_is(numV4Addresses),unique] UINT32* v4Addresses;
+    UINT32 numV6Addresses;
+    [size_is(numV6Addresses),unique] FWP_BYTE_ARRAY16* v6Addresses;
+} IPSEC_ADDRESS_INFO0;
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+//////////
+// Flags specifying IPsec DoS Protection characteristics.
+//////////
+
+// Flag to allow IKEv1 keying module. By default it is blocked.
+cpp_quote("#define IPSEC_DOSP_FLAG_ENABLE_IKEV1  (0x00000001)")
+// Flag to allow IKEv2 keying module. By default it is blocked.
+cpp_quote("#define IPSEC_DOSP_FLAG_ENABLE_IKEV2  (0x00000002)")
+// Flag to block AuthIP keying module. By default it is allowed.
+cpp_quote("#define IPSEC_DOSP_FLAG_DISABLE_AUTHIP  (0x00000004)")
+// Flag to exempt all matching IPv4 traffic & non-IPsec IPv6 traffic. By default
+// all IPv4 traffic & non-IPsec IPv6 traffic, except IPv6 ICMP, will be blocked.
+cpp_quote("#define IPSEC_DOSP_FLAG_DISABLE_DEFAULT_BLOCK  (0x00000008)")
+// Flag to block all matching IPv6 traffic.
+cpp_quote("#define IPSEC_DOSP_FLAG_FILTER_BLOCK  (0x00000010)")
+// Flag to exempt all matching IPv6 traffic.
+cpp_quote("#define IPSEC_DOSP_FLAG_FILTER_EXEMPT  (0x00000020)")
+
+// Value to set in the XXXDscp fields below, if caller wants to disable the
+// DSCP marking for that category.
+cpp_quote("#define IPSEC_DOSP_DSCP_DISABLE_VALUE  (0xff)")
+
+// Value to set in the XXXRateLimitBytesPerSec fields above, if caller wants to
+// disable rate limiting for that category.
+cpp_quote("#define IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE  (0)")
+
+// Type containing configuration parameters for IPsec DoS Protection.
+typedef struct IPSEC_DOSP_OPTIONS0_
+{
+   // State entry idle timeout in seconds. Value must be > 0.
+   UINT32 stateIdleTimeoutSeconds;
+   // Per internal IP address rate limit queue idle timeout in seconds.
+   // Value must be > 0.
+   UINT32 perIPRateLimitQueueIdleTimeoutSeconds;
+   // DSCP (RFC 2474) marking for unauthenticated inbound IPv6 IPsec traffic.
+   // Value must be <= 63. Specify IPSEC_DOSP_DSCP_DISABLE_VALUE to skip this
+   // marking.
+   UINT8 ipV6IPsecUnauthDscp;
+   // Rate limit for unauthenticated inbound IPv6 IPsec traffic.
+   // Specify IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE to skip this rate limit.
+   UINT32 ipV6IPsecUnauthRateLimitBytesPerSec;
+   // Per internal IP address rate limit for unauthenticated inbound IPv6 IPsec
+   // traffic. Specify IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE to skip this rate
+   // limit.
+   UINT32 ipV6IPsecUnauthPerIPRateLimitBytesPerSec;
+   // DSCP (RFC 2474) marking for authenticated inbound IPv6 IPsec traffic.
+   // Value must be <= 63. Specify IPSEC_DOSP_DSCP_DISABLE_VALUE to skip this
+   // marking.
+   UINT8 ipV6IPsecAuthDscp;
+   // Rate limit for authenticated inbound IPv6 IPsec traffic.
+   // Specify IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE to skip this rate limit.
+   UINT32 ipV6IPsecAuthRateLimitBytesPerSec;
+   // DSCP (RFC 2474) marking for inbound ICMPv6 traffic.
+   // Value must be <= 63. Specify IPSEC_DOSP_DSCP_DISABLE_VALUE to skip this
+   // marking.
+   UINT8 icmpV6Dscp;
+   // Rate limit for inbound ICMPv6 traffic.
+   // Specify IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE to skip this rate limit.
+   UINT32 icmpV6RateLimitBytesPerSec;
+   // DSCP (RFC 2474) marking for inbound IPv6 filter exempted traffic.
+   // Value must be <= 63. Specify IPSEC_DOSP_DSCP_DISABLE_VALUE to skip this
+   // marking.
+   UINT8 ipV6FilterExemptDscp;
+   // Rate limit for inbound IPv6 filter exempted traffic.
+   // Specify IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE to skip this rate limit.
+   UINT32 ipV6FilterExemptRateLimitBytesPerSec;
+   // DSCP (RFC 2474) marking for inbound default-block exempted traffic.
+   // Value must be <= 63. Specify IPSEC_DOSP_DSCP_DISABLE_VALUE to skip this
+   // marking.
+   UINT8 defBlockExemptDscp;
+   // Rate limit for inbound default-block exempted traffic.
+   // Specify IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE to skip this rate limit.
+   UINT32 defBlockExemptRateLimitBytesPerSec;
+   // Maximum number of state entries in the table. Value must be > 0.
+   UINT32 maxStateEntries;
+   // Maximum number of per internal IP address rate limit queues for inbound
+   // unauthenticated IPv6 IPsec traffic. Value must be > 0.
+   UINT32 maxPerIPRateLimitQueues;
+   // Flags
+   UINT32 flags;
+   // Array of public interface LUIDs
+   UINT32 numPublicIFLuids;
+   [size_is(numPublicIFLuids), unique] UINT64* publicIFLuids;
+   // Array of internal interface LUIDs
+   UINT32 numInternalIFLuids;
+   [size_is(numInternalIFLuids), unique] UINT64* internalIFLuids;
+   // Optional public IPv6 address or subnet, for which this policy is
+   // specified.
+   FWP_V6_ADDR_AND_MASK publicV6AddrMask;
+   // Optional internal IPv6 address or subnet, for which this policy is
+   // specified.
+   FWP_V6_ADDR_AND_MASK internalV6AddrMask;
+} IPSEC_DOSP_OPTIONS0;
+
+// IPsec DoS Protection statistics.
+typedef struct IPSEC_DOSP_STATISTICS0_
+{
+   // Total number of state entries created since the machine was last started.
+   UINT64 totalStateEntriesCreated;
+   // Current number of state entries in the table.
+   UINT64 currentStateEntries;
+   // Total number of inbound IPv6 IPsec unauthenticated packets allowed since
+   // machine was last started.
+   UINT64 totalInboundAllowedIPv6IPsecUnauthPkts;
+   // Total number of inbound IPv6 IPsec unauthenticated packets discarded due
+   // to rate-limiting since machine was last started.
+   UINT64 totalInboundRatelimitDiscardedIPv6IPsecUnauthPkts;
+   // Total number of inbound IPv6 IPsec unauthenticated packets discarded due
+   // to per internal IP address rate-limiting since machine was last started.
+   UINT64 totalInboundPerIPRatelimitDiscardedIPv6IPsecUnauthPkts;
+   // Total number of inbound IPv6 IPsec unauthenticated packets discarded due
+   // to other reasons since machine was last started.
+   UINT64 totalInboundOtherDiscardedIPv6IPsecUnauthPkts;
+   // Total number of inbound IPv6 IPsec authenticated packets allowed since
+   // machine was last started.
+   UINT64 totalInboundAllowedIPv6IPsecAuthPkts;
+   // Total number of inbound IPv6 IPsec authenticated packets discarded due to
+   // rate-limiting since machine was last started.
+   UINT64 totalInboundRatelimitDiscardedIPv6IPsecAuthPkts;
+   // Total number of inbound IPv6 IPsec authenticated packets discarded due to
+   // other reasons since machine was last started.
+   UINT64 totalInboundOtherDiscardedIPv6IPsecAuthPkts;
+   // Total number of inbound ICMPv6 packets allowed since machine was last
+   // started.
+   UINT64 totalInboundAllowedICMPv6Pkts;
+   // Total number of inbound ICMPv6 packets discarded due to rate-limiting
+   // since machine was last started.
+   UINT64 totalInboundRatelimitDiscardedICMPv6Pkts;
+   // Total number of inbound IPv6 filter exempted packets allowed since machine
+   // was last started.
+   UINT64 totalInboundAllowedIPv6FilterExemptPkts;
+   // Total number of inbound IPv6 filter exempted packets discarded due to
+   // rate-limiting since machine was last started.
+   UINT64 totalInboundRatelimitDiscardedIPv6FilterExemptPkts;
+   // Total number of inbound IPv6 filter blocked packets discarded since
+   // machine was last started.
+   UINT64 totalInboundDiscardedIPv6FilterBlockPkts;
+   // Total number of inbound default-block exempted packets allowed since
+   // machine was last started.
+   UINT64 totalInboundAllowedDefBlockExemptPkts;
+   // Total number of inbound default-block exempted packets discarded due to
+   // rate-limiting since machine was last started.
+   UINT64 totalInboundRatelimitDiscardedDefBlockExemptPkts;
+   // Total number of inbound default-block packets discarded since machine was
+   // last started.
+   UINT64 totalInboundDiscardedDefBlockPkts;
+   // Current number of per internal IP address rate limit queues for inbound
+   // IPv6 unauthenticated IPsec traffic.
+   UINT64 currentInboundIPv6IPsecUnauthPerIPRateLimitQueues;
+} IPSEC_DOSP_STATISTICS0;
+
+// IPsec DoS Protection state entry.
+typedef struct IPSEC_DOSP_STATE0_
+{
+   // IPv6 address of the public host
+   UINT8 publicHostV6Addr[16];
+   // IPv6 address of the internal host
+   UINT8 internalHostV6Addr[16];
+   // Total number of inbound IPv6 IPsec packets allowed since the state entry
+   // was created.
+   UINT64 totalInboundIPv6IPsecAuthPackets;
+   // Total number of outbound IPv6 IPsec packets, allowed since the state entry
+   // was created.
+   UINT64 totalOutboundIPv6IPsecAuthPackets;
+   // Duration in seconds since this entry was created
+   UINT32 durationSecs;
+} IPSEC_DOSP_STATE0;
+
+// Template used for enumerating IPsec DoS Protection state entries.
+typedef struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0_
+{
+   // Only state entries whose public host address is on the specified subnet
+   // will be returned.
+   FWP_V6_ADDR_AND_MASK publicV6AddrMask;
+   // Only state entries whose internal host address is on the specified subnet
+   // will be returned.
+   FWP_V6_ADDR_AND_MASK internalV6AddrMask;
+} IPSEC_DOSP_STATE_ENUM_TEMPLATE0;
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN7)")
+
+
+// No IDL definition requd since this sturct never crosses RPC boundary?
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#define IPSEC_KEY_MANAGER_FLAG_DICTATE_KEY         (0x00000001)")
+
+
+typedef struct _IPSEC_KEY_MANAGER0
+{
+  GUID keyManagerKey;
+  FWPM_DISPLAY_DATA0 displayData;
+  UINT32 flags;
+  UINT8  keyDictationTimeoutHint;
+} IPSEC_KEY_MANAGER0;
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#if _MSC_VER >=  800")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_APPRUNTIME) */")
+#pragma endregion
+

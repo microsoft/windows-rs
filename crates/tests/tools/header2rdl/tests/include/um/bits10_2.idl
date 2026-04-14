@@ -1,0 +1,67 @@
+/*********************************************************
+*                                                        *
+*   Copyright (c) Microsoft. All rights reserved.        *
+*                                                        *
+*********************************************************/
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+import "bits2_5.idl";
+import "bits3_0.idl";
+import "bits4_0.idl";
+import "bits5_0.idl";
+import "bits10_1.idl";
+
+[
+    uuid(B591A192-A405-4FC3-8323-4C5C542578FC)
+]
+interface IBackgroundCopyJobHttpOptions2 : IBackgroundCopyJobHttpOptions
+{
+    HRESULT SetHttpMethod(
+        [in] LPCWSTR method
+        );
+
+    HRESULT GetHttpMethod( 
+        [out] LPWSTR *method
+        );
+}
+
+[
+  uuid(70CDC92E-4B95-49EB-8CDA-AD39AA7CC4A0),
+  lcid(0x0000),
+  version(1.0)
+]
+library BackgroundCopyManager10_2
+{
+  [
+    uuid(4575438F-A6C8-4976-B0FE-2F26B80D959E)
+  ]
+  coclass BackgroundCopyManager10_2
+  {
+    [default] interface IBackgroundCopyManager;
+  };
+  interface IBackgroundCopyCallback3;
+  interface IBackgroundCopyFile6;
+  interface IBackgroundCopyJob5;
+  interface IBackgroundCopyJobHttpOptions2;
+  interface IBitsPeer;
+  interface IBitsPeerCacheAdministration;
+  interface IBitsPeerCacheRecord;
+  interface IBitsTokenOptions;
+  interface IEnumBitsPeerCacheRecords;
+  interface IEnumBitsPeers;
+}
+
+cpp_quote("#include \"bits10_3.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif /* NTDDI_VERSION >= NTDDI_WIN10_RS5 */")

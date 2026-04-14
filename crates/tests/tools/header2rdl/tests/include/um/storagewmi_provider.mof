@@ -1,0 +1,61 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+#pragma namespace("//./root/Microsoft/Windows/Storage/Providers_v2")
+#pragma classflags("safeupdate")
+
+#pragma include("qualifiers.mof")
+#pragma include("CIM_Error.mof")
+
+#pragma include("msft_storageobject.mof")
+
+#pragma include("msft_storagejob.mof")
+#pragma include("msft_storagediagnoseresult.mof")
+#pragma include("msft_storagefaultdomain.mof")
+
+#pragma include("msft_dedupproperties.mof")
+#pragma include("msft_disk.mof")
+#pragma include("msft_errors.mof")
+#pragma include("msft_fileserver.mof")
+#pragma include("msft_fileshare.mof")
+#pragma include("msft_fileshareaccesscontrolentry.mof")
+#pragma include("msft_filestoragetier.mof")
+#pragma include("msft_initiatorid.mof")
+#pragma include("msft_maskingset.mof")
+#pragma include("msft_offloaddatatransfersetting.mof")
+#pragma include("msft_partition.mof")
+#pragma include("msft_physicaldisk.mof")
+#pragma include("msft_physicalextent.mof")
+#pragma include("msft_replicapeer.mof")
+#pragma include("msft_replicationcapabilities.mof")
+#pragma include("msft_replicationgroup.mof")
+#pragma include("msft_replicationsettings.mof")
+#pragma include("msft_resiliencysetting.mof")
+#pragma include("msft_storagechassis.mof")
+#pragma include("msft_storageenclosure.mof")
+#pragma include("msft_storagenode.mof")
+#pragma include("msft_storagepool.mof")
+#pragma include("msft_storageprovider.mof")
+#pragma include("msft_storagerack.mof")
+#pragma include("msft_storagereliabilitycounter.mof")
+#pragma include("msft_storagescaleunit.mof")
+#pragma include("msft_storagesite.mof")
+#pragma include("msft_storagesubsystem.mof")
+#pragma include("msft_storagetier.mof")
+#pragma include("msft_targetport.mof")
+#pragma include("msft_targetportal.mof")
+#pragma include("msft_virtualdisk.mof")
+#pragma include("msft_volume.mof")
+
+#pragma include("msft_associations.mof")
+#pragma include("msft_indications.mof")
+#pragma include("msft_healthaction.mof")
+#pragma include("msft_healthactionevent.mof")
+#pragma include("msft_storagefault.mof")
+#pragma include("msft_storagehealthreport.mof")
+#pragma include("msft_storagehealth.mof")
+#pragma include("msft_storagehealthsetting.mof")
+#pragma include("msft_storagehealthstatuschangeevent.mof")

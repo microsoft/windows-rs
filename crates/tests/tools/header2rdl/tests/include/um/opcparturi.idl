@@ -1,0 +1,98 @@
+//+--------------------------------------------------------------------------
+//
+//	Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//	Abstract:
+//		Defines the OPC interface for managing part URIs
+//
+//      Include from msopc.h.
+//      Import from msopc.idl.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "urlmon.idl";
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface IOpcUri;
+interface IOpcPartUri;
+
+[
+    object,
+    uuid(bc9c1b9b-d62c-49eb-aef0-3b4e0b28ebed),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcUri : IUri
+{
+    HRESULT
+    GetRelationshipsPartUri(
+        [out, retval]   IOpcPartUri **      relationshipPartUri
+        );
+
+    HRESULT
+    GetRelativeUri(
+        [in]            IOpcPartUri *       targetPartUri,
+        [out, retval]   IUri **             relativeUri
+        );
+
+    HRESULT
+    CombinePartUri(
+        [in]          IUri *          relativeUri,
+        [out, retval] IOpcPartUri **  combinedUri
+        );
+
+};
+
+[
+    object,
+    uuid(7d3babe7-88b2-46ba-85cb-4203cb016c87),
+    nonextensible,
+    pointer_default(ref)
+]
+interface IOpcPartUri : IOpcUri
+{
+    HRESULT
+    ComparePartUri(
+        [in]            IOpcPartUri *       partUri,
+        [out, retval]   INT32 *             comparisonResult
+        );
+
+    HRESULT
+    GetSourceUri(
+        [out, retval]   IOpcUri **          sourceUri
+        );
+
+    HRESULT
+    IsRelationshipsPartUri(
+        [out, retval]   BOOL *              isRelationshipUri
+        );
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+
+
+

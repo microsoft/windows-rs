@@ -1,0 +1,35 @@
+[Indication, ClassVersion( "1.0" ),
+Description( "Storage health status change event" )]
+class MSFT_StorageHealthStatusChangeEvent : MSFT_StorageEvent
+{    
+    [Read, Description(
+        "A globally unique identifier for the storage subsystem"
+        )]
+    String StorageSubsystemUniqueId;
+
+    [Read, Description(
+        "Denotes the previous health status of the source object.\n "
+        "0 - 'Healthy': TBD.\n"
+        "1 - 'Warning': TBD.\n"
+        "2 - 'Unhealthy': TBD."
+        ),
+        ValueMap { "0", "1", "2", "5" }, 
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 PreviousHealthStatus;
+    
+    [Read, Description(
+        "Denotes the current health status of the source object.\n "
+        "0 - 'Healthy': TBD.\n"
+        "1 - 'Warning': TBD.\n"
+        "2 - 'Unhealthy': TBD."
+        ),
+        ValueMap { "0", "1", "2", "5" }, 
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 CurrentHealthStatus;    
+    
+    [Read, Description(
+        "A unique identifier for the source object."
+        )]
+    String SourceUniqueId;
+    
+};

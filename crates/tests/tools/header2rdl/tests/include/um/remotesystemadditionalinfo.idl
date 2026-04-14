@@ -1,0 +1,57 @@
+/*  remotesystemadditionalinfo.idl
+ *
+ *      COM API extension for Windows.System.RemoteSystems.RemoteSystem
+ *
+ *      Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "unknwn.idl";
+import "hstring.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// ----------------------------------------------------------------------
+// IRemoteSystemAdditionalInfoProvider
+//
+// Description
+//  Interface that provides additional functionality for an instance
+//  of Windows.System.RemoteSystems.RemoteSystem.
+//
+// Implemented By
+//  Windows.System.RemoteSystems.RemoteSystem -> QueryInterface
+//
+[object, pointer_default(unique), uuid(EEAA3D5F-EC63-4D27-AF38-E86B1D7292CB)]
+interface IRemoteSystemAdditionalInfoProvider : IUnknown
+{
+    // ----------------------------------------------------------------------
+    // GetAdditionalInfo
+    //
+    // Description:
+    //  Provides additional information about a RemoteSystem, including its
+    //  deduplication identifier, and an immutable map of key-value pairs
+    //  provided by the application.
+    //
+    // Parameters:
+    //  deduplicationId - [out] An identifier shared by all applications on a given system
+    //  riid, mapView - [out] An IMapView<HSTRING, HSTRING> bearing the set
+    //                        of immutable application provided key-value pairs
+    //
+    // Return Values:
+    //  S_OK if successful
+    //  <other error> if failed
+    HRESULT GetAdditionalInfo(
+        [out] HSTRING* deduplicationId,
+        [in] REFIID riid,
+        [out, iid_is(riid)] void** mapView);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS4) */")
+

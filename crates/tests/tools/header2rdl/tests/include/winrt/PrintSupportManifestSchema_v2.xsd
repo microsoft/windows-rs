@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/printsupport/windows10/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/printsupport/windows10/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+    <xs:import namespace="http://schemas.microsoft.com/appx/manifest/printsupport/windows10"/>
+
+    <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+      <xs:complexType>
+        <xs:choice minOccurs="0">
+            <xs:element name="PrintSupportVirtualPrinter" type="CT_PrintSupportVirtualPrinter"/>
+        </xs:choice>
+        <xs:attribute name="Category" type="t:ST_ExtensionCategory_PrintSupport2" use="required"/>
+        <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+        <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+        <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+      </xs:complexType>
+    </xs:element>
+    <xs:complexType name="CT_PrintSupportVirtualPrinter">
+      <xs:all>
+        <xs:element name="SupportedFormats" type="CT_SupportedFormats" minOccurs="0"/>
+      </xs:all>
+      <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+      <xs:attribute name="PdcFile" type="t:ST_FileName" use="required"/>
+      <xs:attribute name="PdrFile" type="t:ST_FileName" use="optional"/>
+      <xs:attribute name="PreferredInputFormat" type="ST_PreferredInputFormat" use="optional"/>
+      <xs:attribute name="PrinterUri" type="t:ST_URI" use="optional"/>
+      <xs:attribute name="OutputFileTypes" type="ST_OutputFileTypes" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="CT_SupportedFormats">
+      <xs:sequence>
+        <xs:element name="SupportedFormat" maxOccurs="1000">
+          <xs:complexType>
+            <xs:attribute name="Type" type="ST_MimeType" use="required"/>
+            <xs:attribute name="MaxVersion" type="ST_MaxVersion" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="ST_PreferredInputFormat">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="application/oxps"/>
+        <xs:enumeration value="application/postscript"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ST_MaxVersion">
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{1,8}\.[0-9]{1,8}"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ST_MimeType">
+      <xs:restriction base="t:ST_NonEmptyString">
+        <xs:maxLength value="100"/>
+      </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ST_OutputFileTypes">
+      <xs:restriction base="t:ST_NonEmptyString">
+        <xs:maxLength value="100"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

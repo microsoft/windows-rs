@@ -1,0 +1,110 @@
+// ScanProfiles.idl : IDL source for ScanProfiles
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ScanProfiles.tlb) and marshalling code.
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "propidl.idl";
+
+interface IScanProfile; // forward declare
+
+[
+    object,
+    uuid(34EAAE27-2D89-4278-84EF-61DEFA323FC1),
+    dual,
+    nonextensible,
+    helpstring("IScanProfileMgr Interface"),
+    pointer_default(unique)
+]
+interface IScanProfileMgr : IDispatch
+{
+    HRESULT GetNumProfiles([ref,out] ULONG * pulNumProfiles);
+    HRESULT GetNumProfilesforDeviceID([in] BSTR bstrDeviceID, [ref,out] ULONG * pulNumProfiles);
+    HRESULT GetProfiles([ref,in,out] ULONG * pulNumProfiles, [ref,out] IScanProfile ** ppScanProfile);
+    HRESULT GetProfilesforDeviceID([in] BSTR bstrDeviceID, [ref,in,out] ULONG * pulNumProfiles, [ref,out] IScanProfile ** ppScanProfile);
+    HRESULT GetDefaultProfile([in] BSTR bstrDeviceID, [ref,out] IScanProfile ** ppScanProfile);
+    HRESULT CreateProfile([in] BSTR bstrDeviceID, [in] BSTR bstrName, [in] GUID guidCategory, [ref,out] IScanProfile ** ppScanProfile);
+    HRESULT OpenProfile([in] GUID guid, [ref,out] IScanProfile ** ppScanProfile);
+    HRESULT SetDefault([in] IScanProfile * pScanProfile);
+    HRESULT DeleteProfile([in] IScanProfile * pScanProfile);
+    HRESULT DeleteAllProfiles([in] BSTR bstrDeviceID);
+    HRESULT DeleteAllProfilesForUser();
+    HRESULT Refresh();
+};
+
+[
+    object,
+    uuid(D68A6C07-9FF8-47D1-9A2A-429D28FBC6A4),
+    dual,
+    nonextensible,
+    helpstring("IScanProfile Interface"),
+    pointer_default(unique)
+]
+interface IScanProfile : IDispatch
+{
+    HRESULT GetGUID([ref,out] GUID * pGUID);
+    HRESULT GetDeviceID([ref,out] BSTR *pbstrDeviceID);
+    HRESULT IsDefault([ref,out] BOOL * pbDefault);
+    HRESULT GetProperty([in] ULONG num, [ref,in] PROPID * pid, [ref,out] PROPVARIANT * pvar);
+    HRESULT SetProperty([in] ULONG num, [ref,in] PROPID * pid, [ref,in] PROPVARIANT * pvar);
+    HRESULT GetAllPropIDs([ref,in,out] ULONG * num, [ref,out] PROPID * ppid);
+    HRESULT GetNumPropIDS([ref,out] ULONG * num);
+    HRESULT GetName([ref,out] BSTR * pbstrName);
+    HRESULT SetName([in] BSTR pbstrName);
+    HRESULT GetItem([ref,out] GUID * pguidCategory);
+    HRESULT SetItem([in] GUID guidCategory);
+    HRESULT Save();
+    HRESULT RemoveProperty([in] ULONG num, [ref,in] PROPID * pid);
+};
+
+[
+	object,
+	uuid(B67CDDB7-2B20-473E-8D6C-3F1BD202E78D),
+	dual,
+	nonextensible,
+	helpstring("IScanProfileUI Interface"),
+	pointer_default(unique)
+]
+interface IScanProfileUI : IDispatch
+{
+    HRESULT ScanProfileDialog([in] HWND hwndParent);
+};
+
+[
+    uuid(77A6BD8A-AB60-49FF-853C-B6EE7BABAF96),
+    version(1.0),
+    helpstring("ScanProfiles 1.0 Type Library")
+]
+library ScanProfilesLib
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(CB0FC8E5-686A-478B-A252-FDECF8E167B7),
+        helpstring("ScanProfileMgr Class")
+    ]
+    coclass ScanProfileMgr
+    {
+        [default] interface IScanProfileMgr;
+    };
+
+	[
+		uuid(19603261-6059-43DF-B9E1-8B4352825A90),
+		helpstring("ScanProfileUI Class")
+	]
+	coclass ScanProfileUI
+	{
+		[default] interface IScanProfileUI;
+	};
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,158 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+[ClassVersion( "1.0" ), Abstract,
+Description(
+    "A file server object models the subsystems concept of a file server."
+    )]
+class MSFT_FileServer : MSFT_StorageObject
+{
+    [Read, Required, Description(
+        "A user-friendly string representing the name of the file server. Friendly name "
+        "can be set using the SetFriendlyName method."
+        )]
+    String FriendlyName;
+
+    [Read, Required, Description(
+        "HostNames are semi-unique (scoped to the owning storage subsystem), human-"
+        "readable strings used to identify a file server. There is a separate host "
+        "name element per file sharing protocol."
+        )]
+    String HostNames[];
+
+    [Read, Required, Description(
+        "Denotes the current health status of the file server.\n "
+        "0 - 'Healthy': TBD.\n"
+        "1 - 'Warning': TBD.\n"
+        "2 - 'Unhealthy': TBD."
+        "5 - 'Unknown': TBD."
+        ),
+        ValueMap { "0", "1", "2", "5" }, 
+        Values { "Healthy", "Warning", "Unhealthy", "Unknown" }]
+    UInt16 HealthStatus;
+
+    [Read, Required, Description(
+        "Indicates the current operating conditions of the file server. Unlike HealthStatus, "
+        "this field indicates the status of hardware, software, and infrastructure issues related "
+        "to this server, and can contain multiple values. Various operational statuses are "
+        "defined. Many of the enumeration's values are self-explanatory."
+        ),
+        ValueMap {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+            "..",
+            "0xD000", "0xD001",
+            "0xD002.."
+            },
+        Values {
+            // 0 - 4
+            "Unknown", "Other", "OK", "Degraded", "Stressed",
+            // 5 - 9
+            "Predictive Failure", "Error", "Non-Recoverable Error", "Starting", "Stopping",
+            // 10 - 14
+            "Stopped", "In Service", "No Contact", "Lost Communication", "Aborted",
+            // 15 - 19
+            "Dormant", "Supporting Entity in Error", "Completed", "Power Mode", "Relocating",
+            // ..
+            "Microsoft Reserved",
+            // 0xD000 - 0xD001
+            "Read-only", "Incomplete",
+            // ..
+            "Microsoft Reserved" }]
+     UInt16 OperationalStatus[];
+
+    [Read, Description(
+        "A string representation of the vendor defined operational status. "
+        "This field should only be set if the OperationalStatus array contains 1 - "
+        "'Other'."
+        )]
+    String OtherOperationalStatusDescription;
+
+    [Read, Description(
+        "If TRUE the server supports file share creation."
+        )]
+    Boolean SupportsFileShareCreation;
+
+    [Read, Description(
+        "If TRUE the file server will support continuously available "
+        "file shares."
+        )]
+    Boolean SupportsContinuouslyAvailableFileShare;
+
+    [Read, Description(
+        "The file sharing protocols supported by the file server."),
+        ValueMap { "2", "3" },
+        Values { "NFS", "SMB"}]
+    UInt16 FileSharingProtocols[];
+
+    [Read, Description(
+        "Specifies the file sharing protocol versions supported."
+        )]
+    String FileSharingProtocolVersions[];
+
+    //
+    // Method: CreateFileShare
+    //
+
+    UInt32 CreateFileShare(
+
+        [In, Required]
+        String Name,
+
+        [In]
+        String Description,
+
+        [In, Required, EmbeddedInstance("MSFT_Volume")]
+        String SourceVolume,
+
+        [In]
+        String VolumeRelativePath,
+
+        [In]
+        Boolean ContinuouslyAvailable,
+
+        [In]
+        Boolean EncryptData,
+        
+        [In]
+        UInt16 FileSharingProtocol,
+
+        [Out, EmbeddedInstance("MSFT_FileShare")]
+        String CreatedFileShare,
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: DeleteObject
+    //
+
+    UInt32 DeleteObject(
+
+        [Out]
+        MSFT_StorageJob REF CreatedStorageJob,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+    );
+
+    //
+    // Method: SetFriendlyName
+    //
+
+    UInt32 SetFriendlyName(
+
+        [In, Required]
+        String FriendlyName,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+};

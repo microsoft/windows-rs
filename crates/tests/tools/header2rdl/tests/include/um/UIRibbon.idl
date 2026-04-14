@@ -1,0 +1,577 @@
+//****************************************************************************
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       UIRibbon.idl
+//
+//  Contents:   Interfaces for the Windows Ribbon Framework
+//
+//****************************************************************************
+
+cpp_quote("//****************************************************************************")
+cpp_quote("//")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//  File:       UIRibbon.h (Generated from UIRibbon.idl)")
+cpp_quote("//")
+cpp_quote("//  Contents:   Interfaces for the Windows Ribbon Framework")
+cpp_quote("//")
+cpp_quote("//****************************************************************************")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "propsys.idl";
+
+#include <sdkddkver.h>
+
+cpp_quote("#include <UIRibbonKeyDef.h>")
+
+// Core command properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Enabled,                      VT_BOOL,                1); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_LabelDescription,             VT_LPWSTR,              2); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Keytip,                       VT_LPWSTR,              3); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Label,                        VT_LPWSTR,              4); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_TooltipDescription,           VT_LPWSTR,              5); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_TooltipTitle,                 VT_LPWSTR,              6); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_LargeImage,                   VT_UNKNOWN,             7); ") // IUIImage
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_LargeHighContrastImage,       VT_UNKNOWN,             8); ") // IUIImage
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_SmallImage,                   VT_UNKNOWN,             9); ") // IUIImage
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_SmallHighContrastImage,       VT_UNKNOWN,             10); ") // IUIImage
+
+// Collections properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_CommandId,                    VT_UI4,                 100); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ItemsSource,                  VT_UNKNOWN,             101); ") // IEnumUnknown or IUICollection
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Categories,                   VT_UNKNOWN,             102); ") // IEnumUnknown or IUICollection
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_CategoryId,                   VT_UI4,                 103); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_SelectedItem,                 VT_UI4,                 104); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_CommandType,                  VT_UI4,                 105); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ItemImage,                    VT_UNKNOWN,             106); ") // IUIImage
+
+// Control properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_BooleanValue,                 VT_BOOL,                200); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_DecimalValue,                 VT_DECIMAL,             201); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_StringValue,                  VT_LPWSTR,              202); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_MaxValue,                     VT_DECIMAL,             203); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_MinValue,                     VT_DECIMAL,             204); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Increment,                    VT_DECIMAL,             205); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_DecimalPlaces,                VT_UI4,                 206); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FormatString,                 VT_LPWSTR,              207); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_RepresentativeString,         VT_LPWSTR,              208); ")
+
+// Font control properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties,                     VT_UNKNOWN,             300); ") // IPropertyStore
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_Family,              VT_LPWSTR,              301); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_Size,                VT_DECIMAL,             302); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_Bold,                VT_UI4,                 303); ") // UI_FONTPROPERTIES
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_Italic,              VT_UI4,                 304); ") // UI_FONTPROPERTIES
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_Underline,           VT_UI4,                 305); ") // UI_FONTPROPERTIES
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_Strikethrough,       VT_UI4,                 306); ") // UI_FONTPROPERTIES
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_VerticalPositioning, VT_UI4,                 307); ") // UI_FONTVERTICALPOSITION
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_ForegroundColor,     VT_UI4,                 308); ") // COLORREF
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_BackgroundColor,     VT_UI4,                 309); ") // COLORREF
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_ForegroundColorType, VT_UI4,                 310); ") // UI_SWATCHCOLORTYPE
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_BackgroundColorType, VT_UI4,                 311); ") // UI_SWATCHCOLORTYPE
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_ChangedProperties,   VT_UNKNOWN,             312); ") // IPropertyStore
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_FontProperties_DeltaSize,           VT_UI4,                 313); ") // UI_FONTDELTASIZE
+
+// Application menu properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_RecentItems,                  VT_ARRAY|VT_UNKNOWN,    350); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Pinned,                       VT_BOOL,                351); ")
+
+// Color picker properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Color,                        VT_UI4,                 400); ") // COLORREF
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ColorType,                    VT_UI4,                 401); ") // UI_SWATCHCOLORTYPE
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ColorMode,                    VT_UI4,                 402); ") // UI_SWATCHCOLORMODE
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ThemeColorsCategoryLabel,     VT_LPWSTR,              403); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_StandardColorsCategoryLabel,  VT_LPWSTR,              404); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_RecentColorsCategoryLabel,    VT_LPWSTR,              405); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_AutomaticColorLabel,          VT_LPWSTR,              406); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_NoColorLabel,                 VT_LPWSTR,              407); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_MoreColorsLabel,              VT_LPWSTR,              408); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ThemeColors,                  VT_VECTOR|VT_UI4,       409); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_StandardColors,               VT_VECTOR|VT_UI4,       410); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ThemeColorsTooltips,          VT_VECTOR|VT_LPWSTR,    411); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_StandardColorsTooltips,       VT_VECTOR|VT_LPWSTR,    412); ")
+
+
+// Ribbon properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Viewable,                     VT_BOOL,                1000); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_Minimized,                    VT_BOOL,                1001); ")
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_QuickAccessToolbarDock,       VT_UI4,                 1002); ")
+
+// Contextual tabset properties
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_ContextAvailable,             VT_UI4,                 1100); ")
+
+// Color properties
+// These are specified using hue, saturation and brightness.  The background, highlight and text colors of all controls
+// will be adjusted to the specified hues and saturations.  The brightness does not represent a component of a specific
+// color, but rather the overall brightness of the controls - 0x00 is darkest, 0xFF is lightest.
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_GlobalBackgroundColor,        VT_UI4,                 2000); ") // UI_HSBCOLOR
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_GlobalHighlightColor,         VT_UI4,                 2001); ") // UI_HSBCOLOR
+cpp_quote("DEFINE_UIPROPERTYKEY(UI_PKEY_GlobalTextColor,              VT_UI4,                 2002); ") // UI_HSBCOLOR
+
+// Hue, Saturation, Brightness color specification
+cpp_quote("typedef DWORD UI_HSBCOLOR;")
+cpp_quote("__inline UI_HSBCOLOR UI_HSB(BYTE hue, BYTE saturation, BYTE brightness)")
+cpp_quote("{")
+cpp_quote("    return hue | (saturation << 8) | (brightness << 16);")
+cpp_quote("}")
+
+// Annotations on methods are not supported by earlier versions of MIDL
+#ifdef NTDDI_WIN7
+#define UI_CHECKRETURN                  [annotation("_Check_return_")]
+#else
+#define UI_CHECKRETURN
+#endif
+
+// Windows Ribbon interfaces implemented by the framework
+
+typedef [v1_enum] enum UI_CONTEXTAVAILABILITY
+{
+    UI_CONTEXTAVAILABILITY_NOTAVAILABLE = 0,
+    UI_CONTEXTAVAILABILITY_AVAILABLE    = 1,
+    UI_CONTEXTAVAILABILITY_ACTIVE       = 2,
+} UI_CONTEXTAVAILABILITY;
+
+typedef [v1_enum] enum UI_FONTPROPERTIES
+{
+    UI_FONTPROPERTIES_NOTAVAILABLE = 0,
+    UI_FONTPROPERTIES_NOTSET       = 1,
+    UI_FONTPROPERTIES_SET          = 2,
+} UI_FONTPROPERTIES;
+
+typedef [v1_enum] enum UI_FONTVERTICALPOSITION
+{
+    UI_FONTVERTICALPOSITION_NOTAVAILABLE = 0,
+    UI_FONTVERTICALPOSITION_NOTSET       = 1,
+    UI_FONTVERTICALPOSITION_SUPERSCRIPT  = 2,
+    UI_FONTVERTICALPOSITION_SUBSCRIPT    = 3,
+} UI_FONTVERTICALPOSITION;
+
+typedef [v1_enum] enum UI_FONTUNDERLINE
+{
+    UI_FONTUNDERLINE_NOTAVAILABLE = 0,
+    UI_FONTUNDERLINE_NOTSET       = 1,
+    UI_FONTUNDERLINE_SET          = 2,
+} UI_FONTUNDERLINE;
+
+typedef [v1_enum] enum UI_FONTDELTASIZE
+{
+    UI_FONTDELTASIZE_GROW        = 0,
+    UI_FONTDELTASIZE_SHRINK      = 1,
+} UI_FONTDELTASIZE;
+
+typedef [v1_enum] enum UI_CONTROLDOCK
+{
+    UI_CONTROLDOCK_TOP    = 1,
+    UI_CONTROLDOCK_BOTTOM = 3,
+} UI_CONTROLDOCK;
+
+// Types for the color picker
+
+// Determines whether a swatch has a color, is nocolor or automatic.
+typedef [v1_enum] enum UI_SWATCHCOLORTYPE
+{
+    UI_SWATCHCOLORTYPE_NOCOLOR   = 0, // Inactive swatch
+    UI_SWATCHCOLORTYPE_AUTOMATIC = 1, // Automatic swatch
+    UI_SWATCHCOLORTYPE_RGB       = 2, // Solid color swatch
+} UI_SWATCHCOLORTYPE;
+
+// If the mode is set to MONOCHROME, the swatch's RGB color value will be interpreted as a 1 bit-per-pixel
+// pattern.
+typedef [v1_enum] enum UI_SWATCHCOLORMODE
+{
+    UI_SWATCHCOLORMODE_NORMAL     = 0,
+    UI_SWATCHCOLORMODE_MONOCHROME = 1,
+} UI_SWATCHCOLORMODE;
+
+// Events supported by Ribbon event reporting
+typedef [v1_enum] enum UI_EVENTTYPE
+{
+    UI_EVENTTYPE_ApplicationMenuOpened      = 0,
+    UI_EVENTTYPE_RibbonMinimized            = 1,
+    UI_EVENTTYPE_RibbonExpanded             = 2,
+    UI_EVENTTYPE_ApplicationModeSwitched    = 3,
+    UI_EVENTTYPE_TabActivated               = 4,
+    UI_EVENTTYPE_MenuOpened                 = 5,
+    UI_EVENTTYPE_CommandExecuted            = 6,
+    UI_EVENTTYPE_TooltipShown               = 7,
+} UI_EVENTTYPE;
+
+// Event locations used in Ribbon event reporting
+typedef [v1_enum] enum UI_EVENTLOCATION
+{
+    UI_EVENTLOCATION_Ribbon             =0,
+    UI_EVENTLOCATION_QAT                =1,
+    UI_EVENTLOCATION_ApplicationMenu    =2,
+    UI_EVENTLOCATION_ContextPopup       =3,
+} UI_EVENTLOCATION;
+
+[
+    helpstring("Simple property bag"),
+    uuid(c205bb48-5b1c-4219-a106-15bd0a5f24e2),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUISimplePropertySet : IUnknown
+{
+    // Retrieves the stored value of a given property
+    UI_CHECKRETURN HRESULT GetValue([in] REFPROPERTYKEY key, [out] PROPVARIANT* value);
+};
+
+[
+    helpstring("Ribbon view interface"),
+    uuid(803982ab-370a-4f7e-a9e7-8784036a6e26),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIRibbon : IUnknown
+{
+    // Returns the Ribbon height
+    UI_CHECKRETURN HRESULT GetHeight([out] UINT32* cy);
+
+    // Load Ribbon parameters (e.g. QuickAccessToolbar) from a stream
+    UI_CHECKRETURN HRESULT LoadSettingsFromStream([in] IStream *pStream);
+
+    // Save Ribbon parameters (e.g. QuickAccessToolbar) to a stream
+    UI_CHECKRETURN HRESULT SaveSettingsToStream([in] IStream *pStream);
+};
+
+interface IUIApplication; // forward reference
+
+[
+    helpstring("Windows Ribbon Application interface"),
+    uuid(F4F0385D-6872-43a8-AD09-4C339CB3F5C5),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIFramework : IUnknown
+{
+    typedef [v1_enum] enum UI_INVALIDATIONS
+    {
+        UI_INVALIDATIONS_STATE         = 0x00000001, // UI_PKEY_Enabled
+        UI_INVALIDATIONS_VALUE         = 0x00000002, // Value property
+        UI_INVALIDATIONS_PROPERTY      = 0x00000004, // Any property
+        UI_INVALIDATIONS_ALLPROPERTIES = 0x00000008  // All properties
+    } UI_INVALIDATIONS;
+    cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(UI_INVALIDATIONS)")
+
+    const UINT32 UI_ALL_COMMANDS = 0;
+
+    // Connects the framework and the application
+    UI_CHECKRETURN HRESULT Initialize([in] HWND frameWnd, [in] IUIApplication* application);
+
+    // Releases all framework objects
+    HRESULT Destroy();
+
+    // Loads and instantiates the views and commands specified in markup
+    UI_CHECKRETURN HRESULT LoadUI([in] HINSTANCE instance, [in] LPCWSTR resourceName);
+
+    // Retrieves a pointer to a view object
+    UI_CHECKRETURN HRESULT GetView(UINT32 viewId, REFIID riid, [out, iid_is(riid), annotation("_Outptr_")] void** ppv);
+
+    // Retrieves the current value of a property
+    UI_CHECKRETURN HRESULT GetUICommandProperty(UINT32 commandId, [in] REFPROPERTYKEY key, [out] PROPVARIANT* value);
+
+    // Immediately sets the value of a property
+    UI_CHECKRETURN HRESULT SetUICommandProperty(UINT32 commandId, [in] REFPROPERTYKEY key, [in] REFPROPVARIANT value);
+
+    // Asks the framework to retrieve the new value of a property at the next update cycle
+    UI_CHECKRETURN HRESULT InvalidateUICommand(UINT32 commandId, UI_INVALIDATIONS flags, [in, annotation("_In_opt_")] const PROPERTYKEY* key);
+
+    // Flush all the pending UI command updates
+    HRESULT FlushPendingInvalidations();
+
+    // Asks the framework to switch to the list of modes specified and adjust visibility of controls accordingly
+    UI_CHECKRETURN HRESULT SetModes(INT32 iModes);
+};
+
+//
+//  This is necessary so that midl won't complain about the UI_EVENTPARAMS data type
+//  when we refer to it in the OnUIEvent() method below.
+//
+cpp_quote("#ifdef __midl")
+typedef void* UI_EVENTPARAMS;
+cpp_quote("#else //!__midl")
+cpp_quote("typedef struct _UI_EVENTPARAMS_COMMAND {")
+cpp_quote("    UINT CommandID;")
+cpp_quote("    PCWSTR CommandName;")
+cpp_quote("    UINT ParentCommandID;")
+cpp_quote("    PCWSTR ParentCommandName;")
+cpp_quote("    UINT SelectionIndex;")
+cpp_quote("    UI_EVENTLOCATION Location;")
+cpp_quote("} UI_EVENTPARAMS_COMMAND;")
+cpp_quote("")
+cpp_quote("typedef struct _UI_EVENTPARAMS {")
+cpp_quote("    UI_EVENTTYPE EventType;")
+cpp_quote("    union {")
+cpp_quote("        INT32 Modes;")
+cpp_quote("        UI_EVENTPARAMS_COMMAND Params;")
+cpp_quote("    };")
+cpp_quote("} UI_EVENTPARAMS;")
+cpp_quote("#endif //__midl")
+
+[
+    helpstring("Event logging interface"),
+    uuid(ec3e1034-dbf4-41a1-95d5-03e0f1026e05),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIEventLogger : IUnknown
+{
+    // Event reporting callback
+    void OnUIEvent([in] UI_EVENTPARAMS* pEventParams);        // the event parameters
+}
+
+[
+    helpstring("Windows Ribbon event reporting interface"),
+    uuid(3BE6EA7F-9A9B-4198-9368-9B0F923BD534),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIEventingManager : IUnknown
+{
+    // Sets the event reporting callback for this process.
+    UI_CHECKRETURN HRESULT SetEventLogger([in] IUIEventLogger* eventLogger);
+};
+
+[
+    helpstring("Windows Ribbon ContextualUI interface"),
+    uuid(EEA11F37-7C46-437c-8E55-B52122B29293),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIContextualUI : IUnknown
+{
+    // Sets the desired anchor point where ContextualUI should be displayed.
+    // Typically this is the mouse location at the time of right click.
+    // x and y are in virtual screen coordinates.
+    UI_CHECKRETURN HRESULT ShowAtLocation(INT32 x, INT32 y);
+};
+
+[
+    helpstring("Windows Ribbon Collection interface"),
+    uuid(DF4F45BF-6F9D-4dd7-9D68-D8F9CD18C4DB),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUICollection : IUnknown
+{
+    // Retrieves the count of the collection
+    UI_CHECKRETURN HRESULT GetCount([out] UINT32* count);
+
+    // Retrieves an item
+    UI_CHECKRETURN HRESULT GetItem(UINT32 index, [out, annotation("_Outptr_")] IUnknown** item);
+
+    // Adds an item to the end
+    UI_CHECKRETURN HRESULT Add([in] IUnknown* item);
+
+    // Inserts an item
+    UI_CHECKRETURN HRESULT Insert(UINT32 index, [in] IUnknown* item);
+
+    // Removes an item at the specified position
+    UI_CHECKRETURN HRESULT RemoveAt(UINT32 index);
+
+    // Replaces an item at the specified position
+    UI_CHECKRETURN HRESULT Replace(UINT32 indexReplaced, [in] IUnknown* itemReplaceWith);
+
+    // Clear the collection
+    UI_CHECKRETURN HRESULT Clear();
+};
+
+typedef [v1_enum] enum UI_COLLECTIONCHANGE
+{
+    UI_COLLECTIONCHANGE_INSERT  = 0,
+    UI_COLLECTIONCHANGE_REMOVE  = 1,
+    UI_COLLECTIONCHANGE_REPLACE = 2,
+    UI_COLLECTIONCHANGE_RESET   = 3,
+} UI_COLLECTIONCHANGE;
+
+const UINT32 UI_COLLECTION_INVALIDINDEX = 0xffffffff;
+
+[
+    helpstring("Connection Sink for listening to collection changes"),
+    uuid(6502AE91-A14D-44b5-BBD0-62AACC581D52),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUICollectionChangedEvent : IUnknown
+{
+    UI_CHECKRETURN HRESULT OnChanged(UI_COLLECTIONCHANGE action,
+                      UINT32 oldIndex,
+                      [in, annotation("_In_opt_")] IUnknown* oldItem,
+                      UINT32 newIndex,
+                      [in, annotation("_In_opt_")] IUnknown* newItem);
+};
+
+
+// Windows Ribbon interfaces implemented by the application
+
+[
+    helpstring("Command handler interface"),
+    uuid(75ae0a2d-dc03-4c9f-8883-069660d0beb6),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUICommandHandler : IUnknown
+{
+    typedef [v1_enum] enum UI_EXECUTIONVERB
+    {
+        UI_EXECUTIONVERB_EXECUTE       = 0,
+        UI_EXECUTIONVERB_PREVIEW       = 1,
+        UI_EXECUTIONVERB_CANCELPREVIEW = 2
+    } UI_EXECUTIONVERB;
+
+    // User action callback, with transient execution parameters
+    UI_CHECKRETURN HRESULT Execute(UINT32 commandId,                                                               // the command that has been executed
+                    UI_EXECUTIONVERB verb,                                                  // the mode of execution
+                    [in, annotation("_In_opt_")] const PROPERTYKEY* key,                            // the property that has changed
+                    [in, annotation("_In_opt_")] const PROPVARIANT* currentValue,                   // the new value of the property that has changed
+                    [in, annotation("_In_opt_")] IUISimplePropertySet* commandExecutionProperties); // additional data for this execution
+
+    // Informs of the current value of a property, and queries for the new one
+    UI_CHECKRETURN HRESULT UpdateProperty(UINT32 commandId,
+                           [in] REFPROPERTYKEY key,
+                           [in, annotation("_In_opt_")] const PROPVARIANT* currentValue,
+                           [out] PROPVARIANT* newValue);
+}
+
+// Types of UI commands
+typedef [v1_enum] enum UI_COMMANDTYPE
+{
+    UI_COMMANDTYPE_UNKNOWN                                       = 0,
+    UI_COMMANDTYPE_GROUP                                         = 1,
+    UI_COMMANDTYPE_ACTION                                        = 2,
+    UI_COMMANDTYPE_ANCHOR                                        = 3,
+    UI_COMMANDTYPE_CONTEXT                                       = 4,
+    UI_COMMANDTYPE_COLLECTION                                    = 5,
+    UI_COMMANDTYPE_COMMANDCOLLECTION                             = 6,
+    UI_COMMANDTYPE_DECIMAL                                       = 7,
+    UI_COMMANDTYPE_BOOLEAN                                       = 8,
+    UI_COMMANDTYPE_FONT                                          = 9,
+    UI_COMMANDTYPE_RECENTITEMS                                   = 10,
+    UI_COMMANDTYPE_COLORANCHOR                                   = 11,
+    UI_COMMANDTYPE_COLORCOLLECTION                               = 12,
+} UI_COMMANDTYPE;
+
+// Types of UI Views
+typedef [v1_enum] enum UI_VIEWTYPE
+{
+    UI_VIEWTYPE_RIBBON   = 1,
+} UI_VIEWTYPE;
+
+[
+    helpstring("Application callback interface"),
+    uuid(D428903C-729A-491d-910D-682A08FF2522),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIApplication : IUnknown
+{
+    typedef [v1_enum] enum UI_VIEWVERB
+    {
+        UI_VIEWVERB_CREATE  = 0,
+        UI_VIEWVERB_DESTROY = 1,
+        UI_VIEWVERB_SIZE    = 2,
+        UI_VIEWVERB_ERROR   = 3,
+    } UI_VIEWVERB;
+
+    // A view has changed
+    UI_CHECKRETURN HRESULT OnViewChanged(UINT32 viewId,
+                          UI_VIEWTYPE typeID,
+                          [in] IUnknown* view,
+                          UI_VIEWVERB verb,
+                          INT32 uReasonCode);
+
+    // Command creation callback
+    UI_CHECKRETURN HRESULT OnCreateUICommand(UINT32 commandId,
+                              UI_COMMANDTYPE typeID,
+                              [out] IUICommandHandler** commandHandler);
+
+    // Command destroy callback
+    UI_CHECKRETURN HRESULT OnDestroyUICommand(UINT32 commandId,
+                               UI_COMMANDTYPE typeID,
+                               [in, annotation("_In_opt_")] IUICommandHandler* commandHandler);
+
+};
+
+[
+    helpstring("Container for bitmap image"),
+    uuid(23c8c838-4de6-436b-ab01-5554bb7c30dd),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIImage : IUnknown
+{
+    UI_CHECKRETURN HRESULT GetBitmap([out] HBITMAP *bitmap);
+};
+
+[
+    helpstring("Produces containers for bitmap images"),
+    uuid(18aba7f3-4c1c-4ba2-bf6c-f5c3326fa816),
+    object,
+    pointer_default(unique),
+    local
+]
+interface IUIImageFromBitmap : IUnknown
+{
+    typedef [v1_enum] enum UI_OWNERSHIP
+    {
+        UI_OWNERSHIP_TRANSFER = 0, // IUIImage now owns HBITMAP.
+        UI_OWNERSHIP_COPY     = 1, // IUIImage creates a copy of HBITMAP. Caller still owns HBITMAP.
+    } UI_OWNERSHIP;
+
+    UI_CHECKRETURN HRESULT CreateImage([in] HBITMAP bitmap, UI_OWNERSHIP options, [out] IUIImage **image);
+};
+
+cpp_quote("#define UI_MAKEAPPMODE(x) (1 << (x))")
+
+cpp_quote("DEFINE_GUID(CLSID_UIRibbonFramework,0x926749fa, 0x2615, 0x4987, 0x88, 0x45, 0xc3, 0x3e, 0x65, 0xf2, 0xb9, 0x57);")
+cpp_quote("DEFINE_GUID(CLSID_UIRibbonImageFromBitmapFactory,")
+cpp_quote("                                    0x0f7434b6, 0x59b6, 0x4250, 0x99, 0x9e, 0xd1, 0x68, 0xd6, 0xae, 0x42, 0x93);")
+cpp_quote("DEFINE_GUID(LIBID_UIRibbon,         0x942f35c2, 0xe83b, 0x45ef, 0xb0, 0x85, 0xac, 0x29, 0x5d, 0xd6, 0x3d, 0x5b);")
+
+// Module
+[
+    uuid(942f35c2-e83b-45ef-b085-ac295dd63d5b), // LIBID_UIRibbon (not registered)
+    lcid(0x0000),
+    version(1.0)
+]
+library UIRibbon
+{
+    [
+        uuid(926749fa-2615-4987-8845-c33e65f2b957),
+        helpstring("UIRibbonFramework class")
+    ]
+    coclass UIRibbonFramework
+    {
+        [default] interface IUIFramework;
+    };
+
+    [
+        uuid(0F7434B6-59B6-4250-999E-D168D6AE4293),
+        helpstring("UIRibbonImageFromBitmapFactory class")
+    ]
+    coclass UIRibbonImageFromBitmapFactory
+    {
+        [default] interface IUIImageFromBitmap;
+    };
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

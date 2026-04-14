@@ -1,0 +1,1396 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "wtypes.idl";
+
+import "wtsdefs.h";
+
+
+/*****************************************************************
+ * INTERFACES
+ ******************************************************************/
+
+//
+// Following interfaces are for Windows 7, they are not supported in Win8.
+//
+interface IWTSProtocolListener;
+interface IWTSProtocolListenerCallback;
+interface IWTSProtocolConnection;
+interface IWTSProtocolConnectionCallback;
+interface IWTSProtocolLicenseConnection;
+interface IWTSProtocolShadowConnection;
+interface IWTSProtocolShadowCallback;
+interface IWTSProtocolLogonErrorRedirector;
+
+[
+    object,
+    uuid(F9EAF6CC-ED79-4f01-821D-1F881B9F66CC),
+    pointer_default(unique)
+]
+interface IWTSProtocolManager : IUnknown
+{
+    HRESULT
+    CreateListener(
+        [in, string] WCHAR *wszListenerName,
+        [out] IWTSProtocolListener **pProtocolListener
+    );
+
+    HRESULT
+    NotifyServiceStateChange(
+        [in] WTS_SERVICE_STATE *pTSServiceStateChange
+        );
+
+    HRESULT
+    NotifySessionOfServiceStart(
+        [in] WTS_SESSION_ID *SessionId
+        );
+
+    HRESULT
+    NotifySessionOfServiceStop(
+        [in] WTS_SESSION_ID *SessionId
+        );
+
+    HRESULT
+    NotifySessionStateChange(
+        [in] WTS_SESSION_ID *SessionId,
+        [in] ULONG EventId
+        );
+};
+
+[
+    object,
+    uuid(23083765-45f0-4394-8f69-32b2bc0ef4ca),
+    pointer_default(unique)
+]
+interface IWTSProtocolListener : IUnknown
+{
+    HRESULT
+    StartListen( 
+        [in] IWTSProtocolListenerCallback           *pCallback
+        );
+
+    HRESULT
+    StopListen();
+};
+
+[
+    object,
+    uuid(23083765-1a2d-4de2-97de-4a35f260f0b3),
+    pointer_default(unique)
+]
+interface IWTSProtocolListenerCallback : IUnknown
+{
+    // Inform RCM of an incoming connection request
+    HRESULT OnConnected( 
+        [in]  IWTSProtocolConnection *pConnection,
+        [out] IWTSProtocolConnectionCallback **pCallback );
+};
+
+[
+    object,
+    uuid(23083765-9095-4648-98bf-ef81c914032d),
+    pointer_default(unique)
+]
+interface IWTSProtocolConnection : IUnknown
+{
+    /* ----------------------------------------------------
+     * Following functions will be called in the sequence
+     * defined below
+     * ---------------------------------------------------*/
+
+    // To get the LogonUI error redirector interface
+    // Fail the call if error redirection is not desired
+    HRESULT
+    GetLogonErrorRedirector(
+        [out] IWTSProtocolLogonErrorRedirector **ppLogonErrorRedir
+        );
+
+    // Provide policy data to the protocol to prepare it for Accept
+    HRESULT 
+    SendPolicyData(
+        [in] WTS_POLICY_DATA *pPolicyData
+        );
+
+    // Initial response from RCM after receiving a connection request
+    // RCM is asking protocol to go ahead with the connection sequence
+    HRESULT 
+    AcceptConnection();
+
+    // Ask for client data
+    HRESULT
+    GetClientData( 
+        [out] WTS_CLIENT_DATA *pClientData
+        );
+
+    // Request for user credential if available
+    // Today we only support username/password credentials
+    HRESULT
+    GetUserCredentials(
+        [out] WTS_USER_CREDENTIAL *pUserCreds
+        );
+
+    // Get instance of IWTSProtocolLicenseConnection 
+    // It will be used to perform licensing handshake
+    HRESULT
+    GetLicenseConnection(
+        [out]   IWTSProtocolLicenseConnection   **ppLicenseConnection
+        );
+
+    // Allow protocol to provide an existing session to reconnect.
+    // This is done before arbitration. If the call fails, session
+    // will be created and RCM will do arbitration.
+    HRESULT 
+    AuthenticateClientToSession( 
+        [out]   WTS_SESSION_ID  *SessionId 
+        );
+
+    // CREATE TEMP SESSION if AuthenticateClientToSession fails
+
+    // Session is created, Notify of Session ID and GUID
+    HRESULT
+    NotifySessionId(
+        [in]    WTS_SESSION_ID   *SessionId
+        );
+
+    // Get handles to input/output devices which will be passed to win32k
+    HRESULT
+    GetProtocolHandles(
+        [out]   HANDLE_PTR   *pKeyboardHandle,
+        [out]   HANDLE_PTR   *pMouseHandle,
+        [out]   HANDLE_PTR   *pBeepHandle,
+        [out]   HANDLE_PTR   *pVideoHandle
+        );
+
+    // Notify Winlogon has connected
+    HRESULT
+    ConnectNotify(
+        [in]    ULONG  SessionId
+        );
+
+    // Check with protocol if user should be allowed to log on
+    HRESULT
+    IsUserAllowedToLogon(
+        [in]            ULONG           SessionId,
+        [in]            HANDLE_PTR      UserToken,
+        [in, string]    WCHAR           *pDomainName,
+        [in, string]    WCHAR           *pUserName 
+        );
+
+    // This is called after arbitration. The protocol is allowed to 
+    // choose the session to be reconnected. 
+    // Protocol extension should return E_NOTIMPL if it wants to use default
+    // RCM session arbitration.    
+    HRESULT 
+    SessionArbitrationEnumeration(
+        [in]                                        HANDLE_PTR  hUserToken,
+        [in]                                        BOOL        bSingleSessionPerUserEnabled,
+        [out, size_is(*pdwSessionIdentifierCount)]  ULONG       *pSessionIdArray,
+        [in,out]                                    ULONG       *pdwSessionIdentifierCount 
+        );
+
+    // Notify that user have logged on
+    HRESULT
+    LogonNotify(
+        [in]        HANDLE_PTR      hClientToken,
+        [in,string] WCHAR           *wszUserName,
+        [in,string] WCHAR           *wszDomainName,
+        [in]        WTS_SESSION_ID  *SessionId
+        );
+
+    // At this point, user properties (GP) must have been merged
+    // Send updated policy data so that protocol can provide
+    // updated user data, if desired
+    HRESULT
+    GetUserData(
+        [in]      WTS_POLICY_DATA *pPolicyData,
+        [in, out] WTS_USER_DATA   *pClientData
+        );
+
+    // Notify of session disconnect
+    HRESULT
+    DisconnectNotify();
+
+    // Close connection. Last call before connection object is removed.
+    HRESULT
+    Close();
+
+    /* ----------------------------------------------------
+     * Following functions can be called at any time
+     * ---------------------------------------------------*/
+
+    // Get performance data from protocol
+    HRESULT
+    GetProtocolStatus(
+        [out] WTS_PROTOCOL_STATUS *pProtocolStatus
+        );
+
+    // Get last time input was received
+    HRESULT
+    GetLastInputTime(
+        [out] ULONG64 *pLastInputTime
+        );
+
+    // Send error message to client
+    HRESULT
+    SetErrorInfo(
+        [in] ULONG  ulError
+        );
+
+    // Send beep
+    HRESULT
+    SendBeep(
+        [in] ULONG  Frequency,
+        [in] ULONG  Duration 
+        );
+
+    // Create Virtual channels
+    HRESULT
+    CreateVirtualChannel(
+        [in,string] CHAR    *szEndpointName,
+        [in]        BOOL    bStatic,
+        [in]        ULONG   RequestedPriority,
+        [out]       ULONG_PTR *phChannel 
+        );
+
+    // Used to query properties from the protocol:
+    // - The QueryType GUID specifies what property to query
+    // - A number of WTS_PPROPERTY_VALUEs are passed in to help in querying (optional)
+    // - Protocol replies with a bunch of WTS_PPROPERTY_VALUEs (optional)
+    // Properties and structures are defined in tsproperty.w
+    HRESULT
+    QueryProperty(
+        [in]                                    GUID                QueryType,
+        [in]                                    ULONG               ulNumEntriesIn,
+        [in]                                    ULONG               ulNumEntriesOut,
+        [in,optional,size_is(ulNumEntriesIn)]   PWTS_PROPERTY_VALUE pPropertyEntriesIn,
+        [out,optional,size_is(ulNumEntriesOut)] PWTS_PROPERTY_VALUE pPropertyEntriesOut 
+        );
+
+    // To get shadow connection object from the protocol
+    HRESULT
+    GetShadowConnection(
+        [out] IWTSProtocolShadowConnection **ppShadowConnection
+        );
+};
+
+[
+    object,
+    uuid(23083765-75eb-41fe-b4fb-e086242afa0f),
+    pointer_default(unique)
+]
+interface IWTSProtocolConnectionCallback : IUnknown
+{
+    // This is a signal from the protocol that it is
+    // ready with client data and RCM should go ahead
+    // with the connection sequence
+    HRESULT OnReady();
+
+    // Inform RCM of disconnect
+    HRESULT BrokenConnection(
+        [in] ULONG Reason, 
+        [in] ULONG Source
+        );
+
+    // Stop display updates. 
+    // This call will be forwarded to win32k.
+    HRESULT StopScreenUpdates();
+
+    // Redraw the window. Generally called after StopScreenUpdates.
+    // This call will be forwarded to win32k.
+    // Passing NULL as parameter will redraw the whole window
+    HRESULT RedrawWindow( 
+        [in, optional] WTS_SMALL_RECT *rect 
+        );
+
+    // This will generate a DrvDisplayIOCtl call to DD from win32k
+    // Win32k will pass the data supplied in this call to DD.
+    //
+    // DD must implement the DrvDisplayIOCtl call with following signature:
+    //      BOOL APIENTRY DrvDisplayIOCtl(PVOID, ULONG);
+    //
+    HRESULT DisplayIOCtl(
+        [in] WTS_DISPLAY_IOCTL *DisplayIOCtl
+        );
+};
+
+[
+    object,
+    uuid(ee3b0c14-37fb-456b-bab3-6d6cd51e13bf),
+    pointer_default(unique)
+]
+interface IWTSProtocolShadowConnection : IUnknown
+{
+    // This is to inform of shadow start.
+    // RCM will also change the state of the session on the shadow client.
+    HRESULT
+    Start(
+        [in,string]                     WCHAR       *pTargetServerName,
+        [in]                            DWORD       TargetSessionId,
+        [in]                            BYTE        HotKeyVk,
+        [in]                            USHORT      HotkeyModifiers,
+        [in]                            IWTSProtocolShadowCallback   *pShadowCallback
+        );
+
+    // This is to inform of shadow stop if RCM detects it.
+    // RCM will also change the state of the session on the shadow client.
+    HRESULT
+    Stop();
+
+    HRESULT
+    DoTarget(
+        [in,size_is(Param1Size)]    PBYTE       pParam1,
+        [in]                        DWORD       Param1Size,
+        [in,size_is(Param2Size)]    PBYTE       pParam2,
+        [in]                        DWORD       Param2Size,
+        [in,size_is(Param3Size)]    PBYTE       pParam3,
+        [in]                        DWORD       Param3Size,
+        [in,size_is(Param4Size)]    PBYTE       pParam4,
+        [in]                        DWORD       Param4Size,
+        [in,string]                 WCHAR       *pClientName
+        );
+};
+
+[
+    object,
+    uuid(503a2504-aae5-4ab1-93e0-6d1c4bc6f71a),
+    pointer_default(unique)
+]
+interface IWTSProtocolShadowCallback : IUnknown
+{
+    // This is to inform RCM that shadow ended. 
+    // This will revert state of the session on the shadow client.
+    HRESULT
+    StopShadow();
+
+    // This call will send a RPC message to target to start shadow
+    HRESULT InvokeTargetShadow(
+        [in,ptr,string]             WCHAR       *pTargetServerName,
+        [in]                        ULONG       TargetSessionId,
+        [in,size_is(Param1Size)]    PBYTE       pParam1,
+        [in]                        DWORD       Param1Size,
+        [in,size_is(Param2Size)]    PBYTE       pParam2,
+        [in]                        DWORD       Param2Size,
+        [in,size_is(Param3Size)]    PBYTE       pParam3,
+        [in]                        DWORD       Param3Size,
+        [in,size_is(Param4Size)]    PBYTE       pParam4,
+        [in]                        DWORD       Param4Size,
+        [in,string]                 WCHAR       *pClientName
+        );
+};
+
+[
+    object,
+    uuid(23083765-178c-4079-8e4a-fea6496a4d70),
+    pointer_default(unique)
+]
+interface IWTSProtocolLicenseConnection : IUnknown
+{
+    // Used to request licensing capabilities from the client
+    HRESULT
+    RequestLicensingCapabilities(
+        [out]       PWTS_LICENSE_CAPABILITIES   ppLicenseCapabilities,
+        [in, out]   ULONG                       *pcbLicenseCapabilities
+        );
+
+    // Used to send license from server.
+    //
+    // The pClientLicense can be one of the following structures:
+    //      - Server_New_License 
+    //      - Platform_Challenge
+    //      - Server_License_Request
+    //      - Server_Upgrade_License
+    // * For more details on the structures and wire formats, please
+    // * refer to [MS-RDPBCGR] - 
+    // * http://msdn.microsoft.com/en-us/library/cc241880(PROT.10).aspx
+    //
+    HRESULT
+    SendClientLicense(
+        [in,size_is(cbClientLicense)] PBYTE  pClientLicense,
+        [in]                          ULONG  cbClientLicense
+        );
+
+    // Used to get license from server.
+    //
+    // The client responds to server by filling on the following 
+    // structures in ppClientLicense:
+    //      - Client_License_Info 
+    //      - Client_New_License_Request
+    //      - Client_Platform_Challenge_Response
+    // * For more details on the structures and wire formats, please
+    // * refer to [MS-RDPBCGR] - 
+    // * http://msdn.microsoft.com/en-us/library/cc241880(PROT.10).aspx
+    //
+    HRESULT
+    RequestClientLicense(
+        [in, size_is( Reserve2 )]           PBYTE Reserve1,
+        [in]                                ULONG Reserve2,
+        [out, size_is(*pcbClientLicense)]   PBYTE ppClientLicense,
+        [in, out]                           ULONG *pcbClientLicense
+        );
+
+    // Used to notify whether the licensing handshake succeeded or not.
+    //
+    // ulComplete = 1 means success, failure otherwise
+    //
+    HRESULT
+    ProtocolComplete(
+        [in] ULONG                          ulComplete
+        );
+        
+};
+
+[
+    object,
+    uuid(FD9B61A7-2916-4627-8DEE-4328711AD6CB),
+    pointer_default(unique)
+]
+interface IWTSProtocolLogonErrorRedirector : IUnknown
+{
+    //=============================================================================
+    //
+    // OnBeginPainting()
+    //
+    // Purpose:
+    //      LogonUI is notifying that it is goinging to start painting.
+    // Parameters:
+    //      NONE
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    OnBeginPainting();
+
+    //====================================================================================================
+    //
+    // RedirectStatus()
+    //
+    // Purpose:
+    //      LogonUI uses this method to update about logon status.
+    // Parameters:
+    //      pszMessage - Logon Status Message
+    //      pResponse  - Response to this method. 
+    //                   This is of the enum type WTS_LOGON_ERROR_REDIRECTOR_RESPONSE. 
+    //                   The valid responses are:
+    //                   WTS_LOGON_ERR_INVALID            = 0,
+    //                   WTS_LOGON_ERR_NOT_HANDLED        = The call not handled by the redirector and
+    //                                                      should be handled normally by LogonUI.
+    //                   WTS_LOGON_ERR_HANDLED_SHOW       = The call was handled by the redirector.
+    //                                                      LogonUI should paint itself normally.
+    //                   WTS_LOGON_ERR_HANDLED_DONT_SHOW  = The call was handled by the redirector 
+    //                                                      and should not be passed to the next redirector.
+    //                                                      LogonUI will attempt to gather credentials again.
+    //                   WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER
+    //                                           = The call was handled by the redirector 
+    //                                             and should not be passed to the next redirector.
+    //                                             LogonUI will NOT attempt to gather credentials again.
+    //                                             Valid only when returned from RedirectLogonError.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //====================================================================================================
+    HRESULT
+    RedirectStatus(
+        [in, string] LPCWSTR pszMessage,
+        [out]        WTS_LOGON_ERROR_REDIRECTOR_RESPONSE* pResponse);
+
+    //=============================================================================
+    //
+    // RedirectMessage()
+    //
+    // Purpose:
+    //      LogonUI uses this method to redirect logon message.
+    // Parameters:
+    //      pszCaption  - Caption of the message
+    //      pszMessage  - Text of the message
+    //      uType       - Message Box type (See MessageBox)
+    //      pResponse   - Response to this method. 
+    //                    Refer to comment for WinStationRedirectLogonStatus.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    RedirectMessage(
+        [in, string] LPCWSTR pszCaption,
+        [in, string] LPCWSTR pszMessage,
+        [in]         UINT uType,
+        [out]        WTS_LOGON_ERROR_REDIRECTOR_RESPONSE* pResponse);
+
+    //=============================================================================
+    //
+    // RedirectLogonError()
+    //
+    // Purpose:
+    //      LogonUI uses this method to redirect logon error.
+    // Parameters:
+    //      ntsStatus       - Status of the logon operation (See LsaLogonUser).
+    //      ntsSubStatus    - Sub status of the logon operation (See LsaLogonUser).
+    //      pszCaption      - Caption of the message
+    //      pszMessage      - Text of the message
+    //      uType           - Message Box type (See MessageBox)
+    //      pResponse       - Response to this method. 
+    //                        Refer to comment for WinStationRedirectLogonStatus.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    RedirectLogonError(
+        [in]         LONG ntsStatus,
+        [in]         LONG ntsSubstatus,
+        [in, string] LPCWSTR pszCaption,
+        [in, string] LPCWSTR pszMessage,
+        [in]         UINT uType,
+        [out]        WTS_LOGON_ERROR_REDIRECTOR_RESPONSE* pResponse);
+};
+
+//
+// Following interfaces are for Windows 8
+//
+interface IWRdsProtocolSettings;
+interface IWRdsProtocolManager;
+interface IWRdsProtocolListener;
+interface IWRdsProtocolListenerCallback;
+interface IWRdsProtocolConnection;
+interface IWRdsProtocolConnectionCallback;
+interface IWRdsProtocolShadowConnection;
+interface IWRdsProtocolShadowCallback;
+interface IWRdsProtocolLicenseConnection;
+interface IWRdsProtocolLogonErrorRedirector;
+
+[
+    object,
+    uuid(654A5A6A-2550-47EB-B6F7-EBD637475265),
+    pointer_default(unique)
+]
+interface IWRdsProtocolSettings : IUnknown
+{
+    HRESULT
+    GetSettings(
+        [in] WRDS_SETTING_TYPE      WRdsSettingType,
+        [in] WRDS_SETTING_LEVEL     WRdsSettingLevel,
+        [out, ref] PWRDS_SETTINGS   pWRdsSettings
+        );
+
+    HRESULT
+    MergeSettings(
+        [in, ref] PWRDS_SETTINGS                pWRdsSettings,
+        [in] WRDS_CONNECTION_SETTING_LEVEL      WRdsConnectionSettingLevel,
+        [in, out, ref] PWRDS_CONNECTION_SETTINGS    pWRdsConnectionSettings
+        );
+};
+
+[
+    object,
+    uuid(DC796967-3ABB-40CD-A446-105276B58950),
+    pointer_default(unique)
+]
+interface IWRdsProtocolManager : IUnknown
+{
+    HRESULT
+    Initialize(
+        [in] IWRdsProtocolSettings *pIWRdsSettings,
+        [in] PWRDS_SETTINGS pWRdsSettings
+        );
+
+    HRESULT
+    CreateListener(
+        [in, string] WCHAR *wszListenerName,
+        [out] IWRdsProtocolListener **pProtocolListener
+        );
+
+    HRESULT
+    NotifyServiceStateChange(
+        [in] WRDS_SERVICE_STATE *pTSServiceStateChange
+        );
+
+    HRESULT
+    NotifySessionOfServiceStart(
+        [in] WRDS_SESSION_ID *SessionId
+        );
+
+    HRESULT
+    NotifySessionOfServiceStop(
+        [in] WRDS_SESSION_ID *SessionId
+        );
+
+    HRESULT
+    NotifySessionStateChange(
+        [in] WRDS_SESSION_ID *SessionId,
+        [in] ULONG EventId
+        );
+
+    HRESULT
+    NotifySettingsChange(
+        [in] PWRDS_SETTINGS pWRdsSettings
+        );
+
+    HRESULT        
+    Uninitialize(
+        );
+};
+
+[
+    object,
+    uuid(FCBC131B-C686-451D-A773-E279E230F540),
+    pointer_default(unique)
+]
+interface IWRdsProtocolListener : IUnknown
+{
+    HRESULT
+    GetSettings(
+        [in] WRDS_LISTENER_SETTING_LEVEL WRdsListenerSettingLevel,
+        [out, ref] PWRDS_LISTENER_SETTINGS pWRdsListenerSettings
+        );
+
+    HRESULT
+    StartListen( 
+        [in] IWRdsProtocolListenerCallback *pCallback
+        );
+
+    HRESULT
+    StopListen();
+};
+
+[
+    object,
+    uuid(3AB27E5B-4449-4DC1-B74A-91621D4FE984),
+    pointer_default(unique)
+]
+interface IWRdsProtocolListenerCallback : IUnknown
+{
+    // Inform RCM of an incoming connection request
+    HRESULT OnConnected( 
+        [in] IWRdsProtocolConnection *pConnection,
+        [in] PWRDS_CONNECTION_SETTINGS pWRdsConnectionSettings,
+        [out] IWRdsProtocolConnectionCallback **pCallback
+        );
+};
+
+[
+    object,
+    uuid(324ED94F-FDAF-4FF6-81A8-42ABE755830B),
+    pointer_default(unique)
+]
+interface IWRdsProtocolConnection : IUnknown 
+{
+    /* ----------------------------------------------------
+     * Following functions will be called in the sequence
+     * defined below
+     * ---------------------------------------------------*/
+
+    // To get the LogonUI error redirector interface
+    // Fail the call if error redirection is not desired
+    HRESULT
+    GetLogonErrorRedirector(
+        [out] IWRdsProtocolLogonErrorRedirector **ppLogonErrorRedir
+        );
+
+    // Initial response from RCM after receiving a connection request
+    // RCM is asking protocol to go ahead with the connection sequence
+    HRESULT 
+    AcceptConnection();
+
+    // Ask for client data
+    HRESULT
+    GetClientData( 
+        [out] WRDS_CLIENT_DATA *pClientData
+        );
+
+    HRESULT 
+    GetClientMonitorData(
+        [out] UINT      *pNumMonitors,
+        [out] UINT      *pPrimaryMonitor
+        );
+
+    // Request for user credential if available
+    // Today we only support username/password credentials
+    HRESULT
+    GetUserCredentials(
+        [out] WRDS_USER_CREDENTIAL *pUserCreds
+        );
+
+    // Get instance of IWRdsProtocolLicenseConnection 
+    // It will be used to perform licensing handshake
+    HRESULT
+    GetLicenseConnection(
+        [out] IWRdsProtocolLicenseConnection   **ppLicenseConnection
+        );
+
+    // Allow protocol to provide an existing session to reconnect.
+    // This is done before arbitration. If the call fails, session
+    // will be created and RCM will do arbitration.
+    HRESULT 
+    AuthenticateClientToSession( 
+        [out] WRDS_SESSION_ID  *SessionId 
+        );
+
+    // CREATE TEMP SESSION if AuthenticateClientToSession fails
+
+    // Session is created, Notify of Session ID and GUID
+    HRESULT
+    NotifySessionId(
+        [in]    WRDS_SESSION_ID  *SessionId,
+        [in]    HANDLE_PTR       SessionHandle
+        );
+
+    // Get handles to input/output devices
+    HRESULT
+    GetInputHandles(
+        [out]   HANDLE_PTR   *pKeyboardHandle,
+        [out]   HANDLE_PTR   *pMouseHandle,
+        [out]   HANDLE_PTR   *pBeepHandle
+        );
+
+    // Get video handle
+    HRESULT
+    GetVideoHandle(
+        [out]   HANDLE_PTR   *pVideoHandle
+        );
+
+    // Notify Winlogon has connected
+    HRESULT
+    ConnectNotify(
+        [in]    ULONG  SessionId
+        );
+
+    // Check with protocol if user should be allowed to log on
+    HRESULT
+    IsUserAllowedToLogon(
+        [in]            ULONG           SessionId,
+        [in]            HANDLE_PTR      UserToken,
+        [in, string]    WCHAR           *pDomainName,
+        [in, string]    WCHAR           *pUserName 
+        );
+
+    // This is called after arbitration. The protocol is allowed to 
+    // choose the session to be reconnected. 
+    // Protocol extension should return E_NOTIMPL if it wants to use default
+    // RCM session arbitration.    
+    HRESULT 
+    SessionArbitrationEnumeration(
+        [in]                                        HANDLE_PTR  hUserToken,
+        [in]                                        BOOL        bSingleSessionPerUserEnabled,
+        [out, size_is(*pdwSessionIdentifierCount)]  ULONG       *pSessionIdArray,
+        [in,out]                                    ULONG       *pdwSessionIdentifierCount 
+        );
+
+    // Notify that user have logged on
+    HRESULT
+    LogonNotify(
+        [in]        HANDLE_PTR      hClientToken,
+        [in,string] WCHAR           *wszUserName,
+        [in,string] WCHAR           *wszDomainName,
+        [in]        WRDS_SESSION_ID *SessionId,
+        [in,out]    PWRDS_CONNECTION_SETTINGS pWRdsConnectionSettings
+        );
+
+    // Notify session is going to be disconnect
+    HRESULT PreDisconnect(
+	    [in]                            ULONG DisconnectReason
+    );
+
+    // Notify of session disconnect
+    HRESULT
+    DisconnectNotify();
+
+    // Close connection. Last call before connection object is removed.
+    HRESULT
+    Close();
+
+    /* ----------------------------------------------------
+     * Following functions can be called at any time
+     * ---------------------------------------------------*/
+
+    // Get performance data from protocol
+    HRESULT
+    GetProtocolStatus(
+        [out] WRDS_PROTOCOL_STATUS *pProtocolStatus
+        );
+
+    // Get last time input was received
+    HRESULT
+    GetLastInputTime(
+        [out] ULONG64 *pLastInputTime
+        );
+
+    // Send error message to client
+    HRESULT
+    SetErrorInfo(
+        [in] ULONG  ulError
+        );
+
+    // Create Virtual channels
+    HRESULT
+    CreateVirtualChannel(
+        [in,string] CHAR    *szEndpointName,
+        [in]        BOOL    bStatic,
+        [in]        ULONG   RequestedPriority,
+        [out]       ULONG_PTR *phChannel 
+        );
+
+    // Used to query properties from the protocol:
+    // - The QueryType GUID specifies what property to query
+    // - A number of WRDS_PPROPERTY_VALUEs are passed in to help in querying (optional)
+    // - Protocol replies with a bunch of WRDS_PPROPERTY_VALUEs (optional)
+    // Properties and structures are defined in tsproperty.w
+    HRESULT
+    QueryProperty(
+        [in]                                    GUID                 QueryType,
+        [in]                                    ULONG                ulNumEntriesIn,
+        [in]                                    ULONG                ulNumEntriesOut,
+        [in,optional,size_is(ulNumEntriesIn)]   PWRDS_PROPERTY_VALUE pPropertyEntriesIn,
+        [out,optional,size_is(ulNumEntriesOut)] PWRDS_PROPERTY_VALUE pPropertyEntriesOut 
+        );
+
+    // To get shadow connection object from the protocol
+    HRESULT
+    GetShadowConnection(
+        [out] IWRdsProtocolShadowConnection **ppShadowConnection
+        );
+
+    // Notify Winlogon has started
+    HRESULT
+    NotifyCommandProcessCreated(
+        [in]    ULONG  SessionId
+        );
+};
+
+[
+    object,
+    uuid(F1D70332-D070-4EF1-A088-78313536C2D6),
+    pointer_default(unique)
+]
+interface IWRdsProtocolConnectionCallback : IUnknown
+{
+    // This is a signal from the protocol that it is
+    // ready with client data and RCM should go ahead
+    // with the connection sequence
+    HRESULT OnReady();
+
+    // Inform RCM of disconnect
+    HRESULT BrokenConnection(
+        [in] ULONG Reason, 
+        [in] ULONG Source
+        );
+
+    // Stop display updates. 
+    // This call will be forwarded to win32k.
+    HRESULT StopScreenUpdates();
+
+    // Redraw the window. Generally called after StopScreenUpdates.
+    // This call will be forwarded to win32k.
+    // Passing NULL as parameter will redraw the whole window
+    HRESULT RedrawWindow( 
+        [in, optional] WRDS_SMALL_RECT *rect 
+        );
+
+    HRESULT GetConnectionId(
+        [out] ULONG* pConnectionId
+        );
+};
+
+[
+    object,
+    uuid(9AE85CE6-CADE-4548-8FEB-99016597F60A),
+    pointer_default(unique)
+]
+interface IWRdsProtocolShadowConnection : IUnknown
+{
+    // This is to inform of shadow start.
+    // RCM will also change the state of the session on the shadow client.
+    HRESULT
+    Start(
+        [in,string]                     WCHAR       *pTargetServerName,
+        [in]                            DWORD       TargetSessionId,
+        [in]                            BYTE        HotKeyVk,
+        [in]                            USHORT      HotkeyModifiers,
+        [in]                            IWRdsProtocolShadowCallback   *pShadowCallback
+        );
+
+    // This is to inform of shadow stop if RCM detects it.
+    // RCM will also change the state of the session on the shadow client.
+    HRESULT
+    Stop();
+
+    HRESULT
+    DoTarget(
+        [in,size_is(Param1Size)]    PBYTE       pParam1,
+        [in]                        DWORD       Param1Size,
+        [in,size_is(Param2Size)]    PBYTE       pParam2,
+        [in]                        DWORD       Param2Size,
+        [in,size_is(Param3Size)]    PBYTE       pParam3,
+        [in]                        DWORD       Param3Size,
+        [in,size_is(Param4Size)]    PBYTE       pParam4,
+        [in]                        DWORD       Param4Size,
+        [in,string]                 WCHAR       *pClientName
+        );
+};
+
+[
+    object,
+    uuid(E0667CE0-0372-40D6-ADB2-A0F3322674D6),
+    pointer_default(unique)
+]
+interface IWRdsProtocolShadowCallback : IUnknown
+{
+    // This is to inform RCM that shadow ended. 
+    // This will revert state of the session on the shadow client.
+    HRESULT
+    StopShadow();
+
+    // This call will send a RPC message to target to start shadow
+    HRESULT InvokeTargetShadow(
+        [in,ptr,string]             WCHAR       *pTargetServerName,
+        [in]                        ULONG       TargetSessionId,
+        [in,size_is(Param1Size)]    PBYTE       pParam1,
+        [in]                        DWORD       Param1Size,
+        [in,size_is(Param2Size)]    PBYTE       pParam2,
+        [in]                        DWORD       Param2Size,
+        [in,size_is(Param3Size)]    PBYTE       pParam3,
+        [in]                        DWORD       Param3Size,
+        [in,size_is(Param4Size)]    PBYTE       pParam4,
+        [in]                        DWORD       Param4Size,
+        [in,string]                 WCHAR       *pClientName
+        );
+};
+
+[
+    object,
+    uuid(1D6A145F-D095-4424-957A-407FAE822D84),
+    pointer_default(unique)
+]
+interface IWRdsProtocolLicenseConnection : IUnknown
+{
+    // Used to request licensing capabilities from the client
+    HRESULT
+    RequestLicensingCapabilities(
+        [out]       PWRDS_LICENSE_CAPABILITIES  ppLicenseCapabilities,
+        [in, out]   ULONG                       *pcbLicenseCapabilities
+        );
+
+    // Used to send license from server.
+    //
+    // The pClientLicense can be one of the following structures:
+    //      - Server_New_License 
+    //      - Platform_Challenge
+    //      - Server_License_Request
+    //      - Server_Upgrade_License
+    // * For more details on the structures and wire formats, please
+    // * refer to [MS-RDPBCGR] - 
+    // * http://msdn.microsoft.com/en-us/library/cc241880(PROT.10).aspx
+    //
+    HRESULT
+    SendClientLicense(
+        [in,size_is(cbClientLicense)] PBYTE  pClientLicense,
+        [in]                          ULONG  cbClientLicense
+        );
+
+    // Used to get license from server.
+    //
+    // The client responds to server by filling on the following 
+    // structures in ppClientLicense:
+    //      - Client_License_Info 
+    //      - Client_New_License_Request
+    //      - Client_Platform_Challenge_Response
+    // * For more details on the structures and wire formats, please
+    // * refer to [MS-RDPBCGR] - 
+    // * http://msdn.microsoft.com/en-us/library/cc241880(PROT.10).aspx
+    //
+    HRESULT
+    RequestClientLicense(
+        [in, size_is( Reserve2 )]           PBYTE Reserve1,
+        [in]                                ULONG Reserve2,
+        [out, size_is(*pcbClientLicense)]   PBYTE ppClientLicense,
+        [in, out]                           ULONG *pcbClientLicense
+        );
+
+    // Used to notify whether the licensing handshake succeeded or not.
+    //
+    // ulComplete = 1 means success, failure otherwise
+    //
+    HRESULT
+    ProtocolComplete(
+        [in] ULONG                          ulComplete
+        );
+        
+};
+
+[
+    object,
+    uuid(519FE83B-142A-4120-A3D5-A405D315281A),
+    pointer_default(unique)
+]
+interface IWRdsProtocolLogonErrorRedirector : IUnknown
+{
+    //=============================================================================
+    //
+    // OnBeginPainting()
+    //
+    // Purpose:
+    //      LogonUI is notifying that it is goinging to start painting.
+    // Parameters:
+    //      NONE
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    OnBeginPainting();
+
+    //====================================================================================================
+    //
+    // RedirectStatus()
+    //
+    // Purpose:
+    //      LogonUI uses this method to update about logon status.
+    // Parameters:
+    //      pszMessage - Logon Status Message
+    //      pResponse  - Response to this method. 
+    //                   This is of the enum type WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE. 
+    //                   The valid responses are:
+    //                   WRDS_LOGON_ERR_INVALID            = 0,
+    //                   WRDS_LOGON_ERR_NOT_HANDLED        = The call not handled by the redirector and
+    //                                                      should be handled normally by LogonUI.
+    //                   WRDS_LOGON_ERR_HANDLED_SHOW       = The call was handled by the redirector.
+    //                                                      LogonUI should paint itself normally.
+    //                   WRDS_LOGON_ERR_HANDLED_DONT_SHOW  = The call was handled by the redirector 
+    //                                                      and should not be passed to the next redirector.
+    //                                                      LogonUI will attempt to gather credentials again.
+    //                   WRDS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER
+    //                                           = The call was handled by the redirector 
+    //                                             and should not be passed to the next redirector.
+    //                                             LogonUI will NOT attempt to gather credentials again.
+    //                                             Valid only when returned from RedirectLogonError.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //====================================================================================================
+    HRESULT
+    RedirectStatus(
+        [in, string] LPCWSTR pszMessage,
+        [out]        WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE* pResponse);
+
+    //=============================================================================
+    //
+    // RedirectMessage()
+    //
+    // Purpose:
+    //      LogonUI uses this method to redirect logon message.
+    // Parameters:
+    //      pszCaption  - Caption of the message
+    //      pszMessage  - Text of the message
+    //      uType       - Message Box type (See MessageBox)
+    //      pResponse   - Response to this method. 
+    //                    Refer to comment for WinStationRedirectLogonStatus.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    RedirectMessage(
+        [in, string] LPCWSTR pszCaption,
+        [in, string] LPCWSTR pszMessage,
+        [in]         UINT uType,
+        [out]        WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE* pResponse);
+
+    //=============================================================================
+    //
+    // RedirectLogonError()
+    //
+    // Purpose:
+    //      LogonUI uses this method to redirect logon error.
+    // Parameters:
+    //      ntsStatus       - Status of the logon operation (See LsaLogonUser).
+    //      ntsSubStatus    - Sub status of the logon operation (See LsaLogonUser).
+    //      pszCaption      - Caption of the message
+    //      pszMessage      - Text of the message
+    //      uType           - Message Box type (See MessageBox)
+    //      pResponse       - Response to this method. 
+    //                        Refer to comment for WinStationRedirectLogonStatus.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    RedirectLogonError(
+        [in]         LONG ntsStatus,
+        [in]         LONG ntsSubstatus,
+        [in, string] LPCWSTR pszCaption,
+        [in, string] LPCWSTR pszMessage,
+        [in]         UINT uType,
+        [out]        WRDS_LOGON_ERROR_REDIRECTOR_RESPONSE* pResponse);
+};
+
+//
+// Following interfaces are for Windows 10 RS5
+//
+interface IWRdsWddmIddProps;
+
+[
+    object,
+    uuid(1382DF4D-A289-43D1-A184-144726F9AF90),
+    pointer_default(unique)
+]
+interface IWRdsWddmIddProps : IUnknown
+{
+    //=============================================================================
+    //
+    // GetHardwareId()
+    //
+    // Purpose:
+    //      Protocol stack uses this method to return hardware Id of WDDM ID driver.
+    //
+    // Parameters:
+    //      pDisplayDriverHardwareId - Pointer to array to receive hardware id string.
+    //      Count                    - Size in elements of hardware id string.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    GetHardwareId(
+        [in, string, size_is(Count)] WCHAR *pDisplayDriverHardwareId,
+        [in]                         DWORD Count
+        );
+
+    //=============================================================================
+    //
+    // OnDriverLoad()
+    //
+    // Purpose:
+    //      Termsrv uses this method to return handle of the loaded WDDM ID driver to 
+    //      protocol stack. From this point the stack owns the handle and needs to call 
+    //      CloseHandle() once communication with the driver is no longer needed.
+    //
+    // Parameters:
+    //      SessionId - ID of a session driver is loaded for.
+    //      DriverHandle - Opened handle of the WDDM ID driver.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    OnDriverLoad(
+        [in] ULONG SessionId,
+        [in] HANDLE_PTR DriverHandle
+        );
+
+    //=============================================================================
+    //
+    // OnDriverUnload()
+    //
+    // Purpose:
+    //      Termsrv uses this method to tell protocol stack that PnP unloaded the
+    //      WDDM ID driver.
+    //
+    // Parameters: 
+    //      SessionId - ID of a session driver is unloaded from.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    OnDriverUnload(
+        [in] ULONG SessionId
+        );
+
+    //=============================================================================
+    //
+    // EnableWddmIdd()
+    //
+    // Purpose:
+    //      Termsrv uses this method to tell protocol stack in which mode it is 
+    //      operating.
+    //
+    // Parameters:
+    //      Enabled - Boolean flag that instructs protocol stack that termsrv
+    //          supports WDDM IDD mode.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    EnableWddmIdd(
+        [in] BOOL Enabled
+        );
+};
+
+
+[
+    object,
+    uuid(60F71B1A-3682-4BC7-997E-4E4F02A08148),
+    pointer_default(unique)
+]
+interface IWRdsWddmIddProps1 : IUnknown
+{
+    //=============================================================================
+    //
+    // GetHardwareId()
+    //
+    // Purpose:
+    //      Protocol stack uses this method to return hardware Id of WDDM ID driver.
+    //
+    // Parameters:
+    //      pDisplayDriverHardwareId - Pointer to array to receive hardware id string.
+    //      Count                    - Size in elements of hardware id string.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    GetHardwareId(
+        [in, string, size_is(Count)] WCHAR* pDisplayDriverHardwareId,
+        [in]                         DWORD Count
+        );
+
+    //============================================================================
+    //
+    // OnDriverLoad()
+    //
+    // Purpose:
+    //      Termsrv uses this method to notify protocol stack that WDDM ID driver
+    //      is loaded. It delivers driver interface instance that protocol stack 
+    //      use to obtain driver handle.
+    //
+    // Parameters:
+    //      SessionId - ID of a session driver is loaded for.
+    //      DeviceInstance – String that represents IDD device instance.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //============================================================================
+    HRESULT
+    OnDriverLoad(
+        [in] ULONG SessionId,
+        [in] LPCWSTR DeviceInstance
+        );
+
+    //=============================================================================
+    //
+    // OnDriverUnload()
+    //
+    // Purpose:
+    //      Termsrv uses this method to tell protocol stack that PnP unloaded the
+    //      WDDM ID driver.
+    //
+    // Parameters: 
+    //      SessionId - ID of a session driver is unloaded from.
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //=============================================================================
+    HRESULT
+    OnDriverUnload(
+        [in] ULONG SessionId
+        );
+};
+
+
+//
+// Following interfaces are for Windows 10 20H1
+//
+interface IWRdsProtocolConnectionSettings;
+
+[
+    object,
+    uuid(83FCF5D3-F6F4-EA94-9CD2-32F280E1E510),
+    pointer_default(unique)
+]
+interface IWRdsProtocolConnectionSettings : IUnknown
+{
+    HRESULT
+    SetConnectionSetting(
+        [in]                                    GUID                PropertyID,
+        [in]                                    PWTS_PROPERTY_VALUE pPropertyEntriesIn
+        );
+
+    HRESULT
+    GetConnectionSetting(
+        [in]                                    GUID                PropertyID,
+        [out]                                   PWTS_PROPERTY_VALUE pPropertyEntriesOut
+        );
+
+};
+
+//
+// Following interfaces are for Windows 10 20H2
+//
+interface IWRdsEnhancedFastReconnectArbitrator;
+
+[
+    object,
+    uuid(5718AE9B-47F2-499F-B634-D8175BD51131),
+    pointer_default(unique)
+]
+interface IWRdsEnhancedFastReconnectArbitrator : IUnknown
+{
+    //===============================================================================
+    //
+    // GetSessionForEnhancedFastReconnect()
+    //
+    // Purpose:
+    //      Protocol stack uses this method to return the session ID that is to be
+    //      reconnected to in the Enhanced Fast Reconnect sequence.
+    //
+    // Parameters:
+    //      pSessionIdArray  -  Array of Session IDs matching the 
+    //                          enhanced fast reconnect criteria
+    //      dwSessionCount   -  Size in elements of Session ID array
+    //      pResultSessionId -  Pointer to variable to receive the resultant Session ID
+    //
+    // Return values:
+    //      S_OK or error code
+    //
+    //===============================================================================
+    HRESULT 
+    GetSessionForEnhancedFastReconnect(
+        [in]    LONG*   pSessionIdArray,
+        [in]    DWORD   dwSessionCount,
+        [out]   LONG*   pResultSessionId
+        );
+
+};
+
+// The following interfaces are for Windows 11 GE.
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN11_GE)")
+
+interface IWRdsProtocolConnection2;
+
+// Optionally implemented by the RDP protocol stack, QIed from IWRdsProtocolConnection
+[
+    object,
+    uuid(C2BD9B66-4A76-4701-B6A3-BFAFC1482169),
+    pointer_default(unique)
+]
+interface IWRdsProtocolConnection2 : IWRdsProtocolConnection
+{
+    HRESULT GetSerializedUserCredential(
+        [out] WRDS_SERIALIZED_USER_CREDENTIAL** userCredential
+        );
+};
+
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

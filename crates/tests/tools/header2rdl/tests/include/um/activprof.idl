@@ -1,0 +1,378 @@
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ActivProf.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright 2000 Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("//")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("// Disable /W4 compiler warning C4201: nameless struct/union")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4201)  // Disable C4201: nameless struct/union")
+cpp_quote("  ")   // Blank space
+
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("//")
+cpp_quote("// Declarations for ActiveX Scripting profiling.")
+cpp_quote("//")
+cpp_quote("")
+cpp_quote("const HRESULT ACTIVPROF_E_PROFILER_PRESENT = MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0200);")
+cpp_quote("const HRESULT ACTIVPROF_E_PROFILER_ABSENT = MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0201);")
+cpp_quote("const HRESULT ACTIVPROF_E_UNABLE_TO_APPLY_ACTION = MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0202);")
+cpp_quote("const ULONG PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE=(ULONG)-1;")
+cpp_quote("")
+cpp_quote("#ifndef __ActivProf_h")
+cpp_quote("#define __ActivProf_h")
+cpp_quote("")
+
+import "unknwn.idl";
+
+cpp_quote("/* GUIDs")
+cpp_quote(" ********/")
+cpp_quote("")
+
+cpp_quote("#ifndef _NO_SCRIPT_GUIDS")
+
+cpp_quote("// {32E4694E-0D37-419B-B93D-FA20DED6E8EA}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptProfilerHeapEnum, 0x32e4694e, 0xd37, 0x419b, 0xb9, 0x3d, 0xfa, 0x20, 0xde, 0xd6, 0xe8, 0xea);")
+cpp_quote("// {0B403015-F381-4023-A5D0-6FED076DE716}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptProfilerControl3, 0xb403015, 0xf381, 0x4023, 0xa5, 0xd0, 0x6f, 0xed, 0x7, 0x6d, 0xe7, 0x16);")
+
+cpp_quote("#endif // _NO_SCRIPT_GUIDS")
+cpp_quote("")
+
+typedef enum {
+    PROFILER_SCRIPT_TYPE_USER,
+    PROFILER_SCRIPT_TYPE_DYNAMIC,
+    PROFILER_SCRIPT_TYPE_NATIVE,
+    PROFILER_SCRIPT_TYPE_DOM
+} PROFILER_SCRIPT_TYPE;
+
+typedef enum {
+    PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL = 0x00000001,
+    PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL = 0x00000002,
+    PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL    = 0x00000004,
+    PROFILER_EVENT_MASK_TRACE_ALL = PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL |
+                                    PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL,
+    PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM = PROFILER_EVENT_MASK_TRACE_ALL |
+                                             PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL
+} PROFILER_EVENT_MASK;
+
+typedef LONG PROFILER_TOKEN;
+
+[
+ object,
+ uuid(784b5ff0-69b0-47d1-a7dc-2518f4230e90),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerControl : IUnknown
+{
+        HRESULT StartProfiling([in] REFCLSID clsidProfilerObject, 
+                               [in] DWORD dwEventMask,
+                               [in] DWORD dwContext);
+        HRESULT SetProfilerEventMask([in] DWORD dwEventMask);
+        HRESULT StopProfiling([in] HRESULT hrShutdownReason);
+}
+
+[
+ object,
+ uuid(47810165-498F-40be-94F1-653557E9E7DA),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerControl2 : IActiveScriptProfilerControl
+{
+        HRESULT CompleteProfilerStart();
+        HRESULT PrepareProfilerStop();
+}
+
+typedef DWORD_PTR PROFILER_HEAP_OBJECT_ID;
+typedef UINT PROFILER_HEAP_OBJECT_NAME_ID;
+typedef void* PROFILER_EXTERNAL_OBJECT_ADDRESS;
+
+typedef [v1_enum] enum {
+    PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT            = 0x00000001,
+    PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT               = 0x00000002,
+    PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED           = 0x00000004,
+    PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL              = 0x00000008,
+    PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN      = 0x00000010,
+    PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH     = 0x00000020,
+    PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE      = 0x00000040,
+    PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE      = 0x00000080,
+    PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE = 0x00000100,
+    PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE        = 0x00000200,
+    PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS    = 0x00000400,
+    PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE        = 0x00000800,
+    PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE       = 0x00001000,
+} PROFILER_HEAP_OBJECT_FLAGS;
+
+typedef [v1_enum] enum {
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE                    = 0x00000001,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME                = 0x00000002,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST                   = 0x00000003,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY            = 0x00000004,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES              = 0x00000005,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES             = 0x00000006,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE      = 0x00000007,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE   = 0x00000008,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS                = 0x00000009,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS                  = 0x0000000A,        
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST      = 0x0000000B,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST          = 0x0000000C,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST          = 0x0000000D,
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE                    = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST
+} PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE;
+
+typedef [v1_enum] enum {
+    PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE                    = 0x00000000,
+    PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR         = 0x00010000,
+    PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR         = 0x00020000,
+    PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE            = 0x00040000,
+    PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE          = 0x00080000,
+} PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS;
+
+typedef [v1_enum] enum {
+    // Default enumeration behavior.
+    PROFILER_HEAP_ENUM_FLAGS_NONE                                   = 0x00000000,
+
+    // Enables functionality where PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS are stored in the high
+    // 16 bits of the PROFILER_HEAP_OBJECT_RELATIONSHIP.relationshipInfo member.
+    PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS               = 0x00000001,
+
+    // Used to display substring correctly
+    PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS                             = 0x00000002,
+
+    PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS                = PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS | 
+                                                                      PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS,
+} PROFILER_HEAP_ENUM_FLAGS;
+
+// PROFILER_HEAP_OBJECT_SCOPE_LIST is associated with function objects only. The scope list represents
+// the closure for the function as a list scopes where each scope is a heap object with associated property list 
+// representing variables in each given scope. 
+// Note: In some cases, the names of objects in that scope might not be available, only their ids. 
+
+typedef struct _PROFILER_HEAP_OBJECT_SCOPE_LIST
+{
+    UINT count;
+    [size_is(count)] PROFILER_HEAP_OBJECT_ID scopes[];
+} PROFILER_HEAP_OBJECT_SCOPE_LIST;
+
+typedef [v1_enum] enum {
+    PROFILER_PROPERTY_TYPE_NUMBER = 0x01,
+    PROFILER_PROPERTY_TYPE_STRING = 0x02,
+    PROFILER_PROPERTY_TYPE_HEAP_OBJECT = 0x03,
+    PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT = 0x04,
+    PROFILER_PROPERTY_TYPE_BSTR = 0x5,
+    PROFILER_PROPERTY_TYPE_SUBSTRING = 0x06,
+} PROFILER_RELATIONSHIP_INFO;
+
+typedef struct _PROFILER_PROPERTY_TYPE_SUBSTRING_INFO
+{
+    UINT length;
+    LPCWSTR value;
+} PROFILER_PROPERTY_TYPE_SUBSTRING_INFO;
+
+
+typedef struct _PROFILER_HEAP_OBJECT_RELATIONSHIP
+{
+    PROFILER_HEAP_OBJECT_NAME_ID relationshipId;
+    PROFILER_RELATIONSHIP_INFO relationshipInfo;
+    [switch_type(PROFILER_RELATIONSHIP_INFO), switch_is(relationshipInfo)] union
+    {
+        [case(PROFILER_PROPERTY_TYPE_NUMBER)] double numberValue;
+        [case(PROFILER_PROPERTY_TYPE_STRING)] LPCWSTR stringValue;
+        [case(PROFILER_PROPERTY_TYPE_BSTR)] BSTR bstrValue;
+        [case(PROFILER_PROPERTY_TYPE_HEAP_OBJECT)] PROFILER_HEAP_OBJECT_ID objectId;
+        [case(PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT)] PROFILER_EXTERNAL_OBJECT_ADDRESS externalObjectAddress;
+        [case(PROFILER_PROPERTY_TYPE_SUBSTRING)] PROFILER_PROPERTY_TYPE_SUBSTRING_INFO* subString;
+    };
+} PROFILER_HEAP_OBJECT_RELATIONSHIP;
+
+typedef struct _PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
+{
+    UINT count;
+    [size_is(count)] PROFILER_HEAP_OBJECT_RELATIONSHIP elements[];
+} PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST;
+
+typedef struct _PROFILER_HEAP_OBJECT_OPTIONAL_INFO
+{
+    PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE infoType;
+    [switch_type(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE), switch_is(infoType)] union
+    {
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE)] PROFILER_HEAP_OBJECT_ID prototype;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME)] LPCWSTR functionName;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE)] UINT elementAttributesSize;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE)] UINT elementTextChildrenSize;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST)] PROFILER_HEAP_OBJECT_SCOPE_LIST* scopeList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY)] PROFILER_HEAP_OBJECT_RELATIONSHIP* internalProperty;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* namePropertyList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* indexPropertyList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* relationshipList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* eventList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* weakMapCollectionList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* mapCollectionList;
+        [case(PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST)] PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* setCollectionList;
+    };
+} PROFILER_HEAP_OBJECT_OPTIONAL_INFO;
+
+/*
+ * Represents one object in the GC heap
+ */
+typedef struct _PROFILER_HEAP_OBJECT
+{
+    UINT size;
+    union {
+    PROFILER_HEAP_OBJECT_ID objectId;
+        PROFILER_EXTERNAL_OBJECT_ADDRESS externalObjectAddress;
+    };
+    PROFILER_HEAP_OBJECT_NAME_ID typeNameId;
+    ULONG flags; // PROFILER_HEAP_OBJECT_FLAGS
+    USHORT unused;
+    USHORT optionalInfoCount;
+} PROFILER_HEAP_OBJECT;
+
+[
+    object,
+    uuid(32E4694E-0D37-419B-B93D-FA20DED6E8EA),
+    local,
+    pointer_default(unique)
+]
+interface IActiveScriptProfilerHeapEnum : IUnknown {
+
+    // Note: Caller should not free the returned memory assigned to each array element. Rather, should call 
+    // IActiveScriptProfilerHeapEnum:FreeObjectAndOptionalInfo
+    HRESULT Next (
+        [in] ULONG celt,
+        [out, size_is(celt), length_is(*pceltFetched)] PROFILER_HEAP_OBJECT** heapObjects, 
+        [out] ULONG *pceltFetched);
+
+    // Note: Caller should not free the returned memory assigned to each array element. Rather, should call 
+    // IActiveScriptProfilerHeapEnum:FreeObjectAndOptionalInfo
+    HRESULT GetOptionalInfo (
+        [in] PROFILER_HEAP_OBJECT* heapObject,
+        [in] ULONG celt,
+        [out, size_is(celt)] PROFILER_HEAP_OBJECT_OPTIONAL_INFO* optionalInfo);
+
+    HRESULT FreeObjectAndOptionalInfo (
+        [in] ULONG celt,
+        [in, size_is(celt)] PROFILER_HEAP_OBJECT** heapObjects);
+
+    // Note: The returned embedded pointers are not CoTaskMemAllocated. Caller should not
+    // explicitly free them.
+    HRESULT GetNameIdMap (
+        [out, size_is(,*pcelt)] LPCWSTR* pNameList[], 
+        [out] UINT *pcelt);
+};
+
+[
+ object,
+ uuid(0B403015-F381-4023-A5D0-6FED076DE716),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerControl3 : IActiveScriptProfilerControl2
+{
+    HRESULT EnumHeap([out] IActiveScriptProfilerHeapEnum** ppEnum);
+}
+
+typedef [v1_enum] enum {
+    PROFILER_HEAP_SUMMARY_VERSION_1                    = 0x00000001,
+} PROFILER_HEAP_SUMMARY_VERSION;
+ 
+typedef struct _PROFILER_HEAP_SUMMARY
+{
+    PROFILER_HEAP_SUMMARY_VERSION version;
+    UINT totalHeapSize;
+} PROFILER_HEAP_SUMMARY;
+
+[
+ object,
+ uuid(160F94FD-9DBC-40D4-9EAC-2B71DB3132F4),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerControl4 : IActiveScriptProfilerControl3
+{
+    HRESULT SummarizeHeap([in, out] PROFILER_HEAP_SUMMARY* heapSummary);
+}
+
+[
+ object,
+ uuid(1C01A2D1-8F0F-46A5-9720-0D7ED2C62F0A),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerControl5 : IActiveScriptProfilerControl4
+{
+    HRESULT EnumHeap2([in] PROFILER_HEAP_ENUM_FLAGS enumFlags, [out] IActiveScriptProfilerHeapEnum** ppEnum);
+}
+
+[
+ object,
+ uuid(740eca23-7d9d-42e5-ba9d-f8b24b1c7a9b),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerCallback : IUnknown
+{
+        HRESULT Initialize([in] DWORD dwContext);
+
+        HRESULT Shutdown([in] HRESULT hrReason);
+
+        HRESULT ScriptCompiled([in] PROFILER_TOKEN scriptId,
+                               [in] PROFILER_SCRIPT_TYPE type,
+                               [in] IUnknown *pIDebugDocumentContext);
+
+        HRESULT FunctionCompiled([in] PROFILER_TOKEN functionId,
+                                 [in] PROFILER_TOKEN scriptId,
+                                 [in] [string] const WCHAR *pwszFunctionName,
+                                 [in] [string] const WCHAR *pwszFunctionNameHint,
+                                 [in] IUnknown *pIDebugDocumentContext);
+
+        HRESULT OnFunctionEnter([in] PROFILER_TOKEN scriptId, 
+                                [in] PROFILER_TOKEN functionId);
+
+        HRESULT OnFunctionExit([in] PROFILER_TOKEN scriptId, 
+                               [in] PROFILER_TOKEN functionId);
+};
+
+[
+ object,
+ uuid(31B7F8AD-A637-409C-B22F-040995B6103D),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerCallback2 : IActiveScriptProfilerCallback
+{
+        HRESULT OnFunctionEnterByName([in] [string] const WCHAR *pwszFunctionName,
+                                      [in] PROFILER_SCRIPT_TYPE type);
+
+        HRESULT OnFunctionExitByName([in] [string] const WCHAR *pwszFunctionName,
+                                     [in] PROFILER_SCRIPT_TYPE type);
+};
+
+[
+ object,
+ uuid(6ac5ad25-2037-4687-91df-b59979d93d73),
+ pointer_default(unique)
+]
+interface IActiveScriptProfilerCallback3 : IActiveScriptProfilerCallback2
+{
+        HRESULT SetWebWorkerId([in] DWORD webWorkerId);
+};
+
+cpp_quote("")
+cpp_quote("#endif  // __ActivProf_h")
+cpp_quote("")
+
+//
+// Restore the previous setting for C4201 compiler warning
+//
+cpp_quote("// Restore the previous setting for C4201 compiler warning")
+cpp_quote("#pragma warning(pop)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

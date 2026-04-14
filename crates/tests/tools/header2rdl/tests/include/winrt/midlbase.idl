@@ -1,0 +1,130 @@
+// Copyright (C) Microsoft Corp. All Rights Reserved.
+//
+// MIDL requires that certain types be defined before compiling WinRT types. midlbase.idl defines the critical types which are needed for WinRT compilation.
+//
+// These types are actually defined in several other IDL files that are published in the SDK. For performance reasons, 
+// we provide a shadow definition of the types. When the midlbase.h header file is included in a source file, we use the types
+// defined in the original IDL file.
+//
+// Note: This IDL file cannot be consumed by MIDL - you should only include it if you specify the /nomidl command line switch to midlrt.
+//
+cpp_quote("#if 0 // midlbase: Suppress duplicate definition of Windows types required for WinRT compilation")
+typedef unsigned long HRESULT;
+
+typedef struct {
+    unsigned long  Data1;
+    unsigned short Data2;
+    unsigned short Data3;
+    byte           Data4[ 8 ];
+} GUID;
+
+typedef wchar_t WCHAR;
+typedef byte BYTE;
+typedef short INT16;
+typedef unsigned short UINT16;
+typedef unsigned long ULONG;
+typedef unsigned int UINT32;
+typedef int INT32;
+typedef __int64 INT64;
+typedef unsigned __int64 UINT64;
+typedef float FLOAT;
+typedef double DOUBLE;
+
+[
+    local,
+    object,
+    uuid(00000000-0000-0000-C000-000000000046),
+
+    pointer_default(unique)
+]
+interface IUnknown
+{
+    HRESULT QueryInterface([in] const GUID * riid, [out, iid_is(riid), annotation("__RPC__deref_out")] void **ppvObject);
+    ULONG AddRef();
+    ULONG Release();
+};
+
+//  WinRT types required for compilation.
+
+typedef struct HSTRING__{
+    int unused;
+} HSTRING__;
+
+typedef struct _FLAGGED_WORD_BLOB {
+ULONG   fFlags;
+ULONG   clSize;
+[size_is(clSize)]   unsigned short  asData[];
+} FLAGGED_WORD_BLOB;
+
+typedef [unique] FLAGGED_WORD_BLOB * wireBSTR;
+
+typedef [wire_marshal(wireBSTR), unique] HSTRING__* HSTRING;
+
+typedef struct EventRegistrationToken
+{
+    __int64 value;
+} EventRegistrationToken;
+
+typedef [v1_enum] enum TrustLevel
+{
+    BaseTrust,
+    PartialTrust,
+    FullTrust
+} TrustLevel;
+
+[
+    object,
+    uuid(AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90),
+    pointer_default(unique)
+]
+interface IInspectable : IUnknown
+{
+    HRESULT GetIids(
+    [out] ULONG * iidCount,
+    [out, size_is(,*iidCount)] GUID ** iids);
+
+    HRESULT GetRuntimeClassName( [out] HSTRING * className);
+
+    HRESULT GetTrustLevel([out] TrustLevel * trustLevel);
+}
+
+
+typedef [v1_enum] enum AsyncStatus
+{
+    Started = 0,
+    Completed,
+    Canceled,
+    Error,
+} AsyncStatus;
+
+// IAsyncInfo
+// C++, C & IDL definition, global namespace
+[
+    object,
+    uuid(00000036-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IAsyncInfo : IInspectable
+{
+    // Properties
+    [propget] HRESULT Id([out, retval] unsigned __int32 *id);
+
+    // provide a C++ overload for async status that doesn't rely on
+    // the global definition of asyncstatus to support _HIDE_GLOBAL_ASYNC_STATUS
+    [propget] HRESULT Status([out, retval] AsyncStatus *status);
+
+    [propget] HRESULT ErrorCode([out,retval] HRESULT *errorCode);
+
+    // Methods
+    HRESULT Cancel();
+    HRESULT Close();
+};
+
+cpp_quote("#else")
+cpp_quote("#include <oaidl.h>")
+cpp_quote("#include <hstring.h>")
+cpp_quote("#include <inspectable.h>")
+cpp_quote("#include <asyncinfo.h>")
+cpp_quote("#include <eventtoken.h>")
+cpp_quote("#include <ivectorchangedeventargs.h>")
+cpp_quote("#endif // 0 WinRTBase: Suppress duplicate definition of Windows types required for WinRT compilation")

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport/3"
+           xmlns="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport/3"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="ErrorReporting" type="CT_ErrorReporting"/>
+        <xs:element name="SystemFileAssociation" type="CT_SystemFileAssociation"/>
+        <xs:element name="EventTracing" type="CT_EventTracing"/>
+        <xs:element name="UserMutablePackageDirectories" type="CT_UserMutablePackageDirectories"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_PreviewAppCompat3" use="required"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_ErrorReporting">
+    <xs:sequence minOccurs="0" maxOccurs="10000">
+        <xs:element name="RuntimeExceptionHelperModule">
+          <xs:complexType>
+              <xs:attribute name="Path" type="t:ST_FileName" />
+          </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SystemFileAssociation">
+    <xs:attribute name="FileType" type="t:ST_FileType" use="required"/>
+    <xs:attribute name="FullDetails" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="PreviewDetails" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="PreviewTitle" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="TileInfo" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="ExtendedTileInfo" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="InfoTip" type="t:ST_NonEmptyString" use="optional" />
+    <xs:attribute name="QuickTip" type="t:ST_NonEmptyString" use="optional" />
+  </xs:complexType>
+
+  <xs:element name="Logo">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="t:ST_ImageLogo">
+          <xs:attribute name="ResourceId" type="t:ST_NonEmptyString" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_EventTracing">
+    <xs:choice minOccurs="0" maxOccurs="1000">
+      <xs:element name="Provider" type="CT_Provider"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Provider">
+    <xs:choice minOccurs="0" maxOccurs="1000">
+      <xs:element name="Channels" type="CT_Channels"/>
+    </xs:choice>  
+    <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="Name" type="t:ST_URI" use="required" />
+    <xs:attribute name="ResourceFile" type="t:ST_FileName" use="required" />
+    <xs:attribute name="MessageFile" type="t:ST_FileName" use="optional" />
+  </xs:complexType>
+
+    <xs:complexType name="CT_Channels">
+      <xs:choice minOccurs="0" maxOccurs="1000">
+        <xs:element name="ImportChannel" type="CT_ImportChannel"/>
+        <xs:element name="Channel" type="CT_Channel"/>
+      </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="CT_ImportChannel">
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="Name" type="t:ST_URI" use="required"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="CT_Channel" mixed="true">
+      <xs:sequence>
+        <xs:element name="Logging" type="CT_Logging" minOccurs="0"/>
+        <xs:element name="Publishing" type="CT_Publishing" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="Name" type="t:ST_URI" use="required"/>
+      <xs:attribute name="Type" type="ST_ChannelType" use="required"/>
+      <xs:attribute name="Access" type="t:ST_PermissionsCom" use="optional"/>
+      <xs:attribute name="Isolation" type="ST_Isolation" use="optional" />
+      <xs:attribute name="Enabled" type="xs:boolean" use="optional" default="false"/>
+    </xs:complexType>
+
+    <xs:complexType name="CT_Logging">
+      <xs:attribute name="AutoBackup" type="xs:boolean" use="optional" />
+      <xs:attribute name="Retention" type="xs:boolean" use="optional" />
+      <xs:attribute name="MaxSize" type="t:ST_UInt64" use="optional" />
+    </xs:complexType>
+
+    <xs:complexType name="CT_Publishing">
+      <xs:attribute name="Level" type="t:ST_UInt8" use="optional" />
+      <xs:attribute name="Keywords" type="t:ST_UInt64" use="optional" />
+      <xs:attribute name="ControlGuid" type="t:ST_GUID" use="optional" />
+      <xs:attribute name="BufferSize" type="t:ST_UInt32" use="optional" />
+      <xs:attribute name="FileMax" type="t:ST_UInt32" use="optional" />
+      <xs:attribute name="MinBuffers" type="t:ST_UInt32" use="optional" />
+      <xs:attribute name="MaxBuffers" type="t:ST_UInt32" use="optional" />
+      <xs:attribute name="Latency" type="t:ST_UInt32" use="optional" />
+      <xs:attribute name="ClockType" type="ST_ClockType" default="systemTime" use="optional" />
+      <xs:attribute name="SidType" type="ST_SidType" use="optional" />
+    </xs:complexType>
+
+    <xs:complexType name="CT_UserMutablePackageDirectories">
+        <xs:all>
+        <xs:element name="UserMutablePackageDirectory">
+          <xs:complexType>
+            <xs:attribute name="Target" type="t:ST_FileNameSegment" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+
+    <xs:simpleType name="ST_SidType">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="none"/>
+        <xs:enumeration value="publishing"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ST_ClockType">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="systemTime"/>
+        <xs:enumeration value="queryPerformanceCounter"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ST_Isolation">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="application"/>
+        <xs:enumeration value="system"/>
+        <xs:enumeration value="custom"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ST_ChannelType">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="admin"/>
+        <xs:enumeration value="operational"/>
+        <xs:enumeration value="analytic"/>
+        <xs:enumeration value="debug"/>
+      </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
+

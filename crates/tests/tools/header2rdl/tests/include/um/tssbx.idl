@@ -1,0 +1,162 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("")
+cpp_quote("#define PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION 0x1")
+cpp_quote("")
+
+[
+    object,
+    uuid(DC44BE78-B18D-4399-B210-641BF67A002C),
+    helpstring("interface IWTSSBPlugin")
+]
+interface IWTSSBPlugin : IUnknown
+{
+    const DWORD MaxFQDN_Len         = 256;
+    const DWORD MaxNetBiosName_Len  = 16;
+    const DWORD MaxNumOfExposed_IPs = 12;
+    const DWORD MaxUserName_Len     = 104;
+    const DWORD MaxDomainName_Len   = 256;
+    const DWORD MaxFarm_Len         = 256;
+    const DWORD MaxAppName_Len      = 256;
+    
+    typedef enum 
+    {
+        WTSSBX_MACHINE_DRAIN_UNSPEC        = 0x0,
+        WTSSBX_MACHINE_DRAIN_OFF           = 0x1,
+        WTSSBX_MACHINE_DRAIN_ON            = 0x2
+    } WTSSBX_MACHINE_DRAIN;
+
+    typedef enum 
+    {
+        WTSSBX_MACHINE_SESSION_MODE_UNSPEC   = 0x0,
+        WTSSBX_MACHINE_SESSION_MODE_SINGLE   = 0x1,
+        WTSSBX_MACHINE_SESSION_MODE_MULTIPLE = 0x2,
+    } WTSSBX_MACHINE_SESSION_MODE;
+
+    typedef enum {
+        WTSSBX_ADDRESS_FAMILY_AF_UNSPEC  = 0x0,
+        WTSSBX_ADDRESS_FAMILY_AF_INET    = 0x1,
+        WTSSBX_ADDRESS_FAMILY_AF_INET6   = 0x2,
+        WTSSBX_ADDRESS_FAMILY_AF_IPX     = 0x3,
+        WTSSBX_ADDRESS_FAMILY_AF_NETBIOS = 0x4,
+    } WTSSBX_ADDRESS_FAMILY;
+
+    typedef struct {
+        WTSSBX_ADDRESS_FAMILY  AddressFamily;  
+        BYTE                   Address[16];    // client network address
+        unsigned short         PortNumber;
+        DWORD                  dwScope;
+    } WTSSBX_IP_ADDRESS;
+
+    typedef enum {
+        WTSSBX_MACHINE_STATE_UNSPEC        = 0x0,
+        WTSSBX_MACHINE_STATE_READY         = 0x1,
+        WTSSBX_MACHINE_STATE_SYNCHRONIZING = 0x2
+    } WTSSBX_MACHINE_STATE;
+
+    typedef struct {
+       WCHAR                        wczMachineFQDN[MaxFQDN_Len + 1];
+       WCHAR                        wczMachineNetBiosName[MaxNetBiosName_Len + 1];
+       DWORD                        dwNumOfIPAddr;
+       WTSSBX_IP_ADDRESS            IPaddr[MaxNumOfExposed_IPs];
+    } WTSSBX_MACHINE_CONNECT_INFO; 
+
+    typedef struct {
+       WTSSBX_MACHINE_CONNECT_INFO  ClientConnectInfo;
+       WCHAR                        wczFarmName[MaxFarm_Len + 1];
+       WTSSBX_IP_ADDRESS            InternalIPAddress;
+       DWORD                        dwMaxSessionsLimit;
+       DWORD                        ServerWeight;
+       WTSSBX_MACHINE_SESSION_MODE  SingleSessionMode;
+       WTSSBX_MACHINE_DRAIN         InDrain;
+       WTSSBX_MACHINE_STATE         MachineState;
+    } WTSSBX_MACHINE_INFO;  
+
+    typedef enum {
+        WTSSBX_SESSION_STATE_UNSPEC = 0x0,
+        WTSSBX_SESSION_STATE_ACTIVE = 0x1,
+        WTSSBX_SESSION_STATE_DISCONNECTED = 0x2
+    } WTSSBX_SESSION_STATE;
+
+    typedef struct {
+       WCHAR                     wszUserName[MaxUserName_Len + 1];
+       WCHAR                     wszDomainName[MaxDomainName_Len + 1];
+       WCHAR                     ApplicationType[MaxAppName_Len + 1]; //Initial program
+       DWORD                     dwSessionId;
+       FILETIME                  CreateTime;
+       FILETIME                  DisconnectTime;
+       WTSSBX_SESSION_STATE      SessionState;
+    } WTSSBX_SESSION_INFO; //Session info available for SessionBroker
+
+    typedef enum {
+        WTSSBX_NOTIFICATION_REMOVED = 0x1,
+        WTSSBX_NOTIFICATION_CHANGED = 0x2,
+        WTSSBX_NOTIFICATION_ADDED   = 0x4,
+        WTSSBX_NOTIFICATION_RESYNC  = 0x8
+    } WTSSBX_NOTIFICATION_TYPE;
+
+    /*
+     *  Called immediately after instantiating the COM class
+     */
+    [helpstring("Initialize")]
+    HRESULT
+    Initialize([out] DWORD  *PluginCapabilities);
+
+    /*
+     *  Called on any machine state change join/unjoin/change (drain, IP change, max session limit change)
+     */
+    [helpstring("WTSSBX_MachineChangeNotification")]
+    HRESULT WTSSBX_MachineChangeNotification (
+        [in] WTSSBX_NOTIFICATION_TYPE  NotificationType,
+        [in] long                      MachineId,
+        [in] WTSSBX_MACHINE_INFO      *pMachineInfo
+    );
+
+    /*
+     *  Called on any session state change logon/disconnect/reconnect
+     */
+    [helpstring("WTSSBX_SessionChangeNotification")]
+    HRESULT WTSSBX_SessionChangeNotification (
+        [in] WTSSBX_NOTIFICATION_TYPE  NotificationType,
+        [in] long                      MachineId,
+        [in] DWORD                     NumOfSessions,
+        [in, size_is(NumOfSessions)] WTSSBX_SESSION_INFO SessionInfo[]
+    );
+
+    /*
+     *  Called before SB LB logic if there is no existing sessions.
+     */
+    [helpstring("WTSSBX_GetMostSuitableServer")]
+    HRESULT WTSSBX_GetMostSuitableServer (
+        [in, string] WCHAR  *UserName,
+        [in, string] WCHAR  *DomainName,
+        [in, string] WCHAR  *ApplicationType, //Initial program
+        [in, string] WCHAR  *FarmName,
+        [in, out] long      *pMachineId
+    );
+
+    [helpstring("Terminated")]
+    HRESULT    Terminated();
+    
+    [helpstring("WTSSBX_GetUserExternalSession")]
+    HRESULT WTSSBX_GetUserExternalSession (
+        [in, string]     WCHAR             *UserName,
+        [in, string]     WCHAR             *DomainName,
+        [in, string]     WCHAR             *ApplicationType, //Initial program
+        [in] WTSSBX_IP_ADDRESS             *RedirectorInternalIP, //IP address on TS accepting initial connection
+        [out]       DWORD                  *pSessionId,
+        [out]  WTSSBX_MACHINE_CONNECT_INFO *pMachineConnectInfo
+    );
+    
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

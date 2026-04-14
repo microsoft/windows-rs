@@ -1,0 +1,53 @@
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+
+// This file will define the public interfaces that is supported by
+// WaaS Assessment.
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= NTDDI_WINTHRESHOLD )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "WaaSAPITypes.idl";
+
+[
+    object,
+    uuid(2347bbef-1a3b-45a4-902d-3e09c269b45e),
+]
+interface IWaaSAssessor : IUnknown
+{
+    HRESULT GetOSUpdateAssessment([out, retval] OSUpdateAssessment * result);
+};
+
+cpp_quote("#ifndef WAASASSESSOR_INTERNAL")
+
+[
+    uuid(1a13e365-705f-499b-91a3-1d95e49a6a1a),
+    version(1.0),
+]
+library WaaSAssessorLib
+{
+    [
+        uuid(098ef871-fa9f-46af-8958-c083515d7c9c)
+    ]
+    coclass WaaSAssessor
+    {
+        [default]   interface IWaaSAssessor;
+    };
+}
+
+cpp_quote("#endif /* WAASASSESSOR_INTERNAL */")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

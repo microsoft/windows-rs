@@ -1,0 +1,163 @@
+//-----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchAdmin.idl
+//
+//    Purpose:  Search Manager Interface Description
+//
+//    History:  07/06/2005     louisg      Modified
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oledb.idl";
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ISearchManager - manage the search service
+//
+
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF69),
+    pointer_default(unique)
+]
+interface ISearchManager : IUnknown
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Service Management
+    //
+
+    //
+    // Get the version of the indexer
+    //
+
+    HRESULT GetIndexerVersionStr([out, string] LPWSTR *ppszVersionString);
+
+    HRESULT GetIndexerVersion([out] DWORD *pdwMajor, [out] DWORD *pdwMinor);
+
+    //
+    // Get or set parameters for the service
+    //
+    // Some examples
+    //  Backoff control -- battery thresholds, etc.
+    //  Default timeouts, authentication and proxy information
+    //  Memory quota on filters
+    //  Size limits
+    //  Retry intervales
+    //  Number of robot threads
+    //  Default location of catalogs
+    //
+
+    HRESULT GetParameter([in, string] LPCWSTR pszName, [out, retval] PROPVARIANT **ppValue);
+
+    HRESULT SetParameter([in, string] LPCWSTR pszName, [in] const PROPVARIANT *pValue);
+
+    //
+    // Name of proxy
+    //
+    [propget]
+    HRESULT ProxyName([out, retval, string] LPWSTR *ppszProxyName);
+
+    //
+    // Proxy bypass list
+    //
+    [propget]
+    HRESULT BypassList([out, retval, string] LPWSTR *ppszBypassList);
+
+    HRESULT SetProxy([in] PROXY_ACCESS sUseProxy,
+                     [in] BOOL  fLocalByPassProxy,
+                     [in] DWORD dwPortNumber,
+                     [in, string] LPCWSTR pszProxyName,
+                     [in, string] LPCWSTR pszByPassList);
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Catalog management
+    //
+    // Access to catalog management functions is determined by the
+    // security associated with a particular catalog.
+    //
+    // ACCESS -- allows getting the catalog interface and information
+    // about the catalog.
+    //
+    // MANAGE -- allows changing the configuration of the catalog.
+    //
+
+    //
+    // Lookup a catalog by name
+    // Doing this will block until the catalog is ready.  If you don't
+    // want to block, check for the ready event.
+    //
+    HRESULT GetCatalog([in, string] LPCWSTR pszCatalog,
+                       [out, retval] ISearchCatalogManager **ppCatalogManager);
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Site access properties
+    //
+    // From here down is passed to protocol handler
+    //
+
+    //
+    // Browser agent like (Mozilla/4.0) -- search manager level
+    //
+    [propget]
+    HRESULT UserAgent([out, retval, string] LPWSTR *ppszUserAgent);
+    [propput]
+    HRESULT UserAgent([in, string] LPCWSTR pszUserAgent);
+
+    //
+    // What proxy to use
+    //
+    [propget]
+    HRESULT UseProxy([out, retval] PROXY_ACCESS *pUseProxy);
+
+    //
+    //  Bypass proxy for local address
+    //
+    [propget]
+    HRESULT LocalBypass([out, retval] BOOL *pfLocalBypass);
+
+    //
+    // Port number to use
+    //
+    [propget]
+    HRESULT PortNumber([out, retval] DWORD *pdwPortNumber);
+
+
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ISearchManager2 - manage catalogs in the search service
+//
+
+[
+    object,
+    uuid(DBAB3F73-DB19-4A79-BFC0-A61A93886DDF),
+    pointer_default(unique)
+]
+interface ISearchManager2 : ISearchManager
+{
+
+    // Creates new catalog in the main "Windows" application. Fails if catalog already exists.
+    HRESULT CreateCatalog ([in, string] LPCWSTR pszCatalog, [out] ISearchCatalogManager **ppCatalogManager);
+
+    // Deletes all data and settings related to the associated catalog.
+    HRESULT DeleteCatalog([in, string] LPCWSTR pszCatalog);
+
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

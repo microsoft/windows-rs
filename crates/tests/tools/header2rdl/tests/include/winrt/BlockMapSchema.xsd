@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://schemas.microsoft.com/appx/2010/blockmap"
+           targetNamespace="http://schemas.microsoft.com/appx/2010/blockmap"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:element name="BlockMap" type="CT_BlockMap"/>
+    <xs:element name="File" type="CT_File"/>
+    <xs:element name="Block" type="CT_Block"/>
+
+    <xs:complexType name="CT_BlockMap">
+        <xs:sequence>
+            <xs:element ref="File" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="HashMethod" type="xs:anyURI" use="required">
+            <xs:annotation>
+                <xs:documentation>The method used for computing cryptographic hashes.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="CT_File">
+        <xs:sequence>
+            <xs:element ref="Block" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="Name" type="ST_FileName" use="required">
+            <xs:annotation>
+                <xs:documentation>Root path and file name.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Size" type="xs:nonNegativeInteger" use="required">
+            <xs:annotation>
+                <xs:documentation>Size, in bytes, of the file's uncompressed data.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LfhSize" type="ST_HeaderSize" use="required">
+            <xs:annotation>
+                <xs:documentation>Size, in bytes, of the file's Local File Header.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="CT_Block">
+        <xs:attribute name="Hash" type="xs:base64Binary" use="required">
+            <xs:annotation>
+                <xs:documentation>The hash value of the *uncompressed* data.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Size" type="xs:positiveInteger" use="optional">
+            <xs:annotation>
+                <xs:documentation>Size, in bytes, of the *compressed* data sequence for this block.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="ST_HeaderSize">
+        <xs:annotation>
+            <xs:documentation>The size of the Local File Header for a file must be at least 30 bytes and no more than 64KB as required by the ZIP format.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="30"/>
+            <xs:maxInclusive value="65536"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ST_FileName">
+        <xs:annotation>
+            <xs:documentation>The name of the file must be non-empty and no more than 32767 (UNICODE_STRING_MAX_CHARS) characters supported by the APPX package format (even though ZIP format supports up to 65535 bytes).</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="32767"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

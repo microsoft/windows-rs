@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/2013/manifest"
+           xmlns="http://schemas.microsoft.com/appx/2013/manifest"
+           xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest"
+           xmlns:m="http://schemas.microsoft.com/appx/2010/manifest"
+           >
+  <xs:import namespace="http://schemas.microsoft.com/appx/2010/manifest"/>
+
+  <!--ResourcePackage-->
+  <xs:element name="ResourcePackage" type="xs:boolean"/>
+
+  <xs:simpleType name="ST_Scale">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value="100"/>
+      <xs:enumeration value="120"/>
+      <xs:enumeration value="140"/>
+      <xs:enumeration value="150"/>
+      <xs:enumeration value="160"/>
+      <xs:enumeration value="180"/>
+      <xs:enumeration value="225"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="Scale" type="ST_Scale"/>
+
+  <xs:simpleType name="ST_DXFeatureLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dx9"/>
+      <xs:enumeration value="dx10"/>
+      <xs:enumeration value="dx11"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="DXFeatureLevel" type="ST_DXFeatureLevel"/>
+
+  <!--Device Access Capabilities-->
+  <xs:simpleType name="ST_DeviceFunction">
+    <xs:restriction base="m:ST_NonEmptyString">
+      <xs:maxLength value="100"/>
+      <xs:pattern value="name:\S+"/>
+      <xs:pattern value="classId:[0-9a-fA-F]{2} (([0-9a-fA-F]{2} ([0-9a-fA-F]{2}|\*))|\* \*)"/>
+      <xs:pattern value="winUsbId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      <xs:pattern value="serviceId:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      <xs:pattern value="serviceId:[0-9a-fA-F]{1,8}"/>
+      <xs:pattern value="usage:[0-9a-fA-F]{4} ([0-9a-fA-F]{4}|\*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DeviceId">
+    <xs:restriction base="m:ST_NonEmptyString">
+      <xs:pattern value="any"/>
+      <xs:pattern value="vidpid:[0-9a-fA-F]{4} [0-9a-fA-F]{4}( (usb|bluetooth))?"/>
+      <xs:pattern value="model:[^;]{1,512};.{1,512}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_Device">
+    <xs:sequence>
+      <xs:element name="Function" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="Type" type="ST_DeviceFunction" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Id" type="ST_DeviceId" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="DeviceCapability" substitutionGroup="m:DeviceCapabilityChoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Device" type="CT_Device" maxOccurs="100"/>
+      </xs:sequence>
+      <xs:attribute name="Name" type="m:ST_DeviceCapability" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--Extensions-->
+  <xs:simpleType name="ST_ApplicationExtensionCategory2013">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.lockScreenCall"/>
+      <xs:enumeration value="windows.contact"/>
+      <xs:enumeration value="windows.appointmentsProvider"/>
+      <xs:enumeration value="windows.alarm"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="Extension" substitutionGroup="m:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="Contact" type="CT_Contact"/>
+        <xs:element name="AppointmentsProvider" type="CT_AppointmentsProvider"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="ST_ApplicationExtensionCategory2013" use="required"/>
+      <xs:attributeGroup ref="m:ExtensionBaseAttributes"/>
+    </xs:complexType>
+    <xs:unique name="Contact_Verb">
+      <xs:selector xpath="m2:Contact/m2:ContactLaunchActions/m2:LaunchAction"/>
+      <xs:field xpath="@Verb"/>
+    </xs:unique>
+    <xs:unique name="AppointmentsProvider_Verb">
+      <xs:selector xpath="m2:AppointmentsProvider/m2:AppointmentsProviderLaunchActions/m2:LaunchAction"/>
+      <xs:field xpath="@Verb"/>
+    </xs:unique>
+  </xs:element>
+
+  <!--Action Extension-->
+  <xs:simpleType name="ST_ContactLaunchActionVerbs">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="call"/>
+      <xs:enumeration value="map"/>
+      <xs:enumeration value="message"/>
+      <xs:enumeration value="post"/>
+      <xs:enumeration value="videoCall"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_Contact">
+    <xs:all>
+      <xs:element name="ContactLaunchActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LaunchAction" maxOccurs="50">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ServiceId" type="CT_ServiceId" minOccurs="0" maxOccurs="100"/>
+                </xs:sequence>
+                <xs:attribute name="Verb" type="ST_ContactLaunchActionVerbs" use="required"/>
+                <xs:attribute name="DesiredView" type="ST_DesiredView" use="optional"/>
+                <xs:attributeGroup ref="m:ExtensionBaseAttributes"/>
+              </xs:complexType>
+              <xs:unique name="Service_Id">
+                <xs:selector xpath="m2:ServiceId"/>
+                <xs:field xpath="."/>
+              </xs:unique>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="DesiredView" type="ST_DesiredView" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ServiceId">
+    <xs:restriction base="m:ST_AsciiIdentifier">
+      <xs:pattern value="[^A-Z]+"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_ServiceId" mixed="true">
+    <xs:simpleContent>
+      <xs:extension base="ST_ServiceId">
+        <xs:attributeGroup ref="m:ExtensionBaseAttributes"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!--Calendar Provider Extension-->
+  <xs:simpleType name="ST_AppointmentsProviderLaunchActionVerbs">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="addAppointment"/>
+      <xs:enumeration value="removeAppointment"/>
+      <xs:enumeration value="replaceAppointment"/>
+      <xs:enumeration value="showTimeFrame"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_AppointmentsProvider">
+    <xs:all>
+      <xs:element name="AppointmentsProviderLaunchActions" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LaunchAction" minOccurs="0" maxOccurs="10">
+              <xs:complexType>
+                <xs:attribute name="Verb" type="ST_AppointmentsProviderLaunchActionVerbs" use="required"/>
+                <xs:attribute name="DesiredView" type="ST_DesiredView" use="optional"/>
+                <xs:attributeGroup ref="m:ExtensionBaseAttributes"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="DesiredView" type="ST_DesiredView" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <!--ShareTarget-->
+  <xs:simpleType name="ST_ShareTargetDescription">
+    <xs:restriction base="m:ST_Description">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="Description" type="ST_ShareTargetDescription"/>
+
+  <!--Visual Elements-->
+  <xs:element name="VisualElements" substitutionGroup="m:VisualElementsChoice">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="DefaultTile" type="CT_DefaultTile" minOccurs="0"/>
+        <xs:element name="LockScreen" type="m:CT_LockScreen" minOccurs="0"/>
+        <xs:element name="SplashScreen" type="m:CT_SplashScreen"/>
+        <xs:element name="InitialRotationPreference" type="CT_InitialRotationPreference" minOccurs="0"/>
+        <xs:element name="ApplicationView" type="CT_ApplicationView" minOccurs="0"/>
+      </xs:all>
+      <xs:attributeGroup ref="m:VisualElementsBaseAttributes"/>
+      <xs:attribute name="Square150x150Logo" type="m:ST_ImageFile" use="required"/>
+      <xs:attribute name="Square30x30Logo" type="m:ST_ImageFile" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_DefaultTile">
+    <xs:all>
+      <xs:element name="TileUpdate" type="CT_TileUpdate" minOccurs="0"/>
+      <xs:element name="ShowNameOnTiles" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ShowOn" maxOccurs="3">
+              <xs:complexType>
+                <xs:attribute name="Tile" type="ST_ShowNameSize" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="ShowOn_Tile">
+          <xs:selector xpath="m2:ShowOn"/>
+          <xs:field xpath="@Tile"/>
+        </xs:unique>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="Wide310x150Logo" type="m:ST_ImageFile" use="optional"/>
+    <xs:attribute name="Square310x310Logo" type="m:ST_ImageFile" use="optional"/>
+    <xs:attribute name="Square70x70Logo" type="m:ST_ImageFile" use="optional"/>
+    <xs:attribute name="ShortName" type="m:ST_ShortDisplayName" use="optional"/>
+    <xs:attribute name="DefaultSize" type="ST_DefaultSize" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ShowNameSize">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="square150x150Logo"/>
+      <xs:enumeration value="wide310x150Logo"/>
+      <xs:enumeration value="square310x310Logo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DefaultSize">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="square150x150Logo"/>
+      <xs:enumeration value="wide310x150Logo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_InitialRotationPreference">
+    <xs:sequence>
+      <xs:element name="Rotation" maxOccurs="4" type="m:CT_Rotation"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Tile Update-->
+  <xs:simpleType name="ST_Recurrence">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="halfHour"/>
+      <xs:enumeration value="hour"/>
+      <xs:enumeration value="sixHours"/>
+      <xs:enumeration value="twelveHours"/>
+      <xs:enumeration value="daily"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name ="CT_TileUpdate">
+    <xs:attribute name="Recurrence" type="ST_Recurrence" use="required"/>
+    <xs:attribute name="UriTemplate" type="m:ST_URI" use="required"/>
+  </xs:complexType>
+  <!--Application View-->
+  <xs:simpleType name="ST_ApplicationViewWidth">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="width320"/>
+      <xs:enumeration value="width500"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_ApplicationView">
+    <xs:attribute name="MinWidth" type="ST_ApplicationViewWidth" use="required"/>
+  </xs:complexType>
+  <!--Desired View States-->
+  <xs:simpleType name="ST_DesiredView">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="useLess"/>
+      <xs:enumeration value="useHalf"/>
+      <xs:enumeration value="useMore"/>
+      <xs:enumeration value="useMinimum"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--BACKGROUND TASKS TYPES-->
+  <xs:simpleType name="ST_BackgroundTasks">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="location"/>
+      <xs:enumeration value="deviceUse"/>
+      <xs:enumeration value="deviceServicing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="Task" substitutionGroup="m:TaskChoice">
+    <xs:complexType>
+      <xs:attribute name="Type" type="ST_BackgroundTasks" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attribute name="DesiredView" type="ST_DesiredView"/>
+</xs:schema>
+

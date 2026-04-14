@@ -1,0 +1,143 @@
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+cpp_quote( "//=========================================================================" )
+cpp_quote( "//" )
+cpp_quote( "// Microsoft Windows Media Technologies" )
+cpp_quote( "// Copyright (C) Microsoft Corporation.  All Rights Reserved." )
+cpp_quote( "//" )
+cpp_quote( "//=========================================================================" )
+
+cpp_quote("#if _MSC_VER > 1000")
+cpp_quote("#pragma once")
+cpp_quote("#endif // _MSC_VER > 1000")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "objidl.idl";
+
+cpp_quote( "EXTERN_GUID( IID_INSSBuffer, 0xE1CD3524,0x03D7,0x11d2,0x9E,0xED,0x00,0x60,0x97,0xD2,0xD7,0xCF );" )
+cpp_quote( "EXTERN_GUID( IID_IWMSBuffer, 0xE1CD3524,0x03D7,0x11d2,0x9E,0xED,0x00,0x60,0x97,0xD2,0xD7,0xCF );" )
+cpp_quote( "EXTERN_GUID( IID_INSSBuffer2,0x4f528693,0x1035,0x43fe,0xb4,0x28,0x75,0x75,0x61,0xad,0x3a,0x68 );" )
+cpp_quote( "EXTERN_GUID( IID_INSSBuffer3,0xc87ceaaf,0x75be,0x4bc4,0x84,0xeb,0xac,0x27,0x98,0x50,0x76,0x72 );" )
+cpp_quote( "EXTERN_GUID( IID_INSSBuffer4,0xb6b8fd5a,0x32e2,0x49d4,0xa9,0x10,0xc2,0x6c,0xc8,0x54,0x65,0xed );" )
+cpp_quote( "EXTERN_GUID( IID_IWMSBufferAllocator, 0x61103CA4,0x2033,0x11d2,0x9E,0xF1,0x00,0x60,0x97,0xD2,0xD7,0xCF );" )
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "#define IWMSBuffer INSSBuffer" )
+
+interface IWMSBuffer;
+
+//////////////////////////////////////////////////////////////////////////////
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(E1CD3524-03D7-11d2-9EED-006097D2D7CF),
+    version(1.0),
+]
+interface INSSBuffer : IUnknown
+{
+    HRESULT GetLength( [out] DWORD *pdwLength );
+    HRESULT SetLength( [in] DWORD dwLength );
+
+    HRESULT GetMaxLength( [out] DWORD *pdwLength );
+
+    HRESULT GetBuffer( [out] BYTE **ppdwBuffer );
+
+    HRESULT GetBufferAndLength( [out] BYTE **ppdwBuffer, [out] DWORD *pdwLength );
+};
+
+//////////////////////////////////////////////////////////////////////////////
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(4F528693-1035-43fe-B428-757561AD3A68),
+    version(1.0),
+]
+interface INSSBuffer2 : INSSBuffer
+{
+        HRESULT GetSampleProperties( [in] DWORD cbProperties, [out] BYTE *pbProperties );
+
+        HRESULT SetSampleProperties( [in] DWORD cbProperties, [in] BYTE *pbProperties );
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(C87CEAAF-75BE-4bc4-84EB-AC2798507672),
+    version(1.0),
+]
+interface INSSBuffer3 : INSSBuffer2
+{
+    HRESULT SetProperty(
+                        [in]    GUID                guidBufferProperty,
+                        [in]    void                *pvBufferProperty,
+                        [in]    DWORD               dwBufferPropertySize );
+
+    HRESULT GetProperty(
+                        [in]    GUID                guidBufferProperty,
+                        [out]   void                *pvBufferProperty,
+                        [in,out]DWORD               *pdwBufferPropertySize );
+};
+
+//////////////////////////////////////////////////////////////////////////////
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(B6B8FD5A-32E2-49d4-A910-C26CC85465ED),
+    version(1.0),
+]
+interface INSSBuffer4 : INSSBuffer3
+{
+    HRESULT GetPropertyCount(
+                        [out]   DWORD               *pcBufferProperties );
+
+    HRESULT GetPropertyByIndex(
+                        [in]    DWORD               dwBufferPropertyIndex,
+                        [out]   GUID                *pguidBufferProperty,
+                        [out]   void                *pvBufferProperty,
+                        [in,out]DWORD               *pdwBufferPropertySize );
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+[
+    local,
+    object,
+    pointer_default(unique),
+    uuid(61103CA4-2033-11d2-9EF1-006097D2D7CF),
+    version(1.0),
+]
+interface IWMSBufferAllocator : IUnknown
+{
+    HRESULT AllocateBuffer(
+                [in] DWORD dwMaxBufferSize,
+                [out] INSSBuffer **ppBuffer
+                );
+    HRESULT AllocatePageSizeBuffer(
+                [in] DWORD dwMaxBufferSize,
+                [out] INSSBuffer **ppBuffer
+                );
+};
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

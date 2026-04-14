@@ -1,0 +1,81 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			srcrst.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a1e-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface ISourcesRowset : IUnknown {
+
+typedef DWORD DBSOURCETYPE;
+
+enum DBSOURCETYPEENUM {
+	DBSOURCETYPE_DATASOURCE = 1,
+	DBSOURCETYPE_ENUMERATOR = 2,
+};
+
+// VERSION 2.0
+cpp_quote("//@@@+ V2.0")
+cpp_quote("#if( OLEDBVER >= 0x0200 )")
+enum DBSOURCETYPEENUM20 {
+	DBSOURCETYPE_DATASOURCE_TDP = 1,
+	DBSOURCETYPE_DATASOURCE_MDP = 3,
+};
+cpp_quote("#endif // OLEDBVER >= 0x0200")
+cpp_quote("//@@@- V2.0")
+
+// VERSION 2.5
+cpp_quote("//@@@+ V2.5")
+cpp_quote("#if( OLEDBVER >= 0x0250 )")
+enum DBSOURCETYPEENUM25 {
+	DBSOURCETYPE_BINDER = 4,
+};
+cpp_quote("#endif // OLEDBVER >= 0x0250")
+cpp_quote("//@@@- V2.5")
+
+	[local]
+	HRESULT GetSourcesRowset(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in, annotation("_In_")] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, out, unique, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] 
+			DBPROPSET rgProperties[],
+		[out, iid_is(riid), annotation("_Outptr_")] IUnknown ** ppSourcesRowset
+	);
+
+	[call_as(GetSourcesRowset)]
+	HRESULT RemoteGetSourcesRowset(
+		[in] IUnknown * pUnkOuter,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgProperties,
+		[out, iid_is(riid)] IUnknown ** ppSourcesRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

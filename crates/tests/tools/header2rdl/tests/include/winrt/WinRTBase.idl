@@ -1,0 +1,138 @@
+// Copyright (C) Microsoft Corp. All Rights Reserved.
+//
+// MIDL requires that certain types be defined before compiling WinRT types. WinRTBase.idl defines critical types which are needed for WinRT compilation.
+//
+// These types are actually defined in several other IDL files that are published in the SDK. For performance reasons,
+// we provide a shadow definition of the types. When the WinRTBase.h header file is included in a source file, we use the types
+// defined in the original IDL file.
+//
+// Note: This IDL file cannot be consumed by MIDL - you should only include it if you specify the /nomidl command line switch to midlrt.
+//
+
+import "midlbase.idl";
+
+namespace Windows.Foundation.Metadata
+{
+     [attributeusage(target_runtimeclass, target_interface, target_struct, target_enum, target_delegate)]
+    [attributename("webhosthidden")]
+    [version(0x06020000)]
+    attribute WebHostHiddenAttribute
+    {
+    }
+
+    [attributeusage(target_runtimeclass)]
+    [attributename("allowforweb")]
+    [version(0x06040000)]
+    attribute AllowForWebAttribute
+    {
+    }
+
+    [attributeusage(target_parameter, target_property)]
+    [attributename("variant")]
+    [version(0x06020000)]
+    attribute VariantAttribute
+    {
+    }
+
+    [attributeusage(target_all)]
+    [attributename("hasvariant")]
+    [version(0x06020000)]
+    attribute HasVariantAttribute
+    {
+    }
+
+    [attributeusage(target_runtimeclass, target_struct)]
+    [attributename("createfromstring")]
+    [version(0x0A000002)]
+    [webhosthidden]
+    attribute CreateFromStringAttribute
+    {
+        HSTRING MethodName;
+    }
+
+    [attributeusage(target_method, target_property)]
+    [attributename("noexcept")]
+    [version(0x06020000)]
+    attribute NoExceptionAttribute
+    {
+    }
+}
+
+namespace Windows.UI.Xaml
+{
+    [attributeusage(target_runtimeclass)]
+    [allowmultiple]
+    [attributename("templatepart")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute TemplatePartAttribute
+    {
+        HSTRING Name;
+        type Type;
+    }
+
+    [attributeusage(target_runtimeclass)]
+    [allowmultiple]
+    [attributename("templatevisualstate")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute TemplateVisualStateAttribute
+    {
+        HSTRING Name;
+        HSTRING GroupName;
+    }
+
+    [attributeusage(target_runtimeclass)]
+    [allowmultiple]
+    [attributename("styletypedproperty")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute StyleTypedPropertyAttribute
+    {
+        HSTRING Property;
+        type StyleTargetType;
+    }
+}
+
+namespace Windows.UI.Xaml.Markup
+{
+    [attributeusage(target_runtimeclass)]
+    [attributename("contentproperty")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute ContentPropertyAttribute
+    {
+        HSTRING Name;
+    }
+}
+
+namespace Windows.UI.Xaml.Media.Animation
+{
+    [attributeusage(target_property)]
+    [attributename("independentlyanimatable")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute IndependentlyAnimatableAttribute
+    {
+    }
+
+    [attributeusage(target_property)]
+    [attributename("conditionallyindependentlyanimatable")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute ConditionallyIndependentlyAnimatableAttribute
+    {
+    }
+}
+
+namespace Windows.UI.Xaml.Data
+{
+    [attributeusage(target_runtimeclass)]
+    [attributename("bindable")]
+    [version(0x06020000)]
+    [webhosthidden]
+    attribute BindableAttribute
+    {
+    }
+}
+

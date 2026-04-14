@@ -1,0 +1,687 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// D3D11.1 IDL
+//
+// Contains interface definitions for the D3D11.1 API.
+//
+// Copyright (C) Microsoft Corporation
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "dxgi1_2.idl";
+import "d3dcommon.idl";
+
+
+import "d3d11.idl"; //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "#endif" )
+cpp_quote( "#include \"d3d11.h\" //") //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+typedef enum D3D11_COPY_FLAGS
+{
+    D3D11_COPY_NO_OVERWRITE = 0x00000001,
+    D3D11_COPY_DISCARD      = 0x00000002,
+} D3D11_COPY_FLAGS;
+
+typedef enum D3D11_LOGIC_OP
+{
+                                   // Operation: 
+                                   // (s == PS output, d = RTV contents)
+    D3D11_LOGIC_OP_CLEAR = 0,      // 0
+    D3D11_LOGIC_OP_SET,            // 1
+    D3D11_LOGIC_OP_COPY,           // s
+    D3D11_LOGIC_OP_COPY_INVERTED,  // ~s
+    D3D11_LOGIC_OP_NOOP,           // d
+    D3D11_LOGIC_OP_INVERT,         // ~d
+    D3D11_LOGIC_OP_AND,            // s & d
+    D3D11_LOGIC_OP_NAND,           // ~(s & d)
+    D3D11_LOGIC_OP_OR,             // s | d
+    D3D11_LOGIC_OP_NOR,            // ~(s | d)
+    D3D11_LOGIC_OP_XOR,            // s ^ d
+    D3D11_LOGIC_OP_EQUIV,          // ~(s ^ d)
+    D3D11_LOGIC_OP_AND_REVERSE,    // s & ~d
+    D3D11_LOGIC_OP_AND_INVERTED,   // ~s & d
+    D3D11_LOGIC_OP_OR_REVERSE,     // s | ~d
+    D3D11_LOGIC_OP_OR_INVERTED,    // ~s | d
+} D3D11_LOGIC_OP;
+
+typedef struct D3D11_RENDER_TARGET_BLEND_DESC1
+{
+    BOOL BlendEnable;
+    BOOL LogicOpEnable; // LogicOpEnable and BlendEnable can't both be true
+    D3D11_BLEND SrcBlend;
+    D3D11_BLEND DestBlend;
+    D3D11_BLEND_OP BlendOp;
+    D3D11_BLEND SrcBlendAlpha;
+    D3D11_BLEND DestBlendAlpha;
+    D3D11_BLEND_OP BlendOpAlpha;
+    D3D11_LOGIC_OP LogicOp; // applies to RGBA
+    UINT8 RenderTargetWriteMask; // D3D11_COLOR_WRITE_ENABLE
+} D3D11_RENDER_TARGET_BLEND_DESC1;
+
+typedef struct D3D11_BLEND_DESC1
+{
+    BOOL AlphaToCoverageEnable; // relevant to multisample antialiasing only
+    BOOL IndependentBlendEnable; // if FALSE, then replicate the first entry in RenderTarget array to other entries
+    D3D11_RENDER_TARGET_BLEND_DESC1 RenderTarget[D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT];
+} D3D11_BLEND_DESC1;
+
+cpp_quote( "/* Note, the array size for RenderTarget[] above is D3D11_SIMULTANEOUS_RENDERTARGET_COUNT. ")
+cpp_quote( "   IDL processing/generation of this header replaces the define; this comment is merely explaining what happened. */" ) 
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_BLEND_DESC1 : public D3D11_BLEND_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_BLEND_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_BLEND_DESC1( const D3D11_BLEND_DESC1& o ) :" )
+cpp_quote( "        D3D11_BLEND_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_BLEND_DESC1( CD3D11_DEFAULT )" )
+cpp_quote( "    {" )
+cpp_quote( "        AlphaToCoverageEnable = FALSE;" )
+cpp_quote( "        IndependentBlendEnable = FALSE;" )
+cpp_quote( "        const D3D11_RENDER_TARGET_BLEND_DESC1 defaultRenderTargetBlendDesc =" )
+cpp_quote( "        {" )
+cpp_quote( "            FALSE,FALSE," )
+cpp_quote( "            D3D11_BLEND_ONE, D3D11_BLEND_ZERO, D3D11_BLEND_OP_ADD," )
+cpp_quote( "            D3D11_BLEND_ONE, D3D11_BLEND_ZERO, D3D11_BLEND_OP_ADD," )
+cpp_quote( "            D3D11_LOGIC_OP_NOOP," )
+cpp_quote( "            D3D11_COLOR_WRITE_ENABLE_ALL," )
+cpp_quote( "        };" )
+cpp_quote( "        for (UINT i = 0; i < D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT; ++i)" )
+cpp_quote( "            RenderTarget[ i ] = defaultRenderTargetBlendDesc;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_BLEND_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid(cc86fabe-da55-401d-85e7-e3c9de2877e9), object, local, pointer_default( unique ) ]
+interface ID3D11BlendState1
+    : ID3D11BlendState
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_BLEND_DESC1* pDesc );
+};
+
+
+typedef struct D3D11_RASTERIZER_DESC1
+{
+    D3D11_FILL_MODE FillMode;
+    D3D11_CULL_MODE CullMode;
+    BOOL FrontCounterClockwise;
+    INT DepthBias;
+    FLOAT DepthBiasClamp;
+    FLOAT SlopeScaledDepthBias;
+    BOOL DepthClipEnable;
+    BOOL ScissorEnable;
+    BOOL MultisampleEnable;
+    BOOL AntialiasedLineEnable;
+    UINT ForcedSampleCount;  
+} D3D11_RASTERIZER_DESC1;
+
+cpp_quote( "#if !defined( D3D11_NO_HELPERS ) && defined( __cplusplus )" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "struct CD3D11_RASTERIZER_DESC1 : public D3D11_RASTERIZER_DESC1" )
+cpp_quote( "{" )
+cpp_quote( "    CD3D11_RASTERIZER_DESC1() = default;" )
+cpp_quote( "    explicit CD3D11_RASTERIZER_DESC1( const D3D11_RASTERIZER_DESC1& o ) :" )
+cpp_quote( "        D3D11_RASTERIZER_DESC1( o )" )
+cpp_quote( "    {}" )
+cpp_quote( "    explicit CD3D11_RASTERIZER_DESC1( CD3D11_DEFAULT )" )
+cpp_quote( "    {" )
+cpp_quote( "        FillMode = D3D11_FILL_SOLID;" )
+cpp_quote( "        CullMode = D3D11_CULL_BACK;" )
+cpp_quote( "        FrontCounterClockwise = FALSE;" )
+cpp_quote( "        DepthBias = D3D11_DEFAULT_DEPTH_BIAS;" )
+cpp_quote( "        DepthBiasClamp = D3D11_DEFAULT_DEPTH_BIAS_CLAMP;" )
+cpp_quote( "        SlopeScaledDepthBias = D3D11_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;" )
+cpp_quote( "        DepthClipEnable = TRUE;" )
+cpp_quote( "        ScissorEnable = FALSE;" )
+cpp_quote( "        MultisampleEnable = FALSE;" )
+cpp_quote( "        AntialiasedLineEnable = FALSE;" )
+cpp_quote( "        ForcedSampleCount = 0;" )
+cpp_quote( "    }" )
+cpp_quote( "    explicit CD3D11_RASTERIZER_DESC1(" )
+cpp_quote( "        D3D11_FILL_MODE fillMode," )
+cpp_quote( "        D3D11_CULL_MODE cullMode," )
+cpp_quote( "        BOOL frontCounterClockwise," )
+cpp_quote( "        INT depthBias," )
+cpp_quote( "        FLOAT depthBiasClamp," )
+cpp_quote( "        FLOAT slopeScaledDepthBias," )
+cpp_quote( "        BOOL depthClipEnable," )
+cpp_quote( "        BOOL scissorEnable," )
+cpp_quote( "        BOOL multisampleEnable," )
+cpp_quote( "        BOOL antialiasedLineEnable, " )
+cpp_quote( "        UINT forcedSampleCount )" )
+cpp_quote( "    {" )
+cpp_quote( "        FillMode = fillMode;" )
+cpp_quote( "        CullMode = cullMode;" )
+cpp_quote( "        FrontCounterClockwise = frontCounterClockwise;" )
+cpp_quote( "        DepthBias = depthBias;" )
+cpp_quote( "        DepthBiasClamp = depthBiasClamp;" )
+cpp_quote( "        SlopeScaledDepthBias = slopeScaledDepthBias;" )
+cpp_quote( "        DepthClipEnable = depthClipEnable;" )
+cpp_quote( "        ScissorEnable = scissorEnable;" )
+cpp_quote( "        MultisampleEnable = multisampleEnable;" )
+cpp_quote( "        AntialiasedLineEnable = antialiasedLineEnable;" )
+cpp_quote( "        ForcedSampleCount = forcedSampleCount;" )
+cpp_quote( "    }" )
+cpp_quote( "    ~CD3D11_RASTERIZER_DESC1() {}" )
+cpp_quote( "};" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+[ uuid(1217d7a6-5039-418c-b042-9cbe256afd6e), object, local, pointer_default( unique ) ]
+interface ID3D11RasterizerState1
+    : ID3D11RasterizerState
+{
+    void GetDesc1( [annotation("_Out_")] D3D11_RASTERIZER_DESC1* pDesc );
+};
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// DeviceContextState
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef enum D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG
+{
+    D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED = 0x1,
+
+} D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG;
+
+[ uuid( 5c1e0d8a-7c23-48f9-8c59-a92958ceff11 ), object, local, pointer_default( unique ) ]
+interface ID3DDeviceContextState
+    : ID3D11DeviceChild
+{
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// DeviceContext
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[ uuid( bb2c6faa-b5fb-4082-8e6b-388b8cfa90e1 ), object, local, pointer_default( unique ) ]
+interface ID3D11DeviceContext1
+    : ID3D11DeviceContext
+{
+    void CopySubresourceRegion1(
+        [annotation("_In_")] ID3D11Resource* pDstResource,
+        [annotation("_In_")] UINT DstSubresource,
+        [annotation("_In_")] UINT DstX,
+        [annotation("_In_")] UINT DstY,
+        [annotation("_In_")] UINT DstZ,
+        [annotation("_In_")] ID3D11Resource* pSrcResource,
+        [annotation("_In_")] UINT SrcSubresource,
+        [annotation("_In_opt_")] const D3D11_BOX* pSrcBox,
+        [annotation("_In_")] UINT CopyFlags ); 
+
+    void UpdateSubresource1(
+        [annotation("_In_")] ID3D11Resource* pDstResource,
+        [annotation("_In_")] UINT DstSubresource,	
+        [annotation("_In_opt_")] const D3D11_BOX* pDstBox,
+        [annotation("_In_")] const void* pSrcData,
+        [annotation("_In_")] UINT SrcRowPitch,
+        [annotation("_In_")] UINT SrcDepthPitch,
+        [annotation("_In_")] UINT CopyFlags );
+
+    void DiscardResource(
+        [annotation("_In_")] ID3D11Resource* pResource
+    );
+
+    void DiscardView (
+        [annotation("_In_")] ID3D11View* pResourceView
+    );
+
+    void VSSetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]    
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] ID3D11Buffer*const* ppConstantBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pFirstConstant,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pNumConstants );
+
+    void HSSetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]    
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] ID3D11Buffer*const* ppConstantBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pFirstConstant,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pNumConstants );
+
+    void DSSetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]    
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] ID3D11Buffer*const* ppConstantBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pFirstConstant,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pNumConstants );
+
+    void GSSetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]    
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] ID3D11Buffer*const* ppConstantBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pFirstConstant,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pNumConstants );
+
+    void PSSetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]    
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] ID3D11Buffer*const* ppConstantBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pFirstConstant,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pNumConstants );
+
+    void CSSetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]    
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] ID3D11Buffer*const* ppConstantBuffers,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pFirstConstant,
+        [annotation("_In_reads_opt_(NumBuffers)")] const UINT* pNumConstants );
+
+    void VSGetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] ID3D11Buffer** ppConstantBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pFirstConstant,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pNumConstants );
+
+    void HSGetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] ID3D11Buffer** ppConstantBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pFirstConstant,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pNumConstants );
+
+    void DSGetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] ID3D11Buffer** ppConstantBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pFirstConstant,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pNumConstants );
+
+    void GSGetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] ID3D11Buffer** ppConstantBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pFirstConstant,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pNumConstants );
+
+    void PSGetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] ID3D11Buffer** ppConstantBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pFirstConstant,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pNumConstants );
+
+    void CSGetConstantBuffers1(
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - 1 )")]
+        UINT StartSlot,
+        [annotation("_In_range_( 0, D3D11_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT - StartSlot )")] 
+        UINT NumBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] ID3D11Buffer** ppConstantBuffers,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pFirstConstant,
+        [annotation("_Out_writes_opt_(NumBuffers)")] UINT* pNumConstants );
+
+    void SwapDeviceContextState(
+        [annotation("_In_")] ID3DDeviceContextState* pState, 
+        [annotation("_Outptr_opt_")] ID3DDeviceContextState** ppPreviousState );
+
+    void ClearView(
+        [annotation("_In_")] ID3D11View* pView,
+        [annotation("_In_")] const FLOAT Color[ 4 ],
+        [annotation("_In_reads_opt_(NumRects)")] const D3D11_RECT* pRect,
+        UINT NumRects );
+
+    void DiscardView1 (
+        [annotation("_In_")] ID3D11View* pResourceView,
+        [annotation("_In_reads_opt_(NumRects)")] const D3D11_RECT* pRects,
+        UINT NumRects
+    );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoDecoder
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK
+{
+    UINT   ClearSize;
+    UINT   EncryptedSize;
+} D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK;
+
+typedef struct D3D11_VIDEO_DECODER_BUFFER_DESC1
+{
+    D3D11_VIDEO_DECODER_BUFFER_TYPE BufferType;
+    UINT DataOffset;
+    UINT DataSize;
+    [annotation("_Field_size_opt_(IVSize)")] void* pIV;
+    UINT IVSize;
+    [annotation("_Field_size_opt_(SubSampleMappingCount)")] D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK* pSubSampleMappingBlock;
+    UINT SubSampleMappingCount;
+} D3D11_VIDEO_DECODER_BUFFER_DESC1;
+
+typedef struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION
+{
+    ID3D11CryptoSession* pCryptoSession;
+    UINT  BlobSize;
+    [annotation("_Field_size_opt_(BlobSize)")] void* pBlob;
+    GUID* pKeyInfoId;
+    UINT  PrivateDataSize; 
+    [annotation("_Field_size_opt_(PrivateDataSize)")] void* pPrivateData;
+} D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION;
+
+typedef enum D3D11_VIDEO_DECODER_CAPS
+{
+    D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE = 0x1,
+    D3D11_VIDEO_DECODER_CAPS_NON_REAL_TIME = 0x02,
+    D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE_DYNAMIC = 0x04,
+    D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE_REQUIRED = 0x08,
+    D3D11_VIDEO_DECODER_CAPS_UNSUPPORTED = 0x10,
+} D3D11_VIDEO_DECODER_CAPS;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoProcessor
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef enum D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS
+{
+    D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_ROTATION = 0x01,
+    D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_RESIZE = 0x02,
+    D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_COLOR_SPACE_CONVERSION = 0x04,
+    D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_TRIPLE_BUFFER_OUTPUT = 0x08,
+} D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS;
+
+typedef struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT
+{
+    BOOL Enable;
+    UINT Width;
+    UINT Height;
+    DXGI_FORMAT Format;
+} D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// CryptoSession
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef enum D3D11_CRYPTO_SESSION_STATUS
+{
+    D3D11_CRYPTO_SESSION_STATUS_OK = 0,
+    D3D11_CRYPTO_SESSION_STATUS_KEY_LOST = 1,
+    D3D11_CRYPTO_SESSION_STATUS_KEY_AND_CONTENT_LOST = 2
+} D3D11_CRYPTO_SESSION_STATUS;
+
+typedef struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA
+{
+    UINT PrivateDataSize;
+    UINT HWProtectionDataSize;
+    BYTE pbInput[4];
+} D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA;
+
+typedef struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA
+{
+    UINT PrivateDataSize;
+    UINT MaxHWProtectionDataSize;
+    UINT HWProtectionDataSize;
+    UINT64 TransportTime;
+    UINT64 ExecutionTime;
+    BYTE pbOutput[4];
+} D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA;
+
+typedef struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA
+{
+    UINT HWProtectionFunctionID;
+    D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA *pInputData;
+    D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA *pOutputData;
+    HRESULT Status;
+} D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoSample
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D11_VIDEO_SAMPLE_DESC
+{
+    UINT Width;
+    UINT Height;
+    DXGI_FORMAT Format;
+    DXGI_COLOR_SPACE_TYPE ColorSpace;
+} D3D11_VIDEO_SAMPLE_DESC;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoContext1
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[uuid(A7F026DA-A5F8-4487-A564-15E34357651E), object, local, pointer_default(unique)]
+interface ID3D11VideoContext1
+    : ID3D11VideoContext
+{
+    HRESULT SubmitDecoderBuffers1(
+                [annotation("_In_")] ID3D11VideoDecoder* pDecoder,
+                [annotation("_In_")] UINT NumBuffers,
+                [annotation("_In_reads_(NumBuffers)")] const D3D11_VIDEO_DECODER_BUFFER_DESC1* pBufferDesc);
+
+    HRESULT GetDataForNewHardwareKey(
+                [annotation("_In_")] ID3D11CryptoSession* pCryptoSession,
+                [annotation("_In_")] UINT PrivateInputSize,
+                [annotation("_In_reads_(PrivateInputSize)")] const void* pPrivatInputData,
+                [annotation("_Out_")] UINT64* pPrivateOutputData);
+	
+    HRESULT CheckCryptoSessionStatus(
+                [annotation("_In_")] ID3D11CryptoSession* pCryptoSession,
+                [annotation("_Out_")] D3D11_CRYPTO_SESSION_STATUS* pStatus);
+
+    HRESULT DecoderEnableDownsampling(
+                [annotation("_In_")] ID3D11VideoDecoder* pDecoder,
+                [annotation("_In_")] DXGI_COLOR_SPACE_TYPE InputColorSpace,
+                [annotation("_In_")] const D3D11_VIDEO_SAMPLE_DESC* pOutputDesc,
+                [annotation("_In_")] UINT ReferenceFrameCount);
+
+    HRESULT DecoderUpdateDownsampling(
+                [annotation("_In_")] ID3D11VideoDecoder* pDecoder,
+                [annotation("_In_")] const D3D11_VIDEO_SAMPLE_DESC* pOutputDesc);
+
+    void VideoProcessorSetOutputColorSpace1(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] DXGI_COLOR_SPACE_TYPE ColorSpace);
+
+    void VideoProcessorSetOutputShaderUsage(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] BOOL ShaderUsage);
+
+    void VideoProcessorGetOutputColorSpace1(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_Out_")] DXGI_COLOR_SPACE_TYPE* pColorSpace);
+
+    void VideoProcessorGetOutputShaderUsage(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_Out_")] BOOL* pShaderUsage);
+
+    void VideoProcessorSetStreamColorSpace1(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] UINT StreamIndex,
+                [annotation("_In_")] DXGI_COLOR_SPACE_TYPE ColorSpace);
+
+    void VideoProcessorSetStreamMirror(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] UINT StreamIndex,
+                [annotation("_In_")] BOOL Enable,
+                [annotation("_In_")] BOOL FlipHorizontal,
+                [annotation("_In_")] BOOL FlipVertical);
+
+    void VideoProcessorGetStreamColorSpace1(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] UINT StreamIndex,
+                [annotation("_Out_")] DXGI_COLOR_SPACE_TYPE* pColorSpace);
+
+    void VideoProcessorGetStreamMirror(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] UINT StreamIndex,
+                [annotation("_Out_")] BOOL* pEnable,
+                [annotation("_Out_")] BOOL* pFlipHorizontal,
+                [annotation("_Out_")] BOOL* pFlipVertical);
+
+    HRESULT VideoProcessorGetBehaviorHints(
+                [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+                [annotation("_In_")] UINT OutputWidth,
+                [annotation("_In_")] UINT OutputHeight,
+                [annotation("_In_")] DXGI_FORMAT OutputFormat,
+                [annotation("_In_")] UINT StreamCount,
+                [annotation("_In_reads_(StreamCount)")] const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT *pStreams,
+                [annotation("_Out_")] UINT* pBehaviorHints);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Device
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[uuid(29DA1D51-1321-4454-804B-F5FC9F861F0F), object, local, pointer_default(unique)]
+interface ID3D11VideoDevice1
+    : ID3D11VideoDevice
+{
+    HRESULT GetCryptoSessionPrivateDataSize(
+        [annotation("_In_")] const GUID* pCryptoType,
+        [annotation("_In_opt_")] const GUID* pDecoderProfile,
+        [annotation("_In_")] const GUID* pKeyExchangeType,
+        [annotation("_Out_")] UINT* pPrivateInputSize,
+        [annotation("_Out_")] UINT* pPrivateOutputSize);
+
+    HRESULT GetVideoDecoderCaps(
+        [annotation("_In_")] const GUID* pDecoderProfile,
+        [annotation("_In_")] UINT SampleWidth,
+        [annotation("_In_")] UINT SampleHeight,
+        [annotation("_In_")] const DXGI_RATIONAL* pFrameRate,
+        [annotation("_In_")] UINT BitRate,
+        [annotation("_In_opt_")] const GUID* pCryptoType,
+        [annotation("_Out_")] UINT* pDecoderCaps);
+
+    HRESULT CheckVideoDecoderDownsampling(
+        [annotation("_In_")] const D3D11_VIDEO_DECODER_DESC* pInputDesc,
+        [annotation("_In_")] DXGI_COLOR_SPACE_TYPE InputColorSpace,
+        [annotation("_In_")] const D3D11_VIDEO_DECODER_CONFIG* pInputConfig,
+        [annotation("_In_")] const DXGI_RATIONAL* pFrameRate,
+        [annotation("_In_")] const D3D11_VIDEO_SAMPLE_DESC* pOutputDesc,
+        [annotation("_Out_")] BOOL* pSupported,
+        [annotation("_Out_")] BOOL* pRealTimeHint);
+
+    HRESULT RecommendVideoDecoderDownsampleParameters(
+        [annotation("_In_")] const D3D11_VIDEO_DECODER_DESC* pInputDesc,
+        [annotation("_In_")] DXGI_COLOR_SPACE_TYPE InputColorSpace,
+        [annotation("_In_")] const D3D11_VIDEO_DECODER_CONFIG* pInputConfig,
+        [annotation("_In_")] const DXGI_RATIONAL* pFrameRate,
+        [annotation("_Out_")] D3D11_VIDEO_SAMPLE_DESC* pRecommendedOutputDesc);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoProcessorEnum
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[uuid(465217F2-5568-43CF-B5B9-F61D54531CA1), object, local, pointer_default(unique)]
+interface ID3D11VideoProcessorEnumerator1
+    : ID3D11VideoProcessorEnumerator
+{
+    HRESULT CheckVideoProcessorFormatConversion(
+        [annotation("_In_")] DXGI_FORMAT InputFormat,
+        [annotation("_In_")] DXGI_COLOR_SPACE_TYPE InputColorSpace,
+        [annotation("_In_")] DXGI_FORMAT OutputFormat,
+        [annotation("_In_")] DXGI_COLOR_SPACE_TYPE OutputColorSpace,
+        [annotation("_Out_")] BOOL* pSupported);
+};
+
+[ uuid( a04bfb29-08ef-43d6-a49c-a9bdbdcbe686 ), object, local, pointer_default( unique ) ]
+interface ID3D11Device1
+    : ID3D11Device
+{
+    void GetImmediateContext1( [annotation("_Outptr_")] ID3D11DeviceContext1** ppImmediateContext );
+
+    HRESULT CreateDeferredContext1(
+            UINT ContextFlags, // Reserved parameter; must be 0
+            [annotation("_COM_Outptr_opt_")] ID3D11DeviceContext1** ppDeferredContext );
+
+    HRESULT CreateBlendState1(
+        [annotation("_In_")] const D3D11_BLEND_DESC1* pBlendStateDesc,
+        [annotation("_COM_Outptr_opt_")] ID3D11BlendState1** ppBlendState );
+
+    HRESULT CreateRasterizerState1(
+        [annotation("_In_")] const D3D11_RASTERIZER_DESC1* pRasterizerDesc,
+        [annotation("_COM_Outptr_opt_")] ID3D11RasterizerState1** ppRasterizerState );
+
+    HRESULT CreateDeviceContextState(
+        UINT Flags,
+        [annotation("_In_reads_( FeatureLevels )")] const D3D_FEATURE_LEVEL*pFeatureLevels,
+        UINT FeatureLevels,
+        UINT SDKVersion,
+        REFIID EmulatedInterface,
+        [annotation("_Out_opt_")] D3D_FEATURE_LEVEL * pChosenFeatureLevel,
+        [annotation("_Out_opt_")] ID3DDeviceContextState** ppContextState );
+
+    HRESULT OpenSharedResource1(
+        [annotation("_In_")] HANDLE hResource,
+        [annotation("_In_")] REFIID returnedInterface,
+        [annotation("_COM_Outptr_")] void** ppResource);
+
+    HRESULT OpenSharedResourceByName(
+        [annotation("_In_")] LPCWSTR lpName,
+        [annotation("_In_")] DWORD dwDesiredAccess,
+        [annotation("_In_")] REFIID returnedInterface,
+        [annotation("_COM_Outptr_")] void** ppResource);
+};
+
+[ uuid( b2daad8b-03d4-4dbf-95eb-32ab4b63d0ab ), object, local, pointer_default( unique ) ]
+interface ID3DUserDefinedAnnotation
+    : IUnknown
+{
+    INT BeginEvent( 
+        [annotation("_In_")] LPCWSTR Name );
+    INT EndEvent( void );
+    void SetMarker( 
+        [annotation("_In_")] LPCWSTR Name );
+    BOOL GetStatus( void );
+};
+
+cpp_quote( "DEFINE_GUID(IID_ID3D11BlendState1,0xcc86fabe,0xda55,0x401d,0x85,0xe7,0xe3,0xc9,0xde,0x28,0x77,0xe9);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11RasterizerState1,0x1217d7a6,0x5039,0x418c,0xb0,0x42,0x9c,0xbe,0x25,0x6a,0xfd,0x6e);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DDeviceContextState,0x5c1e0d8a,0x7c23,0x48f9,0x8c,0x59,0xa9,0x29,0x58,0xce,0xff,0x11);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11DeviceContext1,0xbb2c6faa,0xb5fb,0x4082,0x8e,0x6b,0x38,0x8b,0x8c,0xfa,0x90,0xe1);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11VideoContext1,0xA7F026DA,0xA5F8,0x4487,0xA5,0x64,0x15,0xE3,0x43,0x57,0x65,0x1E);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11VideoDevice1,0x29DA1D51,0x1321,0x4454,0x80,0x4B,0xF5,0xFC,0x9F,0x86,0x1F,0x0F);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11VideoProcessorEnumerator1,0x465217F2,0x5568,0x43CF,0xB5,0xB9,0xF6,0x1D,0x54,0x53,0x1C,0xA1);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Device1,0xa04bfb29,0x08ef,0x43d6,0xa4,0x9c,0xa9,0xbd,0xbd,0xcb,0xe6,0x86);" )
+cpp_quote( "DEFINE_GUID(IID_ID3DUserDefinedAnnotation,0xb2daad8b,0x03d4,0x4dbf,0x95,0xeb,0x32,0xab,0x4b,0x63,0xd0,0xab);" )

@@ -1,0 +1,280 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// D3D10.1 IDL
+//
+// Contains interface definitions for the D3D10.1 API.
+//
+// Copyright (C) Microsoft Corporation
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "#if defined( __d3d10_h__ ) && !defined( D3D10_ARBITRARY_HEADER_ORDERING )" ) //
+cpp_quote( "#error d3d10.h is included before d3d10_1.h, and it will confuse tools that honor SAL annotations. \\" )
+cpp_quote( "If possibly targeting d3d10.1, include d3d10_1.h instead of d3d10.h, or ensure d3d10_1.h is included before d3d10.h" )
+cpp_quote( "#endif" )
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//
+//    Copyright (C) Microsoft.  All rights reserved.
+//
+// NOTE: The following constants are generated from the d3d10_1 hardware spec.  Do not edit these values directly.
+cpp_quote( "#ifndef _D3D10_1_CONSTANTS" )
+cpp_quote( "#define _D3D10_1_CONSTANTS" )
+const UINT D3D10_1_DEFAULT_SAMPLE_MASK = 0xffffffff;
+cpp_quote( "#define D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP	( 0.6 )" )
+cpp_quote( "#define D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP	( 0.6f )" )
+const UINT D3D10_1_GS_INPUT_REGISTER_COUNT = 32;
+const UINT D3D10_1_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT = 32;
+const UINT D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS = 128;
+const UINT D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT = 32;
+const UINT D3D10_1_PS_OUTPUT_MASK_REGISTER_COMPONENTS = 1;
+const UINT D3D10_1_PS_OUTPUT_MASK_REGISTER_COMPONENT_BIT_COUNT = 32;
+const UINT D3D10_1_PS_OUTPUT_MASK_REGISTER_COUNT = 1;
+const UINT D3D10_1_SHADER_MAJOR_VERSION = 4;
+const UINT D3D10_1_SHADER_MINOR_VERSION = 1;
+const UINT D3D10_1_SO_BUFFER_MAX_STRIDE_IN_BYTES = 2048;
+const UINT D3D10_1_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES = 256;
+const UINT D3D10_1_SO_BUFFER_SLOT_COUNT = 4;
+const UINT D3D10_1_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER = 1;
+const UINT D3D10_1_SO_SINGLE_BUFFER_COMPONENT_LIMIT = 64;
+const UINT D3D10_1_STANDARD_VERTEX_ELEMENT_COUNT = 32;
+const UINT D3D10_1_SUBPIXEL_FRACTIONAL_BIT_COUNT = 8;
+const UINT D3D10_1_VS_INPUT_REGISTER_COUNT = 32;
+const UINT D3D10_1_VS_OUTPUT_REGISTER_COUNT = 32;
+cpp_quote( "#endif" )
+cpp_quote("#include <winapifamily.h>")
+
+import "d3d10.idl";
+cpp_quote( "#include \"d3d10.h\" //")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// Forward declarations:
+interface ID3D10Device1;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Feature levels
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef enum D3D10_FEATURE_LEVEL1
+{
+    D3D10_FEATURE_LEVEL_10_0            = 0xa000,
+    D3D10_FEATURE_LEVEL_10_1            = 0xa100,
+    D3D10_FEATURE_LEVEL_9_1             = 0x9100,
+    D3D10_FEATURE_LEVEL_9_2             = 0x9200,
+    D3D10_FEATURE_LEVEL_9_3             = 0x9300
+} D3D10_FEATURE_LEVEL1;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Blend State
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef struct D3D10_RENDER_TARGET_BLEND_DESC1
+{
+    BOOL BlendEnable;
+    D3D10_BLEND SrcBlend;
+    D3D10_BLEND DestBlend;
+    D3D10_BLEND_OP BlendOp;
+    D3D10_BLEND SrcBlendAlpha;
+    D3D10_BLEND DestBlendAlpha;
+    D3D10_BLEND_OP BlendOpAlpha;
+    UINT8 RenderTargetWriteMask; // D3D10_COLOR_WRITE_ENABLE
+} D3D10_RENDER_TARGET_BLEND_DESC1;
+
+typedef struct D3D10_BLEND_DESC1
+{
+    BOOL AlphaToCoverageEnable; // relevant to multisample antialiasing only
+    BOOL IndependentBlendEnable; // if FALSE, then replicate the first entry in RenderTarget array to other entries
+    D3D10_RENDER_TARGET_BLEND_DESC1 RenderTarget[D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT];
+} D3D10_BLEND_DESC1;
+
+[ uuid( EDAD8D99-8A35-4d6d-8566-2EA276CDE161 ), object, local, pointer_default( unique ) ]
+interface ID3D10BlendState1
+    : ID3D10BlendState
+{
+    void GetDesc1( [annotation("_Out_")] D3D10_BLEND_DESC1* pDesc );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ShaderResourceView
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+typedef struct D3D10_TEXCUBE_ARRAY_SRV1
+{
+    UINT MostDetailedMip;
+    UINT MipLevels;
+    UINT First2DArrayFace;  
+    UINT NumCubes;
+} D3D10_TEXCUBE_ARRAY_SRV1;
+
+typedef D3D_SRV_DIMENSION D3D10_SRV_DIMENSION1;
+
+typedef struct D3D10_SHADER_RESOURCE_VIEW_DESC1
+{
+    DXGI_FORMAT Format;
+    D3D10_SRV_DIMENSION1  ViewDimension;
+
+    union
+    {
+        D3D10_BUFFER_SRV Buffer;
+        D3D10_TEX1D_SRV Texture1D;
+        D3D10_TEX1D_ARRAY_SRV Texture1DArray;
+        D3D10_TEX2D_SRV Texture2D;
+        D3D10_TEX2D_ARRAY_SRV Texture2DArray;
+        D3D10_TEX2DMS_SRV Texture2DMS;
+        D3D10_TEX2DMS_ARRAY_SRV Texture2DMSArray;
+        D3D10_TEX3D_SRV Texture3D;
+        D3D10_TEXCUBE_SRV TextureCube;
+        D3D10_TEXCUBE_ARRAY_SRV1 TextureCubeArray;
+    };
+} D3D10_SHADER_RESOURCE_VIEW_DESC1;
+
+[ uuid( 9B7E4C87-342C-4106-A19F-4F2704F689F0 ), object, local, pointer_default( unique ) ]
+interface ID3D10ShaderResourceView1
+    : ID3D10ShaderResourceView
+{
+    void GetDesc1( [annotation("_Out_")] D3D10_SHADER_RESOURCE_VIEW_DESC1* pDesc );
+};
+
+typedef enum D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS
+{
+    D3D10_STANDARD_MULTISAMPLE_PATTERN = 0xffffffff,
+    D3D10_CENTER_MULTISAMPLE_PATTERN = 0xfffffffe
+} D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS;
+
+[ uuid( 9B7E4C8F-342C-4106-A19F-4F2704F689F0 ), object, local, pointer_default( unique ) ]
+interface ID3D10Device1
+    : ID3D10Device
+{
+    HRESULT CreateShaderResourceView1(
+        [annotation("_In_")] ID3D10Resource* pResource,
+        [annotation("_In_opt_")] const D3D10_SHADER_RESOURCE_VIEW_DESC1* pDesc,
+        [annotation("_Out_opt_")] ID3D10ShaderResourceView1** ppSRView );
+    HRESULT CreateBlendState1(
+        [annotation("_In_")] const D3D10_BLEND_DESC1* pBlendStateDesc,
+        [annotation("_Out_opt_")] ID3D10BlendState1** ppBlendState );
+    D3D10_FEATURE_LEVEL1 GetFeatureLevel(); 
+};
+// + 0x20 puts us in safe range to detect when application isn't using the correct version number.
+const UINT D3D10_1_SDK_VERSION = 0 + 0x20;
+
+cpp_quote( "#include \"d3d10_1shader.h\" ")
+
+cpp_quote( "" )
+cpp_quote( "///////////////////////////////////////////////////////////////////////////" )
+cpp_quote( "// D3D10CreateDevice1" )
+cpp_quote( "// ------------------" )
+cpp_quote( "//" )
+cpp_quote( "// pAdapter" )
+cpp_quote( "//      If NULL, D3D10CreateDevice1 will choose the primary adapter and" )
+cpp_quote( "//      create a new instance from a temporarily created IDXGIFactory." )
+cpp_quote( "//      If non-NULL, D3D10CreateDevice1 will register the appropriate" )
+cpp_quote( "//      device, if necessary (via IDXGIAdapter::RegisterDrver), before" )
+cpp_quote( "//      creating the device." )
+cpp_quote( "// DriverType" )
+cpp_quote( "//      Specifies the driver type to be created: hardware, reference or" )
+cpp_quote( "//      null." )
+cpp_quote( "// Software" )
+cpp_quote( "//      HMODULE of a DLL implementing a software rasterizer. Must be NULL for" )
+cpp_quote( "//      non-Software driver types." )
+cpp_quote( "// Flags" )
+cpp_quote( "//      Any of those documented for D3D10CreateDeviceAndSwapChain1." )
+cpp_quote( "// HardwareLevel" )
+cpp_quote( "//      Any of those documented for D3D10CreateDeviceAndSwapChain1." )
+cpp_quote( "// SDKVersion" )
+cpp_quote( "//      SDK version. Use the D3D10_1_SDK_VERSION macro." )
+cpp_quote( "// ppDevice" )
+cpp_quote( "//      Pointer to returned interface." )
+cpp_quote( "//" )
+cpp_quote( "// Return Values" )
+cpp_quote( "//  Any of those documented for " )
+cpp_quote( "//          CreateDXGIFactory" )
+cpp_quote( "//          IDXGIFactory::EnumAdapters" )
+cpp_quote( "//          IDXGIAdapter::RegisterDriver" )
+cpp_quote( "//          D3D10CreateDevice1" )
+cpp_quote( "//" )
+cpp_quote( "///////////////////////////////////////////////////////////////////////////" )
+cpp_quote( "typedef HRESULT (WINAPI* PFN_D3D10_CREATE_DEVICE1)(IDXGIAdapter *, " )
+cpp_quote( "    D3D10_DRIVER_TYPE, HMODULE, UINT, D3D10_FEATURE_LEVEL1, UINT, ID3D10Device1**);" )
+cpp_quote( "" )
+cpp_quote( "HRESULT WINAPI D3D10CreateDevice1(" )
+cpp_quote( "    _In_opt_ IDXGIAdapter *pAdapter," )
+cpp_quote( "    D3D10_DRIVER_TYPE DriverType," )
+cpp_quote( "    HMODULE Software," )
+cpp_quote( "    UINT Flags," )
+cpp_quote( "    D3D10_FEATURE_LEVEL1 HardwareLevel," )
+cpp_quote( "    UINT SDKVersion," )
+cpp_quote( "    _Out_opt_ ID3D10Device1 **ppDevice);" )
+cpp_quote( "" )
+cpp_quote( "///////////////////////////////////////////////////////////////////////////" )
+cpp_quote( "// D3D10CreateDeviceAndSwapChain1" )
+cpp_quote( "// ------------------------------" )
+cpp_quote( "//" )
+cpp_quote( "// ppAdapter" )
+cpp_quote( "//      If NULL, D3D10CreateDevice1 will choose the primary adapter and " )
+cpp_quote( "//      create a new instance from a temporarily created IDXGIFactory." )
+cpp_quote( "//      If non-NULL, D3D10CreateDevice1 will register the appropriate" )
+cpp_quote( "//      device, if necessary (via IDXGIAdapter::RegisterDrver), before" )
+cpp_quote( "//      creating the device." )
+cpp_quote( "// DriverType" )
+cpp_quote( "//      Specifies the driver type to be created: hardware, reference or" )
+cpp_quote( "//      null." )
+cpp_quote( "// Software" )
+cpp_quote( "//      HMODULE of a DLL implementing a software rasterizer. Must be NULL for" )
+cpp_quote( "//      non-Software driver types." )
+cpp_quote( "// Flags" )
+cpp_quote( "//      Any of those documented for D3D10CreateDevice1." )
+cpp_quote( "// HardwareLevel" )
+cpp_quote( "//      Any of:" )
+cpp_quote( "//          D3D10_CREATE_LEVEL_10_0" )
+cpp_quote( "//          D3D10_CREATE_LEVEL_10_1" )
+cpp_quote( "// SDKVersion" )
+cpp_quote( "//      SDK version. Use the D3D10_1_SDK_VERSION macro." )
+cpp_quote( "// pSwapChainDesc" )
+cpp_quote( "//      Swap chain description, may be NULL." )
+cpp_quote( "// ppSwapChain" )
+cpp_quote( "//      Pointer to returned interface. May be NULL." )
+cpp_quote( "// ppDevice" )
+cpp_quote( "//      Pointer to returned interface." )
+cpp_quote( "//" )
+cpp_quote( "// Return Values" )
+cpp_quote( "//  Any of those documented for " )
+cpp_quote( "//          CreateDXGIFactory" )
+cpp_quote( "//          IDXGIFactory::EnumAdapters" )
+cpp_quote( "//          IDXGIAdapter::RegisterDriver" )
+cpp_quote( "//          D3D10CreateDevice1" )
+cpp_quote( "//          IDXGIFactory::CreateSwapChain" )
+cpp_quote( "//" )
+cpp_quote( "///////////////////////////////////////////////////////////////////////////" )
+cpp_quote( "typedef HRESULT (WINAPI* PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1)(IDXGIAdapter *, " )
+cpp_quote( "    D3D10_DRIVER_TYPE, HMODULE, UINT, D3D10_FEATURE_LEVEL1, UINT, DXGI_SWAP_CHAIN_DESC *, IDXGISwapChain **, ID3D10Device1 **);" )
+cpp_quote( "" )
+cpp_quote( "HRESULT WINAPI D3D10CreateDeviceAndSwapChain1(" )
+cpp_quote( "    _In_opt_ IDXGIAdapter *pAdapter," )
+cpp_quote( "    D3D10_DRIVER_TYPE DriverType," )
+cpp_quote( "    HMODULE Software," )
+cpp_quote( "    UINT Flags," )
+cpp_quote( "    D3D10_FEATURE_LEVEL1 HardwareLevel," )
+cpp_quote( "    UINT SDKVersion," )
+cpp_quote( "    _In_opt_ DXGI_SWAP_CHAIN_DESC *pSwapChainDesc," )
+cpp_quote( "    _Out_opt_ IDXGISwapChain **ppSwapChain," )
+cpp_quote( "    _Out_opt_ ID3D10Device1 **ppDevice);" )
+
+cpp_quote( "" )
+cpp_quote( "#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */" )
+#pragma endregion
+
+
+cpp_quote( "DEFINE_GUID(IID_ID3D10BlendState1,0xEDAD8D99,0x8A35,0x4d6d,0x85,0x66,0x2E,0xA2,0x76,0xCD,0xE1,0x61);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D10ShaderResourceView1,0x9B7E4C87,0x342C,0x4106,0xA1,0x9F,0x4F,0x27,0x04,0xF6,0x89,0xF0);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D10Device1,0x9B7E4C8F,0x342C,0x4106,0xA1,0x9F,0x4F,0x27,0x04,0xF6,0x89,0xF0);" )

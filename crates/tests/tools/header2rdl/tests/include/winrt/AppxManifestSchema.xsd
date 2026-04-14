@@ -1,0 +1,873 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/2010/manifest"
+           xmlns="http://schemas.microsoft.com/appx/2010/manifest"
+           xmlns:m="http://schemas.microsoft.com/appx/2010/manifest"
+		   >
+
+  <!--PACKAGE SCHEMA-->
+  <xs:element name="Package">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="Identity" type="CT_Identity"/>
+        <xs:element name="Properties" type="CT_Properties"/>
+        <xs:element name="Resources" type="CT_Resources"/>
+        <xs:element name="Prerequisites" type="CT_Prerequisites"/>
+        <xs:element name="Dependencies" type="CT_Dependencies" minOccurs="0"/>
+        <xs:element name="Capabilities" type="CT_Capabilities" minOccurs="0"/>
+        <xs:element name="Extensions" type="CT_PackageExtensions" minOccurs="0"/>
+        <xs:element name="Applications" type="CT_Applications" minOccurs="0"/>
+      </xs:all>
+      <xs:attribute name="IgnorableNamespaces" type="ST_NonEmptyString" use="optional"/>
+    </xs:complexType>
+    <!--Uniqueness Checks-->
+    <xs:unique name="Resource_Language">
+      <xs:selector xpath="m:Resources/m:Resource"/>
+      <xs:field xpath="@Language"/>
+    </xs:unique>
+    <xs:unique name="Application_Id">
+      <xs:selector xpath="m:Applications/m:Application"/>
+      <xs:field xpath="@Id"/>
+    </xs:unique>
+    <xs:unique name="Capability_Name">
+      <xs:selector xpath="m:Capabilities/m:Capability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="DeviceCapability_Name">
+      <xs:selector xpath="m:Capabilities/m:DeviceCapability"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Extension_FileType_Name">
+      <xs:selector xpath ="m:Applications/m:Application/m:Extensions/m:Extension/m:FileTypeAssociation"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+    <xs:unique name="Extension_FileType">
+      <xs:selector xpath ="m:Applications/m:Application/m:Extensions/m:Extension/m:FileTypeAssociation/m:SupportedFileTypes/m:FileType"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+    <xs:unique name="Extension_Protocol">
+      <xs:selector xpath ="m:Applications/m:Application/m:Extensions/m:Extension/m:Protocol"/>
+      <xs:field xpath="@Name"/>
+    </xs:unique>
+  </xs:element>
+
+  <!--IDENTITY-->
+  <xs:complexType name="CT_Identity">
+    <xs:attribute name="Name" type="ST_PackageName" use="required"/>
+    <xs:attribute name="ProcessorArchitecture" type="ST_Architecture" use="optional"/>
+    <xs:attribute name="Publisher" type="ST_Publisher" use="required"/>
+    <xs:attribute name="Version" type="ST_VersionQuad" use="required"/>
+    <xs:attribute name="ResourceId" type="ST_Resources" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_PackageName">
+    <xs:restriction base="ST_AsciiIdentifier">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DistinguishedName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(CN|L|O|OU|E|C|S|STREET|T|G|I|SN|DC|SERIALNUMBER|(OID\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))+))=(([^,+=&quot;&lt;&gt;#;])+|&quot;.*&quot;)(, ((CN|L|O|OU|E|C|S|STREET|T|G|I|SN|DC|SERIALNUMBER|(OID\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))+))=(([^,+=&quot;&lt;&gt;#;])+|&quot;.*&quot;)))*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Publisher">
+    <xs:restriction base="ST_DistinguishedName">
+      <xs:maxLength value="8192"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Architecture">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="x86"/>
+      <xs:enumeration value="x64"/>
+      <xs:enumeration value="arm"/>
+      <xs:enumeration value="arm64"/>
+      <xs:enumeration value="neutral"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Resources">
+    <xs:restriction base="ST_AsciiIdentifier">
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--PACKAGE PROPERTIES-->
+  <xs:complexType name="CT_Properties">
+    <xs:all>
+      <xs:element name="Framework" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="DisplayName" type="ST_DisplayName"/>
+      <xs:element name="PublisherDisplayName" type="ST_DisplayName"/>
+      <xs:element name="Description" type="ST_Description" minOccurs="0"/>
+      <xs:element name="Logo" type="ST_ImageFile"/>
+    </xs:all>
+  </xs:complexType>
+
+  <!--RESOURCES-->
+  <xs:complexType name="CT_Resources">
+    <xs:sequence>
+      <xs:element name="Resource" maxOccurs="200">
+        <xs:complexType>
+          <xs:attribute name="Language" type="xs:language" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--DEPENDENCIES-->
+  <xs:complexType name="CT_Dependencies">
+    <xs:sequence>
+      <xs:element name="PackageDependency" maxOccurs="128">
+        <xs:complexType>
+          <xs:attribute name="Name" type="ST_PackageName" use="required"/>
+          <xs:attribute name="Publisher" type="ST_Publisher" use="optional"/>
+          <xs:attribute name="MinVersion" type="ST_VersionQuad" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--CAPABILITIES-->
+  <xs:complexType name="CT_Capabilities">
+    <xs:sequence>
+      <xs:element name="Capability" minOccurs="0" maxOccurs="10">
+        <xs:complexType>
+          <xs:attribute name="Name" type="ST_Capabilities" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeviceCapability" minOccurs="0" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="Name" type="ST_DeviceCapability" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_Capabilities">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="internetClient"/>
+      <xs:enumeration value="internetClientServer"/>
+      <xs:enumeration value="privateNetworkClientServer"/>
+      <xs:enumeration value="documentsLibrary"/>
+      <xs:enumeration value="picturesLibrary"/>
+      <xs:enumeration value="videosLibrary"/>
+      <xs:enumeration value="musicLibrary"/>
+      <xs:enumeration value="enterpriseAuthentication"/>
+      <xs:enumeration value="sharedUserCertificates"/>
+      <xs:enumeration value="removableStorage"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DeviceCapability">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-.A-Za-z0-9]+"/>
+      <xs:pattern value="[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--PREREQUISITES-->
+  <xs:complexType name="CT_Prerequisites">
+    <xs:all>
+      <xs:element name="OSMinVersion" type="ST_VersionDuoOrTrio"/>
+      <xs:element name="OSMaxVersionTested" type="ST_VersionDuoOrTrio"/>
+    </xs:all>
+  </xs:complexType>
+
+  <!--PER-PACKAGE EXTENSIONS-->
+  <xs:complexType name="CT_PackageExtensions">
+    <xs:sequence>
+      <xs:element name="Extension" maxOccurs="10000">
+        <xs:complexType>
+          <xs:choice>
+            <!--Per-package DEH elements-->
+            <!--Activatable Class DEH-->
+            <xs:element name="InProcessServer" type="CT_InProcessServer"/>
+            <xs:element name="OutOfProcessServer" type="CT_OutOfProcessServer"/>
+            <xs:element name="ProxyStub" type="CT_ProxyStub"/>
+            <!--Game Explorer DEH-->
+            <xs:element name="GameExplorer" type="CT_GameExplorer"/>
+            <!--Certificates DEH-->
+            <xs:element name="Certificates" type="CT_Certificates"/>
+          </xs:choice>
+          <xs:attribute name="Category" type="ST_PackageExtensionCategory" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_PackageExtensionCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.activatableClass.inProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.outOfProcessServer"/>
+      <xs:enumeration value="windows.activatableClass.proxyStub"/>
+      <xs:enumeration value="windows.gameExplorer"/>
+      <xs:enumeration value="windows.certificates"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--APPLICATIONS-->
+  <xs:complexType name="CT_Applications">
+    <xs:sequence>
+      <xs:element name="Application" maxOccurs="100">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="VisualElements" type="CT_VisualElements"/>
+            <xs:element name="ApplicationContentUriRules" type="CT_ApplicationContentUriRules" minOccurs="0"/>
+            <xs:element name="Extensions" type="CT_ApplicationExtensions" minOccurs="0"/>
+          </xs:all>
+          <xs:attribute name="Id" type="ST_ApplicationId" use="required"/>
+          <xs:attribute name="Executable" type="ST_Executable" use="optional"/>
+          <xs:attribute name="EntryPoint" type="ST_EntryPoint" use="optional"/>
+          <xs:attribute name="StartPage" type="ST_FileName" use="optional"/>
+        </xs:complexType>
+        <!--Per-application Uniqueness Checks-->
+        <xs:unique name="InitialRotationPreference_Name">
+          <xs:selector xpath="m:VisualElements/m:InitialRotationPreference/m:Rotation"/>
+          <xs:field xpath="@Preference"/>
+        </xs:unique>
+        <xs:unique name="ApplicationContentUrisRule_Match">
+          <xs:selector xpath="m:ApplicationContentUriRules/m:Rule"/>
+          <xs:field xpath="@Match"/>
+        </xs:unique>
+        <xs:unique name="ShareTarget_FileType">
+          <xs:selector xpath="m:Extensions/m:Extension/m:ShareTarget/m:SupportedFileTypes/m:FileType"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="ShareTarget_DataFormat">
+          <xs:selector xpath="m:Extensions/m:Extension/m:ShareTarget/m:DataFormat"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="FileOpenPicker_FileType">
+          <xs:selector xpath="m:Extensions/m:Extension/m:FileOpenPicker/m:SupportedFileTypes/m:FileType"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="FileSavePicker_FileType">
+          <xs:selector xpath="m:Extensions/m:Extension/m:FileSavePicker/m:SupportedFileTypes/m:FileType"/>
+          <xs:field xpath="."/>
+        </xs:unique>
+        <xs:unique name="AutoPlay_ContentVerb">
+          <xs:selector xpath="m:Extensions/m:Extension/m:AutoPlayContent/m:LaunchAction"/>
+          <xs:field xpath="@Verb"/>
+        </xs:unique>
+        <xs:unique name="AutoPlay_DeviceVerb">
+          <xs:selector xpath="m:Extensions/m:Extension/m:AutoPlayDevice/m:LaunchAction"/>
+          <xs:field xpath="@Verb"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_EntryPoint">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- VISUAL ELEMENTS SCHEMA -->
+  <xs:complexType name="CT_VisualElements">
+    <xs:all>
+      <xs:element name="DefaultTile" type="CT_DefaultTile" minOccurs="0"/>
+      <xs:element name="LockScreen" type="CT_LockScreen" minOccurs="0"/>
+      <xs:element name="SplashScreen" type="CT_SplashScreen"/>
+      <xs:element name="InitialRotationPreference" type="CT_InitialRotationPreference" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="DisplayName" type="ST_DisplayName" use="required"/>
+    <xs:attribute name="Logo" type="ST_ImageFile" use="required"/>
+    <xs:attribute name="SmallLogo" type="ST_ImageFile" use="required"/>
+    <xs:attribute name="Description" type="ST_Description" use="required"/>
+    <xs:attribute name="ForegroundText" type="ST_ForegroundText" use="required"/>
+    <xs:attribute name="BackgroundColor" type="ST_Color" use="required"/>
+    <xs:attribute name="ToastCapable" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <!-- VISUAL ELEMENTS SCHEMA TYPES-->
+  <xs:complexType name="CT_DefaultTile">
+    <xs:attribute name="WideLogo" type="ST_ImageFile" use="optional"/>
+    <xs:attribute name="ShortName" type="ST_ShortDisplayName" use="optional"/>
+    <xs:attribute name="ShowName" type="ST_ShowName" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_LockScreen">
+    <xs:attribute name="Notification" type="ST_LockScreenNotification" use="required"/>
+    <xs:attribute name="BadgeLogo" type="ST_ImageFile" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SplashScreen">
+    <xs:attribute name="BackgroundColor" type="ST_Color" use="optional"/>
+    <xs:attribute name="Image" type="ST_ImageFile" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ForegroundText">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="light"/>
+      <xs:enumeration value="dark"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_InitialRotationPreference">
+    <xs:sequence>
+      <xs:element name="Rotation" maxOccurs="4">
+        <xs:complexType>
+          <xs:attribute name="Preference" type="ST_RotationPreference" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ShowName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allLogos"/>
+      <xs:enumeration value="noLogos"/>
+      <xs:enumeration value="logoOnly"/>
+      <xs:enumeration value="wideLogoOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_LockScreenNotification">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="badge"/>
+      <xs:enumeration value="badgeAndTileText"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_RotationPreference">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="portrait"/>
+      <xs:enumeration value="landscape"/>
+      <xs:enumeration value="portraitFlipped"/>
+      <xs:enumeration value="landscapeFlipped"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--APPLICATION CONTENT URI RULES-->
+  <xs:complexType name="CT_ApplicationContentUriRules">
+    <xs:sequence>
+      <xs:element name="Rule" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="Type" type="ST_RuleType" use="required"/>
+          <xs:attribute name="Match" type="ST_URI" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_RuleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="include"/>
+      <xs:enumeration value="exclude"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--PER-APPLICATION EXTENSIONS-->
+  <xs:complexType name="CT_ApplicationExtensions">
+    <xs:sequence>
+      <xs:element name="Extension" maxOccurs="10000">
+        <xs:complexType>
+          <xs:choice minOccurs="0">
+            <!--Per-application DEH elements-->
+            <!--FileType DEH-->
+            <xs:element name="FileTypeAssociation" type="CT_FileTypeAssociation"/>
+            <!--Protocol DEH-->
+            <xs:element name="Protocol" type="CT_Protocol"/>
+            <!--AutoPlay DEH-->
+            <xs:element name="AutoPlayContent" type="CT_AutoPlayContent"/>
+            <xs:element name="AutoPlayDevice" type="CT_AutoPlayDevice"/>
+            <!--Charms DEH-->
+            <xs:element name="ShareTarget" type="CT_ShareTarget"/>
+            <!--Picker DEH-->
+            <xs:element name="FileOpenPicker" type="CT_FilePicker"/>
+            <xs:element name="FileSavePicker" type="CT_FilePicker"/>
+            <!--Background Tasks DEH-->
+            <xs:element name="BackgroundTasks" type="CT_BackgroundTasks"/>
+          </xs:choice>
+          <xs:attribute name="Category" type="ST_ApplicationExtensionCategory" use="required"/>
+          <xs:attribute name="Executable" type="ST_Executable" use="optional"/>
+          <xs:attribute name="EntryPoint" type="ST_EntryPoint" use="optional"/>
+          <xs:attribute name="RuntimeType" type="ST_ActivatableClassId" use="optional"/>
+          <xs:attribute name="StartPage" type="ST_FileName" use="optional"/>
+        </xs:complexType>
+        <xs:unique name="BackgroundTasks_Type">
+          <xs:selector xpath="m:BackgroundTasks/m:Task"/>
+          <xs:field xpath="@Type"/>
+        </xs:unique>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ApplicationExtensionCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows.fileTypeAssociation"/>
+      <xs:enumeration value="windows.protocol"/>
+      <xs:enumeration value="windows.autoPlayContent"/>
+      <xs:enumeration value="windows.autoPlayDevice"/>
+      <xs:enumeration value="windows.shareTarget"/>
+      <xs:enumeration value="windows.search"/>
+      <xs:enumeration value="windows.fileOpenPicker"/>
+      <xs:enumeration value="windows.fileSavePicker"/>
+      <xs:enumeration value="windows.cachedFileUpdater"/>
+      <xs:enumeration value="windows.contactPicker"/>
+      <xs:enumeration value="windows.backgroundTasks"/>
+      <xs:enumeration value="windows.cameraSettings"/>
+      <xs:enumeration value="windows.accountPictureProvider"/>
+      <xs:enumeration value="windows.printTaskSettings"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--SIMPLE TYPES-->
+
+  <!-- Non-empty string must have a non-whitespace character at the beginning and end -->
+  <xs:simpleType name="ST_NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32767"/>
+      <xs:pattern value="[^\s]|([^\s].*[^\s])"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AllowedAsciiCharSet">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-_. A-Za-z0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileNameCharSet">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^&lt;&gt;&quot;:%\|\?\*\x01-\x1f]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AsciiIdentifier">
+    <xs:restriction base="ST_AllowedAsciiCharSet">
+      <xs:pattern value="[^_ ]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_DisplayName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="\bms-resource:.{1,256}"/>
+      <xs:pattern value=".{1,256}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ShortDisplayName">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="\bms-resource:.{1,256}"/>
+      <xs:pattern value=".{1,40}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Description">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^\x01-\x1f]+"/>
+      <xs:maxLength value="2048"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileName">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="([^/\\]*[^./\\]+)(\\[^/\\]*[^./\\]+)*"/>
+      <xs:pattern value="([^/\\]*[^./\\]+)(/[^/\\]*[^./\\]+)*"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_VersionQuad">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_VersionDuoOrTrio">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AsciiWindowsId">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="([A-Za-z][A-Za-z0-9]*)(\.[A-Za-z][A-Za-z0-9]*)*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ActivatableClassId">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="([^.]+)(\.[^.]+)*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ApplicationId">
+    <xs:restriction base="ST_AsciiWindowsId">
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FileType">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:pattern value="\.[^.\\]+"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Protocol">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[-a-z0-9]*"/>
+      <xs:minLength value="3"/>
+      <xs:maxLength value="39"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_GUID">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_URI">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="2084"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Executable">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.(exe)"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ImageFile">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.((jpg)|(png)|(jpeg))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Color">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="#[\da-fA-F]{6}"/>
+      <xs:pattern value="aliceBlue|antiqueWhite|aqua|aquamarine|azure|beige|bisque|black|blanchedAlmond|blue|blueViolet|brown|burlyWood"/>
+      <xs:pattern value="cadetBlue|chartreuse|chocolate|coral|cornflowerBlue|cornsilk|crimson|cyan|darkBlue|darkCyan|darkGoldenrod|darkGray"/>
+      <xs:pattern value="darkGreen|darkKhaki|darkMagenta|darkOliveGreen|darkOrange|darkOrchid|darkRed|darkSalmon|darkSeaGreen|darkSlateBlue"/>
+      <xs:pattern value="darkSlateGray|darkTurquoise|darkViolet|deepPink|deepSkyBlue|dimGray|dodgerBlue|firebrick|floralWhite|forestGreen"/>
+      <xs:pattern value="fuchsia|gainsboro|ghostWhite|gold|goldenrod|gray|green|greenYellow|honeydew|hotPink|indianRed|indigo|ivory"/>
+      <xs:pattern value="khaki|lavender|lavenderBlush|lawnGreen|lemonChiffon|lightBlue|lightCoral|lightCyan|lightGoldenrodYellow|lightGreen"/>
+      <xs:pattern value="lightGray|lightPink|lightSalmon|lightSeaGreen|lightSkyBlue|lightSlateGray|lightSteelBlue|lightYellow|lime|limeGreen"/>
+      <xs:pattern value="linen|magenta|maroon|mediumAquamarine|mediumBlue|mediumOrchid|mediumPurple|mediumSeaGreen|mediumSlateBlue|mediumSpringGreen"/>
+      <xs:pattern value="mediumTurquoise|mediumVioletRed|midnightBlue|mintCream|mistyRose|moccasin|navajoWhite|navy|oldLace|olive|oliveDrab"/>
+      <xs:pattern value="orange|orangeRed|orchid|paleGoldenrod|paleGreen|paleTurquoise|paleVioletRed|papayaWhip|peachPuff|peru|pink|plum"/>
+      <xs:pattern value="powderBlue|purple|red|rosyBrown|royalBlue|saddleBrown|salmon|sandyBrown|seaGreen|seaShell|sienna|silver|skyBlue"/>
+      <xs:pattern value="slateBlue|slateGray|snow|springGreen|steelBlue|tan|teal|thistle|tomato|transparent|turquoise|violet|wheat|white"/>
+      <xs:pattern value="whiteSmoke|yellow|yellowGreen"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_RegistryPath">
+    <xs:restriction base="ST_FileNameCharSet">
+      <xs:maxLength value="8192"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ContentTypeCharSet">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[!#$%&amp;'*+-.^_`|~0-9a-z/]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ContentType">
+    <xs:restriction base="ST_ContentTypeCharSet">
+      <xs:pattern value="[^/]{1,127}/[^/]{1,127}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--DEPLOYMENT EXTENSION HANDLERS (DEH) SCHEMAS-->
+
+  <!--FILETYPE EXTENSION SCHEMA-->
+  <xs:complexType name="CT_FileTypeAssociation">
+    <xs:all>
+      <xs:element name="DisplayName" type="ST_DisplayName" minOccurs="0"/>
+      <xs:element name="Logo" type="ST_ImageFile" minOccurs="0"/>
+      <xs:element name="InfoTip" type="ST_FTAInfoTip" minOccurs="0"/>
+      <xs:element name="EditFlags" minOccurs="0">
+        <xs:complexType>
+          <xs:attribute name="OpenIsSafe" type="xs:boolean" use="optional"/>
+          <xs:attribute name="AlwaysUnsafe" type="xs:boolean" use="optional"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SupportedFileTypes" type="CT_FTASupportedFileTypes"/>
+    </xs:all>
+    <xs:attribute name="Name" type="ST_FTAName" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_FTAName">
+    <xs:restriction base="ST_AllowedAsciiCharSet">
+      <xs:pattern value="[^ A-Z]+"/>
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_FTAInfoTip">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CT_FTASupportedFileTypes">
+    <xs:sequence>
+      <xs:element name="FileType" maxOccurs="1000" >
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="ST_FileType">
+              <xs:attribute name="ContentType" type="ST_ContentType" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--PROTOCOL EXTENSION SCHEMA-->
+  <xs:complexType name="CT_Protocol">
+    <xs:all>
+      <xs:element name="Logo" type="ST_ImageFile" minOccurs="0"/>
+      <xs:element name="DisplayName" type="ST_DisplayName" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="Name" type="ST_Protocol" use="required"/>
+  </xs:complexType>
+
+  <!--AUTO-PLAY EXTENSION SCHEMA-->
+  <!--AUTO-PLAY CONTENT-->
+  <xs:complexType name="CT_AutoPlayContent">
+    <xs:sequence>
+      <xs:element name="LaunchAction" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Verb" type="ST_AutoPlayVerb" use="required"/>
+          <xs:attribute name="ActionDisplayName" type="ST_DisplayName" use="required"/>
+          <xs:attribute name="ContentEvent" type="ST_AutoPlayEvent" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--AUTO-PLAY DEVICE-->
+  <xs:complexType name="CT_AutoPlayDevice">
+    <xs:sequence>
+      <xs:element name="LaunchAction" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="Verb" type="ST_AutoPlayVerb" use="required"/>
+          <xs:attribute name="ActionDisplayName" type="ST_DisplayName" use="required"/>
+          <xs:attribute name="DeviceEvent" type="ST_AutoPlayEvent" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--AUTO-PLAY EXTENSION SCHEMA Types-->
+  <xs:simpleType name="ST_AutoPlayVerb">
+    <xs:restriction base="ST_AllowedAsciiCharSet">
+      <xs:pattern value="[^_]+"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_AutoPlayEvent">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:pattern value="[^\\].*"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--CHARMS EXTENSION SCHEMA-->
+  <!--SHARE TARGET-->
+  <xs:complexType name="CT_ShareTarget">
+    <xs:sequence>
+      <xs:element name="SupportedFileTypes" type="CT_CharmsSupportedFileTypes" minOccurs="0"/>
+      <xs:element name="DataFormat" type="ST_DataFormat" minOccurs="0" maxOccurs="10000"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--FILE PICKER-->
+  <xs:complexType name="CT_FilePicker">
+    <xs:sequence>
+      <xs:element name="SupportedFileTypes" type="CT_CharmsSupportedFileTypes"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--CHARMS EXTENSION SCHEMA Types-->
+  <xs:complexType name="CT_CharmsSupportedFileTypes">
+    <xs:choice>
+      <xs:element name="FileType" minOccurs="1" maxOccurs="10000" type="ST_FileType"/>
+      <xs:element name="SupportsAnyFileType" minOccurs="1" maxOccurs="1"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_DataFormat">
+    <xs:restriction base="ST_NonEmptyString">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--ACTIVATABLE CLASS EXTENSION SCHEMA-->
+  <!--IN-PROCESS SERVER EXTENSION-->
+  <xs:complexType name="CT_InProcessServer">
+    <xs:sequence>
+      <xs:element name="Path" type="ST_FileName"/>
+      <xs:element name="ActivatableClass" type="CT_InProcessActivatableClass" maxOccurs="65535"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--OUT-OF-PROCESS SERVER EXTENSION-->
+  <xs:complexType name="CT_OutOfProcessServer">
+    <xs:sequence>
+      <xs:element name="Path" type="ST_Executable"/>
+      <xs:element name="Arguments" type="ST_NonEmptyString" minOccurs="0"/>
+      <xs:element name="Instancing" type="ST_Instancing"/>
+      <xs:element name="ActivatableClass" type="CT_OutOfProcessActivatableClass" maxOccurs="65535"/>
+    </xs:sequence>
+    <xs:attribute name="ServerName" type="ST_ServerName" use="required"/>
+  </xs:complexType>
+
+  <!--PROXY STUB EXTENSION-->
+  <xs:complexType name="CT_ProxyStub">
+    <xs:sequence>
+      <xs:element name="Path" type="ST_FileName" />
+      <xs:element name="Interface" type="CT_Interface" maxOccurs="65535"/>
+    </xs:sequence>
+    <xs:attribute name="ClassId" type="ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <!--ACTIVATABLE CLASS EXTENSION SCHEMA Types-->
+  <xs:complexType name="CT_InProcessActivatableClass">
+    <xs:sequence>
+      <xs:element name="ActivatableClassAttribute" type="CT_ActivatableClassAttribute" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="ActivatableClassId" type="ST_ActivatableClassId" use="required"/>
+    <xs:attribute name="ThreadingModel" type="ST_ThreadingModel" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_OutOfProcessActivatableClass">
+    <xs:sequence>
+      <xs:element name="ActivatableClassAttribute" type="CT_ActivatableClassAttribute" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="ActivatableClassId" type="ST_ActivatableClassId" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Interface">
+    <xs:attribute name="Name" type="ST_InterfaceName" use="required"/>
+    <xs:attribute name="InterfaceId" type="ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ActivatableClassAttribute">
+    <xs:attribute name="Name" type="ST_ActivatableClassAttributeName" use="required"/>
+    <xs:attribute name="Type" type="ST_ActivatableClassAttributeType" use="required"/>
+    <xs:attribute name="Value" type="ST_ActivatableClassAttributeValue" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_ActivatableClassAttributeName">
+    <xs:restriction base="ST_AsciiWindowsId">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ActivatableClassAttributeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="string"/>
+      <xs:enumeration value="integer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ActivatableClassAttributeValue">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ServerName">
+    <xs:restriction base="ST_AsciiWindowsId">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_InterfaceName">
+    <xs:restriction base="ST_AllowedAsciiCharSet">
+      <xs:pattern value="[^\- ]+"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_Instancing">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="singleInstance"/>
+      <xs:enumeration value="multipleInstances"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ThreadingModel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="both"/>
+      <xs:enumeration value="STA"/>
+      <xs:enumeration value="MTA"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--CERTIFICATES EXTENSION SCHEMA-->
+  <xs:complexType name="CT_Certificates">
+    <xs:sequence>
+      <xs:element name="Certificate" type="CT_CertificateContent" minOccurs="0" maxOccurs="100"/>
+      <xs:element name="TrustFlags" type="CT_CertificateTrustFlags" minOccurs="0"/>
+      <xs:element name="SelectionCriteria" type="CT_CertificateSelectionCriteria" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CertificateContent">
+    <xs:attribute name="StoreName" type="ST_CertificateStoreName" use="required"/>
+    <xs:attribute name="Content" type="ST_FileName" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CertificateTrustFlags">
+    <xs:attribute name="ExclusiveTrust" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_CertificateSelectionCriteria">
+    <xs:attribute name="HardwareOnly" type="xs:boolean" use="optional"/>
+    <xs:attribute name="AutoSelect" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="ST_CertificateStoreName">
+    <xs:restriction base="ST_RegistryPath">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--BACKGROUND TASKS EXTENSIONS SCHEMA-->
+  <xs:complexType name="CT_BackgroundTasks">
+    <xs:sequence>
+      <xs:element name="Task" maxOccurs="5">
+        <xs:complexType>
+          <xs:attribute name="Type" type="ST_BackgroundTasks" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ServerName" type="ST_ServerName" use="optional"/>
+  </xs:complexType>
+
+  <!--BACKGROUND ACTIVITY EXTENSIONS TYPES-->
+  <xs:simpleType name="ST_BackgroundTasks">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="audio"/>
+      <xs:enumeration value="controlChannel"/>
+      <xs:enumeration value="systemEvent"/>
+      <xs:enumeration value="timer"/>
+      <xs:enumeration value="pushNotification"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--GAME EXPLORER EXTENSION SCHEMA-->
+  <xs:complexType name="CT_GameExplorer">
+    <xs:attribute name="GameDefinitionContainer" type="ST_FileName" use="required"/>
+  </xs:complexType>
+
+</xs:schema>
+

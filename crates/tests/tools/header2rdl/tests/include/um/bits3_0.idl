@@ -1,0 +1,314 @@
+
+/*++
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Module name:
+
+    bits3_0.idl
+
+Abstract:
+
+    Contains interfaces, types, and macros for Background Intelligent Transfer Service.
+
+--*/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+import "bits2_5.idl";
+
+#define BG_ENUM_SIZEIS(maxcount) maxcount
+#define BG_ENUM_LENGTHIS(maxcount,lengthptr)  \
+    lengthptr ? *lengthptr : maxcount
+
+/**
+ * IBitsPeerCacheRecord - deprecated interface
+ */
+[
+    uuid(659cdeaf-489e-11d9-a9cd-000d56965251),
+    helpstring("IBitsPeerCacheRecord"),
+    odl
+]
+interface IBitsPeerCacheRecord : IUnknown
+{
+	HRESULT GetId( [out, ref] GUID * pVal );
+
+    HRESULT GetOriginUrl( [out] LPWSTR *pVal );
+
+	HRESULT GetFileSize( [out, ref] UINT64 * pVal );
+
+	HRESULT GetFileModificationTime( [out, ref] FILETIME * pVal );
+
+	HRESULT GetLastAccessTime( [out, ref] FILETIME * pVal );
+
+	/**
+	 * returns S_OK if validated, S_FALSE if not
+	 */
+	HRESULT IsFileValidated();
+
+    HRESULT
+    GetFileRanges(
+        [out, ref] DWORD * pRangeCount,
+        [out, size_is( , *pRangeCount)] BG_FILE_RANGE ** ppRanges );
+
+};
+
+/**
+ * IEnumBitsPeerCacheRecords - deprecated interface
+ */
+[
+    uuid(659cdea4-489e-11d9-a9cd-000d56965251),
+    helpstring("IEnumBitsPeerCacheRecords"),
+    odl
+]
+interface IEnumBitsPeerCacheRecords : IUnknown
+{
+    HRESULT
+    Next(
+        [in] ULONG celt,
+        [out, size_is(BG_ENUM_SIZEIS(celt)), length_is(BG_ENUM_LENGTHIS(celt,pceltFetched))] IBitsPeerCacheRecord **rgelt,
+        [in,out,unique] ULONG *pceltFetched );
+
+    HRESULT
+    Skip(
+        [in] ULONG celt);
+
+    HRESULT
+    Reset();
+
+    HRESULT
+    Clone(
+        [out] IEnumBitsPeerCacheRecords **ppenum );
+
+    HRESULT
+    GetCount(
+        [out] ULONG *puCount );
+};
+
+
+[
+    uuid(659cdea2-489e-11d9-a9cd-000d56965251),
+    helpstring("IBitsPeer"),
+    odl
+]
+interface IBitsPeer : IUnknown
+{
+    HRESULT GetPeerName( [out, ref] LPWSTR * pName );
+
+    HRESULT IsAuthenticated( [out, ref] BOOL * pAuth );
+
+	HRESULT IsAvailable( [out, ref] BOOL * pOnline );
+};
+
+/**
+ * IEnumBitsPeers - deprecated interface
+ */
+[
+    uuid(659cdea5-489e-11d9-a9cd-000d56965251),
+    helpstring("IEnumBitsPeers"),
+    odl
+]
+interface IEnumBitsPeers : IUnknown
+{
+    HRESULT
+    Next(
+        [in] ULONG celt,
+        [out, size_is(BG_ENUM_SIZEIS(celt)), length_is(BG_ENUM_LENGTHIS(celt,pceltFetched))] IBitsPeer **rgelt,
+        [in,out,unique] ULONG *pceltFetched );
+
+    HRESULT
+    Skip(
+        [in] ULONG celt);
+
+    HRESULT
+    Reset();
+
+    HRESULT
+    Clone(
+        [out] IEnumBitsPeers **ppenum );
+
+    HRESULT
+    GetCount(
+        [out] ULONG *puCount );
+}
+
+/**
+ * IBitsPeerCacheAdministration - deprecated interface
+ */
+[
+    uuid(659cdead-489e-11d9-a9cd-000d56965251),
+    helpstring("IBitsPeerCacheAdministration"),
+    odl
+]
+interface IBitsPeerCacheAdministration : IUnknown
+{
+cpp_quote("#define   BG_ENABLE_PEERCACHING_CLIENT   0x0001")
+cpp_quote("#define   BG_ENABLE_PEERCACHING_SERVER   0x0002")
+cpp_quote("#define   BG_DISABLE_BRANCH_CACHE        0x0004")
+
+    /**
+     * control of caching policy in general
+     */
+    HRESULT GetMaximumCacheSize( [ref,out] DWORD * pBytes );
+    HRESULT SetMaximumCacheSize( DWORD Bytes );
+
+    HRESULT GetMaximumContentAge( [ref,out] ULONG * pSeconds );
+    HRESULT SetMaximumContentAge( ULONG Seconds );
+
+    HRESULT GetConfigurationFlags( [ref, out] DWORD * pFlags );
+    HRESULT SetConfigurationFlags( DWORD Flags );
+
+    /**
+     * cache record management
+     */
+    HRESULT EnumRecords( [out] IEnumBitsPeerCacheRecords ** ppEnum );
+
+    HRESULT GetRecord( [in] REFGUID id,
+                       [out] IBitsPeerCacheRecord **ppRecord );
+
+    HRESULT ClearRecords();
+
+    HRESULT DeleteRecord( [in] REFGUID id );
+
+	HRESULT DeleteUrl( [in, ref] LPCWSTR url );
+
+	/**
+	 * peer management
+	 */
+    HRESULT EnumPeers( [out, ref] IEnumBitsPeers ** ppEnum );
+
+    HRESULT ClearPeers();
+
+    HRESULT DiscoverPeers();
+};
+
+[
+    uuid(659cdeae-489e-11d9-a9cd-000d56965251),
+    helpstring("IBackgroundCopyJob4 Interface"),
+    odl
+]
+interface IBackgroundCopyJob4 : IBackgroundCopyJob3
+{
+cpp_quote("#define   BG_JOB_ENABLE_PEERCACHING_CLIENT   0x0001")
+cpp_quote("#define   BG_JOB_ENABLE_PEERCACHING_SERVER   0x0002")
+cpp_quote("#define   BG_JOB_DISABLE_BRANCH_CACHE        0x0004")
+
+	//
+	// control of peer-caching
+	//
+	HRESULT SetPeerCachingFlags( DWORD Flags );
+
+	HRESULT GetPeerCachingFlags( [out, ref] DWORD * pFlags );
+
+	//
+	// inspecting token characteristics
+	//
+	HRESULT GetOwnerIntegrityLevel( [out, ref] ULONG * pLevel );
+
+	HRESULT GetOwnerElevationState( [out, ref] BOOL * pElevated );
+
+
+    // Download Timeout
+
+    HRESULT SetMaximumDownloadTime( ULONG Timeout );
+
+    HRESULT GetMaximumDownloadTime([out,ref] ULONG* pTimeout );
+
+};
+
+[
+    uuid(659cdeaa-489e-11d9-a9cd-000d56965251),
+    helpstring("IBackgroundCopyFile3 interface"),
+    odl
+]
+interface IBackgroundCopyFile3 : IBackgroundCopyFile2
+{
+	//
+	// Get the name of the temporary file, allowing access to data before 
+	// the job is complete.
+	//
+	HRESULT GetTemporaryName( [out] LPWSTR * pFilename );
+
+	//
+	// Calling SetValidationState(TRUE) allows the data to be shared with peers,
+	// if peer-caching is otherwise enabled for this job.
+	// 
+	// Calling SetValidationState(FALSE) triggers another download attempt if the 
+	// file was downloaded from a peer; otherwise, it puts the job in ERROR state.
+	//
+	HRESULT SetValidationState( [in] BOOL state );
+
+	//
+	// Retrieves the current validation state of this file.
+	//
+	HRESULT GetValidationState( [out] BOOL * pState );
+
+	//
+	// *pVal is set to TRUE if any part of the file was downloaded from a peer server.
+	//
+	HRESULT IsDownloadedFromPeer( [out] BOOL * pVal );
+}
+
+
+[
+    uuid(659cdeac-489e-11d9-a9cd-000d56965251),
+    helpstring("IBackgroundCopyCallback2 Interface"),
+    odl
+]
+interface IBackgroundCopyCallback2 : IBackgroundCopyCallback
+{
+    //
+    // A file has been transferred.
+    //
+    HRESULT FileTransferred( [in] IBackgroundCopyJob *pJob, 
+							 [in] IBackgroundCopyFile * pFile );
+}
+
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                         enumerators
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(659cdea6-489e-11d9-a9cd-000d56965251),
+    helpstring("Microsoft Background Copy Manager 3.0"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager3_0
+{
+    [
+        uuid(659cdea7-489e-11d9-a9cd-000d56965251),
+        helpstring("Background copy manager 3.0")
+    ]
+    coclass BackgroundCopyManager3_0
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback2;
+    interface IBackgroundCopyFile3;
+    interface IBackgroundCopyJob4;
+    interface IBackgroundCopyJobHttpOptions;
+    interface IBitsPeer;
+    interface IBitsPeerCacheAdministration;
+    interface IBitsPeerCacheRecord;
+    interface IEnumBitsPeerCacheRecords;
+    interface IEnumBitsPeers;
+}
+
+cpp_quote("#include \"bits4_0.h\"")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

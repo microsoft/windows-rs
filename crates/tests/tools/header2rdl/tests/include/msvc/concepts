@@ -1,0 +1,286 @@
+// concepts standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CONCEPTS_
+#define _CONCEPTS_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#if !_HAS_CXX20
+_EMIT_STL_WARNING(STL4038, "The contents of <concepts> are available only with C++20 or later.");
+#else // ^^^ !_HAS_CXX20 / _HAS_CXX20 vvv
+#include <type_traits>
+#include <vcruntime_new.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+template <class _Ty1, class _Ty2>
+concept _Same_impl = // Must be a distinct concept to provide symmetric subsumption for same_as
+#ifdef __clang__
+    __is_same(_Ty1, _Ty2);
+#else // ^^^ use intrinsic / no intrinsic vvv
+    is_same_v<_Ty1, _Ty2>;
+#endif // ^^^ no intrinsic ^^^
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+concept same_as = _Same_impl<_Ty1, _Ty2> && _Same_impl<_Ty2, _Ty1>;
+
+_EXPORT_STD template <class _Derived, class _Base>
+concept derived_from =
+    __is_base_of(_Base, _Derived) && __is_convertible_to(const volatile _Derived*, const volatile _Base*);
+
+template <class _From, class _To>
+concept _Implicitly_convertible_to = is_convertible_v<_From, _To>;
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+concept common_reference_with =
+    requires {
+        typename common_reference_t<_Ty1, _Ty2>;
+        typename common_reference_t<_Ty2, _Ty1>;
+    } && same_as<common_reference_t<_Ty1, _Ty2>, common_reference_t<_Ty2, _Ty1>>
+    && convertible_to<_Ty1, common_reference_t<_Ty1, _Ty2>> && convertible_to<_Ty2, common_reference_t<_Ty1, _Ty2>>;
+
+// clang-format off
+_EXPORT_STD template <class _Ty1, class _Ty2>
+concept common_with =
+    requires {
+        typename common_type_t<_Ty1, _Ty2>;
+        typename common_type_t<_Ty2, _Ty1>;
+    }
+    && same_as<common_type_t<_Ty1, _Ty2>, common_type_t<_Ty2, _Ty1>>
+    && requires {
+        static_cast<common_type_t<_Ty1, _Ty2>>(_STD declval<_Ty1>());
+        static_cast<common_type_t<_Ty1, _Ty2>>(_STD declval<_Ty2>());
+    }
+    && common_reference_with<add_lvalue_reference_t<const _Ty1>, add_lvalue_reference_t<const _Ty2>>
+    && common_reference_with<add_lvalue_reference_t<common_type_t<_Ty1, _Ty2>>,
+        common_reference_t<add_lvalue_reference_t<const _Ty1>, add_lvalue_reference_t<const _Ty2>>>;
+// clang-format on
+
+_EXPORT_STD template <class _Ty>
+concept integral = is_integral_v<_Ty>;
+
+_EXPORT_STD template <class _Ty>
+concept signed_integral = integral<_Ty> && static_cast<_Ty>(-1) < static_cast<_Ty>(0);
+
+_EXPORT_STD template <class _Ty>
+concept unsigned_integral = integral<_Ty> && !signed_integral<_Ty>;
+
+_EXPORT_STD template <class _Ty>
+concept floating_point = is_floating_point_v<_Ty>;
+
+_EXPORT_STD template <class _LTy, class _RTy>
+concept assignable_from = is_lvalue_reference_v<_LTy>
+                       && common_reference_with<const remove_reference_t<_LTy>&, const remove_reference_t<_RTy>&>
+                       && requires(_LTy _Left, _RTy&& _Right) {
+                              { _Left = static_cast<_RTy&&>(_Right) } -> same_as<_LTy>;
+                          };
+
+// swappable and swappable_with are defined below, since they depend on move_constructible.
+
+_EXPORT_STD template <class _Ty>
+concept destructible = __is_nothrow_destructible(_Ty);
+
+_EXPORT_STD template <class _Ty, class... _ArgTys>
+concept constructible_from = destructible<_Ty> && __is_constructible(_Ty, _ArgTys...);
+
+_EXPORT_STD template <class _Ty>
+concept default_initializable = constructible_from<_Ty> && requires {
+    _Ty{};
+    ::new (static_cast<void*>(nullptr)) _Ty; // is-default-initializable<_Ty>
+};
+
+_EXPORT_STD template <class _Ty>
+concept move_constructible = constructible_from<_Ty, _Ty> && convertible_to<_Ty, _Ty>;
+
+template <class _Ty>
+concept _Has_class_or_enum_type =
+    __is_class(remove_reference_t<_Ty>) || __is_enum(remove_reference_t<_Ty>) || __is_union(remove_reference_t<_Ty>);
+
+namespace ranges {
+    namespace _Swap {
+        template <class _Ty>
+        void swap(_Ty&, _Ty&) = delete;
+
+        template <class _Ty1, class _Ty2>
+        concept _Use_ADL_swap =
+            (_Has_class_or_enum_type<_Ty1> || _Has_class_or_enum_type<_Ty2>) && requires(_Ty1&& __t, _Ty2&& __u) {
+                swap(static_cast<_Ty1&&>(__t), static_cast<_Ty2&&>(__u)); // intentional ADL
+            };
+
+        struct _Cpo {
+            template <class _Ty1, class _Ty2>
+                requires _Use_ADL_swap<_Ty1, _Ty2>
+            _STATIC_CALL_OPERATOR constexpr void operator()(_Ty1&& __t, _Ty2&& __u) _CONST_CALL_OPERATOR
+                noexcept(noexcept(swap(static_cast<_Ty1&&>(__t), static_cast<_Ty2&&>(__u)))) { // intentional ADL
+                swap(static_cast<_Ty1&&>(__t), static_cast<_Ty2&&>(__u)); // intentional ADL
+            }
+
+            template <class _Ty>
+                requires (!_Use_ADL_swap<_Ty&, _Ty&> && move_constructible<_Ty> && assignable_from<_Ty&, _Ty>)
+            _STATIC_CALL_OPERATOR constexpr void operator()(_Ty& __x, _Ty& __y) _CONST_CALL_OPERATOR
+                noexcept(is_nothrow_move_constructible_v<_Ty> && is_nothrow_move_assignable_v<_Ty>) {
+                _Ty __tmp(static_cast<_Ty&&>(__x));
+                __x = static_cast<_Ty&&>(__y);
+                __y = static_cast<_Ty&&>(__tmp);
+            }
+
+            template <class _Ty1, class _Ty2, size_t _Size>
+            _STATIC_CALL_OPERATOR constexpr void operator()(_Ty1 (&__t)[_Size], _Ty2 (&__u)[_Size]) _CONST_CALL_OPERATOR
+                noexcept(noexcept(operator()(__t[0], __u[0])))
+                requires requires(_Cpo __fn) { __fn(__t[0], __u[0]); }
+            {
+                if constexpr (is_same_v<_Ty1, _Ty2> && _Is_trivially_swappable_v<_Ty1>) {
+                    if (!_STD is_constant_evaluated()) {
+                        _STD _Swap_trivial_arrays(__t, __u);
+                        return;
+                    }
+                }
+
+                for (size_t __i = 0; __i < _Size; ++__i) {
+                    operator()(__t[__i], __u[__i]);
+                }
+            }
+        };
+    } // namespace _Swap
+
+    inline namespace _Cpos {
+        _EXPORT_STD inline constexpr _Swap::_Cpo swap;
+    }
+} // namespace ranges
+
+_EXPORT_STD template <class _Ty>
+concept swappable = requires(_Ty& __x, _Ty& __y) { _RANGES swap(__x, __y); };
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+concept swappable_with = common_reference_with<_Ty1, _Ty2> && requires(_Ty1&& __t, _Ty2&& __u) {
+    _RANGES swap(static_cast<_Ty1&&>(__t), static_cast<_Ty1&&>(__t));
+    _RANGES swap(static_cast<_Ty2&&>(__u), static_cast<_Ty2&&>(__u));
+    _RANGES swap(static_cast<_Ty1&&>(__t), static_cast<_Ty2&&>(__u));
+    _RANGES swap(static_cast<_Ty2&&>(__u), static_cast<_Ty1&&>(__t));
+};
+
+_EXPORT_STD template <class _Ty>
+concept copy_constructible = move_constructible<_Ty> && constructible_from<_Ty, _Ty&> && convertible_to<_Ty&, _Ty>
+                          && constructible_from<_Ty, const _Ty&> && convertible_to<const _Ty&, _Ty>
+                          && constructible_from<_Ty, const _Ty> && convertible_to<const _Ty, _Ty>;
+
+template <class _Ty>
+concept _Boolean_testable_impl = convertible_to<_Ty, bool>;
+
+template <class _Ty>
+concept _Boolean_testable = _Boolean_testable_impl<_Ty> && requires(_Ty&& __t) {
+    { !static_cast<_Ty&&>(__t) } -> _Boolean_testable_impl;
+};
+
+template <class _Ty1, class _Ty2>
+concept _Half_equality_comparable = requires(const remove_reference_t<_Ty1>& __x, const remove_reference_t<_Ty2>& __y) {
+    { __x == __y } -> _Boolean_testable;
+    { __x != __y } -> _Boolean_testable;
+};
+
+template <class _Ty1, class _Ty2>
+concept _Weakly_equality_comparable_with =
+    _Half_equality_comparable<_Ty1, _Ty2> && _Half_equality_comparable<_Ty2, _Ty1>;
+
+_EXPORT_STD template <class _Ty>
+concept equality_comparable = _Half_equality_comparable<_Ty, _Ty>;
+
+#if _HAS_CXX23
+template <class _Ty1, class _Ty2, class _Ref = common_reference_t<const _Ty1&, const _Ty2&>>
+concept _Comparison_common_type_with_impl = same_as<_Ref, common_reference_t<const _Ty2&, const _Ty1&>> && requires {
+    requires convertible_to<const _Ty1&, const _Ref&> || convertible_to<_Ty1, const _Ref&>;
+    requires convertible_to<const _Ty2&, const _Ref&> || convertible_to<_Ty2, const _Ref&>;
+};
+
+template <class _Ty1, class _Ty2>
+concept _Comparison_common_type_with = _Comparison_common_type_with_impl<remove_cvref_t<_Ty1>, remove_cvref_t<_Ty2>>;
+#endif // _HAS_CXX23
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+concept equality_comparable_with =
+    equality_comparable<_Ty1> && equality_comparable<_Ty2>
+#if _HAS_CXX23
+    && _Comparison_common_type_with<_Ty1, _Ty2>
+#else // ^^^ _HAS_CXX23 / !_HAS_CXX23 vvv
+    && common_reference_with<const remove_reference_t<_Ty1>&, const remove_reference_t<_Ty2>&>
+#endif // ^^^ !_HAS_CXX23 ^^^
+    && equality_comparable<common_reference_t<const remove_reference_t<_Ty1>&, const remove_reference_t<_Ty2>&>>
+    && _Weakly_equality_comparable_with<_Ty1, _Ty2>;
+
+template <class _Ty1, class _Ty2>
+concept _Half_ordered = requires(const remove_reference_t<_Ty1>& __t, const remove_reference_t<_Ty2>& __u) {
+    { __t < __u } -> _Boolean_testable;
+    { __t > __u } -> _Boolean_testable;
+    { __t <= __u } -> _Boolean_testable;
+    { __t >= __u } -> _Boolean_testable;
+};
+
+template <class _Ty1, class _Ty2>
+concept _Partially_ordered_with = _Half_ordered<_Ty1, _Ty2> && _Half_ordered<_Ty2, _Ty1>;
+
+_EXPORT_STD template <class _Ty>
+concept totally_ordered = equality_comparable<_Ty> && _Half_ordered<_Ty, _Ty>;
+
+_EXPORT_STD template <class _Ty1, class _Ty2>
+concept totally_ordered_with =
+    totally_ordered<_Ty1> && totally_ordered<_Ty2> && equality_comparable_with<_Ty1, _Ty2>
+    && totally_ordered<common_reference_t<const remove_reference_t<_Ty1>&, const remove_reference_t<_Ty2>&>>
+    && _Partially_ordered_with<_Ty1, _Ty2>;
+
+_EXPORT_STD template <class _Ty>
+concept movable = is_object_v<_Ty> && move_constructible<_Ty> && assignable_from<_Ty&, _Ty> && swappable<_Ty>;
+
+_EXPORT_STD template <class _Ty>
+concept copyable = copy_constructible<_Ty> && movable<_Ty> && assignable_from<_Ty&, _Ty&>
+                && assignable_from<_Ty&, const _Ty&> && assignable_from<_Ty&, const _Ty>;
+
+_EXPORT_STD template <class _Ty>
+concept semiregular = copyable<_Ty> && default_initializable<_Ty>;
+
+_EXPORT_STD template <class _Ty>
+concept regular = semiregular<_Ty> && equality_comparable<_Ty>;
+
+_EXPORT_STD template <class _FTy, class... _ArgTys>
+concept invocable = requires(
+    _FTy&& _Fn, _ArgTys&&... _Args) { _STD invoke(static_cast<_FTy&&>(_Fn), static_cast<_ArgTys&&>(_Args)...); };
+
+_EXPORT_STD template <class _FTy, class... _ArgTys>
+concept regular_invocable = invocable<_FTy, _ArgTys...>;
+
+_EXPORT_STD template <class _FTy, class... _ArgTys>
+concept predicate = regular_invocable<_FTy, _ArgTys...> && _Boolean_testable<invoke_result_t<_FTy, _ArgTys...>>;
+
+_EXPORT_STD template <class _FTy, class _Ty1, class _Ty2>
+concept relation = predicate<_FTy, _Ty1, _Ty1> && predicate<_FTy, _Ty2, _Ty2> && predicate<_FTy, _Ty1, _Ty2>
+                && predicate<_FTy, _Ty2, _Ty1>;
+
+_EXPORT_STD template <class _FTy, class _Ty1, class _Ty2>
+concept equivalence_relation = relation<_FTy, _Ty1, _Ty2>;
+
+_EXPORT_STD template <class _FTy, class _Ty1, class _Ty2>
+concept strict_weak_order = relation<_FTy, _Ty1, _Ty2>;
+
+template <class _Ty>
+struct _Choice_t {
+    _Ty _Strategy  = _Ty{};
+    bool _No_throw = false;
+};
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _HAS_CXX20
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CONCEPTS_

@@ -1,0 +1,516 @@
+// queue standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _QUEUE_
+#define _QUEUE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#ifdef _LEGACY_CODE_ASSUMES_QUEUE_INCLUDES_ALGORITHM
+#include <algorithm>
+#else // ^^^ defined(_LEGACY_CODE_ASSUMES_QUEUE_INCLUDES_ALGORITHM) /
+      // !defined(_LEGACY_CODE_ASSUMES_QUEUE_INCLUDES_ALGORITHM) vvv
+#include <__msvc_heap_algorithms.hpp>
+#endif // ^^^ !defined(_LEGACY_CODE_ASSUMES_QUEUE_INCLUDES_ALGORITHM) ^^^
+#include <deque>
+#include <vector>
+
+#if _HAS_CXX23
+#include <__msvc_ranges_to.hpp>
+#include <__msvc_ranges_tuple_formatter.hpp>
+#include <iterator>
+#endif // _HAS_CXX23
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD template <class _Ty, class _Container = deque<_Ty>>
+class queue {
+public:
+    using value_type      = typename _Container::value_type;
+    using reference       = typename _Container::reference;
+    using const_reference = typename _Container::const_reference;
+    using size_type       = typename _Container::size_type;
+    using container_type  = _Container;
+
+    static_assert(is_same_v<_Ty, value_type>, "container adaptors require consistent types");
+    static_assert(is_object_v<_Ty>, "The C++ Standard forbids container adaptors of non-object types "
+                                    "because of [container.requirements].");
+
+    queue() = default;
+
+    explicit queue(const _Container& _Cont) : c(_Cont) {}
+
+    explicit queue(_Container&& _Cont) noexcept(is_nothrow_move_constructible_v<_Container>) // strengthened
+        : c(_STD move(_Cont)) {}
+
+#if _HAS_CXX23
+    template <_Iterator_for_container _InIt>
+    queue(_InIt _First, _InIt _Last) noexcept(is_nothrow_constructible_v<_Container, _InIt, _InIt>) // strengthened
+        : c(_STD move(_First), _STD move(_Last)) {}
+
+    template <_Container_compatible_range<_Ty> _Rng>
+    queue(from_range_t, _Rng&& _Range) : c(_RANGES to<_Container>(_STD forward<_Rng>(_Range))) {}
+#endif // _HAS_CXX23
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    explicit queue(const _Alloc& _Al) noexcept(is_nothrow_constructible_v<_Container, const _Alloc&>) // strengthened
+        : c(_Al) {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    queue(const _Container& _Cont, const _Alloc& _Al) : c(_Cont, _Al) {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    queue(_Container&& _Cont, const _Alloc& _Al)
+        noexcept(is_nothrow_constructible_v<_Container, _Container, const _Alloc&>) // strengthened
+        : c(_STD move(_Cont), _Al) {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    queue(const queue& _Right, const _Alloc& _Al) : c(_Right.c, _Al) {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    queue(queue&& _Right, const _Alloc& _Al)
+        noexcept(is_nothrow_constructible_v<_Container, _Container, const _Alloc&>) // strengthened
+        : c(_STD move(_Right.c), _Al) {}
+
+#if _HAS_CXX23
+    template <_Iterator_for_container _InIt, class _Alloc>
+        requires uses_allocator_v<_Container, _Alloc>
+    queue(_InIt _First, _InIt _Last, const _Alloc& _Al)
+        noexcept(is_nothrow_constructible_v<_Container, _InIt, _InIt, const _Alloc&>) // strengthened
+        : c(_STD move(_First), _STD move(_Last), _Al) {}
+
+    template <_Container_compatible_range<_Ty> _Rng, class _Alloc>
+    queue(from_range_t, _Rng&& _Range, const _Alloc& _Al)
+        : c(_RANGES to<_Container>(_STD forward<_Rng>(_Range), _Al)) {}
+#endif // _HAS_CXX23
+
+    _NODISCARD_EMPTY_MEMBER_NO_CLEAR bool empty() const noexcept(noexcept(c.empty())) /* strengthened */ {
+        return c.empty();
+    }
+
+    _NODISCARD size_type size() const noexcept(noexcept(c.size())) /* strengthened */ {
+        return c.size();
+    }
+
+    _NODISCARD reference front() noexcept(noexcept(c.front())) /* strengthened */ {
+        return c.front();
+    }
+
+    _NODISCARD const_reference front() const noexcept(noexcept(c.front())) /* strengthened */ {
+        return c.front();
+    }
+
+    _NODISCARD reference back() noexcept(noexcept(c.back())) /* strengthened */ {
+        return c.back();
+    }
+
+    _NODISCARD const_reference back() const noexcept(noexcept(c.back())) /* strengthened */ {
+        return c.back();
+    }
+
+    void push(const value_type& _Val) {
+        c.push_back(_Val);
+    }
+
+    void push(value_type&& _Val) {
+        c.push_back(_STD move(_Val));
+    }
+
+#if _HAS_CXX23
+    template <_Container_compatible_range<_Ty> _Rng>
+    void push_range(_Rng&& _Range) {
+        if constexpr (requires { c.append_range(_STD forward<_Rng>(_Range)); }) {
+            c.append_range(_STD forward<_Rng>(_Range));
+        } else {
+            _RANGES copy(_Range, back_insert_iterator{c});
+        }
+    }
+#endif // _HAS_CXX23
+
+    template <class... _Valty>
+    _ADAPTOR_EMPLACE_RETURN emplace(_Valty&&... _Val) {
+#if _HAS_CXX17
+        return c.emplace_back(_STD forward<_Valty>(_Val)...);
+#else // ^^^ _HAS_CXX17 / !_HAS_CXX17 vvv
+        c.emplace_back(_STD forward<_Valty>(_Val)...);
+#endif // ^^^ !_HAS_CXX17 ^^^
+    }
+
+    void pop() noexcept(noexcept(c.pop_front())) /* strengthened */ {
+        c.pop_front();
+    }
+
+    void swap(queue& _Right) noexcept(_Is_nothrow_swappable<_Container>::value) {
+        using _STD swap;
+        swap(c, _Right.c); // intentional ADL
+    }
+
+    _NODISCARD const _Container& _Get_container() const noexcept {
+        return c;
+    }
+
+protected:
+    _Container c{};
+};
+
+#if _HAS_CXX17
+template <class _Container, enable_if_t<!_Is_allocator<_Container>::value, int> = 0>
+queue(_Container) -> queue<typename _Container::value_type, _Container>;
+
+template <class _Container, class _Alloc,
+    enable_if_t<conjunction_v<negation<_Is_allocator<_Container>>, uses_allocator<_Container, _Alloc>>, int> = 0>
+queue(_Container, _Alloc) -> queue<typename _Container::value_type, _Container>;
+#endif // _HAS_CXX17
+
+#if _HAS_CXX23
+template <_Iterator_for_container _InIt, _Allocator_for_container _Alloc = allocator<_Iter_value_t<_InIt>>>
+queue(_InIt, _InIt, _Alloc = _Alloc()) -> queue<_Iter_value_t<_InIt>, deque<_Iter_value_t<_InIt>, _Alloc>>;
+
+template <_RANGES input_range _Rng, _Allocator_for_container _Alloc = allocator<_RANGES range_value_t<_Rng>>>
+queue(from_range_t, _Rng&&, _Alloc = _Alloc())
+    -> queue<_RANGES range_value_t<_Rng>, deque<_RANGES range_value_t<_Rng>, _Alloc>>;
+#endif // _HAS_CXX23
+
+_EXPORT_STD template <class _Ty, class _Container>
+_NODISCARD bool operator==(const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() == _Right._Get_container();
+}
+
+_EXPORT_STD template <class _Ty, class _Container>
+_NODISCARD bool operator!=(const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() != _Right._Get_container();
+}
+
+_EXPORT_STD template <class _Ty, class _Container>
+_NODISCARD bool operator<(const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() < _Right._Get_container();
+}
+
+_EXPORT_STD template <class _Ty, class _Container>
+_NODISCARD bool operator>(const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() > _Right._Get_container();
+}
+
+_EXPORT_STD template <class _Ty, class _Container>
+_NODISCARD bool operator<=(const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() <= _Right._Get_container();
+}
+
+_EXPORT_STD template <class _Ty, class _Container>
+_NODISCARD bool operator>=(const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() >= _Right._Get_container();
+}
+
+#if _HAS_CXX20
+_EXPORT_STD template <class _Ty, three_way_comparable _Container>
+_NODISCARD compare_three_way_result_t<_Container> operator<=>(
+    const queue<_Ty, _Container>& _Left, const queue<_Ty, _Container>& _Right) {
+    return _Left._Get_container() <=> _Right._Get_container();
+}
+#endif // _HAS_CXX20
+
+_EXPORT_STD template <class _Ty, class _Container, enable_if_t<_Is_swappable<_Container>::value, int> = 0>
+void swap(queue<_Ty, _Container>& _Left, queue<_Ty, _Container>& _Right) noexcept(noexcept(_Left.swap(_Right))) {
+    _Left.swap(_Right);
+}
+
+template <class _Ty, class _Container, class _Alloc>
+struct uses_allocator<queue<_Ty, _Container>, _Alloc> : uses_allocator<_Container, _Alloc>::type {};
+
+#if _HAS_CXX23
+// Per LWG-3997, `_CharT` in library-provided `formatter` specializations is
+// constrained to character types supported by `format`.
+template <_Format_supported_charT _CharT, class _Ty, formattable<_CharT> _Container>
+struct formatter<queue<_Ty, _Container>, _CharT>
+    : _Adaptor_formatter_base<queue<_Ty, _Container>, _CharT, _RANGES ref_view> {};
+#endif // _HAS_CXX23
+
+_EXPORT_STD template <class _Ty, class _Container = vector<_Ty>, class _Pr = less<typename _Container::value_type>>
+class priority_queue {
+public:
+    using value_type      = typename _Container::value_type;
+    using reference       = typename _Container::reference;
+    using const_reference = typename _Container::const_reference;
+    using size_type       = typename _Container::size_type;
+    using container_type  = _Container;
+    using value_compare   = _Pr;
+
+    static_assert(is_same_v<_Ty, value_type>, "container adaptors require consistent types");
+    static_assert(is_object_v<_Ty>, "The C++ Standard forbids container adaptors of non-object types "
+                                    "because of [container.requirements].");
+
+    priority_queue() = default;
+
+    explicit priority_queue(const _Pr& _Pred)
+        noexcept(is_nothrow_default_constructible_v<_Container>
+                 && is_nothrow_copy_constructible_v<value_compare>) // strengthened
+        : c(), comp(_Pred) {}
+
+    priority_queue(const _Pr& _Pred, const _Container& _Cont) : c(_Cont), comp(_Pred) {
+        _Make_heap();
+    }
+
+    priority_queue(const _Pr& _Pred, _Container&& _Cont) : c(_STD move(_Cont)), comp(_Pred) {
+        _Make_heap();
+    }
+
+    template <class _InIt, enable_if_t<_Is_iterator_v<_InIt>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Pr& _Pred, const _Container& _Cont) : c(_Cont), comp(_Pred) {
+        c.insert(c.end(), _First, _Last);
+        _Make_heap();
+    }
+
+    template <class _InIt, enable_if_t<_Is_iterator_v<_InIt>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last) : c(_First, _Last), comp() {
+        _Make_heap();
+    }
+
+    template <class _InIt, enable_if_t<_Is_iterator_v<_InIt>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Pr& _Pred) : c(_First, _Last), comp(_Pred) {
+        _Make_heap();
+    }
+
+    template <class _InIt, enable_if_t<_Is_iterator_v<_InIt>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Pr& _Pred, _Container&& _Cont) : c(_STD move(_Cont)), comp(_Pred) {
+        c.insert(c.end(), _First, _Last);
+        _Make_heap();
+    }
+
+#if _HAS_CXX23
+    template <_Container_compatible_range<_Ty> _Rng>
+    priority_queue(from_range_t, _Rng&& _Range, const _Pr& _Pred = _Pr())
+        : c(_RANGES to<_Container>(_STD forward<_Rng>(_Range))), comp(_Pred) {
+        _Make_heap();
+    }
+#endif // _HAS_CXX23
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    explicit priority_queue(const _Alloc& _Al)
+        noexcept(is_nothrow_constructible_v<_Container, const _Alloc&>
+                 && is_nothrow_default_constructible_v<value_compare>) // strengthened
+        : c(_Al), comp() {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(const _Pr& _Pred, const _Alloc& _Al)
+        noexcept(is_nothrow_constructible_v<_Container, const _Alloc&>
+                 && is_nothrow_copy_constructible_v<value_compare>) // strengthened
+        : c(_Al), comp(_Pred) {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(const _Pr& _Pred, const _Container& _Cont, const _Alloc& _Al) : c(_Cont, _Al), comp(_Pred) {
+        _Make_heap();
+    }
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(const _Pr& _Pred, _Container&& _Cont, const _Alloc& _Al) : c(_STD move(_Cont), _Al), comp(_Pred) {
+        _Make_heap();
+    }
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(const priority_queue& _Right, const _Alloc& _Al) : c(_Right.c, _Al), comp(_Right.comp) {}
+
+    template <class _Alloc, enable_if_t<uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(priority_queue&& _Right, const _Alloc& _Al)
+        noexcept(is_nothrow_constructible_v<_Container, _Container, const _Alloc&>
+                 && is_nothrow_move_constructible_v<value_compare>) // strengthened
+        : c(_STD move(_Right.c), _Al), comp(_STD move(_Right.comp)) {}
+
+    template <class _InIt, class _Alloc,
+        enable_if_t<_Is_iterator_v<_InIt> && uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Alloc& _Al) : c(_First, _Last, _Al), comp() {
+        _Make_heap();
+    }
+
+    template <class _InIt, class _Alloc,
+        enable_if_t<_Is_iterator_v<_InIt> && uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Pr& _Pred, const _Alloc& _Al)
+        : c(_First, _Last, _Al), comp(_Pred) {
+        _Make_heap();
+    }
+
+    template <class _InIt, class _Alloc,
+        enable_if_t<_Is_iterator_v<_InIt> && uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Pr& _Pred, const _Container& _Cont, const _Alloc& _Al)
+        : c(_Cont, _Al), comp(_Pred) {
+        c.insert(c.end(), _First, _Last);
+        _Make_heap();
+    }
+
+    template <class _InIt, class _Alloc,
+        enable_if_t<_Is_iterator_v<_InIt> && uses_allocator_v<_Container, _Alloc>, int> = 0>
+    priority_queue(_InIt _First, _InIt _Last, const _Pr& _Pred, _Container&& _Cont, const _Alloc& _Al)
+        : c(_STD move(_Cont), _Al), comp(_Pred) {
+        c.insert(c.end(), _First, _Last);
+        _Make_heap();
+    }
+
+#if _HAS_CXX23
+    template <_Container_compatible_range<_Ty> _Rng, class _Alloc>
+        requires uses_allocator_v<_Container, _Alloc>
+    priority_queue(from_range_t, _Rng&& _Range, const _Pr& _Pred, const _Alloc& _Al)
+        : c(_RANGES to<_Container>(_STD forward<_Rng>(_Range), _Al)), comp(_Pred) {
+        _Make_heap();
+    }
+
+    template <_Container_compatible_range<_Ty> _Rng, class _Alloc>
+        requires uses_allocator_v<_Container, _Alloc>
+    priority_queue(from_range_t, _Rng&& _Range, const _Alloc& _Al)
+        : c(_RANGES to<_Container>(_STD forward<_Rng>(_Range), _Al)), comp() {
+        _Make_heap();
+    }
+#endif // _HAS_CXX23
+
+    _NODISCARD_EMPTY_MEMBER_NO_CLEAR bool empty() const noexcept(noexcept(c.empty())) /* strengthened */ {
+        return c.empty();
+    }
+
+    _NODISCARD size_type size() const noexcept(noexcept(c.size())) /* strengthened */ {
+        return c.size();
+    }
+
+    _NODISCARD const_reference top() const noexcept(noexcept(c.front())) /* strengthened */ {
+        return c.front();
+    }
+
+    void push(const value_type& _Val) {
+        c.push_back(_Val);
+        _STD push_heap(c.begin(), c.end(), _STD _Pass_fn(comp));
+    }
+
+    void push(value_type&& _Val) {
+        c.push_back(_STD move(_Val));
+        _STD push_heap(c.begin(), c.end(), _STD _Pass_fn(comp));
+    }
+
+#if _HAS_CXX23
+    template <_Container_compatible_range<_Ty> _Rng>
+    void push_range(_Rng&& _Range) {
+        const size_type _Old_size = c.size();
+
+        if constexpr (requires { c.append_range(_STD forward<_Rng>(_Range)); }) {
+            c.append_range(_STD forward<_Rng>(_Range));
+        } else {
+            _RANGES copy(_Range, back_insert_iterator{c});
+        }
+
+        const size_type _New_size = c.size();
+        if (_New_size / 2 > _Old_size) { // threshold chosen for performance
+            _Make_heap();
+        } else {
+            const auto _Begin = _STD _Get_unwrapped(c.begin());
+            auto _Heap_end    = _Begin + _Old_size;
+            const auto _End   = _STD _Get_unwrapped(c.end());
+            while (_Heap_end != _End) {
+                _STD push_heap(_Begin, ++_Heap_end, _STD _Pass_fn(comp));
+            }
+        }
+    }
+#endif // _HAS_CXX23
+
+    template <class... _Valty>
+    void emplace(_Valty&&... _Val) {
+        c.emplace_back(_STD forward<_Valty>(_Val)...);
+        _STD push_heap(c.begin(), c.end(), _STD _Pass_fn(comp));
+    }
+
+    void pop() {
+        _STD pop_heap(c.begin(), c.end(), _STD _Pass_fn(comp));
+        c.pop_back();
+    }
+
+    void swap(priority_queue& _Right)
+        noexcept(_Is_nothrow_swappable<_Container>::value && _Is_nothrow_swappable<_Pr>::value) {
+        using _STD swap;
+        swap(c, _Right.c); // intentional ADL
+        swap(comp, _Right.comp); // intentional ADL
+    }
+
+private:
+    void _Make_heap() {
+        _STD make_heap(c.begin(), c.end(), _STD _Pass_fn(comp));
+    }
+
+protected:
+    _Container c{};
+    _Pr comp{};
+};
+
+#if _HAS_CXX17
+template <class _Pr, class _Container,
+    enable_if_t<conjunction_v<negation<_Is_allocator<_Pr>>, negation<_Is_allocator<_Container>>>, int> = 0>
+priority_queue(_Pr, _Container) -> priority_queue<typename _Container::value_type, _Container, _Pr>;
+
+template <class _Iter, class _Pr = less<_Iter_value_t<_Iter>>, class _Container = vector<_Iter_value_t<_Iter>>,
+    enable_if_t<conjunction_v<_Is_iterator<_Iter>, negation<_Is_allocator<_Pr>>, negation<_Is_allocator<_Container>>>,
+        int> = 0>
+priority_queue(_Iter, _Iter, _Pr = _Pr(), _Container = _Container())
+    -> priority_queue<_Iter_value_t<_Iter>, _Container, _Pr>;
+
+template <class _Pr, class _Container, class _Alloc,
+    enable_if_t<conjunction_v<negation<_Is_allocator<_Pr>>, negation<_Is_allocator<_Container>>,
+                    uses_allocator<_Container, _Alloc>>,
+        int> = 0>
+priority_queue(_Pr, _Container, _Alloc) -> priority_queue<typename _Container::value_type, _Container, _Pr>;
+
+template <class _Iter, class _Alloc, class _Container = vector<_Iter_value_t<_Iter>, _Alloc>,
+    enable_if_t<conjunction_v<_Is_iterator<_Iter>, _Is_allocator<_Alloc>, uses_allocator<_Container, _Alloc>>, int> = 0>
+priority_queue(_Iter, _Iter, _Alloc) -> priority_queue<_Iter_value_t<_Iter>, _Container, less<_Iter_value_t<_Iter>>>;
+
+template <class _Iter, class _Compare, class _Alloc, class _Container = vector<_Iter_value_t<_Iter>, _Alloc>,
+    enable_if_t<conjunction_v<_Is_iterator<_Iter>, _Is_allocator<_Alloc>, uses_allocator<_Container, _Alloc>>, int> = 0>
+priority_queue(_Iter, _Iter, _Compare, _Alloc) -> priority_queue<_Iter_value_t<_Iter>, _Container, _Compare>;
+
+template <class _Iter, class _Compare, class _Container, class _Alloc,
+    enable_if_t<conjunction_v<_Is_iterator<_Iter>, uses_allocator<_Container, _Alloc>>, int> = 0>
+priority_queue(_Iter, _Iter, _Compare, _Container, _Alloc)
+    -> priority_queue<typename _Container::value_type, _Container, _Compare>;
+
+#if _HAS_CXX23
+template <_RANGES input_range _Rng, class _Pr = less<_RANGES range_value_t<_Rng>>,
+    enable_if_t<!_Is_allocator<_Pr>::value, int> = 0>
+priority_queue(from_range_t, _Rng&&, _Pr = _Pr())
+    -> priority_queue<_RANGES range_value_t<_Rng>, vector<_RANGES range_value_t<_Rng>>, _Pr>;
+
+template <_RANGES input_range _Rng, class _Pr, class _Alloc,
+    enable_if_t<conjunction_v<negation<_Is_allocator<_Pr>>, _Is_allocator<_Alloc>>, int> = 0>
+priority_queue(from_range_t, _Rng&&, _Pr, _Alloc)
+    -> priority_queue<_RANGES range_value_t<_Rng>, vector<_RANGES range_value_t<_Rng>, _Alloc>, _Pr>;
+
+template <_RANGES input_range _Rng, class _Alloc, enable_if_t<_Is_allocator<_Alloc>::value, int> = 0>
+priority_queue(from_range_t, _Rng&&, _Alloc)
+    -> priority_queue<_RANGES range_value_t<_Rng>, vector<_RANGES range_value_t<_Rng>, _Alloc>>;
+#endif // _HAS_CXX23
+#endif // _HAS_CXX17
+
+_EXPORT_STD template <class _Ty, class _Container, class _Pr,
+    enable_if_t<_Is_swappable<_Container>::value && _Is_swappable<_Pr>::value, int> = 0>
+void swap(priority_queue<_Ty, _Container, _Pr>& _Left, priority_queue<_Ty, _Container, _Pr>& _Right)
+    noexcept(noexcept(_Left.swap(_Right))) {
+    _Left.swap(_Right);
+}
+
+template <class _Ty, class _Container, class _Pr, class _Alloc>
+struct uses_allocator<priority_queue<_Ty, _Container, _Pr>, _Alloc> : uses_allocator<_Container, _Alloc>::type {};
+
+#if _HAS_CXX23
+// Per LWG-3997, `_CharT` in library-provided `formatter` specializations is
+// constrained to character types supported by `format`.
+template <_Format_supported_charT _CharT, class _Ty, formattable<_CharT> _Container, class _Comp>
+struct formatter<priority_queue<_Ty, _Container, _Comp>, _CharT>
+    : _Adaptor_formatter_base<priority_queue<_Ty, _Container, _Comp>, _CharT, _RANGES ref_view> {};
+#endif // _HAS_CXX23
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _QUEUE_

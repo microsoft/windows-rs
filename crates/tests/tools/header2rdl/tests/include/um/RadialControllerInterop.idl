@@ -1,0 +1,59 @@
+/*  RadialController.idl
+*
+*   IDL defines for COM APIs to support interop with WinRt RadialController
+*
+*   Copyright (c) Microsoft Corporation. All rights reserved
+*/
+
+import "inspectable.idl";
+
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS1)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(1B0535C9-57AD-45C1-9D79-AD5C34360513),
+    object,
+    local
+]
+interface IRadialControllerInterop : IInspectable
+{
+    HRESULT CreateForWindow([in, annotation("_In_")] HWND hwnd, [in, annotation("_In_")] REFIID riid, [out, iid_is(riid), annotation("_COM_Outptr_")] void **ppv);
+}
+
+[
+    uuid(787cdaac-3186-476d-87e4-b9374a7b9970),
+    object,
+    local
+]
+interface IRadialControllerConfigurationInterop : IInspectable
+{
+    HRESULT GetForWindow([in, annotation("_In_")] HWND hwnd, [in, annotation("_In_")] REFIID riid, [out, iid_is(riid), annotation("_COM_Outptr_")] void **ppv);
+}  
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS1)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS2)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(3D577EFF-4CEE-11E6-B535-001BDC06AB3B),
+    object,
+    local
+]
+interface IRadialControllerIndependentInputSourceInterop : IInspectable
+{
+    HRESULT CreateForWindow([in, annotation("_In_")] HWND hwnd, [in, annotation("_In_")] REFIID riid, [out, iid_is(riid), annotation("_COM_Outptr_")] void **ppv);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_RS2)")

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:desktop7="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"/>
+
+  <xs:attributeGroup name="ManganeseExtensionAttributesGroup">
+    <xs:attribute name="Id" type="ST_ExtensionId" use="optional" form="qualified"/>
+    <xs:attribute name="Subsystem" type="t:ST_Subsystem" use="optional" form="qualified"/>
+    <xs:attribute name="SupportsMultipleInstances" type="xs:boolean" use="optional" form="qualified"/>
+    <xs:attribute name="ResourceGroup" type="t:ST_AsciiWindowsId" use="optional" form="qualified"/>
+    <xs:attribute ref="uap11:CurrentDirectoryPath" use="optional" />
+    <xs:attribute ref="uap11:Parameters" use="optional" />
+    <xs:attribute ref="desktop7:CompatMode" use="optional" />
+    <xs:attribute ref="desktop7:Scope" use="optional" />
+  </xs:attributeGroup>
+
+  <xs:simpleType name="ST_ExtensionId">
+    <xs:restriction base="t:ST_NonEmptyString">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attribute name="CurrentDirectoryPath" type="t:ST_FileNameFullPath" />
+
+  <xs:attribute name="UserConfigurable" type="xs:boolean" />
+
+  <xs:attribute name="Parameters" type="t:ST_NonEmptyString"/>
+
+  <xs:attribute name="DataFormat">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="xps"/>
+        <xs:enumeration value="pdf"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+
+  <xs:element name="Capability" substitutionGroup="f:CapabilityChoice">
+    <xs:complexType>
+      <xs:attribute name="Name" type="t:ST_Capability_Uap_11" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

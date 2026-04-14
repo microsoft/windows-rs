@@ -1,0 +1,71 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved.
+//============================================================================
+//
+
+
+[ClassVersion( "1.0" ), Abstract, Description(
+    "Physical extent properties."
+    )]
+class MSFT_PhysicalExtent
+{
+    [Read, Description(
+        "The unique id of the storage tier associated with this extent."
+        )]
+    String StorageTierUniqueId;
+
+    [Read, Description(
+        "The unique id of the virtual disk associated with this extent."
+        )]
+    String VirtualDiskUniqueId;
+
+    [Read, Description(
+        "The byte offset of this extent from the start of the virtual disk."
+        )]
+    UInt64 VirtualDiskOffset;
+
+    [Read, Description(
+        "The column number associated with this extent."
+        )]
+    UInt16 ColumnNumber;
+
+    [Read, Description(
+        "The copy number associated with this extent."
+        )]
+    UInt16 CopyNumber;
+
+    [Read, Description(
+        "The copy number of the replacement for this extent."
+        )]
+    UInt16 ReplacementCopyNumber;
+
+    [Read, Description(
+        "The unique id of the physical disk associated with this extent."
+        )]
+    String PhysicalDiskUniqueId;
+
+    [Read, Description(
+        "The byte offset of this extent from the start of the physical disk."
+        )]
+    UInt64 PhysicalDiskOffset;
+
+    [Read, Description(
+        "The size of this extent in bytes."
+        )]
+    UInt64 Size;
+
+    [Read, Description(
+        "The flags associated with this extent."
+        )]
+    UInt64 Flags;
+
+    [Read, Description(
+        "The operational statuses associated with this extent."
+        )]
+    UInt16 OperationalStatus[];
+
+    [Read, Description(
+        "The operational details associated with this extent."
+        )]
+    String OperationalDetails[];
+};

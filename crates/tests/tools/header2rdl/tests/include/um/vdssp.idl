@@ -1,0 +1,1527 @@
+//+---------------------------------------------------------------------------
+//
+//    Microsoft Windows
+//    Copyright (C) Microsoft Corporation, 2000
+//
+//    File: vdssp.idl
+//
+//    Abstract:
+//        declarations of interfaces and types implemented by software provider
+//        and also exposed by the service.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+interface IVdsSwProvider;
+interface IVdsPack;
+interface IVdsPack2;
+interface IVdsDisk;
+interface IVdsDisk2;
+interface IVdsDisk3;
+interface IVdsDiskOnline;
+interface IVdsAdvancedDisk;
+interface IVdsAdvancedDisk2;
+interface IVdsAdvancedDisk3;
+interface IVdsCreatePartitionEx;
+interface IVdsRemovable;
+interface IVdsVolume;
+interface IVdsVolume2;
+interface IVdsVolumeOnline;
+interface IVdsVolumePlex;
+
+//
+// Pack Status
+//
+typedef enum _VDS_PACK_STATUS
+{
+    VDS_PS_UNKNOWN      = STATUS_UNKNOWN,
+    VDS_PS_ONLINE       = STATUS_ONLINE,
+    VDS_PS_OFFLINE      = STATUS_OFFLINE
+
+} VDS_PACK_STATUS;
+
+//
+// Pack Flags
+//
+typedef enum _VDS_PACK_FLAG
+{
+    VDS_PKF_FOREIGN = 0x1,
+        // Set on all packs that are not the primary\online pack.
+    VDS_PKF_NOQUORUM = 0x2,
+        // This flag was not used on W2K3 and will not be used on LH either.
+    VDS_PKF_POLICY = 0x4,
+        // Will be set on personal SKU for the dynamic provider - pack is offline
+        // because dyanmic disks are not supported on the OS SKU.
+    VDS_PKF_CORRUPTED = 0x8,
+        // This flag indicates the disk contained in the pack has a corrupted
+        // database.
+    VDS_PKF_ONLINE_ERROR = 0x10
+        // This flag indicates the pack is offline because error happened when
+        // trying to online it. The config will be offline if 1) we do not have quorum,
+        // or, 2) there were online errors. For both of these cases, we will set the
+        // VDS_PKF_ONLINE_ERROR flag on the pack.
+
+} VDS_PACK_FLAG;
+
+//
+// Disk Status
+//
+typedef enum _VDS_DISK_STATUS
+{
+    VDS_DS_UNKNOWN      = STATUS_UNKNOWN,
+    VDS_DS_ONLINE       = STATUS_ONLINE,
+    VDS_DS_NOT_READY    = STATUS_NOT_READY, // One example is with ACPI Power Management. You can ask a disk to
+                                            // hibernate (spin down).
+    VDS_DS_NO_MEDIA     = STATUS_NO_MEDIA,  // This flag is for removable media, CDROM.
+    VDS_DS_FAILED       = STATUS_FAILED,
+    VDS_DS_MISSING      = STATUS_MISSING,
+    VDS_DS_OFFLINE      = STATUS_OFFLINE    // Added to W2K8
+
+} VDS_DISK_STATUS;
+
+//
+// Partition Styles
+//
+typedef enum _VDS_PARTITION_STYLE
+{
+    VDS_PST_UNKNOWN         = 0,
+    VDS_PST_MBR             = 1,
+    VDS_PST_GPT             = 2
+
+} VDS_PARTITION_STYLE;
+
+//
+// Disk Flags
+//
+typedef enum _VDS_DISK_FLAG
+{
+    VDS_DF_AUDIO_CD             = 0x1,
+    VDS_DF_HOTSPARE             = 0x2,
+    VDS_DF_RESERVE_CAPABLE      = 0x4,
+    VDS_DF_MASKED               = 0x8,
+    VDS_DF_STYLE_CONVERTIBLE    = 0x10,
+    VDS_DF_CLUSTERED            = 0x20,
+    VDS_DF_READ_ONLY            = 0x40,     // Added to Vista SP1, Windows Server 2008
+    VDS_DF_SYSTEM_DISK          = 0x80,     // Added to Vista SP1, Windows Server 2008
+    VDS_DF_BOOT_DISK            = 0x100,    // Added to Vista SP1, Windows Server 2008
+    VDS_DF_PAGEFILE_DISK        = 0x200,    // Added to Vista SP1, Windows Server 2008
+    VDS_DF_HIBERNATIONFILE_DISK = 0x400,    // Added to Vista SP1, Windows Server 2008
+    VDS_DF_CRASHDUMP_DISK       = 0x800,    // Added to Vista SP1, Windows Server 2008
+    VDS_DF_HAS_ARC_PATH         = 0x1000,   // Added to Vista SP1, Windows Server 2008
+    VDS_DF_DYNAMIC              = 0x2000,   // Added to Vista SP1, Windows Server 2008
+    VDS_DF_BOOT_FROM_DISK       = 0x4000,   // Added to Windows7, indicates the disk from
+                                            // which the machine will boot.
+                                            // Note that this is BIOS disk 0 on MBR, not
+                                            // the CURRENT system volume disk.
+                                            // for example if you are booted to WinPE,
+                                            // this flag is set on BIOS disk 0. For EFI
+                                            // machines, this flag is set on disk containing
+                                            // the ESP used to boot the machine.
+    VDS_DF_CURRENT_READ_ONLY    = 0x8000,   // Added to Windows7, indicates that the
+                                            // current read-only state of the disk.
+
+    VDS_DF_REFS_NOT_SUPPORTED   = 0x10000   // Added to WindowsBLUE. 
+} VDS_DISK_FLAG;
+
+//
+// Partition Flags
+//
+typedef enum _VDS_PARTITION_FLAG
+{
+    VDS_PTF_SYSTEM          = 0x1   // whether this partition is a system
+                                    // partition. We need this flag because
+                                    // we don't return ESP partitions as
+                                    // volumes.
+} VDS_PARTITION_FLAG;
+
+//
+// Lun Reserve Modes
+//
+typedef enum _VDS_LUN_RESERVE_MODE
+{
+    VDS_LRM_NONE            = 0,
+    VDS_LRM_EXCLUSIVE_RW    = 1,
+    VDS_LRM_EXCLUSIVE_RO    = 2,
+    VDS_LRM_SHARED_RO       = 3,
+    VDS_LRM_SHARED_RW       = 4
+
+} VDS_LUN_RESERVE_MODE;
+
+//
+// Volume Status
+//
+typedef enum _VDS_VOLUME_STATUS
+{
+    VDS_VS_UNKNOWN      = STATUS_UNKNOWN,
+    VDS_VS_ONLINE       = STATUS_ONLINE,
+    VDS_VS_NO_MEDIA     = STATUS_NO_MEDIA,
+    VDS_VS_FAILED       = STATUS_FAILED,
+    VDS_VS_OFFLINE      = STATUS_OFFLINE        // Added for Win7
+
+} VDS_VOLUME_STATUS;
+
+//
+// Volume Types
+//
+typedef enum _VDS_VOLUME_TYPE
+{
+    VDS_VT_UNKNOWN  = 0,
+    VDS_VT_SIMPLE   = 10,
+    VDS_VT_SPAN     = 11,
+    VDS_VT_STRIPE   = 12,
+    VDS_VT_MIRROR   = 13,
+    VDS_VT_PARITY   = 14
+            //   Each volume has one or more plexes.
+            //   Each plex has one or more members.
+            //      e.g. a simple volume has one VDS_VPT_SIMPLE plex,
+            //                  which in turn has one member,
+            //                  with one or more extents on the same disk.
+            //           a spanned volume has one VDS_VPT_SPAN plex,
+            //                  which in turn has one member,
+            //                  with one or more extents on more than one disk.
+            //           a stripped volume has one VDS_VPT_STRIPE plex,
+            //                  which in turn has two or more members,
+            //                  with each member having one or more extents on
+            //                  the same disk. (allowing on different disks?)
+            //           a RAID5 volume has one VDS_VPT_PARITY plex,
+            //                  which in turn has three or more members,
+            //                  with each member having one or more extents on
+            //                  the same disk. (allowing on different disks?)
+            //           a mirrorred volume has two or more plexes of any type.
+            //
+
+} VDS_VOLUME_TYPE;
+
+//
+// Volume Flags
+//
+typedef enum _VDS_VOLUME_FLAG
+{
+    VDS_VF_SYSTEM_VOLUME            = 0x1,
+    VDS_VF_BOOT_VOLUME              = 0x2,
+    VDS_VF_ACTIVE                   = 0x4,
+    VDS_VF_READONLY                 = 0x8,
+    VDS_VF_HIDDEN                   = 0x10,
+    VDS_VF_CAN_EXTEND               = 0x20,
+    VDS_VF_CAN_SHRINK               = 0x40,
+    VDS_VF_PAGEFILE                 = 0x80,
+    VDS_VF_HIBERNATION              = 0x100,
+    VDS_VF_CRASHDUMP                = 0x200,
+    VDS_VF_INSTALLABLE              = 0x400,
+    VDS_VF_LBN_REMAP_ENABLED        = 0x800,
+
+    VDS_VF_FORMATTING               = 0x1000,
+    VDS_VF_NOT_FORMATTABLE          = 0x2000,
+    VDS_VF_NTFS_NOT_SUPPORTED       = 0x4000,
+    VDS_VF_FAT32_NOT_SUPPORTED      = 0x8000,
+    VDS_VF_FAT_NOT_SUPPORTED        = 0x10000,
+
+    VDS_VF_NO_DEFAULT_DRIVE_LETTER  = 0x20000,
+        // This flag behaves similarly to VDS_VF_HIDDEN and VDS_VF_READONLY
+        // flags. On a MBR basic disk, these flags apply to all partitions.
+        // But setting VDS_VF_NO_DEFAULT_DRIVE_LETTER flag does not delete
+        // drive letters on other partitions on the same disk that already
+        // have them. Yet setting VDS_VF_HIDDEN or VDS_VF_READONLY flag makes
+        // other partitions HIDDEN or READONLY immediately at the same time.
+    VDS_VF_PERMANENTLY_DISMOUNTED   = 0x40000,
+        // This flag means the volume is offlined by IOCTL_VOLUME_OFFLINE.
+        // It can be made mountable by IOCTL_VOLUME_ONLINE, or assigning
+        // a mount point explicitely. A volume will have this flag
+        // after IVdsVolumeMF::Dismount( bForce, bPermanent=TRUE ) is called.
+    VDS_VF_PERMANENT_DISMOUNT_SUPPORTED  = 0x80000,
+        // Whether this volume supports the bPermanent flag in IVdsVolumeMF::
+        // Dismount() method.
+    VDS_VF_SHADOW_COPY               = 0x100000,
+        // Whether this volume is a shadow copy of another volume.
+
+    VDS_VF_FVE_ENABLED               = 0x200000,
+        // Whether this volume has full volume encryption enabled.
+    VDS_VF_DIRTY                     = 0x400000,
+        // Whether this volume has dirty flag set
+    VDS_VF_REFS_NOT_SUPPORTED        = 0x800000,
+        // Whether this volume backs a boot volume.
+    VDS_VF_BACKS_BOOT_VOLUME         = 0x1000000,
+        // Whether this volume is backed by a wimboot image
+    VDS_VF_BACKED_BY_WIM_IMAGE       = 0x2000000
+
+} VDS_VOLUME_FLAG;
+
+//
+// Volume Plex Types
+//
+typedef enum _VDS_VOLUME_PLEX_TYPE
+{
+    VDS_VPT_UNKNOWN     = 0,
+    VDS_VPT_SIMPLE      = VDS_VT_SIMPLE,
+    VDS_VPT_SPAN        = VDS_VT_SPAN,
+    VDS_VPT_STRIPE      = VDS_VT_STRIPE,
+    VDS_VPT_PARITY      = VDS_VT_PARITY
+
+} VDS_VOLUME_PLEX_TYPE;
+
+//
+// Volume Plex Status
+//
+typedef enum _VDS_VOLUME_PLEX_STATUS
+{
+    VDS_VPS_UNKNOWN     = STATUS_UNKNOWN,
+    VDS_VPS_ONLINE      = STATUS_ONLINE,
+    VDS_VPS_NO_MEDIA    = STATUS_NO_MEDIA,
+    VDS_VPS_FAILED      = STATUS_FAILED
+
+} VDS_VOLUME_PLEX_STATUS;
+
+//
+// Disk Extent Types
+//
+typedef enum _VDS_DISK_EXTENT_TYPE
+{
+    VDS_DET_UNKNOWN         = 0,
+        // extent of any unknown partition.
+    VDS_DET_FREE            = 1,
+        // extent of free space, including free space inside extended partition.
+    VDS_DET_DATA            = 2,
+        // extent of any volume (other than OEM partition, unknown partition and
+        // ESP partition)
+    VDS_DET_OEM             = 3,
+        // extent of OEM partition.
+    VDS_DET_ESP             = 4,
+        // extent of ESP partition.
+    VDS_DET_MSR             = 5,
+        // extent of MSR partition.
+    VDS_DET_LDM             = 6,
+        // extent of LDM meta data partition.
+    VDS_DET_CLUSTER         = 7,
+        // extent of Cluster meta data partition.
+    VDS_DET_UNUSABLE        = 0x7FFF
+        // extent of unusable space on a disk. (e.g. space outside 4 primary
+        // primary partitions on a basic MBR disk)
+
+} VDS_DISK_EXTENT_TYPE;
+
+//
+// Pack properties
+//
+typedef struct _VDS_PACK_PROP
+{
+    VDS_OBJECT_ID       id;
+    [string] LPWSTR     pwszName;
+                        // leave blank for basic pack.
+    VDS_PACK_STATUS     status;
+    ULONG               ulFlags;
+
+} VDS_PACK_PROP, *PVDS_PACK_PROP;
+
+//
+// Disk Properties
+//
+typedef struct _VDS_DISK_PROP
+{
+    VDS_OBJECT_ID       id;
+    VDS_DISK_STATUS     status;
+    VDS_LUN_RESERVE_MODE ReserveMode;    // to be filled by the VDS service.
+    VDS_HEALTH          health;
+    DWORD               dwDeviceType;   // Values: (defined in winioctl.h)
+                                        //         FILE_DEVICE_DISK
+                                        //         FILE_DEVICE_CDROM
+                                        //         FILE_DEVICE_DVD
+                                        //         etc.
+    DWORD               dwMediaType;    // Values: (STORAGE_MEDIA_TYPE values)
+                                        //         RemovableMedia
+                                        //         FixedMedia
+                                        //         CD_ROM
+                                        //         etc.
+    ULONGLONG           ullSize;
+    ULONG               ulBytesPerSector;
+    ULONG               ulSectorsPerTrack;
+    ULONG               ulTracksPerCylinder;
+    ULONG               ulFlags;
+
+    VDS_STORAGE_BUS_TYPE    BusType;
+
+    VDS_PARTITION_STYLE     PartitionStyle;
+    [switch_is(PartitionStyle)] union
+    {
+    [case(VDS_PST_MBR)]
+        DWORD           dwSignature;    // not guaranteed to be unique.
+    [case(VDS_PST_GPT)]
+        GUID            DiskGuid;
+    [default];
+    };
+
+    [string] LPWSTR     pwszDiskAddress;
+        // The address is for displaying purpose. It's only meaningful if
+        // the disk has a SCSI-like address, which contains some configuration
+        // information (port number, target id, etc):
+        //     SCSI, IDE: Port#Path#Target#Lun#.
+        //     1394, USB: None
+        //     Fibre Channel: ?
+    [string] LPWSTR     pwszName;
+        // This is the name that can be used to open a handle to the object
+        // by CreateFile(). Examples:
+        //      Cdrom:  \\?\CdRom1
+        //      Disk:   \\?\PhysicalDrive3
+    [string] LPWSTR     pwszFriendlyName;
+        // This is a name returned from PnP. This name is maintained in
+        // registry by PnP. Example:
+        //      SEAGATE ST34573N SCSI Disk Device
+    [string] LPWSTR     pwszAdaptorName;
+        // This is the name of the adaptor on which this disk is attached.
+        // It is returned from PnP, and maintained in registry.
+        //      Adaptec AHA-2940U2W - Ultra2 SCSI.
+    [string] LPWSTR     pwszDevicePath;
+        // This is returned by PnP. This id can be used to uniquely identify
+        // a device on a machine by PnP. To bring up the disk property page
+        // using an internal routine exported by device manager, we need to
+        // pass in device instance id.
+
+} VDS_DISK_PROP, *PVDS_DISK_PROP;
+
+
+//
+// Disk Properties, version 2 added for Win7.
+//
+//
+// Disk offline reason
+//
+typedef enum _VDS_DISK_OFFLINE_REASON
+{
+    VDSDiskOfflineReasonNone               = 0,
+    VDSDiskOfflineReasonPolicy             = 1,
+    VDSDiskOfflineReasonRedundantPath      = 2,
+    VDSDiskOfflineReasonSnapshot           = 3,
+    VDSDiskOfflineReasonCollision          = 4,
+    VDSDiskOfflineReasonResourceExhaustion = 5,
+    VDSDiskOfflineReasonWriteFailure       = 6,
+    VDSDiskOfflineReasonDIScan             = 7,
+    VDSDiskOfflineReasonLostDataPersistence = 8
+} VDS_DISK_OFFLINE_REASON;
+
+typedef struct _VDS_DISK_PROP2
+{
+    VDS_OBJECT_ID           id;
+    VDS_DISK_STATUS         status;
+    VDS_DISK_OFFLINE_REASON OfflineReason;
+    VDS_LUN_RESERVE_MODE    ReserveMode;    // to be filled by the VDS service.
+    VDS_HEALTH              health;
+    DWORD                   dwDeviceType;   // Values: (defined in winioctl.h)
+                                            //         FILE_DEVICE_DISK
+                                            //         FILE_DEVICE_CDROM
+                                            //         FILE_DEVICE_DVD
+                                            //         etc.
+    DWORD                   dwMediaType;    // Values: (STORAGE_MEDIA_TYPE values)
+                                            //         RemovableMedia
+                                            //         FixedMedia
+                                            //         CD_ROM
+                                            //         etc.
+    ULONGLONG               ullSize;
+    ULONG                   ulBytesPerSector;
+    ULONG                   ulSectorsPerTrack;
+    ULONG                   ulTracksPerCylinder;
+    ULONG                   ulFlags; // audio CD, hotspare,
+
+    VDS_STORAGE_BUS_TYPE    BusType;
+
+    VDS_PARTITION_STYLE     PartitionStyle;
+    [switch_is(PartitionStyle)] union
+    {
+    [case(VDS_PST_MBR)]
+        DWORD               dwSignature;    // not guaranteed to be unique.
+    [case(VDS_PST_GPT)]
+        GUID                DiskGuid;
+    [default];
+    };
+
+    [string] LPWSTR         pwszDiskAddress;
+        // The address is for displaying purpose. It's only meaningful if
+        // the disk has a SCSI-like address, which contains some configuration
+        // information (port number, target id, etc):
+        //     SCSI, IDE: Port#Path#Target#Lun#.
+        //     1394, USB: None
+        //     Fibre Channel: ?
+    [string] LPWSTR         pwszName;
+        // This is the name that can be used to open a handle to the object
+        // by CreateFile(). Examples:
+        //      Cdrom:  \\?\CdRom1
+        //      Disk:   \\?\PhysicalDrive3
+    [string] LPWSTR         pwszFriendlyName;
+        // This is a name returned from PnP. This name is maintained in
+        // registry by PnP. Example:
+        //      SEAGATE ST34573N SCSI Disk Device
+    [string] LPWSTR         pwszAdaptorName;
+        // This is the name of the adaptor on which this disk is attached.
+        // It is returned from PnP, and maintained in registry.
+        //      Adaptec AHA-2940U2W - Ultra2 SCSI.
+    [string] LPWSTR         pwszDevicePath;
+        // This is returned by PnP. This id can be used to uniquely identify
+        // a device on a machine by PnP. To bring up the disk property page
+        // using an internal routine exported by device manager, we need to
+        // pass in device instance id.
+    [string] LPWSTR         pwszLocationPath;
+        // This string is built from a combination of the SCSI address and
+        // the DEVPKEY_Device_LocationPaths value for the disk's adapter.
+
+} VDS_DISK_PROP2, *PVDS_DISK_PROP2;
+
+typedef struct _VDS_ADVANCEDDISK_PROP
+{
+    [string] LPWSTR     pwszId;
+
+    [string] LPWSTR     pwszPathname;
+    [string] LPWSTR     pwszLocation;
+    [string] LPWSTR     pwszFriendlyName;
+    [string] LPWSTR     pswzIdentifier;
+    USHORT              usIdentifierFormat;
+    ULONG               ulNumber;
+
+    [string] LPWSTR     pwszSerialNumber;
+    [string] LPWSTR     pwszFirmwareVersion;
+    [string] LPWSTR     pwszManufacturer;
+    [string] LPWSTR     pwszModel;
+
+    ULONGLONG           ullTotalSize;
+    ULONGLONG           ullAllocatedSize;
+    ULONG               ulLogicalSectorSize;
+    ULONG               ulPhysicalSectorSize;
+
+    ULONG               ulPartitionCount;
+
+    VDS_DISK_STATUS     status;
+    VDS_HEALTH          health;
+
+    VDS_STORAGE_BUS_TYPE BusType;
+
+    VDS_PARTITION_STYLE     PartitionStyle;
+    [switch_is(PartitionStyle)] union
+    {
+    [case(VDS_PST_MBR)]
+        DWORD               dwSignature;    // not guaranteed to be unique.
+    [case(VDS_PST_GPT)]
+        GUID                DiskGuid;
+    [default];
+    };
+
+    ULONG               ulFlags;
+    DWORD               dwDeviceType;
+
+} VDS_ADVANCEDDISK_PROP, *PVDS_ADVANCEDDISK_PROP;
+
+//
+// Volume Properties
+//
+typedef struct _VDS_VOLUME_PROP
+{
+    VDS_OBJECT_ID       id;
+    VDS_VOLUME_TYPE     type;
+    VDS_VOLUME_STATUS   status;
+    VDS_HEALTH          health;
+    VDS_TRANSITION_STATE TransitionState;
+
+    ULONGLONG           ullSize;
+    ULONG               ulFlags; // VDS_VOLUME_FLAG
+    VDS_FILE_SYSTEM_TYPE  RecommendedFileSystemType;
+    [string] LPWSTR     pwszName;
+        // This is the name that can be used to open a handle to the object
+        // by CreateFile(). Example:
+        //     \\?\GLOBALROOT\Device\HarddiskVolume#
+} VDS_VOLUME_PROP, *PVDS_VOLUME_PROP;
+
+//
+// Volume Properties - adding uniqueid
+//
+typedef struct _VDS_VOLUME_PROP2
+{
+    VDS_OBJECT_ID       id;
+    VDS_VOLUME_TYPE     type;
+    VDS_VOLUME_STATUS   status;
+    VDS_HEALTH          health;
+    VDS_TRANSITION_STATE TransitionState;
+
+    ULONGLONG           ullSize;
+    ULONG               ulFlags; // VDS_VOLUME_FLAG
+    VDS_FILE_SYSTEM_TYPE  RecommendedFileSystemType;
+    ULONG               cbUniqueId;
+    [string] LPWSTR     pwszName;
+        // This is the name that can be used to open a handle to the object
+        // by CreateFile(). Example:
+        //     \\?\GLOBALROOT\Device\HarddiskVolume#
+    [size_is(cbUniqueId)]  BYTE *pUniqueId;
+} VDS_VOLUME_PROP2, *PVDS_VOLUME_PROP2;
+
+//
+// Volume plex properties
+//
+typedef struct _VDS_VOLUME_PLEX_PROP
+{
+    VDS_OBJECT_ID              id;
+    VDS_VOLUME_PLEX_TYPE       type;
+    VDS_VOLUME_PLEX_STATUS     status;
+    VDS_HEALTH                 health;
+    VDS_TRANSITION_STATE       TransitionState;
+
+    ULONGLONG                  ullSize;
+    ULONG                      ulStripeSize;
+    ULONG                      ulNumberOfMembers;
+
+        // No flags.
+
+} VDS_VOLUME_PLEX_PROP, *PVDS_VOLUME_PLEX_PROP;
+
+//
+// Disk extent struct
+//
+typedef struct _VDS_DISK_EXTENT
+{
+    VDS_OBJECT_ID           diskId;
+    VDS_DISK_EXTENT_TYPE    type;
+    ULONGLONG               ullOffset;
+    ULONGLONG               ullSize;
+
+    VDS_OBJECT_ID           volumeId;
+                // the volume the extent belongs to.
+    VDS_OBJECT_ID           plexId;
+                // if the extent belongs to a volume, it's the id of the plex
+                // it belongs to. An extent can belong to a partition (e.g.
+                // MSR, LDM Meta Data), but not a volume.
+    ULONG                   memberIdx;
+                // if the extent belongs to a plex of a volume, it's the index
+                // of the member it belongs to. Member index is 0 based.
+
+} VDS_DISK_EXTENT, *PVDS_DISK_EXTENT;
+
+//
+// Disk free extent
+//
+typedef struct _VDS_DISK_FREE_EXTENT
+{
+    VDS_OBJECT_ID       diskId;
+    ULONGLONG           ullOffset;
+    ULONGLONG           ullSize;
+} VDS_DISK_FREE_EXTENT, *PVDS_DISK_FREE_EXTENT;
+
+//
+// Input struct for IVdsPack::CreateVolume and IVdsVolume::Extend method.
+//
+typedef struct _VDS_INPUT_DISK
+{
+    VDS_OBJECT_ID       diskId;     // This field is required.
+    ULONGLONG           ullSize;    // This field is required.
+    VDS_OBJECT_ID       plexId;
+        // When extending a volume, specify which plex the disk belongs to.
+        // It is ignored when creating a volume and repair a RAID-5 volume.
+    ULONG               memberIdx;
+        // This field specifies which member the extent should belong to.
+        // either all disks' memberIdx are specified, or none is specified.
+        // It must not be specified when repairing a RAID-5 volume.
+
+} VDS_INPUT_DISK;
+
+#define INVALID_MEMBER_IDX      (0xFFFFFFFF)
+
+//
+// Partition Properties
+//
+cpp_quote("#define GPT_PARTITION_NAME_LENGTH    36")
+#define GPT_PARTITION_NAME_LENGTH    36
+
+typedef struct _VDS_PARTITION_INFO_GPT
+{
+    GUID                partitionType;
+    GUID                partitionId;
+    ULONGLONG            attributes;
+    WCHAR                name[GPT_PARTITION_NAME_LENGTH];
+
+} VDS_PARTITION_INFO_GPT;
+
+typedef struct _VDS_PARTITION_INFO_MBR
+{                                    // equivalent to PARTITION_INFORMATION_MBR
+                                    // and convertible to each other
+    BYTE                partitionType;
+    BOOLEAN                bootIndicator;
+    BOOLEAN                recognizedPartition;
+    DWORD                 hiddenSectors;
+
+} VDS_PARTITION_INFO_MBR;
+
+typedef struct _VDS_PARTITION_PROP
+{
+    VDS_PARTITION_STYLE PartitionStyle;
+    ULONG               ulFlags;
+    ULONG                ulPartitionNumber;
+    ULONGLONG            ullOffset;
+    ULONGLONG            ullSize;
+    [switch_is(PartitionStyle)] union
+    {
+        [case(VDS_PST_MBR)]
+            VDS_PARTITION_INFO_MBR Mbr;  // For MBR disk
+        [case(VDS_PST_GPT)]
+            VDS_PARTITION_INFO_GPT Gpt; // For GPT disk
+        [default];
+    };
+
+} VDS_PARTITION_PROP;
+
+//
+// MIDLize'd PARTITION_INFORMATION_EX
+//   The midlized types have identical representation with the original
+//   NT types.
+//
+
+typedef enum tag_VDS_PARTITION_STYLE
+{
+    VDS_PARTITION_STYLE_MBR,
+    VDS_PARTITION_STYLE_GPT,
+    VDS_PARTITION_STYLE_RAW
+
+} __VDS_PARTITION_STYLE; // VDS_PARTITION_STYLE is already defined.
+
+typedef struct _VDS_PARTITION_INFORMATION_EX
+{
+    __VDS_PARTITION_STYLE   dwPartitionStyle;
+    ULONGLONG           ullStartingOffset;      // LARGE_INTEGER
+    ULONGLONG           ullPartitionLength;     // LARGE_INTEGER
+    DWORD               dwPartitionNumber;
+    BOOLEAN             bRewritePartition;
+    [switch_is(dwPartitionStyle)] union
+    {
+    [case (VDS_PARTITION_STYLE_MBR)]
+        VDS_PARTITION_INFO_MBR Mbr;
+    [case (VDS_PARTITION_STYLE_GPT)]
+        VDS_PARTITION_INFO_GPT Gpt;
+    };
+
+} VDS_PARTITION_INFORMATION_EX;
+
+typedef struct _CREATE_PARTITION_PARAMETERS
+{
+    VDS_PARTITION_STYLE style;   // legal values: MBR or GPT
+    [switch_is(style)] union
+    {
+        [case(VDS_PST_MBR)]
+            struct
+            {
+                BYTE        partitionType;
+                BOOLEAN     bootIndicator;
+            } MbrPartInfo;
+        [case(VDS_PST_GPT)]
+            struct
+            {
+                GUID        partitionType;
+                GUID        partitionId;    // Pass zero to generate, ASR needs to set this.
+                ULONGLONG   attributes;
+                WCHAR       name[GPT_PARTITION_NAME_LENGTH];
+            } GptPartInfo;
+        [default];
+    };
+        // These two union structs are based on PARTITION_INFORMATION_MBR,
+        // PARTITION_INFORMATION_GPT, which are used in IOCTL_DISK_SET_
+        // DRIVE_LAYOUT_EX.
+
+} CREATE_PARTITION_PARAMETERS;
+
+typedef struct _CHANGE_ATTRIBUTES_PARAMETERS
+{
+    VDS_PARTITION_STYLE style;   // legal values: MBR or GPT
+    [switch_is(style)] union
+    {
+        [case(VDS_PST_MBR)]
+            struct
+            {
+                BOOLEAN     bootIndicator;
+            } MbrPartInfo;
+        [case(VDS_PST_GPT)]
+            struct
+            {
+                ULONGLONG   attributes; // Includes a boot indicator flag
+            } GptPartInfo;
+        [default];
+    };
+
+} CHANGE_ATTRIBUTES_PARAMETERS;
+
+typedef struct _CHANGE_PARTITION_TYPE_PARAMETERS
+{
+    VDS_PARTITION_STYLE style;   // legal values: MBR or GPT
+    [switch_is(style)] union
+    {
+        [case(VDS_PST_MBR)]
+            struct
+            {
+                BYTE        partitionType;
+            } MbrPartInfo;
+        [case(VDS_PST_GPT)]
+            struct
+            {
+                GUID        partitionType;
+            } GptPartInfo;
+        [default];
+    };
+
+} CHANGE_PARTITION_TYPE_PARAMETERS;
+
+//
+// IVdsSwProvider:
+//   This interface exposes software provider specific functions.
+// Implemented by: provider object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(9aa58360-ce33-4f92-b658-ed24b14425b8),
+    pointer_default(unique)
+]
+
+interface IVdsSwProvider : IUnknown
+{
+    // QueryPacks:
+    [helpstring("method QueryPacks")]
+    HRESULT QueryPacks(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    // CreatePack:
+    [helpstring("method CreatePack")]
+    HRESULT CreatePack(
+                [out] IVdsPack **ppPack
+            );
+            // NOTE: For basic provider, each pack can have only one disk.
+}
+
+//
+// IVdsPack:
+// Implemented by: pack object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(3b69d7f5-9d94-4648-91ca-79939ba263bf),
+    pointer_default(unique)
+]
+
+interface IVdsPack : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_PACK_PROP *pPackProp
+            );
+
+    [helpstring("method GetProvider")]
+    HRESULT GetProvider(
+                [out] IVdsProvider **ppProvider
+            );
+
+    [helpstring("method QueryVolumes")]
+    HRESULT QueryVolumes(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    [helpstring("method QueryDisks")]
+    HRESULT QueryDisks(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    // CreateVolume:
+    //   The types of volumes that can be created include simple, spanned,
+    //   striped, mirrored, RAID-5. Basic provider can create volume from only
+    //   one extent.
+    [helpstring("method CreateVolume")]
+    HRESULT CreateVolume(
+                [in] VDS_VOLUME_TYPE type,
+                [in, size_is(lNumberOfDisks)]
+                     VDS_INPUT_DISK *pInputDiskArray,
+                [in] LONG lNumberOfDisks,
+                [in] ULONG ulStripeSize,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // AddDisk:
+    //   Providers don't implement this method. Instead, they implement
+    //   AddDisk() on IVdsMigrateDisks interface.
+    [helpstring("method AddDisk")]
+    HRESULT AddDisk(
+                [in] VDS_OBJECT_ID DiskId,
+                [in] VDS_PARTITION_STYLE PartitionStyle,
+                [in] BOOL bAsHotSpare
+            );
+
+    // MigrateDisks:
+    //   Providers don't implement this method. Instead, they implement
+    //   IVdsMigrateDisks interface.
+    [helpstring("method MigrateDisks")]
+    HRESULT MigrateDisks(
+                [in, size_is(lNumberOfDisks)]
+                     VDS_OBJECT_ID *pDiskArray,
+                [in] LONG lNumberOfDisks,
+                [in] VDS_OBJECT_ID TargetPack,
+                [in] BOOL bForce,
+                    // In some cases the migration may cause data loss.
+                    // if this flag is set to FALSE, the operation will
+                    // not proceed. One example is when a transitive
+                    // closure is missing a disk, the rest disks need to
+                    // be moved to another pack. This would normally be
+                    // vetoed. With bForce set to TRUE, the operation
+                    // will proceed.
+                [in] BOOL bQueryOnly,
+                    // If this is set to TRUE, migration will not be really
+                    // carried out. The return results through pHresults
+                    // indicate whether a disk can be migrated or not.
+                [out, size_is(lNumberOfDisks)] HRESULT *pResults,
+                    // If a disk can be migrated, or is migrated successfully,
+                    // the corresponding HRESULT will be S_OK, otherwise,
+                    // a warning code, or an error code..
+                [out] BOOL *pbRebootNeeded
+            );
+
+    // ReplaceDisk:
+    //   Basic pack does not support this operation.
+    [helpstring("method ReplaceDisk")]
+    HRESULT ReplaceDisk(
+                [in] VDS_OBJECT_ID OldDiskId,
+                [in] VDS_OBJECT_ID NewDiskId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // RemoveMissingDisk:
+    [helpstring("method RemoveMissingDisk")]
+    HRESULT RemoveMissingDisk(
+                [in] VDS_OBJECT_ID DiskId
+            );
+
+    // Recover:
+    //   This method tries to bring a failing or failed pack back to healthy
+    //   state. It also tries to recover all unhealthy disks and volumes in
+    //   the pack.
+    [helpstring("method Recover")]
+    HRESULT Recover(
+                [out] IVdsAsync **ppAsync
+            );
+}
+
+
+//
+// IVdsPack2:
+// Implemented by: pack object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(13B50BFF-290A-47DD-8558-B7C58DB1A71A),
+    pointer_default(unique)
+]
+
+interface IVdsPack2 : IUnknown
+{
+    // CreateVolume2:
+    //   Adding an ullAlign param to CreateVolume.
+    [helpstring("method CreateVolume2")]
+    HRESULT CreateVolume2(
+                [in] VDS_VOLUME_TYPE    type,
+                [in, size_is(lNumberOfDisks)]
+                     VDS_INPUT_DISK     *pInputDiskArray,
+                [in] LONG               lNumberOfDisks,
+                [in] ULONG              ulStripeSize,
+                [in] ULONG              ulAlign,
+                [out] IVdsAsync         **ppAsync
+            );
+}
+
+
+//
+// IVdsDisk:
+// Implemented by: disk object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(07e5c822-f00c-47a1-8fce-b244da56fd06),
+    pointer_default(unique)
+]
+
+interface IVdsDisk : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_DISK_PROP *pDiskProperties
+            );
+
+    [helpstring("method GetPack")]
+    HRESULT GetPack(
+                [out] IVdsPack **ppPack
+            );
+            // NOTE: for disks that are managed by the service (unallocated
+            //       & masked), this method returns NULL.
+
+    [helpstring("method GetIdentificationData")]
+    HRESULT GetIdentificationData(
+                [out] VDS_LUN_INFORMATION *pLunInfo
+            );
+
+    // QueryExtents:
+    //   Return all extents on a disk. Extents include:
+    //     dynamic volume extent, dynamic free extent,
+    //     primary partition extent, logical drive extent, extended
+    //       free extent,
+    //     ESP extent, OEM extent, foreign partition extent,
+    //     MSR extent, LDM Metadata extent
+    //   Extent has a link to the volume on top of it, and an
+    //   attribute to identify it as foreign partition.(unknown)
+    [helpstring("method QueryExtents")]
+    HRESULT QueryExtents(
+                [out, size_is(,*plNumberOfExtents)]
+                      VDS_DISK_EXTENT **ppExtentArray,
+                [out] LONG *plNumberOfExtents
+            );
+
+    // ConvertStyle:
+    //     To convert the style of a disk, the disk must be empty, meaning
+    //   no user data, no OEM partition, no ESP partition, no unknown
+    //   partition. It's OK to have LDM Metadata partition, or MSR partition.
+    [helpstring("method ConvertStyle")]
+    HRESULT ConvertStyle(
+                [in] VDS_PARTITION_STYLE NewStyle
+            );
+
+    // SetFlags:
+    //   Only VDS_DF_HOTSPARE can be set.
+    [helpstring("method SetFlags")]
+    HRESULT SetFlags(
+                [in] ULONG  ulFlags
+            );
+
+    // ClearFlags:
+    //   Only VDS_DF_HOTSPARE can be cleared.
+    [helpstring("method ClearFlags")]
+    HRESULT ClearFlags(
+                [in] ULONG ulFlags
+            );
+}
+
+
+
+//
+// IVdsDisk2:
+// Implemented by: disk object
+// Implemented where: The service, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(40F73C8B-687D-4a13-8D96-3D7F2E683936),
+    pointer_default(unique)
+]
+
+interface IVdsDisk2 : IUnknown
+{
+    [helpstring("method SetSANMode")]
+    HRESULT SetSANMode(
+                [in] BOOL bEnable
+            );
+}
+
+
+//
+// IVdsDiskOnline:
+// Implemented by: disk object
+// Implemented where: The service, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(90681B1D-6A7F-48e8-9061-31B7AA125322),
+    pointer_default(unique)
+]
+interface IVdsDiskOnline : IUnknown
+{
+    [helpstring("method Online")]
+    HRESULT Online( void );
+
+    [helpstring("method Offline")]
+    HRESULT Offline( void );
+}
+
+//
+// IVdsAdvancedDisk:
+//   This interface is for configuring and managing partitions.
+// Implemented by: disk object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(6e6f6b40-977c-4069-bddd-ac710059f8c0),
+    pointer_default(unique)
+]
+
+interface IVdsAdvancedDisk : IUnknown
+{
+    [helpstring("method GetPartitionProperties")]
+    HRESULT GetPartitionProperties(
+                [in] ULONGLONG ullOffset,
+                [out] VDS_PARTITION_PROP *pPartitionProp
+            );
+
+    [helpstring("method QueryPartitions")]
+    HRESULT QueryPartitions(
+                [out, size_is(,*plNumberOfPartitions)]
+                     VDS_PARTITION_PROP **ppPartitionPropArray,
+                [out] LONG *plNumberOfPartitions
+            );
+        // Remark: Partitions include:
+        //         primary partition, extended partition, logical drive,
+        //         OEM partition, ESP partition, MSR partition, LDM Metadata
+        //         partition, LDM data partition, Unknown partition.
+
+    [helpstring("method CreatePartition")]
+    HRESULT CreatePartition(
+                [in] ULONGLONG ullOffset,
+                [in] ULONGLONG ullSize,
+                [in] CREATE_PARTITION_PARAMETERS *para,
+                [out] IVdsAsync **ppAsync
+            );
+        // Remark: CreatePartition will fail on dynamic disks.
+
+    [helpstring("method DeletePartition")]
+    HRESULT DeletePartition(
+                [in] ULONGLONG ullOffset,
+                [in] BOOL bForce,       // forcefully delete a normal partition
+                                        // that is in use
+                [in] BOOL bForceProtected
+                                     // forcefully delete a protected partition.
+                                    // Protected partitions include OEM, ESP and
+                                    // MSR partitions
+            );
+        // Remark: DeletePartition always fails on dynamic disk.
+
+    [helpstring("method ChangeAttributes")]
+    HRESULT ChangeAttributes(
+                [in] ULONGLONG ullOffset,
+                [in] CHANGE_ATTRIBUTES_PARAMETERS *para
+            );
+
+    // Providers don't implement this method.
+    [helpstring("method AssignDriveLetter")]
+    HRESULT AssignDriveLetter(
+                [in] ULONGLONG ullOffset,           // partition offset
+                [in] WCHAR wcLetter                 // drive letter to assign
+            );
+
+    [helpstring("method DeleteDriveLetter")]
+    HRESULT DeleteDriveLetter(
+                [in] ULONGLONG ullOffset,           // partition offset
+                [in] WCHAR wcLetter
+            );
+
+    [helpstring("method GetDriveLetter")]
+    HRESULT GetDriveLetter(
+                [in] ULONGLONG ullOffset,
+                [out] WCHAR    *pwcLetter
+            );
+
+    [helpstring("method FormtPartition")]
+    HRESULT FormatPartition(
+                [in] ULONGLONG ullOffset,
+                [in] VDS_FILE_SYSTEM_TYPE type,
+                [in,string] LPWSTR pwszLabel,
+                [in] DWORD dwUnitAllocationSize,
+                [in] BOOL bForce,
+                [in] BOOL bQuickFormat,
+                [in] BOOL bEnableCompression,    // NTFS only.
+                [out] IVdsAsync **ppAsync
+            );
+
+    // Providers don't implement bFullClean option. Providers should return
+    // as soon as possible after delete drive layout. The service will claim
+    // the disk and finish the full clean part. The service blocks all calls
+    // when the provider is cleaning a disk.
+    HRESULT Clean(
+                [in] BOOL bForce,
+                [in] BOOL bForceOEM,
+                [in] BOOL bFullClean,
+                [out] IVdsAsync **ppAsync
+            );
+}
+
+//
+// IVdsAdvancedDisk2:
+//   This interface is the next version of IVdsAdvancedDisk.
+//   It contains additional methods to configure and manage
+//   partitions.
+// Implemented by: disk object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(9723f420-9355-42de-ab66-e31bb15beeac),
+    pointer_default(unique)
+]
+
+interface IVdsAdvancedDisk2 : IUnknown
+{
+    //
+    // The following methods are new to LH.
+    //
+
+    [helpstring("method ChangePartitionType")]
+    HRESULT ChangePartitionType(
+                [in] ULONGLONG ullOffset,
+                [in] BOOL bForce,
+                [in] CHANGE_PARTITION_TYPE_PARAMETERS *para
+            );
+
+}
+
+
+//
+// IVdsAdvancedDisk3:
+//   This interface is the next version of IVdsAdvancedDisk.
+//   It contains additional methods to configure and manage
+//   partitions.
+// Implemented by: disk object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(3858C0D5-0F35-4BF5-9714-69874963BC36),
+    pointer_default(unique)
+]
+
+interface IVdsAdvancedDisk3 : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+        [out] VDS_ADVANCEDDISK_PROP *pAdvDiskProp
+        );
+
+    [helpstring("method GetUniqueId")]
+    HRESULT GetUniqueId(
+        [out, string] LPWSTR* ppwszId
+        );
+}
+
+
+//
+// IVdsCreatePartitionEx:
+//   This interface is to add alignment feature to CreatePartition
+//   method on IVdsAdvancedDisk interface. It contains only one
+//   method CreatePartitionEx.
+// Implemented by: disk object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(9882f547-cfc3-420b-9750-00dfbec50662),
+    pointer_default(unique)
+]
+
+interface IVdsCreatePartitionEx : IUnknown
+{
+    [helpstring("method CreatePartitionEx")]
+    HRESULT CreatePartitionEx(
+                [in] ULONGLONG ullOffset,
+                [in] ULONGLONG ullSize,
+                [in] ULONG     ulAlign,
+                [in] CREATE_PARTITION_PARAMETERS *para,
+                [out] IVdsAsync **ppAsync
+            );
+        // Remark: CreatePartitionEx will fail on dynamic disks.
+}
+
+//
+// IVdsRemovable:
+//   Only removable disks implement this interface.
+// Implemented by: disk object
+// Implemented where: basic software provider, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(0316560b-5db4-4ed9-bbb5-213436ddc0d9),
+    pointer_default(unique)
+]
+
+interface IVdsRemovable : IUnknown
+{
+    [helpstring("method QueryMedia")]
+    HRESULT QueryMedia(
+            );
+
+    [helpstring("method Eject")]
+    HRESULT Eject(
+                void
+            );
+}
+
+//
+// IVdsVolume:
+// Implemented by: volume object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(88306bb2-e71f-478c-86a2-79da200a0f11),
+    pointer_default(unique)
+]
+
+interface IVdsVolume : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_VOLUME_PROP *pVolumeProperties
+            );
+
+    [helpstring("method GetPack")]
+    HRESULT GetPack(
+                [out] IVdsPack **ppPack
+            );
+
+    // QueryPlexes:
+    //   Retrieve all the plexes of the volume.
+    //   The most common case is that one volume has one plex (except mirror).
+    [helpstring("method QueryPlexes")]
+    HRESULT QueryPlexes(
+                [out] IEnumVdsObject **ppEnum
+            );
+
+    // Extend:
+    //   This method extends a volume by adding extents to each member of each
+    //   plex of the volume. If a plex already has enough extra space (e.g.
+    //   adding a bigger volume as a plex to a small volume), no disk extent
+    //   is needed for that plex. If the disk extents have more space than
+    //   needed, the extra space is not used.
+    //
+    //   Notes:
+    //   1) A basic volume can also be extended, but the extent must be
+    //      contiguous with the volume.
+    //   2) When no extent is supplied, the method will extend the volume
+    //      using any usable extra space on its plexes.
+    //      (E.g. Adding two bigger plexes and then break off the original
+    //            smaller plex, we end up having extra space on each of the
+    //            plexes.)
+    //
+    [helpstring("method Extend")]
+    HRESULT Extend(
+                [in, unique, size_is(lNumberOfDisks)]
+                     VDS_INPUT_DISK *pInputDiskArray,
+                [in] LONG lNumberOfDisks,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // Shrink:
+    //   This method shrinks the volume and all plexes and return the
+    //   released extents.
+    //
+    //   The file system will be shrunk first. In order to shrink a volume,
+    //   the file system must support shrink.
+    //
+    //   Notes:
+    //   1) when uNumberOfBytesToRemove is 0, this method shrink any plex
+    //      whose size is greater than the volume and free up its extra space.
+    [helpstring("method Shrink")]
+    HRESULT Shrink(
+                [in] ULONGLONG ullNumberOfBytesToRemove,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // AddPlex:
+    //    Once a volume is added as a plex to another volume, it is no
+    //    longer a volume itself. It loses its volume device object.
+    //    Its COM object should allow an application to know the volume
+    //    is gone, as if it's deleted.
+    //    The target volume inherits flags from the base volume. The added
+    //    plex loses it's original flags. E.g. VDS_VF_LBN_REMAP_ENABLED.
+    //
+    //    Note:
+    //    1) A mirrored volume can be added as a plex to another volume too.
+    //       The new volume will have a total number of plexes of the sum
+    //       of the two separate volumes.
+    [helpstring("method AddPlex")]
+    HRESULT AddPlex(
+                [in] VDS_OBJECT_ID VolumeId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // BreakPlex:
+    //    Break a specified plex of the volume. The broken-away plex becomes
+    //    a hidden, readonly volume on its own.
+    [helpstring("BreakPlex")]
+    HRESULT BreakPlex(
+                [in] VDS_OBJECT_ID plexId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // RemovePlex:
+    //    Remove a specified plex of the volume. The last plex of a volume
+    //    cannot be removed.
+    [helpstring("RemovePlex")]
+    HRESULT RemovePlex(
+                [in] VDS_OBJECT_ID plexId,
+                [out] IVdsAsync **ppAsync
+            );
+
+    // Delete:
+    //   All plexes are deleted.
+    [helpstring("method Delete")]
+    HRESULT Delete(
+                [in] BOOL bForce
+                    // This flag is reserved for the service. Providers should
+                    // ignore it. It means if the volume is in use, whether or
+                    // not to forcefully delete.
+            );
+
+    // SetFlags:
+    //   The flags can be VDS_VF_LBN_REMAP_ENABLED, VDS_VF_HIDDEN, VDS_VF_READONLY.
+    //   Added flag: VDS_VF_INSTALLABLE to make a dynamic volume installable.
+    [helpstring("method SetFlags")]
+    HRESULT SetFlags(
+                [in] ULONG ulFlags,
+                [in] BOOL bRevertOnClose
+            );
+
+    // ClearFlags:
+    //   The flags can be VDS_VF_LBN_REMAP_ENABLED, VDS_VF_HIDDEN.
+    //   Added flag: VDS_VF_INSTALLABLE to remove hard partition under
+    //   a dynamic volume.
+    [helpstring("method ClearFlags")]
+    HRESULT ClearFlags(
+                [in] ULONG ulFlags
+            );
+}
+
+//
+// IVdsVolume2:
+// Implemented by: volume object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(72AE6713-DCBB-4a03-B36B-371F6AC6B53D),
+    pointer_default(unique)
+]
+
+interface IVdsVolume2 : IUnknown
+{
+    [helpstring("method GetProperties2")]
+    HRESULT GetProperties2(
+                [out] VDS_VOLUME_PROP2 *pVolumeProperties
+            );
+}
+
+
+//
+// IVdsVolumeOnline:
+// Implemented by: volume object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(1BE2275A-B315-4f70-9E44-879B3A2A53F2),
+    pointer_default(unique)
+]
+
+interface IVdsVolumeOnline : IUnknown
+{
+    [helpstring("method Online")]
+    HRESULT Online( void );
+}
+
+
+
+//
+// IVdsVolumePlex:
+// Implemented by: volume plex object
+// Implemented where: software providers, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(4daa0135-e1d1-40f1-aaa5-3cc1e53221c3),
+    pointer_default(unique)
+]
+
+interface IVdsVolumePlex : IUnknown
+{
+    [helpstring("method GetProperties")]
+    HRESULT GetProperties(
+                [out] VDS_VOLUME_PLEX_PROP *pPlexProperties
+            );
+
+    [helpstring("method GetVolume")]
+    HRESULT GetVolume(
+                [out] IVdsVolume **ppVolume
+            );
+
+    [helpstring("method QueryExtents")]
+    HRESULT QueryExtents(
+                [out, size_is(,*plNumberOfExtents)]
+                      VDS_DISK_EXTENT **ppExtentArray,
+                [out] LONG *plNumberOfExtents
+            );
+
+    // Repair:
+    //   This method repairs a fault tolerant volume plex by moving bad
+    //   member to good disks. Only disk id and size should be specified
+    //   for VDS_INPUT_DISK.
+    [helpstring("method Repair")]
+    HRESULT Repair(
+                [in, size_is(lNumberOfDisks)]
+                     VDS_INPUT_DISK *pInputDiskArray,
+                [in] LONG lNumberOfDisks,
+                [out] IVdsAsync **ppAsync
+            );
+}
+
+
+
+//
+// IVdsDisk3:
+// Implemented by: disk object
+// Implemented where: The service, common layer
+// Accessed by: applications
+//
+[
+    object,
+    uuid(8F4B2F5D-EC15-4357-992F-473EF10975B9),
+    pointer_default(unique)
+]
+
+interface IVdsDisk3 : IUnknown
+{
+    [helpstring("method GetProperties2")]
+    HRESULT GetProperties2(
+                [out] VDS_DISK_PROP2 *pDiskProperties
+            );
+
+    [helpstring("method QueryFreeExtents")]
+    HRESULT QueryFreeExtents(
+                [in]  ULONG ulAlign,
+                [out, size_is(,*plNumberOfFreeExtents)]
+                      VDS_DISK_FREE_EXTENT **ppFreeExtentArray,
+                [out] LONG *plNumberOfFreeExtents
+            );
+}
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

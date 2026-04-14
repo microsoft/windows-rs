@@ -1,0 +1,36 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: activation.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+#ifndef DO_NO_IMPORTS
+import "inspectable.idl";
+#endif
+
+[
+    object,
+    uuid(00000035-0000-0000-C000-000000000046),
+    pointer_default(unique)
+]
+interface IActivationFactory : IInspectable
+{
+    typedef [unique] IActivationFactory * PACTIVATIONFACTORY;
+
+	HRESULT ActivateInstance([out] IInspectable** instance);
+}
+
+

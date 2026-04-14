@@ -1,0 +1,24 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+#pragma include("cim_schema_2.26.0.mof")
+
+
+[Indication, Exception, Description (
+	"A Windows error object that encapsulates what is in CIM_Error as well as includes error code, errorCategory, errorMessage and errorType." )]
+class MSFT_WmiError : CIM_Error
+{
+        [Required, Description ("Error code.")]
+    Uint32 error_Code;
+
+        [Description ("Error Category.")]
+    uint16 error_Category;
+
+        [Description ("Error Type.")]
+    string error_Type;
+
+        [Description ("Windows error message.")]
+    string error_WindowsErrorMessage;
+};

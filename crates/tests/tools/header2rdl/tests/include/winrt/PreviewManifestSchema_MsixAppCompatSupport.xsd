@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport"
+           xmlns="http://schemas.microsoft.com/appx/manifest/preview/windows10/msixappcompatsupport"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+    >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+
+  <xs:attributeGroup name="PreviewEntryPointAttributesGroup">
+    <xs:attribute name="CompatMode" type="t:ST_CompatMode" use="optional" form="qualified"/>
+    <xs:attribute name="Scope" type="t:ST_Scope" use="optional" form="qualified"/>
+  </xs:attributeGroup>
+
+  <xs:element name="ProgId" type="t:ST_ProgId"/>
+
+</xs:schema>
+

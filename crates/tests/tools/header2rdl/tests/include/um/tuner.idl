@@ -1,0 +1,3437 @@
+//------------------------------------------------------------------------------
+// File: Tuner.idl
+//
+// Desc: 
+//
+// Copyright (c) 1999 - 2000, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (C) Microsoft Corporation, 1999-2002.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#pragma once")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+#include <olectl.h>
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+import "comcat.idl";
+import "strmif.idl";
+import "bdaiface.idl";
+import "regbag.idl";
+#else
+cpp_quote("#include <bdaiface.h>")
+#endif
+
+interface ITuningSpaceContainer;
+interface ITuningSpace;
+interface IEnumTuningSpaces;
+interface ITuneRequest;
+interface ITuner;
+interface ITunerCap;
+interface IScanningTuner;
+interface IEnumComponentTypes;
+interface IComponentTypes;
+interface IComponentType;
+interface ILanguageComponentType;
+interface IEnumComponents;
+interface IComponents;
+interface IComponent;
+interface IMPEG2ComponentType;
+interface IMPEG2Component;
+interface ILocator;
+interface IATSCLocator;
+interface IDVBSLocator;
+interface IDVBSLocator2;
+interface IDVBTLocator;
+interface IDVBTLocator2;
+interface IDVBCLocator;
+interface IISDBSLocator;
+interface IDigitalCableLocator;
+interface IAnalogLocator;
+interface IDigitalCableTuneRequest;
+interface IDigitalCableTuningSpace;
+
+// tuner.idl:
+//  interface ITuningSpaceContainer : IDispatch
+//  interface ITuningSpace : IDispatch
+//  interface ITuneRequest : IDispatch
+//  interface IComponentType : IDispatch
+//  interface ILanguageComponentType : IComponentType
+//  interface IComponentTypes : IDispatch
+//  interface IComponent : IDispatch
+//  interface IComponents : IDispatch
+//  interface ITVTuningSpace : ITuningSpace
+//  interface IFMRadioTuningSpace : ITuningSpace
+//  interface IAMRadioTuningSpace : ITuningSpace
+//  interface IAnalogTVTuningSpace : ITVTuningSpace
+//  interface IAnalogTVAudioComponent : IComponent
+//  interface IAnalogTVDataComponent : IComponent
+//  interface IChannelTuneRequest : ITuneRequest
+//  interface IDVBComponent : IComponent
+//  interface IDVBTuneRequest : ITuneRequest
+
+// DISPIDs for ITuningSpaces interface
+// we don't expect to inherit from this interface and consequently there's
+//     no chance of collision, thus we'll allow midl to auto assign ids for this one
+
+// DISPIDs for ITuningSpace interface
+enum {
+DISPID_TUNER_TS_UNIQUENAME                      = 1,
+DISPID_TUNER_TS_FRIENDLYNAME                    = 2,
+DISPID_TUNER_TS_CLSID                           = 3,
+DISPID_TUNER_TS_NETWORKTYPE                     = 4,
+DISPID_TUNER_TS__NETWORKTYPE                    = 5,
+DISPID_TUNER_TS_CREATETUNEREQUEST               = 6,
+DISPID_TUNER_TS_ENUMCATEGORYGUIDS               = 7,
+DISPID_TUNER_TS_ENUMDEVICEMONIKERS              = 8,
+DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES  = 9,
+DISPID_TUNER_TS_FREQMAP                         = 10,
+DISPID_TUNER_TS_DEFLOCATOR                      = 11,
+DISPID_TUNER_TS_CLONE                           = 12,
+
+// DISPIDs for ITuneRequest interface
+DISPID_TUNER_TR_TUNINGSPACE                     = 1,
+DISPID_TUNER_TR_COMPONENTS                      = 2,
+DISPID_TUNER_TR_CLONE                           = 3,
+DISPID_TUNER_TR_LOCATOR                         = 4,
+
+
+// DISPID for IComponentType interface
+DISPID_TUNER_CT_CATEGORY                        = 1,
+DISPID_TUNER_CT_MEDIAMAJORTYPE                  = 2,
+DISPID_TUNER_CT__MEDIAMAJORTYPE                 = 3,
+DISPID_TUNER_CT_MEDIASUBTYPE                    = 4,
+DISPID_TUNER_CT__MEDIASUBTYPE                   = 5,
+DISPID_TUNER_CT_MEDIAFORMATTYPE                 = 6,
+DISPID_TUNER_CT__MEDIAFORMATTYPE                = 7,
+DISPID_TUNER_CT_MEDIATYPE                       = 8,
+DISPID_TUNER_CT_CLONE                           = 9,
+
+
+// DISPID for ILanguageComponentType interface
+DISPID_TUNER_LCT_LANGID                         = 100,
+
+// DISPID for IMPEG2ComponentType interface
+DISPID_TUNER_MP2CT_TYPE                         = 200,
+
+// DISPID for IATSCComponentType interface
+DISPID_TUNER_ATSCCT_FLAGS                       = 300,
+
+// DISPID for ILocator interface
+DISPID_TUNER_L_CARRFREQ                         = 1,
+DISPID_TUNER_L_INNERFECMETHOD                   = 2,
+DISPID_TUNER_L_INNERFECRATE                     = 3,
+DISPID_TUNER_L_OUTERFECMETHOD                   = 4,
+DISPID_TUNER_L_OUTERFECRATE                     = 5,
+DISPID_TUNER_L_MOD                              = 6,
+DISPID_TUNER_L_SYMRATE                          = 7,
+DISPID_TUNER_L_CLONE                            = 8,
+
+// DISPID for IATSCLocator interface
+DISPID_TUNER_L_ATSC_PHYS_CHANNEL                = 201,
+DISPID_TUNER_L_ATSC_TSID                        = 202,
+DISPID_TUNER_L_ATSC_MP2_PROGNO                  = 203,
+
+// DISPID for IDVBTLocator interface
+DISPID_TUNER_L_DVBT_BANDWIDTH                   = 301,
+DISPID_TUNER_L_DVBT_LPINNERFECMETHOD            = 302,
+DISPID_TUNER_L_DVBT_LPINNERFECRATE              = 303,
+DISPID_TUNER_L_DVBT_GUARDINTERVAL               = 304,
+DISPID_TUNER_L_DVBT_HALPHA                      = 305,
+DISPID_TUNER_L_DVBT_TRANSMISSIONMODE            = 306,
+DISPID_TUNER_L_DVBT_INUSE                       = 307,
+
+// DISPID for IDVBTLocator2 interface
+DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID        = 351,
+
+// DISPID for IDVBSLocator interface
+DISPID_TUNER_L_DVBS_POLARISATION                = 401,
+DISPID_TUNER_L_DVBS_WEST                        = 402,
+DISPID_TUNER_L_DVBS_ORBITAL                     = 403,
+DISPID_TUNER_L_DVBS_AZIMUTH                     = 404,
+DISPID_TUNER_L_DVBS_ELEVATION                   = 405,
+// DISPID for IDVBSLocator2 interface
+DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE               = 406,
+DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE         = 407,
+DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE          = 408,
+DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE      = 409,
+DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE   = 410,
+DISPID_TUNER_L_DVBS2_ROLLOFF                        = 411,
+DISPID_TUNER_L_DVBS2_PILOT                          = 412,
+
+// DISPID for IDVBCLocator interface
+
+//DISPID for IAnalogLocator inteface
+DISPID_TUNER_L_ANALOG_STANDARD                  =601,
+
+
+// DISPID for IDigitalCableLocator interface
+DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL              = 701,
+
+// DISPIDs for IComponent interface
+DISPID_TUNER_C_TYPE                             = 1,
+DISPID_TUNER_C_STATUS                           = 2,
+DISPID_TUNER_C_LANGID                           = 3,
+DISPID_TUNER_C_DESCRIPTION                      = 4,
+DISPID_TUNER_C_CLONE                            = 5,
+
+// DISPIDs for IMPEG2Component interface
+DISPID_TUNER_C_MP2_PID                           = 101,
+DISPID_TUNER_C_MP2_PCRPID                        = 102,
+DISPID_TUNER_C_MP2_PROGNO                        = 103,
+
+// DISPIDs for IAnalogAudioComponent
+DISPID_TUNER_C_ANALOG_AUDIO                      = 201,
+// DISPIDs for IDVBTuningSpace interface
+DISPID_TUNER_TS_DVB_SYSTEMTYPE                = 101,
+// DISPIDs for IDVBTuningSpace2 interface
+DISPID_TUNER_TS_DVB2_NETWORK_ID               = 102,
+// DISPIDs for IDVBSTuningSpace interface
+DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ             = 1001,
+DISPID_TUNER_TS_DVBS_HI_OSC_FREQ              = 1002,
+DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ          = 1003,
+DISPID_TUNER_TS_DVBS_INPUT_RANGE              = 1004,
+DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION       = 1005,
+
+// DISPIDs for IAnalogRadioTuningSpace interface
+DISPID_TUNER_TS_AR_MINFREQUENCY               = 101,
+DISPID_TUNER_TS_AR_MAXFREQUENCY               = 102,
+DISPID_TUNER_TS_AR_STEP                       = 103,
+DISPID_TUNER_TS_AR_COUNTRYCODE                = 104,
+
+// DISPIDs for IAuxTuningSpace interface
+DISPID_TUNER_TS_AUX_COUNTRYCODE                = 101,
+
+// DISPIDs for IAnalogTVTuningSpace interface
+DISPID_TUNER_TS_ATV_MINCHANNEL                 = 101,
+DISPID_TUNER_TS_ATV_MAXCHANNEL                 = 102,
+DISPID_TUNER_TS_ATV_INPUTTYPE                  = 103,
+DISPID_TUNER_TS_ATV_COUNTRYCODE                = 104,
+
+// DISPIDs for IATSCTuningSpace interface
+DISPID_TUNER_TS_ATSC_MINMINORCHANNEL           = 201,
+DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL           = 202,
+DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL            = 203,
+DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL            = 204,
+
+// DISPIDs for IDigitalCableTuningSpace interface
+DISPID_TUNER_TS_DC_MINMAJORCHANNEL           = 301,
+DISPID_TUNER_TS_DC_MAXMAJORCHANNEL           = 302,
+DISPID_TUNER_TS_DC_MINSOURCEID            = 303,
+DISPID_TUNER_TS_DC_MAXSOURCEID            = 304,
+
+
+// DISPID for IAnalogTVAudioComponent interface
+DISPID_CHTUNER_ATVAC_CHANNEL                    = 101,
+
+// DISPIDs for IAnalogTVDataComponent interface
+DISPID_CHTUNER_ATVDC_SYSTEM                     = 101,
+DISPID_CHTUNER_ATVDC_CONTENT                    = 102,
+
+// DISPID for IChannelIDTuneRequest interface
+DISPID_CHTUNER_CIDTR_CHANNELID                      = 101,
+
+// DISPID for IChannelTuneRequest interface
+DISPID_CHTUNER_CTR_CHANNEL                      = 101,
+
+// DISPID IATSCChannelTuneRequest
+DISPID_CHTUNER_ACTR_MINOR_CHANNEL               = 201,
+
+// DISPID IDigitalCableTuneRequest
+DISPID_CHTUNER_DCTR_MAJOR_CHANNEL				= 301,
+DISPID_CHTUNER_DCTR_SRCID						= 302,
+
+// DISPIDs for IDVBComponent interface
+DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID            = 101,
+DISPID_DVBTUNER_DVBC_PID                        = 102,
+DISPID_DVBTUNER_DVBC_TAG                        = 103,
+DISPID_DVBTUNER_DVBC_COMPONENTTYPE              = 104,
+
+// DISPIDs for IDVBTuneRequest interface
+DISPID_DVBTUNER_ONID         = 101,
+DISPID_DVBTUNER_TSID         = 102,
+DISPID_DVBTUNER_SID          = 103,
+
+// DISPIDs for IMPEG2TuneRequest interface
+DISPID_MP2TUNER_TSID         = 101,
+DISPID_MP2TUNER_PROGNO       = 102,
+
+// DISPIDs for IMPEG2TuneRequestFactory interface
+DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST        = 1,
+
+};
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Tuning Space Container
+//////////////////////////////////////////////////////////////////////////////////////
+// simple read-only collection of tuning spaces for enumerating subsets of the total
+// set of system tuning spaces
+    [
+        object,
+        uuid(901284E4-33FE-4b69-8D63-634A596F3756),
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        helpstring("Tuning Space Collection Interface"),
+        pointer_default(unique)
+    ]
+    interface ITuningSpaces : IDispatch
+    {
+
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count(
+            [out, retval] long *Count
+            );
+
+        [propget, id(DISPID_NEWENUM), hidden, restricted]
+        HRESULT _NewEnum(
+            [out, retval] IEnumVARIANT** NewEnum
+            );
+
+        [id(DISPID_VALUE),
+            propget,
+            helpstring("Find the Tuning Space with the specified Index")]
+        HRESULT Item(
+            [in] VARIANT varIndex,
+            [out, retval] ITuningSpace** TuningSpace
+            );
+
+        [propget, hidden, restricted, 
+            helpstring("convenience function so C++ apps don't have to unpack VARIANT")]
+        HRESULT EnumTuningSpaces(
+            [out, retval] IEnumTuningSpaces** NewEnum
+            );
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Tuning Space Container
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        uuid(5B692E84-E2F1-11d2-9493-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        hidden,
+        nonextensible,
+        helpstring("Tuning Space Container Interface"),
+        pointer_default(unique)
+    ]
+    interface ITuningSpaceContainer : IDispatch
+    {
+
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count(
+            [out, retval] long *Count
+            );
+
+        [propget, id(DISPID_NEWENUM), hidden, restricted]
+        HRESULT _NewEnum(
+            [out, retval] IEnumVARIANT** NewEnum
+            );
+
+        [id(DISPID_VALUE),
+            propget,
+            helpstring("Find the Tuning Space with the specified Index")]
+        HRESULT Item(
+            [in] VARIANT varIndex,
+            [out, retval] ITuningSpace** TuningSpace
+            );
+        [id(DISPID_VALUE),
+            propput,
+            helpstring("Change the Tuning Space with the specified Index")]
+        HRESULT Item([in] VARIANT varIndex, [in] ITuningSpace *TuningSpace);
+
+        [helpstring("Returns the collection of Tuning Spaces with the same implementation")]
+        HRESULT TuningSpacesForCLSID(
+            [in] BSTR SpaceCLSID,
+            [out, retval] ITuningSpaces** NewColl
+            );
+
+        [hidden, restricted, 
+            helpstring("Convenience Function for enumerating from C")]
+        HRESULT _TuningSpacesForCLSID(
+            [in] REFCLSID SpaceCLSID,
+            [out, retval] ITuningSpaces** NewColl
+            );
+
+        [helpstring("Returns the collection of Tuning Spaces matching the name")]
+        HRESULT TuningSpacesForName(
+            [in] BSTR Name,
+            [out, retval] ITuningSpaces** NewColl
+            );
+
+        [helpstring("Find Local ID Number of the specified Tuning Space")]
+        HRESULT FindID(
+            [in] ITuningSpace *TuningSpace,
+            [out, retval] long *ID
+            );
+
+
+        [id(DISPID_ADDITEM), 
+         helpstring("Add a new Tuning Space to the collection.  This tuning space will be persisted unless removed")]
+        HRESULT Add(
+            [in] ITuningSpace* TuningSpace,
+            [out, retval] VARIANT* NewIndex
+            );
+
+        [propget, hidden, restricted, helpstring("Convenience Function for enumerating collection from C")]
+        HRESULT EnumTuningSpaces(
+            [out, retval] IEnumTuningSpaces **ppEnum
+            );
+
+        [id(DISPID_REMOVEITEM), 
+         helpstring("Remove a Tuning Space from the collection.  this tuning space will be deleted from the registry")]
+        HRESULT Remove(
+            [in] VARIANT Index
+            );
+
+        [propget, helpstring("Maximum number of items allowed in the collection")]
+        HRESULT MaxCount(
+            [out, retval] long *MaxCount
+            );
+
+        // we don't allow script to set this, but we do allow c code to change it.
+        [propput, hidden, restricted, helpstring("Maximum number of items allowed in the collection")]
+        HRESULT MaxCount(
+            [in] long MaxCount
+            );
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Tuning Space Interfaces
+//////////////////////////////////////////////////////////////////////////////////////
+
+// note: the network type is the clsid of the tuning space implementation
+    [
+        object,
+        uuid(061C6E30-E622-11d2-9493-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        helpstring("Tuning Space Interface"),
+        pointer_default(unique)
+    ]
+    interface ITuningSpace : IDispatch
+    {
+        [propget, id(DISPID_TUNER_TS_UNIQUENAME),
+             helpstring("Unique name of the Tuning Space")]
+        HRESULT UniqueName(
+            [out, retval] BSTR *Name
+            );
+
+        [propput, id(DISPID_TUNER_TS_UNIQUENAME),
+             helpstring("Unique name of the Tuning Space")]
+        HRESULT UniqueName(
+            [in] BSTR Name
+            );
+
+        [propget, id(DISPID_TUNER_TS_FRIENDLYNAME),
+             helpstring("User-friendly name of the Tuning Space")]
+        HRESULT FriendlyName(
+            [out, retval] BSTR *Name
+            );
+
+        [propput, id(DISPID_TUNER_TS_FRIENDLYNAME),
+             helpstring("User-friendly name of the Tuning Space")]
+        HRESULT FriendlyName(
+            [in] BSTR Name
+            );
+
+        [propget, id(DISPID_TUNER_TS_CLSID), 
+            helpstring("Returns the clsid of the tuning space implementation.  provides script access to IPersist:GetClassID")]
+        HRESULT CLSID(
+            [out, retval] BSTR* SpaceCLSID
+            );
+
+        [propget, id(DISPID_TUNER_TS_NETWORKTYPE),
+             helpstring("Network Type (Network Proivder CLSID)")]
+        HRESULT NetworkType(
+            [out, retval] BSTR *NetworkTypeGuid
+            );
+        [propput, id(DISPID_TUNER_TS_NETWORKTYPE),
+             helpstring("Network Type (Network Proivder CLSID)")]
+        HRESULT NetworkType(
+            [in] BSTR NetworkTypeGuid
+            );
+
+        [propget, id(DISPID_TUNER_TS__NETWORKTYPE),
+             helpstring("Network Type (Network Proivder CLSID)"), hidden, restricted]
+        HRESULT _NetworkType(
+            [out, retval] GUID* NetworkTypeGuid
+            );
+        [propput, id(DISPID_TUNER_TS__NETWORKTYPE),
+             helpstring("Network Type (Network Proivder CLSID)"), hidden, restricted]
+        HRESULT _NetworkType(
+            [in] REFCLSID NetworkTypeGuid
+            );
+
+        // this method creates the "best" kind of tune request for this tuning space.
+        // the tuning space may support other kinds of tune requests created via 
+        // other factory mechanisms(for example, see mpeg2tunerequestfactory).  but, 
+        // this method is the preferred way to get a tune request as it always returns
+        // the optimal type of tune request for this space.
+        [id(DISPID_TUNER_TS_CREATETUNEREQUEST),
+            helpstring("Create a Tune Request object")]
+        HRESULT CreateTuneRequest(
+            [out, retval] ITuneRequest **TuneRequest
+            );
+
+        [id(DISPID_TUNER_TS_ENUMCATEGORYGUIDS), hidden, restricted]
+        HRESULT EnumCategoryGUIDs(
+            [out, retval] IEnumGUID **ppEnum
+            );
+
+        [id(DISPID_TUNER_TS_ENUMDEVICEMONIKERS), hidden, restricted]
+        HRESULT EnumDeviceMonikers(
+            [out, retval] IEnumMoniker **ppEnum
+            );
+
+        [propget, id(DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES)]
+        HRESULT DefaultPreferredComponentTypes(
+            [out, retval] IComponentTypes** ComponentTypes
+            );
+        [propput, id(DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES)]
+        HRESULT DefaultPreferredComponentTypes(
+            [in] IComponentTypes* NewComponentTypes
+            );
+
+        // the following property is for the network providers to store frequency/channel maps, frequency/transponder maps
+        // or whatever other mapping from carrier frequencies to frequency identifiers are appropriate for the tuning space
+        // in question.  the bstr is treated as a binary blob.  it is expected to contain embedded nulls,  and it may be formatted
+        // internally in whatever fashion the network provider sees fit.
+        [propget, id(DISPID_TUNER_TS_FREQMAP)]
+        HRESULT FrequencyMapping([out, retval] BSTR *pMapping);
+        [propput, id(DISPID_TUNER_TS_FREQMAP)]
+        HRESULT FrequencyMapping(BSTR Mapping);
+
+        // the following property provides a starting point for the initial IScanningTuner after installation
+        [propget, id(DISPID_TUNER_TS_DEFLOCATOR)]
+        HRESULT DefaultLocator([out, retval] ILocator **LocatorVal);
+        [propput, id(DISPID_TUNER_TS_DEFLOCATOR)]
+        HRESULT DefaultLocator([in]ILocator *LocatorVal);
+
+        HRESULT Clone([out, retval] ITuningSpace **NewTS);
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        hidden,
+        restricted,
+        object,
+        uuid(8B8EB248-FC2B-11d2-9D8C-00C04F72D980),
+        pointer_default(unique)
+    ]
+    interface IEnumTuningSpaces : IUnknown
+    {
+        HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)]
+                ITuningSpace** rgelt,
+            [out] ULONG* pceltFetched
+            );
+
+        HRESULT Skip(
+            [in] ULONG celt
+            );
+
+        HRESULT Reset(void);
+
+        HRESULT Clone(
+            [out] IEnumTuningSpaces** ppEnum
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(ADA0B268-3B19-4e5b-ACC4-49F852BE13BA),
+        pointer_default(unique)
+    ]
+    interface IDVBTuningSpace : ITuningSpace
+    {
+        [propget, id(DISPID_TUNER_TS_DVB_SYSTEMTYPE),
+         helpstring("Type of DVB System")
+        ]
+        HRESULT SystemType(
+            [out, retval] DVBSystemType *SysType
+            );
+        [propput, id(DISPID_TUNER_TS_DVB_SYSTEMTYPE),
+         helpstring("Type of DVB System")
+        ]
+        HRESULT SystemType(
+            [in] DVBSystemType SysType
+            );
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(843188B4-CE62-43db-966B-8145A094E040),
+        pointer_default(unique)
+    ]
+    interface IDVBTuningSpace2 : IDVBTuningSpace
+    {
+        [propget, id(DISPID_TUNER_TS_DVB2_NETWORK_ID),
+         helpstring("Network ID of DVB System")
+        ]
+        HRESULT NetworkID(
+            [out, retval] long *NetworkID
+            );
+        [propput, id(DISPID_TUNER_TS_DVB2_NETWORK_ID),
+         helpstring("Network ID of DVB System")
+        ]
+        HRESULT NetworkID(
+            [in] long NetworkID
+            );
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(CDF7BE60-D954-42fd-A972-78971958E470),
+        pointer_default(unique)
+    ]
+    interface IDVBSTuningSpace : IDVBTuningSpace2
+    {
+
+        [propget, id(DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ),
+         helpstring("Low Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LowOscillator(
+            [out, retval] long *LowOscillator
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ),
+         helpstring("Low Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LowOscillator(
+            [in] long LowOscillator
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS_HI_OSC_FREQ),
+         helpstring("High Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT HighOscillator(
+            [out, retval] long *HighOscillator
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS_HI_OSC_FREQ),
+         helpstring("High Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT HighOscillator(
+            [in] long HighOscillator
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ),
+         helpstring("LNB Switch Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LNBSwitch(
+            [out, retval] long *LNBSwitch
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ),
+         helpstring("LNB Switch Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LNBSwitch(
+            [in] long LNBSwitch
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS_INPUT_RANGE),
+         helpstring("Which Option/Switch contains the requested signal source")
+        ]
+        HRESULT InputRange(
+            [out, retval] BSTR *InputRange
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS_INPUT_RANGE),
+         helpstring("Which Option/Switch contains the requested signal source")
+        ]
+        HRESULT InputRange(
+            [in] BSTR InputRange
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION),
+         helpstring("Which Option/Switch contains the requested signal source")
+        ]
+        HRESULT SpectralInversion(
+            [out, retval] SpectralInversion *SpectralInversionVal
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION),
+         helpstring("Which Option/Switch contains the requested signal source")
+        ]
+        HRESULT SpectralInversion(
+            [in] SpectralInversion SpectralInversionVal
+            );
+
+
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+   [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(E48244B8-7E17-4f76-A763-5090FF1E2F30),
+        pointer_default(unique)
+    ]
+    interface IAuxInTuningSpace : ITuningSpace
+    {
+    }
+
+   [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(B10931ED-8BFE-4AB0-9DCE-E469C29A9729),
+        pointer_default(unique)
+    ]
+    interface IAuxInTuningSpace2 : IAuxInTuningSpace
+    {
+        [propget, id(DISPID_TUNER_TS_AUX_COUNTRYCODE),
+         helpstring("International dialing prefix for Country/Region of physical broadcast source")
+        ]
+        HRESULT CountryCode([out, retval] long *CountryCodeVal);
+        [propput, id(DISPID_TUNER_TS_AUX_COUNTRYCODE),
+         helpstring("International dialing prefix for Country/Region of physical broadcast source")
+        ]
+        HRESULT CountryCode([in] long NewCountryCodeVal);
+    }
+    
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(2A6E293C-2595-11d3-B64C-00C04F79498E),
+        pointer_default(unique)
+    ]
+    interface IAnalogTVTuningSpace : ITuningSpace
+    {
+        [propget, id(DISPID_TUNER_TS_ATV_MINCHANNEL),
+         helpstring("Smallest channel number ever provided by this tuning space")
+        ]
+        HRESULT MinChannel(
+            [out, retval] long *MinChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_ATV_MINCHANNEL),
+         helpstring("Smallest channel number ever provided by this tuning space")
+        ]
+        HRESULT MinChannel(
+            [in] long NewMinChannelVal
+            );
+        [propget, id(DISPID_TUNER_TS_ATV_MAXCHANNEL),
+         helpstring("Largest channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxChannel(
+            [out, retval] long *MaxChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_ATV_MAXCHANNEL),
+         helpstring("Largest channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxChannel(
+            [in] long NewMaxChannelVal
+            );
+        [propget, id(DISPID_TUNER_TS_ATV_INPUTTYPE),
+         helpstring("Input type for this tuning space")
+        ]
+        HRESULT InputType([out, retval] TunerInputType *InputTypeVal);
+        [propput, id(DISPID_TUNER_TS_ATV_INPUTTYPE),
+         helpstring("Input type for this tuning space")
+        ]
+        HRESULT InputType([in] TunerInputType NewInputTypeVal);
+        [propget, id(DISPID_TUNER_TS_ATV_COUNTRYCODE),
+         helpstring("International dialing prefix for Country/Region of physical broadcast source")
+        ]
+        HRESULT CountryCode([out, retval] long *CountryCodeVal);
+        [propput, id(DISPID_TUNER_TS_ATV_COUNTRYCODE),
+         helpstring("International dialing prefix for Country/Region of physical broadcast source")
+        ]
+        HRESULT CountryCode([in] long NewCountryCodeVal);
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(0369B4E2-45B6-11d3-B650-00C04F79498E),
+        pointer_default(unique)
+    ]
+// note: we inherit ATSC from analog because we need the same properties.
+// - the definition of channel is overloaded to be the major channel,
+// - input type allows us to distinguish between broadcast and cable frequencies
+// which allows us to use the atsc tuning space class for "open cable".
+// - country/Region code will allow us to redefine physical channel frequencies
+// if any other countries/regions adopt ATSC which may happen in Latin America in particular.
+    interface IATSCTuningSpace : IAnalogTVTuningSpace
+    {
+        [propget, id(DISPID_TUNER_TS_ATSC_MINMINORCHANNEL),
+         helpstring("Smallest minor channel number ever provided by this tuning space")
+        ]
+        HRESULT MinMinorChannel(
+            [out, retval] long *MinMinorChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_ATSC_MINMINORCHANNEL),
+         helpstring("Smallest minor channel number ever provided by this tuning space")
+        ]
+        HRESULT MinMinorChannel(
+            [in] long NewMinMinorChannelVal
+            );
+        [propget, id(DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL),
+         helpstring("Largest minor channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxMinorChannel(
+            [out, retval] long *MaxMinorChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL),
+         helpstring("Largest minor channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxMinorChannel(
+            [in] long NewMaxMinorChannelVal
+            );
+        [propget, id(DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL),
+         helpstring("Smallest physical channel number ever provided by this tuning space")
+        ]
+        HRESULT MinPhysicalChannel(
+            [out, retval] long *MinPhysicalChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL),
+         helpstring("Smallest physical channel number ever provided by this tuning space")
+        ]
+        HRESULT MinPhysicalChannel(
+            [in] long NewMinPhysicalChannelVal
+            );
+        [propget, id(DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL),
+         helpstring("Largest physical channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxPhysicalChannel(
+            [out, retval] long *MaxPhysicalChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL),
+         helpstring("Largest physical channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxPhysicalChannel(
+            [in] long NewMaxPhysicalChannelVal
+            );
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(013F9F9C-B449-4ec7-A6D2-9D4F2FC70AE5),
+        pointer_default(unique)
+    ]
+// note: we inherit from ATSC because we need the same properties.
+// - the definition of channel is overloaded to be the major channel,
+// - input type allows us to distinguish between broadcast and cable frequencies
+// which allows us to use the atsc tuning space class for "open cable".
+// - country/Region code will allow us to redefine physical channel frequencies
+// if any other countries/regions adopt ATSC which may happen in Latin America in particular.
+    interface IDigitalCableTuningSpace : IATSCTuningSpace
+    {
+		// NOTE: channel is vcn in the cable world, so we need a separate field for major 
+		//       see digital cable tr for more details
+        [propget, id(DISPID_TUNER_TS_DC_MINMAJORCHANNEL),
+         helpstring("Smallest Major channel number ever provided by this tuning space")
+        ]
+        HRESULT MinMajorChannel(
+            [out, retval] long *MinMajorChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_DC_MINMAJORCHANNEL),
+         helpstring("Smallest Major channel number ever provided by this tuning space")
+        ]
+        HRESULT MinMajorChannel(
+            [in] long NewMinMajorChannelVal
+            );
+        [propget, id(DISPID_TUNER_TS_DC_MAXMAJORCHANNEL),
+         helpstring("Largest Major channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxMajorChannel(
+            [out, retval] long *MaxMajorChannelVal
+            );
+        [propput, id(DISPID_TUNER_TS_DC_MAXMAJORCHANNEL),
+         helpstring("Largest Major channel number ever provided by this tuning space")
+        ]
+        HRESULT MaxMajorChannel(
+            [in] long NewMaxMajorChannelVal
+            );
+
+        [propget, id(DISPID_TUNER_TS_DC_MINSOURCEID),
+         helpstring("Smallest Source ID number ever provided by this tuning space")
+        ]
+        HRESULT MinSourceID(
+            [out, retval] long *MinSourceIDVal
+            );
+        [propput, id(DISPID_TUNER_TS_DC_MINSOURCEID),
+         helpstring("Smallest Source ID number ever provided by this tuning space")
+        ]
+        HRESULT MinSourceID(
+            [in] long NewMinSourceIDVal
+            );
+        [propget, id(DISPID_TUNER_TS_DC_MAXSOURCEID),
+         helpstring("Largest Source ID number ever provided by this tuning space")
+        ]
+        HRESULT MaxSourceID(
+            [out, retval] long *MaxSourceIDVal
+            );
+        [propput, id(DISPID_TUNER_TS_DC_MAXSOURCEID),
+         helpstring("Largest Source ID number ever provided by this tuning space")
+        ]
+        HRESULT MaxSourceID(
+            [in] long NewMaxSourceIDVal
+            );
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(2A6E293B-2595-11d3-B64C-00C04F79498E),
+        pointer_default(unique)
+    ]
+    interface IAnalogRadioTuningSpace : ITuningSpace {
+        [propget, id(DISPID_TUNER_TS_AR_MINFREQUENCY),
+         helpstring("Smallest frequency(KHz) ever used by this tuning space")
+        ]
+        HRESULT MinFrequency(
+            [out, retval] long *MinFrequencyVal
+            );
+        [propput, id(DISPID_TUNER_TS_AR_MINFREQUENCY),
+         helpstring("Smallest frequency(KHz) ever used by this tuning space")
+        ]
+        HRESULT MinFrequency(
+            [in] long NewMinFrequencyVal
+            );
+        [propget, id(DISPID_TUNER_TS_AR_MAXFREQUENCY),
+         helpstring("Largest frequency(KHz) ever used by this tuning space")
+        ]
+        HRESULT MaxFrequency(
+            [out, retval] long *MaxFrequencyVal
+            );
+        [propput, id(DISPID_TUNER_TS_AR_MAXFREQUENCY),
+         helpstring("Largest frequency(KHz) ever used by this tuning space")
+        ]
+        HRESULT MaxFrequency(
+            [in] long NewMaxFrequencyVal
+            );
+        [propget, id(DISPID_TUNER_TS_AR_STEP),
+         helpstring("Default step value(KHz) to next frequency for this tuning space")
+        ]
+        HRESULT Step(
+            [out, retval] long *StepVal
+            );
+        [propput, id(DISPID_TUNER_TS_AR_STEP),
+         helpstring("Default step value(KHz) to next frequency for this tuning space")
+        ]
+        HRESULT Step(
+            [in] long NewStepVal
+            );      
+    }
+
+    [
+        object,
+        hidden,
+        dual,
+        oleautomation,
+        proxy,
+        nonextensible,
+        uuid(39DD45DA-2DA8-46BA-8A8A-87E2B73D983A),
+        pointer_default(unique)
+    ]
+    interface IAnalogRadioTuningSpace2 : IAnalogRadioTuningSpace {
+        [propget, id(DISPID_TUNER_TS_AR_COUNTRYCODE),
+         helpstring("International dialing prefix for Country/Region of physical broadcast source")
+        ]
+        HRESULT CountryCode([out, retval] long *CountryCodeVal);
+        [propput, id(DISPID_TUNER_TS_AR_COUNTRYCODE),
+         helpstring("International dialing prefix for Country/Region of physical broadcast source")
+        ]
+        HRESULT CountryCode([in] long NewCountryCodeVal);
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Tune Request Interfaces
+//////////////////////////////////////////////////////////////////////////////////////
+// tune requests(of any kind) can only be obtained from tune request factories such as 
+// ITuningSpace::CreateTuneRequest.  one reason for this is that we always want to be 
+// certain that a tune request is bound to the right tuning space.  this means we don't 
+// have to perform consistency checks all over the place.
+    [
+        object,
+        nonextensible,
+        uuid(07DDC146-FC3D-11d2-9D8C-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface ITuneRequest : IDispatch
+    {
+        [propget, id(DISPID_TUNER_TR_TUNINGSPACE),
+            helpstring("Tuning Space object")]
+        HRESULT TuningSpace(
+            [out, retval] ITuningSpace **TuningSpace
+            );
+        [propget, id(DISPID_TUNER_TR_COMPONENTS),
+            helpstring("Components collection")]
+        HRESULT Components(
+            [out, retval] IComponents **Components
+            );
+        [id(DISPID_TUNER_TR_CLONE),
+            helpstring("Create a new copy of this tune request")]
+        HRESULT Clone(
+            [out, retval] ITuneRequest **NewTuneRequest
+            );
+        [propget, id(DISPID_TUNER_TR_LOCATOR),
+            helpstring("Locator Object")]
+        HRESULT Locator(
+            [out, retval] ILocator **Locator
+            );
+        [propput, id(DISPID_TUNER_TR_LOCATOR),
+            helpstring("Locator Object")]
+        HRESULT Locator(
+            [in] ILocator *Locator
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(156EFF60-86F4-4e28-89FC-109799FD57EE),
+        dual,
+        oleautomation,
+        helpstring("Channel ID Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface IChannelIDTuneRequest : ITuneRequest
+    {
+        [propget, id(DISPID_CHTUNER_CIDTR_CHANNELID),
+            helpstring("Channel")]
+        HRESULT ChannelID(
+            [out, retval] BSTR *ChannelID
+            );
+        [propput, id(DISPID_CHTUNER_CIDTR_CHANNELID),
+            helpstring("Channel")]
+        HRESULT ChannelID(
+            [in] BSTR ChannelID
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(0369B4E0-45B6-11d3-B650-00C04F79498E),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Channel Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface IChannelTuneRequest : ITuneRequest
+    {
+        [propget, id(DISPID_CHTUNER_CTR_CHANNEL),
+            helpstring("Channel")]
+        HRESULT Channel(
+            [out, retval] long *Channel
+            );
+        [propput, id(DISPID_CHTUNER_CTR_CHANNEL),
+            helpstring("Channel")]
+        HRESULT Channel(
+            [in] long Channel
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(0369B4E1-45B6-11d3-B650-00C04F79498E),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("ATSC Channel Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface IATSCChannelTuneRequest : IChannelTuneRequest
+    {
+        [propget, id(DISPID_CHTUNER_ACTR_MINOR_CHANNEL),
+            helpstring("Minor Channel")]
+        HRESULT MinorChannel(
+            [out, retval] long *MinorChannel
+            );
+        [propput, id(DISPID_CHTUNER_ACTR_MINOR_CHANNEL),
+            helpstring("Minor Channel")]
+        HRESULT MinorChannel(
+            [in] long MinorChannel
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(BAD7753B-6B37-4810-AE57-3CE0C4A9E6CB),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Digital Cable Channel Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface IDigitalCableTuneRequest : IATSCChannelTuneRequest
+    {
+		// in the cable tr case the base channel is virtual channel (VCN)
+		// so we need a major in case someone wants to tune major/minor on a
+		// cable card absent remodulated atsc feed
+		// channel/vcn is checked first
+		// if channel == BDA_UNDEFINED_CHANNEL
+		// srcid checked
+		// if srcid == BDA_UNDEFINED_CHANNEL
+		// major/minor checked
+        [propget, id(DISPID_CHTUNER_DCTR_MAJOR_CHANNEL),
+            helpstring("Major Channel")]
+        HRESULT MajorChannel(
+            [out, retval] long *pMajorChannel
+            );
+        [propput, id(DISPID_CHTUNER_DCTR_MAJOR_CHANNEL),
+            helpstring("Major Channel")]
+        HRESULT MajorChannel(
+            [in] long MajorChannel
+            );
+        [propget, id(DISPID_CHTUNER_DCTR_SRCID),
+            helpstring("Source ID")]
+        HRESULT SourceID(
+            [out, retval] long *pSourceID
+            );
+        [propput, id(DISPID_CHTUNER_DCTR_SRCID),
+            helpstring("Source ID")]
+        HRESULT SourceID(
+            [in] long SourceID
+            );
+
+
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(0D6F567E-A636-42bb-83BA-CE4C1704AFA2),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DVB Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface IDVBTuneRequest : ITuneRequest
+    {
+        [propget, id(DISPID_DVBTUNER_ONID),
+            helpstring("Original Network ID")]
+        HRESULT ONID(
+            [out, retval] long *ONID
+            );
+        [propput, id(DISPID_DVBTUNER_ONID),
+            helpstring("Original Network ID")]
+        HRESULT ONID(
+            [in] long ONID
+            );
+        [propget, id(DISPID_DVBTUNER_TSID),
+            helpstring("Transport Stream ID")]
+        HRESULT TSID(
+            [out, retval] long *TSID
+            );
+        [propput, id(DISPID_DVBTUNER_TSID),
+            helpstring("Transport Stream ID")]
+        HRESULT TSID(
+            [in] long TSID
+            );
+        [propget, id(DISPID_DVBTUNER_SID),
+            helpstring("Service ID")]
+        HRESULT SID(
+            [out, retval] long *SID
+            );
+        [propput, id(DISPID_DVBTUNER_SID),
+            helpstring("Service ID")]
+        HRESULT SID(
+            [in] long SID
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+/// There are times(for example, reading from a file) when its useful to be able to tune
+/// a basic mpeg2 transport stream that contains minimal tables.  this requires the least
+/// common denominator mpeg2 xport stream id information
+/// the following tune request supplies these properties.  it can typiclly only be obtained from
+/// an mpeg2tunerequestfactory object. no known tune request(at this time) will return this
+/// from their createtunerequest() method.  in other words, this is not the "best" tune request
+/// for any of the current tuning spaces.
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(EB7D987F-8A01-42ad-B8AE-574DEEE44D1A),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("MPEG2 Tune Request Interface"),
+        pointer_default(unique)
+    ]
+    interface IMPEG2TuneRequest : ITuneRequest
+    {
+        [propget, id(DISPID_MP2TUNER_TSID),
+            helpstring("Transport Stream ID")]
+        HRESULT TSID(
+            [out, retval] long *TSID
+            );
+        [propput, id(DISPID_MP2TUNER_TSID),
+            helpstring("Transport Stream ID")]
+        HRESULT TSID(
+            [in] long TSID
+            );
+        [propget, id(DISPID_MP2TUNER_PROGNO),
+            helpstring("Program Number ID")]
+        HRESULT ProgNo(
+            [out, retval] long *ProgNo
+            );
+        [propput, id(DISPID_MP2TUNER_PROGNO),
+            helpstring("Program Number ID")]
+        HRESULT ProgNo(
+            [in] long ProgNo
+            );
+    }
+
+    [
+        object,
+        nonextensible,
+        hidden,
+        uuid(14E11ABD-EE37-4893-9EA1-6964DE933E39),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("MPEG2 Tune Request Factory Interface"),
+        pointer_default(unique)
+    ]
+    interface IMPEG2TuneRequestFactory : IDispatch
+    {
+        [id(DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST),
+            helpstring("Create MPEG2 Tune Request for specified tuning space(if possible)")]
+        HRESULT CreateTuneRequest(
+            [in] ITuningSpace *TuningSpace,
+            [out, retval] IMPEG2TuneRequest **TuneRequest
+            );
+    }
+
+    [
+        object,
+        hidden,
+        restricted,
+        nonextensible,
+        uuid(1B9D5FC3-5BBC-4b6c-BB18-B9D10E3EEEBF),
+        helpstring("MPEG2 Tune Request Supported Interface"),
+        pointer_default(unique)
+    ]
+    interface IMPEG2TuneRequestSupport : IUnknown
+    {
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Tuner Capability Interfaces
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(E60DFA45-8D56-4e65-A8AB-D6BE9412C249),
+        helpstring("Tuner Capability Interface"),
+        pointer_default(unique)
+    ]
+    interface ITunerCap : IUnknown
+    {
+        [propget, helpstring("Get Supported Network Types")]
+        HRESULT SupportedNetworkTypes(
+            [in] ULONG ulcNetworkTypesMax, 
+            [out] ULONG *pulcNetworkTypes, 
+            [in, out] GUID *pguidNetworkTypes
+            );
+
+        [propget, helpstring("Get Supported Video Formats")]
+        HRESULT SupportedVideoFormats(
+            [out] ULONG /* AMTunerModeType */ *pulAMTunerModeType, 
+            [out] ULONG /* AnalogVideoStandard */ *pulAnalogVideoStandard
+            );
+
+        [propget, helpstring("Get number of Aux Inputs")]
+        HRESULT AuxInputCount(
+            [in, out] ULONG *pulCompositeCount,
+            [in, out] ULONG *pulSvideoCount
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(ed3e0c66-18c8-4ea6-9300-f6841fdd35dc),
+        helpstring("Tuner Capability Ex Interface"),
+        pointer_default(unique)
+    ]
+    interface ITunerCapEx : IUnknown
+    {
+        [propget, helpstring("Get whether 608/708 closed caption is suported or not")]
+        HRESULT Has608_708Caption(
+            [out, retval]VARIANT_BOOL* pbHasCaption
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Tuner Interfaces
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(28C52640-018A-11d3-9D8E-00C04F72D980),
+        helpstring("Tuner Interface"),
+        pointer_default(unique)
+    ]
+    interface ITuner : IUnknown
+    {
+        [propget, helpstring("Tuning Space object")]
+        HRESULT TuningSpace(
+            [out, retval] ITuningSpace **TuningSpace
+            );
+
+        [propput, helpstring("Tuning Space object")]
+        HRESULT TuningSpace(
+            [in] ITuningSpace *TuningSpace
+            );
+
+        [hidden, restricted, helpstring("Returns an enumerator for Tuning Spaces accepted by this tuner")]
+        HRESULT EnumTuningSpaces(
+            [out, retval] IEnumTuningSpaces **ppEnum
+            );
+
+        [propget, helpstring("Tune Request object")]
+        HRESULT TuneRequest(
+            [out, retval] ITuneRequest **TuneRequest
+            );
+
+        [propput, helpstring("Tune Request object")]
+        HRESULT TuneRequest(
+            [in] ITuneRequest *TuneRequest
+            );
+
+        [helpstring("Validate the tuning request without tuning")]
+        HRESULT Validate(
+            [in] ITuneRequest *TuneRequest
+            );
+
+        [propget, helpstring("Preferred Component Types collection")]
+        HRESULT PreferredComponentTypes(
+            [out, retval] IComponentTypes **ComponentTypes
+            );
+
+        [propput, helpstring("Preferred Component Types collection")]
+        HRESULT PreferredComponentTypes(
+            [in] IComponentTypes *ComponentTypes
+            );
+
+        [propget, helpstring("Signal Strength")]
+        HRESULT SignalStrength(
+            [out, retval] long *Strength
+            );
+
+        [helpstring("Trigger Signal events (interval in milliseconds; 0 turns off trigger)")]
+        HRESULT TriggerSignalEvents(
+            [in] long Interval
+            );
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(1DFD0A5C-0284-11d3-9D8E-00C04F72D980),
+        helpstring("Scanning Tuner Interface"),
+        pointer_default(unique)
+    ]
+    interface IScanningTuner : ITuner
+    {
+        [helpstring("Seek to the next valid selection")]
+        HRESULT SeekUp(
+            );
+
+        [helpstring("Seek to the previous valid selection")]
+        HRESULT SeekDown(
+            );
+
+        [helpstring("Scan for valid selections upward")]
+        HRESULT ScanUp(
+            [in] long MillisecondsPause
+            );
+
+        [helpstring("Scan for valid selections downward")]
+        HRESULT ScanDown(
+            [in] long MillisecondsPause
+            );
+
+        [helpstring("Enter the device's autoprogram mode")]
+        HRESULT AutoProgram(
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(04BBD195-0E2D-4593-9BD5-4F908BC33CF5),
+        helpstring("Scanning Tuner Ex Interface"),
+        pointer_default(unique)
+    ]
+    interface IScanningTunerEx : IScanningTuner
+    {
+        [helpstring("Get Current Locator")]
+        HRESULT GetCurrentLocator(
+            ILocator **pILocator
+            );
+
+        [helpstring("Perform Exhaustive Scan")]
+        HRESULT PerformExhaustiveScan( 
+             [in]  long dwLowerFreq,  
+             [in]  long dwHigherFreq,
+             [in]  VARIANT_BOOL bFineTune,
+             [in]  HEVENT hEvent
+             );
+
+        [helpstring("Terminate Exhaustive Scan")]
+        HRESULT TerminateCurrentScan( 
+             [out, retval] long *pcurrentFreq
+             );
+
+        [helpstring("Resume Exhaustive Scan")]
+        HRESULT ResumeCurrentScan( 
+             [in] HEVENT hEvent
+             );
+
+        [helpstring("Get Higher Level Tuner Caps")]
+        HRESULT GetTunerScanningCapability(
+            [out] long *HardwareAssistedScanning,
+            [out] long *NumStandardsSupported,
+            [out] GUID *BroadcastStandards
+            );
+
+        [helpstring("Get Scan Status")]
+        HRESULT GetTunerStatus(
+            [out] long *SecondsLeft,
+            [out] long *CurrentLockType,
+            [out] long *AutoDetect,
+            [out] long *CurrentFreq
+            );
+
+        [helpstring("Get BroadCast-Specific Tuner Caps")]       
+        HRESULT GetCurrentTunerStandardCapability( 
+            [in] GUID CurrentBroadcastStandard,  
+            [out] long  *SettlingTime,
+            [out] long  *TvStandardsSupported
+            );
+
+        [helpstring("Set Scan Signal Type Filter")]       
+        HRESULT SetScanSignalTypeFilter( 
+            [in] long ScanModulationTypes, // 0xFFFFFFFF - No filtering for specific modulation types (default)
+            [in] long AnalogVideoStandard  // 0xFFFFFFFF - No filtering for specific analog video standards (default)
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Component Type Interfaces
+//////////////////////////////////////////////////////////////////////////////////////
+
+    // Component Category
+
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(6A340DC0-0311-11d3-9D8E-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Component Type Interface"),
+        pointer_default(unique)
+    ]
+    interface IComponentType : IDispatch
+    {
+        [propget, id(DISPID_TUNER_CT_CATEGORY),
+            helpstring("General category of component")]
+        HRESULT Category(
+            [out, retval] ComponentCategory *Category
+            );
+        [propput, id(DISPID_TUNER_CT_CATEGORY),
+            helpstring("General category of component")]
+        HRESULT Category(
+            [in] ComponentCategory Category
+            );
+
+        [propget, id(DISPID_TUNER_CT_MEDIAMAJORTYPE),
+            helpstring("DirectShow MediaType Major Type Guid")]
+        HRESULT MediaMajorType(
+            [out, retval] BSTR *MediaMajorType
+            );    
+        [propput, id(DISPID_TUNER_CT_MEDIAMAJORTYPE),
+            helpstring("DirectShow MediaType Major Type Guid")]
+        HRESULT MediaMajorType(
+            [in] BSTR MediaMajorType
+            );
+        [propget, id(DISPID_TUNER_CT__MEDIAMAJORTYPE),
+            helpstring("DirectShow MediaType Major Type Guid"), hidden, restricted]
+        HRESULT _MediaMajorType(
+            [out, retval] GUID* MediaMajorTypeGuid
+            );
+        [propput, id(DISPID_TUNER_CT__MEDIAMAJORTYPE),
+            helpstring("DirectShow MediaType Major Type Guid"), hidden, restricted]
+        HRESULT _MediaMajorType(
+            [in] REFCLSID MediaMajorTypeGuid
+            );
+        [propget, id(DISPID_TUNER_CT_MEDIASUBTYPE),
+            helpstring("DirectShow MediaType Sub Type Guid")]
+        HRESULT MediaSubType(
+            [out, retval] BSTR *MediaSubType
+            );
+        [propput, id(DISPID_TUNER_CT_MEDIASUBTYPE),
+            helpstring("DirectShow MediaType Sub Type Guid")]
+        HRESULT MediaSubType(
+            [in] BSTR MediaSubType
+            );
+        [propget, id(DISPID_TUNER_CT__MEDIASUBTYPE),
+            helpstring("DirectShow MediaType Sub Type Guid"), hidden, restricted]
+        HRESULT _MediaSubType(
+            [out, retval] GUID* MediaSubTypeGuid
+            );
+        [propput, id(DISPID_TUNER_CT__MEDIASUBTYPE),
+            helpstring("DirectShow MediaType Sub Type Guid"), hidden, restricted]
+        HRESULT _MediaSubType(
+            [in] REFCLSID MediaSubTypeGuid
+            );
+        [propget, id(DISPID_TUNER_CT_MEDIAFORMATTYPE),
+            helpstring("DirectShow MediaType Format Guid")]
+        HRESULT MediaFormatType(
+            [out, retval] BSTR *MediaFormatType
+            );
+        [propput, id(DISPID_TUNER_CT_MEDIAFORMATTYPE),
+            helpstring("DirectShow MediaType Format Guid")]
+        HRESULT MediaFormatType(
+            [in] BSTR MediaFormatType
+            );
+        [propget, id(DISPID_TUNER_CT__MEDIAFORMATTYPE),
+            helpstring("DirectShow MediaType Format Guid"), hidden, restricted]
+        HRESULT _MediaFormatType(
+            [out, retval] GUID* MediaFormatTypeGuid
+            );
+        [propput, id(DISPID_TUNER_CT__MEDIAFORMATTYPE),
+            helpstring("DirectShow MediaType Format Guid"), hidden, restricted]
+        HRESULT _MediaFormatType(
+            [in] REFCLSID MediaFormatTypeGuid
+            );
+
+        [propget, id(DISPID_TUNER_CT_MEDIATYPE), hidden, restricted,
+            helpstring("DirectShow MediaType Guid, this only retrieves major, sub, format guids not the entire struct")]
+        HRESULT MediaType(
+            [out, retval] AM_MEDIA_TYPE *MediaType
+            );
+        [propput, id(DISPID_TUNER_CT_MEDIATYPE), hidden, restricted,
+            helpstring("DirectShow MediaType Guid, this only retrieves major, sub, format guids not the entire struct")]
+        HRESULT MediaType(
+            [in] AM_MEDIA_TYPE *MediaType
+            );
+
+        [id(DISPID_TUNER_CT_CLONE),
+            helpstring("Create a copy of this component type")]
+        HRESULT Clone(
+            [out, retval] IComponentType **NewCT
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(B874C8BA-0FA2-11d3-9D8E-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Language Component Type Interface"),
+        pointer_default(unique)
+    ]
+    interface ILanguageComponentType : IComponentType
+    {
+        [propget, id(DISPID_TUNER_LCT_LANGID),
+            helpstring("Language Identifier for Substream Content Language")]
+        HRESULT LangID(
+            [out, retval] long *LangID
+            );
+
+        [propput, id(DISPID_TUNER_LCT_LANGID),
+            helpstring("Language Identifier for Substream Content Language")]
+        HRESULT LangID(
+            [in] long LangID
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(2C073D84-B51C-48c9-AA9F-68971E1F6E38),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("MPEG2 Component Type Interface"),
+        pointer_default(unique)
+    ]
+    interface IMPEG2ComponentType : ILanguageComponentType
+    {
+        [propget, id(DISPID_TUNER_MP2CT_TYPE),
+            helpstring("MPEG2 Stream Type")]
+        HRESULT StreamType(
+            [out, retval] MPEG2StreamType *MP2StreamType
+            );
+
+        [propput, id(DISPID_TUNER_MP2CT_TYPE),
+            helpstring("MPEG2 Stream Type")]
+        HRESULT StreamType(
+            [in] MPEG2StreamType MP2StreamType
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(FC189E4D-7BD4-4125-B3B3-3A76A332CC96),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("ATSC Component Type Interface"),
+        pointer_default(unique)
+    ]
+    interface IATSCComponentType : IMPEG2ComponentType
+    {
+        [propget, id(DISPID_TUNER_ATSCCT_FLAGS),
+            helpstring("ATSC Component Type Flags")]
+        HRESULT Flags(
+            [out, retval] long *Flags
+            );
+
+        [propput, id(DISPID_TUNER_ATSCCT_FLAGS),
+            helpstring("ATSC Component Type Flags")]
+        HRESULT Flags(
+            [in] long flags
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        hidden, restricted,
+        object,
+        uuid(8A674B4A-1F63-11d3-B64C-00C04F79498E),
+        pointer_default(unique)
+    ]
+    interface IEnumComponentTypes : IUnknown
+    {
+        HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)]
+                IComponentType** rgelt,
+            [out] ULONG* pceltFetched
+            );
+
+        HRESULT Skip(
+            [in] ULONG celt
+            );
+
+        HRESULT Reset(void);
+
+        HRESULT Clone(
+            [out] IEnumComponentTypes** ppEnum
+            );
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Component Type Container
+//////////////////////////////////////////////////////////////////////////////////////
+
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(0DC13D4A-0313-11d3-9D8E-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("ComponentType Collection Interface"),
+        pointer_default(unique)
+    ]
+    interface IComponentTypes : IDispatch
+    {
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count(
+            [out, retval] long *Count
+            );
+
+        [propget, id(DISPID_NEWENUM), hidden, restricted]
+        HRESULT _NewEnum(
+            [out, retval] IEnumVARIANT **ppNewEnum
+            );
+
+        [hidden, restricted, helpstring("Convenience Function for Use with C")]
+        HRESULT EnumComponentTypes(
+            [out, retval] IEnumComponentTypes **ppNewEnum
+            );
+
+        [id(DISPID_VALUE),
+            propget,
+            helpstring("Get the ComponentType at the specified index")]
+        HRESULT Item(
+            [in] VARIANT Index,
+            [out, retval] IComponentType **ComponentType
+            );
+
+        [id(DISPID_VALUE),
+            propput,
+            helpstring("Get the ComponentType at the specified index")]
+        HRESULT Item(
+            [in] VARIANT Index,
+            [in] IComponentType *ComponentType
+            );
+
+        [id(DISPID_ADDITEM), 
+         helpstring("Append the ComponentType to the collection")]
+        HRESULT Add(
+            [in] IComponentType *ComponentType,
+            [out, retval] VARIANT *NewIndex
+            );
+
+        [id(DISPID_REMOVEITEM), 
+         helpstring("Clear the collection")]
+        HRESULT Remove(
+            [in] VARIANT Index
+            );
+
+        [helpstring("Copy the collection")]
+        HRESULT Clone([out, retval] IComponentTypes **NewList);
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Component Interfaces
+//////////////////////////////////////////////////////////////////////////////////////
+
+    [
+        object,
+        nonextensible,
+        uuid(1A5576FC-0E19-11d3-9D8E-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Component Interface"),
+        pointer_default(unique)
+    ]
+    interface IComponent : IDispatch
+    {
+        [propget, id(DISPID_TUNER_C_TYPE),
+            helpstring("Component Type")]
+        HRESULT Type(
+            [out, retval] IComponentType** CT
+            );
+    
+        // only loaders initialize components
+        [hidden, restricted, propput, id(DISPID_TUNER_C_TYPE),
+            helpstring("Component Type")]
+        HRESULT Type(
+            [in] IComponentType* CT
+            );
+
+        // NOTE: this langid is *not* the same as the langid
+        // in the componenttype(if the componenttype is a languagecomponenttype)
+        // the langid in the component type is the language of the content this
+        // component is describing.  the following langid in the component is the
+        // language of the descriptive info in the component object.
+        [propget, id(DISPID_TUNER_C_LANGID),
+            helpstring("Language Identifier for Description Language")]
+        HRESULT DescLangID(
+            [out, retval] long *LangID
+            );
+
+        [propput, id(DISPID_TUNER_C_LANGID),
+            helpstring("Language Identifier for Description Language")]
+        HRESULT DescLangID(
+            [in] long LangID
+            );
+
+        [propget, id(DISPID_TUNER_C_STATUS),
+            helpstring("Component Status")]
+        HRESULT Status(
+            [out, retval] ComponentStatus *Status
+            );
+
+        [propput, id(DISPID_TUNER_C_STATUS),
+            helpstring("Component Status")]
+        HRESULT Status(
+            [in] ComponentStatus Status
+            );
+
+        [propget, id(DISPID_TUNER_C_DESCRIPTION),
+            helpstring("Component Description")]
+        HRESULT Description(
+            [out, retval] BSTR *Description
+            );
+
+        // restricted: only loaders will initialize components
+        [hidden, restricted, propput, id(DISPID_TUNER_C_DESCRIPTION),
+            helpstring("Component Description")]
+        HRESULT Description(
+            [in] BSTR Description
+            );
+
+        [id(DISPID_TUNER_C_CLONE),
+            helpstring("Copy Component")]
+        HRESULT Clone(
+            [out, retval] IComponent **NewComponent
+            );
+
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(2CFEB2A8-1787-4A24-A941-C6EAEC39C842),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Analog Audio Component Type Interface"),
+        pointer_default(unique)
+    ]
+    interface IAnalogAudioComponentType : IComponentType
+    {
+        [propget, id(DISPID_TUNER_C_ANALOG_AUDIO),
+            helpstring("Analog Audio Mode for this Substream")]
+        HRESULT AnalogAudioMode(
+            [out, retval] TVAudioMode *Mode
+            );
+
+        [propput, id(DISPID_TUNER_C_ANALOG_AUDIO),
+            helpstring("Analog Audio Mode for this Substream")]
+        HRESULT AnalogAudioMode(
+            [in] TVAudioMode Mode
+            );
+    }
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        nonextensible,
+        uuid(1493E353-1EB6-473c-802D-8E6B8EC9D2A9),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("MPEG2 Component Interface"),
+        pointer_default(unique)
+    ]
+    interface IMPEG2Component : IComponent
+    {
+        [propget, id(DISPID_TUNER_C_MP2_PID),
+            helpstring("MPEG2 Packet ID for this Substream")]
+        HRESULT PID(
+            [out, retval] long *PID
+            );
+
+        [propput, id(DISPID_TUNER_C_MP2_PID),
+            helpstring("MPEG2 Packet ID for this Substream")]
+        HRESULT PID(
+            [in] long PID
+            );
+        [propget, id(DISPID_TUNER_C_MP2_PCRPID),
+            helpstring("MPEG2 Packet ID for this Substream's Timestamps")]
+        HRESULT PCRPID(
+            [out, retval] long *PCRPID
+            );
+
+        [propput, id(DISPID_TUNER_C_MP2_PCRPID),
+            helpstring("MPEG2 Packet ID for this Substream's Timestamps")]
+        HRESULT PCRPID(
+            [in] long PCRPID
+            );
+
+        // program number provides reverse lookup to PAT
+        [propget, id(DISPID_TUNER_C_MP2_PROGNO),
+            helpstring("MPEG2 Program Number")]
+        HRESULT ProgramNumber(
+            [out, retval] long *ProgramNumber
+            );
+
+        [propput, id(DISPID_TUNER_C_MP2_PROGNO),
+            helpstring("MPEG2 Program Number")]
+        HRESULT ProgramNumber(
+            [in] long ProgramNumber
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        hidden, restricted,
+        object,
+        uuid(2A6E2939-2595-11d3-B64C-00C04F79498E),
+        pointer_default(unique)
+    ]
+    interface IEnumComponents : IUnknown
+    {
+        HRESULT Next(
+            [in] ULONG celt,
+            [out, size_is(celt), length_is(*pceltFetched)]
+                IComponent** rgelt,
+            [out] ULONG* pceltFetched
+            );
+
+        HRESULT Skip(
+            [in] ULONG celt
+            );
+
+        HRESULT Reset(void);
+
+        HRESULT Clone(
+            [out] IEnumComponents** ppEnum
+            );
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Component Container
+//////////////////////////////////////////////////////////////////////////////////////
+
+    [
+        object,
+        nonextensible,
+        uuid(39A48091-FFFE-4182-A161-3FF802640E26),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Component Collection Interface"),
+        pointer_default(unique)
+    ]
+    interface IComponents : IDispatch
+    {
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count(
+            [out, retval] long *Count
+            );
+
+        [propget, id(DISPID_NEWENUM), hidden, restricted]
+        HRESULT _NewEnum(
+            [out, retval] IEnumVARIANT **ppNewEnum
+            );
+
+        [hidden, restricted, helpstring("Convenience Function for Use with C")]
+        HRESULT EnumComponents(
+            [out, retval] IEnumComponents **ppNewEnum
+            );
+
+        [id(DISPID_VALUE),
+            propget,
+            helpstring("Get the Component at the specified index")]
+        HRESULT Item(
+            [in] VARIANT Index,
+            [out, retval] IComponent **ppComponent
+            );
+
+        [id(DISPID_ADDITEM), 
+         helpstring("Add the Component to the collection")]
+        HRESULT Add(
+            [in] IComponent *Component,
+            [out, retval] VARIANT *NewIndex
+            );
+
+        [id(DISPID_REMOVEITEM), 
+         helpstring("Remove the Component at the specified index")]
+        HRESULT Remove(
+            [in] VARIANT Index
+            );
+
+        [helpstring("Copy the collection")]
+        HRESULT Clone([out, retval] IComponents **NewList);
+            
+        // this method must be last.  it was added after the first version of the i/f shipped.
+        // if you move it up beside get_Item then it will create appcompat problems.
+        [id(DISPID_VALUE),
+            propput,
+            helpstring("Put a Component at the specified index")]
+        HRESULT Item(
+            [in] VARIANT Index,
+            [in] IComponent *ppComponent
+            );
+
+    };
+
+    [
+        object,
+        nonextensible,
+        uuid(FCD01846-0E19-11d3-9D8E-00C04F72D980),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Old Component Collection Interface"),
+        pointer_default(unique)
+    ]
+    interface IComponentsOld : IDispatch
+    {
+        [propget, helpstring("Number of items in the collection")]
+        HRESULT Count(
+            [out, retval] long *Count
+            );
+
+        [propget, id(DISPID_NEWENUM), hidden, restricted]
+        HRESULT _NewEnum(
+            [out, retval] IEnumVARIANT **ppNewEnum
+            );
+
+        [hidden, restricted, helpstring("Convenience Function for Use with C")]
+        HRESULT EnumComponents(
+            [out, retval] IEnumComponents **ppNewEnum
+            );
+
+        [id(DISPID_VALUE),
+            propget,
+            helpstring("Get the Component at the specified index")]
+        HRESULT Item(
+            [in] VARIANT Index,
+            [out, retval] IComponent **ppComponent
+            );
+
+        [id(DISPID_ADDITEM), 
+         helpstring("Add the Component to the collection")]
+        HRESULT Add(
+            [in] IComponent *Component,
+            [out, retval] VARIANT *NewIndex
+            );
+
+        [id(DISPID_REMOVEITEM), 
+         helpstring("Remove the Component at the specified index")]
+        HRESULT Remove(
+            [in] VARIANT Index
+            );
+
+        [helpstring("Copy the collection")]
+        HRESULT Clone([out, retval] IComponents **NewList);
+            
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Component Container
+//////////////////////////////////////////////////////////////////////////////////////
+// this separates the what(general tune request properties) from the where
+    
+
+
+    [
+        object,
+        nonextensible,
+        uuid(286D7F89-760C-4F89-80C4-66841D2507AA),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Generic Locator Information"),
+        pointer_default(unique)
+    ]
+    interface ILocator : IDispatch
+    {
+
+        [propget, id(DISPID_TUNER_L_CARRFREQ), helpstring("Carrier Frequency(KHz)")]
+        HRESULT CarrierFrequency(
+            [out, retval] long* Frequency
+            );
+        [propput, id(DISPID_TUNER_L_CARRFREQ), helpstring("Carrier Frequency(KHz)")]
+        HRESULT CarrierFrequency(
+            [in] long Frequency
+            );
+        [propget, id(DISPID_TUNER_L_INNERFECMETHOD), helpstring("Inner Fec Type")]
+        HRESULT InnerFEC(
+            [out, retval] FECMethod* FEC
+            );
+        [propput, id(DISPID_TUNER_L_INNERFECMETHOD), helpstring("Inner Fec Type")]
+        HRESULT InnerFEC(
+            [in] FECMethod FEC
+            );
+        [propget, id(DISPID_TUNER_L_INNERFECRATE), helpstring("Inner Fec Rate")]
+        HRESULT InnerFECRate(
+            [out, retval] BinaryConvolutionCodeRate* FEC
+            );
+        [propput, id(DISPID_TUNER_L_INNERFECRATE), helpstring("Inner Fec Rate")]
+        HRESULT InnerFECRate(
+            [in] BinaryConvolutionCodeRate FEC
+            );
+        [propget, id(DISPID_TUNER_L_OUTERFECMETHOD), helpstring("Outer Fec Type")]
+        HRESULT OuterFEC(
+            [out, retval] FECMethod* FEC
+            );
+        [propput, id(DISPID_TUNER_L_OUTERFECMETHOD), helpstring("Outer Fec Type")]
+        HRESULT OuterFEC(
+            [in] FECMethod FEC
+            );
+        [propget, id(DISPID_TUNER_L_OUTERFECRATE), helpstring("Outer Fec Rate")]
+        HRESULT OuterFECRate(
+            [out, retval] BinaryConvolutionCodeRate* FEC
+            );
+        [propput, id(DISPID_TUNER_L_OUTERFECRATE), helpstring("Outer Fec Rate")]
+        HRESULT OuterFECRate(
+            [in] BinaryConvolutionCodeRate FEC
+            );
+        [propget, id(DISPID_TUNER_L_MOD), helpstring("Modulation Type")]
+        HRESULT Modulation(
+            [out, retval] ModulationType* Modulation
+            );
+        [propput, id(DISPID_TUNER_L_MOD), helpstring("Modulation Type")]
+        HRESULT Modulation(
+            [in] ModulationType Modulation
+            );
+        [propget, id(DISPID_TUNER_L_SYMRATE), helpstring("Modulation Symbol Rate")]
+        HRESULT SymbolRate(
+            [out, retval] long* Rate
+            );
+        [propput, id(DISPID_TUNER_L_SYMRATE), helpstring("Modulation Symbol Rate")]
+        HRESULT SymbolRate(
+            [in] long Rate
+            );
+        [id(DISPID_TUNER_L_CLONE), helpstring("Copy the Locator")]
+        HRESULT Clone([out, retval] ILocator **NewLocator);
+    };
+
+    [
+        object,
+        nonextensible,
+        uuid(34D1F26B-E339-430D-ABCE-738CB48984DC),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Analog Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IAnalogLocator : ILocator
+    {
+        [propget, id(DISPID_TUNER_L_ANALOG_STANDARD), helpstring("Analog Video Standard")]
+        HRESULT VideoStandard(
+            [out, retval] AnalogVideoStandard* AVS
+            );
+        [propput, id(DISPID_TUNER_L_ANALOG_STANDARD), helpstring("Analog Video Standard")]
+        HRESULT VideoStandard(
+            [in] AnalogVideoStandard AVS
+            );
+    }
+
+    [
+        object,
+        nonextensible,
+        uuid(19B595D8-839A-47F0-96DF-4F194F3C768C),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("Digital Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IDigitalLocator : ILocator
+    {
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(BF8D986F-8C2B-4131-94D7-4D3D9FCC21EF),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("ATSC Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IATSCLocator : IDigitalLocator
+    {
+        [propget, id(DISPID_TUNER_L_ATSC_PHYS_CHANNEL),
+            helpstring("Physical Channel")]
+        HRESULT PhysicalChannel(
+            [out, retval] long *PhysicalChannel
+            );
+        [propput, id(DISPID_TUNER_L_ATSC_PHYS_CHANNEL),
+            helpstring("Physical Channel")]
+        HRESULT PhysicalChannel(
+            [in] long PhysicalChannel
+            );
+        [propget, id(DISPID_TUNER_L_ATSC_TSID),
+            helpstring("Transport Stream ID")]
+        HRESULT TSID(
+            [out, retval] long *TSID
+            );
+        [propput, id(DISPID_TUNER_L_ATSC_TSID),
+            helpstring("Transport Stream ID")]
+        HRESULT TSID(
+            [in] long TSID
+            );
+    };
+
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(612AA885-66CF-4090-BA0A-566F5312E4CA),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("ATSC Locator2 Information"),
+        pointer_default(unique)
+    ]
+    interface IATSCLocator2 : IATSCLocator
+    {
+        [propget, id(DISPID_TUNER_L_ATSC_MP2_PROGNO),
+            helpstring("Program Number")]
+        HRESULT ProgramNumber(
+            [out, retval] long *ProgramNumber
+            );
+
+        [propput, id(DISPID_TUNER_L_ATSC_MP2_PROGNO),
+            helpstring("Program Number")]
+        HRESULT ProgramNumber(
+            [in] long ProgramNumber
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(48F66A11-171A-419A-9525-BEEECD51584C),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DigitalCable Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IDigitalCableLocator : IATSCLocator2
+    {
+    }
+//////////////////////////////////////////////////////////////////////////////////////
+
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(8664DA16-DDA2-42ac-926A-C18F9127C302),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DVB Terrestrial Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IDVBTLocator : IDigitalLocator
+    {
+        [propget, id(DISPID_TUNER_L_DVBT_BANDWIDTH), helpstring("Bandwidth")]
+        HRESULT Bandwidth(
+            [out, retval] long* BandWidthVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_BANDWIDTH), helpstring("Bandwidth")]
+        HRESULT Bandwidth(
+            [in] long BandwidthVal
+            );
+
+        [propget, id(DISPID_TUNER_L_DVBT_LPINNERFECMETHOD), helpstring("Inner Fec Type for Low Priority Stream")]
+        HRESULT LPInnerFEC(
+            [out, retval] FECMethod* FEC
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_LPINNERFECMETHOD), helpstring("Inner Fec Type for Low Priority Stream")]
+        HRESULT LPInnerFEC(
+            [in] FECMethod FEC
+            );
+        [propget, id(DISPID_TUNER_L_DVBT_LPINNERFECRATE), helpstring("Inner Fec Rate for Low Priority Stream")]
+        HRESULT LPInnerFECRate(
+            [out, retval] BinaryConvolutionCodeRate* FEC
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_LPINNERFECRATE), helpstring("Inner Fec Rate for Low Priority Stream")]
+        HRESULT LPInnerFECRate(
+            [in] BinaryConvolutionCodeRate FEC
+            );
+        [propget, id(DISPID_TUNER_L_DVBT_HALPHA), helpstring("Hierarchical Alpha")]
+        HRESULT HAlpha(
+            [out, retval] HierarchyAlpha* Alpha
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_HALPHA), helpstring("Hierarchical Alpha")]
+        HRESULT HAlpha(
+            [in] HierarchyAlpha Alpha
+            );
+        [propget, id(DISPID_TUNER_L_DVBT_GUARDINTERVAL), helpstring("Guard Interval")]
+        HRESULT Guard(
+            [out, retval] GuardInterval* GI
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_GUARDINTERVAL), helpstring("Guard Interval")]
+        HRESULT Guard(
+            [in] GuardInterval GI
+            );
+        [propget, id(DISPID_TUNER_L_DVBT_TRANSMISSIONMODE), helpstring("Transmission Mode")]
+        HRESULT Mode(
+            [out, retval] TransmissionMode* mode
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_TRANSMISSIONMODE), helpstring("Transmission Mode")]
+        HRESULT Mode(
+            [in] TransmissionMode mode
+            );
+        [propget, id(DISPID_TUNER_L_DVBT_INUSE), helpstring("Hierarchical Alpha")]
+        HRESULT OtherFrequencyInUse(
+            [out, retval] VARIANT_BOOL* OtherFrequencyInUseVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBT_INUSE), helpstring("Hierarchical Alpha")]
+        HRESULT OtherFrequencyInUse(
+            [in] VARIANT_BOOL OtherFrequencyInUseVal
+            );
+    };
+
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(448A2EDF-AE95-4b43-A3CC-747843C453D4),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DVB Terrestrial 2 Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IDVBTLocator2 : IDVBTLocator
+    {
+        [propget, id(DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID), helpstring("PhysicalLayerPipeId")]
+        HRESULT PhysicalLayerPipeId(
+            [out, retval] long* PhysicalLayerPipeIdVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID), helpstring("PhysicalLayerPipeId")]
+        HRESULT PhysicalLayerPipeId(
+            [in] long PhysicalLayerPipeIdVal
+            );
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(3D7C353C-0D04-45f1-A742-F97CC1188DC8),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DVB Satellite Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IDVBSLocator : IDigitalLocator
+    {
+
+        [propget, id(DISPID_TUNER_L_DVBS_POLARISATION), helpstring("Signal Polarisation Type")]
+        HRESULT SignalPolarisation(
+            [out, retval] Polarisation* PolarisationVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBS_POLARISATION), helpstring("Signal Polarisation Type")]
+        HRESULT SignalPolarisation(
+            [in] Polarisation PolarisationVal
+            );
+        [propget, id(DISPID_TUNER_L_DVBS_WEST), helpstring("VARIANT_TRUE means orbital position specifies west longitude")]
+        HRESULT WestPosition(
+            [out, retval] VARIANT_BOOL* WestLongitude
+            );
+        [propput, id(DISPID_TUNER_L_DVBS_WEST), helpstring("VARIANT_TRUE means orbital position specifies west longitude")]
+        HRESULT WestPosition(
+            [in] VARIANT_BOOL WestLongitude
+            );
+        [propget, id(DISPID_TUNER_L_DVBS_ORBITAL), helpstring("Longitude in tenths of a degree")]
+        HRESULT OrbitalPosition(
+            [out, retval] long* longitude
+            );
+        [propput, id(DISPID_TUNER_L_DVBS_ORBITAL), helpstring("Longitude in tenths of a degree")]
+        HRESULT OrbitalPosition(
+            [in] long longitude
+            );
+        [propget, id(DISPID_TUNER_L_DVBS_AZIMUTH), helpstring("Azimuth in tenths of a degree")]
+        HRESULT Azimuth(
+            [out, retval] long* Azimuth
+            );
+        [propput, id(DISPID_TUNER_L_DVBS_AZIMUTH), helpstring("Azimuth in tenths of a degree")]
+        HRESULT Azimuth(
+            [in] long Azimuth
+            );
+        [propget, id(DISPID_TUNER_L_DVBS_ELEVATION), helpstring("Elevation in tenths of a degree")]
+        HRESULT Elevation(
+            [out, retval] long* Elevation
+            );
+        [propput, id(DISPID_TUNER_L_DVBS_ELEVATION), helpstring("Elevation in tenths of a degree")]
+        HRESULT Elevation(
+            [in] long Elevation
+            );
+    };
+    //////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(6044634A-1733-4f99-B982-5FB12AFCE4F0),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DVB Satellite Locator2 Information"),
+        pointer_default(unique)
+    ]
+    interface IDVBSLocator2 : IDVBSLocator
+    {
+
+        [propget, id(DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE), helpstring("Diseqc LNB Source")]
+        HRESULT DiseqLNBSource(
+            [out, retval] LNB_Source* DiseqLNBSourceVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE), helpstring("Diseqc LNB Source")]
+        HRESULT DiseqLNBSource(
+            [in] LNB_Source  DiseqLNBSourceVal
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE),
+         helpstring("Low Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LocalOscillatorOverrideLow(
+            [out, retval] long *LocalOscillatorOverrideLowVal
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE),
+         helpstring("Low Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LocalOscillatorOverrideLow(
+            [in] long LocalOscillatorOverrideLowVal
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE),
+         helpstring("High Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LocalOscillatorOverrideHigh (
+            [out, retval] long *LocalOscillatorOverrideHighVal
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE),
+         helpstring("High Oscillator Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LocalOscillatorOverrideHigh(
+            [in] long LocalOscillatorOverrideHighVal
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE),
+         helpstring("LNB Switch Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LocalLNBSwitchOverride(
+            [out, retval] long *LocalLNBSwitchOverrideVal
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE),
+         helpstring("LNB Switch Frequency of DVB System in KHZ units")
+        ]
+        HRESULT LocalLNBSwitchOverride(
+            [in] long LocalLNBSwitchOverrideVal
+            );
+        [propget, id(DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE),
+         helpstring("Spectral Inversion propertie of DVB Signal")
+        ]
+        HRESULT LocalSpectralInversionOverride(
+            [out, retval] SpectralInversion *LocalSpectralInversionOverrideVal
+            );
+        [propput, id(DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE),
+         helpstring("Spectral Inversion propertie of DVB Signal")
+        ]
+        HRESULT LocalSpectralInversionOverride(
+            [in] SpectralInversion LocalSpectralInversionOverrideVal
+            );
+        [propget, id(DISPID_TUNER_L_DVBS2_ROLLOFF), helpstring("RollOff propertie of DVB Signal")]
+        HRESULT SignalRollOff(
+            [out, retval] RollOff* RollOffVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBS2_ROLLOFF), helpstring("RollOff propertie of DVB Signal")]
+        HRESULT SignalRollOff(
+            [in] RollOff RollOffVal
+            );
+        [propget, id(DISPID_TUNER_L_DVBS2_PILOT), helpstring("Pilot mode of DVB-S2 Signal")]
+        HRESULT SignalPilot(
+            [out, retval] Pilot* PilotVal
+            );
+        [propput, id(DISPID_TUNER_L_DVBS2_PILOT), helpstring("Pilot mode of DVB-S2 Signal")]
+        HRESULT SignalPilot(
+            [in] Pilot PilotVal
+            );
+    };
+ //////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(6E42F36E-1DD2-43c4-9F78-69D25AE39034),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("DVB Cable Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IDVBCLocator : IDigitalLocator
+    {
+    };
+ //////////////////////////////////////////////////////////////////////////////////////
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(C9897087-E29C-473f-9E4B-7072123DEA14),
+        dual,
+        oleautomation,
+        proxy,
+        helpstring("ISDB Satellite Locator Information"),
+        pointer_default(unique)
+    ]
+    interface IISDBSLocator : IDVBSLocator
+    {
+    };
+
+///////////////////////////////////////////////////////////////////////////////////////
+// Eventing System interfaces
+// Extensible eventing mechanism
+///////////////////////////////////////////////////////////////////////////////////////
+
+	[
+		object,
+		uuid(BA4B6526-1A35-4635-8B56-3EC612746A8C),
+		helpstring("IEOpenMmiEvent Interface"),
+		pointer_default(unique)
+	]
+	interface IESOpenMmiEvent : IESEvent
+	{
+		// Get dialog number and dialog request number.
+		HRESULT GetDialogNumber ([out] DWORD* pDialogRequest, [out, retval] DWORD* pDialogNumber);
+
+		// Get dialog type
+		HRESULT GetDialogType ([out, retval] GUID* guidDialogType);
+
+		// Get dialog data
+		// use NULL pbData to determine data length
+		HRESULT GetDialogData ([out, retval] SAFEARRAY(BYTE)* pbData);
+
+		// Get dialog data in unicode string format.
+		HRESULT GetDialogStringData ([out] BSTR* pbstrBaseUrl, [out, retval] BSTR* pbstrData);
+	};
+
+	[
+		object,
+		uuid(6B80E96F-55E2-45aa-B754-0C23C8E7D5C1),
+		helpstring("IESCloseMmiEvent Interface"),
+		pointer_default(unique)
+	]
+	interface IESCloseMmiEvent : IESEvent
+	{
+		// Get dialog number and dialog request number.
+		HRESULT GetDialogNumber ([out, retval] DWORD* pDialogNumber);
+	};
+
+	[
+		object,
+		uuid(8A24C46E-BB63-4664-8602-5D9C718C146D),
+		helpstring("IESValueUpdatedEvent Interface"),
+		pointer_default(unique)
+	]
+	interface IESValueUpdatedEvent : IESEvent
+	{
+		// Get the name in GPNVS that the value has changed.
+		HRESULT GetValueNames ([out, retval] SAFEARRAY(BSTR)* pbstrNames);
+	};
+
+	[
+		object,
+		uuid(54C7A5E8-C3BB-4f51-AF14-E0E2C0E34C6D),
+		helpstring("IERequestTunerEvent Interface"),
+		pointer_default(unique)
+	]
+	interface IESRequestTunerEvent : IESEvent
+	{
+		// Get request priority
+		HRESULT GetPriority ([out, retval] BYTE* pbyPriority);
+
+		// Get request reason
+		HRESULT GetReason ([out, retval] BYTE* pbyReason);
+
+		// Get request consequences
+		HRESULT GetConsequences ([out, retval] BYTE* pbyConsequences);
+
+		// Get request estimated time
+		HRESULT GetEstimatedTime ([out, retval] DWORD* pdwEstimatedTime);
+	};
+
+	[
+		object,
+		uuid(2017cb03-dc0f-4c24-83ca-36307b2cd19f),
+		helpstring("IESIsdbCasResponseEvent Interface"),
+		pointer_default(unique)
+	]
+	interface IESIsdbCasResponseEvent : IESEvent
+	{
+		// Get dialog number and dialog request number.
+		HRESULT GetRequestId ([out, retval] DWORD* pRequestId);
+
+		// Get dialog type
+		HRESULT GetStatus([out, retval] DWORD* pStatus);
+
+		// Get dialog type
+		HRESULT GetDataLength([out, retval] DWORD* pRequestLength);
+
+		// Get response data
+		// use NULL pbData to determine data length
+		HRESULT GetResponseData ([out, retval] SAFEARRAY(BYTE)* pbData);
+	};
+
+	[
+		object,
+		uuid(907E0B5C-E42D-4f04-91F0-26F401F36907),
+		helpstring("event factory initializer for update values event"),
+		pointer_default(unique)
+	]
+	interface IGpnvsCommonBase : IUnknown
+	{
+        HRESULT GetValueUpdateName([out, retval] BSTR *pbstrName);
+	};
+
+	[
+		object,
+		uuid(506A09B8-7F86-4e04-AC05-3303BFE8FC49),
+		helpstring("event factory interface"),
+		pointer_default(unique)
+	]
+	interface IESEventFactory : IUnknown
+	{
+		HRESULT CreateESEvent (
+            [in] IUnknown* pServiceProvider,
+            [in] DWORD dwEventId,
+            [in] GUID  guidEventType,
+            [in] DWORD dwEventDataLength,
+            // if the call is successful, the pEventData is now owned by the returning object. 
+            // caller should not delete it. the callee(event object) will cotaskmemfree on release
+            [in, size_is(dwEventDataLength)] BYTE* pEventData, 
+            [in] BSTR bstrBaseUrl,
+            [in] IUnknown* pInitContext,
+            [out, retval] IESEvent** ppESEvent);
+	};
+
+    [
+        object,
+        uuid(d5a48ef5-a81b-4df0-acaa-5e35e7ea45d4),
+        helpstring("IESLicenseRenewalResultEvent Interface"),
+        pointer_default(unique)
+    ]
+    interface IESLicenseRenewalResultEvent : IESEvent
+    {
+        HRESULT GetCallersId ([out, retval]  DWORD* pdwCallersId) ;
+        HRESULT GetFileName ([out, retval] BSTR* pbstrFilename) ;
+		
+        HRESULT IsRenewalSuccessful ([out, retval] BOOL* pfRenewalSuccessful);
+        HRESULT IsCheckEntitlementCallRequired ([out, retval] BOOL* pfCheckEntTokenCallNeeded) ; 
+        HRESULT GetDescrambledStatus ([out, retval] DWORD* pDescrambledStatus ) ;
+        HRESULT GetRenewalResultCode ([out, retval]  DWORD* pdwRenewalResultCode) ;
+        HRESULT GetCASFailureCode ([out, retval]  DWORD* pdwCASFailureCode) ;
+        HRESULT GetRenewalHResult ([out, retval] HRESULT* phr ) ;
+        
+        HRESULT GetEntitlementTokenLength ( [out, retval] DWORD* pdwLength);
+        HRESULT GetEntitlementToken ([out, retval]  SAFEARRAY(BYTE)* pbData) ;
+
+        HRESULT GetExpiryDate ([out, retval] DWORD64* pqwExpiryDate);
+    };
+
+
+    [
+        object,
+        uuid(BA9EDCB6-4D36-4cfe-8C56-87A6B0CA48E1),
+        helpstring("IESFileExpiryDateEvent Interface"),
+        pointer_default(unique)
+    ]
+    interface IESFileExpiryDateEvent : IESEvent
+    {
+        HRESULT GetTunerId ([out, retval] GUID* pguidTunerId);
+        HRESULT GetExpiryDate ([out, retval] DWORD64* pqwExpiryDate);
+        HRESULT GetFinalExpiryDate ([out, retval] DWORD64* pqwExpiryDate);
+        HRESULT GetMaxRenewalCount ([out, retval] DWORD* dwMaxRenewalCount);
+        HRESULT IsEntitlementTokenPresent ([out, retval] BOOL* pfEntTokenPresent);
+        HRESULT DoesExpireAfterFirstUse ([out, retval] BOOL* pfExpireAfterFirstUse);
+    };
+
+
+	[
+		object,
+		uuid(ED89A619-4C06-4b2f-99EB-C7669B13047C),
+		helpstring("Extensible eventing service interface"),
+		pointer_default(unique)
+	]
+	interface IESEventService: IUnknown
+	{
+	    HRESULT FireESEvent(IESEvent* pESEvent);
+	};
+
+	[
+		object,
+        hidden,
+        nonextensible,
+		uuid(33B9DAAE-9309-491d-A051-BCAD2A70CD66),
+		helpstring("Extensible eventing service configuration interface"),
+		pointer_default(unique)
+	]
+	interface IESEventServiceConfiguration: IUnknown
+	{
+		//
+		// Setting a Parent allows this event service 
+		// to pass through all advise events to its parent.
+		//
+		HRESULT SetParent(IESEventService *pEventService);
+		HRESULT RemoveParent();
+
+		//
+		// The following two methods allow the owner to set
+		// an interface that the EventService will use when advising on 
+		// a parent.
+		// This allows owners to intercept events.
+		//
+		HRESULT SetOwner(IESEvents *pESEvents);
+		HRESULT RemoveOwner();
+
+		//
+		// The following two methods let the graph to be attached
+		// to the eventing service.  The service will process
+		// PBDA events and fire them up using Recorder eventing system.
+		//
+		HRESULT SetGraph(IFilterGraph* pGraph);
+		HRESULT RemoveGraph(IFilterGraph* pGraph);
+	};
+
+///////////////////////////////////////////////////////////////////////////////////////
+// utility interfaces
+///////////////////////////////////////////////////////////////////////////////////////
+
+    // this is a utility object that does the marshalling and makes it simple to register 
+    // an apt model ITuner implementation into a graph's IServiceProvider
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(359B3901-572C-4854-BB49-CDEF66606A25),
+        helpstring("BDA ITuner Marshaler helper"),
+        pointer_default(unique)
+    ]
+    interface IRegisterTuner : IUnknown
+    {
+        HRESULT Register([in] ITuner* pTuner, [in] IGraphBuilder* pGraph);
+        HRESULT Unregister();
+    };
+
+    // this is supports object comparison by value
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(B34505E0-2F0E-497b-80BC-D43F3B24ED7F),
+        helpstring("BDA Comparison By Value interface"),
+        pointer_default(unique)
+    ]
+    interface IBDAComparable : IUnknown
+    {
+        [helpstring("-1 this < CompareTo, 0 objects equal, 1 this > CompareTo, deep compare of all serializable properties")]
+        HRESULT CompareExact([in] IDispatch* CompareTo, [out, retval] long* Result);
+        [helpstring("-1 this < CompareTo, 0 objects equal, 1 this > CompareTo, deep compare of properties that define unique content")]
+        HRESULT CompareEquivalent([in] IDispatch* CompareTo, [in] DWORD dwFlags, [out, retval] long* Result);
+        // if CompareExact returns == 0 then HashExact should be same value
+        [helpstring("deep crc-64 of all serializable properties")]
+        HRESULT HashExact([out, retval] __int64* Result);
+        HRESULT HashExactIncremental([in] __int64 PartialResult, [out, retval] __int64* Result);
+        // if CompareEquivalent returns == 0 then HashEquivalent should be same value
+        [helpstring("deep crc-64 of all properties that define unique content")]
+        HRESULT HashEquivalent( [in] DWORD dwFlags, [out, retval] __int64* Result);
+        HRESULT HashEquivalentIncremental( [in] __int64 PartialResult, [in] DWORD dwFlags, [out, retval] __int64* Result);
+    };
+
+    // IPersistTuneXml : defines an individual property-based xml persistence mechanism
+    //
+    [
+        object,
+        uuid(0754CD31-8D15-47a9-8215-D20064157244),
+        helpstring("IPersistTuneXml Interface"),
+        pointer_default(unique)
+    ]
+    interface IPersistTuneXml : IPersist
+    {
+        HRESULT InitNew();
+
+        // Instructs the object to initialize itself using the Xml Node available in the 
+        // variant as a BSTR or as a IXMLDOMNode
+        HRESULT Load([in] VARIANT varValue);
+
+        // Instructs the object to save its properties to the given IXMLDOMNode
+        HRESULT Save([out] VARIANT *pvarFragment);
+    };
+
+    // IPersistTuneXmlUtility : defines an utility object to create Tuning Model 
+    // objects based on the xml node passed in
+    //
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(990237AE-AC11-4614-BE8F-DD217A4CB4CB),
+        helpstring("IPersistTuneXmlUtility Interface"),
+        pointer_default(unique)
+    ]
+    interface IPersistTuneXmlUtility : IUnknown
+    {
+        // Contructs and returns an object which will initialize itself using the 
+        // Xml Node available in the variant as a BSTR or as a IXMLDOMNode
+        HRESULT Deserialize([in] VARIANT varValue, [out, retval] IUnknown** ppObject);
+    };
+
+     // IPersistTuneXmlUtility2 : defines an utility object to extract TuneXml
+    // from the Tune Request.
+    //
+    [
+        object,
+        hidden,
+        nonextensible,
+        uuid(992E165F-EA24-4b2f-9A1D-009D92120451),
+        helpstring("IPersistTuneXmlUtility2 Interface"),
+        pointer_default(unique)
+    ]
+    interface IPersistTuneXmlUtility2 : IPersistTuneXmlUtility
+    {
+        HRESULT Serialize([in] ITuneRequest* piTuneRequest, [out, retval] BSTR* pString);
+    };
+
+        // this interface adds a CreateTuneRequestEx method to a TuningSpace
+    [
+        object,
+        uuid(C0A4A1D4-2B3C-491a-BA22-499FBADD4D12),
+        helpstring("BDA Create Tune RequestEx interface, implemented by Tuning Spaces"),
+        pointer_default(unique)
+    ]
+    interface IBDACreateTuneRequestEx : IUnknown
+    {
+        HRESULT CreateTuneRequestEx(
+            [in] REFCLSID TuneRequestIID,
+            [out, retval] ITuneRequest **TuneRequest
+            );
+
+    };
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+// TYPELIB & CoClasses
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+[
+    uuid(9B085638-018E-11d3-9D8E-00C04F72D980),
+    version(1.0),
+    helpstring("Microsoft Tuner 1.0 Type Library")
+]
+library TunerLib
+{
+    importlib("stdole2.tlb");
+
+    // SystemTuningSpaces class
+    [
+        uuid(D02AAC50-027E-11d3-9D8E-00C04F72D980),
+        helpstring("SystemTuningSpace Class")
+    ]
+    coclass SystemTuningSpaces
+    {
+        [default] interface ITuningSpaceContainer;
+    };
+
+    // NOTE: there is no object factory for this class.  the implementation for the underlying
+    // code is a c++ abstract base class.  this coclass is only provided here to
+    // force vb to expose the base interface to enable polymorphic access to 
+    // derived objects
+    [
+        noncreatable,
+        hidden, restricted,
+        uuid(5FFDC5E6-B83A-4b55-B6E8-C69E765FE9DB),
+        helpstring("dummy class to expose base tuning space i/f to VB")
+    ]
+    coclass TuningSpace
+    {
+        [default] interface ITuningSpace;
+        interface IBDAComparable;
+    };
+
+
+    [
+        uuid(CC829A2F-3365-463f-AF13-81DBB6F3A555),
+        helpstring("Channel ID Tuning Space Class")
+    ]
+    coclass ChannelIDTuningSpace
+    {
+        [default] interface ITuningSpace;
+        interface IBDAComparable;
+        interface IBDACreateTuneRequestEx;
+    };
+
+    [
+        uuid(A2E30750-6C3D-11d3-B653-00C04F79498E),
+        helpstring("ATSC Digital Broadcast Tuning Space Class")
+    ]
+    coclass ATSCTuningSpace
+    {
+        [default] interface IATSCTuningSpace;
+        interface IBDAComparable;
+    };
+
+        [
+        uuid(D9BB4CEE-B87A-47F1-AC92-B08D9C7813FC),
+        helpstring("Digital Cable Tuning Space Class")
+    ]
+    coclass DigitalCableTuningSpace
+    {
+        [default] interface IDigitalCableTuningSpace;
+        interface IBDAComparable;
+    };
+
+
+    [
+        uuid(8A674B4C-1F63-11d3-B64C-00C04F79498E),
+        helpstring("Analog Radio Tuning Space Class")
+    ]
+    coclass AnalogRadioTuningSpace
+    {
+        [default] interface IAnalogRadioTuningSpace2;
+        interface IAnalogRadioTuningSpace;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(F9769A06-7ACA-4e39-9CFB-97BB35F0E77E),
+        helpstring("Auxiliary Inputs Tuning Space Class")
+    ]
+    coclass AuxInTuningSpace
+    {
+        interface IAuxInTuningSpace;
+        [default] interface IAuxInTuningSpace2;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(8A674B4D-1F63-11d3-B64C-00C04F79498E),
+        helpstring("Analog TV Tuning Space Class")
+    ]
+    coclass AnalogTVTuningSpace
+    {
+        [default] interface IAnalogTVTuningSpace;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(C6B14B32-76AA-4a86-A7AC-5C79AAF58DA7),
+        helpstring("DVB Tuning Space Class")
+    ]
+    coclass DVBTuningSpace
+    {
+        [default] interface IDVBTuningSpace2;
+        interface IDVBTuningSpace;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(B64016F3-C9A2-4066-96F0-BD9563314726),
+        helpstring("DVB Satellite Tuning Space Class")
+    ]
+    coclass DVBSTuningSpace
+    {
+        [default] interface IDVBSTuningSpace;
+        interface IBDAComparable;
+    };
+
+    // ComponentTypes container class
+    [
+        uuid(A1A2B1C4-0E3A-11d3-9D8E-00C04F72D980),
+        helpstring("Component Types Collection Class")
+    ]
+    coclass ComponentTypes
+    {
+        [default] interface IComponentTypes;
+        //interface IBDAComparable;
+    };
+
+    // ComponentType class
+    [
+        uuid(823535A0-0318-11d3-9D8E-00C04F72D980),
+        helpstring("ComponentType Class")
+    ]
+    coclass ComponentType
+    {
+        [default] interface IComponentType;
+        //interface IBDAComparable;
+    };
+
+    // Language ComponentType class
+    [
+        uuid(1BE49F30-0E1B-11d3-9D8E-00C04F72D980),
+        helpstring("LanguageComponentType Class")
+    ]
+    coclass LanguageComponentType
+    {
+        [default] interface ILanguageComponentType;
+        //interface IBDAComparable;
+    };
+
+    // MPEG2 ComponentType class
+    [
+        uuid(418008F3-CF67-4668-9628-10DC52BE1D08),
+        helpstring("MPEG2ComponentType Class")
+    ]
+    coclass MPEG2ComponentType
+    {
+        [default] interface IMPEG2ComponentType;
+        //interface IBDAComparable;
+    };
+
+    // ATSC ComponentType class
+    [
+        uuid(A8DCF3D5-0780-4ef4-8A83-2CFFAACB8ACE),
+        helpstring("ATSCComponentType Class")
+    ]
+    coclass ATSCComponentType
+    {
+        [default] interface IATSCComponentType;
+        //interface IBDAComparable;
+    };
+
+    // Components class
+    [
+        hidden, restricted,
+        uuid(809B6661-94C4-49e6-B6EC-3F0F862215AA),
+        helpstring("Components Collection Class")
+    ]
+    coclass Components
+    {
+        [default] interface IComponents;
+        interface IComponentsOld;
+        //interface IBDAComparable;
+    };
+
+    // Component class
+    // the components can only be created by network provider/tif.  client apps
+    // retrieve them from a filled-in tune request by either loading a persisted tune
+    // request that has been filled in by a proper guide store loader or by re-getting
+    // the current tune request property which will have this filled in by the network
+    // provider
+    [
+        hidden, restricted,
+        uuid(59DC47A8-116C-11d3-9D8E-00C04F72D980),
+        helpstring("Component Class")
+    ]
+    coclass Component
+    {
+        [default] interface IComponent;
+        //interface IBDAComparable;
+    };
+
+    // MPEG2 Component class
+    [
+        hidden, restricted,
+        uuid(055CB2D7-2969-45cd-914B-76890722F112),
+        helpstring("MPEG2 Component Class")
+    ]
+    coclass MPEG2Component
+    {
+        [default] interface IMPEG2Component;
+        //interface IBDAComparable;
+    };
+
+
+        // Analog Audio Component class
+    [
+        hidden, restricted,
+        uuid(28AB0005-E845-4FFA-AA9B-F4665236141C),
+        helpstring("Analog Audio Component Class")
+    ]
+    coclass AnalogAudioComponentType
+    {
+        [default] interface IAnalogAudioComponentType;
+        //interface IBDAComparable;
+    };
+
+    // NOTE: there is no object factory for this class.  the implementation for the underlying
+    // code is a c++ abstract base class.  this coclass is only provided here to
+    // force vb to expose the base interface to enable polymorphic access to 
+    // derived objects
+    [
+        noncreatable,
+        hidden, restricted,
+        uuid(B46E0D38-AB35-4a06-A137-70576B01B39F),
+        helpstring("dummy class to expose base tune request i/f to VB")
+    ]
+    coclass TuneRequest
+    {
+        [default] interface ITuneRequest;
+        interface IBDAComparable;
+    };
+
+
+    // NOTE: the tuning request factories should not be invoked directly.
+    // instead apps should use ITuningSpace::CreateTuningRequest to obtain a correctly
+    // initialized tuning request of the appropriate type for that space.
+    // the object factories are provided to allow generic code to a load a previously persisted
+    // tune request object.
+    [
+        hidden,
+        restricted,
+        uuid(3A9428A7-31A4-45e9-9EFB-E055BF7BB3DB),
+        helpstring("Channel Tune Request")
+    ]
+    coclass ChannelIDTuneRequest
+    {
+        [default] interface IChannelIDTuneRequest;
+        interface IBDAComparable;
+    };
+
+    [
+        hidden,
+        restricted,
+        uuid(0369B4E5-45B6-11d3-B650-00C04F79498E),
+        helpstring("Channel Tune Request")
+    ]
+    coclass ChannelTuneRequest
+    {
+        [default] interface IChannelTuneRequest;
+        interface IBDAComparable;
+    };
+
+    [
+        hidden,
+        restricted,
+        uuid(0369B4E6-45B6-11d3-B650-00C04F79498E),
+        helpstring("ATSC Channel Tune Request")
+    ]
+    coclass ATSCChannelTuneRequest
+    {
+        [default] interface IATSCChannelTuneRequest;
+        interface IBDAComparable;
+    };
+
+    [
+        hidden,
+        restricted,
+        uuid(26EC0B63-AA90-458A-8DF4-5659F2C8A18A),
+        helpstring("Digital Cable Channel Tune Request")
+    ]
+    coclass DigitalCableTuneRequest
+    {
+        [default] interface IDigitalCableTuneRequest;
+        interface IBDAComparable;
+    };
+
+
+    [
+        hidden, restricted,
+        uuid(0955AC62-BF2E-4cba-A2B9-A63F772D46CF),
+        helpstring("dummy class to expose mpeg2 request i/f to VB")
+    ]
+    coclass MPEG2TuneRequest
+    {
+        [default] interface IMPEG2TuneRequest;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(2C63E4EB-4CEA-41b8-919C-E947EA19A77C),
+        helpstring("Factory for creating IMPEG2TuneRequest")
+    ]
+    coclass MPEG2TuneRequestFactory
+    {
+        [default] interface IMPEG2TuneRequestFactory;
+    };
+
+
+    // NOTE: there is no object factory for this class.  the implementation for the underlying
+    // code is a c++ abstract base class.  this coclass is only provided here to
+    // force vb to expose the base interface to enable polymorphic access to 
+    // derived objects
+    [
+        noncreatable,
+        hidden, restricted,
+        uuid(0888C883-AC4F-4943-B516-2C38D9B34562),
+        helpstring("dummy class to expose base locator i/f to VB")
+    ]
+    coclass Locator
+    {
+        [default] interface ILocator;
+        interface IBDAComparable;
+    };
+    // NOTE: there is no object factory for this class.  the implementation for the underlying
+    // code is a c++ abstract base class.  this coclass is only provided here to
+    // force vb to expose the base interface to enable polymorphic access to 
+    // derived objects
+    [
+        noncreatable,
+        hidden, restricted,
+        uuid(6E50CC0D-C19B-4BF6-810B-5BD60761F5CC),
+        helpstring("dummy class to expose base digital locator i/f to VB")
+    ]
+    coclass DigitalLocator
+    {
+        [default] interface IDigitalLocator;
+        interface IBDAComparable;
+    };
+
+    // its not intended that client apps actually create locators.  the network
+    // provider in combination with the transport information filter(TIF) are the 
+    // only modules in the system that actually know the correct values for these objects
+    // however, for testing purposes, its necessary to allow these to be created.
+    // instead, normally these will simply be passed around opaquely since they're a 
+    // property of the base tune request interface.
+
+    [
+        uuid(49638B91-48AB-48B7-A47A-7D0E75A08EDE),
+        helpstring("Analog Locator")
+    ]
+    coclass AnalogLocator
+    {
+        [default] interface IAnalogLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(8872FF1B-98FA-4d7a-8D93-C9F1055F85BB),
+        helpstring("ATSC Locator")
+    ]
+    coclass ATSCLocator
+    {
+        [default] interface IATSCLocator2;
+        interface IATSCLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(03C06416-D127-407A-AB4C-FDD279ABBE5D),
+        helpstring("Digital Cable Locator")
+    ]
+    coclass DigitalCableLocator
+    {
+        [default] interface IDigitalCableLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(9CD64701-BDF3-4d14-8E03-F12983D86664),
+        helpstring("DVB-Terrestrial Locator")
+    ]
+    coclass DVBTLocator
+    {
+        [default] interface IDVBTLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(EFE3FA02-45D7-4920-BE96-53FA7F35B0E6),
+        helpstring("DVB-Terrestrial 2 Locator")
+    ]
+    coclass DVBTLocator2
+    {
+        [default] interface IDVBTLocator2;
+        interface IDVBTLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(1DF7D126-4050-47f0-A7CF-4C4CA9241333),
+        helpstring("DVB-Satellite Locator")
+    ]
+    coclass DVBSLocator
+    {
+        [default] interface IDVBSLocator2;
+        interface IDVBSLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(C531D9FD-9685-4028-8B68-6E1232079F1E),
+        helpstring("DVB-Cable Locator")
+    ]
+    coclass DVBCLocator
+    {
+        [default] interface IDVBCLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        uuid(6504AFED-A629-455c-A7F1-04964DEA5CC4),
+        helpstring("ISDB-Satellite Locator")
+    ]
+    coclass ISDBSLocator
+    {
+        [default] interface IISDBSLocator;
+        interface IDVBSLocator;
+        interface IBDAComparable;
+    };
+
+    [
+        hidden,
+        restricted,
+        uuid(15D6504A-5494-499c-886C-973C9E53B9F1),
+        helpstring("DVB Tune Request")
+    ]
+    coclass DVBTuneRequest
+    {
+        [default] interface IDVBTuneRequest;
+        interface IBDAComparable;
+    };
+
+// Sample tuner class definition:
+//
+//  [
+//      uuid(<some guid>),
+//      helpstring("My Tuner object")
+//  ]
+//  coclass MyTuner
+//  {
+//      [default] interface ITuner;
+//      interface IMyTunerCustomFeatureInterface;
+//  };
+
+///////////////////////////////////////////////////////////////////////////////////////
+// utility objects
+///////////////////////////////////////////////////////////////////////////////////////
+    [
+        hidden, restricted,
+        uuid(8A674B49-1F63-11d3-B64C-00C04F79498E),
+        helpstring("Create property bag backed by registry")
+    ]
+    coclass CreatePropBagOnRegKey
+    {
+        interface ICreatePropBagOnRegKey;
+    };
+
+    [
+        hidden, restricted,
+        uuid(0B3FFB92-0919-4934-9D5B-619C719D0202),
+        helpstring("DShow Broadcast Event Service Object")
+    ]
+    coclass BroadcastEventService
+    {
+        interface IBroadcastEvent;
+    };
+
+    [
+        hidden, restricted,
+        uuid(6438570B-0C08-4a25-9504-8012BB4D50CF),
+        helpstring("BDA ITuner Marshaling utility object")
+    ]
+    coclass TunerMarshaler
+    {
+        interface IRegisterTuner;
+        interface ITuner;
+    };
+    
+    // IPersistTuneXmlUtility : defines an utility object to create Tuning Model 
+    // objects based on the xml fragment passed in
+    //    
+    [
+        uuid(E77026B0-B97F-4cbb-B7FB-F4F03AD69F11),
+        helpstring("Utility object for Tuning Model Object Xml deserialization or serialization")
+    ]
+    coclass PersistTuneXmlUtility
+    {
+        interface IPersistTuneXmlUtility; 
+        interface IPersistTuneXmlUtility2;
+    };
+
+///////////////////////////////////////////////////////////////////////////////////////
+// Eventing System
+///////////////////////////////////////////////////////////////////////////////////////
+	[
+	  uuid(C20447FC-EC60-475e-813F-D2B0A6DECEFE),
+	  helpstring("Extensible Eventing Service object")
+	]
+	coclass ESEventService
+	{
+		[default] interface IESEventService;
+		[source] interface IESEvents;
+	};
+
+	[
+	  uuid(8E8A07DA-71F8-40c1-A929-5E3A868AC2C6),
+	  helpstring("Eventing Service object(used for unmarshal)")
+	]
+	coclass ESEventFactory
+	{
+		[default] interface IESEventFactory;
+        interface IMarshal2;
+	};    
+
+cpp_quote("#define SID_ESEventService CLSID_ESEventService")
+cpp_quote("#define SID_ESEventFactory CLSID_ESEventFactory")
+cpp_quote("#define SID_SContentTuneRequest IID_ITuner")
+cpp_quote("#define SID_ScanningTuner IID_IScanningTuner")
+cpp_quote("#define SID_ScanningTunerEx IID_IScanningTunerEx")
+    
+}
+
+// end of file -- tuner.idl
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

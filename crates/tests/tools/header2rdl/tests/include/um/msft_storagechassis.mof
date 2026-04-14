@@ -1,0 +1,11 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract,
+Description( " Represents a storage chassis in a data center." )]
+class MSFT_StorageChassis : MSFT_StorageFaultDomain {
+
+};

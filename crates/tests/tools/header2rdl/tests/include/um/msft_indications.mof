@@ -1,0 +1,118 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[Indication, Abstract, ClassVersion( "1.0" ),
+Description( "Base storage event indication" )]
+class MSFT_StorageEvent
+{
+    [Read]
+    String StorageSubsystemObjectId;
+
+    [Read, EmbeddedInstance("MSFT_StorageObject")]
+    String SourceInstance;
+
+    [Read, Description(
+        "This field allows the Storage Management Provider (SMP) to provide a brief description "
+        "explaining the indication."
+        )]
+    String Description;
+
+    [Read, Description(
+        "Denotes the date and time in which the event that triggered this indication occurred."
+        )]
+    Datetime EventTime;
+
+    [Read, Description(
+        "Denotes the perceived severity of the event from the notifier's point of view. \n"
+        "0 - 'Unknown': The severity is unknown or indeterminate. \n"
+        "2 - 'Information': The event is for informative purposes. \n"
+        "3 - 'Degraded/Warning': Action may be required by the user. \n"
+        "4 - 'Minor': Action is needed, but the situation is not serious at this time. \n"
+        "5 - 'Major': Immediate action is needed. \n"
+        "6 - 'Critical': Immediate action is needed and the scope of the issue is broad. \n"
+        "7 - 'Fatal/NonRecoverable': An error has occurred, but it is too late to take remedial "
+        "action. \n"
+        ),
+        ValueMap { "0", "2", "3", "4", "5", "6", "7", ".." },
+        Values {
+            "Unknown", "Information", "Degraded/Warning", "Minor", "Major", "Critical",
+            "Fatal/NonRecoverable", "Microsoft Reserved"
+            }]
+    UInt16 PerceivedSeverity;
+
+    //
+    // Deprecated fields
+    //
+
+    [Read, Required, Description(
+        "This field indicates the object that caused the indication."
+        ),
+        ModelCorrespondence {
+            "MSFT_StorageObject.ObjectId"
+        }]
+    String SourceObjectId;
+
+    [Read, Required, Description(
+        "This field indicates the class of the object which caused the indication. For example: "
+        "if the object causing the indication is a storage pool, this field should be set to "
+        "MSFT_StoragePool (not the vendor derived class)."
+        )]
+    String SourceClassName;
+
+    [Read]
+    String SourceNamespace;
+
+    [Read]
+    String SourceServer;
+
+};
+
+
+[Indication, ClassVersion( "1.0" ), Abstract, Description(
+    "Storage arrival events are used whenever a storage object is added or created."
+    )]
+class MSFT_StorageArrivalEvent : MSFT_StorageEvent
+{
+};
+
+
+[Indication, ClassVersion( "1.0" ), Abstract, Description(
+    "Storage departure events are used whenever a storage object is removed or deleted."
+    )]
+class MSFT_StorageDepartureEvent : MSFT_StorageEvent
+{
+};
+
+
+[Indication, ClassVersion ( "1.0" ), Abstract, Description(
+    "Storage modification events are used when the underlying state of an object has changed. "
+    "Not all properties should be tracked (for example AllocatedSize may change so frequently "
+    "that sending events would be impractical). At a minimum, an event should be sent any time "
+    "an objects HealthStatus or OperationalStatus properties change."
+    )]
+class MSFT_StorageModificationEvent : MSFT_StorageEvent
+{
+};
+
+
+[Indication, ClassVersion( "1.0" ), Abstract,
+Description( "Storage alert event" )]
+class MSFT_StorageAlertEvent : MSFT_StorageEvent
+{
+    [Read, Required, Description(
+        "This field describes the type of alert being received."
+        ),
+        ValueMap {
+            "1",
+            "..", "0x8000.."
+            },
+        Values {
+            "Thin provisioning threshold reached",
+            "Microsoft Reserved", "Vendor Specific"
+            }]
+    UInt16 AlertType;
+};
+

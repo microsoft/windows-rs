@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
+           xmlns="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/com/windows10"/>
+
+  <xs:element name="ServiceServer" type="CT_ServiceServer" />
+  <xs:element name="ExeServer" type="com:CT_ExeServer" />
+  <xs:element name="SurrogateServer" type="com:CT_SurrogateServer" />
+  <xs:element name="TreatAsClass" type="com:CT_TreatAsClass" />
+  <xs:element name="ProgId" type="com:CT_ProgId" />
+
+  <xs:complexType name="CT_ServiceServer">
+    <xs:sequence>
+      <xs:element name="Class" type="com:CT_ExeServerClass" minOccurs="1" maxOccurs="10000"/>
+    </xs:sequence>
+    <xs:attribute name="ServiceName" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+    <xs:attribute name="LaunchAndActivationPermission" type="t:ST_PermissionsCom" />
+  </xs:complexType>
+
+</xs:schema>
+

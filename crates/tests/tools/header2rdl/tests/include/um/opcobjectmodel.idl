@@ -1,0 +1,287 @@
+//+--------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//
+//      Contains the definition of IOpcPackage and related interfaces used to
+//      create and read data that conforms to the Open Packaging Conventions, 
+//      part of the Office Open XML document interchange specification.
+//
+//      Include from msopc.h.
+//      Import from msopc.idl.
+// 
+//----------------------------------------------------------------------------
+
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "urlmon.idl";
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN7)")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// Forward declarations
+//
+
+interface IOpcPackage;
+interface IOpcPart;
+interface IOpcRelationship;
+interface IOpcPartSet;
+interface IOpcRelationshipSet;
+interface IOpcPartEnumerator;
+interface IOpcRelationshipEnumerator;
+
+//
+// Enumerations
+//
+typedef [v1_enum] enum 
+{
+    OPC_READ_DEFAULT        = 0x00000000,
+    OPC_VALIDATE_ON_LOAD    = 0x00000001,
+    OPC_CACHE_ON_ACCESS     = 0x00000002
+} OPC_READ_FLAGS;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(OPC_READ_FLAGS);")
+
+typedef [v1_enum] enum
+{
+    OPC_WRITE_DEFAULT       = 0x00000000,
+    OPC_WRITE_FORCE_ZIP32   = 0x00000001
+} OPC_WRITE_FLAGS;
+
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(OPC_WRITE_FLAGS);")
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE70),
+    pointer_default(ref)
+]
+interface IOpcPackage : IUnknown
+{
+
+    HRESULT 
+    GetPartSet (
+        [out, retval] IOpcPartSet** partSet
+        );
+
+    HRESULT 
+    GetRelationshipSet (
+        [out, retval] IOpcRelationshipSet** relationshipSet
+        );
+}
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE71),
+    pointer_default(ref)
+]
+interface IOpcPart : IUnknown
+{
+    HRESULT 
+    GetRelationshipSet(
+        [out, retval] IOpcRelationshipSet** relationshipSet
+        );
+
+    HRESULT 
+    GetContentStream(
+        [out, retval] IStream** stream
+        );
+
+    HRESULT 
+    GetName(
+        [out, retval] IOpcPartUri** name
+        );
+
+    HRESULT 
+    GetContentType(
+        [out, string, retval] LPWSTR * contentType
+        );
+
+    HRESULT 
+    GetCompressionOptions(
+        [out, retval] OPC_COMPRESSION_OPTIONS* compressionOptions
+        );    
+}
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE72),
+    pointer_default(ref)
+]
+interface IOpcRelationship : IUnknown
+{
+    HRESULT 
+    GetId (
+        [out, string, retval] LPWSTR* relationshipIdentifier
+        );
+
+    HRESULT 
+    GetRelationshipType (
+        [out, string, retval] LPWSTR* relationshipType
+        );
+
+    HRESULT 
+    GetSourceUri (
+        [out, retval] IOpcUri** sourceUri
+        );
+
+    HRESULT 
+    GetTargetUri (
+        [out, retval] IUri** targetUri
+        );
+
+    HRESULT 
+    GetTargetMode (
+        [out, retval] OPC_URI_TARGET_MODE* targetMode
+        );
+}
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE73),
+    pointer_default(ref)
+]
+interface IOpcPartSet : IUnknown
+{
+    HRESULT 
+    GetPart (
+        [in] IOpcPartUri * name, 
+        [out, retval] IOpcPart** part
+        );
+
+    // part - out param not optional
+    HRESULT 
+    CreatePart (
+        [in] IOpcPartUri * name, 
+        [in, string] LPCWSTR contentType, 
+        [in] OPC_COMPRESSION_OPTIONS compressionOptions, 
+        [out, retval] IOpcPart** part
+        );
+
+    HRESULT 
+    DeletePart (
+        [in] IOpcPartUri * name
+        );
+
+    HRESULT 
+    PartExists (
+        [in] IOpcPartUri * name, 
+        [out, retval] BOOL* partExists
+        );
+
+    HRESULT 
+    GetEnumerator(
+        [out, retval] IOpcPartEnumerator** partEnumerator
+        );
+}
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE74),
+    pointer_default(ref)
+]
+interface IOpcRelationshipSet : IUnknown
+{
+    HRESULT 
+    GetRelationship (
+        [in, string] LPCWSTR relationshipIdentifier,
+        [out, retval] IOpcRelationship** relationship
+        );
+
+    // relationshipIdentifier - Optional - If passed NULL the method creates and uses a randomly generated unique identifier.
+    // relationship - out param optional.
+    HRESULT 
+    CreateRelationship(
+        [in, string, unique] LPCWSTR relationshipIdentifier, 
+        [in, string] LPCWSTR relationshipType, 
+        [in] IUri *targetUri, 
+        [in] OPC_URI_TARGET_MODE targetMode, 
+        [out, retval] IOpcRelationship** relationship
+        );
+
+    HRESULT 
+    DeleteRelationship (
+        [in, string] LPCWSTR relationshipIdentifier
+        );
+
+    HRESULT 
+    RelationshipExists (
+        [in, string] LPCWSTR relationshipIdentifier, 
+        [out, retval] BOOL* relationshipExists
+        );
+
+    HRESULT 
+    GetEnumerator(
+        [out, retval] IOpcRelationshipEnumerator** relationshipEnumerator
+        );
+
+    HRESULT 
+    GetEnumeratorForType (
+        [in, string] LPCWSTR relationshipType,
+        [out, retval] IOpcRelationshipEnumerator** relationshipEnumerator
+        );
+
+    HRESULT 
+    GetRelationshipsContentStream(
+        [out, retval] IStream** contents
+        );
+}
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE75),
+    pointer_default(ref)
+]
+interface IOpcPartEnumerator  : IUnknown
+{
+    HRESULT MoveNext ([out, retval] BOOL *hasNext);
+
+    HRESULT MovePrevious ([out, retval] BOOL *hasPrevious);
+
+    HRESULT GetCurrent ([out, retval] IOpcPart** part);
+
+    HRESULT Clone([out, retval] IOpcPartEnumerator **copy);
+}
+
+[
+    object,
+    uuid(42195949-3B79-4fc8-89C6-FC7FB979EE76),
+    pointer_default(ref)
+]
+interface IOpcRelationshipEnumerator  : IUnknown
+{
+    HRESULT MoveNext ([out, retval] BOOL *hasNext); 
+
+    HRESULT MovePrevious ([out, retval] BOOL *hasPrevious);
+
+    HRESULT GetCurrent ([out, retval] IOpcRelationship** relationship);
+
+    HRESULT Clone([out, retval] IOpcRelationshipEnumerator **copy);
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN7)")
+

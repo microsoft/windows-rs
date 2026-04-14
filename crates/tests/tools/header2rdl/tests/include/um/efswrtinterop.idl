@@ -1,0 +1,149 @@
+/*  efswrtinterop.idl
+ *
+ * IDL defines for COM APIs to support interop with Windows.Security.EnterpriseData.ProtectionPolicyManager
+ *
+ * Copyright (c) Microsoft Corporation. All rights reserved
+ */
+
+import "inspectable.idl";
+import "asyncinfo.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+    [uuid(4652651d-c1fe-4ba1-9F0a-c0f56596f721)]
+    interface IProtectionPolicyManagerInterop : IInspectable
+    {
+        // Returns IAsyncOperation<ProtectionPolicyEvaluationResult>
+         HRESULT RequestAccessForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING targetIdentity,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+         // Returns IProtectionPolicyManager
+         HRESULT GetForWindow(
+            [in] HWND appWindow,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** result);
+    }
+
+    [uuid(157cfbe4-a78d-4156-b384-61fdac41e686)]
+    interface IProtectionPolicyManagerInterop2 : IInspectable
+    {
+        // Returns IAsyncOperation<ProtectionPolicyEvaluationResult>
+        HRESULT RequestAccessForAppWithWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING appPackageFamilyName,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessWithAuditingInfoForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING targetIdentity,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessWithMessageForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING targetIdentity,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] HSTRING messageFromApp,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessForAppWithAuditingInfoForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING appPackageFamilyName,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessForAppWithMessageForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING appPackageFamilyName,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] HSTRING messageFromApp,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+    }
+
+    [uuid(c1c03933-b398-4d93-b0fd-2972adf802c2)]
+    interface IProtectionPolicyManagerInterop3 : IInspectable
+    {
+        HRESULT RequestAccessWithBehaviorForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING targetIdentity,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] HSTRING messageFromApp,
+            [in] UINT32 behavior,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessForAppWithBehaviorForWindowAsync(
+            [in] HWND appWindow,
+            [in] HSTRING sourceIdentity,
+            [in] HSTRING appPackageFamilyName,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] HSTRING messageFromApp,
+            [in] UINT32 behavior,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        //
+        // StorageItem access variants below.
+        //
+
+        HRESULT RequestAccessToFilesForAppForWindowAsync(
+            [in] HWND appWindow,
+            [in] IUnknown* sourceItemListUnk, // IIterable<Windows.Storage.IStorageItem*>* sourceItemList
+            [in] HSTRING appPackageFamilyName,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync(
+            [in] HWND appWindow,
+            [in] IUnknown* sourceItemListUnk, // IIterable<Windows.Storage.IStorageItem*>* sourceItemList
+            [in] HSTRING appPackageFamilyName,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] HSTRING messageFromApp,
+            [in] UINT32 behavior,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessToFilesForProcessForWindowAsync(
+            [in] HWND appWindow,
+            [in] IUnknown* sourceItemListUnk, // IIterable<Windows.Storage.IStorageItem*>* sourceItemList
+            [in] UINT32 processId,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+
+        HRESULT RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync(
+            [in] HWND appWindow,
+            [in] IUnknown* sourceItemListUnk, // IIterable<Windows.Storage.IStorageItem*>* sourceItemList
+            [in] UINT32 processId,
+            [in] IUnknown* auditInfoUnk, // ProtectionPolicyAuditInfo
+            [in] HSTRING messageFromApp,
+            [in] UINT32 behavior,
+            [in] REFIID riid,
+            [out, retval, iid_is(riid)] void** asyncOperation);
+    }
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")

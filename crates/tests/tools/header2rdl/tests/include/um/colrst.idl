@@ -1,0 +1,132 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			colrst.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a10-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IColumnsRowset : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT GetAvailableColumns(
+		[in, out, annotation("_Out_")] DBORDINAL * pcOptColumns,
+		[out, size_is(,(ULONG)*pcOptColumns), annotation("_Outptr_result_buffer_(*pcOptColumns)")] DBID ** prgOptColumns
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(GetAvailableColumns)]
+	HRESULT RemoteGetAvailableColumns(
+		[in, out] DBORDINAL * pcOptColumns,
+		[out, size_is(,(ULONG)*pcOptColumns)] DBID ** prgOptColumns,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+	[local]
+	HRESULT GetColumnsRowset(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in] DBORDINAL cOptColumns,
+		[in, size_is((ULONG)cOptColumns), annotation("_In_reads_(cOptColumns)")] const DBID rgOptColumns[],
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, out, size_is((ULONG)cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] DBPROPSET rgPropertySets[],
+		[out, iid_is(riid), annotation("_Outptr_")] IUnknown ** ppColRowset
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(GetColumnsRowset)]
+	HRESULT RemoteGetColumnsRowset(
+		[in] IUnknown * pUnkOuter,
+		[in] DBORDINAL cOptColumns,
+		[in, unique, size_is((ULONG)cOptColumns)] const DBID * rgOptColumns,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is((ULONG)cPropertySets)] DBPROPSET * rgPropertySets,
+		[out, iid_is(riid)] IUnknown ** ppColRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is((ULONG)cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT GetAvailableColumns(
+		[in, out, annotation("_Out_")] DBORDINAL * pcOptColumns,
+		[out, size_is(,*pcOptColumns), annotation("_Outptr_result_buffer_(*pcOptColumns)")] DBID ** prgOptColumns
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(GetAvailableColumns)]
+	HRESULT RemoteGetAvailableColumns(
+		[in, out] DBORDINAL * pcOptColumns,
+		[out, size_is(,*pcOptColumns)] DBID ** prgOptColumns,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+	[local]
+	HRESULT GetColumnsRowset(
+		[in, annotation("_In_opt_")] IUnknown * pUnkOuter,
+		[in] DBORDINAL cOptColumns,
+		[in, size_is(cOptColumns), annotation("_In_reads_(cOptColumns)")] const DBID rgOptColumns[],
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, out, size_is(cPropertySets), annotation("_Inout_updates_opt_(cPropertySets)")] DBPROPSET rgPropertySets[],
+		[out, iid_is(riid), annotation("_Outptr_")] IUnknown ** ppColRowset
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(GetColumnsRowset)]
+	HRESULT RemoteGetColumnsRowset(
+		[in] IUnknown * pUnkOuter,
+		[in] DBORDINAL cOptColumns,
+		[in, unique, size_is(cOptColumns)] const DBID * rgOptColumns,
+		[in] REFIID riid,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET * rgPropertySets,
+		[out, iid_is(riid)] IUnknown ** ppColRowset,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS * rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#endif
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

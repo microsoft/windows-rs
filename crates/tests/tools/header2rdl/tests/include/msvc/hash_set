@@ -1,0 +1,385 @@
+// hash_set extension header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _HASH_SET_
+#define _HASH_SET_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xhash>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+#ifndef _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+#error <hash_set> is deprecated and will be REMOVED. Please use <unordered_set>. You can define \
+_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS to suppress this error.
+#endif // _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+
+namespace stdext {
+    using _STD allocator;
+    using _STD swap;
+    using _STD _Hash;
+    using _STD _Is_nothrow_swappable;
+
+    template <class _Kty, // key type (same as value type)
+        class _Tr, // comparator predicate type
+        class _Alloc, // actual allocator type (should be value allocator)
+        bool _Mfl> // true if multiple equivalent keys are permitted
+    class _Hset_traits : public _Tr { // traits required to make _Hash behave like a set
+    public:
+        using key_type            = _Kty;
+        using value_type          = _Kty;
+        using _Mutable_value_type = _Kty;
+        using key_compare         = _Tr;
+        using allocator_type      = _Alloc;
+#if _HAS_CXX17
+        using node_type =
+            _STD _Node_handle<_STD _List_node<value_type, typename _STD allocator_traits<_Alloc>::void_pointer>, _Alloc,
+                _STD _Node_handle_set_base, _Kty>;
+#endif // _HAS_CXX17
+
+        static constexpr bool _Multi    = _Mfl;
+        static constexpr bool _Standard = false;
+
+        template <class... _Args>
+        using _In_place_key_extractor = _STD _In_place_key_extract_set<_Kty, _Args...>;
+
+        using key_equal = _Tr;
+
+        static constexpr bool _Has_transparent_overloads = false;
+
+        _Hset_traits() = default;
+
+        _Hset_traits(const _Tr& _Traits) noexcept(_STD is_nothrow_copy_constructible_v<_Tr>) : _Tr(_Traits) {}
+
+        using value_compare = key_compare;
+
+        _NODISCARD static const _Kty& _Kfn(const value_type& _Val) noexcept {
+            return _Val;
+        }
+
+        _NODISCARD float& _Get_max_bucket_size() noexcept {
+            return _Max_buckets;
+        }
+
+        _NODISCARD const float& _Get_max_bucket_size() const noexcept {
+            return _Max_buckets;
+        }
+
+        void swap(_Hset_traits& _Rhs) noexcept(_Is_nothrow_swappable<_Tr>::value) {
+            using _STD swap;
+            swap(static_cast<_Tr&>(*this), static_cast<_Tr&>(_Rhs)); // intentional ADL
+            _STD swap(_Max_buckets, _Rhs._Max_buckets);
+        }
+
+        float _Max_buckets = 0.0F; // current maximum bucket size
+    };
+
+    template <class _Kty, class _Tr = hash_compare<_Kty, _STD less<_Kty>>, class _Alloc = allocator<_Kty>>
+    class hash_set : public _Hash<_Hset_traits<_Kty, _Tr, _Alloc, false>> { // hash table of key values, unique keys
+    public:
+        using _Mybase         = _Hash<_Hset_traits<_Kty, _Tr, _Alloc, false>>;
+        using key_type        = _Kty;
+        using key_compare     = _Tr;
+        using value_compare   = typename _Mybase::_Value_compare;
+        using value_type      = typename _Mybase::value_type;
+        using allocator_type  = typename _Mybase::allocator_type;
+        using size_type       = typename _Mybase::size_type;
+        using difference_type = typename _Mybase::difference_type;
+        using pointer         = typename _Mybase::pointer;
+        using const_pointer   = typename _Mybase::const_pointer;
+        using reference       = value_type&;
+        using const_reference = const value_type&;
+        using iterator        = typename _Mybase::iterator;
+        using const_iterator  = typename _Mybase::const_iterator;
+        using _Alnode         = typename _Mybase::_Alnode;
+        using _Alnode_traits  = typename _Mybase::_Alnode_traits;
+#if _HAS_CXX17
+        using insert_return_type = _STD _Insert_return_type<iterator, typename _Mybase::node_type>;
+#endif // _HAS_CXX17
+
+        hash_set() : _Mybase(key_compare(), allocator_type()) {}
+
+        explicit hash_set(const allocator_type& _Al) : _Mybase(key_compare(), _Al) {}
+
+        hash_set(const hash_set& _Right)
+            : _Mybase(_Right, _Alnode_traits::select_on_container_copy_construction(_Right._Getal())) {}
+
+        hash_set(const hash_set& _Right, const allocator_type& _Al) : _Mybase(_Right, _Al) {}
+
+        explicit hash_set(const key_compare& _Traits) : _Mybase(_Traits, allocator_type()) {}
+
+        hash_set(const key_compare& _Traits, const allocator_type& _Al) : _Mybase(_Traits, _Al) {}
+
+        template <class _Iter>
+        hash_set(_Iter _First, _Iter _Last) : _Mybase(key_compare(), allocator_type()) {
+            this->insert(_First, _Last);
+        }
+
+        template <class _Iter>
+        hash_set(_Iter _First, _Iter _Last, const key_compare& _Traits) : _Mybase(_Traits, allocator_type()) {
+            this->insert(_First, _Last);
+        }
+
+        template <class _Iter>
+        hash_set(_Iter _First, _Iter _Last, const key_compare& _Traits, const allocator_type& _Al)
+            : _Mybase(_Traits, _Al) {
+            this->insert(_First, _Last);
+        }
+
+        hash_set& operator=(const hash_set& _Right) {
+            _Mybase::operator=(_Right);
+            return *this;
+        }
+
+        hash_set(hash_set&& _Right) : _Mybase(_STD move(_Right)) {}
+
+        hash_set(hash_set&& _Right, const allocator_type& _Al) : _Mybase(_STD move(_Right), _Al) {}
+
+        hash_set& operator=(hash_set&& _Right) noexcept(noexcept(_Mybase::operator=(_STD move(_Right)))) {
+            _Mybase::operator=(_STD move(_Right));
+            return *this;
+        }
+
+        void swap(hash_set& _Right) noexcept(noexcept(_Mybase::swap(_Right))) {
+            _Mybase::swap(_Right);
+        }
+
+        hash_set(_STD initializer_list<value_type> _Ilist) : _Mybase(key_compare(), allocator_type()) {
+            this->insert(_Ilist);
+        }
+
+        hash_set(_STD initializer_list<value_type> _Ilist, const key_compare& _Pred)
+            : _Mybase(_Pred, allocator_type()) {
+            this->insert(_Ilist);
+        }
+
+        hash_set(_STD initializer_list<value_type> _Ilist, const key_compare& _Pred, const allocator_type& _Al)
+            : _Mybase(_Pred, _Al) {
+            this->insert(_Ilist);
+        }
+
+        hash_set& operator=(_STD initializer_list<value_type> _Ilist) {
+            this->clear();
+            this->insert(_Ilist);
+            return *this;
+        }
+
+        using reverse_iterator       = _STD reverse_iterator<iterator>;
+        using const_reverse_iterator = _STD reverse_iterator<const_iterator>;
+
+        _NODISCARD reverse_iterator rbegin() noexcept {
+            return reverse_iterator(this->end());
+        }
+
+        _NODISCARD const_reverse_iterator rbegin() const noexcept {
+            return const_reverse_iterator(this->end());
+        }
+
+        _NODISCARD reverse_iterator rend() noexcept {
+            return reverse_iterator(this->begin());
+        }
+
+        _NODISCARD const_reverse_iterator rend() const noexcept {
+            return const_reverse_iterator(this->begin());
+        }
+
+        _NODISCARD const_reverse_iterator crbegin() const noexcept {
+            return rbegin();
+        }
+
+        _NODISCARD const_reverse_iterator crend() const noexcept {
+            return rend();
+        }
+
+        _NODISCARD key_compare key_comp() const {
+            return this->_Traitsobj;
+        }
+
+        _NODISCARD value_compare value_comp() const {
+            return value_compare(key_comp());
+        }
+
+        using _Mybase::_Unchecked_begin;
+        using _Mybase::_Unchecked_end;
+    };
+
+    template <class _Kty, class _Tr, class _Alloc>
+    void swap(hash_set<_Kty, _Tr, _Alloc>& _Left, hash_set<_Kty, _Tr, _Alloc>& _Right)
+        noexcept(noexcept(_Left.swap(_Right))) {
+        _Left.swap(_Right);
+    }
+
+    template <class _Kty, class _Tr, class _Alloc>
+    _NODISCARD bool operator==(const hash_set<_Kty, _Tr, _Alloc>& _Left, const hash_set<_Kty, _Tr, _Alloc>& _Right) {
+        return _STD _Hash_equal(_Left, _Right);
+    }
+
+    template <class _Kty, class _Tr, class _Alloc>
+    _NODISCARD bool operator!=(const hash_set<_Kty, _Tr, _Alloc>& _Left, const hash_set<_Kty, _Tr, _Alloc>& _Right) {
+        return !(_Left == _Right);
+    }
+
+    template <class _Kty, class _Tr = hash_compare<_Kty, _STD less<_Kty>>, class _Alloc = allocator<_Kty>>
+    class hash_multiset
+        : public _Hash<_Hset_traits<_Kty, _Tr, _Alloc, true>> { // hash table of key values, non-unique keys
+    public:
+        using _Mybase         = _Hash<_Hset_traits<_Kty, _Tr, _Alloc, true>>;
+        using key_type        = _Kty;
+        using key_compare     = _Tr;
+        using value_compare   = typename _Mybase::_Value_compare;
+        using value_type      = typename _Mybase::value_type;
+        using allocator_type  = typename _Mybase::allocator_type;
+        using size_type       = typename _Mybase::size_type;
+        using difference_type = typename _Mybase::difference_type;
+        using pointer         = typename _Mybase::pointer;
+        using const_pointer   = typename _Mybase::const_pointer;
+        using reference       = value_type&;
+        using const_reference = const value_type&;
+        using iterator        = typename _Mybase::iterator;
+        using const_iterator  = typename _Mybase::const_iterator;
+        using _Alnode         = typename _Mybase::_Alnode;
+        using _Alnode_traits  = typename _Mybase::_Alnode_traits;
+
+        hash_multiset() : _Mybase(key_compare(), allocator_type()) {}
+
+        explicit hash_multiset(const allocator_type& _Al) : _Mybase(key_compare(), _Al) {}
+
+        hash_multiset(const hash_multiset& _Right)
+            : _Mybase(_Right, _Alnode_traits::select_on_container_copy_construction(_Right._Getal())) {}
+
+        hash_multiset(const hash_multiset& _Right, const allocator_type& _Al) : _Mybase(_Right, _Al) {}
+
+        explicit hash_multiset(const key_compare& _Traits) : _Mybase(_Traits, allocator_type()) {}
+
+        hash_multiset(const key_compare& _Traits, const allocator_type& _Al) : _Mybase(_Traits, _Al) {}
+
+        template <class _Iter>
+        hash_multiset(_Iter _First, _Iter _Last) : _Mybase(key_compare(), allocator_type()) {
+            this->insert(_First, _Last);
+        }
+
+        template <class _Iter>
+        hash_multiset(_Iter _First, _Iter _Last, const key_compare& _Traits) : _Mybase(_Traits, allocator_type()) {
+            this->insert(_First, _Last);
+        }
+
+        template <class _Iter>
+        hash_multiset(_Iter _First, _Iter _Last, const key_compare& _Traits, const allocator_type& _Al)
+            : _Mybase(_Traits, _Al) {
+            this->insert(_First, _Last);
+        }
+
+        hash_multiset& operator=(const hash_multiset& _Right) {
+            _Mybase::operator=(_Right);
+            return *this;
+        }
+
+        hash_multiset(hash_multiset&& _Right) : _Mybase(_STD move(_Right)) {}
+
+        hash_multiset(hash_multiset&& _Right, const allocator_type& _Al) : _Mybase(_STD move(_Right), _Al) {}
+
+        hash_multiset& operator=(hash_multiset&& _Right) noexcept(noexcept(_Mybase::operator=(_STD move(_Right)))) {
+            _Mybase::operator=(_STD move(_Right));
+            return *this;
+        }
+
+        void swap(hash_multiset& _Right) noexcept(noexcept(_Mybase::swap(_Right))) {
+            _Mybase::swap(_Right);
+        }
+
+        hash_multiset(_STD initializer_list<value_type> _Ilist) : _Mybase(key_compare(), allocator_type()) {
+            this->insert(_Ilist);
+        }
+
+        hash_multiset(_STD initializer_list<value_type> _Ilist, const key_compare& _Pred)
+            : _Mybase(_Pred, allocator_type()) {
+            this->insert(_Ilist);
+        }
+
+        hash_multiset(_STD initializer_list<value_type> _Ilist, const key_compare& _Pred, const allocator_type& _Al)
+            : _Mybase(_Pred, _Al) {
+            this->insert(_Ilist);
+        }
+
+        hash_multiset& operator=(_STD initializer_list<value_type> _Ilist) {
+            this->clear();
+            this->insert(_Ilist);
+            return *this;
+        }
+
+        using reverse_iterator       = _STD reverse_iterator<iterator>;
+        using const_reverse_iterator = _STD reverse_iterator<const_iterator>;
+
+        _NODISCARD reverse_iterator rbegin() noexcept {
+            return reverse_iterator(this->end());
+        }
+
+        _NODISCARD const_reverse_iterator rbegin() const noexcept {
+            return const_reverse_iterator(this->end());
+        }
+
+        _NODISCARD reverse_iterator rend() noexcept {
+            return reverse_iterator(this->begin());
+        }
+
+        _NODISCARD const_reverse_iterator rend() const noexcept {
+            return const_reverse_iterator(this->begin());
+        }
+
+        _NODISCARD const_reverse_iterator crbegin() const noexcept {
+            return rbegin();
+        }
+
+        _NODISCARD const_reverse_iterator crend() const noexcept {
+            return rend();
+        }
+
+        _NODISCARD key_compare key_comp() const {
+            return this->_Traitsobj;
+        }
+
+        _NODISCARD value_compare value_comp() const {
+            return value_compare(key_comp());
+        }
+
+        using _Mybase::_Unchecked_begin;
+        using _Mybase::_Unchecked_end;
+    };
+
+    template <class _Kty, class _Tr, class _Alloc>
+    void swap(hash_multiset<_Kty, _Tr, _Alloc>& _Left, hash_multiset<_Kty, _Tr, _Alloc>& _Right)
+        noexcept(noexcept(_Left.swap(_Right))) {
+        _Left.swap(_Right);
+    }
+
+    template <class _Kty, class _Tr, class _Alloc>
+    _NODISCARD bool operator==(
+        const hash_multiset<_Kty, _Tr, _Alloc>& _Left, const hash_multiset<_Kty, _Tr, _Alloc>& _Right) {
+        return _STD _Hash_equal(_Left, _Right);
+    }
+
+    template <class _Kty, class _Tr, class _Alloc>
+    _NODISCARD bool operator!=(
+        const hash_multiset<_Kty, _Tr, _Alloc>& _Left, const hash_multiset<_Kty, _Tr, _Alloc>& _Right) {
+        return !(_Left == _Right);
+    }
+} // namespace stdext
+
+_STD_BEGIN
+using _STDEXT hash_multiset;
+using _STDEXT hash_set;
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _HASH_SET_

@@ -1,0 +1,401 @@
+// spanstream standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _SPANSTREAM_
+#define _SPANSTREAM_
+#include <yvals.h>
+#if _STL_COMPILER_PREPROCESSOR
+#if !_HAS_CXX23
+_EMIT_STL_WARNING(STL4038, "The contents of <spanstream> are available only with C++23 or later.");
+#else // ^^^ !_HAS_CXX23 / _HAS_CXX23 vvv
+#include <__msvc_ostream.hpp>
+#include <concepts>
+#include <istream>
+#include <span>
+#include <streambuf>
+#include <xutility>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+
+// In this file, _STD span is qualified to avoid ambiguity with span() member functions.
+// This qualification is consistently used even when it isn't strictly necessary.
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_spanbuf : public basic_streambuf<_Elem, _Traits> {
+private:
+    using _Mysb = basic_streambuf<_Elem, _Traits>;
+
+public:
+    using char_type   = _Elem;
+    using int_type    = _Traits::int_type;
+    using pos_type    = _Traits::pos_type;
+    using off_type    = _Traits::off_type;
+    using traits_type = _Traits;
+
+    // N4950 [spanbuf.cons], constructors
+    basic_spanbuf() = default;
+
+    explicit basic_spanbuf(ios_base::openmode _Which) : _Mysb(), _Mode(_Which) {}
+
+    explicit basic_spanbuf(_STD span<_Elem> _Span, ios_base::openmode _Which = ios_base::in | ios_base::out)
+        : _Mysb(), _Mode(_Which), _Buf() {
+        this->span(_Span);
+    }
+
+    basic_spanbuf(const basic_spanbuf&) = delete;
+    basic_spanbuf(basic_spanbuf&& _Right)
+        : _Mysb(_STD move(_Right)), _Mode(_Right._Mode), _Buf(_STD exchange(_Right._Buf, {})) {
+        _Right.setp(nullptr, nullptr, nullptr);
+        _Right.setg(nullptr, nullptr, nullptr);
+    }
+
+    // N4950 [spanbuf.assign], assignment and swap
+    basic_spanbuf& operator=(const basic_spanbuf&) = delete;
+
+    basic_spanbuf& operator=(basic_spanbuf&& _Right) noexcept /* strengthened */ {
+        if (this != _STD addressof(_Right)) {
+            _Buf = _STD span<_Elem>{};
+            this->setp(nullptr, nullptr, nullptr);
+            this->setg(nullptr, nullptr, nullptr);
+            this->swap(_Right);
+        }
+        return *this;
+    }
+
+    void swap(basic_spanbuf& _Right) noexcept /* strengthened */ {
+        _Mysb::swap(_Right);
+        _STD swap(_Mode, _Right._Mode);
+        _STD swap(_Buf, _Right._Buf);
+    }
+
+    // N4950 [spanbuf.members], member functions
+    _NODISCARD _STD span<_Elem> span() const noexcept {
+        if (_Mode & ios_base::out) {
+            return _STD span<_Elem>{_Mysb::pbase(), _Mysb::pptr()};
+        }
+
+        return _Buf;
+    }
+
+    void span(_STD span<_Elem> _Span) noexcept {
+        _Buf              = _Span;
+        const auto _First = _Buf.data();
+        const auto _Last  = _First + _Buf.size();
+        if (_Mode & ios_base::out) {
+            if (_Mode & ios_base::ate) {
+                _Mysb::setp(_First, _Last, _Last);
+            } else {
+                _Mysb::setp(_First, _First, _Last);
+            }
+        }
+
+        if (_Mode & ios_base::in) {
+            _Mysb::setg(_First, _First, _Last);
+        }
+    }
+
+protected:
+    // N4950 [spanbuf.virtuals], overridden virtual functions
+    pos_type seekoff(
+        off_type _Off, ios_base::seekdir _Way, ios_base::openmode _Which = ios_base::in | ios_base::out) override {
+        const bool _Sequence_in  = _Which & ios_base::in;
+        const bool _Sequence_out = _Which & ios_base::out;
+        switch (_Way) {
+        case ios_base::beg:
+            // N4950 [spanbuf.virtuals]/4.1 baseoff = 0
+            if (static_cast<size_t>(_Off) > _Buf.size()) { // negative wraparound to positive to save a compare
+                return pos_type{off_type{-1}}; // N4950 [spanbuf.virtuals]/5 report failure
+            }
+
+            break;
+        case ios_base::end:
+            {
+                // N4950 [spanbuf.virtuals]/4.3 baseoff =
+                const auto _Baseoff = (_Mode & ios_base::out) && !(_Mode & ios_base::in)
+                                        ? static_cast<off_type>(_Mysb::pptr() - _Mysb::pbase())
+                                        : static_cast<off_type>(_Buf.size());
+                if (_Off > _STD _Max_limit<off_type>() - _Baseoff) { // overflow, _Baseoff is always non-negative
+                    return pos_type{off_type{-1}}; // report failure
+                }
+
+                _Off += _Baseoff;
+                if (static_cast<size_t>(_Off) > _Buf.size()) { // negative wraparound to positive to save a compare
+                    return pos_type{off_type{-1}}; // N4950 [spanbuf.virtuals]/5 report failure
+                }
+
+                break;
+            }
+        case ios_base::cur:
+            if (_Sequence_in && _Sequence_out) {
+                return pos_type{off_type{-1}}; // report failure
+            } else if (_Sequence_in || _Sequence_out) {
+                const off_type _Oldoff  = _Sequence_in ? static_cast<off_type>(_Mysb::gptr() - _Mysb::eback())
+                                                       : static_cast<off_type>(_Mysb::pptr() - _Mysb::pbase());
+                const off_type _Oldleft = static_cast<off_type>(_Buf.size() - _Oldoff);
+                if (_Off < -_Oldoff || _Off > _Oldleft) { // out of bounds
+                    return pos_type{off_type{-1}};
+                }
+
+                _Off += _Oldoff;
+            } else {
+                return pos_type{off_type{-1}}; // report failure
+            }
+            break;
+        default:
+            return pos_type{off_type{-1}}; // report failure
+        }
+
+        // N4950 [spanbuf.virtuals]/4: For a sequence to be positioned, if its next pointer is a null pointer and newoff
+        // is not equal to 0, the positioning operation fails.
+        if (_Off != 0 && ((_Sequence_in && !_Mysb::gptr()) || (_Sequence_out && !_Mysb::pptr()))) {
+            return pos_type{off_type{-1}}; // report failure
+        }
+
+        if (_Sequence_in) {
+            _Mysb::gbump(static_cast<int>(_Off - (_Mysb::gptr() - _Mysb::eback())));
+        }
+
+        if (_Sequence_out) {
+            _Mysb::pbump(static_cast<int>(_Off - (_Mysb::pptr() - _Mysb::pbase())));
+        }
+
+        return pos_type{_Off};
+    }
+
+    pos_type seekpos(pos_type _Pos, ios_base::openmode _Which = ios_base::in | ios_base::out) override {
+        return seekoff(off_type{_Pos}, ios_base::beg, _Which);
+    }
+
+    _Mysb* setbuf(_Elem* _Buffer, streamsize _Count) override {
+        this->span(_STD span<_Elem>{_Buffer, static_cast<size_t>(_Count)});
+        return this;
+    }
+
+private:
+    ios_base::openmode _Mode{ios_base::in | ios_base::out};
+    _STD span<_Elem> _Buf{};
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_spanbuf<_Elem, _Traits>& _Left, basic_spanbuf<_Elem, _Traits>& _Right) noexcept /* strengthened */ {
+    _Left.swap(_Right);
+}
+
+template <class _Elem, size_t _Extent>
+span<_Elem, _Extent> _As_nonconst_span(const span<const _Elem, _Extent> _Span) noexcept {
+    return span<_Elem, _Extent>{const_cast<_Elem*>(_Span.data()), _Span.size()};
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_ispanstream : public basic_istream<_Elem, _Traits> {
+private:
+    using _Mybase = basic_istream<_Elem, _Traits>;
+    using _Mysb   = basic_spanbuf<_Elem, _Traits>;
+
+public:
+    using char_type   = _Elem;
+    using int_type    = _Traits::int_type;
+    using pos_type    = _Traits::pos_type;
+    using off_type    = _Traits::off_type;
+    using traits_type = _Traits;
+
+    // N4950 [ispanstream.cons], constructors
+    explicit basic_ispanstream(_STD span<_Elem> _Span, ios_base::openmode _Which = ios_base::in)
+        : _Mybase(_STD addressof(_Buf)), _Buf(_Span, _Which | ios_base::in) {}
+
+    basic_ispanstream(const basic_ispanstream&) = delete;
+
+    basic_ispanstream(basic_ispanstream&& _Right) : _Mybase(_STD move(_Right)), _Buf(_STD move(_Right._Buf)) {
+        _Mybase::set_rdbuf(_STD addressof(_Buf));
+    }
+
+    template <_RANGES borrowed_range _ReadOnlyRange>
+        requires (
+            !convertible_to<_ReadOnlyRange, _STD span<_Elem>> && convertible_to<_ReadOnlyRange, _STD span<const _Elem>>)
+    explicit basic_ispanstream(_ReadOnlyRange&& _Range)
+        : basic_ispanstream(
+              _STD _As_nonconst_span(static_cast<_STD span<const _Elem>>(_STD forward<_ReadOnlyRange>(_Range)))) {}
+
+    basic_ispanstream& operator=(const basic_ispanstream&) = delete;
+
+    basic_ispanstream& operator=(basic_ispanstream&& _Right) noexcept /* strengthened */ {
+        _Mybase::swap(_Right);
+        _Buf.swap(_Right._Buf);
+        return *this;
+    }
+
+    // N4950 [ispanstream.swap], swap
+    void swap(basic_ispanstream& _Right) noexcept /* strengthened */ {
+        _Mybase::swap(_Right);
+        _Buf.swap(_Right._Buf);
+    }
+
+    // N4950 [ispanstream.members], member functions
+    _NODISCARD _Mysb* rdbuf() const noexcept {
+        return const_cast<_Mysb*>(_STD addressof(_Buf));
+    }
+
+    _NODISCARD _STD span<const _Elem> span() const noexcept {
+        return rdbuf()->span();
+    }
+
+    void span(_STD span<_Elem> _Span) noexcept {
+        rdbuf()->span(_Span);
+    }
+
+    template <_RANGES borrowed_range _ReadOnlyRange>
+        requires (
+            !convertible_to<_ReadOnlyRange, _STD span<_Elem>> && convertible_to<_ReadOnlyRange, _STD span<const _Elem>>)
+    void span(_ReadOnlyRange&& _Range) noexcept {
+        const auto _Sp = static_cast<_STD span<const _Elem>>(_STD forward<_ReadOnlyRange>(_Range));
+        rdbuf()->span(_STD _As_nonconst_span(_Sp));
+    }
+
+private:
+    _Mysb _Buf;
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_ispanstream<_Elem, _Traits>& _Left, basic_ispanstream<_Elem, _Traits>& _Right) noexcept
+/* strengthened */ {
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_ospanstream : public basic_ostream<_Elem, _Traits> {
+private:
+    using _Mybase = basic_ostream<_Elem, _Traits>;
+    using _Mysb   = basic_spanbuf<_Elem, _Traits>;
+
+public:
+    using char_type   = _Elem;
+    using int_type    = _Traits::int_type;
+    using pos_type    = _Traits::pos_type;
+    using off_type    = _Traits::off_type;
+    using traits_type = _Traits;
+
+    // N4950 [ospanstream.cons], constructors
+    explicit basic_ospanstream(_STD span<_Elem> _Span, ios_base::openmode _Which = ios_base::out)
+        : _Mybase(_STD addressof(_Buf)), _Buf(_Span, _Which | ios_base::out) {}
+
+    basic_ospanstream(const basic_ospanstream&) = delete;
+
+    basic_ospanstream(basic_ospanstream&& _Right) : _Mybase(_STD move(_Right)), _Buf(_STD move(_Right._Buf)) {
+        _Mybase::set_rdbuf(_STD addressof(_Buf));
+    }
+
+    basic_ospanstream& operator=(const basic_ospanstream&) = delete;
+
+    basic_ospanstream& operator=(basic_ospanstream&& _Right) noexcept /* strengthened */ {
+        _Mybase::swap(_Right);
+        _Buf.swap(_Right._Buf);
+        return *this;
+    }
+
+    // N4950 [ospanstream.swap], swap
+    void swap(basic_ospanstream& _Right) noexcept /* strengthened */ {
+        _Mybase::swap(_Right);
+        _Buf.swap(_Right._Buf);
+    }
+
+    // N4950 [ospanstream.members], member functions
+    _NODISCARD _Mysb* rdbuf() const noexcept {
+        return const_cast<_Mysb*>(_STD addressof(_Buf));
+    }
+
+    _NODISCARD _STD span<_Elem> span() const noexcept {
+        return rdbuf()->span();
+    }
+
+    void span(_STD span<_Elem> _Span) noexcept {
+        rdbuf()->span(_Span);
+    }
+
+private:
+    _Mysb _Buf;
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_ospanstream<_Elem, _Traits>& _Left, basic_ospanstream<_Elem, _Traits>& _Right) noexcept
+/* strengthened */ {
+    _Left.swap(_Right);
+}
+
+_EXPORT_STD template <class _Elem, class _Traits>
+class basic_spanstream : public basic_iostream<_Elem, _Traits> {
+private:
+    using _Mybase = basic_iostream<_Elem, _Traits>;
+    using _Mysb   = basic_spanbuf<_Elem, _Traits>;
+
+public:
+    using char_type   = _Elem;
+    using int_type    = _Traits::int_type;
+    using pos_type    = _Traits::pos_type;
+    using off_type    = _Traits::off_type;
+    using traits_type = _Traits;
+
+    // N4950 [spanstream.cons], constructors
+    explicit basic_spanstream(_STD span<_Elem> _Span, ios_base::openmode _Which = ios_base::out | ios_base::in)
+        : _Mybase(_STD addressof(_Buf)), _Buf(_Span, _Which) {}
+
+    basic_spanstream(const basic_spanstream&) = delete;
+
+    basic_spanstream(basic_spanstream&& _Right) : _Mybase(_STD move(_Right)), _Buf(_STD move(_Right._Buf)) {
+        _Mybase::set_rdbuf(_STD addressof(_Buf));
+    }
+
+    basic_spanstream& operator=(const basic_spanstream&) = delete;
+
+    basic_spanstream& operator=(basic_spanstream&& _Right) noexcept /* strengthened */ {
+        _Mybase::swap(_Right);
+        _Buf.swap(_Right._Buf);
+        return *this;
+    }
+
+    // N4950 [spanstream.swap], swap
+    void swap(basic_spanstream& _Right) noexcept /* strengthened */ {
+        _Mybase::swap(_Right);
+        _Buf.swap(_Right._Buf);
+    }
+
+    // N4950 [spanstream.members], member functions
+    _NODISCARD _Mysb* rdbuf() const noexcept {
+        return const_cast<_Mysb*>(_STD addressof(_Buf));
+    }
+
+    _NODISCARD _STD span<_Elem> span() const noexcept {
+        return rdbuf()->span();
+    }
+
+    void span(_STD span<_Elem> _Span) noexcept {
+        rdbuf()->span(_Span);
+    }
+
+private:
+    _Mysb _Buf;
+};
+
+_EXPORT_STD template <class _Elem, class _Traits>
+void swap(basic_spanstream<_Elem, _Traits>& _Left, basic_spanstream<_Elem, _Traits>& _Right) noexcept
+/* strengthened */ {
+    _Left.swap(_Right);
+}
+
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // ^^^ _HAS_CXX23 ^^^
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _SPANSTREAM_

@@ -1,0 +1,327 @@
+//------------------------------------------------------------------------------
+// File: DynGraph.idl
+//
+// Desc: Dynamic graph interfaces
+//
+// Copyright (c) 1999-2002, Microsoft Corporation.  All rights reserved.
+//------------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+interface IPinConnection;
+interface IPinFlowControl;
+interface IGraphConfig;
+interface IGraphConfigCallback;
+
+//--------------------------------------------------------------------
+//
+//  IPinConnection - supported by input pins
+//
+//--------------------------------------------------------------------
+[
+        local,
+        object,
+        uuid(4a9a62d3-27d4-403d-91e9-89f540e55534),
+        pointer_default(unique)
+]
+interface IPinConnection : IUnknown {
+
+    //  Do you accept this type chane in your current state?
+    HRESULT DynamicQueryAccept([in] const AM_MEDIA_TYPE *pmt);
+
+    //  Set event when EndOfStream receive - do NOT pass it on
+    //  This condition is cancelled by a flush or Stop
+    HRESULT NotifyEndOfStream([in] HANDLE hNotifyEvent);
+
+    //  Are you an 'end pin'
+    HRESULT IsEndPin();
+
+    HRESULT DynamicDisconnect();
+};
+
+//--------------------------------------------------------------------
+//
+//  IPinFlowControl - supported by output pins
+//
+//--------------------------------------------------------------------
+[
+        local,
+        object,
+        uuid(c56e9858-dbf3-4f6b-8119-384af2060deb),
+        pointer_default(unique)
+]
+interface IPinFlowControl : IUnknown {
+    //  Block processing on this pin
+    HRESULT Block([in] DWORD dwBlockFlags, [in] HANDLE hEvent);
+}
+
+//  block flags
+enum _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
+    AM_PIN_FLOW_CONTROL_BLOCK = 0x00000001, //  0 means unblock
+};
+
+
+//  Reconnect flags
+typedef enum _AM_GRAPH_CONFIG_RECONNECT_FLAGS {
+    AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT = 0x00000001,
+    AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS = 0x00000002,
+    AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS = 0x00000004
+} AM_GRAPH_CONFIG_RECONNECT_FLAGS;
+
+// RemoveFilterEx flags
+enum _REM_FILTER_FLAGS {
+    REMFILTERF_LEAVECONNECTED = 0x00000001
+};
+
+typedef enum _AM_FILTER_FLAGS {
+     AM_FILTER_FLAGS_REMOVABLE = 0x00000001
+ } AM_FILTER_FLAGS;
+
+
+//--------------------------------------------------------------------
+//
+//  IGraphConfig
+//
+//--------------------------------------------------------------------
+
+[
+        local,
+        object,
+        uuid(03A1EB8E-32BF-4245-8502-114D08A9CB88),
+        pointer_default(unique)
+]
+interface IGraphConfig : IUnknown {
+    HRESULT Reconnect([in] IPin *pOutputPin, 
+                      [in] IPin *pInputPin,
+                      [in] const AM_MEDIA_TYPE *pmtFirstConnection,
+                      [in] IBaseFilter *pUsingFilter, // can be NULL
+                      [in] HANDLE hAbortEvent,
+                      [in] DWORD dwFlags);
+
+    HRESULT Reconfigure([in] IGraphConfigCallback *pCallback,
+                      [in] PVOID pvContext,
+                      [in] DWORD dwFlags,
+                      [in] HANDLE hAbortEvent);
+
+     
+    HRESULT AddFilterToCache([in] IBaseFilter *pFilter);
+    HRESULT EnumCacheFilter([out] IEnumFilters **pEnum);
+    HRESULT RemoveFilterFromCache([in]IBaseFilter *pFilter);
+
+    //  Get the start time associated with the last Run() call
+    //  If the graph is not running returns VFW_E_WRONG_STATE
+    HRESULT GetStartTime([out] REFERENCE_TIME *prtStart);
+
+    HRESULT PushThroughData(
+        [in] IPin *pOutputPin,
+        [in] IPinConnection *pConnection,
+        [in] HANDLE hEventAbort);
+
+    HRESULT SetFilterFlags([in] IBaseFilter *pFilter, [in] DWORD dwFlags);
+    HRESULT GetFilterFlags([in] IBaseFilter *pFilter, [out] DWORD *pdwFlags);
+
+    HRESULT RemoveFilterEx( [in] IBaseFilter *pFilter, DWORD Flags );
+}
+
+//--------------------------------------------------------------------
+//
+//  IGraphConfigCallback
+//
+//--------------------------------------------------------------------
+
+[
+        local,
+        object,
+        uuid(ade0fd60-d19d-11d2-abf6-00a0c905f375),
+        pointer_default(unique)
+]
+interface IGraphConfigCallback : IUnknown
+{
+    HRESULT Reconfigure(PVOID pvContext, DWORD dwFlags);
+}
+
+// Filter Chain Definition
+// 
+//  Filter chains have the following properties:
+// 
+// - Each filter chain has one or more filters.
+// 
+// - Each filter in a filter chain has at most one connected input pin and one 
+//   connected output pin.  For example, filters A, C, D, F, G, H, I, J and K
+//   (see the diagram below) can be in a filter chain because each one has at 
+//   most one connected input pin and one connected output pin.
+// 
+// - Any filter in a chain is reachable by any other filter in the chain.  
+//   For example, in the filter chain F-G-H, F can reach H by following the F-
+//   G connection to G and then following the G-H connection to H.  Filters F 
+//   and J cannot be in the same filter chain because J is not reachable from 
+//   F.  Anotherwords, there no sequence of connected filters between F and J.
+//
+// - The start filter is the only filter in the filter chain who's input 
+//   pin is not connected to another filter in the chain.  For instance, F is 
+//   the start filter in F-G-H because F's input pin is connected to E and E 
+//   is not in the filter chain.  G's input pin is connected to F and H's is 
+//   connected to G.  Both F and G are in the filter chain.
+//
+// - The end filter is the only filter in the filter chain who's output pin 
+//   is not connected to another filter in the chain.  For example, in the 
+//   filter chain J-K, K is the end filter because K's output pin is 
+//   connected to L.  J's output pin is connected to K and K is in the J-K 
+//   filter chain.
+//
+//
+//            --->|---|    |---|--->                   
+//                | C |--->| D |
+// |---|    |---|--->|---|    |---|--->|---|    |---|    |---|    |---|
+// | A |--->| B |                      | E |--->| F |--->| G |--->| H |
+// |---|    |---|--->|---|------------>|---|    |---|    |---|    |---|
+//                   | I |--->
+//               --->|---|--->
+// 
+// |---|    |---|    |---|
+// | J |--->| K |--->| L |
+// |---|    |---|    |---|
+// 
+//              Example Filter Graph
+// 
+// 
+// 
+// IFilterChain Methods Documentation
+// 
+// HRESULT StartChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+// 
+//      StartChain() switches all the filters in the chain into the running state
+// If one of the filters will not switch to the running state, then all the filters 
+// in the chain are stopped.  This method can only be called if the filter graph is 
+// running.
+// 
+// Parameters:
+// - pStartFilter [in]
+//      The first filter in the filter chain.  Note that this can be the same 
+// filter as pEndFilter .
+// 
+// - pEndFilter [in]
+//      The last filter in the filter chain.  Note that this can be the same 
+// filter as pStartFilter.  If pEndFilter is NULL then the filter chain extends 
+// from pStartFilter to the last downstream filter which can be in a filter chain.
+// For example, IFilterChain::StartChain( A, NULL ) would start filter A.   
+// IFilterChain::StartChain( G, NULL ) would start filters G and H.  
+// IFilterChain::StartChain( C, NULL ) would start filters C and D.  Finally, 
+// IFilterChain::StartChain( E, NULL ) would fail because E cannot be in a 
+// filter chain (see the Filter Chain Definition section for more information).
+// 
+// Return Value:
+//      An HRESULT.  See the Direct Show SDK and COM SDK documentation for more 
+// information on interpreting HRESULTs.
+// 
+// 
+// 
+// 
+// HRESULT PauseChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+// 
+//      PauseChain() switches all the filters in a chain to the paused state.  If it cannot
+// switch one of the filtres into the paused state, all the filters in the chain are
+// stopped.  This method can only be called if the filter graph is paused.
+// 
+// Parameters:
+// - pStartFilter [in]
+//      The first filter in the filter chain.  Note that this can be the same 
+//  filter as pEndFilter . 
+// 
+// - pEndFilter [in]
+//      The last filter in the filter chain.  Note that this can be the same 
+// filter as pStartFilter.  If pEndFilter is NULL then the filter chain extends 
+// from pStartFilter to the last downstream filter which can be in a filter chain.
+// For example, IFilterChain::StopChain( A, NULL ) would stop filter A.   
+// IFilterChain::StopChain( G, NULL ) would stop filters G and H.  
+// IFilterChain::StopChain( C, NULL ) would stop filters C and D.  Finally, 
+// IFilterChain::StopChain( E, NULL ) would fail because E cannot be in a filter 
+// chain (see the Filter Chain Definition section for more information).
+// 
+// 
+// Return Value:
+//      An HRESULT.  See the Direct Show SDK and COM SDK documentation for more 
+// information on interpreting HRESULTs.
+// 
+// 
+// 
+// HRESULT StopChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+// 
+//  StopChain() switches all the filters in chain to the stopped state.
+// 
+// Parameters:
+// - pStartFilter [in]
+//      The first filter in the filter chain.  Note that this can be the same 
+//  filter as pEndFilter . 
+// 
+// - pEndFilter [in]
+//      The last filter in the filter chain.  Note that this can be the same 
+// filter as pStartFilter.  If pEndFilter is NULL then the filter chain extends 
+// from pStartFilter to the last downstream filter which can be in a filter chain.
+// For example, IFilterChain::StopChain( A, NULL ) would stop filter A.   
+// IFilterChain::StopChain( G, NULL ) would stop filters G and H.  
+// IFilterChain::StopChain( C, NULL ) would stop filters C and D.  Finally, 
+// IFilterChain::StopChain( E, NULL ) would fail because E cannot be in a filter 
+// chain (see the Filter Chain Definition section for more information).
+// 
+// 
+// Return Value:
+//      An HRESULT.  See the Direct Show SDK and COM SDK documentation for more 
+// information on interpreting HRESULTs.
+// 
+// 
+// 
+// 
+// 
+// HRESULT RemoveChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+// 
+//      RemoveChain() removes every filter in a chain from the filter graph.  
+// The filters can be removed while the graph is running.
+// 
+// Parameters:
+// - pStartFilter [in]
+//      The first filter in the filter chain.  Note that this can be the same 
+// filter as pEndFilter .
+// 
+// - pEndFilter [in]
+//      The last filter in the filter chain.  Note that this can be the same 
+// filter as pStartFilter.  If pEndFilter is NULL then the filter chain 
+// extends from pStartFilter to the last downstream filter which can be in a 
+// filter chain.  For example, IFilterChain::RemoveChain( A, NULL ) would remove 
+// filter A from the filter graph.   IFilterChain::RemoveChain( G, NULL ) would 
+// remove filters G and H.  IFilterChain::RemoveChain( C, NULL ) would remove 
+// filters C and D.  Finally, IFilterChain::RemoveChain( E, NULL ) would fail 
+// because E cannot be in a filter chain (see the Filter Chain Definition 
+// section for more information).
+// 
+// 
+// Return Value:
+//      An HRESULT.  See the Direct Show SDK and COM SDK documentation for more 
+// information on interpreting HRESULTs.
+// 
+// 
+[
+    local,
+    object,
+    uuid(DCFBDCF6-0DC2-45f5-9AB2-7C330EA09C29),
+    pointer_default(unique)
+]
+interface IFilterChain : IUnknown
+{
+    HRESULT StartChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+    HRESULT PauseChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+    HRESULT StopChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+    HRESULT RemoveChain( [in] IBaseFilter *pStartFilter, [in] IBaseFilter *pEndFilter );
+}
+
+
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

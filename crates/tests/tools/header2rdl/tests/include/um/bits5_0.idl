@@ -1,0 +1,238 @@
+
+/*++
+
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Module name:
+
+    bits5_0.idl
+
+Abstract:
+
+    Contains interfaces, types, and macros for Background Intelligent Transfer Service.
+--*/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+import "bits2_5.idl";
+import "bits3_0.idl";
+import "bits4_0.idl";
+
+
+// OR'able Cost Flags constants
+cpp_quote("#define BITS_COST_STATE_UNRESTRICTED          0x1")
+cpp_quote("#define BITS_COST_STATE_CAPPED_USAGE_UNKNOWN  0x2")
+cpp_quote("#define BITS_COST_STATE_BELOW_CAP             0x4")
+cpp_quote("#define BITS_COST_STATE_NEAR_CAP              0x8")
+cpp_quote("#define BITS_COST_STATE_OVERCAP_CHARGED       0x10")
+cpp_quote("#define BITS_COST_STATE_OVERCAP_THROTTLED     0x20")
+cpp_quote("#define BITS_COST_STATE_USAGE_BASED           0x40")
+cpp_quote("#define BITS_COST_STATE_ROAMING               0x80")
+cpp_quote("#define BITS_COST_OPTION_IGNORE_CONGESTION    0x80000000")
+
+// placeholder -  for internal use
+cpp_quote("#define BITS_COST_STATE_RESERVED              0x40000000")
+
+
+cpp_quote("#define BITS_COST_STATE_TRANSFER_NOT_ROAMING  (BITS_COST_OPTION_IGNORE_CONGESTION|BITS_COST_STATE_USAGE_BASED|BITS_COST_STATE_OVERCAP_THROTTLED|BITS_COST_STATE_OVERCAP_CHARGED|BITS_COST_STATE_NEAR_CAP|BITS_COST_STATE_BELOW_CAP|BITS_COST_STATE_CAPPED_USAGE_UNKNOWN|BITS_COST_STATE_UNRESTRICTED)")
+cpp_quote("#define BITS_COST_STATE_TRANSFER_NO_SURCHARGE (BITS_COST_OPTION_IGNORE_CONGESTION|BITS_COST_STATE_USAGE_BASED|BITS_COST_STATE_OVERCAP_THROTTLED|BITS_COST_STATE_NEAR_CAP|BITS_COST_STATE_BELOW_CAP|BITS_COST_STATE_CAPPED_USAGE_UNKNOWN|BITS_COST_STATE_UNRESTRICTED)")
+cpp_quote("#define BITS_COST_STATE_TRANSFER_STANDARD     (BITS_COST_OPTION_IGNORE_CONGESTION|BITS_COST_STATE_USAGE_BASED|BITS_COST_STATE_OVERCAP_THROTTLED|BITS_COST_STATE_BELOW_CAP|BITS_COST_STATE_CAPPED_USAGE_UNKNOWN|BITS_COST_STATE_UNRESTRICTED)")
+cpp_quote("#define BITS_COST_STATE_TRANSFER_UNRESTRICTED (BITS_COST_OPTION_IGNORE_CONGESTION|BITS_COST_STATE_OVERCAP_THROTTLED|BITS_COST_STATE_UNRESTRICTED)")
+cpp_quote("#define BITS_COST_STATE_TRANSFER_ALWAYS       (BITS_COST_OPTION_IGNORE_CONGESTION|BITS_COST_STATE_ROAMING|BITS_COST_STATE_USAGE_BASED|BITS_COST_STATE_OVERCAP_THROTTLED|BITS_COST_STATE_OVERCAP_CHARGED|BITS_COST_STATE_NEAR_CAP|BITS_COST_STATE_BELOW_CAP|BITS_COST_STATE_CAPPED_USAGE_UNKNOWN|BITS_COST_STATE_UNRESTRICTED)")
+
+typedef enum BITS_JOB_TRANSFER_POLICY
+{
+  BITS_JOB_TRANSFER_POLICY_ALWAYS        = 0x800000FF,  // BITS_COST_STATE_TRANSFER_ALWAYS
+  BITS_JOB_TRANSFER_POLICY_NOT_ROAMING   = 0x8000007F,  // BITS_COST_STATE_TRANSFER_NOT_ROAMING
+  BITS_JOB_TRANSFER_POLICY_NO_SURCHARGE  = 0x8000006F,  // BITS_COST_STATE_TRANSFER_NO_SURCHARGE
+  BITS_JOB_TRANSFER_POLICY_STANDARD      = 0x80000067,  // BITS_COST_STATE_TRANSFER_STANDARD
+  BITS_JOB_TRANSFER_POLICY_UNRESTRICTED  = 0x80000021,  // BITS_COST_STATE_TRANSFER_UNRESTRICTED
+} 
+BITS_JOB_TRANSFER_POLICY;
+
+
+// Enum values that define ID values corresponding to BITS properties
+typedef enum BITS_JOB_PROPERTY_ID
+{
+  // ID for the 'CostFlags' property (read-write) used to control transfer behavior over cellular and similar networks
+  BITS_JOB_PROPERTY_ID_COST_FLAGS = 1,
+
+  // ID for the CLSID notification for BITS (read-write).
+  BITS_JOB_PROPERTY_NOTIFICATION_CLSID = 2,
+
+  // ID for marking the BITS job adaptive to dynamic contents.
+  BITS_JOB_PROPERTY_DYNAMIC_CONTENT = 3,
+
+  // ID for marking the BITS job as optimized download.
+  BITS_JOB_PROPERTY_HIGH_PERFORMANCE = 4,
+
+  // ID for marking the BITS job as optimized download.
+  BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE = 5,
+
+  // ID for marking the BITS job to use stored or automatic credentials.
+  BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS = 7,
+
+  // ID for setting the minimum notification interval for job modifications (in milliseconds).
+  BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS = 9,
+
+  // ID for configuring the BITS job to transfer data only when the application explicitly asks for it.
+  BITS_JOB_PROPERTY_ON_DEMAND_MODE = 10,
+}
+BITS_JOB_PROPERTY_ID;
+
+
+typedef [switch_type(BITS_JOB_PROPERTY_ID)] union
+{
+    [case( BITS_JOB_PROPERTY_ID_COST_FLAGS, 6, 8, BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS )]
+        DWORD Dword;
+
+    [case( BITS_JOB_PROPERTY_NOTIFICATION_CLSID )]
+        GUID ClsID;
+
+    [case( BITS_JOB_PROPERTY_DYNAMIC_CONTENT, BITS_JOB_PROPERTY_HIGH_PERFORMANCE, BITS_JOB_PROPERTY_ON_DEMAND_MODE )]
+        BOOL Enable;
+
+    [case( BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE )]
+        UINT64 Uint64;
+    
+    [case( BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS )]
+        BG_AUTH_TARGET Target;
+}
+BITS_JOB_PROPERTY_VALUE;
+
+
+// Enum values that define ID values corresponding to BackgroundCopyFile properties
+typedef enum BITS_FILE_PROPERTY_ID
+{
+  // ID for the 'HttpResponseHeaders' property (read-write) used for CDN identification.
+  BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS = 1
+}
+BITS_FILE_PROPERTY_ID;
+
+
+typedef [switch_type(BITS_FILE_PROPERTY_ID)] union
+{
+    [case( BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS )]
+        LPWSTR String;
+}
+BITS_FILE_PROPERTY_VALUE;
+
+
+// ------------------ New extended BITS API ------------------
+
+[
+  uuid(E847030C-BBBA-4657-AF6D-484AA42BF1FE),
+  helpstring("IBackgroundCopyJob5 interface"),
+  odl
+]
+interface IBackgroundCopyJob5 : IBackgroundCopyJob4
+{
+
+  /**
+   * Generic job property setter method.
+   *
+   * The caller specifies the property that they want to set and its value.
+   * This provides looser coupling between new job properties in the future
+   * and the need to create new 'extension' interfaces to provide explicit
+   * setters and getters for these properties.
+   */
+  HRESULT SetProperty(
+    [in]                         BITS_JOB_PROPERTY_ID       PropertyId,
+    [in, switch_is(PropertyId)]  BITS_JOB_PROPERTY_VALUE    PropertyValue
+  );
+
+
+  /**
+   * Generic job property getter method.
+   *
+   * The caller specifies the property that they want to obtain the value of.
+   * This provides looser coupling between new job properties in the future
+   * and the need to create new 'extension' interfaces to provide explicit
+   * setters and getters for these properties.
+   */
+  HRESULT GetProperty(
+    [in]                         BITS_JOB_PROPERTY_ID       PropertyId,
+    [out, switch_is(PropertyId)] BITS_JOB_PROPERTY_VALUE   *PropertyValue
+  );
+
+}
+
+
+[
+    uuid(85C1657F-DAFC-40E8-8834-DF18EA25717E),
+    helpstring("IBackgroundCopyFile5 interface"),
+    odl
+]
+interface IBackgroundCopyFile5 : IBackgroundCopyFile4
+{
+
+  /**
+   * Generic file property setter method.
+   *
+   * The caller specifies the file property that they want to set and its value.
+   * This provides looser coupling between new file properties in the future
+   * and the need to create new 'extension' interfaces to provide explicit
+   * setters and getters for these properties.
+   */
+  HRESULT SetProperty(
+    [in]                         BITS_FILE_PROPERTY_ID     PropertyId,
+    [in, switch_is(PropertyId)]  BITS_FILE_PROPERTY_VALUE  PropertyValue
+  );
+
+
+  /**
+   * Generic file property getter method.
+   *
+   * The caller specifies the property that they want to obtain the value of.
+   * This provides looser coupling between new file properties in the future
+   * and the need to create new 'extension' interfaces to provide explicit
+   * setters and getters for these properties.
+   */
+  HRESULT GetProperty(
+    [in]                          BITS_FILE_PROPERTY_ID      PropertyId,
+    [out, switch_is(PropertyId)]  BITS_FILE_PROPERTY_VALUE  *PropertyValue
+  );
+
+}
+
+
+[
+  uuid(D548BC1B-6C12-432E-B176-A96E10681A31),
+  helpstring("Microsoft Background Copy Manager 5.0"),
+  lcid(0x0000),
+  version(1.0)
+]
+library BackgroundCopyManager5_0
+{
+  [
+    uuid(1ECCA34C-E88A-44E3-8D6A-8921BDE9E452),
+    helpstring("Background copy manager 5.0")
+  ]
+  coclass BackgroundCopyManager5_0
+  {
+    [default] interface IBackgroundCopyManager;
+  };
+  interface IBackgroundCopyCallback2;
+  interface IBackgroundCopyFile5;
+  interface IBackgroundCopyJob5;
+  interface IBackgroundCopyJobHttpOptions;
+  interface IBitsPeer;
+  interface IBitsPeerCacheAdministration;
+  interface IBitsPeerCacheRecord;
+  interface IBitsTokenOptions;
+  interface IEnumBitsPeerCacheRecords;
+  interface IEnumBitsPeers;
+}
+
+// Intentionally skipping bits10_0.h (which is internal only)
+cpp_quote("#include \"bits10_1.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

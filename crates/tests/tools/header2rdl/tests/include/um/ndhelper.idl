@@ -1,0 +1,325 @@
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+// IDL source for Network Diagnostics Helper Class provider
+
+cpp_quote("// Copyright (C) Microsoft Corporation. All rights reserved.")
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+import "unknwn.idl";
+import "wtypes.idl";
+#endif
+
+cpp_quote("")
+//cpp_quote("EXTERN_C const CLSID CLSID_NetDiagEng;")
+
+
+// Reserved GUIDS for our use
+//
+// Reserved GUIDS for our use
+// CLSID and LIBID
+//c0b35736-ebf5-11d8-bbe9-505054503030
+//c0b35737-ebf5-11d8-bbe9-505054503030      LIBID_NetDiagEng
+//c0b35738-ebf5-11d8-bbe9-505054503030      CLSID_NetDiagEng
+//c0b35739-ebf5-11d8-bbe9-505054503030
+//c0b3573a-ebf5-11d8-bbe9-505054503030
+//c0b3573b-ebf5-11d8-bbe9-505054503030
+//c0b3573c-ebf5-11d8-bbe9-505054503030
+//c0b3573d-ebf5-11d8-bbe9-505054503030
+//c0b3573e-ebf5-11d8-bbe9-505054503030
+//c0b3573f-ebf5-11d8-bbe9-505054503030
+// IID
+//c0b35740-ebf5-11d8-bbe9-505054503030      IID_INetDiagClientCallback
+//c0b35741-ebf5-11d8-bbe9-505054503030      IID_INetDiagClientIncident
+//c0b35742-ebf5-11d8-bbe9-505054503030
+//c0b35743-ebf5-11d8-bbe9-505054503030
+//c0b35744-ebf5-11d8-bbe9-505054503030
+//c0b35745-ebf5-11d8-bbe9-505054503030
+//c0b35746-ebf5-11d8-bbe9-505054503030      IID_INetDiagHelper
+//c0b35747-ebf5-11d8-bbe9-505054503030      IID_INetDiagHelperInfo
+//c0b35748-ebf5-11d8-bbe9-505054503030      IID_INetDiagExtensibleHelper
+//c0b3575f-ebf5-11d8-bbe9-505054503030
+
+// Network Diagnostics Helper class CLSID
+//c0b35760-ebf5-11d8-bbe9-505054503030
+//c0b35761-ebf5-11d8-bbe9-505054503030
+//...
+//c0b35b15-ebf5-11d8-bbe9-505054503030
+//c0b35b16-ebf5-11d8-bbe9-505054503030
+//c0b35b17-ebf5-11d8-bbe9-505054503030
+//c0b35b18-ebf5-11d8-bbe9-505054503030
+//c0b35b19-ebf5-11d8-bbe9-505054503030
+//c0b35b1a-ebf5-11d8-bbe9-505054503030
+//c0b35b1b-ebf5-11d8-bbe9-505054503030
+//c0b35b1c-ebf5-11d8-bbe9-505054503030
+//c0b35b1d-ebf5-11d8-bbe9-505054503030
+
+
+import "ndattrib.idl";
+
+// Forward declaration
+//    interface INetDiagClientCallback;
+//    interface INetDiagIncident;
+interface INetDiagHelper;
+
+//
+// types for network diagnostics framework
+//
+typedef [v1_enum] enum tagDIAGNOSIS_STATUS
+{
+    DS_NOT_IMPLEMENTED = 0,
+    DS_CONFIRMED,
+    DS_REJECTED,
+    DS_INDETERMINATE,
+    DS_DEFERRED,
+    DS_PASSTHROUGH
+}DIAGNOSIS_STATUS;
+
+typedef [v1_enum] enum tagREPAIR_STATUS
+{
+    RS_NOT_IMPLEMENTED = 0,
+    RS_REPAIRED,
+    RS_UNREPAIRED,
+    RS_DEFERRED,
+    RS_USER_ACTION
+}REPAIR_STATUS;
+
+
+typedef [v1_enum] enum tagPROBLEM_TYPE
+{
+    PT_INVALID                  = 0,
+    PT_LOW_HEALTH               = 1,
+    PT_LOWER_HEALTH             = 2,
+    PT_DOWN_STREAM_HEALTH       = 4,
+    PT_HIGH_UTILIZATION         = 8,
+    PT_HIGHER_UTILIZATION       = 16,
+    PT_UP_STREAM_UTILIZATION    = 32
+}PROBLEM_TYPE;
+
+
+typedef struct tagHYPOTHESIS
+{
+    [string] LPWSTR pwszClassName;
+    [string] LPWSTR pwszDescription;
+    ULONG celt;
+    [size_is(celt)]
+    PHELPER_ATTRIBUTE rgAttributes;
+}HYPOTHESIS, *PHYPOTHESIS;
+
+typedef struct tagHelperAttributeInfo
+{
+    [string] LPWSTR pwszName;
+    ATTRIBUTE_TYPE  type;
+} HelperAttributeInfo, *PHelperAttributeInfo;
+
+cpp_quote("#define DF_IMPERSONATION 0x80000000")
+cpp_quote("#define DF_TRACELESS 0x40000000")
+
+typedef struct tagDiagnosticsInfo
+{
+    long cost;
+    ULONG flags;
+} DiagnosticsInfo, *PDiagnosticsInfo;
+
+cpp_quote("#if defined(FKG_FORCED_USAGE) || defined(BUILD_WINDOWS)")
+cpp_quote("#define NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(x)")
+cpp_quote("#else")
+cpp_quote("#define NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(x) __pragma(deprecated(x))")
+cpp_quote("#endif")
+
+//
+// interfaces implemented by Network Diagnostics Helper Classes
+//
+[
+  object,
+  uuid(c0b35746-ebf5-11d8-bbe9-505054503030),
+  pointer_default(unique) // default embedded ptrs to [unique]
+]
+interface INetDiagHelper : IUnknown
+{
+
+    HRESULT  Initialize(
+                    [in] ULONG celt,
+                    [in, size_is(celt)]
+                    HELPER_ATTRIBUTE rgAttributes[]
+                );
+
+    HRESULT  GetDiagnosticsInfo(
+                    [out, retval] DiagnosticsInfo** ppInfo);
+
+    HRESULT  GetKeyAttributes(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)]
+                    HELPER_ATTRIBUTE** pprgAttributes
+                    );
+
+    HRESULT  LowHealth(
+                    [in, string, unique] LPCWSTR pwszInstanceDescription,
+                    [out, string] LPWSTR* ppwszDescription,
+                    [out] long* pDeferredTime,
+                    [out] DIAGNOSIS_STATUS* pStatus);
+
+    HRESULT  HighUtilization(
+                    [in, string, unique] LPCWSTR pwszInstanceDescription,
+                    [out, string] LPWSTR* ppwszDescription,
+                    [out] long* pDeferredTime,
+                    [out] DIAGNOSIS_STATUS* pStatus);
+
+    HRESULT  GetLowerHypotheses(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)] HYPOTHESIS** pprgHypotheses
+                    );
+
+    HRESULT  GetDownStreamHypotheses(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)] HYPOTHESIS** pprgHypotheses
+                    );
+
+    HRESULT  GetHigherHypotheses(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)] HYPOTHESIS** pprgHypotheses
+                    );
+
+    HRESULT  GetUpStreamHypotheses(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)] HYPOTHESIS** pprgHypotheses
+                    );
+
+    HRESULT  Repair(
+                    [in] RepairInfo* pInfo,
+                    [out] long* pDeferredTime,
+                    [out] REPAIR_STATUS* pStatus);
+
+    HRESULT  Validate(
+                    [in] PROBLEM_TYPE problem,
+                    [out] long* pDeferredTime,
+                    [out] REPAIR_STATUS* pStatus);
+
+    HRESULT  GetRepairInfo(
+                    [in] PROBLEM_TYPE problem,
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)] RepairInfo** ppInfo);
+
+    HRESULT  GetLifeTime(
+                    [out] LIFE_TIME* pLifeTime
+                    );
+
+    HRESULT  SetLifeTime(
+                    [in] LIFE_TIME lifeTime
+                    );
+
+    HRESULT  GetCacheTime(
+                    [out] FILETIME* pCacheTime
+                    );
+
+    HRESULT  GetAttributes(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)]
+                    HELPER_ATTRIBUTE** pprgAttributes
+                    );
+
+    HRESULT Cancel();
+
+    HRESULT Cleanup();
+
+    //...
+
+};
+cpp_quote("NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(INetDiagHelper)")
+
+typedef struct tagHypothesisResult
+{
+    HYPOTHESIS hypothesis;
+    DIAGNOSIS_STATUS pathStatus;
+} HypothesisResult;
+
+[     object,
+      uuid(104613FB-BC57-4178-95BA-88809698354A),
+      pointer_default(unique) // default embedded ptrs to [unique]
+]
+interface INetDiagHelperUtilFactory : IUnknown
+{
+    HRESULT CreateUtilityInstance(
+      [in] REFIID riid,
+      [out, iid_is(riid)] void ** ppvObject
+    );
+}
+cpp_quote("NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(INetDiagHelperUtilFactory)")
+
+//
+// interface implemented by Network Diagnostics Helper Classes
+//
+[
+  object,
+  uuid(972DAB4D-E4E3-4fc6-AE54-5F65CCDE4A15),
+  pointer_default(unique) // default embedded ptrs to [unique]
+]
+interface INetDiagHelperEx : IUnknown
+{
+   HRESULT ReconfirmLowHealth(
+      [in] ULONG celt,
+      [in, size_is(celt)] HypothesisResult *pResults,
+      [out, string] LPWSTR *ppwszUpdatedDescription,
+      [out] DIAGNOSIS_STATUS *pUpdatedStatus
+      );
+
+   HRESULT SetUtilities(
+      [in] INetDiagHelperUtilFactory *pUtilities
+      );
+
+   HRESULT ReproduceFailure(
+      );
+
+}
+cpp_quote("NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(INetDiagHelperEx)")
+
+//
+// interfaces implemented by Network Diagnostics Helper Classes
+//
+[
+  object,
+  uuid(c0b35747-ebf5-11d8-bbe9-505054503030),
+  pointer_default(unique) // default embedded ptrs to [unique]
+]
+interface INetDiagHelperInfo : IUnknown
+{
+    HRESULT  GetAttributeInfo(
+                    [out] ULONG* pcelt,
+                    [out, size_is(,*pcelt)]
+                    HelperAttributeInfo** pprgAttributeInfos
+                    );
+}
+cpp_quote("NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(INetDiagHelperInfo)")
+
+//
+// interface implemented by Extensible Helper Class
+//
+[
+  object,
+  uuid(c0b35748-ebf5-11d8-bbe9-505054503030),
+  pointer_default(unique) // default embedded ptrs to [unique]
+]
+interface INetDiagExtensibleHelper : IUnknown
+{
+    HRESULT ResolveAttributes(
+                [in] ULONG celt,
+                [in, size_is(celt)] HELPER_ATTRIBUTE rgKeyAttributes[],
+                [out] ULONG* pcelt,
+                [out, size_is(,*pcelt)] HELPER_ATTRIBUTE** prgMatchValues
+            );
+}
+cpp_quote("NOT_BUILD_WINDOWS_NDHELPER_DEPRECATE(INetDiagExtensibleHelper)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

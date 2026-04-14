@@ -1,0 +1,257 @@
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "propsys.idl";
+#include "FunctionDiscoveryConstraints.h"
+
+cpp_quote("//#if ( WINVER >= 0x0600 )")
+cpp_quote("#ifndef FD_LONGHORN")
+cpp_quote("#define FD_LONGHORN 1")
+cpp_quote("#endif")
+cpp_quote("#ifndef FDPropertyConstraint")
+cpp_quote("#define FDPropertyConstraint")
+cpp_quote("#endif")
+
+cpp_quote("#include \"FunctionDiscoveryCategories.h\"")
+cpp_quote("#include \"FunctionDiscoveryError.h\"")
+cpp_quote("#include \"FunctionDiscoveryKeys.h\"")
+cpp_quote("#include \"FunctionDiscoveryServiceIDs.h\"")
+cpp_quote("#include \"FunctionDiscoveryConstraints.h\"")
+
+interface IFunctionDiscovery;
+interface IFunctionInstance;
+interface IFunctionInstanceCollection;
+interface IFunctionInstanceQuery;
+interface IFunctionInstanceCollectionQuery;
+interface IPropertyStoreCollection;
+interface IFunctionInstanceCollectionQueryCollection;
+
+typedef DWORDLONG	FDQUERYCONTEXT;
+
+typedef enum tagSystemVisibilityFlags
+{
+    SVF_SYSTEM = 0,
+    SVF_USER  = 1
+} SystemVisibilityFlags;
+
+typedef enum tagQueryUpdateAction
+{
+    QUA_ADD = 0,
+    QUA_REMOVE = 1,
+    QUA_CHANGE = 2
+} QueryUpdateAction;
+
+typedef enum tagQueryCategoryType
+{
+    QCT_PROVIDER = 0,
+    QCT_LAYERED = 1
+} QueryCategoryType;
+
+
+// This interface should be implemented by clients performing async queries...
+[
+    object,
+    uuid(5f6c1ba8-5330-422e-a368-572b244d3f87),
+    helpstring("IFunctionDiscoveryNotification Interface"),
+    pointer_default(unique)
+]
+interface IFunctionDiscoveryNotification : IUnknown
+{
+    HRESULT OnUpdate(
+        [in] QueryUpdateAction enumQueryUpdateAction,
+        [in] FDQUERYCONTEXT fdqcQueryContext,
+        [in] IFunctionInstance * pIFunctionInstance);
+    HRESULT OnError(
+        [in] HRESULT hr,
+        [in] FDQUERYCONTEXT fdqcQueryContext,
+        [in, string] const WCHAR * pszProvider);
+    HRESULT OnEvent(
+        [in] DWORD dwEventID,
+        [in] FDQUERYCONTEXT fdqcQueryContext,
+        [in, string] const WCHAR * pszProvider);
+};
+
+
+[
+    object,
+    uuid(4df99b70-e148-4432-b004-4c9eeb535a5e),
+    helpstring("IFunctionDiscovery Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface IFunctionDiscovery : IUnknown
+{
+    // Discovery
+    HRESULT GetInstanceCollection(
+        [in, string] const WCHAR * pszCategory,
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in] BOOL fIncludeAllSubCategories,
+        [out, retval] IFunctionInstanceCollection ** ppIFunctionInstanceCollection);
+
+    HRESULT GetInstance(
+        [in, string] const WCHAR * pszFunctionInstanceIdentity,
+        [out, retval] IFunctionInstance ** ppIFunctionInstance);
+
+    HRESULT CreateInstanceCollectionQuery(
+        [in, string] const WCHAR * pszCategory,
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in] BOOL fIncludeAllSubCategories,
+        [in] IFunctionDiscoveryNotification * pIFunctionDiscoveryNotification,
+        [in, out, unique] FDQUERYCONTEXT * pfdqcQueryContext,
+        [out, retval] IFunctionInstanceCollectionQuery ** ppIFunctionInstanceCollectionQuery);
+
+    HRESULT CreateInstanceQuery(
+        [in, string] const WCHAR * pszFunctionInstanceIdentity,
+        [in] IFunctionDiscoveryNotification * pIFunctionDiscoveryNotification,
+        [in, out, unique] FDQUERYCONTEXT * pfdqcQueryContext,
+        [out, retval] IFunctionInstanceQuery ** ppIFunctionInstanceQuery);
+
+    // Provider Specific
+    HRESULT AddInstance(
+        [in] SystemVisibilityFlags enumSystemVisibility,
+        [in, string] const WCHAR * pszCategory,
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in, string] const WCHAR * pszCategoryIdentity,
+        [out, retval] IFunctionInstance ** ppIFunctionInstance );
+
+    HRESULT RemoveInstance(
+        [in] SystemVisibilityFlags enumSystemVisibility,
+        [in, string] const WCHAR * pszCategory,
+        [in, string, unique] const WCHAR * pszSubCategory,
+        [in, string] const WCHAR * pszCategoryIdentity);
+};
+
+
+[
+    object,
+    uuid(33591c10-0bed-4f02-b0ab-1530d5533ee9),
+    helpstring("IFunctionInstance Interface"),
+    pointer_default(unique)
+]
+interface IFunctionInstance : IServiceProvider
+{
+    // Meta Data
+    HRESULT GetID(
+        [out, string, retval] WCHAR ** ppszCoMemIdentity);
+
+    HRESULT GetProviderInstanceID(
+        [out, string, retval] WCHAR ** ppszCoMemProviderInstanceIdentity);
+
+    HRESULT OpenPropertyStore(
+        [in] DWORD dwStgAccess,
+        [out, retval] IPropertyStore ** ppIPropertyStore);
+
+    // Meta Data
+    HRESULT GetCategory(
+        [out, string] WCHAR ** ppszCoMemCategory,
+        [out, string] WCHAR ** ppszCoMemSubCategory);
+
+};
+
+
+[
+    object,
+    uuid(f0a3d895-855c-42a2-948d-2f97d450ecb1),
+    helpstring("IFunctionInstanceCollection Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface IFunctionInstanceCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out, retval] DWORD * pdwCount );
+    HRESULT Get(
+        [in, string] const WCHAR * pszInstanceIdentity,
+        [out] DWORD * pdwIndex,
+        [out, retval] IFunctionInstance ** ppIFunctionInstance );
+    HRESULT Item(
+        [in] DWORD dwIndex,
+        [out, retval] IFunctionInstance ** ppIFunctionInstance );
+    HRESULT Add(
+        [in] IFunctionInstance * pIFunctionInstance );
+    HRESULT Remove(
+        [in] DWORD dwIndex,
+        [out, retval] IFunctionInstance ** ppIFunctionInstance );
+    HRESULT Delete(
+        [in] DWORD dwIndex );
+    HRESULT DeleteAll();
+};
+
+[
+    object,
+    uuid(D14D9C30-12D2-42d8-BCE4-C60C2BB226FA),
+    helpstring("IPropertyStoreCollection Interface"),
+    pointer_default(unique)
+]
+interface IPropertyStoreCollection : IUnknown
+{
+    HRESULT GetCount(
+        [out, retval] LPDWORD pdwCount );
+    HRESULT Get(
+        [in, string] const WCHAR * pszInstanceIdentity,
+        [out] LPDWORD pdwIndex,
+        [out, retval] IPropertyStore** ppIPropertyStore);
+    HRESULT Item(
+        [in] DWORD dwIndex,
+        [out, retval] IPropertyStore ** ppIPropertyStore);
+    HRESULT Add(
+        [in] IPropertyStore * pIPropertyStore);
+    HRESULT Remove(
+        [in] DWORD dwIndex,
+        [out, retval] IPropertyStore** pIPropertyStore);
+    HRESULT Delete(
+        [in] DWORD dwIndex );
+    HRESULT DeleteAll();
+};
+
+
+/////////////////////////////////
+// Query interfaces
+/////////////////////////////////
+[
+    object,
+    uuid(6242bc6b-90ec-4b37-bb46-e229fd84ed95),
+    helpstring("IFunctionInstanceQuery Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface IFunctionInstanceQuery : IUnknown
+{
+    HRESULT Execute(
+        [out, retval] IFunctionInstance ** ppIFunctionInstance );
+};
+
+[
+    object,
+    uuid(57cc6fd2-c09a-4289-bb72-25f04142058e),
+    helpstring("IFunctionInstanceCollectionQuery Interface"),
+    pointer_default(unique),
+    restricted
+]
+interface IFunctionInstanceCollectionQuery : IUnknown
+{
+    HRESULT AddQueryConstraint(
+        [in, string] const WCHAR * pszConstraintName,
+        [in, string] const WCHAR * pszConstraintValue );
+    HRESULT AddPropertyConstraint(
+        [in] REFPROPERTYKEY Key,
+        [in] const PROPVARIANT * pv,
+        [in] PropertyConstraint enumPropertyConstraint);
+    HRESULT Execute(
+        [out] IFunctionInstanceCollection ** ppIFunctionInstanceCollection );
+};
+
+cpp_quote("#include \"FunctionDiscoveryNotification.h\"")
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

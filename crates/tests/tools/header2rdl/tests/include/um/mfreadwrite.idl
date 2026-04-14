@@ -1,0 +1,1337 @@
+cpp_quote("#include <winapifamily.h>")
+
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+import "mfobjects.idl";
+import "MFTransform.idl";
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Class Factory for MF Source Reader and MF Sink Writer
+//
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFReadWriteClassFactory
+// Data type: GUID
+// CLSID for creating the MFReadWrite Class Factory. This object can be used to create initialized Source Reader and Sink Writer objects.
+//
+// {48e2ed0f-98c2-4a37-bed5-166312ddd83f}
+cpp_quote( "EXTERN_GUID(CLSID_MFReadWriteClassFactory, 0x48e2ed0f, 0x98c2, 0x4a37, 0xbe, 0xd5, 0x16, 0x63, 0x12, 0xdd, 0xd8, 0x3f);" )
+
+[
+    object,
+    uuid(E7FE2E12-661C-40DA-92F9-4F002AB67627),
+    local
+]
+interface IMFReadWriteClassFactory : IUnknown
+{
+    HRESULT CreateInstanceFromURL(
+                [in, annotation("_In_")] REFCLSID clsid,
+                [in, annotation("_In_")] LPCWSTR pwszURL,
+                [in, annotation("_In_opt_")] IMFAttributes *pAttributes,
+                [in, annotation("_In_")] REFIID riid,
+                [out, iid_is(riid), annotation("_Out_")] LPVOID *ppvObject );
+
+    HRESULT CreateInstanceFromObject(
+                [in, annotation("_In_")] REFCLSID clsid,
+                [in, annotation("_In_")] IUnknown *punkObject,
+                [in, annotation("_In_opt_")] IMFAttributes *pAttributes,
+                [in, annotation("_In_")] REFIID riid,
+                [out, iid_is(riid), annotation("_Out_")] LPVOID *ppvObject );
+};
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF Source Reader
+//
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFSourceReader
+// Data type: GUID
+// CLSID for the MF Source Reader object.
+//
+// {1777133c-0881-411b-a577-ad545f0714c4}
+cpp_quote( "EXTERN_GUID(CLSID_MFSourceReader, 0x1777133c, 0x0881, 0x411b, 0xa5, 0x77, 0xad, 0x54, 0x5f, 0x07, 0x14, 0xc4);" )
+
+/// <summary>
+///      This function is used to instantiate an MF Source Reader object for
+///      the specified URL.
+/// </summary>
+/// <param name="pwszURL">
+///      URL that specifies the location of the media content to open.
+/// </param>
+/// <param name="pAttributes">
+///      Optional parameter specifying additional Source Reader configuration.
+///      See: section below on MF Source Reader Attributes
+/// </param>
+/// <param name="ppSourceReader">
+///     Specifies a pointer to a variable where the source reader object
+///     will be stored.
+/// </param>
+/// <remarks>
+///     This function is synchronous and performs I/O that can
+///     block the calling thread.
+/// </remarks>
+cpp_quote( "STDAPI MFCreateSourceReaderFromURL(" )
+cpp_quote( "    _In_ LPCWSTR pwszURL," )
+cpp_quote( "    _In_opt_ IMFAttributes *pAttributes," )
+cpp_quote( "    _Out_ IMFSourceReader **ppSourceReader );" )
+
+/// <summary>
+///      This function is used to instantiate an MF Source Reader object for
+///      the specified bytestream.
+/// </summary>
+/// <param name="pByteStream">
+///      Instance of an IMFByteStream that contains the media content.
+/// </param>
+/// <param name="pAttributes">
+///      Optional parameter specifying additional Source Reader configuration.
+///      See: section below on MF Source Reader Attributes
+/// </param>
+/// <param name="ppSourceReader">
+///     Specifies a pointer to a variable where the source reader object
+///     will be stored.
+/// </param>
+/// <remarks>
+///     This function is synchronous and performs I/O that can
+///     block the calling thread.
+/// </remarks>
+cpp_quote( "STDAPI MFCreateSourceReaderFromByteStream(" )
+cpp_quote( "    _In_ IMFByteStream *pByteStream," )
+cpp_quote( "    _In_opt_ IMFAttributes *pAttributes," )
+cpp_quote( "    _Out_ IMFSourceReader **ppSourceReader );" )
+
+/// <summary>
+///      This function is used to instantiate an MF Source Reader object using
+///      an existing instance of an MF Media Source.
+/// </summary>
+/// <param name="pMediaSource">
+///      Instance of an IMFMediaSource that will be used to produce samples.
+/// </param>
+/// <param name="pAttributes">
+///      Optional parameter specifying additional Source Reader configuration.
+///      See: section below on MF Source Reader Attributes
+/// </param>
+/// <param name="ppSourceReader">
+///     Specifies a pointer to a variable where the source reader object
+///     will be stored.
+/// </param>
+cpp_quote( "STDAPI MFCreateSourceReaderFromMediaSource(" )
+cpp_quote( "    _In_ IMFMediaSource *pMediaSource," )
+cpp_quote( "    _In_opt_ IMFAttributes *pAttributes," )
+cpp_quote( "    _Out_ IMFSourceReader **ppSourceReader );" )
+
+//
+// MF Source Reader attributes
+//
+
+// MF_SOURCE_READER_ASYNC_CALLBACK
+// Data type: IUnknown
+// This attribute should be set to the IUnknown interface of an
+// object that implements the IMFSourceReaderCallback interface.
+// If the MF_SOURCE_READER_ASYNC_CALLBACK attribute is set, then the
+// Source Reader will operate in asynchronous mode.
+// Otherwise, by default, the Source Reader operates synchronously.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_ASYNC_CALLBACK, 0x1e3dbeac, 0xbb43, 0x4c35, 0xb5, 0x07, 0xcd, 0x64, 0x44, 0x64, 0xc9, 0x65);" )
+
+// MF_SOURCE_READER_D3D_MANAGER
+// Data type: IUnknown
+// This attribute enables video sample allocation using D3D9 surfaces,
+// and enables hardware acceleration within the Source Reader.
+// This should be set to the IUnknown interface of an
+// object that implements the IDirect3DDeviceManager9 interface.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_D3D_MANAGER, 0xec822da2, 0xe1e9, 0x4b29, 0xa0, 0xd8, 0x56, 0x3c, 0x71, 0x9f, 0x52, 0x69);" )
+
+// MF_SOURCE_READER_DISABLE_DXVA
+// Data type: UINT32
+// DXVA is enabled by default if the Source Reader is configured with
+// a D3D manager.  This attribute can be set to TRUE in order to
+// disable DXVA, while still allocating video samples using the D3D manager.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_DISABLE_DXVA, 0xaa456cfd, 0x3943, 0x4a1e, 0xa7, 0x7d, 0x18, 0x38, 0xc0, 0xea, 0x2e, 0x35);" )
+
+// MF_SOURCE_READER_MEDIASOURCE_CONFIG
+// Data type: IUnknown
+// The Source Reader uses the MF Source Resolver API to instantiate
+// the MF Media Source when passed either a URL or a bytestream.
+// The Source Resolver allows an application to pass runtime
+// configuration parameters to the Media Source via an IPropertyStore
+// interface.  The application can use this attribute when creating
+// the Source Reader to pass the same IPropertyStore configuration
+// down to the underlying Media Source.  The attribute should be
+// set as the IUnknown interface of an object that implements the
+// IPropertyStore interface.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_MEDIASOURCE_CONFIG, 0x9085abeb, 0x0354, 0x48f9, 0xab, 0xb5, 0x20, 0x0d, 0xf8, 0x38, 0xc6, 0x8e);" )
+
+// MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS
+// Data type: UINT32
+// The application can query for this attribute using the
+// IMFSourceReader::GetPresentationAttribute API in order to
+// determine the characteristics of the underlying media source.
+// The value returned is a bitwise OR of zero or more flags from
+// the MFMEDIASOURCE_CHARACTERISTICS enumeration.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS, 0x6d23f5c8, 0xc5d7, 0x4a9b, 0x99, 0x71, 0x5d, 0x11, 0xf8, 0xbc, 0xa8, 0x80);" )
+
+// MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING
+// Data type: UINT32
+// This attribute enables limited video processing on
+// video samples within the source reader.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING, 0xfb394f3d, 0xccf1, 0x42ee, 0xbb, 0xb3, 0xf9, 0xb8, 0x45, 0xd5, 0x68, 0x1d);" )
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+// MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING
+// Data type: UINT32
+// This attribute enables advanced video processing on video samples within the source reader.
+// Specifically it enables optimized (and HW-accelerated) scaling, colorspace conversion,
+// frame rate conversion and deinterlacing.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING, 0xf81da2c, 0xb537, 0x4672, 0xa8, 0xb2, 0xa6, 0x81, 0xb1, 0x73, 0x7, 0xa3);" )
+
+//
+// MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS	
+// Data type: UINT32 (treat as Boolean)
+// This attribute can be used to disable post-processing camera plug-ins from being
+// automatically created by Source Reader.
+//
+// {9D3365DD-058F-4cfb-9F97-B314CC99C8AD}
+//
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS, 0x9d3365dd, 0x58f, 0x4cfb, 0x9f, 0x97, 0xb3, 0x14, 0xcc, 0x99, 0xc8, 0xad );" )
+cpp_quote("#endif")
+
+// MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN
+// Data type: UINT32
+// By default, if the source reader is passed in an existing media
+// source object, then it will also shutdown the media source.
+// The application can set this attribute to TRUE in order to have
+// the source reader stop the media source and wait for MESourceStopped
+// and MEStreamStopped events instead of shutting the media source down.
+// After receiving the stop events, the source reader will disconnect from
+// the media source's MEG allowing the application to reuse the media source.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN, 0x56b67165, 0x219e, 0x456d, 0xa2, 0x2e, 0x2d, 0x30, 0x04, 0xc7, 0xfe, 0x56);" )
+
+// MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS
+// Data type: UINT32
+// By default, the Source Reader will not use MFTs that
+// are registered for transcode use only. This attribute can
+// be set to TRUE to enable use of these transcode only MFTs.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS, 0xdfd4f008, 0xb5fd, 0x4e78, 0xae, 0x44, 0x62, 0xa1, 0xe6, 0x7b, 0xbe, 0x27);" )
+
+// MF_SOURCE_READER_D3D11_BIND_FLAGS
+// Data type: UINT32
+// By default, the source reader derives the D3D11 bind flags from attributes found on
+// the media source provided during creation, and the capabilies of the provided D3D manager.  
+// This attribute allows the caller to modify the information extracted by the media source,
+// adding extra flags.  See the D3D11_BIND_FLAG enumeration for details.
+cpp_quote( "EXTERN_GUID( MF_SOURCE_READER_D3D11_BIND_FLAGS, 0x33f3197b, 0xf73a, 0x4e14, 0x8d, 0x85, 0xe, 0x4c, 0x43, 0x68, 0x78, 0x8d);" )
+
+// MF_SOURCE_READER_PASSTHROUGH_MODE
+// {043FF126-FE2C-4708-A09B-DA2AB435CED9}
+// Data type: UINT32
+// By default, the source reader tries to copy all system memory backed video sampels into DX textures for faster processing.  
+// When this attribute is set to TRUE (1), the source reader will avoid doing that, keeping the video samples in system memory,
+// even if a D3D device manager is present.
+cpp_quote("EXTERN_GUID(MF_SOURCE_READER_PASSTHROUGH_MODE, 0x43ff126, 0xfe2c, 0x4708, 0xa0, 0x9b, 0xda, 0x2a, 0xb4, 0x35, 0xce, 0xd9);")
+
+//
+// MF Source Reader Flags
+//
+
+/// <summary>
+///     The enumeration type defines the various flags that can be returned
+///     from the MF Source Reader when retrieving the next sample.
+/// </summary>
+typedef [v1_enum] enum MF_SOURCE_READER_FLAG
+{
+    /// <summary>
+    ///     Specifies that an error has occurred while processing sample
+    ///     requests.  If this is set, then no other calls should be made
+    ///     on the source reader besides shutting it down.
+    /// </summary>
+    MF_SOURCE_READERF_ERROR                   = 0x00000001,
+
+    /// <summary>
+    ///     Specifies that the stream has ended.
+    /// </summary>
+    MF_SOURCE_READERF_ENDOFSTREAM             = 0x00000002,
+
+    /// <summary>
+    ///     Specifies that one or more new streams have been created.
+    ///     The application can modify stream selection and configure
+    ///     output media types for the new streams.
+    /// </summary>
+    MF_SOURCE_READERF_NEWSTREAM               = 0x00000004,
+
+    /// <summary>
+    ///     Specifies that the native media type for the stream has changed.
+    /// </summary>
+    MF_SOURCE_READERF_NATIVEMEDIATYPECHANGED  = 0x00000010,
+
+    /// <summary>
+    ///     Specifies that the current media type for the stream has changed.
+    /// </summary>
+    MF_SOURCE_READERF_CURRENTMEDIATYPECHANGED = 0x00000020,
+
+    /// <summary>
+    ///     Specifies that there is a gap in the stream.
+    /// </summary>
+    MF_SOURCE_READERF_STREAMTICK              = 0x00000100,
+
+    /// <summary>
+    ///     Indicates that all transforms inserted by the application have been
+    ///     removed for a particular stream. This could be due to a dynamic format
+    ///     change from a source or decoder that prevents custom transforms from
+    ///     being used because they cannot handle the new media type.
+    /// </summary>
+    MF_SOURCE_READERF_ALLEFFECTSREMOVED       = 0x00000200,
+
+} MF_SOURCE_READER_FLAG;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(MF_SOURCE_READER_FLAG)")
+
+/// <summary>
+///     The enumeration type defines the various flags that can be passed
+///     to the Source Reader's ReadSample method.
+/// </summary>
+typedef [v1_enum] enum MF_SOURCE_READER_CONTROL_FLAG
+{
+    /// <summary>
+    ///     Specifies that ReadSample should only drain samples from
+    ///     the stream, and not request more samples from the media source.
+    ///     This can be used to ensure all samples are returned for the 
+    ///     stream before flushing, changing position, or changing the
+    ///     output media type for the stream.
+    /// </summary>
+    MF_SOURCE_READER_CONTROLF_DRAIN           = 0x00000001,
+} MF_SOURCE_READER_CONTROL_FLAG;
+
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(MF_SOURCE_READER_CONTROL_FLAG)")
+
+enum
+{
+    MF_SOURCE_READER_INVALID_STREAM_INDEX = 0xFFFFFFFF,
+    MF_SOURCE_READER_ALL_STREAMS          = 0xFFFFFFFE,
+    MF_SOURCE_READER_ANY_STREAM           = 0xFFFFFFFE,
+    MF_SOURCE_READER_FIRST_AUDIO_STREAM   = 0xFFFFFFFD,
+    MF_SOURCE_READER_FIRST_VIDEO_STREAM   = 0xFFFFFFFC,
+    MF_SOURCE_READER_MEDIASOURCE          = 0xFFFFFFFF,
+};
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+enum
+{
+    MF_SOURCE_READER_CURRENT_TYPE_INDEX   = 0xFFFFFFFF,
+};
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN8) ")
+
+[
+    object,
+    uuid(70ae66f2-c809-4e4f-8915-bdcb406b7993),
+    local
+]
+/// <summary>
+///     The MF Source Reader provides a simple programming model that allows
+///     applications to easily access multimedia content from files or 
+///     devices.
+/// </summary>
+interface IMFSourceReader : IUnknown
+{
+    /// <summary>
+    ///     Returns whether or not the specified stream is selected.
+    ///     If the specified stream does not exist, the error
+    ///     MF_E_INVALIDSTREAMNUMBER is returned.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index to query for selection state.
+    /// </param>
+    /// <param name="pfSelected">
+    ///     Specifies a pointer to a variable where the selection state
+    ///     will be stored.
+    /// </param>
+    HRESULT GetStreamSelection(
+                [in,  annotation("_In_")]  DWORD dwStreamIndex,
+                [out, annotation("_Out_")] BOOL *pfSelected );
+
+    /// <summary>
+    ///     Sets the selection state for the specified stream.
+    ///     MF_SOURCE_READER_ALL_STREAMS can be specified in order
+    ///     to set the stream selection for all available streams.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="fSelected">
+    ///     Specifies whether or not the stream should be selected.
+    /// </param>
+    HRESULT SetStreamSelection(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] BOOL fSelected );
+
+    /// <summary>
+    ///     Returns the native media type for the specified stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="dwMediaTypeIndex">
+    ///     Specifies the media type index.  As some sources support
+    ///     multiple native media types, the index is used to indicate
+    ///     the position in the list of supported media types.
+    /// </param>
+    /// <param name="ppMediaType">
+    ///     Receives a copy of the specified native media type.
+    /// </param>
+    HRESULT GetNativeMediaType(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] DWORD dwMediaTypeIndex,
+                [out, annotation("_Out_")] IMFMediaType **ppMediaType );
+
+    /// <summary>
+    ///     Returns the media type of the samples currently being
+    ///     output for the specified stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="ppMediaType">
+    ///     Receives a copy of the current media type.
+    /// </param>
+    HRESULT GetCurrentMediaType(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [out, annotation("_Out_")] IMFMediaType **ppMediaType );
+
+    /// <summary>
+    ///     Sets the output media type for samples returned for the specified
+    ///     stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="pdwReserved">
+    ///     Reserved for future use.
+    /// </param>
+    /// <param name="pMediaType">
+    ///     Specifies the desired media type for the stream.
+    /// </param>
+    /// <remarks>
+    ///     If an appropriate MFT cannot be found to transform the native
+    ///     media type into the desired media type, then an error is
+    ///     returned, and the current media type remains unchanged.
+    /// </remarks>
+    HRESULT SetCurrentMediaType(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, out, annotation("_Reserved_")] DWORD *pdwReserved,
+                [in, annotation("_In_")] IMFMediaType *pMediaType );
+
+    /// <summary>
+    ///     Sets the position for where the next sample will be returned.
+    /// </summary>
+    /// <param name="guidTimeFormat">
+    ///     Reference to a GUID that specifies the time format.
+    ///     This can be GUID_NULL, in which case the time format
+    ///     is in 100-nanosecond units.
+    /// </param>
+    /// <param name="varStartPosition">
+    ///     Specifies the start position.  The units for this parameter
+    ///     are indicated by the time format given in guidTimeFormat.
+    /// </param>
+    /// <remarks>
+    ///     When reading samples asynchronously, the application may still
+    ///     receive samples from the previous position if they were already
+    ///     queued for delivery before this call was made.
+    ///
+    ///     If the underlying media source is not seekable, then
+    ///     an appropriate error will be returned.
+    /// </remarks>
+    HRESULT SetCurrentPosition(
+                [in, annotation("_In_")] REFGUID guidTimeFormat,
+                [in, annotation("_In_")] REFPROPVARIANT varPosition );
+
+    /// <summary>
+    ///     Requests the next available sample.  The caller can either
+    ///     request a sample from a specific stream, or from any of
+    ///     the selected streams.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream for which the sample request is being made.
+    ///     MF_SOURCE_READER_ANY_STREAM can be specified in order to request
+    ///     the next sample from any available stream.
+    /// </param>
+    /// <param name="dwControlFlags">
+    ///     Specifies flags that control the behavior of ReadSample.
+    ///     See: section above on MF Source Reader Control Flags.
+    /// </param>
+    /// <param name="pdwActualStreamIndex">
+    ///     Receives the actual stream index of the media sample.
+    /// </param>
+    /// <param name="pdwStreamFlags">
+    ///     Receives the accumulated flags for the stream.
+    ///     See: section above on MF Source Reader Flags
+    /// </param>
+    /// <param name="pllTimestamp">
+    ///     Receives the presentation time of the sample.
+    ///     If MF_SOURCE_READERF_STREAM_TICK is set in the stream flags,
+    ///     then this receives the timestamp for the stream tick.
+    /// </param>
+    /// <param name="ppSample">
+    ///     Receives the next sample for the stream.
+    /// </param>
+    /// <remarks>
+    ///     When operating in synchronous mode, the out parameters
+    ///     are all required parameters.
+    ///
+    ///     When operating in asynchronous mode, the out parameters
+    ///     must all be set to NULL.
+    ///
+    ///     Streams must be selected in order to request samples
+    ///     from them.
+    ///
+    ///     It is possible for ReadSample to return S_OK in synchronous
+    ///     mode while not returning a sample.  The caller should always
+    ///     check for NULL before dereferencing the sample.  This can
+    ///     happen if EOS is reached, in which case
+    ///     MF_SOURCE_READERF_ENDOFSTREAM will be set for the stream.
+    ///     Another reason is if there is a gap in the stream, in which
+    ///     case MF_SOURCE_READERF_STREAMTICK will be set.  For stream
+    ///     ticks, the sample will be NULL, but the timestamp parameter
+    ///     will be set to indicate the position in the stream where the
+    ///     gap occurred.
+    ///
+    /// </remarks>
+    HRESULT ReadSample(
+                [in,  annotation("_In_")] DWORD dwStreamIndex,
+                [in,  annotation("_In_")] DWORD dwControlFlags,
+                [out, annotation("_Out_opt_")] DWORD *pdwActualStreamIndex,
+                [out, annotation("_Out_opt_")] DWORD *pdwStreamFlags,
+                [out, annotation("_Out_opt_")] LONGLONG *pllTimestamp,
+                [out, annotation("_Out_opt_")] IMFSample **ppSample );
+
+    /// <summary>
+    ///     Releases any queued up samples, and cancels any outstanding sample
+    ///     requests.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Allows the application to specify which stream to flush.
+    ///     MF_SOURCE_READER_ALL_STREAMS can be specified in order to 
+    ///     flush all available streams.
+    /// </param>
+    /// <remarks>
+    ///     In async mode, the OnFlush callback is called when the
+    ///     flush operation completes.  Before receiving the OnFlush
+    ///     callback, the application should not request any more
+    ///     samples from the source reader.  Doing so will result in
+    ///     the MF_E_NOTACCEPTING error being returned.
+    /// </remarks>
+    HRESULT Flush(
+                [in, annotation("_In_")] DWORD dwStreamIndex );
+
+    /// <summary>
+    ///     Allows the application to query for services and interfaces
+    ///     that are implemented by decoder MFTs for the specified stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    ///     MF_SOURCE_READER_MEDIASOURCE can be specified in order to get
+    ///     the service off of the media source instead of a particular stream.
+    /// </param>
+    /// <param name="guidService">
+    ///     Specifies the service GUID.
+    ///     GUID_NULL can be passed in, in which case the Source Reader
+    ///     will attempt to directly query for the interface from the MFT.
+    /// </param>
+    /// <param name="riid">
+    ///     Specifies the interface ID.
+    /// </param>
+    /// <param name="ppvObject">
+    ///     Receives the interface pointer.
+    /// </param>
+    HRESULT GetServiceForStream(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] REFGUID guidService,
+                [in, annotation("_In_")] REFIID riid,
+                [out, annotation("_Out_")] LPVOID *ppvObject );
+
+    /// <summary>
+    ///     Allows the application to get attributes from either the
+    ///     media source or from a specific stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    ///     MF_SOURCE_READER_MEDIASOURCE can be specified in order to get the
+    ///     attribute from the media source instead of a particular stream.
+    /// </param>
+    /// <param name="guidAttribute">
+    ///     Specifies the attribute ID.
+    /// </param>
+    /// <param name="pvarAttribute">
+    ///     Receives the attribute value as a PROPVARIANT.
+    /// </param>
+    HRESULT GetPresentationAttribute(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] REFGUID guidAttribute,
+                [out, annotation("_Out_")] PROPVARIANT *pvarAttribute );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(7b981cf0-560e-4116-9875-b099895f23d7),
+    local
+]
+/// <summary>
+///     This interface exposes additional functionality available from Source Reader
+///     The application obtains this interface via QueryInterface on IMFSourceReader
+/// </summary>
+interface IMFSourceReaderEx : IMFSourceReader
+{
+    /// <summary>
+    ///     Allows the application to force a particular media type on the media
+    ///     source that Source Reader is using. The media type must be supported
+    ///     directly (without any conversions) by the media source.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index for which the source media type is to be set.
+    /// </param>
+    /// <param name="pTransform">
+    ///     A pointer to the media type to set.
+    /// </param>
+    HRESULT SetNativeMediaType( 
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_opt_")] IMFMediaType *pMediaType,
+                [out, annotation("_Out_")] DWORD* pdwStreamFlags );
+
+    /// <summary>
+    ///     Function to add a transform to the end of the chain for a 
+    ///     particular stream.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index for which the transform is to be added.
+    /// </param>
+    /// <param name="pTransform">
+    ///     A pointer that can be QI'ed for either:
+    ///         IMFTransform interface of the transform to be added
+    ///         IMFActivate interface of the transform activate
+    /// </param>
+    HRESULT AddTransformForStream( [in, annotation("_In_")] DWORD dwStreamIndex,
+                                   [in, annotation("_In_")] IUnknown* pTransformOrActivate );
+
+    /// <summary>
+    ///     Function to remove all added transforms for a particular stream.
+    ///     NOTE: Automatically inserted transforms (such as the decoder) are
+    ///           not removed via this API.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index for which all transforms are removed.
+    /// </param>
+    HRESULT RemoveAllTransformsForStream( [in, annotation("_In_")] DWORD dwStreamIndex );
+
+    /// <summary>
+    ///     Returns the transform at a particular index in Source Reader's internal
+    ///     processing chain for a stream.
+    ///     Applications can use this function if they require direct access to the
+    ///     transforms (for configuration purposes, etc)
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="dwTransformIndex">
+    ///     Specifies a 0-based index for which the application wants to retrieve the
+    ///     transform. Transform at index 0 is the transform closest to the Media Source
+    ///     (typically the decoder).
+    /// </param>
+    /// <param name="pGuidCategory">
+    ///     On return, receives the category GUID (see MFT_CATEGORY)
+    /// </param>
+    /// <param name="ppTransform">
+    ///     On return, receives a pointer to IMFTransform interface of the transform
+    ///     at a given index for a given stream.
+    /// </param>
+    HRESULT GetTransformForStream(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] DWORD dwTransformIndex,
+                [out, annotation("_Out_opt_")] GUID* pGuidCategory,
+                [out, annotation("_Out_")] IMFTransform **ppTransform );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#endif")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(deec8d99-fa1d-4d82-84c2-2c8969944867),
+    local
+]
+/// <summary>
+///     This interface is used as the callback mechanism for when the
+///     MF Source Reader is used in asynchronous mode.  The application
+///     passes in an instance of an object that implements this
+///     callback interface as an attribute when creating the source
+///     reader instance.
+/// </summary>
+interface IMFSourceReaderCallback : IUnknown
+{
+    /// <summary>
+    ///     Callback function that completes an asynchronous request for the
+    ///     next available sample.
+    /// </summary>
+    /// <param name="hrStatus">
+    ///     Specifies the error code if an error occurred while processing
+    ///     the sample request.
+    /// </param>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index for the sample.
+    /// </param>
+    /// <param name="dwStreamFlags">
+    ///     Specifies the accumulated flags for the stream.
+    ///     See: section above on MF Source Reader Flags
+    /// </param>
+    /// <param name="llTimestamp">
+    ///     Contains the presentation time of the sample.
+    ///     If MF_SOURCE_READERF_STREAM_TICK is set for the stream flags,
+    ///     then this contains the timestamp for the stream tick.
+    /// </param>
+    /// <param name="pSample">
+    ///     Contains the next sample for the stream.  It is possible for
+    ///     this parameter to be NULL, so the application should 
+    ///     explicitly check for NULL before dereferencing the sample.
+    /// </param>
+    HRESULT OnReadSample(
+                [in, annotation("_In_")] HRESULT hrStatus,
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] DWORD dwStreamFlags,
+                [in, annotation("_In_")] LONGLONG llTimestamp,
+                [in, annotation("_In_opt_")] IMFSample *pSample );
+
+    /// <summary>
+    ///     Callback function that completes an asynchronous request to
+    ///     flush a particular stream or all the streams.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index that was flushed or MF_SOURCE_READER_ALL_STREAMS
+    /// </param>
+    HRESULT OnFlush(
+                [in, annotation("_In_")] DWORD dwStreamIndex );
+
+    /// <summary>
+    ///     Callback function that notifies the application when
+    ///     certain events occur.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index associated with the event.
+    ///     For events from the media source, this will be set to
+    ///     MF_SOURCE_READER_MEDIASOURCE.
+    /// </param>
+    /// <param name="pEvent">
+    ///     Contains the event object.
+    /// </param>
+    HRESULT OnEvent(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] IMFMediaEvent *pEvent );
+};
+
+
+#if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
+
+// 
+// This interface extends IMFSourceReaderCallback and is used as the callback mechanism 
+// for asynchronously notifying the caller when the transform chain changes, and 
+// when an MFT in the chain raises an error event. 
+// 
+[
+	object,
+	uuid(CF839FE6-8C2A-4DD2-B6EA-C22D6961AF05),
+	local
+]
+interface IMFSourceReaderCallback2 : IMFSourceReaderCallback
+{
+    // 
+    // Callback function that is triggered when the transform chain in the SourceReader is built or 
+    // modified. 
+    // 
+	HRESULT OnTransformChange( void );
+
+    // 
+    //    - dwStreamIndex specifies the stream of the transform that raised the async error 
+    //    - hrStatus specifies the async error raised by the transform 
+    // 
+	HRESULT OnStreamError(
+		[in, annotation("_In_")] DWORD dwStreamIndex,
+		[in, annotation("_In_")] HRESULT hrStatus);
+
+};
+
+#endif
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// MF Sink Writer
+//
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFSinkWriter
+// Data type: GUID
+// CLSID for the MF Sink Writer object.
+//
+// {a3bbfb17-8273-4e52-9e0e-9739dc887990}
+cpp_quote( "EXTERN_GUID(CLSID_MFSinkWriter, 0xa3bbfb17, 0x8273, 0x4e52, 0x9e, 0x0e, 0x97, 0x39, 0xdc, 0x88, 0x79, 0x90);" )
+
+//
+// Creates the Sink Writer by specifying the output URL to generate.
+// A suitable media archive sink is instantiated using the file extension
+// of the URL.  The application can directly indicate which archive media
+// sink to instantiate by setting the MF_TRANSCODE_CONTAINERTYPE attribute
+// to one of the supported values.
+//
+//     - pwszOutputURL specifies the URL of the content to generate.
+//       If a bytestream is passed in and the container type attribute is set,
+//       then the URL can be NULL, otherwise it is a required parameter.
+//     - pByteStream can optionally specify a bytestream that has already been
+//       opened for write access to the specified URL.  If this is NULL
+//       then the Sink Writer will create its own bytestream.  Passing in a
+//       bytestream can be useful for things like creating the bytestream
+//       with admin privileges and then dropping down to an account with
+//       lower privileges while encoding and writing to the bytestream.
+//     - pAttributes specifies container or media sink encoding parameters.
+//     - ppSinkWriter receives an instance of the MF Sink Writer
+//
+cpp_quote( "STDAPI MFCreateSinkWriterFromURL(" )
+cpp_quote( "    _In_opt_ LPCWSTR pwszOutputURL," )
+cpp_quote( "    _In_opt_ IMFByteStream *pByteStream," )
+cpp_quote( "    _In_opt_ IMFAttributes *pAttributes," )
+cpp_quote( "    _Out_ IMFSinkWriter **ppSinkWriter );" )
+
+//
+// Creates the Sink Writer using an existing instance of an MF Media Sink.
+//
+//     - pMediaSink specifies the MF Media Sink.
+//     - pAttributes specifies container or media sink encoding parameters.
+//     - ppSinkWriter receives an instance of the MF Sink Writer
+//
+cpp_quote( "STDAPI MFCreateSinkWriterFromMediaSink(" )
+cpp_quote( "    _In_ IMFMediaSink *pMediaSink," )
+cpp_quote( "    _In_opt_ IMFAttributes *pAttributes," )
+cpp_quote( "    _Out_ IMFSinkWriter **ppSinkWriter );" )
+
+//
+// MF Sink Writer attributes
+//
+
+// MF_SINK_WRITER_ASYNC_CALLBACK
+// Data type: IUnknown
+// If the MF_SINK_WRITER_ASYNC_CALLBACK attribute is set, then the
+// Sink Writer will not block during the call to Finalize(), but instead
+// will trigger a callback when the operation completes.
+// This attribute should be set to the IUnknown interface of an
+// object that implements the IMFSinkWriterCallback interface.
+cpp_quote( "EXTERN_GUID( MF_SINK_WRITER_ASYNC_CALLBACK, 0x48cb183e, 0x7b0b, 0x46f4, 0x82, 0x2e, 0x5e, 0x1d, 0x2d, 0xda, 0x43, 0x54);" )
+
+// MF_SINK_WRITER_DISABLE_THROTTLING
+// Data type: UINT32
+// This attribute can be set when instantiating the Sink Writer
+// in order to prevent the Sink Writer from throttling calls to
+// IMFSinkWriter::WriteSample.
+cpp_quote( "EXTERN_GUID( MF_SINK_WRITER_DISABLE_THROTTLING, 0x08b845d8, 0x2b74, 0x4afe, 0x9d, 0x53, 0xbe, 0x16, 0xd2, 0xd5, 0xae, 0x4f);" )
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+
+// MF_SINK_WRITER_D3D_MANAGER
+// Data type: IUnknown
+// This attribute enables video sample allocation using D3D9 surfaces,
+// and enables hardware acceleration within the Sink Writer.
+// This should be set to the IUnknown interface of an
+// object that implements the IDirect3DDeviceManager9 interface.
+cpp_quote( "EXTERN_GUID( MF_SINK_WRITER_D3D_MANAGER, 0xec822da2, 0xe1e9, 0x4b29, 0xa0, 0xd8, 0x56, 0x3c, 0x71, 0x9f, 0x52, 0x69);" )
+
+// MF_SINK_WRITER_ENCODER_CONFIG
+// Data type: IUnknown
+// This attribute can be used to pass IPropertyStore based
+// configuration to an encoder before media type negotiation
+// occurs or streaming starts.
+// This should be set to the IUnknown interface of an
+// object that implements the IPropertyStore interface.
+cpp_quote( "EXTERN_GUID( MF_SINK_WRITER_ENCODER_CONFIG, 0xad91cd04, 0xa7cc, 0x4ac7, 0x99, 0xb6, 0xa5, 0x7b, 0x9a, 0x4a, 0x7c, 0x70);" )
+
+cpp_quote("#endif")
+
+enum
+{
+    MF_SINK_WRITER_INVALID_STREAM_INDEX = 0xFFFFFFFF,
+    MF_SINK_WRITER_ALL_STREAMS          = 0xFFFFFFFE,
+    MF_SINK_WRITER_MEDIASINK            = 0xFFFFFFFF,
+};
+
+//
+// MF Sink Writer Statistics
+//
+
+//
+// Structure that contains various statistics about the performance
+// of the Sink Writer
+//
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+
+typedef struct _MF_SINK_WRITER_STATISTICS
+{
+    //
+    // Set to the size of the structure.  Used so that future releases
+    // can support additional statistics without having to rev the interface.
+    //
+    DWORD cb;
+
+    LONGLONG llLastTimestampReceived;
+    LONGLONG llLastTimestampEncoded;
+    LONGLONG llLastTimestampProcessed;
+    LONGLONG llLastStreamTickReceived;
+    LONGLONG llLastSinkSampleRequest;
+
+    QWORD qwNumSamplesReceived;
+    QWORD qwNumSamplesEncoded;
+    QWORD qwNumSamplesProcessed;
+    QWORD qwNumStreamTicksReceived;
+
+    DWORD dwByteCountQueued;
+    QWORD qwByteCountProcessed;
+
+    DWORD dwNumOutstandingSinkSampleRequests;
+
+    DWORD dwAverageSampleRateReceived;
+    DWORD dwAverageSampleRateEncoded;
+    DWORD dwAverageSampleRateProcessed;
+
+} MF_SINK_WRITER_STATISTICS;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+//
+// MF Sink Writer Interface
+//
+[
+    object,
+    uuid(3137f1cd-fe5e-4805-a5d8-fb477448cb3d),
+    local
+]
+interface IMFSinkWriter : IUnknown
+{
+    //
+    // Adds a stream to the writer.
+    //     - pTargetMediaType specifies the target format of the media samples
+    //       for the stream.  This is the format of the samples as they will
+    //       be written out to the storage medium.
+    //     - pdwStreamIndex receives the stream index associated with the
+    //       new stream.
+    //
+    HRESULT AddStream(
+                [in, annotation("_In_")] IMFMediaType *pTargetMediaType,
+                [out, annotation("_Out_")] DWORD *pdwStreamIndex );
+
+    //
+    // Specifies the format of the media samples that will be passed to the
+    // Sink Writer for a particular stream if different from the target
+    // format.  This method is used to identify the encoder to be used
+    // for the stream.
+    //
+    //     - dwStreamIndex specifies the index of the stream to configure.
+    //     - pInputMediaType specifies the format of the media samples that
+    //       will be passed to the Sink Writer for this stream.
+    //     - pEncodingParameters is used to specify additional attributes used
+    //       to configure the encoder.
+    //
+    // Note: This can called at any time to dynamically change the format
+    //       of the input samples for the stream.  Since a format change
+    //       is queued on the stream, and may fail during processing, calling
+    //       SetInputMediaType will immediately test the MFT to see if the new
+    //       type is supported, and only then will it queue the format change.
+    //
+    HRESULT SetInputMediaType(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] IMFMediaType *pInputMediaType,
+                [in, annotation("_In_opt_")] IMFAttributes *pEncodingParameters );
+
+    //
+    // Called after all streams are configured, but before
+    // writing out any samples.
+    //
+    HRESULT BeginWriting( void );
+
+    //
+    // Called to pass in a new sample to the writer.
+    //
+    // Note: By default calls to WriteSample may block for a period of time
+    //       to throttle the rate at which samples are processed.  The
+    //       application can disable this throttling by configuring the writer 
+    //       with the MF_SINK_WRITER_DISABLE_THROTTLING attribute.
+    //
+    HRESULT WriteSample(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] IMFSample *pSample );
+
+    //
+    // Called to notify that there is a gap in the stream.
+    //
+    HRESULT SendStreamTick(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] LONGLONG llTimestamp );
+
+    //
+    // Called to request a callback after the Sink Writer has processed
+    // all samples in the specified stream.
+    //
+    //     - dwStreamIndex specifies the stream to request a callback for.
+    //     - pvContext will be passed back to the application when the 
+    //       callback is triggered.
+    //
+    // Note: In order for PlaceMarker to work, the application must
+    //       configure the Sink Writer with the async callback interface
+    //       IMFSinkWriterCallback.
+    //
+    HRESULT PlaceMarker(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] LPVOID pvContext );
+
+    //
+    // Called to notify that the stream has reached the end of a segment.
+    //
+    //     - dwStreamIndex can either specify a single stream or can be set to
+    //       MF_SINK_WRITER_ALL_STREAMS
+    //
+    HRESULT NotifyEndOfSegment(
+                [in, annotation("_In_")] DWORD dwStreamIndex );
+
+    //
+    // Called to flush all samples that are queued to be encoded
+    // or have not yet been sent to the sink.
+    //
+    //     - dwStreamIndex can either specify a single stream or can be set to
+    //       MF_SINK_WRITER_ALL_STREAMS to flush all stream.
+    //
+    HRESULT Flush(
+                [in, annotation("_In_")] DWORD dwStreamIndex );
+
+    //
+    // Called after all samples have been passed to the writer.
+    //
+    // Note: By default, this call will block until the content generation
+    //       has completed, which may take some time.
+    //       The app can choose to make Finalize() return immediately and
+    //       trigger a callback when the operation completes by configuring
+    //       the Sink Writer with an IMFSinkWriterCallback interface set on
+    //       the attribute store during Sink Writer creation.
+    //
+    HRESULT Finalize( void );
+
+    //
+    // Allows access to a service or interface from the encoder MFTs
+    // or the media sink.
+    //
+    //     - dwStreamIndex specifies which stream to query for the 
+    //       service/interface. MF_SINK_WRITER_MEDIASINK can be specified
+    //       instead to get the service/interface from the media sink.
+    //     - guidService specifies the service identifier.  This can be set to
+    //       GUID_NULL in order to query directory for a specific interface
+    //       instead of a service.
+    //     - riid specifies the interface identifer to query for.
+    //     - ppvObject receives the requested interface.
+    //
+    HRESULT GetServiceForStream(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] REFGUID guidService,
+                [in, annotation("_In_")] REFIID riid,
+                [out, annotation("_Out_")] LPVOID *ppvObject );
+
+    //
+    // Returns various statistics about the performance of the sink writer.
+    //
+    //     - dwStreamIndex can either specify a single stream or can be set to
+    //       MF_SINK_WRITER_ALL_STREAMS to return aggregated statistics for all
+    //       streams.
+    //     - pStats receives the statistics.
+    //
+    HRESULT GetStatistics(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [out, annotation("_Out_")] MF_SINK_WRITER_STATISTICS *pStats );
+};
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+
+[
+    object,
+    uuid(588d72ab-5Bc1-496a-8714-b70617141b25),
+    local
+]
+/// <summary>
+///     This interface exposes additional functionality available from Sink Writer
+///     The application obtains this interface via QueryInterface on IMFSinkWriter
+/// </summary>
+interface IMFSinkWriterEx : IMFSinkWriter
+{
+    /// <summary>
+    ///     Returns the transform at a particular index in Sink Writer's internal
+    ///     processing chain for a stream.
+    ///     Applications can use this function if they require direct access to the
+    ///     transforms (for configuration purposes, etc)
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="dwTransformIndex">
+    ///     Specifies a 0-based index for which the application wants to retrieve the
+    ///     transform. Transform at index 0 is the transform closest to the start of the
+    ///     chain (i.e. the transform that will be the first to process samples fed to
+    ///     Sink Writer - e.g. a video processor for video streams)
+    /// </param>
+    /// <param name="pGuidCategory">
+    ///     On return, receives the category GUID (see MFT_CATEGORY)
+    /// </param>
+    /// <param name="ppTransform">
+    ///     On return, receives a pointer to IMFTransform interface of the transform
+    ///     at a given index for a given stream.
+    /// </param>
+    HRESULT GetTransformForStream(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] DWORD dwTransformIndex,
+                [out, annotation("_Out_opt_")] GUID* pGuidCategory,
+                [out, annotation("_Out_")] IMFTransform **ppTransform );
+};
+
+[
+    object,
+    uuid(17C3779E-3CDE-4EDE-8C60-3899F5F53AD6),
+    local
+]
+/// <summary>
+///     This interface exposes additional encoder configuration functionality available from Sink Writer
+///     The application obtains this interface via QueryInterface on IMFSinkWriter
+/// </summary>
+interface IMFSinkWriterEncoderConfig : IUnknown
+{
+    /// <summary>
+    ///     Dynamically changes the target media type that Sink Writer is encoding to.
+    ///     The new media type must be supported by the media sink being used and by
+    ///     the encoder MFTs installed on the system.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="pTargetMediaType">
+    ///     The new media format to encode to.
+    /// </param>
+    /// <param name="pEncodingParameters">
+    ///     A new set of encoding parameters to configure the encoder with.
+    ///     If not specified, previously provided parameters will be used.
+    /// </param>
+    HRESULT SetTargetMediaType(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] IMFMediaType* pTargetMediaType,
+                [in, annotation("_In_opt_")] IMFAttributes* pEncodingParameters );
+
+    /// <summary>
+    ///     Dynamically updates the encoder configuration with a collection of new encoder settings.
+    ///     The settings are applied on the encoder "in-band" with previously provided media samples.
+    /// </summary>
+    /// <param name="dwStreamIndex">
+    ///     Specifies the stream index.
+    /// </param>
+    /// <param name="pEncodingParameters">
+    ///     A set of encoding parameters to configure the encoder with.
+    ///     Encoder will be configured with these settings after all previously queued input media samples
+    ///     have been provided to it via IMFTransform::ProcessInput
+    /// </param>
+    HRESULT PlaceEncodingParameters(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] IMFAttributes* pEncodingParameters );
+};
+cpp_quote("#endif")
+
+//
+// This interface is used as the callback mechanism for when the
+// MF Sink Writer is configured to finalize content generation
+// asynchronously.
+//
+[
+    object,
+    uuid(666f76de-33d2-41b9-a458-29ed0a972c58),
+    local
+]
+interface IMFSinkWriterCallback : IUnknown
+{
+    //
+    // Callback function that completes the asynchronous Finalize()
+    // operation.
+    //
+    //   - hrStatus specifies the result of the Finalize() operation.
+    //
+    HRESULT OnFinalize(
+                [in, annotation("_In_")] HRESULT hrStatus );
+
+    //
+    // Callback function that is triggered after all samples have been
+    // processed for a specific stream and the application had requested
+    // a callback using the IMFSinkWriter::PlaceMarker method.
+    //
+	//    - dwStreamIndex specifies the stream of the transform that sent the async error
+	//    - hrStatus specifies the async error fired by the transform
+    //
+    HRESULT OnMarker(
+                [in, annotation("_In_")] DWORD dwStreamIndex,
+                [in, annotation("_In_")] LPVOID pvContext );
+
+};
+
+
+
+#if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
+
+// 
+// This interface extends IMFSinkWriterCallback and is used as the callback mechanism 
+// for asynchronously notifying the caller when the transform chain changes, and 
+// when an MFT in the chain raises an error event. 
+// 
+[
+	object,
+	uuid(2456BD58-C067-4513-84FE-8D0C88FFDC61),
+	local
+]
+interface IMFSinkWriterCallback2 : IMFSinkWriterCallback
+{
+    // 
+    // Callback function that is triggered when the transform chain in the SinkWriter is built or 
+    // modified. 
+    // 
+	HRESULT OnTransformChange( void );
+
+    // 
+    //    - dwStreamIndex specifies the stream of the transform that raised the async error 
+    //    - hrStatus specifies the async error raised by the transform 
+    // 
+	HRESULT OnStreamError(
+		[in, annotation("_In_")] DWORD dwStreamIndex,
+		[in, annotation("_In_")] HRESULT hrStatus);
+
+};
+
+#endif
+
+
+//
+// MF Read/Write common attributes
+//
+
+// MF_READWRITE_DISABLE_CONVERTERS
+// Data type: UINT32
+// This attribute can be used to ensure that the Source Reader
+// or Sink Writer does not perform additional conversion on
+// the multimedia data besides a single decode or encode operation.
+cpp_quote( "EXTERN_GUID( MF_READWRITE_DISABLE_CONVERTERS, 0x98d5b065, 0x1374, 0x4847, 0x8d, 0x5d, 0x31, 0x52, 0x0f, 0xee, 0x71, 0x56);" )
+
+// MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS
+// Data type: UINT32
+// By default, the Source Reader and Sink Writer will not
+// use hardware decoders or encoders.  This attribute can
+// be set to TRUE to enable hardware transforms.
+cpp_quote( "EXTERN_GUID( MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS, 0xa634a91c, 0x822b, 0x41b9, 0xa4, 0x94, 0x4d, 0xe4, 0x64, 0x36, 0x12, 0xb0);" )
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN8) ")
+
+#pragma region Application or Games Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+// MF_READWRITE_MMCSS_CLASS
+// Data type: String
+// MMCSS class that should be used by Source Reader and Sink Writer processing threads
+cpp_quote( "EXTERN_GUID( MF_READWRITE_MMCSS_CLASS, 0x39384300, 0xd0eb, 0x40b1, 0x87, 0xa0, 0x33, 0x18, 0x87, 0x1b, 0x5a, 0x53);" )
+
+// MF_READWRITE_MMCSS_PRIORITY
+// Data type: INT32 (aliased as UINT32)
+// MMCSS base priority that should be used by Source Reader and Sink Writer processing threads
+cpp_quote( "EXTERN_GUID( MF_READWRITE_MMCSS_PRIORITY, 0x43ad19ce, 0xf33f, 0x4ba9, 0xa5, 0x80, 0xe4, 0xcd, 0x12, 0xf2, 0xd1, 0x44);" )
+
+// MF_READWRITE_MMCSS_CLASS_AUDIO
+// Data type: String
+// MMCSS class that should be used by Source Reader and Sink Writer for audio processing threads
+cpp_quote( "EXTERN_GUID( MF_READWRITE_MMCSS_CLASS_AUDIO, 0x430847da, 0x0890, 0x4b0e, 0x93, 0x8c, 0x05, 0x43, 0x32, 0xc5, 0x47, 0xe1);" )
+
+// MF_READWRITE_MMCSS_PRIORITY_AUDIO
+// Data type: INT32 (aliased as UINT32)
+// MMCSS base priority that should be used by Source Reader and Sink Writer for audio processing threads
+cpp_quote( "EXTERN_GUID( MF_READWRITE_MMCSS_PRIORITY_AUDIO, 0x273db885, 0x2de2, 0x4db2, 0xa6, 0xa7, 0xfd, 0xb6, 0x6f, 0xb4, 0x0b, 0x61);" )
+
+// MF_READWRITE_D3D_OPTIONAL
+// Data type: UINT32
+// This attribute is used to tell Source Reader\Sink Writer that application can accept non-DX samples.
+// Source Reader will attempt to provide DX samples but will fallback to sysmem allocation if DX allocation fails.
+// This attribute is only valid when D3D manager is set.
+cpp_quote( "EXTERN_GUID( MF_READWRITE_D3D_OPTIONAL, 0x216479d9, 0x3071, 0x42ca, 0xbb, 0x6c, 0x4c, 0x22, 0x10, 0x2e, 0x1d, 0x18);" )
+
+//
+// MF_MEDIASINK_AUTOFINALIZE_SUPPORTED
+// Data type: UINT32
+// Sink sets this to TRUE if it supports auto finalization feature.
+// FALSE otherwise.
+//
+cpp_quote("EXTERN_GUID( MF_MEDIASINK_AUTOFINALIZE_SUPPORTED, 0x48c131be, 0x135a, 0x41cb, 0x82, 0x90, 0x3, 0x65, 0x25, 0x9, 0xc9, 0x99);")
+
+//
+// MF_MEDIASINK_ENABLE_AUTOFINALIZE
+// Data type: UINT32
+// Client of media sink sets this to TRUE if it wants the sink to auto finalize the file.
+// FALSE otherwise.
+//
+
+cpp_quote("EXTERN_GUID( MF_MEDIASINK_ENABLE_AUTOFINALIZE, 0x34014265, 0xcb7e, 0x4cde, 0xac, 0x7c, 0xef, 0xfd, 0x3b, 0x3c, 0x25, 0x30);")
+
+//
+// MF_READWRITE_ENABLE_AUTOFINALIZE
+// Data type: UINT32
+// Client of Sink Writer sets this to TRUE if they want the underlying sink to auto finalize the file.
+// FALSE otherwise.
+//
+cpp_quote("EXTERN_GUID( MF_READWRITE_ENABLE_AUTOFINALIZE, 0xdd7ca129, 0x8cd1, 0x4dc5, 0x9d, 0xde, 0xce, 0x16, 0x86, 0x75, 0xde, 0x61);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN8) ")
+
+

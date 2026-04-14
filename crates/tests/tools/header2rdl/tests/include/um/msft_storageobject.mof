@@ -1,0 +1,58 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+
+[ClassVersion ( "1.0" ), Abstract,
+Description( "Common base class for all Storage Management Provider objects" )]
+class MSFT_StorageObject
+{
+    // Provider owned identifier
+    [Key, Read, Required, Description(
+        "ObjectId is a mandatory property that is used to opaquely and uniquely identify "
+        "an instance of a class. ObjectIds must be unique within the scope of the management "
+        "server (which is hosting the provider). The ObjectId is created and maintained for "
+        "use of the Storage Management Providers and their clients to track instances of "
+        "objects. If an object is visible through two different paths (for example: there are "
+        "two separate Storage Management Providers that point to the same storage subsystem) "
+        "then the same object may appear with two different ObjectIds. For determining if two "
+        "object instances are the same object, refer to the UniqueId property."
+        )]
+    String ObjectId;
+
+    // Unique identifier
+    [Read, Required, Description(
+        "UniqueId is a mandatory property that is used to uniquely identify a logical instance "
+        "of a storage subsystem's object. This value must be the same for an object viewed "
+        "by two or more provider instances (even if they are running on seperate management "
+        "servers). UniqueId can be any globally unique, opaque value unless otherwise specified "
+        "by a derived class."
+        )]
+    String UniqueId;
+
+    // Pass-Through identifiers
+    [Read, Description(
+        "PassThroughIds is a comma-separated list of all implementation specific keys. "
+        "It is used by storage management applications to access the vendor proprietary "
+        "object model. This field should be in the form: key1='value1',key2='value2'."
+        )]
+    String PassThroughIds;
+
+    [Read, Description(
+        "PassThroughServer is the name or address of the computer system hosting the proprietary "
+        "storage provider classes."
+        )]
+    String PassThroughServer;
+
+    [Read, Description(
+        "PassThroughNamespace is the WBEM namespace that contains the proprietary storage "
+        "provider classes."
+        )]
+    String PassThroughNamespace;
+
+    [Read, Description(
+        "PassThroughClass is the WBEM class name of the proprietary storage provider object."
+        )]
+    String PassThroughClass;
+};

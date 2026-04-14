@@ -1,0 +1,97 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+//      Copyright (c) 2010 Microsoft Corporation
+//
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+typedef struct _DEDUP_CONTAINER_EXTENT {
+    ULONG      ContainerIndex;      // index of the container
+    hyper      StartOffset;         // start of the range
+    hyper      Length;              // length of the range
+} DEDUP_CONTAINER_EXTENT;
+
+typedef struct _DDP_FILE_EXTENT
+{
+    hyper Length;
+    hyper Offset;
+} DDP_FILE_EXTENT;
+
+typedef enum _DEDUP_BACKUP_SUPPORT_PARAM_TYPE
+{
+    DEDUP_RECONSTRUCT_UNOPTIMIZED = 1,
+    DEDUP_RECONSTRUCT_OPTIMIZED = 2,
+} DEDUP_BACKUP_SUPPORT_PARAM_TYPE;
+
+///////////////////////////////////////////////////////////////////////////////
+// Interfaces
+//
+
+// backup callback
+[object, oleautomation, uuid(7BACC67A-2F1D-42D0-897E-6FF62DD533BB), version(1.0)]
+interface IDedupReadFileCallback: IUnknown
+{
+    HRESULT ReadBackupFile(
+        [in] BSTR FileFullPath,   
+        [in] hyper FileOffset,
+        [in] ULONG SizeToRead,
+        [out, size_is(SizeToRead), length_is(*ReturnedSize)] BYTE* FileBuffer,
+        [out] ULONG* ReturnedSize,
+        [in] DWORD Flags
+            );
+
+    HRESULT OrderContainersRestore(
+        [in] ULONG NumberOfContainers,
+        [in, size_is(NumberOfContainers)] BSTR* ContainerPaths,
+        [out] ULONG* ReadPlanEntries,
+        [out, size_is(,*ReadPlanEntries)] DEDUP_CONTAINER_EXTENT** ReadPlan        
+        );
+
+    HRESULT PreviewContainerRead(
+        [in] BSTR FileFullPath,
+        [in] ULONG NumberOfReads,
+        [in, size_is(NumberOfReads)] DDP_FILE_EXTENT* ReadOffsets
+        );
+};
+
+// backup support
+[object, oleautomation, uuid(C719D963-2B2D-415E-ACF7-7EB7CA596FF4), version(1.0)]
+interface IDedupBackupSupport: IUnknown
+{
+    HRESULT RestoreFiles(
+        [in] ULONG NumberOfFiles,
+        [in, size_is(NumberOfFiles)] BSTR* FileFullPaths,
+        [in] IDedupReadFileCallback* Store,
+        [in] DWORD Flags,
+        [out, size_is(NumberOfFiles)] HRESULT* FileResults 
+            );
+};
+
+[
+    uuid(07AD57AF-6171-455B-B500-FEB99A6F4CF4),
+    version(1.0),
+]
+library DedupBackup
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [uuid(73D6B2AD-2984-4715-B2E3-924C149744DD)]
+    coclass DedupBackupSupport
+    {
+        [default] interface IDedupBackupSupport;
+    };
+}
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN8)")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

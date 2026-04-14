@@ -1,0 +1,355 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+// Module Name:
+//
+//      Mpeg2Data.idl
+//
+// Abstract:
+//
+//      Main Mpeg2Data Library Definition, and interface definitions for
+//      the MPEG-2 Section and Table acquisition functionality
+//
+/////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+    // Import Files
+import "oaidl.idl";
+import "ocidl.idl";
+import "bdaiface.idl";
+import "mpeg2structs.idl";
+
+    // Specify single byte packing alignment
+#pragma pack(push)
+#pragma pack(1)
+
+    // Forward interface declarations
+interface ISectionList;
+interface IMpeg2Stream;
+
+    // Declare well known PID/TID values for MPEG-2 tables
+cpp_quote("#define MPEG_PAT_PID                0x0000")
+cpp_quote("#define MPEG_PAT_TID                0x00")
+
+cpp_quote("#define MPEG_CAT_PID                0x0001")
+cpp_quote("#define MPEG_CAT_TID                0x01")
+
+cpp_quote("#define MPEG_PMT_TID                0x02")
+
+cpp_quote("#define MPEG_TSDT_PID               0x0002")
+cpp_quote("#define MPEG_TSDT_TID               0x03")
+
+    // Declare well known PID/TID values for ATSC tables
+cpp_quote("#define ATSC_MGT_PID                0x1FFB")
+cpp_quote("#define ATSC_MGT_TID                0xC7")
+
+cpp_quote("#define ATSC_VCT_PID                0x1FFB")
+cpp_quote("#define ATSC_VCT_TERR_TID           0xC8")
+cpp_quote("#define ATSC_VCT_CABL_TID           0xC9")
+
+cpp_quote("#define ATSC_EIT_TID                0xCB")
+
+cpp_quote("#define ATSC_ETT_TID                0xCC")
+
+cpp_quote("#define ATSC_RRT_TID                0xCA")
+cpp_quote("#define ATSC_RRT_PID                0x1FFB")
+
+cpp_quote("#define ATSC_STT_PID                0x1FFB")
+cpp_quote("#define ATSC_STT_TID                0xCD")
+
+cpp_quote("#define ATSC_PIT_TID                0xD0")
+
+    // Declare well known PID/TID values for DVB & ISDB tables
+cpp_quote("#define DVB_NIT_PID                 0x0010")
+cpp_quote("#define DVB_NIT_ACTUAL_TID          0x40")
+cpp_quote("#define DVB_NIT_OTHER_TID           0x41")
+
+cpp_quote("#define DVB_SDT_PID                 0x0011")
+cpp_quote("#define DVB_SDT_ACTUAL_TID          0x42")
+cpp_quote("#define DVB_SDT_OTHER_TID           0x46")
+
+cpp_quote("#define DVB_BAT_PID                 0x0011")
+cpp_quote("#define DVB_BAT_TID                 0x4A")
+
+cpp_quote("#define DVB_EIT_PID                 0x0012")
+cpp_quote("#define DVB_EIT_ACTUAL_TID          0x4E")
+cpp_quote("#define DVB_EIT_OTHER_TID           0x4F")
+    // Above TID definition is for EIT[p/f] tables
+    // No declaration for EIT[schedule] table
+    // [DVB]
+    //   EIT[p/f]               (actual) 0x4E
+    //   EIT[p/f]               (other)  0x4F
+    //   EIT[schedule]          (actual) 0x50-0x5F
+    //   EIT[schedule]          (other)  0x60-0x6F
+    // [ISDB]
+    //   EIT[p/f]               (actual) 0x4E
+    //   EIT[p/f]               (other)  0x4F
+    //   EIT[schedule basic]    (actual) 0x50-0x57
+    //   EIT[schedule extended] (actual) 0x58-0x5F
+    //   EIT[schedule basic]    (other)  0x60-0x67
+    //   EIT[schedule extended] (other)  0x68-0x6F
+    
+cpp_quote("#define DVB_RST_PID                 0x0013")
+cpp_quote("#define DVB_RST_TID                 0x71")
+
+cpp_quote("#define DVB_TDT_PID                 0x0014")
+cpp_quote("#define DVB_TDT_TID                 0x70")
+
+cpp_quote("#define DVB_ST_PID_16               0x0010")
+cpp_quote("#define DVB_ST_PID_17               0x0011")
+cpp_quote("#define DVB_ST_PID_18               0x0012")
+cpp_quote("#define DVB_ST_PID_19               0x0013")
+cpp_quote("#define DVB_ST_PID_20               0x0014")
+cpp_quote("#define DVB_ST_TID                  0x72")
+cpp_quote("#define ISDB_ST_TID                 0x72")
+
+cpp_quote("#define DVB_TOT_PID                 0x0014")
+cpp_quote("#define DVB_TOT_TID                 0x73")
+
+cpp_quote("#define DVB_DIT_PID                 0x001E")
+cpp_quote("#define DVB_DIT_TID                 0x7E")
+
+cpp_quote("#define DVB_SIT_PID                 0x001F")
+cpp_quote("#define DVB_SIT_TID                 0x7F")
+
+cpp_quote("#define ISDB_EMM_TID                0x85")
+
+cpp_quote("#define ISDB_BIT_PID                0x0024")
+cpp_quote("#define ISDB_BIT_TID                0xC4")
+
+cpp_quote("#define ISDB_NBIT_PID               0x0025")
+cpp_quote("#define ISDB_NBIT_MSG_TID           0xC5")
+cpp_quote("#define ISDB_NBIT_REF_TID           0xC6")
+
+cpp_quote("#define ISDB_LDT_PID                0x0025")
+cpp_quote("#define ISDB_LDT_TID                0xC7")
+
+cpp_quote("#define ISDB_SDTT_PID               0x0023")
+cpp_quote("#define ISDB_SDTT_ALT_PID           0x0028")
+cpp_quote("#define ISDB_SDTT_TID               0xC3")
+
+cpp_quote("#define ISDB_CDT_PID                0x0029")
+cpp_quote("#define ISDB_CDT_TID                0xC8")
+
+
+cpp_quote("#define SCTE_EAS_TID                0xD8")
+cpp_quote("#define SCTE_EAS_IB_PID             0x1FFB")
+cpp_quote("#define SCTE_EAS_OOB_PID            0x1FFC")
+
+
+
+[
+    object,
+    uuid(BDCDD913-9ECD-4fb2-81AE-ADF747EA75A5),
+    pointer_default(unique)
+]
+interface IMpeg2TableFilter : IUnknown
+{
+	HRESULT AddPID(PID p);
+	HRESULT AddTable(PID p, TID t);
+	HRESULT AddExtension(PID p, TID t, TEID e);
+	HRESULT RemovePID(PID p);
+	HRESULT RemoveTable(PID p, TID t);
+	HRESULT RemoveExtension(PID p, TID t, TEID e);
+};
+
+// media type ????
+// media subtype ????
+// media format ????
+
+// media sample, pack of sections
+// whats the max table size? 1MB max section size == 4kb(2 ** 12).  max section count == 256
+// if we hold on to a big bunch of demux samples will we exhaust the demux pool? yes, 
+//     Non AV is 64 x 8192 byte buffers.  AV is 256 x 8192 byte buffers.  Both are per-pin.
+
+typedef struct Mpeg2TableSampleHdr {
+	BYTE SectionCount;
+	BYTE Reserved[3];
+	long SectionOffsets[];
+} Mpeg2TableSampleHdr;
+
+cpp_quote("// {752845F1-758F-4c83-A043-4270C593308E}")
+cpp_quote("DEFINE_GUID(CLSID_Mpeg2TableFilter,")
+cpp_quote("0x752845f1, 0x758f, 0x4c83, 0xa0, 0x43, 0x42, 0x70, 0xc5, 0x93, 0x30, 0x8e);")
+
+
+////////////////////////////////////
+//
+// Mpeg2DataLib Library
+//
+////////////////////////////////////
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("class DECLSPEC_UUID(\"DBAF6C1B-B6A4-4898-AE65-204F0D9509A1\") Mpeg2DataLib;")
+cpp_quote("#endif")
+
+[
+    uuid(DBAF6C1B-B6A4-4898-AE65-204F0D9509A1),
+    version(1.0)
+]
+library Mpeg2DataLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+
+    ////////////////////////////////////
+    //
+    // IMpeg2Data Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        uuid(9B396D40-F380-4e3c-A514-1A82BF6EBFE6),    
+        pointer_default(unique)
+    ]
+    interface IMpeg2Data : IUnknown
+    {
+        HRESULT GetSection([in]  PID                      pid,
+                           [in]  TID                      tid,
+                           [in]  PMPEG2_FILTER            pFilter,            // OPTIONAL
+                           [in]  DWORD                    dwTimeout,
+                           [out] ISectionList **          ppSectionList);
+
+        HRESULT GetTable([in]  PID                        pid,
+                         [in]  TID                        tid,
+                         [in]  PMPEG2_FILTER              pFilter,            // OPTIONAL
+                         [in]  DWORD                      dwTimeout,
+                         [out] ISectionList **            ppSectionList);
+
+        HRESULT GetStreamOfSections([in]  PID             pid,
+                                    [in]  TID             tid,
+                                    [in]  PMPEG2_FILTER   pFilter,            // OPTIONAL
+                                    [in]  HANDLE          hDataReadyEvent,
+                                    [out] IMpeg2Stream ** ppMpegStream);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // ISectionList Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        uuid(AFEC1EB5-2A64-46c6-BF4B-AE3CCB6AFDB0),
+        pointer_default(unique)
+    ]
+    interface ISectionList : IUnknown
+    {
+        HRESULT Initialize([in]  MPEG_REQUEST_TYPE requestType,
+                           [in]  IMpeg2Data *      pMpeg2Data,
+                           [in]  PMPEG_CONTEXT     pContext,
+                           [in]  PID               pid,
+                           [in]  TID               tid,
+                           [in]  PMPEG2_FILTER     pFilter,                   // OPTIONAL
+                           [in]  DWORD             timeout,
+                           [in]  HANDLE            hDoneEvent);               // OPTIONAL
+
+        HRESULT InitializeWithRawSections([in]  PMPEG_PACKET_LIST pmplSections);
+
+        HRESULT CancelPendingRequest(void);
+
+        HRESULT GetNumberOfSections([out] WORD * pCount);
+
+        HRESULT GetSectionData([in]  WORD          sectionNumber,
+                               [out] DWORD *       pdwRawPacketLength,
+                               [out] PSECTION *    ppSection);
+
+        HRESULT GetProgramIdentifier(PID * pPid);
+
+        HRESULT GetTableIdentifier(TID * pTableId);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // IMpeg2Stream Interface
+    //
+    ////////////////////////////////////
+
+    [
+        object,
+        uuid(400CC286-32A0-4ce4-9041-39571125A635),
+        pointer_default(unique)
+    ]
+    interface IMpeg2Stream : IUnknown
+    {
+        HRESULT Initialize([in]  MPEG_REQUEST_TYPE         requestType,
+                           [in]  IMpeg2Data *              pMpeg2Data,
+                           [in]  PMPEG_CONTEXT             pContext,
+                           [in]  PID                       pid,
+                           [in]  TID                       tid,
+                           [in]  PMPEG2_FILTER             pFilter,           // OPTIONAL
+                           [in]  HANDLE                    hDataReadyEvent);
+
+        HRESULT SupplyDataBuffer([in]  PMPEG_STREAM_BUFFER pStreamBuffer);
+    };
+
+
+
+    ////////////////////////////////////
+    //
+    // SectionList CoClass
+    //
+    ////////////////////////////////////
+
+    [
+        uuid(73DA5D04-4347-45d3-A9DC-FAE9DDBE558D)
+    ]
+    coclass SectionList
+    {
+        [default] interface ISectionList;
+    };
+
+    
+
+    ////////////////////////////////////
+    //
+    // Mpeg2Stream CoClass
+    //
+    ////////////////////////////////////
+
+    [
+        uuid(F91D96C7-8509-4d0b-AB26-A0DD10904BB7)
+    ]
+    coclass Mpeg2Stream
+    {
+        [default] interface IMpeg2Stream;
+    };
+
+    
+
+    ////////////////////////////////////
+    //
+    // Mpeg2Data CoClass
+    //
+    ////////////////////////////////////
+
+    [
+        uuid(C666E115-BB62-4027-A113-82D643FE2D99)
+    ]
+    coclass Mpeg2Data
+    {
+        [default] interface IMpeg2Data;
+    };
+
+};
+
+
+
+    // Return to default packing
+#pragma pack(pop)
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,157 @@
+// Copyright (c) Microsoft Corporation.  All Rights Reserved
+
+import "dxgi1_4.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef enum DXGI_OUTDUPL_FLAG {
+    DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY = 1,
+} DXGI_OUTDUPL_FLAG;
+
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIOutput5 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid(80A07424-AB52-42EB-833C-0C42FD282D98),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIOutput5 :
+    IDXGIOutput4
+{
+    HRESULT DuplicateOutput1([in, annotation("_In_")] IUnknown *pDevice,
+        [in ] UINT Flags,
+        [in, annotation("_In_")] UINT SupportedFormatsCount,
+        [in, annotation("_In_reads_(SupportedFormatsCount)")] const DXGI_FORMAT* pSupportedFormats,
+        [out, annotation("_COM_Outptr_")] IDXGIOutputDuplication **ppOutputDuplication);
+};
+
+//+-----------------------------------------------------------------------------
+//
+//  HDR MetaData types
+//
+//------------------------------------------------------------------------------
+typedef enum DXGI_HDR_METADATA_TYPE
+{
+    DXGI_HDR_METADATA_TYPE_NONE = 0,
+    DXGI_HDR_METADATA_TYPE_HDR10 = 1,
+    DXGI_HDR_METADATA_TYPE_HDR10PLUS = 2,
+} DXGI_HDR_METADATA_TYPE;
+
+typedef struct DXGI_HDR_METADATA_HDR10
+{
+    // Color gamut
+    UINT16 RedPrimary[2];
+    UINT16 GreenPrimary[2];
+    UINT16 BluePrimary[2];
+    UINT16 WhitePoint[2];
+
+    // Luminance
+    UINT   MaxMasteringLuminance;
+    UINT   MinMasteringLuminance;
+    UINT16 MaxContentLightLevel;
+    UINT16 MaxFrameAverageLightLevel;
+} DXGI_HDR_METADATA_HDR10;
+
+typedef struct DXGI_HDR_METADATA_HDR10PLUS
+{
+    BYTE Data[72];
+} DXGI_HDR_METADATA_HDR10PLUS;
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGISwapChain4 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid(3D585D5A-BD4A-489E-B1F4-3DBCB6452FFB),
+    local,
+    pointer_default(unique)
+]
+interface IDXGISwapChain4 :
+    IDXGISwapChain3
+{
+    HRESULT SetHDRMetaData(
+        [in, annotation("_In_")] DXGI_HDR_METADATA_TYPE Type,
+        [in, annotation("_In_")] UINT Size,
+        [in, size_is(Size), annotation("_In_reads_opt_(Size)")] void* pMetaData
+        );
+};
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIDevice4 interface
+//--------------------------------------------------------------------------------------------------------
+typedef enum _DXGI_OFFER_RESOURCE_FLAGS
+{
+    DXGI_OFFER_RESOURCE_FLAG_ALLOW_DECOMMIT = 0x1,
+} DXGI_OFFER_RESOURCE_FLAGS;
+
+typedef enum _DXGI_RECLAIM_RESOURCE_RESULTS
+{
+    DXGI_RECLAIM_RESOURCE_RESULT_OK = 0,
+    DXGI_RECLAIM_RESOURCE_RESULT_DISCARDED = 1,
+    DXGI_RECLAIM_RESOURCE_RESULT_NOT_COMMITTED = 2,
+} DXGI_RECLAIM_RESOURCE_RESULTS;
+
+[
+    object,
+    uuid(95B4F95F-D8DA-4CA4-9EE6-3B76D5968A10),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIDevice4 :
+    IDXGIDevice3
+{
+    HRESULT OfferResources1(
+        [in, annotation("_In_")] UINT NumResources,
+        [in, size_is(NumResources), annotation("_In_reads_(NumResources)")] IDXGIResource *const *ppResources,
+        [in, annotation("_In_")] DXGI_OFFER_RESOURCE_PRIORITY Priority,
+        [in, annotation("_In_")] UINT Flags);
+    HRESULT ReclaimResources1(
+        [in, annotation("_In_")] UINT NumResources,
+        [in, size_is(NumResources), annotation("_In_reads_(NumResources)")] IDXGIResource *const *ppResources,
+        [out, size_is(NumResources), annotation("_Out_writes_all_(NumResources)")] DXGI_RECLAIM_RESOURCE_RESULTS *pResults);
+};
+
+//+-----------------------------------------------------------------------------
+//
+//  Enum for IDXGIFactory5::CheckFeatureSupport
+//
+//------------------------------------------------------------------------------
+typedef enum DXGI_FEATURE
+{
+       DXGI_FEATURE_PRESENT_ALLOW_TEARING = 0,
+} DXGI_FEATURE;
+
+//--------------------------------------------------------------------------------------------------------
+// IDXGIFactory5 interface
+//--------------------------------------------------------------------------------------------------------
+[
+    object,
+    uuid(7632e1f5-ee65-4dca-87fd-84cd75f8838d),
+    local,
+    pointer_default(unique)
+]
+interface IDXGIFactory5 :
+       IDXGIFactory4
+{
+    HRESULT CheckFeatureSupport(
+        DXGI_FEATURE Feature,
+        [annotation("_Inout_updates_bytes_(FeatureSupportDataSize)")] void* pFeatureSupportData,
+        UINT FeatureSupportDataSize
+        );
+};
+
+//--------------------------------------------------------------------------------------------------------
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote( "DEFINE_GUID(IID_IDXGIOutput5,0x80A07424,0xAB52,0x42EB,0x83,0x3C,0x0C,0x42,0xFD,0x28,0x2D,0x98);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGISwapChain4,0x3D585D5A,0xBD4A,0x489E,0xB1,0xF4,0x3D,0xBC,0xB6,0x45,0x2F,0xFB);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIDevice4,0x95B4F95F,0xD8DA,0x4CA4,0x9E,0xE6,0x3B,0x76,0xD5,0x96,0x8A,0x10);" )
+cpp_quote( "DEFINE_GUID(IID_IDXGIFactory5,0x7632e1f5,0xee65,0x4dca,0x87,0xfd,0x84,0xcd,0x75,0xf8,0x83,0x8d);" )

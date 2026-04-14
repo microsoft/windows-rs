@@ -1,0 +1,547 @@
+//+---------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: AdHoc.idl
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "oaidl.idl";
+import "unknwn.idl";
+import "wtypes.idl";
+#endif
+
+
+cpp_quote("EXTERN_C const CLSID CLSID_AdHocManager;")
+
+
+// Reserved GUIDS for our use
+//
+// 8F10CC20-CF0D-42a0-ACBE-E2DE7007384D   IID_IAdHocManager
+// 8F10CC21-CF0D-42a0-ACBE-E2DE7007384D   IID_IEnumAdHocMediums
+// 8F10CC22-CF0D-42a0-ACBE-E2DE7007384D   IID_IAdHocMediumManager
+// 8F10CC23-CF0D-42a0-ACBE-E2DE7007384D   IID_IEnumAdHocConnections
+// 8F10CC24-CF0D-42a0-ACBE-E2DE7007384D   IID_IAdHocConnection
+// 8F10CC25-CF0D-42a0-ACBE-E2DE7007384D   
+// 8F10CC26-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocManager
+// 8F10CC27-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocManagerNotificationSink
+// 8F10CC28-CF0D-42a0-ACBE-E2DE7007384D   IID_IEnumDot11AdHocNetworks
+// 8F10CC29-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocNetwork
+// 8F10CC2A-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocNetworkNotificationSink
+//
+// 8F10CC2B-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocInterface
+// 8F10CC2C-CF0D-42a0-ACBE-E2DE7007384D   IID_IEnumDot11AdHocInterfaces
+// 8F10CC2D-CF0D-42a0-ACBE-E2DE7007384D   IID_IEnumDot11AdHocSecuritySettings
+// 8F10CC2E-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocSecuritySettings
+// 8F10CC2F-CF0D-42a0-ACBE-E2DE7007384D   IID_IDot11AdHocInterfaceNotificationSink
+// 8F10CC30-CF0D-42a0-ACBE-E2DE7007384D
+// 8F10CC31-CF0D-42a0-ACBE-E2DE7007384D
+// 8F10CC32-CF0D-42a0-ACBE-E2DE7007384D
+// 8F10CC33-CF0D-42a0-ACBE-E2DE7007384D
+// 8F10CC34-CF0D-42a0-ACBE-E2DE7007384D
+// 8F10CC35-CF0D-42a0-ACBE-E2DE7007384D
+// 8F10CC36-CF0D-42a0-ACBE-E2DE7007384D
+//
+interface IDot11AdHocManager;
+interface IDot11AdHocManagerNotificationSink;
+interface IEnumDot11AdHocNetworks;
+interface IDot11AdHocNetwork;
+interface IDot11AdHocNetworkNotificationSink;
+
+interface IDot11AdHocInterface;
+interface IEnumDot11AdHocInterfaces;
+interface IEnumDot11AdHocSecuritySettings;
+interface IDot11AdHocSecuritySettings;
+interface IDot11AdHocInterfaceNotificationSink;
+
+typedef [v1_enum] enum tagDOT11_ADHOC_CIPHER_ALGORITHM
+{
+   DOT11_ADHOC_CIPHER_ALGO_INVALID        = -1,
+   DOT11_ADHOC_CIPHER_ALGO_NONE           = 0x00,
+   DOT11_ADHOC_CIPHER_ALGO_CCMP           = 0x04,
+   DOT11_ADHOC_CIPHER_ALGO_WEP            = 0x101,
+} DOT11_ADHOC_CIPHER_ALGORITHM;
+
+typedef [v1_enum] enum tagDOT11_ADHOC_AUTH_ALGORITHM
+{
+   DOT11_ADHOC_AUTH_ALGO_INVALID           = -1,
+   DOT11_ADHOC_AUTH_ALGO_80211_OPEN        = 1,
+   DOT11_ADHOC_AUTH_ALGO_RSNA_PSK          = 7
+} DOT11_ADHOC_AUTH_ALGORITHM;
+
+//
+// Valid Cipher - Auth pairs are as following: 
+// 1) OPEN - NONE
+//    AUTH_ALGO_80211_OPEN : CIPHER_ALGO_NONE 
+//
+// 2) OPEN - WEP
+//    AUTH_ALGO_80211_OPEN : CIPHER_ALGO_WEP
+//
+// 3) WPA2PSK
+//    AUTH_ALGO_RSNA_PSK   : CIPHER_ALGO_CCMP
+//
+
+/*
+typedef struct tagADHOC_SECURITY_SETTING
+{
+   DOT11_ADHOC_AUTH_ALGORITHM   AdHocAuth;
+   DOT11_ADHOC_CIPHER_ALGORITHM AdHocCipher;
+} ADHOC_SECURITY_SETTING;
+
+*/
+
+typedef [v1_enum] enum tagDOT11_ADHOC_NETWORK_CONNECTION_STATUS
+{
+   DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID          =  0,
+   DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED     =  11,
+   DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING       =  12,
+   DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED        =  13,
+   DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED           =  14
+} DOT11_ADHOC_NETWORK_CONNECTION_STATUS;
+
+typedef [v1_enum] enum tagDOT11_ADHOC_CONNECT_FAIL_REASON
+{
+   DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH     = 0,
+   DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH = 1,
+   DOT11_ADHOC_CONNECT_FAIL_OTHER               = 2
+} DOT11_ADHOC_CONNECT_FAIL_REASON;
+
+//+---------------------------------------------------------------------------
+// IDot11AdHocManager -- root interface for the home networking configuration
+//                manager.
+//
+[
+    local,
+    object,
+    uuid(8F10CC26-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocManager : IUnknown
+{
+
+   //
+   // Just returns if this system is even capable of creating
+   // Ad-Hoc connections OR Whether NICs exists 
+   /*
+   HRESULT GetMediumCapability(
+      [out] ADHOC_MEDIA_CAPABILITIES* MediumPresence
+      );
+      */
+
+   HRESULT CreateNetwork(
+      [in, string]   LPCWSTR                       Name,
+      [in, string]   LPCWSTR                       Password,
+      [in]           LONG                          GeographicalId,
+      [in]           IDot11AdHocInterface*         pInterface,
+      [in]           IDot11AdHocSecuritySettings*  pSecurity,
+      [in]           GUID*                         pContextGuid, 
+      [out]          IDot11AdHocNetwork**          pIAdHoc 
+      );
+
+   HRESULT CommitCreatedNetwork(
+      [in]           IDot11AdHocNetwork*           pIAdHoc,
+      [in]           BOOLEAN                       fSaveProfile,
+      [in]           BOOLEAN                       fMakeSavedProfileUserSpecific
+      );
+
+   //
+   // Scan's and returns what Ad-Hoc connections are available around,
+   //  if a Guid filter is provided we try to filter off that key (by checking IE on the beacons)
+   //
+   HRESULT GetIEnumDot11AdHocNetworks(
+      [in]  GUID*                     pContextGuid,     // Optional Guid for filtering
+      [out] IEnumDot11AdHocNetworks** ppEnum            // Enumerator
+      );
+
+   HRESULT GetIEnumDot11AdHocInterfaces(
+      [out] IEnumDot11AdHocInterfaces** ppEnum
+      );
+
+   HRESULT GetNetwork(
+      [in]  GUID*                NetworkSignature,
+      [out] IDot11AdHocNetwork** pNetwork
+      );
+};
+
+
+//+---------------------------------------------------------------------------
+// IDot11AdHocManager -- root interface for the home networking configuration
+//                manager.
+//
+[
+    local,
+    object,
+    uuid(8F10CC27-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocManagerNotificationSink : IUnknown
+{
+   HRESULT OnNetworkAdd(
+      [in] IDot11AdHocNetwork* pIAdHocNetwork
+      );
+
+   HRESULT OnNetworkRemove(
+      [in] GUID* Signature
+      );
+
+   HRESULT OnInterfaceAdd(
+      [in] IDot11AdHocInterface* pIAdHocInterface
+      );
+   HRESULT OnInterfaceRemove(
+      [in] GUID* Signature
+      );
+   /*
+   HRESULT OnChangeCapability(
+      [in] ADHOC_MEDIA_CAPABILITIES NewCapability
+      );
+      */
+}
+
+
+
+//+---------------------------------------------------------------------------
+// IEnumDot11AdHocNetworks -- Is used to enumerate the scanned Ad-Hoc Connections,
+//                         which optionally just matches the provided Guid Filter
+//
+[
+    local,
+    object,
+    uuid(8F10CC28-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IEnumDot11AdHocNetworks : IUnknown
+{
+   HRESULT Next (
+               [in]  ULONG              cElt,
+               [out, size_is(cElt), length_is(*pcEltFetched)]
+                     IDot11AdHocNetwork** rgElt,
+               [out] ULONG*             pcEltFetched
+               );
+
+   HRESULT Skip(
+               [in] ULONG cElt
+               );
+
+   HRESULT Reset();
+
+   HRESULT Clone(
+                [out] IEnumDot11AdHocNetworks** ppEnum
+                );
+};
+
+
+//+---------------------------------------------------------------------------
+// IDot11AdHocNetwork -- 
+//
+[
+    local,
+    object,
+    uuid(8F10CC29-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocNetwork : IUnknown
+{
+   //
+   // Gets The State
+   //
+   HRESULT GetStatus(
+      [in, out] DOT11_ADHOC_NETWORK_CONNECTION_STATUS* eStatus
+      );
+
+   //
+   // Gets the SSID of the connection
+   //
+   HRESULT GetSSID(
+      [out, string]  LPWSTR*    ppszwSSID
+      );
+
+   //
+   // Returns TRUE if this network object has a profile associated w/ it.
+   //
+   HRESULT HasProfile( 
+      [in, out]          BOOLEAN*   pf11d 
+      );
+
+   //
+   // Gets the Profile Name of the connection if there is any
+   //
+   HRESULT GetProfileName(
+      [out, string]  LPWSTR*    ppszwProfileName
+      );
+
+   //
+   // Deletes any associated profile w/ the network object
+   //
+   HRESULT DeleteProfile();
+
+
+   //
+   // Returns the Signal Quality level and its maximum possible value.
+   //
+   HRESULT GetSignalQuality(
+      [out] ULONG* puStrengthValue,
+      [out] ULONG* puStrengthMax
+      );
+   
+   //
+   // Is this adhoc network secure or not?
+   //
+   HRESULT GetSecuritySetting( 
+      [out]  IDot11AdHocSecuritySettings**   pAdHocSecuritySetting
+      );
+
+   //
+   // Return any Filter Guid Associated with this ad-hoc Connection (if-any)
+   //
+   HRESULT GetContextGuid(
+      [in, out]          GUID*      pContextGuid
+      );
+
+
+   //
+   // Gets the L2 Signature of the connection
+   //
+   HRESULT GetSignature(
+      [in, out]          GUID*      pSignature
+      );
+
+   //
+   // Gets the SSID of the connection
+   //
+   HRESULT GetInterface(
+      [out] IDot11AdHocInterface**   pAdHocInterface
+      );
+
+
+   //
+   // Triggers 802.11 Actions to be part of the ad-hoc connectioon
+   //
+   HRESULT Connect(
+      [in, string]   LPCWSTR     Passphrase,         // Passphrase, which may get converted to WPA-2 or WEP key
+      [in]           LONG        GeographicalId,     // ...
+      [in]           BOOLEAN     fSaveProfile,
+      [in]           BOOLEAN     fMakeSavedProfileUserSpecific
+      );
+
+   HRESULT Disconnect();
+};
+
+
+//+---------------------------------------------------------------------------
+// IDot11AdHocNetworkNotificationSink -- 
+//
+[
+    local,
+    object,
+    uuid(8F10CC2A-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocNetworkNotificationSink : IUnknown
+{
+   HRESULT OnStatusChange( 
+      DOT11_ADHOC_NETWORK_CONNECTION_STATUS eStatus
+      );
+
+   HRESULT OnConnectFail(
+      DOT11_ADHOC_CONNECT_FAIL_REASON eFailReason
+      );
+}
+
+//-----------------------------------------------------------------------------
+// IDot11AdHocInterface
+//
+//
+[
+    local,
+    object,
+    uuid(8F10CC2B-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocInterface : IUnknown
+{
+   HRESULT GetDeviceSignature(
+      [in, out]          GUID*      pSignature
+      );
+
+   HRESULT GetFriendlyName(
+      [out, string]      LPWSTR*    ppszName
+      );
+
+   HRESULT IsDot11d( 
+      [in, out]          BOOLEAN*   pf11d 
+      );
+
+   HRESULT IsAdHocCapable(
+      [in, out]          BOOLEAN* pfAdHocCapable
+      );
+
+   HRESULT IsRadioOn(
+      [in, out]          BOOLEAN* pfIsRadioOn
+      );
+
+   HRESULT GetActiveNetwork(
+      [out] IDot11AdHocNetwork** ppNetwork
+      );
+   
+   HRESULT GetIEnumSecuritySettings( 
+      [out] IEnumDot11AdHocSecuritySettings** ppEnum
+      );
+
+   HRESULT GetIEnumDot11AdHocNetworks(
+      [in]  GUID*                     pFilterGuid,      // Optional Guid for filtering
+      [out] IEnumDot11AdHocNetworks** ppEnum            // Enumerator
+      );
+
+   HRESULT GetStatus(
+      [in, out] DOT11_ADHOC_NETWORK_CONNECTION_STATUS* pState
+      );
+   
+   // HRESULT GetEnumCountriesSupported();
+
+} // IDot11AdHocInterface
+
+
+//-----------------------------------------------------------------------------
+// IEnumDot11AdHocInterfaces
+//
+//
+[
+    local,
+    object,
+    uuid(8F10CC2C-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IEnumDot11AdHocInterfaces : IUnknown
+{
+   HRESULT Next (
+               [in]  ULONG              cElt,
+               [out, size_is(cElt), length_is(*pcEltFetched)]
+                     IDot11AdHocInterface** rgElt,
+               [out] ULONG*             pcEltFetched
+               );
+
+   HRESULT Skip(
+               [in] ULONG cElt
+               );
+
+   HRESULT Reset();
+
+   HRESULT Clone(
+                [out] IEnumDot11AdHocInterfaces** ppEnum
+                );
+
+}
+
+//-----------------------------------------------------------------------------
+// IEnumDot11InterfaceSecuritySettings
+//
+//
+[
+    local,
+    object,
+    uuid(8F10CC2D-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]                        
+interface 
+IEnumDot11AdHocSecuritySettings : IUnknown
+{
+   HRESULT Next (
+               [in]  ULONG              cElt,
+               [out, size_is(cElt), length_is(*pcEltFetched)]
+                     IDot11AdHocSecuritySettings** rgElt,
+               [out] ULONG*             pcEltFetched
+               );
+
+   HRESULT Skip(
+               [in] ULONG cElt
+               );
+
+   HRESULT Reset();
+
+   HRESULT Clone(
+                [out] IEnumDot11AdHocSecuritySettings** ppEnum
+                );
+}
+
+//-----------------------------------------------------------------------------
+// IDot11AdHocSecuritySettings
+//
+//
+[
+    local,
+    object,
+    uuid(8F10CC2E-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocSecuritySettings : IUnknown
+{
+   HRESULT GetDot11AuthAlgorithm(
+      [in, out]   DOT11_ADHOC_AUTH_ALGORITHM*      pAuth
+      );
+   
+   HRESULT GetDot11CipherAlgorithm(
+      [in, out]   DOT11_ADHOC_CIPHER_ALGORITHM*    pCipher
+       );
+}
+
+//-----------------------------------------------------------------------------
+// IDot11AdHocInterfaceNotificationSink
+//
+//
+[
+    local,
+    object,
+    uuid(8F10CC2F-CF0D-42a0-ACBE-E2DE7007384D),
+    pointer_default(unique)
+]
+interface IDot11AdHocInterfaceNotificationSink : IUnknown
+{
+   HRESULT OnConnectionStatusChange( 
+     DOT11_ADHOC_NETWORK_CONNECTION_STATUS eStatus
+     );
+}
+
+
+
+//----------------------------------------------------------
+//
+//
+//
+[
+    uuid(45357166-FF38-4302-8F5C-DF5B703A6E3D),
+    version(1.0),
+    helpstring("AdHoc 1.0 Type Library")
+]
+library ADHOCLib
+{
+   importlib("stdole2.tlb");
+
+   [
+      uuid(DD06A84F-83BD-4d01-8AB9-2389FEA0869E),
+      helpstring("Dot11AdHocManager Class")
+   ]
+   coclass Dot11AdHocManager
+   {
+      [default] interface IDot11AdHocManager;
+   };
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

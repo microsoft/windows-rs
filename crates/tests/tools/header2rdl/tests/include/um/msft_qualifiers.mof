@@ -1,0 +1,12 @@
+//============================================================================
+// Copyright (C) Microsoft Corporation, All rights reserved. 
+//============================================================================
+//
+
+Qualifier Stream : boolean = false, 
+    Scope( method, parameter), 
+    Flavor(DisableOverride, ToSubclass);
+
+Qualifier ClassVersion : string = null, 
+    Scope(class, association, indication), 
+    Flavor(EnableOverride, Restricted);

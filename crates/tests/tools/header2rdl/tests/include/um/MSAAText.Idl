@@ -1,0 +1,519 @@
+// MSAAText.idl : IDL source for MSAAText.dll
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MSAAText.tlb) and marshalling code.
+cpp_quote( "DEFINE_GUID( IID_ITfMSAAControl, 0xb5f8fb3b,0x393f,0x4f7c,0x84,0xcb,0x50,0x49,0x24,0xc2,0x70,0x5a);" )
+cpp_quote( "DEFINE_GUID( IID_IInternalDocWrap, 0xE1AA6466,0x9DB4,0x40ba,0xBE,0x03,0x77,0xC3,0x8E,0x8E,0x60,0xB2);" )
+cpp_quote( "DEFINE_GUID( IID_ITextStoreACPEx, 0xA2DE3BC2,0x3D8E,0x11d3,0x81,0xA9,0xF7,0x53,0xFB,0xE6,0x1A,0x00);" )
+cpp_quote( "DEFINE_GUID( IID_ITextStoreAnchorEx, 0xA2DE3BC1,0x3D8E,0x11d3,0x81,0xA9,0xF7,0x53,0xFB,0xE6,0x1A,0x00);" )
+cpp_quote( "DEFINE_GUID( IID_ITextStoreACPSinkEx, 0x2bdf9464,0x41e2,0x43e3,0x95,0x0c,0xa6,0x86,0x5b,0xa2,0x5c,0xd4);" )
+cpp_quote( "DEFINE_GUID( IID_ITextStoreSinkAnchorEx, 0x25642426,0x028d,0x4474,0x97,0x7b,0x11,0x1b,0xb1,0x14,0xfe,0x3e);" )
+cpp_quote( "DEFINE_GUID( IID_IAccDictionary, 0x1DC4CB5F,0xD737,0x474d,0xAD,0xE9,0x5C,0xCF,0xC9,0xBC,0x1C,0xC9);" )
+cpp_quote( "DEFINE_GUID( IID_IVersionInfo, 0x401518EC,0xDB00,0x4611,0x9B,0x29,0x2A,0x0E,0x4B,0x9A,0xFA,0x85);" )
+cpp_quote( "DEFINE_GUID( IID_ICoCreateLocally, 0x03DE00AA,0xF272,0x41e3,0x99,0xCB,0x03,0xC5,0xE8,0x11,0x4E,0xA0);" )
+cpp_quote( "DEFINE_GUID( IID_ICoCreatedLocally, 0x0A53EB6C,0x1908,0x4742,0x8C,0xFF,0x2C,0xEE,0x2E,0x93,0xF9,0x4C);" )
+cpp_quote( "DEFINE_GUID( IID_IAccStore, 0xE2CD4A63,0x2B72,0x4D48,0xB7,0x39,0x95,0xE4,0x76,0x51,0x95,0xBA);" )
+cpp_quote( "DEFINE_GUID( IID_IAccServerDocMgr, 0xAD7C73CF,0x6DD5,0x4855,0xAB,0xC2,0xB0,0x4B,0xAD,0x5B,0x91,0x53);" )
+cpp_quote( "DEFINE_GUID( IID_IAccClientDocMgr, 0x4C896039,0x7B6D,0x49e6,0xA8,0xC1,0x45,0x11,0x6A,0x98,0x29,0x2B);" )
+cpp_quote( "DEFINE_GUID( IID_IDocWrap, 0xDCD285FE,0x0BE0,0x43BD,0x99,0xC9,0xAA,0xAE,0xC5,0x13,0xC5,0x55);" )
+cpp_quote( "DEFINE_GUID( IID_IClonableWrapper, 0xB33E75FF,0xE84C,0x4dca,0xA2,0x5C,0x33,0xB8,0xDC,0x00,0x33,0x74);" )
+
+cpp_quote( "DEFINE_GUID( LIBID_MSAATEXTLib, 0x150E2D7A,0xDAC1,0x4582,0x94,0x7D,0x2A,0x8F,0xD7,0x8B,0x82,0xCD);" )
+
+cpp_quote( "DEFINE_GUID( CLSID_MSAAControl, 0x08cd963f,0x7a3e,0x4f5c,0x9b,0xd8,0xd6,0x92,0xbb,0x04,0x3c,0x5b );")
+cpp_quote( "DEFINE_GUID( CLSID_AccStore, 0x5440837F,0x4BFF,0x4AE5,0xA1,0xB1,0x77,0x22,0xEC,0xC6,0x33,0x2A );" )
+cpp_quote( "DEFINE_GUID( CLSID_AccDictionary, 0x6572EE16,0x5FE5,0x4331,0xBB,0x6D,0x76,0xA4,0x9C,0x56,0xE4,0x23 );" )
+cpp_quote( "DEFINE_GUID( CLSID_AccServerDocMgr, 0x6089A37E,0xEB8A,0x482D,0xBD,0x6F,0xF9,0xF4,0x69,0x04,0xD1,0x6D );" )
+cpp_quote( "DEFINE_GUID( CLSID_AccClientDocMgr, 0xFC48CC30,0x4F3E,0x4fa1,0x80,0x3B,0xAD,0x0E,0x19,0x6A,0x83,0xB1 );" )
+cpp_quote( "DEFINE_GUID( CLSID_DocWrap, 0xBF426F7E,0x7A5E,0x44D6,0x83,0x0C,0xA3,0x90,0xEA,0x94,0x62,0xA3 );" )
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "objidl.idl";
+import "textstor.idl";
+
+[
+    object,
+    uuid(b5f8fb3b-393f-4f7c-84cb-504924c2705a),
+    pointer_default(unique)
+]
+interface ITfMSAAControl : IUnknown
+{
+    HRESULT SystemEnableMSAA();
+
+    HRESULT SystemDisableMSAA();
+};
+
+
+// Private interface used by the AccServerDocMgr to notify the DocWrapper that
+// the document has been revoked.
+// Obtained by QI'ing any wrapped interface from the wrapper.
+[
+    object,
+    local,
+    uuid( E1AA6466-9DB4-40ba-BE03-77C38E8E60B2 ),
+    pointer_default( unique ),
+    //oleautomation
+]
+interface IInternalDocWrap: IUnknown
+{
+	HRESULT NotifyRevoke ( );
+}
+
+
+//
+//	ITextStoreACPEx Interface
+//	ITextStoreAnchorEx Interface
+//
+[
+    object,
+    uuid( A2DE3BC2-3D8E-11d3-81A9-F753FBE61A00 ),
+    pointer_default( unique ),
+    //oleautomation
+]
+interface ITextStoreACPEx: IUnknown
+{
+	HRESULT ScrollToRect (
+		[in]								LONG			acpStart,
+		[in]								LONG			acpEnd,
+		[in]								RECT			rc,
+		[in]								DWORD			dwPosition
+	);
+}
+
+[
+    object,
+    uuid( A2DE3BC1-3D8E-11d3-81A9-F753FBE61A00 ),
+    pointer_default( unique ),
+    //oleautomation
+]
+interface ITextStoreAnchorEx: IUnknown
+{
+	HRESULT ScrollToRect (
+		[in]								IAnchor *		pStart,
+		[in]								IAnchor *		pEnd,
+		[in]								RECT			rc,
+		[in]								DWORD			dwPosition
+	);
+}
+
+const int TS_STRF_START = 0;
+const int TS_STRF_MID   = 1;
+const int TS_STRF_END   = 2;
+
+
+//
+//	ITextStoreACPSinkEx Interface
+//	ITextStoreSinkAnchorEx Interface
+//
+	[
+		object,
+		uuid( 2bdf9464-41e2-43e3-950c-a6865ba25cd4 ), pointer_default( unique ),
+		//oleautomation
+	]
+	interface ITextStoreACPSinkEx: ITextStoreACPSink
+	{
+		HRESULT OnDisconnect ( );
+	}
+
+
+	[
+		object,
+		uuid( 25642426-028d-4474-977b-111bb114fe3e ), pointer_default( unique ),
+		//oleautomation
+	]
+	interface ITextStoreSinkAnchorEx: ITextStoreAnchorSink
+	{
+		HRESULT OnDisconnect ( );
+	}
+
+//
+//	IAccDictionary Interface
+//
+	[
+		object,
+		uuid( 1DC4CB5F-D737-474d-ADE9-5CCFC9BC1CC9 ),
+		pointer_default( unique ),
+	]
+	interface IAccDictionary: IUnknown
+	{
+		HRESULT GetLocalizedString (
+			[in]						REFGUID			Term,
+			[in]						LCID			lcid,
+			[out]						BSTR *			pResult,
+			[out]						LCID *			plcid			
+		);
+		// return S_OK/NULL if not a recognized term (try default dictionary instead.)
+		
+		HRESULT GetParentTerm (
+			[in]						REFGUID			Term,
+			[out]						GUID *			pParentTerm
+		);
+		// only default dictionary should return NULL for this.
+
+		HRESULT GetMnemonicString (
+			[in]						REFGUID			Term,
+			[out]						BSTR *			pResult
+		);
+		// non-localizable string 
+
+		HRESULT LookupMnemonicTerm (
+			[in]						BSTR			bstrMnemonic,
+			[out]						GUID *			pTerm
+		);
+		// convert term->mnemonic
+		// single term at a time, or allow it to deep-parse? (how to let caller know how far it got in string?)
+
+		HRESULT ConvertValueToString (
+			[in]						REFGUID			Term,
+			[in]						LCID			lcid,
+			[in]						VARIANT			varValue,
+			[out]						BSTR *			pbstrResult,
+			[out]						LCID *			plcid			
+		);
+
+	}
+
+//
+//	IVersionInfo Interface
+//
+	[
+		object,
+		uuid( 401518EC-DB00-4611-9B29-2A0E4B9AFA85 ),
+		pointer_default( unique ),
+	]
+	interface IVersionInfo: IUnknown
+	{
+		HRESULT	GetSubcomponentCount(
+			[in]						ULONG			ulSub,
+			[out]						ULONG *			ulCount
+		);
+
+		HRESULT GetImplementationID (
+			[in]						ULONG			ulSub,
+			[out]						GUID *			implid
+		);
+
+		HRESULT GetBuildVersion (
+			[in]						ULONG			ulSub,
+			[out]						DWORD *			pdwMajor,
+			[out]						DWORD *			pdwMinor
+		);
+
+		// Expect string of the form "Company suite component version"
+		// for human consumption only - not expected to be parsed.
+		HRESULT GetComponentDescription (
+			[in]						ULONG			ulSub,
+			[out]						BSTR *			pImplStr
+		);
+
+		// Implementation can put any useful string here. (eg. internal object state)
+		HRESULT GetInstanceDescription (
+			[in]						ULONG			ulSub,
+			[out]						BSTR *			pImplStr
+		);
+
+
+		// Other strings - to eg. list suppd interfaces?
+	}
+
+
+//
+//	ICoCreateLocally Interface
+//	ICoCreatedLocally Interface
+//
+	[
+		object,
+		uuid( 03DE00AA-F272-41e3-99CB-03C5E8114EA0 ),
+		pointer_default( unique ),
+	]
+	interface ICoCreateLocally: IUnknown
+	{
+		HRESULT CoCreateLocally(
+			[in]						REFCLSID		rclsid,
+			[in]						DWORD			dwClsContext,
+			[in]						REFIID			riid,
+			[out, iid_is(riid)]			IUnknown **		punk,
+
+			[in]						REFIID			riidParam,
+			[in, iid_is(riidParam)]		IUnknown *		punkParam,
+
+			[in]						VARIANT			varParam
+		);
+	}
+
+
+
+	[
+		object,
+		uuid( 0A53EB6C-1908-4742-8CFF-2CEE2E93F94C ),
+		pointer_default( unique ),
+	]
+	interface ICoCreatedLocally: IUnknown
+	{
+		HRESULT LocalInit(
+			[in]						IUnknown *		punkLocalObject,
+
+			[in]						REFIID			riidParam,
+			[in, iid_is(riidParam)]		IUnknown *		punkParam,
+
+			[in]						VARIANT			varParam
+		);
+	}
+
+//
+//	AccStore Interface
+//
+	[
+		object,
+		uuid(E2CD4A63-2B72-4D48-B739-95E4765195BA),
+	
+		helpstring("IAccStore Interface"),
+		pointer_default(unique)
+	]
+	interface IAccStore : IUnknown
+	{
+
+		HRESULT Register (
+			[in]				REFIID		riid,
+			[in,iid_is(riid)]	IUnknown *	punk
+		);
+
+		HRESULT Unregister (
+			[in]				IUnknown *	punk
+		);
+
+		HRESULT GetDocuments (
+			[out]				IEnumUnknown ** enumUnknown
+		);
+
+		HRESULT LookupByHWND (
+			[in]				HWND		hWnd,
+			[in]				REFIID		riid,
+			[out,iid_is(riid)]	IUnknown **	ppunk
+		);
+
+		HRESULT LookupByPoint (
+			[in]				POINT		pt,
+			[in]				REFIID		riid,
+			[out,iid_is(riid)]	IUnknown **	ppunk
+		);
+		
+		HRESULT OnDocumentFocus (
+		    [in]				IUnknown *	punk
+		);
+
+		HRESULT GetFocused (
+			[in]	REFIID	riid,
+			[out,iid_is(riid)]	IUnknown **	ppunk
+		);
+
+
+	};
+
+//
+//	IAccServerDocMgr Interface
+//
+	[
+		object,
+		uuid(AD7C73CF-6DD5-4855-ABC2-B04BAD5B9153),
+
+		helpstring("IAccServerDocMgr Interface"),
+		pointer_default(unique)
+	]
+	interface IAccServerDocMgr : IUnknown
+	{
+		HRESULT NewDocument (
+			[in]				REFIID		riid,
+			[in, iid_is(riid)]	IUnknown *	punk );
+
+		HRESULT RevokeDocument (
+			[in]				IUnknown *	punk
+		);
+		
+		HRESULT OnDocumentFocus (
+			[in]				IUnknown *	punk
+		);
+	};
+//
+//	AccClientDocMgr Interface
+//
+	[
+		object,
+		uuid(4C896039-7B6D-49e6-A8C1-45116A98292B),
+	
+		helpstring("IAccClientDocMgr Interface"),
+		pointer_default(unique)
+	]
+	interface IAccClientDocMgr : IUnknown
+	{
+
+		HRESULT GetDocuments (
+			[out]				IEnumUnknown ** enumUnknown
+		);
+
+
+		HRESULT LookupByHWND (
+			[in]				HWND		hWnd,
+			[in]				REFIID		riid,
+			[out,iid_is(riid)]	IUnknown **	ppunk
+		);
+
+		HRESULT LookupByPoint (
+			[in]				POINT		pt,
+			[in]				REFIID		riid,
+			[out,iid_is(riid)]	IUnknown **	ppunk
+		);
+		
+		HRESULT GetFocused (
+			[in]	REFIID	riid,
+			[out,iid_is(riid)]	IUnknown **	ppunk
+		);
+
+	};
+
+//
+//	IDocWrap Interface
+//
+[
+	object,
+	uuid(DCD285FE-0BE0-43BD-99C9-AAAEC513C555),
+
+	helpstring("IDocWrap Interface"),
+	pointer_default(unique)
+]
+interface IDocWrap : IUnknown
+{
+	HRESULT	SetDoc(
+		[in]				REFIID		riid,
+		[in, iid_is(riid)]	IUnknown *	punk
+	);
+
+	HRESULT GetWrappedDoc (
+		[in]				REFIID		riid,
+		[out, iid_is(riid)]	IUnknown **	ppunk
+	);
+};
+
+//
+//	IClonableWrapper Interface
+//
+[
+	object,
+	uuid(B33E75FF-E84C-4dca-A25C-33B8DC003374),
+
+	helpstring("IClonableWrapper Interface"),
+	pointer_default(unique)
+]
+interface IClonableWrapper : IUnknown
+{
+	HRESULT CloneNewWrapper(
+		[in]				REFIID		riid,
+		[out, iid_is(riid)]	void **		ppv
+	);
+};
+
+
+//
+//
+//
+[
+	uuid(150E2D7A-DAC1-4582-947D-2A8FD78B82CD),
+	version(1.0),
+	helpstring("MSAAText 1.0 Type Library")
+]
+library MSAATEXTLib
+{
+	importlib("stdole2.tlb");
+//
+//	MSAAControl CoClass
+//
+	[
+		uuid(08cd963f-7a3e-4f5c-9bd8-d692bb043c5b),
+		helpstring("MSAAControl Class")
+	]
+	coclass MSAAControl
+	{
+		[default] interface ITfMSAAControl;
+	};
+	
+//
+//	AccStore CoClass
+//
+	[
+		uuid(5440837F-4BFF-4AE5-A1B1-7722ECC6332A),
+		helpstring("AccStore Class")
+	]
+	coclass AccStore
+	{
+		[default] interface IAccStore;
+	};
+
+//
+//	AccDictionary CoClass
+//
+	[
+		uuid(6572EE16-5FE5-4331-BB6D-76A49C56E423),
+		helpstring("AccDictionary Class")
+	]
+	coclass AccDictionary
+	{
+		[default] interface IAccDictionary;
+	};
+
+//
+//	AccServerDocMgr CoClass
+//
+	[
+		uuid(6089A37E-EB8A-482D-BD6F-F9F46904D16D),
+		helpstring("AccServerDocMgr Class")
+	]
+	coclass AccServerDocMgr
+	{
+		[default] interface IAccServerDocMgr;
+	};
+
+//
+//	AccClientDocMgr CoClass
+//
+	[
+		uuid(FC48CC30-4F3E-4fa1-803B-AD0E196A83B1),
+		helpstring("AccClientDocMgr Class")
+	]
+	coclass AccClientDocMgr
+	{
+		[default] interface IAccClientDocMgr;
+	};
+
+//
+//	DocWrap CoClass
+//
+	[
+		uuid(BF426F7E-7A5E-44D6-830C-A390EA9462A3),
+		helpstring("DocWrap Class")
+	]
+	coclass DocWrap
+	{
+		[default] interface IDocWrap;
+	};
+	
+};
+
+cpp_quote("DEFINE_GUID(IID_ITextStoreACP,               0x28888fe3,0xc2a0,0x483a,0xa3,0xea,0x8c,0xb1,0xce,0x51,0xff,0x3d);")
+cpp_quote("DEFINE_GUID(IID_ITextStoreAnchor,            0x9b2077b0,0x5f18,0x4dec,0xbe,0xe9,0x3c,0xc7,0x22,0xf5,0xdf,0xe0);")
+cpp_quote("DEFINE_GUID(IID_IAnchor,                     0x0feb7e34,0x5a60,0x4356,0x8e,0xf7,0xab,0xde,0xc2,0xff,0x7c,0xf8);")
+
+cpp_quote("DEFINE_GUID(IID_ITextStoreAnchorSink,        0xaa80e905,0x2021,0x11d2,0x93,0xe0,0x00,0x60,0xb0,0x67,0xb8,0x6e);")
+cpp_quote("DEFINE_GUID(IID_ITextStoreACPSink,           0x22d44c94,0xa419,0x4542,0xa2,0x72,0xae,0x26,0x09,0x3e,0xce,0xcf);")
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

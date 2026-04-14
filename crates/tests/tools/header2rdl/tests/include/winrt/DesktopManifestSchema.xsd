@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+           xmlns:desktop10="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"
+           xmlns:desktop11="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"
+           xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+           xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           xmlns:rescap5="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/5"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/8"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/5"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/desktop/windows10/11"/>
+
+  <xs:element name="Extension" substitutionGroup="f:ApplicationExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="FullTrustProcess" type="CT_FullTrustProcess"/>
+        <xs:element name="StartupTask" type="CT_StartupTask"/>
+        <xs:element name="ToastNotificationActivation" type="CT_ToastNotificationActivation"/>
+        <xs:element name="SearchProtocolHandler" type="CT_SearchProtocolHandler"/>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ApplicationExtensionCategory_Desktop" use="required"/>
+      <xs:attribute ref="desktop11:AppLifecycleBehavior" use="optional"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+    <xs:unique name="FullTrustProcessParameterGroup_GroupId">
+      <xs:selector xpath="desktop:FullTrustProcess/desktop:ParameterGroup"/>
+      <xs:field xpath="@GroupId"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_FullTrustProcess">
+    <xs:sequence>
+      <xs:element name="ParameterGroup" minOccurs="0" maxOccurs="1000">
+        <xs:complexType>
+          <xs:attribute name="GroupId" type="xs:string" use="required"/>
+          <xs:attribute name="Parameters" type="xs:string" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_StartupTask">
+    <xs:attribute name="TaskId" type="t:ST_NonEmptyString" use="required"/>
+    <xs:attribute name="Enabled" type="xs:boolean" use="optional"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="optional"/>
+    <xs:attribute ref="rescap5:ImmediateRegistration" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ToastNotificationActivation">
+    <xs:attribute name="ToastActivatorCLSID" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SearchProtocolHandler">
+    <xs:sequence>
+      <xs:element name="SearchProtocol" maxOccurs="100">
+        <xs:complexType>
+          <xs:attribute name="ProtocolName" type="t:ST_AlphaNumericString" use="required"/>
+          <xs:attribute name="ProtocolActivatorCLSID" type="t:ST_GUID" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="ExecutionAlias" substitutionGroup="uap3:ExecutionAliasChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element ref="desktop10:SupportedProtocols" />
+      </xs:choice> 
+      <xs:attribute name="Alias" type="t:ST_ExecutableNoPath" use="required"/>
+      <xs:attribute ref="uap8:AllowOverride" use="optional"/>
+      <xs:attribute ref="desktop10:UseDesktopChangeRouter" use="optional"/>
+      <xs:attribute ref="desktop10:DropTarget" use="optional"/>
+      <xs:attribute ref="desktop10:UseUrl" use="optional"/>
+      <xs:attribute ref="desktop10:EnvironmentPath" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

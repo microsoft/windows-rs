@@ -1,0 +1,729 @@
+////////////////////////////////// -*- C++ -*- /////////////////////////////////
+//
+//   EventSystem.idl : IDL source for EventSystem.dll
+//
+//  Copyright (C) 1995-1999 Microsoft Corporation.  All rights reserved.
+//   This file will be processed by the MIDL tool to produce the type library
+//   (EventSystem.tlb) and marshalling code.
+//
+// --------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// Event System ProgID's
+cpp_quote ("#define PROGID_EventSystem OLESTR(\"EventSystem.EventSystem\")")
+cpp_quote ("#define PROGID_EventPublisher OLESTR(\"EventSystem.EventPublisher\")")
+cpp_quote ("#define PROGID_EventClass OLESTR(\"EventSystem.EventClass\")")
+cpp_quote ("#define PROGID_EventSubscription OLESTR(\"EventSystem.EventSubscription\")")
+cpp_quote ("#define PROGID_EventPublisherCollection OLESTR(\"EventSystem.EventPublisherCollection\")")
+cpp_quote ("#define PROGID_EventClassCollection OLESTR(\"EventSystem.EventClassCollection\")")
+cpp_quote ("#define PROGID_EventSubscriptionCollection OLESTR(\"EventSystem.EventSubscriptionCollection\")")
+cpp_quote ("#define PROGID_EventSubsystem OLESTR(\"EventSystem.EventSubsystem\")")
+
+// Event System object change events
+cpp_quote ("#define EVENTSYSTEM_PUBLISHER_ID OLESTR(\"{d0564c30-9df4-11d1-a281-00c04fca0aa7}\")")
+cpp_quote ("#define EVENTSYSTEM_SUBSYSTEM_CLSID OLESTR(\"{503c1fd8-b605-11d2-a92d-006008c60e24}\")")
+
+//midl_pragma warning(disable: 2039) // oleautomation conformance
+
+
+interface IEnumEventObject;
+interface IEventObjectCollection;
+interface IEventControl;
+interface IMultiInterfaceEventControl;
+
+// --------------------------------------------------------------------------
+//
+//   IEventSystem - Deprecated interface - Use COMAdmin interfaces instead.
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(4E14FB9F-2E22-11D1-9964-00C04FBBB345),
+ dual,
+ proxy,
+ helpstring("IEventSystem Interface"),
+ pointer_default(unique)
+]
+interface IEventSystem : IDispatch
+{
+	cpp_quote("// *****************************************************************")
+	cpp_quote("// This is a Deprecated interface - Use COMAdmin interfaces instead.")
+	cpp_quote("// *****************************************************************")
+	[id(1), helpstring("method Query")]
+		HRESULT Query([in] BSTR progID,
+					  [in] BSTR queryCriteria,
+					  [out] int* errorIndex,
+					  [out,retval] IUnknown** ppInterface);
+
+	[id(2), helpstring("method Store")]
+		HRESULT Store([in] BSTR ProgID,
+					  [in] IUnknown* pInterface); 
+	
+	[id(3), helpstring("method Remove")]
+		HRESULT Remove([in] BSTR progID,
+					   [in] BSTR queryCriteria,
+					   [out] int* errorIndex);
+
+	[id(4), propget, helpstring("method get_EventObjectChangeEventClassID")]
+		HRESULT EventObjectChangeEventClassID([out,retval] BSTR* pbstrEventClassID);
+
+	[id(5), helpstring("method QueryS")]
+		HRESULT QueryS([in] BSTR progID,
+					   [in] BSTR queryCriteria,
+					   [out,retval] IUnknown** ppInterface);
+
+	[id(6), helpstring("method RemoveS")]
+		HRESULT RemoveS([in] BSTR progID,
+						[in] BSTR queryCriteria);
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IEventPublisher -- Do Not Use.
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(E341516B-2E32-11D1-9964-00C04FBBB345),
+ dual,
+ proxy,
+ helpstring("IEventPublisher Interface"),
+ pointer_default(unique)
+]
+interface IEventPublisher : IDispatch
+{
+	cpp_quote("// ********************************************")
+	cpp_quote("// This is a Deprecated interface - Do Not Use.")
+	cpp_quote("// ********************************************")
+	[propget, id(1), helpstring("property PublisherID")]
+		HRESULT PublisherID([out,retval] BSTR* pbstrPublisherID);
+	[propput, id(1), helpstring("property PublisherID")]
+		HRESULT PublisherID([in] BSTR bstrPublisherID);
+	
+	[propget, id(2), helpstring("property PublisherName")]
+		HRESULT PublisherName([out,retval] BSTR* pbstrPublisherName);
+	[propput, id(2), helpstring("property PublisherName")]
+		HRESULT PublisherName([in] BSTR bstrPublisherName);
+	
+	[propget, id(3), helpstring("property PublisherType")]
+		HRESULT PublisherType([out,retval] BSTR* pbstrPublisherType);
+	[propput, id(3), helpstring("property PublisherType")]
+		HRESULT PublisherType([in] BSTR bstrPublisherType);
+	
+	[propget, id(4), helpstring("property OwnerSID")]
+		HRESULT OwnerSID([out,retval] BSTR* pbstrOwnerSID);
+	[propput, id(4), helpstring("property OwnerSID")]
+		HRESULT OwnerSID([in] BSTR bstrOwnerSID);
+	
+	[propget, id(5), helpstring("property Description")]
+		HRESULT Description([out,retval] BSTR* pbstrDescription);
+	[propput, id(5), helpstring("property Description")]
+		HRESULT Description([in] BSTR bstrDescription);
+	
+	[id(6), helpstring("method GetDefaultProperty")]
+		HRESULT GetDefaultProperty([in] BSTR bstrPropertyName, 
+								   [out,retval] VARIANT* propertyValue);
+	[id(7), helpstring("method PutDefaultProperty")]
+		HRESULT PutDefaultProperty([in] BSTR bstrPropertyName, 
+								   [in] VARIANT* propertyValue);
+	[id(8), helpstring("method RemoveDefaultProperty")]
+		HRESULT RemoveDefaultProperty([in] BSTR bstrPropertyName);
+	[id(9), helpstring("method GetDefaultPropertyCollection")]
+		HRESULT GetDefaultPropertyCollection([out,retval] IEventObjectCollection** collection);
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IEventClass -- event component
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(fb2b72a0-7a68-11d1-88f9-0080c7d771bf),
+ dual,
+ proxy,
+ helpstring("IEventClass Interface"),
+ pointer_default(unique)
+]
+interface IEventClass : IDispatch
+{
+	[propget, id(1), helpstring("property EventClassID")]
+		HRESULT EventClassID([out,retval] BSTR* pbstrEventClassID);
+	[propput, id(1), helpstring("property EventClassID")]
+		HRESULT EventClassID([in] BSTR bstrEventClassID);
+	
+	[propget, id(2), helpstring("property EventClassName")]
+		HRESULT EventClassName([out,retval] BSTR* pbstrEventClassName);
+	[propput, id(2), helpstring("property EventClassName")]
+		HRESULT EventClassName([in] BSTR bstrEventClassName);
+	
+	[propget, id(3), helpstring("property OwnerSID")]
+		HRESULT OwnerSID([out,retval] BSTR* pbstrOwnerSID);
+	[propput, id(3), helpstring("property OwnerSID")]
+		HRESULT OwnerSID([in] BSTR bstrOwnerSID);
+	
+	[propget, id(4), helpstring("property FiringInterfaceID")]
+		HRESULT FiringInterfaceID([out,retval] BSTR* pbstrFiringInterfaceID);
+	[propput, id(4), helpstring("property FiringInterfaceID")]
+		HRESULT FiringInterfaceID([in] BSTR bstrFiringInterfaceID);
+	
+	[propget, id(5), helpstring("property Description")]
+		HRESULT Description([out,retval] BSTR* pbstrDescription);
+	[propput, id(5), helpstring("property Description")]
+		HRESULT Description([in] BSTR bstrDescription);
+	
+	[propget, id(6), helpstring("property CustomConfigCLSID")]
+		HRESULT CustomConfigCLSID([out,retval] BSTR* pbstrCustomConfigCLSID);
+	[propput, id(6), helpstring("property CustomConfigCLSID")]
+		HRESULT CustomConfigCLSID([in] BSTR bstrCustomConfigCLSID);
+	
+	[propget, id(7), helpstring("property TypeLib")]
+		HRESULT TypeLib([out,retval] BSTR* pbstrTypeLib);
+	[propput, id(7), helpstring("property TypeLib")]
+		HRESULT TypeLib([in] BSTR bstrTypeLib);
+};
+
+[
+ object,
+ uuid(fb2b72a1-7a68-11d1-88f9-0080c7d771bf),
+ dual,
+ proxy,
+ helpstring("IEventClass2 Interface"),
+ pointer_default(unique)
+]
+interface IEventClass2 : IEventClass
+{
+	[id(8), propget, helpstring("property PublisherID")]
+		HRESULT PublisherID([out,retval] BSTR* pbstrPublisherID);
+	[id(8), propput, helpstring("property PublisherID")]
+		HRESULT PublisherID([in] BSTR bstrPublisherID);
+
+	[id(9), propget, helpstring("property MultiInterfacePublisherFilterCLSID")]
+		HRESULT MultiInterfacePublisherFilterCLSID([out,retval] BSTR* pbstrPubFilCLSID);
+	[id(9), propput, helpstring("property MultiInterfacePublisherFilterCLSID")]
+		HRESULT MultiInterfacePublisherFilterCLSID([in] BSTR bstrPubFilCLSID);
+
+	[id(10), propget, helpstring("property AllowInprocActivation")]
+		HRESULT AllowInprocActivation([out,retval]BOOL* pfAllowInprocActivation);
+	[id(10), propput, helpstring("property AllowInprocActivation")]
+		HRESULT AllowInprocActivation([in]BOOL fAllowInprocActivation);
+
+	[id(11), propget, helpstring("property FireInParallel")]
+		HRESULT FireInParallel([out,retval]BOOL* pfFireInParallel);
+	[id(11), propput, helpstring("property FireInParallel")]
+		HRESULT FireInParallel([in]BOOL fFireInParallel);
+}
+
+// --------------------------------------------------------------------------
+//
+//   IEventSubscription -- event system subscriptions
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(4A6B0E15-2E38-11D1-9965-00C04FBBB345),
+ dual,
+ proxy,
+ helpstring("IEventSubscription Interface"),
+ pointer_default(unique)
+]
+interface IEventSubscription : IDispatch
+{
+	[propget, id(1), helpstring("property SubscriptionID")]
+		HRESULT SubscriptionID([out,retval] BSTR* pbstrSubscriptionID);
+	[propput, id(1), helpstring("property SubscriptionID")]
+		HRESULT SubscriptionID([in] BSTR bstrSubscriptionID);
+	
+	[propget, id(2), helpstring("property SubscriptionName")]
+		HRESULT SubscriptionName([out,retval] BSTR* pbstrSubscriptionName);
+	[propput, id(2), helpstring("property SubscriptionName")]
+		HRESULT SubscriptionName([in] BSTR bstrSubscriptionName);
+	
+	[propget, id(3), helpstring("property PublisherID")]
+		HRESULT PublisherID([out,retval] BSTR* pbstrPublisherID);
+	[propput, id(3), helpstring("property PublisherID")]
+		HRESULT PublisherID([in] BSTR bstrPublisherID);
+	
+	[propget, id(4), helpstring("property EventClassID")]
+		HRESULT EventClassID([out,retval] BSTR* pbstrEventClassID);
+	[propput, id(4), helpstring("property EventClassID")]
+		HRESULT EventClassID([in] BSTR bstrEventClassID);
+	
+	[propget, id(5), helpstring("property MethodName")]
+		HRESULT MethodName([out,retval] BSTR* pbstrMethodName);
+	[propput, id(5), helpstring("property MethodName")]
+		HRESULT MethodName([in] BSTR bstrMethodName);
+	
+	[propget, id(6), helpstring("property SubscriberCLSID")]
+		HRESULT SubscriberCLSID([out,retval] BSTR* pbstrSubscriberCLSID);
+	[propput, id(6), helpstring("property SubscriberCLSID")]
+		HRESULT SubscriberCLSID([in] BSTR bstrSubscriberCLSID);
+	
+	[propget, id(7), helpstring("property SubscriberInterface")]
+		HRESULT SubscriberInterface([out,retval] IUnknown** ppSubscriberInterface);
+	[propput, id(7), helpstring("property SubscriberInterface")]
+		HRESULT SubscriberInterface([in] IUnknown* pSubscriberInterface);
+	
+	[propget, id(8), helpstring("property PerUser")]
+		HRESULT PerUser([out,retval] BOOL* pfPerUser);
+	[propput, id(8), helpstring("property PerUser")]
+		HRESULT PerUser([in] BOOL fPerUser);
+	
+	[propget, id(9), helpstring("property OwnerSID")]
+		HRESULT OwnerSID([out,retval] BSTR* pbstrOwnerSID);
+	[propput, id(9), helpstring("property OwnerSID")]
+		HRESULT OwnerSID([in] BSTR bstrOwnerSID);
+	
+	[propget, id(10), helpstring("property Enabled")]
+		HRESULT Enabled([out,retval] BOOL* pfEnabled);
+	[propput, id(10), helpstring("property Enabled")]
+		HRESULT Enabled([in] BOOL fEnabled);
+	
+	[propget, id(11), helpstring("property Description")]
+		HRESULT Description([out,retval] BSTR* pbstrDescription);
+	[propput, id(11), helpstring("property Description")]
+		HRESULT Description([in] BSTR bstrDescription);
+	
+	[propget, id(12), helpstring("property MachineName")]
+		HRESULT MachineName([out,retval] BSTR* pbstrMachineName);
+	[propput, id(12), helpstring("property MachineName")]
+		HRESULT MachineName([in] BSTR bstrMachineName);
+	
+	[id(13), helpstring("method GetPublisherProperty")]
+		HRESULT GetPublisherProperty([in] BSTR bstrPropertyName, 
+									 [out,retval] VARIANT* propertyValue);
+	[id(14), helpstring("method PutPublisherProperty")]
+		HRESULT PutPublisherProperty([in] BSTR bstrPropertyName, 
+									 [in] VARIANT* propertyValue);
+	[id(15), helpstring("method RemovePublisherProperty")]
+		HRESULT RemovePublisherProperty([in] BSTR bstrPropertyName);
+	[id(16), helpstring("method GetPublisherPropertyCollection")]
+		HRESULT GetPublisherPropertyCollection([out,retval] IEventObjectCollection** collection);
+	
+	[id(17), helpstring("method GetSubscriberProperty")]
+		HRESULT GetSubscriberProperty([in] BSTR bstrPropertyName, 
+									  [out,retval] VARIANT* propertyValue);
+	[id(18), helpstring("method PutSubscriberProperty")]
+		HRESULT PutSubscriberProperty([in] BSTR bstrPropertyName,
+									  [in] VARIANT* propertyValue);
+	[id(19), helpstring("method RemoveSubscriberProperty")]
+		HRESULT RemoveSubscriberProperty([in] BSTR bstrPropertyName);
+	[id(20), helpstring("method GetSubscriberPropertyCollection")]
+		HRESULT GetSubscriberPropertyCollection([out,retval] IEventObjectCollection** collection);
+
+	[id(21), propget, helpstring("property InterfaceID")]
+		HRESULT InterfaceID([out,retval] BSTR* pbstrInterfaceID);
+	[id(21), propput, helpstring("property InterfaceID")]
+		HRESULT InterfaceID([in] BSTR bstrInterfaceID);
+};
+
+
+[
+ object,
+ uuid(e0498c93-4efe-11d1-9971-00c04fbbb345),
+ dual,
+ proxy,
+ helpstring("IFiringControl Interface"),
+ pointer_default(unique)
+]
+interface IFiringControl : IDispatch {
+	[id(1), helpstring("Fire a single subscription")]
+		HRESULT FireSubscription([in] IEventSubscription* subscription);
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IPublisherFilter - Deprecated interface - Use IMultiInterfacePublisherFilter instead.
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(465e5cc0-7b26-11d1-88fb-0080c7d771bf),
+ helpstring("IPublisherFilter Interface"),
+ pointer_default(unique)
+]
+interface IPublisherFilter : IUnknown
+{
+	cpp_quote("// ****************************************************************************")
+	cpp_quote("// This is a Deprecated interface - Use IMultiInterfacePublisherFilter instead.")
+	cpp_quote("// ****************************************************************************")
+	[helpstring("User-called method to initialize the publisher filter after it is installed")]
+		HRESULT Initialize([in] BSTR methodName, [in,unique] IDispatch* dispUserDefined);
+
+	[helpstring("Prepare to fire all subscriptions in your collection")]
+		HRESULT PrepareToFire([in] BSTR methodName, [in] IFiringControl* firingControl);
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IMultiInterfacePublisherFilter
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(465e5cc1-7b26-11d1-88fb-0080c7d771bf),
+ helpstring("IMultiInterfacePublisherFilter Interface"),
+ pointer_default(unique)
+]
+interface IMultiInterfacePublisherFilter : IUnknown
+{
+	[helpstring("User-called method to initialize the publisher filter after it is installed")]
+		HRESULT Initialize([in] IMultiInterfaceEventControl* pEIC);
+
+	[helpstring("Prepare to fire all subscriptions in your collection")]
+		HRESULT PrepareToFire([in] REFIID iid,
+							  [in] BSTR methodName, 
+							  [in] IFiringControl* firingControl);
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IEventObjectChange
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(F4A07D70-2E25-11D1-9964-00C04FBBB345),
+ helpstring("IEventObjectChange Interface"),
+ pointer_default(unique)
+]
+interface IEventObjectChange : IUnknown
+{
+	typedef enum {
+		[helpstring("A new object was added")]
+			EOC_NewObject,
+		[helpstring("An existing object was modified")]
+			EOC_ModifiedObject,
+		[helpstring("An existing object was deleted")]
+			EOC_DeletedObject
+	} EOC_ChangeType;
+	
+	[helpstring("method ChangedSubscription")]
+		HRESULT ChangedSubscription([in] EOC_ChangeType changeType,
+									[in] BSTR bstrSubscriptionID);
+	
+	[helpstring("method ChangedEventClass")]
+		HRESULT ChangedEventClass([in] EOC_ChangeType changeType,
+								  [in] BSTR bstrEventClassID);
+	
+	[helpstring("method ChangedPublisher")]
+		HRESULT ChangedPublisher([in] EOC_ChangeType changeType,
+								 [in] BSTR bstrPublisherID);
+};
+
+// --------------------------------------------------------------------------
+//
+//   IEventObjectChange2
+//
+// --------------------------------------------------------------------------
+cpp_quote( "#ifndef _COMEVENTSYSCHANGEINFO_" )
+cpp_quote( "#define _COMEVENTSYSCHANGEINFO_" )
+
+
+typedef [hidden] struct
+{
+	DWORD				cbSize;			// size of this struct
+	EOC_ChangeType		changeType;		// the type of change that was made
+	BSTR				objectId;		// the EventClassID or SubscriptionID affected.
+	BSTR				partitionId;	// the EventClassPartitionID or SubscriberPartitionID affected.
+	BSTR				applicationId;  // the EventClassApplicationID or SubscriberApplicationID affected.
+	GUID				reserved [10];
+} COMEVENTSYSCHANGEINFO ;
+
+cpp_quote( "#endif // _COMEVENTSYSCHANGEINFO_" )
+
+[
+ object,
+ uuid(7701A9C3-BD68-438f-83E0-67BF4F53A422),
+ helpstring("IEventObjectChange2 Interface"),
+ pointer_default(unique)
+]
+interface IEventObjectChange2 : IUnknown
+{
+	[helpstring("method ChangedSubscription")]
+		HRESULT ChangedSubscription([in] COMEVENTSYSCHANGEINFO* pInfo);
+	
+	[helpstring("method ChangedEventClass")]
+		HRESULT ChangedEventClass([in] COMEVENTSYSCHANGEINFO* pInfo);
+	
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IEnumEventObject -- An interface that provides an enumeration of an
+//						 EventClass, Publisher, or Subscription object.
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(F4A07D63-2E25-11D1-9964-00C04FBBB345),
+ helpstring("IEnumEventObject Interface"),
+ pointer_default(unique)
+]
+interface IEnumEventObject : IUnknown
+{
+	[id(1), helpstring("method Clone")]
+		HRESULT Clone([out] IEnumEventObject** ppInterface);
+
+	[id(3), helpstring("method Next")]
+		HRESULT Next([in] ULONG cReqElem,
+					 [out,size_is(cReqElem), length_is(*cRetElem)] IUnknown** ppInterface,
+					 [out] ULONG* cRetElem);
+	
+	[id(4), helpstring("method Reset")]
+		HRESULT Reset();
+	
+	[id(5), helpstring("method Skip")]
+		HRESULT Skip([in] ULONG cSkipElem);
+};
+
+[
+ object,
+ uuid(f89ac270-d4eb-11d1-b682-00805fc79216),
+ dual,
+ proxy,
+ helpstring("IEventObjectCollection Interface"),
+ pointer_default(unique)
+]
+interface IEventObjectCollection : IDispatch
+{
+	[id(DISPID_NEWENUM), propget, restricted, helpstring("Create new IEnumVARIANT")]
+		HRESULT _NewEnum([out,retval] IUnknown** ppUnkEnum);
+
+	[id(DISPID_VALUE), propget]
+		HRESULT Item([in] BSTR objectID, [out,retval] VARIANT* pItem);
+
+	[id(1), propget, helpstring("Create new IEnumEventObject")]
+		HRESULT NewEnum([out,retval] IEnumEventObject** ppEnum);
+
+	[id(2), propget, helpstring("Number of items in the collection")]
+		HRESULT Count([out,retval] long* pCount);
+
+	[id(3), helpstring("Add an item to the collection")]
+		HRESULT Add([in] VARIANT* item, [in] BSTR objectID);
+
+	[id(4), helpstring("Remove an item from the collection")]
+		HRESULT Remove([in] BSTR objectID);
+}
+
+
+// --------------------------------------------------------------------------
+//
+//   IEventProperty -- An interface that represents a name/property pair.
+//
+// --------------------------------------------------------------------------
+
+
+[
+ object,
+ uuid(da538ee2-f4de-11d1-b6bb-00805fc79216),
+ dual,
+ proxy,
+ helpstring("IEventProperty Interface"),
+ pointer_default(unique)
+]
+interface IEventProperty : IDispatch
+{
+	[id(1), propget, helpstring("property Name")]
+		HRESULT Name([out,retval] BSTR* propertyName);
+	[id(1), propput, helpstring("property Name")]
+		HRESULT Name([in] BSTR propertyName);
+
+	[id(2), propget, helpstring("property Value")]
+		HRESULT Value([out,retval] VARIANT* propertyValue);
+	[id(2), propput, helpstring("property Value")]
+		HRESULT Value([in] VARIANT* propertyValue);
+};
+
+
+// --------------------------------------------------------------------------
+//
+//   IEventControl - Deprecated interface - Use IMultiInterfaceEventControl instead.
+//
+// --------------------------------------------------------------------------
+
+[
+ object,
+ uuid(0343e2f4-86f6-11d1-b760-00c04fb926af),
+ dual,
+ proxy,
+ helpstring("IEventControl Interface"),
+ pointer_default(unique)
+]
+interface IEventControl : IDispatch
+{
+	cpp_quote("// *************************************************************************")
+	cpp_quote("// This is a Deprecated interface - Use IMultiInterfaceEventControl instead.")
+	cpp_quote("// *************************************************************************")
+	[id(1), helpstring("method SetPublisherFilter")]
+		HRESULT SetPublisherFilter([in] BSTR methodName,
+								   [in,unique] IPublisherFilter* pPublisherFilter);
+
+	[propget, id(2), helpstring("property AllowInprocActivation")]
+		HRESULT AllowInprocActivation([out,retval] BOOL* pfAllowInprocActivation);
+	[propput, id(2), helpstring("property AllowInprocActivation")]
+		HRESULT AllowInprocActivation([in] BOOL fAllowInprocActivation);
+
+	[id(3), helpstring("Get a self-updating collection of subscriptions to a given method")]
+		HRESULT GetSubscriptions([in,unique] BSTR methodName,
+								 [in,unique] BSTR optionalCriteria,
+								 [in,unique] int* optionalErrorIndex,
+								 [out,retval] IEventObjectCollection** ppCollection);
+	[id(4), helpstring("Establish the default query to use when not filtering")]
+		HRESULT SetDefaultQuery([in] BSTR methodName,
+								[in] BSTR criteria,
+								[out,retval] int* errorIndex);
+};
+
+
+[
+ object,
+ uuid(0343e2f5-86f6-11d1-b760-00c04fb926af),
+ helpstring("IMultiInterfaceEventControl Interface"),
+ pointer_default(unique)
+]
+interface IMultiInterfaceEventControl : IUnknown
+{
+	[helpstring("method SetMultiInterfacePublisherFilter")]
+		HRESULT SetMultiInterfacePublisherFilter([in,unique] IMultiInterfacePublisherFilter* classFilter);
+	
+	[helpstring("Get a self-updating collection of subscriptions to an IID/method")]
+		HRESULT GetSubscriptions([in] REFIID eventIID,
+								 [in,unique] BSTR bstrMethodName,
+								 [in,unique] BSTR optionalCriteria,
+								 [in,unique] int* optionalErrorIndex,
+								 [out,retval] IEventObjectCollection** ppCollection);
+
+	[helpstring("Establish the default query to use when not filtering.")]
+		HRESULT SetDefaultQuery([in] REFIID eventIID,
+								[in] BSTR bstrMethodName,
+								[in] BSTR bstrCriteria,
+								[out,retval] int* errorIndex);
+
+	[propget, helpstring("property AllowInprocActivation")]
+		HRESULT AllowInprocActivation([out,retval] BOOL* pfAllowInprocActivation);
+	[propput, helpstring("property AllowInprocActivation")]
+		HRESULT AllowInprocActivation([in] BOOL fAllowInprocActivation);
+
+	[propget, helpstring("property FireInParallel")]
+		HRESULT FireInParallel([out,retval] BOOL* pfFireInParallel);
+	[propput, helpstring("property FireInParallel")]
+		HRESULT FireInParallel([in] BOOL fFireInParallel);
+}
+
+[
+    object,
+    uuid(784121F1-62A6-4b89-855F-D65F296DE83A),
+    helpstring("IDontSupportEventSubscription Interface"),
+    pointer_default(unique)
+]
+interface IDontSupportEventSubscription : IUnknown
+{
+    // No methods (except IUnknown).  This interface just serves to let an object indicate
+    // it does not wish to support event subscriptions.
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Classes....
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+[
+	uuid(e81221dc-c4d8-11d1-b653-00805fc79216),
+	version(1.0),
+	helpstring("EventSystem 1.0 Type Library")
+]
+library DummyEventSystemLib
+{
+	importlib("stdole2.tlb");
+	importlib("stdole32.tlb");
+
+	[
+		uuid(4E14FBA2-2E22-11D1-9964-00C04FBBB345),
+		helpstring("CEventSystem Class")
+	]
+	coclass CEventSystem
+	{
+		[default] interface IEventSystem;
+	};
+
+    [
+        uuid(ab944620-79c6-11d1-88f9-0080c7d771bf),
+        version(1.0)
+    ]
+    coclass CEventPublisher
+    {
+        [default] interface IEventPublisher;
+    };
+
+    [
+        uuid(cdbec9c0-7a68-11d1-88f9-0080c7d771bf),
+        version(1.0)
+    ]
+    coclass CEventClass
+    {
+        [default] interface IEventClass;
+    };
+
+    [
+        uuid(7542e960-79c7-11d1-88f9-0080c7d771bf), 
+        version(1.0)
+    ]
+    coclass CEventSubscription
+    {
+        [default] interface IEventSubscription;
+    };
+
+	// EventObjectChange is the EventClassID used by COM+ Events to
+	// publish IEventObjectChange notifications.
+    [
+        uuid(d0565000-9df4-11d1-a281-00c04fca0aa7),
+        version(1.0)
+    ]
+    coclass EventObjectChange
+    {
+        [default] interface IEventObjectChange;
+    };
+
+	// EventObjectChange2 is the EventClassID used by COM+ Events to
+	// publish IEventObjectChange2 notifications.
+    [
+        uuid(BB07BACD-CD56-4e63-A8FF-CBF0355FB9F4),
+        version(1.0)
+    ]
+    coclass EventObjectChange2
+    {
+        [default] interface IEventObjectChange2;
+    };
+
+}
+
+//midl_pragma warning(default: 2039) // oleautomation conformance
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

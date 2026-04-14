@@ -1,0 +1,269 @@
+//-----------------------------------------------------------------------------
+//
+// This file contains interface description for EnhancedStorage API which
+//  provides access to IEEE 1667 compatible devices for client applications.
+//
+// (C) COPYRIGHT MICROSOFT CORPORATION
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#if (_WIN32_WINNT >= 0x0501) // XP and later")
+
+import "unknwn.idl";
+import "objidl.idl";
+import "ocidl.idl";
+import "wtypes.idl";
+import "propidl.idl";
+import "portabledeviceapi.idl";
+
+interface IEnumEnhancedStorageACT;
+interface IEnhancedStorageACT;
+interface IEnhancedStorageACT2;
+interface IEnhancedStorageACT3;
+interface IEnhancedStorageSilo;
+interface IEnhancedStorageSiloAction;
+
+typedef struct _ACT_AUTHORIZATION_STATE {
+    ULONG   ulState;
+} ACT_AUTHORIZATION_STATE;
+
+typedef struct _SILO_INFO {
+    ULONG   ulSTID;
+    UCHAR   SpecificationMajor;
+    UCHAR   SpecificationMinor;
+    UCHAR   ImplementationMajor;
+    UCHAR   ImplementationMinor;
+    UCHAR   type;
+    UCHAR   capabilities;
+} SILO_INFO;
+
+[
+    v1_enum,
+    //uuid(022150a0-113d-11df-bb61-001aa01bbc58),
+    helpstring( "Authorization states of Enhanced Storage ACTs" ),
+    public
+]
+typedef enum _ACT_AUTHORIZATION_STATE_VALUE
+{
+    ACT_UNAUTHORIZED              = 0x0000,
+    ACT_AUTHORIZED                = 0x0001
+} ACT_AUTHORIZATION_STATE_VALUE, *PACT_AUTHORIZATION_STATE_VALUE;
+
+//---------------------------------------------------------
+// This interface is used to enumerate available
+// addressable command targets (ACTs).
+//---------------------------------------------------------
+[
+    object,
+    uuid(09b224bd-1335-4631-a7ff-cfd3a92646d7),
+    local,
+    helpstring("IEnumEnhancedStorageACT Interface"),
+    pointer_default(unique)
+]
+interface IEnumEnhancedStorageACT : IUnknown
+{
+    HRESULT GetACTs(
+        [out, size_is( , *pcEnhancedStorageACTs)] IEnhancedStorageACT*** pppIEnhancedStorageACTs,
+        [out] ULONG* pcEnhancedStorageACTs);
+
+    HRESULT GetMatchingACT(
+        [in]    LPCWSTR szVolume,
+        [out]   IEnhancedStorageACT** ppIEnhancedStorageACT);
+};
+
+//---------------------------------------------------------
+// This interface is used to access an ACT.
+//---------------------------------------------------------
+cpp_quote("#define ACT_AUTHORIZE_ON_RESUME               0x00000001")
+cpp_quote("#define ACT_AUTHORIZE_ON_SESSION_UNLOCK       0x00000002")
+
+[
+    object,
+    uuid(6e7781f4-e0f2-4239-b976-a01abab52930),
+    local,
+    helpstring("IEnhancedStorageACT Interface"),
+    pointer_default(unique)
+]
+interface IEnhancedStorageACT : IUnknown
+{
+    HRESULT Authorize(
+        [in]   DWORD hwndParent,
+        [in]   DWORD dwFlags);
+
+    HRESULT Unauthorize();
+
+    HRESULT GetAuthorizationState(
+        [out]   ACT_AUTHORIZATION_STATE* pState);
+
+    HRESULT GetMatchingVolume(
+        [out]   LPWSTR* ppwszVolume);
+
+    HRESULT GetUniqueIdentity(
+        [out]   LPWSTR* ppwszIdentity);
+
+    HRESULT GetSilos(
+        [out, size_is( , *pcEnhancedStorageSilos, )] IEnhancedStorageSilo*** pppIEnhancedStorageSilos,
+        [out]                                   ULONG* pcEnhancedStorageSilos);
+
+};
+
+//---------------------------------------------------------
+// This is the extension of IEnhancedStorageACT interface.
+//---------------------------------------------------------
+[
+    object,
+    uuid(4DA57D2E-8EB3-41f6-A07E-98B52B88242B),
+    local,
+    helpstring("IEnhancedStorageACT2 Interface"),
+    pointer_default(unique)
+]
+interface IEnhancedStorageACT2 : IEnhancedStorageACT
+{
+    HRESULT GetDeviceName(
+        [out]   LPWSTR* ppwszDeviceName);
+
+    HRESULT IsDeviceRemovable(
+        [out]   BOOL* pIsDeviceRemovable);
+};
+
+//---------------------------------------------------------
+// This is the extension of IEnhancedStorageACT2 interface.
+//---------------------------------------------------------
+cpp_quote("#define ACT_UNAUTHORIZE_ON_SUSPEND            0x00000001")
+cpp_quote("#define ACT_UNAUTHORIZE_ON_SESSION_LOCK       0x00000002")
+
+[
+    object,
+    uuid(022150A1-113D-11DF-BB61-001AA01BBC58),
+    local,
+    helpstring("IEnhancedStorageACT3 Interface"),
+    pointer_default(unique)
+]
+interface IEnhancedStorageACT3 : IEnhancedStorageACT2
+{
+    HRESULT UnauthorizeEx(
+        [in]   DWORD dwFlags);
+
+    HRESULT IsQueueFrozen(
+        [out]   BOOL* pIsQueueFrozen);
+
+    HRESULT GetShellExtSupport(
+        [out]   BOOL* pShellExtSupport);
+};
+
+//---------------------------------------------------------
+// This interface is used to access a silo.
+//---------------------------------------------------------
+[
+    object,
+    uuid(5aef78c6-2242-4703-bf49-44b29357a359),
+    local,
+    helpstring("IEnhancedStorageSilo Interface"),
+    pointer_default(unique)
+]
+interface IEnhancedStorageSilo : IUnknown
+{
+    HRESULT GetInfo(
+        [out]   SILO_INFO* pSiloInfo);
+
+    HRESULT GetActions(
+        [out, size_is( , *pcEnhancedStorageSiloActions)] IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions,
+        [out]                                   ULONG* pcEnhancedStorageSiloActions);
+
+    HRESULT SendCommand(
+        [in]                                UCHAR Command,
+        [in, size_is(cbCommandBuffer)]      BYTE* pbCommandBuffer,
+        [in]                                ULONG cbCommandBuffer,
+        [out, size_is(*pcbResponseBuffer)]  BYTE* pbResponseBuffer,
+        [in, out]                           ULONG* pcbResponseBuffer);
+
+    HRESULT GetPortableDevice(
+        [out]   IPortableDevice** ppIPortableDevice);
+
+    HRESULT GetDevicePath(
+        [out]   LPWSTR* ppwszSiloDevicePath);
+};
+
+//---------------------------------------------------------
+// This interface is used to access a silo action.
+//---------------------------------------------------------
+[
+    object,
+    uuid(b6f7f311-206f-4ff8-9c4b-27efee77a86f),
+    local,
+    helpstring("IEnhancedStorageSiloAction Interface"),
+    pointer_default(unique)
+]
+interface IEnhancedStorageSiloAction : IUnknown
+{
+    HRESULT GetName(
+        [out]   LPWSTR* ppwszActionName);
+
+    HRESULT GetDescription(
+        [out]   LPWSTR* ppwszActionDescription);
+
+    HRESULT Invoke();
+};
+
+//---------------------------------------------------------
+// Library definition.
+//---------------------------------------------------------
+[
+    uuid(ff9d683b-b90a-49b4-9649-f93756bad71f),
+    version(1.0),
+    helpstring("EnhancedStorageAPI 1.0 Type Library")
+]
+library EnhancedStorageAPILib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    [
+        uuid(fe841493-835c-4fa3-b6cc-b4b2d4719848),
+        helpstring("EnumEnhancedStorageACT Class")
+    ]
+    coclass EnumEnhancedStorageACT
+    {
+        [default] interface IEnumEnhancedStorageACT;
+    };
+
+
+    [
+        uuid(af076a15-2ece-4ad4-bb21-29f040e176d8),
+        helpstring("EnhancedStorageACT Class")
+    ]
+    coclass EnhancedStorageACT
+    {
+        [default] interface IEnhancedStorageACT;
+    };
+
+
+    [
+        uuid(cb25220c-76c7-4fee-842b-f3383cd022bc),
+        helpstring("EnhancedStorageSilo Class")
+    ]
+    coclass EnhancedStorageSilo
+    {
+        [default] interface IEnhancedStorageSilo;
+    };
+
+
+    [
+        uuid(886D29DD-B506-466B-9FBF-B44FF383FB3F),
+        helpstring("EnhancedStorageSiloAction Class")
+    ]
+    coclass EnhancedStorageSiloAction
+    {
+        [default] interface IEnhancedStorageSiloAction;
+    };
+};
+cpp_quote("#endif")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,38 @@
+/*
+ *	Copyright (c) Microsoft Corporation. All rights reserved
+ * 
+ *	IDL defines for COM interop interfaces for Windows.UI.Shell.ShareWindowCommandSource factory
+ *  and ShareWindowCommandEventArgs event args to support Win32 HWNDs.
+ *
+ */
+import "objidl.idl";
+
+cpp_quote("#include <winapifamily.h>")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO)")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+[
+    uuid(6571a721-643d-43d4-aca4-6b6f5f30f1ad),
+]
+interface IShareWindowCommandEventArgsInterop : IUnknown
+{
+    HRESULT GetWindow([out, retval] HWND* value);
+}
+
+[
+    uuid(461a191f-8424-43a6-a0fa-3451a22f56ab),
+]
+interface IShareWindowCommandSourceInterop : IUnknown
+{
+    HRESULT GetForWindow([in] HWND appWindow, [in] REFIID riid, [out, retval, iid_is(riid)] void** shareWindowCommandSource);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WIN10_CO)")
+
+

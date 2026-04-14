@@ -1,0 +1,73 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: hstring.idl
+//
+//  Contents: This interface definition contains typedefs for Windows Runtime
+//            data types.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+import "wtypes.idl";
+
+//
+// HSTRING Type
+//
+
+cpp_quote("// Declare the HSTRING handle as wire_marshal for midl only")
+cpp_quote("#if 0")
+
+typedef struct HSTRING__{
+    int unused;
+} HSTRING__;
+
+typedef [wire_marshal(wireBSTR), unique] HSTRING__* HSTRING;
+
+cpp_quote("#endif")
+cpp_quote("")
+
+cpp_quote("// Declaring a handle dummy struct for HSTRING the same way DECLARE_HANDLE does.")
+cpp_quote("typedef struct HSTRING__{")
+cpp_quote("    int unused;")
+cpp_quote("} HSTRING__;")
+cpp_quote("")
+
+cpp_quote("// Declare the HSTRING handle for C/C++")
+cpp_quote("typedef __RPC_unique_pointer HSTRING__* HSTRING;")
+cpp_quote("")
+
+cpp_quote("// Declare the HSTRING_HEADER")
+cpp_quote("typedef struct HSTRING_HEADER")
+cpp_quote("{")
+cpp_quote("    union{")
+cpp_quote("        PVOID Reserved1;")
+cpp_quote("#if defined(_WIN64)")
+cpp_quote("        char Reserved2[24];")
+cpp_quote("#else")
+cpp_quote("        char Reserved2[20];")
+cpp_quote("#endif")
+cpp_quote("    } Reserved;")
+cpp_quote("} HSTRING_HEADER;")
+cpp_quote("")
+
+
+cpp_quote("// Declare the HSTRING_BUFFER for the HSTRING's two-phase construction functions.")
+cpp_quote("// ")
+cpp_quote("// This route eliminates the PCWSTR string copy that happens when passing it to")
+cpp_quote("// the traditional WindowsCreateString().  The caller preallocates a string buffer,")
+cpp_quote("// sets the wide character string values in that buffer, and finally promotes the")
+cpp_quote("// buffer to an HSTRING.  If a buffer is never promoted, it can still be deleted.")
+cpp_quote("DECLARE_HANDLE(HSTRING_BUFFER);")
+cpp_quote("")

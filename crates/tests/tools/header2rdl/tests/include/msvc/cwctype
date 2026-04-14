@@ -1,0 +1,72 @@
+// cwctype standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _CWCTYPE_
+#define _CWCTYPE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+
+#include <wctype.h>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+// TRANSITION, /clr:pure (see corecrt_wctype.h): remove any (improper) macro overrides
+#undef iswalnum
+#undef iswalpha
+#undef iswblank
+#undef iswcntrl
+#undef iswctype
+#undef iswdigit
+#undef iswgraph
+#undef iswlower
+#undef iswprint
+#undef iswpunct
+#undef iswspace
+#undef iswupper
+#undef iswxdigit
+#undef towctrans
+#undef towlower
+#undef towupper
+#undef wctrans
+#undef wctype
+
+_STD_BEGIN
+_EXPORT_STD using _CSTD wint_t;
+_EXPORT_STD using _CSTD wctrans_t;
+_EXPORT_STD using _CSTD wctype_t;
+
+_EXPORT_STD using _CSTD iswalnum;
+_EXPORT_STD using _CSTD iswalpha;
+_EXPORT_STD using _CSTD iswcntrl;
+_EXPORT_STD using _CSTD iswctype;
+_EXPORT_STD using _CSTD iswdigit;
+_EXPORT_STD using _CSTD iswgraph;
+_EXPORT_STD using _CSTD iswlower;
+_EXPORT_STD using _CSTD iswprint;
+_EXPORT_STD using _CSTD iswpunct;
+_EXPORT_STD using _CSTD iswspace;
+_EXPORT_STD using _CSTD iswupper;
+_EXPORT_STD using _CSTD iswxdigit;
+_EXPORT_STD using _CSTD towctrans;
+_EXPORT_STD using _CSTD towlower;
+_EXPORT_STD using _CSTD towupper;
+_EXPORT_STD using _CSTD wctrans;
+_EXPORT_STD using _CSTD wctype;
+
+_EXPORT_STD using _CSTD iswblank;
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _CWCTYPE_

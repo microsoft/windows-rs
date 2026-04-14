@@ -1,0 +1,21 @@
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+
+import "oaidl.idl";
+import "inspectable.idl";
+import "wtypes.idl";
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+
+[uuid(1b35a14a-6094-4799-a60e-e474e15d4dc9), object]
+interface IContentPrefetcherTaskTrigger : IInspectable
+{
+    HRESULT TriggerContentPrefetcherTask([in] LPCWSTR packageFullName);
+    [local, annotation("_On_failure_(_Post_satisfies_(*isRegistered == false))")]
+    HRESULT IsRegisteredForContentPrefetch([in] LPCWSTR packageFullName, [out] boolean* isRegistered);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

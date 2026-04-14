@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/com/windows10/2"
+           xmlns="http://schemas.microsoft.com/appx/manifest/com/windows10/2"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           xmlns:com3="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/com/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/com/windows10/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="ProxyStubDll" type="CT_ProxyStubDll"/>
+
+  <xs:complexType name="CT_ProxyStubDll">
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="ProcessorArchitecture" type="t:ST_ArchitectureNonNeutral" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="ComServer" type="CT_ComServer" maxOccurs="1">
+          <!-- Class/@AutoConvertTo, ProgId/@Clsid and TreatAsClass/@TreatAs refers to ExeServer/Class/@Id | SurrogateServer/Class/@Id | TreatAsClass/@Id-->
+          <xs:key name="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class | com:TreatAsClass"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="ProgId_ClsidRef" refer="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:ProgId"/>
+            <xs:field xpath="@Clsid"/>
+          </xs:keyref>
+          <xs:keyref name="TreatAsRef" refer="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:TreatAsClass"/>
+            <xs:field xpath="@TreatAs"/>
+          </xs:keyref>
+          <xs:keyref name="AutoConvertToRef" refer="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class | com:TreatAsClass"/>
+            <xs:field xpath="@AutoConvertTo"/>
+          </xs:keyref>
+          <!-- Class/@ProgId , Class/@VersionIndependentProgId and ProgId/@CurrentVersion refer to ProgId/@Id-->
+          <xs:key name="ProgId_IdKey">
+            <xs:selector xpath="com:ProgId"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Class_ProgIdRef" refer="ProgId_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class"/>
+            <xs:field xpath="@ProgId"/>
+          </xs:keyref>
+          <xs:keyref name="Class_VerIndProgIdRef" refer="ProgId_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class"/>
+            <xs:field xpath="@VersionIndependentProgId"/>
+          </xs:keyref>
+          <xs:keyref name="ProgId_CurrentVersionRef" refer="ProgId_IdKey">
+            <xs:selector xpath="com:ProgId"/>
+            <xs:field xpath="@CurrentVersion"/>
+          </xs:keyref>
+          <!--Com3: Class/@AutoConvertTo, ProgId/@Clsid and TreatAsClass/@TreatAs refers to ExeServer/Class/@Id | SurrogateServer/Class/@Id | TreatAsClass/@Id | com3:ServiceServer/com3:Class/@id-->
+          <xs:key name="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:TreatAsClass | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Com3_ProgId_ClsidRef" refer="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:ProgId"/>
+            <xs:field xpath="@Clsid"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_TreatAsRef" refer="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:TreatAsClass"/>
+            <xs:field xpath="@TreatAs"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_AutoConvertToRef" refer="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:TreatAsClass | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@AutoConvertTo"/>
+          </xs:keyref>
+          <!-- Com3: Class/@ProgId , Class/@VersionIndependentProgId and ProgId/@CurrentVersion refer to ProgId/@Id-->
+          <xs:key name="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ProgId"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Com3_Class_ProgIdRef" refer="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@ProgId"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_Class_VerIndProgIdRef" refer="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@VersionIndependentProgId"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_ProgId_CurrentVersionRef" refer="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ProgId"/>
+            <xs:field xpath="@CurrentVersion"/>
+          </xs:keyref>
+        </xs:element>
+        <xs:element name="ComInterface" type="CT_ComInterface" maxOccurs="1">
+          <xs:key name="Interface_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="SynchronousRef" refer="Interface_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@SynchronousInterface"/>
+          </xs:keyref>
+          <xs:keyref name="AsynchronousRef" refer="Interface_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@AsynchronousInterface"/>
+          </xs:keyref>
+          <!--Interface\@ProxyStubClsid refers to ProxyStub/@Id-->
+          <xs:key name="ProxyStub_IdKey">
+            <xs:selector xpath="com:ProxyStub"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Interface_ProxyStubClsidRef" refer="ProxyStub_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@ProxyStubClsid"/>
+          </xs:keyref>
+          <!--Interface/TypeLib/@Id refers to TypeLib/@Id-->
+          <xs:key name="TypeLib_IdKey">
+            <xs:selector xpath="com:TypeLib"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="TypeLib_IdRef" refer="TypeLib_IdKey">
+            <xs:selector xpath="com:Interface/com:TypeLib"/>
+            <xs:field xpath="@Id"/>
+          </xs:keyref>
+        </xs:element>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Com" use="required"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_ComServer">
+    <xs:choice minOccurs="0" maxOccurs="4000">
+      <xs:element ref="com:ExeServer"/>
+      <xs:element ref="com:SurrogateServer"/>
+      <xs:element ref="com:TreatAsClass"/>
+      <xs:element ref="com:ProgId"/>
+      <xs:element ref="com3:ServiceServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="com3:ExeServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="com3:SurrogateServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="com3:TreatAsClass" minOccurs="0" maxOccurs="10000"/>
+      <xs:element ref="com3:ProgId" minOccurs="0" maxOccurs="10000"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ComInterface">
+    <xs:choice minOccurs="0" maxOccurs="10000">
+      <xs:element ref="com:ProxyStub"/>
+      <xs:element ref="com:Interface"/>
+      <xs:element ref="com:TypeLib"/>
+    </xs:choice>
+  </xs:complexType>
+  
+</xs:schema>
+

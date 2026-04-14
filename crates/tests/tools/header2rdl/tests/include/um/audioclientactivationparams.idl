@@ -1,0 +1,55 @@
+//
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+cpp_quote("#include <winapifamily.h>")
+import "wtypes.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_FE) ")
+cpp_quote("// Identifier for virtual audio device that supports audio loopback based on")
+cpp_quote("// a process ID instead of the device interface path of a physical audio device.")
+cpp_quote("// Use this for the deviceInterfacePath parameter of ActivateAudioInterfaceAsync when")
+cpp_quote("// AUDIOCLIENT_ACTIVATION_PARAMS::ActivationType is set to AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK.")
+cpp_quote("#define VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK L\"VAD\\\\Process_Loopback\"")
+
+typedef [v1_enum] enum PROCESS_LOOPBACK_MODE
+{
+    PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE = 0,  
+    PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE = 1
+} PROCESS_LOOPBACK_MODE;
+
+cpp_quote("// This structure is used when creating an IAudioClient using ActivateAudioInterfaceAsync")
+cpp_quote("// for process-based loopback capture. The captured audio either includes or excludes audio rendered")
+cpp_quote("// by the specified process and its child processes, based on how the ProcessLoopbackMode field is set.")
+
+typedef struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS
+{
+    DWORD TargetProcessId;
+    PROCESS_LOOPBACK_MODE ProcessLoopbackMode;
+} AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS;
+
+typedef [v1_enum] enum AUDIOCLIENT_ACTIVATION_TYPE
+{
+    AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT = 0,
+    AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK = 1
+} AUDIOCLIENT_ACTIVATION_TYPE;
+
+cpp_quote("// Activation parameter structure that can be used with ActivateAudioInterfaceAsync")
+cpp_quote("// to create an IAudioClient.")
+
+typedef struct AUDIOCLIENT_ACTIVATION_PARAMS
+{
+    AUDIOCLIENT_ACTIVATION_TYPE ActivationType;
+    union
+    {
+        // Used when ActivationType is AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK.
+        AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS ProcessLoopbackParams;
+    } DUMMYUNIONNAME;
+} AUDIOCLIENT_ACTIVATION_PARAMS;
+
+cpp_quote("#endif // (WINVER >= NTDDI_WIN10_FE) ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

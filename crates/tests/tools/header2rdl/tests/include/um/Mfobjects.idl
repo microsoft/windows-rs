@@ -1,0 +1,4761 @@
+cpp_quote("#include <winapifamily.h>")
+
+//*@@@+++@@@@******************************************************************
+//
+// Microsoft Windows Media Foundation
+// Copyright (C) Microsoft Corporation. All rights reserved.
+//
+//*@@@---@@@@******************************************************************
+//
+
+import "unknwn.idl";
+import "propsys.idl";
+import "mediaobj.idl";
+import "mmreg.h"; // for WAVEFORMATEX
+
+#ifndef __QWORD_DEFINED
+#define __QWORD_DEFINED
+typedef ULONGLONG QWORD;
+#endif  // __QWORD_DEFINED
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Media Foundation primitive interfaces
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Attributes
+//
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+typedef enum _MF_ATTRIBUTE_TYPE {
+    MF_ATTRIBUTE_UINT32 =   VT_UI4,
+    MF_ATTRIBUTE_UINT64 =   VT_UI8,
+    MF_ATTRIBUTE_DOUBLE =   VT_R8,
+    MF_ATTRIBUTE_GUID   =   VT_CLSID,
+    MF_ATTRIBUTE_STRING =   VT_LPWSTR,
+    MF_ATTRIBUTE_BLOB   =   VT_VECTOR | VT_UI1,
+    MF_ATTRIBUTE_IUNKNOWN = VT_UNKNOWN
+} MF_ATTRIBUTE_TYPE;
+
+typedef enum _MF_ATTRIBUTES_MATCH_TYPE {
+    MF_ATTRIBUTES_MATCH_OUR_ITEMS       = 0,    // do all of our items exist in their store and have identical data?
+    MF_ATTRIBUTES_MATCH_THEIR_ITEMS     = 1,    // do all of their items exist in our store and have identical data?
+    MF_ATTRIBUTES_MATCH_ALL_ITEMS       = 2,    // do both stores have the same set of identical items?
+    MF_ATTRIBUTES_MATCH_INTERSECTION    = 3,    // do the attributes that intersect match?
+    MF_ATTRIBUTES_MATCH_SMALLER         = 4,    // do all the attributes in the type that has fewer attributes match?
+} MF_ATTRIBUTES_MATCH_TYPE;
+
+[
+    object,
+    uuid(2cd2d921-c447-44a7-a13c-4adabfc247e3)
+]
+/// <summary>
+///     The IMFAttributes interface is a general-purpose interface for storing
+///     key/value pairs, where the key is a GUID and the value is one of a
+///     small number of common data types, including UINT32, UINT64, double,
+///     GUID, Unicode string, and BLOB (counted array of UINT8).  In addition
+///     to the methods inherited from IUnknown, the IMFAttributes interface
+///     exposes the following methods.
+/// </summary>
+/// <remarks>
+///     <para>
+///         The LockStore and UnlockStore calls may not be nested, and may not
+///         be called from different threads.
+///     </para>
+/// </remarks>
+interface IMFAttributes : IUnknown
+{
+    /// <summary>
+    ///     GetItem returns a value from the attributes store that corresponds
+    ///     to the given key (a GUID).
+    /// </summary>
+    /// <param name="guidKey">
+    ///     Key corresponding to value to search for
+    /// </param>
+    /// <param name="pValue">
+    ///     A PROPVARIANT structure provided by the caller. It is filled in with
+    ///     a copy of the stored value, if the value is found. The PROPVARIANT
+    ///     must be cleared with PropVariantClear when the caller is done with
+    ///     the value. If pValue is NULL, the method will still return S_OK if
+    ///     the key is found, but the value will not be returned.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             The key exists (and the value was copied into the
+    ///             PROPVARIANT structure, if provided).
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetItem(
+        REFGUID             guidKey,
+        [in, out, ptr]  PROPVARIANT*  pValue      // can be NULL to check for existence - must use PropVariantClear to free
+        );
+
+    /// <summary>
+    ///     GetItemType returns the type of a value from the attributes store
+    ///     that corresponds to the given key (a GUID).
+    /// </summary>
+    /// <param name="guidKey">
+    ///     Key corresponding to value to search for
+    /// </param>
+    /// <param name="pType">
+    ///     Pointer to an MF_ATTRIBUTE_TYPE value.  It is filled in with a copy
+    ///     of the type of the stored value, if the value is found.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             The key exists, and the value of pType signifies the type of
+    ///             the item value.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetItemType(
+        REFGUID                     guidKey,
+        [out] MF_ATTRIBUTE_TYPE*    pType
+        );
+
+    /// <summary>
+    ///     CompareItem checks whether the given PROPVARIANT is equivalent to
+    ///     one in store with the same key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     Key corresponding to value to search for
+    /// </param>
+    /// <param name="Value">
+    ///     Reference to a PROPVARIANT value to be compared.
+    /// </param>
+    /// <param name="pbResult">
+    ///     BOOL value indicating whether an equivalent value was found with the
+    ///     same key.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             The key exists, and comparison was made.  Check the value of
+    ///             *pbResult to determine whether the values were equivalent.
+    ///     </para>
+    ///     <para>
+    /// </returns>
+    /// <remarks>
+    ///     <para>
+    ///         pbResult, if not NULL, will be set to FALSE in any case where
+    ///         CompareItem returns a code other than S_OK.  Additionally, of
+    ///         course, it is set to FALSE in the case where the call is
+    ///         successful, but the value is not found or not equivalent.
+    ///     </para>
+    /// </remarks>
+    HRESULT CompareItem(
+        REFGUID             guidKey,
+        REFPROPVARIANT      Value,
+        [out] BOOL*         pbResult
+        );
+
+    /// <summary>
+    ///     Compare checks all of "our" items against "theirs", or "theirs"
+    ///     against "ours," or both, according to the match type passed in by
+    ///     the caller.
+    /// </summary>
+    /// <param name="pTheirs">
+    ///     pointer to an IMFAttributes interface to compare items in.
+    /// </param>
+    /// <param name="MatchType">
+    ///     Enumeration value indicating how to compare sets.
+    /// </param>
+    /// <param name="pbResult">
+    ///     BOOL value indicating whether sets exhibit the desired level of
+    ///     equivalency.
+    /// </param>
+    /// <remarks>
+    ///     <para>
+    ///         pbResult, if not NULL, will be set to FALSE in any case where
+    ///         Compare returns a code other than S_OK.  Additionally, of
+    ///         course, it is set to FALSE in the case where the call is
+    ///         successful, but the sets do not meet the equivalency condition.
+    ///     </para>
+    /// </remarks>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Sets were compared successfully.  Check the value of
+    ///             *pbResult to determine whether the sets met the desired
+    ///             equivalency condition.
+    ///     </para>
+    /// </returns>
+    HRESULT Compare(
+        IMFAttributes*              pTheirs,
+        MF_ATTRIBUTES_MATCH_TYPE    MatchType,
+        [out] BOOL*                 pbResult
+        );
+
+    /// <summary>
+    ///     GetUINT32 retrieves a value of type UINT32 corresponding to the
+    ///     given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="punValue">
+    ///     Value of the property, in a UINT32.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type UINT32.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT  GetUINT32(
+        REFGUID         guidKey,
+        [out] UINT32*   punValue
+        );
+
+    /// <summary>
+    ///     GetUINT64 retrieves a value of type UINT64 corresponding to the
+    ///     given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="punValue">
+    ///     Value of the property, in a UINT64.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type UINT64.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetUINT64(
+        REFGUID         guidKey,
+        [out] UINT64*   punValue
+        );
+
+    /// <summary>
+    ///     GetDouble retrieves a value of type double corresponding to the
+    ///     given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="pfValue">
+    ///     Value of the property, in a double.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type double.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetDouble(
+        REFGUID         guidKey,
+        [out] double*   pfValue
+        );
+
+    /// <summary>
+    ///     GetGUID retrieve a value of type GUID corresponding to the given
+    ///     key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="pguidValue">
+    ///     Value of the property, in a GUID.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type GUID.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetGUID(
+        REFGUID     guidKey,
+        [out] GUID* pguidValue
+        );
+
+    /// <summary>
+    ///     GetStringLength retrieve the length of a string value corresponding
+    ///     to the given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to check.
+    /// </param>
+    /// <param name="pcchLength">
+    ///     Upon success, holds the length of the string, in characters, not
+    ///     including the NULL terminator.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Value was found, but string length is too large to fit in a
+    ///             UINT32 value.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type LPWSTR.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetStringLength(
+        REFGUID         guidKey,
+        [out] UINT32*   pcchLength
+        );
+
+    /// <summary>
+    ///     GetString retrieves a string value corresponding to the given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="pwszValue">
+    ///     Upon success, holds the retrieved LPWSTR value.
+    /// </param>
+    /// <param name="cchBufSize">
+    ///     Specifies the size, in characters, of the buffer passed in the
+    ///     pwszValue parameter.  Note that this is the size of the entire
+    ///     buffer, not string length, so no further space for NULL
+    ///     termination will be assumed.
+    /// </param>
+    /// <param name="pcchLength">
+    ///     Upon success, contains the length, in characters, of the string in the
+    ///     pwszValue parameter, excluding NULL termination.  pcchLength may be
+    ///     NULL if the length of the return string is not needed.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Value was found, but string length is too large to fit in a
+    ///             UINT32 value.
+    ///     </para>
+    ///     <para>
+    ///         HRESULT_FROM_WIN32( ERROR_INSUFFICIENT_BUFFER )
+    ///             cchBufSize was not sufficiently large to hold the string
+    ///             value with NULL terminator.  In this case, *pcchLength will be
+    ///             set to the length of the string value in chars.  The caller
+    ///             will need to allocate a buffer of size at least
+    ///             *ppchLength + 1 chars and call the method again.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type LPWSTR.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetString(
+        REFGUID                           guidKey,
+        [out, size_is(cchBufSize)] LPWSTR pwszValue,
+        UINT32                            cchBufSize,
+        [in, out, ptr] UINT32*                     pcchLength
+        );
+
+    /// <summary>
+    ///     GetAllocatedString retrieves a string value corresponding to the
+    ///     given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="pwszValue">
+    ///     Upon success, holds the retrieved LPWSTR value.
+    /// </param>
+    /// <param name="pcchLength">
+    ///     Upon success, contains the size, in characters, of the string in the
+    ///     pwszValue parameter, excluding NULL termination.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             insufficient memory was available to allocate *pwszValue.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type LPWSTR.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///     Memory for the string returned from GetAllocatedString is allocated
+    ///     by the callee using CoTaskMemAlloc.  It is the responsibility of the
+    ///     caller to free the memory via CoTaskMemFree.
+    /// </remarks>
+    HRESULT GetAllocatedString(
+        REFGUID                                   guidKey,
+        [out, size_is( ,*pcchLength + 1)] LPWSTR* ppwszValue, // returned string must be deallocated with CoTaskMemFree
+        [out] UINT32*                             pcchLength
+        );
+
+    /// <summary>
+    ///     GetBlobSize retrieves the size of a blob value corresponding to the
+    ///     given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to check.
+    /// </param>
+    /// <param name="pcbBlobSize">
+    ///     Upon success, holds the size of the blob, in bytes.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type VT_BLOB.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetBlobSize(
+        REFGUID         guidKey,
+        [out] UINT32*   pcbBlobSize
+        );
+
+    /// <summary>
+    ///     GetBlob retrieves the blob of data corresponding to the given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="pBuf">
+    ///     A buffer supplied by the caller which will be filled with a copy of
+    ///     the blob data from the attributes store.
+    /// </param>
+    /// <param name="cbBufSize">
+    ///     Specifies the size, in bytes, of the data buffer.
+    /// </param>
+    /// <param name="pcbBlobSize">
+    ///     Upon success, holds size, in bytes, of the data blob.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         HRESULT_FROM_WIN32( ERROR_INSUFFICIENT_BUFFER )
+    ///             cbBufSize was not sufficiently large to hold the data blob.
+    ///             *pcbBlobSize contains the size, in bytes, necessary to copy
+    ///             the data blob.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type VT_BLOB.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    HRESULT GetBlob(
+        REFGUID                          guidKey,
+        [out, size_is(cbBufSize)] UINT8* pBuf,
+        UINT32                           cbBufSize,
+        [in, out, ptr] UINT32*           pcbBlobSize
+        );
+
+    /// <summary>
+    ///     GetAllocatedBlob retrieves a blob of data corresponding to the
+    ///     given key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="ppBuf">
+    ///     Upon success, holds the retrieved data blob.
+    /// </param>
+    /// <param name="pcbSize">
+    ///     Upon success, contains the size, in bytes, of the buffer in the
+    ///     ppBuf parameter.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             insufficient memory was available to allocate *ppBuf.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type VT_BLOB.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///     Memory for the data blob returned from GetAllocatedBlob is allocated
+    ///     by the callee using CoTaskMemAlloc.  It is the responsibility of the
+    ///     caller to free the memory via CoTaskMemFree.
+    /// </remarks>
+    HRESULT GetAllocatedBlob(
+        REFGUID                            guidKey,
+        [out, size_is( ,*pcbSize)] UINT8** ppBuf,       // returned blob must be deallocated with CoTaskMemFree
+        [out] UINT32*                      pcbSize
+        );
+
+    /// <summary>
+    ///     GetUnknown retrieves an interface pointer to the requested
+    //      interface, in an LPVOID, from the value corresponding to the given
+    ///     key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the value to retrieve.
+    /// </param>
+    /// <param name="riid">
+    ///
+    /// <param name="ppv">
+    ///     Value of the property, in an LPVOID.  Returned value needs to be cast
+    ///     to an interface pointer of the appropriate type.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was found and retrieved successfully.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_INVALIDTYPE
+    ///             Value was found, but is not of type IUnknown.
+    ///     </para>
+    ///     <para>
+    ///         E_NOINTERFACE
+    ///             Value was found, but does not support the interface
+    ///             specified by the riid parameter.
+    ///     </para>
+    ///     <para>
+    ///         MF_E_ATTRIBUTENOTFOUND.
+    ///             No value corresponding to this key is stored in this object.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///     It is the responsibility of the caller to call Release on the
+    ///     returned interface pointer when done with it.
+    /// </remarks>
+    HRESULT GetUnknown(
+        REFGUID                     guidKey,
+        REFIID                      riid,
+        [out, iid_is(riid)] LPVOID* ppv
+        );
+
+    /// <summary>
+    ///     SetItem associates the given value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="Value">
+    ///     Value of the property.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             insufficient memory was available to create a new item.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///     Use with caution.  SetItem does not perform type-checking on the
+    ///     PROPVARIANT Value, so it is easy to associate a key in one set
+    ///     with a value of one type, and the same key in another set with a
+    ///     value of a different type.  This will lead to unexpected results
+    ///     from item and set comparisons.  SetItem will only allow values to be
+    ///     set which are of a type corresponding to an MF_ATTRIBUTE_TYPE value,
+    ///     i.e. VT_UI4 (UINT32), VT_UI8 (UINT64), VT_CLSID (GUID), VT_LPWSTR
+    ///     (String), VT_VECTOR | VT_UI1 (Blob), and VT_UNKNOWN (IUnknown).
+    /// </remarks>
+    HRESULT SetItem(
+        REFGUID             guidKey,
+        REFPROPVARIANT      Value
+        );
+
+    /// <summary>
+    ///     DeleteItem removes the value associated with the specified key from
+    ///     the attribute set.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully removed.
+    ///     </para>
+    /// </returns>
+    HRESULT DeleteItem(
+        REFGUID guidKey
+        );
+
+    /// <summary>
+    ///     DeleteAllItems removes all values from the attribute set.
+    /// </summary>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             All values were successfully removed from the set.
+    ///     </para>
+    /// </returns>
+    HRESULT DeleteAllItems();
+
+    /// <summary>
+    ///     SetUINT32 associates the given UINT32 value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="unValue">
+    ///     Value of the property.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+    /// </returns>
+    HRESULT SetUINT32(
+        REFGUID guidKey,
+        UINT32  unValue
+        );
+
+    /// <summary>
+    ///     SetUINT64 associates the given UINT64 value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="unValue">
+    ///     Value of the property.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+    /// </returns>
+    HRESULT SetUINT64(
+        REFGUID guidKey,
+        UINT64  unValue
+        );
+
+    /// <summary>
+    ///     SetDouble associates the given double value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="fValue">
+    ///     Value of the property.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+     ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+   /// </returns>
+    HRESULT  SetDouble(
+        REFGUID guidKey,
+        double  fValue
+        );
+
+    /// <summary>
+    ///     SetGUID associates the given GUID value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="guidValue">
+    ///     Value of the property.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+    /// </returns>
+    HRESULT SetGUID(
+        REFGUID guidKey,
+        REFGUID guidValue
+        );
+
+    /// <summary>
+    ///     SetString associates the given LPWSTR value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="wszValue">
+    ///     Value of the property.  WszValue is presumed to be NULL-terminated.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///      Callee will allocate a new buffer and copy the given string, rather
+    ///      than storing a reference to the string passed in.  Thus, caller is
+    ///      responsible for freeing any memory which may have been allocated
+    ///      for wszValue.
+    /// </remarks>
+    HRESULT SetString(
+        REFGUID                 guidKey,
+        [in, string] LPCWSTR    wszValue
+        );
+
+    /// <summary>
+    ///     SetBlob associates the given data blob value with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="pBuf">
+    ///     Value of the property.
+    /// </param>
+    /// <param name="cbBufSize">
+    ///     Size of the buffer specified by pBuf, in bytes.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///      Callee will allocate a new buffer and copy the given data blob, rather
+    ///      than storing a reference to the string passed in.  Thus, caller is
+    ///      responsible for freeing any memory which may have been allocated
+    ///      for pBuf.
+    /// </remarks>
+    HRESULT SetBlob(
+        REFGUID                               guidKey,
+        [in, size_is(cbBufSize)] const UINT8* pBuf,
+        UINT32                                cbBufSize
+        );
+
+
+    /// <summary>
+    ///     SetUnknown associates the given IUnknown interface pointer value
+    ///     with the specified key.
+    /// </summary>
+    /// <param name="guidKey">
+    ///     GUID specifying the key.
+    /// </param>
+    /// <param name="pUnknown">
+    ///     Value of the property.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Value was successfully set.
+    ///     </para>
+    ///     <para>
+    ///         E_OUTOFMEMORY
+    ///             Insufficient memory was available to create a new item in
+    ///             the store.
+    ///     </para>
+    /// </returns>
+    HRESULT SetUnknown(
+        REFGUID                 guidKey,
+        [in] IUnknown*          pUnknown
+        );
+
+    /// <summary>
+    ///     LockStore excludes other threads from accessing the set, until such
+    ///     time as UnlockStore is called.
+    /// </summary>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Store was successfully locked.
+    ///     </para>
+    /// </returns>
+    HRESULT LockStore();
+
+    /// <summary>
+    ///     UnlockStore allows other threads access to the set, if they were
+    ///     previously denied access via LockStore.
+    /// </summary>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             Store was successfully unlocked.
+    ///     </para>
+    /// </returns>
+    HRESULT UnlockStore();
+
+    /// <summary>
+    ///     GetCount retrieves the number of items currently in the set.
+    /// </summary>
+    /// <param name="pcItems">
+    ///     Upon success, will contain the count of items in the set.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             The call was successful, and *pcItems contains the number of
+    ///             values in the set.
+    ///     </para>
+    /// </returns>
+    HRESULT GetCount(
+        [out] UINT32* pcItems
+        );
+
+    /// <summary>
+    ///     GetItemByIndex retrieves the item at the specified index in the
+    ///     store.
+    /// </summary>
+    /// <param name="unIndex">
+    ///     Zero-based index of the item to retrieve.
+    /// </param>
+    /// <param name="pguidKey">
+    ///     Upon success, contains the GUID key associated with this value.
+    /// </param>
+    /// <param name="pValue">
+    ///     Upon success, contains the value at index unIndex of the set.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             The call was successful.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///     <para>
+    ///         All values returned are copies of the actual value in the set.
+    ///         Thus, the caller is responsible for freeing memory associated
+    ///         with the value by calling PropVariantClear.
+    ///     </para>
+    ///     <para>
+    ///         The order of items within the set is UNDEFINED, therefore the
+    ///         caller should never expect to find the same value at the same
+    ///         index except between matched LockStore and UnlockStore calls.
+    ///     </para>
+    /// </remarks>
+    HRESULT GetItemByIndex(
+        UINT32              unIndex,
+        [out] GUID*         pguidKey,
+        [in, out, ptr] PROPVARIANT*  pValue      // can be NULL. If not NULL, when done must use PropVariantClear() to free
+        );
+
+    /// <summary>
+    ///     CopyAllItems clones all items from the store to the specified store.
+    /// </summary>
+    /// <param name="pDest">
+    ///     pointer to an IMFAttributes interface which will recieve all items
+    ///     from this set.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         S_OK.
+    ///             The call was successful.
+    ///     </para>
+    ///     <para>
+    ///         E_FAIL.
+    ///             Copying one or more items from the store to the destination
+    ///             was unsuccessful.
+    ///     </para>
+    /// </returns>
+    /// <remarks>
+    ///     <para>
+    ///         Note that the pDest store must be unlocked in order to retrieve
+    ///         or set items by key.
+    ///     </para>
+    ///     <para>
+    ///         CopyAllItems is a destructive operation on the destination store.
+    ///         In the event of a failure to copy all items, the state of the
+    ///         pDest store is UNDEFINED.  Furthermore, any existing items in
+    ///         the pDest store will be removed prior to copying items from the
+    ///         source store.
+    ///     </para>
+    /// </remarks>
+    HRESULT CopyAllItems(
+        [in] IMFAttributes*   pDest
+        );
+};
+
+enum MF_ATTRIBUTE_SERIALIZE_OPTIONS
+{
+    // serialize IUnknown by reference
+    MF_ATTRIBUTE_SERIALIZE_UNKNOWN_BYREF = 0x00000001,
+};
+
+cpp_quote( "STDAPI MFSerializeAttributesToStream(")
+cpp_quote( "  IMFAttributes * pAttr, ")
+cpp_quote( "  DWORD dwOptions, ")
+cpp_quote( "  IStream * pStm);")
+
+cpp_quote( "STDAPI MFDeserializeAttributesFromStream(")
+cpp_quote( "  IMFAttributes * pAttr, ")
+cpp_quote( "  DWORD dwOptions, ")
+cpp_quote( "  IStream * pStm);")
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Buffers and samples
+//
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(045FA593-8799-42b8-BC8D-8968C6453507),
+    local,
+]
+/// <summary>
+///     The IMFMediaBuffer interface represent a buffer of multimedia data
+///     for any possible multimedia type.
+///     It provides methods for accessing the buffer pointer, the current
+///     length, and the maximum length of the buffer
+/// </summary>
+interface IMFMediaBuffer : IUnknown
+{
+    /// <summary>
+    ///     The Lock method gives the caller access to the underlying
+    ///     buffer pointer and current length of the media buffer.
+    /// </summary>
+    /// <param name="ppbBuffer">
+    ///     Specifies a pointer to a variable where the buffer pointer
+    ///     will be stored.
+    /// </param>
+    /// <param name="pcbMaxLength">
+    ///     Pointer to a count of bytes where the maximum length of the
+    ///     buffer will be stored.  
+    ///     This is the maximum amount of data that can be written to the
+    ///     buffer.
+    /// </param>
+    /// <param name="pcbCurrentLength">
+    ///     Pointer to a count of bytes where the current length of the
+    ///     buffer will be stored.  
+    ///     This is amount of valid data currently in the buffer.
+    ///     May be NULL
+    /// </param>
+    /// <remarks>
+    ///     The buffer pointer is guaranteed to be valid for access up to
+    ///     the maximum length of the media buffer for the duration of the lock.
+    //      When the caller is finished, the Unlock method should be called.
+    ///     Note that Unlock must be called the same number of times that
+    //      Lock has been called in order to signal completion of the use of
+    ///     the buffer pointer.
+    ///     It is recommended that the caller lock the media buffer only
+    //      for the time necessary to manipulate the buffer contents.
+    /// </remarks>
+    HRESULT Lock(
+        [out, annotation("_Outptr_result_bytebuffer_to_(*pcbMaxLength, *pcbCurrentLength)")] BYTE** ppbBuffer,
+        [out, annotation("_Out_opt_")] DWORD *pcbMaxLength,
+        [out, annotation("_Out_opt_")] DWORD* pcbCurrentLength
+        );
+
+    /// <summary>
+    ///     The Unlock method signals completion of the use of the
+    ///     buffer pointer acquired via the Lock method.
+    /// </summary>
+    /// <remarks>
+    ///     The buffer pointer acquired via Lock can no longer be used
+    ///     once the caller signals completion of that
+    ///     usage via the Unlock call.
+    ///     Also, note that Unlock must be called the same number of
+    ///     times that Lock has been called in order to signal completion
+    ///     of the use of the buffer pointer.
+    /// </remarks>
+    HRESULT Unlock();
+
+    /// <summary>
+    ///     The GetCurrentLength method returns the current length of the
+    ///     media buffer.
+    /// </summary>
+    /// <param name="pcbCurrentLength">
+    ///     Pointer to a count of bytes where the current length of the
+    ///     buffer will be stored.
+    /// </param>
+    /// <remarks>
+    ///     A returned value of zero bytes indicates a media buffer with
+    ///     no valid data (an empty buffer).
+    /// </remarks>
+    HRESULT GetCurrentLength(
+        [out, annotation("_Out_")] DWORD* pcbCurrentLength
+        );
+
+    /// <summary>
+    ///     The SetCurrentLength method allows the caller to set the current
+    ///     length of the media buffer.
+    /// </summary>
+    /// <param name="cbCurrentLength">
+    ///     Current length of the media buffer in bytes.
+    /// </param>
+    /// <remarks>
+    ///     This method should be used anytime a client modifies the content
+    ///     of the media buffer in such a way that
+    ///     the length of valid data in the media buffer changes.
+    /// </remarks>
+    HRESULT SetCurrentLength(
+        [in] DWORD cbCurrentLength
+        );
+
+    /// <summary>
+    ///     The GetMaxLength method allows the caller to retrieve the maximum
+    ///     length of the buffer represented by the IMFMediaBuffer object.
+    /// </summary>
+    /// <param name="pcbMaxLength">
+    ///     Pointer to a count of bytes where the maximum length of the
+    ///     buffer will be stored.
+    /// </param>
+    HRESULT GetMaxLength(
+        [out, annotation("_Out_")] DWORD* pcbMaxLength
+        );
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(c40a00f2-b93a-4d80-ae8c-5a1c634f58e4),
+    local,
+]
+/// <summary>
+///     The IMFSample interface represents a multimedia sample for a 
+///     multimedia stream type.  An typical example is a video frame,
+///     and a notable exception is audio where an IMFSample does not usually 
+///     represent a single sample of audio, but rather a chunk
+///     of audio samples.  Note that this allows us to reduce the overhead for 
+///     representing audio in the pipeline.
+///
+///     A sample may consist of a multiple buffers as is the case of compressed
+///     audio or video samples received from the network or being sent to an 
+///     ASF media sink or ASF multiplexer.  
+///
+///     The IMFAttributes interface can be used to tag the sample with extra
+///     information that is not represented by the IMFSample methods.
+///     The MFSampleExtension_xxx GUIDs in mfapi.h define some standard 
+///     attributes, but custom attributes are allowed and are preserved
+///     through the Media Foundation pipeline as well as possible.
+/// </summary>
+/// <remarks>
+///     MediaFoundation does not provide a synchronized (thread-safe) way to 
+///     call the IMFSample methods.
+///     To guarantee thread-safety, the caller should obtain a lock while 
+///     working with sample object to prevent access by other threads.
+/// </remarks>
+interface IMFSample : IMFAttributes
+{
+    /// <summary>
+    ///     The GetSampleFlags method returns a set of bitwise flags associated with the sample.  The flags are defined in the Remarks section.
+    /// </summary>
+    /// <param name="pdwSampleFlags">
+    ///     Pointer to a 32 bit value where the sample flags will be stored.
+    /// </param>
+    /// <remarks>
+    ///     No flags are defined in this version.  *pdwSampleFlags must be 
+    ///     set to 0.
+    /// </remarks>
+    HRESULT GetSampleFlags(
+        [out, annotation("_Out_")] DWORD* pdwSampleFlags );
+
+    /// <summary>
+    ///     The SetSampleFlags method allows the caller to set flags associated with the sample.
+    ///     See the Remarks section of the GetSampleFlags method for the definition of the flags.
+    /// </summary>
+    /// <param name="dwSampleFlags">
+    ///     32 bit value specifying the sample flags.
+    /// </param>
+    HRESULT SetSampleFlags(
+        [in] DWORD dwSampleFlags );
+
+    /// <summary>
+    ///     The GetSampleTime method returns the presentation time associated with the sample.
+    /// </summary>
+    /// <param name="phnsSampleTime">
+    ///     Specifies a pointer to a 64 bit variable where the presentation time will be stored.
+    /// </param>
+    /// <returns>
+    ///     If the method succeeds, it returns S_OK.
+    ///     If no the sample does not have a sample time MF_E_NO_SAMPLE_TIMESTAMP is returned.
+    ///     If this method fails otherwise it returns an error code.
+    /// </returns>
+    /// <remarks>
+    ///     The presentation time is stored in 100ns interval units.
+    /// </remarks>
+    HRESULT GetSampleTime(
+        [out, annotation("_Out_")] LONGLONG* phnsSampleTime
+        );
+
+    /// <summary>
+    ///     The SetSampleTime method allows the caller to set the presentation time associated with the sample.
+    /// </summary>
+    /// <param name="hnsSampleTime">
+    ///     64 bit value specifying the presentation time.
+    /// </param>
+    /// <remarks>
+    ///     The presentation time is stored in 100ns interval units.
+    /// </remarks>
+    HRESULT SetSampleTime(
+        [in] LONGLONG hnsSampleTime );
+
+    /// <summary>
+    ///     The GetSampleDuration method returns the duration of the sample.
+    /// </summary>
+    /// <param name="phnsSampleDuration">
+    ///     Specifies a pointer to a 64 bit variable where duration will be stored.
+    /// </param>
+    /// <returns>
+    ///     If the method succeeds, it returns S_OK.
+    ///     If no the sample does not have a duration MF_E_NO_SAMPLE_DURATION is returned.
+    ///     If this method fails otherwise it returns an error code.
+    /// </returns>
+    /// <remarks>
+    ///     The duration is specified in 100ns interval units.
+    ///     If the duration is zero, then the sample duration is unknown.  In such cases, it is possible that it can be derived from the media type e.g. video frame rate.
+    ///     Application should avoid calculating duration of presentation as sum of sample durations because of possible cumulative error.
+    ///     For example cumulative error for 60fps video on 24 hours interval is 0.1728 seconds.
+    ///         For 60fps, there are 5184000 frames * 166667 100ns/frame = 24 hours + 0.1728 seconds
+    /// </remarks>
+    HRESULT GetSampleDuration(
+        [out, annotation("_Out_")] LONGLONG* phnsSampleDuration );
+
+    /// <summary>
+    ///     The SetSampleDuration method allows the caller to set the duration of the sample.
+    /// </summary>
+    /// <param name="hnsSampleDuration">
+    ///     64 bit value specifying the sample duration.
+    /// </param>
+    /// <remarks>
+    ///     The duration is specified in 100ns interval units.  This value should be set wherever possible to aid in the processing of samples in a multimedia pipeline.
+    /// </remarks>
+    HRESULT SetSampleDuration(
+        [in] LONGLONG hnsSampleDuration );
+
+    //
+    // Methods to manage the sample's buffers
+    //
+
+
+    /// <summary>
+    ///     The GetBufferCount method returns the count of the buffers in that are currently associated with this sample.
+    /// </summary>
+    /// <param name="pdwBufferCount">
+    ///     Pointer to a 32 bit variable where the buffer count will be stored.
+    /// </param>
+    /// <remarks>
+    ///     It is valid to have a sample with a buffer count of zero.  This is considered to be an empty sample.
+    /// </remarks>
+    HRESULT GetBufferCount(
+        [out, annotation("_Out_")] DWORD* pdwBufferCount );
+
+    /// <summary>
+    ///     The GetBufferByIndex method returns a pointer to the IMFMediaBuffer object at a specified index in the sample.
+    /// </summary>
+    /// <param name="dwIndex">
+    ///     32 bit value specifying the index of the buffer object requested.
+    /// </param>
+    /// <param name="ppBuffer">
+    ///     Pointer to a pointer where the buffer object will be stored.
+    /// </param>
+    HRESULT GetBufferByIndex(
+        [in] DWORD dwIndex,
+        [out, annotation("_Out_")] IMFMediaBuffer** ppBuffer );
+
+    /// <summary>
+    ///     The GetContiguousBuffer method converts sample with multiple buffers into sample with single buffer and returns a pointer to this buffer.
+    /// </summary>
+    /// <param name="ppBuffer">
+    ///     Pointer to a pointer where the buffer object will be stored.
+    /// </param>
+    /// <remarks>
+    ///     This method copies the content of the sample into a contiguous media buffer, and should be used with care.
+    /// </remarks>
+    HRESULT ConvertToContiguousBuffer(
+        [out, annotation("_Out_")] IMFMediaBuffer** ppBuffer );
+
+    /// <summary>
+    ///     The AddBuffer method allows the caller to add a media buffer to the end of current list of buffers in the sample.
+    /// </summary>
+    /// <param name="pBuffer">
+    ///     Pointer to a buffer object.
+    /// </param>
+    /// <returns>
+    ///     If the method succeeds, it returns S_OK.
+    ///     If sample does not support adding buffers, it returns MF_E_SAMPLE_UNSUPPORTED_OP.
+    ///     If it fails, it returns an error code.
+    /// </returns>
+    /// <remarks>
+    ///     The newly added buffer represents sample data at an offset equal to the previous total length of the sample.
+    /// </remarks>
+    HRESULT AddBuffer(
+        [in] IMFMediaBuffer* pBuffer );
+
+    /// <summary>
+    ///     The RemoveBufferByIndex method allows the caller to remove a buffer object at a specified index within the list of available buffer objects in the sample.
+    /// </summary>
+    /// <param name="dwIndex">
+    ///     32 bit value specifying the index.
+    /// </param>
+    /// <returns>
+    ///     If the method succeeds, it returns S_OK.
+    ///     If sample does not support removing buffers, it returns MF_E_SAMPLE_UNSUPPORTED_OP.
+    ///     If it fails, it returns an error code.
+    /// </returns>
+    /// <remarks>
+    ///     The total length of the sample is reduced by the length of the removed buffer, and the offsets of all buffer objects that
+    ///     were at indices greater than dwIndex are shifted up by the length of the removed buffer.
+    /// </remarks>
+    HRESULT RemoveBufferByIndex(
+        [in] DWORD dwIndex );
+
+    /// <summary>
+    ///     The RemoveAllBuffers method allows the caller to remove all buffer objects associated with the sample.
+    /// </summary>
+    /// <returns>
+    ///     If the method succeeds, it returns S_OK.
+    ///     If sample does not support removing buffers, it returns MF_E_SAMPLE_UNSUPPORTED_OP.
+    ///     If it fails, it returns an error code.
+    /// </returns>
+    /// <remarks>
+    ///     After this call, the buffer count of the sample is zero i.e. it is an empty sample.
+    /// </remarks>
+    HRESULT RemoveAllBuffers( void );
+
+    /// <summary>
+    ///     The GetTotalLength method returns the total length of all buffers objects in the sample.
+    /// </summary>
+    /// <param name="pcbTotalLength">
+    ///     Pointer to a 32 bit variable where the total length in bytes will be stored.
+    /// </param>
+    /// <remarks>
+    ///     The total length of the sample is tracked when buffers are added (via AddBuffer), removed (via RemoveBufferByIndex and RemoveAllBuffers).
+    /// </remarks>
+    HRESULT GetTotalLength(
+        [out, annotation("_Out_")] DWORD* pcbTotalLength );
+
+    /// <summary>
+    ///     The CopyToBuffer method allows the caller to copy the sample data to the buffer object provided.
+    /// </summary>
+    /// <param name="pBuffer">
+    ///     Pointer to a buffer object.
+    /// </param>
+    /// <returns>
+    ///     If the method succeeds, it returns S_OK. If destination buffer is too small, it returns MF_E_BUFFERTOOSMALL. If it fails for other reason, it returns an error code.
+    /// </returns>
+    HRESULT CopyToBuffer(
+        [in] IMFMediaBuffer* pBuffer );
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(7DC9D5F9-9ED9-44ec-9BBF-0600BB589FBB),
+    local
+]
+/// <summary>
+///     The IMF2DBuffer interface is supported by a media buffer whose multimedia data represents a 2D media type e.g. video.
+///     For these media types it is important to know the "pitch" of the buffer which indicates the number of bytes required to go from
+///     scanline to scanline.  The IMF2DBuffer interface is obtained from a buffer by calling QueryInterface().
+///     For each 2D media type a contiguous standard representation is defined which is designed to be compatible with the standard
+///     layout of a DirectX surface when represented by system memory.  In this representation the surface pitch is always positive and
+///     equal to the number of bytes taken up by a single row of pixels padded out to a 4-byte boundary.
+///
+///     Applications may still access 2D buffers using IMFBuffer::Lock().  In that case the data in the buffer will always be in the
+///     standard contiguous format for the format of data represented by the buffer.  An internal copy may be required on IMFBuffer::Lock()
+///     and IMFBuffer::Unlock() to achieve this.  The copy will not occur if the buffer is already in the correct format.  When a copy occurs an
+///     event will be generated to aid debugging performance issues resulting from the copy.  Components that process 2D data should aim to
+///     use the IMF2DBuffer interface to access sample data.
+/// </summary>
+interface IMF2DBuffer : IUnknown
+{
+    /// <summary>
+    ///     The Lock2D method ensures the buffer memory is accessible in the correct format and returns a pointer to
+    ///     the start of the first line and the pitch of the buffer.  Each call to Lock2D must be matched by a corresponding call to Unlock2D.
+    ///     The memory pointer and pitch value are only valid while there is at least one outstanding Lock2D call with an unmactched Unlock2D call.
+    /// </summary>
+    /// <param name="ppbScanline0">
+    ///     Pointer to a byte ponter where the pointer to the first byte of the top row of the buffer will be stored
+    /// </param>
+    /// <param name="plPitch">
+    ///     Pointer to a count of bytes where the pitch of the buffer will be stored.  This value can be added to a pointer to the
+    ///     start of a given row of the buffer to get the pointer to the start of the next row of the buffer.
+    /// </param>
+    HRESULT Lock2D(
+        [out, annotation("_Outptr_result_bytebuffer_(_Inexpressible_(ComputePlaneSize(*plPitch)))")] BYTE**    ppbScanline0,
+        [out, annotation("_Out_")] LONG*     plPitch
+        );
+
+    /// <summary>
+    ///     The Unlock2D method unlocks the buffer.  Each call to Lock2D must be matched by a call to Unlock2D.
+    ///     When there are no more outstanding Unlocks all existing pointers to the buffer and pitch values should be considered invalid.
+    /// </summary>
+    HRESULT Unlock2D();
+
+    /// <summary>
+    ///     The GetScanline0AndPitch returns a pointer to the start of the first line and the pitch of the buffer.
+    ///     The memory pointer and pitch value are only valid while there is at least one outstanding Lock call with an unmactched Unlock call.
+    /// </summary>
+    /// <param name="pbScanline0">
+    ///     Pointer to a byte ponter where the pointer to the first byte of the top row of the buffer will be stored
+    /// </param>
+    /// <param name="plPitch">
+    ///     Pointer to a count of bytes where the pitch of the buffer will be stored.  This value can be added to a pointer to the
+    ///     start of a given row of the buffer to get the pointer to the start of the next row of the buffer.
+    /// </param>
+    HRESULT GetScanline0AndPitch(
+        [out, annotation("_Out_")] BYTE**    pbScanline0,
+        [out, annotation("_Out_")] LONG*     plPitch
+        );
+
+    /// <summary>
+    ///     The IsContignousFormat method returns a BOOL value which is TRUE if the buffer is in contiguous format and FALSE if it is not in contiguous format.
+    /// </summary>
+    /// <param name="pfIsContiguous">
+    ///     Pointer to where the BOOL value saying whether the buffer is in contiguous format will be stored.
+    /// </param>
+    HRESULT IsContiguousFormat(
+        [out, annotation("_Out_")] BOOL*     pfIsContiguous
+        );
+
+    /// <summary>
+    ///     The GetContiguousLength method returns the number of bytes required store the buffer contents in contiguous format.
+    /// </summary>
+    /// <param name="pcbLength">
+    ///     Pointer to where the count of bytes needed to store the buffer contents in contiguous will be stored.
+    /// </param>
+    HRESULT GetContiguousLength(
+        [out, annotation("_Out_")] DWORD*    pcbLength
+        );
+
+    /// <summary>
+    ///     The ContiguousCopyTo method copies the contents of the buffer into the caller's buffer in contiguous format.
+    /// </summary>
+    /// <param name="pbDestBuffer">
+    ///     Pointer to where to store the contiguous data to.
+    /// </param>
+    /// <param name="cbDestBuffer">
+    ///     Number of bytes to copy.  This must match the value returned by GetContiguousLength.  If it doesn't this method returns E_INVALIDARG.
+    /// </param>
+    HRESULT ContiguousCopyTo(
+        [out, size_is(cbDestBuffer), annotation("_Out_writes_bytes_(cbDestBuffer)")] BYTE*      pbDestBuffer,
+        [in] DWORD      cbDestBuffer
+        );
+
+    /// <summary>
+    ///     The ContiguousCopyFrom method copies the contents of the caller's buffer which is in contiguous format into
+    ///     the buffer - correcting for the buffer's pitch as necessary.
+    /// </summary>
+    /// <param name="pbSrcBuffer">
+    ///     Pointer to where to copy the contiguous from.
+    /// </param>
+    /// <param name="cbSrcBuffer">
+    ///     Number of bytes to copy.  This must match the value returned by GetContiguousLength.  If it doesn't this method returns E_INVALIDARG.
+    /// </param>
+    HRESULT ContiguousCopyFrom(
+        [in, size_is(cbSrcBuffer), annotation("_In_reads_bytes_(cbSrcBuffer)")] const BYTE* pbSrcBuffer,
+        [in] DWORD      cbSrcBuffer
+        );
+}
+
+typedef enum _MF2DBuffer_LockFlags
+{
+    MF2DBuffer_LockFlags_LockTypeMask       = 0x1 | 0x2 | 0x3,
+        MF2DBuffer_LockFlags_Read           = 0x1,
+        MF2DBuffer_LockFlags_Write          = 0x2,
+        MF2DBuffer_LockFlags_ReadWrite      = 0x3,
+
+    MF2DBuffer_LockFlags_ForceDWORD         = 0x7FFFFFFF
+} MF2DBuffer_LockFlags;
+
+[
+    object,
+    uuid(33ae5ea6-4316-436f-8ddd-d73d22f829ec),
+    local
+]
+interface IMF2DBuffer2 :  IMF2DBuffer
+{
+    HRESULT Lock2DSize(
+        [in,  annotation("_In_")] MF2DBuffer_LockFlags lockFlags,
+        [out, annotation("_Outptr_result_bytebuffer_(_Inexpressible_(ComputePlaneSize(*plPitch)))")] BYTE**    ppbScanline0,
+        [out, annotation("_Out_")] LONG*     plPitch,
+        [out, annotation("_Outptr_result_bytebuffer_(*pcbBufferLength)")] BYTE **ppbBufferStart,
+        [out, annotation ("_Out_")] DWORD *pcbBufferLength
+        );
+
+    HRESULT Copy2DTo(
+        [in,  annotation("_In_")] IMF2DBuffer2* pDestBuffer
+        );
+};
+
+[
+    object,
+    uuid(e7174cfa-1c9e-48b1-8866-626226bfc258),
+    local
+]
+interface IMFDXGIBuffer :  IUnknown
+{
+    HRESULT GetResource(
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_Outptr_")] LPVOID *ppvObject
+        );
+    HRESULT GetSubresourceIndex(
+        [out, annotation("_Out_")] UINT*     puSubresource
+        );
+
+    HRESULT GetUnknown(
+        [in, annotation("_In_")] REFIID guid,
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_Outptr_")] LPVOID *ppvObject
+        );
+    HRESULT SetUnknown( 
+        [in, annotation("_In_")] REFIID guid,
+        [in, annotation("_In_opt_")] IUnknown *pUnkData
+        );
+};
+
+[
+    object,
+        uuid(B25D03FB-D148-45EF-BFED-F778B7566C07),
+        local
+]
+interface IMFDXGICrossAdapterBuffer : IUnknown
+{
+    HRESULT GetResourceForDevice(
+        [in, annotation("_In_")] IUnknown* pUnkDevice,
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_COM_Outptr_")] LPVOID* ppvObject
+    );
+    HRESULT GetSubresourceIndexForDevice(
+        [in, annotation("_In_")] IUnknown* pUnkDevice,
+        [out, annotation("_Out_")] UINT* puSubresource
+    );
+    HRESULT GetUnknownForDevice(
+        [in, annotation("_In_")] IUnknown* pUnkDevice,
+        [in, annotation("_In_")] REFIID guid,
+        [in, annotation("_In_")] REFIID riid,
+        [out, annotation("_COM_Outptr_")] LPVOID* ppvObject
+    );
+    HRESULT SetUnknownForDevice(
+        [in, annotation("_In_")] IUnknown* pUnkDevice,
+        [in, annotation("_In_")] REFIID guid,
+        [in, annotation("_In_opt_")] IUnknown* pUnkData
+    );
+};
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Media Types
+//
+////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(44ae0fa8-ea31-4109-8d2e-4cae4997c555)
+]
+interface IMFMediaType : IMFAttributes
+{
+    HRESULT GetMajorType(
+        [out] GUID* pguidMajorType
+        );
+
+    HRESULT IsCompressedFormat(
+        [out] BOOL* pfCompressed
+        );
+
+    HRESULT IsEqual(
+        [in] IMFMediaType* pIMediaType,
+        [out] DWORD* pdwFlags
+        );
+
+    [local]
+    HRESULT GetRepresentation(
+        [in] GUID guidRepresentation,
+        [out, annotation("_Out_")] LPVOID* ppvRepresentation
+        );
+
+    [local]
+    HRESULT FreeRepresentation(
+        [in] GUID guidRepresentation,
+        [in] LPVOID pvRepresentation
+        );
+
+};
+
+//
+// IsEqual flags
+//
+
+// for audio
+// major type match = both are audio
+// subtype match = format types match = iscompressed for both matches
+// format_data match = format blocks match exactly
+
+// for video
+// major type match = both are video
+// sub type match = bit format for both are the same
+// format type match = both of them have format blocks
+// format_data match = both format blocks match exactly
+
+cpp_quote( "#define MF_MEDIATYPE_EQUAL_MAJOR_TYPES  0x00000001" )
+cpp_quote( "#define MF_MEDIATYPE_EQUAL_FORMAT_TYPES 0x00000002" )
+cpp_quote( "#define MF_MEDIATYPE_EQUAL_FORMAT_DATA  0x00000004" )
+cpp_quote( "#define MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA  0x00000008" )
+cpp_quote( "" )
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(26a0adc3-ce26-4672-9304-69552edd3faf),
+    local
+]
+interface IMFAudioMediaType : IMFMediaType
+{
+    //
+    // This method has been deprecated, and its use should be avoided.
+    // There are no guarantees about how long the memory pointed to by the
+    // return value will be valid.
+    // Applications are advised to use MFCreateWaveFormatExFromMFMediaType()
+    // instead.
+    //
+    const WAVEFORMATEX* GetAudioFormat();
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//
+// BITMAPINFOHEADER and BITMAPINFO
+//
+cpp_quote("#ifndef _WINGDI_")
+
+// RGBQUAD definition
+
+#ifndef RGBQUAD
+
+typedef DWORD RGBQUAD;
+
+#endif // RGBQUAD
+
+typedef struct
+{
+
+    DWORD      biSize;
+    LONG       biWidth;
+    LONG       biHeight;
+    WORD       biPlanes;
+    WORD       biBitCount;
+    DWORD      biCompression;
+    DWORD      biSizeImage;
+    LONG       biXPelsPerMeter;
+    LONG       biYPelsPerMeter;
+    DWORD      biClrUsed;
+    DWORD      biClrImportant;
+
+} BITMAPINFOHEADER;
+
+typedef struct
+{
+    BITMAPINFOHEADER    bmiHeader;
+    RGBQUAD             bmiColors[1];
+
+} BITMAPINFO;
+
+cpp_quote("#endif")
+cpp_quote("")
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+//
+// New version of MFT_REGISTER_TYPE_INFO for MF
+//
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef struct 
+{
+    GUID    guidMajorType;
+    GUID    guidSubtype;
+} MFT_REGISTER_TYPE_INFO;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//
+// Video mediatype-related definitions
+//
+
+
+cpp_quote( "#if !defined( _MFVIDEOFORMAT_ )" )
+cpp_quote( "#define _MFVIDEOFORMAT_" )
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef enum _MFVideoInterlaceMode
+{
+    // This is an invalid flag and will be deleted before release
+    MFVideoInterlace_Unknown                    = 0,
+
+    MFVideoInterlace_Progressive                = 2,
+    MFVideoInterlace_FieldInterleavedUpperFirst = 3,
+    MFVideoInterlace_FieldInterleavedLowerFirst = 4,
+    MFVideoInterlace_FieldSingleUpper           = 5,
+    MFVideoInterlace_FieldSingleLower           = 6,
+    MFVideoInterlace_MixedInterlaceOrProgressive= 7,
+
+    MFVideoInterlace_Last,
+    MFVideoInterlace_ForceDWORD         = 0x7FFFFFFF
+} MFVideoInterlaceMode;
+
+// Obsolete flags that should not be used.
+cpp_quote("#define MFVideoInterlace_FieldSingleUpperFirst MFVideoInterlace_FieldSingleUpper")
+cpp_quote("#define MFVideoInterlace_FieldSingleLowerFirst MFVideoInterlace_FieldSingleLower")
+
+typedef enum _MFVideoTransferFunction
+{
+    MFVideoTransFunc_Unknown = 0,
+    MFVideoTransFunc_10 = 1,
+    MFVideoTransFunc_18 = 2,
+    MFVideoTransFunc_20 = 3,
+    MFVideoTransFunc_22 = 4,
+    MFVideoTransFunc_709  = 5, // BT.1361
+    MFVideoTransFunc_240M = 6,
+    MFVideoTransFunc_sRGB = 7,
+    MFVideoTransFunc_28 = 8,
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    MFVideoTransFunc_Log_100 = 9,
+    MFVideoTransFunc_Log_316 = 10,
+    MFVideoTransFunc_709_sym = 11, // symmetric 709 (IEC 61966-2-4)
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+
+#if (WINVER >= _WIN32_WINNT_WINBLUE)
+    MFVideoTransFunc_2020_const = 12,  // Constant luminance BT.2020. Also: BT.2246
+    MFVideoTransFunc_2020 = 13,        // Non-constant luminance BT.2020.
+    MFVideoTransFunc_26 = 14,
+#endif // (WINVER >= _WIN32_WINNT_WINBLUE)
+
+#if (WINVER >= _WIN32_WINNT_WIN10)
+    MFVideoTransFunc_2084 = 15, // SMPTE ST 2084
+    MFVideoTransFunc_HLG = 16,  // Hybrid Log-Gamma, ARIB STD-B67
+#endif // (WINVER > _WIN32_WINNT_WIN10)
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS4) 
+    MFVideoTransFunc_10_rel = 17, // No gamma, display referred (relative) 
+#endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS4) */
+
+    MFVideoTransFunc_BT1361_ECG = 18, // BT.1361 Extended Color Gamut
+    MFVideoTransFunc_SMPTE428 = 19, // SMPTE ST 428-1
+
+    MFVideoTransFunc_Last,
+    MFVideoTransFunc_ForceDWORD         = 0x7FFFFFFF
+} MFVideoTransferFunction;
+
+typedef enum _MFVideoPrimaries
+{
+    MFVideoPrimaries_Unknown = 0,
+    MFVideoPrimaries_reserved = 1,
+    MFVideoPrimaries_BT709 = 2,
+    MFVideoPrimaries_BT470_2_SysM = 3,
+    MFVideoPrimaries_BT470_2_SysBG = 4,
+    MFVideoPrimaries_SMPTE170M = 5,      // includes BT.601-5
+    MFVideoPrimaries_SMPTE240M = 6,
+    MFVideoPrimaries_EBU3213 = 7,
+    MFVideoPrimaries_SMPTE_C = 8,
+
+#if (WINVER >= _WIN32_WINNT_WINBLUE)
+    MFVideoPrimaries_BT2020 = 9,
+    MFVideoPrimaries_XYZ = 10, // SMPTE ST 428-1
+#endif // (WINVER >= _WIN32_WINNT_WINBLUE)
+
+#if (WINVER >= _WIN32_WINNT_WIN10)
+    MFVideoPrimaries_DCI_P3 = 11, // SMPTE RP 431-2
+    MFVideoPrimaries_ACES = 12,
+#endif // (WINVER > _WIN32_WINNT_WIN10)
+
+    MFVideoPrimaries_Display_P3 = 13, // SMPTE EG 432-1
+
+    MFVideoPrimaries_Last,
+    MFVideoPrimaries_ForceDWORD         = 0x7FFFFFFF
+} MFVideoPrimaries;
+
+typedef enum _MFVideoLighting
+{
+    MFVideoLighting_Unknown = 0,
+    MFVideoLighting_bright=1,
+    MFVideoLighting_office=2,
+    MFVideoLighting_dim=3,
+    MFVideoLighting_dark=4,
+
+    MFVideoLighting_Last,
+    MFVideoLighting_ForceDWORD         = 0x7FFFFFFF
+} MFVideoLighting;
+
+typedef enum _MFVideoTransferMatrix
+{
+    MFVideoTransferMatrix_Unknown     = 0,
+    MFVideoTransferMatrix_BT709 = 1,
+    MFVideoTransferMatrix_BT601 = 2,
+    MFVideoTransferMatrix_SMPTE240M   = 3,
+
+#if (WINVER >= _WIN32_WINNT_WINBLUE)
+    MFVideoTransferMatrix_BT2020_10 = 4,
+    MFVideoTransferMatrix_BT2020_12 = 5,
+#endif // (WINVER >= _WIN32_WINNT_WINBLUE)
+
+    MFVideoTransferMatrix_Identity = 6,
+    MFVideoTransferMatrix_FCC47 = 7, // FCC Title 47
+    MFVideoTransferMatrix_YCgCo = 8, // IEC 23091-2
+    MFVideoTransferMatrix_SMPTE2085 = 9, // SMPTE ST 2085
+    MFVideoTransferMatrix_Chroma = 10, // Chromacity-derived, non-constant luminance, IEC 23091-2
+    MFVideoTransferMatrix_Chroma_const = 11, // Chromacity-derived, constant luminance, IEC 23091-2
+    MFVideoTransferMatrix_ICtCp = 12, // BT.2100 ICtCp
+
+    MFVideoTransferMatrix_Last,
+    MFVideoTransferMatrix_ForceDWORD            = 0x7FFFFFFF
+} MFVideoTransferMatrix;
+
+typedef enum _MFVideoChromaSubsampling
+{
+    MFVideoChromaSubsampling_Unknown = 0,
+    MFVideoChromaSubsampling_ProgressiveChroma = 0x8,
+    MFVideoChromaSubsampling_Horizontally_Cosited = 0x4, // bit 2
+    MFVideoChromaSubsampling_Vertically_Cosited = 0x2,   // bit 1
+    MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes = 0x1, // bit 0, can only be 0 if vertically cosited
+
+    // 4:2:0 variations
+    MFVideoChromaSubsampling_MPEG2  =   MFVideoChromaSubsampling_Horizontally_Cosited |
+                                        MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes,
+
+    MFVideoChromaSubsampling_MPEG1  =   MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes,
+
+    MFVideoChromaSubsampling_DV_PAL  =  MFVideoChromaSubsampling_Horizontally_Cosited |
+                                        MFVideoChromaSubsampling_Vertically_Cosited,
+    // 4:4:4, 4:2:2, 4:1:1
+    MFVideoChromaSubsampling_Cosited =  MFVideoChromaSubsampling_Horizontally_Cosited |
+                                        MFVideoChromaSubsampling_Vertically_Cosited |
+                                        MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes,
+
+    MFVideoChromaSubsampling_Last = MFVideoChromaSubsampling_Cosited+1,
+    MFVideoChromaSubsampling_ForceDWORD         = 0x7FFFFFFF
+} MFVideoChromaSubsampling;
+
+typedef enum _MFNominalRange
+{
+    MFNominalRange_Unknown = 0,
+    MFNominalRange_Normal = 1,
+    MFNominalRange_Wide = 2,
+
+    // explicit range forms
+    MFNominalRange_0_255 = 1,
+    MFNominalRange_16_235 = 2,
+    MFNominalRange_48_208 = 3,
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    MFNominalRange_64_127 = 4,
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+
+    MFNominalRange_Last,
+    MFNominalRange_ForceDWORD            = 0x7FFFFFFF
+} MFNominalRange;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+typedef enum _MFVideoFlags {
+    // static flags
+    MFVideoFlag_PAD_TO_Mask =        0x0001 | 0x0002,
+        MFVideoFlag_PAD_TO_None =    0*0x0001,
+        MFVideoFlag_PAD_TO_4x3 =     1*0x0001,
+        MFVideoFlag_PAD_TO_16x9 =    2*0x0001,
+
+    MFVideoFlag_SrcContentHintMask = 0x0004 | 0x0008 | 0x0010,
+        MFVideoFlag_SrcContentHintNone =  0*0x0004,
+        MFVideoFlag_SrcContentHint16x9 =  1*0x0004,
+        MFVideoFlag_SrcContentHint235_1 = 2*0x0004,
+
+    // static/dynamic flags
+    MFVideoFlag_AnalogProtected =       0x0020,
+    MFVideoFlag_DigitallyProtected =    0x0040,
+
+    // dynamic flags
+    MFVideoFlag_ProgressiveContent =    0x0080,
+    MFVideoFlag_FieldRepeatCountMask =  0x0100 | 0x0200 | 0x0400,
+        MFVideoFlag_FieldRepeatCountShift = 8,
+    MFVideoFlag_ProgressiveSeqReset =   0x0800,
+    MFVideoFlag_PanScanEnabled =        0x20000,
+    MFVideoFlag_LowerFieldFirst =       0x40000,
+    MFVideoFlag_BottomUpLinearRep =     0x80000,
+
+    // ******************************************
+    // static surface creation flags - UNAPPROVED
+    // --------------- DO NOT USE ---------------
+    // ******************************************
+    MFVideoFlags_DXVASurface =         0x100000,
+    MFVideoFlags_RenderTargetSurface = 0x400000,
+
+    MFVideoFlags_ForceQWORD         = 0x7FFFFFFF
+} MFVideoFlags;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef struct _MFRatio
+{
+    DWORD                   Numerator;
+    DWORD                   Denominator;
+} MFRatio;
+
+// number = value + fract/65535f
+typedef struct _MFOffset {
+  WORD  fract;
+  short value;
+} MFOffset;
+
+typedef struct _MFVideoArea
+{
+    MFOffset                OffsetX;
+    MFOffset                OffsetY;
+    SIZE                    Area;
+} MFVideoArea;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+typedef struct _MFVideoInfo
+{
+    DWORD                   dwWidth;
+    DWORD                   dwHeight;
+
+    MFRatio                 PixelAspectRatio;
+    MFVideoChromaSubsampling SourceChromaSubsampling;
+    MFVideoInterlaceMode    InterlaceMode;
+    MFVideoTransferFunction TransferFunction;
+    MFVideoPrimaries        ColorPrimaries;
+    MFVideoTransferMatrix   TransferMatrix;
+    MFVideoLighting         SourceLighting;
+    MFRatio                 FramesPerSecond;
+    MFNominalRange          NominalRange;
+    MFVideoArea             GeometricAperture;
+    MFVideoArea             MinimumDisplayAperture;
+    MFVideoArea             PanScanAperture;
+    unsigned __int64        VideoFlags;
+} MFVideoInfo;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef struct __MFAYUVSample {
+    BYTE bCrValue;
+    BYTE bCbValue;
+    BYTE bYValue;
+    BYTE bSampleAlpha8;
+} MFAYUVSample;
+
+typedef struct _MFARGB
+{
+    BYTE rgbBlue;
+    BYTE rgbGreen;
+    BYTE rgbRed;
+    BYTE rgbAlpha;
+} MFARGB;
+
+typedef union _MFPaletteEntry {
+    MFARGB      ARGB;
+    MFAYUVSample    AYCbCr;
+} MFPaletteEntry;
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) // Disable C4820: padding after data member")
+cpp_quote("#endif")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+typedef struct _MFVideoSurfaceInfo
+{
+    DWORD           Format;
+    DWORD           PaletteEntries;
+    [size_is(PaletteEntries)] MFPaletteEntry  Palette[];
+} MFVideoSurfaceInfo;
+
+typedef struct _MFVideoCompressedInfo
+{
+    LONGLONG              AvgBitrate;
+    LONGLONG              AvgBitErrorRate;
+    DWORD                 MaxKeyFrameSpacing;
+} MFVideoCompressedInfo;
+
+typedef struct _MFVIDEOFORMAT
+{
+    DWORD                   dwSize;             // includes palette
+    MFVideoInfo             videoInfo;
+
+    GUID                    guidFormat;         // compressed (4CC & other) & uncompressed (4CC/D3DFMT)
+                                                // compressed if surfaceInfo.Format = 0
+                                                // If uncompressed, then guidFormat.Data1 is mirrored in surfaceInfo.Format
+    MFVideoCompressedInfo   compressedInfo;
+    MFVideoSurfaceInfo      surfaceInfo;
+    // optional Palette[256] (in surfaceInfo)
+} MFVIDEOFORMAT;
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1600)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+//
+// Init helper functions for common video standards
+//
+typedef enum _MFStandardVideoFormat
+{
+    MFStdVideoFormat_reserved = 0,
+    MFStdVideoFormat_NTSC,
+    MFStdVideoFormat_PAL,
+    MFStdVideoFormat_DVD_NTSC,
+    MFStdVideoFormat_DVD_PAL,
+    MFStdVideoFormat_DV_PAL,
+    MFStdVideoFormat_DV_NTSC,
+    MFStdVideoFormat_ATSC_SD480i,
+    MFStdVideoFormat_ATSC_HD1080i,
+    MFStdVideoFormat_ATSC_HD720p,
+} MFStandardVideoFormat;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote( "#endif" )
+cpp_quote( "" )
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(b99f381f-a8f9-47a2-a5af-ca3a225a3890),
+    local
+]
+interface IMFVideoMediaType : IMFMediaType
+{
+    //
+    // This method has been deprecated, and its use should be avoided.
+    // There are no guarantees about how long the memory pointed to by the
+    // return value will be valid.
+    // Applications are advised to use MFCreateMFVideoFormatFromMFMediaType()
+    // instead.
+    //
+    const MFVIDEOFORMAT* GetVideoFormat();
+
+    // translation service to other formats such as FORMAT_VideoInfo
+    HRESULT GetVideoRepresentation(
+        [in] GUID guidRepresentation,
+        [out, annotation("_Out_")] LPVOID* ppvRepresentation,
+        [in] LONG lStride
+        );
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Asynchronous model
+//
+////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(ac6b7889-0740-4d51-8619-905994a55cc6)
+]
+/// <summary>
+///     This interface is used to represent the result from an asynchronous
+///     operation.
+///     For most Media Foundation components and applications that need to 
+///     create an IMFAsyncResult implementation, MFCreateAsyncResult, which
+///     instantiates the MF implementation of this interface, will suffice.
+///     Any implementation of IMFAsyncResult must inherit from the
+///     MFASYNCRESULT structure defined in mfapi.h
+/// </summary>
+interface IMFAsyncResult : IUnknown
+{
+    /// <summary>
+    ///     Retrieves an IUnknown pointer to the state object associated with
+    ///     the asynchronous operation, if any.
+    ///     If there is no associated state, then *ppunkState is set to NULL.
+    /// </summary>
+    HRESULT GetState(
+        [out] IUnknown** ppunkState);
+
+    /// <summary>
+    ///     Returns an HRESULT indicating the success or failure of the 
+    ///     asynchronous operation
+    /// </summary>
+    HRESULT GetStatus();
+
+    /// <summary>
+    ///     Sets the HRESULT status code to indicate the success or failure
+    ///     of the asynchronous operation.  
+    /// </summary>
+    HRESULT SetStatus(
+        [in] HRESULT hrStatus);
+
+    /// <summary>
+    ///     Retrieves an IUnknown pointer to the object associated with the
+    ///     asynchronous operation, if any.
+    ///     If there is no associated object, then *ppunkObject is set to NULL.
+    /// </summary>
+    HRESULT GetObject(
+        [out] IUnknown ** ppObject);
+
+    /// <summary>
+    ///     Returns an IUnknown pointer to the state object associated with
+    ///     the asynchronous operation, if any, without incrementing its
+    ///     reference count
+    /// </summary>
+    [local] IUnknown * GetStateNoAddRef();
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(a27003cf-2354-4f2a-8d6a-ab7cff15437e),
+]
+/// <summary>
+///     This interface is used to represent the callback object which will 
+///     receive notification of the completion of an asynchronous operation.
+/// </summary>
+interface IMFAsyncCallback : IUnknown
+{
+    /// <summary>
+    ///     The GetParameters method allows the asynchronous callback implementer to provide configuration
+    ///     information to the callback dispatching mechanism.
+    /// </summary>
+    /// <param name="pdwFlags">
+    ///     Pointer to a 32 bit value containing the flags. Default value is no flags set.
+    ///     The following flags are currently defined:
+    ///     <para>
+    ///         MFASYNC_FAST_IO_PROCESSING_CALLBACK:
+    ///             The callback should do very minimal processing (take less than 1 millisecond to complete).
+    ///             Longer processing may block device I/O and cause data to be lost or retrieved from or sent to a device late..
+    ///     </para>
+    ///     <para>
+    ///         MFASYNC_SIGNAL_CALLBACK:
+    ///             Implies MFASYNC_FAST_IO_PROCESSING_CALLBACK, with the additional restriction that the callback
+    ///             does no processing (take much less than 50 microseconds) and the only system call it may make is to SetEvent().
+    ///     </para>
+    ///     If no flag is set and this callback is not specifically for the long function work queue, the callback should not take a long time to complete (greater than 30ms).
+    ///     Longer processing may block other callbacks that need to happen in a timely manner during multimedia processing.
+    /// </param>
+    /// <param name="pdwQueue">
+    ///     Pointer to a double word containing a hint on how to dispatch the callback.  Default value is MFASYNC_CALLBACK_QUEUE_STANDARD.
+    ///     The following dispatch hint is currently defined:
+    ///         MFASYNC_CALLBACK_QUEUE_STANDARD
+    /// </param>
+    /// <remarks>
+    ///     The callback dispatcher calls this method to determine configuration information for dispatching the callback.
+    ///     If this function returns E_NOTIMPL, the callback dispatcher uses default configuration values.
+    ///     If the callback wants to mark itself as "realtime safe", it should implement the IRealtime interface, as defined
+    ///     in the Media Foundation RealTime Specification.  This will place additional restrictions on what the callback's Invoke method may do.
+    /// </remarks>
+    HRESULT GetParameters(
+        [out] DWORD* pdwFlags,
+        [out] DWORD* pdwQueue
+        );
+
+    /// <summary>
+    ///     The Invoke method is called to indicate that the asynchronous operation has completed,
+    ///     and to give the callback implementer the result object which can be used to retrieve the output data via a call to EndXXX.
+    /// </summary>
+    /// <param name="pAsyncResult">
+    ///     Pointer to an async result object
+    /// </param>
+    HRESULT Invoke(
+        [in] IMFAsyncResult* pAsyncResult
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(c7a4dca1-f5f0-47b6-b92b-bf0106d25791),
+    local
+]
+/// <summary>
+///     This interface is used to return logging information about the object.
+//      It is primarily for async callbacks to return an ID of the parent object that they are associated with
+/// </summary>
+interface IMFAsyncCallbackLogging : IMFAsyncCallback
+{
+    void*   GetObjectPointer();
+    DWORD   GetObjectTag();
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+//
+// Async callback flags
+//
+
+cpp_quote( "#define MFASYNC_FAST_IO_PROCESSING_CALLBACK 0x00000001" )
+cpp_quote( "#define MFASYNC_SIGNAL_CALLBACK 0x00000002" )
+cpp_quote( "#define MFASYNC_BLOCKING_CALLBACK 0x00000004" )
+cpp_quote( "#define MFASYNC_REPLY_CALLBACK 0x00000008" )            // Callback will reply via IMFAsyncCallback in GetObject()
+cpp_quote( "#define MFASYNC_LOCALIZE_REMOTE_CALLBACK 0x00000010" )  // The callback object is not apartment-agile and the callback pointer must be localized after an RPC
+
+//
+// Async callback invocation queue IDs
+//
+
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_UNDEFINED              0x00000000" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_STANDARD               0x00000001" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_RT                     0x00000002" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_IO                     0x00000003" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_TIMER                  0x00000004" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_MULTITHREADED          0x00000005" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_LONG_FUNCTION          0x00000007" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_PRIVATE_MASK           0xFFFF0000" )
+cpp_quote( "#define MFASYNC_CALLBACK_QUEUE_ALL                    0xFFFFFFFF" )
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Events
+//
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+///     Media Foundation media event types
+/// </summary>
+enum
+{
+    //-------------------------------------------------------------------------
+    // generic events
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEUnknown">
+    ///     Unknown event type.  Do not use for legitimate events.
+    /// </member>
+    MEUnknown = 0,
+
+    /// <member name="MEError">
+    ///     Any component can send MEError event at any time to notify
+    ///     about a fatal failure.
+    /// </member>
+    MEError = 1,
+
+    /// <member name="MEExtendedType">
+    ///     Extensible event type.  Use the extended event type
+    ///     (IMFMediaEvent::GetExtendedType)
+    /// </member>
+    MEExtendedType = 2,
+
+    /// <member name="MENonFatalError">
+    ///     Any component can send MENonFatalError event at any time to notify
+    ///     about a non-fatal error.
+    /// </member>
+    MENonFatalError = 3,
+
+    /// <member name="MEGenericV1Anchor">
+    ///     Last generic event for v1.  Do not add or remove events above this one.
+    /// </member>
+    MEGenericV1Anchor = MENonFatalError,
+
+    //-------------------------------------------------------------------------
+    // Media Session events:
+    // Events of interest to applications using the Media Session
+    //-------------------------------------------------------------------------
+
+
+    /// <member name="MESessionUnknown">
+    ///     Unknown event type.  Do not use for legitimate events.
+    /// </member>
+    MESessionUnknown = 100,
+
+    /// <member name="MESessionTopologySet">
+    ///     Media Session response to IMFMediaSession::SetTopology.
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFTopology * for the full topology that was set
+    /// </member>
+    MESessionTopologySet = 101,
+
+    /// <member name="MESessionTopologiesCleared">
+    ///     Media Session response to IMFMediaSession::ClearTopologies
+    /// </member>
+    MESessionTopologiesCleared = 102,
+
+    /// <member name="MESessionStarted">
+    ///     Media Session response to IMFMediaSession::Start
+    ///  
+    ///     MF_EVENT_PRESENTATION_TIME_OFFSET:
+    ///         Indicates the offset between presentation time and original
+    ///         content timestamps (source time) for this presentation.
+    ///         Applications may prefer to display source time
+    ///         for their UI and should use this value to do so.
+    ///         The relationship between presentation time and source time is:
+    ///             PresentationTimeOffset = PresentationTime - SourceTime
+    ///
+    /// </member>
+    MESessionStarted = 103,
+
+    /// <member name="MESessionPaused">
+    ///     Media Session response to IMFMediaSession::Pause
+    /// </member>
+    MESessionPaused = 104,
+
+    /// <member name="MESessionStopped">
+    ///     Media Session response to IMFMediaSession::Stop
+    /// </member>
+    MESessionStopped = 105,
+
+    /// <member name="MESessionClosed">
+    ///     Media Session response to IMFMediaSession::Close
+    /// </member>
+    MESessionClosed = 106,
+
+    /// <member name="MESessionEnded">
+    ///     Media Session sends when it has reached the end of
+    ///     the presentation(s).  Pipeline will then enter the
+    ///     stopped state
+    /// </member>
+    MESessionEnded = 107,
+
+    /// <member name="MESessionRateChanged">
+    ///     Media Session response to IMFRateControl::SetRate on its
+    ///     rate control service
+    ///     Value:
+    ///         VT_R4
+    ///         New rate
+    /// </member>
+    MESessionRateChanged = 108,
+
+    /// <member name="MESessionScrubSampleComplete">
+    ///     Media Session response to IMFMediaSession::Start when the
+    ///     rate is set to 0 ("scrubbing").  This means that a frame
+    ///     for the specified time has been displayed
+    /// </member>
+    MESessionScrubSampleComplete = 109,
+
+    /// <member name="MESessionCapabilitiesChanged">
+    ///     Media Session sends this events whenever there is an update to
+    ///     its capabilities
+    ///     Attributes:
+    ///     MF_EVENT_SESSIONCAPS:
+    ///         Combination of MFSESSIONCAP_xxx bitflags
+    ///     MF_EVENT_SESSIONCAPS_DELTA:
+    ///         Delta between the previous session capabilities and the
+    ///         current ones
+    /// </member>
+    MESessionCapabilitiesChanged = 110,
+
+    /// <member name="MESessionTopologyStatus">
+    ///     Media Session sends this informational event to report the 
+    ///     status of the associated topology to the application
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFTopology * for the full topology whose status this is
+    ///     Attributes:
+    ///     MF_EVENT_TOPOLOGY_STATUS:
+    ///         Status of this topology.  See the MF_TOPOSTATUS enumerated
+    ///         type values for details.
+    /// </member>
+    MESessionTopologyStatus = 111,
+
+    /// <member name="MESessionNotifyPresentationTime">
+    ///     This event is sent by the Media Session whenever a a new topology
+    ///     is started.  It indicates when the presentation will start
+    ///     and the offset between presentation time and the original content's
+    ///     timestamps.
+    ///     Attributes:
+    ///     MF_EVENT_START_PRESENTATION_TIME:
+    ///         Time (in terms of Presentation Clock time) this topology
+    ///         will start
+    ///     MF_EVENT_START_PRESENTATION_TIME_AT_OUTPUT
+    ///         Indicates presentation time when sink is going to render the first sample of new topology
+    ///         If any nodes in topology are buffering, MF_EVENT_OUTPUT_PRESENTATION_TIME will be smaller then
+    ///         MF_EVENT_PRESENTATION_TIME
+    ///     MF_EVENT_PRESENTATION_TIME_OFFSET:
+    ///         Indicates the offset between presentation time and original
+    ///         content timestamps (source time) for this presentation.
+    ///         Applications may prefer to display source time
+    ///         for their UI and should use this value to do so.
+    ///         The relationship between presentation time and source time is:
+    ///             PresentationTimeOffset = PresentationTime - SourceTime
+    /// </member>
+    MESessionNotifyPresentationTime = 112,
+
+    /// <member name="MENewPresentation">
+    ///     This event originates from a multiple-presentations Media Source and
+    ///     is forwarded to the application by the Media Session.
+    ///     Application can obtain the corresponding topology from
+    ///     the IMFMediaSourceTopologyProvider interface on the Media Source
+    ///     and queue this topology at the Media Session via
+    ///     IMFMediaSession::SetTopology.
+    ///     Value: 
+    ///         VT_UNKNOWN
+    ///             IMFPresentationDescriptor * for the new presentation. 
+    ///     Attributes:
+    ///     There are no attributes corresponding to the MENewPresentation 
+    ///     event; however, the following attribute may be present on 
+    ///     the IMFPresentationDescriptor * associated with this event.
+    ///     MF_PD_PLAYBACK_ELEMENT_ID:
+    ///         This is an optional attribute for Media Sources with playlist-
+    ///         style content.  Its value indicates which playlist element
+    ///         this presentation corresponds.
+    ///         When the application uses this PresentationDescriptor to build
+    ///         a new topology, it should transfer this attribute value to
+    ///         the topology that it builds.
+    ///         Example: Suppose the Media Source is sourcing Element1, 
+    ///         Element2, Element3 in sequence.  The Presentation Descriptors 
+    ///         for the MENewPresentation events announcing each of these 
+    ///         should have different values for this attribute.
+    ///         However, if the Media Source is firing 
+    ///         MENewPresentation to announce a presentation change on a 
+    ///         particular element, such as some kind of dynamic stream switch 
+    ///         or addition/removal, this value should remain the same to 
+    ///         indicate that it is the same actual element.
+    ///         Note that this is very similar in intent to the IMFTopologyNode
+    ///         attribute MF_TOPONODE_SEQUENCE_ELEMENTID.  Media Sources that
+    ///         provide topologies (i.e. that implement 
+    ///         IMFMediaSourceTopologyProvider) should use that mechanism
+    ///         instead, since, unlike this attribute, it will be recognized 
+    ///         by MF on Windows Vista.
+    ///         If two consecutive presentations have the same value for this
+    ///         attribute, the MF pipeline will expect their timestamps to
+    ///         remain continuous across the transition; therefore, the
+    ///         Media Source should _not_ use the MF_EVENT_SOURCE_ACTUAL_START
+    ///         when rolling to the next presentation.
+    ///         Media Sources that set this attribute on the 
+    ///         IMFPresentationDescriptors accompanying MENewPresentation events
+    ///         should also set it on the IMFPresentationDescriptor produced
+    ///         by IMFMediaSource::CreatePresentationDescriptor.
+    ///     MF_PD_PLAYBACK_BOUNDARY_TIME:
+    ///         This is an optional attribute for Media Sources with playlist-
+    ///         style content.  Its value indicates where (in Media Source time)
+    ///         this presentation actually starts.  
+    ///         When the application uses this PresentationDescriptor to build
+    ///         a new topology, it should transfer this attribute value to
+    ///         the topology that it builds.
+    ///         Example: Suppose that the Media Source is sourcing Element1,
+    ///         Element2, Element3 in sequence.  In the middle of Element1, 
+    ///         there is a dynamic stream change (or addition/removal) at t=15.
+    ///         However, in the new stream, the nearest previous keyframe is
+    ///         at t=12, and therefore the Media Source will start sourcing
+    ///         this stream from t=12 after the transition.  What we want here
+    ///         is a markin that will drop the decoded samples in [12, 15).
+    ///         The MENewPresentation event for this change, in addition to
+    ///         carrying a value MF_PD_PLAYBACK_ELEMENT_ID=1 as described
+    ///         above, would also carry MF_PD_BOUNDARY_TIME=150000000, to 
+    ///         indicate that this happens at t=15.  The Media Processor will
+    ///         perform a markin at t=15 (usually right after decoding), and 
+    ///         this will prevent the t=12...15 frames from being displayed.
+    ///         Note that this is very similar in intent to the IMFTopologyNode
+    ///         attribute MF_TOPONODE_MEDIASTART.  Media Sources that provide
+    ///         topologies (i.e. that implement IMFMediaSourceTopologyProvider)
+    ///         should use that mechanism instead, since, unlike this attribute,
+    ///         it will be recognized by MF on Windows Vista.
+    ///         This value does not affect how the MF pipeline adjusts 
+    ///         timestamps; it affects only markin time.
+    ///         This attribute will be ignored unless the Media Source 
+    ///         indicates, by means of the MF_PD_PLAYBACK_ELEMENT_ID attribute
+    ///         described above, that this presentation is the same playback
+    ///         element as the previous one.
+    /// </member>
+    MENewPresentation = 113,
+
+    /// <member name="MELicenseAcquisitionStart">
+    ///     Indicates that license acquisition is about to begin.
+    ///     License acquisition is done through the application-provided
+    ///     IMFContentProtectionManager
+    /// </member>
+    MELicenseAcquisitionStart = 114,
+
+    /// <member name="MELicenseAcquisitionCompleted">
+    ///     Indicates that license acquisition is complete
+    /// </member>
+    MELicenseAcquisitionCompleted = 115,
+
+    /// <member name="MEIndividualizationStart">
+    ///     Indicates that individualization is about to begin.
+    ///     Individualization is done through the application-provided
+    ///     IMFContentProtectionManager
+    /// </member>
+    MEIndividualizationStart = 116,
+
+    /// <member name="MEIndividualizationCompleted">
+    ///     Indicates that individualization is complete
+    /// </member>
+    MEIndividualizationCompleted = 117,
+
+    /// <member name="MEEnablerProgress">
+    ///     Optionally sent by the Input Trust Authority's implementation of
+    ///     IMFContentEnabler to the application-provided
+    ///     IMFContentProtectionManager.
+    ///     Value:
+    ///         VT_LPWSTR
+    ///         Progress update for the Content Enabler's current action
+    /// </member>
+    MEEnablerProgress = 118,
+
+    /// <member name="MEEnablerCompleted">
+    ///     Optionally sent by the Input Trust Authority's implementation of
+    ///     IMFContentEnabler to the application-provided
+    ///     IMFContentProtectionManager.
+    /// </member>
+    MEEnablerCompleted = 119,
+
+    /// <member name="MEPolicyError">
+    ///     Sent by any trusted component when an error is encountered enforcing
+    ///     the required content protection policy.
+    ///     This event is forwarded to the application by the Media Session,
+    ///     and the MF pipeline stops playback.
+    /// </member>
+    MEPolicyError = 120,
+
+    /// <member name="MEPolicyReport">
+    ///     Sent by trusted outputs to report on how the policy was applied.
+    ///     Attributes and status codes are specific to the content
+    ///     protection system being used.
+    /// </member>
+    MEPolicyReport = 121,
+
+    /// <member name="MEBufferingStarted">
+    ///     Indicates that the MF pipeline is pausing in order to buffer
+    ///     data as needed by one or more of its Media Sources.
+    /// </member>
+    MEBufferingStarted = 122,
+
+    /// <member name="MEBufferingStopped">
+    ///     Indicates that the MF pipeline is done buffering and will start
+    ///     playback
+    /// </member>
+    MEBufferingStopped = 123,
+
+    /// <member name="MEConnectStart">
+    ///     If the application provides an IMFSourceOpenMonitor callback,
+    ///     this event is delivered directly to that callback when the
+    ///     MF network source starts connecting to the media
+    /// </member>
+    MEConnectStart = 124,
+
+    /// <member name="MEConnectEnd">
+    ///     If the application provides an IMFSourceOpenMonitor callback,
+    ///     this event is delivered directly to that callback when the
+    ///     MF network source is done connecting to the media
+    /// </member>
+    MEConnectEnd = 125,
+
+    /// <member name="MEReconnectStart">
+    ///     Indicates that the Media Source is attempting to reconnect
+    ///     to the media
+    /// </member>
+    MEReconnectStart = 126,
+
+    /// <member name="MEReconnectStop">
+    ///     Indicates that the Media Source has finished reconnecting to
+    ///     the media
+    /// </member>
+    MEReconnectEnd = 127,
+
+
+    /// <member name="MERendererEvent">
+    ///     This event can be generated by a custom renderer.
+    ///     <para>
+    ///         Value: VT_I4
+    ///         This is the custom event code generated by the renderer.
+    ///     </para>
+    /// </member>
+    MERendererEvent = 128,
+
+    /// <member name="MESessionStreamSinkFormatChanged">
+    ///     This event is generated by the Media Session when a stream
+    ///     sink's format has changed.
+    ///     Attributes:
+    ///     MF_EVENT_OUTPUT_NODE
+    ///         The topology node id of the stream sink whose format changed.
+    /// </member>
+    MESessionStreamSinkFormatChanged = 129,
+
+    /// <member name="MESessionV1Anchor">
+    ///     Last session event for v1.  Do not add or remove events above this one.
+    /// </member>
+    MESessionV1Anchor = MESessionStreamSinkFormatChanged,
+
+    //-------------------------------------------------------------------------
+    // Media Source events:
+    // Events of interest to Media Source implementations or applications
+    // using Media Sources directly
+    //-------------------------------------------------------------------------
+
+    /// <member name="MESourceUnknown">
+    ///     Unknown event type.  Do not use for legitimate events.
+    /// </member>
+    MESourceUnknown = 200,
+
+    /// <member name="MESourceStarted">
+    ///     Media Source response to IMFMediaSource::Start for non-seeking
+    ///     starts.
+    ///     Value:
+    ///         VT_I8
+    ///         MFTIME for start time, relative to sample timestamps.
+    ///         Can be empty if the start is from the current position
+    ///         (i.e. the start time given to IMFMediaSource::Start was
+    ///         VT_EMPTY), and the Media Source is either already in the
+    ///         started state or is resuming playback from the paused state.
+    ///         Otherwise, this must be set to a valid value.
+    ///     Attributes:
+    ///         MF_EVENT_SOURCE_FAKE_START
+    ///             This attribute should be set by Media Sources that work
+    ///             with topologies (such as the MF Sequencer Source).
+    ///             That Media Source should set this attribute to a nonzero
+    ///             value if the topology currently being started will be
+    ///             empty (i.e. playback will not actually start from this
+    ///             topology)
+    ///         MF_EVENT_SOURCE_PROJECTSTART
+    ///             This attribute should be set by Media Sources that work
+    ///             with topologies (such as the MF Sequencer Source).
+    ///             If the topology from which we will be starting has an 
+    ///             MF_TOPOLOGY_PROJECTSTART attribute, then that Media Source 
+    ///             should set this attribute on the event to the same value.
+    ///         MF_EVENT_SOURCE_ACTUAL_START
+    ///             This attribute is relevant only if the value associated 
+    ///             with this MESourceStarted event is VT_EMPTY.
+    ///             Its value indicates the time (in terms of source time)
+    ///             at which this Media Source is started.
+    ///             For example, suppose a live Media Source is started at 
+    ///             "current position", and its timestamps will start at some
+    ///             unknown "current" point.  The MESourceStarted event will
+    ///             carry a VT_EMPTY value, since that is what was requested in
+    ///             IMFMediaSource::Start, but this attribute will indicate 
+    ///             where this Media Source is actually starting.
+    ///             If this attribute is absent and the MESourceStarted event
+    ///             carries a VT_EMPTY value, then this attribute's value
+    ///             should be assumed to be zero.
+    /// </member>
+    MESourceStarted = 201,
+
+    /// <member name="MEStreamStarted">
+    ///     Each Media Stream sends this event in response to
+    ///     IMFMediaSource::Start for a non-seeking start
+    ///     Value:
+    ///         VT_I8
+    ///         See description for MESourceStarted above
+    /// </member>
+    MEStreamStarted = 202,
+
+    /// <member name="MESourceSeeked">
+    ///     Media Source response to IMFMediaSource::Start for seeking starts.
+    ///     A start is considered to be a "seek" if the playback position
+    ///     is being changed and the Media Source is in the playing state
+    ///     or is resuming from the paused state.
+    ///     Value:
+    ///         VT_I8
+    ///         See description above for MESourceStarted event
+    ///     Attributes:
+    ///         See description above for MESourceStarted event
+    /// </member>
+    MESourceSeeked = 203,
+
+    /// <member name="MEStreamSeeked">
+    ///     Each Media Stream sends this event in response to
+    ///     IMFMediaSource::Start for a seeking start
+    ///     Value:
+    ///         VT_I8
+    ///         See description for MESourceStarted above
+    /// </member>
+    MEStreamSeeked = 204,
+
+    /// <member name="MENewStream">
+    ///     Media Source response to IMFMediaSource::Start.
+    ///     One such event is sent for each stream that is appearing for the
+    ///     first time in this start.
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFMediaStream * of new stream
+    /// </member>
+    MENewStream = 205,
+
+    /// <member name="MEUpdatedStream">
+    ///     Media Source response to IMFMediaSource::Start.
+    ///     One such event is sent for each stream in this start that has
+    ///     appeared in a previous start.
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFMediaStream * of stream
+    /// </member>
+    MEUpdatedStream = 206,
+
+    /// <member name="MESourceStopped">
+    ///     Media Source response to IMFMediaSource::Stop
+    /// </member>
+    MESourceStopped = 207,
+
+    /// <member name="MEStreamStopped">
+    ///     Each Media Stream sends this event in response to
+    ///     IMFMediaSource::Stop
+    /// </member>
+    MEStreamStopped = 208,
+
+    /// <member name="MESourcePaused">
+    ///     Media Source response to IMFMediaSource::Pause
+    /// </member>
+    MESourcePaused = 209,
+
+    /// <member name="MEStreamPaused">
+    ///     Each Media Stream sends this event in response to
+    ///     IMFMediaSource::Pause
+    /// </member>
+    MEStreamPaused = 210,
+
+    /// <member name="MEEndOfPresentation">
+    ///     This event originates from the Media Source and is forwarded
+    ///     to the application by the Media Session.
+    ///     It means that the final (or only) segment is finished.
+    ///     No action required from the application
+    /// </member>
+    MEEndOfPresentation = 211,
+
+    /// <member name="MEEndOfStream">
+    ///     Each Media Stream sends this event when it hits the end of
+    ///     the stream.
+    ///     The Media Streams of the sequencer Media Source will send
+    ///     this event at the end of each presentation.
+    /// </member>
+    MEEndOfStream = 212,
+
+    /// <member name="MEMediaSample">
+    ///     Sent by the Media Stream to deliver a new sample
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFSample * for the sample
+    /// </member>
+    MEMediaSample = 213,
+
+    /// <member name="MEStreamTick">
+    ///     Sent by a Media Stream to indicate that there will be no
+    ///     samples delivered on this stream until at least the indicated
+    ///     time.
+    ///     Value:
+    ///         VT_I8
+    ///         MFTIME (relative to sample timestamps) until which
+    ///         the Media Stream expects not to deliver any data
+    /// </member>
+    MEStreamTick = 214,
+
+    /// <member name="MEStreamThinMode">
+    ///     Sent to indicate that the stream is being thinned. A thinned stream
+    ///     delivers some samples but not all of them. An example
+    ///     is when a media source is only delivering key frames.
+
+    ///
+    ///     Value:
+    ///         VT_BOOL
+    ///         VARIANT_TRUE -- the following samples will be thinned
+    ///         VARIANT_FALSE -- the following samples are not being thinned
+    /// </member>
+    MEStreamThinMode = 215,
+
+    /// <member name="MEStreamFormatChanged">
+    ///     Sent by a Media Stream indicating a format change in the media stream.  
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFMediaType * for the new media type for the stream
+    /// </member>
+    MEStreamFormatChanged = 216,     
+
+    /// <member name="MESourceRateChanged">
+    ///     Media Source response to IMFRateControl::SetRate on its
+    ///     rate control service, if it exists
+    ///     Value:
+    ///         VT_R4
+    ///         New rate
+    /// </member>
+    MESourceRateChanged = 217,
+
+    //
+    // MENewPresentation
+    // Sent by the sequencer Media Source to notify the application of the
+    // next presentation in the sequence.
+    // This event is described in the "Media Session events" section above.
+    //
+
+    /// <member name="MEEndOfPresentationSegment">
+    ///     This event originates from a sequencer Media Source and is
+    ///     forwarded to the application by the Media Session.
+    ///     It means that the sequencer has finished a non-final segment and
+    ///     has moved onto the next one.
+    ///     No action required from the application.
+    ///     Attributes:
+    ///         MF_EVENT_SOURCE_TOPOLOGY_CANCELED
+    ///             If present and nonzero, that means that the presentation
+    ///             has ended because the Media Source has canceled this
+    ///             topology
+    /// </member>
+    MEEndOfPresentationSegment = 218,
+
+    /// <member name="MESourceCharacteristicsChanged">
+    ///     Sent by a Media Source if its characteristics change.
+    ///     Attributes:
+    ///     MF_EVENT_SOURCE_CHARACTERISTICS
+    ///         New IMFMediaSource characteristics bitflags
+    ///     MF_EVENT_SOURCE_CHARACTERISTICS_OLD
+    ///         Previous IMFMediaSource characteristics bitflags
+    /// </member>
+    MESourceCharacteristicsChanged = 219,
+
+    /// <member name="MESourceRateChangeRequested">
+    ///     Sent by a Media Source if it requires that the rate be changed
+    ///     A typical reason for sending this event would be if the Media
+    ///     Source cannot continue playback at the current rate.
+    ///     Value:
+    ///         VT_R4
+    ///         New rate requested by the Media Source
+    ///     Attributes:
+    ///         MF_EVENT_DO_THINNING
+    ///             If present and non-zero, this event is requesting
+    ///             that thinning at the new rate
+    /// </member>
+    MESourceRateChangeRequested = 220,
+
+    /// <member name="MESourceMetadataChanged">
+    ///     Sent by a Media Source if the metadata has been updated.
+    ///     Usually this happens when the Media Source can not provide
+    ///     all the metadata at startup.
+    /// </member>
+    MESourceMetadataChanged = 221,
+
+    /// <member name="MESequencerSourceTopologyUpdated">
+    ///     This event is sent in response to the asynchronous method 
+    ///     IMFSequncerSource::UpdateTopology. This is just a notification to 
+    ///     the application that the sequencer source is handling the 
+    ///     UpdateTopology request. The application should use the
+    ///     MESessionTopologyXXX events to see when the topology is actually
+    ///     ready for playback.
+    ///     <para>
+    ///         Value: VT_UI4
+    ///         The sequencer ID of the topology which was updated.
+    ///     </para>
+    /// </member>
+    MESequencerSourceTopologyUpdated = 222,
+    
+    /// <member name="MESourceV1Anchor">
+    ///     Last source event for v1.  Do not add or remove events above this one.
+    /// </member>
+    MESourceV1Anchor = MESequencerSourceTopologyUpdated,
+
+    //
+    // MEBufferingStarted
+    // Sent by Media Sources that need to buffer data while starting.
+    // The MF pipeline will pause until it receives MEBufferingStopped.
+    // This event is described in the "Media Session events" section above
+    //
+
+    //
+    // MEBufferingStopped
+    // Sent by Media Sources that need to buffer data while starting.
+    // The MF pipeline will enter the started state and begin playing.
+    // This event is described in the "Media Session events" section above
+    //
+
+    //
+    // MEReconnectStart
+    // Sent by a Media Source when it attempts to reconnect to the media
+    // This event is described in the "Media Session events" section above
+    //
+
+    //
+    // MEReconnectEnd
+    // Sent by a Media Source when it is done reconnecting to the media
+    // This event is described in the "Media Session events" section above
+    //
+
+    //-------------------------------------------------------------------------
+    // Media Sink events:
+    // Events of interest to IMFMediaSink implementations or applications
+    // that use Media Sinks directly
+    //-------------------------------------------------------------------------
+
+    /// <member name="MESinkUnknown">
+    ///     Unknown event type.  Do not use for legitimate events.
+    /// </member>
+    MESinkUnknown = 300,
+
+    /// <member name="MEStreamSinkStarted">
+    ///     Each Stream Sink sends this event in response to the
+    ///     IMFClockStateSink::OnClockStart call made on the Media Sink
+    /// </member>
+    MEStreamSinkStarted = 301,
+
+    /// <member name="MEStreamSinkStopped">
+    ///     Each Stream Sink sends this event in response to the
+    ///     IMFClockStateSink::OnClockStop call made on the Media Sink
+    /// </member>
+    MEStreamSinkStopped = 302,
+
+    /// <member name="MEStreamSinkPaused">
+    ///     Each Stream Sink sends this event in response to the
+    ///     IMFClockStateSink::OnClockPause call made on the Media Sink
+    /// </member>
+    MEStreamSinkPaused = 303,
+
+    /// <member name="MEStreamSinkRateChanged">
+    ///     Each Stream Sink sends this event in response to the
+    ///     IMFClockStateSink::OnClockRateChanged call made on the Media Sink
+    /// </member>
+    MEStreamSinkRateChanged = 304,
+
+    /// <member name="MEStreamSinkRequestSample">
+    ///     A Stream Sink sends this event to request for each sample
+    ///     that it wants delivered to IMFStreamSink::ProcessSample
+    /// </member>
+    MEStreamSinkRequestSample = 305,
+
+    /// <member name="MEStreamSinkMarker">
+    ///     A Stream Sink sends this event in response to
+    ///     IMFStreamSink::PlaceMarker, when it hits that marker.
+    ///     Markers should be processed in order with samples.
+    ///     Value:
+    ///         [Type determined by IMFStreamSink::PlaceMarker call]
+    ///         Copy of the PROPVARIANT passed into IMFStreamSink::PlaceMarker
+    ///         as the "context" for the marker
+    /// </member>
+    MEStreamSinkMarker = 306,
+
+    /// <member name="MEStreamSinkPrerolled">
+    ///     Each Stream Sink of a Media Sink that supports IMFMediaSinkPreroll
+    ///     sends this event when enough samples have been received through
+    ///     IMFStreamSinkProcessSample to preroll up to the time specified
+    ///     in IMFMediaSinkPreroll::NotifyPreroll
+    /// </member>
+    MEStreamSinkPrerolled = 307,
+
+    /// <member name="MEStreamSinkScrubSampleComplete">
+    ///     Each Stream Sink of a Media Sink that supports rate 0 sends
+    ///     this event when the rate is 0, as soon as a frame has been
+    ///     displayed for the time specified in IMFClockStateSink::OnClockStart.
+    ///     Sinks that support rate 0 but do not render anything will send
+    ///     back this event as soon as they receive the OnClockStart 
+    ///     notification.
+    ///     Attributes:
+    ///         MF_EVENT_SCRUBSAMPLE_TIME
+    ///             If present, indicates the presentation time for which
+    ///             a frame has been displayed.
+    ///             Sinks that do not render any data while in rate 0 should
+    ///             not set this attribute.
+    /// </member>
+    MEStreamSinkScrubSampleComplete = 308,
+
+    /// <member name="MEStreamSinkFormatChanged">
+    ///     Sent by a Stream Sink when the downstream format changes in such
+    ///     a way that will require the topology to be renegotiated.
+    /// </member>
+    MEStreamSinkFormatChanged = 309,
+
+    /// <member name="MEStreamSinkDeviceChanged">
+    ///     Sent by the Stream Sink of the Enhanced Video Renderer to
+    ///     indicate that the device has changed.  The MF pipeline responds
+    ///     to this event by resubmitting all sample requests that failed
+    ///     while the device was in the process of changing.
+    /// </member>
+    MEStreamSinkDeviceChanged = 310,
+
+    //
+    // MEStreamTick
+    // Stream Sinks can receive this event via IMFStreamSink::PlaceMarker.
+    // This tells the Stream Sink to expect a gap in the data until at least
+    // the event's PROPVARIANT value, which is given in terms of
+    // Presentation Clock time.
+    // In addition to optionally acting on this information, Stream Sinks
+    // should handle this marker like any other marker.
+    //
+
+    //
+    // MEPolicySet
+    // Stream Sinks that are Output Trust Authorities and set policy
+    // asynchronously should send this event.
+    // This event is described in the "Trust events" section below.
+    //
+
+    //
+    // MENetQualityReport
+    // Sent by Stream Sinks that send data out over the network to provide
+    // feedback on streaming
+    // This event is described in the "Media Session events" section above
+    //
+
+    /// <member name="MEQualityNotify">
+    ///     This event is generated by components which want to give a 
+    ///     continuous feedback 
+    ///     <para>
+    ///         GUID: MF_QUALITY_NOTIFY_SAMPLE_LAG
+    ///         Value: VT_I8
+    ///         This event is generated by components which want to give a 
+    ///         continuous feedback on whether things are going fine or bad. 
+    ///         <para>
+    ///             Value representing 100-nanosecond units indicating the 
+    ///             lag time for the sample. Positive values show by how much
+    ///             the component determined the sample to be late. Negative 
+    ///             values show by how much the sample was delivered early
+    ///         </para>
+    ///     </para>
+    ///
+    ///     <para>
+    ///         GUID: MF_QUALITY_NOTIFY_PROCESSING_LATENCY
+    ///         Value: VT_I8
+    ///         This event is generated by components which want to notify
+    ///         the Quality Manager of their processing latency.   
+    ///         <para>
+    ///            Value represents a LONGLONG representating 100-nonosecond
+    ///             unit value indicating latency. 
+    ///
+    ///             In order to determine that a sample is late the 
+    ///             Quality Manager needs to know how much latency the 
+    ///             component adds to delivering the sample. For example, on 
+    ///             the EVR the Quality Manager knows when a sample is received
+    ///             but has no good way of estimating the time it takes for 
+    ///             this sample to eventually be presented on the screen. This
+    ///             latency could vary depending on hardware.
+    ///
+    ///             It is also possible that there is no 1 to 1 mapping between
+    ///             each sample received and the samples presented. For this
+    ///             reason, just looking at process input and process output calls 
+    ///             on the component to estimate the latency will not help. The
+    ///             component is at the best position to determine this latency
+    ///             and it should give the quality manager this information.
+    ///
+    ///             The component can update the processing latency anytime it 
+    ///             thinks that it has changed by calling this function multiple times.
+    ///         </para>
+    ///     </para>    
+    /// </member>
+    MEQualityNotify = 311,
+
+    /// <member name="MESinkInvalidated">
+    ///     This event is generated by mediasession in the response to following events from the sink
+    ///        MEAudioSessionFormatChanged,
+    ///        MEAudioSessionDeviceRemoved,
+    ///        MEAudioSessionServerShutdown,
+    ///     Sink can also generate this event by itself. In this case, session simply propagates event to the application
+    ///     <para>
+    MESinkInvalidated = 312,
+
+    /// <member name="MEAudioSessionNameChanged">
+    ///     Indicates that the name of the audio session has changed.
+    ///     Sent by the Streaming Audio Renderer Media Sink and forwarded
+    ///     to the application by the Media Session
+    /// </member>
+    MEAudioSessionNameChanged = 313,
+
+    /// <member name="MEAudioSessionVolumeChanged">
+    ///     Indicates that the volume level has changed.
+    ///     Sent by the Streaming Audio Renderer Media Sink and forwarded
+    ///     to the application by the Media Session
+    /// </member>
+    MEAudioSessionVolumeChanged = 314,
+
+    /// <member name="MEAudioSessionDeviceRemoved">
+    ///     Indicates that the audio device through which playback had been
+    ///     occurring has been removed.
+    ///     Sent by the Streaming Audio Renderer Media Sink and forwarded
+    ///     to the application by the Media Session
+    /// </member>
+    MEAudioSessionDeviceRemoved = 315,
+
+    /// <member name="MEAudioSessionServerShutdown">
+    ///     Indicates that the audio service on the machine has been shutdown.
+    ///     Sent by the Streaming Audio Renderer Media Sink and forwarded
+    ///     to the application by the Media Session
+    /// </member>
+    MEAudioSessionServerShutdown = 316,
+
+    /// <member name="MEAudioSessionGroupingParamChanged">
+    ///     Indicates that the audio session grouping parameters have changed.
+    /// </member>
+    MEAudioSessionGroupingParamChanged = 317,
+
+    /// <member name="MEAudioSessionIconChanges">
+    ///     Indicates that the audio session icon has changed.
+    /// </member>
+    MEAudioSessionIconChanged = 318,
+
+    /// <member name="MEAudioSessionFormatChanged">
+    ///     Indicates that the audio session format has changed.
+    /// </member>
+    MEAudioSessionFormatChanged = 319,
+
+    /// <member name="MEAudioSessionDisconnected">
+    ///     Indicates that the audio session was disconnected.
+    /// </member>
+    MEAudioSessionDisconnected = 320,    
+
+    /// <member name="MEAudioSessionExclusiveModeOverride">
+    ///     Indicates that the audio session was pre-empted by an exclusive mode client.
+    /// </member>
+    MEAudioSessionExclusiveModeOverride = 321,    
+    
+    /// <member name="MESinkV1Anchor">
+    ///     Last source event for v1.  Do not add or remove events above this one.
+    /// </member>
+    MESinkV1Anchor = MEAudioSessionExclusiveModeOverride,
+
+#if (WINVER >= _WIN32_WINNT_WIN8)
+
+    /// <member name="MECaptureAudioSessionVolumeChanged">
+    ///     Indicates that the capture volume level has changed.
+    ///     Sent by the Streaming Audio Capture Media Source and forwarded
+    ///     to the application by the Media Session
+    /// </member>
+    MECaptureAudioSessionVolumeChanged = 322,
+
+    /// <member name="MECaptureAudioSessionDeviceRemoved">
+    ///     Indicates that the audio device through which capture had been
+    ///     occurring has been removed.
+    ///     Sent by the Streaming Audio Capture Media Source and forwarded
+    ///     to the application by the Media Session
+    /// </member>
+    MECaptureAudioSessionDeviceRemoved = 323,
+
+    /// <member name="MECaptureAudioSessionFormatChanged">
+    ///     Indicates that the capture audio session format has changed.
+    /// </member>
+    MECaptureAudioSessionFormatChanged = 324,
+
+    /// <member name="MECaptureAudioSessionDisconnected">
+    ///     Indicates that the capture audio session was disconnected.
+    /// </member>
+    MECaptureAudioSessionDisconnected = 325,    
+
+    /// <member name="MECaptureAudioSessionExclusiveModeOverride">
+    ///     Indicates that the capture audio session was pre-empted by an exclusive mode client.
+    /// </member>
+    MECaptureAudioSessionExclusiveModeOverride = 326,    
+
+    /// <member name="MECaptureAudioSessionServerShutdown">
+    ///     Indicates that the capture audio session was disconnected due to the audio server beign shutdown.
+    /// </member>
+    MECaptureAudioSessionServerShutdown = 327,
+
+    /// <member name="MESinkV2Anchor">
+    ///     Last source event for v2.  Do not add or remove events above this one.
+    /// </member>
+    MESinkV2Anchor = MECaptureAudioSessionServerShutdown,
+
+#endif // (WINVER >= _WIN32_WINNT_WIN8)
+
+    //-------------------------------------------------------------------------
+    // Trust Authority events:
+    // Events of interest to IMFInputTrustAuthority and IMFTrustedOutput
+    // implementations
+    //-------------------------------------------------------------------------
+
+    /// <member name="METrustUnknown">
+    ///     Unknown event type.  Do not use for legitimate events.
+    /// </member>
+    METrustUnknown = 400,
+
+    /// <member name="MEPolicyChanged">
+    ///     All trusted outputs must handle this event, which describes
+    ///     the new output policy that must be enforced.
+    ///     For transforms, the event will come through
+    ///     IMFTransform::ProcessInput.
+    ///     For Media Sinks, it will come through IMFStreamSink::PlaceMarker.
+    ///     The component should handle the new policy or return
+    ///     MF_E_POLICY_UNSUPPORTED either synchronously or
+    ///     asynchronously on the MEPolicyError event
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IMFOutputPolicy * describing the new output policy
+    /// </member>
+    MEPolicyChanged = 401,
+
+    /// <member name="MEContentProtectionMessage">
+    ///     All trusted outputs must handle this event, which carries a message
+    ///     specific to the output policy already in use.
+    ///     For transforms, the event will come through
+    ///     IMFTransform::ProcessInput.
+    ///     For Media Sinks, it will come through IMFStreamSink::PlaceMarker.
+    ///     The component should handle the new policy or return
+    ///     MF_E_POLICY_UNSUPPORTED either synchronously or
+    ///     asynchronously on the MEPolicyError event
+    ///     Value/Attributes:
+    ///     [Event data is protection-system-specific]
+    /// </member>
+    MEContentProtectionMessage = 402,
+
+    /// <member name="MEPolicySet">
+    ///     Any Stream Sink that provides an IMFOutputTrustAuthority that
+    ///     sets policy asynchronously should return MF_S_WAIT_FOR_POLICY_SET
+    ///     from IMFOutputTrustAuthority::SetPolicy and send this event
+    ///     when the policy has been set.
+    /// </member>
+    MEPolicySet = 403,
+
+    /// <member name="METrustV1Anchor">
+    ///     Last trust event for v1.  Do not add or remove events above this one.
+    /// </member>
+    METrustV1Anchor = MEPolicySet,
+
+    //
+    // MEPolicyError
+    // Sent by any trusted component when an error is encountered enforcing
+    // the required content protection policy.
+    // This event is forwarded to the application by the Media Session.
+    // This event is described in the "Media Session events" section above.
+    //
+
+    //
+    // MEPolicyReport
+    // Sent by any trusted output to report on how the content protection
+    // system is being applied.
+    // This event is forwarded to the application by the Media Session.
+    // This event is described in the "Media Session events" section above.
+    //
+
+    //
+    // MEEnablerProgress
+    // Sent by the Input Trust Authority's IMFContentEnabler implementation.
+    // This event is described in the "Media Session events" section above
+    //
+
+    //
+    // MEEnablerCompleted
+    // Sent by the Input Trust Authority's IMFContentEnabler implementation.
+    // This event is described in the "Media Session events" section above
+    //
+
+    
+    //-------------------------------------------------------------------------
+    // WMDRM events:
+    // Events of interest to applications using the Windows Media Digital
+    // Rights Management (IWMDRMxxx) interfaces
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEWMDRMLicenseBackupCompleted">
+    ///     Sent by IWMDRMLicenseManagement
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IWMDRMLicenseBackupRestoreStatus *
+    /// </member>
+    MEWMDRMLicenseBackupCompleted = 500,
+
+    /// <member name="MEWMDRMLicenseBackupProgress">
+    ///     Sent by IWMDRMLicenseManagement
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IWMDRMLicenseBackupRestoreStatus *
+    /// </member>
+    MEWMDRMLicenseBackupProgress = 501,
+
+    /// <member name="MEWMDRMLicenseRestoreCompleted">
+    ///     Sent by IWMDRMLicenseManagement
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IWMDRMLicenseBackupRestoreStatus *
+    /// </member>
+    MEWMDRMLicenseRestoreCompleted = 502,
+
+    /// <member name="MEWMDRMLicenseRestoreProgress">
+    ///     Sent by IWMDRMLicenseManagement
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IWMDRMLicenseBackupRestoreStatus *
+    /// </member>
+    MEWMDRMLicenseRestoreProgress = 503,
+
+    /// <member name="MEWMDRMLicenseAcquisitionCompleted">
+    ///     Sent by IWMDRMLicenseManagement
+    /// </member>
+    MEWMDRMLicenseAcquisitionCompleted = 506,
+
+    /// <member name="MEWMDRMIndividualizationCompleted">
+    ///     Sent by IWMDRMSecurity
+    ///     Value:
+    ///         VT_UNKNOWN
+    ///         IWMDRMIndividualizationStatus
+    /// </member>
+    MEWMDRMIndividualizationCompleted = 508,
+
+    /// <member name="MEWMDRMIndividualizationProgress">
+    ///     Sent by IWMDRMSecurity
+    ///     Value:
+    ///         VT_UNKNOWN:
+    ///         IWMDRMIndividualizationStatus
+    /// </member>
+    MEWMDRMIndividualizationProgress = 513,
+
+    /// <member name="MEWMDRMProximityCompleted">
+    ///     Sent by IWMDRMNetReceiver
+    /// </member>
+    MEWMDRMProximityCompleted = 514,
+
+    /// <member name="MEWMDRMLicenseStoreCleaned">
+    ///     Sent by IWMDRMLicenseManagement
+    /// </member>
+    MEWMDRMLicenseStoreCleaned = 515,
+
+    /// <member name="MEWMDRMRevocationDownloadCompleted">
+    ///     Sent by IWMDRMSecurity
+    /// </member>
+    MEWMDRMRevocationDownloadCompleted = 516,
+
+    /// <member name="MEWMDRMV1Anchor">
+    ///     Last WMDRM event for v1.  Do not add or remove events above this one.
+    /// </member>
+    MEWMDRMV1Anchor = MEWMDRMRevocationDownloadCompleted,
+
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    //-------------------------------------------------------------------------
+    // MF Transform events:
+    // Events sent by asynchronous IMFTransforms.
+    //-------------------------------------------------------------------------
+
+    /// <member name="METransformUnknown">
+    ///     Unknown event type.  Do not use for legitimate events.
+    /// </member>
+    METransformUnknown = 600,
+
+    /// <member name="METransformNeedInput">
+    ///     Asynchronous transforms send this event when they need another
+    ///     call to IMFTransform::ProcessInput.  Callers should respond to
+    ///     each such event by calling ProcessInput once.
+    ///     Attributes:
+    ///     MF_EVENT_MFT_INPUT_STREAM_ID:
+    ///         This value should be the dwInputStreamID argument for the call
+    ///         to ProcessInput
+    /// </member>
+    METransformNeedInput,
+
+    /// <member name="METransformHaveOutput">
+    ///     Asynchronous transforms send this event when an output sample
+    ///     becomes available.  Callers should respond to each such event by 
+    ///     calling ProcessOutput once to pick up the sample.
+    /// </member>
+    METransformHaveOutput,
+    
+    /// <member name="METransformDrainComplete">
+    ///     Asynchronous transforms send this event after sending the final
+    ///     METransformHaveOutput while executing a drain command.
+    ///     Attributes:
+    ///     MF_EVENT_MFT_CONTEXT:
+    ///         This value corresponds to the value of ulParam that was 
+    ///         specified in the ProcessMessage call for 
+    ///         MFT_MESSAGE_COMMAND_DRAIN, which is the index of the input
+    ///         stream for which the drain was requested.
+    /// </member>
+    METransformDrainComplete,
+
+    /// <member name="METransformMarker">
+    ///     Asynchronous transforms send this event after receiving an 
+    ///     MFT_MESSAGE_COMMAND_MARKER command and queueing 
+    ///     METransformHaveOutput events for all outputs that will be produced
+    ///     given the inputs received up until the command.
+    ///     MF_EVENT_MFT_INPUT_STREAM_ID:
+    ///         This value corresponds to the value of ulParam that was 
+    ///         specified in the ProcessMessage call for 
+    ///         MFT_MESSAGE_COMMAND_MARKER and can be used by the caller to
+    ///         identify the marker.
+    /// </member>
+    METransformMarker,
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+
+#if (WINVER >= _WIN32_WINNT_WIN8)
+    /// <member name="METransformInputStreamStateChanged">
+    ///     Asynchronous transforms send this event when they want a specific input
+    ///     stream to be placed in a stop/pause/run/disabled state. 
+    ///     Attributes:
+    ///     MF_EVENT_MFT_CONTEXT:
+    /// </member>
+    METransformInputStreamStateChanged,
+
+    //-------------------------------------------------------------------------
+    // IMFByteStream events:
+    // Events sent by implementations of IMFByteStream.
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEByteStreamCharacteristicsChanged">
+    ///     Indicates that the values returned by the IMFByteStream::GetCapabilities,
+    ///     IMFByteStream::GetLength and IMFByteStream::IsEndOfStream may have
+    ///     changed.
+    /// </member>
+    MEByteStreamCharacteristicsChanged = 700,
+
+    //-------------------------------------------------------------------------
+    // Device Source events:
+    // Events sent by IMFMediaSource that encapsulates a device.
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEVideoCaptureDeviceRemoved">
+    ///     Indicates that the device represented by the camera device has been
+    ///     removed from the system
+    /// </member>
+    MEVideoCaptureDeviceRemoved = 800,
+    MEVideoCaptureDevicePreempted = 801,
+
+    //-------------------------------------------------------------------------
+    // Media Session/Media Sink events:
+    // Events sent by media sinks and consumed by the Media Session or the application
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEStreamSinkFormatInvalidated">
+    ///     Sent by a Stream Sink when the downstream format has become invalidated
+    ///     in such a way that it needs to be renegotiated (and any data that was queued
+    ///     to the sink past current playback position should be resent.
+    /// </member>
+    MEStreamSinkFormatInvalidated = 802,
+
+    //-------------------------------------------------------------------------
+    // Media Foundation Transforms events:
+    // Events sent by the media pipelines (e.g. SinkWriter) and consumed by MFTs
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEEncodingParameters">
+    ///     Sent by the pipeline to encoder MFTs serially with media samples (via IMFTransform::ProcessEvent)
+    ///     Event payload is an attribute store (IMFAttributes pointer) that contains the new ICodecAPI-based
+    ///     settings that the encoder should apply on subsequent incoming samples.
+    /// </member>
+    MEEncodingParameters = 803,
+#endif // (WINVER >= _WIN32_WINNT_WIN8)
+
+#if (WINVER >= _WIN32_WINNT_WINBLUE)
+    /// <member name="MEContentProtectionMetadata">
+    ///     Media Stream uses this event to send protection system specific 
+    ///     metadata to the decoder. It is used for e.g. communicating key rotation
+    ///     event and in this case should be send as early as possible to give decoder time 
+    ///     to prepare itself before sample encrypted with new key ID start arriving.
+    ///     Attributes:
+    ///         MF_EVENT_STREAM_METADATA_KEYDATA
+    ///             Value: BLOB
+    ///             This is an optional attribute. Protection system specific data.
+    ///         MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS
+    ///             Value: BLOB
+    ///             Content key IDs which the event is associated with.
+    ///         MF_EVENT_STREAM_METADATA_SYSTEMID
+    ///             Value: BLOB
+    ///             This is an optional attribute. System ID for which the key data is intended.
+    /// </member>
+    MEContentProtectionMetadata = 900,
+#endif // (WINVER >= _WIN32_WINNT_WINBLUE)
+
+#if (WINVER >= _WIN32_WINNT_WINTHRESHOLD)
+    /// <member name="MEDeviceThermalStateChanged">
+    ///     This event is to notify the MF pipeline components 
+    ///     when a device thermal state changes
+    ///     Value:
+    ///         VT_UINT
+    ///         Description: This value corresponds to the current thermal value reported by the device in percentage.
+    /// </member>
+    MEDeviceThermalStateChanged = 950,
+#endif //(WINVER >= _WIN32_WINNT_WINTHRESHOLD)
+
+    //-------------------------------------------------------------------------
+    // MF reserves a range of events for internal and future use
+    //-------------------------------------------------------------------------
+
+    /// <member name="MEReservedMax">
+    ///     All event type codes up to and including this value are
+    ///     reserved.
+    /// </member>
+    MEReservedMax = 10000,
+
+
+};
+
+
+typedef DWORD MediaEventType;
+
+[
+    object,
+    uuid(DF598932-F10C-4E39-BBA2-C308F101DAA3)
+]
+interface IMFMediaEvent : IMFAttributes
+{
+    /// <summary>
+    ///     Retrieves the event type.
+    /// </summary>
+    /// <param name="pmet">
+    ///     Out parameter that will receive the event type.
+    ///     Common MF event types are listed in the MediaEventType
+    ///     enumerated type, but other types are possible.
+    /// </param>
+    HRESULT GetType(
+        [out] MediaEventType* pmet
+        );
+
+    /// <summary>
+    ///     Retrieves the event's extended type.
+    ///     This is for use with events of the MEExtendedType type
+    /// </summary>
+    /// <param name="pguidExtendedType">
+    ///     Out parameter that will receive the extended type
+    /// </param>
+    HRESULT GetExtendedType(
+        [out] GUID* pguidExtendedType
+        );
+
+    /// <summary>
+    ///     Retrieves the status code for this event.
+    ///     For example, an event such as MESessionTopologySet that signals
+    ///     the completion of an asynchronous operation can return a failure
+    ///     code if the operation failed.
+    /// </summary>
+    /// <param name="phrStatus">
+    ///     Out param that will receive the HRESULT status code
+    /// </param>
+    HRESULT GetStatus(
+        [out] HRESULT* phrStatus
+        );
+
+    /// <summary>
+    ///     Retrieves extra data for the event
+    /// </summary>
+    /// <param>
+    ///     Out param that will receive the extra data.
+    ///     The meaning of this value is event-specific.
+    ///     Some events have no extra data.
+    /// </param>
+    HRESULT GetValue(
+        [out] PROPVARIANT *pvValue
+        );
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+cpp_quote( "#define MF_EVENT_FLAG_NO_WAIT 0x00000001" )
+
+interface IMFRemoteAsyncCallback;
+
+[
+    object,
+    uuid(2CD0BD52-BCD5-4B89-B62C-EADC0C031E7D)
+]
+
+interface IMFMediaEventGenerator : IUnknown
+{
+    /// <summary>
+    ///     Synchronous method for retrieving events
+    /// </summary>
+    /// <param name="dwFlags">
+    ///     The following bits may be set:
+    ///     MF_EVENT_FLAG_NO_WAIT:
+    ///         If set, then GetEvent will return a failure code
+    ///         immediately if no event is available at the time.
+    ///         Otherwise, this call will block until an event
+    ///         is ready
+    /// </param>
+    /// <param name="ppEvent">
+    ///     Out param that will receive an event
+    /// </param>
+    HRESULT GetEvent(
+        [in] DWORD dwFlags,
+        [out] IMFMediaEvent** ppEvent
+        );
+
+    /// <summary>
+    ///     Asynchronous method for retrieving events
+    /// </summary>
+    /// <param name="pCallback">
+    ///     Callback that will be invoked when an event is available
+    /// </param>
+    /// <param name="punkState">
+    ///     Pointer to state that will be given to pCallback->Invoke()
+    ///     when it is called
+    /// </param>
+    /// <remarks>
+    ///     When this call is being made to a Media Event Generator in a remote
+    ///     process, this call will be proxied via RemoteBeginGetEvent.
+    /// </remarks>
+    [local]
+    HRESULT BeginGetEvent(
+        [in] IMFAsyncCallback* pCallback,
+        [in] IUnknown* punkState
+        );
+
+    /// <summary>
+    ///     This method is used to proxy BeginGetEvent calls
+    ///     to a Media Event Generator in a remote process.
+    ///     Media Event Generators do not need to implement this method.
+    /// </summary>
+    /// <remarks>
+    ///     This call will result in a call to
+    ///     IMFMediaEventGenerator::BeginGetEvent on the remote Media Event
+    ///     Generator
+    /// </remarks>
+    [call_as(BeginGetEvent)]
+    HRESULT RemoteBeginGetEvent(
+        [in] IMFRemoteAsyncCallback* pCallback
+        );
+
+
+    /// <summary>
+    ///     Method for completing asynchronous event retrieval.
+    ///     This method can be called to obtain the event after
+    ///     the callback specified in BeginGetEvent is invoked
+    /// </summary>
+    /// <param name="pResult">
+    ///     This should be the pResult value that was passed as a parameter
+    ///     to IMFAsyncCallback::Invoke().
+    /// </param>
+    /// <param name="ppEvent">
+    ///     Out param that will receive the event.
+    /// </param>
+    /// <remarks>
+    ///     When this call is being made to a Media Event Generator in a remote
+    ///     process, this call will be proxied via RemoteEndGetEvent.
+    /// </remarks>
+    [local]
+    HRESULT EndGetEvent(
+        [in] IMFAsyncResult* pResult,
+        [out, annotation("_Out_")] IMFMediaEvent** ppEvent
+        );
+
+
+    /// <summary>
+    ///     This method is used to proxy EndGetEvent calls
+    ///     to a Media Event Generator in a remote process.
+    ///     Media Event Generators do not need to implement this method.
+    /// </summary>
+    /// <remarks>
+    ///     This call will result in a call to
+    ///     IMFMediaEventGenerator::EndGetEvent on the remote Media Event
+    ///     Generator
+    /// </remarks>
+    [call_as(EndGetEvent)]
+    HRESULT RemoteEndGetEvent(
+        [in] IUnknown * pResult,
+        [out] DWORD * pcbEvent,
+        [out, size_is(, *pcbEvent)] BYTE ** ppbEvent
+        );
+
+    /// <summary>
+    ///     This method is used to queue an event on the Media Event
+    ///     Generator.  It can later be retrieved via the methods above.
+    /// </summary>
+    /// <param name="met">
+    ///     Event type.
+    ///     Common MF event types are listed in the MediaEventType enum,
+    ///     but other values are possible.
+    /// </param>
+    /// <param name="guidExtendedType">
+    ///     Extended type for the event
+    /// </param>
+    /// <param name="hrStatus">
+    ///     Status code for the event
+    /// </param>
+    /// <param name="pvValue">
+    ///     Optional pointer to extra data for the event
+    /// </param>
+    HRESULT QueueEvent(
+        [in] MediaEventType met,
+        [in] REFGUID guidExtendedType,
+        [in] HRESULT hrStatus,
+        [in, unique] const PROPVARIANT * pvValue
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+
+[
+    object,
+    uuid(a27003d0-2354-4f2a-8d6a-ab7cff15437e),
+]
+/// <summary>
+///     Remote async callback function for use with 
+///     IMFMediaEventGenerator::RemoteBeginGetEvent.
+///     Media Foundation applications need not implement this interface.
+/// </summary>
+interface IMFRemoteAsyncCallback : IUnknown
+{
+    HRESULT Invoke(
+        [in] HRESULT hr,
+        [in] IUnknown * pRemoteResult);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+typedef enum _MFBYTESTREAM_SEEK_ORIGIN
+{
+
+    msoBegin,
+    msoCurrent
+
+} MFBYTESTREAM_SEEK_ORIGIN;
+
+
+[
+    object,
+    uuid(ad4c1b00-4bf7-422f-9175-756693d9130d),
+]
+interface IMFByteStream : IUnknown
+{
+    HRESULT GetCapabilities(
+        [out] DWORD* pdwCapabilities
+        );
+
+    /// <summary>
+    ///     GetLength gets the length of the stream
+    /// </summary>
+    /// <param name="pqwLength">
+    ///     Pointer to a variable that will receive the length of the stream.
+    /// </param>
+    /// <returns>
+    ///     <para>
+    ///         MF_E_BYTESTREAM_UNKNOWN_LENGTH:
+    ///             The stream length is unknown (can happen in HTTP scenarios)
+    ///     </para>
+    /// </returns>
+    HRESULT GetLength(
+        [out] QWORD* pqwLength
+        );
+
+    HRESULT SetLength(
+        [in] QWORD qwLength
+        );
+
+    HRESULT GetCurrentPosition(
+        [out] QWORD* pqwPosition
+        );
+
+    HRESULT SetCurrentPosition(
+        [in] QWORD qwPosition
+        );
+
+    HRESULT IsEndOfStream(
+        [out] BOOL* pfEndOfStream
+        );
+
+    /// <summary>
+    ///     Read number of bytes from bytestream.
+    /// </summary>
+    HRESULT Read(
+        [out, size_is(cb) ] BYTE* pb,
+        [in] ULONG cb,
+        [out] ULONG* pcbRead
+        );
+
+    /// <summary>
+    ///     Begin async read number of bytes from bytestream.
+    /// </summary>
+    [local]
+    HRESULT BeginRead(
+        [out, annotation("_Out_writes_bytes_(cb)")] BYTE* pb,
+        [in] ULONG cb,
+        [in] IMFAsyncCallback* pCallback,
+        [in] IUnknown* punkState
+        );
+
+    /// <summary>
+    ///     This method is used to proxy BeginRead calls
+    ///     to a bytestream in a remote process.
+    ///     Bytestreams do not need to implement this method.
+    /// </summary>
+    /// <remarks>
+    ///     This call will result in a call to
+    ///     IMFByteStream::BeginRead on the remote bytestream.
+    /// </remarks>
+    [call_as(BeginRead)]
+    HRESULT RemoteBeginRead(
+        [in] ULONG cb,
+        [in] IMFRemoteAsyncCallback *pCallback
+        );
+
+    /// <summary>
+    ///     Complete async read operation.
+    /// </summary>
+    [local]
+    HRESULT EndRead(
+        [in] IMFAsyncResult* pResult,
+        [out, annotation("_Out_")] ULONG* pcbRead
+        );
+
+    /// <summary>
+    ///     This method is used to proxy EndRead calls
+    ///     to a bytestream in a remote process.
+    ///     Bytestreams do not need to implement this method.
+    /// </summary>
+    /// <remarks>
+    ///     This call will result in a call to
+    ///     IMFByteStream::EndRead on the remote bytestream.
+    /// </remarks>
+    [call_as(EndRead)]
+    HRESULT RemoteEndRead(
+        [in] IUnknown *punkResult,
+        [in, out, size_is(cb), length_is(*pcbRead)] BYTE *pb,
+        [in] ULONG cb,
+        [in, out] ULONG *pcbRead
+        );
+
+    /// <summary>
+    ///     Write number of bytes to bytestream.
+    /// </summary>
+    HRESULT Write(
+        [in, size_is(cb) ] const BYTE* pb,
+        [in] ULONG cb,
+        [out] ULONG* pcbWritten
+        );
+
+    /// <summary>
+    ///     Begin async write operation.
+    /// </summary>
+    [local]
+    HRESULT BeginWrite(
+        [in, annotation("_In_reads_bytes_(cb)")] const BYTE* pb,
+        [in] ULONG cb,
+        [in] IMFAsyncCallback* pCallback,
+        [in] IUnknown* punkState
+        );
+
+    /// <summary>
+    ///     This method is used to proxy BeginWrite calls
+    ///     to a bytestream in a remote process.
+    ///     Bytestreams do not need to implement this method.
+    /// </summary>
+    /// <remarks>
+    ///     This call will result in a call to
+    ///     IMFByteStream::BeginWrite on the remote bytestream.
+    /// </remarks>
+    [call_as(BeginWrite)]
+    HRESULT RemoteBeginWrite(
+        [in, size_is(cb)] const BYTE* pb,
+        [in] ULONG cb,
+        [in] IMFRemoteAsyncCallback* pCallback
+        );
+
+    /// <summary>
+    ///     Complete async write operation.
+    /// </summary>
+    [local]
+    HRESULT EndWrite(
+        [in] IMFAsyncResult* pResult,
+        [out, annotation("_Out_")] ULONG* pcbWritten
+        );
+
+    /// <summary>
+    ///     This method is used to proxy EndWrite calls
+    ///     to a bytestream in a remote process.
+    ///     Bytestreams do not need to implement this method.
+    /// </summary>
+    /// <remarks>
+    ///     This call will result in a call to
+    ///     IMFByteStream::EndWrite on the remote bytestream.
+    /// </remarks>
+    [call_as(EndWrite)]
+    HRESULT RemoteEndWrite(
+        [in] IUnknown* punkResult,
+        [out] ULONG* pcbWritten
+        );
+
+    /// <summary>
+    ///     Seek to location in bytestream.
+    /// </summary>
+    HRESULT Seek(
+        [in] MFBYTESTREAM_SEEK_ORIGIN SeekOrigin,
+        [in] LONGLONG llSeekOffset,
+        [in] DWORD dwSeekFlags,
+        [out] QWORD* pqwCurrentPosition
+        );
+
+    HRESULT Flush();
+
+    HRESULT Close();
+
+};
+
+//
+// Capabilities flags (from IMFByteStream::GetCapabilities)
+//
+
+/// <summary>
+///     This bit indicates that the byte stream can be read from.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_IS_READABLE                0x00000001" )
+
+/// <summary>
+///     This bit indicates that the byte stream can be written to.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_IS_WRITABLE                0x00000002" )
+
+/// <summary>
+///     This bit indicates that the byte stream can be sought.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_IS_SEEKABLE                0x00000004" )
+
+/// <summary>
+///     This bit indicates that the byte stream is based on a remote (network)
+///     drive.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_IS_REMOTE                  0x00000008" )
+
+/// <summary>
+///     This bit indicates that the byte stream is a directory.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_IS_DIRECTORY               0x00000080" )
+
+/// <summary>
+///     This bit indicates that a read operation following a seek operation
+///     may take a long time to complete depending on whether the byte stream
+///     has to wait for the data to become available from a remote server or not.
+///     This capability is exposed by byte streams that pre-cache the data
+///     sequentially from a remote server. This bit goes away when the data is
+///     fully cached.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_HAS_SLOW_SEEK              0x00000100" )
+
+/// <summary>
+///     This bit indicates that the byte stream is downloading the data
+///     in the background to a local cache. In this case a read operation may
+///     take longer to complete depending on whether the byte stream has the
+///     data in cache or not. If MFBYTESTREAM_HAS_SLOW_SEEK is not present,
+///     then the byte stream can pre-cache the data sparsely instead of
+///     sequentially, and a read operation that misses the local cache
+///     will cause a reconnection to the remote server instead of waiting
+///     for the sequential download to catch up. This bit goes away when the
+///     data is fully cached.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_IS_PARTIALLY_DOWNLOADED    0x00000200" )
+
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+/// <summary>
+///     This bit indicates that the byte stream data is opened for write by
+///     another thread or process.  This means that the length of the
+///     bytestream could change and special care must be taken to handle
+///     situations where only part of a file may be written.  Only byte
+///     stream plugins with the attribute MF_BYTESTREAMPLUGIN_ACCEPTS_SHARE_WRITE
+///     will be considered by the source resolver for byte streams that have this
+///     characteristic.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_SHARE_WRITE                0x00000400" )
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+cpp_quote( "#if (WINVER >= _WIN32_WINNT_WIN8) ")
+/// <summary>
+///     This bit should be set if the byte stream is not currently
+///     using the network to receive the content.  Networking hardware
+///     may enter a power saving state when this bit is set.
+/// </summary>
+cpp_quote( "#define MFBYTESTREAM_DOES_NOT_USE_NETWORK        0x00000800" )
+cpp_quote( "#endif // (WINVER >= _WIN32_WINNT_WIN8) ")
+
+//
+// Seek flags (see IMFByteStream::Seek)
+//
+
+cpp_quote( "#define MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO 0x00000001" )
+
+//
+// Byte Stream attributes (query the Byte Stream for IMFAttributes)
+//
+
+// MF_BYTESTREAM_ORIGIN_NAME
+// Data type: LPWSTR
+// {FC358288-3CB6-460C-A424-B6681260375A}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_ORIGIN_NAME, 0xfc358288, 0x3cb6, 0x460c, 0xa4, 0x24, 0xb6, 0x68, 0x12, 0x60, 0x37, 0x5a);" )
+
+// MF_BYTESTREAM_CONTENT_TYPE
+// Data type: LPWSTR
+// {FC358289-3CB6-460C-A424-B6681260375A}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_CONTENT_TYPE, 0xfc358289, 0x3cb6, 0x460c, 0xa4, 0x24, 0xb6, 0x68, 0x12, 0x60, 0x37, 0x5a);" )
+
+// MF_BYTESTREAM_DURATION
+// Data type: int64
+// Duration in 100ns units of the presentation.  This attribute is optional.
+// {FC35828A-3CB6-460C-A424-B6681260375A}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_DURATION, 0xfc35828a, 0x3cb6, 0x460c, 0xa4, 0x24, 0xb6, 0x68, 0x12, 0x60, 0x37, 0x5a);" )
+
+// MF_BYTESTREAM_LAST_MODIFIED_TIME
+// Type: BLOB
+// The format of this blob is given by the FILETIME structure.
+// It specifies the time the presentation was last modified.  This attribute is optional.
+// {FC35828B-3CB6-460C-A424-B6681260375A}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_LAST_MODIFIED_TIME, 0xfc35828b, 0x3cb6, 0x460c, 0xa4, 0x24, 0xb6, 0x68, 0x12, 0x60, 0x37, 0x5a);" )
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+// MF_BYTESTREAM_IFO_FILE_URI
+// Data type: LPWSTR
+// The URL to the IFO file specified by the HTTP server on the "Pragma: ifoFileURI.dlna.org" HTTP header, if any
+// {FC35828C-3CB6-460C-A424-B6681260375A}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_IFO_FILE_URI, 0xfc35828c, 0x3cb6, 0x460c, 0xa4, 0x24, 0xb6, 0x68, 0x12, 0x60, 0x37, 0x5a);" )
+
+// MF_BYTESTREAM_DLNA_PROFILE_ID
+// Data type: LPWSTR
+// The DLNA Profile ID of the content that is being downloaded.
+// {FC35828D-3CB6-460C-A424-B6681260375A}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_DLNA_PROFILE_ID, 0xfc35828d, 0x3cb6, 0x460c, 0xa4, 0x24, 0xb6, 0x68, 0x12, 0x60, 0x37, 0x5a);" )
+
+// MF_BYTESTREAM_EFFECTIVE_URL
+// Type: LPWSTR
+// {9AFA0209-89D1-42AF-8456-1DE6B562D691}
+cpp_quote("EXTERN_GUID( MF_BYTESTREAM_EFFECTIVE_URL, 0x9afa0209, 0x89d1, 0x42af, 0x84, 0x56, 0x1d, 0xe6, 0xb5, 0x62, 0xd6, 0x91);" )
+
+// MF_BYTESTREAM_TRANSCODED
+// Data type: UINT32 (treat as BOOL)
+//  Indicates that the data in the byte stream is the result of a transcoding operation.
+// {b6c5c282-4dc9-4db9-ab48-cf3b6d8bc5e0}
+cpp_quote( "EXTERN_GUID( MF_BYTESTREAM_TRANSCODED, 0xb6c5c282, 0x4dc9, 0x4db9, 0xab, 0x48, 0xcf, 0x3b, 0x6d, 0x8b, 0xc5, 0xe0 );" )
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+/////////////////////////////////////////////////////////////////////////////
+// CLSID_MFByteStreamProxyClassFactory
+// Data type: GUID
+// CLSID for creating the bytestream proxy class factory.
+// This object can be used to create initialized bytestream proxy objects
+// in a remote process.
+//
+// {770e8e77-4916-441c-a9a7-b342d0eebc71}
+cpp_quote( "EXTERN_GUID(CLSID_MFByteStreamProxyClassFactory, 0x770e8e77, 0x4916, 0x441c, 0xa9, 0xa7, 0xb3, 0x42, 0xd0, 0xee, 0xbc, 0x71 );" )
+
+[
+    object,
+    uuid(a6b43f84-5c0a-42e8-a44d-b1857a76992f)
+]
+interface IMFByteStreamProxyClassFactory : IUnknown
+{
+    HRESULT CreateByteStreamProxy( [in] IMFByteStream *pByteStream,
+                                   [in, unique] IMFAttributes *pAttributes,
+                                   [in] REFIID riid,
+                                   [out, iid_is(riid)] LPVOID *ppvObject );
+};
+
+//
+// File access modes for the file creation functions (MFCreateFile and related
+// functions in mfapi.h).
+// Regardless of the access mode with which the file is opened, the sharing
+// permissions will allow shared reading and deleting.
+// 
+typedef enum
+{
+    MF_ACCESSMODE_READ       = 1,
+    MF_ACCESSMODE_WRITE      = 2,
+    MF_ACCESSMODE_READWRITE  = 3,
+}   MF_FILE_ACCESSMODE;
+
+typedef enum
+{
+    MF_OPENMODE_FAIL_IF_NOT_EXIST  = 0,
+    MF_OPENMODE_FAIL_IF_EXIST      = 1,
+    MF_OPENMODE_RESET_IF_EXIST     = 2,
+    MF_OPENMODE_APPEND_IF_EXIST    = 3,
+    MF_OPENMODE_DELETE_IF_EXIST    = 4,
+}   MF_FILE_OPENMODE;
+
+typedef enum
+{
+    MF_FILEFLAGS_NONE              = 0x00000000,
+    MF_FILEFLAGS_NOBUFFERING       = 0x00000001,
+#if (WINVER >= _WIN32_WINNT_WIN7)
+    MF_FILEFLAGS_ALLOW_WRITE_SHARING     = 0x00000002,
+#endif // (WINVER >= _WIN32_WINNT_WIN7)
+}   MF_FILE_FLAGS;
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    uuid(8feed468-6f7e-440d-869a-49bdd283ad0d),
+]
+interface IMFSampleOutputStream : IUnknown
+{
+    /// <summary>
+    ///     Begin async write operation.
+    /// </summary>
+    HRESULT BeginWriteSample(
+        [in] IMFSample *pSample,
+        [in] IMFAsyncCallback* pCallback,
+        [in] IUnknown* punkState
+        );
+
+    /// <summary>
+    ///     Complete async write operation.
+    /// </summary>
+    HRESULT EndWriteSample(
+        [in] IMFAsyncResult* pResult
+        );
+
+    HRESULT Close();
+};
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Other Media Foundation abstractions
+//
+///////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(5BC8A76B-869A-46a3-9B03-FA218A66AEBE)
+]
+interface IMFCollection : IUnknown
+{
+    HRESULT GetElementCount(
+        [out]   DWORD* pcElements
+        );
+
+    HRESULT GetElement(
+        [in]    DWORD dwElementIndex,
+        [out]   IUnknown** ppUnkElement
+        );
+
+    HRESULT AddElement(
+        [in]    IUnknown* pUnkElement
+        );
+
+    HRESULT RemoveElement(
+        [in]    DWORD dwElementIndex,
+        [out]   IUnknown **ppUnkElement
+        );
+
+    HRESULT InsertElementAt(
+        [in] DWORD dwIndex, [in]
+        IUnknown* pUnknown );
+
+    HRESULT RemoveAllElements();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(36f846fc-2256-48b6-b58e-e2b638316581),
+    local
+]
+
+/// <summary>
+///     MFCreateEventQueue instantiates an object that implements this 
+///     interface.  This object can be used by components that need to
+///     provide IMFMediaEventGenerator functionality to help with the
+///     mechanics of event-queueing.
+///     When the caller makes an IMFMediaEventGenerator call, the component
+///     should just forward that call to the appropriate method of the 
+///     Media Event Queue object.
+///     When the component wishes to send an event to the caller, it can 
+///     do so using the QueueEventXXX methods on the Media Event Queue object.
+/// </summary>
+interface IMFMediaEventQueue : IUnknown
+{
+    /// <summary>
+    ///     Media Event Generator components that use the Media Event Queue
+    ///     object should just forward IMFMediaEventGenerator::GetEvent
+    ///     calls to this method on the Media Event Queue.
+    ///     See IMFMediaEventGenerator::GetEvent parameter descriptions.
+    /// </summary>
+    HRESULT GetEvent(
+        [in] DWORD dwFlags,
+        [out, annotation("_Out_")] IMFMediaEvent** ppEvent
+        );
+
+    /// <summary>
+    ///     Media Event Generator components that use the Media Event Queue
+    ///     object should just forward IMFMediaEventGenerator::BeginGetEvent
+    ///     calls to this method on the Media Event Queue.
+    ///     See IMFMediaEventGenerator::BeginGetEvent parameter descriptions.
+    /// </summary>
+    HRESULT BeginGetEvent(
+        [in] IMFAsyncCallback* pCallback,
+        [in] IUnknown* punkState
+        );
+
+    /// <summary>
+    ///     Media Event Generator components that use the Media Event Queue
+    ///     object should just forward IMFMediaEventGenerator::EndGetEvent
+    ///     calls to this method on the Media Event Queue.
+    ///     See IMFMediaEventGenerator::EndGetEvent parameter descriptions.
+    /// </summary>
+    HRESULT EndGetEvent(
+        [in] IMFAsyncResult* pResult,
+        [out, annotation("_Out_")] IMFMediaEvent** ppEvent
+        );
+
+    /// <summary>
+    ///     Queues the specified event on the Media Event Queue object.
+    ///     This event will be retrievable using Begin/EndGetEvent or 
+    ///     GetEvent
+    /// </summary>
+    /// <param name="pEvent">
+    ///     Pointer to the Media Event object to queue
+    /// </param>
+    HRESULT QueueEvent(
+        [in] IMFMediaEvent * pEvent );
+
+    /// <summary>
+    ///     Queues an event with the specified event data on the Media Event 
+    ///     Queue object.
+    ///     This event will be retrievable using Begin/EndGetEvent or 
+    ///     GetEvent
+    /// </summary>
+    /// <param name="met">
+    ///     Event type
+    /// </param>
+    /// <param name="guidExtendedType">
+    ///     Extended event type
+    /// </param>
+    /// <param name="hrStatus">
+    ///     Event status
+    /// </param>
+    /// <param name="pvValue">
+    ///     Event value
+    /// </param>
+    HRESULT QueueEventParamVar(
+        [in] MediaEventType met,
+        [in] REFGUID guidExtendedType,
+        [in] HRESULT hrStatus,
+        [in, unique] const PROPVARIANT * pvValue );
+        
+    /// <summary>
+    ///     Queues an event with the specified event data on the Media Event 
+    ///     Queue object.
+    ///     This event will be retrievable using Begin/EndGetEvent or 
+    ///     GetEvent
+    /// </summary>
+    /// <param name="met">
+    ///     Event type
+    /// </param>
+    /// <param name="guidExtendedType">
+    ///     Extended event type
+    /// </param>
+    /// <param name="hrStatus">
+    ///     Event status
+    /// </param>
+    /// <param name="pUnk">
+    ///     Event value, specified as an IUnknown *
+    /// </param>
+    HRESULT QueueEventParamUnk(
+        [in] MediaEventType met,
+        [in] REFGUID guidExtendedType,
+        [in] HRESULT hrStatus,
+        [in, unique] IUnknown * pUnk );
+
+    /// <summary>
+    ///     Shutdown must be called when the component is done using the
+    ///     Media Event Queue object to break circular references and 
+    ///     prevent memory leaks.
+    /// </summary>
+    HRESULT Shutdown();
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+[
+    object,
+    uuid(7FEE9E9A-4A89-47a6-899C-B6A53A70FB67),
+    helpstring("IMFActivate Interface"),
+    pointer_default(unique)
+]
+/// <summary>
+/// The IMFActivate interface is a base interface for Activate objects.
+/// An Activate object is a helper object which creates and keeps a pointer to the real object.
+/// MF pipeline uses activate objects instead of real objects in partial topologies.
+/// The ActivateObject(...) method should always return the same instance of the object until either
+/// ShutdownObject() or DetachObject() is called, then it can create a new instance.
+/// </summary>
+interface IMFActivate : IMFAttributes
+{
+    /// <summary>
+    ///     Creates the object that this activate represents.
+    ///     The ActivateObject(...) method should always return the same instance of the object
+    ///     until either ShutdownObject() or DetachObject() is called.
+    /// </summary>
+    /// <param name="riid">
+    ///     The interface ID that the requested object will be QI'ed for
+    /// </param>
+    /// <param name="ppv">
+    ///     Will contain the requested interface
+    /// </param>
+    HRESULT ActivateObject(
+        [in] REFIID riid,
+        [out, iid_is(riid), retval] void ** ppv);
+
+    /// <summary>
+    ///     Shuts down the internal represented object
+    ///     (that is returned on ActivateObject(...))
+    ///     and then releases all references to it.
+    /// </summary>
+    HRESULT ShutdownObject();
+
+    /// <summary>
+    ///     Releases all references to the internal represented
+    ///     object (without shutting it down.)
+    ///     If this action is not supported, E_NOTIMPL should be returned.
+    /// </summary>
+    HRESULT DetachObject();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#if (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+
+//
+//  List IDs for IMFPluginControl
+//
+typedef enum _MF_Plugin_Type {
+    MF_Plugin_Type_MFT                  = 0,
+    MF_Plugin_Type_MediaSource          = 1,
+    MF_Plugin_Type_MFT_MatchOutputType  = 2,
+    MF_Plugin_Type_Other                = (DWORD)-1,
+} MF_Plugin_Type;
+
+[
+    object,
+    local,
+    uuid(5c6c44bf-1db6-435b-9249-e8cd10fdec96),
+    helpstring("IMFPluginControl Interface"),
+    pointer_default(unique)
+]
+/// <summary>
+///    The IMFPluginControl interface returns information about preferred and 'don't use' objects
+//     The preferred/don't use status of objects can be added to or overridden
+/// </summary>
+interface IMFPluginControl : IUnknown
+{
+   /// <summary>
+   ///    Gets the CLSID of an object given a particular selection string (CLSID or file extension or mime type)
+   /// </summary>
+   /// <param name="ListId">
+   ///    ID of list being searched
+   /// </param>
+   /// <param name="pSelector">
+   ///    String representing selector being used to find object
+   /// </param>
+   /// <param name="clsid">
+   ///    Class ID of object meeting selection criteria
+   /// </param>
+   /// <returns>
+   ///    S_OK - entry found
+   ///    HRESULT_FROM_WIN32(ERROR_NOT_FOUND) - entry not present
+   ///    Other failure code - something failed when checking the list
+   /// </returns>
+   HRESULT GetPreferredClsid(
+               DWORD pluginType,
+               [annotation("_In_")] LPCWSTR selector,
+               [annotation("_Out_")] CLSID *clsid
+               );
+
+
+   /// <summary>
+   ///    Gets the selector by index in the list
+   /// </summary>
+   /// <param name="ListId">
+   ///    ID of list being searched
+   /// </param>
+   /// <param name="Index">
+   ///    0-based index
+   /// </param>
+   /// <param name="ppSelector">
+   ///    String representing selector being used to find object
+   /// </param>
+   /// <param name="pclsid">
+   ///    Class ID of object meeting selectionc criteria
+   /// </param>
+   HRESULT GetPreferredClsidByIndex(
+               DWORD pluginType,
+               DWORD index,
+               [annotation("_Out_")] LPWSTR *selector,
+               [annotation("_Out_")] CLSID *clsid
+               );
+
+   /// <summary>
+   ///    Sets the CLSID of an object given a particular selection string (CLSID or file extension or mime type)
+   /// </summary>
+   /// <param name="pluginType">
+   ///    ID of list being searched
+   /// </param>
+   /// <param name="selector">
+   ///    String representing selector being used to find object
+   /// </param>
+   /// <param name="clsid">
+   ///    Class ID of object to set preferred - NULL if no preference is to be set for the selector
+   /// </param>
+   HRESULT SetPreferredClsid(
+               DWORD pluginType,
+               [annotation("_In_")] LPCWSTR selector,
+               [annotation("_In_opt_")] const CLSID *clsid
+               );
+
+   /// <summary>
+   ///    Checks if the CLSID is present in the list
+   /// </summary>
+   /// <param name="pluginType">
+   ///    Plugin type
+   /// </param>
+   /// <param name="clsid">
+   ///    Class ID to search for
+   /// </param>
+   /// <returns>
+   ///     S_OK - clsid is disabled
+   ///     HRESULT_FROM_WIN32(ERROR_NO_MORE_ITEMS) - off end of list
+   ///     HRESULT_FROM_WIN32(ERROR_NOT_FOUND) - not disabled
+   ///     Other failure code - failed
+   /// </returns>
+   HRESULT IsDisabled(
+               DWORD pluginType,
+               REFCLSID clsid
+               );
+
+   /// <summary>
+   ///    Checks if the CLSID is present in the list
+   /// </summary>
+   /// <param name="ListId">
+   ///    ID of list being searched
+   /// </param>
+   /// <param name="clsid">
+   ///    Disabled Class ID 
+   /// </param>
+   /// <returns>
+   ///    S_OK - entry found - returned clsid is disabled
+   ///
+   /// </returns>
+   HRESULT GetDisabledByIndex(
+               DWORD pluginType,
+               DWORD index,
+               [annotation("_Out_")] CLSID *clsid
+               );
+
+   /// <summary>
+   ///    Sets the disabled state for a CLSID
+   /// </summary>
+   /// <param name="ListId">
+   ///    ID of list being searched
+   /// </param>
+   /// <param name="clsid">
+   ///    Class ID to search for
+   /// </param>
+   /// <param name="disabled">
+   ///    TRUE to disable, FALSE to enable
+   /// </param>
+   HRESULT SetDisabled(
+               DWORD pluginType,
+               REFCLSID clsid,
+               BOOL disabled
+               );
+}
+
+typedef enum MF_PLUGIN_CONTROL_POLICY
+{
+    MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS          = 0,
+    MF_PLUGIN_CONTROL_POLICY_USE_APPROVED_PLUGINS     = 1,
+    MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS          = 2,
+    MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS_EDGEMODE = 3
+} MF_PLUGIN_CONTROL_POLICY;
+
+[
+    object,
+    local,
+    uuid(C6982083-3DDC-45CB-AF5E-0F7A8CE4DE77),
+    helpstring("IMFPluginControl2 Interface"),
+    pointer_default(unique)
+]
+interface IMFPluginControl2 : IMFPluginControl
+{
+    HRESULT SetPolicy(
+        [in] MF_PLUGIN_CONTROL_POLICY policy
+        );
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)")
+
+[
+    object,
+    local,
+    uuid(eb533d5d-2db6-40f8-97a9-494692014f07),
+    helpstring("IMFDXGIDeviceManager Interface"),
+    pointer_default(unique)
+]
+/// <summary>
+///    The IMFDXGIDeviceManager interface
+/// </summary>
+interface IMFDXGIDeviceManager : IUnknown
+{
+    HRESULT CloseDeviceHandle(
+      [annotation("_In_")]  HANDLE hDevice
+    );
+    HRESULT GetVideoService(
+      [annotation("_In_")]   HANDLE hDevice,
+      [annotation("_In_")]   REFIID riid,
+      [annotation("_Outptr_")]  void **ppService
+    );
+    HRESULT LockDevice(
+      [annotation("_In_")]   HANDLE hDevice,
+      [annotation("_In_")]   REFIID riid,
+      [annotation("_Outptr_")]  void **ppUnkDevice,
+      [annotation("_In_")]   BOOL fBlock
+    );
+    HRESULT OpenDeviceHandle(
+      [annotation("_Out_")]  HANDLE *phDevice
+    );
+    HRESULT ResetDevice(
+      [annotation("_In_")]  IUnknown *pUnkDevice,
+      [annotation("_In_")]  UINT resetToken
+    );
+    HRESULT TestDevice(
+      [annotation("_In_")]  HANDLE hDevice
+    );
+    HRESULT UnlockDevice(
+      [annotation("_In_")]  HANDLE hDevice,
+      [annotation("_In_")]  BOOL fSaveState
+    );
+}
+
+typedef enum MF_DXGI_DEVICE_MANAGER_MODE
+{
+    MF_DXGI_DEVICE_MANAGER_MODE_INVALID = 0,
+    MF_DXGI_DEVICE_MANAGER_MODE_D3D11,
+    MF_DXGI_DEVICE_MANAGER_MODE_D3D12
+} MF_DXGI_DEVICE_MANAGER_MODE;
+
+typedef enum _MF_STREAM_STATE
+{
+    MF_STREAM_STATE_STOPPED = 0,
+    MF_STREAM_STATE_PAUSED,
+    MF_STREAM_STATE_RUNNING
+} MF_STREAM_STATE;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */")
+#pragma endregion
+
+cpp_quote("#endif // (WINVER >= _WIN32_WINNT_WIN7) ")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_RS2)")
+
+[
+    object,
+    local,
+    uuid(CE8BD576-E440-43B3-BE34-1E53F565F7E8),
+    helpstring("IMFMuxStreamAttributesManager Interface"),
+    pointer_default(unique)    
+]
+/// <summary>
+///    The IMFMuxStreamAttributesManager interface
+/// </summary>
+interface IMFMuxStreamAttributesManager : IUnknown
+{
+    HRESULT GetStreamCount(
+        [annotation("_Out_")] DWORD* pdwMuxStreamCount
+    );
+
+    HRESULT GetAttributes(
+        [annotation("_In_")] DWORD dwMuxStreamIndex,
+        [annotation("_COM_Outptr_")] IMFAttributes **ppStreamAttributes
+    );
+}
+
+[
+    object,
+    local,
+    uuid(505A2C72-42F7-4690-AEAB-8F513D0FFDB8),
+    helpstring("IMFMuxStreamMediaTypeManager Interface"),
+    pointer_default(unique)  
+]
+/// <summary>
+///    The IMFMuxStreamMediaTypeManager interface
+/// </summary>
+interface IMFMuxStreamMediaTypeManager : IUnknown
+{
+    HRESULT GetStreamCount(
+        [annotation("_Out_")] DWORD* pdwMuxStreamCount
+    );
+
+    HRESULT GetMediaType(
+        [annotation("_In_")] DWORD dwMuxStreamIndex,
+        [annotation("_COM_Outptr_")] IMFMediaType** ppMediaType
+    );
+
+    HRESULT GetStreamConfigurationCount(
+        [annotation("_Out_")] DWORD *pdwCount
+    );
+
+    HRESULT AddStreamConfiguration(
+        [annotation("_In_")] ULONGLONG ullStreamMask
+    );
+
+    HRESULT RemoveStreamConfiguration(
+        [annotation("_In_")] ULONGLONG ullStreamMask
+    );
+
+    HRESULT GetStreamConfiguration(
+        [annotation("_In_")] DWORD ulIndex,
+        [annotation("_Out_")] ULONGLONG *pullStreamMask
+    );
+}
+
+[
+    object,
+    local,
+    uuid(74ABBC19-B1CC-4E41-BB8B-9D9B86A8F6CA),
+    helpstring("IMFMuxStreamSampleManager Interface"),
+    pointer_default(unique)  
+]
+/// <summary>
+///    The IMFMuxStreamSampleManager interface
+/// </summary>
+interface IMFMuxStreamSampleManager : IUnknown
+{
+    HRESULT GetStreamCount(
+        [annotation("_Out_")] DWORD* pdwMuxStreamCount
+    );
+
+    HRESULT GetSample(
+        [annotation("_In_")] DWORD dwMuxStreamIndex,
+        [annotation("_COM_Outptr_")] IMFSample** ppSample
+    );
+
+    ULONGLONG GetStreamConfiguration();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// IMFSecureBuffer Interface
+//
+///////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(C1209904-E584-4752-A2D6-7F21693F8B21),
+    local
+]
+/// <summary>
+/// This interface encapsulates a secure buffer allocated by the frame server
+/// trustlet.
+/// </summary>
+interface IMFSecureBuffer : IUnknown
+{
+    /// <summary>
+    /// Get the identifier for a secure buffer.  This GUID can be used by
+    /// a device's trustlet to open a secure section containing the buffer.
+    /// </summary>  
+    HRESULT GetIdentifier(
+        [out, annotation("_Out_")] GUID *pGuidIdentifier);
+};
+
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS2)")
+cpp_quote("#endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES)")
+#pragma endregion

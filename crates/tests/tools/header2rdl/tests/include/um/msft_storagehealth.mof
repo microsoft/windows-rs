@@ -1,0 +1,118 @@
+[ClassVersion( "1.0" ), 
+Abstract,
+Description( 
+    "Represent the Storage Health in the Subsystem."
+    )]
+class MSFT_StorageHealth : MSFT_StorageObject
+{
+    //
+    // Method: GetSetting
+    //
+
+    UInt32 GetSetting(
+
+        [In]
+        String Name,
+
+        [Out, EmbeddedInstance("MSFT_StorageHealthSetting")]
+        String StorageHealthSetting[],
+        
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: SetSetting
+    //
+
+    UInt32 SetSetting(
+
+        [In, Required]
+        String Name,
+
+        [In, Required]
+        String Value,
+        
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: RemoveSetting
+    //
+
+    UInt32 RemoveSetting(
+
+        [In, Required]
+        String Name,
+        
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: GetReport
+    //
+
+    UInt32 GetReport(
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String TargetObject,
+
+        [In]
+        UInt32 Count,
+
+        [Out, Stream, EmbeddedInstance("MSFT_StorageHealthReport")]
+        String Reports[],
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: Maintenance
+    //
+
+    UInt32 Maintenance(
+
+        [In, Required, EmbeddedInstance("MSFT_StorageFaultDomain")]
+        String TargetObject,
+
+        [In]
+        Boolean ValidateMaintenanceMode,
+
+        [In, Required]
+        Boolean EnableMaintenanceMode,
+
+        [In]
+        Boolean IgnoreDetachedVirtualDisks,
+
+        [In]
+        UInt32 Timeout,
+
+        [In]
+        String Model,
+
+        [In]
+        String Manufacturer,
+
+        [In]
+        UInt16 ValidationFlags,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+
+    //
+    // Method: RemoveIntent
+    //
+
+    UInt32 RemoveIntent(
+
+        [In, Required, EmbeddedInstance("MSFT_StorageObject")]
+        String TargetObject,
+
+        [Out, EmbeddedInstance("MSFT_StorageExtendedStatus")]
+        String ExtendedStatus
+        );
+};

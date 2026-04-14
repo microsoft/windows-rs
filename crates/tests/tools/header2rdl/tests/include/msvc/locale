@@ -1,0 +1,240 @@
+// locale standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _LOCALE_
+#define _LOCALE_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <xlocbuf>
+#include <xlocmes>
+#include <xlocmon>
+#include <xlocnum>
+#include <xloctime>
+#include <xstring>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD template <class _Elem>
+class collate : public locale::facet { // facet for ordering sequences of elements
+public:
+    static_assert(!_ENFORCE_FACET_SPECIALIZATIONS || _Is_any_of_v<_Elem, char, wchar_t>, _FACET_SPECIALIZATION_MESSAGE);
+
+    using char_type   = _Elem;
+    using string_type = basic_string<_Elem, char_traits<_Elem>, allocator<_Elem>>;
+
+    _NODISCARD int compare(const _Elem* _First1, const _Elem* _Last1, const _Elem* _First2, const _Elem* _Last2) const {
+        // compare [_First1, _Last1) to [_First2, _Last2)
+        return do_compare(_First1, _Last1, _First2, _Last2);
+    }
+
+    _NODISCARD string_type transform(const _Elem* _First, const _Elem* _Last) const {
+        // transform [_First, _Last) to key string
+        return do_transform(_First, _Last);
+    }
+
+    _NODISCARD long hash(const _Elem* _First, const _Elem* _Last) const { // compute hash code for [_First, _Last)
+        return do_hash(_First, _Last);
+    }
+
+    __PURE_APPDOMAIN_GLOBAL _CRTIMP2_PURE_IMPORT static locale::id id; // unique facet id
+
+    explicit collate(size_t _Refs = 0) : locale::facet(_Refs) { // construct from current locale
+        _BEGIN_LOCINFO(_Lobj)
+        _Init(_Lobj);
+        _END_LOCINFO()
+    }
+
+    collate(const _Locinfo& _Lobj, size_t _Refs = 0) : locale::facet(_Refs) {
+        _Init(_Lobj);
+    }
+
+    static size_t _Getcat(const locale::facet** _Ppf = nullptr, const locale* _Ploc = nullptr) {
+        if (_Ppf && !*_Ppf) {
+            *_Ppf = new collate<_Elem>(_Locinfo(_Ploc->name().c_str()));
+        }
+
+        return _X_COLLATE;
+    }
+
+protected:
+    __CLR_OR_THIS_CALL ~collate() noexcept override {
+        _CSTD free(_Coll._LocaleName);
+    }
+
+    collate(const char* _Locname, size_t _Refs = 0) : locale::facet(_Refs) {
+        _BEGIN_LOCINFO(_Lobj(_Locname))
+        _Init(_Lobj);
+        _END_LOCINFO()
+    }
+
+    void _Init(const _Locinfo& _Lobj) { // initialize from _Lobj
+        _Coll = _Lobj._Getcoll();
+    }
+
+    _NODISCARD virtual int __CLR_OR_THIS_CALL do_compare(
+        const _Elem* _First1, const _Elem* _Last1, const _Elem* _First2, const _Elem* _Last2) const {
+        // compare [_First1, _Last1) to [_First2, _Last2)
+        _Adl_verify_range(_First1, _Last1);
+        _Adl_verify_range(_First2, _Last2);
+        int _Ans = _LStrcoll(_First1, _Last1, _First2, _Last2, &_Coll);
+        return _Ans < 0 ? -1 : _Ans == 0 ? 0 : +1;
+    }
+
+    _NODISCARD virtual string_type __CLR_OR_THIS_CALL do_transform(const _Elem* _First, const _Elem* _Last) const {
+        // transform [_First, _Last) to key string
+        _Adl_verify_range(_First, _Last);
+        size_t _Count;
+        string_type _Str;
+
+        for (_Count = static_cast<size_t>(_Last - _First); 0 < _Count;) {
+            // grow string if locale-specific strxfrm fails
+            _Str.resize(_Count);
+            if ((_Count = _LStrxfrm(&_Str[0], &_Str[0] + _Str.size(), _First, _Last, &_Coll)) <= _Str.size()) {
+                break;
+            }
+        }
+        _Str.resize(_Count);
+        return _Str;
+    }
+
+    _NODISCARD virtual long __CLR_OR_THIS_CALL do_hash(const _Elem* _First, const _Elem* _Last) const {
+        // compute hash code for [_First, _Last)
+        _Adl_verify_range(_First, _Last);
+        return static_cast<long>(_Hash_array_representation(_First, static_cast<size_t>(_Last - _First)));
+    }
+
+private:
+    _Locinfo::_Collvec _Coll; // used by _LStrcoll and _XStrxfrm
+};
+
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdllimport-static-field-def"
+#endif // defined(__clang__)
+
+template <class _Elem>
+__PURE_APPDOMAIN_GLOBAL locale::id collate<_Elem>::id;
+
+#if defined(_DLL_CPPLIB)
+
+#if !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+template __PURE_APPDOMAIN_GLOBAL locale::id collate<char>::id;
+template __PURE_APPDOMAIN_GLOBAL locale::id collate<wchar_t>::id;
+#endif // !defined(_CRTBLD) || defined(__FORCE_INSTANCE)
+
+#ifdef __FORCE_INSTANCE
+template __PURE_APPDOMAIN_GLOBAL locale::id collate<unsigned short>::id;
+#endif // defined(__FORCE_INSTANCE)
+#endif // defined(_DLL_CPPLIB)
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif // defined(__clang__)
+
+_EXPORT_STD template <class _Elem>
+class collate_byname : public collate<_Elem> { // collate for named locale
+public:
+    static_assert(!_ENFORCE_FACET_SPECIALIZATIONS || _Is_any_of_v<_Elem, char, wchar_t>, _FACET_SPECIALIZATION_MESSAGE);
+
+    explicit collate_byname(const char* _Locname, size_t _Refs = 0)
+        : collate<_Elem>(_Locname, _Refs) {} // construct for named locale
+
+    explicit collate_byname(const string& _Str, size_t _Refs = 0)
+        : collate<_Elem>(_Locinfo(_Str.c_str()), _Refs) {} // construct for named locale
+
+protected:
+    __CLR_OR_THIS_CALL ~collate_byname() noexcept override {}
+};
+
+_EXPORT_STD template <class _Facet>
+_NODISCARD bool has_facet(const locale& _Loc) noexcept {
+    _BEGIN_LOCK(_LOCK_LOCALE) // the thread lock, make get atomic
+    size_t _Id = _Facet::id._Get_index();
+    return _Loc._Getfacet(_Id) || _Facet::_Getcat() != static_cast<size_t>(-1);
+    _END_LOCK()
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isalnum(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::alnum, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isalpha(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::alpha, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isblank(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::blank, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool iscntrl(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::cntrl, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isdigit(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::digit, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isgraph(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::graph, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool islower(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::lower, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isprint(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::print, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool ispunct(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::punct, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isspace(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::space, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isupper(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::upper, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD bool isxdigit(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).is(ctype_base::xdigit, _Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD _Elem tolower(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).tolower(_Ch);
+}
+
+_EXPORT_STD template <class _Elem>
+_NODISCARD _Elem toupper(_Elem _Ch, const locale& _Loc) {
+    return _STD use_facet<ctype<_Elem>>(_Loc).toupper(_Ch);
+}
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _LOCALE_

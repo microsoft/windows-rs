@@ -1,0 +1,507 @@
+//+----------------------------------------------------------------------------
+//
+//  Task Scheduler
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File:       mstask.idl
+//
+//  Contents:   ITaskTrigger, ITask, ITaskScheduler, IEnumWorkItems
+//              interfaces and related definitions
+//
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "oleidl.idl";
+
+// 148BD520-A2AB-11CE-B11F-00AA00530503 - Task object class ID
+// 148BD52A-A2AB-11CE-B11F-00AA00530503 - Task Scheduler class ID
+// A6B952F0-A4B1-11D0-997D-00AA006887EC - IScheduledWorkItem interface ID
+// 148BD524-A2AB-11CE-B11F-00AA00530503 - ITask interface ID
+// 148BD527-A2AB-11CE-B11F-00AA00530503 - ITaskScheduler interface ID
+// 148BD528-A2AB-11CE-B11F-00AA00530503 - IEnumWorkItems interface ID
+// 148BD52B-A2AB-11CE-B11F-00AA00530503 - ITaskTrigger interface ID
+
+//+----------------------------------------------------------------------------
+//
+//  Datatypes
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#define TASK_SUNDAY       (0x1)")
+cpp_quote("#define TASK_MONDAY       (0x2)")
+cpp_quote("#define TASK_TUESDAY      (0x4)")
+cpp_quote("#define TASK_WEDNESDAY    (0x8)")
+cpp_quote("#define TASK_THURSDAY     (0x10)")
+cpp_quote("#define TASK_FRIDAY       (0x20)")
+cpp_quote("#define TASK_SATURDAY     (0x40)")
+cpp_quote("#define TASK_FIRST_WEEK   (1)")
+cpp_quote("#define TASK_SECOND_WEEK  (2)")
+cpp_quote("#define TASK_THIRD_WEEK   (3)")
+cpp_quote("#define TASK_FOURTH_WEEK  (4)")
+cpp_quote("#define TASK_LAST_WEEK    (5)")
+cpp_quote("#define TASK_JANUARY      (0x1)")
+cpp_quote("#define TASK_FEBRUARY     (0x2)")
+cpp_quote("#define TASK_MARCH        (0x4)")
+cpp_quote("#define TASK_APRIL        (0x8)")
+cpp_quote("#define TASK_MAY          (0x10)")
+cpp_quote("#define TASK_JUNE         (0x20)")
+cpp_quote("#define TASK_JULY         (0x40)")
+cpp_quote("#define TASK_AUGUST       (0x80)")
+cpp_quote("#define TASK_SEPTEMBER    (0x100)")
+cpp_quote("#define TASK_OCTOBER      (0x200)")
+cpp_quote("#define TASK_NOVEMBER     (0x400)")
+cpp_quote("#define TASK_DECEMBER     (0x800)")
+
+cpp_quote("#define TASK_FLAG_INTERACTIVE                  (0x1)")
+cpp_quote("#define TASK_FLAG_DELETE_WHEN_DONE             (0x2)")
+cpp_quote("#define TASK_FLAG_DISABLED                     (0x4)")
+cpp_quote("#define TASK_FLAG_START_ONLY_IF_IDLE           (0x10)")
+cpp_quote("#define TASK_FLAG_KILL_ON_IDLE_END             (0x20)")
+cpp_quote("#define TASK_FLAG_DONT_START_IF_ON_BATTERIES   (0x40)")
+cpp_quote("#define TASK_FLAG_KILL_IF_GOING_ON_BATTERIES   (0x80)")
+cpp_quote("#define TASK_FLAG_RUN_ONLY_IF_DOCKED           (0x100)")
+cpp_quote("#define TASK_FLAG_HIDDEN                       (0x200)")
+cpp_quote("#define TASK_FLAG_RUN_IF_CONNECTED_TO_INTERNET (0x400)")
+cpp_quote("#define TASK_FLAG_RESTART_ON_IDLE_RESUME       (0x800)")
+cpp_quote("#define TASK_FLAG_SYSTEM_REQUIRED              (0x1000)")
+cpp_quote("#define TASK_FLAG_RUN_ONLY_IF_LOGGED_ON        (0x2000)")
+
+cpp_quote("#define TASK_TRIGGER_FLAG_HAS_END_DATE         (0x1)")
+cpp_quote("#define TASK_TRIGGER_FLAG_KILL_AT_DURATION_END (0x2)")
+cpp_quote("#define TASK_TRIGGER_FLAG_DISABLED             (0x4)")
+
+//
+// 1440 = 60 mins/hour * 24 hrs/day since a trigger/TASK could run all day at
+// one minute intervals.
+//
+
+const int TASK_MAX_RUN_TIMES = 1440;
+
+//
+// The TASK_TRIGGER_TYPE field of the TASK_TRIGGER structure determines
+// which member of the TRIGGER_TYPE_UNION field to use.
+//
+typedef enum _TASK_TRIGGER_TYPE {
+    TASK_TIME_TRIGGER_ONCE            = 0,  // Ignore the Type field.
+    TASK_TIME_TRIGGER_DAILY           = 1,  // Use DAILY
+    TASK_TIME_TRIGGER_WEEKLY          = 2,  // Use WEEKLY
+    TASK_TIME_TRIGGER_MONTHLYDATE     = 3,  // Use MONTHLYDATE
+    TASK_TIME_TRIGGER_MONTHLYDOW      = 4,  // Use MONTHLYDOW
+    TASK_EVENT_TRIGGER_ON_IDLE        = 5,  // Ignore the Type field.
+    TASK_EVENT_TRIGGER_AT_SYSTEMSTART = 6,  // Ignore the Type field.
+    TASK_EVENT_TRIGGER_AT_LOGON       = 7   // Ignore the Type field.
+} TASK_TRIGGER_TYPE, *PTASK_TRIGGER_TYPE;
+
+typedef struct _DAILY {
+    WORD DaysInterval;
+} DAILY;
+
+typedef struct _WEEKLY {
+    WORD WeeksInterval;
+    WORD rgfDaysOfTheWeek;
+} WEEKLY;
+
+typedef struct _MONTHLYDATE {
+    DWORD rgfDays;
+    WORD  rgfMonths;
+} MONTHLYDATE;
+
+typedef struct _MONTHLYDOW {
+    WORD wWhichWeek;
+    WORD rgfDaysOfTheWeek;
+    WORD rgfMonths;
+} MONTHLYDOW;
+
+typedef union _TRIGGER_TYPE_UNION {
+    DAILY       Daily;
+    WEEKLY      Weekly;
+    MONTHLYDATE MonthlyDate;
+    MONTHLYDOW  MonthlyDOW;
+} TRIGGER_TYPE_UNION;
+
+typedef struct _TASK_TRIGGER {
+    WORD cbTriggerSize;            // Structure size.
+    WORD Reserved1;                // Reserved. Must be zero.
+    WORD wBeginYear;               // Trigger beginning date year.
+    WORD wBeginMonth;              // Trigger beginning date month.
+    WORD wBeginDay;                // Trigger beginning date day.
+    WORD wEndYear;                 // Optional trigger ending date year.
+    WORD wEndMonth;                // Optional trigger ending date month.
+    WORD wEndDay;                  // Optional trigger ending date day.
+    WORD wStartHour;               // Run bracket start time hour.
+    WORD wStartMinute;             // Run bracket start time minute.
+    DWORD MinutesDuration;         // Duration of run bracket.
+    DWORD MinutesInterval;         // Run bracket repetition interval.
+    DWORD rgFlags;                 // Trigger flags.
+    TASK_TRIGGER_TYPE TriggerType; // Trigger type.
+    TRIGGER_TYPE_UNION Type;       // Trigger data.
+    WORD Reserved2;                // Reserved. Must be zero.
+    WORD wRandomMinutesInterval;   // Maximum number of random minutes
+                                   // after start time.
+} TASK_TRIGGER, * PTASK_TRIGGER;
+
+//+----------------------------------------------------------------------------
+//
+//  Interfaces
+//
+//-----------------------------------------------------------------------------
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  ITaskTrigger
+//
+//  Synopsis:   Trigger object interface. A Task object may contain several
+//              of these.
+//
+//-----------------------------------------------------------------------------
+cpp_quote("// {148BD52B-A2AB-11CE-B11F-00AA00530503}")
+cpp_quote("DEFINE_GUID(IID_ITaskTrigger, 0x148BD52BL, 0xA2AB, 0x11CE, 0xB1, 0x1F, 0x00, 0xAA, 0x00, 0x53, 0x05, 0x03);")
+
+interface ITaskTrigger;
+[
+    local,
+    object,
+    uuid(148BD52B-A2AB-11CE-B11F-00AA00530503),
+    pointer_default(unique)
+]
+interface ITaskTrigger : IUnknown
+{
+// Methods:
+    HRESULT SetTrigger(
+                [in] const PTASK_TRIGGER pTrigger);
+
+    HRESULT GetTrigger(
+                [out] PTASK_TRIGGER pTrigger);
+
+    HRESULT GetTriggerString(
+                [out, annotation("_Outptr_")] LPWSTR * ppwszTrigger);
+};
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  IScheduledWorkItem
+//
+//  Synopsis:   Abstract base class for any runnable work item that can be
+//              scheduled by the task scheduler.
+//
+//-----------------------------------------------------------------------------
+cpp_quote("// {a6b952f0-a4b1-11d0-997d-00aa006887ec}")
+cpp_quote("DEFINE_GUID(IID_IScheduledWorkItem, 0xa6b952f0L, 0xa4b1, 0x11d0, 0x99, 0x7d, 0x00, 0xaa, 0x00, 0x68, 0x87, 0xec);")
+
+interface IScheduledWorkItem;
+[
+    local,
+    object,
+    uuid(a6b952f0-a4b1-11d0-997d-00aa006887ec),
+    pointer_default(unique)
+]
+interface IScheduledWorkItem : IUnknown
+{
+// Methods concerning scheduling:
+    HRESULT CreateTrigger(
+                [out] WORD *          piNewTrigger,
+                [out] ITaskTrigger ** ppTrigger);
+
+    HRESULT DeleteTrigger(
+                [in] WORD iTrigger);
+
+    HRESULT GetTriggerCount(
+                [out] WORD * pwCount);
+
+    HRESULT GetTrigger(
+                [in]  WORD            iTrigger,
+                [out] ITaskTrigger ** ppTrigger);
+
+    HRESULT GetTriggerString(
+                [in]  WORD     iTrigger,
+                [out, annotation("_Outptr_")] LPWSTR * ppwszTrigger);
+
+    HRESULT GetRunTimes(
+                [in] const LPSYSTEMTIME   pstBegin,
+                [in] const LPSYSTEMTIME   pstEnd,
+                [in, out]  WORD *         pCount,
+                [out]      LPSYSTEMTIME * rgstTaskTimes);
+
+    HRESULT GetNextRunTime(
+                [in, out] SYSTEMTIME * pstNextRun);
+
+    HRESULT SetIdleWait(
+                [in]  WORD   wIdleMinutes,
+                [in]  WORD   wDeadlineMinutes);
+    HRESULT GetIdleWait(
+                [out] WORD * pwIdleMinutes,
+                [out] WORD * pwDeadlineMinutes);
+
+// Other methods:
+    HRESULT Run(
+                void);
+
+    HRESULT Terminate(
+                void);
+
+    HRESULT EditWorkItem(
+                [in] HWND hParent,
+                [in] DWORD dwReserved);
+
+    HRESULT GetMostRecentRunTime(
+                [out] SYSTEMTIME * pstLastRun);
+
+    HRESULT GetStatus(
+                [out] HRESULT * phrStatus);
+
+    HRESULT GetExitCode(
+                [out] DWORD * pdwExitCode);
+
+// Properties:
+    HRESULT SetComment(
+                [in]  LPCWSTR  pwszComment);
+    HRESULT GetComment(
+                [out, annotation("_Outptr_")] LPWSTR * ppwszComment);
+
+    HRESULT SetCreator(
+                [in]  LPCWSTR  pwszCreator);
+    HRESULT GetCreator(
+                [out, annotation("_Outptr_")] LPWSTR * ppwszCreator);
+
+    HRESULT SetWorkItemData(
+                [in] WORD cbData,
+                [in] BYTE rgbData[]);
+    HRESULT GetWorkItemData(
+                [out] WORD *  pcbData,
+                [out] BYTE ** prgbData);
+
+    HRESULT SetErrorRetryCount(
+                [in]  WORD   wRetryCount);
+    HRESULT GetErrorRetryCount(
+                [out] WORD * pwRetryCount);
+
+    HRESULT SetErrorRetryInterval(
+                [in]  WORD   wRetryInterval);
+    HRESULT GetErrorRetryInterval(
+                [out] WORD * pwRetryInterval);
+
+    HRESULT SetFlags(
+                [in]  DWORD   dwFlags);
+    HRESULT GetFlags(
+                [out] DWORD * pdwFlags);
+
+    HRESULT SetAccountInformation(
+                [in]  LPCWSTR  pwszAccountName,
+                [in]  LPCWSTR  pwszPassword);
+    HRESULT GetAccountInformation(
+                [out, annotation("_Outptr_")] LPWSTR * ppwszAccountName);
+}
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  ITask
+//
+//  Synopsis:   Task object interface. The primary means of task object
+//              manipulation.
+//
+//-----------------------------------------------------------------------------
+cpp_quote("// {148BD524-A2AB-11CE-B11F-00AA00530503}")
+cpp_quote("DEFINE_GUID(IID_ITask, 0x148BD524L, 0xA2AB, 0x11CE, 0xB1, 0x1F, 0x00, 0xAA, 0x00, 0x53, 0x05, 0x03);")
+
+interface ITask;
+[
+    local,
+    object,
+    uuid(148BD524-A2AB-11CE-B11F-00AA00530503),
+    pointer_default(unique)
+]
+interface ITask : IScheduledWorkItem
+{
+// Properties that correspond to parameters of CreateProcess:
+    HRESULT SetApplicationName(
+                [in]  LPCWSTR  pwszApplicationName);
+    HRESULT GetApplicationName(
+                [out] LPWSTR * ppwszApplicationName);
+
+    HRESULT SetParameters(
+                [in]  LPCWSTR  pwszParameters);
+    HRESULT GetParameters(
+                [out] LPWSTR * ppwszParameters);
+
+    HRESULT SetWorkingDirectory(
+                [in]  LPCWSTR  pwszWorkingDirectory);
+    HRESULT GetWorkingDirectory(
+                [out] LPWSTR * ppwszWorkingDirectory);
+
+    HRESULT SetPriority(
+                [in]  DWORD   dwPriority);
+    HRESULT GetPriority(
+                [out] DWORD * pdwPriority);
+
+// Other properties:
+    HRESULT SetTaskFlags(
+                [in]  DWORD   dwFlags);
+    HRESULT GetTaskFlags(
+                [out] DWORD * pdwFlags);
+
+    HRESULT SetMaxRunTime(
+                [in]  DWORD   dwMaxRunTimeMS);
+    HRESULT GetMaxRunTime(
+                [out] DWORD * pdwMaxRunTimeMS);
+}
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  IEnumWorkItems
+//
+//  Synopsis:   Work item object enumerator. Enumerates the work item objects
+//              within the Tasks folder.
+//
+//-----------------------------------------------------------------------------
+cpp_quote("// {148BD528-A2AB-11CE-B11F-00AA00530503}")
+cpp_quote("DEFINE_GUID(IID_IEnumWorkItems, 0x148BD528L, 0xA2AB, 0x11CE, 0xB1, 0x1F, 0x00, 0xAA, 0x00, 0x53, 0x05, 0x03);")
+
+interface IEnumWorkItems;
+[
+    local,
+    object,
+    uuid(148BD528-A2AB-11CE-B11F-00AA00530503),
+    pointer_default(unique)
+]
+interface IEnumWorkItems : IUnknown
+{
+// Methods:
+    HRESULT Next(
+                [in]  ULONG     celt,
+                [out] LPWSTR ** rgpwszNames,
+                [out] ULONG *   pceltFetched);
+
+    HRESULT Skip(
+                [in] ULONG celt);
+
+    HRESULT Reset(
+                void);
+
+    HRESULT Clone(
+                [out] IEnumWorkItems ** ppEnumWorkItems);
+}
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  ITaskScheduler
+//
+//  Synopsis:   Task Scheduler interface. Provides location transparent
+//              manipulation of task and/or queue objects within the Tasks
+//              folder.
+//
+//-----------------------------------------------------------------------------
+cpp_quote("// {148BD527-A2AB-11CE-B11F-00AA00530503}")
+cpp_quote("DEFINE_GUID(IID_ITaskScheduler, 0x148BD527L, 0xA2AB, 0x11CE, 0xB1, 0x1F, 0x00, 0xAA, 0x00, 0x53, 0x05, 0x03);")
+
+interface ITaskScheduler;
+[
+    local,
+    object,
+    uuid(148BD527-A2AB-11CE-B11F-00AA00530503),
+    pointer_default(unique)
+]
+interface ITaskScheduler : IUnknown
+{
+// Methods:
+    HRESULT SetTargetComputer(
+                [in] LPCWSTR pwszComputer);
+
+    HRESULT GetTargetComputer(
+                [out] LPWSTR * ppwszComputer);
+
+    HRESULT Enum(
+                [out] IEnumWorkItems ** ppEnumWorkItems);
+
+    HRESULT Activate(
+                [in]  LPCWSTR     pwszName,
+                [in]  REFIID      riid,
+                [out] IUnknown ** ppUnk);
+
+    HRESULT Delete(
+                [in] LPCWSTR pwszName);
+
+    HRESULT NewWorkItem(
+                [in]  LPCWSTR     pwszTaskName,
+                [in]  REFCLSID    rclsid,
+                [in]  REFIID      riid,
+                [out] IUnknown ** ppUnk);
+
+    HRESULT AddWorkItem(
+                [in] LPCWSTR pwszTaskName,
+                [in] IScheduledWorkItem * pWorkItem);
+
+    HRESULT IsOfType(
+                [in] LPCWSTR pwszName,
+                [in] REFIID  riid);
+}
+
+cpp_quote("EXTERN_C const CLSID CLSID_CTask;")
+cpp_quote("EXTERN_C const CLSID CLSID_CTaskScheduler;")
+cpp_quote(" ")
+cpp_quote("// {148BD520-A2AB-11CE-B11F-00AA00530503}")
+cpp_quote("DEFINE_GUID(CLSID_CTask, 0x148BD520, 0xA2AB, 0x11CE, 0xB1, 0x1F, 0x00, 0xAA, 0x00, 0x53, 0x05, 0x03);")
+cpp_quote(" ")
+cpp_quote("// {148BD52A-A2AB-11CE-B11F-00AA00530503}")
+cpp_quote("DEFINE_GUID(CLSID_CTaskScheduler, 0x148BD52A, 0xA2AB, 0x11CE, 0xB1, 0x1F, 0x00, 0xAA, 0x00, 0x53, 0x05, 0x03);")
+cpp_quote(" ")
+
+
+//
+// NOTE: Definition of HPROPSHEETPAGE is from prsht.h
+//       Including this header file causes numerous redefinition errors.
+//
+
+struct _PSP;
+typedef struct _PSP * HPROPSHEETPAGE;
+
+typedef enum _TASKPAGE {
+    TASKPAGE_TASK     = 0,
+    TASKPAGE_SCHEDULE = 1,
+    TASKPAGE_SETTINGS = 2
+} TASKPAGE;
+
+//+----------------------------------------------------------------------------
+//
+//  Interface:  IProvideTaskPage
+//
+//  Synopsis:   Task property page retrieval interface. With this interface,
+//              it is possible to retrieve one or more property pages
+//              associated with a task object. Task objects inherit this
+//              interface.
+//
+//-----------------------------------------------------------------------------
+cpp_quote("// {4086658a-cbbb-11cf-b604-00c04fd8d565}")
+cpp_quote("DEFINE_GUID(IID_IProvideTaskPage, 0x4086658aL, 0xcbbb, 0x11cf, 0xb6, 0x04, 0x00, 0xc0, 0x4f, 0xd8, 0xd5, 0x65);")
+
+interface IProvideTaskPage;
+[
+    local,
+    object,
+    uuid(4086658a-cbbb-11cf-b604-00c04fd8d565),
+    pointer_default(unique)
+]
+interface IProvideTaskPage : IUnknown
+{
+// Methods:
+    HRESULT GetPage(
+                [in]  TASKPAGE         tpType,
+                [in]  BOOL             fPersistChanges,
+                [out] HPROPSHEETPAGE * phPage);
+}
+
+cpp_quote("#define ISchedulingAgent       ITaskScheduler")
+cpp_quote("#define IEnumTasks             IEnumWorkItems")
+cpp_quote("#define IID_ISchedulingAgent   IID_ITaskScheduler")
+cpp_quote("#define CLSID_CSchedulingAgent CLSID_CTaskScheduler")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+

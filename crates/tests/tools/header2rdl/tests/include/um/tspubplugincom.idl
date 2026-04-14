@@ -1,0 +1,60 @@
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#define MAX_ALIAS_SIZE                                                 256
+#define MAX_FILE_EXTENSION_SIZE                                        256
+#define MAX_PLUGIN_NAME_SIZE                                           256
+#define MAX_RESOURCETYPE_SIZE                                          256
+#define MAX_RESOURCELOCATION_SIZE                                      256
+#define MAX_RESOURCELOCATION_SIZE                                      256
+#define MAX_ENDPOINT_SIZE                                              256
+
+// Resource types
+#define RESOURCE_TYPE_APPLICATION                                      1
+#define RESOURCE_TYPE_DESKTOP                                          2
+
+[
+	object,
+	uuid(70C04B05-F347-412B-822F-36C99C54CA45),
+	helpstring("ItsPubPlugin Interface"),
+	pointer_default(unique)
+]
+interface ItsPubPlugin : IUnknown{
+    typedef struct {
+        WCHAR alias[MAX_ALIAS_SIZE];
+        WCHAR name[MAX_PLUGIN_NAME_SIZE];
+        [string, unique] WCHAR *resourceFileContents;
+        WCHAR fileExtension[MAX_FILE_EXTENSION_SIZE];
+        WCHAR resourcePluginType[MAX_PLUGIN_NAME_SIZE];
+        boolean isDiscoverable;
+        long resourceType;
+        unsigned long pceIconSize;
+        [size_is(pceIconSize)] byte *iconContents;
+        unsigned long pcePluginBlobSize;
+        [size_is(pcePluginBlobSize)] byte *blobContents;
+    } pluginResource;
+
+	HRESULT GetResourceList([in] LPCWSTR userID, [out] LONG *pceAppListSize, [out] pluginResource ** resourceList);
+	HRESULT GetResource([in] LPCWSTR alias, LONG flags, [out] pluginResource * resource);
+	[helpstring("Returns time the cache was last updated in FILETIME format")]
+	HRESULT GetCacheLastUpdateTime([out] unsigned long long * lastUpdateTime);
+	[propget] HRESULT pluginName([out, retval] BSTR * pVal);
+	[propget] HRESULT pluginVersion([out, retval] BSTR * pVal);
+       HRESULT ResolveResource(
+        [out] DWORD *resourceType,
+        [string, out] wchar_t resourceLocation[MAX_RESOURCELOCATION_SIZE],
+        [string, out] wchar_t endPointName[MAX_ENDPOINT_SIZE],
+        [in, string] wchar_t * userID,
+        [in, string] wchar_t * alias
+        );
+                                                 
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

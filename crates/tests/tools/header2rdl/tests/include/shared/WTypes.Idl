@@ -1,0 +1,970 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: wtypes.idl
+//
+//  Contents: This interface definition contains typedefs for remotable
+//            data types.
+//--------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+cpp_quote("#if ( _MSC_VER >= 1020 )")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+import "wtypesbase.idl";
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+[ uuid(D3980A60-910C-1068-9341-00DD010F2F1C),
+  version(0.1), pointer_default(unique) ]
+
+interface IWinTypes
+{
+
+typedef struct tagRemHGLOBAL
+{
+        LONG fNullHGlobal;
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+} RemHGLOBAL;
+
+typedef struct tagRemHMETAFILEPICT
+{
+        LONG        mm;
+        LONG        xExt;
+        LONG        yExt;
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+} RemHMETAFILEPICT;
+
+
+typedef struct tagRemHENHMETAFILE
+{
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+} RemHENHMETAFILE;
+
+typedef struct tagRemHBITMAP
+{
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+} RemHBITMAP;
+
+typedef struct tagRemHPALETTE
+{
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+} RemHPALETTE;
+
+typedef struct tagRemBRUSH
+{
+        ULONG cbData;
+        [size_is(cbData)] byte data[];
+} RemHBRUSH;
+
+cpp_quote("#if !defined(_WIN32) && !defined(_MPPC_)" )
+cpp_quote("// The following code is for Win16 only")
+
+cpp_quote("#ifndef WINAPI          // If not included with 3.1 headers...")
+
+cpp_quote("#define FAR             _far")
+cpp_quote("#define PASCAL          _pascal")
+cpp_quote("#define CDECL           _cdecl")
+
+cpp_quote("#define VOID            void")
+cpp_quote("#define WINAPI      FAR PASCAL")
+cpp_quote("#define CALLBACK    FAR PASCAL")
+
+
+cpp_quote("#ifndef FALSE")
+cpp_quote("#define FALSE 0")
+cpp_quote("#define TRUE 1")
+cpp_quote("#endif // !FALSE")
+
+cpp_quote("#ifndef _BYTE_DEFINED")
+cpp_quote("#define _BYTE_DEFINED")
+cpp_quote("typedef byte BYTE;")
+cpp_quote("#endif // !_BYTE_DEFINED")
+
+cpp_quote("#ifndef _WORD_DEFINED")
+cpp_quote("#define _WORD_DEFINED")
+cpp_quote("typedef unsigned short WORD;")
+cpp_quote("#endif // !_WORD_DEFINED")
+
+cpp_quote("typedef unsigned int UINT;")
+cpp_quote("typedef int  INT;")
+cpp_quote("typedef long BOOL;")
+
+cpp_quote("#ifndef _LONG_DEFINED")
+cpp_quote("#define _LONG_DEFINED")
+cpp_quote("typedef long LONG;")
+cpp_quote("#endif // !_LONG_DEFINED")
+
+cpp_quote("#ifndef _WPARAM_DEFINED")
+cpp_quote("#define _WPARAM_DEFINED")
+typedef UINT_PTR WPARAM;
+cpp_quote("#endif // _WPARAM_DEFINED")
+
+cpp_quote("#ifndef _DWORD_DEFINED")
+cpp_quote("#define _DWORD_DEFINED")
+cpp_quote("typedef unsigned long DWORD;")
+cpp_quote("#endif // !_DWORD_DEFINED")
+
+cpp_quote("#ifndef _LPARAM_DEFINED")
+cpp_quote("#define _LPARAM_DEFINED")
+typedef LONG_PTR LPARAM;
+cpp_quote("#endif // !_LPARAM_DEFINED")
+
+cpp_quote("#ifndef _LRESULT_DEFINED")
+cpp_quote("#define _LRESULT_DEFINED")
+typedef LONG_PTR LRESULT;
+cpp_quote("#endif // !_LRESULT_DEFINED")
+
+cpp_quote("typedef void * HANDLE;")
+#define DECLARE_WIREM_HANDLE(name)  \
+                             typedef [wire_marshal(wire ## name)] void * name
+#define DECLARE_HANDLE(name) typedef void * name
+
+DECLARE_HANDLE(HMODULE);
+DECLARE_HANDLE(HINSTANCE);
+DECLARE_HANDLE(HTASK);
+DECLARE_HANDLE(HKEY);
+
+DECLARE_HANDLE(HDESK);
+
+DECLARE_HANDLE(HMF);
+DECLARE_HANDLE(HEMF);
+
+DECLARE_HANDLE(HPEN);
+DECLARE_HANDLE(HRSRC);
+DECLARE_HANDLE(HSTR);
+DECLARE_HANDLE(HWINSTA);
+DECLARE_HANDLE(HKL);
+DECLARE_HANDLE(HGDIOBJ);
+
+typedef HANDLE HDWP;
+
+cpp_quote("#ifndef _HFILE_DEFINED")
+cpp_quote("#define _HFILE_DEFINED")
+typedef INT HFILE;      /* Polymorphic with C runtime file handle type */
+cpp_quote("#endif // !_HFILE_DEFINED")
+
+
+cpp_quote("#ifndef _LPWORD_DEFINED")
+cpp_quote("#define _LPWORD_DEFINED")
+cpp_quote("typedef WORD *LPWORD;")
+cpp_quote("#endif // !_LPWORD_DEFINED")
+
+
+cpp_quote("#ifndef _LPDWORD_DEFINED")
+cpp_quote("#define _LPDWORD_DEFINED")
+cpp_quote("typedef DWORD *LPDWORD;")
+cpp_quote("#endif // !_LPDWORD_DEFINED")
+
+
+cpp_quote("typedef char CHAR;")
+cpp_quote("typedef CHAR *LPSTR;")
+cpp_quote("typedef const CHAR *LPCSTR;")
+
+
+cpp_quote("#ifndef _WCHAR_DEFINED")
+cpp_quote("#define _WCHAR_DEFINED")
+cpp_quote("typedef wchar_t WCHAR;")
+cpp_quote("typedef WCHAR   TCHAR;")
+cpp_quote("#endif // !_WCHAR_DEFINED")
+
+cpp_quote("typedef WCHAR *LPWSTR;")
+
+
+cpp_quote("typedef TCHAR *LPTSTR;")
+
+cpp_quote("typedef const WCHAR *LPCWSTR;")
+cpp_quote("typedef const TCHAR *LPCTSTR;")
+
+
+cpp_quote("#ifndef _COLORREF_DEFINED")
+cpp_quote("#define _COLORREF_DEFINED")
+typedef DWORD COLORREF;
+cpp_quote("#endif // !_COLORREF_DEFINED")
+
+cpp_quote("#ifndef _LPCOLORREF_DEFINED")
+cpp_quote("#define _LPCOLORREF_DEFINED")
+typedef DWORD *LPCOLORREF;
+cpp_quote("#endif // !_LPCOLORREF_DEFINED")
+
+
+cpp_quote("typedef HANDLE *LPHANDLE;")
+
+//typedefs for remotable types from wingdi.h
+
+typedef struct _RECTL
+{
+    LONG    left;
+    LONG    top;
+    LONG    right;
+    LONG    bottom;
+} RECTL, *PRECTL, *LPRECTL;
+
+
+typedef struct tagPOINT
+{
+    LONG  x;
+    LONG  y;
+} POINT, *PPOINT, *LPPOINT;
+
+typedef struct _POINTL
+{
+    LONG  x;
+    LONG  y;
+} POINTL, *PPOINTL;
+
+
+cpp_quote("#ifndef WIN16")
+typedef struct tagSIZE
+{
+    LONG        cx;
+    LONG        cy;
+} SIZE, *PSIZE, *LPSIZE;
+cpp_quote("#else // WIN16")
+cpp_quote("typedef struct tagSIZE")
+cpp_quote("{")
+cpp_quote("    INT cx;")
+cpp_quote("    INT cy;")
+cpp_quote("} SIZE, *PSIZE, *LPSIZE;")
+cpp_quote("#endif // WIN16")
+
+
+typedef struct tagSIZEL
+{
+    LONG cx;
+    LONG cy;
+} SIZEL, *PSIZEL, *LPSIZEL;
+
+
+cpp_quote("#endif  //WINAPI")
+cpp_quote("#endif  //!WIN32 && !MPPC")
+
+
+cpp_quote("#ifndef _PALETTEENTRY_DEFINED")
+cpp_quote("#define _PALETTEENTRY_DEFINED")
+
+typedef struct tagPALETTEENTRY {
+    BYTE        peRed;
+    BYTE        peGreen;
+    BYTE        peBlue;
+    BYTE        peFlags;
+} PALETTEENTRY, *PPALETTEENTRY, *LPPALETTEENTRY;
+
+cpp_quote("#endif // !_PALETTEENTRY_DEFINED")
+
+// Logical Palette
+cpp_quote("#ifndef _LOGPALETTE_DEFINED")
+cpp_quote("#define _LOGPALETTE_DEFINED")
+
+typedef struct tagLOGPALETTE {
+    WORD        palVersion;
+    WORD        palNumEntries;
+    [size_is(palNumEntries)] PALETTEENTRY        palPalEntry[];
+} LOGPALETTE, *PLOGPALETTE, *LPLOGPALETTE;
+
+cpp_quote("#endif // !_LOGPALETTE_DEFINED")
+
+// This block contains types that are normally defined by the nt sdk in WINDEF.H
+// but we need them here for definitions that follow in this file.  If WINDEF.H
+// hasn't been included then we need to define them now so that WTYPES.H
+// will compile.
+cpp_quote("#ifndef _WINDEF_")
+typedef const RECTL *LPCRECTL;
+
+typedef struct tagRECT
+{
+    LONG    left;
+    LONG    top;
+    LONG    right;
+    LONG    bottom;
+} RECT, *PRECT, *LPRECT;
+typedef const RECT *LPCRECT;
+
+cpp_quote("#endif  //_WINDEF_")
+
+//The following typedefs are used internally by MIDL.
+cpp_quote("#if 0")
+    /* MIDL 2.0+ definitions */
+    typedef FMTID *REFFMTID;
+cpp_quote("#endif // 0")
+
+/************************* Misc types ***********************************/
+
+// Common typdefs used in API paramaters, gleamed from compobj.h
+
+// For IRunningObjectTable::Register
+cpp_quote("#ifndef _ROTFLAGS_DEFINED")
+cpp_quote("#define _ROTFLAGS_DEFINED")
+cpp_quote("#define ROTFLAGS_REGISTRATIONKEEPSALIVE 0x1")
+cpp_quote("#define ROTFLAGS_ALLOWANYCLIENT 0x2")
+cpp_quote("#endif // !_ROTFLAGS_DEFINED")
+// Maximum size of comparison buffer for IROTData::GetComparisonData
+cpp_quote("#ifndef _ROT_COMPARE_MAX_DEFINED")
+cpp_quote("#define _ROT_COMPARE_MAX_DEFINED")
+cpp_quote("#define ROT_COMPARE_MAX 2048")
+cpp_quote("#endif // !_ROT_COMPARE_MAX_DEFINED")
+
+//
+// Common typedefs for paramaters used in data view API's, gleamed
+// from dvobj.h
+//
+
+// Data/View aspect; specifies the desired aspect of the object when
+// drawing or getting data.
+typedef enum tagDVASPECT
+{
+    DVASPECT_CONTENT = 1,
+    DVASPECT_THUMBNAIL = 2,
+    DVASPECT_ICON = 4,
+    DVASPECT_DOCPRINT = 8
+} DVASPECT;
+
+/****** Storage types *************************************************/
+
+
+/* Storage commit types */
+typedef enum tagSTGC
+{
+    STGC_DEFAULT        = 0,
+    STGC_OVERWRITE      = 1,
+    STGC_ONLYIFCURRENT  = 2,
+    STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE = 4,
+    STGC_CONSOLIDATE    = 8
+} STGC;
+
+
+typedef enum tagSTGMOVE
+{
+    STGMOVE_MOVE    = 0,
+    STGMOVE_COPY    = 1,
+    STGMOVE_SHALLOWCOPY = 2
+} STGMOVE;
+
+typedef enum tagSTATFLAG
+{
+    STATFLAG_DEFAULT = 0,
+    STATFLAG_NONAME = 1,
+    STATFLAG_NOOPEN = 2
+} STATFLAG;
+
+
+typedef [context_handle] void *HCONTEXT;
+
+/****** Critical Section Wrappers ***********************************/
+
+
+/* if not already picked up from olenls.h */
+cpp_quote("#ifndef _LCID_DEFINED")
+cpp_quote("#define _LCID_DEFINED")
+typedef DWORD LCID;
+cpp_quote("#endif // !_LCID_DEFINED")
+
+cpp_quote("#ifndef _LANGID_DEFINED")
+cpp_quote("#define _LANGID_DEFINED")
+typedef USHORT LANGID;
+cpp_quote("#endif // !_LANGID_DEFINED")
+
+// #########################################################################
+//
+//   Constants for the call context
+//
+
+const ULONG WDT_INPROC_CALL   = 0x48746457;
+const ULONG WDT_REMOTE_CALL   = 0x52746457;
+const ULONG WDT_INPROC64_CALL = 0x50746457;
+
+
+// #########################################################################
+//
+//  CLIPFORMAT
+//
+
+typedef union _userCLIPFORMAT switch(LONG fContext) u
+{
+    case WDT_INPROC_CALL:            DWORD     dwValue;
+    case WDT_REMOTE_CALL:   [string] wchar_t * pwszName;
+} userCLIPFORMAT;
+
+typedef [unique] userCLIPFORMAT *  wireCLIPFORMAT;
+
+typedef [wire_marshal(wireCLIPFORMAT)] WORD  CLIPFORMAT;
+
+
+// #########################################################################
+//
+//  Good for most of the gdi handles.
+
+typedef union _GDI_NONREMOTE switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG        hInproc;
+    case WDT_REMOTE_CALL:   DWORD_BLOB *hRemote;
+} GDI_NONREMOTE;
+
+// #########################################################################
+//
+//  HGLOBAL
+//
+// A global may be Null or may be non-NULL with 0 length.
+
+typedef union _userHGLOBAL switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG                    hInproc;
+    case WDT_REMOTE_CALL:   FLAGGED_BYTE_BLOB *     hRemote;
+    case WDT_INPROC64_CALL: __int64                 hInproc64;
+} userHGLOBAL;
+
+typedef [unique] userHGLOBAL       * wireHGLOBAL;
+
+// #########################################################################
+//
+//  HMETAFILE
+//
+
+typedef union _userHMETAFILE switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG            hInproc;
+    case WDT_REMOTE_CALL:   BYTE_BLOB *     hRemote;
+    case WDT_INPROC64_CALL: __int64         hInproc64;
+} userHMETAFILE;
+
+// #########################################################################
+//
+//  HMETAFILEPICT
+//
+typedef struct _remoteMETAFILEPICT
+{
+    LONG            mm;
+    LONG            xExt;
+    LONG            yExt;
+    userHMETAFILE * hMF;
+} remoteMETAFILEPICT;
+
+typedef union _userHMETAFILEPICT switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG                hInproc;
+    case WDT_REMOTE_CALL:   remoteMETAFILEPICT* hRemote;
+    case WDT_INPROC64_CALL: __int64             hInproc64;
+} userHMETAFILEPICT;
+
+// #########################################################################
+//
+//  HENHMETAFILE
+//
+
+typedef union _userHENHMETAFILE switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG            hInproc;
+    case WDT_REMOTE_CALL:   BYTE_BLOB *     hRemote;
+    case WDT_INPROC64_CALL: __int64         hInproc64;
+} userHENHMETAFILE;
+
+// #########################################################################
+//
+//  HBITMAP
+//
+
+// RemHBITMAP was just a byte blob, but the whole bitmap structure was copied
+// at the beginning of the buffer.
+
+// So, we take BITMAP fields from wingdi.x
+
+typedef struct _userBITMAP
+{
+    LONG            bmType;
+    LONG            bmWidth;
+    LONG            bmHeight;
+    LONG            bmWidthBytes;
+    WORD            bmPlanes;
+    WORD            bmBitsPixel;
+    ULONG                       cbSize;
+    [size_is(cbSize)]   byte    pBuffer[];
+} userBITMAP;
+
+
+typedef union _userHBITMAP switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG            hInproc;
+    case WDT_REMOTE_CALL:   userBITMAP *    hRemote;
+    case WDT_INPROC64_CALL: __int64         hInproc64;
+} userHBITMAP;
+
+// #########################################################################
+//
+//  HPALETTE
+//
+
+// PALETTEENTRY is in wingdi.x, it is a struct with 4 bytes.
+// LOGPALETTE   is in wingdi.x, it is a conf struct with paletteentries and
+//                                    a version field
+
+typedef union _userHPALETTE switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG            hInproc;
+    case WDT_REMOTE_CALL:   LOGPALETTE *    hRemote;
+    case WDT_INPROC64_CALL: __int64         hInproc64;
+} userHPALETTE;
+
+// #########################################################################
+//
+//  Handles passed locally as longs.
+//
+
+typedef union _RemotableHandle switch( LONG fContext ) u
+{
+    case WDT_INPROC_CALL:   LONG   hInproc;
+    case WDT_REMOTE_CALL:   LONG   hRemote;
+} RemotableHandle;
+
+typedef [unique] RemotableHandle * wireHWND;
+typedef [unique] RemotableHandle * wireHMENU;
+typedef [unique] RemotableHandle * wireHACCEL;
+typedef [unique] RemotableHandle * wireHBRUSH;
+typedef [unique] RemotableHandle * wireHFONT;
+typedef [unique] RemotableHandle * wireHDC;
+typedef [unique] RemotableHandle * wireHICON;
+typedef [unique] RemotableHandle * wireHRGN;
+typedef [unique] RemotableHandle * wireHMONITOR;
+
+
+cpp_quote("#if 0")
+#ifndef _MIDL_DECLARE_WIREM_HANDLE
+DECLARE_WIREM_HANDLE( HWND );
+DECLARE_WIREM_HANDLE( HMENU );
+DECLARE_WIREM_HANDLE( HACCEL );
+DECLARE_WIREM_HANDLE( HBRUSH );
+DECLARE_WIREM_HANDLE( HFONT );
+DECLARE_WIREM_HANDLE( HDC );
+DECLARE_WIREM_HANDLE( HICON );
+DECLARE_WIREM_HANDLE( HRGN );
+DECLARE_WIREM_HANDLE( HMONITOR );
+#endif
+
+cpp_quote("#ifndef _HCURSOR_DEFINED")
+cpp_quote("#define _HCURSOR_DEFINED")
+typedef HICON HCURSOR;      /* HICONs & HCURSORs are polymorphic */
+cpp_quote("#endif // !_HCURSOR_DEFINED")
+
+cpp_quote("#endif //0")
+
+cpp_quote("#ifndef _TEXTMETRIC_DEFINED")
+cpp_quote("#define _TEXTMETRIC_DEFINED")
+typedef struct tagTEXTMETRICW {
+    LONG  tmHeight;
+    LONG  tmAscent;
+    LONG  tmDescent;
+    LONG  tmInternalLeading;
+    LONG  tmExternalLeading;
+    LONG  tmAveCharWidth;
+    LONG  tmMaxCharWidth;
+    LONG  tmWeight;
+    LONG  tmOverhang;
+    LONG  tmDigitizedAspectX;
+    LONG  tmDigitizedAspectY;
+    WCHAR tmFirstChar;
+    WCHAR tmLastChar;
+    WCHAR tmDefaultChar;
+    WCHAR tmBreakChar;
+    BYTE  tmItalic;
+    BYTE  tmUnderlined;
+    BYTE  tmStruckOut;
+    BYTE  tmPitchAndFamily;
+    BYTE  tmCharSet;
+} TEXTMETRICW, *PTEXTMETRICW, *LPTEXTMETRICW;
+cpp_quote("#endif // !_TEXTMETRIC_DEFINED")
+
+
+cpp_quote("#ifndef _WIN32           // The following code is for Win16 only")
+cpp_quote("#ifndef WINAPI          // If not included with 3.1 headers...")
+
+// Message structure
+
+typedef struct tagMSG {
+    HWND        hwnd;
+    UINT        message;
+    WPARAM      wParam;
+    LPARAM      lParam;
+    DWORD       time;
+    POINT       pt;
+} MSG, *PMSG, *NPMSG, *LPMSG;
+cpp_quote("#endif // _WIN32")
+cpp_quote("#endif // WINAPI")
+
+typedef [unique] userHBITMAP      * wireHBITMAP;
+typedef [unique] userHPALETTE     * wireHPALETTE;
+typedef [unique] userHENHMETAFILE * wireHENHMETAFILE;
+typedef [unique] userHMETAFILE    * wireHMETAFILE;
+typedef [unique] userHMETAFILEPICT* wireHMETAFILEPICT;
+
+cpp_quote("#if 0")
+DECLARE_WIREM_HANDLE( HGLOBAL );
+typedef HGLOBAL HLOCAL;
+DECLARE_WIREM_HANDLE( HBITMAP );
+DECLARE_WIREM_HANDLE( HPALETTE );
+DECLARE_WIREM_HANDLE( HENHMETAFILE );
+DECLARE_WIREM_HANDLE( HMETAFILE );
+cpp_quote("#endif //0")
+
+DECLARE_WIREM_HANDLE( HMETAFILEPICT );
+
+}
+
+// #########################################################################
+//
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#endif")
+cpp_quote("#pragma warning(disable:4201)")
+cpp_quote("#endif")
+
+typedef double DATE;
+
+/* This is a helper struct for use in handling currency. */
+cpp_quote("#ifndef _tagCY_DEFINED")
+cpp_quote("#define _tagCY_DEFINED")
+cpp_quote("#define _CY_DEFINED")
+
+cpp_quote("#if 0")
+
+cpp_quote("/* the following isn't the real definition of CY, but it is */")
+cpp_quote("/* what RPC knows how to remote */")
+typedef struct tagCY {
+    LONGLONG    int64;
+} CY;
+
+cpp_quote("#else /* 0 */")
+
+cpp_quote("/* real definition that makes the C++ compiler happy */")
+cpp_quote("typedef union tagCY {")
+cpp_quote("    struct {")
+cpp_quote("        ULONG Lo;")
+cpp_quote("        LONG      Hi;")
+cpp_quote("    } DUMMYSTRUCTNAME;")
+cpp_quote("    LONGLONG int64;")
+cpp_quote("} CY;")
+
+cpp_quote("#endif /* 0 */")
+
+cpp_quote("#endif /* _tagCY_DEFINED */")
+
+typedef CY *LPCY;
+
+cpp_quote("#if 0 /* _tagDEC_DEFINED */")
+cpp_quote("/* The following isn't the real definition of Decimal type, */")
+cpp_quote("/* but it is what RPC knows how to remote */")
+
+typedef struct tagDEC {
+    USHORT wReserved;
+    BYTE  scale;
+    BYTE  sign;
+    ULONG Hi32;
+    ULONGLONG Lo64;
+} DECIMAL;
+
+cpp_quote("#else /* _tagDEC_DEFINED */")
+
+cpp_quote("/* real definition that makes the C++ compiler happy */")
+cpp_quote("typedef struct tagDEC {")
+cpp_quote("    USHORT wReserved;")
+cpp_quote("    union {")
+cpp_quote("        struct {")
+cpp_quote("            BYTE scale;")
+cpp_quote("            BYTE sign;")
+cpp_quote("        } DUMMYSTRUCTNAME;")
+cpp_quote("        USHORT signscale;")
+cpp_quote("    } DUMMYUNIONNAME;")
+cpp_quote("    ULONG Hi32;")
+cpp_quote("    union {")
+cpp_quote("        struct {")
+cpp_quote("            ULONG Lo32;")
+cpp_quote("            ULONG Mid32;")
+cpp_quote("        } DUMMYSTRUCTNAME2;")
+cpp_quote("        ULONGLONG Lo64;")
+cpp_quote("    } DUMMYUNIONNAME2;")
+cpp_quote("} DECIMAL;")
+
+cpp_quote("#define DECIMAL_NEG ((BYTE)0x80)")
+cpp_quote("#define DECIMAL_SETZERO(dec) \\")
+cpp_quote("        {(dec).Lo64 = 0; (dec).Hi32 = 0; (dec).signscale = 0;}")
+
+cpp_quote("#endif /* _tagDEC_DEFINED */")
+
+typedef DECIMAL *LPDECIMAL;
+
+cpp_quote("#if ( _MSC_VER >= 800 )")
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#else")
+cpp_quote("#pragma warning(default:4201)")
+cpp_quote("#endif")
+cpp_quote("#endif")
+
+/* IDL declarations for BSTR how to transmit them */
+//
+typedef [unique] FLAGGED_WORD_BLOB * wireBSTR;
+cpp_quote("#ifndef _PREFAST_")
+typedef [wire_marshal( wireBSTR )] OLECHAR *  BSTR;
+cpp_quote("#else // _PREFAST_")
+cpp_quote("typedef _Null_terminated_ OLECHAR *BSTR;")
+cpp_quote("#endif")
+typedef BSTR * LPBSTR;
+
+cpp_quote("/* 0 == FALSE, -1 == TRUE */")
+typedef short VARIANT_BOOL;
+
+cpp_quote("/* The BSTRBLOB structure is used by some implementations */")
+cpp_quote("/* of the IPropertyStorage interface when marshaling BSTRs */")
+cpp_quote("/* on systems which don't support BSTR marshaling. */")
+
+cpp_quote("#ifndef _tagBSTRBLOB_DEFINED")
+cpp_quote("#define _tagBSTRBLOB_DEFINED")
+typedef struct tagBSTRBLOB
+{
+                          ULONG   cbSize;
+    [size_is(cbSize)]     BYTE    *pData;
+} BSTRBLOB, *LPBSTRBLOB;
+cpp_quote("#endif")
+
+cpp_quote("#define VARIANT_TRUE ((VARIANT_BOOL)-1)")
+cpp_quote("#define VARIANT_FALSE ((VARIANT_BOOL)0)")
+
+typedef struct tagCLIPDATA {
+    ULONG cbSize;       // count that includes sizeof(ulClipFmt)
+    LONG ulClipFmt;     // LONG to keep alignment
+    [size_is(cbSize-4)]
+    BYTE * pClipData;   // cbSize-sizeof(ULONG) bytes of data in clipboard format
+} CLIPDATA;
+
+cpp_quote("// Macro to calculate the size of the above pClipData")
+cpp_quote("#define CBPCLIPDATA(clipdata)    ( (clipdata).cbSize - sizeof((clipdata).ulClipFmt) )")
+
+
+typedef unsigned short VARTYPE;
+
+// #########################################################################
+//
+//  VARTYPE
+//
+// #########################################################################
+
+
+cpp_quote("/*")
+cpp_quote(" * VARENUM usage key,")
+cpp_quote(" *")
+cpp_quote(" * * [V] - may appear in a VARIANT")
+cpp_quote(" * * [T] - may appear in a TYPEDESC")
+cpp_quote(" * * [P] - may appear in an OLE property set")
+cpp_quote(" * * [S] - may appear in a Safe Array")
+cpp_quote(" *")
+cpp_quote(" *")
+cpp_quote(" *  VT_EMPTY            [V]   [P]     nothing")
+cpp_quote(" *  VT_NULL             [V]   [P]     SQL style Null")
+cpp_quote(" *  VT_I2               [V][T][P][S]  2 byte signed int")
+cpp_quote(" *  VT_I4               [V][T][P][S]  4 byte signed int")
+cpp_quote(" *  VT_R4               [V][T][P][S]  4 byte real")
+cpp_quote(" *  VT_R8               [V][T][P][S]  8 byte real")
+cpp_quote(" *  VT_CY               [V][T][P][S]  currency")
+cpp_quote(" *  VT_DATE             [V][T][P][S]  date")
+cpp_quote(" *  VT_BSTR             [V][T][P][S]  OLE Automation string")
+cpp_quote(" *  VT_DISPATCH         [V][T]   [S]  IDispatch *")
+cpp_quote(" *  VT_ERROR            [V][T][P][S]  SCODE")
+cpp_quote(" *  VT_BOOL             [V][T][P][S]  True=-1, False=0")
+cpp_quote(" *  VT_VARIANT          [V][T][P][S]  VARIANT *")
+cpp_quote(" *  VT_UNKNOWN          [V][T]   [S]  IUnknown *")
+cpp_quote(" *  VT_DECIMAL          [V][T]   [S]  16 byte fixed point")
+cpp_quote(" *  VT_RECORD           [V]   [P][S]  user defined type")
+cpp_quote(" *  VT_I1               [V][T][P][s]  signed char")
+cpp_quote(" *  VT_UI1              [V][T][P][S]  unsigned char")
+cpp_quote(" *  VT_UI2              [V][T][P][S]  unsigned short")
+cpp_quote(" *  VT_UI4              [V][T][P][S]  ULONG")
+cpp_quote(" *  VT_I8                  [T][P]     signed 64-bit int")
+cpp_quote(" *  VT_UI8                 [T][P]     unsigned 64-bit int")
+cpp_quote(" *  VT_INT              [V][T][P][S]  signed machine int")
+cpp_quote(" *  VT_UINT             [V][T]   [S]  unsigned machine int")
+cpp_quote(" *  VT_INT_PTR             [T]        signed machine register size width")
+cpp_quote(" *  VT_UINT_PTR            [T]        unsigned machine register size width")
+cpp_quote(" *  VT_VOID                [T]        C style void")
+cpp_quote(" *  VT_HRESULT             [T]        Standard return type")
+cpp_quote(" *  VT_PTR                 [T]        pointer type")
+cpp_quote(" *  VT_SAFEARRAY           [T]        (use VT_ARRAY in VARIANT)")
+cpp_quote(" *  VT_CARRAY              [T]        C style array")
+cpp_quote(" *  VT_USERDEFINED         [T]        user defined type")
+cpp_quote(" *  VT_LPSTR               [T][P]     null terminated string")
+cpp_quote(" *  VT_LPWSTR              [T][P]     wide null terminated string")
+cpp_quote(" *  VT_FILETIME               [P]     FILETIME")
+cpp_quote(" *  VT_BLOB                   [P]     Length prefixed bytes")
+cpp_quote(" *  VT_STREAM                 [P]     Name of the stream follows")
+cpp_quote(" *  VT_STORAGE                [P]     Name of the storage follows")
+cpp_quote(" *  VT_STREAMED_OBJECT        [P]     Stream contains an object")
+cpp_quote(" *  VT_STORED_OBJECT          [P]     Storage contains an object")
+cpp_quote(" *  VT_VERSIONED_STREAM       [P]     Stream with a GUID version")
+cpp_quote(" *  VT_BLOB_OBJECT            [P]     Blob contains an object ")
+cpp_quote(" *  VT_CF                     [P]     Clipboard format")
+cpp_quote(" *  VT_CLSID                  [P]     A Class ID")
+cpp_quote(" *  VT_VECTOR                 [P]     simple counted array")
+cpp_quote(" *  VT_ARRAY            [V]           SAFEARRAY*")
+cpp_quote(" *  VT_BYREF            [V]           void* for local use")
+cpp_quote(" *  VT_BSTR_BLOB                      Reserved for system use")
+cpp_quote(" */")
+
+enum VARENUM
+{
+    VT_EMPTY           = 0,
+    VT_NULL            = 1,
+    VT_I2              = 2,
+    VT_I4              = 3,
+    VT_R4              = 4,
+    VT_R8              = 5,
+    VT_CY              = 6,
+    VT_DATE            = 7,
+    VT_BSTR            = 8,
+    VT_DISPATCH        = 9,
+    VT_ERROR           = 10,
+    VT_BOOL            = 11,
+    VT_VARIANT         = 12,
+    VT_UNKNOWN         = 13,
+    VT_DECIMAL         = 14,
+// VBA reserves 15 for future use
+    VT_I1              = 16,
+    VT_UI1             = 17,
+    VT_UI2             = 18,
+    VT_UI4             = 19,
+    VT_I8              = 20,
+    VT_UI8             = 21,
+    VT_INT             = 22,
+    VT_UINT            = 23,
+    VT_VOID            = 24,
+    VT_HRESULT         = 25,
+    VT_PTR             = 26,
+    VT_SAFEARRAY       = 27,
+    VT_CARRAY          = 28,
+    VT_USERDEFINED     = 29,
+    VT_LPSTR           = 30,
+    VT_LPWSTR          = 31,
+// VBA reserves 32-35 for future use
+    VT_RECORD          = 36,
+	VT_INT_PTR         = 37,
+	VT_UINT_PTR        = 38,	
+
+    VT_FILETIME        = 64,
+    VT_BLOB            = 65,
+    VT_STREAM          = 66,
+    VT_STORAGE         = 67,
+    VT_STREAMED_OBJECT = 68,
+    VT_STORED_OBJECT   = 69,
+    VT_BLOB_OBJECT     = 70,
+    VT_CF              = 71,
+    VT_CLSID           = 72,
+    VT_VERSIONED_STREAM= 73,
+
+    VT_BSTR_BLOB       = 0x0fff,
+
+    VT_VECTOR          = 0x1000,
+    VT_ARRAY           = 0x2000,
+    VT_BYREF           = 0x4000,
+    VT_RESERVED        = 0x8000,
+
+    VT_ILLEGAL         = 0xffff,
+    VT_ILLEGALMASKED   = 0x0fff,
+    VT_TYPEMASK        = 0x0fff
+};
+
+
+// Property stuff
+typedef ULONG PROPID;
+cpp_quote( "#ifndef PROPERTYKEY_DEFINED" )
+cpp_quote( "#define PROPERTYKEY_DEFINED" )
+typedef struct _tagpropertykey
+{
+    GUID    fmtid;
+    DWORD   pid;
+} PROPERTYKEY;
+cpp_quote( "#endif" )
+
+// Class Store types
+
+//
+// Platform/Architecture Definition
+//
+    typedef struct tagCSPLATFORM
+    {
+        DWORD dwPlatformId;     // This is the OS Platform
+        DWORD dwVersionHi;      // Major Version of OS
+        DWORD dwVersionLo;      // Minor Version of OS
+        DWORD dwProcessorArch;  // This is the Processor Architecure
+    } CSPLATFORM;
+
+//
+// Query Context Structure
+// This contains a list of attributes used to look up a class implementation
+//
+    typedef struct tagQUERYCONTEXT {
+          DWORD      dwContext;         // Execution context
+          CSPLATFORM Platform;          // Client Platform/Architecture
+          LCID       Locale;            // Locale ID
+          DWORD      dwVersionHi;       // Low Version number
+          DWORD      dwVersionLo;       // Hi Version number
+    } QUERYCONTEXT;
+
+
+//
+// Class Specifier structure
+// All means of mapping to a Class ID
+// (Union of CLSID, File Extension, ProgId, MimeType, File Ext)
+//
+
+    typedef [v1_enum] enum tagTYSPEC {
+        TYSPEC_CLSID,
+        TYSPEC_FILEEXT,
+        TYSPEC_MIMETYPE,
+        TYSPEC_FILENAME,
+        TYSPEC_PROGID,
+        TYSPEC_PACKAGENAME,
+        TYSPEC_OBJECTID
+    } TYSPEC;
+
+    typedef union switch(DWORD tyspec)
+        {
+        case TYSPEC_CLSID:
+            CLSID   clsid;
+        case TYSPEC_FILEEXT:
+            LPOLESTR pFileExt;
+        case TYSPEC_MIMETYPE:
+            LPOLESTR pMimeType;
+        case TYSPEC_PROGID:
+            LPOLESTR pProgId;
+        case TYSPEC_FILENAME:
+            LPOLESTR pFileName;
+        case TYSPEC_PACKAGENAME:
+            struct {
+            LPOLESTR pPackageName;
+            GUID     PolicyId;
+            } ByName;
+        case TYSPEC_OBJECTID:
+            struct {
+            GUID     ObjectId;
+            GUID     PolicyId;
+            } ByObjectId;
+    } uCLSSPEC;
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+

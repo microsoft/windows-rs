@@ -1,0 +1,62 @@
+//+---------------------------------------------------------------------------
+//
+//  Copyright (C) Microsoft Corporation. All Rights Reserved.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// MSHTMLDiagnostics.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "ActivScp.idl";
+
+[
+    object,
+    pointer_default(unique),
+    uuid(30510858-98b5-11cf-bb82-00aa00bdce0b),
+    local
+]
+interface IDiagnosticsScriptEngineSite : IUnknown
+{
+    HRESULT OnMessage([in, size_is(ulDataCount), annotation("_In_reads_(ulDataCount)")] LPCWSTR* pszData, [in] ULONG ulDataCount);
+    HRESULT OnScriptError([in, annotation("_In_")] IActiveScriptError* pScriptError);
+};
+
+[
+    object,
+    pointer_default(unique),
+    uuid(30510859-98b5-11cf-bb82-00aa00bdce0b),
+    local
+]
+interface IDiagnosticsScriptEngine : IUnknown
+{
+    HRESULT EvaluateScript([in, annotation("_In_")] LPCWSTR pszScript, [in, annotation("_In_")] LPCWSTR pszScriptName);
+    HRESULT FireScriptMessageEvent([in, size_is(ulPropertyCount), annotation("_In_reads_(ulPropertyCount)")] LPCWSTR* pszNames, [in, size_is(ulPropertyCount), annotation("_In_reads_(ulPropertyCount)")] LPCWSTR* pszValues, ULONG ulPropertyCount);
+    HRESULT Detach();
+};
+
+[
+    object,
+    pointer_default(unique),
+    uuid(3051085a-98b5-11cf-bb82-00aa00bdce0b),
+    local
+]
+interface IDiagnosticsScriptEngineProvider : IUnknown
+{
+    HRESULT CreateDiagnosticsScriptEngine([in, annotation("_In_opt_")] IDiagnosticsScriptEngineSite* pScriptSite, [in] BOOL fDebuggingEnabled, [in] ULONG ulProcessId, [out, annotation("_Out_")] IDiagnosticsScriptEngine** ppEngine);
+};
+
+cpp_quote("#define SID_SDiagnosticsScriptEngineProvider IID_IDiagnosticsScriptEngineProvider")
+
+cpp_quote("#endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")

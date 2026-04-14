@@ -1,0 +1,418 @@
+//////////////////////////////////////
+//        Imports
+//
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+
+import "fsrmenums.idl";
+import "fsrm.idl";
+
+
+//////////////////////////////////////
+//        Forward declarations
+//
+
+interface IFsrmQuotaBase;
+interface IFsrmQuotaObject;
+interface IFsrmQuota;
+interface IFsrmAutoApplyQuota;
+interface IFsrmQuotaManager;
+interface IFsrmQuotaTemplate;
+interface IFsrmQuotaTemplateImported;
+interface IFsrmQuotaTemplateManager;
+
+
+//////////////////////////////////////
+//        Dispatch IDs
+//
+
+#define FSRM_PROPERTY(x) x | FSRM_DISPID_IS_PROPERTY
+
+// Dispatch ID base of quota interfaces
+const DISPID FSRM_DISPID_QUOTA_BASE                 = FSRM_DISPID_FEATURE_QUOTA     | 0x100000;
+const DISPID FSRM_DISPID_QUOTA_OBJECT               = FSRM_DISPID_QUOTA_BASE        | 0x010000;
+const DISPID FSRM_DISPID_QUOTA                      = FSRM_DISPID_QUOTA_OBJECT      | 0x001000;
+const DISPID FSRM_DISPID_AUTOAPPLYQUOTA             = FSRM_DISPID_QUOTA_OBJECT      | 0x002000;
+const DISPID FSRM_DISPID_QUOTA_TEMPLATE             = FSRM_DISPID_QUOTA_BASE        | 0x020000;
+const DISPID FSRM_DISPID_QUOTA_TEMPLATE_IMPORTED    = FSRM_DISPID_QUOTA_TEMPLATE    | 0x001000;
+
+const DISPID FSRM_DISPID_QUOTA_MANAGER              = FSRM_DISPID_FEATURE_QUOTA     | 0x200000;
+
+const DISPID FSRM_DISPID_QUOTA_TEMPLATE_MANAGER     = FSRM_DISPID_FEATURE_QUOTA     | 0x300000;
+
+const DISPID FSRM_DISPID_QUOTA_MANAGER_EX     = FSRM_DISPID_FEATURE_QUOTA     | 0x400000;
+
+
+//////////////////////////////////////
+//        Typedefs and enums
+//
+
+typedef long FSRM_QUOTA_THRESHOLD;
+
+
+//////////////////////////////////////
+//       Constants
+//
+
+const ULONG FsrmMaxNumberThresholds = 16;
+const ULONG FsrmMinThresholdValue   = 1;
+const ULONG FsrmMaxThresholdValue   = 250;
+const ULONG FsrmMinQuotaLimit       = 1024;
+const ULONG FsrmMaxExcludeFolders   = 32;
+
+
+//////////////////////////////////////
+//        Interfaces
+//
+
+[
+    object,
+    uuid(1568a795-3924-4118-b74b-68d8f0fa5daf),
+    dual,
+    helpstring("IFsrmQuotaBase Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaBase : IFsrmObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_BASE | 0x01)), helpstring("This property is the limit in bytes of the quota")]
+    HRESULT QuotaLimit([out, retval] VARIANT *quotaLimit);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_BASE | 0x01)), helpstring("This property is the limit in bytes of the quota")]
+    HRESULT QuotaLimit([in] VARIANT quotaLimit);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_BASE | 0x02)), helpstring("This property is the bit field containing flags defined in SRM_QUOTA_FLAGS ")]
+    HRESULT QuotaFlags([out, retval] long *quotaFlags);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_BASE | 0x02)), helpstring("This property is the bit field containing flags defined in SRM_QUOTA_FLAGS")]
+    HRESULT QuotaFlags([in] long quotaFlags);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_BASE | 0x03)), helpstring("This read-only property is an array of currently defined thresholds")]
+    HRESULT Thresholds([out, retval] SAFEARRAY(VARIANT) *thresholds);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_QUOTA_BASE | 0x01), helpstring("This method is used to add a new threshold value")]
+    HRESULT AddThreshold([in] FSRM_QUOTA_THRESHOLD threshold);
+                            
+    [id(FSRM_DISPID_QUOTA_BASE | 0x02), helpstring("This method is used to delete a threshold value")]
+    HRESULT DeleteThreshold([in] FSRM_QUOTA_THRESHOLD threshold);
+
+    [id(FSRM_DISPID_QUOTA_BASE | 0x03), helpstring("This method is used to modify a threshold value")]
+    HRESULT ModifyThreshold(
+                        [in] FSRM_QUOTA_THRESHOLD threshold,
+                        [in] FSRM_QUOTA_THRESHOLD newThreshold);
+
+    [id(FSRM_DISPID_QUOTA_BASE | 0x04), helpstring("This method is used to create a threshold action of a specific type")]
+    HRESULT CreateThresholdAction(
+                        [in] FSRM_QUOTA_THRESHOLD threshold,
+                        [in] FsrmActionType actionType,
+                        [out, retval] IFsrmAction **action);
+
+    [id(FSRM_DISPID_QUOTA_BASE | 0x05), helpstring("This method is used to enumerate threshold actions")]
+    HRESULT EnumThresholdActions(
+                        [in] FSRM_QUOTA_THRESHOLD threshold,
+                        [out, retval] IFsrmCollection **actions);
+
+}
+
+
+[
+    object,
+    uuid(42dc3511-61d5-48ae-b6dc-59fc00c0a8d6),
+    dual,
+    helpstring("IFsrmQuotaObject Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaObject : IFsrmQuotaBase
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_OBJECT | 0x01)), helpstring("This read-only property is the Path to the object that will be charged quota")]
+    HRESULT Path([out, retval] BSTR *path);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_OBJECT | 0x02)), helpstring("This read-only property is the SID of the user that will be charged quota")]
+    HRESULT UserSid([out, retval] BSTR *userSid);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_OBJECT | 0x03)), helpstring("This read-only property is the account name of the user that will be charged quota")]
+    HRESULT UserAccount([out, retval] BSTR *userAccount);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_OBJECT | 0x04)), helpstring("This read-only property is the name of the template that this object originated from")]
+    HRESULT SourceTemplateName([out, retval] BSTR *quotaTemplateName);
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_OBJECT | 0x05)), helpstring("This read-only property is whether the object matches the template it originated from")]
+    HRESULT MatchesSourceTemplate([out, retval] VARIANT_BOOL *matches);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_QUOTA_OBJECT | 0x01), helpstring("This method is used to copy the properties of this quota from the specified quota template")]
+    HRESULT ApplyTemplate([in] BSTR quotaTemplateName);
+
+};
+
+
+[
+    object,
+    uuid(377f739d-9647-4b8e-97d2-5ffce6d759cd),
+    dual,
+    helpstring("IFsrmQuota Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuota : IFsrmQuotaObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA | 0x01)), helpstring("This read-only property is the number of bytes currently charged to the quota")]
+    HRESULT QuotaUsed([out, retval] VARIANT *used);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA | 0x02)), helpstring("This read-only property is the maximum number of bytes the quota was charged since the last time the peak usage was reset")]
+    HRESULT QuotaPeakUsage([out, retval] VARIANT *peakUsage);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA | 0x03)), helpstring("This read-only property is the time the peak usage occured")]
+    HRESULT QuotaPeakUsageTime([out, retval] DATE *peakUsageDateTime);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_QUOTA | 0x01), helpstring("This method is used to reset the peak usage mark to the number of bytes currently charged to the quota")]
+    HRESULT ResetPeakUsage();
+
+    [id(FSRM_DISPID_QUOTA | 0x02), helpstring("This method is used to refresh QuotaUsed, QuotaPeakUsage, and QuotaPeakUsageTime from the driver")]
+    HRESULT RefreshUsageProperties();
+
+};
+
+
+[
+    object,
+    uuid(f82e5729-6aba-4740-bfc7-c7f58f75fb7b),
+    dual,
+    helpstring("IFsrmAutoApplyQuota Interface"),
+    pointer_default(unique)
+]
+interface IFsrmAutoApplyQuota : IFsrmQuotaObject
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_AUTOAPPLYQUOTA | 0x01)), helpstring("This property is an array of first level subfolders to exclude from auto-quota creation")]
+    HRESULT ExcludeFolders([out, retval] SAFEARRAY(VARIANT) *folders);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_AUTOAPPLYQUOTA | 0x01)), helpstring("This property is an array of first level subfolders to exclude from auto-quota creation")]
+    HRESULT ExcludeFolders([in] SAFEARRAY(VARIANT) folders);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_AUTOAPPLYQUOTA | 0x01), helpstring("This method is used to apply the auto apply quota changes to derived quotas and commit both the derived quotas and auto apply quota changes.  The resulting collection of derived quotas will be in Committing or Complete state depending on the synchronizaton option chosen.  The collection of HRESULTs can be used to monitor the progress of the asynchronous quota commit operation and should be inspected for the error state of the individual object commit.")]
+    HRESULT CommitAndUpdateDerived(
+                        [in] FsrmCommitOptions commitOptions,
+                        [in] FsrmTemplateApplyOptions applyOptions,
+                        [out, retval] IFsrmDerivedObjectsResult **derivedObjectsResult);
+
+};
+
+
+[
+    object,
+    uuid(8bb68c7d-19d8-4ffb-809e-be4fc1734014),
+    dual,
+    helpstring("IFsrmQuotaManager Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaManager : IDispatch
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_MANAGER | 0x01)), helpstring("This method is used enumerate the runtime expanded variables available for quota notifications")]
+    HRESULT ActionVariables([out, retval] SAFEARRAY(VARIANT) *variables);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_MANAGER | 0x02)), helpstring("This method is used enumerate the descriptions of the runtime expanded variables available for quota notifications")]
+    HRESULT ActionVariableDescriptions([out, retval] SAFEARRAY(VARIANT) *descriptions);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x01), helpstring("This method is used to create a new quota object")]
+    HRESULT CreateQuota(
+                        [in] BSTR path,
+                        [out, retval] IFsrmQuota **quota);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x02), helpstring("This method is used to create a new auto-quota object based on the given template")]
+    HRESULT CreateAutoApplyQuota(
+                        [in] BSTR quotaTemplateName,
+                        [in] BSTR path,
+                        [out, retval] IFsrmAutoApplyQuota **quota);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x03), helpstring("This method is used to get a quota for a specific path")]
+    HRESULT GetQuota(
+                        [in] BSTR path,
+                        [out, retval] IFsrmQuota **quota);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x04), helpstring("This method is used to get an auto-quota for a specific path")]
+    HRESULT GetAutoApplyQuota(
+                        [in] BSTR path,
+                        [out, retval] IFsrmAutoApplyQuota **quota);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x05), helpstring("This method is used to get the most restricting quota for an arbitrary path")]
+    HRESULT GetRestrictiveQuota(
+                        [in] BSTR path,
+                        [out, retval] IFsrmQuota **quota);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x06), helpstring("This method is used to enumerate quotas")]
+    HRESULT EnumQuotas(
+                        [in, defaultvalue(L"")] BSTR path,  // supports wildcards
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **quotas);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x07), helpstring("This method is used to enumerate auto-quotas")]
+    HRESULT EnumAutoApplyQuotas(
+                        [in, defaultvalue(L"")] BSTR path,  // supports wildcards
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **quotas);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x08), helpstring("This method is used to enumerate all the quotas that affect an arbitrary path")]
+    HRESULT EnumEffectiveQuotas(
+                        [in] BSTR path,
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCommittableCollection **quotas);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x09), helpstring("This method is used to start a quota scan on the directory tree underneath the specified path")]
+    HRESULT Scan([in] BSTR strPath);
+
+    [id(FSRM_DISPID_QUOTA_MANAGER | 0x0A), helpstring("This method is used to create an empty quota collection")]
+    HRESULT CreateQuotaCollection([out, retval] IFsrmCommittableCollection **collection);
+
+};
+
+
+[
+    object,
+    uuid(4846cb01-d430-494f-abb4-b1054999fb09),
+    dual,
+    helpstring("IFsrmQuotaManagerEx Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaManagerEx : IFsrmQuotaManager
+{
+    [id(FSRM_DISPID_QUOTA_MANAGER_EX | 0x01), helpstring("This method is used to check whether a given path is subject to quota")]
+    HRESULT IsAffectedByQuota(
+                        [in] BSTR path,
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] VARIANT_BOOL *affected);
+}
+
+
+[
+    object,
+    uuid(a2efab31-295e-46bb-b976-e86d58b52e8b),
+    dual,
+    helpstring("IFsrmQuotaTemplate Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaTemplate : IFsrmQuotaBase
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_TEMPLATE | 0x01)), helpstring("property TemplateName")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_TEMPLATE | 0x01)), helpstring("property TemplateName")]
+    HRESULT Name([in] BSTR name);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_QUOTA_TEMPLATE | 0x01), helpstring("This method is used to copy the properties of this template from the specified template")]
+    HRESULT CopyTemplate([in] BSTR quotaTemplateName);
+
+    [id(FSRM_DISPID_QUOTA_TEMPLATE | 0x02), helpstring("This method is used to apply the template changes to derived quotas and commit both the derived quotas and template changes.  The resulting collection of derived quotas will be in Committing or Complete state depending on the synchronizaton option chosen.  The collection of HRESULTs can be used to monitor the progress of the asynchronous quota commit operation and should be inspected for the error state of the individual object commit.")]
+    HRESULT CommitAndUpdateDerived(
+                        [in] FsrmCommitOptions commitOptions,
+                        [in] FsrmTemplateApplyOptions applyOptions,
+                        [out, retval] IFsrmDerivedObjectsResult **derivedObjectsResult);
+
+};
+
+
+[
+    object,
+    uuid(9a2bf113-a329-44cc-809a-5c00fce8da40),
+    dual,
+    helpstring("IFsrmQuotaTemplateImported Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaTemplateImported : IFsrmQuotaTemplate
+{
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_TEMPLATE_IMPORTED | 0x01)), helpstring("property OverwriteOnCommit")]
+    HRESULT OverwriteOnCommit([out, retval] VARIANT_BOOL *overwrite);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_QUOTA_TEMPLATE_IMPORTED | 0x01)), helpstring("property OverwriteOnCommit")]
+    HRESULT OverwriteOnCommit([in] VARIANT_BOOL overwrite);
+
+};
+
+
+[
+    object,
+    uuid(4173ac41-172d-4d52-963c-fdc7e415f717),
+    dual,
+    helpstring("IFsrmQuotaTemplateManager Interface"),
+    pointer_default(unique)
+]
+interface IFsrmQuotaTemplateManager : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_QUOTA_TEMPLATE_MANAGER | 0x01), helpstring("This method is used to create a new template")]
+    HRESULT CreateTemplate([out,retval] IFsrmQuotaTemplate **quotaTemplate);
+    
+    [id(FSRM_DISPID_QUOTA_TEMPLATE_MANAGER | 0x02), helpstring("This method is used to get a template by name")]
+    HRESULT GetTemplate(
+                        [in, defaultvalue(L"")] BSTR name,
+                        [out, retval] IFsrmQuotaTemplate **quotaTemplate);
+
+    [id(FSRM_DISPID_QUOTA_TEMPLATE_MANAGER | 0x03), helpstring("This method is used to enumerate templates")]
+    HRESULT EnumTemplates(
+        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+        [out, retval] IFsrmCommittableCollection **quotaTemplates);
+
+    [id(FSRM_DISPID_QUOTA_TEMPLATE_MANAGER | 0x04), helpstring("This method is used to copy the properties of this template from the input string")]
+    HRESULT ExportTemplates(
+                        [in, defaultvalue(NULL)] VARIANT* quotaTemplateNamesArray,
+                        [out, retval] BSTR *serializedQuotaTemplates);
+
+    [id(FSRM_DISPID_QUOTA_TEMPLATE_MANAGER | 0x05), helpstring("This method is used to import templates from the templates string representation.  The resulting collection, or individual objects contain therein, must be committed to finalize the import")]
+    HRESULT ImportTemplates(
+                        [in] BSTR serializedQuotaTemplates,
+                        [in, defaultvalue(NULL)] VARIANT* quotaTemplateNamesArray,
+                        [out, retval] IFsrmCommittableCollection **quotaTemplates);
+
+};
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

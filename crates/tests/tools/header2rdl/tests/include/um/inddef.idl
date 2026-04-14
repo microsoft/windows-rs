@@ -1,0 +1,115 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+
+//-----------------------------------------------------------------------------
+// File:			inddef.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+
+    REMOTED_INTERFACE(0c733a68-2a1c-11ce-ade5-00aa0044773d)
+
+
+interface IIndexDefinition : IUnknown {
+
+#ifdef _WIN64  //Use casting by ULONG in attribute size_is under 64-bit environment.
+
+	[local]
+	HRESULT CreateIndex(
+		[in, annotation("_In_")] 		DBID * pTableID,
+		[in, annotation("_In_opt_")] 	DBID * pIndexID,
+		[in] DBORDINAL cIndexColumnDescs,
+		[in, size_is((ULONG)cIndexColumnDescs), annotation("_In_reads_(cIndexColumnDescs)")]
+			const DBINDEXCOLUMNDESC rgIndexColumnDescs[],
+		[in] ULONG cPropertySets,
+		[in, out, size_is(cPropertySets), annotation("_Inout_updates_(cPropertySets)")]
+			DBPROPSET rgPropertySets[],
+		[out, annotation("_Outptr_opt_")] DBID ** ppIndexID
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(CreateIndex)]
+	HRESULT RemoteCreateIndex(
+		[in] DBID * pTableID,
+		[in, unique] DBID * pIndexID,
+		[in] DBORDINAL cIndexColumnDescs,
+		[in, size_is((ULONG)cIndexColumnDescs)] const DBINDEXCOLUMNDESC *rgIndexColumnDescs,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET *rgPropertySets,
+		[in, out, unique] DBID ** ppIndexID,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS *rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#else  //No casting by ULONG for 32-bit.
+
+	[local]
+	HRESULT CreateIndex(
+		[in, annotation("_In_")] DBID * pTableID,
+		[in, annotation("_In_opt_")] DBID * pIndexID,
+		[in] DBORDINAL cIndexColumnDescs,
+		[in, size_is(cIndexColumnDescs), annotation("_In_reads_(cIndexColumnDescs)")]
+			const DBINDEXCOLUMNDESC rgIndexColumnDescs[],
+		[in] ULONG cPropertySets,
+		[in, out, size_is(cPropertySets), annotation("_Inout_updates_(cPropertySets)")]
+			DBPROPSET rgPropertySets[],
+		[out, annotation("_Outptr_opt_result_maybenull_")] DBID ** ppIndexID
+	);
+
+#ifndef NO_REMOTE
+
+	[call_as(CreateIndex)]
+	HRESULT RemoteCreateIndex(
+		[in] DBID * pTableID,
+		[in, unique] DBID * pIndexID,
+		[in] DBORDINAL cIndexColumnDescs,
+		[in, size_is(cIndexColumnDescs)] const DBINDEXCOLUMNDESC *rgIndexColumnDescs,
+		[in] ULONG cPropertySets,
+		[in, unique, size_is(cPropertySets)] DBPROPSET *rgPropertySets,
+		[in, out, unique] DBID ** ppIndexID,
+		[in] ULONG cTotalProps,
+		[out, size_is(cTotalProps)] DBPROPSTATUS *rgPropStatus,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+#endif
+
+#endif
+
+	[local]
+	HRESULT DropIndex(
+		[in, unique, annotation("_In_")] 		DBID * pTableID,
+		[in, unique, annotation("_In_opt_")] 	DBID * pIndexID
+	);
+
+	[call_as(DropIndex)]
+	HRESULT RemoteDropIndex(
+		[in, unique] DBID * pTableID,
+		[in, unique] DBID * pIndexID,
+		[out] IErrorInfo ** ppErrorInfoRem
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

@@ -1,0 +1,168 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//--------------------------------------------------------------------------
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "oaidl.idl";
+import "shobjidl_core.idl";
+
+[
+    object,
+    uuid(332E5848-2E15-458E-85C4-C911C0C3D6F4),
+]
+interface IRandomAccessStreamFileAccessMode : IUnknown
+{
+    HRESULT GetMode([out] DWORD* fileAccessMode); // Windows::Storage::FileAccessMode
+}
+
+[
+    uuid(D1019A0E-6243-4329-8497-2E75894D7710),
+    object,
+    local,
+]
+interface IUnbufferedFileHandleOplockCallback : IUnknown
+{
+    HRESULT OnBrokenCallback();
+}
+
+[
+    object,
+    uuid(A65C9109-42AB-4B94-A7B1-DD2E4E68515E),
+]
+interface IUnbufferedFileHandleProvider : IUnknown
+{
+    // Return S_OK and a valid file handle. Caller must call CloseUnbufferedFileHandle when it's not needed anymore.
+    // The handle will be also closed on an oplock break so "invalid handle" exceptions have to be handled.
+    HRESULT OpenUnbufferedFileHandle([in] IUnbufferedFileHandleOplockCallback* oplockBreakCallback, [out] [retval] DWORD_PTR* fileHandle);
+    HRESULT CloseUnbufferedFileHandle();
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// This enum is a subset of the FILE_FLAG_* constants that are valid for use inside an app-container setting.
+typedef [v1_enum] enum HANDLE_OPTIONS
+{
+    HO_NONE                  = 0x00000000,
+    HO_OPEN_REQUIRING_OPLOCK = 0x00040000,
+    HO_DELETE_ON_CLOSE       = 0x04000000,
+    HO_SEQUENTIAL_SCAN       = 0x08000000,
+    HO_RANDOM_ACCESS         = 0x10000000,
+    HO_NO_BUFFERING          = 0x20000000,
+    HO_OVERLAPPED            = 0x40000000,
+    HO_WRITE_THROUGH         = 0x80000000,
+} HANDLE_OPTIONS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(HANDLE_OPTIONS);")
+
+typedef [v1_enum] enum HANDLE_ACCESS_OPTIONS
+{
+    HAO_NONE            = 0x00000000,
+    HAO_READ_ATTRIBUTES = 0x00000080, // FILE_READ_ATTRIBUTES
+    HAO_READ            = 0x00120089, // (STANDARD_RIGHTS_READ | FILE_READ_DATA | FILE_READ_ATTRIBUTES | FILE_READ_EA | SYNCHRONIZE)
+    HAO_WRITE           = 0x00120116, // (STANDARD_RIGHTS_WRITE | FILE_WRITE_DATA | FILE_WRITE_ATTRIBUTES | FILE_WRITE_EA | FILE_APPEND_DATA | SYNCHRONIZE)
+    HAO_DELETE          = 0x00010000, // DELETE
+} HANDLE_ACCESS_OPTIONS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(HANDLE_ACCESS_OPTIONS);")
+
+typedef [v1_enum] enum HANDLE_SHARING_OPTIONS
+{
+    HSO_SHARE_NONE      = 0x00000000,
+    HSO_SHARE_READ      = 0x00000001,
+    HSO_SHARE_WRITE     = 0x00000002,
+    HSO_SHARE_DELETE    = 0x00000004,
+} HANDLE_SHARING_OPTIONS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(HANDLE_SHARING_OPTIONS);")
+
+typedef [v1_enum] enum HANDLE_CREATION_OPTIONS
+{
+    HCO_CREATE_NEW        = 0x1,
+    HCO_CREATE_ALWAYS     = 0x2,
+    HCO_OPEN_EXISTING     = 0x3,
+    HCO_OPEN_ALWAYS       = 0x4,
+    HCO_TRUNCATE_EXISTING = 0x5,
+} HANDLE_CREATION_OPTIONS;
+
+[
+    object,
+    uuid(826ABE3D-3ACD-47D3-84F2-88AAEDCF6304),
+]
+interface IOplockBreakingHandler : IUnknown
+{
+    HRESULT OplockBreaking();
+}
+
+[
+    object,
+    uuid(5CA296B2-2C25-4D22-B785-B885C8201E6A),
+]
+interface IStorageItemHandleAccess : IUnknown
+{
+    HRESULT Create(
+        [in] HANDLE_ACCESS_OPTIONS accessOptions,
+        [in] HANDLE_SHARING_OPTIONS sharingOptions,
+        [in] HANDLE_OPTIONS options,
+        [in, optional] IOplockBreakingHandler* oplockBreakingHandler,
+        [out, retval, system_handle(sh_file)] HANDLE* interopHandle
+        );
+}
+
+[
+    object,
+    uuid(DF19938F-5462-48A0-BE65-D2A3271A08D6),
+]
+interface IStorageFolderHandleAccess : IUnknown
+{
+    HRESULT Create(
+        [in, string] LPCWSTR fileName,
+        [in] HANDLE_CREATION_OPTIONS creationOptions,
+        [in] HANDLE_ACCESS_OPTIONS accessOptions,
+        [in] HANDLE_SHARING_OPTIONS sharingOptions,
+        [in] HANDLE_OPTIONS options,
+        [in, optional] IOplockBreakingHandler* oplockBreakingHandler,
+        [out, retval, system_handle(sh_file)] HANDLE* interopHandle
+        );
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+// These values indicate which API should be used to create the new process
+typedef[v1_enum] enum CreateProcessMethod
+{
+    CpCreateProcess = 0,         // CreateProcess
+    CpCreateProcessAsUser = 1,   // CreateProcessAsUser, requires _hUserToken to be set
+    CpAicLaunchAdminProcess = 2, // AicLaunchAdminProcess
+} CreateProcessMethod;
+
+[
+    object,
+    uuid(30DC931F-33FC-4FFD-A168-942258CF3CA4),
+]
+interface IDDEInitializer : IUnknown
+{
+    HRESULT Initialize(
+        [in, string] LPCWSTR fileExtensionOrProtocol,
+        [in] CreateProcessMethod method,
+        [in, string] LPCWSTR currentDirectory,
+        [in] IShellItem* execTarget,
+        [in] IUnknown* site,
+        [in, string] LPCWSTR application,
+        [in, string] LPCWSTR targetFile,
+        [in, string] LPCWSTR arguments,
+        [in, string] LPCWSTR verb);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

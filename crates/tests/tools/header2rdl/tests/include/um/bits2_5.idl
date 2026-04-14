@@ -1,0 +1,125 @@
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+
+[
+    uuid(f1bd1079-9f01-4bdc-8036-f09b70095066),
+    helpstring("IBackgroundCopyJobHttpOptions Interface"),
+    odl
+]
+interface IBackgroundCopyJobHttpOptions : IUnknown
+{
+    typedef enum BG_CERT_STORE_LOCATION {
+        BG_CERT_STORE_LOCATION_CURRENT_USER = 0,
+        BG_CERT_STORE_LOCATION_LOCAL_MACHINE,
+        BG_CERT_STORE_LOCATION_CURRENT_SERVICE,
+        BG_CERT_STORE_LOCATION_SERVICES,
+        BG_CERT_STORE_LOCATION_USERS,
+        BG_CERT_STORE_LOCATION_CURRENT_USER_GROUP_POLICY,
+        BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY,
+        BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE
+    } BG_CERT_STORE_LOCATION;
+
+    HRESULT SetClientCertificateByID(
+      [in] BG_CERT_STORE_LOCATION StoreLocation,
+      [in] LPCWSTR StoreName,
+      [in, size_is(20), ref] byte * pCertHashBlob
+    );
+
+    HRESULT SetClientCertificateByName(
+      [in] BG_CERT_STORE_LOCATION StoreLocation,
+      [in] LPCWSTR StoreName,
+      [in] LPCWSTR SubjectName
+    );
+
+    HRESULT RemoveClientCertificate(
+    );
+
+    HRESULT GetClientCertificate(
+      [out, ref] BG_CERT_STORE_LOCATION * pStoreLocation,
+      [out, ref] LPWSTR * pStoreName,
+      [out, size_is( , 20), ref] byte ** ppCertHashBlob,
+      [out, ref] LPWSTR* pSubjectName
+    );
+
+    HRESULT SetCustomHeaders(
+      [in, unique] LPCWSTR RequestHeaders
+    );
+
+    HRESULT GetCustomHeaders(
+      [out, ref] LPWSTR* pRequestHeaders
+    );
+
+    HRESULT SetSecurityFlags( 
+      [in] ULONG Flags
+    );
+
+    HRESULT GetSecurityFlags( 
+      [out, ref] ULONG* pFlags
+    );
+
+}
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(4974177c-3bb6-4c37-9ff0-6b7426f0aba9),
+    helpstring("Microsoft Background Copy Manager 2.5"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyManager2_5
+{
+    [
+        uuid(03ca98d6-ff5d-49b8-abc6-03dd84127020),
+        helpstring("Background copy manager 2.5")
+    ]
+    coclass BackgroundCopyManager2_5
+    {
+        [default] interface IBackgroundCopyManager;
+    };
+    interface IBackgroundCopyCallback;
+    interface IBackgroundCopyFile2;
+    interface IBackgroundCopyJob3;
+    interface IBackgroundCopyJobHttpOptions;
+}
+
+cpp_quote("#define   BG_SSL_ENABLE_CRL_CHECK               0x0001")
+cpp_quote("#define   BG_SSL_IGNORE_CERT_CN_INVALID         0x0002")
+cpp_quote("#define   BG_SSL_IGNORE_CERT_DATE_INVALID       0x0004")
+cpp_quote("#define   BG_SSL_IGNORE_UNKNOWN_CA              0x0008")
+cpp_quote("#define   BG_SSL_IGNORE_CERT_WRONG_USAGE        0x0010")
+
+// 
+// Main redirection policy: defines how BITS treats HTTP redirects
+// - default = BG_HTTP_REDIRECT_POLICY_SILENT; for any other value
+//   BITS will update IBackgroundCopyFile's RemoteName with the final URL
+// - DISALLOW will cause bits to enter error state when a redirect occurs
+//
+// ALLOW_SILENT and ALLOW_REPORT may be combined with 
+// BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP (see below)
+// 
+cpp_quote("#define   BG_HTTP_REDIRECT_POLICY_MASK          0x0700")
+
+cpp_quote("#define   BG_HTTP_REDIRECT_POLICY_ALLOW_SILENT  0x0000")
+cpp_quote("#define   BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT  0x0100")
+cpp_quote("#define   BG_HTTP_REDIRECT_POLICY_DISALLOW      0x0200")
+
+//
+// Supplemental redirection policy: 
+//     By default, redirection from HTTPS to HTTP is not allowed.
+//     Set this flag to allow it.
+//
+cpp_quote("#define   BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP  0x0800")
+
+cpp_quote("#include \"bits3_0.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

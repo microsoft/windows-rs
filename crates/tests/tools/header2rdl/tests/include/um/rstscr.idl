@@ -1,0 +1,51 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			rstscr.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//  
+    
+    LOCAL_INTERFACE(0c733a7e-2a1c-11ce-ade5-00aa0044773d)
+
+    
+interface IRowsetScroll : IRowsetLocate {
+
+	HRESULT GetApproximatePosition(
+		[in] HCHAPTER hReserved,
+		[in] DBBKMARK cbBookmark,
+		[in, size_is(cbBookmark)] const BYTE * pBookmark,
+		[out] DBCOUNTITEM * pulPosition,
+		[out] DBCOUNTITEM * pcRows
+	);
+
+	HRESULT GetRowsAtRatio(
+		[in] HWATCHREGION hReserved1,
+		[in] HCHAPTER hReserved2,
+		[in] DBCOUNTITEM ulNumerator,
+		[in] DBCOUNTITEM ulDenominator,
+		[in] DBROWCOUNT cRows,
+		[out] DBCOUNTITEM * pcRowsObtained,
+		[out, size_is(,cRows)] HROW ** prghRows
+	);
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

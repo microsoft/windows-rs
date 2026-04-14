@@ -1,0 +1,249 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+----------------------------------------------------------------------------
+//
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+//
+//  Abstract:
+//      Defines additional public interfaces for XPS Object model. Added in Windows 8.
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN8)")
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "XpsObjectModel.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+// Forward declarations
+interface IXpsOMObjectFactory1;
+interface IXpsOMPackage1;
+interface IXpsOMPage1;
+
+typedef [v1_enum] enum
+{
+    XPS_DOCUMENT_TYPE_UNSPECIFIED = 1,
+    XPS_DOCUMENT_TYPE_XPS,
+    XPS_DOCUMENT_TYPE_OPENXPS
+} XPS_DOCUMENT_TYPE;
+
+[
+    object,
+    uuid(0a91b617-d612-4181-bf7c-be5824e9cc8f),
+    helpstring("Supports creation of Xps Objects from OpenXPS packages and XML markup"),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMObjectFactory1 : IXpsOMObjectFactory
+{
+    HRESULT GetDocumentTypeFromFile(
+        [in] LPCWSTR filename,
+        [out, retval] XPS_DOCUMENT_TYPE* documentType
+    );
+
+    HRESULT GetDocumentTypeFromStream(
+        [in] IStream* xpsDocumentStream,
+        [out, retval] XPS_DOCUMENT_TYPE* documentType
+    );
+
+    HRESULT ConvertHDPhotoToJpegXR(
+        [in,out] IXpsOMImageResource *imageResource
+    );
+
+    HRESULT ConvertJpegXRToHDPhoto(
+        [in,out] IXpsOMImageResource *imageResource
+    );
+
+    HRESULT CreatePackageWriterOnFile1
+    (
+        [in, string]    LPCWSTR                     fileName,
+        [in, unique]    LPSECURITY_ATTRIBUTES       securityAttributes,
+        [in]            DWORD                       flagsAndAttributes,
+        [in]            BOOL                        optimizeMarkupSize,
+        [in]            XPS_INTERLEAVING            interleaving,
+        [in]            IOpcPartUri                 *documentSequencePartName,
+        [in]            IXpsOMCoreProperties        *coreProperties,
+        [in]            IXpsOMImageResource         *packageThumbnail,
+        [in]            IXpsOMPrintTicketResource   *documentSequencePrintTicket,
+        [in]            IOpcPartUri                 *discardControlPartName,
+        [in]            XPS_DOCUMENT_TYPE           documentType,
+        [out, retval]   IXpsOMPackageWriter         **packageWriter
+    );
+
+    HRESULT CreatePackageWriterOnStream1
+    (
+        [in]            ISequentialStream           *outputStream,
+        [in]            BOOL                        optimizeMarkupSize,
+        [in]            XPS_INTERLEAVING            interleaving,
+        [in]            IOpcPartUri                 *documentSequencePartName,
+        [in]            IXpsOMCoreProperties        *coreProperties,
+        [in]            IXpsOMImageResource         *packageThumbnail,
+        [in]            IXpsOMPrintTicketResource   *documentSequencePrintTicket,
+        [in]            IOpcPartUri                 *discardControlPartName,
+        [in]            XPS_DOCUMENT_TYPE           documentType,
+        [out, retval]   IXpsOMPackageWriter         **packageWriter
+    );
+
+    HRESULT CreatePackage1
+    (
+        [out, retval] IXpsOMPackage1 **package
+    );
+
+    HRESULT CreatePackageFromStream1
+    (
+        [in]            IStream         *stream,
+        [in]            BOOL            reuseObjects,
+        [out, retval]   IXpsOMPackage1  **package
+    );
+
+    HRESULT CreatePackageFromFile1
+    (
+        [in, string]    LPCWSTR         filename,
+        [in]            BOOL            reuseObjects,
+        [out, retval]   IXpsOMPackage1  **package
+    );
+
+    HRESULT CreatePage1
+    (
+        [in]            const XPS_SIZE             *pageDimensions,
+        [in, string]    LPCWSTR                    language,
+        [in]            IOpcPartUri                *partUri,
+        [out, retval]   IXpsOMPage1                **page
+    );
+
+    HRESULT CreatePageFromStream1
+    (
+        [in]            IStream                  *pageMarkupStream,
+        [in]            IOpcPartUri              *partUri,
+        [in]            IXpsOMPartResources      *resources,
+        [in]            BOOL                     reuseObjects,
+        [out, retval]   IXpsOMPage1              **page
+    );
+
+    HRESULT CreateRemoteDictionaryResourceFromStream1
+    (
+        [in]            IStream                  *dictionaryMarkupStream,
+        [in]            IOpcPartUri              *partUri,
+        [in]            IXpsOMPartResources      *resources,
+        [out, retval]   IXpsOMRemoteDictionaryResource **dictionaryResource
+    );
+}
+
+[
+    object,
+    uuid(95a9435e-12bb-461b-8e7f-c6adb04cd96a),
+    helpstring("Supports serialization of XPS object model to OpenXPS package"),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMPackage1 : IXpsOMPackage
+{
+    HRESULT GetDocumentType
+    (
+        [out, retval] XPS_DOCUMENT_TYPE *documentType
+    );
+
+    HRESULT WriteToFile1
+    (
+        [in, string]    LPCWSTR                 fileName,
+        [in, unique]    LPSECURITY_ATTRIBUTES   securityAttributes,
+        [in]            DWORD                   flagsAndAttributes,
+        [in]            BOOL                    optimizeMarkupSize,
+        [in]            XPS_DOCUMENT_TYPE       documentType
+    );
+
+    HRESULT WriteToStream1
+    (
+        [in]            ISequentialStream       *outputStream,
+        [in]            BOOL                    optimizeMarkupSize,
+        [in]            XPS_DOCUMENT_TYPE       documentType
+    );
+}
+
+[
+    object,
+    uuid(305b60ef-6892-4dda-9cbb-3aa65974508a),
+    helpstring("Supports serialization of XPS page object to OpenXPS XML markup"),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMPage1 : IXpsOMPage
+{
+    HRESULT GetDocumentType
+    (
+        [out, retval] XPS_DOCUMENT_TYPE *documentType
+    );
+
+    HRESULT Write1
+    (
+        [in] ISequentialStream      *stream,
+        [in] BOOL                   optimizeMarkupSize,
+        [in] XPS_DOCUMENT_TYPE      documentType
+    );
+}
+
+[
+    object,
+    uuid(3b0b6d38-53ad-41da-b212-d37637a6714e),
+    helpstring("XPS Document Package Target interface contains the elements needed for printing XPS content in the Document Printing model.
+                For more information please see IDocumentPackageTargetFactory and Windows.Graphics.Printing.PrintManager"),
+    pointer_default(ref),
+    local
+]
+interface IXpsDocumentPackageTarget : IUnknown
+{
+    HRESULT GetXpsOMPackageWriter(
+        [in]            IOpcPartUri*                documentSequencePartName,
+        [in]            IOpcPartUri*                discardControlPartName,
+        [out, retval]   IXpsOMPackageWriter**       packageWriter
+        );
+
+    HRESULT GetXpsOMFactory(
+        [out, retval]   IXpsOMObjectFactory**       xpsFactory
+        );
+
+    HRESULT GetXpsType(
+        [out, retval]   XPS_DOCUMENT_TYPE*          documentType
+        );
+}
+
+[
+    object,
+    uuid(BF8FC1D4-9D46-4141-BA5F-94BB9250D041),
+    helpstring("Supports serialization of XPS remote dictionary object to OpenXPS XML markup"),
+    pointer_default(ref),
+    local
+]
+interface IXpsOMRemoteDictionaryResource1 : IXpsOMRemoteDictionaryResource
+{
+    HRESULT GetDocumentType
+    (
+        [out, retval] XPS_DOCUMENT_TYPE *documentType
+    );
+
+    HRESULT Write1
+    (
+        [in] ISequentialStream      *stream,
+        [in] XPS_DOCUMENT_TYPE      documentType
+    );
+}
+
+cpp_quote("#define XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS     MAKE_HRESULT(1, FACILITY_XPS, 0x600) ")
+cpp_quote("#define XPS_E_ABSOLUTE_REFERENCE                             MAKE_HRESULT(1, FACILITY_XPS, 0x601) ")
+cpp_quote("#define XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS               MAKE_HRESULT(1, FACILITY_XPS, 0x602) ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote("#endif // (NTDDI >= NTDDI_WIN8)")

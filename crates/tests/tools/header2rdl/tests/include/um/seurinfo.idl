@@ -1,0 +1,76 @@
+/********************************************************
+*                                                       *
+*   Copyright (C) Microsoft. All rights reserved.       *
+*                                                       *
+********************************************************/
+
+//-----------------------------------------------------------------------------
+// File:			seurinfo.idl
+//
+// Contents: 		OLE DB interface definition
+//
+// Comments: 		
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#include "idlmulti.h"
+//
+#if( OLEDBVER >= 0x0200 )
+    REMOTED_INTERFACE(0c733aa4-2a1c-11ce-ade5-00aa0044773d)
+#else
+    LOCAL_INTERFACE(0c733aa4-2a1c-11ce-ade5-00aa0044773d)
+#endif
+
+interface ISecurityInfo : IUnknown {	
+cpp_quote("//@@@+ V2.1")
+cpp_quote("#if( OLEDBVER >= 0x0210 )")
+	typedef DWORD ACCESS_MASK;
+	enum ACCESS_MASKENUM {
+		PERM_EXCLUSIVE			= 0x00000200L,
+		PERM_READDESIGN 		= 0x00000400L,
+		PERM_WRITEDESIGN 		= 0x00000800L,
+		PERM_WITHGRANT			= 0x00001000L,
+		PERM_REFERENCE			= 0x00002000L,
+		PERM_CREATE				= 0x00004000L,
+		PERM_INSERT				= 0x00008000L,
+		PERM_DELETE				= 0x00010000L,
+		PERM_READCONTROL		= 0x00020000L,
+		PERM_WRITEPERMISSIONS 	= 0x00040000L,
+		PERM_WRITEOWNER			= 0x00080000L,
+		PERM_MAXIMUM_ALLOWED	= 0x02000000L,	
+		PERM_ALL				= 0x10000000L,
+		PERM_EXECUTE			= 0x20000000L,
+		PERM_READ				= 0x80000000L,
+		PERM_UPDATE				= 0x40000000L,										
+		PERM_DROP				= 0x00000100L,
+	};
+
+cpp_quote("#define PERM_DESIGN 							PERM_WRITEDESIGN")
+
+cpp_quote("#endif // OLEDBVER >= 0x0210")
+cpp_quote("//@@@- V2.1")
+
+	
+	HRESULT GetCurrentTrustee(
+	[out] TRUSTEE_W**		ppTrustee
+	);
+
+	HRESULT GetObjectTypes(
+	[out] ULONG *	cObjectTypes,
+	[out] GUID **	rgObjectTypes
+	);
+
+	HRESULT GetPermissions(
+	[in] GUID			ObjectType,
+	[out] ACCESS_MASK*	pPermissions
+	);
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

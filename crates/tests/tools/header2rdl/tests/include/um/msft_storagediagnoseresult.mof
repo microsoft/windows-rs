@@ -1,0 +1,65 @@
+[ClassVersion ( "1.0" ), 
+Description( "Object representing the result of a Diagnose method call on a storage object." )]
+class MSFT_StorageDiagnoseResult
+{
+    [Read, Description(
+        "A unique identifier for the fault"
+        )]
+    String FaultId;
+
+    [Read, Description(
+        "A string that uniquely identifies the type of fault."
+        )]
+    String FaultType;
+
+    [Read, Description(
+        "A unique identifier of the object that triggered the fault."
+        )]
+    String FaultingObjectUniqueId;
+
+    [Read, Description(
+        "A string that uniquely identifies the type of the object that triggered the fault."
+        )]
+    String FaultingObjectType;
+
+    [Read, Required, Description(
+        "The description of the object that triggered the fault"
+        )]
+    String FaultingObjectDescription;
+
+    [Read, Description(
+        "The location of the object that triggered the fault"
+        )]
+    String FaultingObjectLocation;
+
+    [Read, Description(
+        "The formatted message describing the reason for the fault"
+        )]
+    String Reason;
+
+    [Read, Description(
+        "Free form descriptions of the recommended actions to take to resolve the cause of the fault."
+        )]
+    String RecommendedActions[];
+
+    [Read, Description(
+        "Denotes the perceived severity of the event from the notifier's point of view. \n"
+        "0 - 'Unknown': The severity is unknown or indeterminate. \n"
+        "2 - 'Information': The event is for informative purposes. \n"
+        "3 - 'Degraded/Warning': Action may be required by the user. \n"
+        "4 - 'Minor': Action is needed, but the situation is not serious at          this time. \n"
+        "5 - 'Major': Immediate action is needed. \n"
+        "6 - 'Critical': Immediate action is needed and the scope of the issue is broad. \n"
+        "7 - 'Fatal/NonRecoverable': An error has occurred, but it is too late to take remedial "
+        "action. \n"
+        ),
+        ValueMap { "0", "2", "3", "4", "5", "6", "7" },
+        Values {
+            "Unknown", "Information", "Degraded/Warning", "Minor", "Major", "Critical",
+            "Fatal/NonRecoverable"
+            }]
+    UInt16 PerceivedSeverity;
+    
+    [Read]
+    Datetime FaultTime;
+};

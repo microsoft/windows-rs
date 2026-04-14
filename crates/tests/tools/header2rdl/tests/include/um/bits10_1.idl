@@ -1,0 +1,82 @@
+/*********************************************************
+*                                                        *
+*   Copyright (c) Microsoft. All rights reserved.        *
+*                                                        *
+*********************************************************/
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+import "bits.idl";
+import "bits1_5.idl";
+import "bits2_0.idl";
+import "bits2_5.idl";
+import "bits3_0.idl";
+import "bits4_0.idl";
+import "bits5_0.idl";
+
+[
+    uuid(98c97bd2-e32b-4ad8-a528-95fd8b16bd42)
+]
+interface IBackgroundCopyCallback3 : IBackgroundCopyCallback2
+{
+    HRESULT FileRangesTransferred(
+        [in] IBackgroundCopyJob *job, 
+        [in] IBackgroundCopyFile *file,
+        [in] DWORD rangeCount,
+        [in, size_is(rangeCount)] const BG_FILE_RANGE ranges[]
+        );
+}
+
+[
+    uuid(CF6784F7-D677-49FD-9368-CB47AEE9D1AD)
+]
+interface IBackgroundCopyFile6 : IBackgroundCopyFile5
+{
+    HRESULT UpdateDownloadPosition([in] UINT64 offset);
+
+    HRESULT
+    RequestFileRanges(
+        [in] DWORD rangeCount,
+        [in, size_is(rangeCount)] const BG_FILE_RANGE ranges[]
+        );
+
+    HRESULT
+    GetFilledFileRanges(
+        [out, ref] DWORD *rangeCount,
+        [out, size_is(, *rangeCount)] BG_FILE_RANGE **ranges
+        );
+}
+
+[
+  uuid(8A39E4B6-22C9-4B39-9E0C-B1CDF5F967FD),
+  lcid(0x0000),
+  version(1.0)
+]
+library BackgroundCopyManager10_1
+{
+  [
+    uuid(4BD3E4E1-7BD4-4A2B-9964-496400DE5193)
+  ]
+  coclass BackgroundCopyManager10_1
+  {
+    [default] interface IBackgroundCopyManager;
+  };
+  interface IBackgroundCopyCallback3;
+  interface IBackgroundCopyFile6;
+  interface IBackgroundCopyJob5;
+  interface IBackgroundCopyJobHttpOptions;
+  interface IBitsPeer;
+  interface IBitsPeerCacheAdministration;
+  interface IBitsPeerCacheRecord;
+  interface IBitsTokenOptions;
+  interface IEnumBitsPeerCacheRecords;
+  interface IEnumBitsPeers;
+}
+
+cpp_quote("#include \"bits10_2.h\"")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion

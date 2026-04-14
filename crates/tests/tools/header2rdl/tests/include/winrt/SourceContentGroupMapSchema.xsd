@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://schemas.microsoft.com/appx/2016/sourcecontentgroupmap"
+  xmlns:s="http://schemas.microsoft.com/appx/2016/sourcecontentgroupmap"
+  xmlns="http://schemas.microsoft.com/appx/2016/sourcecontentgroupmap">
+
+    <xs:element name="ContentGroupMap" type="CT_ContentGroupMap">
+        <xs:unique name="NameKey">
+            <xs:selector xpath="s:Required/s:ContentGroup | s:Automatic/s:ContentGroup"/>
+            <xs:field xpath="@Name"/>
+        </xs:unique>
+    </xs:element>
+    
+    <xs:element name="Required" type="CT_Required"/>
+    <xs:element name="Automatic" type="CT_Automatic" />
+    <xs:element name="ContentGroup" type="CT_ContentGroup">
+        <xs:unique name="FileNameKey">
+            <xs:selector xpath="s:File"/>
+            <xs:field xpath="@Name"/>
+        </xs:unique>
+    </xs:element>
+    <xs:element name="File" type="CT_File"/>
+
+    <xs:complexType name="CT_ContentGroupMap">
+      <xs:sequence>
+        <xs:element ref="Required" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="Automatic" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute name="IgnorableNamespaces" type="xs:string" use="optional"/>
+    </xs:complexType>
+   
+    <xs:complexType name="CT_Required">
+        <xs:sequence>
+            <xs:element ref="ContentGroup" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CT_Automatic">
+        <xs:sequence>
+            <xs:element ref="ContentGroup" minOccurs="0" maxOccurs="2147483647"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CT_ContentGroup">
+        <xs:sequence>
+            <xs:element ref="File" minOccurs="1" maxOccurs="2147483647"/>
+        </xs:sequence>
+        <xs:attribute name="Name" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Friendly name of the Content Group.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="CT_File">
+        <xs:attribute name="Name" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>File name.</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>
+
+

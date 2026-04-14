@@ -1,0 +1,504 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//
+//  File: shtypes.idl
+//
+//  Contents: This interface definition contains typedefs for remotable
+//            shell data types.
+//--------------------------------------------------------------------------
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4001) /* nonstandard extension : single line comment */")
+cpp_quote("#pragma warning(disable:4820) /* padding added after data member */")
+cpp_quote("#endif")
+
+cpp_quote("//+-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  Microsoft Windows")
+cpp_quote("//  Copyright (c) Microsoft Corporation. All rights reserved.")
+cpp_quote("//")
+cpp_quote("//--------------------------------------------------------------------------")
+
+//
+// Import definitions of the base types related to the 64b porting effort.
+//
+import "wtypes.idl";
+
+import "unknwn.idl";
+
+cpp_quote("//")
+cpp_quote("// For compilers that don't support nameless unions")
+cpp_quote("//")
+cpp_quote("#ifndef DUMMYUNIONNAME")
+cpp_quote("#ifdef NONAMELESSUNION")
+cpp_quote("#define DUMMYUNIONNAME   u")
+cpp_quote("#define DUMMYUNIONNAME2  u2")
+cpp_quote("#define DUMMYUNIONNAME3  u3")
+cpp_quote("#define DUMMYUNIONNAME4  u4")
+cpp_quote("#define DUMMYUNIONNAME5  u5")
+cpp_quote("#else")
+cpp_quote("#define DUMMYUNIONNAME")
+cpp_quote("#define DUMMYUNIONNAME2")
+cpp_quote("#define DUMMYUNIONNAME3")
+cpp_quote("#define DUMMYUNIONNAME4")
+cpp_quote("#define DUMMYUNIONNAME5")
+cpp_quote("#endif")
+cpp_quote("#endif // DUMMYUNIONNAME")
+
+cpp_quote("//===========================================================================")
+cpp_quote("//")
+cpp_quote("// Object identifiers in the explorer's name space (ItemID and IDList)")
+cpp_quote("//")
+cpp_quote("//  All the items that the user can browse with the explorer (such as files,")
+cpp_quote("// directories, servers, work-groups, etc.) has an identifier which is unique")
+cpp_quote("// among items within the parent folder. Those identifiers are called item")
+cpp_quote("// IDs (SHITEMID). Since all its parent folders have their own item IDs,")
+cpp_quote("// any items can be uniquely identified by a list of item IDs, which is called")
+cpp_quote("// an ID list (ITEMIDLIST).")
+cpp_quote("//")
+cpp_quote("//  ID lists are almost always allocated by the task allocator (see some")
+cpp_quote("// description below as well as OLE 2.0 SDK) and may be passed across")
+cpp_quote("// some of shell interfaces (such as IShellFolder). Each item ID in an ID list")
+cpp_quote("// is only meaningful to its parent folder (which has generated it), and all")
+cpp_quote("// the clients must treat it as an opaque binary data except the first two")
+cpp_quote("// bytes, which indicates the size of the item ID.")
+cpp_quote("//")
+cpp_quote("//  When a shell extension -- which implements the IShellFolder interace --")
+cpp_quote("// generates an item ID, it may put any information in it, not only the data")
+cpp_quote("// with that it needs to identifies the item, but also some additional")
+cpp_quote("// information, which would help implementing some other functions efficiently.")
+cpp_quote("// For example, the shell's IShellFolder implementation of file system items")
+cpp_quote("// stores the primary (long) name of a file or a directory as the item")
+cpp_quote("// identifier, but it also stores its alternative (short) name, size and date")
+cpp_quote("// etc.")
+cpp_quote("//")
+cpp_quote("//  When an ID list is passed to one of shell APIs (such as SHGetPathFromIDList),")
+cpp_quote("// it is always an absolute path -- relative from the root of the name space,")
+cpp_quote("// which is the desktop folder. When an ID list is passed to one of IShellFolder")
+cpp_quote("// member function, it is always a relative path from the folder (unless it")
+cpp_quote("// is explicitly specified).")
+cpp_quote("//")
+cpp_quote("//===========================================================================")
+
+cpp_quote("//")
+cpp_quote("// SHITEMID -- Item ID  (mkid)")
+cpp_quote("//     USHORT      cb;             // Size of the ID (including cb itself)")
+cpp_quote("//     BYTE        abID[];         // The item ID (variable length)")
+cpp_quote("//")
+cpp_quote("#include <pshpack1.h>")
+typedef struct _SHITEMID
+{
+    USHORT      cb;
+    BYTE        abID[];
+} SHITEMID;
+cpp_quote("#include <poppack.h>")
+
+cpp_quote("#if defined(_M_IX86)")
+cpp_quote("#define __unaligned")
+cpp_quote("#endif // __unaligned")
+
+//  WARNING: SHITEMID's have no marshalling support
+typedef SHITEMID __unaligned *LPSHITEMID;
+typedef const SHITEMID __unaligned *LPCSHITEMID;
+
+cpp_quote("//")
+cpp_quote("// ITEMIDLIST -- List if item IDs (combined with 0-terminator)")
+cpp_quote("//")
+cpp_quote("#include <pshpack1.h>")
+
+// variable count list of contiguous SHITEMIDs
+// terminated with a zero-length SHITEMID
+typedef struct _ITEMIDLIST      // idl
+{
+    SHITEMID    mkid;
+} ITEMIDLIST;
+
+cpp_quote("#if defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus)")
+
+// ITEMIDLIST_RELATIVE (*PIDLIST_RELATIVE)
+// variable count (>= 0 items) list of contiguous SHITEMIDs
+// terminated with a zero-length SHITEMID
+// relative to a parent folder
+cpp_quote("typedef struct _ITEMIDLIST_RELATIVE : ITEMIDLIST {} ITEMIDLIST_RELATIVE;")
+
+// ITEMID_CHILD (*PITEMID_CHILD)
+// single item list (0 - 1 items) of contiguous SHITEMIDs
+// terminated with a zero-length SHITEMID
+// relative to a parent folder
+cpp_quote("typedef struct _ITEMID_CHILD : ITEMIDLIST_RELATIVE {} ITEMID_CHILD;")
+
+// ITEMIDLIST_ABSOLUTE (*PIDLIST_ABSOLUTE)
+// variable count list (>= 0 items) of contiguous SHITEMIDs
+// terminated with a zero-length SHITEMID
+// relative only to the Desktop folder
+// an empty list is a pidl to the desktop itself
+cpp_quote("typedef struct _ITEMIDLIST_ABSOLUTE : ITEMIDLIST_RELATIVE {} ITEMIDLIST_ABSOLUTE;")
+
+cpp_quote("#else // !(defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus))")
+
+typedef ITEMIDLIST ITEMIDLIST_RELATIVE;
+typedef ITEMIDLIST ITEMID_CHILD;
+typedef ITEMIDLIST ITEMIDLIST_ABSOLUTE;
+
+cpp_quote("#endif // defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus)")
+
+cpp_quote("#include <poppack.h>")
+
+typedef [unique] BYTE_BLOB * wirePIDL;
+typedef [wire_marshal(wirePIDL)] ITEMIDLIST __unaligned * LPITEMIDLIST;
+typedef [wire_marshal(wirePIDL)] const ITEMIDLIST __unaligned * LPCITEMIDLIST;
+
+cpp_quote("#if defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus)")
+//  more refined typing
+typedef [wire_marshal(wirePIDL)] ITEMIDLIST_ABSOLUTE * PIDLIST_ABSOLUTE;
+typedef [wire_marshal(wirePIDL)] const ITEMIDLIST_ABSOLUTE * PCIDLIST_ABSOLUTE;
+typedef [wire_marshal(wirePIDL)] const ITEMIDLIST_ABSOLUTE __unaligned * PCUIDLIST_ABSOLUTE;
+typedef [wire_marshal(wirePIDL)] ITEMIDLIST_RELATIVE * PIDLIST_RELATIVE;
+typedef [wire_marshal(wirePIDL)] const ITEMIDLIST_RELATIVE * PCIDLIST_RELATIVE;
+typedef [wire_marshal(wirePIDL)] ITEMIDLIST_RELATIVE __unaligned * PUIDLIST_RELATIVE;
+typedef [wire_marshal(wirePIDL)] const ITEMIDLIST_RELATIVE __unaligned * PCUIDLIST_RELATIVE;
+typedef [wire_marshal(wirePIDL)] ITEMID_CHILD * PITEMID_CHILD;
+typedef [wire_marshal(wirePIDL)] const ITEMID_CHILD * PCITEMID_CHILD;
+typedef [wire_marshal(wirePIDL)] ITEMID_CHILD __unaligned * PUITEMID_CHILD;
+typedef [wire_marshal(wirePIDL)] const ITEMID_CHILD __unaligned * PCUITEMID_CHILD;
+
+typedef PCUITEMID_CHILD const *PCUITEMID_CHILD_ARRAY;
+typedef PCUIDLIST_RELATIVE const *PCUIDLIST_RELATIVE_ARRAY;
+typedef PCIDLIST_ABSOLUTE const *PCIDLIST_ABSOLUTE_ARRAY;
+typedef PCUIDLIST_ABSOLUTE const *PCUIDLIST_ABSOLUTE_ARRAY;
+cpp_quote("#else // !(defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus))")
+cpp_quote("#define PIDLIST_ABSOLUTE         LPITEMIDLIST")
+cpp_quote("#define PCIDLIST_ABSOLUTE        LPCITEMIDLIST")
+cpp_quote("#define PCUIDLIST_ABSOLUTE       LPCITEMIDLIST")
+cpp_quote("#define PIDLIST_RELATIVE         LPITEMIDLIST")
+cpp_quote("#define PCIDLIST_RELATIVE        LPCITEMIDLIST")
+cpp_quote("#define PUIDLIST_RELATIVE        LPITEMIDLIST")
+cpp_quote("#define PCUIDLIST_RELATIVE       LPCITEMIDLIST")
+cpp_quote("#define PITEMID_CHILD            LPITEMIDLIST")
+cpp_quote("#define PCITEMID_CHILD           LPCITEMIDLIST")
+cpp_quote("#define PUITEMID_CHILD           LPITEMIDLIST")
+cpp_quote("#define PCUITEMID_CHILD          LPCITEMIDLIST")
+cpp_quote("#define PCUITEMID_CHILD_ARRAY    LPCITEMIDLIST *")
+cpp_quote("#define PCUIDLIST_RELATIVE_ARRAY LPCITEMIDLIST *")
+cpp_quote("#define PCIDLIST_ABSOLUTE_ARRAY  LPCITEMIDLIST *")
+cpp_quote("#define PCUIDLIST_ABSOLUTE_ARRAY LPCITEMIDLIST *")
+cpp_quote("#endif // defined(STRICT_TYPED_ITEMIDS) && defined(__cplusplus)")
+
+#ifndef MAX_PATH
+#define MAX_PATH 260
+#endif
+
+cpp_quote("#ifdef MIDL_PASS")
+
+// This structure is defined in winbase.h which is not visible to idl files,
+// so we redeclare it here.
+
+typedef struct _WIN32_FIND_DATAA {
+    DWORD dwFileAttributes;
+    FILETIME ftCreationTime;
+    FILETIME ftLastAccessTime;
+    FILETIME ftLastWriteTime;
+    DWORD nFileSizeHigh;
+    DWORD nFileSizeLow;
+    DWORD dwReserved0;
+    DWORD dwReserved1;
+    CHAR   cFileName[ MAX_PATH ];
+    CHAR   cAlternateFileName[ 14 ];
+#ifdef _MAC
+    DWORD dwFileType;
+    DWORD dwCreatorType;
+    WORD  wFinderFlags;
+#endif
+} WIN32_FIND_DATAA, *PWIN32_FIND_DATAA, *LPWIN32_FIND_DATAA;
+
+typedef struct _WIN32_FIND_DATAW {
+    DWORD dwFileAttributes;
+    FILETIME ftCreationTime;
+    FILETIME ftLastAccessTime;
+    FILETIME ftLastWriteTime;
+    DWORD nFileSizeHigh;
+    DWORD nFileSizeLow;
+    DWORD dwReserved0;
+    DWORD dwReserved1;
+    WCHAR  cFileName[ MAX_PATH ];
+    WCHAR  cAlternateFileName[ 14 ];
+#ifdef _MAC
+    DWORD dwFileType;
+    DWORD dwCreatorType;
+    WORD  wFinderFlags;
+#endif
+} WIN32_FIND_DATAW, *PWIN32_FIND_DATAW, *LPWIN32_FIND_DATAW;
+
+cpp_quote("#endif // MIDL_PASS")
+
+cpp_quote("//-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("// struct STRRET")
+cpp_quote("//")
+cpp_quote("// structure for returning strings from IShellFolder member functions")
+cpp_quote("//")
+cpp_quote("//-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  uType indicate which union member to use ")
+cpp_quote("//    STRRET_WSTR    Use STRRET.pOleStr     must be freed by caller of GetDisplayNameOf")
+cpp_quote("//    STRRET_OFFSET  Use STRRET.uOffset     Offset into SHITEMID for ANSI string ")
+cpp_quote("//    STRRET_CSTR    Use STRRET.cStr        ANSI Buffer")
+cpp_quote("//")
+
+typedef [v1_enum] enum tagSTRRET_TYPE{
+    STRRET_WSTR    = 0x0000,          // Use STRRET.pOleStr
+    STRRET_OFFSET  = 0x0001,          // Use STRRET.uOffset to Ansi
+    STRRET_CSTR    = 0x0002,          // Use STRRET.cStr
+} STRRET_TYPE;
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1200)")
+cpp_quote("#pragma warning(push)")
+cpp_quote("#pragma warning(disable:4201) /* nonstandard extension used : nameless struct/union */")
+cpp_quote("#pragma once")
+cpp_quote("#endif")
+
+cpp_quote("#include <pshpack8.h>")
+typedef struct _STRRET
+{
+    UINT uType;
+    [switch_type(UINT), switch_is(uType)] union
+    {
+    [case(STRRET_WSTR)][string]    LPWSTR    pOleStr;
+    [case(STRRET_OFFSET)]          UINT      uOffset;
+    [case(STRRET_CSTR)]            char      cStr[MAX_PATH];
+    } DUMMYUNIONNAME;
+} STRRET;
+cpp_quote("#include <poppack.h>")
+
+cpp_quote("#if defined(_MSC_VER) && (_MSC_VER >= 1200)")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+
+typedef STRRET *LPSTRRET;
+
+
+cpp_quote("//-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("// struct SHELLDETAILS")
+cpp_quote("//")
+cpp_quote("// structure for returning strings from IShellDetails")
+cpp_quote("//")
+cpp_quote("//-------------------------------------------------------------------------")
+cpp_quote("//")
+cpp_quote("//  fmt;            // LVCFMT_* value (header only)")
+cpp_quote("//  cxChar;         // Number of 'average' characters (header only)")
+cpp_quote("//  str;            // String information")
+cpp_quote("//")
+cpp_quote("#include <pshpack1.h>")
+typedef struct _SHELLDETAILS
+{
+    int     fmt;            // LVCFMT_* value (header only)
+    int     cxChar;         // Number of "average" characters (header only)
+    STRRET  str;            // String information
+} SHELLDETAILS, *LPSHELLDETAILS;
+cpp_quote("#include <poppack.h>")
+
+cpp_quote("")
+cpp_quote("#if (_WIN32_IE >= _WIN32_IE_IE60SP2)")
+
+// PERCEIVED types
+typedef [v1_enum] enum tagPERCEIVED
+{
+    PERCEIVED_TYPE_FIRST           = -3,
+    PERCEIVED_TYPE_CUSTOM          = -3,
+    PERCEIVED_TYPE_UNSPECIFIED     = -2,
+    PERCEIVED_TYPE_FOLDER          = -1,
+    PERCEIVED_TYPE_UNKNOWN         = 0,
+    PERCEIVED_TYPE_TEXT            = 1,
+    PERCEIVED_TYPE_IMAGE           = 2,
+    PERCEIVED_TYPE_AUDIO           = 3,
+    PERCEIVED_TYPE_VIDEO           = 4,
+    PERCEIVED_TYPE_COMPRESSED      = 5,
+    PERCEIVED_TYPE_DOCUMENT        = 6,
+    PERCEIVED_TYPE_SYSTEM          = 7,
+    PERCEIVED_TYPE_APPLICATION     = 8,
+    PERCEIVED_TYPE_GAMEMEDIA       = 9,
+    PERCEIVED_TYPE_CONTACTS        = 10,
+    PERCEIVED_TYPE_LAST            = 10
+} PERCEIVED;
+
+cpp_quote("#define PERCEIVEDFLAG_UNDEFINED     0x0000")
+cpp_quote("#define PERCEIVEDFLAG_SOFTCODED     0x0001")
+cpp_quote("#define PERCEIVEDFLAG_HARDCODED     0x0002")
+cpp_quote("#define PERCEIVEDFLAG_NATIVESUPPORT 0x0004")
+cpp_quote("#define PERCEIVEDFLAG_GDIPLUS       0x0010")
+cpp_quote("#define PERCEIVEDFLAG_WMSDK         0x0020")
+cpp_quote("#define PERCEIVEDFLAG_ZIPFOLDER     0x0040")
+
+typedef DWORD PERCEIVEDFLAG;
+
+cpp_quote("#endif  // _WIN32_IE_IE60SP2")
+cpp_quote("")
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_VISTA)")
+
+typedef struct _COMDLG_FILTERSPEC
+{
+    [string] LPCWSTR pszName; // Friendly name of filter
+    [string] LPCWSTR pszSpec; // Filter pattern
+} COMDLG_FILTERSPEC;
+
+cpp_quote("#endif  // NTDDI_VISTA")
+
+typedef GUID KNOWNFOLDERID; // used to identify Known Folders within the system
+
+// these typedefs are used only for the MIDL pass, everyone else get the cpp_quote stuff
+cpp_quote("#if 0")
+    typedef KNOWNFOLDERID *REFKNOWNFOLDERID;
+cpp_quote("#endif // 0")
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#define REFKNOWNFOLDERID const KNOWNFOLDERID &")
+cpp_quote("#else // !__cplusplus")
+cpp_quote("#define REFKNOWNFOLDERID const KNOWNFOLDERID * __MIDL_CONST")
+cpp_quote("#endif // __cplusplus")
+
+cpp_quote("typedef DWORD KF_REDIRECT_FLAGS;")
+
+typedef GUID FOLDERTYPEID; // used to identify folder types within the system
+
+// these typedefs are used only for the MIDL pass, everyone else get the cpp_quote stuff
+cpp_quote("#if 0")
+    typedef FOLDERTYPEID *REFFOLDERTYPEID;
+cpp_quote("#endif // 0")
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#define REFFOLDERTYPEID const FOLDERTYPEID &")
+cpp_quote("#else // !__cplusplus")
+cpp_quote("#define REFFOLDERTYPEID const FOLDERTYPEID * __MIDL_CONST")
+cpp_quote("#endif // __cplusplus")
+
+typedef GUID TASKOWNERID;   // used to identify tasks in the task scheduler
+
+cpp_quote("#if 0")
+    typedef TASKOWNERID *REFTASKOWNERID;
+cpp_quote("#endif // 0")
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#define REFTASKOWNERID const TASKOWNERID &")
+cpp_quote("#else // !__cplusplus")
+cpp_quote("#define REFTASKOWNERID const TASKOWNERID * __MIDL_CONST")
+cpp_quote("#endif // __cplusplus")
+
+typedef GUID ELEMENTID;   // used to identify DUI elements returned by IDUIElementFactory
+
+cpp_quote("#if 0")
+    typedef ELEMENTID *REFELEMENTID;
+cpp_quote("#endif // 0")
+
+cpp_quote("#ifdef __cplusplus")
+cpp_quote("#define REFELEMENTID const ELEMENTID &")
+cpp_quote("#else // !__cplusplus")
+cpp_quote("#define REFELEMENTID const ELEMENTID * __MIDL_CONST")
+cpp_quote("#endif // __cplusplus")
+
+cpp_quote( "#ifndef LF_FACESIZE")
+// Logical Font
+#define LF_FACESIZE         32
+
+typedef struct tagLOGFONTA
+{
+    LONG      lfHeight;
+    LONG      lfWidth;
+    LONG      lfEscapement;
+    LONG      lfOrientation;
+    LONG      lfWeight;
+    BYTE      lfItalic;
+    BYTE      lfUnderline;
+    BYTE      lfStrikeOut;
+    BYTE      lfCharSet;
+    BYTE      lfOutPrecision;
+    BYTE      lfClipPrecision;
+    BYTE      lfQuality;
+    BYTE      lfPitchAndFamily;
+    CHAR      lfFaceName[LF_FACESIZE];
+} LOGFONTA;
+typedef struct tagLOGFONTW
+{
+    LONG      lfHeight;
+    LONG      lfWidth;
+    LONG      lfEscapement;
+    LONG      lfOrientation;
+    LONG      lfWeight;
+    BYTE      lfItalic;
+    BYTE      lfUnderline;
+    BYTE      lfStrikeOut;
+    BYTE      lfCharSet;
+    BYTE      lfOutPrecision;
+    BYTE      lfClipPrecision;
+    BYTE      lfQuality;
+    BYTE      lfPitchAndFamily;
+    WCHAR     lfFaceName[LF_FACESIZE];
+} LOGFONTW;
+#ifdef UNICODE
+typedef LOGFONTW LOGFONT;
+#else
+typedef LOGFONTA LOGFONT;
+#endif // UNICODE
+
+cpp_quote("#endif // LF_FACESIZE")
+
+typedef [v1_enum] enum tagSHCOLSTATE
+{
+    SHCOLSTATE_DEFAULT       = 0x00000000,
+    SHCOLSTATE_TYPE_STR      = 0x00000001,
+    SHCOLSTATE_TYPE_INT      = 0x00000002,
+    SHCOLSTATE_TYPE_DATE     = 0x00000003,
+    SHCOLSTATE_TYPEMASK      = 0x0000000F,
+    SHCOLSTATE_ONBYDEFAULT   = 0x00000010,   // should on by default in details view
+    SHCOLSTATE_SLOW          = 0x00000020,   // will be slow to compute, do on a background thread
+    SHCOLSTATE_EXTENDED      = 0x00000040,   // provided by a handler, not the folder
+    SHCOLSTATE_SECONDARYUI   = 0x00000080,   // not displayed in context menu, but listed in the "More..." dialog
+    SHCOLSTATE_HIDDEN        = 0x00000100,   // not displayed in the UI
+    SHCOLSTATE_PREFER_VARCMP = 0x00000200,   // VarCmp() (with folderness test) produces same result as CompareIDs()
+    SHCOLSTATE_PREFER_FMTCMP = 0x00000400,   // comparison of PSFormatForDisplay result produces same result as CompareIDs()
+    SHCOLSTATE_NOSORTBYFOLDERNESS =
+                               0x00000800,   // do not sort folders separately
+    SHCOLSTATE_VIEWONLY      = 0x00010000,   // only displayed in the UI
+    SHCOLSTATE_BATCHREAD     = 0x00020000,   // marks columns with values that should be read in a batch
+    SHCOLSTATE_NO_GROUPBY    = 0x00040000,   // grouping is disabled for this column
+    SHCOLSTATE_FIXED_WIDTH   = 0x00001000,   // Can't resize the column
+    SHCOLSTATE_NODPISCALE    = 0x00002000,   // Width is the same in all DPIs
+    SHCOLSTATE_FIXED_RATIO   = 0x00004000,   // Fixed width augments with height
+    SHCOLSTATE_DISPLAYMASK   = 0x0000F000,   // To filter out new display flags
+} SHCOLSTATE;
+
+typedef DWORD SHCOLSTATEF;
+
+typedef PROPERTYKEY SHCOLUMNID;
+typedef const SHCOLUMNID* LPCSHCOLUMNID;
+
+// This enum matches the ResolutionScale enum in DisplayProperties.idl.
+// Do NOT modify without updating it there as well.
+typedef [v1_enum] enum DEVICE_SCALE_FACTOR
+{
+    DEVICE_SCALE_FACTOR_INVALID = 0,
+    SCALE_100_PERCENT = 100,
+    SCALE_120_PERCENT = 120, // phone only
+    SCALE_125_PERCENT = 125,
+    SCALE_140_PERCENT = 140,
+    SCALE_150_PERCENT = 150,
+    SCALE_160_PERCENT = 160, // phone only
+    SCALE_175_PERCENT = 175,
+    SCALE_180_PERCENT = 180,
+    SCALE_200_PERCENT = 200,
+    SCALE_225_PERCENT = 225,
+    SCALE_250_PERCENT = 250,
+    SCALE_300_PERCENT = 300,
+    SCALE_350_PERCENT = 350,
+    SCALE_400_PERCENT = 400,
+    SCALE_450_PERCENT = 450,
+    SCALE_500_PERCENT = 500
+} DEVICE_SCALE_FACTOR;
+
+cpp_quote("#if _MSC_VER >= 1200")
+cpp_quote("#pragma warning(pop)")
+cpp_quote("#endif")
+

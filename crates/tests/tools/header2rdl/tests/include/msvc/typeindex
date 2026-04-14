@@ -1,0 +1,95 @@
+// typeindex standard header
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _TYPEINDEX_
+#define _TYPEINDEX_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <typeinfo>
+
+#if _HAS_CXX20
+#include <compare>
+#include <cstring>
+#endif // _HAS_CXX20
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_EXPORT_STD class type_index { // wraps a typeinfo for indexing
+public:
+    type_index(const type_info& _Tinfo) noexcept : _Tptr(&_Tinfo) {}
+
+    _NODISCARD size_t hash_code() const noexcept {
+        return _Tptr->hash_code();
+    }
+
+    _NODISCARD const char* name() const noexcept {
+        return _Tptr->name();
+    }
+
+    _NODISCARD bool operator==(const type_index& _Right) const noexcept {
+        return *_Tptr == *_Right._Tptr;
+    }
+
+#if _HAS_CXX20
+    _NODISCARD strong_ordering operator<=>(const type_index& _Right) const noexcept {
+        // TRANSITION, DevCom-10326599, should rely on a stable interface
+        if (_Tptr == _Right._Tptr) {
+            return strong_ordering::equal;
+        }
+
+#pragma push_macro("raw_name") // TRANSITION, GH-2195
+#undef raw_name
+        return _CSTD strcmp(_Tptr->raw_name() + 1, _Right._Tptr->raw_name() + 1) <=> 0;
+#pragma pop_macro("raw_name")
+    }
+#else // ^^^ _HAS_CXX20 / !_HAS_CXX20 vvv
+    _NODISCARD bool operator!=(const type_index& _Right) const noexcept {
+        return !(*this == _Right);
+    }
+#endif // ^^^ !_HAS_CXX20 ^^^
+
+    _NODISCARD bool operator<(const type_index& _Right) const noexcept {
+        return _Tptr->before(*_Right._Tptr);
+    }
+
+    _NODISCARD bool operator>=(const type_index& _Right) const noexcept {
+        return !(*this < _Right);
+    }
+
+    _NODISCARD bool operator>(const type_index& _Right) const noexcept {
+        return _Right < *this;
+    }
+
+    _NODISCARD bool operator<=(const type_index& _Right) const noexcept {
+        return !(_Right < *this);
+    }
+
+private:
+    const type_info* _Tptr;
+};
+
+template <>
+struct hash<type_index> {
+    using _ARGUMENT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS = type_index;
+    using _RESULT_TYPE_NAME _CXX17_DEPRECATE_ADAPTOR_TYPEDEFS   = size_t;
+
+    _NODISCARD _STATIC_CALL_OPERATOR size_t operator()(const type_index& _Keyval) _CONST_CALL_OPERATOR noexcept {
+        return _Keyval.hash_code();
+    }
+};
+_STD_END
+
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _TYPEINDEX_

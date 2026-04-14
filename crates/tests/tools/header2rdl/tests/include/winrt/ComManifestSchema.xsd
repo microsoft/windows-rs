@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           xmlns="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           xmlns:t="http://schemas.microsoft.com/appx/manifest/types"
+           xmlns:f="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+           xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+           xmlns:com2="http://schemas.microsoft.com/appx/manifest/com/windows10/2"
+           xmlns:com3="http://schemas.microsoft.com/appx/manifest/com/windows10/3"
+           xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+           xmlns:uap11="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"
+           >
+
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/types"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/foundation/windows10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/com/windows10/2"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/com/windows10/3"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
+  <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
+
+  <xs:element name="Extensions" substitutionGroup="f:ComExtensions" type="CT_ComPackageExtensions"/>
+
+  <xs:complexType name="CT_ComPackageExtensions">
+    <xs:choice minOccurs ="0" maxOccurs="10000">
+      <xs:element name="Extension">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="ComInterface" maxOccurs="1" type="CT_ComInterface"/>
+          </xs:choice>
+          <xs:attribute name="Category" type="t:ST_PackageExtensionCategory_Com" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:element name="Extension" substitutionGroup="f:ExtensionChoice">
+    <xs:complexType>
+      <xs:choice minOccurs="0">
+        <xs:element name="ComServer" type="CT_ComServer" maxOccurs="1">
+          <!-- Class/@AutoConvertTo, ProgId/@Clsid and TreatAsClass/@TreatAs refers to ExeServer/Class/@Id | SurrogateServer/Class/@Id | TreatAsClass/@Id-->
+          <xs:key name="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class | com:TreatAsClass | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="ProgId_ClsidRef" refer="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:ProgId"/>
+            <xs:field xpath="@Clsid"/>
+          </xs:keyref>
+          <xs:keyref name="TreatAsRef" refer="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:TreatAsClass"/>
+            <xs:field xpath="@TreatAs"/>
+          </xs:keyref>
+          <xs:keyref name="AutoConvertToRef" refer="Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class | com:TreatAsClass | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@AutoConvertTo"/>
+          </xs:keyref>
+          <!-- Class/@ProgId , Class/@VersionIndependentProgId and ProgId/@CurrentVersion refer to ProgId/@Id-->
+          <xs:key name="ProgId_IdKey">
+            <xs:selector xpath="com:ProgId"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Class_ProgIdRef" refer="ProgId_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@ProgId"/>
+          </xs:keyref>
+          <xs:keyref name="Class_VerIndProgIdRef" refer="ProgId_IdKey">
+            <xs:selector xpath="com:ExeServer/com:Class | com:SurrogateServer/com:Class | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@VersionIndependentProgId"/>
+          </xs:keyref>
+          <xs:keyref name="ProgId_CurrentVersionRef" refer="ProgId_IdKey">
+            <xs:selector xpath="com:ProgId"/>
+            <xs:field xpath="@CurrentVersion"/>
+          </xs:keyref>
+          <!--Com3: Class/@AutoConvertTo, ProgId/@Clsid and TreatAsClass/@TreatAs refers to ExeServer/Class/@Id | SurrogateServer/Class/@Id | TreatAsClass/@Id | com3:ServiceServer/com3:Class/@id-->
+          <xs:key name="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:TreatAsClass | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Com3_ProgId_ClsidRef" refer="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:ProgId"/>
+            <xs:field xpath="@Clsid"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_TreatAsRef" refer="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:TreatAsClass"/>
+            <xs:field xpath="@TreatAs"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_AutoConvertToRef" refer="Com3_Class_Or_TreatAsClass_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:TreatAsClass | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@AutoConvertTo"/>
+          </xs:keyref>
+          <!-- Com3: Class/@ProgId , Class/@VersionIndependentProgId and ProgId/@CurrentVersion refer to ProgId/@Id-->
+          <xs:key name="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ProgId"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Com3_Class_ProgIdRef" refer="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@ProgId"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_Class_VerIndProgIdRef" refer="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ExeServer/com:Class | com3:SurrogateServer/com:Class | com3:ServiceServer/com3:Class"/>
+            <xs:field xpath="@VersionIndependentProgId"/>
+          </xs:keyref>
+          <xs:keyref name="Com3_ProgId_CurrentVersionRef" refer="Com3_ProgId_IdKey">
+            <xs:selector xpath="com3:ProgId"/>
+            <xs:field xpath="@CurrentVersion"/>
+          </xs:keyref>
+        </xs:element>
+        <xs:element name="ComInterface" type="CT_ComInterface" maxOccurs="1">
+          <xs:key name="Interface_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="SynchronousRef" refer="Interface_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@SynchronousInterface"/>
+          </xs:keyref>
+          <xs:keyref name="AsynchronousRef" refer="Interface_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@AsynchronousInterface"/>
+          </xs:keyref>
+          <!--Interface\@ProxyStubClsid refers to ProxyStub/@Id-->
+          <xs:key name="ProxyStub_IdKey">
+            <xs:selector xpath="com:ProxyStub"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="Interface_ProxyStubClsidRef" refer="ProxyStub_IdKey">
+            <xs:selector xpath="com:Interface"/>
+            <xs:field xpath="@ProxyStubClsid"/>
+          </xs:keyref>
+          <!--Interface/TypeLib/@Id refers to TypeLib/@Id-->
+          <xs:key name="TypeLib_IdKey">
+            <xs:selector xpath="com:TypeLib"/>
+            <xs:field xpath="@Id"/>
+          </xs:key>
+          <xs:keyref name="TypeLib_IdRef" refer="TypeLib_IdKey">
+            <xs:selector xpath="com:Interface/com:TypeLib"/>
+            <xs:field xpath="@Id"/>
+          </xs:keyref>
+        </xs:element>
+      </xs:choice>
+      <xs:attribute name="Category" type="t:ST_ExtensionCategory_Com" use="required"/>
+      <xs:attributeGroup ref="t:ExtensionBaseAttributes"/>
+      <xs:attributeGroup ref="uap10:TrustLevelGroup"/>
+      <xs:attributeGroup ref="uap11:ManganeseExtensionAttributesGroup"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CT_ComServer">
+    <xs:sequence>
+      <xs:element ref="ExeServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="SurrogateServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="TreatAsClass" minOccurs="0" maxOccurs="10000"/>
+      <xs:element ref="ProgId" minOccurs="0" maxOccurs="10000"/>
+      <xs:element ref="com3:ServiceServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="com3:ExeServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="com3:SurrogateServer" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="com3:TreatAsClass" minOccurs="0" maxOccurs="10000"/>
+      <xs:element ref="com3:ProgId" minOccurs="0" maxOccurs="10000"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="ExeServer" type="CT_ExeServer" />
+  <xs:element name="SurrogateServer" type="CT_SurrogateServer" />
+  <xs:element name="TreatAsClass" type="CT_TreatAsClass" />
+  <xs:element name="ProgId" type="CT_ProgId" />
+
+  <xs:complexType name="CT_ComInterface">
+    <xs:sequence>
+      <xs:element ref="ProxyStub" minOccurs="0" maxOccurs="1000"/>
+      <xs:element ref="Interface" minOccurs="0" maxOccurs="10000"/>
+      <xs:element ref="TypeLib" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="ProxyStub" type="CT_ProxyStub">
+    <xs:unique name="ProxyStubDll_ProcessorArchitecture">
+      <xs:selector xpath="com2:ProxyStubDll"/>
+      <xs:field xpath="@ProcessorArchitecture"/>
+    </xs:unique>
+    <xs:unique name="ProxyStubDll_Path">
+      <xs:selector xpath="com2:ProxyStubDll"/>
+      <xs:field xpath="@Path"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="Interface" type="CT_Interface"/>
+  <xs:element name="TypeLib" type="CT_TypeLib">
+    <xs:unique name="Version_VersionNumber">
+      <xs:selector xpath="com:Version"/>
+      <xs:field xpath="@VersionNumber"/>
+    </xs:unique>
+  </xs:element>
+
+  <xs:complexType name="CT_ExeServer">
+    <xs:sequence>
+      <xs:element name="Class" type="CT_ExeServerClass" minOccurs="1" maxOccurs="10000"/>
+    </xs:sequence>
+    <xs:attribute name="Executable" type="t:ST_ExecutableAnyCase" use="required"/>
+    <xs:attribute name="Arguments" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+    <xs:attribute name="LaunchAndActivationPermission" type="t:ST_PermissionsCom" />
+  </xs:complexType>
+
+  <xs:complexType name="CT_Class">
+    <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_OutOfProcClass">
+    <xs:complexContent>
+      <xs:extension base="CT_Class">
+        <xs:all>
+          <xs:element name="ImplementedCategories" type="CT_ImplementedCategories" minOccurs="0">
+            <xs:unique name="ImplementedCategory_Id">
+              <xs:selector xpath="com:ImplementedCategory"/>
+              <xs:field xpath="@Id"/>
+            </xs:unique>
+          </xs:element>
+          <xs:element name="Conversion" type="CT_Conversion" minOccurs="0"/>
+          <xs:element name="DataFormats" type="CT_DataFormats" minOccurs="0">
+            <xs:unique name="DataFormats_All">
+              <xs:selector xpath="com:DataFormat"/>
+              <xs:field xpath="@FormatName"/>
+              <xs:field xpath="@StandardFormat"/>
+              <xs:field xpath="@AspectFlag"/>
+              <xs:field xpath="@MediumFlag"/>
+              <xs:field xpath="@Direction"/>
+            </xs:unique>
+          </xs:element>
+          <xs:element name="MiscStatus" type="CT_MiscStatus" minOccurs="0">
+            <xs:unique name="Aspect_Type">
+              <xs:selector xpath="com:Aspect"/>
+              <xs:field xpath="@Type"/>
+            </xs:unique>
+          </xs:element>
+          <xs:element name="Verbs" type="CT_Verbs" minOccurs="0">
+            <xs:unique name="Verb_Index">
+              <xs:selector xpath="com:Verb"/>
+              <xs:field xpath="@Id"/>
+            </xs:unique>
+          </xs:element>
+          <xs:element name="DefaultIcon" type="CT_DefaultIcon" minOccurs="0"/>
+          <xs:element name="ToolboxBitmap32" type="CT_ToolboxBitmap" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="EnableOleDefaultHandler" type="xs:boolean"/>
+        <xs:attribute name="ProgId" type="t:ST_ProgId"/>
+        <xs:attribute name="VersionIndependentProgId" type="t:ST_ProgId"/>
+        <xs:attribute name="AutoConvertTo" type="t:ST_GUID"/>
+        <xs:attribute name="InsertableObject" type="xs:boolean"/>
+        <xs:attribute name="ShortDisplayName" type="t:ST_ShortDisplayName"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ExeServerClass">
+    <xs:complexContent>
+      <xs:extension base="CT_OutOfProcClass"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ImplementedCategories">
+    <xs:sequence>
+      <xs:element name="ImplementedCategory" type="CT_ImplementedCategory" minOccurs="1" maxOccurs="1000"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ImplementedCategory">
+    <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Conversion">
+    <xs:all minOccurs="0">
+      <xs:element name="Readable" type="CT_ConversionFormats" minOccurs="0">
+        <xs:unique name="Readable_Format_FormatName">
+          <xs:selector xpath="com:Format"/>
+          <xs:field xpath="@FormatName"/>
+        </xs:unique>
+        <xs:unique name="Readable_Format_StandardFormat">
+          <xs:selector xpath="com:Format"/>
+          <xs:field xpath="@StandardFormat"/>
+        </xs:unique>
+      </xs:element>
+      <xs:element name="ReadWritable" type="CT_ConversionFormats" minOccurs="0">
+        <xs:unique name="ReadWritable_Format_FormatName">
+          <xs:selector xpath="com:Format"/>
+          <xs:field xpath="@FormatName"/>
+        </xs:unique>
+        <xs:unique name="ReadWritable_Format_StandardFormat">
+          <xs:selector xpath="com:Format"/>
+          <xs:field xpath="@StandardFormat"/>
+        </xs:unique>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ConversionFormats">
+    <xs:sequence>
+      <xs:element name="Format" type="CT_ConversionFormat" minOccurs="1" maxOccurs="1000"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ConversionFormat">
+    <xs:attribute name="FormatName" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="StandardFormat" type="t:ST_HexadecimalCom"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DataFormats">
+    <xs:sequence>
+      <xs:element name="DataFormat" type="CT_DataFormat" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="DefaultFormatName" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="DefaultStandardFormat" type="t:ST_HexadecimalCom"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DataFormat">
+    <xs:attribute name="FormatName" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="StandardFormat" type="t:ST_HexadecimalCom"/>
+    <xs:attribute name="AspectFlag" type="t:ST_AspectCom" use="required"/>
+    <xs:attribute name="MediumFlag" type="t:ST_MediumCom" use="required"/>
+    <xs:attribute name="Direction" type="t:ST_DataFormatDirectionCom" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_MiscStatus">
+    <xs:sequence>
+      <xs:element name="Aspect" type="CT_Aspect" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="OleMiscFlag" type="t:ST_OleMiscCom" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Aspect">
+    <xs:attribute name="Type" type="t:ST_AspectTypeCom" use="required"/>
+    <xs:attribute name="OleMiscFlag" type="t:ST_OleMiscCom" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Verbs">
+    <xs:sequence>
+      <xs:element name="Verb" type="CT_ComVerb" minOccurs="1" maxOccurs="1000"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ComVerb">
+    <xs:attribute name="Id" type="t:ST_VerbIndexCom" use="required"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" use="required"/>
+    <xs:attribute name="AppendMenuFlag" type="t:ST_AppendMenuCom" use="required"/>
+    <xs:attribute name="OleVerbFlag" type="t:ST_OleVerbCom" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_DefaultIcon">
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="ResourceIndex" type="xs:int"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ToolboxBitmap">
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="ResourceId" type="xs:positiveInteger"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_SurrogateServer">
+    <xs:sequence>
+      <xs:element name="Class" type="CT_SurrogateClass" minOccurs="1" maxOccurs="10000"/>
+    </xs:sequence>
+    <xs:attribute name="CustomSurrogateExecutable" type="t:ST_ExecutableAnyCase"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName" />
+    <xs:attribute name="LaunchAndActivationPermission" type="t:ST_PermissionsCom" />
+    <xs:attribute name="AppId" type="t:ST_GUID" />
+    <xs:attribute name="SystemSurrogate" type="t:ST_SystemSurrogateCom" />
+  </xs:complexType>
+
+  <xs:complexType name="CT_SurrogateClass">
+    <xs:complexContent>
+      <xs:extension base="CT_OutOfProcClass">
+        <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+        <xs:attribute name="ThreadingModel" type="t:ST_ThreadingModelCom" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ProxyStub">
+    <xs:complexContent>
+      <xs:extension base="CT_Class">
+        <xs:sequence>
+          <xs:element ref="com2:ProxyStubDll" minOccurs="0" maxOccurs="4"/>
+        </xs:sequence>
+        <xs:attribute name="Path" type="t:ST_FileName" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CT_Interface">
+    <xs:all>
+      <xs:element name="TypeLib" type="CT_TypeLibRef" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="UseUniversalMarshaler" type="xs:boolean"/>
+    <xs:attribute name="ProxyStubClsid" type="t:ST_GUID"/>
+    <xs:attribute name="SynchronousInterface" type="t:ST_GUID"/>
+    <xs:attribute name="AsynchronousInterface" type="t:ST_GUID"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_TypeLibRef">
+    <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+    <xs:attribute name="VersionNumber" type="t:ST_VersionCom"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_TypeLib">
+    <xs:sequence>
+      <xs:element name="Version" type="CT_TypeLibVersion" minOccurs="1" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="Id" type="t:ST_GUID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_TypeLibVersion">
+    <xs:all minOccurs="0">
+      <xs:element name="Win32Path" type="CT_TypeLibPath" minOccurs="0"/>
+      <xs:element name="Win64Path" type="CT_TypeLibPath" minOccurs="0"/>
+    </xs:all>
+    <xs:attribute name="VersionNumber" type="t:ST_VersionCom" use="required"/>
+    <xs:attribute name="LocaleId" type="t:ST_HexadecimalCom" default="0"/>
+    <xs:attribute name="LibraryFlag" type="t:ST_LibFlagCom"/>
+    <xs:attribute name="HelpDirectory" type="t:ST_NonEmptyString"/>
+    <xs:attribute name="DisplayName" type="t:ST_DisplayName"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_TypeLibPath">
+    <xs:attribute name="Path" type="t:ST_FileName" use="required"/>
+    <xs:attribute name="ResourceId" type="xs:positiveInteger" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_ProgId">
+    <xs:attribute name="Id" type="t:ST_ProgId" use="required"/>
+    <xs:attribute name="Clsid" type="t:ST_GUID"/>
+    <xs:attribute name="CurrentVersion " type="t:ST_ProgId"/>
+  </xs:complexType>
+
+  <xs:complexType name="CT_TreatAsClass">
+    <xs:complexContent>
+      <xs:extension base="CT_Class">
+        <xs:attribute name="TreatAs" type="t:ST_GUID" use="required"/>
+        <xs:attribute name="AutoConvertTo" type="t:ST_GUID"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>
+

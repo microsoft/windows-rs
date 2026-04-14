@@ -1,0 +1,684 @@
+cpp_quote("#include <winapifamily.h>")
+
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation, 1992-2001.
+//
+//  File: textstor.idl
+//
+//  Contents: ITextStore
+//
+//--------------------------------------------------------------------------
+
+import "oaidl.idl";
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+interface IAnchor;
+
+// IDataObject embedded obj service
+cpp_quote("DEFINE_GUID (GUID_TS_SERVICE_DATAOBJECT, 0x6086fbb5, 0xe225, 0x46ce, 0xa7, 0x70, 0xc1, 0xbb, 0xd3, 0xe0, 0x5d, 0x7b);")
+cpp_quote("DEFINE_GUID (GUID_TS_SERVICE_ACCESSIBLE, 0xf9786200, 0xa5bf, 0x4a0f, 0x8c, 0x24, 0xfb, 0x16, 0xf5, 0xd1, 0xaa, 0xbb);")
+cpp_quote("DEFINE_GUID (GUID_TS_SERVICE_ACTIVEX,    0xea937a50, 0xc9a6, 0x4b7d, 0x89, 0x4a, 0x49, 0xd9, 0x9b, 0x78, 0x48, 0x34);")
+
+// custom error HRESULTs
+cpp_quote("#define TS_E_INVALIDPOS      MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0200)")
+cpp_quote("#define TS_E_NOLOCK          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0201)")
+cpp_quote("#define TS_E_NOOBJECT        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0202)")
+cpp_quote("#define TS_E_NOSERVICE       MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0203)")
+cpp_quote("#define TS_E_NOINTERFACE     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0204)")
+cpp_quote("#define TS_E_NOSELECTION     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0205)")
+cpp_quote("#define TS_E_NOLAYOUT        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0206)")
+cpp_quote("#define TS_E_INVALIDPOINT    MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0207)")
+cpp_quote("#define TS_E_SYNCHRONOUS     MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0208)")
+cpp_quote("#define TS_E_READONLY        MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x0209)")
+cpp_quote("#define TS_E_FORMAT          MAKE_HRESULT(SEVERITY_ERROR, FACILITY_ITF, 0x020a)")
+
+// TS_S_ASYNC is only used as an [out] param for RequestLock
+cpp_quote("#define TS_S_ASYNC           MAKE_HRESULT(SEVERITY_SUCCESS, FACILITY_ITF, 0x0300)")
+
+// flags for AdviseSink
+const DWORD TS_AS_TEXT_CHANGE      = 0x01;  // use the sink's OnTextChange method
+const DWORD TS_AS_SEL_CHANGE       = 0x02;  // use the sink's OnSelectionChange method
+const DWORD TS_AS_LAYOUT_CHANGE    = 0x04;  // use the sink's OnLayoutChange method
+const DWORD TS_AS_ATTR_CHANGE      = 0x08;  // use the sink's OnAttrChange method
+const DWORD TS_AS_STATUS_CHANGE    = 0x10;  // use the sink's OnStatusChange method
+
+const DWORD TS_AS_ALL_SINKS = (TS_AS_TEXT_CHANGE | TS_AS_SEL_CHANGE | TS_AS_LAYOUT_CHANGE | TS_AS_ATTR_CHANGE | TS_AS_STATUS_CHANGE);
+
+// RequestLock flags
+const DWORD TS_LF_SYNC            = 0x1;
+const DWORD TS_LF_READ            = 0x2;
+const DWORD TS_LF_READWRITE       = 0x6;
+
+// bit values for TS_STATUS's dwDynamicFlags field
+const DWORD TS_SD_READONLY              = 0x001;   // if set, document is read only; writes will fail
+const DWORD TS_SD_LOADING               = 0x002;   // if set, document is loading, expect additional inserts
+const DWORD TS_SD_RESERVED              = 0x004;
+const DWORD TS_SD_TKBAUTOCORRECTENABLE  = 0x008;   // document owner sets this flag in order to receive auto-correction from the Windows touch keyboard
+const DWORD TS_SD_TKBPREDICTIONENABLE   = 0x010;   // document owner sets this flag in order to receive prediction from the Windows touch keyboard
+const DWORD TS_SD_UIINTEGRATIONENABLE   = 0x020;   // indicates that text control supports IME UI integration
+const DWORD TS_SD_INPUTPANEMANUALDISPLAYENABLE = 0x040;     // used by UWP text controls to disable default automatic SIP invocation
+const DWORD TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED = 0x080;  // used by UWP text controls to enable embedded handwriting 
+const DWORD TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE = 0x100;  // used by UWP text controls to show/hide embedded handwriting view
+
+// bit values for TS_STATUS's dwStaticFlags field
+const DWORD TS_SS_DISJOINTSEL           = 0x001;   // if set, the document supports multiple selections
+const DWORD TS_SS_REGIONS               = 0x002;   // if clear, the document will never contain multiple regions
+const DWORD TS_SS_TRANSITORY            = 0x004;   // if set, the document is expected to have a short lifespan
+const DWORD TS_SS_NOHIDDENTEXT          = 0x008;   // if set, the document will never contain hidden text (for perf)
+const DWORD TS_SS_TKBAUTOCORRECTENABLE  = 0x010;   // document owner sets this flag in order to receive auto-correction from the Windows touch keyboard
+const DWORD TS_SS_TKBPREDICTIONENABLE   = 0x020;   // document owner sets this flag in order to receive prediction from the Windows touch keyboard
+const DWORD TS_SS_UWPCONTROL            = 0x040;   // document is provided on behalf of a UWP control
+
+const DWORD TS_SD_MASKALL = (TS_SD_READONLY | TS_SD_LOADING);
+
+// SetText flags
+const DWORD TS_ST_CORRECTION      = 0x1; // the replacement is a transform of existing content (correction), not new content
+
+// InsertEmbedded flags
+const DWORD TS_IE_CORRECTION      = 0x1;
+const DWORD TS_IE_COMPOSITION     = 0x2;
+
+// OnTextChange flags
+const DWORD TS_TC_CORRECTION      = 0x1;
+
+// InsertTextAtSelection flags
+const DWORD TS_IAS_NOQUERY        = 0x1;
+const DWORD TS_IAS_QUERYONLY      = 0x2;
+
+typedef [uuid(fec4f516-c503-45b1-a5fd-7a3d8ab07049)]  struct TS_STATUS
+{
+    DWORD dwDynamicFlags; // OnStatusChange reports these bitfields
+    DWORD dwStaticFlags;  // these bitfields never change
+} TS_STATUS;
+
+typedef [uuid(f3181bd6-bcf0-41d3-a81c-474b17ec38fb)]  struct TS_TEXTCHANGE
+{
+    LONG acpStart;
+    LONG acpOldEnd;
+    LONG acpNewEnd;
+} TS_TEXTCHANGE;
+
+typedef [uuid(05fcf85b-5e9c-4c3e-ab71-29471d4f38e7)]  enum { TS_AE_NONE = 0, TS_AE_START = 1, TS_AE_END = 2 } TsActiveSelEnd;
+
+typedef [uuid(7ecc3ffa-8f73-4d91-98ed-76f8ac5b1600)]  struct TS_SELECTIONSTYLE
+{
+    TsActiveSelEnd ase;
+    BOOL fInterimChar; // implies selection has length 1 and TS_AE_NONE
+} TS_SELECTIONSTYLE;
+
+typedef [uuid(c4b9c33b-8a0d-4426-bebe-d444a4701fe9)]  struct TS_SELECTION_ACP
+{
+    LONG acpStart;
+    LONG acpEnd;
+    TS_SELECTIONSTYLE style;
+} TS_SELECTION_ACP;
+
+typedef [uuid(b03413d2-0723-4c4e-9e08-2e9c1ff3772b)]  struct TS_SELECTION_ANCHOR
+{
+    IAnchor *paStart;
+    IAnchor *paEnd;
+    TS_SELECTIONSTYLE style;
+} TS_SELECTION_ANCHOR;
+
+const ULONG TS_DEFAULT_SELECTION = ((ULONG)-1);
+
+// flags for GetACPFromPoint, GetAnchorFromPoint
+const DWORD GXFPF_ROUND_NEAREST = 0x1;  // if set, round x to nearest char (default: always round x down)
+const DWORD GXFPF_NEAREST       = 0x2;  // if set, if the point does not hit any char, return the nearest char
+
+const WCHAR TS_CHAR_EMBEDDED     = 0xfffc; // unicode 2.1 object replacement character
+const WCHAR TS_CHAR_REGION       = 0x0000; // region boundary
+const WCHAR TS_CHAR_REPLACEMENT  = 0xfffd; // hidden text placeholder char, Unicode replacement character
+
+typedef [uuid(ef3457d9-8446-49a7-a9e6-b50d9d5f3fd9)]  GUID TS_ATTRID;
+
+typedef [uuid(2cc2b33f-1174-4507-b8d9-5bc0eb37c197)]  struct TS_ATTRVAL
+{
+    TS_ATTRID   idAttr;
+    DWORD      dwOverlapId; // zero for non-overlapping properties!
+    VARIANT    varValue;
+} TS_ATTRVAL;
+
+const DWORD TS_ATTR_FIND_BACKWARDS      =   0x0001;
+const DWORD TS_ATTR_FIND_WANT_OFFSET    =   0x0002;
+const DWORD TS_ATTR_FIND_UPDATESTART    =   0x0004;
+const DWORD TS_ATTR_FIND_WANT_VALUE     =   0x0008;
+const DWORD TS_ATTR_FIND_WANT_END       =   0x0010;
+const DWORD TS_ATTR_FIND_HIDDEN         =   0x0020;
+
+typedef [uuid(1faf509e-44c1-458e-950a-38a96705a62b)]  DWORD TsViewCookie;
+
+const TsViewCookie TS_VCOOKIE_NUL = 0xffffffff;
+
+typedef [uuid(7899d7c4-5f07-493c-a89a-fac8e777f476)]  enum { TS_LC_CREATE = 0, TS_LC_CHANGE = 1, TS_LC_DESTROY = 2 } TsLayoutCode;
+
+typedef [uuid(033b0df0-f193-4170-b47b-141afc247878)]  enum { TS_RT_PLAIN, TS_RT_HIDDEN, TS_RT_OPAQUE } TsRunType;
+
+typedef [uuid(a6231949-37c5-4b74-a24e-2a26c327201d)]  struct TS_RUNINFO
+{
+    ULONG uCount;
+    TsRunType type;
+} TS_RUNINFO;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// ITextStoreACP
+//
+[
+  object,
+  uuid(28888fe3-c2a0-483a-a3ea-8cb1ce51ff3d),
+  pointer_default(unique)
+]
+interface ITextStoreACP : IUnknown
+{
+    HRESULT AdviseSink([in] REFIID riid,
+                       [in, iid_is(riid)] IUnknown *punk,
+                       [in] DWORD dwMask);
+
+    HRESULT UnadviseSink([in] IUnknown *punk);
+
+    HRESULT RequestLock([in] DWORD dwLockFlags,
+                        [out] HRESULT *phrSession);
+
+    HRESULT GetStatus([out] TS_STATUS *pdcs);
+
+    HRESULT QueryInsert([in] LONG acpTestStart,
+                        [in] LONG acpTestEnd,
+                        [in] ULONG cch,
+                        [out] LONG *pacpResultStart,
+                        [out] LONG *pacpResultEnd);
+
+    HRESULT GetSelection([in] ULONG ulIndex,
+                         [in] ULONG ulCount,
+                         [out, size_is(ulCount), length_is(*pcFetched)] TS_SELECTION_ACP *pSelection,
+                         [out] ULONG *pcFetched);
+
+    HRESULT SetSelection([in] ULONG ulCount,
+                         [in, size_is(ulCount)] const TS_SELECTION_ACP *pSelection);
+
+    HRESULT GetText([in] LONG acpStart,
+                    [in] LONG acpEnd,
+                    [out, size_is(cchPlainReq), length_is(*pcchPlainRet)] WCHAR *pchPlain,
+                    [in] ULONG cchPlainReq,
+                    [out] ULONG *pcchPlainRet,
+                    [out, size_is(cRunInfoReq), length_is(*pcRunInfoRet)] TS_RUNINFO *prgRunInfo,
+                    [in] ULONG cRunInfoReq,
+                    [out] ULONG *pcRunInfoRet,
+                    [out] LONG *pacpNext);
+
+    HRESULT SetText([in] DWORD dwFlags,
+                    [in] LONG acpStart,
+                    [in] LONG acpEnd,
+                    [in, size_is(cch)] const WCHAR *pchText,
+                    [in] ULONG cch,
+                    [out] TS_TEXTCHANGE *pChange);
+
+    HRESULT GetFormattedText([in] LONG acpStart,
+                             [in] LONG acpEnd,
+                             [out] IDataObject **ppDataObject);
+
+    HRESULT GetEmbedded([in] LONG acpPos,
+                        [in] REFGUID rguidService,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] IUnknown **ppunk);
+
+    HRESULT QueryInsertEmbedded([in] const GUID *pguidService,
+                                [in] const FORMATETC *pFormatEtc,
+                                [out] BOOL *pfInsertable);
+
+    HRESULT InsertEmbedded([in] DWORD dwFlags,
+                           [in] LONG acpStart,
+                           [in] LONG acpEnd,
+                           [in] IDataObject *pDataObject,
+                           [out] TS_TEXTCHANGE *pChange);
+
+
+    HRESULT InsertTextAtSelection([in] DWORD dwFlags,
+                                  [in, size_is(cch)] const WCHAR *pchText,
+                                  [in] ULONG cch,
+                                  [out] LONG *pacpStart,
+                                  [out] LONG *pacpEnd,
+                                  [out] TS_TEXTCHANGE *pChange);
+
+    HRESULT InsertEmbeddedAtSelection([in] DWORD dwFlags,
+                                      [in] IDataObject *pDataObject,
+                                      [out] LONG *pacpStart,
+                                      [out] LONG *pacpEnd,
+                                      [out] TS_TEXTCHANGE *pChange);
+    HRESULT RequestSupportedAttrs([in] DWORD dwFlags,
+                                  [in] ULONG cFilterAttrs,
+                                  [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs);
+
+    HRESULT RequestAttrsAtPosition([in] LONG acpPos,
+                                   [in] ULONG cFilterAttrs,
+                                   [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                   [in] DWORD dwFlags);
+
+    HRESULT RequestAttrsTransitioningAtPosition([in] LONG acpPos,
+                                                [in] ULONG cFilterAttrs,
+                                                [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                                [in] DWORD dwFlags);
+
+    HRESULT FindNextAttrTransition([in] LONG acpStart,
+                                   [in] LONG acpHalt,
+                                   [in] ULONG cFilterAttrs,
+                                   [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                   [in] DWORD dwFlags,
+                                   [out] LONG *pacpNext,
+                                   [out] BOOL *pfFound,
+                                   [out] LONG *plFoundOffset);
+
+    HRESULT RetrieveRequestedAttrs([in] ULONG ulCount,
+                                   [out, size_is(ulCount), length_is(*pcFetched)] TS_ATTRVAL *paAttrVals,
+                                   [out] ULONG *pcFetched);
+
+    HRESULT GetEndACP([out] LONG *pacp);
+
+    HRESULT GetActiveView([out] TsViewCookie *pvcView);
+
+    HRESULT GetACPFromPoint([in] TsViewCookie vcView,
+                            [in] const POINT *ptScreen,
+                            [in] DWORD dwFlags, [out] LONG *pacp);
+
+    HRESULT GetTextExt([in] TsViewCookie vcView,
+                       [in] LONG acpStart,
+                       [in] LONG acpEnd,
+                       [out] RECT *prc,
+                       [out] BOOL *pfClipped);
+
+    HRESULT GetScreenExt([in] TsViewCookie vcView,
+                         [out] RECT *prc);
+
+    HRESULT GetWnd([in] TsViewCookie vcView,
+                   [out] HWND *phwnd);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+#pragma region Application Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+//
+// ITextStoreACP2
+//
+[
+  object,
+  uuid(f86ad89f-5fe4-4b8d-bb9f-ef3797a84f1f),
+  pointer_default(unique)
+]
+interface ITextStoreACP2 : IUnknown
+{
+    HRESULT AdviseSink([in] REFIID riid,
+                       [in, iid_is(riid)] IUnknown *punk,
+                       [in] DWORD dwMask);
+
+    HRESULT UnadviseSink([in] IUnknown *punk);
+
+    HRESULT RequestLock([in] DWORD dwLockFlags,
+                        [out] HRESULT *phrSession);
+
+    HRESULT GetStatus([out] TS_STATUS *pdcs);
+
+    HRESULT QueryInsert([in] LONG acpTestStart,
+                        [in] LONG acpTestEnd,
+                        [in] ULONG cch,
+                        [out] LONG *pacpResultStart,
+                        [out] LONG *pacpResultEnd);
+
+    HRESULT GetSelection([in] ULONG ulIndex,
+                         [in] ULONG ulCount,
+                         [out, size_is(ulCount), length_is(*pcFetched)] TS_SELECTION_ACP *pSelection,
+                         [out] ULONG *pcFetched);
+
+    HRESULT SetSelection([in] ULONG ulCount,
+                         [in, size_is(ulCount)] const TS_SELECTION_ACP *pSelection);
+
+    HRESULT GetText([in] LONG acpStart,
+                    [in] LONG acpEnd,
+                    [out, size_is(cchPlainReq), length_is(*pcchPlainRet)] WCHAR *pchPlain,
+                    [in] ULONG cchPlainReq,
+                    [out] ULONG *pcchPlainRet,
+                    [out, size_is(cRunInfoReq), length_is(*pcRunInfoRet)] TS_RUNINFO *prgRunInfo,
+                    [in] ULONG cRunInfoReq,
+                    [out] ULONG *pcRunInfoRet,
+                    [out] LONG *pacpNext);
+
+    HRESULT SetText([in] DWORD dwFlags,
+                    [in] LONG acpStart,
+                    [in] LONG acpEnd,
+                    [in, size_is(cch)] const WCHAR *pchText,
+                    [in] ULONG cch,
+                    [out] TS_TEXTCHANGE *pChange);
+
+    HRESULT GetFormattedText([in] LONG acpStart,
+                             [in] LONG acpEnd,
+                             [out] IDataObject **ppDataObject);
+
+    HRESULT GetEmbedded([in] LONG acpPos,
+                        [in] REFGUID rguidService,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] IUnknown **ppunk);
+
+    HRESULT QueryInsertEmbedded([in] const GUID *pguidService,
+                                [in] const FORMATETC *pFormatEtc,
+                                [out] BOOL *pfInsertable);
+
+    HRESULT InsertEmbedded([in] DWORD dwFlags,
+                           [in] LONG acpStart,
+                           [in] LONG acpEnd,
+                           [in] IDataObject *pDataObject,
+                           [out] TS_TEXTCHANGE *pChange);
+
+
+    HRESULT InsertTextAtSelection([in] DWORD dwFlags,
+                                  [in, size_is(cch)] const WCHAR *pchText,
+                                  [in] ULONG cch,
+                                  [out] LONG *pacpStart,
+                                  [out] LONG *pacpEnd,
+                                  [out] TS_TEXTCHANGE *pChange);
+
+    HRESULT InsertEmbeddedAtSelection([in] DWORD dwFlags,
+                                      [in] IDataObject *pDataObject,
+                                      [out] LONG *pacpStart,
+                                      [out] LONG *pacpEnd,
+                                      [out] TS_TEXTCHANGE *pChange);
+    HRESULT RequestSupportedAttrs([in] DWORD dwFlags,
+                                  [in] ULONG cFilterAttrs,
+                                  [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs);
+
+    HRESULT RequestAttrsAtPosition([in] LONG acpPos,
+                                   [in] ULONG cFilterAttrs,
+                                   [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                   [in] DWORD dwFlags);
+
+    HRESULT RequestAttrsTransitioningAtPosition([in] LONG acpPos,
+                                                [in] ULONG cFilterAttrs,
+                                                [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                                [in] DWORD dwFlags);
+
+    HRESULT FindNextAttrTransition([in] LONG acpStart,
+                                   [in] LONG acpHalt,
+                                   [in] ULONG cFilterAttrs,
+                                   [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                   [in] DWORD dwFlags,
+                                   [out] LONG *pacpNext,
+                                   [out] BOOL *pfFound,
+                                   [out] LONG *plFoundOffset);
+
+    HRESULT RetrieveRequestedAttrs([in] ULONG ulCount,
+                                   [out, size_is(ulCount), length_is(*pcFetched)] TS_ATTRVAL *paAttrVals,
+                                   [out] ULONG *pcFetched);
+
+    HRESULT GetEndACP([out] LONG *pacp);
+
+    HRESULT GetActiveView([out] TsViewCookie *pvcView);
+
+    HRESULT GetACPFromPoint([in] TsViewCookie vcView,
+                            [in] const POINT *ptScreen,
+                            [in] DWORD dwFlags, [out] LONG *pacp);
+
+    HRESULT GetTextExt([in] TsViewCookie vcView,
+                       [in] LONG acpStart,
+                       [in] LONG acpEnd,
+                       [out] RECT *prc,
+                       [out] BOOL *pfClipped);
+
+    HRESULT GetScreenExt([in] TsViewCookie vcView,
+                         [out] RECT *prc);
+};
+
+//
+// ITextStoreACPSink
+//
+[
+  object,
+  uuid(22d44c94-a419-4542-a272-ae26093ececf),
+  pointer_default(unique)
+]
+interface ITextStoreACPSink : IUnknown
+{
+    HRESULT OnTextChange([in] DWORD dwFlags,
+                         [in] const TS_TEXTCHANGE *pChange);
+
+    HRESULT OnSelectionChange();
+
+    HRESULT OnLayoutChange([in] TsLayoutCode lcode, [in] TsViewCookie vcView);
+
+    HRESULT OnStatusChange([in] DWORD dwFlags);
+
+    HRESULT OnAttrsChange([in] LONG acpStart,
+                          [in] LONG acpEnd,
+                          [in] ULONG cAttrs,
+                          [in, size_is(cAttrs)] const TS_ATTRID *paAttrs);
+
+    HRESULT OnLockGranted([in] DWORD dwLockFlags);
+
+    HRESULT OnStartEditTransaction();
+
+    HRESULT OnEndEditTransaction();
+};
+
+//
+// IAnchor
+//
+[
+  object,
+  uuid(0feb7e34-5a60-4356-8ef7-abdec2ff7cf8),
+  pointer_default(unique)
+]
+interface IAnchor : IUnknown
+{
+    typedef [uuid(daa8601e-7695-426f-9bb7-498a6aa64b68)]  enum { TS_GR_BACKWARD = 0, TS_GR_FORWARD = 1 } TsGravity;
+    typedef [uuid(898e19df-4fb4-4af3-8daf-9b3c1145c79d)]  enum { TS_SD_BACKWARD = 0, TS_SD_FORWARD = 1 } TsShiftDir;
+
+    const DWORD TS_CH_PRECEDING_DEL = 1;
+    const DWORD TS_CH_FOLLOWING_DEL = 2;
+
+    const DWORD TS_SHIFT_COUNT_HIDDEN = 0x1;
+    const DWORD TS_SHIFT_HALT_HIDDEN  = 0x2;
+    const DWORD TS_SHIFT_HALT_VISIBLE = 0x4;
+    const DWORD TS_SHIFT_COUNT_ONLY   = 0x8;
+
+    HRESULT SetGravity([in] TsGravity gravity);
+
+    HRESULT GetGravity([out] TsGravity *pgravity);
+
+    HRESULT IsEqual([in] IAnchor *paWith,
+                    [out] BOOL *pfEqual);
+
+    HRESULT Compare([in] IAnchor *paWith,
+                    [out] LONG *plResult);
+
+    HRESULT Shift([in] DWORD dwFlags,
+                  [in] LONG cchReq,                  
+                  [out] LONG *pcch,
+                  [in] IAnchor *paHaltAnchor);
+
+    HRESULT ShiftTo([in] IAnchor *paSite);
+
+    HRESULT ShiftRegion([in] DWORD dwFlags,
+                        [in] TsShiftDir dir,
+                        [out] BOOL *pfNoRegion);
+
+    HRESULT SetChangeHistoryMask([in] DWORD dwMask);
+
+    HRESULT GetChangeHistory([out] DWORD *pdwHistory);
+
+    HRESULT ClearChangeHistory();
+
+    HRESULT Clone([out] IAnchor **ppaClone);
+};
+
+[
+  object,
+  uuid(9b2077b0-5f18-4dec-bee9-3cc722f5dfe0),
+  pointer_default(unique)
+]
+interface ITextStoreAnchor : IUnknown
+{
+    HRESULT AdviseSink([in] REFIID riid,
+                       [in, iid_is(riid)] IUnknown *punk,
+                       [in] DWORD dwMask);
+
+    HRESULT UnadviseSink([in] IUnknown *punk);
+        
+    HRESULT RequestLock([in] DWORD dwLockFlags,
+                        [out] HRESULT *phrSession);
+
+    HRESULT GetStatus([out] TS_STATUS *pdcs);
+
+    HRESULT QueryInsert([in] IAnchor *paTestStart,
+                        [in] IAnchor *paTestEnd,
+                        [in] ULONG cch,
+                        [out] IAnchor **ppaResultStart,
+                        [out] IAnchor **ppaResultEnd);
+
+    HRESULT GetSelection([in] ULONG ulIndex,
+                         [in] ULONG ulCount,
+                         [out, size_is(ulCount), length_is(*pcFetched)] TS_SELECTION_ANCHOR *pSelection,
+                         [out] ULONG *pcFetched);
+
+    HRESULT SetSelection([in] ULONG ulCount,
+                         [in, size_is(ulCount)] const TS_SELECTION_ANCHOR *pSelection);
+
+    const DWORD TS_GTA_HIDDEN = 0x1; // if set, GetText will return hidden text
+
+    HRESULT GetText([in] DWORD dwFlags,
+                    [in] IAnchor *paStart,
+                    [in] IAnchor *paEnd,
+                    [out, size_is(cchReq), length_is(*pcch)] WCHAR *pchText,
+                    [in] ULONG cchReq,
+                    [out] ULONG *pcch,
+                    [in] BOOL fUpdateAnchor);
+
+    HRESULT SetText([in] DWORD dwFlags,
+                    [in] IAnchor *paStart,
+                    [in] IAnchor *paEnd,
+                    [in, size_is(cch)] const WCHAR *pchText,
+                    [in] ULONG cch);
+
+    HRESULT GetFormattedText([in] IAnchor *paStart,
+                             [in] IAnchor *paEnd,
+                             [out] IDataObject **ppDataObject);
+
+    const DWORD TS_GEA_HIDDEN = 0x1; // if set, GetEmbedded will return hidden text
+
+    HRESULT GetEmbedded([in] DWORD dwFlags,
+                        [in] IAnchor *paPos,
+                        [in] REFGUID rguidService,
+                        [in] REFIID riid,
+                        [out, iid_is(riid)] IUnknown **ppunk);
+
+    HRESULT InsertEmbedded([in] DWORD dwFlags,
+                           [in] IAnchor *paStart,
+                           [in] IAnchor *paEnd,
+                           [in] IDataObject *pDataObject);
+
+    HRESULT RequestSupportedAttrs([in] DWORD dwFlags,
+                                  [in] ULONG cFilterAttrs,
+                                  [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs);
+
+    HRESULT RequestAttrsAtPosition([in] IAnchor *paPos,
+                                   [in] ULONG cFilterAttrs,
+                                   [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                   [in] DWORD dwFlags);
+
+    HRESULT RequestAttrsTransitioningAtPosition([in] IAnchor *paPos,
+                                                [in] ULONG cFilterAttrs,
+                                                [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                                [in] DWORD dwFlags);
+
+    HRESULT FindNextAttrTransition([in] IAnchor *paStart,
+                                   [in] IAnchor *paHalt,
+                                   [in] ULONG cFilterAttrs,
+                                   [in, size_is(cFilterAttrs), unique] const TS_ATTRID *paFilterAttrs,
+                                   [in] DWORD dwFlags,
+                                   [out] BOOL *pfFound,
+                                   [out] LONG *plFoundOffset);
+
+    HRESULT RetrieveRequestedAttrs([in] ULONG ulCount,
+                                   [out, size_is(ulCount), length_is(*pcFetched)] TS_ATTRVAL *paAttrVals,
+                                   [out] ULONG *pcFetched);
+
+    HRESULT GetStart([out] IAnchor **ppaStart);
+
+    HRESULT GetEnd([out] IAnchor **ppaEnd);
+
+    HRESULT GetActiveView([out] TsViewCookie *pvcView);
+
+    HRESULT GetAnchorFromPoint([in] TsViewCookie vcView,
+                               [in] const POINT *ptScreen,
+                               [in] DWORD dwFlags, [out] IAnchor **ppaSite);
+
+    HRESULT GetTextExt([in] TsViewCookie vcView,
+                       [in] IAnchor *paStart,
+                       [in] IAnchor *paEnd,
+                       [out] RECT *prc,
+                       [out] BOOL *pfClipped);
+
+    HRESULT GetScreenExt([in] TsViewCookie vcView,
+                         [out] RECT *prc);
+
+    HRESULT GetWnd([in] TsViewCookie vcView,
+                   [out] HWND *phwnd);
+
+    HRESULT QueryInsertEmbedded([in] const GUID *pguidService,
+                                [in] const FORMATETC *pFormatEtc,
+                                [out] BOOL *pfInsertable);
+
+    HRESULT InsertTextAtSelection([in] DWORD dwFlags,
+                                  [in, size_is(cch)] const WCHAR *pchText,
+                                  [in] ULONG cch,
+                                  [out] IAnchor **ppaStart,
+                                  [out] IAnchor **ppaEnd);
+
+    HRESULT InsertEmbeddedAtSelection([in] DWORD dwFlags,
+                                      [in] IDataObject *pDataObject,
+                                      [out] IAnchor **ppaStart,
+                                      [out] IAnchor **ppaEnd);
+};
+
+//
+// ITextStoreAnchorSink
+//
+[
+  object,
+  uuid(aa80e905-2021-11d2-93e0-0060b067b86e),
+  pointer_default(unique)
+]
+interface ITextStoreAnchorSink : IUnknown
+{
+    HRESULT OnTextChange([in] DWORD dwFlags,
+                         [in] IAnchor *paStart,
+                         [in] IAnchor *paEnd);
+
+    HRESULT OnSelectionChange();
+
+    HRESULT OnLayoutChange([in] TsLayoutCode lcode, [in] TsViewCookie vcView);
+
+    HRESULT OnStatusChange([in] DWORD dwFlags);
+
+    HRESULT OnAttrsChange([in] IAnchor *paStart,
+                          [in] IAnchor *paEnd,
+                          [in] ULONG cAttrs,
+                          [in, size_is(cAttrs)] const TS_ATTRID *paAttrs);
+
+    HRESULT OnLockGranted([in] DWORD dwLockFlags);
+
+    HRESULT OnStartEditTransaction();
+
+    HRESULT OnEndEditTransaction();
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion

@@ -1,0 +1,1748 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Copyright (c) Microsoft Corporation.
+//
+// SYNOPSIS
+//
+//   Interfaces for managing Windows Firewall
+//
+///////////////////////////////////////////////////////////////////////////////
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)")
+
+cpp_quote("")
+cpp_quote("HRESULT")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationSetupAppContainerBinaries (")
+cpp_quote("    _In_ PSID applicationContainerSid,")
+cpp_quote("    _In_ LPCWSTR packageFullName,")
+cpp_quote("    _In_ LPCWSTR packageFolder,")
+cpp_quote("    _In_ LPCWSTR displayName,")
+cpp_quote("    _In_ BOOL    bBinariesFullyComputed,")
+cpp_quote("    _In_reads_(binariesCount) LPCWSTR *binaries,")
+cpp_quote("    _In_ DWORD binariesCount")
+cpp_quote("    );")
+cpp_quote("#ifndef __NET_ISOLATION_TYPES__")
+cpp_quote("#define __NET_ISOLATION_TYPES__")
+cpp_quote("")
+cpp_quote("typedef enum NETISO_FLAG")
+cpp_quote("{")
+cpp_quote("    NETISO_FLAG_FORCE_COMPUTE_BINARIES = 0x1,")
+cpp_quote("    NETISO_FLAG_MAX = 0x2 ")
+cpp_quote("} NETISO_FLAG;")
+cpp_quote("")
+cpp_quote("typedef enum _INET_FIREWALL_AC_CREATION_TYPE")
+cpp_quote("{")
+cpp_quote("    INET_FIREWALL_AC_NONE	 		= 0x00,")
+cpp_quote("    INET_FIREWALL_AC_PACKAGE_ID_ONLY 		= 0x01,")
+cpp_quote("    INET_FIREWALL_AC_BINARY			= 0x02,")
+cpp_quote("    INET_FIREWALL_AC_MAX			= 0x04")
+cpp_quote("} INET_FIREWALL_AC_CREATION_TYPE;")
+cpp_quote("")
+cpp_quote("typedef enum _INET_FIREWALL_AC_CHANGE_TYPE")
+cpp_quote("{")
+cpp_quote("    INET_FIREWALL_AC_CHANGE_INVALID	= 0,")
+cpp_quote("    INET_FIREWALL_AC_CHANGE_CREATE 	= 1,")
+cpp_quote("    INET_FIREWALL_AC_CHANGE_DELETE	= 2,")
+cpp_quote("    INET_FIREWALL_AC_CHANGE_MAX	= 3")
+cpp_quote("} INET_FIREWALL_AC_CHANGE_TYPE;")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("typedef struct _INET_FIREWALL_AC_CAPABILITIES")
+cpp_quote("{")
+cpp_quote("    DWORD count;")
+cpp_quote("    SID_AND_ATTRIBUTES * capabilities;")
+cpp_quote("} INET_FIREWALL_AC_CAPABILITIES, *PINET_FIREWALL_AC_CAPABILITIES;")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("typedef struct _INET_FIREWALL_AC_BINARIES")
+cpp_quote("{")
+cpp_quote("    DWORD count;")
+cpp_quote("    LPWSTR *binaries;")
+cpp_quote("} INET_FIREWALL_AC_BINARIES, *PINET_FIREWALL_AC_BINARIES;")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("typedef struct _INET_FIREWALL_AC_CHANGE")
+cpp_quote("{")
+cpp_quote("    INET_FIREWALL_AC_CHANGE_TYPE changeType;")
+cpp_quote("    INET_FIREWALL_AC_CREATION_TYPE createType;")
+cpp_quote("    SID *appContainerSid;")
+cpp_quote("    SID* userSid;")
+cpp_quote("    LPWSTR displayName;")
+cpp_quote("")
+cpp_quote("    union")
+cpp_quote("    {")
+cpp_quote("        INET_FIREWALL_AC_CAPABILITIES capabilities;")
+cpp_quote("        INET_FIREWALL_AC_BINARIES binaries;")
+cpp_quote("    };")
+cpp_quote("")
+cpp_quote("} INET_FIREWALL_AC_CHANGE, *PINET_FIREWALL_AC_CHANGE;")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("typedef struct _INET_FIREWALL_APP_CONTAINER")
+cpp_quote("{")
+cpp_quote("    SID *appContainerSid;")
+cpp_quote("    SID *userSid;")
+cpp_quote("    LPWSTR appContainerName;")
+cpp_quote("    LPWSTR displayName;")
+cpp_quote("    LPWSTR description;")
+cpp_quote("    INET_FIREWALL_AC_CAPABILITIES capabilities;")
+cpp_quote("    INET_FIREWALL_AC_BINARIES binaries;")
+cpp_quote("    LPWSTR workingDirectory;")
+cpp_quote("    LPWSTR packageFullName;")
+cpp_quote("} INET_FIREWALL_APP_CONTAINER, *PINET_FIREWALL_APP_CONTAINER;")
+
+
+cpp_quote("#endif //__NET_ISOLATION_TYPES__")
+cpp_quote("typedef void (CALLBACK *PAC_CHANGES_CALLBACK_FN) (")
+cpp_quote("    _In_opt_ void *context,")
+cpp_quote("    _In_ const INET_FIREWALL_AC_CHANGE *pChange")
+cpp_quote("    );")
+cpp_quote("")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationRegisterForAppContainerChanges(")
+cpp_quote("    _In_ DWORD flags,")
+cpp_quote("    _In_ PAC_CHANGES_CALLBACK_FN callback,")
+cpp_quote("    _In_opt_ PVOID context,")
+cpp_quote("    _Out_ HANDLE *registrationObject")
+cpp_quote("    );")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationUnregisterForAppContainerChanges(")
+cpp_quote("    _In_ HANDLE registrationObject ")
+cpp_quote("    );")
+cpp_quote("HRESULT")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationEnumerateAppContainerRules(")
+cpp_quote("    _Outptr_ IEnumVARIANT ** newEnum")
+cpp_quote("    );")
+cpp_quote("")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationFreeAppContainers(")
+cpp_quote("    _In_ PINET_FIREWALL_APP_CONTAINER pPublicAppCs ")
+cpp_quote("    );")
+cpp_quote("")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationEnumAppContainers(")
+cpp_quote("    _In_  DWORD Flags,")
+cpp_quote("    _Out_ DWORD *pdwNumPublicAppCs,")
+cpp_quote("    _Outptr_result_buffer_(*pdwNumPublicAppCs) PINET_FIREWALL_APP_CONTAINER *ppPublicAppCs ")
+cpp_quote("    );")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationGetAppContainerConfig(")
+cpp_quote("    _Out_ DWORD *pdwNumPublicAppCs,")
+cpp_quote("    _Outptr_result_buffer_(*pdwNumPublicAppCs) PSID_AND_ATTRIBUTES *appContainerSids")
+cpp_quote("    );")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationSetAppContainerConfig(")
+cpp_quote("    _In_ DWORD dwNumPublicAppCs,")
+cpp_quote("    _In_reads_(dwNumPublicAppCs) PSID_AND_ATTRIBUTES appContainerSids")
+cpp_quote("    );")
+
+cpp_quote("#ifndef __NET_ISOLATION_DIAG_TYPES__")
+cpp_quote("#define __NET_ISOLATION_DIAG_TYPES__")
+cpp_quote("typedef enum _NETISO_ERROR_TYPE")
+cpp_quote("{")
+cpp_quote("    NETISO_ERROR_TYPE_NONE                      = 0x00,")
+cpp_quote("    NETISO_ERROR_TYPE_PRIVATE_NETWORK           = 0x01,")
+cpp_quote("    NETISO_ERROR_TYPE_INTERNET_CLIENT           = 0x02,")
+cpp_quote("    NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER    = 0x03,")
+cpp_quote("    NETISO_ERROR_TYPE_MAX                       = 0x04")
+cpp_quote("} NETISO_ERROR_TYPE;")
+cpp_quote("#endif //__NET_ISOLATION_DIAG_TYPES__")
+
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationDiagnoseConnectFailureAndGetInfo(")
+cpp_quote("    _In_ LPCWSTR wszServerName,")
+cpp_quote("    _Out_ NETISO_ERROR_TYPE  *netIsoError")
+cpp_quote("    );")
+cpp_quote("")
+
+cpp_quote("")
+cpp_quote("typedef void (CALLBACK *PNETISO_EDP_ID_CALLBACK_FN) (")
+cpp_quote("    _Inout_opt_ void *context,")
+cpp_quote("    _In_opt_z_ const LPCWSTR wszEnterpriseId,")
+cpp_quote("    _In_ DWORD dwErr")
+cpp_quote("    );")
+
+cpp_quote("#define NETISO_GEID_FOR_WDAG 0x01")
+cpp_quote("#define NETISO_GEID_FOR_NEUTRAL_AWARE 0x02")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationGetEnterpriseIdAsync(")
+cpp_quote("    _In_z_ LPCWSTR wszServerName,")
+cpp_quote("    _In_   DWORD   dwFlags,")
+cpp_quote("    _In_opt_ void *  context,")
+cpp_quote("    _In_   PNETISO_EDP_ID_CALLBACK_FN callback,")
+cpp_quote("    _Out_  HANDLE *hOperation ")
+cpp_quote("    );")
+cpp_quote("DWORD")
+cpp_quote("WINAPI")
+cpp_quote("NetworkIsolationGetEnterpriseIdClose(")
+cpp_quote("    _In_ HANDLE hOperation,")
+cpp_quote("    _In_ BOOL   bWaitForOperation")
+cpp_quote("    );")
+cpp_quote("")
+
+// Dynamic Keyword Address structs and APIs
+cpp_quote("#if (NTDDI_VERSION >= NTDDI_WIN10_CO) ")
+cpp_quote("#ifndef __FW_DYNAMIC_KEYWORDS_TYPES__")
+cpp_quote("#define __FW_DYNAMIC_KEYWORDS_TYPES__")
+cpp_quote("typedef enum _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE")
+cpp_quote("{")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ORIGIN_INVALID,")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL,")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ORIGIN_MDM,")
+cpp_quote("} FW_DYNAMIC_KEYWORD_ORIGIN_TYPE;")
+cpp_quote("")
+cpp_quote("typedef struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0")
+cpp_quote("{")
+cpp_quote("    GUID id;")
+cpp_quote("    PCWSTR keyword;")
+cpp_quote("    DWORD flags;")
+cpp_quote("    PCWSTR addresses;")
+cpp_quote("} FW_DYNAMIC_KEYWORD_ADDRESS0, *PFW_DYNAMIC_KEYWORD_ADDRESS0;")
+cpp_quote("")
+cpp_quote("typedef struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0")
+cpp_quote("{")
+cpp_quote("    struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress;")
+cpp_quote("    struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* next;")
+cpp_quote("    WORD schemaVersion;")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ORIGIN_TYPE originType;")
+cpp_quote("} FW_DYNAMIC_KEYWORD_ADDRESS_DATA0, *PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0;")
+cpp_quote("")
+cpp_quote("typedef enum _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS")
+cpp_quote("{")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE = 0x0001")
+cpp_quote("} FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS;")
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS);")
+cpp_quote("")
+cpp_quote("typedef enum _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS")
+cpp_quote("{")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE = 0x0001,")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE = 0x0002,")
+cpp_quote("    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL = (FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE | FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE)")
+cpp_quote("} FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS;")
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS);")
+cpp_quote("")
+cpp_quote("#endif //__FW_DYNAMIC_KEYWORDS_TYPES__")
+cpp_quote("")
+cpp_quote("typedef DWORD")
+cpp_quote("(WINAPI* PFN_FWADDDYNAMICKEYWORDADDRESS0) (")
+cpp_quote("    _In_ const PFW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress")
+cpp_quote(");")
+cpp_quote("")
+cpp_quote("typedef DWORD")
+cpp_quote("(WINAPI* PFN_FWDELETEDYNAMICKEYWORDADDRESS0) (")
+cpp_quote("    _In_ GUID dynamicKeywordAddressId")
+cpp_quote(");")
+cpp_quote("")
+cpp_quote("typedef DWORD")
+cpp_quote("(WINAPI *PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0) (")
+cpp_quote("    _In_  DWORD                              flags,")
+cpp_quote("    _Out_ PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0* dynamicKeywordAddressData")
+cpp_quote(");")
+cpp_quote("")
+cpp_quote("typedef DWORD")
+cpp_quote("(WINAPI *PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0) (")
+cpp_quote("    _In_  GUID                               dynamicKeywordAddressId,")
+cpp_quote("    _Out_ PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0* dynamicKeywordAddressData")
+cpp_quote(");")
+cpp_quote("")
+cpp_quote("typedef DWORD")
+cpp_quote("(WINAPI* PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0) (")
+cpp_quote("    _In_ PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0 dynamicKeywordAddressData")
+cpp_quote(");")
+cpp_quote("")
+cpp_quote("typedef DWORD")
+cpp_quote("(WINAPI* PFN_FWUPDATEDYNAMICKEYWORDADDRESS0) (")
+cpp_quote("    _In_ GUID     dynamicKeywordAddressId,")
+cpp_quote("    _In_ PCWSTR   updatedAddresses,")
+cpp_quote("    _In_ BOOL     append")
+cpp_quote(");")
+cpp_quote("")
+cpp_quote("#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO) ")
+
+import "icftypes.idl";
+import "oaidl.idl";
+
+
+// Provides access to the settings controlling Remote Administration. An
+// instance of this interface is retrieved through the RemoteAdminSettings
+// property of the INetFwProfile interface. All configuration changes take
+// effect immediately.
+[
+   object,
+   uuid(D4BECDDF-6F73-4A83-B832-9C66874CD20E),
+   dual
+]
+interface INetFwRemoteAdminSettings : IDispatch
+{
+   // IP version for which remote admin is authorized. Only
+   // NET_FW_IP_VERSION_ANY is supported.
+   [id(1), propget]
+   HRESULT IpVersion(
+              [out, retval] NET_FW_IP_VERSION* ipVersion
+              );
+   [id(1), propput]
+   HRESULT IpVersion(
+              [in] NET_FW_IP_VERSION ipVersion
+              );
+
+   // Network scope from which remote admin is allowed. When setting the
+   // property, only NET_FW_SCOPE_ALL and NET_FW_SCOPE_LOCAL_SUBNET are valid.
+   // To create a custom scope, use the RemoteAddresses property.
+   [id(2), propget]
+   HRESULT Scope(
+              [out, retval] NET_FW_SCOPE* scope
+              );
+   [id(2), propput]
+   HRESULT Scope(
+              [in] NET_FW_SCOPE scope
+              );
+
+   // Remote addresses from which remote administration is allowed.
+   [id(3), propget]
+   HRESULT RemoteAddresses(
+              [out, retval] BSTR* remoteAddrs
+              );
+   [id(3), propput]
+   HRESULT RemoteAddresses(
+              [in] BSTR remoteAddrs
+              );
+
+   // True if Remote Administration is enabled.
+   [id(4), propget]
+   HRESULT Enabled(
+              [out, retval] VARIANT_BOOL* enabled
+              );
+   [id(4), propput]
+   HRESULT Enabled(
+              [in] VARIANT_BOOL enabled
+              );
+}
+
+
+// Provides access to the settings controlling ICMP packets. An instance of
+// this interface is retrieved through the IcmpSettings property of the
+// INetFwProfile interface. All configuration changes take effect
+// immediately.
+[
+   object,
+   uuid(A6207B2E-7CDD-426A-951E-5E1CBC5AFEAD),
+   dual
+]
+interface INetFwIcmpSettings : IDispatch
+{
+   //////////
+   // Types common to IPv4 and IPv6
+   //////////
+
+   [id(1), propget]
+   HRESULT AllowOutboundDestinationUnreachable(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(1), propput]
+   HRESULT AllowOutboundDestinationUnreachable(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(2), propget]
+   HRESULT AllowRedirect(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(2), propput]
+   HRESULT AllowRedirect(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(3), propget]
+   HRESULT AllowInboundEchoRequest(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(3), propput]
+   HRESULT AllowInboundEchoRequest(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(4), propget]
+   HRESULT AllowOutboundTimeExceeded(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(4), propput]
+   HRESULT AllowOutboundTimeExceeded(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(5), propget]
+   HRESULT AllowOutboundParameterProblem(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(5), propput]
+   HRESULT AllowOutboundParameterProblem(
+              [in] VARIANT_BOOL allow
+              );
+
+   //////////
+   // IPv4 only types
+   //////////
+
+   [id(6), propget]
+   HRESULT AllowOutboundSourceQuench(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(6), propput]
+   HRESULT AllowOutboundSourceQuench(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(7), propget]
+   HRESULT AllowInboundRouterRequest(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(7), propput]
+   HRESULT AllowInboundRouterRequest(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(8), propget]
+   HRESULT AllowInboundTimestampRequest(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(8), propput]
+   HRESULT AllowInboundTimestampRequest(
+              [in] VARIANT_BOOL allow
+              );
+
+   [id(9), propget]
+   HRESULT AllowInboundMaskRequest(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(9), propput]
+   HRESULT AllowInboundMaskRequest(
+              [in] VARIANT_BOOL allow
+              );
+
+   //////////
+   // IPv6 only types
+   //////////
+
+   [id(10), propget]
+   HRESULT AllowOutboundPacketTooBig(
+              [out, retval] VARIANT_BOOL* allow
+              );
+   [id(10), propput]
+   HRESULT AllowOutboundPacketTooBig(
+              [in] VARIANT_BOOL allow
+              );
+}
+
+
+// Provides access to the properties of a port that has been opened in the
+// firewall. When creating new ports, this interface is supported by the
+// HNetCfg.FwOpenPort COM object. For reading or modifying existing ports,
+// instances of this interface are retrieved through the INetFwOpenPorts
+// collection. All configuration changes take effect immediately.
+[
+   object,
+   uuid(E0483BA0-47FF-4D9C-A6D6-7741D0B195F7),
+   dual
+]
+interface INetFwOpenPort : IDispatch
+{
+   // Friendly name of the port. Mandatory.
+   [id(1), propget]
+   HRESULT Name(
+              [out, retval] BSTR* name
+              );
+   [id(1), propput]
+   HRESULT Name(
+              [in] BSTR name
+              );
+
+   // IP version for which the port is opened. Only NET_FW_IP_VERSION_ANY is
+   // supported, and this is the default for new ports.
+   [id(2), propget]
+   HRESULT IpVersion(
+              [out, retval] NET_FW_IP_VERSION* ipVersion
+              );
+   [id(2), propput]
+   HRESULT IpVersion(
+              [in] NET_FW_IP_VERSION ipVersion
+              );
+
+   // IP protocol. Default is TCP for new ports.
+   [id(3), propget]
+   HRESULT Protocol(
+              [out, retval] NET_FW_IP_PROTOCOL* ipProtocol
+              );
+   [id(3), propput]
+   HRESULT Protocol(
+              [in] NET_FW_IP_PROTOCOL ipProtocol
+              );
+
+   // Port number in host order. Mandatory.
+   [id(4), propget]
+   HRESULT Port(
+              [out, retval] LONG* portNumber
+              );
+   [id(4), propput]
+   HRESULT Port(
+              [in] LONG portNumber
+              );
+
+   // Network scope from which the port can listen. When setting the property,
+   // only NET_FW_SCOPE_ALL and NET_FW_SCOPE_LOCAL_SUBNET are valid.  To create
+   // a custom scope, use the RemoteAddresses property. Default is
+   // NET_FW_SCOPE_ALL for new ports.
+   [id(5), propget]
+   HRESULT Scope(
+              [out, retval] NET_FW_SCOPE* scope
+              );
+   [id(5), propput]
+   HRESULT Scope(
+              [in] NET_FW_SCOPE scope
+              );
+
+   // Remote addresses from which the port can listen for traffic.
+   [id(6), propget]
+   HRESULT RemoteAddresses(
+              [out, retval] BSTR* remoteAddrs
+              );
+   [id(6), propput]
+   HRESULT RemoteAddresses(
+              [in] BSTR remoteAddrs
+              );
+
+   // True if the settings for this port are currently enabled. This can be set
+   // to False to allow port settings to be stored in the open ports collection
+   // without actually opening the port. Default is True for new ports.
+   [id(7), propget]
+   HRESULT Enabled(
+              [out, retval] VARIANT_BOOL* enabled
+              );
+   [id(7), propput]
+   HRESULT Enabled(
+              [in] VARIANT_BOOL enabled
+              );
+
+   // True if this is a built-in port defined by the system. Built-in ports can
+   // not be removed and only the LocalSubnetOnly and Enabled properties can be
+   // modified.
+   [id(8), propget]
+   HRESULT BuiltIn(
+              [out, retval] VARIANT_BOOL* builtIn
+              );
+}
+
+
+// Provides access to a collection of ports opened in the firewall. An instance
+// of this interface is retrieved through the GloballyOpenPorts property of the
+// INetFwProfile interface. All configuration changes take effect
+// immediately.
+[
+   object,
+   uuid(C0E9D7FA-E07E-430A-B19A-090CE82D92E2),
+   dual
+]
+interface INetFwOpenPorts : IDispatch
+{
+   // Returns the number of ports in the collection.
+   [id(1), propget]
+   HRESULT Count(
+              [out, retval] long* count
+              );
+
+   // Opens a new port and adds it to the collection. If the port is already
+   // open, the existing settings are overwritten.
+   [id(2)]
+   HRESULT Add(
+              [in] INetFwOpenPort* port
+              );
+
+   // Closes a port and removes it from the collection. If the port is already
+   // closed, it has no effect.
+   [id(3)]
+   HRESULT Remove(
+              [in] LONG portNumber,
+              [in] NET_FW_IP_PROTOCOL ipProtocol
+              );
+
+   // Return the specified port if present.
+   [id(4)]
+   HRESULT Item(
+              [in] LONG portNumber,
+              [in] NET_FW_IP_PROTOCOL ipProtocol,
+              [out, retval] INetFwOpenPort** openPort
+              );
+
+   // Returns an object supporting IEnumVARIANT that can be used to iterate
+   // through all the ports in the collection.
+   [id(DISPID_NEWENUM), propget, restricted]
+   HRESULT _NewEnum(
+              [out, retval] IUnknown** newEnum
+              );
+}
+
+
+// Provides access to the properties of a service that may be authorized to
+// listen through the firewall.  Instances of this interface are retrieved
+// through the INetFwServices collection. All configuration changes take
+// effect immediately.
+[
+   object,
+   uuid(79FD57C8-908E-4A36-9888-D5B3F0A444CF),
+   dual
+]
+interface INetFwService : IDispatch
+{
+   // Friendly name of the service.
+   [id(1), propget]
+   HRESULT Name(
+              [out, retval] BSTR* name
+              );
+
+   // Enumerator that uniquely identifies the service.
+   [id(2), propget]
+   HRESULT Type(
+              [out, retval] NET_FW_SERVICE_TYPE* type
+              );
+
+   // Indicates whether at least one of the ports associated with the service
+   // has been customized. If a service has been customized, the values
+   // returned by the service properties do not reflect the configuration of
+   // all the ports associated with the service.
+   [id(3), propget]
+   HRESULT Customized(
+              [out, retval] VARIANT_BOOL* customized
+              );
+
+   // IP version for which the service is authorized. Only
+   // NET_FW_IP_VERSION_ANY is supported.
+   [id(4), propget]
+   HRESULT IpVersion(
+              [out, retval] NET_FW_IP_VERSION* ipVersion
+              );
+   [id(4), propput]
+   HRESULT IpVersion(
+              [in] NET_FW_IP_VERSION ipVersion
+              );
+
+   // Network scope from which the service can listen. When setting the
+   // property, only NET_FW_SCOPE_ALL and NET_FW_SCOPE_LOCAL_SUBNET are valid.
+   // To create a custom scope, use the RemoteAddresses property.
+   [id(5), propget]
+   HRESULT Scope(
+              [out, retval] NET_FW_SCOPE* scope
+              );
+   [id(5), propput]
+   HRESULT Scope(
+              [in] NET_FW_SCOPE scope
+              );
+
+   // Remote addresses from which the service ports can listen for traffic. If
+   // the service has been customized, get returns the union of the remote
+   // addresses for all the service ports.
+   [id(6), propget]
+   HRESULT RemoteAddresses(
+              [out, retval] BSTR* remoteAddrs
+              );
+   [id(6), propput]
+   HRESULT RemoteAddresses(
+              [in] BSTR remoteAddrs
+              );
+
+   // True if all the ports associated with the service are enabled.
+   [id(7), propget]
+   HRESULT Enabled(
+              [out, retval] VARIANT_BOOL* enabled
+              );
+   [id(7), propput]
+   HRESULT Enabled(
+              [in] VARIANT_BOOL enabled
+              );
+
+   // The collection of globally open ports associated with the service.
+   [id(8), propget]
+   HRESULT GloballyOpenPorts(
+              [out, retval] INetFwOpenPorts** openPorts
+              );
+}
+
+
+// Provides access to a collection of services that may be authorized to listen
+// through the firewall. An instance of this interface is retrieved through the
+// Services property of the INetFwProfile interface. All configuration
+// changes take effect immediately.
+[
+   object,
+   uuid(79649BB4-903E-421B-94C9-79848E79F6EE),
+   dual
+]
+interface INetFwServices : IDispatch
+{
+   // Returns the number of services in the collection.
+   [id(1), propget]
+   HRESULT Count(
+              [out, retval] long* count
+              );
+
+   // Return the specified service.
+   [id(2)]
+   HRESULT Item(
+              [in] NET_FW_SERVICE_TYPE svcType,
+              [out, retval] INetFwService** service
+              );
+
+   // Returns an object supporting IEnumVARIANT that can be used to iterate
+   // through all the services in the collection.
+   [id(DISPID_NEWENUM), propget, restricted]
+   HRESULT _NewEnum(
+              [out, retval] IUnknown** newEnum
+              );
+}
+
+
+// Provides access to the properties of an app that has been authorized to open
+// holes in the firewall. When creating new apps, this interface is supported
+// by the HNetCfg.FwAuthorizedApplication COM object.  For reading or
+// modifying existing apps, instances of this interface are retrieved through
+// the INetFwAuthorizedApplications collection. All configuration changes
+// take effect immediately.
+[
+   object,
+   uuid(B5E64FFA-C2C5-444E-A301-FB5E00018050),
+   dual
+]
+interface INetFwAuthorizedApplication : IDispatch
+{
+   // Friendly name of the app. Mandatory.
+   [id(1), propget]
+   HRESULT Name(
+              [out, retval] BSTR* name
+              );
+   [id(1), propput]
+   HRESULT Name(
+              [in] BSTR name
+              );
+
+   // Process image file name. This must be a fully-qualified path, but it may
+   // contain environment variables. Mandatory.
+   [id(2), propget]
+   HRESULT ProcessImageFileName(
+              [out, retval] BSTR* imageFileName
+              );
+   [id(2), propput]
+   HRESULT ProcessImageFileName(
+              [in] BSTR imageFileName
+              );
+
+   // IP version for which the app is authorized. Only NET_FW_IP_VERSION_ANY is
+   // supported, and this is the default for new apps.
+   [id(3), propget]
+   HRESULT IpVersion(
+              [out, retval] NET_FW_IP_VERSION* ipVersion
+              );
+   [id(3), propput]
+   HRESULT IpVersion(
+              [in] NET_FW_IP_VERSION ipVersion
+              );
+
+
+   // Network scope from which the app can listen. When setting the property,
+   // only NET_FW_SCOPE_ALL and NET_FW_SCOPE_LOCAL_SUBNET are valid.  To create
+   // a custom scope, use the RemoteAddresses property. Default is
+   // NET_FW_SCOPE_ALL for new apps.
+   [id(4), propget]
+   HRESULT Scope(
+              [out, retval] NET_FW_SCOPE* scope
+              );
+   [id(4), propput]
+   HRESULT Scope(
+              [in] NET_FW_SCOPE scope
+              );
+
+   // Remote addresses from which the app can listen for traffic.
+   [id(5), propget]
+   HRESULT RemoteAddresses(
+              [out, retval] BSTR* remoteAddrs
+              );
+   [id(5), propput]
+   HRESULT RemoteAddresses(
+              [in] BSTR remoteAddrs
+              );
+
+   // True if the settings for this app are currently enabled. This can be set
+   // to False to allow app settings to be stored in the authorized apps
+   // collection without actually authorizing the app. Default is True for new
+   // apps.
+   [id(6), propget]
+   HRESULT Enabled(
+              [out, retval] VARIANT_BOOL* enabled
+              );
+   [id(6), propput]
+   HRESULT Enabled(
+              [in] VARIANT_BOOL enabled
+              );
+}
+
+
+// Provides access to a collection of apps authorized to open ports in the
+// firewall. An instance of this interface is retrieved through the
+// AuthorizedApplications property of the INetFwProfile interface. All
+// configuration changes take effect immediately.
+[
+   object,
+   uuid(644EFD52-CCF9-486C-97A2-39F352570B30),
+   dual
+]
+interface INetFwAuthorizedApplications : IDispatch
+{
+   // Returns the number of apps in the collection.
+   [id(1), propget]
+   HRESULT Count(
+              [out, retval] long* count
+              );
+
+   // Adds a new app to the collection. If an app with the same image file name
+   // already exists, the settings are overwritten.
+   [id(2)]
+   HRESULT Add(
+              [in] INetFwAuthorizedApplication* app
+              );
+
+   // Removes an app from the collection. If the app doesn't exist, it has no
+   // effect.
+   [id(3)]
+   HRESULT Remove(
+              [in] BSTR imageFileName
+              );
+
+   // Return the specified app if present.
+   [id(4)]
+   HRESULT Item(
+              [in] BSTR imageFileName,
+              [out, retval] INetFwAuthorizedApplication** app
+              );
+
+   // Returns an object supporting IEnumVARIANT that can be used to iterate
+   // through all the apps in the collection.
+   [id(DISPID_NEWENUM), propget, restricted]
+   HRESULT _NewEnum(
+              [out, retval] IUnknown** newEnum
+              );
+}
+
+
+// Provides access to the properties of a rule. When creating new rules, this
+// interface is supported by the HNetCfg.FwRule COM object.  For reading or
+// modifying existing rules, instances of this interface are retrieved through
+// the INetFwRules collection. All configuration changes take effect immediately.
+[
+   local,
+   object,
+   uuid(AF230D27-BABA-4E42-ACED-F524F22CFCE2),
+   dual
+]
+interface INetFwRule : IDispatch
+{
+   // Friendly name of the rule.
+   [id(1), propget]
+   HRESULT Name(
+              [out, retval] BSTR* name
+              );
+   [id(1), propput]
+   HRESULT Name(
+              [in] BSTR name
+              );
+
+   // Description for the rule.
+   [id(2), propget]
+   HRESULT Description(
+              [out, retval] BSTR* desc
+              );
+   [id(2), propput]
+   HRESULT Description(
+              [in] BSTR desc
+              );
+
+   // Application name. This must be a fully-qualified path, but it may
+   // contain environment variables.
+   [id(3), propget]
+   HRESULT ApplicationName(
+              [out, retval] BSTR* imageFileName
+              );
+   [id(3), propput]
+   HRESULT ApplicationName(
+              [in] BSTR imageFileName
+              );
+
+   // Win32 Service name.
+   [id(4), propget]
+   HRESULT ServiceName(
+              [out, retval] BSTR* serviceName
+              );
+   [id(4), propput]
+   HRESULT ServiceName(
+              [in] BSTR serviceName
+              );
+
+   // IP protocol property of the rule.
+   [id(5), propget]
+   HRESULT Protocol(
+              [out, retval] LONG* protocol
+              );
+   [id(5), propput]
+   HRESULT Protocol(
+              [in] LONG protocol
+              );
+
+   // Local ports property of the rule.
+   [id(6), propget]
+   HRESULT LocalPorts(
+              [out, retval] BSTR* portNumbers
+              );
+   [id(6), propput]
+   HRESULT LocalPorts(
+              [in] BSTR portNumbers
+              );
+
+   // Remote ports property of the rule.
+   [id(7), propget]
+   HRESULT RemotePorts(
+              [out, retval] BSTR* portNumbers
+              );
+   [id(7), propput]
+   HRESULT RemotePorts(
+              [in] BSTR portNumbers
+              );
+
+   // Local addresses property of the rule.
+   [id(8), propget]
+   HRESULT LocalAddresses(
+              [out, retval] BSTR* localAddrs
+              );
+   [id(8), propput]
+   HRESULT LocalAddresses(
+              [in] BSTR localAddrs
+              );
+
+   // Remote addresses property of the rule.
+   [id(9), propget]
+   HRESULT RemoteAddresses(
+              [out, retval] BSTR* remoteAddrs
+              );
+   [id(9), propput]
+   HRESULT RemoteAddresses(
+              [in] BSTR remoteAddrs
+              );
+
+   // ICMP types and codes for the rule.
+   [id(10), propget]
+   HRESULT IcmpTypesAndCodes(
+              [out, retval] BSTR* icmpTypesAndCodes
+              );
+   [id(10), propput]
+   HRESULT IcmpTypesAndCodes(
+              [in] BSTR icmpTypesAndCodes
+              );
+
+   // The direction property of the rule. Default is In for new rules.
+   [id(11), propget]
+   HRESULT Direction(
+              [out, retval] NET_FW_RULE_DIRECTION* dir
+              );
+   [id(11), propput]
+   HRESULT Direction(
+              [in] NET_FW_RULE_DIRECTION dir
+              );
+
+   // The interfaces for the rule.
+   [id(12), propget]
+   HRESULT Interfaces(
+              [out, retval] VARIANT* interfaces
+              );
+   [id(12), propput]
+   HRESULT Interfaces(
+              [in] VARIANT interfaces
+              );
+
+   // The interface types for the rule.
+   [id(13), propget]
+   HRESULT InterfaceTypes(
+              [out, retval] BSTR* interfaceTypes
+              );
+   [id(13), propput]
+   HRESULT InterfaceTypes(
+              [in] BSTR interfaceTypes
+              );
+
+   // The enabled property of the rule. Default is not Enabled for new rules.
+   [id(14), propget]
+   HRESULT Enabled(
+              [out, retval] VARIANT_BOOL* enabled
+              );
+   [id(14), propput]
+   HRESULT Enabled(
+              [in] VARIANT_BOOL enabled
+              );
+
+   // The grouping property of the rule.
+   [id(15), propget]
+   HRESULT Grouping(
+              [out, retval] BSTR* context
+              );
+   [id(15), propput]
+   HRESULT Grouping(
+              [in] BSTR context
+              );
+
+   // The profiles that this rule applies to.
+   [id(16), propget]
+   HRESULT Profiles(
+              [out, retval] long* profileTypesBitmask
+              );
+   [id(16), propput]
+   HRESULT Profiles(
+              [in] long  profileTypesBitmask
+              );
+
+   // The EdgeTraversal property of the rule. Default is false for new rules.
+   [id(17), propget]
+   HRESULT EdgeTraversal(
+              [out, retval] VARIANT_BOOL* enabled
+              );
+   [id(17), propput]
+   HRESULT EdgeTraversal(
+              [in] VARIANT_BOOL enabled
+              );
+   // Rule's action
+   [id(18), propget]
+   HRESULT Action(
+              [out, retval] NET_FW_ACTION* action
+              );
+   [id(18), propput]
+   HRESULT Action(
+              [in] NET_FW_ACTION action
+              );
+
+}
+
+
+// Provides access to the dynamic edge properties of a rule.
+[
+   local,
+   object,
+   uuid(9C27C8DA-189B-4DDE-89F7-8B39A316782C),
+   dual
+]
+interface INetFwRule2 : INetFwRule
+{
+
+    [id(19), propget]
+    HRESULT EdgeTraversalOptions(
+                [out, retval] long* lOptions
+                );
+
+    [id(19), propput]
+    HRESULT EdgeTraversalOptions(
+                [in] long lOptions
+                );
+}
+
+
+
+// Provides access to the lowbox properties of a rule.
+[
+   local,
+   object,
+   uuid(B21563FF-D696-4222-AB46-4E89B73AB34A),
+   dual
+]
+interface INetFwRule3 : INetFwRule2
+{
+
+    [id(20), propget]
+    HRESULT LocalAppPackageId(
+                [out, retval] BSTR* wszPackageId
+                );
+
+    [id(20), propput]
+    HRESULT LocalAppPackageId(
+                [in] BSTR wszPackageId
+                );
+
+    [id(21), propget]
+    HRESULT LocalUserOwner(
+                [out, retval] BSTR* wszUserOwner
+                );
+
+    [id(21), propput]
+    HRESULT LocalUserOwner(
+                [in] BSTR wszUserOwner
+                );
+
+    [id(22), propget]
+    HRESULT LocalUserAuthorizedList(
+                [out, retval] BSTR* wszUserAuthList
+                );
+
+    [id(22), propput]
+    HRESULT LocalUserAuthorizedList(
+                [in] BSTR wszUserAuthList
+                );
+
+    [id(23), propget]
+    HRESULT RemoteUserAuthorizedList(
+                [out, retval] BSTR* wszUserAuthList
+                );
+
+    [id(23), propput]
+    HRESULT RemoteUserAuthorizedList(
+                [in] BSTR wszUserAuthList
+                );
+
+    [id(24), propget]
+    HRESULT RemoteMachineAuthorizedList(
+                [out, retval] BSTR* wszUserAuthList
+                );
+
+    [id(24), propput]
+    HRESULT RemoteMachineAuthorizedList(
+                [in] BSTR wszUserAuthList
+                );
+
+    [id(25), propget]
+    HRESULT SecureFlags(
+                [out, retval] long* lOptions
+                );
+
+    [id(25), propput]
+    HRESULT SecureFlags(
+                [in] long lOptions
+                );
+}
+
+
+// Provides access to a collection of rules in the specified profile. An instance
+// of this interface is retrieved through the Rules property of the INetFwPolicy2
+// interface. All configuration changes take effect immediately.
+[
+   local,
+   object,
+   uuid(9C4C6277-5027-441E-AFAE-CA1F542DA009),
+   dual
+]
+interface INetFwRules : IDispatch
+{
+   // Returns the number of rules in the collection.
+   [id(1), propget]
+   HRESULT Count(
+              [out, retval] long* count
+              );
+
+   // Adds a new rule to the collection. If an rule with the same rule id
+   // already exists, the settings are overwritten.
+   [id(2)]
+   HRESULT Add(
+              [in] INetFwRule* rule
+              );
+
+   // Removes a rule from the collection. If the rule doesn't exist, it has no
+   // effect.
+   [id(3)]
+   HRESULT Remove(
+              [in] BSTR name
+              );
+
+   // Return the specified rule if present.
+   [id(4)]
+   HRESULT Item(
+              [in] BSTR name,
+              [out, retval] INetFwRule** rule
+              );
+
+   // Returns an object supporting IEnumVARIANT that can be used to iterate
+   // through all the rules in the collection.
+   [id(DISPID_NEWENUM), propget, restricted]
+   HRESULT _NewEnum(
+              [out, retval] IUnknown** newEnum
+              );
+}
+
+
+// Provides access to the service hardening firewall policy. Instances of this
+// interface are retrieved through the ServiceRestriction property of the
+// INetFwPolicy2 interface. All configuration changes take effect immediately.
+[
+    local,
+    object,
+    uuid(8267BBE3-F890-491C-B7B6-2DB1EF0E5D2B),
+    dual
+]
+interface INetFwServiceRestriction : IDispatch
+{
+   // Adds inbound and outbound rules to block the service.
+   [id(1)]
+   HRESULT RestrictService(
+              [in] BSTR serviceName,
+              [in] BSTR appName,
+              [in] VARIANT_BOOL restrictService,
+              [in] VARIANT_BOOL serviceSidRestricted
+              );
+
+   // TRUE if inbound and outbound rules are present to block the service.
+   [id(2)]
+   HRESULT ServiceRestricted(
+              [in] BSTR serviceName,
+              [in] BSTR appName,
+              [out, retval] VARIANT_BOOL* serviceRestricted
+              );
+
+   // Returns the collection of firewall rules.
+   [id(3), propget]
+   HRESULT Rules(
+              [out, retval] INetFwRules** rules
+              );
+}
+
+
+// Provides access to a firewall settings profile. Instances of this interface
+// are retrieved through the CurrentProfile property or GetProfileByType method
+// of the INetFwPolicy interface. All configuration changes take effect
+// immediately.
+[
+    object,
+    uuid(174A0DDA-E9F9-449D-993B-21AB667CA456),
+    dual
+]
+interface INetFwProfile : IDispatch
+{
+   // Type of profile
+   [id(1), propget]
+   HRESULT Type(
+              [out, retval] NET_FW_PROFILE_TYPE* type
+              );
+
+   // True if firewall is enabled.
+   [id(2), propget]
+   HRESULT FirewallEnabled(
+             [out, retval] VARIANT_BOOL* enabled
+             );
+   [id(2), propput]
+   HRESULT FirewallEnabled(
+              [in] VARIANT_BOOL enabled
+              );
+
+   // True if the firewall should not allow exceptions. In other words, all the
+   // exceptions (e.g., GloballyOpenPorts) specified in the profile are ignored
+   // and only locally initiated traffic is allowed.
+   [id(3), propget]
+   HRESULT ExceptionsNotAllowed(
+              [out, retval] VARIANT_BOOL* notAllowed
+              );
+   [id(3), propput]
+   HRESULT ExceptionsNotAllowed(
+              [in] VARIANT_BOOL notAllowed
+              );
+
+   // True if interactive firewall notifications are disabled.
+   [id(4), propget]
+   HRESULT NotificationsDisabled(
+             [out, retval] VARIANT_BOOL* disabled
+             );
+   [id(4), propput]
+   HRESULT NotificationsDisabled(
+              [in] VARIANT_BOOL disabled
+              );
+
+   // True if the firewall should not allow unicast responses to multicast and
+   // broadcast traffic.
+   [id(5), propget]
+   HRESULT UnicastResponsesToMulticastBroadcastDisabled(
+             [out, retval] VARIANT_BOOL* disabled
+             );
+   [id(5), propput]
+   HRESULT UnicastResponsesToMulticastBroadcastDisabled(
+              [in] VARIANT_BOOL disabled
+              );
+
+   // Settings governing remote administration.
+   [id(6), propget]
+   HRESULT RemoteAdminSettings(
+              [out, retval] INetFwRemoteAdminSettings** remoteAdminSettings
+              );
+
+   // Settings governing ICMP packets.
+   [id(7), propget]
+   HRESULT IcmpSettings(
+              [out, retval] INetFwIcmpSettings** icmpSettings
+              );
+
+   // Returns the collection of globally open ports.
+   [id(8), propget]
+   HRESULT GloballyOpenPorts(
+              [out, retval] INetFwOpenPorts** openPorts
+              );
+
+   // Returns the collection of services.
+   [id(9), propget]
+   HRESULT Services(
+              [out, retval] INetFwServices** services
+              );
+
+   // Returns the collection of authorized apps.
+   [id(10), propget]
+   HRESULT AuthorizedApplications(
+              [out, retval] INetFwAuthorizedApplications** apps
+              );
+}
+
+
+
+// Provides access to a firewall policy. Instances of this interface are
+// retrieved through the LocalPolicy method of the INetFwMgr interface. All
+// configuration changes take effect immediately.
+[
+    object,
+    uuid(D46D2478-9AC9-4008-9DC7-5563CE5536CC),
+    dual
+]
+interface INetFwPolicy : IDispatch
+{
+   // Returns the profile currently in effect.
+   [id(1), propget]
+   HRESULT CurrentProfile(
+              [out, retval] INetFwProfile** profile
+              );
+
+   // Returns the profile of the requested type.
+   [id(2)]
+   HRESULT GetProfileByType(
+              [in] NET_FW_PROFILE_TYPE profileType,
+              [out, retval] INetFwProfile** profile
+              );
+}
+
+// Provides access to the firewall settings for a computer. This interface is
+// supported by the HNetCfg.FwPolicy2 COM object. All configuration changes take
+// effect immediately.
+[
+    local,
+    object,
+    uuid(98325047-C671-4174-8D81-DEFCD3F03186),
+    dual
+]
+interface INetFwPolicy2 : IDispatch
+{
+
+   // Bitmask of currently active profiles from NET_FW_PROFILE_TYPE2
+   [id(1), propget]
+   HRESULT CurrentProfileTypes(
+              [out, retval] long* profileTypesBitmask
+              );
+
+   // True if firewall is enabled on the specified profile
+   [id(2), propget]
+   HRESULT FirewallEnabled(
+             [in]          NET_FW_PROFILE_TYPE2 profileType,
+             [out, retval] VARIANT_BOOL*        enabled
+             );
+
+   [id(2), propput]
+   HRESULT FirewallEnabled(
+              [in] NET_FW_PROFILE_TYPE2 profileType,
+              [in] VARIANT_BOOL         enabled
+              );
+
+
+   // Exclude firewall settings on these interfaces.
+   [id(3), propget]
+   HRESULT ExcludedInterfaces(
+             [in]          NET_FW_PROFILE_TYPE2 profileType,
+             [out, retval] VARIANT*             interfaces
+             );
+
+   [id(3), propput]
+   HRESULT ExcludedInterfaces(
+             [in] NET_FW_PROFILE_TYPE2  profileType,
+             [in] VARIANT               interfaces
+             );
+
+   // True if the firewall should block all unsolicited inbound traffic.
+   // All inbound rules specified in the profile are ignored and only outbound initiated
+   // traffic is allowed.
+   [id(4), propget]
+   HRESULT BlockAllInboundTraffic(
+              [in]          NET_FW_PROFILE_TYPE2    profileType,
+              [out, retval] VARIANT_BOOL*           Block
+              );
+   [id(4), propput]
+   HRESULT BlockAllInboundTraffic(
+              [in] NET_FW_PROFILE_TYPE2   profileType,
+              [in] VARIANT_BOOL           Block
+              );
+
+
+   // True if interactive firewall notifications are disabled.
+   [id(5), propget]
+   HRESULT NotificationsDisabled(
+             [in]          NET_FW_PROFILE_TYPE2 profileType,
+             [out, retval] VARIANT_BOOL*        disabled
+             );
+   [id(5), propput]
+   HRESULT NotificationsDisabled(
+              [in] NET_FW_PROFILE_TYPE2 profileType,
+              [in] VARIANT_BOOL         disabled
+              );
+
+
+   // True if the firewall should not allow unicast responses to multicast and
+   // broadcast traffic.
+   [id(6), propget]
+   HRESULT UnicastResponsesToMulticastBroadcastDisabled(
+             [in]          NET_FW_PROFILE_TYPE2 profileType,
+             [out, retval] VARIANT_BOOL*        disabled
+             );
+   [id(6), propput]
+   HRESULT UnicastResponsesToMulticastBroadcastDisabled(
+              [in] NET_FW_PROFILE_TYPE2 profileType,
+              [in] VARIANT_BOOL         disabled
+              );
+
+   // Returns the collection of firewall rules.
+   [id(7), propget]
+   HRESULT Rules(
+              [out, retval] INetFwRules** rules
+              );
+
+   // Returns the interface to manipulate Windows Service Hardening store.
+   [id(8), propget]
+   HRESULT ServiceRestriction(
+              [out, retval] INetFwServiceRestriction** ServiceRestriction
+              );
+
+   // Enable or disable a group of rules for a specified list of interfaces.
+   [id(9)]
+   HRESULT EnableRuleGroup(
+              [in] long           profileTypesBitmask,
+              [in] BSTR           group,
+              [in] VARIANT_BOOL   enable
+              );
+
+   // Determines if a group of rules with the specified grouping string are
+   // active.
+   [id(10)]
+   HRESULT IsRuleGroupEnabled(
+              [in] long                     profileTypesBitmask,
+              [in] BSTR                     group,
+              [out, retval] VARIANT_BOOL*   enabled
+              );
+
+   // Restores the local configuration to its default state.
+   [id(11)]
+   HRESULT RestoreLocalFirewallDefaults();
+
+   // The default inbound action of the firewall per-profile
+   [id(12), propget]
+   HRESULT DefaultInboundAction(
+              [in]          NET_FW_PROFILE_TYPE2 profileType,
+              [out, retval] NET_FW_ACTION* action
+              );
+
+   [id(12), propput]
+   HRESULT DefaultInboundAction(
+              [in] NET_FW_PROFILE_TYPE2 profileType,
+              [in] NET_FW_ACTION action
+              );
+
+   // The default outbound action of the firewall per-profile
+   [id(13), propget]
+   HRESULT DefaultOutboundAction(
+              [in]          NET_FW_PROFILE_TYPE2 profileType,
+              [out, retval] NET_FW_ACTION* action
+              );
+
+   [id(13), propput]
+   HRESULT DefaultOutboundAction(
+              [in] NET_FW_PROFILE_TYPE2 profileType,
+              [in] NET_FW_ACTION action
+              );
+
+   // The current state of a firewall group of rules
+   [id(14), propget]
+   HRESULT IsRuleGroupCurrentlyEnabled(
+              [in] BSTR                     group,
+              [out, retval] VARIANT_BOOL*   enabled
+              );
+
+   // Checks if adding/changing local firewall rules/groups of rules will have an effect on the current profile.
+   [id(15), propget]
+   HRESULT LocalPolicyModifyState(
+              [out, retval] NET_FW_MODIFY_STATE *modifyState
+              );
+
+}
+
+// Provides access to the firewall settings for a computer. This interface is
+// supported by the HNetCfg.FwMgr COM object. All configuration changes take
+// effect immediately.
+[
+    object,
+    uuid(F7898AF5-CAC4-4632-A2EC-DA06E5111AF2),
+    dual
+]
+interface INetFwMgr : IDispatch
+{
+   // Returns the local firewall policy.
+   [id(1), propget]
+   HRESULT LocalPolicy(
+              [out, retval] INetFwPolicy** localPolicy
+              );
+
+   // Returns the type of firewall profile currently in effect.
+   [id(2), propget]
+   HRESULT CurrentProfileType(
+              [out, retval] NET_FW_PROFILE_TYPE* profileType
+              );
+
+   // Restores the local configuration to its default state.
+   [id(3)]
+   HRESULT RestoreDefaults();
+
+   // Determines whether an application can listen for inbound traffic on the
+   // specified port.
+   //
+   // Parameters:
+   //
+   // imageFileName - The image filename of the process listening on the
+   // network. It must be a fully-qualified path, but it may contain
+   // environment variables. If 'imageFileName' is NULL, the function
+   // determines whether the port is allowed for all applications.
+   //
+   // ipVersion - IP version of the traffic. If 'localAddress' is non-NULL,
+   // this must not be NET_FW_IP_VERSION_ANY.
+   //
+   // portNumber - Local IP port number of the traffic. If 'portNumber' is
+   // zero, 'imageFileName' must not be NULL and the function checks if the
+   // application is allowed to listen on any port.
+   //
+   // localAddress - Either a dotted-decimal IPv4 address or an IPv6 hex
+   // address specifying the local address of the traffic. Typically, this is
+   // the address passed to bind. If 'localAddress' is NULL, the function
+   // determines whether the port is allowed for all interfaces.
+   //
+   // ipProtocol - IP protocol of the traffic, either NET_FW_IP_PROTOCOL_TCP or
+   // NET_FW_IP_PROTOCOL_UDP. Ignored if 'portNumber' is zero.
+   //
+   // allowed - Returns a VARIANT of type VT_BOOL indicating whether the port
+   // is allowed for at least some local interfaces and remote addresses.
+   //
+   // restricted - Returns a VARIANT of type VT_BOOL indicating whether some
+   // local interfaces or remote addresses are blocked for this port. For
+   // example, if the port is restricted to the local subnet only.
+   //
+   [id(4)]
+   HRESULT IsPortAllowed(
+              [in] BSTR imageFileName,
+              [in] NET_FW_IP_VERSION ipVersion,
+              [in] LONG portNumber,
+              [in] BSTR localAddress,
+              [in] NET_FW_IP_PROTOCOL ipProtocol,
+              [out] VARIANT* allowed,
+              [out] VARIANT* restricted
+              );
+
+   // Determines whether the specified ICMP type is allowed.
+   [id(5)]
+   HRESULT IsIcmpTypeAllowed(
+              [in] NET_FW_IP_VERSION ipVersion,
+              [in] BSTR localAddress,
+              [in] BYTE type,
+              [out] VARIANT* allowed,
+              [out] VARIANT* restricted
+              );
+}
+
+// Provides access to the properties of a third-party firewall registration.
+[
+   local,
+   object,
+   uuid(71881699-18f4-458b-b892-3ffce5e07f75),
+   dual
+]
+interface INetFwProduct : IDispatch
+{
+   // VARIANT containing a SAFEARRAY of VARIANTs of type VT_I4. Each element is
+   // a member of the NET_FW_RULE_CATEGORY enum, specifying the categories
+   // controlled by the third-party firewall. The VARIANT may be empty or the
+   // SAFEARRAY zero-length in which case branding is confirmed but Windows
+   // Firewall functionality is not replaced.
+   //
+   // The RuleCategories may not be modified after the product is registered.
+   [id(1), propget]
+   HRESULT RuleCategories([out, retval] VARIANT* ruleCategories);
+   [id(1), propput]
+   HRESULT RuleCategories([in] VARIANT ruleCategories);
+
+   // Friendly name of the third-party firewall product.  The DisplayName may
+   // not be modified after the product is registered.
+   [id(2), propget]
+   HRESULT DisplayName(
+              [out, retval] BSTR* displayName
+              );
+   [id(2), propput]
+   HRESULT DisplayName(
+              [in] BSTR displayName
+              );
+
+   // Path to the executable that registered the product or NULL if the product
+   // hasn't been registered yet.
+   [id(3), propget]
+   HRESULT PathToSignedProductExe(
+              [out, retval] BSTR* path
+              );
+}
+
+// Provides access to the collection of third-party firewalls registered with
+// the Windows Firewall. This interface is supported by the HNetCfg.FwProducts
+// COM object.
+[
+   local,
+   object,
+   uuid(39EB36E0-2097-40BD-8AF2-63A13B525362),
+   dual
+]
+interface INetFwProducts : IDispatch
+{
+   // Returns the number of products in the collection.
+   [id(1), propget]
+   HRESULT Count(
+              [out, retval] long* count
+              );
+
+   // Register a third-party firewall product. Registrations only last for the
+   // lifetime of the Windows Firewall service. Third-party firewalls that call
+   // this API should have a service dependency on mpssvc to prevent the
+   // Windows Firewall from being stopped underneath them. If they don't and
+   // the Windows Firewall service is stopped, all registrations will be lost.
+   //
+   // The registration is removed when the returned registration object is
+   // released or the calling process exits.
+   [id(2)]
+   HRESULT Register(
+              [in] INetFwProduct* product,
+              [out, retval] IUnknown** registration
+              );
+
+   // Retrieves the product with the specified zero-based index in the
+   // collection.
+   [id(3)]
+   HRESULT Item(
+              [in] long index,
+              [out, retval] INetFwProduct** product
+              );
+
+   // Returns an object supporting IEnumVARIANT that can be used to iterate
+   // through all the products in the collection.
+   [id(DISPID_NEWENUM), propget, restricted]
+   HRESULT _NewEnum(
+              [out, retval] IUnknown** newEnum
+              );
+}
+
+[
+   uuid(DB4F3345-3EF8-45ED-B976-25A6D3B81B71),
+   version(1.0)
+]
+library NetFwPublicTypeLib
+{
+   importlib("stdole2.tlb");
+
+   interface INetFwRemoteAdminSettings;
+   interface INetFwIcmpSettings;
+   interface INetFwOpenPort;
+   interface INetFwOpenPorts;
+   interface INetFwService;
+   interface INetFwServices;
+   interface INetFwAuthorizedApplication;
+   interface INetFwAuthorizedApplications;
+   interface INetFwServiceRestriction;
+   interface INetFwRule;
+   interface INetFwRules;
+   interface INetFwProfile;
+   interface INetFwPolicy;
+   interface INetFwPolicy2;
+   interface INetFwMgr;
+   interface INetFwProduct;
+   interface INetFwProducts;
+
+   [
+      uuid(2C5BC43E-3369-4C33-AB0C-BE9469677AF4)
+   ]
+   coclass NetFwRule
+   {
+      [default] interface INetFwRule;
+   }
+
+   [
+      uuid(0CA545C6-37AD-4A6C-BF92-9F7610067EF5)
+   ]
+   coclass NetFwOpenPort
+   {
+      [default] interface INetFwOpenPort;
+   }
+
+   [
+      uuid(EC9846B3-2762-4A6B-A214-6ACB603462D2)
+   ]
+   coclass NetFwAuthorizedApplication
+   {
+      [default] interface INetFwAuthorizedApplication;
+   }
+
+   [
+      uuid(E2B3C97F-6AE1-41AC-817A-F6F92166D7DD)
+   ]
+   coclass NetFwPolicy2
+   {
+      [default] interface INetFwPolicy2;
+   }
+
+   [
+      uuid(9D745ED8-C514-4D1D-BF42-751FED2D5AC7)
+   ]
+   coclass NetFwProduct
+   {
+      [default] interface INetFwProduct;
+   }
+
+   [
+      uuid(CC19079B-8272-4D73-BB70-CDB533527B61)
+   ]
+   coclass NetFwProducts
+   {
+      [default] interface INetFwProducts;
+   }
+
+   [
+      uuid(304CE942-6E39-40D8-943A-B913C40C9CD4)
+   ]
+   coclass NetFwMgr
+   {
+      [default] interface INetFwMgr;
+   }
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */")
+#pragma endregion
+

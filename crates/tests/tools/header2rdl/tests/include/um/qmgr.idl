@@ -1,0 +1,288 @@
+//=======================================================================
+//
+//  Copyright (c) 2000 Microsoft Corporation.  All Rights Reserved.
+//
+//  File:   qmgr.idl
+//
+//  Description:
+//    Declares the QMgr COM interface
+//
+//=======================================================================
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "ocidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+import "docobj.idl";
+#endif
+
+cpp_quote("// Background Copy QMgr Public Interface")
+
+//various events and flags
+
+/*************Notify flags**************/
+cpp_quote("#define  QM_NOTIFY_FILE_DONE         0x00000001")
+cpp_quote("#define  QM_NOTIFY_JOB_DONE          0x00000002")
+cpp_quote("#define  QM_NOTIFY_GROUP_DONE        0x00000004")
+cpp_quote("#define  QM_NOTIFY_DISABLE_NOTIFY    0x00000040")
+cpp_quote("#define  QM_NOTIFY_USE_PROGRESSEX    0x00000080")
+
+/*************Status flags**************/
+cpp_quote("#define  QM_STATUS_FILE_COMPLETE     0x00000001")
+cpp_quote("#define  QM_STATUS_FILE_INCOMPLETE   0x00000002")
+cpp_quote("#define  QM_STATUS_JOB_COMPLETE      0x00000004")
+cpp_quote("#define  QM_STATUS_JOB_INCOMPLETE    0x00000008")
+cpp_quote("#define  QM_STATUS_JOB_ERROR         0x00000010")
+cpp_quote("#define  QM_STATUS_JOB_FOREGROUND    0x00000020")
+cpp_quote("#define  QM_STATUS_GROUP_COMPLETE    0x00000040")
+cpp_quote("#define  QM_STATUS_GROUP_INCOMPLETE  0x00000080")
+cpp_quote("#define  QM_STATUS_GROUP_SUSPENDED   0x00000100")
+cpp_quote("#define  QM_STATUS_GROUP_ERROR       0x00000200")
+cpp_quote("#define  QM_STATUS_GROUP_FOREGROUND  0x00000400")
+
+/*************Protocol flags***************/
+cpp_quote("#define  QM_PROTOCOL_HTTP            1")
+cpp_quote("#define  QM_PROTOCOL_FTP             2")
+cpp_quote("#define  QM_PROTOCOL_SMB             3")
+cpp_quote("#define  QM_PROTOCOL_CUSTOM          4")
+
+/**************Progress Flags**************/
+cpp_quote("#define  QM_PROGRESS_PERCENT_DONE    1")
+cpp_quote("#define  QM_PROGRESS_TIME_DONE       2")
+cpp_quote("#define  QM_PROGRESS_SIZE_DONE       3")
+
+/**************Error Codes****************/
+cpp_quote("#define  QM_E_INVALID_STATE          0x81001001")
+cpp_quote("#define  QM_E_SERVICE_UNAVAILABLE    0x81001002")
+cpp_quote("#define  QM_E_DOWNLOADER_UNAVAILABLE 0x81001003")
+cpp_quote("#define  QM_E_ITEM_NOT_FOUND         0x81001004")
+
+#if defined(TEST_TIMES)
+
+typedef struct _BACKGROUND_COPY_TIMES
+{
+   FILETIME ftCreationTime;
+   FILETIME ftModificationTime;
+   FILETIME ftCompletionTime;
+} BACKGROUND_COPY_TIMES;
+
+#endif
+
+//
+// =============================
+// Marshalled interfaces
+// =============================
+
+// ==============================================
+// IJob Interface
+//     The IJob interface is the management layer for a file (or set of files)
+//     to be transferred.
+[
+    uuid(59f5553c-2031-4629-bb18-2645a6970947),
+    helpstring("IBackgroundCopyJob Interface"),
+    odl
+]
+interface IBackgroundCopyJob1 : IUnknown
+{
+    typedef struct _FILESETINFO
+    {
+        BSTR bstrRemoteFile;
+        BSTR bstrLocalFile;
+        DWORD dwSizeHint;
+    } FILESETINFO;
+
+    HRESULT CancelJob();
+
+    HRESULT GetProgress([in] DWORD dwFlags, [out] DWORD *pdwProgress);
+
+    HRESULT GetStatus( [out] DWORD *pdwStatus,
+                       [out] DWORD *pdwWin32Result,
+                       [out] DWORD *pdwTransportResult,
+                       [out] DWORD *pdwNumOfRetries );
+
+    HRESULT AddFiles([in] ULONG cFileCount, [in, size_is(cFileCount)] FILESETINFO **ppFileSet);
+
+    HRESULT GetFile([in] ULONG cFileIndex, [out] FILESETINFO *pFileInfo);
+
+    HRESULT GetFileCount([out] DWORD *pdwFileCount);
+
+    HRESULT SwitchToForeground();
+
+    HRESULT get_JobID([out] GUID *pguidJobID); // used to a identify a job when enumerating jobs
+
+    #if defined(TEST_TIMES)
+
+    HRESULT GetTimes( [out,ref]  BACKGROUND_COPY_TIMES *pTimes );
+
+    #endif
+}
+
+// ==============================================
+// IEnumJobs Interface
+//     This interface allows enumerating the jobs under a Group
+[
+    uuid(8baeba9d-8f1c-42c4-b82c-09ae79980d25),
+    helpstring("IEnumBackgroundCopyJobs Interface"),
+    odl
+]
+interface IEnumBackgroundCopyJobs1 : IUnknown
+{
+    HRESULT Next([in] ULONG celt, [out, size_is(celt), length_is(*pceltFetched)] GUID *rgelt, [out] ULONG *pceltFetched);
+
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumBackgroundCopyJobs1 **ppenum);
+    HRESULT GetCount([out] ULONG *puCount);
+}
+
+// ==============================================
+// IGroup Interface
+//     This interface is the base unit of management for a Job or Set of Jobs
+[
+    uuid(1ded80a7-53ea-424f-8a04-17fea9adc4f5),
+    helpstring("IBackgroundCopyGroup Interface"),
+    odl
+]
+interface IBackgroundCopyGroup : IUnknown
+{
+    typedef enum GROUPPROP {
+        GROUPPROP_PRIORITY = 0,
+        GROUPPROP_REMOTEUSERID = 1,
+        GROUPPROP_REMOTEUSERPWD = 2,
+        GROUPPROP_LOCALUSERID = 3,
+        GROUPPROP_LOCALUSERPWD = 4,
+        GROUPPROP_PROTOCOLFLAGS = 5,
+        GROUPPROP_NOTIFYFLAGS = 6,
+        GROUPPROP_NOTIFYCLSID = 7,
+        GROUPPROP_PROGRESSSIZE = 8,
+        GROUPPROP_PROGRESSPERCENT = 9,
+        GROUPPROP_PROGRESSTIME = 10,
+        GROUPPROP_DISPLAYNAME = 11,
+        GROUPPROP_DESCRIPTION = 12
+    } GROUPPROP;
+
+    HRESULT GetProp([in] GROUPPROP propID, [out] VARIANT *pvarVal);
+
+    [local] HRESULT SetProp([in] GROUPPROP propID, [in] VARIANT *pvarVal);
+    [call_as(SetProp)] HRESULT InternalSetProp([in] GROUPPROP propID, [in] VARIANT *pvarVal);
+
+    HRESULT GetProgress([in] DWORD dwFlags, [out] DWORD *pdwProgress);
+    HRESULT GetStatus([out] DWORD *pdwStatus, [out] DWORD *pdwJobIndex);
+
+    HRESULT GetJob([in] GUID jobID, [out] IBackgroundCopyJob1 **ppJob);
+    HRESULT SuspendGroup();
+    HRESULT ResumeGroup(); // New groups are by default suspended, when all jobs are initialized call resumegroup to enable the group
+    HRESULT CancelGroup();
+
+    HRESULT get_Size([out] DWORD *pdwSize); // gets the calculated size of the jobs in this group
+    HRESULT get_GroupID([out] GUID *pguidGroupID); // used to identify a group when enumerating groups
+
+    HRESULT CreateJob([in] GUID guidJobID, [out] IBackgroundCopyJob1 **ppJob);
+
+    HRESULT EnumJobs([in] DWORD dwFlags, [out] IEnumBackgroundCopyJobs1 **ppEnumJobs);
+
+    HRESULT SwitchToForeground();
+
+    // end of the original  interface is here
+
+    HRESULT QueryNewJobInterface( [in] REFIID iid, [out, iid_is(iid)] IUnknown ** pUnk );
+
+    HRESULT SetNotificationPointer( [in] REFIID iid, [in] IUnknown * pUnk );
+}
+
+// ==============================================
+// IEnumGroups Interface
+[
+    uuid(d993e603-4aa4-47c5-8665-c20d39c2ba4f),
+    helpstring("IEnumBackgroundCopyGroups Interface"),
+    odl
+]
+interface IEnumBackgroundCopyGroups : IUnknown
+{
+    HRESULT Next([in] ULONG celt, [out, size_is(celt), length_is(*pceltFetched)] GUID *rgelt, [out] ULONG *pceltFetched);
+    HRESULT Skip([in] ULONG celt);
+    HRESULT Reset();
+    HRESULT Clone([out] IEnumBackgroundCopyGroups **ppenum);
+    HRESULT GetCount([out] ULONG *puCount);
+}
+
+// ==============================================
+// IBackgroundCallback Interface
+//     This interface is implemented by the client and is used by the queue manager to supply status and
+//     progress information to the client.
+[
+    uuid(084f6593-3800-4e08-9b59-99fa59addf82),
+    helpstring("IBackgroundCopyCallback Interface"),
+    odl
+]
+interface IBackgroundCopyCallback1 : IUnknown
+{
+    HRESULT OnStatus( [in] IBackgroundCopyGroup *pGroup,
+                      [in] IBackgroundCopyJob1 *pJob,
+                      [in] DWORD dwFileIndex,
+                      [in] DWORD dwStatus,
+                      [in] DWORD dwNumOfRetries,
+                      [in] DWORD dwWin32Result,
+                      [in] DWORD dwTransportResult );
+
+    HRESULT OnProgress( [in] DWORD ProgressType,
+                        [in] IBackgroundCopyGroup *pGroup,
+                        [in] IBackgroundCopyJob1 *pJob,
+                        [in] DWORD dwFileIndex,
+                        [in] DWORD dwProgressValue );
+
+    HRESULT OnProgressEx( [in] DWORD ProgressType,
+                          [in] IBackgroundCopyGroup *pGroup,
+                          [in] IBackgroundCopyJob1 *pJob,
+                          [in] DWORD dwFileIndex,
+                          [in] DWORD dwProgressValue,
+                          [in] DWORD dwByteArraySize,
+                          [in, size_is(dwByteArraySize)] BYTE *pByte );
+}
+
+[
+    uuid(16f41c69-09f5-41d2-8cd8-3c08c47bc8a8), // IID_IQMgr
+    helpstring("Background Copy QMgr interface"),
+    odl
+]
+interface IBackgroundCopyQMgr : IUnknown
+{
+    HRESULT CreateGroup([in] GUID guidGroupID, [out] IBackgroundCopyGroup **ppGroup);
+    HRESULT GetGroup([in] GUID groupID, [out] IBackgroundCopyGroup **ppGroup);
+    HRESULT EnumGroups([in] DWORD dwFlags, [out] IEnumBackgroundCopyGroups **ppEnumGroups);
+}
+
+//---------------------------------------------------------------------------
+
+[
+    uuid(f5b26dcb-b37e-4d7c-ae7a-1cb3fbeb183e),
+    helpstring("Microsoft Background Copy Queue Manager 1.0"),
+    lcid(0x0000),
+    version(1.0)
+]
+library BackgroundCopyQMgr
+{
+    //-------------------------------------------------------------
+    // QMgr
+    //-------------------------------------------------------------
+
+    [
+        uuid(69AD4AEE-51BE-439b-A92C-86AE490E8B30),
+        helpstring("Background Copy QMgr Class")
+    ]
+    coclass BackgroundCopyQMgr
+    {
+        [default] interface IBackgroundCopyQMgr;
+    };
+
+}
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

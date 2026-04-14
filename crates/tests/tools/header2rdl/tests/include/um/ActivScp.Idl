@@ -1,0 +1,1081 @@
+//+---------------------------------------------------------------------------
+//
+//  (C) Copyright Microsoft Corporation. All Rights Reserved.
+//
+//  Contents:   Declarations for ActiveX Scripting host applications and script engines
+//
+//  THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+//  ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+//  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+//  PARTICULAR PURPOSE.
+//
+//----------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// ActivScp.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("//")
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("//")
+cpp_quote("// Declarations for ActiveX Scripting host applications and script engines.")
+cpp_quote("//")
+
+cpp_quote("")
+cpp_quote("#ifndef __ActivScp_h")
+cpp_quote("#define __ActivScp_h")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+cpp_quote("")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+#ifndef DO_NO_IMPORTS
+import "ocidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+#endif
+
+#ifdef USER_TYPES
+#define HWND        UserHWND
+#define BSTR        UserBSTR
+#define EXCEPINFO   UserEXCEPINFO
+#define VARIANT     UserVARIANT
+#endif
+
+cpp_quote("/* GUIDs")
+cpp_quote(" ********/")
+cpp_quote("")
+
+cpp_quote("#ifndef _NO_SCRIPT_GUIDS")
+
+cpp_quote("// {F0B7A1A1-9847-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(CATID_ActiveScript, 0xf0b7a1a1, 0x9847, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {F0B7A1A2-9847-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(CATID_ActiveScriptParse, 0xf0b7a1a2, 0x9847, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {F0B7A1A3-9847-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(CATID_ActiveScriptEncode, 0xf0b7a1a3, 0x9847, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {BB1A2AE1-A4F9-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(IID_IActiveScript, 0xbb1a2ae1, 0xa4f9, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {BB1A2AE2-A4F9-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParse32, 0xbb1a2ae2, 0xa4f9, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("// {C7EF7658-E1EE-480E-97EA-D52CB4D76D17}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParse64, 0xc7ef7658, 0xe1ee, 0x480e, 0x97, 0xea, 0xd5, 0x2c, 0xb4, 0xd7, 0x6d, 0x17);")
+cpp_quote("")
+
+cpp_quote("// {BB1A2AE3-A4F9-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptEncode, 0xbb1a2ae3, 0xa4f9, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {BEE9B76E-CFE3-11d1-B747-00C04FC2B085}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptHostEncode, 0xbee9b76e, 0xcfe3, 0x11d1, 0xb7, 0x47, 0x00, 0xc0, 0x4f, 0xc2, 0xb0, 0x85);")
+cpp_quote("")
+
+cpp_quote("// {1CFF0050-6FDD-11d0-9328-00A0C90DCAA9}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParseProcedureOld32, 0x1cff0050, 0x6fdd, 0x11d0, 0x93, 0x28, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);")
+cpp_quote("// {21F57128-08C9-4638-BA12-22D15D88DC5C}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParseProcedureOld64, 0x21f57128, 0x08c9, 0x4638, 0xba, 0x12, 0x22, 0xd1, 0x5d, 0x88, 0xdc, 0x5c);")
+cpp_quote("")
+
+cpp_quote("// {AA5B6A80-B834-11d0-932F-00A0C90DCAA9}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParseProcedure32, 0xaa5b6a80, 0xb834, 0x11d0, 0x93, 0x2f, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);")
+cpp_quote("// {C64713B6-E029-4CC5-9200-438B72890B6A}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParseProcedure64, 0xc64713b6, 0xe029, 0x4cc5, 0x92, 0x00, 0x43, 0x8b, 0x72, 0x89, 0x0b, 0x6a);")
+cpp_quote("")
+
+cpp_quote("// {71EE5B20-FB04-11d1-B3A8-00A0C911E8B2}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParseProcedure2_32, 0x71ee5b20, 0xfb04, 0x11d1, 0xb3, 0xa8, 0x00, 0xa0, 0xc9, 0x11, 0xe8, 0xb2);")
+cpp_quote("// {FE7C4271-210C-448D-9F54-76DAB7047B28}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptParseProcedure2_64, 0xfe7c4271, 0x210c, 0x448d, 0x9f, 0x54, 0x76, 0xda, 0xb7, 0x04, 0x7b, 0x28);")
+cpp_quote("")
+
+cpp_quote("// {DB01A1E3-A42B-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptSite, 0xdb01a1e3, 0xa42b, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {4B7272AE-1955-4bfe-98B0-780621888569}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptSiteTraceInfo, 0x4b7272ae, 0x1955, 0x4bfe, 0x98, 0xb0, 0x78, 0x6, 0x21, 0x88, 0x85, 0x69);")
+cpp_quote("")
+
+cpp_quote("// {D10F6761-83E9-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptSiteWindow, 0xd10f6761, 0x83e9, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("")
+
+cpp_quote("// {539698A0-CDCA-11CF-A5EB-00AA0047A063}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptSiteInterruptPoll, 0x539698a0, 0xcdca, 0x11cf, 0xa5, 0xeb, 0x00, 0xaa, 0x00, 0x47, 0xa0, 0x63);")
+cpp_quote("")
+
+cpp_quote("// {AEDAE97E-D7EE-4796-B960-7F092AE844AB}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptSiteUIControl, 0xaedae97e, 0xd7ee, 0x4796, 0xb9, 0x60, 0x7f, 0x9, 0x2a, 0xe8, 0x44, 0xab);")
+cpp_quote("")
+
+cpp_quote("// {EAE1BA61-A4ED-11cf-8F20-00805F2CD064}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptError,   0xeae1ba61, 0xa4ed, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);")
+cpp_quote("// {B21FB2A1-5B8F-4963-8C21-21450F84ED7F}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptError64, 0xb21fb2a1, 0x5b8f, 0x4963, 0x8c, 0x21, 0x21, 0x45, 0x0f, 0x84, 0xed, 0x7f);")
+cpp_quote("")
+
+cpp_quote("// {63CDBCB0-C1B1-11d0-9336-00A0C90DCAA9}")
+cpp_quote("DEFINE_GUID(IID_IBindEventHandler, 0x63cdbcb0, 0xc1b1, 0x11d0, 0x93, 0x36, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);")
+cpp_quote("")
+
+cpp_quote("// {B8DA6310-E19B-11d0-933C-00A0C90DCAA9}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptStats, 0xb8da6310, 0xe19b, 0x11d0, 0x93, 0x3c, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);")
+cpp_quote("")
+
+cpp_quote("// {4954E0D0-FBC7-11D1-8410-006008C3FBFC}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptProperty, 0x4954E0D0, 0xFBC7, 0x11D1, 0x84, 0x10, 0x00, 0x60, 0x08, 0xC3, 0xFB, 0xFC);")
+cpp_quote("")
+
+cpp_quote("// {1DC9CA50-06EF-11d2-8415-006008C3FBFC}")
+cpp_quote("DEFINE_GUID(IID_ITridentEventSink, 0x1dc9ca50, 0x6ef, 0x11d2, 0x84, 0x15, 0x00, 0x60, 0x08, 0xc3, 0xfb, 0xfc);")
+cpp_quote("")
+
+cpp_quote("// {6AA2C4A0-2B53-11d4-A2A0-00104BD35090}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptGarbageCollector, 0x6aa2c4a0, 0x2b53, 0x11d4, 0xa2, 0xa0, 0x00, 0x10, 0x4b, 0xd3, 0x50, 0x90);")
+cpp_quote("")
+
+cpp_quote("// {764651D0-38DE-11d4-A2A3-00104BD35090}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptSIPInfo, 0x764651d0, 0x38de, 0x11d4, 0xa2, 0xa3, 0x00, 0x10, 0x4b, 0xd3, 0x50, 0x90);")
+cpp_quote("")
+
+cpp_quote("// {C35456E7-BEBF-4a1b-86A9-24D56BE8B369}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptTraceInfo, 0xC35456E7, 0xBEBF, 0x4a1b, 0x86, 0xA9, 0x24, 0xD5, 0x6B, 0xE8, 0xB3, 0x69);")
+cpp_quote("")
+
+cpp_quote("// {1629F04E-2799-4db5-8FE5-ACE10F17EBAB}")
+cpp_quote("DEFINE_GUID(OID_VBSSIP, 0x1629f04e, 0x2799, 0x4db5, 0x8f, 0xe5, 0xac, 0xe1, 0x0f, 0x17, 0xeb, 0xab);")
+cpp_quote("")
+
+cpp_quote("// {06C9E010-38CE-11d4-A2A3-00104BD35090}")
+cpp_quote("DEFINE_GUID(OID_JSSIP,  0x6c9e010, 0x38ce, 0x11d4, 0xa2, 0xa3, 0x00, 0x10, 0x4b, 0xd3, 0x50, 0x90);")
+cpp_quote("")
+
+cpp_quote("// {1A610570-38CE-11d4-A2A3-00104BD35090}")
+cpp_quote("DEFINE_GUID(OID_WSFSIP, 0x1a610570, 0x38ce, 0x11d4, 0xa2, 0xa3, 0x00, 0x10, 0x4b, 0xd3, 0x50, 0x90);")
+cpp_quote("")
+
+cpp_quote("// {58562769-ED52-42f7-8403-4963514E1F11}")
+cpp_quote("DEFINE_GUID(IID_IActiveScriptStringCompare, 0x58562769, 0xED52, 0x42f7, 0x84, 0x03, 0x49, 0x63, 0x51, 0x4E, 0x1F, 0x11);")
+cpp_quote("")
+
+cpp_quote("#endif // _NO_SCRIPT_GUIDS")
+cpp_quote("")
+
+cpp_quote("// Constants used by ActiveX Scripting:")
+cpp_quote("//")
+cpp_quote("")
+cpp_quote("/* IActiveScript::AddNamedItem() input flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPTITEM_ISVISIBLE            0x00000002")
+cpp_quote("#define SCRIPTITEM_ISSOURCE             0x00000004")
+cpp_quote("#define SCRIPTITEM_GLOBALMEMBERS        0x00000008")
+cpp_quote("#define SCRIPTITEM_ISPERSISTENT         0x00000040")
+cpp_quote("#define SCRIPTITEM_CODEONLY             0x00000200")
+cpp_quote("#define SCRIPTITEM_NOCODE               0x00000400")
+cpp_quote("")
+cpp_quote("#define SCRIPTITEM_ALL_FLAGS            (SCRIPTITEM_ISSOURCE | \\")
+cpp_quote("                                         SCRIPTITEM_ISVISIBLE | \\")
+cpp_quote("                                         SCRIPTITEM_ISPERSISTENT | \\")
+cpp_quote("                                         SCRIPTITEM_GLOBALMEMBERS | \\")
+cpp_quote("                                         SCRIPTITEM_NOCODE | \\")
+cpp_quote("                                         SCRIPTITEM_CODEONLY)")
+cpp_quote("")
+cpp_quote("/* IActiveScript::AddTypeLib() input flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPTTYPELIB_ISCONTROL         0x00000010")
+cpp_quote("#define SCRIPTTYPELIB_ISPERSISTENT      0x00000040")
+cpp_quote("#define SCRIPTTYPELIB_ALL_FLAGS         (SCRIPTTYPELIB_ISCONTROL | SCRIPTTYPELIB_ISPERSISTENT)")
+cpp_quote("")
+cpp_quote("/* IActiveScriptParse::AddScriptlet() and IActiveScriptParse::ParseScriptText() input flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPTTEXT_DELAYEXECUTION       0x00000001")
+cpp_quote("#define SCRIPTTEXT_ISVISIBLE            0x00000002")
+cpp_quote("#define SCRIPTTEXT_ISEXPRESSION         0x00000020")
+cpp_quote("#define SCRIPTTEXT_ISPERSISTENT         0x00000040")
+cpp_quote("#define SCRIPTTEXT_HOSTMANAGESSOURCE    0x00000080")
+cpp_quote("#define SCRIPTTEXT_ISXDOMAIN            0x00000100")
+cpp_quote("#define SCRIPTTEXT_ISNONUSERCODE        0x00000200")
+cpp_quote("#define SCRIPTTEXT_ALL_FLAGS            (SCRIPTTEXT_DELAYEXECUTION | \\")
+cpp_quote("                                         SCRIPTTEXT_ISVISIBLE | \\")
+cpp_quote("                                         SCRIPTTEXT_ISEXPRESSION | \\")
+cpp_quote("                                         SCRIPTTEXT_ISPERSISTENT | \\")
+cpp_quote("                                         SCRIPTTEXT_HOSTMANAGESSOURCE | \\")
+cpp_quote("                                         SCRIPTTEXT_ISXDOMAIN | \\")
+cpp_quote("                                         SCRIPTTEXT_ISNONUSERCODE)")
+cpp_quote("")
+cpp_quote("/* IActiveScriptParseProcedure::ParseProcedureText() input flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPTPROC_ISEXPRESSION         0x00000020")
+cpp_quote("#define SCRIPTPROC_HOSTMANAGESSOURCE    0x00000080")
+cpp_quote("#define SCRIPTPROC_IMPLICIT_THIS        0x00000100")
+cpp_quote("#define SCRIPTPROC_IMPLICIT_PARENTS     0x00000200")
+cpp_quote("#define SCRIPTPROC_ISXDOMAIN            0x00000400")
+cpp_quote("#define SCRIPTPROC_ALL_FLAGS            (SCRIPTPROC_HOSTMANAGESSOURCE | \\")
+cpp_quote("                                         SCRIPTPROC_ISEXPRESSION | \\")
+cpp_quote("                                         SCRIPTPROC_IMPLICIT_THIS | \\")
+cpp_quote("                                         SCRIPTPROC_IMPLICIT_PARENTS | \\")
+cpp_quote("                                         SCRIPTPROC_ISXDOMAIN)")
+cpp_quote("")
+cpp_quote("/* IActiveScriptSite::GetItemInfo() input flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPTINFO_IUNKNOWN             0x00000001")
+cpp_quote("#define SCRIPTINFO_ITYPEINFO            0x00000002")
+cpp_quote("#define SCRIPTINFO_ALL_FLAGS            (SCRIPTINFO_IUNKNOWN | \\")
+cpp_quote("                                         SCRIPTINFO_ITYPEINFO)")
+cpp_quote("")
+cpp_quote("/* IActiveScript::Interrupt() Flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPTINTERRUPT_DEBUG           0x00000001")
+cpp_quote("#define SCRIPTINTERRUPT_RAISEEXCEPTION  0x00000002")
+cpp_quote("#define SCRIPTINTERRUPT_ALL_FLAGS       (SCRIPTINTERRUPT_DEBUG | \\")
+cpp_quote("                                         SCRIPTINTERRUPT_RAISEEXCEPTION)")
+cpp_quote("")
+cpp_quote("/* IActiveScriptStats::GetStat() values */")
+cpp_quote("")
+cpp_quote("#define SCRIPTSTAT_STATEMENT_COUNT       1")
+cpp_quote("#define SCRIPTSTAT_INSTRUCTION_COUNT     2")
+cpp_quote("#define SCRIPTSTAT_INTSTRUCTION_TIME     3")
+cpp_quote("#define SCRIPTSTAT_TOTAL_TIME            4")
+cpp_quote("")
+cpp_quote("/* IActiveScriptEncode::AddSection() input flags */")
+cpp_quote("")
+cpp_quote("#define SCRIPT_ENCODE_SECTION         0x00000001")
+cpp_quote("")
+cpp_quote("#define SCRIPT_ENCODE_DEFAULT_LANGUAGE        0x00000001")
+cpp_quote("#define SCRIPT_ENCODE_NO_ASP_LANGUAGE         0x00000002")
+cpp_quote("")
+cpp_quote("/* Properties for IActiveScriptProperty */")
+cpp_quote("#define SCRIPTPROP_NAME                     0x00000000")
+cpp_quote("#define SCRIPTPROP_MAJORVERSION             0x00000001")
+cpp_quote("#define SCRIPTPROP_MINORVERSION             0x00000002")
+cpp_quote("#define SCRIPTPROP_BUILDNUMBER              0x00000003")
+cpp_quote("")
+cpp_quote("#define SCRIPTPROP_DELAYEDEVENTSINKING      0x00001000")
+cpp_quote("#define SCRIPTPROP_CATCHEXCEPTION           0x00001001")
+cpp_quote("#define SCRIPTPROP_CONVERSIONLCID           0x00001002")
+cpp_quote("#define SCRIPTPROP_HOSTSTACKREQUIRED        0x00001003")
+cpp_quote("#define SCRIPTPROP_SCRIPTSAREFULLYTRUSTED   0x00001004")
+cpp_quote("")
+cpp_quote("#define SCRIPTPROP_DEBUGGER                 0x00001100")
+cpp_quote("#define SCRIPTPROP_JITDEBUG                 0x00001101")
+cpp_quote("")
+cpp_quote("#define SCRIPTPROP_GCCONTROLSOFTCLOSE       0x00002000")
+cpp_quote("")
+cpp_quote("#define SCRIPTPROP_INTEGERMODE              0x00003000")
+cpp_quote("#define SCRIPTPROP_STRINGCOMPAREINSTANCE    0x00003001")
+cpp_quote("")
+cpp_quote("#define SCRIPTPROP_INVOKEVERSIONING         0x00004000")
+cpp_quote("")
+cpp_quote("// These properties are defined and available, but are not")
+cpp_quote("// officially supported.")
+cpp_quote("#define SCRIPTPROP_HACK_FIBERSUPPORT        0x70000000")
+cpp_quote("#define SCRIPTPROP_HACK_TRIDENTEVENTSINK    0x70000001")
+cpp_quote("#define SCRIPTPROP_ABBREVIATE_GLOBALNAME_RESOLUTION  0x70000002")
+cpp_quote("#define SCRIPTPROP_HOSTKEEPALIVE         0x70000004")
+cpp_quote("")
+
+cpp_quote("// An error has been recorded to be passed between script engine ")
+cpp_quote("// and host. The host needs to pass the error code to caller. ")
+cpp_quote("#define SCRIPT_E_RECORDED   0x86664004L")
+
+cpp_quote("// Script engine has reported an unhandled exception to the host via ")
+cpp_quote("// IActiveScriptSite::OnScriptError. Host can ignore this error")
+cpp_quote("#define SCRIPT_E_REPORTED   0x80020101L ")
+
+cpp_quote("// An script error is being propagated to the caller which might be in a different thread")
+cpp_quote("// host should pass the error code to the caller.")
+cpp_quote("#define SCRIPT_E_PROPAGATE  0x80020102L")
+
+cpp_quote("")
+cpp_quote("/* script language version values for SCRIPTPROP_INVOKEVERSIONING property */")
+cpp_quote("")
+typedef enum tagSCRIPTLANGUAGEVERSION
+{
+    SCRIPTLANGUAGEVERSION_DEFAULT = 0,
+    SCRIPTLANGUAGEVERSION_5_7  = 1,
+    SCRIPTLANGUAGEVERSION_5_8  = 2,
+    SCRIPTLANGUAGEVERSION_MAX  = 255
+} SCRIPTLANGUAGEVERSION ;
+
+
+typedef enum tagSCRIPTSTATE {
+    SCRIPTSTATE_UNINITIALIZED       = 0,
+    SCRIPTSTATE_INITIALIZED         = 5,
+    SCRIPTSTATE_STARTED             = 1,
+    SCRIPTSTATE_CONNECTED           = 2,
+    SCRIPTSTATE_DISCONNECTED        = 3,
+    SCRIPTSTATE_CLOSED              = 4,
+
+} SCRIPTSTATE ;
+
+typedef enum tagSCRIPTTRACEINFO {
+    SCRIPTTRACEINFO_SCRIPTSTART = 0,
+    SCRIPTTRACEINFO_SCRIPTEND   = 1,
+    SCRIPTTRACEINFO_COMCALLSTART    = 2,
+    SCRIPTTRACEINFO_COMCALLEND  = 3,
+    SCRIPTTRACEINFO_CREATEOBJSTART  = 4,
+    SCRIPTTRACEINFO_CREATEOBJEND    = 5,
+    SCRIPTTRACEINFO_GETOBJSTART = 6,
+    SCRIPTTRACEINFO_GETOBJEND   = 7,
+
+} SCRIPTTRACEINFO ;
+
+cpp_quote("")
+cpp_quote("/* script thread state values */")
+cpp_quote("")
+
+typedef enum tagSCRIPTTHREADSTATE {
+    SCRIPTTHREADSTATE_NOTINSCRIPT   = 0,
+    SCRIPTTHREADSTATE_RUNNING       = 1,
+} SCRIPTTHREADSTATE ;
+
+cpp_quote("")
+cpp_quote("/* IActiveScriptCollectGarbage constants */")
+cpp_quote("")
+
+typedef enum tagSCRIPTGCTYPE {
+    SCRIPTGCTYPE_NORMAL           = 0,
+    SCRIPTGCTYPE_EXHAUSTIVE       = 1,
+} SCRIPTGCTYPE;
+
+cpp_quote("")
+cpp_quote("/* IActiveScriptSiteUIControl constants*/")
+cpp_quote("")
+
+typedef enum tagSCRIPTUICITEM {
+    SCRIPTUICITEM_INPUTBOX        = 1,
+    SCRIPTUICITEM_MSGBOX          = 2,
+} SCRIPTUICITEM;
+
+cpp_quote("")
+
+typedef enum tagSCRIPTUICHANDLING {
+    SCRIPTUICHANDLING_ALLOW        = 0,
+    SCRIPTUICHANDLING_NOUIERROR    = 1,
+    SCRIPTUICHANDLING_NOUIDEFAULT  = 2,
+} SCRIPTUICHANDLING;
+
+cpp_quote("")
+cpp_quote("/* Thread IDs */")
+cpp_quote("")
+
+typedef DWORD SCRIPTTHREADID;
+
+cpp_quote("")
+cpp_quote("#define SCRIPTTHREADID_CURRENT  ((SCRIPTTHREADID)-1)")
+cpp_quote("#define SCRIPTTHREADID_BASE     ((SCRIPTTHREADID)-2)")
+cpp_quote("#define SCRIPTTHREADID_ALL      ((SCRIPTTHREADID)-3)")
+cpp_quote("")
+cpp_quote("/* Structures */")
+cpp_quote("")
+
+cpp_quote("/* Interfaces")
+cpp_quote(" *************/")
+cpp_quote("")
+
+interface IActiveScriptSite;
+interface IActiveScriptError;
+interface IActiveScriptError64;
+interface IActiveScriptSiteWindow;
+interface IActiveScriptSiteUIControl;
+interface IActiveScriptSiteInterruptPoll;
+interface IActiveScript;
+interface IActiveScriptParse32;
+interface IActiveScriptParse64;
+interface IActiveScriptParseProcedureOld32;
+interface IActiveScriptParseProcedureOld64;
+interface IActiveScriptParseProcedure32;
+interface IActiveScriptParseProcedure64;
+interface IActiveScriptParseProcedure2_32;
+interface IActiveScriptParseProcedure2_64;
+interface IActiveScriptEncode;
+interface IActiveScriptHostEncode;
+interface IBindEventHandler;
+interface IActiveScriptStats;
+interface IActiveScriptProperty;
+interface ITridentEventSink;
+interface IActiveScriptGarbageCollector;
+interface IActiveScriptSIPInfo;
+interface IActiveScriptStringCompare;
+
+cpp_quote("")
+
+[
+    object,
+    uuid(DB01A1E3-A42B-11cf-8F20-00805F2CD064),
+    pointer_default(unique)
+]
+interface IActiveScriptSite : IUnknown
+{
+    HRESULT GetLCID(
+        [out] LCID *plcid
+    );
+
+    HRESULT GetItemInfo(
+        [in]  LPCOLESTR pstrName,
+        [in]  DWORD     dwReturnMask,
+        [out] IUnknown  **ppiunkItem,
+        [out] ITypeInfo **ppti
+    );
+
+    HRESULT GetDocVersionString(
+        [out] BSTR      *pbstrVersion
+    );
+
+    HRESULT OnScriptTerminate(
+        [in]  const VARIANT     *pvarResult,
+        [in]  const EXCEPINFO   *pexcepinfo
+    );
+
+    HRESULT OnStateChange(
+        [in]  SCRIPTSTATE       ssScriptState
+    );
+
+    HRESULT OnScriptError(
+        [in]  IActiveScriptError *pscripterror
+    );
+
+    HRESULT OnEnterScript(void);
+
+    HRESULT OnLeaveScript(void);
+}
+
+[
+    object,
+    uuid(EAE1BA61-A4ED-11cf-8F20-00805F2CD064),
+    pointer_default(unique)
+]
+interface IActiveScriptError : IUnknown
+{
+    [local]
+    HRESULT GetExceptionInfo(
+        [out] EXCEPINFO *pexcepinfo
+    );
+
+    [call_as(GetExceptionInfo)]
+    HRESULT RemoteGetExceptionInfo(
+        [out] EXCEPINFO *pexcepinfo
+    );
+
+    HRESULT GetSourcePosition(
+        [out] DWORD     *pdwSourceContext,
+        [out] ULONG     *pulLineNumber,
+        [out] LONG      *plCharacterPosition    // -1 --> unknown
+    );
+
+    HRESULT GetSourceLineText(
+        [out] BSTR      *pbstrSourceLine
+    );
+}
+
+[
+    object,
+    uuid(B21FB2A1-5B8F-4963-8C21-21450F84ED7F),
+    pointer_default(unique)
+]
+interface IActiveScriptError64 : IActiveScriptError
+{
+    HRESULT GetSourcePosition64(
+        [out] DWORDLONG *pdwSourceContext,
+        [out] ULONG     *pulLineNumber,
+        [out] LONG      *plCharacterPosition    // -1 --> unknown
+    );
+}
+
+[
+    object,
+    uuid(D10F6761-83E9-11cf-8F20-00805F2CD064),
+    pointer_default(unique)
+]
+interface IActiveScriptSiteWindow : IUnknown
+{
+    HRESULT GetWindow(
+        [out] HWND      *phwnd
+    );
+
+    HRESULT EnableModeless(
+        [in]  BOOL      fEnable
+    );
+}
+
+[
+    object,
+    uuid(AEDAE97E-D7EE-4796-B960-7F092AE844AB),
+    pointer_default(unique)
+]
+interface IActiveScriptSiteUIControl : IUnknown
+{
+    HRESULT GetUIBehavior(
+        [in]  SCRIPTUICITEM       UicItem,
+        [out] SCRIPTUICHANDLING * pUicHandling
+        );
+}
+
+
+[
+    object,
+    uuid(539698A0-CDCA-11CF-A5EB-00AA0047A063),
+    pointer_default(unique)
+]
+interface IActiveScriptSiteInterruptPoll : IUnknown
+{
+    HRESULT QueryContinue(void);
+}
+
+[
+    object,
+    uuid(BB1A2AE1-A4F9-11cf-8F20-00805F2CD064),
+    pointer_default(unique)
+]
+interface IActiveScript : IUnknown{
+    HRESULT SetScriptSite(
+        [in]  IActiveScriptSite *pass
+    );
+
+    HRESULT GetScriptSite(
+        [in]                REFIID riid,
+        [out, iid_is(riid)] void **ppvObject
+    );
+
+    HRESULT SetScriptState(
+        [in]  SCRIPTSTATE ss
+    );
+
+    HRESULT GetScriptState(
+        [out] SCRIPTSTATE *pssState
+    );
+
+    HRESULT Close(void);
+
+    HRESULT AddNamedItem(
+        [in]  LPCOLESTR pstrName,
+        [in]  DWORD     dwFlags
+    );
+
+    HRESULT AddTypeLib(
+        [in]  REFGUID   rguidTypeLib,
+        [in]  DWORD     dwMajor,
+        [in]  DWORD     dwMinor,
+        [in]  DWORD     dwFlags
+    );
+
+    HRESULT GetScriptDispatch(
+        [in]  LPCOLESTR pstrItemName,
+        [out] IDispatch **ppdisp
+    );
+
+    HRESULT GetCurrentScriptThreadID(
+        [out] SCRIPTTHREADID *pstidThread
+    );
+
+    HRESULT GetScriptThreadID(
+        [in]  DWORD             dwWin32ThreadId,
+        [out] SCRIPTTHREADID    *pstidThread
+    );
+
+    HRESULT GetScriptThreadState(
+        [in]  SCRIPTTHREADID    stidThread,
+        [out] SCRIPTTHREADSTATE *pstsState
+    );
+
+    HRESULT InterruptScriptThread(
+        [in]  SCRIPTTHREADID    stidThread,
+        [in]  const EXCEPINFO   *pexcepinfo,
+        [in]  DWORD dwFlags
+    );
+
+    HRESULT Clone(
+        [out] IActiveScript   **ppscript
+    );
+}
+
+[
+    object,
+    uuid(BB1A2AE2-A4F9-11cf-8F20-00805F2CD064),
+    pointer_default(unique)
+]
+interface IActiveScriptParse32 : IUnknown
+{
+    HRESULT InitNew(void);
+
+    HRESULT AddScriptlet(
+        [in]  LPCOLESTR pstrDefaultName,
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  LPCOLESTR pstrSubItemName,
+        [in]  LPCOLESTR pstrEventName,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORD     dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] BSTR      *pbstrName,
+        [out] EXCEPINFO *pexcepinfo
+    );
+
+    HRESULT ParseScriptText(
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  IUnknown  *punkContext,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORD     dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] VARIANT   *pvarResult,
+        [out] EXCEPINFO *pexcepinfo
+    );
+
+}
+
+[
+    object,
+    uuid(C7EF7658-E1EE-480E-97EA-D52CB4D76D17),
+    pointer_default(unique)
+]
+interface IActiveScriptParse64 : IUnknown
+{
+    HRESULT InitNew(void);
+
+    HRESULT AddScriptlet(
+        [in]  LPCOLESTR pstrDefaultName,
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  LPCOLESTR pstrSubItemName,
+        [in]  LPCOLESTR pstrEventName,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORDLONG dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] BSTR      *pbstrName,
+        [out] EXCEPINFO *pexcepinfo
+    );
+
+    HRESULT ParseScriptText(
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  IUnknown  *punkContext,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORDLONG dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] VARIANT   *pvarResult,
+        [out] EXCEPINFO *pexcepinfo
+    );
+
+}
+
+cpp_quote("#ifdef _WIN64")
+cpp_quote("#define     IActiveScriptParse     IActiveScriptParse64")
+cpp_quote("#define IID_IActiveScriptParse IID_IActiveScriptParse64")
+cpp_quote("#else")
+cpp_quote("#define     IActiveScriptParse     IActiveScriptParse32")
+cpp_quote("#define IID_IActiveScriptParse IID_IActiveScriptParse32")
+cpp_quote("#endif")
+cpp_quote("typedef IActiveScriptParse *PIActiveScriptParse;")
+cpp_quote("")
+
+[
+    object,
+    uuid(1CFF0050-6FDD-11d0-9328-00A0C90DCAA9),
+    pointer_default(unique)
+]
+interface IActiveScriptParseProcedureOld32 : IUnknown
+{
+    HRESULT ParseProcedureText(
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrFormalParams,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  IUnknown  *punkContext,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORD     dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] IDispatch **ppdisp
+    );
+}
+
+[
+    object,
+    uuid(21F57128-08C9-4638-BA12-22D15D88DC5C),
+    pointer_default(unique)
+]
+interface IActiveScriptParseProcedureOld64 : IUnknown
+{
+    HRESULT ParseProcedureText(
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrFormalParams,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  IUnknown  *punkContext,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORDLONG dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] IDispatch **ppdisp
+    );
+}
+
+cpp_quote("#ifdef _WIN64")
+cpp_quote("#define     IActiveScriptParseProcedureOld     IActiveScriptParseProcedureOld64")
+cpp_quote("#define IID_IActiveScriptParseProcedureOld IID_IActiveScriptParseProcedureOld64")
+cpp_quote("#else")
+cpp_quote("#define     IActiveScriptParseProcedureOld     IActiveScriptParseProcedureOld32")
+cpp_quote("#define IID_IActiveScriptParseProcedureOld IID_IActiveScriptParseProcedureOld32")
+cpp_quote("#endif")
+cpp_quote("typedef IActiveScriptParseProcedureOld *PIActiveScriptParseProcedureOld;")
+
+[
+    object,
+    uuid(AA5B6A80-B834-11d0-932F-00A0C90DCAA9),
+    pointer_default(unique)
+]
+interface IActiveScriptParseProcedure32 : IUnknown
+{
+    HRESULT ParseProcedureText(
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrFormalParams,
+        [in]  LPCOLESTR pstrProcedureName,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  IUnknown  *punkContext,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORD     dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] IDispatch **ppdisp
+    );
+}
+
+[
+    object,
+    uuid(C64713B6-E029-4CC5-9200-438B72890B6A),
+    pointer_default(unique)
+]
+interface IActiveScriptParseProcedure64 : IUnknown
+{
+    HRESULT ParseProcedureText(
+        [in]  LPCOLESTR pstrCode,
+        [in]  LPCOLESTR pstrFormalParams,
+        [in]  LPCOLESTR pstrProcedureName,
+        [in]  LPCOLESTR pstrItemName,
+        [in]  IUnknown  *punkContext,
+        [in]  LPCOLESTR pstrDelimiter,
+        [in]  DWORDLONG dwSourceContextCookie,
+        [in]  ULONG     ulStartingLineNumber,
+        [in]  DWORD     dwFlags,
+        [out] IDispatch **ppdisp
+    );
+}
+
+cpp_quote("#ifdef _WIN64")
+cpp_quote("#define     IActiveScriptParseProcedure     IActiveScriptParseProcedure64")
+cpp_quote("#define IID_IActiveScriptParseProcedure IID_IActiveScriptParseProcedure64")
+cpp_quote("#else")
+cpp_quote("#define     IActiveScriptParseProcedure     IActiveScriptParseProcedure32")
+cpp_quote("#define IID_IActiveScriptParseProcedure IID_IActiveScriptParseProcedure32")
+cpp_quote("#endif")
+cpp_quote("typedef IActiveScriptParseProcedure *PIActiveScriptParseProcedure;")
+
+[
+    object,
+    uuid(71EE5B20-FB04-11d1-B3A8-00A0C911E8B2),
+    pointer_default(unique)
+]
+interface IActiveScriptParseProcedure2_32 : IActiveScriptParseProcedure32
+{}
+
+[
+    object,
+    uuid(FE7C4271-210C-448D-9F54-76DAB7047B28),
+    pointer_default(unique)
+]
+interface IActiveScriptParseProcedure2_64 : IActiveScriptParseProcedure64
+{}
+
+cpp_quote("#ifdef _WIN64")
+cpp_quote("#define     IActiveScriptParseProcedure2     IActiveScriptParseProcedure2_64")
+cpp_quote("#define IID_IActiveScriptParseProcedure2 IID_IActiveScriptParseProcedure2_64")
+cpp_quote("#else")
+cpp_quote("#define     IActiveScriptParseProcedure2     IActiveScriptParseProcedure2_32")
+cpp_quote("#define IID_IActiveScriptParseProcedure2 IID_IActiveScriptParseProcedure2_32")
+cpp_quote("#endif")
+cpp_quote("typedef IActiveScriptParseProcedure2 *PIActiveScriptParseProcedure2;")
+
+[
+    object,
+    uuid(BB1A2AE3-A4F9-11cf-8F20-00805F2CD064),
+    pointer_default(unique)
+]
+interface IActiveScriptEncode : IUnknown
+{
+    // NOTES:
+    // (*) pchIn must not be NULL, cchIn must be > 0
+    // (*) pchIn does not need to be NULL terminated
+    // (*) cchOut must contain size (OLECHAR count) of szOut buffer
+    // (*) *pcchRet will contain size (OLECHAR count) of encoded section
+    // (*) if pchOut is NULL or cchOut is less than required buffer size,
+    //     *pcchRet will be set to required size and ERROR_INSUFFICIENT_BUFFER
+    //     will be returned
+    // (*) if buffer is less than required size, buffer contents (up to pchOut[*pcchRet-1])
+    //     may be modified
+    // (*) pchOut will not be NULL terminated
+    HRESULT EncodeSection(
+        [in] LPCOLESTR pchIn,
+        [in] DWORD cchIn,
+        [in, out] LPOLESTR pchOut,
+        [in] DWORD cchOut,
+        [in, out] DWORD *pcchRet
+    );
+
+    // NOTES:
+    // (*) pchIn must not be NULL, cchIn must be > 0
+    // (*) pchIn does not need to be NULL terminated
+    // (*) cchOut must contain size (OLECHAR count) of szOut buffer
+    // (*) *pcchRet will contain size (OLECHAR count) of encoded section
+    // (*) if pchOut is NULL or cchOut is less than required buffer size,
+    //     *pcchRet will be set to required size and ERROR_INSUFFICIENT_BUFFER
+    //     will be returned
+    // (*) if buffer is less than required size, buffer contents (up to pchOut[*pcchRet-1])
+    //     may be modified
+    // (*) pchOut will not be NULL terminated
+    HRESULT DecodeScript(
+        [in] LPCOLESTR pchIn,
+        [in] DWORD cchIn,
+        [in, out] LPOLESTR pchOut,
+        [in] DWORD cchOut,
+        [in, out] DWORD *pcchRet
+    );
+
+    // NOTES:
+    // (*) Caller must free BSTR
+    HRESULT GetEncodeProgId(
+        [in, out] BSTR *pbstrOut
+    );
+}
+
+[
+    object,
+    uuid(BEE9B76E-CFE3-11d1-B747-00C04FC2B085),
+    pointer_default(unique)
+]
+interface IActiveScriptHostEncode : IUnknown
+{
+    // NOTES:
+    // (*) szInFile must not be NULL
+    // (*) szInFile must be NULL-terminated
+    // (*) caller must free bstrOutFile
+    HRESULT EncodeScriptHostFile(
+        [in] BSTR bstrInFile,
+        [in, out] BSTR *pbstrOutFile,
+        [in] unsigned long cFlags,
+        [in] BSTR bstrDefaultLang
+    );
+}
+
+[
+    object,
+    uuid(63CDBCB0-C1B1-11d0-9336-00A0C90DCAA9),
+    pointer_default(unique)
+]
+interface IBindEventHandler : IUnknown
+{
+    HRESULT BindHandler(
+        [in]  LPCOLESTR         pstrEvent,
+        [in]  IDispatch         *pdisp
+    );
+}
+
+
+[
+    object,
+    uuid(B8DA6310-E19B-11d0-933C-00A0C90DCAA9),
+    pointer_default(unique)
+]
+interface IActiveScriptStats : IUnknown
+{
+    HRESULT GetStat(
+        [in] DWORD stid,
+        [out] ULONG *pluHi,
+        [out] ULONG *pluLo
+    );
+
+    HRESULT GetStatEx(
+        [in]  REFGUID guid,
+        [out] ULONG *pluHi,
+        [out] ULONG *pluLo
+    );
+
+    HRESULT ResetStats(void);
+}
+
+
+[
+    object,
+    uuid(4954E0D0-FBC7-11D1-8410-006008C3FBFC),
+    pointer_default(unique)
+]
+interface IActiveScriptProperty : IUnknown
+{
+        // NOTES:
+        // (*) This is a generic information passing interface to allow
+        //     the host to get and set pre-defined properties of the engine
+        // (*) dwProperty must be a SCRIPTPROP_* value
+        // (*) pvarIndex (when used) further identifies the dwProperty
+        // (*) pvarValue is the value of the property, can be any VARIANT including
+        //     binary data in a VT_BSTR, most common is VT_BOOL
+    HRESULT GetProperty(
+        [in] DWORD dwProperty,
+        [in] VARIANT *pvarIndex,
+        [out] VARIANT *pvarValue
+    );
+    HRESULT SetProperty(
+        [in] DWORD dwProperty,
+        [in] VARIANT *pvarIndex,
+        [in] VARIANT *pvarValue
+    );
+}
+
+
+[
+    object,
+    uuid(1DC9CA50-06EF-11d2-8415-006008C3FBFC),
+    pointer_default(unique)
+]
+interface ITridentEventSink : IUnknown
+{
+    HRESULT FireEvent(
+        [in] LPCOLESTR pstrEvent,
+        [in] DISPPARAMS *pdp,
+        [out] VARIANT *pvarRes,
+        [out] EXCEPINFO *pei
+    );
+}
+
+[
+    object,
+    uuid(6AA2C4A0-2B53-11d4-A2A0-00104BD35090),
+    pointer_default(unique)
+]
+interface IActiveScriptGarbageCollector : IUnknown
+{
+    HRESULT CollectGarbage(
+        SCRIPTGCTYPE scriptgctype
+    );
+}
+
+[
+    object,
+    uuid(764651D0-38DE-11d4-A2A3-00104BD35090),
+    pointer_default(unique)
+]
+interface IActiveScriptSIPInfo : IUnknown
+{
+    HRESULT GetSIPOID(
+        [out] GUID * poid_sip
+    );
+}
+
+[
+    object,
+    uuid(4B7272AE-1955-4bfe-98B0-780621888569),
+    pointer_default(unique)
+]
+interface IActiveScriptSiteTraceInfo : IUnknown
+{
+
+    // SendScriptTraceInfo
+    //  stiEventType: the SCRIPTTRACEINFO type for this script statement
+    //  guidContextID: the host's ContextID cookie
+    //  dwScriptContextCookie: the SCRIPT block ContextID cookie
+    //  lScriptStatementStart: the start character count index of the executing script statement
+    //  lScriptStatementEnd: the end character count index of the executing script statement
+    //  dwReserved: reserved for any unforseen need
+    //
+    //  Return Values:
+    //      S_OK: Success
+    //      E_NOTIMPL: Not implemented
+    //
+    HRESULT SendScriptTraceInfo(
+        [in] SCRIPTTRACEINFO stiEventType,
+        [in] GUID guidContextID,
+        [in] DWORD dwScriptContextCookie,
+        [in] LONG lScriptStatementStart,
+        [in] LONG lScriptStatementEnd,
+        [in] DWORD64 dwReserved
+    );
+}
+
+[
+    object,
+    uuid(C35456E7-BEBF-4a1b-86A9-24D56BE8B369),
+    pointer_default(unique)
+]
+interface IActiveScriptTraceInfo : IUnknown
+{
+    // StartScriptTracing
+    //  pSiteTraceInfo: pointer to the host's IActiveScriptSiteTraceInfo
+    //
+    //  Return Values:
+    //      S_OK: Success
+    //      E_POINTER: pSiteTraceInfo is a NULL pointer.
+    //      E_NOTIMPL: Not implemented
+    //
+    HRESULT StartScriptTracing(
+        [in] IActiveScriptSiteTraceInfo * pSiteTraceInfo,
+        [in] GUID guidContextID
+    );
+
+
+    // StopScriptTracing
+    //
+    //
+    //  Return Values:
+    //      S_OK: Success
+    //      E_NOTIMPL: Not implemented
+    //
+    HRESULT StopScriptTracing(void);
+}
+
+[
+    object,
+    uuid(58562769-ED52-42f7-8403-4963514E1F11),
+    pointer_default(unique)
+]
+interface IActiveScriptStringCompare : IUnknown
+{
+    // StrComp
+    //  bszStr1: first string
+    //  bszStr2: second string
+    //  iRet: 0 if identical, -1 if bszStr1 < bszStr2, 1 if bszStr1 > bszStr2
+    //
+    //  Return Values:
+    //      S_OK: Success
+    //      E_NOTIMPL: Not implemented
+    //
+    HRESULT StrComp(
+        [in] BSTR bszStr1,
+        [in] BSTR bszStr2,
+        [out, retval] LONG* iRet
+    );
+}
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
+cpp_quote("")
+cpp_quote("#endif  // __ActivScp_h")
+cpp_quote("")

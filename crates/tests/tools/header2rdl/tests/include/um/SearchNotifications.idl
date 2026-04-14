@@ -1,0 +1,230 @@
+//+----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchNotifications.idl
+//
+//    Purpose:  Search Notifications Interface Description
+//
+//    History:  08/13/2005     louisg      Modified
+//
+//-----------------------------------------------------------------------------
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Change Notifications
+//
+//  A change notification happens when an item changes and it needs
+//  to be reindexed.
+//
+
+
+//
+// Kind of change
+//
+typedef [v1_enum] enum _SEARCH_KIND_OF_CHANGE {
+    SEARCH_CHANGE_ADD       = 0,
+    SEARCH_CHANGE_DELETE    = 1,
+    SEARCH_CHANGE_MODIFY    = 2,
+
+    //
+    // Item has been moved or renamed
+    //
+    SEARCH_CHANGE_MOVE_RENAME = 3,
+
+    //
+    // This is a directory--optimization since crawl needs to define it
+    //
+    SEARCH_CHANGE_SEMANTICS_DIRECTORY   = 0x40000,
+
+    //
+    // Only index directory properties
+    //
+    SEARCH_CHANGE_SEMANTICS_SHALLOW = 0x80000,
+
+    //
+    // Update security only--optimization
+    //
+    SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY = 0x400000,
+
+} SEARCH_KIND_OF_CHANGE;
+
+typedef enum _SEARCH_NOTIFICATION_PRIORITY {
+    SEARCH_NORMAL_PRIORITY = 0,
+    SEARCH_HIGH_PRIORITY = 1
+} SEARCH_NOTIFICATION_PRIORITY;
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// ISearchItemsChangedSink -  This interface allows passing on change
+//                            notifications to the indexer; i.e.,
+//                            to alert the indexer that an item needs to be
+//                            updated
+//
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF58),
+    pointer_default(unique)
+]
+interface ISearchItemsChangedSink: IUnknown
+{
+    // Indicate hierarchical scopes that are being monitored.
+    // IMPLEMENTATION: Incrementals will skip these scopes once
+    // specified.  Also starting monitoring will no longer
+    // automatically kick off an incremental.
+    HRESULT StartedMonitoringScope([in, string] LPCWSTR pszURL);
+    HRESULT StoppedMonitoringScope([in, string] LPCWSTR pszURL);
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Pusher Notifications
+    //
+    //  Client gets status updates as notification goes through the pipeline,
+    //  but has to resubmit in the case of crawler failure.
+    //
+
+    //
+    // Information about change
+    // There is no longer a logical URL passed in here because the indexer does not track
+    // it anyway. The only real purpose was for status.
+    //
+    typedef struct _SEARCH_ITEM_CHANGE
+    {
+        SEARCH_KIND_OF_CHANGE          Change;
+        //
+        // High priority is done before normal priority is done before incrementals
+        //
+        SEARCH_NOTIFICATION_PRIORITY   Priority;
+        BLOB                           *pUserData;
+        LPWSTR                         lpwszURL;
+        [unique] LPWSTR                lpwszOldURL;    //valid only for moves
+    } SEARCH_ITEM_CHANGE;
+
+    //
+    // Notification providers call this in order to get the indexer to
+    // index some changed items.
+    //
+    // IMPLEMENTATION: When there are multiple notifications we need
+    // to make sure that a URL ends up in the highest priorty queue.
+    //
+    HRESULT OnItemsChanged([in]                              DWORD              dwNumberOfChanges,
+                           [in, size_is(dwNumberOfChanges)]  SEARCH_ITEM_CHANGE rgDataChangeEntries[],
+                           //
+                           // Doc IDs that will be passed
+                           // back when finished
+                           //
+                           [out, size_is(dwNumberOfChanges)] DWORD              rgdwDocIds[],
+                           //
+                           // This indicates whether or not each URL was
+                           // accepted for indexing
+                           //
+                           [out, size_is(dwNumberOfChanges)] HRESULT            rghrCompletionCodes[]);
+
+
+
+};
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// ISearchPersistentItemsChangedSink -  This interface allows passing on change
+//                                      notifications to the indexer; i.e.,
+//                                      to alert the indexer that an item needs
+//                                      to be updated
+//
+[
+    object,
+    uuid(A2FFDF9B-4758-4F84-B729-DF81A1A0612F),
+    pointer_default(unique)
+]
+interface ISearchPersistentItemsChangedSink: IUnknown
+{
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Persistent Notifications
+    //
+    //  Client will not receive status as notification progresses,
+    //  but notifications are persisted and do not need to be resubmitted
+    //  as a recovery crawl will pick them up.
+    //
+
+    //
+    // Indicate hierarchical scopes that are being monitored.
+    // IMPLEMENTATION: Incrementals will skip these scopes once
+    // specified.  Also starting monitoring will no longer
+    // automatically kick off an incremental.
+    //
+    HRESULT StartedMonitoringScope([in, string] LPCWSTR pszURL);
+    HRESULT StoppedMonitoringScope([in, string] LPCWSTR pszURL);
+
+    //
+    // Information about change
+    // There is no longer a logical URL passed in here because the indexer does not track
+    // it anyway. The only real purpose was for status.
+    //
+    typedef struct _SEARCH_ITEM_PERSISTENT_CHANGE
+    {
+        SEARCH_KIND_OF_CHANGE Change;
+        LPWSTR URL;
+        [unique] LPWSTR OldURL;    //valid only for moves
+        //
+        // High priority is done before normal priority is done before incrementals
+        //
+        SEARCH_NOTIFICATION_PRIORITY Priority;
+    } SEARCH_ITEM_PERSISTENT_CHANGE;
+
+    HRESULT OnItemsChanged([in] DWORD dwNumberOfChanges,
+                           [in, size_is(dwNumberOfChanges)] SEARCH_ITEM_PERSISTENT_CHANGE DataChangeEntries[],
+                           //
+                           // This indicates whether or not each URL was
+                           // accepted for indexing
+                           //
+                           [out, size_is(dwNumberOfChanges)] HRESULT hrCompletionCodes[]);
+};
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// Index Notifications
+//
+// These notifications happen when an item has been successfully
+// indexed.  The structure is registered on the catalog via
+// RegisterViewForNotification() and these methods are called by the
+// indexer to notify a client when a change occurs.
+//
+
+////////////////////////////////////////////////////////////////////////////////
+//
+// ISearchViewChangedSink
+//
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF65),
+    pointer_default(unique)
+]
+interface ISearchViewChangedSink: IUnknown
+{
+    //
+    // Get the ITEMID that changed, the kind of change and whether or
+    // not the change is in the registered view.  If there is no
+    // registered view, then this is alway FALSE.
+    //
+    HRESULT OnChange([in] ITEMID *pdwDocID,
+                     [in] SEARCH_ITEM_CHANGE *pChange,
+                     [in] BOOL *pfInView);
+};
+
+
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

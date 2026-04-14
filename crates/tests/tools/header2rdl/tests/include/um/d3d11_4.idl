@@ -1,0 +1,248 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// D3D11.4 IDL
+//
+// Contains interface definitions for the D3D11.4 API.
+//
+// Copyright (C) Microsoft Corporation
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "dxgi1_5.idl";
+import "d3dcommon.idl";
+
+import "d3d11_3.idl"; //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "}" ) // extern C
+cpp_quote( "#endif" )
+cpp_quote( "#include \"d3d11_3.h\" //") //
+cpp_quote( "#ifdef __cplusplus" )
+cpp_quote( "extern \"C\"{" )
+cpp_quote( "#endif" )
+
+#pragma region App Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)")
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Device4
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[ uuid( 8992ab71-02e6-4b8d-ba48-b056dcda42c4 ), object, local, pointer_default( unique ) ]
+interface ID3D11Device4
+    : ID3D11Device3
+{
+    HRESULT RegisterDeviceRemovedEvent(
+        [annotation("_In_")] HANDLE hEvent,
+        [annotation("_Out_")] DWORD* pdwCookie
+        );
+
+    void UnregisterDeviceRemoved( [annotation("_In_")] DWORD dwCookie );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Device5
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+[ uuid( 8ffde202-a0e7-45df-9e01-e837801b5ea0 ), object, local, pointer_default( unique ) ]
+interface ID3D11Device5
+    : ID3D11Device4
+{
+    HRESULT OpenSharedFence(
+        [annotation("_In_")] HANDLE hFence,
+        [annotation("_In_")] REFIID ReturnedInterface,
+        [annotation("_COM_Outptr_opt_")] void ** ppFence
+        );
+        
+    HRESULT CreateFence(
+        [annotation("_In_")] UINT64 InitialValue,
+        [annotation("_In_")] D3D11_FENCE_FLAG Flags,        
+        [annotation("_In_")] REFIID ReturnedInterface,
+        [annotation("_COM_Outptr_opt_")] void ** ppFence
+        );    
+};
+
+//==================================================================================================================================
+//
+// Multithread Interface
+//
+//==================================================================================================================================
+[ uuid( 9B7E4E00-342C-4106-A19F-4F2704F689F0 ), object, local, pointer_default( unique ) ]
+interface ID3D11Multithread
+    : IUnknown
+{
+    void Enter();
+    void Leave();
+    BOOL SetMultithreadProtected( [annotation("_In_")] BOOL bMTProtect );
+    BOOL GetMultithreadProtected();
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoContext2
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+[uuid(C4E7374C-6243-4D1B-AE87-52B4F740E261), object, local, pointer_default(unique)]
+interface ID3D11VideoContext2
+    : ID3D11VideoContext1
+{
+    void VideoProcessorSetOutputHDRMetaData(
+        [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+        [annotation("_In_")] DXGI_HDR_METADATA_TYPE Type,
+        [annotation("_In_")] UINT Size,
+        [annotation("_In_reads_bytes_opt_(Size)")] const void* pHDRMetaData
+        );
+
+    void VideoProcessorGetOutputHDRMetaData(
+        [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+        [annotation("_Out_")] DXGI_HDR_METADATA_TYPE* pType,
+        [annotation("_In_")] UINT Size,
+        [annotation("_Out_writes_bytes_opt_(Size)")] void* pMetaData
+        );
+
+    void VideoProcessorSetStreamHDRMetaData(
+        [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+        [annotation("_In_")] UINT StreamIndex,
+        [annotation("_In_")] DXGI_HDR_METADATA_TYPE Type,
+        [annotation("_In_")] UINT Size,
+        [annotation("_In_reads_bytes_opt_(Size)")] const void* pHDRMetaData
+        );
+
+    void VideoProcessorGetStreamHDRMetaData(
+        [annotation("_In_")] ID3D11VideoProcessor* pVideoProcessor,
+        [annotation("_In_")] UINT StreamIndex,
+        [annotation("_Out_")] DXGI_HDR_METADATA_TYPE* pType,
+        [annotation("_In_")] UINT Size,
+        [annotation("_Out_writes_bytes_opt_(Size)")] void* pMetaData
+        );
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoDevice2
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef enum D3D11_FEATURE_VIDEO
+{
+    D3D11_FEATURE_VIDEO_DECODER_HISTOGRAM = 0,
+} D3D11_FEATURE_VIDEO;
+
+typedef enum D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT
+{
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_Y = 0,
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_U = 1, 
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_V = 2,
+    
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_R = 0,
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_G = 1, 
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_B = 2,
+
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_A = 3,
+} D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT; 
+
+typedef enum D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS
+{
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_NONE = 0x0,
+    
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_Y = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_Y),
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_U = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_U), 
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_V = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_V),
+    
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_R = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_R),
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_G = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_G), 
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_B = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_B),
+
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAG_A = (1 << D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_A),
+} D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS; 
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS );")
+
+typedef struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM
+{
+    D3D11_VIDEO_DECODER_DESC DecoderDesc;                                 // in
+    D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS Components;             // out
+    UINT BinCount;                                                        // out
+    UINT CounterBitDepth;                                                 // out
+} D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM;
+
+typedef enum D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS
+{
+    D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAG_NONE = 0x0,
+} D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS );")
+
+[uuid(59C0CB01-35F0-4A70-8F67-87905C906A53), object, local, pointer_default(unique)]
+interface ID3D11VideoDevice2
+    : ID3D11VideoDevice1
+{
+    HRESULT CheckFeatureSupport(
+        D3D11_FEATURE_VIDEO Feature,
+        [annotation("_Out_writes_bytes_(FeatureSupportDataSize)")] void* pFeatureSupportData,
+        UINT FeatureSupportDataSize
+        ); 
+
+    HRESULT NegotiateCryptoSessionKeyExchangeMT(
+        [annotation("_In_")] ID3D11CryptoSession* pCryptoSession,
+        [annotation("_In_")] D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS flags,
+        [annotation("_In_")] UINT DataSize,
+        [annotation("_Inout_updates_bytes_(DataSize)")] void* pData);
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// VideoContext3
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+typedef struct D3D11_VIDEO_DECODER_BUFFER_DESC2
+{
+    D3D11_VIDEO_DECODER_BUFFER_TYPE BufferType;
+    UINT DataOffset;
+    UINT DataSize;
+    [annotation("_Field_size_opt_(IVSize)")] void* pIV;
+    UINT IVSize;
+    [annotation("_Field_size_opt_(SubSampleMappingCount)")] D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK* pSubSampleMappingBlock;
+    UINT SubSampleMappingCount;
+    UINT cBlocksStripeEncrypted;
+    UINT cBlocksStripeClear;
+} D3D11_VIDEO_DECODER_BUFFER_DESC2;
+
+[uuid(A9E2FAA0-CB39-418F-A0B7-D8AAD4DE672E), object, local, pointer_default(unique)]
+interface ID3D11VideoContext3
+    : ID3D11VideoContext2
+{
+    HRESULT DecoderBeginFrame1(
+                [annotation("_In_")] ID3D11VideoDecoder* pDecoder,
+                [annotation("_In_")] ID3D11VideoDecoderOutputView* pView,
+                UINT ContentKeySize,
+                [annotation("_In_reads_bytes_opt_(ContentKeySize)")] const void* pContentKey,
+                [annotation("_In_range_(0, D3D11_4_VIDEO_DECODER_MAX_HISTOGRAM_COMPONENTS)")] UINT NumComponentHistograms, 
+                [annotation("_In_reads_opt_(NumComponentHistograms)")] const UINT* pHistogramOffsets,
+                [annotation("_In_reads_opt_(NumComponentHistograms)")] ID3D11Buffer* const* ppHistogramBuffers
+                );
+
+        HRESULT SubmitDecoderBuffers2(
+                [annotation("_In_")] ID3D11VideoDecoder* pDecoder,
+                [annotation("_In_")] UINT NumBuffers,
+                [annotation("_In_reads_(NumBuffers)")] const D3D11_VIDEO_DECODER_BUFFER_DESC2* pBufferDesc);
+
+};
+
+typedef struct D3D11_FEATURE_DATA_D3D11_OPTIONS4
+{    
+    BOOL ExtendedNV12SharedTextureSupported;
+} D3D11_FEATURE_DATA_D3D11_OPTIONS4;
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */")
+#pragma endregion
+
+cpp_quote( "DEFINE_GUID(IID_ID3D11Device4,0x8992ab71,0x02e6,0x4b8d,0xba,0x48,0xb0,0x56,0xdc,0xda,0x42,0xc4);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Device5,0x8ffde202,0xa0e7,0x45df,0x9e,0x01,0xe8,0x37,0x80,0x1b,0x5e,0xa0);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11Multithread,0x9B7E4E00,0x342C,0x4106,0xA1,0x9F,0x4F,0x27,0x04,0xF6,0x89,0xF0);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11VideoContext2,0xC4E7374C,0x6243,0x4D1B,0xAE,0x87,0x52,0xB4,0xF7,0x40,0xE2,0x61);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11VideoDevice2,0x59C0CB01,0x35F0,0x4A70,0x8F,0x67,0x87,0x90,0x5C,0x90,0x6A,0x53);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D11VideoContext3,0xA9E2FAA0,0xCB39,0x418F,0xA0,0xB7,0xD8,0xAA,0xD4,0xDE,0x67,0x2E);" )

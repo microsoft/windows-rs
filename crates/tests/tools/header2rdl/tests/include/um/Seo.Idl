@@ -1,0 +1,3757 @@
+/*
+        @doc SEO EVENTS INTERNAL EXTERNAL
+
+        @module SEO.IDL - IDL for Server Extension Objects | This module declares the
+        various interfaces and objects exported and used by the Server Extension Objects
+        system.
+*/
+
+cpp_quote("/*++")
+cpp_quote("")
+cpp_quote("Copyright (c) 1999  Microsoft Corporation")
+cpp_quote("")
+cpp_quote("Module Name:")
+cpp_quote("")
+cpp_quote("     seo.idl / seo.h")
+cpp_quote("")
+cpp_quote("Abstract:")
+cpp_quote("")
+cpp_quote("     This module contains definitions for the COM interface for")
+cpp_quote("     Server Extension Objects.")
+cpp_quote("")
+cpp_quote("")
+cpp_quote("--*/")
+
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#ifndef SEODLLIMPORT")
+cpp_quote("     #define SEODLLIMPORT _declspec(dllimport)")
+cpp_quote("#endif")
+cpp_quote("#ifndef SEODLLEXPORT")
+cpp_quote("     #define SEODLLEXPORT _declspec(dllexport)")
+cpp_quote("#endif")
+cpp_quote("#ifndef SEODLLDEF")
+cpp_quote("     #ifndef SEODLL_IMPLEMENTATION")
+cpp_quote("             #define SEODLLDEF EXTERN_C SEODLLIMPORT")
+cpp_quote("     #else")
+cpp_quote("             #define SEODLLDEF EXTERN_C SEODLLEXPORT")
+cpp_quote("     #endif")
+cpp_quote("#endif")
+
+
+cpp_quote("#define BD_OBJECT                    \"Object\"")
+cpp_quote("#define BD_PROGID                    \"ProgID\"")
+cpp_quote("#define BD_PRIORITY                  \"Priority\"")
+cpp_quote("#define BD_RULEENGINE                \"RuleEngine\"")
+cpp_quote("#define BD_EXCLUSIVE                 \"Exclusive\"")
+cpp_quote("#define BD_BINDINGS                  \"Bindings\"")
+cpp_quote("#define BD_DISPATCHER                \"Dispatcher\"")
+cpp_quote("#define BD_BINDINGPOINTS             \"BindingPoints\"")
+cpp_quote("#define BD_RULE                              \"Rule\"")
+
+/*
+   Define priorities
+*/
+cpp_quote("#define PRIO_HIGHEST                 0")
+cpp_quote("#define PRIO_HIGH                    8191")
+cpp_quote("#define PRIO_MEDIUM                  16383")
+cpp_quote("#define PRIO_LOW                     24575")
+cpp_quote("#define PRIO_LOWEST                  32767")
+cpp_quote("#define PRIO_DEFAULT                 PRIO_LOW")
+cpp_quote("#define PRIO_HIGHEST_STR             L\"PRIO_HIGHEST\"")
+cpp_quote("#define PRIO_HIGH_STR                L\"PRIO_HIGH\"")
+cpp_quote("#define PRIO_MEDIUM_STR              L\"PRIO_MEDIUM\"")
+cpp_quote("#define PRIO_LOW_STR                 L\"PRIO_LOW\"")
+cpp_quote("#define PRIO_LOWEST_STR              L\"PRIO_LOWEST\"")
+cpp_quote("#define PRIO_DEFAULT_STR             L\"PRIO_DEFAULT\"")
+cpp_quote("#define PRIO_MIN                     PRIO_HIGHEST")
+cpp_quote("#define PRIO_MAX                     PRIO_LOWEST")
+
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEODictionaryItem | General-purpose access to a single dictionary item.  This interface
+        is derived from IDispatch (i.e. it is a dual interface).  This is the interface returned for any
+        multi-value item in a dictionary.
+        @meth HRESULT | Value [propget] | Get the value (by optional index).
+        @meth HRESULT | AddValue | Add a value by index.
+        @meth HRESULT | DeleteValue | Delete a value by index.
+        @meth HRESULT | Count [propget] | Get the count of values.
+        @meth HRESULT | GetStringA | Get the value by index as an ANSI string.
+        @meth HRESULT | GetStringW | Get the value by index as a Unicode string.
+        @meth HRESULT | AddStringA | Add a value by index as an ANSI string.
+        @meth HRESULT | AddStringW | Add a value by index as a Unicode string.
+        @xref <i ISEODictionary>
+*/
+[
+        dual,
+        helpstring("SEOCOM dictionary item (OA-compatible)"),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(16d63630-83ae-11d0-a9e3-00aa00685c74)
+]
+interface ISEODictionaryItem : IDispatch
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        //@method HRESULT | ISEODictionaryItem | Value [propget] | Get the value (by optional index).
+        //@parm VARIANT * | pvarIndex | [in,optional] Specifies the (zero-based) index
+        // from which to retrieve the value.  If NULL, or if pvarIndex->vt==VT_ERROR, then an index of
+        // zero is assumed.
+        //@parm VARIANT * | pvarResult | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT | Failure, the index was too large.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.AddValue> <om ISEODictionaryItem.DeleteValue>
+        [helpstring("Get the value (by optional index)"),propget,id(DISPID_VALUE)]
+        HRESULT Value([in,optional] VARIANT *pvarIndex,
+                                  [out,retval] VARIANT *pvarResult);
+
+        //@method HRESULT | ISEODictionaryItem | AddValue | Add a value by index.
+        //@parm VARIANT * | pvarIndex | [in] Specifies the (zero-based) index at which to place the value.  If the
+        // index is greater than the count, then the index is treated as being equal to the count (i.e. any
+        // attempt to add an item past the last item results in the item becoming the new last item.)
+        //@parm VARIANT * | pvarValue | [in] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.Value [propget]> <om ISEODictionaryItem.DeleteValue>
+        [helpstring("Add a value by index.")]
+        HRESULT AddValue([in] VARIANT *pvarIndex, [in] VARIANT *pvarValue);
+
+        //@method HRESULT | ISEODictionaryItem | DeleteValue | Remove a value by index.
+        //@parm VARIANT * | pvarIndex | [in] Specifies the (zero-based) index of the item to delete.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT | Failure, the index was too large.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.Value [propget]> <om ISEODictionaryItem.AddValue>
+        [helpstring("Remove a value by index.")]
+        HRESULT DeleteValue([in] VARIANT *pvarIndex);
+
+        //@method HRESULT | ISEODictionaryItem | Count [propget] | Get the count of values.
+        //@parm VARIANT * | pvarResult | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem>
+        [helpstring("Get the count of values."),propget]
+        HRESULT Count([out,retval] VARIANT *pvarResult);
+
+        //@method HRESULT | ISEODictionaryItem | GetStringA | Get the value by index as an ANSI string.
+        //@parm DWORD | dwIndex | [in] Specifies the (zero-based) index.
+        //@parm DWORD * | pchCount | [in,out] Specifies the total number of characters in the buffer, and receives
+        // the total number of characters copied (including the terminating NULL).
+        //@parm LPSTR | pszResult | [out,size_is(*pchCount)] Receives the value.  May be NULL, in which
+        // case *pchCount will receive the total number of characters in the value (including the terminating NULL).
+        //@rvalue S_OK | Success.  *pchCount has the total number of characters stored, including the termimating
+        // NULL.  If pszResult was NULL, then *pchCount has the total number of characters in the value (including
+        // the terminating NULL).
+        //@rvalue SEO_S_MOREDATA | Success.  The buffer was not large enough to contain all of the data - the
+        // maximum amount that could fit was copied into the buffer along with a terminating NULL, and
+        // *pchCount contains the number of characters stored (including the terminating NULL).
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the index was too large.
+        //@rvalue SEO_E_BADTYPE | Failure, the item is not of the requested type.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.GetStringW>
+        [helpstring("Get the value by index as an ANSI string.")]
+        HRESULT GetStringA([in] DWORD dwIndex,
+                                           [in,out] DWORD *pchCount,
+                                           [out,size_is(*pchCount)] LPSTR pszResult);
+
+        //@method HRESULT | ISEODictionaryItem | GetStringW | Get the value by index as a Unicode string.
+        //@parm DWORD | dwIndex | [in] Specifies the (zero-based) index.
+        //@parm DWORD * | pchCount | [in,out] Specifies the total number of characters in the buffer, and receives
+        // the total number of characters copied (including the terminating NULL).
+        //@parm LPWSTR | pszResult | [out,size_is(*pchCount)] Receives the value.  May be NULL, in which
+        // case *pchCount will receive the total number of characters in the value (including the terminating NULL).
+        //@rvalue S_OK | Success.  *pchCount has the total number of characters stored, including the termimating
+        // NULL.  If pszResult was NULL, then *pchCount has the total number of characters in the value (including
+        // the terminating NULL).
+        //@rvalue SEO_S_MOREDATA | Success.  The buffer was not large enough to contain all of the data - the
+        // maximum amount that could fit was copied into the buffer along with a terminating NULL, and
+        // *pchCount contains the number of characters stored (including the terminating NULL).
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the index was too large.
+        //@rvalue SEO_E_BADTYPE | Failure, the item is not of the requested type.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.GetStringA>
+        [helpstring("Get the value by index as a Unicode string.")]
+        HRESULT GetStringW([in] DWORD dwIndex,
+                                           [in,out] DWORD *pchCount,
+                                           [out,size_is(*pchCount)] LPWSTR pszResult);
+
+        //@method HRESULT | ISEODictionaryItem | AddStringA | Add a value by index as an ANSI string.
+        //@parm DWORD | dwIndex | [in] Specifies the (zero-based) index.
+        //@parm LPCSTR | pszValue | [in] Specifies the value (NULL-terminated).  May not be NULL - use
+        // DeleteValue() to remove a value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.DeleteValue> <om ISEODictionaryItem.AddStringW>
+        [helpstring("Add a value by index as an ANSI string.")]
+        HRESULT AddStringA([in] DWORD dwIndex,
+                                           [in] LPCSTR pszValue);
+
+        //@method HRESULT | ISEODictionaryItem | AddStringW | Add a value by index as a Unicode string.
+        //@parm DWORD | dwIndex | [in] Specifies the (zero-based) index.
+        //@parm LPCWSTR | pszValue | [in] Specifies the value (NULL-terminated).  May not be NULL - use
+        // DeleteValue() to remove a value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed as a parameter.
+        //@xref <i ISEODictionaryItem> <om ISEODictionaryItem.DeleteValue> <om ISEODictionaryItem.AddStringA>
+        [helpstring("Add a value by index as a Unicode string.")]
+        HRESULT AddStringW([in] DWORD dwIndex,
+                                           [in] LPCWSTR pszValue);
+
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEODictionary | General-purpose access to name-value pairs.  This interface
+        is derived from IDispatch (i.e. it is a dual interface) and provides some methods which
+        are automation-compatible (for use by scripts) and incompatible (for higher performance).
+        @meth HRESULT | Item [propget] | Get a value (OA-compatible).
+        @meth HRESULT | Item [propput] | Set a value (OA-compatible).
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator (OA-compatible).
+        @meth HRESULT | GetVariantA | Query by ANSI name for a VARIANT (high performance).
+        @meth HRESULT | GetVariantW | Query by Unicode name for a VARIANT (high performance).
+        @meth HRESULT | SetVariantA | Set a VARIANT by ANSI name (high performance).
+        @meth HRESULT | SetVariantW | Set a VARIANT by Unicode name (high performance).
+        @meth HRESULT | GetStringA | Query by ANSI name for an ANSI string (high performance).
+        @meth HRESULT | GetStringW | Query by Unicode name for a Unicode string (high performance).
+        @meth HRESULT | SetStringA | Set an ANSI string by ANSI name (high performance).
+        @meth HRESULT | SetStringW | Set a Unicode string by Unicode name (high performance).
+        @meth HRESULT | GetDWordA | Query by ANSI name for a DWORD (high performance).
+        @meth HRESULT | GetDWordW | Query by Unicode name for a DWORD (high performance).
+        @meth HRESULT | SetDWordA | Set a DWORD by ANSI name (high performance).
+        @meth HRESULT | SetDWordW | Set a DWORD by Unicode name (high performance).
+        @meth HRESULT | GetInterfaceA | Query by ANSI name for an interface (high performance).
+        @meth HRESULT | GetInterfaceW | Query by Unicode name for an interface (high performance).
+        @meth HRESULT | SetInterfaceA | Set an interface by ANSI name (high performance).
+        @meth HRESULT | SetInterfaceW | Set an interface by Unicode name (high performance).
+        @xref <i ISEODictionaryItem>
+*/
+[
+        dual,
+        helpstring("SEOCOM dictionary (OA-compatible)."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(d8177b40-7bac-11d0-a9e0-00aa00685c74)
+]
+interface ISEODictionary : IDispatch
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        //@method HRESULT | ISEODictionary | Item [propget] | Get an item (OA-compatible.
+        //@parm VARIANT * | pvarName | [in] Specifies the name.
+        //@parm VARIANT * | pvarResult | [out,retval] Receives the value.
+        //@rvalue S_OK | Success.  If pvarResult->vt==VT_EMPTY, then the item was not present.
+        //@rvalue E_INVALIDARG | Failure, pvarName couldn't be converted to a string.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.Item [propput]>
+        [helpstring("Get a value."),id(DISPID_VALUE),propget]
+        HRESULT Item([in] VARIANT *pvarName,
+                                 [out,retval] VARIANT *pvarResult);
+
+        //@method HRESULT | ISEODictionary | Item [propput] | Put a value (OA-compatible).
+        //@parm VARIANT * | pvarName | [in] Specifies the name.
+        //@parm VARIANT * | pvarResult | [in] Specifies the new value.  May be NULL or VT_EMPTY to remove the item.
+        //@rvalue S_OK | Success.
+        //@rvalue E_INVALIDARG | Failure, pvarName couldn't be converted to a string.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.Item [propget]>
+        [helpstring("Put a value."),propput]
+        HRESULT Item([in] VARIANT *pvarName,
+                                 [in] VARIANT *pvarValue);
+
+        //@method HRESULT | ISEODictionary | _NewEnum [propget] | Get an enumerator (OA-compatible).  This
+        // function allows enumeration of the names of the values in the dictionary.
+        //@parm IUnknown ** | ppunkResult | [out,retval] Receives the enumerator.  This object will implement
+        // the IEnumVARIANT interface, and each call to the Next() method on this object will return the
+        // next names of values in the dictionary.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary>
+        [helpstring("Get an enumerator."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppunkResult);
+
+        //@method HRESULT | ISEODictionary | GetVariantA | Query by ANSI name for a VARIANT (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm VARIANT * | pvarResult | [out,retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetVariantW> <om ISEODictionary.SetVariantA>
+        // <om ISEODictionary.SetVariantW>
+        [helpstring("Query by ANSI name for a VARIANT.")]
+        HRESULT GetVariantA([in] LPCSTR pszName,
+                                                [out,retval] VARIANT *pvarResult);
+
+        //@method HRESULT | ISEODictionary | GetVariantW | Query by Unicode name for a VARIANT (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm VARIANT * | pvarResult | [out,retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetVariantA> <om ISEODictionary.SetVariantA>
+        // <om ISEODictionary.SetVariantW>
+        [helpstring("Query by Unicode name for a VARIANT.")]
+        HRESULT GetVariantW([in] LPCWSTR pszName,
+                                                [out,retval] VARIANT *pvarResult);
+
+        //@method HRESULT | ISEODictionary | SetVariantA | Set a VARIANT by ANSI name (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm VARIANT * | pvarResult | [in] Specifies the value.  May be NULL or V_EMPTY to remove the item.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetVariantA> <om ISEODictionary.GetVariantW>
+        // <om ISEODictionary.SetVariantW>
+        [helpstring("Set a VARIANT by ANSI name.")]
+        HRESULT SetVariantA([in] LPCSTR pszName,
+                                                [in] VARIANT *pvarValue);
+
+        //@method HRESULT | ISEODictionary | SetVariantW | Set a VARIANT by Unicode name (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm VARIANT * | pvarResult | [in] Specifies the value.  May be NULL or V_EMPTY to remove the item.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetVariantA> <om ISEODictionary.GetVariantW>
+        // <om ISEODictionary.SetVariantA>
+        [helpstring("Set a VARIANT by Unicode name.")]
+        HRESULT SetVariantW([in] LPCWSTR pszName,
+                                                [in] VARIANT *pvarValue);
+
+        //@method HRESULT | ISEODictionary | GetStringA | Query by ANSI name for an ANSI string (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm DWORD * | pchCount | [in,out] Specifies the total number of characters in the buffer, and receives
+        // the total number of characters copied (including the terminating NULL).
+        //@parm LPSTR | pszResult | [out,size_is(*pchCount)] Receives the value.
+        //@rvalue S_OK | Success.  *pchCount has the total number of characters stored, including the termimating NULL.
+        //@rvalue SEO_S_MOREDATA | Success.  The buffer was not large enough to contain all of the data - the
+        // maximum amount that could fit was copied into the buffer along with a terminating NULL, and
+        // *pchCount contains the number of characters stored (including the terminating NULL).
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue SEO_E_BADTYPE | Failure, the item it present but is not of the requested type.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetStringW> <om ISEODictionary.SetStringA>
+        // <om ISEODictionary.SetStringW>
+        [helpstring("Query by ANSI name for an ANSI string.")]
+        HRESULT GetStringA([in] LPCSTR pszName,
+                                           [in,out] DWORD *pchCount,
+                                           [out,size_is(*pchCount)] LPSTR pszResult);
+
+        //@method HRESULT | ISEODictionary | GetStringW | Query by Unicode name for a Unicode string (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm DWORD * | pchCount | [in,out] Specifies the total number of characters in the buffer, and receives
+        // the total number of characters copied (including the terminating NULL).
+        //@parm LPWSTR | pszResult | [out,size_is(*pchCount)] Receives the value.
+        //@rvalue S_OK | Success.  *pchCount has the total number of characters stored, including the termimating NULL.
+        //@rvalue SEO_S_MOREDATA | Success.  The buffer was not large enough to contain all of the data - the
+        // maximum amount that could fit was copied into the buffer along with a terminating NULL, and
+        // *pchCount contains the number of characters stored (including the terminating NULL).
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue SEO_E_BADTYPE | Failure, the item it present but is not of the requested type.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetStringA> <om ISEODictionary.SetStringA>
+        // <om ISEODictionary.SetStringW>
+        [helpstring("Query by Unicode name for a Unicode string.")]
+        HRESULT GetStringW([in] LPCWSTR pszName,
+                                           [in,out] DWORD *pchCount,
+                                           [out,size_is(*pchCount)] LPWSTR pszResult);
+
+        //@method HRESULT | ISEODictionary | SetStringA | Set an ANSI string by ANSI name (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm DWORD | chCount | [in] Specifies the number of characters in the string, including the
+        // terminating NULL.  (Use the SetVariantA() method to remove an item.)
+        //@parm LPCSTR | pszValue | [in,size_is(chCount)] Specifies the value.
+        //@xref <i ISEODictionary> <om ISEODictionary.SetVariantA> <om ISEODictionary.GetStringA>
+        // <om ISEODictionary.GetStringW> <om ISEODictionary.SetStringW>
+        [helpstring("Set an ANSI string by ANSI name.")]
+        HRESULT SetStringA([in] LPCSTR pszName,
+                                           [in] DWORD chCount,
+                                           [in,size_is(chCount)] LPCSTR pszValue);
+
+        //@method HRESULT | ISEODictionary | SetStringW | Set a Unicode string by Unicode name (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm DWORD | chCount | [in] Specifies the number of characters in the string, including the
+        // terminating NULL.  (Use the SetVariantW() method to remove an item.)
+        //@parm LPCWSTR | pszValue | [in,size_is(chCount)] Specifies the value.
+        //@xref <i ISEODictionary> <om ISEODictionary.SetVariantW> <om ISEODictionary.GetStringA>
+        // <om ISEODictionary.GetStringW> <om ISEODictionary.SetStringA>
+        [helpstring("Set a Unicode string by Unicode name.")]
+        HRESULT SetStringW([in] LPCWSTR pszName,
+                                           [in] DWORD chCount,
+                                           [in,size_is(chCount)] LPCWSTR pszValue);
+
+        //@method HRESULT | ISEODictionary | GetDWordA | Query by ANSI name for a DWORD (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm DWORD * | pdwResult | [out,retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue SEO_E_BADTYPE | Failure, the item it present but is not of the requested type.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetDWordW> <om ISEODictionary.SetDWordA>
+        // <om ISEODictionary.SetDWordW>
+        [helpstring("Query by ANSI name for a DWORD.")]
+        HRESULT GetDWordA([in] LPCSTR pszName,
+                                          [out,retval] DWORD *pdwResult);
+
+        //@method HRESULT | ISEODictionary | GetDWordW | Query by Unicode name for a DWORD (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm DWORD * | pdwResult | [out,retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue SEO_E_BADTYPE | Failure, the item it present but is not of the requested type.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetDWordA> <om ISEODictionary.SetDWordA>
+        // <om ISEODictionary.SetDWordW>
+        [helpstring("Query by Unicode name for a DWORD.")]
+        HRESULT GetDWordW([in] LPCWSTR pszName,
+                                          [out,retval] DWORD *pdwResult);
+
+        //@method HRESULT | ISEODictionary | SetDWordA | Set a DWORD by ANSI name (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm DWORD | dwValue | [in] Specifies the value.  (Use the SetVariantA() method to remove an item.)
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.SetVariantA> <om ISEODictionary.GetDWordA>
+        // <om ISEODictionary.GetDWordW> <om ISEODictionary.SetDWordW>
+        [helpstring("Set a DWORD by ANSI name.")]
+        HRESULT SetDWordA([in] LPCSTR pszName,
+                                          [in] DWORD dwValue);
+
+        //@method HRESULT | ISEODictionary | SetDWordW | Set a DWORD by Unicode name (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm DWORD | dwValue | [in] Specifies the value.  (Use the SetVariantW() method to remove an item.)
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.SetVariantW> <om ISEODictionary.GetDWordA>
+        // <om ISEODictionary.GetDWordW> <om ISEODictionary.SetDWordA>
+        [helpstring("Set a DWORD by Unicode name.")]
+        HRESULT SetDWordW([in] LPCWSTR pszName,
+                                          [in] DWORD dwValue);
+
+        //@method HRESULT | ISEODictionary | GetInterfaceA | Query by ANSI name for an interface (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm REFIID | iidDesired | [in] Specifies the IID of the desired interface.
+        //@parm IUnknown ** | ppunkResult | [out,iid_is(iidDesired),retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue E_NOINTERFACE | Failure, the item is present but does not support the desired interface.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetInterfaceW> <om ISEODictionary.SetInterfaceA>
+        // <om ISEODictionary.SetInterfaceW>
+        [helpstring("Query by ANSI name for an interface.")]
+        HRESULT GetInterfaceA([in] LPCSTR pszName,
+                                                  [in] REFIID iidDesired,
+                                                  [out,iid_is(iidDesired),retval] IUnknown **ppunkResult);
+
+        //@method HRESULT | ISEODictionary | GetInterfaceW | Query by Unicode name for an interface (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm REFIID | iidDesired | [in] Specifies the IID of the desired interface.
+        //@parm IUnknown ** | ppunkResult | [out,iid_is(iidDesired),retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT. | Failure, the item is not present.
+        //@rvalue SEO_E_BADTYPE | Failure, the item it present but is not of the requested type.
+        //@rvalue E_NOINTERFACE | Failure, the item is present but does not support the desired interface.
+        //@xref <i ISEODictionary> <om ISEODictionary.GetInterfaceA> <om ISEODictionary.SetInterfaceA>
+        // <om ISEODictionary.SetInterfaceW>
+        [helpstring("Query by Unicode name for an interface.")]
+        HRESULT GetInterfaceW([in] LPCWSTR pszName,
+                                                  [in] REFIID iidDesired,
+                                                  [out,iid_is(iidDesired),retval] IUnknown **ppunkResult);
+
+        //@method HRESULT | ISEODictionary | SetInterfaceA | Set an interface by ANSI name (high performance).
+        //@parm LPCSTR | pszName | [in] Specifies the name.
+        //@parm IUnknown * | punkValue | [in,unique] Specifies the value.  (Use the SetVariantA() method to remove an item.)
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.SetVariantA> <om ISEODictionary.GetInterfaceA>
+        // <om ISEODictionary.GetInterfaceW> <om ISEODictionary.SetInterfaceW>
+        [helpstring("Set an interface by ANSI name.")]
+        HRESULT SetInterfaceA([in] LPCSTR pszName,
+                                                  [in,unique] IUnknown *punkValue);
+
+        //@method HRESULT | ISEODictionary | SetInterfaceW | Set an interface by Unicode name (high performance).
+        //@parm LPCWSTR | pszName | [in] Specifies the name.
+        //@parm IUnknown * | punkValue | [in,unique] Specifies the value.  (Use the SetVariantW() method to remove an item.)
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@xref <i ISEODictionary> <om ISEODictionary.SetVariantW> <om ISEODictionary.GetInterfaceA>
+        // <om ISEODictionary.GetInterfaceW> <om ISEODictionary.SetInterfaceA>
+        [helpstring("Set an interface by Unicode name.")]
+        HRESULT SetInterfaceW([in] LPCWSTR pszName,
+                                                  [in,unique] IUnknown *punkValue);
+
+};
+
+
+//@doc EVENTS INTERNAL
+
+
+/*
+        @interface IEventLock | Contention control.  This interface provides methods for controlling
+        multi-threaded access to an object, and supports a multi-reader/single-writer model.
+        @meth HRESULT | LockRead | Lock the object for reading.
+        @meth HRESULT | UnlockRead | Reverse the effects of LockRead.
+        @meth HRESULT | LockWrite | Lock the object for writing.
+        @meth HRESULT | UnlockWrite | Reverse the effects of LockWrite.
+*/
+
+
+[
+        dual,
+        helpstring("IEventLock."),
+        object,
+        pointer_default(unique),
+        hidden,
+        uuid(1b7058f0-af88-11d0-a9eb-00aa00685c74)
+]
+interface IEventLock : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventLock | LockRead | Lock the object for reading.  Read locks prevent write
+        // locks, but do not prevent other read locks.
+        //@parm int | iTimeoutMS | [in] The number of milliseconds to wait before timing out.  Use the value
+        // INFINITE for no timeout.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_TIMEOUT | Failure, the timeout expired.
+        //@xref <i IEventLock> <om IEventLock.UnlockRead> <om IEventLock.LockWrite>
+        [helpstring("Lock for reading.")]
+        HRESULT LockRead([in] int iTimeoutMS);
+
+        //@method HRESULT | IEventLock | UnlockRead | Reverse the effects of LockRead.
+        //@rvalue S_OK | Success.
+        //@xref <i IEventLock> <om IEventLock.LockRead>
+        [helpstring("Reverse the effects of a call to LockRead.")]
+        HRESULT UnlockRead();
+
+        //@method HRESULT | IEventLock | LockWrite | Lock the object for writing.  Write locks prevent both
+        // read locks and write locks.
+        //@parm int | iTimeoutMS | [in] The number of milliseconds to wait before timing out.  Use the value
+        // INFINITE for no timeout.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_TIMEOUT | Failure, the timeout expired.
+        //@xref <i IEventLock> <om IEventLock.UnlockWrite> <om IEventLock.LockRead>
+        [helpstring("Lock for writing.")]
+        HRESULT LockWrite([in] int iTimeoutMS);
+
+        //@method HRESULT | IEventLock | UnlockWrite | Reverse the effects of LockWrite.
+        //@rvalue S_OK | Success.
+        //@xref <i IEventLock> <om IEventLock.LockWrite>
+        [helpstring("Reverse the effects of a call to LockWrite.")]
+        HRESULT UnlockWrite();
+
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEORouter | Event router.  This object is the primary interface of the handle returned by
+        SEOInit().
+        @meth HRESULT | Database [propget] | Get the binding database.
+        @meth HRESULT | Database [propput] | Set the binding database.
+        @meth HRESULT | Server [propget] | Get the server object.
+        @meth HRESULT | Server [propput] | Set the server object.
+        @meth HRESULT | Applications [propget] | Get the collection of application objects.
+        @meth HRESULT | GetDispatcher | Get the dispatcher for a binding point.
+        @meth HRESULT | GetDispatcherByCLSID | Get the dispatcher for a binding point.
+*/
+[
+        helpstring("SEOCOM event router"),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(2b6ac0f0-7e03-11d0-a9e0-00aa00685c74)
+]
+interface ISEORouter : IUnknown
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        //@method HRESULT | ISEORouter | Database [propget] | Get the binding database.
+        //@parm ISEODictionary ** | ppdictResult | [out,retval] Receives the value.  Will be NULL if the value has
+        // never been set.
+        //@rvalue S_OK | Success.
+        //@xref <i ISEORouter> <om ISEORouter.Database [propput]>
+        [helpstring("Get the binding database."),propget]
+        HRESULT Database([out,retval] ISEODictionary **ppdictResult);
+
+        //@method HRESULT | ISEORouter | Database [propput] | Set the binding database.
+        //@parm ISEODictionary * | pdictDatabase | [in,unique] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@xref <i ISEORouter> <om ISEORouter.Database [propget]>
+        [helpstring("Set the binding database."),propput]
+        HRESULT Database([in,unique] ISEODictionary *pdictDatabase);
+
+        //@method HRESULT | ISEORouter | Server [propget] | Get the server object.
+        //@parm ISEODictionary ** | ppdictResult | [out,retval] Receives the value.  Will be NULL if the
+        // value has never been set.
+        //@rvalue S_OK | Success.
+        //@xref <i ISEORouter> <om ISEORouter.Server [propput]>
+        [helpstring("Get the server object."),propget]
+        HRESULT Server([out,retval] ISEODictionary **ppdictResult);
+
+        //@method HRESULT | ISEORouter | Server [propput] | Set the server object.
+        //@parm ISEODictionary * | pdictServer | [in,unique] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@xref <i ISEORouter> <om ISEORouter.Server [propget]>
+        [helpstring("Set the server object."),propput]
+        HRESULT Server([in,unique] ISEODictionary *pdictServer);
+
+        //@method HRESULT | ISEORouter | Applications [propget] | Get the collection of application objects.  The
+        // collection is represented as an ISEODictionary, where the name of each property in the dictionary is
+        // the name of the application, and the value of each property is itself an ISEODictionary.
+        //@parm ISEODictionary ** | ppdictResult | [out,retval] Receives the value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_POINTER | Failure, bad pointer value.
+        //@xref <i ISEORouter> <i ISEODictionary>
+        [helpstring("Get the application collection."),propget]
+        HRESULT Applications([out,retval] ISEODictionary **ppdictResult);
+
+        //@method HRESULT | ISEORouter | GetDispatcher | Get the dispatcher for an event type.  If the
+        // dispatcher is present in the cache, then the cached instance is returned.  If it is not present
+        // in the cache, then a new one is created - if the newly created instance supports the
+        // ISEODispatcher interface, then ISEODispatcher::SetContext is called on the newly created instance
+        // before the object is returned to the client.
+        //@parm REFIID | iidEvent | [in] Specifies the type of event.
+        //@parm REFIID | iidDesired | [in] Specifies the interface desired.
+        //@parm IUnknown ** | ppUnkResult | [out,iid_is(iidDesired),retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, there are no bindings for this event (*ppUnkResult is NULL).
+        //@rvalue E_POINTER | Failure, bad pointer value.
+        [helpstring("Get the dispatcher for an event type.")]
+        HRESULT GetDispatcher([in] REFIID iidEvent,
+                                                  [in] REFIID iidDesired,
+                                                  [out,iid_is(iidDesired),retval] IUnknown **ppUnkResult);
+
+        //@method HRESULT | ISEORouter | GetDispatcherByCLSID | Get the dispatcher for an event type.  If the
+        // dispatcher is present in the cache, then the cached instance is returned.  If it is not present
+        // in the cache, then a new one is created - if the newly created instance supports the
+        // ISEODispatcher interface, then ISEODispatcher::SetContext is called on the newly created instance
+        // before the object is returned to the client.
+        //@parm REFCLSID | clsidDispatcher | [in] Specifies the CLSID of the dispatcher to load.
+        //@parm REFIID | iidEvent | [in] Specifies the type of event.
+        //@parm REFIID | iidDesired | [in] Specifies the interface desired.
+        //@parm IUnknown ** | ppUnkResult | [out,iid_is(iidDesired),retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, there are no bindings for this event (*ppUnkResult is NULL).
+        //@rvalue E_POINTER | Failure, bad pointer value.
+        [helpstring("Get the dispatcher for an event type.")]
+        HRESULT GetDispatcherByCLSID([in] REFCLSID clsidDispatcher,
+                                                                 [in] REFIID iidEvent,
+                                                                 [in] REFIID iidDesired,
+                                                                 [out,iid_is(iidDesired),retval] IUnknown **ppUnkResult);
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface IMCISMessageFilter | MCIS message filter.  This interface is exposed by MCIS extension
+        objects which want to be notified about mail and news messages.
+        @meth HRESULT | OnMessage | Handle a message from the mail or news server.
+*/
+[
+        helpstring("SEOCOM MCIS message filter."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(f174e5b0-9046-11d0-a9e8-00aa00685c74)
+]
+interface IMCISMessageFilter : IUnknown
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        //@method HRESULT | IMCISMessageFilter | OnMessage | Handle a message from the mail or news server.
+        //@parm IStream * | pstreamMessage | [in,unique] The message which was received.
+        //@parm ISEODictionary * | pdictEnvelope | [in,unique] Envelope data for the message.
+        //@parm ISEODictionary * | pdictBinding | [in,unique] The binding being signaled.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_S_DONEPROCESSING | Success, the message should not be handed to any other extension objects
+        // at this binding point.
+        //@xref <i ISEODictionary>
+        HRESULT OnMessage([in,unique] IStream *pstreamMessage,
+                                          [in,unique] ISEODictionary *pdictEnvelope,
+                                          [in,unique] ISEODictionary *pdictBinding);
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEOBindingRuleEngine | Evaluates events against rules.
+        @meth HRESULT | Evaluate | Evaluate the event against the rule.
+*/
+[
+        helpstring("SEOCOM Rule Engine"),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(f2d1daf0-2236-11d0-a9ce-00aa00685c74)
+]
+interface ISEOBindingRuleEngine : IUnknown
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        //@method HRESULT | ISEOBindingRuleEngine | Evaluate | Evaluate the event against the rule.
+        //@parm ISEODictionary * | pdictEvent | [in,unique] Specifies the event.
+        //@parm ISEODictionary * | pdictBinding | [in,unique] Specified the binding being checked.
+        //@rvalue S_OK | Success, the rule evaluated to TRUE.
+        //@rvalue S_FALSE | Success, the rule evaluated to FALSE.
+        //@xref <i ISEODictionary>
+        [helpstring("Evaluate the event against the rule.")]
+        HRESULT Evaluate([in,unique] ISEODictionary *pdictEvent,
+                                         [in,unique] ISEODictionary *pdictBinding);
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEOEventSink | Sinks events.
+        @meth HRESULT | OnEvent | Sink an event.
+*/
+[
+        helpstring("SEOCOM Event Notification"),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(1cab4c20-94f4-11d0-a9e8-00aa00685c74)
+]
+interface ISEOEventSink : IUnknown
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        //@method HRESULT | ISEOEventSink | OnEvent | Sink an event.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_S_CANCELLISTEN | Success, this event should not be fired again.
+        [helpstring("Handles an event.")]
+        HRESULT OnEvent();
+};
+
+
+[
+        helpstring("SEOCOM extended ISEODictionary, implemented on the registry"),
+        object,
+        pointer_default(unique),
+        uuid(347cacb0-2d1e-11d0-a9cf-00aa00685c74)
+]
+interface ISEORegDictionary : ISEODictionary
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        typedef SIZE_T SEO_HKEY;
+
+        [helpstring("Sets the machine, base registry key, and subkey.")]
+        HRESULT Load([in] LPCOLESTR pszMachine,
+                                 [in] SEO_HKEY skBaseKey,
+                                 [in] LPCOLESTR pszSubKey,
+                                 [in,unique] IErrorLog *pErrorLog);
+};
+
+
+[
+        helpstring("SEOCOM Converter for Event Binding Data"),
+        object,
+        pointer_default(unique),
+        uuid(ee4e64d0-31f1-11d0-a9d0-00aa00685c74)
+]
+interface ISEOBindingConverter : IUnknown
+{
+
+import "wtypes.idl";
+import "ocidl.idl";
+
+        [helpstring("Converts event data.")]
+        HRESULT Convert([in] LONG lEventData, [out,retval] ISEODictionary **ppiResult);
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEODispatcher | Dispatches an event.
+        @meth HRESULT | SetContext | Sets the object's context.
+*/
+[
+        helpstring("SEOCOM Binding Dispatcher"),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(8ca89880-31f1-11d0-a9d0-00aa00685c74)
+]
+interface ISEODispatcher : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | ISEODispatcher | SetContext | Sets the object's context.
+        //@parm ISEORouter * | piRouter | [in,unique] Specifies the router.
+        //@parm ISEODictionary * | pdictBP | [in,unique] Specifies the dictionary for the binding point.
+        [helpstring("Sets the object's context.")]
+        HRESULT SetContext([in,unique] ISEORouter *piRouter, [in,unique] ISEODictionary *pdictBP);
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventDeliveryOptions | Provides access to event delivery options.  ****_TBD_****
+*/
+[
+        dual,
+        helpstring("Provides access to event delivery options."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(0688a660-a3ff-11d0-a9e9-00aa00685c74)
+]
+interface IEventDeliveryOptions : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventTypeSinks | Provides access to a collection of sinks for an event type.
+        Objects of this type are returned by the IEventType::Sinks [propget] method.  This object is
+        intended to provide automation-compatible access to the PROGID's of classes which are registered
+        in the component category matching the event type.
+        @meth HRESULT | Item | Get a sink.
+        @meth HRESULT | Add | Add a sink.
+        @meth HRESULT | Remove | Remove a sink.
+        @meth HRESULT | Count [propget] | Get the count of the sinks.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the sinks.
+        @xref <om IEventType::Sinks [propget]> <i IEventType>
+*/
+[
+        dual,
+        helpstring("Provides access to a collection of sinks for an event type."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(a1063f50-a654-11d0-a9ea-00aa00685c74)
+]
+interface IEventTypeSinks : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventTypeSinks | Item | Get a sink.  This method returns one of the PROGID's
+        // for sinks registered in the component category of the event type.
+        //@parm long | lIndex | [in] Specifies the sink to get.  This is the one-based index into the
+        // collection.
+        //@parm BSTR * | pstrTypeSink | [out,retval] Receives the result.  This will be the PROGID of
+        // the sink.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the index is out of bounds.  *pstrTypeSink is set to NULL.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get a sink."),id(DISPID_VALUE)]
+        HRESULT Item([in] long lIndex, [out,retval] BSTR *pstrTypeSink);
+
+        //@method HRESULT | IEventTypeSinks | Add | Add a sink.  This method causes methods on the
+        // ICatRegister interface to be called, in order to register the sink into the component
+        // category for the event type.
+        //@parm BSTR | pszTypeSink | [in] Specifies the PROGID of the sink to register.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the sink was already registered.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Add a sink.")]
+        HRESULT Add([in] BSTR pszTypeSink);
+
+        //@method HRESULT | IEventTypeSinks | Remove | Remove a sink.  This method causes methods on the
+        // ICatRegister interface to be called, in order to unregister the sink from the component
+        // category for the event type.
+        //@parm BSTR | pszTypeSink | [in] Specifies the PROGID of the sink to unregister.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_OK_ALREADYUNREGISTERED | Success, the sink was not registered.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Remove a sink.")]
+        HRESULT Remove([in] BSTR pszTypeSink);
+
+        //@method HRESULT | IEventTypeSinks | Count [propget] | Get the cound of the sinks.
+        //@parm long * | plCount | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the count of the sinks."),propget]
+        HRESULT Count([out,retval] long *plCount);
+
+        //@method HRESULT | IEventTypeSinks | _NewEnum [propget] | Get an enumerator for the sinks.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result.  This will be an object which
+        // implements IEnumVARIANT to enumerate the BSTR values of the PROGID's of the sinks.
+        [helpstring("Get an enumerator for the sinks."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventType | Provides access to information about an event type.
+        @meth HRESULT | ID [propget] | Get the ID.
+        @meth HRESULT | DisplayName [propget] | Get the display name.
+        @meth HRESULT | Sinks [propget] | Get the sinks which support this event type.
+        @xref <i IEventTypes> <om ISourceType::EventTypes [propget]>
+*/
+[
+        dual,
+        helpstring("Provides access to information about an event type."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(4a993b80-a654-11d0-a9ea-00aa00685c74)
+]
+interface IEventType : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventType | ID [propget] | Get the ID.
+        //@parm BSTR * | pstrID | [out,retval] Receives the result.  This will be the CATID of the
+        // component category for the event type, converted to a string using the StringFromGUID2()
+        // function.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the ID."),propget]
+        HRESULT ID([out,retval] BSTR *pstrID);
+
+        //@method HRESULT | IEventType | DisplayName [propget] | Get the display name.
+        //@parm BSTR * | pstrDisplayName | [out,retval] Receives the result.  This will be the
+        // display name for the component category, in the currently-active locale.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the display name."),propget]
+        HRESULT DisplayName([out,retval] BSTR *pstrDisplayName);
+
+        //@method HRESULT | IEventType | Sinks [propget] | Get the sinks which support this event type.
+        // This method returns an IEventTypeSinks collection, which lets the client enumerate, add,
+        // and remove the PROGID's for classes which are registered in the component category of the
+        // event type.
+        //@parm IEventTypeSinks ** | ppTypeSinks | [out,retval]  Receives the result.
+        //@xref <i IEventTypeSinks>
+        [helpstring("Get the sinks which support this event type."),propget]
+        HRESULT Sinks([out,retval] IEventTypeSinks **ppTypeSinks);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventPropertyBag | Implements IPropertyBag, in an automation-compatible way.
+        @meth HRESULT | Item | Get a property value.
+        @meth HRESULT | Name | Get the name of a property.
+        @meth HRESULT | Add | Add a property.
+        @meth HRESULT | Remove | Remove a property.
+        @meth HRESULT | Count [propget] | Get the count of the properties.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the names of the properties.
+        @xref <om IEventBinding::SinkProperties [propget]> <om IEventBinding::SourceProperties [propget]>
+        <om IEventBinding::EventBindingProperties [propget]>
+*/
+[
+        dual,
+        helpstring("Implements IPropertyBag, in an automation-compatible way."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(aabb23e0-a705-11d0-a9ea-00aa00685c74)
+]
+interface IEventPropertyBag : IDispatch
+{
+
+        //@method HRESULT | IEventPropertyBag | Item | Get a property value.
+        //@parm VARIANT * | pvarPropDesired | [in] Specifies the property to get.  This is either a number
+        // representing the one-based index of the property in the collection, or it is a string representing
+        // the name of the property.
+        //@parm VARIANT * | pvarPropValue | [out,retval] Receives the result.  If the property is not
+        // present, this will be VT_EMPTY.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the property is not present - the result is VT_EMPTY.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get a property."),id(DISPID_VALUE)]
+        HRESULT Item([in] VARIANT *pvarPropDesired, [out,retval] VARIANT *pvarPropValue);
+
+        //@method HRESULT | IEventPropertyBag | Name | Get the name of a property.
+        //@parm long | lPropIndex | [in] Specifies the index of the property to get.
+        //@parm BSTR * | pstrPropName | [out,retval] Receives the result.  If the property is not present,
+        // this will be NULL.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the property is not present - the result is NULL.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the name of a property.")]
+        HRESULT Name([in] long lPropIndex, [out,retval] BSTR *pstrPropName);
+
+        //@method HRESULT | IEventPropertyBag | Add | Add a property.
+        //@parm BSTR | pszPropName | [in] Specifies the name of the property.
+        //@parm VARIANT * | pvarPropValue | [in] Specifies the value of the property.  If this is VT_EMPTY,
+        // then the property is removed.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the property was already present and its previous value was overwritten.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Add a property.")]
+        HRESULT Add([in] BSTR pszPropName, [in] VARIANT *pvarPropValue);
+
+        //@method HRESULT | IEventPropertyBag | Remove | Remove a property.
+        //@parm VARIANT * | pvarPropDesired | Specifies the property to remove.  This is either a number
+        // representing the one-based index of the property in the collection, or it is a string representing
+        // the name of the property.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the property was not present in the collection.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Remove a property.")]
+        HRESULT Remove([in] VARIANT *pvarPropDesired);
+
+        //@method HRESULT | IEventPropertyBag | Count [propget] | Get the count of the properties.
+        //@parm long * | plCount | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the count of the properties."),propget]
+        HRESULT Count([out,retval] long *plCount);
+
+        //@method HRESULT | IEventPropertyBag | _NewEnum [propget] | Get an enumerator for the property names.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result, which is an object which
+        // implements IEnumVARIANT for enumerating the names of the properties in the collection.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get an enumerator for the names of the properties."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventBinding | Provides access to an event binding.  An event binding is a single
+        instance of a sink being bound to an event source.  IEventBinding provides access to information
+        stored in the binding database for the binding - for example, the object to be run to sink which
+        sinks events, data stored in the binding on behalf of the sink, etc.
+        @meth HRESULT | ID [propget] | Get the binding ID.
+        @meth HRESULT | DisplayName [propget] | Get the display name.
+        @meth HRESULT | DisplayName [propput] | Set the display name.
+        @meth HRESULT | DisplayName [propputref] | Set the display name.
+        @meth HRESULT | SinkClass [propget] | Get the sink class.
+        @meth HRESULT | SinkClass [propput] | Set the sink class.
+        @meth HRESULT | SinkClass [propputref] | Set the sink class.
+        @meth HRESULT | SinkProperties [propget] | Get the sink properties.
+        @meth HRESULT | SourceProperties [propget] | Get the source properties.
+        @meth HRESULT | EventBindingProperties [propget] | Get the event binding properties.
+        @meth HRESULT | Enabled [propget] | Get the enabled state.
+        @meth HRESULT | Enabled [propput] | Set the enabled state.
+        @meth HRESULT | Enabled [propputref] | Set the enabled state.
+        @meth HRESULT | Expiration [propget] | Get the expiration date.
+        @meth HRESULT | Expiration [propput] | Set the expiration date.
+        @meth HRESULT | Expiration [propputref] | Set the expiration date.
+        @meth HRESULT | MaxFirings [propget] | Get the maximum firings.
+        @meth HRESULT | MaxFirings [propput] | Set the maximum firings.
+        @meth HRESULT | MaxFirings [propputref] | Set the maximum firings.
+        @meth HRESULT | Save | Save changes.
+        @xref <i IEventBindings>
+*/
+[
+        dual,
+        helpstring("Provides access to an event binding."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(8e398ce0-a64e-11d0-a9ea-00aa00685c74)
+]
+interface IEventBinding : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventBinding | ID [propget] | Get the binding ID.  The binding ID
+        // uniquely identifies the binding, in a persistable manner.
+        [helpstring("Get the binding ID."),propget]
+        HRESULT ID([out,retval] BSTR *pstrBindingID);
+
+        //@method HRESULT | IEventBinding | DisplayName [propget] | Get the display name.
+        //@parm BSTR * | pstrDisplayName | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the display name."),propget]
+        HRESULT DisplayName([out,retval] BSTR *pstrDisplayName);
+
+        //@method HRESULT | IEventBinding | DisplayName [propput] | Set the display name.
+        //@parm BSTR | pszDisplayName | [in] Specifies the name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the display name."),propput]
+        HRESULT DisplayName([in] BSTR pszDisplayName);
+
+        //@method HRESULT | IEventBinding | DisplayName [propputref] | Set the display name.
+        //@parm BSTR * | ppszDisplayName | [in] Specifies the name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the display name."),propputref]
+        HRESULT DisplayName([in] BSTR *ppszDisplayName);
+
+        //@method HRESULT | IEventBinding | SinkClass [propget] | Get the sink class.  The sink
+        // class is the PROGID of the object which sinks events at this binding.
+        //@parm BSTR * | pstrSinkClass | [out,retval] Receives the result.  This is the PROGID of
+        // the object which sinks events in this binding.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the sink class."),propget]
+        HRESULT SinkClass([out,retval] BSTR *pstrSinkClass);
+
+        //@method HRESULT | IEventBinding | SinkClass [propput] | Set the sink class.  The sink
+        // class is the PROGID of the object which sinks events at this binding.
+        //@parm BSTR | pszSinkClass | [in] A string for the PROGID of the object which is to sink
+        // events in this binding.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_BADCLASS | Failure, the object class is bad.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the sink class."),propput]
+        HRESULT SinkClass([in] BSTR pszSinkClass);
+
+        //@method HRESULT | IEventBinding | SinkClass [propputref] | Set the sink class.  The sink
+        // class is the PROGID of the object which sinks events at this binding.
+        //@parm BSTR * | ppszSinkClass | [in] A string for the PROGID of the object which is to sink
+        // events in this binding.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_BADCLASS | Failure, the object class is bad.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the sink class."),propputref]
+        HRESULT SinkClass([in] BSTR *ppszSinkClass);
+
+        //@method HRESULT | IEventBinding | SinkProperties [propget] | Get the sink properties.  The sink
+        // properties are stored in an IEventPropertyBag, and are available to the sink when the sink is
+        // created.
+        //@parm IEventPropertyBag ** | ppSinkProperties | [out,retval] Receives the result.  This object
+        // implements IEventPropertyBag for accessing the sink's properties.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventPropertyBag>
+        [helpstring("Get the sink properties."),propget]
+        HRESULT SinkProperties([out,retval] IEventPropertyBag **ppSinkProperties);
+
+        //@method HRESULT | IEventBinding | SourceProperties [propget] | Get the source properties.  The
+        // source properties are stored in an IEventPropertyBag, and are available to the source for
+        // controlling how events are signaled.
+        //@parm IEventPropertyBag ** | ppSourceProperties | [out,retval] Receives the result.  This object
+        // implements IEventPropertyBag for accessing the source's properties.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventPropertyBag>
+        [helpstring("Get the source properties."),propget]
+        HRESULT SourceProperties([out,retval] IEventPropertyBag **ppSourceProperties);
+
+        //@method HRESULT | IEventBinding | EventBindingProperties [propget] | Get the event binding
+        // properties.  The event binding properties are stored in an IEventPropertyBag, and are used by the
+        // event system for controlling how events are handled.
+        //@parm IEventPropertyBag ** | ppEventBindingProperties | [out,retval] Receives the result.  This
+        // object implements IEventPropertyBag for accessing the event binding's properties.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventPropertyBag>
+        [helpstring("Get the event binding data."),propget]
+        HRESULT EventBindingProperties([out,retval] IEventPropertyBag **ppEventBindingProperties);
+
+        //@method HRESULT | IEventBinding | Enabled [propget] | Get the enabled state.
+        //@parm VARIANT_BOOL * | pbEnabled | [out,retval] Receives the result - VARIANT_TRUE if the binding
+        // is enabled, and VARIANT_FALSE if the binding is disabled.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the enabled state."),propget]
+        HRESULT Enabled([out,retval] VARIANT_BOOL *pbEnabled);
+
+        //@method HRESULT | IEventBinding | Enabled [propput] | Set the enabled state.
+        //@parm VARIANT_BOOL | bEnabled | [in] Sets the enabled state - VARIANT_TRUE if the binding is to be
+        // enabled, and VARIANT_FALSE if the binding is to be disabled.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the enabled state."),propput]
+        HRESULT Enabled([in] VARIANT_BOOL bEnabled);
+
+        //@method HRESULT | IEventBinding | Enabled [propputref] | Set the enabled state.
+        //@parm VARIANT_BOOL * | pbEnabled | [in] Sets the enabled state - VARIANT_TRUE if the binding is
+        // to be enabled, and VARIANT_FALSE if the binding is to be disabled.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the enabled state."),propputref]
+        HRESULT Enabled([in] VARIANT_BOOL *pbEnabled);
+
+        //@method HRESULT | IEventBinding | Expiration [propget] | Get the expiration date.
+        //@parm DATE * | pdateExpiration | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, there is no expiration set.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the expiration date."),propget]
+        HRESULT Expiration([out,retval] DATE *pdateExpiration);
+
+        //@method HRESULT | IEventBinding | Expiration [propput] | Set the expiration date.
+        //@parm DATE | dateExpiration | [in] Specifies the expiration.  Setting an expiration of 0.0 will
+        // remove the expiration.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the expiration date."),propput]
+        HRESULT Expiration([in] DATE dateExpiration);
+
+        //@method HRESULT | IEventBinding | Expiration [propputref] | Set the expiration date.
+        //@parm DATE * | pdateExpiration | [in] Specifies the expiration.  Setting an expiration of 0.0 will
+        // remove the expiration.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the expiration date."),propputref]
+        HRESULT Expiration([in] DATE *pdateExpiration);
+
+        //@method HRESULT | IEventBinding | MaxFirings [propget] | Get the maximum number of firings.
+        //@parm long * | plMaxFirings | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, there is no max firings limitation.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the maximum number of firings."),propget]
+        HRESULT MaxFirings([out,retval] long *plMaxFirings);
+
+        //@method HRESULT | IEventBinding | MaxFirings [propput] | Set the maximum number of firings.
+        //@parm long  | lMaxFirings | [in] Specifies the maximum number of firings.  Setting a max firings
+        // of -1 removes the max firings setting.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the maximum number of firings."),propput]
+        HRESULT MaxFirings([in] long lMaxFirings);
+
+        //@method HRESULT | IEventBinding | MaxFirings [propputref] | Set the maximum number of firings.
+        //@parm long  * | plMaxFirings | [in] Specifies the maximum number of firings.  Setting a max firings
+        // of -1 removes the max firings setting.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the maximum number of firings."),propputref]
+        HRESULT MaxFirings([in] long *plMaxFirings);
+
+        //@method HRESULT | IEventBinding | Save | Save changes.  Changes made using the
+        // other methods of this interface are not written to the binding database until the Save()
+        // method is called.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_BADCLASS | Failure, the object class is bad.
+        //@rvalue EVENTS_E_BADEVENTTYPE | Failure, the event type is bad.
+        //@rvalue EVENTS_E_BADATA | Failure, the binding contains bad data.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Save changes.")]
+        HRESULT Save();
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventBindings | Provides access to a collection of event bindings.
+        @meth HRESULT | Item | Get an event binding.
+        @meth HRESULT | Add | Create an event binding.
+        @meth HRESULT | Remove | Remove an event binding.
+        @meth HRESULT | Count [propget] | Get the count of the event bindings.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the event bindings.
+        @xref <i IEventBinding> <om IEventBindingManager::Bindings [propget]>
+*/
+[
+        dual,
+        helpstring("Provides access to a collection of event bindings."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(1080b910-a636-11d0-a9ea-00aa00685c74)
+]
+interface IEventBindings : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventBindings | Item | Get an event binding.
+        //@parm VARIANT * | pvarDesired | [in] Specifies the event binding to get.  This is either a
+        // number which is the one-based index of the binding to get, or it is a string which is the ID
+        // of the binding to get.
+        //@parm IEventBinding ** | ppEventBinding | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the binding is not present in the collection.  *ppEventBinding is
+        // set to NULL.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventBinding::ID [propget]> <i IEventBinding>
+        [helpstring("Get an event binding."),id(DISPID_VALUE)]
+        HRESULT Item([in] VARIANT *pvarDesired, [out,retval] IEventBinding **ppEventBinding);
+
+        //@method HRESULT | IEventBindings | Add | Create an event binding.  The new binding object is
+        // not initialized or written to the binding database - after creating it, the client must call
+        // methods in the IEventBinding interface to initialize it, and then call the
+        // IEventBinding::Save method to write the new binding to the binding database.
+        //@parm BSTR | strBinding | [in] Specifies the ID of the binding.  This is a GUID, converted
+        // to a string using StringFromGUID2().  If this value is NULL, or an empty string, or the value
+        // GUID_NULL, then a new GUID will be generated for the binding (and the IEventBinding::ID
+        // [propget] method may be used to retrieve it).
+        //@parm IEventBinding ** | ppBinding | [out,retval] Receives the new binding object.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the binding was already present.  *ppBinding has a pointer to the
+        // pre-existing binding.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventBinding::ID [propget]> <i IEventBinding>
+        [helpstring("Create an event binding.")]
+        HRESULT Add([in] BSTR strBinding, [out,retval] IEventBinding **ppBinding);
+
+        //@method HRESULT | IEventBindings | Remove | Delete an event binding.
+        //@parm VARIANT * | pvarDesired | [in] Specifies the event binding to remove.  This is either a
+        // number which is the one-based index of the binding to remove, or it is a string which is the
+        // ID of the binding to remove.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the event binding was not present in the collection.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventBinding::ID [propget]>
+        [helpstring("Remove an event binding.")]
+        HRESULT Remove([in] VARIANT *pvarDesired);
+
+        //@method HRESULT | IEventBindings | Count [propget] | Get the count of the event bindings.
+        //@parm long * | plCount | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the count of the event bindings."),propget]
+        HRESULT Count([out,retval] long *plCount);
+
+        //@method HRESULT | IEventBindings | _NewEnum [propget] | Get an enumerator for the bindings.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result.  This will be an object which
+        // implements IEnumVARIANT to enumerate the IEventBinding interfaces of the binding objects.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventBinding>
+        [helpstring("Get an enumerator for the bindings."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventTypes | Provides access to a collection of event types.
+        @meth HRESULT | Item | Get an event type.
+        @meth HRESULT | Add | Add an event type.
+        @meth HRESULT | Remove | Remove an event type.
+        @meth HRESULT | Count [propget] | Get the count of the event types.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the event types.
+        @xref <i IEventType> <om IEventSourceType::EventTypes [propget]>
+*/
+[
+        dual,
+        helpstring("Provides access to a collection of event types."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(cab29ef0-a64f-11d0-a9ea-00aa00685c74)
+]
+interface IEventTypes : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventTypes | Item | Get an event type.
+        //@parm VARIANT * | pvarDesired | [in] Specifies the event type to get.  This is either a number
+        // representing the one-based index into the collection of the event type to get, or it is a
+        // string representing the CATID (converted using the StringFromGUID2() function) of the event
+        // type to get.
+        //@parm IEventType ** | ppEventType | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the item is not present.  *ppEvent is NULL.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventType>
+        [helpstring("Get an event type."),id(DISPID_VALUE)]
+        HRESULT Item([in] VARIANT *pvarDesired, [out,retval] IEventType ** ppEventType);
+
+        //@method HRESULT | IEventTypes | Add | Add an event type.
+        //@parm BSTR | pszEventType | [in] Specifies the CATID (converted using the
+        // StringFromGUID2() function) of the event type to add.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the event type was already registered in the source type.
+        //@rvalue EVENTS_E_BADEVENTTYPE | Failure, the event type is not a valid component category.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventType::ID [propget]>
+        [helpstring("Add an event type.")]
+        HRESULT Add([in] BSTR pszEventType);
+
+        //@method HRESULT | IEventTypes | Remove | Remove an event type.  This method can only be called if
+        // this object was returned by IEventManager::EventTypes() for a particular source type.
+        // When called under those circumstances, this method removes the event type from the list of
+        // event types which the source type supports.
+        //@parm BSTR | pszEventType | [in] Specifies the CATID (converted using the
+        // StringFromGUID2() function) of the event type to remove.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the event type was not registered in the source type.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventType::ID [propget]>
+        [helpstring("Remove an event type.")]
+        HRESULT Remove([in] BSTR pszEventType);
+
+        //@method HRESULT | IEventTypes | Count [propget] | Get the count of the event types.
+        //@parm long * | plCount | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the count of the event types."),propget]
+        HRESULT Count([out,retval] long *plCount);
+
+        //@method HRESULT | IEventTypes | _NewEnum [propget] | Get an enumerator for the event types.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result, which is an object which
+        // implements IEnumVARIANT for enumerating the IEventType interfaces of the event types in the
+        // collection.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventType>
+        [helpstring("Get an enumerator for the event types."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventBindingManager | Provides access to an instance of a binding database.
+        @meth HRESULT | Bindings [propget] | Get the event bindings.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the event types.
+        @xref <i IEventBindings> <i IEventBinding> <i IEventTypes> <i IEventTypes>
+        <om IEventSource::GetBindingManager>
+*/
+[
+        dual,
+        helpstring("Provides access to an instance of a binding database."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(0b4cdbc0-a64f-11d0-a9ea-00aa00685c74)
+]
+interface IEventBindingManager : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventBindingManager | Bindings [propget] | Get the event bindings.
+        //@parm BSTR | pszEventType | [in] Specifies the event type of the bindings to get.  It is
+        // a string representation of the CATID of the event type, generated by StringFromGUID2().
+        //@parm IEventBindings ** | ppBindings | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventBindings> <i IEventBinding>
+        [helpstring("Get the event bindings."),propget]
+        HRESULT Bindings([in] BSTR pszEventType, [out,retval] IEventBindings **ppBindings);
+
+        //@method HRESULT | IEventBindingManager | _NewEnum [propget] | Get an enumerator for the event types.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result.  This will be an object which
+        // implements IEnumVARIANT to enumerate the BSTR values of the event types.
+        [helpstring("Get an enumerator for the sinks."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS INTERNAL
+
+
+/*
+        @interface IEventBindingManagerCopier | Makes copies of the IEventBindingManager object.
+        @meth HRESULT | Copy | Make a copy of the object.
+        @meth HRESULT | EmptyCopy | Make an empty copy of the object.
+        @xref <i IEventBindingManager>
+*/
+
+
+[
+        dual,
+        helpstring("Makes copies of the IEventBindingManager object."),
+        hidden,
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(64bad540-f88d-11d0-aa14-00aa006bc80b)
+]
+interface IEventBindingManagerCopier : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventBindingManagerCopier | Copy | Make a copy of the object.  The copy is
+        // implemented in-memory - any changes made to the copy will not affect the original.
+        //@parm long | lTimeout | [in] Specifies the timeout in milliseconds.
+        //@parm IEventBindingManager ** | ppBindingManager | [out] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Make a copy of the object.")]
+        HRESULT Copy([in] long lTimeout, [out,retval] IEventBindingManager **ppBindingManager);
+
+        //@method HRESULT | IEventBindingManagerCopier | EmptyCopy | Make an empty copy of the object.  The
+        // copy is implemented in-memory - any changes made to the copy will not affect the original.
+        //@parm IEventBindingManager ** | ppBindingManager | [out] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Make an empty copy of the object.")]
+        HRESULT EmptyCopy([out,retval] IEventBindingManager **ppBindingManager);
+
+}
+
+
+interface IEventDispatcher;
+
+
+//@doc EVENTS INTERNAL
+
+
+/*
+        @interface IEventRouter | Event router.
+        @meth HRESULT | Database [propget] | Get the binding database.
+        @meth HRESULT | Database [propput] | Set the binding database.
+        @meth HRESULT | Database [propputref] | Set the binding database.
+        @meth HRESULT | GetDispatcher | Get the dispatcher for an event type.
+        @meth HRESULT | GetDispatcherByCLSID | Get the dispatcher for an event type.
+        @meth HRESULT | GetDispatcherByClassFactory | Get the dispatcher for an event type.
+*/
+
+[
+        helpstring("Event router."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(1a00b970-eda0-11d0-aa10-00aa006bc80b)
+]
+interface IEventRouter : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventRouter | Database [propget] | Get the binding database.
+        //@parm IEventBindingManager ** | ppBindingManager | [out,retval] Receives the value.  Will be NULL
+        // if the value has never been set.
+        //@rvalue S_OK | Success.
+        //@xref <om IEventRouter.Database [propput]>
+        [helpstring("Get the binding database."),propget]
+        HRESULT Database([out,retval] IEventBindingManager **ppBindingManager);
+
+        //@method HRESULT | IEventRouter | Database [propput] | Set the binding database.
+        //@parm IEventBindingManager * | pBindingManager | [in,unique] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@xref <om IEventRouter.Database [propget]> <om IEventRouter.Database [propputref]>
+        [helpstring("Set the binding database."),propput]
+        HRESULT Database([in,unique] IEventBindingManager *pBindingManager);
+
+        //@method HRESULT | IEventRouter | Database [propputref] | Set the binding database.
+        //@parm IEventBindingManager ** | ppBindingManager | [in,unique] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@xref <om IEventRouter.Database [propget]> <om IEventRouter.Database [propput]>
+        [helpstring("Set the binding database."),propputref]
+        HRESULT Database([in,unique] IEventBindingManager **ppBindingManager);
+
+        //@method HRESULT | IEventRouter | GetDispatcher | Get the dispatcher for an event type.  If the
+        // dispatcher is present in the cache, then the cached instance is returned.  If it is not present
+        // in the cache, then a new one is created - if the newly created instance supports the
+        // IEventDispatcher interface, then IEventDispatcher::SetContext is called on the newly created
+        // instance before the object is returned to the client.
+        //@parm REFIID | iidEvent | [in] Specifies the type of event.
+        //@parm REFIID | iidDesired | [in] Specifies the interface desired.
+        //@parm IUnknown ** | ppUnkResult | [out,iid_is(iidDesired),retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_POINTER | Failure, bad pointer value.
+        [helpstring("Get the dispatcher for an event type.")]
+        HRESULT GetDispatcher([in] REFIID iidEvent,
+                                                  [in] REFIID iidDesired,
+                                                  [out,iid_is(iidDesired),retval] IUnknown **ppUnkResult);
+
+        //@method HRESULT | IEventRouter | GetDispatcherByCLSID | Get the dispatcher for an event type.  If
+        // the dispatcher is present in the cache, then the cached instance is returned.  If it is not
+        // present in the cache, then a new one is created - if the newly created instance supports the
+        // IEventDispatcher interface, then IEventDispatcher::SetContext is called on the newly created
+        // instance before the object is returned to the client.
+        //@parm REFCLSID | clsidDispatcher | [in] Specifies the CLSID of the dispatcher to load.
+        //@parm REFIID | iidEvent | [in] Specifies the type of event.
+        //@parm REFIID | iidDesired | [in] Specifies the interface desired.
+        //@parm IUnknown ** | ppUnkResult | [out,iid_is(iidDesired),retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_POINTER | Failure, bad pointer value.
+        [helpstring("Get the dispatcher for an event type.")]
+        HRESULT GetDispatcherByCLSID([in] REFCLSID clsidDispatcher,
+                                                                 [in] REFIID iidEvent,
+                                                                 [in] REFIID iidDesired,
+                                                                 [out,iid_is(iidDesired),retval] IUnknown **ppUnkResult);
+
+        //@method HRESULT | IEventRouter | GetDispatcherByClassFactory | Get the dispatcher for an event
+        // type.  If the dispatcher is present in the cache, then the caches instance is returned.  If it is
+        // not present in the cache, then a new one is created - if the newly created instance supports the
+        // IEventDispatcher interface, then IEventDispatcher::SetContext is called on the newly created
+        // instance before the object is returned to the client.
+        //@parm REFCLSID | clsidDispatcher | [in] Specifies the CLSID of the dispatcher to load.  If a
+        // dispatcher with this CLSID is not already loaded, then the piClassFactory object is used to create
+        // one.
+        //@parm IClassFactory * | piClassFactory | [in] Specifies the class factory which is to be used if
+        // the dispatcher needs to be created.
+        //@parm REFIID | iidEvent | [in] Specifies the type of event.
+        //@parm REFIID | iidDesired | [in] Specifies the interface desired.
+        //@parm IUnknown ** | ppUnkResult | [out,iid_is(iidDesired),retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_POINTER | Failure, bad pointer value.
+        [helpstring("Get the dispatcher for an event type.")]
+        HRESULT GetDispatcherByClassFactory([in] REFCLSID clsidDispatcher,
+                                                                                [in] IClassFactory *piClassFactory,
+                                                                                [in] REFIID iidEvent,
+                                                                                [in] REFIID iidDesired,
+                                                                                [out,iid_is(iidDesired),retval] IUnknown **ppUnkResult);
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventDispatcher | Dispatches an event.
+        @meth HRESULT | SetContext | Sets the object's context.
+*/
+[
+        helpstring("Dispatches an event."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(c980f550-ed9e-11d0-aa10-00aa006bc80b)
+]
+interface IEventDispatcher : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventDispatcher | SetContext | Sets the object's context.
+        //@parm REFGUID | guidEventType | [in] Specifies the event type.
+        //@parm IEventRouter * | piRouter | [in] Specifies the router.
+        //@parm IEventBindings * | pBindings | [in] Specifies the bindings.
+        [helpstring("Sets the object's context.")]
+        HRESULT SetContext([in] REFGUID guidEventType, [in] IEventRouter *piRouter, [in] IEventBindings *pBindings);
+};
+
+
+interface IEventSourceType;
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventSource | Provides information about an event source.
+        @meth HRESULT | ID [propget] | Get the ID.
+        @meth HRESULT | DisplayName [propget] | Get the display name.
+        @meth HRESULT | DisplayName [propput] | Set the display name.
+        @meth HRESULT | DisplayName [propputref] | Set the display name.
+        @meth HRESULT | BindingManagerMoniker [propget] | Get the moniker for the binding manager.
+        @meth HRESULT | BindingManagerMoniker [propput] | Set the moniker for the binding manager.
+        @meth HRESULT | BindingManagerMoniker [propputref] | Set the moniker for the binding manager.
+        @meth HRESULT | GetBindingManager | Get the binding manager.
+        @meth HRESULT | Save | Save changes.
+        @xref <i IEventSourceType>
+*/
+[
+        dual,
+        helpstring("Provides information about an event source."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(b1dcb040-a652-11d0-a9ea-00aa00685c74)
+]
+interface IEventSource : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventSource | ID [propget] | Get the ID.
+        //@parm BSTR * | pstrID | [out,retval] Receives the result.  This is the GUID for the event
+        // source, converted to a string using the StringFromGUID2() function.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the ID."),propget]
+        HRESULT ID([out,retval] BSTR *pstrID);
+
+        //@method HRESULT | IEventSource | DisplayName [propget] | Get the display name.
+        //@parm BSTR * | pstrDisplayName | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the display name."),propget]
+        HRESULT DisplayName([out,retval] BSTR *pstrDisplayName);
+
+        //@method HRESULT | IEventSource | DisplayName [propput] | Set the display name.
+        //@parm BSTR | pszDisplayName | [in] Specifies the name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the display name."),propput]
+        HRESULT DisplayName([in] BSTR pszDisplayName);
+
+        //@method HRESULT | IEventSource | DisplayName [propputref] | Set the display name.
+        //@parm BSTR * | ppszDisplayName | [in] Specifies the name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the display name."),propputref]
+        HRESULT DisplayName([in] BSTR *ppszDisplayName);
+
+        //@method HRESULT | IEventSource | BindingManagerMoniker [propget] | Get the moniker for the
+        // binding manager.
+        //@parm IUnknown ** | ppUnkMoniker | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_BADDATA | Failure, the moniker for the binding manager has not been set.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventBindingManager> <om IEventSource::GetBindingManager>
+        [helpstring("Get the moniker for the binding manager."),propget]
+        HRESULT BindingManagerMoniker([out,retval] IUnknown **ppUnkMoniker);
+
+        //@method HRESULT | IEventSource | BindingManagerMoniker [propput] | Set the moniker for the
+        // binding manager.
+        //@parm IUnknown * | pUnkMoniker | [in] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventBindingManager> <om IEventSource::GetBindingManager>
+        [helpstring("Set the moniker for the binding manager."),propput]
+        HRESULT BindingManagerMoniker([in] IUnknown *pUnkMoniker);
+
+        //@method HRESULT | IEventSource | BindingManagerMoniker [propputref] | Set the moniker for the
+        // binding manager.
+        //@parm IUnknown ** | ppUnkMoniker | [in] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventBindingManager> <om IEventSource::GetBindingManager>
+        [helpstring("Set the moniker for the binding manager."),propputref]
+        HRESULT BindingManagerMoniker([in] IUnknown **ppUnkMoniker);
+
+        //@method HRESULT | IEventSource | GetBindingManager | Get the binding manager.  This function is
+        // the equivalent of calling the BindingManagerMoniker() [propget] method, and then calling
+        // the IMoniker::BindToObject() method on the moniker.
+        //@parm IEventBindingManager ** | ppBindingManager | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_BADDATA | Failure, the moniker for the binding manager has not been set.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventSource::BindingManagerMoniker [propget]> <i IEventBindingManager>
+        [helpstring("Get the binding manager.")]
+        HRESULT GetBindingManager([out,retval] IEventBindingManager **ppBindingManager);
+
+        // @method HRESULT | IEventSource | Properties [propget] | Get the source properties.
+        //@parm IEventPropertyBag ** | ppProperties | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the source properties."), propget]
+        HRESULT Properties([out,retval] IEventPropertyBag **ppProperties);
+
+        //@method HRESULT | IEventSource | Save | Save changes.  Changes made with the other methods on
+        // this interface do not take effect until this method is called.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Save changes.")]
+        HRESULT Save();
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventSources | Provides access to a collection of event sources.
+        @meth HRESULT | Item | Get a source.
+        @meth HRESULT | Add | Create a source.
+        @meth HRESULT | Remove | Remove a source.
+        @meth HRESULT | Count [propget] | Get the count of the sources.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the sources.
+        @xref <i IEventSource>
+*/
+[
+        dual,
+        helpstring("Provides access to a collection of event sources."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(73e8c930-a652-11d0-a9ea-00aa00685c74)
+]
+interface IEventSources : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventSources | Item | Get a source.
+        //@parm VARIANT * | pvarDesired | [out,retval] Specifies the source to get.  This is either a
+        // number representing the one-based index of the desired source in the collection, or it is a
+        // string representing the GUID of the source (presumably converted using the StringFromGUID2()
+        // function).
+        //@parm IEventSource ** | ppSource | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the item was not present.  *ppSource is NULL.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSource>
+        [helpstring("Get a source."),id(DISPID_VALUE)]
+        HRESULT Item([in] VARIANT *pvarDesired, [out,retval] IEventSource **ppSource);
+
+        //@method HRESULT | IEventSources | Add | Create a source.  This method creates an unitialized
+        // source - the client must call methods on the resulting IEventSource interface to set
+        // properties for the new source, and then must call IEventSource::Save() to save the new source.
+        //@parm BSTR | pszSource | [in] Specifies the ID of the new source.  This must be a GUID,
+        // converted to a string using the StringFromGUID2() function.  If this value is NULL, or an
+        // empty string, or GUID_NULL, then a new GUID will be generated for the source (and the
+        // IEventSource::ID() [propget] method can be used to retrieve it).
+        //@parm IEventSource ** | ppSource | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the source already existed.  A pointer to the pre-existing source is
+        // returned.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSource> <om IEventSource::ID [propget]>
+        [helpstring("Create a source.")]
+        HRESULT Add([in] BSTR pszSource, [out,retval] IEventSource **ppSource);
+
+        //@method HRESULT | IEventSources | Remove | Remove a source.
+        //@parm VARIANT * | pvarDesired | [in] Specifies the source to remove.  This must be a GUID,
+        // converted to a string using the StringFromGUID2() function.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the source didn't exist.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <om IEventSource::ID [propget]>
+        [helpstring("Remove a source.")]
+        HRESULT Remove([in] VARIANT *pvarDesired);
+
+        //@method HRESULT | IEventSources | Count [propget] | Get the count of the sources.
+        //@parm long * | plCount | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the count of the sources."),propget]
+        HRESULT Count([out,retval] long *plCount);
+
+        //@method HRESULT | IEventSources | _NewEnum [propget] | Get an enumerator for the sources.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result, which is an object which
+        // implements IEnumVARIANT for enumerating the IEventSource interfaces of the event types in the
+        // collection.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSource>
+        [helpstring("Get an enumerator for the sources."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventSourceType | Provides access to information about a source type.
+        @meth HRESULT | ID [propget] | Get the ID.
+        @meth HRESULT | DisplayName [propget] | Get the display name.
+        @meth HRESULT | DisplayName [propput] | Set the display name.
+        @meth HRESULT | DisplayName [propputref] | Set the display name.
+        @meth HRESULT | EventTypes [propget] | Get the event types.
+        @meth HRESULT | Sources [propget] | Get the sources.
+        @meth HRESULT | Save | Save changes.
+        @xref <i IEventSources> <om IEventSourceType::Sources [propget]>
+*/
+[
+        dual,
+        helpstring("Provides access to information about a source type."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(063a62e0-a652-11d0-a9ea-00aa00685c74)
+]
+interface IEventSourceType : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventSourceType | ID [propget] | Get the ID.
+        //@parm BSTR * | pstrID | [out,retval] Receives the result.  This will be the GUID of the
+        // source type, converted to a string using the StringFromGUID2() function.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the ID."),propget]
+        HRESULT ID([out,retval] BSTR *pstrID);
+
+        //@method HRESULT | IEventSourceType | DisplayName [propget] | Get the display name.
+        //@parm BSTR * | pstrDisplayName | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the display name."),propget]
+        HRESULT DisplayName([out,retval] BSTR *pstrDisplayName);
+
+        //@method HRESULT | IEventSourceType | DisplayName [propput] | Set the display name.
+        //@parm BSTR | pszDisplayName | [in] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the display name."),propput]
+        HRESULT DisplayName([in] BSTR pszDisplayName);
+
+        //@method HRESULT | IEventSourceType | DisplayName [propputref] | Set the display name.
+        //@parm BSTR * | ppszDisplayName | [in] Specifies the value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the display name."),propputref]
+        HRESULT DisplayName([in] BSTR *ppszDisplayName);
+
+        //@method HRESULT | IEventSourceType | EventTypes [propget] | Get the event types.
+        //@parm IEventTypes ** | ppEventTypes | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventTypes> <i IEventType>
+        [helpstring("Get the event types."),propget]
+        HRESULT EventTypes([out,retval] IEventTypes **ppEventTypes);
+
+        //@method HRESULT | IEventSourceType | Sources [propget] | Get the event sources.
+        //@parm IEventSources ** | ppSources | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSources> <i IEventSource>
+        [helpstring("Get the event sources."),propget]
+        HRESULT Sources([out,retval] IEventSources **ppSources);
+
+        //@method HRESULT | IEventSourceType | Save | Save changes.  Changes made with the other methods on
+        // this interface do not take effect until this method is called.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Save changes.")]
+        HRESULT Save();
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventSourceTypes | Provides access to a collection of event source types.
+        @meth HRESULT | Item | Get a source type.
+        @meth HRESULT | Add | Create a source type.
+        @meth HRESULT | Remove | Remove a source type.
+        @meth HRESULT | Count [propget] | Get the count of the source types.
+        @meth HRESULT | _NewEnum [propget] | Get an enumerator for the source types.
+        @xref <i IEventSourceType> <om IEventManager::SourceTypes [propget]>
+*/
+[
+        dual,
+        helpstring("Provides access to a collection of event source types."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(caf30fd0-a651-11d0-a9ea-00aa00685c74)
+]
+interface IEventSourceTypes : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventSourceTypes | Item | Get a source type.
+        //@parm VARIANT * | pvarDesired | [in] Specifies the source type to get.  This is either a number
+        // representing the one-based index of the source type in the collection, or it is the GUID of
+        // source type, converted to a string using the StringFromGUID2() function.
+        //@parm IEventSourceType ** | ppSourceType | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the item is not present.  *ppSourceType is NULL.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSourceType>
+        [helpstring("Get a source type."),id(DISPID_VALUE)]
+        HRESULT Item([in] VARIANT *pvarDesired, [out,retval] IEventSourceType **ppSourceType);
+
+        //@method HRESULT | IEventSourceTypes | Add | Add a source type.
+        //@parm BSTR | pszSourceType | [in] Specifies the ID for the new source type.  This is a
+        // GUID, converted to a string using the StringFromGUID2() function.  If this value is NULL, or
+        // an empty string, or GUID_NULL, then a new GUID will be generated for the source type (and can
+        // be retrieved using the IEventSourceType::ID() method).
+        //@parm IEventSourceType ** | ppSourceType | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the source type already existed, and a pointer to the pre-existing
+        // type is returned.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSourceType>
+        [helpstring("Create a source type.")]
+        HRESULT Add([in] BSTR pszSourceType, [out,retval] IEventSourceType **ppSourceType);
+
+        //@method HRESULT | IEventSourceTypes | Remove | Remove a source type.
+        //@parm VARIANT * | pvarDesired | [in] Specifies the source type to remove.  This must be a GUID,
+        // converted to a string using the StringFromGUID2() function.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the source didn't exist.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Remove a source type.")]
+        HRESULT Remove([in] VARIANT *pvarDesired);
+
+        //@method HRESULT | IEventSourceTypes | Count [propget] | Get the count of the source types.
+        //@parm long * | plCount | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the count of the source types."),propget]
+        HRESULT Count([out,retval] long *plCount);
+
+        //@method HRESULT | IEventSourceTypes | _NewEnum [propget] | Get an enumerator for the source types.
+        //@parm IUnknown ** | ppUnkEnum | [out,retval] Receives the result, which is an object which
+        // implements IEnumVARIANT for enumerating the IEventSourceType interfaces of the event types in
+        // the collection.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSourceType>
+        [helpstring("Get an enumerator for the source types."),id(DISPID_NEWENUM),propget,hidden]
+        HRESULT _NewEnum([out,retval] IUnknown **ppUnkEnum);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventManager | Provides access to registered source types, and facilities for firing
+        events.
+        @meth HRESULT | SourceTypes [propget] | Get the source types.
+        @meth HRESULT | CreateSink | Creates an event sink from an event binding.
+        @xref <i IEventSourceTypes> <i IEventSourceType>
+*/
+[
+        dual,
+        helpstring("Provides access to registered source types, and facilities for firing events."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(5f6012b0-a651-11d0-a9ea-00aa00685c74)
+]
+interface IEventManager : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventManager | SourceTypes [propget] | Get the source types.
+        //@parm IEventSourceTypes ** | ppSourceTypes | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        //@xref <i IEventSourceTypes> <i IEventSourceType> <i IEventType>
+        [helpstring("Get the source types."),propget]
+        HRESULT SourceTypes([out,retval] IEventSourceTypes **ppSourceTypes);
+
+        //@method HRESULT | IEventManager | CreateSink | Creates a sink for a binding.
+        //@parm IEventBinding * | pBinding | [in,unique] Specifies the binding to create the sink for.
+        //@parm IEventDeliveryOptions * | pDeliveryOptions | [in,unique] Specifies the options for firing
+        // the event to this sink.  If this value is NULL, then default options are used.
+        //@parm IUnknown ** | ppUnkSink | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue EVENTS_E_DISABLED | Failure, the binding is disabled.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Creates a sink for a binding.")]
+        HRESULT CreateSink([in,unique] IEventBinding *pBinding,
+                                           [in,unique] IEventDeliveryOptions *pDeliveryOptions,
+                                           [out,retval] IUnknown **ppUnkSink);
+
+};
+
+
+//@doc EVENTS INTERNAL
+
+
+/*
+        @interface IEventDatabasePlugin | Provides facilities for pluggable binding database stores.
+        @meth HRESULT | Database [propget] | Get the binding database.
+        @meth HRESULT | Database [propput] | Set the binding database.
+        @meth HRESULT | Database [propputref] | Set the binding database.
+        @meth HRESULT | Name [propget] | Get the name.
+        @meth HRESULT | Name [propput] | Set the name.
+        @meth HRESULT | Name [propputref] | Set the name.
+        @meth HRESULT | Parent [propget] | Get the parent.
+        @meth HRESULT | Parent [propput] | Set the parent.
+        @meth HRESULT | Parent [propputref] | Set the parent.
+*/
+[
+        helpstring("Provides facilities for pluggable binding database stores."),
+        hidden,
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(4915fb10-af97-11d0-a9eb-00aa00685c74)
+]
+interface IEventDatabasePlugin : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventDatabasePlugin | Database [propget] | Get the binding database.
+        //@parm IEventPropertyBag ** | ppDatabase | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the binding database."),propget]
+        HRESULT Database([out,retval] IEventPropertyBag **ppDatabase);
+
+        //@method HRESULT | IEventDatabasePlugin | Database [propput] | Set the binding database.
+        //@parm IEventPropertyBag * | pDatabase | [in] Specifies the binding database.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the binding database."),propput]
+        HRESULT Database([in] IEventPropertyBag *pDatabase);
+
+        //@method HRESULT | IEventDatabasePlugin | Database [propputref] | Set the binding database.
+        //@parm IEventPropertyBag ** | ppDatabase | [in] Specifies the binding database.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the binding database."),propputref]
+        HRESULT Database([in] IEventPropertyBag **ppDatabase);
+
+        //@method HRESULT | IEventDatabasePlugin | Name [propget] | Get the name.
+        //@parm BSTR * | pstrName | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the name."),propget]
+        HRESULT Name([out,retval] BSTR *pstrName);
+
+        //@method HRESULT | IEventDatabasePlugin | Name [propput] | Set the name.
+        //@parm BSTR | strName | [in] Specifies the name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the name."),propput]
+        HRESULT Name([in] BSTR strName);
+
+        //@method HRESULT | IEventDatabasePlugin | Name [propputref] | Set the name.
+        //@parm BSTR * | pstrName | [in] Specifies the name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the name."),propputref]
+        HRESULT Name([in] BSTR *pstrName);
+
+        //@method HRESULT | IEventDatabasePlugin | Parent [propget] | Get the parent.
+        //@parm IEventPropertyBag ** | ppParent | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Get the parent."),propget]
+        HRESULT Parent([out,retval] IEventPropertyBag **ppParent);
+
+        //@method HRESULT | IEventDatabasePlugin | Parent [propput] | Set the Parent.
+        //@parm IEventPropertyBag * | pDatabase | [in] Specifies the parent.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the parent."),propput]
+        HRESULT Parent([in] IEventPropertyBag *pParent);
+
+        //@method HRESULT | IEventDatabasePlugin | Parent [propputref] | Set the parent.
+        //@parm IEventPropertyBag ** | ppDatabase | [in] Specifies the parent.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Set the parent."),propputref]
+        HRESULT Parent([in] IEventPropertyBag **ppParent);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventDatabaseManager | Provides facilities for managing a binding database.
+        @meth HRESULT | CreateDatabase | Create a moniker for a database.
+        @meth HRESULT | EraseDatabase | Remove all of the information in a database.
+        @meth HRESULT | MakeVServerPath | Formats a service name and instance number into a complete path.
+        @meth HRESULT | MakeVRootPath | Formats a service name, instance number, and virtual root into a complete path.
+*/
+
+
+[
+        helpstring("Provides facilities for managing a binding database."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(adc25b30-cbd8-11d0-a9f8-00aa00685c74)
+]
+interface IEventDatabaseManager : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventDatabaseManager | CreateDatabase | Create a moniker for a database.
+        //@parm BSTR | strPath | [in] Specifies the complete path to the database.
+        //@parm IUnknown ** | ppMonDatabase | [out,retval] Receives the moniker - this object implements the
+        // IMoniker interface.  Calling the moniker's IMoniker::BindToObject method yields an object which
+        // provides access to the database.
+        //@rvalue S_OK | Success.
+        //@rvalue S_FALSE | Success, the database already existed.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Create a moniker for a database.")]
+        HRESULT CreateDatabase([in] BSTR strPath, [out,retval] IUnknown **ppMonDatabase);
+
+        //@method HRESULT | IEventDatabaseManager | EraseDatabase | Remove all of the information in a
+        // database.
+        //@parm BSTR | strPath | [in] Specifies the complete path to the database.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access is denied.
+        [helpstring("Remove all of the information in a database.")]
+        HRESULT EraseDatabase([in] BSTR strPath);
+
+        //@method HRESULT | IEventDatabaseManager | MakeVServerPath | Formats a service name and instance
+        // number into a complete path.
+        //@parm BSTR | strService | [in] Specifies the service name.
+        //@parm long | lInstance | [in] Specifies the service instance.
+        //@parm BSTR * | pstrPath | [out,retval] Receives the complete path.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_INVALIDARG | Failure, the strService is in a bad format, or lInstance is out of bounds.
+        [helpstring("Formats a service name and instance number into a complete path.")]
+        HRESULT MakeVServerPath([in] BSTR strService, [in] long lInstance, [out,retval] BSTR *pstrPath);
+
+        //@method HRESULT | IEventDatabaseManager | MakeVRootPath | Formats a service name, instance number,
+        // and virtual root into a complete path.
+        //@parm BSTR | strService | [in] Specifies the service name.
+        //@parm long | lInstance | [in] Specifies the service instance.
+        //@parm BSTR | strRoot | [in] Specifies the virtual root.
+        //@parm BSTR * | pstrPath | [out,retval] Receives the complete path.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_INVALIDARG | Failure, the strService or strRoot is in a bad format, or lInstance is out
+        // of bounds.
+        [helpstring("Formats a service name, virtual root, and instance number into a complete path.")]
+        HRESULT MakeVRootPath([in] BSTR strService, [in] long lInstance, [in] BSTR strRoot, [out,retval] BSTR *pstrPath);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventUtil | Provide's utility functions.
+        @meth HRESULT | DisplayNameFromMoniker | Get a monker's display name.
+        @meth HRESULT | MonikerFromDisplayName | Create a moniker from a display name.
+        @meth HRESULT | ObjectFromMoniker | Perform IMoniker::BindToObject.
+        @meth HRESULT | GetNewGUID | Create a new GUID.
+        @meth HRESULT | CopyPropertyBag | Copy an IEventPropertyBag in-depth.
+        @meth HRESULT | CopyPropertyBagShallow | Perform a shallow copy of an IEventPropertyBag
+        @meth HRESULT | DispatchFromObject | Perform QueryInterface for IID_IDispatch.
+        @meth HRESULT | GetIndexedGUID | Get an indexed GUID.
+        @meth HRESULT | RegisterSource | Register a new source.
+*/
+
+
+[
+        helpstring("Provides utility functions."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(c61670e0-cd6e-11d0-a9f8-00aa00685c74)
+]
+interface IEventUtil : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventUtil | DisplayNameFromMoniker | Get a moniker's display name.
+        //@parm IUnknown * | pUnkMoniker | [in] Specifies the moniker.
+        //@parm BSTR * | pstrDisplayName | [out,retval] Receives the display name.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_NOINTERFACE | Failure, the object does not implement IMoniker.
+        [helpstring("Get a moniker's display name.")]
+        HRESULT DisplayNameFromMoniker([in] IUnknown *pUnkMoniker, [out,retval] BSTR *pstrDisplayName);
+
+        //@method HRESULT | IEventUtil | MonikerFromDisplayName | Create a moniker from a display name.
+        //@parm BSTR | strDisplayName | [in] Specifies the display name.
+        //@parm IUnknown ** | ppUnkMoniker | [out,retval] Receives the moniker.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Create a moniker from a display name.")]
+        HRESULT MonikerFromDisplayName([in] BSTR strDisplayName, [out,retval] IUnknown **ppUnkMoniker);
+
+        //@method HRESULT | IEventUtil | ObjectFromMoniker | Perform IMoniker::BindToObject.
+        //@parm IUnknown * | pUnkMoniker | [in] Specifies the moniker.
+        //@parm IUnknown ** | ppUnkObject | [out,retval] Receives the object.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Perform IMoniker::BindToObject.")]
+        HRESULT ObjectFromMoniker([in] IUnknown *pUnkMoniker, [out,retval] IUnknown **ppUnkObject);
+
+        //@method HRESULT | IEventUtil | GetNewGUID | Create a new GUID.
+        //@parm BSTR * | pstrGUID | [out,retval] Receives the new GUID.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Create a new GUID.")]
+        HRESULT GetNewGUID([out,retval] BSTR *pstrGUID);
+
+        //@method HRESULT | IEventUtil | CopyPropertyBag | Copy an IEventPropertyBag in-depth.  The result
+        // is implemented with an in-memory object.
+        //@parm IUnknown * | pUnkInput | [in] Specifies the input.
+        //@parm IUnknown ** | ppUnkOutput | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Copy an IEventPropertyBag in-depth.")]
+        HRESULT CopyPropertyBag([in] IUnknown *pUnkInput, [out,retval] IUnknown **ppUnkOutput);
+
+        //@method HRESULT | IEventUtil | CopyPropertyBagShallow | Perform a shallow copy of an
+        // IEventPropertyBag.  The result is implemented with an in-memory object.
+        //@parm IUnknown * | pUnkInput | [in] Specifies the input.
+        //@parm IUnknown ** | ppUnkOutput | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Perform a shallow copy of an IEventPropertyBag.")]
+        HRESULT CopyPropertyBagShallow([in] IUnknown *pUnkInput, [out,retval] IUnknown **ppUnkOutput);
+
+        //@method HRESULT | IEventUtil | DispatchFromObject | Perform QueryInterface for IID_IDispatch.
+        //@parm IUnknown * | pUnkObject | [in] Specifies the object.
+        //@parm IDispatch ** | ppDispOutput | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_NOINTERFACE | Failure, the object does not support IDispatch.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Perform QueryInterface for IID_IDispatch.")]
+        HRESULT DispatchFromObject([in] IUnknown *pUnkObject, [out,retval] IDispatch **ppDispOutput);
+
+        //@method HRESULT | IEventUtil | GetIndexedGUID | Get an indexed GUID.  For a given base GUID and
+        // index, this method will always return the same (unique) GUID.
+        //@parm BSTR | strGUID | [in] Specifies the base GUID.
+        //@parm long | lValue | [in] Specifies the index.
+        //@parm BSTR * | pstrResult | [out,retval] Receives the result.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Get an indexed GUID.")]
+        HRESULT GetIndexedGUID([in] BSTR strGUID, [in] long lValue, [out,retval] BSTR *pstrResult);
+
+        //@method HRESULT | IEventUtil | RegisterSource | Register a new source.
+        //@parm BSTR | strSourceType | [in] Specifies the GUID of the Source Type for the new Source.
+        //@parm BSTR | strSource | [in] Specifies the GUID of the new Source.  If lIndex is -1 then this
+        // parameter is the actual GUID.  Otherwise, this parameter is the base GUID, and
+        // IEventUtil::GetIndexGUID is used the generate the actual GUID.
+        //@parm long | lInstance | [in] Specifies the instance of the GUID.  See the strDatabaseManager
+        // parameter for how this parameter is used.
+        //@parm BSTR | strService | [in] Specifies the service name of the new Source.  This is used as a
+        // parameter to either IEventDatabaseManager::MakeVRootPath or IEventDatabaseManager::MakeVServerPath.
+        //@parm BSTR | strVRoot | [in] Specifies the virtual root of the new Source.  If this parameter is
+        // a zero-length string or is NULL, then no virtual root is used.
+        //@parm BSTR | strDatabaseManager | [in] Specifies the GUID or ProgID of the object which implements
+        // IEventDatabaseManager for generating the path of the binding database for the new Source.  If the
+        // strVRoot parameter is specifies, then IEventDatabaseManager::MakeVRootPath is used - otherwise,
+        // IEventDatabaseManager::MakeVServerPath is used.
+        //@parm BSTR | strDisplayName | [in] Specifies the Display Name for the new Source.
+        //@parm IEventBindingManager ** | ppBindingManager | [out,retval,unique] Receives the
+        // IEventBindingManager interface for the object which stores the bindings for the new Source.  This
+        // parameter may not be NULL - the output must be accepted.
+        // this parameter is NULL, then the interface is not returned.
+        //@rvalue S_OK | Success.
+        //@rvalue SEO_E_NOTPRESENT | Failure, the Source Type is not registered.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue E_ACCESSDENIED | Failure, access denied.
+        [helpstring("Register a new source.")]
+        HRESULT RegisterSource([in] BSTR strSourceType,
+                                                   [in] BSTR strSource,
+                                                   [in] long lInstance,
+                                                   [in] BSTR strService,
+                                                   [in] BSTR strVRoot,
+                                                   [in] BSTR strDatabaseManager,
+                                                   [in] BSTR strDisplayName,
+                                                   [out,retval] IEventBindingManager **ppBindingManager);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventComCat | Provides access to component categories.
+        @meth HRESULT | RegisterCategory | Register a component category.
+        @meth HRESULT | UnRegisterCategory | Unregister a component category.
+        @meth HRESULT | RegisterClassImplementsCategory | Register a class as implementing a component category.
+        @meth HRESULT | UnRegisterClassImplementsCategory | Unregister a class as implementing a component category.
+        @meth HRESULT | RegisterClassRequiresCategory | Register a class as requiring a component category.
+        @meth HRESULT | UnRegisterClassRequiresCategory | Unregister a class as requiring a component category.
+        @meth HRESULT | GetCategories | Get the registered component categories.
+        @meth HRESULT | GetCategoryDescription | Get the description for a component category.
+*/
+
+
+[
+        helpstring("Provides access to component categories."),
+        object,
+        oleautomation,
+        pointer_default(unique),
+        uuid(65a70ec0-cd87-11d0-a9f8-00aa00685c74)
+]
+interface IEventComCat : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventComCat | RegisterCategory | Register a component category.
+        //@parm BSTR | pszCategory | [in] Specifies the component category.
+        //@parm BSTR | pszDescription | [in] Specifies the description.
+        //@parm long | lcidLanguage | [in] Specifies the LCID of the description.  This should be 0 for
+        // LOCALE_NEUTRAL, 1024 for LOCALE_USER_DEFAULT, or 2048 for LOCALE_SYSTEM_DEFAULT - or some other
+        // language-specific value.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Register a component category.")]
+        HRESULT RegisterCategory([in] BSTR pszCategory, [in] BSTR pszDescription, [in] long lcidLanguage);
+
+        //@method HRESULT | IEventComCat | UnRegisterCategory | Unregister a component category.
+        //@parm BSTR | pszCategory | [in] Specifies the component category.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Unregister a component category.")]
+        HRESULT UnRegisterCategory([in] BSTR pszCategory);
+
+        //@method HRESULT | IEventComCat | RegisterClassImplementsCategory | Register a class as implementing
+        // a component category.
+        //@parm BSTR | pszClass | [in] Specifies the class.
+        //@parm BSTR | pszCategory | [in] Specifies the component category.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Register a class as implementing a component category.")]
+        HRESULT RegisterClassImplementsCategory([in] BSTR pszClass, [in] BSTR pszCategory);
+
+        //@method HRESULT | IEventComCat | UnRegisterClassImplementsCategory | Unregister a class as
+        // implementing a component category.
+        //@parm BSTR | pszClass | [in] Specifies the class.
+        //@parm BSTR | pszCategory | [in] Specifies the category.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Unregister a class as implementing a component category.")]
+        HRESULT UnRegisterClassImplementsCategory([in] BSTR pszClass, [in] BSTR pszCategory);
+
+        //@method HRESULT | IEventComCat | RegisterClassRequiresCategory | Register a class as requiring a
+        // component category.
+        //@parm BSTR | pszClass | [in] Specifies the class.
+        //@parm BSTR | pszCategory | [in] Specifies the category.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Register a class as requiring a component category.")]
+        HRESULT RegisterClassRequiresCategory([in] BSTR pszClass, [in] BSTR pszCategory);
+
+        //@method HRESULT | IEventComCat | UnRegisterClassRequiresCategory | Unregister a class as requiring
+        // a component category.
+        //@parm BSTR | pszClass | [in] Specifies the class.
+        //@parm BSTR | pszCategory | [in] Specifies the category.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Unregister a class as requiring a component category.")]
+        HRESULT UnRegisterClassRequiresCategory([in] BSTR pszClass, [in] BSTR pszCategory);
+
+        //@method HRESULT | IEventComCat | GetCategories | Get the registered component categories.
+        //@parm SAFEARRAY(VARIANT) * | psaCategories | [out,retval] Receives the list of registered component
+        // categories.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        [helpstring("Get the registered component categories.")]
+        HRESULT GetCategories([out,retval] SAFEARRAY(VARIANT) *psaCategories);
+
+        //@method HRESULT | IEventComCat | GetCategoryDescription | Get the description for a component category.
+        //@parm BSTR | pszCategory | [in] Specifies the category.
+        //@parm long | lcidLanguage | [in] Specifies the desired LCID of the description.  This should be 0
+        // for LOCALE_NEUTRAL, 1024 for LOCALE_USER_DEFAULT, or 2048 for LOCALE_SYSTEM_DEFAULT - or some
+        // other language-specific value.
+        //@parm BSTR * | pstrDescription | [out,retval] Receives the description.
+        //@rvalue S_OK | Success.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        //@rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        //@rvalue CAT_E_CATIDNOEXIST | Failure, the category does not exist.
+        //@rvalue CAT_E_NODESCRIPTION | Failure, there is not description string for the specified locale.
+        [helpstring("Get the description for a component category.")]
+        HRESULT GetCategoryDescription([in] BSTR pszCategory, [in] long lcidLanguage, [out,retval] BSTR *pstrDescription);
+
+};
+
+
+//@doc EVENTS INTERNAL
+
+
+/*
+        @interface IEventNotifyBindingChange | Receives notifications of changes to a binding database.
+        @meth HRESULT | OnChange | Called when a change occurs.
+        @xref <i IEventNotifyBindingChangeDisp>
+*/
+
+[
+        helpstring("Receives notifications of changes to a binding database."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(08f4f2a0-dc5b-11d0-aa0f-00aa006bc80b)
+]
+interface IEventNotifyBindingChange : IUnknown
+{
+        //@method HRESULT | IEventNotifyBindingChange | OnChange | Called when a change occurs.
+        //@rvalue S_OK | Success.
+        [helpstring("Called when a change occurs.")]
+        HRESULT OnChange();
+};
+
+
+//@doc EVENTS INTERNAL
+
+
+/*
+        @interface IEventNotifyBindingChangeDisp | Receives notifications of changes to a binding database (IDispatch).
+        @meth HRESULT | OnChange | Called when a change occurs.
+        @xref <i IEventNotifyBindingChange>
+*/
+
+[
+        dual,
+        helpstring("Receives notifications of changes to a binding database."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(dc3d83b0-e99f-11d0-aa10-00aa006bc80b)
+]
+interface IEventNotifyBindingChangeDisp : IDispatch
+{
+        //@method HRESULT | IEventNotifyBindingChangeDisp | OnChange | Called when a change occurs.
+        //@rvalue S_OK | Success.
+        [helpstring("Called when a change occurs."),id(1)]
+        HRESULT OnChange();
+};
+
+
+//@doc SEO
+
+
+/*
+        @interface ISEOInitObject | Same interface as IPersistPropertyBag but uses shallow binding.
+*/
+[
+        helpstring("Same interface as IPersistPropertyBag but uses shallow binding."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(9bb6aab0-af6d-11d0-8bd2-00c04fd42e37)
+]
+interface ISEOInitObject : IPersistPropertyBag
+{
+        // No methods (uses IPersistPropertyBag methods).
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventRuleEngine | Evaluates events against rules.
+        @meth HRESULT | Evaluate | Evaluate the event against the rule.
+*/
+[
+        helpstring("Evaluates events against rules."),
+        object,
+        pointer_default(unique),
+        uuid(da816090-f343-11d0-aa14-00aa006bc80b)
+]
+interface IEventRuleEngine : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventRuleEngine | Evaluate | Evaluate the event against the rule.
+        //@parm IEventPropertyBag | pEvent | [in] Specifies the event.
+        //@rvalue S_OK | Success, the rule evaluated to TRUE.
+        //@rvalue S_FALSE | Success, the rule evaluated to FALSE.
+        //@xref <i IEventPropertyBag>
+        [helpstring("Evaluate the event against the rule.")]
+        HRESULT Evaluate([in,unique] IUnknown *pEvent);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventPersistBinding | Persists an object to/from a binding.  This interface derives from IPersist.
+        @meth HRESULT | IsDirty | Checks the object for changes since it was last saved.
+        @meth HRESULT | Load | Initializes an object from the binding where it was previously saved.
+        @meth HRESULT | Save | Saves an object to the specified binding.
+*/
+[
+        helpstring("Persists an object to/from a binding."),
+        object,
+        pointer_default(unique),
+        uuid(e9311660-1a98-11d1-aa26-00aa006bc80b)
+]
+interface IEventPersistBinding : IPersist
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventPersistBinding | IsDirty | Checks the object for changes since it was last saved.
+        //@rvalue S_OK | Success, the object has changed since the last time it was saved.
+        //@rvalue S_FALSE | Success, the object has not changed since the last time it was saved.
+        [helpstring("Checks the object for changes since it was last saved.")]
+        HRESULT IsDirty();
+
+        //@method HRESULT | IEventPersistBinding | Load | Initializes an object from the binding where it was previously saved.
+        //@parm IEventBinding * | piBinding | [in] Specifies the binding to load from.
+        //@rvalue S_OK | Success, the object successfully initialized itself.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        [helpstring("Initializes an object from the binding where it was previously saved.")]
+        HRESULT Load([in] IEventBinding *piBinding);
+
+        //@method HRESULT | IEventPersistBinding | Save | Saves an object to the specified binding.
+        //@parm IEventBinding * | piBinding | [in] Specifies the binding to save to.
+        //@parm VARIANT_BOOL | fClearDirty | [in] Specifies whether or not the object should clear its dirty flag.
+        //@rvalue S_OK | Success, the object successfully saved itself.
+        //@rvalue E_OUTOFMEMORY | Failure, out of memory.
+        [helpstring("Saves an object to the specified binding.")]
+        HRESULT Save([in] IEventBinding * piBinding, [in] VARIANT_BOOL fClearDirty);
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventSinkNotify | Generic sink interface.
+        @meth HRESULT | OnEvent | Called when the event happens.
+*/
+[
+        helpstring("Generic sink interface."),
+        object,
+        pointer_default(unique),
+        uuid(bdf065b0-f346-11d0-aa14-00aa006bc80b)
+]
+interface IEventSinkNotify : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventSinkNotify | OnEvent | Called when the event happens.
+        //@rvalue S_OK | Success, the rule evaluated to TRUE.
+        [helpstring("Called when the event happens."),id(DISPID_VALUE)]
+        HRESULT OnEvent();
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventSinkNotifyDisp | Generic sink interface (IDispatch).
+        @meth HRESULT | OnEvent | Called when the event happens.
+*/
+[
+        helpstring("Generic sink interface (IDispatch)."),
+        object,
+        pointer_default(unique),
+        uuid(33a79660-f347-11d0-aa14-00aa006bc80b)
+]
+interface IEventSinkNotifyDisp : IDispatch
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventSinkNotifyDisp | OnEvent | Called when the event happens.
+        //@rvalue S_OK | Success, the rule evaluated to TRUE.
+        [helpstring("Called when the event happens."),id(DISPID_VALUE)]
+        HRESULT OnEvent();
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+
+/*
+        @interface IEventIsCacheable | Determine whether or not the object should be cached.
+        @meth HRESULT | IsCacheable | Determine whether or not the object should be cached.
+*/
+[
+        helpstring("Determine whether or not the object should be cached"),
+        object,
+        pointer_default(unique),
+        uuid(22e0f830-1e81-11d1-aa29-00aa006bc80b)
+]
+interface IEventIsCacheable : IUnknown
+{
+
+        import "wtypes.idl";
+        import "ocidl.idl";
+
+        //@method HRESULT | IEventIsCacheable | IsCacheable | Determine whether or not the object should be cached
+        //@rvalue S_OK | Success, the object should be cached.
+        //@rvalue S_FALSE | Success, the object should not be cached.
+        [helpstring("Determine whether or not the object should be cached")]
+        HRESULT IsCacheable();
+
+};
+
+
+//@doc EVENTS EXTERNAL
+
+/*
+        @interface IEventCreateOptions | Provide options for creating objects.  Objects implementating this
+         interface may be passed as the pDeliveryOptions parameter to IEventManager::CreateSink, so that
+         operations during the object creation may be overridden.
+        @meth HRESULT | CreateBindCtx | Override the Win32 CreateBindCtx function.
+        @meth HRESULT | MkParseDisplayName | Override the Win32 MkParseDisplayName function.
+        @meth HRESULT | BindToObject | Override the IMoniker:BindToObject method.
+        @meth HRESULT | CoCreateInstance | Override the Win32 CoCreateInstance function.
+        @meth HRESULT | Init | Override initialization.
+*/
+[
+        helpstring("Provide options for creating objects."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(c0287bfe-ef7f-11d1-9fff-00c04fa37348)
+]
+interface IEventCreateOptions : IEventDeliveryOptions
+{
+        //@method HRESULT | IEventCreateOptions | CreateBindCtx | Override the Win32 CreateBindCtx function.
+        // By implementating this method, the object can provide its own IBindCtx for use during object
+        // creation.  See the documentation for the Win32 CreateBindCtx function for more information.
+        //@parm DWORD | dwReserved | [in] Reserved.  Must be 0.
+        //@parm IBindCtx ** | ppBindCtx | [out] Receives the result.
+        //@rvalue SUCCEEDED() | Success.
+        //@rvalue E_NOTIMPL | Not implemented.  The caller should call the Win32 CreateBindCtx function.
+        //@rvalue FAILED() | Failure.
+        [helpstring("Override the Win32 CreateBindCtx function.")]
+        HRESULT CreateBindCtx([in] DWORD dwReserved, [out] IBindCtx **ppBindCtx);
+
+        //@method HRESULT | IEventCreateOptions | MkParseDisplayName | Override the Win32 MkParseDisplayName
+        // function.  By implementing this method, the object can perform its own logic for converting a
+        // display name into an IMoniker interface during object creation.  See the documentation for the
+        // Win32 MkParseDisplayName function for more information.
+        //@parm IBindCtx * | pBindCtx | [in] Specifies the bind context.
+        //@parm LPCOLESTR | pszUserName | [in] Specifes the display name.
+        //@parm ULONG * | pchEaten | [out] Receives the number of characters consumed from the display name.
+        //@parm IMoniker ** | ppMoniker | [out] Receives the result.
+        //@rvalue SUCCEEDED() | Success.
+        //@rvalue E_NOTIMPL | Not implemented.  The caller should call the Win32 MkParseDisplayName function.
+        //@rvalue FAILED() | Failure.
+        [helpstring("Override the Win32 MkParseDisplayName function.")]
+        HRESULT MkParseDisplayName([in] IBindCtx *pBindCtx,
+                                                           [in] LPCOLESTR pszUserName,
+                                                           [out] ULONG * pchEaten,
+                                                           [out] LPMONIKER *ppMoniker);
+
+        //@method HRESULT | IEventCreateOptions | BindToObject | Override the IMoniker::BindToObject method.
+        // By implementing this method, the object can perform its own logic for binding a moniker to an
+        // object during object creation.  See the documentation for IMoniker::BindToObject for more
+        // information.
+        //@parm IMoniker * | pMoniker | [in] Specifies the moniker to bind.
+        //@parm IBindCtx * | pBindCtx | [in[ Specifies the bind context.
+        //@parm IMoniker * | pmkLeft | [in] Specifies the moniker to the left.
+        //@parm REFIID | riidResult | [in] Specifies the desired interface on the object.
+        //@parm LPVOID * | ppvResult | [out,iid_is(riidResult)] Receives the result.
+        //@rvalue SUCCEEDED() | Success.
+        //@rvalue E_NOTIMPL | Not implemented.  The caller should call the moniker's IMoniker::BindToObject
+        // method.
+        //@rvalue FAILED() | Failure.
+        [helpstring("Override the IMoniker::BindToObject method.")]
+        HRESULT BindToObject([in] IMoniker *pMoniker,
+                                                 [in] IBindCtx *pBindCtx,
+                                                 [in] IMoniker *pmkLeft,
+                                                 [in] REFIID riidResult,
+                                                 [out,iid_is(riidResult)] LPVOID *ppvResult);
+
+        //@method HRESULT | IEventCreateOptions | CoCreateInstance | Override the Win32 CoCreateInstance
+        // function.  By implementing this method, the object can perform its own logic for creating an
+        // object.  See the documentation for the Win32 CoCreateInstance function for more information.
+        //@parm REFCLSID | rclsidDesired | [in] Specifies the CLSID of the object to create.
+        //@parm IUnkown * | pUnkOuter | [in] Specifies the outer unknown which is aggregating the new object.
+        //@parm DWORD | dwClsCtx | [in] Specifies the creation context.
+        //@parm REFIID | riidResult | [in] Specifies the IID of the interface which to be returned.
+        //@parm LPVOID * | ppvResult | [out,iid_is(riidResult)] Receives the result.
+        //@rvalue SUCCEEDED() | Success.
+        //@rvalue E_NOTIMPL | Not implemented.  The caller should call the Win32 CoCreateInstance function.
+        //@rvalue FAILED() | Failure.
+        [helpstring("Override the Win32 CoCreateInstance function.")]
+        HRESULT CoCreateInstance([in] REFCLSID rclsidDesired,
+                                                         [in] IUnknown *pUnkOuter,
+                                                         [in] DWORD dwClsCtx,
+                                                         [in] REFIID riidResult,
+                                                         [out,iid_is(riidResult)] LPVOID *ppvResult);
+
+        //@method HRESULT | IEventCreateOptions | Init | Override the initialization.  By implementing this
+        // method, the object can perform its own logic to initialize the object.
+        //@parm REFIID | riidObject | [in] Specifies the IID of the interface on the object.
+        //@parm IUnknown ** | ppUnkObject | [in,out,iid_is(riidObject)] Specifies the object.  The method
+        // can cause a different object to be used by placing it in this output parameter.
+        //@parm IEventBinding * | pBinding | [in,unique] Specifies the binding for which the object is being
+        // created.  May be NULL.
+        //@parm IUnknown * | pInitProps | [in,unique] Specifies additional initialization parameters.  May be
+        // NULL.
+        //@rvalue SUCCEEDED() | Success.  The caller should not invoke its own initialization logic for the
+        // object.
+        //@rvalue E_NOTIMPL | Not implemented.  The caller should invoke its own initialization logic.  Note
+        // that even if this value it returned, the method may still have placed a different interface
+        // pointer into *ppUnkObject.
+        //@rvalue FAILED() | Failure.
+        [helpstring("Override the object initialization.")]
+        HRESULT Init([in] REFIID riidObject,
+                                 [in,out,iid_is(riidObject)] IUnknown **ppUnkObject,
+                                 [in,unique] IEventBinding *pBinding,
+                                 [in,unique] IUnknown *pInitProps);
+};
+
+
+//@doc EVENTS EXTERNAL
+
+/*
+        @interface IEventDispatcherChain | Provide chaining of dispatcher instances.
+        @meth HRESULT | SetPrevious | Set the previous dispatcher.
+*/
+[
+        helpstring("Provide chaining of dispatcher instances."),
+        hidden,
+        object,
+        pointer_default(unique),
+        uuid(58a90754-fb15-11d1-a00c-00c04fa37348)
+]
+interface IEventDispatcherChain : IUnknown
+{
+        //@method HRESULT | IEventDispatcherChain | SetPrevious | Set the previous dispatcher.  During
+        // a binding change notification, if the old dispatcher supports the IClassFactory interface
+        // the router will use the old dispatcher to create a new dispatcher.  Once the new dispatcher
+        // is created, before the router calls the new dispatcher's IEventDispatcher::SetContext method,
+        // if the new dispatcher supports IEventDispatcherChain, the router will call the new dispatcher's
+        // IEventDispatcherChain::SetPrevious method, passing in the interface pointer of the old
+        // dispatcher - this gives the new dispatcher an opportunity to cooperate with the old
+        // dispatcher during a binding change notification.  The new dispatcher may also return an
+        // enumerator for the event types which the router should preload into the new dispatcher.
+        //@parm IUnknown * | pUnkPrevious | [in] Specifies the old dispatcher.
+        //@parm IUnknown ** | ppUnkPreload | [out] Receives an interface pointer for preloading.  If this
+        // object is non-NULL and implements IEnumGUID, the router will (attempt to) immediately call
+        // IEventDispatcher::SetContext for each event type returned by IEnumGUID::Next.  (The router may
+        // not be able to make the call immediately due to locks held on the binding database - in this
+        // case, the router will hold the IEnumGUID interface, and will make the SetContext calls the next
+        // time the server calls one of the IEventRouter::GetDispatcher... methods.)
+        //@rvalue S_OK | Success.
+        //@rvalue E_NOTIMPLE | Not implemented.
+        [helpstring("Set the previous dispatcher.")]
+        HRESULT SetPrevious([in] IUnknown *pUnkPrevious, [out] IUnknown **ppUnkPreload);
+};
+
+
+[
+        helpstring("Server Extension Objects COM Library"),
+        uuid(bbf0fc10-2238-11d0-a9ce-00aa00685c74),
+        version(1.0)
+]
+library SEOLib
+{
+
+
+        importlib("stdole2.tlb");
+
+
+        interface ISEODictionaryItem;
+        interface ISEODictionary;
+        interface IEventLock;
+        interface ISEORouter;
+        interface IMCISMessageFilter;
+        interface ISEOBindingRuleEngine;
+        interface ISEOEventSink;
+        interface ISEORegDictionary;
+        interface ISEOBindingConverter;
+        interface ISEODispatcher;
+        interface IEventDeliveryOptions;
+        interface IEventTypeSinks;
+        interface IEventType;
+        interface IEventPropertyBag;
+        interface IEventBinding;
+        interface IEventBindings;
+        interface IEventTypes;
+        interface IEventBindingManager;
+        interface IEventSource;
+        interface IEventSources;
+        interface IEventSourceType;
+        interface IEventSourceTypes;
+        interface IEventManager;
+        interface ISEOInitObject;
+        interface IEventDatabasePlugin;
+        interface IEventDatabaseManager;
+        interface IEventUtil;
+        interface IEventComCat;
+        interface IEventNotifyBindingChange;
+        interface IEventNotifyBindingChangeDisp;
+        interface IEventRouter;
+        interface IEventDispatcher;
+        interface IEventRuleEngine;
+        interface IEventSinkNotify;
+        interface IEventSinkNotifyDisp;
+        interface IEventPersistBinding;
+        interface IEventIsCacheable;
+        interface IEventCreateOptions;
+        interface IEventDispatcherChain;
+
+
+//@doc SEO
+        //@const HRESULT | SEO_S_MOREDATA | Success, the buffer was not large enough to contain all of the data.
+        const DWORD SEO_S_MOREDATA                      = 0x00041001;   // Equal to MAKE_HRESULT(SEVERITY_SUCCESS,FACILITY_ITF,0x1001)
+        //@const HRESULT | SEO_E_NOTPRESENT | Failure, the item is not present.
+        const DWORD SEO_E_NOTPRESENT            = 0x80041002;   // Equal to MAKE_HRESULT(SEVERITY_FAILURE,FACITILY_ITF,0x1002)
+        //@const HRESULT | SEO_E_TIMEOUT | Failure, the timeout expired.
+        const DWORD SEO_E_TIMEOUT                       = 0x80041003;   // Equal to MAKE_HRESULT(SEVERITY_FAILURE,FACITILY_ITF,0x1003)
+        //@const HRESULT | SEO_S_DONEPROCESSING | Success, the message should not be handed to any other
+        // extension objects at this binding point.
+        const DWORD SEO_S_DONEPROCESSING        = 0x80041004;   // Equal to MAKE_HRESULT(SEVERITY_SUCCESS,FACILITY_ITF,0x1004)
+//@doc EVENTS EXTERNAL
+        //@const HRESULT | EVENTS_E_BADATA | Failure, bad data was presented.
+        const DWORD EVENTS_E_BADDATA            = 0x80041005;   // Equal to MAKE_HRESULT(SEVERITY_FAILURE,FACILITY_ITF,0x1005)
+        //@const HRESULT | EVENTS_E_TIMEOUT | Failure, the timeout expired.
+        const DWORD EVENTS_E_TIMEOUT            = 0x80041006;   // Equal to MAKE_HRESULT(SEVERITY_FAILURE,FACILITY_ITF,0x1006)
+        //@const HRESULT | EVENTS_E_DISABLED | Failure, the binding is disabled.
+        const DWORD EVENTS_E_DISABLED           = 0x80041007;   // Equal to MAKE_HRESULT(SEVERITY_FAILURE,FACILITY_ITF,0x1007)
+
+
+//@doc SEO
+
+
+        [
+                control,
+                helpstring("Class which implements an ISEODictionary in the registry."),
+                hidden,
+                uuid(c4df0040-2d33-11d0-a9cf-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEORegDictionary
+        {
+                [default] interface ISEODictionary;
+        }
+
+
+//@doc SEO
+
+
+        [
+                control,
+                helpstring("Class which wraps MimeOle with an ISEODictionary."),
+                hidden,
+                uuid(c4df0041-2d33-11d0-a9cf-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEOMimeDictionary
+        {
+                [default] interface ISEODictionary;
+        }
+
+
+//@doc SEO
+
+
+        [
+                control,
+                helpstring("Class provides an ISEODictionary in memory."),
+                hidden,
+                uuid(c4df0042-2d33-11d0-a9cf-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEOMemDictionary
+        {
+                [default] interface ISEODictionary;
+                interface IPropertyBag;
+                interface IEventPropertyBag;
+        }
+
+
+//@doc SEO
+
+
+        [
+                control,
+                helpstring("Class provides an ISEODictionary on the Metabase."),
+                hidden,
+                uuid(c4df0043-2d33-11d0-a9cf-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEOMetaDictionary
+        {
+                interface ISEODictionary;
+                interface ISEOInitObject;
+                interface IPropertyBag;
+                [default] interface IEventPropertyBag;
+                interface IEventLock;
+        }
+
+
+//@doc SEO
+
+
+        //@object CSEODictionaryItem | Provides an ISEODictionaryItem in memory.
+        //@supint ISEODictionaryItem | General-purpose access to a single dictionary item.
+        //@xref <i ISEODictionary>
+        [
+                control,
+                helpstring("Class provides an ISEODictionaryItem in memory."),
+                hidden,
+                uuid(2e3a0ec0-89d7-11d0-a9e6-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEODictionaryItem
+        {
+                [default] interface ISEODictionaryItem;
+        }
+
+
+//@doc SEO
+
+
+        [
+                control,
+                helpstring("Class implements an ISEORouter."),
+                hidden,
+                uuid(83d63730-94fd-11d0-a9e8-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEORouter
+        {
+                [default] interface ISEORouter;
+        }
+
+
+//@doc EVENTS INTERNAL
+
+
+        //@object CEventLock | Provides an IEventLock.
+        //@supint IEventLock | Contention control.
+        [
+                control,
+                helpstring("Class provides IEventLock."),
+                hidden,
+                uuid(2e3abb30-af88-11d0-a9eb-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CEventLock
+        {
+                [default] interface IEventLock;
+        }
+
+
+//@doc SEO
+
+
+        [
+                helpstring("Class which implements IStream."),
+                hidden,
+                uuid(ed1343b0-a8a6-11d0-a9ea-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CSEOStream
+        {
+                [default] interface IStream;
+        }
+
+
+//@doc EVENTS EXTERNAL
+
+
+        //@object CEventManager | Implements the global event source manager (ProgID = "Event.Manager").
+        //@supint IEventManager | Provides access to registered source types, and facilities for firing events.
+        [
+                control,
+                helpstring("CEventManager"),uuid(35172920-a700-11d0-a9ea-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CEventManager
+        {
+                [default] interface IEventManager;
+                interface IEventDatabasePlugin;
+        }
+
+//@doc EVENTS INTERNAL
+
+
+        [
+                control,
+                helpstring("Class which implements IEventBindingManager."),
+                hidden,
+                uuid(53d01080-af98-11d0-a9eb-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CEventBindingManager
+        {
+                [default] interface IEventBindingManager;
+                interface IEventDatabasePlugin;
+                interface ISEOInitObject;
+                interface IConnectionPointContainer;
+                [source,default] interface IEventNotifyBindingChangeDisp;
+                [source] interface IEventNotifyBindingChange;
+        }
+
+
+//@doc SEO
+
+
+        [
+                helpstring("Generic Moniker class for objects which support ISEOInitObject."),
+                hidden,
+                uuid(7e3bf330-b28e-11d0-8bd8-00c04fd42e37),
+                version(1.0)
+        ]
+        coclass CSEOGenericMoniker
+        {
+                [default] interface IMoniker;
+                interface IParseDisplayName;
+        }
+
+
+//@doc EVENTS EXTERNAL
+
+
+        //@object CEventMetabaseDatabaseManager | Class which implements IEventDatabaseManager for the metabase (ProgID = "Event.MetabaseDatabaseManager").
+        //@supint IEventDatabaseManager | Provides facilities for managing a binding database.
+        [
+                control,
+                helpstring("Class which implements IEventDatabaseManager for the metabase."),
+                uuid(8a58cdc0-cbdc-11d0-a9f8-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CEventMetabaseDatabaseManager
+        {
+                [default] interface IEventDatabaseManager;
+        }
+
+
+//@doc EVENTS EXTERNAL
+
+
+        //@object CEventUtil | Class which implements IEventUtil (ProgID = "Event.Util").
+        //@supint IEventUtil | Provides utility functions.
+
+        [
+                control,
+                helpstring("Class which implement IEventUtil."),
+                uuid(a1e041d0-cd73-11d0-a9f8-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CEventUtil
+        {
+                [default] interface IEventUtil;
+        }
+
+
+//@doc EVENTS EXTERNAL
+
+
+        //@object CEventComCat | Class which implements IEventComCat (ProgID = "Event.ComCat").
+        //@supint IEventComCat | Provides access to component categories.
+        [
+                control,
+                helpstring("Class which implements IEventComCat."),
+                uuid(ae1ef300-cd8f-11d0-a9f8-00aa00685c74),
+                version(1.0)
+        ]
+        coclass CEventComCat
+        {
+                [default] interface IEventComCat;
+        }
+
+
+//@doc EVENTS INTERNAL
+
+
+        //@object CEventRouter | Class which implements IEventRouter (ProgID = "Event.Router").
+        //@supint IEventRouter | Event router.
+        [
+                control,
+                helpstring("Class which implements IEventRouter."),
+                hidden,
+                uuid(9f82f020-f6fd-11d0-aa14-00aa006bc80b),
+                version(1.0)
+        ]
+        coclass CEventRouter
+        {
+                [default] interface IEventRouter;
+        }
+
+
+};
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | MCISInitSEOA | Initialize SEO.  Creates an ISEORouter object which routes events
+        within the specified service and virtual server.
+        @parm LPCSTR | pszService | [in] Specifies the name of the service.
+        @parm DWORD | dwVirtualServer | [in] Specifies the virtual server instance.
+        @parm ISEORouter ** | pprouterResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEORouter> <f MCISInitSEOW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE MCISInitSEOA(       LPCSTR pszService,")
+cpp_quote("                                                                     DWORD dwVirtualServer,")
+cpp_quote("                                                                     _Inout_opt_ ISEORouter **pprouterResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | MCISInitSEOW | Initialize SEO.  Creates an ISEORouter object which routes events
+        within the specified service and virtual server.
+        @parm LPCWSTR | pszService | [in] Specifies the name of the service.
+        @parm DWORD | dwVirtualServer | [in] Specifies the virtual server instance.
+        @parm ISEORouter ** | pprouterResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEORouter> <f MCISInitSEOA>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE MCISInitSEOW(       LPCWSTR pszService,")
+cpp_quote("                                                                     DWORD dwVirtualServer,")
+cpp_quote("                                                                     _Inout_opt_ ISEORouter **pprouterResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateDictionaryFromMultiSzA | Creates an ISEODictionary object from an array of
+        property names and an array of property values.
+        @parm DWORD | dwCount | [in] The count of the elements in the ppszNames and ppszValues arrays.
+        @parm LPCSTR * | ppszNames | [in] An array of pointers to strings which are the names of the properties
+        in the dictionary.
+        @parm LPCSTR * | ppszValues | [in] An array of pointers to MULTI_SZ strings which are the values of the
+        properties in the dictionary.  Any value which contains only a single string will be placed in the
+        dictionary as a string.  Any value which contains multiple strings will be placed in the dictionary as
+        an ISEODictionaryItem object.
+        @parm BOOL | bCopy | [in] Whether or not to make a copy of the data in ppszNames and ppszValues.  This
+        parameter is ignored if the value of bReadOnly is TRUE, and a copy will always be made (i.e. if the
+        resulting dictionary is to allow writes, then a copy must be made of the input data).
+        @parm BOOL | bReadOnly | [in] Whether or not the resulting dictionary should be read-only.  If this
+        parameter is FALSE, then the bCopy parameter will be ignored and a copy will always be made (i.e. if the
+        resulting dictionary is to allow writes, then a copy must be    made of the input data).
+        @parm ISEODictionary ** | ppdictResult | [out,retval] The resulting dictionary.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <i ISEODictionaryItem> <f SEOCreateDictionaryFromMultiSzW>
+        <f SEOCreateMultiSzFromDictionaryA> <f SEOCreateMultiSzFromDictionaryW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateDictionaryFromMultiSzA(    DWORD dwCount,")
+cpp_quote("                                                                                                             _In_opt_ LPCSTR *ppszNames,")
+cpp_quote("                                                                                                             _In_opt_ LPCSTR *ppszValues,")
+cpp_quote("                                                                                                             BOOL bCopy,")
+cpp_quote("                                                                                                             BOOL bReadOnly,")
+cpp_quote("                                                                                                             _Out_opt_ ISEODictionary **ppdictResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateDictionaryFromMultiSzW | Creates an ISEODictionary object from an array of
+        property names and an array of property values.
+        @parm DWORD | dwCount | [in] The count of the elements in the ppszNames and ppszValues arrays.
+        @parm LPCWSTR * | ppszNames | [in] An array of pointers to strings which are the names of the properties
+        in the dictionary.
+        @parm LPCWSTR * | ppszValues | [in] An array of pointers to MULTI_SZ strings which are the values of the
+        properties in the dictionary.  Any value which contains only a single string will be placed in the
+        dictionary as a string.  Any value which contains multiple strings will be placed in the dictionary as
+        an ISEODictionaryItem object.
+        @parm BOOL | bCopy | [in] Whether or not to make a copy of the data in ppszNames and ppszValues.  This
+        parameter is ignored if the value of bReadOnly is TRUE, and a copy will always be made (i.e. if the
+        resulting dictionary is to allow writes, then a copy must be made of the input data).
+        @parm BOOL | bReadOnly | [in] Whether or not the resulting dictionary should be read-only.  If this
+        parameter is FALSE, then the bCopy parameter will be ignored and a copy will always be made (i.e. if the
+        resulting dictionary is to allow writes, then a copy must be    made of the input data).
+        @parm ISEODictionary ** | ppdictResult | [out,retval] The resulting dictionary.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <i ISEODictionaryItem> <f SEOCreateDictionaryFromMultiSzA>
+        <f SEOCreateMultiSzFromDictionaryA> <f SEOCreateMultiSzFromDictionaryW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateDictionaryFromMultiSzW(    DWORD dwCount,")
+cpp_quote("                                                                                                             _In_opt_ LPCWSTR *ppszNames,")
+cpp_quote("                                                                                                             _In_opt_ LPCWSTR *ppszValues,")
+cpp_quote("                                                                                                             BOOL bCopy,")
+cpp_quote("                                                                                                             BOOL bReadOnly,")
+cpp_quote("                                                                                                             _Out_opt_ ISEODictionary **ppdictResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateMultiSzFromDictionaryA | Creates two arrays of strings from an ISEODictionary object.
+        @parm ISEODictionary * | pdictDictionary | [in,unique] Specifies the dictionary to get the values from.
+        @parm DWORD * | pdwCount | [out] Receives the count of the elements in the pppszNames and pppszValues arrays.
+        @parm LPSTR ** | pppszNames | [out] Receives a pointer to the array of strings which are the names of the
+        properties.  This array is allocated by SEOCreateMultiSzFromDictionary() using the CoTaskMemAlloc()
+        function, and the caller must use CoTaskMemFree(*pppszNames) to free it.
+        @parm LPSTR ** | ppszValues | [out] Recieves a pointer to the array of MULTI_SZ strings which are the
+        values of the properties.  This array is allocated by SEOCreateMultiSzFromDictionary() using the
+        CoTaskMemAlloc() function, and the caller must use CoTaskMemFree(*pppszValues) to free it.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <i ISEODictionaryItem> <f SEOCreateMultiSzFromDictionaryW>
+        <f SEOCreateDictionaryFromMultiSzA> <f SEOCreateDictionaryFromMultiSzW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateMultiSzFromDictionaryA(    _In_ ISEODictionary *pdictDictionary,")
+cpp_quote("                                                                                                             _Out_ DWORD *pdwCount,")
+cpp_quote("                                                                                                             _Outptr_result_buffer_(*pdwCount) LPSTR **pppszNames,")
+cpp_quote("                                                                                                             _Outptr_result_buffer_(*pdwCount) LPSTR **pppszValues);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateMultiSzFromDictionaryW | Creates two arrays of strings from an ISEODictionary object.
+        @parm ISEODictionary * | pdictDictionary | [in,unique] Specifies the dictionary to get the values from.
+        @parm DWORD * | pdwCount | [out] Receives the count of the elements in the pppszNames and pppszValues arrays.
+        @parm LPWSTR ** | pppszNames | [out] Receives a pointer to the array of strings which are the names of the
+        properties.  This array is allocated by SEOCreateMultiSzFromDictionary() using the CoTaskMemAlloc()
+        function, and the caller must use CoTaskMemFree(*pppszNames) to free it.
+        @parm LPWSTR ** | ppszValues | [out] Recieves a pointer to the array of MULTI_SZ strings which are the
+        values of the properties.  This array is allocated by SEOCreateMultiSzFromDictionary() using the
+        CoTaskMemAlloc() function, and the caller must use CoTaskMemFree(*pppszValues) to free it.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <i ISEODictionaryItem> <f SEOCreateMultiSzFromDictionaryA>
+        <f SEOCreateDictionaryFromMultiSzA> <f SEOCreateDictionaryFromMultiSzW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateMultiSzFromDictionaryW(    _In_ ISEODictionary *pdictDictionary,")
+cpp_quote("                                                                                                             _Out_ DWORD *pdwCount,")
+cpp_quote("                                                                                                             _Outptr_result_buffer_(*pdwCount) LPWSTR **pppszNames,")
+cpp_quote("                                                                                                             _Outptr_result_buffer_(*pdwCount) LPWSTR **pppszValues);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | MCISGetBindingInMetabaseA | Creates an ISEODictionary for a binding in the metabase.
+        @parm LPCSTR | pszService | [in] Specifies the name of the service.
+        @parm DWORD | dwVirtualServer | [in] Specifies the virtual server instance.
+        @parm REFGUID | guidEventSource | [in] Specifies the event source.  May be GUID_NULL, in which case
+        the pszBinding parameter is ignored and the returned dictionary is for the root of the binding tree.
+        @parm LPCSTR | pszBinding | [in] Specifies the name of the binding.  If this value is NULL, and bCreate
+        is TRUE, then the function creates a new binding.
+        @parm BOOL | bCreate | [in] Specifies whether or not to create the binding.  If this value is TRUE, then
+        if the binding is not already present, it will be created.  If this value is FALSE, and the binding is not
+        already present, then the function returns SEO_E_NOTPRESENT.
+        @parm BOOL | bLock | [in] Specifies whether the ISEODictionary should hold a lock on the Metabase.  If
+        this value is TRUE, then the lock lasts for the lifetime of the ISEODictionary object.  If this value is
+        FALSE, then the caller is responsible for managing locking - the caller should query the returned object
+        for an IEventLock interface.
+        @parm ISEODictionary ** | ppdictResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue SEO_E_NOTPRESENT | Failure, the binding is not present and bCreate was FALSE.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <i IEventLock> <f MCISGetBindingInMetabaseW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE MCISGetBindingInMetabaseA(  LPCSTR pszService,")
+cpp_quote("                                                                                             DWORD dwVirtualServer,")
+cpp_quote("                                                                                             REFGUID guidEventSource,")
+cpp_quote("                                                                                             LPCSTR pszBinding,")
+cpp_quote("                                                                                             BOOL bCreate,")
+cpp_quote("                                                                                             BOOL fLock,")
+cpp_quote("                                                                                             _Out_opt_ ISEODictionary **ppdictResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | MCISGetBindingInMetabaseW | Creates an ISEODictionary for a binding in the metabase.
+        @parm LPCWSTR | pszService | [in] Specifies the name of the service.
+        @parm DWORD | dwVirtualServer | [in] Specifies the virtual server instance.
+        @parm REFGUID | guidEventSource | [in] Specifies the event source.  May be GUID_NULL, in which case
+        the pszBinding parameter is ignore and the returned dictionary is for the root of the binding tree.
+        @parm LPCWSTR | pszBinding | [in] Specifies the name of the binding.  If this value is NULL, and bCreate
+        is TRUE, then the function creates a new binding.
+        @parm BOOL | bCreate | [in] Specifies whether or not to create the binding.  If this value is TRUE, then
+        if the binding is not already present, it will be created.  If this value is FALSE, and the binding is not
+        already present, then the function returns SEO_E_NOTPRESENT.
+        @parm BOOL | bLock | [in] Specifies whether the ISEODictionary should hold a lock on the Metabase.  If
+        this value is TRUE, then the lock lasts for the lifetime of the ISEODictionary object.  If this value is
+        FALSE, then the caller is responsible for managing locking - the caller should query the returned object
+        for an IEventLock interface.
+        @parm ISEODictionary ** | ppdictResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue SEO_E_NOTPRESENT | Failure, the binding is not present and bCreate was FALSE.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <i IEventLock> <f MCISGetBindingInMetabaseA>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE MCISGetBindingInMetabaseW(  LPCWSTR pszService,")
+cpp_quote("                                                                                             DWORD dwVirtualServer,")
+cpp_quote("                                                                                             REFGUID guidEventSource,")
+cpp_quote("                                                                                             LPCWSTR pszBinding,")
+cpp_quote("                                                                                             BOOL bCreate,")
+cpp_quote("                                                                                             BOOL fLock,")
+cpp_quote("                                                                                             _Out_opt_ ISEODictionary **ppdictResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOListenForEvent | Registers a callback object which gets called when a handle is
+        signaled.  This function gives the hEvent handle to a background thread - that single thread watches
+        all of the handles given to it (using the WaitForMultipleObjectsEx() function), and when any one of
+        them is signaled, calls the corresponding event sink.
+        @parm ISEORouter * | piRouter | [in,unique] Specifies the router in whose context the listening happens.
+        @parm HANDLE | hEvent | [in] Specifies the handle of the event.
+        @parm ISEOEventSink * | psinkEventSink | [in,unique] Specifies the event sink object to call when the handle
+        is signaled.
+        @parm BOOL | bOnce | [in] If TRUE, then the event is only fired once, and then is removed from the
+        list of watched events.
+        @parm DWORD * | pdwListenHandle | [out] Receives a value which is passed to SEOCancelListenForEvent()
+        when the client no longer wants the event to be watched.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEOEventSink> <f SEOCancelListenForEvent>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOListenForEvent(  ISEORouter *piRouter,")
+cpp_quote("                                                                             HANDLE hEvent,")
+cpp_quote("                                                                             ISEOEventSink *psinkEventSink,")
+cpp_quote("                                                                             BOOL bOnce,")
+cpp_quote("                                                                             DWORD *pdwListenHandle);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCancelListenForEvent | Cancels the effects of the SEOListenForEvent() function.
+        @parm ISEORouter * | piRouter | [in] Specifies the context in which the event handling is to take place.
+        @parm DWORD | dwHandle | [in] Specifies the instance of SEOListenForEvent() which is to be canceled.
+        @rvalue S_OK | Success.
+        @rvalue SEO_E_NOTPRESENT | Failure, the specified instance of SEOListenForEvent was not found.
+        @xref <f SEOListenForEvent> <i ISEORouter>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCancelListenForEvent(    DWORD dwHandle);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateIStreamFromFileA | Creates an IStream object for a file.
+        @parm HANDLE | hFile | [in] Species the handle of an open file to create the IStream from.  If this
+        value is NULL, then the pszFile parameter is used.  If this value is non-NULL, then the handle is
+        duplicated and that duplicate is used by the IStream.
+        @parm LPCSTR | pszFile | [in] Specifies the name of the file.  If hFile is non-NULL, then this name
+        will be saved - the file will only be opened if one of the IStream's methods actually needs to access
+        the file.  (Note that if this is a relative pathname, and if the current directory changes between
+        when the IStream is created and when the IStream attempts to open the file, then unexpected results
+        may occur.)
+        @parm IStream ** | ppstreamResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <f SEOCreateIStreamFromFileW>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateIStreamFromFileA(  HANDLE hFile,")
+cpp_quote("                                                                                             LPCSTR pszFile,")
+cpp_quote("                                                                                             _Out_opt_ IStream **ppstreamResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateIStreamFromFileW | Creates an IStream object for a file.
+        @parm HANDLE | hFile | [in] Species the handle of an open file to create the IStream from.  If this
+        value is NULL, then the pszFile parameter is used.  If this value is non-NULL, then the handle is
+        duplicated and that duplicate is used by the IStream.
+        @parm LPCWSTR | pszFile | [in] Specifies the name of the file.  If hFile is non-NULL, then this name
+        will be saved - the file will only be opened if one of the IStream's methods actually needs to access
+        the file.  (Note that if this is a relative pathname, and if the current directory changes between
+        when the IStream is created and when the IStream attempts to open the file, then unexpected results
+        may occur.)
+        @parm IStream ** | ppstreamResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <f SEOCreateIStreamFromFileA>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateIStreamFromFileW(  HANDLE hFile,")
+cpp_quote("                                                                                             LPCWSTR pszFile,")
+cpp_quote("                                                                                             _Out_opt_ IStream **ppstreamResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCopyDictionary | Copies a dictionary in-depth - the resulting object is a
+        CSEOMemDictionary.
+        @parm ISEODictionary * | pdictIn | [in,unique] Specifies the input dictionary.
+        @parm ISEODictionary ** |ppdictResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCopyDictionary(  ISEODictionary *pdictIn, _Inout_opt_ ISEODictionary **ppdictResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOCreateDictionaryFromIStream | Creates a dictionary from a stream.
+        @parm IStream * | pstreamIn | [in] The source stream.
+        @parm ISEODictionary ** | ppdictResult | [out,retval] Receives the result.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <f SEOWriteDictionaryToIStream>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOCreateDictionaryFromIStream(     _Inout_opt_ IStream *pstreamIn, _Out_opt_ ISEODictionary **ppdictResult);")
+
+
+//@doc SEO
+
+
+/*
+        @func HRESULT | SEOWriteDictionaryToIStream | Writes a dictionary to a stream.
+        @parm ISEODictionary * | pdictIn | [in] Specifies the dictionary.
+        @parm IStream * | pstreamOut | [in] The stream to write the dictionary to.
+        @rvalue S_OK | Success.
+        @rvalue E_POINTER | Failure, a bad pointer was passed to the function.
+        @rvalue E_OUTOFMEMORY | Failure, out of memory.
+        @xref <i ISEODictionary> <f SEOCreateDictionaryFromIStream>
+*/
+cpp_quote("SEODLLDEF HRESULT STDAPICALLTYPE SEOWriteDictionaryToIStream(        ISEODictionary *pdictIn, IStream *pstreamOut);")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

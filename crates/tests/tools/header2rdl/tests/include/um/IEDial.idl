@@ -1,0 +1,92 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//  Copyright (C) Microsoft Corporation. All Rights Reserved.
+//
+//--------------------------------------------------------------------------
+
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// iedial.h")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("// (C) Copyright Microsoft Corporation.  All Rights Reserved.")
+cpp_quote("//")
+cpp_quote("// THIS CODE AND INFORMATION IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF")
+cpp_quote("// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO")
+cpp_quote("// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A")
+cpp_quote("// PARTICULAR PURPOSE.")
+cpp_quote("//=--------------------------------------------------------------------------=")
+cpp_quote("")
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+cpp_quote("#pragma comment(lib,\"uuid.lib\")")
+cpp_quote("")
+cpp_quote("//---------------------------------------------------------------------------=")
+cpp_quote("")
+
+#ifndef DO_NO_IMPORTS
+import "unknwn.idl";
+import "ocidl.idl";
+import "oleidl.idl";
+import "oaidl.idl";
+#endif
+
+[
+    uuid(2d86f4ff-6e2d-4488-b2e9-6934afd41bea),
+    version(1.0),
+    helpstring("Dial Event Sink")
+]
+interface IDialEventSink : IUnknown
+{
+    HRESULT OnEvent([in] DWORD dwEvent, [in] DWORD dwStatus);
+}
+
+
+[
+    uuid(39fd782b-7905-40d5-9148-3c9b190423d5),
+    version(1.0),
+    helpstring("Dial Engine interface")
+]
+interface IDialEngine : IUnknown
+{
+    HRESULT Initialize([in] LPCWSTR pwzConnectoid, [in] IDialEventSink *pIDES);
+    HRESULT GetProperty([in] LPCWSTR pwzProperty, [in] LPWSTR pwzValue, [in] DWORD dwBufSize);
+    HRESULT SetProperty([in] LPCWSTR pwzProperty, [in] LPCWSTR  pwzValue);
+    HRESULT Dial(void);
+    HRESULT HangUp(void);
+    HRESULT GetConnectedState([out] DWORD *pdwState);
+    HRESULT GetConnectHandle([out] DWORD_PTR *pdwHandle);
+}
+
+
+[
+    uuid(8aecafa9-4306-43cc-8c5a-765f2979cc16),
+    version(1.0),
+    helpstring("Dial Branding")
+]
+interface IDialBranding : IUnknown
+{
+    HRESULT Initialize([in] LPCWSTR pwzConnectoid);
+    HRESULT GetBitmap([in] DWORD dwIndex, [out] HBITMAP *phBitmap);
+}
+
+
+cpp_quote("#define DIALPROP_USERNAME       L\"UserName\"        ")
+cpp_quote("#define DIALPROP_PASSWORD       L\"Password\"        ")
+cpp_quote("#define DIALPROP_DOMAIN         L\"Domain\"          ")
+cpp_quote("#define DIALPROP_SAVEPASSWORD   L\"SavePassword\"    ")
+cpp_quote("#define DIALPROP_REDIALCOUNT    L\"RedialCount\"     ")
+cpp_quote("#define DIALPROP_REDIALINTERVAL L\"RedialInterval\"  ")
+cpp_quote("#define DIALPROP_PHONENUMBER    L\"PhoneNumber\"     ")
+cpp_quote("#define DIALPROP_LASTERROR      L\"LastError\"       ")
+cpp_quote("#define DIALPROP_RESOLVEDPHONE  L\"ResolvedPhone\"   ")
+cpp_quote("")
+cpp_quote("#define DIALENG_OperationComplete   0x10000          ")
+cpp_quote("#define DIALENG_RedialAttempt       0x10001          ")
+cpp_quote("#define DIALENG_RedialWait          0x10002          ")
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+

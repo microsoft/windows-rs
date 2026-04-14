@@ -1,0 +1,284 @@
+// ratio standard header (core)
+
+// Copyright (c) Microsoft Corporation.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+#ifndef _RATIO_
+#define _RATIO_
+#include <yvals_core.h>
+#if _STL_COMPILER_PREPROCESSOR
+#include <cstdint>
+#include <type_traits>
+
+#pragma pack(push, _CRT_PACKING)
+#pragma warning(push, _STL_WARNING_LEVEL)
+#pragma warning(disable : _STL_DISABLED_WARNINGS)
+_STL_DISABLE_CLANG_WARNINGS
+#pragma push_macro("new")
+#undef new
+
+_STD_BEGIN
+_NODISCARD constexpr intmax_t _Abs(const intmax_t _Val) noexcept {
+    return _Val < 0 ? -_Val : _Val;
+}
+
+template <intmax_t _Ax, intmax_t _Bx, bool _Sfinae = false,
+    bool _Good = _Abs(_Ax) <= INTMAX_MAX / (_Bx == 0 ? 1 : _Abs(_Bx))>
+struct _Safe_mult : integral_constant<intmax_t, _Ax * _Bx> {}; // computes _Ax * _Bx without overflow
+
+template <intmax_t _Ax, intmax_t _Bx, bool _Sfinae>
+struct _Safe_mult<_Ax, _Bx, _Sfinae, false> { // _Ax * _Bx would overflow
+    static_assert(_Sfinae, "integer arithmetic overflow");
+};
+
+_NODISCARD constexpr intmax_t _Sign_of(const intmax_t _Val) noexcept {
+    return _Val < 0 ? -1 : 1;
+}
+
+inline void _Safe_add_integer_arithmetic_overflow_error() noexcept {}
+
+_NODISCARD constexpr intmax_t _Safe_add(const intmax_t _Ax, const intmax_t _Bx) noexcept {
+    if (_Sign_of(_Ax) == _Sign_of(_Bx) && _Abs(_Ax) > INTMAX_MAX - _Abs(_Bx)) {
+        _Safe_add_integer_arithmetic_overflow_error();
+    }
+
+    return _Ax + _Bx;
+}
+
+_NODISCARD constexpr intmax_t _Gcd(intmax_t _Ax, intmax_t _Bx) noexcept {
+    // computes GCD of abs(_Ax) and abs(_Bx)
+    if (_Ax == 0 && _Bx == 0) {
+        return 1; // contrary to mathematical convention; avoids division by 0 in ratio_less
+    }
+
+    _Ax = _Abs(_Ax);
+    _Bx = _Abs(_Bx);
+
+    while (_Bx != 0) {
+        const intmax_t _Ax2 = _Ax;
+        _Ax                 = _Bx;
+        _Bx                 = _Ax2 % _Bx;
+    }
+
+    return _Ax;
+}
+
+_EXPORT_STD template <intmax_t _Nx, intmax_t _Dx = 1>
+struct ratio { // holds the ratio of _Nx to _Dx
+    static_assert(_Dx != 0, "zero denominator");
+    static_assert(-INTMAX_MAX <= _Nx, "numerator too negative");
+    static_assert(-INTMAX_MAX <= _Dx, "denominator too negative");
+
+    static constexpr intmax_t num = _Sign_of(_Nx) * _Sign_of(_Dx) * _Abs(_Nx) / _Gcd(_Nx, _Dx);
+    static constexpr intmax_t den = _Abs(_Dx) / _Gcd(_Nx, _Dx);
+
+    using type = ratio<num, den>;
+};
+
+template <class _Ty>
+constexpr bool _Is_ratio_v = false; // test for ratio type
+
+template <intmax_t _Rx1, intmax_t _Rx2>
+constexpr bool _Is_ratio_v<ratio<_Rx1, _Rx2>> = true;
+
+template <class _Rx1, class _Rx2>
+struct _Ratio_add { // add two ratios
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_add<R1, R2> requires R1 and R2 to be ratio<>s.");
+
+    static constexpr intmax_t _Nx1 = _Rx1::num;
+    static constexpr intmax_t _Dx1 = _Rx1::den;
+    static constexpr intmax_t _Nx2 = _Rx2::num;
+    static constexpr intmax_t _Dx2 = _Rx2::den;
+
+    static constexpr intmax_t _Gx = _Gcd(_Dx1, _Dx2);
+
+    // typename ratio<>::type is necessary here
+    using type = typename ratio<_Safe_add(_Safe_mult<_Nx1, _Dx2 / _Gx>::value, _Safe_mult<_Nx2, _Dx1 / _Gx>::value),
+        _Safe_mult<_Dx1, _Dx2 / _Gx>::value>::type;
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+using ratio_add = typename _Ratio_add<_Rx1, _Rx2>::type;
+
+template <class _Rx1, class _Rx2>
+struct _Ratio_subtract { // subtract two ratios
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_subtract<R1, R2> requires R1 and R2 to be ratio<>s.");
+
+    static constexpr intmax_t _Nx2 = _Rx2::num;
+    static constexpr intmax_t _Dx2 = _Rx2::den;
+
+    using type = ratio_add<_Rx1, ratio<-_Nx2, _Dx2>>;
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+using ratio_subtract = typename _Ratio_subtract<_Rx1, _Rx2>::type;
+
+template <class _Rx1, class _Rx2>
+struct _Ratio_multiply { // multiply two ratios
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_multiply<R1, R2> requires R1 and R2 to be ratio<>s.");
+
+    static constexpr intmax_t _Nx1 = _Rx1::num;
+    static constexpr intmax_t _Dx1 = _Rx1::den;
+    static constexpr intmax_t _Nx2 = _Rx2::num;
+    static constexpr intmax_t _Dx2 = _Rx2::den;
+
+    static constexpr intmax_t _Gx = _Gcd(_Nx1, _Dx2);
+    static constexpr intmax_t _Gy = _Gcd(_Nx2, _Dx1);
+
+    using _Num = _Safe_mult<_Nx1 / _Gx, _Nx2 / _Gy, true>;
+    using _Den = _Safe_mult<_Dx1 / _Gy, _Dx2 / _Gx, true>;
+};
+
+template <class _Rx1, class _Rx2, bool _Sfinae = true, class = void>
+struct _Ratio_multiply_sfinae { // detect overflow during multiplication
+    static_assert(_Sfinae, "integer arithmetic overflow");
+};
+
+template <class _Rx1, class _Rx2, bool _Sfinae>
+struct _Ratio_multiply_sfinae<_Rx1, _Rx2, _Sfinae,
+    void_t<typename _Ratio_multiply<_Rx1, _Rx2>::_Num::type,
+        typename _Ratio_multiply<_Rx1, _Rx2>::_Den::type>> { // typename ratio<>::type is unnecessary here
+    using type = ratio<_Ratio_multiply<_Rx1, _Rx2>::_Num::value, _Ratio_multiply<_Rx1, _Rx2>::_Den::value>;
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+using ratio_multiply = typename _Ratio_multiply_sfinae<_Rx1, _Rx2, false>::type;
+
+template <class _Rx1, class _Rx2>
+struct _Ratio_divide { // divide two ratios
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_divide<R1, R2> requires R1 and R2 to be ratio<>s.");
+
+    static constexpr intmax_t _Nx2 = _Rx2::num;
+    static constexpr intmax_t _Dx2 = _Rx2::den;
+
+    using _Rx2_inverse = ratio<_Dx2, _Nx2>;
+};
+
+template <class _Rx1, class _Rx2, bool _Sfinae = true>
+using _Ratio_divide_sfinae =
+    typename _Ratio_multiply_sfinae<_Rx1, typename _Ratio_divide<_Rx1, _Rx2>::_Rx2_inverse, _Sfinae>::type;
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+using ratio_divide = _Ratio_divide_sfinae<_Rx1, _Rx2, false>;
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+struct ratio_equal : bool_constant<_Rx1::num == _Rx2::num && _Rx1::den == _Rx2::den> { // tests if ratio == ratio
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_equal<R1, R2> requires R1 and R2 to be ratio<>s.");
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+constexpr bool ratio_equal_v = ratio_equal<_Rx1, _Rx2>::value;
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+struct ratio_not_equal : bool_constant<!ratio_equal_v<_Rx1, _Rx2>> { // tests if ratio != ratio
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_not_equal<R1, R2> requires R1 and R2 to be ratio<>s.");
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+constexpr bool ratio_not_equal_v = ratio_not_equal<_Rx1, _Rx2>::value;
+
+struct _Big_uint128 {
+    uint64_t _Upper;
+    uint64_t _Lower;
+
+    _NODISCARD constexpr bool operator<(const _Big_uint128 _Rhs) const noexcept {
+        if (_Upper != _Rhs._Upper) {
+            return _Upper < _Rhs._Upper;
+        }
+
+        return _Lower < _Rhs._Lower;
+    }
+};
+
+constexpr _Big_uint128 _Big_multiply(const uint64_t _Lfactor,
+    const uint64_t _Rfactor) noexcept { // multiply two 64-bit integers into a 128-bit integer, Knuth's algorithm M
+    const uint64_t _Llow  = _Lfactor & 0xFFFF'FFFFULL;
+    const uint64_t _Lhigh = _Lfactor >> 32;
+    const uint64_t _Rlow  = _Rfactor & 0xFFFF'FFFFULL;
+    const uint64_t _Rhigh = _Rfactor >> 32;
+
+    uint64_t _Temp          = _Llow * _Rlow;
+    const uint64_t _Lower32 = _Temp & 0xFFFF'FFFFULL;
+    uint64_t _Carry         = _Temp >> 32;
+
+    _Temp                     = _Llow * _Rhigh + _Carry;
+    const uint64_t _Mid_lower = _Temp & 0xFFFF'FFFFULL;
+    const uint64_t _Mid_upper = _Temp >> 32;
+
+    _Temp  = _Lhigh * _Rlow + _Mid_lower;
+    _Carry = _Temp >> 32;
+
+    return {_Lhigh * _Rhigh + _Mid_upper + _Carry, (_Temp << 32) + _Lower32};
+}
+
+constexpr bool _Ratio_less(const int64_t _Nx1, const int64_t _Dx1, const int64_t _Nx2, const int64_t _Dx2) noexcept {
+    if (_Nx1 >= 0 && _Nx2 >= 0) {
+        return _Big_multiply(static_cast<uint64_t>(_Nx1), static_cast<uint64_t>(_Dx2))
+             < _Big_multiply(static_cast<uint64_t>(_Nx2), static_cast<uint64_t>(_Dx1));
+    }
+
+    if (_Nx1 < 0 && _Nx2 < 0) {
+        return _Big_multiply(static_cast<uint64_t>(-_Nx2), static_cast<uint64_t>(_Dx1))
+             < _Big_multiply(static_cast<uint64_t>(-_Nx1), static_cast<uint64_t>(_Dx2));
+    }
+
+    return _Nx1 < _Nx2;
+}
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+struct ratio_less : bool_constant<_Ratio_less(_Rx1::num, _Rx1::den, _Rx2::num, _Rx2::den)> { // tests if ratio < ratio
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_less<R1, R2> requires R1 and R2 to be ratio<>s.");
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+constexpr bool ratio_less_v = ratio_less<_Rx1, _Rx2>::value;
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+struct ratio_less_equal : bool_constant<!ratio_less_v<_Rx2, _Rx1>> { // tests if ratio <= ratio
+    static_assert(
+        _Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_less_equal<R1, R2> requires R1 and R2 to be ratio<>s.");
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+constexpr bool ratio_less_equal_v = ratio_less_equal<_Rx1, _Rx2>::value;
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+struct ratio_greater : ratio_less<_Rx2, _Rx1>::type { // tests if ratio > ratio
+    static_assert(_Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_greater<R1, R2> requires R1 and R2 to be ratio<>s.");
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+constexpr bool ratio_greater_v = ratio_greater<_Rx1, _Rx2>::value;
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+struct ratio_greater_equal : bool_constant<!ratio_less_v<_Rx1, _Rx2>> { // tests if ratio >= ratio
+    static_assert(
+        _Is_ratio_v<_Rx1> && _Is_ratio_v<_Rx2>, "ratio_greater_equal<R1, R2> requires R1 and R2 to be ratio<>s.");
+};
+
+_EXPORT_STD template <class _Rx1, class _Rx2>
+constexpr bool ratio_greater_equal_v = ratio_greater_equal<_Rx1, _Rx2>::value;
+
+_EXPORT_STD using atto  = ratio<1, 1000000000000000000LL>;
+_EXPORT_STD using femto = ratio<1, 1000000000000000LL>;
+_EXPORT_STD using pico  = ratio<1, 1000000000000LL>;
+_EXPORT_STD using nano  = ratio<1, 1000000000>;
+_EXPORT_STD using micro = ratio<1, 1000000>;
+_EXPORT_STD using milli = ratio<1, 1000>;
+_EXPORT_STD using centi = ratio<1, 100>;
+_EXPORT_STD using deci  = ratio<1, 10>;
+_EXPORT_STD using deca  = ratio<10, 1>;
+_EXPORT_STD using hecto = ratio<100, 1>;
+_EXPORT_STD using kilo  = ratio<1000, 1>;
+_EXPORT_STD using mega  = ratio<1000000, 1>;
+_EXPORT_STD using giga  = ratio<1000000000, 1>;
+_EXPORT_STD using tera  = ratio<1000000000000LL, 1>;
+_EXPORT_STD using peta  = ratio<1000000000000000LL, 1>;
+_EXPORT_STD using exa   = ratio<1000000000000000000LL, 1>;
+_STD_END
+#pragma pop_macro("new")
+_STL_RESTORE_CLANG_WARNINGS
+#pragma warning(pop)
+#pragma pack(pop)
+#endif // _STL_COMPILER_PREPROCESSOR
+#endif // _RATIO_

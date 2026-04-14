@@ -1,0 +1,382 @@
+//+----------------------------------------------------------------------------
+//
+//    Copyright (c) 2005 Microsoft Corporation.
+//
+//    File:     SearchCatalog.idl
+//
+//    Purpose:  Search Catalog Interface Description
+//
+//    History:  07/06/2005     louisg      Modified
+//
+//-----------------------------------------------------------------------------
+
+cpp_quote("#include <winapifamily.h>")
+
+#pragma region Desktop Family
+cpp_quote("#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)")
+
+//
+// Forward references
+//
+
+interface ISearchQueryHelper;
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  ISearchCatalogManager - Manage catalogs
+//
+
+typedef enum _CatalogStatus {
+    //
+    // No indexing is needed
+    //
+    CATALOG_STATUS_IDLE = 0,
+
+    //
+    // Indexer is paused, queries are still OK
+    //
+    CATALOG_STATUS_PAUSED = 1,
+
+    //
+    // Indexer is recovering--no indexing or querying
+    //
+    CATALOG_STATUS_RECOVERING = 2,
+
+    //
+    // Indexer is doing a full crawl and indexing everything
+    //
+    CATALOG_STATUS_FULL_CRAWL = 3,
+
+    //
+    // Indexer is checking to see if anything needs to be indexed because it has changed
+    //
+    CATALOG_STATUS_INCREMENTAL_CRAWL = 4,
+
+    //
+    // Indexer is processing notification queue which is done before resuming any crawl.
+    //
+    CATALOG_STATUS_PROCESSING_NOTIFICATIONS = 5,
+
+    //
+    // Indexer is shutting down and is not indexing and can't be queried.
+    //
+    CATALOG_STATUS_SHUTTING_DOWN = 6
+} CatalogStatus;
+
+
+typedef enum _CatalogPausedReason {
+    //
+    // Not paused
+    //
+    CATALOG_PAUSED_REASON_NONE = 0,
+
+    //
+    // Paused due to high I/O
+    //
+    CATALOG_PAUSED_REASON_HIGH_IO = 1,
+
+    //
+    // Paused due to high CPU usage
+    //
+    CATALOG_PAUSED_REASON_HIGH_CPU = 2,
+
+    //
+    // Paused due to high NTF rate
+    //
+    CATALOG_PAUSED_REASON_HIGH_NTF_RATE = 3,
+
+    //
+    // Paused due to low battery
+    //
+    CATALOG_PAUSED_REASON_LOW_BATTERY = 4,
+
+    //
+    // Paused due to low memory
+    //
+    CATALOG_PAUSED_REASON_LOW_MEMORY = 5,
+
+    //
+    // Paused due to low disk space
+    //
+    CATALOG_PAUSED_REASON_LOW_DISK = 6,
+
+    //
+    // Paused due to need for delayed recovery
+    //
+    CATALOG_PAUSED_REASON_DELAYED_RECOVERY = 7,
+
+    //
+    // Paused due to user activity on the machine
+    //
+    CATALOG_PAUSED_REASON_USER_ACTIVE = 8,
+
+    //
+    // Paused by external request
+    //
+    CATALOG_PAUSED_REASON_EXTERNAL = 9,
+
+    //
+    // Paused by upgrading
+    //
+    CATALOG_PAUSED_REASON_UPGRADING = 10
+
+} CatalogPausedReason;
+
+[
+    object,
+    uuid(AB310581-AC80-11D1-8DF3-00C04FB6EF50),
+    pointer_default(unique)
+]
+interface ISearchCatalogManager: IUnknown
+{
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Basic catalog properties
+    //
+
+    //
+    // Get the name of the catalog
+    //
+    [propget]
+    HRESULT Name([out, retval, string] LPWSTR *pszName);
+
+    //
+    // Get or set parameters for the catalog
+    //
+    // Some examples:
+    //  MaxBytesPerFile (307,200 bytes)
+    //  MaxBytesPerProperty (8k)
+    //  Default timeouts, authentication
+
+    HRESULT GetParameter([in, string] LPCWSTR pszName, [out, retval] PROPVARIANT **ppValue);
+
+    HRESULT SetParameter([in, string] LPCWSTR pszName, [in] PROPVARIANT *pValue);
+
+    //
+    // Get the status of the catalog
+    //
+    // If *pStatus is CATALOG_STATUS_PAUSED, further information
+    // may be obtained from the pPausedReason parameter.
+    //
+    HRESULT GetCatalogStatus([out] CatalogStatus *pStatus, [out] CatalogPausedReason *pPausedReason);
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Catalog control
+    //
+
+    //
+    // Reset the underlying catalog by rebuilding databases, etc. then
+    // reindex everything.
+    //
+    HRESULT Reset();
+
+    //
+    // Reindex all of the URL's in the catalog.  The old information
+    // will remain until it is replaced by new information.
+    //
+    HRESULT Reindex();
+
+    //
+    // Force reindexing URL's that match the pattern
+    // This is useful to for example recrawl everything in a
+    // particular directory or with a particular extension.
+    //
+    HRESULT ReindexMatchingURLs([in, string] LPCWSTR pszPattern);
+
+    //
+    // Reindex all of the paths that the search root pszRootURL encompasses
+    //
+    HRESULT ReindexSearchRoot([in, string] LPCWSTR pszRootURL);
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Timeouts
+    //
+
+    //
+    // Timeout information for connection and data from TIMEOUT_INFO
+    //
+
+    //
+    // Set the current connect timeout
+    //
+    [propput]
+    HRESULT ConnectTimeout([in] DWORD dwConnectTimeout);
+
+    //
+    // Get the current connect timeout
+    //
+    [propget]
+    HRESULT ConnectTimeout([out, retval] DWORD *pdwConnectTimeout);
+
+    //
+    // Set the current data timeout
+    //
+    [propput]
+    HRESULT DataTimeout([in] DWORD dwDataTimeout);
+
+
+    //
+    // Get the current data timeout
+    //
+    [propget]
+    HRESULT DataTimeout([out, retval] DWORD *pdwDataTimeout);
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Catalog information
+    //
+
+    //
+    // Number of items in this catalog
+    //
+    HRESULT NumberOfItems([out, retval] LONG *plCount);
+
+    //
+    // Number of items pending indexing
+    //
+    HRESULT NumberOfItemsToIndex([out] LONG *plIncrementalCount, [out] LONG *plNotificationQueue,
+                                 [out] LONG *plHighPriorityQueue);
+
+    //
+    // URL currently being indexed
+    //
+    HRESULT URLBeingIndexed([out, retval, string] LPWSTR *pszUrl);
+
+    //
+    // Current indexing state of URL
+    //
+    HRESULT GetURLIndexingState([in, string] LPCWSTR pszURL, [out, retval] DWORD *pdwState);
+
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    //  Notifications
+    //
+
+
+
+    HRESULT GetPersistentItemsChangedSink([out, retval] ISearchPersistentItemsChangedSink **ppISearchPersistentItemsChangedSink);
+
+    //
+    // When an item is indexed, a notification will be passed to
+    // the sink if the user token used when registering has access to
+    // the newly indexed item.  If query is NULL, then InView will
+    // always be FALSE.  If query is specified then InView will
+    // reflect whether or not the newly indexed item is then in
+    // the view.  The select list will be used to return information
+    // on the newly indexed item.  If the select list is only docid,
+    // then no values will be generated.
+    //
+    // Related to PQS
+    //
+    //
+    // When the interface is registered, a cookie is returned.  This cookie
+    // is passed in to unregister the view
+    //
+    HRESULT RegisterViewForNotification([in, string] LPCWSTR pszView,
+                                        [in] ISearchViewChangedSink *pViewChangedSink,
+                                        [out] DWORD *pdwCookie);
+
+    //
+    // Get the change notification sink interface
+    //
+    HRESULT GetItemsChangedSink([in]                ISearchNotifyInlineSite *pISearchNotifyInlineSite,
+                                [in]                REFIID                  riid,
+                                [out, iid_is(riid)] void                    **ppv,
+                                [out]               GUID                    *pGUIDCatalogResetSignature,
+                                [out]               GUID                    *pGUIDCheckPointSignature,
+                                [out]               DWORD                   *pdwLastCheckPointNumber );
+
+    HRESULT UnregisterViewForNotification([in] DWORD dwCookie);
+
+    //
+    // Exclude (fExclude is TRUE): Add extension to list of excluded extensions
+    // Include: (fExclude is FALSE): Remove this from the list of excluded
+    // extensions so that it is indexed.
+    //
+    HRESULT SetExtensionClusion([in, string] LPCWSTR pszExtension, [in] BOOL fExclude);
+
+    //
+    // Enumerate excluded extensions - extensions are included by default,
+    // so only the excluded ones need to be looked at.
+    //
+    HRESULT EnumerateExcludedExtensions([out, retval] IEnumString **ppExtensions);
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Return a query helper
+    //
+
+    HRESULT GetQueryHelper([out, retval] ISearchQueryHelper **ppSearchQueryHelper);
+
+    //
+    // Sensitive to diacritics
+    //
+    [propput]
+    HRESULT DiacriticSensitivity([in] BOOL fDiacriticSensitive);
+
+    [propget]
+    HRESULT DiacriticSensitivity([out, retval] BOOL *pfDiacriticSensitive);
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Crawl scope manager for catalog
+    //
+
+    HRESULT GetCrawlScopeManager([out, retval] ISearchCrawlScopeManager **ppCrawlScopeManager);
+};
+
+
+
+[v1_enum] enum tagPRIORITIZE_FLAGS
+{
+    // In prioritization, kick off a retry of items that have failed indexing with the
+    // requested pattern.
+
+    PRIORITIZE_FLAG_RETRYFAILEDITEMS	= 0x00000001,
+
+    // Valid only in combination with PRIORITIZE_FLAG_RETRYFAILEDITEMS.
+    // Normally, items are no longer retried after a series of failed indexing attempts.
+    // This flag indicates that those items should also be re-attempted.
+
+    PRIORITIZE_FLAG_IGNOREFAILURECOUNT	= 0x00000002
+};
+typedef int PRIORITIZE_FLAGS;
+
+
+[
+    object,
+    uuid(7AC3286D-4D1D-4817-84FC-C1C85E3AF0D9),
+    pointer_default(unique)
+]
+interface ISearchCatalogManager2 : ISearchCatalogManager
+{
+    //
+    // Allow the indexer to prioritize the given pattern of URLs over other potential
+    // tasks.
+    //
+    HRESULT PrioritizeMatchingURLs([in, string] LPCWSTR pszPattern, [in] PRIORITIZE_FLAGS dwPrioritizeFlags);
+};
+
+[
+    object,
+    uuid(DE837E8F-634F-4AB0-BDFC-9FC3A1FC50DC),
+    pointer_default(unique)
+]
+interface ISearchCatalogManager3 : ISearchCatalogManager2
+{
+    //
+    // Allows clients to query if Semantic Search is supported on the device
+    // 
+    HRESULT IsContainsSemanticSupported([out, retval] BOOL *isContainsSemanticSupported);
+};
+
+cpp_quote("#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */")
+#pragma endregion
+
