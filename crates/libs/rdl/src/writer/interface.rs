@@ -228,10 +228,12 @@ fn write_method(
         .collect::<Result<Vec<_>, Error>>()?;
 
     // Exclude OverloadAttribute — it is represented by the #[overload] token above.
-    let method_attrs =
-        write_custom_attributes_except(item.attributes(), namespace, item.index(), &[
-            "OverloadAttribute",
-        ])?;
+    let method_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["OverloadAttribute"],
+    )?;
 
     // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
     // preserving properties and events on round-trip.

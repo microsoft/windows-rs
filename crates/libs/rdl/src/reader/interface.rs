@@ -260,8 +260,9 @@ impl Encoder<'_> {
 
                     // MethodDef.Name: common logical name when overloaded, fn ident otherwise.
                     let sig_ident = method.sig.ident.to_string();
-                    let method_def_name =
-                        overload_common_name.as_deref().unwrap_or(sig_ident.as_str());
+                    let method_def_name = overload_common_name
+                        .as_deref()
+                        .unwrap_or(sig_ident.as_str());
 
                     if !already_has_guid {
                         // GUID derivation uses MethodDef.Name (the common/logical name).
@@ -315,10 +316,7 @@ impl Encoder<'_> {
                                 "Windows.Foundation.Metadata",
                                 "OverloadAttribute",
                             ),
-                            args: vec![(
-                                String::new(),
-                                metadata::Value::Utf8(sig_ident.clone()),
-                            )],
+                            args: vec![(String::new(), metadata::Value::Utf8(sig_ident.clone()))],
                         };
                         self.encode_named_attribute(
                             metadata::writer::HasAttribute::MethodDef(method_def),

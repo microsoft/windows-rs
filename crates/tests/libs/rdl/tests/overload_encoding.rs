@@ -37,10 +37,16 @@ mod Test {
     // MethodDef.Name = "Method" (common/logical name)
     // OverloadAttribute.value = "MethodOne" / "MethodTwo" (unique vtable name)
     assert_eq!(methods[0].name(), "Method");
-    assert_eq!(overload_unique_name(&methods[0]).as_deref(), Some("MethodOne"));
+    assert_eq!(
+        overload_unique_name(&methods[0]).as_deref(),
+        Some("MethodOne")
+    );
 
     assert_eq!(methods[1].name(), "Method");
-    assert_eq!(overload_unique_name(&methods[1]).as_deref(), Some("MethodTwo"));
+    assert_eq!(
+        overload_unique_name(&methods[1]).as_deref(),
+        Some("MethodTwo")
+    );
 }
 
 /// Returns the unique vtable name stored in `OverloadAttribute.value`, if present.
@@ -50,5 +56,11 @@ fn overload_unique_name(method: &windows_metadata::reader::MethodDef<'_>) -> Opt
         .value()
         .into_iter()
         .find(|(name, _)| name.is_empty())
-        .and_then(|(_, v)| if let Value::Utf8(s) = v { Some(s) } else { None })
+        .and_then(|(_, v)| {
+            if let Value::Utf8(s) = v {
+                Some(s)
+            } else {
+                None
+            }
+        })
 }
