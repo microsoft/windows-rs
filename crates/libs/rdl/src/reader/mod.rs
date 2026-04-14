@@ -34,6 +34,7 @@ use r#const::*;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;
+use std::collections::HashMap;
 use union::*;
 use windows_metadata as metadata;
 
@@ -113,6 +114,8 @@ impl Reader {
         let mut output = metadata::writer::File::new(assembly_name);
         output.set_reference(reference);
 
+        let mut typedef_ids: HashMap<String, metadata::writer::TypeDef> = HashMap::new();
+
         for (namespace, members) in &index.namespaces {
             for variants in members.types.values() {
                 for (file, item) in variants {
@@ -124,6 +127,7 @@ impl Reader {
                         namespace,
                         name: &name,
                         generics: vec![],
+                        typedef_ids: &mut typedef_ids,
                     };
                     match item {
                         Item::Attribute(ty) => encoder.encode_attribute(ty),
@@ -166,6 +170,7 @@ impl Reader {
                             namespace,
                             name,
                             generics: vec![],
+                            typedef_ids: &mut typedef_ids,
                         }
                         .encode_fn(ty)?;
                     }
@@ -183,6 +188,7 @@ impl Reader {
                             namespace,
                             name,
                             generics: vec![],
+                            typedef_ids: &mut typedef_ids,
                         }
                         .encode_const(ty)?;
                     }
@@ -385,6 +391,7 @@ struct Encoder<'a> {
     namespace: &'a str,
     name: &'a str,
     generics: Vec<String>,
+    typedef_ids: &'a mut HashMap<String, metadata::writer::TypeDef>,
 }
 
 impl Encoder<'_> {
@@ -416,6 +423,25 @@ impl Encoder<'_> {
             };
 
             return Ok(Some(size));
+        }
+
+        Ok(None)
+    }
+
+    /// Parse an optional `#[nested(TypeName)]` attribute from `attrs`.  Returns
+    /// `Some(ident)` with the outer type's name if the attribute is present and
+    /// well-formed, `None` if absent, or an error if the attribute is malformed.
+    fn read_nested(&self, attrs: &[syn::Attribute]) -> Result<Option<syn::Ident>, Error> {
+        for attr in attrs {
+            if !attr.path().is_ident("nested") {
+                continue;
+            }
+
+            let Ok(ident) = attr.parse_args::<syn::Ident>() else {
+                return self.err(attr, "`nested` attribute requires a type name");
+            };
+
+            return Ok(Some(ident));
         }
 
         Ok(None)

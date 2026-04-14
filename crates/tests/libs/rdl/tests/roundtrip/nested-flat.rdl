@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct OUTER {
+        Anonymous: OUTER_0,
+        value: u32,
+    }
+    #[nested(OUTER)]
+    union OUTER_0 {
+        a: OUTER_0_0,
+        b: u16,
+    }
+    #[nested(OUTER_0)]
+    struct OUTER_0_0 {
+        x: u32,
+        y: u32,
+    }
+}

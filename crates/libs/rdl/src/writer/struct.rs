@@ -132,6 +132,7 @@ fn collect_nested(
         // so we don't emit it twice when the nested type already has one).
         let arch_attr = write_arch_attr(effective_arches);
         let packed_attr = write_packed_attr_value(effective_packing);
+        let outer_ident = write_ident(outer_flat_name);
         let custom_attrs = write_custom_attributes_except(
             nested.attributes(),
             namespace,
@@ -141,7 +142,7 @@ fn collect_nested(
 
         output.push((
             flat_name,
-            quote! { #packed_attr #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
+            quote! { #packed_attr #arch_attr #[nested(#outer_ident)] #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
         ));
     }
 

@@ -250,6 +250,51 @@ union SprocketHandle {
 
 ---
 
+#### Nested Types
+
+Some Windows metadata types contain anonymous inner structs or unions (nested types). The `#[nested(OuterTypeName)]` pseudo-attribute marks a struct or union as a nested type within the named enclosing type, enabling faithful roundtripping of nested types from Windows metadata.
+
+**Rules:**
+- The outer type must be declared **before** the nested type in the file (in alphabetical name order, as the RDL writer produces).
+- `#[nested]` can be combined with `#[packed(N)]` and other attributes.
+- Multiple levels of nesting are supported by chaining: `A` contains `A_0`, which contains `A_0_0`, and so on.
+
+**Syntax:**
+
+```rust
+struct OuterName {
+    AnonymousField: InnerName,
+}
+#[nested(OuterName)]
+union InnerName {
+    FieldA: u32,
+    FieldB: u16,
+}
+```
+
+**Example:**
+
+```rust
+#[win32]
+mod Contoso {
+    mod Sprockets {
+        struct SprocketBuffer {
+            size: u32,
+            Anonymous: SprocketBuffer_0,
+        }
+        #[nested(SprocketBuffer)]
+        union SprocketBuffer_0 {
+            data: u32,
+            raw: [u8; 4],
+        }
+    }
+}
+```
+
+The `#[nested]` attribute is a pseudo-attribute: it is not stored as a custom metadata attribute. Instead it causes the RDL reader to set the `NestedPublic` flag on the inner TypeDef and emit a `NestedClass` metadata record linking the inner type to the outer type.
+
+---
+
 #### Interfaces
 
 Interfaces define contracts for method implementations.

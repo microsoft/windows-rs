@@ -872,3 +872,44 @@ mod Test {
 "#,
     )
 }
+
+#[test]
+#[should_panic(
+    expected = "error: `nested` attribute requires a type name\n --> .rdl:4:5"
+)]
+fn nested_no_args_errors() {
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    #[nested]
+    union Foo {
+        a: u32,
+    }
+}
+        "#,
+    )
+}
+
+#[test]
+#[should_panic(
+    expected = "error: `nested` outer type `OuterStruct` not found; ensure the outer type appears before the nested type\n --> .rdl:4:14"
+)]
+fn nested_outer_not_found_errors() {
+    // "AnonymousUnion" sorts before "OuterStruct", so the inner type is encoded
+    // before the outer — this should produce a clear error.
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    #[nested(OuterStruct)]
+    union AnonymousUnion {
+        a: u32,
+    }
+    struct OuterStruct {
+        Anonymous: AnonymousUnion,
+    }
+}
+        "#,
+    )
+}

@@ -10,6 +10,7 @@ mod Windows {
                     Anonymous: BTH_INFO_RSP_0,
                 }
                 #[packed(1)]
+                #[nested(BTH_INFO_RSP)]
                 union BTH_INFO_RSP_0 {
                     connectionlessMTU: u16,
                     data: [u8; 44],
