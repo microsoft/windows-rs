@@ -105,7 +105,11 @@ impl Encoder<'_> {
             };
 
         // Nested types are stored with an empty namespace in ECMA-335 metadata.
-        let namespace = if nested_in.is_some() { "" } else { self.namespace };
+        let namespace = if nested_in.is_some() {
+            ""
+        } else {
+            self.namespace
+        };
 
         let type_def = self.output.TypeDef(
             namespace,
