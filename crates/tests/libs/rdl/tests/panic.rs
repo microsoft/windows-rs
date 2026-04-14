@@ -874,9 +874,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = "error: `nested` attribute requires a type name\n --> .rdl:4:5"
-)]
+#[should_panic(expected = "error: `nested` attribute requires a type name\n --> .rdl:4:5")]
 fn nested_no_args_errors() {
     should_panic(
         r#"
