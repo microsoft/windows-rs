@@ -240,20 +240,6 @@ fn generate(c: &Converter) -> Result<String, String> {
         clang_args.push(format!("-isystem{}", inc.to_string_lossy()));
     }
 
-    // On Windows the INCLUDE environment variable contains the semicolon-separated
-    // list of SDK/VC++ header directories (set by vcvarsall.bat or the VS build
-    // environment).  libclang does not consult INCLUDE automatically, so we add
-    // each path explicitly so that `#include <windows.h>` and its transitive
-    // includes resolve correctly.  Windows SDK paths are added as system includes
-    // so that SDK types are not emitted in the RDL output.
-    if let Ok(include_env) = std::env::var("INCLUDE") {
-        for path in include_env.split(';') {
-            let path = path.trim();
-            if !path.is_empty() {
-                clang_args.push(format!("-isystem{path}"));
-            }
-        }
-    }
     for (name, val) in &c.defines {
         if let Some(v) = val {
             clang_args.push(format!("-D{name}={v}"));
