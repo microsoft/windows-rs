@@ -1,5 +1,6 @@
 #![doc = include_str!("../readme.md")]
 
+mod clang;
 mod error;
 pub mod formatter;
 mod reader;
@@ -8,6 +9,7 @@ mod writer;
 use std::collections::{BTreeMap, HashSet};
 use syn::spanned::Spanned;
 
+pub use clang::Clang;
 pub use error::Error;
 pub use reader::Reader;
 pub use writer::Writer;
@@ -18,6 +20,10 @@ pub fn reader() -> Reader {
 
 pub fn writer() -> Writer {
     Writer::new()
+}
+
+pub fn clang() -> Clang {
+    Clang::new()
 }
 
 fn expand_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error> {
