@@ -382,7 +382,7 @@ fn generate(c: &Converter) -> Result<String, String> {
     // Load libclang at runtime; the returned handle keeps the library alive.
     // It must be declared first so it is dropped last (after all libclang
     // objects derived from the index are already disposed).
-    let _lib = clang_sys::load()
+    let _libclang = clang_sys::load()
         .map_err(|e| format!("failed to initialize libclang: {e}"))?;
 
     let raw_index = unsafe { clang_createIndex(0, 0) };
@@ -845,8 +845,8 @@ fn collect_enum(cursor: CXCursor, name: String) -> Option<RdlEnum> {
     for child in get_children(cursor) {
         if cursor_kind(child) == CXCursor_EnumConstantDecl {
             if let Some(vname) = cursor_name(child) {
-                let signed = unsafe { clang_getEnumConstantDeclValue(child) };
-                variants.push((vname, signed));
+                let value = unsafe { clang_getEnumConstantDeclValue(child) };
+                variants.push((vname, value));
             }
         }
     }
