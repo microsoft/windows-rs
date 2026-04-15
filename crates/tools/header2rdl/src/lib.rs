@@ -17,8 +17,13 @@
 //! Requires `libclang` at build and run time.  On Ubuntu 22.04+ set
 //! `LIBCLANG_PATH=/usr/lib/llvm-20/lib` (or the installed LLVM version).
 
-use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, TypeKind};
+// clang-sys exports C-style names (e.g. CXType_Void, CXCursor_StructDecl) that
+// Rust's nonstandard_style lint flags as non-upper-case when used in patterns.
+#![allow(non_upper_case_globals)]
+
+use clang_sys::*;
 use std::collections::BTreeSet;
+use std::ffi::{CStr, CString};
 use std::path::{Path, PathBuf};
 
 // ---------------------------------------------------------------------------
@@ -45,7 +50,7 @@ pub fn is_available() -> bool {
     if std::env::var("LIBCLANG_PATH").is_err() {
         return false;
     }
-    Clang::new().is_ok()
+    clang_sys::load().is_ok()
 }
 
 /// Builder for converting C/C++ header files to Windows RDL source.
@@ -212,6 +217,156 @@ impl Converter {
 }
 
 // ---------------------------------------------------------------------------
+// RAII wrappers for raw libclang handles
+// ---------------------------------------------------------------------------
+
+struct IndexGuard(CXIndex);
+
+impl Drop for IndexGuard {
+    fn drop(&mut self) {
+        unsafe { clang_disposeIndex(self.0) };
+    }
+}
+
+struct TuGuard(CXTranslationUnit);
+
+impl Drop for TuGuard {
+    fn drop(&mut self) {
+        unsafe { clang_disposeTranslationUnit(self.0) };
+    }
+}
+
+// ---------------------------------------------------------------------------
+// libclang helper functions
+// ---------------------------------------------------------------------------
+
+/// Convert a `CXString` to a Rust `String`, disposing the CXString afterwards.
+fn cx_string(s: CXString) -> String {
+    unsafe {
+        let ptr = clang_getCString(s);
+        let result = if ptr.is_null() {
+            String::new()
+        } else {
+            CStr::from_ptr(ptr).to_string_lossy().into_owned()
+        };
+        clang_disposeString(s);
+        result
+    }
+}
+
+/// Like `cx_string` but returns `None` for empty strings.
+fn cx_string_option(s: CXString) -> Option<String> {
+    let result = cx_string(s);
+    if result.is_empty() { None } else { Some(result) }
+}
+
+/// Collect the direct children of `parent` into a `Vec`.
+fn get_children(parent: CXCursor) -> Vec<CXCursor> {
+    extern "C" fn visitor(
+        cursor: CXCursor,
+        _parent: CXCursor,
+        data: CXClientData,
+    ) -> CXChildVisitResult {
+        let children = unsafe { &mut *(data as *mut Vec<CXCursor>) };
+        children.push(cursor);
+        CXChildVisit_Continue
+    }
+    let mut children: Vec<CXCursor> = Vec::new();
+    unsafe {
+        clang_visitChildren(
+            parent,
+            visitor,
+            &mut children as *mut Vec<CXCursor> as CXClientData,
+        );
+    }
+    children
+}
+
+fn cursor_name(cursor: CXCursor) -> Option<String> {
+    cx_string_option(unsafe { clang_getCursorSpelling(cursor) })
+}
+
+fn cursor_kind(cursor: CXCursor) -> CXCursorKind {
+    unsafe { clang_getCursorKind(cursor) }
+}
+
+fn is_definition(cursor: CXCursor) -> bool {
+    unsafe { clang_isCursorDefinition(cursor) != 0 }
+}
+
+fn is_in_system_header(cursor: CXCursor) -> bool {
+    let loc = unsafe { clang_getCursorLocation(cursor) };
+    unsafe { clang_Location_isInSystemHeader(loc) != 0 }
+}
+
+fn is_pure_virtual(cursor: CXCursor) -> bool {
+    unsafe { clang_CXXMethod_isPureVirtual(cursor) != 0 }
+}
+
+fn cursor_type(cursor: CXCursor) -> Option<CXType> {
+    let ty = unsafe { clang_getCursorType(cursor) };
+    if ty.kind == CXType_Invalid { None } else { Some(ty) }
+}
+
+fn cursor_definition(cursor: CXCursor) -> Option<CXCursor> {
+    let def = unsafe { clang_getCursorDefinition(cursor) };
+    if unsafe { clang_Cursor_isNull(def) } != 0 { None } else { Some(def) }
+}
+
+fn typedef_underlying_type(cursor: CXCursor) -> Option<CXType> {
+    let ty = unsafe { clang_getTypedefDeclUnderlyingType(cursor) };
+    if ty.kind == CXType_Invalid { None } else { Some(ty) }
+}
+
+fn enum_integer_type(cursor: CXCursor) -> Option<CXType> {
+    let ty = unsafe { clang_getEnumDeclIntegerType(cursor) };
+    if ty.kind == CXType_Invalid { None } else { Some(ty) }
+}
+
+fn type_spelling(ty: CXType) -> String {
+    cx_string(unsafe { clang_getTypeSpelling(ty) })
+}
+
+fn canonical_type(ty: CXType) -> CXType {
+    unsafe { clang_getCanonicalType(ty) }
+}
+
+fn type_declaration(ty: CXType) -> Option<CXCursor> {
+    let cursor = unsafe { clang_getTypeDeclaration(ty) };
+    if unsafe { clang_Cursor_isNull(cursor) } != 0
+        || cursor_kind(cursor) == CXCursor_NoDeclFound
+    {
+        None
+    } else {
+        Some(cursor)
+    }
+}
+
+fn pointee_type(ty: CXType) -> Option<CXType> {
+    let inner = unsafe { clang_getPointeeType(ty) };
+    if inner.kind == CXType_Invalid { None } else { Some(inner) }
+}
+
+fn element_type(ty: CXType) -> Option<CXType> {
+    let elem = unsafe { clang_getArrayElementType(ty) };
+    if elem.kind == CXType_Invalid { None } else { Some(elem) }
+}
+
+fn array_size(ty: CXType) -> usize {
+    let s = unsafe { clang_getArraySize(ty) };
+    if s < 0 { 0 } else { s as usize }
+}
+
+fn result_type(ty: CXType) -> Option<CXType> {
+    let ret = unsafe { clang_getResultType(ty) };
+    if ret.kind == CXType_Invalid { None } else { Some(ret) }
+}
+
+fn is_const_qualified(ty: CXType) -> bool {
+    unsafe { clang_isConstQualifiedType(ty) != 0 }
+}
+
+// ---------------------------------------------------------------------------
 // Core generation
 // ---------------------------------------------------------------------------
 
@@ -224,8 +379,17 @@ fn arch_triple(arch: &str) -> &str {
 }
 
 fn generate(c: &Converter) -> Result<String, String> {
-    let clang = Clang::new().map_err(|e| format!("failed to initialize libclang: {e}"))?;
-    let index = Index::new(&clang, false, false);
+    // Load libclang at runtime; the returned handle keeps the library alive.
+    // It must be declared first so it is dropped last (after all libclang
+    // objects derived from the index are already disposed).
+    let _lib = clang_sys::load()
+        .map_err(|e| format!("failed to initialize libclang: {e}"))?;
+
+    let raw_index = unsafe { clang_createIndex(0, 0) };
+    if raw_index.is_null() {
+        return Err("failed to create clang index".into());
+    }
+    let _index = IndexGuard(raw_index);
 
     let mut clang_args: Vec<String> = vec![
         format!("--target={}", arch_triple(&c.arch)),
@@ -273,46 +437,79 @@ fn generate(c: &Converter) -> Result<String, String> {
         clang_args.extend(["-x".into(), "c".into()]);
     }
 
-    let clang_arg_refs: Vec<&str> = clang_args.iter().map(String::as_str).collect();
+    // Build the CString argument list once; keep it alive for the whole loop.
+    let args_cstrings: Vec<CString> = clang_args
+        .iter()
+        .map(|s| CString::new(s.as_str()).expect("clang arg contains null byte"))
+        .collect();
+    let args_ptrs: Vec<*const std::os::raw::c_char> =
+        args_cstrings.iter().map(|s| s.as_ptr()).collect();
+
     let mut collector = Collector::new(c.cpp);
 
     for input in &c.files {
         let input_str = input.to_string_lossy();
-        let tu = index
-            .parser(&*input_str)
-            .arguments(&clang_arg_refs)
-            .parse()
-            .map_err(|_| format!("failed to parse `{}`", input.display()))?;
+        let input_cstr = CString::new(input_str.as_bytes())
+            .map_err(|_| format!("invalid filename: {}", input.display()))?;
 
-        let errors: Vec<String> = tu
-            .get_diagnostics()
-            .into_iter()
-            .filter(|d| matches!(d.get_severity(), Severity::Error | Severity::Fatal))
-            .map(|d| {
-                let loc = d.get_location().get_file_location();
-                let file = loc
-                    .file
-                    .map(|f| {
-                        // Normalize the path: collect components to remove any redundant
-                        // separators that libclang sometimes produces on Windows
-                        // (e.g. `C:\Windows Kits\10\\include\...`), then convert to
-                        // forward slashes so that VS Code terminal link detection works
-                        // correctly even for paths containing spaces
-                        // (e.g. `C:\Program Files (x86)\...`).
-                        let normalized: PathBuf = f.get_path().components().collect();
-                        normalized.to_string_lossy().replace('\\', "/")
-                    })
-                    .unwrap_or_default();
-                let line = loc.line;
-                let col = loc.column;
-                format!("error: {}\n --> {file}:{line}:{col}", d.get_text())
-            })
-            .collect();
+        let mut tu_raw: CXTranslationUnit = std::ptr::null_mut();
+        let err = unsafe {
+            clang_parseTranslationUnit2(
+                raw_index,
+                input_cstr.as_ptr(),
+                args_ptrs.as_ptr(),
+                args_ptrs.len() as std::os::raw::c_int,
+                std::ptr::null_mut(), // unsaved_files
+                0,                    // num_unsaved_files
+                CXTranslationUnit_None,
+                &mut tu_raw,
+            )
+        };
+        if err != CXError_Success || tu_raw.is_null() {
+            return Err(format!("failed to parse `{}`", input.display()));
+        }
+        let tu = TuGuard(tu_raw);
+
+        // Collect error/fatal diagnostics.
+        let num_diags = unsafe { clang_getNumDiagnostics(tu.0) };
+        let mut errors: Vec<String> = Vec::new();
+        for i in 0..num_diags {
+            let diag = unsafe { clang_getDiagnostic(tu.0, i) };
+            let severity = unsafe { clang_getDiagnosticSeverity(diag) };
+            if severity >= CXDiagnostic_Error {
+                let text = cx_string(unsafe { clang_getDiagnosticSpelling(diag) });
+                let loc = unsafe { clang_getDiagnosticLocation(diag) };
+                let mut file: CXFile = std::ptr::null_mut();
+                let mut line: std::os::raw::c_uint = 0;
+                let mut col: std::os::raw::c_uint = 0;
+                let mut offset: std::os::raw::c_uint = 0;
+                unsafe {
+                    clang_getFileLocation(loc, &mut file, &mut line, &mut col, &mut offset);
+                }
+                let file_str = if file.is_null() {
+                    String::new()
+                } else {
+                    // Normalize the path: collect components to remove any redundant
+                    // separators that libclang sometimes produces on Windows
+                    // (e.g. `C:\Windows Kits\10\\include\...`), then convert to
+                    // forward slashes so that VS Code terminal link detection works
+                    // correctly even for paths containing spaces
+                    // (e.g. `C:\Program Files (x86)\...`).
+                    let name = cx_string(unsafe { clang_getFileName(file) });
+                    let normalized: PathBuf = PathBuf::from(&name).components().collect();
+                    normalized.to_string_lossy().replace('\\', "/")
+                };
+                errors.push(format!("error: {text}\n --> {file_str}:{line}:{col}"));
+            }
+            unsafe { clang_disposeDiagnostic(diag) };
+        }
         if !errors.is_empty() {
             return Err(errors.join("\n"));
         }
 
-        collect(tu.get_entity(), &mut collector);
+        let root = unsafe { clang_getTranslationUnitCursor(tu.0) };
+        collect(root, &mut collector);
+        // `tu` is dropped here, which calls `clang_disposeTranslationUnit`.
     }
 
     let rdl = emit(c, &collector);
@@ -381,77 +578,77 @@ impl Collector {
 // AST collection
 // ---------------------------------------------------------------------------
 
-fn collect(entity: Entity, collector: &mut Collector) {
-    for child in entity.get_children() {
-        if child.is_in_system_header() {
+fn collect(cursor: CXCursor, collector: &mut Collector) {
+    for child in get_children(cursor) {
+        if is_in_system_header(child) {
             continue;
         }
 
-        match child.get_kind() {
-            EntityKind::StructDecl | EntityKind::UnionDecl => {
+        match cursor_kind(child) {
+            CXCursor_StructDecl | CXCursor_UnionDecl => {
                 // Skip forward declarations: they must not claim the name in
                 // `seen` before the real definition (possibly a StructDecl
                 // produced by the MIDL_INTERFACE macro) is processed.
-                if !child.is_definition() {
+                if !is_definition(child) {
                     continue;
                 }
-                let is_union = child.get_kind() == EntityKind::UnionDecl;
-                if collector.cpp && is_com_interface(&child) {
-                    if let Some(name) = non_underscore_name(&child) {
+                let is_union = cursor_kind(child) == CXCursor_UnionDecl;
+                if collector.cpp && is_com_interface(child) {
+                    if let Some(name) = non_underscore_name(child) {
                         if collector.seen.insert(name.clone()) {
-                            if let Some(iface) = collect_interface(&child, name) {
+                            if let Some(iface) = collect_interface(child, name) {
                                 collector.interfaces.push(iface);
                             }
                         }
                     }
-                } else if let Some(name) = non_underscore_name(&child) {
+                } else if let Some(name) = non_underscore_name(child) {
                     if collector.seen.insert(name.clone()) {
-                        if let Some(structs) = collect_struct(&child, name, is_union) {
+                        if let Some(structs) = collect_struct(child, name, is_union) {
                             collector.structs.extend(structs);
                         }
                     }
                 }
             }
-            EntityKind::ClassDecl if collector.cpp => {
+            CXCursor_ClassDecl if collector.cpp => {
                 // Skip forward declarations for the same reason as StructDecl above.
-                if !child.is_definition() {
+                if !is_definition(child) {
                     continue;
                 }
-                if let Some(name) = non_underscore_name(&child) {
+                if let Some(name) = non_underscore_name(child) {
                     if collector.seen.insert(name.clone()) {
-                        if is_com_interface(&child) {
-                            if let Some(iface) = collect_interface(&child, name) {
+                        if is_com_interface(child) {
+                            if let Some(iface) = collect_interface(child, name) {
                                 collector.interfaces.push(iface);
                             }
-                        } else if let Some(s) = collect_struct(&child, name, false) {
+                        } else if let Some(s) = collect_struct(child, name, false) {
                             collector.structs.extend(s);
                         }
                     }
                 }
             }
-            EntityKind::EnumDecl => {
-                if let Some(name) = non_underscore_name(&child) {
+            CXCursor_EnumDecl => {
+                if let Some(name) = non_underscore_name(child) {
                     if collector.seen.insert(name.clone()) {
-                        if let Some(e) = collect_enum(&child, name) {
+                        if let Some(e) = collect_enum(child, name) {
                             collector.enums.push(e);
                         }
                     }
                 }
             }
-            EntityKind::TypedefDecl => {
-                collect_typedef(&child, collector);
+            CXCursor_TypedefDecl => {
+                collect_typedef(child, collector);
             }
-            EntityKind::FunctionDecl => {
+            CXCursor_FunctionDecl => {
                 // Skip inline functions (functions with bodies) — they cannot
                 // be represented in RDL.  This is important because macros like
                 // DEFINE_ENUM_FLAG_OPERATORS expand to inline operator
                 // overloads that must not be collected.
-                if child.is_definition() {
+                if is_definition(child) {
                     continue;
                 }
-                if let Some(name) = child.get_name() {
+                if let Some(name) = cursor_name(child) {
                     if collector.seen.insert(name.clone()) {
-                        if let Some(f) = collect_function(&child, name) {
+                        if let Some(f) = collect_function(child, name) {
                             collector.functions.push(f);
                         }
                     }
@@ -460,7 +657,7 @@ fn collect(entity: Entity, collector: &mut Collector) {
             // Recurse into `extern "C" { }` linkage-specification blocks so
             // that types defined inside them (as in the MIDL-generated style
             // used by WebView2.h) are collected.
-            EntityKind::LinkageSpec => {
+            CXCursor_LinkageSpec => {
                 collect(child, collector);
             }
             _ => {}
@@ -468,28 +665,24 @@ fn collect(entity: Entity, collector: &mut Collector) {
     }
 }
 
-fn non_underscore_name(entity: &Entity) -> Option<String> {
-    entity
-        .get_name()
-        .filter(|n| !n.is_empty() && !n.starts_with('_'))
+fn non_underscore_name(cursor: CXCursor) -> Option<String> {
+    cursor_name(cursor).filter(|n| !n.is_empty() && !n.starts_with('_'))
 }
 
-fn is_com_interface(entity: &Entity) -> bool {
+fn is_com_interface(cursor: CXCursor) -> bool {
     // Follow forward declarations to the full definition.  When a COM interface
     // type is used as a parameter before its definition appears in the header,
     // `get_declaration()` may return the incomplete forward-declaration entity,
     // which has no children.  Resolving to the definition ensures we detect
     // pure-virtual methods regardless of declaration order or platform.
-    let def = entity.get_definition();
-    let target = def.as_ref().unwrap_or(entity);
-    target
-        .get_children()
+    let target = cursor_definition(cursor).unwrap_or(cursor);
+    get_children(target)
         .iter()
-        .any(|c| c.get_kind() == EntityKind::Method && c.is_pure_virtual_method())
+        .any(|c| cursor_kind(*c) == CXCursor_CXXMethod && is_pure_virtual(*c))
 }
 
-fn collect_typedef(entity: &Entity, collector: &mut Collector) {
-    let name = match entity.get_name() {
+fn collect_typedef(cursor: CXCursor, collector: &mut Collector) {
+    let name = match cursor_name(cursor) {
         Some(n) if !n.is_empty() && !n.starts_with('_') => n,
         _ => return,
     };
@@ -498,12 +691,12 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         return;
     }
 
-    for child in entity.get_children() {
-        match child.get_kind() {
-            EntityKind::StructDecl | EntityKind::UnionDecl => {
-                let is_union = child.get_kind() == EntityKind::UnionDecl;
-                if let Some(structs) = collect_struct(&child, name.clone(), is_union) {
-                    if let Some(inner) = child.get_name() {
+    for child in get_children(cursor) {
+        match cursor_kind(child) {
+            CXCursor_StructDecl | CXCursor_UnionDecl => {
+                let is_union = cursor_kind(child) == CXCursor_UnionDecl;
+                if let Some(structs) = collect_struct(child, name.clone(), is_union) {
+                    if let Some(inner) = cursor_name(child) {
                         collector.seen.insert(inner);
                     }
                     collector.seen.insert(name);
@@ -511,18 +704,18 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
                 }
                 return;
             }
-            EntityKind::ClassDecl => {
+            CXCursor_ClassDecl => {
                 // In C++ mode, `typedef interface X X;` creates a ClassDecl
                 // child.  If it is a forward declaration (not yet defined),
                 // return without inserting into `seen` so the actual definition
                 // (which may arrive as a StructDecl from a MIDL_INTERFACE macro
                 // expansion) can be collected later.
-                if !child.is_definition() {
+                if !is_definition(child) {
                     return;
                 }
                 // Inline class definition (`typedef class { … } X;`).
-                if let Some(structs) = collect_struct(&child, name.clone(), false) {
-                    if let Some(inner) = child.get_name() {
+                if let Some(structs) = collect_struct(child, name.clone(), false) {
+                    if let Some(inner) = cursor_name(child) {
                         collector.seen.insert(inner);
                     }
                     collector.seen.insert(name);
@@ -530,9 +723,9 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
                 }
                 return;
             }
-            EntityKind::EnumDecl => {
-                if let Some(e) = collect_enum(&child, name.clone()) {
-                    if let Some(inner) = child.get_name() {
+            CXCursor_EnumDecl => {
+                if let Some(e) = collect_enum(child, name.clone()) {
+                    if let Some(inner) = cursor_name(child) {
                         collector.seen.insert(inner);
                     }
                     collector.seen.insert(name);
@@ -549,8 +742,8 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
     // `typedef struct X X;` arrives here with an underlying type whose display
     // name equals the alias name itself.  Don't add the name to `seen` or emit a
     // typedef in that case — the real definition will be collected later.
-    if let Some(underlying) = entity.get_typedef_underlying_type() {
-        let value = map_type(&underlying);
+    if let Some(underlying) = typedef_underlying_type(cursor) {
+        let value = map_type(underlying);
         if value == name {
             // Self-referential forward-declaration alias: skip it.
             return;
@@ -559,10 +752,10 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         // Also guard against the case where the underlying canonical type is an
         // *incomplete* record — this covers typedef aliases with a different name
         // for a not-yet-defined struct/class.
-        let canonical = underlying.get_canonical_type();
-        if canonical.get_kind() == TypeKind::Record {
-            if let Some(decl) = canonical.get_declaration() {
-                if !decl.is_definition() {
+        let canonical = canonical_type(underlying);
+        if canonical.kind == CXType_Record {
+            if let Some(decl) = type_declaration(canonical) {
+                if !is_definition(decl) {
                     return;
                 }
             }
@@ -577,8 +770,8 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
     collector.seen.insert(name);
 }
 
-fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<RdlStruct>> {
-    if !entity.is_definition() {
+fn collect_struct(cursor: CXCursor, name: String, is_union: bool) -> Option<Vec<RdlStruct>> {
+    if !is_definition(cursor) {
         return None;
     }
 
@@ -589,25 +782,23 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
     // OUTER_0, OUTER_1, OUTER_0_0, etc.
     let mut nested_index: usize = 0;
 
-    for (i, child) in entity.get_children().iter().enumerate() {
-        if child.get_kind() == EntityKind::FieldDecl {
-            let field_name = child
-                .get_name()
-                .unwrap_or_else(|| format!("field_{}", i + 1));
-            if let Some(ty) = child.get_type() {
+    for (i, child) in get_children(cursor).iter().enumerate() {
+        if cursor_kind(*child) == CXCursor_FieldDecl {
+            let field_name = cursor_name(*child).unwrap_or_else(|| format!("field_{}", i + 1));
+            if let Some(ty) = cursor_type(*child) {
                 // Detect anonymous struct/union fields by checking whether the
                 // (stripped) display name of the *original* type starts with '('.
                 // e.g. Elaborated "struct (unnamed struct at ...)" → "(unnamed struct at ...)"
-                let display = strip_elaboration(&ty.get_display_name());
-                let canonical = ty.get_canonical_type();
-                if display.starts_with('(') && canonical.get_kind() == TypeKind::Record {
-                    if let Some(decl) = canonical.get_declaration() {
+                let display = strip_elaboration(&type_spelling(ty));
+                let canonical = canonical_type(ty);
+                if display.starts_with('(') && canonical.kind == CXType_Record {
+                    if let Some(decl) = type_declaration(canonical) {
                         // Use numeric suffix matching windows-bindgen/windows-rdl convention:
                         // OUTER_0, OUTER_1, OUTER_0_0, ...
                         let nested_name = format!("{}_{}", name, nested_index);
-                        let is_nested_union = decl.get_kind() == EntityKind::UnionDecl;
+                        let is_nested_union = cursor_kind(decl) == CXCursor_UnionDecl;
                         if let Some(nested_structs) =
-                            collect_struct(&decl, nested_name.clone(), is_nested_union)
+                            collect_struct(decl, nested_name.clone(), is_nested_union)
                         {
                             fields.push((field_name, nested_name));
                             nested.extend(nested_structs);
@@ -616,7 +807,7 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
                         }
                     }
                 }
-                fields.push((field_name, map_type(&ty)));
+                fields.push((field_name, map_type(ty)));
             }
         }
     }
@@ -630,32 +821,31 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
     Some(nested)
 }
 
-fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
-    if !entity.is_definition() {
+fn collect_enum(cursor: CXCursor, name: String) -> Option<RdlEnum> {
+    if !is_definition(cursor) {
         return None;
     }
 
-    let repr = match entity.get_enum_underlying_type() {
-        Some(ty) => match ty.get_kind() {
-            TypeKind::Int | TypeKind::Long => "i32",
-            TypeKind::UInt | TypeKind::ULong => "u32",
-            TypeKind::Short => "i16",
-            TypeKind::UShort => "u16",
-            TypeKind::CharS | TypeKind::SChar => "i8",
-            TypeKind::CharU | TypeKind::UChar => "u8",
-            TypeKind::LongLong => "i64",
-            TypeKind::ULongLong => "u64",
+    let repr = match enum_integer_type(cursor) {
+        Some(ty) => match ty.kind {
+            CXType_Int | CXType_Long => "i32",
+            CXType_UInt | CXType_ULong => "u32",
+            CXType_Short => "i16",
+            CXType_UShort => "u16",
+            CXType_Char_S | CXType_SChar => "i8",
+            CXType_Char_U | CXType_UChar => "u8",
+            CXType_LongLong => "i64",
+            CXType_ULongLong => "u64",
             _ => "i32",
         },
         None => "i32",
     };
 
     let mut variants = vec![];
-    for child in entity.get_children() {
-        if child.get_kind() == EntityKind::EnumConstantDecl {
-            if let (Some(vname), Some((signed, _))) =
-                (child.get_name(), child.get_enum_constant_value())
-            {
+    for child in get_children(cursor) {
+        if cursor_kind(child) == CXCursor_EnumConstantDecl {
+            if let Some(vname) = cursor_name(child) {
+                let signed = unsafe { clang_getEnumConstantDeclValue(child) };
                 variants.push((vname, signed));
             }
         }
@@ -668,19 +858,17 @@ fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
     })
 }
 
-fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
-    let ty = entity.get_type()?;
-    let ret_ty = ty.get_result_type()?;
-    let ret = map_type(&ret_ty);
+fn collect_function(cursor: CXCursor, name: String) -> Option<RdlFn> {
+    let ty = cursor_type(cursor)?;
+    let ret_ty = result_type(ty)?;
+    let ret = map_type(ret_ty);
 
     let mut params = vec![];
-    for (i, child) in entity.get_children().iter().enumerate() {
-        if child.get_kind() == EntityKind::ParmDecl {
-            let pname = child
-                .get_name()
-                .unwrap_or_else(|| format!("param_{}", i + 1));
-            if let Some(pty) = child.get_type() {
-                params.push((pname, map_type(&pty)));
+    for (i, child) in get_children(cursor).iter().enumerate() {
+        if cursor_kind(*child) == CXCursor_ParmDecl {
+            let pname = cursor_name(*child).unwrap_or_else(|| format!("param_{}", i + 1));
+            if let Some(pty) = cursor_type(*child) {
+                params.push((pname, map_type(pty)));
             }
         }
     }
@@ -688,57 +876,88 @@ fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
     Some(RdlFn { name, params, ret })
 }
 
-fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
-    if !entity.is_definition() {
+fn collect_interface(cursor: CXCursor, name: String) -> Option<RdlInterface> {
+    if !is_definition(cursor) {
         return None;
     }
 
-    let children = entity.get_children();
+    let children = get_children(cursor);
 
     // Extract the GUID from an `UnexposedAttr` child whose source text contains
     // a `__declspec(uuid("..."))` or `MIDL_INTERFACE("...")` macro expansion.
     let guid = children
         .iter()
-        .find(|c| c.get_kind() == EntityKind::UnexposedAttr)
-        .and_then(|attr| attr.get_range())
-        .and_then(|r| {
-            let start = r.get_start().get_file_location();
-            let end = r.get_end().get_file_location();
-            let file = start.file?;
-            let path = file.get_path();
+        .find(|c| cursor_kind(**c) == CXCursor_UnexposedAttr)
+        .and_then(|attr| {
+            let range = unsafe { clang_getCursorExtent(*attr) };
+            let start_loc = unsafe { clang_getRangeStart(range) };
+            let end_loc = unsafe { clang_getRangeEnd(range) };
+
+            let mut start_file: CXFile = std::ptr::null_mut();
+            let mut start_line: std::os::raw::c_uint = 0;
+            let mut start_col: std::os::raw::c_uint = 0;
+            let mut start_offset: std::os::raw::c_uint = 0;
+            unsafe {
+                clang_getFileLocation(
+                    start_loc,
+                    &mut start_file,
+                    &mut start_line,
+                    &mut start_col,
+                    &mut start_offset,
+                );
+            }
+            if start_file.is_null() {
+                return None;
+            }
+
+            let mut end_file: CXFile = std::ptr::null_mut();
+            let mut end_line: std::os::raw::c_uint = 0;
+            let mut end_col: std::os::raw::c_uint = 0;
+            let mut end_offset: std::os::raw::c_uint = 0;
+            unsafe {
+                clang_getFileLocation(
+                    end_loc,
+                    &mut end_file,
+                    &mut end_line,
+                    &mut end_col,
+                    &mut end_offset,
+                );
+            }
+
+            let path = PathBuf::from(cx_string(unsafe { clang_getFileName(start_file) }));
             let source = std::fs::read_to_string(&path).ok()?;
             let text = source
-                .get(start.offset as usize..end.offset as usize)
+                .get(start_offset as usize..end_offset as usize)
                 .unwrap_or("");
             parse_guid_from_attr(text)
         });
 
     let base = children
         .iter()
-        .find(|c| c.get_kind() == EntityKind::BaseSpecifier)
-        .and_then(|c| c.get_name());
+        .find(|c| cursor_kind(**c) == CXCursor_CXXBaseSpecifier)
+        .and_then(|c| cursor_name(*c));
 
     const IUNKNOWN: [&str; 3] = ["QueryInterface", "AddRef", "Release"];
 
     let mut methods = vec![];
     for child in &children {
-        if child.get_kind() != EntityKind::Method || !child.is_pure_virtual_method() {
+        if cursor_kind(*child) != CXCursor_CXXMethod || !is_pure_virtual(*child) {
             continue;
         }
-        let mname = match child.get_name() {
+        let mname = match cursor_name(*child) {
             Some(n) if !IUNKNOWN.contains(&n.as_str()) => n,
             _ => continue,
         };
-        let fn_type = child.get_type()?;
-        let ret_ty = fn_type.get_result_type()?;
-        let ret = map_type(&ret_ty);
+        let fn_type = cursor_type(*child)?;
+        let ret_ty = result_type(fn_type)?;
+        let ret = map_type(ret_ty);
 
         let mut params = vec![];
-        for (i, p) in child.get_children().iter().enumerate() {
-            if p.get_kind() == EntityKind::ParmDecl {
-                let pname = p.get_name().unwrap_or_else(|| format!("param_{}", i + 1));
-                if let Some(pty) = p.get_type() {
-                    params.push((pname, map_type(&pty)));
+        for (i, p) in get_children(*child).iter().enumerate() {
+            if cursor_kind(*p) == CXCursor_ParmDecl {
+                let pname = cursor_name(*p).unwrap_or_else(|| format!("param_{}", i + 1));
+                if let Some(pty) = cursor_type(*p) {
+                    params.push((pname, map_type(pty)));
                 }
             }
         }
@@ -806,46 +1025,44 @@ fn parse_guid_str(s: &str) -> Option<u128> {
 // Type mapping  (clang type → RDL type string)
 // ---------------------------------------------------------------------------
 
-fn map_type(ty: &clang::Type) -> String {
-    match ty.get_kind() {
-        TypeKind::Void => "()".into(),
-        TypeKind::Bool => "bool".into(),
-        TypeKind::CharS | TypeKind::SChar => "i8".into(),
-        TypeKind::CharU | TypeKind::UChar => "u8".into(),
-        TypeKind::Short => "i16".into(),
-        TypeKind::UShort => "u16".into(),
-        TypeKind::Int => "i32".into(),
-        TypeKind::UInt => "u32".into(),
+fn map_type(ty: CXType) -> String {
+    match ty.kind {
+        CXType_Void => "()".into(),
+        CXType_Bool => "bool".into(),
+        CXType_Char_S | CXType_SChar => "i8".into(),
+        CXType_Char_U | CXType_UChar => "u8".into(),
+        CXType_Short => "i16".into(),
+        CXType_UShort => "u16".into(),
+        CXType_Int => "i32".into(),
+        CXType_UInt => "u32".into(),
         // Windows uses the LLP64 model: `long` is always 32-bit on all targets.
-        TypeKind::Long => "i32".into(),
-        TypeKind::ULong => "u32".into(),
-        TypeKind::LongLong => "i64".into(),
-        TypeKind::ULongLong => "u64".into(),
-        TypeKind::Float => "f32".into(),
-        TypeKind::Double => "f64".into(),
-        TypeKind::WChar => "u16".into(),
-        TypeKind::Pointer => map_pointer(ty),
-        TypeKind::ConstantArray => {
-            let size = ty.get_size().unwrap_or(0);
-            let elem = ty
-                .get_element_type()
-                .as_ref()
+        CXType_Long => "i32".into(),
+        CXType_ULong => "u32".into(),
+        CXType_LongLong => "i64".into(),
+        CXType_ULongLong => "u64".into(),
+        CXType_Float => "f32".into(),
+        CXType_Double => "f64".into(),
+        CXType_WChar => "u16".into(),
+        CXType_Pointer => map_pointer(ty),
+        CXType_ConstantArray => {
+            let size = array_size(ty);
+            let elem = element_type(ty)
                 .map(map_non_void)
                 .unwrap_or_else(|| "u8".into());
             format!("[{elem}; {size}]")
         }
         // Preserve typedef / elaborated type names (e.g. DWORD, HANDLE, POINT)
         // so that cross-references resolve via windows-rdl's metadata search.
-        TypeKind::Elaborated | TypeKind::Typedef => {
-            let name = strip_elaboration(&ty.get_display_name());
+        CXType_Elaborated | CXType_Typedef => {
+            let name = strip_elaboration(&type_spelling(ty));
             if name.starts_with('(') {
                 "*mut u8".into()
             } else {
                 name
             }
         }
-        TypeKind::Record | TypeKind::Enum => {
-            let name = strip_elaboration(&ty.get_display_name());
+        CXType_Record | CXType_Enum => {
+            let name = strip_elaboration(&type_spelling(ty));
             // Anonymous types are replaced with an opaque byte pointer.
             if name.starts_with('(') {
                 "*mut u8".into()
@@ -854,9 +1071,9 @@ fn map_type(ty: &clang::Type) -> String {
             }
         }
         _ => {
-            let canon = ty.get_canonical_type();
-            if canon.get_kind() != ty.get_kind() {
-                map_type(&canon)
+            let canon = canonical_type(ty);
+            if canon.kind != ty.kind {
+                map_type(canon)
             } else {
                 "*mut u8".into()
             }
@@ -866,44 +1083,44 @@ fn map_type(ty: &clang::Type) -> String {
 
 /// Returns `true` if `ty` is (or resolves to) a COM interface type —
 /// i.e. a C++ class / struct that has at least one pure-virtual method.
-fn is_com_interface_type(ty: &clang::Type) -> bool {
-    let canonical = ty.get_canonical_type();
-    if canonical.get_kind() != TypeKind::Record {
+fn is_com_interface_type(ty: CXType) -> bool {
+    let canonical = canonical_type(ty);
+    if canonical.kind != CXType_Record {
         return false;
     }
-    if let Some(decl) = canonical.get_declaration() {
-        is_com_interface(&decl)
+    if let Some(decl) = type_declaration(canonical) {
+        is_com_interface(decl)
     } else {
         false
     }
 }
 
-fn map_pointer(ty: &clang::Type) -> String {
-    let inner = match ty.get_pointee_type() {
+fn map_pointer(ty: CXType) -> String {
+    let inner = match pointee_type(ty) {
         Some(t) => t,
         None => return "*mut u8".into(),
     };
-    let is_const = inner.is_const_qualified();
+    let is_const = is_const_qualified(inner);
 
     // COM interfaces are reference types in RDL/metadata: one level of pointer
     // indirection is always implied.  Strip it here so that:
     //   IFoo*  → IFoo          (single pointer to interface → bare interface)
     //   IFoo** → *mut IFoo     (double pointer → one *mut remaining)
-    if is_com_interface_type(&inner) {
-        return map_type(&inner);
+    if is_com_interface_type(inner) {
+        return map_type(inner);
     }
 
-    match inner.get_kind() {
-        TypeKind::Void => {
+    match inner.kind {
+        CXType_Void => {
             if is_const {
                 "*const u8".into()
             } else {
                 "*mut u8".into()
             }
         }
-        TypeKind::FunctionPrototype | TypeKind::FunctionNoPrototype => "*mut u8".into(),
+        CXType_FunctionProto | CXType_FunctionNoProto => "*mut u8".into(),
         _ => {
-            let inner_str = map_non_void(&inner);
+            let inner_str = map_non_void(inner);
             if is_const {
                 format!("*const {inner_str}")
             } else {
@@ -913,7 +1130,7 @@ fn map_pointer(ty: &clang::Type) -> String {
     }
 }
 
-fn map_non_void(ty: &clang::Type) -> String {
+fn map_non_void(ty: CXType) -> String {
     let s = map_type(ty);
     if s == "()" {
         "u8".into()
