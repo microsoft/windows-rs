@@ -81,7 +81,7 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let (rdl_paths, reference_paths) = expand_input_paths(&self.input)?;
+        let (rdl_paths, reference_paths) = expand_input_paths(&self.input, "rdl", "winmd")?;
 
         let input = expand_rdl_files(&rdl_paths, &self.input_str)?;
 

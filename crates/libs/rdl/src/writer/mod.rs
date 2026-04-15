@@ -106,7 +106,7 @@ impl Writer {
     pub fn write(&self) -> Result<(), Error> {
         let mut files = vec![];
 
-        for file_name in &expand_files(&self.input, "winmd")? {
+        for file_name in &expand_input_paths(&self.input, "winmd", ".")?.0 {
             files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
