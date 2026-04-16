@@ -20,6 +20,7 @@ pub struct Clang {
     input: Vec<String>,
     output: String,
     namespace: String,
+    args: Vec<String>,
 }
 
 impl Clang {
@@ -42,6 +43,17 @@ impl Clang {
         self
     }
 
+    pub fn args<I>(&mut self, args: I) -> &mut Self
+    where
+        I: IntoIterator,
+        I::Item: AsRef<str>,
+    {
+        for arg in args {
+            self.args.push(arg.as_ref().to_string());
+        }
+        self
+    }
+
     pub fn write(&self) -> Result<(), Error> {
         let (h_paths, winmd_paths) = expand_input_paths(&self.input, "h", "winmd")?;
 
@@ -59,9 +71,10 @@ impl Clang {
         let _library = Library::new()?;
         let index = Index::new()?;
         let mut collector = Collector::new();
+        let args: Vec<_> = self.args.iter().map(String::as_str).collect();
 
         for input in &h_paths {
-            let tu = index.parse(input, &[])?;
+            let tu = index.parse(input, &args)?;
 
             for diag in tu.diagnostics() {
                 if diag.is_err() {

@@ -17,11 +17,11 @@ struct Numbers {
 };
 
 struct Named {
-    struct Empty f1;
-    struct Numbers f2
+    Empty f1;
+    Numbers f2;
 };
 
 struct Pointers {
-    struct Named* f1;
+    Named* f1;
     int* f2;
 };

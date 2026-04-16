@@ -16,6 +16,7 @@ fn roundtrip() {
         let reference = "../../../libs/bindgen/default";
 
         clang()
+            .args(["-x", "c++"])
             .input(&h)
             .input(reference)
             .output(&rdl)
