@@ -181,6 +181,10 @@ impl Cursor {
     pub fn typedef_underlying_type(&self) -> Type {
         Type(unsafe { clang_getTypedefDeclUnderlyingType(self.0) })
     }
+
+    pub fn result_type(&self) -> Type {
+        Type(unsafe { clang_getCursorResultType(self.0) })
+    }
 }
 
 pub struct Type(CXType);

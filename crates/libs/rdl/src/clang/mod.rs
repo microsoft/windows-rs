@@ -16,6 +16,10 @@ use field::*;
 mod field;
 mod typedef;
 use typedef::*;
+mod r#fn;
+use r#fn::*;
+mod param;
+use param::*;
 
 #[derive(Default)]
 pub struct Clang {
@@ -23,6 +27,7 @@ pub struct Clang {
     output: String,
     namespace: String,
     args: Vec<String>,
+    library: String,
 }
 
 impl Clang {
@@ -42,6 +47,11 @@ impl Clang {
 
     pub fn namespace(&mut self, namespace: &str) -> &mut Self {
         self.namespace = namespace.to_string();
+        self
+    }
+
+    pub fn library(&mut self, library: &str) -> &mut Self {
+        self.library = library.to_string();
         self
     }
 
@@ -90,19 +100,24 @@ impl Clang {
             }
 
             for child in tu.cursor().children() {
-                if !child.is_definition() {
-                    continue;
-                }
-
                 match child.kind() {
-                    CXCursor_StructDecl => {
-                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?))
+                    CXCursor_StructDecl if child.is_definition() => {
+                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
                     }
-                    CXCursor_EnumDecl => collector.insert(Item::Enum(Enum::parse(child)?)),
-                    CXCursor_TypedefDecl => {
+                    CXCursor_EnumDecl if child.is_definition() => {
+                        collector.insert(Item::Enum(Enum::parse(child)?));
+                    }
+                    CXCursor_TypedefDecl if child.is_definition() => {
                         if let Some(td) = Typedef::parse(child, &self.namespace)? {
                             collector.insert(Item::Typedef(td));
                         }
+                    }
+                    CXCursor_FunctionDecl if !child.is_definition() => {
+                        collector.insert(Item::Fn(Fn::parse(
+                            child,
+                            &self.namespace,
+                            &self.library,
+                        )?));
                     }
                     _ => {}
                 }

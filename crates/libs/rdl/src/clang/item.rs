@@ -5,6 +5,7 @@ pub enum Item {
     Enum(Enum),
     Struct(Struct),
     Typedef(Typedef),
+    Fn(Fn),
 }
 
 impl Item {
@@ -13,6 +14,7 @@ impl Item {
             Self::Enum(item) => item.write(),
             Self::Struct(item) => item.write(),
             Self::Typedef(item) => item.write(),
+            Self::Fn(item) => item.write(),
         }
     }
 }
@@ -23,6 +25,7 @@ impl std::fmt::Display for Item {
             Self::Enum(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
             Self::Typedef(item) => item.name.fmt(f),
+            Self::Fn(item) => item.name.fmt(f),
         }
     }
 }

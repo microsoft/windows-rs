@@ -21,6 +21,7 @@ fn roundtrip() {
             .input(reference)
             .output(&rdl)
             .namespace("Test")
+            .library("test.dll")
             .write()
             .unwrap();
 

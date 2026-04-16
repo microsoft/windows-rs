@@ -1,0 +1,61 @@
+use super::*;
+
+#[derive(Debug)]
+pub struct Fn {
+    pub name: String,
+    pub namespace: String,
+    pub library: String,
+    pub params: Vec<Param>,
+    pub return_type: metadata::Type,
+}
+
+impl Fn {
+    pub fn parse(cursor: Cursor, namespace: &str, library: &str) -> Result<Self, Error> {
+        let name = cursor.name();
+        let return_type = cursor.result_type().to_type(namespace);
+
+        let mut params = vec![];
+
+        for child in cursor.children() {
+            if child.kind() != CXCursor_ParmDecl {
+                continue;
+            }
+
+            let name = child.name();
+            let ty = child.ty().to_type(namespace);
+            params.push(Param { name, ty });
+        }
+
+        Ok(Self {
+            name,
+            namespace: namespace.to_string(),
+            library: library.to_string(),
+            params,
+            return_type,
+        })
+    }
+
+    pub fn write(&self) -> Result<TokenStream, Error> {
+        let name = write_ident(&self.name);
+        let library = &self.library;
+
+        let params = self.params.iter().map(|param| {
+            let name = write_ident(&param.name);
+            let ty = write_type(&self.namespace, &param.ty);
+            quote! { #name: #ty }
+        });
+
+        let return_type = match &self.return_type {
+            metadata::Type::Void => quote! {},
+            ty => {
+                let ty = write_type(&self.namespace, ty);
+                quote! { -> #ty }
+            }
+        };
+
+        Ok(quote! {
+            #[library(#library)]
+            extern fn #name(#(#params),*) #return_type;
+        })
+    }
+}
