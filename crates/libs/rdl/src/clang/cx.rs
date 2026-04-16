@@ -162,8 +162,8 @@ impl Cursor {
         unsafe { clang_isCursorDefinition(self.0) != 0 }
     }
 
-    pub fn enum_repr(&self) -> CXType {
-        unsafe { clang_getEnumDeclIntegerType(self.0) }
+    pub fn enum_repr(&self) -> Type {
+        Type(unsafe { clang_getEnumDeclIntegerType(self.0) })
     }
 
     pub fn name(&self) -> String {
@@ -174,8 +174,61 @@ impl Cursor {
         unsafe { clang_getEnumConstantDeclValue(self.0) }
     }
 
-    pub fn ty(&self) -> CXType {
-        unsafe { clang_getCursorType(self.0) }
+    pub fn ty(&self) -> Type {
+        Type(unsafe { clang_getCursorType(self.0) })
+    }
+}
+
+pub struct Type(CXType);
+
+impl Type {
+    pub fn kind(&self) -> CXTypeKind {
+        self.0.kind
+    }
+
+    pub fn ty(&self) -> Cursor {
+        Cursor(unsafe { clang_getTypeDeclaration(self.0) })
+    }
+
+    pub fn pointee_type(&self) -> Self {
+        Self(unsafe { clang_getPointeeType(self.0) })
+    }
+
+    pub fn is_const(&self) -> bool {
+        unsafe { clang_isConstQualifiedType(self.0) != 0 }
+    }
+
+    pub fn underlying_type(&self) -> Self {
+        Self(unsafe { clang_Type_getNamedType(self.0) })
+    }
+
+    pub fn to_type(&self, namespace: &str) -> metadata::Type {
+        match self.kind() {
+            CXType_Char_U | CXType_UChar => metadata::Type::U8,
+            CXType_UShort => metadata::Type::U16,
+            CXType_UInt => metadata::Type::U32,
+            CXType_ULong => metadata::Type::USize,
+            CXType_ULongLong => metadata::Type::U64,
+            CXType_Char_S | CXType_SChar => metadata::Type::I8,
+            CXType_Short => metadata::Type::I16,
+            CXType_Int => metadata::Type::I32,
+            CXType_Long => metadata::Type::ISize,
+            CXType_LongLong => metadata::Type::I64,
+            CXType_Float => metadata::Type::F32,
+            CXType_Double => metadata::Type::F64,
+            CXType_Record => metadata::Type::value_named(namespace, &self.ty().name()),
+            CXType_Elaborated => self.underlying_type().to_type(namespace),
+            CXType_Pointer => {
+                let pointee = self.pointee_type();
+                let inner = pointee.to_type(namespace);
+                if pointee.is_const() {
+                    metadata::Type::PtrConst(Box::new(inner), 1)
+                } else {
+                    metadata::Type::PtrMut(Box::new(inner), 1)
+                }
+            }
+            _ => todo!(),
+        }
     }
 }
 

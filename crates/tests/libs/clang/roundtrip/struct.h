@@ -15,3 +15,13 @@ struct Numbers {
     unsigned long f11;
     long f12;
 };
+
+struct Named {
+    struct Empty f1;
+    struct Numbers f2
+};
+
+struct Pointers {
+    struct Named* f1;
+    int* f2;
+};

@@ -20,7 +20,6 @@ use metadata::HasAttributes;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;
-use windows_metadata as metadata;
 
 // The writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
@@ -737,118 +736,6 @@ fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> Tok
         namespace,
         &metadata::Type::class_named(item.namespace(), item.name()),
     )
-}
-
-fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
-    use metadata::Type::*;
-    match item {
-        Bool => quote! { bool },
-        Char => quote! { u16 },
-        I8 => quote! { i8 },
-        U8 => quote! { u8 },
-        I16 => quote! { i16 },
-        U16 => quote! { u16 },
-        I32 => quote! { i32 },
-        U32 => quote! { u32 },
-        I64 => quote! { i64 },
-        U64 => quote! { u64 },
-        F32 => quote! { f32 },
-        F64 => quote! { f64 },
-        ISize => quote! { isize },
-        USize => quote! { usize },
-
-        Void => quote! { void },
-        String => quote! { String },
-        Object => quote! { Object },
-        ClassName(tn) if tn == ("System", "Type") => quote! { Type },
-        ValueName(tn) if tn == ("System", "Guid") => quote! { GUID },
-        ValueName(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },
-
-        Array(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { [#ty] }
-        }
-        ArrayFixed(ty, len) => {
-            let ty = write_type(namespace, ty);
-            let len = Literal::usize_unsuffixed(*len);
-            quote! { [#ty; #len] }
-        }
-        RefMut(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { &mut #ty }
-        }
-        RefConst(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { & #ty }
-        }
-        PtrMut(ty, pointers) => {
-            let mut ty = write_type(namespace, ty);
-
-            for _ in 0..*pointers {
-                ty = quote! { *mut #ty };
-            }
-
-            ty
-        }
-        PtrConst(ty, pointers) => {
-            let mut ty = write_type(namespace, ty);
-
-            for _ in 0..*pointers {
-                ty = quote! { *const #ty };
-            }
-
-            ty
-        }
-        ClassName(type_name) | ValueName(type_name) => {
-            let name = write_ident(&type_name.name);
-
-            let name = if type_name.generics.is_empty() {
-                name
-            } else {
-                let generics = type_name
-                    .generics
-                    .iter()
-                    .map(|ty| write_type(namespace, ty));
-                quote! { #name <#(#generics),*> }
-            };
-
-            // The empty namespace test is for nested types.
-            if namespace == type_name.namespace || type_name.namespace.is_empty() {
-                name
-            } else {
-                let mut relative = namespace.split('.').peekable();
-                let mut namespace = type_name.namespace.split('.').peekable();
-                let shares_root = relative.peek() == namespace.peek();
-
-                while relative.peek() == namespace.peek() {
-                    if relative.next().is_none() {
-                        break;
-                    }
-
-                    namespace.next();
-                }
-
-                let mut tokens = TokenStream::new();
-
-                if shares_root {
-                    for _ in 0..relative.count() {
-                        tokens = quote! { #tokens super:: };
-                    }
-                }
-
-                for namespace in namespace {
-                    let namespace = write_ident(namespace);
-                    tokens = quote! { #tokens #namespace ::};
-                }
-
-                quote! { #tokens #name }
-            }
-        }
-        Generic(name, _) => {
-            let name = write_ident(name);
-            quote! { #name }
-        }
-    }
 }
 
 /// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.

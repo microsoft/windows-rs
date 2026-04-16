@@ -1,6 +1,10 @@
 #[win32]
 mod Test {
     struct Empty {}
+    struct Named {
+        f1: Empty,
+        f2: Numbers,
+    }
     struct Numbers {
         f1: u8,
         f2: u16,
@@ -14,5 +18,9 @@ mod Test {
         f10: f64,
         f11: usize,
         f12: isize,
+    }
+    struct Pointers {
+        f1: *mut Named,
+        f2: *mut i32,
     }
 }

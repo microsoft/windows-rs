@@ -1,5 +1,7 @@
+use super::*;
+
 #[derive(Debug)]
 pub struct Field {
     pub name: String,
-    pub ty: &'static str,
+    pub ty: metadata::Type,
 }

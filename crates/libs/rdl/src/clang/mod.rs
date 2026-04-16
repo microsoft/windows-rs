@@ -80,7 +80,9 @@ impl Clang {
                 }
 
                 match child.kind() {
-                    CXCursor_StructDecl => collector.insert(Item::Struct(Struct::parse(child)?)),
+                    CXCursor_StructDecl => {
+                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?))
+                    }
                     CXCursor_UnionDecl => {}
                     CXCursor_EnumDecl => collector.insert(Item::Enum(Enum::parse(child)?)),
                     _ => {}

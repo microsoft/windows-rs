@@ -9,7 +9,7 @@ pub struct Enum {
 
 impl Enum {
     pub fn parse(cursor: Cursor) -> Result<Self, Error> {
-        let repr = match cursor.enum_repr().kind {
+        let repr = match cursor.enum_repr().kind() {
             CXType_Int | CXType_Long => "i32",
             CXType_UInt | CXType_ULong => "u32",
             CXType_Short => "i16",
