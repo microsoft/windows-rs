@@ -173,6 +173,10 @@ impl Cursor {
     pub fn enum_value(&self) -> i64 {
         unsafe { clang_getEnumConstantDeclValue(self.0) }
     }
+
+    pub fn ty(&self) -> CXType {
+        unsafe { clang_getCursorType(self.0) }
+    }
 }
 
 #[derive(Debug, Clone)]

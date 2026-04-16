@@ -12,6 +12,8 @@ mod r#struct;
 use r#struct::*;
 mod collector;
 use collector::*;
+use field::*;
+mod field;
 
 #[derive(Default)]
 pub struct Clang {
