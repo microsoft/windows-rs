@@ -4,6 +4,7 @@ use super::*;
 pub enum Item {
     Enum(Enum),
     Struct(Struct),
+    Typedef(Typedef),
 }
 
 impl Item {
@@ -11,6 +12,7 @@ impl Item {
         match self {
             Self::Enum(item) => item.write(),
             Self::Struct(item) => item.write(),
+            Self::Typedef(item) => item.write(),
         }
     }
 }
@@ -20,6 +22,7 @@ impl std::fmt::Display for Item {
         match self {
             Self::Enum(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
+            Self::Typedef(item) => item.name.fmt(f),
         }
     }
 }

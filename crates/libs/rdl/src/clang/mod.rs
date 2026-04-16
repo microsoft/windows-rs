@@ -14,6 +14,8 @@ mod collector;
 use collector::*;
 use field::*;
 mod field;
+mod typedef;
+use typedef::*;
 
 #[derive(Default)]
 pub struct Clang {
@@ -96,8 +98,12 @@ impl Clang {
                     CXCursor_StructDecl => {
                         collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?))
                     }
-                    CXCursor_UnionDecl => {}
                     CXCursor_EnumDecl => collector.insert(Item::Enum(Enum::parse(child)?)),
+                    CXCursor_TypedefDecl => {
+                        if let Some(td) = Typedef::parse(child, &self.namespace)? {
+                            collector.insert(Item::Typedef(td));
+                        }
+                    }
                     _ => {}
                 }
             }

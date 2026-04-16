@@ -1,0 +1,15 @@
+#[win32]
+mod Test {
+    #[typedef]
+    struct DWORD {
+        value: u32,
+    }
+    #[typedef]
+    struct HANDLE {
+        value: *mut void,
+    }
+    #[typedef]
+    struct HRESULT {
+        value: isize,
+    }
+}

@@ -177,6 +177,10 @@ impl Cursor {
     pub fn ty(&self) -> Type {
         Type(unsafe { clang_getCursorType(self.0) })
     }
+
+    pub fn typedef_underlying_type(&self) -> Type {
+        Type(unsafe { clang_getTypedefDeclUnderlyingType(self.0) })
+    }
 }
 
 pub struct Type(CXType);
@@ -204,6 +208,7 @@ impl Type {
 
     pub fn to_type(&self, namespace: &str) -> metadata::Type {
         match self.kind() {
+            CXType_Void => metadata::Type::Void,
             CXType_Char_U | CXType_UChar => metadata::Type::U8,
             CXType_UShort => metadata::Type::U16,
             CXType_UInt => metadata::Type::U32,
@@ -227,7 +232,7 @@ impl Type {
                     metadata::Type::PtrMut(Box::new(inner), 1)
                 }
             }
-            _ => todo!(),
+            rest => panic!("{rest:?}"),
         }
     }
 }
