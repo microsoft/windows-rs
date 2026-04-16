@@ -61,12 +61,10 @@ jobs:
         with:
           target: ${{ matrix.target }}
       - name: Install LLVM and Clang
-        if: matrix.host != 'aarch64-pc-windows-msvc'
         uses: KyleMayes/install-llvm-action@v2
         with:
           version: "18"
       - name: Set LIBCLANG_PATH
-        if: matrix.host != 'aarch64-pc-windows-msvc'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
