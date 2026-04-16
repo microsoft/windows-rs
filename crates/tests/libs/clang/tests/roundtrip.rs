@@ -1,3 +1,5 @@
+#![cfg(target_pointer_width = "64")]
+
 use windows_rdl::*;
 
 #[test]
