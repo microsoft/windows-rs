@@ -11,6 +11,8 @@ use syn::spanned::Spanned;
 
 pub use clang::Clang;
 pub use error::Error;
+use proc_macro2::{Literal, Span, TokenStream};
+use quote::{format_ident, quote};
 pub use reader::Reader;
 pub use writer::Writer;
 
@@ -91,3 +93,37 @@ fn expand_input_paths(
 
     Ok((paths1, paths2))
 }
+
+fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
+    if let Some(parent) = std::path::Path::new(path).parent() {
+        std::fs::create_dir_all(parent)
+            .map_err(|_| writer_err!("failed to create directory `{path}`"))?;
+    }
+
+    std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{path}`"))
+}
+
+fn write_ident(name: &str) -> TokenStream {
+    // keywords list based on https://doc.rust-lang.org/reference/keywords.html
+    let name = match name {
+        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
+        | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in"
+        | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
+        | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
+        | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
+        | "try" | "async" | "await" | "dyn" => format_ident!("r#{name}"),
+        "Self" | "self" => format_ident!("{name}_"),
+        "_" => format_ident!("unused"),
+        _ => format_ident!("{}", windows_metadata::trim_tick(name)),
+    };
+
+    quote! { #name }
+}
+
+macro_rules! writer_err {
+    ($($arg:tt)*) => {
+        Error::new(&format!($($arg)*), "", 0, 0)
+    };
+}
+
+use writer_err;

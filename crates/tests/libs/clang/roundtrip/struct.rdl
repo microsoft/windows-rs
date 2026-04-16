@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    struct Name {}
+}

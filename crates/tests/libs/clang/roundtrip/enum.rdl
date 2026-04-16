@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Name {
+        One = 1,
+        Two = 2,
+    }
+}

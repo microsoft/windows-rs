@@ -17,6 +17,7 @@ fn roundtrip() {
             .input(&h)
             .input(reference)
             .output(&rdl)
+            .namespace("Test")
             .write()
             .unwrap();
 

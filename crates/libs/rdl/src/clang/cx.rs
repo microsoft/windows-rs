@@ -1,5 +1,5 @@
 use super::*;
-use clang_sys::*;
+pub use clang_sys::*;
 use std::ffi::{CStr, CString};
 
 pub struct Library;
@@ -87,7 +87,7 @@ impl TranslationUnit {
                 }
 
                 let severity = clang_getDiagnosticSeverity(diag);
-                let message = cxstring_to_string(clang_getDiagnosticSpelling(diag));
+                let message = to_string(clang_getDiagnosticSpelling(diag));
 
                 let loc = clang_getDiagnosticLocation(diag);
                 let mut file = std::ptr::null_mut();
@@ -101,7 +101,7 @@ impl TranslationUnit {
                     String::new()
                 } else {
                     let fname = clang_getFileName(file);
-                    cxstring_to_string(fname)
+                    to_string(fname)
                 };
 
                 diagnostics.push(Diagnostic {
@@ -118,11 +118,60 @@ impl TranslationUnit {
 
         diagnostics
     }
+
+    pub fn cursor(&self) -> Cursor {
+        Cursor(unsafe { clang_getTranslationUnitCursor(self.0) })
+    }
 }
 
 impl Drop for TranslationUnit {
     fn drop(&mut self) {
         unsafe { clang_disposeTranslationUnit(self.0) };
+    }
+}
+
+#[derive(Copy, Clone)]
+pub struct Cursor(CXCursor);
+
+impl Cursor {
+    pub fn children(&self) -> Vec<Self> {
+        extern "C" fn callback(
+            cursor: CXCursor,
+            _parent: CXCursor,
+            data: CXClientData,
+        ) -> CXChildVisitResult {
+            let children = unsafe { &mut *(data as *mut Vec<Cursor>) };
+            children.push(Cursor(cursor));
+            CXChildVisit_Continue
+        }
+
+        let mut children = vec![];
+
+        unsafe {
+            clang_visitChildren(self.0, callback, &mut children as *mut _ as CXClientData);
+        }
+
+        children
+    }
+
+    pub fn kind(&self) -> CXCursorKind {
+        unsafe { clang_getCursorKind(self.0) }
+    }
+
+    pub fn is_definition(&self) -> bool {
+        unsafe { clang_isCursorDefinition(self.0) != 0 }
+    }
+
+    pub fn enum_repr(&self) -> CXType {
+        unsafe { clang_getEnumDeclIntegerType(self.0) }
+    }
+
+    pub fn name(&self) -> String {
+        to_string(unsafe { clang_getCursorSpelling(self.0) })
+    }
+
+    pub fn enum_value(&self) -> i64 {
+        unsafe { clang_getEnumConstantDeclValue(self.0) }
     }
 }
 
@@ -141,7 +190,7 @@ impl Diagnostic {
     }
 }
 
-fn cxstring_to_string(cxstr: CXString) -> String {
+fn to_string(cxstr: CXString) -> String {
     unsafe {
         let cstr_ptr = clang_getCString(cxstr);
 

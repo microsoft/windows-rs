@@ -8,15 +8,6 @@ mod interface;
 mod layout;
 mod r#struct;
 
-macro_rules! writer_err {
-    ($($arg:tt)*) => {
-        Error::new(&format!($($arg)*), "", 0, 0)
-    };
-}
-
-// Re-export so sub-modules can use it via `use super::*`.
-pub(crate) use writer_err;
-
 use super::*;
 use attribute::*;
 use callback::*;
@@ -26,8 +17,6 @@ use interface::*;
 use layout::*;
 use metadata::AsRow;
 use metadata::HasAttributes;
-use proc_macro2::*;
-use quote::*;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;
@@ -188,15 +177,6 @@ impl Writer {
 
         Ok(())
     }
-}
-
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
-    if let Some(parent) = std::path::Path::new(path).parent() {
-        std::fs::create_dir_all(parent)
-            .map_err(|_| writer_err!("failed to create directory `{path}`"))?;
-    }
-
-    std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{path}`"))
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
@@ -1016,21 +996,4 @@ fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type
         quote! { <#(#names),*> }
     };
     (types, tokens)
-}
-
-fn write_ident(name: &str) -> TokenStream {
-    // keywords list based on https://doc.rust-lang.org/reference/keywords.html
-    let name = match name {
-        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
-        | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in"
-        | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
-        | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
-        | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
-        | "try" | "async" | "await" | "dyn" => format_ident!("r#{name}"),
-        "Self" | "self" => format_ident!("{name}_"),
-        "_" => format_ident!("unused"),
-        _ => format_ident!("{}", windows_metadata::trim_tick(name)),
-    };
-
-    quote! { #name }
 }
