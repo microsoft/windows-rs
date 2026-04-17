@@ -253,4 +253,3 @@ fn parse_int_digits(digits: &str) -> Option<u64> {
         digits.parse::<u64>().ok()
     }
 }
-
