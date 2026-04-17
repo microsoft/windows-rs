@@ -106,6 +106,13 @@ impl Const {
 
         let mut source = format!("#include \"{input_basename}\"\n");
         for name in names {
+            // Guard against macro names that are not valid C identifiers.  In
+            // practice every name that reaches this point came from libclang's
+            // own cursor spelling (a validated preprocessor token), but we
+            // sanitise anyway before interpolating into generated C++ code.
+            if !name.chars().all(|c| c.is_ascii_alphanumeric() || c == '_') {
+                continue;
+            }
             source.push_str(&format!("enum {{ __rdl_eval_{name} = {name} }};\n"));
         }
 

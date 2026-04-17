@@ -281,7 +281,11 @@ impl Cursor {
     /// cursor is not an expression, or the required macros are not defined).
     pub fn evaluate(&self) -> Option<EvalResult> {
         let result = unsafe { clang_Cursor_Evaluate(self.0) };
-        if result.is_null() { None } else { Some(EvalResult(result)) }
+        if result.is_null() {
+            None
+        } else {
+            Some(EvalResult(result))
+        }
     }
 
     pub fn ty(&self) -> Type {
