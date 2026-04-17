@@ -178,7 +178,11 @@ impl Clang {
                 CXCursor_EnumDecl if child.is_definition() => {
                     let e = Enum::parse(child)?;
                     if e.name.is_empty() || e.name.starts_with('(') {
-                        // Unnamed enum: each variant becomes a top-level constant.
+                        // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
+                        // reported by libclang with a synthesised spelling like
+                        // "(unnamed enum at file.h:6:1)" which always starts
+                        // with '('.  Each variant is emitted as a top-level
+                        // RDL constant rather than a named enum type.
                         for (name, value) in e.variants {
                             let const_value = enum_variant_value(e.repr, value);
                             collector.insert(Item::Const(Const {
