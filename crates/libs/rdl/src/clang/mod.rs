@@ -105,14 +105,13 @@ impl Clang {
 
         for content in &self.input_str {
             let tu = index.parse_unsaved(
-                "__rdl_input_str__.h",
+                ".h",
                 content,
                 &args,
                 CXTranslationUnit_DetailedPreprocessingRecord,
             )?;
             let pending = self.process_tu(&tu, &mut collector)?;
-            for c in
-                Const::evaluate_macros_str(content, &pending, &self.namespace, &index, &args)?
+            for c in Const::evaluate_macros_str(content, &pending, &self.namespace, &index, &args)?
             {
                 collector.insert(Item::Const(c));
             }
