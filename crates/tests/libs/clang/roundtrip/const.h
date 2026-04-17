@@ -13,3 +13,9 @@
 /* Typed cast constant — double-paren Win32 style. */
 typedef long NTSTATUS;
 #define STATUS_CLIP_LICENSE_NOT_FOUND ((NTSTATUS)0xC0EA0002L)
+
+/* Complex: arithmetic on another macro (evaluator fallback). */
+#define FACILITY_DEBUGGER_PLUS_TEN FACILITY_DEBUGGER + 10
+
+/* Complex: left-shift of another macro (evaluator fallback). */
+#define FACILITY_DEBUGGER_SHIFTED (FACILITY_DEBUGGER << 16)

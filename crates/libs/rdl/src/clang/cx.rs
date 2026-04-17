@@ -62,6 +62,63 @@ impl Index {
 
         Ok(TranslationUnit(tu))
     }
+
+    /// Parse a synthetic in-memory source file without requiring it to exist on
+    /// disk.
+    ///
+    /// The file's content is provided via the `content` string, which is
+    /// mapped to `filename` using a `CXUnsavedFile`.  This is the standard
+    /// libclang mechanism for injecting synthetic source; the file name is used
+    /// only as the virtual path from which relative `#include` directives
+    /// resolve.
+    ///
+    /// Parsing uses `CXTranslationUnit_KeepGoing` so that isolated errors
+    /// (e.g. from macros that are not valid integer constant expressions) do
+    /// not abort the entire translation unit.
+    pub fn parse_unsaved(
+        &self,
+        filename: &str,
+        content: &str,
+        args: &[&str],
+    ) -> Result<TranslationUnit, Error> {
+        let c_filename =
+            CString::new(filename).map_err(|_| Error::new("invalid filename", filename, 0, 0))?;
+        let c_content =
+            CString::new(content).map_err(|_| Error::new("invalid content", filename, 0, 0))?;
+
+        let mut cargs = vec![];
+        for arg in args {
+            cargs.push(
+                CString::new(*arg)
+                    .map_err(|_| Error::new(&format!("invalid argument: {arg}"), "", 0, 0))?,
+            );
+        }
+        let cargs: Vec<_> = cargs.iter().map(|a| a.as_ptr()).collect();
+
+        let mut unsaved = CXUnsavedFile {
+            Filename: c_filename.as_ptr(),
+            Contents: c_content.as_ptr(),
+            Length: content.len() as _,
+        };
+
+        let tu = unsafe {
+            clang_parseTranslationUnit(
+                self.0,
+                c_filename.as_ptr(),
+                cargs.as_ptr(),
+                cargs.len().try_into().unwrap(),
+                &mut unsaved,
+                1,
+                CXTranslationUnit_KeepGoing,
+            )
+        };
+
+        if tu.is_null() {
+            return Err(Error::new("failed to parse", filename, 0, 0));
+        }
+
+        Ok(TranslationUnit(tu))
+    }
 }
 
 impl Drop for Index {
@@ -218,6 +275,15 @@ impl Cursor {
         unsafe { clang_getEnumConstantDeclValue(self.0) }
     }
 
+    /// Evaluate the cursor as a compile-time constant expression using
+    /// libclang's built-in evaluator.  Returns `None` when libclang cannot
+    /// determine a concrete value (e.g. the expression is too complex, the
+    /// cursor is not an expression, or the required macros are not defined).
+    pub fn evaluate(&self) -> Option<EvalResult> {
+        let result = unsafe { clang_Cursor_Evaluate(self.0) };
+        if result.is_null() { None } else { Some(EvalResult(result)) }
+    }
+
     pub fn ty(&self) -> Type {
         Type(unsafe { clang_getCursorType(self.0) })
     }
@@ -316,6 +382,65 @@ impl Type {
             }
             rest => panic!("{rest:?}"),
         }
+    }
+}
+
+/// A reference-counted handle to a libclang evaluation result.
+///
+/// Obtain one via [`Cursor::evaluate`].  The underlying `CXEvalResult` is
+/// freed when this value is dropped.
+pub struct EvalResult(CXEvalResult);
+
+impl EvalResult {
+    pub fn kind(&self) -> CXEvalResultKind {
+        unsafe { clang_EvalResult_getKind(self.0) }
+    }
+
+    /// Whether the evaluated integer is unsigned.
+    pub fn is_unsigned_int(&self) -> bool {
+        unsafe { clang_EvalResult_isUnsignedInt(self.0) != 0 }
+    }
+
+    /// Evaluated value as an unsigned 64-bit integer.
+    ///
+    /// Only meaningful when `kind() == CXEval_Int && is_unsigned_int()`.
+    pub fn as_unsigned(&self) -> u64 {
+        unsafe { clang_EvalResult_getAsUnsigned(self.0) }
+    }
+
+    /// Evaluated value as a signed 64-bit integer.
+    ///
+    /// Only meaningful when `kind() == CXEval_Int && !is_unsigned_int()`.
+    pub fn as_long_long(&self) -> i64 {
+        unsafe { clang_EvalResult_getAsLongLong(self.0) }
+    }
+
+    /// Evaluated value as a double.
+    ///
+    /// Only meaningful when `kind() == CXEval_Float`.
+    pub fn as_double(&self) -> f64 {
+        unsafe { clang_EvalResult_getAsDouble(self.0) }
+    }
+
+    /// Evaluated value as a string, or `None` if libclang returned a null
+    /// pointer.
+    ///
+    /// Only meaningful when `kind()` is one of the string-literal variants.
+    pub fn as_str(&self) -> Option<String> {
+        unsafe {
+            let ptr = clang_EvalResult_getAsStr(self.0);
+            if ptr.is_null() {
+                None
+            } else {
+                Some(CStr::from_ptr(ptr).to_string_lossy().into_owned())
+            }
+        }
+    }
+}
+
+impl Drop for EvalResult {
+    fn drop(&mut self) {
+        unsafe { clang_EvalResult_dispose(self.0) }
     }
 }
 

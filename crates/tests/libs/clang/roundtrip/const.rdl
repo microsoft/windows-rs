@@ -2,6 +2,8 @@
 mod Test {
     const E_NOINTERFACE: i32 = -2147467262;
     const FACILITY_DEBUGGER: i32 = 1;
+    const FACILITY_DEBUGGER_PLUS_TEN: i32 = 11;
+    const FACILITY_DEBUGGER_SHIFTED: i32 = 65536;
     const FLAG_ALL: u32 = 4294967295;
     #[typedef]
     struct NTSTATUS {

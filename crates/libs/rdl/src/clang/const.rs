@@ -58,6 +58,97 @@ impl Const {
         let value = write_const_value(&self.value);
         Ok(quote! { const #name: #ty = #value; })
     }
+
+    /// Evaluate a batch of macro names that could not be parsed by the simple
+    /// token-based parser (e.g. arithmetic expressions, bitwise shifts, or
+    /// references to other macros).
+    ///
+    /// The technique is the industry-standard approach used by tools such as
+    /// `bindgen`: for each candidate macro name we inject a dedicated anonymous
+    /// `enum` into a synthetic in-memory translation unit that `#include`s the
+    /// original header.  The C/C++ compiler then evaluates the constant
+    /// expression in full — handling operator precedence, integer promotions,
+    /// cross-macro references, etc. — and records the result as an
+    /// `EnumConstantDecl` in the AST.  We read the evaluated value via
+    /// `clang_getEnumConstantDeclValue`.
+    ///
+    /// Using one `enum` per name means that a single bad macro (e.g. one whose
+    /// replacement list is not a valid integer constant expression) does not
+    /// prevent the other macros from being evaluated.  Combining
+    /// `CXTranslationUnit_KeepGoing` ensures libclang continues past errors.
+    ///
+    /// # Type inference
+    ///
+    /// `clang_getEnumConstantDeclValue` returns a signed 64-bit integer.  We
+    /// apply Windows LLP64 conventions: if the value fits in `i32` it is
+    /// emitted as `i32`; otherwise as `i64`.  Explicitly unsigned macros (e.g.
+    /// `0xFFFFFFFFU`) are handled correctly by the token-based parser and
+    /// therefore never reach this path.
+    pub fn evaluate_macros(
+        input: &str,
+        names: &[String],
+        namespace: &str,
+        index: &Index,
+        args: &[&str],
+    ) -> Result<Vec<Self>, Error> {
+        if names.is_empty() {
+            return Ok(vec![]);
+        }
+
+        // Build the synthetic source.  Use the basename of `input` in the
+        // #include so that libclang resolves it relative to the synthetic
+        // file's own directory (which shares the same parent directory as the
+        // real header).
+        let input_basename = std::path::Path::new(input)
+            .file_name()
+            .and_then(|n| n.to_str())
+            .unwrap_or(input);
+
+        let mut source = format!("#include \"{input_basename}\"\n");
+        for name in names {
+            source.push_str(&format!("enum {{ __rdl_eval_{name} = {name} }};\n"));
+        }
+
+        // Name the synthetic file in the same directory as the real header so
+        // that relative #include paths inside the header continue to resolve.
+        let synthetic = format!("{input}.__rdl_eval__.cpp");
+
+        // Parse with KeepGoing so that macros that are not valid integer
+        // constant expressions (e.g. string macros) don't abort the TU.
+        let tu = index.parse_unsaved(&synthetic, &source, args)?;
+
+        // Collect enum constant values.
+        let mut results = vec![];
+        for child in tu.cursor().children() {
+            if !child.is_from_main_file() {
+                continue;
+            }
+            if child.kind() != CXCursor_EnumDecl {
+                continue;
+            }
+            for constant in child.children() {
+                if constant.kind() != CXCursor_EnumConstantDecl {
+                    continue;
+                }
+                let const_name = constant.name();
+                if let Some(original_name) = const_name.strip_prefix("__rdl_eval_") {
+                    let raw = constant.enum_value();
+                    let value = if let Ok(v) = i32::try_from(raw) {
+                        metadata::Value::I32(v)
+                    } else {
+                        metadata::Value::I64(raw)
+                    };
+                    results.push(Self {
+                        name: original_name.to_string(),
+                        namespace: namespace.to_string(),
+                        value,
+                    });
+                }
+            }
+        }
+
+        Ok(results)
+    }
 }
 
 /// Emit the literal token stream for a `metadata::Value`.
@@ -80,6 +171,10 @@ fn write_const_value(value: &metadata::Value) -> TokenStream {
         }
         metadata::Value::U64(v) => {
             let lit = Literal::u64_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::F64(v) => {
+            let lit = Literal::f64_unsuffixed(*v);
             quote! { #lit }
         }
         metadata::Value::Utf8(s) => quote! { #s },

@@ -103,6 +103,12 @@ impl Clang {
                 }
             }
 
+            // Macros that the token-based parser cannot handle (complex
+            // expressions, references to other macros, arithmetic, etc.) are
+            // collected here and evaluated in a second pass via the
+            // synthetic-enum technique.
+            let mut pending_macros: Vec<String> = vec![];
+
             for child in tu.cursor().children() {
                 // Only process cursors from the main input file (not from
                 // transitively included headers).
@@ -134,10 +140,24 @@ impl Clang {
                     CXCursor_MacroDefinition => {
                         if let Some(c) = Const::parse(child, &self.namespace, &tu)? {
                             collector.insert(Item::Const(c));
+                        } else if !child.is_macro_builtin()
+                            && !child.is_macro_function_like()
+                            && !child.name().is_empty()
+                            && !child.name().starts_with('_')
+                        {
+                            // The token parser returned None for a candidate
+                            // object-like macro.  Defer to the batch evaluator.
+                            pending_macros.push(child.name());
                         }
                     }
                     _ => {}
                 }
+            }
+
+            // Second pass: evaluate complex constant expressions using the
+            // synthetic-enum approach.  One bad macro does not abort the rest.
+            for c in Const::evaluate_macros(input, &pending_macros, &self.namespace, &index, &args)? {
+                collector.insert(Item::Const(c));
             }
         }
 
