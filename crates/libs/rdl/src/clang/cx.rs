@@ -210,6 +210,36 @@ impl Type {
         Self(unsafe { clang_Type_getNamedType(self.0) })
     }
 
+    pub fn is_function_pointer(&self) -> bool {
+        if self.kind() != CXType_Pointer {
+            return false;
+        }
+        let pointee_kind = self.pointee_type().kind();
+        pointee_kind == CXType_FunctionProto || pointee_kind == CXType_FunctionNoProto
+    }
+
+    pub fn function_pointee(&self) -> Option<Self> {
+        if self.kind() == CXType_Pointer {
+            let pointee = self.pointee_type();
+            if pointee.kind() == CXType_FunctionProto || pointee.kind() == CXType_FunctionNoProto {
+                return Some(pointee);
+            }
+        }
+        None
+    }
+
+    pub fn num_arg_types(&self) -> i32 {
+        unsafe { clang_getNumArgTypes(self.0) }
+    }
+
+    pub fn arg_type(&self, index: u32) -> Self {
+        Self(unsafe { clang_getArgType(self.0, index) })
+    }
+
+    pub fn fn_result_type(&self) -> Self {
+        Self(unsafe { clang_getResultType(self.0) })
+    }
+
     pub fn to_type(&self, namespace: &str) -> metadata::Type {
         match self.kind() {
             CXType_Void => metadata::Type::Void,
@@ -227,8 +257,16 @@ impl Type {
             CXType_Double => metadata::Type::F64,
             CXType_Record => metadata::Type::value_named(namespace, &self.ty().name()),
             CXType_Elaborated => self.underlying_type().to_type(namespace),
+            CXType_Typedef => metadata::Type::value_named(namespace, &self.ty().name()),
             CXType_Pointer => {
                 let pointee = self.pointee_type();
+                // Function pointers map to opaque *mut u8; they are emitted
+                // separately as callbacks via collect_callback.
+                if pointee.kind() == CXType_FunctionProto
+                    || pointee.kind() == CXType_FunctionNoProto
+                {
+                    return metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1);
+                }
                 let inner = pointee.to_type(namespace);
                 if pointee.is_const() {
                     metadata::Type::PtrConst(Box::new(inner), 1)

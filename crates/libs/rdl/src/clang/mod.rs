@@ -16,6 +16,8 @@ use field::*;
 mod field;
 mod typedef;
 use typedef::*;
+mod callback;
+use callback::*;
 mod r#fn;
 use r#fn::*;
 mod param;
@@ -108,7 +110,9 @@ impl Clang {
                         collector.insert(Item::Enum(Enum::parse(child)?));
                     }
                     CXCursor_TypedefDecl if child.is_definition() => {
-                        if let Some(td) = Typedef::parse(child, &self.namespace)? {
+                        if let Some(cb) = Callback::parse(child, &self.namespace)? {
+                            collector.insert(Item::Callback(cb));
+                        } else if let Some(td) = Typedef::parse(child, &self.namespace)? {
                             collector.insert(Item::Typedef(td));
                         }
                     }

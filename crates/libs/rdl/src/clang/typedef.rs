@@ -26,6 +26,11 @@ impl Typedef {
             _ => {}
         }
 
+        // Skip function-pointer typedefs — those are collected as callbacks.
+        if underlying.is_function_pointer() {
+            return Ok(None);
+        }
+
         let ty = underlying.to_type(namespace);
         Ok(Some(Self {
             name,
