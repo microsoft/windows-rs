@@ -134,9 +134,9 @@ impl TranslationUnit {
                 return vec![];
             }
 
-            let result = (0..n_tokens)
+            let result = (0..n_tokens as usize)
                 .map(|i| {
-                    let token = *tokens.add(i as usize);
+                    let token = *tokens.add(i);
                     let kind = clang_getTokenKind(token);
                     let spelling = to_string(clang_getTokenSpelling(self.0, token));
                     (kind, spelling)

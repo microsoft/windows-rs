@@ -180,14 +180,12 @@ fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
     // Determine width and signedness from suffix.
     // On Windows (LLP64): long = 32-bit, long long = 64-bit.
     let value = match suffix.to_uppercase().as_str() {
-        // Unsigned: U, UL, LU
+        // Unsigned: U, UL, LU — negated unsigned constants are not representable.
         "U" | "UL" | "LU" => {
+            if negate {
+                return None;
+            }
             let v = u32::try_from(raw).ok()?;
-            let v = if negate {
-                u32::try_from(-(v as i64)).ok()?
-            } else {
-                v
-            };
             ConstValue::U32(v)
         }
         // Unsigned long long: ULL, LLU
@@ -203,9 +201,12 @@ fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
             let v = if negate { v.wrapping_neg() } else { v };
             ConstValue::I64(v)
         }
-        // No suffix or L suffix → i32 on Windows (LLP64).
+        // No suffix or L suffix → i32 on Windows (LLP64: long is always 32-bit).
+        // The wrapping cast from u64 is intentional: Win32 uses bit-pattern
+        // reinterpretation for constants like HRESULT values that exceed
+        // INT32_MAX (e.g. `0x80004002L` → -2147467262i32).
         _ => {
-            let v = raw as i32;
+            let v = raw as u32 as i32;
             let v = if negate { v.wrapping_neg() } else { v };
             ConstValue::I32(v)
         }
@@ -234,6 +235,11 @@ fn parse_named_cast(type_name: &str, lit: &str, negate: bool) -> Option<ConstVal
 ///
 /// Examples: `"0x1"` → `("0x1", "")`, `"42L"` → `("42", "L")`,
 /// `"0xC0EA0002L"` → `("0xC0EA0002", "L")`.
+///
+/// The `rfind` searches for the last character that is a valid hex digit or
+/// `x`/`X` (the hex prefix marker).  Suffix characters (`L`, `U`, `LL`,
+/// `ULL`, etc.) are never hex digits (`'L'` and `'U'` are not in `[0-9a-fA-F]`),
+/// so the boundary is always found at the correct position.
 fn split_int_suffix(lit: &str) -> (&str, &str) {
     let suffix_start = lit
         .rfind(|c: char| c.is_ascii_hexdigit() || c == 'x' || c == 'X')
