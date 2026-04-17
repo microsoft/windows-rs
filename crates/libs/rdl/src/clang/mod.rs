@@ -156,7 +156,8 @@ impl Clang {
 
             // Second pass: evaluate complex constant expressions using the
             // synthetic-enum approach.  One bad macro does not abort the rest.
-            for c in Const::evaluate_macros(input, &pending_macros, &self.namespace, &index, &args)? {
+            for c in Const::evaluate_macros(input, &pending_macros, &self.namespace, &index, &args)?
+            {
                 collector.insert(Item::Const(c));
             }
         }
