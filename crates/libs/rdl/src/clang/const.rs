@@ -247,7 +247,10 @@ fn split_int_suffix(lit: &str) -> (&str, &str) {
 
 /// Parse hex or decimal digit string into a `u64`.
 fn parse_int_digits(digits: &str) -> Option<u64> {
-    if let Some(hex) = digits.strip_prefix("0x").or_else(|| digits.strip_prefix("0X")) {
+    if let Some(hex) = digits
+        .strip_prefix("0x")
+        .or_else(|| digits.strip_prefix("0X"))
+    {
         u64::from_str_radix(hex, 16).ok()
     } else {
         digits.parse::<u64>().ok()
