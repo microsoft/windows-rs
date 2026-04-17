@@ -340,6 +340,14 @@ impl Type {
         Self(unsafe { clang_getResultType(self.0) })
     }
 
+    pub fn array_element_type(&self) -> Self {
+        Self(unsafe { clang_getArrayElementType(self.0) })
+    }
+
+    pub fn array_size(&self) -> usize {
+        unsafe { clang_getArraySize(self.0) as usize }
+    }
+
     pub fn to_type(&self, namespace: &str) -> metadata::Type {
         match self.kind() {
             CXType_Void => metadata::Type::Void,
@@ -373,6 +381,11 @@ impl Type {
                 } else {
                     metadata::Type::PtrMut(Box::new(inner), 1)
                 }
+            }
+            CXType_ConstantArray => {
+                let element = self.array_element_type().to_type(namespace);
+                let size = self.array_size();
+                metadata::Type::ArrayFixed(Box::new(element), size)
             }
             rest => panic!("{rest:?}"),
         }

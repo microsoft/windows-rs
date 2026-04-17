@@ -1,5 +1,9 @@
 #[win32]
 mod Test {
+    struct Arrays {
+        f1: [u8; 16],
+        f2: [i32; 4],
+    }
     struct Empty {}
     struct Named {
         f1: Empty,

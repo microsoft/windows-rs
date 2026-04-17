@@ -25,3 +25,8 @@ struct Pointers {
     Named* f1;
     int* f2;
 };
+
+struct Arrays {
+    unsigned char f1[16];
+    int f2[4];
+};
