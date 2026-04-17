@@ -22,6 +22,11 @@ pub enum ConstValue {
     /// A UTF-8 string literal.
     Str(String),
     /// An integer cast to a named type, e.g. `((NTSTATUS)0xC0EA0002L)`.
+    ///
+    /// The value is stored as a raw 64-bit signed integer (the bit pattern
+    /// of the literal reinterpreted as `i64`).  It will be emitted as a
+    /// decimal literal in the RDL and reinterpreted according to the actual
+    /// underlying type of `type_name` during the reader/writer roundtrip.
     Named { type_name: String, value: i64 },
 }
 
@@ -168,7 +173,10 @@ fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
         if negate {
             return None;
         }
-        // Strip surrounding quotes and basic escape handling.
+        // Strip surrounding quotes.  Win32 string constants use simple ASCII
+        // so no additional escape-sequence translation is performed; the raw
+        // C spelling is passed through as-is (Rust and C share the same
+        // common escape sequences such as `\n`, `\t`, and `\\`).
         let inner = lit.strip_prefix('"')?.strip_suffix('"')?;
         return Some(ConstValue::Str(inner.to_string()));
     }

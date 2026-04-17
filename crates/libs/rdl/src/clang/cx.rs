@@ -130,7 +130,7 @@ impl TranslationUnit {
             let mut n_tokens: u32 = 0;
             clang_tokenize(self.0, range, &mut tokens, &mut n_tokens);
 
-            if tokens.is_null() || n_tokens == 0 {
+            if n_tokens == 0 {
                 return vec![];
             }
 
