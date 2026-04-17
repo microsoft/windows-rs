@@ -176,7 +176,20 @@ impl Clang {
                     collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
                 }
                 CXCursor_EnumDecl if child.is_definition() => {
-                    collector.insert(Item::Enum(Enum::parse(child)?));
+                    let e = Enum::parse(child)?;
+                    if e.name.is_empty() || e.name.starts_with('(') {
+                        // Unnamed enum: each variant becomes a top-level constant.
+                        for (name, value) in e.variants {
+                            let const_value = enum_variant_value(e.repr, value);
+                            collector.insert(Item::Const(Const {
+                                name,
+                                namespace: self.namespace.clone(),
+                                value: const_value,
+                            }));
+                        }
+                    } else {
+                        collector.insert(Item::Enum(e));
+                    }
                 }
                 CXCursor_TypedefDecl if child.is_definition() => {
                     if let Some(cb) = Callback::parse(child, &self.namespace)? {
@@ -206,5 +219,20 @@ impl Clang {
         }
 
         Ok(pending_macros)
+    }
+}
+
+/// Convert an enum variant's `i64` value to the [`metadata::Value`] variant
+/// that matches the enum's underlying integer representation.
+fn enum_variant_value(repr: &str, value: i64) -> metadata::Value {
+    match repr {
+        "u8" => metadata::Value::U8(value as u8),
+        "i8" => metadata::Value::I8(value as i8),
+        "u16" => metadata::Value::U16(value as u16),
+        "i16" => metadata::Value::I16(value as i16),
+        "u32" => metadata::Value::U32(value as u32),
+        "u64" => metadata::Value::U64(value as u64),
+        "i64" => metadata::Value::I64(value),
+        _ => metadata::Value::I32(value as i32),
     }
 }

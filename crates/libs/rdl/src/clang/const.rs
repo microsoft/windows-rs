@@ -212,6 +212,22 @@ fn collect_eval_results(tu: &TranslationUnit, namespace: &str) -> Result<Vec<Con
 /// unreachable in this context.
 fn write_const_value(value: &metadata::Value) -> TokenStream {
     match value {
+        metadata::Value::I8(v) => {
+            let lit = Literal::i8_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::U8(v) => {
+            let lit = Literal::u8_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::I16(v) => {
+            let lit = Literal::i16_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::U16(v) => {
+            let lit = Literal::u16_unsuffixed(*v);
+            quote! { #lit }
+        }
         metadata::Value::I32(v) => {
             let lit = Literal::i32_unsuffixed(*v);
             quote! { #lit }
