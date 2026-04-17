@@ -211,11 +211,7 @@ impl Type {
     }
 
     pub fn is_function_pointer(&self) -> bool {
-        if self.kind() != CXType_Pointer {
-            return false;
-        }
-        let pointee_kind = self.pointee_type().kind();
-        pointee_kind == CXType_FunctionProto || pointee_kind == CXType_FunctionNoProto
+        self.function_pointee().is_some()
     }
 
     pub fn function_pointee(&self) -> Option<Self> {
@@ -261,7 +257,7 @@ impl Type {
             CXType_Pointer => {
                 let pointee = self.pointee_type();
                 // Function pointers map to opaque *mut u8; they are emitted
-                // separately as callbacks via collect_callback.
+                // separately as callbacks via `Callback::parse`.
                 if pointee.kind() == CXType_FunctionProto
                     || pointee.kind() == CXType_FunctionNoProto
                 {
