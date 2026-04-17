@@ -72,14 +72,17 @@ impl Index {
     /// only as the virtual path from which relative `#include` directives
     /// resolve.
     ///
-    /// Parsing uses `CXTranslationUnit_KeepGoing` so that isolated errors
-    /// (e.g. from macros that are not valid integer constant expressions) do
-    /// not abort the entire translation unit.
+    /// The `flags` parameter is forwarded directly to
+    /// `clang_parseTranslationUnit` as the `options` argument.  Callers should
+    /// combine the `CXTranslationUnit_*` constants appropriate for their use
+    /// case (e.g. `CXTranslationUnit_KeepGoing` for evaluation passes,
+    /// `CXTranslationUnit_DetailedPreprocessingRecord` to expose macros).
     pub fn parse_unsaved(
         &self,
         filename: &str,
         content: &str,
         args: &[&str],
+        flags: i32,
     ) -> Result<TranslationUnit, Error> {
         let c_filename =
             CString::new(filename).map_err(|_| Error::new("invalid filename", filename, 0, 0))?;
@@ -109,7 +112,7 @@ impl Index {
                 cargs.len().try_into().unwrap(),
                 &mut unsaved,
                 1,
-                CXTranslationUnit_KeepGoing,
+                flags,
             )
         };
 

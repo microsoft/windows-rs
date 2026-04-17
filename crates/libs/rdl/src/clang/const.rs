@@ -122,9 +122,76 @@ impl Const {
 
         // Parse with KeepGoing so that macros that are not valid integer
         // constant expressions (e.g. string macros) don't abort the TU.
-        let tu = index.parse_unsaved(&synthetic, &source, args)?;
+        let tu = index.parse_unsaved(&synthetic, &source, args, CXTranslationUnit_KeepGoing)?;
 
         // Collect enum constant values.
+        let mut results = vec![];
+        for child in tu.cursor().children() {
+            if !child.is_from_main_file() {
+                continue;
+            }
+            if child.kind() != CXCursor_EnumDecl {
+                continue;
+            }
+            for constant in child.children() {
+                if constant.kind() != CXCursor_EnumConstantDecl {
+                    continue;
+                }
+                let const_name = constant.name();
+                if let Some(original_name) = const_name.strip_prefix("__rdl_eval_") {
+                    let raw = constant.enum_value();
+                    let value = if let Ok(v) = i32::try_from(raw) {
+                        metadata::Value::I32(v)
+                    } else {
+                        metadata::Value::I64(raw)
+                    };
+                    results.push(Self {
+                        name: original_name.to_string(),
+                        namespace: namespace.to_string(),
+                        value,
+                    });
+                }
+            }
+        }
+
+        Ok(results)
+    }
+
+    /// Evaluate a batch of macro names from an in-memory source string.
+    ///
+    /// This is the `input_str` counterpart to [`evaluate_macros`].  Because
+    /// the source does not exist on disk there is no file to `#include`; the
+    /// original content is instead embedded directly at the top of the
+    /// synthetic translation unit, followed by one anonymous `enum` per
+    /// candidate macro name.
+    ///
+    /// See [`evaluate_macros`] for a detailed explanation of the technique.
+    pub fn evaluate_macros_str(
+        content: &str,
+        names: &[String],
+        namespace: &str,
+        index: &Index,
+        args: &[&str],
+    ) -> Result<Vec<Self>, Error> {
+        if names.is_empty() {
+            return Ok(vec![]);
+        }
+
+        // Embed the original content directly; relative #includes inside that
+        // content will not resolve (there is no on-disk directory context) but
+        // simple self-contained headers work fine.
+        let mut source = format!("{content}\n");
+        for name in names {
+            if !name.chars().all(|c| c.is_ascii_alphanumeric() || c == '_') {
+                continue;
+            }
+            source.push_str(&format!("enum {{ __rdl_eval_{name} = {name} }};\n"));
+        }
+
+        const SYNTHETIC: &str = "__rdl_input_str__.__rdl_eval__.cpp";
+
+        let tu = index.parse_unsaved(SYNTHETIC, &source, args, CXTranslationUnit_KeepGoing)?;
+
         let mut results = vec![];
         for child in tu.cursor().children() {
             if !child.is_from_main_file() {
