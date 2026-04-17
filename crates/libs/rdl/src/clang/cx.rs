@@ -52,7 +52,7 @@ impl Index {
                 cargs.len().try_into().unwrap(),
                 std::ptr::null_mut(),
                 0,
-                CXTranslationUnit_None,
+                CXTranslationUnit_DetailedPreprocessingRecord,
             )
         };
 
@@ -122,6 +122,31 @@ impl TranslationUnit {
     pub fn cursor(&self) -> Cursor {
         Cursor(unsafe { clang_getTranslationUnitCursor(self.0) })
     }
+
+    /// Tokenize the given source range and return the spellings of all tokens.
+    pub fn tokenize(&self, range: CXSourceRange) -> Vec<(CXTokenKind, String)> {
+        unsafe {
+            let mut tokens: *mut CXToken = std::ptr::null_mut();
+            let mut n_tokens: u32 = 0;
+            clang_tokenize(self.0, range, &mut tokens, &mut n_tokens);
+
+            if tokens.is_null() || n_tokens == 0 {
+                return vec![];
+            }
+
+            let result = (0..n_tokens)
+                .map(|i| {
+                    let token = *tokens.add(i as usize);
+                    let kind = clang_getTokenKind(token);
+                    let spelling = to_string(clang_getTokenSpelling(self.0, token));
+                    (kind, spelling)
+                })
+                .collect();
+
+            clang_disposeTokens(self.0, tokens, n_tokens);
+            result
+        }
+    }
 }
 
 impl Drop for TranslationUnit {
@@ -160,6 +185,25 @@ impl Cursor {
 
     pub fn is_definition(&self) -> bool {
         unsafe { clang_isCursorDefinition(self.0) != 0 }
+    }
+
+    pub fn is_from_main_file(&self) -> bool {
+        unsafe {
+            let loc = clang_getCursorLocation(self.0);
+            clang_Location_isFromMainFile(loc) != 0
+        }
+    }
+
+    pub fn is_macro_builtin(&self) -> bool {
+        unsafe { clang_Cursor_isMacroBuiltin(self.0) != 0 }
+    }
+
+    pub fn is_macro_function_like(&self) -> bool {
+        unsafe { clang_Cursor_isMacroFunctionLike(self.0) != 0 }
+    }
+
+    pub fn extent(&self) -> CXSourceRange {
+        unsafe { clang_getCursorExtent(self.0) }
     }
 
     pub fn enum_repr(&self) -> Type {

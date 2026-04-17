@@ -22,6 +22,8 @@ mod r#fn;
 use r#fn::*;
 mod param;
 use param::*;
+mod r#const;
+use r#const::*;
 
 #[derive(Default)]
 pub struct Clang {
@@ -102,6 +104,12 @@ impl Clang {
             }
 
             for child in tu.cursor().children() {
+                // Only process cursors from the main input file (not from
+                // transitively included headers).
+                if !child.is_from_main_file() {
+                    continue;
+                }
+
                 match child.kind() {
                     CXCursor_StructDecl if child.is_definition() => {
                         collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
@@ -122,6 +130,11 @@ impl Clang {
                             &self.namespace,
                             &self.library,
                         )?));
+                    }
+                    CXCursor_MacroDefinition => {
+                        if let Some(c) = Const::parse(child, &self.namespace, &tu)? {
+                            collector.insert(Item::Const(c));
+                        }
                     }
                     _ => {}
                 }
