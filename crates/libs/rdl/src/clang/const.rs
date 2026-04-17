@@ -5,29 +5,7 @@ use super::*;
 pub struct Const {
     pub name: String,
     pub namespace: String,
-    pub value: ConstValue,
-}
-
-/// The resolved value of a parsed `#define` constant.
-#[derive(Debug)]
-pub enum ConstValue {
-    /// A signed 32-bit integer (plain int or `L`-suffixed long on Windows).
-    I32(i32),
-    /// An unsigned 32-bit integer (`U`/`UL`-suffixed).
-    U32(u32),
-    /// A signed 64-bit integer (`LL`-suffixed).
-    I64(i64),
-    /// An unsigned 64-bit integer (`ULL`-suffixed).
-    U64(u64),
-    /// A UTF-8 string literal.
-    Str(String),
-    /// An integer cast to a named type, e.g. `((NTSTATUS)0xC0EA0002L)`.
-    ///
-    /// The value is stored as a raw 64-bit signed integer (the bit pattern
-    /// of the literal reinterpreted as `i64`).  It will be emitted as a
-    /// decimal literal in the RDL and reinterpreted according to the actual
-    /// underlying type of `type_name` during the reader/writer roundtrip.
-    Named { type_name: String, value: i64 },
+    pub value: metadata::Value,
 }
 
 impl Const {
@@ -62,7 +40,7 @@ impl Const {
         // Body tokens = everything after the name token.
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
-        let value = match parse_body(&body) {
+        let value = match parse_body(&body, namespace) {
             Some(v) => v,
             None => return Ok(None),
         };
@@ -76,36 +54,37 @@ impl Const {
 
     pub fn write(&self) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
+        let ty = write_type(&self.namespace, &self.value.ty());
+        let value = write_const_value(&self.value);
+        Ok(quote! { const #name: #ty = #value; })
+    }
+}
 
-        Ok(match &self.value {
-            ConstValue::I32(v) => {
-                let lit = Literal::i32_unsuffixed(*v);
-                quote! { const #name: i32 = #lit; }
-            }
-            ConstValue::U32(v) => {
-                let lit = Literal::u32_unsuffixed(*v);
-                quote! { const #name: u32 = #lit; }
-            }
-            ConstValue::I64(v) => {
-                let lit = Literal::i64_unsuffixed(*v);
-                quote! { const #name: i64 = #lit; }
-            }
-            ConstValue::U64(v) => {
-                let lit = Literal::u64_unsuffixed(*v);
-                quote! { const #name: u64 = #lit; }
-            }
-            ConstValue::Str(s) => {
-                quote! { const #name: String = #s; }
-            }
-            ConstValue::Named { type_name, value } => {
-                let ty = write_type(
-                    &self.namespace,
-                    &metadata::Type::value_named(&self.namespace, type_name),
-                );
-                let lit = Literal::i64_unsuffixed(*value);
-                quote! { const #name: #ty = #lit; }
-            }
-        })
+/// Emit the literal token stream for a `metadata::Value`.
+///
+/// Only the variants produced by the macro parser are handled; others are
+/// unreachable in this context.
+fn write_const_value(value: &metadata::Value) -> TokenStream {
+    match value {
+        metadata::Value::I32(v) => {
+            let lit = Literal::i32_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::U32(v) => {
+            let lit = Literal::u32_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::I64(v) => {
+            let lit = Literal::i64_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::U64(v) => {
+            let lit = Literal::u64_unsuffixed(*v);
+            quote! { #lit }
+        }
+        metadata::Value::Utf8(s) => quote! { #s },
+        metadata::Value::EnumValue(_, inner) => write_const_value(inner),
+        _ => unreachable!("unexpected Value variant in clang const"),
     }
 }
 
@@ -125,7 +104,7 @@ impl Const {
 ///
 /// Returns `None` for anything more complex (multi-identifier bodies, macro
 /// calls, etc.) which are silently skipped.
-fn parse_body(body: &[(CXTokenKind, String)]) -> Option<ConstValue> {
+fn parse_body(body: &[(CXTokenKind, String)], namespace: &str) -> Option<metadata::Value> {
     match body {
         // Single literal token.
         [(CXToken_Literal, lit)] => parse_literal(lit, false),
@@ -137,37 +116,37 @@ fn parse_body(body: &[(CXTokenKind, String)]) -> Option<ConstValue> {
         [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
             if lp1 == "(" && lp2 == "(" && rp1 == ")" && rp2 == ")" =>
         {
-            parse_named_cast(ty, lit, false)
+            parse_named_cast(namespace, ty, lit, false)
         }
         // ((TYPE)-VALUE) — double-paren typed negated cast.
         [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Punctuation, minus), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
             if lp1 == "(" && lp2 == "(" && rp1 == ")" && minus == "-" && rp2 == ")" =>
         {
-            parse_named_cast(ty, lit, true)
+            parse_named_cast(namespace, ty, lit, true)
         }
         // (TYPE)VALUE — single-paren typed cast.
         [(CXToken_Punctuation, lp), (CXToken_Identifier, ty), (CXToken_Punctuation, rp), (CXToken_Literal, lit)]
             if lp == "(" && rp == ")" =>
         {
-            parse_named_cast(ty, lit, false)
+            parse_named_cast(namespace, ty, lit, false)
         }
         // (TYPE)-VALUE — single-paren typed negated cast.
         [(CXToken_Punctuation, lp), (CXToken_Identifier, ty), (CXToken_Punctuation, rp), (CXToken_Punctuation, minus), (CXToken_Literal, lit)]
             if lp == "(" && rp == ")" && minus == "-" =>
         {
-            parse_named_cast(ty, lit, true)
+            parse_named_cast(namespace, ty, lit, true)
         }
         _ => None,
     }
 }
 
-/// Parse a C integer or string literal spelling into a [`ConstValue`].
+/// Parse a C integer or string literal spelling into a [`metadata::Value`].
 ///
 /// Integer literals may carry type suffixes (`L`, `U`, `LL`, `ULL`) and use
 /// hexadecimal (`0x…`) or decimal notation.  The value is reinterpreted into
 /// the Rust type that best matches the suffix and bit-width, following
 /// Windows LLP64 conventions (`long` = 32-bit).
-fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
+fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
     // String literal.
     if lit.starts_with('"') {
         if negate {
@@ -178,7 +157,7 @@ fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
         // C spelling is passed through as-is (Rust and C share the same
         // common escape sequences such as `\n`, `\t`, and `\\`).
         let inner = lit.strip_prefix('"')?.strip_suffix('"')?;
-        return Some(ConstValue::Str(inner.to_string()));
+        return Some(metadata::Value::Utf8(inner.to_string()));
     }
 
     // Integer literal — strip suffix to isolate the digits.
@@ -194,20 +173,20 @@ fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
                 return None;
             }
             let v = u32::try_from(raw).ok()?;
-            ConstValue::U32(v)
+            metadata::Value::U32(v)
         }
         // Unsigned long long: ULL, LLU
         "ULL" | "LLU" => {
             if negate {
                 return None;
             }
-            ConstValue::U64(raw)
+            metadata::Value::U64(raw)
         }
         // Signed long long: LL
         "LL" => {
             let v = raw as i64;
             let v = if negate { v.wrapping_neg() } else { v };
-            ConstValue::I64(v)
+            metadata::Value::I64(v)
         }
         // No suffix or L suffix → i32 on Windows (LLP64: long is always 32-bit).
         // The wrapping cast from u64 is intentional: Win32 uses bit-pattern
@@ -216,16 +195,26 @@ fn parse_literal(lit: &str, negate: bool) -> Option<ConstValue> {
         _ => {
             let v = raw as u32 as i32;
             let v = if negate { v.wrapping_neg() } else { v };
-            ConstValue::I32(v)
+            metadata::Value::I32(v)
         }
     };
 
     Some(value)
 }
 
-/// Parse a C literal spelling and produce a [`ConstValue::Named`] with the
-/// given type name, interpreting the integer bits as `i64`.
-fn parse_named_cast(type_name: &str, lit: &str, negate: bool) -> Option<ConstValue> {
+/// Parse a C literal spelling and produce a [`metadata::Value::EnumValue`] with
+/// the given type name, interpreting the integer bits as `i64`.
+///
+/// The value is stored as a raw 64-bit signed integer (the bit pattern
+/// of the literal reinterpreted as `i64`).  It will be emitted as a
+/// decimal literal in the RDL and reinterpreted according to the actual
+/// underlying type of `type_name` during the reader/writer roundtrip.
+fn parse_named_cast(
+    namespace: &str,
+    type_name: &str,
+    lit: &str,
+    negate: bool,
+) -> Option<metadata::Value> {
     let (digits, _suffix) = split_int_suffix(lit);
     let raw: u64 = parse_int_digits(digits)?;
     let v = if negate {
@@ -233,10 +222,10 @@ fn parse_named_cast(type_name: &str, lit: &str, negate: bool) -> Option<ConstVal
     } else {
         raw as i64
     };
-    Some(ConstValue::Named {
-        type_name: type_name.to_string(),
-        value: v,
-    })
+    Some(metadata::Value::EnumValue(
+        metadata::TypeName::named(namespace, type_name),
+        Box::new(metadata::Value::I64(v)),
+    ))
 }
 
 /// Split a C integer literal into its digit string and suffix string.
@@ -264,3 +253,4 @@ fn parse_int_digits(digits: &str) -> Option<u64> {
         digits.parse::<u64>().ok()
     }
 }
+
