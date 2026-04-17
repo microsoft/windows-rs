@@ -18,6 +18,7 @@ mod Test {
         f10: f64,
         f11: usize,
         f12: isize,
+        f13: u16,
     }
     struct Pointers {
         f1: *mut Named,

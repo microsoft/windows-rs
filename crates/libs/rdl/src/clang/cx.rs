@@ -355,6 +355,7 @@ impl Type {
             CXType_LongLong => metadata::Type::I64,
             CXType_Float => metadata::Type::F32,
             CXType_Double => metadata::Type::F64,
+            CXType_WChar => metadata::Type::U16,
             CXType_Record => metadata::Type::value_named(namespace, &self.ty().name()),
             CXType_Elaborated => self.underlying_type().to_type(namespace),
             CXType_Typedef => metadata::Type::value_named(namespace, &self.ty().name()),

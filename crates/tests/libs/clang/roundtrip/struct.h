@@ -14,6 +14,7 @@ struct Numbers {
     double f10;
     unsigned long f11;
     long f12;
+    wchar_t f13;
 };
 
 struct Named {
