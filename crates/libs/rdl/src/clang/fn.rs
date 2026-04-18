@@ -11,7 +11,12 @@ pub struct Fn {
 }
 
 impl Fn {
-    pub fn parse(cursor: Cursor, namespace: &str, library: &str, extern_c: bool) -> Result<Self, Error> {
+    pub fn parse(
+        cursor: Cursor,
+        namespace: &str,
+        library: &str,
+        extern_c: bool,
+    ) -> Result<Self, Error> {
         let name = cursor.name();
         let return_type = cursor.result_type().to_type(namespace);
 
