@@ -7,10 +7,11 @@ pub struct Fn {
     pub library: String,
     pub params: Vec<Param>,
     pub return_type: metadata::Type,
+    pub extern_c: bool,
 }
 
 impl Fn {
-    pub fn parse(cursor: Cursor, namespace: &str, library: &str) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, namespace: &str, library: &str, extern_c: bool) -> Result<Self, Error> {
         let name = cursor.name();
         let return_type = cursor.result_type().to_type(namespace);
 
@@ -32,6 +33,7 @@ impl Fn {
             library: library.to_string(),
             params,
             return_type,
+            extern_c,
         })
     }
 
@@ -53,9 +55,15 @@ impl Fn {
             }
         };
 
+        let abi = if self.extern_c {
+            quote! { "C" }
+        } else {
+            quote! {}
+        };
+
         Ok(quote! {
             #[library(#library)]
-            extern fn #name(#(#params),*) #return_type;
+            extern #abi fn #name(#(#params),*) #return_type;
         })
     }
 }

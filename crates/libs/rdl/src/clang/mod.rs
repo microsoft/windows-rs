@@ -203,7 +203,22 @@ impl Clang {
                     }
                 }
                 CXCursor_FunctionDecl if !child.is_definition() => {
-                    collector.insert(Item::Fn(Fn::parse(child, &self.namespace, &self.library)?));
+                    collector.insert(Item::Fn(Fn::parse(child, &self.namespace, &self.library, false)?));
+                }
+                // Recurse into `extern "C" { }` or `extern "C++" { }` blocks so
+                // that function declarations inside them are collected with the
+                // correct ABI annotation.
+                CXCursor_LinkageSpec => {
+                    for inner in child.children() {
+                        if !inner.is_from_main_file() {
+                            continue;
+                        }
+                        if inner.kind() == CXCursor_FunctionDecl && !inner.is_definition() {
+                            // A function inside `extern "C" { }` has C language linkage.
+                            let extern_c = inner.language() == CXLanguage_C;
+                            collector.insert(Item::Fn(Fn::parse(inner, &self.namespace, &self.library, extern_c)?));
+                        }
+                    }
                 }
                 CXCursor_MacroDefinition => {
                     if let Some(c) = Const::parse(child, &self.namespace, tu)? {

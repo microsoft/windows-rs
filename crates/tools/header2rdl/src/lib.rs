@@ -17,7 +17,7 @@
 //! Requires `libclang` at build and run time.  On Ubuntu 22.04+ set
 //! `LIBCLANG_PATH=/usr/lib/llvm-20/lib` (or the installed LLVM version).
 
-use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, Language, TypeKind};
+use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, TypeKind};
 use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
 
@@ -344,7 +344,6 @@ struct RdlFn {
     name: String,
     params: Vec<(String, String)>,
     ret: String,
-    extern_c: bool,
 }
 
 struct RdlInterface {
@@ -452,12 +451,7 @@ fn collect(entity: Entity, collector: &mut Collector) {
                 }
                 if let Some(name) = child.get_name() {
                     if collector.seen.insert(name.clone()) {
-                        // In C++ mode, a function declared inside `extern "C" { }`
-                        // has Language::C linkage.  Track this so we can emit the
-                        // correct `extern "C" fn` ABI in the RDL.
-                        let extern_c = collector.cpp
-                            && child.get_language() == Some(Language::C);
-                        if let Some(f) = collect_function(&child, name, extern_c) {
+                        if let Some(f) = collect_function(&child, name) {
                             collector.functions.push(f);
                         }
                     }
@@ -674,7 +668,7 @@ fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
     })
 }
 
-fn collect_function(entity: &Entity, name: String, extern_c: bool) -> Option<RdlFn> {
+fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
     let ty = entity.get_type()?;
     let ret_ty = ty.get_result_type()?;
     let ret = map_type(&ret_ty);
@@ -691,7 +685,7 @@ fn collect_function(entity: &Entity, name: String, extern_c: bool) -> Option<Rdl
         }
     }
 
-    Some(RdlFn { name, params, ret, extern_c })
+    Some(RdlFn { name, params, ret })
 }
 
 fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
@@ -753,7 +747,6 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
             name: mname,
             params,
             ret,
-            extern_c: false,
         });
     }
 
@@ -1027,9 +1020,7 @@ fn emit_fn(f: &RdlFn, library: &str) -> String {
         format!("#[library(\"{library}\")] ")
     };
 
-    let abi = if f.extern_c { r#""C" "# } else { "" };
-
-    format!("{lib_attr}extern {abi}fn {}({params}){ret};", f.name)
+    format!("{lib_attr}extern fn {}({params}){ret};", f.name)
 }
 
 fn emit_interface(iface: &RdlInterface) -> String {

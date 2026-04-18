@@ -289,6 +289,10 @@ impl Cursor {
     pub fn result_type(&self) -> Type {
         Type(unsafe { clang_getCursorResultType(self.0) })
     }
+
+    pub fn language(&self) -> CXLanguageKind {
+        unsafe { clang_getCursorLanguage(self.0) }
+    }
 }
 
 pub struct Type(CXType);

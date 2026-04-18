@@ -474,11 +474,11 @@ mod Test {
         COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL = -1,
     }
     #[library("WebView2")]
-    extern "C" fn CompareBrowserVersions(version1: PCWSTR, version2: PCWSTR, result: *mut i32) -> HRESULT;
+    extern fn CompareBrowserVersions(version1: PCWSTR, version2: PCWSTR, result: *mut i32) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn CreateCoreWebView2Environment(environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> HRESULT;
+    extern fn CreateCoreWebView2Environment(environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn CreateCoreWebView2EnvironmentWithOptions(browserExecutableFolder: PCWSTR, userDataFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> HRESULT;
+    extern fn CreateCoreWebView2EnvironmentWithOptions(browserExecutableFolder: PCWSTR, userDataFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> HRESULT;
     #[typedef]
     struct DOUBLE {
         value: f64,
@@ -501,9 +501,9 @@ mod Test {
         Data4: [u8; 8],
     }
     #[library("WebView2")]
-    extern "C" fn GetAvailableCoreWebView2BrowserVersionString(browserExecutableFolder: PCWSTR, versionInfo: *mut LPWSTR) -> HRESULT;
+    extern fn GetAvailableCoreWebView2BrowserVersionString(browserExecutableFolder: PCWSTR, versionInfo: *mut LPWSTR) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserExecutableFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, versionInfo: *mut LPWSTR) -> HRESULT;
+    extern fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserExecutableFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, versionInfo: *mut LPWSTR) -> HRESULT;
     #[typedef]
     struct HANDLE {
         value: *mut u8,
@@ -2211,51 +2211,51 @@ mod Test {
         fn ShowSaveAsUI(&self, handler: ICoreWebView2ShowSaveAsUICompletedHandler) -> HRESULT;
     }
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_25_ShowSaveAsUI_Proxy(This: ICoreWebView2_25, handler: ICoreWebView2ShowSaveAsUICompletedHandler) -> HRESULT;
+    extern fn ICoreWebView2_25_ShowSaveAsUI_Proxy(This: ICoreWebView2_25, handler: ICoreWebView2ShowSaveAsUICompletedHandler) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_25_ShowSaveAsUI_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
+    extern fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, token: EventRegistrationToken) -> HRESULT;
+    extern fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, token: EventRegistrationToken) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0x806268b8_f897_5685_88e5_c45fca0b1a48)]
     interface ICoreWebView2_26: ICoreWebView2_25 {
         fn add_SaveFileSecurityCheckStarting(&self, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_SaveFileSecurityCheckStarting(&self, token: EventRegistrationToken) -> HRESULT;
     }
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
+    extern fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, token: EventRegistrationToken) -> HRESULT;
+    extern fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, token: EventRegistrationToken) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0x00fbe33b_8c07_517c_aa23_0ddd4b5f6fa0)]
     interface ICoreWebView2_27: ICoreWebView2_26 {
         fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_ScreenCaptureStarting(&self, token: EventRegistrationToken) -> HRESULT;
     }
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
+    extern fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, token: EventRegistrationToken) -> HRESULT;
+    extern fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, token: EventRegistrationToken) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0x62e50381_5bf5_51a8_aae0_f20a3a9c8a90)]
     interface ICoreWebView2_28: ICoreWebView2_27 {
         fn get_Find(&self, value: *mut ICoreWebView2Find) -> HRESULT;
     }
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_28_get_Find_Proxy(This: ICoreWebView2_28, value: *mut ICoreWebView2Find) -> HRESULT;
+    extern fn ICoreWebView2_28_get_Find_Proxy(This: ICoreWebView2_28, value: *mut ICoreWebView2Find) -> HRESULT;
     #[library("WebView2")]
-    extern "C" fn ICoreWebView2_28_get_Find_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    extern fn ICoreWebView2_28_get_Find_Stub(This: *mut IRpcStubBuffer, _pRpcChannelBuffer: *mut IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0xa0d6df20_3b92_416d_aa0c_437a9c727857)]
     interface ICoreWebView2_3: ICoreWebView2_2 {
         fn TrySuspend(&self, handler: ICoreWebView2TrySuspendCompletedHandler) -> HRESULT;
