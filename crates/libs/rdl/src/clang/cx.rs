@@ -262,6 +262,54 @@ impl Cursor {
         unsafe { clang_Cursor_isMacroFunctionLike(self.0) != 0 }
     }
 
+    pub fn is_pure_virtual(&self) -> bool {
+        unsafe { clang_CXXMethod_isPureVirtual(self.0) != 0 }
+    }
+
+    /// Returns true if this struct/class cursor has at least one pure-virtual method, indicating
+    /// that it is a COM-style abstract interface rather than a plain data struct.
+    pub fn has_pure_virtual_methods(&self) -> bool {
+        self.children()
+            .iter()
+            .any(|c| c.kind() == CXCursor_CXXMethod && c.is_pure_virtual())
+    }
+
+    /// Searches the cursor's attribute children for a UUID string:
+    ///
+    /// - `CXCursor_AnnotateAttr`: produced by `__attribute__((annotate("uuid-string")))`.
+    ///   The UUID is the cursor's spelling directly.
+    /// - `CXCursor_UnexposedAttr`: produced by `__declspec(uuid("..."))` when compiled with
+    ///   `-fms-extensions`.  The UUID is extracted by tokenizing the attribute extent and
+    ///   finding a string-literal token that matches the UUID format.
+    ///
+    /// Returns the first UUID found (without quotes), or `None`.
+    pub fn extract_uuid(&self, tu: &TranslationUnit) -> Option<String> {
+        for child in self.children() {
+            match child.kind() {
+                // __attribute__((annotate("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")))
+                CXCursor_AnnotateAttr => {
+                    let spelling = child.name();
+                    if is_uuid_format(&spelling) {
+                        return Some(spelling);
+                    }
+                }
+                // __declspec(uuid("...")) with -fms-extensions
+                CXCursor_UnexposedAttr => {
+                    for (kind, spelling) in tu.tokenize(child.extent()) {
+                        if kind == CXToken_Literal && spelling.starts_with('"') {
+                            let inner = spelling.trim_matches('"');
+                            if is_uuid_format(inner) {
+                                return Some(inner.to_string());
+                            }
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+        None
+    }
+
     pub fn extent(&self) -> CXSourceRange {
         unsafe { clang_getCursorExtent(self.0) }
     }
@@ -410,6 +458,20 @@ impl Diagnostic {
     pub fn is_err(&self) -> bool {
         self.severity >= CXDiagnostic_Error
     }
+}
+
+/// Returns `true` if `s` matches the standard UUID format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+/// (8-4-4-4-12 lowercase or uppercase hex digits separated by hyphens).
+pub fn is_uuid_format(s: &str) -> bool {
+    let parts: Vec<&str> = s.split('-').collect();
+    if parts.len() != 5 {
+        return false;
+    }
+    let lengths = [8usize, 4, 4, 4, 12];
+    parts
+        .iter()
+        .zip(lengths.iter())
+        .all(|(p, &l)| p.len() == l && p.chars().all(|c| c.is_ascii_hexdigit()))
 }
 
 fn to_string(cxstr: CXString) -> String {

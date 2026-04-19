@@ -24,6 +24,8 @@ mod param;
 use param::*;
 mod r#const;
 use r#const::*;
+mod interface;
+use interface::*;
 
 #[derive(Default)]
 pub struct Clang {
@@ -173,7 +175,25 @@ impl Clang {
 
             match child.kind() {
                 CXCursor_StructDecl if child.is_definition() => {
-                    collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
+                    if Interface::is_com_interface(child) {
+                        collector.insert(Item::Interface(Interface::parse(
+                            child,
+                            &self.namespace,
+                            tu,
+                        )?));
+                    } else {
+                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
+                    }
+                }
+                CXCursor_ClassDecl if child.is_definition() => {
+                    if Interface::is_com_interface(child) {
+                        collector.insert(Item::Interface(Interface::parse(
+                            child,
+                            &self.namespace,
+                            tu,
+                        )?));
+                    }
+                    // Non-abstract C++ classes are not emitted.
                 }
                 CXCursor_EnumDecl if child.is_definition() => {
                     let e = Enum::parse(child)?;

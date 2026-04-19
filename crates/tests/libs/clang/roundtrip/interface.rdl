@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    #[typedef]
+    struct HRESULT {
+        value: i32,
+    }
+    struct IInspectable {}
+    struct IUnknown {}
+    #[typedef]
+    struct ULONG {
+        value: u32,
+    }
+}
