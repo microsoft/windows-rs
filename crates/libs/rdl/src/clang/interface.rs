@@ -158,15 +158,30 @@ impl Interface {
 ///
 /// The format matches `format_guid_u128` in `writer/mod.rs`:
 /// `0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}`.
+///
+/// # Panics
+///
+/// Panics if `uuid` does not match the format validated by [`is_uuid_format`] (i.e. five
+/// hyphen-separated groups of 8-4-4-4-12 hex digits).  Callers must ensure `is_uuid_format`
+/// returns `true` for `uuid` before calling this function.
 fn uuid_to_u128_literal(uuid: &str) -> String {
     let parts: Vec<&str> = uuid.split('-').collect();
-    let d1 = u32::from_str_radix(parts[0], 16).unwrap_or(0);
-    let d2 = u16::from_str_radix(parts[1], 16).unwrap_or(0);
-    let d3 = u16::from_str_radix(parts[2], 16).unwrap_or(0);
+    assert_eq!(
+        parts.len(),
+        5,
+        "uuid_to_u128_literal: expected 5 hyphen-separated groups in `{uuid}`"
+    );
+    let d1 = u32::from_str_radix(parts[0], 16)
+        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d1 in `{uuid}`"));
+    let d2 = u16::from_str_radix(parts[1], 16)
+        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d2 in `{uuid}`"));
+    let d3 = u16::from_str_radix(parts[2], 16)
+        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d3 in `{uuid}`"));
     let d4_str = format!("{}{}", parts[3], parts[4]);
     let mut d4 = [0u8; 8];
     for i in 0..8 {
-        d4[i] = u8::from_str_radix(&d4_str[i * 2..i * 2 + 2], 16).unwrap_or(0);
+        d4[i] = u8::from_str_radix(&d4_str[i * 2..i * 2 + 2], 16)
+            .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d4[{i}] in `{uuid}`"));
     }
     let d4_word = u16::from_be_bytes([d4[0], d4[1]]);
     let d4_node = u64::from_be_bytes([0, 0, d4[2], d4[3], d4[4], d4[5], d4[6], d4[7]]);
