@@ -424,9 +424,20 @@ impl Type {
             }
             CXType_Elaborated => self.underlying_type().to_type(namespace, ref_map),
             CXType_Typedef => {
-                let name = self.ty().name();
-                let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
-                metadata::Type::value_named(ns, &name)
+                let decl = self.ty();
+                let name = decl.name();
+                if let Some(ns) = ref_map.get(&name) {
+                    // Type is known in the reference metadata — use the qualified name.
+                    metadata::Type::value_named(ns, &name)
+                } else if decl.is_from_main_file() {
+                    // Local typedef — it will be emitted separately as a `type` item.
+                    metadata::Type::value_named(namespace, &name)
+                } else {
+                    // Typedef from an included/system header that is not in the
+                    // reference metadata.  Resolve to the underlying primitive type so
+                    // the generated RDL does not reference an undefined type name.
+                    decl.typedef_underlying_type().to_type(namespace, ref_map)
+                }
             }
             CXType_Pointer => {
                 let pointee = self.pointee_type();

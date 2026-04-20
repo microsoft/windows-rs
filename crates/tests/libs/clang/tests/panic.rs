@@ -54,6 +54,39 @@ fn reference() {
     );
 }
 
+/// Typedefs defined in included (non-main) headers that are not present in any
+/// reference metadata must be resolved to their underlying primitive type.
+/// Previously, the generated RDL contained the bare typedef name which then
+/// failed to parse with "type not found".
+#[test]
+fn typedef_from_included_header() {
+    let output = "tests/typedef_in_struct.rdl";
+    windows_rdl::clang()
+        .args(["-x", "c++"])
+        .input("tests/typedef_in_struct.h")
+        .output(output)
+        .namespace("Test")
+        .write()
+        .unwrap();
+
+    let rdl = std::fs::read_to_string(output).unwrap();
+    // MY_BYTE (typedef unsigned char) should resolve to u8.
+    assert!(
+        rdl.contains("value: u8"),
+        "MY_BYTE should resolve to u8; got:\n{rdl}"
+    );
+    // MY_WORD (typedef unsigned short) should resolve to u16.
+    assert!(
+        rdl.contains("count: u16"),
+        "MY_WORD should resolve to u16; got:\n{rdl}"
+    );
+    // The typedef names must NOT appear as undefined type names in the struct.
+    assert!(
+        !rdl.contains("MY_BYTE") && !rdl.contains("MY_WORD"),
+        "typedef names from included header must not appear in RDL; got:\n{rdl}"
+    );
+}
+
 #[test]
 #[should_panic(expected = "error: expected ';' after struct\n --> .h:3:2")]
 fn semicolon_expected() {

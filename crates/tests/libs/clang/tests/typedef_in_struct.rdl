@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    struct TypedefInStruct {
+        value: u8,
+        count: u16,
+    }
+}
