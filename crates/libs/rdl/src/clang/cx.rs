@@ -183,6 +183,54 @@ impl TranslationUnit {
         Cursor(unsafe { clang_getTranslationUnitCursor(self.0) })
     }
 
+    /// Convert a source range to one whose start and end are the **expansion**
+    /// locations of the originals.
+    ///
+    /// When a cursor originates from a macro expansion, `clang_getCursorExtent`
+    /// returns a range whose start location is in the macro body (the spelling
+    /// location) and whose end location is the end of the expansion in the
+    /// source file.  Passing this mixed range to `clang_tokenize` produces
+    /// tokens from the macro body all the way to the expansion end, which can
+    /// span multiple unrelated macro invocations.
+    ///
+    /// By converting both endpoints to their expansion locations we obtain a
+    /// range that lives entirely in the source file at the specific call site,
+    /// so `clang_tokenize` returns only the tokens for that invocation.
+    pub fn to_expansion_range(&self, range: CXSourceRange) -> CXSourceRange {
+        unsafe {
+            let start = clang_getRangeStart(range);
+            let end = clang_getRangeEnd(range);
+
+            let mut start_file: CXFile = std::ptr::null_mut();
+            let mut start_line: u32 = 0;
+            let mut start_col: u32 = 0;
+            let mut start_offset: u32 = 0;
+            clang_getExpansionLocation(
+                start,
+                &mut start_file,
+                &mut start_line,
+                &mut start_col,
+                &mut start_offset,
+            );
+
+            let mut end_file: CXFile = std::ptr::null_mut();
+            let mut end_line: u32 = 0;
+            let mut end_col: u32 = 0;
+            let mut end_offset: u32 = 0;
+            clang_getExpansionLocation(
+                end,
+                &mut end_file,
+                &mut end_line,
+                &mut end_col,
+                &mut end_offset,
+            );
+
+            let new_start = clang_getLocation(self.0, start_file, start_line, start_col);
+            let new_end = clang_getLocation(self.0, end_file, end_line, end_col);
+            clang_getRange(new_start, new_end)
+        }
+    }
+
     /// Tokenize the given source range and return the spellings of all tokens.
     pub fn tokenize(&self, range: CXSourceRange) -> Vec<(CXTokenKind, String)> {
         unsafe {
@@ -293,9 +341,20 @@ impl Cursor {
                         return Some(spelling);
                     }
                 }
-                // __declspec(uuid("...")) with -fms-extensions
+                // __declspec(uuid("...")) with -fms-extensions.
+                // When the attribute originates from a macro body (e.g. `MIDL_INTERFACE(x)`),
+                // `child.extent()` spans from the macro body's spelling location all the way
+                // to the end of the expansion.  For the second and later macro invocations
+                // this covers the entire earlier content too, so `tokenize(child.extent())`
+                // finds the first interface's UUID for every subsequent interface.
+                //
+                // Fix: convert both endpoints of the child's extent to their *expansion*
+                // locations before tokenising.  This produces a range that lives entirely at
+                // the specific call site in the source file (e.g. `MIDL_INTERFACE("…")`),
+                // so only the tokens for *this* invocation are returned.
                 CXCursor_UnexposedAttr => {
-                    for (kind, spelling) in tu.tokenize(child.extent()) {
+                    let expansion_range = tu.to_expansion_range(child.extent());
+                    for (kind, spelling) in tu.tokenize(expansion_range) {
                         if kind == CXToken_Literal && spelling.starts_with('"') {
                             let inner = spelling.trim_matches('"');
                             if is_uuid_format(inner) {

@@ -90,6 +90,50 @@ fn typedef_from_included_header() {
     );
 }
 
+/// When interface GUIDs are defined via a macro (e.g. the Windows SDK's
+/// `MIDL_INTERFACE`), each interface must receive its own GUID rather than
+/// the first one seen in the translation unit.
+#[test]
+fn midl_interface_macro_guid() {
+    let output = "tests/midl_interface_macro.rdl";
+    windows_rdl::clang()
+        .args(["-x", "c++", "-fms-extensions"])
+        .input_str(
+            r#"
+#define MIDL_INTERFACE(x) struct __declspec(uuid(x))
+
+MIDL_INTERFACE("00000000-0000-0000-C000-000000000046")
+IBase {
+    virtual int __stdcall QueryInterface(void* riid, void** ppvObject) = 0;
+    virtual unsigned int __stdcall AddRef() = 0;
+    virtual unsigned int __stdcall Release() = 0;
+};
+
+MIDL_INTERFACE("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90")
+IDerived : public IBase {
+public:
+    virtual int __stdcall GetIids(unsigned int* iidCount, void** iids) = 0;
+    virtual int __stdcall GetRuntimeClassName(void** className) = 0;
+    virtual int __stdcall GetTrustLevel(int* trustLevel) = 0;
+};
+"#,
+        )
+        .output(output)
+        .namespace("Test")
+        .write()
+        .unwrap();
+
+    let rdl = std::fs::read_to_string(output).unwrap();
+    assert!(
+        rdl.contains("0x00000000_0000_0000_c000_000000000046"),
+        "IBase should have its own GUID; got:\n{rdl}"
+    );
+    assert!(
+        rdl.contains("0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90"),
+        "IDerived should have its own GUID, not IBase's; got:\n{rdl}"
+    );
+}
+
 #[test]
 #[should_panic(expected = "error: expected ';' after struct\n --> .h:3:2")]
 fn semicolon_expected() {
