@@ -6,6 +6,6 @@ mod Test {
     const FACILITY_DEBUGGER_SHIFTED: i32 = 65536;
     const FLAG_ALL: u32 = 4294967295;
     const STATUS_CLIP_LICENSE_NOT_FOUND: TestStatus = 3236560898;
-    type TestStatus = isize;
+    type TestStatus = i64;
     const UDAT_YEAR_NUM_MONTH_DAY: String = "yMd";
 }

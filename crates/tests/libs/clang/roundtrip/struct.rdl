@@ -20,8 +20,8 @@ mod Test {
         f8: i64,
         f9: f32,
         f10: f64,
-        f11: usize,
-        f12: isize,
+        f11: u32,
+        f12: i32,
         f13: u16,
     }
     struct Pointers {
