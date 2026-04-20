@@ -31,5 +31,9 @@ jobs:
         uses: actions/checkout@v6
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
-      - name: Run cargo test
+      - name: Run test_linux
         run: cargo test -p test_linux --target x86_64-unknown-linux-gnu
+      - name: Run test_clang
+        run: cargo test -p test_clang --target x86_64-unknown-linux-gnu
+      - name: Run test_rdl
+        run: cargo test -p test_rdl --target x86_64-unknown-linux-gnu
