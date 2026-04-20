@@ -36,7 +36,7 @@ impl Interface {
     /// - An optional UUID from any `__declspec(uuid("..."))` attribute (`CXCursor_UnexposedAttr`).
     /// - An optional single base interface from the first `CXCursor_CXXBaseSpecifier` child.
     /// - All pure-virtual `CXCursor_CXXMethod` children as interface methods.
-    pub fn parse(cursor: Cursor, namespace: &str, tu: &TranslationUnit) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, namespace: &str, tu: &TranslationUnit, ref_map: &HashMap<String, String>) -> Result<Self, Error> {
         let name = cursor.name();
         let guid = cursor.extract_uuid(tu);
 
@@ -60,7 +60,7 @@ impl Interface {
             }
 
             let method_name = child.name();
-            let return_type = child.result_type().to_type(namespace);
+            let return_type = child.result_type().to_type(namespace, ref_map);
 
             let mut params = vec![];
             for param in child.children() {
@@ -68,7 +68,7 @@ impl Interface {
                     continue;
                 }
                 let param_name = param.name();
-                let param_ty = param.ty().to_type(namespace);
+                let param_ty = param.ty().to_type(namespace, ref_map);
                 params.push(Param {
                     name: param_name,
                     ty: param_ty,

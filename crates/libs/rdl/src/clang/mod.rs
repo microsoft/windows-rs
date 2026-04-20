@@ -90,7 +90,15 @@ impl Clang {
             );
         }
 
-        let _reference = metadata::reader::TypeIndex::new(winmd_files);
+        let reference = metadata::reader::TypeIndex::new(winmd_files);
+
+        // Build a map from type name to namespace for all types in the reference.
+        // This is used to suppress locally-defined types that already exist in
+        // the reference metadata and to emit qualified names when referencing them.
+        let mut ref_map: HashMap<String, String> = HashMap::new();
+        for (namespace, name, _) in reference.iter() {
+            ref_map.insert(name.to_string(), namespace.to_string());
+        }
 
         let _library = Library::new()?;
         let index = Index::new()?;
@@ -99,7 +107,7 @@ impl Clang {
 
         for input in &h_paths {
             let tu = index.parse(input, &args)?;
-            let pending = self.process_tu(&tu, &mut collector)?;
+            let pending = self.process_tu(&tu, &mut collector, &ref_map)?;
             for c in Const::evaluate_macros(input, &pending, &self.namespace, &index, &args)? {
                 collector.insert(Item::Const(c));
             }
@@ -112,7 +120,7 @@ impl Clang {
                 &args,
                 CXTranslationUnit_DetailedPreprocessingRecord,
             )?;
-            let pending = self.process_tu(&tu, &mut collector)?;
+            let pending = self.process_tu(&tu, &mut collector, &ref_map)?;
             for c in Const::evaluate_macros_str(content, &pending, &self.namespace, &index, &args)?
             {
                 collector.insert(Item::Const(c));
@@ -148,6 +156,7 @@ impl Clang {
         &self,
         tu: &TranslationUnit,
         collector: &mut Collector,
+        ref_map: &HashMap<String, String>,
     ) -> Result<Vec<String>, Error> {
         for diag in tu.diagnostics() {
             if diag.is_err() {
@@ -175,24 +184,32 @@ impl Clang {
 
             match child.kind() {
                 CXCursor_StructDecl if child.is_definition() => {
+                    let name = child.name();
                     if Interface::is_com_interface(child) {
-                        collector.insert(Item::Interface(Interface::parse(
-                            child,
-                            &self.namespace,
-                            tu,
-                        )?));
-                    } else {
-                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
+                        if !ref_map.contains_key(&name) {
+                            collector.insert(Item::Interface(Interface::parse(
+                                child,
+                                &self.namespace,
+                                tu,
+                                ref_map,
+                            )?));
+                        }
+                    } else if !ref_map.contains_key(&name) {
+                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace, ref_map)?));
                     }
                 }
                 CXCursor_ClassDecl
                     if child.is_definition() && Interface::is_com_interface(child) =>
                 {
-                    collector.insert(Item::Interface(Interface::parse(
-                        child,
-                        &self.namespace,
-                        tu,
-                    )?));
+                    let name = child.name();
+                    if !ref_map.contains_key(&name) {
+                        collector.insert(Item::Interface(Interface::parse(
+                            child,
+                            &self.namespace,
+                            tu,
+                            ref_map,
+                        )?));
+                    }
                 }
                 CXCursor_EnumDecl if child.is_definition() => {
                     let e = Enum::parse(child)?;
@@ -210,15 +227,18 @@ impl Clang {
                                 value: const_value,
                             }));
                         }
-                    } else {
+                    } else if !ref_map.contains_key(&e.name) {
                         collector.insert(Item::Enum(e));
                     }
                 }
                 CXCursor_TypedefDecl if child.is_definition() => {
-                    if let Some(cb) = Callback::parse(child, &self.namespace)? {
-                        collector.insert(Item::Callback(cb));
-                    } else if let Some(td) = Typedef::parse(child, &self.namespace)? {
-                        collector.insert(Item::Typedef(td));
+                    let name = child.name();
+                    if !ref_map.contains_key(&name) {
+                        if let Some(cb) = Callback::parse(child, &self.namespace, ref_map)? {
+                            collector.insert(Item::Callback(cb));
+                        } else if let Some(td) = Typedef::parse(child, &self.namespace, ref_map)? {
+                            collector.insert(Item::Typedef(td));
+                        }
                     }
                 }
                 CXCursor_FunctionDecl if !child.is_definition() => {
@@ -227,6 +247,7 @@ impl Clang {
                         &self.namespace,
                         &self.library,
                         false,
+                        ref_map,
                     )?));
                 }
                 // Recurse into `extern "C" { }` or `extern "C++" { }` blocks so
@@ -245,12 +266,13 @@ impl Clang {
                                 &self.namespace,
                                 &self.library,
                                 extern_c,
+                                ref_map,
                             )?));
                         }
                     }
                 }
                 CXCursor_MacroDefinition => {
-                    if let Some(c) = Const::parse(child, &self.namespace, tu)? {
+                    if let Some(c) = Const::parse(child, &self.namespace, tu, ref_map)? {
                         collector.insert(Item::Const(c));
                     } else if !child.is_macro_builtin()
                         && !child.is_macro_function_like()

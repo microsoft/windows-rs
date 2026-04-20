@@ -8,7 +8,7 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn parse(cursor: Cursor, namespace: &str) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, namespace: &str, ref_map: &HashMap<String, String>) -> Result<Self, Error> {
         let name = cursor.name();
         let mut fields = vec![];
 
@@ -18,7 +18,7 @@ impl Struct {
             }
 
             let name = child.name();
-            let ty = child.ty().to_type(namespace);
+            let ty = child.ty().to_type(namespace, ref_map);
             fields.push(Field { name, ty });
         }
 

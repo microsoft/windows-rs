@@ -5,7 +5,7 @@ mod Test {
     const FACILITY_DEBUGGER_PLUS_TEN: i32 = 11;
     const FACILITY_DEBUGGER_SHIFTED: i32 = 65536;
     const FLAG_ALL: u32 = 4294967295;
-    type NTSTATUS = isize;
-    const STATUS_CLIP_LICENSE_NOT_FOUND: NTSTATUS = 3236560898;
+    const STATUS_CLIP_LICENSE_NOT_FOUND: TestStatus = 3236560898;
+    type TestStatus = isize;
     const UDAT_YEAR_NUM_MONTH_DAY: String = "yMd";
 }

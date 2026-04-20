@@ -19,6 +19,7 @@ impl Const {
         cursor: Cursor,
         namespace: &str,
         tu: &TranslationUnit,
+        ref_map: &HashMap<String, String>,
     ) -> Result<Option<Self>, Error> {
         // Skip built-in macros (e.g. `__LINE__`, `__FILE__`).
         if cursor.is_macro_builtin() {
@@ -40,7 +41,7 @@ impl Const {
         // Body tokens = everything after the name token.
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
-        let value = match parse_body(&body, namespace) {
+        let value = match parse_body(&body, namespace, ref_map) {
             Some(v) => v,
             None => return Ok(None),
         };
@@ -270,7 +271,7 @@ fn write_const_value(value: &metadata::Value) -> TokenStream {
 ///
 /// Returns `None` for anything more complex (multi-identifier bodies, macro
 /// calls, etc.) which are silently skipped.
-fn parse_body(body: &[(CXTokenKind, String)], namespace: &str) -> Option<metadata::Value> {
+fn parse_body(body: &[(CXTokenKind, String)], namespace: &str, ref_map: &HashMap<String, String>) -> Option<metadata::Value> {
     match body {
         // Single literal token.
         [(CXToken_Literal, lit)] => parse_literal(lit, false),
@@ -282,25 +283,25 @@ fn parse_body(body: &[(CXTokenKind, String)], namespace: &str) -> Option<metadat
         [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
             if lp1 == "(" && lp2 == "(" && rp1 == ")" && rp2 == ")" =>
         {
-            parse_named_cast(namespace, ty, lit, false)
+            parse_named_cast(namespace, ref_map, ty, lit, false)
         }
         // ((TYPE)-VALUE) — double-paren typed negated cast.
         [(CXToken_Punctuation, lp1), (CXToken_Punctuation, lp2), (CXToken_Identifier, ty), (CXToken_Punctuation, rp1), (CXToken_Punctuation, minus), (CXToken_Literal, lit), (CXToken_Punctuation, rp2)]
             if lp1 == "(" && lp2 == "(" && rp1 == ")" && minus == "-" && rp2 == ")" =>
         {
-            parse_named_cast(namespace, ty, lit, true)
+            parse_named_cast(namespace, ref_map, ty, lit, true)
         }
         // (TYPE)VALUE — single-paren typed cast.
         [(CXToken_Punctuation, lp), (CXToken_Identifier, ty), (CXToken_Punctuation, rp), (CXToken_Literal, lit)]
             if lp == "(" && rp == ")" =>
         {
-            parse_named_cast(namespace, ty, lit, false)
+            parse_named_cast(namespace, ref_map, ty, lit, false)
         }
         // (TYPE)-VALUE — single-paren typed negated cast.
         [(CXToken_Punctuation, lp), (CXToken_Identifier, ty), (CXToken_Punctuation, rp), (CXToken_Punctuation, minus), (CXToken_Literal, lit)]
             if lp == "(" && rp == ")" && minus == "-" =>
         {
-            parse_named_cast(namespace, ty, lit, true)
+            parse_named_cast(namespace, ref_map, ty, lit, true)
         }
         _ => None,
     }
@@ -377,6 +378,7 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
 /// underlying type of `type_name` during the reader/writer roundtrip.
 fn parse_named_cast(
     namespace: &str,
+    ref_map: &HashMap<String, String>,
     type_name: &str,
     lit: &str,
     negate: bool,
@@ -388,8 +390,12 @@ fn parse_named_cast(
     } else {
         raw as i64
     };
+    let ns = ref_map
+        .get(type_name)
+        .map(|s| s.as_str())
+        .unwrap_or(namespace);
     Some(metadata::Value::EnumValue(
-        metadata::TypeName::named(namespace, type_name),
+        metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
     ))
 }

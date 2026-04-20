@@ -400,7 +400,7 @@ impl Type {
         unsafe { clang_getArraySize(self.0) as usize }
     }
 
-    pub fn to_type(&self, namespace: &str) -> metadata::Type {
+    pub fn to_type(&self, namespace: &str, ref_map: &HashMap<String, String>) -> metadata::Type {
         match self.kind() {
             CXType_Void => metadata::Type::Void,
             CXType_Bool => metadata::Type::Bool,
@@ -417,9 +417,17 @@ impl Type {
             CXType_Float => metadata::Type::F32,
             CXType_Double => metadata::Type::F64,
             CXType_WChar => metadata::Type::U16,
-            CXType_Record => metadata::Type::value_named(namespace, &self.ty().name()),
-            CXType_Elaborated => self.underlying_type().to_type(namespace),
-            CXType_Typedef => metadata::Type::value_named(namespace, &self.ty().name()),
+            CXType_Record => {
+                let name = self.ty().name();
+                let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
+                metadata::Type::value_named(ns, &name)
+            }
+            CXType_Elaborated => self.underlying_type().to_type(namespace, ref_map),
+            CXType_Typedef => {
+                let name = self.ty().name();
+                let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
+                metadata::Type::value_named(ns, &name)
+            }
             CXType_Pointer => {
                 let pointee = self.pointee_type();
                 // Function pointers map to opaque *mut u8; they are emitted
@@ -429,7 +437,7 @@ impl Type {
                 {
                     return metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1);
                 }
-                let inner = pointee.to_type(namespace);
+                let inner = pointee.to_type(namespace, ref_map);
                 if pointee.is_const() {
                     metadata::Type::PtrConst(Box::new(inner), 1)
                 } else {
@@ -437,7 +445,7 @@ impl Type {
                 }
             }
             CXType_ConstantArray => {
-                let element = self.array_element_type().to_type(namespace);
+                let element = self.array_element_type().to_type(namespace, ref_map);
                 let size = self.array_size();
                 metadata::Type::ArrayFixed(Box::new(element), size)
             }

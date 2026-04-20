@@ -16,9 +16,10 @@ impl Fn {
         namespace: &str,
         library: &str,
         extern_c: bool,
+        ref_map: &HashMap<String, String>,
     ) -> Result<Self, Error> {
         let name = cursor.name();
-        let return_type = cursor.result_type().to_type(namespace);
+        let return_type = cursor.result_type().to_type(namespace, ref_map);
 
         let mut params = vec![];
 
@@ -28,7 +29,7 @@ impl Fn {
             }
 
             let name = child.name();
-            let ty = child.ty().to_type(namespace);
+            let ty = child.ty().to_type(namespace, ref_map);
             params.push(Param { name, ty });
         }
 

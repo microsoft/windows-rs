@@ -6,7 +6,7 @@ pub mod formatter;
 mod reader;
 mod writer;
 
-use std::collections::{BTreeMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use syn::spanned::Spanned;
 use windows_metadata as metadata;
 
