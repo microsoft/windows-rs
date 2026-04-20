@@ -54,7 +54,10 @@ impl Interface {
                 if !base_name.is_empty() {
                     // Check if the base interface exists in the reference metadata; if so,
                     // use its reference namespace so the emitted path is fully qualified.
-                    let base_ns = ref_map.get(&base_name).map(|s| s.as_str()).unwrap_or(namespace);
+                    let base_ns = ref_map
+                        .get(&base_name)
+                        .map(|s| s.as_str())
+                        .unwrap_or(namespace);
                     return Some(metadata::Type::value_named(base_ns, &base_name));
                 }
             }
