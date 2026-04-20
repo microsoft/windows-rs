@@ -36,11 +36,7 @@ impl Interface {
     /// - An optional UUID from any `__declspec(uuid("..."))` attribute (`CXCursor_UnexposedAttr`).
     /// - An optional single base interface from the first `CXCursor_CXXBaseSpecifier` child.
     /// - All pure-virtual `CXCursor_CXXMethod` children as interface methods.
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        tu: &TranslationUnit,
-    ) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, namespace: &str, tu: &TranslationUnit) -> Result<Self, Error> {
         let name = cursor.name();
         let guid = cursor.extract_uuid(tu);
 
