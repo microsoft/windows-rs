@@ -400,7 +400,19 @@ impl Type {
         unsafe { clang_getArraySize(self.0) as usize }
     }
 
-    pub fn to_type(&self, namespace: &str, ref_map: &HashMap<String, String>) -> metadata::Type {
+    /// Convert this clang type to a metadata `Type`.
+    ///
+    /// `pending` accumulates cursors for typedef declarations that originate
+    /// from included/system headers and are not present in `ref_map`.  The
+    /// caller is responsible for emitting `type` items for those cursors after
+    /// the main parsing pass so that the generated RDL contains definitions for
+    /// every type name it references.
+    pub fn to_type(
+        &self,
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+        pending: &mut Vec<Cursor>,
+    ) -> metadata::Type {
         match self.kind() {
             CXType_Void => metadata::Type::Void,
             CXType_Bool => metadata::Type::Bool,
@@ -422,7 +434,7 @@ impl Type {
                 let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
                 metadata::Type::value_named(ns, &name)
             }
-            CXType_Elaborated => self.underlying_type().to_type(namespace, ref_map),
+            CXType_Elaborated => self.underlying_type().to_type(namespace, ref_map, pending),
             CXType_Typedef => {
                 let decl = self.ty();
                 let name = decl.name();
@@ -433,10 +445,12 @@ impl Type {
                     // Local typedef — it will be emitted separately as a `type` item.
                     metadata::Type::value_named(namespace, &name)
                 } else {
-                    // Typedef from an included/system header that is not in the
-                    // reference metadata.  Resolve to the underlying primitive type so
-                    // the generated RDL does not reference an undefined type name.
-                    decl.typedef_underlying_type().to_type(namespace, ref_map)
+                    // Typedef from an included/system header that is not present in
+                    // the reference metadata.  Preserve the typedef name so the
+                    // semantics (e.g. BYTE, DWORD) are visible in the generated RDL,
+                    // and schedule its definition for emission in a follow-up pass.
+                    pending.push(decl);
+                    metadata::Type::value_named(namespace, &name)
                 }
             }
             CXType_Pointer => {
@@ -448,7 +462,7 @@ impl Type {
                 {
                     return metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1);
                 }
-                let inner = pointee.to_type(namespace, ref_map);
+                let inner = pointee.to_type(namespace, ref_map, pending);
                 if pointee.is_const() {
                     metadata::Type::PtrConst(Box::new(inner), 1)
                 } else {
@@ -456,7 +470,7 @@ impl Type {
                 }
             }
             CXType_ConstantArray => {
-                let element = self.array_element_type().to_type(namespace, ref_map);
+                let element = self.array_element_type().to_type(namespace, ref_map, pending);
                 let size = self.array_size();
                 metadata::Type::ArrayFixed(Box::new(element), size)
             }

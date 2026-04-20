@@ -55,9 +55,9 @@ fn reference() {
 }
 
 /// Typedefs defined in included (non-main) headers that are not present in any
-/// reference metadata must be resolved to their underlying primitive type.
-/// Previously, the generated RDL contained the bare typedef name which then
-/// failed to parse with "type not found".
+/// reference metadata must be emitted as `type` items in the RDL so that the
+/// generated RDL is self-contained and parses without "type not found" errors.
+/// The typedef name must be preserved in struct fields (not resolved away).
 #[test]
 fn typedef_from_included_header() {
     let output = "tests/typedef_in_struct.rdl";
@@ -70,20 +70,23 @@ fn typedef_from_included_header() {
         .unwrap();
 
     let rdl = std::fs::read_to_string(output).unwrap();
-    // MY_BYTE (typedef unsigned char) should resolve to u8.
+    // The typedef names must be preserved in the struct fields.
     assert!(
-        rdl.contains("value: u8"),
-        "MY_BYTE should resolve to u8; got:\n{rdl}"
+        rdl.contains("value: MY_BYTE"),
+        "MY_BYTE should be preserved as the field type; got:\n{rdl}"
     );
-    // MY_WORD (typedef unsigned short) should resolve to u16.
     assert!(
-        rdl.contains("count: u16"),
-        "MY_WORD should resolve to u16; got:\n{rdl}"
+        rdl.contains("count: MY_WORD"),
+        "MY_WORD should be preserved as the field type; got:\n{rdl}"
     );
-    // The typedef names must NOT appear as undefined type names in the struct.
+    // The typedef definitions must also be emitted so the RDL is self-contained.
     assert!(
-        !rdl.contains("MY_BYTE") && !rdl.contains("MY_WORD"),
-        "typedef names from included header must not appear in RDL; got:\n{rdl}"
+        rdl.contains("type MY_BYTE"),
+        "MY_BYTE typedef definition must be emitted; got:\n{rdl}"
+    );
+    assert!(
+        rdl.contains("type MY_WORD"),
+        "MY_WORD typedef definition must be emitted; got:\n{rdl}"
     );
 }
 
