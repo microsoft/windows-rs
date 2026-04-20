@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    extern fn ExternCallback(a: i32);
+    #[repr(i32)]
+    enum ExternEnum {
+        ExternEnumA = 0,
+        ExternEnumB = 1,
+    }
+    #[library("test.dll")]
+    extern "C" fn ExternFn(a: u32, b: i32);
+    struct ExternStruct {
+        x: i32,
+        y: i32,
+    }
+    type ExternTypedef = u32;
+}
