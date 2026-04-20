@@ -1,16 +1,16 @@
 typedef int HRESULT;
 typedef unsigned int ULONG;
 
-struct __attribute__((annotate("00000000-0000-0000-c000-000000000046")))
+struct __declspec(uuid("00000000-0000-0000-C000-000000000046"))
 IUnknown {
-    virtual HRESULT QueryInterface(void* riid, void** ppvObject) = 0;
-    virtual ULONG AddRef() = 0;
-    virtual ULONG Release() = 0;
+    virtual HRESULT __stdcall QueryInterface(void* riid, void** ppvObject) = 0;
+    virtual ULONG __stdcall AddRef() = 0;
+    virtual ULONG __stdcall Release() = 0;
 };
 
-struct __attribute__((annotate("af86e2e0-b12d-4c6a-9c5a-d7aa65101e90")))
+struct __declspec(uuid("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90"))
 IInspectable : public IUnknown {
-    virtual HRESULT GetIids(ULONG* iidCount, void** iids) = 0;
-    virtual HRESULT GetRuntimeClassName(void** className) = 0;
-    virtual HRESULT GetTrustLevel(int* trustLevel) = 0;
+    virtual HRESULT __stdcall GetIids(ULONG* iidCount, void** iids) = 0;
+    virtual HRESULT __stdcall GetRuntimeClassName(void** className) = 0;
+    virtual HRESULT __stdcall GetTrustLevel(int* trustLevel) = 0;
 };
