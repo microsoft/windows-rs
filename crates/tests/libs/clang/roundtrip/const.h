@@ -11,7 +11,7 @@
 #define UDAT_YEAR_NUM_MONTH_DAY "yMd"
 
 /* Typed cast constant — double-paren Win32 style. */
-typedef long TestStatus;
+typedef long long TestStatus;
 #define STATUS_CLIP_LICENSE_NOT_FOUND ((TestStatus)0xC0EA0002L)
 
 /* Complex: arithmetic on another macro (evaluator fallback). */
