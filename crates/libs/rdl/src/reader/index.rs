@@ -69,7 +69,12 @@ impl<'a> Index<'a> {
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
             .and_then(|v| v.first())
-            .map(|(_, item)| matches!(item, Item::Struct(_) | Item::Enum(_) | Item::Union(_)))
+            .map(|(_, item)| {
+                matches!(
+                    item,
+                    Item::Struct(_) | Item::Enum(_) | Item::Union(_) | Item::Typedef(_)
+                )
+            })
             .unwrap_or(false)
     }
 
@@ -96,8 +101,8 @@ impl<'a> Index<'a> {
                 Item::Attribute(a) => a.winrt,
                 // Delegates and classes are always WinRT.
                 Item::Delegate(_) | Item::Class(_) => true,
-                // Unions and callbacks are always non-WinRT.
-                Item::Union(_) | Item::Callback(_) => false,
+                // Unions, callbacks, and typedefs are always non-WinRT.
+                Item::Union(_) | Item::Callback(_) | Item::Typedef(_) => false,
                 Item::Fn(_) | Item::Const(_) | Item::Module(_) => false,
             })
     }

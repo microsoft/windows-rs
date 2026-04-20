@@ -44,10 +44,7 @@ impl Typedef {
         let ty = write_type(&self.namespace, &self.ty);
 
         Ok(quote! {
-            #[typedef]
-            struct #name {
-                value: #ty,
-            }
+            type #name = #ty;
         })
     }
 }

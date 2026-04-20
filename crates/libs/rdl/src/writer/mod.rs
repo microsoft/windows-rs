@@ -305,11 +305,27 @@ fn write_items(
 }
 
 fn write_type_def_items(
-    _namespace: &str,
+    namespace: &str,
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
     match item.category() {
-        metadata::reader::TypeCategory::Struct => write_struct_items(item),
+        metadata::reader::TypeCategory::Struct => {
+            // A struct with NativeTypedefAttribute is written as `type NAME = TYPE;`.
+            if item.attributes().any(|attr| {
+                attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                    && attr.name() == "NativeTypedefAttribute"
+            }) {
+                let name = write_ident(item.name());
+                let field = item
+                    .fields()
+                    .next()
+                    .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
+                let ty = write_type(namespace, &field.ty());
+                let tokens = quote! { type #name = #ty; };
+                return Ok(vec![(item.name().to_string(), tokens)]);
+            }
+            write_struct_items(item)
+        }
         _ => {
             let tokens = write_type_def(item)?;
             if tokens.is_empty() {
@@ -466,16 +482,13 @@ fn write_custom_attributes_except<'a>(
 ) -> Result<Vec<TokenStream>, Error> {
     attributes
         .filter(|attr| {
-            !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
+            !(namespace_starts_with(attr.namespace(), "System")
+                || exclude.contains(&attr.name())
+                // `NativeTypedefAttribute` is handled by the typedef writer; skip it here.
+                || (attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                    && attr.name() == "NativeTypedefAttribute"))
         })
         .map(|attr| {
-            // `NativeTypedefAttribute` is written back as the `#[typedef]` pseudo-attribute.
-            if attr.namespace() == "Windows.Win32.Foundation.Metadata"
-                && attr.name() == "NativeTypedefAttribute"
-            {
-                return Ok(quote! { #[typedef] });
-            }
-
             let attr_ns = attr.namespace();
             let attr_short = attr
                 .name()

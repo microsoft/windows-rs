@@ -1,9 +1,6 @@
 #[win32]
 mod Test {
-    #[typedef]
-    struct HRESULT {
-        value: i32,
-    }
+    type HRESULT = i32;
     #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
     interface IInspectable: IUnknown {
         fn GetIids(&self, iidCount: *mut ULONG, iids: *mut *mut void) -> HRESULT;
@@ -16,8 +13,5 @@ mod Test {
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }
-    #[typedef]
-    struct ULONG {
-        value: u32,
-    }
+    type ULONG = u32;
 }

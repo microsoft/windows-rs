@@ -12,6 +12,7 @@ pub enum Item {
     Interface(Interface),
     Module(Module),
     Struct(Struct),
+    Typedef(Typedef),
     Union(Union),
 }
 
@@ -28,6 +29,7 @@ impl Item {
             | Self::Interface(Interface { attrs, .. })
             | Self::Module(Module { attrs, .. })
             | Self::Struct(Struct { attrs, .. })
+            | Self::Typedef(Typedef { attrs, .. })
             | Self::Union(Union { attrs, .. }) => std::mem::replace(attrs, new),
         }
     }
@@ -46,6 +48,7 @@ impl std::fmt::Display for Item {
             Self::Interface(item) => item.name.fmt(f),
             Self::Module(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
+            Self::Typedef(item) => item.name.fmt(f),
             Self::Union(item) => item.name.fmt(f),
         }
     }
@@ -84,6 +87,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Delegate)
         } else if lookahead.peek(class) {
             input.parse().map(Item::Class)
+        } else if lookahead.peek(syn::Token![type]) {
+            input.parse().map(Item::Typedef)
         } else {
             Err(lookahead.error())
         }?;

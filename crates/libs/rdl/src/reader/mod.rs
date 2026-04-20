@@ -16,6 +16,7 @@ mod method;
 mod module;
 mod param;
 mod r#struct;
+mod typedef;
 mod union;
 
 use super::*;
@@ -34,6 +35,7 @@ use r#const::*;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;
+use typedef::*;
 use union::*;
 use windows_metadata as metadata;
 
@@ -135,6 +137,7 @@ impl Reader {
                         Item::Fn(ty) => encoder.encode_fn(ty),
                         Item::Interface(ty) => encoder.encode_interface(ty),
                         Item::Struct(ty) => encoder.encode_struct(ty),
+                        Item::Typedef(ty) => encoder.encode_typedef(ty),
                         Item::Union(ty) => encoder.encode_union(ty),
                         Item::Module(_) => unreachable!(
                             "Module items are expanded during indexing and never encoded directly"
@@ -564,17 +567,21 @@ impl Encoder<'_> {
     fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {
         let item = self.index.get(namespace, name).next()?;
 
-        if let Item::Struct(s) = item {
-            let mut fields = s.fields.iter();
+        match item {
+            Item::Typedef(t) => self.encode_type(&t.ty).ok(),
+            Item::Struct(s) => {
+                let mut fields = s.fields.iter();
 
-            if let Some(field) = fields.next() {
-                if fields.next().is_none() {
-                    return self.encode_type(&field.ty).ok();
+                if let Some(field) = fields.next() {
+                    if fields.next().is_none() {
+                        return self.encode_type(&field.ty).ok();
+                    }
                 }
-            }
-        }
 
-        None
+                None
+            }
+            _ => None,
+        }
     }
 
     fn encode_neg_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>

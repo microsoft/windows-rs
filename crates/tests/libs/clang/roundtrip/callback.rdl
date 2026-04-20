@@ -1,18 +1,9 @@
 #[win32]
 mod Test {
-    #[typedef]
-    struct BOOL {
-        value: i32,
-    }
+    type BOOL = i32;
     #[library("test.dll")]
     extern fn EnumWindows(lpEnumFunc: WNDENUMPROC, lParam: LPARAM) -> BOOL;
-    #[typedef]
-    struct HWND {
-        value: *mut void,
-    }
-    #[typedef]
-    struct LPARAM {
-        value: i64,
-    }
+    type HWND = *mut void;
+    type LPARAM = i64;
     extern fn WNDENUMPROC(hwnd: HWND, lParam: LPARAM) -> BOOL;
 }
