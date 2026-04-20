@@ -8,7 +8,11 @@ pub struct Typedef {
 }
 
 impl Typedef {
-    pub fn parse(cursor: Cursor, namespace: &str, ref_map: &HashMap<String, String>) -> Result<Option<Self>, Error> {
+    pub fn parse(
+        cursor: Cursor,
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+    ) -> Result<Option<Self>, Error> {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();
 

@@ -271,7 +271,11 @@ fn write_const_value(value: &metadata::Value) -> TokenStream {
 ///
 /// Returns `None` for anything more complex (multi-identifier bodies, macro
 /// calls, etc.) which are silently skipped.
-fn parse_body(body: &[(CXTokenKind, String)], namespace: &str, ref_map: &HashMap<String, String>) -> Option<metadata::Value> {
+fn parse_body(
+    body: &[(CXTokenKind, String)],
+    namespace: &str,
+    ref_map: &HashMap<String, String>,
+) -> Option<metadata::Value> {
     match body {
         // Single literal token.
         [(CXToken_Literal, lit)] => parse_literal(lit, false),

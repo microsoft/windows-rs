@@ -205,7 +205,11 @@ impl Clang {
                             )?));
                         }
                     } else if !ref_map.contains_key(&name) {
-                        collector.insert(Item::Struct(Struct::parse(child, &self.namespace, ref_map)?));
+                        collector.insert(Item::Struct(Struct::parse(
+                            child,
+                            &self.namespace,
+                            ref_map,
+                        )?));
                     }
                 }
                 CXCursor_ClassDecl

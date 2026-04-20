@@ -8,7 +8,11 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn parse(cursor: Cursor, namespace: &str, ref_map: &HashMap<String, String>) -> Result<Self, Error> {
+    pub fn parse(
+        cursor: Cursor,
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+    ) -> Result<Self, Error> {
         let name = cursor.name();
         let mut fields = vec![];
 

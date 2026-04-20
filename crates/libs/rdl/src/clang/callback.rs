@@ -13,7 +13,11 @@ impl Callback {
     ///
     /// Returns `Ok(Some(Callback))` when the typedef's underlying type is a pointer to a
     /// function prototype, `Ok(None)` otherwise.
-    pub fn parse(cursor: Cursor, namespace: &str, ref_map: &HashMap<String, String>) -> Result<Option<Self>, Error> {
+    pub fn parse(
+        cursor: Cursor,
+        namespace: &str,
+        ref_map: &HashMap<String, String>,
+    ) -> Result<Option<Self>, Error> {
         let name = cursor.name();
         if name.is_empty() || name.starts_with('_') {
             return Ok(None);
