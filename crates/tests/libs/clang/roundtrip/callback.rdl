@@ -1,9 +1,5 @@
 #[win32]
 mod Test {
-    type BOOL = i32;
-    #[library("test.dll")]
-    extern fn EnumWindows(lpEnumFunc: WNDENUMPROC, lParam: LPARAM) -> BOOL;
-    type HWND = *mut void;
-    type LPARAM = i64;
-    extern fn WNDENUMPROC(hwnd: HWND, lParam: LPARAM) -> BOOL;
+    extern fn A();
+    extern fn B(a: bool, b: f32) -> i32;
 }
