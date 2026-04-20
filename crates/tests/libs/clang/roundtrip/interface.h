@@ -8,8 +8,9 @@ IUnknown {
     virtual ULONG __stdcall Release() = 0;
 };
 
-struct __declspec(uuid("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90"))
+class __declspec(uuid("AF86E2E0-B12D-4c6a-9C5A-D7AA65101E90"))
 IInspectable : public IUnknown {
+public:
     virtual HRESULT __stdcall GetIids(ULONG* iidCount, void** iids) = 0;
     virtual HRESULT __stdcall GetRuntimeClassName(void** className) = 0;
     virtual HRESULT __stdcall GetTrustLevel(int* trustLevel) = 0;
