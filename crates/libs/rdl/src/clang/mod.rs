@@ -203,7 +203,14 @@ impl Clang {
                     }
                     // A function inside `extern "C" { }` has C language linkage.
                     let extern_c = inner.language() == CXLanguage_C;
-                    self.process_cursor(inner, collector, ref_map, tu, &mut pending_macros, extern_c)?;
+                    self.process_cursor(
+                        inner,
+                        collector,
+                        ref_map,
+                        tu,
+                        &mut pending_macros,
+                        extern_c,
+                    )?;
                 }
             } else {
                 self.process_cursor(child, collector, ref_map, tu, &mut pending_macros, false)?;
@@ -246,9 +253,7 @@ impl Clang {
                     )?));
                 }
             }
-            CXCursor_ClassDecl
-                if child.is_definition() && Interface::is_com_interface(child) =>
-            {
+            CXCursor_ClassDecl if child.is_definition() && Interface::is_com_interface(child) => {
                 let name = child.name();
                 if !ref_map.contains_key(&name) {
                     collector.insert(Item::Interface(Interface::parse(
