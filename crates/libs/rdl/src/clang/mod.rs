@@ -192,30 +192,51 @@ impl Clang {
                 continue;
             }
 
-            match child.kind() {
-                CXCursor_StructDecl if child.is_definition() => {
-                    let name = child.name();
-                    if Interface::is_com_interface(child) {
-                        if !ref_map.contains_key(&name) {
-                            collector.insert(Item::Interface(Interface::parse(
-                                child,
-                                &self.namespace,
-                                tu,
-                                ref_map,
-                            )?));
-                        }
-                    } else if !ref_map.contains_key(&name) {
-                        collector.insert(Item::Struct(Struct::parse(
-                            child,
-                            &self.namespace,
-                            ref_map,
-                        )?));
+            // Recurse into `extern "C" { }` or `extern "C++" { }` blocks.
+            // MIDL-generated headers place all declarations (structs, enums,
+            // typedefs, functions, …) inside such a block, so we must handle
+            // every item kind here, not just function declarations.
+            if child.kind() == CXCursor_LinkageSpec {
+                for inner in child.children() {
+                    if !inner.is_from_main_file() {
+                        continue;
                     }
+                    // A function inside `extern "C" { }` has C language linkage.
+                    let extern_c = inner.language() == CXLanguage_C;
+                    self.process_cursor(
+                        inner,
+                        collector,
+                        ref_map,
+                        tu,
+                        &mut pending_macros,
+                        extern_c,
+                    )?;
                 }
-                CXCursor_ClassDecl
-                    if child.is_definition() && Interface::is_com_interface(child) =>
-                {
-                    let name = child.name();
+            } else {
+                self.process_cursor(child, collector, ref_map, tu, &mut pending_macros, false)?;
+            }
+        }
+
+        Ok(pending_macros)
+    }
+
+    /// Process a single cursor: insert the corresponding [`Item`] into
+    /// `collector` or record the name in `pending_macros` for the second-pass
+    /// evaluator.  `extern_c` is `true` when the cursor was found inside an
+    /// `extern "C" { }` block (relevant only for function declarations).
+    fn process_cursor(
+        &self,
+        child: Cursor,
+        collector: &mut Collector,
+        ref_map: &HashMap<String, String>,
+        tu: &TranslationUnit,
+        pending_macros: &mut Vec<String>,
+        extern_c: bool,
+    ) -> Result<(), Error> {
+        match child.kind() {
+            CXCursor_StructDecl if child.is_definition() => {
+                let name = child.name();
+                if Interface::is_com_interface(child) {
                     if !ref_map.contains_key(&name) {
                         collector.insert(Item::Interface(Interface::parse(
                             child,
@@ -224,85 +245,80 @@ impl Clang {
                             ref_map,
                         )?));
                     }
-                }
-                CXCursor_EnumDecl if child.is_definition() => {
-                    let e = Enum::parse(child)?;
-                    if e.name.is_empty() || e.name.starts_with('(') {
-                        // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
-                        // reported by libclang with a synthesised spelling like
-                        // "(unnamed enum at file.h:6:1)" which always starts
-                        // with '('.  Each variant is emitted as a top-level
-                        // RDL constant rather than a named enum type.
-                        for (name, value) in e.variants {
-                            let const_value = enum_variant_value(e.repr, value);
-                            collector.insert(Item::Const(Const {
-                                name,
-                                namespace: self.namespace.clone(),
-                                value: const_value,
-                            }));
-                        }
-                    } else if !ref_map.contains_key(&e.name) {
-                        collector.insert(Item::Enum(e));
-                    }
-                }
-                CXCursor_TypedefDecl if child.is_definition() => {
-                    let name = child.name();
-                    if !ref_map.contains_key(&name) {
-                        if let Some(cb) = Callback::parse(child, &self.namespace, ref_map)? {
-                            collector.insert(Item::Callback(cb));
-                        } else if let Some(td) = Typedef::parse(child, &self.namespace, ref_map)? {
-                            collector.insert(Item::Typedef(td));
-                        }
-                    }
-                }
-                CXCursor_FunctionDecl if !child.is_definition() => {
-                    collector.insert(Item::Fn(Fn::parse(
+                } else if !ref_map.contains_key(&name) {
+                    collector.insert(Item::Struct(Struct::parse(
                         child,
                         &self.namespace,
-                        &self.library,
-                        false,
                         ref_map,
                     )?));
                 }
-                // Recurse into `extern "C" { }` or `extern "C++" { }` blocks so
-                // that function declarations inside them are collected with the
-                // correct ABI annotation.
-                CXCursor_LinkageSpec => {
-                    for inner in child.children() {
-                        if !inner.is_from_main_file() {
-                            continue;
-                        }
-                        if inner.kind() == CXCursor_FunctionDecl && !inner.is_definition() {
-                            // A function inside `extern "C" { }` has C language linkage.
-                            let extern_c = inner.language() == CXLanguage_C;
-                            collector.insert(Item::Fn(Fn::parse(
-                                inner,
-                                &self.namespace,
-                                &self.library,
-                                extern_c,
-                                ref_map,
-                            )?));
-                        }
-                    }
-                }
-                CXCursor_MacroDefinition => {
-                    if let Some(c) = Const::parse(child, &self.namespace, tu, ref_map)? {
-                        collector.insert(Item::Const(c));
-                    } else if !child.is_macro_builtin()
-                        && !child.is_macro_function_like()
-                        && !child.name().is_empty()
-                        && !child.name().starts_with('_')
-                    {
-                        // The token parser returned None for a candidate
-                        // object-like macro.  Defer to the batch evaluator.
-                        pending_macros.push(child.name());
-                    }
-                }
-                _ => {}
             }
+            CXCursor_ClassDecl if child.is_definition() && Interface::is_com_interface(child) => {
+                let name = child.name();
+                if !ref_map.contains_key(&name) {
+                    collector.insert(Item::Interface(Interface::parse(
+                        child,
+                        &self.namespace,
+                        tu,
+                        ref_map,
+                    )?));
+                }
+            }
+            CXCursor_EnumDecl if child.is_definition() => {
+                let e = Enum::parse(child)?;
+                if e.name.is_empty() || e.name.starts_with('(') {
+                    // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
+                    // reported by libclang with a synthesised spelling like
+                    // "(unnamed enum at file.h:6:1)" which always starts
+                    // with '('.  Each variant is emitted as a top-level
+                    // RDL constant rather than a named enum type.
+                    for (name, value) in e.variants {
+                        let const_value = enum_variant_value(e.repr, value);
+                        collector.insert(Item::Const(Const {
+                            name,
+                            namespace: self.namespace.clone(),
+                            value: const_value,
+                        }));
+                    }
+                } else if !ref_map.contains_key(&e.name) {
+                    collector.insert(Item::Enum(e));
+                }
+            }
+            CXCursor_TypedefDecl if child.is_definition() => {
+                let name = child.name();
+                if !ref_map.contains_key(&name) {
+                    if let Some(cb) = Callback::parse(child, &self.namespace, ref_map)? {
+                        collector.insert(Item::Callback(cb));
+                    } else if let Some(td) = Typedef::parse(child, &self.namespace, ref_map)? {
+                        collector.insert(Item::Typedef(td));
+                    }
+                }
+            }
+            CXCursor_FunctionDecl if !child.is_definition() => {
+                collector.insert(Item::Fn(Fn::parse(
+                    child,
+                    &self.namespace,
+                    &self.library,
+                    extern_c,
+                    ref_map,
+                )?));
+            }
+            CXCursor_MacroDefinition => {
+                if let Some(c) = Const::parse(child, &self.namespace, tu, ref_map)? {
+                    collector.insert(Item::Const(c));
+                } else if !child.is_macro_builtin()
+                    && !child.is_macro_function_like()
+                    && !child.name().is_empty()
+                    && !child.name().starts_with('_')
+                {
+                    // The token parser returned None for a candidate
+                    // object-like macro.  Defer to the batch evaluator.
+                    pending_macros.push(child.name());
+                }
+            }
+            _ => {}
         }
-
-        Ok(pending_macros)
+        Ok(())
     }
 }
 
