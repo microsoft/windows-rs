@@ -1,6 +1,6 @@
 #[win32]
 mod Test {
-    type DWORD = u32;
-    type HANDLE = *mut void;
-    type HRESULT = isize;
+    type A = isize;
+    type B = u32;
+    type C = *mut void;
 }

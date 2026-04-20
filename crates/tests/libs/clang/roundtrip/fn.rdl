@@ -1,7 +1,11 @@
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern fn GetTickCount() -> u32;
+    extern fn A() -> u32;
     #[library("test.dll")]
-    extern fn SetLastErrorEx(a: u32, b: i32);
+    extern fn B(a: u32, b: i32);
+    #[library("test.dll")]
+    extern "C" fn C() -> u32;
+    #[library("test.dll")]
+    extern "C" fn D(a: u32, b: i32);
 }

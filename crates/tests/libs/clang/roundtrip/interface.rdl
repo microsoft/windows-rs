@@ -1,17 +1,15 @@
 #[win32]
 mod Test {
-    type HRESULT = i32;
-    #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
-    interface IInspectable: IUnknown {
-        fn GetIids(&self, iidCount: *mut ULONG, iids: *mut *mut void) -> HRESULT;
-        fn GetRuntimeClassName(&self, className: *mut *mut void) -> HRESULT;
-        fn GetTrustLevel(&self, trustLevel: *mut i32) -> HRESULT;
-    }
     #[guid(0x00000000_0000_0000_c000_000000000046)]
-    interface IUnknown {
-        fn QueryInterface(&self, riid: *mut void, ppvObject: *mut *mut void) -> HRESULT;
-        fn AddRef(&self) -> ULONG;
-        fn Release(&self) -> ULONG;
+    interface IBase {
+        fn QueryInterface(&self, riid: *mut void, ppvObject: *mut *mut void) -> i32;
+        fn AddRef(&self) -> u32;
+        fn Release(&self) -> u32;
     }
-    type ULONG = u32;
+    #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
+    interface IDerived: IBase {
+        fn GetIids(&self, iidCount: *mut u32, iids: *mut *mut void) -> i32;
+        fn GetRuntimeClassName(&self, className: *mut *mut void) -> i32;
+        fn GetTrustLevel(&self, trustLevel: *mut i32) -> i32;
+    }
 }

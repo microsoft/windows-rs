@@ -403,6 +403,7 @@ impl Type {
     pub fn to_type(&self, namespace: &str) -> metadata::Type {
         match self.kind() {
             CXType_Void => metadata::Type::Void,
+            CXType_Bool => metadata::Type::Bool,
             CXType_Char_U | CXType_UChar => metadata::Type::U8,
             CXType_UShort => metadata::Type::U16,
             CXType_UInt => metadata::Type::U32,

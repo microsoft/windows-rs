@@ -185,15 +185,14 @@ impl Clang {
                         collector.insert(Item::Struct(Struct::parse(child, &self.namespace)?));
                     }
                 }
-                CXCursor_ClassDecl if child.is_definition() => {
-                    if Interface::is_com_interface(child) {
-                        collector.insert(Item::Interface(Interface::parse(
-                            child,
-                            &self.namespace,
-                            tu,
-                        )?));
-                    }
-                    // Non-abstract C++ classes are not emitted.
+                CXCursor_ClassDecl
+                    if child.is_definition() && Interface::is_com_interface(child) =>
+                {
+                    collector.insert(Item::Interface(Interface::parse(
+                        child,
+                        &self.namespace,
+                        tu,
+                    )?));
                 }
                 CXCursor_EnumDecl if child.is_definition() => {
                     let e = Enum::parse(child)?;

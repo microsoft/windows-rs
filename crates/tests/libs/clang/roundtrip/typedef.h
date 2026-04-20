@@ -1,3 +1,3 @@
-typedef long HRESULT;
-typedef unsigned int DWORD;
-typedef void* HANDLE;
+typedef long A;
+typedef unsigned int B;
+typedef void* C;
