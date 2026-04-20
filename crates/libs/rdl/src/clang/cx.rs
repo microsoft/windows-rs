@@ -470,7 +470,9 @@ impl Type {
                 }
             }
             CXType_ConstantArray => {
-                let element = self.array_element_type().to_type(namespace, ref_map, pending);
+                let element = self
+                    .array_element_type()
+                    .to_type(namespace, ref_map, pending);
                 let size = self.array_size();
                 metadata::Type::ArrayFixed(Box::new(element), size)
             }
