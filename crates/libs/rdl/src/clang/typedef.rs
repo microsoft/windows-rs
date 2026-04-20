@@ -12,6 +12,7 @@ impl Typedef {
         cursor: Cursor,
         namespace: &str,
         ref_map: &HashMap<String, String>,
+        pending: &mut Vec<Cursor>,
     ) -> Result<Option<Self>, Error> {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();
@@ -35,7 +36,7 @@ impl Typedef {
             return Ok(None);
         }
 
-        let ty = underlying.to_type(namespace, ref_map);
+        let ty = underlying.to_type(namespace, ref_map, pending);
         Ok(Some(Self {
             name,
             namespace: namespace.to_string(),

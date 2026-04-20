@@ -54,6 +54,42 @@ fn reference() {
     );
 }
 
+/// Typedefs defined in included (non-main) headers that are not present in any
+/// reference metadata must be emitted as `type` items in the RDL so that the
+/// generated RDL is self-contained and parses without "type not found" errors.
+/// The typedef name must be preserved in struct fields (not resolved away).
+#[test]
+fn typedef_from_included_header() {
+    let output = "tests/typedef_in_struct.rdl";
+    windows_rdl::clang()
+        .args(["-x", "c++"])
+        .input("tests/typedef_in_struct.h")
+        .output(output)
+        .namespace("Test")
+        .write()
+        .unwrap();
+
+    let rdl = std::fs::read_to_string(output).unwrap();
+    // The typedef names must be preserved in the struct fields.
+    assert!(
+        rdl.contains("value: MY_BYTE"),
+        "MY_BYTE should be preserved as the field type; got:\n{rdl}"
+    );
+    assert!(
+        rdl.contains("count: MY_WORD"),
+        "MY_WORD should be preserved as the field type; got:\n{rdl}"
+    );
+    // The typedef definitions must also be emitted so the RDL is self-contained.
+    assert!(
+        rdl.contains("type MY_BYTE"),
+        "MY_BYTE typedef definition must be emitted; got:\n{rdl}"
+    );
+    assert!(
+        rdl.contains("type MY_WORD"),
+        "MY_WORD typedef definition must be emitted; got:\n{rdl}"
+    );
+}
+
 #[test]
 #[should_panic(expected = "error: expected ';' after struct\n --> .h:3:2")]
 fn semicolon_expected() {

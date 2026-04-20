@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    type MY_BYTE = u8;
+    type MY_WORD = u16;
+    struct TypedefInStruct {
+        value: MY_BYTE,
+        count: MY_WORD,
+    }
+}

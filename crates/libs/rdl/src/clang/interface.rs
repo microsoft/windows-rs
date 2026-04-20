@@ -41,6 +41,7 @@ impl Interface {
         namespace: &str,
         tu: &TranslationUnit,
         ref_map: &HashMap<String, String>,
+        pending: &mut Vec<Cursor>,
     ) -> Result<Self, Error> {
         let name = cursor.name();
         let guid = cursor.extract_uuid(tu);
@@ -65,7 +66,7 @@ impl Interface {
             }
 
             let method_name = child.name();
-            let return_type = child.result_type().to_type(namespace, ref_map);
+            let return_type = child.result_type().to_type(namespace, ref_map, pending);
 
             let mut params = vec![];
             for param in child.children() {
@@ -73,7 +74,7 @@ impl Interface {
                     continue;
                 }
                 let param_name = param.name();
-                let param_ty = param.ty().to_type(namespace, ref_map);
+                let param_ty = param.ty().to_type(namespace, ref_map, pending);
                 params.push(Param {
                     name: param_name,
                     ty: param_ty,

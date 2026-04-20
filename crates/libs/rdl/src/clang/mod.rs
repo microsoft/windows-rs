@@ -185,6 +185,12 @@ impl Clang {
         // synthetic-enum technique.
         let mut pending_macros: Vec<String> = vec![];
 
+        // Typedef cursors from included/system headers that are referenced by
+        // main-file items but not yet collected.  Processed after the main
+        // walk; may grow during that processing pass as transitive typedef
+        // dependencies are discovered.
+        let mut pending_typedefs: Vec<Cursor> = vec![];
+
         for child in tu.cursor().children() {
             // Only process cursors from the main input file (not from
             // transitively included headers).
@@ -209,11 +215,48 @@ impl Clang {
                         ref_map,
                         tu,
                         &mut pending_macros,
+                        &mut pending_typedefs,
                         extern_c,
                     )?;
                 }
             } else {
-                self.process_cursor(child, collector, ref_map, tu, &mut pending_macros, false)?;
+                self.process_cursor(
+                    child,
+                    collector,
+                    ref_map,
+                    tu,
+                    &mut pending_macros,
+                    &mut pending_typedefs,
+                    false,
+                )?;
+            }
+        }
+
+        // Emit typedef/callback items for any types that were referenced by
+        // main-file items but are defined only in included/system headers.
+        // The vec may grow during this loop as transitive typedef dependencies
+        // are discovered (e.g. `typedef BYTE MY_BYTE` pulls in `BYTE` too).
+        let mut seen: HashSet<String> = HashSet::new();
+        let mut i = 0;
+        while i < pending_typedefs.len() {
+            let cursor = pending_typedefs[i];
+            i += 1;
+            let name = cursor.name();
+            // Skip if already processed, already collected, or in the reference.
+            if !seen.insert(name.clone())
+                || collector.contains_key(&name)
+                || ref_map.contains_key(&name)
+            {
+                continue;
+            }
+            if let Some(cb) =
+                Callback::parse(cursor, &self.namespace, ref_map, &mut pending_typedefs)?
+            {
+                collector.insert(Item::Callback(cb));
+            } else if let Some(td) =
+                Typedef::parse(cursor, &self.namespace, ref_map, &mut pending_typedefs)?
+            {
+                collector.insert(Item::Typedef(td));
             }
         }
 
@@ -231,6 +274,7 @@ impl Clang {
         ref_map: &HashMap<String, String>,
         tu: &TranslationUnit,
         pending_macros: &mut Vec<String>,
+        pending_typedefs: &mut Vec<Cursor>,
         extern_c: bool,
     ) -> Result<(), Error> {
         match child.kind() {
@@ -243,6 +287,7 @@ impl Clang {
                             &self.namespace,
                             tu,
                             ref_map,
+                            pending_typedefs,
                         )?));
                     }
                 } else if !ref_map.contains_key(&name) {
@@ -250,6 +295,7 @@ impl Clang {
                         child,
                         &self.namespace,
                         ref_map,
+                        pending_typedefs,
                     )?));
                 }
             }
@@ -261,6 +307,7 @@ impl Clang {
                         &self.namespace,
                         tu,
                         ref_map,
+                        pending_typedefs,
                     )?));
                 }
             }
@@ -287,9 +334,13 @@ impl Clang {
             CXCursor_TypedefDecl if child.is_definition() => {
                 let name = child.name();
                 if !ref_map.contains_key(&name) {
-                    if let Some(cb) = Callback::parse(child, &self.namespace, ref_map)? {
+                    if let Some(cb) =
+                        Callback::parse(child, &self.namespace, ref_map, pending_typedefs)?
+                    {
                         collector.insert(Item::Callback(cb));
-                    } else if let Some(td) = Typedef::parse(child, &self.namespace, ref_map)? {
+                    } else if let Some(td) =
+                        Typedef::parse(child, &self.namespace, ref_map, pending_typedefs)?
+                    {
                         collector.insert(Item::Typedef(td));
                     }
                 }
@@ -301,6 +352,7 @@ impl Clang {
                     &self.library,
                     extern_c,
                     ref_map,
+                    pending_typedefs,
                 )?));
             }
             CXCursor_MacroDefinition => {
