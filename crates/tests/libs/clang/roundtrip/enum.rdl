@@ -13,6 +13,6 @@ mod Test {
         One = 1,
         Two = 2,
     }
-    const ONE: i32 = 1;
-    const TWO: i32 = 2;
+    const ONE: u32 = 1;
+    const TWO: u32 = 2;
 }
