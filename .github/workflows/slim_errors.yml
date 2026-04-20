@@ -28,14 +28,15 @@ concurrency:
 
 jobs:
   slim_errors:
+    name: ${{ matrix.name }}
     strategy:
       matrix:
         include:
-          - target: x86_64-pc-windows-msvc
-          - target: i686-pc-windows-msvc
-        runs-on:
-          - windows-2025
-    runs-on: ${{ matrix.runs-on }}
+          - name: x64
+            target: x86_64-pc-windows-msvc
+          - name: i686
+            target: i686-pc-windows-msvc
+    runs-on: windows-2025
     steps:
       - name: Checkout
         uses: actions/checkout@v6
