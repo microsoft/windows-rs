@@ -349,7 +349,7 @@ impl Cursor {
                 // finds the first interface's UUID for every subsequent interface.
                 //
                 // Fix: convert both endpoints of the child's extent to their *expansion*
-                // locations before tokenising.  This produces a range that lives entirely at
+                // locations before tokenizing.  This produces a range that lives entirely at
                 // the specific call site in the source file (e.g. `MIDL_INTERFACE("…")`),
                 // so only the tokens for *this* invocation are returned.
                 CXCursor_UnexposedAttr => {
