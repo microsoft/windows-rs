@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IMyInterface: Windows::Win32::System::Com::IUnknown {
+        fn Greet(&self, x: i32) -> i32;
+    }
+}

@@ -17,8 +17,8 @@ pub struct Interface {
     /// The UUID string (without braces or quotes), e.g.
     /// `"00000000-0000-0000-c000-000000000046"`, if a `__declspec(uuid(...))` attribute was found.
     pub guid: Option<String>,
-    /// The unqualified name of the single base interface (e.g. `"IUnknown"`), if any.
-    pub base: Option<String>,
+    /// The base interface type (with its namespace from `ref_map` when available), if any.
+    pub base: Option<metadata::Type>,
     pub methods: Vec<InterfaceMethod>,
 }
 
@@ -52,7 +52,10 @@ impl Interface {
                 // Use the type declaration's spelling to get the unqualified base name.
                 let base_name = c.ty().ty().name();
                 if !base_name.is_empty() {
-                    return Some(base_name);
+                    // Check if the base interface exists in the reference metadata; if so,
+                    // use its reference namespace so the emitted path is fully qualified.
+                    let base_ns = ref_map.get(&base_name).map(|s| s.as_str()).unwrap_or(namespace);
+                    return Some(metadata::Type::value_named(base_ns, &base_name));
                 }
             }
             None
@@ -118,9 +121,9 @@ impl Interface {
             quote! { #[no_guid] }
         };
 
-        let requires_token = if let Some(base) = &self.base {
-            let base_ident = write_ident(base);
-            quote! { : #base_ident }
+        let requires_token = if let Some(base_type) = &self.base {
+            let base_tokens = write_type(&self.namespace, base_type);
+            quote! { : #base_tokens }
         } else {
             quote! {}
         };
