@@ -429,7 +429,7 @@ impl Type {
             CXType_Float => metadata::Type::F32,
             CXType_Double => metadata::Type::F64,
             CXType_WChar => metadata::Type::U16,
-            CXType_Record => {
+            CXType_Enum | CXType_Record => {
                 let name = self.ty().name();
                 let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
                 metadata::Type::value_named(ns, &name)
