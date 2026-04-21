@@ -1,11 +1,13 @@
 use super::*;
 
 /// MIDL attributes extracted from the leading block comment of a pure-virtual
-/// method declaration. `propget` indicates a property accessor function.
+/// method declaration. `propget` and `propput` indicate property accessor functions.
 #[derive(Debug, Default)]
 struct MethodModifiers {
     /// True when `[propget]` appears in a block comment before the method name.
     is_propget: bool,
+    /// True when `[propput]` appears in a block comment before the method name.
+    is_propput: bool,
 }
 
 impl MethodModifiers {
@@ -20,8 +22,13 @@ impl MethodModifiers {
             if *kind == CXToken_Identifier && spelling == method_name {
                 break;
             }
-            if *kind == CXToken_Comment && spelling.contains("[propget]") {
-                modifiers.is_propget = true;
+            if *kind == CXToken_Comment {
+                if spelling.contains("[propget]") {
+                    modifiers.is_propget = true;
+                }
+                if spelling.contains("[propput]") {
+                    modifiers.is_propput = true;
+                }
             }
         }
         modifiers
@@ -36,6 +43,8 @@ pub struct InterfaceMethod {
     pub return_type: metadata::Type,
     /// True if `[propget]` was found in the block comment preceding the method name.
     pub is_propget: bool,
+    /// True if `[propput]` was found in the block comment preceding the method name.
+    pub is_propput: bool,
 }
 
 /// A COM-style abstract interface parsed from a C++ `struct`/`class` that has at least one
@@ -122,6 +131,7 @@ impl Interface {
                 params,
                 return_type,
                 is_propget: modifiers.is_propget,
+                is_propput: modifiers.is_propput,
             });
         }
 
@@ -178,7 +188,7 @@ impl Interface {
                         quote! { -> #ty }
                     }
                 };
-                let special_attr = if m.is_propget {
+                let special_attr = if m.is_propget || m.is_propput {
                     quote! { #[special] }
                 } else {
                     quote! {}
