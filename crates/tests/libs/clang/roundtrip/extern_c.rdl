@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
     extern fn ExternCallback(a: i32);
-    #[repr(i32)]
+    #[repr(u32)]
     enum ExternEnum {
         ExternEnumA = 0,
         ExternEnumB = 1,

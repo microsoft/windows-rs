@@ -16,6 +16,7 @@ impl Callback {
         cursor: Cursor,
         namespace: &str,
         ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
         pending: &mut Vec<Cursor>,
     ) -> Result<Option<Self>, Error> {
         let name = cursor.name();
@@ -40,7 +41,7 @@ impl Callback {
 
         let return_type = fn_type
             .fn_result_type()
-            .to_type(namespace, ref_map, pending);
+            .to_type(namespace, ref_map, tag_rename, pending);
 
         // Get parameter names from the TypedefDecl cursor's ParmDecl children.
         let param_names: Vec<String> = cursor
@@ -55,7 +56,7 @@ impl Callback {
         for i in 0..num_args {
             let ty = fn_type
                 .arg_type(i as u32)
-                .to_type(namespace, ref_map, pending);
+                .to_type(namespace, ref_map, tag_rename, pending);
             let pname = param_names
                 .get(i as usize)
                 .cloned()

@@ -34,9 +34,12 @@ impl Interface {
         namespace: &str,
         tu: &TranslationUnit,
         ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
         pending: &mut Vec<Cursor>,
     ) -> Result<Self, Error> {
-        let name = cursor.name();
+        let tag_name = cursor.name();
+        // Use the public typedef alias if one exists (e.g. `_IFoo` → `IFoo`).
+        let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
         let guid = cursor.extract_uuid(tu);
 
         // Find the first base class (COM interfaces only inherit from one base).
@@ -65,7 +68,9 @@ impl Interface {
             }
 
             let method_name = child.name();
-            let return_type = child.result_type().to_type(namespace, ref_map, pending);
+            let return_type = child
+                .result_type()
+                .to_type(namespace, ref_map, tag_rename, pending);
 
             let mut params = vec![];
             for param in child.children() {
@@ -73,7 +78,7 @@ impl Interface {
                     continue;
                 }
                 let param_name = param.name();
-                let param_ty = param.ty().to_type(namespace, ref_map, pending);
+                let param_ty = param.ty().to_type(namespace, ref_map, tag_rename, pending);
                 params.push(Param {
                     name: param_name,
                     ty: param_ty,

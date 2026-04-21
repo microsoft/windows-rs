@@ -461,6 +461,11 @@ impl Type {
 
     /// Convert this clang type to a metadata `Type`.
     ///
+    /// `tag_rename` maps C struct/enum tag names to their preferred typedef
+    /// aliases (e.g. `"_TEST"` → `"TEST"` from `typedef struct _TEST {} TEST`).
+    /// This ensures that the internal tag name never leaks into the generated
+    /// RDL — only the public typedef alias is used.
+    ///
     /// `pending` accumulates cursors for typedef declarations that originate
     /// from included/system headers and are not present in `ref_map`.  The
     /// caller is responsible for emitting `type` items for those cursors after
@@ -470,6 +475,7 @@ impl Type {
         &self,
         namespace: &str,
         ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
         pending: &mut Vec<Cursor>,
     ) -> metadata::Type {
         match self.kind() {
@@ -489,11 +495,17 @@ impl Type {
             CXType_Double => metadata::Type::F64,
             CXType_WChar => metadata::Type::U16,
             CXType_Enum | CXType_Record => {
-                let name = self.ty().name();
+                let tag_name = self.ty().name();
+                // Apply the tag→typedef rename so that the internal tag (e.g. `_TEST`)
+                // is always replaced by its public typedef alias (e.g. `TEST`).
+                let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
                 let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
                 metadata::Type::value_named(ns, &name)
             }
-            CXType_Elaborated => self.underlying_type().to_type(namespace, ref_map, pending),
+            CXType_Elaborated => {
+                self.underlying_type()
+                    .to_type(namespace, ref_map, tag_rename, pending)
+            }
             CXType_Typedef => {
                 let decl = self.ty();
                 let name = decl.name();
@@ -521,7 +533,7 @@ impl Type {
                 {
                     return metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1);
                 }
-                let inner = pointee.to_type(namespace, ref_map, pending);
+                let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
                 if pointee.is_const() {
                     metadata::Type::PtrConst(Box::new(inner), 1)
                 } else {
@@ -531,7 +543,7 @@ impl Type {
             CXType_ConstantArray => {
                 let element = self
                     .array_element_type()
-                    .to_type(namespace, ref_map, pending);
+                    .to_type(namespace, ref_map, tag_rename, pending);
                 let size = self.array_size();
                 metadata::Type::ArrayFixed(Box::new(element), size)
             }

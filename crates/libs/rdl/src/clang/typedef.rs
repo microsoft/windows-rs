@@ -11,6 +11,7 @@ impl Typedef {
         cursor: Cursor,
         namespace: &str,
         ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
         pending: &mut Vec<Cursor>,
     ) -> Result<Option<Self>, Error> {
         let name = cursor.name();
@@ -39,7 +40,7 @@ impl Typedef {
             return Ok(None);
         }
 
-        let ty = underlying.to_type(namespace, ref_map, pending);
+        let ty = underlying.to_type(namespace, ref_map, tag_rename, pending);
         Ok(Some(Self { name, ty }))
     }
 
