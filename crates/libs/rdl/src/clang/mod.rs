@@ -311,6 +311,7 @@ impl Clang {
                         child,
                         &self.namespace,
                         ref_map,
+                        tag_rename,
                         pending_typedefs,
                         true,
                     )?));
