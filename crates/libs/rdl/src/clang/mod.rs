@@ -167,12 +167,14 @@ impl Clang {
         // where `_TAG` is the internal tag and `TAG` is the intended public name.
         let mut tag_rename = build_tag_rename_map(tu);
 
-        // Extend tag_rename with synthetic names for anonymous nested struct/union
-        // types, using the source location as the key (since anonymous type cursors
-        // all return an empty spelling).  Synthetic names follow the writer's scheme:
+        // Extend tag_rename with synthetic names for all nested struct/union
+        // types, using the source location as the key for anonymous types (since
+        // anonymous type cursors all return an empty spelling) and the tag name
+        // as the key for named types.  Synthetic names follow the writer's scheme:
         // `{OuterName}_{index}` where index is the 0-based position of the nested
-        // definition among all struct/union definitions in the parent.
-        assign_anon_nested_names(tu, &mut tag_rename);
+        // definition among all struct/union definitions in the parent.  All nested
+        // types use synthetic names regardless of their C name to avoid collisions.
+        assign_nested_names(tu, &mut tag_rename);
 
         // Macros that the token-based parser cannot handle (complex
         // expressions, references to other macros, arithmetic, etc.) are
@@ -574,33 +576,36 @@ fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, String>) {
     }
 }
 
-/// Walk the translation unit and insert `location_id → synthetic_name` entries
-/// into `tag_rename` for every anonymous nested struct/union type.
+/// Walk the translation unit and insert `key → synthetic_name` entries into
+/// `tag_rename` for every nested struct/union type — whether named or anonymous.
 ///
-/// Anonymous types (whose `clang_getCursorSpelling` returns `""`) cannot be
-/// identified by name, so their source location is used as the map key.
-/// Synthetic names follow the same scheme as the windows-rdl writer when
-/// un-nesting `NestedPublic` types from Windows metadata:
+/// For named types the tag name is used as the key (since `to_type()` resolves
+/// `CXType_Record` by the declaration's spelling).  For anonymous types the
+/// source location (`"file:line:col"`) is used as the key because their spelling
+/// is always empty.
+///
+/// All nested types receive a synthetic name regardless of their C name to
+/// avoid collisions (two different structs could each have an inner struct
+/// called `Inner`).  Names follow the same scheme as the windows-rdl writer:
 /// `{OuterName}_{index}` where `index` is the 0-based position of the nested
 /// definition among **all** struct/union definitions in the parent body.
 ///
-/// Named nested types keep their own name; only anonymous ones receive a
-/// synthetic name.  Recursion handles arbitrary nesting depth.
-fn assign_anon_nested_names(tu: &TranslationUnit, tag_rename: &mut HashMap<String, String>) {
+/// Recursion handles arbitrary nesting depth.
+fn assign_nested_names(tu: &TranslationUnit, tag_rename: &mut HashMap<String, String>) {
     for child in tu.cursor().children() {
         if child.kind() == CXCursor_LinkageSpec {
             for inner in child.children() {
-                visit_for_anon_names(inner, tag_rename);
+                visit_for_nested_names(inner, tag_rename);
             }
         } else {
-            visit_for_anon_names(child, tag_rename);
+            visit_for_nested_names(child, tag_rename);
         }
     }
 }
 
 /// Visit a single top-level cursor; if it is a named struct/union definition,
-/// assign synthetic names to its anonymous nested type children.
-fn visit_for_anon_names(cursor: Cursor, tag_rename: &mut HashMap<String, String>) {
+/// assign synthetic names to all its nested type children.
+fn visit_for_nested_names(cursor: Cursor, tag_rename: &mut HashMap<String, String>) {
     let kind = cursor.kind();
     if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && cursor.is_definition() {
         let tag_name = cursor.name();
@@ -609,19 +614,19 @@ fn visit_for_anon_names(cursor: Cursor, tag_rename: &mut HashMap<String, String>
             return;
         }
         let outer_name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-        assign_anon_children_names(&outer_name, cursor, tag_rename);
+        assign_nested_child_names(&outer_name, cursor, tag_rename);
     }
 }
 
 /// For each struct/union definition that is a direct child of `parent`,
-/// assign it a synthetic flat name `{outer_name}_{index}` (if anonymous) and
-/// recurse to handle deeper nesting.
+/// assign it a synthetic flat name `{outer_name}_{index}` and recurse to
+/// handle deeper nesting.
 ///
 /// `index` counts **all** nested struct/union definitions in order, matching
 /// the writer's convention so that a type round-tripped through
 /// clang → RDL → winmd → RDL produces names consistent with what the
 /// writer would have generated.
-fn assign_anon_children_names(
+fn assign_nested_child_names(
     outer_name: &str,
     parent: Cursor,
     tag_rename: &mut HashMap<String, String>,
@@ -630,21 +635,18 @@ fn assign_anon_children_names(
     for child in parent.children() {
         let kind = child.kind();
         if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && child.is_definition() {
+            let synthetic = format!("{outer_name}_{index}");
             let child_name = child.name();
-            let effective_name = if is_anonymous_name(&child_name) {
-                // Anonymous type: generate a synthetic name and key it by source
-                // location (unique per declaration site, unlike the empty spelling).
-                let synthetic = format!("{outer_name}_{index}");
-                tag_rename
-                    .entry(child.location_id())
-                    .or_insert_with(|| synthetic.clone());
-                synthetic
+            if is_anonymous_name(&child_name) {
+                // Anonymous type: key by source location (unique per declaration site).
+                tag_rename.insert(child.location_id(), synthetic.clone());
             } else {
-                // Named type: use its effective name (applying any typedef alias).
-                tag_rename.get(&child_name).cloned().unwrap_or(child_name)
-            };
-            // Recurse so that nested-nested types are handled at every depth.
-            assign_anon_children_names(&effective_name, child, tag_rename);
+                // Named type: key by the tag name so that to_type() can look it up,
+                // overriding any pre-existing typedef alias with the synthetic name.
+                tag_rename.insert(child_name, synthetic.clone());
+            }
+            // Recurse so that nested-nested types are also handled.
+            assign_nested_child_names(&synthetic, child, tag_rename);
             index += 1;
         }
     }

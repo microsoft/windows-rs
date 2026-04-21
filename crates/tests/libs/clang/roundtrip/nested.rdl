@@ -11,29 +11,29 @@ mod Test {
         a: i32,
         b: f32,
     }
-    struct Inner {
+    struct Outer {
+        pos: Outer_0,
+        val: Outer_1,
+    }
+    struct Outer_0 {
         x: i32,
         y: i32,
     }
-    struct Outer {
-        pos: Inner,
-        val: Variant,
+    union Outer_1 {
+        i: i32,
+        f: f32,
     }
-    struct TaggedFirst {
+    union TaggedUnion {
+        first: TaggedUnion_0,
+        second: TaggedUnion_1,
+    }
+    struct TaggedUnion_0 {
         kind: i32,
         value: i32,
     }
-    struct TaggedSecond {
+    struct TaggedUnion_1 {
         kind: i32,
         fvalue: f32,
-    }
-    union TaggedUnion {
-        first: TaggedFirst,
-        second: TaggedSecond,
-    }
-    union Variant {
-        i: i32,
-        f: f32,
     }
     struct WithAnon {
         pos: WithAnon_0,

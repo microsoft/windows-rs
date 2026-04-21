@@ -1,43 +1,41 @@
 // Tests nested struct/union types within other structs/unions.
+//
+// All nested types (named or anonymous) receive a synthesised name
+// {Outer}_{index}, where index is the 0-based position of the nested
+// definition among all struct/union definitions in the parent body.
+// Named types are renamed to avoid collisions across different outer types.
 
-// Named nested types.
 struct Outer {
     struct Inner {
         int x;
         int y;
-    } pos;
+    } pos;   // Inner → Outer_0
     union Variant {
         int i;
         float f;
-    } val;
+    } val;   // Variant → Outer_1
 };
 
 union TaggedUnion {
     struct TaggedFirst {
         int kind;
         int value;
-    } first;
+    } first;   // TaggedFirst → TaggedUnion_0
     struct TaggedSecond {
         int kind;
         float fvalue;
-    } second;
+    } second;  // TaggedSecond → TaggedUnion_1
 };
-
-// Unnamed (anonymous) nested types.  Each receives a synthesised name
-// {Outer}_{index}, where index is the 0-based position of the nested
-// definition among all struct/union definitions in the parent body —
-// matching the scheme used by the windows-rdl writer when un-nesting
-// NestedPublic types from Windows metadata.
 
 struct WithAnon {
-    struct { int x; int y; } pos; // → WithAnon_0
-    union  { int i; float f; } val; // → WithAnon_1
+    struct { int x; int y; } pos; // anonymous → WithAnon_0
+    union  { int i; float f; } val; // anonymous → WithAnon_1
 };
 
-// Deeply-nested anonymous types: anonymous inside anonymous.
+// Deeply-nested: anonymous inside anonymous.
 struct DeepNested {
-    struct {                           // → DeepNested_0
-        union { int a; float b; } u;   // → DeepNested_0_0
+    struct {                           // anonymous → DeepNested_0
+        union { int a; float b; } u;   // anonymous → DeepNested_0_0
         int c;
     } outer;
 };
