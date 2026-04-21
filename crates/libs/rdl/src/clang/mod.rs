@@ -292,6 +292,19 @@ impl Clang {
                         &self.namespace,
                         ref_map,
                         pending_typedefs,
+                        false,
+                    )?));
+                }
+            }
+            CXCursor_UnionDecl if child.is_definition() => {
+                let name = child.name();
+                if !ref_map.contains_key(&name) {
+                    collector.insert(Item::Struct(Struct::parse(
+                        child,
+                        &self.namespace,
+                        ref_map,
+                        pending_typedefs,
+                        true,
                     )?));
                 }
             }

@@ -4,6 +4,7 @@ use super::*;
 pub struct Struct {
     pub name: String,
     pub fields: Vec<Field>,
+    pub is_union: bool,
 }
 
 impl Struct {
@@ -12,6 +13,7 @@ impl Struct {
         namespace: &str,
         ref_map: &HashMap<String, String>,
         pending: &mut Vec<Cursor>,
+        is_union: bool,
     ) -> Result<Self, Error> {
         let name = cursor.name();
         let mut fields = vec![];
@@ -26,7 +28,11 @@ impl Struct {
             fields.push(Field { name, ty });
         }
 
-        Ok(Self { name, fields })
+        Ok(Self {
+            name,
+            fields,
+            is_union,
+        })
     }
 
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
@@ -38,8 +44,14 @@ impl Struct {
             quote! { #name: #ty, }
         });
 
+        let keyword = if self.is_union {
+            quote! { union }
+        } else {
+            quote! { struct }
+        };
+
         Ok(quote! {
-            struct #name {
+            #keyword #name {
                 #(#fields)*
             }
         })
