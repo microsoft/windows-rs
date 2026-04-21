@@ -316,8 +316,23 @@ impl Cursor {
 
     /// Returns true if this struct/class cursor has at least one pure-virtual method, indicating
     /// that it is a COM-style abstract interface rather than a plain data struct.
+    ///
+    /// When the cursor is a forward declaration (e.g. produced by `typedef struct IC IC;`
+    /// before the definition has been seen), `clang_getCursorDefinition` is used to follow
+    /// to the actual definition cursor whose children include the method declarations.
     pub fn has_pure_virtual_methods(&self) -> bool {
-        self.children()
+        // clang_getCursorDefinition returns the definition cursor if one exists, or a
+        // null cursor if no definition is available.  For a forward declaration that was
+        // created before the struct body was parsed, the definition is a *different*
+        // cursor node and only that node has CXCursor_CXXMethod children.
+        let defn = unsafe { clang_getCursorDefinition(self.0) };
+        let cursor = if unsafe { clang_Cursor_isNull(defn) } == 0 {
+            Cursor(defn)
+        } else {
+            Cursor(self.0)
+        };
+        cursor
+            .children()
             .iter()
             .any(|c| c.kind() == CXCursor_CXXMethod && c.is_pure_virtual())
     }
@@ -466,8 +481,12 @@ impl Type {
     /// wraps record types in an elaborated-type node in C++ mode.
     ///
     /// `CXType_Typedef` is also unwrapped so that forward-declared interfaces
-    /// (`typedef struct IC IC;`) are detected correctly even when the definition
-    /// of the struct appears later in the same translation unit.
+    /// (`typedef struct IC IC;`) are detected correctly when the pointee type
+    /// is represented as the typedef rather than the underlying record.
+    ///
+    /// `has_pure_virtual_methods()` additionally follows `clang_getCursorDefinition`
+    /// so that a forward-declaration cursor (which has no children) never
+    /// falsely suppresses interface detection.
     pub fn is_interface(&self) -> bool {
         match self.kind() {
             CXType_Record => self.ty().has_pure_virtual_methods(),
