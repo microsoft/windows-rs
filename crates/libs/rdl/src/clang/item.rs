@@ -12,15 +12,15 @@ pub enum Item {
 }
 
 impl Item {
-    pub fn write(&self) -> Result<TokenStream, Error> {
+    pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         match self {
-            Self::Callback(item) => item.write(),
-            Self::Const(item) => item.write(),
+            Self::Callback(item) => item.write(namespace),
+            Self::Const(item) => item.write(namespace),
             Self::Enum(item) => item.write(),
-            Self::Interface(item) => item.write(),
-            Self::Struct(item) => item.write(),
-            Self::Typedef(item) => item.write(),
-            Self::Fn(item) => item.write(),
+            Self::Interface(item) => item.write(namespace),
+            Self::Struct(item) => item.write(namespace),
+            Self::Typedef(item) => item.write(namespace),
+            Self::Fn(item) => item.write(namespace),
         }
     }
 }

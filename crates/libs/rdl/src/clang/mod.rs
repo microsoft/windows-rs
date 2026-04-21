@@ -20,8 +20,6 @@ mod callback;
 use callback::*;
 mod r#fn;
 use r#fn::*;
-mod param;
-use param::*;
 mod r#const;
 use r#const::*;
 mod interface;
@@ -118,7 +116,7 @@ impl Clang {
         for input in &h_paths {
             let tu = index.parse(input, &args)?;
             let pending = self.process_tu(&tu, &mut collector, &ref_map)?;
-            for c in Const::evaluate_macros(input, &pending, &self.namespace, &index, &args)? {
+            for c in Const::evaluate_macros(input, &pending, &index, &args)? {
                 collector.insert(Item::Const(c));
             }
         }
@@ -131,8 +129,7 @@ impl Clang {
                 CXTranslationUnit_DetailedPreprocessingRecord,
             )?;
             let pending = self.process_tu(&tu, &mut collector, &ref_map)?;
-            for c in Const::evaluate_macros_str(content, &pending, &self.namespace, &index, &args)?
-            {
+            for c in Const::evaluate_macros_str(content, &pending, &index, &args)? {
                 collector.insert(Item::Const(c));
             }
         }
@@ -145,14 +142,13 @@ impl Clang {
         }
 
         for item in collector.values() {
-            output.push_str(&item.write()?.to_string());
+            output.push_str(&item.write(&self.namespace)?.to_string());
         }
 
         for _ in 0..namespace.len() {
             output.push('}');
         }
 
-        let output = formatter::format(&output);
         write_to_file(&self.output, formatter::format(&output))?;
 
         Ok(())
@@ -280,7 +276,7 @@ impl Clang {
         match child.kind() {
             CXCursor_StructDecl if child.is_definition() => {
                 let name = child.name();
-                if Interface::is_com_interface(child) {
+                if child.has_pure_virtual_methods() {
                     if !ref_map.contains_key(&name) {
                         collector.insert(Item::Interface(Interface::parse(
                             child,
@@ -299,7 +295,7 @@ impl Clang {
                     )?));
                 }
             }
-            CXCursor_ClassDecl if child.is_definition() && Interface::is_com_interface(child) => {
+            CXCursor_ClassDecl if child.is_definition() && child.has_pure_virtual_methods() => {
                 let name = child.name();
                 if !ref_map.contains_key(&name) {
                     collector.insert(Item::Interface(Interface::parse(
@@ -321,11 +317,7 @@ impl Clang {
                     // RDL constant rather than a named enum type.
                     for (name, value) in e.variants {
                         let const_value = enum_variant_value(e.repr, value);
-                        collector.insert(Item::Const(Const {
-                            name,
-                            namespace: self.namespace.clone(),
-                            value: const_value,
-                        }));
+                        collector.insert(Item::Const(Const { name, value: const_value }));
                     }
                 } else if !ref_map.contains_key(&e.name) {
                     collector.insert(Item::Enum(e));

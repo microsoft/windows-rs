@@ -13,7 +13,6 @@ pub struct InterfaceMethod {
 #[derive(Debug)]
 pub struct Interface {
     pub name: String,
-    pub namespace: String,
     /// The UUID string (without braces or quotes), e.g.
     /// `"00000000-0000-0000-c000-000000000046"`, if a `__declspec(uuid(...))` attribute was found.
     pub guid: Option<String>,
@@ -23,12 +22,6 @@ pub struct Interface {
 }
 
 impl Interface {
-    /// Returns `true` if `cursor` is a `struct`/`class` that looks like a COM interface —
-    /// i.e. it has at least one pure-virtual method child.
-    pub fn is_com_interface(cursor: Cursor) -> bool {
-        cursor.has_pure_virtual_methods()
-    }
-
     /// Parse a `CXCursor_StructDecl` or `CXCursor_ClassDecl` cursor as a COM interface.
     ///
     /// Extracts:
@@ -81,26 +74,13 @@ impl Interface {
                 }
                 let param_name = param.name();
                 let param_ty = param.ty().to_type(namespace, ref_map, pending);
-                params.push(Param {
-                    name: param_name,
-                    ty: param_ty,
-                });
+                params.push(Param { name: param_name, ty: param_ty });
             }
 
-            methods.push(InterfaceMethod {
-                name: method_name,
-                params,
-                return_type,
-            });
+            methods.push(InterfaceMethod { name: method_name, params, return_type });
         }
 
-        Ok(Self {
-            name,
-            namespace: namespace.to_string(),
-            guid,
-            base,
-            methods,
-        })
+        Ok(Self { name, guid, base, methods })
     }
 
     /// Emit this interface as an RDL token stream.
@@ -113,7 +93,7 @@ impl Interface {
     ///     …
     /// }
     /// ```
-    pub fn write(&self) -> Result<TokenStream, Error> {
+    pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
 
         let guid_token = if let Some(uuid) = &self.guid {
@@ -125,7 +105,7 @@ impl Interface {
         };
 
         let requires_token = if let Some(base_type) = &self.base {
-            let base_tokens = write_type(&self.namespace, base_type);
+            let base_tokens = write_type(namespace, base_type);
             quote! { : #base_tokens }
         } else {
             quote! {}
@@ -138,13 +118,13 @@ impl Interface {
                 let mname = write_ident(&m.name);
                 let params = m.params.iter().map(|p| {
                     let pname = write_ident(&p.name);
-                    let pty = write_type(&self.namespace, &p.ty);
+                    let pty = write_type(namespace, &p.ty);
                     quote! { #pname: #pty }
                 });
                 let return_type = match &m.return_type {
                     metadata::Type::Void => quote! {},
                     ty => {
-                        let ty = write_type(&self.namespace, ty);
+                        let ty = write_type(namespace, ty);
                         quote! { -> #ty }
                     }
                 };
@@ -159,39 +139,4 @@ impl Interface {
             }
         })
     }
-}
-
-/// Converts a UUID string (`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`) into the u128 hex literal
-/// format used in RDL GUID attributes, e.g. `"0x00000000_0000_0000_c000_000000000046"`.
-///
-/// The format matches `format_guid_u128` in `writer/mod.rs`:
-/// `0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}`.
-///
-/// # Panics
-///
-/// Panics if `uuid` does not match the format validated by [`is_uuid_format`] (i.e. five
-/// hyphen-separated groups of 8-4-4-4-12 hex digits).  Callers must ensure `is_uuid_format`
-/// returns `true` for `uuid` before calling this function.
-fn uuid_to_u128_literal(uuid: &str) -> String {
-    let parts: Vec<&str> = uuid.split('-').collect();
-    assert_eq!(
-        parts.len(),
-        5,
-        "uuid_to_u128_literal: expected 5 hyphen-separated groups in `{uuid}`"
-    );
-    let d1 = u32::from_str_radix(parts[0], 16)
-        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d1 in `{uuid}`"));
-    let d2 = u16::from_str_radix(parts[1], 16)
-        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d2 in `{uuid}`"));
-    let d3 = u16::from_str_radix(parts[2], 16)
-        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d3 in `{uuid}`"));
-    let d4_str = format!("{}{}", parts[3], parts[4]);
-    let mut d4 = [0u8; 8];
-    for i in 0..8 {
-        d4[i] = u8::from_str_radix(&d4_str[i * 2..i * 2 + 2], 16)
-            .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d4[{i}] in `{uuid}`"));
-    }
-    let d4_word = u16::from_be_bytes([d4[0], d4[1]]);
-    let d4_node = u64::from_be_bytes([0, 0, d4[2], d4[3], d4[4], d4[5], d4[6], d4[7]]);
-    format!("0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}")
 }

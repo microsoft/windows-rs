@@ -4,7 +4,6 @@ use super::*;
 #[derive(Debug)]
 pub struct Const {
     pub name: String,
-    pub namespace: String,
     pub value: metadata::Value,
 }
 
@@ -46,17 +45,13 @@ impl Const {
             None => return Ok(None),
         };
 
-        Ok(Some(Self {
-            name,
-            namespace: namespace.to_string(),
-            value,
-        }))
+        Ok(Some(Self { name, value }))
     }
 
-    pub fn write(&self) -> Result<TokenStream, Error> {
+    pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
-        let ty = write_type(&self.namespace, &self.value.ty());
-        let value = write_const_value(&self.value);
+        let ty = write_type(namespace, &self.value.ty());
+        let value = write_value(namespace, &self.value);
         Ok(quote! { const #name: #ty = #value; })
     }
 
@@ -88,7 +83,6 @@ impl Const {
     pub fn evaluate_macros(
         input: &str,
         names: &[String],
-        namespace: &str,
         index: &Index,
         args: &[&str],
     ) -> Result<Vec<Self>, Error> {
@@ -125,7 +119,7 @@ impl Const {
         // constant expressions (e.g. string macros) don't abort the TU.
         let tu = index.parse_unsaved(&synthetic, &source, args, CXTranslationUnit_KeepGoing)?;
 
-        collect_eval_results(&tu, namespace)
+        collect_eval_results(&tu)
     }
 
     /// Evaluate a batch of macro names from an in-memory source string.
@@ -140,7 +134,6 @@ impl Const {
     pub fn evaluate_macros_str(
         content: &str,
         names: &[String],
-        namespace: &str,
         index: &Index,
         args: &[&str],
     ) -> Result<Vec<Self>, Error> {
@@ -163,7 +156,7 @@ impl Const {
 
         let tu = index.parse_unsaved(SYNTHETIC, &source, args, CXTranslationUnit_KeepGoing)?;
 
-        collect_eval_results(&tu, namespace)
+        collect_eval_results(&tu)
     }
 }
 
@@ -175,7 +168,7 @@ impl Const {
 /// where the enumerator is named `__rdl_eval_<original_name>`.  This helper
 /// walks the TU cursor, strips the prefix, and converts the evaluated integer
 /// value to the narrowest fitting [`metadata::Value`] variant.
-fn collect_eval_results(tu: &TranslationUnit, namespace: &str) -> Result<Vec<Const>, Error> {
+fn collect_eval_results(tu: &TranslationUnit) -> Result<Vec<Const>, Error> {
     let mut results = vec![];
     for child in tu.cursor().children() {
         if !child.is_from_main_file() {
@@ -196,63 +189,11 @@ fn collect_eval_results(tu: &TranslationUnit, namespace: &str) -> Result<Vec<Con
                 } else {
                     metadata::Value::I64(raw)
                 };
-                results.push(Const {
-                    name: original_name.to_string(),
-                    namespace: namespace.to_string(),
-                    value,
-                });
+                results.push(Const { name: original_name.to_string(), value });
             }
         }
     }
     Ok(results)
-}
-
-/// Emit the literal token stream for a `metadata::Value`.
-///
-/// Only the variants produced by the macro parser are handled; others are
-/// unreachable in this context.
-fn write_const_value(value: &metadata::Value) -> TokenStream {
-    match value {
-        metadata::Value::I8(v) => {
-            let lit = Literal::i8_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::U8(v) => {
-            let lit = Literal::u8_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::I16(v) => {
-            let lit = Literal::i16_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::U16(v) => {
-            let lit = Literal::u16_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::I32(v) => {
-            let lit = Literal::i32_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::U32(v) => {
-            let lit = Literal::u32_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::I64(v) => {
-            let lit = Literal::i64_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::U64(v) => {
-            let lit = Literal::u64_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::F64(v) => {
-            let lit = Literal::f64_unsuffixed(*v);
-            quote! { #lit }
-        }
-        metadata::Value::Utf8(s) => quote! { #s },
-        metadata::Value::EnumValue(_, inner) => write_const_value(inner),
-        _ => unreachable!("unexpected Value variant in clang const"),
-    }
 }
 
 // ---------------------------------------------------------------------------

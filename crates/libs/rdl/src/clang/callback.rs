@@ -3,7 +3,6 @@ use super::*;
 #[derive(Debug)]
 pub struct Callback {
     pub name: String,
-    pub namespace: String,
     pub params: Vec<Param>,
     pub return_type: metadata::Type,
 }
@@ -65,27 +64,22 @@ impl Callback {
             params.push(Param { name: pname, ty });
         }
 
-        Ok(Some(Self {
-            name,
-            namespace: namespace.to_string(),
-            params,
-            return_type,
-        }))
+        Ok(Some(Self { name, params, return_type }))
     }
 
-    pub fn write(&self) -> Result<TokenStream, Error> {
+    pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
 
         let params = self.params.iter().map(|param| {
             let name = write_ident(&param.name);
-            let ty = write_type(&self.namespace, &param.ty);
+            let ty = write_type(namespace, &param.ty);
             quote! { #name: #ty }
         });
 
         let return_type = match &self.return_type {
             metadata::Type::Void => quote! {},
             ty => {
-                let ty = write_type(&self.namespace, ty);
+                let ty = write_type(namespace, ty);
                 quote! { -> #ty }
             }
         };

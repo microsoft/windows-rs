@@ -3,7 +3,6 @@ use super::*;
 #[derive(Debug)]
 pub struct Struct {
     pub name: String,
-    pub namespace: String,
     pub fields: Vec<Field>,
 }
 
@@ -27,19 +26,15 @@ impl Struct {
             fields.push(Field { name, ty });
         }
 
-        Ok(Self {
-            name,
-            namespace: namespace.to_string(),
-            fields,
-        })
+        Ok(Self { name, fields })
     }
 
-    pub fn write(&self) -> Result<TokenStream, Error> {
+    pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
 
         let fields = self.fields.iter().map(|field| {
             let name = write_ident(&field.name);
-            let ty = write_type(&self.namespace, &field.ty);
+            let ty = write_type(namespace, &field.ty);
             quote! { #name: #ty, }
         });
 

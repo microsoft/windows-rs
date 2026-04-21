@@ -240,3 +240,87 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         }
     }
 }
+
+fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
+    match value {
+        metadata::Value::Bool(value) => quote! { #value },
+        metadata::Value::U8(value) => {
+            let literal = Literal::u8_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::I8(value) => {
+            let literal = Literal::i8_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::U16(value) => {
+            let literal = Literal::u16_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::I16(value) => {
+            let literal = Literal::i16_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::U32(value) => {
+            let literal = Literal::u32_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::I32(value) => {
+            let literal = Literal::i32_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::U64(value) => {
+            let literal = Literal::u64_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::I64(value) => {
+            let literal = Literal::i64_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::F32(value) => {
+            let literal = Literal::f32_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::F64(value) => {
+            let literal = Literal::f64_unsuffixed(*value);
+            quote! { #literal }
+        }
+        metadata::Value::Utf8(value) => quote! { #value },
+        metadata::Value::Utf16(value) => quote! { #value },
+        metadata::Value::TypeName(tn) => {
+            write_type(namespace, &metadata::Type::ClassName(tn.clone()))
+        }
+        metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
+    }
+}
+
+/// Formats GUID components as a UUID-style hex u128 literal, e.g.
+/// `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`.
+fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
+    let d4_word = u16::from_be_bytes([d4[0], d4[1]]);
+    let d4_node = u64::from_be_bytes([0, 0, d4[2], d4[3], d4[4], d4[5], d4[6], d4[7]]);
+    format!("0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}")
+}
+
+/// Converts a UUID string (`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`) into the u128 hex literal
+/// format used in RDL GUID attributes, e.g. `"0x00000000_0000_0000_c000_000000000046"`.
+///
+/// # Panics
+///
+/// Panics if `uuid` does not have exactly five hyphen-separated groups of 8-4-4-4-12 hex digits.
+fn uuid_to_u128_literal(uuid: &str) -> String {
+    let parts: Vec<&str> = uuid.split('-').collect();
+    assert_eq!(parts.len(), 5, "uuid_to_u128_literal: expected 5 hyphen-separated groups in `{uuid}`");
+    let d1 = u32::from_str_radix(parts[0], 16)
+        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d1 in `{uuid}`"));
+    let d2 = u16::from_str_radix(parts[1], 16)
+        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d2 in `{uuid}`"));
+    let d3 = u16::from_str_radix(parts[2], 16)
+        .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d3 in `{uuid}`"));
+    let d4_str = format!("{}{}", parts[3], parts[4]);
+    let mut d4 = [0u8; 8];
+    for i in 0..8 {
+        d4[i] = u8::from_str_radix(&d4_str[i * 2..i * 2 + 2], 16)
+            .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d4[{i}] in `{uuid}`"));
+    }
+    format_guid_u128(d1, d2, d3, d4)
+}
