@@ -317,7 +317,10 @@ impl Clang {
                     // RDL constant rather than a named enum type.
                     for (name, value) in e.variants {
                         let const_value = enum_variant_value(e.repr, value);
-                        collector.insert(Item::Const(Const { name, value: const_value }));
+                        collector.insert(Item::Const(Const {
+                            name,
+                            value: const_value,
+                        }));
                     }
                 } else if !ref_map.contains_key(&e.name) {
                     collector.insert(Item::Enum(e));

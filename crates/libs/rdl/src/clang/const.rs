@@ -189,7 +189,10 @@ fn collect_eval_results(tu: &TranslationUnit) -> Result<Vec<Const>, Error> {
                 } else {
                     metadata::Value::I64(raw)
                 };
-                results.push(Const { name: original_name.to_string(), value });
+                results.push(Const {
+                    name: original_name.to_string(),
+                    value,
+                });
             }
         }
     }

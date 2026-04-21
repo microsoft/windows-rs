@@ -309,7 +309,11 @@ fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
 /// Panics if `uuid` does not have exactly five hyphen-separated groups of 8-4-4-4-12 hex digits.
 fn uuid_to_u128_literal(uuid: &str) -> String {
     let parts: Vec<&str> = uuid.split('-').collect();
-    assert_eq!(parts.len(), 5, "uuid_to_u128_literal: expected 5 hyphen-separated groups in `{uuid}`");
+    assert_eq!(
+        parts.len(),
+        5,
+        "uuid_to_u128_literal: expected 5 hyphen-separated groups in `{uuid}`"
+    );
     let d1 = u32::from_str_radix(parts[0], 16)
         .unwrap_or_else(|_| panic!("uuid_to_u128_literal: invalid d1 in `{uuid}`"));
     let d2 = u16::from_str_radix(parts[1], 16)

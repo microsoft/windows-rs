@@ -64,7 +64,11 @@ impl Callback {
             params.push(Param { name: pname, ty });
         }
 
-        Ok(Some(Self { name, params, return_type }))
+        Ok(Some(Self {
+            name,
+            params,
+            return_type,
+        }))
     }
 
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {

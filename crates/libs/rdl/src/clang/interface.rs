@@ -74,13 +74,25 @@ impl Interface {
                 }
                 let param_name = param.name();
                 let param_ty = param.ty().to_type(namespace, ref_map, pending);
-                params.push(Param { name: param_name, ty: param_ty });
+                params.push(Param {
+                    name: param_name,
+                    ty: param_ty,
+                });
             }
 
-            methods.push(InterfaceMethod { name: method_name, params, return_type });
+            methods.push(InterfaceMethod {
+                name: method_name,
+                params,
+                return_type,
+            });
         }
 
-        Ok(Self { name, guid, base, methods })
+        Ok(Self {
+            name,
+            guid,
+            base,
+            methods,
+        })
     }
 
     /// Emit this interface as an RDL token stream.
