@@ -192,9 +192,16 @@ impl Clang {
             // every item kind here, not just function declarations.
             if child.kind() == CXCursor_LinkageSpec {
                 for inner in child.children() {
-                    if !inner.is_from_main_file() {
-                        continue;
-                    }
+                    // Do NOT filter by is_from_main_file() here.  The outer
+                    // check above already ensures the linkage-spec block itself
+                    // is from the main file.  On older libclang versions (≤ 14)
+                    // with --target=x86_64-pc-windows-msvc, clang incorrectly
+                    // reports is_from_main_file() == false for declarations
+                    // that appear inside an extern "C" { } block even when
+                    // they are defined in the main file, causing all extern "C"
+                    // items to be silently dropped.  Any items from transitively
+                    // included headers that slip through will be filtered out by
+                    // the ref_map check inside process_cursor.
                     // A function inside `extern "C" { }` has C language linkage.
                     let extern_c = inner.language() == CXLanguage_C;
                     self.process_cursor(
