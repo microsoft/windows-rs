@@ -10,6 +10,11 @@ impl Library {
             .map_err(|e| Error::new(&format!("failed to load libclang: {e}"), "", 0, 0))?;
         Ok(Self)
     }
+
+    /// Returns the libclang version string (e.g. `"clang version 18.1.0 ..."`).
+    pub fn version(&self) -> String {
+        to_string(unsafe { clang_getClangVersion() })
+    }
 }
 
 impl Drop for Library {
