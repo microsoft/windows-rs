@@ -360,7 +360,7 @@ mod error_info {
     #[derive(Clone, Default)]
     pub(crate) struct EmptyErrorInfo;
 
-    pub(crate) use EmptyErrorInfo as ErrorInfo;
+    pub(crate) use self::EmptyErrorInfo as ErrorInfo;
 
     impl EmptyErrorInfo {
         pub(crate) const fn empty() -> Self {
