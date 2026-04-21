@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    type MY_BYTE = u8;
+    type MY_WORD = u16;
+}
