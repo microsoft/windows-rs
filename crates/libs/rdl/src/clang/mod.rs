@@ -76,6 +76,13 @@ impl Clang {
         self
     }
 
+    /// Returns the version string reported by the loaded libclang, e.g.
+    /// `"clang version 18.1.0 (...)"`.  Loads libclang on first call.
+    pub fn version() -> Result<String, Error> {
+        let lib = Library::new()?;
+        Ok(lib.version())
+    }
+
     pub fn write(&self) -> Result<(), Error> {
         let (h_paths, winmd_paths) = expand_input_paths(&self.input, "h", "winmd")?;
 

@@ -29,6 +29,12 @@ pub fn clang() -> Clang {
     Clang::new()
 }
 
+/// Returns the version string of the loaded libclang library,
+/// e.g. `"clang version 18.1.0 (...)"`.
+pub fn clang_version() -> Result<String, Error> {
+    Clang::version()
+}
+
 fn expand_input_paths(
     inputs: &[String],
     ext1: &str,
