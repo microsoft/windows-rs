@@ -8,24 +8,22 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        pending: &mut Vec<Cursor>,
-        is_union: bool,
-    ) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, parser: &mut Parser<'_>, is_union: bool) -> Result<Self, Error> {
         let tag_name = cursor.name();
         // Use the public typedef alias if one exists (e.g. `_TEST` → `TEST`).
         // For anonymous types the spelling is empty; fall back to location_id.
         let name = if is_anonymous_name(&tag_name) {
-            tag_rename
+            parser
+                .tag_rename
                 .get(&cursor.location_id())
                 .cloned()
                 .unwrap_or(tag_name)
         } else {
-            tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+            parser
+                .tag_rename
+                .get(&tag_name)
+                .cloned()
+                .unwrap_or(tag_name)
         };
         let mut fields = vec![];
 
@@ -35,7 +33,7 @@ impl Struct {
             }
 
             let name = child.name();
-            let ty = child.ty().to_type(namespace, ref_map, tag_rename, pending);
+            let ty = child.ty().to_type(parser);
             fields.push(Field { name, ty });
         }
 

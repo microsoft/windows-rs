@@ -25,6 +25,188 @@ use r#const::*;
 mod interface;
 use interface::*;
 
+/// Shared parse context that is threaded through all `parse` methods in the
+/// clang module, eliminating the need to pass a fixed set of parameters
+/// (`namespace`, `library`, `ref_map`, `tag_rename`, `tu`) individually to
+/// every call.
+///
+/// `pending_typedefs` and `pending_macros` accumulate side-effects during the
+/// main AST walk and are consumed by [`Clang::process_tu`] after the walk
+/// completes.
+pub struct Parser<'a> {
+    pub namespace: &'a str,
+    pub library: &'a str,
+    pub ref_map: &'a HashMap<String, String>,
+    pub tag_rename: HashMap<String, String>,
+    pub tu: &'a TranslationUnit,
+    pub pending_typedefs: Vec<Cursor>,
+    pub pending_macros: Vec<String>,
+}
+
+impl<'a> Parser<'a> {
+    fn new(
+        namespace: &'a str,
+        library: &'a str,
+        ref_map: &'a HashMap<String, String>,
+        tag_rename: HashMap<String, String>,
+        tu: &'a TranslationUnit,
+    ) -> Self {
+        Self {
+            namespace,
+            library,
+            ref_map,
+            tag_rename,
+            tu,
+            pending_typedefs: vec![],
+            pending_macros: vec![],
+        }
+    }
+
+    /// Process a single cursor: insert the corresponding [`Item`] into
+    /// `collector` or record the name in `pending_macros` for the second-pass
+    /// evaluator.  `extern_c` is `true` when the cursor was found inside an
+    /// `extern "C" { }` block (relevant only for function declarations).
+    fn process_cursor(
+        &mut self,
+        child: Cursor,
+        collector: &mut Collector,
+        extern_c: bool,
+    ) -> Result<(), Error> {
+        match child.kind() {
+            CXCursor_StructDecl if child.is_definition() => {
+                // Recursively lift any named or anonymous nested struct/union
+                // declarations to the collector before processing the outer struct
+                // so that field type references to those nested types are already
+                // registered.
+                self.process_nested_types(child, collector, extern_c)?;
+                let tag_name = child.name();
+                // Resolve the effective public name via the tag→typedef rename map.
+                // For anonymous types the spelling is empty; use location_id instead.
+                let name = if is_anonymous_name(&tag_name) {
+                    self.tag_rename
+                        .get(&child.location_id())
+                        .cloned()
+                        .unwrap_or(tag_name)
+                } else {
+                    self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                };
+                // Skip anonymous types that were not given a synthetic name (e.g.
+                // an anonymous struct that is not nested inside any named type).
+                if is_anonymous_name(&name) {
+                    // nothing to emit
+                } else if child.has_pure_virtual_methods() {
+                    if !self.ref_map.contains_key(&name) {
+                        collector.insert(Item::Interface(Interface::parse(child, self)?));
+                    }
+                } else if !self.ref_map.contains_key(&name) {
+                    collector.insert(Item::Struct(Struct::parse(child, self, false)?));
+                }
+            }
+            CXCursor_UnionDecl if child.is_definition() => {
+                // Recursively lift any named or anonymous nested struct/union
+                // declarations to the collector before processing the outer union.
+                self.process_nested_types(child, collector, extern_c)?;
+                let tag_name = child.name();
+                let name = if is_anonymous_name(&tag_name) {
+                    self.tag_rename
+                        .get(&child.location_id())
+                        .cloned()
+                        .unwrap_or(tag_name)
+                } else {
+                    self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                };
+                if !is_anonymous_name(&name) && !self.ref_map.contains_key(&name) {
+                    collector.insert(Item::Struct(Struct::parse(child, self, true)?));
+                }
+            }
+            CXCursor_ClassDecl if child.is_definition() && child.has_pure_virtual_methods() => {
+                let tag_name = child.name();
+                let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+                if !self.ref_map.contains_key(&name) {
+                    collector.insert(Item::Interface(Interface::parse(child, self)?));
+                }
+            }
+            CXCursor_EnumDecl if child.is_definition() => {
+                let e = Enum::parse(child)?;
+                if is_anonymous_name(&e.name) {
+                    // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
+                    // reported by libclang with a synthesised spelling like
+                    // "(unnamed enum at file.h:6:1)" which always starts
+                    // with '('.  Each variant is emitted as a top-level
+                    // RDL constant rather than a named enum type.
+                    for (name, value) in e.variants {
+                        let const_value = enum_variant_value(e.repr, value);
+                        collector.insert(Item::Const(Const {
+                            name,
+                            value: const_value,
+                        }));
+                    }
+                } else if !self.ref_map.contains_key(&e.name) {
+                    collector.insert(Item::Enum(e));
+                }
+            }
+            CXCursor_TypedefDecl if child.is_definition() => {
+                let name = child.name();
+                if !self.ref_map.contains_key(&name) {
+                    if let Some(cb) = Callback::parse(child, self)? {
+                        collector.insert(Item::Callback(cb));
+                    } else if let Some(td) = Typedef::parse(child, self)? {
+                        collector.insert(Item::Typedef(td));
+                    }
+                }
+            }
+            CXCursor_FunctionDecl if !child.is_definition() => {
+                collector.insert(Item::Fn(Fn::parse(child, self, extern_c)?));
+            }
+            CXCursor_MacroDefinition => {
+                if let Some(c) = Const::parse(child, self)? {
+                    collector.insert(Item::Const(c));
+                } else if !child.is_macro_builtin()
+                    && !child.is_macro_function_like()
+                    && !child.name().is_empty()
+                    && !child.name().starts_with('_')
+                {
+                    // The token parser returned None for a candidate
+                    // object-like macro.  Defer to the batch evaluator.
+                    self.pending_macros.push(child.name());
+                }
+            }
+            _ => {}
+        }
+        Ok(())
+    }
+
+    /// Iterate the direct children of `parent` and call [`process_cursor`] for
+    /// every `CXCursor_StructDecl` or `CXCursor_UnionDecl` definition found
+    /// there, whether named or anonymous.
+    ///
+    /// This lifts nested struct/union type declarations — i.e. structs or
+    /// unions declared *inside* another struct or union body — into the
+    /// top-level collector before the outer type is processed.  Without this
+    /// step the outer struct's field types would reference names that have
+    /// never been added to the collector, producing dangling type references.
+    ///
+    /// The recursion naturally handles arbitrary nesting depth: processing
+    /// a nested struct will in turn call this function for *its* children,
+    /// so `struct A { struct B { struct C { ... } c; } b; };` is handled
+    /// correctly by emitting `C`, then `B`, then `A` into the collector.
+    fn process_nested_types(
+        &mut self,
+        parent: Cursor,
+        collector: &mut Collector,
+        extern_c: bool,
+    ) -> Result<(), Error> {
+        for nested in parent.children() {
+            if (nested.kind() == CXCursor_StructDecl || nested.kind() == CXCursor_UnionDecl)
+                && nested.is_definition()
+            {
+                self.process_cursor(nested, collector, extern_c)?;
+            }
+        }
+        Ok(())
+    }
+}
+
 #[derive(Default)]
 pub struct Clang {
     input: Vec<String>,
@@ -183,17 +365,7 @@ impl Clang {
         // types use synthetic names regardless of their C name to avoid collisions.
         assign_nested_names(tu, &mut tag_rename);
 
-        // Macros that the token-based parser cannot handle (complex
-        // expressions, references to other macros, arithmetic, etc.) are
-        // collected here and evaluated in a second pass via the
-        // synthetic-enum technique.
-        let mut pending_macros: Vec<String> = vec![];
-
-        // Typedef cursors from included/system headers that are referenced by
-        // main-file items but not yet collected.  Processed after the main
-        // walk; may grow during that processing pass as transitive typedef
-        // dependencies are discovered.
-        let mut pending_typedefs: Vec<Cursor> = vec![];
+        let mut parser = Parser::new(&self.namespace, &self.library, ref_map, tag_rename, tu);
 
         for child in tu.cursor().children() {
             // Only process cursors from the main input file (not from
@@ -220,28 +392,10 @@ impl Clang {
                     // the ref_map check inside process_cursor.
                     // A function inside `extern "C" { }` has C language linkage.
                     let extern_c = inner.language() == CXLanguage_C;
-                    self.process_cursor(
-                        inner,
-                        collector,
-                        ref_map,
-                        &tag_rename,
-                        tu,
-                        &mut pending_macros,
-                        &mut pending_typedefs,
-                        extern_c,
-                    )?;
+                    parser.process_cursor(inner, collector, extern_c)?;
                 }
             } else {
-                self.process_cursor(
-                    child,
-                    collector,
-                    ref_map,
-                    &tag_rename,
-                    tu,
-                    &mut pending_macros,
-                    &mut pending_typedefs,
-                    false,
-                )?;
+                parser.process_cursor(child, collector, false)?;
             }
         }
 
@@ -251,268 +405,25 @@ impl Clang {
         // are discovered (e.g. `typedef BYTE MY_BYTE` pulls in `BYTE` too).
         let mut seen: HashSet<String> = HashSet::new();
         let mut i = 0;
-        while i < pending_typedefs.len() {
-            let cursor = pending_typedefs[i];
+        while i < parser.pending_typedefs.len() {
+            let cursor = parser.pending_typedefs[i];
             i += 1;
             let name = cursor.name();
             // Skip if already processed, already collected, or in the reference.
             if !seen.insert(name.clone())
                 || collector.contains_key(&name)
-                || ref_map.contains_key(&name)
+                || parser.ref_map.contains_key(&name)
             {
                 continue;
             }
-            if let Some(cb) = Callback::parse(
-                cursor,
-                &self.namespace,
-                ref_map,
-                &tag_rename,
-                &mut pending_typedefs,
-            )? {
+            if let Some(cb) = Callback::parse(cursor, &mut parser)? {
                 collector.insert(Item::Callback(cb));
-            } else if let Some(td) = Typedef::parse(
-                cursor,
-                &self.namespace,
-                ref_map,
-                &tag_rename,
-                &mut pending_typedefs,
-            )? {
+            } else if let Some(td) = Typedef::parse(cursor, &mut parser)? {
                 collector.insert(Item::Typedef(td));
             }
         }
 
-        Ok(pending_macros)
-    }
-
-    /// Process a single cursor: insert the corresponding [`Item`] into
-    /// `collector` or record the name in `pending_macros` for the second-pass
-    /// evaluator.  `extern_c` is `true` when the cursor was found inside an
-    /// `extern "C" { }` block (relevant only for function declarations).
-    #[allow(clippy::too_many_arguments)]
-    fn process_cursor(
-        &self,
-        child: Cursor,
-        collector: &mut Collector,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        tu: &TranslationUnit,
-        pending_macros: &mut Vec<String>,
-        pending_typedefs: &mut Vec<Cursor>,
-        extern_c: bool,
-    ) -> Result<(), Error> {
-        match child.kind() {
-            CXCursor_StructDecl if child.is_definition() => {
-                // Recursively lift any named or anonymous nested struct/union
-                // declarations to the collector before processing the outer struct
-                // so that field type references to those nested types are already
-                // registered.
-                self.process_nested_types(
-                    child,
-                    collector,
-                    ref_map,
-                    tag_rename,
-                    tu,
-                    pending_macros,
-                    pending_typedefs,
-                    extern_c,
-                )?;
-                let tag_name = child.name();
-                // Resolve the effective public name via the tag→typedef rename map.
-                // For anonymous types the spelling is empty; use location_id instead.
-                let name = if is_anonymous_name(&tag_name) {
-                    tag_rename
-                        .get(&child.location_id())
-                        .cloned()
-                        .unwrap_or(tag_name)
-                } else {
-                    tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
-                };
-                // Skip anonymous types that were not given a synthetic name (e.g.
-                // an anonymous struct that is not nested inside any named type).
-                if is_anonymous_name(&name) {
-                    // nothing to emit
-                } else if child.has_pure_virtual_methods() {
-                    if !ref_map.contains_key(&name) {
-                        collector.insert(Item::Interface(Interface::parse(
-                            child,
-                            &self.namespace,
-                            tu,
-                            ref_map,
-                            tag_rename,
-                            pending_typedefs,
-                        )?));
-                    }
-                } else if !ref_map.contains_key(&name) {
-                    collector.insert(Item::Struct(Struct::parse(
-                        child,
-                        &self.namespace,
-                        ref_map,
-                        tag_rename,
-                        pending_typedefs,
-                        false,
-                    )?));
-                }
-            }
-            CXCursor_UnionDecl if child.is_definition() => {
-                // Recursively lift any named or anonymous nested struct/union
-                // declarations to the collector before processing the outer union.
-                self.process_nested_types(
-                    child,
-                    collector,
-                    ref_map,
-                    tag_rename,
-                    tu,
-                    pending_macros,
-                    pending_typedefs,
-                    extern_c,
-                )?;
-                let tag_name = child.name();
-                let name = if is_anonymous_name(&tag_name) {
-                    tag_rename
-                        .get(&child.location_id())
-                        .cloned()
-                        .unwrap_or(tag_name)
-                } else {
-                    tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
-                };
-                if !is_anonymous_name(&name) && !ref_map.contains_key(&name) {
-                    collector.insert(Item::Struct(Struct::parse(
-                        child,
-                        &self.namespace,
-                        ref_map,
-                        tag_rename,
-                        pending_typedefs,
-                        true,
-                    )?));
-                }
-            }
-            CXCursor_ClassDecl if child.is_definition() && child.has_pure_virtual_methods() => {
-                let tag_name = child.name();
-                let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-                if !ref_map.contains_key(&name) {
-                    collector.insert(Item::Interface(Interface::parse(
-                        child,
-                        &self.namespace,
-                        tu,
-                        ref_map,
-                        tag_rename,
-                        pending_typedefs,
-                    )?));
-                }
-            }
-            CXCursor_EnumDecl if child.is_definition() => {
-                let e = Enum::parse(child)?;
-                if is_anonymous_name(&e.name) {
-                    // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
-                    // reported by libclang with a synthesised spelling like
-                    // "(unnamed enum at file.h:6:1)" which always starts
-                    // with '('.  Each variant is emitted as a top-level
-                    // RDL constant rather than a named enum type.
-                    for (name, value) in e.variants {
-                        let const_value = enum_variant_value(e.repr, value);
-                        collector.insert(Item::Const(Const {
-                            name,
-                            value: const_value,
-                        }));
-                    }
-                } else if !ref_map.contains_key(&e.name) {
-                    collector.insert(Item::Enum(e));
-                }
-            }
-            CXCursor_TypedefDecl if child.is_definition() => {
-                let name = child.name();
-                if !ref_map.contains_key(&name) {
-                    if let Some(cb) = Callback::parse(
-                        child,
-                        &self.namespace,
-                        ref_map,
-                        tag_rename,
-                        pending_typedefs,
-                    )? {
-                        collector.insert(Item::Callback(cb));
-                    } else if let Some(td) = Typedef::parse(
-                        child,
-                        &self.namespace,
-                        ref_map,
-                        tag_rename,
-                        pending_typedefs,
-                    )? {
-                        collector.insert(Item::Typedef(td));
-                    }
-                }
-            }
-            CXCursor_FunctionDecl if !child.is_definition() => {
-                collector.insert(Item::Fn(Fn::parse(
-                    child,
-                    &self.namespace,
-                    &self.library,
-                    extern_c,
-                    ref_map,
-                    tag_rename,
-                    pending_typedefs,
-                )?));
-            }
-            CXCursor_MacroDefinition => {
-                if let Some(c) = Const::parse(child, &self.namespace, tu, ref_map)? {
-                    collector.insert(Item::Const(c));
-                } else if !child.is_macro_builtin()
-                    && !child.is_macro_function_like()
-                    && !child.name().is_empty()
-                    && !child.name().starts_with('_')
-                {
-                    // The token parser returned None for a candidate
-                    // object-like macro.  Defer to the batch evaluator.
-                    pending_macros.push(child.name());
-                }
-            }
-            _ => {}
-        }
-        Ok(())
-    }
-
-    /// Iterate the direct children of `parent` and call [`process_cursor`] for
-    /// every `CXCursor_StructDecl` or `CXCursor_UnionDecl` definition found
-    /// there, whether named or anonymous.
-    ///
-    /// This lifts nested struct/union type declarations — i.e. structs or
-    /// unions declared *inside* another struct or union body — into the
-    /// top-level collector before the outer type is processed.  Without this
-    /// step the outer struct's field types would reference names that have
-    /// never been added to the collector, producing dangling type references.
-    ///
-    /// The recursion naturally handles arbitrary nesting depth: processing
-    /// a nested struct will in turn call this function for *its* children,
-    /// so `struct A { struct B { struct C { ... } c; } b; };` is handled
-    /// correctly by emitting `C`, then `B`, then `A` into the collector.
-    #[allow(clippy::too_many_arguments)]
-    fn process_nested_types(
-        &self,
-        parent: Cursor,
-        collector: &mut Collector,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        tu: &TranslationUnit,
-        pending_macros: &mut Vec<String>,
-        pending_typedefs: &mut Vec<Cursor>,
-        extern_c: bool,
-    ) -> Result<(), Error> {
-        for nested in parent.children() {
-            if (nested.kind() == CXCursor_StructDecl || nested.kind() == CXCursor_UnionDecl)
-                && nested.is_definition()
-            {
-                self.process_cursor(
-                    nested,
-                    collector,
-                    ref_map,
-                    tag_rename,
-                    tu,
-                    pending_macros,
-                    pending_typedefs,
-                    extern_c,
-                )?;
-            }
-        }
-        Ok(())
+        Ok(parser.pending_macros)
     }
 }
 

@@ -12,13 +12,7 @@ impl Callback {
     ///
     /// Returns `Ok(Some(Callback))` when the typedef's underlying type is a pointer to a
     /// function prototype, `Ok(None)` otherwise.
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        pending: &mut Vec<Cursor>,
-    ) -> Result<Option<Self>, Error> {
+    pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Option<Self>, Error> {
         let name = cursor.name();
         if name.is_empty() || name.starts_with('_') {
             return Ok(None);
@@ -46,9 +40,7 @@ impl Callback {
             return Ok(None);
         }
 
-        let return_type = fn_type
-            .fn_result_type()
-            .to_type(namespace, ref_map, tag_rename, pending);
+        let return_type = fn_type.fn_result_type().to_type(parser);
 
         // Get parameter names from the TypedefDecl cursor's ParmDecl children.
         let param_names: Vec<String> = cursor
@@ -61,9 +53,7 @@ impl Callback {
         let num_args = fn_type.num_arg_types();
         let mut params = vec![];
         for i in 0..num_args {
-            let ty = fn_type
-                .arg_type(i as u32)
-                .to_type(namespace, ref_map, tag_rename, pending);
+            let ty = fn_type.arg_type(i as u32).to_type(parser);
             let pname = param_names
                 .get(i as usize)
                 .cloned()

@@ -7,13 +7,7 @@ pub struct Typedef {
 }
 
 impl Typedef {
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        pending: &mut Vec<Cursor>,
-    ) -> Result<Option<Self>, Error> {
+    pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Option<Self>, Error> {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();
 
@@ -40,7 +34,7 @@ impl Typedef {
             return Ok(None);
         }
 
-        let ty = underlying.to_type(namespace, ref_map, tag_rename, pending);
+        let ty = underlying.to_type(parser);
         Ok(Some(Self { name, ty }))
     }
 
