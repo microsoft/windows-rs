@@ -464,10 +464,15 @@ impl Type {
     ///
     /// `CXType_Elaborated` is unwrapped transparently because clang frequently
     /// wraps record types in an elaborated-type node in C++ mode.
+    ///
+    /// `CXType_Typedef` is also unwrapped so that forward-declared interfaces
+    /// (`typedef struct IC IC;`) are detected correctly even when the definition
+    /// of the struct appears later in the same translation unit.
     pub fn is_interface(&self) -> bool {
         match self.kind() {
             CXType_Record => self.ty().has_pure_virtual_methods(),
             CXType_Elaborated => self.underlying_type().is_interface(),
+            CXType_Typedef => self.ty().typedef_underlying_type().is_interface(),
             _ => false,
         }
     }
