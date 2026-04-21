@@ -1,6 +1,6 @@
 #[win32]
 mod Test {
-    #[repr(u32)]
+    #[repr(i32)]
     enum FooEnum {
         A = 0,
         B = 1,
