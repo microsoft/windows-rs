@@ -578,9 +578,17 @@ impl Type {
                 }
                 let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
                 if pointee.is_const() {
-                    metadata::Type::PtrConst(Box::new(inner), 1)
+                    // Flatten consecutive const-pointer levels: PtrConst(PtrConst(T, n), 1) → PtrConst(T, n+1)
+                    match inner {
+                        metadata::Type::PtrConst(t, n) => metadata::Type::PtrConst(t, n + 1),
+                        inner => metadata::Type::PtrConst(Box::new(inner), 1),
+                    }
                 } else {
-                    metadata::Type::PtrMut(Box::new(inner), 1)
+                    // Flatten consecutive mut-pointer levels: PtrMut(PtrMut(T, n), 1) → PtrMut(T, n+1)
+                    match inner {
+                        metadata::Type::PtrMut(t, n) => metadata::Type::PtrMut(t, n + 1),
+                        inner => metadata::Type::PtrMut(Box::new(inner), 1),
+                    }
                 }
             }
             CXType_LValueReference => {
