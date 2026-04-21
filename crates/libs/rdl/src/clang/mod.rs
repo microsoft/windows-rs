@@ -286,6 +286,19 @@ impl Clang {
     ) -> Result<(), Error> {
         match child.kind() {
             CXCursor_StructDecl if child.is_definition() => {
+                // Recursively lift any named nested struct/union declarations to the
+                // collector before processing the outer struct so that field type
+                // references to those nested types are already registered.
+                self.process_nested_types(
+                    child,
+                    collector,
+                    ref_map,
+                    tag_rename,
+                    tu,
+                    pending_macros,
+                    pending_typedefs,
+                    extern_c,
+                )?;
                 let tag_name = child.name();
                 // Resolve the effective public name via the tag→typedef rename map.
                 let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
@@ -312,6 +325,18 @@ impl Clang {
                 }
             }
             CXCursor_UnionDecl if child.is_definition() => {
+                // Recursively lift any named nested struct/union declarations to the
+                // collector before processing the outer union.
+                self.process_nested_types(
+                    child,
+                    collector,
+                    ref_map,
+                    tag_rename,
+                    tu,
+                    pending_macros,
+                    pending_typedefs,
+                    extern_c,
+                )?;
                 let name = child.name();
                 if !ref_map.contains_key(&name) {
                     collector.insert(Item::Struct(Struct::parse(
@@ -404,6 +429,52 @@ impl Clang {
                 }
             }
             _ => {}
+        }
+        Ok(())
+    }
+
+    /// Iterate the direct children of `parent` and recursively call
+    /// [`process_cursor`] for every named `CXCursor_StructDecl` or
+    /// `CXCursor_UnionDecl` definition found there.
+    ///
+    /// This lifts nested struct/union type declarations — i.e. structs or
+    /// unions declared *inside* another struct or union body — into the
+    /// top-level collector before the outer type is processed.  Without this
+    /// step the outer struct's field types would reference names that have
+    /// never been added to the collector, producing dangling type references.
+    ///
+    /// The recursion naturally handles arbitrary nesting depth: processing
+    /// a nested struct will in turn call this function for *its* children,
+    /// so `struct A { struct B { struct C { ... } c; } b; };` is handled
+    /// correctly by emitting `C`, then `B`, then `A` into the collector.
+    #[allow(clippy::too_many_arguments)]
+    fn process_nested_types(
+        &self,
+        parent: Cursor,
+        collector: &mut Collector,
+        ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
+        tu: &TranslationUnit,
+        pending_macros: &mut Vec<String>,
+        pending_typedefs: &mut Vec<Cursor>,
+        extern_c: bool,
+    ) -> Result<(), Error> {
+        for nested in parent.children() {
+            if (nested.kind() == CXCursor_StructDecl || nested.kind() == CXCursor_UnionDecl)
+                && nested.is_definition()
+                && !nested.name().is_empty()
+            {
+                self.process_cursor(
+                    nested,
+                    collector,
+                    ref_map,
+                    tag_rename,
+                    tu,
+                    pending_macros,
+                    pending_typedefs,
+                    extern_c,
+                )?;
+            }
         }
         Ok(())
     }

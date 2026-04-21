@@ -1,0 +1,27 @@
+#[win32]
+mod Test {
+    struct Inner {
+        x: i32,
+        y: i32,
+    }
+    struct Outer {
+        pos: Inner,
+        val: Variant,
+    }
+    struct TaggedFirst {
+        kind: i32,
+        value: i32,
+    }
+    struct TaggedSecond {
+        kind: i32,
+        fvalue: f32,
+    }
+    union TaggedUnion {
+        first: TaggedFirst,
+        second: TaggedSecond,
+    }
+    union Variant {
+        i: i32,
+        f: f32,
+    }
+}
