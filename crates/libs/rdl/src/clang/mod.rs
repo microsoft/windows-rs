@@ -626,7 +626,7 @@ fn assign_anon_children_names(
     parent: Cursor,
     tag_rename: &mut HashMap<String, String>,
 ) {
-    let mut idx = 0usize;
+    let mut index = 0usize;
     for child in parent.children() {
         let kind = child.kind();
         if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && child.is_definition() {
@@ -634,7 +634,7 @@ fn assign_anon_children_names(
             let effective_name = if is_anonymous_name(&child_name) {
                 // Anonymous type: generate a synthetic name and key it by source
                 // location (unique per declaration site, unlike the empty spelling).
-                let synthetic = format!("{outer_name}_{idx}");
+                let synthetic = format!("{outer_name}_{index}");
                 tag_rename
                     .entry(child.location_id())
                     .or_insert_with(|| synthetic.clone());
@@ -645,7 +645,7 @@ fn assign_anon_children_names(
             };
             // Recurse so that nested-nested types are handled at every depth.
             assign_anon_children_names(&effective_name, child, tag_rename);
-            idx += 1;
+            index += 1;
         }
     }
 }
