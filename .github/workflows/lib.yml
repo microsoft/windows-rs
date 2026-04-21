@@ -34,6 +34,8 @@ jobs:
         uses: ./.github/actions/fix-environment
 
       - name: Build gnu libs
+        env:
+          RUSTFLAGS: -D warnings
         shell: cmd
         run: |
           set PATH=C:\msys64\mingw64\bin;%PATH%
@@ -48,18 +50,24 @@ jobs:
           "install_path=$path" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
       - name: Build i686_msvc
+        env:
+          RUSTFLAGS: -D warnings
         shell: cmd
         run: |
           call "${{steps.visual-studio.outputs.install_path}}\VC\Auxiliary\Build\vcvars32.bat" x86
           cargo run -p tool_msvc
 
       - name: Build x86_64_msvc
+        env:
+          RUSTFLAGS: -D warnings
         shell: cmd
         run: |
           call "${{steps.visual-studio.outputs.install_path}}\VC\Auxiliary\Build\vcvars32.bat" amd64
           cargo run -p tool_msvc
 
       - name: Build aarch64_msvc
+        env:
+          RUSTFLAGS: -D warnings
         shell: cmd
         run: |
           call "${{steps.visual-studio.outputs.install_path}}\VC\Auxiliary\Build\vcvars32.bat" amd64_arm64
