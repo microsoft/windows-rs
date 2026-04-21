@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    #[guid(0xcd33ad7d_cb91_471d_a494_6a178012a31f)]
+    interface IFoo {
+        #[special]
+        fn get_Count(&self) -> u32;
+        fn get_Other(&self) -> u32;
+        fn get_NoComment(&self) -> u32;
+    }
+}

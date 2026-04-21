@@ -1,11 +1,41 @@
 use super::*;
 
+/// MIDL attributes extracted from the leading block comment of a pure-virtual
+/// method declaration. `propget` indicates a property accessor function.
+#[derive(Debug, Default)]
+struct MethodModifiers {
+    /// True when `[propget]` appears in a block comment before the method name.
+    is_propget: bool,
+}
+
+impl MethodModifiers {
+    /// Extract method modifiers by scanning `tokens` up to (but not including)
+    /// the first identifier token whose spelling equals `method_name`.
+    ///
+    /// Only `CXToken_Comment` tokens are inspected; all others are skipped.
+    /// Scanning stops at the function name to avoid reading into the parameter list.
+    fn from_tokens(tokens: &[(CXTokenKind, String)], method_name: &str) -> Self {
+        let mut modifiers = Self::default();
+        for (kind, spelling) in tokens {
+            if *kind == CXToken_Identifier && spelling == method_name {
+                break;
+            }
+            if *kind == CXToken_Comment && spelling.contains("[propget]") {
+                modifiers.is_propget = true;
+            }
+        }
+        modifiers
+    }
+}
+
 /// A single method on a COM interface, parsed from a pure-virtual `CXCursor_CXXMethod`.
 #[derive(Debug)]
 pub struct InterfaceMethod {
     pub name: String,
     pub params: Vec<Param>,
     pub return_type: metadata::Type,
+    /// True if `[propget]` was found in the block comment preceding the method name.
+    pub is_propget: bool,
 }
 
 /// A COM-style abstract interface parsed from a C++ `struct`/`class` that has at least one
@@ -68,6 +98,8 @@ impl Interface {
             }
 
             let method_name = child.name();
+            let tokens = tu.tokenize(tu.to_expansion_range(child.extent()));
+            let modifiers = MethodModifiers::from_tokens(&tokens, &method_name);
             let return_type = child
                 .result_type()
                 .to_type(namespace, ref_map, tag_rename, pending);
@@ -89,6 +121,7 @@ impl Interface {
                 name: method_name,
                 params,
                 return_type,
+                is_propget: modifiers.is_propget,
             });
         }
 
@@ -145,7 +178,12 @@ impl Interface {
                         quote! { -> #ty }
                     }
                 };
-                quote! { fn #mname(&self, #(#params),*) #return_type; }
+                let special_attr = if m.is_propget {
+                    quote! { #[special] }
+                } else {
+                    quote! {}
+                };
+                quote! { #special_attr fn #mname(&self, #(#params),*) #return_type; }
             })
             .collect();
 
