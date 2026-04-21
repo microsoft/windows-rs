@@ -459,6 +459,19 @@ impl Type {
         unsafe { clang_getArraySize(self.0) as usize }
     }
 
+    /// Returns `true` if this type is a COM-style abstract interface (a record
+    /// type whose declaration has at least one pure-virtual method).
+    ///
+    /// `CXType_Elaborated` is unwrapped transparently because clang frequently
+    /// wraps record types in an elaborated-type node in C++ mode.
+    pub fn is_interface(&self) -> bool {
+        match self.kind() {
+            CXType_Record => self.ty().has_pure_virtual_methods(),
+            CXType_Elaborated => self.underlying_type().is_interface(),
+            _ => false,
+        }
+    }
+
     /// Convert this clang type to a metadata `Type`.
     ///
     /// `tag_rename` maps C struct/enum tag names to their preferred typedef
@@ -531,6 +544,13 @@ impl Type {
                     || pointee.kind() == CXType_FunctionNoProto
                 {
                     return metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1);
+                }
+                // Interface types are implied pointers in Windows metadata and RDL:
+                // `IA*` is written as `IA` and `IA**` is written as `*mut IA`.
+                // Strip one level of pointer indirection when the pointee is an
+                // interface so the generated RDL matches the Windows convention.
+                if pointee.is_interface() {
+                    return pointee.to_type(namespace, ref_map, tag_rename, pending);
                 }
                 let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
                 if pointee.is_const() {

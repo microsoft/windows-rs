@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IA {
+        fn A(&self, a: IA);
+    }
+    #[no_guid]
+    interface IB {
+        fn A(&self, a: IA, b: IB, result: *mut IB);
+    }
+}
