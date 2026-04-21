@@ -1,7 +1,7 @@
 struct Type {};
 
 struct ITypes {
-    // Void - cannot be passed by value; exercised as pointer targets only
+    // Void
     virtual void __stdcall VoidPtrMut(void* a) = 0;           // PtrMut(Void, 1)
     virtual void __stdcall VoidPtrMut2(void** a) = 0;          // PtrMut(Void, 2)
     virtual void __stdcall VoidPtrConst(void const* a) = 0;    // PtrConst(Void, 1)
@@ -22,7 +22,7 @@ struct ITypes {
     virtual void __stdcall I8PtrMut(signed char* a) = 0;
     virtual void __stdcall I8PtrMut2(signed char** a) = 0;
     virtual void __stdcall I8PtrConst(signed char const* a) = 0;
-    virtual void __stdcall I8ArrayFixed(signed char a[5]) = 0; // ArrayFixed(I8, 5)
+    virtual void __stdcall I8ArrayFixed(signed char a[5]) = 0;
 
     // U8 (unsigned char)
     virtual void __stdcall U8Value(unsigned char a) = 0;
@@ -31,7 +31,7 @@ struct ITypes {
     virtual void __stdcall U8PtrMut(unsigned char* a) = 0;
     virtual void __stdcall U8PtrMut2(unsigned char** a) = 0;
     virtual void __stdcall U8PtrConst(unsigned char const* a) = 0;
-    virtual void __stdcall U8ArrayFixed(unsigned char a[5]) = 0; // ArrayFixed(U8, 5)
+    virtual void __stdcall U8ArrayFixed(unsigned char a[5]) = 0;
 
     // I16 (short)
     virtual void __stdcall I16Value(short a) = 0;
@@ -40,7 +40,7 @@ struct ITypes {
     virtual void __stdcall I16PtrMut(short* a) = 0;
     virtual void __stdcall I16PtrMut2(short** a) = 0;
     virtual void __stdcall I16PtrConst(short const* a) = 0;
-    virtual void __stdcall I16ArrayFixed(short a[5]) = 0;      // ArrayFixed(I16, 5)
+    virtual void __stdcall I16ArrayFixed(short a[5]) = 0;
 
     // U16 (unsigned short)
     virtual void __stdcall U16Value(unsigned short a) = 0;
@@ -49,7 +49,7 @@ struct ITypes {
     virtual void __stdcall U16PtrMut(unsigned short* a) = 0;
     virtual void __stdcall U16PtrMut2(unsigned short** a) = 0;
     virtual void __stdcall U16PtrConst(unsigned short const* a) = 0;
-    virtual void __stdcall U16ArrayFixed(unsigned short a[5]) = 0; // ArrayFixed(U16, 5)
+    virtual void __stdcall U16ArrayFixed(unsigned short a[5]) = 0;
 
     // I32 (int)
     virtual void __stdcall I32Value(int a) = 0;
@@ -58,7 +58,7 @@ struct ITypes {
     virtual void __stdcall I32PtrMut(int* a) = 0;
     virtual void __stdcall I32PtrMut2(int** a) = 0;
     virtual void __stdcall I32PtrConst(int const* a) = 0;
-    virtual void __stdcall I32ArrayFixed(int a[5]) = 0;        // ArrayFixed(I32, 5)
+    virtual void __stdcall I32ArrayFixed(int a[5]) = 0;
 
     // U32 (unsigned int)
     virtual void __stdcall U32Value(unsigned int a) = 0;
@@ -67,7 +67,7 @@ struct ITypes {
     virtual void __stdcall U32PtrMut(unsigned int* a) = 0;
     virtual void __stdcall U32PtrMut2(unsigned int** a) = 0;
     virtual void __stdcall U32PtrConst(unsigned int const* a) = 0;
-    virtual void __stdcall U32ArrayFixed(unsigned int a[5]) = 0; // ArrayFixed(U32, 5)
+    virtual void __stdcall U32ArrayFixed(unsigned int a[5]) = 0;
 
     // I64 (long long)
     virtual void __stdcall I64Value(long long a) = 0;
@@ -76,7 +76,7 @@ struct ITypes {
     virtual void __stdcall I64PtrMut(long long* a) = 0;
     virtual void __stdcall I64PtrMut2(long long** a) = 0;
     virtual void __stdcall I64PtrConst(long long const* a) = 0;
-    virtual void __stdcall I64ArrayFixed(long long a[5]) = 0;  // ArrayFixed(I64, 5)
+    virtual void __stdcall I64ArrayFixed(long long a[5]) = 0;
 
     // U64 (unsigned long long)
     virtual void __stdcall U64Value(unsigned long long a) = 0;
@@ -85,7 +85,7 @@ struct ITypes {
     virtual void __stdcall U64PtrMut(unsigned long long* a) = 0;
     virtual void __stdcall U64PtrMut2(unsigned long long** a) = 0;
     virtual void __stdcall U64PtrConst(unsigned long long const* a) = 0;
-    virtual void __stdcall U64ArrayFixed(unsigned long long a[5]) = 0; // ArrayFixed(U64, 5)
+    virtual void __stdcall U64ArrayFixed(unsigned long long a[5]) = 0;
 
     // F32 (float)
     virtual void __stdcall F32Value(float a) = 0;
@@ -94,7 +94,7 @@ struct ITypes {
     virtual void __stdcall F32PtrMut(float* a) = 0;
     virtual void __stdcall F32PtrMut2(float** a) = 0;
     virtual void __stdcall F32PtrConst(float const* a) = 0;
-    virtual void __stdcall F32ArrayFixed(float a[5]) = 0;      // ArrayFixed(F32, 5)
+    virtual void __stdcall F32ArrayFixed(float a[5]) = 0;
 
     // F64 (double)
     virtual void __stdcall F64Value(double a) = 0;
@@ -103,7 +103,7 @@ struct ITypes {
     virtual void __stdcall F64PtrMut(double* a) = 0;
     virtual void __stdcall F64PtrMut2(double** a) = 0;
     virtual void __stdcall F64PtrConst(double const* a) = 0;
-    virtual void __stdcall F64ArrayFixed(double a[5]) = 0;     // ArrayFixed(F64, 5)
+    virtual void __stdcall F64ArrayFixed(double a[5]) = 0;
 
     // U16 (wchar_t - an alias for u16 in Windows metadata)
     virtual void __stdcall WCharValue(wchar_t a) = 0;
@@ -112,14 +112,14 @@ struct ITypes {
     virtual void __stdcall WCharPtrMut(wchar_t* a) = 0;
     virtual void __stdcall WCharPtrMut2(wchar_t** a) = 0;
     virtual void __stdcall WCharPtrConst(wchar_t const* a) = 0;
-    virtual void __stdcall WCharArrayFixed(wchar_t a[5]) = 0;  // ArrayFixed(U16, 5)
+    virtual void __stdcall WCharArrayFixed(wchar_t a[5]) = 0;
 
     // ValueName (user-defined struct)
-    virtual void __stdcall TypeValue(Type a) = 0;              // ValueName
-    virtual void __stdcall TypeRefMut(Type& a) = 0;            // RefMut(ValueName)
-    virtual void __stdcall TypeRefConst(Type const& a) = 0;    // RefConst(ValueName)
-    virtual void __stdcall TypePtrMut(Type* a) = 0;            // PtrMut(ValueName, 1)
-    virtual void __stdcall TypePtrMut2(Type** a) = 0;          // PtrMut(ValueName, 2)
-    virtual void __stdcall TypePtrConst(Type const* a) = 0;    // PtrConst(ValueName, 1)
-    virtual void __stdcall TypeArrayFixed(Type a[5]) = 0;      // ArrayFixed(ValueName, 5)
+    virtual void __stdcall TypeValue(Type a) = 0;
+    virtual void __stdcall TypeRefMut(Type& a) = 0;
+    virtual void __stdcall TypeRefConst(Type const& a) = 0;
+    virtual void __stdcall TypePtrMut(Type* a) = 0;
+    virtual void __stdcall TypePtrMut2(Type** a) = 0;
+    virtual void __stdcall TypePtrConst(Type const* a) = 0;
+    virtual void __stdcall TypeArrayFixed(Type a[5]) = 0;
 };
