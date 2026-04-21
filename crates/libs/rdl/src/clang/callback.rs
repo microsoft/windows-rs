@@ -39,6 +39,13 @@ impl Callback {
             None => return Ok(None),
         };
 
+        // Variadic function-pointer typedefs (e.g. `typedef int (*printf_t)(const char*, ...)`)
+        // cannot be represented as Windows metadata callbacks.  Skip them; the caller will
+        // fall through to Typedef::parse which emits a `type` alias instead.
+        if fn_type.is_variadic() {
+            return Ok(None);
+        }
+
         let return_type = fn_type
             .fn_result_type()
             .to_type(namespace, ref_map, tag_rename, pending);

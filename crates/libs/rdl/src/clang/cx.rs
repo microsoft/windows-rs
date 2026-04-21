@@ -503,6 +503,12 @@ impl Type {
         unsafe { clang_getArraySize(self.0) as usize }
     }
 
+    /// Returns `true` if this is a variadic function type (has a trailing `...`
+    /// parameter).  For a `CXCursor_FunctionDecl` cursor call `cursor.ty().is_variadic()`.
+    pub fn is_variadic(&self) -> bool {
+        unsafe { clang_isFunctionTypeVariadic(self.0) != 0 }
+    }
+
     /// Returns `true` if this type is a COM-style abstract interface (a record
     /// type whose declaration has at least one pure-virtual method).
     ///

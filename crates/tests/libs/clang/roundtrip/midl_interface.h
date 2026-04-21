@@ -14,3 +14,13 @@ public:
     virtual int __stdcall GetRuntimeClassName(void** className) = 0;
     virtual int __stdcall GetTrustLevel(int* trustLevel) = 0;
 };
+
+// IThird is unique to midl_interface.h and exercises a third consecutive
+// MIDL_INTERFACE expansion.  This keeps the golden file distinct from
+// interface.rdl (which only has IBase and IDerived) while ensuring the
+// expansion-range UUID extraction fix works for more than two interfaces.
+MIDL_INTERFACE("CAFEBABE-CAFE-BABE-CAFE-BABECAFEBABE")
+IThird : public IDerived {
+public:
+    virtual int __stdcall Execute(int command) = 0;
+};

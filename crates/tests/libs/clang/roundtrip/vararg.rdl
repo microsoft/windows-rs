@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn VarArgCFn(count: u32, ...) -> i32;
+    #[library("test.dll")]
+    extern fn VarArgFn(count: u32, ...) -> i32;
+}

@@ -7,6 +7,7 @@ pub struct Fn {
     pub params: Vec<Param>,
     pub return_type: metadata::Type,
     pub extern_c: bool,
+    pub is_variadic: bool,
 }
 
 impl Fn {
@@ -23,6 +24,8 @@ impl Fn {
         let return_type = cursor
             .result_type()
             .to_type(namespace, ref_map, tag_rename, pending);
+
+        let is_variadic = cursor.ty().is_variadic();
 
         let mut params = vec![];
 
@@ -42,6 +45,7 @@ impl Fn {
             params,
             return_type,
             extern_c,
+            is_variadic,
         })
     }
 
@@ -49,11 +53,19 @@ impl Fn {
         let name = write_ident(&self.name);
         let library = &self.library;
 
-        let params = self.params.iter().map(|param| {
-            let name = write_ident(&param.name);
-            let ty = write_type(namespace, &param.ty);
-            quote! { #name: #ty }
-        });
+        let mut params: Vec<TokenStream> = self
+            .params
+            .iter()
+            .map(|param| {
+                let name = write_ident(&param.name);
+                let ty = write_type(namespace, &param.ty);
+                quote! { #name: #ty }
+            })
+            .collect();
+
+        if self.is_variadic {
+            params.push(quote! { ... });
+        }
 
         let return_type = match &self.return_type {
             metadata::Type::Void => quote! {},
