@@ -583,6 +583,15 @@ impl Type {
                     metadata::Type::PtrMut(Box::new(inner), 1)
                 }
             }
+            CXType_LValueReference => {
+                let pointee = self.pointee_type();
+                let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
+                if pointee.is_const() {
+                    metadata::Type::RefConst(Box::new(inner))
+                } else {
+                    metadata::Type::RefMut(Box::new(inner))
+                }
+            }
             CXType_ConstantArray => {
                 let element = self
                     .array_element_type()
