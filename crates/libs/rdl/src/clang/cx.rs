@@ -316,8 +316,23 @@ impl Cursor {
 
     /// Returns true if this struct/class cursor has at least one pure-virtual method, indicating
     /// that it is a COM-style abstract interface rather than a plain data struct.
+    ///
+    /// When the cursor is a forward declaration (e.g. produced by `typedef struct IC IC;`
+    /// before the definition has been seen), `clang_getCursorDefinition` is used to follow
+    /// to the actual definition cursor whose children include the method declarations.
     pub fn has_pure_virtual_methods(&self) -> bool {
-        self.children()
+        // clang_getCursorDefinition returns the definition cursor if one exists, or a
+        // null cursor if no definition is available.  For a forward declaration that was
+        // created before the struct body was parsed, the definition is a *different*
+        // cursor node and only that node has CXCursor_CXXMethod children.
+        let defn = unsafe { clang_getCursorDefinition(self.0) };
+        let cursor = if unsafe { clang_Cursor_isNull(defn) } == 0 {
+            Cursor(defn)
+        } else {
+            Cursor(self.0)
+        };
+        cursor
+            .children()
             .iter()
             .any(|c| c.kind() == CXCursor_CXXMethod && c.is_pure_virtual())
     }
@@ -459,6 +474,28 @@ impl Type {
         unsafe { clang_getArraySize(self.0) as usize }
     }
 
+    /// Returns `true` if this type is a COM-style abstract interface (a record
+    /// type whose declaration has at least one pure-virtual method).
+    ///
+    /// `CXType_Elaborated` is unwrapped transparently because clang frequently
+    /// wraps record types in an elaborated-type node in C++ mode.
+    ///
+    /// `CXType_Typedef` is also unwrapped so that forward-declared interfaces
+    /// (`typedef struct IC IC;`) are detected correctly when the pointee type
+    /// is represented as the typedef rather than the underlying record.
+    ///
+    /// `has_pure_virtual_methods()` additionally follows `clang_getCursorDefinition`
+    /// so that a forward-declaration cursor (which has no children) never
+    /// falsely suppresses interface detection.
+    pub fn is_interface(&self) -> bool {
+        match self.kind() {
+            CXType_Record => self.ty().has_pure_virtual_methods(),
+            CXType_Elaborated => self.underlying_type().is_interface(),
+            CXType_Typedef => self.ty().typedef_underlying_type().is_interface(),
+            _ => false,
+        }
+    }
+
     /// Convert this clang type to a metadata `Type`.
     ///
     /// `tag_rename` maps C struct/enum tag names to their preferred typedef
@@ -531,6 +568,13 @@ impl Type {
                     || pointee.kind() == CXType_FunctionNoProto
                 {
                     return metadata::Type::PtrMut(Box::new(metadata::Type::U8), 1);
+                }
+                // Interface types are implied pointers in Windows metadata and RDL:
+                // `IA*` is written as `IA` and `IA**` is written as `*mut IA`.
+                // Strip one level of pointer indirection when the pointee is an
+                // interface so the generated RDL matches the Windows convention.
+                if pointee.is_interface() {
+                    return pointee.to_type(namespace, ref_map, tag_rename, pending);
                 }
                 let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
                 if pointee.is_const() {
