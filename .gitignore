@@ -1,6 +1,7 @@
 /.vscode
 /.vs
 /target
+/llvm
 *.lock
 *.winmd
 obj
