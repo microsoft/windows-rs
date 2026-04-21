@@ -90,22 +90,9 @@ impl Clang {
 
         let reference = metadata::reader::TypeIndex::new(winmd_files);
 
-        // Build a map from type name to namespace for all types in the reference.
-        // This is used to suppress locally-defined types that already exist in
-        // the reference metadata and to emit qualified names when referencing them.
-        // Only types whose short name is unique across all reference namespaces are
-        // included; ambiguous names (same short name in multiple namespaces) are
-        // excluded so that unqualified C/C++ references are not silently mapped to
-        // a potentially wrong namespace.
-        let mut name_count: HashMap<String, usize> = HashMap::new();
-        for (_, name, _) in reference.iter() {
-            *name_count.entry(name.to_string()).or_insert(0) += 1;
-        }
         let mut ref_map: HashMap<String, String> = HashMap::new();
         for (namespace, name, _) in reference.iter() {
-            if name_count.get(name).copied().unwrap_or(0) == 1 {
-                ref_map.insert(name.to_string(), namespace.to_string());
-            }
+            ref_map.insert(name.to_string(), namespace.to_string());
         }
 
         let _library = Library::new()?;
@@ -313,6 +300,19 @@ impl Clang {
                         ref_map,
                         tag_rename,
                         pending_typedefs,
+                        false,
+                    )?));
+                }
+            }
+            CXCursor_UnionDecl if child.is_definition() => {
+                let name = child.name();
+                if !ref_map.contains_key(&name) {
+                    collector.insert(Item::Struct(Struct::parse(
+                        child,
+                        &self.namespace,
+                        ref_map,
+                        pending_typedefs,
+                        true,
                     )?));
                 }
             }
