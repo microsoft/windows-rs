@@ -252,13 +252,21 @@ impl Clang {
             {
                 continue;
             }
-            if let Some(cb) =
-                Callback::parse(cursor, &self.namespace, ref_map, &tag_rename, &mut pending_typedefs)?
-            {
+            if let Some(cb) = Callback::parse(
+                cursor,
+                &self.namespace,
+                ref_map,
+                &tag_rename,
+                &mut pending_typedefs,
+            )? {
                 collector.insert(Item::Callback(cb));
-            } else if let Some(td) =
-                Typedef::parse(cursor, &self.namespace, ref_map, &tag_rename, &mut pending_typedefs)?
-            {
+            } else if let Some(td) = Typedef::parse(
+                cursor,
+                &self.namespace,
+                ref_map,
+                &tag_rename,
+                &mut pending_typedefs,
+            )? {
                 collector.insert(Item::Typedef(td));
             }
         }
@@ -270,6 +278,7 @@ impl Clang {
     /// `collector` or record the name in `pending_macros` for the second-pass
     /// evaluator.  `extern_c` is `true` when the cursor was found inside an
     /// `extern "C" { }` block (relevant only for function declarations).
+    #[allow(clippy::too_many_arguments)]
     fn process_cursor(
         &self,
         child: Cursor,
@@ -343,13 +352,21 @@ impl Clang {
             CXCursor_TypedefDecl if child.is_definition() => {
                 let name = child.name();
                 if !ref_map.contains_key(&name) {
-                    if let Some(cb) =
-                        Callback::parse(child, &self.namespace, ref_map, tag_rename, pending_typedefs)?
-                    {
+                    if let Some(cb) = Callback::parse(
+                        child,
+                        &self.namespace,
+                        ref_map,
+                        tag_rename,
+                        pending_typedefs,
+                    )? {
                         collector.insert(Item::Callback(cb));
-                    } else if let Some(td) =
-                        Typedef::parse(child, &self.namespace, ref_map, tag_rename, pending_typedefs)?
-                    {
+                    } else if let Some(td) = Typedef::parse(
+                        child,
+                        &self.namespace,
+                        ref_map,
+                        tag_rename,
+                        pending_typedefs,
+                    )? {
                         collector.insert(Item::Typedef(td));
                     }
                 }

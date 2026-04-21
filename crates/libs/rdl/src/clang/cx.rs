@@ -502,10 +502,9 @@ impl Type {
                 let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
                 metadata::Type::value_named(ns, &name)
             }
-            CXType_Elaborated => {
-                self.underlying_type()
-                    .to_type(namespace, ref_map, tag_rename, pending)
-            }
+            CXType_Elaborated => self
+                .underlying_type()
+                .to_type(namespace, ref_map, tag_rename, pending),
             CXType_Typedef => {
                 let decl = self.ty();
                 let name = decl.name();
