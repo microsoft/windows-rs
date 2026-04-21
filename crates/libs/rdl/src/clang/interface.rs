@@ -1,10 +1,7 @@
 use super::*;
 
-/// Method modifier flags extracted from the leading block comment of a pure-virtual
-/// method declaration.
-///
-/// This struct is intentionally designed to be extended with additional modifier
-/// fields as new attributes are supported.
+/// MIDL attributes extracted from the leading block comment of a pure-virtual
+/// method declaration. `propget` indicates a property accessor function.
 #[derive(Debug, Default)]
 struct MethodModifiers {
     /// True when `[propget]` appears in a block comment before the method name.
