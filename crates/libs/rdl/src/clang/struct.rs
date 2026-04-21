@@ -19,7 +19,7 @@ impl Struct {
         let tag_name = cursor.name();
         // Use the public typedef alias if one exists (e.g. `_TEST` → `TEST`).
         // For anonymous types the spelling is empty; fall back to location_id.
-        let name = if tag_name.is_empty() || tag_name.starts_with('(') {
+        let name = if is_anonymous_name(&tag_name) {
             tag_rename
                 .get(&cursor.location_id())
                 .cloned()

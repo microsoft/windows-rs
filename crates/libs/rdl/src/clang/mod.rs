@@ -310,7 +310,7 @@ impl Clang {
                 let tag_name = child.name();
                 // Resolve the effective public name via the tag→typedef rename map.
                 // For anonymous types the spelling is empty; use location_id instead.
-                let name = if tag_name.is_empty() || tag_name.starts_with('(') {
+                let name = if is_anonymous_name(&tag_name) {
                     tag_rename
                         .get(&child.location_id())
                         .cloned()
@@ -320,7 +320,7 @@ impl Clang {
                 };
                 // Skip anonymous types that were not given a synthetic name (e.g.
                 // an anonymous struct that is not nested inside any named type).
-                if name.is_empty() || name.starts_with('(') {
+                if is_anonymous_name(&name) {
                     // nothing to emit
                 } else if child.has_pure_virtual_methods() {
                     if !ref_map.contains_key(&name) {
@@ -358,7 +358,7 @@ impl Clang {
                     extern_c,
                 )?;
                 let tag_name = child.name();
-                let name = if tag_name.is_empty() || tag_name.starts_with('(') {
+                let name = if is_anonymous_name(&tag_name) {
                     tag_rename
                         .get(&child.location_id())
                         .cloned()
@@ -366,7 +366,7 @@ impl Clang {
                 } else {
                     tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
                 };
-                if !name.is_empty() && !name.starts_with('(') && !ref_map.contains_key(&name) {
+                if !is_anonymous_name(&name) && !ref_map.contains_key(&name) {
                     collector.insert(Item::Struct(Struct::parse(
                         child,
                         &self.namespace,
@@ -393,7 +393,7 @@ impl Clang {
             }
             CXCursor_EnumDecl if child.is_definition() => {
                 let e = Enum::parse(child)?;
-                if e.name.is_empty() || e.name.starts_with('(') {
+                if is_anonymous_name(&e.name) {
                     // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
                     // reported by libclang with a synthesised spelling like
                     // "(unnamed enum at file.h:6:1)" which always starts
@@ -605,7 +605,7 @@ fn visit_for_anon_names(cursor: Cursor, tag_rename: &mut HashMap<String, String>
     if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && cursor.is_definition() {
         let tag_name = cursor.name();
         // Skip anonymous top-level types – they have no outer name to derive from.
-        if tag_name.is_empty() || tag_name.starts_with('(') {
+        if is_anonymous_name(&tag_name) {
             return;
         }
         let outer_name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
@@ -631,7 +631,7 @@ fn assign_anon_children_names(
         let kind = child.kind();
         if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && child.is_definition() {
             let child_name = child.name();
-            let effective_name = if child_name.is_empty() || child_name.starts_with('(') {
+            let effective_name = if is_anonymous_name(&child_name) {
                 // Anonymous type: generate a synthetic name and key it by source
                 // location (unique per declaration site, unlike the empty spelling).
                 let synthetic = format!("{outer_name}_{idx}");

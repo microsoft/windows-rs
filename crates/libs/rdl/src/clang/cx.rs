@@ -429,8 +429,7 @@ impl Cursor {
             let mut file: CXFile = std::ptr::null_mut();
             let mut line: u32 = 0;
             let mut col: u32 = 0;
-            let mut offset: u32 = 0;
-            clang_getExpansionLocation(loc, &mut file, &mut line, &mut col, &mut offset);
+            clang_getExpansionLocation(loc, &mut file, &mut line, &mut col, std::ptr::null_mut());
             let filename = if file.is_null() {
                 String::new()
             } else {
@@ -561,7 +560,7 @@ impl Type {
                 // For anonymous types (empty or "(anonymous …)") the cursor
                 // spelling is not a usable key; fall back to the source
                 // location which is unique per declaration site.
-                let name = if tag_name.is_empty() || tag_name.starts_with('(') {
+                let name = if is_anonymous_name(&tag_name) {
                     tag_rename
                         .get(&decl.location_id())
                         .cloned()
@@ -666,6 +665,15 @@ pub fn is_uuid_format(s: &str) -> bool {
         .iter()
         .zip(lengths.iter())
         .all(|(p, &l)| p.len() == l && p.chars().all(|c| c.is_ascii_hexdigit()))
+}
+
+/// Returns `true` if `name` is the spelling of an anonymous struct/union.
+///
+/// `clang_getCursorSpelling` returns `""` for anonymous types on most libclang
+/// versions; some versions return a synthesised string beginning with `"("`.
+/// Both forms are treated as anonymous.
+pub fn is_anonymous_name(name: &str) -> bool {
+    name.is_empty() || name.starts_with('(')
 }
 
 fn to_string(cxstr: CXString) -> String {
