@@ -47,6 +47,51 @@ fn roundtrip() {
     }
 }
 
+/// Verifies that a pure-virtual method preceded by a `/* ... [propget] ... */`
+/// block comment emits `#[special]`, while methods with no such comment do not.
+#[test]
+fn propget() {
+    let output = "tests/propget.rdl";
+    windows_rdl::clang()
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .input_str(
+            r#"
+struct __declspec(uuid("cd33ad7d-cb91-471d-a494-6a178012a31f"))
+IFoo {
+    virtual /* [id][helpstring][propget] */ unsigned int __stdcall get_Count() = 0;
+    virtual /* [helpstring] */ unsigned int __stdcall get_Other() = 0;
+    virtual unsigned int __stdcall get_NoComment() = 0;
+};
+"#,
+        )
+        .output(output)
+        .namespace("Test")
+        .write()
+        .unwrap();
+
+    let rdl = std::fs::read_to_string(output).unwrap();
+    // get_Count has [propget] → must emit #[special].
+    assert!(
+        rdl.contains("#[special]"),
+        "#[special] must appear in the RDL; got:\n{rdl}"
+    );
+    // get_Other has no [propget] → must not emit #[special] before get_Other.
+    assert!(
+        !rdl.contains("#[special]\n        fn get_Other"),
+        "get_Other must not have #[special]; got:\n{rdl}"
+    );
+    // get_NoComment has no comment at all → must not emit #[special] before get_NoComment.
+    assert!(
+        !rdl.contains("#[special]\n        fn get_NoComment"),
+        "get_NoComment must not have #[special]; got:\n{rdl}"
+    );
+}
+
 /// Verifies that `typedef struct _TAG {} ALIAS, *PALIAS;` correctly uses
 /// `ALIAS` as the struct name in the generated RDL instead of `_TAG`, and
 /// that pointer typedefs (like `PALIAS`) reference `ALIAS` not `_TAG`.
