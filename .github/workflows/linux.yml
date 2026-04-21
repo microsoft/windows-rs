@@ -41,8 +41,8 @@ jobs:
           version: "18"
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
-      - name: Symlink libtinfo.so.5 (Linux)
-        run: sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+      - name: Install libtinfo5 (Linux)
+        run: sudo apt-get install -y libtinfo5
       - name: Run test_linux
         run: cargo test -p test_linux --target x86_64-unknown-linux-gnu
       - name: Run test_clang
