@@ -16,7 +16,12 @@ fn roundtrip() {
         let reference = "../../../libs/bindgen/default";
 
         clang()
-            .args(["-x", "c++", "-fdeclspec"])
+            .args([
+                "-x",
+                "c++",
+                "--target=x86_64-pc-windows-msvc",
+                "-fms-extensions",
+            ])
             .input(&h)
             .input(reference)
             .output(&rdl)
