@@ -415,6 +415,30 @@ impl Cursor {
     pub fn language(&self) -> CXLanguageKind {
         unsafe { clang_getCursorLanguage(self.0) }
     }
+
+    /// Returns a stable string key `"filename:line:col"` that uniquely
+    /// identifies this cursor's source location within a translation unit.
+    ///
+    /// This is used to key anonymous struct/union declarations in the
+    /// `tag_rename` map because `clang_getCursorSpelling` returns an empty
+    /// string for every anonymous type, making the spelling unsuitable as a
+    /// unique identifier.
+    pub fn location_id(&self) -> String {
+        unsafe {
+            let loc = clang_getCursorLocation(self.0);
+            let mut file: CXFile = std::ptr::null_mut();
+            let mut line: u32 = 0;
+            let mut col: u32 = 0;
+            let mut offset: u32 = 0;
+            clang_getExpansionLocation(loc, &mut file, &mut line, &mut col, &mut offset);
+            let filename = if file.is_null() {
+                String::new()
+            } else {
+                to_string(clang_getFileName(file))
+            };
+            format!("{filename}:{line}:{col}")
+        }
+    }
 }
 
 pub struct Type(CXType);
@@ -532,10 +556,21 @@ impl Type {
             CXType_Double => metadata::Type::F64,
             CXType_WChar => metadata::Type::U16,
             CXType_Enum | CXType_Record => {
-                let tag_name = self.ty().name();
-                // Apply the tag→typedef rename so that the internal tag (e.g. `_TEST`)
-                // is always replaced by its public typedef alias (e.g. `TEST`).
-                let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+                let decl = self.ty();
+                let tag_name = decl.name();
+                // For anonymous types (empty or "(anonymous …)") the cursor
+                // spelling is not a usable key; fall back to the source
+                // location which is unique per declaration site.
+                let name = if tag_name.is_empty() || tag_name.starts_with('(') {
+                    tag_rename
+                        .get(&decl.location_id())
+                        .cloned()
+                        .unwrap_or(tag_name)
+                } else {
+                    // Apply the tag→typedef rename so that the internal tag (e.g. `_TEST`)
+                    // is always replaced by its public typedef alias (e.g. `TEST`).
+                    tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                };
                 let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
                 metadata::Type::value_named(ns, &name)
             }
