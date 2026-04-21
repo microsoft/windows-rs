@@ -26,22 +26,20 @@ concurrency:
 jobs:
   linux:
     runs-on: ubuntu-22.04
+
+    env:
+      RUSTFLAGS: -D warnings
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
       - name: Run test_linux
-        env:
-          RUSTFLAGS: -D warnings
         run: cargo test -p test_linux --target x86_64-unknown-linux-gnu
       - name: Run test_clang
-        env:
-          RUSTFLAGS: -D warnings
         run: cargo test -p test_clang --target x86_64-unknown-linux-gnu
       - name: Run test_rdl
-        env:
-          RUSTFLAGS: -D warnings
         run: cargo test -p test_rdl --target x86_64-unknown-linux-gnu
       - name: Check diff
         shell: bash

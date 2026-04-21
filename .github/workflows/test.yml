@@ -47,6 +47,9 @@ jobs:
 
     runs-on: ${{ matrix.runner }}
 
+    env:
+      RUSTFLAGS: -D warnings
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -68,8 +71,6 @@ jobs:
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
         shell: bash
       - name: Test
-        env:
-          RUSTFLAGS: -D warnings
         run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc
       - name: Check diff
         shell: bash
