@@ -172,7 +172,16 @@ impl Clang {
         // Build a map from struct/enum tag names to their preferred public typedef
         // aliases.  This handles the C idiom `typedef struct _TAG {} TAG, *PTAG;`
         // where `_TAG` is the internal tag and `TAG` is the intended public name.
-        let tag_rename = build_tag_rename_map(tu);
+        let mut tag_rename = build_tag_rename_map(tu);
+
+        // Extend tag_rename with synthetic names for all nested struct/union
+        // types, using the source location as the key for anonymous types (since
+        // anonymous type cursors all return an empty spelling) and the tag name
+        // as the key for named types.  Synthetic names follow the writer's scheme:
+        // `{OuterName}_{index}` where index is the 0-based position of the nested
+        // definition among all struct/union definitions in the parent.  All nested
+        // types use synthetic names regardless of their C name to avoid collisions.
+        assign_nested_names(tu, &mut tag_rename);
 
         // Macros that the token-based parser cannot handle (complex
         // expressions, references to other macros, arithmetic, etc.) are
@@ -293,10 +302,36 @@ impl Clang {
     ) -> Result<(), Error> {
         match child.kind() {
             CXCursor_StructDecl if child.is_definition() => {
+                // Recursively lift any named or anonymous nested struct/union
+                // declarations to the collector before processing the outer struct
+                // so that field type references to those nested types are already
+                // registered.
+                self.process_nested_types(
+                    child,
+                    collector,
+                    ref_map,
+                    tag_rename,
+                    tu,
+                    pending_macros,
+                    pending_typedefs,
+                    extern_c,
+                )?;
                 let tag_name = child.name();
                 // Resolve the effective public name via the tag→typedef rename map.
-                let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-                if child.has_pure_virtual_methods() {
+                // For anonymous types the spelling is empty; use location_id instead.
+                let name = if is_anonymous_name(&tag_name) {
+                    tag_rename
+                        .get(&child.location_id())
+                        .cloned()
+                        .unwrap_or(tag_name)
+                } else {
+                    tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                };
+                // Skip anonymous types that were not given a synthetic name (e.g.
+                // an anonymous struct that is not nested inside any named type).
+                if is_anonymous_name(&name) {
+                    // nothing to emit
+                } else if child.has_pure_virtual_methods() {
                     if !ref_map.contains_key(&name) {
                         collector.insert(Item::Interface(Interface::parse(
                             child,
@@ -319,8 +354,28 @@ impl Clang {
                 }
             }
             CXCursor_UnionDecl if child.is_definition() => {
-                let name = child.name();
-                if !ref_map.contains_key(&name) {
+                // Recursively lift any named or anonymous nested struct/union
+                // declarations to the collector before processing the outer union.
+                self.process_nested_types(
+                    child,
+                    collector,
+                    ref_map,
+                    tag_rename,
+                    tu,
+                    pending_macros,
+                    pending_typedefs,
+                    extern_c,
+                )?;
+                let tag_name = child.name();
+                let name = if is_anonymous_name(&tag_name) {
+                    tag_rename
+                        .get(&child.location_id())
+                        .cloned()
+                        .unwrap_or(tag_name)
+                } else {
+                    tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                };
+                if !is_anonymous_name(&name) && !ref_map.contains_key(&name) {
                     collector.insert(Item::Struct(Struct::parse(
                         child,
                         &self.namespace,
@@ -347,7 +402,7 @@ impl Clang {
             }
             CXCursor_EnumDecl if child.is_definition() => {
                 let e = Enum::parse(child)?;
-                if e.name.is_empty() || e.name.starts_with('(') {
+                if is_anonymous_name(&e.name) {
                     // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
                     // reported by libclang with a synthesised spelling like
                     // "(unnamed enum at file.h:6:1)" which always starts
@@ -411,6 +466,51 @@ impl Clang {
                 }
             }
             _ => {}
+        }
+        Ok(())
+    }
+
+    /// Iterate the direct children of `parent` and call [`process_cursor`] for
+    /// every `CXCursor_StructDecl` or `CXCursor_UnionDecl` definition found
+    /// there, whether named or anonymous.
+    ///
+    /// This lifts nested struct/union type declarations — i.e. structs or
+    /// unions declared *inside* another struct or union body — into the
+    /// top-level collector before the outer type is processed.  Without this
+    /// step the outer struct's field types would reference names that have
+    /// never been added to the collector, producing dangling type references.
+    ///
+    /// The recursion naturally handles arbitrary nesting depth: processing
+    /// a nested struct will in turn call this function for *its* children,
+    /// so `struct A { struct B { struct C { ... } c; } b; };` is handled
+    /// correctly by emitting `C`, then `B`, then `A` into the collector.
+    #[allow(clippy::too_many_arguments)]
+    fn process_nested_types(
+        &self,
+        parent: Cursor,
+        collector: &mut Collector,
+        ref_map: &HashMap<String, String>,
+        tag_rename: &HashMap<String, String>,
+        tu: &TranslationUnit,
+        pending_macros: &mut Vec<String>,
+        pending_typedefs: &mut Vec<Cursor>,
+        extern_c: bool,
+    ) -> Result<(), Error> {
+        for nested in parent.children() {
+            if (nested.kind() == CXCursor_StructDecl || nested.kind() == CXCursor_UnionDecl)
+                && nested.is_definition()
+            {
+                self.process_cursor(
+                    nested,
+                    collector,
+                    ref_map,
+                    tag_rename,
+                    tu,
+                    pending_macros,
+                    pending_typedefs,
+                    extern_c,
+                )?;
+            }
         }
         Ok(())
     }
@@ -479,6 +579,82 @@ fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, String>) {
             // First typedef wins (for `typedef struct _T {} T, *PT;`, `T` is
             // registered because it appears before the pointer typedef `PT`).
             map.entry(tag_name).or_insert(typedef_name);
+        }
+    }
+}
+
+/// Walk the translation unit and insert `key → synthetic_name` entries into
+/// `tag_rename` for every nested struct/union type — whether named or anonymous.
+///
+/// For named types the tag name is used as the key (since `to_type()` resolves
+/// `CXType_Record` by the declaration's spelling).  For anonymous types the
+/// source location (`"file:line:col"`) is used as the key because their spelling
+/// is always empty.
+///
+/// All nested types receive a synthetic name regardless of their C name to
+/// avoid collisions (two different structs could each have an inner struct
+/// called `Inner`).  Names follow the same scheme as the windows-rdl writer:
+/// `{OuterName}_{index}` where `index` is the 0-based position of the nested
+/// definition among **all** struct/union definitions in the parent body.
+///
+/// Recursion handles arbitrary nesting depth.
+fn assign_nested_names(tu: &TranslationUnit, tag_rename: &mut HashMap<String, String>) {
+    for child in tu.cursor().children() {
+        if child.kind() == CXCursor_LinkageSpec {
+            for inner in child.children() {
+                visit_for_nested_names(inner, tag_rename);
+            }
+        } else {
+            visit_for_nested_names(child, tag_rename);
+        }
+    }
+}
+
+/// Visit a single top-level cursor; if it is a named struct/union definition,
+/// assign synthetic names to all its nested type children.
+fn visit_for_nested_names(cursor: Cursor, tag_rename: &mut HashMap<String, String>) {
+    let kind = cursor.kind();
+    if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && cursor.is_definition() {
+        let tag_name = cursor.name();
+        // Skip anonymous top-level types – they have no outer name to derive from.
+        if is_anonymous_name(&tag_name) {
+            return;
+        }
+        let outer_name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+        assign_nested_child_names(&outer_name, cursor, tag_rename);
+    }
+}
+
+/// For each struct/union definition that is a direct child of `parent`,
+/// assign it a synthetic flat name `{outer_name}_{index}` and recurse to
+/// handle deeper nesting.
+///
+/// `index` counts **all** nested struct/union definitions in order, matching
+/// the writer's convention so that a type round-tripped through
+/// clang → RDL → winmd → RDL produces names consistent with what the
+/// writer would have generated.
+fn assign_nested_child_names(
+    outer_name: &str,
+    parent: Cursor,
+    tag_rename: &mut HashMap<String, String>,
+) {
+    let mut index = 0usize;
+    for child in parent.children() {
+        let kind = child.kind();
+        if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && child.is_definition() {
+            let synthetic = format!("{outer_name}_{index}");
+            let child_name = child.name();
+            if is_anonymous_name(&child_name) {
+                // Anonymous type: key by source location (unique per declaration site).
+                tag_rename.insert(child.location_id(), synthetic.clone());
+            } else {
+                // Named type: key by the tag name so that to_type() can look it up,
+                // overriding any pre-existing typedef alias with the synthetic name.
+                tag_rename.insert(child_name, synthetic.clone());
+            }
+            // Recurse so that nested-nested types are also handled.
+            assign_nested_child_names(&synthetic, child, tag_rename);
+            index += 1;
         }
     }
 }

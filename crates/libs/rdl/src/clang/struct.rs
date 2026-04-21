@@ -18,7 +18,15 @@ impl Struct {
     ) -> Result<Self, Error> {
         let tag_name = cursor.name();
         // Use the public typedef alias if one exists (e.g. `_TEST` → `TEST`).
-        let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+        // For anonymous types the spelling is empty; fall back to location_id.
+        let name = if is_anonymous_name(&tag_name) {
+            tag_rename
+                .get(&cursor.location_id())
+                .cloned()
+                .unwrap_or(tag_name)
+        } else {
+            tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+        };
         let mut fields = vec![];
 
         for child in cursor.children() {

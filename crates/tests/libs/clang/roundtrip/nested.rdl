@@ -1,0 +1,50 @@
+#[win32]
+mod Test {
+    struct DeepNested {
+        outer: DeepNested_0,
+    }
+    struct DeepNested_0 {
+        u: DeepNested_0_0,
+        c: i32,
+    }
+    union DeepNested_0_0 {
+        a: i32,
+        b: f32,
+    }
+    struct Outer {
+        pos: Outer_0,
+        val: Outer_1,
+    }
+    struct Outer_0 {
+        x: i32,
+        y: i32,
+    }
+    union Outer_1 {
+        i: i32,
+        f: f32,
+    }
+    union TaggedUnion {
+        first: TaggedUnion_0,
+        second: TaggedUnion_1,
+    }
+    struct TaggedUnion_0 {
+        kind: i32,
+        value: i32,
+    }
+    struct TaggedUnion_1 {
+        kind: i32,
+        fvalue: f32,
+    }
+    struct WithAnon {
+        pos: WithAnon_0,
+        val: WithAnon_1,
+    }
+    struct WithAnon_0 {
+        x: i32,
+        y: i32,
+    }
+    union WithAnon_1 {
+        i: i32,
+        f: f32,
+    }
+}
