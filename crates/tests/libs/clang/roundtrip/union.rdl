@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    union Empty {}
+    union Numbers {
+        f1: u8,
+        f2: u16,
+        f3: u32,
+        f4: i32,
+    }
+    struct WithUnion {
+        f1: Empty,
+        f2: Numbers,
+    }
+}
