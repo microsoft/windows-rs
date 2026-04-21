@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    extern fn RegularCb(a: i32);
+}

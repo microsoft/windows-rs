@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[guid(0x11111111_1111_1111_1111_111111111111)]
+    interface IAnnotated {
+        fn Method(&self, x: i32) -> i32;
+    }
+}

@@ -1,0 +1,9 @@
+#[win32]
+mod Foo {
+    mod Bar {
+        struct MultiNsTestStruct {
+            x: i32,
+            y: i32,
+        }
+    }
+}

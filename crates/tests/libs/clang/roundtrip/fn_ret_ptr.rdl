@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn GetArray(count: u32) -> *mut i32;
+    #[library("test.dll")]
+    extern fn GetBuffer(size: i32) -> *mut void;
+}
