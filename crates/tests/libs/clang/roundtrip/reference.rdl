@@ -1,5 +1,0 @@
-#[win32]
-mod Test {
-    #[library("test.dll")]
-    extern fn TestHandle() -> Windows::Win32::Foundation::HANDLE;
-}

@@ -3,4 +3,20 @@ mod Test {
     type A = i32;
     type B = u32;
     type C = *mut void;
+    extern fn CallbackA();
+    extern fn CallbackB(a: bool, b: f32) -> i32;
+    type MY_BYTE = u8;
+    type MY_WORD = u16;
+    type PTEST = *mut TEST;
+    struct TEST {
+        value: i32,
+    }
+    struct TEST2 {
+        value: TEST,
+        pointer: PTEST,
+    }
+    struct TypedefInStruct {
+        value: MY_BYTE,
+        count: MY_WORD,
+    }
 }

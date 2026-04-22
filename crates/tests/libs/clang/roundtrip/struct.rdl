@@ -4,7 +4,19 @@ mod Test {
         f1: [u8; 16],
         f2: [i32; 4],
     }
+    struct DeepNested {
+        outer: DeepNested_0,
+    }
+    struct DeepNested_0 {
+        u: DeepNested_0_0,
+        c: i32,
+    }
+    union DeepNested_0_0 {
+        a: i32,
+        b: f32,
+    }
     struct Empty {}
+    union EmptyUnion {}
     struct Named {
         f1: Empty,
         f2: Numbers,
@@ -24,8 +36,54 @@ mod Test {
         f12: i32,
         f13: u16,
     }
+    union NumbersUnion {
+        f1: u8,
+        f2: u16,
+        f3: u32,
+        f4: i32,
+    }
+    struct Outer {
+        pos: Outer_0,
+        val: Outer_1,
+    }
+    struct Outer_0 {
+        x: i32,
+        y: i32,
+    }
+    union Outer_1 {
+        i: i32,
+        f: f32,
+    }
     struct Pointers {
         f1: *mut Named,
         f2: *mut i32,
+    }
+    union TaggedUnion {
+        first: TaggedUnion_0,
+        second: TaggedUnion_1,
+    }
+    struct TaggedUnion_0 {
+        kind: i32,
+        value: i32,
+    }
+    struct TaggedUnion_1 {
+        kind: i32,
+        fvalue: f32,
+    }
+    struct WithAnon {
+        pos: WithAnon_0,
+        val: WithAnon_1,
+    }
+    struct WithAnon_0 {
+        x: i32,
+        y: i32,
+    }
+    union WithAnon_1 {
+        i: i32,
+        f: f32,
+    }
+    struct WithUnion {
+        f1: EmptyUnion,
+        f2: NumbersUnion,
     }
 }

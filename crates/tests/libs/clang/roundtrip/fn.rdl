@@ -8,4 +8,18 @@ mod Test {
     extern "C" fn C() -> u32;
     #[library("test.dll")]
     extern "C" fn D(a: u32, b: i32);
+    #[library("test.dll")]
+    extern fn NoOleCoCreate(rclsid: &_GUID, riid: &_GUID, ppv: *mut *mut void) -> u32;
+    #[library("test.dll")]
+    extern fn TestHandle() -> Windows::Win32::Foundation::HANDLE;
+    #[library("test.dll")]
+    extern "C" fn VarArgCFn(count: u32, ...) -> i32;
+    #[library("test.dll")]
+    extern fn VarArgFn(count: u32, ...) -> i32;
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
 }

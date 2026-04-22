@@ -1,6 +1,14 @@
 #[win32]
 mod Test {
     #[repr(i32)]
+    enum FooEnum {
+        A = 0,
+        B = 1,
+        C = 2,
+    }
+    #[library("test.dll")]
+    extern fn FooFunction(foo: FooEnum);
+    #[repr(i32)]
     enum Name {
         One = 1,
         Two = 2,
