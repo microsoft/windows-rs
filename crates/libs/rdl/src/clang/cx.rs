@@ -342,48 +342,36 @@ impl Cursor {
             .any(|c| c.kind() == CXCursor_CXXMethod && c.is_pure_virtual())
     }
 
-    /// Searches the cursor's attribute children for a UUID string:
+    /// Searches the cursor's attribute children for a UUID string.
     ///
-    /// - `CXCursor_AnnotateAttr`: produced by `__attribute__((annotate("uuid-string")))`.
-    ///   The UUID is the cursor's spelling directly.
-    /// - `CXCursor_UnexposedAttr`: produced by `__declspec(uuid("..."))` when compiled with
-    ///   `-fms-extensions`.  The UUID is extracted by tokenizing the attribute extent and
-    ///   finding a string-literal token that matches the UUID format.
+    /// Handles `CXCursor_UnexposedAttr`, produced by `__declspec(uuid("..."))` when compiled with
+    /// `-fms-extensions`.  The UUID is extracted by tokenizing the attribute extent and finding a
+    /// string-literal token that matches the UUID format.
     ///
     /// Returns the first UUID found (without quotes), or `None`.
     pub fn extract_uuid(&self, tu: &TranslationUnit) -> Option<String> {
         for child in self.children() {
-            match child.kind() {
-                // __attribute__((annotate("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")))
-                CXCursor_AnnotateAttr => {
-                    let spelling = child.name();
-                    if is_uuid_format(&spelling) {
-                        return Some(spelling);
-                    }
-                }
-                // __declspec(uuid("...")) with -fms-extensions.
-                // When the attribute originates from a macro body (e.g. `MIDL_INTERFACE(x)`),
-                // `child.extent()` spans from the macro body's spelling location all the way
-                // to the end of the expansion.  For the second and later macro invocations
-                // this covers the entire earlier content too, so `tokenize(child.extent())`
-                // finds the first interface's UUID for every subsequent interface.
-                //
-                // Fix: convert both endpoints of the child's extent to their *expansion*
-                // locations before tokenizing.  This produces a range that lives entirely at
-                // the specific call site in the source file (e.g. `MIDL_INTERFACE("…")`),
-                // so only the tokens for *this* invocation are returned.
-                CXCursor_UnexposedAttr => {
-                    let expansion_range = tu.to_expansion_range(child.extent());
-                    for (kind, spelling) in tu.tokenize(expansion_range) {
-                        if kind == CXToken_Literal && spelling.starts_with('"') {
-                            let inner = spelling.trim_matches('"');
-                            if is_uuid_format(inner) {
-                                return Some(inner.to_string());
-                            }
+            // __declspec(uuid("...")) with -fms-extensions.
+            // When the attribute originates from a macro body (e.g. `MIDL_INTERFACE(x)`),
+            // `child.extent()` spans from the macro body's spelling location all the way
+            // to the end of the expansion.  For the second and later macro invocations
+            // this covers the entire earlier content too, so `tokenize(child.extent())`
+            // finds the first interface's UUID for every subsequent interface.
+            //
+            // Fix: convert both endpoints of the child's extent to their *expansion*
+            // locations before tokenizing.  This produces a range that lives entirely at
+            // the specific call site in the source file (e.g. `MIDL_INTERFACE("…")`),
+            // so only the tokens for *this* invocation are returned.
+            if child.kind() == CXCursor_UnexposedAttr {
+                let expansion_range = tu.to_expansion_range(child.extent());
+                for (kind, spelling) in tu.tokenize(expansion_range) {
+                    if kind == CXToken_Literal && spelling.starts_with('"') {
+                        let inner = spelling.trim_matches('"');
+                        if is_uuid_format(inner) {
+                            return Some(inner.to_string());
                         }
                     }
                 }
-                _ => {}
             }
         }
         None
