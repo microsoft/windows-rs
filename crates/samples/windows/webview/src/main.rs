@@ -3,12 +3,13 @@ use bindings::*;
 
 use windows::{
     Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
-    Win32::UI::WindowsAndMessaging::*, core::*,
+    Win32::UI::HiDpi::*, Win32::UI::WindowsAndMessaging::*, core::*,
 };
 
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
         let instance = GetModuleHandleA(None)?;
 
         let wc = WNDCLASSA {

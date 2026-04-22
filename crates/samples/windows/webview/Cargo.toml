@@ -16,6 +16,7 @@ windows = {
         "Win32_System_Rpc",
         "Win32_System_Variant",
         "Win32_UI_WindowsAndMessaging",
+        "Win32_UI_HiDpi",
     ]
 }
 
