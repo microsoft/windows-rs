@@ -14,12 +14,7 @@ impl Const {
     /// whose body matches a recognised Win32 constant pattern, `Ok(None)` when
     /// the macro should be silently skipped (built-in, function-like, or too
     /// complex to represent as a constant).
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        tu: &TranslationUnit,
-        ref_map: &HashMap<String, String>,
-    ) -> Result<Option<Self>, Error> {
+    pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Option<Self>, Error> {
         // Skip built-in macros (e.g. `__LINE__`, `__FILE__`).
         if cursor.is_macro_builtin() {
             return Ok(None);
@@ -36,11 +31,11 @@ impl Const {
 
         // Tokenize the macro definition extent.  The first token is always the
         // macro name itself; the remaining tokens are the replacement list.
-        let tokens = tu.tokenize(cursor.extent());
+        let tokens = parser.tu.tokenize(cursor.extent());
         // Body tokens = everything after the name token.
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
-        let value = match parse_body(&body, namespace, ref_map) {
+        let value = match parse_body(&body, parser.namespace, parser.ref_map) {
             Some(v) => v,
             None => return Ok(None),
         };

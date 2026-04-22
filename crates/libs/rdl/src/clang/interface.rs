@@ -68,18 +68,15 @@ impl Interface {
     /// - An optional UUID from any `__declspec(uuid("..."))` attribute (`CXCursor_UnexposedAttr`).
     /// - An optional single base interface from the first `CXCursor_CXXBaseSpecifier` child.
     /// - All pure-virtual `CXCursor_CXXMethod` children as interface methods.
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        tu: &TranslationUnit,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        pending: &mut Vec<Cursor>,
-    ) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Self, Error> {
         let tag_name = cursor.name();
         // Use the public typedef alias if one exists (e.g. `_IFoo` → `IFoo`).
-        let name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-        let guid = cursor.extract_uuid(tu);
+        let name = parser
+            .tag_rename
+            .get(&tag_name)
+            .cloned()
+            .unwrap_or(tag_name);
+        let guid = cursor.extract_uuid(parser.tu);
 
         // Find the first base class (COM interfaces only inherit from one base).
         let base = cursor.children().iter().find_map(|c| {
@@ -89,10 +86,11 @@ impl Interface {
                 if !base_name.is_empty() {
                     // Check if the base interface exists in the reference metadata; if so,
                     // use its reference namespace so the emitted path is fully qualified.
-                    let base_ns = ref_map
+                    let base_ns = parser
+                        .ref_map
                         .get(&base_name)
                         .map(|s| s.as_str())
-                        .unwrap_or(namespace);
+                        .unwrap_or(parser.namespace);
                     return Some(metadata::Type::value_named(base_ns, &base_name));
                 }
             }
@@ -107,11 +105,11 @@ impl Interface {
             }
 
             let method_name = child.name();
-            let tokens = tu.tokenize(tu.to_expansion_range(child.extent()));
+            let tokens = parser
+                .tu
+                .tokenize(parser.tu.to_expansion_range(child.extent()));
             let modifiers = MethodModifiers::from_tokens(&tokens, &method_name);
-            let return_type = child
-                .result_type()
-                .to_type(namespace, ref_map, tag_rename, pending);
+            let return_type = child.result_type().to_type(parser);
 
             let mut params = vec![];
             for param in child.children() {
@@ -119,7 +117,7 @@ impl Interface {
                     continue;
                 }
                 let param_name = param.name();
-                let param_ty = param.ty().to_type(namespace, ref_map, tag_rename, pending);
+                let param_ty = param.ty().to_type(parser);
                 params.push(Param {
                     name: param_name,
                     ty: param_ty,

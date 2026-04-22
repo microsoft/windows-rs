@@ -11,19 +11,9 @@ pub struct Fn {
 }
 
 impl Fn {
-    pub fn parse(
-        cursor: Cursor,
-        namespace: &str,
-        library: &str,
-        extern_c: bool,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        pending: &mut Vec<Cursor>,
-    ) -> Result<Self, Error> {
+    pub fn parse(cursor: Cursor, parser: &mut Parser<'_>, extern_c: bool) -> Result<Self, Error> {
         let name = cursor.name();
-        let return_type = cursor
-            .result_type()
-            .to_type(namespace, ref_map, tag_rename, pending);
+        let return_type = cursor.result_type().to_type(parser);
 
         let is_variadic = cursor.ty().is_variadic();
 
@@ -35,13 +25,13 @@ impl Fn {
             }
 
             let name = child.name();
-            let ty = child.ty().to_type(namespace, ref_map, tag_rename, pending);
+            let ty = child.ty().to_type(parser);
             params.push(Param { name, ty });
         }
 
         Ok(Self {
             name,
-            library: library.to_string(),
+            library: parser.library.to_string(),
             params,
             return_type,
             extern_c,

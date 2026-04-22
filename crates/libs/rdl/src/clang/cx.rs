@@ -538,23 +538,10 @@ impl Type {
 
     /// Convert this clang type to a metadata `Type`.
     ///
-    /// `tag_rename` maps C struct/enum tag names to their preferred typedef
-    /// aliases (e.g. `"_TEST"` → `"TEST"` from `typedef struct _TEST {} TEST`).
-    /// This ensures that the internal tag name never leaks into the generated
-    /// RDL — only the public typedef alias is used.
-    ///
-    /// `pending` accumulates cursors for typedef declarations that originate
-    /// from included/system headers and are not present in `ref_map`.  The
-    /// caller is responsible for emitting `type` items for those cursors after
-    /// the main parsing pass so that the generated RDL contains definitions for
-    /// every type name it references.
-    pub fn to_type(
-        &self,
-        namespace: &str,
-        ref_map: &HashMap<String, String>,
-        tag_rename: &HashMap<String, String>,
-        pending: &mut Vec<Cursor>,
-    ) -> metadata::Type {
+    /// `parser` carries the shared parse context: the current namespace,
+    /// reference map, tag-rename map, and the `pending_typedefs` accumulator
+    /// for typedef declarations from included headers.
+    pub fn to_type(&self, parser: &mut Parser<'_>) -> metadata::Type {
         match self.kind() {
             CXType_Void => metadata::Type::Void,
             CXType_Bool => metadata::Type::Bool,
@@ -578,37 +565,44 @@ impl Type {
                 // spelling is not a usable key; fall back to the source
                 // location which is unique per declaration site.
                 let name = if is_anonymous_name(&tag_name) {
-                    tag_rename
+                    parser
+                        .tag_rename
                         .get(&decl.location_id())
                         .cloned()
                         .unwrap_or(tag_name)
                 } else {
                     // Apply the tag→typedef rename so that the internal tag (e.g. `_TEST`)
                     // is always replaced by its public typedef alias (e.g. `TEST`).
-                    tag_rename.get(&tag_name).cloned().unwrap_or(tag_name)
+                    parser
+                        .tag_rename
+                        .get(&tag_name)
+                        .cloned()
+                        .unwrap_or(tag_name)
                 };
-                let ns = ref_map.get(&name).map(|s| s.as_str()).unwrap_or(namespace);
+                let ns = parser
+                    .ref_map
+                    .get(&name)
+                    .map(|s| s.as_str())
+                    .unwrap_or(parser.namespace);
                 metadata::Type::value_named(ns, &name)
             }
-            CXType_Elaborated => self
-                .underlying_type()
-                .to_type(namespace, ref_map, tag_rename, pending),
+            CXType_Elaborated => self.underlying_type().to_type(parser),
             CXType_Typedef => {
                 let decl = self.ty();
                 let name = decl.name();
-                if let Some(ns) = ref_map.get(&name) {
+                if let Some(ns) = parser.ref_map.get(&name) {
                     // Type is known in the reference metadata — use the qualified name.
                     metadata::Type::value_named(ns, &name)
                 } else if decl.is_from_main_file() {
                     // Local typedef — it will be emitted separately as a `type` item.
-                    metadata::Type::value_named(namespace, &name)
+                    metadata::Type::value_named(parser.namespace, &name)
                 } else {
                     // Typedef from an included/system header that is not present in
                     // the reference metadata.  Preserve the typedef name so the
                     // semantics (e.g. BYTE, DWORD) are visible in the generated RDL,
                     // and schedule its definition for emission in a follow-up pass.
-                    pending.push(decl);
-                    metadata::Type::value_named(namespace, &name)
+                    parser.pending_typedefs.push(decl);
+                    metadata::Type::value_named(parser.namespace, &name)
                 }
             }
             CXType_Pointer => {
@@ -625,9 +619,9 @@ impl Type {
                 // Strip one level of pointer indirection when the pointee is an
                 // interface so the generated RDL matches the Windows convention.
                 if pointee.is_interface() {
-                    return pointee.to_type(namespace, ref_map, tag_rename, pending);
+                    return pointee.to_type(parser);
                 }
-                let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
+                let inner = pointee.to_type(parser);
                 if pointee.is_const() {
                     // Flatten consecutive const-pointer levels: PtrConst(PtrConst(T, n), 1) → PtrConst(T, n+1)
                     match inner {
@@ -644,7 +638,7 @@ impl Type {
             }
             CXType_LValueReference => {
                 let pointee = self.pointee_type();
-                let inner = pointee.to_type(namespace, ref_map, tag_rename, pending);
+                let inner = pointee.to_type(parser);
                 if pointee.is_const() {
                     metadata::Type::RefConst(Box::new(inner))
                 } else {
@@ -652,9 +646,7 @@ impl Type {
                 }
             }
             CXType_ConstantArray => {
-                let element = self
-                    .array_element_type()
-                    .to_type(namespace, ref_map, tag_rename, pending);
+                let element = self.array_element_type().to_type(parser);
                 let size = self.array_size();
                 metadata::Type::ArrayFixed(Box::new(element), size)
             }
