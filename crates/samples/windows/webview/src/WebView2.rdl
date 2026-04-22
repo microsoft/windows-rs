@@ -458,7 +458,17 @@ mod WebView2 {
         COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER = 4,
         COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL = -1,
     }
+    #[library("WebView2Loader.dll")]
+    extern "C" fn CompareBrowserVersions(version1: PCWSTR, version2: PCWSTR, result: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn CreateCoreWebView2Environment(environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn CreateCoreWebView2EnvironmentWithOptions(browserExecutableFolder: PCWSTR, userDataFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
     type DWORD = u32;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn GetAvailableCoreWebView2BrowserVersionString(browserExecutableFolder: PCWSTR, versionInfo: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserExecutableFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, versionInfo: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
     #[guid(0x76eceacb_0462_4d94_ac83_423a6793775e)]
     interface ICoreWebView2: Windows::Win32::System::Com::IUnknown {
         #[special]
@@ -2768,6 +2778,7 @@ mod WebView2 {
     type INT64 = i64;
     type LPCWSTR = *const WCHAR;
     type LPWSTR = *mut WCHAR;
+    type PCWSTR = *const WCHAR;
     type PRPC_MESSAGE = *mut Windows::Win32::System::Rpc::RPC_MESSAGE;
     type UINT = u32;
     type UINT32 = u32;

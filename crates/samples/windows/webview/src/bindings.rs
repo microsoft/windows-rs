@@ -9,6 +9,87 @@
 )]
 
 #[inline]
+pub unsafe fn CompareBrowserVersions(
+    version1: PCWSTR,
+    version2: PCWSTR,
+) -> windows_core::Result<i32> {
+    windows_core::link!("webview2loader.dll" "C" fn CompareBrowserVersions(version1 : PCWSTR, version2 : PCWSTR, result : *mut i32) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CompareBrowserVersions(
+            core::mem::transmute(version1),
+            core::mem::transmute(version2),
+            &mut result__,
+        )
+        .map(|| result__)
+    }
+}
+#[inline]
+pub unsafe fn CreateCoreWebView2Environment<P0>(
+    environmentcreatedhandler: P0,
+) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>,
+{
+    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { CreateCoreWebView2Environment(environmentcreatedhandler.param().abi()).ok() }
+}
+#[inline]
+pub unsafe fn CreateCoreWebView2EnvironmentWithOptions<P2, P3>(
+    browserexecutablefolder: PCWSTR,
+    userdatafolder: PCWSTR,
+    environmentoptions: P2,
+    environmentcreatedhandler: P3,
+) -> windows_core::Result<()>
+where
+    P2: windows_core::Param<ICoreWebView2EnvironmentOptions>,
+    P3: windows_core::Param<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>,
+{
+    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : * mut core::ffi::c_void, environmentcreatedhandler : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe {
+        CreateCoreWebView2EnvironmentWithOptions(
+            core::mem::transmute(browserexecutablefolder),
+            core::mem::transmute(userdatafolder),
+            environmentoptions.param().abi(),
+            environmentcreatedhandler.param().abi(),
+        )
+        .ok()
+    }
+}
+#[inline]
+pub unsafe fn GetAvailableCoreWebView2BrowserVersionString(
+    browserexecutablefolder: PCWSTR,
+) -> windows_core::Result<LPWSTR> {
+    windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionString(browserexecutablefolder : PCWSTR, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        GetAvailableCoreWebView2BrowserVersionString(
+            core::mem::transmute(browserexecutablefolder),
+            &mut result__,
+        )
+        .map(|| result__)
+    }
+}
+#[inline]
+pub unsafe fn GetAvailableCoreWebView2BrowserVersionStringWithOptions<P1>(
+    browserexecutablefolder: PCWSTR,
+    environmentoptions: P1,
+) -> windows_core::Result<LPWSTR>
+where
+    P1: windows_core::Param<ICoreWebView2EnvironmentOptions>,
+{
+    windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserexecutablefolder : PCWSTR, environmentoptions : * mut core::ffi::c_void, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        GetAvailableCoreWebView2BrowserVersionStringWithOptions(
+            core::mem::transmute(browserexecutablefolder),
+            environmentoptions.param().abi(),
+            &mut result__,
+        )
+        .map(|| result__)
+    }
+}
+#[inline]
 pub unsafe fn ICoreWebView2_25_ShowSaveAsUI_Proxy<P0, P1>(
     this: P0,
     handler: P1,
@@ -44748,6 +44829,16 @@ pub struct LPWSTR {
     pub value: *mut WCHAR,
 }
 impl Default for LPWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PCWSTR {
+    pub value: *const WCHAR,
+}
+impl Default for PCWSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
