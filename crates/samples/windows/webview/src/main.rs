@@ -85,12 +85,15 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for Controll
             GetClientRect(self.0, &mut rect)?;
             controller.SetBounds(rect)?;
             let webview = controller.CoreWebView2()?;
-            let html = w!("<html><body><h1>hello world</h1></body></html>");
+            let html = w!("https://github.com/microsoft/windows-rs");
 
-            webview.NavigateToString(LPCWSTR {
+            webview.Navigate(LPCWSTR {
                 value: html.0 as *const _,
             })?;
         }
+
+        // TODO: need to keep the controller alive.
+        std::mem::forget(controller.clone());
 
         println!("ControllerHandler.Invoke");
         Ok(())
