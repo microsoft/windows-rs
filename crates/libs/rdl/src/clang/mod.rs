@@ -158,6 +158,16 @@ impl<'a> Parser<'a> {
             CXCursor_FunctionDecl if !child.is_definition() => {
                 collector.insert(Item::Fn(Fn::parse(child, self, extern_c)?));
             }
+            // A nested `extern "C" { }` block — e.g. produced by expanding a
+            // macro like `#define EXTERN_C extern "C"` inside an outer
+            // `extern "C" { }` block.  Recurse so that every declaration
+            // inside the nested block is processed with the correct linkage.
+            CXCursor_LinkageSpec => {
+                for inner in child.children() {
+                    let inner_extern_c = inner.language() == CXLanguage_C;
+                    self.process_cursor(inner, collector, inner_extern_c)?;
+                }
+            }
             CXCursor_MacroDefinition => {
                 if let Some(c) = Const::parse(child, self)? {
                     collector.insert(Item::Const(c));
