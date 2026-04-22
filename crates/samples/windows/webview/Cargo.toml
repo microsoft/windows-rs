@@ -1,0 +1,25 @@
+[package]
+name = "sample_webview"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+windows-core = { workspace = true }
+windows = { 
+    workspace = true,
+    features = [
+        "Win32_Foundation",
+        "Win32_System_Com",
+        "Win32_System_Variant",
+        "Win32_System_Ole",
+        "Win32_System_Rpc",
+        "Win32_UI_WindowsAndMessaging"
+    ]
+}
+
+[build-dependencies]
+windows-rdl = { workspace = true }
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

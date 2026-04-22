@@ -1,0 +1,3 @@
+mod bindings;
+
+fn main() {}
