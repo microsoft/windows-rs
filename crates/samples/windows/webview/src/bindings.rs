@@ -6698,8 +6698,8 @@ pub trait ICoreWebView2CompositionController_Impl: windows_core::IUnknownImpl {
     fn remove_CursorChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CompositionController_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CompositionController_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CompositionController_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn RootVisualTarget<
             Identity: ICoreWebView2CompositionController_Impl,
             const OFFSET: isize,
@@ -6916,8 +6916,8 @@ pub trait ICoreWebView2CompositionController2_Impl:
     fn AutomationProvider(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 impl ICoreWebView2CompositionController2_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CompositionController2_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CompositionController2_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn AutomationProvider<
             Identity: ICoreWebView2CompositionController2_Impl,
             const OFFSET: isize,
@@ -7080,8 +7080,8 @@ pub trait ICoreWebView2CompositionController3_Impl:
     ) -> windows_core::Result<DWORD>;
 }
 impl ICoreWebView2CompositionController3_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CompositionController3_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CompositionController3_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn DragEnter<
             Identity: ICoreWebView2CompositionController3_Impl,
             const OFFSET: isize,
@@ -7302,8 +7302,8 @@ pub trait ICoreWebView2CompositionController4_Impl:
     fn remove_NonClientRegionChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CompositionController4_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CompositionController4_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CompositionController4_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn GetNonClientRegionAtPoint<
             Identity: ICoreWebView2CompositionController4_Impl,
             const OFFSET: isize,
@@ -7472,8 +7472,8 @@ pub trait ICoreWebView2CompositionController5_Impl:
     fn remove_DragStarting(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CompositionController5_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CompositionController5_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CompositionController5_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn add_DragStarting<
             Identity: ICoreWebView2CompositionController5_Impl,
             const OFFSET: isize,
@@ -7654,8 +7654,8 @@ pub trait ICoreWebView2ContentLoadingEventArgs_Impl: windows_core::IUnknownImpl 
     fn NavigationId(&self) -> windows_core::Result<UINT64>;
 }
 impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ContentLoadingEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ContentLoadingEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn IsErrorPage<
             Identity: ICoreWebView2ContentLoadingEventArgs_Impl,
             const OFFSET: isize,
@@ -8338,7 +8338,7 @@ pub struct ICoreWebView2ContextMenuItemCollection_Vtbl {
 pub trait ICoreWebView2ContextMenuItemCollection_Impl: windows_core::IUnknownImpl {
     fn Count(&self) -> windows_core::Result<UINT32>;
     fn GetValueAtIndex(&self, index: &UINT32)
-        -> windows_core::Result<ICoreWebView2ContextMenuItem>;
+    -> windows_core::Result<ICoreWebView2ContextMenuItem>;
     fn RemoveValueAtIndex(&self, index: &UINT32) -> windows_core::Result<()>;
     fn InsertValueAtIndex(
         &self,
@@ -8347,8 +8347,8 @@ pub trait ICoreWebView2ContextMenuItemCollection_Impl: windows_core::IUnknownImp
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContextMenuItemCollection_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ContextMenuItemCollection_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ContextMenuItemCollection_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Count<
             Identity: ICoreWebView2ContextMenuItemCollection_Impl,
             const OFFSET: isize,
@@ -11351,7 +11351,7 @@ pub trait ICoreWebView2Cookie_Impl: windows_core::IUnknownImpl {
     fn SetIsHttpOnly(&self, ishttponly: windows_core::BOOL) -> windows_core::Result<()>;
     fn SameSite(&self) -> windows_core::Result<COREWEBVIEW2_COOKIE_SAME_SITE_KIND>;
     fn SetSameSite(&self, samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND)
-        -> windows_core::Result<()>;
+    -> windows_core::Result<()>;
     fn IsSecure(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetIsSecure(&self, issecure: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsSession(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -12377,8 +12377,8 @@ pub trait ICoreWebView2CursorChangedEventHandler_Impl: windows_core::IUnknownImp
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CursorChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CursorChangedEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CursorChangedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2CursorChangedEventHandler_Impl,
             const OFFSET: isize,
@@ -12624,8 +12624,8 @@ pub trait ICoreWebView2CustomSchemeRegistration_Impl: windows_core::IUnknownImpl
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CustomSchemeRegistration_Vtbl {
-    pub const fn new<Identity: ICoreWebView2CustomSchemeRegistration_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2CustomSchemeRegistration_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn SchemeName<
             Identity: ICoreWebView2CustomSchemeRegistration_Impl,
             const OFFSET: isize,
@@ -12807,8 +12807,8 @@ pub trait ICoreWebView2DOMContentLoadedEventArgs_Impl: windows_core::IUnknownImp
     fn NavigationId(&self) -> windows_core::Result<UINT64>;
 }
 impl ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2DOMContentLoadedEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2DOMContentLoadedEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn NavigationId<
             Identity: ICoreWebView2DOMContentLoadedEventArgs_Impl,
             const OFFSET: isize,
@@ -14149,8 +14149,8 @@ pub trait ICoreWebView2DownloadStartingEventArgs_Impl: windows_core::IUnknownImp
     fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral>;
 }
 impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2DownloadStartingEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2DownloadStartingEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn DownloadOperation<
             Identity: ICoreWebView2DownloadStartingEventArgs_Impl,
             const OFFSET: isize,
@@ -14493,8 +14493,8 @@ pub trait ICoreWebView2DragStartingEventArgs_Impl: windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral>;
 }
 impl ICoreWebView2DragStartingEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2DragStartingEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2DragStartingEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn AllowedDropEffects<
             Identity: ICoreWebView2DragStartingEventArgs_Impl,
             const OFFSET: isize,
@@ -14665,8 +14665,8 @@ pub trait ICoreWebView2DragStartingEventHandler_Impl: windows_core::IUnknownImpl
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DragStartingEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2DragStartingEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2DragStartingEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2DragStartingEventHandler_Impl,
             const OFFSET: isize,
@@ -15016,8 +15016,8 @@ impl ICoreWebView2Environment10 {
     where
         P1: windows_core::Param<ICoreWebView2ControllerOptions>,
         P2: windows_core::Param<
-            ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
-        >,
+                ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
+            >,
     {
         unsafe {
             (windows_core::Interface::vtable(self)
@@ -15899,8 +15899,8 @@ impl ICoreWebView2Environment3 {
     ) -> windows_core::Result<()>
     where
         P1: windows_core::Param<
-            ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
-        >,
+                ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
+            >,
     {
         unsafe {
             (windows_core::Interface::vtable(self).CreateCoreWebView2CompositionController)(
@@ -17402,7 +17402,7 @@ pub struct ICoreWebView2EnvironmentOptions6_Vtbl {
 pub trait ICoreWebView2EnvironmentOptions6_Impl: windows_core::IUnknownImpl {
     fn AreBrowserExtensionsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetAreBrowserExtensionsEnabled(&self, value: windows_core::BOOL)
-        -> windows_core::Result<()>;
+    -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions6_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions6_Impl, const OFFSET: isize>() -> Self
@@ -19287,8 +19287,8 @@ pub trait ICoreWebView2FindStartCompletedHandler_Impl: windows_core::IUnknownImp
     fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FindStartCompletedHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2FindStartCompletedHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2FindStartCompletedHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2FindStartCompletedHandler_Impl,
             const OFFSET: isize,
@@ -19359,8 +19359,8 @@ pub trait ICoreWebView2FocusChangedEventHandler_Impl: windows_core::IUnknownImpl
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FocusChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2FocusChangedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2FocusChangedEventHandler_Impl,
             const OFFSET: isize,
@@ -20968,8 +20968,8 @@ pub trait ICoreWebView2FrameCreatedEventArgs_Impl: windows_core::IUnknownImpl {
     fn Frame(&self) -> windows_core::Result<ICoreWebView2Frame>;
 }
 impl ICoreWebView2FrameCreatedEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2FrameCreatedEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2FrameCreatedEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Frame<
             Identity: ICoreWebView2FrameCreatedEventArgs_Impl,
             const OFFSET: isize,
@@ -21042,8 +21042,8 @@ pub trait ICoreWebView2FrameCreatedEventHandler_Impl: windows_core::IUnknownImpl
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameCreatedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2FrameCreatedEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2FrameCreatedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2FrameCreatedEventHandler_Impl,
             const OFFSET: isize,
@@ -24932,7 +24932,7 @@ pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
 pub trait ICoreWebView2NewWindowRequestedEventArgs_Impl: windows_core::IUnknownImpl {
     fn Uri(&self) -> windows_core::Result<LPWSTR>;
     fn SetNewWindow(&self, newwindow: windows_core::Ref<ICoreWebView2>)
-        -> windows_core::Result<()>;
+    -> windows_core::Result<()>;
     fn NewWindow(&self) -> windows_core::Result<ICoreWebView2>;
     fn SetHandled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -29341,8 +29341,8 @@ pub trait ICoreWebView2PrintCompletedHandler_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PrintCompletedHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2PrintCompletedHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2PrintCompletedHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2PrintCompletedHandler_Impl,
             const OFFSET: isize,
@@ -31213,8 +31213,8 @@ pub trait ICoreWebView2ProcessFailedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ProcessFailedKind(&self) -> windows_core::Result<COREWEBVIEW2_PROCESS_FAILED_KIND>;
 }
 impl ICoreWebView2ProcessFailedEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessFailedEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ProcessFailedEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn ProcessFailedKind<
             Identity: ICoreWebView2ProcessFailedEventArgs_Impl,
             const OFFSET: isize,
@@ -31330,8 +31330,8 @@ pub trait ICoreWebView2ProcessFailedEventArgs2_Impl:
     fn FrameInfosForFailedProcess(&self) -> windows_core::Result<ICoreWebView2FrameInfoCollection>;
 }
 impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessFailedEventArgs2_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ProcessFailedEventArgs2_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Reason<
             Identity: ICoreWebView2ProcessFailedEventArgs2_Impl,
             const OFFSET: isize,
@@ -31464,8 +31464,8 @@ pub trait ICoreWebView2ProcessFailedEventArgs3_Impl:
     fn FailureSourceModulePath(&self) -> windows_core::Result<LPWSTR>;
 }
 impl ICoreWebView2ProcessFailedEventArgs3_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessFailedEventArgs3_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ProcessFailedEventArgs3_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn FailureSourceModulePath<
             Identity: ICoreWebView2ProcessFailedEventArgs3_Impl,
             const OFFSET: isize,
@@ -31540,8 +31540,8 @@ pub trait ICoreWebView2ProcessFailedEventHandler_Impl: windows_core::IUnknownImp
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ProcessFailedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2ProcessFailedEventHandler_Impl,
             const OFFSET: isize,
@@ -31714,8 +31714,8 @@ pub trait ICoreWebView2ProcessInfoCollection_Impl: windows_core::IUnknownImpl {
     fn GetValueAtIndex(&self, index: &UINT32) -> windows_core::Result<ICoreWebView2ProcessInfo>;
 }
 impl ICoreWebView2ProcessInfoCollection_Vtbl {
-    pub const fn new<Identity: ICoreWebView2ProcessInfoCollection_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2ProcessInfoCollection_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Count<
             Identity: ICoreWebView2ProcessInfoCollection_Impl,
             const OFFSET: isize,
@@ -33456,8 +33456,8 @@ pub trait ICoreWebView2RegionRectCollectionView_Impl: windows_core::IUnknownImpl
     ) -> windows_core::Result<windows::Win32::Foundation::RECT>;
 }
 impl ICoreWebView2RegionRectCollectionView_Vtbl {
-    pub const fn new<Identity: ICoreWebView2RegionRectCollectionView_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2RegionRectCollectionView_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Count<
             Identity: ICoreWebView2RegionRectCollectionView_Impl,
             const OFFSET: isize,
@@ -33699,8 +33699,8 @@ pub trait ICoreWebView2SaveAsUIShowingEventArgs_Impl: windows_core::IUnknownImpl
     fn Kind(&self) -> windows_core::Result<COREWEBVIEW2_SAVE_AS_KIND>;
 }
 impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn ContentMimeType<
             Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
             const OFFSET: isize,
@@ -35957,7 +35957,7 @@ pub trait ICoreWebView2Settings_Impl: windows_core::IUnknownImpl {
     fn SetIsZoomControlEnabled(&self, enabled: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsBuiltInErrorPageEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetIsBuiltInErrorPageEnabled(&self, enabled: windows_core::BOOL)
-        -> windows_core::Result<()>;
+    -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings_Impl, const OFFSET: isize>() -> Self {
@@ -37588,8 +37588,8 @@ pub trait ICoreWebView2SourceChangedEventArgs_Impl: windows_core::IUnknownImpl {
     fn IsNewDocument(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ICoreWebView2SourceChangedEventArgs_Vtbl {
-    pub const fn new<Identity: ICoreWebView2SourceChangedEventArgs_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2SourceChangedEventArgs_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn IsNewDocument<
             Identity: ICoreWebView2SourceChangedEventArgs_Impl,
             const OFFSET: isize,
@@ -37662,8 +37662,8 @@ pub trait ICoreWebView2SourceChangedEventHandler_Impl: windows_core::IUnknownImp
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2SourceChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2SourceChangedEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2SourceChangedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2SourceChangedEventHandler_Impl,
             const OFFSET: isize,
@@ -37736,8 +37736,8 @@ pub trait ICoreWebView2StateChangedEventHandler_Impl: windows_core::IUnknownImpl
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2StateChangedEventHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2StateChangedEventHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2StateChangedEventHandler_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Invoke<
             Identity: ICoreWebView2StateChangedEventHandler_Impl,
             const OFFSET: isize,
@@ -39452,8 +39452,8 @@ pub trait ICoreWebView2WebResourceResponseView_Impl: windows_core::IUnknownImpl 
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceResponseView_Vtbl {
-    pub const fn new<Identity: ICoreWebView2WebResourceResponseView_Impl, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: ICoreWebView2WebResourceResponseView_Impl, const OFFSET: isize>()
+    -> Self {
         unsafe extern "system" fn Headers<
             Identity: ICoreWebView2WebResourceResponseView_Impl,
             const OFFSET: isize,

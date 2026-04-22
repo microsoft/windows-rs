@@ -1,3 +1,110 @@
 mod bindings;
+use bindings::*;
 
-fn main() {}
+use windows::{
+    Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
+    Win32::UI::WindowsAndMessaging::*, core::*,
+};
+
+fn main() -> Result<()> {
+    unsafe {
+        CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok()?;
+        let instance = GetModuleHandleA(None)?;
+
+        let wc = WNDCLASSA {
+            hCursor: LoadCursorW(None, IDC_ARROW)?,
+            hInstance: instance.into(),
+            lpszClassName: s!("webview"),
+            style: CS_HREDRAW | CS_VREDRAW,
+            lpfnWndProc: Some(wndproc),
+            ..Default::default()
+        };
+
+        RegisterClassA(&wc);
+
+        let hwnd = CreateWindowExA(
+            WINDOW_EX_STYLE::default(),
+            s!("webview"),
+            s!("hello world"),
+            WS_OVERLAPPEDWINDOW | WS_VISIBLE,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            None,
+            None,
+            None,
+            None,
+        )?;
+
+        let handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
+            EnvHandler(hwnd).into();
+
+        CreateCoreWebView2Environment(&handler)?;
+
+        let mut message = MSG::default();
+
+        while GetMessageA(&mut message, None, 0, 0).into() {
+            DispatchMessageA(&message);
+        }
+
+        Ok(())
+    }
+}
+
+#[implement(ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]
+struct EnvHandler(HWND);
+
+impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvHandler_Impl {
+    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Environment>) -> Result<()> {
+        errorcode.ok()?;
+        let env = result.unwrap();
+
+        let handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler =
+            ControllerHandler(self.0).into();
+
+        unsafe {
+            env.CreateCoreWebView2Controller(self.0, &handler)?;
+        }
+
+        println!("EnvHandler.Invoke");
+        Ok(())
+    }
+}
+
+#[implement(ICoreWebView2CreateCoreWebView2ControllerCompletedHandler)]
+struct ControllerHandler(HWND);
+
+impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for ControllerHandler_Impl {
+    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Controller>) -> Result<()> {
+        errorcode.ok()?;
+        let controller = result.unwrap();
+
+        unsafe {
+            let mut rect = RECT::default();
+            GetClientRect(self.0, &mut rect)?;
+            controller.SetBounds(rect)?;
+            let webview = controller.CoreWebView2()?;
+            let html = w!("<html><body><h1>hello world</h1></body></html>");
+
+            webview.NavigateToString(LPCWSTR {
+                value: html.0 as *const _,
+            })?;
+        }
+
+        println!("ControllerHandler.Invoke");
+        Ok(())
+    }
+}
+
+extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
+    unsafe {
+        match message {
+            WM_DESTROY => {
+                PostQuitMessage(0);
+                LRESULT(0)
+            }
+            _ => DefWindowProcA(window, message, wparam, lparam),
+        }
+    }
+}
