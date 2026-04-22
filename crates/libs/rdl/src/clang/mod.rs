@@ -158,6 +158,16 @@ impl<'a> Parser<'a> {
             CXCursor_FunctionDecl if !child.is_definition() => {
                 collector.insert(Item::Fn(Fn::parse(child, self, extern_c)?));
             }
+            // A nested `extern "C" { }` block — e.g. produced by expanding a
+            // macro like `#define EXTERN_C extern "C"` inside an outer
+            // `extern "C" { }` block.  Recurse so that every declaration
+            // inside the nested block is processed with the correct linkage.
+            CXCursor_LinkageSpec => {
+                for inner in child.children() {
+                    let inner_extern_c = inner.language() == CXLanguage_C;
+                    self.process_cursor(inner, collector, inner_extern_c)?;
+                }
+            }
             CXCursor_MacroDefinition => {
                 if let Some(c) = Const::parse(child, self)? {
                     collector.insert(Item::Const(c));
@@ -166,9 +176,23 @@ impl<'a> Parser<'a> {
                     && !child.name().is_empty()
                     && !child.name().starts_with('_')
                 {
-                    // The token parser returned None for a candidate
-                    // object-like macro.  Defer to the batch evaluator.
-                    self.pending_macros.push(child.name());
+                    // Skip macros whose body contains keyword tokens.  Such
+                    // macros are language constructs (e.g.
+                    // `#define EXTERN_C extern "C"`) and cannot be integer
+                    // constant expressions; adding them to pending_macros
+                    // causes the evaluator to emit bogus zero constants.
+                    // The first token is always the macro name itself; skip
+                    // it to examine only the replacement-list body tokens.
+                    let tokens = self.tu.tokenize(child.extent());
+                    let body_has_keyword = tokens
+                        .iter()
+                        .skip(1) // first token is the macro name
+                        .any(|(kind, _)| *kind == CXToken_Keyword);
+                    if !body_has_keyword {
+                        // The token parser returned None for a candidate
+                        // object-like macro.  Defer to the batch evaluator.
+                        self.pending_macros.push(child.name());
+                    }
                 }
             }
             _ => {}
@@ -371,7 +395,15 @@ impl Clang {
             // Only process cursors from the main input file (not from
             // transitively included headers).
             if !child.is_from_main_file() {
-                continue;
+                // A CXCursor_LinkageSpec produced by a macro such as
+                // `#define EXTERN_C extern "C"` (defined in an included
+                // header) has its spelling location inside the macro body in
+                // the included header, so is_from_main_file() returns false.
+                // Accept it anyway when the *expansion* location (where the
+                // macro was invoked) is in the main file.
+                if child.kind() != CXCursor_LinkageSpec || !child.is_expansion_from_main_file(tu) {
+                    continue;
+                }
             }
 
             // Recurse into `extern "C" { }` or `extern "C++" { }` blocks.

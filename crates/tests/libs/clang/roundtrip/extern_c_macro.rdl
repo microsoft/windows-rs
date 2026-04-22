@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn A();
+    #[library("test.dll")]
+    extern "C" fn B();
+}
