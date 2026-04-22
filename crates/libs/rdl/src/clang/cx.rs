@@ -307,6 +307,30 @@ impl Cursor {
         }
     }
 
+    /// Returns `true` when the **expansion** location of this cursor is in the
+    /// main input file.
+    ///
+    /// This differs from [`is_from_main_file()`] (which checks the spelling
+    /// location) when the cursor originates from a macro whose definition is in
+    /// an included header.  For example, if `extern "C"` is spelled inside
+    /// `#define EXTERN_C extern "C"` in an included file but the macro is
+    /// invoked in the main file, the spelling location is in the included
+    /// header while the expansion location is in the main file.
+    pub fn is_expansion_from_main_file(&self, tu: &TranslationUnit) -> bool {
+        unsafe {
+            let loc = clang_getCursorLocation(self.0);
+            let mut file: CXFile = std::ptr::null_mut();
+            let mut line: u32 = 0;
+            let mut col: u32 = 0;
+            clang_getExpansionLocation(loc, &mut file, &mut line, &mut col, std::ptr::null_mut());
+            if file.is_null() {
+                return false;
+            }
+            let expansion_loc = clang_getLocation(tu.0, file, line, col);
+            clang_Location_isFromMainFile(expansion_loc) != 0
+        }
+    }
+
     pub fn is_macro_builtin(&self) -> bool {
         unsafe { clang_Cursor_isMacroBuiltin(self.0) != 0 }
     }
