@@ -17,7 +17,8 @@ use quote::{format_ident, quote};
 pub use reader::Reader;
 pub use writer::Writer;
 
-pub fn test() -> i32 {
+pub fn test() -> i32 
+{
     123
 }
 
