@@ -731,6 +731,18 @@ pub fn is_anonymous_name(name: &str) -> bool {
     name.is_empty() || name.starts_with('(')
 }
 
+/// Returns `true` if `name` is a MIDL-synthesised name for an originally
+/// anonymous enumeration.
+///
+/// When MIDL compiles IDL that contains an anonymous `enum { ... }`, it
+/// generates a synthetic tag name of the form `__MIDL___MIDL_itf_<...>`.
+/// Such enumerations carry no semantic identity of their own; their variants
+/// should be unwrapped and emitted as top-level constants, just as truly
+/// unnamed enums (detected by [`is_anonymous_name`]) are.
+pub fn is_midl_anonymous_enum_name(name: &str) -> bool {
+    name.starts_with("__MIDL_")
+}
+
 fn to_string(cxstr: CXString) -> String {
     unsafe {
         let cstr_ptr = clang_getCString(cxstr);

@@ -128,12 +128,15 @@ impl<'a> Parser<'a> {
             }
             CXCursor_EnumDecl if child.is_definition() => {
                 let e = Enum::parse(child)?;
-                if is_anonymous_name(&e.name) {
+                if is_anonymous_name(&e.name) || is_midl_anonymous_enum_name(&e.name) {
                     // Unnamed enums (e.g. `enum { ONE = 1, TWO };`) are
                     // reported by libclang with a synthesised spelling like
                     // "(unnamed enum at file.h:6:1)" which always starts
-                    // with '('.  Each variant is emitted as a top-level
-                    // RDL constant rather than a named enum type.
+                    // with '('.  MIDL also synthesises names of the form
+                    // `__MIDL___MIDL_itf_<...>` for originally anonymous
+                    // enumerations from IDL.  In both cases each variant is
+                    // emitted as a top-level RDL constant rather than a
+                    // named enum type.
                     for (name, value) in e.variants {
                         let const_value = enum_variant_value(e.repr, value);
                         collector.insert(Item::Const(Const {
