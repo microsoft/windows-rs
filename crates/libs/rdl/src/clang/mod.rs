@@ -158,10 +158,14 @@ impl<'a> Parser<'a> {
             CXCursor_FunctionDecl if !child.is_definition() => {
                 collector.insert(Item::Fn(Fn::parse(child, self, extern_c)?));
             }
-            // A nested `extern "C" { }` block — e.g. produced by expanding a
-            // macro like `#define EXTERN_C extern "C"` inside an outer
-            // `extern "C" { }` block.  Recurse so that every declaration
-            // inside the nested block is processed with the correct linkage.
+            // An `extern "C" { }` or `extern "C++" { }` block — encountered
+            // either at the top level (e.g. MIDL-generated headers wrap all
+            // declarations in such a block) or nested inside another one
+            // (e.g. `#define EXTERN_C extern "C"` expanded inside an outer
+            // `extern "C" { }` block).  Recurse so that every declaration
+            // inside is processed with the correct linkage.
+            // NOTE: Items from transitively included headers that slip through
+            // will be filtered out by the ref_map check in the individual arms.
             CXCursor_LinkageSpec => {
                 for inner in child.children() {
                     let inner_extern_c = inner.language() == CXLanguage_C;
@@ -406,29 +410,7 @@ impl Clang {
                 }
             }
 
-            // Recurse into `extern "C" { }` or `extern "C++" { }` blocks.
-            // MIDL-generated headers place all declarations (structs, enums,
-            // typedefs, functions, …) inside such a block, so we must handle
-            // every item kind here, not just function declarations.
-            if child.kind() == CXCursor_LinkageSpec {
-                for inner in child.children() {
-                    // Do NOT filter by is_from_main_file() here.  The outer
-                    // check above already ensures the linkage-spec block itself
-                    // is from the main file.  On older libclang versions (≤ 14)
-                    // with --target=x86_64-pc-windows-msvc, clang incorrectly
-                    // reports is_from_main_file() == false for declarations
-                    // that appear inside an extern "C" { } block even when
-                    // they are defined in the main file, causing all extern "C"
-                    // items to be silently dropped.  Any items from transitively
-                    // included headers that slip through will be filtered out by
-                    // the ref_map check inside process_cursor.
-                    // A function inside `extern "C" { }` has C language linkage.
-                    let extern_c = inner.language() == CXLanguage_C;
-                    parser.process_cursor(inner, collector, extern_c)?;
-                }
-            } else {
-                parser.process_cursor(child, collector, false)?;
-            }
+            parser.process_cursor(child, collector, false)?;
         }
 
         // Emit typedef/callback items for any types that were referenced by

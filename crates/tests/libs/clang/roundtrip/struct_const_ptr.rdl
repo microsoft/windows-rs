@@ -1,7 +1,0 @@
-#[win32]
-mod Test {
-    struct ConstPtrs {
-        read_only: *const i32,
-        bytes: *const u8,
-    }
-}

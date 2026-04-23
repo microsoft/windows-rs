@@ -19,3 +19,25 @@ typedef long long TestStatus;
 
 /* Complex: left-shift of another macro (evaluator fallback). */
 #define FACILITY_DEBUGGER_SHIFTED (FACILITY_DEBUGGER << 16)
+
+/* Negated integer literal. */
+#define NEG_ONE -1
+#define NEG_LARGE -100
+
+/* LL suffix → Value::I64 */
+#define BIG_LL 0x100000000LL
+
+/* ULL suffix → Value::U64 */
+#define BIG_ULL 0x100000000ULL
+
+/* Typedef used as cast target for the typed-cast tests below */
+typedef long long TestStatusCode;
+
+/* Single-paren typed cast: (TYPE)VALUE */
+#define STATUS_ZERO (TestStatusCode)0
+
+/* Negated double-paren typed cast: ((TYPE)-VALUE) */
+#define STATUS_NEG ((TestStatusCode)-1)
+
+/* Negated single-paren typed cast: (TYPE)-VALUE */
+#define STATUS_NEG2 (TestStatusCode)-2
