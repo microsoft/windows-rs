@@ -6,7 +6,7 @@ IFoo
 public:
 };
 
-class __declspec(uuid("cafecafe-1234-5678-9abc-def012345678"))
+class __declspec(uuid("cacf84a5-4b53-4c4b-a79c-c6cdd2a5c918"))
 IBar
 {
 public:
