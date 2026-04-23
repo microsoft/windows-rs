@@ -1,4 +1,4 @@
-name: retrigger
+name: kick
 
 permissions:
   contents: write
@@ -8,8 +8,8 @@ on:
     types: [created]
 
 jobs:
-  retrigger:
-    if: github.event.issue.pull_request != '' && github.event.comment.body == '/retrigger'
+  kick:
+    if: github.event.issue.pull_request != '' && github.event.comment.body == '/kick'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout PR branch
