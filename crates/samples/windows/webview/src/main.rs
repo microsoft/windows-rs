@@ -68,7 +68,6 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvHand
             env.CreateCoreWebView2Controller(self.0, &handler)?;
         }
 
-        println!("EnvHandler.Invoke");
         Ok(())
     }
 }
@@ -88,15 +87,11 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for Controll
             let webview = controller.CoreWebView2()?;
             let html = w!("https://github.com/microsoft/windows-rs");
 
-            webview.Navigate(LPCWSTR {
-                value: html.0 as *const _,
-            })?;
+            webview.Navigate(html.0 as *const _)?;
         }
 
         // TODO: need to keep the controller alive.
         std::mem::forget(controller.clone());
-
-        println!("ControllerHandler.Invoke");
         Ok(())
     }
 }

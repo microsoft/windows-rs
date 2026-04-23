@@ -352,6 +352,9 @@ where
                 "--sys-fn-extern" => {
                     builder.sys_fn_extern();
                 }
+                "--typedef" => {
+                    builder.typedef();
+                }
                 "--implement" => {
                     builder.implement();
                 }
@@ -434,6 +437,7 @@ pub struct Bindgen {
     implement: bool,
     specific_deps: bool,
     sys: bool,
+    typedef: bool,
     sys_fn_ptrs: bool,
     sys_fn_extern: bool,
     index: bool,
@@ -541,6 +545,12 @@ impl Bindgen {
     /// Generate raw or sys-style Rust bindings.
     pub fn sys(&mut self) -> &mut Self {
         self.sys = true;
+        self
+    }
+
+    /// Generate raw or sys-style type aliases.
+    pub fn typedef(&mut self) -> &mut Self {
+        self.typedef = true;
         self
     }
 
@@ -701,6 +711,7 @@ impl Bindgen {
             rustfmt: &self.rustfmt,
             output: &self.output,
             sys: self.sys,
+            typedef: self.typedef,
             sys_fn_ptrs: self.sys_fn_ptrs,
             sys_fn_extern: self.sys_fn_extern,
             implement: self.implement,

@@ -39,6 +39,7 @@ fn main() {
         "--filter",
         namespace,
         "--flat",
+        "--typedef",
         "--reference",
         "windows",
     ])

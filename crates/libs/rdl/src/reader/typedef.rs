@@ -37,7 +37,7 @@ impl Encoder<'_> {
         // Encode the underlying type as a single field named `value`.
         let mt = self.encode_type(&item.ty)?;
         self.output
-            .Field("value", &mt, metadata::FieldAttributes::Public);
+            .Field("Value", &mt, metadata::FieldAttributes::Public);
 
         // Add the NativeTypedefAttribute.
         self.encode_native_typedef_attribute(metadata::writer::HasAttribute::TypeDef(type_def));

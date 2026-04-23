@@ -21,6 +21,7 @@ pub struct Config<'a> {
     pub package: bool,
     pub rustfmt: &'a str,
     pub sys: bool,
+    pub typedef: bool,
     pub sys_fn_ptrs: bool,
     pub sys_fn_extern: bool,
     pub implement: bool,
