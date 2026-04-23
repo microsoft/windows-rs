@@ -2,6 +2,7 @@ name: fmt_command
 
 permissions:
   contents: write
+  reactions: write
 
 on:
   issue_comment:
@@ -12,6 +13,10 @@ jobs:
     if: github.event.issue.pull_request != '' && github.event.comment.body == '/fmt'
     runs-on: ubuntu-22.04
     steps:
+      - name: React with eyes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='eyes'
       - name: Checkout PR branch
         uses: actions/checkout@v6
         with:
@@ -41,3 +46,7 @@ jobs:
           git add -A
           git diff --cached --quiet || git commit -m "cargo fmt"
           git push origin ${{ steps.pr.outputs.branch }}
+      - name: React with thumbs up
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='+1'
