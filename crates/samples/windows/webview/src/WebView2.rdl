@@ -1,0 +1,2787 @@
+#[win32]
+mod WebView2 {
+    type BYTE = u8;
+    #[repr(i32)]
+    enum COREWEBVIEW2_BOUNDS_MODE {
+        COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS = 0,
+        COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND {
+        COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_NORMAL = 0,
+        COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_FAILED = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_BROWSING_DATA_KINDS {
+        COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS = 1,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB = 2,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE = 4,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL = 8,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE = 16,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE = 32,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES = 64,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE = 128,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE = 256,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY = 512,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL = 1024,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE = 2048,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY = 4096,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS = 8192,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE = 16384,
+        COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS = 32768,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT {
+        COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG = 0,
+        COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_JPEG = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_CHANNEL_SEARCH_KIND {
+        COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE = 0,
+        COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_CLIENT_CERTIFICATE_KIND {
+        COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_SMART_CARD = 0,
+        COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_PIN = 1,
+        COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_OTHER = 2,
+    }
+    struct COREWEBVIEW2_COLOR {
+        A: BYTE,
+        R: BYTE,
+        G: BYTE,
+        B: BYTE,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND {
+        COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND = 0,
+        COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_CHECK_BOX = 1,
+        COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_RADIO = 2,
+        COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SEPARATOR = 3,
+        COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SUBMENU = 4,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND {
+        COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_PAGE = 0,
+        COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_IMAGE = 1,
+        COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_SELECTED_TEXT = 2,
+        COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_AUDIO = 3,
+        COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_VIDEO = 4,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_COOKIE_SAME_SITE_KIND {
+        COREWEBVIEW2_COOKIE_SAME_SITE_KIND_NONE = 0,
+        COREWEBVIEW2_COOKIE_SAME_SITE_KIND_LAX = 1,
+        COREWEBVIEW2_COOKIE_SAME_SITE_KIND_STRICT = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT {
+        COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_TOP_LEFT = 0,
+        COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_TOP_RIGHT = 1,
+        COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_LEFT = 2,
+        COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_RIGHT = 3,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON {
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NONE = 0,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_FAILED = 1,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_ACCESS_DENIED = 2,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_NO_SPACE = 3,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_NAME_TOO_LONG = 4,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_LARGE = 5,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_MALICIOUS = 6,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TRANSIENT_ERROR = 7,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_BLOCKED_BY_POLICY = 8,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_SECURITY_CHECK_FAILED = 9,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT = 10,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH = 11,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_FAILED = 12,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_TIMEOUT = 13,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_DISCONNECTED = 14,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_SERVER_DOWN = 15,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_INVALID_REQUEST = 16,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_FAILED = 17,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE = 18,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_BAD_CONTENT = 19,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_UNAUTHORIZED = 20,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CERTIFICATE_PROBLEM = 21,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_FORBIDDEN = 22,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_UNEXPECTED_RESPONSE = 23,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CONTENT_LENGTH_MISMATCH = 24,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CROSS_ORIGIN_REDIRECT = 25,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_CANCELED = 26,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_SHUTDOWN = 27,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED = 28,
+        COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_DOWNLOAD_PROCESS_CRASHED = 29,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_DOWNLOAD_STATE {
+        COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS = 0,
+        COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED = 1,
+        COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_FAVICON_IMAGE_FORMAT {
+        COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG = 0,
+        COREWEBVIEW2_FAVICON_IMAGE_FORMAT_JPEG = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND {
+        COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE = 0,
+        COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION {
+        COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY = 0,
+        COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_FRAME_KIND {
+        COREWEBVIEW2_FRAME_KIND_UNKNOWN = 0,
+        COREWEBVIEW2_FRAME_KIND_MAIN_FRAME = 1,
+        COREWEBVIEW2_FRAME_KIND_IFRAME = 2,
+        COREWEBVIEW2_FRAME_KIND_EMBED = 3,
+        COREWEBVIEW2_FRAME_KIND_OBJECT = 4,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND {
+        COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY = 0,
+        COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_ALLOW = 1,
+        COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY_CORS = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_KEY_EVENT_KIND {
+        COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN = 0,
+        COREWEBVIEW2_KEY_EVENT_KIND_KEY_UP = 1,
+        COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_DOWN = 2,
+        COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_UP = 3,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL {
+        COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL = 0,
+        COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_MOUSE_EVENT_KIND {
+        COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL = 526,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK = 515,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN = 513,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP = 514,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE = 675,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK = 521,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN = 519,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP = 520,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE = 512,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK = 518,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN = 516,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP = 517,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL = 522,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK = 525,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN = 523,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP = 524,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN = 164,
+        COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP = 165,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE = 0,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_LEFT_BUTTON = 1,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_RIGHT_BUTTON = 2,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_SHIFT = 4,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_CONTROL = 8,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_MIDDLE_BUTTON = 16,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_X_BUTTON1 = 32,
+        COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_X_BUTTON2 = 64,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_MOVE_FOCUS_REASON {
+        COREWEBVIEW2_MOVE_FOCUS_REASON_PROGRAMMATIC = 0,
+        COREWEBVIEW2_MOVE_FOCUS_REASON_NEXT = 1,
+        COREWEBVIEW2_MOVE_FOCUS_REASON_PREVIOUS = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_NAVIGATION_KIND {
+        COREWEBVIEW2_NAVIGATION_KIND_RELOAD = 0,
+        COREWEBVIEW2_NAVIGATION_KIND_BACK_OR_FORWARD = 1,
+        COREWEBVIEW2_NAVIGATION_KIND_NEW_DOCUMENT = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_NON_CLIENT_REGION_KIND {
+        COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE = 0,
+        COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT = 1,
+        COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION = 2,
+        COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE = 8,
+        COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE = 9,
+        COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE = 20,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE = 0,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE = 1,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PRINT = 2,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE_AS = 4,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_IN = 8,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_OUT = 16,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ROTATE = 32,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FIT_PAGE = 64,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_LAYOUT = 128,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS = 256,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR = 512,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH = 1024,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FULL_SCREEN = 2048,
+        COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS = 4096,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PERMISSION_KIND {
+        COREWEBVIEW2_PERMISSION_KIND_UNKNOWN_PERMISSION = 0,
+        COREWEBVIEW2_PERMISSION_KIND_MICROPHONE = 1,
+        COREWEBVIEW2_PERMISSION_KIND_CAMERA = 2,
+        COREWEBVIEW2_PERMISSION_KIND_GEOLOCATION = 3,
+        COREWEBVIEW2_PERMISSION_KIND_NOTIFICATIONS = 4,
+        COREWEBVIEW2_PERMISSION_KIND_OTHER_SENSORS = 5,
+        COREWEBVIEW2_PERMISSION_KIND_CLIPBOARD_READ = 6,
+        COREWEBVIEW2_PERMISSION_KIND_MULTIPLE_AUTOMATIC_DOWNLOADS = 7,
+        COREWEBVIEW2_PERMISSION_KIND_FILE_READ_WRITE = 8,
+        COREWEBVIEW2_PERMISSION_KIND_AUTOPLAY = 9,
+        COREWEBVIEW2_PERMISSION_KIND_LOCAL_FONTS = 10,
+        COREWEBVIEW2_PERMISSION_KIND_MIDI_SYSTEM_EXCLUSIVE_MESSAGES = 11,
+        COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT = 12,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PERMISSION_STATE {
+        COREWEBVIEW2_PERMISSION_STATE_DEFAULT = 0,
+        COREWEBVIEW2_PERMISSION_STATE_ALLOW = 1,
+        COREWEBVIEW2_PERMISSION_STATE_DENY = 2,
+    }
+    struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
+        RepeatCount: UINT32,
+        ScanCode: UINT32,
+        IsExtendedKey: Windows::Win32::Foundation::BOOL,
+        IsMenuKeyDown: Windows::Win32::Foundation::BOOL,
+        WasKeyDown: Windows::Win32::Foundation::BOOL,
+        IsKeyReleased: Windows::Win32::Foundation::BOOL,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_POINTER_EVENT_KIND {
+        COREWEBVIEW2_POINTER_EVENT_KIND_ACTIVATE = 587,
+        COREWEBVIEW2_POINTER_EVENT_KIND_DOWN = 582,
+        COREWEBVIEW2_POINTER_EVENT_KIND_ENTER = 585,
+        COREWEBVIEW2_POINTER_EVENT_KIND_LEAVE = 586,
+        COREWEBVIEW2_POINTER_EVENT_KIND_UP = 583,
+        COREWEBVIEW2_POINTER_EVENT_KIND_UPDATE = 581,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PREFERRED_COLOR_SCHEME {
+        COREWEBVIEW2_PREFERRED_COLOR_SCHEME_AUTO = 0,
+        COREWEBVIEW2_PREFERRED_COLOR_SCHEME_LIGHT = 1,
+        COREWEBVIEW2_PREFERRED_COLOR_SCHEME_DARK = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_COLLATION {
+        COREWEBVIEW2_PRINT_COLLATION_DEFAULT = 0,
+        COREWEBVIEW2_PRINT_COLLATION_COLLATED = 1,
+        COREWEBVIEW2_PRINT_COLLATION_UNCOLLATED = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_COLOR_MODE {
+        COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT = 0,
+        COREWEBVIEW2_PRINT_COLOR_MODE_COLOR = 1,
+        COREWEBVIEW2_PRINT_COLOR_MODE_GRAYSCALE = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_DIALOG_KIND {
+        COREWEBVIEW2_PRINT_DIALOG_KIND_BROWSER = 0,
+        COREWEBVIEW2_PRINT_DIALOG_KIND_SYSTEM = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_DUPLEX {
+        COREWEBVIEW2_PRINT_DUPLEX_DEFAULT = 0,
+        COREWEBVIEW2_PRINT_DUPLEX_ONE_SIDED = 1,
+        COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_LONG_EDGE = 2,
+        COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_SHORT_EDGE = 3,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_MEDIA_SIZE {
+        COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT = 0,
+        COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_ORIENTATION {
+        COREWEBVIEW2_PRINT_ORIENTATION_PORTRAIT = 0,
+        COREWEBVIEW2_PRINT_ORIENTATION_LANDSCAPE = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PRINT_STATUS {
+        COREWEBVIEW2_PRINT_STATUS_SUCCEEDED = 0,
+        COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE = 1,
+        COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PROCESS_FAILED_KIND {
+        COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED = 0,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED = 1,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE = 2,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED = 3,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED = 4,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED = 5,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED = 6,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_PLUGIN_PROCESS_EXITED = 7,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED = 8,
+        COREWEBVIEW2_PROCESS_FAILED_KIND_UNKNOWN_PROCESS_EXITED = 9,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PROCESS_FAILED_REASON {
+        COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED = 0,
+        COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE = 1,
+        COREWEBVIEW2_PROCESS_FAILED_REASON_TERMINATED = 2,
+        COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED = 3,
+        COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED = 4,
+        COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY = 5,
+        COREWEBVIEW2_PROCESS_FAILED_REASON_PROFILE_DELETED = 6,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_PROCESS_KIND {
+        COREWEBVIEW2_PROCESS_KIND_BROWSER = 0,
+        COREWEBVIEW2_PROCESS_KIND_RENDERER = 1,
+        COREWEBVIEW2_PROCESS_KIND_UTILITY = 2,
+        COREWEBVIEW2_PROCESS_KIND_SANDBOX_HELPER = 3,
+        COREWEBVIEW2_PROCESS_KIND_GPU = 4,
+        COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN = 5,
+        COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER = 6,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_RELEASE_CHANNELS {
+        COREWEBVIEW2_RELEASE_CHANNELS_NONE = 0,
+        COREWEBVIEW2_RELEASE_CHANNELS_STABLE = 1,
+        COREWEBVIEW2_RELEASE_CHANNELS_BETA = 2,
+        COREWEBVIEW2_RELEASE_CHANNELS_DEV = 4,
+        COREWEBVIEW2_RELEASE_CHANNELS_CANARY = 8,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_SAVE_AS_KIND {
+        COREWEBVIEW2_SAVE_AS_KIND_DEFAULT = 0,
+        COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY = 1,
+        COREWEBVIEW2_SAVE_AS_KIND_SINGLE_FILE = 2,
+        COREWEBVIEW2_SAVE_AS_KIND_COMPLETE = 3,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_SAVE_AS_UI_RESULT {
+        COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS = 0,
+        COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH = 1,
+        COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS = 2,
+        COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED = 3,
+        COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED = 4,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_SCRIPT_DIALOG_KIND {
+        COREWEBVIEW2_SCRIPT_DIALOG_KIND_ALERT = 0,
+        COREWEBVIEW2_SCRIPT_DIALOG_KIND_CONFIRM = 1,
+        COREWEBVIEW2_SCRIPT_DIALOG_KIND_PROMPT = 2,
+        COREWEBVIEW2_SCRIPT_DIALOG_KIND_BEFOREUNLOAD = 3,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_SCROLLBAR_STYLE {
+        COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT = 0,
+        COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION {
+        COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW = 0,
+        COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_CANCEL = 1,
+        COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_SHARED_BUFFER_ACCESS {
+        COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY = 0,
+        COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_WRITE = 1,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_TEXT_DIRECTION_KIND {
+        COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT = 0,
+        COREWEBVIEW2_TEXT_DIRECTION_KIND_LEFT_TO_RIGHT = 1,
+        COREWEBVIEW2_TEXT_DIRECTION_KIND_RIGHT_TO_LEFT = 2,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_TRACKING_PREVENTION_LEVEL {
+        COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE = 0,
+        COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BASIC = 1,
+        COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED = 2,
+        COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_STRICT = 3,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_WEB_ERROR_STATUS {
+        COREWEBVIEW2_WEB_ERROR_STATUS_UNKNOWN = 0,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_COMMON_NAME_IS_INCORRECT = 1,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_EXPIRED = 2,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CLIENT_CERTIFICATE_CONTAINS_ERRORS = 3,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_REVOKED = 4,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_IS_INVALID = 5,
+        COREWEBVIEW2_WEB_ERROR_STATUS_SERVER_UNREACHABLE = 6,
+        COREWEBVIEW2_WEB_ERROR_STATUS_TIMEOUT = 7,
+        COREWEBVIEW2_WEB_ERROR_STATUS_ERROR_HTTP_INVALID_SERVER_RESPONSE = 8,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED = 9,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_RESET = 10,
+        COREWEBVIEW2_WEB_ERROR_STATUS_DISCONNECTED = 11,
+        COREWEBVIEW2_WEB_ERROR_STATUS_CANNOT_CONNECT = 12,
+        COREWEBVIEW2_WEB_ERROR_STATUS_HOST_NAME_NOT_RESOLVED = 13,
+        COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED = 14,
+        COREWEBVIEW2_WEB_ERROR_STATUS_REDIRECT_FAILED = 15,
+        COREWEBVIEW2_WEB_ERROR_STATUS_UNEXPECTED_ERROR = 16,
+        COREWEBVIEW2_WEB_ERROR_STATUS_VALID_AUTHENTICATION_CREDENTIALS_REQUIRED = 17,
+        COREWEBVIEW2_WEB_ERROR_STATUS_VALID_PROXY_AUTHENTICATION_REQUIRED = 18,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_WEB_RESOURCE_CONTEXT {
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL = 0,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_DOCUMENT = 1,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_STYLESHEET = 2,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE = 3,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA = 4,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FONT = 5,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_SCRIPT = 6,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST = 7,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FETCH = 8,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_TEXT_TRACK = 9,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_EVENT_SOURCE = 10,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_WEBSOCKET = 11,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MANIFEST = 12,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_SIGNED_EXCHANGE = 13,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_PING = 14,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_CSP_VIOLATION_REPORT = 15,
+        COREWEBVIEW2_WEB_RESOURCE_CONTEXT_OTHER = 16,
+    }
+    #[repr(i32)]
+    enum COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
+        COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE = 0,
+        COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT = 1,
+        COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER = 2,
+        COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER = 4,
+        COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL = -1,
+    }
+    #[library("WebView2Loader.dll")]
+    extern "C" fn CompareBrowserVersions(version1: PCWSTR, version2: PCWSTR, result: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn CreateCoreWebView2Environment(environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn CreateCoreWebView2EnvironmentWithOptions(browserExecutableFolder: PCWSTR, userDataFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, environmentCreatedHandler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    type DWORD = u32;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn GetAvailableCoreWebView2BrowserVersionString(browserExecutableFolder: PCWSTR, versionInfo: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserExecutableFolder: PCWSTR, environmentOptions: ICoreWebView2EnvironmentOptions, versionInfo: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    #[guid(0x76eceacb_0462_4d94_ac83_423a6793775e)]
+    interface ICoreWebView2: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Settings(&self, settings: *mut ICoreWebView2Settings) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Source(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn Navigate(&self, uri: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn NavigateToString(&self, htmlContent: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationStarting(&self, eventHandler: ICoreWebView2NavigationStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContentLoading(&self, eventHandler: ICoreWebView2ContentLoadingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContentLoading(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_SourceChanged(&self, eventHandler: ICoreWebView2SourceChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_SourceChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_HistoryChanged(&self, eventHandler: ICoreWebView2HistoryChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_HistoryChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationCompleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FrameNavigationStarting(&self, eventHandler: ICoreWebView2NavigationStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameNavigationStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FrameNavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameNavigationCompleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ScriptDialogOpening(&self, eventHandler: ICoreWebView2ScriptDialogOpeningEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ScriptDialogOpening(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_PermissionRequested(&self, eventHandler: ICoreWebView2PermissionRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_PermissionRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ProcessFailed(&self, eventHandler: ICoreWebView2ProcessFailedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ProcessFailed(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn AddScriptToExecuteOnDocumentCreated(&self, javaScript: LPCWSTR, handler: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveScriptToExecuteOnDocumentCreated(&self, id: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn ExecuteScript(&self, javaScript: LPCWSTR, handler: ICoreWebView2ExecuteScriptCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn CapturePreview(&self, imageFormat: COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT, imageStream: Windows::Win32::System::Com::IStream, handler: ICoreWebView2CapturePreviewCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn Reload(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn PostWebMessageAsJson(&self, webMessageAsJson: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn PostWebMessageAsString(&self, webMessageAsString: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebMessageReceived(&self, handler: ICoreWebView2WebMessageReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebMessageReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn CallDevToolsProtocolMethod(&self, methodName: LPCWSTR, parametersAsJson: LPCWSTR, handler: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BrowserProcessId(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_CanGoBack(&self, canGoBack: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_CanGoForward(&self, canGoForward: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GoBack(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn GoForward(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDevToolsProtocolEventReceiver(&self, eventName: LPCWSTR, receiver: *mut ICoreWebView2DevToolsProtocolEventReceiver) -> Windows::Win32::Foundation::HRESULT;
+        fn Stop(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NewWindowRequested(&self, eventHandler: ICoreWebView2NewWindowRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NewWindowRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DocumentTitleChanged(&self, eventHandler: ICoreWebView2DocumentTitleChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DocumentTitleChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DocumentTitle(&self, title: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn AddHostObjectToScript(&self, name: LPCWSTR, object: *mut Windows::Win32::System::Variant::VARIANT) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn OpenDevToolsWindow(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContainsFullScreenElementChanged(&self, eventHandler: ICoreWebView2ContainsFullScreenElementChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContainsFullScreenElementChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ContainsFullScreenElement(&self, containsFullScreenElement: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebResourceRequested(&self, eventHandler: ICoreWebView2WebResourceRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebResourceRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn AddWebResourceRequestedFilter(&self, uri: LPCWSTR, resourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveWebResourceRequestedFilter(&self, uri: LPCWSTR, resourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WindowCloseRequested(&self, eventHandler: ICoreWebView2WindowCloseRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WindowCloseRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9f760f8a_fb79_42be_9990_7b56900fa9c7)]
+    interface ICoreWebView2AcceleratorKeyPressedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_KeyEventKind(&self, keyEventKind: *mut COREWEBVIEW2_KEY_EVENT_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_VirtualKey(&self, virtualKey: *mut UINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_KeyEventLParam(&self, lParam: *mut INT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PhysicalKeyStatus(&self, physicalKeyStatus: *mut COREWEBVIEW2_PHYSICAL_KEY_STATUS) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, handled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, handled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x03b2c8c8_7799_4e34_bd66_ed26aa85f2bf)]
+    interface ICoreWebView2AcceleratorKeyPressedEventArgs2: ICoreWebView2AcceleratorKeyPressedEventArgs {
+        #[special]
+        fn get_IsBrowserAcceleratorKeyEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsBrowserAcceleratorKeyEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb29c7e28_fa79_41a8_8e44_65811c76dcb2)]
+    interface ICoreWebView2AcceleratorKeyPressedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Controller, args: ICoreWebView2AcceleratorKeyPressedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb99369f3_9b11_47b5_bc6f_8e7895fcea17)]
+    interface ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xef05516f_d897_4f9e_b672_d8e2307a3fb0)]
+    interface ICoreWebView2BasicAuthenticationRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Challenge(&self, challenge: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Response(&self, response: *mut ICoreWebView2BasicAuthenticationResponse) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cancel(&self, cancel: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, cancel: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x58b4d6c2_18d4_497e_b39b_9a96533fa278)]
+    interface ICoreWebView2BasicAuthenticationRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2BasicAuthenticationRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x07023f7d_2d77_4d67_9040_6e7d428c6a40)]
+    interface ICoreWebView2BasicAuthenticationResponse: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_UserName(&self, userName: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_UserName(&self, userName: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Password(&self, password: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Password(&self, password: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7ef7ffa0_fac5_462c_b189_3d9edbe575da)]
+    interface ICoreWebView2BrowserExtension: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Id(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Name(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn Remove(&self, handler: ICoreWebView2BrowserExtensionRemoveCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn Enable(&self, isEnabled: Windows::Win32::Foundation::BOOL, handler: ICoreWebView2BrowserExtensionEnableCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x30c186ce_7fad_421f_a3bc_a8eaf071ddb8)]
+    interface ICoreWebView2BrowserExtensionEnableCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2ef3d2dc_bd5f_4f4d_90af_fd67798f0c2f)]
+    interface ICoreWebView2BrowserExtensionList: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut ICoreWebView2BrowserExtension) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8e41909a_9b18_4bb1_8cdf_930f467a50be)]
+    interface ICoreWebView2BrowserExtensionRemoveCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x1f00663f_af8c_4782_9cdd_dd01c52e34cb)]
+    interface ICoreWebView2BrowserProcessExitedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_BrowserProcessExitKind(&self, value: *mut COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BrowserProcessId(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfa504257_a216_4911_a860_fe8825712861)]
+    interface ICoreWebView2BrowserProcessExitedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Environment, args: ICoreWebView2BrowserProcessExitedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x828e8ab6_d94c_4264_9cef_5217170d6251)]
+    interface ICoreWebView2BytesReceivedChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2DownloadOperation, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5c4889f0_5ef6_4c5a_952c_d8f1b92d0574)]
+    interface ICoreWebView2CallDevToolsProtocolMethodCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x697e05e9_3d8f_45fa_96f4_8ffe1ededaf5)]
+    interface ICoreWebView2CapturePreviewCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc5fb2fce_1cac_4aee_9c79_5ed0362eaae0)]
+    interface ICoreWebView2Certificate: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Subject(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Issuer(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ValidFrom(&self, value: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ValidTo(&self, value: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DerEncodedSerialNumber(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DisplayName(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn ToPemEncoding(&self, pemEncodedData: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PemEncodedIssuerCertificateChain(&self, value: *mut ICoreWebView2StringCollection) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe9710a06_1d1d_49b2_8234_226f35846ae5)]
+    interface ICoreWebView2ClearBrowsingDataCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3b40aac6_acfe_4ffd_8211_f607b96e2d5b)]
+    interface ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe7188076_bcc3_11eb_8529_0242ac130003)]
+    interface ICoreWebView2ClientCertificate: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Subject(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Issuer(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ValidFrom(&self, value: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ValidTo(&self, value: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DerEncodedSerialNumber(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DisplayName(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn ToPemEncoding(&self, pemEncodedData: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PemEncodedIssuerCertificateChain(&self, value: *mut ICoreWebView2StringCollection) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Kind(&self, value: *mut COREWEBVIEW2_CLIENT_CERTIFICATE_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xef5674d2_bcc3_11eb_8529_0242ac130003)]
+    interface ICoreWebView2ClientCertificateCollection: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut ICoreWebView2ClientCertificate) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xbc59db28_bcc3_11eb_8529_0242ac130003)]
+    interface ICoreWebView2ClientCertificateRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Host(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Port(&self, value: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsProxy(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AllowedCertificateAuthorities(&self, value: *mut ICoreWebView2StringCollection) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MutuallyTrustedCertificates(&self, value: *mut ICoreWebView2ClientCertificateCollection) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SelectedCertificate(&self, value: *mut ICoreWebView2ClientCertificate) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SelectedCertificate(&self, value: ICoreWebView2ClientCertificate) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cancel(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xd7175ba2_bcc3_11eb_8529_0242ac130003)]
+    interface ICoreWebView2ClientCertificateRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ClientCertificateRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3df9b733_b9ae_4a15_86b4_eb9ee9826469)]
+    interface ICoreWebView2CompositionController: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_RootVisualTarget(&self, target: *mut Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_RootVisualTarget(&self, target: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+        fn SendMouseInput(&self, eventKind: COREWEBVIEW2_MOUSE_EVENT_KIND, virtualKeys: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS, mouseData: UINT32, point: Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        fn SendPointerInput(&self, eventKind: COREWEBVIEW2_POINTER_EVENT_KIND, pointerInfo: ICoreWebView2PointerInfo) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cursor(&self, cursor: *mut Windows::Win32::UI::WindowsAndMessaging::HCURSOR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SystemCursorId(&self, systemCursorId: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn add_CursorChanged(&self, eventHandler: ICoreWebView2CursorChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_CursorChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0b6a3d24_49cb_4806_ba20_b5e0734a7b26)]
+    interface ICoreWebView2CompositionController2: ICoreWebView2CompositionController {
+        #[special]
+        fn get_AutomationProvider(&self, value: *mut Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9570570e_4d76_4361_9ee1_f04d0dbdfb1e)]
+    interface ICoreWebView2CompositionController3: ICoreWebView2CompositionController2 {
+        fn DragEnter(&self, dataObject: Windows::Win32::System::Com::IDataObject, keyState: DWORD, point: Windows::Win32::Foundation::POINT, effect: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+        fn DragLeave(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn DragOver(&self, keyState: DWORD, point: Windows::Win32::Foundation::POINT, effect: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+        fn Drop(&self, dataObject: Windows::Win32::System::Com::IDataObject, keyState: DWORD, point: Windows::Win32::Foundation::POINT, effect: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7c367b9b_3d2b_450f_9e58_d61a20f486aa)]
+    interface ICoreWebView2CompositionController4: ICoreWebView2CompositionController3 {
+        fn GetNonClientRegionAtPoint(&self, point: Windows::Win32::Foundation::POINT, value: *mut COREWEBVIEW2_NON_CLIENT_REGION_KIND) -> Windows::Win32::Foundation::HRESULT;
+        fn QueryNonClientRegion(&self, kind: COREWEBVIEW2_NON_CLIENT_REGION_KIND, rects: *mut ICoreWebView2RegionRectCollectionView) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NonClientRegionChanged(&self, eventHandler: ICoreWebView2NonClientRegionChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NonClientRegionChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8d0f82eb_7c33_5a4c_9108_84ca28ccc3b4)]
+    interface ICoreWebView2CompositionController5: ICoreWebView2CompositionController4 {
+        fn add_DragStarting(&self, eventHandler: ICoreWebView2DragStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DragStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe45d98b1_afef_45be_8baf_6c7728867f73)]
+    interface ICoreWebView2ContainsFullScreenElementChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0c8a1275_9b6b_4901_87ad_70df25bafa6e)]
+    interface ICoreWebView2ContentLoadingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_IsErrorPage(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_NavigationId(&self, value: *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x364471e7_f2be_4910_bdba_d72077d51c4b)]
+    interface ICoreWebView2ContentLoadingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ContentLoadingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7aed49e3_a93f_497a_811c_749c6b6b6c65)]
+    interface ICoreWebView2ContextMenuItem: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Name(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Label(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_CommandId(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShortcutKeyDescription(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Icon(&self, value: *mut Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Kind(&self, value: *mut COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsChecked(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsChecked(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Children(&self, value: *mut ICoreWebView2ContextMenuItemCollection) -> Windows::Win32::Foundation::HRESULT;
+        fn add_CustomItemSelected(&self, eventHandler: ICoreWebView2CustomItemSelectedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_CustomItemSelected(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf562a2f5_c415_45cf_b909_d4b7c1e276d3)]
+    interface ICoreWebView2ContextMenuItemCollection: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut ICoreWebView2ContextMenuItem) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveValueAtIndex(&self, index: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn InsertValueAtIndex(&self, index: UINT32, value: ICoreWebView2ContextMenuItem) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xa1d309ee_c03f_11eb_8529_0242ac130003)]
+    interface ICoreWebView2ContextMenuRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_MenuItems(&self, value: *mut ICoreWebView2ContextMenuItemCollection) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ContextMenuTarget(&self, value: *mut ICoreWebView2ContextMenuTarget) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Location(&self, value: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SelectedCommandId(&self, value: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SelectedCommandId(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x04d3fe1d_ab87_42fb_a898_da241d35b63c)]
+    interface ICoreWebView2ContextMenuRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ContextMenuRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb8611d99_eed6_4f3f_902c_a198502ad472)]
+    interface ICoreWebView2ContextMenuTarget: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Kind(&self, value: *mut COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsEditable(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsRequestedForMainFrame(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PageUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FrameUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasLinkUri(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_LinkUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasLinkText(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_LinkText(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasSourceUri(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SourceUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasSelection(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SelectionText(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4d00c0d1_9434_4eb6_8078_8697a560334f)]
+    interface ICoreWebView2Controller: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_IsVisible(&self, isVisible: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsVisible(&self, isVisible: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Bounds(&self, bounds: *mut Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Bounds(&self, bounds: Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ZoomFactor(&self, zoomFactor: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ZoomFactor(&self, zoomFactor: f64) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ZoomFactorChanged(&self, eventHandler: ICoreWebView2ZoomFactorChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ZoomFactorChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn SetBoundsAndZoomFactor(&self, bounds: Windows::Win32::Foundation::RECT, zoomFactor: f64) -> Windows::Win32::Foundation::HRESULT;
+        fn MoveFocus(&self, reason: COREWEBVIEW2_MOVE_FOCUS_REASON) -> Windows::Win32::Foundation::HRESULT;
+        fn add_MoveFocusRequested(&self, eventHandler: ICoreWebView2MoveFocusRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_MoveFocusRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_GotFocus(&self, eventHandler: ICoreWebView2FocusChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_GotFocus(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_LostFocus(&self, eventHandler: ICoreWebView2FocusChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_LostFocus(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_AcceleratorKeyPressed(&self, eventHandler: ICoreWebView2AcceleratorKeyPressedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_AcceleratorKeyPressed(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ParentWindow(&self, parentWindow: *mut Windows::Win32::Foundation::HWND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ParentWindow(&self, parentWindow: Windows::Win32::Foundation::HWND) -> Windows::Win32::Foundation::HRESULT;
+        fn NotifyParentWindowPositionChanged(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn Close(&self,) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_CoreWebView2(&self, coreWebView2: *mut ICoreWebView2) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc979903e_d4ca_4228_92eb_47ee3fa96eab)]
+    interface ICoreWebView2Controller2: ICoreWebView2Controller {
+        #[special]
+        fn get_DefaultBackgroundColor(&self, value: *mut COREWEBVIEW2_COLOR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_DefaultBackgroundColor(&self, value: COREWEBVIEW2_COLOR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf9614724_5d2b_41dc_aef7_73d62b51543b)]
+    interface ICoreWebView2Controller3: ICoreWebView2Controller2 {
+        #[special]
+        fn get_RasterizationScale(&self, scale: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_RasterizationScale(&self, scale: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldDetectMonitorScaleChanges(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ShouldDetectMonitorScaleChanges(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn add_RasterizationScaleChanged(&self, eventHandler: ICoreWebView2RasterizationScaleChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_RasterizationScaleChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BoundsMode(&self, boundsMode: *mut COREWEBVIEW2_BOUNDS_MODE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_BoundsMode(&self, boundsMode: COREWEBVIEW2_BOUNDS_MODE) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x97d418d5_a426_4e49_a151_e1a10f327d9e)]
+    interface ICoreWebView2Controller4: ICoreWebView2Controller3 {
+        #[special]
+        fn get_AllowExternalDrop(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AllowExternalDrop(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x12aae616_8ccb_44ec_bcb3_eb1831881635)]
+    interface ICoreWebView2ControllerOptions: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ProfileName(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ProfileName(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsInPrivateModeEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsInPrivateModeEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x06c991d8_9e7e_11ed_a8fc_0242ac120002)]
+    interface ICoreWebView2ControllerOptions2: ICoreWebView2ControllerOptions {
+        #[special]
+        fn get_ScriptLocale(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ScriptLocale(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb32b191a_8998_57ca_b7cb_e04617e4ce4a)]
+    interface ICoreWebView2ControllerOptions3: ICoreWebView2ControllerOptions2 {
+        #[special]
+        fn get_DefaultBackgroundColor(&self, value: *mut COREWEBVIEW2_COLOR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_DefaultBackgroundColor(&self, value: COREWEBVIEW2_COLOR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x21eb052f_ad39_555e_824a_c87b091d4d36)]
+    interface ICoreWebView2ControllerOptions4: ICoreWebView2ControllerOptions3 {
+        #[special]
+        fn get_AllowHostInputProcessing(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AllowHostInputProcessing(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xad26d6be_1486_43e6_bf87_a2034006ca21)]
+    interface ICoreWebView2Cookie: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Name(&self, name: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Value(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Value(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Domain(&self, domain: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Path(&self, path: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Expires(&self, expires: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Expires(&self, expires: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsHttpOnly(&self, isHttpOnly: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsHttpOnly(&self, isHttpOnly: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SameSite(&self, sameSite: *mut COREWEBVIEW2_COOKIE_SAME_SITE_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SameSite(&self, sameSite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsSecure(&self, isSecure: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsSecure(&self, isSecure: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsSession(&self, isSession: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf7f6f714_5d2a_43c6_9503_346ece02d186)]
+    interface ICoreWebView2CookieList: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut ICoreWebView2Cookie) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x177cd9e7_b6f5_451a_94a0_5d7a3a4c4141)]
+    interface ICoreWebView2CookieManager: Windows::Win32::System::Com::IUnknown {
+        fn CreateCookie(&self, name: LPCWSTR, value: LPCWSTR, domain: LPCWSTR, path: LPCWSTR, cookie: *mut ICoreWebView2Cookie) -> Windows::Win32::Foundation::HRESULT;
+        fn CopyCookie(&self, cookieParam: ICoreWebView2Cookie, cookie: *mut ICoreWebView2Cookie) -> Windows::Win32::Foundation::HRESULT;
+        fn GetCookies(&self, uri: LPCWSTR, handler: ICoreWebView2GetCookiesCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn AddOrUpdateCookie(&self, cookie: ICoreWebView2Cookie) -> Windows::Win32::Foundation::HRESULT;
+        fn DeleteCookie(&self, cookie: ICoreWebView2Cookie) -> Windows::Win32::Foundation::HRESULT;
+        fn DeleteCookies(&self, name: LPCWSTR, uri: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn DeleteCookiesWithDomainAndPath(&self, name: LPCWSTR, domain: LPCWSTR, path: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn DeleteAllCookies(&self,) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x02fab84b_1428_4fb7_ad45_1b2e64736184)]
+    interface ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2CompositionController) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x6c4819f3_c9b7_4260_8127_c9f5bde7f68c)]
+    interface ICoreWebView2CreateCoreWebView2ControllerCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2Controller) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4e8a3389_c9d8_4bd2_b6b5_124fee6cc14d)]
+    interface ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2Environment) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9da43ccc_26e1_4dad_b56c_d8961c94c571)]
+    interface ICoreWebView2CursorChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2CompositionController, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x49e1d0bc_fe9e_4481_b7c2_32324aa21998)]
+    interface ICoreWebView2CustomItemSelectedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2ContextMenuItem, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xd60ac92c_37a6_4b26_a39e_95cfe59047bb)]
+    interface ICoreWebView2CustomSchemeRegistration: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_SchemeName(&self, schemeName: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TreatAsSecure(&self, treatAsSecure: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TreatAsSecure(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetAllowedOrigins(&self, allowedOriginsCount: *mut UINT32, allowedOrigins: *mut *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn SetAllowedOrigins(&self, allowedOriginsCount: UINT32, allowedOrigins: *mut LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasAuthorityComponent(&self, hasAuthorityComponent: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_HasAuthorityComponent(&self, hasAuthorityComponent: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x16b1e21a_c503_44f2_84c9_70aba5031283)]
+    interface ICoreWebView2DOMContentLoadedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_NavigationId(&self, value: *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4bac7e9c_199e_49ed_87ed_249303acf019)]
+    interface ICoreWebView2DOMContentLoadedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2DOMContentLoadedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc10e7f7b_b585_46f0_a623_8befbf3e4ee0)]
+    interface ICoreWebView2Deferral: Windows::Win32::System::Com::IUnknown {
+        fn Complete(&self,) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x653c2959_bb3a_4377_8632_b58ada4e66c4)]
+    interface ICoreWebView2DevToolsProtocolEventReceivedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ParameterObjectAsJson(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2dc4959d_1494_4393_95ba_bea4cb9ebd1b)]
+    interface ICoreWebView2DevToolsProtocolEventReceivedEventArgs2: ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
+        #[special]
+        fn get_SessionId(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe2fda4be_5456_406c_a261_3d452138362c)]
+    interface ICoreWebView2DevToolsProtocolEventReceivedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2DevToolsProtocolEventReceivedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb32ca51a_8371_45e9_9317_af021d080367)]
+    interface ICoreWebView2DevToolsProtocolEventReceiver: Windows::Win32::System::Com::IUnknown {
+        fn add_DevToolsProtocolEventReceived(&self, eventHandler: ICoreWebView2DevToolsProtocolEventReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DevToolsProtocolEventReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf5f2b923_953e_4042_9f95_f3a118e1afd4)]
+    interface ICoreWebView2DocumentTitleChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3d6b6cf2_afe1_44c7_a995_c65117714336)]
+    interface ICoreWebView2DownloadOperation: Windows::Win32::System::Com::IUnknown {
+        fn add_BytesReceivedChanged(&self, eventHandler: ICoreWebView2BytesReceivedChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_BytesReceivedChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_EstimatedEndTimeChanged(&self, eventHandler: ICoreWebView2EstimatedEndTimeChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_EstimatedEndTimeChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_StateChanged(&self, eventHandler: ICoreWebView2StateChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_StateChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ContentDisposition(&self, contentDisposition: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MimeType(&self, mimeType: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TotalBytesToReceive(&self, totalBytesToReceive: *mut INT64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BytesReceived(&self, bytesReceived: *mut INT64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_EstimatedEndTime(&self, estimatedEndTime: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ResultFilePath(&self, resultFilePath: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_State(&self, downloadState: *mut COREWEBVIEW2_DOWNLOAD_STATE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_InterruptReason(&self, interruptReason: *mut COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON) -> Windows::Win32::Foundation::HRESULT;
+        fn Cancel(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn Pause(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn Resume(&self,) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_CanResume(&self, canResume: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe99bbe21_43e9_4544_a732_282764eafa60)]
+    interface ICoreWebView2DownloadStartingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_DownloadOperation(&self, downloadOperation: *mut ICoreWebView2DownloadOperation) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cancel(&self, cancel: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, cancel: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ResultFilePath(&self, resultFilePath: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ResultFilePath(&self, resultFilePath: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, handled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, handled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xefedc989_c396_41ca_83f7_07f845a55724)]
+    interface ICoreWebView2DownloadStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2DownloadStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8b8d9c7e_2f1a_4e6b_9d5a_3c8f7b9e1a2d)]
+    interface ICoreWebView2DragStartingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_AllowedDropEffects(&self, value: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Data(&self, value: *mut Windows::Win32::System::Com::IDataObject) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Position(&self, value: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, value: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3b149321_83c3_5d1f_b03f_a42899bc1c15)]
+    interface ICoreWebView2DragStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2CompositionController, args: ICoreWebView2DragStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb96d755e_0319_4e92_a296_23436f46a1fc)]
+    interface ICoreWebView2Environment: Windows::Win32::System::Com::IUnknown {
+        fn CreateCoreWebView2Controller(&self, parentWindow: Windows::Win32::Foundation::HWND, handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn CreateWebResourceResponse(&self, content: Windows::Win32::System::Com::IStream, statusCode: i32, reasonPhrase: LPCWSTR, headers: LPCWSTR, response: *mut ICoreWebView2WebResourceResponse) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BrowserVersionString(&self, versionInfo: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NewBrowserVersionAvailable(&self, eventHandler: ICoreWebView2NewBrowserVersionAvailableEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NewBrowserVersionAvailable(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xee0eb9df_6f12_46ce_b53f_3f47b9c928e0)]
+    interface ICoreWebView2Environment10: ICoreWebView2Environment9 {
+        fn CreateCoreWebView2ControllerOptions(&self, value: *mut ICoreWebView2ControllerOptions) -> Windows::Win32::Foundation::HRESULT;
+        fn CreateCoreWebView2ControllerWithOptions(&self, ParentWindow: Windows::Win32::Foundation::HWND, options: ICoreWebView2ControllerOptions, handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn CreateCoreWebView2CompositionControllerWithOptions(&self, ParentWindow: Windows::Win32::Foundation::HWND, options: ICoreWebView2ControllerOptions, handler: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf0913dc6_a0ec_42ef_9805_91dff3a2966a)]
+    interface ICoreWebView2Environment11: ICoreWebView2Environment10 {
+        #[special]
+        fn get_FailureReportFolderPath(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf503db9b_739f_48dd_b151_fdfcf253f54e)]
+    interface ICoreWebView2Environment12: ICoreWebView2Environment11 {
+        fn CreateSharedBuffer(&self, Size: UINT64, value: *mut ICoreWebView2SharedBuffer) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xaf641f58_72b2_11ee_b962_0242ac120002)]
+    interface ICoreWebView2Environment13: ICoreWebView2Environment12 {
+        fn GetProcessExtendedInfos(&self, handler: ICoreWebView2GetProcessExtendedInfosCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xa5e9fad9_c875_59da_9bd7_473aa5ca1cef)]
+    interface ICoreWebView2Environment14: ICoreWebView2Environment13 {
+        fn CreateWebFileSystemFileHandle(&self, path: LPCWSTR, permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION, value: *mut ICoreWebView2FileSystemHandle) -> Windows::Win32::Foundation::HRESULT;
+        fn CreateWebFileSystemDirectoryHandle(&self, path: LPCWSTR, permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION, value: *mut ICoreWebView2FileSystemHandle) -> Windows::Win32::Foundation::HRESULT;
+        fn CreateObjectCollection(&self, length: UINT32, items: *mut Windows::Win32::System::Com::IUnknown, objectCollection: *mut ICoreWebView2ObjectCollection) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2ac5ebfb_e654_5961_a667_7971885c7b27)]
+    interface ICoreWebView2Environment15: ICoreWebView2Environment14 {
+        fn CreateFindOptions(&self, value: *mut ICoreWebView2FindOptions) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x41f3632b_5ef4_404f_ad82_2d606c5a9a21)]
+    interface ICoreWebView2Environment2: ICoreWebView2Environment {
+        fn CreateWebResourceRequest(&self, uri: LPCWSTR, Method: LPCWSTR, postData: Windows::Win32::System::Com::IStream, Headers: LPCWSTR, value: *mut ICoreWebView2WebResourceRequest) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x80a22ae3_be7c_4ce2_afe1_5a50056cdeeb)]
+    interface ICoreWebView2Environment3: ICoreWebView2Environment2 {
+        fn CreateCoreWebView2CompositionController(&self, ParentWindow: Windows::Win32::Foundation::HWND, handler: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn CreateCoreWebView2PointerInfo(&self, value: *mut ICoreWebView2PointerInfo) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x20944379_6dcf_41d6_a0a0_abc0fc50de0d)]
+    interface ICoreWebView2Environment4: ICoreWebView2Environment3 {
+        fn GetAutomationProviderForWindow(&self, hwnd: Windows::Win32::Foundation::HWND, value: *mut Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x319e423d_e0d7_4b8d_9254_ae9475de9b17)]
+    interface ICoreWebView2Environment5: ICoreWebView2Environment4 {
+        fn add_BrowserProcessExited(&self, eventHandler: ICoreWebView2BrowserProcessExitedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_BrowserProcessExited(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe59ee362_acbd_4857_9a8e_d3644d9459a9)]
+    interface ICoreWebView2Environment6: ICoreWebView2Environment5 {
+        fn CreatePrintSettings(&self, value: *mut ICoreWebView2PrintSettings) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x43c22296_3bbd_43a4_9c00_5c0df6dd29a2)]
+    interface ICoreWebView2Environment7: ICoreWebView2Environment6 {
+        #[special]
+        fn get_UserDataFolder(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xd6eb91dd_c3d2_45e5_bd29_6dc2bc4de9cf)]
+    interface ICoreWebView2Environment8: ICoreWebView2Environment7 {
+        fn add_ProcessInfosChanged(&self, eventHandler: ICoreWebView2ProcessInfosChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ProcessInfosChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn GetProcessInfos(&self, value: *mut ICoreWebView2ProcessInfoCollection) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf06f41bf_4b5a_49d8_b9f6_fa16cd29f274)]
+    interface ICoreWebView2Environment9: ICoreWebView2Environment8 {
+        fn CreateContextMenuItem(&self, Label: LPCWSTR, iconStream: Windows::Win32::System::Com::IStream, Kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND, value: *mut ICoreWebView2ContextMenuItem) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2fde08a8_1e9a_4766_8c05_95a9ceb9d1c5)]
+    interface ICoreWebView2EnvironmentOptions: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_AdditionalBrowserArguments(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AdditionalBrowserArguments(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Language(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Language(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TargetCompatibleBrowserVersion(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TargetCompatibleBrowserVersion(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AllowSingleSignOnUsingOSPrimaryAccount(&self, allow: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AllowSingleSignOnUsingOSPrimaryAccount(&self, allow: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xff85c98a_1ba7_4a6b_90c8_2b752c89e9e2)]
+    interface ICoreWebView2EnvironmentOptions2: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ExclusiveUserDataFolderAccess(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ExclusiveUserDataFolderAccess(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4a5c436e_a9e3_4a2e_89c3_910d3513f5cc)]
+    interface ICoreWebView2EnvironmentOptions3: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_IsCustomCrashReportingEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsCustomCrashReportingEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xac52d13f_0d38_475a_9dca_876580d6793e)]
+    interface ICoreWebView2EnvironmentOptions4: Windows::Win32::System::Com::IUnknown {
+        fn GetCustomSchemeRegistrations(&self, count: *mut UINT32, schemeRegistrations: *mut *mut ICoreWebView2CustomSchemeRegistration) -> Windows::Win32::Foundation::HRESULT;
+        fn SetCustomSchemeRegistrations(&self, count: UINT32, schemeRegistrations: *mut ICoreWebView2CustomSchemeRegistration) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0ae35d64_c47f_4464_814e_259c345d1501)]
+    interface ICoreWebView2EnvironmentOptions5: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_EnableTrackingPrevention(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_EnableTrackingPrevention(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x57d29cc3_c84f_42a0_b0e2_effbd5e179de)]
+    interface ICoreWebView2EnvironmentOptions6: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_AreBrowserExtensionsEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AreBrowserExtensionsEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc48d539f_e39f_441c_ae68_1f66e570bdc5)]
+    interface ICoreWebView2EnvironmentOptions7: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ChannelSearchKind(&self, value: *mut COREWEBVIEW2_CHANNEL_SEARCH_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ChannelSearchKind(&self, value: COREWEBVIEW2_CHANNEL_SEARCH_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ReleaseChannels(&self, value: *mut COREWEBVIEW2_RELEASE_CHANNELS) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ReleaseChannels(&self, value: COREWEBVIEW2_RELEASE_CHANNELS) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7c7ecf51_e918_5caf_853c_e9a2bcc27775)]
+    interface ICoreWebView2EnvironmentOptions8: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ScrollBarStyle(&self, value: *mut COREWEBVIEW2_SCROLLBAR_STYLE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x28f0d425_93fe_4e63_9f8d_2aeec6d3ba1e)]
+    interface ICoreWebView2EstimatedEndTimeChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2DownloadOperation, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x49511172_cc67_4bca_9923_137112f4c4cc)]
+    interface ICoreWebView2ExecuteScriptCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0ce15963_3698_4df7_9399_71ed6cdd8c9f)]
+    interface ICoreWebView2ExecuteScriptResult: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Succeeded(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ResultAsJson(&self, jsonResult: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn TryGetResultAsString(&self, stringResult: *mut LPWSTR, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Exception(&self, exception: *mut ICoreWebView2ScriptException) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x1bb5317b_8238_4c67_a7ff_baf6558f289d)]
+    interface ICoreWebView2ExecuteScriptWithResultCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2ExecuteScriptResult) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2913da94_833d_4de0_8dca_900fc524a1a4)]
+    interface ICoreWebView2FaviconChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf2c19559_6bc1_4583_a757_90021be9afec)]
+    interface ICoreWebView2File: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Path(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc65100ac_0de2_5551_a362_23d9bd1d0e1f)]
+    interface ICoreWebView2FileSystemHandle: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Kind(&self, value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Path(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Permission(&self, value: *mut COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xa3ec0f5f_ddbc_54ed_8546_af75a785b9a6)]
+    interface ICoreWebView2Find: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ActiveMatchIndex(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MatchCount(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ActiveMatchIndexChanged(&self, eventHandler: ICoreWebView2FindActiveMatchIndexChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ActiveMatchIndexChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_MatchCountChanged(&self, eventHandler: ICoreWebView2FindMatchCountChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_MatchCountChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn Start(&self, options: ICoreWebView2FindOptions, handler: ICoreWebView2FindStartCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn FindNext(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn FindPrevious(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn Stop(&self,) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0054f514_9a8e_5876_aed5_30b37f8c86a5)]
+    interface ICoreWebView2FindActiveMatchIndexChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Find, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xda0d6827_4254_5b10_a6d9_412076afc9f3)]
+    interface ICoreWebView2FindMatchCountChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Find, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe82e3b2b_a4af_5bc6_94c6_18b44157a16c)]
+    interface ICoreWebView2FindOptions: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_FindTerm(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_FindTerm(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsCaseSensitive(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsCaseSensitive(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldHighlightAllMatches(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ShouldHighlightAllMatches(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldMatchWord(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ShouldMatchWord(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SuppressDefaultFindDialog(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SuppressDefaultFindDialog(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x6a90ecaf_44b0_5bd9_8f07_1967e17be9fb)]
+    interface ICoreWebView2FindStartCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x05ea24bd_6452_4926_9014_4b82b498135d)]
+    interface ICoreWebView2FocusChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Controller, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf1131a5e_9ba9_11eb_a8b3_0242ac130003)]
+    interface ICoreWebView2Frame: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Name(&self, name: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NameChanged(&self, eventHandler: ICoreWebView2FrameNameChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NameChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn AddHostObjectToScriptWithOrigins(&self, name: LPCWSTR, object: *mut Windows::Win32::System::Variant::VARIANT, originsCount: UINT32, origins: *mut LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn add_Destroyed(&self, eventHandler: ICoreWebView2FrameDestroyedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_Destroyed(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn IsDestroyed(&self, destroyed: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7a6a5834_d185_4dbf_b63f_4a9bc43107d4)]
+    interface ICoreWebView2Frame2: ICoreWebView2Frame {
+        fn add_NavigationStarting(&self, eventHandler: ICoreWebView2FrameNavigationStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContentLoading(&self, eventHandler: ICoreWebView2FrameContentLoadingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContentLoading(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2FrameNavigationCompletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationCompleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DOMContentLoaded(&self, eventHandler: ICoreWebView2FrameDOMContentLoadedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DOMContentLoaded(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn ExecuteScript(&self, javaScript: LPCWSTR, handler: ICoreWebView2ExecuteScriptCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn PostWebMessageAsJson(&self, webMessageAsJson: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn PostWebMessageAsString(&self, webMessageAsString: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebMessageReceived(&self, handler: ICoreWebView2FrameWebMessageReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebMessageReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb50d82cc_cc28_481d_9614_cb048895e6a0)]
+    interface ICoreWebView2Frame3: ICoreWebView2Frame2 {
+        fn add_PermissionRequested(&self, eventHandler: ICoreWebView2FramePermissionRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_PermissionRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x188782dc_92aa_4732_ab3c_fcc59f6f68b9)]
+    interface ICoreWebView2Frame4: ICoreWebView2Frame3 {
+        fn PostSharedBufferToScript(&self, sharedBuffer: ICoreWebView2SharedBuffer, access: COREWEBVIEW2_SHARED_BUFFER_ACCESS, additionalDataAsJson: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x99d199c4_7305_11ee_b962_0242ac120002)]
+    interface ICoreWebView2Frame5: ICoreWebView2Frame4 {
+        #[special]
+        fn get_FrameId(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0de611fd_31e9_5ddc_9d71_95eda26eff32)]
+    interface ICoreWebView2Frame6: ICoreWebView2Frame5 {
+        fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2FrameScreenCaptureStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ScreenCaptureStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3598cfa2_d85d_5a9f_9228_4dde1f59ec64)]
+    interface ICoreWebView2Frame7: ICoreWebView2Frame6 {
+        fn add_FrameCreated(&self, eventHandler: ICoreWebView2FrameChildFrameCreatedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameCreated(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x569e40e7_46b7_563d_83ae_1073155664d7)]
+    interface ICoreWebView2FrameChildFrameCreatedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2FrameCreatedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0d6156f2_d332_49a7_9e03_7d8f2feeee54)]
+    interface ICoreWebView2FrameContentLoadingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2ContentLoadingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4d6e7b5e_9baa_11eb_a8b3_0242ac130003)]
+    interface ICoreWebView2FrameCreatedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Frame(&self, value: *mut ICoreWebView2Frame) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x38059770_9baa_11eb_a8b3_0242ac130003)]
+    interface ICoreWebView2FrameCreatedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2FrameCreatedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x38d9520d_340f_4d1e_a775_43fce9753683)]
+    interface ICoreWebView2FrameDOMContentLoadedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2DOMContentLoadedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x59dd7b4c_9baa_11eb_a8b3_0242ac130003)]
+    interface ICoreWebView2FrameDestroyedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xda86b8a1_bdf3_4f11_9955_528cefa59727)]
+    interface ICoreWebView2FrameInfo: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Name(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Source(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x56f85cfa_72c4_11ee_b962_0242ac120002)]
+    interface ICoreWebView2FrameInfo2: ICoreWebView2FrameInfo {
+        #[special]
+        fn get_ParentFrameInfo(&self, frameInfo: *mut ICoreWebView2FrameInfo) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FrameId(&self, id: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FrameKind(&self, kind: *mut COREWEBVIEW2_FRAME_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8f834154_d38e_4d90_affb_6800a7272839)]
+    interface ICoreWebView2FrameInfoCollection: Windows::Win32::System::Com::IUnknown {
+        fn GetIterator(&self, value: *mut ICoreWebView2FrameInfoCollectionIterator) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x1bf89e2d_1b2b_4629_b28f_05099b41bb03)]
+    interface ICoreWebView2FrameInfoCollectionIterator: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_HasCurrent(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetCurrent(&self, value: *mut ICoreWebView2FrameInfo) -> Windows::Win32::Foundation::HRESULT;
+        fn MoveNext(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x435c7dc8_9baa_11eb_a8b3_0242ac130003)]
+    interface ICoreWebView2FrameNameChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x609302ad_0e36_4f9a_a210_6a45272842a9)]
+    interface ICoreWebView2FrameNavigationCompletedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2NavigationCompletedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe79908bf_2d5d_4968_83db_263fea2c1da3)]
+    interface ICoreWebView2FrameNavigationStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2NavigationStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x845d0edd_8bd8_429b_9915_4821789f23e9)]
+    interface ICoreWebView2FramePermissionRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2PermissionRequestedEventArgs2) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xa6c1d8ad_bb80_59c5_895b_fba1698b9309)]
+    interface ICoreWebView2FrameScreenCaptureStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2ScreenCaptureStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe371e005_6d1d_4517_934b_a8f1629c62a5)]
+    interface ICoreWebView2FrameWebMessageReceivedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Frame, args: ICoreWebView2WebMessageReceivedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5a4f5069_5c15_47c3_8646_f4de1c116670)]
+    interface ICoreWebView2GetCookiesCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2CookieList) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xa2508329_7da8_49d7_8c05_fa125e4aee8d)]
+    interface ICoreWebView2GetFaviconCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x38274481_a15c_4563_94cf_990edc9aeb95)]
+    interface ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2PermissionSettingCollectionView) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf45e55aa_3bc2_11ee_be56_0242ac120002)]
+    interface ICoreWebView2GetProcessExtendedInfosCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2ProcessExtendedInfoCollection) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc79a420c_efd9_4058_9295_3e8b4bcab645)]
+    interface ICoreWebView2HistoryChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0702fc30_f43b_47bb_ab52_a42cb552ad9f)]
+    interface ICoreWebView2HttpHeadersCollectionIterator: Windows::Win32::System::Com::IUnknown {
+        fn GetCurrentHeader(&self, name: *mut LPWSTR, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasCurrentHeader(&self, hasCurrent: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn MoveNext(&self, hasNext: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe86cac0e_5523_465c_b536_8fb9fc8c8c60)]
+    interface ICoreWebView2HttpRequestHeaders: Windows::Win32::System::Com::IUnknown {
+        fn GetHeader(&self, name: LPCWSTR, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn GetHeaders(&self, name: LPCWSTR, value: *mut ICoreWebView2HttpHeadersCollectionIterator) -> Windows::Win32::Foundation::HRESULT;
+        fn Contains(&self, name: LPCWSTR, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn SetHeader(&self, name: LPCWSTR, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveHeader(&self, name: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn GetIterator(&self, value: *mut ICoreWebView2HttpHeadersCollectionIterator) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x03c5ff5a_9b45_4a88_881c_89a9f328619c)]
+    interface ICoreWebView2HttpResponseHeaders: Windows::Win32::System::Com::IUnknown {
+        fn AppendHeader(&self, name: LPCWSTR, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn Contains(&self, name: LPCWSTR, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetHeader(&self, name: LPCWSTR, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn GetHeaders(&self, name: LPCWSTR, value: *mut ICoreWebView2HttpHeadersCollectionIterator) -> Windows::Win32::Foundation::HRESULT;
+        fn GetIterator(&self, value: *mut ICoreWebView2HttpHeadersCollectionIterator) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3117da26_ae13_438d_bd46_edbeb2c4ce81)]
+    interface ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5def109a_2f4b_49fa_b7f6_11c39e513328)]
+    interface ICoreWebView2IsDocumentPlayingAudioChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x57d90347_cd0e_4952_a4a2_7483a2756f08)]
+    interface ICoreWebView2IsMutedChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x07d1a6c3_7175_4ba1_9306_e593ca07e46c)]
+    interface ICoreWebView2LaunchingExternalUriSchemeEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_InitiatingOrigin(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsUserInitiated(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cancel(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, value: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x74f712e0_8165_43a9_a13f_0cce597e75df)]
+    interface ICoreWebView2LaunchingExternalUriSchemeEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2LaunchingExternalUriSchemeEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2d6aa13b_3839_4a15_92fc_d88b3c0d9c9d)]
+    interface ICoreWebView2MoveFocusRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Reason(&self, reason: *mut COREWEBVIEW2_MOVE_FOCUS_REASON) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x69035451_6dc7_4cb8_9bce_b2bd70ad289f)]
+    interface ICoreWebView2MoveFocusRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Controller, args: ICoreWebView2MoveFocusRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x30d68b7d_20d9_4752_a9ca_ec8448fbb5c1)]
+    interface ICoreWebView2NavigationCompletedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_IsSuccess(&self, isSuccess: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_WebErrorStatus(&self, webErrorStatus: *mut COREWEBVIEW2_WEB_ERROR_STATUS) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_NavigationId(&self, navigationId: *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfdf8b738_ee1e_4db2_a329_8d7d7b74d792)]
+    interface ICoreWebView2NavigationCompletedEventArgs2: ICoreWebView2NavigationCompletedEventArgs {
+        #[special]
+        fn get_HttpStatusCode(&self, value: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xd33a35bf_1c49_4f98_93ab_006e0533fe1c)]
+    interface ICoreWebView2NavigationCompletedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2NavigationCompletedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5b495469_e119_438a_9b18_7604f25f2e49)]
+    interface ICoreWebView2NavigationStartingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsUserInitiated(&self, isUserInitiated: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsRedirected(&self, isRedirected: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_RequestHeaders(&self, requestHeaders: *mut ICoreWebView2HttpRequestHeaders) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cancel(&self, cancel: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, cancel: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_NavigationId(&self, navigationId: *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9086be93_91aa_472d_a7e0_579f2ba006ad)]
+    interface ICoreWebView2NavigationStartingEventArgs2: ICoreWebView2NavigationStartingEventArgs {
+        #[special]
+        fn get_AdditionalAllowedFrameAncestors(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AdditionalAllowedFrameAncestors(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xddffe494_4942_4bd2_ab73_35b8ff40e19f)]
+    interface ICoreWebView2NavigationStartingEventArgs3: ICoreWebView2NavigationStartingEventArgs2 {
+        #[special]
+        fn get_NavigationKind(&self, value: *mut COREWEBVIEW2_NAVIGATION_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9adbe429_f36d_432b_9ddc_f8881fbd76e3)]
+    interface ICoreWebView2NavigationStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2NavigationStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf9a2976e_d34e_44fc_adee_81b6b57ca914)]
+    interface ICoreWebView2NewBrowserVersionAvailableEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Environment, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x34acb11c_fc37_4418_9132_f9c21d1eafb9)]
+    interface ICoreWebView2NewWindowRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_NewWindow(&self, newWindow: ICoreWebView2) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_NewWindow(&self, newWindow: *mut ICoreWebView2) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, handled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, handled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsUserInitiated(&self, isUserInitiated: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_WindowFeatures(&self, value: *mut ICoreWebView2WindowFeatures) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xbbc7baed_74c6_4c92_b63a_7f5aeae03de3)]
+    interface ICoreWebView2NewWindowRequestedEventArgs2: ICoreWebView2NewWindowRequestedEventArgs {
+        #[special]
+        fn get_Name(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x842bed3c_6ad6_4dd9_b938_28c96667ad66)]
+    interface ICoreWebView2NewWindowRequestedEventArgs3: ICoreWebView2NewWindowRequestedEventArgs2 {
+        #[special]
+        fn get_OriginalSourceFrameInfo(&self, value: *mut ICoreWebView2FrameInfo) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xd4c185fe_c81c_4989_97af_2d3fa7ab5651)]
+    interface ICoreWebView2NewWindowRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2NewWindowRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xab71d500_0820_4a52_809c_48db04ff93bf)]
+    interface ICoreWebView2NonClientRegionChangedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_RegionKind(&self, value: *mut COREWEBVIEW2_NON_CLIENT_REGION_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4a794e66_aa6c_46bd_93a3_382196837680)]
+    interface ICoreWebView2NonClientRegionChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2CompositionController, args: ICoreWebView2NonClientRegionChangedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb7434d98_6bc8_419d_9da5_fb5a96d4dacd)]
+    interface ICoreWebView2Notification: Windows::Win32::System::Com::IUnknown {
+        fn add_CloseRequested(&self, eventHandler: ICoreWebView2NotificationCloseRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_CloseRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn ReportShown(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn ReportClicked(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn ReportClosed(&self,) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Body(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Direction(&self, value: *mut COREWEBVIEW2_TEXT_DIRECTION_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Language(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Tag(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IconUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Title(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BadgeUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_BodyImageUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldRenotify(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_RequiresInteraction(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsSilent(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Timestamp(&self, value: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        fn GetVibrationPattern(&self, count: *mut UINT32, vibrationPattern: *mut *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x47c32d23_1e94_4733_85f1_d9bf4acd0974)]
+    interface ICoreWebView2NotificationCloseRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Notification, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x1512dd5b_5514_4f85_886e_21c3a4c9cfe6)]
+    interface ICoreWebView2NotificationReceivedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_SenderOrigin(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Notification(&self, value: *mut ICoreWebView2Notification) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x89c5d598_8788_423b_be97_e6e01c0f9ee3)]
+    interface ICoreWebView2NotificationReceivedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2NotificationReceivedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5cfec11c_25bd_4e8d_9e1a_7acdaeeec047)]
+    interface ICoreWebView2ObjectCollection: ICoreWebView2ObjectCollectionView {
+        fn RemoveValueAtIndex(&self, index: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn InsertValueAtIndex(&self, index: UINT32, value: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0f36fd87_4f69_4415_98da_888f89fb9a33)]
+    interface ICoreWebView2ObjectCollectionView: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x973ae2ef_ff18_4894_8fb2_3c758f046810)]
+    interface ICoreWebView2PermissionRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PermissionKind(&self, permissionKind: *mut COREWEBVIEW2_PERMISSION_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsUserInitiated(&self, isUserInitiated: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_State(&self, state: *mut COREWEBVIEW2_PERMISSION_STATE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_State(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x74d7127f_9de6_4200_8734_42d6fb4ff741)]
+    interface ICoreWebView2PermissionRequestedEventArgs2: ICoreWebView2PermissionRequestedEventArgs {
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe61670bc_3dce_4177_86d2_c629ae3cb6ac)]
+    interface ICoreWebView2PermissionRequestedEventArgs3: ICoreWebView2PermissionRequestedEventArgs2 {
+        #[special]
+        fn get_SavesInProfile(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SavesInProfile(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x15e1c6a3_c72a_4df3_91d7_d097fbec6bfd)]
+    interface ICoreWebView2PermissionRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2PermissionRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x792b6eca_5576_421c_9119_74ebb3a4ffb3)]
+    interface ICoreWebView2PermissionSetting: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_PermissionKind(&self, value: *mut COREWEBVIEW2_PERMISSION_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PermissionOrigin(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PermissionState(&self, value: *mut COREWEBVIEW2_PERMISSION_STATE) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf5596f62_3de5_47b1_91e8_a4104b596b96)]
+    interface ICoreWebView2PermissionSettingCollectionView: Windows::Win32::System::Com::IUnknown {
+        fn GetValueAtIndex(&self, index: UINT32, permissionSetting: *mut ICoreWebView2PermissionSetting) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe6995887_d10d_4f5d_9359_4ce46e4f96b9)]
+    interface ICoreWebView2PointerInfo: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_PointerKind(&self, pointerKind: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PointerKind(&self, pointerKind: DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PointerId(&self, pointerId: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PointerId(&self, pointerId: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FrameId(&self, frameId: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_FrameId(&self, frameId: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PointerFlags(&self, pointerFlags: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PointerFlags(&self, pointerFlags: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PointerDeviceRect(&self, pointerDeviceRect: *mut Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PointerDeviceRect(&self, pointerDeviceRect: Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DisplayRect(&self, displayRect: *mut Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_DisplayRect(&self, displayRect: Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PixelLocation(&self, pixelLocation: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PixelLocation(&self, pixelLocation: Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HimetricLocation(&self, himetricLocation: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_HimetricLocation(&self, himetricLocation: Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PixelLocationRaw(&self, pixelLocationRaw: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PixelLocationRaw(&self, pixelLocationRaw: Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HimetricLocationRaw(&self, himetricLocationRaw: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_HimetricLocationRaw(&self, himetricLocationRaw: Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Time(&self, time: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Time(&self, time: DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HistoryCount(&self, historyCount: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_HistoryCount(&self, historyCount: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_InputData(&self, inputData: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_InputData(&self, inputData: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_KeyStates(&self, keyStates: *mut DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_KeyStates(&self, keyStates: DWORD) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PerformanceCount(&self, performanceCount: *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PerformanceCount(&self, performanceCount: UINT64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ButtonChangeKind(&self, buttonChangeKind: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ButtonChangeKind(&self, buttonChangeKind: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PenFlags(&self, penFLags: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PenFlags(&self, penFLags: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PenMask(&self, penMask: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PenMask(&self, penMask: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PenPressure(&self, penPressure: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PenPressure(&self, penPressure: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PenRotation(&self, penRotation: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PenRotation(&self, penRotation: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PenTiltX(&self, penTiltX: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PenTiltX(&self, penTiltX: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PenTiltY(&self, penTiltY: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PenTiltY(&self, penTiltY: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TouchFlags(&self, touchFlags: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TouchFlags(&self, touchFlags: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TouchMask(&self, touchMask: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TouchMask(&self, touchMask: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TouchContact(&self, touchContact: *mut Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TouchContact(&self, touchContact: Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TouchContactRaw(&self, touchContactRaw: *mut Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TouchContactRaw(&self, touchContactRaw: Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TouchOrientation(&self, touchOrientation: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TouchOrientation(&self, touchOrientation: UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_TouchPressure(&self, touchPressure: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_TouchPressure(&self, touchPressure: UINT32) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8fd80075_ed08_42db_8570_f5d14977461e)]
+    interface ICoreWebView2PrintCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: COREWEBVIEW2_PRINT_STATUS) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x377f3721_c74e_48ca_8db1_df68e51d60e2)]
+    interface ICoreWebView2PrintSettings: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Orientation(&self, orientation: *mut COREWEBVIEW2_PRINT_ORIENTATION) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Orientation(&self, orientation: COREWEBVIEW2_PRINT_ORIENTATION) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ScaleFactor(&self, scaleFactor: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ScaleFactor(&self, scaleFactor: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PageWidth(&self, pageWidth: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PageWidth(&self, pageWidth: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PageHeight(&self, pageHeight: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PageHeight(&self, pageHeight: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MarginTop(&self, marginTop: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_MarginTop(&self, marginTop: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MarginBottom(&self, marginBottom: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_MarginBottom(&self, marginBottom: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MarginLeft(&self, marginLeft: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_MarginLeft(&self, marginLeft: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MarginRight(&self, marginRight: *mut f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_MarginRight(&self, marginRight: f64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldPrintBackgrounds(&self, shouldPrintBackgrounds: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ShouldPrintBackgrounds(&self, shouldPrintBackgrounds: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldPrintSelectionOnly(&self, shouldPrintSelectionOnly: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ShouldPrintSelectionOnly(&self, shouldPrintSelectionOnly: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldPrintHeaderAndFooter(&self, shouldPrintHeaderAndFooter: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ShouldPrintHeaderAndFooter(&self, shouldPrintHeaderAndFooter: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HeaderTitle(&self, headerTitle: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_HeaderTitle(&self, headerTitle: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FooterUri(&self, footerUri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_FooterUri(&self, footerUri: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xca7f0e1f_3484_41d1_8c1a_65cd44a63f8d)]
+    interface ICoreWebView2PrintSettings2: ICoreWebView2PrintSettings {
+        #[special]
+        fn get_PageRanges(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PageRanges(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PagesPerSide(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PagesPerSide(&self, value: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Copies(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Copies(&self, value: INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Collation(&self, value: *mut COREWEBVIEW2_PRINT_COLLATION) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Collation(&self, value: COREWEBVIEW2_PRINT_COLLATION) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ColorMode(&self, value: *mut COREWEBVIEW2_PRINT_COLOR_MODE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ColorMode(&self, value: COREWEBVIEW2_PRINT_COLOR_MODE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Duplex(&self, value: *mut COREWEBVIEW2_PRINT_DUPLEX) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Duplex(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_MediaSize(&self, value: *mut COREWEBVIEW2_PRINT_MEDIA_SIZE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_MediaSize(&self, value: COREWEBVIEW2_PRINT_MEDIA_SIZE) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PrinterName(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PrinterName(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xccf1ef04_fd8e_4d5f_b2de_0983e41b8c36)]
+    interface ICoreWebView2PrintToPdfCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4c9f8229_8f93_444f_a711_2c0dfd6359d5)]
+    interface ICoreWebView2PrintToPdfStreamCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xaf4c4c2e_45db_11ee_be56_0242ac120002)]
+    interface ICoreWebView2ProcessExtendedInfo: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ProcessInfo(&self, processInfo: *mut ICoreWebView2ProcessInfo) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AssociatedFrameInfos(&self, frames: *mut ICoreWebView2FrameInfoCollection) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x32efa696_407a_11ee_be56_0242ac120002)]
+    interface ICoreWebView2ProcessExtendedInfoCollection: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut ICoreWebView2ProcessExtendedInfo) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8155a9a4_1474_4a86_8cae_151b0fa6b8ca)]
+    interface ICoreWebView2ProcessFailedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ProcessFailedKind(&self, value: *mut COREWEBVIEW2_PROCESS_FAILED_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4dab9422_46fa_4c3e_a5d2_41d2071d3680)]
+    interface ICoreWebView2ProcessFailedEventArgs2: ICoreWebView2ProcessFailedEventArgs {
+        #[special]
+        fn get_Reason(&self, reason: *mut COREWEBVIEW2_PROCESS_FAILED_REASON) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ExitCode(&self, exitCode: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ProcessDescription(&self, processDescription: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FrameInfosForFailedProcess(&self, frames: *mut ICoreWebView2FrameInfoCollection) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xab667428_094d_5fd1_b480_8b4c0fdbdf2f)]
+    interface ICoreWebView2ProcessFailedEventArgs3: ICoreWebView2ProcessFailedEventArgs2 {
+        #[special]
+        fn get_FailureSourceModulePath(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x79e0aea4_990b_42d9_aa1d_0fcc2e5bc7f1)]
+    interface ICoreWebView2ProcessFailedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ProcessFailedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x84fa7612_3f3d_4fbf_889d_fad000492d72)]
+    interface ICoreWebView2ProcessInfo: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ProcessId(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Kind(&self, kind: *mut COREWEBVIEW2_PROCESS_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x402b99cd_a0cc_4fa5_b7a5_51d86a1d2339)]
+    interface ICoreWebView2ProcessInfoCollection: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut ICoreWebView2ProcessInfo) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf4af0c39_44b9_40e9_8b11_0484cfb9e0a1)]
+    interface ICoreWebView2ProcessInfosChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Environment, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x79110ad3_cd5d_4373_8bc3_c60658f17a5f)]
+    interface ICoreWebView2Profile: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ProfileName(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsInPrivateModeEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ProfilePath(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DefaultDownloadFolderPath(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_DefaultDownloadFolderPath(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_PreferredColorScheme(&self, value: *mut COREWEBVIEW2_PREFERRED_COLOR_SCHEME) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PreferredColorScheme(&self, value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfa740d4b_5eae_4344_a8ad_74be31925397)]
+    interface ICoreWebView2Profile2: ICoreWebView2Profile {
+        fn ClearBrowsingData(&self, dataKinds: COREWEBVIEW2_BROWSING_DATA_KINDS, handler: ICoreWebView2ClearBrowsingDataCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn ClearBrowsingDataInTimeRange(&self, dataKinds: COREWEBVIEW2_BROWSING_DATA_KINDS, startTime: f64, endTime: f64, handler: ICoreWebView2ClearBrowsingDataCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn ClearBrowsingDataAll(&self, handler: ICoreWebView2ClearBrowsingDataCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb188e659_5685_4e05_bdba_fc640e0f1992)]
+    interface ICoreWebView2Profile3: ICoreWebView2Profile2 {
+        #[special]
+        fn get_PreferredTrackingPreventionLevel(&self, value: *mut COREWEBVIEW2_TRACKING_PREVENTION_LEVEL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_PreferredTrackingPreventionLevel(&self, value: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x8f4ae680_192e_4ec8_833a_21cfadaef628)]
+    interface ICoreWebView2Profile4: ICoreWebView2Profile3 {
+        fn SetPermissionState(&self, PermissionKind: COREWEBVIEW2_PERMISSION_KIND, origin: LPCWSTR, State: COREWEBVIEW2_PERMISSION_STATE, handler: ICoreWebView2SetPermissionStateCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn GetNonDefaultPermissionSettings(&self, handler: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x2ee5b76e_6e80_4df2_bcd3_d4ec3340a01b)]
+    interface ICoreWebView2Profile5: ICoreWebView2Profile4 {
+        #[special]
+        fn get_CookieManager(&self, value: *mut ICoreWebView2CookieManager) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xbd82fa6a_1d65_4c33_b2b4_0393020cc61b)]
+    interface ICoreWebView2Profile6: ICoreWebView2Profile5 {
+        #[special]
+        fn get_IsPasswordAutosaveEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsPasswordAutosaveEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsGeneralAutofillEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsGeneralAutofillEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7b4c7906_a1aa_4cb4_b723_db09f813d541)]
+    interface ICoreWebView2Profile7: ICoreWebView2Profile6 {
+        fn AddBrowserExtension(&self, extensionFolderPath: LPCWSTR, handler: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn GetBrowserExtensions(&self, handler: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfbf70c2f_eb1f_4383_85a0_163e92044011)]
+    interface ICoreWebView2Profile8: ICoreWebView2Profile7 {
+        fn Delete(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn add_Deleted(&self, eventHandler: ICoreWebView2ProfileDeletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_Deleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xdf1aab27_82b9_4ab6_aae8_017a49398c14)]
+    interface ICoreWebView2ProfileAddBrowserExtensionCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2BrowserExtension) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xdf35055d_772e_4dbe_b743_5fbf74a2b258)]
+    interface ICoreWebView2ProfileDeletedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Profile, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfce16a1c_f107_4601_8b75_fc4940ae25d0)]
+    interface ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: ICoreWebView2BrowserExtensionList) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9c98c8b1_ac53_427e_a345_3049b5524bbe)]
+    interface ICoreWebView2RasterizationScaleChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Controller, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x333353b8_48bf_4449_8fcc_22697faf5753)]
+    interface ICoreWebView2RegionRectCollectionView: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut Windows::Win32::Foundation::RECT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x55902952_0e0d_5aaa_a7d0_e833cdb34f62)]
+    interface ICoreWebView2SaveAsUIShowingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ContentMimeType(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Cancel(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SuppressDefaultDialog(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SuppressDefaultDialog(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, value: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SaveAsFilePath(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SaveAsFilePath(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AllowReplace(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AllowReplace(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Kind(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Kind(&self, value: *mut COREWEBVIEW2_SAVE_AS_KIND) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x6baa177e_3a2e_5ccf_9a13_fad676cd0522)]
+    interface ICoreWebView2SaveAsUIShowingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2SaveAsUIShowingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xcf4ff1d1_5a67_5660_8d63_ef699881ea65)]
+    interface ICoreWebView2SaveFileSecurityCheckStartingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_CancelSave(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_CancelSave(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DocumentOriginUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FileExtension(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FilePath(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_SuppressDefaultPolicy(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_SuppressDefaultPolicy(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, value: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7899576c_19e3_57c8_b7d1_55808292de57)]
+    interface ICoreWebView2SaveFileSecurityCheckStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2SaveFileSecurityCheckStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x892c03fd_aee3_5eba_a1fa_6fd2f6484b2b)]
+    interface ICoreWebView2ScreenCaptureStartingEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Cancel(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Cancel(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Handled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Handled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_OriginalSourceFrameInfo(&self, value: *mut ICoreWebView2FrameInfo) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, value: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe24ff05a_1db5_59d9_89f3_3c864268db4a)]
+    interface ICoreWebView2ScreenCaptureStartingEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ScreenCaptureStartingEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7390bb70_abe0_4843_9529_f143b31b03d6)]
+    interface ICoreWebView2ScriptDialogOpeningEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Kind(&self, kind: *mut COREWEBVIEW2_SCRIPT_DIALOG_KIND) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Message(&self, message: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn Accept(&self,) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DefaultText(&self, defaultText: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ResultText(&self, resultText: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ResultText(&self, resultText: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xef381bf9_afa8_4e37_91c4_8ac48524bdfb)]
+    interface ICoreWebView2ScriptDialogOpeningEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ScriptDialogOpeningEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x054dae00_84a3_49ff_bc17_4012a90bc9fd)]
+    interface ICoreWebView2ScriptException: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_LineNumber(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ColumnNumber(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Name(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Message(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ToJson(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x012193ed_7c13_48ff_969d_a84c1f432a14)]
+    interface ICoreWebView2ServerCertificateErrorDetectedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_ErrorStatus(&self, value: *mut COREWEBVIEW2_WEB_ERROR_STATUS) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_RequestUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ServerCertificate(&self, value: *mut ICoreWebView2Certificate) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Action(&self, value: *mut COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Action(&self, value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x969b3a26_d85e_4795_8199_fef57344da22)]
+    interface ICoreWebView2ServerCertificateErrorDetectedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ServerCertificateErrorDetectedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfc77fb30_9c9e_4076_b8c7_7644a703ca1b)]
+    interface ICoreWebView2SetPermissionStateCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe562e4f0_d7fa_43ac_8d71_c05150499f00)]
+    interface ICoreWebView2Settings: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_IsScriptEnabled(&self, isScriptEnabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsScriptEnabled(&self, isScriptEnabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsWebMessageEnabled(&self, isWebMessageEnabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsWebMessageEnabled(&self, isWebMessageEnabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AreDefaultScriptDialogsEnabled(&self, areDefaultScriptDialogsEnabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AreDefaultScriptDialogsEnabled(&self, areDefaultScriptDialogsEnabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsStatusBarEnabled(&self, isStatusBarEnabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsStatusBarEnabled(&self, isStatusBarEnabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AreDevToolsEnabled(&self, areDevToolsEnabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AreDevToolsEnabled(&self, areDevToolsEnabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AreDefaultContextMenusEnabled(&self, enabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AreDefaultContextMenusEnabled(&self, enabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_AreHostObjectsAllowed(&self, allowed: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AreHostObjectsAllowed(&self, allowed: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsZoomControlEnabled(&self, enabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsZoomControlEnabled(&self, enabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsBuiltInErrorPageEnabled(&self, enabled: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsBuiltInErrorPageEnabled(&self, enabled: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xee9a0f68_f46c_4e32_ac23_ef8cac224d2a)]
+    interface ICoreWebView2Settings2: ICoreWebView2Settings {
+        #[special]
+        fn get_UserAgent(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_UserAgent(&self, value: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xfdb5ab74_af33_4854_84f0_0a631deb5eba)]
+    interface ICoreWebView2Settings3: ICoreWebView2Settings2 {
+        #[special]
+        fn get_AreBrowserAcceleratorKeysEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_AreBrowserAcceleratorKeysEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xcb56846c_4168_4d53_b04f_03b6d6796ff2)]
+    interface ICoreWebView2Settings4: ICoreWebView2Settings3 {
+        #[special]
+        fn get_IsPasswordAutosaveEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsPasswordAutosaveEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsGeneralAutofillEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsGeneralAutofillEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x183e7052_1d03_43a0_ab99_98e043b66b39)]
+    interface ICoreWebView2Settings5: ICoreWebView2Settings4 {
+        #[special]
+        fn get_IsPinchZoomEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsPinchZoomEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x11cb3acd_9bc8_43b8_83bf_f40753714f87)]
+    interface ICoreWebView2Settings6: ICoreWebView2Settings5 {
+        #[special]
+        fn get_IsSwipeNavigationEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsSwipeNavigationEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x488dc902_35ef_42d2_bc7d_94b65c4bc49c)]
+    interface ICoreWebView2Settings7: ICoreWebView2Settings6 {
+        #[special]
+        fn get_HiddenPdfToolbarItems(&self, value: *mut COREWEBVIEW2_PDF_TOOLBAR_ITEMS) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_HiddenPdfToolbarItems(&self, value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9e6b0e8f_86ad_4e81_8147_a9b5edb68650)]
+    interface ICoreWebView2Settings8: ICoreWebView2Settings7 {
+        #[special]
+        fn get_IsReputationCheckingRequired(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsReputationCheckingRequired(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0528a73b_e92d_49f4_927a_e547dddaa37d)]
+    interface ICoreWebView2Settings9: ICoreWebView2Settings8 {
+        #[special]
+        fn get_IsNonClientRegionSupportEnabled(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsNonClientRegionSupportEnabled(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb747a495_0c6f_449e_97b8_2f81e9d6ab43)]
+    interface ICoreWebView2SharedBuffer: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Size(&self, value: *mut UINT64) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Buffer(&self, value: *mut *mut BYTE) -> Windows::Win32::Foundation::HRESULT;
+        fn OpenStream(&self, value: *mut Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FileMappingHandle(&self, value: *mut Windows::Win32::Foundation::HANDLE) -> Windows::Win32::Foundation::HRESULT;
+        fn Close(&self,) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe24b07e3_8169_5c34_994a_7f6478946a3c)]
+    interface ICoreWebView2ShowSaveAsUICompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: COREWEBVIEW2_SAVE_AS_UI_RESULT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x31e0e545_1dba_4266_8914_f63848a1f7d7)]
+    interface ICoreWebView2SourceChangedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_IsNewDocument(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x3c067f9f_5388_4772_8b48_79f7ef1ab37c)]
+    interface ICoreWebView2SourceChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2SourceChangedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x81336594_7ede_4ba9_bf71_acf0a95b58dd)]
+    interface ICoreWebView2StateChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2DownloadOperation, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xa5e3b0d0_10df_4156_bfad_3b43867acac6)]
+    interface ICoreWebView2StatusBarTextChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf41f3f8a_bcc3_11eb_8529_0242ac130003)]
+    interface ICoreWebView2StringCollection: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Count(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        fn GetValueAtIndex(&self, index: UINT32, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x00f206a7_9d17_4605_91f6_4e8e4de192e3)]
+    interface ICoreWebView2TrySuspendCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0f99a40c_e962_4207_9e92_e3d542eff849)]
+    interface ICoreWebView2WebMessageReceivedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Source(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_WebMessageAsJson(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn TryGetWebMessageAsString(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x06fc7ab7_c90c_4297_9389_33ca01cf6d5e)]
+    interface ICoreWebView2WebMessageReceivedEventArgs2: ICoreWebView2WebMessageReceivedEventArgs {
+        #[special]
+        fn get_AdditionalObjects(&self, value: *mut ICoreWebView2ObjectCollectionView) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x57213f19_00e6_49fa_8e07_898ea01ecbd2)]
+    interface ICoreWebView2WebMessageReceivedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2WebMessageReceivedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x97055cd4_512c_4264_8b5f_e3f446cea6a5)]
+    interface ICoreWebView2WebResourceRequest: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Uri(&self, uri: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Method(&self, method: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Method(&self, method: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Content(&self, content: *mut Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Content(&self, content: Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Headers(&self, headers: *mut ICoreWebView2HttpRequestHeaders) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x453e667f_12c7_49d4_be6d_ddbe7956f57a)]
+    interface ICoreWebView2WebResourceRequestedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Request(&self, request: *mut ICoreWebView2WebResourceRequest) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Response(&self, response: *mut ICoreWebView2WebResourceResponse) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Response(&self, response: ICoreWebView2WebResourceResponse) -> Windows::Win32::Foundation::HRESULT;
+        fn GetDeferral(&self, deferral: *mut ICoreWebView2Deferral) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ResourceContext(&self, context: *mut COREWEBVIEW2_WEB_RESOURCE_CONTEXT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9c562c24_b219_4d7f_92f6_b187fbbadd56)]
+    interface ICoreWebView2WebResourceRequestedEventArgs2: ICoreWebView2WebResourceRequestedEventArgs {
+        #[special]
+        fn get_RequestedSourceKind(&self, value: *mut COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xab00b74c_15f1_4646_80e8_e76341d25d71)]
+    interface ICoreWebView2WebResourceRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2WebResourceRequestedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xaafcc94f_fa27_48fd_97df_830ef75aaec9)]
+    interface ICoreWebView2WebResourceResponse: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Content(&self, content: *mut Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_Content(&self, content: Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Headers(&self, headers: *mut ICoreWebView2HttpResponseHeaders) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_StatusCode(&self, statusCode: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_StatusCode(&self, statusCode: i32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ReasonPhrase(&self, reasonPhrase: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_ReasonPhrase(&self, reasonPhrase: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xd1db483d_6796_4b8b_80fc_13712bb716f4)]
+    interface ICoreWebView2WebResourceResponseReceivedEventArgs: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Request(&self, value: *mut ICoreWebView2WebResourceRequest) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Response(&self, value: *mut ICoreWebView2WebResourceResponseView) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7de9898a_24f5_40c3_a2de_d4f458e69828)]
+    interface ICoreWebView2WebResourceResponseReceivedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2WebResourceResponseReceivedEventArgs) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x79701053_7759_4162_8f7d_f1b3f084928d)]
+    interface ICoreWebView2WebResourceResponseView: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_Headers(&self, headers: *mut ICoreWebView2HttpResponseHeaders) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_StatusCode(&self, statusCode: *mut i32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ReasonPhrase(&self, reasonPhrase: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn GetContent(&self, handler: ICoreWebView2WebResourceResponseViewGetContentCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x875738e1_9fa2_40e3_8b74_2e8972dd6fe7)]
+    interface ICoreWebView2WebResourceResponseViewGetContentCompletedHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, errorCode: Windows::Win32::Foundation::HRESULT, result: Windows::Win32::System::Com::IStream) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5c19e9e0_092f_486b_affa_ca8231913039)]
+    interface ICoreWebView2WindowCloseRequestedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x5eaf559f_b46e_4397_8860_e422f287ff1e)]
+    interface ICoreWebView2WindowFeatures: Windows::Win32::System::Com::IUnknown {
+        #[special]
+        fn get_HasPosition(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_HasSize(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Left(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Top(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Height(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Width(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldDisplayMenuBar(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldDisplayStatus(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldDisplayToolbar(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_ShouldDisplayScrollBars(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb52d71d6_c4df_4543_a90c_64a3e60f38cb)]
+    interface ICoreWebView2ZoomFactorChangedEventHandler: Windows::Win32::System::Com::IUnknown {
+        fn Invoke(&self, sender: ICoreWebView2Controller, args: Windows::Win32::System::Com::IUnknown) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb1690564_6f5a_4983_8e48_31d1143fecdb)]
+    interface ICoreWebView2_10: ICoreWebView2_9 {
+        fn add_BasicAuthenticationRequested(&self, eventHandler: ICoreWebView2BasicAuthenticationRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_BasicAuthenticationRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0be78e56_c193_4051_b943_23b460c08bdb)]
+    interface ICoreWebView2_11: ICoreWebView2_10 {
+        fn CallDevToolsProtocolMethodForSession(&self, sessionId: LPCWSTR, methodName: LPCWSTR, parametersAsJson: LPCWSTR, handler: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContextMenuRequested(&self, eventHandler: ICoreWebView2ContextMenuRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContextMenuRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x35d69927_bcfa_4566_9349_6b3e0d154cac)]
+    interface ICoreWebView2_12: ICoreWebView2_11 {
+        fn add_StatusBarTextChanged(&self, eventHandler: ICoreWebView2StatusBarTextChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_StatusBarTextChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_StatusBarText(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xf75f09a8_667e_4983_88d6_c8773f315e84)]
+    interface ICoreWebView2_13: ICoreWebView2_12 {
+        #[special]
+        fn get_Profile(&self, value: *mut ICoreWebView2Profile) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x6daa4f10_4a90_4753_8898_77c5df534165)]
+    interface ICoreWebView2_14: ICoreWebView2_13 {
+        fn add_ServerCertificateErrorDetected(&self, eventHandler: ICoreWebView2ServerCertificateErrorDetectedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ServerCertificateErrorDetected(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn ClearServerCertificateErrorActions(&self, handler: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x517b2d1d_7dae_4a66_a4f4_10352ffb9518)]
+    interface ICoreWebView2_15: ICoreWebView2_14 {
+        fn add_FaviconChanged(&self, eventHandler: ICoreWebView2FaviconChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FaviconChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_FaviconUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
+        fn GetFavicon(&self, format: COREWEBVIEW2_FAVICON_IMAGE_FORMAT, completedHandler: ICoreWebView2GetFaviconCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x0eb34dc9_9f91_41e1_8639_95cd5943906b)]
+    interface ICoreWebView2_16: ICoreWebView2_15 {
+        fn Print(&self, printSettings: ICoreWebView2PrintSettings, handler: ICoreWebView2PrintCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn ShowPrintUI(&self, printDialogKind: COREWEBVIEW2_PRINT_DIALOG_KIND) -> Windows::Win32::Foundation::HRESULT;
+        fn PrintToPdfStream(&self, printSettings: ICoreWebView2PrintSettings, handler: ICoreWebView2PrintToPdfStreamCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x702e75d4_fd44_434d_9d70_1a68a6b1192a)]
+    interface ICoreWebView2_17: ICoreWebView2_16 {
+        fn PostSharedBufferToScript(&self, sharedBuffer: ICoreWebView2SharedBuffer, access: COREWEBVIEW2_SHARED_BUFFER_ACCESS, additionalDataAsJson: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x7a626017_28be_49b2_b865_3ba2b3522d90)]
+    interface ICoreWebView2_18: ICoreWebView2_17 {
+        fn add_LaunchingExternalUriScheme(&self, eventHandler: ICoreWebView2LaunchingExternalUriSchemeEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_LaunchingExternalUriScheme(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x6921f954_79b0_437f_a997_c85811897c68)]
+    interface ICoreWebView2_19: ICoreWebView2_18 {
+        #[special]
+        fn get_MemoryUsageTargetLevel(&self, value: *mut COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_MemoryUsageTargetLevel(&self, value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x9e8f0cf8_e670_4b5e_b2bc_73e061e3184c)]
+    interface ICoreWebView2_2: ICoreWebView2 {
+        fn add_WebResourceResponseReceived(&self, eventHandler: ICoreWebView2WebResourceResponseReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebResourceResponseReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn NavigateWithWebResourceRequest(&self, request: ICoreWebView2WebResourceRequest) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DOMContentLoaded(&self, eventHandler: ICoreWebView2DOMContentLoadedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DOMContentLoaded(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_CookieManager(&self, cookieManager: *mut ICoreWebView2CookieManager) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_Environment(&self, environment: *mut ICoreWebView2Environment) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb4bc1926_7305_11ee_b962_0242ac120002)]
+    interface ICoreWebView2_20: ICoreWebView2_19 {
+        #[special]
+        fn get_FrameId(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xc4980dea_587b_43b9_8143_3ef3bf552d95)]
+    interface ICoreWebView2_21: ICoreWebView2_20 {
+        fn ExecuteScriptWithResult(&self, javaScript: LPCWSTR, handler: ICoreWebView2ExecuteScriptWithResultCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xdb75dfc7_a857_4632_a398_6969dde26c0a)]
+    interface ICoreWebView2_22: ICoreWebView2_21 {
+        fn AddWebResourceRequestedFilterWithRequestSourceKinds(&self, uri: LPCWSTR, ResourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT, requestSourceKinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS) -> Windows::Win32::Foundation::HRESULT;
+        fn RemoveWebResourceRequestedFilterWithRequestSourceKinds(&self, uri: LPCWSTR, ResourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT, requestSourceKinds: COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x508f0db5_90c4_5872_90a7_267a91377502)]
+    interface ICoreWebView2_23: ICoreWebView2_22 {
+        fn PostWebMessageAsJsonWithAdditionalObjects(&self, webMessageAsJson: LPCWSTR, additionalObjects: ICoreWebView2ObjectCollectionView) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x39a7ad55_4287_5cc1_88a1_c6f458593824)]
+    interface ICoreWebView2_24: ICoreWebView2_23 {
+        fn add_NotificationReceived(&self, eventHandler: ICoreWebView2NotificationReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NotificationReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xb5a86092_df50_5b4f_a17b_6c8f8b40b771)]
+    interface ICoreWebView2_25: ICoreWebView2_24 {
+        fn add_SaveAsUIShowing(&self, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_SaveAsUIShowing(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn ShowSaveAsUI(&self, handler: ICoreWebView2ShowSaveAsUICompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_25_ShowSaveAsUI_Proxy(This: ICoreWebView2_25, handler: ICoreWebView2ShowSaveAsUICompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[guid(0x806268b8_f897_5685_88e5_c45fca0b1a48)]
+    interface ICoreWebView2_26: ICoreWebView2_25 {
+        fn add_SaveFileSecurityCheckStarting(&self, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_SaveFileSecurityCheckStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[guid(0x00fbe33b_8c07_517c_aa23_0ddd4b5f6fa0)]
+    interface ICoreWebView2_27: ICoreWebView2_26 {
+        fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ScreenCaptureStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[guid(0x62e50381_5bf5_51a8_aae0_f20a3a9c8a90)]
+    interface ICoreWebView2_28: ICoreWebView2_27 {
+        #[special]
+        fn get_Find(&self, value: *mut ICoreWebView2Find) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_28_get_Find_Proxy(This: ICoreWebView2_28, value: *mut ICoreWebView2Find) -> Windows::Win32::Foundation::HRESULT;
+    #[library("WebView2Loader.dll")]
+    extern "C" fn ICoreWebView2_28_get_Find_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
+    #[guid(0xa0d6df20_3b92_416d_aa0c_437a9c727857)]
+    interface ICoreWebView2_3: ICoreWebView2_2 {
+        fn TrySuspend(&self, handler: ICoreWebView2TrySuspendCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+        fn Resume(&self,) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsSuspended(&self, isSuspended: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn SetVirtualHostNameToFolderMapping(&self, hostName: LPCWSTR, folderPath: LPCWSTR, accessKind: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND) -> Windows::Win32::Foundation::HRESULT;
+        fn ClearVirtualHostNameToFolderMapping(&self, hostName: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x20d02d59_6df2_42dc_bd06_f98a694b1302)]
+    interface ICoreWebView2_4: ICoreWebView2_3 {
+        fn add_FrameCreated(&self, eventHandler: ICoreWebView2FrameCreatedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameCreated(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DownloadStarting(&self, eventHandler: ICoreWebView2DownloadStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DownloadStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xbedb11b8_d63c_11eb_b8bc_0242ac130003)]
+    interface ICoreWebView2_5: ICoreWebView2_4 {
+        fn add_ClientCertificateRequested(&self, eventHandler: ICoreWebView2ClientCertificateRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ClientCertificateRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x499aadac_d92c_4589_8a75_111bfc167795)]
+    interface ICoreWebView2_6: ICoreWebView2_5 {
+        fn OpenTaskManagerWindow(&self,) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x79c24d83_09a3_45ae_9418_487f32a58740)]
+    interface ICoreWebView2_7: ICoreWebView2_6 {
+        fn PrintToPdf(&self, ResultFilePath: LPCWSTR, printSettings: ICoreWebView2PrintSettings, handler: ICoreWebView2PrintToPdfCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0xe9632730_6e1e_43ab_b7b8_7b2c9e62e094)]
+    interface ICoreWebView2_8: ICoreWebView2_7 {
+        fn add_IsMutedChanged(&self, eventHandler: ICoreWebView2IsMutedChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_IsMutedChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsMuted(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_IsMuted(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn add_IsDocumentPlayingAudioChanged(&self, eventHandler: ICoreWebView2IsDocumentPlayingAudioChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_IsDocumentPlayingAudioChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsDocumentPlayingAudio(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+    }
+    #[guid(0x4d7b2eab_9fdc_468d_b998_a9260b5ed651)]
+    interface ICoreWebView2_9: ICoreWebView2_8 {
+        fn add_IsDefaultDownloadDialogOpenChanged(&self, handler: ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_IsDefaultDownloadDialogOpenChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_IsDefaultDownloadDialogOpen(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
+        fn OpenDefaultDownloadDialog(&self,) -> Windows::Win32::Foundation::HRESULT;
+        fn CloseDefaultDownloadDialog(&self,) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DefaultDownloadDialogCornerAlignment(&self, value: *mut COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_DefaultDownloadDialogCornerAlignment(&self, value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn get_DefaultDownloadDialogMargin(&self, value: *mut Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+        #[special]
+        fn put_DefaultDownloadDialogMargin(&self, value: Windows::Win32::Foundation::POINT) -> Windows::Win32::Foundation::HRESULT;
+    }
+    type INT = i32;
+    type INT32 = i32;
+    type INT64 = i64;
+    type LPCWSTR = *const WCHAR;
+    type LPWSTR = *mut WCHAR;
+    type PCWSTR = *const WCHAR;
+    type PRPC_MESSAGE = *mut Windows::Win32::System::Rpc::RPC_MESSAGE;
+    type UINT = u32;
+    type UINT32 = u32;
+    type UINT64 = u64;
+    type WCHAR = u16;
+}
