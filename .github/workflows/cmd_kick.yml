@@ -2,6 +2,7 @@ name: cmd_kick
 
 permissions:
   contents: write
+  reactions: write
 
 on:
   issue_comment:
