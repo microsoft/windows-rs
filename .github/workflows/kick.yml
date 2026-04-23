@@ -1,0 +1,45 @@
+name: kick_command
+
+permissions:
+  contents: write
+  reactions: write
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  kick:
+    if: github.event.issue.pull_request != '' && github.event.comment.body == '/kick'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: React with eyes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='eyes'
+      - name: Checkout PR branch
+        uses: actions/checkout@v6
+        with:
+          ref: refs/pull/${{ github.event.issue.number }}/head
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+      - name: Get PR head branch
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch=$(gh pr view ${{ github.event.issue.number }} --json headRefName --jq '.headRefName')
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+      - name: Push empty commit to re-trigger CI
+        run: |
+          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
+          git checkout -b ${{ steps.pr.outputs.branch }}
+          git commit --allow-empty -m "kick CI"
+          git push origin ${{ steps.pr.outputs.branch }}
+      - name: React with thumbs up
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='+1'
