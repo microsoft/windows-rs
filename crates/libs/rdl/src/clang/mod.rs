@@ -185,6 +185,10 @@ impl<'a> Parser<'a> {
                     // `#define EXTERN_C extern "C"`) and cannot be integer
                     // constant expressions; adding them to pending_macros
                     // causes the evaluator to emit bogus zero constants.
+                    // Similarly, skip macros whose body contains string
+                    // literals (narrow or wide): those are not valid integer
+                    // constant expressions and evaluating them produces bogus
+                    // zero constants.
                     // The first token is always the macro name itself; skip
                     // it to examine only the replacement-list body tokens.
                     let tokens = self.tu.tokenize(child.extent());
@@ -192,7 +196,11 @@ impl<'a> Parser<'a> {
                         .iter()
                         .skip(1) // first token is the macro name
                         .any(|(kind, _)| *kind == CXToken_Keyword);
-                    if !body_has_keyword {
+                    let body_has_string_literal = tokens.iter().skip(1).any(|(kind, spelling)| {
+                        *kind == CXToken_Literal
+                            && (spelling.starts_with('"') || spelling.starts_with("L\""))
+                    });
+                    if !body_has_keyword && !body_has_string_literal {
                         // The token parser returned None for a candidate
                         // object-like macro.  Defer to the batch evaluator.
                         self.pending_macros.push(child.name());

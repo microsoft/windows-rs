@@ -10,6 +10,15 @@
 /* String constant. */
 #define UDAT_YEAR_NUM_MONTH_DAY "yMd"
 
+/* Wide string constant. */
+#define UDAT_YEAR_NUM_MONTH_DAY_WIDE L"yMd"
+
+/* Parenthesized narrow string constant (e.g. from a macro body). */
+#define DEBUG_NARROW ( "Dbg" )
+
+/* Parenthesized wide string constant. */
+#define DEBUG_WIDE ( L"Dbg" )
+
 /* Typed cast constant — double-paren Win32 style. */
 typedef long long TestStatus;
 #define STATUS_CLIP_LICENSE_NOT_FOUND ((TestStatus)0xC0EA0002L)
