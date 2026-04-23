@@ -49,7 +49,33 @@ impl Const {
         let value = write_value(namespace, &self.value);
         Ok(quote! { const #name: #ty = #value; })
     }
+}
 
+/// A GUID constant produced from a C++ class that is only forward-declared (no body) but
+/// carries a `__declspec(uuid("..."))` attribute.
+///
+/// This handles the MIDL pattern for COM server activation CLSIDs, e.g.:
+/// ```c
+/// class __declspec(uuid("e6756135-1e65-4d17-8576-610761398c3c")) DiaSource;
+/// ```
+/// which is emitted as: `const DiaSource: GUID = 0xe6756135_1e65_4d17_8576_610761398c3c;`
+#[derive(Debug)]
+pub struct GuidConst {
+    pub name: String,
+    /// The UUID string without braces or quotes, e.g. `"e6756135-1e65-4d17-8576-610761398c3c"`.
+    pub uuid: String,
+}
+
+impl GuidConst {
+    pub fn write(&self) -> Result<TokenStream, Error> {
+        let name = write_ident(&self.name);
+        let lit_str = uuid_to_u128_literal(&self.uuid);
+        let lit = syn::LitInt::new(&lit_str, Span::call_site());
+        Ok(quote! { const #name: GUID = #lit; })
+    }
+}
+
+impl Const {
     /// Evaluate a batch of macro names that could not be parsed by the simple
     /// token-based parser (e.g. arithmetic expressions, bitwise shifts, or
     /// references to other macros).

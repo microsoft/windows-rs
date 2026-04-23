@@ -126,6 +126,21 @@ impl<'a> Parser<'a> {
                     collector.insert(Item::Interface(Interface::parse(child, self)?));
                 }
             }
+            // A C++ class that is only forward-declared (no body `{}`) but carries a
+            // `__declspec(uuid("..."))` attribute should be emitted as a GUID constant.
+            // This handles the MIDL pattern for COM server activation CLSIDs, e.g.:
+            //   class DECLSPEC_UUID("e6756135-...") DiaSource;
+            // Only emit when no definition for the class exists anywhere in the TU,
+            // to avoid adding a GUID constant for a class that is separately defined.
+            CXCursor_ClassDecl if !child.is_definition() && !child.has_definition() => {
+                if let Some(uuid) = child.extract_uuid(self.tu) {
+                    let tag_name = child.name();
+                    let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
+                    if !name.is_empty() && !self.ref_map.contains_key(&name) {
+                        collector.insert(Item::GuidConst(GuidConst { name, uuid }));
+                    }
+                }
+            }
             CXCursor_EnumDecl if child.is_definition() => {
                 let e = Enum::parse(child)?;
                 if is_anonymous_name(&e.name) {

@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    const DiaSource: GUID = 0xe6756135_1e65_4d17_8576_610761398c3c;
+}

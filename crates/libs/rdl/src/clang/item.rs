@@ -4,6 +4,7 @@ use super::*;
 pub enum Item {
     Callback(Callback),
     Const(Const),
+    GuidConst(GuidConst),
     Enum(Enum),
     Interface(Interface),
     Struct(Struct),
@@ -16,6 +17,7 @@ impl Item {
         match self {
             Self::Callback(item) => item.write(namespace),
             Self::Const(item) => item.write(namespace),
+            Self::GuidConst(item) => item.write(),
             Self::Enum(item) => item.write(),
             Self::Interface(item) => item.write(namespace),
             Self::Struct(item) => item.write(namespace),
@@ -30,6 +32,7 @@ impl std::fmt::Display for Item {
         match self {
             Self::Callback(item) => item.name.fmt(f),
             Self::Const(item) => item.name.fmt(f),
+            Self::GuidConst(item) => item.name.fmt(f),
             Self::Enum(item) => item.name.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
