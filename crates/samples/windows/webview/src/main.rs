@@ -39,10 +39,9 @@ fn main() -> Result<()> {
         )?;
 
         let handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
-            EnvHandler(hwnd).into();
+            EnvironmentHandler(hwnd).into();
 
         CreateCoreWebView2Environment(&handler)?;
-
         let mut message = MSG::default();
 
         while GetMessageA(&mut message, None, 0, 0).into() {
@@ -54,18 +53,18 @@ fn main() -> Result<()> {
 }
 
 #[implement(ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]
-struct EnvHandler(HWND);
+struct EnvironmentHandler(HWND);
 
-impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvHandler_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Environment>) -> Result<()> {
-        errorcode.ok()?;
-        let env = result.unwrap();
+impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvironmentHandler_Impl {
+    fn Invoke(&self, status: HRESULT, environment: Ref<ICoreWebView2Environment>) -> Result<()> {
+        status.ok()?;
+        let environment = environment.ok()?;
 
         let handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler =
             ControllerHandler(self.0).into();
 
         unsafe {
-            env.CreateCoreWebView2Controller(self.0, &handler)?;
+            environment.CreateCoreWebView2Controller(self.0, &handler)?;
         }
 
         Ok(())
@@ -76,18 +75,18 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvHand
 struct ControllerHandler(HWND);
 
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for ControllerHandler_Impl {
-    fn Invoke(&self, errorcode: HRESULT, result: Ref<ICoreWebView2Controller>) -> Result<()> {
-        errorcode.ok()?;
-        let controller = result.unwrap();
+    fn Invoke(&self, status: HRESULT, controller: Ref<ICoreWebView2Controller>) -> Result<()> {
+        status.ok()?;
+        let controller = controller.ok()?;
 
         unsafe {
             let mut rect = RECT::default();
             GetClientRect(self.0, &mut rect)?;
             controller.SetBounds(rect)?;
             let webview = controller.CoreWebView2()?;
-            let html = w!("https://github.com/microsoft/windows-rs");
 
-            webview.Navigate(html.0 as *const _)?;
+            let uri = w!("https://github.com/microsoft/windows-rs");
+            webview.Navigate(*uri)?;
         }
 
         // TODO: need to keep the controller alive.

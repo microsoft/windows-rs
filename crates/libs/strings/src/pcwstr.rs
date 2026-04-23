@@ -95,3 +95,11 @@ impl AsRef<Self> for PCWSTR {
         self
     }
 }
+
+impl core::ops::Deref for PCWSTR {
+    type Target = *const u16;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
