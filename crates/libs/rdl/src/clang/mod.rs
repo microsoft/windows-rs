@@ -243,6 +243,7 @@ pub struct Clang {
     namespace: String,
     args: Vec<String>,
     library: String,
+    filter: Vec<String>,
 }
 
 impl Clang {
@@ -272,6 +273,25 @@ impl Clang {
 
     pub fn library(&mut self, library: &str) -> &mut Self {
         self.library = library.to_string();
+        self
+    }
+
+    /// Adds a header path suffix to the inclusion filter.
+    ///
+    /// When one or more filters are set, only declarations from headers whose
+    /// path ends with a registered suffix are emitted into the output RDL
+    /// (in addition to declarations from the main input file, which are always
+    /// included).  This is useful when [`input_str`][Self::input_str] is used
+    /// with `#include` directives that pull in both dependency headers (whose
+    /// types should not appear in the output) and API headers (whose types
+    /// should).
+    ///
+    /// Matching is done by path suffix after normalising directory separators
+    /// to `/`, so `.filter("api1.h")` matches any file whose path ends with
+    /// `api1.h` and `.filter("vendor/foo/helpers.h")` can be used to
+    /// disambiguate when multiple files share the same base name.
+    pub fn filter(&mut self, filter: &str) -> &mut Self {
+        self.filter.push(filter.to_string());
         self
     }
 
@@ -396,17 +416,26 @@ impl Clang {
         let mut parser = Parser::new(&self.namespace, &self.library, ref_map, tag_rename, tu);
 
         for child in tu.cursor().children() {
-            // Only process cursors from the main input file (not from
-            // transitively included headers).
+            // Only process cursors from the main input file or from headers
+            // that match the caller-supplied path-suffix filters.
             if !child.is_from_main_file() {
-                // A CXCursor_LinkageSpec produced by a macro such as
-                // `#define EXTERN_C extern "C"` (defined in an included
-                // header) has its spelling location inside the macro body in
-                // the included header, so is_from_main_file() returns false.
-                // Accept it anyway when the *expansion* location (where the
-                // macro was invoked) is in the main file.
-                if child.kind() != CXCursor_LinkageSpec || !child.is_expansion_from_main_file(tu) {
-                    continue;
+                // Check whether this cursor's source file matches any filter.
+                let passes_filter = !self.filter.is_empty() && {
+                    let file = child.file_name();
+                    self.filter.iter().any(|f| matches_filter(&file, f))
+                };
+                if !passes_filter {
+                    // A CXCursor_LinkageSpec produced by a macro such as
+                    // `#define EXTERN_C extern "C"` (defined in an included
+                    // header) has its spelling location inside the macro body in
+                    // the included header, so is_from_main_file() returns false.
+                    // Accept it anyway when the *expansion* location (where the
+                    // macro was invoked) is in the main file.
+                    if child.kind() != CXCursor_LinkageSpec
+                        || !child.is_expansion_from_main_file(tu)
+                    {
+                        continue;
+                    }
                 }
             }
 
@@ -582,4 +611,20 @@ fn assign_nested_child_names(
             index += 1;
         }
     }
+}
+
+/// Returns `true` if `file` ends with `filter` and the match falls on a
+/// clean path-segment boundary.
+///
+/// Both paths are normalised to forward slashes before comparison, so this
+/// works on both Windows and POSIX.  `filter("api1.h")` matches
+/// `/path/to/api1.h` but not `/path/to/myapi1.h`.
+fn matches_filter(file: &str, filter: &str) -> bool {
+    if filter.is_empty() {
+        return false;
+    }
+    let file = file.replace('\\', "/");
+    let filter = filter.replace('\\', "/");
+    file.ends_with(filter.as_str())
+        && (file.len() == filter.len() || file.as_bytes()[file.len() - filter.len() - 1] == b'/')
 }

@@ -307,6 +307,32 @@ impl Cursor {
         }
     }
 
+    /// Returns the source file name for this cursor's spelling location, or an
+    /// empty string if no file information is available (e.g. for built-in
+    /// declarations).
+    ///
+    /// This is the physical file in which the declaration is written, and is
+    /// used to match against the caller-supplied filter suffixes when deciding
+    /// whether to include a declaration from a transitively included header.
+    pub fn file_name(&self) -> String {
+        unsafe {
+            let loc = clang_getCursorLocation(self.0);
+            let mut source_file: CXFile = std::ptr::null_mut();
+            clang_getSpellingLocation(
+                loc,
+                &mut source_file,
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+            );
+            if source_file.is_null() {
+                String::new()
+            } else {
+                to_string(clang_getFileName(source_file))
+            }
+        }
+    }
+
     /// Returns `true` when the **expansion** location of this cursor is in the
     /// main input file.
     ///
