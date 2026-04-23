@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    const E_PDB_INVALID_FORMAT: i32 = -2140340223;
+    const E_PDB_NOT_FOUND: i32 = -2140340224;
+    const E_PDB_OUT_OF_MEMORY: i32 = -2140340221;
+}
