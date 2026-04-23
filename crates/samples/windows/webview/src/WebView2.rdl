@@ -477,26 +477,26 @@ mod WebView2 {
         fn get_Source(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn Navigate(&self, uri: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn NavigateToString(&self, htmlContent: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NavigationStarting(&self, eventHandler: ICoreWebView2NavigationStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NavigationStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ContentLoading(&self, eventHandler: ICoreWebView2ContentLoadingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ContentLoading(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_SourceChanged(&self, eventHandler: ICoreWebView2SourceChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_SourceChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_HistoryChanged(&self, eventHandler: ICoreWebView2HistoryChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_HistoryChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NavigationCompleted(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_FrameNavigationStarting(&self, eventHandler: ICoreWebView2NavigationStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_FrameNavigationStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_FrameNavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_FrameNavigationCompleted(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ScriptDialogOpening(&self, eventHandler: ICoreWebView2ScriptDialogOpeningEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ScriptDialogOpening(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_PermissionRequested(&self, eventHandler: ICoreWebView2PermissionRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_PermissionRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ProcessFailed(&self, eventHandler: ICoreWebView2ProcessFailedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ProcessFailed(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationStarting(&self, eventHandler: ICoreWebView2NavigationStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContentLoading(&self, eventHandler: ICoreWebView2ContentLoadingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContentLoading(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_SourceChanged(&self, eventHandler: ICoreWebView2SourceChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_SourceChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_HistoryChanged(&self, eventHandler: ICoreWebView2HistoryChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_HistoryChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationCompleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FrameNavigationStarting(&self, eventHandler: ICoreWebView2NavigationStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameNavigationStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FrameNavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameNavigationCompleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ScriptDialogOpening(&self, eventHandler: ICoreWebView2ScriptDialogOpeningEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ScriptDialogOpening(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_PermissionRequested(&self, eventHandler: ICoreWebView2PermissionRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_PermissionRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ProcessFailed(&self, eventHandler: ICoreWebView2ProcessFailedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ProcessFailed(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn AddScriptToExecuteOnDocumentCreated(&self, javaScript: LPCWSTR, handler: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
         fn RemoveScriptToExecuteOnDocumentCreated(&self, id: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn ExecuteScript(&self, javaScript: LPCWSTR, handler: ICoreWebView2ExecuteScriptCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
@@ -504,8 +504,8 @@ mod WebView2 {
         fn Reload(&self,) -> Windows::Win32::Foundation::HRESULT;
         fn PostWebMessageAsJson(&self, webMessageAsJson: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn PostWebMessageAsString(&self, webMessageAsString: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
-        fn add_WebMessageReceived(&self, handler: ICoreWebView2WebMessageReceivedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_WebMessageReceived(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebMessageReceived(&self, handler: ICoreWebView2WebMessageReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebMessageReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn CallDevToolsProtocolMethod(&self, methodName: LPCWSTR, parametersAsJson: LPCWSTR, handler: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_BrowserProcessId(&self, value: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
@@ -517,25 +517,25 @@ mod WebView2 {
         fn GoForward(&self,) -> Windows::Win32::Foundation::HRESULT;
         fn GetDevToolsProtocolEventReceiver(&self, eventName: LPCWSTR, receiver: *mut ICoreWebView2DevToolsProtocolEventReceiver) -> Windows::Win32::Foundation::HRESULT;
         fn Stop(&self,) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NewWindowRequested(&self, eventHandler: ICoreWebView2NewWindowRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NewWindowRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_DocumentTitleChanged(&self, eventHandler: ICoreWebView2DocumentTitleChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_DocumentTitleChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NewWindowRequested(&self, eventHandler: ICoreWebView2NewWindowRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NewWindowRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DocumentTitleChanged(&self, eventHandler: ICoreWebView2DocumentTitleChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DocumentTitleChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_DocumentTitle(&self, title: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn AddHostObjectToScript(&self, name: LPCWSTR, object: *mut Windows::Win32::System::Variant::VARIANT) -> Windows::Win32::Foundation::HRESULT;
         fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn OpenDevToolsWindow(&self,) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ContainsFullScreenElementChanged(&self, eventHandler: ICoreWebView2ContainsFullScreenElementChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ContainsFullScreenElementChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContainsFullScreenElementChanged(&self, eventHandler: ICoreWebView2ContainsFullScreenElementChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContainsFullScreenElementChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_ContainsFullScreenElement(&self, containsFullScreenElement: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
-        fn add_WebResourceRequested(&self, eventHandler: ICoreWebView2WebResourceRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_WebResourceRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebResourceRequested(&self, eventHandler: ICoreWebView2WebResourceRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebResourceRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn AddWebResourceRequestedFilter(&self, uri: LPCWSTR, resourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT) -> Windows::Win32::Foundation::HRESULT;
         fn RemoveWebResourceRequestedFilter(&self, uri: LPCWSTR, resourceContext: COREWEBVIEW2_WEB_RESOURCE_CONTEXT) -> Windows::Win32::Foundation::HRESULT;
-        fn add_WindowCloseRequested(&self, eventHandler: ICoreWebView2WindowCloseRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_WindowCloseRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WindowCloseRequested(&self, eventHandler: ICoreWebView2WindowCloseRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WindowCloseRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x9f760f8a_fb79_42be_9990_7b56900fa9c7)]
     interface ICoreWebView2AcceleratorKeyPressedEventArgs: Windows::Win32::System::Com::IUnknown {
@@ -738,8 +738,8 @@ mod WebView2 {
         fn get_Cursor(&self, cursor: *mut Windows::Win32::UI::WindowsAndMessaging::HCURSOR) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_SystemCursorId(&self, systemCursorId: *mut UINT32) -> Windows::Win32::Foundation::HRESULT;
-        fn add_CursorChanged(&self, eventHandler: ICoreWebView2CursorChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_CursorChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_CursorChanged(&self, eventHandler: ICoreWebView2CursorChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_CursorChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x0b6a3d24_49cb_4806_ba20_b5e0734a7b26)]
     interface ICoreWebView2CompositionController2: ICoreWebView2CompositionController {
@@ -757,13 +757,13 @@ mod WebView2 {
     interface ICoreWebView2CompositionController4: ICoreWebView2CompositionController3 {
         fn GetNonClientRegionAtPoint(&self, point: Windows::Win32::Foundation::POINT, value: *mut COREWEBVIEW2_NON_CLIENT_REGION_KIND) -> Windows::Win32::Foundation::HRESULT;
         fn QueryNonClientRegion(&self, kind: COREWEBVIEW2_NON_CLIENT_REGION_KIND, rects: *mut ICoreWebView2RegionRectCollectionView) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NonClientRegionChanged(&self, eventHandler: ICoreWebView2NonClientRegionChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NonClientRegionChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NonClientRegionChanged(&self, eventHandler: ICoreWebView2NonClientRegionChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NonClientRegionChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x8d0f82eb_7c33_5a4c_9108_84ca28ccc3b4)]
     interface ICoreWebView2CompositionController5: ICoreWebView2CompositionController4 {
-        fn add_DragStarting(&self, eventHandler: ICoreWebView2DragStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_DragStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DragStarting(&self, eventHandler: ICoreWebView2DragStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DragStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xe45d98b1_afef_45be_8baf_6c7728867f73)]
     interface ICoreWebView2ContainsFullScreenElementChangedEventHandler: Windows::Win32::System::Com::IUnknown {
@@ -804,8 +804,8 @@ mod WebView2 {
         fn get_IsChecked(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_Children(&self, value: *mut ICoreWebView2ContextMenuItemCollection) -> Windows::Win32::Foundation::HRESULT;
-        fn add_CustomItemSelected(&self, eventHandler: ICoreWebView2CustomItemSelectedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_CustomItemSelected(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_CustomItemSelected(&self, eventHandler: ICoreWebView2CustomItemSelectedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_CustomItemSelected(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xf562a2f5_c415_45cf_b909_d4b7c1e276d3)]
     interface ICoreWebView2ContextMenuItemCollection: Windows::Win32::System::Com::IUnknown {
@@ -880,18 +880,18 @@ mod WebView2 {
         fn get_ZoomFactor(&self, zoomFactor: *mut f64) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn put_ZoomFactor(&self, zoomFactor: f64) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ZoomFactorChanged(&self, eventHandler: ICoreWebView2ZoomFactorChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ZoomFactorChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ZoomFactorChanged(&self, eventHandler: ICoreWebView2ZoomFactorChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ZoomFactorChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn SetBoundsAndZoomFactor(&self, bounds: Windows::Win32::Foundation::RECT, zoomFactor: f64) -> Windows::Win32::Foundation::HRESULT;
         fn MoveFocus(&self, reason: COREWEBVIEW2_MOVE_FOCUS_REASON) -> Windows::Win32::Foundation::HRESULT;
-        fn add_MoveFocusRequested(&self, eventHandler: ICoreWebView2MoveFocusRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_MoveFocusRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_GotFocus(&self, eventHandler: ICoreWebView2FocusChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_GotFocus(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_LostFocus(&self, eventHandler: ICoreWebView2FocusChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_LostFocus(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_AcceleratorKeyPressed(&self, eventHandler: ICoreWebView2AcceleratorKeyPressedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_AcceleratorKeyPressed(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_MoveFocusRequested(&self, eventHandler: ICoreWebView2MoveFocusRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_MoveFocusRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_GotFocus(&self, eventHandler: ICoreWebView2FocusChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_GotFocus(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_LostFocus(&self, eventHandler: ICoreWebView2FocusChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_LostFocus(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_AcceleratorKeyPressed(&self, eventHandler: ICoreWebView2AcceleratorKeyPressedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_AcceleratorKeyPressed(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_ParentWindow(&self, parentWindow: *mut Windows::Win32::Foundation::HWND) -> Windows::Win32::Foundation::HRESULT;
         #[special]
@@ -918,8 +918,8 @@ mod WebView2 {
         fn get_ShouldDetectMonitorScaleChanges(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn put_ShouldDetectMonitorScaleChanges(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
-        fn add_RasterizationScaleChanged(&self, eventHandler: ICoreWebView2RasterizationScaleChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_RasterizationScaleChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_RasterizationScaleChanged(&self, eventHandler: ICoreWebView2RasterizationScaleChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_RasterizationScaleChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_BoundsMode(&self, boundsMode: *mut COREWEBVIEW2_BOUNDS_MODE) -> Windows::Win32::Foundation::HRESULT;
         #[special]
@@ -1076,8 +1076,8 @@ mod WebView2 {
     }
     #[guid(0xb32ca51a_8371_45e9_9317_af021d080367)]
     interface ICoreWebView2DevToolsProtocolEventReceiver: Windows::Win32::System::Com::IUnknown {
-        fn add_DevToolsProtocolEventReceived(&self, eventHandler: ICoreWebView2DevToolsProtocolEventReceivedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_DevToolsProtocolEventReceived(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DevToolsProtocolEventReceived(&self, eventHandler: ICoreWebView2DevToolsProtocolEventReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DevToolsProtocolEventReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xf5f2b923_953e_4042_9f95_f3a118e1afd4)]
     interface ICoreWebView2DocumentTitleChangedEventHandler: Windows::Win32::System::Com::IUnknown {
@@ -1085,12 +1085,12 @@ mod WebView2 {
     }
     #[guid(0x3d6b6cf2_afe1_44c7_a995_c65117714336)]
     interface ICoreWebView2DownloadOperation: Windows::Win32::System::Com::IUnknown {
-        fn add_BytesReceivedChanged(&self, eventHandler: ICoreWebView2BytesReceivedChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_BytesReceivedChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_EstimatedEndTimeChanged(&self, eventHandler: ICoreWebView2EstimatedEndTimeChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_EstimatedEndTimeChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_StateChanged(&self, eventHandler: ICoreWebView2StateChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_StateChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_BytesReceivedChanged(&self, eventHandler: ICoreWebView2BytesReceivedChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_BytesReceivedChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_EstimatedEndTimeChanged(&self, eventHandler: ICoreWebView2EstimatedEndTimeChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_EstimatedEndTimeChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_StateChanged(&self, eventHandler: ICoreWebView2StateChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_StateChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_Uri(&self, uri: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
         #[special]
@@ -1161,8 +1161,8 @@ mod WebView2 {
         fn CreateWebResourceResponse(&self, content: Windows::Win32::System::Com::IStream, statusCode: i32, reasonPhrase: LPCWSTR, headers: LPCWSTR, response: *mut ICoreWebView2WebResourceResponse) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_BrowserVersionString(&self, versionInfo: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NewBrowserVersionAvailable(&self, eventHandler: ICoreWebView2NewBrowserVersionAvailableEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NewBrowserVersionAvailable(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NewBrowserVersionAvailable(&self, eventHandler: ICoreWebView2NewBrowserVersionAvailableEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NewBrowserVersionAvailable(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xee0eb9df_6f12_46ce_b53f_3f47b9c928e0)]
     interface ICoreWebView2Environment10: ICoreWebView2Environment9 {
@@ -1208,8 +1208,8 @@ mod WebView2 {
     }
     #[guid(0x319e423d_e0d7_4b8d_9254_ae9475de9b17)]
     interface ICoreWebView2Environment5: ICoreWebView2Environment4 {
-        fn add_BrowserProcessExited(&self, eventHandler: ICoreWebView2BrowserProcessExitedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_BrowserProcessExited(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_BrowserProcessExited(&self, eventHandler: ICoreWebView2BrowserProcessExitedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_BrowserProcessExited(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xe59ee362_acbd_4857_9a8e_d3644d9459a9)]
     interface ICoreWebView2Environment6: ICoreWebView2Environment5 {
@@ -1222,8 +1222,8 @@ mod WebView2 {
     }
     #[guid(0xd6eb91dd_c3d2_45e5_bd29_6dc2bc4de9cf)]
     interface ICoreWebView2Environment8: ICoreWebView2Environment7 {
-        fn add_ProcessInfosChanged(&self, eventHandler: ICoreWebView2ProcessInfosChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ProcessInfosChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ProcessInfosChanged(&self, eventHandler: ICoreWebView2ProcessInfosChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ProcessInfosChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn GetProcessInfos(&self, value: *mut ICoreWebView2ProcessInfoCollection) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xf06f41bf_4b5a_49d8_b9f6_fa16cd29f274)]
@@ -1346,10 +1346,10 @@ mod WebView2 {
         fn get_ActiveMatchIndex(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_MatchCount(&self, value: *mut INT32) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ActiveMatchIndexChanged(&self, eventHandler: ICoreWebView2FindActiveMatchIndexChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ActiveMatchIndexChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_MatchCountChanged(&self, eventHandler: ICoreWebView2FindMatchCountChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_MatchCountChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ActiveMatchIndexChanged(&self, eventHandler: ICoreWebView2FindActiveMatchIndexChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ActiveMatchIndexChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_MatchCountChanged(&self, eventHandler: ICoreWebView2FindMatchCountChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_MatchCountChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn Start(&self, options: ICoreWebView2FindOptions, handler: ICoreWebView2FindStartCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
         fn FindNext(&self,) -> Windows::Win32::Foundation::HRESULT;
         fn FindPrevious(&self,) -> Windows::Win32::Foundation::HRESULT;
@@ -1398,34 +1398,34 @@ mod WebView2 {
     interface ICoreWebView2Frame: Windows::Win32::System::Com::IUnknown {
         #[special]
         fn get_Name(&self, name: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NameChanged(&self, eventHandler: ICoreWebView2FrameNameChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NameChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NameChanged(&self, eventHandler: ICoreWebView2FrameNameChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NameChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn AddHostObjectToScriptWithOrigins(&self, name: LPCWSTR, object: *mut Windows::Win32::System::Variant::VARIANT, originsCount: UINT32, origins: *mut LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn RemoveHostObjectFromScript(&self, name: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
-        fn add_Destroyed(&self, eventHandler: ICoreWebView2FrameDestroyedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_Destroyed(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_Destroyed(&self, eventHandler: ICoreWebView2FrameDestroyedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_Destroyed(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn IsDestroyed(&self, destroyed: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x7a6a5834_d185_4dbf_b63f_4a9bc43107d4)]
     interface ICoreWebView2Frame2: ICoreWebView2Frame {
-        fn add_NavigationStarting(&self, eventHandler: ICoreWebView2FrameNavigationStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NavigationStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ContentLoading(&self, eventHandler: ICoreWebView2FrameContentLoadingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ContentLoading(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2FrameNavigationCompletedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NavigationCompleted(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_DOMContentLoaded(&self, eventHandler: ICoreWebView2FrameDOMContentLoadedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_DOMContentLoaded(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationStarting(&self, eventHandler: ICoreWebView2FrameNavigationStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContentLoading(&self, eventHandler: ICoreWebView2FrameContentLoadingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContentLoading(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2FrameNavigationCompletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NavigationCompleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DOMContentLoaded(&self, eventHandler: ICoreWebView2FrameDOMContentLoadedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DOMContentLoaded(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn ExecuteScript(&self, javaScript: LPCWSTR, handler: ICoreWebView2ExecuteScriptCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
         fn PostWebMessageAsJson(&self, webMessageAsJson: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn PostWebMessageAsString(&self, webMessageAsString: LPCWSTR) -> Windows::Win32::Foundation::HRESULT;
-        fn add_WebMessageReceived(&self, handler: ICoreWebView2FrameWebMessageReceivedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_WebMessageReceived(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebMessageReceived(&self, handler: ICoreWebView2FrameWebMessageReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebMessageReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xb50d82cc_cc28_481d_9614_cb048895e6a0)]
     interface ICoreWebView2Frame3: ICoreWebView2Frame2 {
-        fn add_PermissionRequested(&self, eventHandler: ICoreWebView2FramePermissionRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_PermissionRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_PermissionRequested(&self, eventHandler: ICoreWebView2FramePermissionRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_PermissionRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x188782dc_92aa_4732_ab3c_fcc59f6f68b9)]
     interface ICoreWebView2Frame4: ICoreWebView2Frame3 {
@@ -1438,13 +1438,13 @@ mod WebView2 {
     }
     #[guid(0x0de611fd_31e9_5ddc_9d71_95eda26eff32)]
     interface ICoreWebView2Frame6: ICoreWebView2Frame5 {
-        fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2FrameScreenCaptureStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ScreenCaptureStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2FrameScreenCaptureStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ScreenCaptureStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x3598cfa2_d85d_5a9f_9228_4dde1f59ec64)]
     interface ICoreWebView2Frame7: ICoreWebView2Frame6 {
-        fn add_FrameCreated(&self, eventHandler: ICoreWebView2FrameChildFrameCreatedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_FrameCreated(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FrameCreated(&self, eventHandler: ICoreWebView2FrameChildFrameCreatedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameCreated(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x569e40e7_46b7_563d_83ae_1073155664d7)]
     interface ICoreWebView2FrameChildFrameCreatedEventHandler: Windows::Win32::System::Com::IUnknown {
@@ -1707,8 +1707,8 @@ mod WebView2 {
     }
     #[guid(0xb7434d98_6bc8_419d_9da5_fb5a96d4dacd)]
     interface ICoreWebView2Notification: Windows::Win32::System::Com::IUnknown {
-        fn add_CloseRequested(&self, eventHandler: ICoreWebView2NotificationCloseRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_CloseRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_CloseRequested(&self, eventHandler: ICoreWebView2NotificationCloseRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_CloseRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn ReportShown(&self,) -> Windows::Win32::Foundation::HRESULT;
         fn ReportClicked(&self,) -> Windows::Win32::Foundation::HRESULT;
         fn ReportClosed(&self,) -> Windows::Win32::Foundation::HRESULT;
@@ -2147,8 +2147,8 @@ mod WebView2 {
     #[guid(0xfbf70c2f_eb1f_4383_85a0_163e92044011)]
     interface ICoreWebView2Profile8: ICoreWebView2Profile7 {
         fn Delete(&self,) -> Windows::Win32::Foundation::HRESULT;
-        fn add_Deleted(&self, eventHandler: ICoreWebView2ProfileDeletedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_Deleted(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_Deleted(&self, eventHandler: ICoreWebView2ProfileDeletedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_Deleted(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xdf1aab27_82b9_4ab6_aae8_017a49398c14)]
     interface ICoreWebView2ProfileAddBrowserExtensionCompletedHandler: Windows::Win32::System::Com::IUnknown {
@@ -2569,19 +2569,19 @@ mod WebView2 {
     }
     #[guid(0xb1690564_6f5a_4983_8e48_31d1143fecdb)]
     interface ICoreWebView2_10: ICoreWebView2_9 {
-        fn add_BasicAuthenticationRequested(&self, eventHandler: ICoreWebView2BasicAuthenticationRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_BasicAuthenticationRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_BasicAuthenticationRequested(&self, eventHandler: ICoreWebView2BasicAuthenticationRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_BasicAuthenticationRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x0be78e56_c193_4051_b943_23b460c08bdb)]
     interface ICoreWebView2_11: ICoreWebView2_10 {
         fn CallDevToolsProtocolMethodForSession(&self, sessionId: LPCWSTR, methodName: LPCWSTR, parametersAsJson: LPCWSTR, handler: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
-        fn add_ContextMenuRequested(&self, eventHandler: ICoreWebView2ContextMenuRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ContextMenuRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ContextMenuRequested(&self, eventHandler: ICoreWebView2ContextMenuRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ContextMenuRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x35d69927_bcfa_4566_9349_6b3e0d154cac)]
     interface ICoreWebView2_12: ICoreWebView2_11 {
-        fn add_StatusBarTextChanged(&self, eventHandler: ICoreWebView2StatusBarTextChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_StatusBarTextChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_StatusBarTextChanged(&self, eventHandler: ICoreWebView2StatusBarTextChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_StatusBarTextChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_StatusBarText(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
     }
@@ -2592,14 +2592,14 @@ mod WebView2 {
     }
     #[guid(0x6daa4f10_4a90_4753_8898_77c5df534165)]
     interface ICoreWebView2_14: ICoreWebView2_13 {
-        fn add_ServerCertificateErrorDetected(&self, eventHandler: ICoreWebView2ServerCertificateErrorDetectedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ServerCertificateErrorDetected(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ServerCertificateErrorDetected(&self, eventHandler: ICoreWebView2ServerCertificateErrorDetectedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ServerCertificateErrorDetected(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn ClearServerCertificateErrorActions(&self, handler: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x517b2d1d_7dae_4a66_a4f4_10352ffb9518)]
     interface ICoreWebView2_15: ICoreWebView2_14 {
-        fn add_FaviconChanged(&self, eventHandler: ICoreWebView2FaviconChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_FaviconChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FaviconChanged(&self, eventHandler: ICoreWebView2FaviconChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FaviconChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_FaviconUri(&self, value: *mut LPWSTR) -> Windows::Win32::Foundation::HRESULT;
         fn GetFavicon(&self, format: COREWEBVIEW2_FAVICON_IMAGE_FORMAT, completedHandler: ICoreWebView2GetFaviconCompletedHandler) -> Windows::Win32::Foundation::HRESULT;
@@ -2616,8 +2616,8 @@ mod WebView2 {
     }
     #[guid(0x7a626017_28be_49b2_b865_3ba2b3522d90)]
     interface ICoreWebView2_18: ICoreWebView2_17 {
-        fn add_LaunchingExternalUriScheme(&self, eventHandler: ICoreWebView2LaunchingExternalUriSchemeEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_LaunchingExternalUriScheme(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_LaunchingExternalUriScheme(&self, eventHandler: ICoreWebView2LaunchingExternalUriSchemeEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_LaunchingExternalUriScheme(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x6921f954_79b0_437f_a997_c85811897c68)]
     interface ICoreWebView2_19: ICoreWebView2_18 {
@@ -2628,11 +2628,11 @@ mod WebView2 {
     }
     #[guid(0x9e8f0cf8_e670_4b5e_b2bc_73e061e3184c)]
     interface ICoreWebView2_2: ICoreWebView2 {
-        fn add_WebResourceResponseReceived(&self, eventHandler: ICoreWebView2WebResourceResponseReceivedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_WebResourceResponseReceived(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_WebResourceResponseReceived(&self, eventHandler: ICoreWebView2WebResourceResponseReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_WebResourceResponseReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn NavigateWithWebResourceRequest(&self, request: ICoreWebView2WebResourceRequest) -> Windows::Win32::Foundation::HRESULT;
-        fn add_DOMContentLoaded(&self, eventHandler: ICoreWebView2DOMContentLoadedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_DOMContentLoaded(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DOMContentLoaded(&self, eventHandler: ICoreWebView2DOMContentLoadedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DOMContentLoaded(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_CookieManager(&self, cookieManager: *mut ICoreWebView2CookieManager) -> Windows::Win32::Foundation::HRESULT;
         #[special]
@@ -2658,13 +2658,13 @@ mod WebView2 {
     }
     #[guid(0x39a7ad55_4287_5cc1_88a1_c6f458593824)]
     interface ICoreWebView2_24: ICoreWebView2_23 {
-        fn add_NotificationReceived(&self, eventHandler: ICoreWebView2NotificationReceivedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_NotificationReceived(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_NotificationReceived(&self, eventHandler: ICoreWebView2NotificationReceivedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_NotificationReceived(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xb5a86092_df50_5b4f_a17b_6c8f8b40b771)]
     interface ICoreWebView2_25: ICoreWebView2_24 {
-        fn add_SaveAsUIShowing(&self, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_SaveAsUIShowing(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_SaveAsUIShowing(&self, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_SaveAsUIShowing(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         fn ShowSaveAsUI(&self, handler: ICoreWebView2ShowSaveAsUICompletedHandler) -> Windows::Win32::Foundation::HRESULT;
     }
     #[library("WebView2Loader.dll")]
@@ -2672,37 +2672,37 @@ mod WebView2 {
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2Loader.dll")]
-    extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, eventHandler: ICoreWebView2SaveAsUIShowingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2Loader.dll")]
-    extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(This: ICoreWebView2_25, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0x806268b8_f897_5685_88e5_c45fca0b1a48)]
     interface ICoreWebView2_26: ICoreWebView2_25 {
-        fn add_SaveFileSecurityCheckStarting(&self, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_SaveFileSecurityCheckStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_SaveFileSecurityCheckStarting(&self, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_SaveFileSecurityCheckStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[library("WebView2Loader.dll")]
-    extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, eventHandler: ICoreWebView2SaveFileSecurityCheckStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2Loader.dll")]
-    extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(This: ICoreWebView2_26, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0x00fbe33b_8c07_517c_aa23_0ddd4b5f6fa0)]
     interface ICoreWebView2_27: ICoreWebView2_26 {
-        fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ScreenCaptureStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ScreenCaptureStarting(&self, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ScreenCaptureStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[library("WebView2Loader.dll")]
-    extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, eventHandler: ICoreWebView2ScreenCaptureStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[library("WebView2Loader.dll")]
-    extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+    extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(This: ICoreWebView2_27, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     #[library("WebView2Loader.dll")]
     extern "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(This: Windows::Win32::System::Com::IRpcStubBuffer, _pRpcChannelBuffer: Windows::Win32::System::Com::IRpcChannelBuffer, _pRpcMessage: PRPC_MESSAGE, _pdwStubPhase: *mut DWORD);
     #[guid(0x62e50381_5bf5_51a8_aae0_f20a3a9c8a90)]
@@ -2725,15 +2725,15 @@ mod WebView2 {
     }
     #[guid(0x20d02d59_6df2_42dc_bd06_f98a694b1302)]
     interface ICoreWebView2_4: ICoreWebView2_3 {
-        fn add_FrameCreated(&self, eventHandler: ICoreWebView2FrameCreatedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_FrameCreated(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn add_DownloadStarting(&self, eventHandler: ICoreWebView2DownloadStartingEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_DownloadStarting(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_FrameCreated(&self, eventHandler: ICoreWebView2FrameCreatedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_FrameCreated(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_DownloadStarting(&self, eventHandler: ICoreWebView2DownloadStartingEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_DownloadStarting(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0xbedb11b8_d63c_11eb_b8bc_0242ac130003)]
     interface ICoreWebView2_5: ICoreWebView2_4 {
-        fn add_ClientCertificateRequested(&self, eventHandler: ICoreWebView2ClientCertificateRequestedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_ClientCertificateRequested(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_ClientCertificateRequested(&self, eventHandler: ICoreWebView2ClientCertificateRequestedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_ClientCertificateRequested(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x499aadac_d92c_4589_8a75_111bfc167795)]
     interface ICoreWebView2_6: ICoreWebView2_5 {
@@ -2745,21 +2745,21 @@ mod WebView2 {
     }
     #[guid(0xe9632730_6e1e_43ab_b7b8_7b2c9e62e094)]
     interface ICoreWebView2_8: ICoreWebView2_7 {
-        fn add_IsMutedChanged(&self, eventHandler: ICoreWebView2IsMutedChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_IsMutedChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_IsMutedChanged(&self, eventHandler: ICoreWebView2IsMutedChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_IsMutedChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_IsMuted(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn put_IsMuted(&self, value: Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
-        fn add_IsDocumentPlayingAudioChanged(&self, eventHandler: ICoreWebView2IsDocumentPlayingAudioChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_IsDocumentPlayingAudioChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_IsDocumentPlayingAudioChanged(&self, eventHandler: ICoreWebView2IsDocumentPlayingAudioChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_IsDocumentPlayingAudioChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_IsDocumentPlayingAudio(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
     }
     #[guid(0x4d7b2eab_9fdc_468d_b998_a9260b5ed651)]
     interface ICoreWebView2_9: ICoreWebView2_8 {
-        fn add_IsDefaultDownloadDialogOpenChanged(&self, handler: ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler, token: *mut Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
-        fn remove_IsDefaultDownloadDialogOpenChanged(&self, token: Windows::Foundation::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn add_IsDefaultDownloadDialogOpenChanged(&self, handler: ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler, token: *mut Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
+        fn remove_IsDefaultDownloadDialogOpenChanged(&self, token: Windows::Win32::System::WinRT::EventRegistrationToken) -> Windows::Win32::Foundation::HRESULT;
         #[special]
         fn get_IsDefaultDownloadDialogOpen(&self, value: *mut Windows::Win32::Foundation::BOOL) -> Windows::Win32::Foundation::HRESULT;
         fn OpenDefaultDownloadDialog(&self,) -> Windows::Win32::Foundation::HRESULT;

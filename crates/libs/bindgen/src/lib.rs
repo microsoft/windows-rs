@@ -51,6 +51,10 @@ use winmd::*;
 mod method_names;
 use method_names::*;
 
+pub fn builder() -> Bindgen {
+    Bindgen::new()
+}
+
 /// The conventional way of calling the `bindgen` function is as follows:
 ///
 /// ```rust,no_run

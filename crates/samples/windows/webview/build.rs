@@ -3,7 +3,8 @@ fn main() {
     let library = "WebView2Loader.dll";
     let namespace = "WebView2";
     let rdl = "src/WebView2.rdl";
-    let reference = "../../../libs/bindgen/default";
+    let reference = "../../../libs/bindgen/default/Windows.Win32.winmd";
+    let rs = "src/bindings.rs";
     let winmd = "WebView2.winmd";
 
     println!("cargo:rerun-if-changed={h}");
@@ -30,18 +31,14 @@ fn main() {
         .write()
         .unwrap();
 
-    windows_bindgen::bindgen([
-        "--in",
-        winmd,
-        reference,
-        "--out",
-        "src/bindings.rs",
-        "--filter",
-        namespace,
-        "--flat",
-        "--typedef",
-        "--reference",
-        "windows",
-    ])
-    .unwrap();
+    windows_bindgen::builder()
+        .input(winmd)
+        .input(reference)
+        .output(rs)
+        .filter(namespace)
+        .reference("windows")
+        .flat()
+        .typedef()
+        .write()
+        .unwrap();
 }
