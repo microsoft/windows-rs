@@ -15,9 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: React with eyes
+        id: eyes
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='eyes'
+        run: |
+          id=$(gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='eyes' --jq '.id')
+          echo "id=$id" >> "$GITHUB_OUTPUT"
       - name: Checkout PR branch
         uses: actions/checkout@v6
         with:
@@ -42,4 +45,6 @@ jobs:
       - name: React with thumbs up
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='+1'
+        run: |
+          gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions --method POST -f content='+1'
+          gh api /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions/${{ steps.eyes.outputs.id }} --method DELETE
