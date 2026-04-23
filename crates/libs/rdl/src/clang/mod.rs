@@ -256,8 +256,30 @@ impl Clang {
         self
     }
 
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input.push(input.as_ref().to_string());
+        }
+        self
+    }
+
     pub fn input_str(&mut self, input: &str) -> &mut Self {
         self.input_str.push(input.to_string());
+        self
+    }
+
+    pub fn input_strs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input_str.push(input.as_ref().to_string());
+        }
         self
     }
 
@@ -292,6 +314,24 @@ impl Clang {
     /// disambiguate when multiple files share the same base name.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filter.push(filter.to_string());
+        self
+    }
+
+    /// Adds multiple header path suffixes to the inclusion filter.
+    pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for filter in filters {
+            self.filter.push(filter.as_ref().to_string());
+        }
+        self
+    }
+
+    /// Add a single compiler argument to pass to libclang.
+    pub fn arg<S: AsRef<str>>(&mut self, arg: S) -> &mut Self {
+        self.args.push(arg.as_ref().to_string());
         self
     }
 
