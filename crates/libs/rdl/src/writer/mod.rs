@@ -8,15 +8,6 @@ mod interface;
 mod layout;
 mod r#struct;
 
-macro_rules! writer_err {
-    ($($arg:tt)*) => {
-        Error::new(&format!($($arg)*), "", 0, 0)
-    };
-}
-
-// Re-export so sub-modules can use it via `use super::*`.
-pub(crate) use writer_err;
-
 use super::*;
 use attribute::*;
 use callback::*;
@@ -26,12 +17,9 @@ use interface::*;
 use layout::*;
 use metadata::AsRow;
 use metadata::HasAttributes;
-use proc_macro2::*;
-use quote::*;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;
-use windows_metadata as metadata;
 
 // The writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
@@ -106,7 +94,7 @@ impl Writer {
     pub fn write(&self) -> Result<(), Error> {
         let mut files = vec![];
 
-        for file_name in &expand_files(&self.input, "winmd")? {
+        for file_name in &expand_input_paths(&self.input, "winmd", ".")?.0 {
             files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
@@ -188,15 +176,6 @@ impl Writer {
 
         Ok(())
     }
-}
-
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
-    if let Some(parent) = std::path::Path::new(path).parent() {
-        std::fs::create_dir_all(parent)
-            .map_err(|_| writer_err!("failed to create directory `{path}`"))?;
-    }
-
-    std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{path}`"))
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
@@ -326,11 +305,27 @@ fn write_items(
 }
 
 fn write_type_def_items(
-    _namespace: &str,
+    namespace: &str,
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
     match item.category() {
-        metadata::reader::TypeCategory::Struct => write_struct_items(item),
+        metadata::reader::TypeCategory::Struct => {
+            // A struct with NativeTypedefAttribute is written as `type NAME = TYPE;`.
+            if item.attributes().any(|attr| {
+                attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                    && attr.name() == "NativeTypedefAttribute"
+            }) {
+                let name = write_ident(item.name());
+                let field = item
+                    .fields()
+                    .next()
+                    .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
+                let ty = write_type(namespace, &field.ty());
+                let tokens = quote! { type #name = #ty; };
+                return Ok(vec![(item.name().to_string(), tokens)]);
+            }
+            write_struct_items(item)
+        }
         _ => {
             let tokens = write_type_def(item)?;
             if tokens.is_empty() {
@@ -487,16 +482,13 @@ fn write_custom_attributes_except<'a>(
 ) -> Result<Vec<TokenStream>, Error> {
     attributes
         .filter(|attr| {
-            !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
+            !(namespace_starts_with(attr.namespace(), "System")
+                || exclude.contains(&attr.name())
+                // `NativeTypedefAttribute` is handled by the typedef writer; skip it here.
+                || (attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                    && attr.name() == "NativeTypedefAttribute"))
         })
         .map(|attr| {
-            // `NativeTypedefAttribute` is written back as the `#[typedef]` pseudo-attribute.
-            if attr.namespace() == "Windows.Win32.Foundation.Metadata"
-                && attr.name() == "NativeTypedefAttribute"
-            {
-                return Ok(quote! { #[typedef] });
-            }
-
             let attr_ns = attr.namespace();
             let attr_short = attr
                 .name()
@@ -700,175 +692,11 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
     }
 }
 
-fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
-    match value {
-        metadata::Value::Bool(value) => quote! { #value },
-        metadata::Value::U8(value) => {
-            let literal = Literal::u8_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I8(value) => {
-            let literal = Literal::i8_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::U16(value) => {
-            let literal = Literal::u16_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I16(value) => {
-            let literal = Literal::i16_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::U32(value) => {
-            let literal = Literal::u32_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I32(value) => {
-            let literal = Literal::i32_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::U64(value) => {
-            let literal = Literal::u64_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::I64(value) => {
-            let literal = Literal::i64_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::F32(value) => {
-            let literal = Literal::f32_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::F64(value) => {
-            let literal = Literal::f64_unsuffixed(*value);
-            quote! { #literal }
-        }
-        metadata::Value::Utf8(value) => quote! { #value },
-        metadata::Value::Utf16(value) => quote! { #value },
-        metadata::Value::TypeName(tn) => {
-            write_type(namespace, &metadata::Type::ClassName(tn.clone()))
-        }
-        metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
-    }
-}
-
 fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> TokenStream {
     write_type(
         namespace,
         &metadata::Type::class_named(item.namespace(), item.name()),
     )
-}
-
-fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
-    use metadata::Type::*;
-    match item {
-        Bool => quote! { bool },
-        Char => quote! { u16 },
-        I8 => quote! { i8 },
-        U8 => quote! { u8 },
-        I16 => quote! { i16 },
-        U16 => quote! { u16 },
-        I32 => quote! { i32 },
-        U32 => quote! { u32 },
-        I64 => quote! { i64 },
-        U64 => quote! { u64 },
-        F32 => quote! { f32 },
-        F64 => quote! { f64 },
-        ISize => quote! { isize },
-        USize => quote! { usize },
-
-        Void => quote! { void },
-        String => quote! { String },
-        Object => quote! { Object },
-        ClassName(tn) if tn == ("System", "Type") => quote! { Type },
-        ValueName(tn) if tn == ("System", "Guid") => quote! { GUID },
-        ValueName(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },
-
-        Array(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { [#ty] }
-        }
-        ArrayFixed(ty, len) => {
-            let ty = write_type(namespace, ty);
-            let len = Literal::usize_unsuffixed(*len);
-            quote! { [#ty; #len] }
-        }
-        RefMut(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { &mut #ty }
-        }
-        RefConst(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { & #ty }
-        }
-        PtrMut(ty, pointers) => {
-            let mut ty = write_type(namespace, ty);
-
-            for _ in 0..*pointers {
-                ty = quote! { *mut #ty };
-            }
-
-            ty
-        }
-        PtrConst(ty, pointers) => {
-            let mut ty = write_type(namespace, ty);
-
-            for _ in 0..*pointers {
-                ty = quote! { *const #ty };
-            }
-
-            ty
-        }
-        ClassName(type_name) | ValueName(type_name) => {
-            let name = write_ident(&type_name.name);
-
-            let name = if type_name.generics.is_empty() {
-                name
-            } else {
-                let generics = type_name
-                    .generics
-                    .iter()
-                    .map(|ty| write_type(namespace, ty));
-                quote! { #name <#(#generics),*> }
-            };
-
-            // The empty namespace test is for nested types.
-            if namespace == type_name.namespace || type_name.namespace.is_empty() {
-                name
-            } else {
-                let mut relative = namespace.split('.').peekable();
-                let mut namespace = type_name.namespace.split('.').peekable();
-                let shares_root = relative.peek() == namespace.peek();
-
-                while relative.peek() == namespace.peek() {
-                    if relative.next().is_none() {
-                        break;
-                    }
-
-                    namespace.next();
-                }
-
-                let mut tokens = TokenStream::new();
-
-                if shares_root {
-                    for _ in 0..relative.count() {
-                        tokens = quote! { #tokens super:: };
-                    }
-                }
-
-                for namespace in namespace {
-                    let namespace = write_ident(namespace);
-                    tokens = quote! { #tokens #namespace ::};
-                }
-
-                quote! { #tokens #name }
-            }
-        }
-        Generic(name, _) => {
-            let name = write_ident(name);
-            quote! { #name }
-        }
-    }
 }
 
 /// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.
@@ -912,14 +740,6 @@ enum GuidOutput {
     Explicit(u32, u16, u16, [u8; 8]),
     /// No `GuidAttribute` is present — emit `#[no_guid]` to prevent re-derivation on read-back.
     None,
-}
-
-/// Formats GUID components as a UUID-style hex u128 literal, e.g.
-/// `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`.
-fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
-    let d4_word = u16::from_be_bytes([d4[0], d4[1]]);
-    let d4_node = u64::from_be_bytes([0, 0, d4[2], d4[3], d4[4], d4[5], d4[6], d4[7]]);
-    format!("0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}")
 }
 
 /// Core GUID-output logic shared by interfaces and delegates.
@@ -1016,21 +836,4 @@ fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type
         quote! { <#(#names),*> }
     };
     (types, tokens)
-}
-
-fn write_ident(name: &str) -> TokenStream {
-    // keywords list based on https://doc.rust-lang.org/reference/keywords.html
-    let name = match name {
-        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
-        | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in"
-        | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
-        | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
-        | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
-        | "try" | "async" | "await" | "dyn" => format_ident!("r#{name}"),
-        "Self" | "self" => format_ident!("{name}_"),
-        "_" => format_ident!("unused"),
-        _ => format_ident!("{}", windows_metadata::trim_tick(name)),
-    };
-
-    quote! { #name }
 }

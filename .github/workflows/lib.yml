@@ -26,6 +26,10 @@ concurrency:
 jobs:
   lib:
     runs-on: windows-2025
+
+    env:
+      RUSTFLAGS: -D warnings
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6

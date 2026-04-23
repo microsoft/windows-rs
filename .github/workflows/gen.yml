@@ -27,6 +27,10 @@ jobs:
   gen:
     name: tool_${{ matrix.tool }}
     runs-on: ubuntu-22.04
+
+    env:
+      RUSTFLAGS: -D warnings
+
     strategy:
       matrix:
         tool: [bindgen, bindings, yml, license, workspace]

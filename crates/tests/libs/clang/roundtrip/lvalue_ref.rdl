@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern fn NoOleCoCreate(rclsid: &_GUID, riid: &_GUID, ppv: *mut *mut void) -> u32;
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}

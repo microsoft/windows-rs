@@ -17,3 +17,4 @@ windows-metadata = { workspace = true }
 syn = { workspace = true, features = ["full", "parsing", "clone-impls", "printing", "extra-traits"] }
 quote = { workspace = true }
 proc-macro2 = { workspace = true, features = ["span-locations"] }
+clang-sys = { version = "1.8.1", features = ["runtime", "clang_18_0" ] }

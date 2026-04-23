@@ -25,6 +25,7 @@ concurrency:
 
 jobs:
   no_std:
+    name: ${{ matrix.rust }}
     strategy:
       matrix:
         rust: [stable, nightly]

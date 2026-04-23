@@ -485,6 +485,18 @@ impl Encoder<'_> {
         );
     }
 
+    /// Emits the `Windows.Win32.Foundation.Metadata.NativeTypedefAttribute` on `target`.
+    pub fn encode_native_typedef_attribute(&mut self, target: metadata::writer::HasAttribute) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(
+                "Windows.Win32.Foundation.Metadata",
+                "NativeTypedefAttribute",
+            ),
+            args: vec![],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
     pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> bool {
         self.find_attribute_type(attr.path())
             .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
@@ -543,23 +555,6 @@ impl Encoder<'_> {
             }
 
             if skip.iter().any(|s| path.is_ident(s)) {
-                continue;
-            }
-
-            // `#[typedef]` is a pseudo-attribute that maps to the Win32 metadata
-            // `Windows.Win32.Foundation.Metadata.NativeTypedefAttribute`.
-            if path.is_ident("typedef") {
-                if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`#[typedef]` does not accept arguments");
-                }
-                let attr_ref = AttributeRef {
-                    type_name: metadata::TypeName::named(
-                        "Windows.Win32.Foundation.Metadata",
-                        "NativeTypedefAttribute",
-                    ),
-                    args: vec![],
-                };
-                self.encode_named_attribute(has_attribute, &attr_ref);
                 continue;
             }
 

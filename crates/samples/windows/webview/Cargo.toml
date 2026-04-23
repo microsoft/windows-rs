@@ -1,0 +1,29 @@
+[package]
+name = "sample_webview"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+windows-core = { workspace = true }
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_System_Com",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Ole",
+    "Win32_System_Rpc",
+    "Win32_System_Variant",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_HiDpi",
+]
+
+[build-dependencies]
+windows-rdl = { workspace = true }
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

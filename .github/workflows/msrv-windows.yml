@@ -1,0 +1,36 @@
+name: msrv-windows
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'crates/libs/rdl/rdl.md'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'crates/libs/rdl/rdl.md'
+      - 'web/**'
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  msrv-windows:
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+# generated - run `cargo run -p tool_yml` to update
+      - name: Rust version
+        run: rustup update --no-self-update 1.82 && rustup default 1.82
+      - name: Check windows
+        run:  cargo check -p windows --all-features

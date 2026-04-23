@@ -1,0 +1,44 @@
+#[win32]
+mod Test {
+    #[repr(i16)]
+    enum I16Enum {
+        I16A = 1,
+        I16B = -1,
+    }
+    #[repr(i64)]
+    enum I64Enum {
+        I64A = 1,
+        I64B = -1,
+    }
+    #[repr(i8)]
+    enum I8Enum {
+        I8A = 1,
+        I8B = -1,
+    }
+    #[repr(u16)]
+    enum U16Enum {
+        U16A = 1,
+        U16B = 60000,
+    }
+    #[repr(u32)]
+    enum U32Enum {
+        U32A = 1,
+        U32B = 3000000000,
+    }
+    #[repr(u64)]
+    enum U64Enum {
+        U64A = 1,
+        U64B = 10000000000,
+    }
+    #[repr(u8)]
+    enum U8Enum {
+        U8A = 1,
+        U8B = 200,
+    }
+    #[repr(i32)]
+    enum WithNeg {
+        WN_NEG = -1,
+        WN_ZERO = 0,
+        WN_POS = 1,
+    }
+}

@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    type A = i32;
+    type B = u32;
+    type C = *mut void;
+}

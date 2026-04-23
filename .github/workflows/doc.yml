@@ -43,6 +43,7 @@ jobs:
         run: cargo doc --no-deps -p windows-sys
 
   other-crates:
+    name: other-crates
     runs-on: windows-2025
     steps:
       - name: Checkout

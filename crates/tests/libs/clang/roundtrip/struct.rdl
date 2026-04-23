@@ -1,0 +1,35 @@
+#[win32]
+mod Test {
+    struct Arrays {
+        f1: [u8; 16],
+        f2: [i32; 4],
+    }
+    struct ConstPtrs {
+        read_only: *const i32,
+        bytes: *const u8,
+    }
+    struct Empty {}
+    struct Named {
+        f1: Empty,
+        f2: Numbers,
+    }
+    struct Numbers {
+        f1: u8,
+        f2: u16,
+        f3: u32,
+        f4: u64,
+        f5: i8,
+        f6: i16,
+        f7: i32,
+        f8: i64,
+        f9: f32,
+        f10: f64,
+        f11: u32,
+        f12: i32,
+        f13: u16,
+    }
+    struct Pointers {
+        f1: *mut Named,
+        f2: *mut i32,
+    }
+}
