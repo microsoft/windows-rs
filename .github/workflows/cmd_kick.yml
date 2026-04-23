@@ -3,6 +3,7 @@ name: cmd_kick
 permissions:
   contents: write
   issues: write
+  pull-requests: write
 
 on:
   issue_comment:
