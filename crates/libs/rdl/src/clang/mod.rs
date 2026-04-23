@@ -286,7 +286,7 @@ impl Clang {
     /// types should not appear in the output) and API headers (whose types
     /// should).
     ///
-    /// Matching is done by path suffix after normalising directory separators
+    /// Matching is done by path suffix after normalizing directory separators
     /// to `/`, so `.filter("api1.h")` matches any file whose path ends with
     /// `api1.h` and `.filter("vendor/foo/helpers.h")` can be used to
     /// disambiguate when multiple files share the same base name.
@@ -616,7 +616,7 @@ fn assign_nested_child_names(
 /// Returns `true` if `file` ends with `filter` and the match falls on a
 /// clean path-segment boundary.
 ///
-/// Both paths are normalised to forward slashes before comparison, so this
+/// Both paths are normalized to forward slashes before comparison, so this
 /// works on both Windows and POSIX.  `filter("api1.h")` matches
 /// `/path/to/api1.h` but not `/path/to/myapi1.h`.
 fn matches_filter(file: &str, filter: &str) -> bool {
