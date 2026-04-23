@@ -1,16 +1,15 @@
-name: fmt_command
+name: cmd_kick
 
 permissions:
   contents: write
-  reactions: write
 
 on:
   issue_comment:
     types: [created]
 
 jobs:
-  fmt:
-    if: github.event.issue.pull_request != '' && github.event.comment.body == '/fmt'
+  kick:
+    if: github.event.issue.pull_request != '' && github.event.comment.body == '/kick'
     runs-on: ubuntu-latest
     steps:
       - name: React with eyes
@@ -32,18 +31,11 @@ jobs:
         run: |
           branch=$(gh pr view ${{ github.event.issue.number }} --json headRefName --jq '.headRefName')
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
-      - name: Update toolchain
-        run: rustup update --no-self-update stable && rustup default stable
-      - name: Install rustfmt
-        run: rustup component add rustfmt
-      - name: Run cargo fmt
-        run: cargo fmt --all
-      - name: Commit and push changes
+      - name: Push empty commit
         run: |
           git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
           git checkout -b ${{ steps.pr.outputs.branch }}
-          git add -A
-          git diff --cached --quiet || git commit -m "cargo fmt"
+          git commit --allow-empty -m "retrigger checks"
           git push origin ${{ steps.pr.outputs.branch }}
       - name: React with thumbs up
         env:
