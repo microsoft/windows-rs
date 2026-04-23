@@ -2,8 +2,8 @@ mod bindings;
 use bindings::*;
 
 use windows::{
-    Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
-    Win32::UI::HiDpi::*, Win32::UI::WindowsAndMessaging::*, core::*,
+    core::*, Win32::Foundation::*, Win32::System::Com::*, Win32::System::LibraryLoader::*,
+    Win32::UI::HiDpi::*, Win32::UI::WindowsAndMessaging::*,
 };
 
 fn main() -> Result<()> {
