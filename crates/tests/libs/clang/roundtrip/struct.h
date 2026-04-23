@@ -31,3 +31,8 @@ struct Arrays {
     unsigned char f1[16];
     int f2[4];
 };
+
+struct ConstPtrs {
+    const int* read_only;
+    const unsigned char* bytes;
+};
