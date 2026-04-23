@@ -11,7 +11,7 @@ on:
 jobs:
   kick:
     if: github.event.issue.pull_request != '' && github.event.comment.body == '/kick'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: React with eyes
         env:
@@ -21,7 +21,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: refs/pull/${{ github.event.issue.number }}/head
-          fetch-depth: 0
       - name: Configure git
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -33,11 +32,11 @@ jobs:
         run: |
           branch=$(gh pr view ${{ github.event.issue.number }} --json headRefName --jq '.headRefName')
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
-      - name: Push empty commit to re-trigger CI
+      - name: Push empty commit
         run: |
           git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
           git checkout -b ${{ steps.pr.outputs.branch }}
-          git commit --allow-empty -m "kick CI"
+          git commit --allow-empty -m "retrigger checks"
           git push origin ${{ steps.pr.outputs.branch }}
       - name: React with thumbs up
         env:

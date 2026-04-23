@@ -4,6 +4,10 @@ mod Test {
         f1: [u8; 16],
         f2: [i32; 4],
     }
+    struct ConstPtrs {
+        read_only: *const i32,
+        bytes: *const u8,
+    }
     struct Empty {}
     struct Named {
         f1: Empty,
