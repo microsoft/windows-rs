@@ -2,7 +2,7 @@ name: cmd_fmt
 
 permissions:
   contents: write
-  reactions: write
+  issues: write
 
 on:
   issue_comment:
