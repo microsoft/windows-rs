@@ -35,6 +35,17 @@ impl HSTRING {
         Decode(move || core::char::decode_utf16(self.iter().cloned()))
     }
 
+    /// Get the contents of this `HSTRING` as a slice of 16-bit values, including the null terminator.
+    pub fn as_wide_with_nul(&self) -> &[u16] {
+        if let Some(header) = self.as_header() {
+            // SAFETY: HSTRING always allocates `len + 1` u16 values with the last being a null terminator.
+            unsafe { core::slice::from_raw_parts(header.data, header.len as usize + 1) }
+        } else {
+            const NULL: [u16; 1] = [0];
+            &NULL[..]
+        }
+    }
+
     /// # Safety
     /// len must not be less than the number of items in the iterator.
     unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: usize) -> Self {

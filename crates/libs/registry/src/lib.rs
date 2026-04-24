@@ -88,5 +88,7 @@ fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {
 
 // Get the string as 8-bit bytes including the two terminating null bytes.
 fn as_bytes(value: &HSTRING) -> &[u8] {
-    unsafe { core::slice::from_raw_parts(value.as_ptr() as *const _, (value.len() + 1) * 2) }
+    let (prefix, bytes, suffix) = value.as_wide_with_nul().align_to::<u8>();
+    debug_assert!(prefix.is_empty() && suffix.is_empty());
+    bytes
 }
