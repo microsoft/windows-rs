@@ -459,6 +459,19 @@ impl Bindgen {
         self
     }
 
+    /// Add multiple `.winmd` files or directories containing `.winmd` files.
+    /// Use `"default"` to include the metadata bundled with `windows-bindgen`.
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input.push(input.as_ref().to_string());
+        }
+        self
+    }
+
     /// Set the output file where generated bindings will be written.
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
@@ -474,15 +487,54 @@ impl Bindgen {
         self
     }
 
+    /// Add multiple filter rules to include or exclude APIs.
+    ///
+    /// Filter rules may be a function or type name, a namespace prefix, or a fully-qualified name.
+    /// Prefix with `!` to exclude rather than include.
+    pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for filter in filters {
+            self.filter.push(filter.as_ref().to_string());
+        }
+        self
+    }
+
     /// Add an extra trait for types to derive.
     pub fn derive(&mut self, derive: &str) -> &mut Self {
         self.derive.push(derive.to_string());
         self
     }
 
+    /// Add multiple extra traits for types to derive.
+    pub fn derives<I, S>(&mut self, derives: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for derive in derives {
+            self.derive.push(derive.as_ref().to_string());
+        }
+        self
+    }
+
     /// Add a reference dependency.
     pub fn reference(&mut self, reference: &str) -> &mut Self {
         self.references.push(reference.to_string());
+        self
+    }
+
+    /// Add multiple reference dependencies.
+    pub fn references<I, S>(&mut self, references: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for reference in references {
+            self.references.push(reference.as_ref().to_string());
+        }
         self
     }
 
