@@ -20,5 +20,8 @@ fn main() {
 
     assert!(result.contains("Hello from cs land"), "stdout:\n{result}");
     assert!(result.contains("Hello handy (0x"), "stdout:\n{result}");
-    assert!(result.contains("interop handle: 0x1c8"), "stdout:\n{result}");
+    assert!(
+        result.contains("interop handle: 0x1c8"),
+        "stdout:\n{result}"
+    );
 }
