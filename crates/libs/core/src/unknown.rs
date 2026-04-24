@@ -31,7 +31,7 @@ unsafe impl Interface for IUnknown {
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().AddRef)(core::mem::transmute_copy(self));
+            (self.vtable().AddRef)(self.as_raw());
         }
 
         Self(self.0)
@@ -41,7 +41,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().Release)(core::mem::transmute_copy(self));
+            (self.vtable().Release)(self.as_raw());
         }
     }
 }
