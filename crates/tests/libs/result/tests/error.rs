@@ -65,6 +65,7 @@ fn from_thread() {
 //   4. The second `HRESULT -> Error` conversion finds the thread empty (GetErrorInfo returns
 //      nothing) and must fall back gracefully to the HRESULT system message.
 #[test]
+#[cfg(all(windows, not(windows_slim_errors)))]
 fn error_info_consumed_before_conversion() {
     let original = Error::new(E_INVALIDARG, "test error info");
     assert_eq!(original.code(), E_INVALIDARG);
