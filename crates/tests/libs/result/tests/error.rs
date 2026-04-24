@@ -80,6 +80,34 @@ fn error_info_round_trip() {
     assert_eq!(recovered.message(), "test error info");
 }
 
+// Tests that when `GetErrorInfo` returns nothing (thread error info has already been cleared),
+// the `HRESULT -> Error` conversion falls back gracefully to the HRESULT system message.
+// The first `Error::from` consumes the error info from the thread; the second call finds the
+// thread empty and must fall back to the system message without crashing.
+#[test]
+#[cfg(all(windows, not(windows_slim_errors)))]
+fn error_info_consumed_before_conversion() {
+    let original = Error::new(E_INVALIDARG, "test error info");
+    assert_eq!(original.code(), E_INVALIDARG);
+    assert_eq!(original.message(), "test error info");
+
+    // Convert Error -> HRESULT (calls `into_thread`, putting IErrorInfo on the thread).
+    let code: HRESULT = original.into();
+    assert_eq!(code, E_INVALIDARG);
+
+    // First conversion consumes the error info from the thread.
+    let first = Error::from(code);
+    assert_eq!(first.code(), E_INVALIDARG);
+    assert_eq!(first.message(), "test error info");
+
+    // Second conversion finds the thread empty (GetErrorInfo returns null).
+    // Must fall back gracefully to the HRESULT system message.
+    let second = Error::from(code);
+    assert_eq!(second.code(), E_INVALIDARG);
+    assert!(second.as_ptr().is_null());
+    assert_eq!(second.message(), "The parameter is incorrect.");
+}
+
 #[test]
 fn try_from_int() {
     fn call(value: usize) -> Result<u16> {
