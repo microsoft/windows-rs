@@ -21,28 +21,56 @@ impl Matrix4x4 {
             M44: 1.0,
         }
     }
-    #[cfg(feature = "std")]
     pub fn rotation_y(degree: f32) -> Self {
-        let angle = degree.to_radians();
-        let sin = angle.sin();
-        let cos = angle.cos();
-        Self {
-            M11: cos,
-            M12: 0.0,
-            M13: -sin,
-            M14: 0.0,
-            M21: 0.0,
-            M22: 1.0,
-            M23: 0.0,
-            M24: 0.0,
-            M31: sin,
-            M32: 0.0,
-            M33: cos,
-            M34: 0.0,
-            M41: 0.0,
-            M42: 0.0,
-            M43: 0.0,
-            M44: 1.0,
+        #[cfg(feature = "std")]
+        {
+            let (sin, cos) = degree.to_radians().sin_cos();
+            Self {
+                M11: cos,
+                M12: 0.0,
+                M13: -sin,
+                M14: 0.0,
+                M21: 0.0,
+                M22: 1.0,
+                M23: 0.0,
+                M24: 0.0,
+                M31: sin,
+                M32: 0.0,
+                M33: cos,
+                M34: 0.0,
+                M41: 0.0,
+                M42: 0.0,
+                M43: 0.0,
+                M44: 1.0,
+            }
+        }
+        #[cfg(not(feature = "std"))]
+        {
+            windows_link::link!("d2d1.dll" "system" fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32));
+            let angle = degree.to_radians();
+            let mut sin = 0.0;
+            let mut cos = 0.0;
+            unsafe {
+                D2D1SinCos(angle, &mut sin, &mut cos);
+            }
+            Self {
+                M11: cos,
+                M12: 0.0,
+                M13: -sin,
+                M14: 0.0,
+                M21: 0.0,
+                M22: 1.0,
+                M23: 0.0,
+                M24: 0.0,
+                M31: sin,
+                M32: 0.0,
+                M33: cos,
+                M34: 0.0,
+                M41: 0.0,
+                M42: 0.0,
+                M43: 0.0,
+                M44: 1.0,
+            }
         }
     }
     pub fn perspective_projection(depth: f32) -> Self {
