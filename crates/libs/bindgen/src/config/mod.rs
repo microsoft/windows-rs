@@ -163,11 +163,9 @@ where
     F: Fn(T) + Sync,
     T: Send,
 {
-    #[cfg(windows)]
-    windows_threading::for_each(i, f);
-
-    #[cfg(not(windows))]
-    for item in i {
-        f(item);
-    }
+    std::thread::scope(|s| {
+        for item in i {
+            s.spawn(|| f(item));
+        }
+    });
 }
