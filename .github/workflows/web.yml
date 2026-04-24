@@ -64,7 +64,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-    if: github.event_name != 'pull_request' || github.event_name == 'workflow_dispatch'
+    if: github.event_name != 'pull_request'
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5
