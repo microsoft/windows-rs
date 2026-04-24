@@ -43,14 +43,13 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintDeviceResources<P1, P2, P3>(hprovider: HPTPROVIDER, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintDeviceResources<P2, P3>(hprovider: HPTPROVIDER, pszlocalename: windows_core::PCWSTR, pprintticket: P2, pdeviceresources: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
     P3: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_core::link!("prntvpt.dll" "system" fn PTGetPrintDeviceResources(hprovider : HPTPROVIDER, pszlocalename : windows_core::PCWSTR, pprintticket : * mut core::ffi::c_void, pdeviceresources : * mut core::ffi::c_void, pbstrerrormessage : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PTGetPrintDeviceResources(hprovider, pszlocalename.param().abi(), pprintticket.param().abi(), pdeviceresources.param().abi(), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PTGetPrintDeviceResources(hprovider, core::mem::transmute(pszlocalename), pprintticket.param().abi(), pdeviceresources.param().abi(), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -64,33 +63,24 @@ where
     unsafe { PTMergeAndValidatePrintTicket(hprovider, pbaseticket.param().abi(), pdeltaticket.param().abi(), scope, presultticket.param().abi(), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: u32) -> windows_core::Result<HPTPROVIDER>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn PTOpenProvider(pszprintername: windows_core::PCWSTR, dwversion: u32) -> windows_core::Result<HPTPROVIDER> {
     windows_core::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_core::PCWSTR, dwversion : u32, phprovider : *mut HPTPROVIDER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PTOpenProvider(pszprintername.param().abi(), dwversion, &mut result__).map(|| result__)
+        PTOpenProvider(core::mem::transmute(pszprintername), dwversion, &mut result__).map(|| result__)
     }
 }
 #[inline]
-pub unsafe fn PTOpenProviderEx<P0>(pszprintername: P0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut HPTPROVIDER, pusedversion: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn PTOpenProviderEx(pszprintername: windows_core::PCWSTR, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut HPTPROVIDER, pusedversion: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("prntvpt.dll" "system" fn PTOpenProviderEx(pszprintername : windows_core::PCWSTR, dwmaxversion : u32, dwprefversion : u32, phprovider : *mut HPTPROVIDER, pusedversion : *mut u32) -> windows_core::HRESULT);
-    unsafe { PTOpenProviderEx(pszprintername.param().abi(), dwmaxversion, dwprefversion, phprovider as _, pusedversion as _).ok() }
+    unsafe { PTOpenProviderEx(core::mem::transmute(pszprintername), dwmaxversion, dwprefversion, phprovider as _, pusedversion as _).ok() }
 }
 #[inline]
-pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> windows_core::Result<u32>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn PTQuerySchemaVersionSupport(pszprintername: windows_core::PCWSTR) -> windows_core::Result<u32> {
     windows_core::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_core::PCWSTR, pmaxversion : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PTQuerySchemaVersionSupport(pszprintername.param().abi(), &mut result__).map(|| result__)
+        PTQuerySchemaVersionSupport(core::mem::transmute(pszprintername), &mut result__).map(|| result__)
     }
 }
 #[inline]

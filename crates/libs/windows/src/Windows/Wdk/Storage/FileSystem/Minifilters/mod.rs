@@ -594,12 +594,9 @@ pub unsafe fn FltGetContextsEx(fltobjects: *const FLT_RELATED_OBJECTS, desiredco
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltGetDestinationFileNameInformation<P3>(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, rootdirectory: Option<super::super::super::super::Win32::Foundation::HANDLE>, filename: P3, filenamelength: u32, nameoptions: u32, retfilenameinformation: *mut *mut FLT_FILE_NAME_INFORMATION) -> windows_core::NTSTATUS
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FltGetDestinationFileNameInformation(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, rootdirectory: Option<super::super::super::super::Win32::Foundation::HANDLE>, filename: windows_core::PCWSTR, filenamelength: u32, nameoptions: u32, retfilenameinformation: *mut *mut FLT_FILE_NAME_INFORMATION) -> windows_core::NTSTATUS {
     windows_core::link!("fltmgr.sys" "system" fn FltGetDestinationFileNameInformation(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation:: FILE_OBJECT, rootdirectory : super::super::super::super::Win32::Foundation:: HANDLE, filename : windows_core::PCWSTR, filenamelength : u32, nameoptions : u32, retfilenameinformation : *mut *mut FLT_FILE_NAME_INFORMATION) -> windows_core:: NTSTATUS);
-    unsafe { FltGetDestinationFileNameInformation(instance, fileobject, rootdirectory.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), filenamelength, nameoptions, retfilenameinformation as _) }
+    unsafe { FltGetDestinationFileNameInformation(instance, fileobject, rootdirectory.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filename), filenamelength, nameoptions, retfilenameinformation as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -753,12 +750,9 @@ pub unsafe fn FltGetRequestorSessionId(callbackdata: *const FLT_CALLBACK_DATA, s
     unsafe { FltGetRequestorSessionId(callbackdata, sessionid as _) }
 }
 #[inline]
-pub unsafe fn FltGetRoutineAddress<P0>(fltmgrroutinename: P0) -> *mut core::ffi::c_void
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn FltGetRoutineAddress(fltmgrroutinename: windows_core::PCSTR) -> *mut core::ffi::c_void {
     windows_core::link!("fltmgr.sys" "system" fn FltGetRoutineAddress(fltmgrroutinename : windows_core::PCSTR) -> *mut core::ffi::c_void);
-    unsafe { FltGetRoutineAddress(fltmgrroutinename.param().abi()) }
+    unsafe { FltGetRoutineAddress(core::mem::transmute(fltmgrroutinename)) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]

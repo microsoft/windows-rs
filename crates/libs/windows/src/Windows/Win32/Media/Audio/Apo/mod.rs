@@ -913,11 +913,8 @@ impl windows_core::RuntimeName for IAudioProcessingObjectConfiguration {}
 windows_core::imp::define_interface!(IAudioProcessingObjectLoggingService, IAudioProcessingObjectLoggingService_Vtbl, 0x698f0107_1745_4708_95a5_d84478a62a65);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectLoggingService, windows_core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
-    pub unsafe fn ApoLog<P1>(&self, level: APO_LOG_LEVEL, format: P1)
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, format.param().abi()) }
+    pub unsafe fn ApoLog(&self, level: APO_LOG_LEVEL, format: windows_core::PCWSTR) {
+        unsafe { (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, core::mem::transmute(format)) }
     }
 }
 #[repr(C)]

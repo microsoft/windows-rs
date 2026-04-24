@@ -5,14 +5,11 @@ pub unsafe fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE) {
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[inline]
-pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: Option<*const core::ffi::c_void>, connectflags: CF_CONNECT_FLAGS) -> windows_core::Result<CF_CONNECTION_KEY>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfConnectSyncRoot(syncrootpath: windows_core::PCWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: Option<*const core::ffi::c_void>, connectflags: CF_CONNECT_FLAGS) -> windows_core::Result<CF_CONNECTION_KEY> {
     windows_core::link!("cldapi.dll" "system" fn CfConnectSyncRoot(syncrootpath : windows_core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| result__)
+        CfConnectSyncRoot(core::mem::transmute(syncrootpath), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -23,12 +20,9 @@ pub unsafe fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDL
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
-pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfCreatePlaceholders(basedirectorypath: windows_core::PCWSTR, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CfCreatePlaceholders(core::mem::transmute(basedirectorypath), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -99,12 +93,9 @@ pub unsafe fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HA
     unsafe { CfGetSyncRootInfoByHandle(filehandle, infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByPath<P0>(filepath: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfGetSyncRootInfoByPath(filepath: windows_core::PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByPath(filepath : windows_core::PCWSTR, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetSyncRootInfoByPath(filepath.param().abi(), infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CfGetSyncRootInfoByPath(core::mem::transmute(filepath), infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE) -> windows_core::Result<i64> {
@@ -126,14 +117,11 @@ pub unsafe fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE,
     unsafe { CfHydratePlaceholder(filehandle, startingoffset, length, hydrateflags, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CfOpenFileWithOplock<P0>(filepath: P0, flags: CF_OPEN_FILE_FLAGS) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfOpenFileWithOplock(filepath: windows_core::PCWSTR, flags: CF_OPEN_FILE_FLAGS) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("cldapi.dll" "system" fn CfOpenFileWithOplock(filepath : windows_core::PCWSTR, flags : CF_OPEN_FILE_FLAGS, protectedhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfOpenFileWithOplock(filepath.param().abi(), flags, &mut result__).map(|| result__)
+        CfOpenFileWithOplock(core::mem::transmute(filepath), flags, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -150,12 +138,9 @@ pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundati
     unsafe { CfReferenceProtectedHandle(protectedhandle) }
 }
 #[inline]
-pub unsafe fn CfRegisterSyncRoot<P0>(syncrootpath: P0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfRegisterSyncRoot(syncrootpath: windows_core::PCWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfRegisterSyncRoot(syncrootpath : windows_core::PCWSTR, registration : *const CF_SYNC_REGISTRATION, policies : *const CF_SYNC_POLICIES, registerflags : CF_REGISTER_FLAGS) -> windows_core::HRESULT);
-    unsafe { CfRegisterSyncRoot(syncrootpath.param().abi(), registration, policies, registerflags).ok() }
+    unsafe { CfRegisterSyncRoot(core::mem::transmute(syncrootpath), registration, policies, registerflags).ok() }
 }
 #[inline]
 pub unsafe fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) {
@@ -178,12 +163,9 @@ pub unsafe fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transf
     unsafe { CfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid).ok() }
 }
 #[inline]
-pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: Option<*const CF_SYNC_STATUS>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfReportSyncStatus(syncrootpath: windows_core::PCWSTR, syncstatus: Option<*const CF_SYNC_STATUS>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfReportSyncStatus(syncrootpath : windows_core::PCWSTR, syncstatus : *const CF_SYNC_STATUS) -> windows_core::HRESULT);
-    unsafe { CfReportSyncStatus(syncrootpath.param().abi(), syncstatus.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CfReportSyncStatus(core::mem::transmute(syncrootpath), syncstatus.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -209,12 +191,9 @@ pub unsafe fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinsta
     unsafe { CfSetPinState(filehandle, pinstate, pinflags, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CfUnregisterSyncRoot<P0>(syncrootpath: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CfUnregisterSyncRoot(syncrootpath: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfUnregisterSyncRoot(syncrootpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { CfUnregisterSyncRoot(syncrootpath.param().abi()).ok() }
+    unsafe { CfUnregisterSyncRoot(core::mem::transmute(syncrootpath)).ok() }
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]

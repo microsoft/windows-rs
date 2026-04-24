@@ -126,12 +126,9 @@ pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: super::super::super::Win3
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
-pub unsafe fn FwpmEngineOpen0<P0>(servername: P0, authnservice: u32, authidentity: Option<*const super::super::super::Win32::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_SESSION0>, enginehandle: *mut super::super::super::Win32::Foundation::HANDLE) -> windows_core::NTSTATUS
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FwpmEngineOpen0(servername: Option<windows_core::PCWSTR>, authnservice: u32, authidentity: Option<*const super::super::super::Win32::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform::FWPM_SESSION0>, enginehandle: *mut super::super::super::Win32::Foundation::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : windows_core::PCWSTR, authnservice : u32, authidentity : *const super::super::super::Win32::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const super::super::super::Win32::NetworkManagement::WindowsFilteringPlatform:: FWPM_SESSION0, enginehandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> windows_core:: NTSTATUS);
-    unsafe { FwpmEngineOpen0(servername.param().abi(), authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
+    unsafe { FwpmEngineOpen0(servername.unwrap_or(core::mem::zeroed()) as _, authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Security"))]
 #[inline]

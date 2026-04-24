@@ -1,10 +1,7 @@
 #[inline]
-pub unsafe fn DnsHostnameToComputerNameExW<P0>(hostname: P0, computername: Option<windows_core::PWSTR>, nsize: *mut u32) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DnsHostnameToComputerNameExW(hostname: windows_core::PCWSTR, computername: Option<windows_core::PWSTR>, nsize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_core::PCWSTR, computername : windows_core::PWSTR, nsize : *mut u32) -> windows_core::BOOL);
-    unsafe { DnsHostnameToComputerNameExW(hostname.param().abi(), computername.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
+    unsafe { DnsHostnameToComputerNameExW(core::mem::transmute(hostname), computername.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[inline]
 pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: Option<&mut [u8]>) -> u32 {
@@ -284,44 +281,29 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32
     unsafe { RtlSwitchedVVI(versioninfo, typemask, conditionmask) }
 }
 #[inline]
-pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn SetComputerNameA(lpcomputername: windows_core::PCSTR) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn SetComputerNameA(lpcomputername : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { SetComputerNameA(lpcomputername.param().abi()).ok() }
+    unsafe { SetComputerNameA(core::mem::transmute(lpcomputername)).ok() }
 }
 #[inline]
-pub unsafe fn SetComputerNameEx2W<P2>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P2) -> windows_core::BOOL
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: windows_core::PCWSTR) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetComputerNameEx2W(nametype : COMPUTER_NAME_FORMAT, flags : u32, lpbuffer : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetComputerNameEx2W(nametype, flags, lpbuffer.param().abi()) }
+    unsafe { SetComputerNameEx2W(nametype, flags, core::mem::transmute(lpbuffer)) }
 }
 #[inline]
-pub unsafe fn SetComputerNameExA<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: windows_core::PCSTR) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn SetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { SetComputerNameExA(nametype, lpbuffer.param().abi()).ok() }
+    unsafe { SetComputerNameExA(nametype, core::mem::transmute(lpbuffer)).ok() }
 }
 #[inline]
-pub unsafe fn SetComputerNameExW<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn SetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetComputerNameExW(nametype, lpbuffer.param().abi()).ok() }
+    unsafe { SetComputerNameExW(nametype, core::mem::transmute(lpbuffer)).ok() }
 }
 #[inline]
-pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SetComputerNameW(lpcomputername: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn SetComputerNameW(lpcomputername : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetComputerNameW(lpcomputername.param().abi()).ok() }
+    unsafe { SetComputerNameW(core::mem::transmute(lpcomputername)).ok() }
 }
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {

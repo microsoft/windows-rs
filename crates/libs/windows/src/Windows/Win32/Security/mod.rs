@@ -36,24 +36,14 @@ pub unsafe fn AccessCheck(psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken
     unsafe { AccessCheck(psecuritydescriptor, clienttoken, desiredaccess, genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccess as _, accessstatus as _).ok() }
 }
 #[inline]
-pub unsafe fn AccessCheckAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: Option<*const core::ffi::c_void>, objecttypename: P2, objectname: P3, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn AccessCheckAndAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: Option<*const core::ffi::c_void>, objecttypename: windows_core::PCSTR, objectname: Option<windows_core::PCSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCSTR, objectname : windows_core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckAndAuditAlarmA(subsystemname.param().abi(), handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, desiredaccess, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _).ok() }
+    unsafe { AccessCheckAndAuditAlarmA(core::mem::transmute(subsystemname), handleid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, securitydescriptor, desiredaccess, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _).ok() }
 }
 #[inline]
-pub unsafe fn AccessCheckAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: Option<*const core::ffi::c_void>, objecttypename: P2, objectname: P3, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AccessCheckAndAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: Option<*const core::ffi::c_void>, objecttypename: windows_core::PCWSTR, objectname: Option<windows_core::PCWSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckAndAuditAlarmW(subsystemname.param().abi(), handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, desiredaccess, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
+    unsafe { AccessCheckAndAuditAlarmW(core::mem::transmute(subsystemname), handleid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, securitydescriptor, desiredaccess, genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
 }
 #[inline]
 pub unsafe fn AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, privilegeset: Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -61,24 +51,53 @@ pub unsafe fn AccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, princ
     unsafe { AccessCheckByType(psecuritydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccess as _, accessstatus as _).ok() }
 }
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn AccessCheckByTypeAndAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, objecttypename: windows_core::PCSTR, objectname: Option<windows_core::PCSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCSTR, objectname : windows_core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByTypeAndAuditAlarmA(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _).ok() }
+    unsafe {
+        AccessCheckByTypeAndAuditAlarmA(
+            core::mem::transmute(subsystemname),
+            handleid,
+            core::mem::transmute(objecttypename),
+            objectname.unwrap_or(core::mem::zeroed()) as _,
+            securitydescriptor,
+            principalselfsid.unwrap_or(core::mem::zeroed()) as _,
+            desiredaccess,
+            audittype,
+            flags,
+            core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            genericmapping,
+            objectcreation.into(),
+            grantedaccess as _,
+            accessstatus as _,
+            pfgenerateonclose as _,
+        )
+        .ok()
+    }
 }
 #[inline]
-pub unsafe fn AccessCheckByTypeAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AccessCheckByTypeAndAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, objecttypename: windows_core::PCWSTR, objectname: Option<windows_core::PCWSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&mut [OBJECT_TYPE_LIST]>, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatus: *mut windows_core::BOOL, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatus : *mut windows_core::BOOL, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByTypeAndAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.into(), grantedaccess as _, accessstatus as _, pfgenerateonclose as _) }
+    unsafe {
+        AccessCheckByTypeAndAuditAlarmW(
+            core::mem::transmute(subsystemname),
+            handleid,
+            core::mem::transmute(objecttypename),
+            objectname.unwrap_or(core::mem::zeroed()) as _,
+            securitydescriptor,
+            principalselfsid.unwrap_or(core::mem::zeroed()) as _,
+            desiredaccess,
+            audittype,
+            flags,
+            core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            genericmapping,
+            objectcreation.into(),
+            grantedaccess as _,
+            accessstatus as _,
+            pfgenerateonclose as _,
+        )
+    }
 }
 #[inline]
 pub unsafe fn AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: Option<*mut PRIVILEGE_SET>, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> windows_core::Result<()> {
@@ -86,44 +105,24 @@ pub unsafe fn AccessCheckByTypeResultList(psecuritydescriptor: PSECURITY_DESCRIP
     unsafe { AccessCheckByTypeResultList(psecuritydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, privilegeset.unwrap_or(core::mem::zeroed()) as _, privilegesetlength as _, grantedaccesslist as _, accessstatuslist as _).ok() }
 }
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, objecttypename: windows_core::PCSTR, objectname: Option<windows_core::PCSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCSTR, objectname : windows_core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByTypeResultListAndAuditAlarmA(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccess as _, accessstatuslist as _, pfgenerateonclose as _).ok() }
+    unsafe { AccessCheckByTypeResultListAndAuditAlarmA(core::mem::transmute(subsystemname), handleid, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccess as _, accessstatuslist as _, pfgenerateonclose as _).ok() }
 }
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<P0, P3, P4>(subsystemname: P0, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: P3, objectname: P4, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: windows_core::PCSTR, objectname: Option<windows_core::PCSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, objecttypename : windows_core::PCSTR, objectname : windows_core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccess : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname.param().abi(), handleid, clienttoken, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccess as _, accessstatuslist as _, pfgenerateonclose as _).ok() }
+    unsafe { AccessCheckByTypeResultListAndAuditAlarmByHandleA(core::mem::transmute(subsystemname), handleid, clienttoken, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccess as _, accessstatuslist as _, pfgenerateonclose as _).ok() }
 }
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<P0, P3, P4>(subsystemname: P0, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: P3, objectname: P4, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: windows_core::PCWSTR, objectname: Option<windows_core::PCWSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname.param().abi(), handleid, clienttoken, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccesslist as _, accessstatuslist as _, pfgenerateonclose as _) }
+    unsafe { AccessCheckByTypeResultListAndAuditAlarmByHandleW(core::mem::transmute(subsystemname), handleid, clienttoken, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccesslist as _, accessstatuslist as _, pfgenerateonclose as _) }
 }
 #[inline]
-pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, objecttypename: windows_core::PCWSTR, objectname: Option<windows_core::PCWSTR>, securitydescriptor: PSECURITY_DESCRIPTOR, principalselfsid: Option<PSID>, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*mut OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: bool, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, securitydescriptor : PSECURITY_DESCRIPTOR, principalselfsid : PSID, desiredaccess : u32, audittype : AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *mut OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : windows_core::BOOL, grantedaccesslist : *mut u32, accessstatuslist : *mut u32, pfgenerateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AccessCheckByTypeResultListAndAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccesslist as _, accessstatuslist as _, pfgenerateonclose as _) }
+    unsafe { AccessCheckByTypeResultListAndAuditAlarmW(core::mem::transmute(subsystemname), handleid, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation.into(), grantedaccesslist as _, accessstatuslist as _, pfgenerateonclose as _) }
 }
 #[inline]
 pub unsafe fn AddAccessAllowedAce(pacl: *mut ACL, dwacerevision: ACE_REVISION, accessmask: u32, psid: PSID) -> windows_core::Result<()> {
@@ -176,12 +175,9 @@ pub unsafe fn AddAuditAccessObjectAce(pacl: *mut ACL, dwacerevision: ACE_REVISIO
     unsafe { AddAuditAccessObjectAce(pacl as _, dwacerevision, aceflags, accessmask, objecttypeguid.unwrap_or(core::mem::zeroed()) as _, inheritedobjecttypeguid.unwrap_or(core::mem::zeroed()) as _, psid, bauditsuccess.into(), bauditfailure.into()).ok() }
 }
 #[inline]
-pub unsafe fn AddConditionalAce<P6>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: PSID, conditionstr: P6, returnlength: *mut u32) -> windows_core::Result<()>
-where
-    P6: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AddConditionalAce(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: PSID, conditionstr: windows_core::PCWSTR, returnlength: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AddConditionalAce(pacl : *mut ACL, dwacerevision : ACE_REVISION, aceflags : ACE_FLAGS, acetype : u8, accessmask : u32, psid : PSID, conditionstr : windows_core::PCWSTR, returnlength : *mut u32) -> windows_core::BOOL);
-    unsafe { AddConditionalAce(pacl as _, dwacerevision, aceflags, acetype, accessmask, psid, conditionstr.param().abi(), returnlength as _).ok() }
+    unsafe { AddConditionalAce(pacl as _, dwacerevision, aceflags, acetype, accessmask, psid, core::mem::transmute(conditionstr), returnlength as _).ok() }
 }
 #[inline]
 pub unsafe fn AddMandatoryAce(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: u32, plabelsid: PSID) -> windows_core::Result<()> {
@@ -297,12 +293,9 @@ pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> windows_core::Result
     unsafe { DeleteAce(pacl as _, dwaceindex).ok() }
 }
 #[inline]
-pub unsafe fn DeriveCapabilitySidsFromName<P0>(capname: P0, capabilitygroupsids: *mut *mut PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut PSID, capabilitysidcount: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DeriveCapabilitySidsFromName(capname: windows_core::PCWSTR, capabilitygroupsids: *mut *mut PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut PSID, capabilitysidcount: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("api-ms-win-security-base-l1-2-2.dll" "system" fn DeriveCapabilitySidsFromName(capname : windows_core::PCWSTR, capabilitygroupsids : *mut *mut PSID, capabilitygroupsidcount : *mut u32, capabilitysids : *mut *mut PSID, capabilitysidcount : *mut u32) -> windows_core::BOOL);
-    unsafe { DeriveCapabilitySidsFromName(capname.param().abi(), capabilitygroupsids as _, capabilitygroupsidcount as _, capabilitysids as _, capabilitysidcount as _).ok() }
+    unsafe { DeriveCapabilitySidsFromName(core::mem::transmute(capname), capabilitygroupsids as _, capabilitygroupsidcount as _, capabilitysids as _, capabilitysidcount as _).ok() }
 }
 #[inline]
 pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
@@ -365,20 +358,14 @@ pub unsafe fn GetCachedSigningLevel(file: super::Foundation::HANDLE, flags: *mut
     unsafe { GetCachedSigningLevel(file, flags as _, signinglevel as _, thumbprint.unwrap_or(core::mem::zeroed()) as _, thumbprintsize.unwrap_or(core::mem::zeroed()) as _, thumbprintalgorithm.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetFileSecurityA<P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: Option<PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetFileSecurityA(lpfilename: windows_core::PCSTR, requestedinformation: u32, psecuritydescriptor: Option<PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn GetFileSecurityA(lpfilename : windows_core::PCSTR, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { GetFileSecurityA(lpfilename.param().abi(), requestedinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _).ok() }
+    unsafe { GetFileSecurityA(core::mem::transmute(lpfilename), requestedinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _).ok() }
 }
 #[inline]
-pub unsafe fn GetFileSecurityW<P0>(lpfilename: P0, requestedinformation: u32, psecuritydescriptor: Option<PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetFileSecurityW(lpfilename: windows_core::PCWSTR, requestedinformation: u32, psecuritydescriptor: Option<PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn GetFileSecurityW(lpfilename : windows_core::PCWSTR, requestedinformation : u32, psecuritydescriptor : PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { GetFileSecurityW(lpfilename.param().abi(), requestedinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _).ok() }
+    unsafe { GetFileSecurityW(core::mem::transmute(lpfilename), requestedinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, nlength, lpnlengthneeded as _).ok() }
 }
 #[inline]
 pub unsafe fn GetKernelObjectSecurity(handle: super::Foundation::HANDLE, requestedinformation: u32, psecuritydescriptor: Option<PSECURITY_DESCRIPTOR>, nlength: u32, lpnlengthneeded: *mut u32) -> windows_core::Result<()> {
@@ -521,130 +508,74 @@ pub unsafe fn IsWellKnownSid(psid: PSID, wellknownsidtype: WELL_KNOWN_SID_TYPE) 
     unsafe { IsWellKnownSid(psid, wellknownsidtype) }
 }
 #[inline]
-pub unsafe fn LogonUserA<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LogonUserA(lpszusername: windows_core::PCSTR, lpszdomain: Option<windows_core::PCSTR>, lpszpassword: Option<windows_core::PCSTR>, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LogonUserA(lpszusername : windows_core::PCSTR, lpszdomain : windows_core::PCSTR, lpszpassword : windows_core::PCSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { LogonUserA(lpszusername.param().abi(), lpszdomain.param().abi(), lpszpassword.param().abi(), dwlogontype, dwlogonprovider, phtoken as _).ok() }
+    unsafe { LogonUserA(core::mem::transmute(lpszusername), lpszdomain.unwrap_or(core::mem::zeroed()) as _, lpszpassword.unwrap_or(core::mem::zeroed()) as _, dwlogontype, dwlogonprovider, phtoken as _).ok() }
 }
 #[inline]
-pub unsafe fn LogonUserExA<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Option<*mut super::Foundation::HANDLE>, pplogonsid: Option<*mut PSID>, ppprofilebuffer: Option<*mut *mut core::ffi::c_void>, pdwprofilelength: Option<*mut u32>, pquotalimits: Option<*mut QUOTA_LIMITS>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LogonUserExA(lpszusername: windows_core::PCSTR, lpszdomain: Option<windows_core::PCSTR>, lpszpassword: Option<windows_core::PCSTR>, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Option<*mut super::Foundation::HANDLE>, pplogonsid: Option<*mut PSID>, ppprofilebuffer: Option<*mut *mut core::ffi::c_void>, pdwprofilelength: Option<*mut u32>, pquotalimits: Option<*mut QUOTA_LIMITS>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LogonUserExA(lpszusername : windows_core::PCSTR, lpszdomain : windows_core::PCSTR, lpszpassword : windows_core::PCSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE, pplogonsid : *mut PSID, ppprofilebuffer : *mut *mut core::ffi::c_void, pdwprofilelength : *mut u32, pquotalimits : *mut QUOTA_LIMITS) -> windows_core::BOOL);
-    unsafe { LogonUserExA(lpszusername.param().abi(), lpszdomain.param().abi(), lpszpassword.param().abi(), dwlogontype, dwlogonprovider, phtoken.unwrap_or(core::mem::zeroed()) as _, pplogonsid.unwrap_or(core::mem::zeroed()) as _, ppprofilebuffer.unwrap_or(core::mem::zeroed()) as _, pdwprofilelength.unwrap_or(core::mem::zeroed()) as _, pquotalimits.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { LogonUserExA(core::mem::transmute(lpszusername), lpszdomain.unwrap_or(core::mem::zeroed()) as _, lpszpassword.unwrap_or(core::mem::zeroed()) as _, dwlogontype, dwlogonprovider, phtoken.unwrap_or(core::mem::zeroed()) as _, pplogonsid.unwrap_or(core::mem::zeroed()) as _, ppprofilebuffer.unwrap_or(core::mem::zeroed()) as _, pdwprofilelength.unwrap_or(core::mem::zeroed()) as _, pquotalimits.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn LogonUserExW<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Option<*mut super::Foundation::HANDLE>, pplogonsid: Option<*mut PSID>, ppprofilebuffer: Option<*mut *mut core::ffi::c_void>, pdwprofilelength: Option<*mut u32>, pquotalimits: Option<*mut QUOTA_LIMITS>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LogonUserExW(lpszusername: windows_core::PCWSTR, lpszdomain: Option<windows_core::PCWSTR>, lpszpassword: Option<windows_core::PCWSTR>, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: Option<*mut super::Foundation::HANDLE>, pplogonsid: Option<*mut PSID>, ppprofilebuffer: Option<*mut *mut core::ffi::c_void>, pdwprofilelength: Option<*mut u32>, pquotalimits: Option<*mut QUOTA_LIMITS>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LogonUserExW(lpszusername : windows_core::PCWSTR, lpszdomain : windows_core::PCWSTR, lpszpassword : windows_core::PCWSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE, pplogonsid : *mut PSID, ppprofilebuffer : *mut *mut core::ffi::c_void, pdwprofilelength : *mut u32, pquotalimits : *mut QUOTA_LIMITS) -> windows_core::BOOL);
-    unsafe { LogonUserExW(lpszusername.param().abi(), lpszdomain.param().abi(), lpszpassword.param().abi(), dwlogontype, dwlogonprovider, phtoken.unwrap_or(core::mem::zeroed()) as _, pplogonsid.unwrap_or(core::mem::zeroed()) as _, ppprofilebuffer.unwrap_or(core::mem::zeroed()) as _, pdwprofilelength.unwrap_or(core::mem::zeroed()) as _, pquotalimits.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { LogonUserExW(core::mem::transmute(lpszusername), lpszdomain.unwrap_or(core::mem::zeroed()) as _, lpszpassword.unwrap_or(core::mem::zeroed()) as _, dwlogontype, dwlogonprovider, phtoken.unwrap_or(core::mem::zeroed()) as _, pplogonsid.unwrap_or(core::mem::zeroed()) as _, ppprofilebuffer.unwrap_or(core::mem::zeroed()) as _, pdwprofilelength.unwrap_or(core::mem::zeroed()) as _, pquotalimits.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn LogonUserW<P0, P1, P2>(lpszusername: P0, lpszdomain: P1, lpszpassword: P2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LogonUserW(lpszusername: windows_core::PCWSTR, lpszdomain: Option<windows_core::PCWSTR>, lpszpassword: Option<windows_core::PCWSTR>, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LogonUserW(lpszusername : windows_core::PCWSTR, lpszdomain : windows_core::PCWSTR, lpszpassword : windows_core::PCWSTR, dwlogontype : LOGON32_LOGON, dwlogonprovider : LOGON32_PROVIDER, phtoken : *mut super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { LogonUserW(lpszusername.param().abi(), lpszdomain.param().abi(), lpszpassword.param().abi(), dwlogontype, dwlogonprovider, phtoken as _).ok() }
+    unsafe { LogonUserW(core::mem::transmute(lpszusername), lpszdomain.unwrap_or(core::mem::zeroed()) as _, lpszpassword.unwrap_or(core::mem::zeroed()) as _, dwlogontype, dwlogonprovider, phtoken as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupAccountNameA<P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: Option<PSID>, cbsid: *mut u32, referenceddomainname: Option<windows_core::PSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LookupAccountNameA(lpsystemname: Option<windows_core::PCSTR>, lpaccountname: windows_core::PCSTR, sid: Option<PSID>, cbsid: *mut u32, referenceddomainname: Option<windows_core::PSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupAccountNameA(lpsystemname : windows_core::PCSTR, lpaccountname : windows_core::PCSTR, sid : PSID, cbsid : *mut u32, referenceddomainname : windows_core::PSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> windows_core::BOOL);
-    unsafe { LookupAccountNameA(lpsystemname.param().abi(), lpaccountname.param().abi(), sid.unwrap_or(core::mem::zeroed()) as _, cbsid as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
+    unsafe { LookupAccountNameA(lpsystemname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpaccountname), sid.unwrap_or(core::mem::zeroed()) as _, cbsid as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupAccountNameW<P0, P1>(lpsystemname: P0, lpaccountname: P1, sid: Option<PSID>, cbsid: *mut u32, referenceddomainname: Option<windows_core::PWSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LookupAccountNameW(lpsystemname: Option<windows_core::PCWSTR>, lpaccountname: windows_core::PCWSTR, sid: Option<PSID>, cbsid: *mut u32, referenceddomainname: Option<windows_core::PWSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupAccountNameW(lpsystemname : windows_core::PCWSTR, lpaccountname : windows_core::PCWSTR, sid : PSID, cbsid : *mut u32, referenceddomainname : windows_core::PWSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> windows_core::BOOL);
-    unsafe { LookupAccountNameW(lpsystemname.param().abi(), lpaccountname.param().abi(), sid.unwrap_or(core::mem::zeroed()) as _, cbsid as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
+    unsafe { LookupAccountNameW(lpsystemname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpaccountname), sid.unwrap_or(core::mem::zeroed()) as _, cbsid as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupAccountSidA<P0>(lpsystemname: P0, sid: PSID, name: Option<windows_core::PSTR>, cchname: *mut u32, referenceddomainname: Option<windows_core::PSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LookupAccountSidA(lpsystemname: Option<windows_core::PCSTR>, sid: PSID, name: Option<windows_core::PSTR>, cchname: *mut u32, referenceddomainname: Option<windows_core::PSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupAccountSidA(lpsystemname : windows_core::PCSTR, sid : PSID, name : windows_core::PSTR, cchname : *mut u32, referenceddomainname : windows_core::PSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> windows_core::BOOL);
-    unsafe { LookupAccountSidA(lpsystemname.param().abi(), sid, name.unwrap_or(core::mem::zeroed()) as _, cchname as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
+    unsafe { LookupAccountSidA(lpsystemname.unwrap_or(core::mem::zeroed()) as _, sid, name.unwrap_or(core::mem::zeroed()) as _, cchname as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupAccountSidW<P0>(lpsystemname: P0, sid: PSID, name: Option<windows_core::PWSTR>, cchname: *mut u32, referenceddomainname: Option<windows_core::PWSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LookupAccountSidW(lpsystemname: Option<windows_core::PCWSTR>, sid: PSID, name: Option<windows_core::PWSTR>, cchname: *mut u32, referenceddomainname: Option<windows_core::PWSTR>, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupAccountSidW(lpsystemname : windows_core::PCWSTR, sid : PSID, name : windows_core::PWSTR, cchname : *mut u32, referenceddomainname : windows_core::PWSTR, cchreferenceddomainname : *mut u32, peuse : *mut SID_NAME_USE) -> windows_core::BOOL);
-    unsafe { LookupAccountSidW(lpsystemname.param().abi(), sid, name.unwrap_or(core::mem::zeroed()) as _, cchname as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
+    unsafe { LookupAccountSidW(lpsystemname.unwrap_or(core::mem::zeroed()) as _, sid, name.unwrap_or(core::mem::zeroed()) as _, cchname as _, referenceddomainname.unwrap_or(core::mem::zeroed()) as _, cchreferenceddomainname as _, peuse as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupPrivilegeDisplayNameA<P0, P1>(lpsystemname: P0, lpname: P1, lpdisplayname: Option<windows_core::PSTR>, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LookupPrivilegeDisplayNameA(lpsystemname: Option<windows_core::PCSTR>, lpname: windows_core::PCSTR, lpdisplayname: Option<windows_core::PSTR>, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupPrivilegeDisplayNameA(lpsystemname : windows_core::PCSTR, lpname : windows_core::PCSTR, lpdisplayname : windows_core::PSTR, cchdisplayname : *mut u32, lplanguageid : *mut u32) -> windows_core::BOOL);
-    unsafe { LookupPrivilegeDisplayNameA(lpsystemname.param().abi(), lpname.param().abi(), lpdisplayname.unwrap_or(core::mem::zeroed()) as _, cchdisplayname as _, lplanguageid as _).ok() }
+    unsafe { LookupPrivilegeDisplayNameA(lpsystemname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpname), lpdisplayname.unwrap_or(core::mem::zeroed()) as _, cchdisplayname as _, lplanguageid as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupPrivilegeDisplayNameW<P0, P1>(lpsystemname: P0, lpname: P1, lpdisplayname: Option<windows_core::PWSTR>, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LookupPrivilegeDisplayNameW(lpsystemname: Option<windows_core::PCWSTR>, lpname: windows_core::PCWSTR, lpdisplayname: Option<windows_core::PWSTR>, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupPrivilegeDisplayNameW(lpsystemname : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpdisplayname : windows_core::PWSTR, cchdisplayname : *mut u32, lplanguageid : *mut u32) -> windows_core::BOOL);
-    unsafe { LookupPrivilegeDisplayNameW(lpsystemname.param().abi(), lpname.param().abi(), lpdisplayname.unwrap_or(core::mem::zeroed()) as _, cchdisplayname as _, lplanguageid as _).ok() }
+    unsafe { LookupPrivilegeDisplayNameW(lpsystemname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpname), lpdisplayname.unwrap_or(core::mem::zeroed()) as _, cchdisplayname as _, lplanguageid as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupPrivilegeNameA<P0>(lpsystemname: P0, lpluid: *const super::Foundation::LUID, lpname: Option<windows_core::PSTR>, cchname: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LookupPrivilegeNameA(lpsystemname: Option<windows_core::PCSTR>, lpluid: *const super::Foundation::LUID, lpname: Option<windows_core::PSTR>, cchname: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupPrivilegeNameA(lpsystemname : windows_core::PCSTR, lpluid : *const super::Foundation:: LUID, lpname : windows_core::PSTR, cchname : *mut u32) -> windows_core::BOOL);
-    unsafe { LookupPrivilegeNameA(lpsystemname.param().abi(), lpluid, lpname.unwrap_or(core::mem::zeroed()) as _, cchname as _).ok() }
+    unsafe { LookupPrivilegeNameA(lpsystemname.unwrap_or(core::mem::zeroed()) as _, lpluid, lpname.unwrap_or(core::mem::zeroed()) as _, cchname as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupPrivilegeNameW<P0>(lpsystemname: P0, lpluid: *const super::Foundation::LUID, lpname: Option<windows_core::PWSTR>, cchname: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LookupPrivilegeNameW(lpsystemname: Option<windows_core::PCWSTR>, lpluid: *const super::Foundation::LUID, lpname: Option<windows_core::PWSTR>, cchname: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupPrivilegeNameW(lpsystemname : windows_core::PCWSTR, lpluid : *const super::Foundation:: LUID, lpname : windows_core::PWSTR, cchname : *mut u32) -> windows_core::BOOL);
-    unsafe { LookupPrivilegeNameW(lpsystemname.param().abi(), lpluid, lpname.unwrap_or(core::mem::zeroed()) as _, cchname as _).ok() }
+    unsafe { LookupPrivilegeNameW(lpsystemname.unwrap_or(core::mem::zeroed()) as _, lpluid, lpname.unwrap_or(core::mem::zeroed()) as _, cchname as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupPrivilegeValueA<P0, P1>(lpsystemname: P0, lpname: P1, lpluid: *mut super::Foundation::LUID) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LookupPrivilegeValueA(lpsystemname: Option<windows_core::PCSTR>, lpname: windows_core::PCSTR, lpluid: *mut super::Foundation::LUID) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupPrivilegeValueA(lpsystemname : windows_core::PCSTR, lpname : windows_core::PCSTR, lpluid : *mut super::Foundation:: LUID) -> windows_core::BOOL);
-    unsafe { LookupPrivilegeValueA(lpsystemname.param().abi(), lpname.param().abi(), lpluid as _).ok() }
+    unsafe { LookupPrivilegeValueA(lpsystemname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpname), lpluid as _).ok() }
 }
 #[inline]
-pub unsafe fn LookupPrivilegeValueW<P0, P1>(lpsystemname: P0, lpname: P1, lpluid: *mut super::Foundation::LUID) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LookupPrivilegeValueW(lpsystemname: Option<windows_core::PCWSTR>, lpname: windows_core::PCWSTR, lpluid: *mut super::Foundation::LUID) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn LookupPrivilegeValueW(lpsystemname : windows_core::PCWSTR, lpname : windows_core::PCWSTR, lpluid : *mut super::Foundation:: LUID) -> windows_core::BOOL);
-    unsafe { LookupPrivilegeValueW(lpsystemname.param().abi(), lpname.param().abi(), lpluid as _).ok() }
+    unsafe { LookupPrivilegeValueW(lpsystemname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpname), lpluid as _).ok() }
 }
 #[inline]
 pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: PSECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: Option<PSECURITY_DESCRIPTOR>, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: Option<*mut ACL>, lpdwdaclsize: *mut u32, psacl: Option<*mut ACL>, lpdwsaclsize: *mut u32, powner: Option<PSID>, lpdwownersize: *mut u32, pprimarygroup: Option<PSID>, lpdwprimarygroupsize: *mut u32) -> windows_core::Result<()> {
@@ -662,72 +593,44 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
     unsafe { MapGenericMask(accessmask as _, genericmapping) }
 }
 #[inline]
-pub unsafe fn ObjectCloseAuditAlarmA<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ObjectCloseAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn ObjectCloseAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, generateonclose : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectCloseAuditAlarmA(subsystemname.param().abi(), handleid, generateonclose.into()).ok() }
+    unsafe { ObjectCloseAuditAlarmA(core::mem::transmute(subsystemname), handleid, generateonclose.into()).ok() }
 }
 #[inline]
-pub unsafe fn ObjectCloseAuditAlarmW<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ObjectCloseAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ObjectCloseAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, generateonclose : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectCloseAuditAlarmW(subsystemname.param().abi(), handleid, generateonclose.into()) }
+    unsafe { ObjectCloseAuditAlarmW(core::mem::transmute(subsystemname), handleid, generateonclose.into()) }
 }
 #[inline]
-pub unsafe fn ObjectDeleteAuditAlarmA<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ObjectDeleteAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, generateonclose : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectDeleteAuditAlarmA(subsystemname.param().abi(), handleid, generateonclose.into()).ok() }
+    unsafe { ObjectDeleteAuditAlarmA(core::mem::transmute(subsystemname), handleid, generateonclose.into()).ok() }
 }
 #[inline]
-pub unsafe fn ObjectDeleteAuditAlarmW<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ObjectDeleteAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, generateonclose: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ObjectDeleteAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, generateonclose : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectDeleteAuditAlarmW(subsystemname.param().abi(), handleid, generateonclose.into()) }
+    unsafe { ObjectDeleteAuditAlarmW(core::mem::transmute(subsystemname), handleid, generateonclose.into()) }
 }
 #[inline]
-pub unsafe fn ObjectOpenAuditAlarmA<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const PRIVILEGE_SET>, objectcreation: bool, accessgranted: bool, generateonclose: *mut windows_core::BOOL) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ObjectOpenAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, objecttypename: windows_core::PCSTR, objectname: Option<windows_core::PCSTR>, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const PRIVILEGE_SET>, objectcreation: bool, accessgranted: bool, generateonclose: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCSTR, objectname : windows_core::PCSTR, psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const PRIVILEGE_SET, objectcreation : windows_core::BOOL, accessgranted : windows_core::BOOL, generateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectOpenAuditAlarmA(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), psecuritydescriptor, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation.into(), accessgranted.into(), generateonclose as _).ok() }
+    unsafe { ObjectOpenAuditAlarmA(core::mem::transmute(subsystemname), handleid, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation.into(), accessgranted.into(), generateonclose as _).ok() }
 }
 #[inline]
-pub unsafe fn ObjectOpenAuditAlarmW<P0, P2, P3>(subsystemname: P0, handleid: *const core::ffi::c_void, objecttypename: P2, objectname: P3, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const PRIVILEGE_SET>, objectcreation: bool, accessgranted: bool, generateonclose: *mut windows_core::BOOL) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ObjectOpenAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, objecttypename: windows_core::PCWSTR, objectname: Option<windows_core::PCWSTR>, psecuritydescriptor: PSECURITY_DESCRIPTOR, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const PRIVILEGE_SET>, objectcreation: bool, accessgranted: bool, generateonclose: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ObjectOpenAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, objecttypename : windows_core::PCWSTR, objectname : windows_core::PCWSTR, psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const PRIVILEGE_SET, objectcreation : windows_core::BOOL, accessgranted : windows_core::BOOL, generateonclose : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectOpenAuditAlarmW(subsystemname.param().abi(), handleid, objecttypename.param().abi(), objectname.param().abi(), psecuritydescriptor, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation.into(), accessgranted.into(), generateonclose as _) }
+    unsafe { ObjectOpenAuditAlarmW(core::mem::transmute(subsystemname), handleid, core::mem::transmute(objecttypename), objectname.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation.into(), accessgranted.into(), generateonclose as _) }
 }
 #[inline]
-pub unsafe fn ObjectPrivilegeAuditAlarmA<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ObjectPrivilegeAuditAlarmA(subsystemname: windows_core::PCSTR, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmA(subsystemname : windows_core::PCSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, privileges : *const PRIVILEGE_SET, accessgranted : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectPrivilegeAuditAlarmA(subsystemname.param().abi(), handleid, clienttoken, desiredaccess, privileges, accessgranted.into()).ok() }
+    unsafe { ObjectPrivilegeAuditAlarmA(core::mem::transmute(subsystemname), handleid, clienttoken, desiredaccess, privileges, accessgranted.into()).ok() }
 }
 #[inline]
-pub unsafe fn ObjectPrivilegeAuditAlarmW<P0>(subsystemname: P0, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ObjectPrivilegeAuditAlarmW(subsystemname: windows_core::PCWSTR, handleid: *const core::ffi::c_void, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn ObjectPrivilegeAuditAlarmW(subsystemname : windows_core::PCWSTR, handleid : *const core::ffi::c_void, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, privileges : *const PRIVILEGE_SET, accessgranted : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { ObjectPrivilegeAuditAlarmW(subsystemname.param().abi(), handleid, clienttoken, desiredaccess, privileges, accessgranted.into()) }
+    unsafe { ObjectPrivilegeAuditAlarmW(core::mem::transmute(subsystemname), handleid, clienttoken, desiredaccess, privileges, accessgranted.into()) }
 }
 #[inline]
 pub unsafe fn PrivilegeCheck(clienttoken: super::Foundation::HANDLE, requiredprivileges: *mut PRIVILEGE_SET, pfresult: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -735,22 +638,14 @@ pub unsafe fn PrivilegeCheck(clienttoken: super::Foundation::HANDLE, requiredpri
     unsafe { PrivilegeCheck(clienttoken, requiredprivileges as _, pfresult as _).ok() }
 }
 #[inline]
-pub unsafe fn PrivilegedServiceAuditAlarmA<P0, P1>(subsystemname: P0, servicename: P1, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn PrivilegedServiceAuditAlarmA(subsystemname: windows_core::PCSTR, servicename: windows_core::PCSTR, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmA(subsystemname : windows_core::PCSTR, servicename : windows_core::PCSTR, clienttoken : super::Foundation:: HANDLE, privileges : *const PRIVILEGE_SET, accessgranted : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { PrivilegedServiceAuditAlarmA(subsystemname.param().abi(), servicename.param().abi(), clienttoken, privileges, accessgranted.into()).ok() }
+    unsafe { PrivilegedServiceAuditAlarmA(core::mem::transmute(subsystemname), core::mem::transmute(servicename), clienttoken, privileges, accessgranted.into()).ok() }
 }
 #[inline]
-pub unsafe fn PrivilegedServiceAuditAlarmW<P0, P1>(subsystemname: P0, servicename: P1, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn PrivilegedServiceAuditAlarmW(subsystemname: windows_core::PCWSTR, servicename: windows_core::PCWSTR, clienttoken: super::Foundation::HANDLE, privileges: *const PRIVILEGE_SET, accessgranted: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn PrivilegedServiceAuditAlarmW(subsystemname : windows_core::PCWSTR, servicename : windows_core::PCWSTR, clienttoken : super::Foundation:: HANDLE, privileges : *const PRIVILEGE_SET, accessgranted : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { PrivilegedServiceAuditAlarmW(subsystemname.param().abi(), servicename.param().abi(), clienttoken, privileges, accessgranted.into()) }
+    unsafe { PrivilegedServiceAuditAlarmW(core::mem::transmute(subsystemname), core::mem::transmute(servicename), clienttoken, privileges, accessgranted.into()) }
 }
 #[inline]
 pub unsafe fn QuerySecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMATION) -> u32 {
@@ -787,20 +682,14 @@ pub unsafe fn SetCachedSigningLevel(sourcefiles: &[super::Foundation::HANDLE], f
     unsafe { SetCachedSigningLevel(core::mem::transmute(sourcefiles.as_ptr()), sourcefiles.len().try_into().unwrap(), flags, targetfile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetFileSecurityA<P0>(lpfilename: P0, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn SetFileSecurityA(lpfilename: windows_core::PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn SetFileSecurityA(lpfilename : windows_core::PCSTR, securityinformation : OBJECT_SECURITY_INFORMATION, psecuritydescriptor : PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
-    unsafe { SetFileSecurityA(lpfilename.param().abi(), securityinformation, psecuritydescriptor).ok() }
+    unsafe { SetFileSecurityA(core::mem::transmute(lpfilename), securityinformation, psecuritydescriptor).ok() }
 }
 #[inline]
-pub unsafe fn SetFileSecurityW<P0>(lpfilename: P0, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SetFileSecurityW(lpfilename: windows_core::PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SetFileSecurityW(lpfilename : windows_core::PCWSTR, securityinformation : OBJECT_SECURITY_INFORMATION, psecuritydescriptor : PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
-    unsafe { SetFileSecurityW(lpfilename.param().abi(), securityinformation, psecuritydescriptor) }
+    unsafe { SetFileSecurityW(core::mem::transmute(lpfilename), securityinformation, psecuritydescriptor) }
 }
 #[inline]
 pub unsafe fn SetKernelObjectSecurity(handle: super::Foundation::HANDLE, securityinformation: OBJECT_SECURITY_INFORMATION, securitydescriptor: PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {

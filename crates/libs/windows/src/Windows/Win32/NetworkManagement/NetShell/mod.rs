@@ -1,19 +1,12 @@
 #[inline]
-pub unsafe fn MatchEnumTag<P1>(hmodule: super::super::Foundation::HANDLE, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: windows_core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
     windows_core::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
-    unsafe { MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable, pdwvalue as _) }
+    unsafe { MatchEnumTag(hmodule, core::mem::transmute(pwcarg), dwnumarg, penumtable, pdwvalue as _) }
 }
 #[inline]
-pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn MatchToken(pwszusertoken: windows_core::PCWSTR, pwszcmdtoken: windows_core::PCWSTR) -> windows_core::BOOL {
     windows_core::link!("netsh.dll" "system" fn MatchToken(pwszusertoken : windows_core::PCWSTR, pwszcmdtoken : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { MatchToken(pwszusertoken.param().abi(), pwszcmdtoken.param().abi()) }
+    unsafe { MatchToken(core::mem::transmute(pwszusertoken), core::mem::transmute(pwszcmdtoken)) }
 }
 #[inline]
 pub unsafe fn PreprocessCommand(hmodule: Option<super::super::Foundation::HANDLE>, ppwcarguments: &mut [windows_core::PWSTR], dwcurrentindex: u32, ptttags: Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: Option<*mut u32>) -> u32 {
@@ -26,12 +19,9 @@ pub unsafe fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32
     unsafe { PrintError(hmodule, dwerrid) }
 }
 #[inline]
-pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn PrintMessage(pwszformat: windows_core::PCWSTR) -> u32 {
     windows_core::link!("netsh.dll" "C" fn PrintMessage(pwszformat : windows_core::PCWSTR) -> u32);
-    unsafe { PrintMessage(pwszformat.param().abi()) }
+    unsafe { PrintMessage(core::mem::transmute(pwszformat)) }
 }
 #[inline]
 pub unsafe fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32 {

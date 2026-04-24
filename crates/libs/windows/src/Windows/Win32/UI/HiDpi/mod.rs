@@ -106,12 +106,9 @@ pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: Option<super::super::
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn OpenThemeDataForDpi<P1>(hwnd: Option<super::super::Foundation::HWND>, pszclasslist: P1, dpi: u32) -> super::Controls::HTHEME
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn OpenThemeDataForDpi(hwnd: Option<super::super::Foundation::HWND>, pszclasslist: windows_core::PCWSTR, dpi: u32) -> super::Controls::HTHEME {
     windows_core::link!("uxtheme.dll" "system" fn OpenThemeDataForDpi(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_core::PCWSTR, dpi : u32) -> super::Controls:: HTHEME);
-    unsafe { OpenThemeDataForDpi(hwnd.unwrap_or(core::mem::zeroed()) as _, pszclasslist.param().abi(), dpi) }
+    unsafe { OpenThemeDataForDpi(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszclasslist), dpi) }
 }
 #[inline]
 pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: Option<super::super::Foundation::HWND>, lppoint: *mut super::super::Foundation::POINT) -> windows_core::BOOL {

@@ -40,20 +40,14 @@ pub unsafe fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, id
     unsafe { CreateStdAccessibleObject(hwnd, idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyA<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: windows_core::PCSTR, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
+    unsafe { CreateStdAccessibleProxyA(hwnd, core::mem::transmute(pclassname), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
-pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: windows_core::PCWSTR, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
+    unsafe { CreateStdAccessibleProxyW(hwnd, core::mem::transmute(pclassname), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> windows_core::Result<()> {
@@ -136,12 +130,9 @@ pub unsafe fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagssele
     unsafe { LegacyIAccessiblePattern_Select(hobj, flagsselect).ok() }
 }
 #[inline]
-pub unsafe fn LegacyIAccessiblePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, szvalue: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { LegacyIAccessiblePattern_SetValue(hobj, szvalue.param().abi()).ok() }
+    unsafe { LegacyIAccessiblePattern_SetValue(hobj, core::mem::transmute(szvalue)).ok() }
 }
 #[inline]
 pub unsafe fn LresultFromObject<P2>(riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, punk: P2) -> super::super::Foundation::LRESULT
@@ -689,12 +680,9 @@ pub unsafe fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWN
     unsafe { UnregisterPointerInputTargetEx(hwnd, pointertype) }
 }
 #[inline]
-pub unsafe fn ValuePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, pval: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { ValuePattern_SetValue(hobj, pval.param().abi()).ok() }
+    unsafe { ValuePattern_SetValue(hobj, core::mem::transmute(pval)).ok() }
 }
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
@@ -1369,11 +1357,8 @@ impl IAccPropServices {
     pub unsafe fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(var)).ok() }
     }
-    pub unsafe fn SetHwndPropStr<P4>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, str: P4) -> windows_core::Result<()>
-    where
-        P4: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), str.param().abi()).ok() }
+    pub unsafe fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, str: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), core::mem::transmute(str)).ok() }
     }
     pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID], pserver: P5, annoscope: AnnoScope) -> windows_core::Result<()>
     where
@@ -1395,11 +1380,8 @@ impl IAccPropServices {
         unsafe { (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(var)).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetHmenuPropStr<P3>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, str: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), str.param().abi()).ok() }
+    pub unsafe fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, str: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), core::mem::transmute(str)).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID], pserver: P4, annoscope: AnnoScope) -> windows_core::Result<()>
@@ -3239,11 +3221,8 @@ impl ILegacyIAccessibleProvider {
     pub unsafe fn DoDefaultAction(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DoDefaultAction)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok() }
+    pub unsafe fn SetValue(&self, szvalue: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(szvalue)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> windows_core::Result<IAccessible> {
@@ -5282,13 +5261,10 @@ impl windows_core::RuntimeName for ISpreadsheetItemProvider {}
 windows_core::imp::define_interface!(ISpreadsheetProvider, ISpreadsheetProvider_Vtbl, 0x6f6b5d35_5525_4f80_b758_85473832ffc7);
 windows_core::imp::interface_hierarchy!(ISpreadsheetProvider, windows_core::IUnknown);
 impl ISpreadsheetProvider {
-    pub unsafe fn GetItemByName<P0>(&self, name: P0) -> windows_core::Result<IRawElementProviderSimple>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetItemByName(&self, name: windows_core::PCWSTR) -> windows_core::Result<IRawElementProviderSimple> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -13346,11 +13322,8 @@ impl IUIAutomationLegacyIAccessiblePattern {
     pub unsafe fn DoDefaultAction(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DoDefaultAction)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetValue<P0>(&self, szvalue: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok() }
+    pub unsafe fn SetValue(&self, szvalue: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(szvalue)).ok() }
     }
     pub unsafe fn CurrentChildId(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -14554,17 +14527,11 @@ impl IUIAutomationProxyFactoryEntry {
             (windows_core::Interface::vtable(self).NeedsAdviseEvents)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClassName<P0>(&self, classname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), classname.param().abi()).ok() }
+    pub unsafe fn SetClassName(&self, classname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), core::mem::transmute(classname)).ok() }
     }
-    pub unsafe fn SetImageName<P0>(&self, imagename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), imagename.param().abi()).ok() }
+    pub unsafe fn SetImageName(&self, imagename: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), core::mem::transmute(imagename)).ok() }
     }
     pub unsafe fn SetAllowSubstringMatch(&self, allowsubstringmatch: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.into()).ok() }
@@ -19269,11 +19236,8 @@ impl windows_core::RuntimeName for IUIAutomationWindowPattern {}
 windows_core::imp::define_interface!(IValueProvider, IValueProvider_Vtbl, 0xc7935180_6fb3_4201_b174_7df73adbf64a);
 windows_core::imp::interface_hierarchy!(IValueProvider, windows_core::IUnknown);
 impl IValueProvider {
-    pub unsafe fn SetValue<P0>(&self, val: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.param().abi()).ok() }
+    pub unsafe fn SetValue(&self, val: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(val)).ok() }
     }
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {

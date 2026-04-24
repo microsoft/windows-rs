@@ -4,12 +4,9 @@ pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut core::ffi::c_void
     unsafe { ApplyGuestMemoryFix(vmsavedstatedumphandle as _, vpid, virtualaddress, fixbuffer, fixbuffersize).ok() }
 }
 #[inline]
-pub unsafe fn ApplyPendingSavedStateFileReplayLog<P0>(vmrsfile: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ApplyPendingSavedStateFileReplayLog(vmrsfile: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ApplyPendingSavedStateFileReplayLog(vmrsfile : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { ApplyPendingSavedStateFileReplayLog(vmrsfile.param().abi()).ok() }
+    unsafe { ApplyPendingSavedStateFileReplayLog(core::mem::transmute(vmrsfile)).ok() }
 }
 #[inline]
 pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut windows_core::PWSTR) -> windows_core::Result<()> {
@@ -17,13 +14,9 @@ pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut core::ffi::c_void, vp
     unsafe { CallStackUnwind(vmsavedstatedumphandle as _, vpid, imageinfo, imageinfocount, framecount, callstack as _).ok() }
 }
 #[inline]
-pub unsafe fn FindSavedStateSymbolFieldInType<P2, P3>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: P2, fieldname: P3, offset: *mut u32, found: *mut windows_core::BOOL) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: windows_core::PCSTR, fieldname: windows_core::PCWSTR, offset: *mut u32, found: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn FindSavedStateSymbolFieldInType(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_core::PCSTR, fieldname : windows_core::PCWSTR, offset : *mut u32, found : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { FindSavedStateSymbolFieldInType(vmsavedstatedumphandle as _, vpid, typename.param().abi(), fieldname.param().abi(), offset as _, found as _).ok() }
+    unsafe { FindSavedStateSymbolFieldInType(vmsavedstatedumphandle as _, vpid, core::mem::transmute(typename), core::mem::transmute(fieldname), offset as _, found as _).ok() }
 }
 #[inline]
 pub unsafe fn ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, virtualtrustlevel: u8) -> windows_core::Result<()> {
@@ -101,12 +94,9 @@ pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut core::ffi::c_void, v
     unsafe { GetRegisterValue(vmsavedstatedumphandle as _, vpid, registerid, registervalue as _).ok() }
 }
 #[inline]
-pub unsafe fn GetSavedStateSymbolFieldInfo<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: P2, typefieldinfomap: *mut windows_core::PWSTR) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: windows_core::PCSTR, typefieldinfomap: *mut windows_core::PWSTR) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_core::PCSTR, typefieldinfomap : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle as _, vpid, typename.param().abi(), typefieldinfomap as _).ok() }
+    unsafe { GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle as _, vpid, core::mem::transmute(typename), typefieldinfomap as _).ok() }
 }
 #[inline]
 pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -114,12 +104,9 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut cor
     unsafe { GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle as _) }
 }
 #[inline]
-pub unsafe fn GetSavedStateSymbolTypeSize<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: P2, size: *mut u32) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, typename: windows_core::PCSTR, size: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn GetSavedStateSymbolTypeSize(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, typename : windows_core::PCSTR, size : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetSavedStateSymbolTypeSize(vmsavedstatedumphandle as _, vpid, typename.param().abi(), size as _).ok() }
+    unsafe { GetSavedStateSymbolTypeSize(vmsavedstatedumphandle as _, vpid, core::mem::transmute(typename), size as _).ok() }
 }
 #[inline]
 pub unsafe fn GetVpCount(vmsavedstatedumphandle: *mut core::ffi::c_void, vpcount: *mut u32) -> windows_core::Result<()> {
@@ -219,56 +206,34 @@ pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut core::f
     unsafe { IsNestedVirtualizationEnabled(vmsavedstatedumphandle as _, enabled as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadSavedStateFile<P0>(vmrsfile: P0, vmsavedstatedumphandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LoadSavedStateFile(vmrsfile: windows_core::PCWSTR, vmsavedstatedumphandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFile(vmrsfile : windows_core::PCWSTR, vmsavedstatedumphandle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadSavedStateFile(vmrsfile.param().abi(), vmsavedstatedumphandle as _).ok() }
+    unsafe { LoadSavedStateFile(core::mem::transmute(vmrsfile), vmsavedstatedumphandle as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadSavedStateFiles<P0, P1>(binfile: P0, vsvfile: P1, vmsavedstatedumphandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LoadSavedStateFiles(binfile: windows_core::PCWSTR, vsvfile: windows_core::PCWSTR, vmsavedstatedumphandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateFiles(binfile : windows_core::PCWSTR, vsvfile : windows_core::PCWSTR, vmsavedstatedumphandle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadSavedStateFiles(binfile.param().abi(), vsvfile.param().abi(), vmsavedstatedumphandle as _).ok() }
+    unsafe { LoadSavedStateFiles(core::mem::transmute(binfile), core::mem::transmute(vsvfile), vmsavedstatedumphandle as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbols<P1, P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, imagename: P1, modulename: P2, baseaddress: u64, sizeofbase: u32) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle: *mut core::ffi::c_void, imagename: windows_core::PCSTR, modulename: windows_core::PCSTR, baseaddress: u64, sizeofbase: u32) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbols(vmsavedstatedumphandle : *mut core::ffi::c_void, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseaddress : u64, sizeofbase : u32) -> windows_core::HRESULT);
-    unsafe { LoadSavedStateModuleSymbols(vmsavedstatedumphandle as _, imagename.param().abi(), modulename.param().abi(), baseaddress, sizeofbase).ok() }
+    unsafe { LoadSavedStateModuleSymbols(vmsavedstatedumphandle as _, core::mem::transmute(imagename), core::mem::transmute(modulename), baseaddress, sizeofbase).ok() }
 }
 #[inline]
-pub unsafe fn LoadSavedStateModuleSymbolsEx<P1, P3>(vmsavedstatedumphandle: *mut core::ffi::c_void, imagename: P1, imagetimestamp: u32, modulename: P3, baseaddress: u64, sizeofbase: u32) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: *mut core::ffi::c_void, imagename: windows_core::PCSTR, imagetimestamp: u32, modulename: windows_core::PCSTR, baseaddress: u64, sizeofbase: u32) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle : *mut core::ffi::c_void, imagename : windows_core::PCSTR, imagetimestamp : u32, modulename : windows_core::PCSTR, baseaddress : u64, sizeofbase : u32) -> windows_core::HRESULT);
-    unsafe { LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle as _, imagename.param().abi(), imagetimestamp, modulename.param().abi(), baseaddress, sizeofbase).ok() }
+    unsafe { LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle as _, core::mem::transmute(imagename), imagetimestamp, core::mem::transmute(modulename), baseaddress, sizeofbase).ok() }
 }
 #[inline]
-pub unsafe fn LoadSavedStateSymbolProvider<P1>(vmsavedstatedumphandle: *mut core::ffi::c_void, usersymbols: P1, force: bool) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle: *mut core::ffi::c_void, usersymbols: Option<windows_core::PCWSTR>, force: bool) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn LoadSavedStateSymbolProvider(vmsavedstatedumphandle : *mut core::ffi::c_void, usersymbols : windows_core::PCWSTR, force : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { LoadSavedStateSymbolProvider(vmsavedstatedumphandle as _, usersymbols.param().abi(), force.into()).ok() }
+    unsafe { LoadSavedStateSymbolProvider(vmsavedstatedumphandle as _, usersymbols.unwrap_or(core::mem::zeroed()) as _, force.into()).ok() }
 }
 #[inline]
-pub unsafe fn LocateSavedStateFiles<P0, P1>(vmname: P0, snapshotname: P1, binpath: *mut windows_core::PWSTR, vsvpath: *mut windows_core::PWSTR, vmrspath: *mut windows_core::PWSTR) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LocateSavedStateFiles(vmname: windows_core::PCWSTR, snapshotname: Option<windows_core::PCWSTR>, binpath: *mut windows_core::PWSTR, vsvpath: *mut windows_core::PWSTR, vmrspath: *mut windows_core::PWSTR) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn LocateSavedStateFiles(vmname : windows_core::PCWSTR, snapshotname : windows_core::PCWSTR, binpath : *mut windows_core::PWSTR, vsvpath : *mut windows_core::PWSTR, vmrspath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { LocateSavedStateFiles(vmname.param().abi(), snapshotname.param().abi(), binpath as _, vsvpath as _, vmrspath as _).ok() }
+    unsafe { LocateSavedStateFiles(core::mem::transmute(vmname), snapshotname.unwrap_or(core::mem::zeroed()) as _, binpath as _, vsvpath as _, vmrspath as _).ok() }
 }
 #[inline]
 pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut core::ffi::c_void, physicaladdress: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::Result<()> {
@@ -281,12 +246,9 @@ pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut core::ffi::c_
     unsafe { ReadGuestRawSavedMemory(vmsavedstatedumphandle as _, rawsavedmemoryoffset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn ReadSavedStateGlobalVariable<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: P2, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: windows_core::PCSTR, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ReadSavedStateGlobalVariable(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, globalname : windows_core::PCSTR, buffer : *mut core::ffi::c_void, buffersize : u32) -> windows_core::HRESULT);
-    unsafe { ReadSavedStateGlobalVariable(vmsavedstatedumphandle as _, vpid, globalname.param().abi(), buffer as _, buffersize).ok() }
+    unsafe { ReadSavedStateGlobalVariable(vmsavedstatedumphandle as _, vpid, core::mem::transmute(globalname), buffer as _, buffersize).ok() }
 }
 #[inline]
 pub unsafe fn ReleaseSavedStateFiles(vmsavedstatedumphandle: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -299,12 +261,9 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut core:
     unsafe { ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle as _).ok() }
 }
 #[inline]
-pub unsafe fn ResolveSavedStateGlobalVariableAddress<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: P2, virtualaddress: *mut u64, size: Option<*mut u32>) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: windows_core::PCSTR, virtualaddress: *mut u64, size: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, globalname : windows_core::PCSTR, virtualaddress : *mut u64, size : *mut u32) -> windows_core::HRESULT);
-    unsafe { ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle as _, vpid, globalname.param().abi(), virtualaddress as _, size.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle as _, vpid, core::mem::transmute(globalname), virtualaddress as _, size.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> windows_core::Result<()> {

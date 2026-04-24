@@ -82,27 +82,28 @@ impl IPersistFile {
             (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
         }
     }
-    pub unsafe fn Save<P0>(&self, pszfilename: P0, fremember: bool) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn Save(
+        &self,
+        pszfilename: windows_core::PCWSTR,
+        fremember: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Save)(
                 windows_core::Interface::as_raw(self),
-                pszfilename.param().abi(),
+                core::mem::transmute(pszfilename),
                 fremember.into(),
             )
             .ok()
         }
     }
-    pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn SaveCompleted(
+        &self,
+        pszfilename: windows_core::PCWSTR,
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SaveCompleted)(
                 windows_core::Interface::as_raw(self),
-                pszfilename.param().abi(),
+                core::mem::transmute(pszfilename),
             )
             .ok()
         }

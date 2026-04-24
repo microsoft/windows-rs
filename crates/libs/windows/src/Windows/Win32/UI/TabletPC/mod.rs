@@ -5,12 +5,9 @@ pub unsafe fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTIO
     unsafe { AddStroke(hrc, ppacketdesc, cbpacket, ppacket, pxform).ok() }
 }
 #[inline]
-pub unsafe fn AddWordsToWordList<P1>(hwl: HRECOWORDLIST, pwcwords: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { AddWordsToWordList(hwl, pwcwords.param().abi()).ok() }
+    unsafe { AddWordsToWordList(hwl, core::mem::transmute(pwcwords)).ok() }
 }
 #[inline]
 pub unsafe fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: bool) -> windows_core::Result<()> {
@@ -128,12 +125,9 @@ pub unsafe fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut 
     unsafe { GetUnicodeRanges(hrec, pcranges as _, pcr as _).ok() }
 }
 #[inline]
-pub unsafe fn IsStringSupported<P2>(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn IsStringSupported(hrc : HRECOCONTEXT, wcstring : u32, pwcstring : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { IsStringSupported(hrc, wcstring, pwcstring.param().abi()).ok() }
+    unsafe { IsStringSupported(hrc, wcstring, core::mem::transmute(pwcstring)).ok() }
 }
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *mut RECO_ATTRS) -> windows_core::Result<()> {
@@ -141,12 +135,9 @@ pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *
     unsafe { LoadCachedAttributes(core::mem::transmute(clsid), precoattributes as _).ok() }
 }
 #[inline]
-pub unsafe fn MakeWordList<P1>(hrec: HRECOGNIZER, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn MakeWordList(hrec: HRECOGNIZER, pbuffer: windows_core::PCWSTR, phwl: *mut HRECOWORDLIST) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn MakeWordList(hrec : HRECOGNIZER, pbuffer : windows_core::PCWSTR, phwl : *mut HRECOWORDLIST) -> windows_core::HRESULT);
-    unsafe { MakeWordList(hrec, pbuffer.param().abi(), phwl as _).ok() }
+    unsafe { MakeWordList(hrec, core::mem::transmute(pbuffer), phwl as _).ok() }
 }
 #[inline]
 pub unsafe fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -174,12 +165,9 @@ pub unsafe fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut
     unsafe { SetEnabledUnicodeRanges(hrc, cranges, pcr as _).ok() }
 }
 #[inline]
-pub unsafe fn SetFactoid<P2>(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn SetFactoid(hrc : HRECOCONTEXT, cwcfactoid : u32, pwcfactoid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { SetFactoid(hrc, cwcfactoid, pwcfactoid.param().abi()).ok() }
+    unsafe { SetFactoid(hrc, cwcfactoid, core::mem::transmute(pwcfactoid)).ok() }
 }
 #[inline]
 pub unsafe fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> windows_core::Result<()> {
@@ -6343,17 +6331,11 @@ impl IInkLineInfo {
     pub unsafe fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetInkExtent)(windows_core::Interface::as_raw(self), pim, pnwidth).ok() }
     }
-    pub unsafe fn GetCandidate<P1>(&self, ncandidatenum: u32, pwcrecogword: P1, pcwcrecogword: *const u32, dwflags: u32) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, pwcrecogword.param().abi(), pcwcrecogword, dwflags).ok() }
+    pub unsafe fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: windows_core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, core::mem::transmute(pwcrecogword), pcwcrecogword, dwflags).ok() }
     }
-    pub unsafe fn SetCandidate<P1>(&self, ncandidatenum: u32, strrecogword: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, strrecogword.param().abi()).ok() }
+    pub unsafe fn SetCandidate(&self, ncandidatenum: u32, strrecogword: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, core::mem::transmute(strrecogword)).ok() }
     }
     pub unsafe fn Recognize(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Recognize)(windows_core::Interface::as_raw(self)).ok() }

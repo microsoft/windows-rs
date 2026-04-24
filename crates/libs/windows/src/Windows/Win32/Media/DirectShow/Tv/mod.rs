@@ -5602,11 +5602,8 @@ windows_core::imp::define_interface!(ICreatePropBagOnRegKey, ICreatePropBagOnReg
 windows_core::imp::interface_hierarchy!(ICreatePropBagOnRegKey, windows_core::IUnknown);
 impl ICreatePropBagOnRegKey {
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn Create<P1>(&self, hkey: super::super::super::System::Registry::HKEY, subkey: P1, uloptions: u32, samdesired: u32, iid: *const windows_core::GUID, ppbag: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), hkey, subkey.param().abi(), uloptions, samdesired, iid, ppbag as _).ok() }
+    pub unsafe fn Create(&self, hkey: super::super::super::System::Registry::HKEY, subkey: windows_core::PCWSTR, uloptions: u32, samdesired: u32, iid: *const windows_core::GUID, ppbag: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), hkey, core::mem::transmute(subkey), uloptions, samdesired, iid, ppbag as _).ok() }
     }
 }
 #[repr(C)]
@@ -34406,12 +34403,8 @@ impl windows_core::RuntimeName for IPSITables {}
 windows_core::imp::define_interface!(IPTFilterLicenseRenewal, IPTFilterLicenseRenewal_Vtbl, 0x26d836a5_0c15_44c7_ac59_b0da8728f240);
 windows_core::imp::interface_hierarchy!(IPTFilterLicenseRenewal, windows_core::IUnknown);
 impl IPTFilterLicenseRenewal {
-    pub unsafe fn RenewLicenses<P0, P1>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: bool) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).RenewLicenses)(windows_core::Interface::as_raw(self), wszfilename.param().abi(), wszexpiredkid.param().abi(), dwcallersid, bhighpriority.into()).ok() }
+    pub unsafe fn RenewLicenses(&self, wszfilename: windows_core::PCWSTR, wszexpiredkid: windows_core::PCWSTR, dwcallersid: u32, bhighpriority: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RenewLicenses)(windows_core::Interface::as_raw(self), core::mem::transmute(wszfilename), core::mem::transmute(wszexpiredkid), dwcallersid, bhighpriority.into()).ok() }
     }
     pub unsafe fn CancelLicenseRenewal(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CancelLicenseRenewal)(windows_core::Interface::as_raw(self)).ok() }
@@ -34868,11 +34861,8 @@ impl windows_core::RuntimeName for ISBE2EnumStream {}
 windows_core::imp::define_interface!(ISBE2FileScan, ISBE2FileScan_Vtbl, 0x3e2bf5a5_4f96_4899_a1a3_75e8be9a5ac0);
 windows_core::imp::interface_hierarchy!(ISBE2FileScan, windows_core::IUnknown);
 impl ISBE2FileScan {
-    pub unsafe fn RepairFile<P0>(&self, filename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).RepairFile)(windows_core::Interface::as_raw(self), filename.param().abi()).ok() }
+    pub unsafe fn RepairFile(&self, filename: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RepairFile)(windows_core::Interface::as_raw(self), core::mem::transmute(filename)).ok() }
     }
 }
 #[repr(C)]
@@ -36354,11 +36344,8 @@ impl windows_core::RuntimeName for IServiceLocationDescriptor {}
 windows_core::imp::define_interface!(IStreamBufferConfigure, IStreamBufferConfigure_Vtbl, 0xce14dfae_4098_4af7_bbf7_d6511f835414);
 windows_core::imp::interface_hierarchy!(IStreamBufferConfigure, windows_core::IUnknown);
 impl IStreamBufferConfigure {
-    pub unsafe fn SetDirectory<P0>(&self, pszdirectoryname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDirectory)(windows_core::Interface::as_raw(self), pszdirectoryname.param().abi()).ok() }
+    pub unsafe fn SetDirectory(&self, pszdirectoryname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdirectoryname)).ok() }
     }
     pub unsafe fn GetDirectory(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -36569,11 +36556,8 @@ impl IStreamBufferConfigure3 {
             (windows_core::Interface::vtable(self).GetStartRecConfig)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNamespace<P0>(&self, psznamespace: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetNamespace)(windows_core::Interface::as_raw(self), psznamespace.param().abi()).ok() }
+    pub unsafe fn SetNamespace(&self, psznamespace: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute(psznamespace)).ok() }
     }
     pub unsafe fn GetNamespace(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -36806,24 +36790,14 @@ impl windows_core::RuntimeName for IStreamBufferMediaSeeking2 {}
 windows_core::imp::define_interface!(IStreamBufferRecComp, IStreamBufferRecComp_Vtbl, 0x9e259a9b_8815_42ae_b09f_221970b154fd);
 windows_core::imp::interface_hierarchy!(IStreamBufferRecComp, windows_core::IUnknown);
 impl IStreamBufferRecComp {
-    pub unsafe fn Initialize<P0, P1>(&self, psztargetfilename: P0, pszsbrecprofileref: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psztargetfilename.param().abi(), pszsbrecprofileref.param().abi()).ok() }
+    pub unsafe fn Initialize(&self, psztargetfilename: windows_core::PCWSTR, pszsbrecprofileref: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(psztargetfilename), core::mem::transmute(pszsbrecprofileref)).ok() }
     }
-    pub unsafe fn Append<P0>(&self, pszsbrecording: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), pszsbrecording.param().abi()).ok() }
+    pub unsafe fn Append(&self, pszsbrecording: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsbrecording)).ok() }
     }
-    pub unsafe fn AppendEx<P0>(&self, pszsbrecording: P0, rtstart: i64, rtstop: i64) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AppendEx)(windows_core::Interface::as_raw(self), pszsbrecording.param().abi(), rtstart, rtstop).ok() }
+    pub unsafe fn AppendEx(&self, pszsbrecording: windows_core::PCWSTR, rtstart: i64, rtstop: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AppendEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsbrecording), rtstart, rtstop).ok() }
     }
     pub unsafe fn GetCurrentLength(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -36977,11 +36951,8 @@ impl windows_core::RuntimeName for IStreamBufferRecordControl {}
 windows_core::imp::define_interface!(IStreamBufferRecordingAttribute, IStreamBufferRecordingAttribute_Vtbl, 0x16ca4e03_fe69_4705_bd41_5b7dfc0c95f3);
 windows_core::imp::interface_hierarchy!(IStreamBufferRecordingAttribute, windows_core::IUnknown);
 impl IStreamBufferRecordingAttribute {
-    pub unsafe fn SetAttribute<P1>(&self, ulreserved: u32, pszattributename: P1, streambufferattributetype: STREAMBUFFER_ATTR_DATATYPE, pbattribute: &[u8]) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetAttribute)(windows_core::Interface::as_raw(self), ulreserved, pszattributename.param().abi(), streambufferattributetype, core::mem::transmute(pbattribute.as_ptr()), pbattribute.len().try_into().unwrap()).ok() }
+    pub unsafe fn SetAttribute(&self, ulreserved: u32, pszattributename: windows_core::PCWSTR, streambufferattributetype: STREAMBUFFER_ATTR_DATATYPE, pbattribute: &[u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetAttribute)(windows_core::Interface::as_raw(self), ulreserved, core::mem::transmute(pszattributename), streambufferattributetype, core::mem::transmute(pbattribute.as_ptr()), pbattribute.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn GetAttributeCount(&self, ulreserved: u32) -> windows_core::Result<u16> {
         unsafe {
@@ -36989,11 +36960,8 @@ impl IStreamBufferRecordingAttribute {
             (windows_core::Interface::vtable(self).GetAttributeCount)(windows_core::Interface::as_raw(self), ulreserved, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAttributeByName<P0>(&self, pszattributename: P0, pulreserved: *const u32, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributeByName)(windows_core::Interface::as_raw(self), pszattributename.param().abi(), pulreserved, pstreambufferattributetype as _, pbattribute as _, pcblength as _).ok() }
+    pub unsafe fn GetAttributeByName(&self, pszattributename: windows_core::PCWSTR, pulreserved: *const u32, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeByName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszattributename), pulreserved, pstreambufferattributetype as _, pbattribute as _, pcblength as _).ok() }
     }
     pub unsafe fn GetAttributeByIndex(&self, windex: u16, pulreserved: *const u32, pszattributename: windows_core::PWSTR, pcchnamelength: *mut u16, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributeByIndex)(windows_core::Interface::as_raw(self), windex, pulreserved, core::mem::transmute(pszattributename), pcchnamelength as _, pstreambufferattributetype as _, pbattribute as _, pcblength as _).ok() }
@@ -37083,19 +37051,13 @@ impl windows_core::RuntimeName for IStreamBufferRecordingAttribute {}
 windows_core::imp::define_interface!(IStreamBufferSink, IStreamBufferSink_Vtbl, 0xafd1f242_7efd_45ee_ba4e_407a25c9a77a);
 windows_core::imp::interface_hierarchy!(IStreamBufferSink, windows_core::IUnknown);
 impl IStreamBufferSink {
-    pub unsafe fn LockProfile<P0>(&self, pszstreambufferfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).LockProfile)(windows_core::Interface::as_raw(self), pszstreambufferfilename.param().abi()).ok() }
+    pub unsafe fn LockProfile(&self, pszstreambufferfilename: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).LockProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(pszstreambufferfilename)).ok() }
     }
-    pub unsafe fn CreateRecorder<P0>(&self, pszfilename: P0, dwrecordtype: u32) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn CreateRecorder(&self, pszfilename: windows_core::PCWSTR, dwrecordtype: u32) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRecorder)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), dwrecordtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRecorder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfilename), dwrecordtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsProfileLocked(&self) -> windows_core::Result<()> {

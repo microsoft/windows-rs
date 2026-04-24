@@ -17,13 +17,9 @@ pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> windows_core::Res
     }
 }
 #[inline]
-pub unsafe fn DdqExtractDiagnosticReport<P2, P3>(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportkey: P2, destinationpath: P3) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DdqExtractDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportkey: windows_core::PCWSTR, destinationpath: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("diagnosticdataquery.dll" "system" fn DdqExtractDiagnosticReport(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, reportkey : windows_core::PCWSTR, destinationpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { DdqExtractDiagnosticReport(hsession, reportstoretype, reportkey.param().abi(), destinationpath.param().abi()).ok() }
+    unsafe { DdqExtractDiagnosticReport(hsession, reportstoretype, core::mem::transmute(reportkey), core::mem::transmute(destinationpath)).ok() }
 }
 #[inline]
 pub unsafe fn DdqFreeDiagnosticRecordLocaleTags(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> windows_core::Result<()> {
@@ -109,14 +105,11 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription: HDIAGNOSTIC_
     }
 }
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordLocaleTags<P1>(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, locale: P1) -> windows_core::Result<HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DdqGetDiagnosticRecordLocaleTags(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, locale: windows_core::PCWSTR) -> windows_core::Result<HDIAGNOSTIC_EVENT_TAG_DESCRIPTION> {
     windows_core::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordLocaleTags(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, locale : windows_core::PCWSTR, htagdescription : *mut HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTags(hsession, locale.param().abi(), &mut result__).map(|| result__)
+        DdqGetDiagnosticRecordLocaleTags(hsession, core::mem::transmute(locale), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -144,14 +137,11 @@ pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HDIAGN
     }
 }
 #[inline]
-pub unsafe fn DdqGetDiagnosticRecordProducerCategories<P1>(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producername: P1) -> windows_core::Result<HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DdqGetDiagnosticRecordProducerCategories(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producername: windows_core::PCWSTR) -> windows_core::Result<HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION> {
     windows_core::link!("diagnosticdataquery.dll" "system" fn DdqGetDiagnosticRecordProducerCategories(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, producername : windows_core::PCWSTR, hcategorydescription : *mut HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerCategories(hsession, producername.param().abi(), &mut result__).map(|| result__)
+        DdqGetDiagnosticRecordProducerCategories(hsession, core::mem::transmute(producername), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -231,15 +221,11 @@ pub unsafe fn DdqGetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SES
     }
 }
 #[inline]
-pub unsafe fn DdqIsDiagnosticRecordSampledIn<P3, P5>(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const windows_core::GUID, providerid: Option<*const windows_core::GUID>, providername: P3, eventid: Option<*const u32>, eventname: P5, eventversion: Option<*const u32>, eventkeywords: Option<*const u64>) -> windows_core::Result<windows_core::BOOL>
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DdqIsDiagnosticRecordSampledIn(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const windows_core::GUID, providerid: Option<*const windows_core::GUID>, providername: windows_core::PCWSTR, eventid: Option<*const u32>, eventname: windows_core::PCWSTR, eventversion: Option<*const u32>, eventkeywords: Option<*const u64>) -> windows_core::Result<windows_core::BOOL> {
     windows_core::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_core::GUID, providerid : *const windows_core::GUID, providername : windows_core::PCWSTR, eventid : *const u32, eventname : windows_core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DdqIsDiagnosticRecordSampledIn(hsession, providergroup, providerid.unwrap_or(core::mem::zeroed()) as _, providername.param().abi(), eventid.unwrap_or(core::mem::zeroed()) as _, eventname.param().abi(), eventversion.unwrap_or(core::mem::zeroed()) as _, eventkeywords.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        DdqIsDiagnosticRecordSampledIn(hsession, providergroup, providerid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(providername), eventid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(eventname), eventversion.unwrap_or(core::mem::zeroed()) as _, eventkeywords.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]

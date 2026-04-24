@@ -936,11 +936,8 @@ impl ID3DDestructionNotifier_Vtbl {
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
 windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
-    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, pfilename.param().abi(), pparentdata, ppdata as _, pbytes as _).ok() }
+    pub unsafe fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, core::mem::transmute(pfilename), pparentdata, ppdata as _, pbytes as _).ok() }
     }
     pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), pdata).ok() }
@@ -1000,14 +997,12 @@ impl ID3DShaderCacheApplication {
     pub unsafe fn GetDesc(&self, papplicationdesc: *mut D3D_SHADER_CACHE_APPLICATION_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), papplicationdesc as _).ok() }
     }
-    pub unsafe fn RegisterComponent<P0, P1, T>(&self, pname: P0, pstateobjectdbpath: P1, ppsdbs: &[D3D_SHADER_CACHE_PSDB_PROPERTIES]) -> windows_core::Result<T>
+    pub unsafe fn RegisterComponent<T>(&self, pname: windows_core::PCWSTR, pstateobjectdbpath: windows_core::PCWSTR, ppsdbs: &[D3D_SHADER_CACHE_PSDB_PROPERTIES]) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RegisterComponent)(windows_core::Interface::as_raw(self), pname.param().abi(), pstateobjectdbpath.param().abi(), ppsdbs.len().try_into().unwrap(), core::mem::transmute(ppsdbs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterComponent)(windows_core::Interface::as_raw(self), core::mem::transmute(pname), core::mem::transmute(pstateobjectdbpath), ppsdbs.len().try_into().unwrap(), core::mem::transmute(ppsdbs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn RemoveComponent<P0>(&self, pcomponent: P0) -> windows_core::Result<()>
     where
@@ -1166,11 +1161,8 @@ impl ID3DShaderCacheComponent {
             (windows_core::Interface::vtable(self).GetStateObjectDatabasePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPrecompiledCachePath<P0>(&self, padapterfamily: P0, ppath: *mut *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetPrecompiledCachePath)(windows_core::Interface::as_raw(self), padapterfamily.param().abi(), ppath as _).ok() }
+    pub unsafe fn GetPrecompiledCachePath(&self, padapterfamily: windows_core::PCWSTR, ppath: *mut *mut u16) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPrecompiledCachePath)(windows_core::Interface::as_raw(self), core::mem::transmute(padapterfamily), ppath as _).ok() }
     }
     pub unsafe fn GetPrecompiledShaderDatabaseCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetPrecompiledShaderDatabaseCount)(windows_core::Interface::as_raw(self)) }
@@ -1259,13 +1251,12 @@ impl windows_core::RuntimeName for ID3DShaderCacheComponent {}
 windows_core::imp::define_interface!(ID3DShaderCacheExplorer, ID3DShaderCacheExplorer_Vtbl, 0x90432322_32f5_487f_9264_e9390fa58b2a);
 windows_core::imp::interface_hierarchy!(ID3DShaderCacheExplorer, windows_core::IUnknown);
 impl ID3DShaderCacheExplorer {
-    pub unsafe fn GetApplicationFromExePath<P0, T>(&self, pfullexepath: P0) -> windows_core::Result<T>
+    pub unsafe fn GetApplicationFromExePath<T>(&self, pfullexepath: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationFromExePath)(windows_core::Interface::as_raw(self), pfullexepath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationFromExePath)(windows_core::Interface::as_raw(self), core::mem::transmute(pfullexepath), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -1311,13 +1302,12 @@ impl ID3DShaderCacheInstaller {
     pub unsafe fn UnregisterServiceDriverUpdateTrigger(&self, hservicehandle: super::super::System::Services::SC_HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterServiceDriverUpdateTrigger)(windows_core::Interface::as_raw(self), hservicehandle).ok() }
     }
-    pub unsafe fn RegisterApplication<P0, T>(&self, pexepath: P0, papplicationdesc: *const D3D_SHADER_CACHE_APPLICATION_DESC) -> windows_core::Result<T>
+    pub unsafe fn RegisterApplication<T>(&self, pexepath: windows_core::PCWSTR, papplicationdesc: *const D3D_SHADER_CACHE_APPLICATION_DESC) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RegisterApplication)(windows_core::Interface::as_raw(self), pexepath.param().abi(), papplicationdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterApplication)(windows_core::Interface::as_raw(self), core::mem::transmute(pexepath), papplicationdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn RemoveApplication<P0>(&self, papplication: P0) -> windows_core::Result<()>
     where

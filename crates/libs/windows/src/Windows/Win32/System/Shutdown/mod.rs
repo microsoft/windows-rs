@@ -1,18 +1,12 @@
 #[inline]
-pub unsafe fn AbortSystemShutdownA<P0>(lpmachinename: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn AbortSystemShutdownA(lpmachinename: Option<windows_core::PCSTR>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AbortSystemShutdownA(lpmachinename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { AbortSystemShutdownA(lpmachinename.param().abi()).ok() }
+    unsafe { AbortSystemShutdownA(lpmachinename.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn AbortSystemShutdownW<P0>(lpmachinename: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn AbortSystemShutdownW(lpmachinename: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn AbortSystemShutdownW(lpmachinename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { AbortSystemShutdownW(lpmachinename.param().abi()).ok() }
+    unsafe { AbortSystemShutdownW(lpmachinename.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CheckForHiberboot(phiberboot: *mut bool, bclearflag: bool) -> u32 {
@@ -25,58 +19,34 @@ pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASO
     unsafe { ExitWindowsEx(uflags, dwreason).ok() }
 }
 #[inline]
-pub unsafe fn InitiateShutdownA<P0, P1>(lpmachinename: P0, lpmessage: P1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn InitiateShutdownA(lpmachinename: Option<windows_core::PCSTR>, lpmessage: Option<windows_core::PCSTR>, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn InitiateShutdownA(lpmachinename : windows_core::PCSTR, lpmessage : windows_core::PCSTR, dwgraceperiod : u32, dwshutdownflags : SHUTDOWN_FLAGS, dwreason : SHUTDOWN_REASON) -> u32);
-    unsafe { InitiateShutdownA(lpmachinename.param().abi(), lpmessage.param().abi(), dwgraceperiod, dwshutdownflags, dwreason) }
+    unsafe { InitiateShutdownA(lpmachinename.unwrap_or(core::mem::zeroed()) as _, lpmessage.unwrap_or(core::mem::zeroed()) as _, dwgraceperiod, dwshutdownflags, dwreason) }
 }
 #[inline]
-pub unsafe fn InitiateShutdownW<P0, P1>(lpmachinename: P0, lpmessage: P1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn InitiateShutdownW(lpmachinename: Option<windows_core::PCWSTR>, lpmessage: Option<windows_core::PCWSTR>, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn InitiateShutdownW(lpmachinename : windows_core::PCWSTR, lpmessage : windows_core::PCWSTR, dwgraceperiod : u32, dwshutdownflags : SHUTDOWN_FLAGS, dwreason : SHUTDOWN_REASON) -> u32);
-    unsafe { InitiateShutdownW(lpmachinename.param().abi(), lpmessage.param().abi(), dwgraceperiod, dwshutdownflags, dwreason) }
+    unsafe { InitiateShutdownW(lpmachinename.unwrap_or(core::mem::zeroed()) as _, lpmessage.unwrap_or(core::mem::zeroed()) as _, dwgraceperiod, dwshutdownflags, dwreason) }
 }
 #[inline]
-pub unsafe fn InitiateSystemShutdownA<P0, P1>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn InitiateSystemShutdownA(lpmachinename: Option<windows_core::PCSTR>, lpmessage: Option<windows_core::PCSTR>, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn InitiateSystemShutdownA(lpmachinename : windows_core::PCSTR, lpmessage : windows_core::PCSTR, dwtimeout : u32, bforceappsclosed : windows_core::BOOL, brebootaftershutdown : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { InitiateSystemShutdownA(lpmachinename.param().abi(), lpmessage.param().abi(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into()).ok() }
+    unsafe { InitiateSystemShutdownA(lpmachinename.unwrap_or(core::mem::zeroed()) as _, lpmessage.unwrap_or(core::mem::zeroed()) as _, dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into()).ok() }
 }
 #[inline]
-pub unsafe fn InitiateSystemShutdownExA<P0, P1>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool, dwreason: SHUTDOWN_REASON) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn InitiateSystemShutdownExA(lpmachinename: Option<windows_core::PCSTR>, lpmessage: Option<windows_core::PCSTR>, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool, dwreason: SHUTDOWN_REASON) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn InitiateSystemShutdownExA(lpmachinename : windows_core::PCSTR, lpmessage : windows_core::PCSTR, dwtimeout : u32, bforceappsclosed : windows_core::BOOL, brebootaftershutdown : windows_core::BOOL, dwreason : SHUTDOWN_REASON) -> windows_core::BOOL);
-    unsafe { InitiateSystemShutdownExA(lpmachinename.param().abi(), lpmessage.param().abi(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into(), dwreason).ok() }
+    unsafe { InitiateSystemShutdownExA(lpmachinename.unwrap_or(core::mem::zeroed()) as _, lpmessage.unwrap_or(core::mem::zeroed()) as _, dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into(), dwreason).ok() }
 }
 #[inline]
-pub unsafe fn InitiateSystemShutdownExW<P0, P1>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool, dwreason: SHUTDOWN_REASON) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn InitiateSystemShutdownExW(lpmachinename: Option<windows_core::PCWSTR>, lpmessage: Option<windows_core::PCWSTR>, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool, dwreason: SHUTDOWN_REASON) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn InitiateSystemShutdownExW(lpmachinename : windows_core::PCWSTR, lpmessage : windows_core::PCWSTR, dwtimeout : u32, bforceappsclosed : windows_core::BOOL, brebootaftershutdown : windows_core::BOOL, dwreason : SHUTDOWN_REASON) -> windows_core::BOOL);
-    unsafe { InitiateSystemShutdownExW(lpmachinename.param().abi(), lpmessage.param().abi(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into(), dwreason).ok() }
+    unsafe { InitiateSystemShutdownExW(lpmachinename.unwrap_or(core::mem::zeroed()) as _, lpmessage.unwrap_or(core::mem::zeroed()) as _, dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into(), dwreason).ok() }
 }
 #[inline]
-pub unsafe fn InitiateSystemShutdownW<P0, P1>(lpmachinename: P0, lpmessage: P1, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn InitiateSystemShutdownW(lpmachinename: Option<windows_core::PCWSTR>, lpmessage: Option<windows_core::PCWSTR>, dwtimeout: u32, bforceappsclosed: bool, brebootaftershutdown: bool) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn InitiateSystemShutdownW(lpmachinename : windows_core::PCWSTR, lpmessage : windows_core::PCWSTR, dwtimeout : u32, bforceappsclosed : windows_core::BOOL, brebootaftershutdown : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { InitiateSystemShutdownW(lpmachinename.param().abi(), lpmessage.param().abi(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into()).ok() }
+    unsafe { InitiateSystemShutdownW(lpmachinename.unwrap_or(core::mem::zeroed()) as _, lpmessage.unwrap_or(core::mem::zeroed()) as _, dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into()).ok() }
 }
 #[inline]
 pub unsafe fn LockWorkStation() -> windows_core::Result<()> {
@@ -84,12 +54,9 @@ pub unsafe fn LockWorkStation() -> windows_core::Result<()> {
     unsafe { LockWorkStation().ok() }
 }
 #[inline]
-pub unsafe fn ShutdownBlockReasonCreate<P1>(hwnd: super::super::Foundation::HWND, pwszreason: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ShutdownBlockReasonCreate(hwnd: super::super::Foundation::HWND, pwszreason: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation:: HWND, pwszreason : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { ShutdownBlockReasonCreate(hwnd, pwszreason.param().abi()).ok() }
+    unsafe { ShutdownBlockReasonCreate(hwnd, core::mem::transmute(pwszreason)).ok() }
 }
 #[inline]
 pub unsafe fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {

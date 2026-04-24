@@ -392,27 +392,22 @@ impl IPrintWorkflowXpsReceiver {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDocumentSequencePrintTicket)(windows_core::Interface::as_raw(self), documentsequenceprintticket.param().abi()).ok() }
     }
-    pub unsafe fn SetDocumentSequenceUri<P0>(&self, documentsequenceuri: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDocumentSequenceUri)(windows_core::Interface::as_raw(self), documentsequenceuri.param().abi()).ok() }
+    pub unsafe fn SetDocumentSequenceUri(&self, documentsequenceuri: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetDocumentSequenceUri)(windows_core::Interface::as_raw(self), core::mem::transmute(documentsequenceuri)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddDocumentData<P1, P2>(&self, documentid: u32, documentprintticket: P1, documenturi: P2) -> windows_core::Result<()>
+    pub unsafe fn AddDocumentData<P1>(&self, documentid: u32, documentprintticket: P1, documenturi: windows_core::PCWSTR) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::super::Com::IStream>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDocumentData)(windows_core::Interface::as_raw(self), documentid, documentprintticket.param().abi(), documenturi.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDocumentData)(windows_core::Interface::as_raw(self), documentid, documentprintticket.param().abi(), core::mem::transmute(documenturi)).ok() }
     }
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn AddPage<P2, P3>(&self, documentid: u32, pageid: u32, pagereference: P2, pageuri: P3) -> windows_core::Result<()>
+    pub unsafe fn AddPage<P2>(&self, documentid: u32, pageid: u32, pagereference: P2, pageuri: windows_core::PCWSTR) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::super::super::Storage::Xps::IXpsOMPageReference>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), documentid, pageid, pagereference.param().abi(), pageuri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPage)(windows_core::Interface::as_raw(self), documentid, pageid, pagereference.param().abi(), core::mem::transmute(pageuri)).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }

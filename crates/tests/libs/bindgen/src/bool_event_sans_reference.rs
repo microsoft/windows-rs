@@ -7,22 +7,19 @@
 )]
 
 #[inline]
-pub unsafe fn CreateEventW<P3>(
+pub unsafe fn CreateEventW(
     lpeventattributes: Option<*const SECURITY_ATTRIBUTES>,
     bmanualreset: bool,
     binitialstate: bool,
-    lpname: P3,
-) -> windows_core::Result<HANDLE>
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+    lpname: Option<windows_core::PCWSTR>,
+) -> windows_core::Result<HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : windows_core::BOOL, binitialstate : windows_core::BOOL, lpname : windows_core::PCWSTR) -> HANDLE);
     let result__ = unsafe {
         CreateEventW(
             lpeventattributes.unwrap_or(core::mem::zeroed()) as _,
             bmanualreset.into(),
             binitialstate.into(),
-            lpname.param().abi(),
+            lpname.unwrap_or(core::mem::zeroed()) as _,
         )
     };
     (!result__.is_invalid())

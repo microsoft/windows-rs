@@ -24,44 +24,29 @@ pub unsafe fn HcnCloseNetwork(network: *const core::ffi::c_void) -> windows_core
     unsafe { HcnCloseNetwork(network).ok() }
 }
 #[inline]
-pub unsafe fn HcnCreateEndpoint<P2>(network: *const core::ffi::c_void, id: *const windows_core::GUID, settings: P2, endpoint: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnCreateEndpoint(network: *const core::ffi::c_void, id: *const windows_core::GUID, settings: windows_core::PCWSTR, endpoint: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnCreateEndpoint(network : *const core::ffi::c_void, id : *const windows_core::GUID, settings : windows_core::PCWSTR, endpoint : *mut *mut core::ffi::c_void, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnCreateEndpoint(network, id, settings.param().abi(), endpoint as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnCreateEndpoint(network, id, core::mem::transmute(settings), endpoint as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnCreateGuestNetworkService<P1>(id: *const windows_core::GUID, settings: P1, guestnetworkservice: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnCreateGuestNetworkService(id: *const windows_core::GUID, settings: windows_core::PCWSTR, guestnetworkservice: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnCreateGuestNetworkService(id : *const windows_core::GUID, settings : windows_core::PCWSTR, guestnetworkservice : *mut *mut core::ffi::c_void, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnCreateGuestNetworkService(id, settings.param().abi(), guestnetworkservice as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnCreateGuestNetworkService(id, core::mem::transmute(settings), guestnetworkservice as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnCreateLoadBalancer<P1>(id: *const windows_core::GUID, settings: P1, loadbalancer: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnCreateLoadBalancer(id: *const windows_core::GUID, settings: windows_core::PCWSTR, loadbalancer: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnCreateLoadBalancer(id : *const windows_core::GUID, settings : windows_core::PCWSTR, loadbalancer : *mut *mut core::ffi::c_void, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnCreateLoadBalancer(id, settings.param().abi(), loadbalancer as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnCreateLoadBalancer(id, core::mem::transmute(settings), loadbalancer as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnCreateNamespace<P1>(id: *const windows_core::GUID, settings: P1, namespace: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnCreateNamespace(id: *const windows_core::GUID, settings: windows_core::PCWSTR, namespace: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnCreateNamespace(id : *const windows_core::GUID, settings : windows_core::PCWSTR, namespace : *mut *mut core::ffi::c_void, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnCreateNamespace(id, settings.param().abi(), namespace as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnCreateNamespace(id, core::mem::transmute(settings), namespace as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnCreateNetwork<P1>(id: *const windows_core::GUID, settings: P1, network: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnCreateNetwork(id: *const windows_core::GUID, settings: windows_core::PCWSTR, network: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnCreateNetwork(id : *const windows_core::GUID, settings : windows_core::PCWSTR, network : *mut *mut core::ffi::c_void, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnCreateNetwork(id, settings.param().abi(), network as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnCreateNetwork(id, core::mem::transmute(settings), network as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn HcnDeleteEndpoint(id: *const windows_core::GUID, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
@@ -89,12 +74,9 @@ pub unsafe fn HcnDeleteNetwork(id: *const windows_core::GUID, errorrecord: Optio
     unsafe { HcnDeleteNetwork(id, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnEnumerateEndpoints<P0>(query: P0, endpoints: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnEnumerateEndpoints(query: windows_core::PCWSTR, endpoints: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnEnumerateEndpoints(query : windows_core::PCWSTR, endpoints : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnEnumerateEndpoints(query.param().abi(), endpoints as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnEnumerateEndpoints(core::mem::transmute(query), endpoints as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> windows_core::Result<()> {
@@ -102,28 +84,19 @@ pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, po
     unsafe { HcnEnumerateGuestNetworkPortReservations(returncount as _, portentries as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnEnumerateLoadBalancers<P0>(query: P0, loadbalancer: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnEnumerateLoadBalancers(query: windows_core::PCWSTR, loadbalancer: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnEnumerateLoadBalancers(query : windows_core::PCWSTR, loadbalancer : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnEnumerateLoadBalancers(query.param().abi(), loadbalancer as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnEnumerateLoadBalancers(core::mem::transmute(query), loadbalancer as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnEnumerateNamespaces<P0>(query: P0, namespaces: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnEnumerateNamespaces(query: windows_core::PCWSTR, namespaces: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnEnumerateNamespaces(query : windows_core::PCWSTR, namespaces : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnEnumerateNamespaces(query.param().abi(), namespaces as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnEnumerateNamespaces(core::mem::transmute(query), namespaces as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnEnumerateNetworks<P0>(query: P0, networks: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnEnumerateNetworks(query: windows_core::PCWSTR, networks: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnEnumerateNetworks(query : windows_core::PCWSTR, networks : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnEnumerateNetworks(query.param().abi(), networks as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnEnumerateNetworks(core::mem::transmute(query), networks as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: Option<*mut HCN_PORT_RANGE_ENTRY>) {
@@ -131,44 +104,29 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: Option<*mut HCN_P
     unsafe { HcnFreeGuestNetworkPortReservations(portentries.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HcnModifyEndpoint<P1>(endpoint: *const core::ffi::c_void, settings: P1, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnModifyEndpoint(endpoint: *const core::ffi::c_void, settings: windows_core::PCWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnModifyEndpoint(endpoint : *const core::ffi::c_void, settings : windows_core::PCWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnModifyEndpoint(endpoint, settings.param().abi(), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnModifyEndpoint(endpoint, core::mem::transmute(settings), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnModifyGuestNetworkService<P1>(guestnetworkservice: *const core::ffi::c_void, settings: P1, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnModifyGuestNetworkService(guestnetworkservice: *const core::ffi::c_void, settings: windows_core::PCWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnModifyGuestNetworkService(guestnetworkservice : *const core::ffi::c_void, settings : windows_core::PCWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnModifyGuestNetworkService(guestnetworkservice, settings.param().abi(), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnModifyGuestNetworkService(guestnetworkservice, core::mem::transmute(settings), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnModifyLoadBalancer<P1>(loadbalancer: *const core::ffi::c_void, settings: P1, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnModifyLoadBalancer(loadbalancer: *const core::ffi::c_void, settings: windows_core::PCWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnModifyLoadBalancer(loadbalancer : *const core::ffi::c_void, settings : windows_core::PCWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnModifyLoadBalancer(loadbalancer, settings.param().abi(), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnModifyLoadBalancer(loadbalancer, core::mem::transmute(settings), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnModifyNamespace<P1>(namespace: *const core::ffi::c_void, settings: P1, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnModifyNamespace(namespace: *const core::ffi::c_void, settings: windows_core::PCWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnModifyNamespace(namespace : *const core::ffi::c_void, settings : windows_core::PCWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnModifyNamespace(namespace, settings.param().abi(), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnModifyNamespace(namespace, core::mem::transmute(settings), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnModifyNetwork<P1>(network: *const core::ffi::c_void, settings: P1, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnModifyNetwork(network: *const core::ffi::c_void, settings: windows_core::PCWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnModifyNetwork(network : *const core::ffi::c_void, settings : windows_core::PCWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnModifyNetwork(network, settings.param().abi(), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnModifyNetwork(network, core::mem::transmute(settings), errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn HcnOpenEndpoint(id: *const windows_core::GUID, endpoint: *mut *mut core::ffi::c_void, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
@@ -191,52 +149,34 @@ pub unsafe fn HcnOpenNetwork(id: *const windows_core::GUID, network: *mut *mut c
     unsafe { HcnOpenNetwork(id, network as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnQueryEndpointAddresses<P1>(endpoint: *const core::ffi::c_void, query: P1, addresses: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnQueryEndpointAddresses(endpoint: *const core::ffi::c_void, query: windows_core::PCWSTR, addresses: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnQueryEndpointAddresses(endpoint : *const core::ffi::c_void, query : windows_core::PCWSTR, addresses : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnQueryEndpointAddresses(endpoint, query.param().abi(), addresses as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnQueryEndpointAddresses(endpoint, core::mem::transmute(query), addresses as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnQueryEndpointProperties<P1>(endpoint: *const core::ffi::c_void, query: P1, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnQueryEndpointProperties(endpoint: *const core::ffi::c_void, query: windows_core::PCWSTR, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnQueryEndpointProperties(endpoint : *const core::ffi::c_void, query : windows_core::PCWSTR, properties : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnQueryEndpointProperties(endpoint, query.param().abi(), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnQueryEndpointProperties(endpoint, core::mem::transmute(query), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnQueryEndpointStats<P1>(endpoint: *const core::ffi::c_void, query: P1, stats: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnQueryEndpointStats(endpoint: *const core::ffi::c_void, query: windows_core::PCWSTR, stats: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnQueryEndpointStats(endpoint : *const core::ffi::c_void, query : windows_core::PCWSTR, stats : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnQueryEndpointStats(endpoint, query.param().abi(), stats as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnQueryEndpointStats(endpoint, core::mem::transmute(query), stats as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnQueryLoadBalancerProperties<P1>(loadbalancer: *const core::ffi::c_void, query: P1, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnQueryLoadBalancerProperties(loadbalancer: *const core::ffi::c_void, query: windows_core::PCWSTR, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnQueryLoadBalancerProperties(loadbalancer : *const core::ffi::c_void, query : windows_core::PCWSTR, properties : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnQueryLoadBalancerProperties(loadbalancer, query.param().abi(), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnQueryLoadBalancerProperties(loadbalancer, core::mem::transmute(query), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnQueryNamespaceProperties<P1>(namespace: *const core::ffi::c_void, query: P1, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnQueryNamespaceProperties(namespace: *const core::ffi::c_void, query: windows_core::PCWSTR, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnQueryNamespaceProperties(namespace : *const core::ffi::c_void, query : windows_core::PCWSTR, properties : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnQueryNamespaceProperties(namespace, query.param().abi(), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnQueryNamespaceProperties(namespace, core::mem::transmute(query), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HcnQueryNetworkProperties<P1>(network: *const core::ffi::c_void, query: P1, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HcnQueryNetworkProperties(network: *const core::ffi::c_void, query: windows_core::PCWSTR, properties: *mut windows_core::PWSTR, errorrecord: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
     windows_core::link!("computenetwork.dll" "system" fn HcnQueryNetworkProperties(network : *const core::ffi::c_void, query : windows_core::PCWSTR, properties : *mut windows_core::PWSTR, errorrecord : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { HcnQueryNetworkProperties(network, query.param().abi(), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { HcnQueryNetworkProperties(network, core::mem::transmute(query), properties as _, errorrecord.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: *const core::ffi::c_void, callback: HCN_NOTIFICATION_CALLBACK, context: *const core::ffi::c_void, callbackhandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {

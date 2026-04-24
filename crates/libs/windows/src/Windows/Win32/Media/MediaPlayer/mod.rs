@@ -9213,13 +9213,8 @@ impl windows_core::RuntimeName for IWMPMediaCollection2 {}
 windows_core::imp::define_interface!(IWMPMediaPluginRegistrar, IWMPMediaPluginRegistrar_Vtbl, 0x68e27045_05bd_40b2_9720_23088c78e390);
 windows_core::imp::interface_hierarchy!(IWMPMediaPluginRegistrar, windows_core::IUnknown);
 impl IWMPMediaPluginRegistrar {
-    pub unsafe fn WMPRegisterPlayerPlugin<P0, P1, P2>(&self, pwszfriendlyname: P0, pwszdescription: P1, pwszuninstallstring: P2, dwpriority: u32, guidplugintype: windows_core::GUID, clsid: windows_core::GUID, cmediatypes: u32, pmediatypes: *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WMPRegisterPlayerPlugin)(windows_core::Interface::as_raw(self), pwszfriendlyname.param().abi(), pwszdescription.param().abi(), pwszuninstallstring.param().abi(), dwpriority, core::mem::transmute(guidplugintype), core::mem::transmute(clsid), cmediatypes, pmediatypes as _).ok() }
+    pub unsafe fn WMPRegisterPlayerPlugin(&self, pwszfriendlyname: windows_core::PCWSTR, pwszdescription: windows_core::PCWSTR, pwszuninstallstring: windows_core::PCWSTR, dwpriority: u32, guidplugintype: windows_core::GUID, clsid: windows_core::GUID, cmediatypes: u32, pmediatypes: *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WMPRegisterPlayerPlugin)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszfriendlyname), core::mem::transmute(pwszdescription), core::mem::transmute(pwszuninstallstring), dwpriority, core::mem::transmute(guidplugintype), core::mem::transmute(clsid), cmediatypes, pmediatypes as _).ok() }
     }
     pub unsafe fn WMPUnRegisterPlayerPlugin(&self, guidplugintype: windows_core::GUID, clsid: windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WMPUnRegisterPlayerPlugin)(windows_core::Interface::as_raw(self), core::mem::transmute(guidplugintype), core::mem::transmute(clsid)).ok() }
@@ -11591,18 +11586,12 @@ impl IWMPPluginUI {
         unsafe { (windows_core::Interface::vtable(self).DisplayPropertyPage)(windows_core::Interface::as_raw(self), hwndparent).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty<P0>(&self, pwszname: P0, pvarproperty: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), core::mem::transmute(pvarproperty)).ok() }
+    pub unsafe fn GetProperty(&self, pwszname: windows_core::PCWSTR, pvarproperty: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), core::mem::transmute(pvarproperty)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, pvarproperty: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), core::mem::transmute(pvarproperty)).ok() }
+    pub unsafe fn SetProperty(&self, pwszname: windows_core::PCWSTR, pvarproperty: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), core::mem::transmute(pvarproperty)).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
@@ -13228,11 +13217,8 @@ impl IXFeed {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Rename<P0>(&self, pszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok() }
+    pub unsafe fn Rename(&self, pszname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname)).ok() }
     }
     pub unsafe fn Url(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -13240,11 +13226,8 @@ impl IXFeed {
             (windows_core::Interface::vtable(self).Url)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUrl<P0>(&self, pszurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetUrl)(windows_core::Interface::as_raw(self), pszurl.param().abi()).ok() }
+    pub unsafe fn SetUrl(&self, pszurl: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetUrl)(windows_core::Interface::as_raw(self), core::mem::transmute(pszurl)).ok() }
     }
     pub unsafe fn LocalId(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -13258,11 +13241,8 @@ impl IXFeed {
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Move<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn Move(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
     pub unsafe fn Parent<T>(&self) -> windows_core::Result<T>
     where
@@ -13366,12 +13346,11 @@ impl IXFeed {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<P0, P1>(&self, pstream: P0, pszurl: P1) -> windows_core::Result<()>
+    pub unsafe fn Merge<P0>(&self, pstream: P0, pszurl: windows_core::PCWSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), pstream.param().abi(), pszurl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute(pszurl)).ok() }
     }
     pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -14084,12 +14063,8 @@ impl IXFeed2 {
             (windows_core::Interface::vtable(self).Password)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCredentials<P0, P1>(&self, pszusername: P0, pszpassword: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), pszusername.param().abi(), pszpassword.param().abi()).ok() }
+    pub unsafe fn SetCredentials(&self, pszusername: windows_core::PCWSTR, pszpassword: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute(pszusername), core::mem::transmute(pszpassword)).ok() }
     }
     pub unsafe fn ClearCredentials(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearCredentials)(windows_core::Interface::as_raw(self)).ok() }
@@ -14255,14 +14230,8 @@ impl IXFeedEnclosure {
     pub unsafe fn RemoveFile(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFile)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetFile<P0, P1, P2, P3>(&self, pszdownloadurl: P0, pszdownloadfilepath: P1, pszdownloadmimetype: P2, pszenclosurefilename: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetFile)(windows_core::Interface::as_raw(self), pszdownloadurl.param().abi(), pszdownloadfilepath.param().abi(), pszdownloadmimetype.param().abi(), pszenclosurefilename.param().abi()).ok() }
+    pub unsafe fn SetFile(&self, pszdownloadurl: windows_core::PCWSTR, pszdownloadfilepath: windows_core::PCWSTR, pszdownloadmimetype: windows_core::PCWSTR, pszenclosurefilename: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetFile)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdownloadurl), core::mem::transmute(pszdownloadfilepath), core::mem::transmute(pszdownloadmimetype), core::mem::transmute(pszenclosurefilename)).ok() }
     }
 }
 #[repr(C)]
@@ -14454,49 +14423,26 @@ impl IXFeedEvents {
     pub unsafe fn Error(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn FeedDeleted<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedDeleted)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedDeleted(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedRenamed<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedRenamed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FeedRenamed(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedRenamed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FeedUrlChanged<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedUrlChanged)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedUrlChanged(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedUrlChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedMoved<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedMoved)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FeedMoved(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedMoved)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FeedDownloading<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedDownloading)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedDownloading(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedDownloading)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedDownloadCompleted<P0>(&self, pszpath: P0, fde: FEEDS_DOWNLOAD_ERROR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedDownloadCompleted)(windows_core::Interface::as_raw(self), pszpath.param().abi(), fde).ok() }
+    pub unsafe fn FeedDownloadCompleted(&self, pszpath: windows_core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedDownloadCompleted)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), fde).ok() }
     }
-    pub unsafe fn FeedItemCountChanged<P0>(&self, pszpath: P0, feicfflags: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedItemCountChanged)(windows_core::Interface::as_raw(self), pszpath.param().abi(), feicfflags).ok() }
+    pub unsafe fn FeedItemCountChanged(&self, pszpath: windows_core::PCWSTR, feicfflags: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedItemCountChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), feicfflags).ok() }
     }
 }
 #[repr(C)]
@@ -14604,50 +14550,39 @@ impl IXFeedFolder {
             (windows_core::Interface::vtable(self).Subfolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFeed<P0, P1, T>(&self, pszname: P0, pszurl: P1) -> windows_core::Result<T>
+    pub unsafe fn CreateFeed<T>(&self, pszname: windows_core::PCWSTR, pszurl: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), core::mem::transmute(pszurl), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateSubfolder<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
+    pub unsafe fn CreateSubfolder<T>(&self, pszname: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pbfeedexists).ok() }
+    pub unsafe fn ExistsFeed(&self, pszname: windows_core::PCWSTR, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), pbfeedexists).ok() }
     }
-    pub unsafe fn ExistsSubfolder<P0>(&self, pszname: P0, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).ExistsSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), pbsubfolderexists).ok() }
+    pub unsafe fn ExistsSubfolder(&self, pszname: windows_core::PCWSTR, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ExistsSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), pbsubfolderexists).ok() }
     }
-    pub unsafe fn GetFeed<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
+    pub unsafe fn GetFeed<T>(&self, pszname: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetSubfolder<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
+    pub unsafe fn GetSubfolder<T>(&self, pszname: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
@@ -14658,11 +14593,8 @@ impl IXFeedFolder {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Rename<P0>(&self, pszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok() }
+    pub unsafe fn Rename(&self, pszname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname)).ok() }
     }
     pub unsafe fn Path(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -14670,11 +14602,8 @@ impl IXFeedFolder {
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Move<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn Move(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
     pub unsafe fn Parent<T>(&self) -> windows_core::Result<T>
     where
@@ -14937,101 +14866,50 @@ impl IXFeedFolderEvents {
     pub unsafe fn Error(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn FolderAdded<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FolderAdded)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FolderAdded(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FolderAdded)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FolderDeleted<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FolderDeleted)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FolderDeleted(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FolderDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FolderRenamed<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FolderRenamed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FolderRenamed(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FolderRenamed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FolderMovedFrom<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FolderMovedFrom)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FolderMovedFrom(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FolderMovedFrom)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FolderMovedTo<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FolderMovedTo)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FolderMovedTo(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FolderMovedTo)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FolderItemCountChanged<P0>(&self, pszpath: P0, feicfflags: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FolderItemCountChanged)(windows_core::Interface::as_raw(self), pszpath.param().abi(), feicfflags).ok() }
+    pub unsafe fn FolderItemCountChanged(&self, pszpath: windows_core::PCWSTR, feicfflags: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FolderItemCountChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), feicfflags).ok() }
     }
-    pub unsafe fn FeedAdded<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedAdded)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedAdded(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedAdded)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedDeleted<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedDeleted)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedDeleted(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedRenamed<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedRenamed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FeedRenamed(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedRenamed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FeedUrlChanged<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedUrlChanged)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedUrlChanged(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedUrlChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedMovedFrom<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedMovedFrom)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FeedMovedFrom(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedMovedFrom)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FeedMovedTo<P0, P1>(&self, pszpath: P0, pszoldpath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedMovedTo)(windows_core::Interface::as_raw(self), pszpath.param().abi(), pszoldpath.param().abi()).ok() }
+    pub unsafe fn FeedMovedTo(&self, pszpath: windows_core::PCWSTR, pszoldpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedMovedTo)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), core::mem::transmute(pszoldpath)).ok() }
     }
-    pub unsafe fn FeedDownloading<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedDownloading)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn FeedDownloading(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedDownloading)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn FeedDownloadCompleted<P0>(&self, pszpath: P0, fde: FEEDS_DOWNLOAD_ERROR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedDownloadCompleted)(windows_core::Interface::as_raw(self), pszpath.param().abi(), fde).ok() }
+    pub unsafe fn FeedDownloadCompleted(&self, pszpath: windows_core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedDownloadCompleted)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), fde).ok() }
     }
-    pub unsafe fn FeedItemCountChanged<P0>(&self, pszpath: P0, feicfflags: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).FeedItemCountChanged)(windows_core::Interface::as_raw(self), pszpath.param().abi(), feicfflags).ok() }
+    pub unsafe fn FeedItemCountChanged(&self, pszpath: windows_core::PCWSTR, feicfflags: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FeedItemCountChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), feicfflags).ok() }
     }
 }
 #[repr(C)]
@@ -15668,68 +15546,50 @@ impl IXFeedsManager {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).RootFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn IsSubscribed<P0>(&self, pszurl: P0) -> windows_core::Result<windows_core::BOOL>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn IsSubscribed(&self, pszurl: windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsSubscribed)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsSubscribed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszurl), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExistsFeed<P0>(&self, pszpath: P0) -> windows_core::Result<windows_core::BOOL>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn ExistsFeed(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFeed<P0, T>(&self, pszpath: P0) -> windows_core::Result<T>
+    pub unsafe fn GetFeed<T>(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetFeedByUrl<P0, T>(&self, pszurl: P0) -> windows_core::Result<T>
+    pub unsafe fn GetFeedByUrl<T>(&self, pszurl: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), core::mem::transmute(pszurl), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn ExistsFolder<P0>(&self, pszpath: P0) -> windows_core::Result<windows_core::BOOL>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn ExistsFolder(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExistsFolder)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ExistsFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFolder<P0, T>(&self, pszpath: P0) -> windows_core::Result<T>
+    pub unsafe fn GetFolder<T>(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn DeleteFeed<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).DeleteFeed)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn DeleteFeed(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DeleteFeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
-    pub unsafe fn DeleteFolder<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).DeleteFolder)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
+    pub unsafe fn DeleteFolder(&self, pszpath: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DeleteFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath)).ok() }
     }
     pub unsafe fn BackgroundSync(&self, fbsa: FEEDS_BACKGROUNDSYNC_ACTION) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BackgroundSync)(windows_core::Interface::as_raw(self), fbsa).ok() }

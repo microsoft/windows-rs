@@ -534,12 +534,9 @@ pub unsafe fn VariantToStringArrayAlloc(var: *const VARIANT, pprgsz: *mut *mut w
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToStringWithDefault<P1>(varin: *const VARIANT, pszdefault: P1) -> windows_core::PCWSTR
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn VariantToStringWithDefault(varin: *const VARIANT, pszdefault: Option<windows_core::PCWSTR>) -> windows_core::PCWSTR {
     windows_core::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : windows_core::PCWSTR) -> windows_core::PCWSTR);
-    unsafe { VariantToStringWithDefault(core::mem::transmute(varin), pszdefault.param().abi()) }
+    unsafe { VariantToStringWithDefault(core::mem::transmute(varin), pszdefault.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]

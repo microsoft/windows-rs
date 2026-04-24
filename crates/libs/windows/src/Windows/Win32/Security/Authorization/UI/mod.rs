@@ -46,11 +46,8 @@ impl Default for EFFPERM_RESULT_LIST {
 windows_core::imp::define_interface!(IEffectivePermission, IEffectivePermission_Vtbl, 0x3853dc76_9f35_407c_88a1_d19344365fbc);
 windows_core::imp::interface_hierarchy!(IEffectivePermission, windows_core::IUnknown);
 impl IEffectivePermission {
-    pub unsafe fn GetEffectivePermission<P2>(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: P2, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, pszservername.param().abi(), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _).ok() }
+    pub unsafe fn GetEffectivePermission(&self, pguidobjecttype: *const windows_core::GUID, pusersid: super::super::PSID, pszservername: windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, core::mem::transmute(pszservername), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _).ok() }
     }
 }
 #[repr(C)]
@@ -80,11 +77,11 @@ impl windows_core::RuntimeName for IEffectivePermission {}
 windows_core::imp::define_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 windows_core::imp::interface_hierarchy!(IEffectivePermission2, windows_core::IUnknown);
 impl IEffectivePermission2 {
-    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<P2>(
+    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity(
         &self,
         psid: super::super::PSID,
         pdevicesid: Option<super::super::PSID>,
-        pszservername: P2,
+        pszservername: windows_core::PCWSTR,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
         pusergroups: Option<*const super::super::TOKEN_GROUPS>,
@@ -96,16 +93,13 @@ impl IEffectivePermission2 {
         pauthzdeviceclaims: Option<*const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>,
         pauthzdeviceclaimsoperations: Option<*const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION>,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
-    ) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
                 windows_core::Interface::as_raw(self),
                 psid,
                 pdevicesid.unwrap_or(core::mem::zeroed()) as _,
-                pszservername.param().abi(),
+                core::mem::transmute(pszservername),
                 psecurityobjects as _,
                 dwsecurityobjectcount,
                 pusergroups.unwrap_or(core::mem::zeroed()) as _,

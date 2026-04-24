@@ -1622,13 +1622,10 @@ impl IGameInput {
             (windows_core::Interface::vtable(self).FindDeviceFromPlatformHandle)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindDeviceFromPlatformString<P0>(&self, value: P0) -> windows_core::Result<IGameInputDevice>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn FindDeviceFromPlatformString(&self, value: windows_core::PCWSTR) -> windows_core::Result<IGameInputDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), core::mem::transmute(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnableOemDeviceSupport(&self, vendorid: u16, productid: u16, interfacenumber: u8, collectionnumber: u8) -> windows_core::Result<()> {

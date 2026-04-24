@@ -51,20 +51,14 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
     unsafe { CryptSIPRemoveSignedDataMsg(psubjectinfo as _, dwindex).ok() }
 }
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuid<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CryptSIPRetrieveSubjectGuid(filename: windows_core::PCWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()> {
     windows_core::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> windows_core::BOOL);
-    unsafe { CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein, pgsubject as _).ok() }
+    unsafe { CryptSIPRetrieveSubjectGuid(core::mem::transmute(filename), hfilein, pgsubject as _).ok() }
 }
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0>(filename: P0, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: windows_core::PCWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()> {
     windows_core::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> windows_core::BOOL);
-    unsafe { CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein, pgsubject as _).ok() }
+    unsafe { CryptSIPRetrieveSubjectGuidForCatalogFile(core::mem::transmute(filename), hfilein, pgsubject as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]

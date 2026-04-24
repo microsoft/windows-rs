@@ -38,12 +38,9 @@ pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: super::Ndis::NET_IF_COMP
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn ConvertInterfaceAliasToLuid<P0>(interfacealias: P0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ConvertInterfaceAliasToLuid(interfacealias: windows_core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceAliasToLuid(interfacealias : windows_core::PCWSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceAliasToLuid(interfacealias.param().abi(), interfaceluid as _) }
+    unsafe { ConvertInterfaceAliasToLuid(core::mem::transmute(interfacealias), interfaceluid as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -89,21 +86,15 @@ pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidA<P0>(interfacename: P0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ConvertInterfaceNameToLuidA(interfacename: windows_core::PCSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidA(interfacename : windows_core::PCSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceNameToLuidA(interfacename.param().abi(), interfaceluid as _) }
+    unsafe { ConvertInterfaceNameToLuidA(core::mem::transmute(interfacename), interfaceluid as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidW<P0>(interfacename: P0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ConvertInterfaceNameToLuidW(interfacename: windows_core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidW(interfacename : windows_core::PCWSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceNameToLuidW(interfacename.param().abi(), interfaceluid as _) }
+    unsafe { ConvertInterfaceNameToLuidW(core::mem::transmute(interfacename), interfaceluid as _) }
 }
 #[inline]
 pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> windows_core::WIN32_ERROR {
@@ -283,12 +274,9 @@ pub unsafe fn FreeMibTable(memory: *const core::ffi::c_void) {
     unsafe { FreeMibTable(memory) }
 }
 #[inline]
-pub unsafe fn GetAdapterIndex<P0>(adaptername: P0, ifindex: *mut u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn GetAdapterIndex(adaptername: windows_core::PCWSTR, ifindex: *mut u32) -> u32 {
     windows_core::link!("iphlpapi.dll" "system" fn GetAdapterIndex(adaptername : windows_core::PCWSTR, ifindex : *mut u32) -> u32);
-    unsafe { GetAdapterIndex(adaptername.param().abi(), ifindex as _) }
+    unsafe { GetAdapterIndex(core::mem::transmute(adaptername), ifindex as _) }
 }
 #[inline]
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
@@ -926,12 +914,9 @@ pub unsafe fn NotifyUnicastIpAddressChange(family: super::super::Networking::Win
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn ParseNetworkString<P0>(networkstring: P0, types: u32, addressinfo: Option<*mut NET_ADDRESS_INFO>, portnumber: Option<*mut u16>, prefixlength: Option<*mut u8>) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ParseNetworkString(networkstring: windows_core::PCWSTR, types: u32, addressinfo: Option<*mut NET_ADDRESS_INFO>, portnumber: Option<*mut u16>, prefixlength: Option<*mut u8>) -> u32 {
     windows_core::link!("iphlpapi.dll" "system" fn ParseNetworkString(networkstring : windows_core::PCWSTR, types : u32, addressinfo : *mut NET_ADDRESS_INFO, portnumber : *mut u16, prefixlength : *mut u8) -> u32);
-    unsafe { ParseNetworkString(networkstring.param().abi(), types, addressinfo.unwrap_or(core::mem::zeroed()) as _, portnumber.unwrap_or(core::mem::zeroed()) as _, prefixlength.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ParseNetworkString(core::mem::transmute(networkstring), types, addressinfo.unwrap_or(core::mem::zeroed()) as _, portnumber.unwrap_or(core::mem::zeroed()) as _, prefixlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PfAddFiltersToInterface(ih: *mut core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut core::ffi::c_void) -> u32 {
@@ -1125,12 +1110,9 @@ pub unsafe fn SetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE, c
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn SetNetworkInformation<P2>(networkguid: *const windows_core::GUID, compartmentid: super::Ndis::NET_IF_COMPARTMENT_ID, networkname: P2) -> windows_core::WIN32_ERROR
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SetNetworkInformation(networkguid: *const windows_core::GUID, compartmentid: super::Ndis::NET_IF_COMPARTMENT_ID, networkname: windows_core::PCWSTR) -> windows_core::WIN32_ERROR {
     windows_core::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { SetNetworkInformation(networkguid, compartmentid, networkname.param().abi()) }
+    unsafe { SetNetworkInformation(networkguid, compartmentid, core::mem::transmute(networkname)) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1177,12 +1159,9 @@ pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256])
     unsafe { if_indextoname(interfaceindex, core::mem::transmute(interfacename.as_ptr())) }
 }
 #[inline]
-pub unsafe fn if_nametoindex<P0>(interfacename: P0) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn if_nametoindex(interfacename: windows_core::PCSTR) -> u32 {
     windows_core::link!("iphlpapi.dll" "system" fn if_nametoindex(interfacename : windows_core::PCSTR) -> u32);
-    unsafe { if_nametoindex(interfacename.param().abi()) }
+    unsafe { if_nametoindex(core::mem::transmute(interfacename)) }
 }
 pub const ANY_SIZE: u32 = 1u32;
 #[repr(C)]

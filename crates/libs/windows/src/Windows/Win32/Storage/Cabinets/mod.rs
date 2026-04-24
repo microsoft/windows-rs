@@ -1,11 +1,7 @@
 #[inline]
-pub unsafe fn FCIAddFile<P1, P2>(hfci: *const core::ffi::c_void, pszsourcefile: P1, pszfilename: P2, fexecute: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn FCIAddFile(hfci: *const core::ffi::c_void, pszsourcefile: windows_core::PCSTR, pszfilename: windows_core::PCSTR, fexecute: bool, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> windows_core::BOOL {
     windows_core::link!("cabinet.dll" "C" fn FCIAddFile(hfci : *const core::ffi::c_void, pszsourcefile : windows_core::PCSTR, pszfilename : windows_core::PCSTR, fexecute : windows_core::BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS, pfnfcigoi : PFNFCIGETOPENINFO, typecompress : u16) -> windows_core::BOOL);
-    unsafe { FCIAddFile(hfci, pszsourcefile.param().abi(), pszfilename.param().abi(), fexecute.into(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress) }
+    unsafe { FCIAddFile(hfci, core::mem::transmute(pszsourcefile), core::mem::transmute(pszfilename), fexecute.into(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress) }
 }
 #[inline]
 pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNFCIALLOC, pfnf: PFNFCIFREE, pfnopen: PFNFCIOPEN, pfnread: PFNFCIREAD, pfnwrite: PFNFCIWRITE, pfnclose: PFNFCICLOSE, pfnseek: PFNFCISEEK, pfndelete: PFNFCIDELETE, pfnfcigtf: PFNFCIGETTEMPFILE, pccab: *const CCAB, pv: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
@@ -28,13 +24,9 @@ pub unsafe fn FCIFlushFolder(hfci: *const core::ffi::c_void, pfnfcignc: PFNFCIGE
     unsafe { FCIFlushFolder(hfci, pfnfcignc, pfnfcis) }
 }
 #[inline]
-pub unsafe fn FDICopy<P1, P2>(hfdi: *const core::ffi::c_void, pszcabinet: P1, pszcabpath: P2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: Option<*const core::ffi::c_void>) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn FDICopy(hfdi: *const core::ffi::c_void, pszcabinet: windows_core::PCSTR, pszcabpath: windows_core::PCSTR, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("cabinet.dll" "C" fn FDICopy(hfdi : *const core::ffi::c_void, pszcabinet : windows_core::PCSTR, pszcabpath : windows_core::PCSTR, flags : i32, pfnfdin : PFNFDINOTIFY, pfnfdid : PFNFDIDECRYPT, pvuser : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { FDICopy(hfdi, pszcabinet.param().abi(), pszcabpath.param().abi(), flags, pfnfdin, pfnfdid, pvuser.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FDICopy(hfdi, core::mem::transmute(pszcabinet), core::mem::transmute(pszcabpath), flags, pfnfdin, pfnfdid, pvuser.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut core::ffi::c_void {
@@ -52,12 +44,9 @@ pub unsafe fn FDIIsCabinet(hfdi: *const core::ffi::c_void, hf: isize, pfdici: Op
     unsafe { FDIIsCabinet(hfdi, hf, pfdici.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FDITruncateCabinet<P1>(hfdi: *const core::ffi::c_void, pszcabinetname: P1, ifoldertodelete: u16) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn FDITruncateCabinet(hfdi: *const core::ffi::c_void, pszcabinetname: windows_core::PCSTR, ifoldertodelete: u16) -> windows_core::BOOL {
     windows_core::link!("cabinet.dll" "C" fn FDITruncateCabinet(hfdi : *const core::ffi::c_void, pszcabinetname : windows_core::PCSTR, ifoldertodelete : u16) -> windows_core::BOOL);
-    unsafe { FDITruncateCabinet(hfdi, pszcabinetname.param().abi(), ifoldertodelete) }
+    unsafe { FDITruncateCabinet(hfdi, core::mem::transmute(pszcabinetname), ifoldertodelete) }
 }
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;
 pub const CB_MAX_CAB_PATH: u32 = 256u32;

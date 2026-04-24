@@ -1,12 +1,9 @@
 #[inline]
-pub unsafe fn CreateDeviceAccessInstance<P0>(deviceinterfacepath: P0, desiredaccess: u32) -> windows_core::Result<ICreateDeviceAccessAsync>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CreateDeviceAccessInstance(deviceinterfacepath: windows_core::PCWSTR, desiredaccess: u32) -> windows_core::Result<ICreateDeviceAccessAsync> {
     windows_core::link!("deviceaccess.dll" "system" fn CreateDeviceAccessInstance(deviceinterfacepath : windows_core::PCWSTR, desiredaccess : u32, createasync : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDeviceAccessInstance(deviceinterfacepath.param().abi(), desiredaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateDeviceAccessInstance(core::mem::transmute(deviceinterfacepath), desiredaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 pub const CLSID_DeviceIoControl: windows_core::GUID = windows_core::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);

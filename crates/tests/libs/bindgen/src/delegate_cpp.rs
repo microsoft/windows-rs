@@ -12,12 +12,9 @@ pub unsafe fn EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM) -> windows_co
     unsafe { EnumWindows(lpenumfunc, lparam).ok() }
 }
 #[inline]
-pub unsafe fn GetProcAddress<P1>(hmodule: HMODULE, lpprocname: P1) -> FARPROC
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn GetProcAddress(hmodule: HMODULE, lpprocname: windows_core::PCSTR) -> FARPROC {
     windows_core::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : windows_core::PCSTR) -> FARPROC);
-    unsafe { GetProcAddress(hmodule, lpprocname.param().abi()) }
+    unsafe { GetProcAddress(hmodule, core::mem::transmute(lpprocname)) }
 }
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(transparent)]

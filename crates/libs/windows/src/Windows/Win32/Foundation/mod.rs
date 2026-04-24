@@ -65,12 +65,9 @@ pub unsafe fn SysAddRefString(bstrstring: &windows_core::BSTR) -> windows_core::
     unsafe { SysAddRefString(core::mem::transmute_copy(bstrstring)).ok() }
 }
 #[inline]
-pub unsafe fn SysAllocString<P0>(psz: P0) -> windows_core::BSTR
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SysAllocString(psz: Option<windows_core::PCWSTR>) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocString(psz : windows_core::PCWSTR) -> windows_core::BSTR);
-    unsafe { SysAllocString(psz.param().abi()) }
+    unsafe { SysAllocString(psz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SysAllocStringByteLen(psz: Option<&[u8]>) -> windows_core::BSTR {
@@ -88,20 +85,14 @@ pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
     unsafe { SysFreeString(core::mem::transmute_copy(bstrstring)) }
 }
 #[inline]
-pub unsafe fn SysReAllocString<P1>(pbstr: *mut windows_core::BSTR, psz: P1) -> i32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SysReAllocString(pbstr: *mut windows_core::BSTR, psz: Option<windows_core::PCWSTR>) -> i32 {
     windows_core::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR) -> i32);
-    unsafe { SysReAllocString(core::mem::transmute(pbstr), psz.param().abi()) }
+    unsafe { SysReAllocString(core::mem::transmute(pbstr), psz.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SysReAllocStringLen<P1>(pbstr: *mut windows_core::BSTR, psz: P1, len: u32) -> i32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SysReAllocStringLen(pbstr: *mut windows_core::BSTR, psz: Option<windows_core::PCWSTR>, len: u32) -> i32 {
     windows_core::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR, len : u32) -> i32);
-    unsafe { SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), len) }
+    unsafe { SysReAllocStringLen(core::mem::transmute(pbstr), psz.unwrap_or(core::mem::zeroed()) as _, len) }
 }
 #[inline]
 pub unsafe fn SysReleaseString(bstrstring: &windows_core::BSTR) {

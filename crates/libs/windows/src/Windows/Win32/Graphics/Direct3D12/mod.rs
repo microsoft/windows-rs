@@ -10578,14 +10578,13 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).CreateReservedResource)(windows_core::Interface::as_raw(self), pdesc, initialstate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn CreateSharedHandle<P0, P3>(&self, pobject: P0, pattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, access: u32, name: P3) -> windows_core::Result<super::super::Foundation::HANDLE>
+    pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, pattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, access: u32, name: Option<windows_core::PCWSTR>) -> windows_core::Result<super::super::Foundation::HANDLE>
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), pattributes.unwrap_or(core::mem::zeroed()) as _, access, name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), pattributes.unwrap_or(core::mem::zeroed()) as _, access, name.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn OpenSharedHandle<T>(&self, nthandle: super::super::Foundation::HANDLE, result__: *mut Option<T>) -> windows_core::Result<()>
@@ -10594,13 +10593,10 @@ impl ID3D12Device {
     {
         unsafe { (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn OpenSharedHandleByName<P0>(&self, name: P0, access: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn OpenSharedHandleByName(&self, name: windows_core::PCWSTR, access: u32) -> windows_core::Result<super::super::Foundation::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), name.param().abi(), access, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name), access, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::Result<()> {
@@ -11394,13 +11390,12 @@ impl core::ops::Deref for ID3D12Device14 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device14, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11, ID3D12Device12, ID3D12Device13);
 impl ID3D12Device14 {
-    pub unsafe fn CreateRootSignatureFromSubobjectInLibrary<P3, T>(&self, nodemask: u32, plibraryblob: &[u8], subobjectname: P3) -> windows_core::Result<T>
+    pub unsafe fn CreateRootSignatureFromSubobjectInLibrary<T>(&self, nodemask: u32, plibraryblob: &[u8], subobjectname: Option<windows_core::PCWSTR>) -> windows_core::Result<T>
     where
-        P3: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateRootSignatureFromSubobjectInLibrary)(windows_core::Interface::as_raw(self), nodemask, core::mem::transmute(plibraryblob.as_ptr()), plibraryblob.len().try_into().unwrap(), subobjectname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateRootSignatureFromSubobjectInLibrary)(windows_core::Interface::as_raw(self), nodemask, core::mem::transmute(plibraryblob.as_ptr()), plibraryblob.len().try_into().unwrap(), subobjectname.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -12310,13 +12305,12 @@ impl core::ops::Deref for ID3D12DeviceConfiguration1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceConfiguration1, windows_core::IUnknown, ID3D12DeviceConfiguration);
 impl ID3D12DeviceConfiguration1 {
-    pub unsafe fn CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary<P2, T>(&self, plibraryblob: *const core::ffi::c_void, size: usize, rootsignaturesubobjectname: P2) -> windows_core::Result<T>
+    pub unsafe fn CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary<T>(&self, plibraryblob: *const core::ffi::c_void, size: usize, rootsignaturesubobjectname: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P2: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary)(windows_core::Interface::as_raw(self), plibraryblob, size, rootsignaturesubobjectname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary)(windows_core::Interface::as_raw(self), plibraryblob, size, core::mem::transmute(rootsignaturesubobjectname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -13075,28 +13069,19 @@ impl ID3D12FunctionReflection {
     pub unsafe fn GetConstantBufferByIndex(&self, bufferindex: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
         unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByIndex)(windows_core::Interface::as_raw(self), bufferindex) }
     }
-    pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionConstantBuffer>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    pub unsafe fn GetConstantBufferByName(&self, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDesc)(windows_core::Interface::as_raw(self), resourceindex, pdesc as _).ok() }
     }
-    pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    pub unsafe fn GetVariableByName(&self, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable> {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), name.param().abi(), pdesc as _).ok() }
+    pub unsafe fn GetResourceBindingDescByName(&self, name: windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name), pdesc as _).ok() }
     }
     pub unsafe fn GetFunctionParameter(&self, parameterindex: i32) -> Option<ID3D12FunctionParameterReflection> {
         unsafe { (windows_core::Interface::vtable(self).GetFunctionParameter)(windows_core::Interface::as_raw(self), parameterindex) }
@@ -14932,17 +14917,11 @@ impl ID3D12InfoQueue {
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn AddMessage<P3>(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: P3) -> windows_core::Result<()>
-    where
-        P3: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), category, severity, id, pdescription.param().abi()).ok() }
+    pub unsafe fn AddMessage(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: windows_core::PCSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), category, severity, id, core::mem::transmute(pdescription)).ok() }
     }
-    pub unsafe fn AddApplicationMessage<P1>(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, pdescription.param().abi()).ok() }
+    pub unsafe fn AddApplicationMessage(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: windows_core::PCSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, core::mem::transmute(pdescription)).ok() }
     }
     pub unsafe fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), category, benable.into()).ok() }
@@ -15577,11 +15556,8 @@ impl ID3D12Object {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, pdata.param().abi()).ok() }
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok() }
+    pub unsafe fn SetName(&self, name: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)).ok() }
     }
 }
 #[repr(C)]
@@ -15716,29 +15692,26 @@ impl core::ops::Deref for ID3D12PipelineLibrary {
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ID3D12PipelineLibrary {
-    pub unsafe fn StorePipeline<P0, P1>(&self, pname: P0, ppipeline: P1) -> windows_core::Result<()>
+    pub unsafe fn StorePipeline<P1>(&self, pname: Option<windows_core::PCWSTR>, ppipeline: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ID3D12PipelineState>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StorePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), ppipeline.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StorePipeline)(windows_core::Interface::as_raw(self), pname.unwrap_or(core::mem::zeroed()) as _, ppipeline.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn LoadGraphicsPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_core::Result<T>
+    pub unsafe fn LoadGraphicsPipeline<T>(&self, pname: windows_core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), core::mem::transmute(pname), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn LoadComputePipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
+    pub unsafe fn LoadComputePipeline<T>(&self, pname: windows_core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), core::mem::transmute(pname), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
         unsafe { (windows_core::Interface::vtable(self).GetSerializedSize)(windows_core::Interface::as_raw(self)) }
@@ -15827,13 +15800,12 @@ impl core::ops::Deref for ID3D12PipelineLibrary1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12PipelineLibrary);
 impl ID3D12PipelineLibrary1 {
-    pub unsafe fn LoadPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> windows_core::Result<T>
+    pub unsafe fn LoadPipeline<T>(&self, pname: windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadPipeline)(windows_core::Interface::as_raw(self), core::mem::transmute(pname), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -16415,11 +16387,8 @@ impl windows_core::RuntimeName for ID3D12RootSignatureDeserializer {}
 windows_core::imp::define_interface!(ID3D12SDKConfiguration, ID3D12SDKConfiguration_Vtbl, 0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration, windows_core::IUnknown);
 impl ID3D12SDKConfiguration {
-    pub unsafe fn SetSDKVersion<P1>(&self, sdkversion: u32, sdkpath: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSDKVersion)(windows_core::Interface::as_raw(self), sdkversion, sdkpath.param().abi()).ok() }
+    pub unsafe fn SetSDKVersion(&self, sdkversion: u32, sdkpath: windows_core::PCSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSDKVersion)(windows_core::Interface::as_raw(self), sdkversion, core::mem::transmute(sdkpath)).ok() }
     }
 }
 #[repr(C)]
@@ -16457,13 +16426,12 @@ impl core::ops::Deref for ID3D12SDKConfiguration1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration1, windows_core::IUnknown, ID3D12SDKConfiguration);
 impl ID3D12SDKConfiguration1 {
-    pub unsafe fn CreateDeviceFactory<P1, T>(&self, sdkversion: u32, sdkpath: P1) -> windows_core::Result<T>
+    pub unsafe fn CreateDeviceFactory<T>(&self, sdkversion: u32, sdkpath: windows_core::PCSTR) -> windows_core::Result<T>
     where
-        P1: windows_core::Param<windows_core::PCSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateDeviceFactory)(windows_core::Interface::as_raw(self), sdkversion, sdkpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDeviceFactory)(windows_core::Interface::as_raw(self), sdkversion, core::mem::transmute(sdkpath), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn FreeUnusedSDKs(&self) {
         unsafe { (windows_core::Interface::vtable(self).FreeUnusedSDKs)(windows_core::Interface::as_raw(self)) }
@@ -16599,11 +16567,8 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
         unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionConstantBuffer>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    pub unsafe fn GetConstantBufferByName(&self, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
@@ -16621,18 +16586,12 @@ impl ID3D12ShaderReflection {
     pub unsafe fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPatchConstantParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _).ok() }
     }
-    pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    pub unsafe fn GetVariableByName(&self, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable> {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), name.param().abi(), pdesc as _).ok() }
+    pub unsafe fn GetResourceBindingDescByName(&self, name: windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name), pdesc as _).ok() }
     }
     pub unsafe fn GetMovInstructionCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetMovInstructionCount)(windows_core::Interface::as_raw(self)) }
@@ -16903,11 +16862,8 @@ impl ID3D12ShaderReflectionConstantBuffer {
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionVariable> {
         unsafe { (windows_core::Interface::vtable(self).GetVariableByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    pub unsafe fn GetVariableByName(&self, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable> {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)) }
     }
 }
 #[repr(C)]
@@ -16978,11 +16934,8 @@ impl ID3D12ShaderReflectionType {
     pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionType> {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByIndex)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionType>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    pub unsafe fn GetMemberTypeByName(&self, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionType> {
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name)) }
     }
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> windows_core::PCSTR {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeName)(windows_core::Interface::as_raw(self), index) }
@@ -17459,13 +17412,12 @@ impl windows_core::RuntimeName for ID3D12StateObjectDatabase {}
 windows_core::imp::define_interface!(ID3D12StateObjectDatabaseFactory, ID3D12StateObjectDatabaseFactory_Vtbl, 0xf5b066f0_648a_4611_bd41_27fd0948b9eb);
 windows_core::imp::interface_hierarchy!(ID3D12StateObjectDatabaseFactory, windows_core::IUnknown);
 impl ID3D12StateObjectDatabaseFactory {
-    pub unsafe fn CreateStateObjectDatabaseFromFile<P0, T>(&self, pdatabasefile: P0, flags: D3D12_STATE_OBJECT_DATABASE_FLAGS) -> windows_core::Result<T>
+    pub unsafe fn CreateStateObjectDatabaseFromFile<T>(&self, pdatabasefile: windows_core::PCWSTR, flags: D3D12_STATE_OBJECT_DATABASE_FLAGS) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateStateObjectDatabaseFromFile)(windows_core::Interface::as_raw(self), pdatabasefile.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateStateObjectDatabaseFromFile)(windows_core::Interface::as_raw(self), core::mem::transmute(pdatabasefile), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -17500,17 +17452,11 @@ impl windows_core::RuntimeName for ID3D12StateObjectDatabaseFactory {}
 windows_core::imp::define_interface!(ID3D12StateObjectProperties, ID3D12StateObjectProperties_Vtbl, 0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
 windows_core::imp::interface_hierarchy!(ID3D12StateObjectProperties, windows_core::IUnknown);
 impl ID3D12StateObjectProperties {
-    pub unsafe fn GetShaderIdentifier<P0>(&self, pexportname: P0) -> *mut core::ffi::c_void
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetShaderIdentifier)(windows_core::Interface::as_raw(self), pexportname.param().abi()) }
+    pub unsafe fn GetShaderIdentifier(&self, pexportname: windows_core::PCWSTR) -> *mut core::ffi::c_void {
+        unsafe { (windows_core::Interface::vtable(self).GetShaderIdentifier)(windows_core::Interface::as_raw(self), core::mem::transmute(pexportname)) }
     }
-    pub unsafe fn GetShaderStackSize<P0>(&self, pexportname: P0) -> u64
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetShaderStackSize)(windows_core::Interface::as_raw(self), pexportname.param().abi()) }
+    pub unsafe fn GetShaderStackSize(&self, pexportname: windows_core::PCWSTR) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetShaderStackSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pexportname)) }
     }
     pub unsafe fn GetPipelineStackSize(&self) -> u64 {
         unsafe { (windows_core::Interface::vtable(self).GetPipelineStackSize)(windows_core::Interface::as_raw(self)) }
@@ -17584,13 +17530,10 @@ impl core::ops::Deref for ID3D12StateObjectProperties1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12StateObjectProperties1, windows_core::IUnknown, ID3D12StateObjectProperties);
 impl ID3D12StateObjectProperties1 {
-    pub unsafe fn GetProgramIdentifier<P0>(&self, pprogramname: P0) -> D3D12_PROGRAM_IDENTIFIER
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetProgramIdentifier(&self, pprogramname: windows_core::PCWSTR) -> D3D12_PROGRAM_IDENTIFIER {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProgramIdentifier)(windows_core::Interface::as_raw(self), &mut result__, pprogramname.param().abi());
+            (windows_core::Interface::vtable(self).GetProgramIdentifier)(windows_core::Interface::as_raw(self), &mut result__, core::mem::transmute(pprogramname));
             result__
         }
     }
@@ -17630,21 +17573,19 @@ impl core::ops::Deref for ID3D12StateObjectProperties2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12StateObjectProperties2, windows_core::IUnknown, ID3D12StateObjectProperties, ID3D12StateObjectProperties1);
 impl ID3D12StateObjectProperties2 {
-    pub unsafe fn GetGlobalRootSignatureForProgram<P0, T>(&self, pprogramname: P0) -> windows_core::Result<T>
+    pub unsafe fn GetGlobalRootSignatureForProgram<T>(&self, pprogramname: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetGlobalRootSignatureForProgram)(windows_core::Interface::as_raw(self), pprogramname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetGlobalRootSignatureForProgram)(windows_core::Interface::as_raw(self), core::mem::transmute(pprogramname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetGlobalRootSignatureForShader<P0, T>(&self, pexportname: P0) -> windows_core::Result<T>
+    pub unsafe fn GetGlobalRootSignatureForShader<T>(&self, pexportname: windows_core::PCWSTR) -> windows_core::Result<T>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetGlobalRootSignatureForShader)(windows_core::Interface::as_raw(self), pexportname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetGlobalRootSignatureForShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pexportname), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -18059,11 +18000,8 @@ impl ID3D12WorkGraphProperties {
     pub unsafe fn GetProgramName(&self, workgraphindex: u32) -> windows_core::PCWSTR {
         unsafe { (windows_core::Interface::vtable(self).GetProgramName)(windows_core::Interface::as_raw(self), workgraphindex) }
     }
-    pub unsafe fn GetWorkGraphIndex<P0>(&self, pprogramname: P0) -> u32
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetWorkGraphIndex)(windows_core::Interface::as_raw(self), pprogramname.param().abi()) }
+    pub unsafe fn GetWorkGraphIndex(&self, pprogramname: windows_core::PCWSTR) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetWorkGraphIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(pprogramname)) }
     }
     pub unsafe fn GetNumNodes(&self, workgraphindex: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNumNodes)(windows_core::Interface::as_raw(self), workgraphindex) }

@@ -1849,14 +1849,10 @@ impl IConsole {
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), data, hint).ok() }
     }
-    pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn MessageBox(&self, lpsztext: windows_core::PCWSTR, lpsztitle: windows_core::PCWSTR, fustyle: u32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MessageBox)(windows_core::Interface::as_raw(self), lpsztext.param().abi(), lpsztitle.param().abi(), fustyle, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MessageBox)(windows_core::Interface::as_raw(self), core::mem::transmute(lpsztext), core::mem::transmute(lpsztitle), fustyle, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn QueryConsoleVerb(&self) -> windows_core::Result<IConsoleVerb> {
@@ -2052,11 +2048,8 @@ impl IConsole2 {
     pub unsafe fn IsTaskpadViewPreferred(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsTaskpadViewPreferred)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetStatusText<P0>(&self, pszstatustext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetStatusText)(windows_core::Interface::as_raw(self), pszstatustext.param().abi()).ok() }
+    pub unsafe fn SetStatusText(&self, pszstatustext: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetStatusText)(windows_core::Interface::as_raw(self), core::mem::transmute(pszstatustext)).ok() }
     }
 }
 #[repr(C)]
@@ -2719,11 +2712,8 @@ impl windows_core::RuntimeName for IControlbar {}
 windows_core::imp::define_interface!(IDisplayHelp, IDisplayHelp_Vtbl, 0xcc593830_b926_11d1_8063_0000f875a9ce);
 windows_core::imp::interface_hierarchy!(IDisplayHelp, windows_core::IUnknown);
 impl IDisplayHelp {
-    pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).ShowTopic)(windows_core::Interface::as_raw(self), pszhelptopic.param().abi()).ok() }
+    pub unsafe fn ShowTopic(&self, pszhelptopic: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ShowTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelptopic)).ok() }
     }
 }
 #[repr(C)]
@@ -3064,50 +3054,37 @@ impl IExtendTaskPad {
         unsafe { (windows_core::Interface::vtable(self).TaskNotify)(windows_core::Interface::as_raw(self), pdo.param().abi(), core::mem::transmute(arg), core::mem::transmute(param2)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumTasks<P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> windows_core::Result<IEnumTASK>
+    pub unsafe fn EnumTasks<P0>(&self, pdo: P0, sztaskgroup: windows_core::PCWSTR) -> windows_core::Result<IEnumTASK>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumTasks)(windows_core::Interface::as_raw(self), pdo.param().abi(), sztaskgroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumTasks)(windows_core::Interface::as_raw(self), pdo.param().abi(), core::mem::transmute(sztaskgroup), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetTitle<P0>(&self, pszgroup: P0) -> windows_core::Result<windows_core::PWSTR>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetTitle(&self, pszgroup: windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(pszgroup), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDescriptiveText<P0>(&self, pszgroup: P0) -> windows_core::Result<windows_core::PWSTR>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetDescriptiveText(&self, pszgroup: windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDescriptiveText)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetDescriptiveText)(windows_core::Interface::as_raw(self), core::mem::transmute(pszgroup), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetBackground<P0>(&self, pszgroup: P0) -> windows_core::Result<MMC_TASK_DISPLAY_OBJECT>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetBackground(&self, pszgroup: windows_core::PCWSTR) -> windows_core::Result<MMC_TASK_DISPLAY_OBJECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBackground)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetBackground)(windows_core::Interface::as_raw(self), core::mem::transmute(pszgroup), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetListPadInfo<P0>(&self, pszgroup: P0) -> windows_core::Result<MMC_LISTPAD_INFO>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetListPadInfo(&self, pszgroup: windows_core::PCWSTR) -> windows_core::Result<MMC_LISTPAD_INFO> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetListPadInfo)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetListPadInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pszgroup), &mut result__).map(|| result__)
         }
     }
 }
@@ -3267,20 +3244,14 @@ impl windows_core::RuntimeName for IExtendView {}
 windows_core::imp::define_interface!(IHeaderCtrl, IHeaderCtrl_Vtbl, 0x43136eb3_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IHeaderCtrl, windows_core::IUnknown);
 impl IHeaderCtrl {
-    pub unsafe fn InsertColumn<P1>(&self, ncol: i32, title: P1, nformat: i32, nwidth: i32) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).InsertColumn)(windows_core::Interface::as_raw(self), ncol, title.param().abi(), nformat, nwidth).ok() }
+    pub unsafe fn InsertColumn(&self, ncol: i32, title: windows_core::PCWSTR, nformat: i32, nwidth: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).InsertColumn)(windows_core::Interface::as_raw(self), ncol, core::mem::transmute(title), nformat, nwidth).ok() }
     }
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteColumn)(windows_core::Interface::as_raw(self), ncol).ok() }
     }
-    pub unsafe fn SetColumnText<P1>(&self, ncol: i32, title: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnText)(windows_core::Interface::as_raw(self), ncol, title.param().abi()).ok() }
+    pub unsafe fn SetColumnText(&self, ncol: i32, title: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnText)(windows_core::Interface::as_raw(self), ncol, core::mem::transmute(title)).ok() }
     }
     pub unsafe fn GetColumnText(&self, ncol: i32) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3528,19 +3499,11 @@ impl windows_core::RuntimeName for IMMCVersionInfo {}
 windows_core::imp::define_interface!(IMenuButton, IMenuButton_Vtbl, 0x951ed750_d080_11d0_b197_000000000000);
 windows_core::imp::interface_hierarchy!(IMenuButton, windows_core::IUnknown);
 impl IMenuButton {
-    pub unsafe fn AddButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok() }
+    pub unsafe fn AddButton(&self, idcommand: i32, lpbuttontext: windows_core::PCWSTR, lptooltiptext: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), idcommand, core::mem::transmute(lpbuttontext), core::mem::transmute(lptooltiptext)).ok() }
     }
-    pub unsafe fn SetButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok() }
+    pub unsafe fn SetButton(&self, idcommand: i32, lpbuttontext: windows_core::PCWSTR, lptooltiptext: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), idcommand, core::mem::transmute(lpbuttontext), core::mem::transmute(lptooltiptext)).ok() }
     }
     pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, bstate.into()).ok() }
@@ -3594,17 +3557,11 @@ impl windows_core::RuntimeName for IMenuButton {}
 windows_core::imp::define_interface!(IMessageView, IMessageView_Vtbl, 0x80f94174_fccc_11d2_b991_00c04f8ecd78);
 windows_core::imp::interface_hierarchy!(IMessageView, windows_core::IUnknown);
 impl IMessageView {
-    pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetTitleText)(windows_core::Interface::as_raw(self), psztitletext.param().abi()).ok() }
+    pub unsafe fn SetTitleText(&self, psztitletext: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetTitleText)(windows_core::Interface::as_raw(self), core::mem::transmute(psztitletext)).ok() }
     }
-    pub unsafe fn SetBodyText<P0>(&self, pszbodytext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetBodyText)(windows_core::Interface::as_raw(self), pszbodytext.param().abi()).ok() }
+    pub unsafe fn SetBodyText(&self, pszbodytext: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetBodyText)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbodytext)).ok() }
     }
     pub unsafe fn SetIcon(&self, id: IconIdentifier) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), id).ok() }
@@ -3775,12 +3732,11 @@ windows_core::imp::define_interface!(IPropertySheetProvider, IPropertySheetProvi
 windows_core::imp::interface_hierarchy!(IPropertySheetProvider, windows_core::IUnknown);
 impl IPropertySheetProvider {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePropertySheet<P0, P3>(&self, title: P0, r#type: u8, cookie: isize, pidataobjectm: P3, dwoptions: u32) -> windows_core::Result<()>
+    pub unsafe fn CreatePropertySheet<P3>(&self, title: windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: P3, dwoptions: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheet)(windows_core::Interface::as_raw(self), title.param().abi(), r#type, cookie, pidataobjectm.param().abi(), dwoptions).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheet)(windows_core::Interface::as_raw(self), core::mem::transmute(title), r#type, cookie, pidataobjectm.param().abi(), dwoptions).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindPropertySheet<P1, P2>(&self, hitem: isize, lpcomponent: P1, lpdataobject: P2) -> windows_core::Result<()>
@@ -3999,11 +3955,8 @@ impl IResultData {
     pub unsafe fn Sort(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), ncolumn, dwsortoptions, luserparam).ok() }
     }
-    pub unsafe fn SetDescBarText<P0>(&self, desctext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDescBarText)(windows_core::Interface::as_raw(self), desctext.param().abi()).ok() }
+    pub unsafe fn SetDescBarText(&self, desctext: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetDescBarText)(windows_core::Interface::as_raw(self), core::mem::transmute(desctext)).ok() }
     }
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetItemCount)(windows_core::Interface::as_raw(self), nitemcount, dwoptions).ok() }
@@ -4642,11 +4595,8 @@ impl windows_core::RuntimeName for ISnapinProperties {}
 windows_core::imp::define_interface!(ISnapinPropertiesCallback, ISnapinPropertiesCallback_Vtbl, 0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
 windows_core::imp::interface_hierarchy!(ISnapinPropertiesCallback, windows_core::IUnknown);
 impl ISnapinPropertiesCallback {
-    pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyName)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), dwflags).ok() }
+    pub unsafe fn AddPropertyName(&self, pszpropname: windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpropname), dwflags).ok() }
     }
 }
 #[repr(C)]
@@ -4676,13 +4626,10 @@ impl windows_core::RuntimeName for ISnapinPropertiesCallback {}
 windows_core::imp::define_interface!(IStringTable, IStringTable_Vtbl, 0xde40b7a4_0f65_11d2_8e25_00c04f8ecd78);
 windows_core::imp::interface_hierarchy!(IStringTable, windows_core::IUnknown);
 impl IStringTable {
-    pub unsafe fn AddString<P0>(&self, pszadd: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn AddString(&self, pszadd: windows_core::PCWSTR) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), pszadd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), core::mem::transmute(pszadd), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> windows_core::Result<()> {
@@ -4700,13 +4647,10 @@ impl IStringTable {
     pub unsafe fn DeleteAllStrings(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteAllStrings)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn FindString<P0>(&self, pszfind: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn FindString(&self, pszfind: windows_core::PCWSTR) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindString)(windows_core::Interface::as_raw(self), pszfind.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).FindString)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfind), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]

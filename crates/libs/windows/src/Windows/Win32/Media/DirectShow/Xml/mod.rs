@@ -16,13 +16,11 @@ impl IXMLGraphBuilder {
     {
         unsafe { (windows_core::Interface::vtable(self).SaveToXML)(windows_core::Interface::as_raw(self), pgraph.param().abi(), core::mem::transmute(pbstrxml)).ok() }
     }
-    pub unsafe fn BuildFromXMLFile<P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> windows_core::Result<()>
+    pub unsafe fn BuildFromXMLFile<P0>(&self, pgraph: P0, wszfilename: windows_core::PCWSTR, wszbaseurl: windows_core::PCWSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IGraphBuilder>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BuildFromXMLFile)(windows_core::Interface::as_raw(self), pgraph.param().abi(), wszfilename.param().abi(), wszbaseurl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BuildFromXMLFile)(windows_core::Interface::as_raw(self), pgraph.param().abi(), core::mem::transmute(wszfilename), core::mem::transmute(wszbaseurl)).ok() }
     }
 }
 #[repr(C)]

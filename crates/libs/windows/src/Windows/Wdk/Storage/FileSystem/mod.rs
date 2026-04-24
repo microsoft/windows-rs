@@ -882,20 +882,14 @@ pub unsafe fn FsRtlIsMobileOS() -> bool {
     unsafe { FsRtlIsMobileOS() }
 }
 #[inline]
-pub unsafe fn FsRtlIsNameInExpression<P3>(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: bool, upcasetable: P3) -> bool
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FsRtlIsNameInExpression(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: bool, upcasetable: Option<windows_core::PCWSTR>) -> bool {
     windows_core::link!("ntoskrnl.exe" "system" fn FsRtlIsNameInExpression(expression : *const super::super::super::Win32::Foundation:: UNICODE_STRING, name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, ignorecase : bool, upcasetable : windows_core::PCWSTR) -> bool);
-    unsafe { FsRtlIsNameInExpression(expression, name, ignorecase, upcasetable.param().abi()) }
+    unsafe { FsRtlIsNameInExpression(expression, name, ignorecase, upcasetable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FsRtlIsNameInUnUpcasedExpression<P3>(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: bool, upcasetable: P3) -> bool
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FsRtlIsNameInUnUpcasedExpression(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: bool, upcasetable: Option<windows_core::PCWSTR>) -> bool {
     windows_core::link!("ntoskrnl.exe" "system" fn FsRtlIsNameInUnUpcasedExpression(expression : *const super::super::super::Win32::Foundation:: UNICODE_STRING, name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, ignorecase : bool, upcasetable : windows_core::PCWSTR) -> bool);
-    unsafe { FsRtlIsNameInUnUpcasedExpression(expression, name, ignorecase, upcasetable.param().abi()) }
+    unsafe { FsRtlIsNameInUnUpcasedExpression(expression, name, ignorecase, upcasetable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn FsRtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: u32) -> bool {
@@ -1692,12 +1686,9 @@ pub unsafe fn IoReleaseVpbSpinLock(irql: u8) {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReplaceFileObjectName<P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, newfilename: P1, filenamelength: u16) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn IoReplaceFileObjectName(fileobject: *const super::super::Foundation::FILE_OBJECT, newfilename: windows_core::PCWSTR, filenamelength: u16) -> windows_core::NTSTATUS {
     windows_core::link!("ntoskrnl.exe" "system" fn IoReplaceFileObjectName(fileobject : *const super::super::Foundation:: FILE_OBJECT, newfilename : windows_core::PCWSTR, filenamelength : u16) -> windows_core:: NTSTATUS);
-    unsafe { IoReplaceFileObjectName(fileobject, newfilename.param().abi(), filenamelength) }
+    unsafe { IoReplaceFileObjectName(fileobject, core::mem::transmute(newfilename), filenamelength) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -2657,12 +2648,9 @@ pub unsafe fn RtlCreateSystemVolumeInformationFolder(volumerootpath: *const supe
     unsafe { RtlCreateSystemVolumeInformationFolder(volumerootpath) }
 }
 #[inline]
-pub unsafe fn RtlCreateUnicodeString<P1>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P1) -> bool
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlCreateUnicodeString(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: windows_core::PCWSTR) -> bool {
     windows_core::link!("ntdll.dll" "system" fn RtlCreateUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : windows_core::PCWSTR) -> bool);
-    unsafe { RtlCreateUnicodeString(destinationstring as _, sourcestring.param().abi()) }
+    unsafe { RtlCreateUnicodeString(destinationstring as _, core::mem::transmute(sourcestring)) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2722,12 +2710,9 @@ pub unsafe fn RtlDestroyHeap(heaphandle: *const core::ffi::c_void) -> *mut core:
     unsafe { RtlDestroyHeap(heaphandle) }
 }
 #[inline]
-pub unsafe fn RtlDosPathNameToNtPathName_U_WithStatus<P0>(dosfilename: P0, ntfilename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, filepart: Option<*mut windows_core::PWSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlDosPathNameToNtPathName_U_WithStatus(dosfilename: windows_core::PCWSTR, ntfilename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, filepart: Option<*mut windows_core::PWSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDosPathNameToNtPathName_U_WithStatus(dosfilename : windows_core::PCWSTR, ntfilename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, filepart : *mut windows_core::PWSTR, reserved : *const core::ffi::c_void) -> windows_core:: NTSTATUS);
-    unsafe { RtlDosPathNameToNtPathName_U_WithStatus(dosfilename.param().abi(), ntfilename as _, filepart.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlDosPathNameToNtPathName_U_WithStatus(core::mem::transmute(dosfilename), ntfilename as _, filepart.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlDowncaseUnicodeString(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
@@ -2815,28 +2800,19 @@ pub unsafe fn RtlIdentifierAuthoritySid(sid: super::super::super::Win32::Securit
     unsafe { RtlIdentifierAuthoritySid(sid) }
 }
 #[inline]
-pub unsafe fn RtlIdnToAscii<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlIdnToAscii(flags: u32, sourcestring: windows_core::PCWSTR, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlIdnToAscii(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core:: NTSTATUS);
-    unsafe { RtlIdnToAscii(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlIdnToAscii(flags, core::mem::transmute(sourcestring), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
 }
 #[inline]
-pub unsafe fn RtlIdnToNameprepUnicode<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlIdnToNameprepUnicode(flags: u32, sourcestring: windows_core::PCWSTR, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlIdnToNameprepUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core:: NTSTATUS);
-    unsafe { RtlIdnToNameprepUnicode(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlIdnToNameprepUnicode(flags, core::mem::transmute(sourcestring), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
 }
 #[inline]
-pub unsafe fn RtlIdnToUnicode<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlIdnToUnicode(flags: u32, sourcestring: windows_core::PCWSTR, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlIdnToUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core:: NTSTATUS);
-    unsafe { RtlIdnToUnicode(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlIdnToUnicode(flags, core::mem::transmute(sourcestring), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
 }
 #[inline]
 pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: *mut CPTABLEINFO) {
@@ -2844,12 +2820,9 @@ pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: 
     unsafe { RtlInitCodePageTable(core::mem::transmute(tablebase.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable as _) }
 }
 #[inline]
-pub unsafe fn RtlInitUnicodeStringEx<P1>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P1) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlInitUnicodeStringEx(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: Option<windows_core::PCWSTR>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : windows_core::PCWSTR) -> windows_core:: NTSTATUS);
-    unsafe { RtlInitUnicodeStringEx(destinationstring as _, sourcestring.param().abi()) }
+    unsafe { RtlInitUnicodeStringEx(destinationstring as _, sourcestring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2885,12 +2858,9 @@ pub unsafe fn RtlIsCloudFilesPlaceholder(fileattributes: u32, reparsetag: u32) -
     unsafe { RtlIsCloudFilesPlaceholder(fileattributes, reparsetag) }
 }
 #[inline]
-pub unsafe fn RtlIsDosDeviceName_U<P0>(dosfilename: P0) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlIsDosDeviceName_U(dosfilename: windows_core::PCWSTR) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIsDosDeviceName_U(dosfilename : windows_core::PCWSTR) -> u32);
-    unsafe { RtlIsDosDeviceName_U(dosfilename.param().abi()) }
+    unsafe { RtlIsDosDeviceName_U(core::mem::transmute(dosfilename)) }
 }
 #[inline]
 pub unsafe fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: u32) -> bool {
@@ -2898,12 +2868,9 @@ pub unsafe fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: u32) -> bool
     unsafe { RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag) }
 }
 #[inline]
-pub unsafe fn RtlIsNormalizedString<P1>(normform: u32, sourcestring: P1, sourcestringlength: i32, normalized: *mut bool) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlIsNormalizedString(normform: u32, sourcestring: windows_core::PCWSTR, sourcestringlength: i32, normalized: *mut bool) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlIsNormalizedString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, normalized : *mut bool) -> windows_core:: NTSTATUS);
-    unsafe { RtlIsNormalizedString(normform, sourcestring.param().abi(), sourcestringlength, normalized as _) }
+    unsafe { RtlIsNormalizedString(normform, core::mem::transmute(sourcestring), sourcestringlength, normalized as _) }
 }
 #[inline]
 pub unsafe fn RtlIsPartialPlaceholder(fileattributes: u32, reparsetag: u32) -> bool {
@@ -2959,12 +2926,9 @@ pub unsafe fn RtlNextUnicodePrefix(prefixtable: *const UNICODE_PREFIX_TABLE, res
     unsafe { RtlNextUnicodePrefix(prefixtable, restart) }
 }
 #[inline]
-pub unsafe fn RtlNormalizeString<P1>(normform: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlNormalizeString(normform: u32, sourcestring: windows_core::PCWSTR, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlNormalizeString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core:: NTSTATUS);
-    unsafe { RtlNormalizeString(normform, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlNormalizeString(normform, core::mem::transmute(sourcestring), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
 }
 #[inline]
 pub unsafe fn RtlNtStatusToDosErrorNoTeb(status: windows_core::NTSTATUS) -> u32 {
@@ -3111,12 +3075,9 @@ pub unsafe fn RtlUnicodeStringToCountedOemString(destinationstring: *mut super::
     unsafe { RtlUnicodeStringToCountedOemString(destinationstring as _, sourcestring, allocatedestinationstring) }
 }
 #[inline]
-pub unsafe fn RtlUnicodeToCustomCPN<P4>(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: P4, bytesinunicodestring: u32) -> windows_core::NTSTATUS
-where
-    P4: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlUnicodeToCustomCPN(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: windows_core::PCWSTR, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const CPTABLEINFO, customcpstring : windows_core::PSTR, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32) -> windows_core:: NTSTATUS);
-    unsafe { RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring.param().abi(), bytesinunicodestring) }
+    unsafe { RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(unicodestring), bytesinunicodestring) }
 }
 #[inline]
 pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
@@ -3141,12 +3102,9 @@ pub unsafe fn RtlUpcaseUnicodeStringToOemString(destinationstring: *mut super::s
     unsafe { RtlUpcaseUnicodeStringToOemString(destinationstring as _, sourcestring, allocatedestinationstring) }
 }
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeToCustomCPN<P4>(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: P4, bytesinunicodestring: u32) -> windows_core::NTSTATUS
-where
-    P4: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RtlUpcaseUnicodeToCustomCPN(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: windows_core::PCWSTR, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const CPTABLEINFO, customcpstring : windows_core::PSTR, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32) -> windows_core:: NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring.param().abi(), bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(unicodestring), bytesinunicodestring) }
 }
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
@@ -3581,13 +3539,9 @@ pub unsafe fn SspiAcceptSecurityContextAsync(asynccontext: *mut super::super::Fo
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
-pub unsafe fn SspiAcquireCredentialsHandleAsyncA<P1, P2>(asynccontext: *mut super::super::Foundation::SspiAsyncContext, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: super::super::super::Win32::Security::Authentication::Identity::SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *const SecHandle, ptsexpiry: Option<*const i64>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn SspiAcquireCredentialsHandleAsyncA(asynccontext: *mut super::super::Foundation::SspiAsyncContext, pszprincipal: Option<windows_core::PCSTR>, pszpackage: windows_core::PCSTR, fcredentialuse: u32, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: super::super::super::Win32::Security::Authentication::Identity::SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *const SecHandle, ptsexpiry: Option<*const i64>) -> windows_core::Result<()> {
     windows_core::link!("ksecdd.sys" "system" fn SspiAcquireCredentialsHandleAsyncA(asynccontext : *mut super::super::Foundation:: SspiAsyncContext, pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : u32, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : super::super::super::Win32::Security::Authentication::Identity:: SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : *const SecHandle, ptsexpiry : *const i64) -> windows_core::HRESULT);
-    unsafe { SspiAcquireCredentialsHandleAsyncA(asynccontext as _, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SspiAcquireCredentialsHandleAsyncA(asynccontext as _, pszprincipal.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpackage), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
@@ -3627,12 +3581,9 @@ pub unsafe fn SspiGetAsyncCallStatus(handle: *const super::super::Foundation::Ss
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn SspiInitializeSecurityContextAsyncA<P3>(asynccontext: *mut super::super::Foundation::SspiAsyncContext, phcredential: Option<*const SecHandle>, phcontext: Option<*const SecHandle>, psztargetname: P3, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*const SecHandle>, poutput: Option<*const SecBufferDesc>, pfcontextattr: *const u32, ptsexpiry: Option<*const i64>) -> windows_core::Result<()>
-where
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn SspiInitializeSecurityContextAsyncA(asynccontext: *mut super::super::Foundation::SspiAsyncContext, phcredential: Option<*const SecHandle>, phcontext: Option<*const SecHandle>, psztargetname: Option<windows_core::PCSTR>, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*const SecHandle>, poutput: Option<*const SecBufferDesc>, pfcontextattr: *const u32, ptsexpiry: Option<*const i64>) -> windows_core::Result<()> {
     windows_core::link!("ksecdd.sys" "system" fn SspiInitializeSecurityContextAsyncA(asynccontext : *mut super::super::Foundation:: SspiAsyncContext, phcredential : *const SecHandle, phcontext : *const SecHandle, psztargetname : windows_core::PCSTR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : *const SecHandle, poutput : *const SecBufferDesc, pfcontextattr : *const u32, ptsexpiry : *const i64) -> windows_core::HRESULT);
-    unsafe { SspiInitializeSecurityContextAsyncA(asynccontext as _, phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), fcontextreq, reserved1, targetdatarep, pinput.unwrap_or(core::mem::zeroed()) as _, reserved2, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SspiInitializeSecurityContextAsyncA(asynccontext as _, phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, psztargetname.unwrap_or(core::mem::zeroed()) as _, fcontextreq, reserved1, targetdatarep, pinput.unwrap_or(core::mem::zeroed()) as _, reserved2, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr, ptsexpiry.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]

@@ -30,12 +30,9 @@ pub unsafe fn SaferIdentifyLevel(pcodeproperties: Option<&[SAFER_CODE_PROPERTIES
     unsafe { SaferIdentifyLevel(pcodeproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SaferRecordEventLogEntry<P1>(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: P1, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SaferRecordEventLogEntry(hlevel: super::SAFER_LEVEL_HANDLE, sztargetpath: windows_core::PCWSTR, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : super:: SAFER_LEVEL_HANDLE, sztargetpath : windows_core::PCWSTR, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SaferRecordEventLogEntry(hlevel, sztargetpath.param().abi(), lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SaferRecordEventLogEntry(hlevel, core::mem::transmute(sztargetpath), lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const core::ffi::c_void, dwinbuffersize: u32) -> windows_core::Result<()> {
@@ -48,12 +45,9 @@ pub unsafe fn SaferSetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     unsafe { SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn SaferiIsExecutableFileType<P0>(szfullpathname: P0, bfromshellexecute: bool) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SaferiIsExecutableFileType(szfullpathname: windows_core::PCWSTR, bfromshellexecute: bool) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : bool) -> windows_core::BOOL);
-    unsafe { SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute) }
+    unsafe { SaferiIsExecutableFileType(core::mem::transmute(szfullpathname), bfromshellexecute) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]

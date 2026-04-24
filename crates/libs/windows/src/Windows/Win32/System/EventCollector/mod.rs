@@ -4,12 +4,9 @@ pub unsafe fn EcClose(object: isize) -> windows_core::BOOL {
     unsafe { EcClose(object) }
 }
 #[inline]
-pub unsafe fn EcDeleteSubscription<P0>(subscriptionname: P0, flags: u32) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn EcDeleteSubscription(subscriptionname: windows_core::PCWSTR, flags: u32) -> windows_core::BOOL {
     windows_core::link!("wecapi.dll" "system" fn EcDeleteSubscription(subscriptionname : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { EcDeleteSubscription(subscriptionname.param().abi(), flags) }
+    unsafe { EcDeleteSubscription(core::mem::transmute(subscriptionname), flags) }
 }
 #[inline]
 pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffer: Option<&mut [u16]>, subscriptionnamebufferused: *mut u32) -> windows_core::BOOL {
@@ -32,13 +29,9 @@ pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBS
     unsafe { EcGetSubscriptionProperty(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer as _, propertyvaluebufferused as _) }
 }
 #[inline]
-pub unsafe fn EcGetSubscriptionRunTimeStatus<P0, P2>(subscriptionname: P0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: P2, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn EcGetSubscriptionRunTimeStatus(subscriptionname: windows_core::PCWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: windows_core::PCWSTR, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wecapi.dll" "system" fn EcGetSubscriptionRunTimeStatus(subscriptionname : windows_core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : windows_core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EcGetSubscriptionRunTimeStatus(subscriptionname.param().abi(), statusinfoid, eventsourcename.param().abi(), flags, statusvaluebuffersize, statusvaluebuffer as _, statusvaluebufferused as _) }
+    unsafe { EcGetSubscriptionRunTimeStatus(core::mem::transmute(subscriptionname), statusinfoid, core::mem::transmute(eventsourcename), flags, statusvaluebuffersize, statusvaluebuffer as _, statusvaluebufferused as _) }
 }
 #[inline]
 pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) -> windows_core::BOOL {
@@ -46,12 +39,9 @@ pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) ->
     unsafe { EcInsertObjectArrayElement(objectarray, arrayindex) }
 }
 #[inline]
-pub unsafe fn EcOpenSubscription<P0>(subscriptionname: P0, accessmask: u32, flags: u32) -> isize
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn EcOpenSubscription(subscriptionname: windows_core::PCWSTR, accessmask: u32, flags: u32) -> isize {
     windows_core::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : windows_core::PCWSTR, accessmask : u32, flags : u32) -> isize);
-    unsafe { EcOpenSubscription(subscriptionname.param().abi(), accessmask, flags) }
+    unsafe { EcOpenSubscription(core::mem::transmute(subscriptionname), accessmask, flags) }
 }
 #[inline]
 pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
@@ -64,13 +54,9 @@ pub unsafe fn EcRemoveObjectArrayElement(objectarray: isize, arrayindex: u32) ->
     unsafe { EcRemoveObjectArrayElement(objectarray, arrayindex) }
 }
 #[inline]
-pub unsafe fn EcRetrySubscription<P0, P1>(subscriptionname: P0, eventsourcename: P1, flags: u32) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn EcRetrySubscription(subscriptionname: windows_core::PCWSTR, eventsourcename: windows_core::PCWSTR, flags: u32) -> windows_core::BOOL {
     windows_core::link!("wecapi.dll" "system" fn EcRetrySubscription(subscriptionname : windows_core::PCWSTR, eventsourcename : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { EcRetrySubscription(subscriptionname.param().abi(), eventsourcename.param().abi(), flags) }
+    unsafe { EcRetrySubscription(core::mem::transmute(subscriptionname), core::mem::transmute(eventsourcename), flags) }
 }
 #[inline]
 pub unsafe fn EcSaveSubscription(subscription: isize, flags: u32) -> windows_core::BOOL {

@@ -110,21 +110,15 @@ pub unsafe fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> wi
     unsafe { IsWindowEnabled(hwnd) }
 }
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL>
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn LoadKeyboardLayoutA(pwszklid: windows_core::PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL> {
     windows_core::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    let result__ = unsafe { LoadKeyboardLayoutA(pwszklid.param().abi(), flags) };
+    let result__ = unsafe { LoadKeyboardLayoutA(core::mem::transmute(pwszklid), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn LoadKeyboardLayoutW(pwszklid: windows_core::PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL> {
     windows_core::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    let result__ = unsafe { LoadKeyboardLayoutW(pwszklid.param().abi(), flags) };
+    let result__ = unsafe { LoadKeyboardLayoutW(core::mem::transmute(pwszklid), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]

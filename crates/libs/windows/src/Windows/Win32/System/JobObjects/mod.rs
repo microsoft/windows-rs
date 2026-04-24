@@ -5,22 +5,16 @@ pub unsafe fn AssignProcessToJobObject(hjob: super::super::Foundation::HANDLE, h
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateJobObjectA<P1>(lpjobattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn CreateJobObjectA(lpjobattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: Option<windows_core::PCSTR>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateJobObjectA(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi()) };
+    let result__ = unsafe { CreateJobObjectA(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateJobObjectW<P1>(lpjobattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn CreateJobObjectW(lpjobattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lpname: Option<windows_core::PCWSTR>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateJobObjectW(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi()) };
+    let result__ = unsafe { CreateJobObjectW(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -39,21 +33,15 @@ pub unsafe fn IsProcessInJob(processhandle: super::super::Foundation::HANDLE, jo
     unsafe { IsProcessInJob(processhandle, jobhandle.unwrap_or(core::mem::zeroed()) as _, result as _).ok() }
 }
 #[inline]
-pub unsafe fn OpenJobObjectA<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn OpenJobObjectA(dwdesiredaccess: u32, binherithandle: bool, lpname: windows_core::PCSTR) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenJobObjectA(dwdesiredaccess, binherithandle.into(), core::mem::transmute(lpname)) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn OpenJobObjectW<P2>(dwdesiredaccess: u32, binherithandle: bool, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn OpenJobObjectW(dwdesiredaccess: u32, binherithandle: bool, lpname: windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenJobObjectW(dwdesiredaccess, binherithandle.into(), core::mem::transmute(lpname)) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -62,12 +50,9 @@ pub unsafe fn QueryInformationJobObject(hjob: Option<super::super::Foundation::H
     unsafe { QueryInformationJobObject(hjob.unwrap_or(core::mem::zeroed()) as _, jobobjectinformationclass, lpjobobjectinformation as _, cbjobobjectinformationlength, lpreturnlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn QueryIoRateControlInformationJobObject<P1>(hjob: Option<super::super::Foundation::HANDLE>, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn QueryIoRateControlInformationJobObject(hjob: Option<super::super::Foundation::HANDLE>, volumename: Option<windows_core::PCWSTR>, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, volumename : windows_core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
-    unsafe { QueryIoRateControlInformationJobObject(hjob.unwrap_or(core::mem::zeroed()) as _, volumename.param().abi(), infoblocks as _, infoblockcount as _) }
+    unsafe { QueryIoRateControlInformationJobObject(hjob.unwrap_or(core::mem::zeroed()) as _, volumename.unwrap_or(core::mem::zeroed()) as _, infoblocks as _, infoblockcount as _) }
 }
 #[inline]
 pub unsafe fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::Result<()> {

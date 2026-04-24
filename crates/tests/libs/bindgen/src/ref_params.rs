@@ -264,74 +264,70 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IKeyStore, windows_core::IUnknown);
 impl IKeyStore {
-    pub unsafe fn GetKey<P0>(
+    pub unsafe fn GetKey(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
     }
-    pub unsafe fn SetKey<P0, P1, P2>(
+    pub unsafe fn SetKey<P1, P2>(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         object: P1,
         metadata: P2,
     ) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
         P2: windows_core::Param<IKeyStore>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).SetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.param().abi(),
                 metadata.param().abi(),
             )
             .ok()
         }
     }
-    pub unsafe fn GetKeyValue<P0>(
+    pub unsafe fn GetKeyValue(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
     }
-    pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_core::Result<()>
+    pub unsafe fn SetKeyValue<P1>(
+        &self,
+        key: windows_core::PCWSTR,
+        object: P1,
+    ) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).SetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.param().abi(),
             )
             .ok()
@@ -501,34 +497,34 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IModelObject, windows_core::IUnknown);
 impl IModelObject {
-    pub unsafe fn GetKeyValue<P0>(
+    pub unsafe fn GetKeyValue(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
     }
-    pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_core::Result<()>
+    pub unsafe fn SetKeyValue<P1>(
+        &self,
+        key: windows_core::PCWSTR,
+        object: P1,
+    ) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).SetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.param().abi(),
             )
             .ok()
@@ -628,59 +624,52 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn GetKey<P0>(
+    pub unsafe fn GetKey(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
     }
-    pub unsafe fn GetKeyReference<P0>(
+    pub unsafe fn GetKeyReference(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         objectreference: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetKeyReference)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 objectreference.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
         }
     }
-    pub unsafe fn SetKey<P0, P1, P2>(
+    pub unsafe fn SetKey<P1, P2>(
         &self,
-        key: P0,
+        key: windows_core::PCWSTR,
         object: P1,
         metadata: P2,
     ) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
         P2: windows_core::Param<IKeyStore>,
     {
         unsafe {
             (windows_core::Interface::vtable(self).SetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute(key),
                 object.param().abi(),
                 metadata.param().abi(),
             )

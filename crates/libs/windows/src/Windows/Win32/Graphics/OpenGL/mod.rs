@@ -2022,12 +2022,9 @@ pub unsafe fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, pa
     unsafe { wglGetLayerPaletteEntries(param0, param1, param2, param3, param4 as _) }
 }
 #[inline]
-pub unsafe fn wglGetProcAddress<P0>(param0: P0) -> super::super::Foundation::PROC
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn wglGetProcAddress(param0: windows_core::PCSTR) -> super::super::Foundation::PROC {
     windows_core::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_core::PCSTR) -> super::super::Foundation:: PROC);
-    unsafe { wglGetProcAddress(param0.param().abi()) }
+    unsafe { wglGetProcAddress(core::mem::transmute(param0)) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]

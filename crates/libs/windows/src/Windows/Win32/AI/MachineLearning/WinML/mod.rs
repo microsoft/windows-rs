@@ -17,35 +17,23 @@ pub unsafe fn WinMLCreateRuntime() -> windows_core::Result<IWinMLRuntime> {
 windows_core::imp::define_interface!(IMLOperatorAttributes, IMLOperatorAttributes_Vtbl, 0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
 windows_core::imp::interface_hierarchy!(IMLOperatorAttributes, windows_core::IUnknown);
 impl IMLOperatorAttributes {
-    pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
+    pub unsafe fn GetAttributeElementCount(&self, name: windows_core::PCSTR, r#type: MLOperatorAttributeType) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetAttributeElementCount)(windows_core::Interface::as_raw(self), core::mem::transmute(name), r#type, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value as _).ok() }
+    pub unsafe fn GetAttribute(&self, name: windows_core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute(name), r#type, elementcount, elementbytesize, value as _).ok() }
     }
-    pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
+    pub unsafe fn GetStringAttributeElementLength(&self, name: windows_core::PCSTR, elementindex: u32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), core::mem::transmute(name), elementindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok() }
+    pub unsafe fn GetStringAttributeElement(&self, name: windows_core::PCSTR, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetStringAttributeElement)(windows_core::Interface::as_raw(self), core::mem::transmute(name), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok() }
     }
 }
 #[repr(C)]
@@ -1071,13 +1059,10 @@ impl IWinMLEvaluationContext {
         unsafe { (windows_core::Interface::vtable(self).BindValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pdescriptor)).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetValueByName<P0>(&self, name: P0) -> windows_core::Result<*mut WINML_BINDING_DESC>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn GetValueByName(&self, name: windows_core::PCWSTR) -> windows_core::Result<*mut WINML_BINDING_DESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), core::mem::transmute(name), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
@@ -1244,13 +1229,10 @@ impl windows_core::RuntimeName for IWinMLModel {}
 windows_core::imp::define_interface!(IWinMLRuntime, IWinMLRuntime_Vtbl, 0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
 windows_core::imp::interface_hierarchy!(IWinMLRuntime, windows_core::IUnknown);
 impl IWinMLRuntime {
-    pub unsafe fn LoadModel<P0>(&self, path: P0) -> windows_core::Result<IWinMLModel>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn LoadModel(&self, path: windows_core::PCWSTR) -> windows_core::Result<IWinMLModel> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), core::mem::transmute(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

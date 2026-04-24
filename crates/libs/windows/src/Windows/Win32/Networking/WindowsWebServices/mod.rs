@@ -985,19 +985,13 @@ pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const W
 windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 windows_core::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, windows_core::IUnknown, windows_core::IInspectable);
 impl IContentPrefetcherTaskTrigger {
-    pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).TriggerContentPrefetcherTask)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok() }
+    pub unsafe fn TriggerContentPrefetcherTask(&self, packagefullname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TriggerContentPrefetcherTask)(windows_core::Interface::as_raw(self), core::mem::transmute(packagefullname)).ok() }
     }
-    pub unsafe fn IsRegisteredForContentPrefetch<P0>(&self, packagefullname: P0) -> windows_core::Result<u8>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn IsRegisteredForContentPrefetch(&self, packagefullname: windows_core::PCWSTR) -> windows_core::Result<u8> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(windows_core::Interface::as_raw(self), core::mem::transmute(packagefullname), &mut result__).map(|| result__)
         }
     }
 }

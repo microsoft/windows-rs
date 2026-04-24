@@ -753,13 +753,10 @@ impl windows_core::RuntimeName for IRdcSimilarityGenerator {}
 windows_core::imp::define_interface!(ISimilarity, ISimilarity_Vtbl, 0x96236a83_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarity, windows_core::IUnknown);
 impl ISimilarity {
-    pub unsafe fn CreateTable<P0>(&self, path: P0, truncate: bool, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn CreateTable(&self, path: windows_core::PCWSTR, truncate: bool, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), core::mem::transmute(path), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, mapping: P0, fileidfile: P1, truncate: bool, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
@@ -906,13 +903,10 @@ impl windows_core::RuntimeName for ISimilarity {}
 windows_core::imp::define_interface!(ISimilarityFileIdTable, ISimilarityFileIdTable_Vtbl, 0x96236a7f_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityFileIdTable, windows_core::IUnknown);
 impl ISimilarityFileIdTable {
-    pub unsafe fn CreateTable<P0>(&self, path: P0, truncate: bool, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn CreateTable(&self, path: windows_core::PCWSTR, truncate: bool, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), core::mem::transmute(path), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CreateTableIndirect<P0>(&self, fileidfile: P0, truncate: bool, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
@@ -1341,13 +1335,10 @@ impl windows_core::RuntimeName for ISimilarityTraitsMapping {}
 windows_core::imp::define_interface!(ISimilarityTraitsTable, ISimilarityTraitsTable_Vtbl, 0x96236a7e_9dbc_11da_9e3f_0011114ae311);
 windows_core::imp::interface_hierarchy!(ISimilarityTraitsTable, windows_core::IUnknown);
 impl ISimilarityTraitsTable {
-    pub unsafe fn CreateTable<P0>(&self, path: P0, truncate: bool, securitydescriptor: *const u8) -> windows_core::Result<RdcCreatedTables>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn CreateTable(&self, path: windows_core::PCWSTR, truncate: bool, securitydescriptor: *const u8) -> windows_core::Result<RdcCreatedTables> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.into(), securitydescriptor, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), core::mem::transmute(path), truncate.into(), securitydescriptor, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CreateTableIndirect<P0>(&self, mapping: P0, truncate: bool) -> windows_core::Result<RdcCreatedTables>

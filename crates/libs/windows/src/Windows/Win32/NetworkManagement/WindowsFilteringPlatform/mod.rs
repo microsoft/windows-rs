@@ -148,12 +148,9 @@ pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, secur
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
-pub unsafe fn FwpmEngineOpen0<P0>(servername: P0, authnservice: u32, authidentity: Option<*const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const FWPM_SESSION0>, enginehandle: *mut FWPM_ENGINE_HANDLE) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FwpmEngineOpen0(servername: Option<windows_core::PCWSTR>, authnservice: u32, authidentity: Option<*const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const FWPM_SESSION0>, enginehandle: *mut FWPM_ENGINE_HANDLE) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : windows_core::PCWSTR, authnservice : u32, authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const FWPM_SESSION0, enginehandle : *mut FWPM_ENGINE_HANDLE) -> u32);
-    unsafe { FwpmEngineOpen0(servername.param().abi(), authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
+    unsafe { FwpmEngineOpen0(servername.unwrap_or(core::mem::zeroed()) as _, authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -247,12 +244,9 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut core::ffi::c_void) {
     unsafe { FwpmFreeMemory0(p as _) }
 }
 #[inline]
-pub unsafe fn FwpmGetAppIdFromFileName0<P0>(filename: P0, appid: *mut *mut FWP_BYTE_BLOB) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn FwpmGetAppIdFromFileName0(filename: windows_core::PCWSTR, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmGetAppIdFromFileName0(filename : windows_core::PCWSTR, appid : *mut *mut FWP_BYTE_BLOB) -> u32);
-    unsafe { FwpmGetAppIdFromFileName0(filename.param().abi(), appid as _) }
+    unsafe { FwpmGetAppIdFromFileName0(core::mem::transmute(filename), appid as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]

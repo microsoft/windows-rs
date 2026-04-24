@@ -1,27 +1,18 @@
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<P1>(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: P1, datachunk: *const HTTP_DATA_CHUNK, cachepolicy: *const HTTP_CACHE_POLICY, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpAddFragmentToCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: windows_core::PCWSTR, datachunk: *const HTTP_DATA_CHUNK, cachepolicy: *const HTTP_CACHE_POLICY, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::super::Foundation:: HANDLE, urlprefix : windows_core::PCWSTR, datachunk : *const HTTP_DATA_CHUNK, cachepolicy : *const HTTP_CACHE_POLICY, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    unsafe { HttpAddFragmentToCache(requestqueuehandle, urlprefix.param().abi(), datachunk, cachepolicy, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpAddFragmentToCache(requestqueuehandle, core::mem::transmute(urlprefix), datachunk, cachepolicy, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpAddUrl<P1>(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: P1, reserved: Option<*const core::ffi::c_void>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpAddUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: windows_core::PCWSTR, reserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::super::Foundation:: HANDLE, fullyqualifiedurl : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> u32);
-    unsafe { HttpAddUrl(requestqueuehandle, fullyqualifiedurl.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpAddUrl(requestqueuehandle, core::mem::transmute(fullyqualifiedurl), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup<P1>(urlgroupid: u64, pfullyqualifiedurl: P1, urlcontext: u64, reserved: Option<u32>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: windows_core::PCWSTR, urlcontext: u64, reserved: Option<u32>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpAddUrlToUrlGroup(urlgroupid : u64, pfullyqualifiedurl : windows_core::PCWSTR, urlcontext : u64, reserved : u32) -> u32);
-    unsafe { HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), urlcontext, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpAddUrlToUrlGroup(urlgroupid, core::mem::transmute(pfullyqualifiedurl), urlcontext, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -51,12 +42,9 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<P1>(version: HTTPAPI_VERSION, name: P1, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: Option<u32>, requestqueuehandle: *mut HTTP_REQUEST_QUEUE_HANDLE) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: Option<windows_core::PCWSTR>, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: Option<u32>, requestqueuehandle: *mut HTTP_REQUEST_QUEUE_HANDLE) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut HTTP_REQUEST_QUEUE_HANDLE) -> u32);
-    unsafe { HttpCreateRequestQueue(core::mem::transmute(version), name.param().abi(), securityattributes.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, requestqueuehandle as _) }
+    unsafe { HttpCreateRequestQueue(core::mem::transmute(version), name.unwrap_or(core::mem::zeroed()) as _, securityattributes.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, requestqueuehandle as _) }
 }
 #[inline]
 pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut u64, reserved: Option<u32>) -> u32 {
@@ -69,13 +57,9 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
     unsafe { HttpCreateUrlGroup(serversessionid, purlgroupid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpDeclarePush<P3, P4>(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: P3, query: P4, headers: Option<*const HTTP_REQUEST_HEADERS>) -> u32
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn HttpDeclarePush(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: windows_core::PCWSTR, query: Option<windows_core::PCSTR>, headers: Option<*const HTTP_REQUEST_HEADERS>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : *const HTTP_REQUEST_HEADERS) -> u32);
-    unsafe { HttpDeclarePush(requestqueuehandle, requestid, verb, path.param().abi(), query.param().abi(), headers.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpDeclarePush(requestqueuehandle, requestid, verb, core::mem::transmute(path), query.unwrap_or(core::mem::zeroed()) as _, headers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HttpDelegateRequestEx(requestqueuehandle: super::super::Foundation::HANDLE, delegatequeuehandle: super::super::Foundation::HANDLE, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
@@ -89,21 +73,15 @@ pub unsafe fn HttpDeleteServiceConfiguration(servicehandle: Option<super::super:
     unsafe { HttpDeleteServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pconfiginformation, configinformationlength, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<P0>(fullyqualifiedurl: P0, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpFindUrlGroupId(fullyqualifiedurl: windows_core::PCWSTR, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_core::PCWSTR, requestqueuehandle : super::super::Foundation:: HANDLE, urlgroupid : *mut u64) -> u32);
-    unsafe { HttpFindUrlGroupId(fullyqualifiedurl.param().abi(), requestqueuehandle, urlgroupid as _) }
+    unsafe { HttpFindUrlGroupId(core::mem::transmute(fullyqualifiedurl), requestqueuehandle, urlgroupid as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<P1>(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: P1, flags: u32, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpFlushResponseCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: windows_core::PCWSTR, flags: u32, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::super::Foundation:: HANDLE, urlprefix : windows_core::PCWSTR, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    unsafe { HttpFlushResponseCache(requestqueuehandle, urlprefix.param().abi(), flags, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpFlushResponseCache(requestqueuehandle, core::mem::transmute(urlprefix), flags, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut core::ffi::c_void, buffersize: u32) -> u32 {
@@ -121,12 +99,9 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> windows_core
     unsafe { HttpIsFeatureSupported(featureid) }
 }
 #[inline]
-pub unsafe fn HttpPrepareUrl<P2>(reserved: Option<*const core::ffi::c_void>, flags: Option<u32>, url: P2, preparedurl: *mut windows_core::PWSTR) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpPrepareUrl(reserved: Option<*const core::ffi::c_void>, flags: Option<u32>, url: windows_core::PCWSTR, preparedurl: *mut windows_core::PWSTR) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *const core::ffi::c_void, flags : u32, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> u32);
-    unsafe { HttpPrepareUrl(reserved.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, url.param().abi(), preparedurl as _) }
+    unsafe { HttpPrepareUrl(reserved.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(url), preparedurl as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -157,12 +132,9 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<P1>(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: P1, byterange: Option<*const HTTP_BYTE_RANGE>, buffer: *mut core::ffi::c_void, bufferlength: u32, bytesread: Option<*mut u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: windows_core::PCWSTR, byterange: Option<*const HTTP_BYTE_RANGE>, buffer: *mut core::ffi::c_void, bufferlength: u32, bytesread: Option<*mut u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::super::Foundation:: HANDLE, urlprefix : windows_core::PCWSTR, byterange : *const HTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : *mut u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    unsafe { HttpReadFragmentFromCache(requestqueuehandle, urlprefix.param().abi(), byterange.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlength, bytesread.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpReadFragmentFromCache(requestqueuehandle, core::mem::transmute(urlprefix), byterange.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlength, bytesread.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -183,20 +155,14 @@ pub unsafe fn HttpReceiveRequestEntityBody(requestqueuehandle: super::super::Fou
     unsafe { HttpReceiveRequestEntityBody(requestqueuehandle, requestid, flags, entitybuffer as _, entitybufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HttpRemoveUrl<P1>(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpRemoveUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: windows_core::PCWSTR) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrl(requestqueuehandle : super::super::Foundation:: HANDLE, fullyqualifiedurl : windows_core::PCWSTR) -> u32);
-    unsafe { HttpRemoveUrl(requestqueuehandle, fullyqualifiedurl.param().abi()) }
+    unsafe { HttpRemoveUrl(requestqueuehandle, core::mem::transmute(fullyqualifiedurl)) }
 }
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup<P1>(urlgroupid: u64, pfullyqualifiedurl: P1, flags: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: windows_core::PCWSTR, flags: u32) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : u64, pfullyqualifiedurl : windows_core::PCWSTR, flags : u32) -> u32);
-    unsafe { HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), flags) }
+    unsafe { HttpRemoveUrlFromUrlGroup(urlgroupid, core::mem::transmute(pfullyqualifiedurl), flags) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]

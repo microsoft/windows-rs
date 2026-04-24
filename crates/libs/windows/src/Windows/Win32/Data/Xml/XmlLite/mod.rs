@@ -9,31 +9,28 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: bool, pwszbaseuri: Option<windows_core::PCWSTR>) -> windows_core::Result<windows_core::IUnknown>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : windows_core::BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateXmlReaderInputWithEncodingCodePage(pinputstream.param().abi(), pmalloc.param().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: bool, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1>(pinputstream: P0, pmalloc: P1, pwszencodingname: windows_core::PCWSTR, fencodinghint: bool, pwszbaseuri: Option<windows_core::PCWSTR>) -> windows_core::Result<windows_core::IUnknown>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingName(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, fencodinghint : windows_core::BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), fencodinghint.into(), pwszbaseuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateXmlReaderInputWithEncodingName(pinputstream.param().abi(), pmalloc.param().abi(), core::mem::transmute(pwszencodingname), fencodinghint.into(), pwszbaseuri.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -60,16 +57,15 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1, P2>(poutputstream: P0, pmalloc: P1, pwszencodingname: P2) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1>(poutputstream: P0, pmalloc: P1, pwszencodingname: windows_core::PCWSTR) -> windows_core::Result<windows_core::IUnknown>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlWriterOutputWithEncodingName(poutputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, pwszencodingname : windows_core::PCWSTR, ppoutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), core::mem::transmute(pwszencodingname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(transparent)]
@@ -110,12 +106,8 @@ impl IXmlReader {
     pub unsafe fn MoveToNextAttribute(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveToNextAttribute)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn MoveToAttributeByName<P0, P1>(&self, pwszlocalname: P0, pwsznamespaceuri: P1) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).MoveToAttributeByName)(windows_core::Interface::as_raw(self), pwszlocalname.param().abi(), pwsznamespaceuri.param().abi()) }
+    pub unsafe fn MoveToAttributeByName(&self, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: Option<windows_core::PCWSTR>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MoveToAttributeByName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszlocalname), pwsznamespaceuri.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn MoveToElement(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MoveToElement)(windows_core::Interface::as_raw(self)).ok() }
@@ -439,15 +431,10 @@ impl windows_core::RuntimeName for IXmlReader {}
 windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
 impl IXmlResolver {
-    pub unsafe fn ResolveUri<P0, P1, P2>(&self, pwszbaseuri: P0, pwszpublicidentifier: P1, pwszsystemidentifier: P2) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn ResolveUri(&self, pwszbaseuri: Option<windows_core::PCWSTR>, pwszpublicidentifier: Option<windows_core::PCWSTR>, pwszsystemidentifier: Option<windows_core::PCWSTR>) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResolveUri)(windows_core::Interface::as_raw(self), pwszbaseuri.param().abi(), pwszpublicidentifier.param().abi(), pwszsystemidentifier.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ResolveUri)(windows_core::Interface::as_raw(self), pwszbaseuri.unwrap_or(core::mem::zeroed()) as _, pwszpublicidentifier.unwrap_or(core::mem::zeroed()) as _, pwszsystemidentifier.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -505,20 +492,11 @@ impl IXmlWriter {
     {
         unsafe { (windows_core::Interface::vtable(self).WriteAttributes)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok() }
     }
-    pub unsafe fn WriteAttributeString<P0, P1, P2, P3>(&self, pwszprefix: P0, pwszlocalname: P1, pwsznamespaceuri: P2, pwszvalue: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteAttributeString)(windows_core::Interface::as_raw(self), pwszprefix.param().abi(), pwszlocalname.param().abi(), pwsznamespaceuri.param().abi(), pwszvalue.param().abi()).ok() }
+    pub unsafe fn WriteAttributeString(&self, pwszprefix: Option<windows_core::PCWSTR>, pwszlocalname: Option<windows_core::PCWSTR>, pwsznamespaceuri: Option<windows_core::PCWSTR>, pwszvalue: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteAttributeString)(windows_core::Interface::as_raw(self), pwszprefix.unwrap_or(core::mem::zeroed()) as _, pwszlocalname.unwrap_or(core::mem::zeroed()) as _, pwsznamespaceuri.unwrap_or(core::mem::zeroed()) as _, pwszvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteCData<P0>(&self, pwsztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteCData)(windows_core::Interface::as_raw(self), pwsztext.param().abi()).ok() }
+    pub unsafe fn WriteCData(&self, pwsztext: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteCData)(windows_core::Interface::as_raw(self), pwsztext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteCharEntity(&self, wch: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteCharEntity)(windows_core::Interface::as_raw(self), wch).ok() }
@@ -526,29 +504,14 @@ impl IXmlWriter {
     pub unsafe fn WriteChars(&self, pwch: Option<&[u16]>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteChars)(windows_core::Interface::as_raw(self), core::mem::transmute(pwch.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwch.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn WriteComment<P0>(&self, pwszcomment: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteComment)(windows_core::Interface::as_raw(self), pwszcomment.param().abi()).ok() }
+    pub unsafe fn WriteComment(&self, pwszcomment: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteComment)(windows_core::Interface::as_raw(self), pwszcomment.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteDocType<P0, P1, P2, P3>(&self, pwszname: P0, pwszpublicid: P1, pwszsystemid: P2, pwszsubset: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteDocType)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwszpublicid.param().abi(), pwszsystemid.param().abi(), pwszsubset.param().abi()).ok() }
+    pub unsafe fn WriteDocType(&self, pwszname: Option<windows_core::PCWSTR>, pwszpublicid: Option<windows_core::PCWSTR>, pwszsystemid: Option<windows_core::PCWSTR>, pwszsubset: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteDocType)(windows_core::Interface::as_raw(self), pwszname.unwrap_or(core::mem::zeroed()) as _, pwszpublicid.unwrap_or(core::mem::zeroed()) as _, pwszsystemid.unwrap_or(core::mem::zeroed()) as _, pwszsubset.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteElementString<P0, P1, P2, P3>(&self, pwszprefix: P0, pwszlocalname: P1, pwsznamespaceuri: P2, pwszvalue: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteElementString)(windows_core::Interface::as_raw(self), pwszprefix.param().abi(), pwszlocalname.param().abi(), pwsznamespaceuri.param().abi(), pwszvalue.param().abi()).ok() }
+    pub unsafe fn WriteElementString(&self, pwszprefix: Option<windows_core::PCWSTR>, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: Option<windows_core::PCWSTR>, pwszvalue: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteElementString)(windows_core::Interface::as_raw(self), pwszprefix.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pwszlocalname), pwsznamespaceuri.unwrap_or(core::mem::zeroed()) as _, pwszvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteEndDocument(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteEndDocument)(windows_core::Interface::as_raw(self)).ok() }
@@ -556,26 +519,17 @@ impl IXmlWriter {
     pub unsafe fn WriteEndElement(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteEndElement)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WriteEntityRef<P0>(&self, pwszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteEntityRef)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok() }
+    pub unsafe fn WriteEntityRef(&self, pwszname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteEntityRef)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname)).ok() }
     }
     pub unsafe fn WriteFullEndElement(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteFullEndElement)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WriteName<P0>(&self, pwszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteName)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok() }
+    pub unsafe fn WriteName(&self, pwszname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname)).ok() }
     }
-    pub unsafe fn WriteNmToken<P0>(&self, pwsznmtoken: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteNmToken)(windows_core::Interface::as_raw(self), pwsznmtoken.param().abi()).ok() }
+    pub unsafe fn WriteNmToken(&self, pwsznmtoken: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteNmToken)(windows_core::Interface::as_raw(self), core::mem::transmute(pwsznmtoken)).ok() }
     }
     pub unsafe fn WriteNode<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
@@ -589,25 +543,14 @@ impl IXmlWriter {
     {
         unsafe { (windows_core::Interface::vtable(self).WriteNodeShallow)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok() }
     }
-    pub unsafe fn WriteProcessingInstruction<P0, P1>(&self, pwszname: P0, pwsztext: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteProcessingInstruction)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwsztext.param().abi()).ok() }
+    pub unsafe fn WriteProcessingInstruction(&self, pwszname: windows_core::PCWSTR, pwsztext: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteProcessingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pwsztext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteQualifiedName<P0, P1>(&self, pwszlocalname: P0, pwsznamespaceuri: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteQualifiedName)(windows_core::Interface::as_raw(self), pwszlocalname.param().abi(), pwsznamespaceuri.param().abi()).ok() }
+    pub unsafe fn WriteQualifiedName(&self, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteQualifiedName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszlocalname), pwsznamespaceuri.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteRaw<P0>(&self, pwszdata: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteRaw)(windows_core::Interface::as_raw(self), pwszdata.param().abi()).ok() }
+    pub unsafe fn WriteRaw(&self, pwszdata: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteRaw)(windows_core::Interface::as_raw(self), pwszdata.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteRawChars(&self, pwch: Option<&[u16]>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteRawChars)(windows_core::Interface::as_raw(self), core::mem::transmute(pwch.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwch.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
@@ -615,28 +558,17 @@ impl IXmlWriter {
     pub unsafe fn WriteStartDocument(&self, standalone: XmlStandalone) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteStartDocument)(windows_core::Interface::as_raw(self), standalone).ok() }
     }
-    pub unsafe fn WriteStartElement<P0, P1, P2>(&self, pwszprefix: P0, pwszlocalname: P1, pwsznamespaceuri: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteStartElement)(windows_core::Interface::as_raw(self), pwszprefix.param().abi(), pwszlocalname.param().abi(), pwsznamespaceuri.param().abi()).ok() }
+    pub unsafe fn WriteStartElement(&self, pwszprefix: Option<windows_core::PCWSTR>, pwszlocalname: windows_core::PCWSTR, pwsznamespaceuri: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteStartElement)(windows_core::Interface::as_raw(self), pwszprefix.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pwszlocalname), pwsznamespaceuri.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteString<P0>(&self, pwsztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteString)(windows_core::Interface::as_raw(self), pwsztext.param().abi()).ok() }
+    pub unsafe fn WriteString(&self, pwsztext: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteString)(windows_core::Interface::as_raw(self), pwsztext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteSurrogateCharEntity(&self, wchlow: u16, wchhigh: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteSurrogateCharEntity)(windows_core::Interface::as_raw(self), wchlow, wchhigh).ok() }
     }
-    pub unsafe fn WriteWhitespace<P0>(&self, pwszwhitespace: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteWhitespace)(windows_core::Interface::as_raw(self), pwszwhitespace.param().abi()).ok() }
+    pub unsafe fn WriteWhitespace(&self, pwszwhitespace: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteWhitespace)(windows_core::Interface::as_raw(self), pwszwhitespace.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok() }
@@ -954,11 +886,8 @@ impl IXmlWriterLite {
     pub unsafe fn WriteAttributeString(&self, pwszqname: &[u16], pwszvalue: Option<&[u16]>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteAttributeString)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap(), core::mem::transmute(pwszvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwszvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn WriteCData<P0>(&self, pwsztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteCData)(windows_core::Interface::as_raw(self), pwsztext.param().abi()).ok() }
+    pub unsafe fn WriteCData(&self, pwsztext: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteCData)(windows_core::Interface::as_raw(self), pwsztext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteCharEntity(&self, wch: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteCharEntity)(windows_core::Interface::as_raw(self), wch).ok() }
@@ -966,26 +895,14 @@ impl IXmlWriterLite {
     pub unsafe fn WriteChars(&self, pwch: Option<&[u16]>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteChars)(windows_core::Interface::as_raw(self), core::mem::transmute(pwch.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwch.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn WriteComment<P0>(&self, pwszcomment: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteComment)(windows_core::Interface::as_raw(self), pwszcomment.param().abi()).ok() }
+    pub unsafe fn WriteComment(&self, pwszcomment: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteComment)(windows_core::Interface::as_raw(self), pwszcomment.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteDocType<P0, P1, P2, P3>(&self, pwszname: P0, pwszpublicid: P1, pwszsystemid: P2, pwszsubset: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteDocType)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwszpublicid.param().abi(), pwszsystemid.param().abi(), pwszsubset.param().abi()).ok() }
+    pub unsafe fn WriteDocType(&self, pwszname: Option<windows_core::PCWSTR>, pwszpublicid: Option<windows_core::PCWSTR>, pwszsystemid: Option<windows_core::PCWSTR>, pwszsubset: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteDocType)(windows_core::Interface::as_raw(self), pwszname.unwrap_or(core::mem::zeroed()) as _, pwszpublicid.unwrap_or(core::mem::zeroed()) as _, pwszsystemid.unwrap_or(core::mem::zeroed()) as _, pwszsubset.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteElementString<P2>(&self, pwszqname: &[u16], pwszvalue: P2) -> windows_core::Result<()>
-    where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteElementString)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap(), pwszvalue.param().abi()).ok() }
+    pub unsafe fn WriteElementString(&self, pwszqname: &[u16], pwszvalue: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteElementString)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap(), pwszvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteEndDocument(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteEndDocument)(windows_core::Interface::as_raw(self)).ok() }
@@ -993,26 +910,17 @@ impl IXmlWriterLite {
     pub unsafe fn WriteEndElement(&self, pwszqname: &[u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteEndElement)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn WriteEntityRef<P0>(&self, pwszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteEntityRef)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok() }
+    pub unsafe fn WriteEntityRef(&self, pwszname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteEntityRef)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname)).ok() }
     }
     pub unsafe fn WriteFullEndElement(&self, pwszqname: &[u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteFullEndElement)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn WriteName<P0>(&self, pwszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteName)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok() }
+    pub unsafe fn WriteName(&self, pwszname: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname)).ok() }
     }
-    pub unsafe fn WriteNmToken<P0>(&self, pwsznmtoken: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteNmToken)(windows_core::Interface::as_raw(self), pwsznmtoken.param().abi()).ok() }
+    pub unsafe fn WriteNmToken(&self, pwsznmtoken: windows_core::PCWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteNmToken)(windows_core::Interface::as_raw(self), core::mem::transmute(pwsznmtoken)).ok() }
     }
     pub unsafe fn WriteNode<P0>(&self, preader: P0, fwritedefaultattributes: bool) -> windows_core::Result<()>
     where
@@ -1026,18 +934,11 @@ impl IXmlWriterLite {
     {
         unsafe { (windows_core::Interface::vtable(self).WriteNodeShallow)(windows_core::Interface::as_raw(self), preader.param().abi(), fwritedefaultattributes.into()).ok() }
     }
-    pub unsafe fn WriteProcessingInstruction<P0, P1>(&self, pwszname: P0, pwsztext: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteProcessingInstruction)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwsztext.param().abi()).ok() }
+    pub unsafe fn WriteProcessingInstruction(&self, pwszname: windows_core::PCWSTR, pwsztext: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteProcessingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pwsztext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn WriteRaw<P0>(&self, pwszdata: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteRaw)(windows_core::Interface::as_raw(self), pwszdata.param().abi()).ok() }
+    pub unsafe fn WriteRaw(&self, pwszdata: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteRaw)(windows_core::Interface::as_raw(self), pwszdata.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteRawChars(&self, pwch: Option<&[u16]>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteRawChars)(windows_core::Interface::as_raw(self), core::mem::transmute(pwch.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwch.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
@@ -1048,20 +949,14 @@ impl IXmlWriterLite {
     pub unsafe fn WriteStartElement(&self, pwszqname: &[u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteStartElement)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn WriteString<P0>(&self, pwsztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteString)(windows_core::Interface::as_raw(self), pwsztext.param().abi()).ok() }
+    pub unsafe fn WriteString(&self, pwsztext: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteString)(windows_core::Interface::as_raw(self), pwsztext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn WriteSurrogateCharEntity(&self, wchlow: u16, wchhigh: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteSurrogateCharEntity)(windows_core::Interface::as_raw(self), wchlow, wchhigh).ok() }
     }
-    pub unsafe fn WriteWhitespace<P0>(&self, pwszwhitespace: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).WriteWhitespace)(windows_core::Interface::as_raw(self), pwszwhitespace.param().abi()).ok() }
+    pub unsafe fn WriteWhitespace(&self, pwszwhitespace: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).WriteWhitespace)(windows_core::Interface::as_raw(self), pwszwhitespace.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok() }

@@ -674,8 +674,6 @@ impl Type {
                 | Self::Interface(..)
                 | Self::Class(..)
                 | Self::CppInterface(..)
-                | Self::PCSTR
-                | Self::PCWSTR
                 | Self::Object
                 | Self::IUnknown
                 | Self::Generic(_)

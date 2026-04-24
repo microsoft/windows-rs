@@ -145,14 +145,11 @@ impl ID3D12Object {
             .ok()
         }
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn SetName(&self, name: windows_core::PCWSTR) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetName)(
                 windows_core::Interface::as_raw(self),
-                name.param().abi(),
+                core::mem::transmute(name),
             )
             .ok()
         }

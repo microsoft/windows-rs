@@ -1,11 +1,7 @@
 #[inline]
-pub unsafe fn ProtectFileToEnterpriseIdentity<P0, P1>(fileorfolderpath: P0, identity: P1) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn ProtectFileToEnterpriseIdentity(fileorfolderpath: windows_core::PCWSTR, identity: windows_core::PCWSTR) -> windows_core::Result<()> {
     windows_core::link!("efswrt.dll" "system" fn ProtectFileToEnterpriseIdentity(fileorfolderpath : windows_core::PCWSTR, identity : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { ProtectFileToEnterpriseIdentity(fileorfolderpath.param().abi(), identity.param().abi()).ok() }
+    unsafe { ProtectFileToEnterpriseIdentity(core::mem::transmute(fileorfolderpath), core::mem::transmute(identity)).ok() }
 }
 #[inline]
 pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::Result<()> {
@@ -13,14 +9,11 @@ pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NE
     unsafe { SrpCloseThreadNetworkContext(threadnetworkcontext as _).ok() }
 }
 #[inline]
-pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> windows_core::Result<HTHREAD_NETWORK_CONTEXT>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SrpCreateThreadNetworkContext(enterpriseid: windows_core::PCWSTR) -> windows_core::Result<HTHREAD_NETWORK_CONTEXT> {
     windows_core::link!("srpapi.dll" "system" fn SrpCreateThreadNetworkContext(enterpriseid : windows_core::PCWSTR, threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SrpCreateThreadNetworkContext(enterpriseid.param().abi(), &mut result__).map(|| result__)
+        SrpCreateThreadNetworkContext(core::mem::transmute(enterpriseid), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -38,12 +31,9 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
     }
 }
 #[inline]
-pub unsafe fn SrpEnablePermissiveModeFileEncryption<P0>(enterpriseid: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SrpEnablePermissiveModeFileEncryption(enterpriseid: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
     windows_core::link!("srpapi.dll" "system" fn SrpEnablePermissiveModeFileEncryption(enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { SrpEnablePermissiveModeFileEncryption(enterpriseid.param().abi()).ok() }
+    unsafe { SrpEnablePermissiveModeFileEncryption(enterpriseid.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: Option<*mut u32>, enterpriseids: Option<*mut windows_core::PCWSTR>, enterpriseidcount: *mut u32) -> windows_core::Result<()> {
@@ -79,20 +69,14 @@ pub unsafe fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, i
     unsafe { SrpIsTokenService(tokenhandle, istokenservice as _) }
 }
 #[inline]
-pub unsafe fn SrpSetTokenEnterpriseId<P1>(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SrpSetTokenEnterpriseId(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: Option<windows_core::PCWSTR>) -> windows_core::Result<()> {
     windows_core::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation:: HANDLE, enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { SrpSetTokenEnterpriseId(tokenhandle, enterpriseid.param().abi()).ok() }
+    unsafe { SrpSetTokenEnterpriseId(tokenhandle, enterpriseid.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: Option<*const FILE_UNPROTECT_OPTIONS>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn UnprotectFile(fileorfolderpath: windows_core::PCWSTR, options: Option<*const FILE_UNPROTECT_OPTIONS>) -> windows_core::Result<()> {
     windows_core::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
-    unsafe { UnprotectFile(fileorfolderpath.param().abi(), options.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { UnprotectFile(core::mem::transmute(fileorfolderpath), options.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

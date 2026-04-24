@@ -205,14 +205,13 @@ impl windows_core::RuntimeName for IRandomAccessStreamFileAccessMode {}
 windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 windows_core::imp::interface_hierarchy!(IStorageFolderHandleAccess, windows_core::IUnknown);
 impl IStorageFolderHandleAccess {
-    pub unsafe fn Create<P0, P5>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P5) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+    pub unsafe fn Create<P5>(&self, filename: windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P5) -> windows_core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<IOplockBreakingHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute(filename), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
         }
     }
 }

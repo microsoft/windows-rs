@@ -225,12 +225,9 @@ pub unsafe fn JsGetProperty(object: *const core::ffi::c_void, propertyid: *const
     unsafe { JsGetProperty(object, propertyid, value as _) }
 }
 #[inline]
-pub unsafe fn JsGetPropertyIdFromName<P0>(name: P0, propertyid: *mut *mut core::ffi::c_void) -> JsErrorCode
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn JsGetPropertyIdFromName(name: windows_core::PCWSTR, propertyid: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_core::link!("chakra.dll" "system" fn JsGetPropertyIdFromName(name : windows_core::PCWSTR, propertyid : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsGetPropertyIdFromName(name.param().abi(), propertyid as _) }
+    unsafe { JsGetPropertyIdFromName(core::mem::transmute(name), propertyid as _) }
 }
 #[inline]
 pub unsafe fn JsGetPropertyNameFromId(propertyid: *const core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode {
@@ -323,22 +320,14 @@ pub unsafe fn JsNumberToDouble(value: *const core::ffi::c_void, doublevalue: *mu
     unsafe { JsNumberToDouble(value, doublevalue as _) }
 }
 #[inline]
-pub unsafe fn JsParseScript<P0, P2>(script: P0, sourcecontext: usize, sourceurl: P2, result: *mut *mut core::ffi::c_void) -> JsErrorCode
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn JsParseScript(script: windows_core::PCWSTR, sourcecontext: usize, sourceurl: windows_core::PCWSTR, result: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_core::link!("chakra.dll" "system" fn JsParseScript(script : windows_core::PCWSTR, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsParseScript(script.param().abi(), sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsParseScript(core::mem::transmute(script), sourcecontext, core::mem::transmute(sourceurl), result as _) }
 }
 #[inline]
-pub unsafe fn JsParseSerializedScript<P0, P3>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P3, result: *mut *mut core::ffi::c_void) -> JsErrorCode
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn JsParseSerializedScript(script: windows_core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: windows_core::PCWSTR, result: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_core::link!("chakra.dll" "system" fn JsParseSerializedScript(script : windows_core::PCWSTR, buffer : *const u8, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsParseSerializedScript(script.param().abi(), buffer, sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsParseSerializedScript(core::mem::transmute(script), buffer, sourcecontext, core::mem::transmute(sourceurl), result as _) }
 }
 #[inline]
 pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -356,30 +345,19 @@ pub unsafe fn JsRelease(r#ref: *const core::ffi::c_void, count: Option<*mut u32>
     unsafe { JsRelease(r#ref, count.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn JsRunScript<P0, P2>(script: P0, sourcecontext: usize, sourceurl: P2, result: *mut *mut core::ffi::c_void) -> JsErrorCode
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn JsRunScript(script: windows_core::PCWSTR, sourcecontext: usize, sourceurl: windows_core::PCWSTR, result: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_core::link!("chakra.dll" "system" fn JsRunScript(script : windows_core::PCWSTR, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsRunScript(script.param().abi(), sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsRunScript(core::mem::transmute(script), sourcecontext, core::mem::transmute(sourceurl), result as _) }
 }
 #[inline]
-pub unsafe fn JsRunSerializedScript<P0, P3>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P3, result: *mut *mut core::ffi::c_void) -> JsErrorCode
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn JsRunSerializedScript(script: windows_core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: windows_core::PCWSTR, result: *mut *mut core::ffi::c_void) -> JsErrorCode {
     windows_core::link!("chakra.dll" "system" fn JsRunSerializedScript(script : windows_core::PCWSTR, buffer : *const u8, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsRunSerializedScript(script.param().abi(), buffer, sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsRunSerializedScript(core::mem::transmute(script), buffer, sourcecontext, core::mem::transmute(sourceurl), result as _) }
 }
 #[inline]
-pub unsafe fn JsSerializeScript<P0>(script: P0, buffer: Option<*mut u8>, buffersize: *mut u32) -> JsErrorCode
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn JsSerializeScript(script: windows_core::PCWSTR, buffer: Option<*mut u8>, buffersize: *mut u32) -> JsErrorCode {
     windows_core::link!("chakra.dll" "system" fn JsSerializeScript(script : windows_core::PCWSTR, buffer : *mut u8, buffersize : *mut u32) -> JsErrorCode);
-    unsafe { JsSerializeScript(script.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
+    unsafe { JsSerializeScript(core::mem::transmute(script), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
 pub unsafe fn JsSetCurrentContext(context: *const core::ffi::c_void) -> JsErrorCode {

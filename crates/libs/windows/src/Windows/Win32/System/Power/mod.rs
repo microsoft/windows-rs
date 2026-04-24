@@ -29,12 +29,9 @@ pub unsafe fn DevicePowerOpen(debugmask: Option<u32>) -> bool {
     unsafe { DevicePowerOpen(debugmask.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DevicePowerSetDeviceState<P0>(devicedescription: P0, setflags: u32, setdata: Option<*const core::ffi::c_void>) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DevicePowerSetDeviceState(devicedescription: windows_core::PCWSTR, setflags: u32, setdata: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : windows_core::PCWSTR, setflags : u32, setdata : *const core::ffi::c_void) -> u32);
-    unsafe { DevicePowerSetDeviceState(devicedescription.param().abi(), setflags, setdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DevicePowerSetDeviceState(core::mem::transmute(devicedescription), setflags, setdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> bool {
@@ -171,12 +168,9 @@ pub unsafe fn PowerGetUserConfiguredDCPowerMode(powermodeguid: *mut windows_core
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerImportPowerScheme<P1>(rootpowerkey: Option<super::Registry::HKEY>, importfilenamepath: P1, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn PowerImportPowerScheme(rootpowerkey: Option<super::Registry::HKEY>, importfilenamepath: windows_core::PCWSTR, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : windows_core::PCWSTR, destinationschemeguid : *mut *mut windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, importfilenamepath.param().abi(), destinationschemeguid as _) }
+    unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(importfilenamepath), destinationschemeguid as _) }
 }
 #[inline]
 pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core::GUID>, settingguid: Option<*const windows_core::GUID>) -> bool {
@@ -554,13 +548,9 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
     unsafe { WriteProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy) }
 }
 #[inline]
-pub unsafe fn WritePwrScheme<P1, P2>(puiid: *const u32, lpszschemename: P1, lpszdescription: P2, lpscheme: *const POWER_POLICY) -> bool
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn WritePwrScheme(puiid: *const u32, lpszschemename: windows_core::PCWSTR, lpszdescription: Option<windows_core::PCWSTR>, lpscheme: *const POWER_POLICY) -> bool {
     windows_core::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : windows_core::PCWSTR, lpszdescription : windows_core::PCWSTR, lpscheme : *const POWER_POLICY) -> bool);
-    unsafe { WritePwrScheme(puiid, lpszschemename.param().abi(), lpszdescription.param().abi(), lpscheme) }
+    unsafe { WritePwrScheme(puiid, core::mem::transmute(lpszschemename), lpszdescription.unwrap_or(core::mem::zeroed()) as _, lpscheme) }
 }
 pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
 pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(19i32);

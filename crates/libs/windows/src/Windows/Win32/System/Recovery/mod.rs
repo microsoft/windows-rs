@@ -29,12 +29,9 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::Windo
     unsafe { RegisterApplicationRecoveryCallback(precoveycallback, pvparameter.unwrap_or(core::mem::zeroed()) as _, dwpinginterval, dwflags).ok() }
 }
 #[inline]
-pub unsafe fn RegisterApplicationRestart<P0>(pwzcommandline: P0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RegisterApplicationRestart(pwzcommandline: Option<windows_core::PCWSTR>, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn RegisterApplicationRestart(pwzcommandline : windows_core::PCWSTR, dwflags : REGISTER_APPLICATION_RESTART_FLAGS) -> windows_core::HRESULT);
-    unsafe { RegisterApplicationRestart(pwzcommandline.param().abi(), dwflags).ok() }
+    unsafe { RegisterApplicationRestart(pwzcommandline.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn UnregisterApplicationRecoveryCallback() -> windows_core::Result<()> {
