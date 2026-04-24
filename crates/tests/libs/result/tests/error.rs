@@ -58,6 +58,28 @@ fn from_thread() {
     assert_eq!(e.code(), E_CANCELLED);
 }
 
+// Tests the `IErrorInfo` COM round-trip:
+//   1. `Error::new` originates an IRestrictedErrorInfo on the thread.
+//   2. Converting `Error -> HRESULT` puts it back on the thread via `SetErrorInfo`.
+//   3. Converting `HRESULT -> Error` captures it from the thread via `GetErrorInfo`.
+// This round-trip must preserve the error message.
+#[test]
+#[cfg(all(windows, not(windows_slim_errors)))]
+fn error_info_round_trip() {
+    let original = Error::new(E_INVALIDARG, "test error info");
+    assert_eq!(original.code(), E_INVALIDARG);
+    assert_eq!(original.message(), "test error info");
+
+    // Convert Error -> HRESULT (calls `into_thread`, putting IErrorInfo on the thread).
+    let code: HRESULT = original.into();
+    assert_eq!(code, E_INVALIDARG);
+
+    // Convert HRESULT -> Error (calls `from_thread`, retrieving IErrorInfo from the thread).
+    let recovered = Error::from(code);
+    assert_eq!(recovered.code(), E_INVALIDARG);
+    assert_eq!(recovered.message(), "test error info");
+}
+
 #[test]
 fn try_from_int() {
     fn call(value: usize) -> Result<u16> {
