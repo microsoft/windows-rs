@@ -94,7 +94,8 @@ impl<'a> Parser<'a> {
                 // an anonymous struct that is not nested inside any named type).
                 if is_anonymous_name(&name) {
                     // nothing to emit
-                } else if child.has_pure_virtual_methods() {
+                } else if child.has_pure_virtual_methods() || child.extract_uuid(self.tu).is_some()
+                {
                     if !self.ref_map.contains_key(&name) {
                         collector.insert(Item::Interface(Interface::parse(child, self)?));
                     }
@@ -119,7 +120,11 @@ impl<'a> Parser<'a> {
                     collector.insert(Item::Struct(Struct::parse(child, self, true)?));
                 }
             }
-            CXCursor_ClassDecl if child.is_definition() && child.has_pure_virtual_methods() => {
+            CXCursor_ClassDecl
+                if child.is_definition()
+                    && (child.has_pure_virtual_methods()
+                        || child.extract_uuid(self.tu).is_some()) =>
+            {
                 let tag_name = child.name();
                 let name = self.tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
                 if !self.ref_map.contains_key(&name) {
