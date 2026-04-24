@@ -58,6 +58,36 @@ fn from_thread() {
     assert_eq!(e.code(), E_CANCELLED);
 }
 
+// Tests the `IErrorInfo` COM round-trip and the silent-failure fallback:
+//   1. `Error::new` originates an IRestrictedErrorInfo on the thread.
+//   2. Converting `Error -> HRESULT` puts it back on the thread via `SetErrorInfo`.
+//   3. The first `HRESULT -> Error` conversion consumes the error info; the message is preserved.
+//   4. The second `HRESULT -> Error` conversion finds the thread empty (GetErrorInfo returns
+//      nothing) and must fall back gracefully to the HRESULT system message.
+#[test]
+#[cfg(all(windows, not(windows_slim_errors)))]
+fn error_info_consumed_before_conversion() {
+    let original = Error::new(E_INVALIDARG, "test error info");
+    assert_eq!(original.code(), E_INVALIDARG);
+    assert_eq!(original.message(), "test error info");
+
+    // Convert Error -> HRESULT (calls `into_thread`, putting IErrorInfo on the thread).
+    let code: HRESULT = original.into();
+    assert_eq!(code, E_INVALIDARG);
+
+    // First conversion consumes the error info from the thread.
+    let first = Error::from(code);
+    assert_eq!(first.code(), E_INVALIDARG);
+    assert_eq!(first.message(), "test error info");
+
+    // Second conversion finds the thread empty (GetErrorInfo returns null).
+    // Must fall back gracefully to the HRESULT system message.
+    let second = Error::from(code);
+    assert_eq!(second.code(), E_INVALIDARG);
+    assert!(second.as_ptr().is_null());
+    assert_eq!(second.message(), "The parameter is incorrect.");
+}
+
 #[test]
 fn try_from_int() {
     fn call(value: usize) -> Result<u16> {
