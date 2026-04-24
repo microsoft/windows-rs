@@ -32,10 +32,13 @@ impl<A: Async> Future for AsyncFuture<A> {
     type Output = Result<A::Output>;
 
     fn poll(mut self: Pin<&mut Self>, cx: &mut Context) -> Poll<Self::Output> {
+        // Cast to `IAsyncInfo` once per poll to avoid repeated QueryInterface calls below.
+        let info: IAsyncInfo = self.inner.cast()?;
+
         // A status of `Started` just means async execution is still in flight. Since WinRT async is always
         // "hot start", if its not `Started` then its ready for us to call `GetResults` so we can skip all of
         // the remaining set up.
-        if self.inner.status()? != AsyncStatus::Started {
+        if info.Status()? != AsyncStatus::Started {
             return Poll::Ready(self.inner.get_results());
         }
 
@@ -49,7 +52,7 @@ impl<A: Async> Future for AsyncFuture<A> {
             // It may be possible that the `Completed` handler acquired the lock and signaled the old waker
             // before we managed to acquire the lock to update it with the current waker. We check the status
             // again here just in case this happens.
-            if self.inner.status()? != AsyncStatus::Started {
+            if info.Status()? != AsyncStatus::Started {
                 return Poll::Ready(self.inner.get_results());
             }
         } else {
