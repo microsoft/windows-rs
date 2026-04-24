@@ -9,7 +9,7 @@ macro_rules! com_call {
 }
 
 #[repr(transparent)]
-pub struct ComPtr(core::ptr::NonNull<core::ffi::c_void>);
+pub struct ComPtr(pub(crate) core::ptr::NonNull<core::ffi::c_void>);
 
 impl ComPtr {
     pub fn as_raw(&self) -> *mut core::ffi::c_void {
