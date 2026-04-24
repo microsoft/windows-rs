@@ -195,10 +195,11 @@ impl File {
             optional.SectionAlignment as usize,
         ) as u32;
 
-        optional.DataDirectory[14] = IMAGE_DATA_DIRECTORY {
-            VirtualAddress: SECTION_ALIGNMENT,
-            Size: core::mem::size_of::<IMAGE_COR20_HEADER>() as u32,
-        };
+        optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize] =
+            IMAGE_DATA_DIRECTORY {
+                VirtualAddress: SECTION_ALIGNMENT,
+                Size: core::mem::size_of::<IMAGE_COR20_HEADER>() as u32,
+            };
 
         section.PointerToRawData = optional.FileAlignment;
 
