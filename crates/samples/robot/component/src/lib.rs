@@ -38,9 +38,6 @@ impl bindings::IRobot_Impl for Robot_Impl {
         }
 
         // Flush stdout explicitly so that output is not lost when captured via a pipe.
-        // When stdout is redirected (e.g. by `command.output()`), the CRT uses block-buffering
-        // and may not flush before .NET's Console.WriteLine output is written, causing
-        // intermittent test failures due to missing or out-of-order output lines.
         let _ = std::io::Write::flush(&mut std::io::stdout());
 
         Ok(())
