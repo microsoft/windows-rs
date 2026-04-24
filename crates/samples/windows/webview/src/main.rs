@@ -25,8 +25,8 @@ fn main() -> Result<()> {
 
         let hwnd = CreateWindowExA(
             WINDOW_EX_STYLE::default(),
-            s!("webview"),
-            s!("hello world"),
+            Some(s!("webview")),
+            Some(s!("hello world")),
             WS_OVERLAPPEDWINDOW | WS_VISIBLE,
             CW_USEDEFAULT,
             CW_USEDEFAULT,

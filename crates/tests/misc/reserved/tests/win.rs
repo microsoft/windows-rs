@@ -26,18 +26,18 @@ fn test() -> Result<()> {
         let mut key = HKEY::default();
         RegOpenKeyExA(
             HKEY_CLASSES_ROOT,
-            s!(r".txt"),
+            Some(s!(r".txt")),
             None,
             KEY_QUERY_VALUE,
             &mut key,
         )
         .ok()?;
         let mut len = 0;
-        RegQueryValueExA(key, s!("Content Type"), None, None, None, Some(&mut len)).ok()?;
+        RegQueryValueExA(key, Some(s!("Content Type")), None, None, None, Some(&mut len)).ok()?;
         let mut buffer = vec![0u8; (len) as usize];
         RegQueryValueExA(
             key,
-            s!("Content Type"),
+            Some(s!("Content Type")),
             None,
             None,
             Some(buffer.as_mut_ptr() as _),

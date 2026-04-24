@@ -390,8 +390,8 @@ impl Window {
 
             let handle = CreateWindowExA(
                 WINDOW_EX_STYLE::default(),
-                window_class,
-                s!("Sample Window"),
+                Some(window_class),
+                Some(s!("Sample Window")),
                 WS_OVERLAPPEDWINDOW | WS_VISIBLE,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,

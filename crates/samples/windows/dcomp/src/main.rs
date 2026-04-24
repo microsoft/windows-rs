@@ -451,8 +451,8 @@ impl Window {
 
             let handle = CreateWindowExA(
                 WS_EX_NOREDIRECTIONBITMAP,
-                window_class,
-                s!("Sample Window"),
+                Some(window_class),
+                Some(s!("Sample Window")),
                 WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_VISIBLE,
                 CW_USEDEFAULT,
                 CW_USEDEFAULT,

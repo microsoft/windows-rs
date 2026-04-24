@@ -86,8 +86,8 @@ where
     let hwnd = unsafe {
         CreateWindowExA(
             WINDOW_EX_STYLE::default(),
-            s!("RustWindowClass"),
-            PCSTR(title.as_ptr()),
+            Some(s!("RustWindowClass")),
+            Some(PCSTR(title.as_ptr())),
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,

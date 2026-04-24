@@ -23,8 +23,8 @@ fn main() -> Result<()> {
 
         CreateWindowExA(
             WINDOW_EX_STYLE::default(),
-            window_class,
-            s!("This is a sample window"),
+            Some(window_class),
+            Some(s!("This is a sample window")),
             WS_OVERLAPPEDWINDOW | WS_VISIBLE,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
