@@ -46,7 +46,8 @@ pub fn decode_utf8(
                             buffer = &rest[invalid_sequence_length..];
 
                             // Set the current iterator to the valid section and indicate previous error
-                            // SAFETY: `valid` is known to be valid utf-8 from error
+                            // SAFETY: `valid` is the prefix ending at `e.valid_up_to()`, which
+                            // `Utf8Error::valid_up_to()` guarantees is valid UTF-8.
                             current = unsafe { core::str::from_utf8_unchecked(valid) }.chars();
                             previous_error = Some(e);
                         }
