@@ -20,19 +20,14 @@ impl HStringBuilder {
 
     /// Shortens the string by removing any trailing 0 characters.
     pub fn trim_end(&mut self) {
-        if let Some(header) = self.as_header_mut() {
-            while header.len > 0
-                && unsafe { header.data.offset(header.len as isize - 1).read() == 0 }
-            {
-                header.len -= 1;
+        let new_len = self.iter().rposition(|&c| c != 0).map_or(0, |p| p + 1);
+        if new_len == 0 {
+            unsafe {
+                HStringHeader::free(self.0);
             }
-
-            if header.len == 0 {
-                unsafe {
-                    HStringHeader::free(self.0);
-                }
-                self.0 = core::ptr::null_mut();
-            }
+            self.0 = core::ptr::null_mut();
+        } else if let Some(header) = self.as_header_mut() {
+            header.len = new_len as u32;
         }
     }
 

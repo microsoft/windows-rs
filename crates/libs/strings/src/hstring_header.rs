@@ -31,10 +31,16 @@ impl HStringHeader {
         }
 
         unsafe {
-            // Use `ptr::write` (since `header` is uninitialized). `HStringHeader` is safe to be all zeros.
-            header.write(core::mem::MaybeUninit::<Self>::zeroed().assume_init());
-            (*header).len = len;
-            (*header).count = RefCount::new(1);
+            // Use `ptr::write` (since `header` is uninitialized).
+            header.write(Self {
+                flags: 0,
+                len,
+                _0: 0,
+                _1: 0,
+                data: core::ptr::null_mut(), // set below
+                count: RefCount::new(1),
+                buffer_start: 0,
+            });
             (*header).data = &mut (*header).buffer_start;
         }
 

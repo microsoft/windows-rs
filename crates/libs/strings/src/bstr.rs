@@ -48,7 +48,7 @@ impl BSTR {
     /// # Safety
     #[doc(hidden)]
     pub fn into_raw(self) -> *const u16 {
-        unsafe { core::mem::transmute(self) }
+        core::mem::ManuallyDrop::new(self).0
     }
 }
 
