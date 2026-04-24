@@ -12,5 +12,8 @@ doctest = false
 workspace = true
 features = ["std"]
 
+[dependencies.windows-link]
+workspace = true
+
 [lints]
 workspace = true
