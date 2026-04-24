@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct A {
+        h: HRESULT,
+    }
+    struct B {
+        h: HRESULT,
+    }
+    type HRESULT = i32;
+}

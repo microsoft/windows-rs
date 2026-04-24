@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    type Included = i32;
+    struct Thing {
+        a: Included,
+    }
+}

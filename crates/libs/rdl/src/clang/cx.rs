@@ -307,6 +307,32 @@ impl Cursor {
         }
     }
 
+    /// Returns the source file name for this cursor's spelling location, or an
+    /// empty string if no file information is available (e.g. for built-in
+    /// declarations).
+    ///
+    /// This is the physical file in which the declaration is written, and is
+    /// used to match against the caller-supplied filter suffixes when deciding
+    /// whether to include a declaration from a transitively included header.
+    pub fn file_name(&self) -> String {
+        unsafe {
+            let loc = clang_getCursorLocation(self.0);
+            let mut source_file: CXFile = std::ptr::null_mut();
+            clang_getSpellingLocation(
+                loc,
+                &mut source_file,
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+            );
+            if source_file.is_null() {
+                String::new()
+            } else {
+                to_string(clang_getFileName(source_file))
+            }
+        }
+    }
+
     /// Returns `true` when the **expansion** location of this cursor is in the
     /// main input file.
     ///
@@ -703,6 +729,18 @@ pub fn is_uuid_format(s: &str) -> bool {
 /// Both forms are treated as anonymous.
 pub fn is_anonymous_name(name: &str) -> bool {
     name.is_empty() || name.starts_with('(')
+}
+
+/// Returns `true` if `name` is a MIDL-synthesised name for an originally
+/// anonymous enumeration.
+///
+/// When MIDL compiles IDL that contains an anonymous `enum { ... }`, it
+/// generates a synthetic tag name of the form `__MIDL___MIDL_itf_<...>`.
+/// Such enumerations carry no semantic identity of their own; their variants
+/// should be unwrapped and emitted as top-level constants, just as truly
+/// unnamed enums (detected by [`is_anonymous_name`]) are.
+pub fn is_midl_anonymous_enum_name(name: &str) -> bool {
+    name.starts_with("__MIDL_")
 }
 
 fn to_string(cxstr: CXString) -> String {
