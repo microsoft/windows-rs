@@ -32,6 +32,6 @@ impl<'a, T: Type<T>> From<&'a mut T::Default> for OutRef<'a, T> {
 
 impl<T: Type<T>> Default for OutRef<'_, T> {
     fn default() -> Self {
-        unsafe { core::mem::zeroed() }
+        OutRef(core::ptr::null_mut(), core::marker::PhantomData)
     }
 }

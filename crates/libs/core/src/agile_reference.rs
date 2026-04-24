@@ -7,6 +7,11 @@ use core::marker::PhantomData;
 pub struct AgileReference<T>(imp::IAgileReference, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
+    /// Returns the raw COM pointer to the inner `IAgileReference` object.
+    pub fn as_raw(&self) -> *mut core::ffi::c_void {
+        self.0.as_raw()
+    }
+
     /// Creates an agile reference to the object.
     pub fn new(object: &T) -> Result<Self> {
         const { assert!(T::UNKNOWN, "AgileReference requires a COM interface") };

@@ -35,7 +35,7 @@ impl Interface {
             impl ::core::ops::Deref for #name {
                 type Target = #parent;
                 fn deref(&self) -> &Self::Target {
-                    unsafe { ::core::mem::transmute(self) }
+                    &self.0
                 }
             }
             #com_trait
@@ -297,12 +297,31 @@ impl Interface {
     fn gen_conversions(&self) -> proc_macro2::TokenStream {
         let name = &self.name;
         let name_string = format!("{name}");
-        quote! {
-            impl ::core::convert::From<#name> for ::windows_core::IUnknown {
-                fn from(value: #name) -> Self {
-                    unsafe { ::core::mem::transmute(value) }
+
+        // For COM interfaces (those with a parent), we can implement `From<IFoo> for IUnknown`
+        // safely by delegating to the parent's `From` impl, traversing the inheritance chain
+        // until we reach `IUnknown`.  For scoped interfaces (no parent, inner field is a raw
+        // pointer) we fall back to a transmute since `NonNull<c_void>` has no `Into<IUnknown>`.
+        let into_iunknown_impl = if self.parent.is_some() {
+            quote! {
+                impl ::core::convert::From<#name> for ::windows_core::IUnknown {
+                    fn from(value: #name) -> Self {
+                        ::windows_core::IUnknown::from(value.0)
+                    }
                 }
             }
+        } else {
+            quote! {
+                impl ::core::convert::From<#name> for ::windows_core::IUnknown {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::core::mem::transmute(value) }
+                    }
+                }
+            }
+        };
+
+        quote! {
+            #into_iunknown_impl
             impl ::core::convert::From<&#name> for ::windows_core::IUnknown {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
