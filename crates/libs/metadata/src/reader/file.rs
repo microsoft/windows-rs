@@ -678,15 +678,10 @@ impl View for [u8] {
     fn copy_as<T>(&self, offset: usize) -> Option<T> {
         self.is_proper_length::<T>(offset, 1)?;
 
-        unsafe {
-            let mut data = std::mem::MaybeUninit::zeroed().assume_init();
-            core::ptr::copy_nonoverlapping(
-                self[offset..].as_ptr(),
-                &mut data as *mut T as *mut u8,
-                size_of::<T>(),
-            );
-            Some(data)
-        }
+        // SAFETY: bounds verified by is_proper_length; T: Copy (as required by the trait
+        // definition) ensures the value can be bitwise-copied; read_unaligned handles any
+        // alignment of the source pointer.
+        Some(unsafe { (self[offset..].as_ptr() as *const T).read_unaligned() })
     }
 
     fn view_as_str(&self, offset: usize) -> Option<&[u8]> {
