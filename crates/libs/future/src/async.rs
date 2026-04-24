@@ -34,10 +34,7 @@ pub trait Async: Interface {
         if self.status()? == AsyncStatus::Started {
             let (waiter, signaler) = Waiter::new()?;
             self.set_completed(move |_| {
-                // This is safe because the waiter will only be dropped after being signaled.
-                unsafe {
-                    signaler.signal();
-                }
+                signaler.signal();
             })?;
             waiter.wait();
         }

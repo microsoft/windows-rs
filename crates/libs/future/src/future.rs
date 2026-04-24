@@ -12,9 +12,6 @@ pub struct AsyncFuture<A: Async> {
     // calling `GetResults` when execution is completed.
     inner: A,
 
-    // Provides the `Status` virtual method and saves repeated calls to `QueryInterface` during polling.
-    status: IAsyncInfo,
-
     // A shared waker is needed to keep the `Completed` handler updated.
     // - `Option` is used to avoid allocations for async objects that have already completed.
     // - `Arc` is used to share the `Waker` with the `Completed` handler and potentially replace the `Waker`
@@ -25,17 +22,10 @@ pub struct AsyncFuture<A: Async> {
 
 impl<A: Async> AsyncFuture<A> {
     fn new(inner: A) -> Self {
-        Self {
-            // All four async interfaces implement `IAsyncInfo` so this `cast` will always succeed.
-            status: inner.cast().unwrap(),
-            inner,
-            waker: None,
-        }
+        Self { inner, waker: None }
     }
 }
 
-unsafe impl<A: Async> Send for AsyncFuture<A> {}
-unsafe impl<A: Async> Sync for AsyncFuture<A> {}
 impl<A: Async> Unpin for AsyncFuture<A> {}
 
 impl<A: Async> Future for AsyncFuture<A> {
@@ -45,7 +35,7 @@ impl<A: Async> Future for AsyncFuture<A> {
         // A status of `Started` just means async execution is still in flight. Since WinRT async is always
         // "hot start", if its not `Started` then its ready for us to call `GetResults` so we can skip all of
         // the remaining set up.
-        if self.status.Status()? != AsyncStatus::Started {
+        if self.inner.status()? != AsyncStatus::Started {
             return Poll::Ready(self.inner.get_results());
         }
 
@@ -59,7 +49,7 @@ impl<A: Async> Future for AsyncFuture<A> {
             // It may be possible that the `Completed` handler acquired the lock and signaled the old waker
             // before we managed to acquire the lock to update it with the current waker. We check the status
             // again here just in case this happens.
-            if self.status.Status()? != AsyncStatus::Started {
+            if self.inner.status()? != AsyncStatus::Started {
                 return Poll::Ready(self.inner.get_results());
             }
         } else {

@@ -1,47 +1,52 @@
 use super::*;
+use std::sync::Arc;
 
-pub struct Waiter(HANDLE);
-pub struct WaiterSignaler(HANDLE);
-unsafe impl Send for WaiterSignaler {}
+// Owns the Win32 event handle and closes it on drop. Shared between `Waiter` and `WaiterSignaler`
+// via `Arc` so that the handle is guaranteed to remain valid as long as either side is alive.
+struct EventHandle(HANDLE);
+
+// SAFETY: A Win32 event handle can safely be used from any thread.
+unsafe impl Send for EventHandle {}
+unsafe impl Sync for EventHandle {}
+
+impl Drop for EventHandle {
+    fn drop(&mut self) {
+        unsafe {
+            CloseHandle(self.0);
+        }
+    }
+}
+
+pub struct Waiter(Arc<EventHandle>);
+pub struct WaiterSignaler(Arc<EventHandle>);
 
 impl Waiter {
     pub fn new() -> crate::Result<(Self, WaiterSignaler)> {
-        unsafe {
-            let handle = CreateEventW(core::ptr::null(), 1, 0, core::ptr::null());
-            if handle.is_null() {
-                Err(crate::Error::from_thread())
-            } else {
-                Ok((Self(handle), WaiterSignaler(handle)))
-            }
+        let handle = unsafe { CreateEventW(core::ptr::null(), 1, 0, core::ptr::null()) };
+        if handle.is_null() {
+            Err(crate::Error::from_thread())
+        } else {
+            let handle = Arc::new(EventHandle(handle));
+            Ok((Self(handle.clone()), WaiterSignaler(handle)))
         }
     }
 
-    // Waits for the `WaiterSignaler` to signal and then closes the handle.
+    // Waits for the `WaiterSignaler` to signal. The event handle is closed when the last `Arc`
+    // reference (either `Waiter` or `WaiterSignaler`) is dropped.
     pub fn wait(self) {
         unsafe {
-            WaitForSingleObject(self.0, 0xFFFFFFFF);
+            WaitForSingleObject(self.0 .0, 0xFFFFFFFF);
         }
     }
 }
 
 impl WaiterSignaler {
-    /// # Safety
-    /// Signals the `Waiter`. This is unsafe because the lifetime of `WaiterSignaler` is not tied
-    /// to the lifetime of the `Waiter`. This is not possible in this case because the `Waiter`
-    /// is used to signal a WinRT async completion and the compiler doesn't know that the lifetime
-    /// of the delegate is bounded by the calling function.
-    pub unsafe fn signal(&self) {
+    // Signals the `Waiter`. The underlying event handle is kept alive by the `Arc` so this is
+    // always safe to call regardless of whether the `Waiter` has been dropped.
+    pub fn signal(&self) {
         // https://github.com/microsoft/windows-rs/pull/374#discussion_r535313344
         unsafe {
-            SetEvent(self.0);
-        }
-    }
-}
-
-impl Drop for Waiter {
-    fn drop(&mut self) {
-        unsafe {
-            CloseHandle(self.0);
+            SetEvent(self.0 .0);
         }
     }
 }
