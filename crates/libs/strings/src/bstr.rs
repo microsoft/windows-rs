@@ -45,7 +45,8 @@ impl BSTR {
         Self(raw)
     }
 
-    /// # Safety
+    /// Consumes the `BSTR`, transferring ownership of the underlying pointer to the caller.
+    /// The caller is responsible for freeing the returned pointer.
     #[doc(hidden)]
     pub fn into_raw(self) -> *const u16 {
         core::mem::ManuallyDrop::new(self).0
