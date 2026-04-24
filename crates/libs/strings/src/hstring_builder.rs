@@ -20,7 +20,10 @@ impl HStringBuilder {
 
     /// Shortens the string by removing any trailing 0 characters.
     pub fn trim_end(&mut self) {
-        let new_len = self.iter().rposition(|&c| c != 0).map_or(0, |p| p + 1);
+        let mut new_len = self.len();
+        while new_len > 0 && self[new_len - 1] == 0 {
+            new_len -= 1;
+        }
         if new_len == 0 {
             unsafe {
                 HStringHeader::free(self.0);
