@@ -8,7 +8,7 @@ fn convert() {
         let pcstr: PCSTR = s!("https://github.com/microsoft");
         let pstr = PSTR(pcstr.0 as _);
 
-        assert_eq!(0, UrlCompareW(pcwstr, pwstr, true));
-        assert_eq!(0, UrlCompareA(pcstr, pstr, true));
+        assert_eq!(0, UrlCompareW(pcwstr, PCWSTR(pwstr.0 as _), true));
+        assert_eq!(0, UrlCompareA(pcstr, PCSTR(pstr.0 as _), true));
     }
 }
