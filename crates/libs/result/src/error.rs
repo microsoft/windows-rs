@@ -272,12 +272,10 @@ mod error_info {
         }
 
         pub(crate) fn from_thread() -> Self {
-            unsafe {
-                let mut ptr: *mut core::ffi::c_void = core::ptr::null_mut();
-                crate::bindings::GetErrorInfo(0, &mut ptr);
-                Self {
-                    ptr: core::ptr::NonNull::new(ptr).map(ComPtr),
-                }
+            let mut ptr: *mut core::ffi::c_void = core::ptr::null_mut();
+            unsafe { crate::bindings::GetErrorInfo(0, &mut ptr) };
+            Self {
+                ptr: core::ptr::NonNull::new(ptr).map(ComPtr),
             }
         }
 
