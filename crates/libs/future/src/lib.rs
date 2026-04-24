@@ -7,6 +7,7 @@
 )]
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
+extern crate alloc;
 
 mod r#async;
 mod bindings;

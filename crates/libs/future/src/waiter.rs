@@ -1,5 +1,5 @@
 use super::*;
-use std::sync::Arc;
+use alloc::sync::Arc;
 
 // Owns the Win32 event handle and closes it on drop. Shared between `Waiter` and `WaiterSignaler`
 // via `Arc` so that the handle is guaranteed to remain valid as long as either side is alive.
