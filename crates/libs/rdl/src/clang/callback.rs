@@ -59,7 +59,11 @@ impl Callback {
                 .cloned()
                 .filter(|n| !n.is_empty())
                 .unwrap_or_else(|| format!("param_{}", i));
-            params.push(Param { name: pname, ty });
+            params.push(Param {
+                name: pname,
+                ty,
+                annotation: ParamAnnotation::default(),
+            });
         }
 
         Ok(Some(Self {
