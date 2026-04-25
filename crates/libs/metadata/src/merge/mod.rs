@@ -172,13 +172,13 @@ fn write_type(
     }
 
     for field in def.fields() {
-        let field_id = file.Field(field.name(), &field.ty(), field.flags());
+        let field_def = file.Field(field.name(), &field.ty(), field.flags());
 
         if let Some(constant) = field.constant() {
-            file.Constant(writer::HasConstant::Field(field_id), &constant.value());
+            file.Constant(writer::HasConstant::Field(field_def), &constant.value());
         }
 
-        write_attributes(file, writer::HasAttribute::Field(field_id), field);
+        write_attributes(file, writer::HasAttribute::Field(field_def), field);
     }
 
     let generics: Vec<_> = def
@@ -264,11 +264,11 @@ fn write_attributes<'a, R: reader::HasAttributes<'a>>(
         let attribute_ref =
             writer::MemberRefParent::TypeRef(file.TypeRef(ty.namespace(), ty.name()));
 
-        let member_ref = file.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
+        let ctor_ref = file.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
 
         file.Attribute(
             parent,
-            writer::AttributeType::MemberRef(member_ref),
+            writer::AttributeType::MemberRef(ctor_ref),
             &attribute.value(),
         );
     }
