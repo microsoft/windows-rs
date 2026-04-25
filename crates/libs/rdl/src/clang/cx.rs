@@ -557,6 +557,14 @@ impl Type {
         unsafe { clang_getArraySize(self.0) as usize }
     }
 
+    /// Returns the alignment of this type in **bytes**, as reported by
+    /// `clang_Type_getAlignOf`.  Returns a negative value (one of the
+    /// `CXTypeLayoutError_*` constants) when the alignment cannot be
+    /// determined (e.g. the type is incomplete or invalid).
+    pub fn align_of(&self) -> i64 {
+        unsafe { clang_Type_getAlignOf(self.0) }
+    }
+
     /// Returns `true` if this is a variadic function type (has a trailing `...`
     /// parameter).  For a `CXCursor_FunctionDecl` cursor call `cursor.ty().is_variadic()`.
     pub fn is_variadic(&self) -> bool {
