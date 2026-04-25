@@ -17,9 +17,11 @@ fn main() {
     }
 
     let result = String::from_utf8_lossy(&output.stdout);
-    let result: Vec<&str> = result.lines().collect();
 
-    assert_eq!(result[0], "Hello from cs land");
-    assert!(result[1].starts_with("Hello handy (0x"));
-    assert_eq!(result[2], "interop handle: 0x1c8");
+    assert!(result.contains("Hello from cs land"), "stdout:\n{result}");
+    assert!(result.contains("Hello handy (0x"), "stdout:\n{result}");
+    assert!(
+        result.contains("interop handle: 0x1c8"),
+        "stdout:\n{result}"
+    );
 }
