@@ -39,6 +39,10 @@ impl<const LEN: usize> STREAM_HEADER<LEN> {
 
 impl File {
     pub fn into_stream(mut self) -> Vec<u8> {
+        // Sort TypeDefs for reproducible builds...
+
+        self.sort_type_defs();
+
         // Flatten sorted records...
 
         self.records.Constant.extend(self.Constant.values());
@@ -266,5 +270,273 @@ impl File {
         );
 
         buffer
+    }
+
+    fn sort_type_defs(&mut self) {
+        let n = self.records.TypeDef.len();
+
+        // Nothing to sort if only <Module> is present.
+        if n <= 1 {
+            return;
+        }
+
+        // Build maps: nested_in[i] = parent index, children[outer] = [inner, ...]
+        let mut nested_in: HashMap<usize, usize> = HashMap::new();
+        let mut children: HashMap<usize, Vec<usize>> = HashMap::new();
+
+        for nc in &self.records.NestedClass {
+            let inner = nc.NestedClass as usize;
+            let outer = nc.EnclosingClass as usize;
+            nested_in.insert(inner, outer);
+            children.entry(outer).or_default().push(inner);
+        }
+
+        // Build the TypeDef permutation:
+        //   - <Module> (index 0) is always first
+        //   - Top-level non-nested types sorted by (namespace, name)
+        //   - Nested types follow their parent in DFS order, sorted by name within each parent
+        let mut top_level: Vec<usize> = (1..n)
+            .filter(|i| !nested_in.contains_key(i))
+            .collect();
+
+        top_level.sort_by(|&a, &b| self.typedef_sort_keys[a].cmp(&self.typedef_sort_keys[b]));
+
+        let mut typedef_perm = vec![0usize]; // <Module> always first
+        for &td in &top_level {
+            Self::dfs_append(td, &children, &self.typedef_sort_keys, &mut typedef_perm);
+        }
+
+        debug_assert_eq!(typedef_perm.len(), n);
+
+        // If already in sorted order, nothing to do.
+        if typedef_perm.iter().enumerate().all(|(i, &j)| i == j) {
+            return;
+        }
+
+        // Build old->new TypeDef remapping.
+        let mut typedef_old_to_new = vec![0u32; n];
+        for (new_pos, &old_pos) in typedef_perm.iter().enumerate() {
+            typedef_old_to_new[old_pos] = new_pos as u32;
+        }
+
+        // Compute field and method ranges for each TypeDef (in old order).
+        let n_field = self.records.Field.len();
+        let n_method = self.records.MethodDef.len();
+        let n_param = self.records.Param.len();
+
+        let typedef_field_range: Vec<std::ops::Range<usize>> = (0..n)
+            .map(|i| {
+                let start = self.records.TypeDef[i].FieldList as usize;
+                let end = if i + 1 < n {
+                    self.records.TypeDef[i + 1].FieldList as usize
+                } else {
+                    n_field
+                };
+                start..end
+            })
+            .collect();
+
+        let typedef_method_range: Vec<std::ops::Range<usize>> = (0..n)
+            .map(|i| {
+                let start = self.records.TypeDef[i].MethodList as usize;
+                let end = if i + 1 < n {
+                    self.records.TypeDef[i + 1].MethodList as usize
+                } else {
+                    n_method
+                };
+                start..end
+            })
+            .collect();
+
+        // Build field and method permutations following the TypeDef permutation.
+        let mut field_perm: Vec<usize> = Vec::with_capacity(n_field);
+        let mut method_perm: Vec<usize> = Vec::with_capacity(n_method);
+
+        for &td in &typedef_perm {
+            field_perm.extend(typedef_field_range[td].clone());
+            method_perm.extend(typedef_method_range[td].clone());
+        }
+
+        // Build param permutation following the method permutation.
+        let method_param_range: Vec<std::ops::Range<usize>> = (0..n_method)
+            .map(|i| {
+                let start = self.records.MethodDef[i].ParamList as usize;
+                let end = if i + 1 < n_method {
+                    self.records.MethodDef[i + 1].ParamList as usize
+                } else {
+                    n_param
+                };
+                start..end
+            })
+            .collect();
+
+        let mut param_perm: Vec<usize> = Vec::with_capacity(n_param);
+        for &method in &method_perm {
+            param_perm.extend(method_param_range[method].clone());
+        }
+
+        // Build reverse (old->new) mappings.
+        let mut field_old_to_new = vec![0u32; n_field];
+        for (new_pos, &old_pos) in field_perm.iter().enumerate() {
+            field_old_to_new[old_pos] = new_pos as u32;
+        }
+
+        let mut method_old_to_new = vec![0u32; n_method];
+        for (new_pos, &old_pos) in method_perm.iter().enumerate() {
+            method_old_to_new[old_pos] = new_pos as u32;
+        }
+
+        let mut param_old_to_new = vec![0u32; n_param];
+        for (new_pos, &old_pos) in param_perm.iter().enumerate() {
+            param_old_to_new[old_pos] = new_pos as u32;
+        }
+
+        // Reorder TypeDef records, updating FieldList and MethodList.
+        let old_typedefs = std::mem::take(&mut self.records.TypeDef);
+        let mut field_offset = 0u32;
+        let mut method_offset = 0u32;
+        self.records.TypeDef = typedef_perm
+            .iter()
+            .map(|&old| {
+                let mut r = old_typedefs[old];
+                r.FieldList = field_offset;
+                r.MethodList = method_offset;
+                field_offset += typedef_field_range[old].len() as u32;
+                method_offset += typedef_method_range[old].len() as u32;
+                r
+            })
+            .collect();
+
+        // Also reorder typedef_sort_keys to match.
+        let old_sort_keys = std::mem::take(&mut self.typedef_sort_keys);
+        self.typedef_sort_keys = typedef_perm.iter().map(|&i| old_sort_keys[i].clone()).collect();
+
+        // Reorder Field records.
+        let old_fields = std::mem::take(&mut self.records.Field);
+        self.records.Field = field_perm.iter().map(|&i| old_fields[i]).collect();
+
+        // Reorder MethodDef records, updating ParamList.
+        let old_methods = std::mem::take(&mut self.records.MethodDef);
+        let mut param_offset = 0u32;
+        self.records.MethodDef = method_perm
+            .iter()
+            .map(|&old| {
+                let mut r = old_methods[old];
+                r.ParamList = param_offset;
+                param_offset += method_param_range[old].len() as u32;
+                r
+            })
+            .collect();
+
+        // Reorder Param records.
+        let old_params = std::mem::take(&mut self.records.Param);
+        self.records.Param = param_perm.iter().map(|&i| old_params[i]).collect();
+
+        // Update ClassLayout.Parent and re-sort by Parent.
+        for r in &mut self.records.ClassLayout {
+            r.Parent = typedef_old_to_new[r.Parent as usize];
+        }
+        self.records.ClassLayout.sort_by_key(|r| r.Parent);
+
+        // Update NestedClass and re-sort by NestedClass.
+        for r in &mut self.records.NestedClass {
+            r.NestedClass = typedef_old_to_new[r.NestedClass as usize];
+            r.EnclosingClass = typedef_old_to_new[r.EnclosingClass as usize];
+        }
+        self.records.NestedClass.sort_by_key(|r| r.NestedClass);
+
+        // Update InterfaceImpl.Class, sort by Class, and build InterfaceImpl remap.
+        for r in &mut self.records.InterfaceImpl {
+            r.Class = id::TypeDef(typedef_old_to_new[r.Class.0 as usize]);
+        }
+        let n_ii = self.records.InterfaceImpl.len();
+        let mut ii_perm: Vec<usize> = (0..n_ii).collect();
+        ii_perm.sort_by_key(|&i| self.records.InterfaceImpl[i].Class.0);
+        let mut ii_old_to_new = vec![0u32; n_ii];
+        for (new_pos, &old_pos) in ii_perm.iter().enumerate() {
+            ii_old_to_new[old_pos] = new_pos as u32;
+        }
+        let old_ii = std::mem::take(&mut self.records.InterfaceImpl);
+        self.records.InterfaceImpl = ii_perm.iter().map(|&i| old_ii[i]).collect();
+
+        // Update FieldLayout.Field and re-sort by Field.
+        for r in &mut self.records.FieldLayout {
+            r.Field = field_old_to_new[r.Field as usize];
+        }
+        self.records.FieldLayout.sort_by_key(|r| r.Field);
+
+        // Update ImplMap.MemberForwarded and re-sort.
+        for r in &mut self.records.ImplMap {
+            let MemberForwarded::MethodDef(ref mut m) = r.MemberForwarded;
+            m.0 = method_old_to_new[m.0 as usize];
+        }
+        self.records.ImplMap.sort_by_key(|r| r.MemberForwarded);
+
+        // Rebuild Constant staging with remapped Field keys. Both the BTreeMap key and the
+        // Parent field within each rec::Constant record must be updated.
+        let old_constant = std::mem::take(&mut self.Constant);
+        for (key, value) in old_constant {
+            let new_key = match key {
+                HasConstant::Field(f) => HasConstant::Field(id::Field(field_old_to_new[f.0 as usize])),
+            };
+            let mut remapped = value;
+            remapped.Parent = new_key;
+            self.Constant.insert(new_key, remapped);
+        }
+
+        // Rebuild Attribute staging with remapped keys. Both the BTreeMap key and the
+        // Parent field within each rec::Attribute record must be updated.
+        let old_attribute = std::mem::take(&mut self.Attribute);
+        for (key, value) in old_attribute {
+            let new_key = match key {
+                HasAttribute::TypeDef(t) => HasAttribute::TypeDef(id::TypeDef(typedef_old_to_new[t.0 as usize])),
+                HasAttribute::Field(f) => HasAttribute::Field(id::Field(field_old_to_new[f.0 as usize])),
+                HasAttribute::MethodDef(m) => HasAttribute::MethodDef(id::MethodDef(method_old_to_new[m.0 as usize])),
+                HasAttribute::Param(p) => HasAttribute::Param(id::Param(param_old_to_new[p.0 as usize])),
+                HasAttribute::InterfaceImpl(ii) => HasAttribute::InterfaceImpl(id::InterfaceImpl(ii_old_to_new[ii.0 as usize])),
+                other => other,
+            };
+            let remapped: Vec<rec::Attribute> = value
+                .into_iter()
+                .map(|mut a| {
+                    a.Parent = new_key;
+                    a
+                })
+                .collect();
+            self.Attribute.entry(new_key).or_default().extend(remapped);
+        }
+
+        // Rebuild GenericParam staging with remapped TypeDef keys. Both the BTreeMap key
+        // and the Owner field within each rec::GenericParam record must be updated.
+        let old_generic = std::mem::take(&mut self.GenericParam);
+        for (key, value) in old_generic {
+            let new_key = match key {
+                TypeOrMethodDef::TypeDef(t) => TypeOrMethodDef::TypeDef(id::TypeDef(typedef_old_to_new[t.0 as usize])),
+            };
+            let remapped: Vec<rec::GenericParam> = value
+                .into_iter()
+                .map(|mut g| {
+                    g.Owner = new_key;
+                    g
+                })
+                .collect();
+            self.GenericParam.entry(new_key).or_default().extend(remapped);
+        }
+    }
+
+    fn dfs_append(
+        td: usize,
+        children: &HashMap<usize, Vec<usize>>,
+        sort_keys: &[(String, String)],
+        result: &mut Vec<usize>,
+    ) {
+        result.push(td);
+        if let Some(kids) = children.get(&td) {
+            let mut kids = kids.clone();
+            kids.sort_by(|&a, &b| sort_keys[a].1.cmp(&sort_keys[b].1));
+            for child in kids {
+                Self::dfs_append(child, children, sort_keys, result);
+            }
+        }
     }
 }

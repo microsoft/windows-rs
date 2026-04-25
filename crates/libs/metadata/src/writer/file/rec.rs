@@ -27,6 +27,7 @@ pub struct TypeSpec {
     pub Signature: id::BlobId,
 }
 
+#[derive(Copy, Clone)]
 pub struct NestedClass {
     pub NestedClass: u32,
     pub EnclosingClass: u32,
@@ -55,6 +56,7 @@ pub struct InterfaceImpl {
     pub Interface: TypeDefOrRef,
 }
 
+#[derive(Copy, Clone)]
 pub struct ImplMap {
     pub MappingFlags: PInvokeAttributes,
     pub MemberForwarded: MemberForwarded,
@@ -75,6 +77,7 @@ pub struct AssemblyRef {
     pub HashValue: u32,
 }
 
+#[derive(Copy, Clone)]
 pub struct ClassLayout {
     pub PackingSize: u16,
     pub ClassSize: u32,
@@ -88,17 +91,20 @@ pub struct Constant {
     pub Value: id::BlobId,
 }
 
+#[derive(Copy, Clone)]
 pub struct Field {
     pub Flags: FieldAttributes,
     pub Name: id::StringId,
     pub Signature: id::BlobId,
 }
 
+#[derive(Copy, Clone)]
 pub struct FieldLayout {
     pub Offset: u32,
     pub Field: u32,
 }
 
+#[derive(Copy, Clone)]
 pub struct MethodDef {
     pub RVA: u32,
     pub ImplFlags: MethodImplAttributes,
@@ -125,12 +131,14 @@ pub struct GenericParam {
     pub Name: id::StringId,
 }
 
+#[derive(Copy, Clone)]
 pub struct Param {
     pub Flags: ParamAttributes,
     pub Sequence: u16,
     pub Name: id::StringId,
 }
 
+#[derive(Copy, Clone)]
 pub struct TypeDef {
     pub Flags: TypeAttributes,
     pub TypeName: id::StringId,

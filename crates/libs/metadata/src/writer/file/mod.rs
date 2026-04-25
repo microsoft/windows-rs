@@ -31,6 +31,9 @@ pub struct File {
     Constant: BTreeMap<HasConstant, rec::Constant>,
     Attribute: BTreeMap<HasAttribute, Vec<rec::Attribute>>,
     GenericParam: BTreeMap<TypeOrMethodDef, Vec<rec::GenericParam>>,
+
+    // Sort keys for TypeDef rows, in insertion order. Used to sort TypeDefs for reproducible builds.
+    typedef_sort_keys: Vec<(String, String)>,
 }
 
 impl File {
@@ -146,6 +149,8 @@ impl File {
         extends: TypeDefOrRef,
         flags: TypeAttributes,
     ) -> id::TypeDef {
+        self.typedef_sort_keys
+            .push((namespace.to_string(), name.to_string()));
         id::TypeDef(self.records.TypeDef.push_pos(rec::TypeDef {
             TypeName: self.strings.insert(name),
             TypeNamespace: self.strings.insert(namespace),
